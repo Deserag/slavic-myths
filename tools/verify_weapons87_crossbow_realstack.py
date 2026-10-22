@@ -2,7 +2,7 @@
 from pathlib import Path
 s=(Path(__file__).resolve().parents[1]/"src/main/java/org/slavicmyths/client/WeaponHands.java").read_text(encoding="utf-8")
 body=s.split("static float crossbowKick(",1)[1].split("static void renderScythe(",1)[0]
-for token in ("int index=hand==InteractionHand.MAIN_HAND?0:1;","ItemStack held=player.getItemInHand(hand);","if(!(held.getItem() instanceof SerpentCrossbow))return 0;","stack=held;","CrossbowItem.isCharged(stack)","observedCrossbows[index]!=stack","observedCharged[index]&&!charged&&!player.isUsingItem()","elapsed<0||elapsed>=7"):
+for token in ("int index=hand==InteractionHand.MAIN_HAND?0:1;","ItemStack held=player.getItemInHand(hand);","if(!(held.getItem() instanceof SerpentCrossbow)){observedCrossbows[index]=null;observedCharged[index]=false;lastShotClock[index]=Double.NEGATIVE_INFINITY;return 0;}","stack=held;","CrossbowItem.isCharged(stack)","observedCrossbows[index]!=stack","observedCharged[index]&&!charged&&!player.isUsingItem()","elapsed<0||elapsed>=7"):
     assert token in body,token
 assert body.index("stack=held;")<body.index("CrossbowItem.isCharged(stack)")<body.index("observedCrossbows[index]!=stack")
 assert "lastShotClock[index]=now" in body

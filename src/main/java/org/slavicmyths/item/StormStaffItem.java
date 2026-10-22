@@ -39,14 +39,25 @@ public final class StormStaffItem extends Item {
                     e -> e.distanceToSqr(player) <= 49.0 && org.slavicmyths.rpg.Abilities.canHit(player,e) && world.clip(new ClipContext(start, e.getEyePosition(1.0F),
                             ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player)).getType() == HitResult.Type.MISS &&
                             e.position().subtract(start).normalize().dot(look) > 0.93);
-            targets.stream().min(Comparator.comparingDouble(e -> e.distanceToSqr(player))).ifPresent(
-                    e -> {if(e.hurt(player.damageSources().indirectMagic(player,player),pulseDamage(org.slavicmyths.rpg.PathData.has(player,"staff_power"),org.slavicmyths.rpg.Runes.has(stack,"thunder")))){ServerLevel level=(ServerLevel)world;level.sendParticles(ParticleTypes.ELECTRIC_SPARK,e.getX(),e.getY()+e.getBbHeight()*.5,e.getZ(),12,.22,.25,.22,.02);org.slavicmyths.rpg.RuneEffects.staff(player,stack,e);}});
+            var selected = targets.stream().min(Comparator.comparingDouble(e -> e.distanceToSqr(player)));
+            selected.ifPresent(e -> {
+                if(e.hurt(player.damageSources().indirectMagic(player,player),pulseDamage(org.slavicmyths.rpg.PathData.has(player,"staff_power"),org.slavicmyths.rpg.Runes.has(stack,"thunder")))){
+                    ServerLevel level=(ServerLevel)world;
+                    level.sendParticles(ParticleTypes.ELECTRIC_SPARK,e.getX(),e.getY()+e.getBbHeight()*.5,e.getZ(),12,.22,.25,.22,.02);
+                    org.slavicmyths.rpg.RuneEffects.staff(player,stack,e);
+                }
+            });
             ServerLevel server = (ServerLevel) world;
-            for (int i = 1; i <= 7; i++) {
-                Vec3 point = start.add(look.scale(i));
-                server.sendParticles(ParticleTypes.ENCHANT, point.x, point.y, point.z, 3, 0.12, 0.12, 0.12, 0.01);
+            Vec3 impact = selected.map(e -> e.position().add(0,e.getBbHeight()*.5,0)).orElseGet(() -> world.clip(new ClipContext(start,start.add(look.scale(7)),ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,player)).getLocation());
+            for (int i = 1; i <= 14; i++) {
+                Vec3 point = start.lerp(impact,i/14.0);
+                server.sendParticles(ParticleTypes.ELECTRIC_SPARK,point.x,point.y,point.z,4,.10,.10,.10,.035);
             }
-            world.playSound(null, player.blockPosition(), SoundEvents.TRIDENT_THUNDER.value(), SoundSource.PLAYERS, 0.25F, 1.7F);
+            server.sendParticles(ParticleTypes.ELECTRIC_SPARK,impact.x,impact.y,impact.z,42,.4,.4,.4,.12);
+            server.sendParticles(ParticleTypes.ENCHANT,impact.x,impact.y,impact.z,12,.3,.35,.3,.05);
+            var bolt=net.minecraft.world.entity.EntityType.LIGHTNING_BOLT.create(server);
+            if(bolt!=null){bolt.setVisualOnly(true);bolt.setPos(impact.x,impact.y,impact.z);server.addFreshEntity(bolt);}
+            world.playSound(null, player.blockPosition(), SoundEvents.TRIDENT_THUNDER.value(), SoundSource.PLAYERS, 1F, .9F);
             player.getCooldowns().addCooldown(this, cooldownTicks((org.slavicmyths.rpg.Runes.has(stack,"midday") && org.slavicmyths.rpg.RuneEffects.day(player)) || (org.slavicmyths.rpg.Runes.has(stack,"shadow") && org.slavicmyths.rpg.RuneEffects.dark(player))));
             if (!player.getAbilities().instabuild) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
         }

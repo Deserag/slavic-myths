@@ -80,7 +80,6 @@ public final class RewardEvents {
  public static UUID owner(LivingEntity e){if(e instanceof org.slavicmyths.bogatyr.IlyaEntity h)return h.owner;if(e instanceof org.slavicmyths.marinka.DobrynyaEntity h)return h.owner;if(e instanceof org.slavicmyths.skim.AlyoshaEntity h)return h.owner;if(e instanceof org.slavicmyths.finist.FinistEntity h)return h.owner;return null;}
  public static Vec3 safeSide(ServerPlayer p){var w=p.serverLevel();Vec3 side=p.getLookAngle().multiply(1,0,1).normalize().cross(new Vec3(0,1,0)).scale(2.5);for(int sign:new int[]{1,-1}){var to=p.position().add(side.scale(sign));var pos=BlockPos.containing(to);if(!w.hasChunkAt(pos)||!w.getWorldBorder().isWithinBounds(pos)||!w.getFluidState(pos).isEmpty()||!w.getBlockState(pos.below()).isCollisionShapeFullBlock(w,pos.below())||!w.noCollision(p,p.getBoundingBox().move(to.subtract(p.position())))||w.clip(new net.minecraft.world.level.ClipContext(p.getEyePosition(),to.add(0,p.getEyeHeight(),0),net.minecraft.world.level.ClipContext.Block.COLLIDER,net.minecraft.world.level.ClipContext.Fluid.ANY,p)).getType()!=HitResult.Type.MISS)continue;return to;}return null;}
  @SubscribeEvent public static void after(LivingDamageEvent.Post e){if(e.getEntity() instanceof ServerPlayer p&&e.getNewDamage()>0&&wears(p,"trophy_marinka_cloak")&&ready(p,"BlinkReady")&&p.isAlive()){var to=safeSide(p);if(to!=null){p.teleportTo(p.serverLevel(),to.x,to.y,to.z,p.getYRot(),p.getXRot());cooldown(p,"BlinkReady",900);fx(p,"trophy_marinka_blink");}}
-  if(e.getSource().getEntity() instanceof ServerPlayer p&&melee(e.getSource(),p)&&e.getNewDamage()>0&&enemy(e.getEntity(),p))sweep(p,e.getEntity(),e.getNewDamage());
   if(e.getSource().getEntity() instanceof ServerPlayer p&&melee(e.getSource(),p)&&e.getNewDamage()>0&&hostile(e.getEntity(),p)&&RewardRunes.active(p,"suppression")){var n=e.getEntity().getPersistentData();if(now(p)>=n.getLong("RewardSuppressionReady")){n.putLong("RewardSuppressionReady",now(p)+500);n.putLong("RewardSuppressed",now(p)+80);if(e.getEntity() instanceof org.slavicmyths.finist.KartausEntity a&&a.getType().is(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE,ResourceLocation.fromNamespaceAndPath("slavicmyths","reward_interruptible")))&&a.action()==org.slavicmyths.finist.FalconAction.EYE&&a.age()<24)a.begin(org.slavicmyths.finist.FalconAction.STAGGER,8);fx(p,"rune_suppression_proc");}}
  }
  @SubscribeEvent public static void fall(LivingFallEvent e){if(e.getEntity() instanceof ServerPlayer p&&e.getDistance()>=2&&p.onGround()&&!p.isFallFlying()&&!p.hasEffect(MobEffects.LEVITATION)&&RewardRunes.active(p,"stomp")&&ready(p,"StompReady")){cooldown(p,"StompReady",400);for(var enemy:p.serverLevel().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(3.5),t->hostile(t,p)&&ordinary(t)&&t.distanceToSqr(p)<=12.25))enemy.knockback(.65,p.getX()-enemy.getX(),p.getZ()-enemy.getZ());fx(p,"rune_stomp_proc");}}
@@ -95,20 +94,27 @@ public final class RewardEvents {
  public static void telegraphs(ServerPlayer p){for(var enemy:p.serverLevel().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(18),t->hostile(t,p)&&p.hasLineOfSight(t)&&heavyWindup(t))){if(wears(p,"gift_finist_amulet")&&ready(p,"WarningReady")){cooldown(p,"WarningReady",20);p.displayClientMessage(Component.translatable("reward176.warning",Math.round(enemy.getX()-p.getX()),Math.round(enemy.getZ()-p.getZ())),true);fx(p,"gift_finist_warning");}if(wears(p,"gift_alyosha_belt")&&ready(p,"DodgeReady")&&enemy.distanceToSqr(p)<=16&&enemy instanceof Mob mob&&mob.getTarget()==p){var to=safeSide(p);if(to!=null){p.teleportTo(p.serverLevel(),to.x,to.y,to.z,p.getYRot(),p.getXRot());cooldown(p,"DodgeReady",800);fx(p,"gift_alyosha_dodge");}break;}}}
  public static boolean ownedSummon(LivingEntity mob){if(!(mob.level() instanceof ServerLevel w))return false;if(mob instanceof org.slavicmyths.kalin.KalinSoldier s)return s.commander!=null&&w.getEntity(s.commander) instanceof org.slavicmyths.kalin.KalinEntity k&&k.valid()&&!k.surrendered()&&k.soldiers.contains(s.getUUID());var data=mob.getPersistentData();if(data.hasUUID("KartausBoss174")&&w.getEntity(data.getUUID("KartausBoss174")) instanceof org.slavicmyths.finist.KartausEntity k&&k.ownsGuard(mob.getUUID()))return true;if(mob instanceof org.slavicmyths.marinka.TurMinion s)return s.boss!=null&&w.getEntity(s.boss) instanceof org.slavicmyths.marinka.MarinkaEntity m&&m.active;return false;}
  @SubscribeEvent(priority=EventPriority.LOWEST) public static void death(LivingDeathEvent e){if(!(e.getSource().getEntity() instanceof ServerPlayer p)||e.isCanceled()||!enemy(e.getEntity(),p))return;var mob=e.getEntity();if(ownedSummon(mob)&&wears(p,"trophy_kartaus_mantle")&&ready(p,"MantleReady")){p.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,100,0));state(p).putBoolean("MantleBuff",true);cooldown(p,"MantleReady",400);fx(p,"trophy_kartaus_resistance");}}
-  public static void sweep(ServerPlayer p,LivingEntity target,float damage){
-   if(!p.getMainHandItem().is(RewardContent.item("trophy_kalin_sabre"))||!ordinary(target)||!hostile(target,p)||damage<=0)return;
-   var n=state(p);long clock=now(p);int count=clock-n.getLong("MomentumAt")<=600?n.getInt("Momentum"):0;
-   count++;n.putLong("MomentumAt",clock);
-   if(count<3){n.putInt("Momentum",count);p.displayClientMessage(Component.literal("Натиск воеводы: "+count+"/3"),true);fx(p,"trophy_kalin_momentum_1");return;}
-   n.putInt("Momentum",0);n.remove("MomentumAt");
-   int hits=0;
-   for(var victim:p.serverLevel().getEntitiesOfClass(LivingEntity.class,target.getBoundingBox().inflate(4.5),e->e!=target&&ordinary(e)&&hostile(e,p)&&e.distanceToSqr(target)<=20.25&&p.hasLineOfSight(e))){
-    if(victim.hurt(org.slavicmyths.combat.MythDamageSources.periodic("reward_sweep",p),damage*.6F)&&++hits==3)break;
+  public static void sabreWave(ServerPlayer p){
+   var level=p.serverLevel();Vec3 forward=p.getLookAngle().multiply(1,0,1).normalize();
+   if(forward.lengthSqr()<.01)forward=new Vec3(0,0,1);
+   Vec3 side=new Vec3(-forward.z,0,forward.x);
+   var gold=new net.minecraft.core.particles.DustParticleOptions(new org.joml.Vector3f(.98F,.74F,.24F),1.3F);
+   for(int ring=1;ring<=5;ring++)for(int i=-8;i<=8;i++){
+    double angle=Math.toRadians(i*8),radius=ring*.95;
+    Vec3 step=forward.scale(Math.cos(angle)*radius).add(side.scale(Math.sin(angle)*radius));
+    level.sendParticles(gold,p.getX()+step.x,p.getY()+1.1+ring*.04,p.getZ()+step.z,2,.08,.12,.08,.01);
    }
-   var dust=new net.minecraft.core.particles.DustParticleOptions(new org.joml.Vector3f(.81F,.62F,.27F),.9F);
-   for(int i=0;i<24;i++){double a=Math.PI*i/12;p.serverLevel().sendParticles(dust,target.getX()+Math.cos(a)*2.6,target.getY()+.85,target.getZ()+Math.sin(a)*2.6,2,.06,.09,.06,.005);}
-   p.displayClientMessage(Component.literal("Волна воеводы! Дополнительных целей: "+hits),true);
-   fx(p,"trophy_kalin_sweep");
+   int hits=0;
+   for(var victim:level.getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(5.5),e->enemy(e,p)&&e.distanceToSqr(p)<=30.25&&p.hasLineOfSight(e))){
+    Vec3 toward=victim.position().subtract(p.position()).multiply(1,0,1).normalize();
+    if(toward.lengthSqr()<.01||toward.dot(forward)<.35)continue;
+    if(victim.hurt(org.slavicmyths.combat.MythDamageSources.periodic("reward_sweep",p),5F)){
+     level.sendParticles(ParticleTypes.SWEEP_ATTACK,victim.getX(),victim.getY()+victim.getBbHeight()*.5,victim.getZ(),3,.35,.2,.35,0);
+     if(++hits>=6)break;
+    }
+   }
+   level.playSound(null,p.blockPosition(),net.minecraft.sounds.SoundEvents.PLAYER_ATTACK_SWEEP,net.minecraft.sounds.SoundSource.PLAYERS,1.2F,.75F);
+   p.displayClientMessage(Component.literal("Разящий взмах: поражено "+hits+" целей"),true);
   }
  @SubscribeEvent(priority=EventPriority.LOWEST) public static void applied(MobEffectEvent.Applicable e){if(!(e.getEntity() instanceof ServerPlayer p)||e.getResult()==MobEffectEvent.Applicable.Result.DO_NOT_APPLY||!RewardRunes.active(p,"dispelling")||!magic(e.getEffectInstance())||state(p).getBoolean("DispelGuard"))return;var original=e.getEffectInstance();if(original.isInfiniteDuration()||original.getDuration()<1)return;e.setResult(MobEffectEvent.Applicable.Result.DO_NOT_APPLY);state(p).putBoolean("DispelGuard",true);try{p.addEffect(new MobEffectInstance(original.getEffect(),Math.max(1,(int)Math.ceil(original.getDuration()*.75)),original.getAmplifier(),original.isAmbient(),original.isVisible(),original.showIcon()),e.getEffectSource());}finally{state(p).remove("DispelGuard");}}
  @SubscribeEvent public static void tooltip(net.neoforged.neoforge.event.entity.player.ItemTooltipEvent e){var id=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(e.getItemStack().getItem());if(!id.getNamespace().equals("slavicmyths"))return;if(id.getPath().equals("gift_dobrynya_ring"))e.getToolTip().add(Component.translatable("reward176.counter_numbers",COUNTER));if(id.getPath().equals("gift_ilya_shield"))e.getToolTip().add(Component.translatable("reward176.shield_numbers",REFLECTION));}

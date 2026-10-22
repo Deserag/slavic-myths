@@ -50,7 +50,7 @@ public final class WeaponHands {
   }
   int index=hand==InteractionHand.MAIN_HAND?0:1;
   ItemStack held=player.getItemInHand(hand);
-  if(!(held.getItem() instanceof SerpentCrossbow))return 0;
+  if(!(held.getItem() instanceof SerpentCrossbow)){observedCrossbows[index]=null;observedCharged[index]=false;lastShotClock[index]=Double.NEGATIVE_INFINITY;return 0;}
   stack=held;
   boolean charged=CrossbowItem.isCharged(stack);
   double now=level.getGameTime()+partial;
@@ -92,7 +92,7 @@ public final class WeaponHands {
  }
  static void crossbowWrist(com.mojang.blaze3d.vertex.PoseStack pose,int sign,float swing,float pull){pose.translate(sign*(.44-.08*swing),-.48-.08*swing,-.92);pose.translate(-sign*.06*pull,.02*pull,.04*pull);pose.mulPose(Axis.YP.rotationDegrees(sign*18));}
  static void crossbowModel(com.mojang.blaze3d.vertex.PoseStack pose){pose.scale(.85f,.85f,.85f);pose.translate(0,2.5/16,-4.5/16);}
- static void scytheWrist(com.mojang.blaze3d.vertex.PoseStack pose,int sign,float motion,float horizontal,float direction){pose.translate(0,-.42,-.3);pose.mulPose(Axis.YP.rotationDegrees(sign*motion*35*direction));pose.translate(sign*(.56-.20*horizontal),-.12,-.78);}
+ static void scytheWrist(com.mojang.blaze3d.vertex.PoseStack pose,int sign,float motion,float horizontal,float direction){float windup=Math.max(0,-motion),follow=Math.max(0,motion);pose.translate(0,-.42-.09*windup+.05*follow,-.3);pose.mulPose(Axis.YP.rotationDegrees(sign*motion*35*direction));pose.mulPose(Axis.XP.rotationDegrees(-18*windup+20*follow));pose.translate(sign*(.56-.20*horizontal),-.12,-.78+.12*follow);}
  static void gripArm(com.mojang.blaze3d.vertex.PoseStack pose,net.minecraft.client.model.geom.ModelPart arm){pose.mulPose(Axis.XP.rotationDegrees(-55));pose.translate(-arm.x/16.0,-(arm.y+10)/16.0,-arm.z/16.0);}
  private WeaponHands(){}
 }

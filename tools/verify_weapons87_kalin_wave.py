@@ -1,14 +1,15 @@
-"""Source-level regression guards for Kalin sabre's third-hit area wave."""
+"""#160 sabre: active right-click frontal slash, not hidden three-hit momentum."""
 from pathlib import Path
-
-src=(Path(__file__).resolve().parents[1]/"src/main/java/org/slavicmyths/rewards/RewardEvents.java").read_text(encoding="utf-8")
-body=src.split("public static void sweep(ServerPlayer p,LivingEntity target,float damage){",1)[1].split("@SubscribeEvent",1)[0]
-assert 'count<3' in body and 'n.putInt("Momentum",0)' in body
-assert 'target.getBoundingBox().inflate(4.5)' in body
-assert 'e.distanceToSqr(target)<=20.25' in body
-assert 'e!=target&&ordinary(e)&&hostile(e,p)' in body
-assert 'damage*.6F' in body and '++hits==3' in body
-assert 'target.getX()+Math.cos(a)*2.6' in body
-assert 'toward.dot(heading)' not in body
-assert 'Волна воеводы!' in body
-print("PASS Kalin sweep: third strike creates target-centered radial feedback, max three additional hostile living targets; runtime NOT_RUN")
+R=Path(__file__).resolve().parents[1]
+s=(R/"src/main/java/org/slavicmyths/rewards/RewardEvents.java").read_text(encoding="utf-8")
+item=(R/"src/main/java/org/slavicmyths/rewards/RewardContent.java").read_text(encoding="utf-8")
+body=s.split("public static void sabreWave(ServerPlayer p){",1)[1].split("@SubscribeEvent",1)[0]
+for token in ("p.getLookAngle()","for(int ring=1;ring<=5;ring++)","i=-8;i<=8","p.getBoundingBox().inflate(5.5)","e.distanceToSqr(p)<=30.25","enemy(e,p)","p.hasLineOfSight(e)","toward.dot(forward)<.35","5F","hits>=6","ParticleTypes.SWEEP_ATTACK","PLAYER_ATTACK_SWEEP","Разящий взмах"):
+    assert token in body,token
+assert "sweep(p,e.getEntity()" not in s
+assert "MomentumAt" not in body and "count<3" not in body
+assert 'register("trophy_kalin_sabre",()->new SwordItem' in item
+assert "RewardEvents.sabreWave(server)" in item and "getCooldowns().addCooldown(this,140)" in item
+assert "player.swing(hand,true)" in item
+assert "stack.hurtAndBreak(2,player" in item
+print("PASS: Kalin right-click slash has independent visible effect and target damage, bounded 5.5m/6 targets/7s; runtime NOT_RUN")
