@@ -320,3 +320,7 @@ P44/P45 добавили клиентские **first-person** фазы 32 melee
 - 2 режима × single target / fan / burst: source tests `tools/verify_weapons87_p52.py`, CI continuous source+production JAR; визуальные сервер/клиент/MP/SFX и массовый бой в Minecraft остаются **NOT_RUN / OWNER_PENDING**.
 - **Матрица:** `MOR | successful arrow hurt after Post | Weakness + 8 SOUL | P52 source gate | SOURCE IMPLEMENTED, CI PENDING`; `FIRE | successful arrow hurt after Post | Fire 2s + 8 FLAME | P52 source gate | SOURCE IMPLEMENTED, CI PENDING`; `STORM | old storm burst | existing StormVfx only | P52 source gate | KEEP`; `MP/FPS/real game | retest | native runtime | none | NOT_RUN`.
 - Status request of owner **«на тестировании2»** refers to Project №9 custom field, but the available GitHub connector cannot modify Project v2 fields. Do not pretend Issue label or comment equals status. #161 remains OPEN because broad 68-item issue scope is not completed. PR #216 stays Draft; no main merge.
+
+### P52 CI follow-up — legacy storm_staff source guard
+
+Older `weapons87-storm-range-java21` and P38 workflows failed before Gradle: `tools/verify_weapons87_storm_range.py` required original P49 `54/48` despite explicit owner-requested P49a `48/42`, which P33/P49/actual Java already assert. Updated **only those two test literals** to 48/42. Production gameplay/render source untouched. Do not revert owner's cooldown. P52 source+Java21+JAR gate run after update; status OPEN / owner testing.

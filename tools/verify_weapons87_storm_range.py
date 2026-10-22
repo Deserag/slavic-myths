@@ -12,8 +12,8 @@ checks=[
     'ParticleTypes.ENCHANT',
     'if(e.hurt(',
     'BASE_PULSE_DAMAGE=6.0F',
-    'PULSE_COOLDOWN=54',
-    'RUNE_COOLDOWN=48',
+    'PULSE_COOLDOWN=48',
+    'RUNE_COOLDOWN=42',
 ]
 for token in checks: assert token in s, token
 assert s.index('e.distanceToSqr(player) <= 49.0') < s.index('targets.stream().min(')
