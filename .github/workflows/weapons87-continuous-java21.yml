@@ -22,6 +22,7 @@ jobs:
       - name: Continuous workbench P42 source and generator checks
         run: |
           python3 tools/verify_weapons87_p42.py
+          python3 tools/verify_weapons87_p43.py
           python3 tools/verify_weapons87_p41.py
           python3 tools/weapons87_unique_art.py --check
       - name: Java21 clean build
@@ -31,6 +32,7 @@ jobs:
       - name: Check packaged P42 item resources
         run: |
           python3 tools/verify_weapons87_p42.py --jar
+          python3 tools/verify_weapons87_p43.py --jar
           python3 tools/weapons87_live_audit.py --jar
           sha256sum build/libs/slavicmyths-*.jar
       - uses: actions/upload-artifact@v4
