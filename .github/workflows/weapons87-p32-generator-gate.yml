@@ -1,0 +1,42 @@
+name: Weapons87 P32 canonical generator regression Java21
+on:
+  push:
+    branches:
+      - feat/weapons87-p32-generator-sandbox-gate
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  generator:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Prepare raster library for source-owned generators
+        run: python3 -m pip install --quiet numpy pillow
+      - name: Java21 clean build
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon clean build --stacktrace --console=plain
+      - name: Rebuild canonical asset tree twice in throwaway sandbox
+        run: python3 tools/weapons87_generator_gate.py
+      - name: Confirm current baseline and final JAR are unchanged
+        run: |
+          python3 tools/verify_weapons87_crossbows.py
+          python3 tools/verify_weapons87_crossbow_recoil.py --jar
+          python3 tools/weapons87_live_audit.py --jar
+          sha256sum build/libs/slavicmyths-*.jar
+      - name: Upload diagnostic and JAR
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: weapons87-p32-generator-sandbox-report
+          path: |
+            build/weapons87-generator-p32/report.json
+            build/libs/slavicmyths-*.jar
+          if-no-files-found: warn
+          retention-days: 14
