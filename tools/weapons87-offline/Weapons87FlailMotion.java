@@ -20,7 +20,7 @@ public final class Weapons87FlailMotion {
   }
   for(boolean heavy:new boolean[]{false,true})for(String phase:List.of("idle","walk","charge9","charge18","contact","trailing","return","rest")){
    float walk=phase.equals("walk")?1:0,charge=phase.equals("charge9")?.5f:phase.equals("charge18")?1:0;
-   float swing=switch(phase){case "contact"->.01f;case "trailing"->.3f;case "return"->.7f;case "rest"->1;default->-1;};
+   float swing=switch(phase){case "contact"->.5f;case "trailing"->.7f;case "return"->.95f;case "rest"->1;default->-1;};
    if(heavy&&charge>0)continue; // Ataman is a MaceItem: never invent a charge.
    var item=new LinkedHashMap<String,Object>();item.put("heavy",heavy);item.put("phase",phase);item.put("age",20);item.put("walk",walk);item.put("charge",charge);item.put("swing",swing);var matrices=new LinkedHashMap<String,float[]>();
    for(boolean left:new boolean[]{false,true}){
