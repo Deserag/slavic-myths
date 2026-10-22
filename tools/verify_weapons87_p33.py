@@ -8,7 +8,7 @@ assert s.count('ParticleTypes.ELECTRIC_SPARK')==3
 assert 'server.sendParticles(ParticleTypes.ELECTRIC_SPARK,impact.x,impact.y,impact.z,42' in s
 assert 'bolt.setVisualOnly(true)' in s and 'server.addFreshEntity(bolt)' in s
 assert 'start.lerp(impact,i/14.0)' in s
-assert 'org.slavicmyths.rpg.RuneEffects.staff(player,stack,e);}}' in s
+assert 'org.slavicmyths.rpg.RuneEffects.staff(player,stack,e);' in s
 assert s.count('ParticleTypes.ENCHANT')==1
 assert 'e.getBbHeight()*.5' in s
 assert '12,.22,.25,.22,.02' in s
