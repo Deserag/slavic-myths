@@ -9,7 +9,7 @@ def proposal():
  for id in IDS:
   for suffix in SUFFIXES:
    key='models/item/'+id+suffix+'.json';model=json.loads((A/key).read_text());display=model.setdefault('display',{})
-   for left in [False,True]:display['thirdperson_'+('lefthand' if left else 'righthand')]=centered(GRIP,[-90,0,0],[.55]*3,left)
+   for left in [False,True]:display['thirdperson_'+('lefthand' if left else 'righthand')]=centered(GRIP,[0,0,0],[.55]*3,left)
    assets[key]=model
  return assets
 

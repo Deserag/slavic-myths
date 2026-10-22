@@ -37,10 +37,10 @@ def run():
                 before_except = copy.deepcopy(source)
                 after_except = copy.deepcopy(final)
                 for handed in ("thirdperson_righthand", "thirdperson_lefthand"):
-                    assert source["display"][handed]["rotation"] == final["display"][handed]["rotation"] == [-90, 0, 0]
+                    assert source["display"][handed]["rotation"] == [-90, 0, 0] and final["display"][handed]["rotation"] == [0, 0, 0]
                     assert source["display"][handed]["scale"] == final["display"][handed]["scale"] == [0.55] * 3
                     assert source["display"][handed]["translation"] == [0, 2, 0]
-                    assert final["display"][handed]["translation"] == [0, -2.475, -1.375]
+                    assert final["display"][handed]["translation"] == [0, 1.375, -2.475]
                     before_except["display"].pop(handed)
                     after_except["display"].pop(handed)
                     before_distance = math.dist(shift(source, handed, GRIP), [0, 0, 0])
@@ -58,7 +58,7 @@ def run():
                 assert len(grip_matches) >= 1, path + " has no authored grip"
                 sample_count += 1
     assert sample_count == 12 and hand_checks == 48
-    print(f"PASS: {sample_count} production states, {hand_checks} old/new hand pivots, {asset_checks} referenced textures; no geometry/FP/gameplay changes; runtime NOT_RUN")
+    print(f"PASS: {sample_count} horizontal-stock production states, {hand_checks} old/new hand pivots, {asset_checks} referenced textures; no geometry/FP/gameplay changes; runtime NOT_RUN")
 
 if __name__ == "__main__":
     run()

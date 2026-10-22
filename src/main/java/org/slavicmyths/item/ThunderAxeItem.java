@@ -1,6 +1,8 @@
 package org.slavicmyths.item;
 
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -47,6 +49,12 @@ public final class ThunderAxeItem extends AxeItem {
         event.setNewDamage(event.getNewDamage() + BONUS_DAMAGE);
         player.getCooldowns().addCooldown(ModItems.THUNDER_AXE.get(), THUNDER_COOLDOWN);
         LivingEntity target = event.getEntity();
+        LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(world);
+        if (bolt != null) {
+            bolt.setVisualOnly(true);
+            bolt.setPos(target.getX(), target.getY(), target.getZ());
+            world.addFreshEntity(bolt);
+        }
         world.sendParticles(ParticleTypes.ENCHANT, target.getX(),
                 target.getY() + target.getBbHeight() * 0.5, target.getZ(),
                 8, 0.25, 0.3, 0.25, 0.02);
