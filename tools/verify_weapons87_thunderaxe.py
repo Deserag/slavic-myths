@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[1]
 src=(ROOT/'src/main/java/org/slavicmyths/item/ThunderAxeItem.java').read_text(encoding='utf-8')
 assert 'extends AxeItem' in src
 assert 'AxeItem.createAttributes(tier, 5.0F, -3.1F)' in src
-assert '@Mod.EventBusSubscriber(modid = SlavicMyths.MOD_ID)' in src
+assert '@EventBusSubscriber(modid = SlavicMyths.MOD_ID)' in src
 assert '@SubscribeEvent' in src
 assert 'LivingDamageEvent.Pre event' in src
 assert 'event.getNewDamage() <= 0.0F' in src
