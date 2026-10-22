@@ -101,16 +101,12 @@ public final class RewardEvents {
    count++;n.putLong("MomentumAt",clock);
    if(count<3){n.putInt("Momentum",count);p.displayClientMessage(Component.literal("Натиск воеводы: "+count+"/3"),true);fx(p,"trophy_kalin_momentum_1");return;}
    n.putInt("Momentum",0);n.remove("MomentumAt");
-   Vec3 heading=p.getLookAngle().multiply(1,0,1).normalize();if(heading.lengthSqr()<0.01)heading=new Vec3(0,0,1);
    int hits=0;
-   for(var victim:p.serverLevel().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(4.5),e->e!=target&&ordinary(e)&&hostile(e,p)&&e.distanceToSqr(p)<=20.25&&p.hasLineOfSight(e))){
-    Vec3 toward=victim.position().subtract(p.position()).multiply(1,0,1).normalize();
-    if(toward.dot(heading)<Math.cos(Math.toRadians(47.5)))continue;
+   for(var victim:p.serverLevel().getEntitiesOfClass(LivingEntity.class,target.getBoundingBox().inflate(4.5),e->e!=target&&ordinary(e)&&hostile(e,p)&&e.distanceToSqr(target)<=20.25&&p.hasLineOfSight(e))){
     if(victim.hurt(org.slavicmyths.combat.MythDamageSources.periodic("reward_sweep",p),damage*.6F)&&++hits==3)break;
    }
    var dust=new net.minecraft.core.particles.DustParticleOptions(new org.joml.Vector3f(.81F,.62F,.27F),.9F);
-   Vec3 side=new Vec3(-heading.z,0,heading.x);
-   for(int i=-7;i<=7;i++){double a=Math.toRadians(i*6.3);Vec3 step=heading.scale(Math.cos(a)*2.6).add(side.scale(Math.sin(a)*2.6));p.serverLevel().sendParticles(dust,p.getX()+step.x,p.getY()+.85,p.getZ()+step.z,2,.06,.09,.06,.005);}
+   for(int i=0;i<24;i++){double a=Math.PI*i/12;p.serverLevel().sendParticles(dust,target.getX()+Math.cos(a)*2.6,target.getY()+.85,target.getZ()+Math.sin(a)*2.6,2,.06,.09,.06,.005);}
    p.displayClientMessage(Component.literal("Волна воеводы! Дополнительных целей: "+hits),true);
    fx(p,"trophy_kalin_sweep");
   }
