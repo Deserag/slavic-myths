@@ -2196,3 +2196,6 @@ P45: source для 14 knife/sulitsa IDs и Java21 clean build + JAR PASS #398138
 
 ### #87 P49 — исправление непринятого контента, 22.10.2026
 Приоритет реальным замечаниям: #115 grip двух каролингских мечей, #180 restore native Poloz design, #164 forward flail ball impact, #185 duplicate «Второй выпад готов» и lifetime, #160 storm CD и безопасный lightning visual spear, #188 z-fighting tip, Finist homing state, охотничий рог, #140 головы (jaw/ears/eye look/particles/break). Выполнен source patch, но для каждого требуются повторная Java21+JAR проверка и **новая игровая приёмка**; #193 AI Лиха отдельно. Остальные принятые владельцем items не трогать, арбалеты не повторять, #190 whip combat не менять. Детали в `implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md`.
+
+## 22.10.2026 — P51 technical CI receipt
+Java21 [#39829846856](https://github.com/Deserag/slavic-myths/actions/runs/39829846856) SUCCESS on b606f727: source and packaged P51 checks PASS, clean build PASS. JAR 1.9.7.56 SHA256 d9b805ac7355d2e9d2846807f8816f1437207af772e1bd541880cfd5d6815c68; PolyMC NOT_INSTALLED, runtime NOT_RUN; accepted scope unchanged, #140/Finist OWNER_PENDING.

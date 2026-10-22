@@ -305,3 +305,9 @@ P44/P45 добавили клиентские **first-person** фазы 32 melee
 | Steering почти на 180° даёт 6°/tick вместо нулевого поворота | `FinistArrow.steer`, P51 source/math guard | SOURCE FIX; CI PENDING; GAME NOT_RUN |
 | Оба реальных зрачка Тугарина следят за игроком и восстанавливаются | `TrophyHeadsClient.Head`, `BossReworkGeometry`, P51 guard | SOURCE FIX; CI PENDING; VISUAL NOT_RUN |
 | Все непринятые части голов #140 и повторная игровая приёмка Финиста | Сценарии владельца, источник модели Скима | OPEN / OWNER_PENDING |
+
+### P51 — реальный CI receipt, 22.10.2026
+
+- Java21 [Continuous workflow #39829846856](https://github.com/Deserag/slavic-myths/actions/runs/39829846856) на source commit [`b606f7276704e7cf1bd8da5347336bed69be8f98`](https://github.com/Deserag/slavic-myths/commit/b606f7276704e7cf1bd8da5347336bed69be8f98): **COMPLETED / SUCCESS**. `./gradlew --no-daemon clean build`: **BUILD SUCCESSFUL in 1m 33s**. P49/P50/P51 source tests PASS, P51 production JAR check PASS.
+- Production JAR `build/libs/slavicmyths-1.9.7.56.jar`, SHA256 **`d9b805ac7355d2e9d2846807f8816f1437207af772e1bd541880cfd5d6815c68`**, only in GitHub Actions artifact, **POLYMC_NOT_INSTALLED**.
+- P51 source/math/JAR requirements = PASS; gameplay Finist trajectories at 179.99–180°, placed Tugarin eyes at four viewpoints, multiplayer and Minecraft runtime = **NOT_RUN / OWNER_PENDING**; #140/#186 OPEN, no `owner-accepted`, no main merge.

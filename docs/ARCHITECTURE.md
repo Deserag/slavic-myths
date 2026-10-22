@@ -3088,3 +3088,6 @@ P46: прежние frozen crossbow QA datasets отражают архив до
 
 ## 22.10.2026 — P51 непринятые дефекты (#140, Finist)
 В непрерывной ветке PR #216 исходно исправлены near-antiparallel 6°/tick в `FinistArrow` и непосредственное движение двух native зрачков Тугарина в поставленной голове; source/math+JAR guard `tools/verify_weapons87_p51.py`. Перед запуском CI все проверки P51 PENDING, Minecraft/PolyMC NOT_RUN, приёмка владельца отсутствует. Непринятая анимация глаз Ским-зверя не скрывается. `main` и owner-accepted предметы не менялись.
+
+## 22.10.2026 — P51 technical CI receipt
+Java21 [#39829846856](https://github.com/Deserag/slavic-myths/actions/runs/39829846856) SUCCESS on b606f727: source and packaged P51 checks PASS, clean build PASS. JAR 1.9.7.56 SHA256 d9b805ac7355d2e9d2846807f8816f1437207af772e1bd541880cfd5d6815c68; PolyMC NOT_INSTALLED, runtime NOT_RUN; accepted scope unchanged, #140/Finist OWNER_PENDING.
