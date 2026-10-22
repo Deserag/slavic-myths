@@ -2757,3 +2757,6 @@ P45: семь ножей получили 1P swing броска и семь су
 
 ### #87 P47 — подтверждение CI после публикации
 Исходники `97bf25c3`, [GitHub Actions #39816854559](https://github.com/Deserag/slavic-myths/actions/runs/39816854559) **SUCCESS**: Java21 clean build, P42–P47 source checks и production JAR class/resource QA PASS. JAR `slavicmyths-1.9.7.56.jar`, SHA256 `acf4d4d5ce8cc30dc17eaf3a38c60b29d74484e463728429edf1c05b89187fa6`. Runtime Minecraft/PolyMC NOT_RUN; owner acceptance pending. Целые Issues #162/#163/#165 IN_PROGRESS, поля GitHub Project №9 через текущие доступные actions не изменены; комментарий не эквивалентен переходу «Тестирование».
+
+### #87 P48 — third-person draw for three bows, 22.10.2026
+В draft PR #216 P47 third-person BakedModel overlay расширен для `short_bow` (12 тиков), `heavy_bow` (30) и `finist_bow` (30), только фактическая рука и штатный `pull` model variant. Клиентский 1P BowDrawClient, server ammo/power/finist quiver, модели и registry сохранены. P48 Java21/JAR CI PENDING, Minecraft/PolyMC NOT_RUN; #163 OPEN/IN_PROGRESS. Journal `implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md`.

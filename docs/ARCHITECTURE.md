@@ -3079,3 +3079,6 @@ P46: прежние frozen crossbow QA datasets отражают архив до
 
 ### #87 P47 — подтверждение CI после публикации
 Исходники `97bf25c3`, [GitHub Actions #39816854559](https://github.com/Deserag/slavic-myths/actions/runs/39816854559) **SUCCESS**: Java21 clean build, P42–P47 source checks и production JAR class/resource QA PASS. JAR `slavicmyths-1.9.7.56.jar`, SHA256 `acf4d4d5ce8cc30dc17eaf3a38c60b29d74484e463728429edf1c05b89187fa6`. Runtime Minecraft/PolyMC NOT_RUN; owner acceptance pending. Целые Issues #162/#163/#165 IN_PROGRESS, поля GitHub Project №9 через текущие доступные actions не изменены; комментарий не эквивалентен переходу «Тестирование».
+
+### #87 P48 — draw-aware 3P bound transforms for 3 bows
+`ThirdPersonWeaponMotion.Shape.BOW` выбирает `drawTicks()` у `FieldBowItem` (12/30) либо существующие 30 у `FinistBow`; активный `getTicksUsingItem` применяет только bounded PoseStack tilt после ванильного THIRD_PERSON context item transform. Существующий `ItemProperties` выбирает pulling_0/1/2; P48 не регистрирует новые predicates, не модифицирует FP `BowDrawClient`, server projectile/power/colчан. Coverage P47/P48: 51 ID, runtime/game pass NOT_RUN.

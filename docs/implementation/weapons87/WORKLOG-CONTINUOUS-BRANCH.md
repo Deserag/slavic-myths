@@ -182,3 +182,21 @@ P44/P45 добавили клиентские **first-person** фазы 32 melee
 - JAR `build/libs/slavicmyths-1.9.7.56.jar`, SHA256 **`acf4d4d5ce8cc30dc17eaf3a38c60b29d74484e463728429edf1c05b89187fa6`** (GitHub Actions job SHA строки).
 - Minecraft/PolyMC/server запуска: **0**, установка: **НЕ ВЫПОЛНЕНА**, скриншоты реальных 3P поз: NOT_RUN. Технический модуль подключен и компилируется, но реальный визуал Alex/Steve/offhand/MP не доказан.
 - `#162/#165/#163` как большие Issues **OPEN / PARTIAL IN_PROGRESS**, исполнительский scope включает не только предметный 3P transform, но и third-person player arms/pose сцены и игровую проверку. В `Тестирование` по `docs/PROJECT_WORKFLOW.md` переводить только когда не остаётся исполнительских FAIL/BLOCKED/NOT_RUN, а доступ к Project field подтверждён. Доступ через подключённый GitHub action к полю Status проекта №9 пока отсутствует; комментарий к Issue не является сменой поля на доске.
+
+
+## P48 — отдельный 3P draw для короткого, тяжёлого и лука Финиста · #163
+
+**Реальный baseline:** в P10 `BowDrawClient` уже применил правильный отдельный **first-person** BOW pose для `short_bow`, `heavy_bow`, `finist_bow`; `FieldBowItem.drawTicks()` возвращает 12/30, а `FinistBow.power()` использует 30. До P48 имелись 4 разные item модельные стадии `idle/pulling_0/1/2`, но P47 third-person bound transform пока был только для арбалетов, не для этих трёх луков.
+
+- `ThirdPersonWeaponMotion.java`: P48 расширяет предыдущие **48→51** registry IDs, новая `Shape.BOW` для 3 реальных ID. При фактическом `owner.isUsingItem`, том же `usedItemHand` и действительном `ItemStack` 3P item получает малое плавное движение/наклон к лицу пропорционально **12 тикам для short, 30 heavy и 30 Finist**. Модель, которая уже выбрана штатным `pull` property, не подменяется; её 4 состояния/JSON/PNG не меняются.
+- Рендер только `THIRD_PERSON_LEFT_HAND`/`RIGHT_HAND`, общее зеркало по физической руке, прежние `ItemInHandLayer`/положение плеч и других PlayerModels не меняются. В 1P продолжает работать предыдущий `BowDrawClient`; `FinistQuiver`, стрельба/урон/скорость стрел, перезарядка и RPG эффекты untouched.
+- `tools/verify_weapons87_p47.py` обновлён для 51, `tools/verify_weapons87_p48.py` проверяет длительности 12/30/30, модельные states, прямую ручную/контекстную привязку и byte-exact JAR ресурсы. Continuous workflow включает оба gate до/после Java21 clean build.
+- **Запуск клиента/мультиплеера: NOT_RUN**, требуются owner checks Steve/Alex, оба hand slots, 1P vs 3P at 0/12/30 ticks и стрельба колчана Финиста. Issue #163 остаётся OPEN/IN_PROGRESS, не `Готово`. Проверка GitHub Actions нового commit — PENDING.
+
+| REQUIREMENT | EVIDENCE | STATUS |
+|---|---|---|
+| Short bow 3P 12 ticks | FieldBowItem + Shape.BOW + P48 QA | SOURCE IMPLEMENTED / CI PENDING |
+| Heavy bow 3P 30 ticks | FieldBowItem + Shape.BOW + P48 QA | SOURCE IMPLEMENTED / CI PENDING |
+| Finist 3P 30 ticks without quiver change | FinistBow + Shape.BOW + P48 QA | SOURCE IMPLEMENTED / CI PENDING |
+| 12 native draw models/JSON/JAR unchanged | P48 source/JAR checks | PENDING |
+| Real 3P Steve/Alex, MP, both hands | Minecraft owner testing | NOT_RUN / OWNER_PENDING |

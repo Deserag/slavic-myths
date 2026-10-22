@@ -1,4 +1,4 @@
-"""P47 checks 48 third-person weapon paths, native item models, controls, and production classes."""
+"""P47/P48 checks 51 third-person weapon paths, native models, controls, and production classes."""
 from pathlib import Path
 import re
 import sys
@@ -15,10 +15,10 @@ for shape,names in re.findall(r"register\(Shape\.(\w+),(.*?)\);",source,re.S):
     ids=re.findall(r'"([a-z_]+)"',names)
     assert ids,shape
     groups[shape]=ids
-assert set(groups)=={"BLADE","HEAVY","SPEAR","POLEAXE","SICKLE","STAFF","KNIFE","SULITSA","CROSSBOW"}
-assert [len(groups[x]) for x in ("BLADE","HEAVY","SPEAR","POLEAXE","SICKLE","STAFF","KNIFE","SULITSA","CROSSBOW")]==[6,9,12,1,1,3,7,7,2]
+assert set(groups)=={"BLADE","HEAVY","SPEAR","POLEAXE","SICKLE","STAFF","KNIFE","SULITSA","CROSSBOW","BOW"}
+assert [len(groups[x]) for x in ("BLADE","HEAVY","SPEAR","POLEAXE","SICKLE","STAFF","KNIFE","SULITSA","CROSSBOW","BOW")]==[6,9,12,1,1,3,7,7,2,3]
 all_ids=[v for vals in groups.values() for v in vals]
-assert len(all_ids)==48 and len(set(all_ids))==48 and set(all_ids)<=weapons
+assert len(all_ids)==51 and len(set(all_ids))==51 and set(all_ids)<=weapons
 for item in all_ids:
     model=ROOT/"src/main/resources/assets/slavicmyths/models/item"/(item+".json")
     assert model.exists(),item
@@ -35,7 +35,7 @@ for token in (
     "ItemStack.isSameItemSameComponents(owner.getItemInHand(hand),stack)",
     "owner.getAttackAnim(partial)","owner.walkAnimation.speed(partial)",
     "owner.getUsedItemHand()==hand","CrossbowItem.getChargeDuration(stack,owner)+10F",
-    "owner.getTicksUsingItem()+partial","case CROSSBOW","case KNIFE","case SULITSA",
+    "owner.getTicksUsingItem()+partial","case CROSSBOW","case KNIFE","case SULITSA","case BOW",
 ):
     assert token in source,token
 assert "WorldTickEvent" not in source and "PlayerTickEvent" not in source
@@ -59,4 +59,4 @@ if "--jar" in sys.argv:
     with zipfile.ZipFile(jars[0]) as z:
         assert "org/slavicmyths/client/ThirdPersonWeaponMotion.class" in z.namelist()
         assert "org/slavicmyths/client/ThirdPersonWeaponMotion$MotionModel.class" in z.namelist()
-print("PASS P47: 48 real player-held third-person models, swing/charge/walk pose envelopes, independent hand contexts and class packaging; Minecraft NOT_RUN")
+print("PASS P47/P48: 51 real player-held third-person models, swing/charge/walk pose envelopes, independent hand contexts and class packaging; Minecraft NOT_RUN")

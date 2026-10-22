@@ -28,7 +28,7 @@ import org.slavicmyths.gorynych.SerpentCrossbow;
 /** Player-held 3P animation; vanilla arms keep their native movement and equipment renderer. */
 @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
 public final class ThirdPersonWeaponMotion {
-    private enum Shape { BLADE, HEAVY, SPEAR, POLEAXE, SICKLE, STAFF, KNIFE, SULITSA, CROSSBOW }
+    private enum Shape { BLADE, HEAVY, SPEAR, POLEAXE, SICKLE, STAFF, KNIFE, SULITSA, CROSSBOW, BOW }
     private static final Map<String,Shape> IDS=new HashMap<>();
     static {
         register(Shape.BLADE,"bone_knife","silver_dagger","ancient_carolingian_sword","restored_carolingian_sword","silver_sword","perunite_sword");
@@ -40,6 +40,7 @@ public final class ThirdPersonWeaponMotion {
         register(Shape.KNIFE,"stone_throwing_knife","gold_throwing_knife","iron_throwing_knife","silver_throwing_knife","diamond_throwing_knife","perunite_throwing_knife","netherite_throwing_knife");
         register(Shape.SULITSA,"stone_sulitsa","gold_sulitsa","iron_sulitsa","silver_sulitsa","diamond_sulitsa","perunite_sulitsa","netherite_sulitsa");
         register(Shape.CROSSBOW,"serpent_crossbow","three_breath_crossbow");
+        register(Shape.BOW,"short_bow","heavy_bow","finist_bow");
     }
     private static void register(Shape shape,String... ids){
         for(String name:ids)if(IDS.put(name,shape)!=null)throw new IllegalStateException("Duplicate 3P weapon ID: "+name);
@@ -83,6 +84,10 @@ public final class ThirdPersonWeaponMotion {
                 if(shape==Shape.SULITSA)charge=Mth.clamp((owner.getTicksUsingItem()+partial)/20F,0,1);
                 if(shape==Shape.CROSSBOW&&stack.getItem() instanceof SerpentCrossbow)
                     charge=Mth.clamp((owner.getTicksUsingItem()+partial)/(CrossbowItem.getChargeDuration(stack,owner)+10F),0,1);
+                if(shape==Shape.BOW){
+                    int draw=stack.getItem() instanceof org.slavicmyths.combat.FieldBowItem field?field.drawTicks():30;
+                    charge=Mth.clamp((owner.getTicksUsingItem()+partial)/draw,0,1);
+                }
             }
             animate(pose,shape,left,swing,walking,charge,owner.tickCount+partial);
             return this;
@@ -137,6 +142,12 @@ public final class ThirdPersonWeaponMotion {
                 pose.translate(0,-.03*pull,.04*pull-.07*hit);
                 pose.mulPose(Axis.XP.rotationDegrees(-12*pull+9*hit));
                 pose.mulPose(Axis.ZP.rotationDegrees(sign*5*pull));
+            }
+            case BOW -> {
+                float draw=ease(charge);
+                pose.translate(sign*.025*draw,.02*draw,-.04*draw);
+                pose.mulPose(Axis.YP.rotationDegrees(sign*-10*draw));
+                pose.mulPose(Axis.XP.rotationDegrees(-9*draw));
             }
         }
     }
