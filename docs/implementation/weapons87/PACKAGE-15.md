@@ -14,7 +14,7 @@
 | Реальные JSON/UV/PNG сохранены | `three_breath_crossbow.json` blob `19bd65d8a7b127a72edfd55c49de820f9319c0e2`; whitelist коммитов | PASS source-only |
 | Модель GUI 1×, два item-held/TP/FP отображения | existing per-ID source sheet, four `display` contexts/либо held companion; #115 isolated TP edit | PASS metadata/source only |
 | Steve/Alex, collision/clipping, движение/удар, FP/TP в живом Minecraft | ручная игра; не запускали | NOT_RUN / OWNER_PENDING |
-| Java21 clean build/JAR после #115 | branch GitHub Actions Java21 | PENDING_CI |
+| Java21 clean build/JAR после #115 | branch GitHub Actions Java21 | PASS — [Java21 run 39757888300](https://github.com/Deserag/slavic-myths/actions/runs/39757888300) |
 | Полная #175, окончательное худож. согласование | владелец не принимал в игре | OPEN / OWNER_PENDING |
 
 Если владелец увидит конкретный дефект в игре, открыть адресный FIX для этой модели, не переписывая хорошие части; связанная анимационная работа остаётся в #163/#165.
