@@ -17,10 +17,10 @@ FX исполняются только клиентом и **только для
 
 | REQUIREMENT | EVIDENCE | STATUS |
 |---|---|---|
-| Настоящие native детали и различающиеся периоды | Runtime source and `TrophyHeadFxRules.java` | SOURCE REVIEW |
-| Сохранение UV, vertex count, bounding cell и neutral pose | `Heads140Offline`, 100 временных кадров × 6 голов | CI PENDING |
-| Java21 clean build NeoForge 1.21.1, JAR 1.9.7.56 | `trophy140-fx-java21.yml` | CI PENDING |
-| Server data / registry / original loot unchanged | Scoped changes and existing offline drop matrix | CI PENDING |
+| Настоящие native детали и различающиеся периоды | Runtime source and `TrophyHeadFxRules.java` | PASS SOURCE |
+| Сохранение UV, vertex count, bounding cell и neutral pose | `Heads140Offline`, 100 временных кадров × 6 голов | PASS CI #39754403311 (Java21) |
+| Java21 clean build NeoForge 1.21.1, JAR 1.9.7.56 | `trophy140-fx-java21.yml` | PASS CI #39754403311 (Java21) |
+| Server data / registry / original loot unchanged | Scoped changes and existing offline drop matrix | PASS CI #39754403311 (Java21) |
 | Игровые визуальные эффекты, ориентации, ночь/день, multi-head FPS, shaders | Владелец в PolyMC | NOT_RUN |
 
 Задача #140 остаётся В работе, не считается owner-accepted до ручной проверки всех 6 голов. Не запускать и не устанавливать PolyMC автоматически.

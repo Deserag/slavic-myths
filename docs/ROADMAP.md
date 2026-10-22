@@ -1,3 +1,6 @@
+## 22.10.2026 — #140 FX-1+FX-2 завершены по коду, владелец проверяет 1.9.7.56
+Шесть голов уже имеют индивидуальную анимацию и клиентские частицы: Tugarin, Skim, Volkolak, Likho, Mor Likho, Large Podzemnik. Источники реальные native модели без подмены; [CI 39754403311](https://github.com/Deserag/slavic-myths/actions/runs/39754403311) PASS (1149670 checks, clean build). Полоз сохраняет прежние glowing eyes. Следующее действие: owner survival/creative test всех шести, 4 сторон, relog, несколько голов рядом и FPS; после ручной приёмки закрывать #140. Не закрыта.
+
 ## 22.10.2026 — #140 (P1 FX-1): анимация двух голов, остальные в очереди
 DONE SOURCE/CI: обычное/Моровое Лихо, native моргание/пульсация глаз, свечение и редкие client-only частицы; [CI 39751552635](https://github.com/Deserag/slavic-myths/actions/runs/39751552635) PASS, 173903 native checks. В работе следующие P1-A3 Тугарин/Ским/Волколак/Подземник; проверить цвет, FPS и геометрию в реальном Minecraft; отдельный Полоз уже светит глазами и не изменён. #140 OPEN, не завершать без ручной приёмки. [Сценарий](implementation/trophy140-fx/P1_LIKHO.md).
 
