@@ -3091,3 +3091,6 @@ P46: прежние frozen crossbow QA datasets отражают архив до
 
 ## 22.10.2026 — P51 technical CI receipt
 Java21 [#39829846856](https://github.com/Deserag/slavic-myths/actions/runs/39829846856) SUCCESS on b606f727: source and packaged P51 checks PASS, clean build PASS. JAR 1.9.7.56 SHA256 d9b805ac7355d2e9d2846807f8816f1437207af772e1bd541880cfd5d6815c68; PolyMC NOT_INSTALLED, runtime NOT_RUN; accepted scope unchanged, #140/Finist OWNER_PENDING.
+
+## 22.10.2026 — P52 #161 особые арбалеты, MOR/FIRE hit cues
+В continuous ветке PR #216 появился отдельный не дублирующий ранее сделанное source пакет: после принятого попадания стрелы режима морока 8 SOUL, огня 8 FLAME. Existing muzzle P44 and StormVfx untouched; ammo/damage unchanged; P52 source/JAR QA pending, Minecraft NOT_RUN. Issue #161 full scope OPEN. Project Status «на тестировании2» connector не может установить.

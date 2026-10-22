@@ -5,6 +5,8 @@ import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -63,8 +65,18 @@ public final class CrossbowDamage {
         var weapon=arrow.getWeaponItem();
         if(weapon!=null&&weapon.getItem() instanceof SerpentCrossbow crossbow&&crossbow.special){
             int mode=arrow.getPersistentData().getInt("GorynychImpactMode")-1;
-            if(mode==0)event.getEntity().addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.WEAKNESS,40));
-            if(mode==1)event.getEntity().igniteForSeconds(2);
+            if(mode==0){
+                event.getEntity().addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.WEAKNESS,40));
+                if(event.getEntity().level() instanceof ServerLevel server)server.sendParticles(ParticleTypes.SOUL,
+                    event.getEntity().getX(),event.getEntity().getY()+event.getEntity().getBbHeight()*.55,event.getEntity().getZ(),
+                    8,.18,.22,.18,.012);
+            }
+            if(mode==1){
+                event.getEntity().igniteForSeconds(2);
+                if(event.getEntity().level() instanceof ServerLevel server)server.sendParticles(ParticleTypes.FLAME,
+                    event.getEntity().getX(),event.getEntity().getY()+event.getEntity().getBbHeight()*.55,event.getEntity().getZ(),
+                    8,.18,.22,.18,.012);
+            }
         }
     }
     private CrossbowDamage() {}

@@ -1,4 +1,7 @@
 
+## 22.10.2026 — P52 #161 особые арбалеты, MOR/FIRE hit cues
+В continuous ветке PR #216 появился отдельный не дублирующий ранее сделанное source пакет: после принятого попадания стрелы режима морока 8 SOUL, огня 8 FLAME. Existing muzzle P44 and StormVfx untouched; ammo/damage unchanged; P52 source/JAR QA pending, Minecraft NOT_RUN. Issue #161 full scope OPEN. Project Status «на тестировании2» connector не может установить.
+
 ## 22.10.2026 — P51 непринятые дефекты (#140, Finist)
 В непрерывной ветке PR #216 исходно исправлены near-antiparallel 6°/tick в `FinistArrow` и непосредственное движение двух native зрачков Тугарина в поставленной голове; source/math+JAR guard `tools/verify_weapons87_p51.py`. Перед запуском CI все проверки P51 PENDING, Minecraft/PolyMC NOT_RUN, приёмка владельца отсутствует. Непринятая анимация глаз Ским-зверя не скрывается. `main` и owner-accepted предметы не менялись.
 
