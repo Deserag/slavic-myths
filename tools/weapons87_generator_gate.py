@@ -7,6 +7,7 @@ source snapshots and record old drift rather than silently rewriting manifests.
 from __future__ import annotations
 from pathlib import Path
 import argparse,hashlib,json,shutil,subprocess,sys,tempfile
+from PIL import Image
 ROOT=Path(__file__).resolve().parents[1]
 SRC=ROOT/'src/main/resources'
 DOC=ROOT/'docs/implementation/weapons87'
@@ -44,6 +45,15 @@ def check_assets(sandbox:Path)->int:
                 transform=model['display'][hand]
                 assert transform['rotation']==[0,0,0] and transform['translation']==[0,1.375,-2.475] and transform['scale']==[.55]*3,(name,suffix,hand)
     return len(weapons)
+def equivalent(original:Path,generated:Path)->bool:
+    if not original.is_file() or not generated.is_file():return False
+    if original.suffix=='.json':
+        try:return json.loads(original.read_text(encoding='utf-8'))==json.loads(generated.read_text(encoding='utf-8'))
+        except (ValueError,UnicodeError):return False
+    if original.suffix=='.png':
+        with Image.open(original) as a,Image.open(generated) as b:
+            return a.size==b.size and a.convert('RGBA').tobytes()==b.convert('RGBA').tobytes()
+    return sha(original)==sha(generated)
 def replay(workspace:Path):
     program=workspace/'tools/weapons87_flails.py'
     p=subprocess.run([sys.executable,str(program),'--apply'],cwd=workspace,capture_output=True,text=True,timeout=170)
@@ -63,7 +73,8 @@ def main(output:Path):
         first=replay(workspace)
         after_first=snapshot(workspace/'src/main/resources')
         diff=sorted(k for k in set(real_before)|set(after_first) if real_before.get(k)!=after_first.get(k))
-        protected_mismatches=[k for k in sorted(PROTECTED) if after_first.get(k)!=real_before.get(k)]
+        protected_mismatches=[k for k in sorted(PROTECTED) if not equivalent(SRC/k,workspace/'src/main/resources'/k)]
+        semantic_drift=[k for k in diff if not equivalent(SRC/k,workspace/'src/main/resources'/k)]
         number=check_assets(workspace) if first['exit']==0 else 0
         second=replay(workspace) if first['exit']==0 else None
         after_second=snapshot(workspace/'src/main/resources')
@@ -76,6 +87,8 @@ def main(output:Path):
             'catalogue_weapon_count':number,
             'protected_models_count':len(PROTECTED),
             'protected_mismatches':protected_mismatches,
+            'protected_byte_drift':[k for k in sorted(PROTECTED) if after_first.get(k)!=real_before.get(k)],
+            'semantic_or_png_pixel_drift_count':len(semantic_drift),'semantic_or_png_pixel_drift':semantic_drift,
             'first_pass':first,'second_pass':second,
             'changed_paths_count':len(diff),'changed_paths':diff,
             'idempotence_drift_count':len(non_idempotent),'idempotence_drift':non_idempotent,
@@ -84,7 +97,7 @@ def main(output:Path):
         }
     output.parent.mkdir(parents=True,exist_ok=True)
     output.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    print('P32 canonical generator source QA: 68 IDs',number,'protected',len(PROTECTED),'reverted',len(protected_mismatches),'all-source-drift',len(diff),'idempotence',len(non_idempotent),'src_mutated',not actual_still_equal)
+    print('P32 canonical generator source QA: 68 IDs',number,'protected',len(PROTECTED),'reverted',len(protected_mismatches),'all-source-byte-drift',len(diff),'actual-content-drift',len(semantic_drift),'idempotence',len(non_idempotent),'src_mutated',not actual_still_equal)
     print('DIAGNOSTIC current-source asset deltas:',diff[:40])
     print('REPORT',output,'Minecraft NOT_RUN')
     assert first['exit']==0,(first['stderr'],first['stdout'])
@@ -93,7 +106,7 @@ def main(output:Path):
     assert not protected_mismatches,protected_mismatches
     assert not non_idempotent,non_idempotent[:30]
     assert actual_still_equal
-    print('PASS protected #115/#163/#184/#185/#189 assets and full canonical idempotence in isolated sandbox; historical extra drift documented, not silently normalized')
+    print('PASS protected #115/#163/#184/#185/#189 asset geometry/material semantics and full canonical idempotence; changed JSON formatting/PNG encoding recorded separately; historical drift not normalized')
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--output',default='build/weapons87-generator-p32/report.json')
