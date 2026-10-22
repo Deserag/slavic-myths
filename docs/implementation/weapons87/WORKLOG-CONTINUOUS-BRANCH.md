@@ -287,3 +287,9 @@ P44/P45 добавили клиентские **first-person** фазы 32 melee
 - Тесты `verify_weapons87_p49.py` скорректированы только на реальные новые частоты/амплитуды, `verify_trophy140_p50.py` проверяет 6 видов/расчёты/активные render-part references/ограниченность emission, P50 source+JAR hook в continuous Java21 workflow.
 
 **НЕ ПРИНЯТО / OWNER_PENDING:** фактические визуальные результаты, корректность привязки pupil для морового Лиха, разрушение головы с релогом/дропом, эффект в инвентаре, FPS 6-головой комнаты, рука и ракурсы, скриншоты, а также анимация глаз **самих живых мобов** — P50 меняет *только поставленные трофейные блоки*, а не живых Тугарина, Скима и Волколака. CI при первом source commit PENDING. #140 OPEN/REWORK.
+
+### P50 — Java21/JAR source receipt (визуальная приёмка отдельно)
+
+- [Workflow #39828042779](https://github.com/Deserag/slavic-myths/actions/runs/39828042779) **SUCCESS** на `444053b332868c65196ecf8726f9c1039cde5f50`: Java 21 `clean build` **BUILD SUCCESSFUL**, P49 + P50 source checks PASS и packaged Java classes/JAR checks PASS.
+- `build/libs/slavicmyths-1.9.7.56.jar`, SHA256 **`18b97afa5f24d87ce77e8e79c057cb4fdb52a67ebe0dc6b838944345543639d4`**.
+- Всё ещё **NOT_RUN в Minecraft**; визуальный эффект и правильность eye target/увеличенного blink в 6 реальных моделях — OWNER_PENDING. #140 всё ещё OPEN/REWORK, даже при зелёном CI, и это только трофейные блоки, не анимации живых мобов.
