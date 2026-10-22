@@ -97,3 +97,6 @@ Owner explicitly approvedB; реализован speed.8 perunite_mace и storm 
 
 ### Пакеты15–19, 22.10.2026: пять source KEEP / индивидуальная оценка
 Пакет15 #175 three_breath_crossbow (65–68 cuboids, крупный поздний артефакт); пакет16 #176 serpent_crossbow (8–9 cuboids, компактный оригинал); пакет17 #177 ornate karachun_scythe (60 cuboids); пакет18 #179 ледяной morozko_staff (66 cuboids); пакет19 #183 nightingale_dagger (12 cuboids). Пять личных существующих PNG-листов UV/source/profile/3⁄4/GUI и точные JSON SHA; модели не перерисованы. Арт KEEP по source, не FINAL и не owner acceptance. P14 #115 TP fix независим от арта #175/#176; CI pending. Геймплей, rig и способности untouched. Следующий #184 trophy_kalin_sabre; все Issues OPEN.
+
+### P14–19 принятие в Git, НЕ игровая приёмка — 22.10.2026
+PR #194 объединён в main `9910e5ca17e5bbf5fa14dff55fa371640fe93398`, Java21 clean build [CI 39757888300](https://github.com/Deserag/slavic-myths/actions/runs/39757888300) PASS. `slavicmyths-1.9.7.56.jar` SHA256 `73d0d04b5ef5890c8508f626022b68fc567fa30ac84a90e3d1fb208bd7d2cffc`, неизменяемый archive before + Python suite:12 models,48 TP old/new pivots,12 texture refs PASS. Реальный игровой запуск/PolyMC НЕ выполнялись. P15–19 KEEP только в source; их 5 Issues OPEN. #87/#115 OPEN. Дальше #184.
