@@ -2180,3 +2180,7 @@ Bow timing subset163 технически исправлен отдельно о
 ### #87 P45–P46 — throwing poses + historical regressions, 22.10.2026
 
 P45: source для 14 knife/sulitsa IDs и Java21 clean build + JAR PASS #39813871455; game runtime и мультиплеер owner pending, server projectile/velocity/reach/damage untouched. P46: исправлен только устаревший QA-снимок для 12 состояний арбалета, чтобы exact P42 art-additions не выдавали FAIL; теперь проверяется точное соответствие frozen original + approved overlay, с неизменным TP/FP проверочным gate. Сами weapon models/арт/механики не трогались. #121/#162/#165/#87 остаются незавершёнными; ветка PR #216 не объединяется в main.
+
+
+### #87 P47 — динамика оружия в 3P, 22.10.2026
+Для 48 предметов добавлен специальный BakedModel-wrapper, включающий отдельные 3P held-позы по физической руке, атаке, ходьбе и зарядке. Изолировано от общих ригов/серверной логики, не является полной third-person skeletal-анимацией. После Java21 CI требуется настоящая приёмка Alex/Steve/MP/first-person vs third-person; #162/#165/#163 остаются IN_PROGRESS, не `Готово`, #190 не трогать. Источник — `implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md` и PR #216.

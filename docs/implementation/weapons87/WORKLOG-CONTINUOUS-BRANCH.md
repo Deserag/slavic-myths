@@ -139,3 +139,37 @@
 | Разрешены строго дополнительные кубы P42 | `weapons87_p42_models.ADDITIONS`, 2 verifier files | CODE IMPLEMENTED / CI PENDING |
 | TP grip + FP/GUI/metadata KEEP | Исходные asserts `verify_weapons87_crossbows`, `weapons87_owner_qa` | CI PENDING |
 | Полный Minecraft/PolyMC runtime | Owner | NOT_RUN / OWNER_PENDING |
+
+
+### P46 — финальное подтверждение CI
+
+- На source `549e39bfe7fd5078f594a65692401cb9f9f0fc2d` исправленные QA регрессии прошли: [Continuous #39814790628](https://github.com/Deserag/slavic-myths/actions/runs/39814790628) **SUCCESS**; [Crossbow Pull #39814790623](https://github.com/Deserag/slavic-myths/actions/runs/39814790623), [P36 Held #39814790616](https://github.com/Deserag/slavic-myths/actions/runs/39814790616), [P38 Visuals #39814790592](https://github.com/Deserag/slavic-myths/actions/runs/39814790592), [Kalin #39814790671](https://github.com/Deserag/slavic-myths/actions/runs/39814790671) — **SUCCESS**.
+- P46 устраняет legacy source false negative; gameplay QA по-прежнему OWNER_PENDING, Minecraft NOT_RUN.
+
+## P47 — third-person анимации 48 оружий · #162 / #165 / #163
+
+### Проблема и scope
+P44/P45 добавили клиентские **first-person** фазы 32 melee/polearm ID, 14 метательных ID и расширение зарядки арбалетов. В третьем лице их штатный item model `display` оставался статичным: другие игроки/камера сзади не видели этих особенностей. Вступая в P47, ничего из P42–P46 не переписываем.
+
+### Production изменение
+- `src/main/java/org/slavicmyths/client/ThirdPersonWeaponMotion.java`: регистрация `ModelEvent.ModifyBakingResult` для **48 конкретных existing registry IDs** (15 коротких blade/heavy, 17 spear/poleaxe/sickle/staff, 14 thrown и 2 crossbow).
+- Стандартный `BakedModelWrapper` / `ItemOverrides` привязывает `LivingEntity` и `ItemStack` только к конкретному render resolve. После штатного `applyTransform` динамика включается **только для `THIRD_PERSON_LEFT_HAND` или `THIRD_PERSON_RIGHT_HAND`**, только при действительном наличии того же предмета в той же руке. GUI/ground/fixed/first-person **не изменены**.
+- Никаких отдельных глобальных player/world tick listeners: существующий `owner.getAttackAnim(partial)`, `walkAnimation.speed(partial)`, `getTicksUsingItem` формируют ограниченные *player-only* transform curves, зеркальные по руке. Колющие копья сдвигаются по оси вперёд, тяжёлые булавы делают верхнюю дугу, клинки — боковую, серп — короткую, нож — бросковую. Зарядка арбалета наклоняет ложе по действительному прогрессу и использует прежние 6 item-model states.
+- Сохранены все оригинальные `ItemInHandLayer`, native `HumanoidModel`/локти, player rigs, оригинальные model JSON/PNG/UV, registry, damage, reach, attack timing, cooldown, audio, VFX, packet protocols. Это **оживление item в third-person**, не замена полноценного движения суставов при атаке. Отдельные индивидуальные player rigs и игровых ракурсы ещё требуются по #162/#165.
+- Исключены ранее реализованные особые renderer: Karachun, Morozko, Likho, все flails, Poloz whip, Finist bow и боссы. Не менять #190.
+
+### Проверки и ограничения
+- `tools/verify_weapons87_p47.py`: 48 ID в каталоге, 9 shape-групп без повторов, наличие настоящих item models, отдельное поведение charge/swing/walk, правильный контекст и привязка руки, отсутствие server-side/world tick, исходные envelope-фазы, требование наличия Java class в production JAR.
+- CI: `.github/workflows/weapons87-continuous-java21.yml` запускает source и JAR tests P47 поверх P42–P45 и Java21 clean build; результат фиксируется после CI.
+- **Minecraft/PolyMC/Steve/Alex/remote multiplayer: NOT_RUN**. Размеры моделей и совместимость с ресурс-паками нужно проверить в реальном клиенте владельца.
+
+| REQUIREMENT | EVIDENCE | STATUS |
+|---|---|---|
+| Реальные динамические 3P движения для 48 IDs | `ThirdPersonWeaponMotion.java` | CODE IMPLEMENTED; CI PENDING |
+| 1P/GUI/ground/fixed models KEEP | Контекст `THIRD_PERSON_*` после native transform | SOURCE GUARD; RUNTIME NOT_RUN |
+| Раздельные руки, swing/walk/charge | owner/ItemStack binding, `getAttackAnim`, `getTicksUsingItem` | SOURCE GUARD; RUNTIME NOT_RUN |
+| Независимость server gameplay, #190 и босса | Только CLIENT `ModelEvent`, без common hooks | SOURCE GUARD |
+| Java21 build/JAR class packaging | `verify_weapons87_p47.py`, CI workflow | PENDING |
+| Фактические Steve/Alex 3P, 1P, MP и клиппинг | Игровой клиент владельца | NOT_RUN / OWNER_PENDING |
+
+**Issues #162/#165/#163 остаются OPEN, IN_PROGRESS** — это техническое улучшение 3P предметов, не full-scope player skeletal animation и не доказательство игрового результата. Для Project Status `Тестирование` необходимы все исполнительские gates отдельной задачи и фактический доступ к Project field: не подменять его ярлыками или комментариями.

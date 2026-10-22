@@ -2750,3 +2750,7 @@ Java21 clean build, quarantine, shared-policy/native offline tests, scoped sourc
 ### #87 P45–P46 — продолжаем только ветку PR #216, 22.10.2026
 
 P45: семь ножей получили 1P swing броска и семь сулиц — собственный FP windup/release в `ThrowingMotionClient` + client-only swing после серверно допустимого выбрасывания в `ThrowingWeaponItem`. Для исходников/JAR Java21 CI PASS [#39813871455](https://github.com/Deserag/slavic-myths/actions/runs/39813871455), SHA256 `slavicmyths-1.9.7.56.jar`: `75aede07fc2240f23cb1fdb6ead673c565fcbd8179586e2c02d663bba68f32e9`. #162/#165 всё ещё не завершены; игровой 3P/MP/Steve/Alex тест отсутствует. P46 исправляет две неактуальные QA-сверки crossbow, допускающие только точный additive P42 overlay поверх оригинала; production geometry не трогается, отдельные legacy CI были FAIL до этого исправления. Все работы лишь в `work/weapons87-continuous-20261022`, без merge в main. Подробнее `implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md`.
+
+
+### #87 P47 — third-person weapon motion, 22.10.2026
+В branch `work/weapons87-continuous-20261022` через draft PR #216 добавлен player-only 3P item-model animation для 48 ID (#162/#165/#163) на клиенте: ближнее/копья/посохи/метательное/арбалеты. Все исходные JSON/PNG, server damage/hit timing, registry и особые renderer (коса Карачуна, кистени, плеть) сохраняются. На момент source commit CI P47 PENDING; game runtime, Steve/Alex/MP, visual owner acceptance NOT_RUN, указанные Issues IN_PROGRESS. `main` без изменений. См. `docs/implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md`.
