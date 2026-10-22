@@ -139,6 +139,8 @@ def main(apply=None):
   unique_art87()
   from weapons87_crossbow_grips import apply as crossbow87
   crossbow87()
+  from weapons87_p42_models import apply as p42_models
+  p42_models()
  if not args.apply:write(D/'plans.json',plans)
  print(('APPLIED' if args.apply else 'DRAFT ONLY'),len(owned),'assets; 8 per-ID sheets; no gameplay changes')
 if __name__=='__main__':main()
