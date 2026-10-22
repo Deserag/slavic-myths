@@ -51,8 +51,8 @@ public final class TrophyHeadsClient {
    float blink=TrophyHeadFxRules.lidOffset(time);
    if(lid!=null)lid.y=lidBaseY+blink;
    if(glow!=null&&(kind==TrophyHeads.Kind.LIKHO||kind==TrophyHeads.Kind.MOR_LIKHO)){
-    glow.x=glowBaseX+net.minecraft.util.Mth.clamp(lookX,-.5F,.5F);
-    glow.y=glowBaseY+net.minecraft.util.Mth.clamp(lookY,-.35F,.35F);
+    glow.x=glowBaseX+net.minecraft.util.Mth.clamp(lookX,-1.1F,1.1F);
+    glow.y=glowBaseY+net.minecraft.util.Mth.clamp(lookY,-.75F,.75F);
    }
    if(morEye!=null){float pulse=TrophyHeadFxRules.morEyeScale(time);morEye.xScale=morEyeScaleX*pulse;morEye.yScale=morEyeScaleY*pulse;}
    if(detail!=null)detail.xRot=detailBaseXRot+switch(kind){
@@ -128,8 +128,8 @@ public final class TrophyHeadsClient {
       double forward=dx*f.getStepX()+dz*f.getStepZ();
       if(forward>0&&dx*dx+dz*dz<24*24){
        double side=-dx*f.getStepZ()+dz*f.getStepX();
-       gazeX=(float)net.minecraft.util.Mth.clamp(side/Math.max(3,forward)*.4,-.5,.5);
-       gazeY=(float)net.minecraft.util.Mth.clamp((player.getEyeY()-(tile.getBlockPos().getY()+1.15))*-.16,-.35,.35);
+       gazeX=(float)net.minecraft.util.Mth.clamp(side/Math.max(2,forward)*.9,-1.1,1.1);
+       gazeY=(float)net.minecraft.util.Mth.clamp((player.getEyeY()-(tile.getBlockPos().getY()+1.15))*-.32,-.75,.75);
       }
      }
      h.pose(time,gazeX,gazeY);
@@ -149,8 +149,8 @@ public final class TrophyHeadsClient {
    if(Minecraft.getInstance().player.distanceToSqr(pos.getX()+.5,pos.getY()+1.2,pos.getZ()+.5)>24*24)return;
    long now=world.getGameTime();
    int period=switch(kind){
-    case TUGARIN->15;case SKIM->18;case VOLKOLAK->16;case PODZEMNIK->20;
-    case LIKHO->12;case MOR_LIKHO->9;
+    case TUGARIN->9;case SKIM->10;case VOLKOLAK->9;case PODZEMNIK->11;
+    case LIKHO->8;case MOR_LIKHO->7;
    };
    if(!TrophyHeadFxRules.particleDue(now,tile.clientLastFxTick,period))return;
    tile.clientLastFxTick=now;
@@ -168,7 +168,7 @@ public final class TrophyHeadsClient {
     case LIKHO->ParticleTypes.SOUL;
     case MOR_LIKHO->ParticleTypes.CRIMSON_SPORE;
    };
-   for(int i=0;i<3;i++)world.addParticle(particle,pos.getX()+.5+facing.getStepX()*.28+dx+(world.getRandom().nextDouble()-.5)*.14,
+   for(int i=0;i<5;i++)world.addParticle(particle,pos.getX()+.5+facing.getStepX()*.28+dx+(world.getRandom().nextDouble()-.5)*.14,
     pos.getY()+height+world.getRandom().nextDouble()*.25,
     pos.getZ()+.5+facing.getStepZ()*.28+dz+(world.getRandom().nextDouble()-.5)*.14,0,.018,0);
   }

@@ -28,6 +28,7 @@ jobs:
           python3 tools/verify_weapons87_p47.py
           python3 tools/verify_weapons87_p48.py
           python3 tools/verify_weapons87_p49.py
+          python3 tools/verify_trophy140_p50.py
           python3 tools/verify_weapons87_p41.py
           python3 tools/weapons87_unique_art.py --check
       - name: Java21 clean build
@@ -43,6 +44,7 @@ jobs:
           python3 tools/verify_weapons87_p47.py --jar
           python3 tools/verify_weapons87_p48.py --jar
           python3 tools/verify_weapons87_p49.py --jar
+          python3 tools/verify_trophy140_p50.py --jar
           python3 tools/weapons87_live_audit.py --jar
           sha256sum build/libs/slavicmyths-*.jar
       - uses: actions/upload-artifact@v4

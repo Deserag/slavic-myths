@@ -73,12 +73,12 @@ assert "bolt.setVisualOnly(true)" in thunder
 fx=source("client/TrophyHeadFxRules")
 head=source("client/TrophyHeadsClient")
 block=source("trophy/TrophyHeadBlock")
-assert ".34*Math.sin" in fx and ".24*Math.sin" in fx
-assert ".17+.16*Math.sin" in fx
+assert ".38*Math.sin" in fx and ".32*Math.sin" in fx
+assert ".28+.24*Math.sin" in fx
 assert "h.pose(time,gazeX,gazeY)" in head
 assert "glow.x=glowBaseX+" in head and "glow.y=glowBaseY+" in head
 assert "TrophyHeadFxRules.lidOffset(time)" in head
-assert "for(int i=0;i<3;i++)world.addParticle" in head
+assert "for(int i=0;i<5;i++)world.addParticle" in head
 assert "for(int i=0;i<24;i++)w.addParticle" in block
 assert "w.destroyBlock(at,true)" in block and "w.removeBlock(at,false)" in block
 
