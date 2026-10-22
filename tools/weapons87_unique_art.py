@@ -17,7 +17,9 @@ def apply():
     texture=ASSETS/TEXTURE
     texture.parent.mkdir(parents=True,exist_ok=True)
     texture.write_bytes(PNG)
-    print('APPLIED #184/#185 two item models and isolated 16px palette only')
+    from weapons87_p41_overlay import apply as p41_apply
+    p41_apply()
+    print('APPLIED #184/#185 base models plus P41 additive geometry overlay; original 16px palette unchanged')
 def check(jar=False):
     assert PNG[:8]==b'\x89PNG\r\n\x1a\n' and struct.unpack('>II',PNG[16:24])==(16,16)
     assert hashlib.sha256(PNG).hexdigest()=='c8f47ca2b0f4954b6f97f2a926d30536f2b75a0ebcba9d83a571a02ea868df22'
@@ -25,7 +27,10 @@ def check(jar=False):
     for id in IDS:
         before=load(id,'before');after=load(id,'draft')
         production=json.loads((ASSETS/'models/item'/f'{id}.json').read_text(encoding='utf-8'))
-        assert production==after,id+' production changed from frozen technical draft'
+        assert {k:v for k,v in production.items() if k!='elements'}=={k:v for k,v in after.items() if k!='elements'},id+' non-geometric art baseline drift'
+        assert production['elements'][:len(after['elements'])]==after['elements'],id+' frozen base cuboids changed'
+        from weapons87_p41_overlay import ADDITIONS
+        assert production['elements'][len(after['elements']):]==ADDITIONS.get(id,[]),id+' additive art overlay drift'
         assert (before['elements']==after['elements']) if id=='pool_spear' else (before['elements']!=after['elements'])
         assert {k:v for k,v in before.items() if k not in ('elements','textures','gui_light','display')}=={k:v for k,v in after.items() if k not in ('elements','textures','gui_light','display')}
         assert {k:v for k,v in before['display'].items() if k!='gui'}=={k:v for k,v in after['display'].items() if k!='gui'}
