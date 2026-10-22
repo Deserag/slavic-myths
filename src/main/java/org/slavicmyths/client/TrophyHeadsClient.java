@@ -4,6 +4,10 @@ import java.util.*;
 import com.mojang.blaze3d.vertex.*;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.*;
@@ -22,8 +26,14 @@ public final class TrophyHeadsClient {
  public static final class Head {
   public final ModelPart part;public final ResourceLocation texture;public final TrophyHeads.Kind kind;
   public final float[] bounds;public final float scale;
-  Head(TrophyHeads.Kind kind,ModelPart part,String texture){
+  private final ModelPart lid,morEye,glow;
+  private final float lidBaseY,morEyeScaleX,morEyeScaleY;
+  Head(TrophyHeads.Kind kind,ModelPart part,String texture){this(kind,part,texture,null,null,null);}
+  Head(TrophyHeads.Kind kind,ModelPart part,String texture,ModelPart lid,ModelPart morEye,ModelPart glow){
    this.kind=kind;this.part=part;this.texture=ResourceLocation.fromNamespaceAndPath("slavicmyths",texture);
+   this.lid=lid;this.morEye=morEye;this.glow=glow;
+   lidBaseY=lid==null?0:lid.y;
+   morEyeScaleX=morEye==null?1:morEye.xScale;morEyeScaleY=morEye==null?1:morEye.yScale;
    part.setPos(0,0,0);part.xRot=part.yRot=part.zRot=0;
    var capture=new Capture();part.render(new PoseStack(),capture,0,0);bounds=capture.bounds();
    scale=Math.min(.94F/(bounds[3]-bounds[0]),Math.min(.94F/(bounds[5]-bounds[2]),(kind.height-.1F)/(bounds[4]-bounds[1])));
@@ -33,14 +43,28 @@ public final class TrophyHeadsClient {
    pose.translate(-(bounds[0]+bounds[3])/2,-bounds[4],-(bounds[2]+bounds[5])/2);
    part.render(pose,out,light,overlay);pose.popPose();
   }
+  public void pose(float time){
+   if(lid!=null)lid.y=lidBaseY+TrophyHeadFxRules.lidOffset(time);
+   if(morEye!=null){float pulse=TrophyHeadFxRules.morEyeScale(time);morEye.xScale=morEyeScaleX*pulse;morEye.yScale=morEyeScaleY*pulse;}
+  }
+  public void resetPose(){
+   if(lid!=null)lid.y=lidBaseY;
+   if(morEye!=null){morEye.xScale=morEyeScaleX;morEye.yScale=morEyeScaleY;}
+  }
+  public void renderGlow(PoseStack pose,VertexConsumer out,int overlay){
+   if(glow==null)return;
+   pose.pushPose();pose.translate(.5,.04,.5);pose.scale(scale,-scale,-scale);
+   pose.translate(-(bounds[0]+bounds[3])/2,-bounds[4],-(bounds[2]+bounds[5])/2);
+   glow.render(pose,out,0xF000F0,overlay);pose.popPose();
+  }
  }
  /** Used by the real renderer and offline native-face exporter; no Minecraft instance needed. */
  public static Head create(TrophyHeads.Kind kind){return switch(kind){
   case TUGARIN->new Head(kind,new WorldBossModel(false,true).trophyHead(),"textures/entity/tugarin_phase2.png");
   case SKIM->new Head(kind,SkimMesh.create().getChild("body").getChild("neck"),"textures/entity/skim_beast.png");
   case VOLKOLAK->{var part=new CursedVolkolakModel().trophyHead();part.zScale=CursedVolkolakRenderer.DEPTH_SCALE;yield new Head(kind,part,"textures/entity/cursed_volkolak.png");}
-  case LIKHO->new Head(kind,new WorldBossModel(true).trophyHead(),"textures/entity/likho_one_eyed.png");
-  case MOR_LIKHO->new Head(kind,new WorldBossModel(true,false,true).trophyHead(),"textures/entity/mor/likho.png");
+  case LIKHO->{var model=new WorldBossModel(true);yield new Head(kind,model.trophyHead(),"textures/entity/likho_one_eyed.png",model.trophyHeadPart("upperLid"),null,model.trophyHeadPart("irisRing"));}
+  case MOR_LIKHO->{var model=new WorldBossModel(true,false,true);yield new Head(kind,model.trophyHead(),"textures/entity/mor/likho.png",null,model.trophyHeadPart("morEye"),model.trophyHeadPart("morEye"));}
   case PODZEMNIK->new Head(kind,UndergroundClient.Model.mesh(3).getChild("body").getChild("head"),"textures/entity/underground/large_podzemnik.png");
  };}
  private static final Map<TrophyHeads.Kind,Head> HEADS=new EnumMap<>(TrophyHeads.Kind.class);
@@ -58,7 +82,36 @@ public final class TrophyHeadsClient {
  public static final class Renderer implements BlockEntityRenderer<TrophyHeadBlock.Tile> {
   public Renderer(BlockEntityRendererProvider.Context c){}
   public void render(TrophyHeadBlock.Tile tile,float partial,PoseStack pose,MultiBufferSource buffer,int light,int overlay){
-   var block=(TrophyHeadBlock)tile.getBlockState().getBlock();var h=head(block.kind);pose.pushPose();pose.translate(.5,0,.5);pose.mulPose(Axis.YP.rotationDegrees(-tile.getBlockState().getValue(TrophyHeadBlock.FACING).toYRot()));pose.translate(-.5,0,-.5);h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);pose.popPose();
+   var block=(TrophyHeadBlock)tile.getBlockState().getBlock();var h=head(block.kind);
+   boolean animated=block.kind==TrophyHeads.Kind.LIKHO||block.kind==TrophyHeads.Kind.MOR_LIKHO;
+   float time=tile.getLevel()==null?0:tile.getLevel().getGameTime()+partial+Math.floorMod(tile.getBlockPos().asLong(),79);
+   pose.pushPose();
+   try{
+    pose.translate(.5,0,.5);
+    pose.mulPose(Axis.YP.rotationDegrees(-tile.getBlockState().getValue(TrophyHeadBlock.FACING).toYRot()));
+    pose.translate(-.5,0,-.5);
+    if(animated)h.pose(time);
+    h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);
+    if(animated&&(block.kind==TrophyHeads.Kind.MOR_LIKHO||TrophyHeadFxRules.likhoGlow(time)))
+     h.renderGlow(pose,buffer.getBuffer(RenderType.eyes(h.texture)),overlay);
+   }finally{
+    if(animated)h.resetPose();
+    pose.popPose();
+   }
+   if(animated)particle(tile,block.kind);
+  }
+  private static void particle(TrophyHeadBlock.Tile tile,TrophyHeads.Kind kind){
+   if(!(tile.getLevel() instanceof ClientLevel world)||Minecraft.getInstance().isPaused()||Minecraft.getInstance().player==null)return;
+   BlockPos pos=tile.getBlockPos();
+   if(Minecraft.getInstance().player.distanceToSqr(pos.getX()+.5,pos.getY()+1.2,pos.getZ()+.5)>24*24)return;
+   long now=world.getGameTime();
+   int period=kind==TrophyHeads.Kind.MOR_LIKHO?32:52;
+   if(!TrophyHeadFxRules.particleDue(now,tile.clientLastFxTick,period))return;
+   tile.clientLastFxTick=now;
+   Direction facing=tile.getBlockState().getValue(TrophyHeadBlock.FACING);
+   double dx=(world.getRandom().nextDouble()-.5)*.17,dz=(world.getRandom().nextDouble()-.5)*.17;
+   world.addParticle(kind==TrophyHeads.Kind.MOR_LIKHO?ParticleTypes.CRIMSON_SPORE:ParticleTypes.SOUL,
+    pos.getX()+.5+facing.getStepX()*.28+dx,pos.getY()+1.25+world.getRandom().nextDouble()*.25,pos.getZ()+.5+facing.getStepZ()*.28+dz,0,.006,0);
   }
  }
  public static final class ItemRenderer extends BlockEntityWithoutLevelRenderer {

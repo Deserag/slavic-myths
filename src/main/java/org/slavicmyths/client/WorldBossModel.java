@@ -8,6 +8,7 @@ import org.slavicmyths.hunt.*;
 /** All pivots and surfaces are generated from the reviewed geometry manifest. */
 public final class WorldBossModel extends EntityModel<WorldBoss> implements BossGeometrySink{
  public ModelPart trophyHead(){if(parts.containsKey("mouthGlow"))parts.get("mouthGlow").visible=false;return parts.get("head");}
+ public ModelPart trophyHeadPart(String name){return parts.get(name);}
  private int texWidth=64,texHeight=32;
  private final FolkModelGeometry geometry=new FolkModelGeometry();
  private final Map<String,ModelPart> parts=new LinkedHashMap<>();private final Map<String,float[]> neutral=new HashMap<>();private final boolean likho,serpent;private boolean higher;
