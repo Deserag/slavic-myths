@@ -2175,3 +2175,8 @@ Bow timing subset163 технически исправлен отдельно о
 ### #87 P44 — клиентские движения и спецзалп, 22.10.2026
 
 Новая работа только в постоянной ветке PR #216: частичный исходный scope #162/#165/#163/#160/#161 (32 ID, отдельные FP-фазы, charge-pitch арбалетов, одно muzzle-VFX/audio событие на volley, защита от повторного proc одной стрелы). Java21/JAR CI PASS #39812159700; реальные игровые 1P/3P/MP/fps сценарии NOT_RUN. Весь #87 и пять дочерних Issues остаются IN_PROGRESS, а не Готово. Далее требуются оставшиеся третьелицевые/сетевые/анимационные сценарии и отдельная приёмка владельца; #190 timing и баланс C/D запрещено менять без согласования. `main` не трогать.
+
+
+### #87 P45–P46 — throwing poses + historical regressions, 22.10.2026
+
+P45: source для 14 knife/sulitsa IDs и Java21 clean build + JAR PASS #39813871455; game runtime и мультиплеер owner pending, server projectile/velocity/reach/damage untouched. P46: исправлен только устаревший QA-снимок для 12 состояний арбалета, чтобы exact P42 art-additions не выдавали FAIL; теперь проверяется точное соответствие frozen original + approved overlay, с неизменным TP/FP проверочным gate. Сами weapon models/арт/механики не трогались. #121/#162/#165/#87 остаются незавершёнными; ветка PR #216 не объединяется в main.

@@ -3065,3 +3065,10 @@ weapons87_likho_gui.py — exact canonical overlay одного root JSON: gui_l
 ### #87 P44 — клиентская композиция поз и ограниченный эффект залпа
 
 `client/WeaponMotionClient.java` регистрирует официальные `RegisterClientExtensionsEvent` + `IClientItemExtensions.applyForgeHandTransform` для 32 ID с отдельными BLADE/HEAVY/SPEAR/POLEAXE/SICKLE/STAFF easing phases. Только клиентский PoseStack; не меняет `HumanoidModel`, серверный tick/attack/hit timing, registry или особые renderer косы, кистеней, арбалетов. В `WeaponHands.crossbowWrist` добавлен X/Z tilt на реальном progress charge. `SerpentCrossbow.fireRound` в server code создаёт по одному (lane==0) cue: 6 mode-specific vanilla particles и один звук на volley. `CrossbowDamage.hit` не выполняет повторный mode-proc для уже обработанного projectile UUID. Production Java21/JAR проверяется `tools/verify_weapons87_p44.py` и continuous CI #39812159700; Minecraft runtime/3P не тестировались, Issue ещё OPEN. Этот эффект не является синхронизированной с сервером skeletal-анимацией игрока, а только визуальным client transform/shot cue.
+
+
+### #87 P45–P46 — first-person throw pipeline и crossbow regression baseline
+
+P45: `ThrowingMotionClient` регистрирует client-only `IClientItemExtensions` для 14 concrete IDs, маппинг фактически используемой руки и отдельные ease/sample фазы throw knife vs charged sulitsa. `ThrowingWeaponItem` после подтверждённой клиентом попытки ножа/валидного release сулицы вызывает локальный `player.swing(hand)`, сохраняя `WeaponProjectile`, server `throwOne` и все последствия попадания без изменений. 3P продолжают native vanilla pose, game testing NOT_RUN.
+
+P46: прежние frozen crossbow QA datasets отражают архив до P42. Два исторических verifiers теперь не удаляют эти снимки, а требуют **строгого** сопоставления `original.elements + weapons87_p42_models.ADDITIONS[id]` (5/3 cuboids) при полном сохранении сравнений TP palm pivot и прочих model metadata. Canonical P42 overlay в production не изменён; источник истинности по новым деталям — тот же модуль `weapons87_p42_models`. Это устраняет устаревший false-negative legacy CI, не разрешая произвольную модель.

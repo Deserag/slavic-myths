@@ -119,3 +119,23 @@
 | Multiplayer/Steve/Alex, обе руки и actual 3P view | Minecraft/PolyMC | NOT_RUN / OWNER_PENDING |
 
 **Запреты сохранены:** #190 не изменялась, баланса и серверного hit timing нет, существующие 14 flight models/PNG, texture генераторы и #173 не переписаны; Issues OPEN.
+
+
+### P45 — подтверждённый CI / Java21 production JAR
+
+- [GitHub Actions #39813871455](https://github.com/Deserag/slavic-myths/actions/runs/39813871455), коммит `b96024c4112b1b621908c49619113d6c583c2b9b`: **SUCCESS**; `./gradlew clean build` Java 21 SUCCESS; P42/P43/P44/P45 проверка исходников и packaged JAR PASS.
+- Production `build/libs/slavicmyths-1.9.7.56.jar`, SHA256 `75aede07fc2240f23cb1fdb6ead673c565fcbd8179586e2c02d663bba68f32e9`.
+- Runtime Minecraft/PolyMC/remote multiplayer: **0 / NOT_RUN**. #162/#165 остаются OPEN/IN_PROGRESS; в 3P и в механике выбрасывания предмета при last-use ещё необходима игровая проверка.
+
+## P46 — #121 системный regression gate исторического арбалета без отката P42
+
+- **Подтверждённый дефект QA (а не дефект исходной модели):** отдельные старые GitHub Actions `Weapons87 Crossbow Pull`, `P36 Crossbow Held Stack`, `P38 Combat Visuals`, `Kalin wave` завершаются FAIL ещё на проверке исходников. `tools/verify_weapons87_crossbows.py` сравнивает все элементы 12 моделей с архивом **до** P42, а `tools/weapons87_owner_qa.py` сравнивает текущее количество элементов с замороженным счётчиком до P42. Поэтому **одобренные кодом P42 +5 физических деталей `serpent_crossbow` и +3 `three_breath_crossbow` вызывали ложное FAIL**, несмотря на успешные Java21/JAR continuous checks P42/P43/P44/P45. Сам архив baseline не изменялся.
+- **Исправление защиты, не отключение тестов:** `tools/verify_weapons87_crossbows.py` теперь требует **строго** `final.elements == frozen_original.elements + P42.ADDITIONS[id]`, при проверке остальных frozen metadata исключает только этот exact suffix. `tools/weapons87_owner_qa.py` ожидает `oldCount + len(P42.ADDITIONS[id])` и проверяет exact одобренный suffix; у TP-поворотов/центровки ладони и всех остальных проверок остаётся прежний строгий gate. Ранее существовавшие model geometry и PNG/UV/TP не изменены; owner feedback 3P/Steve/Alex остаётся NOT_RUN.
+- **Изменено:** только 2 Python-верификатора. Ни модель, ни исходная анимация, ни hit logic, ни `main` не менялись. Code/CI verification: PENDING до запуска GitHub Actions на том же PR #216.
+
+| REQUIREMENT | EVIDENCE | STATUS |
+|---|---|---|
+| Frozen baseline cuboids сохранены по 12 states | `verify_weapons87_crossbows.py` exact prefix | CODE IMPLEMENTED / CI PENDING |
+| Разрешены строго дополнительные кубы P42 | `weapons87_p42_models.ADDITIONS`, 2 verifier files | CODE IMPLEMENTED / CI PENDING |
+| TP grip + FP/GUI/metadata KEEP | Исходные asserts `verify_weapons87_crossbows`, `weapons87_owner_qa` | CI PENDING |
+| Полный Minecraft/PolyMC runtime | Owner | NOT_RUN / OWNER_PENDING |

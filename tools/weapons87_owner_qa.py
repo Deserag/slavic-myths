@@ -1,6 +1,7 @@
 """Owner-reported runtime failures: source+JAR regression checks, native source-only A/B."""
 from pathlib import Path
 import argparse,copy,json,zipfile,hashlib
+from weapons87_p42_models import ADDITIONS
 
 ROOT=Path(__file__).resolve().parents[1]
 ASSETS=ROOT/'src/main/resources/assets/slavicmyths'
@@ -21,7 +22,8 @@ def check(jar=False):
             path='src/main/resources/assets/slavicmyths/models/item/'+name+'.json'
             saved=CROSSBOWS[path]
             m=load_model(path)
-            assert len(m['elements'])==saved['elementCount'],name
+            assert len(m['elements'])==saved['elementCount']+len(ADDITIONS[id]),name
+            assert m['elements'][saved['elementCount']:] == ADDITIONS[id],name+' unexpected geometry after the P42 approved overlay'
             for side in ('right','left'):
                 tag='thirdperson_'+side+'hand'
                 old=saved['oldTP'][side]
@@ -86,7 +88,7 @@ def render():
             for col,side in enumerate(('righthand','lefthand')):
                 td=model['display']['thirdperson_'+side]
                 draw.text((810,100+row*315+col*55),side+' X tilt='+str(td['rotation'][0])+' deg, T='+str(td['translation']),fill='white')
-        draw.text((12,678),'All actual model states preserve original cuboids/UV/PNG. Third-person owner client angle/arms: NOT_RUN; manually inspect Steve/Alex.',fill='white')
+        draw.text((12,678),'Actual models keep original cuboids/UV/PNG plus the approved P42 art details. Third-person owner client angle/arms: NOT_RUN; manually inspect Steve/Alex.',fill='white')
         board.save(output/(id+'-loaded-thirdperson-before-after.png'))
 if __name__=='__main__':
     p=argparse.ArgumentParser()
