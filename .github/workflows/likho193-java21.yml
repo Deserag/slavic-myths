@@ -1,0 +1,56 @@
+name: Likho 193 - Java 21 build and source checks
+
+on:
+  push:
+    branches:
+      - feat/likho-193-forest-spawn
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  java21:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Verify forest, combat, Mor, and GAZE policies
+        shell: bash
+        run: |
+          mkdir -p build/likho193-offline
+          javac --release 21 -encoding UTF-8 -d build/likho193-offline \
+            src/main/java/org/slavicmyths/hunt/BossKind.java \
+            src/main/java/org/slavicmyths/hunt/BossRules.java \
+            src/main/java/org/slavicmyths/hunt/LikhoCombatRules.java \
+            src/main/java/org/slavicmyths/hunt/LikhoGazeRules.java \
+            src/main/java/org/slavicmyths/mor/MorPresenceRules.java \
+            src/main/java/org/slavicmyths/mor/HigherRules.java \
+            src/main/java/org/slavicmyths/mor/MorExposure.java \
+            tools/likho193-offline/Likho193Offline.java
+          java -cp build/likho193-offline org.slavicmyths.verify.Likho193Offline
+      - name: Clean NeoForge production build
+        shell: bash
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon clean build --stacktrace
+      - name: Verify JAR
+        shell: bash
+        run: |
+          set -euo pipefail
+          ls -lh build/libs/
+          find build/libs -maxdepth 1 -name 'slavicmyths-*.jar' -size +100k -print -quit | grep -q jar
+          sha256sum build/libs/slavicmyths-*.jar
+      - name: Publish tested production JAR
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: likho193-java21-production-jar
+          path: build/libs/slavicmyths-*.jar
+          if-no-files-found: error
+          retention-days: 7
