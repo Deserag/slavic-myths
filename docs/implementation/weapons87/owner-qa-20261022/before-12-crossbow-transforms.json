@@ -1,0 +1,498 @@
+{
+  "base": "64e89143e2d76d3e492bd1b5fa00462011ed718f",
+  "owner_runtime": "FAIL",
+  "records": [
+    {
+      "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_arrow.json",
+      "blob": "9ff4f32a9ff1641d4f8d88505a9b59ab7780f23a",
+      "oldTP": {
+        "right": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        },
+        "left": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        }
+      },
+      "elementCount": 9
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_firework.json",
+      "blob": "9ff4f32a9ff1641d4f8d88505a9b59ab7780f23a",
+      "oldTP": {
+        "right": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        },
+        "left": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        }
+      },
+      "elementCount": 9
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_pulling_0.json",
+      "blob": "f47525c699b2f0ccdd59b3b75acb96b92110af52",
+      "oldTP": {
+        "right": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        },
+        "left": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        }
+      },
+      "elementCount": 8
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_pulling_1.json",
+      "blob": "bb177770ab07723f574de0999bd92825ee589d1d",
+      "oldTP": {
+        "right": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        },
+        "left": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        }
+      },
+      "elementCount": 8
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_pulling_2.json",
+      "blob": "0a58f5200b9de23b499f71438df6fcd3b3fe4d29",
+      "oldTP": {
+        "right": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        },
+        "left": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        }
+      },
+      "elementCount": 8
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow.json",
+      "blob": "3b58fd78f6875708d4933326bac16c8e3d7d117b",
+      "oldTP": {
+        "right": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        },
+        "left": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        }
+      },
+      "elementCount": 8
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_arrow.json",
+      "blob": "078c70bd8517e01d8deb37dead97f5ab28b460d7",
+      "oldTP": {
+        "right": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        },
+        "left": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        }
+      },
+      "elementCount": 68
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_firework.json",
+      "blob": "078c70bd8517e01d8deb37dead97f5ab28b460d7",
+      "oldTP": {
+        "right": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        },
+        "left": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        }
+      },
+      "elementCount": 68
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_0.json",
+      "blob": "67f2439820c13f2bd9e5452bcab0d9df8f16b7c5",
+      "oldTP": {
+        "right": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        },
+        "left": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        }
+      },
+      "elementCount": 65
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_1.json",
+      "blob": "a458984b082c33321cc85988243b4d865df0bb71",
+      "oldTP": {
+        "right": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        },
+        "left": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        }
+      },
+      "elementCount": 65
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_2.json",
+      "blob": "13880a2e70eaeb8b551584eff18cd22270cdb267",
+      "oldTP": {
+        "right": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        },
+        "left": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        }
+      },
+      "elementCount": 65
+    },
+    {
+      "path": "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow.json",
+      "blob": "19bd65d8a7b127a72edfd55c49de820f9319c0e2",
+      "oldTP": {
+        "right": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        },
+        "left": {
+          "rotation": [
+            -90,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            -2.475,
+            -1.375
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ]
+        }
+      },
+      "elementCount": 65
+    }
+  ]
+}
