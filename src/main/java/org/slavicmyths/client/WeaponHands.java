@@ -49,6 +49,9 @@ public final class WeaponHands {
    for(int i=0;i<2;i++){observedCrossbows[i]=null;observedCharged[i]=false;lastShotClock[i]=Double.NEGATIVE_INFINITY;}
   }
   int index=hand==InteractionHand.MAIN_HAND?0:1;
+  ItemStack held=player.getItemInHand(hand);
+  if(!(held.getItem() instanceof SerpentCrossbow))return 0;
+  stack=held;
   boolean charged=CrossbowItem.isCharged(stack);
   double now=level.getGameTime()+partial;
   if(observedCrossbows[index]!=stack){
