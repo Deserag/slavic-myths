@@ -10,9 +10,9 @@
 
 | REQUIREMENT | EVIDENCE | STATUS |
 |---|---|---|
-| Честные native части, без UV-change и выходов за размер | Heads140Offline по 52 временны́м срезам каждой формы | CI PENDING |
-| Эффекты ограничены по частоте и локальности | TrophyHeadFxRules и BockEntityRenderer | SOURCE CHECK |
-| Java21 NeoForge clean build / JAR | .github/workflows/trophy140-fx-java21.yml | CI PENDING |
+| Честные native части, без UV-change и выходов за размер | Heads140Offline по 52 временны́м срезам каждой формы | PASS CI #39751552635 (Java21/Gradle) |
+| Эффекты ограничены по частоте и локальности | TrophyHeadFxRules и BockEntityRenderer | PASS CODE REVIEW |
+| Java21 NeoForge clean build / JAR | .github/workflows/trophy140-fx-java21.yml | PASS CI #39751552635 (Java21/Gradle) |
 | Реальный визуальный вид, кадры, FPS, relog и shader compatibility | ручная игровая проверка владельца | NOT_RUN |
 | Оставшиеся 4 головы | последующие этапы #140 | NOT_IMPLEMENTED |
 
