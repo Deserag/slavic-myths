@@ -32,7 +32,7 @@ public final class WeaponHands {
   var mc=Minecraft.getInstance();var p=mc.player;if(p==null||!(e.getItemStack().getItem() instanceof SerpentCrossbow))return;
   e.setCanceled(true);var pose=e.getPoseStack();boolean left=(e.getHand()==InteractionHand.MAIN_HAND)==(p.getMainArm()==HumanoidArm.LEFT);int sign=left?-1:1;
   pose.pushPose();float swing=net.minecraft.util.Mth.sin((float)Math.sqrt(e.getSwingProgress())*(float)Math.PI);
-  float pull=p.isUsingItem()&&p.getUseItem()==e.getItemStack()?Math.clamp((e.getItemStack().getUseDuration(p)-p.getUseItemRemainingTicks()+e.getPartialTick())/(net.minecraft.world.item.CrossbowItem.getChargeDuration(e.getItemStack(),p)+10f),0,1):0;
+  float pull=p.isUsingItem()&&p.getUsedItemHand()==e.getHand()?Math.clamp((e.getItemStack().getUseDuration(p)-p.getUseItemRemainingTicks()+e.getPartialTick())/(net.minecraft.world.item.CrossbowItem.getChargeDuration(e.getItemStack(),p)+10f),0,1):0;
   float kick=crossbowKick(p,mc.level,e.getItemStack(),e.getHand(),e.getPartialTick());
   crossbowWrist(pose,sign,swing,pull);
   if(kick>0){pose.translate(0,-.035* kick,.13*kick);pose.mulPose(Axis.XP.rotationDegrees(-9*kick));}
