@@ -42,13 +42,12 @@ def check(jar=False):
         assert required in axe,required
     assert 'target.hurt(' not in axe and 'setWeatherParameters(' not in axe and 'setVisualOnly(false)' not in axe
     sabre=(ROOT/'src/main/java/org/slavicmyths/rewards/RewardEvents.java').read_text(encoding='utf-8')
-    assert 'public static void sweep(ServerPlayer p,LivingEntity target,float damage)' in sabre
-    assert 'if(count<3)' in sabre and 'count=clock-n.getLong("MomentumAt")<=600' in sabre
-    assert 'if(victim.hurt(' in sabre and 'damage*.6F' in sabre and 'ordinary(e)&&hostile(e,p)' in sabre
-    assert 'target.getBoundingBox().inflate(4.5)' in sabre and 'e.distanceToSqr(target)<=20.25' in sabre and '&&++hits==3' in sabre
-    assert 'target.getX()+Math.cos(a)*2.6' in sabre
-    assert 'SweepIntent' not in sabre and 'MomentumKills' not in sabre
-    assert 'if(!p.getMainHandItem().is(RewardContent.item("trophy_kalin_sabre"))' in sabre
+    sabre_item=(ROOT/'src/main/java/org/slavicmyths/rewards/RewardContent.java').read_text(encoding='utf-8')
+    assert 'public static void sabreWave(ServerPlayer p)' in sabre
+    assert 'p.getBoundingBox().inflate(5.5)' in sabre and 'hits>=6' in sabre
+    assert 'PLAYER_ATTACK_SWEEP' in sabre and 'ParticleTypes.SWEEP_ATTACK' in sabre
+    assert 'RewardEvents.sabreWave(server)' in sabre_item and 'player.swing(hand,true)' in sabre_item
+    assert 'sweep(p,e.getEntity()' not in sabre and 'MomentumAt' not in sabre
     if jar:
         jars=list((ROOT/'build/libs').glob('slavicmyths-*.jar'))
         assert len(jars)==1
@@ -59,7 +58,7 @@ def check(jar=False):
                     assert hashlib.sha256(z.read(path)).hexdigest()==hashlib.sha256((ROOT/'src/main/resources'/path).read_bytes()).hexdigest(),path
             for name in ('item/ThunderAxeItem.class','rewards/RewardEvents.class'):
                 assert 'org/slavicmyths/'+name in z.namelist(),name
-    print(f'PASS owner-feedback gates: {checked} real crossbow states, both hands all 12 Z-axis horizontal and grip-centered, +1HP visual-only lightning, three-hit sabre wave. JAR',jar,'Minecraft NOT_RUN')
+    print(f'PASS owner-feedback gates: {checked} real crossbow states, both hands all 12 Z-axis horizontal and grip-centered, +1HP visual-only lightning, active right-click sabre wave. JAR',jar,'Minecraft NOT_RUN')
 def render():
     import weapons87_geometry as g
     from PIL import Image,ImageDraw
