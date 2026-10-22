@@ -94,3 +94,6 @@ Owner explicitly approvedB; реализован speed.8 perunite_mace и storm 
 
 ### Пакет14 — #115, 22.10.2026 (ветка feat/weapons87-p14-crossbow-grips)
 12 арбалетных item models: только TP left/right translations [0,-2.475,-1.375] вместо [0,2,0],3D/FP/GUI/predicates/stats unchanged. До/после и проверочный источник в PACKAGE-14.md, native source boards в blueprints/crossbow-grips; Python 48 pivot cases; Java21 CI pending. Issue OPEN и owner runtime NOT_RUN. Не выдавать независимые #175/#176 или всю #115 за принятую реализацию.
+
+### Пакеты15–19, 22.10.2026: пять source KEEP / индивидуальная оценка
+Пакет15 #175 three_breath_crossbow (65–68 cuboids, крупный поздний артефакт); пакет16 #176 serpent_crossbow (8–9 cuboids, компактный оригинал); пакет17 #177 ornate karachun_scythe (60 cuboids); пакет18 #179 ледяной morozko_staff (66 cuboids); пакет19 #183 nightingale_dagger (12 cuboids). Пять личных существующих PNG-листов UV/source/profile/3⁄4/GUI и точные JSON SHA; модели не перерисованы. Арт KEEP по source, не FINAL и не owner acceptance. P14 #115 TP fix независим от арта #175/#176; CI pending. Геймплей, rig и способности untouched. Следующий #184 trophy_kalin_sabre; все Issues OPEN.
