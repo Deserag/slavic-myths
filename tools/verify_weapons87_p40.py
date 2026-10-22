@@ -42,11 +42,15 @@ for name, expected in (("stone_throwing_knife",5),("stone_sulitsa",6)):
     assert len(held["display"])==4
     for e in held["elements"]:cuboid(e)
     assert (A/"textures/item"/(name+".png")).is_file()
-    assert held["textures"]["body"]=="slavicmyths:item/"+name
+    assert held["textures"]["body"]=="slavicmyths:item/weapons87_materials"
+    assert held["textures"]["particle"]=="slavicmyths:item/"+name
+    assert (A/"textures/item/weapons87_materials.png").is_file()
+    assert any(face["uv"]==[12,0,16,4] for e in held["elements"] for face in e["faces"].values())
 knife3=item("stone_throwing_knife_held");javelin=item("stone_sulitsa_held")
 def reach(x):
     return max(e["to"][1] for e in x["elements"])-min(e["from"][1] for e in x["elements"])
-assert reach(javelin)>reach(knife3)*2
+assert reach(javelin)>reach(knife3)*1.5
+assert reach(javelin)<23 # no giant thrown spear in the world
 # Thrown entity renderer does not apply frame-specific FIXED rotation.
 renderer=(R/"src/main/java/org/slavicmyths/client/WeaponProjectileRenderer.java").read_text()
 assert "FLIGHT_CONTEXT=ItemDisplayContext.NONE" in renderer
