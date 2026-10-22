@@ -91,3 +91,6 @@ Owner explicitly approvedB; реализован speed.8 perunite_mace и storm 
 ### Пакет13,22.10.2026
 
 #178 GUI crop/eye-facing FIX,форма5cubes/UV/PNG/все nonGUI transforms KEEP. Персональный чертёж до production,20 native source cases,clipTrue→False,eye0→1. Java21 clean build/native/resource/JAR/generators7779 PASS. SHA40398a2db4de52fe7d499a606fb9a14611ab4ec082e557813d4956a9423fa20a,23704670 bytes,version53,NOT_INSTALLED. Далее11 KEEP unique IDs175176177179183184185186187188189: нужны персональные source assessments,actual states/SHA/JAR/body/FP evidence,не новые art edits ради галочки.180/181/182/178 FIX already covered. Full87 continues; C/D/190 pending.
+
+### Пакет14 — #115, 22.10.2026 (ветка feat/weapons87-p14-crossbow-grips)
+12 арбалетных item models: только TP left/right translations [0,-2.475,-1.375] вместо [0,2,0],3D/FP/GUI/predicates/stats unchanged. До/после и проверочный источник в PACKAGE-14.md, native source boards в blueprints/crossbow-grips; Python 48 pivot cases; Java21 CI pending. Issue OPEN и owner runtime NOT_RUN. Не выдавать независимые #175/#176 или всю #115 за принятую реализацию.
