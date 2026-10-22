@@ -20,6 +20,6 @@ assert 'THUNDER_COOLDOWN = 60' in src
 assert 'event.setNewDamage(event.getNewDamage() + BONUS_DAMAGE)' in src
 assert src.index('event.setNewDamage(')<src.index('world.sendParticles(')<src.index('world.playSound(')
 assert 'target.hurt(' not in src and '.invulnerableTime' not in src
-assert src.count('addCooldown(')==1 and src.count('setNewDamage(')==2
+assert src.count('addCooldown(')==1 and src.count('setNewDamage(')==1
 assert re.search(r'boolean hurtEnemy\([^}]+return super\.hurtEnemy\(stack, target, attacker\);',src)
 print('PASS Thunder Axe: accepted hit only, 20% roll, +1HP final damage, 60 ticks, exactly one proc/FX, no second hurt or invulnerability reset. Runtime NOT_RUN.')
