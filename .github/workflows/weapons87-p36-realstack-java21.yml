@@ -1,0 +1,35 @@
+name: Weapons87 P36 Crossbow Held Stack
+on:
+  push:
+    branches:
+      - fix/weapons87-p36-crossbow-realstack
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Source regressions
+        run: |
+          python3 tools/verify_weapons87_crossbow_realstack.py
+          python3 tools/verify_weapons87_crossbow_recoil.py
+          python3 tools/verify_weapons87_crossbows.py
+      - name: Java 21 build
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon clean build --stacktrace --console=plain
+      - name: Packaged checks
+        run: |
+          python3 tools/verify_weapons87_crossbow_recoil.py --jar
+          python3 tools/weapons87_live_audit.py --jar
+          sha256sum build/libs/slavicmyths-*.jar
