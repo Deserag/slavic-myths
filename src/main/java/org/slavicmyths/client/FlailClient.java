@@ -86,13 +86,14 @@ public final class FlailClient {
             var mc=Minecraft.getInstance();String name=BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath();
             if(!IDS.contains(name))return;
             boolean hand=context.firstPerson()||context==ItemDisplayContext.THIRD_PERSON_LEFT_HAND||context==ItemDisplayContext.THIRD_PERSON_RIGHT_HAND;
-            LivingEntity owner=binding!=null&&binding.stack==stack&&binding.context==context?binding.owner:null;
+            LivingEntity owner=binding!=null&&binding.context==context&&binding.stack!=null&&ItemStack.isSameItemSameComponents(binding.stack,stack)?binding.owner:null;
             pose.pushPose();try{
                 pose.translate(.5,.5,.5);
                 if(!hand||owner==null){draw(stack,name+(context==ItemDisplayContext.GUI?"_icon":"_held"),pose,buffers,light,overlay);return;}
                 float partial=mc.getTimer().getGameTimeDeltaPartialTick(false);
                 boolean left=context==ItemDisplayContext.FIRST_PERSON_LEFT_HAND||context==ItemDisplayContext.THIRD_PERSON_LEFT_HAND;
                 InteractionHand held=(owner.getMainArm()==net.minecraft.world.entity.HumanoidArm.LEFT)==left?InteractionHand.MAIN_HAND:InteractionHand.OFF_HAND;
+                if(!ItemStack.isSameItemSameComponents(owner.getItemInHand(held),stack)){draw(stack,name+"_held",pose,buffers,light,overlay);return;}
                 float charge=owner.isUsingItem()&&owner.getUsedItemHand()==held&&stack.getItem() instanceof org.slavicmyths.combat.FlailItem?Math.clamp((owner.getTicksUsingItem()+partial)/18f,0,1):0;
                 boolean attacking=owner.swinging&&owner.swingingArm==held;
                 FlailMotion.Pose motion=FlailMotion.sample(owner.tickCount+partial,owner.walkAnimation.speed(partial),charge,owner.getAttackAnim(partial),attacking,name.equals("ataman_flail"));
