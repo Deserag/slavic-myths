@@ -22,8 +22,8 @@ import net.minecraft.server.level.ServerLevel;
 /** Bounded ray pulse on use; no projectile, terrain damage, or tick scan. */
 public final class StormStaffItem extends Item {
     public static final float BASE_PULSE_DAMAGE=6.0F;
-    public static final int PULSE_COOLDOWN=54;
-    public static final int RUNE_COOLDOWN=48;
+    public static final int PULSE_COOLDOWN=48;
+    public static final int RUNE_COOLDOWN=42;
     public static float pulseDamage(boolean staffPower,boolean thunderRune) {
         return BASE_PULSE_DAMAGE*(staffPower?1.12F:1)*(thunderRune?1.15F:1);
     }

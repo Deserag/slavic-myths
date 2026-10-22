@@ -256,3 +256,21 @@ P44/P45 добавили клиентские **first-person** фазы 32 melee
 - По прямому сообщению владельца (принял всё **кроме** перечисленных дефектов, отдельно подтвердил косу/посох Морозко/арбалеты) добавлена метка `owner-accepted` **только на узкие, арт-ориентированные задачи**: **#170 (обычные булавы), #174 (бердыш/серп/обычные посохи, без нового навыка carved_staff), #175/#176 (арт обоих арбалетов), #177 (коса Карачуна), #179 (посох Морозко), #183 (кинжал Соловья), #186 (арт лука Финиста)**. Ошибка auto-aim Finist НЕ принята и исправлена отдельным P49 code path без объявления игрового успеха.
 - **Важное различие:** это **label** GitHub Issue (owner-acceptance, прямо согласовано владельцем), но **не изменение поля Status=«Готово» в GitHub Project №9**: текущий GitHub connector не предоставляет operation для Project v2 Status. Issues остаются OPEN, не закрывались. Подзадачи #115/#140/#160/#164/#180/#185/#188 и исполнительская часть #162/#163/#165 остаются спорными до нового owner-test и **НЕ** получают `owner-accepted`.
 - Реальный Minecraft/PolyMC/MP на этой сборке: **0 запусков**, скрины рук, оригинальной плети, разлёта шара кистеня, глаз/челюстей трофейных голов и рога: **NOT_RUN**, acceptance этих конкретных дефектов по-прежнему OWNER_PENDING. Изменения mob-AI Лиха #193 не входят в пакет голов.
+
+
+## P49 — отзыв владельца, 22.10.2026: РЕАЛЬНАЯ игровая приёмка вместо offline предположений
+
+**Владелец не принял**: Finist homing (периодически не наводится); хват обоих каролингских мечей; кистень (ядро не делает ударной дуги); мерцание наконечника обычного копья; thunder spear (механика грозы недостаточна); victor spear (ошибочный и слишком поздний текст повторного выпада); плеть Полоза (отмена неутверждённой правки, хват за рукоять, вернуть старый дизайн); 3D охотничий рог; трофейные головы #140 (слишком слабые и редкие анимации, нет частиц, поломка и неработающие мимические анимации: Лихо eye follow/open/close, подземник jaw, Волколак ears, Ским и Тугарин eyes/ears). **#140 не закрывать / не принимать** и не выдавать за выполненную визуальную проверку. Арбалеты, коса Карачуна и посох Морозко **приняты и не должны менять модель/animation ещё раз**. Резной посох KEEP (базовая/прогрессия). Всё остальное без замечаний принято владельцем только в пределах конкретных проверенных отдельных задач; большой issue нельзя закрывать, если есть непринятые child requirements. Project Status API unavailable, issue comments ≠ Project Status.
+
+### P49a — первая адресная правка в этой итерации
+
+- `item/StormStaffItem.java`: user requested faster cooldown by at least ~0.3 seconds. Existing 54 / 48 ticks -> **48 / 42**, exactly **-6 ticks = -0.3s** for normal / active-rune cast. Damage/targeting/range/VFX untouched.
+- `finist/FinistArrow.java`: `steer` had **hard stop when angle > 85°** (no homing at all for target outside that forward cone), despite valid locked `FinistMarks.target`. Removed that hard cutoff; full 6° bounded turn for obtuse angles, and an antiparallel special case to avoid near-`sin(π)=0` numerical instability. All hit damage, ownership, claim, pickup and `FinistQuiver` untouched. **Periodic failure reported by owner still requires reproduction**; this fixes one independently verified code defect, does not assert all homing cases solved.
+- User requested more work than these two edits. Remaining defects above stay **OPEN / NEEDS FIX**, not hidden as accepted. Minecraft test for these edits NOT_RUN. CI PENDING until GitHub Actions checks actual new commit.
+
+| Scope | Code evidence | State |
+|---|---|---|
+| Storm staff -0.3s both cooldown modes | `PULSE_COOLDOWN=48`, `RUNE_COOLDOWN=42` | SOURCE IMPLEMENTED, CI PENDING |
+| Finist arrow no 85-degree tracking dead zone | `FinistArrow.steer` | SOURCE IMPLEMENTED, CI PENDING, REAL GAME NOT_RUN |
+| Swords, flails, spear, victor, whip, horn | Owner FAIL; P49 backlog | NOT FIXED |
+| All 6 trophy heads #140 | Owner explicit REJECTED | NOT FIXED, #140 OPEN |
