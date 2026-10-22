@@ -293,3 +293,15 @@ P44/P45 добавили клиентские **first-person** фазы 32 melee
 - [Workflow #39828042779](https://github.com/Deserag/slavic-myths/actions/runs/39828042779) **SUCCESS** на `444053b332868c65196ecf8726f9c1039cde5f50`: Java 21 `clean build` **BUILD SUCCESSFUL**, P49 + P50 source checks PASS и packaged Java classes/JAR checks PASS.
 - `build/libs/slavicmyths-1.9.7.56.jar`, SHA256 **`18b97afa5f24d87ce77e8e79c057cb4fdb52a67ebe0dc6b838944345543639d4`**.
 - Всё ещё **NOT_RUN в Minecraft**; визуальный эффект и правильность eye target/увеличенного blink в 6 реальных моделях — OWNER_PENDING. #140 всё ещё OPEN/REWORK, даже при зелёном CI, и это только трофейные блоки, не анимации живых мобов.
+
+## P51 — адресная доработка непринятых Finist homing и трофея Тугарина (22.10.2026)
+
+- **FinistArrow:** исправлен проверенный геометрический дефект при угле почти 180°: прежняя линейная смесь `from*(1-fraction)+to*fraction` оставляла стрелу в прежнем направлении при малом шаге. Теперь устойчивый касательный вектор, ортогональный текущей скорости, даёт ровно до 6° поворота за тик без изменения длины скорости. Остальные углы, ammo, quiver, damage, target validation и право сервера на коллизию не изменены.
+- **TrophyHeadsClient:** в уже имеющейся геометрии Тугарина найдены настоящие `pupilL` и `pupilR` как независимые `ModelPart`. Оба привязаны к локальному gaze установленных трофейных голов в передней полусфере, с ограниченным сдвигом и обязательным сбросом исходных координат после каждого render. Модель живого Тугарина, текстуры, геометрия и принятые предметы не изменены. Глаза Ским-зверя запечены в mesh `head` и этим исправлением не объявляются готовыми.
+- `tools/verify_weapons87_p51.py` проверяет указанные реальные связи, математический инвариант разворота и production class packaging; workflow непрерывной ветки дополнен. **CI после этого коммита ещё требуется подтвердить.** Minecraft/PolyMC/server/MP **NOT_RUN**, визуальная и функциональная приёмка **OWNER_PENDING**, задачи #140/#186 остаются OPEN. Не сливать PR #216 в main и не ставить Готово.
+
+| REQUIREMENT | EVIDENCE | STATUS |
+|---|---|---|
+| Steering почти на 180° даёт 6°/tick вместо нулевого поворота | `FinistArrow.steer`, P51 source/math guard | SOURCE FIX; CI PENDING; GAME NOT_RUN |
+| Оба реальных зрачка Тугарина следят за игроком и восстанавливаются | `TrophyHeadsClient.Head`, `BossReworkGeometry`, P51 guard | SOURCE FIX; CI PENDING; VISUAL NOT_RUN |
+| Все непринятые части голов #140 и повторная игровая приёмка Финиста | Сценарии владельца, источник модели Скима | OPEN / OWNER_PENDING |

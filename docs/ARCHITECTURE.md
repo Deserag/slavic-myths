@@ -3085,3 +3085,6 @@ P46: прежние frozen crossbow QA datasets отражают архив до
 
 ### #87 P49 — изоляция изменений по отзывам
 Прежняя `poloz_whip.json` восстановлена из `3f114c32`, оригинальные `slavicmyths:whip_pose` overrides и native textures в силе, `PolozWhip.java` не меняется. `FlailMotion` масштабирует 7 звеньев только при contact, server `FlailItem` не меняется. `FinistArrow` не пересчитывает mutable player LOS/lock во время запущенного homing; collision & max 6°/tick остаются. `RareCombat` suppresses repeating second-stab actionbar via cooldown-on-arm and expiration cleanup. `ThunderSpearCombat` creates only visualOnly lightning. `TrophyHeadsClient` runs client-only gaze/blink/jaw/particle animation; `TrophyHeadBlock` client-only break burst, one-item loot semantics remain. Архитектурные лимиты и P49 QA в `implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md`; игровой рендер не подтверждён.
+
+## 22.10.2026 — P51 непринятые дефекты (#140, Finist)
+В непрерывной ветке PR #216 исходно исправлены near-antiparallel 6°/tick в `FinistArrow` и непосредственное движение двух native зрачков Тугарина в поставленной голове; source/math+JAR guard `tools/verify_weapons87_p51.py`. Перед запуском CI все проверки P51 PENDING, Minecraft/PolyMC NOT_RUN, приёмка владельца отсутствует. Непринятая анимация глаз Ским-зверя не скрывается. `main` и owner-accepted предметы не менялись.
