@@ -1,0 +1,73 @@
+name: Nether 2.0.1 - Link native GitHub sub-issues
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/nether-201-issue-hierarchy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: nether-201-issue-hierarchy
+  cancel-in-progress: false
+
+jobs:
+  link-hierarchy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Attach real native sub-issues without reparenting unrelated work
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const hierarchy = [
+              { parent: 131, children: [147] },
+              { parent: 147, children: [132, 133, 144, 134] }
+            ];
+            for (const group of hierarchy) {
+              for (const childNumber of group.children) {
+                const child = await github.rest.issues.get({ owner, repo, issue_number: childNumber });
+                let existingParent = null;
+                try {
+                  const response = await github.request(
+                    'GET /repos/{owner}/{repo}/issues/{issue_number}/parent',
+                    { owner, repo, issue_number: childNumber }
+                  );
+                  existingParent = response.data.number;
+                } catch (err) {
+                  if (err.status !== 404) throw err;
+                }
+                if (existingParent === group.parent) {
+                  core.info('Already linked #' + childNumber + ' under #' + group.parent);
+                  continue;
+                }
+                if (existingParent !== null) {
+                  throw new Error('Refusing to reparent #' + childNumber + ' from #' + existingParent);
+                }
+                await github.request(
+                  'POST /repos/{owner}/{repo}/issues/{issue_number}/sub_issues',
+                  {
+                    owner, repo, issue_number: group.parent,
+                    sub_issue_id: child.data.id
+                  }
+                );
+                core.info('Linked #' + childNumber + ' as native child of #' + group.parent);
+              }
+            }
+            for (const group of hierarchy) {
+              const response = await github.request(
+                'GET /repos/{owner}/{repo}/issues/{issue_number}/sub_issues',
+                { owner, repo, issue_number: group.parent, per_page: 100 }
+              );
+              const ids = new Set(response.data.map(x => x.number));
+              const missing = group.children.filter(x => !ids.has(x));
+              if (missing.length) {
+                throw new Error('Parent #' + group.parent + ' missing child Issues: ' + missing.join(', '));
+              }
+              core.info('Verified native sub-issues of #' + group.parent + ': ' + group.children.join(', '));
+            }

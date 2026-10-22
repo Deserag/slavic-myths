@@ -1,6 +1,12 @@
 name: Slavic Myths - Project 9 migration
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/project-migration/config.json'
+      - 'tools/project-migration/sync.py'
+      - '.github/workflows/project-9-migration.yml'
   workflow_dispatch:
     inputs:
       apply:
@@ -12,12 +18,12 @@ on:
         description: "Also import historical closed Issues"
         required: true
         type: boolean
-        default: true
+        default: false
       overwrite_existing_status:
         description: "Reclassify existing statuses using approved issue matrix (recommended first run)"
         required: true
         type: boolean
-        default: true
+        default: false
 
 permissions:
   contents: read
@@ -49,7 +55,8 @@ jobs:
       - name: Read, plan, and optionally migrate Project
         env:
           GH_PROJECTS_TOKEN: ${{ secrets.SLAVIC_PROJECTS_TOKEN }}
-          APPLY_MIGRATION: ${{ inputs.apply }}
-          INCLUDE_CLOSED: ${{ inputs.include_closed }}
-          OVERWRITE_PROJECT_STATUS: ${{ inputs.overwrite_existing_status }}
+          APPLY_MIGRATION: ${{ github.event_name == 'push' && 'true' || inputs.apply }}
+          INCLUDE_CLOSED: ${{ github.event_name == 'push' && 'false' || inputs.include_closed }}
+          OVERWRITE_PROJECT_STATUS: ${{ github.event_name == 'push' && 'false' || inputs.overwrite_existing_status }}
+          PROJECT_CONCEPTS_ONLY: ${{ github.event_name == 'push' && 'true' || 'false' }}
         run: python3 tools/project-migration/sync.py
