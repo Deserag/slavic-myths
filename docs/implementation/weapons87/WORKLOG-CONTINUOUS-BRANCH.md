@@ -324,3 +324,8 @@ P44/P45 добавили клиентские **first-person** фазы 32 melee
 ### P52 CI follow-up — legacy storm_staff source guard
 
 Older `weapons87-storm-range-java21` and P38 workflows failed before Gradle: `tools/verify_weapons87_storm_range.py` required original P49 `54/48` despite explicit owner-requested P49a `48/42`, which P33/P49/actual Java already assert. Updated **only those two test literals** to 48/42. Production gameplay/render source untouched. Do not revert owner's cooldown. P52 source+Java21+JAR gate run after update; status OPEN / owner testing.
+
+### 22.10.2026 · P52 verified CI, release-gate separated from owner QA
+
+- Code [04158550](https://github.com/Deserag/slavic-myths/commit/04158550aa142f43ad99e83b460e7ec2c1138b4f) + legacy test-only fix [e0560924](https://github.com/Deserag/slavic-myths/commit/e056092428d31bfcff2833e007043b1ed32a45ea). [Continuous Java21 #39832746501](https://github.com/Deserag/slavic-myths/actions/runs/39832746501) **COMPLETED/SUCCESS**: P49/P50/P51/P52 source and packaged JAR tests PASS, `BUILD SUCCESSFUL in 1m 32s`. **All 11** GitHub Actions runs for e0560924 completed SUCCESS, including the previously failing P38/Storm source regression checks; no runtime launched.
+- `build/libs/slavicmyths-1.9.7.56.jar` SHA256 `ed90b2d3cc519d1bc3cae036e42658eb741fe5bc38c813f5cea9b3ef49c61f91`; built in GitHub Actions artifact, **POLYMC_NOT_INSTALLED**. P52 is ready for owner visual gameplay testing, not accepted. #161 full issue still open because only MOR/FIRE hit VFX addressed. No Project v2 Status field action in GitHub connector; requested «на тестировании2» remains NOT_SET.

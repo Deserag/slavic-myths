@@ -3094,3 +3094,6 @@ Java21 [#39829846856](https://github.com/Deserag/slavic-myths/actions/runs/39829
 
 ## 22.10.2026 — P52 #161 особые арбалеты, MOR/FIRE hit cues
 В continuous ветке PR #216 появился отдельный не дублирующий ранее сделанное source пакет: после принятого попадания стрелы режима морока 8 SOUL, огня 8 FLAME. Existing muzzle P44 and StormVfx untouched; ammo/damage unchanged; P52 source/JAR QA pending, Minecraft NOT_RUN. Issue #161 full scope OPEN. Project Status «на тестировании2» connector не может установить.
+
+## 22.10.2026 — P52 production CI verified
+All 11 workflows for e0560924 SUCCESS; Java21 clean build + P52 source/JAR PASS: [Actions #39832746501](https://github.com/Deserag/slavic-myths/actions/runs/39832746501). JAR 1.9.7.56 SHA256 ed90b2d3cc519d1bc3cae036e42658eb741fe5bc38c813f5cea9b3ef49c61f91. #161 partial implementation, Minecraft and Project Status «на тестировании2» NOT_RUN/NOT_SET, open owner QA, main unaffected.

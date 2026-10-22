@@ -2202,3 +2202,6 @@ P45: source для 14 knife/sulitsa IDs и Java21 clean build + JAR PASS #398138
 
 ## 22.10.2026 — P51 technical CI receipt
 Java21 [#39829846856](https://github.com/Deserag/slavic-myths/actions/runs/39829846856) SUCCESS on b606f727: source and packaged P51 checks PASS, clean build PASS. JAR 1.9.7.56 SHA256 d9b805ac7355d2e9d2846807f8816f1437207af772e1bd541880cfd5d6815c68; PolyMC NOT_INSTALLED, runtime NOT_RUN; accepted scope unchanged, #140/Finist OWNER_PENDING.
+
+## 22.10.2026 — P52 production CI verified
+All 11 workflows for e0560924 SUCCESS; Java21 clean build + P52 source/JAR PASS: [Actions #39832746501](https://github.com/Deserag/slavic-myths/actions/runs/39832746501). JAR 1.9.7.56 SHA256 ed90b2d3cc519d1bc3cae036e42658eb741fe5bc38c813f5cea9b3ef49c61f91. #161 partial implementation, Minecraft and Project Status «на тестировании2» NOT_RUN/NOT_SET, open owner QA, main unaffected.
