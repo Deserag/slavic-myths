@@ -63,7 +63,7 @@ assert "PathData.data(p).putLong(\"CD_rare_second\",now(p)+SECOND_COOLDOWN)" in 
 assert "p.attackStrengthTicker=1000" in rare
 
 staff=source("item/StormStaffItem")
-assert "PULSE_COOLDOWN=54" in staff and "RUNE_COOLDOWN=48" in staff
+assert "PULSE_COOLDOWN=48" in staff and "RUNE_COOLDOWN=42" in staff
 assert "BASE_PULSE_DAMAGE=6.0F" in staff
 thunder=source("item/ThunderSpearCombat")
 assert "event.setAmount(event.getAmount() + 2.0F)" in thunder

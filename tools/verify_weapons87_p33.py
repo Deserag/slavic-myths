@@ -12,7 +12,7 @@ assert 'org.slavicmyths.rpg.RuneEffects.staff(player,stack,e);' in s
 assert s.count('ParticleTypes.ENCHANT')==1
 assert 'e.getBbHeight()*.5' in s
 assert '12,.22,.25,.22,.02' in s
-assert 'BASE_PULSE_DAMAGE=6.0F' in s and 'PULSE_COOLDOWN=54' in s and 'RUNE_COOLDOWN=48' in s
+assert 'BASE_PULSE_DAMAGE=6.0F' in s and 'PULSE_COOLDOWN=48' in s and 'RUNE_COOLDOWN=42' in s
 if '--jar' in sys.argv:
  jars=list((r/'build/libs').glob('slavicmyths-*.jar'))
  assert len(jars)==1
