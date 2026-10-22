@@ -1,0 +1,36 @@
+name: Weapons87 Storm Staff range Java21
+on:
+  push:
+    branches:
+      - fix/weapons87-storm-staff-range-p34
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Source checks
+        run: |
+          python3 tools/verify_weapons87_storm_range.py
+          python3 tools/verify_weapons87_p33.py
+      - name: Java21 build
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon clean build --stacktrace --console=plain
+      - name: Package validation
+        run: |
+          python3 tools/verify_weapons87_p33.py --jar
+          python3 tools/weapons87_live_audit.py --jar
+          sha256sum build/libs/slavicmyths-*.jar
+      - uses: actions/upload-artifact@v4
+        with:
+          name: weapons87-storm-range-jar
+          path: build/libs/slavicmyths-*.jar
+          retention-days: 14
