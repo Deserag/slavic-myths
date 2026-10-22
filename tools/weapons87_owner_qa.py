@@ -45,7 +45,8 @@ def check(jar=False):
     assert 'public static void sweep(ServerPlayer p,LivingEntity target,float damage)' in sabre
     assert 'if(count<3)' in sabre and 'count=clock-n.getLong("MomentumAt")<=600' in sabre
     assert 'if(victim.hurt(' in sabre and 'damage*.6F' in sabre and 'ordinary(e)&&hostile(e,p)' in sabre
-    assert 'Math.toRadians(47.5)' in sabre and '&&++hits==3' in sabre
+    assert 'target.getBoundingBox().inflate(4.5)' in sabre and 'e.distanceToSqr(target)<=20.25' in sabre and '&&++hits==3' in sabre
+    assert 'target.getX()+Math.cos(a)*2.6' in sabre
     assert 'SweepIntent' not in sabre and 'MomentumKills' not in sabre
     assert 'if(!p.getMainHandItem().is(RewardContent.item("trophy_kalin_sabre"))' in sabre
     if jar:
