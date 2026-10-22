@@ -30,6 +30,12 @@ public final class Likho193Offline {
   ok(!MorPresenceRules.retainInAir(31,10),"long jump resets");
   ok(!MorPresenceRules.mayHit(39,40),"DOT interval respected");
   ok(MorPresenceRules.mayHit(40,40),"DOT resumes on interval");
+  ok(LikhoGazeRules.eligible(0,true),"focus gaze point blank");
+  ok(LikhoGazeRules.eligible(10,true),"focus gaze range boundary");
+  ok(!LikhoGazeRules.eligible(10.01,true),"focus gaze outside range");
+  ok(!LikhoGazeRules.eligible(5,false),"focus gaze wall blocks");
+  ok(!LikhoGazeRules.eligible(Double.NaN,true),"invalid range fails closed");
+  ok(!LikhoGazeRules.eligible(-1,true),"negative range fails closed");
   ok(LikhoGazeRules.WEAKNESS_TICKS==120,"Weakness 6 seconds");
   ok(LikhoGazeRules.BLINDNESS_TICKS==25,"Blindness 1.25 seconds");
   ok(LikhoGazeRules.NAUSEA_TICKS==70,"Nausea 3.5 seconds");

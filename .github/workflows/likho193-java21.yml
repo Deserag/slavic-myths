@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - feat/likho-193-forest-spawn
+      - fix/likho-193-gaze-heads-140
   workflow_dispatch:
 
 permissions:
@@ -39,6 +40,9 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew --no-daemon clean build --stacktrace
+      - name: Verify six native trophy heads (#140)
+        shell: bash
+        run: ./gradlew --no-daemon -I tools/heads140-offline.gradle verifyHeads140Offline
       - name: Verify JAR
         shell: bash
         run: |
@@ -50,7 +54,7 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: likho193-java21-production-jar
+          name: likho193-gaze-heads-java21-production-jar
           path: build/libs/slavicmyths-*.jar
           if-no-files-found: error
           retention-days: 7

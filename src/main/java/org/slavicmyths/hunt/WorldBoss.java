@@ -62,6 +62,7 @@ public final class WorldBoss extends HuntMob {
  @Override protected void registerGoals(){goalSelector.addGoal(0,new org.slavicmyths.mor.MorGoal(this));goalSelector.addGoal(0,new FloatGoal(this));goalSelector.addGoal(1,new Fight());goalSelector.addGoal(5,new RandomLookAroundGoal(this));if(kind()==BossKind.LIKHO){targetSelector.addGoal(1,new HurtByTargetGoal(this));targetSelector.addGoal(2,new NearestAttackableTargetGoal<Player>(this,Player.class,true).setUnseenMemoryTicks(260));}}
  @Override public boolean canChangeDimensions(net.minecraft.world.level.Level from,net.minecraft.world.level.Level to){return false;}
  @Override public void tick(){super.tick();if(level().isClientSide)return;LikhoDpsProbe.sample(this);if(!isAlive()){releaseHeld(false);return;}if(!encounter.isEmpty()){HuntRecords.Boss b=HuntRecords.get((ServerLevel)level()).bosses.get(encounter);if(b==null||!b.active||!getUUID().equals(b.target)){discard();return;}}
+  if(kind()==BossKind.LIKHO&&morState()!=1&&tickCount%10==0&&getTarget() instanceof Player p&&LikhoTargets.allowed(this,p)&&LikhoGazeRules.eligible(distanceTo(p),getSensing().hasLineOfSight(p)))gaze(p);
   if(tickCount%20==0){bossBar.setName(kind()==BossKind.TUGARIN&&tugarinState()!=TugarinState.PHASE_ONE?Component.translatable(tugarinState()==TugarinState.TRANSFORMING?"boss.slavicmyths.tugarin.transforming":"boss.slavicmyths.tugarin.true_form"):getDisplayName());bossBar.setColor(kind()==BossKind.LIKHO?BossEvent.BossBarColor.PURPLE:BossEvent.BossBarColor.RED);List<ServerPlayer> nearby=level().getEntitiesOfClass(ServerPlayer.class,getBoundingBox().inflate(48),p->p.isAlive()&&!p.isSpectator()&&distanceToSqr(p)<=48*48);for(ServerPlayer p:new ArrayList<>(bossBar.getPlayers()))if(!nearby.contains(p))bossBar.removePlayer(p);for(ServerPlayer p:nearby)bossBar.addPlayer(p);}
   bossBar.setProgress(Math.max(0,getHealth()/getMaxHealth()));bossBar.setVisible(true);
  }
@@ -89,16 +90,15 @@ public final class WorldBoss extends HuntMob {
  private void area(float damage,double r,double cone,float kb){for(LivingEntity p:victims(r))strike(p,damage,r,cone,kb);}
  private void fate(LivingEntity p){p.addEffect(new MobEffectInstance(BossEffects.ILL_FATE,160));}
  private void gaze(Player p){
-  if(!p.hurt(damageSources().mobAttack(this),2))return;
-  fate(p);
-  p.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,LikhoGazeRules.WEAKNESS_TICKS,0));
   CompoundTag tags=p.getPersistentData();
   long now=level().getGameTime();
-  if(LikhoGazeRules.visualReady(now,tags.getLong(LikhoGazeRules.VISUAL_READY_TAG))){
-   tags.putLong(LikhoGazeRules.VISUAL_READY_TAG,now+LikhoGazeRules.VISUAL_COOLDOWN_TICKS);
-   p.addEffect(new MobEffectInstance(MobEffects.BLINDNESS,LikhoGazeRules.BLINDNESS_TICKS,0));
-   p.addEffect(new MobEffectInstance(MobEffects.CONFUSION,LikhoGazeRules.NAUSEA_TICKS,0));
-  }
+  if(!LikhoGazeRules.visualReady(now,tags.getLong(LikhoGazeRules.VISUAL_READY_TAG)))return;
+  tags.putLong(LikhoGazeRules.VISUAL_READY_TAG,now+LikhoGazeRules.VISUAL_COOLDOWN_TICKS);
+  fate(p);
+  p.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,LikhoGazeRules.WEAKNESS_TICKS,0));
+  p.addEffect(new MobEffectInstance(MobEffects.BLINDNESS,LikhoGazeRules.BLINDNESS_TICKS,0));
+  p.addEffect(new MobEffectInstance(MobEffects.CONFUSION,LikhoGazeRules.NAUSEA_TICKS,0));
+  LikhoCombatTrace.event(this,"passive.gaze target="+p.getUUID());
  }
  public void cancelTarget(Player player){if(heldEntity()==player)releaseHeld(false);if(getTarget()==player){setTarget(null);recover(20);}}
  private LivingEntity heldEntity(){if(held==null||level().isClientSide)return null;Entity e=((ServerLevel)level()).getEntity(held);return e instanceof LivingEntity?(LivingEntity)e:null;}
@@ -109,7 +109,7 @@ public final class WorldBoss extends HuntMob {
   case SWEEP:area(10,4,Math.cos(Math.toRadians(55)),.55F);break;
   case PUNCH:strike(t,12,2.8,.5,.8F);break;
   case GRAB:if(strike(t,4,3.5,Math.cos(Math.toRadians(30)),0)){held=t.getUUID();holdTicks=0;fate(t);entityData.set(MOVE,Move.HOLD.ordinal());entityData.set(START,(int)level().getGameTime());time=0;}break;
-  case GAZE:for(Player p:players(10))if(LikhoTargets.allowed(this,p)&&distanceTo(p)<=10&&getSensing().hasLineOfSight(p)&&heading.dot(p.position().subtract(position()).multiply(1,0,1).normalize())>=Math.cos(Math.toRadians(25))&&p.getLookAngle().dot(getEyePosition(1).subtract(p.getEyePosition(1)).normalize())>=.75){gaze(p);}break;
+  case GAZE:for(Player p:players(10))if(LikhoTargets.allowed(this,p)&&LikhoGazeRules.eligible(distanceTo(p),getSensing().hasLineOfSight(p))&&heading.dot(p.position().subtract(position()).multiply(1,0,1).normalize())>=Math.cos(Math.toRadians(25))){p.hurt(damageSources().mobAttack(this),2);gaze(p);}break;
   case GROUND:for(Vec3 z:zones)if(clearLine(getEyePosition(1),z.add(0,.3,0)))for(LivingEntity p:victims(14))if(p.position().distanceToSqr(z)<=1.75*1.75&&clearLine(z.add(0,.3,0),p.position().add(0,.3,0))&&hits.add(p.getUUID())){boolean hit=p.hurt(damageSources().mobAttack(this),6);LikhoCombatTrace.event(this,"ground victim="+p.getUUID()+" accepted="+hit);Vec3 d=p.position().subtract(z).normalize();p.knockback(.6F,-d.x,-d.z);p.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,50));}break;
   case LEAP:setDeltaMovement(heading.scale(Math.min(.95,distanceTo(t)/14)).add(0,.55,0));hasImpulse=true;break;
   case SLAM:area(11,4.5,Math.cos(Math.toRadians(50)),1);dust();break;
