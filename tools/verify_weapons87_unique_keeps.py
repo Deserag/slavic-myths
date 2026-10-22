@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[1]
 BASE=ROOT/'src/main/resources/assets/slavicmyths'
 MANIFEST=ROOT/'docs/implementation/weapons87/unique-source-review/source-manifest.json'
 IDS=('finist_bow','thunder_axe','thunder_spear')
-BASE='ad9897b0eb4c5bb63462484d63a31e6593e05e4b'
+BASE_COMMIT='ad9897b0eb4c5bb63462484d63a31e6593e05e4b'
 rows={row['id']:row for row in json.loads(MANIFEST.read_text(encoding='utf-8'))}
 total=0
 stale_snapshot=0
@@ -15,7 +15,7 @@ for id in IDS:
         file=ROOT/entry['path']
         assert file.is_file(),file
         raw=file.read_bytes()
-        original=subprocess.run(['git','show',BASE+':'+entry['path']],cwd=ROOT,check=True,capture_output=True).stdout
+        original=subprocess.run(['git','show',BASE_COMMIT+':'+entry['path']],cwd=ROOT,check=True,capture_output=True).stdout
         assert raw==original, (id,str(file),'differs from exact pre-branch main')
         if hashlib.sha256(raw).hexdigest()!=entry['sha256']:stale_snapshot+=1
         total+=1
