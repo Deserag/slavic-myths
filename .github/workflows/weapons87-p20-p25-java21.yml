@@ -20,6 +20,10 @@ jobs:
         run: python3 -m pip install --quiet pillow numpy
       - name: Verify production and render actual sources
         run: python3 tools/weapons87_unique_art.py --check
+      - name: Capture exact original main for immutable-KEEP comparison
+        run: |
+          git fetch --no-tags --depth=1 origin main
+          test "$(git rev-parse FETCH_HEAD)" = ad9897b0eb4c5bb63462484d63a31e6593e05e4b
       - name: Prove #186-#188 source-KEEP assets and distinct silhouettes
         run: python3 tools/verify_weapons87_unique_keeps.py
       - name: Java21 clean NeoForge build
