@@ -48,7 +48,7 @@ public final class HigherMor {
    else if(cloudWait==0&&(phase||mob.mor.kind()==6)){next=12;cloudWait=240;}
    else if(d<=4){next=11;}
    else if(d<=18&&beamWait==0){next=mob.mor.kind()==5?10:13;beamWait=phase?130:190;}
-   if(next!=0){org.slavicmyths.hunt.LikhoCombatTrace.event(mob,"higher.begin skill="+next);heading=target.getBoundingBox().getCenter().subtract(mob.getEyePosition()).normalize();mob.morSync(2,0,next);clock=0;mob.getNavigation().stop();mob.playSound(next==10?SoundEvents.EVOKER_PREPARE_ATTACK:next==13?SoundEvents.FIRE_AMBIENT:next==12?SoundEvents.FIRE_EXTINGUISH:SoundEvents.PLAYER_ATTACK_STRONG,.55F,.6F);return;}
+   if(next!=0){org.slavicmyths.hunt.LikhoCombatTrace.event(mob,"higher.begin skill="+next);org.slavicmyths.hunt.LikhoDpsProbe.begin(mob,"MOR_"+next);heading=target.getBoundingBox().getCenter().subtract(mob.getEyePosition()).normalize();mob.morSync(2,0,next);clock=0;mob.getNavigation().stop();mob.playSound(next==10?SoundEvents.EVOKER_PREPARE_ATTACK:next==13?SoundEvents.FIRE_AMBIENT:next==12?SoundEvents.FIRE_EXTINGUISH:SoundEvents.PLAYER_ATTACK_STRONG,.55F,.6F);return;}
   }
   if(mob.tickCount%10==0)mob.getNavigation().moveTo(target,phase?1.25:mob.mor.kind()==5?.8:1);
  }
