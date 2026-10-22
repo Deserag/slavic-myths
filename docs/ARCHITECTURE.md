@@ -1,3 +1,7 @@
+
+## 22.10.2026 — пакет №31, #163 FIRST-PERSON CROSSBOW RECOIL, runtime not run
+Новые source изменения находятся в feat/weapons87-p31-crossbow-firstperson-recoil, исходный main 6e28808da46078397bb2327b2c99b158335e1e4f. В client WeaponHands отслеживаются две независимые руки и существующий ItemStack, фиксируется реальный переход CHARGED→not charged без active item use, начинается 7-тиковый плавный kick (sin πt/7 × (1-.25t/7)), направленный назад и вверх вместе с визуализируемой рукой и оружием. Сброс при смене Stack, player или world; только client, ноль новых пакетов и server/abilities/charge/weapon stats изменений. Source guards + native existing 12 crossbow asset checks, owner screenshot fix preserved. Source four-phase storyboard from real JSON+UV, but НЕ Minecraft. GitHub Actions Java21 clean build/JAR checks в работе. Не считать весь #163 готовым: third-person reload/recoil, Steve/Alex/MP/charge variants ручная приёмка всё ещё NOT_RUN. Читай PACKAGE-31.md и tools/verify_weapons87_crossbow_recoil.py. Следом #121 generator reversion audit, #161 unique VFX and #162/#165 animations. Баланс C/D/#190 не трогать, #191 last.
+
 ## 22.10.2026 — #87 пакеты26–27 merged and Java21 PASS
 
 ### Проверенный итог и merge в main — 22.10.2026
