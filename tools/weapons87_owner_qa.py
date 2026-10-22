@@ -45,7 +45,7 @@ def check(jar=False):
     assert 'public static void sweep(ServerPlayer p,LivingEntity target,float damage)' in sabre
     assert 'if(count<3)' in sabre and 'count=clock-n.getLong("MomentumAt")<=600' in sabre
     assert 'if(victim.hurt(' in sabre and 'damage*.6F' in sabre and 'ordinary(e)&&hostile(e,p)' in sabre
-    assert 'Math.toRadians(47.5)' in sabre and 'if(++hits==3)' in sabre
+    assert 'Math.toRadians(47.5)' in sabre and '&&++hits==3' in sabre
     assert 'SweepIntent' not in sabre and 'MomentumKills' not in sabre
     assert 'if(!p.getMainHandItem().is(RewardContent.item("trophy_kalin_sabre"))' in sabre
     if jar:
@@ -77,7 +77,8 @@ def render():
             faces=g.faces(model)
             transform=model['display']['thirdperson_righthand']
             for col,(cam,ang) in enumerate((('FRONT',(0,0,0)),('PROFILE',(0,90,0)),('OBLIQUE',(12,35,0)))):
-                image=g.project(faces,220,36,transform['rotation'],transform['scale'],transform['translation'])
+                angles=[transform['rotation'][i]+ang[i] for i in range(3)]
+                image=g.project(faces,220,36,angles,transform['scale'],transform['translation'])
                 # native item transform view vs authored orthographic view
                 x=col*245+12;y=row*315+55
                 board.paste(image,(x,y),image)
