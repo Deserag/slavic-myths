@@ -1,0 +1,8 @@
+[
+  {
+    "path": "native/profile.jfr",
+    "bytes": 45603388,
+    "sha256": "dafac3c8dc2097c6e2e5b1a9f31d3be0e6759124f82605ff6154f6794daf6ea4",
+    "publication": "LOCAL_ONLY system/process metadata"
+  }
+]

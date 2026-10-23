@@ -1,0 +1,60 @@
+{
+  "C_poloz": {
+    "particle_peak": [
+      "C_poloz",
+      "1420",
+      "engine",
+      "total",
+      "14790",
+      "342",
+      "259",
+      "259"
+    ],
+    "nearest_boss_tick": {
+      "scene": "C_poloz",
+      "age": "1420",
+      "alive": "true",
+      "phase": "3",
+      "action": "0",
+      "target_player": "true",
+      "target_type": "minecraft:player",
+      "hp": "200.0",
+      "event_state": "ACTIVE",
+      "break_queue": "1381",
+      "convert_queue": "1078",
+      "player_x": "0.0",
+      "player_y": "-60.0",
+      "player_z": "-12.0"
+    },
+    "peak_channels_after_warmup": 342
+  },
+  "D_poloz_128pillagers": {
+    "particle_peak": [
+      "D_poloz_128pillagers",
+      "120",
+      "engine",
+      "total",
+      "11818",
+      "317",
+      "318",
+      "318"
+    ],
+    "nearest_boss_tick": {
+      "scene": "D_poloz_128pillagers",
+      "age": "120",
+      "alive": "true",
+      "phase": "1",
+      "action": "0",
+      "target_player": "false",
+      "target_type": "minecraft:pillager",
+      "hp": "2988.0",
+      "event_state": "ACTIVE",
+      "break_queue": "1020",
+      "convert_queue": "432",
+      "player_x": "0.0",
+      "player_y": "-60.0",
+      "player_z": "-12.0"
+    },
+    "peak_channels_after_warmup": 323
+  }
+}
