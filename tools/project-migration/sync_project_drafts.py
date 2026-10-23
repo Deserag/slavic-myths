@@ -147,6 +147,44 @@ def build_body(task):
         source,
     ])
 
+# Non-secret stable item IDs recorded from earlier GitHub Actions run logs.
+# Some recently created cards were absent from paginated project listing.
+KNOWN_DRAFT_IDS = {
+"nether-epic":["PVTI_lAHOBeEK2c4Bn9vzzhDGrss"],
+"nether-201-worldgen":["PVTI_lAHOBeEK2c4Bn9vzzhDGrvg"],
+"nether-201-height":["PVTI_lAHOBeEK2c4Bn9vzzhDGrx4","PVTI_lAHOBeEK2c4Bn9vzzhDGtKc"],
+"nether-201-terrain":["PVTI_lAHOBeEK2c4Bn9vzzhDGr00","PVTI_lAHOBeEK2c4Bn9vzzhDGtNc"],
+"nether-201-lava":["PVTI_lAHOBeEK2c4Bn9vzzhDGr3k","PVTI_lAHOBeEK2c4Bn9vzzhDGtR4"],
+"nether-201-vanilla":["PVTI_lAHOBeEK2c4Bn9vzzhDGr6k"],
+"nether-201-soul":["PVTI_lAHOBeEK2c4Bn9vzzhDGr-E"],
+"nether-biomes":["PVTI_lAHOBeEK2c4Bn9vzzhDGsBw"],
+"navya-main":["PVTI_lAHOBeEK2c4Bn9vzzhDGsEg"],
+"navya-2021":["PVTI_lAHOBeEK2c4Bn9vzzhDGsHk","PVTI_lAHOBeEK2c4Bn9vzzhDGtUc"],
+"navya-2022":["PVTI_lAHOBeEK2c4Bn9vzzhDGsKk"],
+"navya-2023":["PVTI_lAHOBeEK2c4Bn9vzzhDGsMo"],
+"navya-2024":["PVTI_lAHOBeEK2c4Bn9vzzhDGsQA"],
+"navya-2025":["PVTI_lAHOBeEK2c4Bn9vzzhDGsSk"],
+"navya-2026":["PVTI_lAHOBeEK2c4Bn9vzzhDGsVA"]
+}
+NODE_QUERY = """
+query($id:ID!) {
+  node(id:$id) {
+    ... on ProjectV2Item {
+      id
+      content { __typename ... on DraftIssue { id title body } }
+    }
+  }
+}
+"""
+def known_draft(key):
+    valid = []
+    for node_id in KNOWN_DRAFT_IDS.get(key, []):
+        item = gql(NODE_QUERY, id=node_id).get("node")
+        c = (item or {}).get("content") or {}
+        if c.get("__typename") == "DraftIssue" and "PROJECT9_CONCEPT_KEY:" + key in (c.get("body") or ""):
+            valid.append(item)
+    return valid
+
 by_key = {}
 old_issues = {}
 for item in items:
@@ -163,6 +201,11 @@ counts = {"created": 0, "existing": 0, "field_updates": 0}
 for task in CFG["tasks"]:
     key = task["key"]
     existing = by_key.get(key) or by_key.get("title:" + task["title"])
+    if not existing and key in KNOWN_DRAFT_IDS:
+        matches = known_draft(key)
+        if matches:
+            existing = matches[0]
+            print("FOUND DIRECTLY by node id, not list:", key)
     if existing:
         item_id = existing["id"]
         counts["existing"] += 1
@@ -208,6 +251,12 @@ for attempt in range(4):
             if repo == CFG["owner"] + "/" + CFG["repo"]:
                 legacy_items[c["number"]] = item
     missing = [t["key"] for t in CFG["tasks"] if t["key"] not in verified]
+    for key in list(missing):
+        direct = known_draft(key)
+        if direct:
+            verified[key] = direct[0]
+            missing.remove(key)
+            print("VERIFIED BY NODE", key, flush=True)
     if not missing:
         break
     print("Project read-back lag, attempt", attempt + 1, "missing", missing, flush=True)
@@ -233,4 +282,19 @@ for task in CFG["tasks"]:
     """, input={"projectId": pid, "itemId": old_item["id"]})
     print("REPLACED closed linked Issue Project item", legacy, "with Draft", task["key"])
 
+# Remove only duplicate native Drafts caused by earlier read-back indexing lag.
+for task in CFG["tasks"]:
+    matches = known_draft(task["key"])
+    if len(matches) <= 1:
+        continue
+    keeper = verified[task["key"]]["id"]
+    for extra in matches:
+        if extra["id"] == keeper:
+            continue
+        gql("""
+        mutation($input:DeleteProjectV2ItemInput!) {
+          deleteProjectV2Item(input:$input) { deletedItemId }
+        }
+        """, input={"projectId": pid, "itemId": extra["id"]})
+        print("REMOVED duplicate Draft", task["key"], extra["id"], flush=True)
 print("VERIFIED", len(CFG["tasks"]), "native Project #9 draft cards", flush=True)
