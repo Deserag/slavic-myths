@@ -8,7 +8,7 @@ on:
       - 'tools/project-migration/sync.py'
       - '.github/workflows/project-9-migration.yml'
   issues:
-    types: [opened]
+    types: [opened, reopened]
   workflow_dispatch:
     inputs:
       apply:
