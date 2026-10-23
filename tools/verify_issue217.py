@@ -32,8 +32,23 @@ def main():
  assert all((RES/'assets/slavicmyths'/relative).is_file() for relative in generated)
  for key in allowed:
   if key in current:assert (R/key).is_file(),key
+ # The three shield originals are exact historical main blobs. P53 already
+ # modified its own model snapshot, so a P53 hash is not the archive's origin.
+ # Protect original shield assets by their actual Git blob identities, not by
+ # a later generated version's SHA256. Other archives retain their P53 gate.
+ shield_original_blobs={
+  'retainer_shield':'2fcd255b1ea2600041dc3e9c2d40b66453a16a53',
+  'retainer_shield_body':'8fc6bd0714288a7b384a104cacd43731e4d6c3cf',
+  'retainer_shield_blocking':'5ba7d7fd738a3f5a39c22b92abb7d8ae7f9d95af',
+ }
  for name in ['retainer_shield','retainer_shield_body','retainer_shield_blocking','beast_challenge_horn','thunder_axe']+[bow+suffix for bow in models.CROSSBOWS for suffix in models.STATES]:
-  assert sha(models.S/(name+'.json'))==baseline['src/main/resources/assets/slavicmyths/models/item/'+name+'.json'],('wrong archived source',name)
+  original=models.S/(name+'.json')
+  if name in shield_original_blobs:
+   raw=original.read_bytes()
+   actual_blob=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\x00'+raw).hexdigest()
+   assert actual_blob==shield_original_blobs[name],('wrong original main shield blob',name)
+  else:
+   assert sha(original)==baseline['src/main/resources/assets/slavicmyths/models/item/'+name+'.json'],('wrong archived source',name)
  jar_info=None
  if '--jar' in sys.argv:
   jars=list((R/'build/libs').glob('slavicmyths-*.jar'));assert len(jars)==1,jars
