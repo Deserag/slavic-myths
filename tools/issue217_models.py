@@ -1,7 +1,6 @@
 """Restore original solid shield atlas; separate original icons from held surface UV."""
 from pathlib import Path
 import copy,json,random
-from PIL import Image,ImageDraw
 R=Path(__file__).resolve().parents[1];A=R/'src/main/resources/assets/slavicmyths';S=R/'tools/weapon-art-original/issue217'
 def write(name,data):(A/'models/item'/(name+'.json')).write_text(json.dumps(data,indent=2)+'\n')
 def old(name):return json.loads((S/(name+'.json')).read_text())
@@ -26,6 +25,7 @@ def original_crossbow(name,current):
  return before
 def separate(name,held):return {'loader':'neoforge:separate_transforms','base':{'parent':'slavicmyths:item/'+held},'perspectives':{ctx:{'parent':'minecraft:item/generated','textures':{'layer0':'slavicmyths:item/'+name}} for ctx in ['gui','ground','fixed']},'textures':{'particle':'slavicmyths:item/'+name}}
 def shield_atlas():
+ from PIL import Image,ImageDraw
  im=Image.new('RGBA',(256,256));d=ImageDraw.Draw(im);rng=random.Random('retainer-shield-rc2')
  def shade(c,v):return tuple(max(0,min(255,n+v)) for n in c)+(255,)
  for y in range(64):
@@ -41,6 +41,7 @@ def shield_atlas():
  d.ellipse((195,3,252,60),fill=(89,97,99,255),outline=(211,212,194,255),width=3);d.ellipse((205,13,242,50),fill=(151,157,157,255),outline=(195,199,190,255),width=2)
  return im
 def apply():
+ from PIL import Image
  axe=old('thunder_axe');gui=axe['display']['gui'];ratio=.65/gui['scale'][0];gui['scale']=[.65]*3;gui['translation']=[v*ratio for v in gui['translation']];write('thunder_axe',axe)
  for bow in CROSSBOWS:
   for suffix in STATES:write(bow+suffix,crossbow_string(bow+suffix))
