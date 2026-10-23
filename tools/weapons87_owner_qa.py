@@ -2,6 +2,7 @@
 from pathlib import Path
 import argparse,copy,json,zipfile,hashlib
 from weapons87_p42_models import ADDITIONS
+from issue217_models import original_crossbow
 
 ROOT=Path(__file__).resolve().parents[1]
 ASSETS=ROOT/'src/main/resources/assets/slavicmyths'
@@ -21,7 +22,7 @@ def check(jar=False):
             name=id+suffix
             path='src/main/resources/assets/slavicmyths/models/item/'+name+'.json'
             saved=CROSSBOWS[path]
-            m=load_model(path)
+            m=original_crossbow(name,load_model(path))
             assert len(m['elements'])==saved['elementCount']+len(ADDITIONS[id]),name
             assert m['elements'][saved['elementCount']:] == ADDITIONS[id],name+' unexpected geometry after the P42 approved overlay'
             for side in ('right','left'):
