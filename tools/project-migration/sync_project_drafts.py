@@ -190,16 +190,47 @@ for task in CFG["tasks"]:
 print("LEGACY ISSUE ITEMS STILL ON BOARD (check for duplicates):",
       [t["legacy"] for t in CFG["tasks"] if t.get("legacy") in old_issues])
 print("SUMMARY", json.dumps(counts, ensure_ascii=False))
-# Re-query for mandatory verification. A successful workflow requires all draft keys.
-_, check_items = read_project()
-found = set()
-for item in check_items:
-    c = item.get("content") or {}
-    if c.get("__typename") == "DraftIssue":
-        m = re.search(r"PROJECT9_CONCEPT_KEY:([a-z0-9-]+)", c.get("body") or "")
-        if m:
-            found.add(m.group(1))
-missing = [t["key"] for t in CFG["tasks"] if t["key"] not in found]
+# Re-query with a bounded retry: the Projects API can lag behind new mutations.
+verified = {}
+missing = []
+for attempt in range(4):
+    _, check_items = read_project()
+    verified = {}
+    legacy_items = {}
+    for item in check_items:
+        c = item.get("content") or {}
+        if c.get("__typename") == "DraftIssue":
+            m = re.search(r"PROJECT9_CONCEPT_KEY:([a-z0-9-]+)", c.get("body") or "")
+            if m:
+                verified[m.group(1)] = item
+        elif c.get("__typename") == "Issue":
+            repo = (c.get("repository") or {}).get("nameWithOwner")
+            if repo == CFG["owner"] + "/" + CFG["repo"]:
+                legacy_items[c["number"]] = item
+    missing = [t["key"] for t in CFG["tasks"] if t["key"] not in verified]
+    if not missing:
+        break
+    print("Project read-back lag, attempt", attempt + 1, "missing", missing, flush=True)
+    time.sleep(5)
 if missing:
     raise RuntimeError("Drafts missing after sync: " + ", ".join(missing))
-print("VERIFIED", len(CFG["tasks"]), "native Project #9 draft cards")
+
+# Replace only old *closed* repo-Issue items that now have a verified Project-native
+# Draft successor. Removing a Project item never deletes the underlying GitHub Issue.
+for task in CFG["tasks"]:
+    legacy = task.get("legacy")
+    old_item = legacy_items.get(legacy)
+    if not legacy or not old_item or task["key"] not in verified:
+        continue
+    c = old_item.get("content") or {}
+    if c.get("state") != "CLOSED":
+        print("PRESERVE active linked issue", legacy)
+        continue
+    gql("""
+    mutation($input:DeleteProjectV2ItemInput!) {
+      deleteProjectV2Item(input:$input) { deletedItemId }
+    }
+    """, input={"projectId": pid, "itemId": old_item["id"]})
+    print("REPLACED closed linked Issue Project item", legacy, "with Draft", task["key"])
+
+print("VERIFIED", len(CFG["tasks"]), "native Project #9 draft cards", flush=True)
