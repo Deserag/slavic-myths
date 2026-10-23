@@ -18,12 +18,14 @@ assert m1["display"]["thirdperson_lefthand"]["rotation"]==[0,90,0]
 assert m1["display"]["firstperson_righthand"]["translation"][1]==7
 
 poloz=model("poloz_whip")
-assert poloz["parent"]=="minecraft:item/generated"
+assert poloz["loader"]=="neoforge:separate_transforms"
+assert poloz["base"]["parent"]=="slavicmyths:item/poloz_whip_pose_0"
+assert poloz["perspectives"]["gui"]["parent"]=="slavicmyths:item/poloz_whip_icon87"
 assert poloz["textures"]["layer0"]=="slavicmyths:item/poloz_whip"
 assert len(poloz["overrides"])==5
 for i in range(5):
     pose=model("poloz_whip_pose_"+str(i))
-    assert len(pose["elements"])==36 and pose["textures"]["lash"]=="slavicmyths:item/poloz_whip_segments"
+    assert len(pose["elements"])==36 and pose["textures"]["lash"]=="slavicmyths:item/weapons87_materials"
 
 spear=model("thunder_spear")
 assert len(spear["elements"])==37
@@ -44,7 +46,7 @@ assert all(x in horn["display"] for x in ("firstperson_righthand","firstperson_l
 assert (R/"src/main/resources/assets/slavicmyths/textures/item/beast_challenge_horn.png").exists()
 
 flail=source("client/FlailMotion")
-assert "double reach=SPACING+contact*(heavy?4.5:5.0)" in flail
+assert "double reach=SPACING;" in flail # owner-accepted contiguous seven-link chain
 assert "anchor=anchor.add(direction,reach)" in flail
 assert "Math.clamp(8+charge*(30-5*lag)+impact+inertia*lag,-12,88)" in flail
 assert "public static final double SPACING = 2.4" in flail
