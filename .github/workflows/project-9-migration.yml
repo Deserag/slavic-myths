@@ -7,6 +7,8 @@ on:
       - 'tools/project-migration/config.json'
       - 'tools/project-migration/sync.py'
       - '.github/workflows/project-9-migration.yml'
+  issues:
+    types: [opened]
   workflow_dispatch:
     inputs:
       apply:
@@ -55,8 +57,9 @@ jobs:
       - name: Read, plan, and optionally migrate Project
         env:
           GH_PROJECTS_TOKEN: ${{ secrets.SLAVIC_PROJECTS_TOKEN }}
-          APPLY_MIGRATION: ${{ github.event_name == 'push' && 'true' || inputs.apply }}
+          APPLY_MIGRATION: ${{ (github.event_name == 'push' || github.event_name == 'issues') && 'true' || inputs.apply }}
           INCLUDE_CLOSED: ${{ github.event_name == 'push' && 'false' || inputs.include_closed }}
           OVERWRITE_PROJECT_STATUS: ${{ github.event_name == 'push' && 'false' || inputs.overwrite_existing_status }}
-          PROJECT_CONCEPTS_ONLY: ${{ github.event_name == 'push' && 'true' || 'false' }}
+          PROJECT_CONCEPTS_ONLY: ${{ (github.event_name == 'push' || github.event_name == 'issues') && 'true' || 'false' }}
+          PROJECT_NEW_ISSUE: ${{ github.event_name == 'issues' && github.event.issue.number || '' }}
         run: python3 tools/project-migration/sync.py
