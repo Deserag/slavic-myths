@@ -78,10 +78,13 @@ def main():
         jars=list((ROOT/'build/libs').glob('slavicmyths-*.jar'));assert len(jars)==1,jars
         count=0
         with zipfile.ZipFile(jars[0]) as jar:
-            for p in (ROOT/'src/main/resources').rglob('*'):
-                if not p.is_file():continue
-                rel=p.relative_to(ROOT/'src/main/resources').as_posix()
-                expected=ROOT/'build/resources/main'/rel if rel=='META-INF/neoforge.mods.toml' else p
+            # Earlier verify_issue217.py and verify_current_resources.py own
+            # whole-JAR validation. This package verifies only its 12 owned
+            # pixel sprites, after exercising unrelated legacy generators in a
+            # temporary sandbox; those source generators are not JAR baselines.
+            for name in art.OWNED:
+                rel=art.PREFIX+name+'.png'
+                expected=ROOT/'src/main/resources'/rel
                 assert jar.read(rel)==expected.read_bytes(),rel
                 count+=1
             assert not any('HeadPoseExport' in n or 'Heads140Offline' in n or n.startswith('tools/smoke/') for n in jar.namelist())
