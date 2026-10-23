@@ -1,0 +1,41 @@
+name: Slavic Myths - Project 9 native concept cards
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/project-migration/project-draft-tasks.json'
+      - 'tools/project-migration/sync_project_drafts.py'
+      - '.github/workflows/project-9-drafts.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: slavic-project-9-drafts
+  cancel-in-progress: false
+
+jobs:
+  project-drafts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Ensure Project permission configured
+        env:
+          PROJECT_SECRET: ${{ secrets.SLAVIC_PROJECTS_TOKEN }}
+        run: |
+          if [ -z "$PROJECT_SECRET" ]; then
+            echo "::error::Missing repository Actions secret SLAVIC_PROJECTS_TOKEN with project scope"
+            exit 1
+          fi
+      - name: Validate Project Draft sync inputs
+        run: |
+          python3 -m py_compile tools/project-migration/sync_project_drafts.py
+          python3 -m json.tool tools/project-migration/project-draft-tasks.json > /dev/null
+      - name: Create native Project draft cards
+        env:
+          GH_PROJECTS_TOKEN: ${{ secrets.SLAVIC_PROJECTS_TOKEN }}
+        run: python3 tools/project-migration/sync_project_drafts.py
