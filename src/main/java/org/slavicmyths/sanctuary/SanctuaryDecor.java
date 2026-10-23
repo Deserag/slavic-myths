@@ -12,6 +12,7 @@ import net.minecraft.world.phys.BlockHitResult;
 public final class SanctuaryDecor extends Block {
  private final String kind;
  public SanctuaryDecor(String kind){super(BlockBehaviour.Properties.ofFullCopy(kind.startsWith("carved_fire")||kind.startsWith("fire_idol")?Blocks.OAK_LOG:Blocks.STONE_BRICKS).mapColor(kind.startsWith("carved_fire")||kind.startsWith("fire_idol")?net.minecraft.world.level.material.MapColor.WOOD:net.minecraft.world.level.material.MapColor.STONE).strength(3.5f,10));this.kind=kind;registerDefaultState(stateDefinition.any().setValue(SanctuaryBlock.FACING,Direction.NORTH).setValue(SanctuaryBlock.LIT,false));}
+ @Override protected net.minecraft.world.phys.shapes.VoxelShape getOcclusionShape(BlockState state, net.minecraft.world.level.BlockGetter level, BlockPos pos){return kind.startsWith("fire_idol")?net.minecraft.world.phys.shapes.Shapes.empty():super.getOcclusionShape(state,level,pos);}
  @Override protected MapCodec<? extends Block> codec(){return MapCodec.unit(this);}
  @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block,BlockState> b){b.add(SanctuaryBlock.FACING,SanctuaryBlock.LIT);}
  @Override public BlockState getStateForPlacement(BlockPlaceContext c){return defaultBlockState().setValue(SanctuaryBlock.FACING,c.getHorizontalDirection().getOpposite());}

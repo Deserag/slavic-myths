@@ -1,0 +1,1294 @@
+[
+  {
+    "id": "bone_knife",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\bone_knife.json",
+    "sha256": "a28a62bc6df7d3eac60054e7e3f55750ffd252f3eda2c2e7f07aa2e6d2b0b1b0",
+    "bounds": [
+      [
+        7.0,
+        4.0,
+        7.15
+      ],
+      [
+        9.2,
+        14.5,
+        8.85
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "silver_dagger",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\silver_dagger.json",
+    "sha256": "f8d1b7469f4fe7808155d3bab98977415f7cdc02bdd2f938b332bf5aba72268c",
+    "bounds": [
+      [
+        6.8,
+        3.5,
+        7.175
+      ],
+      [
+        9.2,
+        15.5,
+        8.825
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "nightingale_dagger",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\nightingale_dagger.json",
+    "sha256": "6fa7beb2677a20062791340baee3af1838eb3b88a32e5ed804509318a148ef4d",
+    "bounds": [
+      [
+        5.25,
+        -1.8,
+        7.0
+      ],
+      [
+        10.75,
+        17.5,
+        9.0
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ancient_carolingian_sword.json",
+    "sha256": "3677e0f95d8022c215ce68eeccacddf88b80770528160ef3e1dcbc2af0e90e20",
+    "bounds": [
+      [
+        3.5,
+        -8.0,
+        6.5
+      ],
+      [
+        12.5,
+        24.0,
+        9.5
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\restored_carolingian_sword.json",
+    "sha256": "23f6a308b404e379aae99ac034d7e1fbadd5657c18f65e10c4a1cc5ea780ed39",
+    "bounds": [
+      [
+        3.5,
+        -8.0,
+        6.5
+      ],
+      [
+        12.5,
+        24.0,
+        9.5
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "silver_sword",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\silver_sword.json",
+    "sha256": "b401a7ba6a1d9ac7ca1b009a8b678e05a808b915bc15ced63c5030c80e58cc92",
+    "bounds": [
+      [
+        4.0,
+        2.0,
+        7.0
+      ],
+      [
+        12.0,
+        24.0,
+        9.0
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "perunite_sword",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_sword.json",
+    "sha256": "19cc2153425040f5ae69a589a82d10b77bc25b95ac4dc5445f0aab064313c581",
+    "bounds": [
+      [
+        4.0,
+        1.0,
+        6.85
+      ],
+      [
+        12.0,
+        24.0,
+        9.15
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "tugarin_sword",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\tugarin_sword.json",
+    "sha256": "7b6d2db49787a23013af1b60bffbabcdac2727a323a8fd2466c600c706f18591",
+    "bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\trophy_kalin_sabre.json",
+    "sha256": "4539b8bdc0b7c37fa9e60b18df901d09bc545cd46849e3ed4a81e75a2dfa8fdf",
+    "bounds": [
+      [
+        4.8,
+        -1.5,
+        7.0
+      ],
+      [
+        12.75,
+        25.3,
+        9.0
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "club",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\club.json",
+    "sha256": "3043ee9b19db1e5c8ae8e1a747ecffb03aaffcf16723327e277b51a729ffb771",
+    "bounds": [
+      [
+        4.95,
+        0.0,
+        5.1
+      ],
+      [
+        11.25,
+        16.0,
+        10.6
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "wooden_mace",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\wooden_mace.json",
+    "sha256": "c195be6ec7a807d5a9fbaf2140d42a50a122098b9e2acb4ce96c1266afa07be1",
+    "bounds": [
+      [
+        4.6,
+        0.0,
+        5.4
+      ],
+      [
+        11.4,
+        18.0,
+        10.6
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "stone_mace",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\stone_mace.json",
+    "sha256": "756b4b0e1d17996e253e966caa06d90477d0d1aa2aadc3ed84dfb4417db70872",
+    "bounds": [
+      [
+        4.2,
+        0.0,
+        4.8
+      ],
+      [
+        11.8,
+        17.2,
+        11.2
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "mace",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\mace.json",
+    "sha256": "8814154ed06ecfd3c572b91ec10ab5d6ff23d32b553067028cebda8743e53e4d",
+    "bounds": [
+      [
+        4.5,
+        0.0,
+        5.17157287525381
+      ],
+      [
+        11.5,
+        19.0,
+        10.82842712474619
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "silver_mace",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\silver_mace.json",
+    "sha256": "aa4f2a557425c57f6aad724f83ab9ca7c3d61bfdfde7d42aafd29b7b42f07fc7",
+    "bounds": [
+      [
+        5.3,
+        0.0,
+        5.3
+      ],
+      [
+        10.7,
+        18.5,
+        10.7
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "perunite_mace",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_mace.json",
+    "sha256": "e787989af3698cadf56214ed0c736f06a696404a798baae6923676a65ae3d2d9",
+    "bounds": [
+      [
+        5.2,
+        1.0,
+        5.2
+      ],
+      [
+        10.700000000000001,
+        25.0,
+        10.700000000000001
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "ancient_chekan",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ancient_chekan.json",
+    "sha256": "408edbae1d86ed5c73237b869631a1bd86dd430f1d5c6a0372bec25302e4c634",
+    "bounds": [
+      [
+        0.5,
+        -8.0,
+        6.7
+      ],
+      [
+        12.5,
+        17.0,
+        9.3
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "chekan",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\chekan.json",
+    "sha256": "c3dbd5893914fda54f56b82ffe43282a137749bdaa3c6541e20503e1024639e9",
+    "bounds": [
+      [
+        0.5,
+        -8.0,
+        6.7
+      ],
+      [
+        12.5,
+        17.0,
+        9.3
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "battle_axe",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\battle_axe.json",
+    "sha256": "ae42205767c89658b5f7e2b96fdfe7735a872c5da1bddb385c29c7cda2a040c7",
+    "bounds": [
+      [
+        2.0,
+        0.0,
+        6.6
+      ],
+      [
+        9.3,
+        16.0,
+        9.4
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "thunder_axe",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\thunder_axe.json",
+    "sha256": "984aeafc1a90c7c1f58d5dafdcb574e43a05b9310936fc09548fe52ca57001ae",
+    "bounds": [
+      [
+        -1.0,
+        1.0,
+        6.6
+      ],
+      [
+        12.5,
+        27.0,
+        9.4
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "stone_flail",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\stone_flail.json",
+    "sha256": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6",
+    "bounds": [
+      [
+        6.8,
+        -4.1,
+        6.2
+      ],
+      [
+        14.0,
+        18.5,
+        9.8
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "gold_flail",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\gold_flail.json",
+    "sha256": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6",
+    "bounds": [
+      [
+        6.8,
+        -4.2,
+        6.5
+      ],
+      [
+        14.1,
+        18.5,
+        9.5
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "flail",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\flail.json",
+    "sha256": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6",
+    "bounds": [
+      [
+        6.8,
+        -3.9,
+        5.75
+      ],
+      [
+        14.25,
+        18.5,
+        10.25
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "silver_flail",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\silver_flail.json",
+    "sha256": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6",
+    "bounds": [
+      [
+        6.8,
+        -4.3,
+        5.5
+      ],
+      [
+        14.5,
+        18.5,
+        10.5
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "diamond_flail",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\diamond_flail.json",
+    "sha256": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6",
+    "bounds": [
+      [
+        6.8,
+        -4.3,
+        5.7
+      ],
+      [
+        14.3,
+        18.5,
+        10.3
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "perunite_flail",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_flail.json",
+    "sha256": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6",
+    "bounds": [
+      [
+        6.8,
+        -4.5,
+        5.2
+      ],
+      [
+        14.8,
+        18.5,
+        10.8
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "netherite_flail",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\netherite_flail.json",
+    "sha256": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6",
+    "bounds": [
+      [
+        6.8,
+        -4.6,
+        5.4
+      ],
+      [
+        14.6,
+        18.5,
+        10.6
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "ataman_flail",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ataman_flail.json",
+    "sha256": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6",
+    "bounds": [
+      [
+        6.8,
+        -4.8,
+        4.8
+      ],
+      [
+        15.2,
+        18.5,
+        11.2
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "ancient_spear",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ancient_spear.json",
+    "sha256": "7ccc00810a63c605b4b4c180219a29296031712bccf208edd31f2ce599a0867a",
+    "bounds": [
+      [
+        6.5,
+        -15.0,
+        7.0
+      ],
+      [
+        9.5,
+        31.0,
+        9.0
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "restored_spear",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\restored_spear.json",
+    "sha256": "262435225ca30abe23e32b5767b11bf3a84b24b21594847eefc84f37b7ce0dde",
+    "bounds": [
+      [
+        6.5,
+        -15.0,
+        7.0
+      ],
+      [
+        9.5,
+        31.0,
+        9.0
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "spear",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\spear.json",
+    "sha256": "da42ac60ac3670daf569b5db730ef9d36e5ab52720fe779cc53c6ae299d10eaf",
+    "bounds": [
+      [
+        6.5,
+        -10.0,
+        7.1
+      ],
+      [
+        9.5,
+        30.0,
+        8.9
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "gold_spear",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\gold_spear.json",
+    "sha256": "999219bd3195bd575b88d4b7808f3ac937ae8b67b7559b7421deabdef844a4d5",
+    "bounds": [
+      [
+        6.5,
+        -10.0,
+        7.1
+      ],
+      [
+        9.5,
+        30.0,
+        8.9
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "iron_spear",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\iron_spear.json",
+    "sha256": "45101c6165a8240bc3267b9580cfca8907814a6765508464f78d27125ed3f5d3",
+    "bounds": [
+      [
+        6.4,
+        -10.0,
+        7.1
+      ],
+      [
+        9.6,
+        30.0,
+        8.9
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "silver_spear",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\silver_spear.json",
+    "sha256": "1aca07a5ad0ea589be2a0ccc593426105c3a626b49a95fd36d9b6b991ddf50ed",
+    "bounds": [
+      [
+        6.85,
+        -10.0,
+        7.0
+      ],
+      [
+        9.15,
+        30.0,
+        9.0
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "diamond_spear",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\diamond_spear.json",
+    "sha256": "6f5ceec86bacb2a6eea92a2f0b1a7d61ae7a3d6c3c7278a4fef7055146394d9e",
+    "bounds": [
+      [
+        6.35,
+        -10.0,
+        7.1
+      ],
+      [
+        9.65,
+        30.0,
+        8.9
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "perunite_spear",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_spear.json",
+    "sha256": "c270fb3a299dd56885e85d74cd3b0451ea34a306a0be3c0cdf26de429ab08887",
+    "bounds": [
+      [
+        6.25,
+        -10.0,
+        7.1
+      ],
+      [
+        9.75,
+        30.0,
+        8.9
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "netherite_spear",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\netherite_spear.json",
+    "sha256": "ad92427ef848f3b27f123be30a9397b204c474b49aeabc5a58f6b578873c8e8c",
+    "bounds": [
+      [
+        6.2,
+        -10.0,
+        7.1
+      ],
+      [
+        9.8,
+        30.0,
+        8.9
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "pool_spear",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\pool_spear.json",
+    "sha256": "33cb42df531f7799ce2590cadec34c185d47f28e4a84629aba10f98ea45ca669",
+    "bounds": [
+      [
+        5.693437035123623,
+        -7.0,
+        6.6
+      ],
+      [
+        9.461939766255643,
+        25.0,
+        9.0
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "thunder_spear",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\thunder_spear.json",
+    "sha256": "e5439213b6f5c5ce3d14a1549ac7fafbc194446befc417c76934d11a5d80d635",
+    "bounds": [
+      [
+        6.0,
+        -10.0,
+        6.78
+      ],
+      [
+        10.0,
+        30.0,
+        9.22
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "victor_spear",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\victor_spear.json",
+    "sha256": "9fd0f7f1d2284f8511356fe99f08f02d9093e4cf7c4c83190887141c25d25417",
+    "bounds": [
+      [
+        5.7,
+        -5.0,
+        6.5
+      ],
+      [
+        9.8,
+        30.0,
+        9.0
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "berdysh",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\berdysh.json",
+    "sha256": "770d6c124ee70d30ac814b80ec2ec663632df0032ad218f8cc53f0a6dc978611",
+    "bounds": [
+      [
+        1.5,
+        -10.0,
+        7.05
+      ],
+      [
+        8.95,
+        29.0,
+        8.95
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "noon_sickle",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\noon_sickle.json",
+    "sha256": "dc32fa7856e24283790f95b288b1eb97321211eaaff7e93720c09953f81804d4",
+    "bounds": [
+      [
+        6.85,
+        1.0,
+        7.0
+      ],
+      [
+        15.0,
+        18.0,
+        9.0
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "karachun_scythe",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\karachun_scythe.json",
+    "sha256": "d0aca6d299e65623fc628aa278262107cca6eb0efdea2a3630e0b51210f78720",
+    "bounds": [
+      [
+        -9.137500000000003,
+        -3.5,
+        6.5375
+      ],
+      [
+        9.3125,
+        31.375,
+        9.3125
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "poloz_whip",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\poloz_whip.json",
+    "sha256": "b3a11fcc145d1be930afa67e66c904a5f607fc80cf333c7e10e9a9ad0f8604af",
+    "bounds": [
+      [
+        5.250441676175259,
+        -4.0,
+        6.5
+      ],
+      [
+        17.064620284687606,
+        24.526787076386654,
+        9.5
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "stone_throwing_knife",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\stone_throwing_knife.json",
+    "sha256": "463e19fbc4e5690f26a5a093cb77acc5cbdbddfd69fd119ad1d757466133a6af",
+    "bounds": [
+      [
+        6.8,
+        2.0,
+        7.15
+      ],
+      [
+        9.2,
+        14.7,
+        8.85
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "gold_throwing_knife",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\gold_throwing_knife.json",
+    "sha256": "8a887fff610b11a402fdff4e1336a4790b299bb85c61ff34583f5e1e49c880f0",
+    "bounds": [
+      [
+        6.8,
+        2.0,
+        7.15
+      ],
+      [
+        9.2,
+        14.7,
+        8.85
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "iron_throwing_knife",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\iron_throwing_knife.json",
+    "sha256": "e82ed2c3f44bff532f585bd02728839ed2d8f19ba07735f30b31d10db3246bc0",
+    "bounds": [
+      [
+        6.8,
+        2.0,
+        7.15
+      ],
+      [
+        9.2,
+        14.7,
+        8.85
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "silver_throwing_knife",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\silver_throwing_knife.json",
+    "sha256": "88d063d5e605537e56177df87eca0386ae1569b67d9256c7c7a68139e7cfb62a",
+    "bounds": [
+      [
+        6.8,
+        2.0,
+        7.15
+      ],
+      [
+        9.2,
+        14.7,
+        8.85
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\diamond_throwing_knife.json",
+    "sha256": "fbc1056968813095b701d61940b3981dee32e1d18ce9f1ad1ec25f7597f173a5",
+    "bounds": [
+      [
+        6.8,
+        2.0,
+        7.15
+      ],
+      [
+        9.2,
+        14.7,
+        8.85
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_throwing_knife.json",
+    "sha256": "8105ae76208fd3ab12fc140007f30d1c9a3245bcec1cd6274bcf9da15b8799b9",
+    "bounds": [
+      [
+        6.8,
+        2.0,
+        7.15
+      ],
+      [
+        9.2,
+        14.7,
+        8.85
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\netherite_throwing_knife.json",
+    "sha256": "690e91be7f307a13120282f698e76d9f572949786717bc8523eebd44b8109c02",
+    "bounds": [
+      [
+        6.8,
+        2.0,
+        7.15
+      ],
+      [
+        9.2,
+        14.7,
+        8.85
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "stone_sulitsa",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\stone_sulitsa.json",
+    "sha256": "56cc3a41657657ecbfc613a3a9a6faf6d1f742b497926a8371eb0e4bb9f8acd3",
+    "bounds": [
+      [
+        7.05,
+        -2.0,
+        7.35
+      ],
+      [
+        8.95,
+        18.5,
+        8.65
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "gold_sulitsa",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\gold_sulitsa.json",
+    "sha256": "958130a0c4f1675938d43c47dc30616de7d8d12b9a24b126c6aa86b3d96a495f",
+    "bounds": [
+      [
+        7.05,
+        -2.0,
+        7.35
+      ],
+      [
+        8.95,
+        18.5,
+        8.65
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "iron_sulitsa",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\iron_sulitsa.json",
+    "sha256": "67cfbdc183aadf83c16e1752700eebe660e5a2c5bcb9084bb892be560ba3ac6d",
+    "bounds": [
+      [
+        7.05,
+        -2.0,
+        7.35
+      ],
+      [
+        8.95,
+        18.5,
+        8.65
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "silver_sulitsa",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\silver_sulitsa.json",
+    "sha256": "9f94aef5cb234196178003b95434dc9b3689a631e56bdcb55f4a0a9dfed3b324",
+    "bounds": [
+      [
+        7.05,
+        -2.0,
+        7.35
+      ],
+      [
+        8.95,
+        18.5,
+        8.65
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "diamond_sulitsa",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\diamond_sulitsa.json",
+    "sha256": "27fbdc34f0a4d7f19e3ce425b168e7bd8665b793bc35ecba40d6d89ef726b30d",
+    "bounds": [
+      [
+        7.05,
+        -2.0,
+        7.35
+      ],
+      [
+        8.95,
+        18.5,
+        8.65
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "perunite_sulitsa",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\perunite_sulitsa.json",
+    "sha256": "0cd7ebbe2e7c65437c9590f28039ec4afe0fbbfe9819d58757e33f5fc8524234",
+    "bounds": [
+      [
+        7.05,
+        -2.0,
+        7.35
+      ],
+      [
+        8.95,
+        18.5,
+        8.65
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "netherite_sulitsa",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\netherite_sulitsa.json",
+    "sha256": "6f92c0c4a84bb15bb89a0e5df7948fef7bcce3a6f054e74e66369456a17bfe5b",
+    "bounds": [
+      [
+        7.05,
+        -2.0,
+        7.35
+      ],
+      [
+        8.95,
+        18.5,
+        8.65
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "short_bow",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\short_bow.json",
+    "sha256": "a7b87046442c9cd9a8b81292758fb373dd82ad99a768b788cbd557bafbb6fe44",
+    "bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "heavy_bow",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\heavy_bow.json",
+    "sha256": "aa4f93191979d6cbf881a4fd8724848249414b22a8734b8310ff7b8cc8bc5834",
+    "bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "finist_bow",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\finist_bow.json",
+    "sha256": "bd6cad393ea46daf39647ba45cdbcb2e0a6b74d678aacab1603559e64e8eb028",
+    "bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "bone_arrow",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\bone_arrow.json",
+    "sha256": "b1daa73a5cf8f0492eb9e8ccf878617b9bb54f3351d496a5ab6a228313444f78",
+    "bounds": [
+      [
+        0.0,
+        0.0,
+        7.5
+      ],
+      [
+        16.0,
+        16.0,
+        8.5
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "serpent_crossbow",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\serpent_crossbow.json",
+    "sha256": "084fd8f3a060249b30e3c7a8f3422ca23e1aee81639d118c1dfee740cff3bdba",
+    "bounds": [
+      [
+        -2.0,
+        5.0,
+        1.0
+      ],
+      [
+        18.0,
+        9.55,
+        16.0
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "three_breath_crossbow",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\three_breath_crossbow.json",
+    "sha256": "b1a6ea74a12dee288236d419f413d1f8e23d042f07477685210cb94ced33f1de",
+    "bounds": [
+      [
+        -2.0,
+        5.0,
+        -3.0
+      ],
+      [
+        18.0,
+        15.0,
+        16.0
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "carved_staff",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\carved_staff.json",
+    "sha256": "85beab811b3f56e615e4f0e8b877b51bd977a1c6d0fd0d4d6f613fd40c7c7f51",
+    "bounds": [
+      [
+        3.0,
+        0.0,
+        6.0
+      ],
+      [
+        13.0,
+        30.0,
+        13.0
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "storm_staff",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\storm_staff.json",
+    "sha256": "b800497b1134ee3b3e472fe2079ffeb4809f8c2c8aeaae44d4973693caa88f6e",
+    "bounds": [
+      [
+        4.4,
+        0.0,
+        6.4
+      ],
+      [
+        11.6,
+        30.0,
+        9.6
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "veles_staff",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\veles_staff.json",
+    "sha256": "f33d2e8881ee4d03fc4e0cefd019643797786c641614f774f30f4a950f9d9fd8",
+    "bounds": [
+      [
+        4.397336440933085,
+        -6.0,
+        6.8
+      ],
+      [
+        14.035204220199569,
+        23.92596062743281,
+        9.2
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "likho_staff",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\likho_staff.json",
+    "sha256": "3ec8ac6779a3038e2c81248ca9ab33656ad90ae047046e21e0721013d16a8d7f",
+    "bounds": [
+      [
+        6.0,
+        -3.0,
+        6.0
+      ],
+      [
+        11.0,
+        26.0,
+        9.5
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  },
+  {
+    "id": "morozko_staff",
+    "root": "src\\main\\resources\\assets\\slavicmyths\\models\\item\\morozko_staff.json",
+    "sha256": "d0aca6d299e65623fc628aa278262107cca6eb0efdea2a3630e0b51210f78720",
+    "bounds": [
+      [
+        3.25,
+        -4.0,
+        6.5
+      ],
+      [
+        12.75,
+        27.0,
+        9.25
+      ]
+    ],
+    "hand_source_context": "thirdperson_righthand",
+    "source_orthographic_only": true
+  }
+]

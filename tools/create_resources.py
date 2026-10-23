@@ -111,3 +111,25 @@ apply_accessories148()
 
 from accessories148_art import apply as apply_accessories148_art
 apply_accessories148_art()
+
+# Exact #98/#99 resource icons; no weapons, recipes or neighbouring assets.
+from materials81_n98_t99 import apply as apply_materials81_n98_t99
+apply_materials81_n98_t99(root)
+
+from weapons87_approved_cd import apply as apply_weapons87_approved_cd
+apply_weapons87_approved_cd(root)
+from weapons87_flails import main as apply_current_weapons87
+apply_current_weapons87(True)
+
+from materials81_m97_t100 import apply as apply_materials81_m97_t100
+apply_materials81_m97_t100(root)
+
+
+from trophies112_113_art import apply as apply_trophies112_113
+apply_trophies112_113(root)
+
+from trophy114_down import apply as apply_trophy114_down
+apply_trophy114_down(root)
+
+from issue225_resources import apply as apply_issue225_resources
+apply_issue225_resources()

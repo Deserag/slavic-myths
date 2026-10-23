@@ -1,0 +1,44 @@
+[
+  {
+    "stage": 0,
+    "frame": "docs\\implementation\\weapons87\\issue217\\client-marker224-camera\\marker-stage0.png",
+    "marker_pixels": 25,
+    "old_hud_anchor_pixels": 0,
+    "bounds": [
+      442,
+      311,
+      452,
+      317
+    ]
+  },
+  {
+    "stage": 1,
+    "frame": "docs\\implementation\\weapons87\\issue217\\client-marker224-camera\\marker-stage1.png",
+    "marker_pixels": 26,
+    "old_hud_anchor_pixels": 0,
+    "bounds": [
+      827,
+      311,
+      837,
+      317
+    ]
+  },
+  {
+    "stage": 2,
+    "frame": "docs\\implementation\\weapons87\\issue217\\client-marker224-camera\\marker-stage2.png",
+    "marker_pixels": 0,
+    "old_hud_anchor_pixels": 0
+  },
+  {
+    "stage": 3,
+    "frame": "docs\\implementation\\weapons87\\issue217\\client-marker224-camera\\marker-stage3.png",
+    "marker_pixels": 0,
+    "old_hud_anchor_pixels": 0
+  },
+  {
+    "stage": 4,
+    "frame": "docs\\implementation\\weapons87\\issue217\\client-marker224-camera\\marker-stage4.png",
+    "marker_pixels": 0,
+    "old_hud_anchor_pixels": 0
+  }
+]

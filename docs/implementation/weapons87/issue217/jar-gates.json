@@ -1,0 +1,181 @@
+[
+  {
+    "command": [
+      "python",
+      "tools/verify_weapons87_p41.py",
+      "--jar"
+    ],
+    "exit": 0,
+    "stdout": "PASS P41: 5 actual weapon models, additive canonical overlay, old GUI/FP/TP unchanged, runtime NOT_RUN\nPASS P41: noon 3D sickle, four additive unique-held weapon designs, original GUI, generator-safe overlays; Minecraft NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/verify_weapons87_p42.py",
+      "--jar"
+    ],
+    "exit": 0,
+    "stdout": "PASS P42: 12 crossbow states, 4 Finist drawing states, no source art drift. Runtime NOT_RUN\nPASS P42: 12 crossbow states, 4 Finist drawing states, no source art drift. Runtime NOT_RUN\nPASS P42: 12 crossbow states, 4 Finist drawing states, no source art drift. Runtime NOT_RUN\nPASS P42: 18 model states, both crossbows, scythe, Morozko, Finist, idempotent isolated replay; runtime NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/verify_weapons87_p43.py",
+      "--jar"
+    ],
+    "exit": 0,
+    "stdout": "PASS P43: stable thunder spear, berdysh and carved-staff details, centered TP; runtime NOT_RUN\nPASS P42: 12 crossbow states, 4 Finist drawing states, no source art drift. Runtime NOT_RUN\nPASS P43: stable thunder spear, berdysh and carved-staff details, centered TP; runtime NOT_RUN\nPASS P43: stable thunder spear, berdysh and carved-staff details, centered TP; runtime NOT_RUN\nPASS P43: real art models, pivots, safe socket details, two-pass canonical overlay, unchanged P42; Minecraft NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/verify_weapons87_p44.py",
+      "--jar"
+    ],
+    "exit": 0,
+    "stdout": "PASS P44: 32 real weapon IDs, animation phase/source, volley cue/dedup and packed classes when requested; Minecraft NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/verify_weapons87_p45.py",
+      "--jar"
+    ],
+    "exit": 0,
+    "stdout": "PASS P45: 7 knife / 7 sulitsa local throw poses, unchanged projectile and balance, JAR class gate when requested; Minecraft NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/verify_weapons87_p47.py",
+      "--jar"
+    ],
+    "exit": 0,
+    "stdout": "PASS P47/P48: 51 real player-held third-person models, swing/charge/walk pose envelopes, independent hand contexts and class packaging; Minecraft NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/verify_weapons87_p48.py",
+      "--jar"
+    ],
+    "exit": 0,
+    "stdout": "PASS P48: three third-person bows use actual draw ticks, no server projectile changes, 12 model states and JAR checks; Minecraft NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/verify_weapons87_p49.py",
+      "--jar"
+    ],
+    "exit": 0,
+    "stdout": "PASS P49: owner-rejected sword grip, whip rollback, flail hit extension, guided arrow, victor text, thunder, staff, six heads and hunting horn; runtime NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/verify_trophy140_p50.py",
+      "--jar"
+    ],
+    "exit": 0,
+    "stdout": "PASS P50: six existing trophy heads have shorter visible movement cycles, gaze and denser client-local particles; Minecraft/owner visual NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/verify_trophy140_rework.py",
+      "--jar"
+    ],
+    "exit": 0,
+    "stdout": "TROPHY140 REWORK source/protected originals/JAR PASS; resources=7631; gameplay NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/verify_weapons87_p51.py",
+      "--jar"
+    ],
+    "exit": 0,
+    "stdout": "P51 SOURCE/JAR PASS: antiparallel turn and actual Tugarin pupil links; gameplay and visual runtime NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/verify_weapons87_p52.py",
+      "--jar"
+    ],
+    "exit": 0,
+    "stdout": "P52 PASS: accepted MOR/FIRE hits get bounded distinct server particles once per arrow; Storm existing VFX preserved; runtime NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/weapons87_live_audit.py",
+      "--jar"
+    ],
+    "exit": 0,
+    "stdout": "PASS: 68 exact catalog weapon IDs, native snapshot, source model/PNG refs, 338 JAR asset checks\nARCHIVAL DRIFT (historical, NOT FIXED): audit68 88 changed + 0 missing references, old flail manifest 8 changed + 0 missing\nREPORT: D:\\slavic-myths\\build\\weapons87-live-audit\\current-68.json CSV: D:\\slavic-myths\\build\\weapons87-live-audit\\current-68.csv game/PolyMC NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/verify_issue217.py",
+      "--jar"
+    ],
+    "exit": 0,
+    "stdout": "PASS Issue217 exact source delta, all old PNG unchanged, reproducible dedicated surfaces/icons; JAR={'path': 'D:\\\\slavic-myths\\\\build\\\\libs\\\\slavicmyths-1.9.7.58.jar', 'sha256': '1bb4cdf7b2fd5c92956e481e538e07e8229cefa893acc95f9fe3a7b8a8756149'}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/verify_resources.py"
+    ],
+    "exit": 0,
+    "stdout": "PASS current NeoForge resources: {\"scope\": \"CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted\", \"version\": \"1.9.7.58\", \"jar\": \"D:\\\\slavic-myths\\\\build\\\\libs\\\\slavicmyths-1.9.7.58.jar\", \"sha256\": \"1bb4cdf7b2fd5c92956e481e538e07e8229cefa893acc95f9fe3a7b8a8756149\", \"resources\": 7631, \"json\": 4104, \"png\": 1371, \"models\": 1780, \"java21_classes\": 1809, \"runtime_launches\": 0, \"runtime\": \"NOT_RUN / OWNER_PENDING\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/verify_materials81_n98_t99.py",
+      "--preserve",
+      "--jar"
+    ],
+    "exit": 0,
+    "stdout": "N98/T99 PASS: 12 exact sprites, natural/weapon-component silhouettes, original dimensions, isolated deterministic generators; JAR={'path': 'build/libs/slavicmyths-1.9.7.58.jar', 'sha256': '1bb4cdf7b2fd5c92956e481e538e07e8229cefa893acc95f9fe3a7b8a8756149', 'resources': 7631}; runtime NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/verify_issue222_strings.py"
+    ],
+    "exit": 0,
+    "stdout": "PASS 12 crossbow states: exact rope-only changes, constant .3 thickness, full draw persists into arrow/firework; no mechanics or PNG changes\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "tools/verify_issue217_frames.py",
+      "client-lash-single-pass"
+    ],
+    "exit": 0,
+    "stdout": "PASS 88 actual item renders: visible pixels, zero spill outside each outlined inventory slot\n",
+    "stderr": ""
+  }
+]

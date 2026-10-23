@@ -26,7 +26,7 @@ def dragon_heads():
    add([x-.23,9.3,-2.8],[x+.23,10.15,-1.8],'ivory')
    add([x-.2,8.1,-2.65],[x+.2,8.9,-1.65],'ivory')
  return parts
-def apply():
+def legacy_apply():
  # Entity atlases are not automatically stitched into the block/item atlas.
  p=R/'src/main/resources/assets/minecraft/atlases/blocks.json';p.parent.mkdir(parents=True,exist_ok=True)
  d=json.loads(p.read_text(encoding='utf-8')) if p.exists() else {'sources':[]}
@@ -57,4 +57,10 @@ def apply():
  # The #87 canonical component/flail owner runs last; legacy models must not resurrect.
  from weapons87_flails import main as flails87
  flails87(True)
+def apply():
+ # Historical dragon-head reconstruction predates #184/#222 and must not run
+ # ahead of the guarded canonical models. Keep helpers for source provenance.
+ from weapons87_flails import main as current_weapons
+ current_weapons(True)
+
 if __name__=='__main__':apply()

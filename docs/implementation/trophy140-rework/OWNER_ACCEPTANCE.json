@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-22",
+  "source": "explicit user message in current chat",
+  "owner_statement": "задача по дорабоькам голов с врагов считаю принятой разрешаю перенести в статус \"готово\"",
+  "issue": 140,
+  "owner_acceptance": "ACCEPTED",
+  "requested_project_status": "Готово",
+  "actual_project_status_change": "NOT_CHANGED",
+  "reason": "GitHub credential lacks project scopes; browser signed out; connector has no Project v2 mutations",
+  "issue_closed": false,
+  "owner_accepted_label_added": false
+}

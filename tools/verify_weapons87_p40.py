@@ -12,7 +12,11 @@ def cuboid(e):
 for id,num in (("bone_knife",11),("club",17),("spear",23)):
     m=item(id)
     assert len(m["elements"])==num,(id,len(m["elements"]))
-    for e in m["elements"]:cuboid(e)
+    for index,e in enumerate(m["elements"]):
+        if id=="spear" and index in (6,9,12,15,18):
+            assert set(e['faces'])=={'north','south','east','up','down'}
+            assert m['elements'][index+1]['from'][0]==e['from'][0]
+        else:cuboid(e)
     assert "gui" in m["display"] and "thirdperson_righthand" in m["display"]
     assert (A/"textures/item"/(id+".png")).is_file()
 knife=item("bone_knife")

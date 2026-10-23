@@ -1,0 +1,162 @@
+{
+  "comments": [
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/162#issuecomment-6341078493",
+      "body": "### 22.10.2026 P33\nP33 source audit ONLY: `WeaponGrip58.karachun/morozko` acts on boss rig parts, not on player melee animation. Do not copy boss pose chains to Steve/Alex melee; four phase player storyboard, timings and client QA required before implementation. Code for player animations **not implemented** in P33. PR [#205](https://github.com/Deserag/slavic-myths/pull/205) merged `cabb87af156b745d10a88ef4b2a689b8fa011d7e`, [CI 39780550221](https://github.com/Deserag/slavic-myths/actions/runs/39780550221) PASS (Java21 clean build, 68 IDs, 294 packed assets, Storm Staff VFX regression). Minecraft/PolyMC NOT_RUN; Issues OPEN.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6341078493,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<h3 dir=\"auto\">22.10.2026 P33</h3>\n<p dir=\"auto\">P33 source audit ONLY: <code class=\"notranslate\">WeaponGrip58.karachun/morozko</code> acts on boss rig parts, not on player melee animation. Do not copy boss pose chains to Steve/Alex melee; four phase player storyboard, timings and client QA required before implementation. Code for player animations <strong>not implemented</strong> in P33. PR <a href=\"https://github.com/Deserag/slavic-myths/pull/205\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/205/hovercard\">#205</a> merged <code class=\"notranslate\">cabb87af156b745d10a88ef4b2a689b8fa011d7e</code>, <a href=\"https://github.com/Deserag/slavic-myths/actions/runs/39780550221\">CI 39780550221</a> PASS (Java21 clean build, 68 IDs, 294 packed assets, Storm Staff VFX regression). Minecraft/PolyMC NOT_RUN; Issues OPEN.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/162#issuecomment-6341915470",
+      "body": "P35 / PR #209: аудит разделил player arm rendering и boss WeaponGrip58. Обычное оружие ещё использует vanilla swing; отдельная последовательность idle→windup→impact→recovery для игрока НЕ реализована. Не считать #162 выполненной.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6341915470,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">P35 / PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5980247425\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/209\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/209/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/209\">#209</a>: аудит разделил player arm rendering и boss WeaponGrip58. Обычное оружие ещё использует vanilla swing; отдельная последовательность idle→windup→impact→recovery для игрока НЕ реализована. Не считать <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5959302279\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/162\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/162/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/162\">#162</a> выполненной.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/162#issuecomment-6342792162",
+      "body": "P38 / PR #212: активная сабля Калина теперь отправляет `player.swing(hand,true)` при ПКМ и отображает надпись о взмахе, первая реализованная реакция на специальную атаку. Общая анимационная подсистема обычного оружия по-прежнему не завершена, issue OPEN до остальных типов.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6342792162,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">P38 / PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5980933206\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/212\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/212/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/212\">#212</a>: активная сабля Калина теперь отправляет <code class=\"notranslate\">player.swing(hand,true)</code> при ПКМ и отображает надпись о взмахе, первая реализованная реакция на специальную атаку. Общая анимационная подсистема обычного оружия по-прежнему не завершена, issue OPEN до остальных типов.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/162#issuecomment-6345634792",
+      "body": "Production: `client/WeaponMotionClient.java` adds hand-aware 1P eased windup/contact/recovery and walking response to 6 ordinary blade IDs and 9 blunt/heavy IDs. Existing 3P vanilla swings retained; detailed third-person phases, actual Alex/Steve hand clipping and runtime timing still need owner testing. No server hit/damage/reach/cooldown changes.\n\nP44 in existing branch `work/weapons87-continuous-20261022`, draft PR #216; source `bbb3a353`, docs `683a2cd`. Java 21 clean build + P42/P43/P44 source/JAR guards **PASS**, [Actions #39812159700](https://github.com/Deserag/slavic-myths/actions/runs/39812159700); `slavicmyths-1.9.7.56.jar`, SHA256 `ed564259729eda1027a7e5c3331797a75593981eb28635a0787677163b148eee`. **Minecraft/PolyMC launches: 0; gameplay acceptance NOT_RUN, Issue remains OPEN/IN_PROGRESS.** Details: `docs/implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md`.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6345634792,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">Production: <code class=\"notranslate\">client/WeaponMotionClient.java</code> adds hand-aware 1P eased windup/contact/recovery and walking response to 6 ordinary blade IDs and 9 blunt/heavy IDs. Existing 3P vanilla swings retained; detailed third-person phases, actual Alex/Steve hand clipping and runtime timing still need owner testing. No server hit/damage/reach/cooldown changes.</p>\n<p dir=\"auto\">P44 in existing branch <code class=\"notranslate\">work/weapons87-continuous-20261022</code>, draft PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5982545857\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/216\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/216/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/216\">#216</a>; source <code class=\"notranslate\">bbb3a353</code>, docs <code class=\"notranslate\">683a2cd</code>. Java 21 clean build + P42/P43/P44 source/JAR guards <strong>PASS</strong>, <a href=\"https://github.com/Deserag/slavic-myths/actions/runs/39812159700\">Actions #39812159700</a>; <code class=\"notranslate\">slavicmyths-1.9.7.56.jar</code>, SHA256 <code class=\"notranslate\">ed564259729eda1027a7e5c3331797a75593981eb28635a0787677163b148eee</code>. <strong>Minecraft/PolyMC launches: 0; gameplay acceptance NOT_RUN, Issue remains OPEN/IN_PROGRESS.</strong> Details: <code class=\"notranslate\">docs/implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md</code>.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/162#issuecomment-6345898266",
+      "body": "P45 продолжение в той же ветке/PR #216, исходный commit [`b96024c4`](https://github.com/Deserag/slavic-myths/commit/b96024c4112b1b621908c49619113d6c583c2b9b): 7 throwing knives получили отдельный FP throw arc через `ThrowingMotionClient`, валидный client-side `player.swing(hand)` в `ThrowingWeaponItem.use()`. Остальные P44 движения не переписаны. Java21 clean build + P42–P45 source/JAR checks **PASS**: [CI #39813871455](https://github.com/Deserag/slavic-myths/actions/runs/39813871455). Production `slavicmyths-1.9.7.56.jar`, SHA256 `75aede07fc2240f23cb1fdb6ead673c565fcbd8179586e2c02d663bba68f32e9`. Никаких изменений server projectile, урона, дальности, скорости или кулдауна. 3P, обе руки, Steve/Alex, MP/игра: NOT_RUN/OWNER_PENDING. **OPEN / IN_PROGRESS**, не техническое завершение всей #162.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6345898266,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">P45 продолжение в той же ветке/PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5982545857\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/216\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/216/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/216\">#216</a>, исходный commit <a href=\"https://github.com/Deserag/slavic-myths/commit/b96024c4112b1b621908c49619113d6c583c2b9b\"><code class=\"notranslate\">b96024c4</code></a>: 7 throwing knives получили отдельный FP throw arc через <code class=\"notranslate\">ThrowingMotionClient</code>, валидный client-side <code class=\"notranslate\">player.swing(hand)</code> в <code class=\"notranslate\">ThrowingWeaponItem.use()</code>. Остальные P44 движения не переписаны. Java21 clean build + P42–P45 source/JAR checks <strong>PASS</strong>: <a href=\"https://github.com/Deserag/slavic-myths/actions/runs/39813871455\">CI #39813871455</a>. Production <code class=\"notranslate\">slavicmyths-1.9.7.56.jar</code>, SHA256 <code class=\"notranslate\">75aede07fc2240f23cb1fdb6ead673c565fcbd8179586e2c02d663bba68f32e9</code>. Никаких изменений server projectile, урона, дальности, скорости или кулдауна. 3P, обе руки, Steve/Alex, MP/игра: NOT_RUN/OWNER_PENDING. <strong>OPEN / IN_PROGRESS</strong>, не техническое завершение всей <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5959302279\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/162\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/162/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/162\">#162</a>.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/162#issuecomment-6346260403",
+      "body": "New THIRD-PERSON source behavior for 15 melee IDs and 14 thrown knives/sulitsas. `client/ThirdPersonWeaponMotion.java` wraps only actual inventory models and applies a short, mirrored, movement-sensitive swing transform in 3P, preserving original ItemInHandLayer/player arm animation. This is a real rendered-item transform, **not** a new player skeletal animation; Alex/Steve collision and impact presentation still require owner runtime validation.\n\n**P47** in existing `work/weapons87-continuous-20261022` (draft PR #216): source [`97bf25c3`](https://github.com/Deserag/slavic-myths/commit/97bf25c3408320ea43678332dda84d280d6f7932), QA receipt [`a8eeebb9`](https://github.com/Deserag/slavic-myths/commit/a8eeebb9a067fb6394ef4cae2b0b20e0741d9436). [GitHub Actions #39816854559](https://github.com/Deserag/slavic-myths/actions/runs/39816854559) **SUCCESS**: Java21 clean build, source tests for P42-P47 and production JAR class checks. `slavicmyths-1.9.7.56.jar` SHA256 `acf4d4d5ce8cc30dc17eaf3a38c60b29d74484e463728429edf1c05b89187fa6`. **No Minecraft/PolyMC launch, visual/MP 3P reception NOT_RUN.** Issue OPEN/IN_PROGRESS, `main` untouched. Details in cumulative `docs/implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md`.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6346260403,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">New THIRD-PERSON source behavior for 15 melee IDs and 14 thrown knives/sulitsas. <code class=\"notranslate\">client/ThirdPersonWeaponMotion.java</code> wraps only actual inventory models and applies a short, mirrored, movement-sensitive swing transform in 3P, preserving original ItemInHandLayer/player arm animation. This is a real rendered-item transform, <strong>not</strong> a new player skeletal animation; Alex/Steve collision and impact presentation still require owner runtime validation.</p>\n<p dir=\"auto\"><strong>P47</strong> in existing <code class=\"notranslate\">work/weapons87-continuous-20261022</code> (draft PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5982545857\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/216\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/216/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/216\">#216</a>): source <a href=\"https://github.com/Deserag/slavic-myths/commit/97bf25c3408320ea43678332dda84d280d6f7932\"><code class=\"notranslate\">97bf25c3</code></a>, QA receipt <a href=\"https://github.com/Deserag/slavic-myths/commit/a8eeebb9a067fb6394ef4cae2b0b20e0741d9436\"><code class=\"notranslate\">a8eeebb9</code></a>. <a href=\"https://github.com/Deserag/slavic-myths/actions/runs/39816854559\">GitHub Actions #39816854559</a> <strong>SUCCESS</strong>: Java21 clean build, source tests for P42-P47 and production JAR class checks. <code class=\"notranslate\">slavicmyths-1.9.7.56.jar</code> SHA256 <code class=\"notranslate\">acf4d4d5ce8cc30dc17eaf3a38c60b29d74484e463728429edf1c05b89187fa6</code>. <strong>No Minecraft/PolyMC launch, visual/MP 3P reception NOT_RUN.</strong> Issue OPEN/IN_PROGRESS, <code class=\"notranslate\">main</code> untouched. Details in cumulative <code class=\"notranslate\">docs/implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md</code>.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/162#issuecomment-6347541944",
+      "body": "**OWNER QA FAIL:** восстановленный и древний каролингские мечи по-прежнему неправильно держатся; нужен общий pivot/grip контракт семейства swords, а не поштучные случайные повороты. Кроме того, реальная дуга кистеня/ядра не совпадает с ударом, узел только качается. Новые P47/P48 source/JAR PASS не отменяют отказ по этим дефектам; full #162 OPEN/REWORK.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6347541944,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\"><strong>OWNER QA FAIL:</strong> восстановленный и древний каролингские мечи по-прежнему неправильно держатся; нужен общий pivot/grip контракт семейства swords, а не поштучные случайные повороты. Кроме того, реальная дуга кистеня/ядра не совпадает с ударом, узел только качается. Новые P47/P48 source/JAR PASS не отменяют отказ по этим дефектам; full <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5959302279\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/162\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/162/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/162\">#162</a> OPEN/REWORK.</p>"
+    }
+  ],
+  "url": "https://github.com/Deserag/slavic-myths/issues/162",
+  "title": "Deserag/slavic-myths Issue #162 comments",
+  "display_url": "https://github.com/Deserag/slavic-myths/issues/162",
+  "display_title": "Deserag/slavic-myths Issue #162 comments"
+}

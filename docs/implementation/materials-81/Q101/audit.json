@@ -1,0 +1,144 @@
+[
+  {
+    "id": "flax_stalk",
+    "model": "src/main/resources/assets/slavicmyths/models/item/flax_stalk.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/flax_stalk.png",
+    "native_size": [
+      32,
+      32
+    ],
+    "sha256": "10de3767766c3103e7870570ca2ea4b5e07cd80a5268cddceaa71348fb713925",
+    "action": "KEEP",
+    "defect": "Не доказан source-аудитом; игровой свет/ресурспаки проверяет владелец",
+    "reason": "Ступенчатый зелёный пучок стеблей с перевязью; контраст сохранён"
+  },
+  {
+    "id": "flax_fiber",
+    "model": "src/main/resources/assets/slavicmyths/models/item/flax_fiber.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/flax_fiber.png",
+    "native_size": [
+      32,
+      32
+    ],
+    "sha256": "ec4144c4914bdb4b20c6dca7cfc61e832db33fd9fbd878b47c6fd6d980fe609f",
+    "action": "KEEP",
+    "defect": "Не доказан source-аудитом; игровой свет/ресурспаки проверяет владелец",
+    "reason": "Светлые длинные волокна с разошедшимися концами; отличается от колоса"
+  },
+  {
+    "id": "linen_thread",
+    "model": "src/main/resources/assets/slavicmyths/models/item/linen_thread.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/linen_thread.png",
+    "native_size": [
+      32,
+      32
+    ],
+    "sha256": "ebdd3d793ed6bed631be754370fa05368341cd567b9f9dc2eac7886c79608566",
+    "action": "KEEP",
+    "defect": "Не доказан source-аудитом; игровой свет/ресурспаки проверяет владелец",
+    "reason": "Округлый клубок с витками, отличается от плоской ткани"
+  },
+  {
+    "id": "linen_cloth",
+    "model": "src/main/resources/assets/slavicmyths/models/item/linen_cloth.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/linen_cloth.png",
+    "native_size": [
+      32,
+      32
+    ],
+    "sha256": "ec4ae7a201328e4375796b1cdd0c750dd5d3e7fd40b73c752ef4a685d9983ead",
+    "action": "KEEP",
+    "defect": "Не доказан source-аудитом; игровой свет/ресурспаки проверяет владелец",
+    "reason": "Сложенное прямоугольное полотно с кромкой и складками"
+  },
+  {
+    "id": "purification_flux",
+    "model": "src/main/resources/assets/slavicmyths/models/item/purification_flux.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/purification_flux.png",
+    "native_size": [
+      32,
+      32
+    ],
+    "sha256": "c2a14026bd4a4ee93b1b3bfff64e23a6b1dbd3471e5ad8c8b39f3d607fbb7767",
+    "action": "KEEP",
+    "defect": "Не доказан source-аудитом; игровой свет/ресурспаки проверяет владелец",
+    "reason": "Мешочек с узким горлом и светлыми включениями"
+  },
+  {
+    "id": "bog_iron_lump",
+    "model": "src/main/resources/assets/slavicmyths/models/item/bog_iron_lump.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/bog_iron_lump.png",
+    "native_size": [
+      32,
+      32
+    ],
+    "sha256": "4ab267051f9e0a648a8848990ca0fbcc14c99e030c6a558dfe0135d5cdbfd143",
+    "action": "KEEP",
+    "defect": "Не доказан source-аудитом; игровой свет/ресурспаки проверяет владелец",
+    "reason": "Неровный бурый рудный ком с отдельными охристыми кусками"
+  },
+  {
+    "id": "bog_iron_ore",
+    "model": "src/main/resources/assets/slavicmyths/models/item/bog_iron_ore.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/block/bog_iron_ore.png",
+    "native_size": [
+      32,
+      32
+    ],
+    "sha256": "a39a390fb1bad3c1560b5524e5b9fc9fab2a29f4f5e4b90d6aa327804e08b3c2",
+    "block_model": "src/main/resources/assets/slavicmyths/models/block/bog_iron_ore.json",
+    "blockstate": "src/main/resources/assets/slavicmyths/blockstates/bog_iron_ore.json",
+    "blockstate_sha256": "dc4421f7a7cf8512e6688bdc40777ced5910e5b82cc910f9421e93ff991c6b7a",
+    "model_sha256": "cda8db1f7df01818ceaaf1162e76defe00e96574b165c5395770b04094c18e00",
+    "action": "KEEP",
+    "defect": "Не доказан source-аудитом; игровой свет/ресурспаки проверяет владелец",
+    "reason": "Бурые включения в серой породе; реальный cube_all"
+  },
+  {
+    "id": "silver_ore",
+    "model": "src/main/resources/assets/slavicmyths/models/item/silver_ore.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/block/silver_ore.png",
+    "native_size": [
+      16,
+      16
+    ],
+    "sha256": "ea3aee08eb8548e7159af381b352dd285a4cf8587c592b3234814c01eda44739",
+    "block_model": "src/main/resources/assets/slavicmyths/models/block/silver_ore.json",
+    "blockstate": "src/main/resources/assets/slavicmyths/blockstates/silver_ore.json",
+    "blockstate_sha256": "64667236ae1fba65e0e362fa5a49f896d473cb0f09bd1055f0994fa3c5bef487",
+    "model_sha256": "4ed44d5c06683f7ff866b75c7fa70ce10fa61c25cbc946e2dd19c8585f4a356b",
+    "action": "KEEP",
+    "defect": "Не доказан source-аудитом; игровой свет/ресурспаки проверяет владелец",
+    "reason": "Светлые серебряные включения, ранее одобренный metals36 style KEEP"
+  },
+  {
+    "id": "perunite_ore",
+    "model": "src/main/resources/assets/slavicmyths/models/item/perunite_ore.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/block/perunite_ore.png",
+    "native_size": [
+      16,
+      16
+    ],
+    "sha256": "aa0ed5bf2580b269e3f316ef37964e81ae0e85f0c6543f98ab7c8a796a0cabfc",
+    "block_model": "src/main/resources/assets/slavicmyths/models/block/perunite_ore.json",
+    "blockstate": "src/main/resources/assets/slavicmyths/blockstates/perunite_ore.json",
+    "blockstate_sha256": "d558af3e63b9af30d5ed1f15b75f498da984bff336ea0b02ccbd175bfc2f57be",
+    "model_sha256": "a709b100b398fb0ea48e236e0db051e24a60838f40ad2a11c76f96714b939f63",
+    "action": "KEEP",
+    "defect": "Не доказан source-аудитом; игровой свет/ресурспаки проверяет владелец",
+    "reason": "Синие включения с циановыми деталями, distinct from silver; KEEP"
+  },
+  {
+    "id": "amber",
+    "model": "src/main/resources/assets/slavicmyths/models/item/amber.json",
+    "texture": "src/main/resources/assets/slavicmyths/textures/item/amber.png",
+    "native_size": [
+      16,
+      16
+    ],
+    "sha256": "cbe865c3c59cbd7db66d85007d8bc112ea6fe9a014ff65c76a5560a711780c95",
+    "action": "KEEP",
+    "defect": "Не доказан source-аудитом; игровой свет/ресурспаки проверяет владелец",
+    "reason": "Настоящий item/generated янтарь, золотая кромка/медовая сердцевина; не BlockItem"
+  }
+]

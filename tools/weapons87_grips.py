@@ -13,10 +13,10 @@ SPECS=[
  ('spear','spear',6,.7,55,0),('silver_spear','silver_spear',6,.7,55,0),
  ('pool_spear','pool_spear',7,.85,55,0),('thunder_spear','thunder_spear',6,.7,55,0),
  ('victor_spear','victor_spear',10,.75,55,0),('berdysh','berdysh',6,.7,55,180),
- ('carved_staff','carved_staff',10,.75,55,0),('storm_staff','storm_staff',10,.75,55,0),
+ ('carved_staff','carved_staff',10,.68,55,0),('storm_staff','storm_staff',10,.75,55,0),
  ('veles_staff','veles_staff',8,.8,55,0),('likho_staff','likho_staff',11,.7,55,0),
- ('morozko_staff_held','morozko_staff',10,.8,55,0),
- ('karachun_scythe_held','karachun_scythe',12,.75,70,180),
+ ('morozko_staff_held','morozko_staff',10,.74,55,0),
+ ('karachun_scythe_held','karachun_scythe',12,.70,70,180),
 ]
 # Existing short-weapon orientations are retained; only center the actual grip in the palm.
 SHORT={'silver_sword':4.5,'perunite_sword':4.5,'club':3.5,'wooden_mace':4,'stone_mace':4,'mace':4,'silver_mace':4,'perunite_mace':4,'battle_axe':3.5,'thunder_axe':4.5}

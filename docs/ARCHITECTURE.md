@@ -1,3 +1,47 @@
+## 23.10.2026 — ручная приёмка 1.9.7.60 и следующий пакет
+
+По прямому решению владельца фактически переведены в «Готово» #217/#219/#220/#225/#226. [Основание и границы приёмки](implementation/project9-owner-acceptance-19760/REPORT.md). Новое поручение: #121 (защита актуальных оружейных ресурсов от отката старых генераторов) и #129 (итоговая техническая проверка брони после принятых #122–128). #129: 29 ID, 232 свежих native mesh-состояния, 13 исключённых аксессуаров сохранены; clean build44s и актуальный JAR/resources PASS, игровых запусков0, owner-only runtime NOT_RUN. [Матрица #129](implementation/issue129-current/REPORT.md). #129 и #121 фактически «Тестирование». #121: исправлены два legacy entrypoint и weapon-only вход Полоза; 7 entrypoints ×2 replay PASS, откатов0. [Матрица #121](implementation/issue121-current/REPORT.md). Новых художественных production-изменений и установки PolyMC в этом пакете нет.
+
+## 23.10.2026 — PolyMC обновлён по запросу владельца
+
+В тестовый профиль Slavic-Myths-1.21.1-Testing установлен 1.9.7.60; SHA256 установленного JAR проверен, предыдущий 1.9.7.59 сохранён в backup, дубликатов мода нет. [Точные пути, SHA256 и исходное состояние](implementation/polymc-19760/installed.json). При установке игра не запускалась; задачи остаются на ручной приёмке. Ниже сохранена история до установки.
+
+## 23.10.2026 — #225/#226: замечания владельца исправлены и проверены runtime
+
+Пакет: основания3фигур, именно ohotnichiy_rog, GUI/held/удар плети, непрерывная цепь/ядро кистеней и старый лишний рецепт, Сабля Воеводы по слизням. Нормальная генерация выявила #226: мебель и multipart helpers заявляли несуществующие block entities; исправлено без смены IDs/инвентарей/геометрии. Последний сервер38/38:10primary оружий,37native меню рецептов/74изготовления с расходом и antidupe,176multipart состояний; actual клиент обе руки/Steve/Alex,88GUI без spill. NORMAL seed2252026: курган/святилище, реальный отдельный процесс перезахода с сохранением3алмазов в ящике, BE warnings0. Всего21реальный Minecraft процесс с сохранёнными неудачными итерациями, не все объявлены PASS. [Полная матрица, границы и реальные кадры](implementation/issue225/REPORT.md). #225/#226/#217/#219/#220 «Тестирование», owner acceptance/Ready/close не заявлены. Local1.9.7.60 JAR SHA19202904f71fa92917c314d5743637b132478ee1be1d8f1a8f0d1489b606b0d6, clean build49s,7633resources/1811classes. В PolyMC прежняя установленная1.9.7.59, новой установки не было. Полная кампания/все структуры/MP/FPS/MSPT не проверены и не объявлены готовыми.
+
+## 23.10.2026 — #101 NO_CHANGE; полный исполнительский объём #81 на проверке
+
+Проверены10ресурсов:10KEEP/0FIX, фактические model/PNG/blockstate/UV и source формы трёх руд. Подтверждённого дефекта для перерисовки нет; production изменений0. Повторная проверка текущего JAR7631resources PASS, использован последний clean build46s без новых production правок. [Матрица и сводка шести пакетов #81](implementation/materials-81/Q101/REPORT.md). #101/#81 «Тестирование», owner-only runtime0; «Готово»/закрытие/PolyMC не заявлены.
+
+## 23.10.2026 — #114: QA31 и сводный64-ID контроль
+
+Проверены64actual model references,17ordinary/16elite/31legendary, порядок сохранён. В31QA-only трофеях30KEEP,1FIX: пух Жар-птицы после индивидуального blueprint. Ровно1production PNG; clean build46s иJAR7631resources PASS. [Поимённый аудит/матрица/actual slot sheets](implementation/trophy114/REPORT.md). #114 фактически «Тестирование»; #92 и игровые приёмки остаются открыты. Runtime0; новый локальный JAR не установлен в PolyMC.
+
+## 23.10.2026 — тестовая1.9.7.59 фактически установлена в PolyMC
+
+По прямому поручению владельца проверены #97/#100/#112/#113: все «Тестирование». Java21 clean build45s,7631 JAR resources и30canonical PNG PASS. Installed Slavic-Myths-1.21.1-Testing/.minecraft/mods/slavicmyths-1.9.7.59.jar, SHA256f211c5e5b00d626f1093b6e6ff1dcb7f87aa1051d520b155e939b71b08fd294b. Backup1.9.7.58, duplicate0. [Полная квитанция, source dirty manifest и матрица](implementation/polymc-19759/REPORT.md). Runtime запусков0. Новый delivery включает последние локальные исправления Финиста/метки, материалы и трофеи; это тестовый кандидат, не полная приёмка эпиков.
+
+## 23.10.2026 — #112/#113: трофеи переданы на личную проверку
+
+Из16ID исправлены11PNG;5actual специальных/удачных assets KEEP. Исходные geometry/UV/renderers сохранены. 26 scoped gates, production whitelist11PNG, clean build47s, JAR7631resources PASS. [Матрица/поимённый аудит/A-B](implementation/trophies112-113/REPORT.md). Runtime0/OWNER_ONLY, PolyMC не обновлялся, приёмка/закрытие не заявлены.
+
+## 23.10.2026 — #97/#100: адресные материалы, ожидают личной проверки
+
+Три уже реализованных металла KEEP. Изменены только янтарная block texture и6 наконечников, генераторы защищены от отката. 29 scoped checks, Java21 clean build48s и7631 JAR resources PASS. [Матрица/actual PNG A/B](implementation/materials-81/M97-T100/REPORT.md). Runtime0/OWNER_ONLY, PolyMC не обновлялся, версия1.9.7.58. Issues не закрыты, приёмка не заявлена.
+
+## 23.10.2026 — принятые задачи перенесены в «Готово» по решению владельца
+
+Фактически обновлены 22 карточки Project №9: #45, #98–99, #110–111, #122–128, #130, #140, #217–224. #140 добавлена на доску по прежней явной приёмке. Проверенное чтение: Готово41, Отменена56; остаток35 карточек, включая эпики и14 концептуальных (21 вне концепции). [Решение, доказательства, матрица и остаток](implementation/project9-owner-acceptance-20261023/REPORT.md). Иные статусы сохранены; Issues не закрывались. Исходные ограничения runtime не заменены утверждением о новых тестах. Никаких запусков, commit/push или установки PolyMC в этой итерации. Нижние OWNER_PENDING для перечисленных принятых карточек — история.
+
+## 23.10.2026 — Finist guidance и target marker #223/#224
+
+FinistArrow.tick использует guideVelocity с ограничением20–45°/tick в зависимости от скорости/дистанции; при цели сзади сначала горизонтальный разворот для исключения ухода в пол. Старый public steer(...,6) сохранён как совместимый pure helper, не runtime policy. Native speed/gravity/drag/collision сохраняются. FinistBow проверяет player LOS при acquisition; projectile проверяет direct block ray до marked target каждый tick и окончательно сбрасывает guide при occlusion. Нет поиска пути/новой цели. WolfStoryClient заменяет screen-centred HUD на depth-tested world quad над интерполированным bounding box отмеченной synced entity; один lookup, прежние UUID/dimension/time/range/LOS guards. [Доказательства](implementation/weapons87/issue217/finist223/REPORT.md).
+
+## 23.10.2026 — render paths #217
+
+Wrappers возвращают выбранную SeparateTransforms GUI-модель; исходные PNG сохранены. Щит/рог используют отдельные surface atlas с прежними кубоидами. Плеть:81 immutable bank, один render pass, только свободные вершины ориентируются по actual native player hand frame; grip фиксирован. Cache ограничен128 квантованными pose keys без entity references, только render thread; FPS/MSPT не измерялись. #222 меняет только тетиву:32 тонких сегмента, loaded V совпадает с full draw; корпус/UV/PNG/server charge/ammo сохранены. Canonical overlay tools/issue217_models.py; строгий source gate против полного P53 manifest. QA classes из tools не входят в production JAR. [Результаты](implementation/weapons87/issue217/REPORT.md).
+
 
 ## 22.10.2026 — P31/32 final verified source and CI receipts
 - **P31 #163:** crossbow FP visual recoil `WeaponHands` on same ItemStack charged→empty, 7-tick smooth client-only wrist+gun kick, per-hand state reset on switch/world, not ammo/server. [PR #202](https://github.com/Deserag/slavic-myths/pull/202) merged `4247c95ff8f8b82cb875161edf960686caaaa2af`. [Java21 CI 39775007057](https://github.com/Deserag/slavic-myths/actions/runs/39775007057) **PASS**: native 12 crossbow model states /48 handed pivot cases, 294 packaged resources, actual four-phase item-source/UV storyboards. JAR `slavicmyths-1.9.7.56.jar` SHA256 `d920d52874db3d9d1d811756ff10177f0c9b94aec3db7c9edcf73eb34f86790f`.
@@ -3060,3 +3104,62 @@ StormStaffItem.pulseDamage/cooldownTicks — actual production helpers с approv
 ### #87 продолжение — пакет13,22.10.2026
 
 weapons87_likho_gui.py — exact canonical overlay одного root JSON: gui_light front и только display.gui, остальные geometry/UV/material/non-GUI byte semantics unchanged. Native source checker доказывает clipping geometry вне16px до и внутри после, existing eye-color pixel visibility0→1;20 FP/TP source cases с прежними матрицами. Босс и способности не затрагиваются.
+
+
+### #87 P44 — клиентская композиция поз и ограниченный эффект залпа
+
+`client/WeaponMotionClient.java` регистрирует официальные `RegisterClientExtensionsEvent` + `IClientItemExtensions.applyForgeHandTransform` для 32 ID с отдельными BLADE/HEAVY/SPEAR/POLEAXE/SICKLE/STAFF easing phases. Только клиентский PoseStack; не меняет `HumanoidModel`, серверный tick/attack/hit timing, registry или особые renderer косы, кистеней, арбалетов. В `WeaponHands.crossbowWrist` добавлен X/Z tilt на реальном progress charge. `SerpentCrossbow.fireRound` в server code создаёт по одному (lane==0) cue: 6 mode-specific vanilla particles и один звук на volley. `CrossbowDamage.hit` не выполняет повторный mode-proc для уже обработанного projectile UUID. Production Java21/JAR проверяется `tools/verify_weapons87_p44.py` и continuous CI #39812159700; Minecraft runtime/3P не тестировались, Issue ещё OPEN. Этот эффект не является синхронизированной с сервером skeletal-анимацией игрока, а только визуальным client transform/shot cue.
+
+
+### #87 P45–P46 — first-person throw pipeline и crossbow regression baseline
+
+P45: `ThrowingMotionClient` регистрирует client-only `IClientItemExtensions` для 14 concrete IDs, маппинг фактически используемой руки и отдельные ease/sample фазы throw knife vs charged sulitsa. `ThrowingWeaponItem` после подтверждённой клиентом попытки ножа/валидного release сулицы вызывает локальный `player.swing(hand)`, сохраняя `WeaponProjectile`, server `throwOne` и все последствия попадания без изменений. 3P продолжают native vanilla pose, game testing NOT_RUN.
+
+P46: прежние frozen crossbow QA datasets отражают архив до P42. Два исторических verifiers теперь не удаляют эти снимки, а требуют **строгого** сопоставления `original.elements + weapons87_p42_models.ADDITIONS[id]` (5/3 cuboids) при полном сохранении сравнений TP palm pivot и прочих model metadata. Canonical P42 overlay в production не изменён; источник истинности по новым деталям — тот же модуль `weapons87_p42_models`. Это устраняет устаревший false-negative legacy CI, не разрешая произвольную модель.
+
+
+### #87 P47 — third-person item transform overlay
+`client.ThirdPersonWeaponMotion`: `ModelEvent.ModifyBakingResult` обёртывает только 48 конкретных inventory `BakedModel`. `ItemOverrides.resolve` сохраняет действительный living entity/stack локально для рендера; `applyTransform` всегда сначала делегирует vanilla transform, затем только для THIRD_PERSON_LEFT/RIGHT_HAND сопоставляет physical hand и исходный `ItemStack`, применяя bounded pose из native attack progress/walk speed/charge. Общий player model, first-person transforms и сервер не изменяются. Server damage/cooldown/registry/projectile save и #190 не затронуты. Клиентская проверка и owner visual feedback ещё необходимы; full skeletal animation не обещается.
+
+### #87 P47 — подтверждение CI после публикации
+Исходники `97bf25c3`, [GitHub Actions #39816854559](https://github.com/Deserag/slavic-myths/actions/runs/39816854559) **SUCCESS**: Java21 clean build, P42–P47 source checks и production JAR class/resource QA PASS. JAR `slavicmyths-1.9.7.56.jar`, SHA256 `acf4d4d5ce8cc30dc17eaf3a38c60b29d74484e463728429edf1c05b89187fa6`. Runtime Minecraft/PolyMC NOT_RUN; owner acceptance pending. Целые Issues #162/#163/#165 IN_PROGRESS, поля GitHub Project №9 через текущие доступные actions не изменены; комментарий не эквивалентен переходу «Тестирование».
+
+### #87 P48 — draw-aware 3P bound transforms for 3 bows
+`ThirdPersonWeaponMotion.Shape.BOW` выбирает `drawTicks()` у `FieldBowItem` (12/30) либо существующие 30 у `FinistBow`; активный `getTicksUsingItem` применяет только bounded PoseStack tilt после ванильного THIRD_PERSON context item transform. Существующий `ItemProperties` выбирает pulling_0/1/2; P48 не регистрирует новые predicates, не модифицирует FP `BowDrawClient`, server projectile/power/colчан. Coverage P47/P48: 51 ID, runtime/game pass NOT_RUN.
+
+### #87 P49 — изоляция изменений по отзывам
+Прежняя `poloz_whip.json` восстановлена из `3f114c32`, оригинальные `slavicmyths:whip_pose` overrides и native textures в силе, `PolozWhip.java` не меняется. `FlailMotion` масштабирует 7 звеньев только при contact, server `FlailItem` не меняется. `FinistArrow` не пересчитывает mutable player LOS/lock во время запущенного homing; collision & max 6°/tick остаются. `RareCombat` suppresses repeating second-stab actionbar via cooldown-on-arm and expiration cleanup. `ThunderSpearCombat` creates only visualOnly lightning. `TrophyHeadsClient` runs client-only gaze/blink/jaw/particle animation; `TrophyHeadBlock` client-only break burst, one-item loot semantics remain. Архитектурные лимиты и P49 QA в `implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md`; игровой рендер не подтверждён.
+
+## 22.10.2026 — P51 непринятые дефекты (#140, Finist)
+В непрерывной ветке PR #216 исходно исправлены near-antiparallel 6°/tick в `FinistArrow` и непосредственное движение двух native зрачков Тугарина в поставленной голове; source/math+JAR guard `tools/verify_weapons87_p51.py`. Перед запуском CI все проверки P51 PENDING, Minecraft/PolyMC NOT_RUN, приёмка владельца отсутствует. Непринятая анимация глаз Ским-зверя не скрывается. `main` и owner-accepted предметы не менялись.
+
+## 22.10.2026 — P51 technical CI receipt
+Java21 [#39829846856](https://github.com/Deserag/slavic-myths/actions/runs/39829846856) SUCCESS on b606f727: source and packaged P51 checks PASS, clean build PASS. JAR 1.9.7.56 SHA256 d9b805ac7355d2e9d2846807f8816f1437207af772e1bd541880cfd5d6815c68; PolyMC NOT_INSTALLED, runtime NOT_RUN; accepted scope unchanged, #140/Finist OWNER_PENDING.
+
+## 22.10.2026 — P53 player poses, held throwables, bounded lash
+
+`PlayerWeaponPoseMixin` — только client-list существующего mixin-конфига, RETURN в `PlayerModel.setupAnim(LivingEntity,FFFFF)`. `PlayerWeaponPose` меняет только actual player's arm ModelPart; vanilla reset сохраняется, sleeves копируются после позы, реальные main/offhand/доминантная рука учитываются. Для этих 52 ID прежний `ThirdPersonWeaponMotion` item-only kick у игроков не применяется, чтобы не сдвигать хват относительно кисти; ranged и accepted custom paths сохранены. Три успешных staff use-пути отправляют только vanilla `swing(hand,true)`, остальные их source statements сохраняются.
+
+`WhipClient` на model bake создаёт общий конечный bank81×216 quads из исходной P49 `poloz_whip_pose_0`; `WhipMotion` деформирует только y>5 (lash), держит grip/collar неизменными и обеспечивает lag/stretch/recovery. Временный model wrapper привязан к фактическим owner/stack/hand; GUI/ground/fixed исходные. UV сохранены, нормали пересчитаны; изменённые resource-pack модели получают fallback. Никаких новых entity/tick scans/сетевых протоколов/серверной rope physics. Потребление памяти рассчитано, FPS не измерен.
+
+`weapons87_thrown_family` расширяет две зафиксированные P40 формы до14 material IDs; separate_transforms оставляет исходные inventory/ground/fixed sprites. Все held tips локально +Y, поэтому flight helper использует pitch−90. Shapes/UV/display защищены точным generated-model contract; native56 hand/view matrices +14×15 directions. `weapons87_spear_surface` удаляет только пять fully-covered coincident west faces ordinary spear, без смещения кубов. `WeaponDefaults.spearReach` добавляет approved modifier1,25 MAINHAND с постоянным ID; D-рецепт — обычный armorer_shapeless.
+
+Maintained canonical generator завершает overlays restored-P49 → thrown-family → spear-surface; три старых weapon main entrypoints направлены туда. Legacy authoring helpers оставлены историческими, полный audio bootstrap запрещён. Gate теперь требует semantic/pixel drift0 для всех затронутых ресурсов. `verify_resources` для актуальных версий использует отдельный current source/JAR validator, а historical 0.9.x port evidence не выдаётся за текущий runtime. [Результаты/матрицы/точный источник](implementation/weapons87/continuation53/REPORT.md).
+
+## 22.10.2026 — P52 #161 особые арбалеты, MOR/FIRE hit cues
+В continuous ветке PR #216 появился отдельный не дублирующий ранее сделанное source пакет: после принятого попадания стрелы режима морока 8 SOUL, огня 8 FLAME. Existing muzzle P44 and StormVfx untouched; ammo/damage unchanged; P52 source/JAR QA pending, Minecraft NOT_RUN. Issue #161 full scope OPEN. Project Status «на тестировании2» connector не может установить.
+
+## 22.10.2026 — P52 production CI verified
+All 11 workflows for e0560924 SUCCESS; Java21 clean build + P52 source/JAR PASS: [Actions #39832746501](https://github.com/Deserag/slavic-myths/actions/runs/39832746501). JAR 1.9.7.56 SHA256 ed90b2d3cc519d1bc3cae036e42658eb741fe5bc38c813f5cea9b3ef49c61f91. #161 partial implementation, Minecraft and Project Status «на тестировании2» NOT_RUN/NOT_SET, open owner QA, main unaffected.
+
+## 22.10.2026 — локальное восстановление P49–P52
+См. [LOCAL-RECOVERY](implementation/weapons87/LOCAL-RECOVERY-20261022.md): Java21 clean build и 302 packaged resources PASS; native Finist steering PASS; native trophy animated bounds FAIL у Тугарина, Волколака и Подземника. Цепочка IN_PROGRESS, runtime NOT_RUN, POLYMC_NOT_INSTALLED; main не менялся. Требуется исправление animated envelope с source before/after, без ослабления проверок.
+
+## 22.10.2026 — исправление выхода челюстей трофеев за основание
+Только trophy Head.pose: челюсти Тугарина, Волколака и Подземника втягиваются при раскрытии, угловая амплитуда и нейтральный размер сохранены. Native ModelPart/UV/bounds/reset: PASS на 600 позах каждой из 6 голов; исходные до/после и одинаковые ракурсы в [отчёте](implementation/weapons87/head-clearance/REPORT.md). P42–P52 source regression PASS. Clean build PASS (1m30s), JAR 1.9.7.56 SHA256 4bc71e94da5e8529584d9aff3ffd1623f5d236aaebb91cdc4819dae076cb3269, 68 ID/302 packaged assets PASS; Minecraft/MP/GameTest/сервер NOT_RUN, owner acceptance pending, вся цепочка не объявляется готовой. CI дополнен native geometry и реальным Finist steering.
+
+## 22.10.2026 — #140: полный пакет исправлений трофейных голов для ручной проверки
+В версии 1.9.7.57 исправлены взгляд/моргание обоих Лих, подключены отдельные native eye/ear части Скима без изменения живого моба, оба уха Волколака, реальные зрачки Тугарина и челюсти/брови/частицы шести голов. Burst разрушения перенесён в единственный серверный onRemove нижнего anchor; halves/drop не менялись. Java21 clean build + native 600 поз/голову + 7601 resource/JAR checks PASS. Тестовый кандидат установлен с backup и без дублей в PolyMC 1.21.1 Testing, SHA256 0793672e1c652d19410aa4c7491139e27a4977448b9a4cea65371567217d33ad. Minecraft/server/GameTest=0; owner runtime NOT_RUN; #140 OPEN, main не слит, Project Status не менялся. Источник 1192e229 + local patch. [Отчёт, installed path/SHA, source до/после](implementation/trophy140-rework/REPORT.md). Это не итоговый релиз всей #87.
+
+## 22.10.2026 — пакет из «Ожидания»: #98 + #99
+Реализованы все 4 природных ресурса #98 и 8 crafting-наконечников #99, только 12 PNG прежнего разрешения. T1-A/T1-B проверены последовательно; модели/оружие/механики/данные не менялись. Канонический scoped генератор + защита historical writers, A/B 1×/3×, точный production diff PASS. Java21 clean build PASS 56s; 7601 packaged resources PASS. Рекомендуется «Тестирование» для обеих; фактический Project Status NOT_CHANGED (credential без Projects scope, signed-out browser). Версия 1.9.7.57 НЕ повышалась, PolyMC НЕ обновлялся, runtime0. #140 владелец явно принял и разрешил «Готово»; поле также ещё NOT_CHANGED. [Полный отчёт](implementation/materials-81/N98-T99/REPORT.md).

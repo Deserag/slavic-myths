@@ -52,6 +52,7 @@ public final class FlailClient {
                 return new BoundModel(resolved==null?originalModel:resolved,entity,item);
             }
         };}
+        @Override public java.util.List<BakedModel> getRenderPasses(ItemStack stack,boolean fabulous){return java.util.List.of(this);}
         @Override public BakedModel applyTransform(ItemDisplayContext context,PoseStack pose,boolean left){
             originalModel.applyTransform(context,pose,left);
             // A resource pack may replace builtin/entity with an ordinary baked model.

@@ -100,12 +100,12 @@ public final class RewardEvents {
    Vec3 side=new Vec3(-forward.z,0,forward.x);
    var gold=new net.minecraft.core.particles.DustParticleOptions(new org.joml.Vector3f(.98F,.74F,.24F),1.3F);
    for(int ring=1;ring<=5;ring++)for(int i=-8;i<=8;i++){
-    double angle=Math.toRadians(i*8),radius=ring*.95;
+    double angle=i*Math.acos(.35)/8,radius=ring*1.1;
     Vec3 step=forward.scale(Math.cos(angle)*radius).add(side.scale(Math.sin(angle)*radius));
     level.sendParticles(gold,p.getX()+step.x,p.getY()+1.1+ring*.04,p.getZ()+step.z,2,.08,.12,.08,.01);
    }
    int hits=0;
-   for(var victim:level.getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(5.5),e->enemy(e,p)&&e.distanceToSqr(p)<=30.25&&p.hasLineOfSight(e))){
+   for(var victim:level.getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(5.5),e->e!=p&&!e.isAlliedTo(p)&&e instanceof net.minecraft.world.entity.monster.Enemy&&e.distanceToSqr(p)<=30.25&&p.hasLineOfSight(e))){
     Vec3 toward=victim.position().subtract(p.position()).multiply(1,0,1).normalize();
     if(toward.lengthSqr()<.01||toward.dot(forward)<.35)continue;
     if(victim.hurt(org.slavicmyths.combat.MythDamageSources.periodic("reward_sweep",p),5F)){

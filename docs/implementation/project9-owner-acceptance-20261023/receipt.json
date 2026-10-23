@@ -1,0 +1,130 @@
+{
+  "owner_authorization": "Explicit current chat acceptance: move implemented, verified work without outstanding remarks to Готово; earlier explicit #140 acceptance.",
+  "changes": [
+    {
+      "issue": 45,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 98,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 99,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 110,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 111,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 122,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 123,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 124,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 125,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 126,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 127,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 128,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 130,
+      "before": "Ожидание",
+      "after": "Готово"
+    },
+    {
+      "issue": 140,
+      "before": "NOT_IN_PROJECT",
+      "after": "Готово"
+    },
+    {
+      "issue": 217,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 218,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 219,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 220,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 221,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 222,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 223,
+      "before": "Тестирование",
+      "after": "Готово"
+    },
+    {
+      "issue": 224,
+      "before": "Тестирование",
+      "after": "Готово"
+    }
+  ],
+  "verified_other_statuses_unchanged": true,
+  "counts": {
+    "Готово": 41,
+    "Тестирование": 2,
+    "Отменена": 56,
+    "В работе": 3,
+    "Ожидание": 15,
+    "Анализ": 1,
+    "Концепция": 14
+  },
+  "remaining_cards_including_parents": 35,
+  "remaining_non_concept_cards": 21,
+  "issue_closure_or_acceptance_label": false,
+  "runtime_launches_this_cleanup": 0,
+  "code_changes_or_polymc_installation": false
+}

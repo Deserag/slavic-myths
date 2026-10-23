@@ -1,0 +1,14 @@
+{
+  "status": "SOURCE_PASS",
+  "changed": [
+    "src/main/resources/assets/slavicmyths/textures/item/animal_fat.png",
+    "src/main/resources/assets/slavicmyths/textures/item/birch_bark.png",
+    "src/main/resources/assets/slavicmyths/textures/item/goat_hide.png",
+    "src/main/resources/assets/slavicmyths/textures/item/gold_light_spearhead.png",
+    "src/main/resources/assets/slavicmyths/textures/item/gold_spearhead.png",
+    "src/main/resources/assets/slavicmyths/textures/item/large_animal_bone.png",
+    "src/main/resources/assets/slavicmyths/textures/item/stone_light_spearhead.png",
+    "src/main/resources/assets/slavicmyths/textures/item/stone_spearhead.png"
+  ],
+  "runtime_launches": 0
+}

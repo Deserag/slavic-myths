@@ -1,4 +1,20 @@
-# Continuation after package5
+## 23.10.2026 — #223/#224 исправлены
+
+Новая фактическая версия: [finist223/REPORT](issue217/finist223/REPORT.md).91 matrix и19 live hits, world marker, без wall routing. Старые записи «не менять turnrate» относились к диагностике до прямого поручения исправить. Приёмка владельца и возможный delivery — отдельно; текущий PolyMC P53 не перезаписан.
+
+## 23.10.2026 — после #217 regression
+
+#218–#222 исправлены; фактические статусы в Project9 и issue217/project-children.json. #223:19 стрел, большие углы дали промахи;6°/tick/range48 не менять без определения ожидаемого поведения. Итог плети single-pass, client-lash-single-pass; отвергнутые двухпроходные итерации не использовать. #87/#191, MP/перезаход/голоса не объявлены готовыми. Новый JAR только build/libs, установлен P53. [Отчёт](issue217/REPORT.md).
+
+# Актуальная передача после локального P53 — 22.10.2026
+
+Сначала читать `continuation53/REPORT.md` / `installed.json`, затем историю ниже. Последнее поручение владельца: продолжать оружейные задачи из Project№9 несколькими за прогон; C/D одобрены; после этой реализации прямо запрошена установка для ручного теста. 1.9.7.58 фактически установлена, SHA5a4a58c61599978bf80ec517ee1642defb20dd60b6f1b1d31e01c7a5af40463e, backup57 сохранён, запусков0. Всё source локальное незакоммиченное поверх1192e229; не commit/push/merge автоматически.
+
+P53: #17314 held materials/flight axis/grips; #190 flexible lash and actual grip; #162/#165 actual player ModelPart poses52IDs, success cast swing; #165/#170 ordinary spear west-face overlap; C reach4,25 and D Veles recipe; generator rollback8assets repaired and5 safe CLI replayed twice. Gates source/native/cleanbuild/JAR PASS. Heads140 accepted by owner remain preserved; N98/T99 sprites remain preserved and board externally shows Testing. Project writes unavailable, no actual field changes by Codex. Full #87/#191 not complete; #121 full historical audio bootstrap remains intentionally NOT_RUN, separate from scoped source PASS. Do not close issues or assign owner acceptance. All game/client/server launches forbidden.
+
+Следующее при продолжении полного #87: сверить остатки полного scope по `issues-source.json` и текущему Project, не переписывать уже выполненное только из-за открытой Issue. Различать рекомендации Testing и реально изменённое поле. Исполнительский NOT_RUN/BLOCKED не выдавать за сдачу всего родителя. Следующая установка только по новому прямому поручению владельца; не запускать игру ради проверки.
+
+# Историческая передача после package5
 
 Active user order: whole #87/43 children, continue without stopping after a package. Only durability A approved; B/C/D unanswered, do not apply. No game/server/GameTest/PolyMC launch or installation. No automatic commit/push/branches/PR/close/DONE/owner-accepted. Only root writer. No subagents allowed. Preserve huge pre-existing dirty tree via baseline9563.
 

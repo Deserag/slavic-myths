@@ -1,0 +1,14 @@
+{
+  "status": "INSTALLED_TEST_CANDIDATE_OWNER_PENDING",
+  "version": "1.9.7.57",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.57.jar",
+  "sha256": "0793672e1c652d19410aa4c7491139e27a4977448b9a4cea65371567217d33ad",
+  "source_commit": "1192e229c4aa9166b53661f71f5ca15299f3537e",
+  "source_state": "plus local uncommitted head rework; source-provenance.json and source-snapshot.zip",
+  "backup_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-trophy140-1.9.7.57-20261022-220452\\slavicmyths-1.9.7.56.jar",
+  "previous_sha256": "9c3c0f48580b93f68ef2c91c56779e0d0fcdc222bf8f9a71a098075196d79813",
+  "minecraft_launches": 0,
+  "duplicate_mod_jars": 0,
+  "issue140": "OPEN; owner gameplay acceptance pending",
+  "main_merged": false
+}

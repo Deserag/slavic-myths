@@ -1,0 +1,173 @@
+[
+  {
+    "case": 0,
+    "drawTicks": 30,
+    "angle": 0,
+    "hit": true,
+    "health": 974.96,
+    "bowWear": 1,
+    "charges": 11
+  },
+  {
+    "case": 1,
+    "drawTicks": 8,
+    "angle": 0,
+    "hit": true,
+    "health": 995.4691,
+    "bowWear": 2,
+    "charges": 11
+  },
+  {
+    "case": 2,
+    "drawTicks": 8,
+    "angle": 10,
+    "hit": true,
+    "health": 995.4691,
+    "bowWear": 3,
+    "charges": 11
+  },
+  {
+    "case": 3,
+    "drawTicks": 8,
+    "angle": 45,
+    "hit": true,
+    "health": 995.4691,
+    "bowWear": 4,
+    "charges": 11
+  },
+  {
+    "case": 4,
+    "drawTicks": 8,
+    "angle": 90,
+    "hit": true,
+    "health": 995.4691,
+    "bowWear": 5,
+    "charges": 11
+  },
+  {
+    "case": 5,
+    "drawTicks": 8,
+    "angle": 135,
+    "hit": false,
+    "health": 1000.0,
+    "bowWear": 6,
+    "charges": 11
+  },
+  {
+    "case": 6,
+    "drawTicks": 8,
+    "angle": 180,
+    "hit": true,
+    "health": 995.4691,
+    "bowWear": 7,
+    "charges": 11
+  },
+  {
+    "case": 7,
+    "drawTicks": 18,
+    "angle": 0,
+    "hit": true,
+    "health": 989.6218,
+    "bowWear": 8,
+    "charges": 11
+  },
+  {
+    "case": 8,
+    "drawTicks": 18,
+    "angle": 10,
+    "hit": true,
+    "health": 989.6218,
+    "bowWear": 9,
+    "charges": 11
+  },
+  {
+    "case": 9,
+    "drawTicks": 18,
+    "angle": 45,
+    "hit": true,
+    "health": 989.6218,
+    "bowWear": 10,
+    "charges": 11
+  },
+  {
+    "case": 10,
+    "drawTicks": 18,
+    "angle": 90,
+    "hit": true,
+    "health": 989.6218,
+    "bowWear": 11,
+    "charges": 11
+  },
+  {
+    "case": 11,
+    "drawTicks": 18,
+    "angle": 135,
+    "hit": true,
+    "health": 991.1818,
+    "bowWear": 12,
+    "charges": 11
+  },
+  {
+    "case": 12,
+    "drawTicks": 18,
+    "angle": 180,
+    "hit": false,
+    "health": 1000.0,
+    "bowWear": 13,
+    "charges": 11
+  },
+  {
+    "case": 13,
+    "drawTicks": 30,
+    "angle": 0,
+    "hit": true,
+    "health": 974.96,
+    "bowWear": 14,
+    "charges": 11
+  },
+  {
+    "case": 14,
+    "drawTicks": 30,
+    "angle": 10,
+    "hit": true,
+    "health": 977.84,
+    "bowWear": 15,
+    "charges": 11
+  },
+  {
+    "case": 15,
+    "drawTicks": 30,
+    "angle": 45,
+    "hit": true,
+    "health": 983.6,
+    "bowWear": 16,
+    "charges": 11
+  },
+  {
+    "case": 16,
+    "drawTicks": 30,
+    "angle": 90,
+    "hit": false,
+    "health": 1000.0,
+    "bowWear": 17,
+    "charges": 11
+  },
+  {
+    "case": 17,
+    "drawTicks": 30,
+    "angle": 135,
+    "hit": true,
+    "health": 976.4,
+    "bowWear": 18,
+    "charges": 11
+  },
+  {
+    "case": 18,
+    "drawTicks": 30,
+    "angle": 180,
+    "hit": false,
+    "health": 1000.0,
+    "bowWear": 19,
+    "charges": 11
+  }
+]

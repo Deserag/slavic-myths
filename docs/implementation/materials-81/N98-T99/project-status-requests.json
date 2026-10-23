@@ -1,0 +1,24 @@
+{
+  "project": 9,
+  "requests": [
+    {
+      "issue": 98,
+      "observed_status": "Ожидание",
+      "requested_status": "Тестирование",
+      "actual_change": "NOT_CHANGED"
+    },
+    {
+      "issue": 99,
+      "observed_status": "Ожидание",
+      "requested_status": "Тестирование",
+      "actual_change": "NOT_CHANGED"
+    },
+    {
+      "issue": 140,
+      "requested_status": "Готово",
+      "authorization": "explicit owner acceptance in current chat",
+      "actual_change": "NOT_CHANGED"
+    }
+  ],
+  "blocker": "GitHub token missing project scope; no authenticated Project UI"
+}

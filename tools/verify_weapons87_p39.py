@@ -5,7 +5,7 @@ R=Path(__file__).resolve().parents[1]
 motion=(R/"src/main/java/org/slavicmyths/client/FlailMotion.java").read_text(encoding="utf-8")
 renderer=(R/"src/main/java/org/slavicmyths/client/FlailClient.java").read_text(encoding="utf-8")
 fixture=(R/"tools/weapons87-offline/Weapons87FlailMotion.java").read_text(encoding="utf-8")
-for value in ("Math.pow(Math.sin(swing*Math.PI),2)","double impact=(heavy?.8:1.0)*contact*(24+40*lag);","Math.clamp(8+charge*(30-5*lag)+impact+inertia*lag,-12,72)","public static final int LINKS = 7","SPACING = 2.4","anchor.add(directions[LINKS-1],2.0)"):
+for value in ("Math.pow(Math.sin(swing*Math.PI),2)","double impact=(heavy?.8:1.0)*contact*(52+33*lag);","Math.clamp(8+charge*(30-5*lag)+impact+inertia*lag,-12,88)","public static final int LINKS = 7","SPACING = 2.4","anchor.add(directions[LINKS-1],2.0+contact*1.0)"):
     assert value in motion,value
 assert "Math.cos(swing*Math.PI/2)" not in motion
 for value in ("ItemStack.isSameItemSameComponents(binding.stack,stack)","ItemStack.isSameItemSameComponents(owner.getItemInHand(held),stack)","name.equals(\"ataman_flail\")","draw(stack,name+\"_held\",pose,buffers,light,overlay);return;"):
@@ -17,8 +17,11 @@ for t in (0,1): assert abs(contact(t))<1e-10
 assert abs(contact(.5)-1)<1e-10
 assert contact(.25) < contact(.5) and contact(.75) < contact(.5)
 for lag in (1/7, 4/7,1):
-    ordinary=(24+40*lag)
+    ordinary=(52+33*lag)
     heavy=.8*ordinary
     assert 0<heavy<ordinary
-assert (24+40)> (24+40/7)
-print("PASS P39: mid-strike kinetic impulse, lagged seven-link chain, heavy Ataman motion, value-equal held stack and fallback; owner game NOT_RUN")
+assert (52+33)> (52+33/7)
+assert "double reach=SPACING;" in motion # all link lengths fixed through contact
+assert "anchor=anchor.add(direction,reach)" in motion
+assert math.isclose(7*2.4,16.8,abs_tol=1e-10) # seven contiguous segments
+print("PASS P39: fixed-length connected seven-link swing, lagged seven-link chain, heavy Ataman motion, value-equal held stack and fallback; owner game NOT_RUN")

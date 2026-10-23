@@ -10,6 +10,8 @@ def sprites():
   for x in range(32):glob.putpixel((x,y),rng.choice([(32,23,29,255),(175,35,51,255),(91,25,35,255),(227,69,80,255)]))
  (A/'textures/entity').mkdir(parents=True,exist_ok=True);glob.save(A/'textures/entity/poloz_glob.png')
  for name in ['mor_dust','eye_of_mor','ashen_heart','poloz_core','poloz_scale','mor_horn']:
+  from trophies112_113_art import write_owned as current_trophy
+  if current_trophy(A/"textures/item"/(name+".png")):continue
   size=32 if name in ['mor_horn','poloz_core'] else 16;im=Image.new('RGBA',(size,size));d=ImageDraw.Draw(im)
   if name=='mor_dust':
    d.polygon([(2,12),(5,6),(7,9),(9,3),(13,9),(14,13),(8,15)],fill='#342127',outline='#20191F');d.line([(5,10),(8,11),(9,7),(11,12)],fill='#B51F30');d.point((9,5),fill='#ED4350')

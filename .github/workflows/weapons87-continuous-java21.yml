@@ -1,0 +1,82 @@
+name: Weapons87 Continuous Branch Java21
+on:
+  push:
+    branches:
+      - work/weapons87-continuous-20261022
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  java21:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # #87 original-art provenance checker reads a verified historical commit
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Offline source geometry dependencies
+        run: python3 -m pip install Pillow numpy
+      - name: Continuous workbench P42 source and generator checks
+        run: |
+          python3 tools/verify_weapons87_p42.py
+          python3 tools/verify_weapons87_p43.py
+          python3 tools/verify_weapons87_p44.py
+          python3 tools/verify_weapons87_p45.py
+          python3 tools/verify_weapons87_p47.py
+          python3 tools/verify_weapons87_p48.py
+          python3 tools/verify_weapons87_p49.py
+          python3 tools/verify_trophy140_p50.py
+          python3 tools/verify_trophy140_rework.py
+          python3 tools/verify_weapons87_p51.py
+          python3 tools/verify_weapons87_p52.py
+          python3 tools/verify_weapons87_p41.py
+          python3 tools/verify_issue222_strings.py
+          python3 tools/weapons87_unique_art.py --check
+      - name: Java21 clean build
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon clean build --stacktrace --console=plain
+      - name: Check packaged P42 item resources
+        run: |
+          python3 tools/verify_weapons87_p42.py --jar
+          python3 tools/verify_weapons87_p43.py --jar
+          python3 tools/verify_weapons87_p44.py --jar
+          python3 tools/verify_weapons87_p45.py --jar
+          python3 tools/verify_weapons87_p47.py --jar
+          python3 tools/verify_weapons87_p48.py --jar
+          python3 tools/verify_weapons87_p49.py --jar
+          python3 tools/verify_trophy140_p50.py --jar
+          python3 tools/verify_trophy140_rework.py --jar
+          python3 tools/verify_weapons87_p51.py --jar
+          python3 tools/verify_weapons87_p52.py --jar
+          python3 tools/weapons87_live_audit.py --jar
+          python3 tools/verify_resources.py
+          sha256sum build/libs/slavicmyths-*.jar
+      - name: P53 offline production attributes, actual player parts and thrown axes
+        run: |
+          ./gradlew --no-daemon -I tools/weapons87-offline.gradle weapons87Native weapons87Continuation weapons87Thrown -Pweapons87After -Pweapons87NativeOutput=docs/implementation/weapons87/continuation53/native-attributes.json --console=plain
+          python3 tools/verify_issue217.py --jar
+          python3 tools/verify_materials81_n98_t99.py --preserve --jar
+          python3 tools/verify_weapons87_unique_keeps.py
+      - name: Maintained weapon generators, isolated double replay
+        run: |
+          for entry in weapons87_flails.py weapon_resources_1321.py rare_weapon_resources_1322.py weapon_patch_assets.py poloz_full_assets.py
+          do
+            python3 tools/weapons87_generator_gate.py --entrypoint "$entry" --output "build/weapons87-generator-p53/$entry.json"
+          done
+      - name: Native trophy animation geometry and production Finist steering
+        run: |
+          ./gradlew --no-daemon -I tools/heads140-offline.gradle verifyHeads140Offline --console=plain
+          ./gradlew --no-daemon -I tools/finist-offline.gradle finistOfflineChecks --console=plain
+      - uses: actions/upload-artifact@v4
+        with:
+          name: weapons87-continuous-build
+          path: build/libs/slavicmyths-*.jar
+          retention-days: 14

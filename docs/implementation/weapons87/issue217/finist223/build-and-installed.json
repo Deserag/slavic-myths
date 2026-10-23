@@ -1,0 +1,17 @@
+{
+  "scope": "CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted",
+  "version": "1.9.7.58",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.58.jar",
+  "sha256": "bf403773997cbfb652541713c7026277f76f8e9d8b2db72352326166ad530289",
+  "resources": 7631,
+  "json": 4104,
+  "png": 1371,
+  "models": 1780,
+  "java21_classes": 1809,
+  "runtime_launches": 0,
+  "runtime": "See actual runtime-runs.json and per-scenario logs; resource validator is static",
+  "source_manifest_sha256": "4f16479ac3ccb77cf80ba071f40b7893749b3fdcadad81a95decf6113a7be094",
+  "polymc": "NOT_UPDATED",
+  "installed_path": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-1.21.1-Testing/.minecraft/mods/slavicmyths-1.9.7.58.jar",
+  "installed_sha256": "5a4a58c61599978bf80ec517ee1642defb20dd60b6f1b1d31e01c7a5af40463e"
+}

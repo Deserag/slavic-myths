@@ -1,6 +1,6 @@
 {
   "textures": {
-    "0": "slavicmyths:item/retainer_shield",
+    "0": "slavicmyths:item/retainer_shield_surface",
     "particle": "slavicmyths:item/retainer_shield"
   },
   "elements": [

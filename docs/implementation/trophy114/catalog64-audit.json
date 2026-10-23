@@ -1,0 +1,720 @@
+[
+  {
+    "id": "old_button",
+    "catalog_index": 0,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\old_button.json": "97f2c1208d7d44fc9b8155bb78af1e893a8d35c4261eb7d827dc7546d773f2de",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\old_button.png": "7332eb6ff1398b4475fc6cd4ef93105c78d405b55a41a6c71dac8e801745da8c"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "old_hook",
+    "catalog_index": 1,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\old_hook.json": "fa46da55391f99da4cdac305c8ed6f37ecf9ae5b2d550f1ce4f62fa797306c2b",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\old_hook.png": "09e9548eaa91268eee27ca2e326d4d883258290d9f1f6132d577251448b04461"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "pearl_fragment",
+    "catalog_index": 2,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\pearl_fragment.json": "ab49927642ea5ca99ee0a09a4d2f0386e5df333043c69fdd04bcb35184b62380",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\pearl_fragment.png": "63b63472125ea29f895a6dd136461f31bbc688f95b82b34d2459acf78996cdd1"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "kikimora_lock",
+    "catalog_index": 3,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\kikimora_lock.json": "93457a0da1338e46a90bb500f7a57f1f884bfd502f666453a15fdb7bf8cdbc57",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\kikimora_lock.png": "c2cb0619fab25f0bc4d4d0213ab6ebba835ec4225fa1c1fe28e5690299aac176"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "noon_ear",
+    "catalog_index": 4,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\noon_ear.json": "255c7d4d527723f85edf03a5d2897aa4f2e4c09b07c511128609321ccfd117ab",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\noon_ear.png": "196c61e16c97f3f9ccfee3cddc2f1e84690e2b9a855c046d0c62251f3b0f1a98"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "upyr_fang",
+    "catalog_index": 5,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\upyr_fang.json": "509f74b067ece5d76029be91b75f48034d3249673814487c94b45f25d5fb0f7a",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\upyr_fang.png": "8db2fcb07b7367b662c8bd120292d5ba2a8f39c98dd00f7bb95dc788b9a7f309"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "grave_cloth_scrap",
+    "catalog_index": 6,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\grave_cloth_scrap.json": "2a0646a4adc58124a28e6133d8c5c671689b03939bdd6e5e6c776f902ad378bc",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\grave_cloth_scrap.png": "ec6c40b183395c20f48f435867e1f1c35df5f53ff21f4a56ffcf163c7b2a5b1e"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "torn_burial_ribbon",
+    "catalog_index": 7,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\torn_burial_ribbon.json": "2a1b1a2e4eac1ea687ebd5b667461bbd54f4f58e5c69548e0c182900ead7502f",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\torn_burial_ribbon.png": "d67bacd46d56432c57cbd1a91c9840638447c0e0ed99d44cf8c446cce9eb0b1e"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "shield_boss_fragment",
+    "catalog_index": 8,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\shield_boss_fragment.json": "585fc586612e650ce30e0a9f2aa33858df9bce9afbcae8c3bd971f2475ba838b",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\shield_boss_fragment.png": "b700c6b3b33b1ca8e839e5a9cb9923380c469d7cf1845f937000c242af6f2c00"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "druzhinnik_blade_fragment",
+    "catalog_index": 9,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\druzhinnik_blade_fragment.json": "c0861b67c3f42935b98efa618538ab423efe6f3bd6006384fe02ee7757c2c125",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\druzhinnik_blade_fragment.png": "7c2138d3262016dd43c8d9d11b474e6ce5172af4bcc28340b4387281b7fd7469"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "pottery_fragment",
+    "catalog_index": 10,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\pottery_fragment.json": "3d1747d74954ac30ed58e740340c21bc2f00cd520e7cafbb91186576e0ca9d75",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\pottery_fragment.png": "758791a522ef7ed19c98c3aa620f810747c6e102d3032893fbc17e23ebead202"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "old_arrowhead",
+    "catalog_index": 11,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\old_arrowhead.json": "18f4030b69ea07fdb80a52cdc8497d280405019ee30d8dda9024e3f8ed934d75",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\old_arrowhead.png": "4739dff8f33f399e3af1bbe4cf87746cd2040af9830f91f046b80e2e59b37e04"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "old_buckle",
+    "catalog_index": 12,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\old_buckle.json": "4d76d467ea2fffaecf89fce1ccf952ee189b2488a8b09a66dea55e093494bb6f",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\old_buckle.png": "4cdc36f3894df89aec9e4dd7d6e7197b9d5f96e8ca56051168064e722f298a5d"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "ancient_coin",
+    "catalog_index": 13,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ancient_coin.json": "16835215701c8c0155498eec8fdc7a6b7b5c694421b4b3c6195d9f178a5e1996",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ancient_coin.png": "97bc8cc7a4d004e0a881147fe05018a9ee76e19b5ebf616050072510ad2677ac"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "ancient_fibula",
+    "catalog_index": 14,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ancient_fibula.json": "dc2ef03d6ec23e5bacc4a3a226507d2536b859a11ce827d9c13013d1907154a1",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ancient_fibula.png": "b8b828b19f7cf54190bb07dbcaa85304548473e47e722bce53c4145285aa5da6"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "ancient_comb",
+    "catalog_index": 15,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ancient_comb.json": "f8b4d75b1eb5eccc524e505523a87ca844a343e35e036c185beb4f8e95b38a51",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ancient_comb.png": "711d717e92f02caa07970a8cdf071433782b6b509849626272830de7afa23d8c"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "ancient_beads",
+    "catalog_index": 16,
+    "group": "ordinary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ancient_beads.json": "2dbc7921fe1628c537c436086df4871931cf4c1cecc2353d0319f12fb284edfe",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ancient_beads.png": "5dbe49e6d52b4768fb6e2e84f9684e17b7824d269103c85877472afe4677f218"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "ovinnik_claw",
+    "catalog_index": 17,
+    "group": "elite_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ovinnik_claw.json": "6ffb6a9eb89b42c76f7798aa44aabe5987c0a0e5eac06c5419e2d57b65372257",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ovinnik_claw.png": "ab0b97988784e0100f27ad3b24798a9c2224f3a22b0cd83967e265a3ec030147"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "ovinnaya_zola",
+    "catalog_index": 18,
+    "group": "elite_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ovinnaya_zola.json": "0494a23674d05bfd053d1bba0ec362f8681df1da2cb398b3bc3cac28972b7168",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ovinnaya_zola.png": "775f1cc21463a1c49361dac5c993514b697db31ea4af8a6cf8b12c1298d382f1"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "iskra_ovinnika",
+    "catalog_index": 19,
+    "group": "elite_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\iskra_ovinnika.json": "a4ca6561740897ee1979c3056329b6a74e1ff392d66840d80108cd2716b6b70c",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\iskra_ovinnika.png": "a8af717d4f11b027ee4e7bb39cfc02116af81db50bba72ddfcad4e304f467a74"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "klyk_volkolaka",
+    "catalog_index": 20,
+    "group": "elite_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\klyk_volkolaka.json": "1f8931fb3215b0e3d6510f696e8da04737f808b3bd205a457a3f0ef7311c09c8",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\klyk_volkolaka.png": "1338bc551797218c04ce95c112c878a0b374b5ff9bb5d3d82cce736476b667ff"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "nochnoy_kogot",
+    "catalog_index": 21,
+    "group": "elite_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\nochnoy_kogot.json": "4ec2113d9cbab4ae0ff455ef3f800dea1ed1e5d67dc69c0568610a37e5a37426",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nochnoy_kogot.png": "a5582f1e047c8ac97e4054b431f5dbc4b489b04c2d4c80a05dd5a5e3579d4786"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "pylayuschaya_cheshuya",
+    "catalog_index": 22,
+    "group": "elite_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\pylayuschaya_cheshuya.json": "cd1e6f15510a7fe2ce3ec77d45a8e6246bc62744f319c76881f1065a5b41e419",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\pylayuschaya_cheshuya.png": "2a01d1e13f8cb1feb9b3f3f6abfeb2314927536f6f3bfdaa81632fec6d8d40c2"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "ognennoe_pero",
+    "catalog_index": 23,
+    "group": "elite_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ognennoe_pero.json": "cb1c74546971564eca40c9cf6034d45205d88ac832500fa21ff564f69fd033d3",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ognennoe_pero.png": "ee032e7e9a3ee84a95c479f77dcaa5f0ee6dab87780ce5e2c3fd2b348946db07"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "vihrevaya_nit",
+    "catalog_index": 24,
+    "group": "elite_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\vihrevaya_nit.json": "a2dd758b5c29aa176e87e39e0007d4e8c2eb9dfeb4e46b6ceceb4bc928470b6a",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\vihrevaya_nit.png": "0ccf5315fdd792b6ba72bf74e069f84b144e572fe016dc1d809b006420c557f0"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "kost_likha",
+    "catalog_index": 25,
+    "group": "elite_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\kost_likha.json": "7ea6652af4aacca55265015954d107c4906a976b9706397157e6b9eb8f2dd481",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\kost_likha.png": "21feaa39f5f43162950147424beb53f38b5bade4bd8799924ff9edea29bca9ee"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "nit_durnoy_doli",
+    "catalog_index": 26,
+    "group": "elite_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\nit_durnoy_doli.json": "43bf8ed7416c5deece23d14069fec91750bfa35a73adeddaec8b275e6148befe",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nit_durnoy_doli.png": "cc165fc1e9b7e76f026e7242d1fc0a57fdabcbc053874d13c0692065a394907b"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "nightingale_lock",
+    "catalog_index": 27,
+    "group": "elite_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\nightingale_lock.json": "f37f4f33c94442691f1254f9d36bc47895bc14103fb9119a6f8e9202c7433a15",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nightingale_steel.png": "ae2ec699e5da17d98ca1454275bee5681f645b979f7e636a94b14babe910c686",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nightingale_edge.png": "980e1e4771e19b37274d23f4a54d7102a4b9202c1f433ace95cfef94300a32b5",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nightingale_leather.png": "fc0178eebe8d0cf032c602b00db029baeec06d36e3ff66916a1d4676ee068994",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nightingale_hair.png": "b91a381ae008544e6912cf1e463b0bffea5de99daeb962c560a6e50ac3c1ef6b",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nightingale_silver.png": "600731c1bcb1f94266f5a41c2d60c319f5fba070134f6f716a091c5878777846",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nightingale_bone.png": "f7eae7f80c8d40805c0cbcb901a9ae19b332bbd41ea140aaf7dccf6f1d10307f",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nightingale_dark.png": "ecd4d0a6ce3e3be16bd665f05136eb4729c58ceb9119978f4f89c6d4f7848b74"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "ataman_sign",
+    "catalog_index": 28,
+    "group": "elite_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ataman_sign.json": "ea2a3f143d9dcd1e850be74310320e9af03157fe51a18630984eae839a7df159",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ataman_sign.png": "b9c4a84af344734b9efce5e871c6be1a14337f608d6b913a55daf154352a9e21"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "bandit_token",
+    "catalog_index": 29,
+    "group": "elite_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\bandit_token.json": "62d226b89cccef0762dd1a8770921c91072995df52ecb90962ed58dd45f2ca97",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\bandit_token.png": "9288f000aa3c8fcfb31fde106e62e1dd52a15dd8766d2c2e36ff77d0c18b54a3"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "nightingale_mark",
+    "catalog_index": 30,
+    "group": "elite_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\nightingale_mark.json": "0a828d9951d8bf3735ad32b7b7c207fb433a4cd86d4f019c3354fe17c67c638f",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nightingale_steel.png": "ae2ec699e5da17d98ca1454275bee5681f645b979f7e636a94b14babe910c686",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nightingale_edge.png": "980e1e4771e19b37274d23f4a54d7102a4b9202c1f433ace95cfef94300a32b5",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nightingale_leather.png": "fc0178eebe8d0cf032c602b00db029baeec06d36e3ff66916a1d4676ee068994",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nightingale_hair.png": "b91a381ae008544e6912cf1e463b0bffea5de99daeb962c560a6e50ac3c1ef6b",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nightingale_silver.png": "600731c1bcb1f94266f5a41c2d60c319f5fba070134f6f716a091c5878777846",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nightingale_bone.png": "f7eae7f80c8d40805c0cbcb901a9ae19b332bbd41ea140aaf7dccf6f1d10307f",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\nightingale_dark.png": "ecd4d0a6ce3e3be16bd665f05136eb4729c58ceb9119978f4f89c6d4f7848b74"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "voevoda_insignia",
+    "catalog_index": 31,
+    "group": "elite_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\voevoda_insignia.json": "074dd315e8d6ddf78da1411cd0544982e916f9391f88037c3038501836d4485a",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\voevoda_insignia.png": "cb558b3ff17475b0839abf3a4c5b8c42d4ceece4988ae237628696404fb5aeef"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "princely_seal",
+    "catalog_index": 32,
+    "group": "elite_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\princely_seal.json": "09de78e002b152d4c999e69fcee437d449cc06f311eb4fc48b4bfbd7342d2af7",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\princely_seal.png": "39f62d88d5453a007d74565f1305b1c5dfff732417e768b84b617773f6520af4"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "firebird_down",
+    "catalog_index": 33,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\firebird_down.json": "b187c29e2fa557c1665c2031e7f598846f7e903645c37006ccb598459c8944db",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\firebird_down.png": "45f080b794001583e78a2c40273e3c2fb5798662990bce57ebc8f240f351667d"
+    },
+    "action": "FIX",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "firebird_feather",
+    "catalog_index": 34,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\firebird_feather.json": "8bb2badeebe2e1334aa4c1404372c3316d0f9134da869d11ad2570e1b270f4d5",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\firebird_feather.png": "764c1498d15108758f0047cf7a85fa539eac835a4a42ad22a624b149fedce698"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "smoldering_feather",
+    "catalog_index": 35,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\smoldering_feather.json": "6e36027c62784d4440b780a70aaa737f0063ab285730a7ae48ba070dfe2e1bdb",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\smoldering_feather.png": "6d6f5fe20608ae1eba6bd189482014759c20f8d563f3e40378dfb37177f180e4"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "mat_bone_plates",
+    "catalog_index": 36,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\mat_bone_plates.json": "8d7fb0772a62fd69fcd62c5e76761f54b49e1f005483c87a82c63f2dcfbff25a",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\mat_bone_plates.png": "9571b04c14698dc3908c0333c753b9e08a7b135be886ad51b40d4249282be23d"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "mat_mirror_shards",
+    "catalog_index": 37,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\mat_mirror_shards.json": "9cb4f2b603bb3a3f26e840c10ef68b7a8ade8b20d2cd75fc12e7dc3e4ff1fb61",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\mat_mirror_shards.png": "5b43de21c2f8efda762c9c83e5b9913df55391d3a87db139ae6a84d7e2e1c8e2"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "mat_skim_fang",
+    "catalog_index": 38,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\mat_skim_fang.json": "46cea143033380ed8b191f286b220b8f1ec534bb13939e52f9b046f58f09413d",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\mat_skim_fang.png": "f542a65a5ebacb8deec9b55e9bbd8fb3728ecdb9ceed9e4e9cbeac9bb7be389a"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "mat_banner_remnant",
+    "catalog_index": 39,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\mat_banner_remnant.json": "604710686dfab6689a0a49d7711787f8ee702ee87e68198a9e68039a21db2eb1",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\mat_banner_remnant.png": "a73cc365bf72593a70a4e2a07f33bc49cbbf1493a4a508b1cdd8f4a2ee8c21d6"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "mat_royal_iron",
+    "catalog_index": 40,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\mat_royal_iron.json": "9abf527aa4a7f50345e9f35d6b3f7e79fbaefdd4bb623cfa66db94ad22941997",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\mat_royal_iron.png": "8c1a7644c1aeff3ebe317edd5132710ca146600a05d134f46d7e4c818a66330b"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "us_tugarina",
+    "catalog_index": 41,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\us_tugarina.json": "edcd46033f4b19fc0a263ee28e8c92db10565c07541b25df02cee236f35c2123",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\us_tugarina.png": "82f26845dad9e91a62d0b3ee904389b77f780697c947715484371b9cf9a8be85"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "tugarinova_kozha",
+    "catalog_index": 42,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\tugarinova_kozha.json": "7c183a2be47cd6e481fdba49a7cfbbbd8da51c9d2f256fef711eb2a6ebcd3cca",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\tugarinova_kozha.png": "b79b570835fff98bd7b8adc243fdbd5836a8a12f1bdaf6f9da5dbd8debfb1cf2"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "zmeinaya_pryazhka",
+    "catalog_index": 43,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\zmeinaya_pryazhka.json": "cf265e13ea97fa328ed314f6b9991fc889694b1ff2f119c8655024ed92f0e045",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\zmeinaya_pryazhka.png": "3851e5b10c71e5e902b38432998bc3e8c188957a979d537d3d6eb1ac497683ac"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "naboyka_tugarina",
+    "catalog_index": 44,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\naboyka_tugarina.json": "e136fb1c53b042d659c391df0241aa48b53547baa2cc3991adb7fa4d9e7b5dd5",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\naboyka_tugarina.png": "4a7f18e19568bb4889165af34c9d24c4a041bc1dbac91165c66023e8fe00a436"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "mysterious_black_feather",
+    "catalog_index": 45,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\mysterious_black_feather.json": "3bcd03d24aee07967ad62a966b00c4b2b9fb8ba2af0c992710f68910b71316aa",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\mysterious_black_feather.png": "3bd73ed8aaccf443f093b869a16ca203c400ba051a72f318b35dddf7750514a0"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "idol_fragment",
+    "catalog_index": 46,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\idol_fragment.json": "570ea8eaa035f2bd10e2beb8762f5ff38e41996a68ec3da85dcfb8c8e2a56607",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\idol_fragment.png": "f3045c3da8e16af497819b051c9cdf860453986362f59d882e35d32ead56394a"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "ancient_rune_fragment",
+    "catalog_index": 47,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ancient_rune_fragment.json": "070ceba063fbacf037048e305a7ab95bff0123f7a89200437e06febfd2c2dfb7",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ancient_rune_fragment.png": "8e5efbc6728a0b8e4d76fe59db0d2c4224fa97d54c32f3a92d54815e39a5eeee"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "sacred_ember",
+    "catalog_index": 48,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\sacred_ember.json": "9a922f493fa066b5a90fdbb472730890f363cc09204030cfb43f6c1451e36db5",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\sacred_ember.png": "79338a262fe68e086ed2d1c4787d10938111b8d727e915162f69cf054ed083f7"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "pure_spring_drop",
+    "catalog_index": 49,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\pure_spring_drop.json": "07f260236e0693e31d59df0af069e507c6735348325feb1c80ce8709219a3e8c",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\pure_spring_drop.png": "e57b207a854f7dfc29daa3c8bdd60311294a83d5aac4f871239eb7ef8586e32e"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "spring_tear",
+    "catalog_index": 50,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\spring_tear.json": "6fbd5892b0dd2408fc298bd8c145e6226da5d7f8688a2066692ac10244f5d9f9",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\spring_tear.png": "5434896cdc03ff8f0622d580b6c324ca7f0eff6f69c574af0a93d64aa275714b"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "mor_dust",
+    "catalog_index": 51,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\mor_dust.json": "b5d72f30204f4f673af852c63721f7915c060fc3adcf99e51f7fffeef9207d96",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\mor_dust.png": "2a4ceda9cbc6863f374adf0cb394ba033ac65fd3864d4c863336a2773b225b0a"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "mor_crystal",
+    "catalog_index": 52,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\mor_crystal.json": "3a9ee1b4c1fddf29986bc031387b371c88bd2a3e8a2c310a07ec7a300f16750f",
+      "src\\main\\resources\\assets\\slavicmyths\\models\\block\\mor_crystal.json": "8b9afd216d571ab7b3e8fc470b9f2de512451d30e9e52cee97c3add28c075be0",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\block\\mor_crystal.png": "cd51ceb8270d8771bb18e480e9da4d4b28f8fc94c450808ac78f38aa21bcbb15"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "eye_of_mor",
+    "catalog_index": 53,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\eye_of_mor.json": "a90e5dce4298d9e419c0721a38a758ecf776c97a35e8781f16dba17a3aba5f33",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\eye_of_mor.png": "fef10196dc4dd8d0309847fb72b660215613e0a1086c9a5bf22a1dd230bad275"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "ashen_heart",
+    "catalog_index": 54,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ashen_heart.json": "3010e5d2d87f21e0912db256bc50fb98e80dce6a9ce7910cca3d5aaf1d410294",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ashen_heart.png": "1fc7b7751c8a2177e3e3c1529783e45a5d632251ec255f5cf523186463176502"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "poloz_scale",
+    "catalog_index": 55,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\poloz_scale.json": "b0af93a365388215b893abf4692b36a1af665891fa79f8f91a03e2b6e2b23313",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\poloz_scale.png": "86e3fbe7f4604106efbf180a0ae6d2b585a69e53d467d9e823a26d2cbe8887b3"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "poloz_core",
+    "catalog_index": 56,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\poloz_core.json": "0661da865f69ff25e615c4b51d76a5dd33a5e36e182dcd5c338b41e5b74c3de3",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\poloz_core.png": "a59745c7588582bf1934664c4c8b2fed7736e3144840375b42e235bdcde7ee0c"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "poloz_head",
+    "catalog_index": 57,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\poloz_head.json": "b11e06678f613c660c6430eca942b41e9011194a9ea319e8741cfc576466145d",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\poloz_head.png": "ea103db2b7d9486a2866217ffafda6dd9be5738f5a311a02a756a30648cc87f0"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "gorynych_scale",
+    "catalog_index": 58,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\gorynych_scale.json": "91e34808cda28209ac95e96556a7d6bd7a02a827060de32207bdacf04163eaaf",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\gorynych_scale.png": "b654b2050ef303232b85238c2116da5aa52f3f3e67e911bfde3d9806ca10c17b"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "ancient_serpent_steel",
+    "catalog_index": 59,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\ancient_serpent_steel.json": "714f4e22ea1fcd74ce736df9e4e21da398e3754e0dfbb2756f6296eea3f8b7d2",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\ancient_serpent_steel.png": "8dbb30a75a9f08091b778842b9765c3d17cfd44c2f6905cf6184060234215a83"
+    },
+    "action": "KEEP",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "serpent_seal",
+    "catalog_index": 60,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\serpent_seal.json": "d22a08bafb0b254dfe9aaaa10befdc8ac854f3a96f5da97f6193e2431447f513",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\serpent_seal.png": "d2ee06349035d6d68df1ef3428e6734ab9eae96705503e2d03b26a6d19600139"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "heart_of_eternal_cold",
+    "catalog_index": 61,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\heart_of_eternal_cold.json": "d0aca6d299e65623fc628aa278262107cca6eb0efdea2a3630e0b51210f78720",
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\heart_of_eternal_cold_icon.json": "25ca04304878ad391e5d8cdc3ef47070723b69787450f13d40afa0c723e7e5d7",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\heart_of_eternal_cold.png": "60653bc39a5e919a13b9e25b0141436350ce68f7464344148b7a6bd3afd046db"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "shard_of_last_night",
+    "catalog_index": 62,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\shard_of_last_night.json": "e896ee95ded3df6592348f2eb6458adbc0cd1f559380c2281468e6ba2c476bde",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\shard_of_last_night.png": "6d4cfbfde0d75a968e55d0239a63b865d2aea48adee231e0d71637e436475849"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  },
+  {
+    "id": "cursed_volkolak_skull",
+    "catalog_index": 63,
+    "group": "legendary_trophies",
+    "dependencies_sha256": {
+      "src\\main\\resources\\assets\\slavicmyths\\models\\item\\cursed_volkolak_skull.json": "fcefab9e7e8f59e9b34b60bc3a4b241f7616332132774e11823b021f6820634e",
+      "src\\main\\resources\\assets\\slavicmyths\\textures\\item\\cursed_volkolak_skull.png": "9d81c3fb01d16b1db80796dfcbe09cb6e3fc4e9332917ca5bb66cbf70b1628bc"
+    },
+    "action": "PREVIOUS_PACKAGE",
+    "render": "offline actual PNG or actual JSON/UV; no runtime"
+  }
+]

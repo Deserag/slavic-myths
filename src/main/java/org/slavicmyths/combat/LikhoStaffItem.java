@@ -42,6 +42,7 @@ public final class LikhoStaffItem extends SwordItem {
         RuneEffects.staff(player,stack,target);player.getCooldowns().addCooldown(this,COOLDOWN);
         RareCombat.feedback(target,net.minecraft.core.particles.ParticleTypes.WITCH);world.playSound(null,target.blockPosition(),net.minecraft.sounds.SoundEvents.EVOKER_CAST_SPELL,net.minecraft.sounds.SoundSource.PLAYERS,.35F,1.4F);player.displayClientMessage(net.minecraft.network.chat.Component.translatable(CombatTargeting.controlResistant(target)?"combat.slavicmyths.morok_resisted":"combat.slavicmyths.morok_hit"),true);
         stack.hurtAndBreak(1,player,hand==InteractionHand.MAIN_HAND?EquipmentSlot.MAINHAND:EquipmentSlot.OFFHAND);
+        player.swing(hand,true);
         return InteractionResultHolder.success(stack);
     }
     @Override public void appendHoverText(ItemStack stack,Item.TooltipContext context,java.util.List<net.minecraft.network.chat.Component> lines,TooltipFlag flag){super.appendHoverText(stack,context,lines,flag);lines.add(net.minecraft.network.chat.Component.translatable("combat.slavicmyths.likho_tooltip"));}

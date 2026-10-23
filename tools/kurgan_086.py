@@ -54,6 +54,8 @@ def atlas(name):
  png(A/f'textures/entity/{name}.png',256,pixel)
 
 def sprite(name):
+ from trophies112_113_art import write_owned as current_trophy
+ if current_trophy(A/"textures/item"/(name+".png")):return
  if name in ('shield_boss_fragment','voevoda_insignia','princely_seal'):
   from trophy111_art import write as write_trophy
   write_trophy(name,A/'textures/item');return

@@ -4,6 +4,8 @@ import json,struct,zlib
 R=Path(__file__).resolve().parents[1]; A=R/'src/main/resources/assets/slavicmyths'; D=R/'src/main/resources/data/slavicmyths'
 def js(p,o):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(o,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 def png(p,pix):
+ from materials81_n98_t99 import write_owned as material_owned
+ if material_owned(p):return
  from meat83_assets import write_owned
  if write_owned(p):return
  def c(t,d):return struct.pack('!I',len(d))+t+d+struct.pack('!I',zlib.crc32(t+d)&0xffffffff)

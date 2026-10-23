@@ -139,6 +139,20 @@ def main(apply=None):
   unique_art87()
   from weapons87_crossbow_grips import apply as crossbow87
   crossbow87()
+  from weapons87_p42_models import apply as p42_models
+  p42_models()
+  from weapons87_p43_overlay import apply as p43_models
+  p43_models()
+  from weapons87_restore49 import apply as restored49
+  restored49()
+  from weapons87_thrown_family import apply as thrown_family
+  thrown_family()
+  from weapons87_spear_surface import apply as spear_surface
+  spear_surface()
+  from issue217_models import apply as issue217_models
+  issue217_models()
+  from issue225_resources import apply as issue225_resources
+  issue225_resources()
  if not args.apply:write(D/'plans.json',plans)
  print(('APPLIED' if args.apply else 'DRAFT ONLY'),len(owned),'assets; 8 per-ID sheets; no gameplay changes')
 if __name__=='__main__':main()

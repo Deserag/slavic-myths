@@ -1,76 +1,17 @@
 {
-  "parent": "minecraft:item/handheld",
-  "textures": {
-    "layer0": "slavicmyths:item/diamond_throwing_knife"
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/diamond_throwing_knife_held"
   },
-  "display": {
-    "thirdperson_righthand": {
-      "rotation": [
-        0,
-        -90,
-        55
-      ],
-      "translation": [
-        0,
-        4,
-        0
-      ],
-      "scale": [
-        0.595,
-        0.595,
-        0.595
-      ]
+  "perspectives": {
+    "gui": {
+      "parent": "slavicmyths:item/diamond_throwing_knife_icon"
     },
-    "thirdperson_lefthand": {
-      "rotation": [
-        0,
-        90,
-        -55
-      ],
-      "translation": [
-        0,
-        4,
-        0
-      ],
-      "scale": [
-        0.595,
-        0.595,
-        0.595
-      ]
+    "ground": {
+      "parent": "slavicmyths:item/diamond_throwing_knife_icon"
     },
-    "firstperson_righthand": {
-      "rotation": [
-        0,
-        -90,
-        25
-      ],
-      "translation": [
-        1.13,
-        3.2,
-        1.13
-      ],
-      "scale": [
-        0.48999999999999994,
-        0.48999999999999994,
-        0.48999999999999994
-      ]
-    },
-    "firstperson_lefthand": {
-      "rotation": [
-        0,
-        90,
-        -25
-      ],
-      "translation": [
-        1.13,
-        3.2,
-        1.13
-      ],
-      "scale": [
-        0.48999999999999994,
-        0.48999999999999994,
-        0.48999999999999994
-      ]
+    "fixed": {
+      "parent": "slavicmyths:item/diamond_throwing_knife_icon"
     }
   }
 }

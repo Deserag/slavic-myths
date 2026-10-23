@@ -1,0 +1,18 @@
+shield=Image.new('RGBA',(256,256),(0,0,0,0));d=ImageDraw.Draw(shield);rng=random.Random('retainer-shield-rc2')
+for y in range(64):
+ for x in range(256):
+  tile=x//64;px=x%64;base=[(148,40,29),(121,80,42),(113,117,116),(136,141,141)][tile];v=rng.randrange(-7,8)
+  if tile in [0,1] and px%11==0:v-=20
+  shield.putpixel((x,y),shade(base,v))
+# Geometric linen-white solar motif entirely on the enemy-facing red tile.
+cream=(228,218,182,255)
+d.polygon([(32,5),(40,14),(32,23),(24,14)],outline=cream,width=3)
+d.polygon([(32,41),(40,50),(32,59),(24,50)],outline=cream,width=3)
+d.polygon([(5,32),(14,24),(23,32),(14,40)],outline=cream,width=3)
+d.polygon([(41,32),(50,24),(59,32),(50,40)],outline=cream,width=3)
+d.line((32,17,32,47),fill=cream,width=3);d.line((17,32,47,32),fill=cream,width=3)
+for x in range(66,128,11):d.line((x,0,x,63),fill=(69,43,27,255));d.line((x+1,0,x+1,63),fill=(159,110,61,255))
+for y in [0,63]:d.line((128,y,191,y),fill=(177,178,164,255),width=2)
+d.ellipse((195,3,252,60),fill=(89,97,99,255),outline=(211,212,194,255),width=3);d.ellipse((205,13,242,50),fill=(151,157,157,255),outline=(195,199,190,255),width=2)
+shield.save(A/'textures/item/retainer_shield.png')
+# Preserve connected round geometry and blocking predicate, correct physical held axes.

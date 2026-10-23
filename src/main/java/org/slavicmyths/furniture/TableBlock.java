@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import org.slavicmyths.kitchen.TableTile;
-public final class TableBlock extends FurnitureBlock {
+public final class TableBlock extends FurnitureBlock implements EntityBlock {
  public enum Connection implements StringRepresentable {NONE,NORTH,SOUTH,EAST,WEST;public String getSerializedName(){return name().toLowerCase(Locale.ROOT);}public Direction direction(){return this==NONE?null:Direction.valueOf(name());}public static Connection of(Direction d){return valueOf(d.name());}}
  public static final EnumProperty<Connection> CONNECTION=EnumProperty.create("connection",Connection.class);
  private static final com.mojang.serialization.MapCodec<TableBlock> CODEC=simpleCodec(TableBlock::new);

@@ -10,7 +10,7 @@ GRIPS={'ancient_carolingian_sword_held':-2,'restored_carolingian_sword_held':-2,
  'likho_staff':7,'victor_spear':7,'ataman_flail':6,'trophy_kalin_sabre':2,
  'nightingale_dagger':2}
 def write(p,d):p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-def apply():
+def legacy_apply():
  from weapon_visual_repair_assets import apply as repair
  repair()
  for name,grip in GRIPS.items():
@@ -36,4 +36,10 @@ def apply():
   write(p,d)
  from weapons87_flails import main as flails87
  flails87(True)
+def apply():
+ # The old pass rewrites crossbow elements before #222's protected rope check.
+ # Replay the maintained source chain directly, preserving accepted geometry.
+ from weapons87_flails import main as current_weapons
+ current_weapons(True)
+
 if __name__=='__main__':apply()

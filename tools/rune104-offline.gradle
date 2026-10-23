@@ -14,5 +14,10 @@ allprojects { p ->
    classpath = p.sourceSets.rune104Offline.runtimeClasspath
    mainClass = 'RuneGlow104Checks'
   }
+  p.tasks.register('checkRune105Offline', JavaExec) {
+   dependsOn p.tasks.named('rune104OfflineClasses')
+   classpath = p.sourceSets.rune104Offline.runtimeClasspath
+   mainClass = 'RuneWave105Checks'
+  }
  }
 }

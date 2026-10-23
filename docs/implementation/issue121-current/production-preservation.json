@@ -1,0 +1,6 @@
+{
+  "comparison": "Exact installed60 source manifest; tools-only new QA and generator entrypoint changes",
+  "production_files_verified": 8729,
+  "production_drift": [],
+  "production_added": []
+}

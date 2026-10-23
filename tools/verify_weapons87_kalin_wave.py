@@ -4,7 +4,7 @@ R=Path(__file__).resolve().parents[1]
 s=(R/"src/main/java/org/slavicmyths/rewards/RewardEvents.java").read_text(encoding="utf-8")
 item=(R/"src/main/java/org/slavicmyths/rewards/RewardContent.java").read_text(encoding="utf-8")
 body=s.split("public static void sabreWave(ServerPlayer p){",1)[1].split("@SubscribeEvent",1)[0]
-for token in ("p.getLookAngle()","for(int ring=1;ring<=5;ring++)","i=-8;i<=8","p.getBoundingBox().inflate(5.5)","e.distanceToSqr(p)<=30.25","enemy(e,p)","p.hasLineOfSight(e)","toward.dot(forward)<.35","5F","hits>=6","ParticleTypes.SWEEP_ATTACK","PLAYER_ATTACK_SWEEP","Разящий взмах"):
+for token in ("p.getLookAngle()","for(int ring=1;ring<=5;ring++)","i=-8;i<=8","p.getBoundingBox().inflate(5.5)","e.distanceToSqr(p)<=30.25","e instanceof net.minecraft.world.entity.monster.Enemy","p.hasLineOfSight(e)","toward.dot(forward)<.35","5F","hits>=6","ParticleTypes.SWEEP_ATTACK","PLAYER_ATTACK_SWEEP","Разящий взмах"):
     assert token in body,token
 assert "sweep(p,e.getEntity()" not in s
 assert "MomentumAt" not in body and "count<3" not in body

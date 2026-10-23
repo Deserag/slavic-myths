@@ -15,9 +15,11 @@
     "GorynychEffectDuration",
     "WintersInventoryMixin",
     "GorynychArrowDamageMixin",
-    "GorynychStormArrowMixin"
+    "GorynychStormArrowMixin",
+    "MultipartBlockEntityMixin"
   ],
   "client": [
+    "PlayerWeaponPoseMixin",
     "ClearSightMixin",
     "Quest185ColorMixin"
   ],

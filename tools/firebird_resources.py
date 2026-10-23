@@ -89,7 +89,11 @@ for idx,name in enumerate(['firebird_feather','smoldering_feather','firebird_dow
   for i in range(7):
    a=i*math.tau/7;x=32+math.cos(a)*9;y=36+math.sin(a)*8;dr.ellipse((x-9,y-10,x+9,y+8),fill=(255,130+i*12,35,230));dr.line((32,39,x+math.cos(a)*18,y+math.sin(a)*15),fill=(255,211,95,230),width=2)
   dr.ellipse((26,30,39,44),fill=(255,233,164,255))
- p=A/f'textures/item/{name}.png';p.parent.mkdir(parents=True,exist_ok=True);im.save(p);data(A/f'models/item/{name}.json',{'parent':'minecraft:item/generated','textures':{'layer0':f'slavicmyths:item/{name}'}})
+ p=A/f'textures/item/{name}.png'
+ from trophy114_down import write_owned as current_down
+ if not current_down(p):
+  p.parent.mkdir(parents=True,exist_ok=True);im.save(p)
+ data(A/f'models/item/{name}.json',{'parent':'minecraft:item/generated','textures':{'layer0':f'slavicmyths:item/{name}'}})
 ru=['Перо Жар-птицы','Тлеющее перо','Огненный пух'];en=['Firebird Feather','Smoldering Feather','Firebird Down']
 for locale,names in [('ru_ru',ru),('en_us',en)]:
  p=A/f'lang/{locale}.json';v=json.loads(p.read_text(encoding='utf8'));v['entity.slavicmyths.firebird']='Жар-птица' if locale=='ru_ru' else 'Firebird'

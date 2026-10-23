@@ -2,7 +2,9 @@
 from pathlib import Path
 import copy, json, math, zipfile
 from weapons87_crossbow_grips import proposal, IDS, SUFFIXES, GRIP
+from weapons87_p42_models import ADDITIONS
 from weapons87_grips import rotate
+from issue217_models import original_crossbow
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "src/main/resources/assets/slavicmyths"
@@ -31,11 +33,14 @@ def run():
                 source = original(prod_path, z)
                 final = json.loads((ASSETS / path).read_text(encoding="utf-8"))
                 assert final == proposed[path], path + " generator reproducibility"
-                assert source["elements"] == final["elements"]
+                final=original_crossbow(name+suffix,final)
+                # Frozen pre-P42 cuboids must be an exact prefix; only the approved P42 geometry may follow.
+                assert final["elements"] == source["elements"] + ADDITIONS[name], path + " unauthorized geometry drift"
                 assert source["textures"] == final["textures"]
                 assert source.get("overrides") == final.get("overrides")
                 before_except = copy.deepcopy(source)
                 after_except = copy.deepcopy(final)
+                after_except["elements"] = after_except["elements"][:-len(ADDITIONS[name])]
                 for handed in ("thirdperson_righthand", "thirdperson_lefthand"):
                     assert source["display"][handed]["rotation"] == [-90, 0, 0] and final["display"][handed]["rotation"] == [0, 0, 0]
                     assert source["display"][handed]["scale"] == final["display"][handed]["scale"] == [0.55] * 3
@@ -58,7 +63,7 @@ def run():
                 assert len(grip_matches) >= 1, path + " has no authored grip"
                 sample_count += 1
     assert sample_count == 12 and hand_checks == 48
-    print(f"PASS: {sample_count} horizontal-stock production states, {hand_checks} old/new hand pivots, {asset_checks} referenced textures; no geometry/FP/gameplay changes; runtime NOT_RUN")
+    print(f"PASS: {sample_count} horizontal-stock production states, {hand_checks} old/new hand pivots, {asset_checks} referenced textures; only approved P42 additive geometry, no FP/gameplay changes; runtime NOT_RUN")
 
 if __name__ == "__main__":
     run()

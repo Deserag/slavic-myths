@@ -176,7 +176,10 @@ BLOCKS={'altar','hearth','ancient_idol','ritual_candle','carved_oak_pillar','car
 def generate(root):
     res=root/'src/main/resources/assets/slavicmyths'
     for name in sorted(ITEMS): (res/f'textures/item/{name}.png').write_bytes(encode(pitem(name)))
-    for name in sorted(BLOCKS): (res/f'textures/block/{name}.png').write_bytes(encode(pblock(name)))
+    from materials81_m97_t100 import write_owned as current_material
+    for name in sorted(BLOCKS):
+        path=res/f'textures/block/{name}.png'
+        if not current_material(path): path.write_bytes(encode(pblock(name)))
     def cube(lo,hi,faces):
         return {'from':lo,'to':hi,'faces':{side:{'texture':'#'+texture} for side,texture in faces.items()}}
     sides=('north','south','east','west')

@@ -11,7 +11,7 @@ def write(path, value):
 def box(lo, hi, color):
     return {'from': lo, 'to': hi, 'faces': {f: {'texture': '#surface', 'uv': [color, 0, color+1, 1]} for f in ['north','south','east','west','up','down']}}
 
-def main():
+def historical_main():
     # Scythe: 30-unit dark wooden haft, 18-unit hooked steel blade, 1-unit blade
     # thickness, two iron ferrules. No boss-size chains, teeth or emissive ribbons.
     palette = ['#49392d','#715640','#343840','#646b73','#b5b9ba','#817c94','#bda25d']
@@ -56,4 +56,7 @@ def main():
 
     from weapons87_flails import main as flails87
     flails87(True)
+def main():
+    from weapons87_flails import main as current_weapons
+    current_weapons(True)
 if __name__=='__main__':main()

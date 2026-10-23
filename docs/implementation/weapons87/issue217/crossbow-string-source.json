@@ -1,0 +1,74 @@
+[
+  {
+    "model": "serpent_crossbow",
+    "segments": 1,
+    "thickness": 0.3,
+    "cocked": false
+  },
+  {
+    "model": "serpent_crossbow_pulling_0",
+    "segments": 32,
+    "thickness": 0.3,
+    "cocked": false
+  },
+  {
+    "model": "serpent_crossbow_pulling_1",
+    "segments": 32,
+    "thickness": 0.3,
+    "cocked": false
+  },
+  {
+    "model": "serpent_crossbow_pulling_2",
+    "segments": 32,
+    "thickness": 0.3,
+    "cocked": false
+  },
+  {
+    "model": "serpent_crossbow_arrow",
+    "segments": 32,
+    "thickness": 0.3,
+    "cocked": true
+  },
+  {
+    "model": "serpent_crossbow_firework",
+    "segments": 32,
+    "thickness": 0.3,
+    "cocked": true
+  },
+  {
+    "model": "three_breath_crossbow",
+    "segments": 1,
+    "thickness": 0.3,
+    "cocked": false
+  },
+  {
+    "model": "three_breath_crossbow_pulling_0",
+    "segments": 32,
+    "thickness": 0.3,
+    "cocked": false
+  },
+  {
+    "model": "three_breath_crossbow_pulling_1",
+    "segments": 32,
+    "thickness": 0.3,
+    "cocked": false
+  },
+  {
+    "model": "three_breath_crossbow_pulling_2",
+    "segments": 32,
+    "thickness": 0.3,
+    "cocked": false
+  },
+  {
+    "model": "three_breath_crossbow_arrow",
+    "segments": 32,
+    "thickness": 0.3,
+    "cocked": true
+  },
+  {
+    "model": "three_breath_crossbow_firework",
+    "segments": 32,
+    "thickness": 0.3,
+    "cocked": true
+  }
+]

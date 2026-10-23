@@ -1,0 +1,206 @@
+{
+  "comments": [
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/165#issuecomment-6322211194",
+      "body": "Начат независимый технический участок анимации косы после #117. Реальные native first-person source frames выявили подтверждённую причину пропадающего замаха: WeaponHands вращает wrist вокруг плеча на±70°, и при windup wrist выходит почти в near plane/за FOV. Это не отсутствующая модель: mesh/UV сохранены. Доказательства: firstperson-source/karachun_scythe-a0..a4.png, fp-native.json, исходный WeaponHands в before-grip-source.zip. Готовится адресная правка только визуальной амплитуды wrist35° вместо70°: кадры подготовки/контакта/возврата, server NightCombat damage ticks и accepted ornate geometry неизменны. Custom renderer source A/B будет пересчитан по архивной70° математике и actual production helper. Minecraft/PolyMC/server/GameTest не запускались, поле Project фактически не изменял; IN_PROGRESS.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6322211194,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">Начат независимый технический участок анимации косы после <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5946320098\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/117\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/117/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/117\">#117</a>. Реальные native first-person source frames выявили подтверждённую причину пропадающего замаха: WeaponHands вращает wrist вокруг плеча на±70°, и при windup wrist выходит почти в near plane/за FOV. Это не отсутствующая модель: mesh/UV сохранены. Доказательства: firstperson-source/karachun_scythe-a0..a4.png, fp-native.json, исходный WeaponHands в before-grip-source.zip. Готовится адресная правка только визуальной амплитуды wrist35° вместо70°: кадры подготовки/контакта/возврата, server NightCombat damage ticks и accepted ornate geometry неизменны. Custom renderer source A/B будет пересчитан по архивной70° математике и actual production helper. Minecraft/PolyMC/server/GameTest не запускались, поле Project фактически не изменял; IN_PROGRESS.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/165#issuecomment-6322545018",
+      "body": "Продолжены source QA и реальные исправления первых лиц: actual native matrices/PlayerModel/UV,592 samples/68 IDs/4 custom renderer paths,19 perspective source sheets обеих физических рук Steve/Alex. Исправлены пропущенные кисти Тугарина; wrist косы70→35° устраняет выход на windup к near plane, при motion0 contact/rest матрица прежняя; обычный offhand косы теперь совпадает с custom idle. Предложения ДО production и исходные кадры в blueprints/firstperson/. Само оружие отдельно от руки видно во всех новых sampled фазах (882–2483 opaque item pixels при фиксированном source FOV70). Это не игровые скриншоты/боевые тесты. Java21 clean build + native attrs/grip/FP checks + resource/JAR/generator sandbox PASS: PACKAGE-3.md, package3-receipt.json. Промежуточный локальный JAR1.9.7.53 SHA256bdcf7869debdcd3b99c825642f2b4a952d15ffd47945423017b17c621fba9bf9 (23655980 bytes), в PolyMC НЕ устанавливался. Серверные attack ticks/damage/cooldowns и boss mesh/UV/PNG не менялись. Игровых запусков0, runtime OWNER_PENDING. #165 остаётся частичной (scythe camera subset), вся #87 продолжается к #164 и другим детям; никаких закрытий/owner-accepted/фактической смены Project поля.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6322545018,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">Продолжены source QA и реальные исправления первых лиц: actual native matrices/PlayerModel/UV,592 samples/68 IDs/4 custom renderer paths,19 perspective source sheets обеих физических рук Steve/Alex. Исправлены пропущенные кисти Тугарина; wrist косы70→35° устраняет выход на windup к near plane, при motion0 contact/rest матрица прежняя; обычный offhand косы теперь совпадает с custom idle. Предложения ДО production и исходные кадры в blueprints/firstperson/. Само оружие отдельно от руки видно во всех новых sampled фазах (882–2483 opaque item pixels при фиксированном source FOV70). Это не игровые скриншоты/боевые тесты. Java21 clean build + native attrs/grip/FP checks + resource/JAR/generator sandbox PASS: PACKAGE-3.md, package3-receipt.json. Промежуточный локальный JAR1.9.7.53 SHA256bdcf7869debdcd3b99c825642f2b4a952d15ffd47945423017b17c621fba9bf9 (23655980 bytes), в PolyMC НЕ устанавливался. Серверные attack ticks/damage/cooldowns и boss mesh/UV/PNG не менялись. Игровых запусков0, runtime OWNER_PENDING. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5959303991\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/165\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/165/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/165\">#165</a> остаётся частичной (scythe camera subset), вся <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5929027445\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/87\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/87/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/87\">#87</a> продолжается к <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5959303344\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/164\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/164/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/164\">#164</a> и другим детям; никаких закрытий/owner-accepted/фактической смены Project поля.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/165#issuecomment-6341079814",
+      "body": "### 22.10.2026 P33\nP33 source audit ONLY: player first person scythe path in WeaponHands, but boss WeaponGrip58 does not animate player-held staff in third person. Scoped staff/spear/scythe player archetypes and real grip storyboard remain. No boss rig changes. PR [#205](https://github.com/Deserag/slavic-myths/pull/205) merged `cabb87af156b745d10a88ef4b2a689b8fa011d7e`, [CI 39780550221](https://github.com/Deserag/slavic-myths/actions/runs/39780550221) PASS (Java21 clean build, 68 IDs, 294 packed assets, Storm Staff VFX regression). Minecraft/PolyMC NOT_RUN; Issues OPEN.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6341079814,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<h3 dir=\"auto\">22.10.2026 P33</h3>\n<p dir=\"auto\">P33 source audit ONLY: player first person scythe path in WeaponHands, but boss WeaponGrip58 does not animate player-held staff in third person. Scoped staff/spear/scythe player archetypes and real grip storyboard remain. No boss rig changes. PR <a href=\"https://github.com/Deserag/slavic-myths/pull/205\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/205/hovercard\">#205</a> merged <code class=\"notranslate\">cabb87af156b745d10a88ef4b2a689b8fa011d7e</code>, <a href=\"https://github.com/Deserag/slavic-myths/actions/runs/39780550221\">CI 39780550221</a> PASS (Java21 clean build, 68 IDs, 294 packed assets, Storm Staff VFX regression). Minecraft/PolyMC NOT_RUN; Issues OPEN.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/165#issuecomment-6341917022",
+      "body": "P35 / PR #209: source confirms custom first-person Karachun scythe wrist/geometry; boss `WeaponGrip58` не применяется к рукам игрока. Отдельные третьеличные анимации посохов/копий/кос/серпов и Steve/Alex runtime пока НЕ реализованы, #165 OPEN.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6341917022,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">P35 / PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5980247425\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/209\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/209/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/209\">#209</a>: source confirms custom first-person Karachun scythe wrist/geometry; boss <code class=\"notranslate\">WeaponGrip58</code> не применяется к рукам игрока. Отдельные третьеличные анимации посохов/копий/кос/серпов и Steve/Alex runtime пока НЕ реализованы, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5959303991\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/165\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/165/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/165\">#165</a> OPEN.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/165#issuecomment-6342792999",
+      "body": "P38 / PR #212: first-person Karachun Scythe `WeaponHands.scytheWrist` получил раздельный наклон/смещение на замахе и при доведении удара, при этом `NightSwingPose` и boss rig не менялись. Third person/Steve/Alex/game QA OPEN.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6342792999,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">P38 / PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5980933206\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/212\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/212/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/212\">#212</a>: first-person Karachun Scythe <code class=\"notranslate\">WeaponHands.scytheWrist</code> получил раздельный наклон/смещение на замахе и при доведении удара, при этом <code class=\"notranslate\">NightSwingPose</code> и boss rig не менялись. Third person/Steve/Alex/game QA OPEN.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/165#issuecomment-6345636628",
+      "body": "Production: `client/WeaponMotionClient.java` adds 1P thrust to 12 spear IDs, arc to berdysh, short sickle swing and 3 staff motions incl. cooldown-based storm staff cast recoil. All 17 ID models/registry preserved; existing Karachun, flail, Poloz renderers excluded. Unique TP casts and game animation QA still pending.\n\nP44 in existing branch `work/weapons87-continuous-20261022`, draft PR #216; source `bbb3a353`, docs `683a2cd`. Java 21 clean build + P42/P43/P44 source/JAR guards **PASS**, [Actions #39812159700](https://github.com/Deserag/slavic-myths/actions/runs/39812159700); `slavicmyths-1.9.7.56.jar`, SHA256 `ed564259729eda1027a7e5c3331797a75593981eb28635a0787677163b148eee`. **Minecraft/PolyMC launches: 0; gameplay acceptance NOT_RUN, Issue remains OPEN/IN_PROGRESS.** Details: `docs/implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md`.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6345636628,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">Production: <code class=\"notranslate\">client/WeaponMotionClient.java</code> adds 1P thrust to 12 spear IDs, arc to berdysh, short sickle swing and 3 staff motions incl. cooldown-based storm staff cast recoil. All 17 ID models/registry preserved; existing Karachun, flail, Poloz renderers excluded. Unique TP casts and game animation QA still pending.</p>\n<p dir=\"auto\">P44 in existing branch <code class=\"notranslate\">work/weapons87-continuous-20261022</code>, draft PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5982545857\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/216\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/216/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/216\">#216</a>; source <code class=\"notranslate\">bbb3a353</code>, docs <code class=\"notranslate\">683a2cd</code>. Java 21 clean build + P42/P43/P44 source/JAR guards <strong>PASS</strong>, <a href=\"https://github.com/Deserag/slavic-myths/actions/runs/39812159700\">Actions #39812159700</a>; <code class=\"notranslate\">slavicmyths-1.9.7.56.jar</code>, SHA256 <code class=\"notranslate\">ed564259729eda1027a7e5c3331797a75593981eb28635a0787677163b148eee</code>. <strong>Minecraft/PolyMC launches: 0; gameplay acceptance NOT_RUN, Issue remains OPEN/IN_PROGRESS.</strong> Details: <code class=\"notranslate\">docs/implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md</code>.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/165#issuecomment-6345899136",
+      "body": "P45 продолжение в постоянной ветке через draft PR #216, source [`b96024c4`](https://github.com/Deserag/slavic-myths/commit/b96024c4112b1b621908c49619113d6c583c2b9b): семёрка `*_sulitsa` получила 1P held/windup/release посредством client `ThrowingMotionClient` (фактические тики зарядки и реальная рука), клиентский взмах запускается только после допустимого release `held>=6`. Нативные projectile/flight orientation из предыдущих пакетов и серверный damage/velocity/cooldown сохранены. Java21 source/JAR CI PASS [#39813871455](https://github.com/Deserag/slavic-myths/actions/runs/39813871455); JAR `slavicmyths-1.9.7.56.jar` SHA256 `75aede07fc2240f23cb1fdb6ead673c565fcbd8179586e2c02d663bba68f32e9`. In-game FP/TP/MP/Steve/Alex: 0 запусков, OWNER_PENDING; сама #165 OPEN/IN_PROGRESS.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6345899136,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">P45 продолжение в постоянной ветке через draft PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5982545857\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/216\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/216/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/216\">#216</a>, source <a href=\"https://github.com/Deserag/slavic-myths/commit/b96024c4112b1b621908c49619113d6c583c2b9b\"><code class=\"notranslate\">b96024c4</code></a>: семёрка <code class=\"notranslate\">*_sulitsa</code> получила 1P held/windup/release посредством client <code class=\"notranslate\">ThrowingMotionClient</code> (фактические тики зарядки и реальная рука), клиентский взмах запускается только после допустимого release <code class=\"notranslate\">held&gt;=6</code>. Нативные projectile/flight orientation из предыдущих пакетов и серверный damage/velocity/cooldown сохранены. Java21 source/JAR CI PASS <a href=\"https://github.com/Deserag/slavic-myths/actions/runs/39813871455\">#39813871455</a>; JAR <code class=\"notranslate\">slavicmyths-1.9.7.56.jar</code> SHA256 <code class=\"notranslate\">75aede07fc2240f23cb1fdb6ead673c565fcbd8179586e2c02d663bba68f32e9</code>. In-game FP/TP/MP/Steve/Alex: 0 запусков, OWNER_PENDING; сама <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5959303991\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/165\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/165/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/165\">#165</a> OPEN/IN_PROGRESS.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/165#issuecomment-6346262168",
+      "body": "New THIRD-PERSON pose for 12 spear IDs, berdysh, noon sickle and three staves (17 IDs) plus seven sulitsas. 3P spear motion is thrust forward, poleaxe lateral arc, staff minor recoil, sulitsa windup when using it. Uses actual `owner.getAttackAnim`, `getTicksUsingItem`, physical left/right hand. Boss rigs, scythe Karachun, flails, Poloz and the original server attack range/damage/cooldowns untouched. Unique 3P arm IK and actual owner video still pending.\n\n**P47** in existing `work/weapons87-continuous-20261022` (draft PR #216): source [`97bf25c3`](https://github.com/Deserag/slavic-myths/commit/97bf25c3408320ea43678332dda84d280d6f7932), QA receipt [`a8eeebb9`](https://github.com/Deserag/slavic-myths/commit/a8eeebb9a067fb6394ef4cae2b0b20e0741d9436). [GitHub Actions #39816854559](https://github.com/Deserag/slavic-myths/actions/runs/39816854559) **SUCCESS**: Java21 clean build, source tests for P42-P47 and production JAR class checks. `slavicmyths-1.9.7.56.jar` SHA256 `acf4d4d5ce8cc30dc17eaf3a38c60b29d74484e463728429edf1c05b89187fa6`. **No Minecraft/PolyMC launch, visual/MP 3P reception NOT_RUN.** Issue OPEN/IN_PROGRESS, `main` untouched. Details in cumulative `docs/implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md`.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6346262168,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">New THIRD-PERSON pose for 12 spear IDs, berdysh, noon sickle and three staves (17 IDs) plus seven sulitsas. 3P spear motion is thrust forward, poleaxe lateral arc, staff minor recoil, sulitsa windup when using it. Uses actual <code class=\"notranslate\">owner.getAttackAnim</code>, <code class=\"notranslate\">getTicksUsingItem</code>, physical left/right hand. Boss rigs, scythe Karachun, flails, Poloz and the original server attack range/damage/cooldowns untouched. Unique 3P arm IK and actual owner video still pending.</p>\n<p dir=\"auto\"><strong>P47</strong> in existing <code class=\"notranslate\">work/weapons87-continuous-20261022</code> (draft PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5982545857\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/216\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/216/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/216\">#216</a>): source <a href=\"https://github.com/Deserag/slavic-myths/commit/97bf25c3408320ea43678332dda84d280d6f7932\"><code class=\"notranslate\">97bf25c3</code></a>, QA receipt <a href=\"https://github.com/Deserag/slavic-myths/commit/a8eeebb9a067fb6394ef4cae2b0b20e0741d9436\"><code class=\"notranslate\">a8eeebb9</code></a>. <a href=\"https://github.com/Deserag/slavic-myths/actions/runs/39816854559\">GitHub Actions #39816854559</a> <strong>SUCCESS</strong>: Java21 clean build, source tests for P42-P47 and production JAR class checks. <code class=\"notranslate\">slavicmyths-1.9.7.56.jar</code> SHA256 <code class=\"notranslate\">acf4d4d5ce8cc30dc17eaf3a38c60b29d74484e463728429edf1c05b89187fa6</code>. <strong>No Minecraft/PolyMC launch, visual/MP 3P reception NOT_RUN.</strong> Issue OPEN/IN_PROGRESS, <code class=\"notranslate\">main</code> untouched. Details in cumulative <code class=\"notranslate\">docs/implementation/weapons87/WORKLOG-CONTINUOUS-BRANCH.md</code>.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/165#issuecomment-6347543128",
+      "body": "**OWNER QA PARTIAL FAIL:** обычное копьё: мерцающий наконечник (вероятный z-fighting — подтвердить по геометрии), копьё победителя: некорректная надпись «Второй выпад готов» при дальнем ударе и позднее исчезновение; грозовое копьё: визуально слабый эффект грозы. Коса Карачуна и посох Морозко — приняты, их KEEP. Резной посох — допустим без активного навыка как прогрессия. Issue #165 целиком OPEN/REWORK до конкретных фиксов и игры.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6347543128,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\"><strong>OWNER QA PARTIAL FAIL:</strong> обычное копьё: мерцающий наконечник (вероятный z-fighting — подтвердить по геометрии), копьё победителя: некорректная надпись «Второй выпад готов» при дальнем ударе и позднее исчезновение; грозовое копьё: визуально слабый эффект грозы. Коса Карачуна и посох Морозко — приняты, их KEEP. Резной посох — допустим без активного навыка как прогрессия. Issue <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5959303991\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/165\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/165/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/165\">#165</a> целиком OPEN/REWORK до конкретных фиксов и игры.</p>"
+    }
+  ],
+  "url": "https://github.com/Deserag/slavic-myths/issues/165",
+  "title": "Deserag/slavic-myths Issue #165 comments",
+  "display_url": "https://github.com/Deserag/slavic-myths/issues/165",
+  "display_title": "Deserag/slavic-myths Issue #165 comments"
+}

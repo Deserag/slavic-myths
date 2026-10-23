@@ -1,0 +1,17 @@
+{
+  "version": "1.9.7.60",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.60.jar",
+  "sha256": "19202904f71fa92917c314d5743637b132478ee1be1d8f1a8f0d1489b606b0d6",
+  "source_commit": "1192e229c4aa9166b53661f71f5ca15299f3537e",
+  "source_state": "DIRTY; no commit/push",
+  "source_manifest_sha256": "1056c2cd99cfd3fdbb65a18aa971461b8a5265d599663af1473dc85d5925852e",
+  "actual_runtime_processes": 21,
+  "latest_server_required_tests": 38,
+  "native_primary_weapons": 10,
+  "native_menu_recipes": 37,
+  "native_menu_crafts": 74,
+  "normal_world_samples": 2,
+  "actual_process_relog": true,
+  "polymc": "NOT_INSTALLED_THIS_VERSION; installed1.9.7.59 unchanged",
+  "artifact_runtime_scope": "Dev client/server used these production sources; packaged JAR statically verified, not launched from PolyMC."
+}

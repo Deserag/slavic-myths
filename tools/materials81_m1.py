@@ -64,6 +64,10 @@ def render_asset(name):
 
 def write_owned(path):
     """Replace only an exact owned texture target; leave all other paths alone."""
+    from materials81_m97_t100 import write_owned as current_m97_t100
+    if current_m97_t100(path): return True
+    from materials81_n98_t99 import write_owned as current_natural_tips
+    if current_natural_tips(path): return True
     from metals36_assets import write_owned as current_metal
     if current_metal(path): return True
     path = Path(path)

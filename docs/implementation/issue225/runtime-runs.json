@@ -1,0 +1,234 @@
+[
+  {
+    "log": "issue225-clean-build.log",
+    "launched": false,
+    "successful": true,
+    "server_pass_counts": [],
+    "visual_complete": false,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-client-final.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [],
+    "visual_complete": true,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-client-first.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [],
+    "visual_complete": true,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-client-release-check.log",
+    "launched": true,
+    "successful": false,
+    "server_pass_counts": [],
+    "visual_complete": false,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-client-second.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [],
+    "visual_complete": true,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-client-verified.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [],
+    "visual_complete": true,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-final-build.log",
+    "launched": false,
+    "successful": true,
+    "server_pass_counts": [],
+    "visual_complete": false,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-final-resources.log",
+    "launched": false,
+    "successful": false,
+    "server_pass_counts": [],
+    "visual_complete": false,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-horn-final.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [],
+    "visual_complete": true,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-horn-textured.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [],
+    "visual_complete": true,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-runtime-complete.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [
+      "37"
+    ],
+    "visual_complete": false,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-runtime-final.log",
+    "launched": true,
+    "successful": false,
+    "server_pass_counts": [],
+    "visual_complete": false,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-runtime-first.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [
+      "26"
+    ],
+    "visual_complete": false,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-runtime-fourth.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [
+      "32"
+    ],
+    "visual_complete": false,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-runtime-furniture.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [
+      "35"
+    ],
+    "visual_complete": false,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-runtime-multipart.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [
+      "36"
+    ],
+    "visual_complete": false,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-runtime-release.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [
+      "38"
+    ],
+    "visual_complete": false,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-runtime-second.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [
+      "29"
+    ],
+    "visual_complete": false,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-runtime-third.log",
+    "launched": true,
+    "successful": false,
+    "server_pass_counts": [],
+    "visual_complete": false,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-runtime-verified.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [
+      "34"
+    ],
+    "visual_complete": false,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-world-first.log",
+    "launched": true,
+    "successful": false,
+    "server_pass_counts": [],
+    "visual_complete": false,
+    "world_pass": false,
+    "relog": false
+  },
+  {
+    "log": "issue225-world-fixed.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [],
+    "visual_complete": false,
+    "world_pass": true,
+    "relog": false
+  },
+  {
+    "log": "issue225-world-reload.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [],
+    "visual_complete": false,
+    "world_pass": true,
+    "relog": true
+  },
+  {
+    "log": "issue225-world-verified.log",
+    "launched": true,
+    "successful": true,
+    "server_pass_counts": [],
+    "visual_complete": false,
+    "world_pass": true,
+    "relog": false
+  }
+]

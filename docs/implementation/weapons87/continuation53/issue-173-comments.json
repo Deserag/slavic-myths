@@ -1,0 +1,74 @@
+{
+  "comments": [
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/173#issuecomment-6323171421",
+      "body": "Начата реализация по разрешению владельца на весь #87. Подтверждён source-дефект flying renderer: ItemDisplayContext.FIXED наследует Y180 из minecraft:item/generated, затем flight Z(pitch-45) поворачивает исходную диагональную ось клинка/дротика поперёк движения. План — NONE только для полётной модели, с прежним scale0.65/1.25, без изменения GUI/рук/рамки/PNG/server physics. До правки сохранены14 actual model/PNG пар и WeaponProjectileRenderer/WeaponProjectile/ThrowingWeaponItem в before-thrown-orientation.zip; готовятся индивидуальные source-чертежи/проверки фактических ItemTransform. Требуются native direction proof и actual source A/B, clean build/JAR/generator gates. Игровая проверка OWNER_PENDING, запусков0. Issue OPEN/IN_PROGRESS; Project поле технически не менялось.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6323171421,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">Начата реализация по разрешению владельца на весь <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5929027445\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/87\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/87/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/87\">#87</a>. Подтверждён source-дефект flying renderer: ItemDisplayContext.FIXED наследует Y180 из minecraft:item/generated, затем flight Z(pitch-45) поворачивает исходную диагональную ось клинка/дротика поперёк движения. План — NONE только для полётной модели, с прежним scale0.65/1.25, без изменения GUI/рук/рамки/PNG/server physics. До правки сохранены14 actual model/PNG пар и WeaponProjectileRenderer/WeaponProjectile/ThrowingWeaponItem в before-thrown-orientation.zip; готовятся индивидуальные source-чертежи/проверки фактических ItemTransform. Требуются native direction proof и actual source A/B, clean build/JAR/generator gates. Игровая проверка OWNER_PENDING, запусков0. Issue OPEN/IN_PROGRESS; Project поле технически не менялось.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/173#issuecomment-6323393594",
+      "body": "Технический scope #173 реализован. Все14 model/PNG KEEP, две действительно разные линейки сохранены. Flying renderer теперь использует NONE вместо унаследованного frame FIXED Y180; yaw/pitch/scale0.65/1.25 прежние.28 model/PNG и2 server файла побайтно сохранены, урон/физика/pickup/loyalty/save не менялись.\n\nREQUIREMENT | EVIDENCE | RESULT\n14 per-material source blueprints до правки +actual A/B | blueprints/thrown +14 source sheets/84 displayed cases | PASS\nflight tip axis/velocity |420 actual native cases: BEFORE dot~0, AFTER dot~1 | PASS\nGUI/held/frame/server preservation | before archive +preserved-files.json | PASS\nJava21 clean build/native/resource/JAR/generators | package6-build.log/package6-receipt.json | PASS\nactual throws/block/mob/MP/return | launches0 | NOT_RUN / OWNER_PENDING\nPolyMC install | unchanged | POLYMC_NOT_INSTALLED\n\nОтчёт локально docs/implementation/weapons87/PACKAGE-6.md, package6-thrown-source-evidence.zip. Промежуточный build/libs/slavicmyths-1.9.7.53.jar,23691976 bytes,SHA256 78c4213816a1b8dcbc954a19c9ce0430750456f7c84533b16700ac57ec841237; source base32d1733457e7e90360ce16c23860304ece664c64 + uncommitted source-manifest-package6.json. Без commit/push/установки. Рекомендуемое «Тестирование» #173; само Project поле не менялось. Issue OPEN,87 IN_PROGRESS. Продолжаю #170 и оставшиеся разрешённые задачи.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6323393594,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">Технический scope <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5959337880\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/173\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/173/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/173\">#173</a> реализован. Все14 model/PNG KEEP, две действительно разные линейки сохранены. Flying renderer теперь использует NONE вместо унаследованного frame FIXED Y180; yaw/pitch/scale0.65/1.25 прежние.28 model/PNG и2 server файла побайтно сохранены, урон/физика/pickup/loyalty/save не менялись.</p>\n<p dir=\"auto\">REQUIREMENT | EVIDENCE | RESULT<br>\n14 per-material source blueprints до правки +actual A/B | blueprints/thrown +14 source sheets/84 displayed cases | PASS<br>\nflight tip axis/velocity |420 actual native cases: BEFORE dot<del>0, AFTER dot</del>1 | PASS<br>\nGUI/held/frame/server preservation | before archive +preserved-files.json | PASS<br>\nJava21 clean build/native/resource/JAR/generators | package6-build.log/package6-receipt.json | PASS<br>\nactual throws/block/mob/MP/return | launches0 | NOT_RUN / OWNER_PENDING<br>\nPolyMC install | unchanged | POLYMC_NOT_INSTALLED</p>\n<p dir=\"auto\">Отчёт локально docs/implementation/weapons87/PACKAGE-6.md, package6-thrown-source-evidence.zip. Промежуточный build/libs/slavicmyths-1.9.7.53.jar,23691976 bytes,SHA256 78c4213816a1b8dcbc954a19c9ce0430750456f7c84533b16700ac57ec841237; source base32d1733457e7e90360ce16c23860304ece664c64 + uncommitted source-manifest-package6.json. Без commit/push/установки. Рекомендуемое «Тестирование» <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5959337880\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/173\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/173/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/173\">#173</a>; само Project поле не менялось. Issue OPEN,87 IN_PROGRESS. Продолжаю <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5959336432\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/170\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/170/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/170\">#170</a> и оставшиеся разрешённые задачи.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/173#issuecomment-6343707886",
+      "body": "P40 / PR #214: первый 3D FIX двух каменных метательных архетипов: `stone_throwing_knife` короткая объёмная гарда+лезвие, `stone_sulitsa` длинное деревянное древко+малое острие. `neoforge:separate_transforms` сохраняет исходные GUI icon PNG через item_generated, held/flight получает 3D. Server WeaponProjectile unchanged. Другие12 material IDs и runtime owner QA остаются открытыми.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6343707886,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">P40 / PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5981667584\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/214\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/214/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/214\">#214</a>: первый 3D FIX двух каменных метательных архетипов: <code class=\"notranslate\">stone_throwing_knife</code> короткая объёмная гарда+лезвие, <code class=\"notranslate\">stone_sulitsa</code> длинное деревянное древко+малое острие. <code class=\"notranslate\">neoforge:separate_transforms</code> сохраняет исходные GUI icon PNG через item_generated, held/flight получает 3D. Server WeaponProjectile unchanged. Другие12 material IDs и runtime owner QA остаются открытыми.</p>"
+    }
+  ],
+  "url": "https://github.com/Deserag/slavic-myths/issues/173",
+  "title": "Deserag/slavic-myths Issue #173 comments",
+  "display_url": "https://github.com/Deserag/slavic-myths/issues/173",
+  "display_title": "Deserag/slavic-myths Issue #173 comments"
+}

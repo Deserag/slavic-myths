@@ -12,9 +12,9 @@ assert 'org.slavicmyths.rpg.RuneEffects.staff(player,stack,e);' in s
 assert s.count('ParticleTypes.ENCHANT')==1
 assert 'e.getBbHeight()*.5' in s
 assert '12,.22,.25,.22,.02' in s
-assert 'BASE_PULSE_DAMAGE=6.0F' in s and 'PULSE_COOLDOWN=60' in s and 'RUNE_COOLDOWN=54' in s
+assert 'BASE_PULSE_DAMAGE=6.0F' in s and 'PULSE_COOLDOWN=48' in s and 'RUNE_COOLDOWN=42' in s
 if '--jar' in sys.argv:
  jars=list((r/'build/libs').glob('slavicmyths-*.jar'))
  assert len(jars)==1
  with zipfile.ZipFile(jars[0]) as z:assert 'org/slavicmyths/item/StormStaffItem.class' in z.namelist()
-print('PASS #161 storm staff targeted sparks only on successful damage, 12 confirmed-hit sparks plus visible ray and impact, visual-only lightning, no base damage/cooldown changes; runtime NOT_RUN')
+print('PASS #161 storm staff targeted sparks only on successful damage, 12 confirmed-hit sparks plus visible ray and impact, visual-only lightning, base damage kept and owner-requested cooldown -6 ticks; runtime NOT_RUN')

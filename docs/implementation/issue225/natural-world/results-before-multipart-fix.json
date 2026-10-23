@@ -1,0 +1,60 @@
+[
+  {
+    "id": "kurgan_small",
+    "seed": 2252026,
+    "preset": "NORMAL",
+    "coordinates_source": "prior native locate seed2252026; current native generation/start rechecked",
+    "location": [
+      -720,
+      0,
+      -640
+    ],
+    "bounding_box": [
+      -828,
+      57,
+      -606,
+      -758,
+      93,
+      -503
+    ],
+    "native_biome": "minecraft:dripstone_caves",
+    "generated_chunks": 35,
+    "containers": 3,
+    "container_metadata": [
+      "BlockPos{x\u003d-803, y\u003d59, z\u003d-513} minecraft:barrel loot\u003dslavicmyths:kurgan/common_cache",
+      "BlockPos{x\u003d-771, y\u003d59, z\u003d-592} minecraft:barrel loot\u003dslavicmyths:kurgan/common_cache",
+      "BlockPos{x\u003d-772, y\u003d59, z\u003d-535} slavicmyths:burial_coffin loot\u003dslavicmyths:kurgan/burial"
+    ],
+    "scope": "natural generation/start/chunks/container presence; no forced loot unlock or boss victory"
+  },
+  {
+    "id": "sanctuary_unfading_fire",
+    "seed": 2252026,
+    "preset": "NORMAL",
+    "coordinates_source": "prior native locate seed2252026; current native generation/start rechecked",
+    "location": [
+      -2240,
+      0,
+      1952
+    ],
+    "bounding_box": [
+      -2229,
+      70,
+      1963,
+      -2154,
+      96,
+      2042
+    ],
+    "native_biome": "minecraft:dark_forest",
+    "generated_chunks": 36,
+    "containers": 5,
+    "container_metadata": [
+      "BlockPos{x\u003d-2209, y\u003d72, z\u003d2024} slavicmyths:sanctuary_chest loot\u003dslavicmyths:chests/fire_cache",
+      "BlockPos{x\u003d-2212, y\u003d72, z\u003d2031} minecraft:chest loot\u003dslavicmyths:chests/fire_guaranteed",
+      "BlockPos{x\u003d-2208, y\u003d74, z\u003d2013} minecraft:chest loot\u003dslavicmyths:chests/fire_regular",
+      "BlockPos{x\u003d-2190, y\u003d71, z\u003d2025} minecraft:chest loot\u003dslavicmyths:chests/fire_regular",
+      "BlockPos{x\u003d-2184, y\u003d71, z\u003d2032} minecraft:chest loot\u003dslavicmyths:chests/fire_regular"
+    ],
+    "scope": "natural generation/start/chunks/container presence; no forced loot unlock or boss victory"
+  }
+]

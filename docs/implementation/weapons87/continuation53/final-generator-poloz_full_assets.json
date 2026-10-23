@@ -1,0 +1,29 @@
+{
+  "scope": "P32 read-only current-source-vs-replayed canonical weapons87_flails.py --apply",
+  "entrypoint": "poloz_full_assets.py",
+  "baseline_commit_included": "4247c95ff8f8b82cb875161edf960686caaaa2af",
+  "source_mutated": false,
+  "catalogue_weapon_count": 68,
+  "protected_models_count": 16,
+  "protected_mismatches": [],
+  "protected_byte_drift": [],
+  "semantic_or_png_pixel_drift_count": 0,
+  "semantic_or_png_pixel_drift": [],
+  "first_pass": {
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "second_pass": {
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "changed_paths_count": 0,
+  "changed_paths": [],
+  "idempotence_drift_count": 0,
+  "idempotence_drift": [],
+  "historical_manifest_sha": "archived preproduction, not used for pass/fail of current production",
+  "game": "NOT_RUN",
+  "polymc": "NOT_INSTALLED"
+}

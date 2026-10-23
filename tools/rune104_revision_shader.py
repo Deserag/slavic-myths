@@ -5,6 +5,8 @@ from pathlib import Path
 import ctypes as C,json,zipfile,hashlib,sys
 from ctypes import wintypes as W
 R=Path(__file__).resolve().parents[1];O=R/'docs/implementation/rune-glow-104-revision'
+if '--output-dir' in sys.argv:
+ O=Path(sys.argv[sys.argv.index('--output-dir')+1]).resolve();O.mkdir(parents=True,exist_ok=True)
 U=C.WinDLL('user32');G=C.WinDLL('gdi32');GL=C.WinDLL('opengl32')
 class PFD(C.Structure):
  _fields_=[('nSize',W.WORD),('nVersion',W.WORD),('dwFlags',W.DWORD)]+[(n,C.c_ubyte) for n in ['iPixelType','cColorBits','cRedBits','cRedShift','cGreenBits','cGreenShift','cBlueBits','cBlueShift','cAlphaBits','cAlphaShift','cAccumBits','cAccumRedBits','cAccumGreenBits','cAccumBlueBits','cAccumAlphaBits','cDepthBits','cStencilBits','cAuxBuffers','iLayerType','bReserved']]+[(n,W.DWORD) for n in ['dwLayerMask','dwVisibleMask','dwDamageMask']]

@@ -1,0 +1,1713 @@
+[
+  {
+    "id": "weapon_wrap",
+    "catalog_tab": "resources",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/weapon_wrap.json": "fdf2be36b98364a5904d5af98b53b909f3a6faead5a1168bc811333e28bd8181",
+      "src/main/resources/assets/slavicmyths/textures/item/weapon_wrap.png": "9dd26dae1b77a7856c00f01de1d36d84dd1332f52e817f1d4f33b094eec68f29"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "silver_fitting",
+    "catalog_tab": "resources",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/silver_fitting.json": "e3de02fe7843e77e93bd79798b16a1f1086dd4a4dbc5e76886d8c80f51ea5359",
+      "src/main/resources/assets/slavicmyths/textures/item/silver_fitting.png": "ecae1ca15a51ed883355c184d1e47b81a96a8027b62db2400fbd1240349d80d9"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "iron_rings",
+    "catalog_tab": "resources",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/iron_rings.json": "3dcc036db6f929636cba3dd409caebad612cf57d2e1fe7c2df6e17edc2f5bfec"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "spear_shaft",
+    "catalog_tab": "resources",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/spear_shaft.json": "f18bd23ee3e81b202720737524bc56b578075dadbd619c73f30d008b4be9eadd",
+      "src/main/resources/assets/slavicmyths/textures/item/spear_shaft.png": "a82c8a27eb6a0c31cbfe53b30e685d03ff3352d0db6306a5c81bbca44886040d"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "short_shaft",
+    "catalog_tab": "resources",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/short_shaft.json": "48ac4989f9309348eb9dfcdca0fe7eec7c50c02c76ad6516987ad467d65d006b",
+      "src/main/resources/assets/slavicmyths/textures/item/short_shaft.png": "2021b4d83032371fbda96430ce949dbcc6c02f0d474cd913f5a5d68570239188"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "flail_handle",
+    "catalog_tab": "resources",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/flail_handle.json": "db2a4fbecfae333717b64ebe06c394f17d87c18ff7309c16176ad80c29441611",
+      "src/main/resources/assets/slavicmyths/models/item/flail_handle_held.json": "5af0e585093b06734bcd4c1bcd6ec9081442a361e4829797b0dc130fa383af2d",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/models/item/flail_handle_icon.json": "c651283ae60a93f10350f9640a210c5a118d587ac8916037c1645b94f9d9bc58",
+      "src/main/resources/assets/slavicmyths/textures/item/flail_handle.png": "5bfdaf56dc89e87ba275776b8b27b00b2f4f4691afc94974f0d86c7d277142a7"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "flail_chain",
+    "catalog_tab": "resources",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/flail_chain.json": "ea58c103b1fad594e24de5e53a25110159a91bb403d98f587b11b903fc1d18ae",
+      "src/main/resources/assets/slavicmyths/models/item/flail_chain_held.json": "c30bc8c6be9297a42868e358097851aa48343d7127e32b2a114b31a8dcedc27a",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/models/item/flail_chain_icon.json": "b002c1d02e46e20bb178640f4b748a272dff361b23cc8fdf239e4e128abf2ab1",
+      "src/main/resources/assets/slavicmyths/textures/item/flail_chain.png": "f4f52e75bc9f93860a5773c94803400b0a5762febc3991c9cac85fbda24de9e3"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "stone_spearhead",
+    "catalog_tab": "resources",
+    "catalog_group": "components_stone",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/stone_spearhead.json": "706f29861c0f48f826f40257c114505bdfe1e794cc26a7dfa51547f24552af1d",
+      "src/main/resources/assets/slavicmyths/textures/item/stone_spearhead.png": "0d25da66a8ac8b5107158a4654fe3ad677ff4e79402752da69cede6c4d4427c4"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "stone_light_spearhead",
+    "catalog_tab": "resources",
+    "catalog_group": "components_stone",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/stone_light_spearhead.json": "744cb414e18a2e3f6caed991de45c9234fce13897bb8c731b011574a643f494f",
+      "src/main/resources/assets/slavicmyths/textures/item/stone_light_spearhead.png": "4900c09a12ffbfee4ae6a67c039d2fe79d51096e88d4b95b622364cdb5de3f46"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "stone_flail_ball",
+    "catalog_tab": "resources",
+    "catalog_group": "components_stone",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/stone_flail_ball.json": "2db69ea7c3c3105f928109903f6c5cb67b9fb9ddbc59ae4106dc06a94ec6664e",
+      "src/main/resources/assets/slavicmyths/models/item/stone_flail_ball_held.json": "6fbdc9304b48319499e89f299cab0fc80de631f92a3cc2ca75e2b2c5fa601711",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/models/item/stone_flail_ball_icon.json": "ab9dbc8698d692056f63e46076fbff0c421493b3dced7e8e733908d3749fbc26",
+      "src/main/resources/assets/slavicmyths/textures/item/stone_flail_ball.png": "b742b414c65df3f74bab066467e7ffbbc49872f44948fcfd45a424a16067b5ad"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "gold_spearhead",
+    "catalog_tab": "resources",
+    "catalog_group": "components_gold",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/gold_spearhead.json": "479e0307f0e96be1621d0e893bdacf289b86b0d7aafdda952e7b3f0bd99ab973",
+      "src/main/resources/assets/slavicmyths/textures/item/gold_spearhead.png": "636a59a2fb9b16ab74ab54918eb1c34586f7d30b36409d9d6690d6de4bbe0f64"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "gold_light_spearhead",
+    "catalog_tab": "resources",
+    "catalog_group": "components_gold",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/gold_light_spearhead.json": "c28b6126171ab20ffe611d5a868ae6318a5581ebfa3f3b74e4adc85bfceaf3e8",
+      "src/main/resources/assets/slavicmyths/textures/item/gold_light_spearhead.png": "a0efcd58dda659d4d5b4d4c58496e1cec7c8c668ba1fd26f4311dc0fd02ebd90"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "gold_flail_ball",
+    "catalog_tab": "resources",
+    "catalog_group": "components_gold",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/gold_flail_ball.json": "9b95ab03e3e0809d42c1ed2fe478fec315131d3219e95c344ca239eeff4b99a7",
+      "src/main/resources/assets/slavicmyths/models/item/gold_flail_ball_held.json": "22bd2c251db92fbfe04419e45ed1ce94ea09047a2c3b04808f1531cb2c8ed066",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/models/item/gold_flail_ball_icon.json": "3a717519fdd7e104c75562f23d4c007d156cb506bbce15ffb7b13b01b005b42d",
+      "src/main/resources/assets/slavicmyths/textures/item/gold_flail_ball.png": "c844e2387c490b837bd33d93ef4ab2c67053152ec83d99ec357ed509a9a7890d"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "iron_spearhead",
+    "catalog_tab": "resources",
+    "catalog_group": "components_iron",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/iron_spearhead.json": "f9ce6adde22dc03888ae4310252efe7a06a6e634f5a0b4f80439e3cef63135a3",
+      "src/main/resources/assets/slavicmyths/textures/item/iron_spearhead.png": "54cfb23565acd026c3d0dfc65c444e1d62be54334e403a4f280cd19ab31c3ce5"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "iron_light_spearhead",
+    "catalog_tab": "resources",
+    "catalog_group": "components_iron",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/iron_light_spearhead.json": "e706a1b6d2bc5b503d95969f6adb4f3a645c0ffac9edf52c1d6acfd9c9390b22",
+      "src/main/resources/assets/slavicmyths/textures/item/iron_light_spearhead.png": "03fb3023074cf663f8fa82bb814d47f7abfcb38bcd2c4da722bd6c1d02854266"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "iron_flail_ball",
+    "catalog_tab": "resources",
+    "catalog_group": "components_iron",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/iron_flail_ball.json": "419419c5efdc49c43713b3c5df12486133a06adbfe217aa82e4e34a7992aad77",
+      "src/main/resources/assets/slavicmyths/models/item/iron_flail_ball_held.json": "c7228d8f97bd95b69f5deb3e1118d4dc4dd01fb266a53dc171dae5ad8cd5a475",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/models/item/iron_flail_ball_icon.json": "c94b9b153a17611fe4e9fa882e34901e4a24b17b2c522ab194f372d4c356f0f7",
+      "src/main/resources/assets/slavicmyths/textures/item/iron_flail_ball.png": "f4f83b44434f4ece6f9f747b257830fed0881be355b3dfd68e4c5657346674cf"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "silver_spearhead",
+    "catalog_tab": "resources",
+    "catalog_group": "components_silver",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/silver_spearhead.json": "95779ead816b03d4ea0fd8419a2cde4b380e5f1efbe45b96dd2f3a5c79197e54",
+      "src/main/resources/assets/slavicmyths/textures/item/silver_spearhead.png": "60164e4e5072d21951ae04d74ca5331ce312d4d3bb89726d749bd537ed49b32c"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "silver_light_spearhead",
+    "catalog_tab": "resources",
+    "catalog_group": "components_silver",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/silver_light_spearhead.json": "0f4d924ea1779b67c5e9f1212ade8afcbc30bab4dd1c10271b7d9d0f7cbe6bf8",
+      "src/main/resources/assets/slavicmyths/textures/item/silver_light_spearhead.png": "c573c7bf738ff62ae62bbf44cb8f74c1056b0771bdbbb62c101c3b5eb57618a1"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "silver_flail_ball",
+    "catalog_tab": "resources",
+    "catalog_group": "components_silver",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/silver_flail_ball.json": "77302677a8d2a631d1dab9554cf30e5aaafe18574a0dd522d9c0951c0fc5155b",
+      "src/main/resources/assets/slavicmyths/models/item/silver_flail_ball_held.json": "9883756a584716c7dd51ca5444b3e78a31e6a08188834cbb11eb81f899e66569",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/models/item/silver_flail_ball_icon.json": "dab8dfba8c7b224446463619dfdaf7d54df930ae975bb08ccc0f69cd4bf13c87",
+      "src/main/resources/assets/slavicmyths/textures/item/silver_flail_ball.png": "d1074fa3370d12bb79d0b87618926523da53a6c0ccdc6e7240b1ff903d873a2b"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "diamond_spearhead",
+    "catalog_tab": "resources",
+    "catalog_group": "components_diamond",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/diamond_spearhead.json": "df71091c1c9695b945814bb7af083efec1c77babdaf69970588a8a140ca7e418",
+      "src/main/resources/assets/slavicmyths/textures/item/diamond_spearhead.png": "8daa86206c1e9b9b9c9ac60e51415534aa851bd7247c7644532b443a704368e0"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "diamond_light_spearhead",
+    "catalog_tab": "resources",
+    "catalog_group": "components_diamond",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/diamond_light_spearhead.json": "d16dc0a9f3578cb572c4edac8d915272ad59a6741708ab66df8f306b8d79721b",
+      "src/main/resources/assets/slavicmyths/textures/item/diamond_light_spearhead.png": "3f0fed5abeb4fb092981310ebab05c1fc827b33089ad5297c2ea4761bfca75b2"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "diamond_flail_ball",
+    "catalog_tab": "resources",
+    "catalog_group": "components_diamond",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/diamond_flail_ball.json": "bebd02bf5315d1c0d534b001098fdcf541ed6c9806044c8fcaa85df5f334d97a",
+      "src/main/resources/assets/slavicmyths/models/item/diamond_flail_ball_held.json": "c09438cd6f41441f98ae5b828de4ef4b7be77fb62104d1b61a03dddf6c718a89",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/models/item/diamond_flail_ball_icon.json": "542ae1ea1c182b77deeaf05d898817a8df3326ac6bfb0f29c7c07b7a9c2ffc2c",
+      "src/main/resources/assets/slavicmyths/textures/item/diamond_flail_ball.png": "c41b215e172d4da2a6a21b2ec1d28907e742fcbf36472e152314a4108e5b53ef"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "perunite_spearhead",
+    "catalog_tab": "resources",
+    "catalog_group": "components_perunite",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/perunite_spearhead.json": "549c268212bf513099958ea491942ca1023642041b937d417e54af62acf72768",
+      "src/main/resources/assets/slavicmyths/textures/item/perunite_spearhead.png": "e8ec36100a312b25491cb0ef77fd3177c296ffbb195586f0ce79be49ef7b4f75"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "perunite_light_spearhead",
+    "catalog_tab": "resources",
+    "catalog_group": "components_perunite",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/perunite_light_spearhead.json": "0bdd98f649b4832b3dc5a895189af9a5451083b71d83cfb5fbfbb0704d9b1fb5",
+      "src/main/resources/assets/slavicmyths/textures/item/perunite_light_spearhead.png": "a27449dd126438becb180d80d199f2f7223b780de86600d91af667d1c73be76d"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "perunite_flail_ball",
+    "catalog_tab": "resources",
+    "catalog_group": "components_perunite",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/perunite_flail_ball.json": "c4460888302a6fd8470d2f78e0a921a006703148b87d8e673f2943877fb198a8",
+      "src/main/resources/assets/slavicmyths/models/item/perunite_flail_ball_held.json": "be882dcb1effd63899e7413eafb1ea2151256b9ebc393924658059d2fdad6ace",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/models/item/perunite_flail_ball_icon.json": "1d818355bb65e077da2a27742bc4505f24e6007b2fc8d38caa4ab916c3723770",
+      "src/main/resources/assets/slavicmyths/textures/item/perunite_flail_ball.png": "5f1d5654ebcc771587691d9fe1b13aa02c8fb8f62ef9d24669ee02ac09683610"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "netherite_spearhead",
+    "catalog_tab": "resources",
+    "catalog_group": "components_netherite",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/netherite_spearhead.json": "b5c53af0cea2f5e0623e13a0ea4a0e8fd4844b5eb5171db19c35c1c5f357364f",
+      "src/main/resources/assets/slavicmyths/textures/item/netherite_spearhead.png": "648ddce0b8c45e5449b3875265aceaca4c73ab23c15ed53c4cfb90e59b3505b3"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "netherite_light_spearhead",
+    "catalog_tab": "resources",
+    "catalog_group": "components_netherite",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/netherite_light_spearhead.json": "51b848982b937f71eb64b515937d1f0ad432f8f8c0f1b5db1ecd653b7d03d3e5",
+      "src/main/resources/assets/slavicmyths/textures/item/netherite_light_spearhead.png": "41fe33a2f11447fb07829371f18f8c58ba00f1ea605c383e1a6a8be5dfc58951"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "netherite_flail_ball",
+    "catalog_tab": "resources",
+    "catalog_group": "components_netherite",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/netherite_flail_ball.json": "cd28ec08cbb1d436f0b164f993bb630f96c9577173adafe3976770c350a042a2",
+      "src/main/resources/assets/slavicmyths/models/item/netherite_flail_ball_held.json": "4fe60ce230152e2a8bd0af2a0715e7cdfb31eda08444e70df7e0b6a0f4c503c0",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/models/item/netherite_flail_ball_icon.json": "24b664871787963c60e3a84b031780761385b0d2202fa327523c1754f5a2dfd8",
+      "src/main/resources/assets/slavicmyths/textures/item/netherite_flail_ball.png": "d8cb03c3a0058f0aa3e9f5dda99500bff40abedb9528983ad1fc75fe571254ae"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "bone_knife",
+    "catalog_tab": "weapons",
+    "catalog_group": "knives",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/bone_knife.json": "a28a62bc6df7d3eac60054e7e3f55750ffd252f3eda2c2e7f07aa2e6d2b0b1b0",
+      "src/main/resources/assets/slavicmyths/textures/item/bone_knife.png": "5e787e8a170d22feafe7d7d0a6065f7b84acff544ba5e4e71690132a91cfc595"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "silver_dagger",
+    "catalog_tab": "weapons",
+    "catalog_group": "knives",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/silver_dagger.json": "f8d1b7469f4fe7808155d3bab98977415f7cdc02bdd2f938b332bf5aba72268c",
+      "src/main/resources/assets/slavicmyths/textures/item/silver_dagger.png": "262e6ae4a03d5d2c2d5e4d62739cf5f270d7d7c446fa6e9723457e8b027adac4"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "nightingale_dagger",
+    "catalog_tab": "weapons",
+    "catalog_group": "knives",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/nightingale_dagger.json": "6fa7beb2677a20062791340baee3af1838eb3b88a32e5ed804509318a148ef4d",
+      "src/main/resources/assets/slavicmyths/textures/item/nightingale_steel.png": "ae2ec699e5da17d98ca1454275bee5681f645b979f7e636a94b14babe910c686",
+      "src/main/resources/assets/slavicmyths/textures/item/nightingale_edge.png": "980e1e4771e19b37274d23f4a54d7102a4b9202c1f433ace95cfef94300a32b5",
+      "src/main/resources/assets/slavicmyths/textures/item/nightingale_leather.png": "fc0178eebe8d0cf032c602b00db029baeec06d36e3ff66916a1d4676ee068994",
+      "src/main/resources/assets/slavicmyths/textures/item/nightingale_hair.png": "b91a381ae008544e6912cf1e463b0bffea5de99daeb962c560a6e50ac3c1ef6b",
+      "src/main/resources/assets/slavicmyths/textures/item/nightingale_silver.png": "600731c1bcb1f94266f5a41c2d60c319f5fba070134f6f716a091c5878777846",
+      "src/main/resources/assets/slavicmyths/textures/item/nightingale_bone.png": "f7eae7f80c8d40805c0cbcb901a9ae19b332bbd41ea140aaf7dccf6f1d10307f",
+      "src/main/resources/assets/slavicmyths/textures/item/nightingale_dark.png": "ecd4d0a6ce3e3be16bd665f05136eb4729c58ceb9119978f4f89c6d4f7848b74"
+    },
+    "external_vanilla_parents": [
+      "minecraft:block/block"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "catalog_tab": "weapons",
+    "catalog_group": "swords",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/ancient_carolingian_sword.json": "3677e0f95d8022c215ce68eeccacddf88b80770528160ef3e1dcbc2af0e90e20",
+      "src/main/resources/assets/slavicmyths/models/item/ancient_carolingian_sword_held.json": "9d9df17fa4c06d6d0a487c322e957d0503c4a6db159486deda3edb8a078005c9",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_wood.png": "6dbb510737f544feb427c6b656cc996f0067838ffdf3f4cab8996cc3c69940bb",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_iron.png": "e1edb9ea0217375c92efbbe26574caf1d48f44fe7033438a82964d0d9b42abdb",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_rust.png": "c1c8b86b3b01ded3cc8f33e564282ba24a4dc3e9e8a25bd4c79243ed6691c99f",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_edge.png": "475c290ea5045d494d8d3900644320cb83c40f80d566995840c2025188220083",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_leather.png": "c035a47030bfb820b7a547e10fb468d71dee1e02674f80de1658b52f65cec5c1",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_silver.png": "de8f341b873b27c73c8573dcc3b95f89b6bb4e5cbc7dfc10d32c2b37e27b4cd5",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_bone.png": "6f7c419289fae58f8a1b8b9bc23edcb18f42bf45fa2fe36822e7656389aac45b",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_clay.png": "4c01f603bf8d28bce0232fa9bb2c0a826467804223321c67b6e7b9a585bf3faf",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_red.png": "f5cca7df006931024a920bb721b5af5abd5f3868b1ba447f06afa62a588baba6",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_blue.png": "9c25392b3d73f4ecb65b6ab91eb215c1ecae3deb46ce5547fe5932cfea9d49a7",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_amber.png": "3473046bab16534e5c671be6fe35a1837694ce9b2ec3aebe5927f0fc0839a73e",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_patina.png": "38c2ca7367b4f44f318da1b29c90dade34700d7686ac9a70a318c1fe33de47cc",
+      "src/main/resources/assets/slavicmyths/textures/item/ancient_carolingian_sword.png": "0d8045cd2a0adfb5c6c718f5df5850fa4c531ccd0639c018e8daf005978dcf1f"
+    },
+    "external_vanilla_parents": [
+      "minecraft:block/block",
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "catalog_tab": "weapons",
+    "catalog_group": "swords",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/restored_carolingian_sword.json": "23f6a308b404e379aae99ac034d7e1fbadd5657c18f65e10c4a1cc5ea780ed39",
+      "src/main/resources/assets/slavicmyths/models/item/restored_carolingian_sword_held.json": "0446a8033f7ea804235096f9a2c94b3c9af1abd889e2e9864efdabe0af584e0e",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_wood.png": "6dbb510737f544feb427c6b656cc996f0067838ffdf3f4cab8996cc3c69940bb",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_iron.png": "e1edb9ea0217375c92efbbe26574caf1d48f44fe7033438a82964d0d9b42abdb",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_rust.png": "c1c8b86b3b01ded3cc8f33e564282ba24a4dc3e9e8a25bd4c79243ed6691c99f",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_edge.png": "475c290ea5045d494d8d3900644320cb83c40f80d566995840c2025188220083",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_leather.png": "c035a47030bfb820b7a547e10fb468d71dee1e02674f80de1658b52f65cec5c1",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_silver.png": "de8f341b873b27c73c8573dcc3b95f89b6bb4e5cbc7dfc10d32c2b37e27b4cd5",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_bone.png": "6f7c419289fae58f8a1b8b9bc23edcb18f42bf45fa2fe36822e7656389aac45b",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_clay.png": "4c01f603bf8d28bce0232fa9bb2c0a826467804223321c67b6e7b9a585bf3faf",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_red.png": "f5cca7df006931024a920bb721b5af5abd5f3868b1ba447f06afa62a588baba6",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_blue.png": "9c25392b3d73f4ecb65b6ab91eb215c1ecae3deb46ce5547fe5932cfea9d49a7",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_amber.png": "3473046bab16534e5c671be6fe35a1837694ce9b2ec3aebe5927f0fc0839a73e",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_patina.png": "38c2ca7367b4f44f318da1b29c90dade34700d7686ac9a70a318c1fe33de47cc",
+      "src/main/resources/assets/slavicmyths/textures/item/restored_carolingian_sword.png": "1b69edab7a64fe756ed4dbf411c4f8591ae4af10920b88743e8edf28659fefd9"
+    },
+    "external_vanilla_parents": [
+      "minecraft:block/block",
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "silver_sword",
+    "catalog_tab": "weapons",
+    "catalog_group": "swords",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/silver_sword.json": "b401a7ba6a1d9ac7ca1b009a8b678e05a808b915bc15ced63c5030c80e58cc92",
+      "src/main/resources/assets/slavicmyths/textures/item/silver_sword.png": "6abf9f159f7f2c7e0fa454a8e4e27d9017005137fa2d3cc0134181703c69ad0a"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "perunite_sword",
+    "catalog_tab": "weapons",
+    "catalog_group": "swords",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/perunite_sword.json": "19cc2153425040f5ae69a589a82d10b77bc25b95ac4dc5445f0aab064313c581",
+      "src/main/resources/assets/slavicmyths/textures/item/perunite_sword.png": "1d57908386a57415f45a759cbcfd6f35c46cb2c28643d9d383b91881fd86f4e0"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "tugarin_sword",
+    "catalog_tab": "weapons",
+    "catalog_group": "swords",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/tugarin_sword.json": "7b6d2db49787a23013af1b60bffbabcdac2727a323a8fd2466c600c706f18591",
+      "src/main/resources/assets/slavicmyths/textures/item/tugarin_sword.png": "759e68105e266b9426f5b1214ba2c31a3951c177cd3c37bed0cc896011a2ab40"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "catalog_tab": "weapons",
+    "catalog_group": "swords",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/trophy_kalin_sabre.json": "4539b8bdc0b7c37fa9e60b18df901d09bc545cd46849e3ed4a81e75a2dfa8fdf",
+      "src/main/resources/assets/slavicmyths/textures/item/kalin_sabre_87.png": "c8f47ca2b0f4954b6f97f2a926d30536f2b75a0ebcba9d83a571a02ea868df22"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "club",
+    "catalog_tab": "weapons",
+    "catalog_group": "maces",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/club.json": "3043ee9b19db1e5c8ae8e1a747ecffb03aaffcf16723327e277b51a729ffb771",
+      "src/main/resources/assets/slavicmyths/textures/item/club.png": "4e626ecd54f7bcdbd860d874e9850572ff53a175649bfe9ce6eefc089a7ae2a5"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "wooden_mace",
+    "catalog_tab": "weapons",
+    "catalog_group": "maces",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/wooden_mace.json": "c195be6ec7a807d5a9fbaf2140d42a50a122098b9e2acb4ce96c1266afa07be1"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "stone_mace",
+    "catalog_tab": "weapons",
+    "catalog_group": "maces",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/stone_mace.json": "756b4b0e1d17996e253e966caa06d90477d0d1aa2aadc3ed84dfb4417db70872"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "mace",
+    "catalog_tab": "weapons",
+    "catalog_group": "maces",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/mace.json": "8814154ed06ecfd3c572b91ec10ab5d6ff23d32b553067028cebda8743e53e4d"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "silver_mace",
+    "catalog_tab": "weapons",
+    "catalog_group": "maces",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/silver_mace.json": "aa4f2a557425c57f6aad724f83ab9ca7c3d61bfdfde7d42aafd29b7b42f07fc7",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "perunite_mace",
+    "catalog_tab": "weapons",
+    "catalog_group": "maces",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/perunite_mace.json": "e787989af3698cadf56214ed0c736f06a696404a798baae6923676a65ae3d2d9",
+      "src/main/resources/assets/slavicmyths/textures/item/perunite_mace.png": "994c7b7a349433abe12dca425efdf8c8c7e175b0f82888518283e50880c4ffd1"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "ancient_chekan",
+    "catalog_tab": "weapons",
+    "catalog_group": "maces",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/ancient_chekan.json": "408edbae1d86ed5c73237b869631a1bd86dd430f1d5c6a0372bec25302e4c634",
+      "src/main/resources/assets/slavicmyths/models/item/ancient_chekan_held.json": "b462560ee11e479d82c11dca40ee1cdb3356e65f73b3429ef1037c3a8ab6c158",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_wood.png": "6dbb510737f544feb427c6b656cc996f0067838ffdf3f4cab8996cc3c69940bb",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_iron.png": "e1edb9ea0217375c92efbbe26574caf1d48f44fe7033438a82964d0d9b42abdb",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_rust.png": "c1c8b86b3b01ded3cc8f33e564282ba24a4dc3e9e8a25bd4c79243ed6691c99f",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_edge.png": "475c290ea5045d494d8d3900644320cb83c40f80d566995840c2025188220083",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_leather.png": "c035a47030bfb820b7a547e10fb468d71dee1e02674f80de1658b52f65cec5c1",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_silver.png": "de8f341b873b27c73c8573dcc3b95f89b6bb4e5cbc7dfc10d32c2b37e27b4cd5",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_bone.png": "6f7c419289fae58f8a1b8b9bc23edcb18f42bf45fa2fe36822e7656389aac45b",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_clay.png": "4c01f603bf8d28bce0232fa9bb2c0a826467804223321c67b6e7b9a585bf3faf",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_red.png": "f5cca7df006931024a920bb721b5af5abd5f3868b1ba447f06afa62a588baba6",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_blue.png": "9c25392b3d73f4ecb65b6ab91eb215c1ecae3deb46ce5547fe5932cfea9d49a7",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_amber.png": "3473046bab16534e5c671be6fe35a1837694ce9b2ec3aebe5927f0fc0839a73e",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_patina.png": "38c2ca7367b4f44f318da1b29c90dade34700d7686ac9a70a318c1fe33de47cc",
+      "src/main/resources/assets/slavicmyths/textures/item/ancient_chekan.png": "2fabaa08b60226174022f4ba8e836d767f12fa3f4022846d98abcc9474646bf1"
+    },
+    "external_vanilla_parents": [
+      "minecraft:block/block",
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "chekan",
+    "catalog_tab": "weapons",
+    "catalog_group": "maces",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/chekan.json": "c3dbd5893914fda54f56b82ffe43282a137749bdaa3c6541e20503e1024639e9",
+      "src/main/resources/assets/slavicmyths/models/item/chekan_held.json": "404a3131e4436688c42bdc06f4d858d40a9da7a999d801bcb0b3749e1da570ee",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_wood.png": "6dbb510737f544feb427c6b656cc996f0067838ffdf3f4cab8996cc3c69940bb",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_iron.png": "e1edb9ea0217375c92efbbe26574caf1d48f44fe7033438a82964d0d9b42abdb",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_rust.png": "c1c8b86b3b01ded3cc8f33e564282ba24a4dc3e9e8a25bd4c79243ed6691c99f",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_edge.png": "475c290ea5045d494d8d3900644320cb83c40f80d566995840c2025188220083",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_leather.png": "c035a47030bfb820b7a547e10fb468d71dee1e02674f80de1658b52f65cec5c1",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_silver.png": "de8f341b873b27c73c8573dcc3b95f89b6bb4e5cbc7dfc10d32c2b37e27b4cd5",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_bone.png": "6f7c419289fae58f8a1b8b9bc23edcb18f42bf45fa2fe36822e7656389aac45b",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_clay.png": "4c01f603bf8d28bce0232fa9bb2c0a826467804223321c67b6e7b9a585bf3faf",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_red.png": "f5cca7df006931024a920bb721b5af5abd5f3868b1ba447f06afa62a588baba6",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_blue.png": "9c25392b3d73f4ecb65b6ab91eb215c1ecae3deb46ce5547fe5932cfea9d49a7",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_amber.png": "3473046bab16534e5c671be6fe35a1837694ce9b2ec3aebe5927f0fc0839a73e",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_patina.png": "38c2ca7367b4f44f318da1b29c90dade34700d7686ac9a70a318c1fe33de47cc",
+      "src/main/resources/assets/slavicmyths/textures/item/chekan.png": "c73ccd7657563f7d0d10a8cca573dfd6ea833ed044618ac078f9156a7387b0bc"
+    },
+    "external_vanilla_parents": [
+      "minecraft:block/block",
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "battle_axe",
+    "catalog_tab": "weapons",
+    "catalog_group": "axes",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/battle_axe.json": "ae42205767c89658b5f7e2b96fdfe7735a872c5da1bddb385c29c7cda2a040c7",
+      "src/main/resources/assets/slavicmyths/textures/item/battle_axe.png": "c6a66f8aa36666a64031d00cf20aaff9e2c8929391ee79d4c7bb647a54618f1c"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "thunder_axe",
+    "catalog_tab": "weapons",
+    "catalog_group": "axes",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/thunder_axe.json": "984aeafc1a90c7c1f58d5dafdcb574e43a05b9310936fc09548fe52ca57001ae",
+      "src/main/resources/assets/slavicmyths/textures/item/thunder_axe.png": "a429197e6ad85bb1815817d7215cf803b1bcf0ac9d84d90abe0ea2500379220c"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "stone_flail",
+    "catalog_tab": "weapons",
+    "catalog_group": "flails",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/stone_flail.json": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71"
+    },
+    "external_vanilla_parents": [
+      "builtin/entity"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "gold_flail",
+    "catalog_tab": "weapons",
+    "catalog_group": "flails",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/gold_flail.json": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71"
+    },
+    "external_vanilla_parents": [
+      "builtin/entity"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "flail",
+    "catalog_tab": "weapons",
+    "catalog_group": "flails",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/flail.json": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71"
+    },
+    "external_vanilla_parents": [
+      "builtin/entity"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "silver_flail",
+    "catalog_tab": "weapons",
+    "catalog_group": "flails",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/silver_flail.json": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71"
+    },
+    "external_vanilla_parents": [
+      "builtin/entity"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "diamond_flail",
+    "catalog_tab": "weapons",
+    "catalog_group": "flails",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/diamond_flail.json": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71"
+    },
+    "external_vanilla_parents": [
+      "builtin/entity"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "perunite_flail",
+    "catalog_tab": "weapons",
+    "catalog_group": "flails",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/perunite_flail.json": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71"
+    },
+    "external_vanilla_parents": [
+      "builtin/entity"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "netherite_flail",
+    "catalog_tab": "weapons",
+    "catalog_group": "flails",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/netherite_flail.json": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71"
+    },
+    "external_vanilla_parents": [
+      "builtin/entity"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "ataman_flail",
+    "catalog_tab": "weapons",
+    "catalog_group": "flails",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/ataman_flail.json": "d54781d9dcb765c461d40b1604c67a2e9e703435319b6b513cc017fb0268a7b6",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71"
+    },
+    "external_vanilla_parents": [
+      "builtin/entity"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "ancient_spear",
+    "catalog_tab": "weapons",
+    "catalog_group": "spears",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/ancient_spear.json": "7ccc00810a63c605b4b4c180219a29296031712bccf208edd31f2ce599a0867a",
+      "src/main/resources/assets/slavicmyths/models/item/ancient_spear_held.json": "af068d69f26840195aa69e7405278414a2296edce6bca00e8afa6cade173c424",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_wood.png": "6dbb510737f544feb427c6b656cc996f0067838ffdf3f4cab8996cc3c69940bb",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_iron.png": "e1edb9ea0217375c92efbbe26574caf1d48f44fe7033438a82964d0d9b42abdb",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_rust.png": "c1c8b86b3b01ded3cc8f33e564282ba24a4dc3e9e8a25bd4c79243ed6691c99f",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_edge.png": "475c290ea5045d494d8d3900644320cb83c40f80d566995840c2025188220083",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_leather.png": "c035a47030bfb820b7a547e10fb468d71dee1e02674f80de1658b52f65cec5c1",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_silver.png": "de8f341b873b27c73c8573dcc3b95f89b6bb4e5cbc7dfc10d32c2b37e27b4cd5",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_bone.png": "6f7c419289fae58f8a1b8b9bc23edcb18f42bf45fa2fe36822e7656389aac45b",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_clay.png": "4c01f603bf8d28bce0232fa9bb2c0a826467804223321c67b6e7b9a585bf3faf",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_red.png": "f5cca7df006931024a920bb721b5af5abd5f3868b1ba447f06afa62a588baba6",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_blue.png": "9c25392b3d73f4ecb65b6ab91eb215c1ecae3deb46ce5547fe5932cfea9d49a7",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_amber.png": "3473046bab16534e5c671be6fe35a1837694ce9b2ec3aebe5927f0fc0839a73e",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_patina.png": "38c2ca7367b4f44f318da1b29c90dade34700d7686ac9a70a318c1fe33de47cc",
+      "src/main/resources/assets/slavicmyths/textures/item/ancient_spear.png": "91f785e3a5edfb34063b0491cc169f185bbb380a0641424d3191cefbeb28e2ff"
+    },
+    "external_vanilla_parents": [
+      "minecraft:block/block",
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "restored_spear",
+    "catalog_tab": "weapons",
+    "catalog_group": "spears",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/restored_spear.json": "262435225ca30abe23e32b5767b11bf3a84b24b21594847eefc84f37b7ce0dde",
+      "src/main/resources/assets/slavicmyths/models/item/restored_spear_held.json": "1629232c7bad4021cd4262bf9f7e34b1cfba58846777085e98bc4dabe4fc0c87",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_wood.png": "6dbb510737f544feb427c6b656cc996f0067838ffdf3f4cab8996cc3c69940bb",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_iron.png": "e1edb9ea0217375c92efbbe26574caf1d48f44fe7033438a82964d0d9b42abdb",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_rust.png": "c1c8b86b3b01ded3cc8f33e564282ba24a4dc3e9e8a25bd4c79243ed6691c99f",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_edge.png": "475c290ea5045d494d8d3900644320cb83c40f80d566995840c2025188220083",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_leather.png": "c035a47030bfb820b7a547e10fb468d71dee1e02674f80de1658b52f65cec5c1",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_silver.png": "de8f341b873b27c73c8573dcc3b95f89b6bb4e5cbc7dfc10d32c2b37e27b4cd5",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_bone.png": "6f7c419289fae58f8a1b8b9bc23edcb18f42bf45fa2fe36822e7656389aac45b",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_clay.png": "4c01f603bf8d28bce0232fa9bb2c0a826467804223321c67b6e7b9a585bf3faf",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_red.png": "f5cca7df006931024a920bb721b5af5abd5f3868b1ba447f06afa62a588baba6",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_blue.png": "9c25392b3d73f4ecb65b6ab91eb215c1ecae3deb46ce5547fe5932cfea9d49a7",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_amber.png": "3473046bab16534e5c671be6fe35a1837694ce9b2ec3aebe5927f0fc0839a73e",
+      "src/main/resources/assets/slavicmyths/textures/item/burial_patina.png": "38c2ca7367b4f44f318da1b29c90dade34700d7686ac9a70a318c1fe33de47cc",
+      "src/main/resources/assets/slavicmyths/textures/item/restored_spear.png": "553853fc22bc6b93f457c20f28c496d4920f414baa10533782eb70014af290f0"
+    },
+    "external_vanilla_parents": [
+      "minecraft:block/block",
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "spear",
+    "catalog_tab": "weapons",
+    "catalog_group": "spears",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/spear.json": "da42ac60ac3670daf569b5db730ef9d36e5ab52720fe779cc53c6ae299d10eaf",
+      "src/main/resources/assets/slavicmyths/textures/item/spear.png": "1c2aee8556c855cf168d1e70a100211367b9f88cad4f34498628a38d8290a416"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "gold_spear",
+    "catalog_tab": "weapons",
+    "catalog_group": "spears",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/gold_spear.json": "999219bd3195bd575b88d4b7808f3ac937ae8b67b7559b7421deabdef844a4d5",
+      "src/main/resources/assets/slavicmyths/models/item/gold_spear_held.json": "680c33c4db7cbf27fe161d50998951f0b5a0150809e784e5b58ca8073c81b491",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/models/item/gold_spear_icon.json": "136c7f1b5951dff6b2358823595710881e1df2f6fe62efd8ec1b6f9bd4b880e4",
+      "src/main/resources/assets/slavicmyths/textures/item/gold_spear.png": "c8998b7c12be8d0bda78a28265b1667890519cfc6d789ee1a4610bd4819953ef"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "iron_spear",
+    "catalog_tab": "weapons",
+    "catalog_group": "spears",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/iron_spear.json": "45101c6165a8240bc3267b9580cfca8907814a6765508464f78d27125ed3f5d3",
+      "src/main/resources/assets/slavicmyths/models/item/iron_spear_held.json": "4190a243b00e01ed2f86096834d11961b7f9127b0b385f3c0643e9fc2abef1e5",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/models/item/iron_spear_icon.json": "94d23ae6f236f0c678371a0ea59eac100afbec9ab53355d178c0e3d676c68efd",
+      "src/main/resources/assets/slavicmyths/textures/item/iron_spear.png": "43e274af1889983eae2689ebf657428aaf09ea5d0f4f6a402abf49d12e4bcb04"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "silver_spear",
+    "catalog_tab": "weapons",
+    "catalog_group": "spears",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/silver_spear.json": "1aca07a5ad0ea589be2a0ccc593426105c3a626b49a95fd36d9b6b991ddf50ed",
+      "src/main/resources/assets/slavicmyths/textures/item/silver_spear.png": "6abf9f159f7f2c7e0fa454a8e4e27d9017005137fa2d3cc0134181703c69ad0a"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "diamond_spear",
+    "catalog_tab": "weapons",
+    "catalog_group": "spears",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/diamond_spear.json": "6f5ceec86bacb2a6eea92a2f0b1a7d61ae7a3d6c3c7278a4fef7055146394d9e",
+      "src/main/resources/assets/slavicmyths/models/item/diamond_spear_held.json": "d39f0aec82731ae916e04c4729b1d8cbb7d5e1aa9fed0255b7505d435a8eb1ff",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/models/item/diamond_spear_icon.json": "00ee274c5af535505bf949700ea6de9b4ae1b3aa1ee5acecb54aa57cf40fe932",
+      "src/main/resources/assets/slavicmyths/textures/item/diamond_spear.png": "cfc23aa44c9bf8fcff3bb0a9e9bb4e6170ed7cb1ac6230849ef0efb9a4493aa5"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "perunite_spear",
+    "catalog_tab": "weapons",
+    "catalog_group": "spears",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/perunite_spear.json": "c270fb3a299dd56885e85d74cd3b0451ea34a306a0be3c0cdf26de429ab08887",
+      "src/main/resources/assets/slavicmyths/models/item/perunite_spear_held.json": "b54eb23ab48869200ac298256854785526daac70e0ad38763941a8e227a85611",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/models/item/perunite_spear_icon.json": "a946715c65a3a4f679f8540a560a99e5b7c8a3a7bf6778a4584dc0be1e04c05c",
+      "src/main/resources/assets/slavicmyths/textures/item/perunite_spear.png": "7d100bc77de769b77938c00112582ae06d9998e64eb574f350e56b5ea447aeb2"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "netherite_spear",
+    "catalog_tab": "weapons",
+    "catalog_group": "spears",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/netherite_spear.json": "ad92427ef848f3b27f123be30a9397b204c474b49aeabc5a58f6b578873c8e8c",
+      "src/main/resources/assets/slavicmyths/models/item/netherite_spear_held.json": "197beb620784fc5ae00624d27a26523f2953b0ec86191a54090a8cd2061d6f1d",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/models/item/netherite_spear_icon.json": "7311f8a6182aeb983ae849187502d907d449d4130d14b70a44dd8c20beebc3b6",
+      "src/main/resources/assets/slavicmyths/textures/item/netherite_spear.png": "c98dea0f5eaa1dfc35c4b1481e155c672e8088edd8e77f6ab5aa89541370bb75"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "pool_spear",
+    "catalog_tab": "weapons",
+    "catalog_group": "spears",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/pool_spear.json": "33cb42df531f7799ce2590cadec34c185d47f28e4a84629aba10f98ea45ca669"
+    },
+    "external_vanilla_parents": [
+      "minecraft:block/block"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "thunder_spear",
+    "catalog_tab": "weapons",
+    "catalog_group": "spears",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/thunder_spear.json": "e5439213b6f5c5ce3d14a1549ac7fafbc194446befc417c76934d11a5d80d635",
+      "src/main/resources/assets/slavicmyths/textures/item/thunder_spear.png": "d089c29c2445cea40e6fc9ad569dd2be4c8b52df82f66683fc620b1329089955"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "victor_spear",
+    "catalog_tab": "weapons",
+    "catalog_group": "spears",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/victor_spear.json": "9fd0f7f1d2284f8511356fe99f08f02d9093e4cf7c4c83190887141c25d25417",
+      "src/main/resources/assets/slavicmyths/textures/item/weapon_scythe_surface.png": "ac996b8199508c6c35546746541c7ac66846d3414f3cc6505a162ed8e78b22c3"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "berdysh",
+    "catalog_tab": "weapons",
+    "catalog_group": "polearms",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/berdysh.json": "770d6c124ee70d30ac814b80ec2ec663632df0032ad218f8cc53f0a6dc978611",
+      "src/main/resources/assets/slavicmyths/textures/item/berdysh.png": "0fe4837d58348510a7b4827dcc2d8776ab4f59c754d5c7764d92612c1486ac25"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "noon_sickle",
+    "catalog_tab": "weapons",
+    "catalog_group": "polearms",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/noon_sickle.json": "dc32fa7856e24283790f95b288b1eb97321211eaaff7e93720c09953f81804d4",
+      "src/main/resources/assets/slavicmyths/models/item/noon_sickle_held.json": "b4ee36c4a35127039717f9b37e5a4bb92716928de4475194a7e2b9dde75d36de",
+      "src/main/resources/assets/slavicmyths/models/item/noon_sickle_icon.json": "15ad4613fc2b00145607651fa7b2e8c406057d8c21eda04935e1a89f72a26346",
+      "src/main/resources/assets/slavicmyths/textures/item/noon_sickle.png": "ca82fdddfe697fffad8f13daba7b320e6ce3e0c5b14146c0f7525856c3c07fec"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "karachun_scythe",
+    "catalog_tab": "weapons",
+    "catalog_group": "polearms",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/karachun_scythe.json": "d0aca6d299e65623fc628aa278262107cca6eb0efdea2a3630e0b51210f78720"
+    },
+    "external_vanilla_parents": [
+      "builtin/entity"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "poloz_whip",
+    "catalog_tab": "weapons",
+    "catalog_group": "polearms",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/poloz_whip.json": "b3a11fcc145d1be930afa67e66c904a5f607fc80cf333c7e10e9a9ad0f8604af",
+      "src/main/resources/assets/slavicmyths/textures/item/poloz_whip.png": "09f2ea8b2788a3818278819f886a7bc142ea71ee6bec19c67829d6173b079d9f",
+      "src/main/resources/assets/slavicmyths/models/item/poloz_whip_pose_0.json": "9f37c165fa5b64abcd7f0e311505046f834aa13219007b3cd323113fc9f7d22e",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/textures/item/poloz_whip_segments.png": "6048b2e3513b220f38a24ed5fe85a57f6bc4bef587c6ae8f01408ff842937fe0",
+      "src/main/resources/assets/slavicmyths/models/item/poloz_whip_pose_1.json": "cc21ff43110b454b40452ac428a7ee3345ce6bcfb9741280e4cd510f6dcf2039",
+      "src/main/resources/assets/slavicmyths/models/item/poloz_whip_pose_2.json": "e98058944cf164a18975c82b7232b8844c434e738ed571e892a48b267aa114c4",
+      "src/main/resources/assets/slavicmyths/models/item/poloz_whip_pose_3.json": "f0065961d10ce14edd3eb9d1090d4ffce9faa2545846c06750c344f2cbe5642c",
+      "src/main/resources/assets/slavicmyths/models/item/poloz_whip_pose_4.json": "b8acce11e86da3cf04d5c315fb2e64a8dd2305b8456745a73570c9e7a06d1a51",
+      "src/main/resources/assets/slavicmyths/models/item/poloz_whip_icon87.json": "07983f1c2f055c15a1512e502a63ea45a859d3a39854c9a9a74521c836c43184"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "stone_throwing_knife",
+    "catalog_tab": "weapons",
+    "catalog_group": "throwing_knives",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/stone_throwing_knife.json": "463e19fbc4e5690f26a5a093cb77acc5cbdbddfd69fd119ad1d757466133a6af",
+      "src/main/resources/assets/slavicmyths/models/item/stone_throwing_knife_held.json": "5d7d0ae3ee4df507bc62d46933536fd02b44a8b642c15abf88b0ca6c44725a37",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/textures/item/stone_throwing_knife.png": "f6e983e95cee1efbd2a6679bc3df901cdd1a2da8ab8ec8415d58abf4ab0f41e6",
+      "src/main/resources/assets/slavicmyths/models/item/stone_throwing_knife_icon.json": "2a14050e260792a0db43264a55e73815d847e110bcfcdb38cc14890c567164c3"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "gold_throwing_knife",
+    "catalog_tab": "weapons",
+    "catalog_group": "throwing_knives",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/gold_throwing_knife.json": "8a887fff610b11a402fdff4e1336a4790b299bb85c61ff34583f5e1e49c880f0",
+      "src/main/resources/assets/slavicmyths/models/item/gold_throwing_knife_held.json": "0ed98e2ec9a87408d14a8997d5c367b12fc8834bbe6f69681a3f10a5d1fc2500",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/textures/item/gold_throwing_knife.png": "ac91c8c87e94c65ac2c25e38a3a0f33295607b32a3f8ae11df02774852164a87",
+      "src/main/resources/assets/slavicmyths/models/item/gold_throwing_knife_icon.json": "fa4eaf47ff78aedc32e6eb236813db2fe9d5a16696957876c3f2144d68395e5f"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "iron_throwing_knife",
+    "catalog_tab": "weapons",
+    "catalog_group": "throwing_knives",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/iron_throwing_knife.json": "e82ed2c3f44bff532f585bd02728839ed2d8f19ba07735f30b31d10db3246bc0",
+      "src/main/resources/assets/slavicmyths/models/item/iron_throwing_knife_held.json": "79e65b4a80a35583406a92b54c40686f01a8e851840108bf716ba14724337157",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/textures/item/iron_throwing_knife.png": "66bc35f76fab30164fca6fcefebff45e8afa35e95c5a20c5988bad3925768259",
+      "src/main/resources/assets/slavicmyths/models/item/iron_throwing_knife_icon.json": "ba089816239cedb2cc8b0248b93c273d44198034de6ea215eddf15953981f41d"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "silver_throwing_knife",
+    "catalog_tab": "weapons",
+    "catalog_group": "throwing_knives",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/silver_throwing_knife.json": "88d063d5e605537e56177df87eca0386ae1569b67d9256c7c7a68139e7cfb62a",
+      "src/main/resources/assets/slavicmyths/models/item/silver_throwing_knife_held.json": "be5a1c593a8530d191108aa7a6b94d447ac6083a63df68a6984a1282af70b570",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/textures/item/silver_throwing_knife.png": "96876c1f28faddf7cd0a710b1fc10561ec0136910de6cb7a56ff82da44366794",
+      "src/main/resources/assets/slavicmyths/models/item/silver_throwing_knife_icon.json": "c537691d428b016cfa1dd4ab5cb21b4c60051d7e2a20194449d947f22862fa5a"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "catalog_tab": "weapons",
+    "catalog_group": "throwing_knives",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/diamond_throwing_knife.json": "fbc1056968813095b701d61940b3981dee32e1d18ce9f1ad1ec25f7597f173a5",
+      "src/main/resources/assets/slavicmyths/models/item/diamond_throwing_knife_held.json": "fefee070bd8d7b48718f3de24d95cdd2eac280033d5b2ea720cec83cb2de0e66",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/textures/item/diamond_throwing_knife.png": "4b54cb9cc56625faeeb8f1646ad79476fbd8d8b3e80f4ad362016d8e08324323",
+      "src/main/resources/assets/slavicmyths/models/item/diamond_throwing_knife_icon.json": "58e2a450860602154f9c20d2c2eadcdc10c48cdf001af38e800065b1f1a51389"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "catalog_tab": "weapons",
+    "catalog_group": "throwing_knives",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/perunite_throwing_knife.json": "8105ae76208fd3ab12fc140007f30d1c9a3245bcec1cd6274bcf9da15b8799b9",
+      "src/main/resources/assets/slavicmyths/models/item/perunite_throwing_knife_held.json": "15f436fb3b604dd002a03a3bac2f3da6574841fad78b806d2a964cd97cea41ce",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/textures/item/perunite_throwing_knife.png": "38b0d50fdc4f3307772701a5ad774c75e5043bb73a6528b199fc91962352244d",
+      "src/main/resources/assets/slavicmyths/models/item/perunite_throwing_knife_icon.json": "3e869dc48f08f52efd9a1df9acb741738aaa176fc0d54db808c929a7ab7568cc"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "catalog_tab": "weapons",
+    "catalog_group": "throwing_knives",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/netherite_throwing_knife.json": "690e91be7f307a13120282f698e76d9f572949786717bc8523eebd44b8109c02",
+      "src/main/resources/assets/slavicmyths/models/item/netherite_throwing_knife_held.json": "ab9beef138fb903973897fe485ae3266253d9fcc7b85ca666dde7042ba00d042",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/textures/item/netherite_throwing_knife.png": "7dfc9207a4d23a5abfc2f2c5a3a0fb44c50e6b4c3fdbacbe75396fa9351b18bd",
+      "src/main/resources/assets/slavicmyths/models/item/netherite_throwing_knife_icon.json": "92624977bfd3b333a7ca10fd9d5bbd5d1d5c7643f4c95edd652fe12b98313f8d"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "stone_sulitsa",
+    "catalog_tab": "weapons",
+    "catalog_group": "sulitsas",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/stone_sulitsa.json": "56cc3a41657657ecbfc613a3a9a6faf6d1f742b497926a8371eb0e4bb9f8acd3",
+      "src/main/resources/assets/slavicmyths/models/item/stone_sulitsa_held.json": "3bfd818918bfe71edfc2c48fd7a76abe9dac8cac67ef5dc7aa4c41216cf3fed6",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/textures/item/stone_sulitsa.png": "d1ce30ff6454d5301ad912acfad0f9a2137c7e2ebfca3725ab48e5cf3c4817f9",
+      "src/main/resources/assets/slavicmyths/models/item/stone_sulitsa_icon.json": "47a59782281940aa9e59e50c3e22328796642084cefd5eef3330f0d18dc63bd4"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "gold_sulitsa",
+    "catalog_tab": "weapons",
+    "catalog_group": "sulitsas",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/gold_sulitsa.json": "958130a0c4f1675938d43c47dc30616de7d8d12b9a24b126c6aa86b3d96a495f",
+      "src/main/resources/assets/slavicmyths/models/item/gold_sulitsa_held.json": "228a2072b44607394ed2b5fed2be191f014f9b8974537671e2e50655ab4ca8d2",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/textures/item/gold_sulitsa.png": "77f0c10373ceb14f7313466a95879048a6c17febc2e0f8979aa0de76dfc3fd23",
+      "src/main/resources/assets/slavicmyths/models/item/gold_sulitsa_icon.json": "358e4b847e7d3af18085fae90b480a460b5a2bad63ad34122db56ba7233d5cc7"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "iron_sulitsa",
+    "catalog_tab": "weapons",
+    "catalog_group": "sulitsas",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/iron_sulitsa.json": "67cfbdc183aadf83c16e1752700eebe660e5a2c5bcb9084bb892be560ba3ac6d",
+      "src/main/resources/assets/slavicmyths/models/item/iron_sulitsa_held.json": "0c6bcb23f87215f4a488575ecb9798ba066433920bc91a63546084912d66428d",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/textures/item/iron_sulitsa.png": "5a7d18c37ebf2ed13c538cdeff0fac79f36047bb00a5635525ef912b0c76b7e7",
+      "src/main/resources/assets/slavicmyths/models/item/iron_sulitsa_icon.json": "20375f37463ecfda3e73b88244f743e404ed91193151f0839e01c5278e90efa6"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "silver_sulitsa",
+    "catalog_tab": "weapons",
+    "catalog_group": "sulitsas",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/silver_sulitsa.json": "9f94aef5cb234196178003b95434dc9b3689a631e56bdcb55f4a0a9dfed3b324",
+      "src/main/resources/assets/slavicmyths/models/item/silver_sulitsa_held.json": "a12bfcd8b39f48b9c8844fe2f0859e052de25e5b1e1473422ca55f081df93550",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/textures/item/silver_sulitsa.png": "cb99e19e37d19d1dc84307f0e9290fa96198b422a1a6c5d57517fa2bd113e005",
+      "src/main/resources/assets/slavicmyths/models/item/silver_sulitsa_icon.json": "d17c6b8fbb99d546e83b7dc36157b823a00408800a008b8068d8c644aed395f8"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "diamond_sulitsa",
+    "catalog_tab": "weapons",
+    "catalog_group": "sulitsas",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/diamond_sulitsa.json": "27fbdc34f0a4d7f19e3ce425b168e7bd8665b793bc35ecba40d6d89ef726b30d",
+      "src/main/resources/assets/slavicmyths/models/item/diamond_sulitsa_held.json": "b2c8e14deebc41a056f4f56d81e25a6a46b8f417c91720d26d4853623085a99c",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/textures/item/diamond_sulitsa.png": "b3ab3cf619c63891f2de0f6f366f46a2bdc07966ec4d2020821fa37d25a93524",
+      "src/main/resources/assets/slavicmyths/models/item/diamond_sulitsa_icon.json": "70e7fbca8caae63d53390022057c38633d9bd8547e703719c906969dc4e5fbef"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "perunite_sulitsa",
+    "catalog_tab": "weapons",
+    "catalog_group": "sulitsas",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/perunite_sulitsa.json": "0cd7ebbe2e7c65437c9590f28039ec4afe0fbbfe9819d58757e33f5fc8524234",
+      "src/main/resources/assets/slavicmyths/models/item/perunite_sulitsa_held.json": "6779aa1caa1f3facb15eaabc816d472566dcd30ce4a1df6cd0c18da4211dd7cf",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/textures/item/perunite_sulitsa.png": "201c9dc35432f2e55a386d248b381bc07ba612b0ef60679b49bb8bd7acdadb1b",
+      "src/main/resources/assets/slavicmyths/models/item/perunite_sulitsa_icon.json": "a8cc64b766fcd3bd486d06caf25065aa894e7a0f0de9b132050e079fc214ba4a"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "netherite_sulitsa",
+    "catalog_tab": "weapons",
+    "catalog_group": "sulitsas",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/netherite_sulitsa.json": "6f92c0c4a84bb15bb89a0e5df7948fef7bcce3a6f054e74e66369456a17bfe5b",
+      "src/main/resources/assets/slavicmyths/models/item/netherite_sulitsa_held.json": "61c19ac0beb7b4253925f7f71bb45fe28e12890c7067441c233b2f2c8cdaaa6e",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/textures/item/netherite_sulitsa.png": "7a99e71212acc293ddb484ee5c58f7f5fc040c66777164cf217505cd2ad396ee",
+      "src/main/resources/assets/slavicmyths/models/item/netherite_sulitsa_icon.json": "5d5faa9babb3954a7a477cdafdc0a2b2531fb6e7009d0dcc35bd2fd4a68d20b9"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "short_bow",
+    "catalog_tab": "weapons",
+    "catalog_group": "bows",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/short_bow.json": "a7b87046442c9cd9a8b81292758fb373dd82ad99a768b788cbd557bafbb6fe44",
+      "src/main/resources/assets/slavicmyths/textures/item/short_bow.png": "115b2a996511f6e109dcdbd09dbf22eb3b08581c8ad5a4433471d6bb179add27",
+      "src/main/resources/assets/slavicmyths/models/item/short_bow_pulling_0.json": "a5ecfd383d470d218776a83f05cdb0e8da0629333339f00cea431d70ac6ed523",
+      "src/main/resources/assets/slavicmyths/textures/item/short_bow_pulling_0.png": "6436569a0de24293206be76e4dfa28308a8b231ffc0b5feba008c4caf823e739",
+      "src/main/resources/assets/slavicmyths/models/item/short_bow_pulling_1.json": "027f3929ea5dcd29f74f679a2a01f6918acf6d705578d6ebb1cab61d9eaccdc9",
+      "src/main/resources/assets/slavicmyths/textures/item/short_bow_pulling_1.png": "b7bd49562cb13520a218707dbb9fc47515bdc5928239f50efb58bf2a6047a20a",
+      "src/main/resources/assets/slavicmyths/models/item/short_bow_pulling_2.json": "c82ccff025e5270c12dc1baa7549c30aa1ed502716937355cc83c87208d1600e",
+      "src/main/resources/assets/slavicmyths/textures/item/short_bow_pulling_2.png": "9e6b876e74b9560a528223ca0045ca4062c34f62c3a7bc7b6089c90246e1cf63"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/bow"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "heavy_bow",
+    "catalog_tab": "weapons",
+    "catalog_group": "bows",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/heavy_bow.json": "aa4f93191979d6cbf881a4fd8724848249414b22a8734b8310ff7b8cc8bc5834",
+      "src/main/resources/assets/slavicmyths/textures/item/heavy_bow.png": "5fd3b584abf31af1c225c50c16fb76a3ba3e19fbc055e1667023add7e8bef411",
+      "src/main/resources/assets/slavicmyths/models/item/heavy_bow_pulling_0.json": "de3e71cb0827d759e03f596ecda4289452c11e0461713046d507df32aefe069b",
+      "src/main/resources/assets/slavicmyths/textures/item/heavy_bow_pulling_0.png": "1de7df2c038694836751c253bafee61d2e0387152a4e7889c8e82b4ad8becef7",
+      "src/main/resources/assets/slavicmyths/models/item/heavy_bow_pulling_1.json": "a5f082d1fe224a7e59cd32fd3a5169b42daa78fa71df43004b849cce2c380ab8",
+      "src/main/resources/assets/slavicmyths/textures/item/heavy_bow_pulling_1.png": "5e39ce67bc4dfb1e1e10d4d9e4da7dd61c00d77b46e16ca29ce752e602a0ef77",
+      "src/main/resources/assets/slavicmyths/models/item/heavy_bow_pulling_2.json": "05b045fa8e15f861ca1bd3e6321e90b45766e0f9390d26f13fa1029bc29657f5",
+      "src/main/resources/assets/slavicmyths/textures/item/heavy_bow_pulling_2.png": "6d79446bc6f281e15f68664b3e0b5ec06bcdebbf1255fda9ea1b0aa288e0e58a"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/bow"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "finist_bow",
+    "catalog_tab": "weapons",
+    "catalog_group": "bows",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/finist_bow.json": "bd6cad393ea46daf39647ba45cdbcb2e0a6b74d678aacab1603559e64e8eb028",
+      "src/main/resources/assets/slavicmyths/textures/item/finist_bow.png": "0caec4659bedec4d648cf75368eef6b3ae5158d667f79b36690e5b7c3159260e",
+      "src/main/resources/assets/slavicmyths/models/item/finist_bow_pulling_0.json": "f776248e3395f36d96d918485ff12d42b7a9f6b06ab737e45e77fe6bbe000424",
+      "src/main/resources/assets/slavicmyths/textures/item/finist_bow_pulling_0.png": "68ad109f2c13ede2cace1ba6ccd3b6f0e6f473d722a2401e5adc6dd3f927b8b0",
+      "src/main/resources/assets/slavicmyths/models/item/finist_bow_pulling_1.json": "6223b8aea9ceaea4548152a8fa82c7a2953af315c356cbe4737c42c955a2e597",
+      "src/main/resources/assets/slavicmyths/textures/item/finist_bow_pulling_1.png": "b7c841fab855884550401075d32ccc6fa426495fd911ca85ee6fc46a7c5ed610",
+      "src/main/resources/assets/slavicmyths/models/item/finist_bow_pulling_2.json": "b014ec836838c482596f5bc0610d87b2c59de26c96745de577cec1ea511fdef8",
+      "src/main/resources/assets/slavicmyths/textures/item/finist_bow_pulling_2.png": "3a096501b7a29dd2b47cee674e02864356132b10a5a1794a9200dc69740231f9"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/bow"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "bone_arrow",
+    "catalog_tab": "weapons",
+    "catalog_group": "bows",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/bone_arrow.json": "b1daa73a5cf8f0492eb9e8ccf878617b9bb54f3351d496a5ab6a228313444f78",
+      "src/main/resources/assets/slavicmyths/textures/item/bone_arrow.png": "0e4f1235101bb1a16e45554b47771baa585fa34c5ac264398c88aa410fe7edac"
+    },
+    "external_vanilla_parents": [
+      "item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "serpent_crossbow",
+    "catalog_tab": "weapons",
+    "catalog_group": "bows",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow.json": "084fd8f3a060249b30e3c7a8f3422ca23e1aee81639d118c1dfee740cff3bdba",
+      "src/main/resources/assets/slavicmyths/textures/item/serpent_crossbow.png": "ed565a55efde8796b58341ceb3e952554b059f99aaa8a4c457c7657d48f76d28",
+      "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_pulling_0.json": "eb9926e4d4411a07e3164a05549bb1b93bc614e98b73a4990398e6c661e912ec",
+      "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_pulling_1.json": "bb2bbd4c2ba05cadceef2bcbe7db27da92f3f8dad29b40377c768708754447c3",
+      "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_pulling_2.json": "137f5ab8ee8f5db94bab820247dbeeda0143a0ea62915a11b6e1a233fb515172",
+      "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_arrow.json": "d4297789a6fba50c9175227756e25b07a1032118dc4661cb12c477a9b7b50258",
+      "src/main/resources/assets/slavicmyths/models/item/serpent_crossbow_firework.json": "d4297789a6fba50c9175227756e25b07a1032118dc4661cb12c477a9b7b50258"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "three_breath_crossbow",
+    "catalog_tab": "weapons",
+    "catalog_group": "bows",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow.json": "b1a6ea74a12dee288236d419f413d1f8e23d042f07477685210cb94ced33f1de",
+      "src/main/resources/assets/slavicmyths/textures/item/three_breath_crossbow.png": "ed565a55efde8796b58341ceb3e952554b059f99aaa8a4c457c7657d48f76d28",
+      "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_0.json": "8648026b19860195e29520f256f9b172236b0ec5c1644b553b307371abd91630",
+      "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_1.json": "4d8ff16daa20a6c29b8aba53b2d22f94598ff12b487d981ee199eb80a7f77ba2",
+      "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_pulling_2.json": "5438bb17dea8778a563f6dd889885e2e0acce60feb79526f00ab821124a5d332",
+      "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_arrow.json": "1329bfda6b1b2d8c560b9f24b547d90efff8b8723be1f66c85bbeedb99484e25",
+      "src/main/resources/assets/slavicmyths/models/item/three_breath_crossbow_firework.json": "1329bfda6b1b2d8c560b9f24b547d90efff8b8723be1f66c85bbeedb99484e25"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "carved_staff",
+    "catalog_tab": "weapons",
+    "catalog_group": "staves",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/carved_staff.json": "85beab811b3f56e615e4f0e8b877b51bd977a1c6d0fd0d4d6f613fd40c7c7f51",
+      "src/main/resources/assets/slavicmyths/textures/item/staff_wood.png": "d8fdab3372c2c662ef600e26df3c11725e8d56bf1977c830f7d0e14bddb37381",
+      "src/main/resources/assets/slavicmyths/textures/item/staff_binding.png": "69f13590cc9c4c5f91193b133990e7de0a2e12745c2c2cc44dbc901d3c8c14bf",
+      "src/main/resources/assets/slavicmyths/textures/item/staff_crystal.png": "8789c1256c97290a326374735e047909b53522bbf5e4cc1434543ae325f98cf5"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "storm_staff",
+    "catalog_tab": "weapons",
+    "catalog_group": "staves",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/storm_staff.json": "b800497b1134ee3b3e472fe2079ffeb4809f8c2c8aeaae44d4973693caa88f6e",
+      "src/main/resources/assets/slavicmyths/textures/item/weapons87_materials.png": "36fb972b0933b2578d5b70a066173ec7cff8bc78394d067396ea247686e4df71",
+      "src/main/resources/assets/slavicmyths/textures/item/staff_wood.png": "d8fdab3372c2c662ef600e26df3c11725e8d56bf1977c830f7d0e14bddb37381",
+      "src/main/resources/assets/slavicmyths/textures/item/staff_binding.png": "69f13590cc9c4c5f91193b133990e7de0a2e12745c2c2cc44dbc901d3c8c14bf",
+      "src/main/resources/assets/slavicmyths/textures/item/staff_crystal.png": "8789c1256c97290a326374735e047909b53522bbf5e4cc1434543ae325f98cf5"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "veles_staff",
+    "catalog_tab": "weapons",
+    "catalog_group": "staves",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/veles_staff.json": "f33d2e8881ee4d03fc4e0cefd019643797786c641614f774f30f4a950f9d9fd8"
+    },
+    "external_vanilla_parents": [
+      "minecraft:block/block"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "likho_staff",
+    "catalog_tab": "weapons",
+    "catalog_group": "staves",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/likho_staff.json": "3ec8ac6779a3038e2c81248ca9ab33656ad90ae047046e21e0721013d16a8d7f",
+      "src/main/resources/assets/slavicmyths/textures/item/weapon_scythe_surface.png": "ac996b8199508c6c35546746541c7ac66846d3414f3cc6505a162ed8e78b22c3"
+    },
+    "external_vanilla_parents": [],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "morozko_staff",
+    "catalog_tab": "weapons",
+    "catalog_group": "staves",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/morozko_staff.json": "d0aca6d299e65623fc628aa278262107cca6eb0efdea2a3630e0b51210f78720"
+    },
+    "external_vanilla_parents": [
+      "builtin/entity"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "iron_dust",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/iron_dust.json": "bbeebbfbd88011562e070f9b610703ae38412a078883346f4e2adc78f41a9c45",
+      "src/main/resources/assets/slavicmyths/textures/item/iron_dust.png": "2117188782a2cb189e54f6e836782113cbe72db1629baf37768a6ae51f257a7f"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "gold_dust",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/gold_dust.json": "3c0da397339f766ddc213a6c4e88fdb522d7bfb5ea02a596fca488ebc3a8afff",
+      "src/main/resources/assets/slavicmyths/textures/item/gold_dust.png": "0cc3e830069822bb3b737655691f20bfb916b91e9793ce6d2bf60327a0637c7a"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "coal_dust",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/coal_dust.json": "9e934cdc23ad24789fcacb36291dab8f0516f1a956cf626f1396156cf381aa4f",
+      "src/main/resources/assets/slavicmyths/textures/item/coal_dust.png": "29cefc6893362bb15287645d069782e5b6e45ba169a121ea357063d8f91dbf02"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "lapis_dust",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/lapis_dust.json": "a7edc8ffcb3cf3359ef104f0bf8dce873197196ab2c06f449eb8a726de1a6742",
+      "src/main/resources/assets/slavicmyths/textures/item/lapis_dust.png": "e12c4380959c4b781d376d18d2e03fcb7a856d7660a4d3190eafa20df33fbfc4"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "diamond_dust",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/diamond_dust.json": "3bedccd3808c2f8b8a3dd638b8f064852502072547d8330a6d5a278bbcb52d2b",
+      "src/main/resources/assets/slavicmyths/textures/item/diamond_dust.png": "b160ba2788869fea111ff5e14e344f238f25578b9dc947250fc47320632d2887"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "perunite_dust",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/perunite_dust.json": "d4ff10b441afcdf1343777b26b05257bd370fe45a4c87a408ce82984e37b1da4",
+      "src/main/resources/assets/slavicmyths/textures/item/perunite_dust.png": "a6cde9f925bbd54a80ab75992f5c6f040dbb92d72789b30053ae9fa40293edff"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "thunder_crystal_powder",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/thunder_crystal_powder.json": "f7b9dde28108bd23a46a4cb963d29024317cb940a1be6fd8a6e9ad7b07cf5795",
+      "src/main/resources/assets/slavicmyths/textures/item/thunder_crystal_powder.png": "b171edf09261993e73d7464c23b4ae06ec14b46cf7e08c8653f903d6f609a8e8"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "soul_fragment",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/soul_fragment.json": "5d951134ec3a44f3c7b0e86227065c3b5e911ef096858fc2f7361419b8a85356",
+      "src/main/resources/assets/slavicmyths/textures/item/soul_fragment.png": "c53b93cee38c575fb1eb08254194c96d952f8df3e432a288f78d4dded35d9cd6"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "soul",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/soul.json": "5809b71c50c9c1a7905c1ca155a8a71bc3b3641032b740504d6bdeb8d8a0aa20",
+      "src/main/resources/assets/slavicmyths/textures/item/soul.png": "450a2850450a75be08d93242a7f736ba818adf592514346e906214abad34253b"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "empowered_soul",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/empowered_soul.json": "60e61a9bdf96cf3aa9cd60f0d8289ec17a40b4bb51da761b39ddeb45726d0b11",
+      "src/main/resources/assets/slavicmyths/textures/item/empowered_soul.png": "5e4646ac54d4bb77f629e0760be5b9beb34d79be5bd2d66c50b2fb54eb1a636a"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "bound_soul",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/bound_soul.json": "ee46a811120fd64f0718a0377b32e7050ed547d3e3df116f14c894c14c0d0e02",
+      "src/main/resources/assets/slavicmyths/textures/item/bound_soul.png": "2b6a9f911515ab5364b4ca6ff7f88122dd0a159248fc4bf2b13410933b5f36b9"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "nav_essence",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/nav_essence.json": "2069818dcd72217d2c3a3a6d875e5fc5c5375464541602435e43c80c78d9c852",
+      "src/main/resources/assets/slavicmyths/textures/item/nav_essence.png": "f34d85fe4f48368e1e5c3f4cabd0e09b7dfdcc56cf9371d70c7c125775ddeba8"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "ember_heart",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/ember_heart.json": "5f714c83f7d33136c6df53f26857c5f230a393233d2a3e2bc84367dc131c56c6",
+      "src/main/resources/assets/slavicmyths/textures/item/ember_heart.png": "2e944d42f6b58a073e0f7752be054a22be7ca565b4290ca2bf9cd76f6b209679"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "pool_pearl",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/pool_pearl.json": "30655390509d09a481409c2f5ad569b0afcf66538f0ae0338f463c285bf7e100"
+    },
+    "external_vanilla_parents": [
+      "minecraft:block/block"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "pool_stone",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/pool_stone.json": "607ae219ed4b804cb3cf107bbf055b6707a43397bfe5b948d81b88ee7af01029",
+      "src/main/resources/assets/slavicmyths/models/block/pool_stone.json": "e18bc100c77b0ccc28f4c4f1d34a44901101415b99e202b050649a1fd1e67580"
+    },
+    "external_vanilla_parents": [
+      "minecraft:block/block"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "leshy_heart",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/leshy_heart.json": "9b13928012ecfd8f9a3434e399d8bef8f10c460e70f70a156be386e13630fad7",
+      "src/main/resources/assets/slavicmyths/textures/item/leshy_heart.png": "7f1d51254fa18d91150f1fd3875692883cec6e35e4fbeb0dbda430114de441b3"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "ancient_sign",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/ancient_sign.json": "27ee480f1362673f97f3afdf73c3780e917cff172cc0fc43a9c32466e48e2b87",
+      "src/main/resources/assets/slavicmyths/textures/item/ancient_sign.png": "beb4413dfe7ed05d7603836d819a0edaf0dd70bfeb51aa48abfda7fb2bbea93c"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "ancient_water_sign",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/ancient_water_sign.json": "cfed4331c42f1512d793997be013ee5b7a65c0127f1a58ecad2d9e5416e2d70a"
+    },
+    "external_vanilla_parents": [
+      "minecraft:block/block"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "mor_fire_amulet_fragment",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/mor_fire_amulet_fragment.json": "194f056452b64c3bf5eced6eae530a48c0de512abbfb6adf342790ca8df92844",
+      "src/main/resources/assets/slavicmyths/textures/item/mor_fire_amulet_fragment.png": "e25bb43e1b720fc95eebd04960f86e4e9df69ea897f84457d77e1549574c9fd8"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "mor_water_amulet_fragment",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/mor_water_amulet_fragment.json": "bd0fb0acf7ac09c0937680212644a890c256b001e483917caee2da727eceb98c",
+      "src/main/resources/assets/slavicmyths/textures/item/mor_water_amulet_fragment.png": "aeb247f908e4e3b586ed40a2c3fbf120e4e436fb63fd92c51459b4503cae7f80"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "rune_flight_fragment",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/rune_flight_fragment.json": "6eecd9b8cf7eba3cf3c2a40727b3ccc4fa4dfcf27e68cc18201b3389aee41968",
+      "src/main/resources/assets/slavicmyths/textures/item/rune_flight_fragment.png": "58530afcee889a85b2dd827455ab22c6520fa39cf977263ec5831f7b96c63958"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "rune_rare_protection_fragment",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/rune_rare_protection_fragment.json": "f23590be771ec7a96d9fee0c50e042733611e9bd8feed2258462d0c4a74bb07c",
+      "src/main/resources/assets/slavicmyths/textures/item/rune_rare_protection_fragment.png": "5d1202b2321f8418eba2b18769224ed31652f5d4f3bcd95512ba1843d3c8377b"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "rune_death_fragment",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/rune_death_fragment.json": "6dd03c82a2b43d7bf28f24b8668f69f0b593ee20bcf268504dc639fa99b6bb1d",
+      "src/main/resources/assets/slavicmyths/textures/item/rune_death_fragment.png": "58cc9122a1ca8529cbd6ed6a822192c24925e37edf47170e503a225351556fca"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  },
+  {
+    "id": "rune_berserker_fragment",
+    "catalog_tab": "magic",
+    "catalog_group": "components",
+    "files": {
+      "src/main/resources/assets/slavicmyths/models/item/rune_berserker_fragment.json": "78cd9dd6938d23892df42a817cb34ebccf2622a248348f2606dc32a20320c071",
+      "src/main/resources/assets/slavicmyths/textures/item/rune_berserker_fragment.png": "5cf68bcec52632a496119bce2271f4332e5a7cda964ec754e5f214c2e7a7841c"
+    },
+    "external_vanilla_parents": [
+      "minecraft:item/generated"
+    ],
+    "decision": "KEEP; generator QA only; no production art change"
+  }
+]

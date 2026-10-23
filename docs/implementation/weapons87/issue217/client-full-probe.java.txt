@@ -1,0 +1,54 @@
+package org.slavicmyths.verify;
+import java.nio.file.*;
+import java.util.*;
+import net.minecraft.client.*;
+import net.minecraft.client.gui.*;
+import net.minecraft.client.gui.screens.*;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundSetCarriedItemPacket;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.level.GameType;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
+
+/** Actual framebuffer/owner-bound item rendering in disposable integrated-server world. */
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
+public final class Issue217Probe {
+ static boolean opened,requested,ready;static int tick,selected=-1;static List<String> ids;
+ static List<String> held; static boolean headsPlaced;
+ static ItemStack item(String id){return new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("slavicmyths",id)));}
+ static void server(java.util.function.Consumer<net.minecraft.server.level.ServerPlayer> fn){var mc=Minecraft.getInstance();mc.getSingleplayerServer().execute(()->fn.accept(mc.getSingleplayerServer().getPlayerList().getPlayers().getFirst()));}
+ @SubscribeEvent public static void tick(ClientTickEvent.Post e)throws Exception{
+  var mc=Minecraft.getInstance();
+  if(!opened&&mc.screen instanceof TitleScreen){opened=true;mc.options.pauseOnLostFocus=false;mc.options.guiScale().set(2);mc.options.getSoundSourceOptionInstance(net.minecraft.sounds.SoundSource.MASTER).set(.2D);mc.createWorldOpenFlows().openWorld("VisualQA",()->{});}
+  if(mc.player==null||mc.level==null||mc.getSingleplayerServer()==null)return;
+  if(!requested){requested=true;ids=new ArrayList<>();for(String line:Files.readAllLines(Path.of(System.getProperty("slavicmyths.issue217.catalog")))){if(line.contains("\tweapons\t"))ids.add(line.split("\t")[0]);}held=new ArrayList<>(ids);held.addAll(List.of("retainer_shield","beast_challenge_horn"));ids.addAll(List.of("retainer_shield","beast_challenge_horn","birch_bark","animal_fat","goat_hide","large_animal_bone","stone_spearhead","stone_light_spearhead"));
+   server(p->{p.setGameMode(GameType.CREATIVE);p.teleportTo(p.serverLevel(),0,100,0,180,8);p.getInventory().clearContent();mc.execute(()->{ready=true;mc.setScreen(new Grid());});});
+  }
+  if(!ready)return;tick++;
+  int pages=(ids.size()+47)/48;
+  if(tick<=pages*30){if(tick%30==20)capture(mc,"inventory-page"+(tick/30));return;}
+  int age=tick-pages*30,index=age/30;
+  if(index>=held.size()*4){
+   int headAge=age-held.size()*4*30;
+   if(!headsPlaced){headsPlaced=true;mc.options.setCameraType(CameraType.FIRST_PERSON);server(p->{p.teleportTo(p.serverLevel(),0,100,3,180,0);int pos=-10;for(String id:List.of("tugarin_head","skim_head","cursed_volkolak_head","likho_head","mor_likho_head","large_podzemnik_head")){var at=new net.minecraft.core.BlockPos(pos,99,-4);var stack=item(id);p.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,stack);var use=new net.minecraft.world.item.context.UseOnContext(p,net.minecraft.world.InteractionHand.MAIN_HAND,new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(at).add(0,.5,0),net.minecraft.core.Direction.UP,at,false));var result=stack.useOn(use);if(p.serverLevel().getBlockEntity(at.above())==null)throw new AssertionError("Trophy placement failed "+id+result);System.out.println("ISSUE217_HEAD_PLACED="+id);pos+=4;}});}
+   if(headAge==25||headAge==45||headAge==85||headAge==105)capture(mc,"heads-native-tick"+headAge);
+   if(headAge>120){System.out.println("ISSUE217_CAPTURE_DONE actual client frames, master volume20%; no external input");mc.stop();}return;
+  }
+  if(index!=selected){selected=index;mc.setScreen(null);mc.options.setCameraType(index%4<2?CameraType.FIRST_PERSON:CameraType.THIRD_PERSON_FRONT);boolean off=index%2==1;String id=held.get(index/4);server(p->{p.getInventory().clearContent();p.getInventory().selected=0;p.setItemInHand(off?net.minecraft.world.InteractionHand.OFF_HAND:net.minecraft.world.InteractionHand.MAIN_HAND,item(id));p.inventoryMenu.broadcastChanges();p.connection.send(new ClientboundSetCarriedItemPacket(0));});}
+  int phase=age%30;
+  if(phase==15){var hand=index%2==1?net.minecraft.world.InteractionHand.OFF_HAND:net.minecraft.world.InteractionHand.MAIN_HAND;mc.player.swing(hand);server(p->p.swing(hand,true));}
+  if(phase==10||phase==18||phase==24)capture(mc,held.get(index/4)+"-view"+(index%4)+"-phase"+phase);
+ }
+ static void capture(Minecraft mc,String name)throws Exception{Path out=Path.of(System.getProperty("slavicmyths.issue217.output"));Files.createDirectories(out);try(var shot=Screenshot.takeScreenshot(mc.getMainRenderTarget())){shot.writeToFile(out.resolve(name+".png"));}System.out.println("ISSUE217_FRAME="+name);}
+ static final class Grid extends Screen{
+  Grid(){super(Component.literal("Issue217 actual inventory renderer"));}
+  @Override public boolean isPauseScreen(){return false;}
+  @Override public void render(GuiGraphics g,int x,int y,float partial){g.fill(0,0,width,height,0xff202830);g.drawString(font,"#217 ACTUAL GUI | one outlined slot per item | volume20%",8,8,0xffffff);int page=Math.min(tick/30,(ids.size()-1)/48);for(int n=0;n<48&&page*48+n<ids.size();n++){String id=ids.get(page*48+n);int xx=12+(n%8)*76,yy=28+(n/8)*49;g.fill(xx-1,yy-1,xx+17,yy+17,0xffcccccc);g.fill(xx,yy,xx+16,yy+16,0xff606060);g.renderItem(item(id),xx,yy);g.drawString(font,id.substring(0,Math.min(12,id.length())),xx,yy+21,0xffffff);}}
+ }
+}

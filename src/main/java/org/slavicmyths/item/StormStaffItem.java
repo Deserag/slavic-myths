@@ -22,8 +22,8 @@ import net.minecraft.server.level.ServerLevel;
 /** Bounded ray pulse on use; no projectile, terrain damage, or tick scan. */
 public final class StormStaffItem extends Item {
     public static final float BASE_PULSE_DAMAGE=6.0F;
-    public static final int PULSE_COOLDOWN=60;
-    public static final int RUNE_COOLDOWN=54;
+    public static final int PULSE_COOLDOWN=48;
+    public static final int RUNE_COOLDOWN=42;
     public static float pulseDamage(boolean staffPower,boolean thunderRune) {
         return BASE_PULSE_DAMAGE*(staffPower?1.12F:1)*(thunderRune?1.15F:1);
     }
@@ -59,6 +59,7 @@ public final class StormStaffItem extends Item {
             if(bolt!=null){bolt.setVisualOnly(true);bolt.setPos(impact.x,impact.y,impact.z);server.addFreshEntity(bolt);}
             world.playSound(null, player.blockPosition(), SoundEvents.TRIDENT_THUNDER.value(), SoundSource.PLAYERS, 1F, .9F);
             player.getCooldowns().addCooldown(this, cooldownTicks((org.slavicmyths.rpg.Runes.has(stack,"midday") && org.slavicmyths.rpg.RuneEffects.day(player)) || (org.slavicmyths.rpg.Runes.has(stack,"shadow") && org.slavicmyths.rpg.RuneEffects.dark(player))));
+            player.swing(hand,true);
             if (!player.getAbilities().instabuild) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
         }
         return InteractionResultHolder.sidedSuccess(stack, world.isClientSide);
