@@ -1,0 +1,621 @@
+{
+  "scope": "Actual 1280x720 GUI framebuffer; no held/use/MP claim",
+  "items": [
+    {
+      "id": "bone_knife",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 61,
+      "status": "PASS"
+    },
+    {
+      "id": "silver_dagger",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 62,
+      "status": "PASS"
+    },
+    {
+      "id": "nightingale_dagger",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 157,
+      "status": "PASS"
+    },
+    {
+      "id": "ancient_carolingian_sword",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 244,
+      "status": "PASS"
+    },
+    {
+      "id": "restored_carolingian_sword",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 244,
+      "status": "PASS"
+    },
+    {
+      "id": "silver_sword",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 141,
+      "status": "PASS"
+    },
+    {
+      "id": "perunite_sword",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 210,
+      "status": "PASS"
+    },
+    {
+      "id": "tugarin_sword",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 177,
+      "status": "PASS"
+    },
+    {
+      "id": "trophy_kalin_sabre",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 64,
+      "status": "PASS"
+    },
+    {
+      "id": "club",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 224,
+      "status": "PASS"
+    },
+    {
+      "id": "wooden_mace",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 165,
+      "status": "PASS"
+    },
+    {
+      "id": "stone_mace",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 182,
+      "status": "PASS"
+    },
+    {
+      "id": "mace",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 151,
+      "status": "PASS"
+    },
+    {
+      "id": "silver_mace",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 104,
+      "status": "PASS"
+    },
+    {
+      "id": "perunite_mace",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 209,
+      "status": "PASS"
+    },
+    {
+      "id": "ancient_chekan",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 256,
+      "status": "PASS"
+    },
+    {
+      "id": "chekan",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 252,
+      "status": "PASS"
+    },
+    {
+      "id": "battle_axe",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 205,
+      "status": "PASS"
+    },
+    {
+      "id": "thunder_axe",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 226,
+      "status": "PASS"
+    },
+    {
+      "id": "stone_flail",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 272,
+      "status": "PASS"
+    },
+    {
+      "id": "gold_flail",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 264,
+      "status": "PASS"
+    },
+    {
+      "id": "flail",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 292,
+      "status": "PASS"
+    },
+    {
+      "id": "silver_flail",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 316,
+      "status": "PASS"
+    },
+    {
+      "id": "diamond_flail",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 280,
+      "status": "PASS"
+    },
+    {
+      "id": "perunite_flail",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 260,
+      "status": "PASS"
+    },
+    {
+      "id": "netherite_flail",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 332,
+      "status": "PASS"
+    },
+    {
+      "id": "ataman_flail",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 348,
+      "status": "PASS"
+    },
+    {
+      "id": "ancient_spear",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 272,
+      "status": "PASS"
+    },
+    {
+      "id": "restored_spear",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 272,
+      "status": "PASS"
+    },
+    {
+      "id": "spear",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 67,
+      "status": "PASS"
+    },
+    {
+      "id": "gold_spear",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 156,
+      "status": "PASS"
+    },
+    {
+      "id": "iron_spear",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 156,
+      "status": "PASS"
+    },
+    {
+      "id": "silver_spear",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 63,
+      "status": "PASS"
+    },
+    {
+      "id": "diamond_spear",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 156,
+      "status": "PASS"
+    },
+    {
+      "id": "perunite_spear",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 156,
+      "status": "PASS"
+    },
+    {
+      "id": "netherite_spear",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 156,
+      "status": "PASS"
+    },
+    {
+      "id": "pool_spear",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 53,
+      "status": "PASS"
+    },
+    {
+      "id": "thunder_spear",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 76,
+      "status": "PASS"
+    },
+    {
+      "id": "victor_spear",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 55,
+      "status": "PASS"
+    },
+    {
+      "id": "berdysh",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 115,
+      "status": "PASS"
+    },
+    {
+      "id": "noon_sickle",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 124,
+      "status": "PASS"
+    },
+    {
+      "id": "karachun_scythe",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 261,
+      "status": "PASS"
+    },
+    {
+      "id": "poloz_whip",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 265,
+      "status": "PASS"
+    },
+    {
+      "id": "stone_throwing_knife",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 81,
+      "status": "PASS"
+    },
+    {
+      "id": "gold_throwing_knife",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 81,
+      "status": "PASS"
+    },
+    {
+      "id": "iron_throwing_knife",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 81,
+      "status": "PASS"
+    },
+    {
+      "id": "silver_throwing_knife",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 81,
+      "status": "PASS"
+    },
+    {
+      "id": "diamond_throwing_knife",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page0.png",
+      "outside_pixels": 0,
+      "item_pixels": 81,
+      "status": "PASS"
+    },
+    {
+      "id": "perunite_throwing_knife",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 81,
+      "status": "PASS"
+    },
+    {
+      "id": "netherite_throwing_knife",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 81,
+      "status": "PASS"
+    },
+    {
+      "id": "stone_sulitsa",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 114,
+      "status": "PASS"
+    },
+    {
+      "id": "gold_sulitsa",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 114,
+      "status": "PASS"
+    },
+    {
+      "id": "iron_sulitsa",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 114,
+      "status": "PASS"
+    },
+    {
+      "id": "silver_sulitsa",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 114,
+      "status": "PASS"
+    },
+    {
+      "id": "diamond_sulitsa",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 114,
+      "status": "PASS"
+    },
+    {
+      "id": "perunite_sulitsa",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 114,
+      "status": "PASS"
+    },
+    {
+      "id": "netherite_sulitsa",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 114,
+      "status": "PASS"
+    },
+    {
+      "id": "short_bow",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 114,
+      "status": "PASS"
+    },
+    {
+      "id": "heavy_bow",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 260,
+      "status": "PASS"
+    },
+    {
+      "id": "finist_bow",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 227,
+      "status": "PASS"
+    },
+    {
+      "id": "bone_arrow",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 132,
+      "status": "PASS"
+    },
+    {
+      "id": "serpent_crossbow",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 254,
+      "status": "PASS"
+    },
+    {
+      "id": "three_breath_crossbow",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 314,
+      "status": "PASS"
+    },
+    {
+      "id": "carved_staff",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 76,
+      "status": "PASS"
+    },
+    {
+      "id": "storm_staff",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 61,
+      "status": "PASS"
+    },
+    {
+      "id": "veles_staff",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 67,
+      "status": "PASS"
+    },
+    {
+      "id": "likho_staff",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 70,
+      "status": "PASS"
+    },
+    {
+      "id": "morozko_staff",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 247,
+      "status": "PASS"
+    },
+    {
+      "id": "retainer_shield",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 508,
+      "status": "PASS"
+    },
+    {
+      "id": "beast_challenge_horn",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 205,
+      "status": "PASS"
+    },
+    {
+      "id": "birch_bark",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 612,
+      "status": "PASS"
+    },
+    {
+      "id": "animal_fat",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 408,
+      "status": "PASS"
+    },
+    {
+      "id": "goat_hide",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 468,
+      "status": "PASS"
+    },
+    {
+      "id": "large_animal_bone",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 368,
+      "status": "PASS"
+    },
+    {
+      "id": "stone_spearhead",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 270,
+      "status": "PASS"
+    },
+    {
+      "id": "stone_light_spearhead",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 201,
+      "status": "PASS"
+    },
+    {
+      "id": "gold_spearhead",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 297,
+      "status": "PASS"
+    },
+    {
+      "id": "gold_light_spearhead",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 194,
+      "status": "PASS"
+    },
+    {
+      "id": "iron_spearhead",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 253,
+      "status": "PASS"
+    },
+    {
+      "id": "iron_light_spearhead",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 186,
+      "status": "PASS"
+    },
+    {
+      "id": "silver_spearhead",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 240,
+      "status": "PASS"
+    },
+    {
+      "id": "silver_light_spearhead",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 176,
+      "status": "PASS"
+    },
+    {
+      "id": "tugarin_head",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 372,
+      "status": "PASS"
+    },
+    {
+      "id": "skim_head",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 460,
+      "status": "PASS"
+    },
+    {
+      "id": "cursed_volkolak_head",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 388,
+      "status": "PASS"
+    },
+    {
+      "id": "likho_head",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 392,
+      "status": "PASS"
+    },
+    {
+      "id": "mor_likho_head",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 392,
+      "status": "PASS"
+    },
+    {
+      "id": "large_podzemnik_head",
+      "frame": "docs\\implementation\\weapons87\\issue217\\client-lash-single-pass\\inventory-page1.png",
+      "outside_pixels": 0,
+      "item_pixels": 624,
+      "status": "PASS"
+    }
+  ]
+}

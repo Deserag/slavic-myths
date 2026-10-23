@@ -1,0 +1,69 @@
+id,ru,family,item_class,attack_damage,attack_speed,reach,durability,native_analytical_dps_ceiling,acquisition_status,runtime
+bone_knife,Костяной нож,knives,net.minecraft.world.item.SwordItem,3.0,2.5,3.0,75,7.5,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+silver_dagger,Серебряный кинжал,knives,net.minecraft.world.item.SwordItem,4.0,2.5,3.0,220,10.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+nightingale_dagger,Кинжал Соловья,knives,org.slavicmyths.bandit.NightingaleDagger,10.0,2.0,3.0,700,20.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+ancient_carolingian_sword,Древний каролингский меч,swords,org.slavicmyths.kurgan.BurialWeapon,4.0,1.5999999046325684,3.0,90,6.399999618530273,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+restored_carolingian_sword,Восстановленный каролингский меч,swords,org.slavicmyths.kurgan.BurialWeapon,6.0,1.5999999046325684,3.0,450,9.59999942779541,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+silver_sword,Серебряный меч,swords,net.minecraft.world.item.SwordItem,6.0,1.5999999046325684,3.0,220,9.59999942779541,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+perunite_sword,Перунитовый меч,swords,net.minecraft.world.item.SwordItem,6.5,1.5999999046325684,3.0,850,10.399999380111694,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+tugarin_sword,Парные клинки Тугарина,swords,net.minecraft.world.item.SwordItem,10.0,1.7999999523162842,3.0,1561,17.999999523162842,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+trophy_kalin_sabre,Сабля Воеводы,swords,net.minecraft.world.item.SwordItem,9.0,1.2999999523162842,3.0,1561,11.699999570846558,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+club,Дубина,maces,org.slavicmyths.item.ClubItem,5.0,0.9000000953674316,3.0,59,4.500000476837158,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+wooden_mace,Деревянная булава,maces,org.slavicmyths.combat.MaceItem,5.0,1.0499999523162842,3.0,59,5.249999761581421,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+stone_mace,Каменная булава,maces,org.slavicmyths.combat.MaceItem,7.0,0.8499999046325684,3.0,131,5.9499993324279785,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+mace,Железная булава,maces,org.slavicmyths.combat.MaceItem,8.0,0.9000000953674316,3.0,250,7.200000762939453,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+silver_mace,Серебряная булава,maces,org.slavicmyths.combat.MaceItem,7.0,1.0,3.0,220,7.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+perunite_mace,Перунитовая булава,maces,org.slavicmyths.combat.MaceItem,9.5,0.7999999523162842,3.0,850,7.5999995470047,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+ancient_chekan,Древний чекан,maces,org.slavicmyths.combat.MaceItem,5.0,1.2000000476837158,3.0,90,6.000000238418579,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+chekan,Чекан,maces,org.slavicmyths.combat.MaceItem,6.0,1.2999999523162842,3.0,400,7.799999713897705,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+battle_axe,Боевой топор,axes,net.minecraft.world.item.AxeItem,10.0,0.7000000476837158,3.0,250,7.000000476837158,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+thunder_axe,Громовой топор,axes,org.slavicmyths.item.ThunderAxeItem,8.5,0.9000000953674316,3.0,850,7.650000810623169,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+stone_flail,Каменный кистень,flails,org.slavicmyths.combat.FlailItem,7.0,0.7000000476837158,3.0,131,4.900000333786011,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+gold_flail,Золотой кистень,flails,org.slavicmyths.combat.FlailItem,6.0,0.7000000476837158,3.0,32,4.200000286102295,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+flail,Кистень,flails,org.slavicmyths.combat.FlailItem,8.0,0.7000000476837158,3.0,250,5.600000381469727,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+silver_flail,Серебряный кистень,flails,org.slavicmyths.combat.FlailItem,8.0,0.7000000476837158,3.0,220,5.600000381469727,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+diamond_flail,Алмазный кистень,flails,org.slavicmyths.combat.FlailItem,9.0,0.7000000476837158,3.0,1561,6.300000429153442,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+perunite_flail,Перунитовый кистень,flails,org.slavicmyths.combat.FlailItem,8.5,0.7000000476837158,3.0,850,5.9500004053115845,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+netherite_flail,Незеритовый кистень,flails,org.slavicmyths.combat.FlailItem,10.0,0.7000000476837158,3.0,2031,7.000000476837158,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+ataman_flail,Кистень атамана,flails,org.slavicmyths.combat.MaceItem,12.0,0.7000000476837158,3.0,1561,8.40000057220459,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+ancient_spear,Древнее копьё,spears,org.slavicmyths.kurgan.BurialWeapon,4.0,1.2000000476837158,4.25,90,4.800000190734863,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+restored_spear,Восстановленное копьё,spears,org.slavicmyths.kurgan.BurialWeapon,6.0,1.2000000476837158,4.25,380,7.200000286102295,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+spear,Копьё,spears,org.slavicmyths.item.SpearItem,5.0,1.2000000476837158,4.25,131,6.000000238418579,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+gold_spear,Золотое копьё,spears,org.slavicmyths.item.SpearItem,4.0,1.2000000476837158,4.25,32,4.800000190734863,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+iron_spear,Железное копьё,spears,org.slavicmyths.item.SpearItem,6.0,1.2000000476837158,4.25,250,7.200000286102295,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+silver_spear,Серебряное копьё,spears,org.slavicmyths.item.SpearItem,6.0,1.2000000476837158,4.25,220,7.200000286102295,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+diamond_spear,Алмазное копьё,spears,org.slavicmyths.item.SpearItem,7.0,1.2000000476837158,4.25,1561,8.40000033378601,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+perunite_spear,Перунитовое копьё,spears,org.slavicmyths.item.SpearItem,6.5,1.2000000476837158,4.25,850,7.800000309944153,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+netherite_spear,Незеритовое копьё,spears,org.slavicmyths.item.SpearItem,8.0,1.2000000476837158,4.25,2031,9.600000381469727,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+pool_spear,Копьё омута,spears,org.slavicmyths.depth.PoolSpear,9.0,1.2000000476837158,3.0,420,10.800000429153442,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+thunder_spear,Громовое копьё,spears,org.slavicmyths.item.HeavyWeaponItem,7.5,1.0999999046325684,4.25,850,8.249999284744263,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+victor_spear,Копьё победителя,spears,org.slavicmyths.item.SpearItem,12.0,1.2000000476837158,4.25,1561,14.40000057220459,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+berdysh,Бердыш,polearms,org.slavicmyths.item.HeavyWeaponItem,9.0,0.7000000476837158,3.0,250,6.300000429153442,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+noon_sickle,Серп Полудницы,polearms,net.minecraft.world.item.SwordItem,6.0,1.5,3.0,220,9.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+karachun_scythe,Коса Карачуна,polearms,org.slavicmyths.karachun.NightScythe,12.0,1.0,3.0,2400,12.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+poloz_whip,Плеть Полоза,polearms,org.slavicmyths.poloz.PolozWhip,13.0,1.0,6.0,2031,13.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+stone_throwing_knife,Каменный метательный нож,throwing_knives,org.slavicmyths.combat.ThrowingWeaponItem,3.0,2.3,3.0,131,6.8999999999999995,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+gold_throwing_knife,Золотой метательный нож,throwing_knives,org.slavicmyths.combat.ThrowingWeaponItem,2.0,2.3,3.0,32,4.6,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+iron_throwing_knife,Железный метательный нож,throwing_knives,org.slavicmyths.combat.ThrowingWeaponItem,4.0,2.3,3.0,250,9.2,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+silver_throwing_knife,Серебряный метательный нож,throwing_knives,org.slavicmyths.combat.ThrowingWeaponItem,4.0,2.3,3.0,220,9.2,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+diamond_throwing_knife,Алмазный метательный нож,throwing_knives,org.slavicmyths.combat.ThrowingWeaponItem,5.0,2.3,3.0,1561,11.5,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+perunite_throwing_knife,Перунитовый метательный нож,throwing_knives,org.slavicmyths.combat.ThrowingWeaponItem,4.5,2.3,3.0,850,10.35,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+netherite_throwing_knife,Незеритовый метательный нож,throwing_knives,org.slavicmyths.combat.ThrowingWeaponItem,6.0,2.3,3.0,2031,13.799999999999999,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+stone_sulitsa,Каменная сулица,sulitsas,org.slavicmyths.combat.ThrowingWeaponItem,4.0,1.5,3.5,131,6.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+gold_sulitsa,Золотая сулица,sulitsas,org.slavicmyths.combat.ThrowingWeaponItem,3.0,1.5,3.5,32,4.5,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+iron_sulitsa,Железная сулица,sulitsas,org.slavicmyths.combat.ThrowingWeaponItem,5.0,1.5,3.5,250,7.5,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+silver_sulitsa,Серебряная сулица,sulitsas,org.slavicmyths.combat.ThrowingWeaponItem,5.0,1.5,3.5,220,7.5,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+diamond_sulitsa,Алмазная сулица,sulitsas,org.slavicmyths.combat.ThrowingWeaponItem,6.0,1.5,3.5,1561,9.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+perunite_sulitsa,Перунитовая сулица,sulitsas,org.slavicmyths.combat.ThrowingWeaponItem,5.5,1.5,3.5,850,8.25,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+netherite_sulitsa,Незеритовая сулица,sulitsas,org.slavicmyths.combat.ThrowingWeaponItem,7.0,1.5,3.5,2031,10.5,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+short_bow,Короткий лук,bows,org.slavicmyths.combat.FieldBowItem,1.0,4.0,3.0,300,4.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+heavy_bow,Тяжёлый лук,bows,org.slavicmyths.combat.FieldBowItem,1.0,4.0,3.0,500,4.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+finist_bow,Лук Финиста,bows,org.slavicmyths.finist.FinistBow,1.0,4.0,3.0,640,4.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+bone_arrow,Костяная стрела,bows,net.minecraft.world.item.ArrowItem,1.0,4.0,3.0,0,4.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+serpent_crossbow,Змеиный арбалет,bows,org.slavicmyths.gorynych.SerpentCrossbow,1.0,4.0,3.0,520,4.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+three_breath_crossbow,Арбалет трёх дыханий,bows,org.slavicmyths.gorynych.SerpentCrossbow,1.0,4.0,3.0,680,4.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+carved_staff,Резной посох,staves,net.minecraft.world.item.SwordItem,3.0,1.2000000476837158,3.0,59,3.6000001430511475,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+storm_staff,Грозовой посох,staves,org.slavicmyths.item.StormStaffItem,1.0,4.0,3.0,240,4.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+veles_staff,Посох Велеса,staves,org.slavicmyths.artifact.VelesStaffItem,1.0,4.0,3.0,48,4.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+likho_staff,Посох Лихо,staves,org.slavicmyths.combat.LikhoStaffItem,10.0,1.2000000476837158,3.0,1561,12.000000476837158,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING
+morozko_staff,Посох Морозко,staves,org.slavicmyths.morozko.FrostStaff,1.0,4.0,3.0,0,4.0,SOURCE_ONLY_NOT_TIMED,NOT_RUN / OWNER_PENDING

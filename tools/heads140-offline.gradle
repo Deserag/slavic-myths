@@ -8,5 +8,11 @@ allprojects { p ->
    classpath = p.sourceSets.heads140Offline.runtimeClasspath
    mainClass = 'org.slavicmyths.client.Heads140Offline'
   }
+  p.tasks.register('exportHeadPoses', JavaExec) {
+   dependsOn p.tasks.named('heads140OfflineClasses')
+   classpath = p.sourceSets.heads140Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.client.HeadPoseExport'
+   systemProperty 'head.export', p.findProperty('headExport') ?: 'work/heads-before.json'
+  }
  }
 }

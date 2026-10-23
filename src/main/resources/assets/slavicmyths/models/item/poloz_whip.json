@@ -1,5 +1,4 @@
 {
-  "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "slavicmyths:item/poloz_whip"
   },
@@ -34,5 +33,14 @@
       },
       "model": "slavicmyths:item/poloz_whip_pose_4"
     }
-  ]
+  ],
+  "perspectives": {
+    "gui": {
+      "parent": "slavicmyths:item/poloz_whip_icon87"
+    }
+  },
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/poloz_whip_pose_0"
+  }
 }

@@ -6,6 +6,9 @@ if 'net.neoforged.moddev' in (ROOT/'build.gradle').read_text():
     # The historical verifier below is retained for pre-port source checkpoints.
     # On the active target, default validation requires the real production JAR.
     active=(ROOT/'gradle.properties').read_text(encoding='utf-8')
+    active_version=re.search(r'^mod_version=(.+)$',active,re.M).group(1).strip()
+    if not active_version.startswith(('0.9.4','0.9.5','0.9.6','0.9.7')) and '--navigation' not in sys.argv:
+        raise SystemExit(subprocess.call([sys.executable,str(ROOT/'tools/verify_current_resources.py'),*sys.argv[1:]]))
     if 'mod_version=0.9.7' in active and '--navigation' not in sys.argv:
         raise SystemExit(subprocess.call([sys.executable,str(ROOT/'tools/verify_swamp_097.py'),*[a for a in sys.argv[1:] if a!='--swamp-rework']]))
     if 'mod_version=0.9.6' in active and '--navigation' not in sys.argv:

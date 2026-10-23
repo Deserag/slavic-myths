@@ -11,13 +11,15 @@ geometry = (root / "src/main/java/org/slavicmyths/client/BossReworkGeometry.java
 
 for token in (
     "if(angle>Math.PI-1E-4)",
-    "Math.min(angle,Math.toRadians(6))",
+    "Math.min(angle,Math.toRadians(degrees))",
     "basis.subtract(from.scale(basis.dot(from))).normalize()",
     "from.scale(Math.cos(turn)).add(tangent.scale(Math.sin(turn))).scale(speed)",
 ):
     assert token in arrow, token
 assert "from.scale(1-fraction).add(to.scale(fraction))" not in arrow
-assert "Math.toRadians(6)/angle" in arrow
+assert "return steer(velocity,desired,6)" in arrow
+assert "Math.toRadians(degrees)/angle" in arrow
+assert "guideVelocity(getDeltaMovement()" in arrow
 
 # Independent geometry oracle for a 180-degree reversal: one step must
 # rotate by 6 degrees without speed loss, not continue along the old line.

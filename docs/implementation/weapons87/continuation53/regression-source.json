@@ -1,0 +1,116 @@
+[
+  {
+    "check": "verify_weapons87_p40.py",
+    "exit": 0,
+    "stdout": "PASS P40: three held geometry details, eight matching bow states, two separate 3D thrown archetypes, source/JAR verified; GAME NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_p41.py",
+    "exit": 0,
+    "stdout": "PASS P41: 5 actual weapon models, additive canonical overlay, old GUI/FP/TP unchanged, runtime NOT_RUN\nPASS P41: noon 3D sickle, four additive unique-held weapon designs, original GUI, generator-safe overlays; Minecraft NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_p42.py",
+    "exit": 0,
+    "stdout": "PASS P42: 12 crossbow states, 4 Finist drawing states, no source art drift. Runtime NOT_RUN\nPASS P42: 12 crossbow states, 4 Finist drawing states, no source art drift. Runtime NOT_RUN\nPASS P42: 12 crossbow states, 4 Finist drawing states, no source art drift. Runtime NOT_RUN\nPASS P42: 18 model states, both crossbows, scythe, Morozko, Finist, idempotent isolated replay; runtime NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_p43.py",
+    "exit": 0,
+    "stdout": "PASS P43: stable thunder spear, berdysh and carved-staff details, centered TP; runtime NOT_RUN\nPASS P42: 12 crossbow states, 4 Finist drawing states, no source art drift. Runtime NOT_RUN\nPASS P43: stable thunder spear, berdysh and carved-staff details, centered TP; runtime NOT_RUN\nPASS P43: stable thunder spear, berdysh and carved-staff details, centered TP; runtime NOT_RUN\nPASS P43: real art models, pivots, safe socket details, two-pass canonical overlay, unchanged P42; Minecraft NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_p44.py",
+    "exit": 0,
+    "stdout": "PASS P44: 32 real weapon IDs, animation phase/source, volley cue/dedup and packed classes when requested; Minecraft NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_p45.py",
+    "exit": 0,
+    "stdout": "PASS P45: 7 knife / 7 sulitsa local throw poses, unchanged projectile and balance, JAR class gate when requested; Minecraft NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_p47.py",
+    "exit": 0,
+    "stdout": "PASS P47/P48: 51 real player-held third-person models, swing/charge/walk pose envelopes, independent hand contexts and class packaging; Minecraft NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_p48.py",
+    "exit": 0,
+    "stdout": "PASS P48: three third-person bows use actual draw ticks, no server projectile changes, 12 model states and JAR checks; Minecraft NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_p49.py",
+    "exit": 0,
+    "stdout": "PASS P49: owner-rejected sword grip, whip rollback, flail hit extension, guided arrow, victor text, thunder, staff, six heads and hunting horn; runtime NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_p51.py",
+    "exit": 0,
+    "stdout": "P51 SOURCE/JAR PASS: antiparallel turn and actual Tugarin pupil links; gameplay and visual runtime NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_p52.py",
+    "exit": 0,
+    "stdout": "P52 PASS: accepted MOR/FIRE hits get bounded distinct server particles once per arrow; Storm existing VFX preserved; runtime NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_crossbows.py",
+    "exit": 0,
+    "stdout": "PASS: 12 horizontal-stock production states, 48 old/new hand pivots, 12 referenced textures; only approved P42 additive geometry, no FP/gameplay changes; runtime NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_crossbow_recoil.py",
+    "exit": 0,
+    "stdout": "PASS P31 source recoil: two independent hands, charge->fire only on same stack, reset on world/player swap, 7 tick envelope, zero outside window, single FP pose before arm + weapon, no ammo/server changes; Minecraft NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_crossbow_realstack.py",
+    "exit": 0,
+    "stdout": "PASS: recoil tracks actual player-held ItemStack and real charged transitions, preserves per-hand reset and seven-tick window; game NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_crossbow_pull.py",
+    "exit": 0,
+    "stdout": "PASS #163: first-person pull follows active hand rather than ItemStack object identity; existing recoil/volley unchanged; Minecraft NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_thunderaxe.py",
+    "exit": 0,
+    "stdout": "PASS Thunder Axe: accepted hit only, 20% roll, +1HP final damage, 60 ticks, exactly one proc/FX, no second hurt or invulnerability reset. Runtime NOT_RUN.\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_storm_range.py",
+    "exit": 0,
+    "stdout": "PASS Storm Staff source constraints: 7-block target cutoff, LOS, approved damage/cooldown, impact VFX; runtime NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_kalin_wave.py",
+    "exit": 0,
+    "stdout": "PASS: Kalin right-click slash has independent visible effect and target damage, bounded 5.5m/6 targets/7s; runtime NOT_RUN\n",
+    "stderr": ""
+  },
+  {
+    "check": "verify_weapons87_unique_keeps.py",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"D:\\slavic-myths\\tools\\verify_weapons87_unique_keeps.py\", line 19, in <module>\n    assert raw==original, (id,str(file),'differs from exact pre-branch main')\n           ^^^^^^^^^^^^^\nAssertionError: ('finist_bow', 'D:\\\\slavic-myths\\\\src\\\\main\\\\resources\\\\assets\\\\slavicmyths\\\\models\\\\item\\\\finist_bow_pulling_2.json', 'differs from exact pre-branch main')\n"
+  }
+]

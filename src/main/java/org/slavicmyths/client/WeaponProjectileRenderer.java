@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.util.Mth;
 import org.slavicmyths.combat.WeaponProjectile;
 
-/** The actual carried material/item sprite follows flight orientation, not a generic recolored bolt. */
+/** The actual material's held mesh follows flight orientation. */
 public final class WeaponProjectileRenderer extends EntityRenderer<WeaponProjectile> {
     private final net.minecraft.client.renderer.entity.ItemRenderer items;
     public WeaponProjectileRenderer(EntityRendererProvider.Context context){super(context);items=context.getItemRenderer();}
@@ -24,7 +24,8 @@ public final class WeaponProjectileRenderer extends EntityRenderer<WeaponProject
     public static final ItemDisplayContext FLIGHT_CONTEXT=ItemDisplayContext.NONE;
     public static void flightPose(PoseStack pose,float yaw,float pitch,boolean knife){
         pose.mulPose(Axis.YP.rotationDegrees(yaw-90));
-        pose.mulPose(Axis.ZP.rotationDegrees(pitch-45));
+        // Both held archetypes have their point on local +Y; GUI sprites stay diagonal.
+        pose.mulPose(Axis.ZP.rotationDegrees(pitch-90));
         float scale=knife?.65F:1.25F;pose.scale(scale,scale,scale);
     }
     @Override public ResourceLocation getTextureLocation(WeaponProjectile projectile){return net.minecraft.client.renderer.texture.TextureAtlas.LOCATION_BLOCKS;}

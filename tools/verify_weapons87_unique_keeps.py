@@ -1,6 +1,9 @@
-"""Proof that accepted Finist bow, thunder axe and thunder spear art stays byte-identical."""
+"""Preserve original art plus exact separately documented P41/P42/P43/P49 changes."""
 from pathlib import Path
 import hashlib,json,struct,subprocess
+from weapons87_p41_overlay import ADDITIONS as P41
+from weapons87_p42_models import FINIST
+from weapons87_p43_overlay import ADDITIONS as P43
 ROOT=Path(__file__).resolve().parents[1]
 BASE=ROOT/'src/main/resources/assets/slavicmyths'
 MANIFEST=ROOT/'docs/implementation/weapons87/unique-source-review/source-manifest.json'
@@ -16,7 +19,17 @@ for id in IDS:
         assert file.is_file(),file
         raw=file.read_bytes()
         original=subprocess.run(['git','show',BASE_COMMIT+':'+entry['path']],cwd=ROOT,check=True,capture_output=True).stdout
-        assert raw==original, (id,str(file),'differs from exact pre-branch main')
+        if file.suffix=='.json':
+            expected=json.loads(original);actual=json.loads(raw)
+            if id=='finist_bow':expected['display']=FINIST
+            elif id=='thunder_axe':
+                expected['elements']+=P41['thunder_axe']
+                gui=expected['display']['gui'];ratio=.65/gui['scale'][0];gui['scale']=[.65]*3;gui['translation']=[v*ratio for v in gui['translation']]
+            elif id=='thunder_spear':
+                expected['elements']+=P43['thunder_spear']
+                for index in (10,13,16,19,22):expected['elements'][index]['faces'].pop('west')
+            assert actual==expected,(id,str(file),'differs beyond exact documented overlays')
+        else:assert raw==original,(id,str(file),'original texture changed')
         if hashlib.sha256(raw).hexdigest()!=entry['sha256']:stale_snapshot+=1
         total+=1
     root=json.loads((BASE/'models/item'/f'{id}.json').read_text(encoding='utf-8'))
@@ -34,7 +47,7 @@ for id in IDS:
             assert head[:8]==b'\x89PNG\r\n\x1a\n'
     else:
         cubes=root['elements']
-        assert len(cubes)==(24 if id=='thunder_axe' else 30)
+        assert len(cubes)==(30 if id=='thunder_axe' else 37)
         minimum=[min(e['from'][i] for e in cubes) for i in range(3)]
         maximum=[max(e['to'][i] for e in cubes) for i in range(3)]
         span=[maximum[i]-minimum[i] for i in range(3)]
@@ -44,4 +57,4 @@ for id in IDS:
             assert 3.5<=span[0]<=5 and span[1]==40 and span[2]>=2
         for hand in ('firstperson_righthand','firstperson_lefthand','thirdperson_righthand','thirdperson_lefthand'):
             assert hand in root.get('display',{})
-print(f'PASS {total} unchanged JSON/PNG files against pinned main; Finist three pull states; axe/spear distinct. Old archived manifest stale for {stale_snapshot} files (historical, NOT rewritten). Runtime NOT_RUN')
+print(f'PASS {total} original art files plus exact P41/P42/P43/P49 deltas; Finist three pull states; axe/spear distinct. Old archived manifest stale for {stale_snapshot} files (historical, NOT rewritten). Runtime NOT_RUN')

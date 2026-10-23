@@ -1,0 +1,159 @@
+[
+  {
+    "id": "kikimora_lock",
+    "action": "FIX",
+    "actual_texture": "src/main/resources/assets/slavicmyths/textures/item/kikimora_lock.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/kikimora_lock.json",
+    "old_sha256": "ef4364e6ffd53f3fb4aea3e07b4344e75f88410066a04405dc5616cc2fb8090c",
+    "new_sha256": "c2cb0619fab25f0bc4d4d0213ab6ebba835ec4225fa1c1fe28e5690299aac176",
+    "native_size": [
+      16,
+      16
+    ]
+  },
+  {
+    "id": "grave_cloth_scrap",
+    "action": "FIX",
+    "actual_texture": "src/main/resources/assets/slavicmyths/textures/item/grave_cloth_scrap.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/grave_cloth_scrap.json",
+    "old_sha256": "6fa0130909dfaa03f0d341a81e4bb9ff289919f3ae7b8798088df2db94361bc6",
+    "new_sha256": "ec6c40b183395c20f48f435867e1f1c35df5f53ff21f4a56ffcf163c7b2a5b1e",
+    "native_size": [
+      16,
+      16
+    ]
+  },
+  {
+    "id": "torn_burial_ribbon",
+    "action": "FIX",
+    "actual_texture": "src/main/resources/assets/slavicmyths/textures/item/torn_burial_ribbon.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/torn_burial_ribbon.json",
+    "old_sha256": "6b08d58bff3653a6821de1175077b9163ac2cee5f10d9e6b7c8f58744f7bbf36",
+    "new_sha256": "d67bacd46d56432c57cbd1a91c9840638447c0e0ed99d44cf8c446cce9eb0b1e",
+    "native_size": [
+      16,
+      16
+    ]
+  },
+  {
+    "id": "mat_banner_remnant",
+    "action": "FIX",
+    "actual_texture": "src/main/resources/assets/slavicmyths/textures/item/mat_banner_remnant.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/mat_banner_remnant.json",
+    "old_sha256": "518167bcbd76a2c157f777fec026bfb8699b1ed61d53fc3e8a83cebc542ac3bd",
+    "new_sha256": "a73cc365bf72593a70a4e2a07f33bc49cbbf1493a4a508b1cdd8f4a2ee8c21d6",
+    "native_size": [
+      64,
+      64
+    ]
+  },
+  {
+    "id": "mysterious_black_feather",
+    "action": "FIX",
+    "actual_texture": "src/main/resources/assets/slavicmyths/textures/item/mysterious_black_feather.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/mysterious_black_feather.json",
+    "old_sha256": "ff1e9bac6c1edb514a59f60662e649e42f3d34792963d68536270a986a9b480c",
+    "new_sha256": "3bd73ed8aaccf443f093b869a16ca203c400ba051a72f318b35dddf7750514a0",
+    "native_size": [
+      16,
+      16
+    ]
+  },
+  {
+    "id": "mor_dust",
+    "action": "FIX",
+    "actual_texture": "src/main/resources/assets/slavicmyths/textures/item/mor_dust.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/mor_dust.json",
+    "old_sha256": "76771d224cf7fa3d85a78a255384acaef4d9c7bcbcb710b5db4a9c34dcdcb410",
+    "new_sha256": "2a4ceda9cbc6863f374adf0cb394ba033ac65fd3864d4c863336a2773b225b0a",
+    "native_size": [
+      16,
+      16
+    ]
+  },
+  {
+    "id": "eye_of_mor",
+    "action": "FIX",
+    "actual_texture": "src/main/resources/assets/slavicmyths/textures/item/eye_of_mor.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/eye_of_mor.json",
+    "old_sha256": "0d2558d507210ed3d1afdddcedd139e7e0177cb35933637f5d56542e9ee6e25a",
+    "new_sha256": "fef10196dc4dd8d0309847fb72b660215613e0a1086c9a5bf22a1dd230bad275",
+    "native_size": [
+      16,
+      16
+    ]
+  },
+  {
+    "id": "ashen_heart",
+    "action": "FIX",
+    "actual_texture": "src/main/resources/assets/slavicmyths/textures/item/ashen_heart.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/ashen_heart.json",
+    "old_sha256": "b8a4342effbf4c7c8eb6bfd233bba4e9a82521437717508347dab3808fe7e46f",
+    "new_sha256": "1fc7b7751c8a2177e3e3c1529783e45a5d632251ec255f5cf523186463176502",
+    "native_size": [
+      16,
+      16
+    ]
+  },
+  {
+    "id": "poloz_core",
+    "action": "FIX",
+    "actual_texture": "src/main/resources/assets/slavicmyths/textures/item/poloz_core.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/poloz_core.json",
+    "old_sha256": "ef84f1868319d04abb3f13dc31aedd313424475863ccb35934127279d6082ceb",
+    "new_sha256": "a59745c7588582bf1934664c4c8b2fed7736e3144840375b42e235bdcde7ee0c",
+    "native_size": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "poloz_head",
+    "action": "FIX",
+    "actual_texture": "src/main/resources/assets/slavicmyths/textures/item/poloz_head.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/poloz_head.json",
+    "old_sha256": "65a7832d648ca63982ac12efc9833f06adedc170281781a64c516eba0fb1c75d",
+    "new_sha256": "ea103db2b7d9486a2866217ffafda6dd9be5738f5a311a02a756a30648cc87f0",
+    "native_size": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "cursed_volkolak_skull",
+    "action": "FIX",
+    "actual_texture": "src/main/resources/assets/slavicmyths/textures/item/cursed_volkolak_skull.png",
+    "model": "src/main/resources/assets/slavicmyths/models/item/cursed_volkolak_skull.json",
+    "old_sha256": "768f71ffae68ce9f824449b268799c418b88420d7de2965b35aa89b42c39e809",
+    "new_sha256": "9d81c3fb01d16b1db80796dfcbe09cb6e3fc4e9332917ca5bb66cbf70b1628bc",
+    "native_size": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "nightingale_lock",
+    "action": "KEEP",
+    "reason": "Actual multi-texture hair bundle, no missing reference; silhouette retained."
+  },
+  {
+    "id": "nightingale_mark",
+    "action": "KEEP",
+    "reason": "Actual hanging medallion with metal insert; distinct from hair, retained."
+  },
+  {
+    "id": "mor_crystal",
+    "action": "KEEP",
+    "reason": "Actual angular cluster/block inherited model, distinct from shard; retained."
+  },
+  {
+    "id": "heart_of_eternal_cold",
+    "action": "KEEP",
+    "reason": "Actual FrostClient icon/held renderer, stepped icy heart/light core; retained."
+  },
+  {
+    "id": "shard_of_last_night",
+    "action": "KEEP",
+    "reason": "Actual long angular purple shard, distinct silhouette from Mor cluster; retained."
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "src/main/resources/assets/slavicmyths/textures/item/birch_bark.png": "c1256b56585c4f32471f9ca0f43346e6b4722a37331bca127b09c78bcc04b0fc",
+  "src/main/resources/assets/slavicmyths/textures/item/animal_fat.png": "a5f1aafb530e0c5e0ec25b92bf9c400ba8591519f0ffda6697344f7156cca757",
+  "src/main/resources/assets/slavicmyths/textures/item/goat_hide.png": "76ff7f00468c6eafccd221f1d2387871ed57fef203e97a27283ec13cd8eb1e1a",
+  "src/main/resources/assets/slavicmyths/textures/item/large_animal_bone.png": "ebd177887cd9002f66ddab4206ae0b73500e11c7ec419c9f807c94e1492357c8",
+  "src/main/resources/assets/slavicmyths/textures/item/stone_spearhead.png": "5f1b4605902eaa42707be0c29fc580c5de4e551ad8d82ca272f4015715d43071",
+  "src/main/resources/assets/slavicmyths/textures/item/stone_light_spearhead.png": "ac9332d8a49cb79e184f13477ade9043c9865abd1074462aec73ec3a2d749d1d",
+  "src/main/resources/assets/slavicmyths/textures/item/gold_spearhead.png": "00c6ca9ce1235b82f2a41d20cc8ee87c44d7b9f5f5a7483c96fd9c88cc10029d",
+  "src/main/resources/assets/slavicmyths/textures/item/gold_light_spearhead.png": "241c6c54d1258412a7ca3e5b80b2204f387472bc180dbcac4f8e90255d3b6452",
+  "src/main/resources/assets/slavicmyths/textures/item/iron_spearhead.png": "f7a61cbd86d55c4517f6871b589a6e73fe3d76559902b594252f3be3653027e2",
+  "src/main/resources/assets/slavicmyths/textures/item/iron_light_spearhead.png": "3d3244c82656e55b07ed1f14af3a2fa9cd9ba612b972cdbc3d5210990433e198",
+  "src/main/resources/assets/slavicmyths/textures/item/silver_spearhead.png": "4ab79a3b95c6a930b3e7bdb9b4597b08d858d35e82cb509ec99e655606411639",
+  "src/main/resources/assets/slavicmyths/textures/item/silver_light_spearhead.png": "6994d4c105d552425982540b5c077a57b137c08ce6c17e8b17862ecc89832d10"
+}

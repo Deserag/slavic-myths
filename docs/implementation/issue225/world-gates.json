@@ -1,0 +1,132 @@
+{
+  "normal_world_seed": 2252026,
+  "native_structure_samples": [
+    {
+      "id": "kurgan_small",
+      "seed": 2252026,
+      "preset": "NORMAL",
+      "coordinates_source": "prior native locate seed2252026; current native generation/start rechecked",
+      "location": [
+        -720,
+        0,
+        -640
+      ],
+      "bounding_box": [
+        -828,
+        57,
+        -606,
+        -758,
+        93,
+        -503
+      ],
+      "native_biome": "minecraft:dripstone_caves",
+      "generated_chunks": 35,
+      "containers": 3,
+      "container_metadata": [
+        "BlockPos{x=-803, y=59, z=-513} minecraft:barrel loot=slavicmyths:kurgan/common_cache",
+        "BlockPos{x=-771, y=59, z=-592} minecraft:barrel loot=slavicmyths:kurgan/common_cache",
+        "BlockPos{x=-772, y=59, z=-535} slavicmyths:burial_coffin loot=slavicmyths:kurgan/burial"
+      ],
+      "scope": "natural generation/start/chunks/container presence; no forced loot unlock or boss victory"
+    },
+    {
+      "id": "sanctuary_unfading_fire",
+      "seed": 2252026,
+      "preset": "NORMAL",
+      "coordinates_source": "prior native locate seed2252026; current native generation/start rechecked",
+      "location": [
+        -2240,
+        0,
+        1952
+      ],
+      "bounding_box": [
+        -2229,
+        70,
+        1963,
+        -2154,
+        96,
+        2042
+      ],
+      "native_biome": "minecraft:dark_forest",
+      "generated_chunks": 36,
+      "containers": 5,
+      "container_metadata": [
+        "BlockPos{x=-2209, y=72, z=2024} slavicmyths:sanctuary_chest loot=slavicmyths:chests/fire_cache",
+        "BlockPos{x=-2212, y=72, z=2031} minecraft:chest loot=slavicmyths:chests/fire_guaranteed",
+        "BlockPos{x=-2208, y=74, z=2013} minecraft:chest loot=slavicmyths:chests/fire_regular",
+        "BlockPos{x=-2190, y=71, z=2025} minecraft:chest loot=slavicmyths:chests/fire_regular",
+        "BlockPos{x=-2184, y=71, z=2032} minecraft:chest loot=slavicmyths:chests/fire_regular"
+      ],
+      "scope": "natural generation/start/chunks/container presence; no forced loot unlock or boss victory"
+    }
+  ],
+  "after_actual_process_restart": [
+    {
+      "id": "kurgan_small",
+      "seed": 2252026,
+      "preset": "NORMAL",
+      "coordinates_source": "prior native locate seed2252026; current native generation/start rechecked",
+      "location": [
+        -720,
+        0,
+        -640
+      ],
+      "bounding_box": [
+        -828,
+        57,
+        -606,
+        -758,
+        93,
+        -503
+      ],
+      "native_biome": "minecraft:dripstone_caves",
+      "generated_chunks": 35,
+      "containers": 3,
+      "container_metadata": [
+        "BlockPos{x=-803, y=59, z=-513} minecraft:barrel loot=slavicmyths:kurgan/common_cache",
+        "BlockPos{x=-771, y=59, z=-592} minecraft:barrel loot=slavicmyths:kurgan/common_cache",
+        "BlockPos{x=-772, y=59, z=-535} slavicmyths:burial_coffin loot=slavicmyths:kurgan/burial"
+      ],
+      "scope": "natural generation/start/chunks/container presence; no forced loot unlock or boss victory"
+    },
+    {
+      "id": "sanctuary_unfading_fire",
+      "seed": 2252026,
+      "preset": "NORMAL",
+      "coordinates_source": "prior native locate seed2252026; current native generation/start rechecked",
+      "location": [
+        -2240,
+        0,
+        1952
+      ],
+      "bounding_box": [
+        -2229,
+        70,
+        1963,
+        -2154,
+        96,
+        2042
+      ],
+      "native_biome": "minecraft:dark_forest",
+      "generated_chunks": 36,
+      "containers": 8,
+      "container_metadata": [
+        "BlockPos{x=-2209, y=72, z=2024} slavicmyths:sanctuary_chest loot=slavicmyths:chests/fire_cache",
+        "BlockPos{x=-2212, y=72, z=2031} minecraft:chest loot=slavicmyths:chests/fire_guaranteed",
+        "BlockPos{x=-2215, y=72, z=2023} minecraft:barrel loot=",
+        "BlockPos{x=-2215, y=72, z=2033} minecraft:barrel loot=",
+        "BlockPos{x=-2208, y=74, z=2013} minecraft:chest loot=slavicmyths:chests/fire_regular",
+        "BlockPos{x=-2206, y=72, z=2033} minecraft:barrel loot=",
+        "BlockPos{x=-2190, y=71, z=2025} minecraft:chest loot=slavicmyths:chests/fire_regular",
+        "BlockPos{x=-2184, y=71, z=2032} minecraft:chest loot=slavicmyths:chests/fire_regular"
+      ],
+      "scope": "natural generation/start/chunks/container presence; no forced loot unlock or boss victory"
+    }
+  ],
+  "crate_items_preserved": {
+    "item": "minecraft:diamond",
+    "count": 3
+  },
+  "fixed_block_entity_warnings": 0,
+  "scope_limit": "Two natural structures only, not all biomes/structures/boss fights/MP; counts are container snapshots before/after chunk postprocessing, not full loot completion."
+}

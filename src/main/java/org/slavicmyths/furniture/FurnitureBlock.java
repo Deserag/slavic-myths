@@ -23,12 +23,15 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.BossEvent;
-public class FurnitureBlock extends HorizontalDirectionalBlock implements EntityBlock {
+public class FurnitureBlock extends HorizontalDirectionalBlock {
  public final String kind;
+ public static FurnitureBlock create(String kind){return create(kind,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2).noOcclusion());}
+ private static FurnitureBlock create(String kind,Properties properties){return kind.equals("weapon_rack")||kind.equals("wooden_crate")?new Storage(kind,properties):new FurnitureBlock(kind,properties);}
+ private static final class Storage extends FurnitureBlock implements EntityBlock {Storage(String kind,Properties properties){super(kind,properties);}}
  public FurnitureBlock(String kind){this(kind,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2).noOcclusion());}
  protected FurnitureBlock(String kind,Properties properties){super(properties);this.kind=kind;registerDefaultState(stateDefinition.any().setValue(FACING,Direction.NORTH));}
  private static final com.mojang.serialization.MapCodec<FurnitureBlock> CODEC=com.mojang.serialization.codecs.RecordCodecBuilder.mapCodec(instance->instance.group(
-  com.mojang.serialization.Codec.STRING.fieldOf("kind").forGetter(block->block.kind),propertiesCodec()).apply(instance,FurnitureBlock::new));
+  com.mojang.serialization.Codec.STRING.fieldOf("kind").forGetter(block->block.kind),propertiesCodec()).apply(instance,FurnitureBlock::create));
  @Override protected com.mojang.serialization.MapCodec<? extends FurnitureBlock> codec(){return CODEC;}
  @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block,BlockState>b){b.add(FACING);}
  @Override public BlockState getStateForPlacement(BlockPlaceContext c){return defaultBlockState().setValue(FACING,c.getHorizontalDirection().getOpposite());}
@@ -53,7 +56,7 @@ public class FurnitureBlock extends HorizontalDirectionalBlock implements Entity
  @Override public boolean canSurvive(BlockState s,LevelReader w,BlockPos p){if(!kind.equals("shelf"))return true;Direction facing=s.getValue(FACING);BlockPos back=p.relative(facing.getOpposite());return w.getBlockState(back).isFaceSturdy(w,back,facing);}
  @Override public BlockState updateShape(BlockState s,Direction d,BlockState other,LevelAccessor w,BlockPos p,BlockPos q){if(kind.equals("shelf")&&!canSurvive(s,w,p))return Blocks.AIR.defaultBlockState();return super.updateShape(s,d,other,w,p,q);}
  public boolean hasTileEntity(BlockState s){return kind.equals("weapon_rack");}
- @Override public net.minecraft.world.level.block.entity.BlockEntity newBlockEntity(net.minecraft.core.BlockPos pos,net.minecraft.world.level.block.state.BlockState s){return kind.equals("wooden_crate")?new CrateTile(pos,s):hasTileEntity(s)?new RackTile(pos,s):null;}
+ public net.minecraft.world.level.block.entity.BlockEntity newBlockEntity(net.minecraft.core.BlockPos pos,net.minecraft.world.level.block.state.BlockState s){return kind.equals("wooden_crate")?new CrateTile(pos,s):hasTileEntity(s)?new RackTile(pos,s):null;}
  @Override public InteractionResult useWithoutItem(BlockState s,Level w,BlockPos p,Player player,BlockHitResult hit){return useItemOn(player.getItemInHand(InteractionHand.MAIN_HAND),s,w,p,player,InteractionHand.MAIN_HAND,hit).result();}
 @Override public net.minecraft.world.ItemInteractionResult useItemOn(net.minecraft.world.item.ItemStack interactionStack,BlockState s,Level w,BlockPos p,Player player,InteractionHand hand,BlockHitResult hit){
   if(kind.equals("wooden_crate")){if(!w.isClientSide&&w.getBlockEntity(p) instanceof CrateTile crate)player.openMenu(crate);return net.minecraft.world.ItemInteractionResult.sidedSuccess(w.isClientSide);}

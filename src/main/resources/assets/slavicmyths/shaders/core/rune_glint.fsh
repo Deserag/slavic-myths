@@ -18,5 +18,14 @@ void main() {
     vec3 tint = vec3(0.36, 0.64, 0.46);
     if (vertexColor.a > 0.32) tint = mix(tint, vec3(0.53,0.73,0.61), pattern.g * 0.36);
     if (vertexColor.a > 0.47) tint = mix(tint, vec3(0.40,0.70,0.68), pattern.b * 0.32);
+    // Optional one-shot armor pulse. B=1 identifies per-vertex phase/root Y;
+    // idle #104 RGB is unchanged and never enters this branch. No UV stripes.
+    if (vertexColor.b > 0.99) {
+        float distance = abs(vertexColor.g - vertexColor.r);
+        float pulse = (1.0 - smoothstep(0.025, 0.12, distance))
+                * sin(vertexColor.r * 3.14159265);
+        alpha += pulse * 0.12 * ColorModulator.a * linear_fog_fade(vertexDistance, FogStart, FogEnd);
+        tint = mix(tint, vec3(0.53,0.73,0.61), pulse * 0.35);
+    }
     fragColor = vec4(tint * ColorModulator.rgb, alpha);
 }

@@ -1,0 +1,20 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { issue217Client { java.srcDir 'tools/issue217-client' } }
+ p.sourceSets.issue217Client.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.issue217Client.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileIssue217ClientJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.issue217Client)
+} }
+gradle.projectsEvaluated { def p=gradle.rootProject
+ p.neoForge.runs.client.gameDirectory=p.file('work/issue217/client-first-run')
+ p.neoForge.runs.client.programArguments.addAll('--width','1280','--height','720')
+ p.neoForge.runs.client.systemProperty('slavicmyths.issue217.output',p.file('docs/implementation/weapons87/issue217/'+(p.findProperty('issue217Output') ?: 'client-focused-first')).absolutePath)
+ p.neoForge.runs.client.systemProperty('slavicmyths.issue217.catalog',p.file('src/main/resources/assets/slavicmyths/creative_catalog.tsv').absolutePath)
+ if(p.hasProperty('issue225WorldReload'))p.neoForge.runs.client.systemProperty('slavicmyths.issue225.reload','true')
+ if(p.hasProperty('issue105Wave'))p.neoForge.runs.client.systemProperty('slavicmyths.issue105.wave','true')
+ if(p.hasProperty('issue225World'))p.neoForge.runs.client.systemProperty('slavicmyths.issue225.world','true')
+ if(p.hasProperty('issue217Focused'))p.neoForge.runs.client.systemProperty('slavicmyths.issue217.focused','true')
+ if(p.hasProperty('issue217Crossbows'))p.neoForge.runs.client.systemProperty('slavicmyths.issue217.crossbows','true')
+ if(p.hasProperty('issue223Finist')||p.hasProperty('issue224MarkerOnly'))p.neoForge.runs.client.systemProperty('slavicmyths.issue223.finist','true')
+ if(p.hasProperty('issue224MarkerOnly'))p.neoForge.runs.client.systemProperty('slavicmyths.issue224.markerOnly','true')
+}

@@ -36,7 +36,7 @@ public final class ArmorStandClothingLayer extends RenderLayer<ArmorStand,ArmorS
    getParentModel().copyPropertiesTo(model);
    // Stand arm visibility is a property of its wooden sticks, not garment sleeves.
    model.leftArm.visible=true;model.rightArm.visible=true;
-   var source=org.slavicmyths.client.runeglow.RuneGlowBuffers.clothing(stack,buffers,p);
+   var source=org.slavicmyths.client.runeglow.RuneGlowBuffers.clothing(stack,buffers,p,stand,partial);
    model.renderToBuffer(p,source.getBuffer(RenderType.entityCutoutNoCull(Textiles.id("textures/entity/clothing/"+id+".png"))),light,OverlayTexture.NO_OVERLAY,-1);
   }
  }

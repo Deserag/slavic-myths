@@ -1,0 +1,8782 @@
+[
+  {
+    "id": "stone_throwing_knife",
+    "before_root_sha256": "0a1c343d168738257fa272403273508d8b97830ad13103034b84b3696cf38452",
+    "before_resolved": {
+      "textures": {
+        "body": "slavicmyths:item/weapons87_materials",
+        "particle": "slavicmyths:item/stone_throwing_knife"
+      },
+      "elements": [
+        {
+          "from": [
+            7.3,
+            2,
+            7.3
+          ],
+          "to": [
+            8.7,
+            7.4,
+            8.7
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.15,
+            3,
+            7.15
+          ],
+          "to": [
+            8.85,
+            3.5,
+            8.85
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            6.8,
+            7,
+            7.45
+          ],
+          "to": [
+            9.2,
+            8,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.2,
+            8,
+            7.65
+          ],
+          "to": [
+            8.8,
+            12.7,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.6,
+            12.7,
+            7.75
+          ],
+          "to": [
+            8.4,
+            14.7,
+            8.25
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            }
+          }
+        }
+      ],
+      "display": {
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        }
+      },
+      "parent": "slavicmyths:item/stone_throwing_knife_held"
+    },
+    "after_resolved": {
+      "textures": {
+        "body": "slavicmyths:item/weapons87_materials",
+        "particle": "slavicmyths:item/stone_throwing_knife"
+      },
+      "elements": [
+        {
+          "from": [
+            7.3,
+            2,
+            7.3
+          ],
+          "to": [
+            8.7,
+            7.4,
+            8.7
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.15,
+            3,
+            7.15
+          ],
+          "to": [
+            8.85,
+            3.5,
+            8.85
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            6.8,
+            7,
+            7.45
+          ],
+          "to": [
+            9.2,
+            8,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.2,
+            8,
+            7.65
+          ],
+          "to": [
+            8.8,
+            12.7,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.6,
+            12.7,
+            7.75
+          ],
+          "to": [
+            8.4,
+            14.7,
+            8.25
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            }
+          }
+        }
+      ],
+      "display": {
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            -0.0,
+            1.19447293,
+            -1.70588413
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0.0,
+            1.19447293,
+            -1.70588413
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.0,
+            0.55431785,
+            -2.72479032
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.0,
+            0.55431785,
+            -2.72479032
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        }
+      },
+      "parent": "slavicmyths:item/stone_throwing_knife_held"
+    }
+  },
+  {
+    "id": "stone_sulitsa",
+    "before_root_sha256": "0f3e2175cc9b36246c3cffc6ea4d3794de5289da61aa24d18511d44dc2b469e8",
+    "before_resolved": {
+      "textures": {
+        "body": "slavicmyths:item/weapons87_materials",
+        "particle": "slavicmyths:item/stone_sulitsa"
+      },
+      "elements": [
+        {
+          "from": [
+            7.65,
+            -2,
+            7.65
+          ],
+          "to": [
+            8.35,
+            12,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.45,
+            2,
+            7.45
+          ],
+          "to": [
+            8.55,
+            2.65,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.45,
+            4.5,
+            7.45
+          ],
+          "to": [
+            8.55,
+            5.15,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.35,
+            11,
+            7.35
+          ],
+          "to": [
+            8.65,
+            14,
+            8.65
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.05,
+            14,
+            7.65
+          ],
+          "to": [
+            8.95,
+            16.5,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.7,
+            16.5,
+            7.8
+          ],
+          "to": [
+            8.3,
+            18.5,
+            8.2
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            }
+          }
+        }
+      ],
+      "display": {
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        }
+      },
+      "parent": "slavicmyths:item/stone_sulitsa_held"
+    },
+    "after_resolved": {
+      "textures": {
+        "body": "slavicmyths:item/weapons87_materials",
+        "particle": "slavicmyths:item/stone_sulitsa"
+      },
+      "elements": [
+        {
+          "from": [
+            7.65,
+            -2,
+            7.65
+          ],
+          "to": [
+            8.35,
+            12,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.45,
+            2,
+            7.45
+          ],
+          "to": [
+            8.55,
+            2.65,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.45,
+            4.5,
+            7.45
+          ],
+          "to": [
+            8.55,
+            5.15,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.35,
+            11,
+            7.35
+          ],
+          "to": [
+            8.65,
+            14,
+            8.65
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.05,
+            14,
+            7.65
+          ],
+          "to": [
+            8.95,
+            16.5,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.7,
+            16.5,
+            7.8
+          ],
+          "to": [
+            8.3,
+            18.5,
+            8.2
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ]
+            }
+          }
+        }
+      ],
+      "display": {
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            -0.0,
+            2.30362636,
+            -3.2899194
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0.0,
+            2.30362636,
+            -3.2899194
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.0,
+            1.99761301,
+            -3.3978099
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.0,
+            1.99761301,
+            -3.3978099
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        }
+      },
+      "parent": "slavicmyths:item/stone_sulitsa_held"
+    }
+  },
+  {
+    "id": "gold_throwing_knife",
+    "before_root_sha256": "1453411b3180060418571881db8c5b94f2e41bf1b13700c56f729b6c0f6b725b",
+    "before_resolved": {
+      "parent": "minecraft:item/handheld",
+      "gui_light": "front",
+      "display": {
+        "ground": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            2,
+            0
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "head": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "translation": [
+            0,
+            13,
+            7
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        },
+        "fixed": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        }
+      },
+      "textures": {
+        "layer0": "slavicmyths:item/gold_throwing_knife"
+      }
+    },
+    "after_resolved": {
+      "textures": {
+        "body": "slavicmyths:item/weapons87_materials",
+        "particle": "slavicmyths:item/gold_throwing_knife"
+      },
+      "elements": [
+        {
+          "from": [
+            7.3,
+            2,
+            7.3
+          ],
+          "to": [
+            8.7,
+            7.4,
+            8.7
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.15,
+            3,
+            7.15
+          ],
+          "to": [
+            8.85,
+            3.5,
+            8.85
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            6.8,
+            7,
+            7.45
+          ],
+          "to": [
+            9.2,
+            8,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.2,
+            8,
+            7.65
+          ],
+          "to": [
+            8.8,
+            12.7,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.6,
+            12.7,
+            7.75
+          ],
+          "to": [
+            8.4,
+            14.7,
+            8.25
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            }
+          }
+        }
+      ],
+      "display": {
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            -0.0,
+            1.19447293,
+            -1.70588413
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0.0,
+            1.19447293,
+            -1.70588413
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.0,
+            0.55431785,
+            -2.72479032
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.0,
+            0.55431785,
+            -2.72479032
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        }
+      },
+      "parent": "slavicmyths:item/gold_throwing_knife_held"
+    }
+  },
+  {
+    "id": "gold_sulitsa",
+    "before_root_sha256": "bc81c35e25074ad2a4eae3f46f1ac55450eb6c66c21dd8a99edb5f45d3c0f3cb",
+    "before_resolved": {
+      "parent": "minecraft:item/handheld",
+      "gui_light": "front",
+      "display": {
+        "ground": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            2,
+            0
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "head": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "translation": [
+            0,
+            13,
+            7
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        },
+        "fixed": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        }
+      },
+      "textures": {
+        "layer0": "slavicmyths:item/gold_sulitsa"
+      }
+    },
+    "after_resolved": {
+      "textures": {
+        "body": "slavicmyths:item/weapons87_materials",
+        "particle": "slavicmyths:item/gold_sulitsa"
+      },
+      "elements": [
+        {
+          "from": [
+            7.65,
+            -2,
+            7.65
+          ],
+          "to": [
+            8.35,
+            12,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.45,
+            2,
+            7.45
+          ],
+          "to": [
+            8.55,
+            2.65,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.45,
+            4.5,
+            7.45
+          ],
+          "to": [
+            8.55,
+            5.15,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.35,
+            11,
+            7.35
+          ],
+          "to": [
+            8.65,
+            14,
+            8.65
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.05,
+            14,
+            7.65
+          ],
+          "to": [
+            8.95,
+            16.5,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.7,
+            16.5,
+            7.8
+          ],
+          "to": [
+            8.3,
+            18.5,
+            8.2
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                4,
+                4,
+                8
+              ]
+            }
+          }
+        }
+      ],
+      "display": {
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            -0.0,
+            2.30362636,
+            -3.2899194
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0.0,
+            2.30362636,
+            -3.2899194
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.0,
+            1.99761301,
+            -3.3978099
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.0,
+            1.99761301,
+            -3.3978099
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        }
+      },
+      "parent": "slavicmyths:item/gold_sulitsa_held"
+    }
+  },
+  {
+    "id": "iron_throwing_knife",
+    "before_root_sha256": "a3f3196195a9ee930fff6c5f4f847d8e6e9cfba07fb01b0e139ea35f1bdfaf21",
+    "before_resolved": {
+      "parent": "minecraft:item/handheld",
+      "gui_light": "front",
+      "display": {
+        "ground": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            2,
+            0
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "head": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "translation": [
+            0,
+            13,
+            7
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        },
+        "fixed": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        }
+      },
+      "textures": {
+        "layer0": "slavicmyths:item/iron_throwing_knife"
+      }
+    },
+    "after_resolved": {
+      "textures": {
+        "body": "slavicmyths:item/weapons87_materials",
+        "particle": "slavicmyths:item/iron_throwing_knife"
+      },
+      "elements": [
+        {
+          "from": [
+            7.3,
+            2,
+            7.3
+          ],
+          "to": [
+            8.7,
+            7.4,
+            8.7
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.15,
+            3,
+            7.15
+          ],
+          "to": [
+            8.85,
+            3.5,
+            8.85
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            6.8,
+            7,
+            7.45
+          ],
+          "to": [
+            9.2,
+            8,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.2,
+            8,
+            7.65
+          ],
+          "to": [
+            8.8,
+            12.7,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.6,
+            12.7,
+            7.75
+          ],
+          "to": [
+            8.4,
+            14.7,
+            8.25
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        }
+      ],
+      "display": {
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            -0.0,
+            1.19447293,
+            -1.70588413
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0.0,
+            1.19447293,
+            -1.70588413
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.0,
+            0.55431785,
+            -2.72479032
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.0,
+            0.55431785,
+            -2.72479032
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        }
+      },
+      "parent": "slavicmyths:item/iron_throwing_knife_held"
+    }
+  },
+  {
+    "id": "iron_sulitsa",
+    "before_root_sha256": "479a088b9f1ce21b2887ca0310752151946c0562a123339e9216c72381253bb2",
+    "before_resolved": {
+      "parent": "minecraft:item/handheld",
+      "gui_light": "front",
+      "display": {
+        "ground": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            2,
+            0
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "head": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "translation": [
+            0,
+            13,
+            7
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        },
+        "fixed": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        }
+      },
+      "textures": {
+        "layer0": "slavicmyths:item/iron_sulitsa"
+      }
+    },
+    "after_resolved": {
+      "textures": {
+        "body": "slavicmyths:item/weapons87_materials",
+        "particle": "slavicmyths:item/iron_sulitsa"
+      },
+      "elements": [
+        {
+          "from": [
+            7.65,
+            -2,
+            7.65
+          ],
+          "to": [
+            8.35,
+            12,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.45,
+            2,
+            7.45
+          ],
+          "to": [
+            8.55,
+            2.65,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.45,
+            4.5,
+            7.45
+          ],
+          "to": [
+            8.55,
+            5.15,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.35,
+            11,
+            7.35
+          ],
+          "to": [
+            8.65,
+            14,
+            8.65
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.05,
+            14,
+            7.65
+          ],
+          "to": [
+            8.95,
+            16.5,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.7,
+            16.5,
+            7.8
+          ],
+          "to": [
+            8.3,
+            18.5,
+            8.2
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        }
+      ],
+      "display": {
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            -0.0,
+            2.30362636,
+            -3.2899194
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0.0,
+            2.30362636,
+            -3.2899194
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.0,
+            1.99761301,
+            -3.3978099
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.0,
+            1.99761301,
+            -3.3978099
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        }
+      },
+      "parent": "slavicmyths:item/iron_sulitsa_held"
+    }
+  },
+  {
+    "id": "silver_throwing_knife",
+    "before_root_sha256": "179c49131c103bc5a28eabc92fd9f9e5b0ce5ea1c24760e9834cf500e873f54b",
+    "before_resolved": {
+      "parent": "minecraft:item/handheld",
+      "gui_light": "front",
+      "display": {
+        "ground": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            2,
+            0
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "head": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "translation": [
+            0,
+            13,
+            7
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        },
+        "fixed": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        }
+      },
+      "textures": {
+        "layer0": "slavicmyths:item/silver_throwing_knife"
+      }
+    },
+    "after_resolved": {
+      "textures": {
+        "body": "slavicmyths:item/weapons87_materials",
+        "particle": "slavicmyths:item/silver_throwing_knife"
+      },
+      "elements": [
+        {
+          "from": [
+            7.3,
+            2,
+            7.3
+          ],
+          "to": [
+            8.7,
+            7.4,
+            8.7
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.15,
+            3,
+            7.15
+          ],
+          "to": [
+            8.85,
+            3.5,
+            8.85
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            6.8,
+            7,
+            7.45
+          ],
+          "to": [
+            9.2,
+            8,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.2,
+            8,
+            7.65
+          ],
+          "to": [
+            8.8,
+            12.7,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.6,
+            12.7,
+            7.75
+          ],
+          "to": [
+            8.4,
+            14.7,
+            8.25
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            }
+          }
+        }
+      ],
+      "display": {
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            -0.0,
+            1.19447293,
+            -1.70588413
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0.0,
+            1.19447293,
+            -1.70588413
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.0,
+            0.55431785,
+            -2.72479032
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.0,
+            0.55431785,
+            -2.72479032
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        }
+      },
+      "parent": "slavicmyths:item/silver_throwing_knife_held"
+    }
+  },
+  {
+    "id": "silver_sulitsa",
+    "before_root_sha256": "29d5e26fb2479e9049db6acba43fa06a66a329279e5bf6de69731d5f369905d2",
+    "before_resolved": {
+      "parent": "minecraft:item/handheld",
+      "gui_light": "front",
+      "display": {
+        "ground": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            2,
+            0
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "head": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "translation": [
+            0,
+            13,
+            7
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        },
+        "fixed": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        }
+      },
+      "textures": {
+        "layer0": "slavicmyths:item/silver_sulitsa"
+      }
+    },
+    "after_resolved": {
+      "textures": {
+        "body": "slavicmyths:item/weapons87_materials",
+        "particle": "slavicmyths:item/silver_sulitsa"
+      },
+      "elements": [
+        {
+          "from": [
+            7.65,
+            -2,
+            7.65
+          ],
+          "to": [
+            8.35,
+            12,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.45,
+            2,
+            7.45
+          ],
+          "to": [
+            8.55,
+            2.65,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.45,
+            4.5,
+            7.45
+          ],
+          "to": [
+            8.55,
+            5.15,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.35,
+            11,
+            7.35
+          ],
+          "to": [
+            8.65,
+            14,
+            8.65
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.05,
+            14,
+            7.65
+          ],
+          "to": [
+            8.95,
+            16.5,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.7,
+            16.5,
+            7.8
+          ],
+          "to": [
+            8.3,
+            18.5,
+            8.2
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ]
+            }
+          }
+        }
+      ],
+      "display": {
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            -0.0,
+            2.30362636,
+            -3.2899194
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0.0,
+            2.30362636,
+            -3.2899194
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.0,
+            1.99761301,
+            -3.3978099
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.0,
+            1.99761301,
+            -3.3978099
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        }
+      },
+      "parent": "slavicmyths:item/silver_sulitsa_held"
+    }
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "before_root_sha256": "7e27b01aa2aac21c175a112143ed311a066c315027d2adcfea1bd18a90832ea5",
+    "before_resolved": {
+      "parent": "minecraft:item/handheld",
+      "gui_light": "front",
+      "display": {
+        "ground": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            2,
+            0
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "head": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "translation": [
+            0,
+            13,
+            7
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        },
+        "fixed": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        }
+      },
+      "textures": {
+        "layer0": "slavicmyths:item/diamond_throwing_knife"
+      }
+    },
+    "after_resolved": {
+      "textures": {
+        "body": "slavicmyths:item/weapons87_materials",
+        "particle": "slavicmyths:item/diamond_throwing_knife"
+      },
+      "elements": [
+        {
+          "from": [
+            7.3,
+            2,
+            7.3
+          ],
+          "to": [
+            8.7,
+            7.4,
+            8.7
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.15,
+            3,
+            7.15
+          ],
+          "to": [
+            8.85,
+            3.5,
+            8.85
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            6.8,
+            7,
+            7.45
+          ],
+          "to": [
+            9.2,
+            8,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.2,
+            8,
+            7.65
+          ],
+          "to": [
+            8.8,
+            12.7,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.6,
+            12.7,
+            7.75
+          ],
+          "to": [
+            8.4,
+            14.7,
+            8.25
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            }
+          }
+        }
+      ],
+      "display": {
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            -0.0,
+            1.19447293,
+            -1.70588413
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0.0,
+            1.19447293,
+            -1.70588413
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.0,
+            0.55431785,
+            -2.72479032
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.0,
+            0.55431785,
+            -2.72479032
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        }
+      },
+      "parent": "slavicmyths:item/diamond_throwing_knife_held"
+    }
+  },
+  {
+    "id": "diamond_sulitsa",
+    "before_root_sha256": "16708f95f1e4ad34e9e1cf39430a3292e915c0d760db957abc879f810ac92625",
+    "before_resolved": {
+      "parent": "minecraft:item/handheld",
+      "gui_light": "front",
+      "display": {
+        "ground": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            2,
+            0
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "head": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "translation": [
+            0,
+            13,
+            7
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        },
+        "fixed": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        }
+      },
+      "textures": {
+        "layer0": "slavicmyths:item/diamond_sulitsa"
+      }
+    },
+    "after_resolved": {
+      "textures": {
+        "body": "slavicmyths:item/weapons87_materials",
+        "particle": "slavicmyths:item/diamond_sulitsa"
+      },
+      "elements": [
+        {
+          "from": [
+            7.65,
+            -2,
+            7.65
+          ],
+          "to": [
+            8.35,
+            12,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.45,
+            2,
+            7.45
+          ],
+          "to": [
+            8.55,
+            2.65,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.45,
+            4.5,
+            7.45
+          ],
+          "to": [
+            8.55,
+            5.15,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.35,
+            11,
+            7.35
+          ],
+          "to": [
+            8.65,
+            14,
+            8.65
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.05,
+            14,
+            7.65
+          ],
+          "to": [
+            8.95,
+            16.5,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.7,
+            16.5,
+            7.8
+          ],
+          "to": [
+            8.3,
+            18.5,
+            8.2
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                4,
+                12,
+                8
+              ]
+            }
+          }
+        }
+      ],
+      "display": {
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            -0.0,
+            2.30362636,
+            -3.2899194
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0.0,
+            2.30362636,
+            -3.2899194
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.0,
+            1.99761301,
+            -3.3978099
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.0,
+            1.99761301,
+            -3.3978099
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        }
+      },
+      "parent": "slavicmyths:item/diamond_sulitsa_held"
+    }
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "before_root_sha256": "8109c2c846d570fc40d65c7d1573308b5c1df3119490ce14f26f5477e989bd22",
+    "before_resolved": {
+      "parent": "minecraft:item/handheld",
+      "gui_light": "front",
+      "display": {
+        "ground": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            2,
+            0
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "head": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "translation": [
+            0,
+            13,
+            7
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        },
+        "fixed": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        }
+      },
+      "textures": {
+        "layer0": "slavicmyths:item/perunite_throwing_knife"
+      }
+    },
+    "after_resolved": {
+      "textures": {
+        "body": "slavicmyths:item/weapons87_materials",
+        "particle": "slavicmyths:item/perunite_throwing_knife"
+      },
+      "elements": [
+        {
+          "from": [
+            7.3,
+            2,
+            7.3
+          ],
+          "to": [
+            8.7,
+            7.4,
+            8.7
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.15,
+            3,
+            7.15
+          ],
+          "to": [
+            8.85,
+            3.5,
+            8.85
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            6.8,
+            7,
+            7.45
+          ],
+          "to": [
+            9.2,
+            8,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.2,
+            8,
+            7.65
+          ],
+          "to": [
+            8.8,
+            12.7,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.6,
+            12.7,
+            7.75
+          ],
+          "to": [
+            8.4,
+            14.7,
+            8.25
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            }
+          }
+        }
+      ],
+      "display": {
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            -0.0,
+            1.19447293,
+            -1.70588413
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0.0,
+            1.19447293,
+            -1.70588413
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.0,
+            0.55431785,
+            -2.72479032
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.0,
+            0.55431785,
+            -2.72479032
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        }
+      },
+      "parent": "slavicmyths:item/perunite_throwing_knife_held"
+    }
+  },
+  {
+    "id": "perunite_sulitsa",
+    "before_root_sha256": "73cbc4c10afe8cc383b87f3b9c25924896667da33b09cd07197844106df9d118",
+    "before_resolved": {
+      "parent": "minecraft:item/handheld",
+      "gui_light": "front",
+      "display": {
+        "ground": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            2,
+            0
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "head": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "translation": [
+            0,
+            13,
+            7
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        },
+        "fixed": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        }
+      },
+      "textures": {
+        "layer0": "slavicmyths:item/perunite_sulitsa"
+      }
+    },
+    "after_resolved": {
+      "textures": {
+        "body": "slavicmyths:item/weapons87_materials",
+        "particle": "slavicmyths:item/perunite_sulitsa"
+      },
+      "elements": [
+        {
+          "from": [
+            7.65,
+            -2,
+            7.65
+          ],
+          "to": [
+            8.35,
+            12,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.45,
+            2,
+            7.45
+          ],
+          "to": [
+            8.55,
+            2.65,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.45,
+            4.5,
+            7.45
+          ],
+          "to": [
+            8.55,
+            5.15,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.35,
+            11,
+            7.35
+          ],
+          "to": [
+            8.65,
+            14,
+            8.65
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.05,
+            14,
+            7.65
+          ],
+          "to": [
+            8.95,
+            16.5,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.7,
+            16.5,
+            7.8
+          ],
+          "to": [
+            8.3,
+            18.5,
+            8.2
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                12,
+                4,
+                16,
+                8
+              ]
+            }
+          }
+        }
+      ],
+      "display": {
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            -0.0,
+            2.30362636,
+            -3.2899194
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0.0,
+            2.30362636,
+            -3.2899194
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.0,
+            1.99761301,
+            -3.3978099
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.0,
+            1.99761301,
+            -3.3978099
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        }
+      },
+      "parent": "slavicmyths:item/perunite_sulitsa_held"
+    }
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "before_root_sha256": "811ca18d5fb09a6295483a52b7f619d44d851e1d81026e4b0c9da9316e5edd6e",
+    "before_resolved": {
+      "parent": "minecraft:item/handheld",
+      "gui_light": "front",
+      "display": {
+        "ground": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            2,
+            0
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "head": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "translation": [
+            0,
+            13,
+            7
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        },
+        "fixed": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        }
+      },
+      "textures": {
+        "layer0": "slavicmyths:item/netherite_throwing_knife"
+      }
+    },
+    "after_resolved": {
+      "textures": {
+        "body": "slavicmyths:item/weapons87_materials",
+        "particle": "slavicmyths:item/netherite_throwing_knife"
+      },
+      "elements": [
+        {
+          "from": [
+            7.3,
+            2,
+            7.3
+          ],
+          "to": [
+            8.7,
+            7.4,
+            8.7
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.15,
+            3,
+            7.15
+          ],
+          "to": [
+            8.85,
+            3.5,
+            8.85
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            6.8,
+            7,
+            7.45
+          ],
+          "to": [
+            9.2,
+            8,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.2,
+            8,
+            7.65
+          ],
+          "to": [
+            8.8,
+            12.7,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.6,
+            12.7,
+            7.75
+          ],
+          "to": [
+            8.4,
+            14.7,
+            8.25
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            }
+          }
+        }
+      ],
+      "display": {
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            -0.0,
+            1.19447293,
+            -1.70588413
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0.0,
+            1.19447293,
+            -1.70588413
+          ],
+          "scale": [
+            0.595,
+            0.595,
+            0.595
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.0,
+            0.55431785,
+            -2.72479032
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.0,
+            0.55431785,
+            -2.72479032
+          ],
+          "scale": [
+            0.48999999999999994,
+            0.48999999999999994,
+            0.48999999999999994
+          ]
+        }
+      },
+      "parent": "slavicmyths:item/netherite_throwing_knife_held"
+    }
+  },
+  {
+    "id": "netherite_sulitsa",
+    "before_root_sha256": "e0bf1540528b37bf30053eaf662251dd0ee3caa72e2fe1faeb6dc51a731059a4",
+    "before_resolved": {
+      "parent": "minecraft:item/handheld",
+      "gui_light": "front",
+      "display": {
+        "ground": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            2,
+            0
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "head": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "translation": [
+            0,
+            13,
+            7
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        },
+        "fixed": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0,
+            4,
+            0
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.13,
+            3.2,
+            1.13
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        }
+      },
+      "textures": {
+        "layer0": "slavicmyths:item/netherite_sulitsa"
+      }
+    },
+    "after_resolved": {
+      "textures": {
+        "body": "slavicmyths:item/weapons87_materials",
+        "particle": "slavicmyths:item/netherite_sulitsa"
+      },
+      "elements": [
+        {
+          "from": [
+            7.65,
+            -2,
+            7.65
+          ],
+          "to": [
+            8.35,
+            12,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.45,
+            2,
+            7.45
+          ],
+          "to": [
+            8.55,
+            2.65,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.45,
+            4.5,
+            7.45
+          ],
+          "to": [
+            8.55,
+            5.15,
+            8.55
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.35,
+            11,
+            7.35
+          ],
+          "to": [
+            8.65,
+            14,
+            8.65
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                8,
+                0,
+                12,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.05,
+            14,
+            7.65
+          ],
+          "to": [
+            8.95,
+            16.5,
+            8.35
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            }
+          }
+        },
+        {
+          "from": [
+            7.7,
+            16.5,
+            7.8
+          ],
+          "to": [
+            8.3,
+            18.5,
+            8.2
+          ],
+          "faces": {
+            "north": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "south": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "east": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "west": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "up": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            },
+            "down": {
+              "texture": "#body",
+              "uv": [
+                0,
+                8,
+                4,
+                12
+              ]
+            }
+          }
+        }
+      ],
+      "display": {
+        "thirdperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            55
+          ],
+          "translation": [
+            -0.0,
+            2.30362636,
+            -3.2899194
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -55
+          ],
+          "translation": [
+            0.0,
+            2.30362636,
+            -3.2899194
+          ],
+          "scale": [
+            0.8925,
+            0.8925,
+            0.8925
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            -90,
+            25
+          ],
+          "translation": [
+            1.0,
+            1.99761301,
+            -3.3978099
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            90,
+            -25
+          ],
+          "translation": [
+            1.0,
+            1.99761301,
+            -3.3978099
+          ],
+          "scale": [
+            0.735,
+            0.735,
+            0.735
+          ]
+        }
+      },
+      "parent": "slavicmyths:item/netherite_sulitsa_held"
+    }
+  }
+]

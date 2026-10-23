@@ -1,0 +1,7 @@
+{
+  "single_production_PNG_change": true,
+  "catalog64_exact_order_and_counts": true,
+  "native64": true,
+  "exact_replay": true,
+  "legacy_sprite_hook": true
+}

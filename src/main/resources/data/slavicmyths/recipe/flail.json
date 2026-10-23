@@ -23,5 +23,10 @@
   "result": {
     "count": 1,
     "id": "slavicmyths:flail"
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:false"
+    }
+  ]
 }

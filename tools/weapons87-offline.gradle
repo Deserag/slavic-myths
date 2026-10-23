@@ -8,11 +8,18 @@ allprojects { p ->
    classpath = p.sourceSets.weapons87Offline.runtimeClasspath
    mainClass = 'org.slavicmyths.verify.Weapons87Native'
    if (p.hasProperty('weapons87After')) args '--after'
+   if (p.hasProperty('weapons87NativeOutput')) systemProperty 'weapons87NativeOutput', p.property('weapons87NativeOutput')
   }
   p.tasks.register('weapons87Player', JavaExec) {
    dependsOn p.tasks.named('weapons87OfflineClasses')
    classpath = p.sourceSets.weapons87Offline.runtimeClasspath
    mainClass = 'org.slavicmyths.verify.Weapons87Player'
+  }
+  p.tasks.register('weapons87Continuation', JavaExec) {
+   dependsOn p.tasks.named('weapons87OfflineClasses')
+   classpath = p.sourceSets.weapons87Offline.runtimeClasspath
+   mainClass = 'org.slavicmyths.verify.Weapons87Continuation'
+   if (p.hasProperty('weapons87ContinuationOutput')) systemProperty 'slavicmyths.continuationOutput', p.property('weapons87ContinuationOutput')
   }
   p.tasks.register('weapons87Grips', JavaExec) {
    dependsOn p.tasks.named('weapons87OfflineClasses')

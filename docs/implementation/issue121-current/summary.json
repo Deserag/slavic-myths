@@ -1,0 +1,155 @@
+{
+  "status": "PASS_GENERATOR_SOURCE_BUILD_ONLY",
+  "entrypoints": 7,
+  "successful_replays": 14,
+  "weapons": 68,
+  "components": 52,
+  "rows": [
+    {
+      "entrypoint": "weapon_feedback_assets.py",
+      "report": "after-weapon_feedback_assets.py.json",
+      "first_exit": 0,
+      "second_exit": 0,
+      "semantic_drift": 0,
+      "idempotence_drift": 0,
+      "source_mutated": false,
+      "formatting_only_paths": [
+        "assets/slavicmyths/models/item/berdysh.json",
+        "assets/slavicmyths/models/item/carved_staff.json",
+        "assets/slavicmyths/models/item/club.json",
+        "assets/slavicmyths/models/item/karachun_scythe_held.json",
+        "assets/slavicmyths/models/item/morozko_staff_held.json",
+        "assets/slavicmyths/models/item/nightingale_dagger.json",
+        "assets/slavicmyths/models/item/poloz_whip.json",
+        "assets/slavicmyths/models/item/spear.json",
+        "assets/slavicmyths/models/item/thunder_spear.json"
+      ]
+    },
+    {
+      "entrypoint": "weapon_visual_repair_assets.py",
+      "report": "after-weapon_visual_repair_assets.py.json",
+      "first_exit": 0,
+      "second_exit": 0,
+      "semantic_drift": 0,
+      "idempotence_drift": 0,
+      "source_mutated": false,
+      "formatting_only_paths": [
+        "assets/slavicmyths/models/item/berdysh.json",
+        "assets/slavicmyths/models/item/carved_staff.json",
+        "assets/slavicmyths/models/item/club.json",
+        "assets/slavicmyths/models/item/karachun_scythe_held.json",
+        "assets/slavicmyths/models/item/morozko_staff_held.json",
+        "assets/slavicmyths/models/item/nightingale_dagger.json",
+        "assets/slavicmyths/models/item/poloz_whip.json",
+        "assets/slavicmyths/models/item/spear.json",
+        "assets/slavicmyths/models/item/thunder_spear.json"
+      ]
+    },
+    {
+      "entrypoint": "weapons87_flails.py",
+      "report": "after-weapons87_flails.py.json",
+      "first_exit": 0,
+      "second_exit": 0,
+      "semantic_drift": 0,
+      "idempotence_drift": 0,
+      "source_mutated": false,
+      "formatting_only_paths": [
+        "assets/slavicmyths/models/item/berdysh.json",
+        "assets/slavicmyths/models/item/carved_staff.json",
+        "assets/slavicmyths/models/item/club.json",
+        "assets/slavicmyths/models/item/karachun_scythe_held.json",
+        "assets/slavicmyths/models/item/morozko_staff_held.json",
+        "assets/slavicmyths/models/item/nightingale_dagger.json",
+        "assets/slavicmyths/models/item/poloz_whip.json",
+        "assets/slavicmyths/models/item/spear.json",
+        "assets/slavicmyths/models/item/thunder_spear.json"
+      ]
+    },
+    {
+      "entrypoint": "weapon_resources_1321.py",
+      "report": "after-weapon_resources_1321.py.json",
+      "first_exit": 0,
+      "second_exit": 0,
+      "semantic_drift": 0,
+      "idempotence_drift": 0,
+      "source_mutated": false,
+      "formatting_only_paths": [
+        "assets/slavicmyths/models/item/berdysh.json",
+        "assets/slavicmyths/models/item/carved_staff.json",
+        "assets/slavicmyths/models/item/club.json",
+        "assets/slavicmyths/models/item/karachun_scythe_held.json",
+        "assets/slavicmyths/models/item/morozko_staff_held.json",
+        "assets/slavicmyths/models/item/nightingale_dagger.json",
+        "assets/slavicmyths/models/item/poloz_whip.json",
+        "assets/slavicmyths/models/item/spear.json",
+        "assets/slavicmyths/models/item/thunder_spear.json"
+      ]
+    },
+    {
+      "entrypoint": "rare_weapon_resources_1322.py",
+      "report": "after-rare_weapon_resources_1322.py.json",
+      "first_exit": 0,
+      "second_exit": 0,
+      "semantic_drift": 0,
+      "idempotence_drift": 0,
+      "source_mutated": false,
+      "formatting_only_paths": [
+        "assets/slavicmyths/models/item/berdysh.json",
+        "assets/slavicmyths/models/item/carved_staff.json",
+        "assets/slavicmyths/models/item/club.json",
+        "assets/slavicmyths/models/item/karachun_scythe_held.json",
+        "assets/slavicmyths/models/item/morozko_staff_held.json",
+        "assets/slavicmyths/models/item/nightingale_dagger.json",
+        "assets/slavicmyths/models/item/poloz_whip.json",
+        "assets/slavicmyths/models/item/spear.json",
+        "assets/slavicmyths/models/item/thunder_spear.json"
+      ]
+    },
+    {
+      "entrypoint": "poloz_full_assets.py",
+      "report": "after-poloz_full_assets.py.json",
+      "first_exit": 0,
+      "second_exit": 0,
+      "semantic_drift": 0,
+      "idempotence_drift": 0,
+      "source_mutated": false,
+      "formatting_only_paths": [
+        "assets/slavicmyths/models/item/berdysh.json",
+        "assets/slavicmyths/models/item/carved_staff.json",
+        "assets/slavicmyths/models/item/club.json",
+        "assets/slavicmyths/models/item/karachun_scythe_held.json",
+        "assets/slavicmyths/models/item/morozko_staff_held.json",
+        "assets/slavicmyths/models/item/nightingale_dagger.json",
+        "assets/slavicmyths/models/item/poloz_whip.json",
+        "assets/slavicmyths/models/item/spear.json",
+        "assets/slavicmyths/models/item/thunder_spear.json"
+      ]
+    },
+    {
+      "entrypoint": "weapon_patch_assets.py",
+      "report": "after-weapon_patch_assets.py.json",
+      "first_exit": 0,
+      "second_exit": 0,
+      "semantic_drift": 0,
+      "idempotence_drift": 0,
+      "source_mutated": false,
+      "formatting_only_paths": [
+        "assets/slavicmyths/models/item/berdysh.json",
+        "assets/slavicmyths/models/item/carved_staff.json",
+        "assets/slavicmyths/models/item/club.json",
+        "assets/slavicmyths/models/item/karachun_scythe_held.json",
+        "assets/slavicmyths/models/item/morozko_staff_held.json",
+        "assets/slavicmyths/models/item/nightingale_dagger.json",
+        "assets/slavicmyths/models/item/poloz_whip.json",
+        "assets/slavicmyths/models/item/spear.json",
+        "assets/slavicmyths/models/item/thunder_spear.json"
+      ]
+    }
+  ],
+  "jar_sha256": "19202904f71fa92917c314d5743637b132478ee1be1d8f1a8f0d1489b606b0d6",
+  "runtime_launches": 0,
+  "owner_final": "PENDING",
+  "production_changed": false,
+  "source_commit": "1192e229c4aa9166b53661f71f5ca15299f3537e",
+  "source_state": "DIRTY; no commit/push"
+}

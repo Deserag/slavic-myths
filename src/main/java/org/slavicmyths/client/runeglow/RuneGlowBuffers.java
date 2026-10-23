@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.LivingEntity;
 import org.slavicmyths.rpg.Runes;
 import org.joml.Matrix4f;
 import org.slavicmyths.client.runeglow.mixin.RuneBufferAccess;
@@ -20,15 +21,25 @@ public final class RuneGlowBuffers implements MultiBufferSource {
     private final RuneGlowStyle style;
     private final boolean firstMaterialOnly;
     private final PoseStack poses;
+    private final float wave;
     private boolean emitted;
-    private RuneGlowBuffers(MultiBufferSource base, RuneGlowStyle style, boolean armor, PoseStack poses) {
-        this.base=base; this.style=style; this.firstMaterialOnly=armor; this.poses=poses;
+    private RuneGlowBuffers(MultiBufferSource base, RuneGlowStyle style, boolean armor, PoseStack poses, float wave) {
+        this.base=base; this.style=style; this.firstMaterialOnly=armor; this.poses=poses; this.wave=wave;
     }
     public static MultiBufferSource item(ItemStack stack, MultiBufferSource source, PoseStack poses) { return wrap(stack,source,false,poses); }
     public static MultiBufferSource armor(ItemStack stack, MultiBufferSource source, PoseStack poses) { return wrap(stack,source,true,poses); }
     // Textile meshes use entityCutoutNoCull, without the vanilla armor depth offset.
     public static MultiBufferSource clothing(ItemStack stack, MultiBufferSource source, PoseStack poses) { return wrap(stack,source,false,poses); }
+    public static MultiBufferSource armor(ItemStack stack, MultiBufferSource source, PoseStack poses, LivingEntity entity, float partial) {
+        return wrap(stack,source,true,poses,ArmorRuneWave.phase(entity,partial));
+    }
+    public static MultiBufferSource clothing(ItemStack stack, MultiBufferSource source, PoseStack poses, LivingEntity entity, float partial) {
+        return wrap(stack,source,false,poses,ArmorRuneWave.phase(entity,partial));
+    }
     private static MultiBufferSource wrap(ItemStack stack, MultiBufferSource source, boolean armor, PoseStack poses) {
+        return wrap(stack,source,armor,poses,-1);
+    }
+    private static MultiBufferSource wrap(ItemStack stack, MultiBufferSource source, boolean armor, PoseStack poses, float wave) {
         // Nested item renderers must use the child stack, not inherit the parent's rune count.
         while (source instanceof RuneGlowBuffers prior) source=prior.base;
         if (stack.isEmpty()) return source;
@@ -40,7 +51,7 @@ public final class RuneGlowBuffers implements MultiBufferSource {
                 || !access.slavicmyths$runeFixedBuffers().containsKey(RuneGlowRenderTypes.MAIN)
                 || !access.slavicmyths$runeFixedBuffers().containsKey(RuneGlowRenderTypes.TRANSLUCENT_ITEM)
                 || !access.slavicmyths$runeFixedBuffers().containsKey(RuneGlowRenderTypes.ARMOR)) return source;
-        return new RuneGlowBuffers(source,style,armor,poses);
+        return new RuneGlowBuffers(source,style,armor,poses,wave);
     }
     @Override public VertexConsumer getBuffer(RenderType type) {
         VertexConsumer normal=base.getBuffer(type);
@@ -54,6 +65,6 @@ public final class RuneGlowBuffers implements MultiBufferSource {
         emitted=true;
         RenderType glow=firstMaterialOnly ? RuneGlowRenderTypes.ARMOR : Minecraft.useShaderTransparency() && type==Sheets.translucentItemSheet()
                 ? RuneGlowRenderTypes.TRANSLUCENT_ITEM : RuneGlowRenderTypes.MAIN;
-        return VertexMultiConsumer.create(new RuneGlowConsumer(base.getBuffer(glow),style,inverse), normal);
+        return VertexMultiConsumer.create(new RuneGlowConsumer(base.getBuffer(glow),style,inverse,wave), normal);
     }
 }

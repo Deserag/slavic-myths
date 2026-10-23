@@ -1,0 +1,104 @@
+{
+  "issues": [
+    98,
+    99
+  ],
+  "assets": [
+    {
+      "id": "birch_bark",
+      "model": "src/main/resources/assets/slavicmyths/models/item/birch_bark.json",
+      "texture": "src/main/resources/assets/slavicmyths/textures/item/birch_bark.png",
+      "before_sha256": "c1256b56585c4f32471f9ca0f43346e6b4722a37331bca127b09c78bcc04b0fc",
+      "after_sha256": "0871352bb5bbc32c7713bec42ef15aaa7c6ce03e87ec27f204f928f0369d107c"
+    },
+    {
+      "id": "animal_fat",
+      "model": "src/main/resources/assets/slavicmyths/models/item/animal_fat.json",
+      "texture": "src/main/resources/assets/slavicmyths/textures/item/animal_fat.png",
+      "before_sha256": "a5f1aafb530e0c5e0ec25b92bf9c400ba8591519f0ffda6697344f7156cca757",
+      "after_sha256": "64b59ddb2719cfbcf97cb1d3fee47724844ecff8156094470c9026d672548374"
+    },
+    {
+      "id": "goat_hide",
+      "model": "src/main/resources/assets/slavicmyths/models/item/goat_hide.json",
+      "texture": "src/main/resources/assets/slavicmyths/textures/item/goat_hide.png",
+      "before_sha256": "76ff7f00468c6eafccd221f1d2387871ed57fef203e97a27283ec13cd8eb1e1a",
+      "after_sha256": "c4ae21106840d20609d3b44ee952839c5aad0722c2356e17596f56f0a845aeb5"
+    },
+    {
+      "id": "large_animal_bone",
+      "model": "src/main/resources/assets/slavicmyths/models/item/large_animal_bone.json",
+      "texture": "src/main/resources/assets/slavicmyths/textures/item/large_animal_bone.png",
+      "before_sha256": "ebd177887cd9002f66ddab4206ae0b73500e11c7ec419c9f807c94e1492357c8",
+      "after_sha256": "0472900bb7d6f07c39091f2e0a7de5ae97c658321b5a2188871dc1ba0d6174ed"
+    },
+    {
+      "id": "stone_spearhead",
+      "model": "src/main/resources/assets/slavicmyths/models/item/stone_spearhead.json",
+      "texture": "src/main/resources/assets/slavicmyths/textures/item/stone_spearhead.png",
+      "before_sha256": "5f1b4605902eaa42707be0c29fc580c5de4e551ad8d82ca272f4015715d43071",
+      "after_sha256": "0d25da66a8ac8b5107158a4654fe3ad677ff4e79402752da69cede6c4d4427c4"
+    },
+    {
+      "id": "stone_light_spearhead",
+      "model": "src/main/resources/assets/slavicmyths/models/item/stone_light_spearhead.json",
+      "texture": "src/main/resources/assets/slavicmyths/textures/item/stone_light_spearhead.png",
+      "before_sha256": "ac9332d8a49cb79e184f13477ade9043c9865abd1074462aec73ec3a2d749d1d",
+      "after_sha256": "4900c09a12ffbfee4ae6a67c039d2fe79d51096e88d4b95b622364cdb5de3f46"
+    },
+    {
+      "id": "gold_spearhead",
+      "model": "src/main/resources/assets/slavicmyths/models/item/gold_spearhead.json",
+      "texture": "src/main/resources/assets/slavicmyths/textures/item/gold_spearhead.png",
+      "before_sha256": "00c6ca9ce1235b82f2a41d20cc8ee87c44d7b9f5f5a7483c96fd9c88cc10029d",
+      "after_sha256": "636a59a2fb9b16ab74ab54918eb1c34586f7d30b36409d9d6690d6de4bbe0f64"
+    },
+    {
+      "id": "gold_light_spearhead",
+      "model": "src/main/resources/assets/slavicmyths/models/item/gold_light_spearhead.json",
+      "texture": "src/main/resources/assets/slavicmyths/textures/item/gold_light_spearhead.png",
+      "before_sha256": "241c6c54d1258412a7ca3e5b80b2204f387472bc180dbcac4f8e90255d3b6452",
+      "after_sha256": "a0efcd58dda659d4d5b4d4c58496e1cec7c8c668ba1fd26f4311dc0fd02ebd90"
+    },
+    {
+      "id": "iron_spearhead",
+      "model": "src/main/resources/assets/slavicmyths/models/item/iron_spearhead.json",
+      "texture": "src/main/resources/assets/slavicmyths/textures/item/iron_spearhead.png",
+      "before_sha256": "f7a61cbd86d55c4517f6871b589a6e73fe3d76559902b594252f3be3653027e2",
+      "after_sha256": "54cfb23565acd026c3d0dfc65c444e1d62be54334e403a4f280cd19ab31c3ce5"
+    },
+    {
+      "id": "iron_light_spearhead",
+      "model": "src/main/resources/assets/slavicmyths/models/item/iron_light_spearhead.json",
+      "texture": "src/main/resources/assets/slavicmyths/textures/item/iron_light_spearhead.png",
+      "before_sha256": "3d3244c82656e55b07ed1f14af3a2fa9cd9ba612b972cdbc3d5210990433e198",
+      "after_sha256": "03fb3023074cf663f8fa82bb814d47f7abfcb38bcd2c4da722bd6c1d02854266"
+    },
+    {
+      "id": "silver_spearhead",
+      "model": "src/main/resources/assets/slavicmyths/models/item/silver_spearhead.json",
+      "texture": "src/main/resources/assets/slavicmyths/textures/item/silver_spearhead.png",
+      "before_sha256": "4ab79a3b95c6a930b3e7bdb9b4597b08d858d35e82cb509ec99e655606411639",
+      "after_sha256": "60164e4e5072d21951ae04d74ca5331ce312d4d3bb89726d749bd537ed49b32c"
+    },
+    {
+      "id": "silver_light_spearhead",
+      "model": "src/main/resources/assets/slavicmyths/models/item/silver_light_spearhead.json",
+      "texture": "src/main/resources/assets/slavicmyths/textures/item/silver_light_spearhead.png",
+      "before_sha256": "6994d4c105d552425982540b5c077a57b137c08ce6c17e8b17862ecc89832d10",
+      "after_sha256": "c573c7bf738ff62ae62bbf44cb8f74c1056b0771bdbbb62c101c3b5eb57618a1"
+    }
+  ],
+  "source_scope": "PRESERVED_12_SPRITES: original package scope receipt retained; later weapon scope checked independently",
+  "generators": "PASS",
+  "jar": {
+    "path": "build/libs/slavicmyths-1.9.7.58.jar",
+    "sha256": "bf403773997cbfb652541713c7026277f76f8e9d8b2db72352326166ad530289",
+    "resources": 7631
+  },
+  "runtime_launches": 0,
+  "owner_acceptance": "PENDING",
+  "project_status": "NOT_CHANGED_BY_THIS_CHECK",
+  "version_unchanged": false,
+  "polymc": "NOT_UPDATED"
+}

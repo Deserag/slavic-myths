@@ -1,0 +1,102 @@
+[
+  {
+    "id": "flail",
+    "actual_data_references": [
+      "src/main/resources/data/slavicmyths/recipe/flail.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_flail_assembly.json",
+      "src/main/resources/data/slavicmyths/tales/items_flailitem_1.json",
+      "src/main/resources/data/slavicmyths/tales/weapons.json",
+      "src/main/resources/data/slavicmyths/tags/item/rune_heavy.json",
+      "src/main/resources/data/slavicmyths/tags/item/rune_melee_weapons.json"
+    ]
+  },
+  {
+    "id": "stone_flail",
+    "actual_data_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_stone_flail_assembly.json",
+      "src/main/resources/data/slavicmyths/tales/items_flailitem_1.json",
+      "src/main/resources/data/slavicmyths/tales/weapons.json",
+      "src/main/resources/data/slavicmyths/tags/item/rune_melee_weapons.json"
+    ]
+  },
+  {
+    "id": "gold_flail",
+    "actual_data_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_gold_flail_assembly.json",
+      "src/main/resources/data/slavicmyths/tales/items_flailitem_1.json",
+      "src/main/resources/data/slavicmyths/tales/weapons.json",
+      "src/main/resources/data/slavicmyths/tags/item/rune_melee_weapons.json"
+    ]
+  },
+  {
+    "id": "silver_flail",
+    "actual_data_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_silver_flail_assembly.json",
+      "src/main/resources/data/slavicmyths/tales/items_flailitem_1.json",
+      "src/main/resources/data/slavicmyths/tales/weapons.json",
+      "src/main/resources/data/slavicmyths/tags/item/rune_melee_weapons.json"
+    ]
+  },
+  {
+    "id": "diamond_flail",
+    "actual_data_references": [
+      "src/main/resources/data/slavicmyths/recipe/rare_ataman_flail.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_diamond_flail_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_netherite_flail_upgrade.json",
+      "src/main/resources/data/slavicmyths/tales/items_flailitem_1.json",
+      "src/main/resources/data/slavicmyths/tales/weapons.json",
+      "src/main/resources/data/slavicmyths/tags/item/rune_melee_weapons.json"
+    ]
+  },
+  {
+    "id": "perunite_flail",
+    "actual_data_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_perunite_flail_assembly.json",
+      "src/main/resources/data/slavicmyths/tales/items_flailitem_1.json",
+      "src/main/resources/data/slavicmyths/tales/weapons.json",
+      "src/main/resources/data/slavicmyths/tags/item/rune_melee_weapons.json"
+    ]
+  },
+  {
+    "id": "netherite_flail",
+    "actual_data_references": [
+      "src/main/resources/data/slavicmyths/recipe/weapon_netherite_flail_assembly.json",
+      "src/main/resources/data/slavicmyths/recipe/weapon_netherite_flail_upgrade.json",
+      "src/main/resources/data/slavicmyths/tales/fishing.json",
+      "src/main/resources/data/slavicmyths/tales/items_flailitem_1.json",
+      "src/main/resources/data/slavicmyths/tales/weapons.json",
+      "src/main/resources/data/slavicmyths/tags/item/rune_melee_weapons.json"
+    ]
+  },
+  {
+    "id": "ataman_flail",
+    "actual_data_references": [
+      "src/main/resources/data/slavicmyths/recipe/rare_ataman_flail.json",
+      "src/main/resources/data/slavicmyths/tales/items_maceitem_1.json",
+      "src/main/resources/data/slavicmyths/tales/weapons.json",
+      "src/main/resources/data/slavicmyths/tags/item/rune_capacity_3.json",
+      "src/main/resources/data/slavicmyths/tags/item/rune_heavy.json",
+      "src/main/resources/data/slavicmyths/tags/item/rune_melee_weapons.json"
+    ]
+  },
+  {
+    "id": "poloz_whip",
+    "actual_data_references": [
+      "src/main/resources/data/slavicmyths/tales/poloz_rewards.json"
+    ]
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "actual_data_references": [
+      "src/main/resources/data/slavicmyths/recipe/trophy_kalin_sabre.json"
+    ]
+  },
+  {
+    "id": "ohotnichiy_rog",
+    "actual_data_references": [
+      "src/main/resources/data/slavicmyths/advancement/hunt_begins.json",
+      "src/main/resources/data/slavicmyths/recipe/ohotnichiy_rog.json",
+      "src/main/resources/data/slavicmyths/tales/items_huntitems_1.json"
+    ]
+  }
+]

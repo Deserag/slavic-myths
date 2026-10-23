@@ -1,0 +1,10 @@
+{
+  "status": "PASS_STANDALONE_SHADER_COMPILE_LINK",
+  "minecraft_launches": 0,
+  "visible_windows": 0,
+  "opengl_version": "4.6.0 Compatibility Profile Context 26.10.1.261008",
+  "vsh_sha256": "62918534508164e3a8259cf9150b615f68f3c0d86e18191a7522ea7bd0d3254e",
+  "fsh_sha256": "1f8a2d7fb5b7cf6361e6d947a3c00bab087bd4a15dc1bed95c0c6e63e08d1a85",
+  "minecraft_shader_reload": "NOT_RUN",
+  "minecraft_visual_acceptance": "NOT_RUN"
+}

@@ -1,73 +1,29 @@
 {
-  "parent": "slavicmyths:item/retainer_shield_body",
-  "display": {
-    "firstperson_righthand": {
-      "rotation": [
-        0,
-        0,
-        -5
-      ],
-      "translation": [
-        0,
-        3,
-        0
-      ],
-      "scale": [
-        0.9,
-        0.9,
-        0.9
-      ]
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/retainer_shield_blocking_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/retainer_shield"
+      }
     },
-    "thirdperson_righthand": {
-      "rotation": [
-        45,
-        -25,
-        0
-      ],
-      "translation": [
-        1,
-        4,
-        2
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+    "ground": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/retainer_shield"
+      }
     },
-    "firstperson_lefthand": {
-      "rotation": [
-        0,
-        0,
-        -5
-      ],
-      "translation": [
-        0,
-        3,
-        0
-      ],
-      "scale": [
-        0.9,
-        0.9,
-        0.9
-      ]
-    },
-    "thirdperson_lefthand": {
-      "rotation": [
-        45,
-        -25,
-        0
-      ],
-      "translation": [
-        1,
-        4,
-        2
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+    "fixed": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/retainer_shield"
+      }
     }
+  },
+  "textures": {
+    "particle": "slavicmyths:item/retainer_shield"
   }
 }

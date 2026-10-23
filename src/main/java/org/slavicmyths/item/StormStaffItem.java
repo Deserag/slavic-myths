@@ -59,6 +59,7 @@ public final class StormStaffItem extends Item {
             if(bolt!=null){bolt.setVisualOnly(true);bolt.setPos(impact.x,impact.y,impact.z);server.addFreshEntity(bolt);}
             world.playSound(null, player.blockPosition(), SoundEvents.TRIDENT_THUNDER.value(), SoundSource.PLAYERS, 1F, .9F);
             player.getCooldowns().addCooldown(this, cooldownTicks((org.slavicmyths.rpg.Runes.has(stack,"midday") && org.slavicmyths.rpg.RuneEffects.day(player)) || (org.slavicmyths.rpg.Runes.has(stack,"shadow") && org.slavicmyths.rpg.RuneEffects.dark(player))));
+            player.swing(hand,true);
             if (!player.getAbilities().instabuild) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
         }
         return InteractionResultHolder.sidedSuccess(stack, world.isClientSide);

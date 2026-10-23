@@ -70,12 +70,17 @@ public final class ThirdPersonWeaponMotion {
                 }
             };
         }
+        @Override public java.util.List<BakedModel> getRenderPasses(ItemStack stack,boolean fabulous){return java.util.List.of(this);}
         @Override public BakedModel applyTransform(ItemDisplayContext context,PoseStack pose,boolean left) {
-            originalModel.applyTransform(context,pose,left);
-            if(context!=ItemDisplayContext.THIRD_PERSON_LEFT_HAND&&context!=ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)return this;
+            BakedModel selected=originalModel.applyTransform(context,pose,left);
+            if(context!=ItemDisplayContext.THIRD_PERSON_LEFT_HAND&&context!=ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)return selected;
             if(owner==null||stack==null||owner.isRemoved()||owner.level()==null)return this;
             InteractionHand hand=(owner.getMainArm()==HumanoidArm.LEFT)==left?InteractionHand.MAIN_HAND:InteractionHand.OFF_HAND;
             if(!ItemStack.isSameItemSameComponents(owner.getItemInHand(hand),stack))return this;
+            // These player archetypes now move the actual hand and attached item together.
+            // Applying the old item-only kick too would slide the grip away from the palm.
+            if(owner instanceof net.minecraft.client.player.AbstractClientPlayer
+                    &&PlayerWeaponPose.coverage().containsKey(BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath()))return this;
             float partial=Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(false);
             float swing=owner.swinging&&owner.swingingArm==hand?owner.getAttackAnim(partial):0;
             float walking=Mth.clamp(owner.walkAnimation.speed(partial),0,1);

@@ -1,0 +1,16 @@
+{
+  "src/main/java/org/slavicmyths/client/SkimMesh.java": "203bbcb7839910a88653901ccaebf8f33c3e2c161fb8242881ee704f4ef032ad",
+  "src/main/java/org/slavicmyths/client/WorldBossModel.java": "5cfbb54befe6d4f59839bb78323a8063b52291e6fd485c0aa6aeef6ee6b4ba33",
+  "src/main/java/org/slavicmyths/client/WorldBossGeometry.java": "519d4258f603a764cb22e84493c3610d0a499b7d1e7ff8d044a84dd05d4479e5",
+  "src/main/java/org/slavicmyths/client/BossReworkGeometry.java": "c83f1a073d66c7a5e001c28ad0c50853e6e147f1b85bb04ceb49126c7da6d43e",
+  "src/main/java/org/slavicmyths/client/CursedVolkolakModel.java": "ec83537075f93a1934704cd77079170e00520686fcf8bff04149c6a9f239702d",
+  "src/main/java/org/slavicmyths/client/UndergroundClient.java": "d739e21fcf469e31275f3e307354708152b58a3b1cad2ee07b9478505c5effa3",
+  "src/main/resources/assets/slavicmyths/textures/entity/skim_beast.png": "5d68d9dee5c54b0e118fd8efbd9bb0c6757050202a3c05d074121114ed8bd717",
+  "src/main/resources/assets/slavicmyths/textures/entity/tugarin_phase2.png": "d1b9fd38228fbd7a32953ff211fac4cf71c957f8d1fe186a0ecc55df4ddb6612",
+  "src/main/resources/assets/slavicmyths/textures/entity/cursed_volkolak.png": "e6a114876bb33d669d79d5eb3197650df9edefe7edd9fe601082fba79d74ae92",
+  "src/main/resources/assets/slavicmyths/textures/entity/likho_one_eyed.png": "a94e0848db356a85b14b7928be8d736ddf8ef6b067e5cf7191cb7c3fbc54cb3b",
+  "src/main/resources/assets/slavicmyths/textures/entity/mor/likho.png": "d8b68268463241ccf0157b4cbefef2cdd369613c3374586f7f304603544bf0ac",
+  "src/main/resources/assets/slavicmyths/textures/entity/underground/large_podzemnik.png": "8a33ec03e82b6c515e23cbe021b414b9be883ef059d730d0c1da441f8050df72",
+  "src/main/java/org/slavicmyths/client/PolozTrophyRenderer.java": "61c4cf9b5847bb3bd9f0569cebe79b9794811ee52e31091746239e5516842d9e",
+  "src/main/java/org/slavicmyths/poloz/PolozTrophy.java": "a1c35da11ed4889a53677f2522d50f9fde2f7d61b80810fd08431fec0013cb4d"
+}

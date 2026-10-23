@@ -41,7 +41,8 @@ def write(id,data):
 def check():
     for item,parts in ADDITIONS.items():
         for suffix in STATES:
-            data=read(item+suffix)
+            from issue217_models import original_crossbow
+            data=original_crossbow(item+suffix,read(item+suffix))
             before=(8 if item=='serpent_crossbow' else 65)+(1 if item=='serpent_crossbow' and suffix in ('_arrow','_firework') else 0)+(3 if item=='three_breath_crossbow' and suffix in ('_arrow','_firework') else 0)
             assert len(data['elements'])==before+len(parts),(item,suffix)
             assert data['elements'][-len(parts):]==parts,(item,suffix)
@@ -55,7 +56,8 @@ def check():
 def apply():
     for item,parts in ADDITIONS.items():
         for suffix in STATES:
-            key=item+suffix;data=read(key);arr=data['elements']
+            from issue217_models import original_crossbow
+            key=item+suffix;data=original_crossbow(key,read(key));arr=data['elements']
             before=(8 if item=='serpent_crossbow' else 65)+(1 if item=='serpent_crossbow' and suffix in ('_arrow','_firework') else 0)+(3 if item=='three_breath_crossbow' and suffix in ('_arrow','_firework') else 0)
             if len(arr)==before:
                 arr.extend(parts);write(key,data)

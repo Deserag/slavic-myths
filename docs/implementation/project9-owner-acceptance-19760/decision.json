@@ -1,0 +1,15 @@
+{
+  "user_decision": "все окей статусы ставь готово по тому что ты сделал и присутпай к новым задачам на доработку",
+  "date": "2026-10-23",
+  "scope": [
+    217,
+    219,
+    220,
+    225,
+    226
+  ],
+  "project_status": "Готово",
+  "verified_snapshot": "work/project-after-acceptance.json",
+  "issues_closed": false,
+  "owner_accepted_label_added": false
+}

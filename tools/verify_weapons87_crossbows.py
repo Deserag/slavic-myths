@@ -4,6 +4,7 @@ import copy, json, math, zipfile
 from weapons87_crossbow_grips import proposal, IDS, SUFFIXES, GRIP
 from weapons87_p42_models import ADDITIONS
 from weapons87_grips import rotate
+from issue217_models import original_crossbow
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "src/main/resources/assets/slavicmyths"
@@ -32,6 +33,7 @@ def run():
                 source = original(prod_path, z)
                 final = json.loads((ASSETS / path).read_text(encoding="utf-8"))
                 assert final == proposed[path], path + " generator reproducibility"
+                final=original_crossbow(name+suffix,final)
                 # Frozen pre-P42 cuboids must be an exact prefix; only the approved P42 geometry may follow.
                 assert final["elements"] == source["elements"] + ADDITIONS[name], path + " unauthorized geometry drift"
                 assert source["textures"] == final["textures"]

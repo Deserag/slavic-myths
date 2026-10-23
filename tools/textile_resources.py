@@ -4,7 +4,10 @@ from PIL import Image,ImageDraw
 import json,random,math
 ROOT=Path(__file__).resolve().parents[1];R=ROOT/'src/main/resources';A=R/'assets/slavicmyths';D=R/'data/slavicmyths'
 def js(p,obj):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-def save(p,im):p.parent.mkdir(parents=True,exist_ok=True);im.save(p)
+def save(p,im):
+    from materials81_n98_t99 import write_owned
+    if write_owned(p):return
+    p.parent.mkdir(parents=True,exist_ok=True);im.save(p)
 def ornament(d,x,y,width,color=(143,41,36,255),pale=(233,215,179,255)):
     d.line((x,y,x+width-1,y),fill=color)
     for px in range(x,x+width,4):d.polygon([(px,y+2),(px+1,y+1),(px+2,y+2),(px+1,y+3)],fill=color);d.point((px+1,y+2),fill=pale)

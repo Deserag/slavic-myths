@@ -1,0 +1,12 @@
+// Isolated opt-in existing weapon GameTests. No player saves or production test classes.
+gradle.projectsEvaluated {
+ def p=gradle.rootProject
+ if(p.hasProperty('weaponRuntimeCheck')) {
+  p.neoForge.runs.weaponChecks.gameDirectory=p.file('work/issue217/server-first-run')
+  p.neoForge.runs.weaponChecks.systemProperty('slavicmyths.primary191.output',p.file('docs/implementation/weapons87/final191/primary-native.json').absolutePath)
+ }
+ if(p.hasProperty('issue217Visual')) {
+  p.neoForge.runs.client.gameDirectory=p.file('work/issue217/client-first-run')
+  p.neoForge.runs.client.systemProperty('slavicmyths.visualOutput',p.file('docs/implementation/weapons87/issue217/client-regression-first').absolutePath)
+ }
+}

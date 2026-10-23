@@ -18,6 +18,6 @@ public abstract class ArmorRuneMixin {
     private MultiBufferSource slavicmyths$runeArmor(MultiBufferSource source, PoseStack pose,
             MultiBufferSource original, LivingEntity entity, EquipmentSlot slot, int light,
             HumanoidModel<?> model, float walk, float amount, float partial, float age, float yaw, float pitch) {
-        return RuneGlowBuffers.armor(entity.getItemBySlot(slot),source,pose);
+        return RuneGlowBuffers.armor(entity.getItemBySlot(slot),source,pose,entity,partial);
     }
 }

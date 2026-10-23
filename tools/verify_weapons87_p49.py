@@ -32,7 +32,11 @@ for base in (10,13,16,19,22):
     assert spear["elements"][base]["from"][0]==spear["elements"][base+1]["from"][0]
     assert "west" in spear["elements"][base+1]["faces"]
 
-horn=model("beast_challenge_horn")
+horn_root=model("beast_challenge_horn")
+assert horn_root['loader']=='neoforge:separate_transforms'
+assert horn_root['base']['parent']=='slavicmyths:item/beast_challenge_horn_held'
+assert horn_root['perspectives']['gui']['textures']['layer0']=='slavicmyths:item/beast_challenge_horn'
+horn=model("beast_challenge_horn_held")
 assert horn["parent"]=="minecraft:block/block"
 assert len(horn["elements"])==10
 assert all(len(e.get("faces",{}))==6 for e in horn["elements"])
@@ -52,7 +56,9 @@ assert "FinistMarks.target(p)!=target" not in finist
 assert "!p.hasLineOfSight(target)" not in finist
 assert "GreyPackRing.enemy(p,target)" in finist
 assert "w.clip(new net.minecraft.world.level.ClipContext" in finist
-assert "Math.toRadians(6)" in finist
+assert "return steer(velocity,desired,6)" in finist # legacy pure helper retained
+assert "guideVelocity(getDeltaMovement()" in finist # #223 runtime uses adaptive guidance
+assert "Math.max(1,desired.length()))),20,45)" in finist
 assert "FinistOriginalGuide" in finist
 
 rare=source("combat/RareCombat")
@@ -79,7 +85,8 @@ assert "h.pose(time,gazeX,gazeY)" in head
 assert "glow.x=glowBaseX+" in head and "glow.y=glowBaseY+" in head
 assert "TrophyHeadFxRules.lidOffset(time)" in head
 assert "for(int i=0;i<5;i++)world.addParticle" in head
-assert "for(int i=0;i<24;i++)w.addParticle" in block
+assert "server.sendParticles(particle" in block and "24,.325,height*.35,.325,.06" in block
+assert "if(s.getValue(HALF)==DoubleBlockHalf.LOWER)breakBurst(w,p);" in block
 assert "w.destroyBlock(at,true)" in block and "w.removeBlock(at,false)" in block
 
 if "--jar" in sys.argv:

@@ -1,0 +1,20 @@
+{
+  "owner_decision": "Нынешнее сияние устраивает, принимаю #104",
+  "installed_version": "1.9.7.60",
+  "installed_sha256": "19202904f71fa92917c314d5743637b132478ee1be1d8f1a8f0d1489b606b0d6",
+  "files": {
+    "src/main/java/org/slavicmyths/client/runeglow/RuneGlowBuffers.java": "79e9123142704b5231b99ad5a9dcee5817a91946f6b5e151c3c6c4d5c90997de",
+    "src/main/java/org/slavicmyths/client/runeglow/RuneGlowConsumer.java": "84a51d306dbd9dcd012a881f52fc2b46c5eb4f3bfabbedc6afe8c1eb3da71171",
+    "src/main/java/org/slavicmyths/client/runeglow/RuneGlowRenderTypes.java": "4ee9cd2236e088f699a544b3aa8cfdcad9579081bd97e715e712dafae0efabd3",
+    "src/main/java/org/slavicmyths/client/runeglow/RuneGlowStyle.java": "bc9cc6c1f1c1660c276302371e6924ceb49e752d0d15e4f607593cb6cd92b321",
+    "src/main/java/org/slavicmyths/client/runeglow/mixin/ArmorRuneMixin.java": "925b15b2dec14fd87435c2d065145597accbf0ac9efbf80a7706fe2cc3e308a6",
+    "src/main/java/org/slavicmyths/client/runeglow/mixin/ItemRendererRuneMixin.java": "1b9d0e34d274d39dfe32fecd40bf9eca4d52c27363c734abc14615320e8788fb",
+    "src/main/java/org/slavicmyths/client/runeglow/mixin/RuneBufferAccess.java": "22a0f8af69fe2e8f4e0de77322251627bc9559c7f9a3ab982d6a5040def9854a",
+    "src/main/resources/assets/slavicmyths/shaders/core/rune_glint.fsh": "3460c19c47aaa30dfa065f6719ec555c6fe430a1245eb9b8c35c0b0362ae6f75",
+    "src/main/resources/assets/slavicmyths/shaders/core/rune_glint.json": "881a9f6fc2881b3d241b1c7174399828b9582f506c66bdc15d2d3e344a59a4f7",
+    "src/main/resources/assets/slavicmyths/shaders/core/rune_glint.vsh": "62918534508164e3a8259cf9150b615f68f3c0d86e18191a7522ea7bd0d3254e",
+    "src/main/resources/assets/slavicmyths/textures/misc/rune_glint.png": "63de27dbbce019aa4b8bd9f6cb37fba30237df6d0b9cf7a0110be57e8eef58db",
+    "src/main/java/org/slavicmyths/client/TextileClothingLayer.java": "697a21dcb958d891b8a22a7cc3b0cd25ce8d787f77185b809996a2733386cf70",
+    "src/main/java/org/slavicmyths/client/ArmorStandClothingLayer.java": "be1f4594efa272b160168a9a825ed115776a48c49dbc34907dc3248913bad031"
+  }
+}

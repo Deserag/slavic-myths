@@ -1,0 +1,37 @@
+{
+  "source_commit": "1192e229c4aa9166b53661f71f5ca15299f3537e",
+  "source_state": "local uncommitted changes; not pushed or merged",
+  "production_sha256": {
+    "gradle.properties": "3487dc3872d3a727560cac63c224b6a88f3ed39bf017aa78918e8e796b8331ac",
+    "src/main/java/org/slavicmyths/client/TrophyHeadsClient.java": "3093e2e983020a2816fec62c896faa75c370c2d8709c447e7f78d008f0016f2f",
+    "src/main/java/org/slavicmyths/trophy/TrophyHeadBlock.java": "bf9f90cf29e4ed8d782b09a044db0ffd8675117d6e7fb8ea2d01436279887337",
+    "src/main/java/org/slavicmyths/client/TrophySkimMesh.java": "2a1bca7c5390e6482f053f5b93b782f16ddd6253d2c8a778ffa0de63e25ec73c"
+  },
+  "tracked_patch_sha256": "90c877161076487c126eecd4d8f3f98adec0619f2f5ae909612f443ecd3c650b",
+  "source_snapshot_sha256": "2f20b730a2825485da6026db10642aae4f7c7719da75d6b9126912d4bbeb42b2",
+  "evidence_sha256": {
+    "after.json": "e1479dbd69388c843adf3e03ec40177e0a271318078e455556bda69d5408f69b",
+    "before.json": "bf1bc8d5ba7de7c45f2aa14a371bbe12fb8b9455fc7e8139746e1ac18df17394",
+    "gradle.properties.after.txt": "3487dc3872d3a727560cac63c224b6a88f3ed39bf017aa78918e8e796b8331ac",
+    "installed.json": "08b2584b7d777b6d1be71055767074df91da8986cd9c4129205ef87bf17e16df",
+    "likho-phases.png": "bdcdc493eb8a3df4ba9e92630e30d92e40a53eab01d1d629ff01b9cc43d420e4",
+    "likho-views.png": "a55544840e960077bf02ae70e84ad28fc0eed0b100a37227a160ecbb94eaceae",
+    "mor_likho-phases.png": "648adfbd25ea6c3c96756db570261ae995f84989e7a761b7c29cde374bec3136",
+    "mor_likho-views.png": "3915f050dd3c19d41c2af151e0166543b08efa995607e3cc513e173c14847f25",
+    "OWNER_ACCEPTANCE.json": "ef27d9c38577435b80a91204fbd4bda5b7b373d525674f9283f42c9e2f8d3835",
+    "podzemnik-phases.png": "7d1b09d250051193aa2a2fea811a255ca25215fa57baf881ac2171486bd33f3f",
+    "podzemnik-views.png": "92250c5b6062180ac63192300bcb2705c181f2c3937c502d153ab40835d55cc0",
+    "protected-source.json": "a85cd053e0dee2ebaaf3df7b62f5c3ac2ae57dd0f629cb18296202ab4eab27f4",
+    "skim-phases.png": "45696eb92eb78c454391124766813b37db1e35d0e45034dcd8c4351e5fdd19dd",
+    "skim-views.png": "1a21e4aec06d7a83bfe85de40d4929378fa19319f9458068278f95b2c9ba2f87",
+    "TrophyHeadBlock.java.after.txt": "bf9f90cf29e4ed8d782b09a044db0ffd8675117d6e7fb8ea2d01436279887337",
+    "TrophyHeadBlock.java.before.txt": "b2498cb2054ccc3bccab687403bf0a876b85759bbde0719e42799217d0f937d0",
+    "TrophyHeadsClient.java.after.txt": "3093e2e983020a2816fec62c896faa75c370c2d8709c447e7f78d008f0016f2f",
+    "TrophyHeadsClient.java.before.txt": "93f41ae359294220b4fc2f7ad8ded12b02e2db98b99bba3dcc817a2b48964577",
+    "TrophySkimMesh.java.after.txt": "2a1bca7c5390e6482f053f5b93b782f16ddd6253d2c8a778ffa0de63e25ec73c",
+    "tugarin-phases.png": "de78c0de442d352fb8ad55cdf545ebec79e513689b8aa76ff0500db88d86a9bd",
+    "tugarin-views.png": "21584c5f7d0865ea394bcd5940dd7e95db77fe932622adf684897c040f57ad0e",
+    "volkolak-phases.png": "a8304cc966deb37fcd886fe81ae3a9350f93454a03fed67466f40bf678dad985",
+    "volkolak-views.png": "1fed6bc29731f1b0894c6a7bbc53140bde62c178bc46c0cc83ee1783777c57c0"
+  }
+}

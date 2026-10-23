@@ -2,6 +2,7 @@
 from pathlib import Path
 import hashlib,json,shutil,sys,tempfile,zipfile
 import weapons87_p42_models as p42
+from issue217_models import original_crossbow
 from weapons87_grips import plan
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -14,7 +15,7 @@ for item,extra,base in [('serpent_crossbow',5,8),('three_breath_crossbow',3,65)]
     normal=None
     for suffix in STATES:
         key=item+suffix
-        model=p42.read(key)
+        model=original_crossbow(key,p42.read(key))
         assert len(model['elements'])==base+extra+(1 if item=='serpent_crossbow' and suffix in ('_arrow','_firework') else 0)+(3 if item=='three_breath_crossbow' and suffix in ('_arrow','_firework') else 0)
         hand={k:v for k,v in model['display'].items() if k.startswith(('thirdperson_','firstperson_'))}
         if normal is None:normal=hand
@@ -27,8 +28,8 @@ for item,extra,base in [('serpent_crossbow',5,8),('three_breath_crossbow',3,65)]
                 assert len(face['uv'])==4 and all(0<=n<=16 for n in face['uv'])
         samples.append(key)
 assert len(samples)==12
-base=p42.read('serpent_crossbow')
-late=p42.read('three_breath_crossbow')
+base=original_crossbow('serpent_crossbow',p42.read('serpent_crossbow'))
+late=original_crossbow('three_breath_crossbow',p42.read('three_breath_crossbow'))
 assert len(base['elements'])==13 and len(late['elements'])==68
 # The original authored three-head geometry is retained, not replaced with a giant new crest.
 assert all(e['from'][2]>=3.5 for e in p42.ADDITIONS['three_breath_crossbow'])

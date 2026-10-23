@@ -23,7 +23,7 @@ def model_paths(id: str):
         if path.exists():paths.append(path)
     return paths
 
-def run(output: Path, check_jar: bool=False):
+def run(output: Path, check_jar: bool=False, native_path: Path|None=None):
     catalog={}
     for raw in (ART/'creative_catalog.tsv').read_text(encoding='utf-8').splitlines():
         if raw and not raw.startswith('#'):
@@ -33,7 +33,8 @@ def run(output: Path, check_jar: bool=False):
                 assert fields[0] not in catalog,fields[0]
                 catalog[fields[0]]=fields[2]
     old_rows=json.loads((DOCS/'audit-68.json').read_text(encoding='utf-8'))
-    attributes=json.loads((DOCS/'native-attributes-after.json').read_text(encoding='utf-8'))
+    native_path=native_path or DOCS/'native-attributes-after.json'
+    attributes=json.loads(native_path.read_text(encoding='utf-8'))
     archived={r['id']:r for r in old_rows}
     native={r['id']:r for r in attributes}
     assert len(catalog)==len(archived)==len(native)==68
@@ -84,6 +85,7 @@ def run(output: Path, check_jar: bool=False):
             'durability':attr['max_damage'],
             'native_analytical_dps_ceiling':attr['unarmored_full_charge_melee_dps_ceiling'],
             'actual_acquisition_note':snapshot.get('acquisition'),
+            'current_recipe_outputs':[],
             'acquisition_status':'SOURCE_ONLY_NOT_TIMED',
             'effect_source':snapshot.get('effects_sources'),
             'decision_from_prior_audit':snapshot.get('decision'),
@@ -92,6 +94,12 @@ def run(output: Path, check_jar: bool=False):
             'runtime':'NOT_RUN / OWNER_PENDING'
         })
     flail_snapshot=json.loads((DOCS/'blueprints/flails/applied-manifest.json').read_text(encoding='utf-8'))
+    for recipe in (RES/'data/slavicmyths/recipe').glob('*.json'):
+        data=json.loads(recipe.read_text(encoding='utf-8'));result=data.get('result',{})
+        result_id=result.get('id',result.get('item')) if isinstance(result,dict) else result
+        for row in current_rows:
+            if result_id=='slavicmyths:'+row['id']:
+                row['current_recipe_outputs'].append({'path':recipe.relative_to(ROOT).as_posix(),'sha256':digest(recipe),'recipe':data})
     flail_changed=[]
     flail_missing=[]
     for rel,recorded in flail_snapshot.items():
@@ -108,7 +116,9 @@ def run(output: Path, check_jar: bool=False):
         'archived_deleted_references':missing,
         'flail_historical_manifest':{'count':len(flail_snapshot),'drift':flail_changed,'missing':flail_missing},
         'legacy_general_verifier':'NOT_CLAIMED_PASS: old baseline drift must be reconciled by owner review, not mutated',
-        'unapproved_changes':'C reach / D staff recipe / #190 whip timing untouched',
+        'native_snapshot_path':native_path.relative_to(ROOT).as_posix(),
+        'native_snapshot_sha256':digest(native_path),
+        'owner_approved_CD':'See continuation53/OWNER_APPROVAL_CD.json; use current native snapshot to assess implementation',
         'runtime':'NOT_RUN','polymc':'NOT_INSTALLED'
     }
     if jar_files:
@@ -136,5 +146,6 @@ if __name__=='__main__':
     p=argparse.ArgumentParser()
     p.add_argument('--output',default='build/weapons87-live-audit/current-68.json')
     p.add_argument('--jar',action='store_true')
+    p.add_argument('--native-snapshot')
     args=p.parse_args()
-    run(ROOT/args.output,args.jar)
+    run(ROOT/args.output,args.jar,ROOT/args.native_snapshot if args.native_snapshot else None)

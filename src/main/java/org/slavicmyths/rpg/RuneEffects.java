@@ -22,7 +22,7 @@ public final class RuneEffects {
    net.minecraft.nbt.CompoundTag shock=new net.minecraft.nbt.CompoundTag();shock.putInt("Target",target.getId());shock.putUUID("UUID",target.getUUID());shock.putString("Dimension",p.level().dimension().location().toString());shock.putFloat("Damage",type.equals("heavy")?RuneDefinition.i("thunder","heavy_damage"):type.equals("dagger")?RuneDefinition.i("thunder","dagger_damage"):RuneDefinition.f("thunder","hit_damage"));p.getPersistentData().put("SlavicShock",shock);Abilities.particles(p,target);
    if(type.equals("sword"))for(LivingEntity next:p.level().getEntitiesOfClass(LivingEntity.class,target.getBoundingBox().inflate(RuneDefinition.i("thunder","chain_radius")),x->x!=target&&Abilities.canHit(p,x)&&x instanceof Enemy)){next.hurt(p.damageSources().indirectMagic(p,p),RuneDefinition.i("thunder","chain_damage"));Abilities.particles(p,next);break;}
   }
-  if(!RuneRework.melee(item)&&RuneRework.legacyCopies(item,"heat")>0&&proc(p,"heat",RuneDefinition.i("heat","hit_cooldown")))target.igniteForSeconds(RuneDefinition.i("heat","fire_seconds"));
+  if((!RuneRework.melee(item)||arrow)&&RuneRework.legacyCopies(item,"heat")>0&&proc(p,"heat",RuneDefinition.i("heat","hit_cooldown")))target.igniteForSeconds(RuneDefinition.i("heat","fire_seconds"));
   if(!arrow&&Runes.has(item,"forest")&&forest(p)&&target instanceof Enemy)e.setAmount(e.getAmount()+RuneDefinition.f("forest","melee_damage"));
   if(!arrow&&Runes.has(item,"midday")&&day(p))e.setAmount(e.getAmount()+RuneDefinition.f("midday","melee_damage"));
   if(!arrow&&Runes.has(item,"shadow")&&dark(p)){

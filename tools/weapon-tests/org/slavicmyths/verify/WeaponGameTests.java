@@ -85,7 +85,7 @@ public final class WeaponGameTests {
             ItemStack taken=menu.quickMoveStack(p,0);t.assertTrue(ItemStack.matches(taken,output),"Native bench output mismatch "+holder.id());
             t.assertTrue(menu.input.getItems().stream().allMatch(ItemStack::isEmpty),"Bench duplicated inputs "+holder.id());p.getInventory().clearContent();count++;
         }
-        t.assertTrue(count==36,"Bench recipe count "+count);System.out.println("WEAPON_BENCH_RECIPES_PASS count="+count);t.succeed();
+        t.assertTrue(count==37,"Bench recipe count "+count);System.out.println("WEAPON_BENCH_RECIPES_PASS count="+count);t.succeed();
     }
     @GameTest(template="empty") public static void partsAndCosts(GameTestHelper t) {
         int count=0;
@@ -125,7 +125,10 @@ public final class WeaponGameTests {
     }
     @GameTest(template="empty") public static void nativeKnifeCollisionAndLoss(GameTestHelper t) {
         var p=player(t,"KnifeNative");var cow=EntityType.COW.create(t.getLevel());cow.setNoAi(true);cow.setNoGravity(true);cow.getAttribute(Attributes.MAX_HEALTH).setBaseValue(10000);cow.setHealth(10000);cow.moveTo(p.getX(),p.getY(),p.getZ()+2);t.getLevel().addFreshEntity(cow);
-        ItemStack weapon=marked(t,WeaponCatalog.item("iron_throwing_knife"));int kept=0;var seeds=new java.util.SplittableRandom(87123L);
+        ItemStack weapon=marked(t,WeaponCatalog.item("iron_throwing_knife"));
+        // Explicit migrated heat provenance: modern rune presence alone no longer grants the legacy proc.
+        weapon.set(ItemState.LEGACY_RUNE_SPECIALS.get(),List.of("heat"));
+        int kept=0;var seeds=new java.util.SplittableRandom(87123L);
         for(int n=0;n<512;n++) {
             cow.invulnerableTime=0;cow.setHealth(cow.getMaxHealth());float before=cow.getHealth();
             var shot=new WeaponProjectile(t.getLevel(),p,weapon,true,false);shot.getRandom().setSeed(seeds.nextLong());shot.setPos(p.getX(),p.getY()+.7,p.getZ());shot.setDeltaMovement(0,0,3);t.getLevel().addFreshEntity(shot);shot.tick();

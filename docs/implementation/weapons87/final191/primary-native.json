@@ -1,0 +1,1010 @@
+[
+  {
+    "id": "bone_knife",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "bone_knife",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 2.2200012,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "bone_knife",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 0.7799988,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "silver_dagger",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "silver_dagger",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.0400085,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "silver_dagger",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 1.1199951,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "nightingale_dagger",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 10.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "nightingale_dagger",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 8.799988,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "nightingale_dagger",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.0400085,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 1.1199951,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.799988,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 1.9200134,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "silver_sword",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "silver_sword",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.799988,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "silver_sword",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 1.9200134,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "perunite_sword",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.5,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "perunite_sword",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 5.2650146,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "perunite_sword",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 2.144989,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "tugarin_sword",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 14.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "tugarin_sword",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 13.104004,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "tugarin_sword",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.720001,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 9.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 7.73999,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.4200134,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "club",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 5.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "club",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.899994,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "club",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 1.5,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "wooden_mace",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 5.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "wooden_mace",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.255188,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "wooden_mace",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 1.9200134,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "stone_mace",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 7.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "stone_mace",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.5605164,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "stone_mace",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.4761963,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "mace",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 8.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "mace",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 7.865082,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "mace",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.492798,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "silver_mace",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 7.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "silver_mace",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.5605164,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "silver_mace",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.4761963,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "perunite_mace",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 9.5,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "perunite_mace",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 9.922394,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "perunite_mace",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.197815,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "ancient_chekan",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 5.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "ancient_chekan",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.2910767,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "ancient_chekan",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 1.9642029,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "chekan",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "chekan",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 5.4727783,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "chekan",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 2.7767944,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "battle_axe",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 10.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "battle_axe",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 8.799988,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "battle_axe",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "thunder_axe",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 8.5,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "thunder_axe",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 7.225006,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "thunder_axe",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.144989,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "stone_flail",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 7.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "stone_flail",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.3389587,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "stone_flail",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.166626,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "gold_flail",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "gold_flail",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 5.291321,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "gold_flail",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 2.5356445,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "flail",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 8.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "flail",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 7.433899,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "flail",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.8571472,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "silver_flail",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 8.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "silver_flail",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 7.433899,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "silver_flail",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.8571472,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "diamond_flail",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 9.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "diamond_flail",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 8.576233,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "diamond_flail",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.6072083,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "perunite_flail",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 8.5,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "perunite_flail",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 7.9991455,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "perunite_flail",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.2247314,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "netherite_flail",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 10.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "netherite_flail",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 9.7659,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "netherite_flail",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 5.416809,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "ataman_flail",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 12.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "ataman_flail",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 12.220428,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "ataman_flail",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 7.2145996,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "ancient_spear",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "ancient_spear",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.0400085,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "ancient_spear",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 1.1199951,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "restored_spear",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "restored_spear",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.799988,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "restored_spear",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 1.9200134,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "spear",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 5.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "spear",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.899994,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "spear",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 1.5,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "gold_spear",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "gold_spear",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.0400085,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "gold_spear",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 1.1199951,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "iron_spear",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "iron_spear",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.799988,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "iron_spear",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 1.9200134,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "silver_spear",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "silver_spear",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.799988,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "silver_spear",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 1.9200134,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "diamond_spear",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 7.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "diamond_spear",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 5.73999,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "diamond_spear",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 2.380005,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "perunite_spear",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.5,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "perunite_spear",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 5.2650146,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "perunite_spear",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 2.144989,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "netherite_spear",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 8.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "netherite_spear",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.720001,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "netherite_spear",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 2.880005,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "pool_spear",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 9.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "pool_spear",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 7.73999,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "pool_spear",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.4200134,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "thunder_spear",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 9.5,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "thunder_spear",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.225006,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "thunder_spear",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.7049866,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "victor_spear",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 12.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "victor_spear",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 11.040009,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "victor_spear",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 5.279999,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "berdysh",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 9.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "berdysh",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 7.73999,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "berdysh",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 3.4200134,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "noon_sickle",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 6.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "noon_sickle",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 4.799988,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "noon_sickle",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 1.9200134,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "poloz_whip",
+    "armor": 0,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 13.0,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "poloz_whip",
+    "armor": 8,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 12.167999,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  },
+  {
+    "id": "poloz_whip",
+    "armor": 20,
+    "toughness": 0,
+    "charge": 1.0,
+    "actual_immediate_damage": 5.980011,
+    "measurement": "native ServerPlayer.attack on actual Slime; no crit/runes/enchant; not sustained DPS, projectile or ability coverage"
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "path": "src/main/resources/slavicmyths.equipment.mixins.json",
+    "before": "179bd0364986938a9802259edf4b78f0225d94c52755189ef2f0eb863f226d1f",
+    "after": "547490a23b3e22e05baeb4621fd3c4e512a071060110d9c2a46071873048273f"
+  },
+  {
+    "path": "src/main/resources/data/slavicmyths/recipe/flail.json",
+    "before": "4388724be56013e8f706b775562235b239f74efb9d667c2f1e0f2ad71dfed6b2",
+    "after": "3b7fe549dfc3f467b7433e5062c50ee5132e3128d8ba32092da39ac2fc861f3e"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/lang/en_us.json",
+    "before": "587dabacb239d5bb9fa20366033b634888294e1d0bd8f573b742beb81c69eb15",
+    "after": "09662d05e2a24b965f904166882afb8dc7e2293f0015e0c49a374a44fe887ecd"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+    "before": "d52d40f44330240fcab26b65a8e9e21cad5ef33fd975ef01777b4baef6d472da",
+    "after": "7e1e1dd6894318cbd81e478b38b446df0852e5ccc788b0a285e4f4153b8353c4"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/textures/item/ohotnichiy_rog_surface225.png",
+    "before": null,
+    "after": "e86200438df85711d3ac9269eaf35888fc2876c4aa7067b0efb7d8cce42d1dcb"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/ohotnichiy_rog.json",
+    "before": "1f73b389cafc9265b4f368f2745071655f9e9aafff6ffd3e5e15d19686da9c40",
+    "after": "f51d163dca76ef1eafdcbf3a712e624567123e5b84551e6835da131eb81a551e"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/ohotnichiy_rog_held225.json",
+    "before": null,
+    "after": "3cf865aba00a2bebd2fd50058bfb22c9691e775d6914523bab3bf77014024735"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/poloz_whip.json",
+    "before": "c36a04de7ff4837697bf1f131bba1cdf58596ba0baeafafa56f34e93dec570c4",
+    "after": "b3a11fcc145d1be930afa67e66c904a5f607fc80cf333c7e10e9a9ad0f8604af"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/poloz_whip_pose_0.json",
+    "before": "ec9701debd2c8026d875ca91f2a597c69c039c5891f2c5c475516e0b49c9e263",
+    "after": "9f37c165fa5b64abcd7f0e311505046f834aa13219007b3cd323113fc9f7d22e"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/poloz_whip_pose_1.json",
+    "before": "57430db949d0e5f2c28d8d3d5bc0627299da3d2d2fa570a9b0102b34518a8940",
+    "after": "cc21ff43110b454b40452ac428a7ee3345ce6bcfb9741280e4cd510f6dcf2039"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/poloz_whip_pose_2.json",
+    "before": "6da962ad4b31af2dd5263cb726910c5254eaadcea1a6afde77ef40dc2058ad62",
+    "after": "e98058944cf164a18975c82b7232b8844c434e738ed571e892a48b267aa114c4"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/poloz_whip_pose_3.json",
+    "before": "39c4a614b7330404192b46aaba887130dfce918f20941c22a697c2b6c6dbe2a2",
+    "after": "f0065961d10ce14edd3eb9d1090d4ffce9faa2545846c06750c344f2cbe5642c"
+  },
+  {
+    "path": "src/main/resources/assets/slavicmyths/models/item/poloz_whip_pose_4.json",
+    "before": "150434721aedd8c86b0a8f75097067338cf5c504830d0945e820f1fa3caf273e",
+    "after": "b8acce11e86da3cf04d5c315fb2e64a8dd2305b8456745a73570c9e7a06d1a51"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/FlailClient.java",
+    "before": "fdf8f63e3efa6e46a10bd2f99cc37de5244d49019b7f4ca6ec637be2911ab119",
+    "after": "7c2b6e2460f7def755d0229f7729dbe8205fa76166d80456d4760fc48d69dcaa"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/FlailMotion.java",
+    "before": "36ce5f3bae6be524ec7eb13ac3054370c78a6fb36e8d750d7b06211c8efbe269",
+    "after": "ff158a983f29c1670c17e78fd2999517cd76600c317267cc56b56445146453e7"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/ThirdPersonWeaponMotion.java",
+    "before": "29bc0b08182234077753bc333bcfd2680e7a7551d1cee795401665dd3d12edfd",
+    "after": "9dfaf5f17d1e9070cd152c2bf32330626fc5bb3f3fb7192a29a5e59175e689e0"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/WhipClient.java",
+    "before": "32a3f239c5c490c4eb060322ba3cc3e3794aee762c8e0512b203ce526f85d9c9",
+    "after": "0c3b62840a2d8f5891f37536b9e2bf265e3f13f583c0ee696543ef8319b0f02d"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/client/WhipMotion.java",
+    "before": "69329ea3add39cbeb3b7289040b949bef436ef885107943d5ec81161e79bd27b",
+    "after": "300a266244bac1050bb249ab19260d534e3ee7c86b22c12fc1d3d8e3091fbbcd"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/furniture/Furniture.java",
+    "before": "d7f71e98e7ef66bb08af17f56e99048113536dc02e74ce5a49572d3bfc65b41d",
+    "after": "49978ef6f2bc7fe799882dec7bc7f35ebeee89b37ca4b41ea86c1bf062d8f657"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/furniture/FurnitureBlock.java",
+    "before": "9d680656e58922f5b60b125f39539dedd5762586f58faef9a0c4a297318effbe",
+    "after": "b1ac5d9dc7977d6e967476ab530be5bfb22b7a64924ea63a5257257132e02ca2"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/furniture/TableBlock.java",
+    "before": "233a31493245c16de55b48a02eb6ccf48d30ae486e8c5aad5d8aa0b5b5134de0",
+    "after": "e870df3629296b137d5cc89ec829fd58b17170128c1f7a0c9110fda3dbfd8d4e"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+    "before": "b79fd305937c346324aa002547c1d598690dcde8f1feccb9e7df668e59e4cddb",
+    "after": "222b3fab21428e518e33f59c69da0bb54f84e42b13058aa76898fb8fede6870b"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryDecor.java",
+    "before": "f5c83682f1b6daf8f131654451212c2703b37ac387b46e153e852245c1e11139",
+    "after": "b189ad787d0d783c5d7c3320d1e0fd1adec97d5bd383a5aabfa6bbae88ead5c2"
+  },
+  {
+    "path": "src/main/java/org/slavicmyths/equipment/mixin/MultipartBlockEntityMixin.java",
+    "before": null,
+    "after": "ba134ce805c700dd84943b83568216ee288fe38efcfce18983736a34bec3bb95"
+  }
+]

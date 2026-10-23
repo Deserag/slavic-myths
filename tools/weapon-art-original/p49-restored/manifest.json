@@ -1,0 +1,13 @@
+{
+  "reason": "P49 owner-requested restoration; exact current source, not new art or owner acceptance",
+  "files": {
+    "assets/slavicmyths/models/item/ancient_carolingian_sword_held.json": "9d9df17fa4c06d6d0a487c322e957d0503c4a6db159486deda3edb8a078005c9",
+    "assets/slavicmyths/models/item/poloz_whip.json": "c36a04de7ff4837697bf1f131bba1cdf58596ba0baeafafa56f34e93dec570c4",
+    "assets/slavicmyths/models/item/poloz_whip_pose_0.json": "ec9701debd2c8026d875ca91f2a597c69c039c5891f2c5c475516e0b49c9e263",
+    "assets/slavicmyths/models/item/poloz_whip_pose_1.json": "57430db949d0e5f2c28d8d3d5bc0627299da3d2d2fa570a9b0102b34518a8940",
+    "assets/slavicmyths/models/item/poloz_whip_pose_2.json": "6da962ad4b31af2dd5263cb726910c5254eaadcea1a6afde77ef40dc2058ad62",
+    "assets/slavicmyths/models/item/poloz_whip_pose_3.json": "39c4a614b7330404192b46aaba887130dfce918f20941c22a697c2b6c6dbe2a2",
+    "assets/slavicmyths/models/item/poloz_whip_pose_4.json": "150434721aedd8c86b0a8f75097067338cf5c504830d0945e820f1fa3caf273e",
+    "assets/slavicmyths/models/item/restored_carolingian_sword_held.json": "0446a8033f7ea804235096f9a2c94b3c9af1abd889e2e9864efdabe0af584e0e"
+  }
+}

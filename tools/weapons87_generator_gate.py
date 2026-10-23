@@ -54,15 +54,21 @@ def equivalent(original:Path,generated:Path)->bool:
         with Image.open(original) as a,Image.open(generated) as b:
             return a.size==b.size and a.convert('RGBA').tobytes()==b.convert('RGBA').tobytes()
     return sha(original)==sha(generated)
-def replay(workspace:Path):
-    program=workspace/'tools/weapons87_flails.py'
-    p=subprocess.run([sys.executable,str(program),'--apply'],cwd=workspace,capture_output=True,text=True,timeout=170)
+def replay(workspace:Path,entrypoint:str):
+    program=workspace/'tools'/entrypoint
+    extra=['--apply'] if entrypoint=='weapons87_flails.py' else ['--weapon-only'] if entrypoint=='poloz_full_assets.py' else []
+    p=subprocess.run([sys.executable,str(program),*extra],cwd=workspace,capture_output=True,text=True,timeout=170)
     return {'exit':p.returncode,'stdout':p.stdout[-4500:],'stderr':p.stderr[-4500:]}
-def main(output:Path):
+def main(output:Path,entrypoint='weapons87_flails.py'):
     with tempfile.TemporaryDirectory(prefix='weapons87-canonical-',dir=None) as temp:
         workspace=Path(temp)
         shutil.copytree(SRC,workspace/'src/main/resources')
-        shutil.copytree(DOC,workspace/'docs/implementation/weapons87')
+        # Replay consumes authored JSON drafts, not historical game captures,
+        # frozen JARs or render archives (over 600 MB). Keep inputs explicit.
+        for source in (DOC/'blueprints').rglob('*.json'):
+            target=workspace/'docs/implementation/weapons87'/source.relative_to(DOC)
+            target.parent.mkdir(parents=True,exist_ok=True)
+            shutil.copy2(source,target)
         (workspace/'tools').mkdir(parents=True)
         for file in (ROOT/'tools').glob('*.py'):
             shutil.copy2(file,workspace/'tools'/file.name)
@@ -70,19 +76,21 @@ def main(output:Path):
         real_before=snapshot(SRC)
         snapshot_before=snapshot(workspace/'src/main/resources')
         assert snapshot_before==real_before
-        first=replay(workspace)
+        first=replay(workspace,entrypoint)
         after_first=snapshot(workspace/'src/main/resources')
         diff=sorted(k for k in set(real_before)|set(after_first) if real_before.get(k)!=after_first.get(k))
         protected_mismatches=[k for k in sorted(PROTECTED) if not equivalent(SRC/k,workspace/'src/main/resources'/k)]
         semantic_drift=[k for k in diff if not equivalent(SRC/k,workspace/'src/main/resources'/k)]
         number=check_assets(workspace) if first['exit']==0 else 0
-        second=replay(workspace) if first['exit']==0 else None
+        second=replay(workspace,entrypoint) if first['exit']==0 else None
         after_second=snapshot(workspace/'src/main/resources')
         non_idempotent=sorted(k for k in set(after_first)|set(after_second) if after_first.get(k)!=after_second.get(k))
         actual_still_equal=snapshot(SRC)==real_before
         report={
-            'scope':'P32 read-only current-source-vs-replayed canonical weapons87_flails.py --apply',
-            'baseline_commit_included':'4247c95ff8f8b82cb875161edf960686caaaa2af',
+            'scope':'#121 isolated current-source replay; full resource semantics and idempotence',
+            'entrypoint':entrypoint,
+            'source_head':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
+            'source_state':'working tree; exact resource hashes in baseline-resource-sha256.json',
             'source_mutated':not actual_still_equal,
             'catalogue_weapon_count':number,
             'protected_models_count':len(PROTECTED),
@@ -96,6 +104,7 @@ def main(output:Path):
             'game':'NOT_RUN','polymc':'NOT_INSTALLED'
         }
     output.parent.mkdir(parents=True,exist_ok=True)
+    (output.parent/'baseline-resource-sha256.json').write_text(json.dumps(real_before,indent=2)+'\n',encoding='utf-8')
     output.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print('P32 canonical generator source QA: 68 IDs',number,'protected',len(PROTECTED),'reverted',len(protected_mismatches),'all-source-byte-drift',len(diff),'actual-content-drift',len(semantic_drift),'idempotence',len(non_idempotent),'src_mutated',not actual_still_equal)
     print('DIAGNOSTIC current-source asset deltas:',diff[:40])
@@ -104,11 +113,13 @@ def main(output:Path):
     assert second is not None and second['exit']==0,(second['stderr'] if second else 'missing second')
     assert number==68
     assert not protected_mismatches,protected_mismatches
+    assert not semantic_drift,semantic_drift
     assert not non_idempotent,non_idempotent[:30]
     assert actual_still_equal
     print('PASS protected #115/#163/#184/#185/#189 asset geometry/material semantics and full canonical idempotence; changed JSON formatting/PNG encoding recorded separately; historical drift not normalized')
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--output',default='build/weapons87-generator-p32/report.json')
+    parser.add_argument('--entrypoint',default='weapons87_flails.py',choices=['weapons87_flails.py','weapon_resources_1321.py','rare_weapon_resources_1322.py','weapon_patch_assets.py','weapon_feedback_assets.py','weapon_visual_repair_assets.py','poloz_full_assets.py'])
     arg=parser.parse_args()
-    main(ROOT/arg.output)
+    main(ROOT/arg.output,arg.entrypoint)

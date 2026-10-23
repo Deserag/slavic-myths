@@ -1,3 +1,53 @@
+## 23.10.2026 — ручная приёмка 1.9.7.60 и следующий пакет
+
+По прямому решению владельца фактически переведены в «Готово» #217/#219/#220/#225/#226. [Основание и границы приёмки](implementation/project9-owner-acceptance-19760/REPORT.md). Новое поручение: #121 (защита актуальных оружейных ресурсов от отката старых генераторов) и #129 (итоговая техническая проверка брони после принятых #122–128). #129: 29 ID, 232 свежих native mesh-состояния, 13 исключённых аксессуаров сохранены; clean build44s и актуальный JAR/resources PASS, игровых запусков0, owner-only runtime NOT_RUN. [Матрица #129](implementation/issue129-current/REPORT.md). #129 и #121 фактически «Тестирование». #121: исправлены два legacy entrypoint и weapon-only вход Полоза; 7 entrypoints ×2 replay PASS, откатов0. [Матрица #121](implementation/issue121-current/REPORT.md). Новых художественных production-изменений и установки PolyMC в этом пакете нет.
+
+## 23.10.2026 — PolyMC обновлён по запросу владельца
+
+В тестовый профиль Slavic-Myths-1.21.1-Testing установлен 1.9.7.60; SHA256 установленного JAR проверен, предыдущий 1.9.7.59 сохранён в backup, дубликатов мода нет. [Точные пути, SHA256 и исходное состояние](implementation/polymc-19760/installed.json). При установке игра не запускалась; задачи остаются на ручной приёмке. Ниже сохранена история до установки.
+
+## 23.10.2026 — #225/#226: замечания владельца исправлены и проверены runtime
+
+Пакет: основания3фигур, именно ohotnichiy_rog, GUI/held/удар плети, непрерывная цепь/ядро кистеней и старый лишний рецепт, Сабля Воеводы по слизням. Нормальная генерация выявила #226: мебель и multipart helpers заявляли несуществующие block entities; исправлено без смены IDs/инвентарей/геометрии. Последний сервер38/38:10primary оружий,37native меню рецептов/74изготовления с расходом и antidupe,176multipart состояний; actual клиент обе руки/Steve/Alex,88GUI без spill. NORMAL seed2252026: курган/святилище, реальный отдельный процесс перезахода с сохранением3алмазов в ящике, BE warnings0. Всего21реальный Minecraft процесс с сохранёнными неудачными итерациями, не все объявлены PASS. [Полная матрица, границы и реальные кадры](implementation/issue225/REPORT.md). #225/#226/#217/#219/#220 «Тестирование», owner acceptance/Ready/close не заявлены. Local1.9.7.60 JAR SHA19202904f71fa92917c314d5743637b132478ee1be1d8f1a8f0d1489b606b0d6, clean build49s,7633resources/1811classes. В PolyMC прежняя установленная1.9.7.59, новой установки не было. Полная кампания/все структуры/MP/FPS/MSPT не проверены и не объявлены готовыми.
+
+## 23.10.2026 — #101 NO_CHANGE; полный исполнительский объём #81 на проверке
+
+Проверены10ресурсов:10KEEP/0FIX, фактические model/PNG/blockstate/UV и source формы трёх руд. Подтверждённого дефекта для перерисовки нет; production изменений0. Повторная проверка текущего JAR7631resources PASS, использован последний clean build46s без новых production правок. [Матрица и сводка шести пакетов #81](implementation/materials-81/Q101/REPORT.md). #101/#81 «Тестирование», owner-only runtime0; «Готово»/закрытие/PolyMC не заявлены.
+
+## 23.10.2026 — #114: QA31 и сводный64-ID контроль
+
+Проверены64actual model references,17ordinary/16elite/31legendary, порядок сохранён. В31QA-only трофеях30KEEP,1FIX: пух Жар-птицы после индивидуального blueprint. Ровно1production PNG; clean build46s иJAR7631resources PASS. [Поимённый аудит/матрица/actual slot sheets](implementation/trophy114/REPORT.md). #114 фактически «Тестирование»; #92 и игровые приёмки остаются открыты. Runtime0; новый локальный JAR не установлен в PolyMC.
+
+## 23.10.2026 — тестовая1.9.7.59 фактически установлена в PolyMC
+
+По прямому поручению владельца проверены #97/#100/#112/#113: все «Тестирование». Java21 clean build45s,7631 JAR resources и30canonical PNG PASS. Installed Slavic-Myths-1.21.1-Testing/.minecraft/mods/slavicmyths-1.9.7.59.jar, SHA256f211c5e5b00d626f1093b6e6ff1dcb7f87aa1051d520b155e939b71b08fd294b. Backup1.9.7.58, duplicate0. [Полная квитанция, source dirty manifest и матрица](implementation/polymc-19759/REPORT.md). Runtime запусков0. Новый delivery включает последние локальные исправления Финиста/метки, материалы и трофеи; это тестовый кандидат, не полная приёмка эпиков.
+
+## 23.10.2026 — #112/#113: трофеи переданы на личную проверку
+
+Из16ID исправлены11PNG;5actual специальных/удачных assets KEEP. Исходные geometry/UV/renderers сохранены. 26 scoped gates, production whitelist11PNG, clean build47s, JAR7631resources PASS. [Матрица/поимённый аудит/A-B](implementation/trophies112-113/REPORT.md). Runtime0/OWNER_ONLY, PolyMC не обновлялся, приёмка/закрытие не заявлены.
+
+## 23.10.2026 — #97/#100: адресные материалы, ожидают личной проверки
+
+Три уже реализованных металла KEEP. Изменены только янтарная block texture и6 наконечников, генераторы защищены от отката. 29 scoped checks, Java21 clean build48s и7631 JAR resources PASS. [Матрица/actual PNG A/B](implementation/materials-81/M97-T100/REPORT.md). Runtime0/OWNER_ONLY, PolyMC не обновлялся, версия1.9.7.58. Issues не закрыты, приёмка не заявлена.
+
+## 23.10.2026 — принятые задачи перенесены в «Готово» по решению владельца
+
+Фактически обновлены 22 карточки Project №9: #45, #98–99, #110–111, #122–128, #130, #140, #217–224. #140 добавлена на доску по прежней явной приёмке. Проверенное чтение: Готово41, Отменена56; остаток35 карточек, включая эпики и14 концептуальных (21 вне концепции). [Решение, доказательства, матрица и остаток](implementation/project9-owner-acceptance-20261023/REPORT.md). Иные статусы сохранены; Issues не закрывались. Исходные ограничения runtime не заменены утверждением о новых тестах. Никаких запусков, commit/push или установки PolyMC в этой итерации. Нижние OWNER_PENDING для перечисленных принятых карточек — история.
+
+## 23.10.2026 — #223/#224 исполнены по прямому поручению
+
+Наведение исправлено и перепроверено91 matrix +19 live shots; метка world-space над врагом. По уточнению владельца обход стен исключён: hidden target не получает homing, при occlusion guide отключается. [Полная матрица](implementation/weapons87/issue217/finist223/REPORT.md). Ручная приёмка ещё ожидается; Issues не закрывать, #87/#191 целиком не объявлять готовыми. Нового PolyMC delivery нет.
+
+## 23.10.2026 — порученный scope #217
+
+Конкретные runtime дефекты #218–#222 исправлены и проверены. #223 — промахи Финиста на больших углах; до изменения turnrate/range требуется определение ожидаемого поведения. [Матрица](implementation/weapons87/issue217/REPORT.md). Родитель #217 и весь #87/#191 не закрыты; старые аудио/модельные цепочки не объявлены готовыми. Задачи Ада не тронуты. Нового PolyMC delivery нет.
+
+
+## 22.10.2026 — P53 оружие: техническая сдача и тестовый кандидат
+
+Текущий результат: [P53 REPORT](implementation/weapons87/continuation53/REPORT.md). #173 все14 held materials +real flight axis; #190 fixed-grip flexible lash; #162/#165 native-player poses, cast swings; #165/#170 ordinary spear coincident face fix; одобренные C/D реализованы. Пять maintained weapon generators / native fixtures / clean Java21 build / 23 source-JAR checks PASS. Тестовая1.9.7.58 установлена с backup и SHA receipt, запусков0.
+
+Полный #87 не DONE. #191 остаётся последним после обязательной готовности цепочки и ручной приёмки. #121 scoped replay не означает запуск запрещённого historical audio bootstrap. Только owner-runtime NOT_RUN позволяет техническую сдачу конкретного полного scope; executor NOT_RUN явно оставлен в матрице. Project writes технически недоступны, статусы не выдавать за изменённые. Принятые коса/Морозко/#117 и головы #140 сохраняются. Старые C/D-unapproved ниже относятся к моментам до последнего прямого согласования владельца.
 
 ## 22.10.2026 — P52 #161 особые арбалеты, MOR/FIRE hit cues
 В continuous ветке PR #216 появился отдельный не дублирующий ранее сделанное source пакет: после принятого попадания стрелы режима морока 8 SOUL, огня 8 FLAME. Existing muzzle P44 and StormVfx untouched; ammo/damage unchanged; P52 source/JAR QA pending, Minecraft NOT_RUN. Issue #161 full scope OPEN. Project Status «на тестировании2» connector не может установить.
@@ -2205,3 +2255,15 @@ Java21 [#39829846856](https://github.com/Deserag/slavic-myths/actions/runs/39829
 
 ## 22.10.2026 — P52 production CI verified
 All 11 workflows for e0560924 SUCCESS; Java21 clean build + P52 source/JAR PASS: [Actions #39832746501](https://github.com/Deserag/slavic-myths/actions/runs/39832746501). JAR 1.9.7.56 SHA256 ed90b2d3cc519d1bc3cae036e42658eb741fe5bc38c813f5cea9b3ef49c61f91. #161 partial implementation, Minecraft and Project Status «на тестировании2» NOT_RUN/NOT_SET, open owner QA, main unaffected.
+
+## 22.10.2026 — локальное восстановление P49–P52
+См. [LOCAL-RECOVERY](implementation/weapons87/LOCAL-RECOVERY-20261022.md): Java21 clean build и 302 packaged resources PASS; native Finist steering PASS; native trophy animated bounds FAIL у Тугарина, Волколака и Подземника. Цепочка IN_PROGRESS, runtime NOT_RUN, POLYMC_NOT_INSTALLED; main не менялся. Требуется исправление animated envelope с source before/after, без ослабления проверок.
+
+## 22.10.2026 — исправление выхода челюстей трофеев за основание
+Только trophy Head.pose: челюсти Тугарина, Волколака и Подземника втягиваются при раскрытии, угловая амплитуда и нейтральный размер сохранены. Native ModelPart/UV/bounds/reset: PASS на 600 позах каждой из 6 голов; исходные до/после и одинаковые ракурсы в [отчёте](implementation/weapons87/head-clearance/REPORT.md). P42–P52 source regression PASS. Clean build PASS (1m30s), JAR 1.9.7.56 SHA256 4bc71e94da5e8529584d9aff3ffd1623f5d236aaebb91cdc4819dae076cb3269, 68 ID/302 packaged assets PASS; Minecraft/MP/GameTest/сервер NOT_RUN, owner acceptance pending, вся цепочка не объявляется готовой. CI дополнен native geometry и реальным Finist steering.
+
+## 22.10.2026 — #140: полный пакет исправлений трофейных голов для ручной проверки
+В версии 1.9.7.57 исправлены взгляд/моргание обоих Лих, подключены отдельные native eye/ear части Скима без изменения живого моба, оба уха Волколака, реальные зрачки Тугарина и челюсти/брови/частицы шести голов. Burst разрушения перенесён в единственный серверный onRemove нижнего anchor; halves/drop не менялись. Java21 clean build + native 600 поз/голову + 7601 resource/JAR checks PASS. Тестовый кандидат установлен с backup и без дублей в PolyMC 1.21.1 Testing, SHA256 0793672e1c652d19410aa4c7491139e27a4977448b9a4cea65371567217d33ad. Minecraft/server/GameTest=0; owner runtime NOT_RUN; #140 OPEN, main не слит, Project Status не менялся. Источник 1192e229 + local patch. [Отчёт, installed path/SHA, source до/после](implementation/trophy140-rework/REPORT.md). Это не итоговый релиз всей #87.
+
+## 22.10.2026 — пакет из «Ожидания»: #98 + #99
+Реализованы все 4 природных ресурса #98 и 8 crafting-наконечников #99, только 12 PNG прежнего разрешения. T1-A/T1-B проверены последовательно; модели/оружие/механики/данные не менялись. Канонический scoped генератор + защита historical writers, A/B 1×/3×, точный production diff PASS. Java21 clean build PASS 56s; 7601 packaged resources PASS. Рекомендуется «Тестирование» для обеих; фактический Project Status NOT_CHANGED (credential без Projects scope, signed-out browser). Версия 1.9.7.57 НЕ повышалась, PolyMC НЕ обновлялся, runtime0. #140 владелец явно принял и разрешил «Готово»; поле также ещё NOT_CHANGED. [Полный отчёт](implementation/materials-81/N98-T99/REPORT.md).

@@ -1,0 +1,13 @@
+{
+  "source_commit": "1192e229c4aa9166b53661f71f5ca15299f3537e",
+  "files": {
+    "docs\\implementation\\weapons87\\head-clearance\\after.json": "80f1b4072aec7abf426b878376a52d25a13f586e018c32c528d8443ef2cb52bc",
+    "docs\\implementation\\weapons87\\head-clearance\\before.json": "a9e39774d62172b1127d8e6a86f318b5be0ff1cd0f34890b149688338d4ca358",
+    "docs\\implementation\\weapons87\\head-clearance\\podzemnik.png": "1b16c29c0251fd1869a55cce3128e60bc07ea603835b0a8b805d6e2de0ed0f21",
+    "docs\\implementation\\weapons87\\head-clearance\\TrophyHeadsClient.after.java.txt": "2795c15c0fdc1e06836859d54914fa05806be84357393fe4d4f71b201d786afc",
+    "docs\\implementation\\weapons87\\head-clearance\\TrophyHeadsClient.before.java.txt": "93f41ae359294220b4fc2f7ad8ded12b02e2db98b99bba3dcc817a2b48964577",
+    "docs\\implementation\\weapons87\\head-clearance\\tugarin.png": "e91fbdc3827f370ada9553ce0c5c244a388eeeee373afb7a1519cab8768fa2d1",
+    "docs\\implementation\\weapons87\\head-clearance\\volkolak.png": "cccc339184848fa49ef71b4f91ec88ed9bc9807f82305ad029649dea020f6c7f"
+  },
+  "runtime_launches": 0
+}

@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-22",
+  "source": "explicit answer in current chat",
+  "statement": "Одобрить оба предложения",
+  "approved": {
+    "range": [
+      "ancient_spear",
+      "restored_spear",
+      "thunder_spear"
+    ],
+    "range_before": 3,
+    "range_after": 4.25,
+    "veles_recipe": [
+      "carved_staff",
+      "leshy_heart",
+      "fern_flower",
+      "silver_fitting"
+    ]
+  },
+  "game_launches_allowed": false
+}

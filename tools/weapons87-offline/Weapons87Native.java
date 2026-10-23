@@ -90,7 +90,13 @@ if(after){
  try{org.slavicmyths.combat.WeaponDefaults.modify(new net.neoforged.neoforge.event.ModifyDefaultComponentsEvent());}finally{phase.setBoolean(null,false);}
  for(var entry:items.entrySet()){
   String id=entry.getKey();var old=beforeComponents.get(id);var current=entry.getValue().components();
-  for(var component:old.keySet())if(component!=DataComponents.MAX_DAMAGE&&!Objects.equals(old.get(component),current.get(component)))throw new AssertionError("Unapproved component changed: "+id+component);
+  if(org.slavicmyths.combat.WeaponDefaults.REACH_ITEMS.contains(id)){
+   var modifiers=current.get(DataComponents.ATTRIBUTE_MODIFIERS);
+   if(!modifiers.equals(org.slavicmyths.combat.WeaponDefaults.spearReach(modifiers)))throw new AssertionError("Reach modifier duplicates on reload "+id);
+  }
+  for(var component:old.keySet())if(component!=DataComponents.MAX_DAMAGE&&!Objects.equals(old.get(component),current.get(component))){
+   if(component!=DataComponents.ATTRIBUTE_MODIFIERS||!org.slavicmyths.combat.WeaponDefaults.REACH_ITEMS.contains(id)||!Objects.equals(current.get(component),org.slavicmyths.combat.WeaponDefaults.spearReach(old.get(DataComponents.ATTRIBUTE_MODIFIERS))))throw new AssertionError("Unapproved component changed: "+id+component);
+  }
   int expected=org.slavicmyths.combat.WeaponDefaults.DURABILITY.getOrDefault(id,Optional.ofNullable(old.get(DataComponents.MAX_DAMAGE)).orElse(0));
   if(Optional.ofNullable(current.get(DataComponents.MAX_DAMAGE)).orElse(0)!=expected)throw new AssertionError("Wrong approved durability "+id);
  }
@@ -108,6 +114,7 @@ for(String line:Files.readAllLines(Path.of("src/main/resources/assets/slavicmyth
  row.addProperty("measurement","native production constructors/components; no entities/world/client; not measured combat DPS");rows.add(row);
 }
 if(rows.size()!=68)throw new AssertionError(rows.size());
-Files.writeString(Path.of("docs/implementation/weapons87/"+(after?"native-attributes-after.json":"native-attributes.json")),new GsonBuilder().setPrettyPrinting().create().toJson(rows));
+if(after)for(var raw:rows){var row=raw.getAsJsonObject();if(org.slavicmyths.combat.WeaponDefaults.REACH_ITEMS.contains(row.get("id").getAsString())&&Math.abs(row.get("reach_total").getAsDouble()-4.25)>1e-9)throw new AssertionError("Wrong approved spear reach");}
+Files.writeString(Path.of(System.getProperty("weapons87NativeOutput","docs/implementation/weapons87/"+(after?"native-attributes-after.json":"native-attributes.json"))),new GsonBuilder().setPrettyPrinting().create().toJson(rows));
 System.out.println("WEAPONS87_NATIVE: 68 production constructor attributes exported; no game launches");
 }}

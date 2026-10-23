@@ -1,0 +1,155 @@
+diff --git a/gradle.properties b/gradle.properties
+index 62c6190a..ec6594ca 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -3,7 +3,7 @@ org.gradle.daemon=false
+ org.gradle.caching=true
+ minecraft_version=1.21.1
+ neo_version=21.1.255
+-mod_version=1.9.7.56
++mod_version=1.9.7.57
+ mod_group_id=org.slavicmyths
+ curios_version=9.5.1+1.21.1
+ jei_version=19.51.0.418
+diff --git a/src/main/java/org/slavicmyths/client/TrophyHeadsClient.java b/src/main/java/org/slavicmyths/client/TrophyHeadsClient.java
+index f3062eb0..c593d8ef 100644
+--- a/src/main/java/org/slavicmyths/client/TrophyHeadsClient.java
++++ b/src/main/java/org/slavicmyths/client/TrophyHeadsClient.java
+@@ -27,7 +27,10 @@ public final class TrophyHeadsClient {
+   public final ModelPart part;public final ResourceLocation texture;public final TrophyHeads.Kind kind;
+   public final float[] bounds;public final float scale;
+   private final ModelPart lid,morEye,glow,detail,accent,pupilLeft,pupilRight;
+-  private final float lidBaseY,morEyeScaleX,morEyeScaleY,detailBaseXRot,accentBaseXRot,accentBaseZRot,accentBaseY,glowBaseX,glowBaseY,pupilLeftBaseX,pupilLeftBaseY,pupilRightBaseX,pupilRightBaseY;
++  private ModelPart earLeft,earRight;
++  private float earLeftBaseZ,earRightBaseZ;
++  private final float lidBaseZ,lidScaleY,lidBaseX,lidScaleX;
++  private final float lidBaseY,morEyeScaleX,morEyeScaleY,detailBaseXRot,detailBaseY,accentBaseXRot,accentBaseZRot,accentBaseY,glowBaseX,glowBaseY,pupilLeftBaseX,pupilLeftBaseY,pupilRightBaseX,pupilRightBaseY;
+   Head(TrophyHeads.Kind kind,ModelPart part,String texture){this(kind,part,texture,null,null,null);}
+   Head(TrophyHeads.Kind kind,ModelPart part,String texture,ModelPart lid,ModelPart morEye,ModelPart glow){this(kind,part,texture,lid,morEye,glow,null,null);}
+   Head(TrophyHeads.Kind kind,ModelPart part,String texture,ModelPart lid,ModelPart morEye,ModelPart glow,ModelPart detail,ModelPart accent){this(kind,part,texture,lid,morEye,glow,detail,accent,null,null);}
+@@ -37,8 +40,10 @@ public final class TrophyHeadsClient {
+    pupilLeftBaseX=pupilLeft==null?0:pupilLeft.x;pupilLeftBaseY=pupilLeft==null?0:pupilLeft.y;
+    pupilRightBaseX=pupilRight==null?0:pupilRight.x;pupilRightBaseY=pupilRight==null?0:pupilRight.y;
+    lidBaseY=lid==null?0:lid.y;glowBaseX=glow==null?0:glow.x;glowBaseY=glow==null?0:glow.y;
++   lidBaseZ=lid==null?0:lid.z;lidScaleY=lid==null?1:lid.yScale;lidBaseX=lid==null?0:lid.x;lidScaleX=lid==null?1:lid.xScale;
+    morEyeScaleX=morEye==null?1:morEye.xScale;morEyeScaleY=morEye==null?1:morEye.yScale;
+    detailBaseXRot=detail==null?0:detail.xRot;
++   detailBaseY=detail==null?0:detail.y;
+    accentBaseXRot=accent==null?0:accent.xRot;accentBaseZRot=accent==null?0:accent.zRot;accentBaseY=accent==null?0:accent.y;
+    part.setPos(0,0,0);part.xRot=part.yRot=part.zRot=0;
+    var capture=new Capture();part.render(new PoseStack(),capture,0,0);bounds=capture.bounds();
+@@ -50,16 +55,18 @@ public final class TrophyHeadsClient {
+    part.render(pose,out,light,overlay);pose.popPose();
+   }
+   public void pose(float time){pose(time,0,0);}
++  private Head ears(ModelPart left,ModelPart right){earLeft=left;earRight=right;earLeftBaseZ=left.zRot;earRightBaseZ=right.zRot;return this;}
+   public void pose(float time,float lookX,float lookY){
+    float blink=TrophyHeadFxRules.lidOffset(time);
+-   if(lid!=null)lid.y=lidBaseY+blink;
++   if(lid!=null){float closure=blink/1.8F;lid.x=lidBaseX-.54F*closure;lid.xScale=lidScaleX*(1+.6F*closure);lid.y=lidBaseY-(kind==TrophyHeads.Kind.MOR_LIKHO?.25F:0)*closure;lid.yScale=lidScaleY*(1+(kind==TrophyHeads.Kind.MOR_LIKHO?7:5)*closure);lid.z=lidBaseZ-(kind==TrophyHeads.Kind.MOR_LIKHO?1.1F:.65F)*blink/1.8F;}
+    if(glow!=null&&(kind==TrophyHeads.Kind.LIKHO||kind==TrophyHeads.Kind.MOR_LIKHO)){
+-    glow.x=glowBaseX+net.minecraft.util.Mth.clamp(lookX,-1.1F,1.1F);
+-    glow.y=glowBaseY+net.minecraft.util.Mth.clamp(lookY,-.75F,.75F);
++    glow.x=glowBaseX+net.minecraft.util.Mth.clamp(lookX,-1.1F,1.1F)*.28F;
++    glow.y=glowBaseY+net.minecraft.util.Mth.clamp(lookY,-.75F,.75F)*.20F;
+    }
+    if(pupilLeft!=null){pupilLeft.x=pupilLeftBaseX+net.minecraft.util.Mth.clamp(lookX,-1.1F,1.1F)*.28F;pupilLeft.y=pupilLeftBaseY+net.minecraft.util.Mth.clamp(lookY,-.75F,.75F)*.20F;}
+    if(pupilRight!=null){pupilRight.x=pupilRightBaseX+net.minecraft.util.Mth.clamp(lookX,-1.1F,1.1F)*.28F;pupilRight.y=pupilRightBaseY+net.minecraft.util.Mth.clamp(lookY,-.75F,.75F)*.20F;}
+    if(morEye!=null){float pulse=TrophyHeadFxRules.morEyeScale(time);morEye.xScale=morEyeScaleX*pulse;morEye.yScale=morEyeScaleY*pulse;}
++   if(earLeft!=null){float twitch=kind==TrophyHeads.Kind.VOLKOLAK?TrophyHeadFxRules.volkolakEar(time):.22F*(float)Math.sin(time*.15);earLeft.zRot=earLeftBaseZ+twitch;earRight.zRot=earRightBaseZ-twitch;}
+    if(detail!=null)detail.xRot=detailBaseXRot+switch(kind){
+     case TUGARIN->TrophyHeadFxRules.tugarinJaw(time);
+     case SKIM->TrophyHeadFxRules.skimJaw(time);
+@@ -67,6 +74,13 @@ public final class TrophyHeadsClient {
+     case PODZEMNIK->TrophyHeadFxRules.podzemnikJaw(time);
+     default->0F;
+    };
++   // These isolated jaw subtrees were authored around the mob origin, not
++   // a trophy hinge. Retract the jaw as it opens so it clears the support.
++   // Preserve the requested angular motion and the neutral native placement.
++   if(detail!=null){
++    float travel=switch(kind){case TUGARIN->18F;case VOLKOLAK->4F;case PODZEMNIK->6F;default->0F;};
++    detail.y=detailBaseY-travel*(float)Math.sin(detail.xRot-detailBaseXRot);
++   }
+    if(accent!=null){
+     if(kind==TrophyHeads.Kind.LIKHO)accent.y=accentBaseY-.32F*blink;
+     if(kind==TrophyHeads.Kind.PODZEMNIK)accent.xRot=accentBaseXRot+TrophyHeadFxRules.podzemnikBrow(time);
+@@ -79,12 +93,13 @@ public final class TrophyHeadsClient {
+    }
+   }
+   public void resetPose(){
+-   if(lid!=null)lid.y=lidBaseY;
++   if(lid!=null){lid.x=lidBaseX;lid.xScale=lidScaleX;lid.y=lidBaseY;lid.z=lidBaseZ;lid.yScale=lidScaleY;}
++   if(earLeft!=null){earLeft.zRot=earLeftBaseZ;earRight.zRot=earRightBaseZ;}
+    if(glow!=null){glow.x=glowBaseX;glow.y=glowBaseY;}
+    if(pupilLeft!=null){pupilLeft.x=pupilLeftBaseX;pupilLeft.y=pupilLeftBaseY;}
+    if(pupilRight!=null){pupilRight.x=pupilRightBaseX;pupilRight.y=pupilRightBaseY;}
+    if(morEye!=null){morEye.xScale=morEyeScaleX;morEye.yScale=morEyeScaleY;}
+-   if(detail!=null)detail.xRot=detailBaseXRot;
++   if(detail!=null){detail.xRot=detailBaseXRot;detail.y=detailBaseY;}
+    if(accent!=null){accent.xRot=accentBaseXRot;accent.zRot=accentBaseZRot;accent.y=accentBaseY;}
+   }
+   public void renderGlow(PoseStack pose,VertexConsumer out,int overlay){
+@@ -97,10 +112,10 @@ public final class TrophyHeadsClient {
+  /** Used by the real renderer and offline native-face exporter; no Minecraft instance needed. */
+  public static Head create(TrophyHeads.Kind kind){return switch(kind){
+   case TUGARIN->{var model=new WorldBossModel(false,true);yield new Head(kind,model.trophyHead(),"textures/entity/tugarin_phase2.png",null,null,null,model.trophyHeadPart("jaw"),model.trophyHeadPart("moustacheL"),model.trophyHeadPart("pupilL"),model.trophyHeadPart("pupilR"));}
+-  case SKIM->{var neck=SkimMesh.create().getChild("body").getChild("neck");yield new Head(kind,neck,"textures/entity/skim_beast.png",null,null,null,neck.getChild("head").getChild("jaw"),neck.getChild("mane_0"));}
+-  case VOLKOLAK->{var model=new CursedVolkolakModel();var part=model.trophyHead();part.zScale=CursedVolkolakRenderer.DEPTH_SCALE;yield new Head(kind,part,"textures/entity/cursed_volkolak.png",null,null,null,model.trophyHeadPart("jaw"),model.trophyHeadPart("earL"));}
+-  case LIKHO->{var model=new WorldBossModel(true);yield new Head(kind,model.trophyHead(),"textures/entity/likho_one_eyed.png",model.trophyHeadPart("upperLid"),null,model.trophyHeadPart("irisRing"),null,model.trophyHeadPart("lowerLid"));}
+-  case MOR_LIKHO->{var model=new WorldBossModel(true,false,true);yield new Head(kind,model.trophyHead(),"textures/entity/mor/likho.png",null,model.trophyHeadPart("morEye"),model.trophyHeadPart("morEye"));}
++  case SKIM->{var neck=TrophySkimMesh.create();var face=neck.getChild("head");yield new Head(kind,neck,"textures/entity/skim_beast.png",null,null,null,face.getChild("jaw"),neck.getChild("mane_0"),face.getChild("eyeL"),face.getChild("eyeR")).ears(face.getChild("earL"),face.getChild("earR"));}
++  case VOLKOLAK->{var model=new CursedVolkolakModel();var part=model.trophyHead();part.zScale=CursedVolkolakRenderer.DEPTH_SCALE;yield new Head(kind,part,"textures/entity/cursed_volkolak.png",null,null,null,model.trophyHeadPart("jaw"),null).ears(model.trophyHeadPart("earL"),model.trophyHeadPart("earR"));}
++  case LIKHO->{var model=new WorldBossModel(true);yield new Head(kind,model.trophyHead(),"textures/entity/likho_one_eyed.png",model.trophyHeadPart("upperLid"),null,model.trophyHeadPart("irisRing"),null,model.trophyHeadPart("lowerLid"),model.trophyHeadPart("iris"),model.trophyHeadPart("pupil"));}
++  case MOR_LIKHO->{var model=new WorldBossModel(true,false,true);yield new Head(kind,model.trophyHead(),"textures/entity/mor/likho.png",model.trophyHeadPart("upperLid"),model.trophyHeadPart("morEye"),model.trophyHeadPart("morEye"));}
+   case PODZEMNIK->{var head=UndergroundClient.Model.mesh(3).getChild("body").getChild("head");yield new Head(kind,head,"textures/entity/underground/large_podzemnik.png",null,null,null,head.getChild("jaw"),head.getChild("brows"));}
+  };}
+  private static final Map<TrophyHeads.Kind,Head> HEADS=new EnumMap<>(TrophyHeads.Kind.class);
+@@ -115,6 +130,8 @@ public final class TrophyHeadsClient {
+   public VertexConsumer setNormal(float x,float y,float z){return this;}
+   public float[] bounds(){float[] b={Float.POSITIVE_INFINITY,Float.POSITIVE_INFINITY,Float.POSITIVE_INFINITY,Float.NEGATIVE_INFINITY,Float.NEGATIVE_INFINITY,Float.NEGATIVE_INFINITY};for(var v:vertices)for(int i=0;i<3;i++){b[i]=Math.min(b[i],v[i]);b[i+3]=Math.max(b[i+3],v[i]);}return b;}
+  }
++ /** Model +X is opposite the facing-relative world side after placement rotation. */
++ static float eyeLook(double side,double forward){return (float)net.minecraft.util.Mth.clamp(-side/Math.max(2,forward)*.9,-1.1,1.1);}
+  public static final class Renderer implements BlockEntityRenderer<TrophyHeadBlock.Tile> {
+   public Renderer(BlockEntityRendererProvider.Context c){}
+   public void render(TrophyHeadBlock.Tile tile,float partial,PoseStack pose,MultiBufferSource buffer,int light,int overlay){
+@@ -129,13 +146,13 @@ public final class TrophyHeadsClient {
+     if(animated){
+      float gazeX=0,gazeY=0;
+      var player=Minecraft.getInstance().player;
+-     if(player!=null&&(block.kind==TrophyHeads.Kind.LIKHO||block.kind==TrophyHeads.Kind.MOR_LIKHO||block.kind==TrophyHeads.Kind.TUGARIN)){
++     if(player!=null&&(block.kind==TrophyHeads.Kind.LIKHO||block.kind==TrophyHeads.Kind.MOR_LIKHO||block.kind==TrophyHeads.Kind.TUGARIN||block.kind==TrophyHeads.Kind.SKIM)){
+       var f=tile.getBlockState().getValue(TrophyHeadBlock.FACING);
+       double dx=player.getX()-(tile.getBlockPos().getX()+.5),dz=player.getZ()-(tile.getBlockPos().getZ()+.5);
+       double forward=dx*f.getStepX()+dz*f.getStepZ();
+       if(forward>0&&dx*dx+dz*dz<24*24){
+        double side=-dx*f.getStepZ()+dz*f.getStepX();
+-       gazeX=(float)net.minecraft.util.Mth.clamp(side/Math.max(2,forward)*.9,-1.1,1.1);
++       gazeX=eyeLook(side,forward);
+        gazeY=(float)net.minecraft.util.Mth.clamp((player.getEyeY()-(tile.getBlockPos().getY()+1.15))*-.32,-.75,.75);
+       }
+      }
+diff --git a/src/main/java/org/slavicmyths/trophy/TrophyHeadBlock.java b/src/main/java/org/slavicmyths/trophy/TrophyHeadBlock.java
+index f85a00e7..93baa2aa 100644
+--- a/src/main/java/org/slavicmyths/trophy/TrophyHeadBlock.java
++++ b/src/main/java/org/slavicmyths/trophy/TrophyHeadBlock.java
+@@ -31,11 +31,13 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
+  @Override public VoxelShape getShape(BlockState s,BlockGetter w,BlockPos p,CollisionContext c){var b=kind.bounds();int offset=s.getValue(HALF)==DoubleBlockHalf.UPPER?1:0;double bottom=Math.max(0,b[1]-offset),top=Math.min(1,b[4]-offset);if(top<=bottom)return Shapes.empty();if(s.getValue(FACING).getAxis()==Direction.Axis.X)return Shapes.box(b[2],bottom,b[0],b[5],top,b[3]);return Shapes.box(b[0],bottom,b[2],b[3],top,b[5]);}
+  @Override public BlockEntity newBlockEntity(BlockPos p,BlockState s){return s.getValue(HALF)==DoubleBlockHalf.LOWER?new Tile(p,s):null;}
+  private BlockPos anchor(BlockPos p,BlockState s){return s.getValue(HALF)==DoubleBlockHalf.UPPER?p.below():p;}
+- @Override public BlockState playerWillDestroy(Level w,BlockPos p,BlockState s,Player player){if(w.isClientSide){
+-  BlockPos at=anchor(p,s);
++ @Override public BlockState playerWillDestroy(Level w,BlockPos p,BlockState s,Player player){if(!w.isClientSide&&player.isCreative()&&s.getValue(HALF)==DoubleBlockHalf.UPPER){var at=p.below();var lower=w.getBlockState(at);if(lower.is(this)&&lower.getValue(HALF)==DoubleBlockHalf.LOWER)w.destroyBlock(at,false);}return super.playerWillDestroy(w,p,s,player);}
++ @Override protected void onRemove(BlockState s,Level w,BlockPos p,BlockState next,boolean moving){super.onRemove(s,w,p,next,moving);if(w.isClientSide||s.is(next.getBlock()))return;if(s.getValue(HALF)==DoubleBlockHalf.LOWER)breakBurst(w,p);if(kind.height==1)return;var at=s.getValue(HALF)==DoubleBlockHalf.LOWER?p.above():p.below();var other=w.getBlockState(at);if(other.is(this)&&other.getValue(HALF)!=s.getValue(HALF)&&other.getValue(FACING)==s.getValue(FACING)){if(s.getValue(HALF)==DoubleBlockHalf.UPPER)w.destroyBlock(at,true);else w.removeBlock(at,false);}}
++ private void breakBurst(Level world,BlockPos anchor){
++  if(!(world instanceof net.minecraft.server.level.ServerLevel server))return;
+   var particle=switch(kind){case TUGARIN->net.minecraft.core.particles.ParticleTypes.DRAGON_BREATH;case SKIM->net.minecraft.core.particles.ParticleTypes.CLOUD;case VOLKOLAK->net.minecraft.core.particles.ParticleTypes.SMOKE;case PODZEMNIK->net.minecraft.core.particles.ParticleTypes.ASH;case LIKHO->net.minecraft.core.particles.ParticleTypes.SOUL;case MOR_LIKHO->net.minecraft.core.particles.ParticleTypes.CRIMSON_SPORE;};
+-  for(int i=0;i<24;i++)w.addParticle(particle,at.getX()+.5+(w.random.nextDouble()-.5)*.65,at.getY()+.35+w.random.nextDouble()*Math.min(kind.height,1.8),at.getZ()+.5+(w.random.nextDouble()-.5)*.65,(w.random.nextDouble()-.5)*.13,w.random.nextDouble()*.11,(w.random.nextDouble()-.5)*.13);
+- }if(!w.isClientSide&&player.isCreative()&&s.getValue(HALF)==DoubleBlockHalf.UPPER){var at=p.below();var lower=w.getBlockState(at);if(lower.is(this)&&lower.getValue(HALF)==DoubleBlockHalf.LOWER)w.destroyBlock(at,false);}return super.playerWillDestroy(w,p,s,player);}
+- @Override protected void onRemove(BlockState s,Level w,BlockPos p,BlockState next,boolean moving){super.onRemove(s,w,p,next,moving);if(w.isClientSide||s.is(next.getBlock())||kind.height==1)return;var at=s.getValue(HALF)==DoubleBlockHalf.LOWER?p.above():p.below();var other=w.getBlockState(at);if(other.is(this)&&other.getValue(HALF)!=s.getValue(HALF)&&other.getValue(FACING)==s.getValue(FACING)){if(s.getValue(HALF)==DoubleBlockHalf.UPPER)w.destroyBlock(at,true);else w.removeBlock(at,false);}}
++  double height=Math.min(kind.height,1.8);
++  server.sendParticles(particle,anchor.getX()+.5,anchor.getY()+height*.5,anchor.getZ()+.5,24,.325,height*.35,.325,.06);
++ }
+  public static final class Tile extends BlockEntity {public long clientLastFxTick=Long.MIN_VALUE;public Tile(BlockPos p,BlockState s){super(TrophyHeads.TILE.get(),p,s);}public net.minecraft.world.phys.AABB getRenderBoundingBox(){return new net.minecraft.world.phys.AABB(worldPosition).expandTowards(0,((TrophyHeadBlock)getBlockState().getBlock()).kind.height-1,0);}}
+ }

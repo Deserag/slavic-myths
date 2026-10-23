@@ -64,9 +64,14 @@ def proposal():
  root=wrapper(0);root['overrides']=[{'predicate':{'slavicmyths:whip_pose':v},'model':f'slavicmyths:item/poloz_whip_pose_{i}'} for i,v in enumerate([.1,.35,.5,.7,1])];assets['models/item/poloz_whip.json']=root
  return assets,plans
 
-def apply():return main(True)
+def apply():
+ from weapons87_restore49 import apply as restored49
+ restored49()
 
 def main(apply=False,review=False,revise=False):
+ if apply:
+  from weapons87_restore49 import apply as restored49
+  return restored49()
  D.mkdir(parents=True,exist_ok=True);assets,plans=proposal()
  if not apply:
   archive=O/'before-whip180.zip'

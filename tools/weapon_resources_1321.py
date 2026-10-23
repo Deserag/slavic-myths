@@ -84,7 +84,7 @@ def recipe(id,result,ingredients,copy=False):
  write(f'data/slavicmyths/recipe/weapon_{id}.json',{'type':'slavicmyths:armorer_shapeless','ingredients':[{'item':x} for x in ingredients],'result':{'id':'slavicmyths:'+result,'count':1},**({'copy_components':True} if copy else {})})
 def shaped(id,result,pattern,key):
  write(f'data/slavicmyths/recipe/weapon_part_{id}.json',{'type':'minecraft:crafting_shaped','pattern':pattern,'key':{k:{'item':v} for k,v in key.items()},'result':{'id':'slavicmyths:'+result,'count':1}})
-def main():
+def historical_main():
  ids=[];names={};weapons=[]
  for m,(ru,en,dark,light,material) in MATERIALS.items():
   for kind,(rname,ename) in {**TYPES,**PARTS}.items():
@@ -142,7 +142,15 @@ def main():
   for y,kind in enumerate(TYPES):sheet.alpha_composite(icon(kind,dark,light).resize((64,64),Image.Resampling.NEAREST),(x*120+20,25+y*105));draw.text((x*120+2,90+y*105),kind,fill='#282321')
  for x,kind in enumerate(('short_bow','heavy_bow')):sheet.alpha_composite(icon(kind).resize((64,64),Image.Resampling.NEAREST),(x*120+20,465));draw.text((x*120+2,535),kind,fill='#282321')
  out=ROOT/'docs/media/weapons-1321.png';out.parent.mkdir(exist_ok=True);sheet.save(out)
+ from weapons87_approved_cd import apply as approved_cd
+ approved_cd(ROOT)
  print(f'Generated {len(ids)} new items, 30 weapon forms (three existing IDs retained), parts and bench recipes.')
+def main():
+ # Historical art/tooltip output predates owner corrections. Replay maintained sources.
+ from weapons87_flails import main as current_weapons
+ current_weapons(True)
+ from weapons87_approved_cd import apply as approved_cd
+ approved_cd(ROOT)
 if __name__=='__main__':
  main()
  import rare_weapon_resources_1322

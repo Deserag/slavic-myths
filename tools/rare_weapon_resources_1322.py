@@ -51,7 +51,7 @@ def icon(id):
   d.polygon([(10,8),(21,8),(25,13),(23,22),(16,25),(9,22),(7,13)],fill=metal)
   d.rectangle((10,12,22,19),outline=gold,width=2);d.line([(12,16),(20,16)],fill=red,width=2)
  return im
-def main():
+def historical_main():
  for id in NAMES:
   path=RES/f'assets/slavicmyths/textures/item/{id}.png';path.parent.mkdir(parents=True,exist_ok=True);icon(id).save(path)
   write(f'assets/slavicmyths/models/item/{id}.json',{'parent':'minecraft:item/generated' if id=='ataman_sign' else 'minecraft:item/handheld','textures':{'layer0':'slavicmyths:item/'+id}})
@@ -90,4 +90,8 @@ def main():
  unique_armor_resources.apply()
  import weapon_patch_assets
  weapon_patch_assets.main()
+def main():
+ # Keep old authoring helpers for provenance; obsolete art/stats are not executable defaults.
+ from weapons87_flails import main as current_weapons
+ current_weapons(True)
 if __name__=='__main__':main()

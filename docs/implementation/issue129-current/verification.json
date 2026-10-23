@@ -1,0 +1,183 @@
+{
+  "status": "PASS_SOURCE_BUILD; OWNER_ONLY_RUNTIME_NOT_RUN",
+  "ids": 29,
+  "native_samples": 232,
+  "accessories": [
+    {
+      "id": "invisibility_cap",
+      "unchanged_this_task": true,
+      "files": {
+        "src/main/resources/data/slavicmyths/recipe/invisibility_cap.json": "74b6d4a84a09f48523dc68c2b422f4c6e9294ff317084447b4ede95ee0a211af",
+        "src/main/resources/assets/slavicmyths/textures/item/invisibility_cap.png": "1650ea1511f2713bb3642c4d16738299413ba50f2a031764e861250a17a28daf",
+        "src/main/resources/assets/slavicmyths/models/item/invisibility_cap.json": "f3fa1ee0a50344f9addb1bfd293ce2a4ee9f294e582fc49b504be375fae2e48c",
+        "src/main/resources/assets/slavicmyths/models/item/invisibility_cap_held148.json": "50f7b339e35b6fe4d4d50a4b6f4b693c095a8f6cbd9465f3f3fb1976192cb7b4"
+      },
+      "historical_drift_before_this_task": [
+        "src/main/resources/assets/slavicmyths/models/item/invisibility_cap.json"
+      ]
+    },
+    {
+      "id": "woven_belt",
+      "unchanged_this_task": true,
+      "files": {
+        "src/main/resources/data/slavicmyths/recipe/woven_belt.json": "ef065b81bac157e37a172bfa5d305d00cc66fff67eac39eab92ef6af717aa1f1",
+        "src/main/resources/assets/slavicmyths/textures/item/woven_belt.png": "65b742819ae3d546ff72475f8ce3c9e7a087facb0b25c0cb75d67818e608a510",
+        "src/main/resources/assets/slavicmyths/textures/entity/clothing/woven_belt.png": "a4724f0a51d2f819c1654dc8323e337ee6cdc2f42ce431417b0c2f91be1c05c6",
+        "src/main/resources/assets/slavicmyths/models/item/woven_belt.json": "82bbb387ed6aba0f1cf0c146e813cb64762e1f97236047a693001f731b896bec"
+      },
+      "historical_drift_before_this_task": []
+    },
+    {
+      "id": "hunter_belt",
+      "unchanged_this_task": true,
+      "files": {
+        "src/main/resources/data/slavicmyths/recipe/hunter_belt.json": "21e3daa8825b81ec76c719d8bd3f893d9474c3151dad8b661657ae55aaa60ec1",
+        "src/main/resources/assets/slavicmyths/textures/item/hunter_belt.png": "15aab62fa70502fd32d259b4a75d62d5142078ddc4259d529cc9d38ae3077919",
+        "src/main/resources/assets/slavicmyths/models/item/hunter_belt.json": "664470240750e011e14aa6e0334027d8b3359041548759de49cfb9b91dc798af",
+        "src/main/resources/assets/slavicmyths/models/item/hunter_belt_held148.json": "bccf2e1cfce5d478ac7cc418a0265542a690096d223a43b9309edae7fc30b425"
+      },
+      "historical_drift_before_this_task": [
+        "src/main/resources/assets/slavicmyths/models/item/hunter_belt.json"
+      ]
+    },
+    {
+      "id": "volchiy_poyas",
+      "unchanged_this_task": true,
+      "files": {
+        "src/main/resources/data/slavicmyths/recipe/volchiy_poyas.json": "3a7f0055189e4aba906c23bb1c999d078696f54edeb24c005e97bd6d45252f3f",
+        "src/main/resources/assets/slavicmyths/textures/item/volchiy_poyas.png": "b7a327a758ad1c18a78e41a2dd5562b7d9d7ab24efc255ac35c765c83b064208",
+        "src/main/resources/assets/slavicmyths/models/item/volchiy_poyas.json": "417a4e50db49ea4f18a1ce0aad199080f741f7012bdccef7f03d2abf4cf2ecef",
+        "src/main/resources/assets/slavicmyths/models/item/volchiy_poyas_held148.json": "05634705a374ef558f0db5d86a42239807ed6eff5199e1b0b1ae4a6a91fc7068"
+      },
+      "historical_drift_before_this_task": [
+        "src/main/resources/assets/slavicmyths/textures/item/volchiy_poyas.png",
+        "src/main/resources/assets/slavicmyths/models/item/volchiy_poyas.json"
+      ]
+    },
+    {
+      "id": "poyas_tugarina",
+      "unchanged_this_task": true,
+      "files": {
+        "src/main/resources/data/slavicmyths/recipe/poyas_tugarina.json": "ea9f889aba3ab473ac91ef032cf44f7f9e042fbeb2ad9adc6ac6b13f188dd500",
+        "src/main/resources/assets/slavicmyths/textures/item/poyas_tugarina.png": "1fb475bdcdf5f941113b99d6931e676b07bce791421e434d424f2c6bae5faf26",
+        "src/main/resources/assets/slavicmyths/models/item/poyas_tugarina.json": "ee16a78868829d419c03346133d7a2388bf073a29a7828b4b2ff659384e93238",
+        "src/main/resources/assets/slavicmyths/models/item/poyas_tugarina_held148.json": "12627e06f2236e5102ed852541390ed0855dbdeb12ced5891c3305acf2604cc1"
+      },
+      "historical_drift_before_this_task": [
+        "src/main/resources/assets/slavicmyths/textures/item/poyas_tugarina.png",
+        "src/main/resources/assets/slavicmyths/models/item/poyas_tugarina.json"
+      ]
+    },
+    {
+      "id": "gift_alyosha_belt",
+      "unchanged_this_task": true,
+      "files": {
+        "src/main/resources/assets/slavicmyths/textures/item/gift_alyosha_belt.png": "53a8c7f4aea23e32d8e362b09f26ff5389dd796364f07e2db4a9e9f2b8eb1566",
+        "src/main/resources/assets/slavicmyths/models/item/gift_alyosha_belt.json": "02ec508a29afd84cb343137d780727cf48655e09ee2c4eeba20d47bdc0d37abc"
+      },
+      "historical_drift_before_this_task": []
+    },
+    {
+      "id": "underground_guard_belt",
+      "unchanged_this_task": true,
+      "files": {
+        "src/main/resources/data/slavicmyths/recipe/underground_guard_belt.json": "e868b8eb5d94ac073a02fce99af06533038925281c1d217dae0e9879d0120ce3",
+        "src/main/resources/assets/slavicmyths/textures/item/underground_guard_belt.png": "8be750fe860f9829e55643d7b368d0b269502a0a434645154630e56f6d8b7900",
+        "src/main/resources/assets/slavicmyths/models/item/underground_guard_belt.json": "0b240397664e89f324ab270b7912f97dc0a09852b54f577ac97854eb305d7bd6"
+      },
+      "historical_drift_before_this_task": []
+    },
+    {
+      "id": "perunite_shield",
+      "unchanged_this_task": true,
+      "files": {
+        "src/main/resources/data/slavicmyths/recipe/perunite_shield.json": "e6c39fcfeda24d35ad7185e4faa190e345d144eae702487b47e331359487de4a",
+        "src/main/resources/assets/slavicmyths/textures/item/perunite_shield.png": "1c2aee8556c855cf168d1e70a100211367b9f88cad4f34498628a38d8290a416",
+        "src/main/resources/assets/slavicmyths/models/item/perunite_shield.json": "1faf30c73fca31c2ae3ed894c5ffb07f82f04a08240eb35ca701cfd2e4dcd598",
+        "src/main/resources/assets/slavicmyths/models/item/perunite_shield_blocking.json": "db4458f79dab36e3247d68128eac83700653a29123bb6ef19b031395054928b5",
+        "src/main/resources/assets/slavicmyths/models/item/perunite_shield_body.json": "8fea785f5d660c3b870ca7d95da9917e4a68735be11b349202c8ac9e2be38199"
+      },
+      "historical_drift_before_this_task": []
+    },
+    {
+      "id": "retainer_shield",
+      "unchanged_this_task": true,
+      "files": {
+        "src/main/resources/data/slavicmyths/recipe/retainer_shield.json": "195d2c37403aa7c7832567b96751dc6fd4cac0b73f399947794d83e2c93a9af5",
+        "src/main/resources/assets/slavicmyths/textures/item/retainer_shield.png": "8e5ae9cb959ca8e4411a3a736fdf3b1c71063f51542dd98b22ed52b3f778f046",
+        "src/main/resources/assets/slavicmyths/textures/item/retainer_shield_surface.png": "06357e08edff3a1e83e531ea60cae9d7166201b4e96bea90614995301eeec67f",
+        "src/main/resources/assets/slavicmyths/models/item/retainer_shield.json": "d4de6cda5477de17ce03e50a197999cc7dc35a9caae81d0a9d5946e2394052c2",
+        "src/main/resources/assets/slavicmyths/models/item/retainer_shield_blocking.json": "1bd38e3944f85bb39a540b563059abc0ad70b5064a60a18ceb19c52022929836",
+        "src/main/resources/assets/slavicmyths/models/item/retainer_shield_blocking_held.json": "270c39637687728541c0115d1505f8c8f0a0791291291c9c2705d5f91cb658f2",
+        "src/main/resources/assets/slavicmyths/models/item/retainer_shield_body.json": "1bdc540115aaadb8ec592a71b4ca89d639c71ebd46dfeaa101680b1a3035b049",
+        "src/main/resources/assets/slavicmyths/models/item/retainer_shield_held.json": "66e3150f89e67f86dbd37a90207219a7abf1fd44e3ae77966f22747cd3ffd50a"
+      },
+      "historical_drift_before_this_task": [
+        "src/main/resources/assets/slavicmyths/models/item/retainer_shield.json",
+        "src/main/resources/assets/slavicmyths/models/item/retainer_shield_blocking.json",
+        "src/main/resources/assets/slavicmyths/models/item/retainer_shield_body.json"
+      ]
+    },
+    {
+      "id": "ward_shield",
+      "unchanged_this_task": true,
+      "files": {
+        "src/main/resources/data/slavicmyths/recipe/unique/ward_shield.json": "12fd858f828f4f2b85afef7208383eb5acad20ba5da665605fe8c309bc1e1d4f",
+        "src/main/resources/assets/slavicmyths/textures/item/ward_shield.png": "1665e02a6b0d789bff2259630b1771b84b6d74048123a523fa1d2d0da8fd7531",
+        "src/main/resources/assets/slavicmyths/models/item/ward_shield.json": "ccd1be1cc393afff36599844c8ae7daac314dad3c542330a33b602ab0902b320",
+        "src/main/resources/assets/slavicmyths/models/item/ward_shield_blocking.json": "54c2ef286e650e6f74ee8d7c691863ab872c4b19676218b163142558f8686568"
+      },
+      "historical_drift_before_this_task": []
+    },
+    {
+      "id": "gift_ilya_shield",
+      "unchanged_this_task": true,
+      "files": {
+        "src/main/resources/assets/slavicmyths/textures/item/gift_ilya_shield.png": "79cce9c59554b0a938f1dedfb01125e5e17394d9b6579aaaed5809ff6d05bd14",
+        "src/main/resources/assets/slavicmyths/models/item/gift_ilya_shield.json": "a8b3a430dad613f56d2b6ebcc5e4b777fcff1286ea1476f8e998a3c47f048536",
+        "src/main/resources/assets/slavicmyths/models/item/gift_ilya_shield_blocking.json": "d0f566989034a625807d2764cadfa636f18673aa279ed30c72cbef2b5392093b"
+      },
+      "historical_drift_before_this_task": []
+    },
+    {
+      "id": "miners_goggles",
+      "unchanged_this_task": true,
+      "files": {
+        "src/main/resources/data/slavicmyths/recipe/miners_goggles.json": "0d4ca8129688f50ac89d695591fe8bd692ddf7c25a7e1089e378a3b853146df5",
+        "src/main/resources/assets/slavicmyths/textures/item/miners_goggles.png": "72d47a9577b4d8bce8221e5ee32c63a83a6ac400008b103c26ed5af27f449973",
+        "src/main/resources/assets/slavicmyths/textures/models/miners_goggles.png": "412465ac39f09eb03d8fd2eadb86628cfa3aaf11a1620d6a2c89d5e6bd61a12b",
+        "src/main/resources/assets/slavicmyths/models/item/miners_goggles.json": "1c14154cfcab4ece128a33eaa49602feab7d98a7031cfa76bf45fe55d63cbcc9"
+      },
+      "historical_drift_before_this_task": []
+    },
+    {
+      "id": "finist_quiver",
+      "unchanged_this_task": true,
+      "files": {
+        "src/main/resources/assets/slavicmyths/textures/armor/finist_quiver_worn.png": "d4d56351c292411d3c7dc17504d9bf948ceae6c37dc6a6629544f4a40e68dd0e",
+        "src/main/resources/assets/slavicmyths/textures/item/finist_quiver.png": "c97009a0478273853d4f9aedfb47ec55e4282664ba6b505fdbe8ce1c45a86fc2",
+        "src/main/resources/assets/slavicmyths/models/item/finist_quiver.json": "1aba70eed2a95b835edd77e61c7dc8dd1414dc5760e64252c0e6fa47996afbe0"
+      },
+      "historical_drift_before_this_task": []
+    }
+  ],
+  "current_armor_tab_rows": 34,
+  "accepted_prerequisites": {
+    "122": "Готово",
+    "123": "Готово",
+    "124": "Готово",
+    "125": "Готово",
+    "126": "Готово",
+    "127": "Готово",
+    "128": "Готово"
+  },
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.60.jar",
+  "jar_sha256": "19202904f71fa92917c314d5743637b132478ee1be1d8f1a8f0d1489b606b0d6",
+  "source_commit": "1192e229c4aa9166b53661f71f5ca15299f3537e",
+  "source_state": "DIRTY; no commit/push",
+  "launches": 0,
+  "runtime": "OWNER_ONLY_NOT_RUN",
+  "polymc": "No installation in this task; installed60 receipt remains separate",
+  "historical_scope_preserved": true,
+  "preview_inputs_and_outputs_match": true
+}

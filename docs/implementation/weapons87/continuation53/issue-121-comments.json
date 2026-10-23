@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/121#issuecomment-6340541426",
+      "body": "### 22.10.2026 — #87 P32 canonical generator protection gate\n- [x] [PR #203](https://github.com/Deserag/slavic-myths/pull/203) source and [PR #204](https://github.com/Deserag/slavic-myths/pull/204) final docs merged; main `a0d0f5e97ea4dbb0d30f5a5f41f78eb8d3e9e972`.\n- [x] Canonical `weapons87_flails.py --apply` replay twice in throwaway sandbox, **zero mutations of actual source**. All 68 weapon item IDs, 16 protected crossbows/Kalin/Victor/Pool assets, double replay idempotent. 30 file-byte diffs (12 model JSON + 18 flail PNG) but **0 JSON-structure or RGBA pixel differences**, so no actual art rollback. SHA differences documented instead of rewriting historical frozen manifests.\n- [x] Java21 `clean build`, 294 JAR asset checks and source generator assertions PASS [CI #39776454779](https://github.com/Deserag/slavic-myths/actions/runs/39776454779); `slavicmyths-1.9.7.56.jar` SHA256 `d920d52874db3d9d1d811756ff10177f0c9b94aec3db7c9edcf73eb34f86790f`. Full before/after generator report in Actions artifact and [PACKAGE-32.md](https://github.com/Deserag/slavic-myths/blob/main/docs/implementation/weapons87/PACKAGE-32.md).\n- [ ] Historical other standalone entrypoints and accepted owner-gameplay 1P/3P not all tested; old 109 audit SHA and51 flail manifest SHA remain archive differences. **Issue OPEN**, runtime Minecraft/PolyMC NOT_RUN, not owner-accepted.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6340541426,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<h3 dir=\"auto\">22.10.2026 — <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5929027445\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/87\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/87/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/87\">#87</a> P32 canonical generator protection gate</h3>\n<ul class=\"contains-task-list\">\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <a href=\"https://github.com/Deserag/slavic-myths/pull/203\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/203/hovercard\">PR #203</a> source and <a href=\"https://github.com/Deserag/slavic-myths/pull/204\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/204/hovercard\">PR #204</a> final docs merged; main <code class=\"notranslate\">a0d0f5e97ea4dbb0d30f5a5f41f78eb8d3e9e972</code>.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> Canonical <code class=\"notranslate\">weapons87_flails.py --apply</code> replay twice in throwaway sandbox, <strong>zero mutations of actual source</strong>. All 68 weapon item IDs, 16 protected crossbows/Kalin/Victor/Pool assets, double replay idempotent. 30 file-byte diffs (12 model JSON + 18 flail PNG) but <strong>0 JSON-structure or RGBA pixel differences</strong>, so no actual art rollback. SHA differences documented instead of rewriting historical frozen manifests.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> Java21 <code class=\"notranslate\">clean build</code>, 294 JAR asset checks and source generator assertions PASS <a href=\"https://github.com/Deserag/slavic-myths/actions/runs/39776454779\">CI #39776454779</a>; <code class=\"notranslate\">slavicmyths-1.9.7.56.jar</code> SHA256 <code class=\"notranslate\">d920d52874db3d9d1d811756ff10177f0c9b94aec3db7c9edcf73eb34f86790f</code>. Full before/after generator report in Actions artifact and <a href=\"https://github.com/Deserag/slavic-myths/blob/main/docs/implementation/weapons87/PACKAGE-32.md\">PACKAGE-32.md</a>.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Incomplete task\"> Historical other standalone entrypoints and accepted owner-gameplay 1P/3P not all tested; old 109 audit SHA and51 flail manifest SHA remain archive differences. <strong>Issue OPEN</strong>, runtime Minecraft/PolyMC NOT_RUN, not owner-accepted.</li>\n</ul>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/121#issuecomment-6341914051",
+      "body": "P35 / PR #209: source-gate фиксирует isolated `TemporaryDirectory`,16 защищённых ресурсов, семантическую проверку JSON/PNG и контроль идемпотентности canonical generator. Остальные исторические entrypoints отдельно не проходили; не закрывать #121.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6341914051,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">P35 / PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5980247425\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/209\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/209/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/209\">#209</a>: source-gate фиксирует isolated <code class=\"notranslate\">TemporaryDirectory</code>,16 защищённых ресурсов, семантическую проверку JSON/PNG и контроль идемпотентности canonical generator. Остальные исторические entrypoints отдельно не проходили; не закрывать <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5946321965\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/121\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/121/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/121\">#121</a>.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/121#issuecomment-6342089018",
+      "body": "PR #209 CI completed SUCCESS (source audit по 5 issues). Новый PR #210 регрессионно защищает client FP crossbow ItemStack identity при неизменных 12 asset states; canonical generator #121 по-прежнему требует отдельного охвата исторических entrypoints. Не закрывать.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6342089018,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5980247425\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/209\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/209/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/209\">#209</a> CI completed SUCCESS (source audit по 5 issues). Новый PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5980388046\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/210\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/210/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/210\">#210</a> регрессионно защищает client FP crossbow ItemStack identity при неизменных 12 asset states; canonical generator <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5946321965\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/121\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/121/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/121\">#121</a> по-прежнему требует отдельного охвата исторических entrypoints. Не закрывать.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/121#issuecomment-6345178753",
+      "body": "P43 / draft PR #216: `tools/weapons87_p43_overlay.py` добавлен после P42 в каноническом `weapons87_flails.py` + исправлен SPEC хвата резного посоха; source verifier проверяет старые P42 модели и двойной изолированный идемпотентный overlay, JAR байты. CI #39809095069 Java21/JAR SUCCESS. Полный replay исторических генераторов и Minecraft acceptance НЕ выполнен — #121 OPEN.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6345178753,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">P43 / draft PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5982545857\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/216\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/216/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/216\">#216</a>: <code class=\"notranslate\">tools/weapons87_p43_overlay.py</code> добавлен после P42 в каноническом <code class=\"notranslate\">weapons87_flails.py</code> + исправлен SPEC хвата резного посоха; source verifier проверяет старые P42 модели и двойной изолированный идемпотентный overlay, JAR байты. CI #39809095069 Java21/JAR SUCCESS. Полный replay исторических генераторов и Minecraft acceptance НЕ выполнен — <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5946321965\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/121\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Deserag/slavic-myths/issues/121/hovercard\" href=\"https://github.com/Deserag/slavic-myths/issues/121\">#121</a> OPEN.</p>"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/issues/121#issuecomment-6345897466",
+      "body": "P46 targeted regression repair в одной рабочей ветке, source commit [`549e39bf`](https://github.com/Deserag/slavic-myths/commit/549e39bfe7fd5078f594a65692401cb9f9f0fc2d), draft PR #216. `verify_weapons87_crossbows.py` и `weapons87_owner_qa.py` опирались на pre-P42 frozen records и ошибочно отвергали принятую source P42 аддитивную геометрию арбалетов: +5 `serpent_crossbow`, +3 `three_breath_crossbow` во всех 12 states. Не удалили baseline/не отключили tests: теперь строгий old-elements + exact approved `weapons87_p42_models.ADDITIONS[id]`, прежние TP pivot/metadata/source checks сохранены. Это исправление QA-цепочки, **не** исправление самой игровой геометрии, не runtime acceptance. CI для нового commit будет проверен отдельно, source/Java21/JAR P45 уже PASS [#39813871455](https://github.com/Deserag/slavic-myths/actions/runs/39813871455). Никаких изменений `main`, моделей/баланса, Issues OPEN/IN_PROGRESS.",
+      "user": {
+        "login": "Deserag",
+        "name": "Deserag",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+        "id": 98634457
+      },
+      "id": 6345897466,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">P46 targeted regression repair в одной рабочей ветке, source commit <a href=\"https://github.com/Deserag/slavic-myths/commit/549e39bfe7fd5078f594a65692401cb9f9f0fc2d\"><code class=\"notranslate\">549e39bf</code></a>, draft PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5982545857\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Deserag/slavic-myths/issues/216\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Deserag/slavic-myths/pull/216/hovercard\" href=\"https://github.com/Deserag/slavic-myths/pull/216\">#216</a>. <code class=\"notranslate\">verify_weapons87_crossbows.py</code> и <code class=\"notranslate\">weapons87_owner_qa.py</code> опирались на pre-P42 frozen records и ошибочно отвергали принятую source P42 аддитивную геометрию арбалетов: +5 <code class=\"notranslate\">serpent_crossbow</code>, +3 <code class=\"notranslate\">three_breath_crossbow</code> во всех 12 states. Не удалили baseline/не отключили tests: теперь строгий old-elements + exact approved <code class=\"notranslate\">weapons87_p42_models.ADDITIONS[id]</code>, прежние TP pivot/metadata/source checks сохранены. Это исправление QA-цепочки, <strong>не</strong> исправление самой игровой геометрии, не runtime acceptance. CI для нового commit будет проверен отдельно, source/Java21/JAR P45 уже PASS <a href=\"https://github.com/Deserag/slavic-myths/actions/runs/39813871455\">#39813871455</a>. Никаких изменений <code class=\"notranslate\">main</code>, моделей/баланса, Issues OPEN/IN_PROGRESS.</p>"
+    }
+  ],
+  "url": "https://github.com/Deserag/slavic-myths/issues/121",
+  "title": "Deserag/slavic-myths Issue #121 comments",
+  "display_url": "https://github.com/Deserag/slavic-myths/issues/121",
+  "display_title": "Deserag/slavic-myths Issue #121 comments"
+}

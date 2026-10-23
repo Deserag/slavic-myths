@@ -49,6 +49,11 @@ NAMES=tuple(name for family in FAMILIES.values() for name in family)
 DARK='#302D2D';STEEL='#A0AAA8';LIGHT='#DFE2D1';WOOD='#795536';GOLD='#B89953';RED='#923A32';BONE='#D7C9A0'
 
 def sprite(kind,name):
+ if name=="firebird_down":
+  from trophy114_down import image as current_down
+  return current_down()
+ from trophies112_113_art import FIX as current_ids, sprite as current_sprite
+ if name in current_ids:return current_sprite(name)
  from trophy111_art import FIX as t2_ids, sprite as t2_sprite
  if name in t2_ids:return t2_sprite(name)
  from trophy110_art import IDS as trophy_ids, sprite as trophy_sprite

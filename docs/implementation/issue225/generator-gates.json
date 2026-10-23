@@ -1,0 +1,18 @@
+{
+  "two_exact_replays": true,
+  "production_byte_parity": true,
+  "owned": {
+    "models/item/ohotnichiy_rog.json": "f51d163dca76ef1eafdcbf3a712e624567123e5b84551e6835da131eb81a551e",
+    "models/item/ohotnichiy_rog_held225.json": "f984494e5b325783c30d03c1ff32f37f9056b13dff51ee25654d713e1114fc0b",
+    "textures/item/ohotnichiy_rog_surface225.png": "5ef6f0b25d3cb367e3449f54acf0d288e299475905f035c2e859d0ecd2f5c54d",
+    "models/item/poloz_whip.json": "b3a11fcc145d1be930afa67e66c904a5f607fc80cf333c7e10e9a9ad0f8604af",
+    "models/item/poloz_whip_pose_0.json": "9f37c165fa5b64abcd7f0e311505046f834aa13219007b3cd323113fc9f7d22e",
+    "models/item/poloz_whip_pose_1.json": "cc21ff43110b454b40452ac428a7ee3345ce6bcfb9741280e4cd510f6dcf2039",
+    "models/item/poloz_whip_pose_2.json": "e98058944cf164a18975c82b7232b8844c434e738ed571e892a48b267aa114c4",
+    "models/item/poloz_whip_pose_3.json": "f0065961d10ce14edd3eb9d1090d4ffce9faa2545846c06750c344f2cbe5642c",
+    "models/item/poloz_whip_pose_4.json": "b8acce11e86da3cf04d5c315fb2e64a8dd2305b8456745a73570c9e7a06d1a51",
+    "lang/ru_ru.json": "7e1e1dd6894318cbd81e478b38b446df0852e5ccc788b0a285e4f4153b8353c4",
+    "lang/en_us.json": "09662d05e2a24b965f904166882afb8dc7e2293f0015e0c49a374a44fe887ecd"
+  },
+  "no_audio_or_bootstrap": true
+}

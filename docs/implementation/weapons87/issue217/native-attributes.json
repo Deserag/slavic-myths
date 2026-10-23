@@ -1,0 +1,1673 @@
+[
+  {
+    "id": "bone_knife",
+    "class": "net.minecraft.world.item.SwordItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 2.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -1.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 3.0,
+    "attack_speed_total": 2.5,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 7.5,
+    "max_damage": 75,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "silver_dagger",
+    "class": "net.minecraft.world.item.SwordItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 3.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -1.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 4.0,
+    "attack_speed_total": 2.5,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 10.0,
+    "max_damage": 220,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "nightingale_dagger",
+    "class": "org.slavicmyths.bandit.NightingaleDagger",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 9.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 10.0,
+    "attack_speed_total": 2.0,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 20.0,
+    "max_damage": 700,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "ancient_carolingian_sword",
+    "class": "org.slavicmyths.kurgan.BurialWeapon",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 3.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.4000000953674316,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 4.0,
+    "attack_speed_total": 1.5999999046325684,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 6.399999618530273,
+    "max_damage": 90,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "restored_carolingian_sword",
+    "class": "org.slavicmyths.kurgan.BurialWeapon",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 5.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.4000000953674316,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 6.0,
+    "attack_speed_total": 1.5999999046325684,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 9.59999942779541,
+    "max_damage": 450,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "silver_sword",
+    "class": "net.minecraft.world.item.SwordItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 5.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.4000000953674316,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 6.0,
+    "attack_speed_total": 1.5999999046325684,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 9.59999942779541,
+    "max_damage": 220,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "perunite_sword",
+    "class": "net.minecraft.world.item.SwordItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 5.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.4000000953674316,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 6.5,
+    "attack_speed_total": 1.5999999046325684,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 10.399999380111694,
+    "max_damage": 850,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "tugarin_sword",
+    "class": "net.minecraft.world.item.SwordItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 9.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.200000047683716,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 10.0,
+    "attack_speed_total": 1.7999999523162842,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 17.999999523162842,
+    "max_damage": 1561,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "trophy_kalin_sabre",
+    "class": "net.minecraft.world.item.SwordItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 8.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.700000047683716,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 9.0,
+    "attack_speed_total": 1.2999999523162842,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 11.699999570846558,
+    "max_damage": 1561,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "club",
+    "class": "org.slavicmyths.item.ClubItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 4.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.0999999046325684,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 5.0,
+    "attack_speed_total": 0.9000000953674316,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 4.500000476837158,
+    "max_damage": 59,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "wooden_mace",
+    "class": "org.slavicmyths.combat.MaceItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 4.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.950000047683716,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 5.0,
+    "attack_speed_total": 1.0499999523162842,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 5.249999761581421,
+    "max_damage": 59,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "stone_mace",
+    "class": "org.slavicmyths.combat.MaceItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 6.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.1500000953674316,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 7.0,
+    "attack_speed_total": 0.8499999046325684,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 5.9499993324279785,
+    "max_damage": 131,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "mace",
+    "class": "org.slavicmyths.combat.MaceItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 7.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.0999999046325684,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 8.0,
+    "attack_speed_total": 0.9000000953674316,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 7.200000762939453,
+    "max_damage": 250,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "silver_mace",
+    "class": "org.slavicmyths.combat.MaceItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 6.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 7.0,
+    "attack_speed_total": 1.0,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 7.0,
+    "max_damage": 220,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "perunite_mace",
+    "class": "org.slavicmyths.combat.MaceItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 8.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.200000047683716,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 9.5,
+    "attack_speed_total": 0.7999999523162842,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 7.5999995470047,
+    "max_damage": 850,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "ancient_chekan",
+    "class": "org.slavicmyths.combat.MaceItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 4.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.799999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 5.0,
+    "attack_speed_total": 1.2000000476837158,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 6.000000238418579,
+    "max_damage": 90,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "chekan",
+    "class": "org.slavicmyths.combat.MaceItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 5.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.700000047683716,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 6.0,
+    "attack_speed_total": 1.2999999523162842,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 7.799999713897705,
+    "max_damage": 400,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "battle_axe",
+    "class": "net.minecraft.world.item.AxeItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 9.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.299999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 10.0,
+    "attack_speed_total": 0.7000000476837158,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 7.000000476837158,
+    "max_damage": 250,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "thunder_axe",
+    "class": "org.slavicmyths.item.ThunderAxeItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 7.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.0999999046325684,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 8.5,
+    "attack_speed_total": 0.9000000953674316,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 7.650000810623169,
+    "max_damage": 850,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "stone_flail",
+    "class": "org.slavicmyths.combat.FlailItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 6.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.299999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 7.0,
+    "attack_speed_total": 0.7000000476837158,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 4.900000333786011,
+    "max_damage": 131,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "gold_flail",
+    "class": "org.slavicmyths.combat.FlailItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 5.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.299999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 6.0,
+    "attack_speed_total": 0.7000000476837158,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 4.200000286102295,
+    "max_damage": 32,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "flail",
+    "class": "org.slavicmyths.combat.FlailItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 7.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.299999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 8.0,
+    "attack_speed_total": 0.7000000476837158,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 5.600000381469727,
+    "max_damage": 250,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "silver_flail",
+    "class": "org.slavicmyths.combat.FlailItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 7.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.299999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 8.0,
+    "attack_speed_total": 0.7000000476837158,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 5.600000381469727,
+    "max_damage": 220,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "diamond_flail",
+    "class": "org.slavicmyths.combat.FlailItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 8.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.299999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 9.0,
+    "attack_speed_total": 0.7000000476837158,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 6.300000429153442,
+    "max_damage": 1561,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "perunite_flail",
+    "class": "org.slavicmyths.combat.FlailItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 7.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.299999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 8.5,
+    "attack_speed_total": 0.7000000476837158,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 5.9500004053115845,
+    "max_damage": 850,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "netherite_flail",
+    "class": "org.slavicmyths.combat.FlailItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 9.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.299999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 10.0,
+    "attack_speed_total": 0.7000000476837158,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 7.000000476837158,
+    "max_damage": 2031,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "ataman_flail",
+    "class": "org.slavicmyths.combat.MaceItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 11.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.299999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 12.0,
+    "attack_speed_total": 0.7000000476837158,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 8.40000057220459,
+    "max_damage": 1561,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "ancient_spear",
+    "class": "org.slavicmyths.kurgan.BurialWeapon",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 3.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.799999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 1.25,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 4.0,
+    "attack_speed_total": 1.2000000476837158,
+    "reach_total": 4.25,
+    "unarmored_full_charge_melee_dps_ceiling": 4.800000190734863,
+    "max_damage": 90,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "restored_spear",
+    "class": "org.slavicmyths.kurgan.BurialWeapon",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 5.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.799999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 1.25,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 6.0,
+    "attack_speed_total": 1.2000000476837158,
+    "reach_total": 4.25,
+    "unarmored_full_charge_melee_dps_ceiling": 7.200000286102295,
+    "max_damage": 380,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "spear",
+    "class": "org.slavicmyths.item.SpearItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 4.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.799999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 1.25,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 5.0,
+    "attack_speed_total": 1.2000000476837158,
+    "reach_total": 4.25,
+    "unarmored_full_charge_melee_dps_ceiling": 6.000000238418579,
+    "max_damage": 131,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "gold_spear",
+    "class": "org.slavicmyths.item.SpearItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 3.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.799999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 1.25,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 4.0,
+    "attack_speed_total": 1.2000000476837158,
+    "reach_total": 4.25,
+    "unarmored_full_charge_melee_dps_ceiling": 4.800000190734863,
+    "max_damage": 32,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "iron_spear",
+    "class": "org.slavicmyths.item.SpearItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 5.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.799999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 1.25,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 6.0,
+    "attack_speed_total": 1.2000000476837158,
+    "reach_total": 4.25,
+    "unarmored_full_charge_melee_dps_ceiling": 7.200000286102295,
+    "max_damage": 250,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "silver_spear",
+    "class": "org.slavicmyths.item.SpearItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 5.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.799999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 1.25,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 6.0,
+    "attack_speed_total": 1.2000000476837158,
+    "reach_total": 4.25,
+    "unarmored_full_charge_melee_dps_ceiling": 7.200000286102295,
+    "max_damage": 220,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "diamond_spear",
+    "class": "org.slavicmyths.item.SpearItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 6.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.799999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 1.25,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 7.0,
+    "attack_speed_total": 1.2000000476837158,
+    "reach_total": 4.25,
+    "unarmored_full_charge_melee_dps_ceiling": 8.40000033378601,
+    "max_damage": 1561,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "perunite_spear",
+    "class": "org.slavicmyths.item.SpearItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 5.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.799999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 1.25,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 6.5,
+    "attack_speed_total": 1.2000000476837158,
+    "reach_total": 4.25,
+    "unarmored_full_charge_melee_dps_ceiling": 7.800000309944153,
+    "max_damage": 850,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "netherite_spear",
+    "class": "org.slavicmyths.item.SpearItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 7.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.799999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 1.25,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 8.0,
+    "attack_speed_total": 1.2000000476837158,
+    "reach_total": 4.25,
+    "unarmored_full_charge_melee_dps_ceiling": 9.600000381469727,
+    "max_damage": 2031,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "pool_spear",
+    "class": "org.slavicmyths.depth.PoolSpear",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 8.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.799999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 9.0,
+    "attack_speed_total": 1.2000000476837158,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 10.800000429153442,
+    "max_damage": 420,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "thunder_spear",
+    "class": "org.slavicmyths.item.HeavyWeaponItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 6.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.9000000953674316,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 1.25,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 7.5,
+    "attack_speed_total": 1.0999999046325684,
+    "reach_total": 4.25,
+    "unarmored_full_charge_melee_dps_ceiling": 8.249999284744263,
+    "max_damage": 850,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "victor_spear",
+    "class": "org.slavicmyths.item.SpearItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 11.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.799999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 1.25,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 12.0,
+    "attack_speed_total": 1.2000000476837158,
+    "reach_total": 4.25,
+    "unarmored_full_charge_melee_dps_ceiling": 14.40000057220459,
+    "max_damage": 1561,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "berdysh",
+    "class": "org.slavicmyths.item.HeavyWeaponItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 8.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.299999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 9.0,
+    "attack_speed_total": 0.7000000476837158,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 6.300000429153442,
+    "max_damage": 250,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "noon_sickle",
+    "class": "net.minecraft.world.item.SwordItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 5.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 6.0,
+    "attack_speed_total": 1.5,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 9.0,
+    "max_damage": 220,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "karachun_scythe",
+    "class": "org.slavicmyths.karachun.NightScythe",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 11.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 12.0,
+    "attack_speed_total": 1.0,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 12.0,
+    "max_damage": 2400,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "poloz_whip",
+    "class": "org.slavicmyths.poloz.PolozWhip",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 12.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -3.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 3.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 13.0,
+    "attack_speed_total": 1.0,
+    "reach_total": 6.0,
+    "unarmored_full_charge_melee_dps_ceiling": 13.0,
+    "max_damage": 2031,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "stone_throwing_knife",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 2.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -1.7,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 0.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 3.0,
+    "attack_speed_total": 2.3,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 6.8999999999999995,
+    "max_damage": 131,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "gold_throwing_knife",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 1.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -1.7,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 0.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 2.0,
+    "attack_speed_total": 2.3,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 4.6,
+    "max_damage": 32,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "iron_throwing_knife",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 3.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -1.7,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 0.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 4.0,
+    "attack_speed_total": 2.3,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 9.2,
+    "max_damage": 250,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "silver_throwing_knife",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 3.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -1.7,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 0.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 4.0,
+    "attack_speed_total": 2.3,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 9.2,
+    "max_damage": 220,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "diamond_throwing_knife",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 4.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -1.7,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 0.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 5.0,
+    "attack_speed_total": 2.3,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 11.5,
+    "max_damage": 1561,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "perunite_throwing_knife",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 3.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -1.7,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 0.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 4.5,
+    "attack_speed_total": 2.3,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 10.35,
+    "max_damage": 850,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "netherite_throwing_knife",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 5.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -1.7,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 0.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 6.0,
+    "attack_speed_total": 2.3,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 13.799999999999999,
+    "max_damage": 2031,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "stone_sulitsa",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 3.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 0.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 4.0,
+    "attack_speed_total": 1.5,
+    "reach_total": 3.5,
+    "unarmored_full_charge_melee_dps_ceiling": 6.0,
+    "max_damage": 131,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "gold_sulitsa",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 2.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 0.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 3.0,
+    "attack_speed_total": 1.5,
+    "reach_total": 3.5,
+    "unarmored_full_charge_melee_dps_ceiling": 4.5,
+    "max_damage": 32,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "iron_sulitsa",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 4.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 0.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 5.0,
+    "attack_speed_total": 1.5,
+    "reach_total": 3.5,
+    "unarmored_full_charge_melee_dps_ceiling": 7.5,
+    "max_damage": 250,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "silver_sulitsa",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 4.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 0.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 5.0,
+    "attack_speed_total": 1.5,
+    "reach_total": 3.5,
+    "unarmored_full_charge_melee_dps_ceiling": 7.5,
+    "max_damage": 220,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "diamond_sulitsa",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 5.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 0.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 6.0,
+    "attack_speed_total": 1.5,
+    "reach_total": 3.5,
+    "unarmored_full_charge_melee_dps_ceiling": 9.0,
+    "max_damage": 1561,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "perunite_sulitsa",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 4.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 0.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 5.5,
+    "attack_speed_total": 1.5,
+    "reach_total": 3.5,
+    "unarmored_full_charge_melee_dps_ceiling": 8.25,
+    "max_damage": 850,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "netherite_sulitsa",
+    "class": "org.slavicmyths.combat.ThrowingWeaponItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 6.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:player.entity_interaction_range",
+        "amount": 0.5,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 7.0,
+    "attack_speed_total": 1.5,
+    "reach_total": 3.5,
+    "unarmored_full_charge_melee_dps_ceiling": 10.5,
+    "max_damage": 2031,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "short_bow",
+    "class": "org.slavicmyths.combat.FieldBowItem",
+    "modifiers": [],
+    "attack_damage_total": 1.0,
+    "attack_speed_total": 4.0,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 4.0,
+    "max_damage": 300,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "heavy_bow",
+    "class": "org.slavicmyths.combat.FieldBowItem",
+    "modifiers": [],
+    "attack_damage_total": 1.0,
+    "attack_speed_total": 4.0,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 4.0,
+    "max_damage": 500,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "finist_bow",
+    "class": "org.slavicmyths.finist.FinistBow",
+    "modifiers": [],
+    "attack_damage_total": 1.0,
+    "attack_speed_total": 4.0,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 4.0,
+    "max_damage": 640,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "bone_arrow",
+    "class": "net.minecraft.world.item.ArrowItem",
+    "modifiers": [],
+    "attack_damage_total": 1.0,
+    "attack_speed_total": 4.0,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 4.0,
+    "max_damage": 0,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "serpent_crossbow",
+    "class": "org.slavicmyths.gorynych.SerpentCrossbow",
+    "modifiers": [],
+    "attack_damage_total": 1.0,
+    "attack_speed_total": 4.0,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 4.0,
+    "max_damage": 520,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "three_breath_crossbow",
+    "class": "org.slavicmyths.gorynych.SerpentCrossbow",
+    "modifiers": [],
+    "attack_damage_total": 1.0,
+    "attack_speed_total": 4.0,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 4.0,
+    "max_damage": 680,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "carved_staff",
+    "class": "net.minecraft.world.item.SwordItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 2.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.799999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 3.0,
+    "attack_speed_total": 1.2000000476837158,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 3.6000001430511475,
+    "max_damage": 59,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "storm_staff",
+    "class": "org.slavicmyths.item.StormStaffItem",
+    "modifiers": [],
+    "attack_damage_total": 1.0,
+    "attack_speed_total": 4.0,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 4.0,
+    "max_damage": 240,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "veles_staff",
+    "class": "org.slavicmyths.artifact.VelesStaffItem",
+    "modifiers": [],
+    "attack_damage_total": 1.0,
+    "attack_speed_total": 4.0,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 4.0,
+    "max_damage": 48,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "likho_staff",
+    "class": "org.slavicmyths.combat.LikhoStaffItem",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 9.0,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": -2.799999952316284,
+        "operation": "ADD_VALUE",
+        "slot": "MAINHAND"
+      }
+    ],
+    "attack_damage_total": 10.0,
+    "attack_speed_total": 1.2000000476837158,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 12.000000476837158,
+    "max_damage": 1561,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  },
+  {
+    "id": "morozko_staff",
+    "class": "org.slavicmyths.morozko.FrostStaff",
+    "modifiers": [],
+    "attack_damage_total": 1.0,
+    "attack_speed_total": 4.0,
+    "reach_total": 3.0,
+    "unarmored_full_charge_melee_dps_ceiling": 4.0,
+    "max_damage": 0,
+    "measurement": "native production constructors/components; no entities/world/client; not measured combat DPS"
+  }
+]

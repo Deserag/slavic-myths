@@ -20,7 +20,7 @@ assert "tile.clientLastFxTick=now" in client
 assert "part.render(pose,out,light,overlay)" in client
 assert "glow.x=glowBaseX+" in client
 assert "glow.y=glowBaseY+" in client
-assert "head.getChild(\"jaw\")" in client
+assert "face.getChild(\"jaw\")" in client
 assert "model.trophyHeadPart(\"earL\")" in client
 assert "model.trophyHeadPart(\"irisRing\")" in client
 assert "head.getChild(\"brows\")" in client
