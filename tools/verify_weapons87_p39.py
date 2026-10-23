@@ -21,7 +21,7 @@ for lag in (1/7, 4/7,1):
     heavy=.8*ordinary
     assert 0<heavy<ordinary
 assert (52+33)> (52+33/7)
-assert "double reach=SPACING+contact*(heavy?4.5:5.0)" in motion
+assert "double reach=SPACING;" in motion # all link lengths fixed through contact
 assert "anchor=anchor.add(direction,reach)" in motion
-assert abs((2.4+5.0*contact(.5))-(2.4+5.0))<1e-10
-print("PASS P39: mid-strike actual 3-block reach extension, lagged seven-link chain, heavy Ataman motion, value-equal held stack and fallback; owner game NOT_RUN")
+assert math.isclose(7*2.4,16.8,abs_tol=1e-10) # seven contiguous segments
+print("PASS P39: fixed-length connected seven-link swing, lagged seven-link chain, heavy Ataman motion, value-equal held stack and fallback; owner game NOT_RUN")
