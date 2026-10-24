@@ -1,0 +1,38 @@
+name: Slavic Myths - Project 9 biome planning and status
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/project-migration/sync_biomes_2026_10_24.py'
+      - '.github/workflows/project-9-biome-planning.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: slavic-project-9-drafts
+  cancel-in-progress: false
+
+jobs:
+  sync-biome-planning:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Verify existing Project permission is configured
+        env:
+          PROJECT_SECRET: ${{ secrets.SLAVIC_PROJECTS_TOKEN }}
+        run: |
+          if [ -z "$PROJECT_SECRET" ]; then
+            echo '::error::Missing SLAVIC_PROJECTS_TOKEN for Project #9'
+            exit 1
+          fi
+      - name: Validate planning script
+        run: python3 -m py_compile tools/project-migration/sync_biomes_2026_10_24.py
+      - name: Link seven Black Cinder Expanse issues and update discussed Navya statuses
+        env:
+          GH_PROJECTS_TOKEN: ${{ secrets.SLAVIC_PROJECTS_TOKEN }}
+        run: python3 -u tools/project-migration/sync_biomes_2026_10_24.py
