@@ -222,7 +222,7 @@ for task in CFG["tasks"]:
                 mutation($input:UpdateProjectV2DraftIssueInput!) {
                   updateProjectV2DraftIssue(input:$input) { draftIssue { id } }
                 }
-                """, input={"draftIssueId": draft_id, "body": body + "\\n\\n" + marker + "\\n" + amendment})
+                """, input={"draftIssueId": draft_id, "body": body + "\n\n" + marker + "\n" + amendment})
                 print("APPENDED APPROVED AMENDMENT", key, flush=True)
         print("PRESERVE DRAFT", key)
         continue  # Never overwrite hand-edited cards or their statuses on re-runs.
