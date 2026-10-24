@@ -5923,5 +5923,21 @@
   "guides.find_yaga": "Попросить найти избушку",
   "guides.track": "Следить",
   "guides.untrack": "Снять след",
-  "flight.slavicmyths.passenger": "Вы пассажир ступы. Управляет владелец с пестом. Выход: %s."
+  "flight.slavicmyths.passenger": "Вы пассажир ступы. Управляет владелец с пестом. Выход: %s.",
+  "item.slavicmyths.chud_mining_lantern": "Шахтёрский фонарь Чуди",
+  "item.slavicmyths.chud_master_pickaxe": "Кирка мастера Чуди",
+  "item.slavicmyths.chud_multitool_axe": "Мультиинструмент Чуди: топор",
+  "item.slavicmyths.chud_multitool_pickaxe": "Мультиинструмент Чуди: кирка",
+  "item.slavicmyths.chud_multitool_shovel": "Мультиинструмент Чуди: лопата",
+  "item.slavicmyths.chud_mining_lift": "Шахтёрский подъёмник Чуди",
+  "chud_tools.hint.lantern": "В любой руке: клиентский свет 14. Не меняет спавн мобов.",
+  "chud_tools.hint.pickaxe": "Shift + ПКМ по воздуху: Удача II ↔ Шёлковое касание I. Улучшенная Удача сохраняется.",
+  "chud_tools.hint.multi": "Shift + ПКМ по воздуху: топор → кирка → лопата. Общие износ, чары и руны. Топор рубит одно естественное дерево с лимитом 128 брёвен.",
+  "chud_tools.hint.lift": "Удерживайте ПКМ 1,5 с: безопасный подъём на поверхность. 64 применения, перезарядка 60 с.",
+  "chud_tools.lift.fail": "Подъём невозможен: безопасная поверхность не найдена или выход закрыт.",
+  "chud_tools.mode.fortune": "Удача",
+  "chud_tools.mode.silk": "Шёлковое касание",
+  "chud_tools.mode.axe": "Топор",
+  "chud_tools.mode.pickaxe": "Кирка",
+  "chud_tools.mode.shovel": "Лопата"
 }

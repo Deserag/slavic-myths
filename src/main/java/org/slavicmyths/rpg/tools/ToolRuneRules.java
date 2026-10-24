@@ -14,7 +14,7 @@ public final class ToolRuneRules {
  public static int tier(List<String> ids,String family){return ids.contains(family+"_iv")?4:ids.contains(family+"_iii")?3:0;}
  public static boolean conflict(List<String> installed,String id){return tool(id)&&installed.stream().anyMatch(old->!old.equals(id)&&family(old).equals(family(id)));}
  public static int radius(int tier){return tier==4?7:4;}
- public static int logs(int tier){return tier==4?96:48;}
+ public static int logs(int tier){return tier==2?128:tier==4?96:48;}
  public static boolean neighbor(BlockPos original,BlockPos candidate,int tier){long dx=(long)candidate.getX()-original.getX(),dz=(long)candidate.getZ()-original.getZ();return Math.abs((long)candidate.getY()-original.getY())<=2&&dx*dx+dz*dz<=(long)radius(tier)*radius(tier);}
  public static boolean neighborTrees(List<BlockPos> original,List<BlockPos> candidate,int tier){return original.stream().anyMatch(a->candidate.stream().anyMatch(b->neighbor(a,b,tier)));}
  public static List<BlockPos> plane(BlockPos origin,Direction face,int tier){

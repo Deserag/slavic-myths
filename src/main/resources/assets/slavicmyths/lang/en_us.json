@@ -5923,5 +5923,21 @@
   "guides.find_yaga": "Ask to find the hut",
   "guides.track": "Track",
   "guides.untrack": "Untrack",
-  "flight.slavicmyths.passenger": "You are a mortar passenger. The owner pilots with a pestle. Dismount: %s."
+  "flight.slavicmyths.passenger": "You are a mortar passenger. The owner pilots with a pestle. Dismount: %s.",
+  "item.slavicmyths.chud_mining_lantern": "Chud Mining Lantern",
+  "item.slavicmyths.chud_master_pickaxe": "Chud Master Pickaxe",
+  "item.slavicmyths.chud_multitool_axe": "Chud Multitool: Axe",
+  "item.slavicmyths.chud_multitool_pickaxe": "Chud Multitool: Pickaxe",
+  "item.slavicmyths.chud_multitool_shovel": "Chud Multitool: Shovel",
+  "item.slavicmyths.chud_mining_lift": "Chud Mining Lift",
+  "chud_tools.hint.lantern": "Either hand: client light 14. Does not affect mob spawning.",
+  "chud_tools.hint.pickaxe": "Shift + air use: Fortune II ↔ Silk Touch I. Upgraded Fortune is retained.",
+  "chud_tools.hint.multi": "Shift + air use: axe → pickaxe → shovel. Shared wear, enchantments and runes. Axe fells one natural tree, limited to 128 logs.",
+  "chud_tools.hint.lift": "Hold use for 1.5s: safe surface ascent. 64 uses, 60s cooldown.",
+  "chud_tools.lift.fail": "Cannot ascend: no safe surface or the exit is locked.",
+  "chud_tools.mode.fortune": "Fortune",
+  "chud_tools.mode.silk": "Silk Touch",
+  "chud_tools.mode.axe": "Axe",
+  "chud_tools.mode.pickaxe": "Pickaxe",
+  "chud_tools.mode.shovel": "Shovel"
 }

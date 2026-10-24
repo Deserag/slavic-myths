@@ -1,0 +1,8 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { chudKurgan { java.srcDir 'tools/chud-kurgan-runtime'; resources.srcDir 'tools/chud-kurgan-runtime-resources' } }
+ p.sourceSets.chudKurgan.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.chudKurgan.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileChudKurganJava'){dependsOn p.tasks.named('classes')}
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.chudKurgan)
+ p.neoForge.runs { chudKurganChecks { type='gameTestServer';gameDirectory=p.file('work/chud-kurgan-runtime-'+(p.findProperty('qaRun') ?: '1'));systemProperty 'neoforge.enabledGameTestNamespaces','slavicmyths_chud_kurgan' } }
+} }

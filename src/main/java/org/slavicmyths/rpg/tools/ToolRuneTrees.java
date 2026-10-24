@@ -24,6 +24,7 @@ public final class ToolRuneTrees {
   private Node read(BlockPos pos){Node n=cache.get(pos);if(n!=null)return n;if(cache.size()>=ToolRuneRules.MAX_READS){done=true;throw PAUSE;}if(reads<=0)throw PAUSE;reads--;n=world.apply(pos);if(n==null)n=Node.UNKNOWN;cache.put(pos.immutable(),n);return n;}
   private boolean log(Node n){return n.kind==Kind.LOG&&n.vertical&&!n.placed&&n.family.equals(family);}
   private Tree inspect(BlockPos start){
+   if(tier==2)return inspectSingleTree(start);
    if(!log(read(start)))return null;
    BlockPos root=start;int down=0;
    while(log(read(root.below()))&&down++<ToolRuneRules.MAX_HEIGHT)root=root.below();
@@ -48,9 +49,34 @@ public final class ToolRuneTrees {
    logs.sort(Comparator.<BlockPos>comparingInt(p->p.getY()).reversed().thenComparingInt(BlockPos::getX).thenComparingInt(BlockPos::getZ));
    return new Tree(new BlockPos(minX,root.getY(),minZ),List.copyOf(columns),List.copyOf(logs));
   }
+  /** Chud's built-in mode follows one connected natural crown, never neighboring roots.
+   * Uses the same cached/budgeted reads and runtime destruction queue as rune trees. */
+  private Tree inspectSingleTree(BlockPos start){
+   var first=read(start);if(first.kind!=Kind.LOG||first.placed||!first.family.equals(family))return null;
+   BlockPos root=start;int down=0;while(read(root.below()).kind==Kind.LOG&&down++<ToolRuneRules.MAX_HEIGHT)root=root.below();
+   if(down>ToolRuneRules.MAX_HEIGHT||read(root.below()).kind!=Kind.GROUND)return null;
+   var logs=new LinkedHashSet<BlockPos>();var queue=new ArrayDeque<BlockPos>();queue.add(start);var roots=new HashSet<BlockPos>();int leaves=0;
+   while(!queue.isEmpty()){
+    var at=queue.removeFirst();if(logs.contains(at))continue;var node=read(at);
+    if(node.kind!=Kind.LOG||node.placed||!node.family.equals(family)||Math.abs(at.getX()-root.getX())>8||Math.abs(at.getZ()-root.getZ())>8||at.getY()<root.getY()||at.getY()-root.getY()>=ToolRuneRules.MAX_HEIGHT)return null;
+    logs.add(at);if(logs.size()>128)return null;if(read(at.below()).kind==Kind.GROUND)roots.add(at);
+    for(int x=-1;x<=1;x++)for(int y=-1;y<=1;y++)for(int z=-1;z<=1;z++){
+     if(x==0&&y==0&&z==0)continue;var p=at.offset(x,y,z);var neighbor=read(p);
+     if(neighbor.kind==Kind.UNKNOWN||neighbor.kind==Kind.OTHER||neighbor.kind==Kind.LEAF&&neighbor.persistent)return null;
+     if(neighbor.kind==Kind.LOG){if(neighbor.placed||!neighbor.family.equals(family))return null;if(!logs.contains(p))queue.add(p);}
+     if(neighbor.kind==Kind.LEAF&&neighbor.family.equals(family))leaves++;
+    }
+   }
+   if(leaves<4||roots.size()!=1&&roots.size()!=4)return null;
+   int minX=roots.stream().mapToInt(BlockPos::getX).min().orElseThrow(),maxX=roots.stream().mapToInt(BlockPos::getX).max().orElseThrow();
+   int minZ=roots.stream().mapToInt(BlockPos::getZ).min().orElseThrow(),maxZ=roots.stream().mapToInt(BlockPos::getZ).max().orElseThrow();
+   if(maxX-minX>1||maxZ-minZ>1)return null;
+   var sorted=new ArrayList<>(logs);sorted.sort(Comparator.<BlockPos>comparingInt(BlockPos::getY).reversed());
+   return new Tree(root,List.copyOf(roots),List.copyOf(sorted));
+  }
   private void accept(Tree t){seenBases.add(t.base);if(output.size()+1+(int)t.logs.stream().filter(p->!p.equals(origin)&&!output.contains(p)).count()>ToolRuneRules.logs(tier))return;for(var p:t.logs)if(!p.equals(origin))output.add(p);}
   private long distance(BlockPos p){return originalRoots.stream().mapToLong(r->{long x=p.getX()-r.getX(),z=p.getZ()-r.getZ();return x*x+z*z;}).min().orElse(Long.MAX_VALUE);}
-  private void candidates(){var unique=new LinkedHashSet<BlockPos>();int r=ToolRuneRules.radius(tier);for(var root:originalRoots)for(int x=-r;x<=r;x++)for(int z=-r;z<=r;z++)if(x*x+z*z<=r*r)for(int y=-2;y<=2;y++)unique.add(root.offset(x,y,z));var a=new ArrayList<>(unique);a.sort(Comparator.<BlockPos>comparingLong(this::distance).thenComparingInt(p->Math.abs(p.getY()-base.getY())).thenComparingInt(BlockPos::getX).thenComparingInt(BlockPos::getZ));candidates=List.copyOf(a);}
+  private void candidates(){if(tier==2){candidates=List.of();return;}var unique=new LinkedHashSet<BlockPos>();int r=ToolRuneRules.radius(tier);for(var root:originalRoots)for(int x=-r;x<=r;x++)for(int z=-r;z<=r;z++)if(x*x+z*z<=r*r)for(int y=-2;y<=2;y++)unique.add(root.offset(x,y,z));var a=new ArrayList<>(unique);a.sort(Comparator.<BlockPos>comparingLong(this::distance).thenComparingInt(p->Math.abs(p.getY()-base.getY())).thenComparingInt(BlockPos::getX).thenComparingInt(BlockPos::getZ));candidates=List.copyOf(a);}
   public boolean step(int budget){
    if(done)return true;reads=Math.min(Math.max(0,budget),ToolRuneRules.READS_PER_TICK);
    try{

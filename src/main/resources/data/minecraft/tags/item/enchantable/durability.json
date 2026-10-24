@@ -65,6 +65,11 @@
     "slavicmyths:serpent_crossbow",
     "slavicmyths:three_breath_crossbow",
     "slavicmyths:storm_staff",
-    "slavicmyths:veles_staff"
+    "slavicmyths:veles_staff",
+    "slavicmyths:chud_master_pickaxe",
+    "slavicmyths:chud_multitool_axe",
+    "slavicmyths:chud_multitool_pickaxe",
+    "slavicmyths:chud_multitool_shovel",
+    "slavicmyths:chud_mining_lift"
   ]
 }

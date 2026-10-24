@@ -94,6 +94,7 @@ public final class ChudPerson extends AbstractVillager {
             offer(Items.DIAMOND,8,Items.NETHERITE_SCRAP,2,MiningRunes.ITEMS.get("fortune_1").get(),1,2);
         }
     }
+    @Override public net.minecraft.world.item.trading.MerchantOffers getOffers(){var result=super.getOffers();ChudToolTrades.ensure(result,role());return result;}
     private void offer(Item a,int n,Item b,int m,Item out,int count,int uses){offers.add(new MerchantOffer(new ItemCost(a,n),b==null?Optional.empty():Optional.of(new ItemCost(b,m)),new ItemStack(out,count),uses,1,0));}
     public void aiStep(){super.aiStep();if(level().isClientSide)return;long now=level().getGameTime();
         if(role()==3&&guardVictim!=null&&now>=guardHitAt){if(guardTarget(guardVictim)&&distanceToSqr(guardVictim)<6.25&&hasLineOfSight(guardVictim)){swing(InteractionHand.MAIN_HAND);doHurtTarget(guardVictim);}guardVictim=null;}

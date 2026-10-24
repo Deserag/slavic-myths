@@ -26,6 +26,6 @@ public final class Industry {
     public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<MachineTile>> BLOOMERY_TILE=ModTiles.TILES.register("chud_bloomery",()->BlockEntityType.Builder.of((p,s)->new MachineTile(p,s,false),BLOOMERY.get()).build(null));
     public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<MachineTile>> HEARTH_TILE=ModTiles.TILES.register("refining_hearth",()->BlockEntityType.Builder.of((p,s)->new MachineTile(p,s,true),HEARTH.get()).build(null));
     private static DeferredHolder<Item,Item> item(String name){return ModItems.ITEMS.register(name,()->new IndustryItem(new Item.Properties(),name));}
-    public static void register(IEventBus bus){MachineRecipe.TYPES.register(bus);MachineRecipe.SERIALIZERS.register(bus);MachineMenu.init();MiningRunes.init();IndustryAccessories.init();ChudPeople.init(bus);}
+    public static void register(IEventBus bus){ChudTools.init();MachineRecipe.TYPES.register(bus);MachineRecipe.SERIALIZERS.register(bus);MachineMenu.init();MiningRunes.init();IndustryAccessories.init();ChudPeople.init(bus);}
     private Industry(){}
 }

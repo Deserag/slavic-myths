@@ -1,0 +1,10 @@
+scene=0 client_block=14 server_block=0
+scene=18 client_block=0 server_block=0
+scene=19 client_block=14 server_block=0
+scene=20 client_block=0 server_block=0
+scene=21 client_block=0 server_block=0
+scene=0 client_block=14 server_block=0
+scene=18 client_block=0 server_block=0
+scene=19 client_block=14 server_block=0
+scene=20 client_block=0 server_block=0
+scene=21 client_block=0 server_block=0
