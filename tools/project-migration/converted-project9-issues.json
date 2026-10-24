@@ -1,0 +1,23 @@
+{
+  "projectOwner": "Deserag",
+  "projectNumber": 9,
+  "repo": "slavic-myths",
+  "migration": "migrate 15 Project-native Drafts to repository-linked Issues without losing Project Status",
+  "issues": {
+    "nether-epic": 242,
+    "nether-201-worldgen": 243,
+    "nether-201-height": 244,
+    "nether-201-terrain": 246,
+    "nether-201-lava": 247,
+    "nether-201-vanilla": 248,
+    "nether-201-soul": 249,
+    "nether-biomes": 250,
+    "navya-main": 251,
+    "navya-2021": 252,
+    "navya-2022": 253,
+    "navya-2023": 254,
+    "navya-2024": 255,
+    "navya-2025": 256,
+    "navya-2026": 257
+  }
+}

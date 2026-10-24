@@ -225,18 +225,18 @@ for task in CFG["tasks"]:
             if marker not in body and draft_id:
                 new_body = body + "\n\n" + marker + "\n" + amendment
                 if draft.get("__typename") == "Issue":
-                    gql("""
-                    mutation($input:UpdateIssueInput!) {
-                      updateIssue(input:$input) { issue { id } }
-                    }
-                    """, input={"id": draft_id, "body": new_body})
+                    # Project-only PAT intentionally has no public_repo write scope.
+                    # Use the connected GitHub app for any future Issue amendments.
+                    # Existing converted Issue bodies already include all approved
+                    # policy addenda from the migration.
+                    print("PRESERVE numbered Issue; amendment belongs to GitHub app", key, flush=True)
                 else:
                     gql("""
                     mutation($input:UpdateProjectV2DraftIssueInput!) {
                       updateProjectV2DraftIssue(input:$input) { draftIssue { id } }
                     }
                     """, input={"draftIssueId": draft_id, "body": new_body})
-                print("APPENDED APPROVED AMENDMENT", key, flush=True)
+                    print("APPENDED APPROVED AMENDMENT", key, flush=True)
         print("PRESERVE DRAFT", key)
         continue  # Never overwrite hand-edited cards or their statuses on re-runs.
 

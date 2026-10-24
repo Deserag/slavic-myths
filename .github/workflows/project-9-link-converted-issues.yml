@@ -1,0 +1,41 @@
+name: Slavic Myths - link numbered issues into Project 9
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/project-migration/converted-project9-issues.json'
+      - 'tools/project-migration/link_converted_project_issues.py'
+      - '.github/workflows/project-9-link-converted-issues.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: slavic-project-9-drafts
+  cancel-in-progress: false
+
+jobs:
+  link-issues:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Verify configured Project secret
+        env:
+          PROJECT_SECRET: ${{ secrets.SLAVIC_PROJECTS_TOKEN }}
+        run: |
+          if [ -z "$PROJECT_SECRET" ]; then
+            echo "::error::SLAVIC_PROJECTS_TOKEN is required"
+            exit 1
+          fi
+      - name: Validate link migration input
+        run: |
+          python3 -m py_compile tools/project-migration/link_converted_project_issues.py
+          python3 -m json.tool tools/project-migration/converted-project9-issues.json > /dev/null
+      - name: Migrate Draft cards to numbered Issues preserving Project status
+        env:
+          GH_PROJECTS_TOKEN: ${{ secrets.SLAVIC_PROJECTS_TOKEN }}
+        run: python3 -u tools/project-migration/link_converted_project_issues.py
