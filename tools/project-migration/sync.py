@@ -18,7 +18,12 @@ APPLY = os.environ.get("APPLY_MIGRATION") == "true"
 OVERWRITE = os.environ.get("OVERWRITE_PROJECT_STATUS") == "true"
 INCLUDE_CLOSED = os.environ.get("INCLUDE_CLOSED") != "false"
 CONCEPTS_ONLY = os.environ.get("PROJECT_CONCEPTS_ONLY") == "true"
-TARGET_ISSUES = set(CFG.get("projectConceptSyncIds", [])) if CONCEPTS_ONLY else set()
+AUTO_ISSUE_RAW = os.environ.get("PROJECT_NEW_ISSUE", "").strip()
+AUTO_ISSUE = int(AUTO_ISSUE_RAW) if AUTO_ISSUE_RAW else None
+if AUTO_ISSUE is not None and (AUTO_ISSUE < 1 or not CONCEPTS_ONLY):
+    sys.exit("Single-issue sync requires positive PROJECT_NEW_ISSUE and PROJECT_CONCEPTS_ONLY=true")
+TARGET_ISSUES = ({AUTO_ISSUE} if AUTO_ISSUE is not None else
+                 set(CFG.get("projectConceptSyncIds", [])) if CONCEPTS_ONLY else set())
 if CONCEPTS_ONLY and not TARGET_ISSUES:
     sys.exit("Concept-only sync requires explicit projectConceptSyncIds in config")
 STATS = {"issues": 0, "to_add": 0, "existing": 0, "fields_changed": 0, "preserved": 0}
@@ -230,6 +235,8 @@ def release(issue):
     if n in CFG["releaseOverrides"]:
         return CFG["releaseOverrides"][n]
     t = issue["title"]
+    if re.search(r"\[АД\]|\[2\.0\.\d+(?:\.\d+)?\]", t, re.I):
+        return "2.0 · Ад"
     if re.search(r"Classes 3\.0|\[3\.0\]", t, re.I):
         return "3.0"
     if re.search(r"\[2\.1\]|Nether.*2\.1", t, re.I):
@@ -258,6 +265,8 @@ def direction(issue):
         if n in nums:
             return name
     t = issue["title"].lower()
+    if re.search(r"\[(мобы|мини-босс)\]", t):
+        return "Существа"
     for pattern, name in [
         (r"генерац|незер|биом|worldgen|структур", "Мир и генерация"),
         (r"аудио|audio|звук|sound", "Аудио"),
@@ -309,14 +318,14 @@ while True:
 issues = sorted([issue for issue in all_issues() if not TARGET_ISSUES or issue["number"] in TARGET_ISSUES], key=lambda x: x["number"])
 if CONCEPTS_ONLY and {issue["number"] for issue in issues} != TARGET_ISSUES:
     raise RuntimeError("Concept sync issue list does not match actual repository Issues")
-if CONCEPTS_ONLY and any(overrides.get(n) != "Концепция" for n in TARGET_ISSUES):
+if CONCEPTS_ONLY and AUTO_ISSUE is None and any(overrides.get(n) != "Концепция" for n in TARGET_ISSUES):
     raise RuntimeError("Concept sync includes Issue without approved Концепция override")
 STATS["issues"] = len(issues)
 desired = {}
 for issue in issues:
     n = issue["number"]
     desired[n] = {
-        "Status": status(issue),
+        "Status": "Концепция" if AUTO_ISSUE is not None else status(issue),
         "Priority": priority(issue),
         "Релиз": release(issue),
         "Направление": direction(issue),

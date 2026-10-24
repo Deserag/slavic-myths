@@ -1,4 +1,9 @@
 # Slavic Myths
+
+> [!IMPORTANT]
+> **Единый источник задач проекта — [GitHub Projects №9 «Славянская мифология»](https://github.com/users/Deserag/projects/9).**
+> Новые задачи, доработки, баги и планы создаются **только как карточки GitHub Project №9**, а **не как Issues репозитория**. Актуальные статусы («Ожидание», «В работе», «Тестирование», «Готово») определяются исключительно в Project №9. Репозиторий предназначен для исходного кода, PR и релизов. Не создавайте новые Issues; при необходимости прикладывайте ссылки на коммиты и PR к карточкам проекта.
+
 ![alt text](image.png)
 **Slavic Myths is a Minecraft 1.21.1 NeoForge mod about Slavic folklore, exploration, character stories, crafting and rural life. Active development; Slavic Myths 2.0 has not been released.**
 
