@@ -58,14 +58,23 @@ public final class ChudResearch {
             }catch(RuntimeException failure){com.mojang.logging.LogUtils.getLogger().debug("Bounded Chud research search ended",failure);}
             finally{ChudSearchBudget.end();}
             final BlockPos target=found;final ChunkPos startChunk=owner;
-            server.execute(()->{try{
+            // Called from our planner worker: native getChunkFuture blocks when invoked on
+            // the server thread. STRUCTURE_STARTS verifies a real reservation without
+            // forcing FULL terrain/features at a distant city before the player travels.
+            try {
+            var generated=target==null?java.util.concurrent.CompletableFuture.<net.minecraft.server.level.ChunkResult<net.minecraft.world.level.chunk.ChunkAccess>>completedFuture(null):world.getChunkSource().getChunkFuture(startChunk.x,startChunk.z,net.minecraft.world.level.chunk.status.ChunkStatus.STRUCTURE_STARTS,true).orTimeout(60,TimeUnit.SECONDS);
+            generated.whenComplete((chunkResult,generationFailure)->server.execute(()->{try{
                 var online=server.getPlayerList().getPlayer(player);if(online==null||online.serverLevel()!=world)return;
-                if(target==null||!world.getWorldBorder().isWithinBounds(target)){online.displayClientMessage(Component.translatable("research.chud.unavailable"),false);return;}
-                var chunk=world.getChunk(startChunk.x,startChunk.z);var start=chunk.getStartForStructure(structure);
+                if(target==null||generationFailure!=null||!world.getWorldBorder().isWithinBounds(target)){online.displayClientMessage(Component.translatable("research.chud.unavailable"),false);return;}
+                var chunk=chunkResult==null?null:chunkResult.orElse(null);var start=chunk==null?null:chunk.getStartForStructure(structure);
                 if(start==null||!start.isValid()||!start.getBoundingBox().isInside(target)){online.displayClientMessage(Component.translatable("research.chud.unavailable"),false);return;}
-                CompoundTag assigned=new CompoundTag();assigned.putLong("Target",target.asLong());assigned.putLong("Owner",startChunk.toLong());assigned.putString("Dimension",world.dimension().location().toString());
+                CompoundTag assigned=new CompoundTag();assigned.putLong("Target",target.asLong());assigned.putLong("Owner",startChunk.toLong());assigned.putString("Dimension",world.dimension().location().toString());var box=start.getBoundingBox();assigned.putIntArray("Bounds",new int[]{box.minX(),box.minY(),box.minZ(),box.maxX(),box.maxY(),box.maxZ()});assigned.putInt("StartPieces",start.getPieces().size());
                 state(online).put(giver,assigned);TaleData.get(world).setDirty();TaleService.promote(online,"slavicmyths:chud_research_"+giver,1,false);guide(online,giver,assigned);
-            }finally{PENDING.remove(player);}});
+            }finally{PENDING.remove(player);}}));
+            } catch (RuntimeException failure) {
+                PENDING.remove(player);
+                com.mojang.logging.LogUtils.getLogger().warn("Chud research reservation failed",failure);
+            }
         });return true;
     }
     private static void guide(ServerPlayer p,String giver,CompoundTag q){
@@ -76,10 +85,22 @@ public final class ChudResearch {
     /** Called by the existing loaded-structure visit observer, never a second polling loop. */
     public static void visited(ServerPlayer p,StructureStart start){
         var id=p.registryAccess().registryOrThrow(Registries.STRUCTURE).getKey(start.getStructure());if(id==null||!id.getPath().equals("chud_city"))return;
+        visitOwner(p,start.getChunkPos().toLong());
+    }
+    /** Large-city entrances can lie eight chunks away from their start. Validate the
+     * native reference of the already-loaded player chunk, not a forced start chunk. */
+    public static void visitedReference(ServerPlayer p,net.minecraft.world.level.levelgen.structure.Structure structure,long owner){
+        var id=p.registryAccess().registryOrThrow(Registries.STRUCTURE).getKey(structure);if(id==null||!id.toString().equals("slavicmyths:chud_city"))return;
+        var pos=p.blockPosition();var chunk=p.serverLevel().getChunkSource().getChunkNow(pos.getX()>>4,pos.getZ()>>4);var references=chunk==null?null:chunk.getAllReferences().get(structure);if(references==null||!references.contains(owner))return;
+        var root=state(p);for(String giver:List.of("yaga","bayun")){var q=root.getCompound(giver);if(!q.contains("Target")||q.getLong("Owner")!=owner||!q.getString("Dimension").equals(p.level().dimension().location().toString()))continue;
+            int[] b=q.getIntArray("Bounds");var target=BlockPos.of(q.getLong("Target"));boolean inside=b.length==6?pos.getX()>=b[0]&&pos.getY()>=b[1]&&pos.getZ()>=b[2]&&pos.getX()<=b[3]&&pos.getY()<=b[4]&&pos.getZ()<=b[5]:pos.distSqr(target)<=8*8;
+            if(inside){visitOwner(p,owner);return;}}
+    }
+    private static void visitOwner(ServerPlayer p,long owner){
         var root=state(p);var visited=new HashSet<Long>();for(long value:root.getLongArray("Visited"))visited.add(value);
         boolean changed=false;
-        for(String giver:List.of("yaga","bayun")){var q=root.getCompound(giver);if(ChudResearchProgress.visit(q,p.level().dimension().location().toString(),start.getChunkPos().toLong())){changed=true;visited.add(q.getLong("Target"));TaleService.promote(p,"slavicmyths:chud_research_"+giver,3,false);p.displayClientMessage(Component.translatable("research.chud.visited"),false);}}
-        var starts=new HashSet<Long>();for(long value:root.getLongArray("VisitedStarts"))starts.add(value);starts.add(start.getChunkPos().toLong());root.putLongArray("VisitedStarts",starts.stream().mapToLong(Long::longValue).toArray());
+        for(String giver:List.of("yaga","bayun")){var q=root.getCompound(giver);if(ChudResearchProgress.visit(q,p.level().dimension().location().toString(),owner)){changed=true;visited.add(q.getLong("Target"));TaleService.promote(p,"slavicmyths:chud_research_"+giver,3,false);p.displayClientMessage(Component.translatable("research.chud.visited"),false);}}
+        var starts=new HashSet<Long>();for(long value:root.getLongArray("VisitedStarts"))starts.add(value);starts.add(owner);root.putLongArray("VisitedStarts",starts.stream().mapToLong(Long::longValue).toArray());
         root.putLongArray("Visited",visited.stream().mapToLong(Long::longValue).toArray());TaleData.get(p.serverLevel()).setDirty();
         if(changed)TaleNetwork.send(p,TaleService.snapshot(p),false,true);
     }

@@ -72,9 +72,9 @@ public final class WitchYard extends SavedData {
 
  public static boolean call(ServerPlayer p){if(!p.isAlive()||p.isSpectator()||!StoryPolicy.canSummon(p,"dobrynya_nikitich"))return false;var w=p.serverLevel();var d=get(w.getServer().overworld());if(d.heroes.containsKey(p.getUUID())){p.sendSystemMessage(Component.translatable("msg.slavicmyths.dobrynya_duplicate"));return false;}if(!org.slavicmyths.skim.HeroCalls.available(p,"dobrynya_nikitich"))return false;boolean poloz=org.slavicmyths.poloz.PolozEvent.active(w);if(org.slavicmyths.skim.HeroCalls.count(p)>=(poloz?3:2))return false;
 
-  // Existing lore-book discovery is the prerequisite, not a new reward/quest framework.
+  // Personal help is checked centrally by StoryPolicy for every call route.
 
-  if(!org.slavicmyths.progression.Knowledge.knows(p,"first_book_entry")&&!p.getInventory().contains(new ItemStack(org.slavicmyths.registry.ModItems.LORE_BOOK.get()))&&!p.hasPermissions(2)){p.sendSystemMessage(Component.translatable("msg.slavicmyths.story_missing_dobrynya"));return false;}
+
 
   var at=org.slavicmyths.bogatyr.BogatyrLedger.safe(w,p.position(),.8,2.2,6);if(at==null)return false;var h=MarinkaContent.DOBRYNYA.get().create(w);h.owner=p.getUUID();h.moveTo(at.x,at.y,at.z,p.getYRot(),0);if(!w.addFreshEntity(h))return false;d.heroes.put(p.getUUID(),h.getUUID());h.bark(1);d.setDirty();org.slavicmyths.skim.HeroCalls.summoned(p,"dobrynya_nikitich",h);return true;}
 

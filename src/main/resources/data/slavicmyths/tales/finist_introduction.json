@@ -1,0 +1,13 @@
+{
+  "part": "quests",
+  "chapter": "home",
+  "section": "catalogue",
+  "title": "tales.entry.finist_introduction.title",
+  "icon": "slavicmyths:finist_call_feather",
+  "initial": 0,
+  "subjects": [
+    "recipe/slavicmyths:finist_call_feather"
+  ],
+  "advancements": [],
+  "links": []
+}

@@ -1,0 +1,13 @@
+{
+  "part": "quests",
+  "chapter": "home",
+  "section": "catalogue",
+  "title": "tales.entry.ilya_introduction.title",
+  "icon": "slavicmyths:ilya_call_token",
+  "initial": 0,
+  "subjects": [
+    "recipe/slavicmyths:ilya_call_token"
+  ],
+  "advancements": [],
+  "links": []
+}

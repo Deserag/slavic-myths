@@ -15,6 +15,7 @@ public final class DobrynyaEntity extends WitchActor {
  public UUID owner,arena;public boolean retreated,incapacitated,parryUsed;public long curseUntil,lastHurt,recoverySince,resolveUntil;
  private Vec3 cover,charge;private final Set<UUID> swept=new HashSet<>();
  public DobrynyaEntity(EntityType<? extends DobrynyaEntity> t,Level w){super(t,w);}
+ @Override protected net.minecraft.world.InteractionResult mobInteract(net.minecraft.world.entity.player.Player player,net.minecraft.world.InteractionHand hand){if(player instanceof ServerPlayer p){var result=org.slavicmyths.bogatyr.HeroIntroductions.interact(this,p,hand);if(result!=net.minecraft.world.InteractionResult.PASS)return result;}return super.mobInteract(player,hand);}
  @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(OWNER,"");b.define(BULL,false);}
  public UUID syncedOwner(){try{return UUID.fromString(entityData.get(OWNER));}catch(Exception e){return null;}}
  public boolean bull(){return entityData.get(BULL);}private void bull(boolean value){if(bull()!=value){entityData.set(BULL,value);refreshDimensions();}}

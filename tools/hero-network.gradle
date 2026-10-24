@@ -1,0 +1,23 @@
+import groovy.json.JsonOutput
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { heroNetwork { java.srcDir 'tools/hero-network' } }
+ p.sourceSets.heroNetwork.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.heroNetwork.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileHeroNetworkJava'){dependsOn p.tasks.named('classes')}
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.heroNetwork)
+ p.neoForge.runs {
+  coopServer { server();programArgument '--nogui';gameDirectory=p.file('work/hero-network/server');jvmArgument '-Xmx1200m' }
+  coopA { client();gameDirectory=p.file('work/hero-network/a');programArguments.addAll('--username','CoopOne','--quickPlayMultiplayer','127.0.0.1:25579','--width','960','--height','540');jvmArgument '-Xmx1536m' }
+  coopB { client();gameDirectory=p.file('work/hero-network/b');programArguments.addAll('--username','CoopTwo','--quickPlayMultiplayer','127.0.0.1:25579','--width','960','--height','540');jvmArgument '-Xmx1536m' }
+ }
+} }
+gradle.projectsEvaluated { def p=gradle.rootProject
+ if(p.hasProperty('exportHeroRuns'))['CoopServer','CoopA','CoopB'].each { runName -> p.tasks.named('run'+runName){doFirst {
+  def output=p.file('work/hero-network/'+runName+'.json');output.parentFile.mkdirs()
+  def launch=[javaLauncher.get().executablePath.asFile.absolutePath]
+  launch.addAll(allJvmArgs);launch.addAll(jvmArgumentProviders.collectMany { it.asArguments().toList() })
+  launch.addAll(['-cp',classpathProvider.asPath]);if(mainClass.present)launch.add(mainClass.get());launch.addAll(args)
+  output.text=JsonOutput.prettyPrint(JsonOutput.toJson([command:launch,environment:environmentProperty.get(),directory:gameDirectory.get().asFile.absolutePath]))
+  throw new org.gradle.api.tasks.StopExecutionException('Exported opt-in QA launch; game not started by Gradle')
+ }; def capture=actions.remove(0);actions.add(actions.size()-1,capture) }}
+}

@@ -37,6 +37,7 @@ public final class YagaMenu extends AbstractContainerMenu{
  @Override public void clicked(int slot,int button,ClickType type,Player p){if(!stillValid(p)||slot>=0&&slot<5&&tab()!=3)return;super.clicked(slot,button,type,p);}
  @Override public void removed(Player p){super.removed(p);if(!p.level().isClientSide){clearContainer(p,input);BabaYaga npc=npc();if(npc!=null){npc.gesture(2);npc.playSound(org.slavicmyths.registry.ModSounds.YAGA_CLOSE.get(),.25F,.7F);}}}
  @Override public boolean clickMenuButton(Player p,int action){if(!(p instanceof ServerPlayer)||!stillValid(p))return false;ServerPlayer server=(ServerPlayer)p;YagaData.Progress progress=progress();boolean result=false;
+  if(action>=707&&action<=710)return org.slavicmyths.bogatyr.HeroIntroductions.offer(server,"yaga",org.slavicmyths.bogatyr.HeroIntroductions.IDS.get(action-707));
   if(action>=704&&action<=706)return org.slavicmyths.guides.GuideQuests.request(server,"yaga",null,action-704);
   if(action==703){return org.slavicmyths.chud.ChudResearch.offer(server,"yaga");}
   if(action==702){return org.slavicmyths.karachun.NightCombat.unlock(server,npc());}

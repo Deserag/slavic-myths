@@ -1,0 +1,15 @@
+PASS two actual TCP connections
+PASS both players receive ilya_muromets direction
+PASS one shared meeting for ilya_muromets
+PASS personal unlock for both contributors: ilya_muromets
+PASS both players receive dobrynya_nikitich direction
+PASS one shared meeting for dobrynya_nikitich
+PASS personal unlock for both contributors: dobrynya_nikitich
+PASS both players receive alyosha_popovich direction
+PASS one shared meeting for alyosha_popovich
+PASS personal unlock for both contributors: alyosha_popovich
+PASS both players receive finist direction
+PASS one shared meeting for finist
+PASS personal unlock for both contributors: finist
+PASS first actual hero spawned
+FAIL java.lang.AssertionError: second hero spawned by other player

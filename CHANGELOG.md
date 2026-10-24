@@ -1,3 +1,10 @@
+## 1.9.7.66 — test candidate, 24.10.2026
+
+- Four heroes now require personal help after an NPC introduction. Shared supply contributions and 15% combat contribution are tracked per player; the summon item is a reward.
+- Two summoned heroes across the server; cooperative unlocks and save persistence checked with two actual TCP clients.
+- Perunite iron-tool silhouettes, serpent Poloz trophy, Bayun text rendering, and Chud research assignment/visit fixes.
+- Clean build/resources and final 13/13 server checks pass. First-arrival city generation stalls remain; owner acceptance pending. This is not a stable 2.0 release.
+
 ## 1.9.7.64 — тестовый пакет курганов и Чуди, 24.10.2026
 
 - #241: полезные награды важных гробов, материалы и руны I, согласованная выдача душ; восстановлены отсутствовавшие таблицы комнат V2. Геометрия и население прежние.

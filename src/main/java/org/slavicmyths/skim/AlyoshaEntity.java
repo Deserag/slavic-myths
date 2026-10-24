@@ -14,6 +14,7 @@ public final class AlyoshaEntity extends SkimActor {
  public UUID owner,arena;public boolean lastStand,intercepted;private Vec3 dodge,cover;private long daringUntil,lastHit;private int accurate,bowTicks,totalCombat;private UUID dodgedBoss;
  public AlyoshaEntity(EntityType<? extends AlyoshaEntity> t,Level w){super(t,w);}
  private int hurtVoiceVariation;
+ @Override protected net.minecraft.world.InteractionResult mobInteract(net.minecraft.world.entity.player.Player player,net.minecraft.world.InteractionHand hand){if(player instanceof ServerPlayer p){var result=org.slavicmyths.bogatyr.HeroIntroductions.interact(this,p,hand);if(result!=net.minecraft.world.InteractionResult.PASS)return result;}return super.mobInteract(player,hand);}
  @Override protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource source){return SkimContent.sound("alyosha.hurt_"+((hurtVoiceVariation++&1)+1));}
  @Override public void begin(SkimAction a){super.begin(a,(a==SkimAction.SABER||a==SkimAction.COUNTER)&&level().getGameTime()<daringUntil?(int)Math.ceil(a.ticks/1.1):a.ticks);}
  @Override protected EntityDimensions getDefaultDimensions(Pose p){return EntityDimensions.scalable(.72F,2.15F).withEyeHeight(1.9F);}

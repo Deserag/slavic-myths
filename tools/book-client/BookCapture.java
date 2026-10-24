@@ -11,7 +11,7 @@ public final class BookCapture {
  static void set(Object o,String key,Object value){try{var f=o.getClass().getDeclaredField(key);f.setAccessible(true);f.set(o,value);}catch(Exception e){throw new RuntimeException(e);}}
  static Object get(Object o,String key){try{var f=o.getClass().getDeclaredField(key);f.setAccessible(true);return f.get(o);}catch(Exception e){throw new RuntimeException(e);}}
  @SubscribeEvent public static void tick(ClientTickEvent.Post event)throws Exception{
-  if(finished)return;var mc=Minecraft.getInstance();if(Boolean.getBoolean("slavicmyths.guidesReplay")){finished=true;GuideWorldProbe.beginReplay();return;}
+  if(finished)return;var mc=Minecraft.getInstance();if(Boolean.getBoolean("slavicmyths.feedback65")){finished=true;FeedbackProbe.begin();return;}if(Boolean.getBoolean("slavicmyths.guidesReplay")){finished=true;GuideWorldProbe.beginReplay();return;}
   if(mc.screen!=null&&mc.screen.getClass().getSimpleName().equals("AccessibilityOnboardingScreen")){mc.setScreen(new TitleScreen());return;}
   if(!opened&&mc.screen instanceof TitleScreen){opened=true;mc.options.pauseOnLostFocus=false;mc.options.framerateLimit().set(260);mc.options.enableVsync().set(false);mc.options.tutorialStep=net.minecraft.client.tutorial.TutorialSteps.NONE;mc.createWorldOpenFlows().openWorld("BookQA",()->{});}
   if(mc.player==null||mc.level==null||mc.getSingleplayerServer()==null)return;

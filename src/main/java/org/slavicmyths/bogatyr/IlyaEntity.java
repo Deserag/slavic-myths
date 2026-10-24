@@ -21,6 +21,7 @@ public final class IlyaEntity extends CombatEntity {
     public IlyaEntity(EntityType<? extends IlyaEntity> t,Level w){super(t,w);}
     @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(OWNER,"");}
     public UUID syncedOwner(){try{return UUID.fromString(entityData.get(OWNER));}catch(IllegalArgumentException e){return null;}}
+    @Override protected net.minecraft.world.InteractionResult mobInteract(net.minecraft.world.entity.player.Player player,net.minecraft.world.InteractionHand hand){if(player instanceof ServerPlayer p){var result=IlyaIntroduction.interact(this,p,hand);if(result!=net.minecraft.world.InteractionResult.PASS)return result;}return super.mobInteract(player,hand);}
     public boolean recovering(){return state()==State.RETURNING||BogatyrRules.recovering(state());}
     public boolean shield(){return state()==State.SHIELD_HOLD;}
     public IdolishcheEntity boss(){return level() instanceof ServerLevel w&&bossId!=null&&w.getEntity(bossId) instanceof IdolishcheEntity b&&b.isAlive()&&b.active?b:null;}

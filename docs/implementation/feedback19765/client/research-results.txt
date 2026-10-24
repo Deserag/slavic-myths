@@ -1,0 +1,14 @@
+NORMAL seed=2362026 actual NPC research; world=Guide236 NORMAL QA
+Yaga menu703 accepted=true
+yaga assignment_seconds=2.9556184 average_mspt=26.326897 owner_FULL_loaded=false
+yaga persisted/native assignment=BlockPos{x=-20446, y=40, z=-23820} owner=[-1276, -1497] recordedPieces=1 bounds=[-20535, -61, -24071, -20281, 56, -23817]
+yaga real travel/native exploration observer marked Visited=true
+Yaga menu703 accepted=true
+yaga return Claimed=true ancient_sign delta=1
+Bayun canonical fixture=4f77e34b-ae71-425c-88f1-0791e7917c17 reused=true
+Bayun authenticated option6 submitted
+bayun assignment_seconds=13.0508675 average_mspt=5.55295 owner_FULL_loaded=false
+bayun persisted/native assignment=BlockPos{x=-27796, y=39, z=5186} owner=[-1730, 326] recordedPieces=1 bounds=[-27799, -62, 5097, -27545, 55, 5351]
+bayun real travel/native exploration observer marked Visited=true
+Bayun authenticated option6 submitted
+bayun return Claimed=true ancient_sign delta=1

@@ -14,3 +14,5 @@ gradle.projectsEvaluated { def p=gradle.rootProject
 gradle.projectsEvaluated { def p=gradle.rootProject;if(p.hasProperty("bookFinal"))p.neoForge.runs.client.systemProperty("slavicmyths.bookFinal","true") }
 
 gradle.projectsEvaluated { def p=gradle.rootProject;if(p.hasProperty("guidesReplay"))p.neoForge.runs.client.systemProperty("slavicmyths.guidesReplay","true") }
+
+gradle.projectsEvaluated { def p=gradle.rootProject;if(p.hasProperty("feedback65"))p.neoForge.runs.client.systemProperty("slavicmyths.feedback65","true") }

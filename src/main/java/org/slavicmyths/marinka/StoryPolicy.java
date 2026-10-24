@@ -6,6 +6,8 @@ import net.minecraft.network.chat.Component;
 public final class StoryPolicy {
     public static final Map<String,String> MATCH=Map.of("idolishche_poganoe","ilya_muromets","marinka","dobrynya_nikitich","skim_beast","alyosha_popovich","kartaus","finist");
     public static boolean canSummon(ServerPlayer p,String hero){
+        if(!org.slavicmyths.bogatyr.HeroIntroductions.mayCall(p,hero))return false;
+        if(org.slavicmyths.skim.HeroCalls.serverCount(p.serverLevel())>=2){org.slavicmyths.skim.HeroCalls.message(p,"summon.party_full");return false;}
         if(org.slavicmyths.kalin.KalinEncounter.get(p.serverLevel()).owner(p.getUUID())!=null||org.slavicmyths.kalin.KalinEncounter.get(p.serverLevel()).nearBattle(p.serverLevel(),p.position())){org.slavicmyths.kalin.KalinEncounter.message(p,"busy");return false;}
         if(org.slavicmyths.finist.KartausEncounter.get(p.serverLevel()).owner(p.getUUID())!=null||org.slavicmyths.finist.KartausEncounter.get(p.serverLevel()).near(p.serverLevel(),p.position())){org.slavicmyths.finist.KartausEncounter.msg(p,"event_no_midfight_summon");return false;}
         var valley=org.slavicmyths.skim.SkimValley.get(p.serverLevel());if(valley.lock(p.getUUID())!=null){org.slavicmyths.skim.HeroCalls.message(p,"summon.battle_locked");return false;}

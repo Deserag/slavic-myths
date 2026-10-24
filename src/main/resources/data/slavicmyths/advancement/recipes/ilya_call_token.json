@@ -1,24 +1,10 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_material": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:iron_ingot"
-            ]
-          }
-        ]
-      }
+    "help": {
+      "trigger": "minecraft:impossible"
     }
   },
-  "requirements": [
-    [
-      "has_material"
-    ]
-  ],
   "rewards": {
     "recipes": [
       "slavicmyths:ilya_call_token"

@@ -2,7 +2,7 @@
   "parent": "slavicmyths:yaga_thread_earned",
   "display": {
     "icon": {
-      "id": "slavicmyths:lore_book"
+      "id": "slavicmyths:flying_broom"
     },
     "title": {
       "translate": "advancements.slavicmyths.first_flight.title"

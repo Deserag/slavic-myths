@@ -1,3 +1,15 @@
+## 24.10.2026 — 1.9.7.66: four heroes, cooperative help, installed candidate
+
+All four personal help gates and a server-wide cap of two summons implemented in existing TaleData/StoryPolicy. Final native tests 13/13, two TCP clients and full dedicated-server restart checked; clean build 42s and 7740 resources PASS. Test candidate 1.9.7.66 installed with backup/SHA; source remains uncommitted and is captured by manifest/patch. New Chud assignments/visits/rewards and GUI scale captures checked; first-arrival worldgen stalls remain. Owner acceptance pending, Issues OPEN. [Matrix](implementation/heroes-coop/REPORT.md), [installed receipt](implementation/polymc-19766/installed.json).
+
+## 24.10.2026 — candidate 1.9.7.65, installation pending
+
+Clean build 1m2s and 7734 production resources PASS. PolyMC installation blocked by running user Minecraft; installed version remains 1.9.7.64. Only Ilya has the new introduction/help gate; other three heroes retain previous conditions. No game launches or automatic commits. [Candidate receipt](implementation/polymc-19765/pending.json).
+
+## 24.10.2026 — Ilya introduction: IN_PROGRESS
+
+Approved NPC direction -> meeting -> help -> permanent summon implemented in existing TaleData/book/server gates. Final runtime NOT_RUN; no final PolyMC installation or automatic commit. [Evidence matrix](implementation/feedback19765/REPORT.md).
+
 ## 24.10.2026 — тестовая1.9.7.64: курганы #241 и инструменты Чуди #258
 
 По прямому поручению владельца реализован отдельный пакет вне Ада: награды/души/руны курганов и четыре инструмента Чуди (фонарь, кирка режимов, мультиинструмент, подъёмник). Восстановлены18 отсутствовавших loot-маршрутов комнат Кургана V2, без геометрии/населения. Production source3b00acaf, clean build47s,7732 ресурса,50 289+11 731 offline checks; финальный native server8/8. Всего9 GameTest серверов+2 dev клиента с сохранёнными неудачными попытками. Клиентский свет14/сервер0 и снятие фонаря0 проверены в обеих руках;22 финальных реальных кадра предметов. В PolyMC установлен1.9.7.64: SHA/backup/duplicate0 подтверждены, не stable release. Реальный MP/шейдеры/полный перезаход новых предметов и приёмка владельца NOT_RUN; обе карточки «В работе», Issues OPEN. [Курганы](implementation/kurgan241/REPORT.md), [Чудь](implementation/chud258/REPORT.md), [installed receipt](implementation/polymc-19764/installed.json). Прежние записи ниже — хронология; чистка Git/публикация/Ада не выполнялись.
