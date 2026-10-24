@@ -2295,3 +2295,8 @@ All 11 workflows for e0560924 SUCCESS; Java21 clean build + P52 source/JAR PASS:
 ## 24.10.2026 — #237 compact reader implementation (IN_PROGRESS)
 
 Один TaleScreen поверх #235: компактное сворачиваемое оглавление, скрытие панели/широкое чтение, список деяний с реальными описаниями и дерево с общей геометрией fit/center/click. Clean build1m33s и7688ресурсов PASS до последних уточнений; первый реальный A/B клиентский прогон выполняется на копии BookQA. Полная визуальная/MP приёмка и финальные замеры ещё не подтверждены. [Матрица](implementation/book237/REPORT.md).
+
+
+## 24.10.2026 — #236 guides, flight and control combinations (IN_PROGRESS)
+
+Ветка codex/guides-236 поверх #237/#235: серверные поручения Яги/Баюна в TaleData, существующие anchors/навигация; фоновый native план полной крепости без NPC block placement/tickets. Открытие книги больше не запускает генерацию избушки: отдельная кнопка. Волк trust4 без миграции старых ключей;3обмена;ступа2места с сохранённым явным пилотом. Server runtime2:9/9 PASS после исправления нижней границы высоты; командная крепость и контрольный блок PASS, peakplacement111ms требует учёта. Natural NPC/restart/две реальные сессии ещё NOT_RUN. Дополнение владельца: Ctrl+1/2/3, captureCtrl/Shift/Alt;3строки PolyMC options изменены сbackup, JAR не установлен. [Матрица](implementation/guides236/REPORT.md), [управление](CONTROLS.md).

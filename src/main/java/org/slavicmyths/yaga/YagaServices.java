@@ -25,7 +25,10 @@ public final class YagaServices {
   new Entry("steadfast",3,"yagin_nastoy_stoykosti",1,n("tugarinova_kozha",3)),new Entry("restoring",3,"lesnoy_nastoy_vosstanovleniya",2,n("kost_likha",1)),
   new Entry("rare_sacrifice",3,"rune_sacrifice",1,n("soul",2),n("soul_fragment",8),n("perunite_dust",4),n("kost_likha",1)),
   new Entry("rare_floating_weapon",3,"rune_floating_weapon",1,n("empowered_soul",1),n("diamond_dust",4),n("tugarinova_kozha",1),n("ancient_sign",2)),
-  new Entry("veles_oath_iv",0,"rune_veles_oath_iv",1,n("gorynych_scale",4),n("perunite_dust",8),n("empowered_soul",2),n("ancient_sign",1))};
+  new Entry("veles_oath_iv",0,"rune_veles_oath_iv",1,n("gorynych_scale",4),n("perunite_dust",8),n("empowered_soul",2),n("ancient_sign",1)),
+  new Entry("flying_broom",2,"flying_broom",1,n("svyazka_trav_yagi",8),n("vihrevaya_nit",4),n("ognennoe_pero",2)),
+  new Entry("flying_mortar",3,"flying_mortar",1,n("svyazka_trav_yagi",16),n("tugarinova_kozha",4),n("minecraft:iron_ingot",16)),
+  new Entry("pestle",3,"pestle",1,n("svyazka_trav_yagi",4),n("uzel_podveya",2),n("minecraft:iron_ingot",8))};
  public static final Entry[] BREWS={
   new Entry("otvar_ochishcheniya",2,"otvar_ochishcheniya",1,n("svyazka_trav_yagi",1),n("wormwood",2),n("st_johns_wort",2),n("minecraft:glass_bottle",1)),
   new Entry("letuchaya_maz",2,"letuchaya_maz",1,n("uzel_podveya",1),n("minecraft:honey_bottle",1),n("flax",2),n("minecraft:bowl",1)),

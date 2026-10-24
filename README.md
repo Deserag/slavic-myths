@@ -167,3 +167,6 @@
 - [Задачи](https://github.com/Deserag/slavic-myths/issues), [PR](https://github.com/Deserag/slavic-myths/pulls)
 
 Slavic Myths 2.0 — будущая работа с отдельной приёмкой. Новое содержимое, баланс и готовность релиза подтверждаются принятыми изменениями и соответствующими проверками.
+
+
+Управление навыками и сочетания Ctrl/Shift/Alt: [памятка](docs/CONTROLS.md).

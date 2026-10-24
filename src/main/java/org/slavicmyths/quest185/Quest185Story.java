@@ -14,7 +14,7 @@ public final class Quest185Story {
  public static CompoundTag data(net.minecraft.world.entity.player.Player p){var root=org.slavicmyths.rpg.PathData.data(p);if(!root.contains("Quest185",10))root.put("Quest185",new CompoundTag());var n=root.getCompound("Quest185");n.putInt("Version",2);return n;}
  public static long now(ServerPlayer p){return p.server.overworld().getGameTime();}
  public static Component text(String s,Object...args){return Component.translatable("quest185."+s,args);}
- public static int wolfTrust(ServerPlayer p){if(!org.slavicmyths.wolf.WolfProgress.passed(p))return 1;return oldWolfDone(p)?3:2;}
+ public static int wolfTrust(ServerPlayer p){if(!org.slavicmyths.wolf.WolfProgress.passed(p))return 1;return oldWolfDone(p)?(Quest185State.done(data(p),8)?4:3):2;}
  public static boolean oldWolfDone(ServerPlayer p){return org.slavicmyths.military.MilitaryQuests.state(p).getCompound("GreyWolfStory").getCompound(org.slavicmyths.military.GreyWolfStory.IDS[3]).getBoolean("Claimed");}
  public static boolean metYaga(ServerPlayer p){return data(p).getBoolean("MetYaga")||YagaData.get(p.server.overworld()).progress(p.getUUID()).intro>=2;}
  public static int yagaTrust(ServerPlayer p){return YagaData.get(p.server.overworld()).progress(p.getUUID()).stage>=3?3:YagaData.get(p.server.overworld()).progress(p.getUUID()).stage>=1?2:1;}

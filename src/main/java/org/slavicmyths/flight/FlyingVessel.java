@@ -34,33 +34,35 @@ import net.minecraft.world.BossEvent;
 
 import org.slavicmyths.registry.ModItems;
 public final class FlyingVessel extends Entity {
+ private static final EntityDataAccessor<java.util.Optional<UUID>> PILOT=SynchedEntityData.defineId(FlyingVessel.class,EntityDataSerializers.OPTIONAL_UUID);
  private static final double[] SPEED_BONUS={1,1.15,1.3,1.5};
  private static final EntityDataAccessor<Integer> WIND=SynchedEntityData.defineId(FlyingVessel.class,EntityDataSerializers.INT);
  private static final EntityDataAccessor<Float> BANK=SynchedEntityData.defineId(FlyingVessel.class,EntityDataSerializers.FLOAT),TILT=SynchedEntityData.defineId(FlyingVessel.class,EntityDataSerializers.FLOAT),DRIVE=SynchedEntityData.defineId(FlyingVessel.class,EntityDataSerializers.FLOAT);
  public final boolean mortar;public final SimpleContainer cargo=new SimpleContainer(9);private UUID owner;private ItemStack vessel=ItemStack.EMPTY;public int viewers;
  private float forward,strafe,lift,wantedYaw;private boolean brake;private long lastInput;private int lerpSteps;private double targetX,targetY,targetZ;private float targetYaw;
  public FlyingVessel(EntityType<? extends FlyingVessel> t,Level w,boolean mortar){super(t,w);this.mortar=mortar;blocksBuilding=true;}
- @Override protected void defineSynchedData(net.minecraft.network.syncher.SynchedEntityData.Builder builder){builder.define(WIND,0);builder.define(BANK,0F);builder.define(TILT,0F);builder.define(DRIVE,0F);}
+ @Override protected void defineSynchedData(net.minecraft.network.syncher.SynchedEntityData.Builder builder){builder.define(PILOT,java.util.Optional.empty());builder.define(WIND,0);builder.define(BANK,0F);builder.define(TILT,0F);builder.define(DRIVE,0F);}
  public float roll(){return entityData.get(BANK);}public float pitch(){return entityData.get(TILT);}public float drive(){return entityData.get(DRIVE);}
  public int tailwind(){return entityData.get(WIND);}
- @Nullable public Player pilot(){return getPassengers().isEmpty()||!(getPassengers().get(0) instanceof Player)?null:(Player)getPassengers().get(0);}
+ @Nullable public Player pilot(){var id=entityData.get(PILOT);if(id.isEmpty())return null;for(var rider:getPassengers())if(rider instanceof Player p&&p.getUUID().equals(id.get()))return p;return null;}
  // Vanilla vehicle-move packets must not become an alternate movement authority.
  @Override @Nullable public LivingEntity getControllingPassenger(){return null;}
- @Override protected boolean canAddPassenger(Entity e){return getPassengers().isEmpty()&&e instanceof Player;}
+ @Override protected boolean canAddPassenger(Entity e){return e instanceof Player&&!e.isSpectator()&&getPassengers().size()<(mortar?2:1);}
  public boolean owns(Player p){return owner==null||owner.equals(p.getUUID());}
  public void input(ServerPlayer p,float f,float s,float up,float yaw,boolean stop){
   if(pilot()!=p||!owns(p)||!p.isAlive()||!Float.isFinite(f)||!Float.isFinite(s)||!Float.isFinite(up)||!Float.isFinite(yaw))return;
   forward=Mth.clamp(f,-1,1);strafe=Mth.clamp(s,-1,1);lift=Mth.clamp(up,-1,1);wantedYaw=Mth.wrapDegrees(yaw);brake=stop;lastInput=level().getGameTime();
  }
- public void fromItem(ItemStack stack,UUID id){owner=id;vessel=stack.copy();vessel.setCount(1);loadItemCargo(stack);org.slavicmyths.item.ItemState.removeCargo(vessel);entityData.set(WIND,Mth.clamp(Tailwind.level(registryAccess(),vessel),0,3));}
+ public void fromItem(ItemStack stack,UUID id){owner=id;entityData.set(PILOT,java.util.Optional.ofNullable(id));vessel=stack.copy();vessel.setCount(1);loadItemCargo(stack);org.slavicmyths.item.ItemState.removeCargo(vessel);entityData.set(WIND,Mth.clamp(Tailwind.level(registryAccess(),vessel),0,3));}
  private net.minecraft.core.NonNullList<ItemStack> itemCargo(){var items=net.minecraft.core.NonNullList.withSize(9,ItemStack.EMPTY);for(int i=0;i<9;i++)items.set(i,cargo.getItem(i).copy());return items;}
  private void loadItemCargo(ItemStack stack){cargo.clearContent();if(!mortar)return;var items=org.slavicmyths.item.ItemState.inventory(stack,true,registryAccess());for(int i=0;i<9;i++){ItemStack item=items.get(i);if(!item.isEmpty())item.setCount(Math.min(item.getCount(),item.getMaxStackSize()));cargo.setItem(i,item);}}
  private void loadCargo(CompoundTag n){cargo.clearContent();if(!mortar)return;net.minecraft.core.NonNullList<ItemStack> list=net.minecraft.core.NonNullList.withSize(9,ItemStack.EMPTY);net.minecraft.world.ContainerHelper.loadAllItems(n,list,registryAccess());for(int i=0;i<9;i++){ItemStack s=list.get(i);if(!s.isEmpty())s.setCount(Math.min(s.getCount(),s.getMaxStackSize()));cargo.setItem(i,s);}}
  private CompoundTag saveCargo(){net.minecraft.core.NonNullList<ItemStack> list=net.minecraft.core.NonNullList.withSize(9,ItemStack.EMPTY);for(int i=0;i<9;i++)list.set(i,cargo.getItem(i).copy());return net.minecraft.world.ContainerHelper.saveAllItems(new CompoundTag(),list,registryAccess());}
  public void openCargo(ServerPlayer p){if(!mortar||!owns(p)||!isAlive()||p.distanceToSqr(this)>16||viewers>0)return;if(owner==null)owner=p.getUUID();(p).openMenu(new SimpleMenuProvider((id,inv,player)->new CargoMenu(id,inv,this),Component.translatable("flight.slavicmyths.cargo")),b->b.writeVarInt(getId()));}
- @Override public InteractionResult interact(Player p,InteractionHand hand){if(level().isClientSide)return InteractionResult.SUCCESS;if(!owns(p)||p.isSpectator())return InteractionResult.FAIL;
+ @Override public InteractionResult interact(Player p,InteractionHand hand){if(level().isClientSide)return InteractionResult.SUCCESS;if(p.isSpectator()||!p.isAlive()||p.distanceToSqr(this)>16)return InteractionResult.FAIL;
+  if(!owns(p)){if(mortar&&pilot()!=null&&!p.isSecondaryUseActive()&&getPassengers().size()<2)p.startRiding(this);return InteractionResult.CONSUME;}
   if(mortar&&p.isSecondaryUseActive()){openCargo((ServerPlayer)p);return InteractionResult.CONSUME;}
-  if(!isVehicle()){if(owner==null)owner=p.getUUID();if(p.startRiding(this)){wantedYaw=p.getYRot();}}return InteractionResult.CONSUME;
+  if(pilot()==null&&getPassengers().size()<(mortar?2:1)){if(owner==null)owner=p.getUUID();if(p.startRiding(this)){entityData.set(PILOT,java.util.Optional.of(p.getUUID()));forward=strafe=lift=0;brake=true;wantedYaw=p.getYRot();}}return InteractionResult.CONSUME;
  }
  @Override public boolean hurt(DamageSource src,float amount){if(level().isClientSide||!isAlive()||isVehicle()||viewers>0||!(src.getEntity() instanceof Player))return false;Player p=(Player)src.getEntity();if(!owns(p)||!p.isCrouching()||p.distanceToSqr(this)>16)return false;
   ItemStack result=vessel.isEmpty()?new ItemStack(mortar?ModItems.FLYING_MORTAR.get():ModItems.FLYING_BROOM.get()):vessel.copy();if(mortar)org.slavicmyths.item.ItemState.inventory(result,true,itemCargo());cargo.clearContent();org.slavicmyths.yaga.FlightRecovery.repack(p);discard();if(!p.getInventory().add(result))p.drop(result,false);return true;
@@ -70,7 +72,7 @@ public final class FlyingVessel extends Entity {
  @Override public boolean canBeCollidedWith(){return isAlive();}
  @Override public boolean causeFallDamage(float d,float multiplier,DamageSource source){return false;}
  @Override public boolean shouldRiderSit(){return false;}
- @Override public Vec3 getPassengerRidingPosition(Entity rider){return position().add(0,mortar?.65:0,0);}
+ @Override public Vec3 getPassengerRidingPosition(Entity rider){if(!mortar)return position();double side=rider==pilot()?-.42:.42;double angle=Math.toRadians(getYRot());return position().add(Math.cos(angle)*side,.65,Math.sin(angle)*side);}
  @Override protected void positionRider(Entity rider,Entity.MoveFunction move){super.positionRider(rider,move);rider.fallDistance=0;}
  @Override public Vec3 getDismountLocationForPassenger(LivingEntity rider){for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++){if(x==0&&z==0)continue;Vec3 p=position().add(x*1.3,.2,z*1.3);if(level().noCollision(rider,rider.getBoundingBox().move(p.subtract(rider.position()))))return p;}return position().add(0,getBbHeight()+.2,0);}
  @Override public void tick(){super.tick();if(level().isClientSide){if(lerpSteps>0){setPos(getX()+(targetX-getX())/lerpSteps,getY()+(targetY-getY())/lerpSteps,getZ()+(targetZ-getZ())/lerpSteps);setYRot(getYRot()+Mth.wrapDegrees(targetYaw-getYRot())/lerpSteps);lerpSteps--;}
@@ -83,7 +85,7 @@ public final class FlyingVessel extends Entity {
   double rad=Math.toRadians(getYRot()),fx=-Math.sin(rad),fz=Math.cos(rad),norm=Math.max(1,Math.sqrt(forward*forward+strafe*strafe));
   double vx=v.x*drag+(fx*forward+fz*strafe)*accel/norm,vz=v.z*drag+(fz*forward-fx*strafe)*accel/norm;double len=Math.sqrt(vx*vx+vz*vz);if(len>max){vx*=max/len;vz*=max/len;}
   double desired=active?(lift<0?lift*.32:lift*(mortar?.17:.32)):(isInWater()?.025:Math.max(-.5,v.y-.04));double vy=active?v.y+(desired-v.y)*(mortar?.3:.18):desired;
-  if(getY()>level().getMaxBuildHeight()-3&&vy>0)vy=0;if(getY()<2&&vy<0)vy=0;
+  if(getY()>level().getMaxBuildHeight()-3&&vy>0)vy=0;if(getY()<level().getMinBuildHeight()+2&&vy<0)vy=0;
   Vec3 motion=new Vec3(vx,vy,vz);if(!level().hasChunkAt(BlockPos.containing(getX()+vx,getY(),getZ()+vz)))motion=Vec3.ZERO;
   boolean takeoff=onGround()&&vy>.03;setDeltaMovement(motion);move(MoverType.SELF,motion);if(horizontalCollision)setDeltaMovement(getDeltaMovement().multiply(.2,1,.2));if(verticalCollision)setDeltaMovement(getDeltaMovement().multiply(1,0,1));hasImpulse=true;fallDistance=0;
   entityData.set(BANK,roll()+((-turn*(mortar?.6F:2.3F))-roll())*.15F);entityData.set(TILT,pitch()+((float)(-forward*(mortar?3:9)-vy*22)-pitch())*.12F);entityData.set(DRIVE,brake?-2F:forward);
@@ -92,8 +94,8 @@ public final class FlyingVessel extends Entity {
    if(tickCount%70==0)playSound(mortar?SoundEvents.BARREL_OPEN:SoundEvents.BAMBOO_STEP,.08F,mortar?.65F:.8F);}
  }
  @Override public void lerpTo(double x,double y,double z,float yaw,float pitch,int steps){targetX=x;targetY=y;targetZ=z;targetYaw=yaw;lerpSteps=Math.max(1,Math.min(10,steps));}
- @Override protected void readAdditionalSaveData(CompoundTag n){owner=n.hasUUID("Owner")?n.getUUID("Owner"):null;vessel=ItemStack.parseOptional(registryAccess(),n.getCompound("Vessel"));loadCargo(n.getCompound("Cargo"));entityData.set(WIND,Mth.clamp(Tailwind.level(registryAccess(),vessel),0,3));forward=strafe=lift=0;wantedYaw=getYRot();}
- @Override protected void addAdditionalSaveData(CompoundTag n){if(owner!=null)n.putUUID("Owner",owner);n.put("Vessel",vessel.saveOptional(registryAccess()));if(mortar)n.put("Cargo",saveCargo());}
+ @Override protected void readAdditionalSaveData(CompoundTag n){owner=n.hasUUID("Owner")?n.getUUID("Owner"):null;entityData.set(PILOT,n.hasUUID("Pilot")?java.util.Optional.of(n.getUUID("Pilot")):java.util.Optional.ofNullable(owner));vessel=ItemStack.parseOptional(registryAccess(),n.getCompound("Vessel"));loadCargo(n.getCompound("Cargo"));entityData.set(WIND,Mth.clamp(Tailwind.level(registryAccess(),vessel),0,3));forward=strafe=lift=0;wantedYaw=getYRot();}
+ @Override protected void addAdditionalSaveData(CompoundTag n){if(owner!=null)n.putUUID("Owner",owner);entityData.get(PILOT).ifPresent(id->n.putUUID("Pilot",id));n.put("Vessel",vessel.saveOptional(registryAccess()));if(mortar)n.put("Cargo",saveCargo());}
 
  @Override public ItemStack getPickedResult(net.minecraft.world.phys.HitResult hit){return new ItemStack(mortar?ModItems.FLYING_MORTAR.get():ModItems.FLYING_BROOM.get());}
 }

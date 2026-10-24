@@ -1,0 +1,14 @@
+{
+  "options_path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\options.txt",
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\skill-combos-20261024-115630\\options.txt",
+  "before_sha256": "049c7f3c42a35c4e1209adef7b4357d66917f4389f04c792e5bd6e0edee254e6",
+  "after_sha256": "db25c0451b972dafedca7a53a2e96fcc10c73944625598cfa838a2456acfe31a",
+  "bindings": {
+    "key_key.slavicmyths.path_ability": "key.keyboard.1:CONTROL",
+    "key_key.slavicmyths.class_slot_2": "key.keyboard.2:CONTROL",
+    "key_key.slavicmyths.class_slot_3": "key.keyboard.3:CONTROL"
+  },
+  "other_lines_unchanged": true,
+  "installed_jar_changed": false,
+  "runtime": "settings format verified against native NeoForge Options; actual key activation pending client test"
+}
