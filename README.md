@@ -8,7 +8,7 @@ Minecraft-мод о славянских сказаниях, исследова�
 
 | Нужная информация | Ссылка |
 |---|---|
-| Ветка принятой второй версии и обслуживающая сборка 1.9.7.67 | [release](https://github.com/Deserag/slavic-myths/tree/release) |
+| Ветка принятой второй версии 1.9.7.66 | [release](https://github.com/Deserag/slavic-myths/tree/release) |
 | Установка, зависимости, управление и сборка версии для игры | [README ветки release](https://github.com/Deserag/slavic-myths/blob/release/README.md) |
 | Подробно: какие механики и предметы есть в моде | [MOD_CONTENT.md](https://github.com/Deserag/slavic-myths/blob/release/MOD_CONTENT.md) |
 | Проверенный CI-артефакт JAR | [Production Java 21](https://github.com/Deserag/slavic-myths/actions/workflows/production-java21.yml) |
