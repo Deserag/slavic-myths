@@ -1,0 +1,12 @@
+{
+  "source_commit": "43ebdae728508a1d0b5b25db5b3081b6aeac46cb",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.62.jar",
+  "sha256": "bcb93c26d5383963eef7d5f19cde64676c20cd2a4f9f1b35b9c26f82b512b656",
+  "installed": false,
+  "build": "clean build -I tools/book-offline.gradle checkBookOffline",
+  "resources": 7692,
+  "java21_classes": 1851,
+  "dev_client_processes": 5,
+  "gametest_server_processes": 4,
+  "owner_accepted": false
+}

@@ -1,3 +1,5 @@
+> Current integrated acceptance matrix and final results: [24.10.2026 consolidated report](../three-issues-20261024/REPORT.md). Earlier pending rows below are historical, not current acceptance.
+
 # #237 — IN_PROGRESS
 
 Restored the interrupted deleted TaleScreen from the preserved #235 HEAD, then implemented the redesign in codex/book-redesign-237. Initial deletion patch and TaleViewport source are preserved in work/resume-235-237-236. Main remains unchanged.

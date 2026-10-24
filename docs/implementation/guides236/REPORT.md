@@ -1,3 +1,5 @@
+> Current integrated acceptance matrix: [consolidated report](../three-issues-20261024/REPORT.md). Earlier pending rows below are historical.
+
 # #236 — IN_PROGRESS
 
 Implementation is on codex/guides-236, stacked on the redesigned book (#237 / PR259), which itself follows #235 / PR239. Main is preserved; no automatic merges/Issue closure/acceptance or gameplay JAR installation.
@@ -45,8 +47,15 @@ Actual separate-process restart verified the original17-piece campUUID and live 
 Third server campaign:12/13 required PASS. The strengthened in-footprint diamond sentinel forced relocation (entrance12103 instead of12039) and survived; complete fortress still generated. Authenticated Bayun choices7/8/9, two player records sharing one actual Nightingale, native friendship at85 and delayed duplicate-reward denial PASS. New marker-specific STOP regression failed because the old global STOP implementation had remained in place; corrected explicitly and rerun required. Peak command placement115.05ms remains unresolved.
 
 
-## Latest native server result �13/13 PASS
+## Latest native server result —13/13 PASS
 
 Fourth isolated server process: runtime-guides-4.log (source273bb77a) passed all13 required tests. It verified the corrected marker-specific STOP, actual Nightingale entity-join indexing and shared target across two separate server players even after the bandit roster was cleared, friendship award at85, native NPC authenticated routes, one-shot reward/reclaim guard, old vessel cargo, explicit pilot identity/capacity and real command placement. The inside-footprint diamond block survived; the fortress relocated from predicted entrance12039,-56,11822 to12103,-56,11822. Final command peak101.39ms,1237ticks,39277changed blocks; this is still a measured placement spike, not an optimization PASS. Summary: runtime-server-final.txt. This is two server players, not two real socket clients.
 
 Subsequent source-only UI refinement gives mortar passengers their own controls hint and refreshes Bayun offer gates when trust changes. It is included in the final build and next client source, without modifying server gameplay.
+
+
+## Final normal-world replay
+
+Fifth dev client, client-replay-3.log: separate-process restart confirms the original17-piece fortress, unchanged campUUID and living boss. All three Yaga and all three authenticated Bayun requests accepted. Original live Nightingale reused for both NPCs; no third camp. Likho/Tugarin remain WAITING reservations, not falsely reported as loaded or killed. results-replay.txt and guide-tracking-replay.png are final. Client screen callback tests PASS for node selection, drag threshold/pan, empty search, sidebar/fullscreen. Physical input is not covered. Normal exit saved all dimensions.
+
+FAIL-replay.txt is a historical harness false failure: replay2 checked an unloaded entity from the second camp. Saved region data showed both bosses alive. Corrected replay first travels back, then checks the loaded original. Earlier failure preserved separately as FAIL-replay-1.txt. Snapshot first51.99ms/8,374,664B, repeat5.07ms/802,320B, full payload245,167B. Last100ticks mean14.43MSPT/p9532.44ms. These are not old/new server or multiplayer comparisons. Final production SHA256bcb93c26d5383963eef7d5f19cde64676c20cd2a4f9f1b35b9c26f82b512b656 supersedes earlier hash. Total9 Minecraft processes, including failed attempts. User removed the pause requirement. New gameplay JAR is not installed.

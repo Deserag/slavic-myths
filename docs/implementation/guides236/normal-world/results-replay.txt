@@ -1,0 +1,20 @@
+SNAPSHOT full_first wall_ms=51.9873 cpu_ms=46.875 allocated_bytes=8374664 full_payload_bytes=245167
+SNAPSHOT full_repeat wall_ms=5.0664 cpu_ms=0.0 allocated_bytes=802320 full_payload_bytes=245167
+QA travel to original saved camp before checking loaded entity
+ACTUAL_PROCESS_RESTART fortress17pieces campUUID unchanged liveBoss=true; world=Guides236-Normal-1792833246964
+NORMAL seed2362026; original sentinel=BlockPos{x=783, y=114, z=1263}; actual egg Yaga menu stage1
+yaga real menu target=likho_one_eyed accepted=true
+yaga real menu target=tugarin_zmey accepted=true
+yaga real menu target=nightingale accepted=true
+yaga outcome likho_one_eyed {Anchor:-129192610136064L,BossKey:"likho_one_eyed:-1:2",Dimension:"minecraft:overworld",Giver:"yaga",Id:[I;-1377571372,-758559090,-2124456707,-1247731041],Status:"WAITING"}
+yaga outcome tugarin_zmey {Anchor:130292128006144L,BossKey:"tugarin_zmey:0:0",Dimension:"minecraft:overworld",Giver:"yaga",Id:[I;-1306502682,-1732557931,-1434113292,723506715],Status:"WAITING"}
+yaga outcome nightingale {Anchor:215229406281836L,Camp:[I;-177307578,-1847994983,-974086803,-2097632291],Dimension:"minecraft:overworld",Giver:"yaga",Id:[I;-641453805,491012764,-2139111646,-1303989561],Status:"ACTIVE",Target:[I;189433040,718549820,-1505685017,421478875]}
+NPC search sentinel preserved; no NPC chunk tickets by implementation
+existing live Nightingale reused; no duplicate camp
+bayun session target=likho_one_eyed accepted=true
+bayun session target=tugarin_zmey accepted=true
+bayun session target=nightingale accepted=true
+bayun outcome likho_one_eyed {Anchor:-129192610136064L,BossKey:"likho_one_eyed:-1:2",Dimension:"minecraft:overworld",Giver:"bayun",GiverEntity:[I;53866910,2054308032,-1089328287,349466479],Id:[I;-1951478730,-928628375,-2050680453,926295401],Status:"WAITING"}
+bayun outcome tugarin_zmey {Anchor:130292128006144L,BossKey:"tugarin_zmey:0:0",Dimension:"minecraft:overworld",Giver:"bayun",GiverEntity:[I;53866910,2054308032,-1089328287,349466479],Id:[I;1522125786,1303399569,-1560607854,723349611],Status:"WAITING"}
+bayun outcome nightingale {Anchor:215229406281836L,Camp:[I;-177307578,-1847994983,-974086803,-2097632291],Dimension:"minecraft:overworld",Giver:"bayun",GiverEntity:[I;53866910,2054308032,-1089328287,349466479],Id:[I;-351730645,-566407536,-2108824832,2055862444],Status:"ACTIVE",Target:[I;189433040,718549820,-1505685017,421478875]}
+last100 server MSPT mean=14.43081702 p95=32.4449

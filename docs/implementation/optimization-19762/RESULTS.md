@@ -1,3 +1,5 @@
+> Current integrated acceptance matrix and final results: [24.10.2026 consolidated report](../three-issues-20261024/REPORT.md). Earlier pending rows below are historical, not current acceptance.
+
 # #235 — IN_PROGRESS
 
 Implemented allocation/render work reduction, indexed book data, session definition delivery, lifecycle invalidation and duplicate audit. Runtime performance/visual/save/MP regression will follow all three stages per owner instruction. No release/acceptance.

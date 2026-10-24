@@ -6,7 +6,7 @@ import org.slavicmyths.guides.*;import org.slavicmyths.tales.*;import org.slavic
 /** Disposable NORMAL world: real NPC menu requests followed by travel/native worldgen. */
 @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class GuideWorldProbe {
- static boolean enabled,opened,working,done,replay,presented,metricDone,interactionDone;static int replayWait;static int ticks,phase,request;static String worldName;static long started;static BlockPos sentinel;static UUID yaga,cat;static final List<String> rows=new ArrayList<>();static final Path OUT=Path.of("D:/slavic-myths/docs/implementation/guides236/normal-world");
+ static boolean enabled,opened,working,done,replay,presented,metricDone,interactionDone,replayTravel;static int replayWait;static int ticks,phase,request;static String worldName;static long started;static BlockPos sentinel;static UUID yaga,cat;static final List<String> rows=new ArrayList<>();static final Path OUT=Path.of("D:/slavic-myths/docs/implementation/guides236/normal-world");
  public static void begin(){enabled=true;}
  public static void beginReplay(){enabled=true;replay=true;}
  static void snapshotMetric(ServerPlayer p,String label){
@@ -28,6 +28,7 @@ public final class GuideWorldProbe {
    if(phase==0){
     if(!metricDone){snapshotMetric(p,"full_first");snapshotMetric(p,"full_repeat");metricDone=true;}
     if(replay){
+      if(!replayTravel){replayTravel=true;p.teleportTo(world,783.5,109,1263.5,180,20);record("QA travel to original saved camp before checking loaded entity");working=false;return;}
       var at=new ChunkPos(46,74);var chunk=replay?world.getChunk(at.x,at.z):world.getChunkSource().getChunkNow(at.x,at.z);var start=chunk==null?null:chunk.getStartForStructure(org.slavicmyths.swamp.SwampStructures.get(world,"bandit_camp_large"));if(chunk==null){working=false;return;}if(start==null||!start.isValid())throw new AssertionError("Actual process restart lost native fortress");UUID expected=UUID.fromString("f56e8046-91d9-d599-c5f0-9d6d82f8abdd");boolean campMatch=false;for(var piece:start.getPieces())if(piece instanceof org.slavicmyths.bandit.LargeCampPiece large&&large.campId().equals(expected))campMatch=true;
       UUID boss=UUID.nameUUIDFromBytes((expected+":nightingale").getBytes(java.nio.charset.StandardCharsets.UTF_8));world.getChunk(48,78);if(!campMatch)throw new AssertionError("Actual restart changed campUUID");if(world.getEntity(boss)==null){if(++replayWait>30)throw new AssertionError("Actual restart lost live Nightingale");working=false;return;}record("ACTUAL_PROCESS_RESTART fortress17pieces campUUID unchanged liveBoss=true; world="+worldName);
     }

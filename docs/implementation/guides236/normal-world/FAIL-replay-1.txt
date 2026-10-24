@@ -1,0 +1,12 @@
+java.lang.AssertionError: Bayun real nonce path 0
+ACTUAL_PROCESS_RESTART fortress17pieces campUUID unchanged liveBoss=true; world=Guides236-Normal-1792833246964
+NORMAL seed2362026; original sentinel=BlockPos{x=783, y=114, z=1263}; actual egg Yaga menu stage1
+yaga real menu target=likho_one_eyed accepted=true
+yaga real menu target=tugarin_zmey accepted=true
+yaga real menu target=nightingale accepted=true
+yaga outcome likho_one_eyed {Anchor:-129192610136064L,BossKey:"likho_one_eyed:-1:2",Dimension:"minecraft:overworld",Giver:"yaga",Id:[I;-398748478,2005552837,-1486085383,1819667127],Status:"WAITING"}
+yaga outcome tugarin_zmey {Anchor:130292128006144L,BossKey:"tugarin_zmey:0:0",Dimension:"minecraft:overworld",Giver:"yaga",Id:[I;833393163,1808089111,-1884733033,1492140896],Status:"WAITING"}
+yaga outcome nightingale {Anchor:108301919600706L,Camp:[I;533528586,-1831696952,1768404397,1888048418],Dimension:"minecraft:overworld",Giver:"yaga",Id:[I;90240430,111953011,-1786984443,1820629224],Start:1571958030355L,Status:"WAITING"}
+NPC search sentinel preserved; no NPC chunk tickets by implementation
+travel to reserved native fortress, no manual placement BlockPos{x=394, y=66, z=5924}
+native fortress verified pieces=18 loaded footprint chunks=49 containers=28 camp=1fcd000a-92d2-85c8-6967-b5ad70895522 liveBoss=true
