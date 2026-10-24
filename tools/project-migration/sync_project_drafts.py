@@ -209,6 +209,21 @@ for task in CFG["tasks"]:
     if existing:
         item_id = existing["id"]
         counts["existing"] += 1
+        # Append only explicitly approved amendments. Never replace an edited
+        # Project card's body, title, status, or other owner-maintained fields.
+        amendment = task.get("projectAddendum")
+        if amendment:
+            marker = "<!-- PROJECT9_AMENDMENT_" + key.upper().replace("-", "_") + " -->"
+            draft = (existing.get("content") or {})
+            body = draft.get("body") or ""
+            draft_id = draft.get("id")
+            if marker not in body and draft_id:
+                gql("""
+                mutation($input:UpdateProjectV2DraftIssueInput!) {
+                  updateProjectV2DraftIssue(input:$input) { draftIssue { id } }
+                }
+                """, input={"draftIssueId": draft_id, "body": body + "\\n\\n" + marker + "\\n" + amendment})
+                print("APPENDED APPROVED AMENDMENT", key, flush=True)
         print("PRESERVE DRAFT", key)
         continue  # Never overwrite hand-edited cards or their statuses on re-runs.
 
