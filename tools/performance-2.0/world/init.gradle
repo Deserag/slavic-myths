@@ -1,0 +1,36 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { perf2World { java.srcDir(p.hasProperty('perfOriginalFixture')?'tools/performance-2.0/world/v1':'tools/performance-2.0/world/java');resources.srcDir 'tools/performance-2.0/world/resources';if(!p.hasProperty('perfVanilla'))java.srcDir 'tools/performance-2.0/world/mod' } }
+ p.sourceSets.perf2World.compileClasspath += p.sourceSets.main.compileClasspath
+ if(!p.hasProperty('perfVanilla')) p.sourceSets.perf2World.compileClasspath += p.sourceSets.main.output
+ // Runtime dependencies, not compileOnly adapters; exclude all project main outputs.
+ p.sourceSets.perf2World.runtimeClasspath += p.sourceSets.main.runtimeClasspath.minus(p.sourceSets.main.output)
+ p.tasks.named('compilePerf2WorldJava') { dependsOn p.tasks.named('classes') }
+ if(p.hasProperty('perfVanilla'))p.neoForge.mods.remove(p.neoForge.mods.findByName('slavicmyths'))
+ p.neoForge.mods.maybeCreate('perf2audit').sourceSet(p.sourceSets.perf2World)
+} }
+gradle.projectsEvaluated { def p=gradle.rootProject
+ if(p.hasProperty('perfVanilla'))p.neoForge.mods.remove(p.neoForge.mods.getByName('slavicmyths'))
+ if(p.hasProperty('perfVanilla')) {
+  p.neoForge.runs.client.sourceSet.set(p.sourceSets.perf2World)
+  p.neoForge.runs.client.loadedMods.set([p.neoForge.mods.getByName('perf2audit')])
+ }
+ p.neoForge.runs.client.gameDirectory=p.file(p.hasProperty('perfVanilla')?'work/performance-2-control':'work/performance-2-world')
+ p.neoForge.runs.client.programArguments.addAll('--width','1600','--height','900')
+ p.neoForge.runs.client.systemProperty('perf.output',p.file((p.findProperty('perfOutput') ?: 'docs/implementation/performance-2.0/compile-only')).absolutePath)
+ p.neoForge.runs.client.systemProperty('perf.control',p.hasProperty('perfVanilla')?'true':'false')
+ p.neoForge.runs.client.jvmArguments.addAll('-Xms2G','-Xmx4G')
+}
+
+gradle.projectsEvaluated { def p=gradle.rootProject
+ p.tasks.register('describePerf2Control') {doLast {
+  println('PERF2_REGISTERED_MODS='+p.neoForge.mods.collect{it.name}.join(','));println('PERF2_CONTROL='+p.hasProperty('perfVanilla'))
+  println('PERF2_RUN_SOURCE_SET='+p.neoForge.runs.client.sourceSet.get().name)
+  println('PERF2_RUN_LOADED_MODS='+p.neoForge.runs.client.loadedMods.get().collect{it.name}.join(','))
+  if(p.hasProperty('perfVanilla')) {
+   def forbidden=(p.sourceSets.main.output.classesDirs.files+[p.sourceSets.main.output.resourcesDir]).collect{it.canonicalFile}
+   def runtime=p.sourceSets.perf2World.runtimeClasspath.files.collect{it.canonicalFile}
+   assert !runtime.any{forbidden.contains(it)}:'Main outputs leaked into control runtime'
+   println('PERF2_CONTROL_MAIN_OUTPUTS_ABSENT=PASS')
+  }
+ }}
+}

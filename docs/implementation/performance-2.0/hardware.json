@@ -1,0 +1,41 @@
+{
+  "cpu": "AMD Ryzen 5 5600H",
+  "physical_cores": 6,
+  "logical_processors": 12,
+  "ram_bytes": 16520085504,
+  "gpu_runtime": "AMD Radeon RX 6600M",
+  "driver": "32.0.21045.5002",
+  "also_installed_gpu": "AMD Radeon Graphics /27.20.21018.1012",
+  "java": "21.0.12",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.255",
+  "vsync": false,
+  "heap": "-Xms2G -Xmx4G",
+  "note": "Hardware queried from Win32 CIM and GPU renderer from actual client; no identifiers or usernames.",
+  "cube_resolution": [
+    1280,
+    720
+  ],
+  "world_resolution": [
+    1600,
+    900
+  ],
+  "cube_rd_sim": [
+    8,
+    5
+  ],
+  "world_rd_sim": [
+    12,
+    8
+  ],
+  "active_adapter_resolutions": {
+    "integrated": [
+      1920,
+      1080
+    ],
+    "RX6600M": [
+      2560,
+      1440
+    ]
+  }
+}

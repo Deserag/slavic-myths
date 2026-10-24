@@ -1,0 +1,18 @@
+[
+  {
+    "File": "tools\\performance-2.0\\cube\\init.gradle",
+    "Hash": "0D300E5D73F964079590D58389A80DECAF92E3D44701079610D3DBE23D0878CE"
+  },
+  {
+    "File": "tools\\performance-2.0\\cube\\java\\CubeProbe.java",
+    "Hash": "D00880A1B4329375541B9684BDB34E6BE38C958722902E0273E3E1D0F6527671"
+  },
+  {
+    "File": "tools\\performance-2.0\\cube\\java\\ReferenceCube.java",
+    "Hash": "D36C271ED53EC1D4F22DF3DEC0F176985E2285DA771B34275F16B7075922BA86"
+  },
+  {
+    "File": "tools\\performance-2.0\\cube\\java\\VertexAudit.java",
+    "Hash": "1E4B8646ED3C8CE80E82C73D4207D3AA9F397C0BFCE15162657F0DF4B823618D"
+  }
+]

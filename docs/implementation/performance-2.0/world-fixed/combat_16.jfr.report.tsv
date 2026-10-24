@@ -1,0 +1,261 @@
+profile_event_span_seconds	232.996
+gc_count	15
+gc_sum_pause_ms	124.4536
+gc_max_pause_ms	12.8711
+render_thread_jfr_cpu_load_mean_raw_fraction	0.02312182929987709
+server_thread_jfr_cpu_load_mean_raw_fraction	0.012760354594017068
+machine_cpu_total_mean_fraction	0.13595388154698235
+jvm_cpu_mean_fraction	0.08731336694242608
+EVENT_COUNTS
+93638	minecraft.PacketReceived
+93638	minecraft.PacketSent
+83219	jdk.GCPhaseParallel
+19418	jdk.ModuleRequire
+12188	jdk.ObjectAllocationSample
+8802	jdk.Deoptimization
+8084	jdk.ThreadPark
+5745	jdk.NativeMethodSample
+3932	jdk.ModuleExport
+2789	jdk.ExecutionSample
+1507	jdk.PromoteObjectInNewPLAB
+990	jdk.BooleanFlag
+762	jdk.ActiveSetting
+749	minecraft.ChunkGeneration
+554	jdk.SystemProcess
+476	jdk.NativeLibrary
+322	jdk.LongFlag
+264	jdk.UnsignedLongFlag
+173	jdk.ThreadCPULoad
+169	jdk.ThreadAllocationStatistics
+165	jdk.TenuringDistribution
+154	jdk.InitialEnvironmentVariable
+117	jdk.CPULoad
+117	jdk.ClassLoadingStatistics
+117	jdk.CompilerStatistics
+117	jdk.ExceptionStatistics
+117	jdk.JavaThreadStatistics
+117	jdk.ResidentSetSize
+117	minecraft.ServerTickTime
+113	jdk.PromoteObjectOutsidePLAB
+100	jdk.InitialSecurityProperty
+81	jdk.ExecuteVMOperation
+77	jdk.SafepointBegin
+73	jdk.GCPhasePauseLevel1
+60	jdk.GCReferenceStatistics
+60	jdk.MetaspaceChunkFreeListSummary
+56	jdk.InitialSystemProperty
+52	jdk.StringFlag
+50	jdk.IntFlag
+46	jdk.FileWrite
+40	jdk.GCPhasePauseLevel2
+30	jdk.DoubleFlag
+30	jdk.G1HeapSummary
+30	jdk.GCHeapSummary
+30	jdk.MetaspaceSummary
+30	jdk.NetworkUtilization
+26	jdk.UnsignedIntFlag
+24	jdk.DirectBufferStatistics
+24	jdk.GCPhaseConcurrent
+24	minecraft.NetworkSummary
+23	jdk.ThreadStart
+20	jdk.ThreadEnd
+19	jdk.G1MMU
+19	jdk.GCCPUTime
+19	jdk.GCPhasePause
+18	jdk.ClassLoaderStatistics
+16	jdk.GCPhaseConcurrentLevel1
+16	jdk.OldObjectSample
+15	jdk.GarbageCollection
+12	jdk.CodeCacheStatistics
+12	jdk.FinalizerStatistics
+12	jdk.GCHeapMemoryPoolUsage
+12	jdk.StringTableStatistics
+12	jdk.SymbolTableStatistics
+12	jdk.ThreadContextSwitchRate
+11	jdk.EvacuationInformation
+11	jdk.G1AdaptiveIHOP
+11	jdk.G1BasicIHOP
+11	jdk.G1EvacuationOldStatistics
+11	jdk.G1EvacuationYoungStatistics
+11	jdk.G1GarbageCollection
+11	jdk.YoungGarbageCollection
+9	jdk.Compilation
+5	jdk.CompilationFailure
+4	jdk.GCConfiguration
+4	jdk.GCHeapMemoryUsage
+4	jdk.OldGarbageCollection
+4	jdk.PhysicalMemory
+2	jdk.ActiveRecording
+2	jdk.CPUInformation
+2	jdk.CPUTimeStampCounter
+2	jdk.CodeCacheConfiguration
+2	jdk.CompilerConfiguration
+2	jdk.FileRead
+2	jdk.GCHeapConfiguration
+2	jdk.GCSurvivorConfiguration
+2	jdk.GCTLABConfiguration
+2	jdk.JVMInformation
+2	jdk.OSInformation
+2	jdk.ThreadDump
+2	jdk.VirtualizationInformation
+2	jdk.YoungGenerationConfiguration
+1	jdk.JavaErrorThrow
+1	jdk.MetaspaceGCThreshold
+CPU_LEAF_SAMPLES (counts, not exact method milliseconds)
+222	Server thread | net.minecraft.world.level.chunk.PalettedContainer.get
+71	Server thread | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.get
+66	Render thread | net.minecraft.world.level.chunk.PalettedContainer.get
+44	Server thread | net.minecraft.world.ticks.LevelTicks.sortContainersToTick
+43	Server thread | it.unimi.dsi.fastutil.longs.Long2ByteOpenHashMap.get
+37	Render thread | net.minecraft.world.level.biome.BiomeManager.getBiome
+37	Render thread | net.minecraft.client.renderer.culling.Frustum.cubeInFrustum
+35	Render thread | com.mojang.blaze3d.vertex.BufferBuilder.endLastVertex
+34	Render thread | net.minecraft.client.particle.ParticleEngine.render
+30	Server thread | net.minecraft.server.level.ChunkHolder.broadcastChanges
+30	Server thread | net.minecraft.server.level.ChunkMap$TrackedEntity.updatePlayers
+26	Server thread | net.minecraft.server.level.ServerEntity.sendChanges
+23	Render thread | java.lang.Math.floorMod
+23	Render thread | net.minecraft.client.renderer.LevelRenderer.renderLevel
+22	Render thread | com.google.common.collect.Iterators$1.hasNext
+22	Server thread | it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.get
+21	Render thread | java.util.HashMap.getNode
+21	Server thread | com.google.common.collect.Iterators$1.hasNext
+20	Render thread | net.minecraft.world.entity.Entity.shouldRender
+19	Server thread | it.unimi.dsi.fastutil.longs.LongAVLTreeSet$Entry.next
+18	Server thread | net.minecraft.world.level.BlockCollisions.computeNext
+18	Render thread | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.get
+18	Server thread | net.minecraft.world.level.Level.lambda$getEntities$1
+18	Server thread | net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.randomTick
+17	Worker-Main-3 | net.minecraft.world.level.biome.BiomeManager.getBiome
+16	Worker-Main-7 | net.minecraft.world.level.biome.BiomeManager.getBiome
+15	Server thread | net.minecraft.world.entity.ai.goal.GoalSelector.tick
+15	Render thread | net.minecraft.client.player.AbstractClientPlayer.getSkin
+15	Server thread | net.minecraft.world.level.LevelReader.getChunk
+15	Server thread | java.util.HashMap.getNode
+15	Render thread | it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.get
+14	Render thread | net.minecraft.client.renderer.LevelRenderer.compileSections
+14	Server thread | it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap.get
+14	Server thread | net.minecraft.server.level.ServerChunkCache.getChunk
+13	Server thread | java.util.HashMap.computeIfAbsent
+13	Worker-Main-7 | net.minecraft.world.level.chunk.PalettedContainer.get
+13	Server thread | net.minecraft.world.level.NaturalSpawner$$Lambda+0x0000029203676210.1453808219.accept
+13	Server thread | net.minecraft.world.entity.ai.goal.GoalSelector.tickRunningGoals
+13	Worker-Main-3 | net.minecraft.world.level.levelgen.Beardifier.compute
+13	Worker-Main-9 | net.minecraft.world.level.chunk.PalettedContainer.get
+13	Worker-Main-2 | net.minecraft.world.level.biome.BiomeManager.getBiome
+13	Worker-Main-4 | net.minecraft.world.level.biome.BiomeManager.getBiome
+13	Worker-Main-6 | net.minecraft.world.level.biome.BiomeManager.getBiome
+13	Worker-Main-10 | net.minecraft.world.level.biome.BiomeManager.getBiome
+12	Render thread | net.minecraft.client.renderer.chunk.SectionRenderDispatcher$RenderSection.getCompiled
+12	Server thread | net.minecraft.server.level.ChunkMap$TrackedEntity.updatePlayer
+12	Worker-Main-2 | java.lang.ThreadLocal$ThreadLocalMap.getEntry
+12	Server thread | net.minecraft.world.level.NaturalSpawner.spawnCategoryForChunk
+12	Render thread | it.unimi.dsi.fastutil.longs.LongAVLTreeSet$Entry.next
+11	Server thread | java.util.ImmutableCollections$SetN.probe
+MOD_INCLUSIVE_CPU_SAMPLES (overlap)
+45	Server thread | org.slavicmyths.husbandry.YardAnimal.aiStep
+27	Render thread | org.slavicmyths.client.HusbandryRenderer.render
+24	Render thread | org.slavicmyths.client.VillageVisuals$FolkVillagerRenderer.render
+17	Server thread | org.slavicmyths.furniture.FurnitureBlock.getShape
+13	Server thread | org.slavicmyths.mor.MorRejection$1.canUse
+12	Server thread | org.slavicmyths.furniture.TableBlock.getShape
+11	Server thread | org.slavicmyths.furniture.FurnitureBlock.lambda$getShape$2
+11	Render thread | org.slavicmyths.client.HeroHud.render
+11	Server thread | org.slavicmyths.furniture.FurnitureBlock$$Lambda+0x0000029203186680.762055128.consume
+9	Render thread | org.slavicmyths.client.HusbandryModel.renderToBuffer
+8	Render thread | org.slavicmyths.client.RareRuneClient.render
+8	Worker-Main-6 | org.slavicmyths.worldgen.StructureCoverageService$1.hasNext
+8	Worker-Main-6 | org.slavicmyths.worldgen.StructureCoverageService.baseHeight
+8	Worker-Main-6 | org.slavicmyths.swamp.SwampStructure.findGenerationPoint
+7	Render thread | org.slavicmyths.client.HusbandryModel.setupAnim
+5	Server thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x0000029203793898.722432008.apply
+5	Server thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0
+5	Render thread | org.slavicmyths.rpg.RareRunes.active
+5	Render thread | org.slavicmyths.husbandry.YardAnimal.aiStep
+5	Server thread | org.slavicmyths.hunt.BossEffects.tick
+5	Server thread | org.slavicmyths.item.FolkAccessoryItem.equipped
+4	Server thread | org.slavicmyths.underground.OminousAura.ignores
+3	Render thread | org.slavicmyths.client.HusbandryModel.lambda$setupAnim$0
+3	Server thread | org.slavicmyths.underground.OminousAura.active
+3	Server thread | org.slavicmyths.rpg.Runes.has
+3	Server thread | org.slavicmyths.item.ItemState.runes
+3	Render thread | org.slavicmyths.morozko.FrostCold.tick
+3	Render thread | org.slavicmyths.client.HusbandryModel$$Lambda+0x00000292039dcce0.451671608.accept
+3	Render thread | org.slavicmyths.morozko.FrostEvents.tick
+3	Server thread | org.slavicmyths.karachun.NightEvents.tick
+3	Server thread | org.slavicmyths.item.FolkEquipmentEffects.wears
+3	Render thread | org.slavicmyths.client.FrostClient.hud
+3	Server thread | org.slavicmyths.morozko.FrostEvents.tick
+3	Server thread | org.slavicmyths.rpg.Runes.list
+2	Server thread | org.slavicmyths.military.MilitaryEvents.entity
+2	Server thread | org.slavicmyths.military.BanditRaids.discover
+2	Render thread | org.slavicmyths.client.EarthCamera.camera
+2	Render thread | org.slavicmyths.client.VillageVisuals.longCoat
+2	Render thread | org.slavicmyths.furniture.FurnitureBlock.getShape
+2	Server thread | org.slavicmyths.morozko.FrostCold.tick
+2	Server thread | org.slavicmyths.rewards.RewardEvents.tick
+2	Server thread | org.slavicmyths.artifact.ArtifactEvents.calm
+2	Server thread | org.slavicmyths.hunt.BossEffects.clearBelt
+2	Server thread | org.slavicmyths.skim.SkimEvents.tick
+2	Render thread | org.slavicmyths.client.WolfStoryClient.hud
+2	Render thread | org.slavicmyths.client.ClassClient.hud
+2	Server thread | org.slavicmyths.artifact.ArtifactEvents$CalmGoal.canUse
+2	Render thread | org.slavicmyths.client.TaleClientEvents.tick
+2	Server thread | org.slavicmyths.mor.MorBlockExposure.tick
+2	Server thread | org.slavicmyths.mor.MorBlocks.index
+ALLOCATION_ESTIMATES_BYTES (sampling, not retained)
+44842376544	[D | net.minecraft.world.phys.AABB.clip
+36163359384	java.util.stream.ReferencePipeline$2 | java.util.stream.ReferencePipeline.filter
+23762263008	net.minecraft.core.BlockPos | net.minecraft.core.BlockPos.relative
+15336711928	java.util.concurrent.LinkedBlockingDeque$Node | java.util.concurrent.LinkedBlockingDeque.offerLast
+12277345088	org.joml.Vector3f | com.mojang.blaze3d.vertex.VertexSorting.byDistance
+7383944904	[I | net.minecraft.client.renderer.block.ModelBlockRenderer.putQuadData
+7331749096	[I | net.minecraft.client.color.block.BlockTintCache$CacheData.allocateLayer
+6090728176	java.util.concurrent.ForkJoinTask$RunnableExecuteAction | java.util.concurrent.ForkJoinPool.execute
+5372018128	net.minecraft.world.phys.Vec3 | net.minecraft.world.level.material.FlowingFluid.getFlow
+5005780152	net.minecraft.client.renderer.chunk.SectionRenderDispatcher$$Lambda+0x00000292038aed68.1496289562 | java.lang.invoke.DirectMethodHandle.allocateInstance
+751968760	java.util.ArrayList$Itr | java.util.ArrayList.iterator
+591499848	[B | io.netty.util.internal.PlatformDependent.allocateUninitializedArray
+539509168	[B | jdk.internal.misc.Unsafe.allocateUninitializedArray
+537230512	org.joml.Matrix4f | com.mojang.blaze3d.vertex.PoseStack$Pose.<init>
+512428584	java.lang.String | java.lang.StringConcatHelper.newString
+436850512	net.minecraft.world.phys.AABB | net.minecraft.client.particle.SingleQuadParticle.getRenderBoundingBox
+409411456	org.joml.Matrix3f | com.mojang.blaze3d.vertex.PoseStack$Pose.<init>
+351384608	net.minecraft.world.phys.Vec3 | net.minecraft.world.phys.Vec3.add
+301682224	net.minecraft.core.SectionPos | net.minecraft.core.SectionPos.of
+265595928	net.minecraft.world.level.block.Block$BlockStatePairKey | net.minecraft.world.level.block.Block.shouldRenderFace
+259145440	net.minecraft.network.protocol.PacketUtils$$Lambda+0x0000029203706658.907931345 | java.lang.invoke.DirectMethodHandle.allocateInstance
+250218368	com.google.common.collect.Iterators$ArrayItr | com.google.common.collect.Iterators.forArray
+230742664	[I | net.minecraft.world.level.chunk.PalettedContainer.pack
+211312072	net.minecraft.world.phys.Vec3 | net.minecraft.world.phys.Vec3.fromRGB24
+200850040	net.minecraft.core.BlockPos | net.minecraft.world.level.Level.getBlockRandomPos
+199329512	[F | net.neoforged.neoforge.client.extensions.IVertexConsumerExtension.putBulkData
+198769416	[J | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.clone
+198567632	net.minecraft.world.phys.shapes.CubePointRange | net.minecraft.world.phys.shapes.CubeVoxelShape.getCoords
+190690664	net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape$$Lambda+0x000002920265b290.503230468 | java.lang.invoke.DirectMethodHandle.allocateInstance
+176102880	org.joml.Vector3f | com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids
+174862704	java.util.Optional | java.util.Optional.ofNullable
+173989216	[I | net.neoforged.neoforge.client.extensions.IVertexConsumerExtension.putBulkData
+169710896	[D | net.minecraft.world.phys.shapes.Shapes.create
+158618728	[Ljava.util.HashMap$Node; | java.util.HashMap.resize
+150277440	org.joml.Vector3f | com.mojang.blaze3d.vertex.VertexConsumer.putBulkData
+141395376	net.minecraft.world.phys.shapes.OffsetDoubleList | net.minecraft.world.phys.shapes.VoxelShape.move
+140246752	net.minecraft.world.phys.Vec3 | net.minecraft.world.phys.Vec3.multiply
+137173256	net.minecraft.world.level.levelgen.SurfaceRules$Context$$Lambda+0x00000292036057b8.1035686435 | java.lang.invoke.DirectMethodHandle.allocateInstance
+135714000	java.util.stream.ReferencePipeline$Head | java.util.stream.StreamSupport.stream
+130024352	com.mojang.blaze3d.vertex.PoseStack$Pose | com.mojang.blaze3d.vertex.PoseStack.pushPose
+127137384	it.unimi.dsi.fastutil.doubles.DoubleArrayList | it.unimi.dsi.fastutil.doubles.DoubleArrayList.wrap
+118965480	[F | net.minecraft.client.renderer.block.ModelBlockRenderer.tesselateWithAO
+114451328	[Ljava.lang.Object; | it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.clone
+107015192	net.minecraft.core.BlockPos | net.minecraft.core.BlockPos.containing
+101383568	net.minecraft.world.phys.AABB | net.minecraft.world.phys.AABB.inflate
+96554456	java.nio.DirectByteBuffer | sun.misc.Unsafe.allocateInstance
+89097696	net.neoforged.neoforge.client.ChunkRenderTypeSet$IteratorImpl | net.neoforged.neoforge.client.ChunkRenderTypeSet.iterator
+87996520	[I | net.minecraft.world.phys.shapes.IndirectMerger.<init>
+83967000	net.minecraft.world.level.levelgen.NoiseChunk$$Lambda+0x00000292035b1030.656875683 | java.lang.invoke.DirectMethodHandle.allocateInstance
+80148544	org.joml.Quaternionf | net.minecraft.client.particle.SingleQuadParticle.render
+CHUNK_EVENT_SUM_DURATION_NS (overlapping tasks, not wall throughput)
+5216471200	minecraft.ChunkGeneration
+RECORDED_NATIVE_PACKET_BYTES (integrated codec events, not wire traffic)
+7916668	minecraft.PacketReceived serialized_bytes
+7916668	minecraft.PacketSent serialized_bytes

@@ -1,0 +1,55 @@
+// Bounded follow-up after radius1 did not exercise a city. Common observer source is preserved.
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ def generated=p.layout.buildDirectory.dir('generated/sources/perf2City')
+ def derive=p.tasks.register('generatePerf2CityProbe') {
+  inputs.file(p.file('tools/performance-2.0/city/init.gradle'))
+  inputs.property('bossesOnly',p.hasProperty('perfBossesOnly'))
+  inputs.dir(p.file('tools/performance-2.0/world/java'))
+  inputs.file(p.file('tools/performance-2.0/world/mod/ModScenes.java'))
+  outputs.dir(generated)
+  doLast {
+   def target=generated.get().asFile;target.mkdirs()
+   p.fileTree('tools/performance-2.0/world/java').matching {include '**/*.java'}.files.each { source ->
+    def text=source.getText('UTF-8')
+    if(source.name=='WorldProbe.java') {
+     def pattern=/static final String\[\] NAMES=.*?;/
+     assert (text =~ pattern).count==1
+     def scenes=p.hasProperty('perfBossesOnly')?'"startup_warmup","gorynych","karachun","morozko","cleanup"':'"startup_warmup","village","cleanup","reload_idle"'
+     text=text.replaceFirst(pattern,'static final String[] NAMES=new String[]{'+scenes+'};')
+     if(p.hasProperty('perfBossesOnly')) {
+      assert text.contains('getHolderOrThrow(WorldPresets.NORMAL)')&&text.contains('new WorldOptions(200015,true,false)')
+      text=text.replace('getHolderOrThrow(WorldPresets.NORMAL)','getHolderOrThrow(WorldPresets.FLAT)').replace('new WorldOptions(200015,true,false)','new WorldOptions(200015,false,false)')
+     }
+     def opening='worldName="Perf2-"+System.currentTimeMillis();m.createWorldOpenFlows().createFreshLevel'
+     assert text.contains(opening)
+     text=text.replace(opening,'String legacy=System.getProperty("perf.openWorld");if(legacy!=null){worldName=legacy;events.println("OPEN_EXISTING_NATIVE_WORLD "+legacy);events.flush();m.createWorldOpenFlows().openWorld(legacy,()->{throw new IllegalStateException("Legacy world open returned to menu");});return;}'+opening)
+     def bootstrap='if(bootstrap++<100)return;'
+     assert text.contains(bootstrap)
+     text=text.replace(bootstrap,'if(bootstrap==0&&System.getProperty("perf.openWorld")!=null)CitySetup.beforeFixture(w,p,events);'+bootstrap)
+    }
+    new File(target,source.name).setText(text,'UTF-8')
+   }
+   def source=p.file('tools/performance-2.0/world/mod/ModScenes.java').getText('UTF-8')
+   def lines=source.readLines();assert lines.count {it.trim().startsWith('if(n.equals("village")){long before=')}==1
+   source=lines.collect {it.trim().startsWith('if(n.equals("village")){long before=')?'  if(n.equals("village")) CitySetup.locate(w,p,out);':it}.join('\n')+'\n'
+   def ticking='public void tick(String n,int age,ServerLevel w,ServerPlayer p,PrintWriter out){'
+   assert source.contains(ticking)
+   source=source.replace(ticking,ticking+'BossTicks.record(n,age,boss,p);')
+   new File(target,'ModScenes.java').setText(source,'UTF-8')
+   println('PERF2_DERIVED: common WorldProbe; bossesOnly='+p.hasProperty('perfBossesOnly')+'; city setup radius4 only, no forced boss HP/phase')
+  }
+ }
+ p.sourceSets {perf2City {java.srcDir generated;java.srcDir 'tools/performance-2.0/city/java';resources.srcDir 'tools/performance-2.0/world/resources'}}
+ p.sourceSets.perf2City.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.perf2City.runtimeClasspath += p.sourceSets.main.compileClasspath
+ p.tasks.named('compilePerf2CityJava') {dependsOn derive,p.tasks.named('classes')}
+ p.neoForge.mods.maybeCreate('perf2audit').sourceSet(p.sourceSets.perf2City)
+} }
+gradle.projectsEvaluated {def p=gradle.rootProject
+ p.neoForge.runs.client.gameDirectory=p.file(p.hasProperty('perfBossesOnly')?'work/performance-2-bosses-flat':'work/performance-2-city')
+ p.neoForge.runs.client.programArguments.addAll('--width','1600','--height','900')
+ p.neoForge.runs.client.systemProperty('perf.output',p.file((p.findProperty('perfOutput') ?: 'docs/implementation/performance-2.0/compile-only')).absolutePath)
+ p.neoForge.runs.client.systemProperty('perf.control','false')
+ if(p.hasProperty('perfOpenWorld'))p.neoForge.runs.client.systemProperty('perf.openWorld',p.property('perfOpenWorld').toString())
+ p.neoForge.runs.client.jvmArguments.addAll('-Xms2G','-Xmx4G')
+}

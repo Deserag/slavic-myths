@@ -1,0 +1,13 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { perf2Cube { java.srcDir 'tools/performance-2.0/cube/java' } }
+ p.sourceSets.perf2Cube.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.perf2Cube.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compilePerf2CubeJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.perf2Cube)
+} }
+gradle.projectsEvaluated { def p=gradle.rootProject
+ p.neoForge.runs.client.gameDirectory=p.file('work/performance-2-cube')
+ p.neoForge.runs.client.programArguments.addAll('--width','1280','--height','720')
+ p.neoForge.runs.client.systemProperty('cube.output',p.file((p.findProperty('perfOutput') ?: 'docs/implementation/performance-2.0/compile-only')).absolutePath)
+ p.neoForge.runs.client.jvmArguments.addAll('-Xms2G','-Xmx4G')
+}

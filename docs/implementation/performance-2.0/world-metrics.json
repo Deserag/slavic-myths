@@ -1,0 +1,6335 @@
+{
+  "world-bosses-flat": {
+    "complete": true,
+    "invalid": false,
+    "forced_stop_fixture": false,
+    "reload_new_server_marker": false,
+    "scenes": {
+      "startup_warmup": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 12289,
+        "frame": {
+          "n": 12289,
+          "mean": 7.319612808202457,
+          "p95": 8.7839,
+          "p99": 9.5135,
+          "max": 32.7861
+        },
+        "fps": 136.61924834048415,
+        "render_wall": {
+          "n": 12289,
+          "mean": 1.319651338595492,
+          "p95": 1.7711,
+          "p99": 2.4181,
+          "max": 24.3616
+        },
+        "render_cpu_mean_ms": 1.1786455366588005,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 1800,
+          "mean": 5.258385381666667,
+          "p95": 6.5006,
+          "p99": 9.7529,
+          "max": 43.5612
+        },
+        "event_tick_body": {
+          "n": 1800,
+          "mean": 5.259435388888889,
+          "p95": 6.494,
+          "p99": 9.7535,
+          "max": 43.5639
+        },
+        "tps": 19.999877422973483,
+        "tick_intervals": {
+          "n": 1800,
+          "mean": 50.00030644444445,
+          "p95": 51.6246,
+          "p99": 53.4133,
+          "max": 78.5501
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 522190848,
+        "heap_max": 1783124224,
+        "new_chunk_events": 296,
+        "old_chunk_events": 0,
+        "path3d_blocks": 268.223188637342,
+        "start_position": [
+          -6.427171138355966,
+          -60.0,
+          10.415271021547088
+        ],
+        "end_position": [
+          -140.4424489722709,
+          -59.21391876842546,
+          19.721483230021033
+        ],
+        "server_cpu_fraction_one_core": 0.10648395201725422,
+        "server_entities_range": [
+          80,
+          86
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 2400,
+        "steady_window_elapsed_seconds": 89.949,
+        "path_horizontal_blocks": 180.89779520130432,
+        "net_horizontal_displacement": 134.33800757258,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 2400,
+            "mean": 5.435476204583333,
+            "p95": 7.114199,
+            "p99": 13.8056,
+            "max": 43.5612
+          },
+          "valid_frame": {
+            "n": 16572,
+            "mean": 7.360891443398503,
+            "p95": 8.9142,
+            "p99": 9.9569,
+            "max": 54.4279
+          },
+          "raw_frame": {
+            "n": 16575,
+            "mean": 7.535482956259427,
+            "p95": 8.9173,
+            "p99": 9.9925,
+            "max": 1551.0796
+          },
+          "new_chunk_events": 1166,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 1166,
+          "path3d_blocks": 285.9161899238979,
+          "path_horizontal_blocks": 192.82767783460886,
+          "net_horizontal_displacement": 143.107236963571
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_13772_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_13772_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 17.153846153846153,
+            "p95": 19.0,
+            "p99": 19.0,
+            "max": 19.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 40,
+            "mean": 2701770240,
+            "p95": 2729299968,
+            "p99": 2729316352,
+            "max": 2729316352
+          },
+          "private_bytes": {
+            "n": 40,
+            "mean": 3446620364.8,
+            "p95": 3452231680,
+            "p99": 3452260352,
+            "max": 3452260352
+          }
+        }
+      },
+      "gorynych": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 20373,
+        "frame": {
+          "n": 20373,
+          "mean": 7.360397378883817,
+          "p95": 9.5883,
+          "p99": 10.5782,
+          "max": 21.7405
+        },
+        "fps": 135.86222978515966,
+        "render_wall": {
+          "n": 20373,
+          "mean": 1.9354694693957688,
+          "p95": 2.8462,
+          "p99": 3.5951,
+          "max": 14.4657
+        },
+        "render_cpu_mean_ms": 1.708756687773033,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 5.063127465333333,
+          "p95": 5.9389,
+          "p99": 7.2714,
+          "max": 52.4249
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 5.0636445666666665,
+          "p95": 5.9411,
+          "p99": 7.2881,
+          "max": 52.4376
+        },
+        "tps": 19.99996734671998,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 50.00008163333333,
+          "p95": 51.608,
+          "p99": 52.499,
+          "max": 97.698
+        },
+        "native_ticks_over50": 1,
+        "heap_min": 522924504,
+        "heap_max": 1784488192,
+        "new_chunk_events": 94,
+        "old_chunk_events": 0,
+        "path3d_blocks": 375.3456222687868,
+        "start_position": [
+          -133.372961244447,
+          -60.0,
+          14.308690397818147
+        ],
+        "end_position": [
+          -110.95276449085682,
+          -60.0,
+          1.0277875775550538
+        ],
+        "server_cpu_fraction_one_core": 0.10451261070209134,
+        "server_entities_range": [
+          86,
+          108
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.952,
+        "path_horizontal_blocks": 334.05027799568165,
+        "net_horizontal_displacement": 26.058541827795498,
+        "native_boss_trace": {
+          "scope": "Server-state-labelled windows, one-tick/packet-interpolation boundary uncertainty; includes early fight after age10. Additional observer only in follow-up.",
+          "tick_observations": 3600,
+          "engaged_tick_observations": 3560,
+          "states": [
+            0,
+            1
+          ],
+          "actions": [
+            0,
+            1,
+            2
+          ],
+          "head_actions": {
+            "head0": [
+              0,
+              1,
+              2
+            ],
+            "head1": [
+              0,
+              1,
+              2
+            ],
+            "head2": [
+              0,
+              1,
+              2
+            ]
+          },
+          "target_player_ticks": 3461,
+          "logical_hp_min": 2316.974,
+          "logical_hp_max": 2800.0,
+          "frame": {
+            "n": 24168,
+            "mean": 7.363198063555115,
+            "p95": 9.6021,
+            "p99": 10.5947,
+            "max": 26.5833
+          },
+          "fps": 135.81055288320982,
+          "native_mspt": {
+            "n": 3560,
+            "mean": 5.148899661797753,
+            "p95": 6.1878,
+            "p99": 8.5145,
+            "max": 52.4249
+          }
+        },
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 5.1600618322222225,
+            "p95": 6.2104,
+            "p99": 9.2218,
+            "max": 52.4249
+          },
+          "valid_frame": {
+            "n": 24405,
+            "mean": 7.375383909035034,
+            "p95": 9.6026,
+            "p99": 10.5986,
+            "max": 272.9509
+          },
+          "raw_frame": {
+            "n": 24405,
+            "mean": 7.375383909035034,
+            "p95": 9.6026,
+            "p99": 10.5986,
+            "max": 272.9509
+          },
+          "new_chunk_events": 98,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 98,
+          "path3d_blocks": 476.9428638059472,
+          "path_horizontal_blocks": 412.87232936498856,
+          "net_horizontal_displacement": 35.01845751327064
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_13772_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_13772_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 19.338461538461537,
+            "p95": 21.0,
+            "p99": 22.0,
+            "max": 22.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 65,
+            "mean": 2760315384.123077,
+            "p95": 2775973888,
+            "p99": 2799566848,
+            "max": 2799566848
+          },
+          "private_bytes": {
+            "n": 65,
+            "mean": 3508190223.753846,
+            "p95": 3518066688,
+            "p99": 3549835264,
+            "max": 3549835264
+          }
+        }
+      },
+      "karachun": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 20376,
+        "frame": {
+          "n": 20376,
+          "mean": 7.359049214762465,
+          "p95": 9.3402,
+          "p99": 10.3689,
+          "max": 16.2664
+        },
+        "fps": 135.88711949282404,
+        "render_wall": {
+          "n": 20376,
+          "mean": 2.2218938211621517,
+          "p95": 3.0261,
+          "p99": 3.7154,
+          "max": 9.6262
+        },
+        "render_cpu_mean_ms": 1.9730626717707107,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 4.7825500666666665,
+          "p95": 5.6833,
+          "p99": 6.2954,
+          "max": 25.4112
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 4.7815549,
+          "p95": 5.6833,
+          "p99": 6.2955,
+          "max": 25.4121
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 49.9998887,
+          "p95": 51.5672,
+          "p99": 52.1428,
+          "max": 68.3701
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 519217416,
+        "heap_max": 1795979744,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 200.83618725942154,
+        "start_position": [
+          -106.73134847550175,
+          -59.724875,
+          11.545774803764335
+        ],
+        "end_position": [
+          -99.275594207802,
+          -60.0,
+          28.732161047070722
+        ],
+        "server_cpu_fraction_one_core": 0.10305449780261552,
+        "server_entities_range": [
+          100,
+          106
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.951,
+        "path_horizontal_blocks": 138.9515475589284,
+        "net_horizontal_displacement": 18.733930281829117,
+        "native_boss_trace": {
+          "scope": "Server-state-labelled windows, one-tick/packet-interpolation boundary uncertainty; includes early fight after age10. Additional observer only in follow-up.",
+          "tick_observations": 3600,
+          "engaged_tick_observations": 3540,
+          "states": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "actions": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "head_actions": {
+            "head0": [
+              0
+            ],
+            "head1": [
+              0
+            ],
+            "head2": [
+              0
+            ]
+          },
+          "target_player_ticks": 3600,
+          "logical_hp_min": 117.14985,
+          "logical_hp_max": 1600.0,
+          "frame": {
+            "n": 24045,
+            "mean": 7.358895695570805,
+            "p95": 9.3327,
+            "p99": 10.3771,
+            "max": 16.2664
+          },
+          "fps": 135.88995433131132,
+          "native_mspt": {
+            "n": 3540,
+            "mean": 4.7997383615819205,
+            "p95": 5.7004,
+            "p99": 6.3496,
+            "max": 25.4112
+          }
+        },
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 4.807053083333333,
+            "p95": 5.7348,
+            "p99": 6.4285,
+            "max": 25.4112
+          },
+          "valid_frame": {
+            "n": 24432,
+            "mean": 7.367285989685658,
+            "p95": 9.3366,
+            "p99": 10.4085,
+            "max": 197.7706
+          },
+          "raw_frame": {
+            "n": 24432,
+            "mean": 7.367285989685658,
+            "p95": 9.3366,
+            "p99": 10.4085,
+            "max": 197.7706
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 242.0226868431666,
+          "path_horizontal_blocks": 171.54890203119962,
+          "net_horizontal_displacement": 30.115668486964292
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_13772_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_13772_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 20.29230769230769,
+            "p95": 22.0,
+            "p99": 22.0,
+            "max": 22.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 66,
+            "mean": 2757006615.2727275,
+            "p95": 2783588352,
+            "p99": 2784403456,
+            "max": 2784403456
+          },
+          "private_bytes": {
+            "n": 66,
+            "mean": 3516654933.3333335,
+            "p95": 3528585216,
+            "p99": 3528585216,
+            "max": 3528585216
+          }
+        }
+      },
+      "morozko": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 20354,
+        "frame": {
+          "n": 20354,
+          "mean": 7.366984769578461,
+          "p95": 9.8804,
+          "p99": 10.8078,
+          "max": 17.5663
+        },
+        "fps": 135.74074486069827,
+        "render_wall": {
+          "n": 20354,
+          "mean": 2.6865072123415543,
+          "p95": 3.9478,
+          "p99": 4.8342,
+          "max": 9.849
+        },
+        "render_cpu_mean_ms": 2.438095706003734,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 5.033819165666666,
+          "p95": 6.0539,
+          "p99": 7.0915,
+          "max": 31.3791
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 5.0335688,
+          "p95": 6.0543,
+          "p99": 7.0917,
+          "max": 31.3808
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 49.9999427,
+          "p95": 51.6025,
+          "p99": 52.6575,
+          "max": 75.479
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 517524856,
+        "heap_max": 1795185912,
+        "new_chunk_events": 33,
+        "old_chunk_events": 0,
+        "path3d_blocks": 632.6205792718065,
+        "start_position": [
+          -114.99592092400229,
+          -59.085988547656704,
+          27.341776475769446
+        ],
+        "end_position": [
+          -102.6871040575783,
+          -60.0,
+          70.99644013173202
+        ],
+        "server_cpu_fraction_one_core": 0.1014921640546849,
+        "server_entities_range": [
+          91,
+          104
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.95,
+        "path_horizontal_blocks": 365.194552963899,
+        "net_horizontal_displacement": 45.356770515176486,
+        "native_boss_trace": {
+          "scope": "Server-state-labelled windows, one-tick/packet-interpolation boundary uncertainty; includes early fight after age10. Additional observer only in follow-up.",
+          "tick_observations": 3600,
+          "engaged_tick_observations": 3296,
+          "states": [
+            0,
+            1
+          ],
+          "actions": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "head_actions": {
+            "head0": [
+              0
+            ],
+            "head1": [
+              0
+            ],
+            "head2": [
+              0
+            ]
+          },
+          "target_player_ticks": 3348,
+          "logical_hp_min": 1345.2202,
+          "logical_hp_max": 1400.0,
+          "frame": {
+            "n": 22378,
+            "mean": 7.364365238180356,
+            "p95": 9.8397,
+            "p99": 10.7843,
+            "max": 28.7199
+          },
+          "fps": 135.78902833546692,
+          "native_mspt": {
+            "n": 3296,
+            "mean": 5.03302207979369,
+            "p95": 6.0637,
+            "p99": 7.1936,
+            "max": 31.3791
+          }
+        },
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 5.011950826388889,
+            "p95": 6.0454,
+            "p99": 7.0418,
+            "max": 31.3791
+          },
+          "valid_frame": {
+            "n": 24416,
+            "mean": 7.372323410878113,
+            "p95": 9.8314,
+            "p99": 10.7751,
+            "max": 225.4174
+          },
+          "raw_frame": {
+            "n": 24416,
+            "mean": 7.372323410878113,
+            "p95": 9.8314,
+            "p99": 10.7751,
+            "max": 225.4174
+          },
+          "new_chunk_events": 33,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 33,
+          "path3d_blocks": 729.6228594984453,
+          "path_horizontal_blocks": 430.9503073974113,
+          "net_horizontal_displacement": 42.56743417297744
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_13772_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 63,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_13772_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 63,
+            "mean": 19.904761904761905,
+            "p95": 25.0,
+            "p99": 26.0,
+            "max": 26.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 63,
+            "mean": 2708326757.5873017,
+            "p95": 2708803584,
+            "p99": 2708815872,
+            "max": 2708815872
+          },
+          "private_bytes": {
+            "n": 63,
+            "mean": 3533494109.4603176,
+            "p95": 3533844480,
+            "p99": 3533971456,
+            "max": 3533971456
+          }
+        }
+      },
+      "cleanup": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 4064,
+        "frame": {
+          "n": 4064,
+          "mean": 7.369708858267717,
+          "p95": 8.6799,
+          "p99": 9.5256,
+          "max": 12.0442
+        },
+        "fps": 135.69057058178748,
+        "render_wall": {
+          "n": 4064,
+          "mean": 1.1036140748031495,
+          "p95": 1.4629,
+          "p99": 1.96,
+          "max": 3.6366
+        },
+        "render_cpu_mean_ms": 0.9381151574803149,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 600,
+          "mean": 4.737589833333334,
+          "p95": 5.374,
+          "p99": 6.7396,
+          "max": 14.0938
+        },
+        "event_tick_body": {
+          "n": 600,
+          "mean": 4.737460333333333,
+          "p95": 5.3733,
+          "p99": 6.7394,
+          "max": 14.0941
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 600,
+          "mean": 49.99849733333333,
+          "p95": 51.5745,
+          "p99": 52.4624,
+          "max": 58.8159
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 523183000,
+        "heap_max": 1793470248,
+        "new_chunk_events": 2,
+        "old_chunk_events": 0,
+        "path3d_blocks": 86.39758647606769,
+        "start_position": [
+          -150.92581789236147,
+          -60.0,
+          57.541391555405845
+        ],
+        "end_position": [
+          -158.17777407629188,
+          -59.06387502076354,
+          13.565523703431559
+        ],
+        "server_cpu_fraction_one_core": 0.10590567612687814,
+        "server_entities_range": [
+          84,
+          87
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 1200,
+        "steady_window_elapsed_seconds": 29.95,
+        "path_horizontal_blocks": 58.28603213821332,
+        "net_horizontal_displacement": 44.56980841138934,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 1200,
+            "mean": 4.76428575,
+            "p95": 5.4621,
+            "p99": 6.7396,
+            "max": 14.0938
+          },
+          "valid_frame": {
+            "n": 8149,
+            "mean": 7.363091262731624,
+            "p95": 8.7177,
+            "p99": 9.5014,
+            "max": 210.3285
+          },
+          "raw_frame": {
+            "n": 8149,
+            "mean": 7.363091262731624,
+            "p95": 8.7177,
+            "p99": 9.5014,
+            "max": 210.3285
+          },
+          "new_chunk_events": 4,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 4,
+          "path3d_blocks": 170.2526986216971,
+          "path_horizontal_blocks": 115.73717374926113,
+          "net_horizontal_displacement": 79.82839056044402
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_13772_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_13772_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 16.0,
+            "p95": 17.0,
+            "p99": 17.0,
+            "max": 17.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 13,
+            "mean": 2705772544,
+            "p95": 2705797120,
+            "p99": 2705797120,
+            "max": 2705797120
+          },
+          "private_bytes": {
+            "n": 13,
+            "mean": 3530104832,
+            "p95": 3530104832,
+            "p99": 3530104832,
+            "max": 3530104832
+          }
+        }
+      }
+    }
+  },
+  "world-control2": {
+    "complete": true,
+    "invalid": false,
+    "forced_stop_fixture": false,
+    "reload_new_server_marker": false,
+    "scenes": {
+      "startup_warmup": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 12260,
+        "frame": {
+          "n": 12260,
+          "mean": 7.33696575040783,
+          "p95": 9.1125,
+          "p99": 9.7861,
+          "max": 25.671399
+        },
+        "fps": 136.29612485848313,
+        "render_wall": {
+          "n": 12260,
+          "mean": 1.6834267469820554,
+          "p95": 2.236001,
+          "p99": 2.6827,
+          "max": 12.4669
+        },
+        "render_cpu_mean_ms": 1.4567190048939642,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 1800,
+          "mean": 5.7487640566666665,
+          "p95": 7.3707,
+          "p99": 9.9377,
+          "max": 28.106
+        },
+        "event_tick_body": {
+          "n": 1800,
+          "mean": 5.749861498333333,
+          "p95": 7.3714,
+          "p99": 9.9385,
+          "max": 28.107901
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 1800,
+          "mean": 49.997402111666666,
+          "p95": 52.2984,
+          "p99": 54.3484,
+          "max": 70.0646
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 676853240,
+        "heap_max": 1906009896,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.0,
+        "start_position": [
+          5.5,
+          111.0,
+          -1.5
+        ],
+        "end_position": [
+          5.5,
+          111.0,
+          -1.5
+        ],
+        "server_cpu_fraction_one_core": 0.12315869927737631,
+        "server_entities_range": [
+          274,
+          284
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 2400,
+        "steady_window_elapsed_seconds": 89.95,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 2400,
+            "mean": 7.735835169583333,
+            "p95": 18.6574,
+            "p99": 36.4425,
+            "max": 100.856099
+          },
+          "valid_frame": {
+            "n": 16232,
+            "mean": 7.531439317397733,
+            "p95": 9.5095,
+            "p99": 13.8781,
+            "max": 135.358
+          },
+          "raw_frame": {
+            "n": 16239,
+            "mean": 7.69066660508652,
+            "p95": 9.5118,
+            "p99": 14.292099,
+            "max": 2098.885699
+          },
+          "new_chunk_events": 841,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 841,
+          "path3d_blocks": 0.0,
+          "path_horizontal_blocks": 0.0,
+          "net_horizontal_displacement": 0.0
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_17208_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 34,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_17208_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 34,
+            "mean": 26.558823529411764,
+            "p95": 27.0,
+            "p99": 28.0,
+            "max": 28.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 35,
+            "mean": 2761299558.4,
+            "p95": 2848903168,
+            "p99": 2848907264,
+            "max": 2848907264
+          },
+          "private_bytes": {
+            "n": 35,
+            "mean": 3518670321.3714285,
+            "p95": 3540078592,
+            "p99": 3540606976,
+            "max": 3540606976
+          }
+        }
+      },
+      "idle": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 12297,
+        "frame": {
+          "n": 12297,
+          "mean": 7.3148761323900136,
+          "p95": 9.0505,
+          "p99": 9.6763,
+          "max": 23.2167
+        },
+        "fps": 136.7077147857686,
+        "render_wall": {
+          "n": 12297,
+          "mean": 1.624667068715947,
+          "p95": 2.1072,
+          "p99": 2.4813,
+          "max": 16.6918
+        },
+        "render_cpu_mean_ms": 1.4104049768236155,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 1800,
+          "mean": 5.488763,
+          "p95": 6.8034,
+          "p99": 7.5723,
+          "max": 21.719
+        },
+        "event_tick_body": {
+          "n": 1800,
+          "mean": 5.489540661666667,
+          "p95": 6.8063,
+          "p99": 7.574001,
+          "max": 21.7546
+        },
+        "tps": 19.999829334789677,
+        "tick_intervals": {
+          "n": 1800,
+          "mean": 50.00042666666667,
+          "p95": 51.8994,
+          "p99": 52.698601,
+          "max": 67.336801
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 658305552,
+        "heap_max": 1889175016,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.0,
+        "start_position": [
+          5.5,
+          111.0,
+          -1.5
+        ],
+        "end_position": [
+          5.5,
+          111.0,
+          -1.5
+        ],
+        "server_cpu_fraction_one_core": 0.11533929206688012,
+        "server_entities_range": [
+          282,
+          291
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 2400,
+        "steady_window_elapsed_seconds": 89.952,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 2400,
+            "mean": 5.464612791666666,
+            "p95": 6.7551,
+            "p99": 7.5723,
+            "max": 21.719
+          },
+          "valid_frame": {
+            "n": 16367,
+            "mean": 7.3317850003054925,
+            "p95": 9.073501,
+            "p99": 9.705099,
+            "max": 224.220101
+          },
+          "raw_frame": {
+            "n": 16367,
+            "mean": 7.3317850003054925,
+            "p95": 9.073501,
+            "p99": 9.705099,
+            "max": 224.220101
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 0.0,
+          "path_horizontal_blocks": 0.0,
+          "net_horizontal_displacement": 0.0
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_17208_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_17208_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 26.41025641025641,
+            "p95": 27.0,
+            "p99": 28.0,
+            "max": 28.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 39,
+            "mean": 2783084544,
+            "p95": 2784886784,
+            "p99": 2784886784,
+            "max": 2784886784
+          },
+          "private_bytes": {
+            "n": 39,
+            "mean": 3548248326.5641026,
+            "p95": 3549007872,
+            "p99": 3549007872,
+            "max": 3549007872
+          }
+        }
+      },
+      "travel_new": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 20401,
+        "frame": {
+          "n": 20401,
+          "mean": 7.3502932650360275,
+          "p95": 9.2034,
+          "p99": 9.9651,
+          "max": 99.4012
+        },
+        "fps": 136.04899341320342,
+        "render_wall": {
+          "n": 20401,
+          "mean": 1.6963641043576296,
+          "p95": 2.4312,
+          "p99": 3.4548,
+          "max": 85.2248
+        },
+        "render_cpu_mean_ms": 1.519533356208029,
+        "frames_over50": 1,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 5.846926666666667,
+          "p95": 7.355,
+          "p99": 11.0728,
+          "max": 61.7947
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 5.847937137333333,
+          "p95": 7.3555,
+          "p99": 11.074499,
+          "max": 61.8088
+        },
+        "tps": 19.999934946878263,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 50.00016263333333,
+          "p95": 52.0808,
+          "p99": 54.1057,
+          "max": 106.2094
+        },
+        "native_ticks_over50": 1,
+        "heap_min": 658429840,
+        "heap_max": 1915126288,
+        "new_chunk_events": 59,
+        "old_chunk_events": 0,
+        "path3d_blocks": 394.71254045757865,
+        "start_position": [
+          8.699999988079071,
+          109.0,
+          -13.699999988079071
+        ],
+        "end_position": [
+          -0.699999988079071,
+          103.00133597911214,
+          -19.30000001192093
+        ],
+        "server_cpu_fraction_one_core": 0.12504084667658102,
+        "server_entities_range": [
+          293,
+          313
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.951,
+        "path_horizontal_blocks": 113.80636600142478,
+        "net_horizontal_displacement": 10.941663484991754,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 5.912220223333334,
+            "p95": 7.6353,
+            "p99": 12.4539,
+            "max": 65.886299
+          },
+          "valid_frame": {
+            "n": 24414,
+            "mean": 7.372880060620955,
+            "p95": 9.2484,
+            "p99": 10.125099,
+            "max": 202.9079
+          },
+          "raw_frame": {
+            "n": 24414,
+            "mean": 7.372880060620955,
+            "p95": 9.2484,
+            "p99": 10.125099,
+            "max": 202.9079
+          },
+          "new_chunk_events": 88,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 88,
+          "path3d_blocks": 486.0865527191699,
+          "path_horizontal_blocks": 142.0063659298992,
+          "net_horizontal_displacement": 18.848872652669854
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_17208_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_17208_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 23.676923076923078,
+            "p95": 27.0,
+            "p99": 28.0,
+            "max": 28.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 65,
+            "mean": 2868038986.830769,
+            "p95": 2871975936,
+            "p99": 2890285056,
+            "max": 2890285056
+          },
+          "private_bytes": {
+            "n": 65,
+            "mean": 3834868657.230769,
+            "p95": 3850219520,
+            "p99": 3851968512,
+            "max": 3851968512
+          }
+        }
+      },
+      "travel_return": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 20474,
+        "frame": {
+          "n": 20474,
+          "mean": 7.324161775910912,
+          "p95": 9.8304,
+          "p99": 10.6024,
+          "max": 16.5132
+        },
+        "fps": 136.53439541559405,
+        "render_wall": {
+          "n": 20474,
+          "mean": 1.7812980316498974,
+          "p95": 2.6727,
+          "p99": 3.163,
+          "max": 9.1993
+        },
+        "render_cpu_mean_ms": 1.591194930155319,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 5.574911531666666,
+          "p95": 6.6948,
+          "p99": 7.9109,
+          "max": 34.9806
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 5.5749844,
+          "p95": 6.6949,
+          "p99": 7.9108,
+          "max": 34.9828
+        },
+        "tps": 19.999990520004495,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 50.0000237,
+          "p95": 51.833,
+          "p99": 52.7595,
+          "max": 80.6069
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 639574512,
+        "heap_max": 1916713256,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 276.8489941283934,
+        "start_position": [
+          -0.6688130556517461,
+          104.0,
+          -13.300000011920929
+        ],
+        "end_position": [
+          -0.6919655734685968,
+          104.0,
+          -13.300000011920929
+        ],
+        "server_cpu_fraction_one_core": 0.1210820273424475,
+        "server_entities_range": [
+          291,
+          300
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.95,
+        "path_horizontal_blocks": 183.0820122841921,
+        "net_horizontal_displacement": 0.023152517816850682,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 5.599027443055555,
+            "p95": 6.7868,
+            "p99": 8.0583,
+            "max": 34.9806
+          },
+          "valid_frame": {
+            "n": 24551,
+            "mean": 7.331780587348784,
+            "p95": 9.7834,
+            "p99": 10.5871,
+            "max": 195.0645
+          },
+          "raw_frame": {
+            "n": 24551,
+            "mean": 7.331780587348784,
+            "p95": 9.7834,
+            "p99": 10.5871,
+            "max": 195.0645
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 375.8950839289191,
+          "path_horizontal_blocks": 263.508420659232,
+          "net_horizontal_displacement": 6.000005379315766
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_17208_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 66,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_17208_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 66,
+            "mean": 25.71212121212121,
+            "p95": 27.0,
+            "p99": 27.0,
+            "max": 27.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 66,
+            "mean": 2872127053.5757575,
+            "p95": 2872999936,
+            "p99": 2873180160,
+            "max": 2873180160
+          },
+          "private_bytes": {
+            "n": 66,
+            "mean": 3848630830.5454545,
+            "p95": 3848716288,
+            "p99": 3848900608,
+            "max": 3848900608
+          }
+        }
+      },
+      "travel_settle": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 4107,
+        "frame": {
+          "n": 4107,
+          "mean": 7.292888726564402,
+          "p95": 8.9523,
+          "p99": 9.5647,
+          "max": 10.589
+        },
+        "fps": 137.11987629229725,
+        "render_wall": {
+          "n": 4107,
+          "mean": 1.448145507669832,
+          "p95": 1.8472,
+          "p99": 2.1412,
+          "max": 2.8009
+        },
+        "render_cpu_mean_ms": 1.2364560506452398,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 600,
+          "mean": 5.511537166666667,
+          "p95": 6.5808,
+          "p99": 7.1944,
+          "max": 8.6205
+        },
+        "event_tick_body": {
+          "n": 600,
+          "mean": 5.5114521666666665,
+          "p95": 6.5808,
+          "p99": 7.1949,
+          "max": 8.6211
+        },
+        "tps": 19.99849991252156,
+        "tick_intervals": {
+          "n": 600,
+          "mean": 50.0037505,
+          "p95": 51.7294,
+          "p99": 52.4744,
+          "max": 53.712
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 637630496,
+        "heap_max": 1911191264,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.0,
+        "start_position": [
+          -0.8636042796945901,
+          104.0,
+          -13.300000011920929
+        ],
+        "end_position": [
+          -0.8636042796945901,
+          104.0,
+          -13.300000011920929
+        ],
+        "server_cpu_fraction_one_core": 0.11580643007378226,
+        "server_entities_range": [
+          294,
+          299
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 1200,
+        "steady_window_elapsed_seconds": 29.953,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 1200,
+            "mean": 5.56542425,
+            "p95": 6.6806,
+            "p99": 7.4306,
+            "max": 8.6205
+          },
+          "valid_frame": {
+            "n": 8192,
+            "mean": 7.3242837890625,
+            "p95": 8.8977,
+            "p99": 9.5462,
+            "max": 207.9832
+          },
+          "raw_frame": {
+            "n": 8192,
+            "mean": 7.3242837890625,
+            "p95": 8.8977,
+            "p99": 9.5462,
+            "max": 207.9832
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 0.09159399785446776,
+          "path_horizontal_blocks": 0.09159399785446776,
+          "net_horizontal_displacement": 0.09159399785446776
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_17208_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_17208_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 25.692307692307693,
+            "p95": 26.0,
+            "p99": 26.0,
+            "max": 26.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 13,
+            "mean": 2873974153.8461537,
+            "p95": 2874060800,
+            "p99": 2874060800,
+            "max": 2874060800
+          },
+          "private_bytes": {
+            "n": 13,
+            "mean": 3849839852.3076925,
+            "p95": 3849920512,
+            "p99": 3849920512,
+            "max": 3849920512
+          }
+        }
+      },
+      "vanilla_village": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 20422,
+        "frame": {
+          "n": 20422,
+          "mean": 7.3423315297228475,
+          "p95": 9.2308,
+          "p99": 9.8309,
+          "max": 25.8747
+        },
+        "fps": 136.19651958670778,
+        "render_wall": {
+          "n": 20422,
+          "mean": 1.8379768631867595,
+          "p95": 2.3436,
+          "p99": 2.7535,
+          "max": 19.4409
+        },
+        "render_cpu_mean_ms": 1.6725222798942316,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 7.594180166666667,
+          "p95": 9.5235,
+          "p99": 11.0908,
+          "max": 28.7033
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 7.593968066666666,
+          "p95": 9.5239,
+          "p99": 11.0908,
+          "max": 28.7044
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 49.99992076666667,
+          "p95": 53.6977,
+          "p99": 54.9786,
+          "max": 69.6039
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 782587840,
+        "heap_max": 1957461008,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.1226601468089302,
+        "start_position": [
+          -303.57591724631334,
+          64.0,
+          -879.4214241337426
+        ],
+        "end_position": [
+          -303.6589008599161,
+          64.0,
+          -879.3310956692997
+        ],
+        "server_cpu_fraction_one_core": 0.1540117240643423,
+        "server_entities_range": [
+          271,
+          286
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.948,
+        "path_horizontal_blocks": 0.12266014680893018,
+        "net_horizontal_displacement": 0.12266014680893018,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 8.466169916666667,
+            "p95": 11.6163,
+            "p99": 22.8787,
+            "max": 1099.9203
+          },
+          "valid_frame": {
+            "n": 24542,
+            "mean": 7.415839471110749,
+            "p95": 9.3228,
+            "p99": 10.4545,
+            "max": 204.6126
+          },
+          "raw_frame": {
+            "n": 24542,
+            "mean": 7.415839471110749,
+            "p95": 9.3228,
+            "p99": 10.4545,
+            "max": 204.6126
+          },
+          "new_chunk_events": 841,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 841,
+          "path3d_blocks": 0.23191944868253203,
+          "path_horizontal_blocks": 0.23191944868253203,
+          "net_horizontal_displacement": 0.23190117768440074
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_17208_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 66,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_17208_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 66,
+            "mean": 20.954545454545453,
+            "p95": 22.0,
+            "p99": 22.0,
+            "max": 22.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 65,
+            "mean": 3031681433.6,
+            "p95": 3033284608,
+            "p99": 3033329664,
+            "max": 3033329664
+          },
+          "private_bytes": {
+            "n": 65,
+            "mean": 3954613767.876923,
+            "p95": 3956420608,
+            "p99": 3956420608,
+            "max": 3956420608
+          }
+        }
+      },
+      "combat_6": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 12233,
+        "frame": {
+          "n": 12233,
+          "mean": 7.3534867816561755,
+          "p95": 9.3696,
+          "p99": 9.9589,
+          "max": 18.9162
+        },
+        "fps": 135.9899092352454,
+        "render_wall": {
+          "n": 12233,
+          "mean": 1.9339021662715605,
+          "p95": 2.4541,
+          "p99": 2.9063,
+          "max": 12.7607
+        },
+        "render_cpu_mean_ms": 1.7115588980626175,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 1800,
+          "mean": 7.372392055555555,
+          "p95": 9.2803,
+          "p99": 10.6527,
+          "max": 47.728
+        },
+        "event_tick_body": {
+          "n": 1800,
+          "mean": 7.372356555555555,
+          "p95": 9.2805,
+          "p99": 10.6371,
+          "max": 47.73
+        },
+        "tps": 19.999956311206546,
+        "tick_intervals": {
+          "n": 1800,
+          "mean": 50.00010922222222,
+          "p95": 53.5222,
+          "p99": 54.7984,
+          "max": 90.8501
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 755591168,
+        "heap_max": 2006923904,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.2483174344058708,
+        "start_position": [
+          -303.578682821745,
+          63.0,
+          -867.839157602869
+        ],
+        "end_position": [
+          -303.563860879899,
+          63.0,
+          -868.0594878759097
+        ],
+        "server_cpu_fraction_one_core": 0.14625530826867067,
+        "server_entities_range": [
+          277,
+          290
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 2400,
+        "steady_window_elapsed_seconds": 89.954,
+        "path_horizontal_blocks": 0.2483174344058708,
+        "net_horizontal_displacement": 0.22082825720059568,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 2400,
+            "mean": 7.548398416666667,
+            "p95": 9.6365,
+            "p99": 13.2033,
+            "max": 47.728
+          },
+          "valid_frame": {
+            "n": 16260,
+            "mean": 7.380408714637146,
+            "p95": 9.4325,
+            "p99": 10.13,
+            "max": 274.1131
+          },
+          "raw_frame": {
+            "n": 16260,
+            "mean": 7.380408714637146,
+            "p95": 9.4325,
+            "p99": 10.13,
+            "max": 274.1131
+          },
+          "new_chunk_events": 29,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 29,
+          "path3d_blocks": 36.690787394625914,
+          "path_horizontal_blocks": 29.54881747543568,
+          "net_horizontal_displacement": 11.272008465478173
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_17208_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_17208_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 20.974358974358974,
+            "p95": 22.0,
+            "p99": 22.0,
+            "max": 22.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 39,
+            "mean": 3041602113.6410255,
+            "p95": 3042959360,
+            "p99": 3046322176,
+            "max": 3046322176
+          },
+          "private_bytes": {
+            "n": 39,
+            "mean": 4033181433.4358974,
+            "p95": 4033163264,
+            "p99": 4036382720,
+            "max": 4036382720
+          }
+        }
+      },
+      "combat_16": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 12196,
+        "frame": {
+          "n": 12196,
+          "mean": 7.375489545752706,
+          "p95": 9.407,
+          "p99": 10.0071,
+          "max": 18.1393
+        },
+        "fps": 135.58422038247835,
+        "render_wall": {
+          "n": 12196,
+          "mean": 2.0916992784519515,
+          "p95": 2.6379,
+          "p99": 3.1296,
+          "max": 11.6236
+        },
+        "render_cpu_mean_ms": 1.907643899639226,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 1800,
+          "mean": 7.1589525,
+          "p95": 9.1324,
+          "p99": 9.9991,
+          "max": 13.7132
+        },
+        "event_tick_body": {
+          "n": 1800,
+          "mean": 7.159078888888889,
+          "p95": 9.1324,
+          "p99": 10.0043,
+          "max": 13.7132
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 1800,
+          "mean": 49.99947044444444,
+          "p95": 53.5623,
+          "p99": 54.4082,
+          "max": 59.2082
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 741410136,
+        "heap_max": 2003250248,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.0,
+        "start_position": [
+          -308.30000001192093,
+          62.0,
+          -862.6999999880791
+        ],
+        "end_position": [
+          -308.30000001192093,
+          62.0,
+          -862.6999999880791
+        ],
+        "server_cpu_fraction_one_core": 0.14591601907747723,
+        "server_entities_range": [
+          274,
+          290
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 2400,
+        "steady_window_elapsed_seconds": 89.949,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 2400,
+            "mean": 7.517834541666667,
+            "p95": 9.94,
+            "p99": 13.7353,
+            "max": 30.7968
+          },
+          "valid_frame": {
+            "n": 16211,
+            "mean": 7.40206188390599,
+            "p95": 9.6506,
+            "p99": 10.8409,
+            "max": 213.0475
+          },
+          "raw_frame": {
+            "n": 16211,
+            "mean": 7.40206188390599,
+            "p95": 9.6506,
+            "p99": 10.8409,
+            "max": 213.0475
+          },
+          "new_chunk_events": 30,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 30,
+          "path3d_blocks": 80.2130127903271,
+          "path_horizontal_blocks": 57.43097688366955,
+          "net_horizontal_displacement": 7.152281055556505
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_17208_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 37,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_17208_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 37,
+            "mean": 20.945945945945947,
+            "p95": 22.0,
+            "p99": 22.0,
+            "max": 22.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 37,
+            "mean": 3063534010.810811,
+            "p95": 3109126144,
+            "p99": 3109130240,
+            "max": 3109130240
+          },
+          "private_bytes": {
+            "n": 37,
+            "mean": 4091701081.9459457,
+            "p95": 4137893888,
+            "p99": 4137893888,
+            "max": 4137893888
+          }
+        }
+      },
+      "cleanup": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 4069,
+        "frame": {
+          "n": 4069,
+          "mean": 7.36172268370607,
+          "p95": 9.3596,
+          "p99": 10.0109,
+          "max": 16.639
+        },
+        "fps": 135.83777098984334,
+        "render_wall": {
+          "n": 4069,
+          "mean": 2.13972875399361,
+          "p95": 2.704,
+          "p99": 3.5806,
+          "max": 11.3827
+        },
+        "render_cpu_mean_ms": 2.019845170803637,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 600,
+          "mean": 7.326384833333333,
+          "p95": 9.22,
+          "p99": 11.719,
+          "max": 20.6103
+        },
+        "event_tick_body": {
+          "n": 600,
+          "mean": 7.326559666666666,
+          "p95": 9.2198,
+          "p99": 11.72,
+          "max": 20.6524
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 600,
+          "mean": 49.999782833333335,
+          "p95": 53.72,
+          "p99": 55.0102,
+          "max": 64.4403
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 735273208,
+        "heap_max": 1994512024,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.0,
+        "start_position": [
+          -308.30000001192093,
+          62.0,
+          -862.6999999880791
+        ],
+        "end_position": [
+          -308.30000001192093,
+          62.0,
+          -862.6999999880791
+        ],
+        "server_cpu_fraction_one_core": 0.15180032050212,
+        "server_entities_range": [
+          274,
+          283
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 1200,
+        "steady_window_elapsed_seconds": 29.953,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 1200,
+            "mean": 7.209890583333333,
+            "p95": 9.0781,
+            "p99": 11.2804,
+            "max": 20.6103
+          },
+          "valid_frame": {
+            "n": 8114,
+            "mean": 7.394695242790239,
+            "p95": 9.3488,
+            "p99": 10.0018,
+            "max": 188.7079
+          },
+          "raw_frame": {
+            "n": 8114,
+            "mean": 7.394695242790239,
+            "p95": 9.3488,
+            "p99": 10.0018,
+            "max": 188.7079
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 0.0,
+          "path_horizontal_blocks": 0.0,
+          "net_horizontal_displacement": 0.0
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_17208_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_17208_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 21.153846153846153,
+            "p95": 22.0,
+            "p99": 22.0,
+            "max": 22.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 13,
+            "mean": 3063819342.769231,
+            "p95": 3063824384,
+            "p99": 3063824384,
+            "max": 3063824384
+          },
+          "private_bytes": {
+            "n": 13,
+            "mean": 4090924425.8461537,
+            "p95": 4090949632,
+            "p99": 4090949632,
+            "max": 4090949632
+          }
+        }
+      }
+    }
+  },
+  "world-fixed": {
+    "complete": false,
+    "invalid": false,
+    "forced_stop_fixture": true,
+    "reload_new_server_marker": false,
+    "scenes": {
+      "startup_warmup": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 12183,
+        "frame": {
+          "n": 12183,
+          "mean": 7.381954699170976,
+          "p95": 9.5792,
+          "p99": 10.3893,
+          "max": 51.3864
+        },
+        "fps": 135.46547503363902,
+        "render_wall": {
+          "n": 12183,
+          "mean": 1.9619398506115078,
+          "p95": 2.9946,
+          "p99": 4.3601,
+          "max": 24.0545
+        },
+        "render_cpu_mean_ms": 1.7044754986456538,
+        "frames_over50": 1,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 1800,
+          "mean": 7.2924505533333335,
+          "p95": 10.2663,
+          "p99": 18.6724,
+          "max": 73.7239
+        },
+        "event_tick_body": {
+          "n": 1800,
+          "mean": 7.293659722222222,
+          "p95": 10.2811,
+          "p99": 18.6741,
+          "max": 73.7264
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 1800,
+          "mean": 49.98917633333333,
+          "p95": 53.0529,
+          "p99": 60.146,
+          "max": 97.352
+        },
+        "native_ticks_over50": 1,
+        "heap_min": 873067168,
+        "heap_max": 1984490856,
+        "new_chunk_events": 111,
+        "old_chunk_events": 0,
+        "path3d_blocks": 50.24958349503508,
+        "start_position": [
+          6.875638362372132,
+          118.0,
+          3.5
+        ],
+        "end_position": [
+          -3.4232389810549693,
+          103.0,
+          -14.596417257959516
+        ],
+        "server_cpu_fraction_one_core": 0.14368335316291014,
+        "server_entities_range": [
+          268,
+          299
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 2400,
+        "steady_window_elapsed_seconds": 89.933,
+        "path_horizontal_blocks": 24.603801680572417,
+        "net_horizontal_displacement": 20.821796082690156,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 2400,
+            "mean": 8.309364667916666,
+            "p95": 16.7654,
+            "p99": 28.5921,
+            "max": 75.889
+          },
+          "valid_frame": {
+            "n": 17679,
+            "mean": 7.465990938401493,
+            "p95": 9.8765,
+            "p99": 12.6405,
+            "max": 68.6993
+          },
+          "raw_frame": {
+            "n": 17686,
+            "mean": 7.611125138527649,
+            "p95": 9.8817,
+            "p99": 12.8402,
+            "max": 1264.2827
+          },
+          "new_chunk_events": 899,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 899,
+          "path3d_blocks": 54.309358144907826,
+          "path_horizontal_blocks": 27.228163318200284,
+          "net_horizontal_displacement": 22.237140628588776
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 40,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 40,
+            "mean": 23.525,
+            "p95": 31.0,
+            "p99": 36.0,
+            "max": 36.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 40,
+            "mean": 3024798720,
+            "p95": 3035496448,
+            "p99": 3053846528,
+            "max": 3053846528
+          },
+          "private_bytes": {
+            "n": 40,
+            "mean": 3676482252.8,
+            "p95": 3689996288,
+            "p99": 3702267904,
+            "max": 3702267904
+          }
+        }
+      },
+      "idle": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 12264,
+        "frame": {
+          "n": 12264,
+          "mean": 7.334963633398565,
+          "p95": 9.3053,
+          "p99": 9.9063,
+          "max": 43.2456
+        },
+        "fps": 136.33332760460632,
+        "render_wall": {
+          "n": 12264,
+          "mean": 1.6302006278538812,
+          "p95": 2.0707,
+          "p99": 2.5226,
+          "max": 10.9755
+        },
+        "render_cpu_mean_ms": 1.3848968525766472,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 1800,
+          "mean": 6.503495553333333,
+          "p95": 8.2664,
+          "p99": 10.4261,
+          "max": 56.1332
+        },
+        "event_tick_body": {
+          "n": 1800,
+          "mean": 6.504094888888889,
+          "p95": 8.261,
+          "p99": 10.4288,
+          "max": 56.1341
+        },
+        "tps": 19.999067110182867,
+        "tick_intervals": {
+          "n": 1800,
+          "mean": 50.002332333333335,
+          "p95": 52.3399,
+          "p99": 53.9026,
+          "max": 77.1855
+        },
+        "native_ticks_over50": 1,
+        "heap_min": 853089056,
+        "heap_max": 2011701488,
+        "new_chunk_events": 29,
+        "old_chunk_events": 0,
+        "path3d_blocks": 21.364951881076404,
+        "start_position": [
+          -6.060735322527798,
+          103.0,
+          -11.654158737817088
+        ],
+        "end_position": [
+          -21.652726716124665,
+          103.0,
+          -5.422777542797272
+        ],
+        "server_cpu_fraction_one_core": 0.1247151353454505,
+        "server_entities_range": [
+          280,
+          296
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 2400,
+        "steady_window_elapsed_seconds": 89.955,
+        "path_horizontal_blocks": 17.296134453751176,
+        "net_horizontal_displacement": 16.791078202892315,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 2400,
+            "mean": 6.479279498333334,
+            "p95": 8.1653,
+            "p99": 9.9312,
+            "max": 56.1332
+          },
+          "valid_frame": {
+            "n": 16337,
+            "mean": 7.345690848993083,
+            "p95": 9.3065,
+            "p99": 9.8549,
+            "max": 242.2442
+          },
+          "raw_frame": {
+            "n": 16337,
+            "mean": 7.345690848993083,
+            "p95": 9.3065,
+            "p99": 9.8549,
+            "max": 242.2442
+          },
+          "new_chunk_events": 29,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 29,
+          "path3d_blocks": 25.60119045267886,
+          "path_horizontal_blocks": 21.53237302535364,
+          "net_horizontal_displacement": 20.407593898023805
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 19.974358974358974,
+            "p95": 21.0,
+            "p99": 22.0,
+            "max": 22.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 39,
+            "mean": 3033592438.1538463,
+            "p95": 3034890240,
+            "p99": 3034959872,
+            "max": 3034959872
+          },
+          "private_bytes": {
+            "n": 39,
+            "mean": 3694531715.282051,
+            "p95": 3696549888,
+            "p99": 3696549888,
+            "max": 3696549888
+          }
+        }
+      },
+      "travel_new": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 20359,
+        "frame": {
+          "n": 20359,
+          "mean": 7.365253976128494,
+          "p95": 9.4134,
+          "p99": 10.049,
+          "max": 22.4133
+        },
+        "fps": 135.77264317579508,
+        "render_wall": {
+          "n": 20359,
+          "mean": 1.2536659953828773,
+          "p95": 1.8591,
+          "p99": 2.3769,
+          "max": 14.6816
+        },
+        "render_cpu_mean_ms": 1.113604548356992,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 6.259396833333334,
+          "p95": 7.6816,
+          "p99": 9.4643,
+          "max": 61.0604
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 6.2592081,
+          "p95": 7.6821,
+          "p99": 9.4647,
+          "max": 61.0747
+        },
+        "tps": 19.999907053765288,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 50.000232366666665,
+          "p95": 52.1362,
+          "p99": 53.712,
+          "max": 104.6283
+        },
+        "native_ticks_over50": 1,
+        "heap_min": 847684168,
+        "heap_max": 2048993272,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 546.4910090175064,
+        "start_position": [
+          2.370866823809874,
+          81.0,
+          -44.69999998807907
+        ],
+        "end_position": [
+          -1.699999988079071,
+          84.17675927506424,
+          -47.29968807691145
+        ],
+        "server_cpu_fraction_one_core": 0.12326943468199612,
+        "server_entities_range": [
+          296,
+          311
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.951,
+        "path_horizontal_blocks": 146.5344338021167,
+        "net_horizontal_displacement": 4.830148523529666,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 6.372460138888889,
+            "p95": 8.037,
+            "p99": 10.6779,
+            "max": 61.0604
+          },
+          "valid_frame": {
+            "n": 24389,
+            "mean": 7.380010414531141,
+            "p95": 9.4307,
+            "p99": 10.0784,
+            "max": 213.0634
+          },
+          "raw_frame": {
+            "n": 24389,
+            "mean": 7.380010414531141,
+            "p95": 9.4307,
+            "p99": 10.0784,
+            "max": 213.0634
+          },
+          "new_chunk_events": 62,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 62,
+          "path3d_blocks": 639.4245544684699,
+          "path_horizontal_blocks": 210.17535139299454,
+          "net_horizontal_displacement": 46.38735754239799
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 19.184615384615384,
+            "p95": 23.0,
+            "p99": 23.0,
+            "max": 23.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 65,
+            "mean": 3114166177.476923,
+            "p95": 3117506560,
+            "p99": 3118272512,
+            "max": 3118272512
+          },
+          "private_bytes": {
+            "n": 65,
+            "mean": 3915084595.2,
+            "p95": 3932631040,
+            "p99": 3937202176,
+            "max": 3937202176
+          }
+        }
+      },
+      "travel_return": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 20508,
+        "frame": {
+          "n": 20508,
+          "mean": 7.3121208747805735,
+          "p95": 9.2056,
+          "p99": 9.931,
+          "max": 18.7331
+        },
+        "fps": 136.75922719617358,
+        "render_wall": {
+          "n": 20508,
+          "mean": 1.331988370392042,
+          "p95": 1.7526,
+          "p99": 2.102,
+          "max": 11.408
+        },
+        "render_cpu_mean_ms": 1.2540837721864637,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 5.994221455666667,
+          "p95": 7.3207,
+          "p99": 8.5582,
+          "max": 34.6408
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 5.994245433333333,
+          "p95": 7.3214,
+          "p99": 8.5589,
+          "max": 34.6428
+        },
+        "tps": 19.99949262620507,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 50.001268466666666,
+          "p95": 51.9415,
+          "p99": 53.0085,
+          "max": 75.9566
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 833707664,
+        "heap_max": 2080721208,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 625.9803732863331,
+        "start_position": [
+          5.699999988079071,
+          82.0,
+          -43.30000001192093
+        ],
+        "end_position": [
+          5.699999988079071,
+          82.1212968405392,
+          -43.30000001192093
+        ],
+        "server_cpu_fraction_one_core": 0.11680821196116091,
+        "server_entities_range": [
+          293,
+          305
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.952,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 5.989590935277778,
+            "p95": 7.3491,
+            "p99": 8.5615,
+            "max": 34.6408
+          },
+          "valid_frame": {
+            "n": 24588,
+            "mean": 7.320883752236863,
+            "p95": 9.2205,
+            "p99": 9.9422,
+            "max": 247.256
+          },
+          "raw_frame": {
+            "n": 24588,
+            "mean": 7.320883752236863,
+            "p95": 9.2205,
+            "p99": 9.9422,
+            "max": 247.256
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 752.5981347978509,
+          "path_horizontal_blocks": 26.664459278477736,
+          "net_horizontal_displacement": 8.411747097513802
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 66,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 66,
+            "mean": 20.196969696969695,
+            "p95": 21.0,
+            "p99": 22.0,
+            "max": 22.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 65,
+            "mean": 3042847633.723077,
+            "p95": 3047137280,
+            "p99": 3047170048,
+            "max": 3047170048
+          },
+          "private_bytes": {
+            "n": 65,
+            "mean": 3955282046.0307693,
+            "p95": 3956285440,
+            "p99": 3956285440,
+            "max": 3956285440
+          }
+        }
+      },
+      "travel_settle": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 4095,
+        "frame": {
+          "n": 4095,
+          "mean": 7.315011184371184,
+          "p95": 9.1682,
+          "p99": 9.8922,
+          "max": 11.1888
+        },
+        "fps": 136.70519084598808,
+        "render_wall": {
+          "n": 4095,
+          "mean": 1.3462161904761905,
+          "p95": 1.831,
+          "p99": 2.2125,
+          "max": 3.0555
+        },
+        "render_cpu_mean_ms": 1.262973137973138,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 600,
+          "mean": 6.070405666666667,
+          "p95": 7.3996,
+          "p99": 8.5945,
+          "max": 12.4477
+        },
+        "event_tick_body": {
+          "n": 600,
+          "mean": 6.070434833333334,
+          "p95": 7.4005,
+          "p99": 8.5945,
+          "max": 12.4857
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 600,
+          "mean": 49.9950315,
+          "p95": 51.9688,
+          "p99": 52.8385,
+          "max": 56.1015
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 829906816,
+        "heap_max": 2084869920,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.0,
+        "start_position": [
+          5.699999988079071,
+          82.0,
+          -43.30000001192093
+        ],
+        "end_position": [
+          5.699999988079071,
+          82.0,
+          -43.30000001192093
+        ],
+        "server_cpu_fraction_one_core": 0.11373121869782972,
+        "server_entities_range": [
+          297,
+          304
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 1200,
+        "steady_window_elapsed_seconds": 29.95,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 1200,
+            "mean": 5.950452,
+            "p95": 7.2258,
+            "p99": 8.5279,
+            "max": 12.4477
+          },
+          "valid_frame": {
+            "n": 8188,
+            "mean": 7.32741338544211,
+            "p95": 9.2054,
+            "p99": 9.9263,
+            "max": 181.9922
+          },
+          "raw_frame": {
+            "n": 8188,
+            "mean": 7.32741338544211,
+            "p95": 9.2054,
+            "p99": 9.9263,
+            "max": 181.9922
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 0.0,
+          "path_horizontal_blocks": 0.0,
+          "net_horizontal_displacement": 0.0
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 20.46153846153846,
+            "p95": 21.0,
+            "p99": 21.0,
+            "max": 21.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 13,
+            "mean": 3046066963.6923075,
+            "p95": 3046313984,
+            "p99": 3046313984,
+            "max": 3046313984
+          },
+          "private_bytes": {
+            "n": 13,
+            "mean": 3954069188.923077,
+            "p95": 3954262016,
+            "p99": 3954262016,
+            "max": 3954262016
+          }
+        }
+      },
+      "vanilla_village": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 20275,
+        "frame": {
+          "n": 20275,
+          "mean": 7.395972705302096,
+          "p95": 9.6959,
+          "p99": 10.5173,
+          "max": 53.0032
+        },
+        "fps": 135.20871964320668,
+        "render_wall": {
+          "n": 20275,
+          "mean": 2.236868468557337,
+          "p95": 2.8941,
+          "p99": 3.7718,
+          "max": 26.9834
+        },
+        "render_cpu_mean_ms": 2.0437731196054254,
+        "frames_over50": 1,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 8.417626866666666,
+          "p95": 11.6833,
+          "p99": 18.1959,
+          "max": 46.9634
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 8.417977633333333,
+          "p95": 11.6841,
+          "p99": 18.1958,
+          "max": 46.964
+        },
+        "tps": 19.999316756675203,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 50.00170816666667,
+          "p95": 53.2529,
+          "p99": 58.1291,
+          "max": 90.4827
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 957129704,
+        "heap_max": 2355688360,
+        "new_chunk_events": 211,
+        "old_chunk_events": 0,
+        "path3d_blocks": 1.7877393627245879,
+        "start_position": [
+          -303.6125370219427,
+          64.0,
+          -879.2955056427933
+        ],
+        "end_position": [
+          -302.7952233026332,
+          64.0,
+          -880.2973094444318
+        ],
+        "server_cpu_fraction_one_core": 0.16088267068567694,
+        "server_entities_range": [
+          296,
+          320
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.954,
+        "path_horizontal_blocks": 1.7877393627245883,
+        "net_horizontal_displacement": 1.2929085709163564,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 9.477080777777777,
+            "p95": 13.4792,
+            "p99": 28.3378,
+            "max": 1385.5308
+          },
+          "valid_frame": {
+            "n": 24918,
+            "mean": 7.448525640099526,
+            "p95": 9.8013,
+            "p99": 10.9575,
+            "max": 248.4469
+          },
+          "raw_frame": {
+            "n": 24918,
+            "mean": 7.448525640099526,
+            "p95": 9.8013,
+            "p99": 10.9575,
+            "max": 248.4469
+          },
+          "new_chunk_events": 762,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 762,
+          "path3d_blocks": 2.02244580181598,
+          "path_horizontal_blocks": 2.02244580181598,
+          "net_horizontal_displacement": 1.06414874116892
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 66,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 66,
+            "mean": 21.136363636363637,
+            "p95": 22.0,
+            "p99": 28.0,
+            "max": 28.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 65,
+            "mean": 3455541248,
+            "p95": 3458203648,
+            "p99": 3458256896,
+            "max": 3458256896
+          },
+          "private_bytes": {
+            "n": 65,
+            "mean": 4393996666.092308,
+            "p95": 4396695552,
+            "p99": 4396761088,
+            "max": 4396761088
+          }
+        }
+      },
+      "combat_6": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 12230,
+        "frame": {
+          "n": 12230,
+          "mean": 7.354684349959117,
+          "p95": 9.6472,
+          "p99": 10.4677,
+          "max": 21.4601
+        },
+        "fps": 135.96776590494449,
+        "render_wall": {
+          "n": 12230,
+          "mean": 2.3965630008176615,
+          "p95": 3.0384,
+          "p99": 3.5647,
+          "max": 16.3932
+        },
+        "render_cpu_mean_ms": 2.18596688470973,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 1800,
+          "mean": 7.950284222222222,
+          "p95": 10.2065,
+          "p99": 12.2425,
+          "max": 42.5423
+        },
+        "event_tick_body": {
+          "n": 1800,
+          "mean": 7.950627611111111,
+          "p95": 10.2066,
+          "p99": 12.2429,
+          "max": 42.4986
+        },
+        "tps": 19.99998395556843,
+        "tick_intervals": {
+          "n": 1800,
+          "mean": 50.00004011111111,
+          "p95": 52.5951,
+          "p99": 54.729,
+          "max": 84.3506
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 940300160,
+        "heap_max": 2392285376,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.0,
+        "start_position": [
+          -300.3666357755938,
+          63.0,
+          -869.0688914622453
+        ],
+        "end_position": [
+          -300.3666357755938,
+          63.0,
+          -869.0688914622453
+        ],
+        "server_cpu_fraction_one_core": 0.15095023957487966,
+        "server_entities_range": [
+          312,
+          327
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 2400,
+        "steady_window_elapsed_seconds": 89.951,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 2400,
+            "mean": 8.117276958333333,
+            "p95": 10.7408,
+            "p99": 13.9515,
+            "max": 42.5423
+          },
+          "valid_frame": {
+            "n": 16275,
+            "mean": 7.373050592933947,
+            "p95": 9.7814,
+            "p99": 10.6323,
+            "max": 245.8649
+          },
+          "raw_frame": {
+            "n": 16275,
+            "mean": 7.373050592933947,
+            "p95": 9.7814,
+            "p99": 10.6323,
+            "max": 245.8649
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 32.97591173707251,
+          "path_horizontal_blocks": 22.642215656328265,
+          "net_horizontal_displacement": 11.488055003314493
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 20.641025641025642,
+            "p95": 22.0,
+            "p99": 22.0,
+            "max": 22.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 39,
+            "mean": 3475464717.1282053,
+            "p95": 3475816448,
+            "p99": 3475828736,
+            "max": 3475828736
+          },
+          "private_bytes": {
+            "n": 39,
+            "mean": 4455864372.51282,
+            "p95": 4456087552,
+            "p99": 4456153088,
+            "max": 4456153088
+          }
+        }
+      },
+      "combat_16": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 12148,
+        "frame": {
+          "n": 12148,
+          "mean": 7.404503473822851,
+          "p95": 9.8629,
+          "p99": 10.6464,
+          "max": 20.7123
+        },
+        "fps": 135.05294494564032,
+        "render_wall": {
+          "n": 12148,
+          "mean": 1.583855046098123,
+          "p95": 2.3464,
+          "p99": 2.7739,
+          "max": 14.5239
+        },
+        "render_cpu_mean_ms": 1.3942624300296345,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 1800,
+          "mean": 7.806018375,
+          "p95": 9.5706,
+          "p99": 12.6115,
+          "max": 20.3156
+        },
+        "event_tick_body": {
+          "n": 1800,
+          "mean": 7.806239722222222,
+          "p95": 9.5712,
+          "p99": 12.612,
+          "max": 20.3172
+        },
+        "tps": 19.999965022283394,
+        "tick_intervals": {
+          "n": 1800,
+          "mean": 50.000087444444446,
+          "p95": 52.4914,
+          "p99": 55.1145,
+          "max": 62.7835
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 940901136,
+        "heap_max": 2378116664,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 70.56714631218811,
+        "start_position": [
+          -312.85417895107605,
+          61.0,
+          -859.1043865057101
+        ],
+        "end_position": [
+          -301.50413626833534,
+          63.0,
+          -871.495981548883
+        ],
+        "server_cpu_fraction_one_core": 0.14469522634293847,
+        "server_entities_range": [
+          310,
+          334
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 2400,
+        "steady_window_elapsed_seconds": 89.952,
+        "path_horizontal_blocks": 66.8287624090545,
+        "net_horizontal_displacement": 16.804020251535785,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 2400,
+            "mean": 8.100968456666667,
+            "p95": 10.8845,
+            "p99": 14.4108,
+            "max": 48.0291
+          },
+          "valid_frame": {
+            "n": 16167,
+            "mean": 7.422557932826127,
+            "p95": 9.9848,
+            "p99": 10.9855,
+            "max": 224.5433
+          },
+          "raw_frame": {
+            "n": 16167,
+            "mean": 7.422557932826127,
+            "p95": 9.9848,
+            "p99": 10.9855,
+            "max": 224.5433
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 126.05038002114226,
+          "path_horizontal_blocks": 108.14047697383013,
+          "net_horizontal_displacement": 2.680424156666663
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 19.102564102564102,
+            "p95": 22.0,
+            "p99": 24.0,
+            "max": 24.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 39,
+            "mean": 3517977416.205128,
+            "p95": 3520229376,
+            "p99": 3520229376,
+            "max": 3520229376
+          },
+          "private_bytes": {
+            "n": 39,
+            "mean": 4566106217.025641,
+            "p95": 4568092672,
+            "p99": 4568092672,
+            "max": 4568092672
+          }
+        }
+      },
+      "mythic_combat": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 12334,
+        "frame": {
+          "n": 12334,
+          "mean": 7.292958813037133,
+          "p95": 10.4059,
+          "p99": 12.1062,
+          "max": 20.1443
+        },
+        "fps": 137.11855854887966,
+        "render_wall": {
+          "n": 12334,
+          "mean": 1.396833598183882,
+          "p95": 2.2227,
+          "p99": 3.6547,
+          "max": 14.0373
+        },
+        "render_cpu_mean_ms": 1.2440205934814335,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 1800,
+          "mean": 8.228676,
+          "p95": 10.5886,
+          "p99": 12.3884,
+          "max": 38.0266
+        },
+        "event_tick_body": {
+          "n": 1800,
+          "mean": 8.22885488888889,
+          "p95": 10.5889,
+          "p99": 12.3883,
+          "max": 38.0281
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 1800,
+          "mean": 49.99950605555556,
+          "p95": 52.5898,
+          "p99": 54.9981,
+          "max": 80.3396
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 926973736,
+        "heap_max": 2392827112,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 375.7977632398143,
+        "start_position": [
+          -301.7950005944084,
+          63.0,
+          -871.5041492597463
+        ],
+        "end_position": [
+          -300.30000001192093,
+          64.00133597911214,
+          -867.3000000119209
+        ],
+        "server_cpu_fraction_one_core": 0.16294136612264865,
+        "server_entities_range": [
+          308,
+          324
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 2400,
+        "steady_window_elapsed_seconds": 89.948,
+        "path_horizontal_blocks": 4.496073091419514,
+        "net_horizontal_displacement": 4.462050833375698,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 2400,
+            "mean": 8.303530916666666,
+            "p95": 10.7713,
+            "p99": 12.9795,
+            "max": 38.0266
+          },
+          "valid_frame": {
+            "n": 16382,
+            "mean": 7.325314180197778,
+            "p95": 10.6275,
+            "p99": 12.1238,
+            "max": 187.1481
+          },
+          "raw_frame": {
+            "n": 16382,
+            "mean": 7.325314180197778,
+            "p95": 10.6275,
+            "p99": 12.1238,
+            "max": 187.1481
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 476.4691338342999,
+          "path_horizontal_blocks": 38.61969991321335,
+          "net_horizontal_displacement": 4.4216174372612755
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 16.692307692307693,
+            "p95": 18.0,
+            "p99": 19.0,
+            "max": 19.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 40,
+            "mean": 3522111078.4,
+            "p95": 3522338816,
+            "p99": 3522342912,
+            "max": 3522342912
+          },
+          "private_bytes": {
+            "n": 40,
+            "mean": 4577727385.6,
+            "p95": 4577882112,
+            "p99": 4577886208,
+            "max": 4577886208
+          }
+        }
+      },
+      "village": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 20575,
+        "frame": {
+          "n": 20575,
+          "mean": 7.287986269744836,
+          "p95": 9.692,
+          "p99": 10.4236,
+          "max": 15.9741
+        },
+        "fps": 137.21211360556137,
+        "render_wall": {
+          "n": 20575,
+          "mean": 1.3051953633049818,
+          "p95": 1.6776,
+          "p99": 2.04,
+          "max": 9.9351
+        },
+        "render_cpu_mean_ms": 1.1649453219927095,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 8.536324933333333,
+          "p95": 10.9935,
+          "p99": 13.5341,
+          "max": 17.6488
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 8.5365732,
+          "p95": 10.9936,
+          "p99": 13.536,
+          "max": 17.6488
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 49.99933083333333,
+          "p95": 52.4404,
+          "p99": 54.9737,
+          "max": 58.4345
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 910879352,
+        "heap_max": 2414079616,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.0,
+        "start_position": [
+          -300.30000001192093,
+          63.0,
+          -867.3000000119209
+        ],
+        "end_position": [
+          -300.30000001192093,
+          63.0,
+          -867.3000000119209
+        ],
+        "server_cpu_fraction_one_core": 0.15995875044184046,
+        "server_entities_range": [
+          307,
+          320
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.941,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 8.572934833333333,
+            "p95": 11.0053,
+            "p99": 13.9143,
+            "max": 18.8305
+          },
+          "valid_frame": {
+            "n": 24998,
+            "mean": 7.29642969837587,
+            "p95": 9.6883,
+            "p99": 10.4172,
+            "max": 194.1519
+          },
+          "raw_frame": {
+            "n": 24998,
+            "mean": 7.29642969837587,
+            "p95": 9.6883,
+            "p99": 10.4172,
+            "max": 194.1519
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 1.1661092609382138,
+          "path_horizontal_blocks": 0.0,
+          "net_horizontal_displacement": 0.0
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 16.307692307692307,
+            "p95": 18.0,
+            "p99": 18.0,
+            "max": 18.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 65,
+            "mean": 3505769613.7846155,
+            "p95": 3520954368,
+            "p99": 3521019904,
+            "max": 3521019904
+          },
+          "private_bytes": {
+            "n": 65,
+            "mean": 4576203571.2,
+            "p95": 4576419840,
+            "p99": 4576514048,
+            "max": 4576514048
+          }
+        }
+      },
+      "poloz": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 18645,
+        "frame": {
+          "n": 18645,
+          "mean": 8.04266733708769,
+          "p95": 15.2893,
+          "p99": 19.2135,
+          "max": 121.7384
+        },
+        "fps": 124.33685966204682,
+        "render_wall": {
+          "n": 18645,
+          "mean": 4.073712823813355,
+          "p95": 5.8636,
+          "p99": 7.7879,
+          "max": 35.8371
+        },
+        "render_cpu_mean_ms": 3.906040493429874,
+        "frames_over50": 8,
+        "frames_over100": 1,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 15.926629433333334,
+          "p95": 22.7096,
+          "p99": 30.8707,
+          "max": 62.7156
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 15.927241833333333,
+          "p95": 22.7103,
+          "p99": 30.8714,
+          "max": 62.7179
+        },
+        "tps": 19.998462064937975,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 50.003845133333336,
+          "p95": 53.6763,
+          "p99": 58.0533,
+          "max": 88.6541
+        },
+        "native_ticks_over50": 2,
+        "heap_min": 907775400,
+        "heap_max": 2408259776,
+        "new_chunk_events": 29,
+        "old_chunk_events": 0,
+        "path3d_blocks": 367.63835454535644,
+        "start_position": [
+          -298.30000001192093,
+          63.41999998688698,
+          -869.3000000119209
+        ],
+        "end_position": [
+          -283.3551839792211,
+          59.0,
+          -880.9652627828077
+        ],
+        "server_cpu_fraction_one_core": 0.32237118489227345,
+        "server_entities_range": [
+          627,
+          1841
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.963,
+        "path_horizontal_blocks": 60.16664283099212,
+        "net_horizontal_displacement": 18.95853058032395,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 15.060849305555555,
+            "p95": 22.0647,
+            "p99": 29.461,
+            "max": 62.7156
+          },
+          "valid_frame": {
+            "n": 22589,
+            "mean": 7.969093448138475,
+            "p95": 15.0397,
+            "p99": 18.8425,
+            "max": 212.8756
+          },
+          "raw_frame": {
+            "n": 22589,
+            "mean": 7.969093448138475,
+            "p95": 15.0397,
+            "p99": 18.8425,
+            "max": 212.8756
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 470.76419924716396,
+          "path_horizontal_blocks": 65.59201457106886,
+          "net_horizontal_displacement": 21.768467952049924
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 66,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 66,
+            "mean": 22.257575757575758,
+            "p95": 26.0,
+            "p99": 28.0,
+            "max": 28.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 66,
+            "mean": 3528956524.6060605,
+            "p95": 3537248256,
+            "p99": 3543531520,
+            "max": 3543531520
+          },
+          "private_bytes": {
+            "n": 66,
+            "mean": 4592643413.333333,
+            "p95": 4610220032,
+            "p99": 4616933376,
+            "max": 4616933376
+          }
+        }
+      },
+      "gorynych": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 18754,
+        "frame": {
+          "n": 18754,
+          "mean": 7.995511682840994,
+          "p95": 14.8301,
+          "p99": 16.0231,
+          "max": 39.977
+        },
+        "fps": 125.07016932338173,
+        "render_wall": {
+          "n": 18754,
+          "mean": 4.2429623600298605,
+          "p95": 5.4613,
+          "p99": 6.6801,
+          "max": 14.5166
+        },
+        "render_cpu_mean_ms": 4.030806761224272,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 17.740696933333332,
+          "p95": 21.4919,
+          "p99": 25.1541,
+          "max": 51.6106
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 17.741183433333333,
+          "p95": 21.4952,
+          "p99": 25.1533,
+          "max": 51.611
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 49.9984977,
+          "p95": 53.6422,
+          "p99": 56.3264,
+          "max": 84.1428
+        },
+        "native_ticks_over50": 1,
+        "heap_min": 916621616,
+        "heap_max": 2410952784,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 625.8739912446109,
+        "start_position": [
+          -283.4762955904206,
+          58.7967356006687,
+          -876.3000000119209
+        ],
+        "end_position": [
+          -283.4992528670622,
+          59.024424088213685,
+          -876.3000000119209
+        ],
+        "server_cpu_fraction_one_core": 0.3581473787404883,
+        "server_entities_range": [
+          1295,
+          1624
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.947,
+        "path_horizontal_blocks": 0.022957276641591307,
+        "net_horizontal_displacement": 0.022957276641591307,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 17.873669944444444,
+            "p95": 21.52,
+            "p99": 25.1985,
+            "max": 51.6106
+          },
+          "valid_frame": {
+            "n": 22395,
+            "mean": 8.037405170797053,
+            "p95": 14.9091,
+            "p99": 16.0762,
+            "max": 418.0821
+          },
+          "raw_frame": {
+            "n": 22395,
+            "mean": 8.037405170797053,
+            "p95": 14.9091,
+            "p99": 16.0762,
+            "max": 418.0821
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 750.5594030545063,
+          "path_horizontal_blocks": 4.827889887269214,
+          "net_horizontal_displacement": 4.6674867504756765
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 17.323076923076922,
+            "p95": 19.0,
+            "p99": 20.0,
+            "max": 20.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 65,
+            "mean": 3547699672.6153846,
+            "p95": 3548053504,
+            "p99": 3548332032,
+            "max": 3548332032
+          },
+          "private_bytes": {
+            "n": 65,
+            "mean": 4630008375.138461,
+            "p95": 4630110208,
+            "p99": 4630175744,
+            "max": 4630175744
+          }
+        }
+      },
+      "karachun": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 20251,
+        "frame": {
+          "n": 20251,
+          "mean": 7.40448901782628,
+          "p95": 10.914,
+          "p99": 12.2971,
+          "max": 20.8942
+        },
+        "fps": 135.05320861338353,
+        "render_wall": {
+          "n": 20251,
+          "mean": 3.529587748753148,
+          "p95": 4.7702,
+          "p99": 5.6707,
+          "max": 16.6966
+        },
+        "render_cpu_mean_ms": 3.3061638931410795,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 10.2199174,
+          "p95": 15.1703,
+          "p99": 17.9881,
+          "max": 37.7488
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 10.220073766666667,
+          "p95": 15.1703,
+          "p99": 17.9886,
+          "max": 37.7513
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 49.99752686666667,
+          "p95": 52.9432,
+          "p99": 55.591,
+          "max": 75.7781
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 915641856,
+        "heap_max": 2413008384,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 625.8739816393302,
+        "start_position": [
+          -283.4992528670622,
+          58.7967356006687,
+          -876.3000000119209
+        ],
+        "end_position": [
+          -283.4992528670622,
+          59.024424088213685,
+          -876.3000000119209
+        ],
+        "server_cpu_fraction_one_core": 0.1996565407316016,
+        "server_entities_range": [
+          327,
+          1173
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.945,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 11.03657138888889,
+            "p95": 16.2963,
+            "p99": 19.6164,
+            "max": 37.7488
+          },
+          "valid_frame": {
+            "n": 24046,
+            "mean": 7.485338621808201,
+            "p95": 11.3282,
+            "p99": 13.3526,
+            "max": 432.7918
+          },
+          "raw_frame": {
+            "n": 24046,
+            "mean": 7.485338621808201,
+            "p95": 11.3282,
+            "p99": 13.3526,
+            "max": 432.7918
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 749.349956332976,
+          "path_horizontal_blocks": 0.0,
+          "net_horizontal_displacement": 0.0
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 18.784615384615385,
+            "p95": 20.0,
+            "p99": 21.0,
+            "max": 21.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 66,
+            "mean": 3545989864.7272725,
+            "p95": 3546828800,
+            "p99": 3546849280,
+            "max": 3546849280
+          },
+          "private_bytes": {
+            "n": 66,
+            "mean": 4633229994.666667,
+            "p95": 4633948160,
+            "p99": 4634013696,
+            "max": 4634013696
+          }
+        }
+      },
+      "morozko": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 20398,
+        "frame": {
+          "n": 20398,
+          "mean": 7.351476943818021,
+          "p95": 10.3083,
+          "p99": 11.2131,
+          "max": 14.2795
+        },
+        "fps": 136.02708784129652,
+        "render_wall": {
+          "n": 20398,
+          "mean": 2.7592642464947543,
+          "p95": 3.7313,
+          "p99": 4.3224,
+          "max": 9.8696
+        },
+        "render_cpu_mean_ms": 2.523991322678694,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 8.468752238666667,
+          "p95": 11.562899,
+          "p99": 13.4239,
+          "max": 33.9339
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 8.4688215,
+          "p95": 11.5633,
+          "p99": 13.4235,
+          "max": 33.9364
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 49.999247,
+          "p95": 53.035,
+          "p99": 55.664,
+          "max": 74.5462
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 913841480,
+        "heap_max": 2411888408,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 625.8894494595553,
+        "start_position": [
+          -283.4130660139858,
+          58.7967356006687,
+          -876.3000000119209
+        ],
+        "end_position": [
+          -283.4538684923571,
+          59.024424088213685,
+          -876.3000000119209
+        ],
+        "server_cpu_fraction_one_core": 0.1630730166986769,
+        "server_entities_range": [
+          321,
+          335
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.952,
+        "path_horizontal_blocks": 0.45397159493433037,
+        "net_horizontal_displacement": 0.04080247837129036,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 8.407923337777778,
+            "p95": 11.5168,
+            "p99": 13.3768,
+            "max": 33.9339
+          },
+          "valid_frame": {
+            "n": 24455,
+            "mean": 7.360491470047025,
+            "p95": 10.3277,
+            "p99": 11.2318,
+            "max": 261.1907
+          },
+          "raw_frame": {
+            "n": 24455,
+            "mean": 7.360491470047025,
+            "p95": 10.3277,
+            "p99": 11.2318,
+            "max": 261.1907
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 750.8887464194389,
+          "path_horizontal_blocks": 0.824204830543124,
+          "net_horizontal_displacement": 0.04538437470506551
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 66,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 66,
+            "mean": 19.37878787878788,
+            "p95": 20.0,
+            "p99": 21.0,
+            "max": 21.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 65,
+            "mean": 3541623036.0615387,
+            "p95": 3541770240,
+            "p99": 3541901312,
+            "max": 3541901312
+          },
+          "private_bytes": {
+            "n": 65,
+            "mean": 4632877969.723077,
+            "p95": 4633063424,
+            "p99": 4633223168,
+            "max": 4633223168
+          }
+        }
+      },
+      "lifecycle_1": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 4071,
+        "frame": {
+          "n": 4071,
+          "mean": 7.355739646278556,
+          "p95": 9.6054,
+          "p99": 10.5257,
+          "max": 15.0883
+        },
+        "fps": 135.94825919456295,
+        "render_wall": {
+          "n": 4071,
+          "mean": 2.399813608450012,
+          "p95": 3.0864,
+          "p99": 3.723,
+          "max": 8.3114
+        },
+        "render_cpu_mean_ms": 2.195406534021125,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 600,
+          "mean": 8.265308511666667,
+          "p95": 11.1831,
+          "p99": 12.572,
+          "max": 13.9898
+        },
+        "event_tick_body": {
+          "n": 600,
+          "mean": 8.265209833333333,
+          "p95": 11.1837,
+          "p99": 12.5723,
+          "max": 13.9899
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 600,
+          "mean": 49.9993585,
+          "p95": 52.4691,
+          "p99": 54.7596,
+          "max": 56.3067
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 924493416,
+        "heap_max": 2406113920,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.12129684053919476,
+        "start_position": [
+          -289.30000001192093,
+          57.121296840539195,
+          -873.3000000119209
+        ],
+        "end_position": [
+          -289.30000001192093,
+          57.0,
+          -873.3000000119209
+        ],
+        "server_cpu_fraction_one_core": 0.14972871452420702,
+        "server_entities_range": [
+          315,
+          323
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 1200,
+        "steady_window_elapsed_seconds": 29.95,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 1200,
+            "mean": 8.446947764166667,
+            "p95": 11.6026,
+            "p99": 13.597201,
+            "max": 21.072101
+          },
+          "valid_frame": {
+            "n": 8121,
+            "mean": 7.387393018101219,
+            "p95": 10.259,
+            "p99": 11.2391,
+            "max": 208.553
+          },
+          "raw_frame": {
+            "n": 8121,
+            "mean": 7.387393018101219,
+            "p95": 10.259,
+            "p99": 11.2391,
+            "max": 208.553
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 125.12037095618606,
+          "path_horizontal_blocks": 15.000029129412452,
+          "net_horizontal_displacement": 6.5708732221983075
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 20.384615384615383,
+            "p95": 22.0,
+            "p99": 22.0,
+            "max": 22.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 13,
+            "mean": 3539587072,
+            "p95": 3539603456,
+            "p99": 3539603456,
+            "max": 3539603456
+          },
+          "private_bytes": {
+            "n": 13,
+            "mean": 4630789828.923077,
+            "p95": 4630802432,
+            "p99": 4630802432,
+            "max": 4630802432
+          }
+        }
+      },
+      "lifecycle_2": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 4068,
+        "frame": {
+          "n": 4068,
+          "mean": 7.363543338249754,
+          "p95": 9.5685,
+          "p99": 10.4329,
+          "max": 13.1943
+        },
+        "fps": 135.8041847605518,
+        "render_wall": {
+          "n": 4068,
+          "mean": 2.4885706735496558,
+          "p95": 3.1283,
+          "p99": 3.65,
+          "max": 7.5482
+        },
+        "render_cpu_mean_ms": 2.24695796460177,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 600,
+          "mean": 8.901167166666667,
+          "p95": 11.1106,
+          "p99": 13.7029,
+          "max": 17.0081
+        },
+        "event_tick_body": {
+          "n": 600,
+          "mean": 8.901035,
+          "p95": 11.1112,
+          "p99": 13.7029,
+          "max": 17.0081
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 600,
+          "mean": 49.9989115,
+          "p95": 52.4335,
+          "p99": 55.4446,
+          "max": 58.777
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 920018600,
+        "heap_max": 2403677328,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 1.338297419569244,
+        "start_position": [
+          -289.30000001192093,
+          58.166109260938214,
+          -873.3000000119209
+        ],
+        "end_position": [
+          -289.30000001192093,
+          57.0,
+          -873.3000000119209
+        ],
+        "server_cpu_fraction_one_core": 0.17424874791318865,
+        "server_entities_range": [
+          315,
+          323
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 1200,
+        "steady_window_elapsed_seconds": 29.95,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 1200,
+            "mean": 8.70288975,
+            "p95": 11.2912,
+            "p99": 13.4045,
+            "max": 17.0081
+          },
+          "valid_frame": {
+            "n": 8131,
+            "mean": 7.37986552699545,
+            "p95": 10.1227,
+            "p99": 11.1854,
+            "max": 197.2296
+          },
+          "raw_frame": {
+            "n": 8131,
+            "mean": 7.37986552699545,
+            "p95": 10.1227,
+            "p99": 11.1854,
+            "max": 197.2296
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 127.9450421406549,
+          "path_horizontal_blocks": 11.631215600051766,
+          "net_horizontal_displacement": 0.0
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 20.23076923076923,
+            "p95": 21.0,
+            "p99": 21.0,
+            "max": 21.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 13,
+            "mean": 3540384846.769231,
+            "p95": 3540443136,
+            "p99": 3540443136,
+            "max": 3540443136
+          },
+          "private_bytes": {
+            "n": 13,
+            "mean": 4631498752,
+            "p95": 4631498752,
+            "p99": 4631498752,
+            "max": 4631498752
+          }
+        }
+      },
+      "lifecycle_3": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 4077,
+        "frame": {
+          "n": 4077,
+          "mean": 7.345057444199166,
+          "p95": 9.5066,
+          "p99": 10.4441,
+          "max": 14.4336
+        },
+        "fps": 136.14597402362867,
+        "render_wall": {
+          "n": 4077,
+          "mean": 2.4164492273730684,
+          "p95": 3.0123,
+          "p99": 3.5326,
+          "max": 9.8548
+        },
+        "render_cpu_mean_ms": 2.2228354181996566,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 600,
+          "mean": 8.217751166666666,
+          "p95": 10.3427,
+          "p99": 12.3223,
+          "max": 16.1658
+        },
+        "event_tick_body": {
+          "n": 600,
+          "mean": 8.217961666666667,
+          "p95": 10.343,
+          "p99": 12.3227,
+          "max": 16.1667
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 600,
+          "mean": 49.9935265,
+          "p95": 52.3222,
+          "p99": 54.7424,
+          "max": 58.554
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 917823176,
+        "heap_max": 2403869208,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.12129684053919476,
+        "start_position": [
+          -289.30000001192093,
+          57.121296840539195,
+          -873.3000000119209
+        ],
+        "end_position": [
+          -289.30000001192093,
+          57.0,
+          -873.3000000119209
+        ],
+        "server_cpu_fraction_one_core": 0.15025041736227046,
+        "server_entities_range": [
+          319,
+          327
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 1200,
+        "steady_window_elapsed_seconds": 29.95,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 1200,
+            "mean": 8.682548833333334,
+            "p95": 11.3761,
+            "p99": 13.4434,
+            "max": 16.1658
+          },
+          "valid_frame": {
+            "n": 8139,
+            "mean": 7.371522570340336,
+            "p95": 10.1232,
+            "p99": 11.104,
+            "max": 196.8527
+          },
+          "raw_frame": {
+            "n": 8139,
+            "mean": 7.371522570340336,
+            "p95": 10.1232,
+            "p99": 11.104,
+            "max": 196.8527
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 127.02918486358178,
+          "path_horizontal_blocks": 7.312743416255557,
+          "net_horizontal_displacement": 0.0
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 20.307692307692307,
+            "p95": 21.0,
+            "p99": 21.0,
+            "max": 21.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 13,
+            "mean": 3513457742.769231,
+            "p95": 3535826944,
+            "p99": 3535826944,
+            "max": 3535826944
+          },
+          "private_bytes": {
+            "n": 13,
+            "mean": 4631359488,
+            "p95": 4631359488,
+            "p99": 4631359488,
+            "max": 4631359488
+          }
+        }
+      },
+      "lifecycle_4": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 4071,
+        "frame": {
+          "n": 4071,
+          "mean": 7.357761974944731,
+          "p95": 9.6099,
+          "p99": 10.3946,
+          "max": 12.837
+        },
+        "fps": 135.91089293256346,
+        "render_wall": {
+          "n": 4071,
+          "mean": 2.481913854089904,
+          "p95": 3.1759,
+          "p99": 3.8142,
+          "max": 6.9914
+        },
+        "render_cpu_mean_ms": 2.310550233357897,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 600,
+          "mean": 7.886181833333334,
+          "p95": 10.9578,
+          "p99": 12.7268,
+          "max": 19.505
+        },
+        "event_tick_body": {
+          "n": 600,
+          "mean": 7.886351166666667,
+          "p95": 10.9578,
+          "p99": 12.7277,
+          "max": 19.5056
+        },
+        "tps": 19.998025128358492,
+        "tick_intervals": {
+          "n": 600,
+          "mean": 50.00493766666666,
+          "p95": 52.6994,
+          "p99": 55.3495,
+          "max": 59.6149
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 918420696,
+        "heap_max": 2406006208,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 1.252203340253729,
+        "start_position": [
+          -289.30000001192093,
+          58.25220334025373,
+          -873.3000000119209
+        ],
+        "end_position": [
+          -289.30000001192093,
+          57.0,
+          -873.3000000119209
+        ],
+        "server_cpu_fraction_one_core": 0.14396594892338507,
+        "server_entities_range": [
+          319,
+          328
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 1200,
+        "steady_window_elapsed_seconds": 29.955,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 1200,
+            "mean": 8.169605833333334,
+            "p95": 10.8135,
+            "p99": 12.8064,
+            "max": 19.505
+          },
+          "valid_frame": {
+            "n": 8129,
+            "mean": 7.381810591708697,
+            "p95": 10.0841,
+            "p99": 11.0055,
+            "max": 179.4831
+          },
+          "raw_frame": {
+            "n": 8129,
+            "mean": 7.381810591708697,
+            "p95": 10.0841,
+            "p99": 11.0055,
+            "max": 179.4831
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 127.16613523771662,
+          "path_horizontal_blocks": 9.187987561921622,
+          "net_horizontal_displacement": 0.0
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 14,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 14,
+            "mean": 20.285714285714285,
+            "p95": 21.0,
+            "p99": 21.0,
+            "max": 21.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 13,
+            "mean": 3536579662.769231,
+            "p95": 3536596992,
+            "p99": 3536596992,
+            "max": 3536596992
+          },
+          "private_bytes": {
+            "n": 13,
+            "mean": 4635488256,
+            "p95": 4635488256,
+            "p99": 4635488256,
+            "max": 4635488256
+          }
+        }
+      },
+      "lifecycle_5": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 4114,
+        "frame": {
+          "n": 4114,
+          "mean": 7.279972386971317,
+          "p95": 9.4828,
+          "p99": 10.2059,
+          "max": 12.3259
+        },
+        "fps": 137.36315838088356,
+        "render_wall": {
+          "n": 4114,
+          "mean": 1.4370685950413222,
+          "p95": 1.8276,
+          "p99": 2.2566,
+          "max": 5.6511
+        },
+        "render_cpu_mean_ms": 1.2115641711229947,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 600,
+          "mean": 8.983113833333332,
+          "p95": 11.9262,
+          "p99": 13.9017,
+          "max": 47.7326
+        },
+        "event_tick_body": {
+          "n": 600,
+          "mean": 8.9832455,
+          "p95": 11.926,
+          "p99": 13.9021,
+          "max": 47.7329
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 600,
+          "mean": 49.997873166666665,
+          "p95": 53.7907,
+          "p99": 56.3392,
+          "max": 81.064
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 917761456,
+        "heap_max": 2408667688,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 2.212525199448085,
+        "start_position": [
+          -295.7269575057498,
+          60.0,
+          -868.6656767783031
+        ],
+        "end_position": [
+          -294.1476695292301,
+          60.0,
+          -867.116122894312
+        ],
+        "server_cpu_fraction_one_core": 0.16329844068249355,
+        "server_entities_range": [
+          323,
+          335
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 1200,
+        "steady_window_elapsed_seconds": 29.949,
+        "path_horizontal_blocks": 2.2125251994480855,
+        "net_horizontal_displacement": 2.2125251980874303,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 1200,
+            "mean": 8.75898675,
+            "p95": 11.2509,
+            "p99": 13.5325,
+            "max": 47.7326
+          },
+          "valid_frame": {
+            "n": 8171,
+            "mean": 7.3426077591482075,
+            "p95": 9.9905,
+            "p99": 11.0905,
+            "max": 202.1641
+          },
+          "raw_frame": {
+            "n": 8171,
+            "mean": 7.3426077591482075,
+            "p95": 9.9905,
+            "p99": 11.0905,
+            "max": 202.1641
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 82.03721257423184,
+          "path_horizontal_blocks": 56.328609555527926,
+          "net_horizontal_displacement": 7.857495526867085
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 16.46153846153846,
+            "p95": 17.0,
+            "p99": 17.0,
+            "max": 17.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 13,
+            "mean": 3537217693.5384617,
+            "p95": 3537403904,
+            "p99": 3537403904,
+            "max": 3537403904
+          },
+          "private_bytes": {
+            "n": 13,
+            "mean": 4635860046.769231,
+            "p95": 4635979776,
+            "p99": 4635979776,
+            "max": 4635979776
+          }
+        }
+      },
+      "long_idle": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 78121,
+        "frame": {
+          "n": 78121,
+          "mean": 7.295719288027547,
+          "p95": 9.4707,
+          "p99": 10.1483,
+          "max": 22.4029
+        },
+        "fps": 137.06667711859808,
+        "render_wall": {
+          "n": 78121,
+          "mean": 1.4147314755315472,
+          "p95": 1.8306,
+          "p99": 2.2255,
+          "max": 17.3379
+        },
+        "render_cpu_mean_ms": 1.2390634400481304,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 11400,
+          "mean": 8.263712157894737,
+          "p95": 10.5524,
+          "p99": 12.7973,
+          "max": 35.5424
+        },
+        "event_tick_body": {
+          "n": 11400,
+          "mean": 8.263605701754386,
+          "p95": 10.5524,
+          "p99": 12.7973,
+          "max": 35.5445
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 11400,
+          "mean": 49.99994950877193,
+          "p95": 52.5242,
+          "p99": 54.8453,
+          "max": 78.5929
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 910882776,
+        "heap_max": 2414633352,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 1.0790569871041544,
+        "start_position": [
+          -294.1476695292301,
+          60.0,
+          -867.116122894312
+        ],
+        "end_position": [
+          -293.88083761300004,
+          60.0,
+          -867.4919440702805
+        ],
+        "server_cpu_fraction_one_core": 0.15267184780472742,
+        "server_entities_range": [
+          310,
+          331
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 12000,
+        "steady_window_elapsed_seconds": 569.952,
+        "path_horizontal_blocks": 1.0790569871041544,
+        "net_horizontal_displacement": 0.4609130371614423,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 12000,
+            "mean": 8.291252625,
+            "p95": 10.6031,
+            "p99": 12.8133,
+            "max": 35.5424
+          },
+          "valid_frame": {
+            "n": 82205,
+            "mean": 7.298786319566936,
+            "p95": 9.4738,
+            "p99": 10.1483,
+            "max": 228.019
+          },
+          "raw_frame": {
+            "n": 82205,
+            "mean": 7.298786319566936,
+            "p95": 9.4738,
+            "p99": 10.1483,
+            "max": 228.019
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 1.0790569871041544,
+          "path_horizontal_blocks": 1.0790569871041544,
+          "net_horizontal_displacement": 0.4609130371614423
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 246,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 246,
+            "mean": 16.70731707317073,
+            "p95": 18.0,
+            "p99": 18.0,
+            "max": 19.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 246,
+            "mean": 3543631205.98374,
+            "p95": 3544113152,
+            "p99": 3544145920,
+            "max": 3544297472
+          },
+          "private_bytes": {
+            "n": 246,
+            "mean": 4640827058.99187,
+            "p95": 4640931840,
+            "p99": 4641054720,
+            "max": 4641210368
+          }
+        }
+      },
+      "reload_idle": {
+        "window_valid_fraction": 0.0,
+        "raw_frames": 12182,
+        "frame": null,
+        "fps": null,
+        "render_wall": null,
+        "render_cpu_mean_ms": null,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 1800,
+          "mean": 8.131914055555555,
+          "p95": 10.395,
+          "p99": 12.5581,
+          "max": 17.2406
+        },
+        "event_tick_body": {
+          "n": 1800,
+          "mean": 8.131553833333333,
+          "p95": 10.3942,
+          "p99": 12.5585,
+          "max": 17.2407
+        },
+        "tps": 19.999257805321445,
+        "tick_intervals": {
+          "n": 1800,
+          "mean": 50.00185555555556,
+          "p95": 52.5759,
+          "p99": 54.5378,
+          "max": 56.88
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 910275768,
+        "heap_max": 2414714592,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.0,
+        "start_position": [
+          -293.88083761300004,
+          60.0,
+          -867.4919440702805
+        ],
+        "end_position": [
+          -293.88083761300004,
+          60.0,
+          -867.4919440702805
+        ],
+        "server_cpu_fraction_one_core": 0.15007837426211465,
+        "server_entities_range": [
+          308,
+          321
+        ],
+        "eligible_for_frame_comparison": false,
+        "scene_complete": false,
+        "last_recorded_tick_age": 2400,
+        "steady_window_elapsed_seconds": 89.953,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 2400,
+            "mean": 8.111264625,
+            "p95": 10.4493,
+            "p99": 12.5581,
+            "max": 17.2406
+          },
+          "valid_frame": {
+            "n": 5,
+            "mean": 67.80288,
+            "p95": 309.8289,
+            "p99": 309.8289,
+            "max": 309.8289
+          },
+          "raw_frame": {
+            "n": 16908,
+            "mean": 7.35611970073338,
+            "p95": 8.0384,
+            "p99": 8.1447,
+            "max": 309.8289
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 0.0,
+          "path_horizontal_blocks": 0.0,
+          "net_horizontal_displacement": 0.0
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20552_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20552_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 10.948717948717949,
+            "p95": 11.0,
+            "p99": 11.0,
+            "max": 11.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 39,
+            "mean": 3556271760.4102564,
+            "p95": 3617128448,
+            "p99": 3621949440,
+            "max": 3621949440
+          },
+          "private_bytes": {
+            "n": 39,
+            "mean": 4652959586.461538,
+            "p95": 4714668032,
+            "p99": 4721426432,
+            "max": 4721426432
+          }
+        }
+      }
+    }
+  },
+  "world-mod": {
+    "complete": false,
+    "invalid": false,
+    "forced_stop_fixture": false,
+    "reload_new_server_marker": false,
+    "scenes": {
+      "startup_warmup": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 12273,
+        "frame": {
+          "n": 12273,
+          "mean": 7.327932306689481,
+          "p95": 9.5993,
+          "p99": 10.4088,
+          "max": 27.063701
+        },
+        "fps": 136.46414270054402,
+        "render_wall": {
+          "n": 12273,
+          "mean": 2.3738509306608,
+          "p95": 3.0763,
+          "p99": 3.760201,
+          "max": 22.305701
+        },
+        "render_cpu_mean_ms": 2.2241403894728267,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 1800,
+          "mean": 6.814061330555556,
+          "p95": 9.2465,
+          "p99": 15.0965,
+          "max": 24.0026
+        },
+        "event_tick_body": {
+          "n": 1800,
+          "mean": 6.814876626111111,
+          "p95": 9.2508,
+          "p99": 15.0976,
+          "max": 24.0065
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 1800,
+          "mean": 49.992193611666664,
+          "p95": 52.7549,
+          "p99": 56.5732,
+          "max": 65.797899
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 857210496,
+        "heap_max": 1968439320,
+        "new_chunk_events": 59,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.0,
+        "start_position": [
+          6.5,
+          117.0,
+          -5.5
+        ],
+        "end_position": [
+          6.5,
+          117.0,
+          -5.5
+        ],
+        "server_cpu_fraction_one_core": 0.1226553031566541,
+        "server_entities_range": [
+          268,
+          281
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 2400,
+        "steady_window_elapsed_seconds": 89.937,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 2400,
+            "mean": 7.931331287083333,
+            "p95": 15.2275,
+            "p99": 28.5627,
+            "max": 91.8665
+          },
+          "valid_frame": {
+            "n": 17883,
+            "mean": 7.447604523849466,
+            "p95": 9.8615,
+            "p99": 11.985999,
+            "max": 78.68
+          },
+          "raw_frame": {
+            "n": 17889,
+            "mean": 7.583334110291241,
+            "p95": 9.8652,
+            "p99": 12.135699,
+            "max": 1271.9044
+          },
+          "new_chunk_events": 841,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 841,
+          "path3d_blocks": 0.0,
+          "path_horizontal_blocks": 0.0,
+          "net_horizontal_displacement": 0.0
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20644_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20644_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 28.487179487179485,
+            "p95": 29.0,
+            "p99": 29.0,
+            "max": 29.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 39,
+            "mean": 3016343657.025641,
+            "p95": 3027156992,
+            "p99": 3027218432,
+            "max": 3027218432
+          },
+          "private_bytes": {
+            "n": 39,
+            "mean": 3617635616.820513,
+            "p95": 3628396544,
+            "p99": 3628535808,
+            "max": 3628535808
+          }
+        }
+      },
+      "idle": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 12269,
+        "frame": {
+          "n": 12269,
+          "mean": 7.3317799250142635,
+          "p95": 9.523,
+          "p99": 10.273,
+          "max": 22.0372
+        },
+        "fps": 136.3925281756264,
+        "render_wall": {
+          "n": 12269,
+          "mean": 2.303782753280626,
+          "p95": 2.9639,
+          "p99": 3.5082,
+          "max": 16.8366
+        },
+        "render_cpu_mean_ms": 2.089870812617165,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 1800,
+          "mean": 6.271838771666666,
+          "p95": 7.8001,
+          "p99": 9.5289,
+          "max": 26.6419
+        },
+        "event_tick_body": {
+          "n": 1800,
+          "mean": 6.272373555555555,
+          "p95": 7.8139,
+          "p99": 9.5328,
+          "max": 26.6429
+        },
+        "tps": 19.99999297778024,
+        "tick_intervals": {
+          "n": 1800,
+          "mean": 50.00001755555556,
+          "p95": 52.1094,
+          "p99": 53.5059,
+          "max": 71.772
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 838942088,
+        "heap_max": 2022762488,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 5.269945177062971,
+        "start_position": [
+          6.5,
+          117.0,
+          -5.5
+        ],
+        "end_position": [
+          6.4640258953855625,
+          115.0,
+          -7.567795909745379
+        ],
+        "server_cpu_fraction_one_core": 0.10943458104968261,
+        "server_entities_range": [
+          272,
+          283
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 2400,
+        "steady_window_elapsed_seconds": 89.951,
+        "path_horizontal_blocks": 2.1065620340067874,
+        "net_horizontal_displacement": 2.0681088125537617,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 2400,
+            "mean": 6.381813037083333,
+            "p95": 8.1688,
+            "p99": 9.9503,
+            "max": 26.6419
+          },
+          "valid_frame": {
+            "n": 16331,
+            "mean": 7.347995615761436,
+            "p95": 9.5245,
+            "p99": 10.3144,
+            "max": 256.7073
+          },
+          "raw_frame": {
+            "n": 16331,
+            "mean": 7.347995615761436,
+            "p95": 9.5245,
+            "p99": 10.3144,
+            "max": 256.7073
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 5.269945177062972,
+          "path_horizontal_blocks": 2.1065620340067874,
+          "net_horizontal_displacement": 2.0681088125537617
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20644_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 40,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20644_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 40,
+            "mean": 28.525,
+            "p95": 29.0,
+            "p99": 30.0,
+            "max": 30.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 40,
+            "mean": 2981066342.4,
+            "p95": 3024318464,
+            "p99": 3048300544,
+            "max": 3048300544
+          },
+          "private_bytes": {
+            "n": 40,
+            "mean": 3621469696,
+            "p95": 3625811968,
+            "p99": 3645829120,
+            "max": 3645829120
+          }
+        }
+      },
+      "travel_new": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 20518,
+        "frame": {
+          "n": 20518,
+          "mean": 7.308188483282971,
+          "p95": 9.2845,
+          "p99": 10.0351,
+          "max": 29.5461
+        },
+        "fps": 136.8328146280625,
+        "render_wall": {
+          "n": 20518,
+          "mean": 1.6949619797251194,
+          "p95": 2.333,
+          "p99": 3.1535,
+          "max": 16.2325
+        },
+        "render_cpu_mean_ms": 1.440808070962082,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 6.340434,
+          "p95": 7.9273,
+          "p99": 9.8833,
+          "max": 73.0926
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 6.340122366666667,
+          "p95": 7.9291,
+          "p99": 9.8815,
+          "max": 73.0986
+        },
+        "tps": 19.99992910691796,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 50.00017723333333,
+          "p95": 51.9987,
+          "p99": 54.0044,
+          "max": 116.3869
+        },
+        "native_ticks_over50": 1,
+        "heap_min": 843287144,
+        "heap_max": 1988029688,
+        "new_chunk_events": 29,
+        "old_chunk_events": 0,
+        "path3d_blocks": 379.7923295586702,
+        "start_position": [
+          -18.30000001192093,
+          101.0,
+          -17.69999998807907
+        ],
+        "end_position": [
+          -27.69999998807907,
+          85.0,
+          -37.69999998807907
+        ],
+        "server_cpu_fraction_one_core": 0.1103492830943648,
+        "server_entities_range": [
+          265,
+          289
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.95,
+        "path_horizontal_blocks": 151.922448160924,
+        "net_horizontal_displacement": 22.09886873918602,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 6.66622725,
+            "p95": 8.5687,
+            "p99": 15.8407,
+            "max": 135.7837
+          },
+          "valid_frame": {
+            "n": 24489,
+            "mean": 7.350219657805545,
+            "p95": 9.3576,
+            "p99": 10.3043,
+            "max": 195.2432
+          },
+          "raw_frame": {
+            "n": 24489,
+            "mean": 7.350219657805545,
+            "p95": 9.3576,
+            "p99": 10.3043,
+            "max": 195.2432
+          },
+          "new_chunk_events": 116,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 116,
+          "path3d_blocks": 498.44740277669445,
+          "path_horizontal_blocks": 194.1542698945294,
+          "net_horizontal_displacement": 45.553599058519964
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20644_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 66,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20644_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 66,
+            "mean": 23.333333333333332,
+            "p95": 25.0,
+            "p99": 26.0,
+            "max": 26.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 65,
+            "mean": 2989273781.169231,
+            "p95": 2992631808,
+            "p99": 2992656384,
+            "max": 2992656384
+          },
+          "private_bytes": {
+            "n": 65,
+            "mean": 3834702926.769231,
+            "p95": 3851407360,
+            "p99": 3851489280,
+            "max": 3851489280
+          }
+        }
+      },
+      "travel_return": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 20425,
+        "frame": {
+          "n": 20425,
+          "mean": 7.341739358629131,
+          "p95": 9.2574,
+          "p99": 9.8565,
+          "max": 18.2186
+        },
+        "fps": 136.20750494562947,
+        "render_wall": {
+          "n": 20425,
+          "mean": 1.0378360930232557,
+          "p95": 1.3484,
+          "p99": 1.6073,
+          "max": 10.0159
+        },
+        "render_cpu_mean_ms": 0.8544981640146879,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 6.347230102666667,
+          "p95": 7.808399,
+          "p99": 9.2021,
+          "max": 30.9658
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 6.347059733333333,
+          "p95": 7.8103,
+          "p99": 9.2023,
+          "max": 30.9672
+        },
+        "tps": 19.99942581648481,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 50.0014355,
+          "p95": 52.0062,
+          "p99": 53.5937,
+          "max": 73.0578
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 834530432,
+        "heap_max": 2013012784,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 626.0185923090658,
+        "start_position": [
+          -28.69999998807907,
+          85.24918707874468,
+          -32.69999998807907
+        ],
+        "end_position": [
+          -28.69999998807907,
+          85.16610926093821,
+          -32.69999998807907
+        ],
+        "server_cpu_fraction_one_core": 0.10899103064252608,
+        "server_entities_range": [
+          281,
+          294
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.955,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 6.3253376688888885,
+            "p95": 7.7744,
+            "p99": 9.2681,
+            "max": 30.9658
+          },
+          "valid_frame": {
+            "n": 24489,
+            "mean": 7.350395365266038,
+            "p95": 9.2651,
+            "p99": 9.873,
+            "max": 192.4219
+          },
+          "raw_frame": {
+            "n": 24489,
+            "mean": 7.350395365266038,
+            "p95": 9.2651,
+            "p99": 9.873,
+            "max": 192.4219
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 752.1916745788268,
+          "path_horizontal_blocks": 8.653487337758198,
+          "net_horizontal_displacement": 5.0990195135927845
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20644_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20644_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 18.26153846153846,
+            "p95": 19.0,
+            "p99": 19.0,
+            "max": 19.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 66,
+            "mean": 2999851194.181818,
+            "p95": 3000029184,
+            "p99": 3000041472,
+            "max": 3000041472
+          },
+          "private_bytes": {
+            "n": 66,
+            "mean": 3872003351.2727275,
+            "p95": 3872079872,
+            "p99": 3872133120,
+            "max": 3872133120
+          }
+        }
+      },
+      "travel_settle": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 4078,
+        "frame": {
+          "n": 4078,
+          "mean": 7.345628666012751,
+          "p95": 9.1044,
+          "p99": 9.7114,
+          "max": 15.1042
+        },
+        "fps": 136.13538683582894,
+        "render_wall": {
+          "n": 4078,
+          "mean": 1.0018832515939187,
+          "p95": 1.2645,
+          "p99": 1.4549,
+          "max": 8.5475
+        },
+        "render_cpu_mean_ms": 0.7931277587052477,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 600,
+          "mean": 6.2277431666666665,
+          "p95": 7.4336,
+          "p99": 8.0316,
+          "max": 11.2735
+        },
+        "event_tick_body": {
+          "n": 600,
+          "mean": 6.227683666666667,
+          "p95": 7.4334,
+          "p99": 8.032,
+          "max": 11.2737
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 600,
+          "mean": 49.999893,
+          "p95": 51.6558,
+          "p99": 52.8872,
+          "max": 54.3796
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 842216600,
+        "heap_max": 2007958096,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.0,
+        "start_position": [
+          -28.69999998807907,
+          84.0,
+          -32.69999998807907
+        ],
+        "end_position": [
+          -28.69999998807907,
+          84.0,
+          -32.69999998807907
+        ],
+        "server_cpu_fraction_one_core": 0.10329026442307691,
+        "server_entities_range": [
+          280,
+          286
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 1200,
+        "steady_window_elapsed_seconds": 29.952,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 1200,
+            "mean": 6.248284583333334,
+            "p95": 7.4336,
+            "p99": 8.1699,
+            "max": 14.5034
+          },
+          "valid_frame": {
+            "n": 8148,
+            "mean": 7.3630897152675505,
+            "p95": 9.1641,
+            "p99": 9.7728,
+            "max": 184.366
+          },
+          "raw_frame": {
+            "n": 8148,
+            "mean": 7.3630897152675505,
+            "p95": 9.1641,
+            "p99": 9.7728,
+            "max": 184.366
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 1.2491870787446828,
+          "path_horizontal_blocks": 0.0,
+          "net_horizontal_displacement": 0.0
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20644_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20644_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 13,
+            "mean": 17.846153846153847,
+            "p95": 19.0,
+            "p99": 19.0,
+            "max": 19.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 13,
+            "mean": 2999188873.8461537,
+            "p95": 2999648256,
+            "p99": 2999648256,
+            "max": 2999648256
+          },
+          "private_bytes": {
+            "n": 13,
+            "mean": 3870982144,
+            "p95": 3871477760,
+            "p99": 3871477760,
+            "max": 3871477760
+          }
+        }
+      },
+      "vanilla_village": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 20356,
+        "frame": {
+          "n": 20356,
+          "mean": 7.366581420711338,
+          "p95": 9.5342,
+          "p99": 10.3675,
+          "max": 198.0204
+        },
+        "fps": 135.74817719226908,
+        "render_wall": {
+          "n": 20356,
+          "mean": 2.3489610139516603,
+          "p95": 3.0278,
+          "p99": 3.7146,
+          "max": 28.1942
+        },
+        "render_cpu_mean_ms": 2.1346593142071133,
+        "frames_over50": 2,
+        "frames_over100": 1,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 8.5033256,
+          "p95": 11.3558,
+          "p99": 18.0992,
+          "max": 36.7611
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 8.503338833333334,
+          "p95": 11.356,
+          "p99": 18.0995,
+          "max": 36.8223
+        },
+        "tps": 19.999878854067155,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 50.000302866666665,
+          "p95": 52.4827,
+          "p99": 56.8561,
+          "max": 76.7274
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 946739408,
+        "heap_max": 2404536792,
+        "new_chunk_events": 182,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.0,
+        "start_position": [
+          -303.5,
+          64.0,
+          -879.5
+        ],
+        "end_position": [
+          -303.5,
+          64.0,
+          -879.5
+        ],
+        "server_cpu_fraction_one_core": 0.16609592466872514,
+        "server_entities_range": [
+          290,
+          306
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.951,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 9.468790027777779,
+            "p95": 13.2041,
+            "p99": 25.4307,
+            "max": 1383.6174
+          },
+          "valid_frame": {
+            "n": 24889,
+            "mean": 7.409008477640725,
+            "p95": 9.599,
+            "p99": 10.7306,
+            "max": 198.0204
+          },
+          "raw_frame": {
+            "n": 24889,
+            "mean": 7.409008477640725,
+            "p95": 9.599,
+            "p99": 10.7306,
+            "max": 198.0204
+          },
+          "new_chunk_events": 841,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 841,
+          "path3d_blocks": 0.0,
+          "path_horizontal_blocks": 0.0,
+          "net_horizontal_displacement": 0.0
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20644_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20644_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 21.138461538461538,
+            "p95": 22.0,
+            "p99": 28.0,
+            "max": 28.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 65,
+            "mean": 3490270979.9384613,
+            "p95": 3503874048,
+            "p99": 3507666944,
+            "max": 3507666944
+          },
+          "private_bytes": {
+            "n": 65,
+            "mean": 4400124849.230769,
+            "p95": 4414283776,
+            "p99": 4417830912,
+            "max": 4417830912
+          }
+        }
+      },
+      "combat_6": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 12230,
+        "frame": {
+          "n": 12230,
+          "mean": 7.355155208503679,
+          "p95": 9.6328,
+          "p99": 10.3701,
+          "max": 24.737
+        },
+        "fps": 135.95906159041317,
+        "render_wall": {
+          "n": 12230,
+          "mean": 2.3889388062142274,
+          "p95": 3.0501,
+          "p99": 3.5404,
+          "max": 13.5786
+        },
+        "render_cpu_mean_ms": 2.220461978740801,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 1800,
+          "mean": 9.023791944444444,
+          "p95": 11.1562,
+          "p99": 13.8101,
+          "max": 38.5441
+        },
+        "event_tick_body": {
+          "n": 1800,
+          "mean": 9.023747777777778,
+          "p95": 11.1564,
+          "p99": 13.8099,
+          "max": 38.5446
+        },
+        "tps": 19.99948039127779,
+        "tick_intervals": {
+          "n": 1800,
+          "mean": 50.001299055555556,
+          "p95": 52.2479,
+          "p99": 54.2675,
+          "max": 79.7362
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 958203216,
+        "heap_max": 2429212576,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.0,
+        "start_position": [
+          -303.7923389448201,
+          63.0,
+          -863.6904953018635
+        ],
+        "end_position": [
+          -303.7923389448201,
+          63.0,
+          -863.6904953018635
+        ],
+        "server_cpu_fraction_one_core": 0.16935739377904263,
+        "server_entities_range": [
+          299,
+          311
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 2400,
+        "steady_window_elapsed_seconds": 89.954,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 2400,
+            "mean": 9.195305666666666,
+            "p95": 11.6451,
+            "p99": 16.1515,
+            "max": 52.1683
+          },
+          "valid_frame": {
+            "n": 16250,
+            "mean": 7.384638793846154,
+            "p95": 9.766,
+            "p99": 10.6292,
+            "max": 272.9522
+          },
+          "raw_frame": {
+            "n": 16250,
+            "mean": 7.384638793846154,
+            "p95": 9.766,
+            "p99": 10.6292,
+            "max": 272.9522
+          },
+          "new_chunk_events": 29,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 29,
+          "path3d_blocks": 39.16731733079923,
+          "path_horizontal_blocks": 27.607254548156234,
+          "net_horizontal_displacement": 15.812207336708507
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20644_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20644_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 22.897435897435898,
+            "p95": 24.0,
+            "p99": 24.0,
+            "max": 24.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 39,
+            "mean": 3535915270.5641026,
+            "p95": 3536510976,
+            "p99": 3536855040,
+            "max": 3536855040
+          },
+          "private_bytes": {
+            "n": 39,
+            "mean": 4497290581.333333,
+            "p95": 4498067456,
+            "p99": 4498132992,
+            "max": 4498132992
+          }
+        }
+      },
+      "combat_16": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 12202,
+        "frame": {
+          "n": 12202,
+          "mean": 7.371835772824127,
+          "p95": 9.6708,
+          "p99": 10.4021,
+          "max": 20.1781
+        },
+        "fps": 135.65142127642693,
+        "render_wall": {
+          "n": 12202,
+          "mean": 2.694529544336994,
+          "p95": 3.3664,
+          "p99": 4.05,
+          "max": 15.6799
+        },
+        "render_cpu_mean_ms": 2.4483691198164235,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 1800,
+          "mean": 8.256265936666667,
+          "p95": 10.72,
+          "p99": 13.194899,
+          "max": 17.9291
+        },
+        "event_tick_body": {
+          "n": 1800,
+          "mean": 8.256508222222223,
+          "p95": 10.7195,
+          "p99": 13.1952,
+          "max": 17.9756
+        },
+        "tps": 19.99929918011384,
+        "tick_intervals": {
+          "n": 1800,
+          "mean": 50.00175211111111,
+          "p95": 52.5201,
+          "p99": 55.2214,
+          "max": 59.9129
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 939139968,
+        "heap_max": 2437555072,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.0,
+        "start_position": [
+          -303.2088449171084,
+          63.0,
+          -859.6299740740475
+        ],
+        "end_position": [
+          -303.2088449171084,
+          63.0,
+          -859.6299740740475
+        ],
+        "server_cpu_fraction_one_core": 0.15893540031571693,
+        "server_entities_range": [
+          303,
+          319
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 2400,
+        "steady_window_elapsed_seconds": 89.954,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 2400,
+            "mean": 8.5191547475,
+            "p95": 11.3035,
+            "p99": 13.951899,
+            "max": 21.7658
+          },
+          "valid_frame": {
+            "n": 16237,
+            "mean": 7.390559352097062,
+            "p95": 9.8754,
+            "p99": 10.8846,
+            "max": 215.0145
+          },
+          "raw_frame": {
+            "n": 16237,
+            "mean": 7.390559352097062,
+            "p95": 9.8754,
+            "p99": 10.8846,
+            "max": 215.0145
+          },
+          "new_chunk_events": 29,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 29,
+          "path3d_blocks": 78.08332246708464,
+          "path_horizontal_blocks": 64.52303047515358,
+          "net_horizontal_displacement": 4.102230846980667
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20644_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20644_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 39,
+            "mean": 21.71794871794872,
+            "p95": 22.0,
+            "p99": 23.0,
+            "max": 23.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 39,
+            "mean": 3565623348.5128207,
+            "p95": 3610181632,
+            "p99": 3613597696,
+            "max": 3613597696
+          },
+          "private_bytes": {
+            "n": 39,
+            "mean": 4580253696,
+            "p95": 4626386944,
+            "p99": 4628926464,
+            "max": 4628926464
+          }
+        }
+      },
+      "mythic_combat": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 12230,
+        "frame": {
+          "n": 12230,
+          "mean": 7.355407162714636,
+          "p95": 9.6807,
+          "p99": 10.682,
+          "max": 25.5998
+        },
+        "fps": 135.9544044100114,
+        "render_wall": {
+          "n": 12230,
+          "mean": 2.3975486753883892,
+          "p95": 3.1499,
+          "p99": 4.0199,
+          "max": 20.707
+        },
+        "render_cpu_mean_ms": 2.1565821749795586,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 1800,
+          "mean": 8.256220944444445,
+          "p95": 11.1254,
+          "p99": 13.9707,
+          "max": 52.2192
+        },
+        "event_tick_body": {
+          "n": 1800,
+          "mean": 8.256254222222223,
+          "p95": 11.1266,
+          "p99": 13.9711,
+          "max": 52.2216
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 1800,
+          "mean": 49.99933761111111,
+          "p95": 52.8625,
+          "p99": 55.8157,
+          "max": 93.7613
+        },
+        "native_ticks_over50": 1,
+        "heap_min": 940816472,
+        "heap_max": 2422464864,
+        "new_chunk_events": 1,
+        "old_chunk_events": 0,
+        "path3d_blocks": 24.597175876212436,
+        "start_position": [
+          -306.20218615172286,
+          63.60912449585444,
+          -851.855062652809
+        ],
+        "end_position": [
+          -308.33927959582024,
+          63.0,
+          -869.3347620442743
+        ],
+        "server_cpu_fraction_one_core": 0.1587617004246615,
+        "server_entities_range": [
+          304,
+          319
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 2400,
+        "steady_window_elapsed_seconds": 89.954,
+        "path_horizontal_blocks": 24.151655652054156,
+        "net_horizontal_displacement": 17.609856876329093,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 2400,
+            "mean": 8.525719833333333,
+            "p95": 11.704,
+            "p99": 15.6555,
+            "max": 52.2192
+          },
+          "valid_frame": {
+            "n": 16261,
+            "mean": 7.379772879896685,
+            "p95": 9.9522,
+            "p99": 11.2041,
+            "max": 215.8878
+          },
+          "raw_frame": {
+            "n": 16261,
+            "mean": 7.379772879896685,
+            "p95": 9.9522,
+            "p99": 11.2041,
+            "max": 215.8878
+          },
+          "new_chunk_events": 41,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 41,
+          "path3d_blocks": 116.72262708464592,
+          "path_horizontal_blocks": 87.35550531381014,
+          "net_horizontal_displacement": 10.977443670526736
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20644_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 40,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20644_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 40,
+            "mean": 21.575,
+            "p95": 22.0,
+            "p99": 23.0,
+            "max": 23.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 40,
+            "mean": 3565052211.2,
+            "p95": 3570458624,
+            "p99": 3572359168,
+            "max": 3572359168
+          },
+          "private_bytes": {
+            "n": 40,
+            "mean": 4607497625.6,
+            "p95": 4610535424,
+            "p99": 4612362240,
+            "max": 4612362240
+          }
+        }
+      },
+      "village": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 20369,
+        "frame": {
+          "n": 20369,
+          "mean": 7.361419843880406,
+          "p95": 9.5987,
+          "p99": 10.3284,
+          "max": 20.4386
+        },
+        "fps": 135.8433591899131,
+        "render_wall": {
+          "n": 20369,
+          "mean": 2.2440857184937895,
+          "p95": 2.8422,
+          "p99": 3.4341,
+          "max": 13.136
+        },
+        "render_cpu_mean_ms": 2.0274375276154943,
+        "frames_over50": 0,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 3000,
+          "mean": 8.192290233333333,
+          "p95": 10.4767,
+          "p99": 12.4511,
+          "max": 17.7116
+        },
+        "event_tick_body": {
+          "n": 3000,
+          "mean": 8.192153333333334,
+          "p95": 10.4772,
+          "p99": 12.4515,
+          "max": 17.7327
+        },
+        "tps": 20,
+        "tick_intervals": {
+          "n": 3000,
+          "mean": 49.99940316666667,
+          "p95": 52.3639,
+          "p99": 54.4711,
+          "max": 58.768
+        },
+        "native_ticks_over50": 0,
+        "heap_min": 927774616,
+        "heap_max": 2454360072,
+        "new_chunk_events": 0,
+        "old_chunk_events": 0,
+        "path3d_blocks": 0.0,
+        "start_position": [
+          -308.33927959582024,
+          63.0,
+          -869.3347620442743
+        ],
+        "end_position": [
+          -308.33927959582024,
+          63.0,
+          -869.3347620442743
+        ],
+        "server_cpu_fraction_one_core": 0.154844313733336,
+        "server_entities_range": [
+          298,
+          313
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": true,
+        "last_recorded_tick_age": 3600,
+        "steady_window_elapsed_seconds": 149.949,
+        "path_horizontal_blocks": 0.0,
+        "net_horizontal_displacement": 0.0,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3600,
+            "mean": 8.406837722222223,
+            "p95": 10.9133,
+            "p99": 12.7754,
+            "max": 21.2135
+          },
+          "valid_frame": {
+            "n": 24753,
+            "mean": 7.372564157879853,
+            "p95": 9.5875,
+            "p99": 10.3284,
+            "max": 251.1465
+          },
+          "raw_frame": {
+            "n": 24753,
+            "mean": 7.372564157879853,
+            "p95": 9.5875,
+            "p99": 10.3284,
+            "max": 251.1465
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 0.0,
+          "path_horizontal_blocks": 0.0,
+          "net_horizontal_displacement": 0.0
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20644_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20644_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 65,
+            "mean": 21.661538461538463,
+            "p95": 23.0,
+            "p99": 23.0,
+            "max": 23.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 65,
+            "mean": 3573557531.5692306,
+            "p95": 3574161408,
+            "p99": 3574173696,
+            "max": 3574173696
+          },
+          "private_bytes": {
+            "n": 65,
+            "mean": 4612628480,
+            "p95": 4613017600,
+            "p99": 4613148672,
+            "max": 4613148672
+          }
+        }
+      },
+      "poloz": {
+        "window_valid_fraction": 1.0,
+        "raw_frames": 15902,
+        "frame": {
+          "n": 15902,
+          "mean": 8.029073085146523,
+          "p95": 14.6145,
+          "p99": 19.8694,
+          "max": 52.5194
+        },
+        "fps": 124.54737793456653,
+        "render_wall": {
+          "n": 15902,
+          "mean": 4.132865123883788,
+          "p95": 6.6272,
+          "p99": 8.775,
+          "max": 23.1296
+        },
+        "render_cpu_mean_ms": 3.9155845176707333,
+        "frames_over50": 1,
+        "frames_over100": 0,
+        "native_mspt": {
+          "n": 2500,
+          "mean": 16.01001376,
+          "p95": 23.6949,
+          "p99": 32.6815,
+          "max": 66.7692
+        },
+        "event_tick_body": {
+          "n": 2500,
+          "mean": 16.01023888,
+          "p95": 23.7087,
+          "p99": 32.6816,
+          "max": 66.7704
+        },
+        "tps": 19.998548681323935,
+        "tick_intervals": {
+          "n": 2500,
+          "mean": 50.00362856,
+          "p95": 54.216,
+          "p99": 59.7623,
+          "max": 115.1981
+        },
+        "native_ticks_over50": 3,
+        "heap_min": 931067384,
+        "heap_max": 2436393752,
+        "new_chunk_events": 118,
+        "old_chunk_events": 0,
+        "path3d_blocks": 327.7208606502054,
+        "start_position": [
+          -292.3070157534184,
+          63.0,
+          -862.5306254063503
+        ],
+        "end_position": [
+          -291.69999998807907,
+          61.27113866185337,
+          -922.6999999880791
+        ],
+        "server_cpu_fraction_one_core": 0.32486955199513423,
+        "server_entities_range": [
+          604,
+          1755
+        ],
+        "eligible_for_frame_comparison": true,
+        "scene_complete": false,
+        "last_recorded_tick_age": 3100,
+        "steady_window_elapsed_seconds": 124.954,
+        "path_horizontal_blocks": 128.1513156528652,
+        "net_horizontal_displacement": 60.172436428116825,
+        "full_phase_including_setup": {
+          "scope": "Includes first30s, screenshots and any locate/teleport setup; not steady-state gameplay latency",
+          "native_mspt": {
+            "n": 3100,
+            "mean": 15.034106612903226,
+            "p95": 22.749,
+            "p99": 31.6063,
+            "max": 66.7692
+          },
+          "valid_frame": {
+            "n": 19840,
+            "mean": 7.9504230493951615,
+            "p95": 14.2071,
+            "p99": 19.0132,
+            "max": 245.9843
+          },
+          "raw_frame": {
+            "n": 19840,
+            "mean": 7.9504230493951615,
+            "p95": 14.2071,
+            "p99": 19.0132,
+            "max": 245.9843
+          },
+          "new_chunk_events": 0,
+          "old_chunk_events": 0,
+          "distinct_new_chunk_coordinates": 0,
+          "path3d_blocks": 416.2967373089084,
+          "path_horizontal_blocks": 159.4534147533457,
+          "net_horizontal_displacement": 55.89914352352364
+        },
+        "gpu_3d_engine_utilization_percent": {
+          "pid_20644_luid_0x00000000_0x0000FB18_phys_0_eng_0_engtype_3D": {
+            "n": 55,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "pid_20644_luid_0x00000000_0x00010434_phys_0_eng_0_engtype_3D": {
+            "n": 55,
+            "mean": 22.163636363636364,
+            "p95": 28.0,
+            "p99": 30.0,
+            "max": 30.0
+          }
+        },
+        "gpu_time": "NOT_MEASURED; utilization counter is not GPU frame time",
+        "process_memory_bytes": {
+          "working_set": {
+            "n": 55,
+            "mean": 3589002407.5636363,
+            "p95": 3602022400,
+            "p99": 3605454848,
+            "max": 3605454848
+          },
+          "private_bytes": {
+            "n": 55,
+            "mean": 4656769880.436363,
+            "p95": 4687507456,
+            "p99": 4691128320,
+            "max": 4691128320
+          }
+        }
+      }
+    }
+  }
+}

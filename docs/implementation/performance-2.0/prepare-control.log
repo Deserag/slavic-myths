@@ -1,0 +1,15 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+
+> Task :downloadAssets
+Loaded 145 artifacts from <WORKSPACE>\build\tmp\downloadAssets\nfrt_artifact_manifest.properties
+Downloading asset index 17
+Using Minecraft asset root: <USER_HOME>\.gradle\caches\neoformruntime\assets
+  DL    https://piston-meta.mojang.com/v1/packages/9b16298b1dc0697878cec88bb2d96168f5239e4f/17.json
+
+> Task :writeClientLegacyClasspath
+> Task :prepareClientRun
+
+BUILD SUCCESSFUL in 7s
+3 actionable tasks: 3 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

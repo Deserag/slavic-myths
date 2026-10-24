@@ -1,0 +1,356 @@
+[
+  {
+    "path": "cube-A1/micro.jfr",
+    "bytes": 3040285,
+    "sha256": "b6816b1476906225af9f82af13813f7086f9425ee39799874ff56dbdc917a029",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "cube-A1/profile.jfr",
+    "bytes": 11819604,
+    "sha256": "12096f81de346409d3194ee766204b907a9dff1ccac018194a9a3db73c6d3d09",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "cube-A2/micro.jfr",
+    "bytes": 3125062,
+    "sha256": "2f39a74bf49edefa8cff61b77801b5d5fb1e733b77a0fc8cf49db0ad9946e0a3",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "cube-A2/profile.jfr",
+    "bytes": 11628269,
+    "sha256": "ee22e26291ecb9446d46ddee34ab5ce9e7bfe53e1f6fcfeb2640b2f2c1396b29",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "cube-A3/micro.jfr",
+    "bytes": 3145835,
+    "sha256": "290e5d1244efb74f6981e0ab49ed6e0d6514966299130b0abbb1d399d15043ec",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "cube-A3/profile.jfr",
+    "bytes": 11409301,
+    "sha256": "b090d616551d5c7726c4c154975a766a716574c9c4f0705d82239f419bc75e8c",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "cube-A4/micro.jfr",
+    "bytes": 3238015,
+    "sha256": "8ca4543921770cbbd6da50591452b09597b839187f0dacee013a955d9d941731",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "cube-A4/profile.jfr",
+    "bytes": 14915889,
+    "sha256": "86d4bcc07c102dd45a82a4ea3a6cc3f85f436895591c42561aeaa16241197c4c",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "cube-A5/micro.jfr",
+    "bytes": 2855910,
+    "sha256": "e83cbccae3633422edf02f5ed274c8074fc98e018651315736b28b7a809dc364",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "cube-A5/profile.jfr",
+    "bytes": 11643462,
+    "sha256": "568e9e1c7463dfe4c9b2c9715d827e1b12553c24294985d0a41a0c8a05251be2",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "cube-B1/micro.jfr",
+    "bytes": 2999015,
+    "sha256": "738ac19aa6f6557a8498ed294677f1ef68954abff95730898c32a9401ce8dcc2",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "cube-B1/profile.jfr",
+    "bytes": 10713568,
+    "sha256": "9196104c2336ef3c10fa3e3033c37515d0d4f4e31d657e7ae70fd18dd7b85a9c",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "cube-B2/micro.jfr",
+    "bytes": 2954358,
+    "sha256": "0534fc324b2aadc5ab49b62a66c60337f3b9588ef3dcb61ca4489c507ca90361",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "cube-B2/profile.jfr",
+    "bytes": 10821511,
+    "sha256": "389ae432c69677623a9b79e28b8e5466fbcce5b4e4aada4d0a935eb5348e70cc",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-bosses-flat/final.jfr",
+    "bytes": 6156288,
+    "sha256": "7022e475bf9428d5ed305ec4588dee19d273fc518247e69a2b660a3357b1b124",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-bosses-flat/gorynych.jfr",
+    "bytes": 21809091,
+    "sha256": "cdc6c80d0ac35c4dad42772c32023868b8c15baf77a4c5406f4885aca538effe",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-bosses-flat/karachun.jfr",
+    "bytes": 21455637,
+    "sha256": "d46953ee594299a483611812b2b72340c130ebb155c4470e14cd87ad65468502",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-bosses-flat/morozko.jfr",
+    "bytes": 27385233,
+    "sha256": "db0a58f4d1248bbb3edc50b04860c53634b8a48d17b1f6ebd8b8e4b269684ad4",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-bosses-flat/startup_warmup.jfr",
+    "bytes": 11648460,
+    "sha256": "fc3b94bf5819d86c820ed95fe59552da398da871e6fb732b955b11065f108fbb",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-control2/combat_16.jfr",
+    "bytes": 15311308,
+    "sha256": "45a0d79276a2bb0d839a2cb2299c170c78f5af6f50acdd6e69926e0ea2625201",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-control2/combat_6.jfr",
+    "bytes": 12759479,
+    "sha256": "c22e56266248ad8639cf9386f89f666c006b4b2da20b2705e581a300bf6ed6bd",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-control2/final.jfr",
+    "bytes": 6270768,
+    "sha256": "a10c93ee3a884197530e3a5dee893b4ea247f6c527b20f1d4403e893ef249c0a",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-control2/idle.jfr",
+    "bytes": 8077366,
+    "sha256": "5b6c854c025cf40ac873d7e153b23fd8284c4223b08e3ee199d0058c905e8e87",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-control2/startup_warmup.jfr",
+    "bytes": 16666459,
+    "sha256": "99a350c3db17c818bce0cbb31c61adca9914369f7b713d4f24f4d784d346af74",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-control2/travel_new.jfr",
+    "bytes": 17454298,
+    "sha256": "fda3f5905c848190fe0512dfc1fb89a36c7a1f00dffdc88ad3c200ac23ddf52f",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-control2/travel_return.jfr",
+    "bytes": 14028164,
+    "sha256": "9aeca5608dfa803f370cd61895c5b3237fbb0932ee6f5e71c814f8758903d6a9",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-control2/travel_settle.jfr",
+    "bytes": 4262323,
+    "sha256": "8d17346b931435a8930696c0cbf9e4a8b890afe00f91fd428b6872efcb3ddbb0",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-control2/vanilla_village.jfr",
+    "bytes": 26281694,
+    "sha256": "f79c907c425eff5a8ee555db639f554a4c7847fa56a2c3ae73f903d71930f420",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/combat_16.jfr",
+    "bytes": 16554983,
+    "sha256": "f60542491159b1c1b088915e2c69260256bb6c94843d1b52bdc9c32124ac917c",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/combat_6.jfr",
+    "bytes": 16341389,
+    "sha256": "e41198d5f6e66ae0b155fec921f4af02ce35e9109ce1a4991ab9752603adb4a5",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/gorynych.jfr",
+    "bytes": 213044841,
+    "sha256": "1b17e2b2c23bc8959c36b568955f9e1c514a12b558a2302f8d954a2b63ae40bb",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/idle.jfr",
+    "bytes": 11134063,
+    "sha256": "a1366cf9ced8eca633f26ee6767f2d0eac20c21d74647da0e434286f27b01f86",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/karachun.jfr",
+    "bytes": 60506232,
+    "sha256": "7d46807e7abfb221595fda906b569bfd08a19fd389bc570cad8cb558d9088bd1",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/lifecycle_1.jfr",
+    "bytes": 9259724,
+    "sha256": "2b85997cab8585143be325ecd2f550ab99b651aa8f13203c5fdef51979ce7909",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/lifecycle_2.jfr",
+    "bytes": 9390624,
+    "sha256": "434b6b9a47e6db35302267d5d5d1cf92e912ff398667f15aa93c468435a5bc7b",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/lifecycle_3.jfr",
+    "bytes": 9414216,
+    "sha256": "34d12ab1c9b3968d56a3683e207fcb9b973bdbc67404f7e0551825a0edf84236",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/lifecycle_4.jfr",
+    "bytes": 10177853,
+    "sha256": "d6be358b097f5a83f04177dbfc5d6e1b7beef1ab67dede2c28c88fa2ddbfb457",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/lifecycle_5.jfr",
+    "bytes": 10498363,
+    "sha256": "2ed18773a5370e3c4f0cb638c70f4acb694ee6296d2cd5f3a89f05db2d307590",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/long_idle.jfr",
+    "bytes": 78467553,
+    "sha256": "4e628a08d5c94ffc7b5409a359fe0017a7828071ac30b254529a87717e2d950b",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/morozko.jfr",
+    "bytes": 25869042,
+    "sha256": "15b2a8f039449e5835ec309c8b4d7f815a4bc138ff4bab33ae824aab1a952a85",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/mythic_combat.jfr",
+    "bytes": 16224064,
+    "sha256": "67da73c680f5e095762fcc68dfaa3385e5a4397c9f3186272514f0a20a2219b9",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/poloz.jfr",
+    "bytes": 167387524,
+    "sha256": "9c0fd622f1721d7a9284e20d1166e4c4e7e9fdecae2e1eb2b0ea90d0883d9aee",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/reload-hung.jfr",
+    "bytes": 32796711,
+    "sha256": "1bd4023c4a3c539d0f6aa2724e5a1ef0cac10ec8aa308788903cae3565d8a475",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/startup_warmup.jfr",
+    "bytes": 23161250,
+    "sha256": "7daac711ca989e96575dbad38d2f72f17ad5bdd2dc6aede91184a7cec8959179",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/travel_new.jfr",
+    "bytes": 17906694,
+    "sha256": "fd371148f71ef672623d3bcdcf71f18e3c53da8df6d4c6c8867d1b772f5670b9",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/travel_return.jfr",
+    "bytes": 15509406,
+    "sha256": "c417861a9be441ad44910cb55f79cd20e9f7a2d8ac1b6db4aa9e282d1913a820",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/travel_settle.jfr",
+    "bytes": 5521209,
+    "sha256": "8ac778e2a5b6be12adb485c5990d63e8b4e1d1f31b791865d83779211f798c95",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/vanilla_village.jfr",
+    "bytes": 34770191,
+    "sha256": "2f163c4b23e410639dc5c54881ba2234050351cec7e746018e266cf914f38238",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-fixed/village.jfr",
+    "bytes": 22369585,
+    "sha256": "b13f8f5198fdc2f8237c70c955e27e0bd6c9790944df06954b2dcea495e816ce",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-mod/combat_16.jfr",
+    "bytes": 17277264,
+    "sha256": "b6f821837b8213aa6c352547eb81e1c0b779aad1ab49a3674874ce6bc25f0a18",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-mod/combat_6.jfr",
+    "bytes": 16012092,
+    "sha256": "a9e45717d4f7e2d9a4da0d2248b859eeea280def783b01c6bca4f0e76d846ee0",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-mod/idle.jfr",
+    "bytes": 10388338,
+    "sha256": "cc133d90e821f409c100f7b3d22b52cabcf6c631b51c198d7c2356b951efc6a1",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-mod/mythic_combat.jfr",
+    "bytes": 17846659,
+    "sha256": "92d2f0efb800ab659d144a11b6fde91734d9de534ddfa79537e230395e148384",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-mod/startup_warmup.jfr",
+    "bytes": 23742866,
+    "sha256": "42f5a064344a449d5d42b9a21f799bb63bfc0bb98190113a9cebaea09090bcdf",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-mod/travel_new.jfr",
+    "bytes": 19551106,
+    "sha256": "d3c86541aec3fc4cc693c989ac87d1c68a089f15b78a6ba0bd4e13c761e970b7",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-mod/travel_return.jfr",
+    "bytes": 13852377,
+    "sha256": "2167ecbc28cd6e188863578564e33dae466378362f3582974be8b9f0d8a6b968",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-mod/travel_settle.jfr",
+    "bytes": 4932647,
+    "sha256": "2c7ae979f388656a6925aad075c67bbd50a3908e9be3b631e26229a4b7606ff9",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-mod/vanilla_village.jfr",
+    "bytes": 34371237,
+    "sha256": "e7db1a3f0c3d5919862641c1ad11a11fdb44e4353a12a14c869903dcb419b501",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  },
+  {
+    "path": "world-mod/village.jfr",
+    "bytes": 21161301,
+    "sha256": "cb0832ec482aac30e4720864b3c131ddd5efc9d8cc385722481f7862cdde5701",
+    "publication": "LOCAL_ONLY process/system/network metadata"
+  }
+]

@@ -1,0 +1,530 @@
+{
+  "cube-A1": {
+    "cap140": {
+      "valid_fraction": 0.905123339658444,
+      "eligible": false,
+      "raw_frames": 16337,
+      "frame": {
+        "n": 14787,
+        "mean": 7.283915966727531,
+        "p95": 8.5251,
+        "p99": 9.1996,
+        "max": 16.9243
+      },
+      "fps": 137.28878869112947,
+      "render_wall": {
+        "n": 14787,
+        "mean": 1.2024448096300804,
+        "p95": 1.5382,
+        "p99": 1.7409,
+        "max": 10.9388
+      },
+      "render_cpu_sum_ms": 16593.75,
+      "render_cpu_mean_ms": 1.1221850273889227,
+      "render_cpu_counter_resolution_ms": 15.625,
+      "tick": {
+        "n": 2380,
+        "mean": 1.1067272268907562,
+        "p95": 1.4773,
+        "p99": 1.7213,
+        "max": 3.1281
+      },
+      "tick_intervals": {
+        "n": 2380,
+        "mean": 49.99980911764706,
+        "p95": 51.3666,
+        "p99": 51.783,
+        "max": 53.4545
+      },
+      "frames_over50": 0,
+      "frames_over100": 0,
+      "heap_min": 474632752,
+      "heap_max": 1758580632
+    },
+    "uncapped": {
+      "valid_fraction": 0.0,
+      "eligible": false,
+      "raw_frames": 64605,
+      "frame": null,
+      "fps": null,
+      "render_wall": null,
+      "render_cpu_sum_ms": 0,
+      "render_cpu_mean_ms": null,
+      "render_cpu_counter_resolution_ms": 15.625,
+      "tick": {
+        "n": 1180,
+        "mean": 1.2437124576271186,
+        "p95": 1.7134,
+        "p99": 2.0364,
+        "max": 49.5793
+      },
+      "tick_intervals": {
+        "n": 1180,
+        "mean": 49.99966415254237,
+        "p95": 51.1625,
+        "p99": 51.6555,
+        "max": 98.4326
+      },
+      "frames_over50": 0,
+      "frames_over100": 0,
+      "heap_min": 474581784,
+      "heap_max": 1758137568
+    }
+  },
+  "cube-A2": {
+    "cap140": {
+      "valid_fraction": 1.0,
+      "eligible": true,
+      "raw_frames": 16336,
+      "frame": {
+        "n": 16336,
+        "mean": 7.284414409831048,
+        "p95": 8.593799,
+        "p99": 9.2689,
+        "max": 10.5028
+      },
+      "fps": 137.27939457293914,
+      "render_wall": {
+        "n": 16336,
+        "mean": 1.2628116465475026,
+        "p95": 1.654001,
+        "p99": 1.855499,
+        "max": 4.1872
+      },
+      "render_cpu_sum_ms": 19156.25,
+      "render_cpu_mean_ms": 1.172640181194907,
+      "render_cpu_counter_resolution_ms": 15.625,
+      "tick": {
+        "n": 2380,
+        "mean": 1.1628832546218488,
+        "p95": 1.5764,
+        "p99": 1.7838,
+        "max": 3.869601
+      },
+      "tick_intervals": {
+        "n": 2380,
+        "mean": 49.99963663907563,
+        "p95": 51.415899,
+        "p99": 51.8297,
+        "max": 52.8683
+      },
+      "frames_over50": 0,
+      "frames_over100": 0,
+      "heap_min": 475280328,
+      "heap_max": 1759091136
+    },
+    "uncapped": {
+      "valid_fraction": 1.0,
+      "eligible": true,
+      "raw_frames": 60984,
+      "frame": {
+        "n": 60984,
+        "mean": 0.9674462777285845,
+        "p95": 1.572201,
+        "p99": 2.2678,
+        "max": 5.6069
+      },
+      "fps": 1033.6491265932063,
+      "render_wall": {
+        "n": 60984,
+        "mean": 0.8623640887609865,
+        "p95": 1.241899,
+        "p99": 1.506199,
+        "max": 5.164
+      },
+      "render_cpu_sum_ms": 53000.0,
+      "render_cpu_mean_ms": 0.86908041453496,
+      "render_cpu_counter_resolution_ms": 15.625,
+      "tick": {
+        "n": 1180,
+        "mean": 1.2795121627118644,
+        "p95": 1.773201,
+        "p99": 2.0115,
+        "max": 54.8051
+      },
+      "tick_intervals": {
+        "n": 1180,
+        "mean": 49.99918347372881,
+        "p95": 51.5086,
+        "p99": 51.897499,
+        "max": 103.9549
+      },
+      "frames_over50": 0,
+      "frames_over100": 0,
+      "heap_min": 474823160,
+      "heap_max": 1758326464
+    }
+  },
+  "cube-A3": {
+    "cap140": {
+      "valid_fraction": 0.0,
+      "eligible": false,
+      "raw_frames": 16257,
+      "frame": null,
+      "fps": null,
+      "render_wall": null,
+      "render_cpu_sum_ms": 0,
+      "render_cpu_mean_ms": null,
+      "render_cpu_counter_resolution_ms": 15.625,
+      "tick": {
+        "n": 2380,
+        "mean": 1.1532981092436976,
+        "p95": 1.6323,
+        "p99": 2.0679,
+        "max": 3.7277
+      },
+      "tick_intervals": {
+        "n": 2380,
+        "mean": 49.999984243697476,
+        "p95": 51.2337,
+        "p99": 51.6508,
+        "max": 52.9354
+      },
+      "frames_over50": 0,
+      "frames_over100": 0,
+      "heap_min": 474576032,
+      "heap_max": 1758545984
+    },
+    "uncapped": {
+      "valid_fraction": 0.0,
+      "eligible": false,
+      "raw_frames": 61853,
+      "frame": null,
+      "fps": null,
+      "render_wall": null,
+      "render_cpu_sum_ms": 0,
+      "render_cpu_mean_ms": null,
+      "render_cpu_counter_resolution_ms": 15.625,
+      "tick": {
+        "n": 1180,
+        "mean": 1.2396847457627118,
+        "p95": 1.4956,
+        "p99": 1.6899,
+        "max": 58.339
+      },
+      "tick_intervals": {
+        "n": 1180,
+        "mean": 49.99942584745763,
+        "p95": 51.2061,
+        "p99": 51.6526,
+        "max": 107.9919
+      },
+      "frames_over50": 0,
+      "frames_over100": 0,
+      "heap_min": 474209440,
+      "heap_max": 1758811672
+    }
+  },
+  "cube-A4": {
+    "cap140": {
+      "valid_fraction": 0.0,
+      "eligible": false,
+      "raw_frames": 16242,
+      "frame": null,
+      "fps": null,
+      "render_wall": null,
+      "render_cpu_sum_ms": 0,
+      "render_cpu_mean_ms": null,
+      "render_cpu_counter_resolution_ms": 15.625,
+      "tick": {
+        "n": 2380,
+        "mean": 1.2724800403361345,
+        "p95": 1.7568,
+        "p99": 2.055699,
+        "max": 3.4025
+      },
+      "tick_intervals": {
+        "n": 2380,
+        "mean": 49.999939453781515,
+        "p95": 51.4219,
+        "p99": 51.9503,
+        "max": 59.2997
+      },
+      "frames_over50": 0,
+      "frames_over100": 0,
+      "heap_min": 460096320,
+      "heap_max": 1744917224
+    },
+    "uncapped": {
+      "valid_fraction": 0.0,
+      "eligible": false,
+      "raw_frames": 41735,
+      "frame": null,
+      "fps": null,
+      "render_wall": null,
+      "render_cpu_sum_ms": 0,
+      "render_cpu_mean_ms": null,
+      "render_cpu_counter_resolution_ms": 15.625,
+      "tick": {
+        "n": 1180,
+        "mean": 1.4434402542372882,
+        "p95": 1.8993,
+        "p99": 2.2581,
+        "max": 115.8843
+      },
+      "tick_intervals": {
+        "n": 1180,
+        "mean": 49.99998389830508,
+        "p95": 51.266,
+        "p99": 52.0512,
+        "max": 163.6772
+      },
+      "frames_over50": 0,
+      "frames_over100": 0,
+      "heap_min": 455518544,
+      "heap_max": 1742347968
+    }
+  },
+  "cube-A5": {
+    "cap140": {
+      "valid_fraction": 1.0,
+      "eligible": true,
+      "raw_frames": 16307,
+      "frame": {
+        "n": 16307,
+        "mean": 7.297197583859692,
+        "p95": 8.5073,
+        "p99": 9.1745,
+        "max": 11.637
+      },
+      "fps": 137.03890959617843,
+      "render_wall": {
+        "n": 16307,
+        "mean": 1.2264749739375729,
+        "p95": 1.664,
+        "p99": 2.0162,
+        "max": 4.5059
+      },
+      "render_cpu_sum_ms": 19000.0,
+      "render_cpu_mean_ms": 1.1651438032746673,
+      "render_cpu_counter_resolution_ms": 15.625,
+      "tick": {
+        "n": 2380,
+        "mean": 1.1051054201680672,
+        "p95": 1.433,
+        "p99": 1.6613,
+        "max": 1.9763
+      },
+      "tick_intervals": {
+        "n": 2380,
+        "mean": 50.00022235294118,
+        "p95": 51.4445,
+        "p99": 51.8045,
+        "max": 52.3912
+      },
+      "frames_over50": 0,
+      "frames_over100": 0,
+      "heap_min": 485473704,
+      "heap_max": 1768936896
+    },
+    "uncapped": {
+      "valid_fraction": 1.0,
+      "eligible": true,
+      "raw_frames": 61984,
+      "frame": {
+        "n": 61984,
+        "mean": 0.9518701406814661,
+        "p95": 1.4127,
+        "p99": 1.8906,
+        "max": 4.5109
+      },
+      "fps": 1050.5634721182414,
+      "render_wall": {
+        "n": 61984,
+        "mean": 0.8717196647521941,
+        "p95": 1.2317,
+        "p99": 1.4815,
+        "max": 4.4233
+      },
+      "render_cpu_sum_ms": 55171.875,
+      "render_cpu_mean_ms": 0.8900986544914816,
+      "render_cpu_counter_resolution_ms": 15.625,
+      "tick": {
+        "n": 1180,
+        "mean": 1.262518813559322,
+        "p95": 1.5396,
+        "p99": 1.7485,
+        "max": 53.4905
+      },
+      "tick_intervals": {
+        "n": 1180,
+        "mean": 49.999968898305085,
+        "p95": 51.3379,
+        "p99": 51.849,
+        "max": 102.5168
+      },
+      "frames_over50": 0,
+      "frames_over100": 0,
+      "heap_min": 484840120,
+      "heap_max": 1768141352
+    }
+  },
+  "cube-B1": {
+    "cap140": {
+      "valid_fraction": 1.0,
+      "eligible": true,
+      "raw_frames": 16355,
+      "frame": {
+        "n": 16355,
+        "mean": 7.276325790278203,
+        "p95": 8.5468,
+        "p99": 9.187,
+        "max": 10.3925
+      },
+      "fps": 137.43199917410047,
+      "render_wall": {
+        "n": 16355,
+        "mean": 1.2207534882298992,
+        "p95": 1.5591,
+        "p99": 1.7992,
+        "max": 3.9907
+      },
+      "render_cpu_sum_ms": 18046.875,
+      "render_cpu_mean_ms": 1.1034469581167838,
+      "render_cpu_counter_resolution_ms": 15.625,
+      "tick": {
+        "n": 2380,
+        "mean": 1.1803232352941178,
+        "p95": 1.5622,
+        "p99": 1.9098,
+        "max": 2.4004
+      },
+      "tick_intervals": {
+        "n": 2380,
+        "mean": 49.999700504201684,
+        "p95": 51.4228,
+        "p99": 51.9202,
+        "max": 52.3238
+      },
+      "frames_over50": 0,
+      "frames_over100": 0,
+      "heap_min": 474663432,
+      "heap_max": 1758418728
+    },
+    "uncapped": {
+      "valid_fraction": 1.0,
+      "eligible": true,
+      "raw_frames": 65673,
+      "frame": {
+        "n": 65673,
+        "mean": 0.8983793157005162,
+        "p95": 1.3587,
+        "p99": 1.9062,
+        "max": 11.895
+      },
+      "fps": 1113.1155654671818,
+      "render_wall": {
+        "n": 65673,
+        "mean": 0.813161410320832,
+        "p95": 1.1294,
+        "p99": 1.3935,
+        "max": 4.1621
+      },
+      "render_cpu_sum_ms": 52734.375,
+      "render_cpu_mean_ms": 0.8029841030560504,
+      "render_cpu_counter_resolution_ms": 15.625,
+      "tick": {
+        "n": 1180,
+        "mean": 1.26323906779661,
+        "p95": 1.7333,
+        "p99": 2.0052,
+        "max": 58.4935
+      },
+      "tick_intervals": {
+        "n": 1180,
+        "mean": 50.00019271186441,
+        "p95": 51.3321,
+        "p99": 51.7647,
+        "max": 107.6305
+      },
+      "frames_over50": 0,
+      "frames_over100": 0,
+      "heap_min": 474340656,
+      "heap_max": 1758727064
+    }
+  },
+  "cube-B2": {
+    "cap140": {
+      "valid_fraction": 1.0,
+      "eligible": true,
+      "raw_frames": 16342,
+      "frame": {
+        "n": 16342,
+        "mean": 7.282018461632603,
+        "p95": 8.4092,
+        "p99": 9.0761,
+        "max": 11.0597
+      },
+      "fps": 137.32456258780255,
+      "render_wall": {
+        "n": 16342,
+        "mean": 1.1913011320523803,
+        "p95": 1.4634,
+        "p99": 1.6558,
+        "max": 3.8185
+      },
+      "render_cpu_sum_ms": 16906.25,
+      "render_cpu_mean_ms": 1.0345275976012729,
+      "render_cpu_counter_resolution_ms": 15.625,
+      "tick": {
+        "n": 2380,
+        "mean": 1.1993413025210085,
+        "p95": 1.532,
+        "p99": 1.7203,
+        "max": 2.213
+      },
+      "tick_intervals": {
+        "n": 2380,
+        "mean": 49.99943546218488,
+        "p95": 51.3053,
+        "p99": 51.7592,
+        "max": 52.3842
+      },
+      "frames_over50": 0,
+      "frames_over100": 0,
+      "heap_min": 470085936,
+      "heap_max": 1753819008
+    },
+    "uncapped": {
+      "valid_fraction": 1.0,
+      "eligible": true,
+      "raw_frames": 69110,
+      "frame": {
+        "n": 69110,
+        "mean": 0.85370654608595,
+        "p95": 1.1426,
+        "p99": 1.6778,
+        "max": 4.1832
+      },
+      "fps": 1171.362694341249,
+      "render_wall": {
+        "n": 69110,
+        "mean": 0.7847641441180726,
+        "p95": 0.9975,
+        "p99": 1.2456,
+        "max": 3.3874
+      },
+      "render_cpu_sum_ms": 54312.5,
+      "render_cpu_mean_ms": 0.7858848212993778,
+      "render_cpu_counter_resolution_ms": 15.625,
+      "tick": {
+        "n": 1180,
+        "mean": 1.187084152542373,
+        "p95": 1.442,
+        "p99": 1.6526,
+        "max": 40.4423
+      },
+      "tick_intervals": {
+        "n": 1180,
+        "mean": 49.99941550847458,
+        "p95": 51.3045,
+        "p99": 51.7633,
+        "max": 88.7464
+      },
+      "frames_over50": 0,
+      "frames_over100": 0,
+      "heap_min": 469704352,
+      "heap_max": 1753159960
+    }
+  }
+}

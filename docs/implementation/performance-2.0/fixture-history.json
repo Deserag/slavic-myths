@@ -1,0 +1,10 @@
+{
+  "original_at_launch": "tools/performance-2.0/world/java/WorldProbe.java",
+  "archived_original": "tools/performance-2.0/world/v1/WorldProbe.java",
+  "sha256": "06a20e2ae0520ee153478fb4d814cb0804512f767ac59d67e9d2266b3619e682",
+  "used_by": [
+    "world-mod",
+    "world-fixed"
+  ],
+  "issue": "Missing ClientLevel.disconnect caused native wait-for-server hang. v1 retained only for evidence/reproduction; default fixture corrected, no production change."
+}

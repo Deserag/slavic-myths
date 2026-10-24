@@ -1,0 +1,256 @@
+{
+  "world-mod": {
+    "scenes": {
+      "combat_16": {
+        "particles_peak": 631,
+        "sound_peak": 45,
+        "client_entities_peak": 212
+      },
+      "combat_6": {
+        "particles_peak": 359,
+        "sound_peak": 20,
+        "client_entities_peak": 212
+      },
+      "idle": {
+        "particles_peak": 213,
+        "sound_peak": 6,
+        "client_entities_peak": 164
+      },
+      "mythic_combat": {
+        "particles_peak": 832,
+        "sound_peak": 17,
+        "client_entities_peak": 213
+      },
+      "poloz": {
+        "particles_peak": 13975,
+        "sound_peak": 247,
+        "client_entities_peak": 1614
+      },
+      "startup_warmup": {
+        "particles_peak": 368,
+        "sound_peak": 14,
+        "client_entities_peak": 167
+      },
+      "travel_new": {
+        "particles_peak": 310,
+        "sound_peak": 10,
+        "client_entities_peak": 169
+      },
+      "travel_return": {
+        "particles_peak": 287,
+        "sound_peak": 9,
+        "client_entities_peak": 167
+      },
+      "travel_settle": {
+        "particles_peak": 284,
+        "sound_peak": 10,
+        "client_entities_peak": 160
+      },
+      "vanilla_village": {
+        "particles_peak": 397,
+        "sound_peak": 12,
+        "client_entities_peak": 228
+      },
+      "village": {
+        "particles_peak": 492,
+        "sound_peak": 5,
+        "client_entities_peak": 208
+      }
+    },
+    "audio_failure_lines": 1322,
+    "error_lines": 3
+  },
+  "world-fixed": {
+    "scenes": {
+      "combat_16": {
+        "particles_peak": 641,
+        "sound_peak": 45,
+        "client_entities_peak": 216
+      },
+      "combat_6": {
+        "particles_peak": 320,
+        "sound_peak": 24,
+        "client_entities_peak": 214
+      },
+      "gorynych": {
+        "particles_peak": 360,
+        "sound_peak": 12,
+        "client_entities_peak": 1514
+      },
+      "idle": {
+        "particles_peak": 212,
+        "sound_peak": 9,
+        "client_entities_peak": 158
+      },
+      "karachun": {
+        "particles_peak": 332,
+        "sound_peak": 13,
+        "client_entities_peak": 1164
+      },
+      "lifecycle_1": {
+        "particles_peak": 313,
+        "sound_peak": 13,
+        "client_entities_peak": 211
+      },
+      "lifecycle_2": {
+        "particles_peak": 348,
+        "sound_peak": 11,
+        "client_entities_peak": 207
+      },
+      "lifecycle_3": {
+        "particles_peak": 302,
+        "sound_peak": 9,
+        "client_entities_peak": 206
+      },
+      "lifecycle_4": {
+        "particles_peak": 327,
+        "sound_peak": 14,
+        "client_entities_peak": 208
+      },
+      "lifecycle_5": {
+        "particles_peak": 377,
+        "sound_peak": 14,
+        "client_entities_peak": 209
+      },
+      "long_idle": {
+        "particles_peak": 376,
+        "sound_peak": 11,
+        "client_entities_peak": 206
+      },
+      "morozko": {
+        "particles_peak": 374,
+        "sound_peak": 13,
+        "client_entities_peak": 206
+      },
+      "mythic_combat": {
+        "particles_peak": 496,
+        "sound_peak": 19,
+        "client_entities_peak": 211
+      },
+      "poloz": {
+        "particles_peak": 14477,
+        "sound_peak": 245,
+        "client_entities_peak": 1731
+      },
+      "reload_idle": {
+        "particles_peak": 219,
+        "sound_peak": 6,
+        "client_entities_peak": 191
+      },
+      "startup_warmup": {
+        "particles_peak": 223,
+        "sound_peak": 12,
+        "client_entities_peak": 168
+      },
+      "travel_new": {
+        "particles_peak": 281,
+        "sound_peak": 12,
+        "client_entities_peak": 171
+      },
+      "travel_return": {
+        "particles_peak": 275,
+        "sound_peak": 10,
+        "client_entities_peak": 169
+      },
+      "travel_settle": {
+        "particles_peak": 257,
+        "sound_peak": 9,
+        "client_entities_peak": 169
+      },
+      "vanilla_village": {
+        "particles_peak": 328,
+        "sound_peak": 13,
+        "client_entities_peak": 219
+      },
+      "village": {
+        "particles_peak": 317,
+        "sound_peak": 9,
+        "client_entities_peak": 207
+      }
+    },
+    "audio_failure_lines": 1098,
+    "error_lines": 0
+  },
+  "world-control2": {
+    "scenes": {
+      "cleanup": {
+        "particles_peak": 592,
+        "sound_peak": 14,
+        "client_entities_peak": 192
+      },
+      "combat_16": {
+        "particles_peak": 899,
+        "sound_peak": 58,
+        "client_entities_peak": 208
+      },
+      "combat_6": {
+        "particles_peak": 377,
+        "sound_peak": 28,
+        "client_entities_peak": 196
+      },
+      "idle": {
+        "particles_peak": 146,
+        "sound_peak": 2,
+        "client_entities_peak": 161
+      },
+      "startup_warmup": {
+        "particles_peak": 437,
+        "sound_peak": 11,
+        "client_entities_peak": 154
+      },
+      "travel_new": {
+        "particles_peak": 173,
+        "sound_peak": 8,
+        "client_entities_peak": 173
+      },
+      "travel_return": {
+        "particles_peak": 171,
+        "sound_peak": 6,
+        "client_entities_peak": 167
+      },
+      "travel_settle": {
+        "particles_peak": 122,
+        "sound_peak": 4,
+        "client_entities_peak": 163
+      },
+      "vanilla_village": {
+        "particles_peak": 319,
+        "sound_peak": 18,
+        "client_entities_peak": 197
+      }
+    },
+    "audio_failure_lines": 0,
+    "error_lines": 0
+  },
+  "world-bosses-flat": {
+    "scenes": {
+      "cleanup": {
+        "particles_peak": 433,
+        "sound_peak": 27,
+        "client_entities_peak": 82
+      },
+      "gorynych": {
+        "particles_peak": 599,
+        "sound_peak": 27,
+        "client_entities_peak": 100
+      },
+      "karachun": {
+        "particles_peak": 415,
+        "sound_peak": 18,
+        "client_entities_peak": 101
+      },
+      "morozko": {
+        "particles_peak": 778,
+        "sound_peak": 35,
+        "client_entities_peak": 99
+      },
+      "startup_warmup": {
+        "particles_peak": 344,
+        "sound_peak": 19,
+        "client_entities_peak": 84
+      }
+    },
+    "audio_failure_lines": 0,
+    "error_lines": 0
+  }
+}

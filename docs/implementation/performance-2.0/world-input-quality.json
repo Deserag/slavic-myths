@@ -1,0 +1,104 @@
+{
+  "world-bosses-flat/ticks.csv": {
+    "read_rows": 14400,
+    "complete_rows": 14400,
+    "incomplete_rows_excluded": 0,
+    "unterminated_physical_lines": 0
+  },
+  "world-bosses-flat/frames.csv": {
+    "read_rows": 97977,
+    "complete_rows": 97977,
+    "incomplete_rows_excluded": 0,
+    "unterminated_physical_lines": 0
+  },
+  "world-bosses-flat/chunks.csv": {
+    "read_rows": 1301,
+    "complete_rows": 1301,
+    "incomplete_rows_excluded": 0,
+    "unterminated_physical_lines": 0
+  },
+  "world-bosses-flat/boss-ticks.csv": {
+    "read_rows": 10800,
+    "complete_rows": 10800,
+    "incomplete_rows_excluded": 0,
+    "unterminated_physical_lines": 0
+  },
+  "world-bosses-flat/gpu.csv.process.csv": {
+    "read_rows": 312,
+    "complete_rows": 312,
+    "incomplete_rows_excluded": 0,
+    "unterminated_physical_lines": 0
+  },
+  "world-control2/ticks.csv": {
+    "read_rows": 22800,
+    "complete_rows": 22800,
+    "incomplete_rows_excluded": 0,
+    "unterminated_physical_lines": 0
+  },
+  "world-control2/frames.csv": {
+    "read_rows": 154890,
+    "complete_rows": 154890,
+    "incomplete_rows_excluded": 0,
+    "unterminated_physical_lines": 0
+  },
+  "world-control2/chunks.csv": {
+    "read_rows": 1829,
+    "complete_rows": 1829,
+    "incomplete_rows_excluded": 0,
+    "unterminated_physical_lines": 0
+  },
+  "world-control2/gpu.csv.process.csv": {
+    "read_rows": 478,
+    "complete_rows": 478,
+    "incomplete_rows_excluded": 0,
+    "unterminated_physical_lines": 0
+  },
+  "world-fixed/ticks.csv": {
+    "read_rows": 62400,
+    "complete_rows": 62400,
+    "incomplete_rows_excluded": 0,
+    "unterminated_physical_lines": 0
+  },
+  "world-fixed/frames.csv": {
+    "read_rows": 423218,
+    "complete_rows": 423217,
+    "incomplete_rows_excluded": 1,
+    "unterminated_physical_lines": 1
+  },
+  "world-fixed/chunks.csv": {
+    "read_rows": 1752,
+    "complete_rows": 1752,
+    "incomplete_rows_excluded": 0,
+    "unterminated_physical_lines": 0
+  },
+  "world-fixed/gpu.csv.process.csv": {
+    "read_rows": 1447,
+    "complete_rows": 1447,
+    "incomplete_rows_excluded": 0,
+    "unterminated_physical_lines": 0
+  },
+  "world-mod/ticks.csv": {
+    "read_rows": 30700,
+    "complete_rows": 30700,
+    "incomplete_rows_excluded": 0,
+    "unterminated_physical_lines": 0
+  },
+  "world-mod/frames.csv": {
+    "read_rows": 209577,
+    "complete_rows": 209576,
+    "incomplete_rows_excluded": 1,
+    "unterminated_physical_lines": 1
+  },
+  "world-mod/chunks.csv": {
+    "read_rows": 1897,
+    "complete_rows": 1897,
+    "incomplete_rows_excluded": 0,
+    "unterminated_physical_lines": 0
+  },
+  "world-mod/gpu.csv.process.csv": {
+    "read_rows": 671,
+    "complete_rows": 671,
+    "incomplete_rows_excluded": 0,
+    "unterminated_physical_lines": 0
+  }
+}

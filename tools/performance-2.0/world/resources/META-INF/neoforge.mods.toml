@@ -1,0 +1,7 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="All Rights Reserved"
+[[mods]]
+modId="perf2audit"
+version="1"
+displayName="Opt-in release performance probe"

@@ -1,0 +1,249 @@
+profile_event_span_seconds	339.167
+gc_count	42
+gc_sum_pause_ms	77.3336
+gc_max_pause_ms	2.6311
+render_thread_jfr_cpu_load_mean_raw_fraction	0.033741937222657725
+server_thread_jfr_cpu_load_mean_raw_fraction	0.0022748241754015908
+machine_cpu_total_mean_fraction	0.14660990276487074
+jvm_cpu_mean_fraction	0.07668548556642368
+EVENT_COUNTS
+293652	jdk.GCPhaseParallel
+39097	jdk.ObjectAllocationSample
+15901	jdk.NativeMethodSample
+9629	jdk.ThreadPark
+9541	jdk.ModuleRequire
+5420	jdk.ExecutionSample
+2103	jdk.PromoteObjectInNewPLAB
+1966	jdk.ModuleExport
+630	jdk.TenuringDistribution
+495	jdk.BooleanFlag
+381	jdk.ActiveSetting
+321	jdk.CPULoad
+321	jdk.ClassLoadingStatistics
+321	jdk.CompilerStatistics
+321	jdk.ExceptionStatistics
+321	jdk.JavaThreadStatistics
+321	jdk.ResidentSetSize
+321	minecraft.ServerTickTime
+276	jdk.SystemProcess
+234	jdk.NativeLibrary
+228	jdk.ThreadCPULoad
+177	jdk.ExecuteVMOperation
+168	jdk.GCReferenceStatistics
+168	jdk.MetaspaceChunkFreeListSummary
+168	jdk.SafepointBegin
+161	jdk.LongFlag
+132	jdk.UnsignedLongFlag
+126	jdk.GCPhasePauseLevel1
+110	jdk.PromoteObjectOutsidePLAB
+100	jdk.ThreadAllocationStatistics
+84	jdk.G1HeapSummary
+84	jdk.GCHeapSummary
+84	jdk.MetaspaceSummary
+77	jdk.InitialEnvironmentVariable
+76	jdk.NetworkUtilization
+73	jdk.Deoptimization
+64	jdk.DirectBufferStatistics
+64	minecraft.NetworkSummary
+56	jdk.ThreadEnd
+50	jdk.InitialSecurityProperty
+42	jdk.EvacuationInformation
+42	jdk.G1AdaptiveIHOP
+42	jdk.G1BasicIHOP
+42	jdk.G1EvacuationOldStatistics
+42	jdk.G1EvacuationYoungStatistics
+42	jdk.G1GarbageCollection
+42	jdk.G1MMU
+42	jdk.GCCPUTime
+42	jdk.GCPhasePause
+42	jdk.GarbageCollection
+42	jdk.YoungGarbageCollection
+40	jdk.ThreadStart
+32	jdk.StringTableStatistics
+32	jdk.SymbolTableStatistics
+32	jdk.ThreadContextSwitchRate
+27	jdk.InitialSystemProperty
+26	jdk.StringFlag
+25	jdk.IntFlag
+24	jdk.Compilation
+15	jdk.DoubleFlag
+13	jdk.UnsignedIntFlag
+12	jdk.ClassLoaderStatistics
+6	jdk.CodeCacheStatistics
+6	jdk.FinalizerStatistics
+6	jdk.GCHeapMemoryPoolUsage
+6	jdk.JavaErrorThrow
+5	jdk.ThreadDump
+3	jdk.CompilationFailure
+3	jdk.OldObjectSample
+2	jdk.FileRead
+2	jdk.GCConfiguration
+2	jdk.GCHeapMemoryUsage
+2	jdk.PhysicalMemory
+1	jdk.ActiveRecording
+1	jdk.CPUInformation
+1	jdk.CPUTimeStampCounter
+1	jdk.CodeCacheConfiguration
+1	jdk.CompilerConfiguration
+1	jdk.GCHeapConfiguration
+1	jdk.GCSurvivorConfiguration
+1	jdk.GCTLABConfiguration
+1	jdk.JVMInformation
+1	jdk.OSInformation
+1	jdk.VirtualizationInformation
+1	jdk.YoungGenerationConfiguration
+CPU_LEAF_SAMPLES (counts, not exact method milliseconds)
+1870	Render thread | com.mojang.blaze3d.vertex.BufferBuilder.addVertex
+885	Render thread | it.unimi.dsi.fastutil.ints.IntArrays.mergeSort
+239	Render thread | net.minecraft.world.level.chunk.ChunkAccess.getNoiseBiome
+231	Render thread | com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids
+172	Render thread | it.unimi.dsi.fastutil.ints.IntArrays.insertionSort
+117	Render thread | java.lang.Float.compare
+85	Render thread | com.mojang.blaze3d.vertex.MeshData$SortState.buildSortedIndexBuffer
+84	Render thread | org.slavicmyths.client.GuardianClient.vertex
+81	Render thread | java.util.ArrayList.add
+61	Render thread | net.minecraft.client.model.geom.ModelPart.compile
+60	Render thread | net.minecraft.client.model.geom.ModelPart.render
+58	Render thread | com.mojang.blaze3d.vertex.VertexSorting.lambda$byDistance$2
+53	Render thread | com.google.common.collect.RegularImmutableMap.get
+48	Render thread | com.mojang.blaze3d.vertex.PoseStack$Pose.transformNormal
+43	Render thread | net.minecraft.client.model.geom.ModelPart.translateAndRotate
+40	Render thread | net.minecraft.client.renderer.FogRenderer$$Lambda+0x0000020de56ecc00.1699576084.fetch
+40	Server thread | net.minecraft.server.level.ChunkTracker.getComputedLevel
+38	Render thread | com.mojang.blaze3d.vertex.VertexConsumer.setNormal
+37	Render thread | net.minecraft.util.thread.BlockableEventLoop.doRunTask
+37	Render thread | net.minecraft.client.renderer.chunk.SectionRenderDispatcher$RenderSection.getCompiled
+37	Render thread | net.minecraft.world.level.chunk.SingleValuePalette.valueFor
+33	Render thread | net.minecraft.world.phys.Vec3.multiply
+31	Server thread | net.minecraft.util.SortedArraySet.remove
+30	Server thread | it.unimi.dsi.fastutil.longs.Long2ByteOpenHashMap.get
+27	Render thread | net.minecraft.client.model.geom.ModelPart.getAllParts
+22	Server thread | com.google.common.collect.Iterators$1.hasNext
+22	Render thread | java.util.Objects.equals
+22	Render thread | net.minecraft.client.renderer.LevelRenderer.renderLevel
+22	Render thread | org.joml.Matrix4f.rotate
+19	Render thread | org.slavicmyths.client.GuardianClient.face
+18	Render thread | java.lang.String.equals
+16	Server thread | java.lang.invoke.LambdaForm$DMH+0x0000020de4003000.598446861.invokeStatic
+14	Render thread | net.minecraft.client.renderer.entity.EntityRenderDispatcher.render
+14	Render thread | net.minecraft.world.level.levelgen.LegacyRandomSource.next
+12	Render thread | java.util.Arrays.copyOf
+11	Render thread | it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap.get
+11	Render thread | net.minecraft.resources.ResourceLocation.isValidPath
+11	Render thread | net.minecraft.world.level.block.state.BlockBehaviour$Properties.lambda$new$5
+11	Render thread | net.minecraft.client.model.geom.ModelPart$$Lambda+0x0000020de541e4c8.1836184214.apply
+11	Render thread | net.minecraft.client.renderer.MultiBufferSource$BufferSource.endBatch
+11	Render thread | it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.get
+10	Render thread | java.util.IdentityHashMap.get
+10	Render thread | java.util.Spliterators$IteratorSpliterator.estimateSize
+9	Server thread | net.minecraft.server.level.DistanceManager.purgeStaleTickets
+9	Render thread | org.slavicmyths.client.GuardianClient.scene
+9	Render thread | java.util.stream.ReferencePipeline$7$1.accept
+9	Render thread | java.util.HashMap.getNode
+9	Render thread | org.joml.Matrix3f.rotate
+9	Render thread | net.minecraft.world.phys.Vec3.fromRGB24
+9	Render thread | net.neoforged.neoforge.client.extensions.IVertexConsumerExtension.putBulkData
+MOD_INCLUSIVE_CPU_SAMPLES (overlap)
+2095	Render thread | org.slavicmyths.client.GuardianModel.renderToBuffer
+1615	Render thread | org.slavicmyths.client.GuardianRenderer$1.render
+330	Render thread | org.slavicmyths.client.GuardianClient$PrisonRenderer.render
+223	Render thread | org.slavicmyths.client.GuardianClient.face
+223	Render thread | org.slavicmyths.client.GuardianClient.cube
+206	Render thread | org.slavicmyths.client.GuardianClient.scene
+204	Render thread | org.slavicmyths.client.GuardianClient.vertex
+144	Render thread | org.slavicmyths.client.GuardianModel.setupAnim
+33	Render thread | org.slavicmyths.client.GuardianClient$EchoRenderer.render
+30	Server thread | org.slavicmyths.item.FolkAccessoryItem.equipped
+29	Server thread | org.slavicmyths.item.FolkAccessoryItem$$Lambda+0x0000020de56dfab8.813265787.apply
+29	Server thread | org.slavicmyths.item.FolkAccessoryItem.lambda$equipped$0
+20	Server thread | org.slavicmyths.item.FolkEquipmentEffects.wears
+17	Render thread | org.slavicmyths.client.GuardianRenderer.getRenderType
+17	Server thread | org.slavicmyths.hunt.BossEffects.tick
+16	Render thread | org.slavicmyths.guardians.GuardianContent.id
+11	Render thread | org.slavicmyths.client.RareRuneClient.render
+9	Render thread | org.slavicmyths.client.GuardianRenderer.getTextureLocation
+9	Server thread | org.slavicmyths.karachun.NightEvents.tick
+6	Render thread | org.slavicmyths.client.HeroHud.render
+6	Render thread | org.slavicmyths.rpg.RareRunes.equipped
+5	Render thread | org.slavicmyths.client.GuardianModel$$Lambda+0x0000020de58058d0.876175577.accept
+5	Render thread | org.slavicmyths.client.Quest185Client.render
+4	Render thread | org.slavicmyths.guardians.SpringKeeper.floodRegions
+4	Render thread | org.slavicmyths.rpg.RareRuneRuntime.tier
+4	Server thread | org.slavicmyths.rpg.RpgEvents.blockConfirmation
+4	Server thread | org.slavicmyths.quest185.Quest185Story.status
+4	Render thread | org.slavicmyths.guardians.GuardianEntity.tick
+4	Server thread | org.slavicmyths.rpg.classes.ClassEvents.tick
+4	Server thread | org.slavicmyths.quest185.Quest185Events.tick
+4	Server thread | org.slavicmyths.rpg.classes.ClassPassiveEvents.tick
+4	Render thread | org.slavicmyths.client.Quest185Client.outlined
+4	Render thread | org.slavicmyths.guardians.GuardianEntity.rotation
+4	Render thread | org.slavicmyths.client.WolfStoryClient.hud
+4	Render thread | org.slavicmyths.client.NightClient.hand
+3	Render thread | org.slavicmyths.rpg.RareRunes.active
+3	Render thread | org.slavicmyths.item.ItemState.runes
+3	Render thread | org.slavicmyths.client.FrostClient.hud
+3	Server thread | org.slavicmyths.skim.SkimEvents.tick
+3	Render thread | org.slavicmyths.client.GuardianRenderer.name
+3	Render thread | org.slavicmyths.rpg.Runes.has
+3	Server thread | org.slavicmyths.poloz.PolozEvents.tick
+3	Render thread | org.slavicmyths.guardians.WaterPrison.tick
+3	Render thread | org.slavicmyths.rpg.RareRunes.equipment
+3	Render thread | org.slavicmyths.rpg.Runes.list
+2	Render thread | org.slavicmyths.guardians.WaterEcho.tick
+2	Server thread | org.slavicmyths.quest185.Quest185Story.migrate
+2	Server thread | org.slavicmyths.item.FolkEquipmentEffects.tick
+2	Render thread | org.slavicmyths.rpg.RareRunes.lambda$active$2
+2	Server thread | org.slavicmyths.finist.GreyPackRing.tick
+ALLOCATION_ESTIMATES_BYTES (sampling, not retained)
+11442383376	org.joml.Vector3f | com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids
+6185204832	[B | jdk.nio.zipfs.ZipFileSystem$Entry.readLocEXTT
+4580008680	org.joml.Vector3f | com.mojang.blaze3d.vertex.VertexConsumer.setNormal
+3593767352	net.minecraft.world.phys.Vec3 | net.minecraft.world.phys.Vec3.add
+3010464368	[B | jdk.internal.misc.Unsafe.allocateUninitializedArray
+2731230936	java.lang.String | java.lang.StringConcatHelper.newString
+2478328368	net.minecraft.world.phys.Vec3 | net.minecraft.world.phys.Vec3.fromRGB24
+2249490568	[F | com.mojang.blaze3d.vertex.VertexSorting.lambda$byDistance$2
+2025046872	java.util.stream.ReferencePipeline$Head | java.util.stream.StreamSupport.stream
+1974426344	org.joml.Matrix4f | com.mojang.blaze3d.vertex.PoseStack$Pose.<init>
+1896334224	[I | java.util.Arrays.copyOf
+1815146448	org.joml.Vector3f | net.minecraft.client.model.geom.ModelPart$Cube.compile
+1727938880	[Lorg.joml.Vector3f; | com.mojang.blaze3d.vertex.MeshData.unpackQuadCentroids
+1513182624	org.joml.Matrix3f | com.mojang.blaze3d.vertex.PoseStack$Pose.<init>
+1507707104	net.minecraft.world.phys.Vec3 | net.minecraft.world.phys.Vec3.multiply
+1486802632	[I | com.mojang.blaze3d.vertex.VertexSorting.lambda$byDistance$2
+766556472	com.google.common.collect.Iterators$ArrayItr | com.google.common.collect.Iterators.forArray
+622007984	java.util.stream.ReferencePipeline$7 | java.util.stream.ReferencePipeline.flatMap
+596052520	java.util.IdentityHashMap$KeyIterator | java.util.IdentityHashMap$KeySet.iterator
+573938768	java.util.stream.StreamSpliterators$WrappingSpliterator | java.util.stream.ReferencePipeline.wrap
+429613024	java.util.stream.ReferencePipeline$7$1 | java.util.stream.ReferencePipeline$7.opWrapSink
+359634384	com.mojang.blaze3d.vertex.PoseStack$Pose | com.mojang.blaze3d.vertex.PoseStack.pushPose
+333474384	[F | net.neoforged.neoforge.client.extensions.IVertexConsumerExtension.putBulkData
+314350488	java.util.stream.Streams$2 | java.util.stream.Streams.composedClose
+304076816	net.neoforged.neoforge.client.event.RenderGuiLayerEvent$Post | net.neoforged.neoforge.client.gui.GuiLayerManager.renderInner
+300097432	org.joml.Quaternionf | net.minecraft.client.model.geom.ModelPart.translateAndRotate
+298849840	it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap$ValuesCollection$1 | it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap$ValuesCollection.iterator
+298818664	[I | net.neoforged.neoforge.client.extensions.IVertexConsumerExtension.putBulkData
+288293976	java.util.stream.Streams$ConcatSpliterator$OfRef | java.util.stream.Stream.concat
+286553296	org.joml.Matrix4f | com.mojang.blaze3d.vertex.PoseStack.lambda$new$0
+269927952	com.mojang.blaze3d.vertex.ByteBufferBuilder$Result | com.mojang.blaze3d.vertex.ByteBufferBuilder.build
+236080808	[Ljava.lang.Object; | java.util.ArrayDeque.<init>
+234341360	java.util.stream.Streams$StreamBuilderImpl | java.util.stream.Stream.of
+216020608	java.util.stream.StreamSpliterators$WrappingSpliterator$$Lambda+0x0000020de41963e0.605705199 | java.lang.invoke.DirectMethodHandle.allocateInstance
+200569192	com.mojang.blaze3d.vertex.MeshData$DrawState | com.mojang.blaze3d.vertex.BufferBuilder.storeMesh
+163973208	net.minecraft.client.multiplayer.ClientLevel$$Lambda+0x0000020de57054b8.895107336 | java.lang.invoke.DirectMethodHandle.allocateInstance
+156768080	[Ljava.lang.String; | org.slavicmyths.client.GuardianModel.setupAnim
+154050240	java.util.stream.AbstractPipeline$$Lambda+0x0000020de4066040.2052915500 | java.lang.invoke.DirectMethodHandle.allocateInstance
+150133296	it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap$ValuesCollection$ValuesSpliterator | it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap$ValuesCollection.spliterator
+141634216	java.nio.DirectByteBuffer | sun.misc.Unsafe.allocateInstance
+124495360	net.neoforged.neoforge.client.event.RenderLevelStageEvent | net.neoforged.neoforge.client.ClientHooks.dispatchRenderStage
+120351040	org.joml.FrustumIntersection | net.minecraft.client.renderer.culling.Frustum.<init>
+95162840	[B | jdk.internal.math.FloatToDecimal.<init>
+94714856	java.lang.String | net.minecraft.Util$2.onTermination
+91161712	com.mojang.blaze3d.vertex.BufferBuilder | com.mojang.blaze3d.vertex.Tesselator.begin
+82977752	net.neoforged.neoforge.client.event.RenderGuiLayerEvent$Pre | net.neoforged.neoforge.client.gui.GuiLayerManager.renderInner
+82828528	com.mojang.blaze3d.vertex.MeshData | com.mojang.blaze3d.vertex.BufferBuilder.storeMesh
+81276536	net.minecraft.core.BlockPos | net.minecraft.world.level.Level.getBlockRandomPos
+81102768	net.minecraft.network.chat.Style | net.minecraft.network.chat.Style.withHoverEvent
+80129696	org.joml.Matrix3f | com.mojang.blaze3d.vertex.PoseStack.lambda$new$0
+CHUNK_EVENT_SUM_DURATION_NS (overlapping tasks, not wall throughput)
+0	jdk.MetaspaceChunkFreeListSummary
