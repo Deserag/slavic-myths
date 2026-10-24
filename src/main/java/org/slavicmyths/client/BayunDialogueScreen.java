@@ -10,7 +10,7 @@ public final class BayunDialogueScreen extends Screen {
     private boolean opponents;
     private BayunNetwork.Dialogue state;private int sequence,left,top,w,h,lineOffset,row;
     public BayunDialogueScreen(BayunNetwork.Dialogue state){super(Component.translatable("entity.slavicmyths.kot_bayun"));this.state=state;}
-    public void answer(BayunNetwork.Dialogue p){state=p;lineOffset=0;}
+    public void answer(BayunNetwork.Dialogue p){boolean changed=state.trust()!=p.trust();state=p;lineOffset=0;if(changed&&minecraft!=null)init();}
     @Override protected void init(){
         clearWidgets();w=Math.min(420,width-20);h=Math.min(310,height-20);left=(width-w)/2;top=(height-h)/2;
         if(opponents){row=Math.max(18,Math.min(28,(h-90)/4));for(int i=0;i<3;i++){

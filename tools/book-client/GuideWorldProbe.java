@@ -6,7 +6,7 @@ import org.slavicmyths.guides.*;import org.slavicmyths.tales.*;import org.slavic
 /** Disposable NORMAL world: real NPC menu requests followed by travel/native worldgen. */
 @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class GuideWorldProbe {
- static boolean enabled,opened,working,done,replay,presented,metricDone;static int replayWait;static int ticks,phase,request;static String worldName;static long started;static BlockPos sentinel;static UUID yaga,cat;static final List<String> rows=new ArrayList<>();static final Path OUT=Path.of("D:/slavic-myths/docs/implementation/guides236/normal-world");
+ static boolean enabled,opened,working,done,replay,presented,metricDone,interactionDone;static int replayWait;static int ticks,phase,request;static String worldName;static long started;static BlockPos sentinel;static UUID yaga,cat;static final List<String> rows=new ArrayList<>();static final Path OUT=Path.of("D:/slavic-myths/docs/implementation/guides236/normal-world");
  public static void begin(){enabled=true;}
  public static void beginReplay(){enabled=true;replay=true;}
  static void snapshotMetric(ServerPlayer p,String label){
@@ -20,7 +20,7 @@ public final class GuideWorldProbe {
   if(mc.player==null||mc.getSingleplayerServer()==null||mc.level==null)return;
   if(phase==7){
     if(!presented){if(!(mc.screen instanceof org.slavicmyths.client.TaleScreen screen))return;BookCapture.set(screen,"part","quests");BookCapture.set(screen,"selected","slavicmyths:guide_nightingale");BookCapture.set(screen,"page",1);BookCapture.set(screen,"sidebar",true);BookCapture.set(screen,"fullscreen",false);((Set<String>)BookCapture.get(screen,"expanded")).add("quests");screen.resize(mc,mc.getWindow().getGuiScaledWidth(),mc.getWindow().getGuiScaledHeight());presented=true;ticks=0;}
-    if(++ticks<35)return;try(var shot=Screenshot.takeScreenshot(mc.getMainRenderTarget())){shot.writeToFile(OUT.resolve("guide-tracking-replay.png"));}done=true;mc.stop();return;
+    if(++ticks<35)return;if(!interactionDone){try{BookCapture.interactionChecks(mc,(org.slavicmyths.client.TaleScreen)mc.screen);interactionDone=true;ticks=0;return;}catch(Exception|AssertionError failure){Files.writeString(OUT.resolve("FAIL-interaction.txt"),failure.toString());done=true;mc.stop();return;}}try(var shot=Screenshot.takeScreenshot(mc.getMainRenderTarget())){shot.writeToFile(OUT.resolve("guide-tracking-replay.png"));}done=true;mc.stop();return;
   }
   if(++ticks<30)return;ticks=0;working=true;
   mc.getSingleplayerServer().execute(()->{try{

@@ -3,14 +3,14 @@
   "scope": "offline native StringSplitter with fixed glyph widths, exact DDA pixels; not GPU frames or game FPS",
   "allocation": {
     "before_bytes_op": [
-      47261.344,
-      46893.804,
-      46312.0
+      47241.52,
+      46858.716,
+      46248.0
     ],
     "after_bytes_op": [
-      0.524,
       0.0,
-      0.0
+      0.472,
+      0.052
     ]
   }
 }

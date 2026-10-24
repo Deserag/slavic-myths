@@ -5922,5 +5922,6 @@
   "tales.entry.bayun_search.verified": "Two different victories reveal a rumor of Bayun. A third narrows the area. Earn the cat's trust separately. Without a marked area, no trail is known yet.",
   "guides.find_yaga": "Ask to find the hut",
   "guides.track": "Track",
-  "guides.untrack": "Untrack"
+  "guides.untrack": "Untrack",
+  "flight.slavicmyths.passenger": "You are a mortar passenger. The owner pilots with a pestle. Dismount: %s."
 }
