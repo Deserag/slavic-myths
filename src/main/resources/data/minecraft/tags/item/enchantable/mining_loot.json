@@ -8,6 +8,10 @@
     "slavicmyths:perunite_shovel",
     "slavicmyths:perunite_hoe",
     "slavicmyths:thunder_axe",
-    "slavicmyths:battle_axe"
+    "slavicmyths:battle_axe",
+    "slavicmyths:chud_master_pickaxe",
+    "slavicmyths:chud_multitool_axe",
+    "slavicmyths:chud_multitool_pickaxe",
+    "slavicmyths:chud_multitool_shovel"
   ]
 }

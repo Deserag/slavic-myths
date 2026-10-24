@@ -44,6 +44,8 @@ public final class ToolRuneRuntime {
  private static boolean loaded(ServerLevel w,BlockPos p){return p.getY()>=w.getMinBuildHeight()&&p.getY()<w.getMaxBuildHeight()&&w.getChunkSource().getChunkNow(p.getX()>>4,p.getZ()>>4)!=null;}
  private static boolean access(ServerPlayer p,BlockPos pos){var w=p.serverLevel();var mode=p.gameMode.getGameModeForPlayer();return p.isAlive()&&!p.isSpectator()&&(mode==GameType.SURVIVAL||mode==GameType.CREATIVE)&&p.mayBuild()&&loaded(w,pos)&&w.getWorldBorder().isWithinBounds(pos)&&w.mayInteract(p,pos)&&!p.blockActionRestricted(w,pos,mode);}
  private static boolean safe(ServerLevel w,BlockPos p,BlockState s){return loaded(w,p)&&!s.isAir()&&!s.hasBlockEntity()&&s.getFluidState().isEmpty()&&s.getDestroySpeed(w,p)>=0;}
+ private static boolean treeTool(ServerPlayer p){return org.slavicmyths.industry.ChudTools.treeAxe(p.getMainHandItem());}
+ private static int activeTier(ServerPlayer p,String family){int rune=ToolRuneRules.tier(Runes.list(p.getMainHandItem()),family);return rune>0&&p.isShiftKeyDown()?rune:treeTool(p)&&family.equals("lumberjack")?2:0;}
  private static String family(ItemStack s){if(s.getItem() instanceof PickaxeItem)return "miner";if(s.getItem() instanceof ShovelItem)return "excavator";if(s.getItem() instanceof AxeItem)return "lumberjack";if(s.getItem() instanceof HoeItem)return "farmer";return "";}
  private static boolean dig(ServerPlayer p,BlockPos pos,BlockState s,Mode mode){if(!access(p,pos)||!safe(p.serverLevel(),pos,s))return false;var tool=p.getMainHandItem();return switch(mode){
   case MINER->tool.getItem() instanceof PickaxeItem&&s.is(BlockTags.MINEABLE_WITH_PICKAXE)&&tool.isCorrectToolForDrops(s);
@@ -57,15 +59,15 @@ public final class ToolRuneRuntime {
   if(!action.equals("START")&&!action.equals("STOP"))return;
   if(e.isCanceled()){clear(p);return;}
   if(action.equals("START")){INTENTS.remove(p.getUUID());JOBS.remove(p.getUUID());}
-  String f=family(p.getMainHandItem());if(!p.isShiftKeyDown()||f.equals("farmer")||ToolRuneRules.tier(Runes.list(p.getMainHandItem()),f)==0||e.getUseItem()==TriState.FALSE||!access(p,e.getPos()))return;
+  String f=family(p.getMainHandItem());if((!p.isShiftKeyDown()&&!treeTool(p))||f.equals("farmer")||activeTier(p,f)==0||e.getUseItem()==TriState.FALSE||!access(p,e.getPos()))return;
   // The face is recovered from the server ray, and must agree with the accepted packet's target/face.
   var hit=p.pick(p.blockInteractionRange(),1,false);
   if(!(hit instanceof BlockHitResult block)||hit.getType()!=HitResult.Type.BLOCK||!block.getBlockPos().equals(e.getPos())||block.getDirection()!=e.getFace())return;
   INTENTS.put(p.getUUID(),new Intent(e.getPos().immutable(),block.getDirection(),p.getMainHandItem(),p.level().dimension(),now(p)));
  }
  public static BreakFrame beginBreak(ServerPlayer p,BlockPos pos){
-  var empty=new BreakFrame(p,pos,null,ItemStack.EMPTY,"",null,0);if(GUARD.contains(p.getUUID())||!p.isShiftKeyDown())return empty;
-  var intent=INTENTS.get(p.getUUID());var stack=p.getMainHandItem();String f=family(stack);int tier=ToolRuneRules.tier(Runes.list(stack),f);
+  var empty=new BreakFrame(p,pos,null,ItemStack.EMPTY,"",null,0);if(GUARD.contains(p.getUUID())||!p.isShiftKeyDown()&&!treeTool(p))return empty;
+  var intent=INTENTS.get(p.getUUID());var stack=p.getMainHandItem();String f=family(stack);int tier=activeTier(p,f);
   if(!access(p,pos)||intent==null||!intent.pos.equals(pos)||intent.stack!=stack||!intent.dimension.equals(p.level().dimension())||now(p)-intent.time>1200||tier==0||f.equals("farmer"))return empty;
   var mode=Mode.valueOf(f.toUpperCase(Locale.ROOT));var state=p.serverLevel().getBlockState(pos);if(!dig(p,pos,state,mode))return empty;
   return new BreakFrame(p,pos,state,stack,f,intent.face,tier);

@@ -1,0 +1,191 @@
+[
+  {
+    "samples": 1000,
+    "role": "burial",
+    "tier": "small",
+    "empty": 371,
+    "max_stacks": 3
+  },
+  {
+    "samples": 1000,
+    "role": "offering",
+    "tier": "small",
+    "empty": 371,
+    "max_stacks": 3
+  },
+  {
+    "samples": 1000,
+    "role": "important",
+    "tier": "small",
+    "empty": 0,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "common_cache",
+    "tier": "small",
+    "empty": 371,
+    "max_stacks": 3
+  },
+  {
+    "samples": 1000,
+    "role": "warrior",
+    "tier": "small",
+    "empty": 371,
+    "max_stacks": 3
+  },
+  {
+    "samples": 1000,
+    "role": "treasury",
+    "tier": "small",
+    "empty": 0,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "ritual",
+    "tier": "small",
+    "empty": 0,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "secret",
+    "tier": "small",
+    "empty": 0,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "great_special",
+    "tier": "small",
+    "empty": 0,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "burial",
+    "tier": "warrior",
+    "empty": 236,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "offering",
+    "tier": "warrior",
+    "empty": 236,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "important",
+    "tier": "warrior",
+    "empty": 0,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "common_cache",
+    "tier": "warrior",
+    "empty": 236,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "warrior",
+    "tier": "warrior",
+    "empty": 236,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "treasury",
+    "tier": "warrior",
+    "empty": 0,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "ritual",
+    "tier": "warrior",
+    "empty": 0,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "secret",
+    "tier": "warrior",
+    "empty": 0,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "great_special",
+    "tier": "warrior",
+    "empty": 0,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "burial",
+    "tier": "great",
+    "empty": 114,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "offering",
+    "tier": "great",
+    "empty": 114,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "important",
+    "tier": "great",
+    "empty": 0,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "common_cache",
+    "tier": "great",
+    "empty": 114,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "warrior",
+    "tier": "great",
+    "empty": 114,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "treasury",
+    "tier": "great",
+    "empty": 0,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "ritual",
+    "tier": "great",
+    "empty": 0,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "secret",
+    "tier": "great",
+    "empty": 0,
+    "max_stacks": 4
+  },
+  {
+    "samples": 1000,
+    "role": "great_special",
+    "tier": "great",
+    "empty": 0,
+    "max_stacks": 4
+  }
+]

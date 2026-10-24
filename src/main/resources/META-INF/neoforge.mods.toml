@@ -11,6 +11,8 @@ config="slavicmyths.industry.mixins.json"
 config="slavicmyths.underground.mixins.json"
 [[mixins]]
 config="slavicmyths.tool_runes.mixins.json"
+[[mixins]]
+config="slavicmyths.chud_light.mixins.json"
 [[mods]]
 modId="slavicmyths"
 version="${mod_version}"

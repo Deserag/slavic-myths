@@ -1,0 +1,220 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\industry\ChudLiftItem.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources
+> Task :classes
+> Task :compileChudKurganJava
+> Task :processChudKurganResources UP-TO-DATE
+> Task :chudKurganClasses
+> Task :downloadAssets UP-TO-DATE
+> Task :writeChudKurganChecksLegacyClasspath UP-TO-DATE
+> Task :prepareChudKurganChecksRun UP-TO-DATE
+
+> Task :runChudKurganChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[13:43:16] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[13:43:16] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[13:43:16] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[13:43:16] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[13:43:16] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[13:43:16] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[13:43:16] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]:
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 1.9.7.63 (slavicmyths)
+[13:43:17] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[13:43:17] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[13:43:17] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[13:43:17] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[13:43:18] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[13:43:19] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[13:43:24] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[13:43:24] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[13:43:24] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[13:43:24] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[13:43:24] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[13:43:24] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[13:43:26] [main/ERROR] [minecraft/Settings]: Failed to load properties from file: server.properties
+java.nio.file.NoSuchFileException: server.properties
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:379) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:431) ~[?:?] {}
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420) ~[?:?] {}
+	at java.base/java.nio.file.Files.newInputStream(Files.java:159) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.Settings.loadFromFile(Settings.java:38) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerProperties.fromFile(DedicatedServerProperties.java:132) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerSettings.<init>(DedicatedServerSettings.java:12) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.Main.main(Main.java:125) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.serverService(CommonLaunchHandler.java:128) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.NeoForgeServerDevLaunchHandler.runService(NeoForgeServerDevLaunchHandler.java:23) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.45.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:57) [DevLaunch-1.0.2.jar:?] {}
+[13:43:26] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[13:43:26] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[13:43:26] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[13:43:26] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_chud_kurgan]
+[13:43:27] [main/INFO] [minecraft/RecipeManager]: Loaded 1841 recipes
+[13:43:27] [main/INFO] [minecraft/AdvancementTree]: Loaded 1640 advancements
+[13:43:27] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[13:43:27] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[13:43:28] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[13:43:28] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[13:43:28] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 169 ms
+[13:43:28] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[13:43:28] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[13:43:29] [Server thread/INFO] [minecraft/GameTestServer]: 8 tests are now running at position 7765030, -59, 4059059!
+[13:43:30] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (8 tests)...
+[13:43:30] [Server thread/INFO] [minecraft/GameTestServer]: [        ]
+CHUD_KURGAN_PASS old artisan offer migration idempotent and no coin currency
+CHUD_KURGAN_PASS miner adds lantern and master pickaxe once
+CHUD_KURGAN_PASS actual miner merchant exposes tool
+CHUD_KURGAN_PASS lift supports native unbreaking tag
+CHUD_KURGAN_PASS actual deterministic layout and unchanged roster sampled
+CHUD_KURGAN_PASS summoned upyr never supplies fragments
+CHUD_KURGAN_PASS non-burial upyr never supplies fragments
+CHUD_KURGAN_PASS natural burial fragment probability55% sampled
+CHUD_KURGAN_PASS actual closed Earth arena denies ascent
+CHUD_KURGAN_PASS open arena permits ordinary surface search
+CHUD_KURGAN_PASS native teleport cancellation prevents movement and charge
+CHUD_KURGAN_PASS 1000 important rolls nonempty small
+CHUD_KURGAN_PASS five-slot coffin capacity small/burial
+CHUD_KURGAN_PASS 1000 important rolls nonempty small
+CHUD_KURGAN_PASS five-slot coffin capacity small/offering
+CHUD_KURGAN_PASS 1000 important rolls nonempty small
+CHUD_KURGAN_PASS five-slot coffin capacity small/important
+CHUD_KURGAN_PASS 1000 important rolls nonempty small
+CHUD_KURGAN_PASS five-slot coffin capacity small/common_cache
+CHUD_KURGAN_PASS 1000 important rolls nonempty small
+CHUD_KURGAN_PASS five-slot coffin capacity small/warrior
+CHUD_KURGAN_PASS 1000 important rolls nonempty small
+CHUD_KURGAN_PASS five-slot coffin capacity small/treasury
+CHUD_KURGAN_PASS 1000 important rolls nonempty small
+CHUD_KURGAN_PASS five-slot coffin capacity small/ritual
+CHUD_KURGAN_PASS 1000 important rolls nonempty small
+CHUD_KURGAN_PASS five-slot coffin capacity small/secret
+CHUD_KURGAN_PASS 1000 important rolls nonempty small
+CHUD_KURGAN_PASS five-slot coffin capacity small/great_special
+CHUD_KURGAN_PASS 1000 important rolls nonempty warrior
+CHUD_KURGAN_PASS five-slot coffin capacity warrior/burial
+CHUD_KURGAN_PASS 1000 important rolls nonempty warrior
+CHUD_KURGAN_PASS five-slot coffin capacity warrior/offering
+CHUD_KURGAN_PASS 1000 important rolls nonempty warrior
+CHUD_KURGAN_PASS five-slot coffin capacity warrior/important
+CHUD_KURGAN_PASS 1000 important rolls nonempty warrior
+CHUD_KURGAN_PASS five-slot coffin capacity warrior/common_cache
+CHUD_KURGAN_PASS 1000 important rolls nonempty warrior
+CHUD_KURGAN_PASS five-slot coffin capacity warrior/warrior
+CHUD_KURGAN_PASS 1000 important rolls nonempty warrior
+CHUD_KURGAN_PASS five-slot coffin capacity warrior/treasury
+CHUD_KURGAN_PASS 1000 important rolls nonempty warrior
+CHUD_KURGAN_PASS five-slot coffin capacity warrior/ritual
+CHUD_KURGAN_PASS 1000 important rolls nonempty warrior
+CHUD_KURGAN_PASS five-slot coffin capacity warrior/secret
+CHUD_KURGAN_PASS 1000 important rolls nonempty warrior
+CHUD_KURGAN_PASS five-slot coffin capacity warrior/great_special
+CHUD_KURGAN_PASS 1000 important rolls nonempty great
+CHUD_KURGAN_PASS five-slot coffin capacity great/burial
+CHUD_KURGAN_PASS 1000 important rolls nonempty great
+CHUD_KURGAN_PASS five-slot coffin capacity great/offering
+CHUD_KURGAN_PASS 1000 important rolls nonempty great
+CHUD_KURGAN_PASS five-slot coffin capacity great/important
+CHUD_KURGAN_PASS 1000 important rolls nonempty great
+CHUD_KURGAN_PASS five-slot coffin capacity great/common_cache
+CHUD_KURGAN_PASS 1000 important rolls nonempty great
+CHUD_KURGAN_PASS five-slot coffin capacity great/warrior
+CHUD_KURGAN_PASS 1000 important rolls nonempty great
+CHUD_KURGAN_PASS five-slot coffin capacity great/treasury
+CHUD_KURGAN_PASS 1000 important rolls nonempty great
+CHUD_KURGAN_PASS five-slot coffin capacity great/ritual
+CHUD_KURGAN_PASS 1000 important rolls nonempty great
+CHUD_KURGAN_PASS five-slot coffin capacity great/secret
+CHUD_KURGAN_PASS 1000 important rolls nonempty great
+CHUD_KURGAN_PASS five-slot coffin capacity great/great_special
+CHUD_KURGAN_PASS actual coffin resolves pending old-style loot id once
+CHUD_KURGAN_PASS second player cannot reroll slot0
+CHUD_KURGAN_PASS second player cannot reroll slot1
+CHUD_KURGAN_PASS second player cannot reroll slot2
+CHUD_KURGAN_PASS second player cannot reroll slot3
+CHUD_KURGAN_PASS second player cannot reroll slot4
+CHUD_KURGAN_PASS coffin NBT retains contents0
+CHUD_KURGAN_PASS coffin NBT retains contents1
+CHUD_KURGAN_PASS coffin NBT retains contents2
+CHUD_KURGAN_PASS coffin NBT retains contents3
+CHUD_KURGAN_PASS coffin NBT retains contents4
+CHUD_KURGAN_PASS fortune3 active, no silk
+CHUD_KURGAN_PASS both native hooks apply only active silk
+CHUD_KURGAN_PASS real ore loot uses silk even with fortune rune
+CHUD_KURGAN_PASS fortune upgrade and components retained
+CHUD_KURGAN_PASS 30 native form changes preserve wear/name/enchants/runes
+CHUD_KURGAN_PASS stack codec roundtrip, not actual relog
+LIFT_DIAG start=BlockPos{x=7765363, y=-57, z=4059062} actual=(7765363.0, -57.0, 4059062.0) height=-40 sky=true safe=true locked=false
+LIFT_DIAG result=BlockPos{x=7765363, y=-40, z=4059062} expected=-48
+CHUD_KURGAN_PASS surface height, not first cave ceiling or fixed Y
+CHUD_KURGAN_PASS actual native teleport consumes once and adds cooldown
+CHUD_KURGAN_PASS hot surface rejected
+CHUD_KURGAN_PASS failed ascent no wear
+TREE_RAY range=4.5 eye=(7765422.5, -52.37999999523163, 4059063.5) aim=(-3.0, -0.12000000476837158, 0.0) hit=BLOCK pos=MutableBlockPos{x=7765419, y=-53, z=4059063} state=Block{minecraft:oak_log}[axis=y]
+CHUD_KURGAN_PASS server ray selects natural trunk
+CHUD_KURGAN_PASS origin destroyed through native game mode
+[13:43:31] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++_]
+[13:43:31] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++_]
+[13:43:31] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++_]
+[13:43:31] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++_]
+CHUD_KURGAN_PASS one built-in queue clears trunk0
+CHUD_KURGAN_PASS one built-in queue clears trunk1
+CHUD_KURGAN_PASS one built-in queue clears trunk2
+CHUD_KURGAN_PASS one built-in queue clears trunk3
+CHUD_KURGAN_PASS one built-in queue clears trunk4
+CHUD_KURGAN_PASS one built-in queue clears trunk5
+CHUD_KURGAN_PASS connected branch included
+CHUD_KURGAN_PASS seven logs charge exactly seven durability
+CHUD_KURGAN_PASS leaves left to vanilla decay
+[13:43:31] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++]
+[13:43:31] [Server thread/INFO] [minecraft/GameTestServer]: ========= 8 GAME TESTS COMPLETE IN 2.646 s ======================
+[13:43:31] [Server thread/INFO] [minecraft/GameTestServer]: All 8 required tests passed :)
+[13:43:31] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[13:43:31] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[13:43:31] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[13:43:31] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[13:43:32] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[13:43:33] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[13:43:33] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[13:43:33] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[13:43:33] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[13:43:33] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[13:43:33] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[13:43:33] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 1m 2s
+10 actionable tasks: 5 executed, 5 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

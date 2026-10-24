@@ -1,0 +1,313 @@
+{
+  "before": {
+    "small": {
+      "slavicmyths:soul": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.0,
+        "probability_any": 0.0,
+        "theoretical_min": 0
+      },
+      "slavicmyths:soul_fragment": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 1.4019,
+        "probability_any": 0.80795,
+        "theoretical_min": 0
+      },
+      "slavicmyths:blank_rune_1": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.0,
+        "probability_any": 0.0,
+        "theoretical_min": 0
+      },
+      "ready_rune_I": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.0,
+        "probability_any": 0.0,
+        "theoretical_min": 0
+      },
+      "minecraft:diamond": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.0,
+        "probability_any": 0.0,
+        "theoretical_min": 0
+      },
+      "minecraft:emerald": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.0,
+        "probability_any": 0.0,
+        "theoretical_min": 0
+      },
+      "soul_equivalent": {
+        "samples": 20000,
+        "observed_min": 0.0,
+        "mean": 0.350475,
+        "probability_any": 0.80795,
+        "theoretical_min": 0
+      }
+    },
+    "warrior": {
+      "slavicmyths:soul": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.49585,
+        "probability_any": 0.49585,
+        "theoretical_min": 0
+      },
+      "slavicmyths:soul_fragment": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 1.74955,
+        "probability_any": 0.8775,
+        "theoretical_min": 0
+      },
+      "slavicmyths:blank_rune_1": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.0,
+        "probability_any": 0.0,
+        "theoretical_min": 0
+      },
+      "ready_rune_I": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.0,
+        "probability_any": 0.0,
+        "theoretical_min": 0
+      },
+      "minecraft:diamond": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.0,
+        "probability_any": 0.0,
+        "theoretical_min": 0
+      },
+      "minecraft:emerald": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.0,
+        "probability_any": 0.0,
+        "theoretical_min": 0
+      },
+      "soul_equivalent": {
+        "samples": 20000,
+        "observed_min": 0.0,
+        "mean": 0.9332375,
+        "probability_any": 0.94015,
+        "theoretical_min": 0
+      }
+    },
+    "great": {
+      "slavicmyths:soul": {
+        "samples": 20000,
+        "observed_min": 1,
+        "mean": 1.9941,
+        "probability_any": 1.0,
+        "theoretical_min": 1
+      },
+      "slavicmyths:soul_fragment": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 2.4473,
+        "probability_any": 0.95005,
+        "theoretical_min": 0
+      },
+      "slavicmyths:blank_rune_1": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.0,
+        "probability_any": 0.0,
+        "theoretical_min": 0
+      },
+      "ready_rune_I": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.0,
+        "probability_any": 0.0,
+        "theoretical_min": 0
+      },
+      "minecraft:diamond": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.0,
+        "probability_any": 0.0,
+        "theoretical_min": 0
+      },
+      "minecraft:emerald": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.0,
+        "probability_any": 0.0,
+        "theoretical_min": 0
+      },
+      "soul_equivalent": {
+        "samples": 20000,
+        "observed_min": 1.0,
+        "mean": 2.605925,
+        "probability_any": 1.0,
+        "theoretical_min": 1
+      }
+    }
+  },
+  "after": {
+    "small": {
+      "slavicmyths:soul": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.0,
+        "probability_any": 0.0,
+        "theoretical_min": 0
+      },
+      "slavicmyths:soul_fragment": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 3.0935,
+        "probability_any": 0.984,
+        "theoretical_min": 0
+      },
+      "slavicmyths:blank_rune_1": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.12705,
+        "probability_any": 0.1221,
+        "theoretical_min": 0
+      },
+      "ready_rune_I": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.0419,
+        "probability_any": 0.0414,
+        "theoretical_min": 0
+      },
+      "minecraft:diamond": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.04285,
+        "probability_any": 0.0424,
+        "theoretical_min": 0
+      },
+      "minecraft:emerald": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.21815,
+        "probability_any": 0.20435,
+        "theoretical_min": 0
+      },
+      "soul_equivalent": {
+        "samples": 20000,
+        "observed_min": 0.0,
+        "mean": 0.773375,
+        "probability_any": 0.984,
+        "theoretical_min": 0
+      }
+    },
+    "warrior": {
+      "slavicmyths:soul": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.6995,
+        "probability_any": 0.6995,
+        "theoretical_min": 0
+      },
+      "slavicmyths:soul_fragment": {
+        "samples": 20000,
+        "observed_min": 1,
+        "mean": 8.3234,
+        "probability_any": 1.0,
+        "theoretical_min": 0
+      },
+      "slavicmyths:blank_rune_1": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.66,
+        "probability_any": 0.50085,
+        "theoretical_min": 0
+      },
+      "ready_rune_I": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.22675,
+        "probability_any": 0.20595,
+        "theoretical_min": 0
+      },
+      "minecraft:diamond": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.22645,
+        "probability_any": 0.20425,
+        "theoretical_min": 0
+      },
+      "minecraft:emerald": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 1.08875,
+        "probability_any": 0.5309,
+        "theoretical_min": 0
+      },
+      "soul_equivalent": {
+        "samples": 20000,
+        "observed_min": 0.25,
+        "mean": 2.78035,
+        "probability_any": 1.0,
+        "theoretical_min": 0
+      }
+    },
+    "great": {
+      "slavicmyths:soul": {
+        "samples": 20000,
+        "observed_min": 1,
+        "mean": 3.0815,
+        "probability_any": 1.0,
+        "theoretical_min": 1
+      },
+      "slavicmyths:soul_fragment": {
+        "samples": 20000,
+        "observed_min": 5,
+        "mean": 20.87445,
+        "probability_any": 1.0,
+        "theoretical_min": 0
+      },
+      "slavicmyths:blank_rune_1": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 1.7046,
+        "probability_any": 0.83985,
+        "theoretical_min": 0
+      },
+      "ready_rune_I": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.57265,
+        "probability_any": 0.4445,
+        "theoretical_min": 0
+      },
+      "minecraft:diamond": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 0.5803,
+        "probability_any": 0.4474,
+        "theoretical_min": 0
+      },
+      "minecraft:emerald": {
+        "samples": 20000,
+        "observed_min": 0,
+        "mean": 2.8487,
+        "probability_any": 0.7778,
+        "theoretical_min": 0
+      },
+      "soul_equivalent": {
+        "samples": 20000,
+        "observed_min": 3.25,
+        "mean": 8.3001125,
+        "probability_any": 1.0,
+        "theoretical_min": 1
+      }
+    }
+  },
+  "scope": "20,000 whole-dungeon trials per tier/version over 64 actual native layouts; observed minima are not mathematical minima; no luck/looting; unchanged nav/drushinnik/relic pools excluded from tracked materials; 4 fragments = 1 soul equivalent, not automatic conversion"
+}

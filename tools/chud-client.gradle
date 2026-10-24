@@ -1,0 +1,11 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { chudClient { java.srcDir 'tools/chud-client' } }
+ p.sourceSets.chudClient.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.chudClient.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileChudClientJava'){dependsOn p.tasks.named('classes')}
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.chudClient)
+} }
+gradle.projectsEvaluated { def p=gradle.rootProject
+ p.neoForge.runs.client.gameDirectory=p.file('work/chud258-client')
+ p.neoForge.runs.client.programArguments.addAll('--width','1280','--height','720')
+}

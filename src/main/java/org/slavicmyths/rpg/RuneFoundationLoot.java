@@ -13,7 +13,7 @@ public final class RuneFoundationLoot {
     @SubscribeEvent public static void drops(LivingDropsEvent event) {
         if(event.getEntity() instanceof KurganCreature mob&&!mob.level().isClientSide
             &&mob.kind==KurganFighter.Kind.UPYR&&mob.kurgan!=null
-            &&!mob.getPersistentData().getBoolean("RuneSummoned")&&mob.getRandom().nextFloat()<.35F)
+            &&!mob.getPersistentData().getBoolean("RuneSummoned")&&mob.getRandom().nextFloat()<.55F)
             event.getDrops().add(new ItemEntity(mob.level(),mob.getX(),mob.getY(),mob.getZ(),new ItemStack(RuneFoundation.item("soul_fragment"))));
     }
     private RuneFoundationLoot(){}
