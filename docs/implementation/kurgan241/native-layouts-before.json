@@ -1,0 +1,3166 @@
+[
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 4
+    },
+    "seed": 0,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 4
+    },
+    "seed": 1,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 5
+    },
+    "seed": 2,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 5,
+      "DRUZHINNIK": 1
+    },
+    "seed": 3,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 3,
+      "DRUZHINNIK": 1
+    },
+    "seed": 4,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 3
+    },
+    "seed": 5,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 4
+    },
+    "seed": 6,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 5
+    },
+    "seed": 7,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 5
+    },
+    "seed": 8,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 3,
+      "DRUZHINNIK": 1
+    },
+    "seed": 9,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 3,
+      "DRUZHINNIK": 1
+    },
+    "seed": 10,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 4
+    },
+    "seed": 11,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 4
+    },
+    "seed": 12,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 5
+    },
+    "seed": 13,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 5
+    },
+    "seed": 14,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 3,
+      "DRUZHINNIK": 1
+    },
+    "seed": 15,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 4
+    },
+    "seed": 16,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 4
+    },
+    "seed": 17,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 5,
+      "DRUZHINNIK": 1
+    },
+    "seed": 18,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 3
+    },
+    "seed": 19,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 3
+    },
+    "seed": 20,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 4
+    },
+    "seed": 21,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 4
+    },
+    "seed": 22,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 5,
+      "DRUZHINNIK": 1
+    },
+    "seed": 23,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 5,
+      "DRUZHINNIK": 1
+    },
+    "seed": 24,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 3
+    },
+    "seed": 25,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 3
+    },
+    "seed": 26,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 4
+    },
+    "seed": 27,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 4
+    },
+    "seed": 28,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 5,
+      "DRUZHINNIK": 1
+    },
+    "seed": 29,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 3,
+      "DRUZHINNIK": 1
+    },
+    "seed": 30,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 3
+    },
+    "seed": 31,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 4,
+      "DRUZHINNIK": 1
+    },
+    "seed": 32,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 5
+    },
+    "seed": 33,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 5
+    },
+    "seed": 34,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 3
+    },
+    "seed": 35,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 3
+    },
+    "seed": 36,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 4
+    },
+    "seed": 37,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 4,
+      "DRUZHINNIK": 1
+    },
+    "seed": 38,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 5
+    },
+    "seed": 39,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 5
+    },
+    "seed": 40,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 3
+    },
+    "seed": 41,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 4
+    },
+    "seed": 42,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 4
+    },
+    "seed": 43,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 5,
+      "DRUZHINNIK": 1
+    },
+    "seed": 44,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 5
+    },
+    "seed": 45,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 3
+    },
+    "seed": 46,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 3
+    },
+    "seed": 47,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 4
+    },
+    "seed": 48,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 5
+    },
+    "seed": 49,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 5
+    },
+    "seed": 50,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 3
+    },
+    "seed": 51,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 3,
+      "DRUZHINNIK": 1
+    },
+    "seed": 52,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 4,
+      "DRUZHINNIK": 1
+    },
+    "seed": 53,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 5
+    },
+    "seed": 54,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 5
+    },
+    "seed": 55,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 3
+    },
+    "seed": 56,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 3
+    },
+    "seed": 57,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 4,
+      "DRUZHINNIK": 1
+    },
+    "seed": 58,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 4
+    },
+    "seed": 59,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "secret": 1,
+      "common_cache": 1
+    },
+    "mobs": {
+      "UPYR": 5
+    },
+    "seed": 60,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "UPYR": 5
+    },
+    "seed": 61,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 3
+    },
+    "seed": 62,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "common_cache": 2
+    },
+    "mobs": {
+      "NAV": 1,
+      "UPYR": 4
+    },
+    "seed": 63,
+    "tier": 0
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 0,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 1,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 2,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 3,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 4,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 5,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 6,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 7,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 8,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 9,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 10,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 11,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 12,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 13,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 14,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 15,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 16,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 17,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 18,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 19,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 20,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 21,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 22,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 23,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 24,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 25,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 26,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 27,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 28,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 29,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 30,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 31,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 32,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 33,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 34,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 35,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 36,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 37,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 38,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 39,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 40,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 41,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 42,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 43,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 44,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 45,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 46,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 47,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 48,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 49,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 50,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 51,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 52,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 53,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 54,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 55,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 56,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 57,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 58,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 59,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 2
+    },
+    "seed": 60,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 3,
+      "UPYR": 6,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 61,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 4,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 3
+    },
+    "seed": 62,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 2,
+      "warrior": 1,
+      "treasury": 1,
+      "secret": 2,
+      "common_cache": 3
+    },
+    "mobs": {
+      "NAV": 2,
+      "UPYR": 5,
+      "VOEVODA": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 63,
+    "tier": 1
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 0,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 1,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 2,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 6
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 2,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 3,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 4,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 5,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 6,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 7,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 8,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 9,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 10,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 11,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 12,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 13,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 14,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 15,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 16,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 2,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 6
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 17,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 18,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 19,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 20,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 21,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 22,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 23,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 24,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 25,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 26,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 27,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 28,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 29,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 30,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 31,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 32,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 33,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 34,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 35,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 36,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 37,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 38,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 39,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 40,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 41,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 42,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 2,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 6
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 43,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 44,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 45,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 46,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 47,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 48,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 49,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 50,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 51,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 52,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 53,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 2,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 6
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 54,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 55,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 56,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 7
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 57,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 58,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 59,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 3,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 4
+    },
+    "seed": 60,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 61,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "warrior": 2,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 6
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 5,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 5
+    },
+    "seed": 62,
+    "tier": 2
+  },
+  {
+    "coffins": {
+      "burial": 1,
+      "ritual": 1,
+      "treasury": 1,
+      "great_special": 1,
+      "secret": 4,
+      "common_cache": 8
+    },
+    "mobs": {
+      "PRINCE": 1,
+      "NAV": 4,
+      "UPYR": 7,
+      "VOEVODA": 1,
+      "VOLKHV": 1,
+      "DRUZHINNIK": 6
+    },
+    "seed": 63,
+    "tier": 2
+  }
+]
