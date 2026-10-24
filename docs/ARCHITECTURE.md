@@ -1,3 +1,7 @@
+## 24.10.2026 — интеграция main и тестовый кандидат 1.9.7.62
+
+По прямому поручению владельца сохранены все локальные изменения и объединён origin/main. Подготовка тестового PolyMC delivery; результаты и installed receipt: [отчёт](implementation/polymc-19762/REPORT.md). Приёмка прежних задач не заявляется. Minecraft/PolyMC/GameTest/server не запускать. После установки оптимизация ведётся отдельно от main.
+
 ## 24.10.2026 — посохи, зачарования и runtime-регрессия
 
 CombatStaffItem/StaffStats задают melee атрибуты и допуск поддерживаемых enchantments в primary selection без sword-only tags. Damage enchantments/Strength относятся к melee; spell damage остаётся отдельным. У durable staff сохранены исходные пределы прочности; Морозко остаётся неразрушаемым. StormStaff использует bbox ray/center cone; FrostClient отменяет только воздушный attack, FrostEvents не отменяет близкий native melee. Все harness/source sets opt-in tools, production JAR их не содержит. ModelPart/UV/PNG и registry IDs не изменены. [Матрица, измерения, кадры и JAR/SHA](implementation/staff-audit-20261024/REPORT.md).
