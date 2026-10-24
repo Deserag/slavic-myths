@@ -21,6 +21,8 @@ public final class TaleScreen extends Screen {
     private static long discoveryReady;
     private static Location lastLocation;
     private static boolean lastSidebar=true,lastFullscreen,lastTree;
+    private static String lastQuery="",lastDeed="",lastGroup="";
+    private static int lastNavOffset,lastTextOffset;
     private static final Set<String> lastExpanded=new HashSet<>();
     private final Set<String> expanded=new HashSet<>(lastExpanded);
     private boolean sidebar=lastSidebar,fullscreen=lastFullscreen,tree=lastTree,fitTree=true;
@@ -30,7 +32,7 @@ public final class TaleScreen extends Screen {
     private boolean moved;
     private Component deedContent;
     private final UiText.Layout deedLayout=new UiText.Layout();
-    public static void clear(){snapshot=new CompoundTag();discoveryReady=0;lastLocation=null;lastExpanded.clear();lastSidebar=true;lastFullscreen=lastTree=false;}
+    public static void clear(){snapshot=new CompoundTag();discoveryReady=0;lastLocation=null;lastExpanded.clear();lastSidebar=true;lastFullscreen=lastTree=false;lastQuery=lastDeed=lastGroup="";lastNavOffset=lastTextOffset=0;}
     private static final String[] PARTS={"tales","creatures","people","places","crafts","nature","quests","deeds"};
     private record Entry(String id,String part,String chapter,String section,String title,String icon,String entity,int initial,List<String> links,List<String> recipes){}
     private record Location(String part,String chapter,String section,String entry,int page){}
@@ -52,7 +54,7 @@ public final class TaleScreen extends Screen {
     private Map<String,int[]> positionCache;private String positionKey="";
     @Override public void renderBackground(GuiGraphics g,int x,int y,float delta){g.fill(0,0,width,height,0x88100D0B);}
     @Override protected void renderBlurredBackground(float delta){}
-    public TaleScreen(){super(Component.translatable("tales.title"));load(true,true);if(lastLocation!=null){part=lastLocation.part;chapter=lastLocation.chapter;section=lastLocation.section;selected=lastLocation.entry;page=lastLocation.page;}}
+    public TaleScreen(){super(Component.translatable("tales.title"));load(true,true);if(lastLocation!=null){part=lastLocation.part;chapter=lastLocation.chapter;section=lastLocation.section;selected=lastLocation.entry;page=lastLocation.page;}query=lastQuery;selectedDeed=lastDeed;deedGroup=lastGroup;navOffset=lastNavOffset;textOffset=lastTextOffset;}
     public static TaleScreen cleansing(){var screen=new TaleScreen();screen.part="crafts";screen.chapter="mor";screen.section="cleansing";screen.selected="slavicmyths:cleansing_knowledge";return screen;}
     public static void receive(TaleNetwork.Snapshot payload){CompoundTag delta=payload.data();if(payload.full())snapshot=delta;else{if(delta.getBoolean("EntriesReset"))snapshot.put("Entries",new CompoundTag());if(delta.getBoolean("AdvancementReset"))snapshot.put("Advancements",new ListTag());for(String key:delta.getAllKeys()){if(key.equals("Entries")){CompoundTag target=snapshot.getCompound("Entries");for(String id:delta.getCompound(key).getAllKeys())target.put(id,delta.getCompound(key).get(id).copy());snapshot.put(key,target);}else if(key.equals("Advancements")){Map<String,CompoundTag> all=new TreeMap<>();for(Tag raw:snapshot.getList(key,10)){CompoundTag n=(CompoundTag)raw;all.put(n.getString("Id"),n);}for(Tag raw:delta.getList(key,10)){CompoundTag n=(CompoundTag)raw;all.put(n.getString("Id"),n);}ListTag list=new ListTag();all.values().forEach(list::add);snapshot.put(key,list);}else snapshot.put(key,delta.get(key).copy());}}
         var mc=Minecraft.getInstance();if(!payload.open()&&!payload.full()&&delta.contains("Entries")&&mc.level!=null&&mc.level.getGameTime()>=discoveryReady){sound("book.discovery");discoveryReady=mc.level.getGameTime()+40;}if(payload.open()){mc.setScreen(new TaleScreen());sound("book.open");}else if(mc.screen instanceof TaleScreen screen){screen.load(payload.full()||delta.contains("Catalog"),payload.full()||delta.contains("Advancements")||delta.getBoolean("AdvancementReset"));screen.init();}}
@@ -95,6 +97,7 @@ public final class TaleScreen extends Screen {
     private int rows(){return Math.max(1,(h-87-(portrait()?85:0))/18);}
     private void button(int x,int y,int width,int height,Component text,boolean active,Runnable action){var b=FolkUi.button(x,y,width,height,text,false,v->action.run());b.active=active;addRenderableWidget(b);}
     @Override protected void init(){
+        boolean searchFocused=search!=null&&search.isFocused();
         clearWidgets();navigation.clear();w=fullscreen?width:Math.min(1000,width-12);h=fullscreen?height:height-12;left=(width-w)/2;top=(height-h)/2;
         navWidth=sidebar?Math.max(90,Math.min(210,w/3)):0;
         button(left+12,top+4,20,18,Component.literal("←"),!history.isEmpty(),()->{forward.push(location());restore(history.pop());});
@@ -102,7 +105,7 @@ public final class TaleScreen extends Screen {
         button(left+w-70,top+4,20,18,Component.literal("☰"),true,()->{sidebar=!sidebar;init();});
         button(left+w-47,top+4,20,18,Component.literal("↔"),true,()->{fullscreen=!fullscreen;fitTree=true;init();});
         button(left+w-24,top+4,20,18,Component.literal("×"),true,this::onClose);
-        search=new EditBox(font,left+12,top+29,Math.max(40,w-112),17,Component.translatable("tales.search"));search.setMaxLength(64);search.setHint(Component.translatable("tales.search"));search.setValue(query);search.setResponder(v->{query=v;navOffset=0;positionCache=null;fitTree=true;rebuildNavigation();});addRenderableWidget(search);
+        search=new EditBox(font,left+12,top+29,Math.max(40,w-112),17,Component.translatable("tales.search"));search.setMaxLength(64);search.setHint(Component.translatable("tales.search"));search.setValue(query);search.setResponder(v->{query=v;navOffset=0;positionCache=null;fitTree=true;rebuildNavigation();});addRenderableWidget(search);if(searchFocused)setFocused(search);
         button(left+w-96,top+28,22,19,Component.literal("×"),true,()->{search.setValue("");search.setFocused(true);});
         button(left+w-71,top+28,58,19,Component.translatable("tales.tab.quests"),true,Quest185Screen::request);
         rebuildNavigation();
@@ -119,7 +122,14 @@ public final class TaleScreen extends Screen {
             return;
         }
         Entry e=current();if(e!=null){page=Math.clamp(page,1,Math.max(1,stage(e)));int y=top+h-25;button(rx,y,28,19,Component.literal("‹"),page>1,()->{page--;textOffset=0;sound("book.page");init();});button(left+w-42,y,28,19,Component.literal("›"),page<stage(e),()->{page++;textOffset=0;sound("book.page");init();});
-            if(snapshot.getCompound("Hints").contains(e.id)){button(rx,top+h-49,Math.min(rw-35,120),20,Component.translatable("tales.map"),true,()->{map=!map;textOffset=0;});button(left+w-47,top+h-49,33,20,Component.literal("×"+mapZoom),true,()->{mapZoom=mapZoom>=2?1:mapZoom+.5F;init();});}
+            if(e.id.equals("slavicmyths:yaga_search")&&!snapshot.getCompound("Hints").contains(e.id)&&stage(e)>0)button(rx,top+h-49,Math.min(rw,160),20,Component.translatable("guides.find_yaga"),true,()->PacketDistributor.sendToServer(new TaleNetwork.Read("__find_yaga")));
+            if(snapshot.getCompound("Hints").contains(e.id)){
+                if(e.id.startsWith("slavicmyths:guide_")){
+                    var q=snapshot.getCompound("GuideQuests").getCompound(e.id.substring("slavicmyths:guide_".length()));int cell=Math.max(24,(rw-8)/3);
+                    button(rx,top+h-49,cell,20,Component.translatable("tales.map"),true,()->{map=!map;textOffset=0;});
+                    if(q.hasUUID("Marker")){var marker=q.getUUID("Marker");button(rx+cell+4,top+h-49,cell,20,Component.translatable("guides.track"),true,()->org.slavicmyths.navigation.NavigationNetwork.request(org.slavicmyths.navigation.NavigationNetwork.Action.TRACK,marker,0,true));button(rx+(cell+4)*2,top+h-49,cell,20,Component.translatable("guides.untrack"),true,()->org.slavicmyths.navigation.NavigationNetwork.request(org.slavicmyths.navigation.NavigationNetwork.Action.STOP,marker,0,false));}
+                }else{button(rx,top+h-49,Math.min(rw-35,120),20,Component.translatable("tales.map"),true,()->{map=!map;textOffset=0;});button(left+w-47,top+h-49,33,20,Component.literal("×"+mapZoom),true,()->{mapZoom=mapZoom>=2?1:mapZoom+.5F;init();});}
+            }
             else if(stage(e)>=3&&!e.recipes.isEmpty()){button(rx,top+h-49,Math.min(rw,150),20,Component.translatable("tales.recipe.open"),true,()->{recipeIndex=recipeIndex+1>=e.recipes.size()?-1:recipeIndex+1;textOffset=0;});}
             else if(!e.links.isEmpty()){String link=e.links.get(0);Entry target=entriesById.get(link);if(target!=null)button(rx,top+h-49,Math.min(rw,150),20,Component.translatable(target.title),true,()->select(target));}
         }
@@ -131,14 +141,24 @@ public final class TaleScreen extends Screen {
         if(!sidebar)return;
         var rows=new ArrayList<NavRow>();
         for(String category:PARTS){
+            if(!query.isBlank()){
+                boolean matches=category.equals("deeds")?nodes.values().stream().anyMatch(n->UiSearch.matches(query,component(n.getString("Title")).getString()+" "+component(n.getString("Description")).getString())):entries.stream().anyMatch(e->e.part.equals(category)&&UiSearch.matches(query,Component.translatable(e.title).getString()+" "+heading("chapter",e.chapter).getString()));
+                if(!matches)continue;
+            }
             boolean open=category.equals(part)&&expanded.contains(category)||!query.isBlank();
-            rows.add(new NavRow(Component.literal(open?"▾ ":"▸ ").append(heading("part",category)),part.equals(category),()->{part=category;selected="";textOffset=0;navOffset=0;positionCache=null;fitTree=true;if(!expanded.add(category))expanded.remove(category);init();}));
+            rows.add(new NavRow(Component.literal(open?"▾ ":"▸ ").append(heading("part",category)),part.equals(category),()->{positionCache=null;fitTree=true;if(!part.equals(category)){expanded.add(category);choosePart(category);}else{if(!expanded.add(category))expanded.remove(category);init();}}));
             if(!open)continue;
             if(category.equals("deeds")){
-                for(var node:nodes.values()){
-                    String id=node.getString("Id");Component label=component(node.getString("Title"));
-                    if(!query.isBlank()&&!UiSearch.matches(query,label.getString()))continue;
-                    rows.add(new NavRow(Component.literal(node.getBoolean("Done")?"  ● ":"  ○ ").append(label),selectedDeed.equals(id),()->{part="deeds";selectedDeed=id;deedContent=null;textOffset=0;init();}));
+                var categories=new TreeSet<String>();for(String id:nodes.keySet())categories.add(group(id));
+                for(String branch:categories){
+                    boolean branchOpen=branch.equals(deedGroup)||!query.isBlank();
+                    rows.add(new NavRow(Component.literal(branchOpen?"  ▾ ":"  ▸ ").append(heading("group",branch)),branch.equals(deedGroup),()->{deedGroup=branch.equals(deedGroup)?"":branch;navOffset=0;positionCache=null;fitTree=true;init();}));
+                    if(!branchOpen)continue;
+                    for(var node:nodes.values()){
+                        String id=node.getString("Id");if(!group(id).equals(branch))continue;Component label=component(node.getString("Title"));
+                        if(!query.isBlank()&&!UiSearch.matches(query,label.getString()+" "+component(node.getString("Description")).getString()))continue;
+                        rows.add(new NavRow(Component.literal(node.getBoolean("Done")?"    ● ":"    ○ ").append(label),selectedDeed.equals(id),()->{part="deeds";selectedDeed=id;deedContent=null;textOffset=0;init();}));
+                    }
                 }
             }else for(Entry entry:entries){
                 if(!entry.part.equals(category)||entry.id.equals("slavicmyths:cleansing_knowledge")&&stage(entry)==0)continue;
@@ -174,6 +194,10 @@ public final class TaleScreen extends Screen {
         if(recipeIndex>=0&&recipeIndex<e.recipes.size())return TaleRecipeText.display(snapshot.getCompound("Recipes").getString(e.recipes.get(recipeIndex)));
         String suffix=switch(page){case 2->"discovered";case 3->"studied";case 4->"verified";default->"rumor";};
         Component content=Component.translatable("tales.entry."+e.id.split(":",2)[1]+"."+suffix);
+        if(e.id.startsWith("slavicmyths:guide_")){
+            var q=snapshot.getCompound("GuideQuests").getCompound(e.id.substring("slavicmyths:guide_".length()));
+            return Component.translatable("guides.status."+(q.getString("Status").isEmpty()?"NONE":q.getString("Status"))).append("\n\n").append(Component.translatable("guides."+(q.getString("Giver").equals("bayun")?"bayun":"yaga")+".explain")).append("\n\n").append(content);
+        }
         if(e.id.startsWith("slavicmyths:chud_research_")){
             String giver=e.id.endsWith("_yaga")?"yaga":"bayun";
             content=Component.translatable("research.chud.status."+snapshot.getCompound("Research").getInt(giver)).append("\n\n").append(content);
@@ -201,7 +225,7 @@ public final class TaleScreen extends Screen {
     }
     private void releaseIllustration(){illustration=null;illustrated="";}
     @Override public void removed(){
-        lastLocation=location();lastSidebar=sidebar;lastFullscreen=fullscreen;lastTree=tree;lastExpanded.clear();lastExpanded.addAll(expanded);
+        lastLocation=location();lastQuery=query;lastDeed=selectedDeed;lastGroup=deedGroup;lastNavOffset=navOffset;lastTextOffset=textOffset;lastSidebar=sidebar;lastFullscreen=fullscreen;lastTree=tree;lastExpanded.clear();lastExpanded.addAll(expanded);
         releaseIllustration();icons.clear();components.clear();pageContent=null;
         super.removed();
     }

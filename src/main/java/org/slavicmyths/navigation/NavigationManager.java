@@ -36,7 +36,8 @@ public final class NavigationManager {
     }
     public static String type(Entity entity){
         var key=net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType());
-        if(!key.getNamespace().equals("slavicmyths")||!Set.of("ovinnik","volkolak","fire_serpent","podvey","likho_one_eyed","tugarin_zmey").contains(key.getPath()))return null;
+        if(!key.getNamespace().equals("slavicmyths")||!Set.of("ovinnik","volkolak","fire_serpent","podvey","likho_one_eyed","tugarin_zmey","nightingale").contains(key.getPath()))return null;
+        if(entity instanceof org.slavicmyths.bandit.NightingaleEntity)return "nightingale";
         if(entity instanceof WorldBoss boss)return boss.kind().id;
         if(entity instanceof HuntMob mob&&mob.huntTarget()!=null)return mob.huntTarget().id;
         return null;
@@ -44,6 +45,10 @@ public final class NavigationManager {
     public static void remember(Entity entity){
         if(!(entity.level() instanceof ServerLevel level)||!entity.isAlive())return;
         String type=type(entity);if(type==null)return;
+        if(entity instanceof org.slavicmyths.bandit.NightingaleEntity n){
+            var data=NavigationRecords.get(level);var encounter=new NavigationRecords.Encounter(entity.getUUID(),level.dimension().location(),n.home==null?n.blockPosition():n.home,"nightingale",null);
+            if(!encounter.equals(data.encounters.put(entity.getUUID(),encounter)))data.setDirty();return;
+        }
         HuntMob mob=(HuntMob)entity;
         var data=NavigationRecords.get(level);UUID owner=mob instanceof WorldBoss boss?boss.bossOwner:mob.owner;
         var encounter=new NavigationRecords.Encounter(entity.getUUID(),level.dimension().location(),
@@ -86,7 +91,7 @@ public final class NavigationManager {
         var data=NavigationRecords.get(p.serverLevel());var state=data.player(p.getUUID());
         UUID id=reuse==null?UUID.randomUUID():reuse;
         SearchArea.Scale scale=switch(encounter.type()){
-            case "likho_one_eyed","tugarin_zmey"->SearchArea.Scale.WORLD;
+            case "likho_one_eyed","tugarin_zmey","nightingale"->SearchArea.Scale.WORLD;
             case "fire_serpent","podvey"->SearchArea.Scale.RARE;
             default->SearchArea.Scale.MINI;
         };
@@ -157,7 +162,7 @@ public final class NavigationManager {
         switch(request.action()){
             case OPEN->{NavigationNetwork.sync(p,true);return;}
             case TRACK->{if(state.markers.containsKey(id)){state.trackingChoiceRevision++;update=state.track(id);data.setDirty();}}
-            case STOP->{state.trackingChoiceRevision++;update=state.track(null);data.setDirty();}
+            case STOP->{if(id.equals(new UUID(0,0))||id.equals(state.tracked)){state.trackingChoiceRevision++;update=state.track(null);data.setDirty();}}
             case HIDE->{if(state.markers.containsKey(id))update=request.enabled()?state.hidden.add(id):state.hidden.remove(id);}
             case FORGET->{var marker=state.markers.get(id);if(marker!=null&&marker.permanent())update=state.remove(id);}
             case CATEGORY->{if(request.option()>=0&&request.option()<MarkerCategory.values().length){var category=MarkerCategory.values()[request.option()];update=request.enabled()?state.categories.add(category):state.categories.remove(category);}}

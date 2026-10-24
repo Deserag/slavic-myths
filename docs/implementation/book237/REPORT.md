@@ -1,3 +1,5 @@
+> Current integrated acceptance matrix and final results: [24.10.2026 consolidated report](../three-issues-20261024/REPORT.md). Earlier pending rows below are historical, not current acceptance.
+
 # #237 — IN_PROGRESS
 
 Restored the interrupted deleted TaleScreen from the preserved #235 HEAD, then implemented the redesign in codex/book-redesign-237. Initial deletion patch and TaleViewport source are preserved in work/resume-235-237-236. Main remains unchanged.
@@ -17,3 +19,16 @@ RU/EN, scale Auto, 2560, reader interaction, two players | remaining campaign | 
 Owner acceptance | reserved for owner; Issue remains OPEN | NOT_RUN
 
 First client campaign exposed an irrelevant entry portrait while viewing achievements and expanded unrelated categories. Both corrected in source; a later client run is required. Owner requested a seven-minute pause before the next Minecraft launch on 24.10.2026. No installation in PolyMC.
+
+
+## Integrated client evidence (24.10.2026)
+
+The combined #235/#237 renderer campaign on fd0fa630 produced **48 real-client frames** in client-final/: RU/EN,1280x720/1920x1080/2560x1440, requested GUI2/3/4/Auto, native page/tree/list and sidebar/reader layouts. Filenames include actual native GUI scale; requested4 at720p is clamped by Minecraft. No image mockups or postprocessing. Native font runs at integer GUI coordinates; text blur was **not reproduced in this vanilla-font fixture**, so a blanket claim that all resource-pack/driver blur is fixed would be false.
+
+The earlier matched renderer A/B in client/ uses source1bed9897 TaleScreenBefore compiled only in the test source set and the implemented screen in one real client. At1280x720/requested2, the achievement-tree mean frame rate was29.74→212.05FPS and p95 was45.86→6.98ms. At1920x1080/requested3,31.63→241.01FPS and p9550.47→5.77ms. This is the **combined optimization+redesign effect**, not attribution solely to #235. The fixture exposes the whole catalog, samples short scenes in fixed before/after order, and has JIT/order/background-load confounders. Some page p95 results regress. It is not a release-performance guarantee or a measured1%low.
+
+Final48scenes have p951.92–9.05ms and mean152–829FPS in this uncapped scripted UI fixture. Full interaction, physical hotkeys, two real network clients and long-duration1%low remain NOT_RUN. The compact list uses real server descriptions/status/parent, not guessed completion conditions.
+
+Actual modified-key capture/save/native Options reload passed in this client; physical keyboard dispatch was not emulated. The test harness initially omitted ClientLevel.disconnect before Minecraft.disconnect while changing worlds; the saved-world exit was repaired using the normal connection-disconnect operation via JDK attach, then fixed in tools/book-client/BookCapture.java. This was a harness error, not a production book fault. All48 UI measurements were completed before the repair.
+
+Latest production clean build: work/resume-235-237-236/build-final.log SUCCESS1m; packaged resources7692/classes1851, SHA256b0714dbe8eb7df17e27ce8734d409c2a238616a9fefc37d523001ef1bcea4fa7. Test harnesses excluded. Following integration adds guide map/track/untrack controls to this same screen. No PolyMC gameplay JAR was installed.

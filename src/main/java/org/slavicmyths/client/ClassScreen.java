@@ -2,6 +2,7 @@ package org.slavicmyths.client;
 
 import java.util.*;
 import com.mojang.blaze3d.platform.InputConstants;
+import net.neoforged.neoforge.client.settings.KeyModifier;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -15,7 +16,7 @@ public final class ClassScreen extends Screen {
  private final Map<String,Integer> branchOffsets=new HashMap<>();
  private String selected="",choice="druzhinnik",confirmation="",cameraBase="",draftSkill="";
  private int page,slot=-1,infoOffset,listOffset,keyOnly=-1;
- private boolean capturing,dragging;private InputConstants.Key draftKey;
+ private boolean capturing,dragging;private InputConstants.Key draftKey;private KeyModifier draftModifier=KeyModifier.NONE;
  private ClassTreeLayout.Tree tree;private ClassTreeViewport.Rect card,popup;
  private final Map<String,ClassTreeLayout.Node> treeIndex=new HashMap<>();
  private static Component tr(String key,Object...args){return Component.translatable("classes.slavicmyths."+key,args);}
@@ -86,10 +87,10 @@ public final class ClassScreen extends Screen {
   var all=candidates();listOffset=Math.clamp(listOffset,0,Math.max(0,all.size()-popupRows()));
   for(int i=0;i<popupRows()&&i+listOffset<all.size();i++){var s=all.get(i+listOffset);var b=button(x,y+i*22,w-16,ClassClient.label(s.id()),v->{draftSkill=s.id();refresh();});b.selected=draftSkill.equals(s.id());tip(b,ClassClient.label(s.id()));}
   int by=popup.bottom()-76;
-  if(slot<3){var kb=button(x,by,w-16,tr("quick_key",draftKey==null?ClassClient.ACTIVE[slot].getTranslatedKeyMessage():draftKey.getDisplayName()),b->{capturing=true;refresh();});tip(kb,tr("conflict_named",joined(keyConflicts(ClassClient.ACTIVE[slot],draftKey==null?ClassClient.ACTIVE[slot].getKey():draftKey))));}
+  if(slot<3){var kb=button(x,by,w-16,tr("quick_key",draftKey==null?ClassClient.ACTIVE[slot].getTranslatedKeyMessage():draftLabel()),b->{capturing=true;refresh();});tip(kb,tr("conflict_named",joined(keyConflicts(ClassClient.ACTIVE[slot],draftKey==null?ClassClient.ACTIVE[slot].getKey():draftKey))));}
   button(x,popup.bottom()-53,(w-20)/2,tr("quick_clear"),b->{draftSkill="";refresh();});
-  if(slot<3)button(x+(w-20)/2+4,popup.bottom()-53,(w-20)/2,tr("quick_unbind"),b->{draftKey=InputConstants.UNKNOWN;refresh();});
-  var save=button(x,popup.bottom()-28,(w-20)/2,tr("save"),b->{if(slot<3&&draftKey!=null){ClassClient.ACTIVE[slot].setKey(draftKey);net.minecraft.client.KeyMapping.resetMapping();minecraft.options.save();}if(!slotId(ClassClient.data(),slot).equals(draftSkill))ClassNetwork.send(2,draftSkill,slot);closeSlot();});save.active=validDraft(d)&&(slot!=4||ClassState.secondPassive(d));
+  if(slot<3)button(x+(w-20)/2+4,popup.bottom()-53,(w-20)/2,tr("quick_unbind"),b->{draftKey=InputConstants.UNKNOWN;draftModifier=KeyModifier.NONE;refresh();});
+  var save=button(x,popup.bottom()-28,(w-20)/2,tr("save"),b->{if(slot<3&&draftKey!=null){ClassClient.ACTIVE[slot].setKeyModifierAndCode(draftModifier,draftKey);net.minecraft.client.KeyMapping.resetMapping();minecraft.options.save();}if(!slotId(ClassClient.data(),slot).equals(draftSkill))ClassNetwork.send(2,draftSkill,slot);closeSlot();});save.active=validDraft(d)&&(slot!=4||ClassState.secondPassive(d));
   button(x+(w-20)/2+4,popup.bottom()-28,(w-20)/2,tr("cancel"),b->closeSlot());
  }
  private void closeSlot(){slot=-1;capturing=false;draftKey=null;refresh();}
@@ -100,12 +101,14 @@ public final class ClassScreen extends Screen {
  }
  private void initKeyOnly(){int w=Math.min(286,width-24),h=Math.min(164,height-16);popup=new ClassTreeViewport.Rect((width-w)/2,(height-h)/2,w,h);int x=popup.x()+8;
   if(capturing){button(x,popup.bottom()-28,w-16,tr("cancel"),b->{capturing=false;refresh();});return;}
-  var key=button(x,popup.y()+36,w-16,tr("quick_key",draftKey==null?mapping(keyOnly).getTranslatedKeyMessage():draftKey.getDisplayName()),b->{capturing=true;refresh();});tip(key,tr("conflict_named",joined(keyConflicts(mapping(keyOnly),draftKey==null?mapping(keyOnly).getKey():draftKey))));
-  button(x,popup.y()+60,w-16,tr("quick_unbind"),b->{draftKey=InputConstants.UNKNOWN;refresh();});
-  button(x,popup.bottom()-28,(w-20)/2,tr("save"),b->{if(draftKey!=null){mapping(keyOnly).setKey(draftKey);net.minecraft.client.KeyMapping.resetMapping();minecraft.options.save();}keyOnly=-1;refresh();});
+  var key=button(x,popup.y()+36,w-16,tr("quick_key",draftKey==null?mapping(keyOnly).getTranslatedKeyMessage():draftLabel()),b->{capturing=true;refresh();});tip(key,tr("conflict_named",joined(keyConflicts(mapping(keyOnly),draftKey==null?mapping(keyOnly).getKey():draftKey))));
+  button(x,popup.y()+60,w-16,tr("quick_unbind"),b->{draftKey=InputConstants.UNKNOWN;draftModifier=KeyModifier.NONE;refresh();});
+  button(x,popup.bottom()-28,(w-20)/2,tr("save"),b->{if(draftKey!=null){mapping(keyOnly).setKeyModifierAndCode(draftModifier,draftKey);net.minecraft.client.KeyMapping.resetMapping();minecraft.options.save();}keyOnly=-1;refresh();});
   button(x+(w-20)/2+4,popup.bottom()-28,(w-20)/2,tr("cancel"),b->{keyOnly=-1;draftKey=null;refresh();});
  }
- private List<Component> keyConflicts(net.minecraft.client.KeyMapping current,InputConstants.Key key){var result=new ArrayList<Component>();for(var other:minecraft.options.keyMappings)if(other!=current&&!key.equals(InputConstants.UNKNOWN)&&other.getKey().equals(key))result.add(Component.translatable(other.getName()));return result;}
+ private Component draftLabel(){return draftModifier.getCombinedName(draftKey,draftKey::getDisplayName);}
+ private static KeyModifier modifier(int flags){return (flags&org.lwjgl.glfw.GLFW.GLFW_MOD_CONTROL)!=0?KeyModifier.CONTROL:(flags&org.lwjgl.glfw.GLFW.GLFW_MOD_SHIFT)!=0?KeyModifier.SHIFT:(flags&org.lwjgl.glfw.GLFW.GLFW_MOD_ALT)!=0?KeyModifier.ALT:KeyModifier.NONE;}
+ private List<Component> keyConflicts(net.minecraft.client.KeyMapping current,InputConstants.Key key){var result=new ArrayList<Component>();for(var other:minecraft.options.keyMappings)if(other!=current&&ClassClient.conflictsWith(current,key,draftKey==null?current.getKeyModifier():draftModifier,other))result.add(Component.translatable(other.getName()));return result;}
  private List<ClassDefinitions.Branch> branches(CompoundTag d){String parent=d.getString("First").isEmpty()?d.getString("Base"):d.getString("First");return ClassDefinitions.BRANCHES.values().stream().filter(b->b.parent().equals(parent)).toList();}
  private void initBranches(CompoundTag d){int n=0;for(var branch:branches(d)){int x=12+n*(width-24)/2,w=(width-32)/2;var b=button(x,height-32,w,tr("choose",Component.translatable("class.slavicmyths."+branch.id())),v->{confirmation=branch.id();refresh();});String field=branch.level()==ClassDefinitions.FIRST_LEVEL?"First":"Second";b.active=d.getString(field).isEmpty()&&(creative()||d.getInt("Level")>=branch.level());n++;}}
  private void initConfirmation(){int w=Math.min(330,width-24),x=(width-w)/2,y=(height-116)/2;button(x+8,y+86,(w-20)/2,tr("cancel"),b->{confirmation="";refresh();});button(x+12+(w-20)/2,y+86,(w-20)/2,tr("confirm"),b->{ClassNetwork.send(ClassDefinitions.BASES.contains(confirmation)?0:3,confirmation,0);confirmation="";refresh();});}
@@ -186,7 +189,7 @@ public final class ClassScreen extends Screen {
  private void renderConfirmation(GuiGraphics g){g.fill(0,0,width,height,0xCC100D0B);int w=Math.min(330,width-24),x=(width-w)/2,y=(height-116)/2;ClassTheme.panel(g,x,y,w,116);g.drawWordWrap(font,tr("confirm_path",Component.translatable("class.slavicmyths."+confirmation)),x+8,y+10,w-16,ClassTheme.TEXT);}
  private void drawText(GuiGraphics g,List<Component> text,int x,int y,int w,int bottom){var lines=new ArrayList<net.minecraft.util.FormattedCharSequence>();for(var line:text){lines.addAll(font.split(line,Math.max(20,w-5)));lines.add(Component.empty().getVisualOrderText());}int capacity=Math.max(1,(bottom-y)/10);infoOffset=Math.clamp(infoOffset,0,Math.max(0,lines.size()-capacity));if(bottom<=y)return;g.enableScissor(x,y,x+w,bottom);for(int i=0;i<capacity&&i+infoOffset<lines.size();i++)g.drawString(font,lines.get(i+infoOffset),x,y+i*10,ClassTheme.TEXT,false);g.disableScissor();if(lines.size()>capacity)g.drawString(font,Component.literal("↕"),x+w-7,bottom-9,ClassTheme.GOLD);}
  @Override public boolean mouseClicked(double x,double y,int mouse){
-  if(capturing){if(popup.contains(x,y)&&y>=popup.bottom()-30)return super.mouseClicked(x,y,mouse);draftKey=InputConstants.Type.MOUSE.getOrCreate(mouse);capturing=false;refresh();return true;}
+  if(capturing){if(popup.contains(x,y)&&y>=popup.bottom()-30)return super.mouseClicked(x,y,mouse);draftKey=InputConstants.Type.MOUSE.getOrCreate(mouse);draftModifier=hasControlDown()?KeyModifier.CONTROL:hasShiftDown()?KeyModifier.SHIFT:hasAltDown()?KeyModifier.ALT:KeyModifier.NONE;capturing=false;refresh();return true;}
   if(!confirmation.isEmpty()||slot>=0||keyOnly>=0){if(super.mouseClicked(x,y,mouse))return true;if(slot>=0&&!popup.contains(x,y))closeSlot();else if(keyOnly>=0&&!popup.contains(x,y)){keyOnly=-1;draftKey=null;refresh();}return true;}
   if(super.mouseClicked(x,y,mouse))return true;
   if(page==0&&!ClassClient.data().getString("Base").isEmpty()){
@@ -205,7 +208,7 @@ public final class ClassScreen extends Screen {
   if(camera.area().contains(x,y)){camera.zoom(x,y,vertical);return true;}return false;
  }
  @Override public boolean keyPressed(int key,int scan,int modifiers){
-  if(capturing){if(key==256){capturing=false;refresh();}else {draftKey=InputConstants.getKey(key,scan);capturing=false;refresh();}return true;}
+  if(capturing){if(key==256){capturing=false;refresh();}else {var code=InputConstants.getKey(key,scan);if(KeyModifier.isKeyCodeModifier(code))return true;draftKey=code;draftModifier=modifier(modifiers);capturing=false;refresh();}return true;}
   if(key==256){if(!confirmation.isEmpty()){confirmation="";refresh();return true;}if(keyOnly>=0){keyOnly=-1;draftKey=null;refresh();return true;}if(slot>=0){closeSlot();return true;}if(!selected.isEmpty()){selected="";refresh();return true;}if(page!=0){page=0;infoOffset=0;refresh();return true;}}
   return super.keyPressed(key,scan,modifiers);
  }

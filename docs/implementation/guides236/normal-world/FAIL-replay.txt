@@ -1,0 +1,3 @@
+java.lang.AssertionError: Actual restart lost live Nightingale
+SNAPSHOT full_first wall_ms=74.5741 cpu_ms=46.875 allocated_bytes=8375712 full_payload_bytes=245167
+SNAPSHOT full_repeat wall_ms=4.9687 cpu_ms=15.625 allocated_bytes=802320 full_payload_bytes=245167

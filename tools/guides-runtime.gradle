@@ -1,0 +1,8 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { guidesRuntime { java.srcDir 'tools/guides-runtime'; resources.srcDir 'tools/guides-runtime-resources' } }
+ p.sourceSets.guidesRuntime.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.guidesRuntime.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileGuidesRuntimeJava'){dependsOn p.tasks.named('classes')}
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.guidesRuntime)
+ p.neoForge.runs { guidesChecks { type='gameTestServer';gameDirectory=p.file('work/guides236-runtime-'+(p.findProperty('guidesRun') ?: '1'));systemProperty 'neoforge.enabledGameTestNamespaces','slavicmyths_guides' } }
+} }

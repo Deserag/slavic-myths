@@ -1,0 +1,79 @@
+GUIDE_QA_PASS authenticated Bayun route likho_one_eyed
+GUIDE_QA_PASS authenticated Bayun route tugarin_zmey
+GUIDE_QA_PASS authenticated Bayun route nightingale
+GUIDE_QA_PASS actual menu accepts one-shot errand
+GUIDE_QA_PASS guide STOP cannot clear unrelated tracking
+GUIDE_QA_PASS foreign marker cannot be tracked
+GUIDE_QA_PASS matching guide untracks
+GUIDE_QA_PASS mort�� two player seats and capacity
+GUIDE_QA_PASS distinct seat positions
+GUIDE_QA_PASS passenger input rejected
+GUIDE_QA_PASS passenger cannot open owner cargo
+GUIDE_QA_PASS pilot exit does not promote passenger
+GUIDE_QA_PASS controlled inactive descent with passenger
+GUIDE_QA_PASS owner explicitly resumes pilot seat
+GUIDE_QA_PASS actual large-camp command accepted
+GUIDE_QA_PASS locked flight trade flying_broom
+GUIDE_QA_PASS real menu trade outputs one flying_broom
+GUIDE_QA_PASS trade consumes slavicmyths:svyazka_trav_yagi
+GUIDE_QA_PASS trade consumes slavicmyths:vihrevaya_nit
+GUIDE_QA_PASS trade consumes slavicmyths:ognennoe_pero
+GUIDE_QA_PASS duplicate trade denied flying_broom
+GUIDE_QA_PASS locked flight trade flying_mortar
+GUIDE_QA_PASS real menu trade outputs one flying_mortar
+GUIDE_QA_PASS trade consumes slavicmyths:svyazka_trav_yagi
+GUIDE_QA_PASS trade consumes slavicmyths:tugarinova_kozha
+GUIDE_QA_PASS trade consumes minecraft:iron_ingot
+GUIDE_QA_PASS duplicate trade denied flying_mortar
+GUIDE_QA_PASS locked flight trade pestle
+GUIDE_QA_PASS real menu trade outputs one pestle
+GUIDE_QA_PASS trade consumes slavicmyths:svyazka_trav_yagi
+GUIDE_QA_PASS trade consumes slavicmyths:uzel_podveya
+GUIDE_QA_PASS trade consumes minecraft:iron_ingot
+GUIDE_QA_PASS duplicate trade denied pestle
+GUIDE_QA_PASS broom stays one-seat
+GUIDE_QA_PASS pilot and owner persisted
+GUIDE_QA_PASS legacy vessel preserves nine-slot cargo
+GUIDE_QA_PASS old NBT derives pilot from owner
+GUIDE_QA_PASS existing controlled descent false
+GUIDE_QA_PASS existing controlled descent true
+GUIDE_QA_PASS wolf stranger
+GUIDE_QA_PASS wolf trial trust
+GUIDE_QA_PASS legacy wolf chain preserved
+GUIDE_QA_PASS loyalty adds fourth trust
+GUIDE_QA_PASS Nightingale participates in existing navigation index
+GUIDE_QA_PASS actual entity join indexed live Nightingale even after bandit roster cleared
+GUIDE_QA_PASS two separate guide quests accepted
+GUIDE_QA_PASS actual milk gift and safe dialogue
+GUIDE_QA_PASS Bayun threshold25
+GUIDE_QA_PASS Bayun threshold60
+GUIDE_QA_PASS Bayun threshold85
+GUIDE_QA_PASS trust is per player and cat
+GUIDE_QA_PASS forged dialogue nonce cannot accept quest
+GUIDE_QA_PASS quest trust uses native friendship award at85
+GUIDE_QA_PASS zero victories gate
+GUIDE_QA_PASS one of three victory gate name_your_misfortune
+GUIDE_QA_PASS one of three victory gate steppe_champion
+GUIDE_QA_PASS one of three victory gate defeat_nightingale
+GUIDE_QA_PASS distinct victories counted 1
+GUIDE_QA_PASS distinct victories counted 2
+GUIDE_QA_PASS distinct victories counted 3
+GUIDE_QA_PASS two/three victories add Bayun rumor
+GUIDE_QA_PASS accept guide request
+GUIDE_QA_PASS request rate limit
+GUIDE_QA_PASS same actual Nightingale reused by 38b8ef78-cd47-4bb3-9413-8b6e14c12dc1
+GUIDE_QA_PASS same actual Nightingale reused by 8122e06e-a473-4747-b9ac-5f5d1f6dfbb1
+GUIDE_QA_PASS existing anchor bound idempotently
+GUIDE_QA_PASS no private target fields in book delta
+GUIDE_QA_PASS existing navigation search marker
+GUIDE_QA_PASS dead encounter becomes unavailable, never respawned
+GUIDE_QA_PASS native advancement completes errand and requires return
+GUIDE_QA_PASS original guide claims reward
+GUIDE_QA_PASS one ancient sign and durable claimed flag
+GUIDE_QA_PASS delayed duplicate claim cannot repeat reward
+GUIDE_QA_PASS manual command preserves player block INSIDE intended footprint
+GUIDE_COMMAND_RESULT Result[success=true, message=��������� �������: 12103, -56, 11822, entrance=BlockPos{x=12103, y=-56, z=11822}, surfaceY=-57, changedBlocks=39277, peakOperations=8192, peakNanos=101394800, slowestPhase=PLACE_STRUCTURE, ticksElapsed=1237]
+GUIDE_QA_PASS whole command fortress generated
+GUIDE_QA_PASS unsafe original footprint rejected and relocated
+[12:44:55] [Server thread/INFO] [minecraft/GameTestServer]: All 13 required tests passed :)
+BUILD SUCCESSFUL in 34s

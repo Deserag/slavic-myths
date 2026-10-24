@@ -43,6 +43,7 @@ public final class LargeCampPiece extends TemplateStructurePiece {
  private String name;private UUID camp;private long processed;private boolean bossProcessed;
  public LargeCampPiece(StructureTemplateManager tm,String n,BlockPos p,UUID id){super(CampStructures.LARGE_PIECE.get(),0,tm,ResourceLocation.fromNamespaceAndPath("slavicmyths","stronghold/"+n),"slavicmyths:stronghold/"+n,settings(),p);name=n;templatePosition=p;camp=id;load(tm);}
  public LargeCampPiece(StructureTemplateManager tm,CompoundTag n){super(CampStructures.LARGE_PIECE.get(),modernTag(n),tm,id->settings());name=n.getString("StrongholdTemplate");if(name.isEmpty())name=n.getString("Template");camp=n.getUUID("Camp");processed=n.getLong("Processed");bossProcessed=n.getBoolean("BossProcessed");preparedTerrain=n.getBoolean("PreparedTerrain");load(tm);}
+ public UUID campId(){return camp;}
  public BlockPos nightingaleArrival(){return name.equals("nightingale_yard")?templatePosition.offset(18,1,25):null;}
 private void load(StructureTemplateManager ignored){boundingBox=new BoundingBox(boundingBox.minX(),boundingBox.minY()-10,boundingBox.minZ()-10,boundingBox.maxX(),boundingBox.maxY(),boundingBox.maxZ());}
  private static StructurePlaceSettings settings(){return new StructurePlaceSettings().setIgnoreEntities(true).addProcessor(BlockIgnoreProcessor.STRUCTURE_BLOCK);}

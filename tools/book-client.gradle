@@ -8,5 +8,9 @@ gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
 gradle.projectsEvaluated { def p=gradle.rootProject
  p.neoForge.runs.client.gameDirectory=p.file('work/book-237-client')
  p.neoForge.runs.client.programArguments.addAll('--width','1280','--height','720')
- p.neoForge.runs.client.systemProperty('slavicmyths.bookOutput',p.file('docs/implementation/book237/client').absolutePath)
+ p.neoForge.runs.client.systemProperty('slavicmyths.bookOutput',p.file('docs/implementation/book237/'+(p.hasProperty('bookFinal')?'client-final':'client')).absolutePath)
 }
+
+gradle.projectsEvaluated { def p=gradle.rootProject;if(p.hasProperty("bookFinal"))p.neoForge.runs.client.systemProperty("slavicmyths.bookFinal","true") }
+
+gradle.projectsEvaluated { def p=gradle.rootProject;if(p.hasProperty("guidesReplay"))p.neoForge.runs.client.systemProperty("slavicmyths.guidesReplay","true") }
