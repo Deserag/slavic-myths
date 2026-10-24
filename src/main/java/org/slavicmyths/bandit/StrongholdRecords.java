@@ -19,7 +19,7 @@ public final class StrongholdRecords extends SavedData {
  public StrongholdRecords(){super();}
  public static synchronized StrongholdRecords get(ServerLevel w){var cached=LOADED.get(w);if(cached!=null)return cached;if(!w.getServer().isSameThread())throw new IllegalStateException("StrongholdRecords must be initialized by server LevelEvent.Load before worldgen");var loaded=w.getDataStorage().computeIfAbsent(new SavedData.Factory<>(StrongholdRecords::new,(tag,registries)->{StrongholdRecords data=new StrongholdRecords();data.load(tag);return data;}),"slavicmyths_strongholds");LOADED.put(w,loaded);return loaded;}
  public synchronized Record record(UUID id){Record record=camps.get(id);if(record==null){record=new Record();camps.put(id,record);setDirty();}return record;}
- public synchronized boolean nightingaleDead(UUID id){Record r=camps.get(id);return r!=null&&(r.cleared||r.nightingaleDead);}
+ public synchronized boolean nightingaleDead(UUID id){Record r=camps.get(id);return r!=null&&r.nightingaleDead;}
  public synchronized boolean nightingaleProcessed(UUID id){Record r=camps.get(id);return r!=null&&(r.nightingaleSpawned||r.nightingaleDead);}
  public synchronized void nightingaleSpawned(UUID id){record(id).nightingaleSpawned=true;setDirty();}
  public synchronized void nightingaleDied(UUID id){record(id).nightingaleDead=true;setDirty();}

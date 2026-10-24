@@ -11,7 +11,7 @@ public final class BookCapture {
  static void set(Object o,String key,Object value){try{var f=o.getClass().getDeclaredField(key);f.setAccessible(true);f.set(o,value);}catch(Exception e){throw new RuntimeException(e);}}
  static Object get(Object o,String key){try{var f=o.getClass().getDeclaredField(key);f.setAccessible(true);return f.get(o);}catch(Exception e){throw new RuntimeException(e);}}
  @SubscribeEvent public static void tick(ClientTickEvent.Post event)throws Exception{
-  if(finished)return;var mc=Minecraft.getInstance();
+  if(finished)return;var mc=Minecraft.getInstance();if(Boolean.getBoolean("slavicmyths.guidesReplay")){finished=true;GuideWorldProbe.beginReplay();return;}
   if(mc.screen!=null&&mc.screen.getClass().getSimpleName().equals("AccessibilityOnboardingScreen")){mc.setScreen(new TitleScreen());return;}
   if(!opened&&mc.screen instanceof TitleScreen){opened=true;mc.options.pauseOnLostFocus=false;mc.options.framerateLimit().set(260);mc.options.enableVsync().set(false);mc.options.tutorialStep=net.minecraft.client.tutorial.TutorialSteps.NONE;mc.createWorldOpenFlows().openWorld("BookQA",()->{});}
   if(mc.player==null||mc.level==null||mc.getSingleplayerServer()==null)return;
@@ -45,7 +45,7 @@ public final class BookCapture {
   if(reloading)return;
   if(finalScene>=0&&++finalAge<45)return;
   if(finalScene>=0){recordFinal();}
-  if(++finalScene>=48){Files.createDirectories(out);Files.writeString(out.resolve("frames.csv"),"scene,frames,mean_fps,p95_ms,p99_ms\n"+String.join("\n",results)+"\n");System.out.println("BOOK_FINAL_CAPTURE_FINISHED scenes="+results.size());finished=true;mc.disconnect(new TitleScreen());GuideWorldProbe.begin();return;}
+  if(++finalScene>=48){Files.createDirectories(out);Files.writeString(out.resolve("frames.csv"),"scene,frames,mean_fps,p95_ms,p99_ms\n"+String.join("\n",results)+"\n");System.out.println("BOOK_FINAL_CAPTURE_FINISHED scenes="+results.size());finished=true;mc.level.disconnect();mc.disconnect(new TitleScreen());GuideWorldProbe.begin();return;}
   String lang=finalScene<24?"en_us":"ru_ru";
   if(!mc.getLanguageManager().getSelected().equals(lang)){reloading=true;mc.getLanguageManager().setSelected(lang);mc.options.languageCode=lang;mc.reloadResourcePacks().thenRun(()->mc.execute(()->{reloading=false;setupFinal(mc);}));}else setupFinal(mc);
  }

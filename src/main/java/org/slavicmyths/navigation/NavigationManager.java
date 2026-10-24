@@ -37,6 +37,7 @@ public final class NavigationManager {
     public static String type(Entity entity){
         var key=net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType());
         if(!key.getNamespace().equals("slavicmyths")||!Set.of("ovinnik","volkolak","fire_serpent","podvey","likho_one_eyed","tugarin_zmey","nightingale").contains(key.getPath()))return null;
+        if(entity instanceof org.slavicmyths.bandit.NightingaleEntity)return "nightingale";
         if(entity instanceof WorldBoss boss)return boss.kind().id;
         if(entity instanceof HuntMob mob&&mob.huntTarget()!=null)return mob.huntTarget().id;
         return null;
@@ -161,7 +162,7 @@ public final class NavigationManager {
         switch(request.action()){
             case OPEN->{NavigationNetwork.sync(p,true);return;}
             case TRACK->{if(state.markers.containsKey(id)){state.trackingChoiceRevision++;update=state.track(id);data.setDirty();}}
-            case STOP->{state.trackingChoiceRevision++;update=state.track(null);data.setDirty();}
+            case STOP->{if(id.equals(new UUID(0,0))||id.equals(state.tracked)){state.trackingChoiceRevision++;update=state.track(null);data.setDirty();}}
             case HIDE->{if(state.markers.containsKey(id))update=request.enabled()?state.hidden.add(id):state.hidden.remove(id);}
             case FORGET->{var marker=state.markers.get(id);if(marker!=null&&marker.permanent())update=state.remove(id);}
             case CATEGORY->{if(request.option()>=0&&request.option()<MarkerCategory.values().length){var category=MarkerCategory.values()[request.option()];update=request.enabled()?state.categories.add(category):state.categories.remove(category);}}

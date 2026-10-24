@@ -50,7 +50,7 @@ public final class GuideQuests {
         p.getPersistentData().putLong("GuideRequestReady",now+20);
         var old=quest(p,target);reconcile(p);
         if(!old.isEmpty()&&!Set.of("UNAVAILABLE","INTERRUPTED").contains(old.getString("Status"))){
-            if(old.getString("Status").equals("RETURN")){if(!giver.equals(old.getString("Giver"))||cat!=null&&(!old.hasUUID("GiverEntity")||!cat.getUUID().equals(old.getUUID("GiverEntity")))){p.displayClientMessage(Component.translatable("guides.return_original"),false);return false;}old.putString("Status","DONE");old.putBoolean("Claimed",true);p.displayClientMessage(Component.translatable("guides.status.DONE"),false);if(cat!=null)cat.bond(p).putInt("Trust",Math.min(100,cat.trust(p)+5));TaleData.get(p.serverLevel()).setDirty();YagaServices.give(p,new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.ANCIENT_SIGN.get()));}
+            if(old.getString("Status").equals("RETURN")){if(!giver.equals(old.getString("Giver"))||cat!=null&&(!old.hasUUID("GiverEntity")||!cat.getUUID().equals(old.getUUID("GiverEntity")))){p.displayClientMessage(Component.translatable("guides.return_original"),false);return false;}old.putString("Status","DONE");old.putBoolean("Claimed",true);p.displayClientMessage(Component.translatable("guides.status.DONE"),false);if(cat!=null)cat.rewardTrust(p,5);TaleData.get(p.serverLevel()).setDirty();YagaServices.give(p,new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.ANCIENT_SIGN.get()));}
             else if(old.hasUUID("Id")){var nav=NavigationRecords.get(p.serverLevel());if(nav.player(p.getUUID()).markers.containsKey(old.getUUID("Id"))){nav.player(p.getUUID()).track(old.getUUID("Id"));NavigationManager.changed(p);}}
             sync(p);return true;
         }
@@ -61,7 +61,7 @@ public final class GuideQuests {
         jobs.put(id,new Job(p,target,id));p.displayClientMessage(Component.translatable("guides.status.SEARCHING"),false);sync(p);return true;
     }
     public static CompoundTag snapshot(ServerPlayer p){
-        var out=new CompoundTag();for(String target:TARGETS){var q=root(p).getCompound(target);if(q.isEmpty())continue;var view=new CompoundTag();view.putString("Status",q.getString("Status"));view.putString("Giver",q.getString("Giver"));out.put(target,view);}return out;
+        var out=new CompoundTag();for(String target:TARGETS){var q=root(p).getCompound(target);if(q.isEmpty())continue;var view=new CompoundTag();if(q.hasUUID("Id"))view.putUUID("Marker",q.getUUID("Id"));view.putString("Status",q.getString("Status"));view.putString("Giver",q.getString("Giver"));out.put(target,view);}return out;
     }
     private static void sync(ServerPlayer p){var delta=new CompoundTag();delta.put("GuideQuests",snapshot(p));delta.put("Hints",TaleService.hints(p));TaleNetwork.send(p,delta,false,false);}
     @SubscribeEvent public static void stopping(net.neoforged.neoforge.event.server.ServerStoppingEvent event){var jobs=JOBS.remove(event.getServer());if(jobs!=null)for(var job:jobs.values())if(job.future!=null)job.future.cancel(true);}

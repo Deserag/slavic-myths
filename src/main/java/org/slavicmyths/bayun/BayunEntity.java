@@ -84,6 +84,7 @@ public final class BayunEntity extends PathfinderMob {
         if(s.phase!=Phase.SAFE&&!safeMeeting(player)){tell(player,"danger");return InteractionResult.FAIL;}
         s.phase=Phase.SAFE;if(p.isSecondaryUseActive()){if(distanceToSqr(p)>6.25){tell(player,"far");return InteractionResult.FAIL;}if(b.getBoolean("Pet")&&now()-b.getLong("PetAt")<48000){tell(player,"pet_wait");return InteractionResult.FAIL;}b.putBoolean("Pet",true);b.putLong("PetAt",now());b.putInt("Trust",Math.min(100,trust(player)+4));TaleData.get(player.serverLevel()).setDirty();begin("pet_rub");tell(player,"pet");friendAward(player);}else BayunNetwork.open(player,this);return InteractionResult.CONSUME;
     }
+    public void rewardTrust(ServerPlayer p,int amount){if(level().isClientSide||p.level()!=level()||amount<0)return;bond(p).putInt("Trust",Math.min(100,trust(p)+Math.min(5,amount)));TaleData.get(p.serverLevel()).setDirty();friendAward(p);}
     private void friendAward(ServerPlayer p){if(trust(p)>=85){org.slavicmyths.progression.Knowledge.award(p,"friend_of_bayun");TaleService.subject(p,"entity/slavicmyths:kot_bayun",4,false);}}
     public boolean canTalk(ServerPlayer p){var s=sessions.get(p.getUUID());return p.isAlive()&&p.level()==level()&&distanceToSqr(p)<=9&&hasLineOfSight(p)&&s!=null&&s.phase==Phase.SAFE;}
     @Override public boolean hurt(DamageSource s,float amount){return false;}

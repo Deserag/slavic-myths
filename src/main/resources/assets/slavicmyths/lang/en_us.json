@@ -5920,5 +5920,7 @@
   "tales.entry.bayun_search.discovered": "Two different victories reveal a rumor of Bayun. A third narrows the area. Earn the cat's trust separately. Without a marked area, no trail is known yet.",
   "tales.entry.bayun_search.studied": "Two different victories reveal a rumor of Bayun. A third narrows the area. Earn the cat's trust separately. Without a marked area, no trail is known yet.",
   "tales.entry.bayun_search.verified": "Two different victories reveal a rumor of Bayun. A third narrows the area. Earn the cat's trust separately. Without a marked area, no trail is known yet.",
-  "guides.find_yaga": "Ask to find the hut"
+  "guides.find_yaga": "Ask to find the hut",
+  "guides.track": "Track",
+  "guides.untrack": "Untrack"
 }

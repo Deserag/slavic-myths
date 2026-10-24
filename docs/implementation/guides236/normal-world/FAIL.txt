@@ -1,0 +1,11 @@
+java.lang.NullPointerException: Cannot invoke "net.minecraft.nbt.Tag.getType()" because "p_129234_" is null
+NORMAL seed2362026; original sentinel=BlockPos{x=-19, y=117, z=8}; actual egg Yaga menu stage1
+yaga real menu target=likho_one_eyed accepted=true
+yaga real menu target=tugarin_zmey accepted=true
+yaga real menu target=nightingale accepted=true
+yaga outcome likho_one_eyed {Anchor:-129192610136064L,BossKey:"likho_one_eyed:-1:2",Dimension:"minecraft:overworld",Giver:"yaga",Id:[I;1425648773,-99923037,-1469309577,-627163127],Status:"WAITING"}
+yaga outcome tugarin_zmey {Anchor:130292128006144L,BossKey:"tugarin_zmey:0:0",Dimension:"minecraft:overworld",Giver:"yaga",Id:[I;2064457601,1379290908,-1261268928,1297727972],Status:"WAITING"}
+yaga outcome nightingale {Anchor:215229406310501L,Camp:[I;-177307578,-1847994983,-974086803,-2097632291],Dimension:"minecraft:overworld",Giver:"yaga",Id:[I;1050380431,-1583202189,-1151578685,1213969161],Start:317827579950L,Status:"WAITING"}
+NPC search sentinel preserved; no NPC chunk tickets by implementation
+travel to reserved native fortress, no manual placement BlockPos{x=783, y=101, z=1263}
+native fortress verified pieces=17 loaded footprint chunks=49 containers=25 camp=f56e8046-91d9-d599-c5f0-9d6d82f8abdd liveBoss=true

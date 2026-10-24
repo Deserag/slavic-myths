@@ -123,7 +123,13 @@ public final class TaleScreen extends Screen {
         }
         Entry e=current();if(e!=null){page=Math.clamp(page,1,Math.max(1,stage(e)));int y=top+h-25;button(rx,y,28,19,Component.literal("‹"),page>1,()->{page--;textOffset=0;sound("book.page");init();});button(left+w-42,y,28,19,Component.literal("›"),page<stage(e),()->{page++;textOffset=0;sound("book.page");init();});
             if(e.id.equals("slavicmyths:yaga_search")&&!snapshot.getCompound("Hints").contains(e.id)&&stage(e)>0)button(rx,top+h-49,Math.min(rw,160),20,Component.translatable("guides.find_yaga"),true,()->PacketDistributor.sendToServer(new TaleNetwork.Read("__find_yaga")));
-            if(snapshot.getCompound("Hints").contains(e.id)){button(rx,top+h-49,Math.min(rw-35,120),20,Component.translatable("tales.map"),true,()->{map=!map;textOffset=0;});button(left+w-47,top+h-49,33,20,Component.literal("×"+mapZoom),true,()->{mapZoom=mapZoom>=2?1:mapZoom+.5F;init();});}
+            if(snapshot.getCompound("Hints").contains(e.id)){
+                if(e.id.startsWith("slavicmyths:guide_")){
+                    var q=snapshot.getCompound("GuideQuests").getCompound(e.id.substring("slavicmyths:guide_".length()));int cell=Math.max(24,(rw-8)/3);
+                    button(rx,top+h-49,cell,20,Component.translatable("tales.map"),true,()->{map=!map;textOffset=0;});
+                    if(q.hasUUID("Marker")){var marker=q.getUUID("Marker");button(rx+cell+4,top+h-49,cell,20,Component.translatable("guides.track"),true,()->org.slavicmyths.navigation.NavigationNetwork.request(org.slavicmyths.navigation.NavigationNetwork.Action.TRACK,marker,0,true));button(rx+(cell+4)*2,top+h-49,cell,20,Component.translatable("guides.untrack"),true,()->org.slavicmyths.navigation.NavigationNetwork.request(org.slavicmyths.navigation.NavigationNetwork.Action.STOP,marker,0,false));}
+                }else{button(rx,top+h-49,Math.min(rw-35,120),20,Component.translatable("tales.map"),true,()->{map=!map;textOffset=0;});button(left+w-47,top+h-49,33,20,Component.literal("×"+mapZoom),true,()->{mapZoom=mapZoom>=2?1:mapZoom+.5F;init();});}
+            }
             else if(stage(e)>=3&&!e.recipes.isEmpty()){button(rx,top+h-49,Math.min(rw,150),20,Component.translatable("tales.recipe.open"),true,()->{recipeIndex=recipeIndex+1>=e.recipes.size()?-1:recipeIndex+1;textOffset=0;});}
             else if(!e.links.isEmpty()){String link=e.links.get(0);Entry target=entriesById.get(link);if(target!=null)button(rx,top+h-49,Math.min(rw,150),20,Component.translatable(target.title),true,()->select(target));}
         }
