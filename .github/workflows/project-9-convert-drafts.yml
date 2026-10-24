@@ -1,0 +1,38 @@
+name: Slavic Myths - convert Project 9 drafts to issues
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/project-migration/convert_project9_drafts_to_issues.py'
+      - '.github/workflows/project-9-convert-drafts.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: slavic-project-9-drafts
+  cancel-in-progress: false
+
+jobs:
+  convert-project-cards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Verify Project secret
+        env:
+          PROJECT_SECRET: ${{ secrets.SLAVIC_PROJECTS_TOKEN }}
+        run: |
+          if [ -z "$PROJECT_SECRET" ]; then
+            echo "::error::Missing Actions secret SLAVIC_PROJECTS_TOKEN"
+            exit 1
+          fi
+      - name: Validate conversion script
+        run: python3 -m py_compile tools/project-migration/convert_project9_drafts_to_issues.py
+      - name: Convert project-native drafts into issues in place
+        env:
+          GH_PROJECTS_TOKEN: ${{ secrets.SLAVIC_PROJECTS_TOKEN }}
+        run: python3 -u tools/project-migration/convert_project9_drafts_to_issues.py

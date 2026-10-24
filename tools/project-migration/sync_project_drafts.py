@@ -60,7 +60,7 @@ query($login:String!,$number:Int!,$after:String) {
           content {
             __typename
             ... on DraftIssue { id title body }
-            ... on Issue { number title state repository { nameWithOwner } }
+            ... on Issue { id number title body state repository { nameWithOwner } }
           }
         }
       }
@@ -171,7 +171,7 @@ query($id:ID!) {
   node(id:$id) {
     ... on ProjectV2Item {
       id
-      content { __typename ... on DraftIssue { id title body } }
+      content { __typename ... on DraftIssue { id title body } ... on Issue { id number title body } }
     }
   }
 }
@@ -179,9 +179,14 @@ query($id:ID!) {
 def known_draft(key):
     valid = []
     for node_id in KNOWN_DRAFT_IDS.get(key, []):
-        item = gql(NODE_QUERY, id=node_id).get("node")
+        try:
+            item = gql(NODE_QUERY, id=node_id).get("node")
+        except RuntimeError as exc:
+            if "NOT_FOUND" in str(exc) or "Could not resolve to a node" in str(exc):
+                continue  # A prior successful deduplication deleted this old item.
+            raise
         c = (item or {}).get("content") or {}
-        if c.get("__typename") == "DraftIssue" and "PROJECT9_CONCEPT_KEY:" + key in (c.get("body") or ""):
+        if c.get("__typename") in ("DraftIssue", "Issue") and "PROJECT9_CONCEPT_KEY:" + key in (c.get("body") or ""):
             valid.append(item)
     return valid
 
@@ -189,12 +194,12 @@ by_key = {}
 old_issues = {}
 for item in items:
     c = item.get("content") or {}
-    if c.get("__typename") == "DraftIssue":
+    if c.get("__typename") in ("DraftIssue", "Issue"):
         k = re.search(r"PROJECT9_CONCEPT_KEY:([a-z0-9-]+)", c.get("body") or "")
         if k:
             by_key[k.group(1)] = item
         by_key.setdefault("title:" + c.get("title", ""), item)
-    elif c.get("__typename") == "Issue" and c.get("repository", {}).get("nameWithOwner") == CFG["owner"] + "/" + CFG["repo"]:
+    if c.get("__typename") == "Issue" and (c.get("repository") or {}).get("nameWithOwner") == CFG["owner"] + "/" + CFG["repo"]:
         old_issues[c["number"]] = item
 
 counts = {"created": 0, "existing": 0, "field_updates": 0}
@@ -209,6 +214,29 @@ for task in CFG["tasks"]:
     if existing:
         item_id = existing["id"]
         counts["existing"] += 1
+        # Append only explicitly approved amendments. Never replace an edited
+        # Project card's body, title, status, or other owner-maintained fields.
+        amendment = task.get("projectAddendum")
+        if amendment:
+            marker = "<!-- PROJECT9_AMENDMENT_" + key.upper().replace("-", "_") + " -->"
+            draft = (existing.get("content") or {})
+            body = draft.get("body") or ""
+            draft_id = draft.get("id")
+            if marker not in body and draft_id:
+                new_body = body + "\n\n" + marker + "\n" + amendment
+                if draft.get("__typename") == "Issue":
+                    gql("""
+                    mutation($input:UpdateIssueInput!) {
+                      updateIssue(input:$input) { issue { id } }
+                    }
+                    """, input={"id": draft_id, "body": new_body})
+                else:
+                    gql("""
+                    mutation($input:UpdateProjectV2DraftIssueInput!) {
+                      updateProjectV2DraftIssue(input:$input) { draftIssue { id } }
+                    }
+                    """, input={"draftIssueId": draft_id, "body": new_body})
+                print("APPENDED APPROVED AMENDMENT", key, flush=True)
         print("PRESERVE DRAFT", key)
         continue  # Never overwrite hand-edited cards or their statuses on re-runs.
 
@@ -242,7 +270,7 @@ for attempt in range(4):
     legacy_items = {}
     for item in check_items:
         c = item.get("content") or {}
-        if c.get("__typename") == "DraftIssue":
+        if c.get("__typename") in ("DraftIssue", "Issue"):
             m = re.search(r"PROJECT9_CONCEPT_KEY:([a-z0-9-]+)", c.get("body") or "")
             if m:
                 verified[m.group(1)] = item
@@ -282,9 +310,10 @@ for task in CFG["tasks"]:
     """, input={"projectId": pid, "itemId": old_item["id"]})
     print("REPLACED closed linked Issue Project item", legacy, "with Draft", task["key"])
 
-# Remove only duplicate native Drafts caused by earlier read-back indexing lag.
+# Remove only duplicate *Draft* cards caused by earlier read-back indexing lag.
+# Never delete a converted Issue item as a duplicate.
 for task in CFG["tasks"]:
-    matches = known_draft(task["key"])
+    matches = [m for m in known_draft(task["key"]) if (m.get("content") or {}).get("__typename") == "DraftIssue"]
     if len(matches) <= 1:
         continue
     keeper = verified[task["key"]]["id"]
