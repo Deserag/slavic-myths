@@ -52,5 +52,19 @@ public final class BookUiChecks {
   }out.add(cached?"after_bytes_op":"before_bytes_op",samples);}
   return out;
  }
- public static void main(String[]args)throws Exception{layout();lines();var out=new JsonObject();out.addProperty("checks",checks);out.addProperty("scope","offline native StringSplitter with fixed glyph widths, exact DDA pixels; not GPU frames or game FPS");out.add("allocation",allocation());Path p=Path.of("docs/implementation/book-performance-20261024/offline.json");Files.writeString(p,new GsonBuilder().setPrettyPrinting().create().toJson(out));System.out.println(out);}
+ static void viewport(){
+  var nodes=new LinkedHashMap<String,int[]>();
+  for(int i=0;i<1000;i++)nodes.put("n"+i,new int[]{i%20*64,i/20*48});
+  for(int width:new int[]{180,320,800})for(int height:new int[]{80,240,600}){
+   var view=new TaleViewport();view.fit(nodes,width,height);
+   for(var e:nodes.entrySet()){
+    int x=view.x(17,e.getValue()[0]),y=view.y(29,e.getValue()[1]);
+    check(view.hit(Map.of(e.getKey(),e.getValue()),17,29,x+view.size()/2.0,y+view.size()/2.0).equals(e.getKey()),"node hit shares drawn transform");
+   }
+   view.zoom(1,width,height);view.center(nodes.get("n999"),width,height);
+   check(Math.abs(view.x(0,nodes.get("n999")[0])+16-width/2.0)<=1,"selected centered x");
+   check(Math.abs(view.y(0,nodes.get("n999")[1])+16-height/2.0)<=1,"selected centered y");
+  }
+ }
+ public static void main(String[]args)throws Exception{layout();lines();viewport();var out=new JsonObject();out.addProperty("checks",checks);out.addProperty("scope","offline native StringSplitter with fixed glyph widths, exact DDA pixels; not GPU frames or game FPS");out.add("allocation",allocation());Path p=Path.of("docs/implementation/book-performance-20261024/offline.json");Files.writeString(p,new GsonBuilder().setPrettyPrinting().create().toJson(out));System.out.println(out);}
 }

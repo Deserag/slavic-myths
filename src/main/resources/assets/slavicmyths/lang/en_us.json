@@ -5876,5 +5876,10 @@
   "guide.special.armor": "Crafting table: one item in each of 6 slots. Retains components and relative armor wear.",
   "guide.special.ward": "Crafting table at least 3 slots wide. Combine the three distinct components for a ward.",
   "guide.brewing.keg": "Small keg: use poured drinks to fill (up to 8 servings); use an empty mug/bottle to pour. This is storage; quality does not change. Different drinks/qualities cannot be mixed.",
-  "combat.slavicmyths.staff_damage_scope": "Strength and damage enchantments improve melee hits. Magic uses separate damage; bow Power does not apply."
+  "combat.slavicmyths.staff_damage_scope": "Strength and damage enchantments improve melee hits. Magic uses separate damage; bow Power does not apply.",
+  "tales.view.list": "List",
+  "tales.view.tree": "Tree",
+  "tales.fit": "Fit",
+  "tales.requires": "Requires",
+  "tales.deed.choose": "Select an achievement in the contents to read its description."
 }
