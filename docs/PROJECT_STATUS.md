@@ -2869,3 +2869,7 @@ All 11 workflows for e0560924 SUCCESS; Java21 clean build + P52 source/JAR PASS:
 
 ## 22.10.2026 — пакет из «Ожидания»: #98 + #99
 Реализованы все 4 природных ресурса #98 и 8 crafting-наконечников #99, только 12 PNG прежнего разрешения. T1-A/T1-B проверены последовательно; модели/оружие/механики/данные не менялись. Канонический scoped генератор + защита historical writers, A/B 1×/3×, точный production diff PASS. Java21 clean build PASS 56s; 7601 packaged resources PASS. Рекомендуется «Тестирование» для обеих; фактический Project Status NOT_CHANGED (credential без Projects scope, signed-out browser). Версия 1.9.7.57 НЕ повышалась, PolyMC НЕ обновлялся, runtime0. #140 владелец явно принял и разрешил «Готово»; поле также ещё NOT_CHANGED. [Полный отчёт](implementation/materials-81/N98-T99/REPORT.md).
+
+## 24.10.2026 — #237 compact reader implementation (IN_PROGRESS)
+
+Один TaleScreen поверх #235: компактное сворачиваемое оглавление, скрытие панели/широкое чтение, список деяний с реальными описаниями и дерево с общей геометрией fit/center/click. Clean build1m33s и7688ресурсов PASS до последних уточнений; первый реальный A/B клиентский прогон выполняется на копии BookQA. Полная визуальная/MP приёмка и финальные замеры ещё не подтверждены. [Матрица](implementation/book237/REPORT.md).

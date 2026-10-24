@@ -1,0 +1,12 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { bookClient { java.srcDir 'tools/book-client' } }
+ p.sourceSets.bookClient.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.bookClient.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileBookClientJava'){dependsOn p.tasks.named('classes')}
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.bookClient)
+} }
+gradle.projectsEvaluated { def p=gradle.rootProject
+ p.neoForge.runs.client.gameDirectory=p.file('work/book-237-client')
+ p.neoForge.runs.client.programArguments.addAll('--width','1280','--height','720')
+ p.neoForge.runs.client.systemProperty('slavicmyths.bookOutput',p.file('docs/implementation/book237/client').absolutePath)
+}

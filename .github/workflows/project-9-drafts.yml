@@ -6,6 +6,7 @@ on:
     paths:
       - 'tools/project-migration/project-draft-tasks.json'
       - 'tools/project-migration/sync_project_drafts.py'
+      - 'tools/project-migration/promote_approved_to_ready.py'
       - '.github/workflows/project-9-drafts.yml'
   workflow_dispatch:
 
@@ -33,9 +34,13 @@ jobs:
           fi
       - name: Validate Project Draft sync inputs
         run: |
-          python3 -m py_compile tools/project-migration/sync_project_drafts.py
+          python3 -m py_compile tools/project-migration/sync_project_drafts.py tools/project-migration/promote_approved_to_ready.py
           python3 -m json.tool tools/project-migration/project-draft-tasks.json > /dev/null
       - name: Create native Project draft cards
         env:
           GH_PROJECTS_TOKEN: ${{ secrets.SLAVIC_PROJECTS_TOKEN }}
         run: python3 tools/project-migration/sync_project_drafts.py
+      - name: Promote only owner-approved cards to Ozhidanie
+        env:
+          GH_PROJECTS_TOKEN: ${{ secrets.SLAVIC_PROJECTS_TOKEN }}
+        run: python3 tools/project-migration/promote_approved_to_ready.py
