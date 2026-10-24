@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 680" width="1100" height="680">
+<rect width="1100" height="680" fill="#17161b"/>
+<g font-family="Arial, sans-serif" fill="#e5d9cf"><text x="35" y="44" font-size="27" font-weight="bold">СТОРОЖ ЧАЩИ · 2.0.2.5 · ТЕХНИЧЕСКИЙ ЧЕРТЁЖ</text><text x="35" y="71" font-size="15" fill="#b5a5ad">Minecraft voxel / 6–7 блоков в высоту / до 3 блоков в ширину · эскиз пропорций, не готовая текстура</text></g>
+<g transform="translate(60 109)">
+<rect x="0" y="0" width="500" height="500" fill="#211d22" stroke="#706068"/>
+<g stroke="#544c51" stroke-width="1" opacity=".5"><path d="M0 100H500M0 200H500M0 300H500M0 400H500M100 0V500M200 0V500M300 0V500M400 0V500"/></g>
+<g stroke="#6b5754" stroke-width="19" stroke-linecap="square" fill="none"><path d="M203 180L127 155L96 96M293 186L360 158L397 110M205 245L124 272L94 335M295 243L374 273L406 350"/></g>
+<g fill="#35282a" stroke="#8f7a6e" stroke-width="5"><rect x="185" y="80" width="131" height="307"/><rect x="207" y="65" width="87" height="42"/><rect x="162" y="140" width="46" height="198"/><rect x="294" y="166" width="44" height="179"/></g>
+<path d="M187 357L129 430L93 460M311 357L363 428L413 460" fill="none" stroke="#7d7169" stroke-width="33" stroke-linecap="square"/>
+<path d="M215 170h77v110h-77Z" fill="#25191e" stroke="#bc9d89" stroke-width="10"/><path d="M231 192h20v20h-20Z M263 192h16v20h-16Z" fill="#e0482b"/><path d="M233 237L258 251L279 237" fill="none" stroke="#6c1741" stroke-width="10"/>
+<path d="M212 315h81v63h-81Z" fill="#3d1625" stroke="#9e3c39" stroke-width="9"/><path d="M251 324L270 345L252 368L234 345Z" fill="#f25b33"/>
+<g fill="#d0b8a4"><rect x="190" y="104" width="15" height="31"/><rect x="307" y="115" width="16" height="38"/><rect x="145" y="255" width="15" height="34"/><rect x="343" y="254" width="14" height="32"/></g>
+<path d="M182 71L161 23M301 69L336 29M243 66L249 22" stroke="#ad988a" stroke-width="13" stroke-linecap="square"/>
+<text x="12" y="478" fill="#bdafb0" font-family="Arial" font-size="17">1 клетка ≈ 1 блок, схематично</text>
+</g>
+<g font-family="Arial, sans-serif" font-size="19" fill="#e8dfd9">
+<text x="610" y="126" font-weight="bold">ОБЯЗАТЕЛЬНЫЙ СИЛУЭТ</text>
+<text x="610" y="166">• широкий асимметричный ствол</text><text x="610" y="197">• лицо не на вершине, а в теле</text><text x="610" y="228">• костяные пластины и корневые ноги</text><text x="610" y="259">• сердцевина ниже головы</text>
+<text x="610" y="315" font-weight="bold">ПАЛИТРА</text>
+</g>
+<g><rect x="615" y="336" width="85" height="58" fill="#21191c"/><rect x="707" y="336" width="85" height="58" fill="#4d3433"/><rect x="799" y="336" width="85" height="58" fill="#a38b7a"/><rect x="891" y="336" width="85" height="58" fill="#6d1947"/><rect x="983" y="336" width="85" height="58" fill="#e24d30"/></g>
+<g font-family="Arial" fill="#cbc1bc" font-size="14"><text x="615" y="416">кора</text><text x="707" y="416">сухая</text><text x="799" y="416">кость</text><text x="891" y="416">скверна</text><text x="983" y="416">жар</text><text x="612" y="469" font-size="20" font-weight="bold" fill="#e8ddd7">СЦЕНАРИЙ ФАЗ</text><text x="612" y="500" font-size="18">I: обычная тёмная сердцевина</text><text x="612" y="530" font-size="18">II: трещины, багряный жар, защита</text><text x="612" y="574" font-size="17">Размеры, хитбокс и телеграфы сверить в игре.</text><text x="612" y="602" font-size="17">Это схема, не пользовательский концепт-арт.</text></g>
+</svg>
