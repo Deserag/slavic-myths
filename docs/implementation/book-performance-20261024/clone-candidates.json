@@ -1,0 +1,156 @@
+{
+  "method": "Exact 100-token windows sampled every25tokens after comment removal; literals preserved. Candidate signal only, not proof of duplicate mechanics/dead code.",
+  "java_files": 1110,
+  "pairs": [
+    {
+      "a": "src/main/java/org/slavicmyths/client/PeruniteArmor.java",
+      "b": "src/main/java/org/slavicmyths/client/PolozArmor.java",
+      "shared_windows": 8
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/bandit/CampPiece.java",
+      "b": "src/main/java/org/slavicmyths/bandit/LargeCampPiece.java",
+      "shared_windows": 7
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/kurgan/KurganDungeonPiece.java",
+      "b": "src/main/java/org/slavicmyths/kurgan/KurganPiece.java",
+      "shared_windows": 6
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/client/ThrowingMotionClient.java",
+      "b": "src/main/java/org/slavicmyths/client/WeaponMotionClient.java",
+      "shared_windows": 5
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/client/CargoScreen.java",
+      "b": "src/main/java/org/slavicmyths/client/PouchScreen.java",
+      "shared_windows": 4
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/bandit/NightingaleDagger.java",
+      "b": "src/main/java/org/slavicmyths/bandit/NightingaleWhistle.java",
+      "shared_windows": 3
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/compat/JeiIndustry.java",
+      "b": "src/main/java/org/slavicmyths/compat/JeiRunes.java",
+      "shared_windows": 3
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/compat/JeiBrewing.java",
+      "b": "src/main/java/org/slavicmyths/compat/JeiCraftProcesses.java",
+      "shared_windows": 3
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/finist/FalconActor.java",
+      "b": "src/main/java/org/slavicmyths/skim/SkimActor.java",
+      "shared_windows": 3
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/bandit/CampPiece.java",
+      "b": "src/main/java/org/slavicmyths/swamp/SwampPiece.java",
+      "shared_windows": 2
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/bandit/LargeCampPiece.java",
+      "b": "src/main/java/org/slavicmyths/swamp/SwampPiece.java",
+      "shared_windows": 2
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/bandit/CampStructure.java",
+      "b": "src/main/java/org/slavicmyths/bandit/LargeCampStructure.java",
+      "shared_windows": 2
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/client/BayunClient.java",
+      "b": "src/main/java/org/slavicmyths/client/DogheadClient.java",
+      "shared_windows": 2
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/client/BayunClient.java",
+      "b": "src/main/java/org/slavicmyths/client/KuzyaClient.java",
+      "shared_windows": 2
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/client/DogheadClient.java",
+      "b": "src/main/java/org/slavicmyths/client/KuzyaClient.java",
+      "shared_windows": 2
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/client/BossAccessoryRenderer.java",
+      "b": "src/main/java/org/slavicmyths/client/HuntAccessoryRenderer.java",
+      "shared_windows": 2
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/compat/JeiBrewing.java",
+      "b": "src/main/java/org/slavicmyths/compat/JeiSpecialProcesses.java",
+      "shared_windows": 2
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/compat/JeiCraftProcesses.java",
+      "b": "src/main/java/org/slavicmyths/compat/JeiSpecialProcesses.java",
+      "shared_windows": 2
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/furniture/FurnitureBlock.java",
+      "b": "src/main/java/org/slavicmyths/rpg/RpgBlock.java",
+      "shared_windows": 2
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/hunt/BossAnchors.java",
+      "b": "src/main/java/org/slavicmyths/wood/HangingLeaves.java",
+      "shared_windows": 2
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/sanctuary/SanctuaryBlock.java",
+      "b": "src/main/java/org/slavicmyths/storage/StorageBlock.java",
+      "shared_windows": 2
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/sanctuary/SanctuaryBlock.java",
+      "b": "src/main/java/org/slavicmyths/textile/StationBlock.java",
+      "shared_windows": 2
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/storage/StorageBlock.java",
+      "b": "src/main/java/org/slavicmyths/textile/StationBlock.java",
+      "shared_windows": 2
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/artifact/BadnyakItem.java",
+      "b": "src/main/java/org/slavicmyths/artifact/GusliItem.java",
+      "shared_windows": 1
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/bandit/CampCommands.java",
+      "b": "src/main/java/org/slavicmyths/kurgan/KurganCommands.java",
+      "shared_windows": 1
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/bandit/CampStructure.java",
+      "b": "src/main/java/org/slavicmyths/kurgan/KurganStructure.java",
+      "shared_windows": 1
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/bandit/CampStructure.java",
+      "b": "src/main/java/org/slavicmyths/swamp/SwampStructure.java",
+      "shared_windows": 1
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/bandit/LargeCampStructure.java",
+      "b": "src/main/java/org/slavicmyths/kurgan/KurganStructure.java",
+      "shared_windows": 1
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/bandit/LargeCampStructure.java",
+      "b": "src/main/java/org/slavicmyths/swamp/SwampStructure.java",
+      "shared_windows": 1
+    },
+    {
+      "a": "src/main/java/org/slavicmyths/kurgan/KurganStructure.java",
+      "b": "src/main/java/org/slavicmyths/swamp/SwampStructure.java",
+      "shared_windows": 1
+    }
+  ]
+}

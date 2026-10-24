@@ -1,0 +1,28 @@
+{
+  "scope": "OFFLINE native EntitySectionStorage/LevelEntityGetterAdapter, caller list reuse; not full camera or FPS/MSPT",
+  "checks": 820,
+  "java": "21.0.12",
+  "game_processes": 0,
+  "allocation": [
+    {
+      "fixture_entities": 0,
+      "before_bytes_per_frame": 92.5776,
+      "after_bytes_per_frame": 0.0
+    },
+    {
+      "fixture_entities": 1,
+      "before_bytes_per_frame": 840.0,
+      "after_bytes_per_frame": 704.0
+    },
+    {
+      "fixture_entities": 64,
+      "before_bytes_per_frame": 1264.0,
+      "after_bytes_per_frame": 704.0
+    },
+    {
+      "fixture_entities": 512,
+      "before_bytes_per_frame": 4880.0,
+      "after_bytes_per_frame": 704.0
+    }
+  ]
+}

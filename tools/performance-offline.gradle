@@ -1,0 +1,11 @@
+gradle.projectsEvaluated {
+ def p=gradle.rootProject
+ p.sourceSets { cameraQueryOffline { java.srcDir 'tools/performance-offline' } }
+ p.sourceSets.cameraQueryOffline.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.cameraQueryOffline.runtimeClasspath += p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+ p.tasks.register('checkCameraQueryOffline',JavaExec) {
+  dependsOn 'cameraQueryOfflineClasses'
+  classpath=p.sourceSets.cameraQueryOffline.runtimeClasspath
+  mainClass='CameraQueryChecks'
+ }
+}

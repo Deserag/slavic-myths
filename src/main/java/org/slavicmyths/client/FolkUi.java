@@ -18,7 +18,9 @@ final class FolkUi {
   for(int dx:new int[]{2,w-10})for(int dy:new int[]{2,h-10}){g.fill(x+dx,y+dy,x+dx+8,y+dy+8,0xff494b49);g.fill(x+dx+3,y+dy+3,x+dx+5,y+dy+5,0xffb2ada0);}
   for(int dy=33;dy<h-14;dy+=14){g.fill(x+8,y+dy,x+10,y+dy+3,RED);g.fill(x+w-10,y+dy,x+w-8,y+dy+3,RED);}
  }
- static int text(GuiGraphics g,Font font,Component c,int x,int y,int width,int color,int maxLines){int n=0;for(var line:font.split(c,Math.max(20,width))){if(n>=maxLines)break;g.drawString(font,line,x,y+n*10,color,false);n++;}return n*10;}
+ static int text(GuiGraphics g,Font font,Component c,int x,int y,int width,int color,int maxLines){return textLines(g,font,font.split(c,Math.max(20,width)),x,y,color,maxLines);}
+ static int text(GuiGraphics g,Font font,Component c,int x,int y,int width,int color,int maxLines,UiText.Layout layout){return textLines(g,font,layout.split(font,c,Math.max(20,width)),x,y,color,maxLines);}
+ private static int textLines(GuiGraphics g,Font font,java.util.List<net.minecraft.util.FormattedCharSequence> lines,int x,int y,int color,int maxLines){int n=0;for(var line:lines){if(n>=maxLines)break;g.drawString(font,line,x,y+n*10,color,false);n++;}return n*10;}
  static void slot(GuiGraphics g,int x,int y,int size,boolean selected){panel(g,x,y,size,size,selected?0xff675842:0xffa28c6e);}
  static void reposition(AbstractContainerMenu menu,int index,int x,int y){Slot old=menu.slots.get(index);if(old instanceof PositionedSlot positioned)old=positioned.original;Slot replacement=new PositionedSlot(old,x,y);replacement.index=old.index;menu.slots.set(index,replacement);}
  private static final class PositionedSlot extends Slot {
@@ -33,13 +35,14 @@ final class FolkUi {
  static Button button(int x,int y,int w,int h,Component label,boolean selected,Button.OnPress press){return new PaintedButton(x,y,w,h,label,selected,press);}
  static Button iconButton(int x,int y,int w,int h,Component label,boolean selected,net.minecraft.world.item.ItemStack icon,Button.OnPress press){return new PaintedButton(x,y,w,h,label,selected,press,icon);}
  private static class PaintedButton extends Button {
+  private final UiText.Layout labelLayout=new UiText.Layout();
   private final boolean selected;private final net.minecraft.world.item.ItemStack icon;
   PaintedButton(int x,int y,int w,int h,Component c,boolean selected,OnPress press){this(x,y,w,h,c,selected,press,net.minecraft.world.item.ItemStack.EMPTY);}
   PaintedButton(int x,int y,int w,int h,Component c,boolean selected,OnPress press,net.minecraft.world.item.ItemStack icon){super(x,y,w,h,c,press,DEFAULT_NARRATION);this.selected=selected;this.icon=icon;if(!c.getString().isBlank())setTooltip(net.minecraft.client.gui.components.Tooltip.create(c));}
   @Override protected void renderWidget(GuiGraphics g,int mx,int my,float delta){
    int background=!active?0xff62574a:selected?RED:isHoveredOrFocused()?0xff765139:0xff443023;
    panel(g,getX(),getY(),getWidth(),getHeight(),background);
-   var font=Minecraft.getInstance().font;int inset=icon.isEmpty()?0:19;if(!icon.isEmpty())g.renderItem(icon,getX()+4,getY()+(getHeight()-16)/2);var lines=UiText.lines(font,getMessage(),getWidth()-10-inset,Math.max(1,(getHeight()-4)/10));int rows=lines.size();int y=getY()+(getHeight()-rows*10)/2+1;
+   var font=Minecraft.getInstance().font;int inset=icon.isEmpty()?0:19;if(!icon.isEmpty())g.renderItem(icon,getX()+4,getY()+(getHeight()-16)/2);var lines=labelLayout.lines(font,getMessage(),getWidth()-10-inset,Math.max(1,(getHeight()-4)/10));int rows=lines.size();int y=getY()+(getHeight()-rows*10)/2+1;
    for(int i=0;i<rows;i++)g.drawString(font,lines.get(i),getX()+5+inset,y+i*10,active?0xfff3e2bf:0xffc5b99e,false);
   }
  }

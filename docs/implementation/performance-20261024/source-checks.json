@@ -1,0 +1,12 @@
+{
+  "actor_formulas_unchanged": true,
+  "boss_formulas_unchanged": true,
+  "output_angles_unchanged": true,
+  "radius_16": true,
+  "spectator_filter_both_queries": true,
+  "clear_in_finally": true,
+  "no_resource_changes": true,
+  "no_offline_harness_in_jar": true,
+  "main_equals_origin": true,
+  "installed_main_jar_unchanged": true
+}
