@@ -1,0 +1,23 @@
+{
+  "version": "1.9.7.66",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.66.jar",
+  "sha256": "1fa945a24eca7a2f8f140fbf41b8d3b040798450641c7310ea504c18d8704f28",
+  "source_commit": "ba098d0da6b7c0658b9d0cc001ef236ac1d064d5",
+  "source_state": "PRODUCTION_SOURCE_COMMITTED; subsequent release cleanup changes docs/workflows only",
+  "source_manifest_sha256": "9094a2215a2b2e7f3a0090761571c1dce0311c360da314c94f3558a442f99544",
+  "backup": [
+    {
+      "original": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-1.9.7.64.jar",
+      "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-1.9.7.66-20261024-152813\\slavicmyths-1.9.7.64.jar",
+      "sha256": "fcb5a07384f35c36f5621eeaec6ffb5d6c1d7f38224b86b1888fdfaaf0dafe60"
+    }
+  ],
+  "duplicate_slavicmyths_jars": 0,
+  "installed_at": "2026-10-24T15:28:13.325373+03:00",
+  "status": "OWNER_ACCEPTED_BASELINE_KNOWN_LIMITATIONS_RECORDED",
+  "runtime_launches_during_installation": 0,
+  "unrelated_mods_changed": false,
+  "source_parent_commit": "eb6ff447717ee05c2b81c52c5c784669a284314f",
+  "archived_source_checkpoint": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.slavicmyths-backups\\pre-1.9.7.66-20261024-152813\\source-state-before-commit",
+  "owner_acceptance": "Explicitly accepted installed 1.9.7.66 as second-version release baseline in this chat on 2026-10-24"
+}

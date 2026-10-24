@@ -1,0 +1,13 @@
+{
+  "text_files_checked": 9917,
+  "high_confidence_secret_matches": [],
+  "scope": "current tracked working tree; not a guarantee about every historical Git object",
+  "production_diff_vs_accepted_commit": true,
+  "yaml_library_available": false,
+  "workflows_parsed": 26,
+  "yaml_parser": "PyYAML isolated in ignored work/cleanup-python",
+  "production_jar_sha256": "1fa945a24eca7a2f8f140fbf41b8d3b040798450641c7310ea504c18d8704f28",
+  "clean_build": "PASS 1m25s",
+  "resources": "PASS 7740",
+  "book_offline": "PASS 50289 checks, 12s"
+}

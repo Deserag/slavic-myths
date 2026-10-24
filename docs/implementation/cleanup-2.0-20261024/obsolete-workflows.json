@@ -1,0 +1,5 @@
+{
+  "archived_python_entrypoint_workflows": [],
+  "removed_retired_noop_workflow": ".github/workflows/owner-acceptance-guard.yml",
+  "reason": "workflow_dispatch only; one echo; explicitly marked retired; Project9 workflows and active regression workflows retained"
+}

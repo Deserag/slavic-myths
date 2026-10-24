@@ -1,0 +1,10 @@
+{
+  "path": "docs/verification/rewards-1.7.6/pre-edit",
+  "files": 6646,
+  "working_bytes": 24659834,
+  "source_commit": "ba098d0da6b7c0658b9d0cc001ef236ac1d064d5",
+  "source_tree": "b772eedd6c9b7c41775712a28cc869b1c93e6aae",
+  "backup_zip": "D:\\slavic-myths\\work\\cleanup-2.0-backup\\rewards-1.7.6-pre-edit.zip",
+  "backup_sha256": "693accaae8a1a04990ec3f9d86fb67c0fb746cbdc183f6436741b8d3f81a2a5a",
+  "reason": "complete historical pre-edit source copy, not a build input or active regression fixture; preserved in immutable Git history and verified archive"
+}

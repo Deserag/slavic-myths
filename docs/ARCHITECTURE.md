@@ -1,3 +1,7 @@
+## 24.10.2026 — owner-accepted second-version baseline 1.9.7.66
+
+The owner explicitly accepted installed 1.9.7.66 and authorized branch release. Source commit ba098d0da6b7c0658b9d0cc001ef236ac1d064d5; cleanup preserves production source/resources. Known worldgen stalls and unrun full campaign cases remain documented; individual Issues are not closed automatically. [Cleanup](implementation/cleanup-2.0-20261024/REPORT.md), [installation](implementation/polymc-19766/installed.json).
+
 ## 24.10.2026 — 1.9.7.66: four heroes, cooperative help, installed candidate
 
 All four personal help gates and a server-wide cap of two summons implemented in existing TaleData/StoryPolicy. Final native tests 13/13, two TCP clients and full dedicated-server restart checked; clean build 42s and 7740 resources PASS. Test candidate 1.9.7.66 installed with backup/SHA; source remains uncommitted and is captured by manifest/patch. New Chud assignments/visits/rewards and GUI scale captures checked; first-arrival worldgen stalls remain. Owner acceptance pending, Issues OPEN. [Matrix](implementation/heroes-coop/REPORT.md), [installed receipt](implementation/polymc-19766/installed.json).

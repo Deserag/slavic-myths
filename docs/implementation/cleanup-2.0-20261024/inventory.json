@@ -1,0 +1,536 @@
+{
+  "tracked_files": 27058,
+  "tracked_by_root": {
+    ".gitattributes": 1,
+    ".github": 27,
+    ".gitignore": 1,
+    "1.9.7.1.txt": 1,
+    "AGENTS.md": 1,
+    "CHANGELOG.md": 1,
+    "CHANGELOG_1.9.2.md": 1,
+    "README.md": 1,
+    "RELEASE_NOTES_1.2.5.md": 1,
+    "STATUS_HANDOFF.md": 1,
+    "art": 542,
+    "build.gradle": 1,
+    "docs": 16437,
+    "gradle.properties": 1,
+    "gradle": 2,
+    "gradlew": 1,
+    "gradlew.bat": 1,
+    "packaging": 1,
+    "release": 17,
+    "settings.gradle": 1,
+    "src": 8851,
+    "tools": 1167
+  },
+  "suspects": [
+    {
+      "path": "art/audio/kurgan-65/kurgan-review.zip",
+      "bytes": 629978,
+      "references": [
+        "docs\\audio-review\\AUDIO_ACCEPTANCE_INDEX.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "art/audio/project-61/review.zip",
+      "bytes": 4567246,
+      "references": [
+        "art\\audio\\project-61\\README.md",
+        "docs\\audio-review\\AUDIO_ACCEPTANCE_INDEX.md",
+        "docs\\audio-review\\GROUPS_STAGE_61.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "art/kurgan-16-approved/approved.zip",
+      "bytes": 7245,
+      "references": [
+        "art\\review\\kurgan-v2\\README.md",
+        "docs\\implementation\\kurgan-16-v2\\README.md",
+        "docs\\implementation\\kurgan-16\\README.md",
+        "tools\\verify_kurgan_16.py"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "art/review/kurgan-v2/slavic_myths_kurgan_v2_11_png.zip",
+      "bytes": 8869,
+      "references": [
+        "docs\\implementation\\issue121-current\\project-final.json",
+        "docs\\implementation\\issue225\\project-after.json",
+        "docs\\implementation\\materials-81\\M97-T100\\project-after.json",
+        "docs\\implementation\\materials-81\\Q101\\project-after.json",
+        "docs\\implementation\\polymc-19759\\project-status.json",
+        "docs\\implementation\\project9-owner-acceptance-20261023\\after.json",
+        "docs\\implementation\\project9-owner-acceptance-20261023\\before.json",
+        "docs\\implementation\\trophies112-113\\project-after.json",
+        "docs\\implementation\\trophy114\\project-after.json"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/beer-84-85-v2/build.log",
+      "bytes": 2952,
+      "references": [
+        "docs\\implementation\\beer-84-85-v2\\REPORT.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/boss-runes-103/BUILD.log",
+      "bytes": 2602,
+      "references": [
+        "docs\\implementation\\boss-runes-103\\REPORT.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/creative-cache-40/BUILD.log",
+      "bytes": 2910,
+      "references": [
+        "docs\\implementation\\creative-cache-40\\REPORT.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/creatures-79/BUILD.log",
+      "bytes": 2837,
+      "references": [
+        "docs\\implementation\\creatures-79\\REPORT.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/drinks-19726/build.log",
+      "bytes": 35117,
+      "references": [
+        "docs\\implementation\\drinks-19726\\REPORT.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/hero-hud-90-v3/build.log",
+      "bytes": 35115,
+      "references": [
+        "docs\\implementation\\hero-hud-90-v3\\REPORT.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/hero-hud-90-v3/regression.log",
+      "bytes": 1174,
+      "references": [
+        "docs\\implementation\\hero-hud-90-v3\\REPORT.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/hero-hud-90/build.log",
+      "bytes": 34766,
+      "references": [
+        "docs\\implementation\\hero-hud-90\\REPORT.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/materials-81/M1-96/BUILD.log",
+      "bytes": 2602,
+      "references": [
+        "docs\\implementation\\materials-81\\M1-96\\REPORT.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/meat-83/BUILD.log",
+      "bytes": 2602,
+      "references": [
+        "docs\\implementation\\meat-83\\REPORT.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/metals-vanilla-36/BUILD.log",
+      "bytes": 2605,
+      "references": [
+        "docs\\implementation\\metals-vanilla-36\\REPORT.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/plants-82/BUILD.log",
+      "bytes": 2602,
+      "references": [
+        "docs\\implementation\\plants-82\\REPORT.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/rune-glow-104/BUILD.log",
+      "bytes": 35327,
+      "references": [
+        "docs\\implementation\\rune-glow-104\\REPORT.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/rune-glow-104/NATIVE-EXPORT.log",
+      "bytes": 1148,
+      "references": [],
+      "decision": "CANDIDATE_UNREFERENCED_LOG"
+    },
+    {
+      "path": "docs/implementation/runes-102-full/BUILD.log",
+      "bytes": 2602,
+      "references": [
+        "docs\\implementation\\runes-102-full\\REPORT.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/runes-102-pilot/BUILD.log",
+      "bytes": 2605,
+      "references": [
+        "docs\\implementation\\runes-102-pilot\\REPORT.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/tools87/BUILD.log",
+      "bytes": 2637,
+      "references": [],
+      "decision": "CANDIDATE_UNREFERENCED_LOG"
+    },
+    {
+      "path": "docs/implementation/trophy140-rework/source-snapshot.zip",
+      "bytes": 9592,
+      "references": [
+        "docs\\implementation\\trophy140-rework\\installed.json"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/before-balance-b.zip",
+      "bytes": 277273,
+      "references": [
+        "docs\\implementation\\weapons87\\PACKAGE-12.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/before-crossbow-tp-grips.zip",
+      "bytes": 27038,
+      "references": [
+        "docs\\implementation\\weapons87\\NEXT.md",
+        "docs\\implementation\\weapons87\\PACKAGE-14.md",
+        "docs\\implementation\\weapons87\\continuation53\\issues-source.json",
+        "tools\\verify_weapons87_crossbows.py"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/before-flail-animation.zip",
+      "bytes": 34861,
+      "references": [
+        "docs\\implementation\\weapons87\\PACKAGE-4.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/before-flail-parts.zip",
+      "bytes": 6995,
+      "references": [
+        "docs\\implementation\\weapons87\\flails-after\\matrix.json"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/before-fp-source.zip",
+      "bytes": 5102,
+      "references": [],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/before-grip-source.zip",
+      "bytes": 59091,
+      "references": [
+        "docs\\implementation\\weapons87\\PACKAGE-2.md",
+        "docs\\implementation\\weapons87\\blueprints\\firstperson\\scythe-wrist-165.json",
+        "docs\\implementation\\weapons87\\continuation53\\issue-165-comments.json"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/before-likho-gui.zip",
+      "bytes": 3028,
+      "references": [
+        "docs\\implementation\\weapons87\\PACKAGE-13.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/before-polearms174.zip",
+      "bytes": 10503,
+      "references": [
+        "docs\\implementation\\weapons87\\NEXT.md",
+        "docs\\implementation\\weapons87\\PACKAGE-8.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/before-ranged-timing.zip",
+      "bytes": 45447,
+      "references": [
+        "docs\\implementation\\weapons87\\PACKAGE-10.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/before-silver-mace.zip",
+      "bytes": 1758,
+      "references": [
+        "docs\\implementation\\weapons87\\NEXT.md",
+        "docs\\implementation\\weapons87\\PACKAGE-7.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/before-source.zip",
+      "bytes": 238494,
+      "references": [
+        "docs\\implementation\\weapons87\\FAMILY-169.md",
+        "docs\\implementation\\weapons87\\FAMILY-170.md",
+        "docs\\implementation\\weapons87\\FAMILY-172.md",
+        "docs\\implementation\\weapons87\\PROGRESS.md",
+        "docs\\implementation\\weapons87\\flails-after\\matrix.json"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/before-spear-family.zip",
+      "bytes": 18687,
+      "references": [
+        "docs\\implementation\\weapons87\\PACKAGE-5.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/before-thrown-orientation.zip",
+      "bytes": 18732,
+      "references": [
+        "docs\\implementation\\weapons87\\continuation53\\issue-173-comments.json"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/before-tugarin-icon.zip",
+      "bytes": 4617,
+      "references": [
+        "docs\\implementation\\weapons87\\PACKAGE-9.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/before-whip180.zip",
+      "bytes": 13660,
+      "references": [
+        "docs\\implementation\\weapons87\\NEXT.md",
+        "docs\\implementation\\weapons87\\PACKAGE-11.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/blueprints/poloz-whip/revision1-static-draft.zip",
+      "bytes": 138979,
+      "references": [],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/family-art-review/package6-original-review.zip",
+      "bytes": 107068,
+      "references": [],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/package1-source-projections.zip",
+      "bytes": 1433320,
+      "references": [
+        "docs\\implementation\\weapons87\\PACKAGE-2.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/package10-source-evidence.zip",
+      "bytes": 674519,
+      "references": [],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/package11-revision1-source.zip",
+      "bytes": 356616,
+      "references": [
+        "docs\\implementation\\weapons87\\PACKAGE-11.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/package11-source-evidence.zip",
+      "bytes": 1627258,
+      "references": [],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/package12-source-evidence.zip",
+      "bytes": 989481,
+      "references": [],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/package13-source-evidence.zip",
+      "bytes": 551039,
+      "references": [],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/package3-fp-source-evidence.zip",
+      "bytes": 715019,
+      "references": [
+        "docs\\implementation\\weapons87\\PACKAGE-3.md",
+        "docs\\implementation\\weapons87\\PROGRESS.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/package4-motion-source-evidence.zip",
+      "bytes": 1774553,
+      "references": [
+        "docs\\implementation\\weapons87\\PACKAGE-4.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/package5-spear-source-evidence.zip",
+      "bytes": 767349,
+      "references": [
+        "docs\\implementation\\weapons87\\PACKAGE-5.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/package6-thrown-source-evidence.zip",
+      "bytes": 614450,
+      "references": [
+        "docs\\implementation\\weapons87\\continuation53\\issue-173-comments.json"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/package7-silver-source-evidence.zip",
+      "bytes": 197482,
+      "references": [],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/package8-polearm-source-evidence.zip",
+      "bytes": 399633,
+      "references": [
+        "docs\\implementation\\weapons87\\PACKAGE-8.md"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "docs/implementation/weapons87/package9-source-evidence.zip",
+      "bytes": 585980,
+      "references": [],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.jar",
+      "bytes": 43764,
+      "references": [
+        "docs\\REPORT_0.1.0.md",
+        "docs\\maintenance\\DISK_AUDIT_AFTER_1.2.5.md",
+        "docs\\maintenance\\DISK_AUDIT_BEFORE_1.2.5.md",
+        "docs\\maintenance\\git-objects-before-1.2.5.txt"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "tools/accessories148_held.zip",
+      "bytes": 6026,
+      "references": [
+        "docs\\implementation\\accessories-148\\REPORT.md",
+        "docs\\implementation\\accessories-148\\final-source-manifest.json",
+        "docs\\implementation\\materials-81\\M97-T100\\baseline.json",
+        "docs\\implementation\\weapons87\\baseline.json",
+        "docs\\implementation\\weapons87\\source-manifest-package1.json",
+        "docs\\implementation\\weapons87\\source-manifest-package10.json",
+        "docs\\implementation\\weapons87\\source-manifest-package11.json",
+        "docs\\implementation\\weapons87\\source-manifest-package12.json",
+        "docs\\implementation\\weapons87\\source-manifest-package13.json",
+        "docs\\implementation\\weapons87\\source-manifest-package2.json",
+        "docs\\implementation\\weapons87\\source-manifest-package3.json",
+        "docs\\implementation\\weapons87\\source-manifest-package4.json"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "tools/decor108_templates.zip",
+      "bytes": 679863,
+      "references": [
+        "docs\\implementation\\accessories-148\\baseline.json",
+        "docs\\implementation\\accessories-148\\continuation-baseline.json",
+        "docs\\implementation\\accessories-148\\current-sources.json",
+        "docs\\implementation\\accessories-148\\final-source-manifest.json",
+        "docs\\implementation\\decor108\\REPORT.md",
+        "docs\\implementation\\decor108\\source-manifest.json",
+        "docs\\implementation\\heads140-generation141\\baseline.json",
+        "docs\\implementation\\heads140-generation141\\source-manifest.json",
+        "docs\\implementation\\likho93\\baseline.json",
+        "docs\\implementation\\likho93\\source-manifest.json",
+        "docs\\implementation\\materials-81\\M97-T100\\baseline.json",
+        "docs\\implementation\\weapons87\\baseline.json"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "tools/decor_wood_templates.zip",
+      "bytes": 56393,
+      "references": [
+        "docs\\implementation\\accessories-148\\baseline.json",
+        "docs\\implementation\\accessories-148\\continuation-baseline.json",
+        "docs\\implementation\\accessories-148\\current-sources.json",
+        "docs\\implementation\\accessories-148\\final-source-manifest.json",
+        "docs\\implementation\\decor108\\baseline.json",
+        "docs\\implementation\\decor108\\source-manifest.json",
+        "docs\\implementation\\heads140-generation141\\baseline.json",
+        "docs\\implementation\\heads140-generation141\\source-manifest.json",
+        "docs\\implementation\\likho93\\baseline.json",
+        "docs\\implementation\\likho93\\source-manifest.json",
+        "docs\\implementation\\materials-81\\M97-T100\\baseline.json",
+        "docs\\implementation\\weapons87\\baseline.json"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    },
+    {
+      "path": "tools/trophy140_icons.zip",
+      "bytes": 2607,
+      "references": [
+        "docs\\implementation\\accessories-148\\baseline.json",
+        "docs\\implementation\\accessories-148\\continuation-baseline.json",
+        "docs\\implementation\\accessories-148\\current-sources.json",
+        "docs\\implementation\\accessories-148\\final-source-manifest.json",
+        "docs\\implementation\\heads140-generation141\\source-manifest.json",
+        "docs\\implementation\\likho93\\baseline.json",
+        "docs\\implementation\\likho93\\source-manifest.json",
+        "docs\\implementation\\materials-81\\M97-T100\\baseline.json",
+        "docs\\implementation\\weapons87\\baseline.json",
+        "docs\\implementation\\weapons87\\source-manifest-package1.json",
+        "docs\\implementation\\weapons87\\source-manifest-package10.json",
+        "docs\\implementation\\weapons87\\source-manifest-package11.json"
+      ],
+      "decision": "KEEP_REVIEW_REQUIRED"
+    }
+  ]
+}

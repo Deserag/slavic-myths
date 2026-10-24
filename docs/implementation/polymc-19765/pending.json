@@ -1,0 +1,11 @@
+{
+  "version": "1.9.7.65",
+  "status": "POLYMC_NOT_INSTALLED_GAME_RUNNING",
+  "built_jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.65.jar",
+  "sha256": "d46db1c0afca7018c0380ba4c39fb5c6d147b59104d3ab77228065f1f9809ec9",
+  "source_commit": "eb6ff447717ee05c2b81c52c5c784669a284314f",
+  "source_state": "uncommitted working tree",
+  "clean_build": "PASS 1m2s",
+  "resource_check": "PASS 7734 resources",
+  "runtime_this_turn": "NOT_RUN"
+}

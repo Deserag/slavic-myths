@@ -1,0 +1,14 @@
+[
+  {
+    "path": "docs/implementation/rune-glow-104/NATIVE-EXPORT.log",
+    "sha256": "5135e5d91821c94509ab84737ad5f9d50feb2512844505bc070fd4b255006f30",
+    "backup": "D:\\slavic-myths\\work\\cleanup-2.0-backup\\docs\\implementation\\rune-glow-104\\NATIVE-EXPORT.log",
+    "reason": "old generated Gradle output; no source/config/document reference found; generators/tests and actual mesh evidence retained"
+  },
+  {
+    "path": "docs/implementation/tools87/BUILD.log",
+    "sha256": "b4831ce6cb8cd29c21261ba13b35bd4d4b3d37ed808e68eb6bf5a74325c71eb5",
+    "backup": "D:\\slavic-myths\\work\\cleanup-2.0-backup\\docs\\implementation\\tools87\\BUILD.log",
+    "reason": "old generated Gradle output; no source/config/document reference found; generators/tests and actual mesh evidence retained"
+  }
+]

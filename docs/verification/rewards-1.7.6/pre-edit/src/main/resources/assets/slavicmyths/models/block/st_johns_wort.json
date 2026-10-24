@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "slavicmyths:block/st_johns_wort"
-  }
-}
