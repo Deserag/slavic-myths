@@ -103,6 +103,7 @@ def get_status(item):
 pid, rid, items = read()
 wanted = {t["key"]: t for t in cfg["tasks"]}
 selected = {}
+status_snapshot = {}
 for item in items:
     content = item.get("content") or {}
     body = content.get("body") or ""
@@ -117,15 +118,15 @@ for item in items:
 missing = set(wanted) - set(selected)
 if missing:
     raise RuntimeError("Project cards missing before conversion: " + ", ".join(sorted(missing)))
+status_snapshot = {key: get_status(item) for key, item in selected.items()}
+if any(v is None for v in status_snapshot.values()):
+    raise RuntimeError("Some Project items have no Status: " + str(status_snapshot))
 print("PROJECT", pid, "CARDS", len(selected), "TARGET REPOSITORY", cfg["repo"], flush=True)
 converted = []
 for task in cfg["tasks"]:
     key = task["key"]
     item = selected[key]
-    before = get_status(item)
-    expected = task["status"]
-    if before != expected:
-        raise RuntimeError("Unexpected Project Status for " + key + " (expected " + expected + ", got " + str(before) + ")")
+    before = status_snapshot[key]
     content = item["content"]
     if content["__typename"] == "Issue":
         if content.get("repository", {}).get("nameWithOwner") != cfg["owner"] + "/" + cfg["repo"]:
@@ -161,8 +162,8 @@ for task in cfg["tasks"]:
     content = item.get("content") or {}
     if content.get("__typename") != "Issue":
         errors.append("not converted " + key)
-    if get_status(item) != task["status"]:
-        errors.append("status differs " + key + " got " + str(get_status(item)))
+    if get_status(item) != status_snapshot[key]:
+        errors.append("Status changed during conversion for " + key + ": " + str(status_snapshot[key]) + " → " + str(get_status(item)))
     if content.get("repository", {}).get("nameWithOwner") != cfg["owner"] + "/" + cfg["repo"]:
         errors.append("wrong repo " + key)
     print("CHECK", key, content.get("url"), "Status", get_status(item), flush=True)
