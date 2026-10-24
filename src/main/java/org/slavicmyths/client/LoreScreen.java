@@ -11,6 +11,7 @@ import java.util.List;
 /** Opaque manuscript page; navigation and article scroll independently. */
 public final class LoreScreen extends Screen {
  private final int mask;
+ private final UiText.Layout articleLayout=new UiText.Layout(),headingLayout=new UiText.Layout();
  private int article, lineOffset, navOffset, left, top, bookWidth, bookHeight, navWidth;
  private static final String[] IDS={"intro","domovoy","leshy","shrine","altar","ritual","paths","silver","amber","thunder_axe","storm_staff","charms","herbs","ritual_tools","runes","reforging","water_fish","fishing_net","vodyanoy","rusalka","elder_vodyanoy","deep_pool","pool_pearl","pool_spear","depth_amulet","swamp_hut","abandoned_settlement","bog_causeway","flooded_shrine","fishing_camp","underwater_ruins","bandit_gangs","bandit_small","bandit_medium","ataman","arms_craft","woodlands","forest_whistle","nightingale","industry","earth_heart"};
  public LoreScreen(int mask){super(Component.translatable("item.slavicmyths.lore_book"));this.mask=mask;}
@@ -18,8 +19,9 @@ public final class LoreScreen extends Screen {
  private boolean unlocked(int i){return IDS[i].equals("earth_heart")?(mask&(1<<(org.slavicmyths.progression.Knowledge.ENTRIES.length-1)))!=0:IDS[i].equals("industry")||i==0||i>=6&&i<16||(mask&(1<<(i<6?i-1:i-11)))!=0;}
  private int navRows(){return Math.max(1,(bookHeight-56)/24);}
  private int pageRows(){return Math.max(1,(bookHeight-articleTop()-16)/12);}
- private int articleTop(){return 27+font.split(Component.translatable("book.slavicmyths."+IDS[article]+".title"),bookWidth-navWidth-40).size()*10;}
- private List<FormattedCharSequence> lines(){return font.split(Component.translatable("book.slavicmyths."+IDS[article]+".text"),bookWidth-navWidth-40);}
+ private List<FormattedCharSequence> headings(){return headingLayout.split(font,Component.translatable("book.slavicmyths."+IDS[article]+".title"),bookWidth-navWidth-40);}
+ private int articleTop(){return 27+headings().size()*10;}
+ private List<FormattedCharSequence> lines(){return articleLayout.split(font,Component.translatable("book.slavicmyths."+IDS[article]+".text"),bookWidth-navWidth-40);}
  @Override protected void init(){
   bookWidth=Math.min(680,width-24);bookHeight=Math.min(440,height-24);left=(width-bookWidth)/2;top=(height-bookHeight)/2;navWidth=bookWidth/4;
   navOffset=Math.max(0,Math.min(navOffset,IDS.length-navRows()));clearWidgets();
@@ -40,7 +42,7 @@ public final class LoreScreen extends Screen {
   g.fill(left+4,top+4,left+navWidth,top+bookHeight-4,0xffcfba95);
   FolkUi.text(g,font,title,left+10,top+12,navWidth-20,FolkUi.INK,2);
   int textX=left+navWidth+16,textY=top+articleTop(),contentWidth=bookWidth-navWidth-40;
-  var headings=font.split(Component.translatable("book.slavicmyths."+IDS[article]+".title"),contentWidth);
+  var headings=headings();
   for(int i=0;i<headings.size();i++)g.drawString(font,headings.get(i),textX,top+12+i*10,0xff39271d,false);
   g.fill(textX,textY-6,left+bookWidth-18,textY-4,0xff84362e);
   var lines=lines();lineOffset=Math.max(0,Math.min(lineOffset,Math.max(0,lines.size()-pageRows())));

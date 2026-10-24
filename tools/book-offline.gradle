@@ -1,0 +1,7 @@
+gradle.projectsEvaluated {
+ def p=gradle.rootProject
+ p.sourceSets { bookOffline { java.srcDir 'tools/book-offline' } }
+ p.sourceSets.bookOffline.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.bookOffline.runtimeClasspath += p.sourceSets.main.output+p.sourceSets.main.runtimeClasspath
+ p.tasks.register('checkBookOffline',JavaExec){dependsOn 'bookOfflineClasses';classpath=p.sourceSets.bookOffline.runtimeClasspath;mainClass='BookUiChecks'}
+}

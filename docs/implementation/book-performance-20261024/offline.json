@@ -1,0 +1,16 @@
+{
+  "checks": 41271,
+  "scope": "offline native StringSplitter with fixed glyph widths, exact DDA pixels; not GPU frames or game FPS",
+  "allocation": {
+    "before_bytes_op": [
+      47192.544,
+      47117.6,
+      46160.0
+    ],
+    "after_bytes_op": [
+      0.368,
+      0.0,
+      0.472
+    ]
+  }
+}

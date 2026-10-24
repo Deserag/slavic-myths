@@ -1,0 +1,11 @@
+{
+  "content": {
+    "body": "Прямое поручение владельца 24.10.2026: после интеграции main и установки тестовой 1.9.7.62 оптимизировать код в отдельной ветке.\n\nПервый ограниченный пакет: EarthCamera — убрать временные списки из каждого кадра, сохранить радиус 16, типы, NO_SPECTATORS, формулы/тайминги и отсутствие долгоживущих entity references. Использовать установленный NeoForge API. Другие кандидаты только после аудита; registry IDs, баланс, ресурсы и сохранения не менять. Не удалять код по одному отсутствию текстовых ссылок: существуют reflection/registries/events/mixins.\n\nПроверки: Java21 clean build; production JAR/resources; независимое offline сравнение результата до/после и измерение выделений на native entity query fixture. Minecraft/PolyMC/GameTest/server запрещены. FPS/MSPT и игровая приёмка NOT_RUN. Issue/card остаётся В работе до полного scope, не Готово.\n\nВетка codex/performance-20261024. Установленный PolyMC содержит main до оптимизации. Отчёт docs/implementation/performance-20261024/REPORT.md.\n\n\nПервый пакет: clean build59s PASS, source/JAR7688resources PASS, 820 offline native-query checks PASS. При64entities allocation1264→704 bytes/query-pair, при512:4880→704; это fixture, не FPS. Формулы проверены по actual source; runtime/owner acceptance NOT_RUN. Оптимизация не закоммичена/не установлена, карточка остаётся В работе. Main/published1bed9897, installed sourcea0917008.",
+    "id": "DI_lAHOBeEK2c4Bn9vzzgLeewc",
+    "title": "Оптимизация 24.10.2026: убрать временные списки EarthCamera и проверить регрессию",
+    "type": "DraftIssue"
+  },
+  "id": "PVTI_lAHOBeEK2c4Bn9vzzhDKEGU",
+  "status": "В работе",
+  "title": "Оптимизация 24.10.2026: убрать временные списки EarthCamera и проверить регрессию"
+}

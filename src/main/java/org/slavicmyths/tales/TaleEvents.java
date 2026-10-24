@@ -15,6 +15,7 @@ import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 @EventBusSubscriber(modid="slavicmyths")
 public final class TaleEvents {
+    @SubscribeEvent public static void stop(net.neoforged.neoforge.event.server.ServerStoppedEvent e){TaleService.invalidateRecipes();}
     @SubscribeEvent public static void reload(AddReloadListenerEvent e){e.addListener(new TaleCatalog());}
     @SubscribeEvent public static void login(PlayerEvent.PlayerLoggedInEvent e){if(e.getEntity() instanceof ServerPlayer p){TaleService.deliver(p);TaleService.reconcile(p);org.slavicmyths.progression.AdvancementJourney.deliverBeer(p);}}
     @SubscribeEvent public static void pickup(ItemEntityPickupEvent.Post e){if(e.getPlayer() instanceof ServerPlayer p){TaleService.subject(p,"item/"+BuiltInRegistries.ITEM.getKey(e.getOriginalStack().getItem()),2,false);TaleService.deliver(p);}}

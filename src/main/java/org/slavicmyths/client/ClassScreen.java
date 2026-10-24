@@ -17,6 +17,7 @@ public final class ClassScreen extends Screen {
  private int page,slot=-1,infoOffset,listOffset,keyOnly=-1;
  private boolean capturing,dragging;private InputConstants.Key draftKey;
  private ClassTreeLayout.Tree tree;private ClassTreeViewport.Rect card,popup;
+ private final Map<String,ClassTreeLayout.Node> treeIndex=new HashMap<>();
  private static Component tr(String key,Object...args){return Component.translatable("classes.slavicmyths."+key,args);}
  public ClassScreen(){super(tr("title"));}
  private boolean creative(){return minecraft.player!=null&&minecraft.player.isCreative();}
@@ -31,7 +32,7 @@ public final class ClassScreen extends Screen {
  @Override protected void init(){
   clearWidgets();tips.clear();var d=ClassClient.data();String base=d.getString("Base");
   if(!base.equals(cameraBase)){cameraBase=base;camera.reset();selected="";slot=-1;}
-  tree=ClassTreeLayout.create(base);camera.resize(ClassTreeViewport.canvas(width,height));camera.open(tree);
+  tree=ClassTreeLayout.create(base);treeIndex.clear();for(var node:tree.nodes())treeIndex.put(node.id(),node);camera.resize(ClassTreeViewport.canvas(width,height));camera.open(tree);
   if(!selected.isEmpty()&&(!ClassDefinitions.SKILLS.containsKey(selected)||!ClassDefinitions.SKILLS.get(selected).base().equals(base)))selected="";
   if(!confirmation.isEmpty()){initConfirmation();return;}
   if(keyOnly>=0){initKeyOnly();return;}
@@ -123,8 +124,7 @@ public final class ClassScreen extends Screen {
  }
  private void renderTree(GuiGraphics g,CompoundTag d,int mx,int my){
   var a=camera.area();g.fill(a.x(),a.y(),a.right(),a.bottom(),0xFF192126);g.enableScissor(a.x(),a.y(),a.right(),a.bottom());
-  var nodes=new HashMap<String,ClassTreeLayout.Node>();for(var node:tree.nodes())nodes.put(node.id(),node);
-  for(var node:tree.nodes()){var parent=nodes.get(node.parent());if(parent==null)continue;var from=camera.node(parent);var to=camera.node(node);int ax=from.x()+from.width()/2,ay=from.bottom(),bx=to.x()+to.width()/2,by=to.y(),mid=(ay+by)/2,color=d.getCompound("Ranks").getInt(node.id())>0?0xFF86BA83:0xFF826746;
+  for(var node:tree.nodes()){var parent=treeIndex.get(node.parent());if(parent==null)continue;var from=camera.node(parent);var to=camera.node(node);int ax=from.x()+from.width()/2,ay=from.bottom(),bx=to.x()+to.width()/2,by=to.y(),mid=(ay+by)/2,color=d.getCompound("Ranks").getInt(node.id())>0?0xFF86BA83:0xFF826746;
    g.fill(ax,ay,ax+2,mid+2,color);g.fill(Math.min(ax,bx),mid,Math.max(ax,bx)+2,mid+2,color);g.fill(bx,mid,bx+2,by,color);
   }
   String hovered=camera.hit(tree,mx,my);

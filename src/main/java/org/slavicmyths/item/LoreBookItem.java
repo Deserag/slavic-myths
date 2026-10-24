@@ -8,7 +8,6 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.level.Level;
 import org.slavicmyths.progression.Knowledge;
-import org.slavicmyths.network.LoreNetwork;
 
 public final class LoreBookItem extends Item {
     public LoreBookItem(Properties properties) { super(properties); }

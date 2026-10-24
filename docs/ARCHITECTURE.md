@@ -1,3 +1,11 @@
+## 24.10.2026 — #235/#237/#236: последовательная реализация
+
+Прямое поручение владельца: отдельные ветки/PR, после реализации разрешены disposable test worlds и проверки NPC/команд. Все три карточки Project9 добавлены; #235 В работе, #237/#236 Ожидание. Первый source пакет #235: кэши/layout/index/culling и session definitions, Java21 clean build1m35s,41271offlinechecks,7688resources PASS. Runtime campaign отложен до интеграции, не выдан за FPS PASS. [Матрица](implementation/optimization-19762/RESULTS.md).
+
+## 24.10.2026 — первый пакет оптимизации в отдельной ветке
+
+В codex/performance-20261024 EarthCamera повторно использует списки native entity query и один AABB; прежние формулы, радиус16 и NO_SPECTATORS сохранены, ссылки очищаются в finally. Java21 clean build59s, 7688 source/JAR resources и 820 offline native-query checks PASS. Это не замер FPS/MSPT. Runtime0, игровая приёмка NOT_RUN, карточка Project9 фактически «В работе». Изменения оптимизации не закоммичены и не установлены: PolyMC остаётся на main1.9.7.62. [Матрица и границы измерений](implementation/performance-20261024/REPORT.md).
+
 ## 24.10.2026 — интеграция main и тестовый кандидат 1.9.7.62
 
 По прямому поручению владельца сохранены все локальные изменения и объединён origin/main. Тестовая 1.9.7.62 установлена: backup/SHA256/duplicate0 проверены; результаты и installed receipt: [отчёт](implementation/polymc-19762/REPORT.md). Приёмка прежних задач не заявляется. Minecraft/PolyMC/GameTest/server не запускать. После установки оптимизация ведётся отдельно от main.

@@ -8,6 +8,37 @@ import net.minecraft.util.FormattedCharSequence;
 
 /** Native-size text with bounded wrapping and explicit overflow, never silent clipping. */
 public final class UiText {
+    /** One layout per owner, invalidated by content, size, font or resource/language reload. */
+    public static final class Layout {
+        private Font font;
+        private net.minecraft.locale.Language language;
+        private Component text;
+        private int width, rows;
+        private List<FormattedCharSequence> result;
+
+        public List<FormattedCharSequence> split(Font font, Component text, int width) {
+            return get(font, text, width, Integer.MAX_VALUE);
+        }
+
+        public List<FormattedCharSequence> lines(Font font, Component text, int width, int rows) {
+            return get(font, text, width, Math.max(1, rows));
+        }
+
+        private List<FormattedCharSequence> get(Font font, Component text, int width, int rows) {
+            var language = net.minecraft.locale.Language.getInstance();
+            if (result == null || this.font != font || this.language != language
+                    || this.width != width || this.rows != rows || !this.text.equals(text)) {
+                result = List.copyOf(rows == Integer.MAX_VALUE ? font.split(text, width)
+                        : UiText.lines(font, text, width, rows));
+                this.font = font;
+                this.language = language;
+                this.text = text.copy();
+                this.width = width;
+                this.rows = rows;
+            }
+            return result;
+        }
+    }
     public static String fit(Font font,String text,int width){if(width<font.width("…"))return "";return font.width(text)<=width?text:font.plainSubstrByWidth(text,width-font.width("…"))+"…";}
     public static List<FormattedCharSequence> lines(Font font,Component text,int width,int maxRows){
         var all=font.split(text,Math.max(8,width));int count=Math.min(all.size(),Math.max(1,maxRows));

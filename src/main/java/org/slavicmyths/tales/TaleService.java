@@ -13,7 +13,10 @@ import org.slavicmyths.progression.Knowledge;
 
 public final class TaleService {
     private static final Map<net.minecraft.world.item.crafting.RecipeManager,CompoundTag> recipeCache=Collections.synchronizedMap(new WeakHashMap<>());
-    public static void invalidateRecipes(){recipeCache.clear();}
+    private static final Map<ServerPlayer,Long> bookSessions=new WeakHashMap<>();
+    private static long catalogRevision;
+    private static ListTag catalogCache;
+    public static void invalidateRecipes(){recipeCache.clear();catalogCache=null;bookSessions.clear();catalogRevision++;}
     public static boolean holding(Player p){return p.getMainHandItem().is(ModItems.LORE_BOOK.get())||p.getOffhandItem().is(ModItems.LORE_BOOK.get());}
     public static void deliver(ServerPlayer p){
         var data=TaleData.get(p.serverLevel());if(!data.compatible())return;boolean fresh=!data.contains(p.getUUID());var state=data.player(p.getUUID());
@@ -39,9 +42,19 @@ public final class TaleService {
     public static void open(ServerPlayer p){if(!holding(p)||!p.isAlive()||p.level().getGameTime()<p.getPersistentData().getLong("TaleOpenReady"))return;p.getPersistentData().putLong("TaleOpenReady",p.level().getGameTime()+10);reconcile(p);org.slavicmyths.yaga.YagaDiscovery.reconcile(p,true);
         // Keep the legacy discoveries, but count each ID once and avoid mask()'s synthetic awards.
         if(Arrays.stream(Knowledge.ENTRIES).distinct().filter(id->Knowledge.knows(p,id)).limit(3).count()>=3)Knowledge.award(p,"lore_keeper");
-        bookkeeper(p);Knowledge.award(p,"first_book_entry");TaleNetwork.send(p,snapshot(p),true,true);}
+        bookkeeper(p);Knowledge.award(p,"first_book_entry");
+        boolean definitions=!Objects.equals(bookSessions.get(p),catalogRevision);
+        CompoundTag view=snapshot(p,definitions);
+        if(!definitions){view.putBoolean("AdvancementReset",true);view.putBoolean("EntriesReset",true);}
+        TaleNetwork.send(p,view,true,definitions);bookSessions.put(p,catalogRevision);
+    }
     public static CompoundTag snapshot(ServerPlayer p){
-        var state=TaleData.get(p.serverLevel()).player(p.getUUID());CompoundTag n=new CompoundTag();n.put("Entries",state.getCompound("Entries").copy());n.put("Hints",publicHints(p,state));ListTag catalog=new ListTag();for(var e:TaleCatalog.entries())catalog.add(e.snapshot());n.put("Catalog",catalog);n.put("Advancements",advancements(p));n.putString("Dimension",p.level().dimension().location().toString());n.put("Recipes",recipeSnapshot(p));n.putInt("Rewards176",org.slavicmyths.rewards.RewardLedger.available(p));
+        return snapshot(p,true);
+    }
+    private static CompoundTag snapshot(ServerPlayer p,boolean definitions){
+        var state=TaleData.get(p.serverLevel()).player(p.getUUID());CompoundTag n=new CompoundTag();n.put("Entries",state.getCompound("Entries").copy());n.put("Hints",publicHints(p,state));
+        if(definitions){if(catalogCache==null){catalogCache=new ListTag();for(var e:TaleCatalog.entries())catalogCache.add(e.snapshot());}n.put("Catalog",catalogCache.copy());n.put("Recipes",recipeSnapshot(p));}
+        n.put("Advancements",advancements(p));n.putLong("CatalogRevision",catalogRevision);n.putString("Dimension",p.level().dimension().location().toString());n.putInt("Rewards176",org.slavicmyths.rewards.RewardLedger.available(p));
         // Read-only bridge: no call to progress(), accept(), complete() or reward methods.
         var yaga=org.slavicmyths.yaga.YagaData.get(p.serverLevel()).players.get(p.getUUID());CompoundTag quests=new CompoundTag();if(yaga!=null){quests.putInt("YagaStage",yaga.stage);if(yaga.active.startsWith("main:")&&yaga.stage<3)quests.putString("YagaActive","yaga.quest."+org.slavicmyths.yaga.YagaServices.MAIN[yaga.stage].id+".title");else if(yaga.active.startsWith("contract:"))quests.putString("YagaActive","yaga.quest."+org.slavicmyths.yaga.YagaServices.CONTRACTS[org.slavicmyths.yaga.YagaServices.POOL[yaga.contract]].id+".title");}n.put("Quests",quests);CompoundTag research=new CompoundTag();var researchState=state.getCompound("ChudResearch");for(String giver:List.of("yaga","bayun")){var q=researchState.getCompound(giver);research.putInt(giver,!q.contains("Target")?0:q.getBoolean("Claimed")?3:q.getBoolean("Visited")?2:1);}n.put("Research",research);return n;
     }
