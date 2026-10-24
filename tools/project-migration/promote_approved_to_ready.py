@@ -49,7 +49,7 @@ query($login:String!,$number:Int!,$after:String) {
         pageInfo { hasNextPage endCursor }
         nodes {
           id
-          content { ... on DraftIssue { id title body } }
+          content { ... on DraftIssue { id title body } ... on Issue { id title body } }
         }
       }
     }
@@ -112,7 +112,7 @@ while True:
 
 missing = set(approved) - set(card_by_key)
 if missing:
-    raise RuntimeError("Missing Project draft cards: " + ", ".join(sorted(missing)))
+    raise RuntimeError("Missing Project Issue cards: " + ", ".join(sorted(missing)))
 field = next((f for f in project["fields"]["nodes"] if f and f.get("name") == "Status"), None)
 if not field:
     raise RuntimeError("Project Status field missing")
@@ -122,6 +122,7 @@ if not ready:
 
 print("PROJECT", project["title"], "approved", len(approved), flush=True)
 changed = []
+preserved_manual = {}
 for key, task in approved.items():
     item = card_by_key[key]
     before = status(item)
@@ -132,14 +133,16 @@ for key, task in approved.items():
     elif before == "Ожидание":
         print("ALREADY READY", key, flush=True)
     else:
-        raise RuntimeError("Refusing to overwrite manually changed Status for " + key + ": " + str(before))
+        preserved_manual[key] = before
+        print("PRESERVE OWNER STATUS", key, before, flush=True)
 
 not_verified = []
 for key in approved:
     after = status(card_by_key[key])
     print("VERIFIED", key, after, flush=True)
-    if after != "Ожидание":
+    expected = preserved_manual.get(key, "Ожидание")
+    if after != expected:
         not_verified.append(key)
 if not_verified:
     raise RuntimeError("Not ready on board: " + ", ".join(not_verified))
-print("SUCCESS", len(approved), "Project #9 cards in Ожидание;", len(changed), "moved on this run", flush=True)
+print("SUCCESS: examined", len(approved), "Project #9 cards;", len(changed), "promoted;", len(preserved_manual), "owner changes preserved", flush=True)
