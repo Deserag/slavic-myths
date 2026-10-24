@@ -1,0 +1,92 @@
+[
+  {
+    "process": 1,
+    "raw_local_log": "work\\resume-235-237-236\\runtime-chud-kurgan-1.log",
+    "summary": [
+      "[13:23:23] [Server thread/ERROR] [minecraft/LogTestReporter]: loaded_surface_ascent failed at 7869658, -60, -4138586! surface height, not first cave ceiling or fixed Y",
+      "[13:23:23] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :("
+    ]
+  },
+  {
+    "process": 2,
+    "raw_local_log": "work\\resume-235-237-236\\runtime-chud-kurgan-2.log",
+    "summary": [
+      "LIFT_DIAG start=BlockPos{x=9431743, y=-57, z=-4790761} actual=(9431743.0, -57.0, -4790761.0) height=-40 sky=true safe=true locked=false",
+      "LIFT_DIAG result=BlockPos{x=9431743, y=-40, z=-4790761} expected=-48",
+      "[13:25:05] [Server thread/ERROR] [minecraft/LogTestReporter]: loaded_surface_ascent failed at 9431740, -60, -4790764! surface height, not first cave ceiling or fixed Y",
+      "[13:25:05] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :("
+    ]
+  },
+  {
+    "process": 3,
+    "raw_local_log": "work\\resume-235-237-236\\runtime-chud-kurgan-3.log",
+    "summary": [
+      "LIFT_DIAG start=BlockPos{x=-5479316, y=-57, z=-12914668} actual=(-5479316.0, -57.0, -1.2914668E7) height=-40 sky=true safe=true locked=false",
+      "LIFT_DIAG result=BlockPos{x=-5479316, y=-40, z=-12914668} expected=-48",
+      "[13:27:06] [Server thread/INFO] [minecraft/GameTestServer]: All 6 required tests passed :)"
+    ]
+  },
+  {
+    "process": 4,
+    "raw_local_log": "work\\resume-235-237-236\\runtime-chud-kurgan-4.log",
+    "summary": [
+      "LIFT_DIAG start=BlockPos{x=-13740240, y=-57, z=-14912571} actual=(-1.374024E7, -57.0, -1.4912571E7) height=-40 sky=true safe=true locked=false",
+      "LIFT_DIAG result=BlockPos{x=-13740240, y=-40, z=-14912571} expected=-48",
+      "[13:32:43] [Server thread/ERROR] [minecraft/LogTestReporter]: one_native_tree_queue failed at -13740188, -60, -14912574! server ray selects natural trunk",
+      "[13:32:43] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :("
+    ]
+  },
+  {
+    "process": 5,
+    "raw_local_log": "work\\resume-235-237-236\\runtime-chud-kurgan-5.log",
+    "summary": [
+      "LIFT_DIAG start=BlockPos{x=8454337, y=-57, z=-13490940} actual=(8454337.0, -57.0, -1.349094E7) height=-40 sky=true safe=true locked=false",
+      "LIFT_DIAG result=BlockPos{x=8454337, y=-40, z=-13490940} expected=-48",
+      "TREE_RAY eye=(8454396.5, -52.37999999523163, -1.34909385E7) aim=(-3.0, -0.12000000476837158, 0.0) hit=MISS pos=BlockPos{x=8454396, y=-53, z=-13490935} state=Block{minecraft:air}",
+      "[13:34:03] [Server thread/ERROR] [minecraft/LogTestReporter]: one_native_tree_queue failed at 8454389, -60, -13490943! server ray selects natural trunk",
+      "[13:34:03] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :("
+    ]
+  },
+  {
+    "process": 6,
+    "raw_local_log": "work\\resume-235-237-236\\runtime-chud-kurgan-6.log",
+    "summary": [
+      "LIFT_DIAG start=BlockPos{x=13578079, y=-57, z=-14417245} actual=(1.3578079E7, -57.0, -1.4417245E7) height=-40 sky=true safe=true locked=false",
+      "LIFT_DIAG result=BlockPos{x=13578079, y=-40, z=-14417245} expected=-48",
+      "TREE_RAY range=4.5 eye=(1.35781385E7, -52.37999999523163, -1.44172435E7) aim=(-3.0, -0.12000000476837158, 0.0) hit=MISS pos=BlockPos{x=13578138, y=-53, z=-14417240} state=Block{minecraft:air}",
+      "[13:35:20] [Server thread/ERROR] [minecraft/LogTestReporter]: one_native_tree_queue failed at 13578131, -60, -14417248! server ray selects natural trunk",
+      "[13:35:20] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :("
+    ]
+  },
+  {
+    "process": 7,
+    "raw_local_log": "work\\resume-235-237-236\\runtime-chud-kurgan-7.log",
+    "summary": [
+      "LIFT_DIAG start=BlockPos{x=-591874, y=-57, z=6066260} actual=(-591874.0, -57.0, 6066260.0) height=-40 sky=true safe=true locked=false",
+      "LIFT_DIAG result=BlockPos{x=-591874, y=-40, z=6066260} expected=-48",
+      "TREE_RAY range=4.5 eye=(-591814.5, -52.37999999523163, 6066261.5) aim=(-3.0, -0.12000000476837158, 0.0) hit=BLOCK pos=MutableBlockPos{x=-591818, y=-53, z=6066261} state=Block{minecraft:oak_log}[axis=y]",
+      "[13:36:07] [Server thread/ERROR] [minecraft/LogTestReporter]: one_native_tree_queue failed at -591822, -60, 6066257! one built-in queue clears trunk0",
+      "[13:36:07] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :("
+    ]
+  },
+  {
+    "process": 8,
+    "raw_local_log": "work\\resume-235-237-236\\runtime-chud-kurgan-8.log",
+    "summary": [
+      "LIFT_DIAG start=BlockPos{x=4325844, y=-57, z=-1146977} actual=(4325844.0, -57.0, -1146977.0) height=-40 sky=true safe=true locked=false",
+      "LIFT_DIAG result=BlockPos{x=4325844, y=-40, z=-1146977} expected=-48",
+      "TREE_RAY range=4.5 eye=(4325903.5, -52.37999999523163, -1146975.5) aim=(-3.0, -0.12000000476837158, 0.0) hit=BLOCK pos=MutableBlockPos{x=4325900, y=-53, z=-1146976} state=Block{minecraft:oak_log}[axis=y]",
+      "[13:38:13] [Server thread/INFO] [minecraft/GameTestServer]: All 7 required tests passed :)"
+    ]
+  },
+  {
+    "process": 9,
+    "raw_local_log": "work\\resume-235-237-236\\runtime-chud-kurgan-9.log",
+    "summary": [
+      "LIFT_DIAG start=BlockPos{x=7765363, y=-57, z=4059062} actual=(7765363.0, -57.0, 4059062.0) height=-40 sky=true safe=true locked=false",
+      "LIFT_DIAG result=BlockPos{x=7765363, y=-40, z=4059062} expected=-48",
+      "TREE_RAY range=4.5 eye=(7765422.5, -52.37999999523163, 4059063.5) aim=(-3.0, -0.12000000476837158, 0.0) hit=BLOCK pos=MutableBlockPos{x=7765419, y=-53, z=4059063} state=Block{minecraft:oak_log}[axis=y]",
+      "[13:43:31] [Server thread/INFO] [minecraft/GameTestServer]: All 8 required tests passed :)"
+    ]
+  }
+]
