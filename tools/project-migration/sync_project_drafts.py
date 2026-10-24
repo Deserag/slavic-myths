@@ -179,7 +179,12 @@ query($id:ID!) {
 def known_draft(key):
     valid = []
     for node_id in KNOWN_DRAFT_IDS.get(key, []):
-        item = gql(NODE_QUERY, id=node_id).get("node")
+        try:
+            item = gql(NODE_QUERY, id=node_id).get("node")
+        except RuntimeError as exc:
+            if "NOT_FOUND" in str(exc) or "Could not resolve to a node" in str(exc):
+                continue  # A prior successful deduplication deleted this old item.
+            raise
         c = (item or {}).get("content") or {}
         if c.get("__typename") == "DraftIssue" and "PROJECT9_CONCEPT_KEY:" + key in (c.get("body") or ""):
             valid.append(item)
