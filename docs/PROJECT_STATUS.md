@@ -1,3 +1,7 @@
+## 24.10.2026 — обслуживание 1.9.7.67
+
+README ветки release и MOD_CONTENT описывают существующие механики; каталог и управление актуализированы. Игровой Java-код и ресурсы совпадают с принятой 1.9.7.66; версия поднята для обслуживающей установки в PolyMC. Старые ветки удаляются только при сохранности коммитов, локальные QA-артефакты очищаются отдельно от пользовательских данных. Игровых запусков в этой итерации нет.
+
 ## 24.10.2026 — owner-accepted second-version baseline 1.9.7.66
 
 The owner explicitly accepted installed 1.9.7.66 and authorized branch release. Source commit ba098d0da6b7c0658b9d0cc001ef236ac1d064d5; cleanup preserves production source/resources. Known worldgen stalls and unrun full campaign cases remain documented; individual Issues are not closed automatically. [Cleanup](implementation/cleanup-2.0-20261024/REPORT.md), [installation](implementation/polymc-19766/installed.json).

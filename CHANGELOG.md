@@ -1,3 +1,9 @@
+## 1.9.7.67 — обслуживание документации и рабочего каталога, 24.10.2026
+
+- Новый README ветки release, отдельный игровой путеводитель MOD_CONTENT.md, актуальные управление и каталог содержимого.
+- Удаляются подтверждённо устаревшие локальные тестовые запуски и интегрированные ветки; уникальные изменения и источники сохраняются.
+- Игровой Java-код, ресурсы, баланс, registry IDs и формат сохранений совпадают с принятой 1.9.7.66. Версия JAR повышена для установки обслуживающей сборки в PolyMC.
+
 ## 1.9.7.66 — test candidate, 24.10.2026
 
 - Four heroes now require personal help after an NPC introduction. Shared supply contributions and 15% combat contribution are tracked per player; the summon item is a reward.
