@@ -1,0 +1,118 @@
+[
+  {
+    "plant": "raspberry",
+    "planting": "berry_soil",
+    "growth": "PerennialBush; native stage checks",
+    "renewable": "berry+dirt recipe; shears; ripe right-click harvest",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "blueberry",
+    "planting": "berry_soil",
+    "growth": "PerennialBush; native stage checks",
+    "renewable": "berry+dirt recipe; shears; ripe right-click harvest",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "blackcurrant",
+    "planting": "berry_soil",
+    "growth": "PerennialBush; native stage checks",
+    "renewable": "berry+dirt recipe; shears; ripe right-click harvest",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "lingonberry",
+    "planting": "berry_soil",
+    "growth": "PerennialBush; native stage checks",
+    "renewable": "berry+dirt recipe; shears; ripe right-click harvest",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "cranberry",
+    "planting": "berry_soil",
+    "growth": "PerennialBush; native stage checks",
+    "renewable": "berry+dirt recipe; shears; ripe right-click harvest",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "rye",
+    "planting": "farmland",
+    "growth": "FarmingCrop/CropBlock or HopsCrop; native stage checks",
+    "seed_loot": "present",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "barley",
+    "planting": "farmland",
+    "growth": "FarmingCrop/CropBlock or HopsCrop; native stage checks",
+    "seed_loot": "present",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "oat",
+    "planting": "farmland",
+    "growth": "FarmingCrop/CropBlock or HopsCrop; native stage checks",
+    "seed_loot": "present",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "turnip",
+    "planting": "farmland",
+    "growth": "FarmingCrop/CropBlock or HopsCrop; native stage checks",
+    "seed_loot": "present",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "cabbage",
+    "planting": "farmland",
+    "growth": "FarmingCrop/CropBlock or HopsCrop; native stage checks",
+    "seed_loot": "present",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "pea",
+    "planting": "farmland",
+    "growth": "FarmingCrop/CropBlock or HopsCrop; native stage checks",
+    "seed_loot": "present",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "flax",
+    "planting": "farmland",
+    "growth": "FarmingCrop/CropBlock or HopsCrop; native stage checks",
+    "seed_loot": "present",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "hops",
+    "planting": "farmland",
+    "growth": "FarmingCrop/CropBlock or HopsCrop; native stage checks",
+    "seed_loot": "present",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "apple",
+    "growth": "vanilla SaplingBlock / configured tree; source resources present",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "willow",
+    "growth": "vanilla SaplingBlock / configured tree; source resources present",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "rowan",
+    "growth": "vanilla SaplingBlock / configured tree; source resources present",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "pine",
+    "growth": "vanilla SaplingBlock / configured tree; source resources present",
+    "runtime": "NOT_RUN"
+  },
+  {
+    "plant": "linden",
+    "growth": "vanilla SaplingBlock / configured tree; source resources present",
+    "runtime": "NOT_RUN"
+  }
+]

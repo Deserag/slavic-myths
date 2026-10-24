@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "slavicmyths:armorer_shaped",
   "pattern": [
     "II",
     "IS",

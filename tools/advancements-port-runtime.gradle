@@ -1,0 +1,14 @@
+allprojects { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { advancementPort { java.srcDir('tools/advancement-tests'); resources.srcDir('tools/advancement-test-resources') } }
+ p.sourceSets.advancementPort.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.advancementPort.runtimeClasspath += p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileAdvancementPortJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.advancementPort)
+ p.neoForge.runs { advancementPortChecks {
+  type='gameTestServer'
+  gameDirectory=p.file('work/advancements-port/runtime-world')
+  systemProperty 'neoforge.enabledGameTestNamespaces','slavicmyths_advancements'
+  systemProperty 'slavicmyths.advancementRoot',p.projectDir.absolutePath
+  systemProperty 'slavicmyths.advancementPhase',p.findProperty('advancementPhase') ?: 'write'
+ } }
+} }

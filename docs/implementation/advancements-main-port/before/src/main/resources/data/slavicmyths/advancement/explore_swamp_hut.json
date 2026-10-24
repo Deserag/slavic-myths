@@ -1,0 +1,39 @@
+{
+  "parent": "slavicmyths:traces_of_past",
+  "display": {
+    "icon": {
+      "id": "minecraft:spruce_log"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.explore_swamp_hut.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.explore_swamp_hut.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "visit": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "dimension": "minecraft:overworld",
+                "structures": [
+                  "slavicmyths:swamp_hut"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

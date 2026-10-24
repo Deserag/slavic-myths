@@ -9,7 +9,8 @@
     "GuardRoleMixin",
     "BarracksLimitMixin",
     "BanditThreatMixin",
-    "BossGolemTargetMixin"
+    "BossGolemTargetMixin",
+    "JourneyVillagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

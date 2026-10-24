@@ -10,13 +10,14 @@
       "item": "minecraft:iron_ingot"
     },
     "P": {
-      "item": "minecraft:spruce_planks"
+      "tag": "minecraft:planks"
     },
     "C": {
       "item": "minecraft:crafting_table"
     }
   },
   "result": {
-    "id": "slavicmyths:armorer_table"
+    "id": "slavicmyths:armorer_table",
+    "count": 1
   }
 }

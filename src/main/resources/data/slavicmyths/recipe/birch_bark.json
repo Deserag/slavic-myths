@@ -3,10 +3,13 @@
   "ingredients": [
     {
       "item": "minecraft:birch_log"
+    },
+    {
+      "item": "minecraft:birch_log"
     }
   ],
   "result": {
-    "count": 4,
-    "id": "slavicmyths:birch_bark"
+    "id": "slavicmyths:birch_bark",
+    "count": 8
   }
 }

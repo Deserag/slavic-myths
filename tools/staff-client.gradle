@@ -1,0 +1,13 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { staffVisual { java.srcDir 'tools/staff-client' } }
+ p.sourceSets.staffVisual.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.staffVisual.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileStaffVisualJava'){dependsOn p.tasks.named('classes')}
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.staffVisual)
+} }
+gradle.projectsEvaluated { def p=gradle.rootProject
+ p.neoForge.runs.client.gameDirectory=p.file('work/staff-20261024/'+(p.hasProperty('staffGuiOnly')?'client-inventory':'client'))
+ p.neoForge.runs.client.programArguments.addAll('--width','1280','--height','720')
+ p.neoForge.runs.client.systemProperty('slavicmyths.staffVisualOutput',p.file('docs/implementation/staff-audit-20261024/'+(p.hasProperty('staffGuiOnly')?'client-inventory':'client')).absolutePath)
+ p.neoForge.runs.client.systemProperty('slavicmyths.staffGuiOnly',p.hasProperty('staffGuiOnly').toString())
+}

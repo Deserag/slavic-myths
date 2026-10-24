@@ -63,6 +63,8 @@
     "#minecraft:enchantable/armor",
     "slavicmyths:ward_shield",
     "slavicmyths:serpent_crossbow",
-    "slavicmyths:three_breath_crossbow"
+    "slavicmyths:three_breath_crossbow",
+    "slavicmyths:storm_staff",
+    "slavicmyths:veles_staff"
   ]
 }

@@ -1,8 +1,8 @@
 {
-  "parent": "slavicmyths:altar",
+  "parent": "slavicmyths:first_book_entry",
   "display": {
     "icon": {
-      "id": "slavicmyths:ancient_sign"
+      "id": "slavicmyths:idol_fragment"
     },
     "title": {
       "translate": "advancements.slavicmyths.first_ritual.title"
@@ -10,7 +10,7 @@
     "description": {
       "translate": "advancements.slavicmyths.first_ritual.description"
     },
-    "frame": "task",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": false,
     "hidden": false

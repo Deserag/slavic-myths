@@ -13,15 +13,15 @@
     },
     {
       "ingredient": {
-        "item": "slavicmyths:perunite_dust"
-      },
-      "count": 10
-    },
-    {
-      "ingredient": {
         "item": "slavicmyths:bound_soul"
       },
       "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:perunite_dust"
+      },
+      "count": 10
     }
   ],
   "result": {

@@ -15,6 +15,7 @@ import org.slavicmyths.SlavicMyths;
 public final class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(Registries.BLOCK, SlavicMyths.MOD_ID);
+    public static final DeferredHolder<Block,Block> SILVER_BLOCK=BLOCKS.register("silver_block",()->new Block(BlockBehaviour.Properties.ofFullCopy(net.minecraft.world.level.block.Blocks.IRON_BLOCK)));
     public static final DeferredHolder<Block,Block> PLACH_TRAVA=BLOCKS.register("plach_trava",org.slavicmyths.volkolak.PlachTravaBlock::new);
     public static final DeferredHolder<Block,Block> CURSED_SKULL_CACHE=BLOCKS.register("cursed_skull_cache",org.slavicmyths.volkolak.SkullCacheBlock::new);
 

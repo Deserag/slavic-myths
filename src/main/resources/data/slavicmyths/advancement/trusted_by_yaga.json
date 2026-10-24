@@ -1,8 +1,8 @@
 {
-  "parent": "slavicmyths:follow_the_thread",
+  "parent": "slavicmyths:yaga_thread_earned",
   "display": {
     "icon": {
-      "id": "slavicmyths:svyazka_trav_yagi"
+      "id": "slavicmyths:lore_book"
     },
     "title": {
       "translate": "advancements.slavicmyths.trusted_by_yaga.title"
@@ -10,9 +10,9 @@
     "description": {
       "translate": "advancements.slavicmyths.trusted_by_yaga.description"
     },
-    "frame": "task",
+    "frame": "challenge",
     "show_toast": true,
-    "announce_to_chat": false,
+    "announce_to_chat": true,
     "hidden": false
   },
   "criteria": {

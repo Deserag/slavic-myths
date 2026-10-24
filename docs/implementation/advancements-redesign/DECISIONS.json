@@ -1,0 +1,1163 @@
+[
+  {
+    "id": "all_timber",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "all_timber",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "altar",
+    "decision": "MERGE",
+    "reason": "Материалы/первая экипировка/постройка — этапы обряда и Книги, не отдельные трофеи.",
+    "successor": "first_ritual",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "amber",
+    "decision": "MERGE",
+    "reason": "Рядовая янтарная находка не отдельный трофей; монета/идол остаются самостоятельным OR.",
+    "successor": "ancient_find",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "ancient_find",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "ancient_find",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "ancient_sign",
+    "decision": "MERGE",
+    "reason": "Материалы/первая экипировка/постройка — этапы обряда и Книги, не отдельные трофеи.",
+    "successor": "first_ritual",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "armorer_craft",
+    "decision": "MERGE",
+    "reason": "Освоение рун вместо трёх соседних наград за операции стола.",
+    "successor": "three_signs",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "bad_people",
+    "decision": "KEEP",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "bad_people",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "berry_garden",
+    "decision": "MERGE",
+    "reason": "Повседневные ингредиенты/еда/напитки остаются процессом, не серией уведомлений.",
+    "successor": "kitchen_meal",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "bind_hearth",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "bind_hearth",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "birch_bark",
+    "decision": "MERGE",
+    "reason": "Материалы и владение книгой не равны её освоению; остаются открытие и десять полных записей.",
+    "successor": "first_book_entry",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "birch_bark_scroll",
+    "decision": "MERGE",
+    "reason": "Материалы и владение книгой не равны её освоению; остаются открытие и десять полных записей.",
+    "successor": "first_book_entry",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "black_feather",
+    "decision": "MERGE",
+    "reason": "Мелкие обнаружения/сундук/перо остаются в Книге; отдельны зачистка, Атаман и Соловей.",
+    "successor": "bad_people",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "boar_charge_block",
+    "decision": "RETIRE",
+    "reason": "RETIRE: старт охоты/мясо/сумка/обычная фауна не крупные вехи; Книга и механики сохраняются.",
+    "successor": null,
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "bog_explorer",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "bog_explorer",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "bookkeeper",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "bookkeeper",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "bottled_elements",
+    "decision": "RETIRE",
+    "reason": "RETIRE: стихийная охота остаётся в Книге и наградах; не выдавать по медали на промежуточный ресурс.",
+    "successor": null,
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "break_water_call",
+    "decision": "KEEP",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "break_water_call",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "catch_the_wind",
+    "decision": "RETIRE",
+    "reason": "RETIRE: стихийная охота остаётся в Книге и наградах; не выдавать по медали на промежуточный ресурс.",
+    "successor": null,
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "cauldron_service",
+    "decision": "MERGE",
+    "reason": "Поручения Яги сохранены целиком; медаль за итог доверия, не каждую кнопку.",
+    "successor": "trusted_by_yaga",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "claimed_fire_fragment",
+    "decision": "REWORK",
+    "reason": "Один итог огненного хранителя; сначала #25 исправляет claim/event; сверить право участника отдельно.",
+    "successor": "claimed_fire_fragment",
+    "display": true,
+    "migration": "M0",
+    "test": "T-BOSS"
+  },
+  {
+    "id": "claimed_water_fragment",
+    "decision": "REWORK",
+    "reason": "Один итог водного хранителя; #25 исправляет claim/event; не подменять победой простое восстановление сердца.",
+    "successor": "claimed_water_fragment",
+    "display": true,
+    "migration": "M0",
+    "test": "T-BOSS"
+  },
+  {
+    "id": "cleansed_sanctuary_pool",
+    "decision": "MERGE",
+    "reason": "Очищение сердца не доказывает победу хранителя; факты остаются независимыми.",
+    "successor": "claimed_water_fragment",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "clear_large_camp",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "clear_large_camp",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "defeat_depth_master",
+    "decision": "REWORK",
+    "reason": "Сохранить done, добавить проверку заслуги: нынешняя выдача всем в радиусе24 не доказывает участие.",
+    "successor": "defeat_depth_master",
+    "display": true,
+    "migration": "M0",
+    "test": "T-BOSS"
+  },
+  {
+    "id": "defeat_leshy",
+    "decision": "RELOCATE",
+    "reason": "Единственная награда Лешего; нет требования сердца или предварительного ПКМ.",
+    "successor": "defeat_leshy",
+    "display": true,
+    "migration": "M0",
+    "test": "T-BOSS"
+  },
+  {
+    "id": "defeat_nightingale",
+    "decision": "RELOCATE",
+    "reason": "Содержательная победа отдельно от визита и пера; не требовать Атамана.",
+    "successor": "defeat_nightingale",
+    "display": true,
+    "migration": "M0",
+    "test": "T-BOSS"
+  },
+  {
+    "id": "depth_clue",
+    "decision": "MERGE",
+    "reason": "Знакомство/рыбалка/призыв/подарок — факты энциклопедии; не доказательства победы.",
+    "successor": "defeat_depth_master",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "depth_gift",
+    "decision": "MERGE",
+    "reason": "Знакомство/рыбалка/призыв/подарок — факты энциклопедии; не доказательства победы.",
+    "successor": "defeat_depth_master",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "disperse_bandits",
+    "decision": "MERGE",
+    "reason": "Мелкие обнаружения/сундук/перо остаются в Книге; отдельны зачистка, Атаман и Соловей.",
+    "successor": "bad_people",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "earth_heart",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "earth_heart",
+    "display": true,
+    "migration": "M0",
+    "test": "T-BOSS"
+  },
+  {
+    "id": "endured_frost",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "endured_frost",
+    "display": true,
+    "migration": "M0",
+    "test": "T-BOSS"
+  },
+  {
+    "id": "endured_last_night",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "endured_last_night",
+    "display": true,
+    "migration": "M0",
+    "test": "T-BOSS"
+  },
+  {
+    "id": "explore_abandoned_settlement",
+    "decision": "MERGE",
+    "reason": "Оставить первый след и общий итог всех шести, без медали на каждую постройку.",
+    "successor": "traces_of_past",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "explore_bog_causeway",
+    "decision": "MERGE",
+    "reason": "Оставить первый след и общий итог всех шести, без медали на каждую постройку.",
+    "successor": "traces_of_past",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "explore_fishing_camp",
+    "decision": "MERGE",
+    "reason": "Оставить первый след и общий итог всех шести, без медали на каждую постройку.",
+    "successor": "traces_of_past",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "explore_flooded_shrine",
+    "decision": "MERGE",
+    "reason": "Оставить первый след и общий итог всех шести, без медали на каждую постройку.",
+    "successor": "traces_of_past",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "explore_swamp_hut",
+    "decision": "MERGE",
+    "reason": "Оставить первый след и общий итог всех шести, без медали на каждую постройку.",
+    "successor": "traces_of_past",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "explore_underwater_ruins",
+    "decision": "MERGE",
+    "reason": "Оставить первый след и общий итог всех шести, без медали на каждую постройку.",
+    "successor": "traces_of_past",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "extinguish_the_barn",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "extinguish_the_barn",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "falling_star",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "falling_star",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "fern_flower",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "fern_flower",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "find_deep_pool",
+    "decision": "MERGE",
+    "reason": "Знакомство/рыбалка/призыв/подарок — факты энциклопедии; не доказательства победы.",
+    "successor": "defeat_depth_master",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "find_large_camp",
+    "decision": "MERGE",
+    "reason": "Мелкие обнаружения/сундук/перо остаются в Книге; отдельны зачистка, Атаман и Соловей.",
+    "successor": "bad_people",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "find_medium_camp",
+    "decision": "MERGE",
+    "reason": "Мелкие обнаружения/сундук/перо остаются в Книге; отдельны зачистка, Атаман и Соловей.",
+    "successor": "bad_people",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "find_small_camp",
+    "decision": "MERGE",
+    "reason": "Мелкие обнаружения/сундук/перо остаются в Книге; отдельны зачистка, Атаман и Соловей.",
+    "successor": "bad_people",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "find_the_hut",
+    "decision": "MERGE",
+    "reason": "Поручения Яги сохранены целиком; медаль за итог доверия, не каждую кнопку.",
+    "successor": "trusted_by_yaga",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "fire_in_the_sky",
+    "decision": "RETIRE",
+    "reason": "RETIRE: стихийная охота остаётся в Книге и наградах; не выдавать по медали на промежуточный ресурс.",
+    "successor": null,
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "first_accessory",
+    "decision": "MERGE",
+    "reason": "Одна значимая экипировка вместо награды за каждый слот/промежуточный оберег.",
+    "successor": "rare_accessory",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "first_book_entry",
+    "decision": "RELOCATE",
+    "reason": "Первое реальное открытие книги вместо медалей за бересту и владение предметом.",
+    "successor": "first_book_entry",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "first_brew",
+    "decision": "MERGE",
+    "reason": "Повседневные ингредиенты/еда/напитки остаются процессом, не серией уведомлений.",
+    "successor": "kitchen_meal",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "first_flight",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "first_flight",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "first_hunt",
+    "decision": "RETIRE",
+    "reason": "RETIRE: старт охоты/мясо/сумка/обычная фауна не крупные вехи; Книга и механики сохраняются.",
+    "successor": null,
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "first_ritual",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "first_ritual",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "flax",
+    "decision": "MERGE",
+    "reason": "Сырьё и промежуточная нить объединены в результат текстильного ремесла.",
+    "successor": "linen_craft",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "follow_the_thread",
+    "decision": "MERGE",
+    "reason": "Поручения Яги сохранены целиком; медаль за итог доверия, не каждую кнопку.",
+    "successor": "trusted_by_yaga",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "forest_guardian",
+    "decision": "MERGE",
+    "reason": "Артефактная коллекция вместо отдельных срабатываний; карточка описывает экипировку, не победу.",
+    "successor": "rare_accessory",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "found_ancient_sanctuary",
+    "decision": "MERGE",
+    "reason": "Одна обзорная веха за оба типа; не награждать за каждый шаг маршрута.",
+    "successor": "found_two_sanctuaries",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "found_two_sanctuaries",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "found_two_sanctuaries",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "friend_domovoy",
+    "decision": "MERGE",
+    "reason": "Один итог отношений — связанный очаг; ранний разговор и разовый дар без медалей.",
+    "successor": "bind_hearth",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "friend_of_bayun",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "friend_of_bayun",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "full_speed_ahead",
+    "decision": "MERGE",
+    "reason": "Артефактная коллекция вместо отдельных срабатываний; карточка описывает экипировку, не победу.",
+    "successor": "rare_accessory",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "full_yard",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "full_yard",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "garden_harvest",
+    "decision": "MERGE",
+    "reason": "Повседневные ингредиенты/еда/напитки остаются процессом, не серией уведомлений.",
+    "successor": "kitchen_meal",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "generous_table",
+    "decision": "MERGE",
+    "reason": "Повседневные ингредиенты/еда/напитки остаются процессом, не серией уведомлений.",
+    "successor": "kitchen_meal",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "great_poloz_fall",
+    "decision": "REWORK",
+    "reason": "Убрать spoiler-hidden; сохранить victory и старые выдачи, новый показ ядра не должен выдавать победу.",
+    "successor": "great_poloz_fall",
+    "display": true,
+    "migration": "M0",
+    "test": "T-BOSS"
+  },
+  {
+    "id": "group_burial",
+    "decision": "KEEP",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "group_burial",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "group_depths",
+    "decision": "MERGE",
+    "reason": "Слить древние глубины с археологией.",
+    "successor": "group_burial",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "group_forest",
+    "decision": "MERGE",
+    "reason": "Слить лес и воды в единый природный край.",
+    "successor": "group_water",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "group_home",
+    "decision": "KEEP",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "group_home",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "group_knowledge",
+    "decision": "KEEP",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "group_knowledge",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "group_legends",
+    "decision": "KEEP",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "group_legends",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "group_night",
+    "decision": "MERGE",
+    "reason": "Включить ночные испытания в великие сказания.",
+    "successor": "group_legends",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "group_roads",
+    "decision": "KEEP",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "group_roads",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "group_water",
+    "decision": "KEEP",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "group_water",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "guest_of_yaga",
+    "decision": "MERGE",
+    "reason": "Поручения Яги сохранены целиком; медаль за итог доверия, не каждую кнопку.",
+    "successor": "trusted_by_yaga",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "hunt_begins",
+    "decision": "RETIRE",
+    "reason": "RETIRE: старт охоты/мясо/сумка/обычная фауна не крупные вехи; Книга и механики сохраняются.",
+    "successor": null,
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "ill_fate_broken",
+    "decision": "MERGE",
+    "reason": "Артефактная коллекция вместо отдельных срабатываний; карточка описывает экипировку, не победу.",
+    "successor": "rare_accessory",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "kitchen_meal",
+    "decision": "KEEP",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "kitchen_meal",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "learn_armorer",
+    "decision": "MERGE",
+    "reason": "Освоение рун вместо трёх соседних наград за операции стола.",
+    "successor": "three_signs",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "leshy_heart",
+    "decision": "MERGE",
+    "reason": "Одна победа вместо ПКМ/боя/RNG-трофея; сердце остаётся фактом Книги.",
+    "successor": "defeat_leshy",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "linen_craft",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "linen_craft",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "linen_thread",
+    "decision": "MERGE",
+    "reason": "Сырьё и промежуточная нить объединены в результат текстильного ремесла.",
+    "successor": "linen_craft",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "lore_book",
+    "decision": "MERGE",
+    "reason": "Материалы и владение книгой не равны её освоению; остаются открытие и десять полных записей.",
+    "successor": "first_book_entry",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "lore_keeper",
+    "decision": "MERGE",
+    "reason": "Материалы и владение книгой не равны её освоению; остаются открытие и десять полных записей.",
+    "successor": "first_book_entry",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "meet_bayun",
+    "decision": "MERGE",
+    "reason": "Первое знакомство остаётся записью; награда за заслуженную дружбу.",
+    "successor": "friend_of_bayun",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "meet_domovoy",
+    "decision": "MERGE",
+    "reason": "Один итог отношений — связанный очаг; ранний разговор и разовый дар без медалей.",
+    "successor": "bind_hearth",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "meet_leshy",
+    "decision": "MERGE",
+    "reason": "Одна победа вместо ПКМ/боя/RNG-трофея; сердце остаётся фактом Книги.",
+    "successor": "defeat_leshy",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "meet_nightingale",
+    "decision": "MERGE",
+    "reason": "Мелкие обнаружения/сундук/перо остаются в Книге; отдельны зачистка, Атаман и Соловей.",
+    "successor": "bad_people",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "meet_rusalka",
+    "decision": "MERGE",
+    "reason": "Знакомство/рыбалка/призыв/подарок — факты энциклопедии; не доказательства победы.",
+    "successor": "defeat_depth_master",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "meet_vodyanoy",
+    "decision": "MERGE",
+    "reason": "Знакомство/рыбалка/призыв/подарок — факты энциклопедии; не доказательства победы.",
+    "successor": "defeat_depth_master",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "name_your_misfortune",
+    "decision": "REWORK",
+    "reason": "Перенести в легенды; текущий source Player не исключает creative/debug и не описывает кооп.",
+    "successor": "name_your_misfortune",
+    "display": true,
+    "migration": "M0",
+    "test": "T-BOSS"
+  },
+  {
+    "id": "net_catch",
+    "decision": "MERGE",
+    "reason": "Знакомство/рыбалка/призыв/подарок — факты энциклопедии; не доказательства победы.",
+    "successor": "defeat_depth_master",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "new_catch",
+    "decision": "MERGE",
+    "reason": "Знакомство/рыбалка/призыв/подарок — факты энциклопедии; не доказательства победы.",
+    "successor": "defeat_depth_master",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "new_seeds",
+    "decision": "MERGE",
+    "reason": "Повседневные ингредиенты/еда/напитки остаются процессом, не серией уведомлений.",
+    "successor": "kitchen_meal",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "not_empty_handed",
+    "decision": "MERGE",
+    "reason": "Поручения Яги сохранены целиком; медаль за итог доверия, не каждую кнопку.",
+    "successor": "trusted_by_yaga",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "not_today",
+    "decision": "MERGE",
+    "reason": "Артефактная коллекция вместо отдельных срабатываний; карточка описывает экипировку, не победу.",
+    "successor": "rare_accessory",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "offer_domovoy",
+    "decision": "MERGE",
+    "reason": "Один итог отношений — связанный очаг; ранний разговор и разовый дар без медалей.",
+    "successor": "bind_hearth",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "old_weapons",
+    "decision": "MERGE",
+    "reason": "Материалы/первая экипировка/постройка — этапы обряда и Книги, не отдельные трофеи.",
+    "successor": "first_ritual",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "own_path",
+    "decision": "KEEP",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "own_path",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "perunite",
+    "decision": "MERGE",
+    "reason": "Материалы/первая экипировка/постройка — этапы обряда и Книги, не отдельные трофеи.",
+    "successor": "first_ritual",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "rare_accessory",
+    "decision": "KEEP",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "rare_accessory",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "reforged",
+    "decision": "MERGE",
+    "reason": "Освоение рун вместо трёх соседних наград за операции стола.",
+    "successor": "three_signs",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "restored_sanctuary_fire",
+    "decision": "MERGE",
+    "reason": "Ремонт сердца и бой хранителя различны; первая карточка убирается, никакого переноса победы.",
+    "successor": "claimed_fire_fragment",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "root",
+    "decision": "KEEP",
+    "reason": "Корень одного дерева; шесть ветвей вместо пятнадцати прямых детей.",
+    "successor": "root",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "rune_installed",
+    "decision": "MERGE",
+    "reason": "Освоение рун вместо трёх соседних наград за операции стола.",
+    "successor": "three_signs",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "self_playing_music",
+    "decision": "MERGE",
+    "reason": "Артефактная коллекция вместо отдельных срабатываний; карточка описывает экипировку, не победу.",
+    "successor": "rare_accessory",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "shrine",
+    "decision": "MERGE",
+    "reason": "Материалы/первая экипировка/постройка — этапы обряда и Книги, не отдельные трофеи.",
+    "successor": "first_ritual",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "silver_remedy",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "silver_remedy",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "steppe_champion",
+    "decision": "REWORK",
+    "reason": "Тугарин уже присутствует; уточнить server credit и переоформить, без новой награды за пояс.",
+    "successor": "steppe_champion",
+    "display": true,
+    "migration": "M0",
+    "test": "T-BOSS"
+  },
+  {
+    "id": "stolen_goods",
+    "decision": "MERGE",
+    "reason": "Мелкие обнаружения/сундук/перо остаются в Книге; отдельны зачистка, Атаман и Соловей.",
+    "successor": "bad_people",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "storm_staff",
+    "decision": "MERGE",
+    "reason": "Материалы/первая экипировка/постройка — этапы обряда и Книги, не отдельные трофеи.",
+    "successor": "first_ritual",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "table_is_set",
+    "decision": "MERGE",
+    "reason": "Артефактная коллекция вместо отдельных срабатываний; карточка описывает экипировку, не победу.",
+    "successor": "rare_accessory",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "three_signs",
+    "decision": "RELOCATE",
+    "reason": "Оставить весомый результат рун, не раннюю вставку и перековку.",
+    "successor": "three_signs",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "thunder_axe",
+    "decision": "MERGE",
+    "reason": "Материалы/первая экипировка/постройка — этапы обряда и Книги, не отдельные трофеи.",
+    "successor": "first_ritual",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "thunder_stone",
+    "decision": "MERGE",
+    "reason": "Материалы/первая экипировка/постройка — этапы обряда и Книги, не отдельные трофеи.",
+    "successor": "first_ritual",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "too_much",
+    "decision": "MERGE",
+    "reason": "Повседневные ингредиенты/еда/напитки остаются процессом, не серией уведомлений.",
+    "successor": "kitchen_meal",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "traces_of_past",
+    "decision": "KEEP",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "traces_of_past",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "trophy_keeper",
+    "decision": "RETIRE",
+    "reason": "RETIRE: старт охоты/мясо/сумка/обычная фауна не крупные вехи; Книга и механики сохраняются.",
+    "successor": null,
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "trusted_by_yaga",
+    "decision": "RELOCATE",
+    "reason": "Сохранить самостоятельный результат; подача и положение приведены к общей главе.",
+    "successor": "trusted_by_yaga",
+    "display": true,
+    "migration": "M0",
+    "test": "T-FACT"
+  },
+  {
+    "id": "two_rings",
+    "decision": "MERGE",
+    "reason": "Одна значимая экипировка вместо награды за каждый слот/промежуточный оберег.",
+    "successor": "rare_accessory",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "village_feast",
+    "decision": "MERGE",
+    "reason": "Повседневные ингредиенты/еда/напитки остаются процессом, не серией уведомлений.",
+    "successor": "kitchen_meal",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "wake_depth_master",
+    "decision": "MERGE",
+    "reason": "Знакомство/рыбалка/призыв/подарок — факты энциклопедии; не доказательства победы.",
+    "successor": "defeat_depth_master",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "warding_charm",
+    "decision": "MERGE",
+    "reason": "Одна значимая экипировка вместо награды за каждый слот/промежуточный оберег.",
+    "successor": "rare_accessory",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "water_call",
+    "decision": "MERGE",
+    "reason": "Знакомство/рыбалка/призыв/подарок — факты энциклопедии; не доказательства победы.",
+    "successor": "defeat_depth_master",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "wildlife_encounter",
+    "decision": "RETIRE",
+    "reason": "RETIRE: старт охоты/мясо/сумка/обычная фауна не крупные вехи; Книга и механики сохраняются.",
+    "successor": null,
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "winter_stores",
+    "decision": "MERGE",
+    "reason": "Повседневные ингредиенты/еда/напитки остаются процессом, не серией уведомлений.",
+    "successor": "kitchen_meal",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "without_ataman",
+    "decision": "REWORK",
+    "reason": "Сохранить значимую победу Атамана, отделить её от общего исследования и зачистки; добавить native eligibility.",
+    "successor": "without_ataman",
+    "display": true,
+    "migration": "M0",
+    "test": "T-BOSS"
+  },
+  {
+    "id": "woodlands",
+    "decision": "MERGE",
+    "reason": "Одна коллекционная веха за четыре породы; OR первого бревна не считать ошибкой.",
+    "successor": "all_timber",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  },
+  {
+    "id": "wormwood",
+    "decision": "MERGE",
+    "reason": "Повседневные ингредиенты/еда/напитки остаются процессом, не серией уведомлений.",
+    "successor": "kitchen_meal",
+    "display": false,
+    "migration": "M1",
+    "test": "T-FACT"
+  }
+]

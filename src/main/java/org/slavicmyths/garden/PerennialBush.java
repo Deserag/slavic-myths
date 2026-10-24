@@ -45,7 +45,9 @@ public class PerennialBush extends BushBlock implements BonemealableBlock {
         return s;
     }
     public boolean growTo(LevelAccessor level,BlockPos pos,int phase) {
-        var current=level.getBlockState(pos);if(current.is(this)&&current.getValue(HALF)==DoubleBlockHalf.UPPER)pos=pos.below();
+        if(phase<0||phase>4)return false;
+        var current=level.getBlockState(pos);
+        if(current.is(this)&&current.getValue(HALF)==DoubleBlockHalf.UPPER){pos=pos.below();if(!level.getBlockState(pos).is(this))return false;}
         if(kind==0&&phase>0) {
             var above=level.getBlockState(pos.above());if(!above.isAir() && !(above.is(this)&&above.getValue(HALF)==DoubleBlockHalf.UPPER))return false;
             level.setBlock(pos,defaultBlockState().setValue(PHASE,phase),2);
@@ -85,5 +87,9 @@ public class PerennialBush extends BushBlock implements BonemealableBlock {
         return s.is(this)&&s.getValue(PHASE)<4&&(kind!=0||level.isEmptyBlock(pos.above())||level.getBlockState(pos.above()).is(this));
     }
     @Override public boolean isBonemealSuccess(Level level,RandomSource r,BlockPos pos,BlockState s){return true;}
-    @Override public void performBonemeal(ServerLevel level,RandomSource r,BlockPos pos,BlockState s){growTo(level,pos,Math.min(4,s.getValue(PHASE)+1));}
+    @Override public void performBonemeal(ServerLevel level,RandomSource r,BlockPos pos,BlockState s){
+        if(s.getValue(HALF)==DoubleBlockHalf.UPPER)pos=pos.below();
+        s=level.getBlockState(pos);
+        if(s.is(this)&&isValidBonemealTarget(level,pos,s))growTo(level,pos,Math.min(4,s.getValue(PHASE)+1));
+    }
 }

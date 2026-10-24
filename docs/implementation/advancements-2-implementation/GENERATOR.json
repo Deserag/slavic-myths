@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "Canonical overlay and historical tale_advancements CLI delegate: identical advancement/locale bytes",
+  "files_compared": 219,
+  "historical_full_generators": "NOT_RUN; final overlay hooks installed",
+  "delegated_entrypoint": "PASS",
+  "book_navigation_labels": "six approved localized section names"
+}

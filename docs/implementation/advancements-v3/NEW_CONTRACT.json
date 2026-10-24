@@ -1,0 +1,744 @@
+{
+  "slavicmyths:bayun_new_tale": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:talk_to_bayun",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:lore_book"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.bayun_new_tale.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.bayun_new_tale.description"
+      }
+    }
+  },
+  "slavicmyths:bayun_song": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:talk_to_bayun",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:lore_book"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.bayun_song.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.bayun_song.description"
+      }
+    }
+  },
+  "slavicmyths:chud_halls": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:explore_chud_city",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:silver_ingot"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.chud_halls.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.chud_halls.description"
+      }
+    }
+  },
+  "slavicmyths:chud_labyrinth": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:explore_chud_abandoned",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:silver_ingot"
+      },
+      "frame": "challenge",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.chud_labyrinth.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.chud_labyrinth.description"
+      }
+    }
+  },
+  "slavicmyths:explore_chud_abandoned": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "structures": [
+                    "slavicmyths:chud_abandoned"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:explore_chud_city",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:silver_ingot"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.explore_chud_abandoned.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.explore_chud_abandoned.description"
+      }
+    }
+  },
+  "slavicmyths:explore_chud_city": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "structures": [
+                    "slavicmyths:chud_city"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:first_structure",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:silver_ingot"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.explore_chud_city.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.explore_chud_city.description"
+      }
+    }
+  },
+  "slavicmyths:explore_gorodishche": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "structures": [
+                    "slavicmyths:gorodishche"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:explore_abandoned_settlement",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:pine_log"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.explore_gorodishche.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.explore_gorodishche.description"
+      }
+    }
+  },
+  "slavicmyths:explore_kurgan": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "structures": [
+                    "slavicmyths:kurgan_small",
+                    "slavicmyths:kurgan_warrior",
+                    "slavicmyths:kurgan_great"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:ancient_find",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:ancient_coin"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.explore_kurgan.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.explore_kurgan.description"
+      }
+    }
+  },
+  "slavicmyths:first_neighbors": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:birch_bark"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.first_neighbors.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.first_neighbors.description"
+      }
+    }
+  },
+  "slavicmyths:first_structure": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "structures": "#slavicmyths:advancement_discoveries"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:birch_bark"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.first_structure.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.first_structure.description"
+      }
+    }
+  },
+  "slavicmyths:grey_wolf_bandits": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:wolf_trial_passed",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:iron_spear"
+      },
+      "frame": "goal",
+      "show_toast": false,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.grey_wolf_bandits.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.grey_wolf_bandits.description"
+      }
+    }
+  },
+  "slavicmyths:grey_wolf_kurgan": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:grey_wolf_bandits",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:ancient_coin"
+      },
+      "frame": "goal",
+      "show_toast": false,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.grey_wolf_kurgan.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.grey_wolf_kurgan.description"
+      }
+    }
+  },
+  "slavicmyths:grey_wolf_likho": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:grey_wolf_kurgan",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:warding_charm"
+      },
+      "frame": "goal",
+      "show_toast": false,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.grey_wolf_likho.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.grey_wolf_likho.description"
+      }
+    }
+  },
+  "slavicmyths:linen_woven": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:own_harvest",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:linen_cloth"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.linen_woven.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.linen_woven.description"
+      }
+    }
+  },
+  "slavicmyths:meet_bandits": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:iron_spear"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.meet_bandits.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.meet_bandits.description"
+      }
+    }
+  },
+  "slavicmyths:mor_invitation": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:tales_come_alive",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:lore_book"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.mor_invitation.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.mor_invitation.description"
+      }
+    }
+  },
+  "slavicmyths:mor_story_complete": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:mor_invitation",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:lore_book"
+      },
+      "frame": "challenge",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.mor_story_complete.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.mor_story_complete.description"
+      }
+    }
+  },
+  "slavicmyths:own_harvest": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:first_neighbors",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:flax"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.own_harvest.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.own_harvest.description"
+      }
+    }
+  },
+  "slavicmyths:self_brewed_beer": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:kitchen_meal",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:wooden_mug"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.self_brewed_beer.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.self_brewed_beer.description"
+      }
+    }
+  },
+  "slavicmyths:tales_come_alive": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:root",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:lore_book"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.tales_come_alive.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.tales_come_alive.description"
+      }
+    }
+  },
+  "slavicmyths:talk_to_bayun": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:tales_come_alive",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:lore_book"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.talk_to_bayun.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.talk_to_bayun.description"
+      }
+    }
+  },
+  "slavicmyths:wolf_trial_passed": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:tales_come_alive",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:lore_book"
+      },
+      "frame": "goal",
+      "show_toast": true,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.wolf_trial_passed.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.wolf_trial_passed.description"
+      }
+    }
+  },
+  "slavicmyths:yaga_thread_earned": {
+    "criteria": {
+      "event": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "requirements": [
+      [
+        "event"
+      ]
+    ],
+    "rewards": {},
+    "parent": "slavicmyths:guest_of_yaga",
+    "display": {
+      "icon": {
+        "id": "slavicmyths:lore_book"
+      },
+      "frame": "goal",
+      "show_toast": false,
+      "announce_to_chat": false,
+      "hidden": false,
+      "title": {
+        "translate": "advancements.slavicmyths.yaga_thread_earned.title"
+      },
+      "description": {
+        "translate": "advancements.slavicmyths.yaga_thread_earned.description"
+      }
+    }
+  }
+}

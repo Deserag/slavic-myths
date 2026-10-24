@@ -1,0 +1,37 @@
+{
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.61.jar",
+  "sha256": "9b9cf3b1cd3e7176bb5694450c8683d347410c7a4a39d023b94b361a5cfaf2dc",
+  "source_commit": "b85689ee11db5d0b32026b9caf9b54a46fbd9787",
+  "source_state": "HEAD + preserved existing changes + uncommitted staff patch",
+  "resources_equal_to_jar": 7688,
+  "generator_replay": "all resource bytes identical",
+  "runtime_tests": "11/11 PASS in final server process",
+  "minecraft_processes": 7,
+  "gametest_server_processes": 3,
+  "client_processes": 4,
+  "successful_client_capture_runs": 2,
+  "client_onboarding_attempts_stopped": 2,
+  "client_frames": 45,
+  "polymc": "NOT_INSTALLED",
+  "owner_acceptance": "PENDING",
+  "actual_damage": [
+    {
+      "id": "storm_staff",
+      "base": 6.0,
+      "sharpness_v": 9.0,
+      "strength_i": 9.0
+    },
+    {
+      "id": "veles_staff",
+      "base": 4.0,
+      "sharpness_v": 7.0,
+      "strength_i": 7.0
+    },
+    {
+      "id": "morozko_staff",
+      "base": 8.0,
+      "sharpness_v": 11.0,
+      "strength_i": 11.0
+    }
+  ]
+}

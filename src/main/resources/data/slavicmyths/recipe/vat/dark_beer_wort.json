@@ -19,12 +19,6 @@
         "item": "slavicmyths:honey_infusion"
       },
       "count": 1
-    },
-    {
-      "ingredient": {
-        "item": "minecraft:water_bucket"
-      },
-      "count": 1
     }
   ],
   "time": 1400,
@@ -37,5 +31,8 @@
       "id": "minecraft:bucket",
       "count": 1
     }
-  ]
+  ],
+  "catalyst": {
+    "item": "minecraft:water_bucket"
+  }
 }

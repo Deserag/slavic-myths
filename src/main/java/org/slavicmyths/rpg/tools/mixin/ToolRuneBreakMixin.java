@@ -15,6 +15,6 @@ public abstract class ToolRuneBreakMixin {
  @Shadow @Final protected ServerPlayer player;
  @Unique private final ArrayDeque<ToolRuneRuntime.BreakFrame> slavicmyths$frames=new ArrayDeque<>();
  @Inject(method="destroyBlock",at=@At("HEAD")) private void slavicmyths$begin(BlockPos pos,CallbackInfoReturnable<Boolean> ci){slavicmyths$frames.push(ToolRuneRuntime.beginBreak(player,pos));}
- @Inject(method="removeBlock",at=@At("RETURN")) private void slavicmyths$removed(BlockPos pos,BlockState state,boolean harvest,CallbackInfoReturnable<Boolean> ci){var frame=slavicmyths$frames.peek();if(frame!=null&&frame.origin.equals(pos))frame.removed=ci.getReturnValue();}
+ @Inject(method="removeBlock",at=@At("RETURN")) private void slavicmyths$removed(BlockPos pos,BlockState state,boolean harvest,CallbackInfoReturnable<Boolean> ci){var frame=slavicmyths$frames.peek();if(frame!=null&&frame.origin.equals(pos))frame.removed=ci.getReturnValue();org.slavicmyths.progression.AdvancementJourney.harvested(player,pos,state,ci.getReturnValue());}
  @Inject(method="destroyBlock",at=@At("RETURN")) private void slavicmyths$end(BlockPos pos,CallbackInfoReturnable<Boolean> ci){ToolRuneRuntime.finishBreak(player,slavicmyths$frames.pop(),ci.getReturnValue());}
 }

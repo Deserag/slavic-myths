@@ -1,20 +1,5 @@
 {
-  "parent": "minecraft:husbandry/root",
-  "display": {
-    "icon": {
-      "id": "slavicmyths:linen_cloth"
-    },
-    "title": {
-      "translate": "advancement.slavicmyths.linen_craft.title"
-    },
-    "description": {
-      "translate": "advancement.slavicmyths.linen_craft.description"
-    },
-    "frame": "task",
-    "hidden": false,
-    "show_toast": true,
-    "announce_to_chat": true
-  },
+  "parent": "slavicmyths:group_home",
   "criteria": {
     "cloth": {
       "trigger": "minecraft:inventory_changed",

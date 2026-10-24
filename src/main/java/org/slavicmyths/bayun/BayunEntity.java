@@ -43,7 +43,7 @@ public final class BayunEntity extends PathfinderMob {
     private boolean safeMeeting(ServerPlayer p){var b=bond(p);return trust(p)>=85||b.getBoolean("FirstGift")&&now()-b.getLong("GiftAt")<24000;}
     private void tell(ServerPlayer p,String key){p.displayClientMessage(Component.translatable("bayun."+key),true);}
     private ServerPlayer player(UUID id){return ((ServerLevel)level()).getServer().getPlayerList().getPlayer(id);}
-    private void abort(UUID id,Session s){ServerPlayer p=player(id);if(s.phase==Phase.CHARMED||s.phase==Phase.POUNCING){if(p!=null){BayunNetwork.charm(p,getId(),false);tell(p,"released");}}s.phase=Phase.COOLDOWN;s.due=now()+300;s.absent=now();if(id.equals(victim)){victim=null;getNavigation().stop();setDeltaMovement(Vec3.ZERO);recoveryUntil=now()+120;begin("recover");}}
+    private void abort(UUID id,Session s){ServerPlayer p=player(id);if(s.phase==Phase.CHARMED||s.phase==Phase.POUNCING){if(p!=null&&p.isAlive()&&p.level()==level())org.slavicmyths.progression.AdvancementJourney.award(p,"bayun_song");if(p!=null){BayunNetwork.charm(p,getId(),false);tell(p,"released");}}s.phase=Phase.COOLDOWN;s.due=now()+300;s.absent=now();if(id.equals(victim)){victim=null;getNavigation().stop();setDeltaMovement(Vec3.ZERO);recoveryUntil=now()+120;begin("recover");}}
     @Override public void tick(){super.tick();if(level().isClientSide)return;if(home==null)home=blockPosition();clearFire();setAirSupply(getMaxAirSupply());
         if(tickCount%10==0)notice();
         for(var it=sessions.entrySet().iterator();it.hasNext();){var e=it.next();var s=e.getValue();var p=player(e.getKey());

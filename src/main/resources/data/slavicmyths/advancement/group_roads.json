@@ -1,20 +1,5 @@
 {
   "parent": "slavicmyths:root",
-  "display": {
-    "icon": {
-      "id": "slavicmyths:iron_spear"
-    },
-    "title": {
-      "translate": "advancements.slavicmyths.group_roads.title"
-    },
-    "description": {
-      "translate": "advancements.slavicmyths.group_roads.description"
-    },
-    "frame": "task",
-    "show_toast": false,
-    "announce_to_chat": false,
-    "hidden": false
-  },
   "criteria": {
     "section": {
       "trigger": "minecraft:tick"

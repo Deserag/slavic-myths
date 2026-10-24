@@ -28,8 +28,8 @@ public final class JeiIndustry implements IModPlugin {
         public RecipeType<RecipeHolder<MachineRecipe>> getRecipeType(){return refining?HEARTH:BLOOMERY;}
         public Component getTitle(){return Component.translatable("block.slavicmyths."+(refining?"refining_hearth":"chud_bloomery"));}
         public ResourceLocation getRegistryName(RecipeHolder<MachineRecipe> r){return r.id();}
-        public int getWidth(){return 140;}public int getHeight(){return 60;}public IDrawable getIcon(){return icon;}
+        public int getWidth(){return 180;}public int getHeight(){return 100;}public IDrawable getIcon(){return icon;}
         public void setRecipe(IRecipeLayoutBuilder b,RecipeHolder<MachineRecipe> holder,IFocusGroup f){var r=holder.value();b.addSlot(RecipeIngredientRole.INPUT,5,8).addIngredients(r.input());if(refining)b.addSlot(RecipeIngredientRole.INPUT,28,8).addIngredients(r.flux());b.addSlot(RecipeIngredientRole.OUTPUT,110,8).addItemStack(r.result());}
-        public void draw(RecipeHolder<MachineRecipe> holder,mezz.jei.api.gui.ingredient.IRecipeSlotsView view,GuiGraphics g,double mx,double my){var font=Minecraft.getInstance().font;g.drawString(font,"→",72,12,0xffdddddd,false);g.drawString(font,Component.translatable("industry.slavicmyths.processing",holder.value().duration()/20),5,36,0xffdddddd,false);}
+        public void draw(RecipeHolder<MachineRecipe> holder,mezz.jei.api.gui.ingredient.IRecipeSlotsView view,GuiGraphics g,double mx,double my){var font=Minecraft.getInstance().font;g.drawString(font,"→",72,12,0xffdddddd,false);g.drawString(font,Component.translatable("industry.slavicmyths.processing",holder.value().duration()/20),5,36,0xffdddddd,false);g.drawWordWrap(font,Component.translatable("guide.industry.conditions"),5,50,170,0xffdddddd);}
     }
 }

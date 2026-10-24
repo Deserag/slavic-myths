@@ -1,5 +1,5 @@
 {
-  "parent": "slavicmyths:bad_people",
+  "parent": "slavicmyths:first_structure",
   "criteria": {
     "small": {
       "trigger": "minecraft:location",
@@ -28,17 +28,17 @@
   ],
   "display": {
     "icon": {
-      "id": "slavicmyths:lore_book"
+      "id": "slavicmyths:iron_spear"
     },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false,
     "title": {
       "translate": "advancements.slavicmyths.find_small_camp.title"
     },
     "description": {
       "translate": "advancements.slavicmyths.find_small_camp.description"
-    },
-    "frame": "task",
-    "show_toast": false,
-    "announce_to_chat": false,
-    "hidden": false
+    }
   }
 }

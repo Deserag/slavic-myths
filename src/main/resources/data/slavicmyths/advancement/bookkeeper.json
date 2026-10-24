@@ -1,5 +1,5 @@
 {
-  "parent": "slavicmyths:group_knowledge",
+  "parent": "slavicmyths:first_book_entry",
   "display": {
     "icon": {
       "id": "slavicmyths:lore_book"
@@ -10,7 +10,7 @@
     "description": {
       "translate": "advancements.slavicmyths.bookkeeper.description"
     },
-    "frame": "task",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": false,
     "hidden": false

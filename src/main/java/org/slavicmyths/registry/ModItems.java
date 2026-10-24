@@ -15,6 +15,7 @@ import org.slavicmyths.SlavicMyths;
 public final class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(Registries.ITEM, SlavicMyths.MOD_ID);
+    public static final DeferredHolder<Item,Item> SILVER_BLOCK=ITEMS.register("silver_block",()->new BlockItem(ModBlocks.SILVER_BLOCK.get(),properties()));
     public static final DeferredHolder<Item,Item> MOR_FLASK=ITEMS.register("mor_flask",()->new org.slavicmyths.mor.MorFlaskItem(properties()));
     public static final DeferredHolder<Item,Item> ANCIENT_DEPTHS_MAP=ITEMS.register("ancient_depths_map",()->new org.slavicmyths.depths.DepthsMapItem(properties()));
     public static final DeferredHolder<Item,Item> CURSED_VOLKOLAK_SKULL=ITEMS.register("cursed_volkolak_skull",()->new Item(properties().stacksTo(1).rarity(Rarity.RARE)));

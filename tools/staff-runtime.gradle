@@ -1,0 +1,6 @@
+gradle.projectsEvaluated {
+ def p=gradle.rootProject
+ p.sourceSets.weaponCheck.resources.srcDir 'tools/staff-runtime-resources'
+ p.neoForge.runs.weaponChecks.gameDirectory=p.file('work/staff-20261024/server-'+(p.findProperty('staffRun')?:'1'))
+ p.neoForge.runs.weaponChecks.systemProperty('neoforge.enabledGameTestNamespaces','slavicmyths_staff_audit')
+}

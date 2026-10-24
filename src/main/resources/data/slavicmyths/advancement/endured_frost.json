@@ -1,8 +1,8 @@
 {
-  "parent": "slavicmyths:root",
+  "parent": "slavicmyths:name_your_misfortune",
   "display": {
     "icon": {
-      "id": "slavicmyths:heart_of_eternal_cold"
+      "id": "slavicmyths:lore_book"
     },
     "title": {
       "translate": "advancement.slavicmyths.endured_frost"

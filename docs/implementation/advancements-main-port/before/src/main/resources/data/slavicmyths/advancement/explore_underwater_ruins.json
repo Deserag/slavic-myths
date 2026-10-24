@@ -1,0 +1,39 @@
+{
+  "parent": "slavicmyths:traces_of_past",
+  "display": {
+    "icon": {
+      "id": "minecraft:barrel"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.explore_underwater_ruins.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.explore_underwater_ruins.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "visit": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "dimension": "minecraft:overworld",
+                "structures": [
+                  "slavicmyths:underwater_ruins"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "parent": "slavicmyths:find_large_camp",
+  "parent": "slavicmyths:meet_bandits",
   "display": {
     "icon": {
-      "id": "slavicmyths:mace"
+      "id": "slavicmyths:iron_spear"
     },
     "title": {
       "translate": "advancement.slavicmyths.clear_large_camp.title"
@@ -10,9 +10,9 @@
     "description": {
       "translate": "advancement.slavicmyths.clear_large_camp.description"
     },
-    "frame": "challenge",
+    "frame": "goal",
     "show_toast": true,
-    "announce_to_chat": true,
+    "announce_to_chat": false,
     "hidden": false
   },
   "criteria": {

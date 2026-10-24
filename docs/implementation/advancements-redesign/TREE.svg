@@ -1,0 +1,268 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2160" height="1730" viewBox="0 0 2160 1730">
+<rect width="2160" height="1730" fill="#101b21"/>
+<style>text{font-family:Segoe UI,Arial,sans-serif;fill:#f0eadb} .small{font-size:12px;fill:#bac9cb} .name{font-size:17px;font-weight:600}</style>
+<text x="60" y="52" font-size="28">Славянские мифы — проект 55 узлов / 6 ветвей</text>
+<text x="60" y="82" class="small">DOCUMENTATION PROPOSAL · не игровой скриншот · линии = визуальный parent, не условие выдачи</text>
+<rect x="880" y="103" width="340" height="54" rx="10" fill="#263a43" stroke="#e2b26b"/>
+<text x="1050" y="136" text-anchor="middle" class="name">Славянские мифы</text>
+<path d="M1050 157 V180 H200 V210" fill="none" stroke="#e2b26b" opacity=".5"/>
+<rect x="30" y="210" width="340" height="54" rx="9" fill="#22353c" stroke="#e2b26b"/>
+<text x="200" y="242" text-anchor="middle" class="name">У родного огня</text>
+<rect x="30" y="300" width="340" height="90" rx="10" fill="#1c2b33" stroke="#e2b26b" stroke-width="1"/>
+<text x="50" y="330" class="name">Тепло родного дома</text>
+<text x="50" y="353" class="small">bind_hearth</text>
+<text x="50" y="374" class="small">Этап 1 · goal · parent: group_home</text>
+<path d="M38 257 V310 H45" fill="none" stroke="#e2b26b" opacity=".45"/>
+<rect x="30" y="415" width="340" height="90" rx="10" fill="#1c2b33" stroke="#e2b26b" stroke-width="1"/>
+<text x="50" y="445" class="name">Доверие Баюна</text>
+<text x="50" y="468" class="small">friend_of_bayun</text>
+<text x="50" y="489" class="small">Этап 2 · goal · parent: group_home</text>
+<path d="M38 257 V425 H45" fill="none" stroke="#e2b26b" opacity=".45"/>
+<rect x="30" y="530" width="340" height="90" rx="10" fill="#1c2b33" stroke="#e2b26b" stroke-width="1"/>
+<text x="50" y="560" class="name">Доверенный Яги</text>
+<text x="50" y="583" class="small">trusted_by_yaga</text>
+<text x="50" y="604" class="small">Этап 2 · goal · parent: group_home</text>
+<path d="M38 257 V540 H45" fill="none" stroke="#e2b26b" opacity=".45"/>
+<rect x="30" y="645" width="340" height="90" rx="10" fill="#1c2b33" stroke="#e2b26b" stroke-width="1"/>
+<text x="50" y="675" class="name">У деревенского стола</text>
+<text x="50" y="698" class="small">kitchen_meal</text>
+<text x="50" y="719" class="small">Этап 1 · task · parent: group_home</text>
+<path d="M38 257 V655 H45" fill="none" stroke="#e2b26b" opacity=".45"/>
+<rect x="30" y="760" width="340" height="90" rx="10" fill="#1c2b33" stroke="#e2b26b" stroke-width="1"/>
+<text x="50" y="790" class="name">От стебля до полотна</text>
+<text x="50" y="813" class="small">linen_craft</text>
+<text x="50" y="834" class="small">Этап 1 · task · parent: group_home</text>
+<path d="M38 257 V770 H45" fill="none" stroke="#e2b26b" opacity=".45"/>
+<rect x="30" y="875" width="340" height="90" rx="10" fill="#1c2b33" stroke="#e2b26b" stroke-width="1"/>
+<text x="50" y="905" class="name">Полный двор</text>
+<text x="50" y="928" class="small">full_yard</text>
+<text x="50" y="949" class="small">Этап 2 · goal · parent: group_home</text>
+<path d="M38 257 V885 H45" fill="none" stroke="#e2b26b" opacity=".45"/>
+<path d="M1050 157 V180 H555 V210" fill="none" stroke="#85bdd0" opacity=".5"/>
+<rect x="385" y="210" width="340" height="54" rx="9" fill="#22353c" stroke="#85bdd0"/>
+<text x="555" y="242" text-anchor="middle" class="name">Слово и знак</text>
+<rect x="385" y="300" width="340" height="90" rx="10" fill="#1c2b33" stroke="#85bdd0" stroke-width="1"/>
+<text x="405" y="330" class="name">Открытая книга</text>
+<text x="405" y="353" class="small">first_book_entry</text>
+<text x="405" y="374" class="small">Этап 1 · task · parent: group_knowledge</text>
+<path d="M393 257 V310 H400" fill="none" stroke="#85bdd0" opacity=".45"/>
+<rect x="397" y="415" width="328" height="90" rx="10" fill="#1c2b33" stroke="#85bdd0" stroke-width="1"/>
+<text x="417" y="445" class="name">Хранитель записей</text>
+<text x="417" y="468" class="small">bookkeeper</text>
+<text x="417" y="489" class="small">Этап 2 · goal · parent: first_book_entry</text>
+<path d="M393 353 V425 H412" fill="none" stroke="#85bdd0" opacity=".45"/>
+<rect x="385" y="530" width="340" height="90" rx="10" fill="#1c2b33" stroke="#85bdd0" stroke-width="1"/>
+<text x="405" y="560" class="name">Ответ на дар</text>
+<text x="405" y="583" class="small">first_ritual</text>
+<text x="405" y="604" class="small">Этап 1 · goal · parent: group_knowledge</text>
+<path d="M393 257 V540 H400" fill="none" stroke="#85bdd0" opacity=".45"/>
+<rect x="385" y="645" width="340" height="90" rx="10" fill="#1c2b33" stroke="#85bdd0" stroke-width="1"/>
+<text x="405" y="675" class="name">Три знака</text>
+<text x="405" y="698" class="small">three_signs</text>
+<text x="405" y="719" class="small">Этап 2 · goal · parent: group_knowledge</text>
+<path d="M393 257 V655 H400" fill="none" stroke="#85bdd0" opacity=".45"/>
+<rect x="385" y="760" width="340" height="90" rx="10" fill="#1c2b33" stroke="#85bdd0" stroke-width="1"/>
+<text x="405" y="790" class="name">Из сказки</text>
+<text x="405" y="813" class="small">rare_accessory</text>
+<text x="405" y="834" class="small">Этап 2 · goal · parent: group_knowledge</text>
+<path d="M393 257 V770 H400" fill="none" stroke="#85bdd0" opacity=".45"/>
+<rect x="385" y="875" width="340" height="90" rx="10" fill="#1c2b33" stroke="#85bdd0" stroke-width="1"/>
+<text x="405" y="905" class="name">Свой путь</text>
+<text x="405" y="928" class="small">own_path</text>
+<text x="405" y="949" class="small">Этап 1 · task · parent: group_knowledge</text>
+<path d="M393 257 V885 H400" fill="none" stroke="#85bdd0" opacity=".45"/>
+<rect x="397" y="990" width="328" height="90" rx="3" fill="#1c2b33" stroke="#85bdd0" stroke-width="3"/>
+<text x="417" y="1020" class="name">Имя в предании</text>
+<text x="417" y="1043" class="small">class_iv</text>
+<text x="417" y="1064" class="small">Этап 3 · challenge · parent: own_path</text>
+<path d="M393 928 V1000 H412" fill="none" stroke="#85bdd0" opacity=".45"/>
+<path d="M1050 157 V180 H910 V210" fill="none" stroke="#d49776" opacity=".5"/>
+<rect x="740" y="210" width="340" height="54" rx="9" fill="#22353c" stroke="#d49776"/>
+<text x="910" y="242" text-anchor="middle" class="name">Дороги богатырей</text>
+<rect x="740" y="300" width="340" height="90" rx="10" fill="#1c2b33" stroke="#d49776" stroke-width="1"/>
+<text x="760" y="330" class="name">Недобрые люди</text>
+<text x="760" y="353" class="small">bad_people</text>
+<text x="760" y="374" class="small">Этап 1 · task · parent: group_roads</text>
+<path d="M748 257 V310 H755" fill="none" stroke="#d49776" opacity=".45"/>
+<rect x="752" y="415" width="328" height="90" rx="10" fill="#1c2b33" stroke="#d49776" stroke-width="1"/>
+<text x="772" y="445" class="name">Стан обезврежен</text>
+<text x="772" y="468" class="small">clear_large_camp</text>
+<text x="772" y="489" class="small">Этап 2 · goal · parent: bad_people</text>
+<path d="M748 353 V425 H767" fill="none" stroke="#d49776" opacity=".45"/>
+<rect x="752" y="530" width="328" height="90" rx="10" fill="#1c2b33" stroke="#d49776" stroke-width="1"/>
+<text x="772" y="560" class="name">Без атамана</text>
+<text x="772" y="583" class="small">without_ataman</text>
+<text x="772" y="604" class="small">Этап 2 · goal · parent: bad_people</text>
+<path d="M748 353 V540 H767" fill="none" stroke="#d49776" opacity=".45"/>
+<rect x="752" y="645" width="328" height="90" rx="3" fill="#1c2b33" stroke="#d49776" stroke-width="3"/>
+<text x="772" y="675" class="name">Свист умолк</text>
+<text x="772" y="698" class="small">defeat_nightingale</text>
+<text x="772" y="719" class="small">Этап 3 · challenge · parent: bad_people</text>
+<path d="M748 353 V655 H767" fill="none" stroke="#d49776" opacity=".45"/>
+<rect x="740" y="760" width="340" height="90" rx="10" fill="#1c2b33" stroke="#d49776" stroke-width="1"/>
+<text x="760" y="790" class="name">Над лесом</text>
+<text x="760" y="813" class="small">first_flight</text>
+<text x="760" y="834" class="small">Этап 2 · goal · parent: group_roads</text>
+<path d="M748 257 V770 H755" fill="none" stroke="#d49776" opacity=".45"/>
+<rect x="740" y="875" width="340" height="90" rx="3" fill="#1c2b33" stroke="#d49776" stroke-width="3"/>
+<text x="760" y="905" class="name">Рухнувший исполин</text>
+<text x="760" y="928" class="small">defeat_idolishche</text>
+<text x="760" y="949" class="small">Этап 3 · challenge · parent: group_roads</text>
+<path d="M748 257 V885 H755" fill="none" stroke="#d49776" opacity=".45"/>
+<rect x="740" y="990" width="340" height="90" rx="3" fill="#1c2b33" stroke="#d49776" stroke-width="3"/>
+<text x="760" y="1020" class="name">Долина свободна</text>
+<text x="760" y="1043" class="small">defeat_skim</text>
+<text x="760" y="1064" class="small">Этап 3 · challenge · parent: group_roads</text>
+<path d="M748 257 V1000 H755" fill="none" stroke="#d49776" opacity=".45"/>
+<rect x="740" y="1105" width="340" height="90" rx="3" fill="#1c2b33" stroke="#d49776" stroke-width="3"/>
+<text x="760" y="1135" class="name">Чёрное знамя пало</text>
+<text x="760" y="1158" class="small">defeat_kartaus</text>
+<text x="760" y="1179" class="small">Этап 3 · challenge · parent: group_roads</text>
+<path d="M748 257 V1115 H755" fill="none" stroke="#d49776" opacity=".45"/>
+<rect x="740" y="1220" width="340" height="90" rx="3" fill="#1c2b33" stroke="#d49776" stroke-width="3"/>
+<text x="760" y="1250" class="name">Сломленная рать</text>
+<text x="760" y="1273" class="small">defeat_kalin</text>
+<text x="760" y="1294" class="small">Этап 3 · challenge · parent: group_roads</text>
+<path d="M748 257 V1230 H755" fill="none" stroke="#d49776" opacity=".45"/>
+<path d="M1050 157 V180 H1265 V210" fill="none" stroke="#85b78a" opacity=".5"/>
+<rect x="1095" y="210" width="340" height="54" rx="9" fill="#22353c" stroke="#85b78a"/>
+<text x="1265" y="242" text-anchor="middle" class="name">Лес и тихие воды</text>
+<rect x="1095" y="300" width="340" height="90" rx="10" fill="#1c2b33" stroke="#85b78a" stroke-width="1"/>
+<text x="1115" y="330" class="name">От липы до сосны</text>
+<text x="1115" y="353" class="small">all_timber</text>
+<text x="1115" y="374" class="small">Этап 2 · goal · parent: group_water</text>
+<path d="M1103 257 V310 H1110" fill="none" stroke="#85b78a" opacity=".45"/>
+<rect x="1095" y="415" width="340" height="90" rx="10" fill="#1c2b33" stroke="#85b78a" stroke-width="1"/>
+<text x="1115" y="445" class="name">Исследователь топей</text>
+<text x="1115" y="468" class="small">bog_explorer</text>
+<text x="1115" y="489" class="small">Этап 2 · goal · parent: group_water</text>
+<path d="M1103 257 V425 H1110" fill="none" stroke="#85b78a" opacity=".45"/>
+<rect x="1095" y="530" width="340" height="90" rx="10" fill="#1c2b33" stroke="#85b78a" stroke-width="1"/>
+<text x="1115" y="560" class="name">Свой голос</text>
+<text x="1115" y="583" class="small">break_water_call</text>
+<text x="1115" y="604" class="small">Этап 1 · goal · parent: group_water</text>
+<path d="M1103 257 V540 H1110" fill="none" stroke="#85b78a" opacity=".45"/>
+<rect x="1095" y="645" width="340" height="90" rx="10" fill="#1c2b33" stroke="#85b78a" stroke-width="1"/>
+<text x="1115" y="675" class="name">Лес помнит</text>
+<text x="1115" y="698" class="small">defeat_leshy</text>
+<text x="1115" y="719" class="small">Этап 2 · goal · parent: group_water</text>
+<path d="M1103 257 V655 H1110" fill="none" stroke="#85b78a" opacity=".45"/>
+<rect x="1095" y="760" width="340" height="90" rx="3" fill="#1c2b33" stroke="#85b78a" stroke-width="3"/>
+<text x="1115" y="790" class="name">Омут больше не зовёт</text>
+<text x="1115" y="813" class="small">defeat_depth_master</text>
+<text x="1115" y="834" class="small">Этап 2 · challenge · parent: group_water</text>
+<path d="M1103 257 V770 H1110" fill="none" stroke="#85b78a" opacity=".45"/>
+<rect x="1095" y="875" width="340" height="90" rx="10" fill="#1c2b33" stroke="#85b78a" stroke-width="1"/>
+<text x="1115" y="905" class="name">Загасить овин</text>
+<text x="1115" y="928" class="small">extinguish_the_barn</text>
+<text x="1115" y="949" class="small">Этап 2 · goal · parent: group_water</text>
+<path d="M1103 257 V885 H1110" fill="none" stroke="#85b78a" opacity=".45"/>
+<rect x="1095" y="990" width="340" height="90" rx="10" fill="#1c2b33" stroke="#85b78a" stroke-width="1"/>
+<text x="1115" y="1020" class="name">Серебряное средство</text>
+<text x="1115" y="1043" class="small">silver_remedy</text>
+<text x="1115" y="1064" class="small">Этап 2 · goal · parent: group_water</text>
+<path d="M1103 257 V1000 H1110" fill="none" stroke="#85b78a" opacity=".45"/>
+<rect x="1095" y="1105" width="340" height="90" rx="3" fill="#1c2b33" stroke="#85b78a" stroke-width="3"/>
+<text x="1115" y="1135" class="name">Разорванное проклятие</text>
+<text x="1115" y="1158" class="small">curse_resolved</text>
+<text x="1115" y="1179" class="small">Этап 3 · challenge · parent: group_water</text>
+<path d="M1103 257 V1115 H1110" fill="none" stroke="#85b78a" opacity=".45"/>
+<rect x="1095" y="1220" width="340" height="90" rx="10" fill="#1c2b33" stroke="#85b78a" stroke-width="1"/>
+<text x="1115" y="1250" class="name">До рассвета</text>
+<text x="1115" y="1273" class="small">night_watch</text>
+<text x="1115" y="1294" class="small">Этап 2 · goal · parent: group_water</text>
+<path d="M1103 257 V1230 H1110" fill="none" stroke="#85b78a" opacity=".45"/>
+<path d="M1050 157 V180 H1620 V210" fill="none" stroke="#b9a5d2" opacity=".5"/>
+<rect x="1450" y="210" width="340" height="54" rx="9" fill="#22353c" stroke="#b9a5d2"/>
+<text x="1620" y="242" text-anchor="middle" class="name">Память под землёй</text>
+<rect x="1450" y="300" width="340" height="90" rx="10" fill="#1c2b33" stroke="#b9a5d2" stroke-width="1"/>
+<text x="1470" y="330" class="name">Отголосок старины</text>
+<text x="1470" y="353" class="small">ancient_find</text>
+<text x="1470" y="374" class="small">Этап 1 · task · parent: group_burial</text>
+<path d="M1458 257 V310 H1465" fill="none" stroke="#b9a5d2" opacity=".45"/>
+<rect x="1450" y="415" width="340" height="90" rx="10" fill="#1c2b33" stroke="#b9a5d2" stroke-width="1"/>
+<text x="1470" y="445" class="name">Следы прошлого</text>
+<text x="1470" y="468" class="small">traces_of_past</text>
+<text x="1470" y="489" class="small">Этап 1 · task · parent: group_burial</text>
+<path d="M1458 257 V425 H1465" fill="none" stroke="#b9a5d2" opacity=".45"/>
+<rect x="1450" y="530" width="340" height="90" rx="10" fill="#1c2b33" stroke="#b9a5d2" stroke-width="1"/>
+<text x="1470" y="560" class="name">Огонь и вода</text>
+<text x="1470" y="583" class="small">found_two_sanctuaries</text>
+<text x="1470" y="604" class="small">Этап 2 · goal · parent: group_burial</text>
+<path d="M1458 257 V540 H1465" fill="none" stroke="#b9a5d2" opacity=".45"/>
+<rect x="1462" y="645" width="328" height="90" rx="3" fill="#1c2b33" stroke="#b9a5d2" stroke-width="3"/>
+<text x="1482" y="675" class="name">Очищенное пламя</text>
+<text x="1482" y="698" class="small">claimed_fire_fragment</text>
+<text x="1482" y="719" class="small">Этап 3 · challenge · parent: found_two_sanctuaries</text>
+<path d="M1458 583 V655 H1477" fill="none" stroke="#b9a5d2" opacity=".45"/>
+<rect x="1462" y="760" width="328" height="90" rx="3" fill="#1c2b33" stroke="#b9a5d2" stroke-width="3"/>
+<text x="1482" y="790" class="name">Источник вновь чист</text>
+<text x="1482" y="813" class="small">claimed_water_fragment</text>
+<text x="1482" y="834" class="small">Этап 3 · challenge · parent: found_two_sanctuaries</text>
+<path d="M1458 583 V770 H1477" fill="none" stroke="#b9a5d2" opacity=".45"/>
+<rect x="1450" y="875" width="340" height="90" rx="3" fill="#1c2b33" stroke="#b9a5d2" stroke-width="3"/>
+<text x="1470" y="905" class="name">Сердце земли</text>
+<text x="1470" y="928" class="small">earth_heart</text>
+<text x="1470" y="949" class="small">Этап 3 · challenge · parent: group_burial</text>
+<path d="M1458 257 V885 H1465" fill="none" stroke="#b9a5d2" opacity=".45"/>
+<rect x="1450" y="990" width="340" height="90" rx="3" fill="#1c2b33" stroke="#b9a5d2" stroke-width="3"/>
+<text x="1470" y="1020" class="name">Покой кургана</text>
+<text x="1470" y="1043" class="small">kurgan_rest</text>
+<text x="1470" y="1064" class="small">Этап 3 · challenge · parent: group_burial</text>
+<path d="M1458 257 V1000 H1465" fill="none" stroke="#b9a5d2" opacity=".45"/>
+<rect x="1450" y="1105" width="340" height="90" rx="10" fill="#1c2b33" stroke="#b9a5d2" stroke-width="1"/>
+<text x="1470" y="1135" class="name">Подземные стражи</text>
+<text x="1470" y="1158" class="small">depth_champions</text>
+<text x="1470" y="1179" class="small">Этап 2 · goal · parent: group_burial</text>
+<path d="M1458 257 V1115 H1465" fill="none" stroke="#b9a5d2" opacity=".45"/>
+<path d="M1050 157 V180 H1975 V210" fill="none" stroke="#e1ca7a" opacity=".5"/>
+<rect x="1805" y="210" width="340" height="54" rx="9" fill="#22353c" stroke="#e1ca7a"/>
+<text x="1975" y="242" text-anchor="middle" class="name">На краю сказания</text>
+<rect x="1805" y="300" width="340" height="90" rx="3" fill="#1c2b33" stroke="#e1ca7a" stroke-width="3"/>
+<text x="1825" y="330" class="name">Назови своё несчастье</text>
+<text x="1825" y="353" class="small">name_your_misfortune</text>
+<text x="1825" y="374" class="small">Этап 3 · challenge · parent: group_legends</text>
+<path d="M1813 257 V310 H1820" fill="none" stroke="#e1ca7a" opacity=".45"/>
+<rect x="1805" y="415" width="340" height="90" rx="3" fill="#1c2b33" stroke="#e1ca7a" stroke-width="3"/>
+<text x="1825" y="445" class="name">Степной богатырь</text>
+<text x="1825" y="468" class="small">steppe_champion</text>
+<text x="1825" y="489" class="small">Этап 3 · challenge · parent: group_legends</text>
+<path d="M1813 257 V425 H1820" fill="none" stroke="#e1ca7a" opacity=".45"/>
+<rect x="1805" y="530" width="340" height="90" rx="3" fill="#1c2b33" stroke="#e1ca7a" stroke-width="3"/>
+<text x="1825" y="560" class="name">Выдержавший стужу</text>
+<text x="1825" y="583" class="small">endured_frost</text>
+<text x="1825" y="604" class="small">Этап 3 · challenge · parent: group_legends</text>
+<path d="M1813 257 V540 H1820" fill="none" stroke="#e1ca7a" opacity=".45"/>
+<rect x="1805" y="645" width="340" height="90" rx="3" fill="#1c2b33" stroke="#e1ca7a" stroke-width="3"/>
+<text x="1825" y="675" class="name">Последняя ночь</text>
+<text x="1825" y="698" class="small">endured_last_night</text>
+<text x="1825" y="719" class="small">Этап 3 · challenge · parent: group_legends</text>
+<path d="M1813 257 V655 H1820" fill="none" stroke="#e1ca7a" opacity=".45"/>
+<rect x="1805" y="760" width="340" height="90" rx="3" fill="#1c2b33" stroke="#e1ca7a" stroke-width="3"/>
+<text x="1825" y="790" class="name">Падение Великого Полоза</text>
+<text x="1825" y="813" class="small">great_poloz_fall</text>
+<text x="1825" y="834" class="small">Этап 3 · challenge · parent: group_legends</text>
+<path d="M1813 257 V770 H1820" fill="none" stroke="#e1ca7a" opacity=".45"/>
+<rect x="1805" y="875" width="340" height="90" rx="3" fill="#1c2b33" stroke="#e1ca7a" stroke-width="3"/>
+<text x="1825" y="905" class="name">Три головы, одна воля</text>
+<text x="1825" y="928" class="small">defeat_gorynych</text>
+<text x="1825" y="949" class="small">Этап 3 · challenge · parent: group_legends</text>
+<path d="M1813 257 V885 H1820" fill="none" stroke="#e1ca7a" opacity=".45"/>
+<rect x="1805" y="990" width="340" height="90" rx="3" fill="#1c2b33" stroke="#e1ca7a" stroke-width="3"/>
+<text x="1825" y="1020" class="name">Чары рассеяны</text>
+<text x="1825" y="1043" class="small">defeat_marinka</text>
+<text x="1825" y="1064" class="small">Этап 3 · challenge · parent: group_legends</text>
+<path d="M1813 257 V1000 H1820" fill="none" stroke="#e1ca7a" opacity=".45"/>
+<rect x="1805" y="1105" width="340" height="90" rx="10" fill="#1c2b33" stroke="#e1ca7a" stroke-width="1"/>
+<text x="1825" y="1135" class="name">Несбыточный цветок</text>
+<text x="1825" y="1158" class="small">fern_flower</text>
+<text x="1825" y="1179" class="small">Этап 3 · goal · parent: group_legends</text>
+<path d="M1813 257 V1115 H1820" fill="none" stroke="#e1ca7a" opacity=".45"/>
+<rect x="1805" y="1220" width="340" height="90" rx="10" fill="#1c2b33" stroke="#e1ca7a" stroke-width="1"/>
+<text x="1825" y="1250" class="name">Падающая звезда</text>
+<text x="1825" y="1273" class="small">falling_star</text>
+<text x="1825" y="1294" class="small">Этап 2 · goal · parent: group_legends</text>
+<path d="M1813 257 V1230 H1820" fill="none" stroke="#e1ca7a" opacity=".45"/>
+<text x="60" y="1650" class="small">55 карточек = 1 корень + 6 разделов + 48 вех. 77 recipe unlocks сохраняются отдельно; остальные прежние ID — data-only.</text>
+<text x="60" y="1680" class="small">Золотая/цветная толстая рамка: challenge. Ни одна победа не требует убийства другого нерелевантного босса.</text>
+</svg>

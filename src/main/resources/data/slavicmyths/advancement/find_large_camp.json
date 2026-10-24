@@ -1,20 +1,5 @@
 {
-  "parent": "slavicmyths:bad_people",
-  "display": {
-    "icon": {
-      "id": "slavicmyths:pine_log"
-    },
-    "title": {
-      "translate": "advancement.slavicmyths.find_large_camp.title"
-    },
-    "description": {
-      "translate": "advancement.slavicmyths.find_large_camp.description"
-    },
-    "frame": "task",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
+  "parent": "slavicmyths:find_small_camp",
   "criteria": {
     "visit": {
       "trigger": "minecraft:location",
@@ -33,6 +18,21 @@
           }
         ]
       }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "slavicmyths:iron_spear"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false,
+    "title": {
+      "translate": "advancements.slavicmyths.find_large_camp.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.find_large_camp.description"
     }
   }
 }

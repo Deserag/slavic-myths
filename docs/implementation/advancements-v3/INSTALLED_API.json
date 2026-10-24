@@ -1,0 +1,21 @@
+{
+  "status": "STATIC_SOURCE_REVIEW",
+  "source_archive": "C:\\Users\\pavel\\.gradle\\caches\\neoformruntime\\intermediate_results\\sourcesWithNeoForge_1b895159570e24c73a96b84cbbaaf599f7d3b140_output.zip",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.255",
+  "sources": {
+    "net/minecraft/server/PlayerAdvancements.java": "a692ce6eb5c64f116b3ab5fed4de16ee0522e0bf20a7df8899a14dc031d0d725",
+    "net/minecraft/server/advancements/AdvancementVisibilityEvaluator.java": "bad5f71b5063949ea3328c2fb2b9f1bac10cb8a232e4a901657f2f1e83d6de93",
+    "net/minecraft/world/entity/npc/Villager.java": "ce495932860572aa22555108cb83895cca2fad926659434c22f85b3c74e5f02a",
+    "net/minecraft/world/item/ItemStack.java": "b35770a757f0c62a88276a38c36763d26e204d1a6210ea3fcac71a53526bc389",
+    "net/minecraft/server/level/ServerPlayerGameMode.java": "52b777c8d9cff08187b3681091fa500801c125dc4fc2a5876693afe38d2a514d"
+  },
+  "runtime": "NOT_RUN",
+  "findings": [
+    "PlayerAdvancements.award grants only the supplied holder criterion without checking parent completion.",
+    "AdvancementVisibilityEvaluator returns SHOW for a completed holder; descendant completion propagates visibility to ancestors but does not grant their criteria.",
+    "Book includes all 75 non-hidden display holders and Done is independent of parentDone.",
+    "Book renderer selects Done color and tooltip before Available; completed children retain ancestor context in the layout.",
+    "Villager.mobInteract accepts native trade opening on server; mixin observes return and exact trading player."
+  ]
+}

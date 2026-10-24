@@ -172,5 +172,5 @@ public final class KurganCreature extends Monster {
     }
     @Override public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);if(kurgan!=null)n.putUUID("Kurgan",kurgan);if(home!=null)n.putLong("KurganHome",home.asLong());n.putInt("KurganRoom",room);n.putBoolean("LimitedSummon",summoned);n.putInt("CombatPhase",phase());CompoundTag cd=new CompoundTag();for(Map.Entry<Move,Integer> e:cooldowns.entrySet())cd.putInt(e.getKey().name(),e.getValue());n.put("KurganCooldowns",cd);}
     @Override public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);kurgan=n.hasUUID("Kurgan")?n.getUUID("Kurgan"):null;home=n.contains("KurganHome")?BlockPos.of(n.getLong("KurganHome")):null;room=n.contains("KurganRoom")?n.getInt("KurganRoom"):-1;summoned=n.getBoolean("LimitedSummon");entityData.set(PHASE,Math.max(0,Math.min(2,n.getInt("CombatPhase"))));CompoundTag cd=n.getCompound("KurganCooldowns");for(Move m:Move.values())cooldowns.put(m,Math.max(0,Math.min(m.cooldown,cd.getInt(m.name()))));}
-    @Override public void die(DamageSource source){boolean wasDead=dead;super.die(source);if(!wasDead&&dead&&!level().isClientSide)KurganEncounters.died(this);}
+    @Override public void die(DamageSource source){boolean wasDead=dead;super.die(source);if(!wasDead&&dead&&!level().isClientSide)KurganEncounters.died(this,source);}
 }

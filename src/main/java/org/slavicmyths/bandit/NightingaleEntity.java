@@ -262,7 +262,7 @@ public final class NightingaleEntity extends PathfinderMob implements net.minecr
             fatal=source;if(source.getEntity() instanceof Player)participants.add(source.getEntity().getUUID());
             setNoGravity(false);fallDistance=0;begin(DYING,0);bar.removeAllPlayers();
             if(camp!=null)StrongholdRecords.get((ServerLevel)level()).nightingaleDied(camp);
-            for(UUID id:participants){ServerPlayer p=((ServerLevel)level()).getServer().getPlayerList().getPlayer(id);if(p!=null&&p.level()==level()&&distanceToSqr(p)<64*64){Knowledge.award(p,"meet_nightingale");Knowledge.award(p,"defeat_nightingale");}}
+            for(UUID id:participants){ServerPlayer p=((ServerLevel)level()).getServer().getPlayerList().getPlayer(id);if(p!=null&&p.level()==level()&&distanceToSqr(p)<64*64){Knowledge.award(p,"meet_nightingale");if(camp!=null&&org.slavicmyths.progression.AdvancementMilestones.combatDeath(source))org.slavicmyths.progression.AdvancementMilestones.award(p,"defeat_nightingale");}}
         }
     }
     @Override protected void dropAllDeathLoot(ServerLevel world,DamageSource source){fatal=source;} // deferred until the collapse

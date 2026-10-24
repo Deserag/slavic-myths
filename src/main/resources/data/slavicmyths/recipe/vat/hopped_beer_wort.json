@@ -13,12 +13,6 @@
         "item": "slavicmyths:hops"
       },
       "count": 3
-    },
-    {
-      "ingredient": {
-        "item": "minecraft:water_bucket"
-      },
-      "count": 1
     }
   ],
   "time": 1200,
@@ -31,5 +25,8 @@
       "id": "minecraft:bucket",
       "count": 1
     }
-  ]
+  ],
+  "catalyst": {
+    "item": "minecraft:water_bucket"
+  }
 }

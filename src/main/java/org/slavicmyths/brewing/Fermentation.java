@@ -10,13 +10,14 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 /** Per-vessel state; no manager, unloaded blocks cannot age. Legacy NBT is unchanged. */
 public final class Fermentation {
- public String beverage="";public int age,servings;
+ public String beverage="";public int age,servings;private java.util.UUID starter;private boolean journeyAwarded;
+ public void completed(net.minecraft.server.level.ServerLevel world){if(!journeyAwarded&&starter!=null&&active()&&BrewRules.quality(age).equals("ready")&&java.util.Arrays.asList(Brewing.BEERS).contains(beverage)){journeyAwarded=org.slavicmyths.progression.AdvancementJourney.beerReady(world,starter);}}
  public boolean active(){return servings>0;}
- public void save(CompoundTag n){if(active()){CompoundTag b=new CompoundTag();b.putString("Beverage",beverage);b.putInt("Age",age);b.putInt("Servings",servings);n.put("Fermentation",b);}}
+ public void save(CompoundTag n){if(active()){CompoundTag b=new CompoundTag();b.putString("Beverage",beverage);b.putInt("Age",age);b.putInt("Servings",servings);if(starter!=null)b.putUUID("JourneyStarter",starter);b.putBoolean("JourneyAwarded",journeyAwarded);n.put("Fermentation",b);}}
  public void load(CompoundTag n){load(n,Brewing.BATCHES.values());}
- void load(CompoundTag n,java.util.Collection<String> beverages){CompoundTag b=n.getCompound("Fermentation");beverage=b.getString("Beverage");age=Math.max(0,Math.min(12000,b.getInt("Age")));servings=Math.max(0,Math.min(8,b.getInt("Servings")));if(!beverages.contains(beverage)){servings=0;beverage="";}}
+ void load(CompoundTag n,java.util.Collection<String> beverages){CompoundTag b=n.getCompound("Fermentation");starter=b.hasUUID("JourneyStarter")?b.getUUID("JourneyStarter"):null;journeyAwarded=b.getBoolean("JourneyAwarded");beverage=b.getString("Beverage");age=Math.max(0,Math.min(12000,b.getInt("Age")));servings=Math.max(0,Math.min(8,b.getInt("Servings")));if(!beverages.contains(beverage)){servings=0;beverage="";}}
  public boolean interact(BlockEntity tile,Player p,InteractionHand hand,boolean allowStart){ItemStack held=p.getItemInHand(hand);String batch=Brewing.BATCHES.get(Brewing.key(held));
-  if(!active()){if(!allowStart||batch==null||!((Container)tile).isEmpty())return false;if(!p.level().isClientSide){beverage=batch;age=0;servings=8;held.consume(1,p);tile.setChanged();}return true;}
+  if(!active()){if(!allowStart||batch==null||!((Container)tile).isEmpty())return false;if(!p.level().isClientSide){beverage=batch;age=0;servings=8;starter=p instanceof net.minecraft.server.level.ServerPlayer sp&&org.slavicmyths.progression.AdvancementMilestones.eligible(sp)?p.getUUID():null;journeyAwarded=false;held.consume(1,p);tile.setChanged();}return true;}
   if(!p.level().isClientSide){String container=Brewing.key(held),q=BrewRules.quality(age),b=q.equals("spoiled")?"spoiled_brew":beverage;int n=BrewRules.pourCount(container,BeverageItem.pitcherAllowed(beverage),BeverageItem.mugAllowed(beverage),servings);
    if(n>0){ItemStack out=BeverageItem.filled(b,q,container,n);held.shrink(1);servings-=n;if(servings==0)beverage="";tile.setChanged();BeverageItem.obtained(p,out);KitchenTile.give(p,out);}else p.displayClientMessage(Component.translatable("brewing.slavicmyths.status",Component.translatable("brewing.slavicmyths."+q),servings),true);
   }return true;

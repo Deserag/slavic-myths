@@ -12,5 +12,5 @@ import org.spongepowered.asm.mixin.injection.*;
 @Mixin(ItemStack.class)
 public abstract class ToolRuneUseMixin {
  @Redirect(method="useOn",at=@At(value="INVOKE",target="Lnet/neoforged/neoforge/common/CommonHooks;onPlaceItemIntoWorld(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;"))
- private InteractionResult slavicmyths$use(UseOnContext context){var frame=ToolRuneRuntime.beforeUse(context);var result=CommonHooks.onPlaceItemIntoWorld(context);return ToolRuneRuntime.afterUse(context,frame,result);}
+ private InteractionResult slavicmyths$use(UseOnContext context){var plantedAt=org.slavicmyths.progression.AdvancementJourney.plantingPosition(context);var plantedBefore=plantedAt==null?null:context.getLevel().getBlockState(plantedAt);var frame=ToolRuneRuntime.beforeUse(context);var result=CommonHooks.onPlaceItemIntoWorld(context);org.slavicmyths.progression.AdvancementJourney.planted(context,plantedAt,plantedBefore,result);return ToolRuneRuntime.afterUse(context,frame,result);}
 }

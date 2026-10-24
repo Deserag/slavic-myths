@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:lore_book",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:lore_book"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.lore_keeper.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.lore_keeper.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

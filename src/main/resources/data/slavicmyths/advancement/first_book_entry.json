@@ -1,5 +1,5 @@
 {
-  "parent": "slavicmyths:group_knowledge",
+  "parent": "slavicmyths:ancient_find",
   "display": {
     "icon": {
       "id": "slavicmyths:lore_book"

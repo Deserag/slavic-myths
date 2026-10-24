@@ -35,7 +35,7 @@ public final class GreyWolfStory {
   var probe=new net.minecraft.world.entity.player.Inventory(p);for(int n=0;n<p.getInventory().getContainerSize();n++)probe.setItem(n,p.getInventory().getItem(n).copy());
   for(var reward:rewards){var remainder=reward.copy();probe.add(remainder);if(!remainder.isEmpty()){p.displayClientMessage(text("inventory_full"),true);return false;}}
   q.putBoolean("Claimed",true);q.putLong("ClaimedAt",now(p));q.putBoolean("Discovered",true);
-  for(int n=0;n<p.getInventory().getContainerSize();n++)p.getInventory().setItem(n,probe.getItem(n));p.getInventory().setChanged();untrack(p,i);cue(p,"reward_claim");return true;
+  for(int n=0;n<p.getInventory().getContainerSize();n++)p.getInventory().setItem(n,probe.getItem(n));p.getInventory().setChanged();if(i<3)org.slavicmyths.progression.AdvancementJourney.award(p,IDS[i]);untrack(p,i);cue(p,"reward_claim");return true;
  }
  public static long now(ServerPlayer p){return p.getServer().overworld().getGameTime();}
  public static net.minecraft.network.chat.MutableComponent text(String key,Object...args){return net.minecraft.network.chat.Component.translatable("wolfstory.slavicmyths."+key,args);}

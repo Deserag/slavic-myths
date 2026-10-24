@@ -3,10 +3,13 @@
   "ingredients": [
     {
       "item": "minecraft:hay_block"
+    },
+    {
+      "item": "minecraft:hay_block"
     }
   ],
   "result": {
     "id": "slavicmyths:haystack",
-    "count": 1
+    "count": 2
   }
 }

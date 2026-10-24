@@ -1,0 +1,122 @@
+[
+  {
+    "path": ".gitattributes",
+    "bytes": 29,
+    "sha256": "730a35ae3d558080083c3103d9ac8100c3f6561678092abe341701dfa331eb1d"
+  },
+  {
+    "path": "AUDIT.json",
+    "bytes": 90061,
+    "sha256": "b1c4d9498df7ed79fa4f91464a5ef10a3be2d76995d025b40359f0207ca8f2e6"
+  },
+  {
+    "path": "build-accepted.log",
+    "bytes": 34255,
+    "sha256": "59aad7d962d34c4fae358edf036e5e3b289b459824dca5b6d31db007c00d94a2"
+  },
+  {
+    "path": "build-first.log",
+    "bytes": 34242,
+    "sha256": "b8d1fb30e4e42b872fad9d1f334c3e8e153a1c166e33bca5ac51896b5a9eea5d"
+  },
+  {
+    "path": "CHECKS.json",
+    "bytes": 866,
+    "sha256": "f93369976fa8beffdcf118e1ae2071e4f54ad107e140000583626469fd66b539"
+  },
+  {
+    "path": "COMPATIBILITY.json",
+    "bytes": 37182,
+    "sha256": "060ba8977a6f1768270d0e99b769bc3f66b72460f6ca99b1f4609fd03991f5ca"
+  },
+  {
+    "path": "COMPATIBILITY.md",
+    "bytes": 13823,
+    "sha256": "68fe783d71e27aad94905e455f2c8f01e3f6d3482f142db792b8ecf4ac612baa"
+  },
+  {
+    "path": "CONDITIONS.md",
+    "bytes": 44777,
+    "sha256": "9e9d7b42fd3a84886b686298a80ef667800c28fff8796ec792f5fdfcfc471c82"
+  },
+  {
+    "path": "DEPENDENCIES.json",
+    "bytes": 368,
+    "sha256": "bcd3b4cb351352c88238164b0512b3dd027662574afe000686e12762d21f7eb1"
+  },
+  {
+    "path": "DESIGN_CONTRACT.json",
+    "bytes": 1426,
+    "sha256": "088f58d03b6b1007b932e0e6929f09637595d5ce1cb8fdd19329d14aafa01f6d"
+  },
+  {
+    "path": "dry-run.log",
+    "bytes": 740,
+    "sha256": "f21257fe8b518dbed8cf44064bbe4c2525eedf9ffd22623dde77907417cfcb9b"
+  },
+  {
+    "path": "final-dry-run.log",
+    "bytes": 778,
+    "sha256": "c4d6ce80a369aa5660a61fac0cade62ef020daf43b063a66bd77c2894dbbb620"
+  },
+  {
+    "path": "gates-release.log",
+    "bytes": 326,
+    "sha256": "30180657b781a82dde988da1306d19a9424a32d955b941bb2ceae2e2ce7b8e8f"
+  },
+  {
+    "path": "GENERATOR.json",
+    "bytes": 346,
+    "sha256": "339d6326f98f4f1a0a3935321eb3d34b86f40b96859014d6dedde351cc07c682"
+  },
+  {
+    "path": "HISTORY_POLICY.log",
+    "bytes": 86,
+    "sha256": "c09ce0c643ce7a669cf2f8e5917e6f266e9a029df9d37d1d10958fe3294eeee5"
+  },
+  {
+    "path": "ICON_PROOFS.json",
+    "bytes": 11006,
+    "sha256": "599bf8771db749a2b08bc4e31c7923afd947db1bc395c6430453c5b1edc2b67e"
+  },
+  {
+    "path": "INSTALLED_API.json",
+    "bytes": 938,
+    "sha256": "fa7da4c0d083a40e0e4e3a53cac4539c619c97b99490a6296fb0c463ea852d90"
+  },
+  {
+    "path": "REPORT.md",
+    "bytes": 22648,
+    "sha256": "55507c4277b1f43f88a30fd6cb49717be6c069fec85df41e4f52a58d09ef0096"
+  },
+  {
+    "path": "resource-build.log",
+    "bytes": 841,
+    "sha256": "b3888334fbff9f5bef4d56370949b2c783e90f75c0dd2d753587f383ccbe4bd4"
+  },
+  {
+    "path": "resource-contract.json",
+    "bytes": 209809,
+    "sha256": "89f7b206f4509129e223dc00b8966695c407eb48d611e3594477f09544f0cf72"
+  },
+  {
+    "path": "TASK_GRAPH.json",
+    "bytes": 572,
+    "sha256": "2a67021e11752b00960883b6821bc4bc406110ff043495382c9c206d1be7dbb5"
+  },
+  {
+    "path": "tests-release.log",
+    "bytes": 124,
+    "sha256": "a2e4c20085ec61a59acf039420dfdab93433782cd4c1651871068d2f84b4e7fa"
+  },
+  {
+    "path": "TREE.png",
+    "bytes": 177990,
+    "sha256": "4104f30366d15baa765a55dda4612f10ac977daeebc7102097833f0ae2cc231d"
+  },
+  {
+    "path": "TREE.svg",
+    "bytes": 22375,
+    "sha256": "b6e029b1b8f130275997dcdd3d8a374b3e007f1e894277648f90bc599692152d"
+  }
+]

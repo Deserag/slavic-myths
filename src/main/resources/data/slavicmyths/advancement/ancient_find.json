@@ -1,5 +1,5 @@
 {
-  "parent": "slavicmyths:group_knowledge",
+  "parent": "slavicmyths:first_structure",
   "display": {
     "icon": {
       "id": "slavicmyths:ancient_coin"

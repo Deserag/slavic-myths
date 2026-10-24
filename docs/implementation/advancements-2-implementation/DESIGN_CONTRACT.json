@@ -1,0 +1,18 @@
+{
+  "pr31": "12eca688a44c7193ebcde1873dac03e9fa6f3a29",
+  "pr25": "e2ca8a8f998bb390cd6538f8979a2df13da006cc",
+  "files": {
+    "docs/implementation/advancements-redesign/NEW_TREE.md": "690238b3b0d2daffa8b2f97e4ad3a8050f7a2246",
+    "docs/implementation/advancements-redesign/TREE_TABLE.md": "f0863c88a9178903671930f3eb206228a5145731",
+    "docs/implementation/advancements-redesign/TREE.json": "766f0158fd4334d2332a66b8866a578ad0de6855",
+    "docs/implementation/advancements-redesign/DECISIONS.json": "33245f4d94ab2d741b775e2e175be05f81d697af",
+    "docs/implementation/advancements-redesign/DECISIONS.md": "ef777d3ff6e34fb7712d29808e972e1c035cf4a4",
+    "docs/implementation/advancements-redesign/SOURCE.json": "6f87d27ac2d368617775611c06d018c5aaa4d403",
+    "docs/implementation/advancements-redesign/AUDIT.md": "3aaec3b6d9b900780d8af3ae6fd14ee38dc95644",
+    "docs/implementation/advancements-redesign/BOSS_COVERAGE.md": "6f9a499549314c6d9aa2bbbf31ddf0d6a1b7bfe6",
+    "docs/implementation/advancements-redesign/MIGRATION.md": "57b3fd677a73d00afabc040693ba784796191eef",
+    "docs/implementation/advancements-redesign/TREE.svg": "5eedbf2c38b12e57504779b3a9bf7450f1867d93",
+    "docs/implementation/advancements-redesign/VERIFICATION.json": "b67a8d89c0716408bbb10e6fc9d6d7ebdb724854",
+    "docs/implementation/advancements-micro-patch/save-contract.json": "4cf48eb98f6861a4b1712fd290c89ed2185126e0"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "branch": "codex/advancements-v3",
+  "worktree": "D:\\slavic-myths-advancements-v3",
+  "base_pr40": "82a0cccb569307b2992e4c82bf30667a7862fade",
+  "publication": "LOCAL_ONLY_BY_EXPLICIT_USER_CHOICE",
+  "commit_push_pr": "NOT_PERFORMED",
+  "minecraft_launches": 0,
+  "build": "PASS",
+  "mutation_tests": "19/19 PASS",
+  "pure_jvm": 40640,
+  "jar": {
+    "path": "build\\libs\\slavicmyths-1.9.7.5.jar",
+    "sha256": "8808ed388fc9f524ff43a6555720afaa5aa8b57c452762bffd7e75a5100e2e10",
+    "bytes": 19730967,
+    "resources": "PASS",
+    "test_code": "ABSENT"
+  },
+  "resource_checks": {
+    "json": 3954,
+    "png": 1325,
+    "jar": "PASS"
+  },
+  "manual": "NOT_RUN"
+}

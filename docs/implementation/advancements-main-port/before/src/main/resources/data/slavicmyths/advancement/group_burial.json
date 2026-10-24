@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:ancient_coin"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.group_burial.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.group_burial.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "section": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

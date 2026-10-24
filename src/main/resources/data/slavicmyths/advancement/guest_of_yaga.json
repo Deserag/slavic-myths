@@ -1,23 +1,23 @@
 {
-  "parent": "slavicmyths:not_empty_handed",
+  "parent": "slavicmyths:find_the_hut",
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  },
   "display": {
     "icon": {
-      "id": "slavicmyths:svyazka_trav_yagi"
+      "id": "slavicmyths:lore_book"
     },
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false,
     "title": {
       "translate": "advancements.slavicmyths.guest_of_yaga.title"
     },
     "description": {
       "translate": "advancements.slavicmyths.guest_of_yaga.description"
-    },
-    "frame": "task",
-    "show_toast": true,
-    "announce_to_chat": false,
-    "hidden": false
-  },
-  "criteria": {
-    "event": {
-      "trigger": "minecraft:impossible"
     }
   }
 }

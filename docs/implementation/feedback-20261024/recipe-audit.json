@@ -1,0 +1,21 @@
+{
+  "recipes": 1841,
+  "supported": 1298,
+  "conflicts": [],
+  "process_overlap_candidates": [],
+  "unresolved_tags": [],
+  "other_serializers": [
+    "minecraft:campfire_cooking",
+    "minecraft:smelting",
+    "minecraft:smoking",
+    "minecraft:stonecutting",
+    "slavicmyths:chud_bloomery",
+    "slavicmyths:drying",
+    "slavicmyths:gorynych_upgrade",
+    "slavicmyths:kitchen",
+    "slavicmyths:refining_hearth",
+    "slavicmyths:rune_crafting",
+    "slavicmyths:two_winters",
+    "slavicmyths:vat"
+  ]
+}

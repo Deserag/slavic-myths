@@ -1,0 +1,5 @@
+{
+  "checks": 7071,
+  "minecraft_processes": 0,
+  "scope": "Native ModelPart/UV capture; NBT roundtrip and brewing arithmetic, not world/runtime tests"
+}

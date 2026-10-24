@@ -1,3 +1,15 @@
+## 24.10.2026 — посохи, зачарования и runtime-регрессия
+
+CombatStaffItem/StaffStats задают melee атрибуты и допуск поддерживаемых enchantments в primary selection без sword-only tags. Damage enchantments/Strength относятся к melee; spell damage остаётся отдельным. У durable staff сохранены исходные пределы прочности; Морозко остаётся неразрушаемым. StormStaff использует bbox ray/center cone; FrostClient отменяет только воздушный attack, FrostEvents не отменяет близкий native melee. Все harness/source sets opt-in tools, production JAR их не содержит. ModelPart/UV/PNG и registry IDs не изменены. [Матрица, измерения, кадры и JAR/SHA](implementation/staff-audit-20261024/REPORT.md).
+
+## 24.10.2026 — все девять пунктов игрового фидбека
+
+Добавлены optional JEI-only категории vat/process/textile/drying/special crafting; common/server их не загружают. Источник рецептов — RecipeManager и существующие production definitions. YagaDiscovery читает настоящие advancements, запускает конечную очередь по запросу книги: максимум 1 chunk/tick, 8 кандидатов, temporary tickets с release/timeout, прежний YagaData/transactional placement. ChudResearch использует прежний ChudRegionPlanner (96 кандидатов/30s на worker), проверяет реальный start до назначения; UUID progress/две карты сохраняются в TaleData, посещение — существующий TaleEvents observer. ChudResearchProgress защищает visit/claim. Нового глобального обхода игроков/мира нет. CarcassRenderer устранено лишнее /16; gameplay туш не изменён. Silver block — новый registry ID, существующие IDs сохранены. [Матрица, evidence, JAR/SHA и ограничения](implementation/feedback-20261024/REPORT.md).
+
+## 24.10.2026 — достижения v3 в актуальной рабочей копии main
+
+Перенесены75 связанных карточек с четырьмя ветвями и серверными вехами побед; старые217 definitions/условия/награды и77 unlocks сохранены. Clean build1m45s;40326+314 pure JVM checks, два отдельных серверных прогона8/8 и реальная загрузка прогресса после перезапуска PASS. [Матрица, точный JAR и ограничения](implementation/advancements-main-port/REPORT.md). Визуальная и сюжетная приёмка владельца ожидается. PolyMC не обновлялся, commit/push не выполнялись.
+
 ## 23.10.2026 — ручная приёмка 1.9.7.60 и следующий пакет
 
 По прямому решению владельца фактически переведены в «Готово» #217/#219/#220/#225/#226. [Основание и границы приёмки](implementation/project9-owner-acceptance-19760/REPORT.md). Новое поручение: #121 (защита актуальных оружейных ресурсов от отката старых генераторов) и #129 (итоговая техническая проверка брони после принятых #122–128). #129: 29 ID, 232 свежих native mesh-состояния, 13 исключённых аксессуаров сохранены; clean build44s и актуальный JAR/resources PASS, игровых запусков0, owner-only runtime NOT_RUN. [Матрица #129](implementation/issue129-current/REPORT.md). #129 и #121 фактически «Тестирование». #121: исправлены два legacy entrypoint и weapon-only вход Полоза; 7 entrypoints ×2 replay PASS, откатов0. [Матрица #121](implementation/issue121-current/REPORT.md). Новых художественных production-изменений и установки PolyMC в этом пакете нет.

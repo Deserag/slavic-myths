@@ -1,8 +1,8 @@
 {
-  "parent": "slavicmyths:group_burial",
+  "parent": "slavicmyths:first_structure",
   "display": {
     "icon": {
-      "id": "minecraft:map"
+      "id": "slavicmyths:willow_log"
     },
     "title": {
       "translate": "advancement.slavicmyths.traces_of_past.title"
@@ -12,7 +12,7 @@
     },
     "frame": "task",
     "show_toast": true,
-    "announce_to_chat": true,
+    "announce_to_chat": false,
     "hidden": false
   },
   "criteria": {

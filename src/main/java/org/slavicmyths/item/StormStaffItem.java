@@ -20,7 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.server.level.ServerLevel;
 
 /** Bounded ray pulse on use; no projectile, terrain damage, or tick scan. */
-public final class StormStaffItem extends Item {
+public final class StormStaffItem extends org.slavicmyths.combat.CombatStaffItem {
     public static final float BASE_PULSE_DAMAGE=6.0F;
     public static final int PULSE_COOLDOWN=48;
     public static final int RUNE_COOLDOWN=42;
@@ -28,7 +28,7 @@ public final class StormStaffItem extends Item {
         return BASE_PULSE_DAMAGE*(staffPower?1.12F:1)*(thunderRune?1.15F:1);
     }
     public static int cooldownTicks(boolean activeRune) { return activeRune?RUNE_COOLDOWN:PULSE_COOLDOWN; }
-    public StormStaffItem(Properties properties) { super(properties); }
+    public StormStaffItem(Properties properties) { super(properties,6,14); }
     @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (player.getCooldowns().isOnCooldown(this)) return InteractionResultHolder.fail(stack);
@@ -38,7 +38,7 @@ public final class StormStaffItem extends Item {
             List<LivingEntity> targets = world.getEntitiesOfClass(LivingEntity.class, area,
                     e -> e.distanceToSqr(player) <= 49.0 && org.slavicmyths.rpg.Abilities.canHit(player,e) && world.clip(new ClipContext(start, e.getEyePosition(1.0F),
                             ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player)).getType() == HitResult.Type.MISS &&
-                            e.position().subtract(start).normalize().dot(look) > 0.93);
+                            (e.getBoundingBox().clip(start,start.add(look.scale(7))).isPresent() || e.getBoundingBox().getCenter().subtract(start).normalize().dot(look) > 0.93));
             var selected = targets.stream().min(Comparator.comparingDouble(e -> e.distanceToSqr(player)));
             selected.ifPresent(e -> {
                 if(e.hurt(player.damageSources().indirectMagic(player,player),pulseDamage(org.slavicmyths.rpg.PathData.has(player,"staff_power"),org.slavicmyths.rpg.Runes.has(stack,"thunder")))){

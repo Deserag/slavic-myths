@@ -1,0 +1,11 @@
+{
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.61.jar",
+  "sha256": "752d312698bc3a216f9cd60c6e1bc23824e32f259b11c4c9e0ecb77ed3bae30a",
+  "source_commit": "b85689ee11db5d0b32026b9caf9b54a46fbd9787",
+  "source_state": "HEAD + preserved user changes + uncommitted feedback patch",
+  "resources_equal_to_jar": 7688,
+  "generator_replay": "identical all resource bytes",
+  "minecraft_processes": 0,
+  "polymc": "NOT_INSTALLED_BY_REQUEST",
+  "owner_acceptance": "PENDING"
+}

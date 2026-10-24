@@ -1,8 +1,8 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "slavicmyths:armorer_shaped",
   "pattern": [
-    " II",
-    " SI",
+    "III",
+    " S ",
     " S "
   ],
   "key": {
@@ -14,6 +14,7 @@
     }
   },
   "result": {
-    "id": "slavicmyths:chekan"
+    "id": "slavicmyths:chekan",
+    "count": 1
   }
 }

@@ -1,56 +1,43 @@
-"""Production/resource gates for the concrete 1.7.7 feedback changes."""
-
-if __name__ == "__main__":
-    raise SystemExit('ARCHIVED historical tool. See docs/maintenance/issue-43/HISTORICAL_ARTIFACTS.md; restore its original revision and verified inputs in a separate historical checkout. Current source is not its baseline.')
-
+"""Feedback gates: real files, deterministic resources, source/JAR parity and test exclusion."""
+import hashlib,json,subprocess,sys,zipfile
 from pathlib import Path
-import json,hashlib,zipfile,struct,subprocess,sys
-from PIL import Image
-R=Path(__file__).resolve().parents[1];O=R/'docs/verification/feedback-1.7.7';O.mkdir(parents=True,exist_ok=True)
-RES=R/'src/main/resources';checks=0
-def check(value,label):
- global checks
- checks+=1
- if not value:raise AssertionError(label)
-for p in RES.rglob('*.json'):
- data=json.loads(p.read_text(encoding='utf8'));check(isinstance(data,(dict,list)),str(p))
- if '/models/' in p.as_posix():
-  for value in data.get('textures',{}).values():
-   if value.startswith('slavicmyths:'):check((RES/'assets/slavicmyths/textures'/(value.split(':')[1]+'.png')).exists(),'Missing texture '+value)
-sounds=json.loads((RES/'assets/slavicmyths/sounds.json').read_text(encoding='utf8'))
-for event,data in sounds.items():
- for sound in data['sounds']:
-  name=sound if isinstance(sound,str) else sound['name']
-  if name.startswith('slavicmyths:') and (isinstance(sound,str) or sound.get('type','file')=='file'):
-   check((RES/'assets/slavicmyths/sounds'/(name.split(':')[1]+'.ogg')).exists(),'Missing sound '+name)
-for p in (RES/'assets/slavicmyths/textures').rglob('*.png'):
- with Image.open(p) as img:img.verify();check(True,'PNG '+str(p))
-check(json.loads((RES/'data/slavicmyths/tags/entity_type/reward_interruptible.json').read_text())['values']==['slavicmyths:kartaus'],'Real Kartaus registry ID')
-jar=R/'build/libs/slavicmyths-1.7.7.jar';baseline=R/'release/slavicmyths-1.7.6.jar'
-owned=['bogatyr/HeroThreats','bogatyr/BogatyrLedger','bogatyr/IlyaEntity','bogatyr/IdolishcheEntity','marinka/DobrynyaEntity','marinka/MarinkaEntity','skim/AlyoshaEntity','skim/SkimBeastEntity','finist/FinistEntity','finist/KartausEntity','kalin/KalinEntity','client/HeroHud','client/ClassClient','client/BogatyrClient','client/MarinkaClient','client/SkimClient','client/BrightFalconClient']
-meshes=['Ilya','Idolishche','Dobrynya','Marinka','Alyosha','Skim','Finist','Kartaus','Kalin','WarHorse','CommonSoldier','EliteSoldier']
-owned+=['client/'+m+'Mesh' for m in meshes]
-textures=['ilya_muromets','idolishche_poganoe','dobrynya_nikitich','marinka','alyosha_popovich','skim_beast','finist','kartaus','kalin_tsar','kalin_war_horse','kalin_common_soldier','kalin_elite_soldier']
-allowed={'META-INF/MANIFEST.MF','META-INF/neoforge.mods.toml','data/slavicmyths/tags/entity_type/reward_interruptible.json'}|{'assets/slavicmyths/textures/entity/'+x+'.png' for x in textures}
-with zipfile.ZipFile(jar) as z,zipfile.ZipFile(baseline) as old:
- names=set(z.namelist());prior=set(old.namelist());check(prior<=names,'No prior entries removed')
- changed=[n for n in prior if old.read(n)!=z.read(n)]
- for n in changed:
-  check(n in allowed or any(n=='org/slavicmyths/'+c+'.class' or n.startswith('org/slavicmyths/'+c+'$') for c in owned),'Unrelated changed entry '+n)
- for n in names:
-  check(not any(v in n.lower() for v in ['gametest','org/slavicmyths/verify/','feedbackruntime','tools/smoke']),'Test leakage '+n)
-  if n.endswith('.class'):
-   check(struct.unpack('>H',z.read(n)[6:8])[0]==65,'Java21 '+n)
-   source=R/'build/classes/java/main'/n
-   if source.exists():check(source.read_bytes()==z.read(n),'Stale class '+n)
-  source=RES/n
-  if source.is_file() and n!='META-INF/neoforge.mods.toml':check(source.read_bytes()==z.read(n),'Stale resource '+n)
- check('version="1.7.7"' in z.read('META-INF/neoforge.mods.toml').decode().replace(' ',''),'Production version')
- # Source-derived mesh material/face generation must repeat without resource drift.
- before={p:hashlib.sha256(p.read_bytes()).hexdigest() for p in RES.rglob('*') if p.is_file()}
- before.update({R/'src/main/java/org/slavicmyths/client'/f'{m}Mesh.java':hashlib.sha256((R/'src/main/java/org/slavicmyths/client'/f'{m}Mesh.java').read_bytes()).hexdigest() for m in meshes})
- subprocess.run([sys.executable,str(R/'tools/feedback_assets.py')],cwd=R,check=True)
- for p,digest in before.items():check(hashlib.sha256(p.read_bytes()).hexdigest()==digest,'Generator drift '+str(p))
-result={'status':'PASS','checks':checks,'production_jar':str(jar),'sha256':hashlib.sha256(jar.read_bytes()).hexdigest(),'prior_entries_identical':len(prior)-len(changed),'changed_entries':sorted(changed),'generator_drift':0,'client_launches':0,'client_visual_gameplay_acceptance':'NOT_RUN'}
-(O/'resource-gates.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
-print('FEEDBACK PRODUCTION/RESOURCE PASS checks='+str(checks)+' identical='+str(result['prior_entries_identical']))
+R=Path(__file__).resolve().parents[1];A=R/'src/main/resources';O=R/'docs/implementation/feedback-20261024'
+def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def resources():return {p.relative_to(A).as_posix():digest(p) for p in A.rglob('*') if p.is_file()}
+before=resources();subprocess.run([sys.executable,str(R/'tools/feedback_resources.py')],check=True);after=resources();assert before==after,'Scoped generator is not idempotent'
+subprocess.run([sys.executable,str(R/'tools/audit_feedback_recipes.py')],check=True)
+audit=json.loads((O/'recipe-audit.json').read_text());assert not audit['conflicts'] and not audit['process_overlap_candidates'] and not audit['unresolved_tags']
+recipe=lambda name:json.loads((A/'data/slavicmyths/recipe'/f'{name}.json').read_text())
+assert recipe('runic_anvil')['pattern']==['SSS',' I ','BBB']
+assert recipe('armorer_table')['key']['P']=={'tag':'minecraft:planks'}
+assert recipe('chekan')['type']=='slavicmyths:armorer_shaped'
+plants=[]
+for name in ['raspberry','blueberry','blackcurrant','lingonberry','cranberry']:
+ d=recipe(name+'_sapling_from_berries');assert d['result']['id']=='slavicmyths:'+name+'_sapling'
+ loot=json.loads((A/f'data/slavicmyths/loot_table/blocks/{name}_bush.json').read_text());assert name+'_sapling' in json.dumps(loot)
+ plants.append({'plant':name,'planting':'berry_soil','growth':'PerennialBush; native stage checks','renewable':'berry+dirt recipe; shears; ripe right-click harvest','runtime':'NOT_RUN'})
+for name in ['rye','barley','oat','turnip','cabbage','pea','flax','hops']:
+ loot=json.loads((A/f'data/slavicmyths/loot_table/blocks/{name}_crop.json').read_text());serialized=json.dumps(loot)
+ assert (name+'_seeds' in serialized or name+'_cutting' in serialized)
+ plants.append({'plant':name,'planting':'farmland','growth':'FarmingCrop/CropBlock or HopsCrop; native stage checks','seed_loot':'present','runtime':'NOT_RUN'})
+for name in ['apple','willow','rowan','pine','linden']:
+ assert (A/f'data/slavicmyths/loot_table/blocks/{name}_sapling.json').is_file()
+ assert (A/f'assets/slavicmyths/blockstates/{name}_sapling.json').is_file()
+ plants.append({'plant':name,'growth':'vanilla SaplingBlock / configured tree; source resources present','runtime':'NOT_RUN'})
+for lang in ['ru_ru','en_us']:
+ d=json.loads((A/f'assets/slavicmyths/lang/{lang}.json').read_text(encoding='utf-8'))
+ for p in (A/'data/slavicmyths/tales').glob('guide_*.json'):
+  entry=json.loads(p.read_text());assert entry['title'] in d
+  for suffix in ['rumor','discovered','studied','verified']:assert d['tales.entry.'+p.stem+'.'+suffix]
+ for name in ['yaga_search','chud_research_yaga','chud_research_bayun']:
+  entry=json.loads((A/f'data/slavicmyths/tales/{name}.json').read_text());assert entry['initial']==0
+props=dict(v.split('=',1) for v in (R/'gradle.properties').read_text().splitlines() if '=' in v and not v.startswith('#'))
+jar=R/'build/libs'/('slavicmyths-'+props['mod_version']+'.jar');assert jar.is_file()
+with zipfile.ZipFile(jar) as z:
+ for name,sha in after.items():
+  if name.startswith('META-INF/'):continue
+  assert hashlib.sha256(z.read(name)).hexdigest()==sha,name
+ assert not any(n.startswith(('FeedbackChecks','tools/','feedback/')) for n in z.namelist())
+ for name in ['compat/JeiBrewing','compat/JeiCraftProcesses','compat/JeiSpecialProcesses','chud/ChudResearch','chud/ChudResearchProgress','yaga/YagaDiscovery']:assert 'org/slavicmyths/'+name+'.class' in z.namelist()
+report={'jar':str(jar),'sha256':digest(jar),'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=R,text=True).strip(),'source_state':'HEAD + preserved user changes + uncommitted feedback patch','resources_equal_to_jar':len(after),'generator_replay':'identical all resource bytes','minecraft_processes':0,'polymc':'NOT_INSTALLED_BY_REQUEST','owner_acceptance':'PENDING'}
+(O/'artifact.json').write_text(json.dumps(report,indent=2));(O/'plants-audit.json').write_text(json.dumps(plants,indent=2));print(json.dumps(report,indent=2))

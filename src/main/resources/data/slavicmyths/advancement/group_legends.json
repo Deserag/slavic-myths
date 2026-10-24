@@ -1,20 +1,5 @@
 {
   "parent": "slavicmyths:root",
-  "display": {
-    "icon": {
-      "id": "slavicmyths:birch_bark"
-    },
-    "title": {
-      "translate": "advancements.slavicmyths.group_legends.title"
-    },
-    "description": {
-      "translate": "advancements.slavicmyths.group_legends.description"
-    },
-    "frame": "task",
-    "show_toast": false,
-    "announce_to_chat": false,
-    "hidden": false
-  },
   "criteria": {
     "section": {
       "trigger": "minecraft:tick"

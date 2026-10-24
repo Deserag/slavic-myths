@@ -19,10 +19,11 @@ public final class WintersRecipe extends CustomRecipe {
  public static boolean original(ItemStack s){var n=tag(s);return s.is(WintersContent.AMULET.get())&&n.contains("TwoWintersTemplate",Tag.TAG_BYTE)&&n.getByte("TwoWintersTemplate")==1&&n.hasUUID("TwoWintersReceipt");}
  public static boolean shape(CraftingInput in,boolean copy){
   if(in.width()!=3||in.height()!=3||in.ingredientCount()!=9)return false;
-  Item[] expected={Items.IRON_INGOT,Items.LAPIS_LAZULI,Items.IRON_INGOT,org.slavicmyths.registry.ModItems.PERUNITE.get(),copy?WintersContent.AMULET.get():org.slavicmyths.morozko.FrostContent.HEART.get(),org.slavicmyths.registry.ModItems.PERUNITE.get(),Items.IRON_INGOT,copy?Items.DIAMOND:org.slavicmyths.karachun.NightContent.SHARD.get(),Items.IRON_INGOT};
+  Item[] expected=displayInputs(copy);
   for(int i=0;i<9;i++)if(!in.getItem(i).is(expected[i]))return false;
   return !copy||original(in.getItem(4));
  }
+ public static Item[] displayInputs(boolean copy){return new Item[]{Items.IRON_INGOT,Items.LAPIS_LAZULI,Items.IRON_INGOT,org.slavicmyths.registry.ModItems.PERUNITE.get(),copy?WintersContent.AMULET.get():org.slavicmyths.morozko.FrostContent.HEART.get(),org.slavicmyths.registry.ModItems.PERUNITE.get(),Items.IRON_INGOT,copy?Items.DIAMOND:org.slavicmyths.karachun.NightContent.SHARD.get(),Items.IRON_INGOT};}
  private boolean copying(){return category()==CraftingBookCategory.MISC;}
  @Override public boolean matches(CraftingInput in,Level w){if(!shape(in,copying()))return false;return !copying()||w.isClientSide||w instanceof ServerLevel s&&WintersTemplates.get(s).contains(tag(in.getItem(4)).getUUID("TwoWintersReceipt"));}
  @Override public ItemStack assemble(CraftingInput in,HolderLookup.Provider p){

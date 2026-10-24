@@ -1,16 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "B",
-    "B"
+    "P  ",
+    " P ",
+    "  P"
   ],
   "key": {
-    "B": {
+    "P": {
       "item": "minecraft:birch_planks"
     }
   },
   "result": {
-    "count": 2,
-    "id": "slavicmyths:carved_birch_planks"
+    "id": "slavicmyths:carved_birch_planks",
+    "count": 3
   }
 }

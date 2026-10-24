@@ -1,8 +1,8 @@
 {
-  "parent": "slavicmyths:find_large_camp",
+  "parent": "slavicmyths:without_ataman",
   "display": {
     "icon": {
-      "id": "slavicmyths:nightingale_mark"
+      "id": "slavicmyths:mysterious_black_feather"
     },
     "title": {
       "translate": "advancement.slavicmyths.defeat_nightingale.title"
