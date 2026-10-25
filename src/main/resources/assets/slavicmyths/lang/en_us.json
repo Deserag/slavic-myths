@@ -1175,7 +1175,7 @@
   "yaga.ingredients": "Ingredients",
   "yaga.vessel": "Vessel",
   "yaga.cooldown": "Wait: %s s",
-  "yaga.talk.work": "Is there work for me?",
+  "yaga.talk.work": "Tasks",
   "yaga.talk.question": "Ask a question",
   "yaga.talk.forest": "About the forest",
   "yaga.talk.bye": "Farewell",
@@ -6072,5 +6072,7 @@
   "item.slavicmyths.bone_thorn": "Bone Thorn",
   "item.slavicmyths.grove_core": "Grove Core",
   "item.slavicmyths.guardian_branch": "Guardian Branch",
-  "item.slavicmyths.soul_blight": "Soul Blight"
+  "item.slavicmyths.soul_blight": "Soul Blight",
+  "yaga.victory_recognized": "Yaga recognizes your victory. You are now a guest; these first herbs honor your strength.",
+  "yaga.talk.back": "Back"
 }

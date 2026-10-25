@@ -7,6 +7,9 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 public final class ManualStructureCommands {
  public static void register(org.slavicmyths.commands.CommandTree tree){
+  var ids=new java.util.ArrayList<String>();for(String id:org.slavicmyths.swamp.SwampStructures.IDS)if(!id.equals("swamp_remnants"))ids.add(id);ids.addAll(java.util.List.of("bandit_camp_small","bandit_camp_medium","bandit_camp_large","kurgan_small","kurgan_warrior","kurgan_great"));
+  for(String id:ids)tree.add(Commands.literal("locate").requires(s->s.hasPermission(2)).then(Commands.literal("structure").then(Commands.literal("slavicmyths:"+id).executes(c->OnDemandStructures.locate(c.getSource(),id)))));
+
   var generate=Commands.literal("generate").requires(s->s.hasPermission(2));
   var kurgan=Commands.literal("kurgan");var camps=Commands.literal("bandit_camp");
   String[] k={"small","warrior","great"},b={"small","fortified","large"};

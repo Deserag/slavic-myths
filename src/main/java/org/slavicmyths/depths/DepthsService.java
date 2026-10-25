@@ -106,7 +106,7 @@ public final class DepthsService {
         final String source;
         final long seed,born,wallStart=System.nanoTime();
         final ItemStack mapSource;
-        final Set<ChunkPos> tickets=new LinkedHashSet<>();
+        org.slavicmyths.worldgen.SiteChunks preparation;final Set<ChunkPos> tickets=new LinkedHashSet<>();
         final List<ChunkPos> chunks=new ArrayList<>();
         final Map<String,BlockState> states=new HashMap<>();
         List<Map.Entry<DepthsLayout.Cell,String>> cells=List.of();
@@ -119,17 +119,16 @@ public final class DepthsService {
         final Map<String,Integer> rejected=new LinkedHashMap<>();
         boolean aboveSurface(){return level.getChunkSource().getGenerator() instanceof FlatLevelSource;}
         boolean resumed;
-        Job(ServerPlayer p,ItemStack map){mapSource=map;level=p.serverLevel();data=DepthsSavedData.get(level);id=UUID.randomUUID();player=p.getUUID();start=new DepthsPlan.Point(p.blockPosition().getX(),p.blockPosition().getY(),p.blockPosition().getZ());source=map==null?"COMMAND":"MAP";seed=level.getSeed()^id.getMostSignificantBits()^id.getLeastSignificantBits();born=level.getGameTime();}
-        Job(ServerLevel level,DepthsSavedData.Entry e){mapSource=null;this.level=level;data=DepthsSavedData.get(level);entry=e;plan=e.plan;id=plan.id();player=e.player;start=plan.start();source=e.source;seed=plan.seed();born=level.getGameTime();resumed=true;blueprint();prepare(box(plan.bounds()));phase="LOAD_FULL";}
+        Job(ServerPlayer p,ItemStack map){mapSource=map;level=p.serverLevel();preparation=new org.slavicmyths.worldgen.SiteChunks(level);data=DepthsSavedData.get(level);id=UUID.randomUUID();player=p.getUUID();start=new DepthsPlan.Point(p.blockPosition().getX(),p.blockPosition().getY(),p.blockPosition().getZ());source=map==null?"COMMAND":"MAP";seed=level.getSeed()^id.getMostSignificantBits()^id.getLeastSignificantBits();born=level.getGameTime();}
+        Job(ServerLevel level,DepthsSavedData.Entry e){mapSource=null;this.level=level;preparation=new org.slavicmyths.worldgen.SiteChunks(level);data=DepthsSavedData.get(level);entry=e;plan=e.plan;id=plan.id();player=e.player;start=plan.start();source=e.source;seed=plan.seed();born=level.getGameTime();resumed=true;blueprint();prepare(box(plan.bounds()));phase="LOAD_FULL";}
         void tell(String key,Object... args){var p=level.getServer().getPlayerList().getPlayer(player);if(p!=null)p.sendSystemMessage(message(key,args));}
-        void release(){for(var p:tickets)level.getChunkSource().removeRegionTicket(TICKET,p,0,p.toLong());tickets.clear();}
+        void release(){preparation.close();preparation=new org.slavicmyths.worldgen.SiteChunks(level);for(var p:tickets)level.getChunkSource().removeRegionTicket(TICKET,p,0,p.toLong());tickets.clear();}
         void prepare(BoundingBox b){chunks.clear();loadIndex=0;for(int x=b.minX()>>4;x<=b.maxX()>>4;x++)for(int z=b.minZ()>>4;z<=b.maxZ()>>4;z++)chunks.add(new ChunkPos(x,z));if(chunks.size()>96)throw new IllegalStateException("depths footprint exceeds load bound");}
         boolean loaded(){
-            for(int count=0;count<4&&loadIndex<chunks.size();count++,loadIndex++){
-                var p=chunks.get(loadIndex);if(tickets.add(p))level.getChunkSource().addRegionTicket(TICKET,p,0,p.toLong());
-            }
-            return loadIndex==chunks.size()&&chunks.stream().allMatch(p->level.getChunkSource().getChunkNow(p.x,p.z)!=null);
+            if(loadIndex<chunks.size()&&preparation.ready(chunks.get(loadIndex)))loadIndex++;
+            return loadIndex==chunks.size();
         }
+
         void next(){release();plan=null;cells=List.of();scan=0;phase="CANDIDATE";}
         void reject(String reason){rejected.merge(reason,1,Integer::sum);next();}
         Component rejectionDetails(){var result=Component.empty();rejected.forEach((reason,count)->{if(!result.getString().isEmpty())result.append("; ");result.append(message("reason_"+reason)).append(" ×"+count);});return result;}
@@ -145,7 +144,7 @@ public final class DepthsService {
             if((level.getGameTime()-born)%100==0)tell("progress",candidate,phase,entry==null?0:entry.cursor,cells.size());
             switch(phase){
                 case "CANDIDATE"->{
-                    if(candidate>=16){fail(false);return;}target=DepthsPlan.candidate(start,seed,candidate++);
+                    if(candidate>=1){fail(false);return;}target=DepthsPlan.candidate(start,seed,candidate++);
                     double r=Math.hypot(target.x()-start.x(),target.z()-start.z());if(r<1500||r>2000)return;
                     var b=new BoundingBox(target.x()-7,level.getMinBuildHeight(),target.z()-7,target.x()+7,level.getMaxBuildHeight()-1,target.z()+7);
                     if(!border(b)){reject("border");return;}prepare(b);phase="LOAD_ENTRANCE";
@@ -158,7 +157,7 @@ public final class DepthsService {
                         if(!s.isSolid()||!s.getFluidState().isEmpty()||s.is(Blocks.ICE)||!level.getFluidState(new BlockPos(target.x()+dx,y+1,target.z()+dz)).isEmpty()){reject("wet");return;}
                         min=Math.min(min,y);max=Math.max(max,y);
                     }
-                    if(max-min>5){reject("slope");return;}
+                    if(max-min>12){reject("slope");return;}
                     target=new DepthsPlan.Point(target.x(),DepthsPlan.placementOriginY(aboveSurface()?max:ground(level,target.x(),target.z()),aboveSurface()),target.z());
                     plan=new DepthsPlan(id,start,target,DepthsPlan.outward(start,target),seed,false,0);var b=box(plan.bounds());
                     if(!border(b)){reject("border");return;}
@@ -278,7 +277,7 @@ public final class DepthsService {
             if(entry!=null){entry.status="FAILED_NEEDS_OPERATOR";data.setDirty();}
             if(partial)tell("failed");else if(!timeout)tell("no_site_details",candidate,rejectionDetails());
             LOG.warn("Ancient depths failed {} phase={} candidates={} partial={} timeout={} rejected={}",id,phase,candidate,partial,timeout,rejected);finish();}
-        void finish(){release();ACTIVE.remove(level.getServer());}
+        void finish(){release();preparation.close();ACTIVE.remove(level.getServer());}
     }
     private DepthsService(){}
 }

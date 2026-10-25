@@ -13,74 +13,35 @@ import net.minecraft.world.level.levelgen.structure.*;
 import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement;
 import org.slavicmyths.tales.*;
 
-/** NPC research in the existing tale quest journal. Seed planning has a finite worker budget;
- * assignment occurs only after a real generated StructureStart has been verified on the server. */
+/** Existing tale journal: reuse a completed saved site or assign after actual queued construction. */
 @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class ChudResearch {
     private static final Set<UUID> PENDING=ConcurrentHashMap.newKeySet();
-    private static final ExecutorService WORKER=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"slavicmyths-research");t.setDaemon(true);return t;});
     @net.neoforged.bus.api.SubscribeEvent public static void stopping(net.neoforged.neoforge.event.server.ServerStoppingEvent e){PENDING.clear();}
     private static CompoundTag state(ServerPlayer p){return TaleData.compound(TaleData.get(p.serverLevel()).player(p.getUUID()),"ChudResearch");}
     public static boolean offer(ServerPlayer p,String giver){
         if(p.level().dimension()!=Level.OVERWORLD||!TaleData.get(p.serverLevel()).compatible())return false;
         var root=state(p);var q=root.getCompound(giver);
+        if(q.contains("Target")&&!q.getBoolean("CreatedSite")&&!q.getBoolean("Visited")&&!q.getBoolean("Claimed")){q.putLong("LegacyTarget",q.getLong("Target"));q.remove("Target");TaleData.get(p.serverLevel()).setDirty();}
         if(q.contains("Target")){
             if(!q.getBoolean("Visited")){guide(p,giver,q);return true;}
-            if(ChudResearchProgress.claim(q)){TaleData.get(p.serverLevel()).setDirty();org.slavicmyths.yaga.YagaServices.give(p,new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.ANCIENT_SIGN.get()));p.displayClientMessage(Component.translatable("research.chud.reward"),false);TaleNetwork.send(p,TaleService.snapshot(p),false,true);return true;}
+            if(ChudResearchProgress.claim(q)){TaleData.get(p.serverLevel()).setDirty();org.slavicmyths.yaga.YagaServices.give(p,new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.ANCIENT_SIGN.get()));p.displayClientMessage(Component.translatable("research.chud.reward"),false);sync(p);return true;}
         }
         if(!PENDING.add(p.getUUID()))return false;
-        var world=p.serverLevel();var registry=p.registryAccess();var structures=registry.registryOrThrow(Registries.STRUCTURE);
-        var id=ResourceLocation.fromNamespaceAndPath("slavicmyths","chud_city");var structure=structures.get(id);
-        var set=registry.registryOrThrow(Registries.STRUCTURE_SET).get(id);
-        if(structure==null||set==null||!(set.placement() instanceof RandomSpreadStructurePlacement placement)){PENDING.remove(p.getUUID());return false;}
-        var generator=world.getChunkSource().getGenerator();var random=world.getChunkSource().randomState();var templates=world.getStructureManager();
-        var height=LevelHeightAccessor.create(world.getMinBuildHeight(),world.getHeight());long seed=world.getSeed();var origin=p.blockPosition();var server=p.server;UUID player=p.getUUID();
-        var excluded=new HashSet<Long>();for(String key:root.getAllKeys()){var old=root.getCompound(key);if(old.contains("Target"))excluded.add(old.getLong("Target"));}
-        for(long visited:root.getLongArray("Visited"))excluded.add(visited);
-        var visitedStarts=new HashSet<Long>();for(long visited:root.getLongArray("VisitedStarts"))visitedStarts.add(visited);
-        String legacyPrefix="EXPLORATION:structure/slavicmyths:chud_city/"+world.dimension().location()+"/";
-        for(String key:org.slavicmyths.rpg.classes.ClassState.data(p).getCompound("XpLedger").getAllKeys())if(key.startsWith(legacyPrefix))try{visitedStarts.add(Long.parseLong(key.substring(legacyPrefix.length())));}catch(NumberFormatException ignored){}
-        int page=Math.floorMod(root.getInt("SearchPage"),16);root.putInt("SearchPage",page+1);TaleData.get(world).setDirty();
-        p.displayClientMessage(Component.translatable("research.chud.searching"),false);
-        WORKER.execute(()->{
-            BlockPos found=null;ChunkPos owner=null;
-            ChudSearchBudget.begin(System.nanoTime()+TimeUnit.SECONDS.toNanos(30));
-            try{
-                int gx=Math.floorDiv(origin.getX()>>4,placement.spacing()),gz=Math.floorDiv(origin.getZ()>>4,placement.spacing());
-                var candidates=new ArrayList<ChunkPos>();for(int x=gx-32;x<=gx+32;x++)for(int z=gz-32;z<=gz+32;z++)candidates.add(placement.getPotentialStructureChunk(seed,x*placement.spacing(),z*placement.spacing()));
-                candidates.sort(Comparator.comparingDouble(c->Math.hypot(c.getMiddleBlockX()-origin.getX(),c.getMiddleBlockZ()-origin.getZ())));
-                int checked=0;for(var chunk:candidates.subList(page*96,Math.min(candidates.size(),(page+1)*96))){if(++checked>96)break;ChudSearchBudget.check();
-                    var context=new Structure.GenerationContext(registry,generator,generator.getBiomeSource(),random,templates,seed,chunk,height,structure.biomes()::contains);
-                    var selected=ChudRegionPlanner.select(context);if(selected.isEmpty()||selected.get().city()==null)continue;
-                    var plan=selected.get();var entrance=plan.city().world(plan.city().points.get(ChudPlan.Role.ENTRANCE));if(excluded.contains(entrance.asLong())||visitedStarts.contains(plan.owner().toLong()))continue;
-                    found=entrance;owner=plan.owner();break;
-                }
-            }catch(RuntimeException failure){com.mojang.logging.LogUtils.getLogger().debug("Bounded Chud research search ended",failure);}
-            finally{ChudSearchBudget.end();}
-            final BlockPos target=found;final ChunkPos startChunk=owner;
-            // Called from our planner worker: native getChunkFuture blocks when invoked on
-            // the server thread. STRUCTURE_STARTS verifies a real reservation without
-            // forcing FULL terrain/features at a distant city before the player travels.
-            try {
-            var generated=target==null?java.util.concurrent.CompletableFuture.<net.minecraft.server.level.ChunkResult<net.minecraft.world.level.chunk.ChunkAccess>>completedFuture(null):world.getChunkSource().getChunkFuture(startChunk.x,startChunk.z,net.minecraft.world.level.chunk.status.ChunkStatus.STRUCTURE_STARTS,true).orTimeout(60,TimeUnit.SECONDS);
-            generated.whenComplete((chunkResult,generationFailure)->server.execute(()->{try{
-                var online=server.getPlayerList().getPlayer(player);if(online==null||online.serverLevel()!=world)return;
-                if(target==null||generationFailure!=null||!world.getWorldBorder().isWithinBounds(target)){online.displayClientMessage(Component.translatable("research.chud.unavailable"),false);return;}
-                var chunk=chunkResult==null?null:chunkResult.orElse(null);var start=chunk==null?null:chunk.getStartForStructure(structure);
-                if(start==null||!start.isValid()||!start.getBoundingBox().isInside(target)){online.displayClientMessage(Component.translatable("research.chud.unavailable"),false);return;}
-                CompoundTag assigned=new CompoundTag();assigned.putLong("Target",target.asLong());assigned.putLong("Owner",startChunk.toLong());assigned.putString("Dimension",world.dimension().location().toString());var box=start.getBoundingBox();assigned.putIntArray("Bounds",new int[]{box.minX(),box.minY(),box.minZ(),box.maxX(),box.maxY(),box.maxZ()});assigned.putInt("StartPieces",start.getPieces().size());
-                state(online).put(giver,assigned);TaleData.get(world).setDirty();TaleService.promote(online,"slavicmyths:chud_research_"+giver,1,false);guide(online,giver,assigned);
-            }finally{PENDING.remove(player);}}));
-            } catch (RuntimeException failure) {
-                PENDING.remove(player);
-                com.mojang.logging.LogUtils.getLogger().warn("Chud research reservation failed",failure);
-            }
-        });return true;
+        var world=p.serverLevel();UUID player=p.getUUID();var excluded=new HashSet<Long>();for(String key:root.getAllKeys()){var old=root.getCompound(key);if(old.contains("Target"))excluded.add(old.getLong("Target"));}for(long visited:root.getLongArray("Visited"))excluded.add(visited);
+        var known=org.slavicmyths.worldgen.ManualStructureRecords.get(world).entries().stream().filter(e->e.family().equals("chud_city")&&!excluded.contains(e.arrival().asLong())).min(Comparator.comparingDouble(e->e.arrival().distSqr(p.blockPosition())));
+        if(known.isPresent()){var e=known.get();assign(p,giver,new ChudCreationJobs.Result(e.arrival(),new ChunkPos(e.bounds().getCenter()),e.bounds(),1));PENDING.remove(player);return true;}
+        int accepted=ChudCreationJobs.create(p.createCommandSourceStack(),"city",result->{try{var online=world.getServer().getPlayerList().getPlayer(player);if(online==null||online.serverLevel()!=world)return;if(result==null){online.displayClientMessage(Component.translatable("research.chud.unavailable"),false);return;}assign(online,giver,result);}finally{PENDING.remove(player);}});
+        if(accepted==0)PENDING.remove(player);return accepted!=0;
     }
+    private static void assign(ServerPlayer p,String giver,ChudCreationJobs.Result result){
+        var assigned=new CompoundTag();assigned.putBoolean("CreatedSite",true);assigned.putLong("Target",result.entrance().asLong());assigned.putLong("Owner",result.owner().toLong());assigned.putString("Dimension",p.level().dimension().location().toString());var b=result.bounds();assigned.putIntArray("Bounds",new int[]{b.minX(),b.minY(),b.minZ(),b.maxX(),b.maxY(),b.maxZ()});assigned.putInt("StartPieces",result.pieces());state(p).put(giver,assigned);TaleData.get(p.serverLevel()).setDirty();TaleService.promote(p,"slavicmyths:chud_research_"+giver,1,false);guide(p,giver,assigned);
+    }
+    private static void sync(ServerPlayer p){var delta=new CompoundTag();delta.put("Hints",TaleService.hints(p));delta.put("Research",TaleService.research(p));TaleNetwork.send(p,delta,false,false);}
     private static void guide(ServerPlayer p,String giver,CompoundTag q){
         var target=BlockPos.of(q.getLong("Target"));TaleService.hint(p,"slavicmyths:chud_research_"+giver,q.getString("Dimension"),UUID.nameUUIDFromBytes(("chud:"+q.getLong("Owner")).getBytes(java.nio.charset.StandardCharsets.UTF_8)),target);
         var hint=TaleData.get(p.serverLevel()).player(p.getUUID()).getCompound("Hints").getCompound("slavicmyths:chud_research_"+giver);hint.remove("Target");hint.putString("Source","entity.slavicmyths."+(giver.equals("yaga")?"baba_yaga":"kot_bayun"));hint.putLong("Expires",Long.MAX_VALUE);TaleData.get(p.serverLevel()).setDirty();
-        p.displayClientMessage(Component.translatable("research.chud.assigned"),false);TaleNetwork.send(p,TaleService.snapshot(p),false,true);
+        p.displayClientMessage(Component.translatable("research.chud.assigned"),false);sync(p);
     }
     /** Called by the existing loaded-structure visit observer, never a second polling loop. */
     public static void visited(ServerPlayer p,StructureStart start){
@@ -102,7 +63,7 @@ public final class ChudResearch {
         for(String giver:List.of("yaga","bayun")){var q=root.getCompound(giver);if(ChudResearchProgress.visit(q,p.level().dimension().location().toString(),owner)){changed=true;visited.add(q.getLong("Target"));TaleService.promote(p,"slavicmyths:chud_research_"+giver,3,false);p.displayClientMessage(Component.translatable("research.chud.visited"),false);}}
         var starts=new HashSet<Long>();for(long value:root.getLongArray("VisitedStarts"))starts.add(value);starts.add(owner);root.putLongArray("VisitedStarts",starts.stream().mapToLong(Long::longValue).toArray());
         root.putLongArray("Visited",visited.stream().mapToLong(Long::longValue).toArray());TaleData.get(p.serverLevel()).setDirty();
-        if(changed)TaleNetwork.send(p,TaleService.snapshot(p),false,true);
+        if(changed)sync(p);
     }
     private ChudResearch(){}
 }

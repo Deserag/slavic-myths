@@ -1,0 +1,172 @@
+{
+  "base_commit": "275ecaa5345f9b374f83f0829c58df16c0e54546",
+  "branch": "codex/on-demand-generation",
+  "source": "UNCOMMITTED_WORKING_TREE",
+  "files": [
+    {
+      "path": "src/main/java/org/slavicmyths/bandit/CampCommands.java",
+      "sha256": "c261952d604042b8fbfd4fe94857b77520a20db0f2f7f8d7fb249660261d5274"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/bayun/BayunCommands.java",
+      "sha256": "740fffb59502eff24271e9db03e72af2c73086ffde94d0fcdbf28c5f3825f7ac"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/bayun/BayunCreation.java",
+      "sha256": "524d4ba178fba6d528593300176dd6eef40e139c4c3283bf413f4129b6e47114"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/bayun/BayunFeature.java",
+      "sha256": "05f71da68d6f9e5fb3bcd03197776e733372b6c1032835c880692de0084c4080"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/chud/AbandonedPiece.java",
+      "sha256": "591b2ea1cc97a449188016c9649e60b91b830a2ba86c2f952f66a63844013588"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/chud/ChudCreationJobs.java",
+      "sha256": "5dd7afe2f4f964b499a0b84c23fbe9ad43bfcb4945de50be22ec4e2734ebf1b9"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/chud/ChudGenerateCommands.java",
+      "sha256": "ce70278fa4380ccc96f6c27be242e312ef0188fabc8017160e8dfa1386b478b7"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/chud/ChudPiece.java",
+      "sha256": "2b2f8fcc88912421cd1b9203a5ef3b87abe684a96c6613912c6336669ebf1868"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/chud/ChudResearch.java",
+      "sha256": "98059616da4cd82772eb56214a8c7d336991e4032ea0dda4aabb66cc5e594197"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/chud/ChudSearchCommands.java",
+      "sha256": "012d6089793d4d404cbdf67019828d52fb4d7ca17cb548acfa531ef64b518f2e"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/commands/CommandTree.java",
+      "sha256": "7bc006ef07f84060addbe75d5ffa32fe775345006788dac970e72f9c6409beba"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/depths/DepthsCommands.java",
+      "sha256": "df13b13aca1eda5282baf03d69cbd51c6f5e4db8ef36221f3e3be80a349f1ecb"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/depths/DepthsService.java",
+      "sha256": "f1318e12a50e78213dde266fd4da49e12cf08d43ec3734cea7300e11fb7651f4"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/guides/GuideQuests.java",
+      "sha256": "10505d3b429775383bf78a3c825a6465f86c72f0b78b36d80219cafe80bf3050"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/hunt/BossCommands.java",
+      "sha256": "e8b656573cb43530aad9b5fbe06f603a6affabf9b0d7e15ce1a44b88c46dcfcf"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/hunt/BossSiteJobs.java",
+      "sha256": "c9256766f46fc527d690c56e9a9918cf7c56571199b8c932be56640cc76a8f42"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/kurgan/KurganCommands.java",
+      "sha256": "bb461c04e3048416c62003d2a827014a3b5da613327d1fef275d5ccdeea2578a"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/military/MilitaryCommands.java",
+      "sha256": "28b399917cecc579144fd93ab92b638beabda111cdcab4978e4c938e720624e1"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/navigation/NavigationEvents.java",
+      "sha256": "b07acef137eb561693d5e8b30f62a0191f815aee895e7735af0335da4a7dc390"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/swamp/SwampCommands.java",
+      "sha256": "1336bb3e31312220e169036cd96bf674644136c16128770ccc7bd1dda3aa1c39"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/swamp/SwampPiece.java",
+      "sha256": "8a55235d53204c11a29d0755ee8d357e30b665bd549bb3e17b1b8b7073235bd0"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/tales/TaleService.java",
+      "sha256": "dcc8749475b2bb667992f393cbe5185e566c95e7e2d0433c9b1d78d4e4552dd5"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/worldgen/BoundedStructureSearch.java",
+      "sha256": "435405b3afda87ea9bb3cb4c40ccc74d3ea758cf32d147ecdfd7f5d2184e76ce"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/worldgen/ManualStructureCommands.java",
+      "sha256": "2b8fb0248a2bd1da8ff9b4e7cff806808d59e4ebcdef8dda2424f99f21d14675"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/worldgen/ManualStructureJobs.java",
+      "sha256": "5a505d6620d7dbc1d004385a2be2f8a226f505c260abf342781abf47df4e1212"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/worldgen/ManualStructureRecords.java",
+      "sha256": "d3fc1d98c10089b3baf6c14f64fcf7e0a936811f21755975722fe29a7de7e728"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/worldgen/OnDemandStructures.java",
+      "sha256": "756e113833040aac12a28acd9b6c6a98772e2cc0f89bd3a6e91ba1c2c8d446be"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/worldgen/SiteChunks.java",
+      "sha256": "65b85075384c412b50f67748b4f3b8ce02f5bacadecddaace5bb40dc358f4091"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/worldgen/TemplateSiteJobs.java",
+      "sha256": "3e94cafc401ec00d792458fbedc26196be1df5e81997dfe03a8b44f63086cde8"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/yaga/YagaCommands.java",
+      "sha256": "95bcdbf2f262211ba93692083f9f09a90319fc9a36eed5e31b1290c20e3df2d8"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/yaga/YagaDiscovery.java",
+      "sha256": "951b5f5301f8bd1a49379556b04ddee4c8e819befada523e6dfc9f9a0f826f5d"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/yaga/YagaHut.java",
+      "sha256": "2e6c5e757d592bf4c425e34e6f2d3e597222f16c73237d1462bd50d541d57cb1"
+    },
+    {
+      "path": "src/main/java/org/slavicmyths/yaga/YagaPlacement.java",
+      "sha256": "ffd742ea3b920b4135cacc64f56c5a18d87074ccd619f5159aa1eaa4e85854d9"
+    },
+    {
+      "path": "tools/command-tests/org/slavicmyths/verify/CommandCatalogOffline.java",
+      "sha256": "3b5cccc844bee599caf107b64d73961193864f15942121b98b699f007c358a96"
+    },
+    {
+      "path": "tools/kurgan-tests/org/slavicmyths/verify/YagaPlacementHeadless.java",
+      "sha256": "2b532936febb320febb6a0551689319cda73d08e2655d9d51698c3a9ecbd2de0"
+    },
+    {
+      "path": "tools/on-demand-offline.gradle",
+      "sha256": "b89b57156313401f216d0a11a6a342cec9dd0f453e10693939731a623281a398"
+    },
+    {
+      "path": "tools/on-demand-tests/OnDemandChecks.java",
+      "sha256": "8e0247aeeaabd47e4a161dc077a21b6aa966f41477deb38fc30710bd04e54cfb"
+    },
+    {
+      "path": "tools/on-demand-tests/org/slavicmyths/chud/RasterChecks.java",
+      "sha256": "eed6079c1390e9734aa077e344e6d6c2a3cf1ee5430191a53db3869f7778d29c"
+    }
+  ],
+  "production_jar": {
+    "scope": "CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted",
+    "version": "1.9.7.66",
+    "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-1.9.7.66.jar",
+    "sha256": "7ad264db99cd6d6dcca9a3c19bf638f5c2a5b47dd6767bffbe87685548d5d316",
+    "resources": 7740,
+    "json": 4199,
+    "png": 1385,
+    "models": 1789,
+    "java21_classes": 1876,
+    "runtime_launches": 0,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  }
+}

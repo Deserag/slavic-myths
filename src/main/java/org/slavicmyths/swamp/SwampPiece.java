@@ -32,7 +32,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 /** Hand-authored templates: stable names and seeds persist with standard StructureStart NBT. */
 public final class SwampPiece extends TemplateStructurePiece {
     private String name;private long seed;private boolean encounterProcessed;private final java.util.Set<Long> processedMarkers=new java.util.HashSet<>();
-    SwampPiece(StructureTemplateManager manager,String name,BlockPos pos,long seed) {
+    public SwampPiece(StructureTemplateManager manager,String name,BlockPos pos,long seed) {
         super(SwampStructures.PIECE.get(),0,manager,ResourceLocation.fromNamespaceAndPath("slavicmyths","swamp/"+name),"slavicmyths:swamp/"+name,settings(),pos);this.name=name;this.seed=seed;this.templatePosition=pos;load(manager);
     }
     public SwampPiece(StructureTemplateManager manager,CompoundTag nbt) {

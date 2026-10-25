@@ -26,10 +26,9 @@ public final class SivkaContent {
     public static void init(){}
     @SubscribeEvent public static void attributes(EntityAttributeCreationEvent e){e.put(ENTITY.get(),net.minecraft.world.entity.PathfinderMob.createMobAttributes().add(Attributes.MAX_HEALTH,80).add(Attributes.MOVEMENT_SPEED,.24).add(Attributes.FOLLOW_RANGE,24).add(Attributes.KNOCKBACK_RESISTANCE,.3).add(Attributes.STEP_HEIGHT,1).build());}
     @SubscribeEvent public static void placements(RegisterSpawnPlacementsEvent e){e.register(ENTITY.get(),SpawnPlacementTypes.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,(type,w,reason,p,r)->{
-        if(reason!=MobSpawnType.SPAWN_EGG&&r.nextFloat()>=.002F)return false;
         if(w.getLevel().dimension()!=net.minecraft.world.level.Level.OVERWORLD||!w.canSeeSky(p)||w.getMaxLocalRawBrightness(p)<=7)return false;
         for(int x=-1;x<=1;x++)for(int z=-2;z<=1;z++){
-            var q=p.offset(x,0,z);if(!w.getBlockState(q.below()).is(net.minecraft.tags.BlockTags.DIRT))return false;
+            var q=p.offset(x,0,z);if(x==0&&z==0&&!w.getBlockState(q.below()).is(net.minecraft.tags.BlockTags.DIRT))return false;
             for(int y=0;y<3;y++)if(!w.getBlockState(q.above(y)).getCollisionShape(w,q.above(y)).isEmpty()||!w.getFluidState(q.above(y)).isEmpty())return false;
         }return true;
     },RegisterSpawnPlacementsEvent.Operation.REPLACE);}
