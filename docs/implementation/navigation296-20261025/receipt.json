@@ -1,7 +1,7 @@
 {
   "baseline": "50cfd72de3e6569e327da5d0da9ee673c36fa7e3",
   "branch": "hell",
-  "source_commit": "Recorded in the publication receipt after committing the exact sources below.",
+  "source_commit": "c29e23430cdf0c61c54346a89f9114cb2ce49858",
   "version": "2.0.1-HELL",
   "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.1-HELL.jar",
   "sha256": "d909681e9478bb0818ed0f39aafc6b2d656924255dd5390a6ae96bc234a0a91d",
@@ -50,5 +50,6 @@
   },
   "book_offline_checks": 50289,
   "book_regression_scope": "Native StringSplitter with fixed glyph widths, UiText.Layout cache, UiLine DDA and TaleViewport; not font rendering/game FPS",
-  "preserved_historical_book_report_sha256": "792ec0201e40f3d5e2cea8783aa30629a7bbf5f856942833ed28f1b92995994d"
+  "preserved_historical_book_report_sha256": "792ec0201e40f3d5e2cea8783aa30629a7bbf5f856942833ed28f1b92995994d",
+  "publication_note": "The following documentation-only commit records this source SHA. Production Java/resources and the verified JAR do not change."
 }
