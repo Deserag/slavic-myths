@@ -1,0 +1,12 @@
+{
+  "baseline_commit": "2f82f20ec3fb94ecfd9bb77c2012352add257c41",
+  "branch": "hell",
+  "source_files": {
+    "src/main/java/org/slavicmyths/yaga/YagaDiscovery.java": "05ad9f8715466acf355ccbf658576aa6bde2ce79852cd46de0515721209794ee",
+    "src/main/java/org/slavicmyths/yaga/YagaAccessRules.java": "7f7cb8a067f4dc4367afd9e38cee7d6810051477f62f4448250fb1ebc5eaa471",
+    "src/main/java/org/slavicmyths/tales/TaleEvents.java": "431d910f6a5caf919c5d6fa60c5e34823aeed07cf2a285fef28a8c1cf6df8437",
+    "src/main/java/org/slavicmyths/sivka/SivkaContent.java": "f5bd24d05b8b86c103010763445d1863deacb507fd46013d7aa59d3db9bded6c"
+  },
+  "runtime_launches": 0,
+  "polymc": "NOT_INSTALLED"
+}

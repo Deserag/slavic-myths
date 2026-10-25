@@ -26,7 +26,7 @@ public final class YagaDiscovery {
  }
  private static boolean loaded(ServerLevel w,BlockPos p){for(int x=(p.getX()-10)>>4;x<=(p.getX()+10)>>4;x++)for(int z=(p.getZ()-17)>>4;z<=(p.getZ()+10)>>4;z++)if(w.getChunkSource().getChunkNow(x,z)==null)return false;return true;}
  public static boolean create(ServerPlayer p,BlockPos preferred){
-  var w=p.server.overworld();var data=YagaData.get(w);if(data.placed){notify(p);return true;}
+  var w=p.server.overworld();var data=YagaData.get(w);if(data.placed){refresh(p);return true;}
   var old=BUILDS.get(p.server);if(old!=null){old.players.add(p.getUUID());return true;}
   var build=new Build(p,preferred);if(build.candidates.isEmpty()){p.displayClientMessage(Component.literal("Поблизости нет подходящего лесного места. Дальние чанки не перебираются."),false);return false;}
   BUILDS.put(p.server,build);p.displayClientMessage(Component.literal("Создаётся избушка: сначала новая площадка, затем загруженная местность. Мир не сканируется."),false);return true;
@@ -43,10 +43,18 @@ public final class YagaDiscovery {
    b.placement=YagaHut.beginPlace(b.world,at);
   }catch(RuntimeException failure){com.mojang.logging.LogUtils.getLogger().warn("Yaga creation stopped safely",failure);b.reason="internal";finish(e.getServer(),b,false);}
  }
- private static void notify(ServerPlayer p){reconcile(p,false);var delta=new net.minecraft.nbt.CompoundTag();delta.put("Hints",TaleService.hints(p));TaleNetwork.send(p,delta,false,false);}
- private static void finish(MinecraftServer server,Build b,boolean success){BUILDS.remove(server);b.chunks.close();for(var id:b.players){var p=server.getPlayerList().getPlayer(id);if(p!=null){p.displayClientMessage(success?Component.translatable("research.yaga.found"):Component.literal("Избушка не создана: "+b.reason+". Дальнейшей загрузки чанков нет."),false);notify(p);}}}
+ public static void refresh(ServerPlayer p){reconcile(p,false);var delta=new net.minecraft.nbt.CompoundTag();delta.put("Hints",TaleService.hints(p));TaleNetwork.send(p,delta,false,false);}
+ private static void finish(MinecraftServer server,Build b,boolean success){BUILDS.remove(server);b.chunks.close();for(var id:b.players){var p=server.getPlayerList().getPlayer(id);if(p!=null){p.displayClientMessage(success?Component.translatable("research.yaga.found"):Component.literal("Избушка не создана: "+b.reason+". Дальнейшей загрузки чанков нет."),false);refresh(p);}}}
  @net.neoforged.bus.api.SubscribeEvent public static void stop(net.neoforged.neoforge.event.server.ServerStoppingEvent e){var b=BUILDS.remove(e.getServer());if(b!=null){if(b.placement!=null){b.placement.abort();while(!b.placement.done())b.placement.step(65536,1_000_000_000L);}b.chunks.close();}}
- public static boolean eligible(ServerPlayer p){return YagaServices.killed(p,"name_your_misfortune")||YagaServices.killed(p,"steppe_champion")||YagaServices.killed(p,"defeat_nightingale");}
+ @net.neoforged.bus.api.SubscribeEvent(priority=net.neoforged.bus.api.EventPriority.LOWEST)
+ public static void mode(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerChangeGameModeEvent e){
+  if(!(e.getEntity() instanceof ServerPlayer p)||e.getNewGameMode()!=GameType.CREATIVE)return;
+  // The event is cancellable and precedes assignment. Read the committed mode next tick.
+  p.server.tell(new net.minecraft.server.TickTask(p.server.getTickCount()+1,()->{
+   if(p.server.getPlayerList().getPlayer(p.getUUID())==p&&p.isCreative())refresh(p);
+  }));
+ }
+ public static boolean eligible(ServerPlayer p){return YagaAccessRules.allowed(p.isCreative(),TaleData.get(p.serverLevel()).stage(p.getUUID(),"slavicmyths:yaga_search"),YagaServices.killed(p,"name_your_misfortune"),YagaServices.killed(p,"steppe_champion"),YagaServices.killed(p,"defeat_nightingale"));}
  public static void reconcile(ServerPlayer p,boolean create){
   if(!eligible(p))return;TaleService.promote(p,"slavicmyths:yaga_search",1,false);var world=p.server.overworld();var data=YagaData.get(world);
   if(!data.placed&&create&&p.level().dimension()==Level.OVERWORLD){long now=world.getGameTime();var memory=p.getPersistentData();if(now<memory.getLong("YagaSearchReady"))return;memory.putLong("YagaSearchReady",now+40);YagaHut.prepare(world);create(p,data.anchor);}

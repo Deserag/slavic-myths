@@ -1,3 +1,7 @@
+## 25.10.2026 — допуск Яги и placement Сивки
+
+В hell добавлены отдельный creative-допуск Яги на существующем TaleData stage и push Entries/Hints после трёх прежних побед; game-mode callback читает фактический режим следующим тиком. Combat credit/trust/награды и очередь строительства сохранены. У Сивки placement проверяет фактический AABB/коллизии/жидкость вместо пустого3×4×3; веса и спорные гарантии не менялись. [#272: контракт/QA/receipt](implementation/stabilization272-20261025/REPORT.md), [#271: таблица/остаток](implementation/stabilization271-20261025/REPORT.md). Runtime0/GAMEPLAY_NOT_RUN, POLYMC_NOT_INSTALLED; Issues OPEN, Project Status не менялся, main не изменяется. Технические результаты сборки — в receipt отчёта; это не игровая приёмка.
+
 ## 25.10.2026 — публикация HELL2.0.1 для аудита, IN_PROGRESS
 
 По прямому запросу владельца публикуются текущие исходники и открытые дефекты в hell, без изменения main и без заявления готовности. [Входная точка аудита, метрики и ограничения](implementation/runtime-repair-20261025/AUDIT_INDEX.md). Новый сбой доступа к Яге и creative-требование пока не исправлены.

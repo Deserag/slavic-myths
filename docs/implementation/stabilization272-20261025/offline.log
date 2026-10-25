@@ -1,0 +1,2 @@
+PASS Yaga access: 80 policy combinations + persistence/trigger boundaries; OFFLINE_ONLY
+PASS source wiring/preservation; OFFLINE_ONLY. Collision/world/game-mode event delivery NOT_RUN.
