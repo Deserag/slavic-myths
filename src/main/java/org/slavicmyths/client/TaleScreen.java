@@ -45,23 +45,26 @@ public final class TaleScreen extends Screen {
     private final Map<String,String> groups=new HashMap<>();
     private final UiText.Layout pageLayout=new UiText.Layout(),subtitleLayout=new UiText.Layout(),stateLayout=new UiText.Layout();
     private Component pageContent,countLabel;
+    private Component mapContent;private long mapTick=Long.MIN_VALUE;private String mapEntry="";private net.minecraft.locale.Language mapLanguage;
+    private final UiText.Layout mapLayout=new UiText.Layout();
     private String contentEntry="";
     private int contentPage,contentRecipe;
     private net.minecraft.locale.Language contentLanguage;
     private String part="tales",chapter="",section="",selected="",deedGroup="";private int page=1,left,top,w,h,navWidth,navOffset,textOffset,panX,panY;private float zoom=1;
     private EditBox search;private String query="";private boolean map,drag;private double dragX,dragY;
-    private net.minecraft.world.entity.LivingEntity illustration;private String illustrated="";private float mapZoom=1;private int recipeIndex=-1;
+    private net.minecraft.world.entity.LivingEntity illustration;private String illustrated="";private int recipeIndex=-1;
     private Map<String,int[]> positionCache;private String positionKey="";
     @Override public void renderBackground(GuiGraphics g,int x,int y,float delta){g.fill(0,0,width,height,0x88100D0B);}
     @Override protected void renderBlurredBackground(float delta){}
-    public TaleScreen(){super(Component.translatable("tales.title"));load(true,true);if(lastLocation!=null){part=lastLocation.part;chapter=lastLocation.chapter;section=lastLocation.section;selected=lastLocation.entry;page=lastLocation.page;}query=lastQuery;selectedDeed=lastDeed;deedGroup=lastGroup;navOffset=lastNavOffset;textOffset=lastTextOffset;}
+    public TaleScreen(){super(Component.translatable("tales.title"));load(true,true);if(lastLocation!=null){part=lastLocation.part;chapter=lastLocation.chapter;section=lastLocation.section;selected=lastLocation.entry;page=lastLocation.page;}map=snapshot.getCompound("Hints").contains(selected);query=lastQuery;selectedDeed=lastDeed;deedGroup=lastGroup;navOffset=lastNavOffset;textOffset=map?0:lastTextOffset;}
     public static TaleScreen cleansing(){var screen=new TaleScreen();screen.part="crafts";screen.chapter="mor";screen.section="cleansing";screen.selected="slavicmyths:cleansing_knowledge";return screen;}
-    public static void receive(TaleNetwork.Snapshot payload){CompoundTag delta=payload.data();snapshot=org.slavicmyths.tales.TaleSnapshotMerge.merge(snapshot,delta,payload.full());
-        var mc=Minecraft.getInstance();if(!payload.open()&&!payload.full()&&delta.contains("Entries")&&mc.level!=null&&mc.level.getGameTime()>=discoveryReady){sound("book.discovery");discoveryReady=mc.level.getGameTime()+40;}if(payload.open()){mc.setScreen(new TaleScreen());sound("book.open");}else if(mc.screen instanceof TaleScreen screen){screen.load(payload.full()||delta.contains("Catalog"),payload.full()||delta.contains("Advancements")||delta.getBoolean("AdvancementReset"));screen.init();}}
+    public static void receive(TaleNetwork.Snapshot payload){var active=Minecraft.getInstance().screen;String selectedHint=active instanceof TaleScreen book?book.selected:"";boolean hadHint=snapshot.getCompound("Hints").contains(selectedHint);CompoundTag delta=payload.data();snapshot=org.slavicmyths.tales.TaleSnapshotMerge.merge(snapshot,delta,payload.full());
+        var mc=Minecraft.getInstance();if(!payload.open()&&!payload.full()&&delta.contains("Entries")&&mc.level!=null&&mc.level.getGameTime()>=discoveryReady){sound("book.discovery");discoveryReady=mc.level.getGameTime()+40;}if(payload.open()){mc.setScreen(new TaleScreen());sound("book.open");}else if(mc.screen instanceof TaleScreen screen){if(!hadHint&&snapshot.getCompound("Hints").contains(screen.selected)){screen.map=true;screen.textOffset=0;}screen.load(payload.full()||delta.contains("Catalog"),payload.full()||delta.contains("Advancements")||delta.getBoolean("AdvancementReset"));screen.init();}}
     private static void sound(String cue){Minecraft.getInstance().getSoundManager().play(net.minecraft.client.resources.sounds.SimpleSoundInstance.forUI(BayunContent.sound(cue),1,.38F));}
     /** Only changed snapshot sections are decoded; progress deltas do not rebuild the catalog/tree. */
     private void load(boolean catalogChanged,boolean advancementsChanged){
-        pageContent=null;deedContent=null;
+        pageContent=null;deedContent=null;mapContent=null;
+        if(map&&!snapshot.getCompound("Hints").contains(selected)){map=false;textOffset=0;}
         if(catalogChanged){
             List<Entry> list=new ArrayList<>();entriesById.clear();
             for(Tag raw:snapshot.getList("Catalog",10)){
@@ -88,10 +91,10 @@ public final class TaleScreen extends Screen {
     private Entry current(){return entriesById.get(selected);}
     private int stage(Entry e){return Math.max(e.initial,Math.clamp(snapshot.getCompound("Entries").getCompound(e.id).getInt("Stage"),0,4));}
     private Location location(){return new Location(part,chapter,section,selected,page);}
-    private void restore(Location l){releaseIllustration();part=l.part;chapter=l.chapter;section=l.section;selected=l.entry;page=l.page;textOffset=navOffset=0;map=false;recipeIndex=-1;init();}
+    private void restore(Location l){releaseIllustration();part=l.part;chapter=l.chapter;section=l.section;selected=l.entry;page=l.page;textOffset=navOffset=0;map=snapshot.getCompound("Hints").contains(selected);recipeIndex=-1;init();}
     private void remember(){forward.clear();history.push(location());if(history.size()>64)history.removeLast();}
     private void choosePart(String p){query="";deedGroup="";panX=panY=0;saved.put(part,location());remember();restore(saved.getOrDefault(p,new Location(p,"","","",1)));}
-    private void select(Entry e){releaseIllustration();remember();part=e.part;chapter=e.chapter;section=e.section;selected=e.id;page=1;textOffset=0;map=false;recipeIndex=-1;PacketDistributor.sendToServer(new TaleNetwork.Read(e.id));sound("book.page");init();}
+    private void select(Entry e){releaseIllustration();remember();part=e.part;chapter=e.chapter;section=e.section;selected=e.id;page=1;textOffset=0;map=snapshot.getCompound("Hints").contains(e.id);recipeIndex=-1;PacketDistributor.sendToServer(new TaleNetwork.Read(e.id));sound("book.page");init();}
     private Component heading(String type,String key){return Component.translatable("tales."+type+"."+key);}
     private boolean portrait(){var e=current();return sidebar&&!part.equals("deeds")&&e!=null&&stage(e)>=2&&h>=320&&navWidth>=140;}
     private int rows(){return Math.max(1,(h-87-(portrait()?85:0))/18);}
@@ -126,9 +129,9 @@ public final class TaleScreen extends Screen {
             if(snapshot.getCompound("Hints").contains(e.id)){
                 if(e.id.startsWith("slavicmyths:guide_")){
                     var q=snapshot.getCompound("GuideQuests").getCompound(e.id.substring("slavicmyths:guide_".length()));int cell=Math.max(24,(rw-8)/3);
-                    button(rx,top+h-49,cell,20,Component.translatable("tales.map"),true,()->{map=!map;textOffset=0;});
+                    button(rx,top+h-49,cell,20,Component.translatable("navigation.search.open"),true,()->{map=!map;textOffset=0;});
                     if(q.hasUUID("Marker")){var marker=q.getUUID("Marker");button(rx+cell+4,top+h-49,cell,20,Component.translatable("guides.track"),true,()->org.slavicmyths.navigation.NavigationNetwork.request(org.slavicmyths.navigation.NavigationNetwork.Action.TRACK,marker,0,true));button(rx+(cell+4)*2,top+h-49,cell,20,Component.translatable("guides.untrack"),true,()->org.slavicmyths.navigation.NavigationNetwork.request(org.slavicmyths.navigation.NavigationNetwork.Action.STOP,marker,0,false));}
-                }else{button(rx,top+h-49,Math.min(rw-35,120),20,Component.translatable("tales.map"),true,()->{map=!map;textOffset=0;});button(left+w-47,top+h-49,33,20,Component.literal("×"+mapZoom),true,()->{mapZoom=mapZoom>=2?1:mapZoom+.5F;init();});}
+                }else{button(rx,top+h-49,Math.min(rw,160),20,Component.translatable("navigation.search.open"),true,()->{map=!map;textOffset=0;});}
             }
             else if(stage(e)>=3&&!e.recipes.isEmpty()){button(rx,top+h-49,Math.min(rw,150),20,Component.translatable("tales.recipe.open"),true,()->{recipeIndex=recipeIndex+1>=e.recipes.size()?-1:recipeIndex+1;textOffset=0;});}
             else if(!e.links.isEmpty()){String link=e.links.get(0);Entry target=entriesById.get(link);if(target!=null)button(rx,top+h-49,Math.min(rw,150),20,Component.translatable(target.title),true,()->select(target));}
@@ -259,7 +262,21 @@ public final class TaleScreen extends Screen {
             g.renderItem(itemIcon,0,0);g.pose().popPose();
         }
     }
-    private void renderMap(GuiGraphics g,Entry e,int x,int width){var hint=snapshot.getCompound("Hints").getCompound(e.id);String error=hint.getBoolean("Stale")?"tales.stale":!hint.getString("Dimension").equals(snapshot.getString("Dimension"))?"tales.other_dimension":"";int y=textTop();g.enableScissor(x,y,x+width,textBottom());if(!error.isEmpty()){FolkUi.text(g,font,Component.translatable(error),x,y,width,FolkUi.RED,8);g.disableScissor();return;}int size=Math.max(40,Math.min(width,Math.max(40,textBottom()-y-65))),cx=x+size/2,cy=y+size/2,r=(int)(size/3*mapZoom);g.enableScissor(x,y,x+size,y+size);g.fill(x,y,x+size,y+size,0xffd9c49a);for(int i=0;i<48;i++){double a=i*Math.PI/24,b=(i+1)*Math.PI/24;if(i%2==0)line(g,cx+(int)(Math.cos(a)*r),cy+(int)(Math.sin(a)*r),cx+(int)(Math.cos(b)*r),cy+(int)(Math.sin(b)*r),FolkUi.RED);}var player=minecraft.player;if(player!=null){double dx=(player.getX()-hint.getDouble("X"))/hint.getInt("Radius"),dz=(player.getZ()-hint.getDouble("Z"))/hint.getInt("Radius");int px=cx+(int)Math.clamp(dx*r,-size/2+4,size/2-4),py=cy+(int)Math.clamp(dz*r,-size/2+4,size/2-4);g.fill(px-2,py-2,px+3,py+3,FolkUi.GREEN);}g.disableScissor();g.drawString(font,Component.translatable("tales.north"),x+2,y+2,FolkUi.INK,false);FolkUi.text(g,font,Component.translatable("tales.schematic"),x,y+size+3,width,FolkUi.INK,2);FolkUi.text(g,font,Component.translatable(hint.getString("Source")).append(" · ").append(Component.translatable("tales.direction."+hint.getInt("Direction"))).append(" · ").append(Component.translatable("tales.distance."+hint.getInt("Distance"))),x,y+size+25,width,FolkUi.GREEN,3);g.disableScissor();}
+    private void renderMap(GuiGraphics g,Entry e,int x,int width){
+        var player=minecraft.player;long tick=minecraft.level==null?0:minecraft.level.getGameTime();var language=net.minecraft.locale.Language.getInstance();
+        if(mapContent==null||mapTick!=tick||!mapEntry.equals(e.id)||mapLanguage!=language){
+            String dimension=player==null?snapshot.getString("Dimension"):player.level().dimension().location().toString();
+            mapContent=org.slavicmyths.navigation.SearchGuidance.hint(snapshot.getCompound("Hints").getCompound(e.id),dimension,player==null?Double.NaN:player.getX(),player==null?Double.NaN:player.getZ(),tick);
+            mapTick=tick;mapEntry=e.id;mapLanguage=language;
+        }
+        var lines=mapLayout.split(font,mapContent,Math.max(8,width-6));int count=org.slavicmyths.navigation.SearchCoordinates.visibleRows(textTop(),textBottom());
+        textOffset=org.slavicmyths.navigation.SearchCoordinates.scroll(textOffset,lines.size(),count);
+        g.enableScissor(x,textTop(),x+width,textBottom());
+        for(int i=0;i<count&&textOffset+i<lines.size();i++)g.drawString(font,lines.get(textOffset+i),x,textTop()+i*12,FolkUi.INK,false);
+        g.disableScissor();
+        if(lines.size()>count){int track=Math.max(1,textBottom()-textTop()),thumb=Math.max(8,track*count/lines.size()),at=(track-thumb)*textOffset/Math.max(1,lines.size()-count);g.fill(x+width-2,textTop()+at,x+width,textTop()+at+thumb,FolkUi.RED);}
+    }
+
     private String group(String id){return groups.computeIfAbsent(id,this::findGroup);}
     private String findGroup(String id){String at=id;Set<String> seen=new HashSet<>();while(!at.isEmpty()&&seen.add(at)){if(at.equals("slavicmyths:first_neighbors"))return "peaceful";if(at.equals("slavicmyths:first_structure"))return "exploration";if(at.equals("slavicmyths:meet_bandits"))return "combat";if(at.equals("slavicmyths:tales_come_alive"))return "stories";if(at.contains(":group_"))return at.split(":group_",2)[1];CompoundTag n=nodes.get(at);if(n==null)break;at=n.getString("Parent");}return "tales";}
     private Component component(String json){return components.computeIfAbsent(json,value->{try{var decoded=Component.Serializer.fromJson(value,minecraft.level.registryAccess());return decoded==null?Component.translatable("tales.locked"):decoded;}catch(RuntimeException failure){return Component.translatable("tales.locked");}});}

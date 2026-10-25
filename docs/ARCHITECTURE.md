@@ -1,3 +1,9 @@
+## 25.10.2026 — #296: числовая поисковая навигация (IN_PROGRESS)
+
+В `hell` книга и маркеры показывают dimension, фактические центр X/Z/radius, границы круга и inside/outside/state. Книга использует свои public Hints, NavigationScreen — свой SearchArea; приватные Anchor/Target и неизвестный Y не подставляются. Полный текст прокручивается, компоненты/font split кешируются; подсказки обновляются/удаляются через прежний snapshot. Saved models/protocols/worldgen/registry и #295 не менялись. [Отчёт, исходники, native offline примеры, JAR/SHA и ручной checklist](implementation/navigation296-20261025/REPORT.md).
+
+Java21 clean build3m51s,5068 новых bare-JVM checks,76 регрессий #272,50289 старых book-cache/line/viewport checks, scope/resource/JAR8001 PASS. Minecraft/client/server/GameTest0; реальный GUI854×480/1920×1080, relog/старый мир/MP/FPS NOT_RUN. NBT roundtrip не заменяет игровой перезаход. #296 OPEN/«В работе»/OWNER_PENDING; POLYMC_NOT_INSTALLED, прежние пользовательские config/saves/JAR не менялись. Main не изменён; передача #278 подготовлена без начала реализации.
+
 ## 25.10.2026 — #295 + часть #275: read-only locate и реальные генерационные прогоны (IN_PROGRESS)
 
 В `hell` search/locate Чуди, городища/горы/святилищ отделены от явного create. Чудь загружает raster footprint (city99/98 вместо bounding289), не перебирает6площадок; natural raw ores/cave plants разрешены, dungeon/container/portal protections сохранены. Городище построено в superflat; Яга не обходит slope limit. По прямому согласованию владельца новые дома Баюна имеют минимум1024 по горизонтали, старые UUID не удаляются. [Отчёт, 27 реальных dedicated запусков, матрица, source/JAR SHA и survival-checklist](implementation/generation295-20261025/REPORT.md), [очередь передачи](implementation/generation295-20261025/HANDOFF.md).

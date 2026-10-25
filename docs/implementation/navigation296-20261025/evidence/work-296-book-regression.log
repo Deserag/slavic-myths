@@ -1,0 +1,18 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileBookOfflineJava
+> Task :processBookOfflineResources NO-SOURCE
+> Task :bookOfflineClasses
+
+> Task :checkBookOffline
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+{"checks":50289,"scope":"offline native StringSplitter with fixed glyph widths, exact DDA pixels; not GPU frames or game FPS","allocation":{"before_bytes_op":[47158.988,46248.592,46248.0],"after_bytes_op":[0.052,0.472,0.0]}}
+
+BUILD SUCCESSFUL in 29s
+6 actionable tasks: 3 executed, 3 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

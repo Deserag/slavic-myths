@@ -1,0 +1,20 @@
+{
+  "scope": "SOURCE/RESOURCES/PRODUCTION_JAR_ONLY",
+  "baseline": "50cfd72d",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.1-HELL.jar",
+  "sha256": "d909681e9478bb0818ed0f39aafc6b2d656924255dd5390a6ae96bc234a0a91d",
+  "sources": {
+    "src/main/java/org/slavicmyths/client/TaleScreen.java": "5f2ab4cbddea767cef21015d73789581f574657b081ed3bca28e9c7d1082a325",
+    "src/main/java/org/slavicmyths/navigation/client/NavigationScreen.java": "7280521b32449dd207559cd66e9fe25c34048f931153ec12c9062c6a01f85730",
+    "src/main/java/org/slavicmyths/tales/TaleService.java": "b8a1415d74c4669ca82b8773638d7d2b13d0c2e32b844ca29c7713556dbfdb7b",
+    "src/main/java/org/slavicmyths/navigation/SearchCoordinates.java": "63f5dc57735b7fa62874cb5ee33d86c5f53eb1faf30a0c1c9b0e3ecc17819f37",
+    "src/main/java/org/slavicmyths/navigation/SearchGuidance.java": "c86a8a174fc718b901f3074180a437132c196ac14d60e44b5c03fc2680dc4a8b",
+    "src/main/java/org/slavicmyths/tales/TaleHintVisibility.java": "e7d819a1289301b385c1e65c7c6231600c7e4e8467b90413596c11179b59e1b8",
+    "src/main/resources/assets/slavicmyths/lang/ru_ru.json": "895b3047f78b540f0afe3abc193bab043a67126cb3046fc1d102dfac74ced340",
+    "src/main/resources/assets/slavicmyths/lang/en_us.json": "420db1b2696f5a3318e7c155337aae1baba204b2b6a53cdfd1b2ef9cb00ec7d1"
+  },
+  "minecraft_launches": 0,
+  "visual": "NOT_RUN",
+  "relog": "NOT_RUN",
+  "MP": "NOT_RUN"
+}
