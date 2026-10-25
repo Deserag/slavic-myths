@@ -91,6 +91,7 @@ public final class SlavicMyths {
         org.slavicmyths.combat.RareWeapons.init();
         org.slavicmyths.rpg.RuneRepair.init();
         org.slavicmyths.rpg.RuneFoundation.init();
+        org.slavicmyths.blackcinder.ZharenitsaSeals.init();
         org.slavicmyths.rpg.RuneRework.init();
         org.slavicmyths.rpg.RareRunes.init();
         org.slavicmyths.rpg.RuneVisual.init();
