@@ -1,0 +1,113 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compileGeneration295Java
+
+> Task :processGeneration295Resources NO-SOURCE
+Note: D:\slavic-myths\tools\generation295-runtime\Generation295Probe.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+> Task :generation295Classes
+> Task :downloadAssets UP-TO-DATE
+> Task :writeGeneration295LegacyClasspath UP-TO-DATE
+> Task :prepareGeneration295Run
+
+> Task :runGeneration295
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[20:25:03] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430, --nogui]
+[20:25:03] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[20:25:03] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[20:25:04] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[20:25:04] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[20:25:04] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[20:25:04] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 2.0.1-HELL (slavicmyths)
+[20:25:05] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[20:25:05] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, ., --nogui]
+[20:25:05] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[20:25:05] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[20:25:06] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[20:25:06] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[20:25:11] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[20:25:11] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[20:25:11] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[20:25:11] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[20:25:11] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[20:25:11] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[20:25:13] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[20:25:13] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[20:25:13] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[20:25:13] [main/INFO] [minecraft/Main]: No existing world data, creating new world
+[20:25:14] [main/INFO] [minecraft/RecipeManager]: Loaded 1853 recipes
+[20:25:14] [main/INFO] [minecraft/AdvancementTree]: Loaded 1643 advancements
+[20:25:14] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[20:25:14] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[20:25:15] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.21.1
+[20:25:15] [Server thread/INFO] [minecraft/DedicatedServer]: Loading properties
+[20:25:15] [Server thread/INFO] [minecraft/DedicatedServer]: Default game type: SURVIVAL
+[20:25:15] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[20:25:15] [Server thread/INFO] [minecraft/DedicatedServer]: Starting Minecraft server on 127.0.0.1:0
+[20:25:15] [Server thread/INFO] [minecraft/ServerConnectionListener]: Using default channel type
+[20:25:15] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[20:25:15] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.
+[20:25:15] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[20:25:15] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set "online-mode" to "true" in the server.properties file.
+[20:25:15] [Server thread/INFO] [minecraft/DedicatedServer]: Preparing level "world"
+[20:25:20] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[20:25:20] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[20:25:20] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[20:25:21] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[20:25:22] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 18%
+[20:25:22] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 22%
+[20:25:24] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 51%
+[20:25:24] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 51%
+[20:25:24] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 51%
+[20:25:24] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 51%
+[20:25:24] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 51%
+[20:25:25] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 5038 ms
+[20:25:25] [Server thread/INFO] [minecraft/DedicatedServer]: Done (10.045s)! For help, type "help"
+[20:25:25] [Server thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[20:25:25] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[20:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: chud_city: существующий старт не найден в загруженных чанках (радиус 1024). Неизвестные чанки не загружались; строительство не запускалось.
+[20:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: chud_city: существующий старт не найден в загруженных чанках (радиус 1024). Неизвестные чанки не загружались; строительство не запускалось.
+[20:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: chud_abandoned: существующий старт не найден в загруженных чанках (радиус 1024). Неизвестные чанки не загружались; строительство не запускалось.
+[20:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: gorodishche: существующий старт не найден в загруженных чанках (радиус 1024). Неизвестные чанки не загружались; строительство не запускалось.
+[20:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: serpent_hill: существующий старт не найден в загруженных чанках (радиус 1024). Неизвестные чанки не загружались; строительство не запускалось.
+[20:25:26] [Server thread/INFO] [minecraft/MinecraftServer]: Создаётся место Чуди порциями. Дальние структуры не разыскиваются.
+[20:25:26] [Server thread/INFO] [minecraft/MinecraftServer]: Создание Чуди: этап 0, чанки 0/0, секции 0/0
+[20:25:31] [Server thread/INFO] [minecraft/MinecraftServer]: Создание Чуди: этап 1, чанки 28/99, секции 0/308
+[20:25:35] [Server thread/WARN] [or.sl.ch.ChudCreationJobs$Job/]: Chud preflight phase 2 at [0, -16]: java.lang.IllegalStateException: Защищённая постройка/блок: 8, -3, -248 / Block{minecraft:chest}[facing=north,type=single,waterlogged=false]
+[20:25:35] [Server thread/INFO] [minecraft/MinecraftServer]: Создание Чуди остановлено: Защищённая постройка/блок: 8, -3, -248 / Block{minecraft:chest}[facing=north,type=single,waterlogged=false]
+[20:25:35] [Server thread/INFO] [minecraft/MinecraftServer]: Создаётся место Чуди порциями. Дальние структуры не разыскиваются.
+[20:25:35] [Server thread/INFO] [minecraft/MinecraftServer]: Создание Чуди: этап 0, чанки 0/0, секции 0/0
+[20:25:40] [Server thread/INFO] [minecraft/MinecraftServer]: Создание Чуди: этап 1, чанки 96/99, секции 0/308
+[20:25:45] [Server thread/INFO] [minecraft/MinecraftServer]: Создание Чуди: этап 4, чанки 27/99, секции 0/308
+[20:25:49] [Server thread/INFO] [minecraft/MinecraftServer]: Место Чуди создано: 132, 63, -210
+GENERATION295 {seed=29501, scenario=protection, generator=NoiseBasedChunkGenerator, empty_locate_no_tickets_or_records=true, container_refused_and_preserved=true, actual_raw_copper_and_iron_replaced=true, native_tickets_after=0, result=PASS, ticks=479, elapsed_ms=23906}
+[20:25:49] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[20:25:49] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[20:25:49] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[20:25:49] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[20:25:50] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[20:25:50] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[20:25:50] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[20:25:50] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[20:25:50] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[20:25:50] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 59s
+9 actionable tasks: 4 executed, 5 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

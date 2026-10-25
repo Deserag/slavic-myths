@@ -1,7 +1,7 @@
 {
   "branch": "hell",
   "baseline": "22f06d6bff0b3561b0a097b8509ff1e73e53137c",
-  "source_commit": "See publication commit in git history/final response; source hashes below describe the exact built Java files.",
+  "source_commit": "5afe3a3d1177bd225ec0aed53639ad5649458d05",
   "version": "2.0.1-HELL",
   "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.1-HELL.jar",
   "sha256": "a2ea8322e79562b6273c033aaa288835b0fb63f2d278256ab529e96d905716fe",
@@ -42,5 +42,6 @@
     "FAIL_STARTUP": 1
   },
   "temporary_worlds": "11 own test directories removed after archiving six worlds; see cleanup.json and temporary-worlds.json",
-  "native_game_processes_after_checks": 0
+  "native_game_processes_after_checks": 0,
+  "publication_note": "Additional documentation-only commit records this source commit and includes byte-preserved full logs. No Java changes after the source commit."
 }

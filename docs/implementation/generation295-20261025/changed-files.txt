@@ -1,6 +1,7 @@
 docs/ARCHITECTURE.md
 docs/PROJECT_STATUS.md
 docs/ROADMAP.md
+docs/implementation/generation295-20261025/.gitattributes
 docs/implementation/generation295-20261025/HANDOFF.md
 docs/implementation/generation295-20261025/REPORT.md
 docs/implementation/generation295-20261025/changed-files.txt
