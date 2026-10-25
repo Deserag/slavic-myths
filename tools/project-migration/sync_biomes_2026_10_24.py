@@ -17,7 +17,7 @@ if not TOKEN:
 OWNER = "Deserag"
 REPO = "slavic-myths"
 PROJECT_NUMBER = 9
-# Existing discussed Navya issues + umbrella; new 2.0.3 issues.
+# Agreed planning Issues for 2.0.2, 2.0.3 and 2.0.4 (including unapproved future mob/boss concepts).
 TARGETS = {
     250: ("Анализ", None),
     251: ("Анализ", None),
@@ -34,7 +34,13 @@ TARGETS = {
     265: ("Анализ", 2034),
     266: ("В работе", 2035),
     267: ("Анализ", 2036),
-    288: ("Концепция", 2040),
+    288: ("Анализ", 2040),
+    289: ("Анализ", 2041),
+    290: ("Анализ", 2042),
+    291: ("Анализ", 2043),
+    292: ("Концепция", 2044),
+    293: ("Концепция", 2045),
+    294: ("Анализ", 2046),
 }
 GRAPHQL = "https://api.github.com/graphql"
 
