@@ -52,7 +52,7 @@ public final class TaleService {
         return snapshot(p,true);
     }
     private static CompoundTag snapshot(ServerPlayer p,boolean definitions){
-        var state=TaleData.get(p.serverLevel()).player(p.getUUID());CompoundTag n=new CompoundTag();n.put("Entries",state.getCompound("Entries").copy());n.put("Hints",publicHints(p,state));
+        var state=TaleData.get(p.serverLevel()).player(p.getUUID());CompoundTag n=new CompoundTag();n.put("YagaSearch",state.getCompound("YagaSearch").copy());n.put("Entries",state.getCompound("Entries").copy());n.put("Hints",publicHints(p,state));
         if(definitions){if(catalogCache==null){catalogCache=new ListTag();for(var e:TaleCatalog.entries())catalogCache.add(e.snapshot());}n.put("Catalog",catalogCache.copy());n.put("Recipes",recipeSnapshot(p));}
         n.put("GuideQuests",org.slavicmyths.guides.GuideQuests.snapshot(p));n.put("Advancements",advancements(p));n.putLong("CatalogRevision",catalogRevision);n.putString("Dimension",p.level().dimension().location().toString());n.putInt("Rewards176",org.slavicmyths.rewards.RewardLedger.available(p));
         // Read-only bridge: no call to progress(), accept(), complete() or reward methods.

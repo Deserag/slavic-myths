@@ -56,7 +56,7 @@ public final class TaleScreen extends Screen {
     @Override protected void renderBlurredBackground(float delta){}
     public TaleScreen(){super(Component.translatable("tales.title"));load(true,true);if(lastLocation!=null){part=lastLocation.part;chapter=lastLocation.chapter;section=lastLocation.section;selected=lastLocation.entry;page=lastLocation.page;}query=lastQuery;selectedDeed=lastDeed;deedGroup=lastGroup;navOffset=lastNavOffset;textOffset=lastTextOffset;}
     public static TaleScreen cleansing(){var screen=new TaleScreen();screen.part="crafts";screen.chapter="mor";screen.section="cleansing";screen.selected="slavicmyths:cleansing_knowledge";return screen;}
-    public static void receive(TaleNetwork.Snapshot payload){CompoundTag delta=payload.data();if(payload.full())snapshot=delta;else{if(delta.getBoolean("EntriesReset"))snapshot.put("Entries",new CompoundTag());if(delta.getBoolean("AdvancementReset"))snapshot.put("Advancements",new ListTag());for(String key:delta.getAllKeys()){if(key.equals("Entries")){CompoundTag target=snapshot.getCompound("Entries");for(String id:delta.getCompound(key).getAllKeys())target.put(id,delta.getCompound(key).get(id).copy());snapshot.put(key,target);}else if(key.equals("Advancements")){Map<String,CompoundTag> all=new TreeMap<>();for(Tag raw:snapshot.getList(key,10)){CompoundTag n=(CompoundTag)raw;all.put(n.getString("Id"),n);}for(Tag raw:delta.getList(key,10)){CompoundTag n=(CompoundTag)raw;all.put(n.getString("Id"),n);}ListTag list=new ListTag();all.values().forEach(list::add);snapshot.put(key,list);}else snapshot.put(key,delta.get(key).copy());}}
+    public static void receive(TaleNetwork.Snapshot payload){CompoundTag delta=payload.data();snapshot=org.slavicmyths.tales.TaleSnapshotMerge.merge(snapshot,delta,payload.full());
         var mc=Minecraft.getInstance();if(!payload.open()&&!payload.full()&&delta.contains("Entries")&&mc.level!=null&&mc.level.getGameTime()>=discoveryReady){sound("book.discovery");discoveryReady=mc.level.getGameTime()+40;}if(payload.open()){mc.setScreen(new TaleScreen());sound("book.open");}else if(mc.screen instanceof TaleScreen screen){screen.load(payload.full()||delta.contains("Catalog"),payload.full()||delta.contains("Advancements")||delta.getBoolean("AdvancementReset"));screen.init();}}
     private static void sound(String cue){Minecraft.getInstance().getSoundManager().play(net.minecraft.client.resources.sounds.SimpleSoundInstance.forUI(BayunContent.sound(cue),1,.38F));}
     /** Only changed snapshot sections are decoded; progress deltas do not rebuild the catalog/tree. */
@@ -122,7 +122,7 @@ public final class TaleScreen extends Screen {
             return;
         }
         Entry e=current();if(e!=null){page=Math.clamp(page,1,Math.max(1,stage(e)));int y=top+h-25;button(rx,y,28,19,Component.literal("‹"),page>1,()->{page--;textOffset=0;sound("book.page");init();});button(left+w-42,y,28,19,Component.literal("›"),page<stage(e),()->{page++;textOffset=0;sound("book.page");init();});
-            if(e.id.equals("slavicmyths:yaga_search")&&!snapshot.getCompound("Hints").contains(e.id)&&stage(e)>0)button(rx,top+h-49,Math.min(rw,160),20,Component.translatable("guides.find_yaga"),true,()->PacketDistributor.sendToServer(new TaleNetwork.Read("__find_yaga")));
+            if(e.id.equals("slavicmyths:yaga_search")&&!snapshot.getCompound("Hints").contains(e.id)&&stage(e)>0)button(rx,top+h-49,Math.min(rw,160),20,Component.translatable("guides.find_yaga"),!snapshot.getCompound("YagaSearch").getString("Status").equals("SEARCHING"),()->PacketDistributor.sendToServer(new TaleNetwork.Read("__find_yaga")));
             if(snapshot.getCompound("Hints").contains(e.id)){
                 if(e.id.startsWith("slavicmyths:guide_")){
                     var q=snapshot.getCompound("GuideQuests").getCompound(e.id.substring("slavicmyths:guide_".length()));int cell=Math.max(24,(rw-8)/3);
@@ -194,6 +194,12 @@ public final class TaleScreen extends Screen {
         if(recipeIndex>=0&&recipeIndex<e.recipes.size())return TaleRecipeText.display(snapshot.getCompound("Recipes").getString(e.recipes.get(recipeIndex)));
         String suffix=switch(page){case 2->"discovered";case 3->"studied";case 4->"verified";default->"rumor";};
         Component content=Component.translatable("tales.entry."+e.id.split(":",2)[1]+"."+suffix);
+        if(e.id.equals("slavicmyths:yaga_search")){
+            var search=snapshot.getCompound("YagaSearch");String status=search.getString("Status");
+            var text=Component.translatable("yaga.search.status."+(status.isEmpty()?"AVAILABLE":status));
+            if(status.equals("UNAVAILABLE"))text.append("\n").append(Component.translatable("yaga.search.reason."+search.getString("Reason")));
+            return text.append("\n\n").append(content);
+        }
         if(e.id.startsWith("slavicmyths:guide_")){
             var q=snapshot.getCompound("GuideQuests").getCompound(e.id.substring("slavicmyths:guide_".length()));
             return Component.translatable("guides.status."+(q.getString("Status").isEmpty()?"NONE":q.getString("Status"))).append("\n\n").append(Component.translatable("guides."+(q.getString("Giver").equals("bayun")?"bayun":"yaga")+".explain")).append("\n\n").append(content);

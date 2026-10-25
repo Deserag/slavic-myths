@@ -2,14 +2,16 @@
 from pathlib import Path
 import subprocess,json,zipfile,hashlib
 from verify_structures275 import OWNED as STRUCTURES275
+from verify_yaga272 import OWNED as YAGA272, scope as yaga272_scope
 R=Path(__file__).resolve().parents[1];BASE='cecaa4b2';J='src/main/java/org/slavicmyths/'
 OWNED=['firebird/FirebirdEncounter.java','hunt/HuntSpawns.java','sivka/SivkaContent.java','sivka/FirstSivkaProgress.java','sivka/SivkaExploration.java','wolf/WolfEncounter.java','wolf/EncounterRetryCache.java','world/EncounterPlacement.java']
 def source(p):return (R/J/p).read_text(encoding='utf-8')
 changed=subprocess.check_output(['git','diff',BASE,'--name-only','--','src/main/java'],cwd=R,text=True).splitlines()
-assert set(changed)<=set(J+p for p in OWNED+STRUCTURES275),changed
-assert not subprocess.check_output(['git','diff',BASE,'--','src/main/resources'],cwd=R),'unexpected art/audio/biome/weight changes'
+assert set(changed)<=set(J+p for p in OWNED+STRUCTURES275+YAGA272),changed
+yaga272_scope()  # Explicit later package owns death credit and Yaga book updates.
 # #275 owns BayunFeature now; its actual transaction is covered by the #275 native fixture.
 for p in ['hunt/WorldBoss.java','hunt/BossAnchors.java','hunt/BossRules.java','mor/MorController.java','mor/MorRules.java','mor/MorEvents.java','firebird/FirebirdEntity.java','firebird/FirebirdRules.java','yaga/YagaDiscovery.java','navya/NavyaSpawns.java']:
+    if p in YAGA272:continue
     before=subprocess.check_output(['git','show',BASE+':'+J+p],cwd=R).decode().replace('\r\n','\n')
     assert before==source(p),('unowned regression',p)
 for p in OWNED:assert 'net.minecraft.client' not in source(p),('common client dependency',p)

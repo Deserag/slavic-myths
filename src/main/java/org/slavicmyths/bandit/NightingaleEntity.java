@@ -259,7 +259,7 @@ public final class NightingaleEntity extends PathfinderMob implements net.minecr
         boolean wasDead=dead;super.die(source);
         // Forge death cancellation must not resolve the camp or award a victory.
         if(!level().isClientSide&&!wasDead&&dead){
-            fatal=source;if(source.getEntity() instanceof Player)participants.add(source.getEntity().getUUID());
+            fatal=source;if(source.getEntity() instanceof Player)participants.add(source.getEntity().getUUID());var winner=org.slavicmyths.progression.BossVictoryCredit.winner(this,source);if(winner!=null)participants.add(winner.getUUID());
             setNoGravity(false);fallDistance=0;begin(DYING,0);bar.removeAllPlayers();
             if(camp!=null)StrongholdRecords.get((ServerLevel)level()).nightingaleDied(camp);
             for(UUID id:participants){ServerPlayer p=((ServerLevel)level()).getServer().getPlayerList().getPlayer(id);if(p!=null&&p.level()==level()&&distanceToSqr(p)<64*64){Knowledge.award(p,"meet_nightingale");if(camp!=null&&org.slavicmyths.progression.AdvancementMilestones.combatDeath(source))org.slavicmyths.progression.AdvancementMilestones.award(p,"defeat_nightingale");}}

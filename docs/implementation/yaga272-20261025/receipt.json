@@ -1,0 +1,25 @@
+{
+  "baseline": "0072c2f7",
+  "branch": "hell",
+  "version": "2.0.1-HELL",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.1-HELL.jar",
+  "sha256": "180055f5f69bba3f741c879be415e674d160dcbe27f15185d98375476cf897a9",
+  "sources": {
+    "src/main/java/org/slavicmyths/bandit/NightingaleEntity.java": "6a57e1e8a11cb9852271486d0889f0e112b704325ef44ed1f7507716e2bf7892",
+    "src/main/java/org/slavicmyths/client/TaleScreen.java": "38489de12ba804fdfcf14f85c6fa8b672ec147f601d6604c852b06a0f61d29f1",
+    "src/main/java/org/slavicmyths/hunt/WorldBoss.java": "261c220f9d66f35fc02e9803d457800390ab90fef8a58957bcb02a629846a917",
+    "src/main/java/org/slavicmyths/tales/TaleService.java": "62f659ae16641d9c460dcde7c32519b3a79239c4a294f3e64b3f22a1c3b0964b",
+    "src/main/java/org/slavicmyths/tales/TaleSnapshotMerge.java": "1bc4015575477ece5d0fee69db099167748c9b062ce62abad4cd7a594499f9bb",
+    "src/main/java/org/slavicmyths/yaga/BabaYaga.java": "3d408e06b2318920bc91cce2aa3504cdcec4e24051f349b97508a3d6a33ec569",
+    "src/main/java/org/slavicmyths/yaga/YagaData.java": "34024549d3a50b80635ad701a128ff568a6c5e5e642e3b33e4d4ba68b4620c5f",
+    "src/main/java/org/slavicmyths/yaga/YagaDiscovery.java": "fdd292d26ae3ee73e0d575026913ac4c3f142ca49873953b274be0c4ab900f99",
+    "src/main/java/org/slavicmyths/yaga/YagaServices.java": "b83efe65ab081fbb4635df378b2ee361057e12edfc3cfed4ae8216c6a1d2f67d",
+    "src/main/java/org/slavicmyths/yaga/YagaStoryProgress.java": "64c94f9ed36923d21ef0ac96fff3749e48d3c37b0f6f9356c9d8b98d5e99a77b",
+    "src/main/java/org/slavicmyths/progression/BossVictoryCredit.java": "de575be884746722df0f818e5b9672075d15f9263099ed6682f75fdb596b236b",
+    "src/main/java/org/slavicmyths/village/mixin/YagaGameModeMixin.java": "5eae7589e5ee82e21c6a30249b6b04c7ecac2c0fca3ef72d18ea8f8ab5de97ec"
+  },
+  "minecraft_launches": 0,
+  "runtime": "NOT_RUN",
+  "polymc": "POLYMC_NOT_INSTALLED",
+  "issue": "OPEN / OWNER_PENDING"
+}

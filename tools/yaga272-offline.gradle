@@ -1,0 +1,20 @@
+// Opt-in plain JVM: registry/data bootstrap only, no Minecraft world/server/client run.
+allprojects {
+ plugins.withId('java') {
+  sourceSets {
+   yaga272Offline {
+    java.srcDir 'tools/yaga272-offline'
+    compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+   }
+  }
+  tasks.register('verifyYaga272Offline',JavaExec) {
+   dependsOn 'yaga272OfflineClasses'
+   classpath=sourceSets.yaga272Offline.runtimeClasspath
+   mainClass='org.slavicmyths.verify.Yaga272Offline'
+   maxHeapSize='384m'
+   jvmArgs '-XX:ActiveProcessorCount=2'
+   workingDir project.projectDir
+  }
+ }
+}

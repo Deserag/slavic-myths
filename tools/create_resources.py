@@ -133,3 +133,6 @@ apply_trophy114_down(root)
 
 from issue225_resources import apply as apply_issue225_resources
 apply_issue225_resources()
+
+from yaga272_strings import apply as apply_yaga272_strings
+apply_yaga272_strings(root)

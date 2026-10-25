@@ -27,38 +27,34 @@ public final class YagaDiscovery {
  private static boolean loaded(ServerLevel w,BlockPos p){for(int x=(p.getX()-10)>>4;x<=(p.getX()+10)>>4;x++)for(int z=(p.getZ()-17)>>4;z<=(p.getZ()+10)>>4;z++)if(w.getChunkSource().getChunkNow(x,z)==null)return false;return true;}
  public static boolean create(ServerPlayer p,BlockPos preferred){
   var w=p.server.overworld();var data=YagaData.get(w);if(data.placed){refresh(p);return true;}
-  var old=BUILDS.get(p.server);if(old!=null){old.players.add(p.getUUID());return true;}
-  var build=new Build(p,preferred);if(build.candidates.isEmpty()){p.displayClientMessage(Component.literal("Поблизости нет подходящего лесного места. Дальние чанки не перебираются."),false);return false;}
-  BUILDS.put(p.server,build);p.displayClientMessage(Component.literal("Создаётся избушка: сначала новая площадка, затем загруженная местность. Мир не сканируется."),false);return true;
+  var old=BUILDS.get(p.server);if(old!=null){old.players.add(p.getUUID());state(p,YagaStoryProgress.Status.SEARCHING,"");return true;}
+  var build=new Build(p,preferred);if(build.candidates.isEmpty()){state(p,YagaStoryProgress.Status.UNAVAILABLE,"surface");p.displayClientMessage(Component.literal("Поблизости нет подходящего лесного места. Дальние чанки не перебираются."),false);return false;}
+  BUILDS.put(p.server,build);state(p,YagaStoryProgress.Status.SEARCHING,"");p.displayClientMessage(Component.literal("Создаётся избушка: сначала новая площадка, затем загруженная местность. Мир не сканируется."),false);return true;
  }
  @net.neoforged.bus.api.SubscribeEvent public static void step(net.neoforged.neoforge.event.tick.ServerTickEvent.Post e){
   var b=BUILDS.get(e.getServer());if(b==null)return;
   try{
    if(b.placement!=null){b.placement.step(256,2_000_000);if(!b.placement.done())return;if(b.placement.result.ok){finish(e.getServer(),b,true);return;}b.reason=b.placement.result.reason;if(b.reason.equals("rollback")){finish(e.getServer(),b,false);return;}var data=YagaData.get(b.world);var failed=b.candidates.get(b.candidate);if(data.anchor!=null&&data.anchor.getX()==failed.getX()&&data.anchor.getZ()==failed.getZ()){data.examined.add(data.anchor.asLong());data.anchor=null;data.setDirty();}b.placement=null;b.candidate++;b.footprint=List.of();}
-   if(System.nanoTime()>b.deadline||b.candidate>=b.candidates.size()){finish(e.getServer(),b,false);return;}
+   if(System.nanoTime()>b.deadline||b.candidate>=b.candidates.size()){if(System.nanoTime()>b.deadline)b.reason="timeout";finish(e.getServer(),b,false);return;}
    var at=b.candidates.get(b.candidate);
-   if(!b.world.getWorldBorder().isWithinBounds(at.offset(-12,0,-20))||!b.world.getWorldBorder().isWithinBounds(at.offset(12,0,12))){b.candidate++;return;}
+   if(!b.world.getWorldBorder().isWithinBounds(at.offset(-12,0,-20))||!b.world.getWorldBorder().isWithinBounds(at.offset(12,0,12))){b.reason="border";b.candidate++;return;}
    if(b.footprint.isEmpty()){var list=new ArrayList<ChunkPos>();for(int x=(at.getX()-10)>>4;x<=(at.getX()+10)>>4;x++)for(int z=(at.getZ()-17)>>4;z<=(at.getZ()+10)>>4;z++)list.add(new ChunkPos(x,z));b.footprint=list;b.chunk=0;}
    if(b.chunk<b.footprint.size()){if(b.chunks.ready(b.footprint.get(b.chunk)))b.chunk++;return;}
    b.placement=YagaHut.beginPlace(b.world,at);
   }catch(RuntimeException failure){com.mojang.logging.LogUtils.getLogger().warn("Yaga creation stopped safely",failure);b.reason="internal";finish(e.getServer(),b,false);}
  }
- public static void refresh(ServerPlayer p){reconcile(p,false);var delta=new net.minecraft.nbt.CompoundTag();delta.put("Hints",TaleService.hints(p));TaleNetwork.send(p,delta,false,false);}
- private static void finish(MinecraftServer server,Build b,boolean success){BUILDS.remove(server);b.chunks.close();for(var id:b.players){var p=server.getPlayerList().getPlayer(id);if(p!=null){p.displayClientMessage(success?Component.translatable("research.yaga.found"):Component.literal("Избушка не создана: "+b.reason+". Дальнейшей загрузки чанков нет."),false);refresh(p);}}}
- @net.neoforged.bus.api.SubscribeEvent public static void stop(net.neoforged.neoforge.event.server.ServerStoppingEvent e){var b=BUILDS.remove(e.getServer());if(b!=null){if(b.placement!=null){b.placement.abort();while(!b.placement.done())b.placement.step(65536,1_000_000_000L);}b.chunks.close();}}
- @net.neoforged.bus.api.SubscribeEvent(priority=net.neoforged.bus.api.EventPriority.LOWEST)
- public static void mode(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerChangeGameModeEvent e){
-  if(!(e.getEntity() instanceof ServerPlayer p)||e.getNewGameMode()!=GameType.CREATIVE)return;
-  // The event is cancellable and precedes assignment. Read the committed mode next tick.
-  p.server.tell(new net.minecraft.server.TickTask(p.server.getTickCount()+1,()->{
-   if(p.server.getPlayerList().getPlayer(p.getUUID())==p&&p.isCreative())refresh(p);
-  }));
- }
- public static boolean eligible(ServerPlayer p){return YagaAccessRules.allowed(p.isCreative(),TaleData.get(p.serverLevel()).stage(p.getUUID(),"slavicmyths:yaga_search"),YagaServices.killed(p,"name_your_misfortune"),YagaServices.killed(p,"steppe_champion"),YagaServices.killed(p,"defeat_nightingale"));}
+ public static void refresh(ServerPlayer p){reconcile(p,false);var delta=YagaStoryProgress.delta(TaleData.get(p.serverLevel()),p.getUUID());delta.put("Hints",TaleService.hints(p));TaleNetwork.send(p,delta,false,false);}
+ private static void finish(MinecraftServer server,Build b,boolean success){BUILDS.remove(server);b.chunks.close();for(var id:b.players){YagaStoryProgress.state(TaleData.get(b.world),id,success?YagaStoryProgress.Status.FOUND:YagaStoryProgress.Status.UNAVAILABLE,success?"":b.reason);var p=server.getPlayerList().getPlayer(id);if(p!=null){p.displayClientMessage(success?Component.translatable("research.yaga.found"):Component.literal("Избушка не создана: "+b.reason+". Дальнейшей загрузки чанков нет."),false);refresh(p);}}}
+ @net.neoforged.bus.api.SubscribeEvent public static void stop(net.neoforged.neoforge.event.server.ServerStoppingEvent e){var b=BUILDS.remove(e.getServer());if(b!=null){if(b.placement!=null){b.placement.abort();while(!b.placement.done())b.placement.step(65536,1_000_000_000L);}b.chunks.close();for(var id:b.players)YagaStoryProgress.state(TaleData.get(b.world),id,YagaStoryProgress.Status.UNAVAILABLE,"interrupted");}}
+ public static boolean eligible(ServerPlayer p){return YagaStoryProgress.reconcile(TaleData.get(p.serverLevel()),YagaData.get(p.serverLevel()),p.getUUID(),p.gameMode.getGameModeForPlayer(),id->YagaServices.killed(p,id),p.level().getGameTime());}
+ private static void state(ServerPlayer p,YagaStoryProgress.Status status,String reason){var tales=TaleData.get(p.serverLevel());YagaStoryProgress.state(tales,p.getUUID(),status,reason);TaleNetwork.send(p,YagaStoryProgress.delta(tales,p.getUUID()),false,false);}
  public static void reconcile(ServerPlayer p,boolean create){
   if(!eligible(p))return;TaleService.promote(p,"slavicmyths:yaga_search",1,false);var world=p.server.overworld();var data=YagaData.get(world);
+  var tales=TaleData.get(world);if(!active(p.server)&&tales.player(p.getUUID()).getCompound("YagaSearch").getString("Status").equals("SEARCHING"))state(p,YagaStoryProgress.Status.UNAVAILABLE,"interrupted");
+  if(create&&p.level().dimension()!=Level.OVERWORLD){state(p,YagaStoryProgress.Status.UNAVAILABLE,"dimension");return;}
   if(!data.placed&&create&&p.level().dimension()==Level.OVERWORLD){long now=world.getGameTime();var memory=p.getPersistentData();if(now<memory.getLong("YagaSearchReady"))return;memory.putLong("YagaSearchReady",now+40);YagaHut.prepare(world);create(p,data.anchor);}
-  if(data.placed&&data.anchor!=null&&data.npc!=null){TaleService.hint(p,"slavicmyths:yaga_search",Level.OVERWORLD.location().toString(),data.npc,data.anchor);TaleService.promote(p,"slavicmyths:yaga_search",2,false);}
+  if(data.placed&&data.anchor!=null&&data.npc!=null){if(loaded(world,data.anchor)&&(!(world.getEntity(data.npc) instanceof BabaYaga npc)||!npc.isAlive())){state(p,YagaStoryProgress.Status.UNAVAILABLE,"npc");return;}TaleService.hint(p,"slavicmyths:yaga_search",Level.OVERWORLD.location().toString(),data.npc,data.anchor);TaleService.promote(p,"slavicmyths:yaga_search",2,false);YagaStoryProgress.state(tales,p.getUUID(),YagaStoryProgress.Status.FOUND,"");}
+  TaleNetwork.send(p,YagaStoryProgress.delta(tales,p.getUUID()),false,false);
  }
  private YagaDiscovery(){}
 }
