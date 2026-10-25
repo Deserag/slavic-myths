@@ -54,7 +54,7 @@ public final class ChudSearchCommands {
     static int searchAbandoned(CommandSourceStack source,AbandonedPlan.Kind kind){return start(source,"chud_abandoned",kind,0);}
     private static int start(CommandSourceStack source,String name,AbandonedPlan.Kind kind,int page){
         String family=name.equals("chud_city")?"chud_city":"chud_abandoned";
-        var known=org.slavicmyths.worldgen.ManualStructureRecords.get(source.getLevel()).entries().stream().filter(e->e.family().equals(family)).filter(e->kind==null||kind!=AbandonedPlan.Kind.INDEPENDENT_GREAT||e.tier()==2).min(Comparator.comparingDouble(e->e.arrival().distSqr(BlockPos.containing(source.getPosition()))));
+        var known=org.slavicmyths.worldgen.ManualStructureRecords.get(source.getLevel()).entries().stream().filter(e->e.family().equals(family)&&e.arrival().distSqr(BlockPos.containing(source.getPosition()))<=1024.*1024).filter(e->kind==null||kind!=AbandonedPlan.Kind.INDEPENDENT_GREAT||e.tier()==2).min(Comparator.comparingDouble(e->e.arrival().distSqr(BlockPos.containing(source.getPosition()))));
         if(page==0&&known.isPresent()){var p=known.get().arrival();source.sendSuccess(()->Component.literal("Место Чуди: "+p.toShortString()),false);return 1;}
         return ChudCreationJobs.create(source,name.equals("chud_city")?"city":kind==AbandonedPlan.Kind.INDEPENDENT_GREAT?"great":kind==AbandonedPlan.Kind.ATTACHED_SMALL?"attached":"medium",r->{if(r!=null)source.sendSuccess(()->Component.literal("Место Чуди: "+r.entrance().toShortString()),false);});
     }

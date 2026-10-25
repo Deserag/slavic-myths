@@ -1,0 +1,14 @@
+{
+  "scenario": "chud",
+  "world_load_ms": 11305,
+  "navya_in_nether": true,
+  "chud_kind": "great",
+  "chud_ms": 46900,
+  "chud_entrance": "116, 63, -242",
+  "result": "PASS",
+  "ticks": 941,
+  "peak_tick_ms": 106.1038,
+  "p95_tick_ms": 13.9132,
+  "p99_tick_ms": 25.9596,
+  "shutdown_ms": 1982
+}

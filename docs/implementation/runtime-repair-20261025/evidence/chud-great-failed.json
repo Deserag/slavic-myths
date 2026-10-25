@@ -1,0 +1,13 @@
+{
+  "scenario": "chud",
+  "world_load_ms": 11455,
+  "navya_in_nether": true,
+  "chud_kind": "great",
+  "chud_failed": true,
+  "result": "FAIL chud",
+  "ticks": 3001,
+  "peak_tick_ms": 82.6926,
+  "p95_tick_ms": 8.7937,
+  "p99_tick_ms": 25.9692,
+  "shutdown_ms": 1835
+}

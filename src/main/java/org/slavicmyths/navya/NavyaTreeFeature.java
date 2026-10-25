@@ -26,8 +26,11 @@ public final class NavyaTreeFeature extends Feature<NoneFeatureConfiguration> {
             var state=world.getBlockState(pos);
             if(!state.isAir() && !state.is(NavyaBlocks.get("navya_sapling")) && !state.is(NavyaBlocks.get("navya_shrub"))) return false;
         }
-        for(var cell:plan.logs.keySet())for(Direction face:Direction.values()) {
-            var neighbor=origin.offset(cell.x(),cell.y(),cell.z()).relative(face);
+        // FallingTree groups diagonally connected logs too. Keep separate trees
+        // separate in all 26 directions, otherwise two valid trees exceed its cap.
+        for(var cell:plan.logs.keySet())for(int dx=-1;dx<=1;dx++)for(int dy=-1;dy<=1;dy++)for(int dz=-1;dz<=1;dz++) {
+            if(dx==0&&dy==0&&dz==0)continue;
+            var neighbor=origin.offset(cell.x()+dx,cell.y()+dy,cell.z()+dz);
             if(!world.hasChunkAt(neighbor) || !world.ensureCanWrite(neighbor))return false;
             if(world.getBlockState(neighbor).is(net.minecraft.tags.BlockTags.LOGS))return false;
         }

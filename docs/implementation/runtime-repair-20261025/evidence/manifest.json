@@ -1,0 +1,22 @@
+[
+  {
+    "file": "four-large-sites.json",
+    "original_path": "D:\\slavic-myths\\work\\generation-normal-footprint\\normal-probe.json",
+    "sha256": "d26ce44b8af12594d16e3a46805098836045bdd2637839e2330da11ffc6693da"
+  },
+  {
+    "file": "chud-city.json",
+    "original_path": "D:\\slavic-myths\\work\\generation-normal-chudcity\\normal-probe.json",
+    "sha256": "6a630588eb3974264ae62ca492e26a51e0b2f69b182e47e0a882101afe6dfcc3"
+  },
+  {
+    "file": "chud-great.json",
+    "original_path": "D:\\slavic-myths\\work\\generation-normal-chudgreat2\\normal-probe.json",
+    "sha256": "5405feb998928cf66fa4a941fc3fbf701619064e7302f5e661bc1d06ab79f462"
+  },
+  {
+    "file": "chud-great-failed.json",
+    "original_path": "D:\\slavic-myths\\work\\generation-normal-chudgreat\\normal-probe.json",
+    "sha256": "3849b92dfc125fdf0c07029491e0cdde2479680a12d14d6984e29e790b946bf5"
+  }
+]

@@ -1,0 +1,6 @@
+EXCERPTS from D:\slavic-myths-maintenance\20261025\runtime-repair\five-regressions-runtime.log
+Full log SHA256: 3d05e9340306c42bbf5d111d65933650466538a76cf9e7c68398ed96f71778e8
+
+GENERATION_RUNTIME site_ready_ms=286
+GENERATION_RUNTIME cancelled_then_replaced_ms=725
+[11:25:26] [Server thread/INFO] [minecraft/GameTestServer]: All 5 required tests passed :)

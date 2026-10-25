@@ -1,0 +1,8 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { generationRuntime { java.srcDir 'tools/generation-runtime'; resources.srcDir 'tools/generation-runtime-resources' } }
+ p.sourceSets.generationRuntime.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.generationRuntime.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileGenerationRuntimeJava'){dependsOn p.tasks.named('classes')}
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.generationRuntime)
+ p.neoForge.runs { generationNormal { type='server';if(p.hasProperty('qaJfr'))jvmArgument '-XX:StartFlightRecording=filename='+p.property('qaJfr')+',settings=profile,dumponexit=true,maxsize=64m';programArgument '--nogui';jvmArgument '-Xmx1024M';gameDirectory=p.file('work/generation-normal-'+(p.findProperty('qaRun') ?: 'repair'));systemProperty 'slavicmyths.repairNormal','true';systemProperty 'slavicmyths.repairScenario',p.findProperty('qaScenario') ?: 'bootstrap';systemProperty 'slavicmyths.chudKind',p.findProperty('qaChudKind') ?: 'medium' }; generationChecks { type='gameTestServer';jvmArgument '-Xmx1024M';gameDirectory=p.file('work/generation-runtime-'+(p.findProperty('qaRun') ?: 'repair'));systemProperty 'neoforge.enabledGameTestNamespaces','slavicmyths_generation' } }
+} }

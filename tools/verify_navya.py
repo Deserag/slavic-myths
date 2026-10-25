@@ -26,6 +26,11 @@ def check_model(data):
   for value in data:check_model(value)
 
 def main():
+ allowed={}
+ if '--translation-change-manifest' in sys.argv:
+  changes=json.loads(Path(sys.argv[sys.argv.index('--translation-change-manifest')+1]).read_text(encoding='utf-8'))
+  assert changes['baseline']==PRESERVATION_REF
+  allowed=changes['locales']
  manifest=json.loads((REPORT/'asset-manifest.json').read_text());blocks=manifest['geology']+manifest['wood']+manifest['flora']
  for name in blocks:
   for path in [A/'blockstates'/(name+'.json'),A/'models/item'/(name+'.json'),RES/'data/slavicmyths/loot_table/blocks'/(name+'.json')]:assert path.is_file(),path
@@ -44,7 +49,11 @@ def main():
   with Image.open(path) as im:assert im.size==(16,16);im.verify()
  for locale in ['ru_ru','en_us']:
   path='src/main/resources/assets/slavicmyths/lang/'+locale+'.json';old=json.loads(baseline(path));new=json.loads((ROOT/path).read_text(encoding='utf-8'))
-  for key,value in old.items():assert new[key]==value,('unrelated translation changed',key)
+  for key,value in old.items():
+   change=allowed.get(locale,{}).get(key)
+   if change:assert value==change['before'] and new[key]==change['after'],('scoped translation mismatch',locale,key)
+   else:assert new[key]==value,('unrelated translation changed',key)
+  assert set(allowed.get(locale,{}))<=set(old)
   for name in blocks:assert 'block.slavicmyths.'+name in new
  old=json.loads(baseline('src/main/resources/assets/slavicmyths/sounds.json'));new=json.loads((A/'sounds.json').read_text(encoding='utf-8'))
  for key,value in old.items():assert new[key]==value,('quarantine/old audio drift',key)
@@ -57,7 +66,14 @@ def main():
  # Previous HELL terrain profile must remain byte-for-byte unchanged.
  inherited=json.loads((ROOT/'docs/implementation/hell-patch1/source-manifest.json').read_text())
  for path,digest in inherited['productionDelta'].items():
-  raw=(ROOT/path).read_bytes();lf=raw.replace(b'\r\n',b'\n')
+  raw=(ROOT/path).read_bytes()
+  if path=='gradle.properties' and '--version-bump-from' in sys.argv:
+   import re
+   old_version=sys.argv[sys.argv.index('--version-bump-from')+1]
+   assert old_version==inherited['version']
+   assert len(re.findall(rb'^mod_version=.+$',raw,re.M))==1
+   raw=re.sub(rb'^mod_version=[^\r\n]+',b'mod_version='+old_version.encode(),raw,flags=re.M)
+  lf=raw.replace(b'\r\n',b'\n')
   assert digest in {hashlib.sha256(v).hexdigest() for v in [raw,lf,lf.replace(b'\n',b'\r\n')]},('inherited HELL drift',path)
  rigs=json.loads((REPORT/'native-rigs.json').read_text())
  for name,rig in rigs.items():

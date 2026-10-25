@@ -20,8 +20,8 @@ public final class YagaDiscovery {
   Build(ServerPlayer p,BlockPos preferred){world=p.server.overworld();chunks=new SiteChunks(world);players.add(p.getUUID());
    for(int r:new int[]{192,320,448})for(int[] d:new int[][]{{1,0},{0,1},{-1,0},{0,-1}}){var at=p.blockPosition().offset(d[0]*r,0,d[1]*r);if(!loaded(world,at)&&candidates.size()<3){var biome=world.getChunkSource().getGenerator().getBiomeSource().getNoiseBiome(at.getX()>>2,16,at.getZ()>>2,world.getChunkSource().randomState().sampler());if(biome.is(net.neoforged.neoforge.common.Tags.Biomes.IS_FOREST))candidates.add(at);}}
    for(int r:new int[]{40,72,104})for(int[] d:new int[][]{{1,0},{0,1},{-1,0},{0,-1}}){var at=p.blockPosition().offset(d[0]*r,0,d[1]*r);if(loaded(world,at))candidates.add(at);}
-   // The saved untouched reservation precedes the bounded local candidates.
-   if(preferred!=null&&!loaded(world,preferred)&&!candidates.contains(preferred))candidates.add(0,preferred);
+   // Keep a nearby saved reservation after the first new local candidates.
+   if(preferred!=null&&preferred.distSqr(p.blockPosition())<=1024.*1024&&!loaded(world,preferred)&&!candidates.contains(preferred))candidates.add(Math.min(3,candidates.size()),preferred);
   }
  }
  private static boolean loaded(ServerLevel w,BlockPos p){for(int x=(p.getX()-10)>>4;x<=(p.getX()+10)>>4;x++)for(int z=(p.getZ()-17)>>4;z<=(p.getZ()+10)>>4;z++)if(w.getChunkSource().getChunkNow(x,z)==null)return false;return true;}

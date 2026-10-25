@@ -137,7 +137,7 @@ def sounds():
 def language():
  common={
  'fire_boss':('Страж погасшего пламени','Guardian of the Extinguished Flame'),'water_boss':('Осквернённая хранительница источника','Defiled Spring Keeper'),
- 'open_fire_hint':('Восстановите центральный огонь священным углём.','Restore the central flame with a Sacred Ember.'),'open_water_hint':('Очистите оба заражённых бассейна.','Purify both tainted pools.'),
+ 'open_fire_hint':('Зажги центральную чашу Священным углём из обычных сундуков. После этого откроется дверь к хранителю.', 'Light the central brazier with Sacred Ember from the sanctuary chests, then return to this door.'),'open_water_hint':('Очистите оба заражённых бассейна.','Purify both tainted pools.'),
  'purify_fire_hint':('Страж склоняется. Коснитесь очага в зале или центральной чаши.','The guardian kneels. Touch the ritual hearth or central brazier.'),'purify_water_hint':('Хранительница ждёт очищения. Коснитесь чистого источника.','The keeper awaits purification. Touch the clean spring.'),
  'fire_cleansed':('Пламя очищено. Заберите свою деталь на постаменте.','The flame is purified. Claim your fragment at the pedestal.'),'water_cleansed':('Источник вновь чист. Заберите свою деталь на постаменте.','The spring is pure again. Claim your fragment at the pedestal.'),
  'pedestal_hint':('Постамент отдаёт деталь лишь после очищения хранителя.','The pedestal offers its fragment after the guardian is purified.'),

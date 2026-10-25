@@ -1,0 +1,16 @@
+[
+  {
+    "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\config\\xaero\\world-map\\client.cfg",
+    "backup": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\config-backup\\config\\xaero\\world-map\\client.cfg",
+    "before": "cave_mode_start_y = 171",
+    "after": "cave_mode_start_y = 2147483647",
+    "sha256": "a82a3ed34aa1f1ee9393bd927c30d94c82ef55c25a081c8c266161a4bbebcc2c"
+  },
+  {
+    "path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\config\\jade\\jade.json",
+    "backup": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\config-backup\\config\\jade\\jade.json",
+    "before": "\"displayTooltip\": false",
+    "after": "\"displayTooltip\": true",
+    "sha256": "36e472725eff2e160ff13f142ce94079d620a5295e88ddb66d7401ea694c50e0"
+  }
+]

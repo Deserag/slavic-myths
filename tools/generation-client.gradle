@@ -1,0 +1,3 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.neoForge.runs { repairClient { type='client';jvmArgument '-Xmx2560M';gameDirectory=p.file('work/generation-client-repair');programArguments.addAll('--width','1000','--height','700') } }
+} }

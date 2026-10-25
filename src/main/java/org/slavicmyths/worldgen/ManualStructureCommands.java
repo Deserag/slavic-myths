@@ -10,6 +10,7 @@ public final class ManualStructureCommands {
   var ids=new java.util.ArrayList<String>();for(String id:org.slavicmyths.swamp.SwampStructures.IDS)if(!id.equals("swamp_remnants"))ids.add(id);ids.addAll(java.util.List.of("bandit_camp_small","bandit_camp_medium","bandit_camp_large","kurgan_small","kurgan_warrior","kurgan_great"));
   for(String id:ids)tree.add(Commands.literal("locate").requires(s->s.hasPermission(2)).then(Commands.literal("structure").then(Commands.literal("slavicmyths:"+id).executes(c->OnDemandStructures.locate(c.getSource(),id)))));
 
+  for(String id:java.util.List.of("gorodishche","serpent_hill","sanctuary_unfading_fire","abode_pure_spring"))tree.add(Commands.literal("locate").requires(s->s.hasPermission(2)).then(Commands.literal("structure").then(Commands.literal("slavicmyths:"+id).executes(c->LargeSiteJobs.locate(c.getSource(),id)))));
   var generate=Commands.literal("generate").requires(s->s.hasPermission(2));
   var kurgan=Commands.literal("kurgan");var camps=Commands.literal("bandit_camp");
   String[] k={"small","warrior","great"},b={"small","fortified","large"};

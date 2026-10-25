@@ -8,7 +8,7 @@ import org.slavicmyths.navya.NavyaMob.Action;
 /** Poses actual joint pivots, shared by production rendering and source-frame QA. */
 public final class NavyaPose {
     private static final String[] ARMS={"arm_left","arm_right"},FOREARMS={"forearm_left","forearm_right"};
-    private static final String[][] LEGS={{"leg_left0","leg_left1","leg_left2"},{"leg_right0","leg_right1","leg_right2"}};
+    private static final String[][] LEGS={{"leg_left0","leg_left1","leg_left2","leg_left3"},{"leg_right0","leg_right1","leg_right2","leg_right3"}};
     private static float clamp(float f){return Math.max(0,Math.min(1,f));}
     private static float smooth(float f){f=clamp(f);return f*f*(3-2*f);}
     public static void pose(NavyaMesh.Rig rig,Kind kind,Action action,float time,float age,float walk,float amount,float yaw,float pitch,int hurt,float death) {
@@ -46,9 +46,9 @@ public final class NavyaPose {
             }
             case CRAWLER -> {
                 body.y+=(float)Math.sin(walk*1.3F)*amount*.45F;
-                for(int side=0;side<2;side++)for(int i=0;i<3;i++) {
+                for(int side=0;side<2;side++)for(int i=0;i<4;i++) {
                     float gait=(float)Math.sin(walk*1.1F+i*2.1F+side*Math.PI)*amount;
-                    p.get(LEGS[side][i]).yRot=gait*.25F;p.get(LEGS[side][i]).zRot=(side==0?-.1F:.1F)+gait*.15F;
+                    p.get(LEGS[side][i]).yRot+=gait*.20F;p.get(LEGS[side][i]).zRot+=gait*.10F;
                 }
                 p.get("jaw").xRot=action==Action.MELEE?.65F*reach-strike*.25F:action==Action.SHOT?.3F*reach:.04F;
                 if(action==Action.SHOT)p.get("head").xRot-=.25F*reach;

@@ -1,0 +1,191 @@
+[
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\baseline-chunks-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": true,
+    "pass_marker": false
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\baseline-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": false
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\chud-city-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": true
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\chud-fluids-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": false
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\chud-great-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": false
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\chud-great2-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": true
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\chud-natural-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": false
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\chud-ores-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": true
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\client-replay.log",
+    "launches": 1,
+    "client": true,
+    "game_tests": false,
+    "pass_marker": false
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\client-replay2.log",
+    "launches": 1,
+    "client": true,
+    "game_tests": false,
+    "pass_marker": false
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\drain-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": true
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\five-regressions-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": true,
+    "pass_marker": true
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\footprint-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": true
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\four-regressions-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": true,
+    "pass_marker": true
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\four-retained-regressions.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": true,
+    "pass_marker": true
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\nearby-sites-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": false
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\nearby-sites2-fixed-compile-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": false
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\nearby-sites3-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": true
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\nearby-sites4-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": true
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\normal-bootstrap.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": true
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\normal-creations.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": false
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\normal-creations2.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": false
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\normal-restart-chud.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": false
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\profile-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": false,
+    "pass_marker": true
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\ritual-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": true,
+    "pass_marker": true
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\three-regressions-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": true,
+    "pass_marker": true
+  },
+  {
+    "log": "D:\\slavic-myths-maintenance\\20261025\\runtime-repair\\tickets-runtime.log",
+    "launches": 1,
+    "client": false,
+    "game_tests": true,
+    "pass_marker": true
+  }
+]

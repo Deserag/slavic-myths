@@ -1,0 +1,22 @@
+{
+  "scenario": "sites",
+  "world_load_ms": 11351,
+  "navya_in_nether": true,
+  "sanctuary_unfading_fire_ms": 11273,
+  "sanctuary_unfading_fire_distance": 222.20036003571192,
+  "fire_guardian_present": true,
+  "full_fire_restored": true,
+  "gorodishche_ms": 23399,
+  "gorodishche_distance": 97.54486147409304,
+  "city_villagers": 19,
+  "serpent_hill_ms": 63245,
+  "serpent_hill_distance": 638.9906102596501,
+  "abode_pure_spring_ms": 8401,
+  "abode_pure_spring_distance": 543.5181689695387,
+  "result": "PASS",
+  "ticks": 2130,
+  "peak_tick_ms": 132.4867,
+  "p95_tick_ms": 51.1846,
+  "p99_tick_ms": 53.0367,
+  "shutdown_ms": 1989
+}

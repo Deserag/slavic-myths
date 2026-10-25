@@ -1,50 +1,36 @@
 package org.slavicmyths.worldgen;
 
 import java.util.*;
-import java.util.concurrent.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.chunk.LevelChunk;
-import net.minecraft.world.level.chunk.status.ChunkStatus;
 
-/** Prepare an already selected construction footprint, never search for structures.
- * One native FULL future in flight per dimension; native waiting is off the tick thread. */
+/** Native ticket preparation. Only the server thread touches the world; no blocking futures. */
 @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class SiteChunks implements AutoCloseable {
- private static final ExecutorService DISPATCH=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"slavicmyths-site-chunks");t.setDaemon(true);t.setPriority(Thread.MIN_PRIORITY);return t;});
  private static final TicketType<Long> TICKET=TicketType.create("slavicmyths_site_build",Long::compare);
- private static final Map<ServerLevel,CompletableFuture<?>> IN_FLIGHT=new HashMap<>();
- private final ServerLevel world;
- private final Set<ChunkPos> held=new HashSet<>();
- private CompletableFuture<LevelChunk> pending;private ChunkPos requested;private boolean closed;
+ private static final Map<ServerLevel,SiteChunks> IN_FLIGHT=new HashMap<>();
+ private static final java.util.concurrent.atomic.AtomicLong NEXT_TOKEN=new java.util.concurrent.atomic.AtomicLong();
+ private final long token=NEXT_TOKEN.incrementAndGet();
+ private final ServerLevel world;private final Set<ChunkPos> held=new HashSet<>();
+ private final Map<ChunkPos,Long> requested=new HashMap<>();private boolean closed;
  public SiteChunks(ServerLevel world){this.world=world;}
- /** Poll from a bounded construction task. Never joins or requests synchronous terrain. */
  public boolean ready(ChunkPos pos){
   if(closed)throw new IllegalStateException("Closed site preparation");
-  var loaded=world.getChunkSource().getChunkNow(pos.x,pos.z);
-  if(loaded!=null){hold(pos);return true;}
-  if(pending!=null){
-   if(!pending.isDone())return false;
-   if(pending.isCompletedExceptionally())pending.join(); // completed failure only, never waits
-   pending=null;requested=null;
-   return false;
+  if(world.getChunkSource().getChunkNow(pos.x,pos.z)!=null){
+   hold(pos);requested.remove(pos);if(requested.isEmpty())IN_FLIGHT.remove(world,this);return true;
   }
-  var busy=IN_FLIGHT.get(world);if(busy!=null&&!busy.isDone())return false;
-  requested=pos;var result=new CompletableFuture<LevelChunk>();pending=result;var gate=new CompletableFuture<Void>();IN_FLIGHT.put(world,gate);
-  // getChunkFuture marshals to the server. Calling it there directly can managedBlock;
-  // dispatch it here, and consume completion without a tick-thread get/join.
-  DISPATCH.execute(()->{
-   try{world.getChunkSource().getChunkFuture(pos.x,pos.z,ChunkStatus.FULL,true).whenComplete((value,error)->world.getServer().execute(()->{
-    gate.complete(null);IN_FLIGHT.remove(world,gate);
-    if(closed){result.cancel(false);return;}
-    if(error!=null){result.completeExceptionally(error);return;}
-    var chunk=value==null?null:value.orElse(null);
-    if(!(chunk instanceof LevelChunk full)){result.completeExceptionally(new IllegalStateException("Construction chunk unavailable: "+pos));return;}
-    hold(pos);result.complete(full);
-   }));}catch(RuntimeException failure){world.getServer().execute(()->{gate.complete(null);IN_FLIGHT.remove(world,gate);result.completeExceptionally(failure);});}
-  });return false;
+  var since=requested.get(pos);
+  if(since!=null){if(System.nanoTime()-since>60_000_000_000L)throw new IllegalStateException("Chunk preparation timed out: "+pos);return false;}
+  var other=IN_FLIGHT.get(world);if(other!=null&&other!=this)return false;
+  if(requested.size()>=4)return false;
+  IN_FLIGHT.put(world,this);requested.put(pos,System.nanoTime());hold(pos);
+  // A region ticket schedules FULL conversion and keeps the chunk accessible.
+  // The normal chunk-cache tick does the work; getChunkNow is the only readiness test.
+  return false;
  }
+ public long budgetNanos(){return Math.clamp(20_000_000L-world.getServer().getAverageTickTimeNanos(),2_000_000L,8_000_000L);}
+ public void prefetch(java.util.List<ChunkPos> footprint,int from){for(int i=from;i<Math.min(from+4,footprint.size());i++)ready(footprint.get(i));}
+ private void hold(ChunkPos pos){if(held.add(pos))world.getChunkSource().addRegionTicket(TICKET,pos,0,token);}
+ @Override public void close(){if(closed)return;closed=true;IN_FLIGHT.remove(world,this);requested.clear();for(var p:held)world.getChunkSource().removeRegionTicket(TICKET,p,0,token);held.clear();}
  @net.neoforged.bus.api.SubscribeEvent public static void stop(net.neoforged.neoforge.event.server.ServerStoppedEvent e){IN_FLIGHT.keySet().removeIf(w->w.getServer()==e.getServer());}
- private void hold(ChunkPos pos){if(held.add(pos))world.getChunkSource().addRegionTicket(TICKET,pos,0,pos.toLong());}
- @Override public void close(){if(closed)return;closed=true;for(var pos:held)world.getChunkSource().removeRegionTicket(TICKET,pos,0,pos.toLong());held.clear();if(pending!=null)pending.cancel(false);}
 }

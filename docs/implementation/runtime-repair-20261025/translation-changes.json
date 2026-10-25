@@ -1,0 +1,82 @@
+{
+  "baseline": "1ea15f8a",
+  "reason": "Owner requested sanctuary ritual/guardian guidance repair; only these exact before/after strings are allowed.",
+  "locales": {
+    "ru_ru": {
+      "sanctuary193.sealed": {
+        "before": "Древние печати ещё не позволяют войти. Хранители и фрагменты появятся позднее.",
+        "after": "Печать закрыта. Восстанови центральную чашу Священным углём из обычных сундуков святилища; затем вернись к двери хранителя."
+      },
+      "sanctuary193.ember_needed": {
+        "before": "Огонь едва теплится. Нужен один Священный уголь; нажми им на печать чаши.",
+        "after": "Нужен Священный уголь из обычных сундуков святилища. Держи его в руке и нажми ПКМ на центральную чашу."
+      },
+      "tales.entry.two_sanctuaries.known": {
+        "before": "Огонь сдерживает, вода очищает. Две части древнего оберега укрыты порознь, но залы пока молчат. Это игровая интерпретация, не историческая атрибуция. Хранители и фрагменты относятся к 1.9.4; этот оберег от Мора не связан с будущим оберегом двух зим для Ада.",
+        "after": "Восстанови огонь в святилище и очисти два бассейна обители. После открытия печатей победи обоих хранителей и очисти их реликвии, чтобы получить две части оберега. Это игровая интерпретация."
+      },
+      "tales.entry.two_sanctuaries.rumor": {
+        "before": "Огонь сдерживает, вода очищает. Две части древнего оберега укрыты порознь, но залы пока молчат. Это игровая интерпретация, не историческая атрибуция. Хранители и фрагменты относятся к 1.9.4; этот оберег от Мора не связан с будущим оберегом двух зим для Ада.",
+        "after": "Восстанови огонь в святилище и очисти два бассейна обители. После открытия печатей победи обоих хранителей и очисти их реликвии, чтобы получить две части оберега. Это игровая интерпретация."
+      },
+      "tales.entry.two_sanctuaries.seen": {
+        "before": "Огонь сдерживает, вода очищает. Две части древнего оберега укрыты порознь, но залы пока молчат. Это игровая интерпретация, не историческая атрибуция. Хранители и фрагменты относятся к 1.9.4; этот оберег от Мора не связан с будущим оберегом двух зим для Ада.",
+        "after": "Восстанови огонь в святилище и очисти два бассейна обители. После открытия печатей победи обоих хранителей и очисти их реликвии, чтобы получить две части оберега. Это игровая интерпретация."
+      },
+      "tales.entry.two_sanctuaries.discovered": {
+        "before": "Огонь сдерживает, вода очищает. Две части древнего оберега укрыты порознь, но залы пока молчат. Это игровая интерпретация, не историческая атрибуция. Хранители и фрагменты относятся к 1.9.4; этот оберег от Мора не связан с будущим оберегом двух зим для Ада.",
+        "after": "Восстанови огонь в святилище и очисти два бассейна обители. После открытия печатей победи обоих хранителей и очисти их реликвии, чтобы получить две части оберега. Это игровая интерпретация."
+      },
+      "tales.entry.two_sanctuaries.studied": {
+        "before": "Огонь сдерживает, вода очищает. Две части древнего оберега укрыты порознь, но залы пока молчат. Это игровая интерпретация, не историческая атрибуция. Хранители и фрагменты относятся к 1.9.4; этот оберег от Мора не связан с будущим оберегом двух зим для Ада.",
+        "after": "Восстанови огонь в святилище и очисти два бассейна обители. После открытия печатей победи обоих хранителей и очисти их реликвии, чтобы получить две части оберега. Это игровая интерпретация."
+      },
+      "tales.entry.two_sanctuaries.verified": {
+        "before": "Огонь сдерживает, вода очищает. Две части древнего оберега укрыты порознь, но залы пока молчат. Это игровая интерпретация, не историческая атрибуция. Хранители и фрагменты относятся к 1.9.4; этот оберег от Мора не связан с будущим оберегом двух зим для Ада.",
+        "after": "Восстанови огонь в святилище и очисти два бассейна обители. После открытия печатей победи обоих хранителей и очисти их реликвии, чтобы получить две части оберега. Это игровая интерпретация."
+      },
+      "guardians194.open_fire_hint": {
+        "before": "Восстановите центральный огонь священным углём.",
+        "after": "Зажги центральную чашу Священным углём из обычных сундуков. После этого откроется дверь к хранителю."
+      }
+    },
+    "en_us": {
+      "sanctuary193.sealed": {
+        "before": "Ancient seals still bar entry. Guardians and fragments come later.",
+        "after": "The seal is closed. Restore the central brazier with Sacred Ember from the sanctuary chests, then return to the guardian door."
+      },
+      "sanctuary193.ember_needed": {
+        "before": "The fire needs one Sacred Ember. Use it on the brazier seal.",
+        "after": "Take Sacred Ember from the sanctuary chests. Hold it and right-click the central brazier."
+      },
+      "tales.entry.two_sanctuaries.known": {
+        "before": "Fire holds back; water purifies. Two ward parts were hidden separately. These temples are game interpretations, not historical claims. Guardians and fragments come in 1.9.4; this Mor ward is distinct from the future two-winter ward.",
+        "after": "Restore the sanctuary fire and purify both spring pools. Open the seals, defeat both guardians and purify their relics to earn the two ward fragments. This is a game interpretation."
+      },
+      "tales.entry.two_sanctuaries.rumor": {
+        "before": "Fire holds back; water purifies. Two ward parts were hidden separately. These temples are game interpretations, not historical claims. Guardians and fragments come in 1.9.4; this Mor ward is distinct from the future two-winter ward.",
+        "after": "Restore the sanctuary fire and purify both spring pools. Open the seals, defeat both guardians and purify their relics to earn the two ward fragments. This is a game interpretation."
+      },
+      "tales.entry.two_sanctuaries.seen": {
+        "before": "Fire holds back; water purifies. Two ward parts were hidden separately. These temples are game interpretations, not historical claims. Guardians and fragments come in 1.9.4; this Mor ward is distinct from the future two-winter ward.",
+        "after": "Restore the sanctuary fire and purify both spring pools. Open the seals, defeat both guardians and purify their relics to earn the two ward fragments. This is a game interpretation."
+      },
+      "tales.entry.two_sanctuaries.discovered": {
+        "before": "Fire holds back; water purifies. Two ward parts were hidden separately. These temples are game interpretations, not historical claims. Guardians and fragments come in 1.9.4; this Mor ward is distinct from the future two-winter ward.",
+        "after": "Restore the sanctuary fire and purify both spring pools. Open the seals, defeat both guardians and purify their relics to earn the two ward fragments. This is a game interpretation."
+      },
+      "tales.entry.two_sanctuaries.studied": {
+        "before": "Fire holds back; water purifies. Two ward parts were hidden separately. These temples are game interpretations, not historical claims. Guardians and fragments come in 1.9.4; this Mor ward is distinct from the future two-winter ward.",
+        "after": "Restore the sanctuary fire and purify both spring pools. Open the seals, defeat both guardians and purify their relics to earn the two ward fragments. This is a game interpretation."
+      },
+      "tales.entry.two_sanctuaries.verified": {
+        "before": "Fire holds back; water purifies. Two ward parts were hidden separately. These temples are game interpretations, not historical claims. Guardians and fragments come in 1.9.4; this Mor ward is distinct from the future two-winter ward.",
+        "after": "Restore the sanctuary fire and purify both spring pools. Open the seals, defeat both guardians and purify their relics to earn the two ward fragments. This is a game interpretation."
+      },
+      "guardians194.open_fire_hint": {
+        "before": "Restore the central flame with a Sacred Ember.",
+        "after": "Light the central brazier with Sacred Ember from the sanctuary chests, then return to this door."
+      }
+    }
+  }
+}
