@@ -31,8 +31,8 @@ TARGETS = {
     262: ("Анализ", 2031),
     263: ("Анализ", 2032),
     264: ("Анализ", 2033),
-    265: ("Концепция", 2034),
-    266: ("Концепция", 2035),
+    265: ("Анализ", 2034),
+    266: ("В работе", 2035),
     267: ("Анализ", 2036),
 }
 GRAPHQL = "https://api.github.com/graphql"
@@ -168,8 +168,13 @@ for number, (target_status, order) in TARGETS.items():
         item_id = gql(ADD_QUERY, project=pid, issue=issue["id"])["addProjectV2ItemById"]["item"]["id"]
     values = field_values(item_id)
     status = values.get("Status")
-    # Preserve progress: only empty/Concept may become Analysis.
-    if status is None or (status == "Концепция" and target_status == "Анализ"):
+    # Promote only explicit owner-approved transitions; never demote progressed work.
+    allowed = status is None or (
+        status == "Концепция" and target_status in ("Анализ", "В работе")
+    ) or (
+        status == "Анализ" and target_status == "В работе"
+    )
+    if allowed:
         set_field(pid, item_id, fields, "Status", target_status)
     elif status != target_status:
         print("PRESERVE advanced/current status", number, status, flush=True)
@@ -183,6 +188,8 @@ for number, (target_status, order) in TARGETS.items():
     now = field_values(item_id).get("Status")
     if target_status == "Анализ" and now not in ("Анализ", "Ожидание", "В работе", "Тестирование", "Доработка", "Готово"):
         raise RuntimeError("Status verification failed #" + str(number) + ": " + str(now))
+    if target_status == "В работе" and now not in ("В работе", "Тестирование", "Доработка", "Готово"):
+        raise RuntimeError("In-progress status verification failed #" + str(number) + ": " + str(now))
     if target_status == "Концепция" and now is None:
         raise RuntimeError("Concept status unset #" + str(number))
     print(("ADDED" if created else "UPDATED"), "#" + str(number),
