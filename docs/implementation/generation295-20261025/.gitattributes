@@ -1,1 +1,1 @@
-evidence/*.log -text
+evidence/*.log -text -whitespace
