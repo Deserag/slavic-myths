@@ -36,11 +36,10 @@ public final class ChudCreationJobs {
  @net.neoforged.bus.api.SubscribeEvent public static void unload(net.neoforged.neoforge.event.level.LevelEvent.Unload e){if(e.getLevel() instanceof ServerLevel world){var j=JOBS.get(world);if(j!=null)j.finish(null,"Level is unloading.");}}
  @net.neoforged.bus.api.SubscribeEvent public static void stop(net.neoforged.neoforge.event.server.ServerStoppingEvent e){for(var j:List.copyOf(JOBS.values()))if(j.world.getServer()==e.getServer())j.finish(null,"Сервер останавливается.");}
  private static final class Job {
-  final CommandSourceStack source;final ServerLevel world;final String kind;final BlockPos requestedFrom;SiteChunks chunks;final List<Consumer<Result>> listeners=new ArrayList<>();final UUID id=UUID.randomUUID();
-  ChunkPos owner;int attempts;final List<ChunkPos> footprint=new ArrayList<>();List<Section> sections=List.of();CompletableFuture<List<Section>> raster;java.util.concurrent.atomic.AtomicBoolean rasterCancelled;
+  final CommandSourceStack source;final ServerLevel world;final String kind;SiteChunks chunks;final List<Consumer<Result>> listeners=new ArrayList<>();final UUID id=UUID.randomUUID();
+  ChunkPos owner;final List<ChunkPos> footprint=new ArrayList<>();List<Section> sections=List.of();CompletableFuture<List<Section>> raster;java.util.concurrent.atomic.AtomicBoolean rasterCancelled;
   StructurePiece piece;Structure structure;BoundingBox box;BlockPos entrance;int phase,chunk,section,voxel;boolean reserved,adjusted;long notice;
-  Job(CommandSourceStack source,String kind,Consumer<Result> callback){this.source=source;world=source.getLevel();this.kind=kind;chunks=new SiteChunks(world);listeners.add(callback);var origin=BlockPos.containing(source.getPosition());requestedFrom=origin;int occupied=(int)ManualStructureRecords.get(world).entries().stream().filter(e->e.family().equals("chud_city")||e.family().equals("chud_abandoned")||e.family().equals("construction")).count();owner=site(0);}
-  ChunkPos site(int n){int[][] offsets={{0,-256},{256,0},{0,256},{-256,0},{384,384},{-384,-384}};var at=offsets[n];return new ChunkPos(requestedFrom.offset(at[0],0,at[1]));}
+  Job(CommandSourceStack source,String kind,Consumer<Result> callback){this.source=source;world=source.getLevel();this.kind=kind;chunks=new SiteChunks(world);listeners.add(callback);var origin=BlockPos.containing(source.getPosition());owner=new ChunkPos(origin.offset(0,0,-256));}
   void step(){try{
    if(world.getGameTime()>=notice){notice=world.getGameTime()+100;source.sendSuccess(()->Component.literal("Создание Чуди: этап "+phase+", чанки "+chunk+"/"+footprint.size()+", секции "+section+"/"+sections.size()),false);}
    if(phase==0){if(!chunks.ready(owner))return;int ground=world.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,owner.getMiddleBlockX(),owner.getMiddleBlockZ());int y=Math.max(world.getMinBuildHeight()+60,ground-90);long seed=world.getSeed()^owner.toLong();var at=new BlockPos(owner.getMiddleBlockX(),y,owner.getMiddleBlockZ());
@@ -48,22 +47,24 @@ public final class ChudCreationJobs {
     if(city){var plan=new ChudPlan(seed,at,0,0,floor);var extension=kind.equals("attached")?new AbandonedPlan(seed,at,0,AbandonedPlan.Kind.ATTACHED_SMALL,floor,plan.cityId(),0):null;piece=new ChudPiece(plan,extension);entrance=plan.world(plan.points.get(ChudPlan.Role.ENTRANCE));}
     else{var plan=new AbandonedPlan(seed,at,0,kind.equals("great")?AbandonedPlan.Kind.INDEPENDENT_GREAT:AbandonedPlan.Kind.INDEPENDENT_MEDIUM,floor,null,0);piece=new AbandonedPiece(plan);entrance=plan.world(plan.surfacePortal());}
     box=piece.getBoundingBox();if(box.minY()<world.getMinBuildHeight()+1||box.maxY()>=world.getMaxBuildHeight()||!world.getWorldBorder().isWithinBounds(new BlockPos(box.minX(),0,box.minZ()))||!world.getWorldBorder().isWithinBounds(new BlockPos(box.maxX(),0,box.maxZ())))throw new IllegalStateException("Граница мира или высоты.");
-    if(ManualStructureRecords.get(world).overlapping(box).stream().anyMatch(e->e.family().equals("construction")||e.family().startsWith("chud_")))throw new IllegalStateException("Область занята сохранённой постройкой.");
+    if(!ManualStructureRecords.get(world).overlapping(box).isEmpty())throw new IllegalStateException("Область занята сохранённой постройкой.");
     structure=world.registryAccess().registryOrThrow(Registries.STRUCTURE).get(ResourceLocation.fromNamespaceAndPath("slavicmyths",city?"chud_city":"chud_abandoned"));
-    for(int x=box.minX()>>4;x<=box.maxX()>>4;x++)for(int z=box.minZ()>>4;z<=box.maxZ()>>4;z++)footprint.add(new ChunkPos(x,z));
     phase=1;return;
    }
-   if(phase==1){chunks.prefetch(footprint,chunk);if(chunk<footprint.size()){if(chunks.ready(footprint.get(chunk))){chunk++;}return;}if(!adjusted){adjusted=true;int surface=world.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,entrance.getX(),entrance.getZ())-1;
+   if(phase==1){if(!adjusted){if(!chunks.ready(new ChunkPos(entrance)))return;adjusted=true;int surface=world.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,entrance.getX(),entrance.getZ())-1;
      if(piece instanceof ChudPiece c){var p=c.plan;var plan=new ChudPlan(p.seed,p.anchor,p.variant,p.rotation,surface-p.anchor.getY(),p.entranceBend);piece=new ChudPiece(plan,c.abandoned==null?null:new AbandonedPlan(p.seed,p.anchor,p.rotation,AbandonedPlan.Kind.ATTACHED_SMALL,plan.entranceFloor,plan.cityId(),0));entrance=plan.world(plan.points.get(ChudPlan.Role.ENTRANCE));}
      else{var p=((AbandonedPiece)piece).plan;var plan=new AbandonedPlan(p.seed,p.anchor,p.rotation,p.kind,surface-p.anchor.getY(),null,0);piece=new AbandonedPiece(plan);entrance=plan.world(plan.surfacePortal()).above();}
      box=piece.getBoundingBox();if(box.maxY()>=world.getMaxBuildHeight())throw new IllegalStateException("Entrance exceeds world height");var selected=piece;var cancelled=new java.util.concurrent.atomic.AtomicBoolean();rasterCancelled=cancelled;raster=CompletableFuture.supplyAsync(()->raster(selected,cancelled::get),WORKER);return;
-    }if(!raster.isDone())return;sections=raster.join();phase=2;return;}
+    }if(!raster.isDone())return;
+    if(sections.isEmpty()){sections=raster.join();var needed=new LinkedHashSet<ChunkPos>();needed.add(owner);needed.add(new ChunkPos(entrance));for(var s:sections)needed.add(new ChunkPos(s.origin));footprint.clear();footprint.addAll(needed);}
+    chunks.prefetch(footprint,chunk);if(chunk<footprint.size()){if(chunks.ready(footprint.get(chunk)))chunk++;return;}
+    phase=2;return;}
    long deadline=System.nanoTime()+chunks.budgetNanos();int operations=0;
-   if(phase==2||phase==3){while(section<sections.size()&&operations<8192&&System.nanoTime()<deadline){var s=sections.get(section);if(phase==2&&voxel==0){var full=world.getChunkSource().getChunkNow(s.origin.getX()>>4,s.origin.getZ()>>4);var nativeSection=full.getSection(world.getSectionIndex(s.origin.getY()));if(!nativeSection.maybeHas(st->st.is(Blocks.BEDROCK)||st.is(net.minecraft.tags.BlockTags.LOGS)||!ManualStructureJobs.natural(st)&&st.getFluidState().isEmpty())){section++;continue;}}if(voxel==4096){voxel=0;section++;continue;}int i=voxel++;var next=s.states[i];if(next==null)continue;operations++;var p=s.origin.offset(i&15,i>>8,(i>>4)&15);var old=world.getBlockState(p);
-     if(phase==2){if(world.getBlockEntity(p)!=null||org.slavicmyths.rpg.tools.ToolLogOrigins.get(world).blocked(p)||!ManualStructureJobs.natural(old)&&old.getFluidState().isEmpty()||old.is(Blocks.BEDROCK))throw new IllegalStateException("Защищённая постройка/блок: "+p.toShortString()+" / "+old);}
-     else{if(!old.equals(next)){if(world.getBlockEntity(p)!=null||org.slavicmyths.rpg.tools.ToolLogOrigins.get(world).blocked(p)||!ManualStructureJobs.natural(old)&&old.getFluidState().isEmpty())throw new IllegalStateException("Площадка изменена игроком: "+p.toShortString());world.setBlock(p,next,2|16);}}
+   if(phase==2||phase==3){while(section<sections.size()&&operations<8192&&System.nanoTime()<deadline){var s=sections.get(section);if(phase==2&&voxel==0){if(org.slavicmyths.rpg.tools.ToolLogOrigins.get(world).blocked(s.origin))throw new IllegalStateException("Защищённая область: "+s.origin.toShortString());var full=world.getChunkSource().getChunkNow(s.origin.getX()>>4,s.origin.getZ()>>4);var nativeSection=full.getSection(world.getSectionIndex(s.origin.getY()));if(!nativeSection.maybeHas(st->st.hasBlockEntity()||st.is(Blocks.BEDROCK)||st.is(net.minecraft.tags.BlockTags.LOGS)||!excavatable(st))){section++;continue;}}if(voxel==4096){voxel=0;section++;continue;}int i=voxel++;var next=s.states[i];if(next==null)continue;operations++;var p=s.origin.offset(i&15,i>>8,(i>>4)&15);var old=world.getBlockState(p);
+     if(phase==2){if(world.getBlockEntity(p)!=null||org.slavicmyths.rpg.tools.ToolLogOrigins.get(world).blocked(p)||!excavatable(old)||old.is(Blocks.BEDROCK))throw new IllegalStateException("Защищённая постройка/блок: "+p.toShortString()+" / "+old);}
+     else{if(!old.equals(next)){if(world.getBlockEntity(p)!=null||org.slavicmyths.rpg.tools.ToolLogOrigins.get(world).blocked(p)||!excavatable(old))throw new IllegalStateException("Площадка изменена игроком: "+p.toShortString());world.setBlock(p,next,2|16);}}
     }
-    if(section==sections.size()){section=voxel=0;if(phase==2){if(ManualStructureRecords.get(world).overlapping(box).stream().anyMatch(e->e.family().equals("construction")||e.family().startsWith("chud_")))throw new IllegalStateException("Область занята другим заданием во время подготовки");ManualStructureRecords.get(world).add(id,"construction",0,entrance,box);reserved=true;phase=3;}else{phase=4;chunk=0;}}return;
+    if(section==sections.size()){section=voxel=0;if(phase==2){if(!ManualStructureRecords.get(world).overlapping(box).isEmpty())throw new IllegalStateException("Область занята другим заданием во время подготовки");ManualStructureRecords.get(world).add(id,"construction",0,entrance,box);reserved=true;phase=3;}else{phase=4;chunk=0;}}return;
    }
    if(phase==4){if(chunk<footprint.size()){var pos=footprint.get(chunk++);var clip=new BoundingBox(pos.getMinBlockX(),world.getMinBuildHeight(),pos.getMinBlockZ(),pos.getMaxBlockX(),world.getMaxBuildHeight()-1,pos.getMaxBlockZ());if(piece instanceof ChudPiece p)p.finishManual(world,clip,pos);else ((AbandonedPiece)piece).finishManual(world,clip,pos);return;}
     var start=new StructureStart(structure,owner,0,new PiecesContainer(List.of(piece)));world.getChunkSource().getChunkNow(owner.x,owner.z).setStartForStructure(structure,start);
@@ -73,9 +74,8 @@ public final class ChudCreationJobs {
     ManualStructureRecords.get(world).replace(id,kind.equals("city")||kind.equals("attached")?"chud_city":"chud_abandoned",kind.equals("great")?2:0,entrance,box);finish(new Result(entrance,owner,box,1),"Место Чуди создано: "+entrance.toShortString());
    }
   }catch(RuntimeException e){
-   com.mojang.logging.LogUtils.getLogger().warn("Chud preflight phase {} attempt {} at {}: {}",phase,attempts,owner,e.toString());
-   // A rejected preflight must select another site, never report an unbuilt plan as success.
-   if(!reserved&&phase<3&&attempts++<5){chunks.close();cancelRaster();owner=site(attempts);chunks=new SiteChunks(world);footprint.clear();sections=List.of();raster=null;piece=null;box=null;phase=chunk=section=voxel=0;adjusted=false;return;}
+   com.mojang.logging.LogUtils.getLogger().warn("Chud preflight phase {} at {}: {}",phase,owner,e.toString());
+   // One explicit request checks one site. A refusal never expands into six excavations.
    finish(null,"Создание Чуди остановлено: "+e.getMessage());}}
   void cancelRaster(){if(rasterCancelled!=null)rasterCancelled.set(true);if(raster!=null)raster.cancel(false);}
   void finish(Result result,String message){JOBS.remove(world);chunks.close();cancelRaster();if(result==null)source.sendFailure(Component.literal(message));else source.sendSuccess(()->Component.literal(message),false);for(var callback:listeners)try{callback.accept(result);}catch(RuntimeException e){com.mojang.logging.LogUtils.getLogger().warn("Chud completion callback",e);}}
@@ -92,6 +92,12 @@ public final class ChudCreationJobs {
    for(int i=0;i<4096;i++){var s=states[i];if(s==null)continue;used=true;int px=origin.getX()+(i&15),pz=origin.getZ()+((i>>4)&15);boolean open=states[i+256]!=null&&states[i+256].isAir()&&states[i+512]!=null&&states[i+512].isAir();states[i]=decor.surface(s,px,origin.getY()+(i>>8),pz,decor.zone(px,pz),open);}
    if(used)result.add(new Section(origin,Arrays.copyOf(states,4096)));
   }return List.copyOf(result);
+ }
+ // Raw ore blocks occur naturally in large ore veins. Fences/cobweb/mossy cobble remain
+ // ambiguous dungeon/player blocks and are intentionally protected.
+ public static boolean excavatable(BlockState state){
+  if(state.hasBlockEntity()||state.is(Blocks.BEDROCK)||state.is(Blocks.NETHER_PORTAL)||state.is(Blocks.END_PORTAL)||state.is(Blocks.END_GATEWAY)||state.is(Blocks.END_PORTAL_FRAME))return false;
+  return state.getBlock() instanceof net.minecraft.world.level.block.LiquidBlock||ManualStructureJobs.natural(state)||state.is(Blocks.RAW_COPPER_BLOCK)||state.is(Blocks.RAW_IRON_BLOCK)||state.is(Blocks.BIG_DRIPLEAF)||state.is(Blocks.BIG_DRIPLEAF_STEM)||state.is(Blocks.CAVE_VINES)||state.is(Blocks.CAVE_VINES_PLANT)||state.is(Blocks.SPORE_BLOSSOM)||state.is(Blocks.HANGING_ROOTS)||state.is(Blocks.KELP)||state.is(Blocks.KELP_PLANT)||state.is(Blocks.SEAGRASS)||state.is(Blocks.TALL_SEAGRASS)||state.is(Blocks.SEA_PICKLE)||state.is(Blocks.BUBBLE_COLUMN)||state.is(net.minecraft.tags.BlockTags.CORAL_BLOCKS)||state.is(net.minecraft.tags.BlockTags.CORALS);
  }
  private ChudCreationJobs(){}
 }

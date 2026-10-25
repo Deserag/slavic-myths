@@ -1,0 +1,12 @@
+{
+  "seed": 29501,
+  "scenario": "protection",
+  "generator": "NoiseBasedChunkGenerator",
+  "empty_locate_no_tickets_or_records": true,
+  "container_refused_and_preserved": true,
+  "actual_raw_copper_and_iron_replaced": true,
+  "native_tickets_after": 0,
+  "result": "PASS",
+  "ticks": 479,
+  "elapsed_ms": 23906
+}

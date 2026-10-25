@@ -1,0 +1,10 @@
+{
+  "seed": 29501,
+  "scenario": "partialreload",
+  "generator": "NoiseBasedChunkGenerator",
+  "empty_locate_no_tickets_or_records": true,
+  "partial_reservation_restored_not_locatable": true,
+  "result": "PASS",
+  "ticks": 1,
+  "elapsed_ms": 61
+}

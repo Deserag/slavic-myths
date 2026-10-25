@@ -1,0 +1,15 @@
+{
+  "seed": 29504,
+  "scenario": "flat",
+  "generator": "FlatLevelSource",
+  "empty_locate_no_tickets_or_records": true,
+  "physical_solid_samples": 476,
+  "physical_air_samples": 3620,
+  "sample_hash": 2076991082184365178,
+  "record": "gorodishche 271, -45, 359",
+  "existing_locate_no_create": true,
+  "tickets_after": 0,
+  "result": "PASS",
+  "ticks": 521,
+  "elapsed_ms": 26014
+}

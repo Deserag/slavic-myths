@@ -1,0 +1,8 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { generation295 { java.srcDir 'tools/generation295-runtime' } }
+ p.sourceSets.generation295.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.generation295.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileGeneration295Java'){dependsOn p.tasks.named('classes')}
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.generation295)
+ p.neoForge.runs { generation295 { type='server';programArgument '--nogui';jvmArgument '-Xmx1536M';gameDirectory=p.file('work/qa295-'+(p.findProperty('qaRun') ?: 'seed1'));systemProperty 'slavicmyths.qaX',p.findProperty('qaX') ?: '0';systemProperty 'slavicmyths.qa295',p.findProperty('qaScenario') ?: 'city' } }
+} }

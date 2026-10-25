@@ -1,0 +1,15 @@
+{
+  "path": "D:\\slavic-myths\\work\\qa295-world-evidence.zip",
+  "sha256": "ae78070c313abfd222b29ccfe09190e53016dae038e100e1084932498e0b1898",
+  "archived_worlds": [
+    "seed1",
+    "seed2",
+    "seed3",
+    "flat",
+    "terrainfinal",
+    "partial"
+  ],
+  "uncompressed_bytes": 95488379,
+  "archive_bytes": 39382650,
+  "scope": "Own temporary native worlds only; no user PolyMC saves read or changed."
+}

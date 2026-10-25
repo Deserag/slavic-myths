@@ -1,0 +1,12 @@
+{
+  "seed": 29508,
+  "scenario": "cancel",
+  "generator": "NoiseBasedChunkGenerator",
+  "empty_locate_no_tickets_or_records": true,
+  "cancel_tickets_after": 0,
+  "restart_after_cancel": true,
+  "native_tickets_after": 0,
+  "result": "PASS",
+  "ticks": 31,
+  "elapsed_ms": 1507
+}

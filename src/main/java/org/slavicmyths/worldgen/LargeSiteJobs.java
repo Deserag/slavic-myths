@@ -17,10 +17,10 @@ import net.minecraft.world.level.levelgen.structure.pieces.PiecesContainer;
 public final class LargeSiteJobs {
  private static final Map<ServerLevel,Job> JOBS=new HashMap<>();
  public static int locate(CommandSourceStack source,String id){
-  var w=source.getLevel();if(w.dimension()!=Level.OVERWORLD){source.sendFailure(Component.literal("Эта постройка находится в обычном мире."));return 0;}
-  var at=BlockPos.containing(source.getPosition());
-  var known=ManualStructureRecords.get(w).entries().stream().filter(e->e.family().equals(id)&&e.arrival().distSqr(at)<=1024.*1024).min(Comparator.comparingDouble(e->e.arrival().distSqr(at)));
-  if(known.isPresent()){source.sendSuccess(()->Component.literal(id+": "+known.get().arrival().toShortString()),false);return 1;}
+  return ExistingSiteSearch.locate(source,id);
+ }
+ public static int create(CommandSourceStack source,String id){
+  var w=source.getLevel();if(w.dimension()!=Level.OVERWORLD){source.sendFailure(Component.literal("Создание доступно только в обычном мире."));return 0;}
   if(JOBS.containsKey(w)){source.sendFailure(Component.literal("Уже создаётся большая постройка; дождись завершения."));return 0;}
   JOBS.put(w,new Job(source,id));source.sendSuccess(()->Component.literal("Создаётся "+id+" поблизости; координаты будут выданы после завершения."),false);return 1;
  }
@@ -40,7 +40,7 @@ public final class LargeSiteJobs {
   void select(){origin=candidates.get(attempt);}
 
   void plan(){
-   int surface=org.slavicmyths.yaga.YagaPlacement.ground(w,origin.getX(),origin.getZ());if(surface<w.getMinBuildHeight()+16)throw new IllegalStateException("Нет сухой площадки");
+   int surface=org.slavicmyths.yaga.YagaPlacement.ground(w,origin.getX(),origin.getZ());if(surface<w.getMinBuildHeight()+1)throw new IllegalStateException("Нет сухой площадки");
    boolean spring=id.equals("abode_pure_spring");origin=origin.atY(surface-(spring?20:0));var manager=w.getStructureManager();var list=new ArrayList<StructurePiece>();
    if(id.equals("gorodishche")){
     String climate=w.getBiome(origin).value().getBaseTemperature()<.25?"cold":w.getBiome(origin).value().getBaseTemperature()>1?"warm":"temperate";
@@ -64,7 +64,7 @@ public final class LargeSiteJobs {
    if(phase==1){chunks.prefetch(footprint,chunk);if(!chunks.ready(footprint.get(chunk)))return;phase=2;return;}
    if(phase==2){long until=System.nanoTime()+2_000_000;int ops=0;
     while(chunk<footprint.size()&&ops++<16384&&System.nanoTime()<until){var cp=footprint.get(chunk);if(y==Integer.MIN_VALUE)y=box.minY();int x=cp.getMinBlockX()+(index&15),z=cp.getMinBlockZ()+(index>>4);var p=new BlockPos(x,y,z);var old=w.getBlockState(p);
-     if(box.isInside(p)&&(w.getBlockEntity(p)!=null||org.slavicmyths.rpg.tools.ToolLogOrigins.get(w).blocked(p)||!ManualStructureJobs.natural(old)&&old.getFluidState().isEmpty()))throw new IllegalStateException("Защищённая постройка: "+p.toShortString()+" / "+old);
+     if(box.isInside(p)&&(w.getBlockEntity(p)!=null||org.slavicmyths.rpg.tools.ToolLogOrigins.get(w).blocked(p)||!ManualStructureJobs.natural(old)&&!(old.getBlock() instanceof net.minecraft.world.level.block.LiquidBlock)))throw new IllegalStateException("Защищённая постройка: "+p.toShortString()+" / "+old);
      if(++index==256){index=0;if(++y>box.maxY()){chunk++;y=Integer.MIN_VALUE;break;}}
     }
     if(chunk==footprint.size()){if(!ManualStructureRecords.get(w).overlapping(box).isEmpty())throw new IllegalStateException("Площадка занята другим заданием во время подготовки");ManualStructureRecords.get(w).add(token,"construction",0,arrival,box);reserved=true;phase=3;chunk=piece=0;y=box.minY();}else if(y==Integer.MIN_VALUE)phase=1;return;

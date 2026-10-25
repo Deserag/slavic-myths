@@ -1,0 +1,46 @@
+{
+  "branch": "hell",
+  "baseline": "22f06d6bff0b3561b0a097b8509ff1e73e53137c",
+  "source_commit": "See publication commit in git history/final response; source hashes below describe the exact built Java files.",
+  "version": "2.0.1-HELL",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.1-HELL.jar",
+  "sha256": "a2ea8322e79562b6273c033aaa288835b0fb63f2d278256ab529e96d905716fe",
+  "build": "PASS Java21 clean build 2m40s; latest final gate after aquatic/waterlogged fix",
+  "resources": "PASS 8001 files; 4402 JSON; 1443 PNG; 1886 models; 1943 Java21 classes",
+  "regressions": "PASS 99852 native offline checks; separate from actual server runs",
+  "minecraft_dedicated_launches": 27,
+  "client_launches": 0,
+  "gametest_launches": 0,
+  "polymc": "POLYMC_NOT_INSTALLED",
+  "previous_installed_path_read_only": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.1-HELL.jar",
+  "previous_installed_sha256": "273767789fb6555f16c485bf64bc2cf37627787f1ca50255d820bbe36660182c",
+  "previous_installed_unchanged": true,
+  "backup": "No installation; user JAR/config/save writes = 0; no backup required for this task.",
+  "project": "#295 and #275 set to В работе; no issue closed or accepted.",
+  "sources": {
+    "src/main/java/org/slavicmyths/bayun/BayunCreation.java": "47137ba71b81e5fd4d881943ca2e3ce7d0f3d344c309546db949cffd71b04b26",
+    "src/main/java/org/slavicmyths/bayun/BayunFeature.java": "4649953275cccf4388c24ff86fe204368450d05b4499ba4b1d9321c256fb840b",
+    "src/main/java/org/slavicmyths/bayun/BayunHomes.java": "ff161a876636499bc48eb09d4b8a008443efc9d228b1d000c2f6356f3ea669d3",
+    "src/main/java/org/slavicmyths/chud/AbandonedCommands.java": "12c95b8e0436954ac090060a4235a3f8c3f0adaa0be66b0f3d4f0e4fe20b84d6",
+    "src/main/java/org/slavicmyths/chud/ChudCommands.java": "5d9ee2ff5b0b02e9c14bdaff1b0b868a53ff91146fddec040586d642b1ab8e76",
+    "src/main/java/org/slavicmyths/chud/ChudCreationJobs.java": "089413f8e83acd1843b4d7278ff43b2476d562777320de27921406291796c3b2",
+    "src/main/java/org/slavicmyths/chud/ChudSearchCommands.java": "73d258c359bb38f8717e6c712c0aa44767122b3a1ac9d9cb4d185015d5754e85",
+    "src/main/java/org/slavicmyths/worldgen/LargeSiteJobs.java": "115647c0c05fbbe5929999144e43cfa5bc98f0266fdf19f8560dd2e75df90fd9",
+    "src/main/java/org/slavicmyths/worldgen/ManualStructureCommands.java": "dc59d58c4732337a7555f747d8ad961ed8eb3bbc3ba78790e794f802197050be",
+    "src/main/java/org/slavicmyths/yaga/YagaPlacement.java": "abd061e9d7da299baab6a6b582f5d8cfd062b257af92da6ebde5129ddb612a03",
+    "src/main/java/org/slavicmyths/worldgen/ExistingSiteSearch.java": "92ee982c8273a1b78ea9436445e1ba664210d8883691ea6a6b4cab74ea7d5837"
+  },
+  "test_sources": {
+    "tools/generation295-runtime/Generation295Probe.java": "cfdb183addd84b75e1182c8e758d058162a4d072526ee14e236a1b72a63b7648",
+    "tools/generation295-runtime.gradle": "dbe19eba1c5c0b172f852fb40012567fa17399153f690d995dab8b68d9f4ea3e",
+    "tools/run_generation295.ps1": "b33aa9f51a14792acdd0ee397bab13020ec744d3fdce392eef4e0884a67c488e",
+    "tools/generation-runtime/NormalWorldProbe.java": "4c056aafc3873950c19988e556affe9886bcf1428301c960ebe2a2e74bcb25f9"
+  },
+  "runtime_results": {
+    "PASS": 15,
+    "FAIL": 11,
+    "FAIL_STARTUP": 1
+  },
+  "temporary_worlds": "11 own test directories removed after archiving six worlds; see cleanup.json and temporary-worlds.json",
+  "native_game_processes_after_checks": 0
+}

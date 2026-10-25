@@ -1,0 +1,11 @@
+{
+  "seed": 29501,
+  "scenario": "reload",
+  "generator": "NoiseBasedChunkGenerator",
+  "empty_locate_no_tickets_or_records": true,
+  "exact_block_witnesses_after_restart": 32,
+  "reloaded_record": "chud_city 132, 63, -210",
+  "result": "PASS",
+  "ticks": 1,
+  "elapsed_ms": 127
+}

@@ -1,0 +1,12 @@
+{
+  "seed": 29501,
+  "scenario": "waterlogged",
+  "generator": "NoiseBasedChunkGenerator",
+  "empty_locate_no_tickets_or_records": true,
+  "waterlogged_fence_refused_and_preserved": true,
+  "actual_raw_copper_and_iron_replaced": true,
+  "native_tickets_after": 0,
+  "result": "PASS",
+  "ticks": 769,
+  "elapsed_ms": 38418
+}

@@ -19,7 +19,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.server.ServerStoppingEvent;
 
-/** Explicit, bounded seed planning. No chunk loading, world reads, or tick polling on workers. */
+/** Read-only existing-site lookup. Creation is available only through generate or the story. */
 public final class ChudSearchCommands {
     public static void register(org.slavicmyths.commands.CommandTree tree) {
         for(String name:List.of("chud_city","chud_abandoned")) {
@@ -49,14 +49,12 @@ public final class ChudSearchCommands {
             .then(Commands.literal("cancel").executes(c->control(c.getSource(),true)))));
     }
     private static int control(CommandSourceStack source,boolean cancel){return ChudCreationJobs.control(source,cancel);}
-    private static int next(CommandSourceStack source){return start(source,"chud_city",null,1);}
+    private static int next(CommandSourceStack source){return start(source,"chud_city",null,0);}
     static int searchCity(CommandSourceStack source){return start(source,"chud_city",null,0);}
     static int searchAbandoned(CommandSourceStack source,AbandonedPlan.Kind kind){return start(source,"chud_abandoned",kind,0);}
     private static int start(CommandSourceStack source,String name,AbandonedPlan.Kind kind,int page){
-        String family=name.equals("chud_city")?"chud_city":"chud_abandoned";
-        var known=org.slavicmyths.worldgen.ManualStructureRecords.get(source.getLevel()).entries().stream().filter(e->e.family().equals(family)&&e.arrival().distSqr(BlockPos.containing(source.getPosition()))<=1024.*1024).filter(e->kind==null||kind!=AbandonedPlan.Kind.INDEPENDENT_GREAT||e.tier()==2).min(Comparator.comparingDouble(e->e.arrival().distSqr(BlockPos.containing(source.getPosition()))));
-        if(page==0&&known.isPresent()){var p=known.get().arrival();source.sendSuccess(()->Component.literal("Место Чуди: "+p.toShortString()),false);return 1;}
-        return ChudCreationJobs.create(source,name.equals("chud_city")?"city":kind==AbandonedPlan.Kind.INDEPENDENT_GREAT?"great":kind==AbandonedPlan.Kind.ATTACHED_SMALL?"attached":"medium",r->{if(r!=null)source.sendSuccess(()->Component.literal("Место Чуди: "+r.entrance().toShortString()),false);});
+        if(page!=0||kind!=null){source.sendFailure(Component.literal("Страницы кандидатов/вариантов не являются поиском существующих построек. Используйте явную команду generate для создания."));return 0;}
+        return org.slavicmyths.worldgen.ExistingSiteSearch.locate(source,name);
     }
     private ChudSearchCommands(){}
 }

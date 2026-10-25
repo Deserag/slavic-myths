@@ -1,0 +1,11 @@
+{
+  "seed": 29501,
+  "scenario": "waterlogged",
+  "generator": "NoiseBasedChunkGenerator",
+  "empty_locate_no_tickets_or_records": true,
+  "waterlogged_fence_refused_and_preserved": true,
+  "error": "java.lang.IllegalStateException: natural ore replacement refused",
+  "result": "FAIL",
+  "ticks": 367,
+  "elapsed_ms": 18310
+}

@@ -69,6 +69,7 @@ public final class BayunCreation {
    ManualStructureRecords.get(world).add(token,"construction",0,site.anchor,box);reserved=true;
    cursor=new YagaPlacement.Cursor(world,site,()->{
     if(nearby(world,origin)!=null)return false;
+    if(!BayunHomes.get(world).reserveNew(site.anchor,cat.getUUID()))return false;
     if(!world.addFreshEntity(cat))return false;
     ManualStructureRecords.get(world).replace(token,"site/bayun",0,site.anchor,box);return true;
    },()->{cat.discard();BayunHomes.get(world).forget(site.anchor,cat.getUUID());},result->{});

@@ -1,0 +1,10 @@
+{
+  "seed": 29502,
+  "scenario": "reload",
+  "generator": "NoiseBasedChunkGenerator",
+  "empty_locate_no_tickets_or_records": true,
+  "error": "java.lang.IllegalStateException: saved construction blocks missing",
+  "result": "FAIL",
+  "ticks": 1,
+  "elapsed_ms": 148
+}

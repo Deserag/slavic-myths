@@ -15,8 +15,10 @@ public final class BayunFeature extends Feature<NoneFeatureConfiguration> {
         var site=BayunPlacement.prepare(w,source);if(site.failure!=null)return false;
         var b=BayunContent.ENTITY.get().create(w.getLevel());if(b==null)return false;
         b.home=site.anchor;b.moveTo(site.anchor.getX()+.5,site.anchor.getY(),site.anchor.getZ()+.5,0,0);
-        return org.slavicmyths.yaga.YagaPlacement.commit(w,site,()->w.addFreshEntity(b),()->{
-            b.discard();BayunHomes.get(w.getLevel()).forget(site.anchor,b.getUUID());
-        }).ok;
+        var homes=BayunHomes.get(w.getLevel());if(!homes.reserveNew(site.anchor,b.getUUID()))return false;
+        boolean placed=false;
+        try{placed=org.slavicmyths.yaga.YagaPlacement.commit(w,site,()->w.addFreshEntity(b),()->{
+            b.discard();homes.forget(site.anchor,b.getUUID());
+        }).ok;return placed;}finally{if(!placed)homes.forget(site.anchor,b.getUUID());}
     }
 }

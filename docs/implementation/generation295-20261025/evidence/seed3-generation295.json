@@ -1,0 +1,179 @@
+{
+  "seed": 29503,
+  "scenario": "hills",
+  "generator": "NoiseBasedChunkGenerator",
+  "candidate_height_samples": {
+    "2048": 65,
+    "4096": 35,
+    "6144": 69,
+    "8192": 54,
+    "10240": 59,
+    "12288": 59,
+    "14336": 103,
+    "16384": 67,
+    "18432": 75,
+    "20480": 78,
+    "22528": 82,
+    "24576": 63,
+    "26624": 69,
+    "28672": 73,
+    "30720": 47,
+    "32768": 77,
+    "34816": 166,
+    "36864": 103,
+    "38912": 119,
+    "40960": 71,
+    "43008": 69,
+    "45056": 67,
+    "47104": 87,
+    "49152": 62
+  },
+  "chosenX": 34816,
+  "highest_surface": 166,
+  "empty_locate_no_tickets_or_records": true,
+  "entrance": "34948, 170, -210",
+  "owner": "[2176, -16]",
+  "ownerX": 2176,
+  "ownerZ": -16,
+  "bounds": "BoundingBox{minX\u003d34697, minY\u003d32, minZ\u003d-375, maxX\u003d34951, maxY\u003d181, maxZ\u003d-121}",
+  "physical_solid_samples": 1062,
+  "physical_air_samples": 511,
+  "sample_hash": 5536014409835484288,
+  "block_witnesses": [
+    {
+      "state": 14,
+      "position": 9568225061867624
+    },
+    {
+      "state": 16,
+      "position": 9589390660735079
+    },
+    {
+      "state": 11171,
+      "position": 9588566027026544
+    },
+    {
+      "state": 25729,
+      "position": 9580594567495754
+    },
+    {
+      "state": 26553,
+      "position": 9562452625907774
+    },
+    {
+      "state": 6538,
+      "position": 9606433091059874
+    },
+    {
+      "state": 21904,
+      "position": 9576471398953034
+    },
+    {
+      "state": 26552,
+      "position": 9558329457365054
+    },
+    {
+      "state": 7,
+      "position": 9554206288822334
+    },
+    {
+      "state": 26140,
+      "position": 9556680189947969
+    },
+    {
+      "state": 26140,
+      "position": 9559154091073604
+    },
+    {
+      "state": 14,
+      "position": 9550083120279614
+    },
+    {
+      "state": 26552,
+      "position": 9559154091073619
+    },
+    {
+      "state": 2353,
+      "position": 9552557021405264
+    },
+    {
+      "state": 26140,
+      "position": 9585267492192344
+    },
+    {
+      "state": 14,
+      "position": 9592689195569249
+    },
+    {
+      "state": 14,
+      "position": 9568225061867624
+    },
+    {
+      "state": 16,
+      "position": 9589390660735079
+    },
+    {
+      "state": 11171,
+      "position": 9588566027026544
+    },
+    {
+      "state": 25729,
+      "position": 9580594567495754
+    },
+    {
+      "state": 26553,
+      "position": 9562452625907774
+    },
+    {
+      "state": 6538,
+      "position": 9606433091059874
+    },
+    {
+      "state": 21904,
+      "position": 9576471398953034
+    },
+    {
+      "state": 26552,
+      "position": 9558329457365054
+    },
+    {
+      "state": 7,
+      "position": 9554206288822334
+    },
+    {
+      "state": 26140,
+      "position": 9556680189947969
+    },
+    {
+      "state": 26140,
+      "position": 9559154091073604
+    },
+    {
+      "state": 14,
+      "position": 9550083120279614
+    },
+    {
+      "state": 14,
+      "position": 9570973840834633
+    },
+    {
+      "state": 14,
+      "position": 9570973840838729
+    },
+    {
+      "state": 14,
+      "position": 9570973840867401
+    },
+    {
+      "state": 14,
+      "position": 9570973840871497
+    }
+  ],
+  "record": "chud_city 34948, 170, -210",
+  "existing_locate_no_create": true,
+  "tickets_after": 0,
+  "native_tickets_after": 0,
+  "result": "PASS",
+  "ticks": 783,
+  "elapsed_ms": 39316
+}
