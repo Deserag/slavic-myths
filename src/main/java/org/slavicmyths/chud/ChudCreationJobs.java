@@ -76,7 +76,7 @@ public final class ChudCreationJobs {
    // A rejected preflight must select another site, never report an unbuilt plan as success.
    if(!reserved&&phase<3&&attempts++<5){chunks.close();if(raster!=null)raster.cancel(false);owner=site(attempts);chunks=new SiteChunks(world);footprint.clear();sections=List.of();raster=null;piece=null;box=null;phase=chunk=section=voxel=0;adjusted=false;return;}
    finish(null,"Создание Чуди остановлено: "+e.getMessage());}}
-  void finish(Result result,String message){JOBS.remove(world);chunks.close();if(raster!=null)raster.cancel(false);source.sendSuccess(()->Component.literal(message),false);for(var callback:listeners)try{callback.accept(result);}catch(RuntimeException e){com.mojang.logging.LogUtils.getLogger().warn("Chud completion callback",e);}}
+  void finish(Result result,String message){JOBS.remove(world);chunks.close();if(raster!=null)raster.cancel(false);if(result==null)source.sendFailure(Component.literal(message));else source.sendSuccess(()->Component.literal(message),false);for(var callback:listeners)try{callback.accept(result);}catch(RuntimeException e){com.mojang.logging.LogUtils.getLogger().warn("Chud completion callback",e);}}
  }
  private static List<Section> raster(StructurePiece piece){
   var fills=piece instanceof ChudPiece p?p.blueprint():((AbandonedPiece)piece).blueprint();var decor=piece instanceof ChudPiece p?new ChudDecor(p.plan,p.abandoned):new ChudDecor(null,((AbandonedPiece)piece).plan);return raster(fills,decor,piece.getBoundingBox());

@@ -9,6 +9,7 @@ import net.minecraft.world.level.ChunkPos;
 public final class SiteChunks implements AutoCloseable {
  private static final TicketType<Long> TICKET=TicketType.create("slavicmyths_site_build",Long::compare);
  private static final Map<ServerLevel,SiteChunks> IN_FLIGHT=new HashMap<>();
+ private static final Set<SiteChunks> ACTIVE=Collections.newSetFromMap(new IdentityHashMap<>());
  private static final java.util.concurrent.atomic.AtomicLong NEXT_TOKEN=new java.util.concurrent.atomic.AtomicLong();
  private final long token=NEXT_TOKEN.incrementAndGet();
  private final ServerLevel world;private final Set<ChunkPos> held=new HashSet<>();
@@ -30,7 +31,8 @@ public final class SiteChunks implements AutoCloseable {
  }
  public long budgetNanos(){return Math.clamp(20_000_000L-world.getServer().getAverageTickTimeNanos(),2_000_000L,8_000_000L);}
  public void prefetch(java.util.List<ChunkPos> footprint,int from){for(int i=from;i<Math.min(from+4,footprint.size());i++)ready(footprint.get(i));}
- private void hold(ChunkPos pos){if(held.add(pos))world.getChunkSource().addRegionTicket(TICKET,pos,0,token);}
- @Override public void close(){if(closed)return;closed=true;IN_FLIGHT.remove(world,this);requested.clear();for(var p:held)world.getChunkSource().removeRegionTicket(TICKET,p,0,token);held.clear();}
- @net.neoforged.bus.api.SubscribeEvent public static void stop(net.neoforged.neoforge.event.server.ServerStoppedEvent e){IN_FLIGHT.keySet().removeIf(w->w.getServer()==e.getServer());}
+ private void hold(ChunkPos pos){if(held.add(pos)){ACTIVE.add(this);world.getChunkSource().addRegionTicket(TICKET,pos,0,token);}}
+ @Override public void close(){if(closed)return;closed=true;ACTIVE.remove(this);IN_FLIGHT.remove(world,this);requested.clear();for(var p:held)world.getChunkSource().removeRegionTicket(TICKET,p,0,token);held.clear();}
+ @net.neoforged.bus.api.SubscribeEvent(priority=net.neoforged.bus.api.EventPriority.LOWEST)
+ public static void stop(net.neoforged.neoforge.event.server.ServerStoppingEvent e){for(var owner:List.copyOf(ACTIVE))if(owner.world.getServer()==e.getServer())owner.close();}
 }

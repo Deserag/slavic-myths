@@ -67,8 +67,8 @@ public final class YagaPlacement {
      try{undo.run();}catch(RuntimeException e){failure.addSuppressed(e);}finish(new Result(false,failure.getSuppressed().length>0?"rollback":failure instanceof Refused?((Refused)failure).reason:"cancelled",site.anchor,failure));return;
     }
     BlockPos p=positions.get(index++);
-    if(phase==0){if(!world.getBlockState(p).equals(site.old.get(p)))throw new Refused("changed",p);write(world,p,site.desired.get(p));written.put(p,site.desired.get(p));}
-    else if(phase==1){var current=world.getBlockState(p);if(!current.equals(written.get(p)))throw new Refused("changed",p);var next=Block.updateFromNeighbourShapes(current,world,p);if(!current.isAir()&&next.isAir())throw new Refused("support",p);if(!current.equals(next)){write(world,p,next);written.put(p,next);}}
+    if(phase==0){if(!world.getBlockState(p).equals(site.old.get(p)))throw new Refused("changed",p);written.put(p,site.desired.get(p));write(world,p,site.desired.get(p));}
+    else if(phase==1){var current=world.getBlockState(p);if(!current.equals(written.get(p)))throw new Refused("changed",p);var next=Block.updateFromNeighbourShapes(current,world,p);if(!current.isAir()&&next.isAir())throw new Refused("support",p);if(!current.equals(next)){written.put(p,next);write(world,p,next);}}
     else {var own=written.get(p);if(own!=null&&world.getBlockState(p).equals(own))write(world,p,site.old.get(p));}
    }catch(RuntimeException e){if(phase==3){failure.addSuppressed(e);}else{failure=e;phase=3;index=0;}}
   }

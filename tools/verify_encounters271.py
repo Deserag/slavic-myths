@@ -1,13 +1,15 @@
 """Scope and packaged-byte receipts; native behavioral checks are in the opt-in JVM fixture."""
 from pathlib import Path
 import subprocess,json,zipfile,hashlib
+from verify_structures275 import OWNED as STRUCTURES275
 R=Path(__file__).resolve().parents[1];BASE='cecaa4b2';J='src/main/java/org/slavicmyths/'
 OWNED=['firebird/FirebirdEncounter.java','hunt/HuntSpawns.java','sivka/SivkaContent.java','sivka/FirstSivkaProgress.java','sivka/SivkaExploration.java','wolf/WolfEncounter.java','wolf/EncounterRetryCache.java','world/EncounterPlacement.java']
 def source(p):return (R/J/p).read_text(encoding='utf-8')
 changed=subprocess.check_output(['git','diff',BASE,'--name-only','--','src/main/java'],cwd=R,text=True).splitlines()
-assert set(changed)<=set(J+p for p in OWNED),changed
+assert set(changed)<=set(J+p for p in OWNED+STRUCTURES275),changed
 assert not subprocess.check_output(['git','diff',BASE,'--','src/main/resources'],cwd=R),'unexpected art/audio/biome/weight changes'
-for p in ['hunt/WorldBoss.java','hunt/BossAnchors.java','hunt/BossRules.java','mor/MorController.java','mor/MorRules.java','mor/MorEvents.java','firebird/FirebirdEntity.java','firebird/FirebirdRules.java','yaga/YagaDiscovery.java','navya/NavyaSpawns.java','bayun/BayunFeature.java']:
+# #275 owns BayunFeature now; its actual transaction is covered by the #275 native fixture.
+for p in ['hunt/WorldBoss.java','hunt/BossAnchors.java','hunt/BossRules.java','mor/MorController.java','mor/MorRules.java','mor/MorEvents.java','firebird/FirebirdEntity.java','firebird/FirebirdRules.java','yaga/YagaDiscovery.java','navya/NavyaSpawns.java']:
     before=subprocess.check_output(['git','show',BASE+':'+J+p],cwd=R).decode().replace('\r\n','\n')
     assert before==source(p),('unowned regression',p)
 for p in OWNED:assert 'net.minecraft.client' not in source(p),('common client dependency',p)
@@ -23,5 +25,6 @@ with zipfile.ZipFile(jar) as z:
     for p in OWNED:assert 'org/slavicmyths/'+p.replace('.java','.class') in z.namelist(),p
     assert not any('Encounters271Offline' in p for p in z.namelist()),'test fixture packaged'
 manifest={'baseline':BASE,'branch':'hell','jar':str(jar),'version':props['mod_version'],'sha256':hashlib.sha256(jar.read_bytes()).hexdigest(),'source_files':{J+p:hashlib.sha256((R/J/p).read_bytes()).hexdigest() for p in OWNED},'gameplay':'NOT_RUN','polymc':'NOT_INSTALLED'}
-(R/'docs/implementation/encounters271-20261025/receipt.json').write_text(json.dumps(manifest,indent=2)+'\n')
+# Re-running a regression must not overwrite the immutable receipt of the earlier package.
+(R/'build/encounters271-current-receipt.json').write_text(json.dumps(manifest,indent=2)+'\n')
 print('PASS #271 source scope/preservation and production JAR; GAMEPLAY_NOT_RUN; SHA256',manifest['sha256'])

@@ -16,6 +16,7 @@ public final class BayunHomes extends SavedData {
     public record Home(BlockPos position,UUID entity){}
     public Home nearest(BlockPos origin){return homes.entrySet().stream().min(Comparator.comparingDouble(e->BlockPos.of(e.getKey()).distSqr(origin))).map(e->new Home(BlockPos.of(e.getKey()),e.getValue())).orElse(null);}
     public boolean reconcile(BlockPos home,UUID entity){UUID old=homes.putIfAbsent(home.asLong(),entity);if(old==null)setDirty();return old==null||old.equals(entity);}
+    public void forget(BlockPos home,UUID entity){if(homes.remove(home.asLong(),entity))setDirty();}
     @SubscribeEvent public static void join(EntityJoinLevelEvent e){if(e.getEntity() instanceof BayunEntity b&&e.getLevel() instanceof ServerLevel w){if(b.home==null)b.home=b.blockPosition();if(!get(w).reconcile(b.home,b.getUUID()))e.setCanceled(true);}}
     @Override public CompoundTag save(CompoundTag n,HolderLookup.Provider registries){n.putInt("Version",1);ListTag list=new ListTag();homes.forEach((pos,id)->{CompoundTag t=new CompoundTag();t.putLong("Home",pos);t.putUUID("Entity",id);list.add(t);});n.put("Homes",list);return n;}
     public static BayunHomes load(CompoundTag n,HolderLookup.Provider registries){BayunHomes data=new BayunHomes();for(Tag raw:n.getList("Homes",10)){CompoundTag t=(CompoundTag)raw;if(t.hasUUID("Entity"))data.homes.put(t.getLong("Home"),t.getUUID("Entity"));}return data;}

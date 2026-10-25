@@ -1,0 +1,23 @@
+{
+  "baseline": "7d83da1a",
+  "branch": "hell",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.1-HELL.jar",
+  "version": "2.0.1-HELL",
+  "sha256": "17913cadeb4d56ab8165ad1d414242f6b8519d80222f3d8295537aed3cf53f2b",
+  "source_files": {
+    "src/main/java/org/slavicmyths/bayun/BayunCreation.java": "49968628bd98ee6cd9407e6359b8e174a46e3230072b4378a5328fdc59400a7e",
+    "src/main/java/org/slavicmyths/bayun/BayunFeature.java": "ce3cd7ce543b5cdbade92f7108a887abfa2971fb472d035fc1105697ab702b0f",
+    "src/main/java/org/slavicmyths/bayun/BayunHomes.java": "f3a9d5810ddd82d1fce011c22804eed89113975632c8b9d51bfed6e967b4e1eb",
+    "src/main/java/org/slavicmyths/bayun/BayunPlacement.java": "18dd79441245b60d05cc8b2c9e9cdc46680dbf6927fd81f18e657fbe493e95a4",
+    "src/main/java/org/slavicmyths/chud/ChudCreationJobs.java": "9f4a96bdbcb810a09eb3d302f02afa6f7a6d820a64dbff28dc28c34b4e4b87b0",
+    "src/main/java/org/slavicmyths/guides/GuideDiscovery.java": "79252e3744322a6c06675456503620b9624b42d3bbfb31c233eef520687fcf8b",
+    "src/main/java/org/slavicmyths/worldgen/ManualStructureRecords.java": "4c30615e0d79079b28554588c65f9d6869f65f5ae34b7ed73c54c832b57efe0a",
+    "src/main/java/org/slavicmyths/worldgen/SiteChunks.java": "7485df121cd5a1d2ac6555fc637537fbfc382b7a8c89a1eb581bdd3ce212dbd5",
+    "src/main/java/org/slavicmyths/yaga/YagaPlacement.java": "400a63b932eb47b68936142676c6207de1dd2e6fcd296310e8f10ca0bf87a64f",
+    "src/main/java/org/slavicmyths/yaga/YagaHut.java": "aadb54d5865ca19aa1d60fe4e03b251e81ddf6cb445b0760baf2ba8ce8b210d2",
+    "src/main/java/org/slavicmyths/navya/NavyaHeartStructure.java": "411513b69246c1b414d5eeb7a48195d6b261dc55a3a164cf2d0afd2f1927fff0"
+  },
+  "minecraft_launches": 0,
+  "gameplay": "NOT_RUN",
+  "polymc": "NOT_INSTALLED"
+}
