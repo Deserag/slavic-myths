@@ -1175,7 +1175,7 @@
   "yaga.ingredients": "Ingredients",
   "yaga.vessel": "Vessel",
   "yaga.cooldown": "Wait: %s s",
-  "yaga.talk.work": "Is there work for me?",
+  "yaga.talk.work": "Tasks",
   "yaga.talk.question": "Ask a question",
   "yaga.talk.forest": "About the forest",
   "yaga.talk.bye": "Farewell",
@@ -5987,5 +5987,7 @@
   "tales.entry.finist_introduction.studied": "Together deliver 6 bread, 1 honey bottle and 4 iron ingots. Hand in the held item; an empty hand delivers all needed supplies. Each player contributing at least 2 of 11 items earns summoning when the collection is complete. Alternatively, after meeting, deal at least 15%% of the matching enemy's health and defeat it.",
   "tales.entry.finist_introduction.verified": "Your help is recognized. The summon item is your reward. Two summoned heroes are allowed across the server.",
   "hero_intro.finist.title": "Friendship: Finist the Bright Falcon",
-  "hero_intro.finist.desc": "Your help is recognized. The summon item is your reward. Two summoned heroes are allowed across the server."
+  "hero_intro.finist.desc": "Your help is recognized. The summon item is your reward. Two summoned heroes are allowed across the server.",
+  "yaga.victory_recognized": "Yaga recognizes your victory. You are now a guest; these first herbs honor your strength.",
+  "yaga.talk.back": "Back"
 }

@@ -43,7 +43,7 @@ for tag in ['bypasses_armor']:
  if v not in n['values']:n['values'].append(v)
  dump(p,n)
 dump(D/'slavicmyths/worldgen/configured_feature/bayun_nook.json',{'type':'slavicmyths:bayun_nook','config':{}})
-dump(D/'slavicmyths/worldgen/placed_feature/bayun_nook.json',{'feature':'slavicmyths:bayun_nook','placement':[{'type':'minecraft:rarity_filter','chance':3200},{'type':'minecraft:in_square'},{'type':'minecraft:heightmap','heightmap':'MOTION_BLOCKING_NO_LEAVES'},{'type':'minecraft:biome'}]})
+dump(D/'slavicmyths/worldgen/placed_feature/bayun_nook.json',{'feature':'slavicmyths:bayun_nook','placement':[{'type':'minecraft:rarity_filter','chance':128},{'type':'minecraft:in_square'},{'type':'minecraft:heightmap','heightmap':'MOTION_BLOCKING_NO_LEAVES'},{'type':'minecraft:biome'}]})
 dump(D/'slavicmyths/neoforge/biome_modifier/bayun_nook.json',{'type':'neoforge:add_features','biomes':'#minecraft:is_forest','features':'slavicmyths:bayun_nook','step':'surface_structures'})
 for tag in ['combat_protected','control_immune']:
  p=D/'slavicmyths/tags/entity_type'/f'{tag}.json';n=json.loads(p.read_text(encoding='utf8'))

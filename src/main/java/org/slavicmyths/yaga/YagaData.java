@@ -9,6 +9,7 @@ public final class YagaData extends SavedData {
  public enum Favor{STRANGER,GUEST,TRUSTED}
  public static final class Progress{
   public int intro,stage;public String active="";public long blockedUntil,contractReady,warningUntil;public int contract;
+  public boolean recognizeVictory(boolean victory){if(!victory||stage!=0)return false;stage=1;if(active.equals("main:0"))active="";return true;}
   public Favor favor(){return stage>=3?Favor.TRUSTED:stage>=1?Favor.GUEST:Favor.STRANGER;}
   public boolean rewardsVisible(){return favor()!=Favor.STRANGER;}
   public boolean blocked(long now){return now<blockedUntil;}

@@ -19,7 +19,7 @@ public final class DepthsCommands {
             if(!(c.getSource().getEntity() instanceof ServerPlayer p))return 0;
             var data=DepthsSavedData.get(p.server.getLevel(Level.OVERWORLD));
             var e=data.entries.values().stream().filter(v->v.status.equals("COMPLETE")).min(java.util.Comparator.comparingDouble(v->Math.hypot(v.plan.origin().x()-p.getX(),v.plan.origin().z()-p.getZ()))).orElse(null);
-            if(e==null){c.getSource().sendFailure(Component.translatable("depths.slavicmyths.none"));return 0;}
+            if(e==null)return DepthsService.start(p,null)?1:0;
             var o=e.plan.origin();c.getSource().sendSuccess(()->Component.translatable("depths.slavicmyths.located",o.x(),o.y()+1,o.z(),e.plan.id(),e.plan.skylight()?"SKYLIGHT":"CLOSED"),false);return 1;
         }));
         root.then(Commands.literal("status").executes(c->DepthsService.status(c.getSource())));

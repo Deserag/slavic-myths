@@ -9,7 +9,7 @@ public final class MorRules {
     public static boolean flaskRange(double squared){return squared<=9;}
     public static boolean release(int skill,int tick){return switch(skill){case 1->tick==24;case 2,3->tick==20;case 4->tick==19||tick==25;case 5->tick==32;case 6->tick==16;case 7->tick==22||tick==27||tick==32;case 8->tick>=18&&tick<=28;case 9->tick==30;default->false;};}
     public static boolean natural(boolean overworld,long dayTime,double spawnDistanceSquared,boolean allowedReason,int roll) {
-        return overworld && dayTime/24000>=7 && spawnDistanceSquared>160*160 && allowedReason && roll<4;
+        return overworld && dayTime/24000>=2 && spawnDistanceSquared>160*160 && allowedReason && roll<12;
     }
     public static float health(float current,float oldMax,float newMax) {
         return Math.min(newMax,Math.max(0,oldMax>0?current/oldMax*newMax:0));

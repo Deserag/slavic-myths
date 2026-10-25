@@ -80,6 +80,7 @@ public final class SwampCommands {
         // Only the selected destination's 5x5 chunk neighbourhood may load, on explicit command.
         for(int r=0;r<=32;r+=2)for(int dx=-r;dx<=r;dx+=2)for(int dz=-r;dz<=r;dz+=2) {
             if(Math.max(Math.abs(dx),Math.abs(dz))!=r)continue;
+            if(world.getChunkSource().getChunkNow((center.getX()+dx)>>4,(center.getZ()+dz)>>4)==null)continue;
             BlockPos p=world.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,center.offset(dx,0,dz));
             BlockState ground=world.getBlockState(p.below());
             if(world.getWorldBorder().isWithinBounds(p)&&world.getBiome(p).is(net.neoforged.neoforge.common.Tags.Biomes.IS_SWAMP) &&
@@ -92,30 +93,8 @@ public final class SwampCommands {
     private static int structure(CommandSourceStack source,String id,boolean next)throws CommandSyntaxException {
         if(!overworld(source))return 0;
         if(!SwampStructures.TYPES.containsKey(id)||id.equals("swamp_remnants")){source.sendFailure(Component.translatable("swamp.command.bad_id"));return 0;}
-        ServerLevel world=source.getLevel();BlockPos origin=BlockPos.containing(source.getPosition());
-        Structure type=SwampStructures.get(world,id);
-        RandomSpreadStructurePlacement settings=StructureCandidates.placement(world,type);
-        if(settings==null){source.sendFailure(Component.translatable("swamp.command.not_found"));return 0;}
-        // Inspect real starts at candidate chunks (vanilla locate uses the same STRUCTURE_STARTS
-        // generation stage). Never places a building at the player or guesses from a grid point.
-        Set<Long> seen=new HashSet<>();BlockPos first=null,best=null;long distance=Long.MAX_VALUE;
-        for(int r=0;r<=12;r++) {
-            for(int dx=-r;dx<=r;dx++)for(int dz=-r;dz<=r;dz++) {
-                if(Math.max(Math.abs(dx),Math.abs(dz))!=r)continue;
-                ChunkPos p=settings.getPotentialStructureChunk(world.getSeed(),(origin.getX()>>4)+dx*settings.spacing(),(origin.getZ()>>4)+dz*settings.spacing());
-                if(!seen.add(p.toLong()))continue;
-                if(!StructureCandidates.biome(world,type,p))continue;
-                net.minecraft.world.level.chunk.ChunkAccess chunk=world.getChunk(p.x,p.z,ChunkStatus.STRUCTURE_STARTS);
-                StructureStart start=chunk.getStartForStructure(type);
-                if(start==null||!start.isValid())continue;
-                BlockPos pos=StructureCandidates.locate(start);long d=horizontal(origin,pos);
-                if(d<distance){best=first;first=pos;distance=d;}else if(best==null||d<horizontal(origin,best))best=pos;
-            }
-            if(r>=2 && first!=null && (!next||best!=null))break;
-        }
-        BlockPos result=next?best:first;
-        if(result==null){source.sendFailure(Component.translatable("swamp.command.not_found"));return 0;}
-        source.sendSuccess(()->Component.translatable("swamp.command.structure",id,result.getX(),result.getY(),result.getZ()),false);return 1;
+        return org.slavicmyths.worldgen.TemplateSiteJobs.create(source,id,next);
     }
+
     private SwampCommands(){}
 }

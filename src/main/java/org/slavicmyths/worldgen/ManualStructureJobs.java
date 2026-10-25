@@ -50,16 +50,16 @@ public final class ManualStructureJobs {
   return y;
  }
  private static boolean wetSurface(ServerLevel world,int x,int z,int y){var pos=new BlockPos(x,y,z);var state=world.getBlockState(pos);return !state.getFluidState().isEmpty()||state.is(Blocks.ICE)&&!world.getFluidState(pos.below()).isEmpty();}
- private static boolean natural(BlockState s){
+ public static boolean natural(BlockState s){
   return s.isAir()||LandTerrain.vegetation(s)||s.getBlock() instanceof BushBlock||s.is(Blocks.PUMPKIN)||s.is(Blocks.MELON)||s.is(Blocks.ICE)||s.canBeReplaced()||s.is(BlockTags.BASE_STONE_OVERWORLD)||s.is(BlockTags.DIRT)||s.is(BlockTags.LOGS)||s.is(BlockTags.LEAVES)||s.is(Blocks.GRASS_BLOCK)||s.is(Blocks.GRAVEL)||s.is(Blocks.SAND)||s.is(Blocks.SANDSTONE)||s.is(Blocks.CLAY)||s.is(Blocks.SNOW)||s.is(Blocks.SNOW_BLOCK)||s.is(Blocks.BEDROCK)||s.is(Blocks.CALCITE)||s.is(Blocks.COAL_ORE)||s.is(Blocks.IRON_ORE)||s.is(Blocks.COPPER_ORE)||s.is(Blocks.GOLD_ORE)||s.is(Blocks.REDSTONE_ORE)||s.is(Blocks.LAPIS_ORE)||s.is(Blocks.DIAMOND_ORE)||s.is(Blocks.EMERALD_ORE)||s.is(Blocks.DEEPSLATE_COAL_ORE)||s.is(Blocks.DEEPSLATE_IRON_ORE)||s.is(Blocks.DEEPSLATE_COPPER_ORE)||s.is(Blocks.DEEPSLATE_GOLD_ORE)||s.is(Blocks.DEEPSLATE_REDSTONE_ORE)||s.is(Blocks.DEEPSLATE_LAPIS_ORE)||s.is(Blocks.DEEPSLATE_DIAMOND_ORE)||s.is(Blocks.DEEPSLATE_EMERALD_ORE);
  }
  private static final class Job {
   final CommandSourceStack source;final ServerLevel world;final String family;final int tier;final long seed;final UUID id=UUID.randomUUID();final KurganPlan kurgan;final KurganPlan.Box planBounds;
-  final java.util.concurrent.CompletableFuture<Void> templateLoad;
-  final List<StructurePiece> pieces=new ArrayList<>();final Set<ChunkPos> tickets=new LinkedHashSet<>();final List<ChunkPos> requested=new ArrayList<>();
+  final java.util.concurrent.CompletableFuture<Void> templateLoad;SiteChunks preparation;
+  int pieceCursor;final List<StructurePiece> pieces=new ArrayList<>();final Set<ChunkPos> tickets=new LinkedHashSet<>();final List<ChunkPos> requested=new ArrayList<>();
   Phase phase=Phase.PREPARE_CHUNKS;BlockPos anchor,entrance;BoundingBox core,bounds,placedBounds;final List<BoundingBox> protectedBoxes=new ArrayList<>();int loadIndex,waitTicks,column,voxelY=Integer.MIN_VALUE,target,width,depth,surveyRound,relocation;int[] ground,top,clearTop;long changed,peakOperations,peakNanos,chunkWaitStart,nextProgress,startedTick;String slowestPhase="";boolean done;
   final List<BoundingBox> clips=new ArrayList<>();int clipIndex;
-  Job(CommandSourceStack source,String family,int tier,long seed){this.source=source;world=source.getLevel();this.family=family;this.tier=tier;this.seed=seed;startedTick=world.getGameTime();nextProgress=startedTick+100;kurgan=family.equals("kurgan")?KurganPlan.create(tier,seed):null;planBounds=kurgan==null?null:kurgan.bounds();var templates=world.getStructureManager();templateLoad=family.equals("kurgan")?java.util.concurrent.CompletableFuture.completedFuture(null):java.util.concurrent.CompletableFuture.runAsync(()->{
+  Job(CommandSourceStack source,String family,int tier,long seed){this.source=source;world=source.getLevel();preparation=new SiteChunks(world);this.family=family;this.tier=tier;this.seed=seed;startedTick=world.getGameTime();nextProgress=startedTick+100;kurgan=family.equals("kurgan")?KurganPlan.create(tier,seed):null;planBounds=kurgan==null?null:kurgan.bounds();var templates=world.getStructureManager();templateLoad=family.equals("kurgan")?java.util.concurrent.CompletableFuture.completedFuture(null):java.util.concurrent.CompletableFuture.runAsync(()->{
    // StructureTemplateManager is also used by native worldgen workers. No world/chunk APIs here.
    for(String name:ManualCampLayout.templateNames(tier))templates.getOrCreate(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",(tier==2?"stronghold/":"bandit/")+name));});var pos=BlockPos.containing(source.getPosition());anchor=new BlockPos(pos.getX(),0,pos.getZ()-(kurgan==null?96+(tier==2?84:44):128+kurgan.radius));setCore();prepare(core);}
   void setCore(){if(kurgan!=null){var b=planBounds;core=new BoundingBox(anchor.getX()+b.x0,world.getMinBuildHeight(),anchor.getZ()+b.z0,anchor.getX()+b.x1,world.getMaxBuildHeight()-1,anchor.getZ()+b.z1);}else{int size=tier==0?28:tier==1?46:84;core=new BoundingBox(anchor.getX(),world.getMinBuildHeight(),anchor.getZ(),anchor.getX()+size,world.getMaxBuildHeight()-1,anchor.getZ()+size);}}
@@ -73,15 +73,15 @@ public final class ManualStructureJobs {
   }catch(RuntimeException e){finish(false,"Генерация остановлена: "+e.getMessage());}finally{long elapsed=System.nanoTime()-begin;if(elapsed>peakNanos){peakNanos=elapsed;slowestPhase=measuredPhase.name();}}}
   void load(){
    if(loadIndex==requested.size()){if(surveyRound==0){phase=Phase.SURVEY;column=0;}else initialize();return;}
-   ChunkPos pos=requested.get(loadIndex);if(tickets.add(pos)){world.getChunkSource().addRegionTicket(TICKET,pos,0,pos.toLong());chunkWaitStart=System.nanoTime();}
-   if(world.getChunkSource().getChunkNow(pos.x,pos.z)!=null){
+   ChunkPos pos=requested.get(loadIndex);
+   if(preparation.ready(pos)){
     if(surveyRound==0&&pos.equals(new ChunkPos(anchor))){int y=surface(world,anchor.getX(),anchor.getZ());if(wetSurface(world,anchor.getX(),anchor.getZ(),y)){relocate();return;}}
     loadIndex++;waitTicks=0;chunkWaitStart=System.nanoTime();}else if(++waitTicks>1200&&System.nanoTime()-chunkWaitStart>60_000_000_000L)throw new IllegalStateException("Не удалось загрузить чанк "+pos);
   }
   void relocate(){
-    if(++relocation>16)throw new IllegalStateException("Нет свободной сухой площадки в локальном радиусе 256 блоков.");
-    for(ChunkPos pos:tickets)world.getChunkSource().removeRegionTicket(TICKET,pos,0,pos.toLong());tickets.clear();
-    int r=(relocation+3)/4*64,n=(relocation-1)%4;var base=BlockPos.containing(source.getPosition());int baseZ=base.getZ()-(kurgan==null?96+(tier==2?84:44):128+kurgan.radius);anchor=new BlockPos(base.getX()+(n==0?r:n==1?-r:0),0,baseZ+(n==2?r:n==3?-r:0));setCore();surveyRound=0;column=0;ground=null;top=null;clearTop=null;pieces.clear();clips.clear();clipIndex=0;protectedBoxes.clear();prepare(core);source.sendSuccess(()->Component.literal("Проверяется другая площадка: "+relocation+" / 16"),false);
+    if(++relocation>4)throw new IllegalStateException("Нет свободной сухой площадки в локальном радиусе 256 блоков.");
+    for(ChunkPos pos:tickets)world.getChunkSource().removeRegionTicket(TICKET,pos,0,pos.toLong());tickets.clear();preparation.close();preparation=new SiteChunks(world);
+    int r=(relocation+3)/4*64,n=(relocation-1)%4;var base=BlockPos.containing(source.getPosition());int baseZ=base.getZ()-(kurgan==null?96+(tier==2?84:44):128+kurgan.radius);anchor=new BlockPos(base.getX()+(n==0?r:n==1?-r:0),0,baseZ+(n==2?r:n==3?-r:0));setCore();surveyRound=0;column=0;ground=null;top=null;clearTop=null;pieces.clear();clips.clear();clipIndex=0;protectedBoxes.clear();prepare(core);source.sendSuccess(()->Component.literal("Проверяется другая площадка: "+relocation+" / 4"),false);
   }
   void survey(){
    var ys=new ArrayList<Integer>();int wet=0,total=0;
@@ -128,31 +128,31 @@ public final class ManualStructureJobs {
    if(kurgan!=null){var soil=KurganEarthwork.prepared(bounds.minX()-anchor.getX(),bounds.minZ()-anchor.getZ(),width,depth,ground,top);var piece=new KurganDungeonPiece(kurgan,anchor,id,soil);pieces.add(piece);entrance=piece.arrival();}
    else {pieces.addAll(ManualCampLayout.create(world,tier,anchor,id,seed));entrance=anchor.offset(tier==2?39:10,1,2);}
    BoundingBox box=pieces.get(0).getBoundingBox();box=new BoundingBox(box.minX(),box.minY(),box.minZ(),box.maxX(),box.maxY(),box.maxZ());for(var p:pieces)box.encapsulate(p.getBoundingBox());
-   placedBounds=box;for(int x=box.minX()>>4;x<=box.maxX()>>4;x++)for(int z=box.minZ()>>4;z<=box.maxZ()>>4;z++)for(int y=Math.max(world.getMinBuildHeight(),box.minY());y<=box.maxY();y+=8)clips.add(new BoundingBox(x*16,y,z*16,x*16+15,Math.min(y+7,box.maxY()),z*16+15));
+   placedBounds=box;for(int x=box.minX()>>4;x<=box.maxX()>>4;x++)for(int z=box.minZ()>>4;z<=box.maxZ()>>4;z++)for(int y=Math.max(world.getMinBuildHeight(),box.minY());y<=box.maxY();y+=4)clips.add(new BoundingBox(x*16,y,z*16,x*16+15,Math.min(y+3,box.maxY()),z*16+15));
   }
   int preflightFloor(int index){int floor=Math.min(ground[index],top[index]);if(core.isInside(new BlockPos(x(index),core.minY(),z(index))))floor=Math.min(floor,kurgan==null?target-(tier==2?5:0):target+planBounds.y0);return floor;}
   int preflightCeiling(int index){int ceiling=clearTop[index];if(core.isInside(new BlockPos(x(index),core.minY(),z(index))))ceiling=Math.max(ceiling,kurgan==null?target+32:target+planBounds.y1);return ceiling;}
   void preflight(){
    long deadline=System.nanoTime()+2000000;int ops=0;while(column<ground.length&&ops<SCAN_OPERATIONS&&(ops%64!=0||System.nanoTime()<deadline)){if(voxelY==Integer.MIN_VALUE){voxelY=preflightFloor(column);int ceiling=preflightCeiling(column),px=x(column),pz=z(column);for(var box:protectedBoxes)if(px>=box.minX()&&px<=box.maxX()&&pz>=box.minZ()&&pz<=box.maxZ()&&voxelY<=box.maxY()&&ceiling>=box.minY()){relocate();return;}}if(voxelY>preflightCeiling(column)){column++;voxelY=Integer.MIN_VALUE;continue;}
-    var pos=new BlockPos(x(column),voxelY,z(column));var old=world.getBlockState(pos);if(!natural(old)&&old.getFluidState().isEmpty()){relocate();return;}voxelY++;ops++;
+    var pos=new BlockPos(x(column),voxelY,z(column));var old=world.getBlockState(pos);if(org.slavicmyths.rpg.tools.ToolLogOrigins.get(world).blocked(pos)||!natural(old)&&old.getFluidState().isEmpty()){relocate();return;}voxelY++;ops++;
    }peakOperations=Math.max(peakOperations,ops);if(column==ground.length){column=0;voxelY=Integer.MIN_VALUE;phase=Phase.TERRAFORM;}
   }
   void terraform(){
    long deadline=System.nanoTime()+2000000;int ops=0;while(column<ground.length&&ops<TERRAIN_OPERATIONS&&(ops%64!=0||System.nanoTime()<deadline)){int x=x(column),z=z(column);if(voxelY==Integer.MIN_VALUE)voxelY=Math.min(ground[column],top[column]);
     if(voxelY>clearTop[column]){if(kurgan!=null)KurganSurface.decorate(world,anchor,new BlockPos(x,top[column],z),kurgan.seed,kurgan.radius,bounds);column++;voxelY=Integer.MIN_VALUE;continue;}var pos=new BlockPos(x,voxelY,z);BlockState old=world.getBlockState(pos);
-    if(!natural(old)&&old.getFluidState().isEmpty())throw new IllegalStateException("Защищённый строительный блок: "+pos.toShortString()+" / "+old);
+    if(org.slavicmyths.rpg.tools.ToolLogOrigins.get(world).blocked(pos)||!natural(old)&&old.getFluidState().isEmpty())throw new IllegalStateException("Защищённый строительный блок: "+pos.toShortString()+" / "+old);
     if(!old.is(Blocks.BEDROCK)){BlockState next=voxelY>top[column]?Blocks.AIR.defaultBlockState():voxelY==top[column]?Blocks.GRASS_BLOCK.defaultBlockState():voxelY<top[column]-4?Blocks.STONE.defaultBlockState():Blocks.DIRT.defaultBlockState();if(kurgan!=null&&voxelY<=top[column]){int skin=top[column];for(int neighbor:new int[]{column-depth,column+depth,column-1,column+1})if(neighbor>=0&&neighbor<top.length&&Math.abs(x(neighbor)-x)+Math.abs(z(neighbor)-z)==1)skin=Math.min(skin,top[neighbor]);if(voxelY>=skin&&!(Math.abs(x-anchor.getX())<=1&&z-anchor.getZ()>=kurgan.radius+1))next=KurganSurface.block(world,anchor,pos,kurgan.seed,kurgan.radius,tier,top[column]-skin,voxelY==top[column]).defaultBlockState();}if(!old.equals(next)){world.setBlock(pos,next,2);changed++;}}
     voxelY++;ops++;
    }peakOperations=Math.max(peakOperations,ops);if(column==ground.length){phase=Phase.PLACE_STRUCTURE;source.sendSuccess(()->Component.literal("Территория подготовлена. Размещается структура..."),false);}
   }
   void place(){
-   if(clipIndex==clips.size()){phase=Phase.FINALIZE;return;}BoundingBox clip=clips.get(clipIndex++);ChunkPos chunk=new ChunkPos(clip.minX()>>4,clip.minZ()>>4);
-   // One 16x16x8 section per tick, not an entire dungeon in one command call.
+   if(clipIndex==clips.size()){phase=Phase.FINALIZE;return;}BoundingBox clip=clips.get(clipIndex);ChunkPos chunk=new ChunkPos(clip.minX()>>4,clip.minZ()>>4);
+   // One piece in a 16x16x4 section per tick, not an entire dungeon in one command call.
    long[] writes={0};WorldGenLevel counted=(WorldGenLevel)Proxy.newProxyInstance(WorldGenLevel.class.getClassLoader(),new Class<?>[]{WorldGenLevel.class},(proxy,method,args)->{if(method.getName().equals("setBlock"))writes[0]++;try{return method.invoke(world,args);}catch(java.lang.reflect.InvocationTargetException e){throw e.getCause();}});
-   for(var piece:pieces)if(piece.getBoundingBox().intersects(clip)){if(piece instanceof KurganDungeonPiece k)k.placePrepared(counted,world.structureManager(),world.getChunkSource().getGenerator(),RandomSource.create(seed),clip,chunk);else piece.postProcess(counted,world.structureManager(),world.getChunkSource().getGenerator(),RandomSource.create(seed),clip,chunk,anchor);}
+   while(pieceCursor<pieces.size()&&!pieces.get(pieceCursor).getBoundingBox().intersects(clip))pieceCursor++;if(pieceCursor>=pieces.size()){pieceCursor=0;clipIndex++;return;}var piece=pieces.get(pieceCursor++);if(piece.getBoundingBox().intersects(clip)){if(piece instanceof KurganDungeonPiece k)k.placePrepared(counted,world.structureManager(),world.getChunkSource().getGenerator(),RandomSource.create(seed),clip,chunk);else piece.postProcess(counted,world.structureManager(),world.getChunkSource().getGenerator(),RandomSource.create(seed),clip,chunk,anchor);}
    peakOperations=Math.max(peakOperations,writes[0]);if(writes[0]>65536)throw new IllegalStateException("Placement section exceeded operation limit");
   }
-  void finish(boolean success,String text){if(done)return;done=true;ACTIVE.remove(world);for(ChunkPos pos:tickets)world.getChunkSource().removeRegionTicket(TICKET,pos,0,pos.toLong());RESULTS.put(id,new Result(success,text,entrance,target,changed,peakOperations,peakNanos,slowestPhase,world.getGameTime()-startedTick));while(RESULTS.size()>32)RESULTS.remove(RESULTS.keySet().iterator().next());if(success)source.sendSuccess(()->Component.literal(text),false);else source.sendFailure(Component.literal(text));}
+  void finish(boolean success,String text){if(done)return;done=true;preparation.close();ACTIVE.remove(world);for(ChunkPos pos:tickets)world.getChunkSource().removeRegionTicket(TICKET,pos,0,pos.toLong());RESULTS.put(id,new Result(success,text,entrance,target,changed,peakOperations,peakNanos,slowestPhase,world.getGameTime()-startedTick));while(RESULTS.size()>32)RESULTS.remove(RESULTS.keySet().iterator().next());if(success)source.sendSuccess(()->Component.literal(text),false);else source.sendFailure(Component.literal(text));}
  }
  private ManualStructureJobs(){}
 }

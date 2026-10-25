@@ -21,7 +21,7 @@ public final class ChudPiece extends StructurePiece {
     public boolean encounterMobsEnabled(){return encounterMobs;}
     private final Set<Long> industryChunks=java.util.concurrent.ConcurrentHashMap.newKeySet();
     public ChudPiece(ChudPlan plan){this(plan,null);}
-    public ChudPiece(ChudPlan plan,AbandonedPlan abandoned){super(ChudStructures.PIECE.get(),0,new BoundingBox(plan.anchor.getX()-127,plan.anchor.getY()-(abandoned==null?44:58),plan.anchor.getZ()-127,plan.anchor.getX()+127,plan.anchor.getY()+73,plan.anchor.getZ()+127));this.plan=plan;this.abandoned=abandoned;if(abandoned!=null&&(abandoned.kind!=AbandonedPlan.Kind.ATTACHED_SMALL||!abandoned.anchor.equals(plan.anchor)||abandoned.rotation!=plan.rotation||!abandoned.rootId.equals(plan.cityId())))throw new IllegalArgumentException("invalid city extension");}
+    public ChudPiece(ChudPlan plan,AbandonedPlan abandoned){super(ChudStructures.PIECE.get(),0,new BoundingBox(plan.anchor.getX()-127,plan.anchor.getY()-(abandoned==null?44:58),plan.anchor.getZ()-127,plan.anchor.getX()+127,plan.anchor.getY()+Math.max(73,plan.entranceFloor+12),plan.anchor.getZ()+127));this.plan=plan;this.abandoned=abandoned;if(abandoned!=null&&(abandoned.kind!=AbandonedPlan.Kind.ATTACHED_SMALL||!abandoned.anchor.equals(plan.anchor)||abandoned.rotation!=plan.rotation||!abandoned.rootId.equals(plan.cityId())))throw new IllegalArgumentException("invalid city extension");}
     public ChudPiece(CompoundTag tag){super(ChudStructures.PIECE.get(),tag);plan=ChudPlan.load(tag.getCompound("ChudPlan"));abandoned=tag.contains("AbandonedPlan")?AbandonedPlan.load(tag.getCompound("AbandonedPlan")):null;industryContents=tag.getBoolean("IndustryContents");encounterMobs=tag.getBoolean("EncounterMobs");for(long id:tag.getLongArray("IndustryChunks"))industryChunks.add(id);}
     public List<ChudGeometry.Fill> blueprint(){var b=blueprint;if(b==null){synchronized(this){b=blueprint;if(b==null){var combined=new ArrayList<>(ChudGeometry.build(plan));if(abandoned!=null)combined.addAll(AbandonedGeometry.build(abandoned));blueprint=b=List.copyOf(combined);}}}return b;}
     @Override protected void addAdditionalSaveData(StructurePieceSerializationContext context,CompoundTag tag){tag.put("ChudPlan",plan.save());if(abandoned!=null)tag.put("AbandonedPlan",abandoned.save());tag.putBoolean("IndustryContents",industryContents);tag.putBoolean("EncounterMobs",encounterMobs);tag.putLongArray("IndustryChunks",industryChunks.stream().mapToLong(Long::longValue).sorted().toArray());}
@@ -30,6 +30,7 @@ public final class ChudPiece extends StructurePiece {
         place(world,boundingBox,blueprint(),clip,chunk,new ChudDecor(plan,abandoned));
         if(industryContents){org.slavicmyths.industry.ChudContents.city(world,plan,abandoned,clip);industryChunks.add(chunk.toLong());}
     }
+    void finishManual(net.minecraft.server.level.ServerLevel world,BoundingBox clip,ChunkPos chunk){org.slavicmyths.industry.ChudContents.city(world,plan,abandoned,clip);industryChunks.add(chunk.toLong());}
     static void place(WorldGenLevel world,BoundingBox boundingBox,List<ChudGeometry.Fill> blueprint,BoundingBox clip,ChunkPos chunk){
         place(world,boundingBox,blueprint,clip,chunk,null);
     }

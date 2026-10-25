@@ -24,7 +24,7 @@ public final class YagaMenu extends AbstractContainerMenu{
   addSlot(new Slot(input,4,276,108){@Override public boolean isActive(){return tab()==3;}@Override public boolean mayPlace(ItemStack s){return false;}@Override public boolean mayPickup(Player p){return tab()==3;}});
   for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(inv,9+row*9+col,135+col*18,149+row*18));for(int col=0;col<9;col++)addSlot(new Slot(inv,col,135+col*18,207));
  }
- public static void open(ServerPlayer p,BabaYaga npc,int tab){org.slavicmyths.progression.AdvancementJourney.conversation(p);p.openMenu(new SimpleMenuProvider((id,inv,player)->{YagaMenu m=new YagaMenu(id,inv,npc.getId());m.info.set(6,tab);m.update();return m;},Component.translatable("entity.slavicmyths.baba_yaga")),b->b.writeVarInt(npc.getId()));}
+ public static void open(ServerPlayer p,BabaYaga npc,int tab){YagaServices.recognizeVictory(p);org.slavicmyths.progression.AdvancementJourney.conversation(p);p.openMenu(new SimpleMenuProvider((id,inv,player)->{YagaMenu m=new YagaMenu(id,inv,npc.getId());m.info.set(6,tab);m.update();return m;},Component.translatable("entity.slavicmyths.baba_yaga")),b->b.writeVarInt(npc.getId()));}
  public boolean oathUnlocked(){return info.get(9)!=0;}
  public int stage(){return info.get(0);}public int active(){return info.get(1);}public int blocked(){return info.get(2);}public int contract(){return info.get(3);}public int contractWait(){return info.get(4);}public int tab(){return info.get(6);}public int dialogue(){return info.get(7);}public int recipe(){return info.get(8);}
  public void clientTab(int tab){if(player.level().isClientSide)info.set(6,tab);}
