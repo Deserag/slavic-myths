@@ -39,7 +39,11 @@ public final class ZharenitsaSeals {
 
     public static final DeferredHolder<Item, Item> SEAL =
         ModItems.ITEMS.register("zharenitsa_heat_seal",
-            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE)) {
+                @Override public Component getName(ItemStack stack) {
+                    return Component.translatableWithFallback("item.slavicmyths.zharenitsa_heat_seal", "Жаростойкая печать");
+                }
+            });
 
     public static void init() { }
 
@@ -110,7 +114,7 @@ public final class ZharenitsaSeals {
             }
         }
         if (materialSlot < 0) {
-            server.displayClientMessage(Component.translatable("zharenitsa.seal.need_material"), true);
+            server.displayClientMessage(Component.translatableWithFallback("zharenitsa.seal.need_material", "Для улучшения нужна Жаростойкая печать"), true);
             return;
         }
 
@@ -124,7 +128,7 @@ public final class ZharenitsaSeals {
             SoundSource.BLOCKS, 1f, 0.9f);
         server.containerMenu.broadcastChanges();
         ArmorSetHealth.refresh(server);
-        server.displayClientMessage(Component.translatable("zharenitsa.seal.applied"), true);
+        server.displayClientMessage(Component.translatableWithFallback("zharenitsa.seal.applied", "Броня усилена печатью Жареницы"), true);
     }
 
     private ZharenitsaSeals() { }
