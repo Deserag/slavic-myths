@@ -7,7 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.Level;
 
-public final class AmberCharmItem extends Item {
+public final class AmberCharmItem extends Item implements PassiveCharm {
     public AmberCharmItem(Properties properties) { super(properties); }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext world, List<Component> text, TooltipFlag flag) {
         text.add(Component.translatable("tooltip.slavicmyths.amber_charm"));

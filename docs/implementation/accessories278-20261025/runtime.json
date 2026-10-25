@@ -1,0 +1,25 @@
+{
+  "game_test_launches": 3,
+  "client_launches": 0,
+  "run1": {
+    "pass": 2,
+    "fail": 4
+  },
+  "run2": {
+    "pass": 6,
+    "fail": 0
+  },
+  "run3": {
+    "pass": 7,
+    "fail": 0
+  },
+  "world": "D:/slavic-myths/run-accessories278-20261025",
+  "namespace": "slavicmyths_accessories278",
+  "limitations": [
+    "server API fixture not GUI",
+    "two independent embedded-connection ServerPlayer actors not network MP",
+    "Curios NBT not real relog",
+    "death + manual Clone not actual respawn",
+    "no natural Survival acquisition"
+  ]
+}

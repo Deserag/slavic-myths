@@ -17,7 +17,7 @@ import top.theillusivec4.curios.api.type.capability.ICurioItem;
 public final class FolkAccessoryItem extends Item implements ICurioItem {
  public final String slot;
  public FolkAccessoryItem(Properties properties,String slot){super(properties.stacksTo(1));this.slot=slot;}
- public static ItemStack equipped(LivingEntity entity,Item item){return CuriosApi.getCuriosInventory(entity).flatMap(handler -> handler.findFirstCurio(item)).map(SlotResult::stack).orElse(ItemStack.EMPTY);}
+ public static ItemStack equipped(LivingEntity entity,Item item){return item instanceof FolkAccessoryItem accessory?PassiveCharm.equipped(entity,item,accessory.slot):ItemStack.EMPTY;}
  public static void award(LivingEntity entity,String id){
   if(entity instanceof net.minecraft.server.level.ServerPlayer){
    net.minecraft.server.level.ServerPlayer p=(net.minecraft.server.level.ServerPlayer)entity;

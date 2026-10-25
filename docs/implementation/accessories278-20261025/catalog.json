@@ -1,0 +1,1290 @@
+{
+  "base_commit": "6fa28fe9127eb154cb8b3401b321774f4db9869d",
+  "items": [
+    {
+      "id": "amber_charm",
+      "name": "Янтарный оберег",
+      "slot": "charm",
+      "current_effect": "fire damage x.85; charm_power x.80; charm slot OR old offhand, single boolean result",
+      "stage": "early",
+      "handlers": [
+        "src/main/java/org/slavicmyths/item/StormProtection.java"
+      ],
+      "acquisition_resources": [
+        "src/main/java/org/slavicmyths/ritual/Rituals.java: AMBER_CHARM = warding_charm → amber → juniper_blend"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/compat/JeiRituals.java:37",
+        "src/main/java/org/slavicmyths/compat/JeiRituals.java:70",
+        "src/main/java/org/slavicmyths/item/StormProtection.java:21",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:114",
+        "src/main/java/org/slavicmyths/ritual/Rituals.java:9",
+        "src/main/java/org/slavicmyths/ritual/Rituals.java:62",
+        "src/main/java/org/slavicmyths/ritual/Rituals.java:84"
+      ],
+      "tooltips": {
+        "tooltip.slavicmyths.amber_charm": "Слот Curios: оберег, либо в левой руке (без удвоения): −15% урона от огня."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → charm при щите в offhand → fire damage x.85; charm_power x.80; charm slot OR old offhand, single boolean result → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "offhand only; no charm tag",
+      "changed": "existing charm slot + server-only single protection check + RU/EN",
+      "equip": "NOT_RUN",
+      "effect": "SERVER_DAMAGE_PASS / OWNER_VISUAL_NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "PASS"
+    },
+    {
+      "id": "bath_ward",
+      "name": "Банный оберег",
+      "slot": "charm",
+      "current_effect": "ordinary poison/weakness duration x.80; protected effects excluded; cooldown 1200 ticks",
+      "stage": "craft: see recipe",
+      "handlers": [
+        "src/main/java/org/slavicmyths/accessories/AccessoryEvents.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/bath_ward.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/accessories/Accessories.java:16",
+        "src/main/java/org/slavicmyths/accessories/Accessories.java:19",
+        "src/main/java/org/slavicmyths/accessories/AccessoryEvents.java:42"
+      ],
+      "tooltips": {
+        "item.slavicmyths.bath_ward.effect": "Слот: оберег. Обычный яд или слабость: длительность −20%, откат 60 с. Не действует на сюжетные и боссовые эффекты."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → charm при щите в offhand → ordinary poison/weakness duration x.80; protected effects excluded; cooldown 1200 ticks → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "black_wing_amulet",
+      "name": "Чёрное крыло",
+      "slot": "necklace",
+      "current_effect": "two allied ravens; default400ticks; successful activation CD3000ticks (configurable)",
+      "stage": "late: Karachun trial",
+      "handlers": [
+        "src/main/java/org/slavicmyths/karachun/NightCombat.java",
+        "src/main/java/org/slavicmyths/karachun/NightConfig.java",
+        "src/main/java/org/slavicmyths/karachun/NightLedger.java"
+      ],
+      "acquisition_resources": [],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/karachun/NightContent.java:14"
+      ],
+      "tooltips": {},
+      "player_path": "Штатный рецепт/награда из перечисленного source → necklace при щите в offhand → two allied ravens; default400ticks; successful activation CD3000ticks (configurable) → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "depth_amulet",
+      "name": "Амулет глубины",
+      "slot": "necklace",
+      "current_effect": "+1air every4ticks in water while air>0, capped at max; no swim speed",
+      "stage": "early/mid: aquatic materials",
+      "handlers": [
+        "src/main/java/org/slavicmyths/item/FolkAccessoryItem.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/depth_amulet.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_cache.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/client/LoreScreen.java:16",
+        "src/main/java/org/slavicmyths/depth/DepthProgress.java:8",
+        "src/main/java/org/slavicmyths/depth/ElderVodyanoy.java:41",
+        "src/main/java/org/slavicmyths/item/FolkAccessoryItem.java:53",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:230",
+        "src/main/java/org/slavicmyths/water/RusalkaSong.java:17"
+      ],
+      "tooltips": {
+        "item.slavicmyths.depth_amulet.effect": "Ожерелье: запас воздуха дольше, водное притяжение слабее."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → necklace при щите в offhand → +1air every4ticks in water while air>0, capped at max; no swim speed → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "finist_quiver",
+      "name": "Колчан Финиста",
+      "slot": "belt",
+      "current_effect": "12 magic-arrow charges; +1charge/160ticks equipped, used by FinistBow; persists ItemState",
+      "stage": "mid/late: Finist quest",
+      "handlers": [
+        "src/main/java/org/slavicmyths/finist/FinistQuiver.java",
+        "src/main/java/org/slavicmyths/finist/FinistBow.java"
+      ],
+      "acquisition_resources": [],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/finist/FinistItems.java:8",
+        "src/main/java/org/slavicmyths/finist/FinistQuiver.java:14",
+        "src/main/java/org/slavicmyths/finist/FinistQuiver.java:17",
+        "src/main/java/org/slavicmyths/finist/FinistQuiver.java:19",
+        "src/main/java/org/slavicmyths/finist/FinistQuiver.java:21",
+        "src/main/java/org/slavicmyths/finist/FinistQuiver.java:22",
+        "src/main/java/org/slavicmyths/finist/FinistQuiver.java:23",
+        "src/main/java/org/slavicmyths/item/ItemState.java:36"
+      ],
+      "tooltips": {},
+      "player_path": "Штатный рецепт/награда из перечисленного source → belt при щите в offhand → 12 magic-arrow charges; +1charge/160ticks equipped, used by FinistBow; persists ItemState → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "forest_charm",
+      "name": "Лесной оберег",
+      "slot": "charm",
+      "current_effect": "forest_spirits damage x.85; charm_power x.80; charm slot OR old offhand, single boolean result",
+      "stage": "early",
+      "handlers": [
+        "src/main/java/org/slavicmyths/item/StormProtection.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/forest_charm.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/item/SimpleCharmItem.java:14",
+        "src/main/java/org/slavicmyths/item/StormProtection.java:27",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:127"
+      ],
+      "tooltips": {
+        "tooltip.slavicmyths.forest_charm": "Слот Curios: оберег, либо в левой руке (без удвоения): −15% урона от лесных духов."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → charm при щите в offhand → forest_spirits damage x.85; charm_power x.80; charm slot OR old offhand, single boolean result → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "offhand only; no charm tag",
+      "changed": "existing charm slot + server-only single protection check + RU/EN",
+      "equip": "NOT_RUN",
+      "effect": "SERVER_DAMAGE_PASS / OWNER_VISUAL_NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "PASS"
+    },
+    {
+      "id": "frost_mirror",
+      "name": "Морозное зерцало",
+      "slot": "necklace",
+      "current_effect": "player ice double15HP, life600ticks, CD3600; safe-space check",
+      "stage": "late: Morozko trial",
+      "handlers": [
+        "src/main/java/org/slavicmyths/morozko/FrostSkills.java",
+        "src/main/java/org/slavicmyths/morozko/FrostRules.java",
+        "src/main/java/org/slavicmyths/morozko/FrostLedger.java"
+      ],
+      "acquisition_resources": [],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/morozko/FrostContent.java:17"
+      ],
+      "tooltips": {
+        "item.slavicmyths.frost_mirror.effect": "Создаёт ледяную копию владельца на 30 с. Прочность: 15 HP. Перезарядка: 180 с. Надеть в слот ожерелья; клавиша в настройках управления."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → necklace при щите в offhand → player ice double15HP, life600ticks, CD3600; safe-space check → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "gift_alyosha_belt",
+      "name": "Пояс хитреца",
+      "slot": "belt",
+      "current_effect": "safe-side dodge from selected heavy windup within4blocks targeting player; CD800ticks",
+      "stage": "mid/late: Skim victory with Alyosha participation",
+      "handlers": [
+        "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+        "src/main/java/org/slavicmyths/rewards/RewardLedger.java"
+      ],
+      "acquisition_resources": [],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/client/FolkEquipmentLayer.java:39",
+        "src/main/java/org/slavicmyths/rewards/RewardContent.java:22",
+        "src/main/java/org/slavicmyths/rewards/RewardEvents.java:88",
+        "src/main/java/org/slavicmyths/rewards/RewardEvents.java:94",
+        "src/main/java/org/slavicmyths/rewards/RewardLedger.java:15"
+      ],
+      "tooltips": {
+        "item.slavicmyths.gift_alyosha_belt.effect": "При опасном ударе автоматически уклоняется на 2,5 блока при наличии безопасного пути; 40 с."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → belt при щите в offhand → safe-side dodge from selected heavy windup within4blocks targeting player; CD800ticks → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "gift_dobrynya_ring",
+      "name": "Перстень верного удара",
+      "slot": "ring",
+      "current_effect": "successful shield block opens80tick counter window; next hostile melee x1.75; CD240ticks",
+      "stage": "mid/late: Marinka victory + Dobrynya released",
+      "handlers": [
+        "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+        "src/main/java/org/slavicmyths/rewards/RewardLedger.java"
+      ],
+      "acquisition_resources": [],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/item/FolkAccessoryItem.java:60",
+        "src/main/java/org/slavicmyths/rewards/RewardContent.java:22",
+        "src/main/java/org/slavicmyths/rewards/RewardEvents.java:55",
+        "src/main/java/org/slavicmyths/rewards/RewardEvents.java:66",
+        "src/main/java/org/slavicmyths/rewards/RewardEvents.java:88",
+        "src/main/java/org/slavicmyths/rewards/RewardEvents.java:120",
+        "src/main/java/org/slavicmyths/rewards/RewardLedger.java:15"
+      ],
+      "tooltips": {
+        "item.slavicmyths.gift_dobrynya_ring.effect": "После успешного блока следующий удар в течение 4 с наносит ×1,75 урона; затем 12 с восстановления."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → ring при щите в offhand → successful shield block opens80tick counter window; next hostile melee x1.75; CD240ticks → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "gift_finist_amulet",
+      "name": "Оберег Ясного взора",
+      "slot": "necklace",
+      "current_effect": "every80ticks detects up to30 visible hostile entities within18; windup warning CD20ticks",
+      "stage": "late: Kartaus victory with Finist",
+      "handlers": [
+        "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+        "src/main/java/org/slavicmyths/rewards/RewardLedger.java"
+      ],
+      "acquisition_resources": [],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/client/ClearSightClient.java:18",
+        "src/main/java/org/slavicmyths/client/ClearSightClient.java:19",
+        "src/main/java/org/slavicmyths/client/ClearSightClient.java:20",
+        "src/main/java/org/slavicmyths/client/FolkEquipmentLayer.java:40",
+        "src/main/java/org/slavicmyths/rewards/RewardContent.java:22",
+        "src/main/java/org/slavicmyths/rewards/RewardEvents.java:88",
+        "src/main/java/org/slavicmyths/rewards/RewardEvents.java:94",
+        "src/main/java/org/slavicmyths/rewards/RewardLedger.java:15"
+      ],
+      "tooltips": {
+        "item.slavicmyths.gift_finist_amulet.effect": "Обнаруживает угрозы в радиусе 18 блоков и предупреждает об опасных атаках."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → necklace при щите в offhand → every80ticks detects up to30 visible hostile entities within18; windup warning CD20ticks → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "grave_ward",
+      "name": "Оберег от нежити",
+      "slot": "charm",
+      "current_effect": "incoming damage from undead LivingEntity x.88; bypass_invulnerability excluded",
+      "stage": "early/mid: burial chest",
+      "handlers": [
+        "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/loot_table/chests/burial_jewelry.json",
+        "src/main/resources/data/slavicmyths/loot_table/kurgan/burial.json",
+        "src/main/resources/data/slavicmyths/loot_table/kurgan/great_special.json",
+        "src/main/resources/data/slavicmyths/loot_table/kurgan/ritual.json",
+        "src/main/resources/data/slavicmyths/loot_table/kurgan/secret.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java:17",
+        "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java:19",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:262"
+      ],
+      "tooltips": {
+        "item.slavicmyths.grave_ward.effect": "На 12% меньше урона от нежити."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → charm при щите в offhand → incoming damage from undead LivingEntity x.88; bypass_invulnerability excluded → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "grivna",
+      "name": "Гривна",
+      "slot": "necklace",
+      "current_effect": "incoming damage not bypassing armor x.94; bypass_invulnerability excluded",
+      "stage": "early/mid: burial chest",
+      "handlers": [
+        "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/loot_table/chests/burial_jewelry.json",
+        "src/main/resources/data/slavicmyths/loot_table/kurgan/burial.json",
+        "src/main/resources/data/slavicmyths/loot_table/kurgan/great_special.json",
+        "src/main/resources/data/slavicmyths/loot_table/kurgan/secret.json",
+        "src/main/resources/data/slavicmyths/loot_table/kurgan/treasury.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java:16",
+        "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java:19",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:261"
+      ],
+      "tooltips": {
+        "item.slavicmyths.grivna.effect": "На 6% меньше обычного урона, учитывающего броню."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → necklace при щите в offhand → incoming damage not bypassing armor x.94; bypass_invulnerability excluded → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "harvest_ring",
+      "name": "Перстень жатвы",
+      "slot": "ring",
+      "current_effect": "10% chance +1 whitelisted produce on manual mature crop harvest; cooldown 100; excludes farmer runes",
+      "stage": "craft: see recipe",
+      "handlers": [
+        "src/main/java/org/slavicmyths/accessories/AccessoryEvents.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/harvest_ring.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/accessories/Accessories.java:16",
+        "src/main/java/org/slavicmyths/accessories/Accessories.java:19",
+        "src/main/java/org/slavicmyths/accessories/AccessoryEvents.java:95"
+      ],
+      "tooltips": {
+        "item.slavicmyths.harvest_ring.effect": "Слот: кольцо. Ручной сбор спелых пищевых культур: 10% шанс на +1 урожай, откат 5 с. Без семян и совместного срабатывания фермерских рун."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → ring при щите в offhand → 10% chance +1 whitelisted produce on manual mature crop harvest; cooldown 100; excludes farmer runes → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "hunter_belt",
+      "name": "Пояс охотника",
+      "slot": "belt",
+      "current_effect": "projectile damage x1.15 only against WildlifeEntity",
+      "stage": "early/mid",
+      "handlers": [
+        "src/main/java/org/slavicmyths/item/FolkEquipmentEffects.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/hunter_belt.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/client/FolkEquipmentLayer.java:44",
+        "src/main/java/org/slavicmyths/client/FolkEquipmentLayer.java:51",
+        "src/main/java/org/slavicmyths/item/FolkEquipmentEffects.java:47",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:204"
+      ],
+      "tooltips": {
+        "item.slavicmyths.hunter_belt.effect": "Слот: пояс. +15% урона стрелами по диким животным."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → belt при щите в offhand → projectile damage x1.15 only against WildlifeEntity → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "invisibility_cap",
+      "name": "Шапка-невидимка",
+      "slot": "head",
+      "current_effect": "20tick fade; duration160ticks; broken by hurt/swing/sprint/use for100ticks; after expiry cooldown600ticks",
+      "stage": "mid/late",
+      "handlers": [
+        "src/main/java/org/slavicmyths/item/FolkAccessoryItem.java",
+        "src/main/java/org/slavicmyths/client/FolkEquipmentLayer.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/invisibility_cap.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/client/FolkEquipmentLayer.java:24",
+        "src/main/java/org/slavicmyths/client/FolkEquipmentLayer.java:42",
+        "src/main/java/org/slavicmyths/item/FolkAccessoryItem.java:42",
+        "src/main/java/org/slavicmyths/item/FolkAccessoryItem.java:63",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:200"
+      ],
+      "tooltips": {
+        "item.slavicmyths.invisibility_cap.effect": "Слот: голова. До 8 с невидимости после покоя, затем 30 с отдыха; бег и бой раскрывают."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → head при щите в offhand → 20tick fade; duration160ticks; broken by hurt/swing/sprint/use for100ticks; after expiry cooldown600ticks → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "leshy_necklace",
+      "name": "Ожерелье Лешего",
+      "slot": "necklace",
+      "current_effect": "hostile final hit >=6 HP in forest/taiga: Speed I 80 ticks; cooldown 1200",
+      "stage": "craft: see recipe",
+      "handlers": [
+        "src/main/java/org/slavicmyths/accessories/AccessoryEvents.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/leshy_necklace.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/accessories/Accessories.java:17",
+        "src/main/java/org/slavicmyths/accessories/Accessories.java:19",
+        "src/main/java/org/slavicmyths/accessories/AccessoryEvents.java:80",
+        "src/main/java/org/slavicmyths/client/CuriosAccessories.java:25"
+      ],
+      "tooltips": {
+        "item.slavicmyths.leshy_necklace.effect": "Слот: ожерелье. Враждебный удар от 6 HP в лесу даёт Скорость I на 4 с; откат 60 с."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → necklace при щите в offhand → hostile final hit >=6 HP in forest/taiga: Speed I 80 ticks; cooldown 1200 → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "lunula",
+      "name": "Лунница",
+      "slot": "necklace",
+      "current_effect": "night-only LivingEntity source incoming damage x.92; bypass_invulnerability excluded",
+      "stage": "early/mid: burial chest",
+      "handlers": [
+        "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/loot_table/chests/burial_jewelry.json",
+        "src/main/resources/data/slavicmyths/loot_table/kurgan/burial.json",
+        "src/main/resources/data/slavicmyths/loot_table/kurgan/great_special.json",
+        "src/main/resources/data/slavicmyths/loot_table/kurgan/ritual.json",
+        "src/main/resources/data/slavicmyths/loot_table/kurgan/secret.json",
+        "src/main/resources/data/slavicmyths/loot_table/kurgan/treasury.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java:15",
+        "src/main/java/org/slavicmyths/kurgan/BurialAccessories.java:19",
+        "src/main/java/org/slavicmyths/registry/ModItemGroup.java:54",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:260"
+      ],
+      "tooltips": {
+        "item.slavicmyths.lunula.effect": "Ночью на 8% меньше урона от существ."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → necklace при щите в offhand → night-only LivingEntity source incoming damage x.92; bypass_invulnerability excluded → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "miners_goggles",
+      "name": "Очки копателя",
+      "slot": "head",
+      "current_effect": "night vision refreshed520ticks when remaining<500; external night vision preserved/restored",
+      "stage": "mid: underground",
+      "handlers": [
+        "src/main/java/org/slavicmyths/industry/IndustryAccessories.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/miners_goggles.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/abandoned_treasury.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/industry/IndustryAccessories.java:27"
+      ],
+      "tooltips": {},
+      "player_path": "Штатный рецепт/награда из перечисленного source → head при щите в offhand → night vision refreshed520ticks when remaining<500; external night vision preserved/restored → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "obereg_padayuschey_zvezdy",
+      "name": "Оберег падающей звезды",
+      "slot": "necklace",
+      "current_effect": "fallDistance>=5.5 and verticalSpeed<-.15 -> SlowFalling100ticks, clears fall distance; CD1200ticks; excludes water/flying/passenger",
+      "stage": "mid: fire serpent ingredients",
+      "handlers": [
+        "src/main/java/org/slavicmyths/hunt/StarCharmEffects.java",
+        "src/main/java/org/slavicmyths/hunt/ElementRules.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/obereg_padayuschey_zvezdy.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/client/CuriosAccessories.java:28",
+        "src/main/java/org/slavicmyths/client/HuntAccessoryRenderer.java:20",
+        "src/main/java/org/slavicmyths/hunt/StarCharmEffects.java:22",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:296"
+      ],
+      "tooltips": {
+        "item.slavicmyths.obereg_padayuschey_zvezdy.effect": "В слоте ожерелья спасает от опасного падения: медленное падение на 5 сек. Перезарядка: 60 сек."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → necklace при щите в offhand → fallDistance>=5.5 and verticalSpeed<-.15 -> SlowFalling100ticks, clears fall distance; CD1200ticks; excludes water/flying/passenger → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "odnoglazyy_obereg",
+      "name": "Одноглазый оберег",
+      "slot": "necklace",
+      "current_effect": "20% chance halve finite harmful duration1..72000; CD600ticks; excludes BAD_OMEN and protected burial curses; proc recursion guard",
+      "stage": "late: Likho ingredients",
+      "handlers": [
+        "src/main/java/org/slavicmyths/hunt/BossEffects.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/odnoglazyy_obereg.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/client/CuriosAccessories.java:27",
+        "src/main/java/org/slavicmyths/client/CuriosAccessories.java:37",
+        "src/main/java/org/slavicmyths/hunt/BossEffects.java:39",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:314"
+      ],
+      "tooltips": {
+        "item.slavicmyths.odnoglazyy_obereg.effect": "В слоте ожерелья: 20% шанс сократить новое временное отрицательное воздействие вдвое; перезарядка 30 сек. Не снимает постоянное проклятие кургана."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → necklace при щите в offhand → 20% chance halve finite harmful duration1..72000; CD600ticks; excludes BAD_OMEN and protected burial curses; proc recursion guard → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "perun_charm",
+      "name": "Оберег Перуна",
+      "slot": "charm",
+      "current_effect": "lightning damage x.70; charm_power x.65; separate armor set multiplier retained; charm slot OR old offhand, single boolean result",
+      "stage": "early/mid: ritual",
+      "handlers": [
+        "src/main/java/org/slavicmyths/item/StormProtection.java",
+        "src/main/java/org/slavicmyths/ritual/Rituals.java"
+      ],
+      "acquisition_resources": [
+        "src/main/java/org/slavicmyths/ritual/Rituals.java: CHARM = linen_cloth → thunder_stone → ancient_sign"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/compat/JeiRituals.java:36",
+        "src/main/java/org/slavicmyths/compat/JeiRituals.java:68",
+        "src/main/java/org/slavicmyths/item/StormProtection.java:32",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:107",
+        "src/main/java/org/slavicmyths/ritual/Rituals.java:82"
+      ],
+      "tooltips": {
+        "tooltip.slavicmyths.perun_charm": "Слот Curios: оберег, либо в левой руке (без удвоения): −30% урона от молнии."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → charm при щите в offhand → lightning damage x.70; charm_power x.65; separate armor set multiplier retained; charm slot OR old offhand, single boolean result → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "offhand only; no charm tag",
+      "changed": "existing charm slot + server-only single protection check + RU/EN",
+      "equip": "NOT_RUN",
+      "effect": "SERVER_DAMAGE_PASS / OWNER_VISUAL_NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "PASS"
+    },
+    {
+      "id": "perun_ring",
+      "name": "Перстень Перуна",
+      "slot": "ring",
+      "current_effect": "direct melee +2 raw damage CD60ticks; lightning incoming x.65",
+      "stage": "mid",
+      "handlers": [
+        "src/main/java/org/slavicmyths/item/FolkEquipmentEffects.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/perun_ring.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/item/FolkAccessoryItem.java:41",
+        "src/main/java/org/slavicmyths/item/FolkEquipmentEffects.java:39",
+        "src/main/java/org/slavicmyths/item/FolkEquipmentEffects.java:43",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:202"
+      ],
+      "tooltips": {
+        "item.slavicmyths.perun_ring.effect": "Слот: кольцо. +2 урона в ближнем бою раз в 3 с; −35% урона молнии. Одинаковые кольца не складываются."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → ring при щите в offhand → direct melee +2 raw damage CD60ticks; lightning incoming x.65 → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "SERVER_DAMAGE_PASS / OWNER_VISUAL_NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "PASS"
+    },
+    {
+      "id": "podvey_belt",
+      "name": "Пояс Подвея",
+      "slot": "belt",
+      "current_effect": "fall distance >=12: damage x.30; cooldown 1200; only applied on positive final damage",
+      "stage": "craft: see recipe",
+      "handlers": [
+        "src/main/java/org/slavicmyths/accessories/AccessoryEvents.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/podvey_belt.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/accessories/Accessories.java:17",
+        "src/main/java/org/slavicmyths/accessories/Accessories.java:19",
+        "src/main/java/org/slavicmyths/accessories/AccessoryEvents.java:62",
+        "src/main/java/org/slavicmyths/accessories/AccessoryEvents.java:68",
+        "src/main/java/org/slavicmyths/client/CuriosAccessories.java:24"
+      ],
+      "tooltips": {
+        "item.slavicmyths.podvey_belt.effect": "Слот: пояс. При падении с 12 блоков: −70% итогового урона, откат 60 с после полученного урона."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → belt при щите в offhand → fall distance >=12: damage x.30; cooldown 1200; only applied on positive final damage → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "pool_ring",
+      "name": "Перстень омута",
+      "slot": "ring",
+      "current_effect": "+15% swim speed only in water; shared modifier ID; remove on unequip",
+      "stage": "craft: see recipe",
+      "handlers": [
+        "src/main/java/org/slavicmyths/accessories/Accessories.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/pool_ring.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/accessories/Accessories.java:16",
+        "src/main/java/org/slavicmyths/accessories/Accessories.java:19",
+        "src/main/java/org/slavicmyths/accessories/Accessories.java:39",
+        "src/main/java/org/slavicmyths/accessories/Accessories.java:43"
+      ],
+      "tooltips": {
+        "item.slavicmyths.pool_ring.effect": "Слот: кольцо. +15% скорости плавания только в воде. Две копии не складываются."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → ring при щите в offhand → +15% swim speed only in water; shared modifier ID; remove on unequip → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "poyas_tugarina",
+      "name": "Пояс Тугарина",
+      "slot": "belt",
+      "current_effect": "after40ticks sprinting +.2 knockback resistance, refreshed20ticks; melee knockback x1.15; disabled swimming/flying",
+      "stage": "late: Tugarin ingredients",
+      "handlers": [
+        "src/main/java/org/slavicmyths/hunt/BossEffects.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/poyas_tugarina.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/client/BossAccessoryRenderer.java:18",
+        "src/main/java/org/slavicmyths/client/CuriosAccessories.java:26",
+        "src/main/java/org/slavicmyths/client/CuriosAccessories.java:37",
+        "src/main/java/org/slavicmyths/hunt/BossEffects.java:34",
+        "src/main/java/org/slavicmyths/hunt/BossEffects.java:38",
+        "src/main/java/org/slavicmyths/item/FolkAccessoryItem.java:61",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:315"
+      ],
+      "tooltips": {
+        "item.slavicmyths.poyas_tugarina.effect": "В слоте пояса: после 2 сек. непрерывного спринта Напор даёт +0.20 сопротивления отбрасыванию и +15% отбрасывания в ближнем бою. Спадает через 1 сек. после остановки."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → belt при щите в offhand → after40ticks sprinting +.2 knockback resistance, refreshed20ticks; melee knockback x1.15; disabled swimming/flying → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "prospectors_ring",
+      "name": "Кольцо старателя",
+      "slot": "ring",
+      "current_effect": "mining speed x1.12 for correct pickaxe on c:ores, multiplied with existing mining runes",
+      "stage": "mid: underground",
+      "handlers": [
+        "src/main/java/org/slavicmyths/industry/IndustryAccessories.java",
+        "src/main/java/org/slavicmyths/rpg/AdvancedRunes.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/prospectors_ring.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/industry/IndustryAccessories.java:27"
+      ],
+      "tooltips": {},
+      "player_path": "Штатный рецепт/награда из перечисленного source → ring при щите в offhand → mining speed x1.12 for correct pickaxe on c:ores, multiplied with existing mining runes → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "resin_ring",
+      "name": "Смоляное кольцо",
+      "slot": "ring",
+      "current_effect": "heal1HP/100ticks at food>=18 when hurt, exhaustion2; duplicate copies do not multiply callback",
+      "stage": "early/mid",
+      "handlers": [
+        "src/main/java/org/slavicmyths/item/FolkAccessoryItem.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/resin_ring.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_cache.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_nightingale.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/item/FolkAccessoryItem.java:41",
+        "src/main/java/org/slavicmyths/item/FolkAccessoryItem.java:54",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:205"
+      ],
+      "tooltips": {
+        "item.slavicmyths.resin_ring.effect": "Слот: кольцо. +½ сердца раз в 5 с при сытости ≥18; расходует насыщение. Одинаковые кольца не складываются."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → ring при щите в offhand → heal1HP/100ticks at food>=18 when hurt, exhaustion2; duplicate copies do not multiply callback → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "retribution_charm",
+      "name": "Оберег смерти",
+      "slot": "charm",
+      "current_effect": "consumed on otherwise lethal non-void death:1HP,40invuln ticks, ResistanceII60ticks; attributed50 damage to living non-allied killer",
+      "stage": "mid/late",
+      "handlers": [
+        "src/main/java/org/slavicmyths/item/FolkEquipmentEffects.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/retribution_charm.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/item/FolkEquipmentEffects.java:54",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:201"
+      ],
+      "tooltips": {
+        "item.slavicmyths.retribution_charm.effect": "Слот: оберег. Одноразовое спасение с 1 HP; до 50 урона смертельному врагу с учётом его защиты."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → charm при щите в offhand → consumed on otherwise lethal non-void death:1HP,40invuln ticks, ResistanceII60ticks; attributed50 damage to living non-allied killer → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "offhand only; no charm tag",
+      "changed": "existing charm slot + server-only single protection check + RU/EN",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "ring_of_grey_pack",
+      "name": "Кольцо Серой Стаи",
+      "slot": "ring",
+      "current_effect": "two wolves20HP/6attack; arrival10ticks; expiry810ticks from activation; player-owned CD1800ticks; no unsafe spawn",
+      "stage": "quest: Grey Wolf",
+      "handlers": [
+        "src/main/java/org/slavicmyths/finist/GreyPackRing.java",
+        "src/main/java/org/slavicmyths/military/GreyWolfStory.java"
+      ],
+      "acquisition_resources": [],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/finist/FinistItems.java:6"
+      ],
+      "tooltips": {},
+      "player_path": "Штатный рецепт/награда из перечисленного source → ring при щите в offhand → two wolves20HP/6attack; arrival10ticks; expiry810ticks from activation; player-owned CD1800ticks; no unsafe spawn → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "spark_ring",
+      "name": "Перстень искры",
+      "slot": "ring",
+      "current_effect": "direct hostile melee: 25% chance ignite 3 seconds; cooldown 160; excludes pets/players/fire immune",
+      "stage": "craft: see recipe",
+      "handlers": [
+        "src/main/java/org/slavicmyths/accessories/AccessoryEvents.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/spark_ring.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/accessories/Accessories.java:17",
+        "src/main/java/org/slavicmyths/accessories/Accessories.java:19",
+        "src/main/java/org/slavicmyths/accessories/AccessoryEvents.java:87"
+      ],
+      "tooltips": {
+        "item.slavicmyths.spark_ring.effect": "Слот: кольцо. Прямой удар по врагу: 25% шанс поджечь на 3 с, откат 8 с. Не действует на игроков, питомцев и огнеиммунных."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → ring при щите в offhand → direct hostile melee: 25% chance ignite 3 seconds; cooldown 160; excludes pets/players/fire immune → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "stone_path_amulet",
+      "name": "Оберег каменной тропы",
+      "slot": "necklace",
+      "current_effect": "final fall damage x.75",
+      "stage": "mid: underground",
+      "handlers": [
+        "src/main/java/org/slavicmyths/industry/IndustryAccessories.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/stone_path_amulet.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/industry/IndustryAccessories.java:27"
+      ],
+      "tooltips": {},
+      "player_path": "Штатный рецепт/награда из перечисленного source → necklace при щите в offhand → final fall damage x.75 → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "traveler_charm",
+      "name": "Оберег путника",
+      "slot": "charm",
+      "current_effect": "fall damage x.85; charm_power x.80; charm slot OR old offhand, single boolean result",
+      "stage": "early",
+      "handlers": [
+        "src/main/java/org/slavicmyths/item/StormProtection.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/button_charm.json",
+        "src/main/resources/data/slavicmyths/recipe/traveler_charm.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/item/SimpleCharmItem.java:14",
+        "src/main/java/org/slavicmyths/item/StormProtection.java:24",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:129"
+      ],
+      "tooltips": {
+        "tooltip.slavicmyths.traveler_charm": "Слот Curios: оберег, либо в левой руке (без удвоения): −15% урона от падения."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → charm при щите в offhand → fall damage x.85; charm_power x.80; charm slot OR old offhand, single boolean result → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "offhand only; no charm tag",
+      "changed": "existing charm slot + server-only single protection check + RU/EN",
+      "equip": "NOT_RUN",
+      "effect": "SERVER_DAMAGE_PASS / OWNER_VISUAL_NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "PASS"
+    },
+    {
+      "id": "trophy_skim_necklace",
+      "name": "Ожерелье Клыков",
+      "slot": "necklace",
+      "current_effect": "direct hostile damage +15% strictly below35% target HP; source rewards/RewardEvents; no stacking",
+      "stage": "mid/late: Skim fang trophy craft",
+      "handlers": [
+        "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+        "src/main/java/org/slavicmyths/rewards/RewardLedger.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/trophy_skim_necklace.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/client/FolkEquipmentLayer.java:41",
+        "src/main/java/org/slavicmyths/rewards/RewardContent.java:22",
+        "src/main/java/org/slavicmyths/rewards/RewardEvents.java:68",
+        "src/main/java/org/slavicmyths/rewards/RewardEvents.java:71"
+      ],
+      "tooltips": {
+        "item.slavicmyths.trophy_skim_necklace.effect": "Прямой урон по целям с менее чем 35% здоровья увеличен на 15%."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → necklace при щите в offhand → direct hostile damage +15% strictly below35% target HP; source rewards/RewardEvents; no stacking → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "underground_guard_belt",
+      "name": "Пояс подземного стража",
+      "slot": "belt",
+      "current_effect": "+1armor and +.10 knockback resistance while equipped; independent modifier IDs",
+      "stage": "mid: underground",
+      "handlers": [
+        "src/main/java/org/slavicmyths/industry/IndustryAccessories.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/underground_guard_belt.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/industry/IndustryAccessories.java:27"
+      ],
+      "tooltips": {},
+      "player_path": "Штатный рецепт/награда из перечисленного source → belt при щите в offhand → +1armor and +.10 knockback resistance while equipped; independent modifier IDs → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "veles_amulet",
+      "name": "Оберег Велеса",
+      "slot": "necklace",
+      "current_effect": "Wildlife aggression threshold x.55; Rusalka charm buildup x.5",
+      "stage": "early/mid",
+      "handlers": [
+        "src/main/java/org/slavicmyths/entity/WildlifeEntity.java",
+        "src/main/java/org/slavicmyths/water/RusalkaSong.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/veles_amulet.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_cache.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/client/FolkEquipmentLayer.java:43",
+        "src/main/java/org/slavicmyths/entity/WildlifeEntity.java:173",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:203",
+        "src/main/java/org/slavicmyths/water/RusalkaSong.java:13"
+      ],
+      "tooltips": {
+        "item.slavicmyths.veles_amulet.effect": "Слот: ожерелье. Уменьшает радиус агрессии медведя и кабана на 45%; не защищает от мести и охраны детёныша."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → necklace при щите в offhand → Wildlife aggression threshold x.55; Rusalka charm buildup x.5 → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "volchiy_poyas",
+      "name": "Волчий пояс",
+      "slot": "belt",
+      "current_effect": "night movement +8%, full moon+11%, none in daytime",
+      "stage": "mid: wolf trophy craft",
+      "handlers": [
+        "src/main/java/org/slavicmyths/hunt/HuntEffects.java",
+        "src/main/java/org/slavicmyths/hunt/HuntRules.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/volchiy_poyas.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/client/CuriosAccessories.java:30",
+        "src/main/java/org/slavicmyths/client/HuntAccessoryRenderer.java:20",
+        "src/main/java/org/slavicmyths/hunt/HuntEffects.java:25",
+        "src/main/java/org/slavicmyths/item/FolkAccessoryItem.java:62",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:293"
+      ],
+      "tooltips": {
+        "item.slavicmyths.volchiy_poyas.effect": "Ночью ноги сами находят быстрый путь."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → belt при щите в offhand → night movement +8%, full moon+11%, none in daytime → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    },
+    {
+      "id": "zolny_obereg",
+      "name": "Зольный оберег",
+      "slot": "necklace",
+      "current_effect": "fire damage x.8; newly observed burning duration ceil(x.6)",
+      "stage": "mid: Ovinnik ingredients",
+      "handlers": [
+        "src/main/java/org/slavicmyths/hunt/HuntEffects.java"
+      ],
+      "acquisition_resources": [
+        "src/main/resources/data/slavicmyths/recipe/zolny_obereg.json"
+      ],
+      "source_refs": [
+        "src/main/java/org/slavicmyths/client/CuriosAccessories.java:29",
+        "src/main/java/org/slavicmyths/hunt/HuntEffects.java:24",
+        "src/main/java/org/slavicmyths/hunt/HuntEffects.java:27",
+        "src/main/java/org/slavicmyths/registry/ModItems.java:292"
+      ],
+      "tooltips": {
+        "item.slavicmyths.zolny_obereg.effect": "Сдерживает жар, но не делает владельца неуязвимым к огню."
+      },
+      "player_path": "Штатный рецепт/награда из перечисленного source → necklace при щите в offhand → fire damage x.8; newly observed burning duration ceil(x.6) → снять/заменить → сравнить → смерть/relog/MP",
+      "before": "existing tagged implementation",
+      "changed": "KEEP effect; FolkAccessoryItem reads current active declared slot instead of cached item search",
+      "equip": "NOT_RUN",
+      "effect": "NOT_RUN",
+      "unequip": "NOT_RUN",
+      "death": "NOT_RUN",
+      "relog": "NOT_RUN",
+      "mp": "NOT_RUN",
+      "status": "SOURCE_AUDITED / GAMEPLAY_NOT_RUN",
+      "server_slot_api": "PASS (run3 all37NativeSlotValidatorsAndCapacity)",
+      "server_damage": "NOT_RUN"
+    }
+  ],
+  "game_launches": 0,
+  "limitations": "Source/recipe paths demonstrate implementation only. No natural acquisition, actual equip, effect, death, relog or MP proved.",
+  "runtime": {
+    "game_test_launches": 3,
+    "client_launches": 0,
+    "run1": {
+      "pass": 2,
+      "fail": 4
+    },
+    "run2": {
+      "pass": 6,
+      "fail": 0
+    },
+    "run3": {
+      "pass": 7,
+      "fail": 0
+    },
+    "world": "D:/slavic-myths/run-accessories278-20261025",
+    "namespace": "slavicmyths_accessories278",
+    "limitations": [
+      "server API fixture not GUI",
+      "two independent embedded-connection ServerPlayer actors not network MP",
+      "Curios NBT not real relog",
+      "death + manual Clone not actual respawn",
+      "no natural Survival acquisition"
+    ]
+  }
+}

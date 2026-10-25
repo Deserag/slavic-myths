@@ -41,6 +41,20 @@ processResources {
 }
 jar { manifest { attributes 'Implementation-Version': project.version } }
 
+// Explicit owner-authorized disposable #278 fixture; no tests in the production JAR.
+if (project.hasProperty('accessories278Check')) {
+    sourceSets { accessories278Check { java.srcDir 'tools/accessories278-tests'; resources.srcDir 'tools/accessories278-test-resources' } }
+    sourceSets.accessories278Check.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.accessories278Check.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileAccessories278CheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.accessories278Check)
+    neoForge.runs { accessories278Checks {
+        type = 'gameTestServer'
+        gameDirectory = file('run-accessories278-20261025')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_accessories278'
+    } }
+}
+
 // Plain JVM, no NeoForge run configuration and no game/world construction.
 if (project.hasProperty('barrelOfflineCheck')) {
     sourceSets { barrelOffline { java.srcDir 'tools/barrel-offline' } }

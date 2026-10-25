@@ -136,3 +136,6 @@ apply_issue225_resources()
 
 from yaga272_strings import apply as apply_yaga272_strings
 apply_yaga272_strings(root)
+
+from accessories278_resources import apply as apply_accessories278_resources
+apply_accessories278_resources(root)
