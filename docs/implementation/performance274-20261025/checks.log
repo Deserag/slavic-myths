@@ -1,0 +1,24 @@
+verify_performance274.py exit=0
+warning: in the working copy of 'src/main/java/org/slavicmyths/chud/ChudCreationJobs.java', LF will be replaced by CRLF the next time Git touches it
+PASS #274 scope/preserved other production files/JAR; GAMEPLAY_NOT_RUN ba2ae12661a0b4a1b874bb9c13c40d665dc6c1047a6500a41c9ed38d760c07b0
+
+verify_structures275.py exit=0
+warning: in the working copy of 'src/main/java/org/slavicmyths/chud/ChudCreationJobs.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/org/slavicmyths/chud/ChudCreationJobs.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/org/slavicmyths/chud/ChudCreationJobs.java', LF will be replaced by CRLF the next time Git touches it
+PASS #275 source scope/preservation/JAR; GAMEPLAY_NOT_RUN; SHA256 ba2ae12661a0b4a1b874bb9c13c40d665dc6c1047a6500a41c9ed38d760c07b0
+
+verify_encounters271.py exit=0
+warning: in the working copy of 'src/main/java/org/slavicmyths/chud/ChudCreationJobs.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/org/slavicmyths/chud/ChudCreationJobs.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/org/slavicmyths/chud/ChudCreationJobs.java', LF will be replaced by CRLF the next time Git touches it
+PASS #271 source scope/preservation and production JAR; GAMEPLAY_NOT_RUN; SHA256 ba2ae12661a0b4a1b874bb9c13c40d665dc6c1047a6500a41c9ed38d760c07b0
+
+verify_yaga272.py exit=0
+warning: in the working copy of 'src/main/java/org/slavicmyths/chud/ChudCreationJobs.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/org/slavicmyths/chud/ChudCreationJobs.java', LF will be replaced by CRLF the next time Git touches it
+YAGA272_SOURCE_JAR_PASS ba2ae12661a0b4a1b874bb9c13c40d665dc6c1047a6500a41c9ed38d760c07b0 GAMEPLAY_NOT_RUN
+
+verify_resources.py exit=0
+PASS current NeoForge resources: {"scope": "CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted", "version": "2.0.1-HELL", "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.1-HELL.jar", "sha256": "ba2ae12661a0b4a1b874bb9c13c40d665dc6c1047a6500a41c9ed38d760c07b0", "resources": 8001, "json": 4402, "png": 1443, "models": 1886, "java21_classes": 1942, "runtime_launches": 0, "runtime": "NOT_RUN / OWNER_PENDING"}
+

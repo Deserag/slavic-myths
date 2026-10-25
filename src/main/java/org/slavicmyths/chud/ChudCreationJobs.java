@@ -33,10 +33,11 @@ public final class ChudCreationJobs {
  }
  public static int control(CommandSourceStack source,boolean cancel){var j=JOBS.get(source.getLevel());if(j==null)return 0;if(cancel)j.finish(null,"Создание остановлено; частично изменённая область зарезервирована.");else source.sendSuccess(()->Component.literal("Чудь: этап "+j.phase+", секция "+j.section+" / "+j.sections.size()),false);return 1;}
  @net.neoforged.bus.api.SubscribeEvent public static void tick(net.neoforged.neoforge.event.tick.ServerTickEvent.Post e){for(var j:List.copyOf(JOBS.values()))if(j.world.getServer()==e.getServer())j.step();}
+ @net.neoforged.bus.api.SubscribeEvent public static void unload(net.neoforged.neoforge.event.level.LevelEvent.Unload e){if(e.getLevel() instanceof ServerLevel world){var j=JOBS.get(world);if(j!=null)j.finish(null,"Level is unloading.");}}
  @net.neoforged.bus.api.SubscribeEvent public static void stop(net.neoforged.neoforge.event.server.ServerStoppingEvent e){for(var j:List.copyOf(JOBS.values()))if(j.world.getServer()==e.getServer())j.finish(null,"Сервер останавливается.");}
  private static final class Job {
   final CommandSourceStack source;final ServerLevel world;final String kind;final BlockPos requestedFrom;SiteChunks chunks;final List<Consumer<Result>> listeners=new ArrayList<>();final UUID id=UUID.randomUUID();
-  ChunkPos owner;int attempts;final List<ChunkPos> footprint=new ArrayList<>();List<Section> sections=List.of();CompletableFuture<List<Section>> raster;
+  ChunkPos owner;int attempts;final List<ChunkPos> footprint=new ArrayList<>();List<Section> sections=List.of();CompletableFuture<List<Section>> raster;java.util.concurrent.atomic.AtomicBoolean rasterCancelled;
   StructurePiece piece;Structure structure;BoundingBox box;BlockPos entrance;int phase,chunk,section,voxel;boolean reserved,adjusted;long notice;
   Job(CommandSourceStack source,String kind,Consumer<Result> callback){this.source=source;world=source.getLevel();this.kind=kind;chunks=new SiteChunks(world);listeners.add(callback);var origin=BlockPos.containing(source.getPosition());requestedFrom=origin;int occupied=(int)ManualStructureRecords.get(world).entries().stream().filter(e->e.family().equals("chud_city")||e.family().equals("chud_abandoned")||e.family().equals("construction")).count();owner=site(0);}
   ChunkPos site(int n){int[][] offsets={{0,-256},{256,0},{0,256},{-256,0},{384,384},{-384,-384}};var at=offsets[n];return new ChunkPos(requestedFrom.offset(at[0],0,at[1]));}
@@ -55,7 +56,7 @@ public final class ChudCreationJobs {
    if(phase==1){chunks.prefetch(footprint,chunk);if(chunk<footprint.size()){if(chunks.ready(footprint.get(chunk))){chunk++;}return;}if(!adjusted){adjusted=true;int surface=world.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,entrance.getX(),entrance.getZ())-1;
      if(piece instanceof ChudPiece c){var p=c.plan;var plan=new ChudPlan(p.seed,p.anchor,p.variant,p.rotation,surface-p.anchor.getY(),p.entranceBend);piece=new ChudPiece(plan,c.abandoned==null?null:new AbandonedPlan(p.seed,p.anchor,p.rotation,AbandonedPlan.Kind.ATTACHED_SMALL,plan.entranceFloor,plan.cityId(),0));entrance=plan.world(plan.points.get(ChudPlan.Role.ENTRANCE));}
      else{var p=((AbandonedPiece)piece).plan;var plan=new AbandonedPlan(p.seed,p.anchor,p.rotation,p.kind,surface-p.anchor.getY(),null,0);piece=new AbandonedPiece(plan);entrance=plan.world(plan.surfacePortal()).above();}
-     box=piece.getBoundingBox();if(box.maxY()>=world.getMaxBuildHeight())throw new IllegalStateException("Entrance exceeds world height");raster=CompletableFuture.supplyAsync(()->raster(piece),WORKER);return;
+     box=piece.getBoundingBox();if(box.maxY()>=world.getMaxBuildHeight())throw new IllegalStateException("Entrance exceeds world height");var selected=piece;var cancelled=new java.util.concurrent.atomic.AtomicBoolean();rasterCancelled=cancelled;raster=CompletableFuture.supplyAsync(()->raster(selected,cancelled::get),WORKER);return;
     }if(!raster.isDone())return;sections=raster.join();phase=2;return;}
    long deadline=System.nanoTime()+chunks.budgetNanos();int operations=0;
    if(phase==2||phase==3){while(section<sections.size()&&operations<8192&&System.nanoTime()<deadline){var s=sections.get(section);if(phase==2&&voxel==0){var full=world.getChunkSource().getChunkNow(s.origin.getX()>>4,s.origin.getZ()>>4);var nativeSection=full.getSection(world.getSectionIndex(s.origin.getY()));if(!nativeSection.maybeHas(st->st.is(Blocks.BEDROCK)||st.is(net.minecraft.tags.BlockTags.LOGS)||!ManualStructureJobs.natural(st)&&st.getFluidState().isEmpty())){section++;continue;}}if(voxel==4096){voxel=0;section++;continue;}int i=voxel++;var next=s.states[i];if(next==null)continue;operations++;var p=s.origin.offset(i&15,i>>8,(i>>4)&15);var old=world.getBlockState(p);
@@ -74,16 +75,20 @@ public final class ChudCreationJobs {
   }catch(RuntimeException e){
    com.mojang.logging.LogUtils.getLogger().warn("Chud preflight phase {} attempt {} at {}: {}",phase,attempts,owner,e.toString());
    // A rejected preflight must select another site, never report an unbuilt plan as success.
-   if(!reserved&&phase<3&&attempts++<5){chunks.close();if(raster!=null)raster.cancel(false);owner=site(attempts);chunks=new SiteChunks(world);footprint.clear();sections=List.of();raster=null;piece=null;box=null;phase=chunk=section=voxel=0;adjusted=false;return;}
+   if(!reserved&&phase<3&&attempts++<5){chunks.close();cancelRaster();owner=site(attempts);chunks=new SiteChunks(world);footprint.clear();sections=List.of();raster=null;piece=null;box=null;phase=chunk=section=voxel=0;adjusted=false;return;}
    finish(null,"Создание Чуди остановлено: "+e.getMessage());}}
-  void finish(Result result,String message){JOBS.remove(world);chunks.close();if(raster!=null)raster.cancel(false);if(result==null)source.sendFailure(Component.literal(message));else source.sendSuccess(()->Component.literal(message),false);for(var callback:listeners)try{callback.accept(result);}catch(RuntimeException e){com.mojang.logging.LogUtils.getLogger().warn("Chud completion callback",e);}}
+  void cancelRaster(){if(rasterCancelled!=null)rasterCancelled.set(true);if(raster!=null)raster.cancel(false);}
+  void finish(Result result,String message){JOBS.remove(world);chunks.close();cancelRaster();if(result==null)source.sendFailure(Component.literal(message));else source.sendSuccess(()->Component.literal(message),false);for(var callback:listeners)try{callback.accept(result);}catch(RuntimeException e){com.mojang.logging.LogUtils.getLogger().warn("Chud completion callback",e);}}
  }
- private static List<Section> raster(StructurePiece piece){
-  var fills=piece instanceof ChudPiece p?p.blueprint():((AbandonedPiece)piece).blueprint();var decor=piece instanceof ChudPiece p?new ChudDecor(p.plan,p.abandoned):new ChudDecor(null,((AbandonedPiece)piece).plan);return raster(fills,decor,piece.getBoundingBox());
+ private static List<Section> raster(StructurePiece piece,java.util.function.BooleanSupplier cancelled){
+  ChudGeometry.checkCancelled(cancelled);
+  var fills=piece instanceof ChudPiece p?p.blueprint():((AbandonedPiece)piece).blueprint();var decor=piece instanceof ChudPiece p?new ChudDecor(p.plan,p.abandoned):new ChudDecor(null,((AbandonedPiece)piece).plan);return raster(fills,decor,piece.getBoundingBox(),cancelled);
  }
- static List<Section> raster(List<ChudGeometry.Fill> fills,ChudDecor decor,BoundingBox box){var result=new ArrayList<Section>();
+ static List<Section> raster(List<ChudGeometry.Fill> fills,ChudDecor decor,BoundingBox box){return raster(fills,decor,box,()->false);}
+ static List<Section> raster(List<ChudGeometry.Fill> fills,ChudDecor decor,BoundingBox box,java.util.function.BooleanSupplier cancelled){var result=new ArrayList<Section>();var columns=new ChudGeometry.ColumnIndex(fills,cancelled);
   for(int x=box.minX()>>4;x<=box.maxX()>>4;x++)for(int z=box.minZ()>>4;z<=box.maxZ()>>4;z++)for(int y=box.minY()>>4;y<=box.maxY()>>4;y++){
-   var origin=new BlockPos(x*16,y*16,z*16);var clip=new BoundingBox(x*16,Math.max(y*16,box.minY()),z*16,x*16+15,Math.min(y*16+17,box.maxY()),z*16+15);var states=new BlockState[18*256];ChudGeometry.rasterize(fills,clip,(p,s)->states[(p.getY()-origin.getY())*256+(p.getZ()&15)*16+(p.getX()&15)]=s);boolean used=false;
+   ChudGeometry.checkCancelled(cancelled);var column=columns.at(x,z);if(column.isEmpty())continue;
+   var origin=new BlockPos(x*16,y*16,z*16);var clip=new BoundingBox(x*16,Math.max(y*16,box.minY()),z*16,x*16+15,Math.min(y*16+17,box.maxY()),z*16+15);var states=new BlockState[18*256];ChudGeometry.rasterize(column,clip,(p,s)->states[(p.getY()-origin.getY())*256+(p.getZ()&15)*16+(p.getX()&15)]=s);boolean used=false;
    for(int i=0;i<4096;i++){var s=states[i];if(s==null)continue;used=true;int px=origin.getX()+(i&15),pz=origin.getZ()+((i>>4)&15);boolean open=states[i+256]!=null&&states[i+256].isAir()&&states[i+512]!=null&&states[i+512].isAir();states[i]=decor.surface(s,px,origin.getY()+(i>>8),pz,decor.zone(px,pz),open);}
    if(used)result.add(new Section(origin,Arrays.copyOf(states,4096)));
   }return List.copyOf(result);

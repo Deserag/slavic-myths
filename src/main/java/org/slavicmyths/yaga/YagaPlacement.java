@@ -52,11 +52,12 @@ public final class YagaPlacement {
  public static final class Cursor {
   private final LevelAccessor world;private final Site site;private final BooleanSupplier spawn;private final Runnable undo;
   private final java.util.function.Consumer<Result> completion;
-  private final List<BlockPos> positions;private final LinkedHashMap<BlockPos,BlockState> written=new LinkedHashMap<>();
+  private List<BlockPos> positions;private final LinkedHashMap<BlockPos,BlockState> written=new LinkedHashMap<>();
   private int phase,index;private RuntimeException failure;public Result result;
   public Cursor(LevelAccessor world,Site site,BooleanSupplier spawn,Runnable undo,java.util.function.Consumer<Result> completion){this.world=world;this.site=site;this.spawn=spawn;this.undo=undo;this.completion=completion;positions=List.copyOf(site.desired.keySet());if(site.failure!=null)finish(site.failure);}
   public boolean done(){return result!=null;}
-  public void abort(){if(done())return;failure=new IllegalStateException("Site construction cancelled");phase=3;index=0;}
+  public void abort(){if(done())return;failure=new IllegalStateException("Site construction cancelled");beginRollback();}
+  private void beginRollback(){phase=3;index=0;positions=List.copyOf(written.keySet());}
   private void finish(Result r){result=r;completion.accept(r);}
   public void step(int limit,long nanos){
    if(done())return;long deadline=System.nanoTime()+nanos;int operations=0;
@@ -70,7 +71,7 @@ public final class YagaPlacement {
     if(phase==0){if(!world.getBlockState(p).equals(site.old.get(p)))throw new Refused("changed",p);written.put(p,site.desired.get(p));write(world,p,site.desired.get(p));}
     else if(phase==1){var current=world.getBlockState(p);if(!current.equals(written.get(p)))throw new Refused("changed",p);var next=Block.updateFromNeighbourShapes(current,world,p);if(!current.isAir()&&next.isAir())throw new Refused("support",p);if(!current.equals(next)){written.put(p,next);write(world,p,next);}}
     else {var own=written.get(p);if(own!=null&&world.getBlockState(p).equals(own))write(world,p,site.old.get(p));}
-   }catch(RuntimeException e){if(phase==3){failure.addSuppressed(e);}else{failure=e;phase=3;index=0;}}
+   }catch(RuntimeException e){if(phase==3){failure.addSuppressed(e);}else{failure=e;beginRollback();}}
   }
  }
  private static void write(LevelAccessor w,BlockPos p,BlockState state){w.setBlock(p,state,BUILD_FLAGS);if(!w.getBlockState(p).equals(state))throw new Refused("write",p);}

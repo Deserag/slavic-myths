@@ -1,0 +1,14 @@
+> Task :jarJar NO-SOURCE
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :test NO-SOURCE
+> Task :processPerformance274OfflineResources NO-SOURCE
+COLUMN_CANDIDATES before=97200 after=3540; same 405 clip maps, not gameplay timing
+PASS 6 offline suites / 90701 checks; GAMEPLAY_NOT_RUN, zero worlds/client/server
+> Task :processStructures275OfflineResources NO-SOURCE
+PASS 99852 native offline checks; vanilla registry bootstrap only, no world/client/server. GAMEPLAY_NOT_RUN.
+> Task :processEncounters271OfflineResources NO-SOURCE
+PASS 39253 native offline checks + 2M first-opportunity histories. No game bootstrap/world/server; GAMEPLAY_NOT_RUN.
+> Task :processYaga272OfflineResources NO-SOURCE
+YAGA272_OFFLINE_PASS checks=76 game_runs=0 (event/mixin/world runtime NOT_RUN)
+BUILD SUCCESSFUL in 3m

@@ -27,6 +27,7 @@ public final class OnDemandStructures {
  @net.neoforged.bus.api.SubscribeEvent public static void tick(net.neoforged.neoforge.event.tick.ServerTickEvent.Post e){
   for(var entry:List.copyOf(PENDING.entrySet())){if(entry.getValue().world.getServer()!=e.getServer())continue;var result=ManualStructureJobs.result(entry.getKey());if(result!=null){PENDING.remove(entry.getKey());for(var callback:entry.getValue().callbacks)try{callback.accept(result);}catch(RuntimeException failure){com.mojang.logging.LogUtils.getLogger().warn("Structure completion callback",failure);}}}
  }
+ @net.neoforged.bus.api.SubscribeEvent public static void unload(net.neoforged.neoforge.event.level.LevelEvent.Unload e){PENDING.entrySet().removeIf(entry->entry.getValue().world==e.getLevel());}
  @net.neoforged.bus.api.SubscribeEvent public static void stop(net.neoforged.neoforge.event.server.ServerStoppedEvent e){PENDING.entrySet().removeIf(entry->entry.getValue().world.getServer()==e.getServer());}
  private OnDemandStructures(){}
 }

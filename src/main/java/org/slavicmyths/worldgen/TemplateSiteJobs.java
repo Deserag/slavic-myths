@@ -40,6 +40,7 @@ var manager=world.getStructureManager();template=java.util.concurrent.Completabl
   void finish(){chunks.close();JOBS.remove(world);}
  }
  @net.neoforged.bus.api.SubscribeEvent public static void tick(net.neoforged.neoforge.event.tick.ServerTickEvent.Post e){for(var j:List.copyOf(JOBS.values()))if(j.world.getServer()==e.getServer())j.step();}
+ @net.neoforged.bus.api.SubscribeEvent public static void unload(net.neoforged.neoforge.event.level.LevelEvent.Unload e){if(e.getLevel() instanceof ServerLevel world){var j=JOBS.get(world);if(j!=null)j.finish();}}
  @net.neoforged.bus.api.SubscribeEvent public static void stop(net.neoforged.neoforge.event.server.ServerStoppingEvent e){for(var j:List.copyOf(JOBS.values()))if(j.world.getServer()==e.getServer())j.finish();}
  private TemplateSiteJobs(){}
 }

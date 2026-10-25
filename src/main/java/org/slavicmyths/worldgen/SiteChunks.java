@@ -34,5 +34,7 @@ public final class SiteChunks implements AutoCloseable {
  private void hold(ChunkPos pos){if(held.add(pos)){ACTIVE.add(this);world.getChunkSource().addRegionTicket(TICKET,pos,0,token);}}
  @Override public void close(){if(closed)return;closed=true;ACTIVE.remove(this);IN_FLIGHT.remove(world,this);requested.clear();for(var p:held)world.getChunkSource().removeRegionTicket(TICKET,p,0,token);held.clear();}
  @net.neoforged.bus.api.SubscribeEvent(priority=net.neoforged.bus.api.EventPriority.LOWEST)
+ public static void unload(net.neoforged.neoforge.event.level.LevelEvent.Unload e){for(var owner:List.copyOf(ACTIVE))if(owner.world==e.getLevel())owner.close();}
+ @net.neoforged.bus.api.SubscribeEvent(priority=net.neoforged.bus.api.EventPriority.LOWEST)
  public static void stop(net.neoforged.neoforge.event.server.ServerStoppingEvent e){for(var owner:List.copyOf(ACTIVE))if(owner.world.getServer()==e.getServer())owner.close();}
 }

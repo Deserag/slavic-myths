@@ -5,6 +5,7 @@ import json
 import subprocess
 import zipfile
 from yaga272_strings import TEXT
+from verify_performance274 import OWNED as PERFORMANCE274, scope as performance274_scope
 
 R=Path(__file__).resolve().parents[1]
 BASE='0072c2f7'
@@ -20,11 +21,12 @@ def source(p):return (R/J/p).read_text(encoding='utf-8')
 def before(p):return subprocess.check_output(['git','show',BASE+':'+p],cwd=R).decode('utf-8').replace('\r\n','\n')
 
 def scope():
+    performance274_scope()  # Explicit #274 transfer; all other production files pinned to #272 HEAD.
     # Every existing production file outside this explicit package must match #275.
     tracked=subprocess.check_output(['git','diff',BASE,'--name-only','--','src/main'],cwd=R,text=True).splitlines()
     untracked=subprocess.check_output(['git','ls-files','--others','--exclude-standard','src/main'],cwd=R,text=True).splitlines()
     for path in tracked+untracked:
-        if path.startswith(J) and path[len(J):] in OWNED:continue
+        if path.startswith(J) and path[len(J):] in OWNED+PERFORMANCE274:continue
         if path.startswith('src/main/resources/') and path[len('src/main/resources/'):] in RESOURCES:continue
         raise AssertionError(('unowned production change',path))
     # Existing entities keep combat/AI/loot byte-for-byte apart from the reviewed death credit lines.
@@ -76,7 +78,7 @@ def main():
         for name in z.namelist():
             if name.endswith('.class'):assert int.from_bytes(z.read(name)[6:8],'big')==65,('not Java21',name)
     receipt={'baseline':BASE,'branch':'hell','version':props['mod_version'],'jar':str(jar),'sha256':hashlib.sha256(jar.read_bytes()).hexdigest(),'sources':{J+p:hashlib.sha256((R/J/p).read_bytes()).hexdigest() for p in OWNED},'minecraft_launches':0,'runtime':'NOT_RUN','polymc':'POLYMC_NOT_INSTALLED','issue':'OPEN / OWNER_PENDING'}
-    (R/'docs/implementation/yaga272-20261025/receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+    (R/'build/yaga272-current-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
     print('YAGA272_SOURCE_JAR_PASS',receipt['sha256'],'GAMEPLAY_NOT_RUN')
 
 if __name__=='__main__':main()

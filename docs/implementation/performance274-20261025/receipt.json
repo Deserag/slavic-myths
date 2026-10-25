@@ -1,0 +1,41 @@
+{
+  "baseline": "b34f602421f2d300280a39ea819ececd483b5455",
+  "branch": "hell",
+  "version": "2.0.1-HELL",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.1-HELL.jar",
+  "sha256": "ba2ae12661a0b4a1b874bb9c13c40d665dc6c1047a6500a41c9ed38d760c07b0",
+  "sources": {
+    "src/main/java/org/slavicmyths/chud/ChudCreationJobs.java": "4789c0c058b735fa6b5fd4d6d4ed6611d2c0226c1000644922ccacb9f49caae0",
+    "src/main/java/org/slavicmyths/chud/ChudGeometry.java": "63a225de8fde50a346638c3b2e6c7354fa1d845f5bb96f5dc13b559e08d6112a",
+    "src/main/java/org/slavicmyths/serpenthill/HillPlan.java": "7c34b3fdd5f25afd2aead5db49941e9efd705b9c0dd126bff6719eacbc357555",
+    "src/main/java/org/slavicmyths/worldgen/LargeSiteJobs.java": "56157da6b3bdece747d6ffbf6985012da0c27116a16ffee9badbfa5c67cffa57",
+    "src/main/java/org/slavicmyths/worldgen/ManualStructureRecords.java": "5b23117b9fc57627fcf8dba8d4808fc50cf2e34a3aedb71fd50bd724449107c9",
+    "src/main/java/org/slavicmyths/worldgen/OnDemandStructures.java": "48d12603de84fd787be9060416368fee93b4bd2aceb52c3c7cd42c6fcd99f59e",
+    "src/main/java/org/slavicmyths/worldgen/SiteChunks.java": "fcba716e946c15cd9bfe8193ec098e8fd5c3024edc2862b4cad572fd795f61e1",
+    "src/main/java/org/slavicmyths/worldgen/TemplateSiteJobs.java": "df8076c9a55b7e421ac71cd8931dcda3fb4233b2e34f1ecefe61a53513e00ad9",
+    "src/main/java/org/slavicmyths/yaga/YagaPlacement.java": "7598b8ca4cb0ca18a179b995b025b459e0a1e6a3756f6c269dad3ec7d6d09c51"
+  },
+  "minecraft_launches": 0,
+  "runtime": "NOT_RUN",
+  "polymc": "POLYMC_NOT_INSTALLED",
+  "issue": "OPEN / IN_PROGRESS / OWNER_PENDING",
+  "build": "PASS clean build 3m Java21, max-workers=1, heap1536m, ActiveProcessorCount2",
+  "offline": {
+    "performance274": 90701,
+    "suites274": 6,
+    "structures275": 99852,
+    "encounters271": 39253,
+    "histories271": 2000000,
+    "yaga272": 76,
+    "total_native_checks": 229882
+  },
+  "resources": {
+    "total": 8001,
+    "json": 4402,
+    "png": 1443,
+    "models": 1886,
+    "java21_classes": 1942
+  },
+  "project_status": "В работе",
+  "main_before": "26e73424f16ae703e9a9b75fe432731663d30e05"
+}

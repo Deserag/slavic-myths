@@ -6,9 +6,9 @@ public final class HillPlan {
  public record Room(String name,int x0,int floor,int z0,int x1,int ceiling,int z1){}
  public record Chest(int x,int y,int z){}
  public final List<Patch> patches=new ArrayList<>();public final List<Room> rooms=new ArrayList<>();public final List<Chest> chests=new ArrayList<>();
- private final List<Patch>[] columns;private final long seed;private final int[] tops=new int[128*128];
+ private final List<Patch>[] columns;private final long seed;private final int[] tops=new int[128*128];private final String[] skins=new String[128*128];
  private static final String AIR="minecraft:air",STONE="slavicmyths:serpent_masonry",CRACK="slavicmyths:cracked_serpent_masonry";
- @SuppressWarnings("unchecked") public HillPlan(long seed){this.seed=seed;columns=new List[128*128];build();for(int x=0;x<128;x++)for(int z=0;z<128;z++){columns[x*128+z]=new ArrayList<>();tops[x*128+z]=HillRules.hillTop(x,z,seed);}for(var p:patches)for(int x=Math.max(0,p.x0);x<=Math.min(127,p.x1);x++)for(int z=Math.max(0,p.z0);z<=Math.min(127,p.z1);z++)columns[x*128+z].add(p);}
+ @SuppressWarnings("unchecked") public HillPlan(long seed){this.seed=seed;columns=new List[128*128];build();for(int x=0;x<128;x++)for(int z=0;z<128;z++){columns[x*128+z]=new ArrayList<>();tops[x*128+z]=HillRules.hillTop(x,z,seed);boolean vein=Math.abs(x-64-22*Math.sin(z*.075+seed%31))<1.2||Math.abs(z-64-24*Math.sin(x*.085+seed%17))<1.1;String skin=vein?"slavicmyths:mor_stone_bricks":Math.floorMod(x*13+z*19,11)<8?"minecraft:cobbled_deepslate":"minecraft:coarse_dirt";skins[x*128+z]=skin;}for(var p:patches)for(int x=Math.max(0,p.x0);x<=Math.min(127,p.x1);x++)for(int z=Math.max(0,p.z0);z<=Math.min(127,p.z1);z++)columns[x*128+z].add(p);}
  private void box(int x0,int y0,int z0,int x1,int y1,int z1,String state){patches.add(new Patch(x0,y0,z0,x1,y1,z1,state));}
  private void room(String name,int x0,int y,int z0,int x1,int h,int z1,boolean roof){rooms.add(new Room(name,x0,y,z0,x1,y+h,z1));box(x0,y,z0,x1,y+h,z1,STONE);box(x0+1,y+1,z0+1,x1-1,y+h-1,z1-1,AIR);if(!roof)box(x0,y+h,z0,x1,y+h+15,z1,AIR);}
  private void door(int x0,int y,int z0,int x1,int z1,int height){box(x0,y,z0,x1,y+height-1,z1,AIR);}
@@ -64,5 +64,5 @@ public final class HillPlan {
   for(int z=82;z<103;z+=6)box(55,7,z,55,7,z,"minecraft:soul_torch");
  }
  public boolean authored(int x,int z){return tops[x*128+z]>=0||!columns[x*128+z].isEmpty();}
- public String state(int x,int y,int z){if(x<0||x>=128||z<0||z>=128||y<0||y>=144)return AIR;int top=tops[x*128+z];boolean vein=Math.abs(x-64-22*Math.sin(z*.075+seed%31))<1.2||Math.abs(z-64-24*Math.sin(x*.085+seed%17))<1.1;String skin=vein?"slavicmyths:mor_stone_bricks":Math.floorMod(x*13+z*19,11)<8?"minecraft:cobbled_deepslate":"minecraft:coarse_dirt";String state=y<=top?y>=top-2?skin:"minecraft:deepslate":AIR;for(var p:columns[x*128+z])if(y>=p.y0&&y<=p.y1)state=p.state;return state;}
+ public String state(int x,int y,int z){if(x<0||x>=128||z<0||z>=128||y<0||y>=144)return AIR;int top=tops[x*128+z];String skin=skins[x*128+z];String state=y<=top?y>=top-2?skin:"minecraft:deepslate":AIR;for(var p:columns[x*128+z])if(y>=p.y0&&y<=p.y1)state=p.state;return state;}
 }

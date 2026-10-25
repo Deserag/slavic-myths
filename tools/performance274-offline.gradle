@@ -1,0 +1,20 @@
+// Plain JVM fixture: vanilla block registry bootstrap only; no client/server/world or NeoForge run.
+allprojects {
+ plugins.withId('java') {
+  sourceSets {
+   performance274Offline {
+    java.srcDir 'tools/performance274-offline'
+    compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+   }
+  }
+  tasks.register('verifyPerformance274Offline',JavaExec) {
+   dependsOn 'performance274OfflineClasses'
+   classpath=sourceSets.performance274Offline.runtimeClasspath
+   mainClass='org.slavicmyths.chud.Performance274Offline'
+   maxHeapSize='384m'
+   jvmArgs '-XX:ActiveProcessorCount=2'
+   workingDir project.projectDir
+  }
+ }
+}

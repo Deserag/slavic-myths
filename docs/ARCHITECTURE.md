@@ -1,3 +1,9 @@
+## 25.10.2026 — #274: source performance fixes (IN_PROGRESS)
+
+В `hell` устранены повторный полный перебор Fill при растеризации Чуди, полный rebuild индекса при одной изменённой записи, лишний suffix rollback и повторная по высоте формула кожи горы. Worker Чуди получает фиксированный план и cooperative cancel; добавлена очистка владельцев/очередей при unload. Геометрия/ресурсы/registry IDs, #271/#275/#272 сохранены. [Причины, before/after, матрица, offline gates и подробный Survival/MP чек-лист](implementation/performance274-20261025/REPORT.md).
+
+Java21 clean build/точные counts/SHA — в квитанции отчёта. Gameplay startup/save/MSPT/FPS, actual tickets/NPC/restart и MP NOT_RUN; игровых запусков 0. POLYMC_NOT_INSTALLED, OWNER_PENDING, #274 OPEN/«В работе». Vanilla locate fallthrough и атомарный postProcess остаются потенциально тяжёлыми: всех причин задержек без профиля не установлено. Main не изменяется. Передача #273 подготовлена, реализация не начата.
+
 ## 25.10.2026 — #272: доступ к Яге и сюжетный прогресс (IN_PROGRESS)
 
 В `hell` по уточнению владельца победы Survival над Лихом/Тугарином из яйца/команды теперь засчитываются без encounter; непустой природный ledger по-прежнему проверяется. Creative-доступ сохраняется синхронно после успешного переключения, без combat/trust rewards. Добавлены причинный credit вспомогательного урона, четыре сохраняемых состояния поиска и обновление кеша книги; первая беседа признаёт прежнюю победу один раз. Отношения Яги читаются из canonical Overworld. Геометрия/резервации #275 и встречи #271 сохранены. [Причина, матрица, native offline evidence, JAR/SHA и ручной сценарий](implementation/yaga272-20261025/REPORT.md).

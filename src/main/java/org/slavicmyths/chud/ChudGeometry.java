@@ -311,6 +311,18 @@ public final class ChudGeometry {
         arch(x,y,z,true);
         lamp(x+2,y,z-5);lamp(x+2,y,z+5);
     }
+    /** Ordered horizontal buckets: preserves last-write precedence and the two-block lookahead. */
+    public static final class ColumnIndex {
+        private final Map<Long,List<Fill>> columns=new HashMap<>();
+        public ColumnIndex(List<Fill> fills,java.util.function.BooleanSupplier cancelled){
+            for(var fill:fills){checkCancelled(cancelled);var b=fill.box();
+                for(int x=b.minX()>>4;x<=b.maxX()>>4;x++)for(int z=b.minZ()>>4;z<=b.maxZ()>>4;z++)
+                    columns.computeIfAbsent(net.minecraft.world.level.ChunkPos.asLong(x,z),k->new ArrayList<>()).add(fill);
+            }
+        }
+        public List<Fill> at(int chunkX,int chunkZ){return columns.getOrDefault(net.minecraft.world.level.ChunkPos.asLong(chunkX,chunkZ),List.of());}
+    }
+    public static void checkCancelled(java.util.function.BooleanSupplier cancelled){if(cancelled.getAsBoolean())throw new java.util.concurrent.CancellationException("Excavation planning cancelled");}
     public static void rasterize(List<Fill> fills,BoundingBox clip,java.util.function.BiConsumer<BlockPos,BlockState> output){
         for(var f:fills){var b=f.box();if(!b.intersects(clip))continue;
             for(int x=Math.max(b.minX(),clip.minX());x<=Math.min(b.maxX(),clip.maxX());x++)for(int z=Math.max(b.minZ(),clip.minZ());z<=Math.min(b.maxZ(),clip.maxZ());z++)for(int y=Math.max(b.minY(),clip.minY());y<=Math.min(b.maxY(),clip.maxY());y++)output.accept(new BlockPos(x,y,z),f.state());
