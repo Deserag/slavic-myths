@@ -19,7 +19,8 @@ assert 'w.noCollision(box)&&!w.containsAnyLiquid(box)' in sivka
 assert 'SivkaRules.WIDTH/2' in sivka and 'p.getY()+SivkaRules.HEIGHT' in sivka
 assert 'w.hasChunkAt' in sivka and 'BlockTags.DIRT' in sivka
 assert 'nextInt' not in sivka
-for path in ['progression/AdvancementMilestones.java', 'hunt/WorldBoss.java', 'yaga/YagaServices.java', 'yaga/YagaData.java', 'firebird/FirebirdEncounter.java', 'mor/MorRules.java']:
+# Firebird placement is now owned by #271; its ledger is covered by the native #271 fixture.
+for path in ['progression/AdvancementMilestones.java', 'hunt/WorldBoss.java', 'yaga/YagaServices.java', 'yaga/YagaData.java', 'mor/MorRules.java']:
     rel = 'src/main/java/org/slavicmyths/' + path
     before = subprocess.check_output(['git', 'show', '2f82f20e:' + rel], cwd=R)
     assert before.decode('utf-8').replace('\r\n', '\n') == (R / rel).read_text(encoding='utf-8'), ('unexpected change', path)

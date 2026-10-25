@@ -1,3 +1,9 @@
+## 25.10.2026 — #271: сохраняемая первая возможность Сивки и исправления natural spawn (IN_PROGRESS)
+
+В `hell` реализован принятый владельцем вариант A: персональные активные дни, q=2–15%, pending к дню40, сохранение RNG/UUID/прогресса, одна ограниченная серверная попытка поиска и отсутствие локальных дублей. Natural predicates четырёх мини-боссов и perch Жар-птицы проверяют actual body вместо завышенного clearing; Волк повторяет временные отказы и вытесняет старые ключи из кеша8192. Прежние бои, ordinary Лихо/Тугарин, Мор, биомы/веса, ресурсы и генератор структур сохранены. [Полный отчёт, таблица124ID, параметры и сценарии](implementation/encounters271-20261025/REPORT.md).
+
+Java21 clean build2м25с,8001ресурс/JAR,39253native offline checks и2млнисторий PASS; это не игровой тест. Runtime0/GAMEPLAY_NOT_RUN, POLYMC_NOT_INSTALLED, OWNER_PENDING. #271 OPEN/IN_PROGRESS; Project Status не менялся. Структурные зависимости переданы отдельному #275, его код в этот пакет не входит. `main` не изменяется.
+
 ## 25.10.2026 — офлайн-стабилизация #272/#271, IN_PROGRESS
 
 В hell добавлены отдельный creative-допуск Яги на существующем TaleData stage и push Entries/Hints после трёх прежних побед; game-mode callback читает фактический режим следующим тиком. Combat credit/trust/награды и очередь строительства сохранены. У Сивки placement проверяет фактический AABB/коллизии/жидкость вместо пустого3×4×3; веса и спорные гарантии не менялись. [#272: контракт/QA/receipt](implementation/stabilization272-20261025/REPORT.md), [#271: таблица/остаток](implementation/stabilization271-20261025/REPORT.md). Runtime0/GAMEPLAY_NOT_RUN, POLYMC_NOT_INSTALLED; Issues OPEN, Project Status не менялся, main не изменяется. Технические результаты сборки — в receipt отчёта; это не игровая приёмка.

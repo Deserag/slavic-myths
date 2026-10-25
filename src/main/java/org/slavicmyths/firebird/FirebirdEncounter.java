@@ -25,14 +25,27 @@ public final class FirebirdEncounter extends SavedData {
         return d;}
     @Override public CompoundTag save(CompoundTag n,HolderLookup.Provider p){n.putInt("Version",1);n.putLong("Observed",observed);n.putLong("Eligible",eligible);n.putLong("Processed",processed);if(event!=null){n.putUUID("Event",event);n.putUUID("Bird",bird);n.putLong("Anchor",anchor.asLong());n.putLong("StartDay",startDay);n.putLong("LastSeen",lastSeen);n.putInt("Planned",planned);n.putInt("Issued",issued);n.putInt("Remaining",remaining);n.putIntArray("Outcomes",outcomes);}return n;}
     public void close(ServerLevel w){if(event==null)return;event=null;bird=null;eligible=FirebirdRules.nextNight(Math.max(observed,Math.floorDiv(w.getDayTime(),24000)),w.random);setDirty();}
-    public static BlockPos surface(ServerLevel w,int x,int z){if(!w.hasChunk(x>>4,z>>4))return null;int y=w.getHeight(Heightmap.Types.MOTION_BLOCKING,x,z);var p=new BlockPos(x,y,z);if(y<w.getMinBuildHeight()+1||y>w.getMaxBuildHeight()-29||!w.canSeeSky(p)||!w.getFluidState(p.below()).isEmpty())return null;
-        for(int dx=-2;dx<=1;dx++)for(int dz=-2;dz<=1;dz++){var q=p.offset(dx,0,dz);if(!w.hasChunkAt(q)||!w.getBlockState(q.below()).isSolidRender(w,q.below())&& !w.getBlockState(q.below()).is(net.minecraft.tags.BlockTags.LEAVES))return null;for(int dy=0;dy<4;dy++){var t=q.above(dy);if(!w.getBlockState(t).getCollisionShape(w,t).isEmpty()||!w.getFluidState(t).isEmpty())return null;}String id=net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(w.getBlockState(q.below()).getBlock()).getPath();if(id.contains("magma")||id.contains("cactus")||id.contains("campfire")||id.contains("planks")||id.contains("slab")||id.contains("stairs"))return null;}return p;}
+    public static BlockPos surface(ServerLevel w,int x,int z){
+        if(!w.hasChunk(x>>4,z>>4))return null;
+        int y=w.getHeight(Heightmap.Types.MOTION_BLOCKING,x,z);var p=new BlockPos(x,y,z);
+        if(y<w.getMinBuildHeight()+1||y>w.getMaxBuildHeight()-29||!w.canSeeSky(p)||!w.getFluidState(p.below()).isEmpty())return null;
+        var type=FirebirdContent.ENTITY.get();var box=org.slavicmyths.world.EncounterPlacement.body(p,type.getWidth(),type.getHeight());
+        if(!org.slavicmyths.world.EncounterPlacement.clear(w,box))return null;
+        var floor=w.getBlockState(p.below());
+        if(!floor.isSolidRender(w,p.below())&&!floor.is(net.minecraft.tags.BlockTags.LEAVES))return null;
+        // Natural perch, with no requirement that every surrounding column has the same height.
+        for(int dx=(int)Math.floor(box.minX);dx<Math.ceil(box.maxX);dx++)for(int dz=(int)Math.floor(box.minZ);dz<Math.ceil(box.maxZ);dz++){
+            var q=new BlockPos(dx,y-1,dz);String id=net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(w.getBlockState(q).getBlock()).getPath();
+            if(id.contains("magma")||id.contains("cactus")||id.contains("campfire")||id.contains("planks")||id.contains("slab")||id.contains("stairs"))return null;
+        }
+        return p;
+    }
     @SubscribeEvent public static void tick(LevelTickEvent.Post e){if(!(e.getLevel() instanceof ServerLevel w)||w.dimension()!=Level.OVERWORLD||w.getGameTime()%100!=0)return;var d=get(w);long day=Math.floorDiv(w.getDayTime(),24000);d.observed=Math.max(d.observed,day);if(d.eligible<0||d.eligible>day+4)d.eligible=day;d.setDirty();
         if(d.event!=null){if(w.getEntity(d.bird) instanceof FirebirdEntity b){d.lastSeen=w.getGameTime();if(!FirebirdRules.night(w.getDayTime()))b.depart();}else if(w.getGameTime()-d.lastSeen>48000||d.observed>d.startDay+2)d.close(w);return;}
         if(!w.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING)||day!=d.observed||day<d.eligible||day<=d.processed||!FirebirdRules.window(w.getDayTime()))return;
         var players=w.players().stream().filter(p->p.isAlive()&&!p.isSpectator()&&!p.isCreative()).toList();if(players.isEmpty())return;var observer=players.get(w.random.nextInt(players.size()));
         for(int i=0;i<16;i++){double a=w.random.nextDouble()*Math.PI*2,r=32+w.random.nextDouble()*32;var p=surface(w,(int)Math.floor(observer.getX()+Math.cos(a)*r),(int)Math.floor(observer.getZ()+Math.sin(a)*r));if(p==null)continue;
-            var b=FirebirdContent.ENTITY.get().create(w);if(b==null)return;b.moveTo(p.getX()+.5,p.getY()+10+w.random.nextInt(15),p.getZ()+.5,w.random.nextFloat()*360,0);if(!w.noCollision(b))continue;
+            var b=FirebirdContent.ENTITY.get().create(w);if(b==null)return;b.moveTo(p.getX()+.5,p.getY()+10+w.random.nextInt(15),p.getZ()+.5,w.random.nextFloat()*360,0);if(!org.slavicmyths.world.EncounterPlacement.clear(w,b.getBoundingBox())||!observer.hasLineOfSight(b))continue;
             d.event=UUID.randomUUID();d.bird=b.getUUID();d.anchor=p;d.startDay=day;d.lastSeen=w.getGameTime();d.planned=2+w.random.nextInt(2);d.issued=0;d.remaining=FirebirdRules.delay(true,w.random);Arrays.fill(d.outcomes,-1);b.visit=d.event;b.anchor=p;d.setDirty();
             if(w.addFreshEntity(b)){d.processed=day;d.setDirty();}else{d.event=null;d.bird=null;d.setDirty();}return;}
     }

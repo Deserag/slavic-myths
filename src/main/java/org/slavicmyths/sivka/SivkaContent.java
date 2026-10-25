@@ -25,7 +25,8 @@ public final class SivkaContent {
     public static SoundEvent sound(String cue){return SOUNDS.get(cue).get();}
     public static void init(){}
     @SubscribeEvent public static void attributes(EntityAttributeCreationEvent e){e.put(ENTITY.get(),net.minecraft.world.entity.PathfinderMob.createMobAttributes().add(Attributes.MAX_HEALTH,80).add(Attributes.MOVEMENT_SPEED,.24).add(Attributes.FOLLOW_RANGE,24).add(Attributes.KNOCKBACK_RESISTANCE,.3).add(Attributes.STEP_HEIGHT,1).build());}
-    @SubscribeEvent public static void placements(RegisterSpawnPlacementsEvent e){e.register(ENTITY.get(),SpawnPlacementTypes.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,(type,w,reason,p,r)->{
+    @SubscribeEvent public static void placements(RegisterSpawnPlacementsEvent e){e.register(ENTITY.get(),SpawnPlacementTypes.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,(type,w,reason,p,r)->canAppear(w,p),RegisterSpawnPlacementsEvent.Operation.REPLACE);}
+    public static boolean canAppear(net.minecraft.world.level.ServerLevelAccessor w,net.minecraft.core.BlockPos p){
         if(w.getLevel().dimension()!=net.minecraft.world.level.Level.OVERWORLD||!w.canSeeSky(p)||w.getMaxLocalRawBrightness(p)<=7)return false;
         // Test the actual horse volume, not a larger 3x4 clearing. Never load a border chunk.
         var box=new net.minecraft.world.phys.AABB(p.getX()+.5-SivkaRules.WIDTH/2,p.getY(),p.getZ()+.5-SivkaRules.WIDTH/2,
@@ -35,6 +36,6 @@ public final class SivkaContent {
                 ||!w.hasChunkAt(net.minecraft.core.BlockPos.containing(box.maxX,box.minY,box.minZ))
                 ||!w.hasChunkAt(net.minecraft.core.BlockPos.containing(box.maxX,box.minY,box.maxZ)))return false;
         return w.getBlockState(p.below()).is(net.minecraft.tags.BlockTags.DIRT)&&w.noCollision(box)&&!w.containsAnyLiquid(box);
-    },RegisterSpawnPlacementsEvent.Operation.REPLACE);}
+    }
     private SivkaContent(){}
 }

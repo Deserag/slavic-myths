@@ -1,0 +1,12 @@
+{
+  "source_entities": 124,
+  "categories": {
+    "AMBIENT": 1,
+    "CREATURE": 26,
+    "MISC": 38,
+    "MONSTER": 56,
+    "WATER_AMBIENT": 3
+  },
+  "not_live_registry": true,
+  "runtime_launches": 0
+}

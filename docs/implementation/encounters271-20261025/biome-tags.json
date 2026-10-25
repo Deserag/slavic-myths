@@ -1,0 +1,338 @@
+{
+  "feature_bathhouse": {
+    "replace": false,
+    "values": [
+      "minecraft:old_growth_pine_taiga",
+      "minecraft:old_growth_spruce_taiga",
+      "minecraft:plains",
+      "minecraft:snowy_taiga",
+      "minecraft:sunflower_plains",
+      "minecraft:taiga"
+    ]
+  },
+  "feature_fields": {
+    "replace": false,
+    "values": [
+      "minecraft:plains",
+      "minecraft:savanna",
+      "minecraft:savanna_plateau",
+      "minecraft:sunflower_plains",
+      "minecraft:windswept_savanna"
+    ]
+  },
+  "feature_overworld": {
+    "replace": false,
+    "values": [
+      "minecraft:badlands",
+      "minecraft:bamboo_jungle",
+      "minecraft:beach",
+      "minecraft:birch_forest",
+      "minecraft:cherry_grove",
+      "minecraft:cold_ocean",
+      "minecraft:dark_forest",
+      "minecraft:deep_cold_ocean",
+      "minecraft:deep_dark",
+      "minecraft:deep_frozen_ocean",
+      "minecraft:deep_lukewarm_ocean",
+      "minecraft:deep_ocean",
+      "minecraft:desert",
+      "minecraft:dripstone_caves",
+      "minecraft:eroded_badlands",
+      "minecraft:flower_forest",
+      "minecraft:forest",
+      "minecraft:frozen_ocean",
+      "minecraft:frozen_peaks",
+      "minecraft:frozen_river",
+      "minecraft:grove",
+      "minecraft:ice_spikes",
+      "minecraft:jagged_peaks",
+      "minecraft:jungle",
+      "minecraft:lukewarm_ocean",
+      "minecraft:lush_caves",
+      "minecraft:mangrove_swamp",
+      "minecraft:meadow",
+      "minecraft:mushroom_fields",
+      "minecraft:ocean",
+      "minecraft:old_growth_birch_forest",
+      "minecraft:old_growth_pine_taiga",
+      "minecraft:old_growth_spruce_taiga",
+      "minecraft:plains",
+      "minecraft:river",
+      "minecraft:savanna",
+      "minecraft:savanna_plateau",
+      "minecraft:snowy_beach",
+      "minecraft:snowy_plains",
+      "minecraft:snowy_slopes",
+      "minecraft:snowy_taiga",
+      "minecraft:sparse_jungle",
+      "minecraft:stony_peaks",
+      "minecraft:stony_shore",
+      "minecraft:sunflower_plains",
+      "minecraft:swamp",
+      "minecraft:taiga",
+      "minecraft:warm_ocean",
+      "minecraft:windswept_forest",
+      "minecraft:windswept_gravelly_hills",
+      "minecraft:windswept_hills",
+      "minecraft:windswept_savanna",
+      "minecraft:wooded_badlands"
+    ]
+  },
+  "feature_plains_forest": {
+    "replace": false,
+    "values": [
+      "minecraft:birch_forest",
+      "minecraft:dark_forest",
+      "minecraft:flower_forest",
+      "minecraft:forest",
+      "minecraft:grove",
+      "minecraft:old_growth_birch_forest",
+      "minecraft:plains",
+      "minecraft:sunflower_plains"
+    ]
+  },
+  "feature_plains_forest_taiga": {
+    "replace": false,
+    "values": [
+      "minecraft:birch_forest",
+      "minecraft:dark_forest",
+      "minecraft:flower_forest",
+      "minecraft:forest",
+      "minecraft:grove",
+      "minecraft:old_growth_birch_forest",
+      "minecraft:old_growth_pine_taiga",
+      "minecraft:old_growth_spruce_taiga",
+      "minecraft:plains",
+      "minecraft:snowy_taiga",
+      "minecraft:sunflower_plains",
+      "minecraft:taiga"
+    ]
+  },
+  "feature_water": {
+    "replace": false,
+    "values": [
+      "minecraft:birch_forest",
+      "minecraft:dark_forest",
+      "minecraft:flower_forest",
+      "minecraft:forest",
+      "minecraft:frozen_river",
+      "minecraft:grove",
+      "minecraft:mangrove_swamp",
+      "minecraft:old_growth_birch_forest",
+      "minecraft:river",
+      "minecraft:swamp"
+    ]
+  },
+  "grey_wolf_forests": {
+    "replace": false,
+    "values": [
+      "#minecraft:is_forest",
+      "#minecraft:is_taiga"
+    ]
+  },
+  "has_bog_iron": {
+    "replace": false,
+    "values": [
+      "minecraft:swamp",
+      "minecraft:mangrove_swamp"
+    ]
+  },
+  "nochnitsa_surface": {
+    "replace": false,
+    "values": [
+      "minecraft:plains",
+      "minecraft:forest",
+      "minecraft:birch_forest",
+      "minecraft:dark_forest",
+      "minecraft:taiga"
+    ]
+  },
+  "pesigolovtsy_wilderness": {
+    "replace": false,
+    "values": [
+      "minecraft:forest",
+      "minecraft:dark_forest",
+      "minecraft:birch_forest",
+      "minecraft:old_growth_birch_forest",
+      "minecraft:taiga",
+      "minecraft:old_growth_pine_taiga",
+      "minecraft:old_growth_spruce_taiga",
+      "minecraft:swamp",
+      "minecraft:plains"
+    ]
+  },
+  "sivka_grasslands": {
+    "replace": false,
+    "values": [
+      "minecraft:plains",
+      "minecraft:sunflower_plains",
+      "minecraft:meadow"
+    ]
+  },
+  "spawn_fields": {
+    "replace": false,
+    "values": [
+      "minecraft:plains",
+      "minecraft:savanna",
+      "minecraft:savanna_plateau",
+      "minecraft:sunflower_plains",
+      "minecraft:windswept_savanna"
+    ]
+  },
+  "spawn_forest_taiga": {
+    "replace": false,
+    "values": [
+      "minecraft:birch_forest",
+      "minecraft:dark_forest",
+      "minecraft:flower_forest",
+      "minecraft:forest",
+      "minecraft:grove",
+      "minecraft:old_growth_birch_forest",
+      "minecraft:old_growth_pine_taiga",
+      "minecraft:old_growth_spruce_taiga",
+      "minecraft:snowy_taiga",
+      "minecraft:taiga"
+    ]
+  },
+  "spawn_open": {
+    "replace": false,
+    "values": [
+      "minecraft:cherry_grove",
+      "minecraft:frozen_peaks",
+      "minecraft:grove",
+      "minecraft:ice_spikes",
+      "minecraft:jagged_peaks",
+      "minecraft:meadow",
+      "minecraft:plains",
+      "minecraft:savanna",
+      "minecraft:savanna_plateau",
+      "minecraft:snowy_plains",
+      "minecraft:snowy_slopes",
+      "minecraft:stony_peaks",
+      "minecraft:sunflower_plains",
+      "minecraft:windswept_forest",
+      "minecraft:windswept_gravelly_hills",
+      "minecraft:windswept_hills",
+      "minecraft:windswept_savanna"
+    ]
+  },
+  "spawn_ovinnik": {
+    "replace": false,
+    "values": [
+      "minecraft:birch_forest",
+      "minecraft:dark_forest",
+      "minecraft:flower_forest",
+      "minecraft:forest",
+      "minecraft:grove",
+      "minecraft:old_growth_birch_forest",
+      "minecraft:old_growth_pine_taiga",
+      "minecraft:old_growth_spruce_taiga",
+      "minecraft:plains",
+      "minecraft:savanna",
+      "minecraft:savanna_plateau",
+      "minecraft:snowy_taiga",
+      "minecraft:sunflower_plains",
+      "minecraft:taiga",
+      "minecraft:windswept_savanna"
+    ]
+  },
+  "spawn_plains": {
+    "replace": false,
+    "values": [
+      "minecraft:plains",
+      "minecraft:sunflower_plains"
+    ]
+  },
+  "spawn_serpent": {
+    "replace": false,
+    "values": [
+      "minecraft:birch_forest",
+      "minecraft:cherry_grove",
+      "minecraft:dark_forest",
+      "minecraft:flower_forest",
+      "minecraft:forest",
+      "minecraft:frozen_peaks",
+      "minecraft:grove",
+      "minecraft:ice_spikes",
+      "minecraft:jagged_peaks",
+      "minecraft:meadow",
+      "minecraft:old_growth_birch_forest",
+      "minecraft:plains",
+      "minecraft:savanna",
+      "minecraft:savanna_plateau",
+      "minecraft:snowy_plains",
+      "minecraft:snowy_slopes",
+      "minecraft:stony_peaks",
+      "minecraft:sunflower_plains",
+      "minecraft:windswept_forest",
+      "minecraft:windswept_gravelly_hills",
+      "minecraft:windswept_hills",
+      "minecraft:windswept_savanna"
+    ]
+  },
+  "spawn_village_spirit": {
+    "replace": false,
+    "values": [
+      "minecraft:old_growth_pine_taiga",
+      "minecraft:old_growth_spruce_taiga",
+      "minecraft:plains",
+      "minecraft:savanna",
+      "minecraft:savanna_plateau",
+      "minecraft:snowy_taiga",
+      "minecraft:sunflower_plains",
+      "minecraft:taiga",
+      "minecraft:windswept_savanna"
+    ]
+  },
+  "spawn_water": {
+    "replace": false,
+    "values": [
+      "minecraft:frozen_river",
+      "minecraft:mangrove_swamp",
+      "minecraft:river",
+      "minecraft:swamp"
+    ]
+  },
+  "woodland_forest": {
+    "replace": false,
+    "values": [
+      "minecraft:birch_forest",
+      "minecraft:crimson_forest",
+      "minecraft:dark_forest",
+      "minecraft:flower_forest",
+      "minecraft:forest",
+      "minecraft:old_growth_birch_forest",
+      "minecraft:warped_forest",
+      "minecraft:windswept_forest"
+    ]
+  },
+  "woodland_plains": {
+    "replace": false,
+    "values": [
+      "minecraft:plains",
+      "minecraft:sunflower_plains"
+    ]
+  },
+  "woodland_river": {
+    "replace": false,
+    "values": [
+      "minecraft:river"
+    ]
+  },
+  "woodland_swamp": {
+    "replace": false,
+    "values": [
+      "minecraft:mangrove_swamp",
+      "minecraft:swamp"
+    ]
+  },
+  "woodland_taiga": {
+    "replace": false,
+    "values": [
+      "minecraft:old_growth_pine_taiga",
+      "minecraft:old_growth_spruce_taiga",
+      "minecraft:snowy_taiga",
+      "minecraft:taiga"
+    ]
+  }
+}

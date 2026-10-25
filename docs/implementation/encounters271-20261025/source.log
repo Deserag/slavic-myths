@@ -1,0 +1,2 @@
+PASS #271 source scope/preservation and production JAR; GAMEPLAY_NOT_RUN; SHA256 cc457a57c63e657aa1166f3c768a31968a51fdb73feeb602c29bd0c7d25a8723
+PASS source wiring/preservation; OFFLINE_ONLY. Collision/world/game-mode event delivery NOT_RUN.

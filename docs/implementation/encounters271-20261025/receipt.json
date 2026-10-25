@@ -1,0 +1,19 @@
+{
+  "baseline": "cecaa4b2",
+  "branch": "hell",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.1-HELL.jar",
+  "version": "2.0.1-HELL",
+  "sha256": "cc457a57c63e657aa1166f3c768a31968a51fdb73feeb602c29bd0c7d25a8723",
+  "source_files": {
+    "src/main/java/org/slavicmyths/firebird/FirebirdEncounter.java": "91c3116ee85f23dad7bf09f35fb83a39dac995ac47bada4b94ff73662480ff02",
+    "src/main/java/org/slavicmyths/hunt/HuntSpawns.java": "1b272b6698b2d6581f253e3f08cf14406dfc628bc3cfbec2191b2c30ba641bb9",
+    "src/main/java/org/slavicmyths/sivka/SivkaContent.java": "c69ce18ad899fae61bef2162e63ec5cd7e7168f1b0a4543440bcb4854aea1461",
+    "src/main/java/org/slavicmyths/sivka/FirstSivkaProgress.java": "ce9bc670429c812bd266d389e19a902f1c15a0853814f994e2ff2e8b44de5d06",
+    "src/main/java/org/slavicmyths/sivka/SivkaExploration.java": "f56f5197a065200681b98843df187b8cc3b1772e4d69aac295121fa1b232101b",
+    "src/main/java/org/slavicmyths/wolf/WolfEncounter.java": "a2533b5a9de79d2b65d8fa6bc0f21663f9f901a0d1a5f5b601c0facb6ff68e8b",
+    "src/main/java/org/slavicmyths/wolf/EncounterRetryCache.java": "ac2c2763fd33fa659b3bf47972b497fdd82d4033ab635ad1e4275798a5290521",
+    "src/main/java/org/slavicmyths/world/EncounterPlacement.java": "f037f161e343f41cc5c73fa0a904abc2682c89bbdc4e29e474840b14127cb249"
+  },
+  "gameplay": "NOT_RUN",
+  "polymc": "NOT_INSTALLED"
+}

@@ -17,7 +17,7 @@ import org.slavicmyths.hunt.*;
 @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class WolfEncounter {
  public static final TagKey<Biome> FORESTS=TagKey.create(Registries.BIOME,ResourceLocation.fromNamespaceAndPath("slavicmyths","grey_wolf_forests"));
- private static final Map<ServerLevel,Set<Long>> CHECKED=new WeakHashMap<>();
+ private static final Map<ServerLevel,EncounterRetryCache> CHECKED=new WeakHashMap<>();
  public static boolean eligibleRegion(long seed,int rx,int rz){return new Random(BossRules.seed(seed,rx,rz,BossKind.TUGARIN)^0x1471a19L).nextDouble()<.35;}
  public static int quota(ServerLevel w){long valid=HuntRecords.get(w).bosses.values().stream().filter(b->b.kind==BossKind.TUGARIN&&b.natural&&b.safe).count();return Math.min(12,Math.max(3,(int)(valid*2/5)));}
  public static boolean safeBody(ServerLevel w,AABB box,BlockPos feet){for(int x=(int)Math.floor(box.minX);x<Math.ceil(box.maxX);x++)for(int z=(int)Math.floor(box.minZ);z<Math.ceil(box.maxZ);z++)if(!w.hasChunkAt(new BlockPos(x,feet.getY(),z)))return false;return w.noCollision(box)&&w.getFluidState(feet).isEmpty()&&w.getBlockState(feet.below()).isFaceSturdy(w,feet.below(),Direction.UP);}
@@ -46,7 +46,7 @@ public final class WolfEncounter {
  @SubscribeEvent public static void player(PlayerTickEvent.Post event){
   if(!(event.getEntity() instanceof ServerPlayer p)||p.tickCount%40!=0||p.isSpectator())return;var w=p.serverLevel();if(w.dimension()!=Level.OVERWORLD)return;
   int rx=Math.floorDiv(p.blockPosition().getX(),512),rz=Math.floorDiv(p.blockPosition().getZ(),512);if(!eligibleRegion(w.getSeed(),rx,rz))return;var data=WolfRecords.get(w);long region=ChunkPos.asLong(rx,rz);if(data.regions.contains(region)||data.homes.size()>=quota(w))return;
-  var checked=CHECKED.computeIfAbsent(w,k->new HashSet<>());long chunkKey=p.chunkPosition().toLong();if(checked.contains(chunkKey)||checked.size()>=8192)return;checked.add(chunkKey);
+  var checked=CHECKED.computeIfAbsent(w,k->new EncounterRetryCache(8192));long chunkKey=p.chunkPosition().toLong();if(!checked.attempt(chunkKey,w.getGameTime()))return;
   var xz=new BlockPos(p.chunkPosition().getMinBlockX()+8,0,p.chunkPosition().getMinBlockZ()+8);if(!w.hasChunkAt(xz))return;var center=forestGround(w,xz);
   if(data.homes.values().stream().anyMatch(q->q.distSqr(center)<768*768)||!arena(w,center))return;
   var wolf=org.slavicmyths.registry.ModEntities.GREY_WOLF.get().create(w);if(wolf==null)return;wolf.moveTo(center.getX()+.5,center.getY(),center.getZ()+.5,0,0);if(!w.addFreshEntity(wolf))return;data.homes.put(wolf.encounterId(),center);data.regions.add(region);data.setDirty();
