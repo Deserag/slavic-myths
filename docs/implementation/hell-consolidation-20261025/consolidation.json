@@ -20,5 +20,20 @@
       "members": 21279,
       "sha256": "12851c66c7ade1b45b6c3b834c3fc61dc825f7aeadfa1851a6fec2469c999896"
     }
-  ]
+  ],
+  "extra_worktrees_removed": [
+    "D:/slavic-myths-hell",
+    "D:/slavic-myths-advancements-v3"
+  ],
+  "archive_file_coverage_verified": {
+    "slavic-myths-hell": 30831,
+    "slavic-myths-advancements-v3": 19679
+  },
+  "remaining_worktrees": [
+    "D:/slavic-myths"
+  ],
+  "main_remote_verified": "8789e08dbcb029ae7b252049dec62c47c7780cce",
+  "source_branch_published": true,
+  "installation_receipt": "installed.json",
+  "runtime_launches": 0
 }

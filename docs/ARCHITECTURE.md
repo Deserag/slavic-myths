@@ -1,6 +1,6 @@
 ## 25.10.2026 — объединённый тестовый HELL: IN_PROGRESS
 
-Основная папка D:/slavic-myths переведена в hell; объединены Ад/Навья роща и исправления поиска/генерации/встреч/UI Яги. Clean build2м12с и8001ресурс PASS; runtime0. Main не изменяется. Публикация, архивирование лишних папок и отдельная установка PolyMC выполняются по прямому поручению. [Матрица и receipt](implementation/hell-consolidation-20261025/REPORT.md).
+Основная папка D:/slavic-myths переведена в hell; объединены Ад/Навья роща и исправления поиска/генерации/встреч/UI Яги. Clean build2м12с и8001ресурс PASS; runtime0. Main не изменяется. Hell опубликована; обе лишние рабочие копии удалены после полной архивации. Отдельный PolyMC «Slavic Myths 2.0.0 - HELL - TEST» установлен с backup/SHA/duplicate0; прежний инстанс и миры сохранены. [Матрица и receipt](implementation/hell-consolidation-20261025/REPORT.md).
 
 ## 25.10.2026 — Навья роща #251–#257: IN_PROGRESS, исходники и JAR
 

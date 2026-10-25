@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "changedVanillaResources": [
+    "dimension_type/the_nether.json",
+    "worldgen/noise_settings/nether.json",
+    "worldgen/placed_feature/ore_debris_small.json",
+    "worldgen/placed_feature/ore_gold_nether.json",
+    "worldgen/placed_feature/ore_gold_deltas.json",
+    "worldgen/placed_feature/ore_quartz_nether.json",
+    "worldgen/placed_feature/ore_quartz_deltas.json"
+  ],
+  "gameLaunches": 0,
+  "runtime": "NOT_RUN",
+  "sourceBaseline": "275ecaa5",
+  "vanillaClientSha256": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.0-HELL.jar",
+  "jarSha256": "b7373eeeecf6919fb585801ff5bd4b81fcd6476632f0198027278e9abfde3554"
+}
