@@ -18,11 +18,14 @@ public final class GuardianLedger extends SavedData {
  private void index(UUID id,CompoundTag n){var a=n.getIntArray("GuardianBounds");if(a.length!=6)return;for(int x=(a[0]-5)>>4;x<=(a[3]+5)>>4;x++)for(int z=(a[2]-5)>>4;z<=(a[5]+5)>>4;z++)rooms.computeIfAbsent(net.minecraft.world.level.ChunkPos.asLong(x,z),k->new HashSet<>()).add(id);}
  public CompoundTag standalone(UUID id,BlockPos p,boolean water){var n=new CompoundTag();n.putLong("Origin",p.asLong());n.putString("Rotation","NONE");n.putBoolean("Spring",water);int[] bounds={p.getX()-10,p.getY(),p.getZ()-10,p.getX()+10,p.getY()+8,p.getZ()+10};n.putIntArray("GuardianBounds",bounds);n.putIntArray("ArenaBounds",bounds);n.putLong("SpawnAnchor",p.asLong());n.putLong("Pedestal",p.asLong());ensure(id,n);var result=row(id);result.putBoolean("Standalone",true);result.putUUID("Boss",id);stage(id,"READY");return result;}
  public String stage(UUID id){return row(id).getString("Stage");}
+ /** The existing sanctuary flags also unlock legacy rooms; never reset combat or claims. */
+ public boolean unlock(UUID id,SanctuaryRecords sanctuary){var n=row(id);if(!n.contains("Origin")||n.getBoolean("Standalone")||!stage(id).equals("SEALED"))return false;boolean ready=n.getBoolean("Spring")?sanctuary.cleansed(id):sanctuary.restored(id);if(!ready)return false;stage(id,"READY");n.putString("RelicDoorState","OPEN");sanctuary.row(id).putString("RelicDoorState","OPEN_194");sanctuary.setDirty();return true;}
  public void stage(UUID id,String stage){row(id).putString("Stage",stage);setDirty();}
  public void participate(UUID instance,UUID player){if(player==null)return;part(row(instance),"Participants").putBoolean(player.toString(),true);setDirty();}
  public boolean claimed(UUID player,boolean spring){return part(part(root,"Claims"),player.toString()).getBoolean(spring?"Water":"Fire");}
+ public boolean rewardAvailable(UUID instance){var n=row(instance);return n.contains("Origin")&&!n.getBoolean("Standalone")&&n.getString("Stage").equals("CLEARED");}
  public synchronized boolean claim(ServerPlayer p,UUID instance){
-  var n=row(instance);if(n.getBoolean("Standalone")||!n.getString("Stage").equals("CLEARED")||p.isSpectator()||!p.isAlive())return false;
+  var n=row(instance);if(!rewardAvailable(instance)||p.isSpectator()||!p.isAlive())return false;
   boolean spring=n.getBoolean("Spring");String key=spring?"Water":"Fire";var receipt=part(org.slavicmyths.rpg.PathData.data(p),"Guardian194Claims");
   if(claimed(p.getUUID(),spring)||receipt.getBoolean(key)){part(part(root,"Claims"),p.getUUID().toString()).putBoolean(key,true);setDirty();p.displayClientMessage(GuardianContent.text("already_claimed"),true);return false;}
   if(p.getInventory().getFreeSlot()<0){p.displayClientMessage(GuardianContent.text("inventory_full"),true);return false;}

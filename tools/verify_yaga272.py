@@ -5,6 +5,8 @@ import json
 import subprocess
 import zipfile
 from yaga272_strings import TEXT
+from verify_rituals273 import OWNED as RITUALS273
+from rituals273_text import expected as rituals273_text
 from verify_performance274 import OWNED as PERFORMANCE274, scope as performance274_scope
 
 R=Path(__file__).resolve().parents[1]
@@ -26,7 +28,7 @@ def scope():
     tracked=subprocess.check_output(['git','diff',BASE,'--name-only','--','src/main'],cwd=R,text=True).splitlines()
     untracked=subprocess.check_output(['git','ls-files','--others','--exclude-standard','src/main'],cwd=R,text=True).splitlines()
     for path in tracked+untracked:
-        if path.startswith(J) and path[len(J):] in OWNED+PERFORMANCE274:continue
+        if path.startswith(J) and path[len(J):] in OWNED+PERFORMANCE274+RITUALS273:continue
         if path.startswith('src/main/resources/') and path[len('src/main/resources/'):] in RESOURCES:continue
         raise AssertionError(('unowned production change',path))
     # Existing entities keep combat/AI/loot byte-for-byte apart from the reviewed death credit lines.
@@ -51,8 +53,9 @@ def scope():
     for lang,index in [('ru_ru',0),('en_us',1)]:
         path=f'src/main/resources/assets/slavicmyths/lang/{lang}.json'
         old=json.loads(before(path));new=json.loads((R/path).read_text(encoding='utf-8'))
-        assert all(new.get(k)==v for k,v in old.items()),'old strings changed'
-        assert set(new)-set(old)=={'yaga.search.'+k for k in TEXT}
+        allowed=rituals273_text(old,index)
+        assert all(new.get(k)==v for k,v in old.items() if k not in allowed),'old strings changed'
+        assert set(new)-set(old)=={'yaga.search.'+k for k in TEXT}|(set(allowed)-set(old))
         for key,pair in TEXT.items():assert new['yaga.search.'+key]==pair[index]
     path='src/main/resources/slavicmyths.work.mixins.json'
     old=json.loads(before(path));new=json.loads((R/path).read_text());new['mixins'].remove('YagaGameModeMixin');assert old==new

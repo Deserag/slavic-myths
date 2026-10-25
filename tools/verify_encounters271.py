@@ -1,3 +1,4 @@
+from verify_rituals273 import OWNED as RITUALS273
 """Scope and packaged-byte receipts; native behavioral checks are in the opt-in JVM fixture."""
 from pathlib import Path
 import subprocess,json,zipfile,hashlib
@@ -8,7 +9,7 @@ R=Path(__file__).resolve().parents[1];BASE='cecaa4b2';J='src/main/java/org/slavi
 OWNED=['firebird/FirebirdEncounter.java','hunt/HuntSpawns.java','sivka/SivkaContent.java','sivka/FirstSivkaProgress.java','sivka/SivkaExploration.java','wolf/WolfEncounter.java','wolf/EncounterRetryCache.java','world/EncounterPlacement.java']
 def source(p):return (R/J/p).read_text(encoding='utf-8')
 changed=subprocess.check_output(['git','diff',BASE,'--name-only','--','src/main/java'],cwd=R,text=True).splitlines()
-assert set(changed)<=set(J+p for p in OWNED+STRUCTURES275+YAGA272+PERFORMANCE274),changed
+assert set(changed)<=set(J+p for p in OWNED+STRUCTURES275+YAGA272+PERFORMANCE274+RITUALS273),changed
 yaga272_scope()  # Explicit later package owns death credit and Yaga book updates.
 # #275 owns BayunFeature now; its actual transaction is covered by the #275 native fixture.
 for p in ['hunt/WorldBoss.java','hunt/BossAnchors.java','hunt/BossRules.java','mor/MorController.java','mor/MorRules.java','mor/MorEvents.java','firebird/FirebirdEntity.java','firebird/FirebirdRules.java','yaga/YagaDiscovery.java','navya/NavyaSpawns.java']:

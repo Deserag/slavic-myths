@@ -177,6 +177,9 @@ def language():
  old=json.loads(tag.read_text(encoding='utf-8')) if tag.exists() else {'replace':False,'values':[]}
  if 'slavicmyths:guardian_fire' not in old['values']:old['values'].append('slavicmyths:guardian_fire')
  write(tag,old)
+ from rituals273_text import apply as apply_rituals273
+ apply_rituals273()
+
 def main():
  from guardian_spawn_assets import generate
  generate()

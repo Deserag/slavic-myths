@@ -1,0 +1,34 @@
+verify_rituals273.py exit=0
+warning: in the working copy of 'src/main/java/org/slavicmyths/guardians/GuardianLedger.java', LF will be replaced by CRLF the next time Git touches it
+PASS real marker/table/recipe/interaction/reward graph; actual drops and MP NOT_RUN
+RITUALS273_SOURCE_JAR_PASS 273767789fb6555f16c485bf64bc2cf37627787f1ca50255d820bbe36660182c GAMEPLAY_NOT_RUN
+
+verify_performance274.py exit=0
+warning: in the working copy of 'src/main/java/org/slavicmyths/guardians/GuardianLedger.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/org/slavicmyths/guardians/GuardianLedger.java', LF will be replaced by CRLF the next time Git touches it
+PASS #274 scope/preserved other production files/JAR; GAMEPLAY_NOT_RUN 273767789fb6555f16c485bf64bc2cf37627787f1ca50255d820bbe36660182c
+
+verify_structures275.py exit=0
+warning: in the working copy of 'src/main/java/org/slavicmyths/guardians/GuardianLedger.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/org/slavicmyths/guardians/GuardianLedger.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/org/slavicmyths/guardians/GuardianLedger.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/org/slavicmyths/guardians/GuardianLedger.java', LF will be replaced by CRLF the next time Git touches it
+PASS #275 source scope/preservation/JAR; GAMEPLAY_NOT_RUN; SHA256 273767789fb6555f16c485bf64bc2cf37627787f1ca50255d820bbe36660182c
+
+verify_encounters271.py exit=0
+warning: in the working copy of 'src/main/java/org/slavicmyths/guardians/GuardianLedger.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/org/slavicmyths/guardians/GuardianLedger.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/org/slavicmyths/guardians/GuardianLedger.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/org/slavicmyths/guardians/GuardianLedger.java', LF will be replaced by CRLF the next time Git touches it
+PASS #271 source scope/preservation and production JAR; GAMEPLAY_NOT_RUN; SHA256 273767789fb6555f16c485bf64bc2cf37627787f1ca50255d820bbe36660182c
+
+verify_yaga272.py exit=0
+warning: in the working copy of 'src/main/java/org/slavicmyths/guardians/GuardianLedger.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/org/slavicmyths/guardians/GuardianLedger.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/org/slavicmyths/guardians/GuardianLedger.java', LF will be replaced by CRLF the next time Git touches it
+YAGA272_SOURCE_JAR_PASS 273767789fb6555f16c485bf64bc2cf37627787f1ca50255d820bbe36660182c GAMEPLAY_NOT_RUN
+
+verify_resources.py exit=0
+PASS current NeoForge resources: {"scope": "CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted", "version": "2.0.1-HELL", "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.1-HELL.jar", "sha256": "273767789fb6555f16c485bf64bc2cf37627787f1ca50255d820bbe36660182c", "resources": 8001, "json": 4402, "png": 1443, "models": 1886, "java21_classes": 1942, "runtime_launches": 0, "runtime": "NOT_RUN / OWNER_PENDING"}
+
+Scoped RU/EN text generator: two applications, changed bytes0, PASS

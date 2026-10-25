@@ -1,0 +1,38 @@
+{
+  "baseline": "feccd53167d5d4de1368a6636106d3494725fa35",
+  "branch": "hell",
+  "version": "2.0.1-HELL",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.1-HELL.jar",
+  "sha256": "273767789fb6555f16c485bf64bc2cf37627787f1ca50255d820bbe36660182c",
+  "production_sources": {
+    "src/main/java/org/slavicmyths/sanctuary/SanctuaryHeart.java": "b67965d33b3968e7d60b22b448165a05667b87119964a30c152a9620d847f1bd",
+    "src/main/java/org/slavicmyths/sanctuary/SanctuaryRecords.java": "876c91130c22b0d583cfabc0b37644d8d7935c4691bd3a424a0176d145dd3b99",
+    "src/main/java/org/slavicmyths/sanctuary/SanctuaryDecor.java": "4443c642647ef3c01bbf16472b49de4aaced4cb94628c42ac990da3e668ae9b8",
+    "src/main/java/org/slavicmyths/guardians/GuardianWorld.java": "2d767a6296773a9bd2a01d9292d3f0097509c4b5dcb5fd88374e70f7c720d9a2",
+    "src/main/java/org/slavicmyths/guardians/GuardianLedger.java": "69ec9504c7595a03090766e7f5e97fe1fd799b840da7cd31e028d8a15dd79cca"
+  },
+  "minecraft_launches": 0,
+  "runtime": "NOT_RUN",
+  "polymc": "POLYMC_NOT_INSTALLED",
+  "issue": "OPEN / IN_PROGRESS / OWNER_PENDING",
+  "build": "PASS Java21 clean build 3m14s; max-workers1/heap1536m/ActiveProcessorCount2",
+  "offline": {
+    "rituals273": 201,
+    "suites273": 3,
+    "performance274": 90701,
+    "structures275": 99852,
+    "encounters271": 39253,
+    "histories271": 2000000,
+    "yaga272": 76,
+    "total_native_checks": 230083
+  },
+  "resources": {
+    "total": 8001,
+    "json": 4402,
+    "png": 1443,
+    "models": 1886,
+    "java21_classes": 1942
+  },
+  "project_status": "В работе",
+  "main_before": "26e73424f16ae703e9a9b75fe432731663d30e05"
+}

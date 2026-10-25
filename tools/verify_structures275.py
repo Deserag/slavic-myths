@@ -1,3 +1,4 @@
+from verify_rituals273 import OWNED as RITUALS273
 """#275 ownership/preservation/JAR receipt. Does not assert live structure generation."""
 from pathlib import Path
 import subprocess,json,hashlib,zipfile
@@ -9,7 +10,7 @@ def source(p):return (R/J/p).read_text(encoding='utf-8')
 def before(p):return subprocess.check_output(['git','show',BASE+':'+J+p],cwd=R).decode('utf-8').replace('\r\n','\n')
 def main():
     changed=subprocess.check_output(['git','diff',BASE,'--name-only','--','src/main/java'],cwd=R,text=True).splitlines()
-    assert set(changed)<=set(J+p for p in OWNED+YAGA272+PERFORMANCE274),changed
+    assert set(changed)<=set(J+p for p in OWNED+YAGA272+PERFORMANCE274+RITUALS273),changed
     yaga272_scope()  # Explicit #272 transfer; all #275 geometry/resources still pinned to 0072c2f7.
     preserved=['firebird/FirebirdEncounter.java','firebird/FirebirdRules.java','hunt/HuntSpawns.java','sivka/SivkaContent.java','sivka/FirstSivkaProgress.java','sivka/SivkaExploration.java','wolf/WolfEncounter.java','wolf/EncounterRetryCache.java','world/EncounterPlacement.java','yaga/YagaDiscovery.java','yaga/YagaData.java','yaga/YagaServices.java','chud/ChudSimplePlacement.java','chud/ChudPlacement.java','chud/ChudTerrainPolicy.java','worldgen/LargeSiteJobs.java','navya/NavyaHeartPiece.java']
     for p in preserved:

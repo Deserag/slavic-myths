@@ -359,6 +359,9 @@ def language():
   merge(A/f'lang/{locale}.json',out)
  for k,v in tales.items():write(D/f'tales/{k}.json',{'part':'creatures','chapter':'legends','section':'inhabitants','title':'tales.entry.'+k+'.title','icon':'slavicmyths:'+('sacred_ember' if k.startswith('sanctuary') else 'pure_spring_drop' if k.startswith('abode') else 'ancient_rune_fragment'),'initial':0,'subjects':['structure/slavicmyths:'+k] if k!='two_sanctuaries' else [],'advancements':['slavicmyths:'+('found_two_sanctuaries' if k=='two_sanctuaries' else 'found_ancient_sanctuary')],'links':[]})
  for k,v in advancements.items():write(D/f'advancement/{k}.json',{'parent':'slavicmyths:root','display':{'icon':{'id':'slavicmyths:'+('sacred_ember' if k.endswith('fire') else 'pure_spring_drop' if k.endswith('pool') else 'ancient_rune_fragment')},'title':{'translate':'advancement.slavicmyths.'+k},'description':{'translate':'advancement.slavicmyths.'+k+'.desc'},'frame':'goal' if 'two' in k else 'task','show_toast':True,'announce_to_chat':True,'hidden':False},'criteria':{'event':{'trigger':'minecraft:impossible'}}})
+ from rituals273_text import apply as apply_rituals273
+ apply_rituals273()
+
 def main():
  O.mkdir(parents=True,exist_ok=True);spec=R/'docs/specs/1.9.3';rows=[re.match(r'([a-f0-9]{64})  (.+)',s) for s in (spec/'00_START_HERE/04_SHA256_MANIFEST.txt').read_text(encoding='utf-8').splitlines()];rows=[m for m in rows if m];assert rows and all(hashlib.sha256((spec/m[2]).read_bytes()).hexdigest()==m[1] for m in rows)
  layouts=[fire().save(),spring().save()];icons();block_assets();loot();recipes();worldgen();audio();language();print('SANCTUARY_ASSETS_PASS',len(rows),'spec files;',sum(len(l['tiles']) for l in layouts),'native tiles;',sum(l['blocks'] for l in layouts),'authored blocks')
