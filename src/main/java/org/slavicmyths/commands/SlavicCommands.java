@@ -48,6 +48,7 @@ public final class SlavicCommands {
   org.slavicmyths.water.RusalkaPreviewCommand.register(tree);
   org.slavicmyths.wolf.WolfCommands.register(tree);
   org.slavicmyths.wood.WoodlandCommands.register(tree);
+  org.slavicmyths.navya.NavyaCommands.register(tree);
   org.slavicmyths.worldgen.ManualStructureCommands.register(tree);
   org.slavicmyths.yaga.YagaCommands.register(tree);
   return tree;

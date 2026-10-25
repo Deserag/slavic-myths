@@ -47,6 +47,12 @@
     "slavicmyths:mor_sandstone",
     "slavicmyths:mor_obsidian",
     "slavicmyths:mor_stone_bricks",
-    "slavicmyths:silver_block"
+    "slavicmyths:silver_block",
+    "slavicmyths:navya_stone",
+    "slavicmyths:cracked_navya_stone",
+    "slavicmyths:grove_bone_block",
+    "slavicmyths:grove_bone_column",
+    "slavicmyths:grove_bone_spike",
+    "slavicmyths:rooted_navya_stone"
   ]
 }

@@ -1,0 +1,38 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources
+> Task :classes
+> Task :compileHellOfflineJava UP-TO-DATE
+> Task :processHellOfflineResources NO-SOURCE
+> Task :hellOfflineClasses UP-TO-DATE
+
+> Task :sampleHellOffline
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+candidate seed=0 x=0 z=0 open48=4096 maxGap=158
+candidate seed=0 x=1024 z=-1024 open48=4096 maxGap=154
+candidate seed=0 x=-2048 z=1536 open48=4096 maxGap=148
+candidate seed=0 x=4096 z=3072 open48=4096 maxGap=154
+candidate seed=1 x=0 z=0 open48=4096 maxGap=159
+candidate seed=1 x=1024 z=-1024 open48=4096 maxGap=155
+candidate seed=1 x=-2048 z=1536 open48=4096 maxGap=154
+candidate seed=1 x=4096 z=3072 open48=4096 maxGap=148
+candidate seed=-8675309 x=0 z=0 open48=4096 maxGap=128
+candidate seed=-8675309 x=1024 z=-1024 open48=4096 maxGap=155
+candidate seed=-8675309 x=-2048 z=1536 open48=4096 maxGap=156
+candidate seed=-8675309 x=4096 z=3072 open48=4096 maxGap=152
+candidate seed=20261024 x=0 z=0 open48=4096 maxGap=150
+candidate seed=20261024 x=1024 z=-1024 open48=4096 maxGap=157
+candidate seed=20261024 x=-2048 z=1536 open48=4096 maxGap=140
+candidate seed=20261024 x=4096 z=3072 open48=4096 maxGap=140
+candidate seed=987654321 x=0 z=0 open48=4096 maxGap=152
+candidate seed=987654321 x=1024 z=-1024 open48=4096 maxGap=162
+candidate seed=987654321 x=-2048 z=1536 open48=3417 maxGap=138
+candidate seed=987654321 x=4096 z=3072 open48=4096 maxGap=121
+Native base-column sample complete: docs\implementation\hell-patch1\candidate-columns.json. Surface/features/structures/portals/MSPT NOT_RUN; game/server launches 0.
+
+BUILD SUCCESSFUL in 59s
+6 actionable tasks: 3 executed, 3 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

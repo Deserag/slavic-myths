@@ -1,0 +1,448 @@
+{
+  "scope": "Native base columns, no surfaces/features/structures/worlds",
+  "seeds": 5,
+  "regionsPerSeed": 4,
+  "columnsPerVariant": 81920,
+  "regionsWithMore48BlockAirColumns": 20,
+  "regionsWithLargerBaseGroundComponent": 13,
+  "totals": {
+    "vanilla": {
+      "airBlocks": 3284046,
+      "lavaBlocks": 315184,
+      "columnsWith48Air": 21029,
+      "seaSurfaceColumnsY31": 32750,
+      "meanLargestBaseGroundComponentStep1": 1889.9,
+      "rawNativeColumnMillis": 5830.0992
+    },
+    "hell": {
+      "airBlocks": 11272745,
+      "lavaBlocks": 442241,
+      "columnsWith48Air": 81241,
+      "seaSurfaceColumnsY31": 26407,
+      "meanLargestBaseGroundComponentStep1": 2689.35,
+      "rawNativeColumnMillis": 10998.65
+    }
+  },
+  "regions": [
+    {
+      "seed": 0,
+      "x": 0,
+      "z": 0,
+      "columnsWith48Air": {
+        "vanilla": 0,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 47,
+        "hell": 158
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 56,
+        "hell": 107
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 2164,
+        "hell": 3904
+      }
+    },
+    {
+      "seed": 0,
+      "x": 1024,
+      "z": -1024,
+      "columnsWith48Air": {
+        "vanilla": 482,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 77,
+        "hell": 154
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 3322,
+        "hell": 4096
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 3107,
+        "hell": 0
+      }
+    },
+    {
+      "seed": 0,
+      "x": -2048,
+      "z": 1536,
+      "columnsWith48Air": {
+        "vanilla": 402,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 60,
+        "hell": 148
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 2332,
+        "hell": 0
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 605,
+        "hell": 4096
+      }
+    },
+    {
+      "seed": 0,
+      "x": 4096,
+      "z": 3072,
+      "columnsWith48Air": {
+        "vanilla": 113,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 60,
+        "hell": 154
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 377,
+        "hell": 2128
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 3465,
+        "hell": 1512
+      }
+    },
+    {
+      "seed": 1,
+      "x": 0,
+      "z": 0,
+      "columnsWith48Air": {
+        "vanilla": 2289,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 76,
+        "hell": 159
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 2012,
+        "hell": 4096
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 1043,
+        "hell": 0
+      }
+    },
+    {
+      "seed": 1,
+      "x": 1024,
+      "z": -1024,
+      "columnsWith48Air": {
+        "vanilla": 274,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 74,
+        "hell": 155
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 2752,
+        "hell": 0
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 468,
+        "hell": 4096
+      }
+    },
+    {
+      "seed": 1,
+      "x": -2048,
+      "z": 1536,
+      "columnsWith48Air": {
+        "vanilla": 2830,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 74,
+        "hell": 154
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 826,
+        "hell": 14
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 3181,
+        "hell": 4024
+      }
+    },
+    {
+      "seed": 1,
+      "x": 4096,
+      "z": 3072,
+      "columnsWith48Air": {
+        "vanilla": 2341,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 82,
+        "hell": 148
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 3023,
+        "hell": 0
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 893,
+        "hell": 4096
+      }
+    },
+    {
+      "seed": -8675309,
+      "x": 0,
+      "z": 0,
+      "columnsWith48Air": {
+        "vanilla": 268,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 57,
+        "hell": 128
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 171,
+        "hell": 0
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 3245,
+        "hell": 4096
+      }
+    },
+    {
+      "seed": -8675309,
+      "x": 1024,
+      "z": -1024,
+      "columnsWith48Air": {
+        "vanilla": 1819,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 75,
+        "hell": 155
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 4054,
+        "hell": 3741
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 625,
+        "hell": 115
+      }
+    },
+    {
+      "seed": -8675309,
+      "x": -2048,
+      "z": 1536,
+      "columnsWith48Air": {
+        "vanilla": 1004,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 73,
+        "hell": 156
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 1412,
+        "hell": 4096
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 2321,
+        "hell": 0
+      }
+    },
+    {
+      "seed": -8675309,
+      "x": 4096,
+      "z": 3072,
+      "columnsWith48Air": {
+        "vanilla": 943,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 67,
+        "hell": 152
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 31,
+        "hell": 0
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 1880,
+        "hell": 4096
+      }
+    },
+    {
+      "seed": 20261024,
+      "x": 0,
+      "z": 0,
+      "columnsWith48Air": {
+        "vanilla": 51,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 52,
+        "hell": 150
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 1189,
+        "hell": 0
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 2428,
+        "hell": 4096
+      }
+    },
+    {
+      "seed": 20261024,
+      "x": 1024,
+      "z": -1024,
+      "columnsWith48Air": {
+        "vanilla": 2416,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 81,
+        "hell": 157
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 2459,
+        "hell": 4
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 2110,
+        "hell": 3951
+      }
+    },
+    {
+      "seed": 20261024,
+      "x": -2048,
+      "z": 1536,
+      "columnsWith48Air": {
+        "vanilla": 1940,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 80,
+        "hell": 140
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 3627,
+        "hell": 0
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 2068,
+        "hell": 4096
+      }
+    },
+    {
+      "seed": 20261024,
+      "x": 4096,
+      "z": 3072,
+      "columnsWith48Air": {
+        "vanilla": 0,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 31,
+        "hell": 140
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 5,
+        "hell": 0
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 2366,
+        "hell": 4096
+      }
+    },
+    {
+      "seed": 987654321,
+      "x": 0,
+      "z": 0,
+      "columnsWith48Air": {
+        "vanilla": 2798,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 78,
+        "hell": 152
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 3348,
+        "hell": 4096
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 1413,
+        "hell": 0
+      }
+    },
+    {
+      "seed": 987654321,
+      "x": 1024,
+      "z": -1024,
+      "columnsWith48Air": {
+        "vanilla": 0,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 29,
+        "hell": 162
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 845,
+        "hell": 4029
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 1255,
+        "hell": 0
+      }
+    },
+    {
+      "seed": 987654321,
+      "x": -2048,
+      "z": 1536,
+      "columnsWith48Air": {
+        "vanilla": 1059,
+        "hell": 3417
+      },
+      "maximumAirGap": {
+        "vanilla": 66,
+        "hell": 138
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 909,
+        "hell": 0
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 1732,
+        "hell": 3417
+      }
+    },
+    {
+      "seed": 987654321,
+      "x": 4096,
+      "z": 3072,
+      "columnsWith48Air": {
+        "vanilla": 0,
+        "hell": 4096
+      },
+      "maximumAirGap": {
+        "vanilla": 18,
+        "hell": 121
+      },
+      "seaSurfaceColumnsY31": {
+        "vanilla": 0,
+        "hell": 0
+      },
+      "largestBaseGroundComponentStep1": {
+        "vanilla": 1429,
+        "hell": 4096
+      }
+    }
+  ]
+}

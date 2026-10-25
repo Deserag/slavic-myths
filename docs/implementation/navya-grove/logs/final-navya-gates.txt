@@ -1,0 +1,19 @@
+{
+  "implementedBlocks": 31,
+  "sourceAssetLinks": "PASS",
+  "legacyTranslationsAudioTagsPreserved": "PASS",
+  "inheritedHellProfile": "PASS",
+  "gameLaunches": 0,
+  "nativeRigsAndUVTextureCoverage": 9,
+  "approvedLootTables": "PASS (source contract)",
+  "naturalBiomeAndHeartIntegration": "IMPLEMENTED_SOURCE; runtime NOT_RUN",
+  "requiredRemaining": {
+    "originalChatPNGComparison": "NOT_RUN (originals unavailable in issues)",
+    "FallingTreeAndBiomeRuntime": "NOT_RUN",
+    "combatSaveReloadMultiplayer": "NOT_RUN",
+    "soundHearing": "NOT_RUN",
+    "ownerAcceptance": "NOT_RUN"
+  },
+  "packagedResourceBytes": "PASS",
+  "jarSha256": "cb064337aaa02c278409197263afba0e331bc9964d96601539163c430cdb92c7"
+}

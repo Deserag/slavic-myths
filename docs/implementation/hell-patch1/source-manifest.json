@@ -1,0 +1,16 @@
+{
+  "baseCommit": "275ecaa5345f9b374f83f0829c58df16c0e54546",
+  "branch": "hell",
+  "version": "2.0.0-HELL",
+  "committed": false,
+  "productionDelta": {
+    "gradle.properties": "7ee2bf756d19da89c84eb49c03320e64569e5e875e21f49608c4800c6e5b2c1c",
+    "src/main/resources/data/minecraft/dimension_type/the_nether.json": "3ee6af92fea05223dd448e6ad30edeaa61e0d0c8617c7530381c145572d50f2f",
+    "src/main/resources/data/minecraft/worldgen/noise_settings/nether.json": "0cd94dfc1e234ed3e7168a12a570e562817d35a7e0444802bf97729781aeba41",
+    "src/main/resources/data/minecraft/worldgen/placed_feature/ore_debris_small.json": "93e42cdf0c9fc1afa6b4d8a316284320237f0de6688ec0ffb6d3c7a6dcc13fd8",
+    "src/main/resources/data/minecraft/worldgen/placed_feature/ore_gold_deltas.json": "a6f5d564c185c778bdcd4addb8fac15d6bcb9ad2f401be84627ac9921a0ee3a3",
+    "src/main/resources/data/minecraft/worldgen/placed_feature/ore_gold_nether.json": "4be0910d982777799ee9c9d916addca6bcd68e35f261d091afb72a612db32e91",
+    "src/main/resources/data/minecraft/worldgen/placed_feature/ore_quartz_deltas.json": "2905df2fd7bf92e651c85faead3eea9f1a62d96cdef95705ce14a118e49d6551",
+    "src/main/resources/data/minecraft/worldgen/placed_feature/ore_quartz_nether.json": "967bab0e2332d7fc58f1a9e09e7770994ebf61613a8c1dd94040fafa356f5226"
+  }
+}

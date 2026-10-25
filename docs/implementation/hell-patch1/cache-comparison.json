@@ -1,0 +1,6 @@
+{
+  "geometry": "PASS: all native samples and metrics identical in 20 regions",
+  "uncachedNativeColumnMillis": 20137.3684,
+  "cachedNativeColumnMillis": 10998.65,
+  "fullChunkGenerationAndMSPT": "NOT_RUN"
+}

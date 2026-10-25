@@ -1,3 +1,13 @@
+## 25.10.2026 — Навья роща #251–#257: IN_PROGRESS, исходники и JAR
+
+В отдельной ветке `hell` реализованы31 inventory block, одна порода/флора/три формы деревьев, четыре существа и Сторож с собственными ModelPart/UV/PNG/анимациями; утверждённый владельцем лут,35 vanilla sound aliases. Последним подключён новый biome/геология/три яруса/редкое Сердце/спавн. Java21 clean build и source/JAR gates PASS; native climate/profile5seed и source renders не являются игровыми тестами. Запусков0; runtime/прохождение/баланс/точное сравнение с недоступными оригинальными PNG/прослушивание/приёмка NOT_RUN. Все семь карточек фактически «В работе», Issues OPEN. PolyMC не изменён, POLYMC_NOT_INSTALLED; commit/push нет. [Матрица и доказательства](implementation/navya-grove/REPORT.md).
+
+Common `navya` owns registries/AI/local features/structure serialization; `navya.client` only through Dist.CLIENT subscriber owns native rigs/UV/poses/renderers. `NavyaTiming` shares server windup with client pose; action/gameTime/phase synced only on state changes. NetherParametersMixin extends only vanilla Nether climate preset. No serverwide polling/retro-generation. Scoped generators: navya_assets/audio/loot/worldgen/entity_assets; verify_navya checks legacy preservation, native UV coverage and packaged bytes.
+
+## 24.10.2026 — HELL, профиль vanilla Nether 224 (IN_PROGRESS)
+
+В отдельной ветке `hell` ресурсные overrides сохраняют dimension height256/minY0 и меняют logical_height224/noise.height224. Нативные density functions формируют нижний рельеф и высокий неровный свод; biome climate/surface rules остаются vanilla. Пять ore placements фиксируют прежние абсолютные максимумы Y после изменения relative top. Tick callbacks, миграция чанков, новые registry IDs/биомы/структуры отсутствуют. Возможны швы с прежней крышей Y127; native column sampling не заменяет surface/features/structure/portal/save/MSPT QA. Игровых запусков0, PolyMC не изменён, карточки #243/#244/#246/#247/#248 «В работе». [Профиль, источники, матрица](implementation/hell-patch1/REPORT.md). Java21 clean build47s/7747packaged resources PASS; JAR SHA348473ec…5a48374. Полные результаты в отчёте.
+
 ## 24.10.2026 — документация и очистка без смены 1.9.7.66
 
 README ветки release и MOD_CONTENT описывают существующие механики; каталог и управление актуализированы. Игровой Java-код и ресурсы совпадают с принятой 1.9.7.66; По последнему поручению версия сохранена, PolyMC и запущенная игра не изменяются. Старые ветки удаляются только при сохранности коммитов, локальные QA-артефакты очищаются отдельно от пользовательских данных. Игровых запусков в этой итерации нет.

@@ -34,6 +34,11 @@ public final class SlavicMyths {
         org.slavicmyths.village.VillageFoundation.init(bus);
         org.slavicmyths.kitchen.KitchenRecipe.SERIALIZER.getId();
         org.slavicmyths.wood.Woodlands.init();
+        org.slavicmyths.navya.NavyaBlocks.init();
+        org.slavicmyths.navya.NavyaFeatures.init();
+        org.slavicmyths.navya.NavyaContent.init(bus);
+        org.slavicmyths.navya.NavyaWorldgen.init();
+        bus.addListener(org.slavicmyths.navya.NavyaSpawns::register);
         org.slavicmyths.furniture.Furniture.init();
         org.slavicmyths.trophy.TrophyHeads.init();
         org.slavicmyths.accessories.Accessories.init();

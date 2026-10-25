@@ -48,3 +48,5 @@ config="slavicmyths.physiology.mixins.json"
 
 [[mixins]]
 config="slavicmyths.rune_glow.mixins.json"
+[[mixins]]
+config="slavicmyths.navya.mixins.json"

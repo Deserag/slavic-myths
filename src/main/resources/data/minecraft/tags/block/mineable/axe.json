@@ -47,6 +47,21 @@
     "slavicmyths:stripped_apple_wood",
     "slavicmyths:wall_carving",
     "slavicmyths:wall_shelf",
-    "slavicmyths:wooden_barrel"
+    "slavicmyths:wooden_barrel",
+    "slavicmyths:navya_log",
+    "slavicmyths:navya_wood",
+    "slavicmyths:stripped_navya_log",
+    "slavicmyths:stripped_navya_wood",
+    "slavicmyths:navya_planks",
+    "slavicmyths:navya_stairs",
+    "slavicmyths:navya_slab",
+    "slavicmyths:navya_fence",
+    "slavicmyths:navya_fence_gate",
+    "slavicmyths:navya_door",
+    "slavicmyths:navya_trapdoor",
+    "slavicmyths:navya_button",
+    "slavicmyths:navya_pressure_plate",
+    "slavicmyths:navya_sign",
+    "slavicmyths:navya_hanging_sign"
   ]
 }

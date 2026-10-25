@@ -1,0 +1,1 @@
+Tree topology PASS: 1500 plans, all face-connected; logs small=15..19, normal=31..41, giant=85..93; maxSize100/maxScan500. Actual FallingTree gameplay NOT_RUN.

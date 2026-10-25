@@ -8486,5 +8486,355 @@
         "attenuation_distance": 32
       }
     ]
+  },
+  "navya.navka.idle": {
+    "subtitle": "subtitles.slavicmyths.navya.navka.idle",
+    "sounds": [
+      {
+        "name": "minecraft:particle.soul_escape",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.navka.hurt": {
+    "subtitle": "subtitles.slavicmyths.navya.navka.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.allay.hurt",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.navka.death": {
+    "subtitle": "subtitles.slavicmyths.navya.navka.death",
+    "sounds": [
+      {
+        "name": "minecraft:block.soul_sand.break",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.navka.warn": {
+    "subtitle": "subtitles.slavicmyths.navya.navka.warn",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.prepare_attack",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.navka.strike": {
+    "subtitle": "subtitles.slavicmyths.navya.navka.strike",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.cast_spell",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.rootling.idle": {
+    "subtitle": "subtitles.slavicmyths.navya.rootling.idle",
+    "sounds": [
+      {
+        "name": "minecraft:block.nether_wood.place",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.rootling.hurt": {
+    "subtitle": "subtitles.slavicmyths.navya.rootling.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:block.cherry_wood.break",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.rootling.death": {
+    "subtitle": "subtitles.slavicmyths.navya.rootling.death",
+    "sounds": [
+      {
+        "name": "minecraft:block.mangrove_roots.break",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.rootling.step": {
+    "subtitle": "subtitles.slavicmyths.navya.rootling.step",
+    "sounds": [
+      {
+        "name": "minecraft:block.mangrove_roots.step",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.rootling.warn": {
+    "subtitle": "subtitles.slavicmyths.navya.rootling.warn",
+    "sounds": [
+      {
+        "name": "minecraft:block.rooted_dirt.break",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.rootling.strike": {
+    "subtitle": "subtitles.slavicmyths.navya.rootling.strike",
+    "sounds": [
+      {
+        "name": "minecraft:block.wood.break",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.bone_crawler.idle": {
+    "subtitle": "subtitles.slavicmyths.navya.bone_crawler.idle",
+    "sounds": [
+      {
+        "name": "minecraft:entity.skeleton.ambient",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.bone_crawler.hurt": {
+    "subtitle": "subtitles.slavicmyths.navya.bone_crawler.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.skeleton.hurt",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.bone_crawler.death": {
+    "subtitle": "subtitles.slavicmyths.navya.bone_crawler.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.skeleton.death",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.bone_crawler.step": {
+    "subtitle": "subtitles.slavicmyths.navya.bone_crawler.step",
+    "sounds": [
+      {
+        "name": "minecraft:entity.skeleton.step",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.bone_crawler.warn": {
+    "subtitle": "subtitles.slavicmyths.navya.bone_crawler.warn",
+    "sounds": [
+      {
+        "name": "minecraft:item.crossbow.loading_middle",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.bone_crawler.strike": {
+    "subtitle": "subtitles.slavicmyths.navya.bone_crawler.strike",
+    "sounds": [
+      {
+        "name": "minecraft:entity.skeleton.shoot",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.navya_wisp.idle": {
+    "subtitle": "subtitles.slavicmyths.navya.navya_wisp.idle",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_block.chime",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.navya_wisp.hurt": {
+    "subtitle": "subtitles.slavicmyths.navya.navya_wisp.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:block.small_amethyst_bud.break",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.navya_wisp.death": {
+    "subtitle": "subtitles.slavicmyths.navya.navya_wisp.death",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_cluster.break",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.grove_guardian.idle": {
+    "subtitle": "subtitles.slavicmyths.navya.grove_guardian.idle",
+    "sounds": [
+      {
+        "name": "minecraft:block.mangrove_roots.place",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.grove_guardian.hurt": {
+    "subtitle": "subtitles.slavicmyths.navya.grove_guardian.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:block.bone_block.break",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.grove_guardian.death": {
+    "subtitle": "subtitles.slavicmyths.navya.grove_guardian.death",
+    "sounds": [
+      {
+        "name": "minecraft:block.nether_wood.break",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.grove_guardian.step": {
+    "subtitle": "subtitles.slavicmyths.navya.grove_guardian.step",
+    "sounds": [
+      {
+        "name": "minecraft:block.nether_wood.step",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.grove_guardian.warn": {
+    "subtitle": "subtitles.slavicmyths.navya.grove_guardian.warn",
+    "sounds": [
+      {
+        "name": "minecraft:block.nether_wood.place",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.grove_guardian.strike": {
+    "subtitle": "subtitles.slavicmyths.navya.grove_guardian.strike",
+    "sounds": [
+      {
+        "name": "minecraft:block.bone_block.fall",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.roots_warn": {
+    "subtitle": "subtitles.slavicmyths.navya.roots_warn",
+    "sounds": [
+      {
+        "name": "minecraft:block.rooted_dirt.hit",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.roots_rise": {
+    "subtitle": "subtitles.slavicmyths.navya.roots_rise",
+    "sounds": [
+      {
+        "name": "minecraft:block.mangrove_roots.break",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.roots_recede": {
+    "subtitle": "subtitles.slavicmyths.navya.roots_recede",
+    "sounds": [
+      {
+        "name": "minecraft:block.rooted_dirt.break",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.shot_hit": {
+    "subtitle": "subtitles.slavicmyths.navya.shot_hit",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_cluster.hit",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.trunk_lift": {
+    "subtitle": "subtitles.slavicmyths.navya.trunk_lift",
+    "sounds": [
+      {
+        "name": "minecraft:block.nether_wood.place",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.trunk_throw": {
+    "subtitle": "subtitles.slavicmyths.navya.trunk_throw",
+    "sounds": [
+      {
+        "name": "minecraft:entity.breeze.shoot",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.trunk_hit": {
+    "subtitle": "subtitles.slavicmyths.navya.trunk_hit",
+    "sounds": [
+      {
+        "name": "minecraft:block.nether_wood.break",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.summon": {
+    "subtitle": "subtitles.slavicmyths.navya.summon",
+    "sounds": [
+      {
+        "name": "minecraft:block.mangrove_roots.place",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
+  },
+  "navya.phase": {
+    "subtitle": "subtitles.slavicmyths.navya.phase",
+    "sounds": [
+      {
+        "name": "minecraft:block.bone_block.break",
+        "type": "event",
+        "volume": 1.0
+      }
+    ]
   }
 }

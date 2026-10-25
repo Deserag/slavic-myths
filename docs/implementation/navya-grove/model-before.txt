@@ -1,0 +1,1 @@
+Base 275ecaa5: Navya model package and entity atlas IDs absent. No previous ModelPart/UV exists to render. After frames export actual authored ModelParts at fixed per-model scale and stated action times. These are source renders, not runtime evidence.

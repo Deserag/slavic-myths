@@ -1,0 +1,6 @@
+seed=0 columns=262144 minLower=33 maxUpper=118 maxAdjacentUpperStep=2 upperMiddleJoining=23685 middleLowerJoining=12019
+seed=1 columns=262144 minLower=33 maxUpper=115 maxAdjacentUpperStep=2 upperMiddleJoining=21036 middleLowerJoining=17753
+seed=42 columns=262144 minLower=33 maxUpper=118 maxAdjacentUpperStep=2 upperMiddleJoining=22402 middleLowerJoining=13469
+seed=2432026 columns=262144 minLower=33 maxUpper=118 maxAdjacentUpperStep=2 upperMiddleJoining=22553 middleLowerJoining=10039
+seed=-912734 columns=262144 minLower=33 maxUpper=116 maxAdjacentUpperStep=2 upperMiddleJoining=17952 middleLowerJoining=21849
+PASS pure deterministic profile bounds/floors; actual cave traversal, surface, structures and MSPT NOT_RUN.

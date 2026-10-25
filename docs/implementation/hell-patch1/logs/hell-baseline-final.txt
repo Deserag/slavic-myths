@@ -1,0 +1,38 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources
+> Task :classes
+> Task :compileHellOfflineJava
+> Task :processHellOfflineResources NO-SOURCE
+> Task :hellOfflineClasses
+
+> Task :sampleHellOffline
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+vanilla seed=0 x=0 z=0 open48=0 maxGap=47
+vanilla seed=0 x=1024 z=-1024 open48=482 maxGap=77
+vanilla seed=0 x=-2048 z=1536 open48=402 maxGap=60
+vanilla seed=0 x=4096 z=3072 open48=113 maxGap=60
+vanilla seed=1 x=0 z=0 open48=2289 maxGap=76
+vanilla seed=1 x=1024 z=-1024 open48=274 maxGap=74
+vanilla seed=1 x=-2048 z=1536 open48=2830 maxGap=74
+vanilla seed=1 x=4096 z=3072 open48=2341 maxGap=82
+vanilla seed=-8675309 x=0 z=0 open48=268 maxGap=57
+vanilla seed=-8675309 x=1024 z=-1024 open48=1819 maxGap=75
+vanilla seed=-8675309 x=-2048 z=1536 open48=1004 maxGap=73
+vanilla seed=-8675309 x=4096 z=3072 open48=943 maxGap=67
+vanilla seed=20261024 x=0 z=0 open48=51 maxGap=52
+vanilla seed=20261024 x=1024 z=-1024 open48=2416 maxGap=81
+vanilla seed=20261024 x=-2048 z=1536 open48=1940 maxGap=80
+vanilla seed=20261024 x=4096 z=3072 open48=0 maxGap=31
+vanilla seed=987654321 x=0 z=0 open48=2798 maxGap=78
+vanilla seed=987654321 x=1024 z=-1024 open48=0 maxGap=29
+vanilla seed=987654321 x=-2048 z=1536 open48=1059 maxGap=66
+vanilla seed=987654321 x=4096 z=3072 open48=0 maxGap=18
+Native base-column sample complete: docs\implementation\hell-patch1\vanilla-columns.json. Surface/features/structures/portals/MSPT NOT_RUN; game/server launches 0.
+
+BUILD SUCCESSFUL in 56s
+6 actionable tasks: 4 executed, 2 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

@@ -1,0 +1,822 @@
+{
+  "sources": "Vanilla 1.21.1 sound events, no copied OGG",
+  "hearing": "NOT_RUN",
+  "events": {
+    "navka.idle": "particle.soul_escape",
+    "navka.hurt": "entity.allay.hurt",
+    "navka.death": "block.soul_sand.break",
+    "navka.warn": "entity.evoker.prepare_attack",
+    "navka.strike": "entity.evoker.cast_spell",
+    "rootling.idle": "block.nether_wood.place",
+    "rootling.hurt": "block.cherry_wood.break",
+    "rootling.death": "block.mangrove_roots.break",
+    "rootling.step": "block.mangrove_roots.step",
+    "rootling.warn": "block.rooted_dirt.break",
+    "rootling.strike": "block.wood.break",
+    "bone_crawler.idle": "entity.skeleton.ambient",
+    "bone_crawler.hurt": "entity.skeleton.hurt",
+    "bone_crawler.death": "entity.skeleton.death",
+    "bone_crawler.step": "entity.skeleton.step",
+    "bone_crawler.warn": "item.crossbow.loading_middle",
+    "bone_crawler.strike": "entity.skeleton.shoot",
+    "navya_wisp.idle": "block.amethyst_block.chime",
+    "navya_wisp.hurt": "block.small_amethyst_bud.break",
+    "navya_wisp.death": "block.amethyst_cluster.break",
+    "grove_guardian.idle": "block.mangrove_roots.place",
+    "grove_guardian.hurt": "block.bone_block.break",
+    "grove_guardian.death": "block.nether_wood.break",
+    "grove_guardian.step": "block.nether_wood.step",
+    "grove_guardian.warn": "block.nether_wood.place",
+    "grove_guardian.strike": "block.bone_block.fall",
+    "roots_warn": "block.rooted_dirt.hit",
+    "roots_rise": "block.mangrove_roots.break",
+    "roots_recede": "block.rooted_dirt.break",
+    "shot_hit": "block.amethyst_cluster.hit",
+    "trunk_lift": "block.nether_wood.place",
+    "trunk_throw": "entity.breeze.shoot",
+    "trunk_hit": "block.nether_wood.break",
+    "summon": "block.mangrove_roots.place",
+    "phase": "block.bone_block.break"
+  },
+  "actualVanillaOggSources": {
+    "navka.idle": [
+      {
+        "asset": "minecraft/sounds/enchant/soulspeed/soulspeed1.ogg",
+        "sha1": "b7a10eb7a5b4790de396c3fabdf3ed60c2155cc1"
+      },
+      {
+        "asset": "minecraft/sounds/enchant/soulspeed/soulspeed2.ogg",
+        "sha1": "dea18386186cf549385af87f3dd768cf03fd084e"
+      },
+      {
+        "asset": "minecraft/sounds/enchant/soulspeed/soulspeed3.ogg",
+        "sha1": "e8269fbb811a2b27faf8e76146383db076c87685"
+      },
+      {
+        "asset": "minecraft/sounds/enchant/soulspeed/soulspeed4.ogg",
+        "sha1": "ea7439281fef4cc62b47ef360929a57ec0429af1"
+      },
+      {
+        "asset": "minecraft/sounds/enchant/soulspeed/soulspeed5.ogg",
+        "sha1": "8295545fc25a424563095fbe171123c5ae90fe5c"
+      },
+      {
+        "asset": "minecraft/sounds/enchant/soulspeed/soulspeed6.ogg",
+        "sha1": "4696189415397c951c0ec1656af648fc06d62330"
+      },
+      {
+        "asset": "minecraft/sounds/enchant/soulspeed/soulspeed7.ogg",
+        "sha1": "4c0fdad0f1b2462f5a0defbefd5d859f27e2342a"
+      },
+      {
+        "asset": "minecraft/sounds/enchant/soulspeed/soulspeed8.ogg",
+        "sha1": "d2c8cfdaa72305648c28bbd00a61e1891bb80a18"
+      },
+      {
+        "asset": "minecraft/sounds/enchant/soulspeed/soulspeed9.ogg",
+        "sha1": "b7af765da37a4774fde952d56c9992cf9ead4236"
+      },
+      {
+        "asset": "minecraft/sounds/enchant/soulspeed/soulspeed10.ogg",
+        "sha1": "94e9fe2f2f4f2c8e247f1e2c8af518ce6e453b83"
+      },
+      {
+        "asset": "minecraft/sounds/enchant/soulspeed/soulspeed11.ogg",
+        "sha1": "af6709040b9604112f6e0065ab86eb61073ac5f2"
+      },
+      {
+        "asset": "minecraft/sounds/enchant/soulspeed/soulspeed12.ogg",
+        "sha1": "e0e19b8aef63b93f51623eee40a45f6e14623e4f"
+      },
+      {
+        "asset": "minecraft/sounds/enchant/soulspeed/soulspeed13.ogg",
+        "sha1": "17971c954653dab1e8a3adfb9fe0b6e76501cd82"
+      }
+    ],
+    "navka.hurt": [
+      {
+        "asset": "minecraft/sounds/mob/allay/hurt1.ogg",
+        "sha1": "d2b828c3e293a79503066437b747ab478fcf0182"
+      },
+      {
+        "asset": "minecraft/sounds/mob/allay/hurt2.ogg",
+        "sha1": "ebf587cdec36f56f65d35399254616f13a299e2e"
+      }
+    ],
+    "navka.death": [
+      {
+        "asset": "minecraft/sounds/block/soul_sand/break1.ogg",
+        "sha1": "929a37884fd323fafdd622aba0fb31822c4b937e"
+      },
+      {
+        "asset": "minecraft/sounds/block/soul_sand/break2.ogg",
+        "sha1": "7a37e50b5e9dda4f8fbb539708048602829bdf2e"
+      },
+      {
+        "asset": "minecraft/sounds/block/soul_sand/break3.ogg",
+        "sha1": "f16bb0c16c52f299e5a24a59623cdbf53f981bd8"
+      },
+      {
+        "asset": "minecraft/sounds/block/soul_sand/break4.ogg",
+        "sha1": "f27a55328d5788be68e44971b39882b356650e5f"
+      },
+      {
+        "asset": "minecraft/sounds/block/soul_sand/break5.ogg",
+        "sha1": "7de020ee7a67020160fab449f00a9d268e16f28e"
+      },
+      {
+        "asset": "minecraft/sounds/block/soul_sand/break6.ogg",
+        "sha1": "b268b067c79a2701e82e7c7c7ca11459c4266fe0"
+      },
+      {
+        "asset": "minecraft/sounds/block/soul_sand/break7.ogg",
+        "sha1": "25fd44762080eefc97b3521c345a702e51e6526e"
+      },
+      {
+        "asset": "minecraft/sounds/block/soul_sand/break8.ogg",
+        "sha1": "6481741be0ceaac32c6aa64f6a1db9daa737e02a"
+      },
+      {
+        "asset": "minecraft/sounds/block/soul_sand/break9.ogg",
+        "sha1": "12e09921944cc975b813eee133b0a1537a10eadb"
+      }
+    ],
+    "navka.warn": [
+      {
+        "asset": "minecraft/sounds/mob/evocation_illager/prepare_attack1.ogg",
+        "sha1": "fd879aaac2253fbc2a8995a8bab4b48ec11d0d41"
+      },
+      {
+        "asset": "minecraft/sounds/mob/evocation_illager/prepare_attack2.ogg",
+        "sha1": "fc1a00ef9a40024a4b1ded698c4b772fe970cbef"
+      }
+    ],
+    "navka.strike": [
+      {
+        "asset": "minecraft/sounds/mob/evocation_illager/cast1.ogg",
+        "sha1": "54d3edb3a90389d75f69987bfc678cabc4c87e26"
+      },
+      {
+        "asset": "minecraft/sounds/mob/evocation_illager/cast2.ogg",
+        "sha1": "b273df5c1e0271b2d8b0c65720490f26cc2a7215"
+      }
+    ],
+    "rootling.idle": [
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break1.ogg",
+        "sha1": "b4a699c6cc600bbca6c68fdea990ff1bd0c168c4"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break2.ogg",
+        "sha1": "85be73a6b5906e197d7660c421be70f0d5849eb3"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break3.ogg",
+        "sha1": "bbc7f549a09cb47865e49c0ff411b78d165ebb2e"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break4.ogg",
+        "sha1": "f8e07e6ccd756b4d716cf1f9a56d41ecad1b70a6"
+      }
+    ],
+    "rootling.hurt": [
+      {
+        "asset": "minecraft/sounds/block/cherry_wood/break1.ogg",
+        "sha1": "c1922dedcd1a38ae0b335d6685bf4cf3df1ec5d9"
+      },
+      {
+        "asset": "minecraft/sounds/block/cherry_wood/break2.ogg",
+        "sha1": "46e3718a4a4bba759f372b81bdbfcb407354c1f4"
+      },
+      {
+        "asset": "minecraft/sounds/block/cherry_wood/break3.ogg",
+        "sha1": "3b4d57ebb6fdeba68c0928049ffa5a2a6cf03a30"
+      },
+      {
+        "asset": "minecraft/sounds/block/cherry_wood/break4.ogg",
+        "sha1": "83a533615eb1fe15085cb0b4b9d835ea55406e35"
+      },
+      {
+        "asset": "minecraft/sounds/block/cherry_wood/break5.ogg",
+        "sha1": "8ac864916a37c5bf4e5c927a1182f1576ea7e94a"
+      }
+    ],
+    "rootling.death": [
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break1.ogg",
+        "sha1": "c606cd58f2be3e6b7ef0f3e6aac8f791b10a0e9a"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break2.ogg",
+        "sha1": "ea01016f9450bb6ed016942134ee07e28efcbed5"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break3.ogg",
+        "sha1": "f44762fab6e47b0f4292a50a30d86d3b754a56c9"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break4.ogg",
+        "sha1": "ed4c5881fc14815f2b422469663e866e280047f2"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break5.ogg",
+        "sha1": "6f7648d8ac3ac000a849df5bffe0bee2a601e113"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break6.ogg",
+        "sha1": "f51f515aa19bfdece4112f0d8e9433c1ce39b432"
+      }
+    ],
+    "rootling.step": [
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/step1.ogg",
+        "sha1": "0c95192c14510a54a169bdf4a6d5189f2ddfae7d"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/step2.ogg",
+        "sha1": "b732a50f493bf6e554ebbcb10914843715832ced"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/step3.ogg",
+        "sha1": "70acefd326d60ab8d6172c74a0832a709b3324ca"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/step4.ogg",
+        "sha1": "220ea567d9aa04ba2eacb9615986d4266b62695c"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/step5.ogg",
+        "sha1": "35baf113eadbcc0ff1c8cf0f9c64e955b267c64b"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/step6.ogg",
+        "sha1": "b184830efbd396276be60d5ffea9a5b07957c881"
+      }
+    ],
+    "rootling.warn": [
+      {
+        "asset": "minecraft/sounds/block/rooted_dirt/break1.ogg",
+        "sha1": "12c012b5c97d4369ebb039ee6467ebb797558f59"
+      },
+      {
+        "asset": "minecraft/sounds/block/rooted_dirt/break2.ogg",
+        "sha1": "afac2e36e287781dbb3483f275c140551d892e82"
+      },
+      {
+        "asset": "minecraft/sounds/block/rooted_dirt/break3.ogg",
+        "sha1": "74a040d9a839dd9e4028c808c8cea9e514c063d3"
+      },
+      {
+        "asset": "minecraft/sounds/block/rooted_dirt/break4.ogg",
+        "sha1": "85ab30c03f0991858f04d3b82592d85b1ffdbf82"
+      }
+    ],
+    "rootling.strike": [
+      {
+        "asset": "minecraft/sounds/dig/wood1.ogg",
+        "sha1": "9bc2a84d0aa98113fc52609976fae8fc88ea6333"
+      },
+      {
+        "asset": "minecraft/sounds/dig/wood2.ogg",
+        "sha1": "98102533e6085617a2962157b4f3658f59aea018"
+      },
+      {
+        "asset": "minecraft/sounds/dig/wood3.ogg",
+        "sha1": "45b2aef7b5049e81b39b58f8d631563fadcc778b"
+      },
+      {
+        "asset": "minecraft/sounds/dig/wood4.ogg",
+        "sha1": "dc66978374a46ab2b87db6472804185824868095"
+      }
+    ],
+    "bone_crawler.idle": [
+      {
+        "asset": "minecraft/sounds/mob/skeleton/say1.ogg",
+        "sha1": "199c9f150822950385b9bc1d840605a6a795bd27"
+      },
+      {
+        "asset": "minecraft/sounds/mob/skeleton/say2.ogg",
+        "sha1": "529abcb09220f0ebeb595f32bb663d026a7e0ae5"
+      },
+      {
+        "asset": "minecraft/sounds/mob/skeleton/say3.ogg",
+        "sha1": "a11ac56ec61c17e99f4ee33d8712404edf442720"
+      }
+    ],
+    "bone_crawler.hurt": [
+      {
+        "asset": "minecraft/sounds/mob/skeleton/hurt1.ogg",
+        "sha1": "4d03069c0e14794b463f563044da46433776da60"
+      },
+      {
+        "asset": "minecraft/sounds/mob/skeleton/hurt2.ogg",
+        "sha1": "d1ad2cbe6584d9cd9483483f8655966d25a251a0"
+      },
+      {
+        "asset": "minecraft/sounds/mob/skeleton/hurt3.ogg",
+        "sha1": "acffab0bafe2c82ffc8723880aab5ec1682d4329"
+      },
+      {
+        "asset": "minecraft/sounds/mob/skeleton/hurt4.ogg",
+        "sha1": "a88e0436e38512171a3ef819249c3d1a2650540f"
+      }
+    ],
+    "bone_crawler.death": [
+      {
+        "asset": "minecraft/sounds/mob/skeleton/death.ogg",
+        "sha1": "641e601132b4adb67951e0d49c1004cf1b86eff2"
+      }
+    ],
+    "bone_crawler.step": [
+      {
+        "asset": "minecraft/sounds/mob/skeleton/step1.ogg",
+        "sha1": "68e0a58848bbdad12ad2b216d7244754459c9516"
+      },
+      {
+        "asset": "minecraft/sounds/mob/skeleton/step2.ogg",
+        "sha1": "4609ec723b4e724f44c653b82de40ec159d2eea1"
+      },
+      {
+        "asset": "minecraft/sounds/mob/skeleton/step3.ogg",
+        "sha1": "000c82756fd54e40cb236199f2b479629d0aca2f"
+      },
+      {
+        "asset": "minecraft/sounds/mob/skeleton/step4.ogg",
+        "sha1": "a89bdd809baa83cacd329f0219bca1f612ccda5a"
+      }
+    ],
+    "bone_crawler.warn": [
+      {
+        "asset": "minecraft/sounds/item/crossbow/loading_middle1.ogg",
+        "sha1": "2f1f5a923c19c6864b3a63f2310b24586eafa7a5"
+      },
+      {
+        "asset": "minecraft/sounds/item/crossbow/loading_middle1.ogg",
+        "sha1": "2f1f5a923c19c6864b3a63f2310b24586eafa7a5"
+      },
+      {
+        "asset": "minecraft/sounds/item/crossbow/loading_middle1.ogg",
+        "sha1": "2f1f5a923c19c6864b3a63f2310b24586eafa7a5"
+      },
+      {
+        "asset": "minecraft/sounds/item/crossbow/loading_middle2.ogg",
+        "sha1": "69cdea68f659610aab9889282a6e199308ae4e3a"
+      },
+      {
+        "asset": "minecraft/sounds/item/crossbow/loading_middle2.ogg",
+        "sha1": "69cdea68f659610aab9889282a6e199308ae4e3a"
+      },
+      {
+        "asset": "minecraft/sounds/item/crossbow/loading_middle2.ogg",
+        "sha1": "69cdea68f659610aab9889282a6e199308ae4e3a"
+      },
+      {
+        "asset": "minecraft/sounds/item/crossbow/loading_middle3.ogg",
+        "sha1": "dccc89e8645e5bfa69e3c078300faade8830de6e"
+      },
+      {
+        "asset": "minecraft/sounds/item/crossbow/loading_middle3.ogg",
+        "sha1": "dccc89e8645e5bfa69e3c078300faade8830de6e"
+      },
+      {
+        "asset": "minecraft/sounds/item/crossbow/loading_middle3.ogg",
+        "sha1": "dccc89e8645e5bfa69e3c078300faade8830de6e"
+      },
+      {
+        "asset": "minecraft/sounds/item/crossbow/loading_middle4.ogg",
+        "sha1": "361810bfeaae39c4c73b74e2357d6a40936e84cb"
+      }
+    ],
+    "bone_crawler.strike": [
+      {
+        "asset": "minecraft/sounds/random/bow.ogg",
+        "sha1": "87edc11141fb5a045f2ed830b545aaa73f96ee99"
+      }
+    ],
+    "navya_wisp.idle": [
+      {
+        "asset": "minecraft/sounds/block/amethyst/shimmer.ogg",
+        "sha1": "da0969aedca90796e6828293b6d8f85f4c1a35f8"
+      }
+    ],
+    "navya_wisp.hurt": [
+      {
+        "asset": "minecraft/sounds/block/amethyst_cluster/break1.ogg",
+        "sha1": "689be5af8ea7328e8e1b664561efff236ab87aee"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst_cluster/break2.ogg",
+        "sha1": "abaa4fb5b56b9110a2de7733d291338a6b0d4c3e"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst_cluster/break3.ogg",
+        "sha1": "a01ead89927917ea1817990c645c6fcee2018c8a"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst_cluster/break4.ogg",
+        "sha1": "c4380743ab08e60bafad7ff0dfd2aeb281fdfc3a"
+      }
+    ],
+    "navya_wisp.death": [
+      {
+        "asset": "minecraft/sounds/block/amethyst_cluster/break1.ogg",
+        "sha1": "689be5af8ea7328e8e1b664561efff236ab87aee"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst_cluster/break2.ogg",
+        "sha1": "abaa4fb5b56b9110a2de7733d291338a6b0d4c3e"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst_cluster/break3.ogg",
+        "sha1": "a01ead89927917ea1817990c645c6fcee2018c8a"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst_cluster/break4.ogg",
+        "sha1": "c4380743ab08e60bafad7ff0dfd2aeb281fdfc3a"
+      }
+    ],
+    "grove_guardian.idle": [
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break1.ogg",
+        "sha1": "c606cd58f2be3e6b7ef0f3e6aac8f791b10a0e9a"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break2.ogg",
+        "sha1": "ea01016f9450bb6ed016942134ee07e28efcbed5"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break3.ogg",
+        "sha1": "f44762fab6e47b0f4292a50a30d86d3b754a56c9"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break4.ogg",
+        "sha1": "ed4c5881fc14815f2b422469663e866e280047f2"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break5.ogg",
+        "sha1": "6f7648d8ac3ac000a849df5bffe0bee2a601e113"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break6.ogg",
+        "sha1": "f51f515aa19bfdece4112f0d8e9433c1ce39b432"
+      }
+    ],
+    "grove_guardian.hurt": [
+      {
+        "asset": "minecraft/sounds/block/bone_block/break1.ogg",
+        "sha1": "e1531690171d1940e0737074a8e6dbd31387d4b1"
+      },
+      {
+        "asset": "minecraft/sounds/block/bone_block/break2.ogg",
+        "sha1": "3eddefcae7dd754b80765c2fee955aa26c644e7c"
+      },
+      {
+        "asset": "minecraft/sounds/block/bone_block/break3.ogg",
+        "sha1": "b2ae2bdcbaabf46448ed282df1ae1cc7096bb8e9"
+      },
+      {
+        "asset": "minecraft/sounds/block/bone_block/break4.ogg",
+        "sha1": "de98f91fbce73a38fa30e887ac8dce08aac8e675"
+      },
+      {
+        "asset": "minecraft/sounds/block/bone_block/break5.ogg",
+        "sha1": "0ae403bea99c54d26b09f7d588ea11ddb4b6dc98"
+      }
+    ],
+    "grove_guardian.death": [
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break1.ogg",
+        "sha1": "b4a699c6cc600bbca6c68fdea990ff1bd0c168c4"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break2.ogg",
+        "sha1": "85be73a6b5906e197d7660c421be70f0d5849eb3"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break3.ogg",
+        "sha1": "bbc7f549a09cb47865e49c0ff411b78d165ebb2e"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break4.ogg",
+        "sha1": "f8e07e6ccd756b4d716cf1f9a56d41ecad1b70a6"
+      }
+    ],
+    "grove_guardian.step": [
+      {
+        "asset": "minecraft/sounds/block/nether_wood/step1.ogg",
+        "sha1": "0c3604495566fee8449f3ccc316bbf9c675f54a3"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/step2.ogg",
+        "sha1": "a6f8d872cbe883abfc9c98d113cf7fd8f963a47b"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/step3.ogg",
+        "sha1": "9e0cb7e98b8b11fc1506e8904ffff7adb1041a50"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/step4.ogg",
+        "sha1": "755c6326b95dd496c70fca25f479aec022cac116"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/step5.ogg",
+        "sha1": "a52ca5ef349b61d12e3a51c3f62e804951493bf9"
+      }
+    ],
+    "grove_guardian.warn": [
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break1.ogg",
+        "sha1": "b4a699c6cc600bbca6c68fdea990ff1bd0c168c4"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break2.ogg",
+        "sha1": "85be73a6b5906e197d7660c421be70f0d5849eb3"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break3.ogg",
+        "sha1": "bbc7f549a09cb47865e49c0ff411b78d165ebb2e"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break4.ogg",
+        "sha1": "f8e07e6ccd756b4d716cf1f9a56d41ecad1b70a6"
+      }
+    ],
+    "grove_guardian.strike": [
+      {
+        "asset": "minecraft/sounds/block/bone_block/step1.ogg",
+        "sha1": "49ae543155e15b8115206f3bdcf1b929b7725b62"
+      },
+      {
+        "asset": "minecraft/sounds/block/bone_block/step2.ogg",
+        "sha1": "e2c1207fb138a72cbc29277497408cde75b28698"
+      },
+      {
+        "asset": "minecraft/sounds/block/bone_block/step3.ogg",
+        "sha1": "a5362a693f9ae184c1e87ac07fb7ad949d2aee45"
+      },
+      {
+        "asset": "minecraft/sounds/block/bone_block/step4.ogg",
+        "sha1": "11b24be2acd87d0d3cadd3b4a5e7f5cf29d75b9c"
+      },
+      {
+        "asset": "minecraft/sounds/block/bone_block/step5.ogg",
+        "sha1": "d6c41fbec35949f5ab7423d0a3cd174bacfd406d"
+      }
+    ],
+    "roots_warn": [
+      {
+        "asset": "minecraft/sounds/block/rooted_dirt/step1.ogg",
+        "sha1": "0c548af9a197ecb01293fea959b3aeba5facf56c"
+      },
+      {
+        "asset": "minecraft/sounds/block/rooted_dirt/step2.ogg",
+        "sha1": "f0b347346feff35af1cd8467d1ab363279d5e88f"
+      },
+      {
+        "asset": "minecraft/sounds/block/rooted_dirt/step3.ogg",
+        "sha1": "fbc17029947cfa5f965c23744dc06283f3b1f85b"
+      },
+      {
+        "asset": "minecraft/sounds/block/rooted_dirt/step4.ogg",
+        "sha1": "e63fe3eca9d254207b115c9e17c776bcb066528c"
+      },
+      {
+        "asset": "minecraft/sounds/block/rooted_dirt/step5.ogg",
+        "sha1": "d4773ef3bc33bfd677c63fc79fb8759c12a42fbb"
+      },
+      {
+        "asset": "minecraft/sounds/block/rooted_dirt/step6.ogg",
+        "sha1": "d8ee98f2b9bd43648f81fc0d3a276f11f7d4e998"
+      }
+    ],
+    "roots_rise": [
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break1.ogg",
+        "sha1": "c606cd58f2be3e6b7ef0f3e6aac8f791b10a0e9a"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break2.ogg",
+        "sha1": "ea01016f9450bb6ed016942134ee07e28efcbed5"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break3.ogg",
+        "sha1": "f44762fab6e47b0f4292a50a30d86d3b754a56c9"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break4.ogg",
+        "sha1": "ed4c5881fc14815f2b422469663e866e280047f2"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break5.ogg",
+        "sha1": "6f7648d8ac3ac000a849df5bffe0bee2a601e113"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break6.ogg",
+        "sha1": "f51f515aa19bfdece4112f0d8e9433c1ce39b432"
+      }
+    ],
+    "roots_recede": [
+      {
+        "asset": "minecraft/sounds/block/rooted_dirt/break1.ogg",
+        "sha1": "12c012b5c97d4369ebb039ee6467ebb797558f59"
+      },
+      {
+        "asset": "minecraft/sounds/block/rooted_dirt/break2.ogg",
+        "sha1": "afac2e36e287781dbb3483f275c140551d892e82"
+      },
+      {
+        "asset": "minecraft/sounds/block/rooted_dirt/break3.ogg",
+        "sha1": "74a040d9a839dd9e4028c808c8cea9e514c063d3"
+      },
+      {
+        "asset": "minecraft/sounds/block/rooted_dirt/break4.ogg",
+        "sha1": "85ab30c03f0991858f04d3b82592d85b1ffdbf82"
+      }
+    ],
+    "shot_hit": [
+      {
+        "asset": "minecraft/sounds/block/amethyst/step1.ogg",
+        "sha1": "ae1fff00d840263fdd265f4132bce0a36060e710"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst/step2.ogg",
+        "sha1": "e13e894043078dd4ea17c254dbb0841297d5f995"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst/step3.ogg",
+        "sha1": "d83f84529125443dc54c215de2452b790c9fc1b4"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst/step4.ogg",
+        "sha1": "54488c4207d033bd6fb75def4869cb6e1f7926f1"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst/step5.ogg",
+        "sha1": "b88ded63fb4428d72b0b7ef07dd870b6e1fad52f"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst/step6.ogg",
+        "sha1": "55cfb1b3422f9f66e85656ee12723a1cfb7370cb"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst/step7.ogg",
+        "sha1": "c51ab373a06654202aef302f17df73d0564fdca5"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst/step8.ogg",
+        "sha1": "bf73c5552459f53cbd591ce2717d932ce0231c75"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst/step9.ogg",
+        "sha1": "19f43eef373da394e78338632d627eef89957e98"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst/step10.ogg",
+        "sha1": "4e9de2d8bc053581711a1578a5949386c7b24a39"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst/step11.ogg",
+        "sha1": "4270788804150c672116f1e0e5c0bad7d8fca4cf"
+      },
+      {
+        "asset": "minecraft/sounds/block/amethyst/step12.ogg",
+        "sha1": "2da4a16b23fa525000eb370963176524d0a63942"
+      }
+    ],
+    "trunk_lift": [
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break1.ogg",
+        "sha1": "b4a699c6cc600bbca6c68fdea990ff1bd0c168c4"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break2.ogg",
+        "sha1": "85be73a6b5906e197d7660c421be70f0d5849eb3"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break3.ogg",
+        "sha1": "bbc7f549a09cb47865e49c0ff411b78d165ebb2e"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break4.ogg",
+        "sha1": "f8e07e6ccd756b4d716cf1f9a56d41ecad1b70a6"
+      }
+    ],
+    "trunk_throw": [
+      {
+        "asset": "minecraft/sounds/mob/breeze/shoot.ogg",
+        "sha1": "7455c3943373804f3cf466981240ef1ef4233184"
+      },
+      {
+        "asset": "minecraft/sounds/mob/breeze/shoot.ogg",
+        "sha1": "7455c3943373804f3cf466981240ef1ef4233184"
+      },
+      {
+        "asset": "minecraft/sounds/mob/breeze/shoot.ogg",
+        "sha1": "7455c3943373804f3cf466981240ef1ef4233184"
+      }
+    ],
+    "trunk_hit": [
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break1.ogg",
+        "sha1": "b4a699c6cc600bbca6c68fdea990ff1bd0c168c4"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break2.ogg",
+        "sha1": "85be73a6b5906e197d7660c421be70f0d5849eb3"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break3.ogg",
+        "sha1": "bbc7f549a09cb47865e49c0ff411b78d165ebb2e"
+      },
+      {
+        "asset": "minecraft/sounds/block/nether_wood/break4.ogg",
+        "sha1": "f8e07e6ccd756b4d716cf1f9a56d41ecad1b70a6"
+      }
+    ],
+    "summon": [
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break1.ogg",
+        "sha1": "c606cd58f2be3e6b7ef0f3e6aac8f791b10a0e9a"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break2.ogg",
+        "sha1": "ea01016f9450bb6ed016942134ee07e28efcbed5"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break3.ogg",
+        "sha1": "f44762fab6e47b0f4292a50a30d86d3b754a56c9"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break4.ogg",
+        "sha1": "ed4c5881fc14815f2b422469663e866e280047f2"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break5.ogg",
+        "sha1": "6f7648d8ac3ac000a849df5bffe0bee2a601e113"
+      },
+      {
+        "asset": "minecraft/sounds/block/mangrove_roots/break6.ogg",
+        "sha1": "f51f515aa19bfdece4112f0d8e9433c1ce39b432"
+      }
+    ],
+    "phase": [
+      {
+        "asset": "minecraft/sounds/block/bone_block/break1.ogg",
+        "sha1": "e1531690171d1940e0737074a8e6dbd31387d4b1"
+      },
+      {
+        "asset": "minecraft/sounds/block/bone_block/break2.ogg",
+        "sha1": "3eddefcae7dd754b80765c2fee955aa26c644e7c"
+      },
+      {
+        "asset": "minecraft/sounds/block/bone_block/break3.ogg",
+        "sha1": "b2ae2bdcbaabf46448ed282df1ae1cc7096bb8e9"
+      },
+      {
+        "asset": "minecraft/sounds/block/bone_block/break4.ogg",
+        "sha1": "de98f91fbce73a38fa30e887ac8dce08aac8e675"
+      },
+      {
+        "asset": "minecraft/sounds/block/bone_block/break5.ogg",
+        "sha1": "0ae403bea99c54d26b09f7d588ea11ddb4b6dc98"
+      }
+    ]
+  },
+  "callsites": {
+    "navka.idle": "src/main/java/org/slavicmyths/navya/NavyaMob.java#getAmbientSound",
+    "navka.hurt": "src/main/java/org/slavicmyths/navya/NavyaMob.java#getHurtSound",
+    "navka.death": "src/main/java/org/slavicmyths/navya/NavyaMob.java#getDeathSound",
+    "navka.warn": "src/main/java/org/slavicmyths/navya/NavyaMob.java#begin",
+    "navka.strike": "src/main/java/org/slavicmyths/navya/NavyaMob.java#impact",
+    "rootling.idle": "src/main/java/org/slavicmyths/navya/NavyaMob.java#getAmbientSound",
+    "rootling.hurt": "src/main/java/org/slavicmyths/navya/NavyaMob.java#getHurtSound",
+    "rootling.death": "src/main/java/org/slavicmyths/navya/NavyaMob.java#getDeathSound",
+    "rootling.step": "src/main/java/org/slavicmyths/navya/NavyaMob.java#playStepSound",
+    "rootling.warn": "src/main/java/org/slavicmyths/navya/NavyaMob.java#begin",
+    "rootling.strike": "src/main/java/org/slavicmyths/navya/NavyaMob.java#impact",
+    "bone_crawler.idle": "src/main/java/org/slavicmyths/navya/NavyaMob.java#getAmbientSound",
+    "bone_crawler.hurt": "src/main/java/org/slavicmyths/navya/NavyaMob.java#getHurtSound",
+    "bone_crawler.death": "src/main/java/org/slavicmyths/navya/NavyaMob.java#getDeathSound",
+    "bone_crawler.step": "src/main/java/org/slavicmyths/navya/NavyaMob.java#playStepSound",
+    "bone_crawler.warn": "src/main/java/org/slavicmyths/navya/NavyaMob.java#begin",
+    "bone_crawler.strike": "src/main/java/org/slavicmyths/navya/NavyaMob.java#impact",
+    "navya_wisp.idle": "src/main/java/org/slavicmyths/navya/NavyaMob.java#getAmbientSound",
+    "navya_wisp.hurt": "src/main/java/org/slavicmyths/navya/NavyaMob.java#getHurtSound",
+    "navya_wisp.death": "src/main/java/org/slavicmyths/navya/NavyaMob.java#getDeathSound",
+    "grove_guardian.idle": "src/main/java/org/slavicmyths/navya/NavyaMob.java#getAmbientSound",
+    "grove_guardian.hurt": "src/main/java/org/slavicmyths/navya/NavyaMob.java#getHurtSound",
+    "grove_guardian.death": "src/main/java/org/slavicmyths/navya/NavyaMob.java#getDeathSound",
+    "grove_guardian.step": "src/main/java/org/slavicmyths/navya/NavyaMob.java#playStepSound",
+    "grove_guardian.warn": "src/main/java/org/slavicmyths/navya/NavyaMob.java#begin",
+    "grove_guardian.strike": "src/main/java/org/slavicmyths/navya/NavyaMob.java#impact",
+    "roots_warn": "src/main/java/org/slavicmyths/navya/NavyaRoots.java#tick",
+    "roots_rise": "src/main/java/org/slavicmyths/navya/NavyaRoots.java#tick",
+    "roots_recede": "src/main/java/org/slavicmyths/navya/NavyaRoots.java#tick",
+    "shot_hit": "src/main/java/org/slavicmyths/navya/NavyaShot.java#onHit",
+    "trunk_lift": "src/main/java/org/slavicmyths/navya/NavyaMob.java#begin",
+    "trunk_throw": "src/main/java/org/slavicmyths/navya/NavyaMob.java#impact",
+    "trunk_hit": "src/main/java/org/slavicmyths/navya/NavyaShot.java#onHit",
+    "summon": "src/main/java/org/slavicmyths/navya/NavyaMob.java#begin",
+    "phase": "src/main/java/org/slavicmyths/navya/NavyaMob.java#begin"
+  }
+}

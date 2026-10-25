@@ -1,0 +1,9 @@
+{
+  "type": "slavicmyths:navya_heart",
+  "biomes": [
+    "slavicmyths:navya_grove"
+  ],
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}

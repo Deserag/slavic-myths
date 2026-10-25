@@ -1,0 +1,46 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources
+> Task :classes
+
+> Task :compileNavyaOfflineJava
+D:\slavic-myths-hell\tools\navya-tests\org\slavicmyths\verify\NavyaClimate.java:28: error: no suitable method found for create(net.minecraft.core.HolderLookup.Provider,ResourceKey<NoiseGeneratorSettings>,long)
+            var state=RandomState.create(lookup,NoiseGeneratorSettings.NETHER,seed);
+                                 ^
+    method RandomState.create(net.minecraft.core.HolderGetter.Provider,ResourceKey<NoiseGeneratorSettings>,long) is not applicable
+      (argument mismatch; net.minecraft.core.HolderLookup.Provider cannot be converted to net.minecraft.core.HolderGetter.Provider)
+    method RandomState.create(NoiseGeneratorSettings,HolderGetter<NoiseParameters>,long) is not applicable
+      (argument mismatch; net.minecraft.core.HolderLookup.Provider cannot be converted to NoiseGeneratorSettings)
+1 error
+
+> Task :compileNavyaOfflineJava FAILED
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths-hell/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileNavyaOfflineJava'.
+> Compilation failed; see the compiler output below.
+  D:\slavic-myths-hell\tools\navya-tests\org\slavicmyths\verify\NavyaClimate.java:28: error: no suitable method found for create(net.minecraft.core.HolderLookup.Provider,ResourceKey<NoiseGeneratorSettings>,long)
+              var state=RandomState.create(lookup,NoiseGeneratorSettings.NETHER,seed);
+                                   ^
+      method RandomState.create(net.minecraft.core.HolderGetter.Provider,ResourceKey<NoiseGeneratorSettings>,long) is not applicable
+        (argument mismatch; net.minecraft.core.HolderLookup.Provider cannot be converted to net.minecraft.core.HolderGetter.Provider)
+      method RandomState.create(NoiseGeneratorSettings,HolderGetter<NoiseParameters>,long) is not applicable
+        (argument mismatch; net.minecraft.core.HolderLookup.Provider cannot be converted to NoiseGeneratorSettings)
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 1m
+5 actionable tasks: 4 executed, 1 up-to-date

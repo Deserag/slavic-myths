@@ -1,0 +1,26 @@
+{
+  "scope": "Native base columns, no surfaces/features/structures/worlds",
+  "seeds": 5,
+  "regionsPerSeed": 4,
+  "columnsPerVariant": 81920,
+  "regionsWithMore48BlockAirColumns": 20,
+  "regionsWithLargerBaseGroundComponent": 13,
+  "totals": {
+    "vanilla": {
+      "airBlocks": 3284046,
+      "lavaBlocks": 315184,
+      "columnsWith48Air": 21029,
+      "seaSurfaceColumnsY31": 32750,
+      "meanLargestBaseGroundComponentStep1": 1889.9,
+      "rawNativeColumnMillis": 5830.0992
+    },
+    "hell": {
+      "airBlocks": 11272745,
+      "lavaBlocks": 442241,
+      "columnsWith48Air": 81241,
+      "seaSurfaceColumnsY31": 26407,
+      "meanLargestBaseGroundComponentStep1": 2689.35,
+      "rawNativeColumnMillis": 10998.65
+    }
+  }
+}

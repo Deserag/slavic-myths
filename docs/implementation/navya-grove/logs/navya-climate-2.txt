@@ -1,0 +1,22 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources
+> Task :classes
+> Task :compileNavyaOfflineJava
+> Task :processNavyaOfflineResources NO-SOURCE
+> Task :navyaOfflineClasses
+
+> Task :surveyNavyaClimate
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+0 {minecraft:basalt_deltas=2024, minecraft:crimson_forest=3438, minecraft:nether_wastes=5570, minecraft:soul_sand_valley=2761, minecraft:warped_forest=636, slavicmyths:navya_grove=1955}
+1 {minecraft:basalt_deltas=1800, minecraft:crimson_forest=3624, minecraft:nether_wastes=5215, minecraft:soul_sand_valley=2986, minecraft:warped_forest=705, slavicmyths:navya_grove=2054}
+-8675309 {minecraft:basalt_deltas=2442, minecraft:crimson_forest=3469, minecraft:nether_wastes=4893, minecraft:soul_sand_valley=2675, minecraft:warped_forest=582, slavicmyths:navya_grove=2323}
+20261024 {minecraft:basalt_deltas=2126, minecraft:crimson_forest=3586, minecraft:nether_wastes=5664, minecraft:soul_sand_valley=2559, minecraft:warped_forest=593, slavicmyths:navya_grove=1856}
+987654321 {minecraft:basalt_deltas=1890, minecraft:crimson_forest=3490, minecraft:nether_wastes=6052, minecraft:soul_sand_valley=2761, minecraft:warped_forest=588, slavicmyths:navya_grove=1603}
+
+BUILD SUCCESSFUL in 55s
+6 actionable tasks: 4 executed, 2 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "slavicmyths:block/grove_bone_block"
+    },
+    "axis=x": {
+      "model": "slavicmyths:block/grove_bone_block",
+      "x": 90,
+      "y": 90
+    },
+    "axis=z": {
+      "model": "slavicmyths:block/grove_bone_block",
+      "x": 90
+    }
+  }
+}

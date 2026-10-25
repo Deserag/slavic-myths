@@ -1,0 +1,109 @@
+{
+  "scope": "Native climate classification, step64, xz\u003d-4096..4032; no worlds/biome injection/features/spawns",
+  "candidateOnly": true,
+  "temperature": -0.3,
+  "humidity": 0.4,
+  "offset": 0.175,
+  "seeds": [
+    {
+      "seed": 0,
+      "sampleCount": 16384,
+      "vanilla": {
+        "minecraft:basalt_deltas": 2645,
+        "minecraft:crimson_forest": 3438,
+        "minecraft:nether_wastes": 6167,
+        "minecraft:soul_sand_valley": 2761,
+        "minecraft:warped_forest": 1373
+      },
+      "candidate": {
+        "minecraft:basalt_deltas": 2024,
+        "minecraft:crimson_forest": 3438,
+        "minecraft:nether_wastes": 5570,
+        "minecraft:soul_sand_valley": 2761,
+        "minecraft:warped_forest": 636,
+        "slavicmyths:navya_grove": 1955
+      },
+      "largestCoarseNavyaComponent": 191
+    },
+    {
+      "seed": 1,
+      "sampleCount": 16384,
+      "vanilla": {
+        "minecraft:basalt_deltas": 2462,
+        "minecraft:crimson_forest": 3624,
+        "minecraft:nether_wastes": 5801,
+        "minecraft:soul_sand_valley": 2986,
+        "minecraft:warped_forest": 1511
+      },
+      "candidate": {
+        "minecraft:basalt_deltas": 1800,
+        "minecraft:crimson_forest": 3624,
+        "minecraft:nether_wastes": 5215,
+        "minecraft:soul_sand_valley": 2986,
+        "minecraft:warped_forest": 705,
+        "slavicmyths:navya_grove": 2054
+      },
+      "largestCoarseNavyaComponent": 107
+    },
+    {
+      "seed": -8675309,
+      "sampleCount": 16384,
+      "vanilla": {
+        "minecraft:basalt_deltas": 3268,
+        "minecraft:crimson_forest": 3469,
+        "minecraft:nether_wastes": 5502,
+        "minecraft:soul_sand_valley": 2675,
+        "minecraft:warped_forest": 1470
+      },
+      "candidate": {
+        "minecraft:basalt_deltas": 2442,
+        "minecraft:crimson_forest": 3469,
+        "minecraft:nether_wastes": 4893,
+        "minecraft:soul_sand_valley": 2675,
+        "minecraft:warped_forest": 582,
+        "slavicmyths:navya_grove": 2323
+      },
+      "largestCoarseNavyaComponent": 114
+    },
+    {
+      "seed": 20261024,
+      "sampleCount": 16384,
+      "vanilla": {
+        "minecraft:basalt_deltas": 2729,
+        "minecraft:crimson_forest": 3586,
+        "minecraft:nether_wastes": 6256,
+        "minecraft:soul_sand_valley": 2559,
+        "minecraft:warped_forest": 1254
+      },
+      "candidate": {
+        "minecraft:basalt_deltas": 2126,
+        "minecraft:crimson_forest": 3586,
+        "minecraft:nether_wastes": 5664,
+        "minecraft:soul_sand_valley": 2559,
+        "minecraft:warped_forest": 593,
+        "slavicmyths:navya_grove": 1856
+      },
+      "largestCoarseNavyaComponent": 75
+    },
+    {
+      "seed": 987654321,
+      "sampleCount": 16384,
+      "vanilla": {
+        "minecraft:basalt_deltas": 2346,
+        "minecraft:crimson_forest": 3490,
+        "minecraft:nether_wastes": 6633,
+        "minecraft:soul_sand_valley": 2761,
+        "minecraft:warped_forest": 1154
+      },
+      "candidate": {
+        "minecraft:basalt_deltas": 1890,
+        "minecraft:crimson_forest": 3490,
+        "minecraft:nether_wastes": 6052,
+        "minecraft:soul_sand_valley": 2761,
+        "minecraft:warped_forest": 588,
+        "slavicmyths:navya_grove": 1603
+      },
+      "largestCoarseNavyaComponent": 66
+    }
+  ]
+}

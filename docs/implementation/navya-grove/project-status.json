@@ -1,0 +1,41 @@
+{
+  "checked": "2026-10-25",
+  "items": [
+    {
+      "issue": 251,
+      "status": "В работе",
+      "id": "PVTI_lAHOBeEK2c4Bn9vzzhDLF6o"
+    },
+    {
+      "issue": 257,
+      "status": "В работе",
+      "id": "PVTI_lAHOBeEK2c4Bn9vzzhDLGNU"
+    },
+    {
+      "issue": 252,
+      "status": "В работе",
+      "id": "PVTI_lAHOBeEK2c4Bn9vzzhDLHJE"
+    },
+    {
+      "issue": 253,
+      "status": "В работе",
+      "id": "PVTI_lAHOBeEK2c4Bn9vzzhDLHKw"
+    },
+    {
+      "issue": 254,
+      "status": "В работе",
+      "id": "PVTI_lAHOBeEK2c4Bn9vzzhDLHMU"
+    },
+    {
+      "issue": 255,
+      "status": "В работе",
+      "id": "PVTI_lAHOBeEK2c4Bn9vzzhDLHN8"
+    },
+    {
+      "issue": 256,
+      "status": "В работе",
+      "id": "PVTI_lAHOBeEK2c4Bn9vzzhDLHO4"
+    }
+  ],
+  "issues": "OPEN; no close/ready/owner-accepted requested"
+}

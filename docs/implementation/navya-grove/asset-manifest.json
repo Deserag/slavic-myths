@@ -1,0 +1,44 @@
+{
+  "geology": [
+    "navya_soil",
+    "mossy_navya_soil",
+    "navya_stone",
+    "cracked_navya_stone",
+    "grove_bone_block",
+    "grove_bone_column",
+    "grove_bone_spike",
+    "rooted_navya_stone"
+  ],
+  "wood": [
+    "navya_log",
+    "navya_wood",
+    "stripped_navya_log",
+    "stripped_navya_wood",
+    "navya_planks",
+    "navya_stairs",
+    "navya_slab",
+    "navya_fence",
+    "navya_fence_gate",
+    "navya_door",
+    "navya_trapdoor",
+    "navya_button",
+    "navya_pressure_plate",
+    "navya_sign",
+    "navya_hanging_sign"
+  ],
+  "flora": [
+    "navya_dry_branches",
+    "navya_roots",
+    "navya_hanging_roots",
+    "navya_shrub",
+    "ghost_fungus",
+    "navya_growth",
+    "navya_sapling",
+    "navya_dead_leaves"
+  ],
+  "sources": [
+    "blocks-2.0.2.2-atlas.svg",
+    "wood-2.0.2.3-atlas.svg"
+  ],
+  "status": "OWNER_VISUAL_PENDING"
+}

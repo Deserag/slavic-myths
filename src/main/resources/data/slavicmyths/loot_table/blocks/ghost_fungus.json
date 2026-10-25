@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:ghost_fungus"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "slavicmyths:blocks/ghost_fungus"
+}
