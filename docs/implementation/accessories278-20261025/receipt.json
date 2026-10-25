@@ -48,5 +48,6 @@
   "polymc": "POLYMC_NOT_INSTALLED",
   "previous_installed_path": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-2.0.0-HELL/.minecraft/mods/slavicmyths-2.0.1-HELL.jar",
   "previous_installed_sha256": "273767789fb6555f16c485bf64bc2cf37627787f1ca50255d820bbe36660182c",
-  "config_saves_installed_jar_writes": 0
+  "config_saves_installed_jar_writes": 0,
+  "source_commit": "939cbfbfab5e42926bdd8e394a45466ffdbf96db"
 }
