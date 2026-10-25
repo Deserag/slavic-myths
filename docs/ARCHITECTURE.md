@@ -1,3 +1,7 @@
+## 25.10.2026 — объединённый тестовый HELL: IN_PROGRESS
+
+Основная папка D:/slavic-myths переведена в hell; объединены Ад/Навья роща и исправления поиска/генерации/встреч/UI Яги. Clean build2м12с и8001ресурс PASS; runtime0. Main не изменяется. Публикация, архивирование лишних папок и отдельная установка PolyMC выполняются по прямому поручению. [Матрица и receipt](implementation/hell-consolidation-20261025/REPORT.md).
+
 ## 25.10.2026 — Навья роща #251–#257: IN_PROGRESS, исходники и JAR
 
 В отдельной ветке `hell` реализованы31 inventory block, одна порода/флора/три формы деревьев, четыре существа и Сторож с собственными ModelPart/UV/PNG/анимациями; утверждённый владельцем лут,35 vanilla sound aliases. Последним подключён новый biome/геология/три яруса/редкое Сердце/спавн. Java21 clean build и source/JAR gates PASS; native climate/profile5seed и source renders не являются игровыми тестами. Запусков0; runtime/прохождение/баланс/точное сравнение с недоступными оригинальными PNG/прослушивание/приёмка NOT_RUN. Все семь карточек фактически «В работе», Issues OPEN. PolyMC не изменён, POLYMC_NOT_INSTALLED; commit/push нет. [Матрица и доказательства](implementation/navya-grove/REPORT.md).

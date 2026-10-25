@@ -17,6 +17,7 @@ VANILLA = Path.home() / '.gradle/caches/neoformruntime/artifacts/minecraft_1.21.
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--jar', type=Path)
+    parser.add_argument('--with-navya', action='store_true', help='Permit only additive tags for the integrated Navya asset manifest')
     args = parser.parse_args()
     changed = ['dimension_type/the_nether.json', 'worldgen/noise_settings/nether.json']
     ores = ['ore_debris_small', 'ore_gold_nether', 'ore_gold_deltas', 'ore_quartz_nether', 'ore_quartz_deltas']
@@ -51,9 +52,23 @@ def main():
         with tarfile.open(fileobj=io.BytesIO(archive_bytes)) as archive:
             previous = {member.name.removeprefix(prefix): archive.extractfile(member).read()
                         for member in archive.getmembers() if member.isfile()}
-        assert actual == set(changed) | previous.keys(), ('Unexpected vanilla override', actual-set(changed)-previous.keys())
+        extra=actual-set(changed)-previous.keys()
+        assert previous.keys()<=actual, 'Existing vanilla integration removed'
+        assert not extra or args.with_navya and all(n.startswith('tags/') for n in extra), ('Unexpected vanilla override', extra)
+        allowed=set()
+        if args.with_navya:
+            manifest=json.loads((ROOT/'docs/implementation/navya-grove/asset-manifest.json').read_text())
+            allowed={'slavicmyths:'+n for group in ['geology','wood','flora'] for n in manifest[group]} | {'slavicmyths:navya_grove','#slavicmyths:navya_logs','slavicmyths:navya_wall_sign','slavicmyths:navya_wall_hanging_sign'}
+        for name in extra:
+            data=json.loads((RES/name).read_text());assert data.get('replace') is False and all(v in allowed for v in data['values']),('Unexpected additive Navya tag',name)
         for name, content in previous.items():
-            assert (RES/name).read_bytes() == content, ('Unrelated existing vanilla integration changed', name)
+            actual_content=(RES/name).read_bytes()
+            if actual_content.replace(b'\r\n',b'\n')==content.replace(b'\r\n',b'\n'):continue
+            assert args.with_navya and name.startswith('tags/'), ('Unrelated existing vanilla integration changed', name)
+            before=json.loads(content);after=json.loads(actual_content)
+            assert {k:v for k,v in before.items() if k!='values'}=={k:v for k,v in after.items() if k!='values'},name
+            assert all(v in after['values'] for v in before['values']),name
+            assert all(v in before['values'] or v in allowed for v in after['values']),name
         receipt = {'status':'PASS', 'changedVanillaResources':changed, 'gameLaunches':0,
                    'runtime':'NOT_RUN', 'sourceBaseline':'275ecaa5',
                    'vanillaClientSha256':hashlib.sha256(VANILLA.read_bytes()).hexdigest()}

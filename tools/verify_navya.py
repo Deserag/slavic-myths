@@ -5,9 +5,10 @@ from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1];RES=ROOT/'src/main/resources';A=RES/'assets/slavicmyths'
 REPORT=ROOT/'docs/implementation/navya-grove'
+PRESERVATION_REF=sys.argv[sys.argv.index('--preservation-ref')+1] if '--preservation-ref' in sys.argv else '275ecaa5'
 
 def baseline(path):
- return subprocess.check_output(['git','show','275ecaa5:'+path],cwd=ROOT)
+ return subprocess.check_output(['git','show',PRESERVATION_REF+':'+path],cwd=ROOT)
 
 def check_model(data):
  if isinstance(data,dict):
@@ -55,7 +56,9 @@ def main():
    assert all(v in after['values'] for v in before['values']),('removed vanilla integration tag value',relative)
  # Previous HELL terrain profile must remain byte-for-byte unchanged.
  inherited=json.loads((ROOT/'docs/implementation/hell-patch1/source-manifest.json').read_text())
- for path,digest in inherited['productionDelta'].items():assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==digest,('inherited HELL drift',path)
+ for path,digest in inherited['productionDelta'].items():
+  raw=(ROOT/path).read_bytes();lf=raw.replace(b'\r\n',b'\n')
+  assert digest in {hashlib.sha256(v).hexdigest() for v in [raw,lf,lf.replace(b'\n',b'\r\n')]},('inherited HELL drift',path)
  rigs=json.loads((REPORT/'native-rigs.json').read_text())
  for name,rig in rigs.items():
   tex=Image.open(A/'textures/entity'/(name+'.png')).convert('RGBA')
@@ -86,7 +89,7 @@ def main():
  biome=json.loads((RES/'data/slavicmyths/worldgen/biome/navya_grove.json').read_text())
  assert biome['features'][2]==['slavicmyths:navya_geology'] and 'slavicmyths:navya_nature' in biome['features'][9]
  assert (RES/'slavicmyths.navya.mixins.json').is_file()
- result={'implementedBlocks':len(blocks),'sourceAssetLinks':'PASS','legacyTranslationsAudioTagsPreserved':'PASS',
+ result={'implementedBlocks':len(blocks),'sourceAssetLinks':'PASS','legacyTranslationsAudioTagsPreserved':'PASS','preservationRef':PRESERVATION_REF,
          'inheritedHellProfile':'PASS','gameLaunches':0,
          'nativeRigsAndUVTextureCoverage':len(rigs),'approvedLootTables':'PASS (source contract)',
          'naturalBiomeAndHeartIntegration':'IMPLEMENTED_SOURCE; runtime NOT_RUN',

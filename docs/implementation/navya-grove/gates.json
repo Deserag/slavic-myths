@@ -2,6 +2,7 @@
   "implementedBlocks": 31,
   "sourceAssetLinks": "PASS",
   "legacyTranslationsAudioTagsPreserved": "PASS",
+  "preservationRef": "1ea15f8a",
   "inheritedHellProfile": "PASS",
   "gameLaunches": 0,
   "nativeRigsAndUVTextureCoverage": 9,
@@ -15,5 +16,5 @@
     "ownerAcceptance": "NOT_RUN"
   },
   "packagedResourceBytes": "PASS",
-  "jarSha256": "cb064337aaa02c278409197263afba0e331bc9964d96601539163c430cdb92c7"
+  "jarSha256": "b7373eeeecf6919fb585801ff5bd4b81fcd6476632f0198027278e9abfde3554"
 }

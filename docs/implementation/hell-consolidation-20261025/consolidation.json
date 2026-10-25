@@ -1,0 +1,24 @@
+{
+  "status": "IN_PROGRESS_OWNER_TESTING_CANDIDATE",
+  "branch": "hell",
+  "canonical_workspace": "D:/slavic-myths",
+  "generation_commit": "1ea15f8a",
+  "hell_commit": "8e72a20a",
+  "merged_source_commit": "ae9ebdf3d22e06abcb59276af01f617178ca996f",
+  "main_before": "8789e08dbcb029ae7b252049dec62c47c7780cce",
+  "archived_advancements_checkpoint": "877bd57f",
+  "archives": [
+    {
+      "archive": "D:\\slavic-myths-maintenance\\20261025\\consolidation\\slavic-myths-hell-before-consolidation.tar",
+      "bytes": 1883576320,
+      "members": 33336,
+      "sha256": "7a1f8cf61e0cf9c78e69b2a1dc43e7ad61e1847d146396593110e1d5d0e59707"
+    },
+    {
+      "archive": "D:\\slavic-myths-maintenance\\20261025\\consolidation\\slavic-myths-advancements-v3-before-consolidation.tar",
+      "bytes": 1014896640,
+      "members": 21279,
+      "sha256": "12851c66c7ade1b45b6c3b834c3fc61dc825f7aeadfa1851a6fec2469c999896"
+    }
+  ]
+}
