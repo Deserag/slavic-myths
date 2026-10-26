@@ -1,0 +1,20 @@
+{
+  "scope": "CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted",
+  "version": "2.0.1-HELL",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.1-HELL.jar",
+  "sha256": "758d63ae17e256653823927ca7c0ff454c1563c6f07ec505cfe9fb457719ba9e",
+  "resources": 8001,
+  "json": 4402,
+  "png": 1443,
+  "models": 1886,
+  "java21_classes": 1948,
+  "runtime_launches": 6,
+  "runtime": "28/28 final isolated armor GameTests PASS; 4 historical + 2 extension launches; client0; owner natural acquisition/relog/MP NOT_RUN",
+  "source_commit": "08076afc3d60b1b63d8323d0b9ec300b1dd1ffa1",
+  "armor_initial_commit": "1ef5dacef72da99b4914aef39e629fd396d5e00d",
+  "armor_production_delta": "NONE; only KurganCreature differs from initial base",
+  "build": "clean build --no-build-cache, Java21; SUCCESS 1m19s; prince277/build.log",
+  "offline_checks": 41,
+  "installed_status": "POLYMC_NOT_INSTALLED",
+  "owner": "PENDING; Issue OPEN; Project unchanged"
+}

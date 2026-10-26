@@ -1,5 +1,25 @@
 # #287 — броня: проверка существующего поведения, IN_PROGRESS / OWNER_PENDING
 
+## Актуализация после исправления #277:28/28PASS
+
+Первый собственный коммит аудита #287 — `1ef5dace`. Исходные14tests/четыре запуска и receipt.json ниже остаются историческим снимком. Затем проведены ещё два изолированных server запуска: [extended20.log](extended20.log)20/20PASS и [extended28.log](extended28.log)28/28PASS на неизменённом armor production и исправленном AI #277 `08076afc3d60b1b63d8323d0b9ec300b1dd1ffa1`. **Итого #287:6реальных server запусков,0клиентов.** Итоговый production JAR/source/SHA зафиксирован отдельно в [extended-receipt.json](extended-receipt.json); первоначальный JAR receipt не переписан.
+
+Дополнительные PASS: SevenLeague +30% после60условных server movement samples, сброс на повороте/снятии; Wind160charge/decay/collision/teleport/flight/death/equipment cleanup и native jump attribute; native travel обычной дуги apex4.153745/range7.132678/21steps, ledge4blocks; charged native travel apex12.461236/range11.492487/36steps. Заряд подаётся контролируемыми movement samples, landing LivingFallEvent подаётся вручную как обычно сетевым движением; это не клиентский input/relog и не измерение MSPT.
+
+Также PASS: родной lightning damageSource перунитового set и снятие; idol heavy-hit*.9 относительно такой же diamond chest armor/KB*.55 и снятие; Marinka safeSide blink2.5blocks/900tick CD/снятие; Kartaus mantle после actual owned-guard kill,400tick CD и снятие Resistance. Ward shield100native block attempts с настоящим projectile owner/отсутствием owner/cancelled block и environmental exclusion PASS. Prepared Kartaus encounter/owned guard создаются fixture, естественная босс-цепочка не объявлена проверенной.
+
+| REQUIREMENT | EVIDENCE | PASS/FAIL/BLOCKED/NOT_RUN |
+|---|---|---|
+| Все ранее14armor cases после изменения AI | extended28.log | PASS |
+| SevenLeague ramp и Wind charge/native travel/fall-credit | extended28.log, именованные extendedWind tests | PASS controlled server API/native travel |
+| Perunite lightning/set removal | extended28 peruniteActualLightningSetAndRemoval | PASS native damage |
+| Три trophy chest procs/CD/remove | extended28 idolHeavy/Marinka/Kartaus | PASS prepared native cases |
+| Ward shield positive/negative block cases | extended28 extendedShield…/Environmental… | PASS перечисленных случаев |
+| Полный natural Survival всех34/GUI/client input/real relog/real respawn/network MP/прочие shield procs | owner checklist, не запускались | NOT_RUN |
+
+Доказанных armor defects по-прежнему нет; численные характеристики/арт/registry/рецепты не менялись, предложений ребаланса нет. #287 остаётся OPEN/IN_PROGRESS, поскольку natural acquisition и ручная приёмка не выполнены. Следующая задача — owner smoke, не автоматический следующий roadmap.
+
+
 База `hell` edc915302243e481389a696727c2936d6ce030b3, дерево было чистым; origin совпал. Main8789e08d не изменяется. Предыдущие #278/#284 сохранены. Это собственный проверочный коммит #287, без AI #277, экономики, loot, новых рецептов и изменения production-кода/ресурсов. Прямое разрешение на отдельный изолированный GameTest для этого пакета получено в чате26.10.2026. PolyMC/пользовательские миры не изменялись.
 
 ## Исправлено / неизменённое

@@ -1,3 +1,7 @@
+## 26.10.2026 — #287: расширение проверки до28/28, IN_PROGRESS
+
+[Дополнение аудита](implementation/armor287-20261026/REPORT.md): после #277 ещё20/20 и28/28native cases, всего6изолированных armor server запусков/client0. Добавлены trophy3, Perunite lightning, SevenLeague ramp, Ward shield negative cases, Wind charge/native arc/fall-credit. Armor production не менялся. Natural full acquisition/GUI/real relog/MP и остальные shield procs NOT_RUN; owner acceptance ожидается. [Итоговый JAR/source/SHA](implementation/armor287-20261026/extended-receipt.json), POLYMC_NOT_INSTALLED; Issues OPEN, main не менялся.
+
 ## 26.10.2026 — #277: реакция князя на дальние попадания, IN_PROGRESS / OWNER_PENDING
 
 Только KurganCreature: PRINCE запоминает допустимого attacker после принятого урона; target вне арены ведёт к внутреннему краю вместо home; видимый дальний projectile attacker разрешает прежние конечные окна guard. Stats/фазы/move release/leash/geometry/loot/save/остальные kinds не менялись. [Baseline3FAIL, финальные11/11 native GameTest, trace, source guards и owner checklist](implementation/prince277-20261026/REPORT.md). Пять изолированных server запусков,0клиентов; natural полный курган/реальный relog/network MP NOT_RUN. Java21 clean build,15source/package guards и8001resources PASS. #277 OPEN/«В работе», Project fields не менялись, POLYMC_NOT_INSTALLED. #278/#284/production броня сохранены; owner acceptance ожидается.
