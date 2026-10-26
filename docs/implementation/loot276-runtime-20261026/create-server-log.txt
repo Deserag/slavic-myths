@@ -1,5 +1,5 @@
 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
-Daemon will be stopped at the end of the build 
+Daemon will be stopped at the end of the build
 > Task :createMinecraftArtifacts UP-TO-DATE
 > Task :compileJava UP-TO-DATE
 > Task :verifyRejectedVoiceQuarantine
@@ -20,7 +20,7 @@ WARN StatusConsoleListener Advanced terminal features are not available in this 
 [11:20:49] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
 [11:20:49] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
 [11:20:50] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
-[11:20:50] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+[11:20:50] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]:
      Mod List:
 		Name Version (Mod Id)
 
