@@ -69,3 +69,7 @@ Seed плана277; отдельный disposable GameTest world в run-prince27
 ## Риски/откат / следующая задача
 
 Риск: на сложной геометрии clamped destination может иметь только partial path; на внешней недоступной высоте щит/граница не гарантируют попадание по стрелку. Retaliation меняет приоритет последнего допустимого attacker только у PRINCE. Static guards и два native regression cases не доказывают все поведения соседей. Для отката отдельно revert коммита #277; #287 проверочный коммит самостоятельный, main не менять. Установленного обновления/backup нет, так как PolyMC не трогали. Issues #277/#287 остаются OPEN/«В работе»/OWNER_PENDING; Project fields не изменялись. Следующая задача — игровая проверка владельца и устранение конкретных оставшихся замечаний; #285/#286/#276/#298/четыре acquisition решения #284 не запускаются автоматически.
+
+## Итоговый технический receipt
+
+Production source commit `08076afc3d60b1b63d8323d0b9ec300b1dd1ffa1`; #287 audit1ef5dace и дополнение59b2ebf5 самостоятельны. Итоговый [receipt.json](receipt.json): JAR2.0.1-HELL SHA256 `758d63ae17e256653823927ca7c0ff454c1563c6f07ec505cfe9fb457719ba9e`. [Регрессии](regressions278-284.log): #278 7/7 и #284 19/19PASS на тех же production sources; ещё2server запуска. #287 окончательно28/28PASS. Всего пакет13реальных server запусков,0client. Offline armor41, source/package armor42/prince15,8001resources/1948Java21classes PASS. JAR не устанавливался; issues OPEN, ручная приёмка/натуральный полный проход/relog/network MP остаются NOT_RUN.
