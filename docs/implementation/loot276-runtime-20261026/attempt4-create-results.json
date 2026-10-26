@@ -1,0 +1,3192 @@
+{
+  "production_code_origin": "union:/D:/slavic-myths/work/loot276-runtime-20261026-run4/mods/slavicmyths-2.0.4-HELL.jar%23128!/",
+  "native_table_statistics": {
+    "slavicmyths:rewards276/kurgan_3_ritual": {
+      "empty": 0,
+      "max_stacks": 5,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/camp_3_cache": {
+      "empty": 52,
+      "max_stacks": 7,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/swamp_ruins_main": {
+      "empty": 0,
+      "max_stacks": 8,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_3_common_cache": {
+      "empty": 0,
+      "max_stacks": 4,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/swamp_fisher_main": {
+      "empty": 0,
+      "max_stacks": 6,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/camp_2_main": {
+      "empty": 0,
+      "max_stacks": 11,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_3_main": {
+      "empty": 0,
+      "max_stacks": 5,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/swamp_great_main": {
+      "empty": 0,
+      "max_stacks": 10,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_3_secret": {
+      "empty": 0,
+      "max_stacks": 4,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/spring_regular": {
+      "empty": 0,
+      "max_stacks": 3,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/spring_main": {
+      "empty": 0,
+      "max_stacks": 11,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/fire_regular": {
+      "empty": 0,
+      "max_stacks": 3,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/fire_guaranteed": {
+      "empty": 0,
+      "max_stacks": 4,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/fortress_cache": {
+      "empty": 0,
+      "max_stacks": 7,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/swamp_home_main": {
+      "empty": 0,
+      "max_stacks": 5,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/camp_1_main": {
+      "empty": 0,
+      "max_stacks": 10,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_3_warrior": {
+      "empty": 0,
+      "max_stacks": 5,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/fortress_supply": {
+      "empty": 0,
+      "max_stacks": 3,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_2_main": {
+      "empty": 0,
+      "max_stacks": 5,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/camp_3_main": {
+      "empty": 0,
+      "max_stacks": 9,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_3_great_special": {
+      "empty": 0,
+      "max_stacks": 6,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_3_treasury": {
+      "empty": 0,
+      "max_stacks": 7,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_3_burial": {
+      "empty": 0,
+      "max_stacks": 5,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/depths_main": {
+      "empty": 0,
+      "max_stacks": 7,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/fire_main": {
+      "empty": 0,
+      "max_stacks": 11,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/ancient_shrine": {
+      "empty": 0,
+      "max_stacks": 8,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/swamp_ritual_main": {
+      "empty": 0,
+      "max_stacks": 8,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_1_main": {
+      "empty": 0,
+      "max_stacks": 4,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/swamp_watch_main": {
+      "empty": 0,
+      "max_stacks": 6,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/fortress_main": {
+      "empty": 0,
+      "max_stacks": 16,
+      "poloz_pieces": 2159,
+      "draws": 2000,
+      "rune_iv": 50
+    }
+  },
+  "native_draws": 60000,
+  "decor/1320, 72, -28": "unassigned container, not a loot marker: kurgan_2",
+  "decor/2100, 101, 2": "unassigned container, not a loot marker: camp_1",
+  "decor/3316, 101, 2": "unassigned container, not a loot marker: camp_2",
+  "decor/5509, 102, 14": "unassigned container, not a loot marker: fire",
+  "decor/5509, 102, 23": "unassigned container, not a loot marker: fire",
+  "decor/5519, 102, 14": "unassigned container, not a loot marker: fire",
+  "decor/7008, 102, 3": "unassigned container, not a loot marker: swamp/v097_abandoned_0",
+  "decor/7136, 102, 3": "unassigned container, not a loot marker: swamp/v097_abandoned_1",
+  "decor/7264, 102, 3": "unassigned container, not a loot marker: swamp/v097_abandoned_2",
+  "decor/7392, 102, 3": "unassigned container, not a loot marker: swamp/v097_fisher_0",
+  "decor/7520, 102, 3": "unassigned container, not a loot marker: swamp/v097_fisher_1",
+  "decor/7648, 102, 3": "unassigned container, not a loot marker: swamp/v097_fisher_2",
+  "decor/7010, 101, 259": "unassigned container, not a loot marker: swamp/ruin_1",
+  "decor/7666, 102, 260": "unassigned container, not a loot marker: swamp/v097_cluster_0",
+  "decor/7794, 102, 260": "unassigned container, not a loot marker: swamp/v097_cluster_1",
+  "decor/7922, 102, 260": "unassigned container, not a loot marker: swamp/v097_cluster_2",
+  "kurgan_1": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:kurgan/common_cache": 1,
+      "slavicmyths:kurgan/secret": 1,
+      "slavicmyths:rewards276/kurgan_1_main": 1
+    },
+    "container_count": 3
+  },
+  "kurgan_2": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:kurgan/burial": 1,
+      "slavicmyths:kurgan/common_cache": 2,
+      "slavicmyths:kurgan/secret": 2,
+      "slavicmyths:kurgan/treasury": 2,
+      "slavicmyths:kurgan/warrior": 1,
+      "slavicmyths:rewards276/kurgan_2_main": 1
+    },
+    "container_count": 9
+  },
+  "kurgan_3": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:rewards276/kurgan_3_burial": 2,
+      "slavicmyths:rewards276/kurgan_3_common_cache": 7,
+      "slavicmyths:rewards276/kurgan_3_main": 1,
+      "slavicmyths:rewards276/kurgan_3_ritual": 1,
+      "slavicmyths:rewards276/kurgan_3_secret": 4,
+      "slavicmyths:rewards276/kurgan_3_treasury": 2
+    },
+    "container_count": 17
+  },
+  "camp_1": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/bandit_small": 3,
+      "slavicmyths:rewards276/camp_1_main": 1
+    },
+    "container_count": 4
+  },
+  "camp_2": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/bandit_medium": 8,
+      "slavicmyths:rewards276/camp_2_main": 1
+    },
+    "container_count": 9
+  },
+  "camp_3": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/stronghold_ataman": 1,
+      "slavicmyths:chests/stronghold_barracks": 4,
+      "slavicmyths:chests/stronghold_feather": 1,
+      "slavicmyths:chests/stronghold_forge": 1,
+      "slavicmyths:chests/stronghold_kitchen": 1,
+      "slavicmyths:chests/stronghold_nightingale": 1,
+      "slavicmyths:chests/stronghold_warehouse": 3,
+      "slavicmyths:rewards276/camp_3_cache": 1,
+      "slavicmyths:rewards276/camp_3_main": 1
+    },
+    "container_count": 14
+  },
+  "fire": {
+    "poloz": 0,
+    "routes": {
+      "already_unpacked": 1,
+      "slavicmyths:rewards276/overworld/fire_guaranteed": 1,
+      "slavicmyths:rewards276/overworld/fire_regular": 3
+    },
+    "container_count": 5
+  },
+  "spring": {
+    "poloz": 0,
+    "routes": {
+      "already_unpacked": 1,
+      "slavicmyths:rewards276/overworld/spring_regular": 3
+    },
+    "container_count": 4
+  },
+  "fortress": {
+    "poloz": 1,
+    "routes": {
+      "slavicmyths:rewards276/overworld/fortress_cache": 5,
+      "slavicmyths:rewards276/overworld/fortress_main": 1,
+      "slavicmyths:rewards276/overworld/fortress_supply": 5
+    },
+    "container_count": 11
+  },
+  "swamp/v097_abandoned_0": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_salvage": 1,
+      "slavicmyths:rewards276/overworld/swamp_home_main": 1
+    },
+    "container_count": 2
+  },
+  "swamp/v097_abandoned_1": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_salvage": 1,
+      "slavicmyths:rewards276/overworld/swamp_home_main": 1
+    },
+    "container_count": 2
+  },
+  "swamp/v097_abandoned_2": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_salvage": 1,
+      "slavicmyths:rewards276/overworld/swamp_home_main": 1
+    },
+    "container_count": 2
+  },
+  "swamp/v097_fisher_0": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_fisher": 1,
+      "slavicmyths:rewards276/overworld/swamp_fisher_main": 1
+    },
+    "container_count": 2
+  },
+  "swamp/v097_fisher_1": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_fisher": 1,
+      "slavicmyths:rewards276/overworld/swamp_fisher_main": 1
+    },
+    "container_count": 2
+  },
+  "swamp/v097_fisher_2": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_fisher": 1,
+      "slavicmyths:rewards276/overworld/swamp_fisher_main": 1
+    },
+    "container_count": 2
+  },
+  "swamp/v097_landing_0": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_supplies": 1,
+      "slavicmyths:rewards276/overworld/swamp_fisher_main": 1
+    },
+    "container_count": 2
+  },
+  "swamp/v097_landing_1": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_supplies": 1,
+      "slavicmyths:rewards276/overworld/swamp_fisher_main": 1
+    },
+    "container_count": 2
+  },
+  "swamp/v097_landing_2": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_supplies": 1,
+      "slavicmyths:rewards276/overworld/swamp_fisher_main": 1
+    },
+    "container_count": 2
+  },
+  "swamp/v097_boardwalk_0": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_supplies": 1
+    },
+    "container_count": 1
+  },
+  "swamp/v097_boardwalk_1": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_supplies": 1
+    },
+    "container_count": 1
+  },
+  "swamp/v097_boardwalk_2": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_supplies": 1
+    },
+    "container_count": 1
+  },
+  "swamp/v097_watchtower_0": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_supplies": 1,
+      "slavicmyths:rewards276/overworld/swamp_watch_main": 1
+    },
+    "container_count": 2
+  },
+  "swamp/v097_watchtower_1": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_supplies": 1,
+      "slavicmyths:rewards276/overworld/swamp_watch_main": 1
+    },
+    "container_count": 2
+  },
+  "swamp/v097_watchtower_2": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_supplies": 1,
+      "slavicmyths:rewards276/overworld/swamp_watch_main": 1
+    },
+    "container_count": 2
+  },
+  "swamp/ruin_0": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:rewards276/overworld/swamp_ruins_main": 1
+    },
+    "container_count": 1
+  },
+  "swamp/ruin_1": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_supplies": 1,
+      "slavicmyths:rewards276/overworld/swamp_ruins_main": 1
+    },
+    "container_count": 2
+  },
+  "swamp/ruin_2": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:rewards276/overworld/swamp_ruins_main": 1
+    },
+    "container_count": 1
+  },
+  "swamp/v097_shrine_0": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_ritual": 1,
+      "slavicmyths:rewards276/overworld/swamp_ritual_main": 1
+    },
+    "container_count": 2
+  },
+  "swamp/v097_shrine_1": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_ritual": 1,
+      "slavicmyths:rewards276/overworld/swamp_ritual_main": 1
+    },
+    "container_count": 2
+  },
+  "swamp/v097_shrine_2": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_ritual": 1,
+      "slavicmyths:rewards276/overworld/swamp_ritual_main": 1
+    },
+    "container_count": 2
+  },
+  "swamp/v097_cluster_0": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_great_shrine": 2,
+      "slavicmyths:chests/swamp_ritual": 2,
+      "slavicmyths:rewards276/overworld/swamp_great_main": 1
+    },
+    "container_count": 5
+  },
+  "swamp/v097_cluster_1": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_great_shrine": 2,
+      "slavicmyths:chests/swamp_ritual": 2,
+      "slavicmyths:rewards276/overworld/swamp_great_main": 1
+    },
+    "container_count": 5
+  },
+  "swamp/v097_cluster_2": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:chests/swamp_great_shrine": 2,
+      "slavicmyths:chests/swamp_ritual": 2,
+      "slavicmyths:rewards276/overworld/swamp_great_main": 1
+    },
+    "container_count": 5
+  },
+  "depths": {
+    "status": "COMPLETE",
+    "chest_positions": [
+      2944767020843025,
+      2923601421975561
+    ],
+    "instance": "15f19027-3427-4ac7-832d-cc75f2fe44e3",
+    "origin": {
+      "x": 10807,
+      "y": 32,
+      "z": 926
+    }
+  },
+  "status": "PASS",
+  "phase": "create",
+  "checks": [
+    {
+      "result": "PASS",
+      "test": "actual installed production JAR loaded; no main class output",
+      "site": "bootstrap"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_3_ritual",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/camp_3_cache",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/swamp_ruins_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_3_common_cache",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/swamp_fisher_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/camp_2_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_3_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/swamp_great_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_3_secret",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/spring_regular",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/spring_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/fire_regular",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/fire_guaranteed",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/fortress_cache",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/swamp_home_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/camp_1_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_3_warrior",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/fortress_supply",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_2_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/camp_3_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_3_great_special",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_3_treasury",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_3_burial",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/depths_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/fire_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/ancient_shrine",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/swamp_ritual_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_1_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/swamp_watch_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/fortress_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "all30 L1+Overworld tables loaded (not fallback EMPTY)",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d999, y\u003d89, z\u003d29}",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d999, y\u003d89, z\u003d29} route\u003dslavicmyths:kurgan/common_cache",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d999, y\u003d89, z\u003d29}",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1032, y\u003d89, z\u003d-51}",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1032, y\u003d89, z\u003d-51} route\u003dslavicmyths:kurgan/secret",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1032, y\u003d89, z\u003d-51}",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1030, y\u003d89, z\u003d7}",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1030, y\u003d89, z\u003d7} route\u003dslavicmyths:rewards276/kurgan_1_main",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1030, y\u003d89, z\u003d7}",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "exactly one L1 main assigned",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1252, y\u003d89, z\u003d-22}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1252, y\u003d89, z\u003d-22} route\u003dslavicmyths:kurgan/warrior",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1252, y\u003d89, z\u003d-22}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1287, y\u003d73, z\u003d-51}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1287, y\u003d73, z\u003d-51} route\u003dslavicmyths:kurgan/secret",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1287, y\u003d73, z\u003d-51}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1287, y\u003d89, z\u003d-51}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1287, y\u003d89, z\u003d-51} route\u003dslavicmyths:kurgan/secret",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1287, y\u003d89, z\u003d-51}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1287, y\u003d89, z\u003d61}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1287, y\u003d89, z\u003d61} route\u003dslavicmyths:kurgan/common_cache",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1287, y\u003d89, z\u003d61}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1283, y\u003d73, z\u003d80}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1283, y\u003d73, z\u003d80} route\u003dslavicmyths:rewards276/kurgan_2_main",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1283, y\u003d73, z\u003d80}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1318, y\u003d73, z\u003d-23}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1318, y\u003d73, z\u003d-23} route\u003dslavicmyths:kurgan/common_cache",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1318, y\u003d73, z\u003d-23}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1323, y\u003d89, z\u003d40}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1323, y\u003d89, z\u003d40} route\u003dslavicmyths:kurgan/treasury",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1323, y\u003d89, z\u003d40}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1317, y\u003d89, z\u003d40}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1317, y\u003d89, z\u003d40} route\u003dslavicmyths:kurgan/treasury",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1317, y\u003d89, z\u003d40}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1316, y\u003d73, z\u003d41}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1316, y\u003d73, z\u003d41} route\u003dslavicmyths:kurgan/burial",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1316, y\u003d73, z\u003d41}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "exactly one L1 main assigned",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1508, y\u003d73, z\u003d41}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1508, y\u003d73, z\u003d41} route\u003dslavicmyths:rewards276/kurgan_3_treasury",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1508, y\u003d73, z\u003d41}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1516, y\u003d73, z\u003d41}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1516, y\u003d73, z\u003d41} route\u003dslavicmyths:rewards276/kurgan_3_treasury",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1516, y\u003d73, z\u003d41}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1511, y\u003d73, z\u003d61}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1511, y\u003d73, z\u003d61} route\u003dslavicmyths:rewards276/kurgan_3_common_cache",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1511, y\u003d73, z\u003d61}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1511, y\u003d57, z\u003d61}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1511, y\u003d57, z\u003d61} route\u003dslavicmyths:rewards276/kurgan_3_common_cache",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1511, y\u003d57, z\u003d61}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1543, y\u003d89, z\u003d-50}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1543, y\u003d89, z\u003d-50} route\u003dslavicmyths:rewards276/kurgan_3_secret",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1543, y\u003d89, z\u003d-50}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1540, y\u003d57, z\u003d-23}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1540, y\u003d57, z\u003d-23} route\u003dslavicmyths:rewards276/kurgan_3_common_cache",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1540, y\u003d57, z\u003d-23}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1540, y\u003d41, z\u003d-23}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1540, y\u003d41, z\u003d-23} route\u003dslavicmyths:rewards276/kurgan_3_common_cache",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1540, y\u003d41, z\u003d-23}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1543, y\u003d89, z\u003d61}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1543, y\u003d89, z\u003d61} route\u003dslavicmyths:rewards276/kurgan_3_common_cache",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1543, y\u003d89, z\u003d61}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1536, y\u003d41, z\u003d83}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1536, y\u003d41, z\u003d83} route\u003dslavicmyths:rewards276/kurgan_3_main",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1536, y\u003d41, z\u003d83}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1575, y\u003d73, z\u003d-50}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1575, y\u003d73, z\u003d-50} route\u003dslavicmyths:rewards276/kurgan_3_secret",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1575, y\u003d73, z\u003d-50}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1575, y\u003d41, z\u003d-50}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1575, y\u003d41, z\u003d-50} route\u003dslavicmyths:rewards276/kurgan_3_secret",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1575, y\u003d41, z\u003d-50}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1575, y\u003d57, z\u003d-50}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1575, y\u003d57, z\u003d-50} route\u003dslavicmyths:rewards276/kurgan_3_secret",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1575, y\u003d57, z\u003d-50}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1572, y\u003d73, z\u003d-25}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1572, y\u003d73, z\u003d-25} route\u003dslavicmyths:rewards276/kurgan_3_ritual",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1572, y\u003d73, z\u003d-25}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1574, y\u003d57, z\u003d9}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1574, y\u003d57, z\u003d9} route\u003dslavicmyths:rewards276/kurgan_3_common_cache",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1574, y\u003d57, z\u003d9}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1573, y\u003d41, z\u003d7}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1573, y\u003d41, z\u003d7} route\u003dslavicmyths:rewards276/kurgan_3_common_cache",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1573, y\u003d41, z\u003d7}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1582, y\u003d89, z\u003d43}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1582, y\u003d89, z\u003d43} route\u003dslavicmyths:rewards276/kurgan_3_burial",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1582, y\u003d89, z\u003d43}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1570, y\u003d89, z\u003d43}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d1570, y\u003d89, z\u003d43} route\u003dslavicmyths:rewards276/kurgan_3_burial",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1570, y\u003d89, z\u003d43}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "exactly one L1 main assigned",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d2002, y\u003d101, z\u003d4}",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d2002, y\u003d101, z\u003d4} route\u003dslavicmyths:chests/bandit_small",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d2002, y\u003d101, z\u003d4}",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d2098, y\u003d101, z\u003d2}",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d2098, y\u003d101, z\u003d2} route\u003dslavicmyths:chests/bandit_small",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d2098, y\u003d101, z\u003d2}",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d2194, y\u003d101, z\u003d6}",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d2194, y\u003d101, z\u003d6} route\u003dslavicmyths:rewards276/camp_1_main",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d2194, y\u003d101, z\u003d6}",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d2388, y\u003d102, z\u003d4}",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d2388, y\u003d102, z\u003d4} route\u003dslavicmyths:chests/bandit_small",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d2388, y\u003d102, z\u003d4}",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "exactly one L1 main assigned",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d3026, y\u003d101, z\u003d6}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d3026, y\u003d101, z\u003d6} route\u003dslavicmyths:rewards276/camp_2_main",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d3026, y\u003d101, z\u003d6}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d3122, y\u003d101, z\u003d4}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d3122, y\u003d101, z\u003d4} route\u003dslavicmyths:chests/bandit_medium",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d3122, y\u003d101, z\u003d4}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d3218, y\u003d101, z\u003d4}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d3218, y\u003d101, z\u003d4} route\u003dslavicmyths:chests/bandit_medium",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d3218, y\u003d101, z\u003d4}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d3314, y\u003d101, z\u003d2}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d3314, y\u003d101, z\u003d2} route\u003dslavicmyths:chests/bandit_medium",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d3314, y\u003d101, z\u003d2}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d3410, y\u003d101, z\u003d6}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d3410, y\u003d101, z\u003d6} route\u003dslavicmyths:chests/bandit_medium",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d3410, y\u003d101, z\u003d6}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d3027, y\u003d101, z\u003d98}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d3027, y\u003d101, z\u003d98} route\u003dslavicmyths:chests/bandit_medium",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d3027, y\u003d101, z\u003d98}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d3030, y\u003d101, z\u003d98}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d3030, y\u003d101, z\u003d98} route\u003dslavicmyths:chests/bandit_medium",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d3030, y\u003d101, z\u003d98}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d3026, y\u003d101, z\u003d98}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d3026, y\u003d101, z\u003d98} route\u003dslavicmyths:chests/bandit_medium",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d3026, y\u003d101, z\u003d98}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d3220, y\u003d101, z\u003d98}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d3220, y\u003d101, z\u003d98} route\u003dslavicmyths:chests/bandit_medium",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d3220, y\u003d101, z\u003d98}",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "exactly one L1 main assigned",
+      "site": "camp_2"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d4154, y\u003d101, z\u003d5}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d4154, y\u003d101, z\u003d5} route\u003dslavicmyths:chests/stronghold_barracks",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d4154, y\u003d101, z\u003d5}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d4248, y\u003d101, z\u003d2}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d4248, y\u003d101, z\u003d2} route\u003dslavicmyths:chests/stronghold_forge",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d4248, y\u003d101, z\u003d2}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d4338, y\u003d101, z\u003d6}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d4338, y\u003d101, z\u003d6} route\u003dslavicmyths:chests/stronghold_warehouse",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d4338, y\u003d101, z\u003d6}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d4346, y\u003d101, z\u003d6}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d4346, y\u003d101, z\u003d6} route\u003dslavicmyths:chests/stronghold_warehouse",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d4346, y\u003d101, z\u003d6}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d4440, y\u003d101, z\u003d6}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d4440, y\u003d101, z\u003d6} route\u003dslavicmyths:chests/stronghold_kitchen",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d4440, y\u003d101, z\u003d6}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d4060, y\u003d101, z\u003d101}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d4060, y\u003d101, z\u003d101} route\u003dslavicmyths:rewards276/camp_3_main",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d4060, y\u003d101, z\u003d101}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d4337, y\u003d101, z\u003d99}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d4337, y\u003d101, z\u003d99} route\u003dslavicmyths:chests/stronghold_ataman",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d4337, y\u003d101, z\u003d99}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d4440, y\u003d101, z\u003d98}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d4440, y\u003d101, z\u003d98} route\u003dslavicmyths:chests/stronghold_warehouse",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d4440, y\u003d101, z\u003d98}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d4164, y\u003d108, z\u003d203}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d4164, y\u003d108, z\u003d203} route\u003dslavicmyths:chests/stronghold_nightingale",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d4164, y\u003d108, z\u003d203}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d4170, y\u003d101, z\u003d210}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d4170, y\u003d101, z\u003d210} route\u003dslavicmyths:chests/stronghold_feather",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d4170, y\u003d101, z\u003d210}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d4241, y\u003d106, z\u003d197}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d4241, y\u003d106, z\u003d197} route\u003dslavicmyths:chests/stronghold_barracks",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d4241, y\u003d106, z\u003d197}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d4337, y\u003d107, z\u003d197}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d4337, y\u003d107, z\u003d197} route\u003dslavicmyths:chests/stronghold_barracks",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d4337, y\u003d107, z\u003d197}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d4433, y\u003d109, z\u003d197}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d4433, y\u003d109, z\u003d197} route\u003dslavicmyths:chests/stronghold_barracks",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d4433, y\u003d109, z\u003d197}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d4148, y\u003d101, z\u003d292}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d4148, y\u003d101, z\u003d292} route\u003dslavicmyths:rewards276/camp_3_cache",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d4148, y\u003d101, z\u003d292}",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "exactly one L1 main assigned",
+      "site": "camp_3"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "both players denied sealed cache",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "sealed pending loot exists",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "sealed unpack/read/extract denied",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "wrong ritual item keeps cache sealed",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "ember consumed, fire restored (legacy ash reward may occupy freed hand slot)",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "actual ritual opens cache for both server players",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "ritual resolves actual cache loot",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d5511, y\u003d102, z\u003d17}",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d5511, y\u003d102, z\u003d17} route\u003dslavicmyths:rewards276/overworld/fire_guaranteed",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d5511, y\u003d102, z\u003d17}",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d5510, y\u003d101, z\u003d45}",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d5510, y\u003d101, z\u003d45} route\u003dslavicmyths:rewards276/overworld/fire_regular",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d5510, y\u003d101, z\u003d45}",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d5518, y\u003d102, z\u003d20}",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d5518, y\u003d102, z\u003d20} route\u003dalready_unpacked",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d5518, y\u003d102, z\u003d20}",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d5529, y\u003d104, z\u003d21}",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d5529, y\u003d104, z\u003d21} route\u003dslavicmyths:rewards276/overworld/fire_regular",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d5529, y\u003d104, z\u003d21}",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d5517, y\u003d101, z\u003d39}",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d5517, y\u003d101, z\u003d39} route\u003dslavicmyths:rewards276/overworld/fire_regular",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d5517, y\u003d101, z\u003d39}",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "fire five containers",
+      "site": "fire"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "both players denied sealed cache",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "sealed pending loot exists",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "sealed unpack/read/extract denied",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "wrong ritual item keeps cache sealed",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "two actual spring nodes",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "one pool insufficient",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "two powders consumed",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "actual ritual opens cache for both server players",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "ritual resolves actual cache loot",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d6012, y\u003d101, z\u003d14}",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d6012, y\u003d101, z\u003d14} route\u003dslavicmyths:rewards276/overworld/spring_regular",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d6012, y\u003d101, z\u003d14}",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d6011, y\u003d101, z\u003d23}",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d6011, y\u003d101, z\u003d23} route\u003dalready_unpacked",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d6011, y\u003d101, z\u003d23}",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d6023, y\u003d101, z\u003d22}",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d6023, y\u003d101, z\u003d22} route\u003dslavicmyths:rewards276/overworld/spring_regular",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d6023, y\u003d101, z\u003d22}",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d6089, y\u003d101, z\u003d35}",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d6089, y\u003d101, z\u003d35} route\u003dslavicmyths:rewards276/overworld/spring_regular",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d6089, y\u003d101, z\u003d35}",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "spring four containers",
+      "site": "spring"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d6536, y\u003d161, z\u003d89}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d6536, y\u003d161, z\u003d89} route\u003dslavicmyths:rewards276/overworld/fortress_cache",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d6536, y\u003d161, z\u003d89}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d6537, y\u003d161, z\u003d89}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d6537, y\u003d161, z\u003d89} route\u003dslavicmyths:rewards276/overworld/fortress_supply",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d6537, y\u003d161, z\u003d89}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d6545, y\u003d161, z\u003d44}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d6545, y\u003d161, z\u003d44} route\u003dslavicmyths:rewards276/overworld/fortress_main",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d6545, y\u003d161, z\u003d44}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d6546, y\u003d161, z\u003d44}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d6546, y\u003d161, z\u003d44} route\u003dslavicmyths:rewards276/overworld/fortress_supply",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d6546, y\u003d161, z\u003d44}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d6554, y\u003d85, z\u003d86}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d6554, y\u003d85, z\u003d86} route\u003dslavicmyths:rewards276/overworld/fortress_cache",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d6554, y\u003d85, z\u003d86}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d6591, y\u003d161, z\u003d56}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d6591, y\u003d161, z\u003d56} route\u003dslavicmyths:rewards276/overworld/fortress_supply",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d6591, y\u003d161, z\u003d56}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d6590, y\u003d161, z\u003d56}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d6590, y\u003d161, z\u003d56} route\u003dslavicmyths:rewards276/overworld/fortress_cache",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d6590, y\u003d161, z\u003d56}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d6584, y\u003d161, z\u003d55}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d6584, y\u003d161, z\u003d55} route\u003dslavicmyths:rewards276/overworld/fortress_supply",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d6584, y\u003d161, z\u003d55}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d6583, y\u003d161, z\u003d55}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d6583, y\u003d161, z\u003d55} route\u003dslavicmyths:rewards276/overworld/fortress_cache",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d6583, y\u003d161, z\u003d55}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d6584, y\u003d161, z\u003d65}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d6584, y\u003d161, z\u003d65} route\u003dslavicmyths:rewards276/overworld/fortress_cache",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d6584, y\u003d161, z\u003d65}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d6585, y\u003d161, z\u003d65}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d6585, y\u003d161, z\u003d65} route\u003dslavicmyths:rewards276/overworld/fortress_supply",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d6585, y\u003d161, z\u003d65}",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "six fortress chests plus five barrels;one main",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "whole fortress one or two Poloz pieces",
+      "site": "fortress"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_abandoned_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7004, y\u003d102, z\u003d3}",
+      "site": "swamp/v097_abandoned_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7004, y\u003d102, z\u003d3} route\u003dslavicmyths:rewards276/overworld/swamp_home_main",
+      "site": "swamp/v097_abandoned_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7004, y\u003d102, z\u003d3}",
+      "site": "swamp/v097_abandoned_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7008, y\u003d102, z\u003d7}",
+      "site": "swamp/v097_abandoned_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7008, y\u003d102, z\u003d7} route\u003dslavicmyths:chests/swamp_salvage",
+      "site": "swamp/v097_abandoned_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7008, y\u003d102, z\u003d7}",
+      "site": "swamp/v097_abandoned_0"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_abandoned_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7132, y\u003d102, z\u003d3}",
+      "site": "swamp/v097_abandoned_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7132, y\u003d102, z\u003d3} route\u003dslavicmyths:rewards276/overworld/swamp_home_main",
+      "site": "swamp/v097_abandoned_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7132, y\u003d102, z\u003d3}",
+      "site": "swamp/v097_abandoned_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7136, y\u003d102, z\u003d7}",
+      "site": "swamp/v097_abandoned_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7136, y\u003d102, z\u003d7} route\u003dslavicmyths:chests/swamp_salvage",
+      "site": "swamp/v097_abandoned_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7136, y\u003d102, z\u003d7}",
+      "site": "swamp/v097_abandoned_1"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_abandoned_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7260, y\u003d102, z\u003d3}",
+      "site": "swamp/v097_abandoned_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7260, y\u003d102, z\u003d3} route\u003dslavicmyths:rewards276/overworld/swamp_home_main",
+      "site": "swamp/v097_abandoned_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7260, y\u003d102, z\u003d3}",
+      "site": "swamp/v097_abandoned_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7264, y\u003d102, z\u003d7}",
+      "site": "swamp/v097_abandoned_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7264, y\u003d102, z\u003d7} route\u003dslavicmyths:chests/swamp_salvage",
+      "site": "swamp/v097_abandoned_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7264, y\u003d102, z\u003d7}",
+      "site": "swamp/v097_abandoned_2"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_fisher_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7389, y\u003d102, z\u003d14}",
+      "site": "swamp/v097_fisher_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7389, y\u003d102, z\u003d14} route\u003dslavicmyths:rewards276/overworld/swamp_fisher_main",
+      "site": "swamp/v097_fisher_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7389, y\u003d102, z\u003d14}",
+      "site": "swamp/v097_fisher_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7392, y\u003d102, z\u003d8}",
+      "site": "swamp/v097_fisher_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7392, y\u003d102, z\u003d8} route\u003dslavicmyths:chests/swamp_fisher",
+      "site": "swamp/v097_fisher_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7392, y\u003d102, z\u003d8}",
+      "site": "swamp/v097_fisher_0"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_fisher_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7517, y\u003d102, z\u003d14}",
+      "site": "swamp/v097_fisher_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7517, y\u003d102, z\u003d14} route\u003dslavicmyths:rewards276/overworld/swamp_fisher_main",
+      "site": "swamp/v097_fisher_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7517, y\u003d102, z\u003d14}",
+      "site": "swamp/v097_fisher_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7520, y\u003d102, z\u003d8}",
+      "site": "swamp/v097_fisher_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7520, y\u003d102, z\u003d8} route\u003dslavicmyths:chests/swamp_fisher",
+      "site": "swamp/v097_fisher_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7520, y\u003d102, z\u003d8}",
+      "site": "swamp/v097_fisher_1"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_fisher_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7645, y\u003d102, z\u003d14}",
+      "site": "swamp/v097_fisher_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7645, y\u003d102, z\u003d14} route\u003dslavicmyths:rewards276/overworld/swamp_fisher_main",
+      "site": "swamp/v097_fisher_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7645, y\u003d102, z\u003d14}",
+      "site": "swamp/v097_fisher_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7648, y\u003d102, z\u003d8}",
+      "site": "swamp/v097_fisher_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7648, y\u003d102, z\u003d8} route\u003dslavicmyths:chests/swamp_fisher",
+      "site": "swamp/v097_fisher_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7648, y\u003d102, z\u003d8}",
+      "site": "swamp/v097_fisher_2"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_landing_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7775, y\u003d102, z\u003d9}",
+      "site": "swamp/v097_landing_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7775, y\u003d102, z\u003d9} route\u003dslavicmyths:chests/swamp_supplies",
+      "site": "swamp/v097_landing_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7775, y\u003d102, z\u003d9}",
+      "site": "swamp/v097_landing_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7775, y\u003d102, z\u003d4}",
+      "site": "swamp/v097_landing_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7775, y\u003d102, z\u003d4} route\u003dslavicmyths:rewards276/overworld/swamp_fisher_main",
+      "site": "swamp/v097_landing_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7775, y\u003d102, z\u003d4}",
+      "site": "swamp/v097_landing_0"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_landing_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7903, y\u003d102, z\u003d4}",
+      "site": "swamp/v097_landing_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7903, y\u003d102, z\u003d4} route\u003dslavicmyths:rewards276/overworld/swamp_fisher_main",
+      "site": "swamp/v097_landing_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7903, y\u003d102, z\u003d4}",
+      "site": "swamp/v097_landing_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7903, y\u003d102, z\u003d9}",
+      "site": "swamp/v097_landing_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7903, y\u003d102, z\u003d9} route\u003dslavicmyths:chests/swamp_supplies",
+      "site": "swamp/v097_landing_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7903, y\u003d102, z\u003d9}",
+      "site": "swamp/v097_landing_1"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_landing_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7007, y\u003d102, z\u003d132}",
+      "site": "swamp/v097_landing_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7007, y\u003d102, z\u003d132} route\u003dslavicmyths:rewards276/overworld/swamp_fisher_main",
+      "site": "swamp/v097_landing_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7007, y\u003d102, z\u003d132}",
+      "site": "swamp/v097_landing_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7007, y\u003d102, z\u003d137}",
+      "site": "swamp/v097_landing_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7007, y\u003d102, z\u003d137} route\u003dslavicmyths:chests/swamp_supplies",
+      "site": "swamp/v097_landing_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7007, y\u003d102, z\u003d137}",
+      "site": "swamp/v097_landing_2"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_boardwalk_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7132, y\u003d102, z\u003d145}",
+      "site": "swamp/v097_boardwalk_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7132, y\u003d102, z\u003d145} route\u003dslavicmyths:chests/swamp_supplies",
+      "site": "swamp/v097_boardwalk_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7132, y\u003d102, z\u003d145}",
+      "site": "swamp/v097_boardwalk_0"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_boardwalk_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7260, y\u003d102, z\u003d145}",
+      "site": "swamp/v097_boardwalk_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7260, y\u003d102, z\u003d145} route\u003dslavicmyths:chests/swamp_supplies",
+      "site": "swamp/v097_boardwalk_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7260, y\u003d102, z\u003d145}",
+      "site": "swamp/v097_boardwalk_1"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_boardwalk_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7388, y\u003d102, z\u003d145}",
+      "site": "swamp/v097_boardwalk_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7388, y\u003d102, z\u003d145} route\u003dslavicmyths:chests/swamp_supplies",
+      "site": "swamp/v097_boardwalk_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7388, y\u003d102, z\u003d145}",
+      "site": "swamp/v097_boardwalk_2"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_watchtower_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7517, y\u003d110, z\u003d133}",
+      "site": "swamp/v097_watchtower_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7517, y\u003d110, z\u003d133} route\u003dslavicmyths:rewards276/overworld/swamp_watch_main",
+      "site": "swamp/v097_watchtower_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7517, y\u003d110, z\u003d133}",
+      "site": "swamp/v097_watchtower_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7516, y\u003d102, z\u003d132}",
+      "site": "swamp/v097_watchtower_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7516, y\u003d102, z\u003d132} route\u003dslavicmyths:chests/swamp_supplies",
+      "site": "swamp/v097_watchtower_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7516, y\u003d102, z\u003d132}",
+      "site": "swamp/v097_watchtower_0"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_watchtower_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7645, y\u003d112, z\u003d133}",
+      "site": "swamp/v097_watchtower_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7645, y\u003d112, z\u003d133} route\u003dslavicmyths:rewards276/overworld/swamp_watch_main",
+      "site": "swamp/v097_watchtower_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7645, y\u003d112, z\u003d133}",
+      "site": "swamp/v097_watchtower_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7644, y\u003d102, z\u003d132}",
+      "site": "swamp/v097_watchtower_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7644, y\u003d102, z\u003d132} route\u003dslavicmyths:chests/swamp_supplies",
+      "site": "swamp/v097_watchtower_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7644, y\u003d102, z\u003d132}",
+      "site": "swamp/v097_watchtower_1"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_watchtower_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7772, y\u003d102, z\u003d132}",
+      "site": "swamp/v097_watchtower_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7772, y\u003d102, z\u003d132} route\u003dslavicmyths:chests/swamp_supplies",
+      "site": "swamp/v097_watchtower_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7772, y\u003d102, z\u003d132}",
+      "site": "swamp/v097_watchtower_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7773, y\u003d114, z\u003d133}",
+      "site": "swamp/v097_watchtower_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7773, y\u003d114, z\u003d133} route\u003dslavicmyths:rewards276/overworld/swamp_watch_main",
+      "site": "swamp/v097_watchtower_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7773, y\u003d114, z\u003d133}",
+      "site": "swamp/v097_watchtower_2"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/ruin_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7900, y\u003d101, z\u003d135}",
+      "site": "swamp/ruin_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7900, y\u003d101, z\u003d135} route\u003dslavicmyths:rewards276/overworld/swamp_ruins_main",
+      "site": "swamp/ruin_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7900, y\u003d101, z\u003d135}",
+      "site": "swamp/ruin_0"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/ruin_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7004, y\u003d101, z\u003d264}",
+      "site": "swamp/ruin_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7004, y\u003d101, z\u003d264} route\u003dslavicmyths:rewards276/overworld/swamp_ruins_main",
+      "site": "swamp/ruin_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7004, y\u003d101, z\u003d264}",
+      "site": "swamp/ruin_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7009, y\u003d101, z\u003d259}",
+      "site": "swamp/ruin_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7009, y\u003d101, z\u003d259} route\u003dslavicmyths:chests/swamp_supplies",
+      "site": "swamp/ruin_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7009, y\u003d101, z\u003d259}",
+      "site": "swamp/ruin_1"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/ruin_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7131, y\u003d101, z\u003d258}",
+      "site": "swamp/ruin_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7131, y\u003d101, z\u003d258} route\u003dslavicmyths:rewards276/overworld/swamp_ruins_main",
+      "site": "swamp/ruin_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7131, y\u003d101, z\u003d258}",
+      "site": "swamp/ruin_2"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_shrine_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7259, y\u003d102, z\u003d260}",
+      "site": "swamp/v097_shrine_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7259, y\u003d102, z\u003d260} route\u003dslavicmyths:rewards276/overworld/swamp_ritual_main",
+      "site": "swamp/v097_shrine_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7259, y\u003d102, z\u003d260}",
+      "site": "swamp/v097_shrine_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7265, y\u003d102, z\u003d260}",
+      "site": "swamp/v097_shrine_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7265, y\u003d102, z\u003d260} route\u003dslavicmyths:chests/swamp_ritual",
+      "site": "swamp/v097_shrine_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7265, y\u003d102, z\u003d260}",
+      "site": "swamp/v097_shrine_0"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_shrine_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7387, y\u003d102, z\u003d260}",
+      "site": "swamp/v097_shrine_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7387, y\u003d102, z\u003d260} route\u003dslavicmyths:rewards276/overworld/swamp_ritual_main",
+      "site": "swamp/v097_shrine_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7387, y\u003d102, z\u003d260}",
+      "site": "swamp/v097_shrine_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7393, y\u003d102, z\u003d260}",
+      "site": "swamp/v097_shrine_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7393, y\u003d102, z\u003d260} route\u003dslavicmyths:chests/swamp_ritual",
+      "site": "swamp/v097_shrine_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7393, y\u003d102, z\u003d260}",
+      "site": "swamp/v097_shrine_1"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_shrine_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7515, y\u003d102, z\u003d260}",
+      "site": "swamp/v097_shrine_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7515, y\u003d102, z\u003d260} route\u003dslavicmyths:rewards276/overworld/swamp_ritual_main",
+      "site": "swamp/v097_shrine_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7515, y\u003d102, z\u003d260}",
+      "site": "swamp/v097_shrine_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7521, y\u003d102, z\u003d260}",
+      "site": "swamp/v097_shrine_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7521, y\u003d102, z\u003d260} route\u003dslavicmyths:chests/swamp_ritual",
+      "site": "swamp/v097_shrine_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7521, y\u003d102, z\u003d260}",
+      "site": "swamp/v097_shrine_2"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_cluster_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7644, y\u003d102, z\u003d261}",
+      "site": "swamp/v097_cluster_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7644, y\u003d102, z\u003d261} route\u003dslavicmyths:chests/swamp_ritual",
+      "site": "swamp/v097_cluster_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7644, y\u003d102, z\u003d261}",
+      "site": "swamp/v097_cluster_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7648, y\u003d102, z\u003d266}",
+      "site": "swamp/v097_cluster_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7648, y\u003d102, z\u003d266} route\u003dslavicmyths:rewards276/overworld/swamp_great_main",
+      "site": "swamp/v097_cluster_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7648, y\u003d102, z\u003d266}",
+      "site": "swamp/v097_cluster_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7650, y\u003d102, z\u003d261}",
+      "site": "swamp/v097_cluster_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7650, y\u003d102, z\u003d261} route\u003dslavicmyths:chests/swamp_ritual",
+      "site": "swamp/v097_cluster_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7650, y\u003d102, z\u003d261}",
+      "site": "swamp/v097_cluster_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7666, y\u003d102, z\u003d264}",
+      "site": "swamp/v097_cluster_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7666, y\u003d102, z\u003d264} route\u003dslavicmyths:chests/swamp_great_shrine",
+      "site": "swamp/v097_cluster_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7666, y\u003d102, z\u003d264}",
+      "site": "swamp/v097_cluster_0"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7666, y\u003d110, z\u003d281}",
+      "site": "swamp/v097_cluster_0"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7666, y\u003d110, z\u003d281} route\u003dslavicmyths:chests/swamp_great_shrine",
+      "site": "swamp/v097_cluster_0"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7666, y\u003d110, z\u003d281}",
+      "site": "swamp/v097_cluster_0"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_cluster_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7772, y\u003d102, z\u003d261}",
+      "site": "swamp/v097_cluster_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7772, y\u003d102, z\u003d261} route\u003dslavicmyths:chests/swamp_ritual",
+      "site": "swamp/v097_cluster_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7772, y\u003d102, z\u003d261}",
+      "site": "swamp/v097_cluster_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7778, y\u003d102, z\u003d261}",
+      "site": "swamp/v097_cluster_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7778, y\u003d102, z\u003d261} route\u003dslavicmyths:chests/swamp_ritual",
+      "site": "swamp/v097_cluster_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7778, y\u003d102, z\u003d261}",
+      "site": "swamp/v097_cluster_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7776, y\u003d102, z\u003d266}",
+      "site": "swamp/v097_cluster_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7776, y\u003d102, z\u003d266} route\u003dslavicmyths:rewards276/overworld/swamp_great_main",
+      "site": "swamp/v097_cluster_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7776, y\u003d102, z\u003d266}",
+      "site": "swamp/v097_cluster_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7794, y\u003d102, z\u003d264}",
+      "site": "swamp/v097_cluster_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7794, y\u003d102, z\u003d264} route\u003dslavicmyths:chests/swamp_great_shrine",
+      "site": "swamp/v097_cluster_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7794, y\u003d102, z\u003d264}",
+      "site": "swamp/v097_cluster_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7794, y\u003d111, z\u003d281}",
+      "site": "swamp/v097_cluster_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7794, y\u003d111, z\u003d281} route\u003dslavicmyths:chests/swamp_great_shrine",
+      "site": "swamp/v097_cluster_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7794, y\u003d111, z\u003d281}",
+      "site": "swamp/v097_cluster_1"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "swamp/v097_cluster_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7900, y\u003d102, z\u003d261}",
+      "site": "swamp/v097_cluster_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7900, y\u003d102, z\u003d261} route\u003dslavicmyths:chests/swamp_ritual",
+      "site": "swamp/v097_cluster_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7900, y\u003d102, z\u003d261}",
+      "site": "swamp/v097_cluster_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7906, y\u003d102, z\u003d261}",
+      "site": "swamp/v097_cluster_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7906, y\u003d102, z\u003d261} route\u003dslavicmyths:chests/swamp_ritual",
+      "site": "swamp/v097_cluster_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7906, y\u003d102, z\u003d261}",
+      "site": "swamp/v097_cluster_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7904, y\u003d102, z\u003d266}",
+      "site": "swamp/v097_cluster_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7904, y\u003d102, z\u003d266} route\u003dslavicmyths:rewards276/overworld/swamp_great_main",
+      "site": "swamp/v097_cluster_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7904, y\u003d102, z\u003d266}",
+      "site": "swamp/v097_cluster_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7922, y\u003d102, z\u003d264}",
+      "site": "swamp/v097_cluster_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7922, y\u003d102, z\u003d264} route\u003dslavicmyths:chests/swamp_great_shrine",
+      "site": "swamp/v097_cluster_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7922, y\u003d102, z\u003d264}",
+      "site": "swamp/v097_cluster_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d7922, y\u003d112, z\u003d281}",
+      "site": "swamp/v097_cluster_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty guaranteed loot at BlockPos{x\u003d7922, y\u003d112, z\u003d281} route\u003dslavicmyths:chests/swamp_great_shrine",
+      "site": "swamp/v097_cluster_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d7922, y\u003d112, z\u003d281}",
+      "site": "swamp/v097_cluster_2"
+    },
+    {
+      "result": "PASS",
+      "test": "real DepthsService job accepted",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths generation not failed",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "actual job completed two chests and twelve mobs",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths physical chest 0",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths actual assigned source 0",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths nonempty 0",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths second player no reroll",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths physical chest 1",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths actual assigned source 1",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths nonempty 1",
+      "site": "depths"
+    },
+    {
+      "result": "PASS",
+      "test": "depths second player no reroll",
+      "site": "depths"
+    }
+  ],
+  "native_stack_assertions": 267607,
+  "seed": 2762026,
+  "elapsed_seconds": 37.4950301
+}

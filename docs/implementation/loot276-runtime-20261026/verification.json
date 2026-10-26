@@ -1,0 +1,352 @@
+{
+  "status": "PASS_NATIVE_INTEGRATION_OWNER_PENDING",
+  "jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.4-HELL.jar",
+  "sha256": "1c22bf186ab6886fee8a464fb44b123620354ef93ee0f990d1208660d3743010",
+  "native_draws": 60000,
+  "native_stack_assertions": 267607,
+  "creation_checks": 660,
+  "restart_checks": 415,
+  "sites": {
+    "kurgan_1": {
+      "poloz": 0,
+      "container_count": 3,
+      "routes": {
+        "slavicmyths:kurgan/common_cache": 1,
+        "slavicmyths:kurgan/secret": 1,
+        "slavicmyths:rewards276/kurgan_1_main": 1
+      }
+    },
+    "kurgan_2": {
+      "poloz": 0,
+      "container_count": 9,
+      "routes": {
+        "slavicmyths:kurgan/burial": 1,
+        "slavicmyths:kurgan/common_cache": 2,
+        "slavicmyths:kurgan/secret": 2,
+        "slavicmyths:kurgan/treasury": 2,
+        "slavicmyths:kurgan/warrior": 1,
+        "slavicmyths:rewards276/kurgan_2_main": 1
+      }
+    },
+    "kurgan_3": {
+      "poloz": 0,
+      "container_count": 17,
+      "routes": {
+        "slavicmyths:rewards276/kurgan_3_burial": 2,
+        "slavicmyths:rewards276/kurgan_3_common_cache": 7,
+        "slavicmyths:rewards276/kurgan_3_main": 1,
+        "slavicmyths:rewards276/kurgan_3_ritual": 1,
+        "slavicmyths:rewards276/kurgan_3_secret": 4,
+        "slavicmyths:rewards276/kurgan_3_treasury": 2
+      }
+    },
+    "camp_1": {
+      "poloz": 0,
+      "container_count": 4,
+      "routes": {
+        "slavicmyths:chests/bandit_small": 3,
+        "slavicmyths:rewards276/camp_1_main": 1
+      }
+    },
+    "camp_2": {
+      "poloz": 0,
+      "container_count": 9,
+      "routes": {
+        "slavicmyths:chests/bandit_medium": 8,
+        "slavicmyths:rewards276/camp_2_main": 1
+      }
+    },
+    "camp_3": {
+      "poloz": 0,
+      "container_count": 14,
+      "routes": {
+        "slavicmyths:chests/stronghold_ataman": 1,
+        "slavicmyths:chests/stronghold_barracks": 4,
+        "slavicmyths:chests/stronghold_feather": 1,
+        "slavicmyths:chests/stronghold_forge": 1,
+        "slavicmyths:chests/stronghold_kitchen": 1,
+        "slavicmyths:chests/stronghold_nightingale": 1,
+        "slavicmyths:chests/stronghold_warehouse": 3,
+        "slavicmyths:rewards276/camp_3_cache": 1,
+        "slavicmyths:rewards276/camp_3_main": 1
+      }
+    },
+    "fire": {
+      "poloz": 0,
+      "container_count": 5,
+      "routes": {
+        "already_unpacked": 1,
+        "slavicmyths:rewards276/overworld/fire_guaranteed": 1,
+        "slavicmyths:rewards276/overworld/fire_regular": 3
+      }
+    },
+    "spring": {
+      "poloz": 0,
+      "container_count": 4,
+      "routes": {
+        "already_unpacked": 1,
+        "slavicmyths:rewards276/overworld/spring_regular": 3
+      }
+    },
+    "fortress": {
+      "poloz": 1,
+      "container_count": 11,
+      "routes": {
+        "slavicmyths:rewards276/overworld/fortress_cache": 5,
+        "slavicmyths:rewards276/overworld/fortress_main": 1,
+        "slavicmyths:rewards276/overworld/fortress_supply": 5
+      }
+    },
+    "swamp/v097_abandoned_0": {
+      "poloz": 0,
+      "container_count": 2,
+      "routes": {
+        "slavicmyths:chests/swamp_salvage": 1,
+        "slavicmyths:rewards276/overworld/swamp_home_main": 1
+      }
+    },
+    "swamp/v097_abandoned_1": {
+      "poloz": 0,
+      "container_count": 2,
+      "routes": {
+        "slavicmyths:chests/swamp_salvage": 1,
+        "slavicmyths:rewards276/overworld/swamp_home_main": 1
+      }
+    },
+    "swamp/v097_abandoned_2": {
+      "poloz": 0,
+      "container_count": 2,
+      "routes": {
+        "slavicmyths:chests/swamp_salvage": 1,
+        "slavicmyths:rewards276/overworld/swamp_home_main": 1
+      }
+    },
+    "swamp/v097_fisher_0": {
+      "poloz": 0,
+      "container_count": 2,
+      "routes": {
+        "slavicmyths:chests/swamp_fisher": 1,
+        "slavicmyths:rewards276/overworld/swamp_fisher_main": 1
+      }
+    },
+    "swamp/v097_fisher_1": {
+      "poloz": 0,
+      "container_count": 2,
+      "routes": {
+        "slavicmyths:chests/swamp_fisher": 1,
+        "slavicmyths:rewards276/overworld/swamp_fisher_main": 1
+      }
+    },
+    "swamp/v097_fisher_2": {
+      "poloz": 0,
+      "container_count": 2,
+      "routes": {
+        "slavicmyths:chests/swamp_fisher": 1,
+        "slavicmyths:rewards276/overworld/swamp_fisher_main": 1
+      }
+    },
+    "swamp/v097_landing_0": {
+      "poloz": 0,
+      "container_count": 2,
+      "routes": {
+        "slavicmyths:chests/swamp_supplies": 1,
+        "slavicmyths:rewards276/overworld/swamp_fisher_main": 1
+      }
+    },
+    "swamp/v097_landing_1": {
+      "poloz": 0,
+      "container_count": 2,
+      "routes": {
+        "slavicmyths:chests/swamp_supplies": 1,
+        "slavicmyths:rewards276/overworld/swamp_fisher_main": 1
+      }
+    },
+    "swamp/v097_landing_2": {
+      "poloz": 0,
+      "container_count": 2,
+      "routes": {
+        "slavicmyths:chests/swamp_supplies": 1,
+        "slavicmyths:rewards276/overworld/swamp_fisher_main": 1
+      }
+    },
+    "swamp/v097_boardwalk_0": {
+      "poloz": 0,
+      "container_count": 1,
+      "routes": {
+        "slavicmyths:chests/swamp_supplies": 1
+      }
+    },
+    "swamp/v097_boardwalk_1": {
+      "poloz": 0,
+      "container_count": 1,
+      "routes": {
+        "slavicmyths:chests/swamp_supplies": 1
+      }
+    },
+    "swamp/v097_boardwalk_2": {
+      "poloz": 0,
+      "container_count": 1,
+      "routes": {
+        "slavicmyths:chests/swamp_supplies": 1
+      }
+    },
+    "swamp/v097_watchtower_0": {
+      "poloz": 0,
+      "container_count": 2,
+      "routes": {
+        "slavicmyths:chests/swamp_supplies": 1,
+        "slavicmyths:rewards276/overworld/swamp_watch_main": 1
+      }
+    },
+    "swamp/v097_watchtower_1": {
+      "poloz": 0,
+      "container_count": 2,
+      "routes": {
+        "slavicmyths:chests/swamp_supplies": 1,
+        "slavicmyths:rewards276/overworld/swamp_watch_main": 1
+      }
+    },
+    "swamp/v097_watchtower_2": {
+      "poloz": 0,
+      "container_count": 2,
+      "routes": {
+        "slavicmyths:chests/swamp_supplies": 1,
+        "slavicmyths:rewards276/overworld/swamp_watch_main": 1
+      }
+    },
+    "swamp/ruin_0": {
+      "poloz": 0,
+      "container_count": 1,
+      "routes": {
+        "slavicmyths:rewards276/overworld/swamp_ruins_main": 1
+      }
+    },
+    "swamp/ruin_1": {
+      "poloz": 0,
+      "container_count": 2,
+      "routes": {
+        "slavicmyths:chests/swamp_supplies": 1,
+        "slavicmyths:rewards276/overworld/swamp_ruins_main": 1
+      }
+    },
+    "swamp/ruin_2": {
+      "poloz": 0,
+      "container_count": 1,
+      "routes": {
+        "slavicmyths:rewards276/overworld/swamp_ruins_main": 1
+      }
+    },
+    "swamp/v097_shrine_0": {
+      "poloz": 0,
+      "container_count": 2,
+      "routes": {
+        "slavicmyths:chests/swamp_ritual": 1,
+        "slavicmyths:rewards276/overworld/swamp_ritual_main": 1
+      }
+    },
+    "swamp/v097_shrine_1": {
+      "poloz": 0,
+      "container_count": 2,
+      "routes": {
+        "slavicmyths:chests/swamp_ritual": 1,
+        "slavicmyths:rewards276/overworld/swamp_ritual_main": 1
+      }
+    },
+    "swamp/v097_shrine_2": {
+      "poloz": 0,
+      "container_count": 2,
+      "routes": {
+        "slavicmyths:chests/swamp_ritual": 1,
+        "slavicmyths:rewards276/overworld/swamp_ritual_main": 1
+      }
+    },
+    "swamp/v097_cluster_0": {
+      "poloz": 0,
+      "container_count": 5,
+      "routes": {
+        "slavicmyths:chests/swamp_great_shrine": 2,
+        "slavicmyths:chests/swamp_ritual": 2,
+        "slavicmyths:rewards276/overworld/swamp_great_main": 1
+      }
+    },
+    "swamp/v097_cluster_1": {
+      "poloz": 0,
+      "container_count": 5,
+      "routes": {
+        "slavicmyths:chests/swamp_great_shrine": 2,
+        "slavicmyths:chests/swamp_ritual": 2,
+        "slavicmyths:rewards276/overworld/swamp_great_main": 1
+      }
+    },
+    "swamp/v097_cluster_2": {
+      "poloz": 0,
+      "container_count": 5,
+      "routes": {
+        "slavicmyths:chests/swamp_great_shrine": 2,
+        "slavicmyths:chests/swamp_ritual": 2,
+        "slavicmyths:rewards276/overworld/swamp_great_main": 1
+      }
+    }
+  },
+  "depths": {
+    "origin": {
+      "x": 12938,
+      "y": 32,
+      "z": 1353
+    },
+    "instance": "46502fe8-20d4-47ad-832e-693e44eef83e",
+    "chest_positions": [
+      3553621586898961,
+      3551422563958793
+    ],
+    "status": "COMPLETE"
+  },
+  "errors": {
+    "create": [],
+    "restart": []
+  },
+  "warnings": {
+    "create": [
+      "[11:20:51] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message",
+      "[11:20:51] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message",
+      "[11:20:52] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\PerfOS\\Performance\\Disable Performance Counters.",
+      "[11:20:58] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]",
+      "[11:20:58] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]",
+      "[11:20:58] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]",
+      "[11:20:58] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]",
+      "[11:20:58] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]",
+      "[11:21:00] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23126!/assets/.mcassetsroot' uses unexpected schema",
+      "[11:21:00] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23126!/data/.mcassetsroot' uses unexpected schema",
+      "[11:21:02] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!",
+      "[11:21:02] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.",
+      "[11:21:02] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.",
+      "[11:21:02] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set \"online-mode\" to \"true\" in the server.properties file.",
+      "[11:21:09] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 3402ms or 68 ticks behind",
+      "[11:21:30] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 6508ms or 130 ticks behind"
+    ],
+    "restart": [
+      "[14:30:21] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message",
+      "[14:30:21] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message",
+      "[14:30:22] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\PerfOS\\Performance\\Disable Performance Counters.",
+      "[14:30:29] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]",
+      "[14:30:29] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]",
+      "[14:30:29] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]",
+      "[14:30:29] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]",
+      "[14:30:29] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]",
+      "[14:30:31] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23126!/assets/.mcassetsroot' uses unexpected schema",
+      "[14:30:31] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23126!/data/.mcassetsroot' uses unexpected schema",
+      "[14:30:33] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!",
+      "[14:30:33] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.",
+      "[14:30:33] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.",
+      "[14:30:33] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set \"online-mode\" to \"true\" in the server.properties file."
+    ]
+  },
+  "original_level_dat_preserved": true,
+  "client_runs": 0,
+  "network_mp": "NOT_RUN; two native FakePlayer actors only",
+  "natural_generation": "NOT_RUN; explicit actual piece placement on disposable flat world",
+  "production_changes": [],
+  "installed_mod_jars": [
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.4-HELL.jar"
+  ]
+}

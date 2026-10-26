@@ -1,0 +1,114 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileLoot276qaJava
+> Task :processLoot276qaResources UP-TO-DATE
+> Task :loot276qaClasses
+> Task :downloadAssets UP-TO-DATE
+> Task :writeLoot276ServerLegacyClasspath UP-TO-DATE
+> Task :prepareLoot276ServerRun UP-TO-DATE
+
+> Task :runLoot276Server
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[11:14:35] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430, --nogui]
+[11:14:35] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[11:14:35] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[11:14:36] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[11:14:36] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[11:14:36] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[11:14:36] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Disposable loot276 probe 1 (loot276qa)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 2.0.4-HELL (slavicmyths)
+[11:14:37] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[11:14:37] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, ., --nogui]
+[11:14:37] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[11:14:37] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[11:14:38] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[11:14:39] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[11:14:45] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[11:14:45] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[11:14:45] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[11:14:45] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[11:14:45] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[11:14:45] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[11:14:47] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[11:14:47] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23126!/assets/.mcassetsroot' uses unexpected schema
+[11:14:47] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23126!/data/.mcassetsroot' uses unexpected schema
+[11:14:47] [main/INFO] [minecraft/Main]: No existing world data, creating new world
+[11:14:48] [main/INFO] [minecraft/RecipeManager]: Loaded 1853 recipes
+[11:14:48] [main/INFO] [minecraft/AdvancementTree]: Loaded 1643 advancements
+[11:14:48] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[11:14:48] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[11:14:49] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.21.1
+[11:14:49] [Server thread/INFO] [minecraft/DedicatedServer]: Loading properties
+[11:14:49] [Server thread/INFO] [minecraft/DedicatedServer]: Default game type: SURVIVAL
+[11:14:49] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[11:14:49] [Server thread/INFO] [minecraft/DedicatedServer]: Starting Minecraft server on 127.0.0.1:25776
+[11:14:49] [Server thread/INFO] [minecraft/ServerConnectionListener]: Using default channel type
+[11:14:49] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[11:14:49] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.
+[11:14:49] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[11:14:49] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set "online-mode" to "true" in the server.properties file.
+[11:14:49] [Server thread/INFO] [minecraft/DedicatedServer]: Preparing level "loot276-disposable"
+[11:14:50] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[11:14:50] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[11:14:50] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 334 ms
+[11:14:50] [Server thread/INFO] [minecraft/DedicatedServer]: Done (1.042s)! For help, type "help"
+[11:14:50] [Server thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[11:14:50] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[11:14:56] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 4048ms or 80 ticks behind
+LOOT276 progress camp_2 remaining=110
+LOOT276 progress camp_3 remaining=100
+LOOT276 progress camp_3 remaining=90
+LOOT276 progress fire remaining=80
+LOOT276 progress fire remaining=70
+LOOT276 progress spring remaining=60
+LOOT276 progress spring remaining=50
+LOOT276 progress spring remaining=40
+LOOT276 progress spring remaining=30
+LOOT276 progress swamp/v097_fisher_0 remaining=20
+LOOT276 progress swamp/v097_watchtower_1 remaining=10
+LOOT276 progress swamp/v097_cluster_2 remaining=0
+LOOT276 player_message Restore the fire or cleanse both pools first.
+LOOT276 player_message Restore the fire or cleanse both pools first.
+LOOT276 player_message Find Sacred Ember in the sanctuary chests; the northwestern store guarantees one. Right-click the seal at the edge of the great brazier, rather than a campfire.
+LOOT276 player_message Restore the fire or cleanse both pools first.
+LOOT276 ritual_before BlockPos{x=5540, y=102, z=51} state=Block{slavicmyths:unfading_brazier}[facing=north,lit=false] currentBE=true alive=true mayInteract=true protection=false stage=SEALED
+LOOT276 ritual_after item=1 slavicmyths:purifying_ash restored=true
+LOOT276_RUNTIME FAIL checks=218
+java.lang.IllegalStateException: fire: ember consumed
+	at TRANSFORMER/loot276qa@1/org.slavicmyths.verify.Loot276Runtime.check(Loot276Runtime.java:21)
+	at TRANSFORMER/loot276qa@1/org.slavicmyths.verify.Loot276Runtime.ritual(Loot276Runtime.java:49)
+	at TRANSFORMER/loot276qa@1/org.slavicmyths.verify.Loot276Runtime.testSite(Loot276Runtime.java:52)
+	at TRANSFORMER/loot276qa@1/org.slavicmyths.verify.Loot276Runtime.tick(Loot276Runtime.java:74)
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:360)
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:328)
+	at TRANSFORMER/neoforge@21.1.255/net.neoforged.neoforge.event.EventHooks.fireServerTickPost(EventHooks.java:1020)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:943)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:707)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:267)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[11:15:17] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[11:15:17] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[11:15:17] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[11:15:18] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[loot276-disposable]'/minecraft:overworld
+[11:15:19] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[loot276-disposable]'/minecraft:the_nether
+[11:15:19] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[loot276-disposable]'/minecraft:the_end
+[11:15:19] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (loot276-disposable): All chunks are saved
+[11:15:19] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[11:15:19] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[11:15:19] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+
+BUILD SUCCESSFUL in 59s
+10 actionable tasks: 3 executed, 7 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

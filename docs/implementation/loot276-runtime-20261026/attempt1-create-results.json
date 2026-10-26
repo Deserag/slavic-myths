@@ -1,0 +1,927 @@
+{
+  "production_code_origin": "union:/D:/slavic-myths/work/loot276-runtime-20261026/mods/slavicmyths-2.0.4-HELL.jar%23128!/",
+  "native_table_statistics": {
+    "slavicmyths:rewards276/kurgan_3_ritual": {
+      "empty": 0,
+      "max_stacks": 5,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/camp_3_cache": {
+      "empty": 52,
+      "max_stacks": 7,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/swamp_ruins_main": {
+      "empty": 0,
+      "max_stacks": 8,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_3_common_cache": {
+      "empty": 0,
+      "max_stacks": 4,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/swamp_fisher_main": {
+      "empty": 0,
+      "max_stacks": 6,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/camp_2_main": {
+      "empty": 0,
+      "max_stacks": 11,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_3_main": {
+      "empty": 0,
+      "max_stacks": 5,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/swamp_great_main": {
+      "empty": 0,
+      "max_stacks": 10,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_3_secret": {
+      "empty": 0,
+      "max_stacks": 4,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/spring_regular": {
+      "empty": 0,
+      "max_stacks": 3,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/spring_main": {
+      "empty": 0,
+      "max_stacks": 11,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/fire_regular": {
+      "empty": 0,
+      "max_stacks": 3,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/fire_guaranteed": {
+      "empty": 0,
+      "max_stacks": 4,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/fortress_cache": {
+      "empty": 0,
+      "max_stacks": 7,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/swamp_home_main": {
+      "empty": 0,
+      "max_stacks": 5,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/camp_1_main": {
+      "empty": 0,
+      "max_stacks": 10,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_3_warrior": {
+      "empty": 0,
+      "max_stacks": 5,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/fortress_supply": {
+      "empty": 0,
+      "max_stacks": 3,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_2_main": {
+      "empty": 0,
+      "max_stacks": 5,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/camp_3_main": {
+      "empty": 0,
+      "max_stacks": 9,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_3_great_special": {
+      "empty": 0,
+      "max_stacks": 6,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_3_treasury": {
+      "empty": 0,
+      "max_stacks": 7,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_3_burial": {
+      "empty": 0,
+      "max_stacks": 5,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/depths_main": {
+      "empty": 0,
+      "max_stacks": 7,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/fire_main": {
+      "empty": 0,
+      "max_stacks": 11,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/ancient_shrine": {
+      "empty": 0,
+      "max_stacks": 8,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/swamp_ritual_main": {
+      "empty": 0,
+      "max_stacks": 8,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/kurgan_1_main": {
+      "empty": 0,
+      "max_stacks": 4,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/swamp_watch_main": {
+      "empty": 0,
+      "max_stacks": 6,
+      "poloz_pieces": 0,
+      "draws": 2000,
+      "rune_iv": 0
+    },
+    "slavicmyths:rewards276/overworld/fortress_main": {
+      "empty": 0,
+      "max_stacks": 16,
+      "poloz_pieces": 2159,
+      "draws": 2000,
+      "rune_iv": 50
+    }
+  },
+  "native_draws": 60000,
+  "kurgan_1": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:kurgan/common_cache": 1,
+      "slavicmyths:kurgan/secret": 1,
+      "slavicmyths:rewards276/kurgan_1_main": 1
+    },
+    "container_count": 3
+  },
+  "kurgan_2": {
+    "poloz": 0,
+    "routes": {
+      "already_unpacked": 1,
+      "slavicmyths:kurgan/burial": 1,
+      "slavicmyths:kurgan/common_cache": 2,
+      "slavicmyths:kurgan/secret": 2,
+      "slavicmyths:kurgan/treasury": 2,
+      "slavicmyths:kurgan/warrior": 1,
+      "slavicmyths:rewards276/kurgan_2_main": 1
+    },
+    "container_count": 10
+  },
+  "kurgan_3": {
+    "poloz": 0,
+    "routes": {
+      "slavicmyths:rewards276/kurgan_3_burial": 2,
+      "slavicmyths:rewards276/kurgan_3_common_cache": 7,
+      "slavicmyths:rewards276/kurgan_3_main": 1,
+      "slavicmyths:rewards276/kurgan_3_ritual": 1,
+      "slavicmyths:rewards276/kurgan_3_secret": 4,
+      "slavicmyths:rewards276/kurgan_3_treasury": 2
+    },
+    "container_count": 17
+  },
+  "status": "FAIL",
+  "phase": "create",
+  "checks": [
+    {
+      "result": "PASS",
+      "test": "actual installed production JAR loaded; no main class output",
+      "site": "bootstrap"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_3_ritual",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/camp_3_cache",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/swamp_ruins_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_3_common_cache",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/swamp_fisher_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/camp_2_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_3_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/swamp_great_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_3_secret",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/spring_regular",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/spring_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/fire_regular",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/fire_guaranteed",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/fortress_cache",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/swamp_home_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/camp_1_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_3_warrior",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/fortress_supply",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_2_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/camp_3_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_3_great_special",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_3_treasury",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_3_burial",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/depths_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/fire_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/ancient_shrine",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/swamp_ritual_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/kurgan_1_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/swamp_watch_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "legal native stack slavicmyths:rewards276/overworld/fortress_main",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "all30 L1+Overworld tables loaded (not fallback EMPTY)",
+      "site": "native_loot_registry"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d999, y\u003d89, z\u003d29}",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d999, y\u003d89, z\u003d29} route\u003dslavicmyths:kurgan/common_cache",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d999, y\u003d89, z\u003d29}",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1032, y\u003d89, z\u003d-51}",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1032, y\u003d89, z\u003d-51} route\u003dslavicmyths:kurgan/secret",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1032, y\u003d89, z\u003d-51}",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1030, y\u003d89, z\u003d7}",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1030, y\u003d89, z\u003d7} route\u003dslavicmyths:rewards276/kurgan_1_main",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1030, y\u003d89, z\u003d7}",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "exactly one L1 main assigned",
+      "site": "kurgan_1"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1252, y\u003d89, z\u003d-22}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1252, y\u003d89, z\u003d-22} route\u003dslavicmyths:kurgan/warrior",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1252, y\u003d89, z\u003d-22}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1287, y\u003d73, z\u003d-51}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1287, y\u003d73, z\u003d-51} route\u003dslavicmyths:kurgan/secret",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1287, y\u003d73, z\u003d-51}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1287, y\u003d89, z\u003d-51}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1287, y\u003d89, z\u003d-51} route\u003dslavicmyths:kurgan/secret",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1287, y\u003d89, z\u003d-51}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1287, y\u003d89, z\u003d61}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1287, y\u003d89, z\u003d61} route\u003dslavicmyths:kurgan/common_cache",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1287, y\u003d89, z\u003d61}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1283, y\u003d73, z\u003d80}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1283, y\u003d73, z\u003d80} route\u003dslavicmyths:rewards276/kurgan_2_main",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1283, y\u003d73, z\u003d80}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1320, y\u003d72, z\u003d-28}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1320, y\u003d72, z\u003d-28} route\u003dalready_unpacked",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1320, y\u003d72, z\u003d-28}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1318, y\u003d73, z\u003d-23}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1318, y\u003d73, z\u003d-23} route\u003dslavicmyths:kurgan/common_cache",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1318, y\u003d73, z\u003d-23}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1323, y\u003d89, z\u003d40}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1323, y\u003d89, z\u003d40} route\u003dslavicmyths:kurgan/treasury",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1323, y\u003d89, z\u003d40}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1317, y\u003d89, z\u003d40}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1317, y\u003d89, z\u003d40} route\u003dslavicmyths:kurgan/treasury",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1317, y\u003d89, z\u003d40}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1316, y\u003d73, z\u003d41}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1316, y\u003d73, z\u003d41} route\u003dslavicmyths:kurgan/burial",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1316, y\u003d73, z\u003d41}",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "exactly one L1 main assigned",
+      "site": "kurgan_2"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1508, y\u003d73, z\u003d41}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1508, y\u003d73, z\u003d41} route\u003dslavicmyths:rewards276/kurgan_3_treasury",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1508, y\u003d73, z\u003d41}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1516, y\u003d73, z\u003d41}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1516, y\u003d73, z\u003d41} route\u003dslavicmyths:rewards276/kurgan_3_treasury",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1516, y\u003d73, z\u003d41}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1511, y\u003d73, z\u003d61}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1511, y\u003d73, z\u003d61} route\u003dslavicmyths:rewards276/kurgan_3_common_cache",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1511, y\u003d73, z\u003d61}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1511, y\u003d57, z\u003d61}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1511, y\u003d57, z\u003d61} route\u003dslavicmyths:rewards276/kurgan_3_common_cache",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1511, y\u003d57, z\u003d61}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1543, y\u003d89, z\u003d-50}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1543, y\u003d89, z\u003d-50} route\u003dslavicmyths:rewards276/kurgan_3_secret",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1543, y\u003d89, z\u003d-50}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1540, y\u003d57, z\u003d-23}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1540, y\u003d57, z\u003d-23} route\u003dslavicmyths:rewards276/kurgan_3_common_cache",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1540, y\u003d57, z\u003d-23}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1540, y\u003d41, z\u003d-23}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1540, y\u003d41, z\u003d-23} route\u003dslavicmyths:rewards276/kurgan_3_common_cache",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1540, y\u003d41, z\u003d-23}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1543, y\u003d89, z\u003d61}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1543, y\u003d89, z\u003d61} route\u003dslavicmyths:rewards276/kurgan_3_common_cache",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1543, y\u003d89, z\u003d61}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1536, y\u003d41, z\u003d83}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1536, y\u003d41, z\u003d83} route\u003dslavicmyths:rewards276/kurgan_3_main",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1536, y\u003d41, z\u003d83}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1575, y\u003d73, z\u003d-50}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1575, y\u003d73, z\u003d-50} route\u003dslavicmyths:rewards276/kurgan_3_secret",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1575, y\u003d73, z\u003d-50}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1575, y\u003d41, z\u003d-50}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1575, y\u003d41, z\u003d-50} route\u003dslavicmyths:rewards276/kurgan_3_secret",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1575, y\u003d41, z\u003d-50}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1575, y\u003d57, z\u003d-50}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1575, y\u003d57, z\u003d-50} route\u003dslavicmyths:rewards276/kurgan_3_secret",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1575, y\u003d57, z\u003d-50}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1572, y\u003d73, z\u003d-25}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1572, y\u003d73, z\u003d-25} route\u003dslavicmyths:rewards276/kurgan_3_ritual",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1572, y\u003d73, z\u003d-25}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1574, y\u003d57, z\u003d9}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1574, y\u003d57, z\u003d9} route\u003dslavicmyths:rewards276/kurgan_3_common_cache",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1574, y\u003d57, z\u003d9}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1573, y\u003d41, z\u003d7}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1573, y\u003d41, z\u003d7} route\u003dslavicmyths:rewards276/kurgan_3_common_cache",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1573, y\u003d41, z\u003d7}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1582, y\u003d89, z\u003d43}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1582, y\u003d89, z\u003d43} route\u003dslavicmyths:rewards276/kurgan_3_burial",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1582, y\u003d89, z\u003d43}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d1570, y\u003d89, z\u003d43}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d1570, y\u003d89, z\u003d43} route\u003dslavicmyths:rewards276/kurgan_3_burial",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d1570, y\u003d89, z\u003d43}",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "exactly one L1 main assigned",
+      "site": "kurgan_3"
+    },
+    {
+      "result": "PASS",
+      "test": "physical reward containers exist",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d2002, y\u003d101, z\u003d4}",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "nonempty loot at BlockPos{x\u003d2002, y\u003d101, z\u003d4} route\u003dslavicmyths:chests/bandit_small",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "second server player cannot reroll BlockPos{x\u003d2002, y\u003d101, z\u003d4}",
+      "site": "camp_1"
+    },
+    {
+      "result": "PASS",
+      "test": "pending table consumed BlockPos{x\u003d2100, y\u003d101, z\u003d2}",
+      "site": "camp_1"
+    },
+    {
+      "result": "FAIL",
+      "test": "nonempty loot at BlockPos{x\u003d2100, y\u003d101, z\u003d2} route\u003dalready_unpacked",
+      "site": "camp_1"
+    }
+  ],
+  "error": "java.lang.IllegalStateException: camp_1: nonempty loot at BlockPos{x\u003d2100, y\u003d101, z\u003d2} route\u003dalready_unpacked",
+  "seed": 2762026,
+  "elapsed_seconds": 21.065514
+}

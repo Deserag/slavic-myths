@@ -1,0 +1,26 @@
+{
+  "production_code_origin": "union:/D:/slavic-myths/work/loot276-runtime-20261026-run4/mods/slavicmyths-2.0.4-HELL.jar%23128!/",
+  "status": "FAIL",
+  "phase": "restart",
+  "checks": [
+    {
+      "test": "actual installed production JAR loaded; no main class output",
+      "site": "bootstrap",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d999, y\u003d89, z\u003d29}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d999, y\u003d89, z\u003d29}",
+      "site": "restart",
+      "result": "FAIL"
+    }
+  ],
+  "native_stack_assertions": 0,
+  "error": "java.lang.IllegalStateException: restart: emptied container remains empty after process restart BlockPos{x\u003d999, y\u003d89, z\u003d29}",
+  "seed": 2762026,
+  "elapsed_seconds": 0.1458495
+}

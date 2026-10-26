@@ -1,0 +1,12 @@
+allprojects { afterEvaluate {
+ sourceSets { loot276qa { java.srcDir 'tools/loot276-runtime'; resources.srcDir 'tools/loot276-runtime-resources' } }
+ sourceSets.loot276qa.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.loot276qa.runtimeClasspath += sourceSets.main.runtimeClasspath - sourceSets.main.output
+ def qa = neoForge.mods.create('loot276qa') { sourceSet sourceSets.loot276qa }
+ neoForge.runs { loot276Server {
+  type='server'; sourceSet=sourceSets.loot276qa; loadedMods.set([qa])
+  programArgument '--nogui';jvmArgument '-Xmx2304M';jvmArgument '-XX:ActiveProcessorCount=4'
+  gameDirectory=file(project.findProperty('loot276Dir') ?: 'work/loot276-runtime-20261026')
+  systemProperty 'loot276.phase',project.findProperty('loot276Phase') ?: 'create'
+ } }
+} }

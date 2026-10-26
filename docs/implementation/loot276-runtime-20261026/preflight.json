@@ -1,0 +1,20 @@
+{
+  "branch": "hell",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.4-HELL.jar",
+  "sha256": "1c22bf186ab6886fee8a464fb44b123620354ef93ee0f990d1208660d3743010",
+  "mod_jar_count": 1,
+  "source": "8d0f71b446f59d144f4ea9bd6631759117de80ff",
+  "test_directory": "D:\\slavic-myths\\work\\loot276-runtime-20261026",
+  "original_saves": {
+    "saves\\Новый мир\\level.dat": "a6e44c5bb0a192f1d6841a42c920176292ee31a279c2975732dc96ba7347d363"
+  },
+  "PolyMC_UI": "opened launcher only; capture failed twice; user requested stop UI; no client launched",
+  "server": "new loopback-only disposable flat world; explicit native piece placement, not natural generation",
+  "final_test_directory": "D:\\slavic-myths\\work\\loot276-runtime-20261026-run5",
+  "final_world": "D:\\slavic-myths\\work\\loot276-runtime-20261026-run5\\loot276-disposable",
+  "server_launches": 8,
+  "client_launches": 0,
+  "gameTest_launches": 0,
+  "final_creation_phase_checks": 660,
+  "final_restart_checks": 415
+}
