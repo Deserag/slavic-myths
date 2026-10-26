@@ -1,0 +1,25 @@
+FAIL client has no inventory/effect mutation CLEANSE/1/false
+FAIL client has no inventory/effect mutation CLEANSE/3/false
+FAIL client has no inventory/effect mutation SALVE/1/false
+FAIL client has no inventory/effect mutation SALVE/3/false
+FAIL client has no inventory/effect mutation SIGHT/1/false
+FAIL client has no inventory/effect mutation SIGHT/3/false
+FAIL client has no inventory/effect mutation RESIST/1/false
+FAIL client has no inventory/effect mutation RESIST/3/false
+FAIL client has no inventory/effect mutation VIGOR/1/false
+FAIL client has no inventory/effect mutation VIGOR/3/false
+FAIL client has no inventory/effect mutation RESTORE/1/false
+FAIL client has no inventory/effect mutation RESTORE/3/false
+FAIL watering charge iff mutation accepted
+FAIL watering cues iff mutation
+FAIL watering result
+FAIL watering charge iff mutation accepted
+FAIL watering cues iff mutation
+FAIL watering result
+FAIL watering charge iff mutation accepted
+FAIL watering cues iff mutation
+FAIL watering result
+FAIL watering charge iff mutation accepted
+FAIL watering cues iff mutation
+FAIL watering result
+checks=204 failures=24; exact production bodies; test doubles; Minecraft launches=0

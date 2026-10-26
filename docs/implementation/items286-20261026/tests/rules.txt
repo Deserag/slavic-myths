@@ -1,0 +1,1 @@
+PASS actual BrewRules/IndustryRules checks=70; Minecraft=0

@@ -1,0 +1,63 @@
+{
+  "scope": "CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted",
+  "version": "2.0.1-HELL",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.1-HELL.jar",
+  "sha256": "758d63ae17e256653823927ca7c0ff454c1563c6f07ec505cfe9fb457719ba9e",
+  "resources": 8001,
+  "json": 4402,
+  "png": 1443,
+  "models": 1886,
+  "java21_classes": 1948,
+  "runtime_launches": 5,
+  "runtime": "11/11 final prince GameTests PASS; 5 prince server launches; real client/relog/network MP/natural full dungeon NOT_RUN",
+  "branch": "hell",
+  "source_commit": "08076afc3d60b1b63d8323d0b9ec300b1dd1ffa1",
+  "armor_audit_commit": "1ef5dacef72da99b4914aef39e629fd396d5e00d",
+  "armor_extension_commit": "59b2ebf500793b9bfbd115a363d9ff1ccef9dae6",
+  "build": "Java21 clean build --no-build-cache; BUILD SUCCESSFUL 1m19s",
+  "package_total_real_server_launches": 13,
+  "package_client_launches": 0,
+  "armor_final": "28/28 PASS, 6 real armor servers",
+  "regressions": "7/7 #278 and19/19 #284 PASS, two additional isolated servers",
+  "offline_armor_checks": 41,
+  "source_package_guards": {
+    "armor": 42,
+    "prince": 15
+  },
+  "installed_status": "POLYMC_NOT_INSTALLED",
+  "installed_jar": "C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-2.0.0-HELL/.minecraft/mods/slavicmyths-2.0.1-HELL.jar",
+  "installed_sha256": "273767789fb6555f16c485bf64bc2cf37627787f1ca50255d820bbe36660182c",
+  "backup": "no installation attempted; installed JAR untouched; no installation backup created",
+  "issues": "277/287 remain OPEN / IN_PROGRESS / OWNER_PENDING; Project fields unchanged",
+  "snapshot_date": "2026-10-26 Europe/Moscow",
+  "baseline_head": "79ff212c447080a6c333cb85d5f0e24956d89101",
+  "baseline_jar": "D:\\slavic-myths-baselines\\2.0.1-HELL-79ff212c-20261026\\slavicmyths-2.0.1-HELL.jar",
+  "baseline_jar_verified": true,
+  "main_commit": "8789e08dbcb029ae7b252049dec62c47c7780cce",
+  "installed_sha256_observed_now": "273767789fb6555f16c485bf64bc2cf37627787f1ca50255d820bbe36660182c",
+  "installed_files": [
+    "slavicmyths-2.0.1-HELL.jar"
+  ],
+  "catalog_rows": 923,
+  "catalog_groups": {
+    "slavicmyths": 9,
+    "resources": 127,
+    "farming": 48,
+    "food": 94,
+    "tools": 19,
+    "weapons": 68,
+    "armor": 34,
+    "magic": 153,
+    "mobs": 70,
+    "hidden": 14,
+    "decor": 247,
+    "accessories": 40
+  },
+  "owner_decision": "#277/#287 automatic testing acknowledged in chat; both OPEN/IN_PROGRESS until manual playtest",
+  "this_turn_game_launches": 0,
+  "protected_sources_sha256": {
+    "src/main/java/org/slavicmyths/kurgan/KurganCreature.java": "9212e575163b3d13fd2ffecb1400db1c4364147f1a05af42042efe45ae8405af",
+    "src/main/java/org/slavicmyths/equipment/UniqueEquipment.java": "e0fdf7c7b2aa09627e168725c8b7ffa86136e9de8e6cba5a1ccd01b162ce5705",
+    "src/main/java/org/slavicmyths/item/ArmorSetHealth.java": "ae62b6b20c7b802960f9552d8ae0159a981aeaffbaa3d821e5726f9670c6f58b"
+  }
+}

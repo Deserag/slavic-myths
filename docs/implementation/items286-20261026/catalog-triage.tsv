@@ -1,0 +1,924 @@
+id	group	subgroup	classification	blockstate	registration	detail
+lore_book	slavicmyths	guides	OUTSIDE_286_DECOR_OR_OTHER	False	literal/family source	False
+birch_bark_scroll	slavicmyths	guides	OUTSIDE_286_DECOR_OR_OTHER	False	literal/family source	False
+ancient_depths_map	slavicmyths	guides	OUTSIDE_286_DECOR_OR_OTHER	False	literal/family source	False
+birch_bark	resources	natural	GAMEPLAY_ITEM	False	literal/family source	True
+animal_fat	resources	natural	GAMEPLAY_ITEM	False	literal/family source	True
+goat_hide	resources	natural	GAMEPLAY_ITEM	False	literal/family source	True
+large_animal_bone	resources	natural	GAMEPLAY_ITEM	False	literal/family source	True
+flax_stalk	resources	natural	GAMEPLAY_ITEM	False	literal/family source	True
+flax_fiber	resources	natural	GAMEPLAY_ITEM	False	literal/family source	True
+linen_thread	resources	natural	GAMEPLAY_ITEM	False	literal/family source	True
+linen_cloth	resources	natural	GAMEPLAY_ITEM	False	literal/family source	True
+bog_iron_ore	resources	metals	PLACEABLE_BLOCK	True	literal/family source	False
+bog_iron_lump	resources	metals	GAMEPLAY_ITEM	False	literal/family source	True
+silver_ore	resources	metals	PLACEABLE_BLOCK	True	literal/family source	False
+silver_nugget	resources	metals	GAMEPLAY_ITEM	False	literal/family source	True
+silver_ingot	resources	metals	GAMEPLAY_ITEM	False	literal/family source	True
+iron_blank	resources	metals	GAMEPLAY_ITEM	False	literal/family source	True
+purified_iron_ingot	resources	metals	GAMEPLAY_ITEM	False	literal/family source	True
+purified_copper_ingot	resources	metals	GAMEPLAY_ITEM	False	literal/family source	True
+purification_flux	resources	metals	GAMEPLAY_ITEM	False	literal/family source	True
+hardened_iron	resources	metals	GAMEPLAY_ITEM	False	literal/family source	True
+perunite_ore	resources	metals	PLACEABLE_BLOCK	True	literal/family source	False
+perunite	resources	metals	GAMEPLAY_ITEM	False	literal/family source	True
+amber	resources	metals	GAMEPLAY_ITEM	False	literal/family source	True
+amber_block	resources	metals	PLACEABLE_BLOCK	True	literal/family source	False
+weapon_wrap	resources	components	GAMEPLAY_ITEM	False	literal/family source	True
+silver_fitting	resources	components	GAMEPLAY_ITEM	False	literal/family source	True
+iron_rings	resources	components	GAMEPLAY_ITEM	False	literal/family source	True
+spear_shaft	resources	components	GAMEPLAY_ITEM	False	literal/family source	True
+short_shaft	resources	components	GAMEPLAY_ITEM	False	literal/family source	True
+flail_handle	resources	components	GAMEPLAY_ITEM	False	literal/family source	True
+flail_chain	resources	components	GAMEPLAY_ITEM	False	literal/family source	True
+stone_spearhead	resources	components_stone	GAMEPLAY_ITEM	False	literal/family source	True
+stone_light_spearhead	resources	components_stone	GAMEPLAY_ITEM	False	literal/family source	True
+stone_flail_ball	resources	components_stone	GAMEPLAY_ITEM	False	literal/family source	True
+gold_spearhead	resources	components_gold	GAMEPLAY_ITEM	False	literal/family source	True
+gold_light_spearhead	resources	components_gold	GAMEPLAY_ITEM	False	literal/family source	True
+gold_flail_ball	resources	components_gold	GAMEPLAY_ITEM	False	literal/family source	True
+iron_spearhead	resources	components_iron	GAMEPLAY_ITEM	False	literal/family source	True
+iron_light_spearhead	resources	components_iron	GAMEPLAY_ITEM	False	literal/family source	True
+iron_flail_ball	resources	components_iron	GAMEPLAY_ITEM	False	literal/family source	True
+silver_spearhead	resources	components_silver	GAMEPLAY_ITEM	False	literal/family source	True
+silver_light_spearhead	resources	components_silver	GAMEPLAY_ITEM	False	literal/family source	True
+silver_flail_ball	resources	components_silver	GAMEPLAY_ITEM	False	literal/family source	True
+diamond_spearhead	resources	components_diamond	GAMEPLAY_ITEM	False	literal/family source	True
+diamond_light_spearhead	resources	components_diamond	GAMEPLAY_ITEM	False	literal/family source	True
+diamond_flail_ball	resources	components_diamond	GAMEPLAY_ITEM	False	literal/family source	True
+perunite_spearhead	resources	components_perunite	GAMEPLAY_ITEM	False	literal/family source	True
+perunite_light_spearhead	resources	components_perunite	GAMEPLAY_ITEM	False	literal/family source	True
+perunite_flail_ball	resources	components_perunite	GAMEPLAY_ITEM	False	literal/family source	True
+netherite_spearhead	resources	components_netherite	GAMEPLAY_ITEM	False	literal/family source	True
+netherite_light_spearhead	resources	components_netherite	GAMEPLAY_ITEM	False	literal/family source	True
+netherite_flail_ball	resources	components_netherite	GAMEPLAY_ITEM	False	literal/family source	True
+old_button	resources	ordinary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+old_hook	resources	ordinary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+pearl_fragment	resources	ordinary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+kikimora_lock	resources	ordinary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+noon_ear	resources	ordinary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+upyr_fang	resources	ordinary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+grave_cloth_scrap	resources	ordinary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+torn_burial_ribbon	resources	ordinary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+shield_boss_fragment	resources	ordinary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+druzhinnik_blade_fragment	resources	ordinary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+pottery_fragment	resources	ordinary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+old_arrowhead	resources	ordinary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+old_buckle	resources	ordinary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+ancient_coin	resources	ordinary_trophies	CURRENCY	False	literal/family source	True
+ancient_fibula	resources	ordinary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+ancient_comb	resources	ordinary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+ancient_beads	resources	ordinary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+ovinnik_claw	resources	elite_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+ovinnaya_zola	resources	elite_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+iskra_ovinnika	resources	elite_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+klyk_volkolaka	resources	elite_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+nochnoy_kogot	resources	elite_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+pylayuschaya_cheshuya	resources	elite_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+ognennoe_pero	resources	elite_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+vihrevaya_nit	resources	elite_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+kost_likha	resources	elite_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+nit_durnoy_doli	resources	elite_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+nightingale_lock	resources	elite_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+ataman_sign	resources	elite_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+bandit_token	resources	elite_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+nightingale_mark	resources	elite_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+voevoda_insignia	resources	elite_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+princely_seal	resources	elite_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+firebird_down	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+firebird_feather	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+smoldering_feather	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+mat_bone_plates	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+mat_mirror_shards	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+mat_skim_fang	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+mat_banner_remnant	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+mat_royal_iron	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+us_tugarina	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+tugarinova_kozha	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+zmeinaya_pryazhka	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+naboyka_tugarina	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+mysterious_black_feather	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+idol_fragment	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+ancient_rune_fragment	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+sacred_ember	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+pure_spring_drop	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+spring_tear	resources	legendary_trophies	DELEGATED_284	False	literal/family source	False
+mor_dust	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+mor_crystal	resources	legendary_trophies	PLACEABLE_BLOCK	True	literal/family source	False
+eye_of_mor	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+ashen_heart	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+poloz_scale	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+poloz_core	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+poloz_head	resources	legendary_trophies	PLACEABLE_BLOCK	True	literal/family source	False
+gorynych_scale	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+ancient_serpent_steel	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+serpent_seal	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+heart_of_eternal_cold	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+shard_of_last_night	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+cursed_volkolak_skull	resources	legendary_trophies	GAMEPLAY_ITEM	False	literal/family source	True
+rye_seeds	farming	seeds	GAMEPLAY_ITEM	False	literal/family source	True
+barley_seeds	farming	seeds	GAMEPLAY_ITEM	False	literal/family source	True
+oat_seeds	farming	seeds	GAMEPLAY_ITEM	False	literal/family source	True
+turnip_seeds	farming	seeds	GAMEPLAY_ITEM	False	literal/family source	True
+cabbage_seeds	farming	seeds	GAMEPLAY_ITEM	False	literal/family source	True
+pea_seeds	farming	seeds	GAMEPLAY_ITEM	False	literal/family source	True
+flax_seeds	farming	seeds	GAMEPLAY_ITEM	False	literal/family source	True
+hops_cutting	farming	seeds	GAMEPLAY_ITEM	False	literal/family source	True
+hops	farming	seeds	GAMEPLAY_ITEM	False	literal/family source	True
+rye_grain	farming	crops	GAMEPLAY_ITEM	False	literal/family source	True
+rye_sheaf	farming	crops	GAMEPLAY_ITEM	True	literal/family source	True
+barley_grain	farming	crops	GAMEPLAY_ITEM	False	literal/family source	True
+barley_sheaf	farming	crops	GAMEPLAY_ITEM	True	literal/family source	True
+oat_grain	farming	crops	GAMEPLAY_ITEM	False	literal/family source	True
+oat_sheaf	farming	crops	GAMEPLAY_ITEM	True	literal/family source	True
+turnip	farming	crops	GAMEPLAY_ITEM	False	literal/family source	True
+cabbage	farming	crops	GAMEPLAY_ITEM	False	literal/family source	True
+pea_pod	farming	crops	GAMEPLAY_ITEM	False	literal/family source	True
+flax	farming	crops	GAMEPLAY_ITEM	True	literal/family source	True
+raspberry	farming	berries	GAMEPLAY_ITEM	False	literal/family source	True
+raspberry_sapling	farming	berries	GAMEPLAY_ITEM	False	literal/family source	True
+blueberry	farming	berries	GAMEPLAY_ITEM	False	literal/family source	True
+blueberry_sapling	farming	berries	GAMEPLAY_ITEM	False	literal/family source	True
+blackcurrant	farming	berries	GAMEPLAY_ITEM	False	literal/family source	True
+blackcurrant_sapling	farming	berries	GAMEPLAY_ITEM	False	literal/family source	True
+lingonberry	farming	berries	GAMEPLAY_ITEM	False	literal/family source	True
+lingonberry_sapling	farming	berries	GAMEPLAY_ITEM	False	literal/family source	True
+cranberry	farming	berries	GAMEPLAY_ITEM	False	literal/family source	True
+cranberry_sapling	farming	berries	GAMEPLAY_ITEM	False	literal/family source	True
+juniper_berries	farming	berries	GAMEPLAY_ITEM	True	literal/family source	True
+rowan_berries	farming	berries	GAMEPLAY_ITEM	False	literal/family source	True
+apple_sapling	farming	saplings	GAMEPLAY_ITEM	True	literal/family source	True
+linden_sapling	farming	saplings	GAMEPLAY_ITEM	True	literal/family source	True
+rowan_sapling	farming	saplings	GAMEPLAY_ITEM	True	literal/family source	True
+willow_sapling	farming	saplings	GAMEPLAY_ITEM	True	literal/family source	True
+pine_sapling	farming	saplings	GAMEPLAY_ITEM	True	literal/family source	True
+wormwood	farming	herbs	GAMEPLAY_ITEM	True	literal/family source	True
+st_johns_wort	farming	herbs	GAMEPLAY_ITEM	True	literal/family source	True
+nettle	farming	herbs	GAMEPLAY_ITEM	True	literal/family source	True
+fireweed	farming	herbs	GAMEPLAY_ITEM	True	literal/family source	True
+reed	farming	herbs	GAMEPLAY_ITEM	True	literal/family source	True
+water_grass	farming	herbs	GAMEPLAY_ITEM	True	literal/family source	True
+white_lily	farming	herbs	GAMEPLAY_ITEM	True	literal/family source	True
+field_bundle	farming	herbs	GAMEPLAY_ITEM	False	literal/family source	True
+svyazka_trav_yagi	farming	herbs	GAMEPLAY_ITEM	False	literal/family source	True
+plach_trava	farming	herbs	GAMEPLAY_ITEM	True	literal/family source	True
+fern_flower	farming	herbs	GAMEPLAY_ITEM	False	literal/family source	True
+organic_fertilizer	farming	fertilizer	GAMEPLAY_ITEM	False	literal/family source	True
+goose_egg	food	raw	GAMEPLAY_ITEM	False	literal/family source	True
+duck_egg	food	raw	GAMEPLAY_ITEM	False	literal/family source	True
+goat_milk_bucket	food	raw	GAMEPLAY_ITEM	False	literal/family source	True
+raw_goose	food	raw	GAMEPLAY_ITEM	False	literal/family source	True
+raw_duck	food	raw	GAMEPLAY_ITEM	False	literal/family source	True
+raw_goat	food	raw	GAMEPLAY_ITEM	False	literal/family source	True
+raw_boar_meat	food	raw	GAMEPLAY_ITEM	False	literal/family source	True
+raw_venison	food	raw	GAMEPLAY_ITEM	False	literal/family source	True
+raw_bear_meat	food	raw	GAMEPLAY_ITEM	False	literal/family source	True
+raw_carp	food	raw	GAMEPLAY_ITEM	False	literal/family source	True
+raw_pike	food	raw	GAMEPLAY_ITEM	False	literal/family source	True
+raw_crayfish	food	raw	GAMEPLAY_ITEM	False	literal/family source	True
+wheat_flour	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+rye_flour	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+flour	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+oat_groats	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+barley_groats	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+dough	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+dried_berries	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+dried_mushrooms	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+malted_barley	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+malt_sack	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+fruit_pomace	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+berry_mash	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+honey_infusion	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+forest_herbal_infusion	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+ground_wormwood	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+ground_st_johns_wort	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+juniper_blend	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+forest_mix	food	ingredients	GAMEPLAY_ITEM	False	literal/family source	True
+baked_turnip	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+stewed_turnip	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+stewed_cabbage	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+baked_apple	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+cooked_goose	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+cooked_duck	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+cooked_goat	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+cooked_boar_meat	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+cooked_venison	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+cooked_bear_meat	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+cooked_carp	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+cooked_pike	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+cooked_crayfish	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+smoked_carp	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+rye_bread	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+bliny	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+pancakes	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+oat_porridge	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+barley_porridge	food	simple	GAMEPLAY_ITEM	False	literal/family source	True
+pea_soup	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+vegetable_stew	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+mushroom_stew_slavic	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+mushroom_stew	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+ukha	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+meat_stew	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+beef_stew	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+pork_stew	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+venison_stew	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+bear_stew	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+berry_porridge	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+honey_flatbread	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+honey_bread	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+honey_baked_apple	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+honey_bliny	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+apple_bliny	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+berry_bliny	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+meat_bliny	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+raspberry_pancakes	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+blueberry_pancakes	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+meat_pancakes	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+cabbage_pie	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+meat_pie	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+berry_pie	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+apple_pie	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+karavai	food	meals	GAMEPLAY_ITEM	False	literal/family source	True
+wooden_mug	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+dark_bottle	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+ceramic_pitcher	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+berry_mors	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+berry_mors_mug	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+berry_mors_pitcher	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+apple_juice_bottle	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+kvass_mug	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+light_beer_mug	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+dark_beer_mug	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+hopped_beer_mug	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+honey_beer_mug	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+forest_beer_mug	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+apple_cider_bottle	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+mead_bottle	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+thunder_beer_mug	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+veles_dark_beer_mug	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+witch_berry_beer_mug	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+spoiled_brew	food	drinks	GAMEPLAY_ITEM	False	literal/family source	True
+butchering_knife	tools	manual	GAMEPLAY_ITEM	False	literal/family source	True
+rolling_pin	tools	manual	GAMEPLAY_ITEM	False	literal/family source	True
+metal_pot	tools	manual	GAMEPLAY_ITEM	False	literal/family source	True
+bath_broom	tools	manual	GAMEPLAY_ITEM	False	literal/family source	True
+bath_stone	tools	manual	GAMEPLAY_ITEM	False	literal/family source	True
+fishing_net	tools	manual	FUNCTIONAL_BLOCK	True	literal/family source	True
+herb_pouch	tools	manual	GAMEPLAY_ITEM	False	literal/family source	True
+meshochek_trofeev	tools	manual	GAMEPLAY_ITEM	False	literal/family source	True
+ohotnichiy_rog	tools	manual	GAMEPLAY_ITEM	False	literal/family source	True
+nightingale_whistle	tools	manual	GAMEPLAY_ITEM	False	literal/family source	True
+bandit_horn	tools	manual	GAMEPLAY_ITEM	False	literal/family source	True
+sickle	tools	farming	GAMEPLAY_ITEM	False	literal/family source	True
+field_hoe	tools	farming	GAMEPLAY_ITEM	False	literal/family source	True
+watering_can	tools	farming	GAMEPLAY_ITEM	False	literal/family source	True
+perunite_pickaxe	tools	mining	GAMEPLAY_ITEM	False	literal/family source	True
+perunite_axe	tools	mining	GAMEPLAY_ITEM	False	literal/family source	True
+perunite_shovel	tools	mining	GAMEPLAY_ITEM	False	literal/family source	True
+perunite_hoe	tools	mining	GAMEPLAY_ITEM	False	literal/family source	True
+rune_chisel	tools	special	GAMEPLAY_ITEM	False	literal/family source	True
+bone_knife	weapons	knives	DELEGATED_285	False	literal/family source	False
+silver_dagger	weapons	knives	DELEGATED_285	False	literal/family source	False
+nightingale_dagger	weapons	knives	DELEGATED_285	False	literal/family source	False
+ancient_carolingian_sword	weapons	swords	DELEGATED_285	False	literal/family source	False
+restored_carolingian_sword	weapons	swords	DELEGATED_285	False	literal/family source	False
+silver_sword	weapons	swords	DELEGATED_285	False	literal/family source	False
+perunite_sword	weapons	swords	DELEGATED_285	False	literal/family source	False
+tugarin_sword	weapons	swords	DELEGATED_285	False	literal/family source	False
+trophy_kalin_sabre	weapons	swords	DELEGATED_285	False	dynamic family; see source-index	False
+club	weapons	maces	DELEGATED_285	False	literal/family source	False
+wooden_mace	weapons	maces	DELEGATED_285	False	literal/family source	False
+stone_mace	weapons	maces	DELEGATED_285	False	literal/family source	False
+mace	weapons	maces	DELEGATED_285	False	literal/family source	False
+silver_mace	weapons	maces	DELEGATED_285	False	literal/family source	False
+perunite_mace	weapons	maces	DELEGATED_285	False	literal/family source	False
+ancient_chekan	weapons	maces	DELEGATED_285	False	literal/family source	False
+chekan	weapons	maces	DELEGATED_285	False	literal/family source	False
+battle_axe	weapons	axes	DELEGATED_285	False	literal/family source	False
+thunder_axe	weapons	axes	DELEGATED_285	False	literal/family source	False
+stone_flail	weapons	flails	DELEGATED_285	False	dynamic family; see source-index	False
+gold_flail	weapons	flails	DELEGATED_285	False	dynamic family; see source-index	False
+flail	weapons	flails	DELEGATED_285	False	literal/family source	False
+silver_flail	weapons	flails	DELEGATED_285	False	dynamic family; see source-index	False
+diamond_flail	weapons	flails	DELEGATED_285	False	dynamic family; see source-index	False
+perunite_flail	weapons	flails	DELEGATED_285	False	dynamic family; see source-index	False
+netherite_flail	weapons	flails	DELEGATED_285	False	dynamic family; see source-index	False
+ataman_flail	weapons	flails	DELEGATED_285	False	literal/family source	False
+ancient_spear	weapons	spears	DELEGATED_285	False	literal/family source	False
+restored_spear	weapons	spears	DELEGATED_285	False	literal/family source	False
+spear	weapons	spears	DELEGATED_285	False	literal/family source	False
+gold_spear	weapons	spears	DELEGATED_285	False	dynamic family; see source-index	False
+iron_spear	weapons	spears	DELEGATED_285	False	dynamic family; see source-index	False
+silver_spear	weapons	spears	DELEGATED_285	False	literal/family source	False
+diamond_spear	weapons	spears	DELEGATED_285	False	dynamic family; see source-index	False
+perunite_spear	weapons	spears	DELEGATED_285	False	dynamic family; see source-index	False
+netherite_spear	weapons	spears	DELEGATED_285	False	dynamic family; see source-index	False
+pool_spear	weapons	spears	DELEGATED_285	False	literal/family source	False
+thunder_spear	weapons	spears	DELEGATED_285	False	literal/family source	False
+victor_spear	weapons	spears	DELEGATED_285	False	literal/family source	False
+berdysh	weapons	polearms	DELEGATED_285	False	literal/family source	False
+noon_sickle	weapons	polearms	DELEGATED_285	False	literal/family source	False
+karachun_scythe	weapons	polearms	DELEGATED_285	False	literal/family source	False
+poloz_whip	weapons	polearms	DELEGATED_285	False	literal/family source	False
+stone_throwing_knife	weapons	throwing_knives	DELEGATED_285	False	dynamic family; see source-index	False
+gold_throwing_knife	weapons	throwing_knives	DELEGATED_285	False	dynamic family; see source-index	False
+iron_throwing_knife	weapons	throwing_knives	DELEGATED_285	False	dynamic family; see source-index	False
+silver_throwing_knife	weapons	throwing_knives	DELEGATED_285	False	dynamic family; see source-index	False
+diamond_throwing_knife	weapons	throwing_knives	DELEGATED_285	False	dynamic family; see source-index	False
+perunite_throwing_knife	weapons	throwing_knives	DELEGATED_285	False	dynamic family; see source-index	False
+netherite_throwing_knife	weapons	throwing_knives	DELEGATED_285	False	dynamic family; see source-index	False
+stone_sulitsa	weapons	sulitsas	DELEGATED_285	False	dynamic family; see source-index	False
+gold_sulitsa	weapons	sulitsas	DELEGATED_285	False	dynamic family; see source-index	False
+iron_sulitsa	weapons	sulitsas	DELEGATED_285	False	dynamic family; see source-index	False
+silver_sulitsa	weapons	sulitsas	DELEGATED_285	False	dynamic family; see source-index	False
+diamond_sulitsa	weapons	sulitsas	DELEGATED_285	False	dynamic family; see source-index	False
+perunite_sulitsa	weapons	sulitsas	DELEGATED_285	False	dynamic family; see source-index	False
+netherite_sulitsa	weapons	sulitsas	DELEGATED_285	False	dynamic family; see source-index	False
+short_bow	weapons	bows	DELEGATED_285	False	literal/family source	False
+heavy_bow	weapons	bows	DELEGATED_285	False	literal/family source	False
+finist_bow	weapons	bows	DELEGATED_285	False	literal/family source	False
+bone_arrow	weapons	bows	DELEGATED_285	False	literal/family source	False
+serpent_crossbow	weapons	bows	DELEGATED_285	False	literal/family source	False
+three_breath_crossbow	weapons	bows	DELEGATED_285	False	literal/family source	False
+carved_staff	weapons	staves	DELEGATED_285	False	literal/family source	False
+storm_staff	weapons	staves	DELEGATED_285	False	literal/family source	False
+veles_staff	weapons	staves	DELEGATED_285	False	literal/family source	False
+likho_staff	weapons	staves	DELEGATED_285	False	literal/family source	False
+morozko_staff	weapons	staves	DELEGATED_285	False	literal/family source	False
+linen_headscarf	armor	clothing	DELEGATED_287	False	dynamic family; see source-index	False
+linen_shirt	armor	clothing	DELEGATED_287	False	dynamic family; see source-index	False
+linen_ports	armor	clothing	DELEGATED_287	False	dynamic family; see source-index	False
+bast_shoes	armor	clothing	DELEGATED_287	False	dynamic family; see source-index	False
+sarafan	armor	clothing	DELEGATED_287	False	dynamic family; see source-index	False
+linen_apron	armor	clothing	DELEGATED_287	False	dynamic family; see source-index	False
+folk_vest	armor	clothing	DELEGATED_287	False	dynamic family; see source-index	False
+gambeson	armor	clothing	DELEGATED_287	False	literal/family source	False
+plate_cuirass	armor	clothing	DELEGATED_287	False	literal/family source	False
+perunite_helmet	armor	perunite	DELEGATED_287	False	literal/family source	False
+perunite_chestplate	armor	perunite	DELEGATED_287	False	literal/family source	False
+perunite_leggings	armor	perunite	DELEGATED_287	False	literal/family source	False
+perunite_boots	armor	perunite	DELEGATED_287	False	literal/family source	False
+dragon_helmet	armor	dragon	DELEGATED_287	False	dynamic family; see source-index	False
+dragon_chestplate	armor	dragon	DELEGATED_287	False	dynamic family; see source-index	False
+dragon_leggings	armor	dragon	DELEGATED_287	False	dynamic family; see source-index	False
+dragon_boots	armor	dragon	DELEGATED_287	False	dynamic family; see source-index	False
+poloz_helmet	armor	poloz	DELEGATED_287	False	dynamic family; see source-index	False
+poloz_chestplate	armor	poloz	DELEGATED_287	False	dynamic family; see source-index	False
+poloz_leggings	armor	poloz	DELEGATED_287	False	dynamic family; see source-index	False
+poloz_boots	armor	poloz	DELEGATED_287	False	dynamic family; see source-index	False
+clear_sight_helmet	armor	unique	DELEGATED_287	False	dynamic family; see source-index	False
+bogatyr_chestplate	armor	unique	DELEGATED_287	False	dynamic family; see source-index	False
+indomitability_leggings	armor	unique	DELEGATED_287	False	dynamic family; see source-index	False
+wind_boots	armor	unique	DELEGATED_287	False	dynamic family; see source-index	False
+seven_league_boots	armor	unique	DELEGATED_287	False	literal/family source	False
+trophy_idol_chest	armor	unique	DELEGATED_287	False	dynamic family; see source-index	False
+trophy_marinka_cloak	armor	unique	DELEGATED_287	False	dynamic family; see source-index	False
+trophy_kartaus_mantle	armor	unique	DELEGATED_287	False	dynamic family; see source-index	False
+woven_belt	armor	belts	DELEGATED_287	False	dynamic family; see source-index	False
+perunite_shield	armor	protective	DELEGATED_287	False	literal/family source	False
+retainer_shield	armor	protective	DELEGATED_287	False	literal/family source	False
+ward_shield	armor	protective	DELEGATED_287	False	literal/family source	False
+gift_ilya_shield	armor	protective	DELEGATED_287	False	dynamic family; see source-index	False
+ritual_charcoal	magic	consumables	GAMEPLAY_ITEM	False	literal/family source	True
+ritual_candle	magic	consumables	FUNCTIONAL_RITUAL_BLOCK	True	literal/family source	True
+ritual_bowl	magic	consumables	GAMEPLAY_ITEM	False	literal/family source	True
+ritual_knife	magic	consumables	GAMEPLAY_ITEM	False	literal/family source	True
+cleansing_powder	magic	consumables	DELEGATED_284	False	literal/family source	False
+purifying_ash	magic	consumables	GAMEPLAY_ITEM	False	literal/family source	True
+purification_stone	magic	consumables	DELEGATED_284	False	literal/family source	False
+purified_water_bottle	magic	consumables	DELEGATED_284	False	literal/family source	False
+flame_vial	magic	consumables	DELEGATED_284	False	literal/family source	False
+otvar_ochishcheniya	magic	consumables	GAMEPLAY_ITEM	False	literal/family source	True
+otvar_bodrosti	magic	consumables	GAMEPLAY_ITEM	False	literal/family source	True
+otvar_lesnoy_zorkosti	magic	consumables	GAMEPLAY_ITEM	False	literal/family source	True
+lesnoy_nastoy_vosstanovleniya	magic	consumables	GAMEPLAY_ITEM	False	literal/family source	True
+yagin_nastoy_stoykosti	magic	consumables	GAMEPLAY_ITEM	False	literal/family source	True
+letuchaya_maz	magic	consumables	GAMEPLAY_ITEM	False	literal/family source	True
+iron_dust	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+gold_dust	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+coal_dust	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+lapis_dust	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+diamond_dust	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+perunite_dust	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+thunder_crystal_powder	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+soul_fragment	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+soul	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+empowered_soul	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+bound_soul	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+nav_essence	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+ember_heart	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+pool_pearl	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+pool_stone	magic	components	FUNCTIONAL_RITUAL_BLOCK	True	literal/family source	True
+leshy_heart	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+ancient_sign	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+ancient_water_sign	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+mor_fire_amulet_fragment	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+mor_water_amulet_fragment	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+rune_flight_fragment	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+rune_rare_protection_fragment	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+rune_death_fragment	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+rune_berserker_fragment	magic	components	GAMEPLAY_ITEM	False	literal/family source	True
+rune_thunder	magic	legacy_basic_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_forest	magic	legacy_basic_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_midday	magic	legacy_basic_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_shadow	magic	legacy_basic_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_protection	magic	legacy_basic_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_life	magic	legacy_basic_runes	GAMEPLAY_ITEM	False	literal/family source	True
+blank_rune_1	magic	runes_I	GAMEPLAY_ITEM	False	literal/family source	True
+rune_strength	magic	runes_I	GAMEPLAY_ITEM	False	literal/family source	True
+rune_speed	magic	runes_I	GAMEPLAY_ITEM	False	literal/family source	True
+rune_resilience	magic	runes_I	GAMEPLAY_ITEM	False	literal/family source	True
+rune_heat	magic	runes_I	GAMEPLAY_ITEM	False	literal/family source	True
+mining_rune_1	magic	runes_I	GAMEPLAY_ITEM	False	literal/family source	True
+fortune_rune_1	magic	runes_I	GAMEPLAY_ITEM	False	literal/family source	True
+blank_rune_2	magic	runes_II	GAMEPLAY_ITEM	False	literal/family source	True
+rune_crushing	magic	runes_II	GAMEPLAY_ITEM	False	literal/family source	True
+rune_wind	magic	runes_II	GAMEPLAY_ITEM	False	literal/family source	True
+rune_blood	magic	runes_II	GAMEPLAY_ITEM	False	literal/family source	True
+rune_fortitude	magic	runes_II	GAMEPLAY_ITEM	False	literal/family source	True
+mining_rune_2	magic	runes_II	GAMEPLAY_ITEM	False	literal/family source	True
+rune_floating_weapon	magic	rare_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_flight	magic	rare_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_rare_protection	magic	rare_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_death	magic	rare_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_berserker	magic	rare_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_sacrifice	magic	rare_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_ominous_aura	magic	rare_runes	GAMEPLAY_ITEM	False	literal/family source	True
+frost_resistance_rune	magic	rare_runes	GAMEPLAY_ITEM	False	literal/family source	True
+blank_rune_3	magic	runes_III	GAMEPLAY_ITEM	False	literal/family source	True
+rune_earth_heart_iii	magic	runes_III	GAMEPLAY_ITEM	False	literal/family source	True
+rune_counterstrike_iii	magic	runes_III	GAMEPLAY_ITEM	False	literal/family source	True
+rune_hunter_iii	magic	runes_III	GAMEPLAY_ITEM	False	literal/family source	True
+rune_last_stand_iii	magic	runes_III	GAMEPLAY_ITEM	False	literal/family source	True
+rune_depths_iii	magic	runes_III	GAMEPLAY_ITEM	False	literal/family source	True
+rune_miner_iii	magic	runes_III	GAMEPLAY_ITEM	False	literal/family source	True
+rune_excavator_iii	magic	runes_III	GAMEPLAY_ITEM	False	literal/family source	True
+rune_farmer_iii	magic	runes_III	GAMEPLAY_ITEM	False	literal/family source	True
+rune_lumberjack_iii	magic	runes_III	GAMEPLAY_ITEM	False	literal/family source	True
+rune_stomp	magic	story_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_dispelling	magic	story_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_pursuit	magic	story_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_suppression	magic	story_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_battle_line	magic	story_runes	GAMEPLAY_ITEM	False	literal/family source	True
+frost_rune	magic	story_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_of_waning	magic	story_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_mor_breath	magic	story_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_dragon_flame	magic	story_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_storm_strike	magic	story_runes	GAMEPLAY_ITEM	False	literal/family source	True
+rune_earth_lord_iv	magic	runes_IV	GAMEPLAY_ITEM	False	literal/family source	True
+rune_veles_oath_iv	magic	runes_IV	GAMEPLAY_ITEM	False	literal/family source	True
+warding_charm	magic	charms	DELEGATED_284	False	literal/family source	False
+volkhv_amulet	magic	charms	DELEGATED_284	False	literal/family source	False
+fading_flame_charm	magic	charms	DELEGATED_284	False	literal/family source	False
+mor_ward	magic	charms	DELEGATED_284	False	literal/family source	False
+ancient_idol	magic	rituals	FUNCTIONAL_BLOCK	True	literal/family source	True
+altar	magic	rituals	FUNCTIONAL_BLOCK	True	literal/family source	True
+path_stone	magic	rituals	FUNCTIONAL_BLOCK	True	literal/family source	True
+runic_anvil	magic	rituals	FUNCTIONAL_BLOCK	True	literal/family source	True
+badnyak	magic	rituals	GAMEPLAY_ITEM	False	literal/family source	True
+earth_heart_seal	magic	rituals	FUNCTIONAL_RITUAL_BLOCK	True	literal/family source	True
+earth_gate_stone	magic	rituals	FUNCTIONAL_RITUAL_BLOCK	True	literal/family source	True
+earth_pillar_stone	magic	rituals	FUNCTIONAL_RITUAL_BLOCK	True	literal/family source	True
+earth_shelter_stone	magic	rituals	FUNCTIONAL_RITUAL_BLOCK	True	literal/family source	True
+putevodny_klubok	magic	rituals	GAMEPLAY_ITEM	False	literal/family source	True
+vodyanoy_net	magic	rituals	GAMEPLAY_ITEM	False	literal/family source	True
+pustoy_ritualny_sosud	magic	rituals	GAMEPLAY_ITEM	False	literal/family source	True
+sosud_ognennogo_dyhaniya	magic	rituals	GAMEPLAY_ITEM	False	literal/family source	True
+sosud_podveya	magic	rituals	GAMEPLAY_ITEM	False	literal/family source	True
+uzel_podveya	magic	rituals	GAMEPLAY_ITEM	False	literal/family source	True
+vetrovoy_uzel	magic	rituals	GAMEPLAY_ITEM	False	literal/family source	True
+uzel_durnoy_doli	magic	rituals	GAMEPLAY_ITEM	False	literal/family source	True
+stepnoy_shtandart	magic	rituals	GAMEPLAY_ITEM	False	literal/family source	True
+beast_challenge_horn	magic	rituals	DELEGATED_284	False	literal/family source	False
+mor_horn	magic	rituals	DELEGATED_284	False	literal/family source	False
+morozko_trial_totem	magic	rituals	GAMEPLAY_ITEM	False	literal/family source	True
+karachun_trial_totem	magic	rituals	GAMEPLAY_ITEM	False	literal/family source	True
+unfading_brazier	magic	rituals	FUNCTIONAL_RITUAL_BLOCK	True	literal/family source	True
+pure_spring_heart	magic	rituals	FUNCTIONAL_RITUAL_BLOCK	True	literal/family source	True
+tainted_spring_node	magic	rituals	FUNCTIONAL_RITUAL_BLOCK	True	literal/family source	True
+ritual_brazier	magic	rituals	FUNCTIONAL_RITUAL_BLOCK	True	literal/family source	True
+defiled_ritual_brazier	magic	rituals	FUNCTIONAL_RITUAL_BLOCK	True	literal/family source	True
+ancient_ritual_slab	magic	rituals	FUNCTIONAL_RITUAL_BLOCK	True	literal/family source	True
+defiled_ritual_slab	magic	rituals	FUNCTIONAL_RITUAL_BLOCK	True	literal/family source	True
+witch_yard_altar	magic	rituals	FUNCTIONAL_RITUAL_BLOCK	True	literal/family source	True
+guardian_relic_pedestal	magic	rituals	FUNCTIONAL_RITUAL_BLOCK	True	literal/family source	True
+sanctuary_ritual_cache	magic	rituals	FUNCTIONAL_RITUAL_BLOCK	True	literal/family source	True
+thunder_stone	magic	artifacts	DELEGATED_284	False	literal/family source	False
+gusli	magic	artifacts	DELEGATED_284	False	literal/family source	False
+skatert	magic	artifacts	DELEGATED_284	True	literal/family source	False
+flying_broom	magic	artifacts	DELEGATED_284	False	literal/family source	False
+flying_mortar	magic	artifacts	DELEGATED_284	False	literal/family source	False
+pestle	magic	artifacts	DELEGATED_284	False	literal/family source	False
+mor_flask	magic	artifacts	DELEGATED_284	False	literal/family source	False
+oko_likha	magic	artifacts	DELEGATED_284	False	literal/family source	False
+wolf_call	magic	artifacts	DELEGATED_284	False	literal/family source	False
+tracker_sense	magic	artifacts	DELEGATED_284	False	literal/family source	False
+sivka_whistle	magic	artifacts	DELEGATED_284	False	literal/family source	False
+ilya_call_token	magic	artifacts	DELEGATED_284	False	literal/family source	False
+dobrynya_call_emblem	magic	artifacts	DELEGATED_284	False	literal/family source	False
+alyosha_call_whistle	magic	artifacts	DELEGATED_284	False	literal/family source	False
+finist_call_feather	magic	artifacts	DELEGATED_284	False	literal/family source	False
+kartaus_black_seal	magic	artifacts	DELEGATED_284	False	literal/family source	False
+kalin_battle_seal	magic	artifacts	DELEGATED_284	False	literal/family source	False
+gorynych_mor_breath_bottle	magic	artifacts	DELEGATED_284	False	literal/family source	False
+gorynych_flame_breath_bottle	magic	artifacts	DELEGATED_284	False	literal/family source	False
+gorynych_storm_breath_bottle	magic	artifacts	DELEGATED_284	False	literal/family source	False
+domestic_goat_spawn_egg	mobs	peaceful	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+goose_spawn_egg	mobs	peaceful	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+duck_spawn_egg	mobs	peaceful	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+carp_spawn_egg	mobs	peaceful	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+pike_spawn_egg	mobs	peaceful	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+crayfish_spawn_egg	mobs	peaceful	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+stag_spawn_egg	mobs	peaceful	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+boar_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+brown_bear_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+forest_wolf_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+domovoy_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+bannik_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+polevik_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+leshy_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+vodyanoy_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+elder_vodyanoy_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+rusalka_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+chud_resident_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+chud_artisan_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+chud_guard_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+kot_bayun_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+grey_wolf_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+sivka_burka_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+firebird_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+baba_yaga_spawn_egg	mobs	neutral	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+igosha_spawn_egg	mobs	hostile	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+kikimora_spawn_egg	mobs	hostile	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+poludnitsa_spawn_egg	mobs	hostile	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+nav_spawn_egg	mobs	hostile	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+upyr_spawn_egg	mobs	hostile	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+nochnitsa_spawn_egg	mobs	hostile	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+podzemnik_spawn_egg	mobs	hostile	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+bandit_fighter_spawn_egg	mobs	hostile	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+bandit_archer_spawn_egg	mobs	hostile	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+bandit_senior_spawn_egg	mobs	hostile	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+bandit_heavy_spawn_egg	mobs	hostile	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+pesigolovets_scout_spawn_egg	mobs	hostile	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+pesigolovets_hunter_spawn_egg	mobs	hostile	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+pesigolovets_leader_spawn_egg	mobs	hostile	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+kurgan_druzhinnik_spawn_egg	mobs	hostile	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+large_podzemnik_spawn_egg	mobs	elite	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+kladovik_spawn_egg	mobs	elite	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+kurgan_voevoda_spawn_egg	mobs	elite	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+earth_servant_spawn_egg	mobs	elite	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+bolotnik_spawn_egg	mobs	elite	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+unresting_prince_spawn_egg	mobs	elite	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+buried_volkhv_spawn_egg	mobs	miniboss	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+ataman_spawn_egg	mobs	miniboss	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+ovinnik_spawn_egg	mobs	miniboss	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+volkolak_spawn_egg	mobs	miniboss	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+cursed_volkolak_spawn_egg	mobs	miniboss	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+fire_serpent_spawn_egg	mobs	miniboss	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+podvey_spawn_egg	mobs	miniboss	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+extinguished_flame_guardian_spawn_egg	mobs	miniboss	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+defiled_spring_keeper_spawn_egg	mobs	miniboss	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+nightingale_spawn_egg	mobs	boss	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+likho_one_eyed_spawn_egg	mobs	boss	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+tugarin_zmey_spawn_egg	mobs	boss	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+idolishche_poganoe_spawn_egg	mobs	boss	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+marinka_spawn_egg	mobs	boss	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+skim_beast_spawn_egg	mobs	boss	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+kartaus_spawn_egg	mobs	boss	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+kalin_war_horse_spawn_egg	mobs	boss	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+kalin_tsar_spawn_egg	mobs	boss	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+zmey_gorynych_spawn_egg	mobs	boss	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+bear_cub_spawn_egg	hidden	family_variants	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+doe_spawn_egg	hidden	family_variants	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+cider_must	hidden	brewing_batches	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+dark_beer_wort	hidden	brewing_batches	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+filled_pitcher	hidden	brewing_batches	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+forest_beer_wort	hidden	brewing_batches	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+honey_beer_wort	hidden	brewing_batches	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+hopped_beer_wort	hidden	brewing_batches	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+kvass_wort	hidden	brewing_batches	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+light_beer_wort	hidden	brewing_batches	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+mead_must	hidden	brewing_batches	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+thunder_beer_wort	hidden	brewing_batches	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+veles_dark_wort	hidden	brewing_batches	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+witch_berry_wort	hidden	brewing_batches	TECHNICAL_OR_HIDDEN	False	literal/family source	False
+straw_block	decor	natural	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+haystack	decor	natural	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+hanging_willow_leaves	decor	natural	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+apple_log	decor	wood_apple	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+stripped_apple_log	decor	wood_apple	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+apple_wood	decor	wood_apple	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+stripped_apple_wood	decor	wood_apple	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+apple_planks	decor	wood_apple	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+apple_stairs	decor	wood_apple	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+apple_slab	decor	wood_apple	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+apple_fence	decor	wood_apple	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+apple_fence_gate	decor	wood_apple	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+apple_door	decor	wood_apple	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+apple_trapdoor	decor	wood_apple	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+apple_pressure_plate	decor	wood_apple	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+apple_button	decor	wood_apple	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+apple_sign	decor	wood_apple	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+apple_hanging_sign	decor	wood_apple	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+apple_leaves	decor	wood_apple	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_log	decor	wood_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_stripped_log	decor	wood_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_wood	decor	wood_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_stripped_wood	decor	wood_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_planks	decor	wood_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_stairs	decor	wood_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_slab	decor	wood_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_fence	decor	wood_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_fence_gate	decor	wood_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_door	decor	wood_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_trapdoor	decor	wood_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_pressure_plate	decor	wood_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_button	decor	wood_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_sign	decor	wood_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_leaves	decor	wood_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+rowan_log	decor	wood_rowan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+rowan_stripped_log	decor	wood_rowan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+rowan_wood	decor	wood_rowan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+rowan_stripped_wood	decor	wood_rowan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+rowan_planks	decor	wood_rowan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+rowan_stairs	decor	wood_rowan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+rowan_slab	decor	wood_rowan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+rowan_fence	decor	wood_rowan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+rowan_fence_gate	decor	wood_rowan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+rowan_door	decor	wood_rowan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+rowan_trapdoor	decor	wood_rowan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+rowan_pressure_plate	decor	wood_rowan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+rowan_button	decor	wood_rowan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+rowan_sign	decor	wood_rowan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+rowan_leaves	decor	wood_rowan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+willow_log	decor	wood_willow	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+willow_stripped_log	decor	wood_willow	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+willow_wood	decor	wood_willow	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+willow_stripped_wood	decor	wood_willow	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+willow_planks	decor	wood_willow	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+willow_stairs	decor	wood_willow	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+willow_slab	decor	wood_willow	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+willow_fence	decor	wood_willow	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+willow_fence_gate	decor	wood_willow	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+willow_door	decor	wood_willow	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+willow_trapdoor	decor	wood_willow	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+willow_pressure_plate	decor	wood_willow	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+willow_button	decor	wood_willow	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+willow_sign	decor	wood_willow	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+willow_leaves	decor	wood_willow	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_log	decor	wood_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_stripped_log	decor	wood_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_wood	decor	wood_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_stripped_wood	decor	wood_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_planks	decor	wood_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_stairs	decor	wood_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_slab	decor	wood_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_fence	decor	wood_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_fence_gate	decor	wood_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_door	decor	wood_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_trapdoor	decor	wood_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_pressure_plate	decor	wood_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_button	decor	wood_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_sign	decor	wood_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_leaves	decor	wood_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+darkened_log	decor	wood_darkened	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+darkened_stripped_log	decor	wood_darkened	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+darkened_planks	decor	wood_darkened	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+darkened_stairs	decor	wood_darkened	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+darkened_slab	decor	wood_darkened	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+darkened_fence	decor	wood_darkened	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+darkened_fence_gate	decor	wood_darkened	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+darkened_door	decor	wood_darkened	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+darkened_trapdoor	decor	wood_darkened	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pale_blue_kurgan_stone	decor	stone_pale_blue_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pale_blue_kurgan_stone_stairs	decor	stone_pale_blue_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pale_blue_kurgan_stone_slab	decor	stone_pale_blue_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pale_blue_kurgan_stone_wall	decor	stone_pale_blue_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pale_blue_kurgan_cobblestone	decor	stone_pale_blue_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pale_blue_kurgan_cobblestone_stairs	decor	stone_pale_blue_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pale_blue_kurgan_cobblestone_slab	decor	stone_pale_blue_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pale_blue_kurgan_cobblestone_wall	decor	stone_pale_blue_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mossy_pale_blue_kurgan_cobblestone	decor	stone_pale_blue_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mossy_pale_blue_kurgan_cobblestone_stairs	decor	stone_pale_blue_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mossy_pale_blue_kurgan_cobblestone_slab	decor	stone_pale_blue_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mossy_pale_blue_kurgan_cobblestone_wall	decor	stone_pale_blue_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+cracked_pale_blue_kurgan_cobblestone	decor	stone_pale_blue_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+cracked_pale_blue_kurgan_cobblestone_stairs	decor	stone_pale_blue_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+cracked_pale_blue_kurgan_cobblestone_slab	decor	stone_pale_blue_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+cracked_pale_blue_kurgan_cobblestone_wall	decor	stone_pale_blue_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+bog_green_kurgan_stone	decor	stone_bog_green_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+bog_green_kurgan_stone_stairs	decor	stone_bog_green_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+bog_green_kurgan_stone_slab	decor	stone_bog_green_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+bog_green_kurgan_stone_wall	decor	stone_bog_green_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+bog_green_kurgan_cobblestone	decor	stone_bog_green_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+bog_green_kurgan_cobblestone_stairs	decor	stone_bog_green_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+bog_green_kurgan_cobblestone_slab	decor	stone_bog_green_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+bog_green_kurgan_cobblestone_wall	decor	stone_bog_green_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mossy_bog_green_kurgan_cobblestone	decor	stone_bog_green_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mossy_bog_green_kurgan_cobblestone_stairs	decor	stone_bog_green_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mossy_bog_green_kurgan_cobblestone_slab	decor	stone_bog_green_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mossy_bog_green_kurgan_cobblestone_wall	decor	stone_bog_green_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+cracked_bog_green_kurgan_cobblestone	decor	stone_bog_green_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+cracked_bog_green_kurgan_cobblestone_stairs	decor	stone_bog_green_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+cracked_bog_green_kurgan_cobblestone_slab	decor	stone_bog_green_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+cracked_bog_green_kurgan_cobblestone_wall	decor	stone_bog_green_kurgan	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_stool	decor	furniture_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_chair	decor	furniture_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_bench	decor	furniture_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_table	decor	furniture_linden	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+linden_bedside_cabinet	decor	furniture_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_shelf	decor	furniture_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_wardrobe	decor	furniture_linden	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+linden_weapon_rack	decor	furniture_linden	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+pine_stool	decor	furniture_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_chair	decor	furniture_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_bench	decor	furniture_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_table	decor	furniture_pine	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+pine_bedside_cabinet	decor	furniture_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_shelf	decor	furniture_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_wardrobe	decor	furniture_pine	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+pine_weapon_rack	decor	furniture_pine	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+hearth	decor	machines	FUNCTIONAL_BLOCK	True	literal/family source	True
+kitchen_table	decor	machines	FUNCTIONAL_BLOCK	True	literal/family source	True
+millstone	decor	machines	FUNCTIONAL_BLOCK	True	literal/family source	True
+drying_rack	decor	machines	FUNCTIONAL_BLOCK	True	literal/family source	True
+armorer_table	decor	machines	FUNCTIONAL_BLOCK	True	literal/family source	True
+druzhinnik_table	decor	machines	FUNCTIONAL_BLOCK	True	literal/family source	True
+training_dummy	decor	machines	FUNCTIONAL_BLOCK	True	literal/family source	True
+flax_breaker	decor	machines	FUNCTIONAL_BLOCK	True	literal/family source	True
+spinning_wheel	decor	machines	FUNCTIONAL_BLOCK	True	literal/family source	True
+loom_table	decor	machines	FUNCTIONAL_BLOCK	True	literal/family source	True
+fruit_press	decor	machines	FUNCTIONAL_BLOCK	True	literal/family source	True
+fermentation_vat	decor	machines	FUNCTIONAL_BLOCK	True	literal/family source	True
+small_keg	decor	machines	FUNCTIONAL_BLOCK	True	literal/family source	True
+chud_bloomery	decor	machines	FUNCTIONAL_BLOCK	True	literal/family source	True
+refining_hearth	decor	machines	FUNCTIONAL_BLOCK	True	literal/family source	True
+bath_stove	decor	machines	FUNCTIONAL_BLOCK	True	literal/family source	True
+carved_oak_block	decor	carved_wood	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+carved_oak_pillar	decor	carved_wood	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+carved_birch_planks	decor	carved_wood	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+wall_carving	decor	carved_wood	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+basket	decor	household	FUNCTIONAL_BLOCK	True	literal/family source	True
+large_basket	decor	household	FUNCTIONAL_BLOCK	True	literal/family source	True
+wooden_crate	decor	household	FUNCTIONAL_BLOCK	True	literal/family source	True
+produce_crate	decor	household	FUNCTIONAL_BLOCK	True	literal/family source	True
+wooden_barrel	decor	household	FUNCTIONAL_BLOCK	True	literal/family source	True
+wooden_tub	decor	household	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+storage_sack	decor	household	FUNCTIONAL_BLOCK	True	literal/family source	True
+cloth_bag	decor	household	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+household_chest	decor	household	FUNCTIONAL_BLOCK	True	literal/family source	True
+settlement_chest	decor	household	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+storage_shelf	decor	household	FUNCTIONAL_BLOCK	True	literal/family source	True
+wall_shelf	decor	household	FUNCTIONAL_BLOCK	True	literal/family source	True
+linen_bed	decor	household	FUNCTIONAL_BLOCK	True	literal/family source	True
+tallow_candle	decor	household	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+firewood_bundle	decor	household	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+straw_nest	decor	household	FUNCTIONAL_BLOCK	True	literal/family source	True
+feeder	decor	household	FUNCTIONAL_BLOCK	True	literal/family source	True
+signal_bell	decor	household	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+kurgan_rubble	decor	burial	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+burial_stone_slab	decor	burial	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+carved_burial_stone	decor	burial	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+carved_burial_stone_slab	decor	burial	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+kurgan_column_fragment	decor	burial	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+kurgan_pottery	decor	burial	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+kurgan_ritual_bowl	decor	burial	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+kurgan_stone_altar	decor	burial	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+kurgan_wall_torch_holder	decor	burial	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+kurgan_hanging_brazier	decor	burial	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+sealed_kurgan_masonry	decor	burial	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+burial_log_coffin	decor	burial	FUNCTIONAL_BLOCK	True	literal/family source	True
+cursed_skull_cache	decor	burial	FUNCTIONAL_BLOCK	True	literal/family source	True
+serpent_masonry	decor	serpent	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+cracked_serpent_masonry	decor	serpent	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+ruined_serpent_masonry	decor	serpent	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+serpent_bas_relief	decor	serpent	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+serpent_torch	decor	serpent	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+carved_fire_pillar	decor	sanctuary	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+carved_spring_pillar	decor	sanctuary	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+fire_idol_sun	decor	sanctuary	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+fire_idol_tree	decor	sanctuary	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+fire_idol_circle	decor	sanctuary	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+ancient_hanging_lamp	decor	sanctuary	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+seal_fire_door	decor	sanctuary	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+seal_spring_door	decor	sanctuary	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+spring_valve	decor	sanctuary	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+mor_dirt	decor	mor	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mor_grass_block	decor	mor	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mor_sand	decor	mor	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mor_gravel	decor	mor	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mor_moss_block	decor	mor	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mor_stone	decor	mor	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mor_cobblestone	decor	mor	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mor_sandstone	decor	mor	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mor_stone_bricks	decor	mor	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mor_obsidian	decor	mor	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mor_oak_log	decor	mor	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mor_oak_planks	decor	mor	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mor_oak_leaves	decor	mor	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mor_birch_log	decor	mor	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mor_growth	decor	mor	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+blank_rune_4	magic	runes_IV	GAMEPLAY_ITEM	False	literal/family source	True
+rune_unbreakable_iv	magic	runes_IV	GAMEPLAY_ITEM	False	literal/family source	True
+rune_perun_rage_iv	magic	runes_IV	GAMEPLAY_ITEM	False	literal/family source	True
+rune_forest_spirit_iv	magic	runes_IV	GAMEPLAY_ITEM	False	literal/family source	True
+rune_mastery_iv	magic	runes_IV	GAMEPLAY_ITEM	False	literal/family source	True
+rune_miner_iv	magic	runes_IV	GAMEPLAY_ITEM	False	literal/family source	True
+rune_excavator_iv	magic	runes_IV	GAMEPLAY_ITEM	False	literal/family source	True
+rune_farmer_iv	magic	runes_IV	GAMEPLAY_ITEM	False	literal/family source	True
+rune_lumberjack_iv	magic	runes_IV	GAMEPLAY_ITEM	False	literal/family source	True
+tugarin_head	resources	trophy_heads	PLACEABLE_BLOCK	True	dynamic family; see source-index	False
+skim_head	resources	trophy_heads	PLACEABLE_BLOCK	True	dynamic family; see source-index	False
+cursed_volkolak_head	resources	trophy_heads	PLACEABLE_BLOCK	True	dynamic family; see source-index	False
+likho_head	resources	trophy_heads	PLACEABLE_BLOCK	True	dynamic family; see source-index	False
+mor_likho_head	resources	trophy_heads	PLACEABLE_BLOCK	True	dynamic family; see source-index	False
+large_podzemnik_head	resources	trophy_heads	PLACEABLE_BLOCK	True	dynamic family; see source-index	False
+invisibility_cap	accessories	head	DELEGATED_278	False	literal/family source	False
+miners_goggles	accessories	head	DELEGATED_278	False	dynamic family; see source-index	False
+black_wing_amulet	accessories	necklace	DELEGATED_278	False	literal/family source	False
+depth_amulet	accessories	necklace	DELEGATED_278	False	literal/family source	False
+frost_mirror	accessories	necklace	DELEGATED_278	False	literal/family source	False
+gift_finist_amulet	accessories	necklace	DELEGATED_278	False	dynamic family; see source-index	False
+grivna	accessories	necklace	DELEGATED_278	False	literal/family source	False
+leshy_necklace	accessories	necklace	DELEGATED_278	False	dynamic family; see source-index	False
+lunula	accessories	necklace	DELEGATED_278	False	literal/family source	False
+obereg_padayuschey_zvezdy	accessories	necklace	DELEGATED_278	False	literal/family source	False
+odnoglazyy_obereg	accessories	necklace	DELEGATED_278	False	literal/family source	False
+stone_path_amulet	accessories	necklace	DELEGATED_278	False	dynamic family; see source-index	False
+trophy_skim_necklace	accessories	necklace	DELEGATED_278	False	dynamic family; see source-index	False
+veles_amulet	accessories	necklace	DELEGATED_278	False	literal/family source	False
+zolny_obereg	accessories	necklace	DELEGATED_278	False	literal/family source	False
+gift_dobrynya_ring	accessories	ring	DELEGATED_278	False	dynamic family; see source-index	False
+harvest_ring	accessories	ring	DELEGATED_278	False	dynamic family; see source-index	False
+perun_ring	accessories	ring	DELEGATED_278	False	literal/family source	False
+pool_ring	accessories	ring	DELEGATED_278	False	dynamic family; see source-index	False
+prospectors_ring	accessories	ring	DELEGATED_278	False	dynamic family; see source-index	False
+resin_ring	accessories	ring	DELEGATED_278	False	literal/family source	False
+ring_of_grey_pack	accessories	ring	DELEGATED_278	False	literal/family source	False
+spark_ring	accessories	ring	DELEGATED_278	False	dynamic family; see source-index	False
+finist_quiver	accessories	belt	DELEGATED_278	False	literal/family source	False
+gift_alyosha_belt	accessories	belt	DELEGATED_278	False	dynamic family; see source-index	False
+hunter_belt	accessories	belt	DELEGATED_278	False	literal/family source	False
+podvey_belt	accessories	belt	DELEGATED_278	False	dynamic family; see source-index	False
+poyas_tugarina	accessories	belt	DELEGATED_278	False	literal/family source	False
+underground_guard_belt	accessories	belt	DELEGATED_278	False	dynamic family; see source-index	False
+volchiy_poyas	accessories	belt	DELEGATED_278	False	literal/family source	False
+bath_ward	accessories	charm	DELEGATED_278	False	dynamic family; see source-index	False
+grave_ward	accessories	charm	DELEGATED_278	False	literal/family source	False
+retribution_charm	accessories	charm	DELEGATED_278	False	literal/family source	False
+amber_charm	accessories	offhand	DELEGATED_278	False	literal/family source	False
+forest_charm	accessories	offhand	DELEGATED_278	False	literal/family source	False
+perun_charm	accessories	offhand	DELEGATED_278	False	literal/family source	False
+traveler_charm	accessories	offhand	DELEGATED_278	False	literal/family source	False
+hunter_charm	accessories	use	DELEGATED_284	False	literal/family source	False
+obereg_ohotnika	accessories	use	DELEGATED_284	False	literal/family source	False
+amulet_two_winters	accessories	inventory/use	DELEGATED_284	False	literal/family source	False
+silver_block	resources	metals	PLACEABLE_BLOCK	True	literal/family source	False
+chud_mining_lantern	slavicmyths	chud_tools	GAMEPLAY_ITEM	False	literal/family source	True
+chud_master_pickaxe	slavicmyths	chud_tools	GAMEPLAY_ITEM	False	literal/family source	True
+chud_multitool_axe	slavicmyths	chud_tools	GAMEPLAY_ITEM	False	literal/family source	True
+chud_multitool_pickaxe	slavicmyths	chud_tools	GAMEPLAY_ITEM	False	literal/family source	True
+chud_multitool_shovel	slavicmyths	chud_tools	GAMEPLAY_ITEM	False	literal/family source	True
+chud_mining_lift	slavicmyths	chud_tools	GAMEPLAY_ITEM	False	literal/family source	True
+navya_soil	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+mossy_navya_soil	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_stone	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+cracked_navya_stone	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+grove_bone_block	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+grove_bone_column	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+grove_bone_spike	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+rooted_navya_stone	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_log	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_wood	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+stripped_navya_log	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+stripped_navya_wood	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_planks	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_stairs	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_slab	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_fence	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_fence_gate	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_door	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_trapdoor	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_button	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_pressure_plate	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_sign	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+navya_hanging_sign	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	literal/family source	False
+navya_dry_branches	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_roots	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_hanging_roots	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_shrub	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+ghost_fungus	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_growth	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_sapling	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navya_dead_leaves	decor	navya_grove	OUTSIDE_286_DECOR_OR_OTHER	True	dynamic family; see source-index	False
+navka_spawn_egg	mobs	navya_grove	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+rootling_spawn_egg	mobs	navya_grove	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+bone_crawler_spawn_egg	mobs	navya_grove	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+navya_wisp_spawn_egg	mobs	navya_grove	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+grove_guardian_spawn_egg	mobs	navya_grove	TECHNICAL_OR_HIDDEN	False	dynamic family; see source-index	False
+navya_ash	resources	navya_grove	GAMEPLAY_ITEM	False	literal/family source	True
+living_root	resources	navya_grove	GAMEPLAY_ITEM	False	literal/family source	True
+bone_thorn	resources	navya_grove	GAMEPLAY_ITEM	False	literal/family source	True
+grove_core	resources	navya_grove	GAMEPLAY_ITEM	False	literal/family source	True
+guardian_branch	resources	navya_grove	GAMEPLAY_ITEM	False	literal/family source	True
+soul_blight	resources	navya_grove	GAMEPLAY_ITEM	False	literal/family source	True

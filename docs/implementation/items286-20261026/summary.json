@@ -1,0 +1,28 @@
+{
+  "catalog": 923,
+  "candidate441": 441,
+  "detailed": 433,
+  "triage": {
+    "OUTSIDE_286_DECOR_OR_OTHER": 220,
+    "GAMEPLAY_ITEM": 381,
+    "PLACEABLE_BLOCK": 13,
+    "CURRENCY": 1,
+    "DELEGATED_284": 34,
+    "FUNCTIONAL_BLOCK": 35,
+    "DELEGATED_285": 68,
+    "DELEGATED_287": 34,
+    "FUNCTIONAL_RITUAL_BLOCK": 16,
+    "TECHNICAL_OR_HIDDEN": 84,
+    "DELEGATED_278": 37
+  },
+  "decisions": {
+    "KEEP_SOURCE": 406,
+    "PROPOSE_PURPOSE_REVIEW": 19,
+    "PROPOSE_ACQUISITION_REVIEW": 1,
+    "BUG_FIXED": 7
+  },
+  "runtime": "NOT_RUN; zero game processes",
+  "scope": "source inventory, not a live registry dump",
+  "source_baseline": "79ff212c",
+  "unresolved_dynamic_registration": []
+}

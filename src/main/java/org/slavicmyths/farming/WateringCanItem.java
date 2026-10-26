@@ -53,12 +53,12 @@ public final class WateringCanItem extends Item {
             var pos = center.offset(x,0,z);
             if (!level.hasChunkAt(pos) || !level.mayInteract(player,pos) || !player.mayUseItemAt(pos,context.getClickedFace(),stack)) continue;
             var state = level.getBlockState(pos);
-            if (!state.is(Blocks.FARMLAND)) continue;
-            count++;
+            if (!state.is(Blocks.FARMLAND) || state.getValue(FarmBlock.MOISTURE) == 7) continue;
             if (level instanceof ServerLevel server) {
-                server.setBlock(pos, state.setValue(FarmBlock.MOISTURE,7), 2);
+                if (!server.setBlock(pos, state.setValue(FarmBlock.MOISTURE,7), 2)) continue;
                 server.sendParticles(ParticleTypes.SPLASH,pos.getX()+.5,pos.getY()+1,pos.getZ()+.5,3,.25,.05,.25,.01);
             }
+            count++;
         }
         if (count == 0) return InteractionResult.PASS;
         if (!level.isClientSide) {

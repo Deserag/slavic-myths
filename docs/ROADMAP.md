@@ -2430,3 +2430,7 @@ All 11 workflows for e0560924 SUCCESS; Java21 clean build + P52 source/JAR PASS:
 ## 24.10.2026 — #236 guides, flight and control combinations (IN_PROGRESS)
 
 Ветка codex/guides-236 поверх #237/#235: серверные поручения Яги/Баюна в TaleData, существующие anchors/навигация; фоновый native план полной крепости без NPC block placement/tickets. Открытие книги больше не запускает генерацию избушки: отдельная кнопка. Волк trust4 без миграции старых ключей;3обмена;ступа2места с сохранённым явным пилотом. Server runtime2:9/9 PASS после исправления нижней границы высоты; командная крепость и контрольный блок PASS, peakplacement111ms требует учёта. Natural NPC/restart/две реальные сессии ещё NOT_RUN. Дополнение владельца: Ctrl+1/2/3, captureCtrl/Shift/Alt;3строки PolyMC options изменены сbackup, JAR не установлен. [Матрица](implementation/guides236/REPORT.md), [управление](CONTROLS.md).
+
+
+## 26.10.2026 — ограниченный пакет #286 + подготовка #276
+#286 IN_PROGRESS: завершён source-аудит существующих предметов/экономики и исправлены2актуальных handler без новых механик/цен/статов. Игровые проверки запрещены,NOT_RUN; найденная недоступность ovinnik_claw и19коллекционных/неиспользуемых материалов остаются решениями владельца. #276 IN_PROGRESS: только baseline расчёт и вариантыL1/L2,loot JSONне изменены. Следующий шаг — ручная проверка/approvalE1/E2и наград, не автоматическая реализация. [Матрицы и checklist](implementation/items286-20261026/REPORT.md), [награды](implementation/loot276-20261026/REPORT.md).
