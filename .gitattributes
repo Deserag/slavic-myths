@@ -57,3 +57,5 @@
 
 /docs/implementation/artifacts284-20261025/*.log -text -whitespace
 /docs/implementation/artifacts284-20261025/before/** -text -whitespace
+
+/docs/implementation/armor287-20261026/*.log -text -whitespace

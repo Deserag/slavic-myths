@@ -1,0 +1,55 @@
+{
+  "checks": 41,
+  "game_launches": 0,
+  "scope": "offline armor formula calibrated against separate real server measurements; existing UniqueEquipmentRules",
+  "curves": [
+    {
+      "family": "iron",
+      "raw1": 0.42000002,
+      "raw4": 1.9200001,
+      "raw10": 6.0,
+      "raw20": 16.0,
+      "raw40": 35.2
+    },
+    {
+      "family": "diamond",
+      "raw1": 0.20999998,
+      "raw4": 0.96000004,
+      "raw10": 3.0,
+      "raw20": 7.9999995,
+      "raw40": 24.0
+    },
+    {
+      "family": "netherite",
+      "raw1": 0.208,
+      "raw4": 0.928,
+      "raw10": 2.7999997,
+      "raw20": 7.2000003,
+      "raw40": 20.8
+    },
+    {
+      "family": "perunite",
+      "raw1": 0.416,
+      "raw4": 1.856,
+      "raw10": 5.6,
+      "raw20": 14.400001,
+      "raw40": 35.2
+    },
+    {
+      "family": "dragon",
+      "raw1": 0.25,
+      "raw4": 1.1199999,
+      "raw10": 3.3999996,
+      "raw20": 8.8,
+      "raw40": 25.599998
+    },
+    {
+      "family": "poloz",
+      "raw1": 0.16224,
+      "raw4": 0.72383994,
+      "raw10": 2.1839998,
+      "raw20": 5.616,
+      "raw40": 16.223999
+    }
+  ]
+}

@@ -1,0 +1,1225 @@
+{
+  "items": [
+    {
+      "id": "linen_headscarf",
+      "class": "org.slavicmyths.textile.ClothingItem",
+      "durability": 0,
+      "enchantability": 0,
+      "rune_capacity": 0,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "slot": "head",
+      "equipped": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "linen_shirt",
+      "class": "org.slavicmyths.textile.ClothingItem",
+      "durability": 0,
+      "enchantability": 0,
+      "rune_capacity": 0,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "slot": "chest",
+      "equipped": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "linen_ports",
+      "class": "org.slavicmyths.textile.ClothingItem",
+      "durability": 0,
+      "enchantability": 0,
+      "rune_capacity": 0,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "slot": "legs",
+      "equipped": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "bast_shoes",
+      "class": "org.slavicmyths.textile.ClothingItem",
+      "durability": 0,
+      "enchantability": 0,
+      "rune_capacity": 0,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "slot": "feet",
+      "equipped": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "sarafan",
+      "class": "org.slavicmyths.textile.ClothingItem",
+      "durability": 0,
+      "enchantability": 0,
+      "rune_capacity": 0,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "slot": "chest",
+      "equipped": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "linen_apron",
+      "class": "org.slavicmyths.textile.ClothingItem",
+      "durability": 0,
+      "enchantability": 0,
+      "rune_capacity": 0,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "slot": "chest",
+      "equipped": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "folk_vest",
+      "class": "org.slavicmyths.textile.ClothingItem",
+      "durability": 0,
+      "enchantability": 0,
+      "rune_capacity": 0,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "slot": "chest",
+      "equipped": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "gambeson",
+      "class": "net.minecraft.world.item.ArmorItem",
+      "durability": 192,
+      "enchantability": 9,
+      "rune_capacity": 1,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 4,
+      "toughness": 0.0,
+      "material_knockback": 0.0,
+      "repair": [
+        "minecraft:leather"
+      ],
+      "slot": "chest",
+      "equipped": {
+        "generic.armor": 4.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "plate_cuirass",
+      "class": "org.slavicmyths.combat.CombatEquipment$PlateArmor",
+      "durability": 352,
+      "enchantability": 9,
+      "rune_capacity": 1,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 7,
+      "toughness": 1.0,
+      "material_knockback": 0.05,
+      "repair": [
+        "minecraft:iron_ingot"
+      ],
+      "slot": "chest",
+      "equipped": {
+        "generic.armor": 7.0,
+        "generic.armor_toughness": 1.0,
+        "generic.knockback_resistance": 0.05000000074505806,
+        "generic.movement_speed": 0.09500000141561031,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "perunite_helmet",
+      "class": "net.minecraft.world.item.ArmorItem",
+      "durability": 253,
+      "enchantability": 13,
+      "rune_capacity": 3,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 2,
+      "toughness": 0.5,
+      "material_knockback": 0.0,
+      "repair": [
+        "slavicmyths:perunite"
+      ],
+      "slot": "head",
+      "equipped": {
+        "generic.armor": 2.0,
+        "generic.armor_toughness": 0.5,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "perunite_chestplate",
+      "class": "net.minecraft.world.item.ArmorItem",
+      "durability": 368,
+      "enchantability": 13,
+      "rune_capacity": 3,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 6,
+      "toughness": 0.5,
+      "material_knockback": 0.0,
+      "repair": [
+        "slavicmyths:perunite"
+      ],
+      "slot": "chest",
+      "equipped": {
+        "generic.armor": 6.0,
+        "generic.armor_toughness": 0.5,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "perunite_leggings",
+      "class": "net.minecraft.world.item.ArmorItem",
+      "durability": 345,
+      "enchantability": 13,
+      "rune_capacity": 3,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 5,
+      "toughness": 0.5,
+      "material_knockback": 0.0,
+      "repair": [
+        "slavicmyths:perunite"
+      ],
+      "slot": "legs",
+      "equipped": {
+        "generic.armor": 5.0,
+        "generic.armor_toughness": 0.5,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "perunite_boots",
+      "class": "net.minecraft.world.item.ArmorItem",
+      "durability": 299,
+      "enchantability": 13,
+      "rune_capacity": 3,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 2,
+      "toughness": 0.5,
+      "material_knockback": 0.0,
+      "repair": [
+        "slavicmyths:perunite"
+      ],
+      "slot": "feet",
+      "equipped": {
+        "generic.armor": 2.0,
+        "generic.armor_toughness": 0.5,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "dragon_helmet",
+      "class": "org.slavicmyths.gorynych.GorynychContent$2",
+      "durability": 418,
+      "enchantability": 18,
+      "rune_capacity": 3,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 3,
+      "toughness": 2.0,
+      "material_knockback": 0.1,
+      "repair": [
+        "slavicmyths:perunite"
+      ],
+      "slot": "head",
+      "equipped": {
+        "generic.armor": 3.0,
+        "generic.armor_toughness": 2.0,
+        "generic.knockback_resistance": 0.10000000149011612,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "dragon_chestplate",
+      "class": "org.slavicmyths.gorynych.GorynychContent$2",
+      "durability": 608,
+      "enchantability": 18,
+      "rune_capacity": 3,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 7,
+      "toughness": 2.0,
+      "material_knockback": 0.1,
+      "repair": [
+        "slavicmyths:perunite"
+      ],
+      "slot": "chest",
+      "equipped": {
+        "generic.armor": 7.0,
+        "generic.armor_toughness": 2.0,
+        "generic.knockback_resistance": 0.10000000149011612,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "dragon_leggings",
+      "class": "org.slavicmyths.gorynych.GorynychContent$2",
+      "durability": 570,
+      "enchantability": 18,
+      "rune_capacity": 3,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 6,
+      "toughness": 2.0,
+      "material_knockback": 0.1,
+      "repair": [
+        "slavicmyths:perunite"
+      ],
+      "slot": "legs",
+      "equipped": {
+        "generic.armor": 6.0,
+        "generic.armor_toughness": 2.0,
+        "generic.knockback_resistance": 0.10000000149011612,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "dragon_boots",
+      "class": "org.slavicmyths.gorynych.GorynychContent$2",
+      "durability": 494,
+      "enchantability": 18,
+      "rune_capacity": 3,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 3,
+      "toughness": 2.0,
+      "material_knockback": 0.1,
+      "repair": [
+        "slavicmyths:perunite"
+      ],
+      "slot": "feet",
+      "equipped": {
+        "generic.armor": 3.0,
+        "generic.armor_toughness": 2.0,
+        "generic.knockback_resistance": 0.10000000149011612,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "poloz_helmet",
+      "class": "org.slavicmyths.poloz.PolozRewards$1",
+      "durability": 407,
+      "enchantability": 15,
+      "rune_capacity": 2,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 3,
+      "toughness": 3.0,
+      "material_knockback": 0.1,
+      "repair": [
+        "minecraft:netherite_ingot"
+      ],
+      "slot": "head",
+      "equipped": {
+        "generic.armor": 3.0,
+        "generic.armor_toughness": 3.0,
+        "generic.knockback_resistance": 0.20000000149011612,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "poloz_chestplate",
+      "class": "org.slavicmyths.poloz.PolozRewards$1",
+      "durability": 592,
+      "enchantability": 15,
+      "rune_capacity": 2,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 8,
+      "toughness": 3.0,
+      "material_knockback": 0.1,
+      "repair": [
+        "minecraft:netherite_ingot"
+      ],
+      "slot": "chest",
+      "equipped": {
+        "generic.armor": 8.0,
+        "generic.armor_toughness": 3.0,
+        "generic.knockback_resistance": 0.30000000149011613,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "poloz_leggings",
+      "class": "org.slavicmyths.poloz.PolozRewards$1",
+      "durability": 555,
+      "enchantability": 15,
+      "rune_capacity": 2,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 6,
+      "toughness": 3.0,
+      "material_knockback": 0.1,
+      "repair": [
+        "minecraft:netherite_ingot"
+      ],
+      "slot": "legs",
+      "equipped": {
+        "generic.armor": 6.0,
+        "generic.armor_toughness": 3.0,
+        "generic.knockback_resistance": 0.25000000149011614,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "poloz_boots",
+      "class": "org.slavicmyths.poloz.PolozRewards$1",
+      "durability": 481,
+      "enchantability": 15,
+      "rune_capacity": 2,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 3,
+      "toughness": 3.0,
+      "material_knockback": 0.1,
+      "repair": [
+        "minecraft:netherite_ingot"
+      ],
+      "slot": "feet",
+      "equipped": {
+        "generic.armor": 3.0,
+        "generic.armor_toughness": 3.0,
+        "generic.knockback_resistance": 0.20000000149011612,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "clear_sight_helmet",
+      "class": "org.slavicmyths.equipment.UniqueEquipment$UniqueArmor",
+      "durability": 330,
+      "enchantability": 15,
+      "rune_capacity": 3,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 3,
+      "toughness": 1.0,
+      "material_knockback": 0.0,
+      "repair": [
+        "slavicmyths:hardened_iron"
+      ],
+      "slot": "head",
+      "equipped": {
+        "generic.armor": 3.0,
+        "generic.armor_toughness": 1.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "bogatyr_chestplate",
+      "class": "org.slavicmyths.equipment.UniqueEquipment$UniqueArmor",
+      "durability": 640,
+      "enchantability": 15,
+      "rune_capacity": 3,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 8,
+      "toughness": 3.0,
+      "material_knockback": 0.2,
+      "repair": [
+        "slavicmyths:hardened_iron"
+      ],
+      "slot": "chest",
+      "equipped": {
+        "generic.armor": 8.0,
+        "generic.armor_toughness": 3.0,
+        "generic.knockback_resistance": 0.20000000298023224,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "indomitability_leggings",
+      "class": "org.slavicmyths.equipment.UniqueEquipment$UniqueArmor",
+      "durability": 600,
+      "enchantability": 15,
+      "rune_capacity": 3,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 6,
+      "toughness": 2.0,
+      "material_knockback": 0.1,
+      "repair": [
+        "slavicmyths:hardened_iron"
+      ],
+      "slot": "legs",
+      "equipped": {
+        "generic.armor": 6.0,
+        "generic.armor_toughness": 2.0,
+        "generic.knockback_resistance": 0.10000000149011612,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "wind_boots",
+      "class": "org.slavicmyths.equipment.UniqueEquipment$UniqueArmor",
+      "durability": 260,
+      "enchantability": 15,
+      "rune_capacity": 3,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 2,
+      "toughness": 0.0,
+      "material_knockback": 0.0,
+      "repair": [
+        "minecraft:leather"
+      ],
+      "slot": "feet",
+      "equipped": {
+        "generic.armor": 2.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.14000000208616256,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.8199999743983859
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "seven_league_boots",
+      "class": "org.slavicmyths.item.SevenLeagueBoots",
+      "durability": 65,
+      "enchantability": 15,
+      "rune_capacity": 0,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 1,
+      "toughness": 0.0,
+      "material_knockback": 0.0,
+      "repair": [
+        "minecraft:leather"
+      ],
+      "slot": "feet",
+      "equipped": {
+        "generic.armor": 1.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "trophy_idol_chest",
+      "class": "org.slavicmyths.rewards.RewardContent$2",
+      "durability": 528,
+      "enchantability": 10,
+      "rune_capacity": 2,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 8,
+      "toughness": 2.0,
+      "material_knockback": 0.0,
+      "repair": [
+        "minecraft:diamond"
+      ],
+      "slot": "chest",
+      "equipped": {
+        "generic.armor": 8.0,
+        "generic.armor_toughness": 2.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.09500000141561031,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "trophy_marinka_cloak",
+      "class": "org.slavicmyths.rewards.RewardContent$2",
+      "durability": 240,
+      "enchantability": 15,
+      "rune_capacity": 1,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 3,
+      "toughness": 0.0,
+      "material_knockback": 0.0,
+      "repair": [
+        "minecraft:leather"
+      ],
+      "slot": "chest",
+      "equipped": {
+        "generic.armor": 3.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "trophy_kartaus_mantle",
+      "class": "org.slavicmyths.rewards.RewardContent$2",
+      "durability": 240,
+      "enchantability": 15,
+      "rune_capacity": 1,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "defense": 3,
+      "toughness": 0.0,
+      "material_knockback": 0.0,
+      "repair": [
+        "minecraft:leather"
+      ],
+      "slot": "chest",
+      "equipped": {
+        "generic.armor": 3.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "woven_belt",
+      "class": "org.slavicmyths.textile.BeltItem",
+      "durability": 0,
+      "enchantability": 0,
+      "rune_capacity": 0,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "slot": "BeltData attachment",
+      "equipped": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "perunite_shield",
+      "class": "org.slavicmyths.item.MythShieldItem",
+      "durability": 420,
+      "enchantability": 0,
+      "rune_capacity": 3,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "slot": "offhand",
+      "equipped": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "retainer_shield",
+      "class": "org.slavicmyths.item.MythShieldItem",
+      "durability": 280,
+      "enchantability": 0,
+      "rune_capacity": 2,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "slot": "offhand",
+      "equipped": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "ward_shield",
+      "class": "org.slavicmyths.equipment.UniqueEquipment$WardShield",
+      "durability": 672,
+      "enchantability": 0,
+      "rune_capacity": 3,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "slot": "offhand",
+      "equipped": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    },
+    {
+      "id": "gift_ilya_shield",
+      "class": "org.slavicmyths.rewards.RewardContent$1",
+      "durability": 672,
+      "enchantability": 0,
+      "rune_capacity": 2,
+      "before": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "slot": "offhand",
+      "equipped": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      },
+      "removed": {
+        "generic.armor": 0.0,
+        "generic.armor_toughness": 0.0,
+        "generic.knockback_resistance": 0.0,
+        "generic.movement_speed": 0.10000000149011612,
+        "generic.max_health": 20.0,
+        "generic.jump_strength": 0.41999998688697815
+      }
+    }
+  ],
+  "limits": "server API operations and stack codec; not GUI/natural acquisition/real relog/MP"
+}

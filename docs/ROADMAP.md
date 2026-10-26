@@ -1,3 +1,7 @@
+## 26.10.2026 — #287: native-аудит брони, IN_PROGRESS / OWNER_PENDING
+
+В hell проверены34 catalog IDs:22 ArmorItem/7 ClothingItem/4 ShieldItem/1 BeltItem. Production-код/ресурсы/баланс не менялись: доказанных дефектов в проверенных сценариях нет. [Каталог,14/14 GameTest, матрица ограничений и owner checklist](implementation/armor287-20261026/REPORT.md). Реальные четыре изолированных server запуска; client0. Native equip/remove/repeat,22 anvil calculations,6sets physical damage, selected unique/dragon effects PASS; полный trophy/charge/lightning/GUI/relog/MP NOT_RUN. Отдельный opt-in harness исключён из JAR. #287 OPEN, Project Status не менялся; POLYMC_NOT_INSTALLED. Следующая разрешённая часть — #277 отдельным коммитом, не готовый релиз цепочки.
+
 ## 26.10.2026 — #284: аудит34 реликвий и пять транзакционных исправлений (IN_PROGRESS)
 
 В `hell` исправлен расход при отклонённом projectile/effect у mor_flask, fading_flame_charm, mor_ward, tracker_sense и spring_tear. Только3 production Java files и2страницы книгиRU/EN: убран ложный совет искать отсутствующие рецепты гуслей/скатерти. Успешные параметры/gates/баланс/IDs/loot/art/полёт/оружие сохранены. [Поимённый реестр24+10, настоящие GameTest logs, матрица, JAR/SHA и owner checklist](implementation/artifacts284-20261025/REPORT.md). #278 сохранён ранее939cbfbf/4fba8ac1, повторная server regression7/7PASS.

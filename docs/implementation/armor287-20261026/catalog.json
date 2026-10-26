@@ -1,0 +1,2452 @@
+{
+  "base_commit": "edc915302243e481389a696727c2936d6ce030b3",
+  "items": [
+    {
+      "id": "linen_headscarf",
+      "name": "Льняной платок",
+      "role": "zero-armor clothing",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/linen_headscarf.json"
+      ],
+      "loot": [
+        "src/main/resources/data/slavicmyths/loot_table/chests/gorodishche/weaver.json"
+      ],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ArmorStandClothingLayer.java",
+          "line": 22,
+          "text": "private ArmorStandClothingLayer(ArmorStandRenderer r){super(r);for(String id:List.of(\"linen_headscarf\",\"linen_shirt\",\"linen_ports\",\"bast_shoes\",\"sarafan\",\"linen_apron\",\"folk_vest\"))garments.put(id,TextileClothingLayer.mesh(id,false));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 21,
+          "text": "public TextileClothingLayer(PlayerRenderer r,boolean slim){super(r);for(String id:List.of(\"linen_shirt\",\"linen_ports\",\"sarafan\",\"linen_headscarf\",\"linen_apron\",\"folk_vest\",\"bast_shoes\",\"woven_belt\"))garments.put(id,mesh(id,slim));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 39,
+          "text": "}else if(id.equals(\"linen_headscarf\")){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/textile/Textiles.java",
+          "line": 27,
+          "text": "for(String s:List.of(\"linen_shirt\",\"linen_ports\",\"sarafan\",\"linen_headscarf\",\"linen_apron\",\"folk_vest\",\"bast_shoes\")){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/textile/Textiles.java",
+          "line": 28,
+          "text": "EquipmentSlot slot=s.equals(\"linen_ports\")?EquipmentSlot.LEGS:s.equals(\"linen_headscarf\")?EquipmentSlot.HEAD:s.equals(\"bast_shoes\")?EquipmentSlot.FEET:EquipmentSlot.CHEST;"
+        }
+      ],
+      "descriptions": {},
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "linen_headscarf",
+        "class": "org.slavicmyths.textile.ClothingItem",
+        "durability": 0,
+        "enchantability": 0,
+        "rune_capacity": 0,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "slot": "head",
+        "equipped": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "linen_shirt",
+      "name": "Льняная рубаха",
+      "role": "zero-armor clothing",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/linen_shirt.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ArmorStandClothingLayer.java",
+          "line": 22,
+          "text": "private ArmorStandClothingLayer(ArmorStandRenderer r){super(r);for(String id:List.of(\"linen_headscarf\",\"linen_shirt\",\"linen_ports\",\"bast_shoes\",\"sarafan\",\"linen_apron\",\"folk_vest\"))garments.put(id,TextileClothingLayer.mesh(id,false));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 21,
+          "text": "public TextileClothingLayer(PlayerRenderer r,boolean slim){super(r);for(String id:List.of(\"linen_shirt\",\"linen_ports\",\"sarafan\",\"linen_headscarf\",\"linen_apron\",\"folk_vest\",\"bast_shoes\",\"woven_belt\"))garments.put(id,mesh(id,slim));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 26,
+          "text": "if(id.equals(\"linen_shirt\")){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/textile/Textiles.java",
+          "line": 27,
+          "text": "for(String s:List.of(\"linen_shirt\",\"linen_ports\",\"sarafan\",\"linen_headscarf\",\"linen_apron\",\"folk_vest\",\"bast_shoes\")){"
+        }
+      ],
+      "descriptions": {},
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "linen_shirt",
+        "class": "org.slavicmyths.textile.ClothingItem",
+        "durability": 0,
+        "enchantability": 0,
+        "rune_capacity": 0,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "slot": "chest",
+        "equipped": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "linen_ports",
+      "name": "Порты",
+      "role": "zero-armor clothing",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/linen_ports.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ArmorStandClothingLayer.java",
+          "line": 22,
+          "text": "private ArmorStandClothingLayer(ArmorStandRenderer r){super(r);for(String id:List.of(\"linen_headscarf\",\"linen_shirt\",\"linen_ports\",\"bast_shoes\",\"sarafan\",\"linen_apron\",\"folk_vest\"))garments.put(id,TextileClothingLayer.mesh(id,false));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 21,
+          "text": "public TextileClothingLayer(PlayerRenderer r,boolean slim){super(r);for(String id:List.of(\"linen_shirt\",\"linen_ports\",\"sarafan\",\"linen_headscarf\",\"linen_apron\",\"folk_vest\",\"bast_shoes\",\"woven_belt\"))garments.put(id,mesh(id,slim));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 32,
+          "text": "}else if(id.equals(\"linen_ports\")){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/textile/Textiles.java",
+          "line": 27,
+          "text": "for(String s:List.of(\"linen_shirt\",\"linen_ports\",\"sarafan\",\"linen_headscarf\",\"linen_apron\",\"folk_vest\",\"bast_shoes\")){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/textile/Textiles.java",
+          "line": 28,
+          "text": "EquipmentSlot slot=s.equals(\"linen_ports\")?EquipmentSlot.LEGS:s.equals(\"linen_headscarf\")?EquipmentSlot.HEAD:s.equals(\"bast_shoes\")?EquipmentSlot.FEET:EquipmentSlot.CHEST;"
+        }
+      ],
+      "descriptions": {},
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "linen_ports",
+        "class": "org.slavicmyths.textile.ClothingItem",
+        "durability": 0,
+        "enchantability": 0,
+        "rune_capacity": 0,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "slot": "legs",
+        "equipped": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "bast_shoes",
+      "name": "Лапти",
+      "role": "zero-armor clothing",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/bast_shoes.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ArmorStandClothingLayer.java",
+          "line": 22,
+          "text": "private ArmorStandClothingLayer(ArmorStandRenderer r){super(r);for(String id:List.of(\"linen_headscarf\",\"linen_shirt\",\"linen_ports\",\"bast_shoes\",\"sarafan\",\"linen_apron\",\"folk_vest\"))garments.put(id,TextileClothingLayer.mesh(id,false));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 21,
+          "text": "public TextileClothingLayer(PlayerRenderer r,boolean slim){super(r);for(String id:List.of(\"linen_shirt\",\"linen_ports\",\"sarafan\",\"linen_headscarf\",\"linen_apron\",\"folk_vest\",\"bast_shoes\",\"woven_belt\"))garments.put(id,mesh(id,slim));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 46,
+          "text": "}else if(id.equals(\"bast_shoes\")){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/textile/Textiles.java",
+          "line": 27,
+          "text": "for(String s:List.of(\"linen_shirt\",\"linen_ports\",\"sarafan\",\"linen_headscarf\",\"linen_apron\",\"folk_vest\",\"bast_shoes\")){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/textile/Textiles.java",
+          "line": 28,
+          "text": "EquipmentSlot slot=s.equals(\"linen_ports\")?EquipmentSlot.LEGS:s.equals(\"linen_headscarf\")?EquipmentSlot.HEAD:s.equals(\"bast_shoes\")?EquipmentSlot.FEET:EquipmentSlot.CHEST;"
+        }
+      ],
+      "descriptions": {},
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "bast_shoes",
+        "class": "org.slavicmyths.textile.ClothingItem",
+        "durability": 0,
+        "enchantability": 0,
+        "rune_capacity": 0,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "slot": "feet",
+        "equipped": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "sarafan",
+      "name": "Сарафан",
+      "role": "zero-armor clothing",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/sarafan.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ArmorStandClothingLayer.java",
+          "line": 22,
+          "text": "private ArmorStandClothingLayer(ArmorStandRenderer r){super(r);for(String id:List.of(\"linen_headscarf\",\"linen_shirt\",\"linen_ports\",\"bast_shoes\",\"sarafan\",\"linen_apron\",\"folk_vest\"))garments.put(id,TextileClothingLayer.mesh(id,false));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 21,
+          "text": "public TextileClothingLayer(PlayerRenderer r,boolean slim){super(r);for(String id:List.of(\"linen_shirt\",\"linen_ports\",\"sarafan\",\"linen_headscarf\",\"linen_apron\",\"folk_vest\",\"bast_shoes\",\"woven_belt\"))garments.put(id,mesh(id,slim));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 52,
+          "text": "}else if(id.equals(\"sarafan\")){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/textile/Textiles.java",
+          "line": 27,
+          "text": "for(String s:List.of(\"linen_shirt\",\"linen_ports\",\"sarafan\",\"linen_headscarf\",\"linen_apron\",\"folk_vest\",\"bast_shoes\")){"
+        }
+      ],
+      "descriptions": {},
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "sarafan",
+        "class": "org.slavicmyths.textile.ClothingItem",
+        "durability": 0,
+        "enchantability": 0,
+        "rune_capacity": 0,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "slot": "chest",
+        "equipped": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "linen_apron",
+      "name": "Льняной фартук",
+      "role": "zero-armor clothing",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/linen_apron.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ArmorStandClothingLayer.java",
+          "line": 22,
+          "text": "private ArmorStandClothingLayer(ArmorStandRenderer r){super(r);for(String id:List.of(\"linen_headscarf\",\"linen_shirt\",\"linen_ports\",\"bast_shoes\",\"sarafan\",\"linen_apron\",\"folk_vest\"))garments.put(id,TextileClothingLayer.mesh(id,false));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 21,
+          "text": "public TextileClothingLayer(PlayerRenderer r,boolean slim){super(r);for(String id:List.of(\"linen_shirt\",\"linen_ports\",\"sarafan\",\"linen_headscarf\",\"linen_apron\",\"folk_vest\",\"bast_shoes\",\"woven_belt\"))garments.put(id,mesh(id,slim));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 63,
+          "text": "}else if(id.equals(\"linen_apron\")){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/textile/Textiles.java",
+          "line": 27,
+          "text": "for(String s:List.of(\"linen_shirt\",\"linen_ports\",\"sarafan\",\"linen_headscarf\",\"linen_apron\",\"folk_vest\",\"bast_shoes\")){"
+        }
+      ],
+      "descriptions": {},
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "linen_apron",
+        "class": "org.slavicmyths.textile.ClothingItem",
+        "durability": 0,
+        "enchantability": 0,
+        "rune_capacity": 0,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "slot": "chest",
+        "equipped": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "folk_vest",
+      "name": "Народный жилет",
+      "role": "zero-armor clothing",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/folk_vest.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ArmorStandClothingLayer.java",
+          "line": 22,
+          "text": "private ArmorStandClothingLayer(ArmorStandRenderer r){super(r);for(String id:List.of(\"linen_headscarf\",\"linen_shirt\",\"linen_ports\",\"bast_shoes\",\"sarafan\",\"linen_apron\",\"folk_vest\"))garments.put(id,TextileClothingLayer.mesh(id,false));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 21,
+          "text": "public TextileClothingLayer(PlayerRenderer r,boolean slim){super(r);for(String id:List.of(\"linen_shirt\",\"linen_ports\",\"sarafan\",\"linen_headscarf\",\"linen_apron\",\"folk_vest\",\"bast_shoes\",\"woven_belt\"))garments.put(id,mesh(id,slim));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 69,
+          "text": "}else if(id.equals(\"folk_vest\")){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/textile/Textiles.java",
+          "line": 27,
+          "text": "for(String s:List.of(\"linen_shirt\",\"linen_ports\",\"sarafan\",\"linen_headscarf\",\"linen_apron\",\"folk_vest\",\"bast_shoes\")){"
+        }
+      ],
+      "descriptions": {},
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "folk_vest",
+        "class": "org.slavicmyths.textile.ClothingItem",
+        "durability": 0,
+        "enchantability": 0,
+        "rune_capacity": 0,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "slot": "chest",
+        "equipped": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "gambeson",
+      "name": "Стёганка",
+      "role": "ArmorItem",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/gambeson.json"
+      ],
+      "loot": [
+        "src/main/resources/data/slavicmyths/loot_table/chests/stronghold_barracks.json"
+      ],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/bandit/BanditEntity.java",
+          "line": 71,
+          "text": "if(role!=ARCHER)setItemSlot(EquipmentSlot.CHEST,new ItemStack(role==HEAVY||role==ATAMAN?ModItems.PLATE_CUIRASS.get():role==SENIOR?Items.CHAINMAIL_CHESTPLATE:ModItems.GAMBESON.get()));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/bandit/LargeCampPiece.java",
+          "line": 80,
+          "text": "if(role.startsWith(\"ataman\")){boolean gate=role.equals(\"ataman_gate\");mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(100);mob.setHealth(mob.getMaxHealth());mob.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(gate?.25:.31);mob.setItemSlot(EquipmentSlot.HEAD,new ItemStack(gate?Items.IRON_HELMET:Items.CHAINMAIL_HELMET));if(!gate){mob.setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(Items.IRON_SWORD));mob.setItemSlot(EquipmentSlot.CHEST,new ItemStack(ModItems.GAMBESON.get()));mob.setItemSlot(EquipmentSlot.OFFHAND,ItemStack.EMPTY);}}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/BasicArmorModels.java",
+          "line": 22,
+          "text": "e.registerItem(new BasicArmorModels(\"gambeson\"),ModItems.GAMBESON.get());"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/BasicArmorModels.java",
+          "line": 29,
+          "text": "if(id.equals(\"gambeson\")){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/item/ModGear.java",
+          "line": 38,
+          "text": "public static final DeferredHolder<ArmorMaterial, ArmorMaterial> GAMBESON = armor(\"gambeson\", 4, 0, false);"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 240,
+          "text": "public static final DeferredHolder<Item, Item> GAMBESON=ITEMS.register(\"gambeson\",()->new ArmorItem(ModGear.GAMBESON,ArmorItem.Type.CHESTPLATE,properties().durability(192)));"
+        }
+      ],
+      "descriptions": {},
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "gambeson",
+        "class": "net.minecraft.world.item.ArmorItem",
+        "durability": 192,
+        "enchantability": 9,
+        "rune_capacity": 1,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 4,
+        "toughness": 0.0,
+        "material_knockback": 0.0,
+        "repair": [
+          "minecraft:leather"
+        ],
+        "slot": "chest",
+        "equipped": {
+          "generic.armor": 4.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "plate_cuirass",
+      "name": "Пластинчатая кираса",
+      "role": "ArmorItem",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/plate_cuirass.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/bandit/BanditEntity.java",
+          "line": 71,
+          "text": "if(role!=ARCHER)setItemSlot(EquipmentSlot.CHEST,new ItemStack(role==HEAVY||role==ATAMAN?ModItems.PLATE_CUIRASS.get():role==SENIOR?Items.CHAINMAIL_CHESTPLATE:ModItems.GAMBESON.get()));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/BasicArmorModels.java",
+          "line": 23,
+          "text": "e.registerItem(new BasicArmorModels(\"plate_cuirass\"),ModItems.PLATE_CUIRASS.get());"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/BasicArmorModels.java",
+          "line": 36,
+          "text": "}else if(id.equals(\"plate_cuirass\")){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 241,
+          "text": "public static final DeferredHolder<Item, Item> PLATE_CUIRASS=ITEMS.register(\"plate_cuirass\",()->new org.slavicmyths.combat.CombatEquipment.PlateArmor(properties()));"
+        }
+      ],
+      "descriptions": {},
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "plate_cuirass",
+        "class": "org.slavicmyths.combat.CombatEquipment$PlateArmor",
+        "durability": 352,
+        "enchantability": 9,
+        "rune_capacity": 1,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 7,
+        "toughness": 1.0,
+        "material_knockback": 0.05,
+        "repair": [
+          "minecraft:iron_ingot"
+        ],
+        "slot": "chest",
+        "equipped": {
+          "generic.armor": 7.0,
+          "generic.armor_toughness": 1.0,
+          "generic.knockback_resistance": 0.05000000074505806,
+          "generic.movement_speed": 0.09500000141561031,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "perunite_helmet",
+      "name": "Перунитовый шлем",
+      "role": "ArmorItem",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/perunite_helmet.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+          "line": 142,
+          "text": "@SubscribeEvent public static void extensions(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent e){e.registerItem(new RewardArmor(0),org.slavicmyths.rewards.RewardContent.item(\"trophy_idol_chest\"));e.registerItem(new RewardArmor(1),org.slavicmyths.rewards.RewardContent.item(\"trophy_marinka_cloak\"));e.registerItem(new RewardArmor(2),org.slavicmyths.rewards.RewardContent.item(\"trophy_kartaus_mantle\"));e.registerItem(new PeruniteArmor(),org.slavicmyths.registry.ModItems.PERUNITE_HELMET.get(),org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE.get(),org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS.get(),org.slavicmyths.registry.ModItems.PERUNITE_BOOTS.get());}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/compat/JeiSpecialProcesses.java",
+          "line": 28,
+          "text": "for(var base:List.of(org.slavicmyths.registry.ModItems.PERUNITE_HELMET,org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE,org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS,org.slavicmyths.registry.ModItems.PERUNITE_BOOTS)){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/gorynych/GorynychUpgrade.java",
+          "line": 13,
+          "text": "public static Item target(ItemStack base){if(base.is(GorynychContent.item(\"serpent_crossbow\")))return GorynychContent.item(\"three_breath_crossbow\");for(var slot:GorynychContent.ARMOR.keySet()){Item source=switch(slot){case HEAD->org.slavicmyths.registry.ModItems.PERUNITE_HELMET.get();case CHEST->org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE.get();case LEGS->org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS.get();default->org.slavicmyths.registry.ModItems.PERUNITE_BOOTS.get();};if(base.is(source))return GorynychContent.ARMOR.get(slot).get();}return null;}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/item/ArmorSetHealth.java",
+          "line": 17,
+          "text": "return entity.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.PERUNITE_HELMET.get())"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/item/ArmorSetHealth.java",
+          "line": 47,
+          "text": "if (stack.is(ModItems.PERUNITE_HELMET.get()) || stack.is(ModItems.PERUNITE_CHESTPLATE.get())"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/item/StormProtection.java",
+          "line": 35,
+          "text": "if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.PERUNITE_HELMET.get()"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 86,
+          "text": "public static final DeferredHolder<Item, Item> PERUNITE_HELMET = ITEMS.register(\"perunite_helmet\", () -> new ArmorItem(ModGear.PERUNITE_ARMOR, ArmorItem.Type.HELMET, properties().durability(ArmorItem.Type.HELMET.getDurability(23))));"
+        }
+      ],
+      "descriptions": {},
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "perunite_helmet",
+        "class": "net.minecraft.world.item.ArmorItem",
+        "durability": 253,
+        "enchantability": 13,
+        "rune_capacity": 3,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 2,
+        "toughness": 0.5,
+        "material_knockback": 0.0,
+        "repair": [
+          "slavicmyths:perunite"
+        ],
+        "slot": "head",
+        "equipped": {
+          "generic.armor": 2.0,
+          "generic.armor_toughness": 0.5,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "perunite_chestplate",
+      "name": "Перунитовый нагрудник",
+      "role": "ArmorItem",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/perunite_chestplate.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+          "line": 142,
+          "text": "@SubscribeEvent public static void extensions(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent e){e.registerItem(new RewardArmor(0),org.slavicmyths.rewards.RewardContent.item(\"trophy_idol_chest\"));e.registerItem(new RewardArmor(1),org.slavicmyths.rewards.RewardContent.item(\"trophy_marinka_cloak\"));e.registerItem(new RewardArmor(2),org.slavicmyths.rewards.RewardContent.item(\"trophy_kartaus_mantle\"));e.registerItem(new PeruniteArmor(),org.slavicmyths.registry.ModItems.PERUNITE_HELMET.get(),org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE.get(),org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS.get(),org.slavicmyths.registry.ModItems.PERUNITE_BOOTS.get());}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/compat/JeiSpecialProcesses.java",
+          "line": 28,
+          "text": "for(var base:List.of(org.slavicmyths.registry.ModItems.PERUNITE_HELMET,org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE,org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS,org.slavicmyths.registry.ModItems.PERUNITE_BOOTS)){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/gorynych/GorynychUpgrade.java",
+          "line": 13,
+          "text": "public static Item target(ItemStack base){if(base.is(GorynychContent.item(\"serpent_crossbow\")))return GorynychContent.item(\"three_breath_crossbow\");for(var slot:GorynychContent.ARMOR.keySet()){Item source=switch(slot){case HEAD->org.slavicmyths.registry.ModItems.PERUNITE_HELMET.get();case CHEST->org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE.get();case LEGS->org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS.get();default->org.slavicmyths.registry.ModItems.PERUNITE_BOOTS.get();};if(base.is(source))return GorynychContent.ARMOR.get(slot).get();}return null;}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/item/ArmorSetHealth.java",
+          "line": 18,
+          "text": "&& entity.getItemBySlot(EquipmentSlot.CHEST).is(ModItems.PERUNITE_CHESTPLATE.get())"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/item/ArmorSetHealth.java",
+          "line": 47,
+          "text": "if (stack.is(ModItems.PERUNITE_HELMET.get()) || stack.is(ModItems.PERUNITE_CHESTPLATE.get())"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/item/StormProtection.java",
+          "line": 36,
+          "text": "&& player.getItemBySlot(EquipmentSlot.CHEST).getItem() == ModItems.PERUNITE_CHESTPLATE.get()"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItemGroup.java",
+          "line": 49,
+          "text": "case 5 -> ModItems.PERUNITE_CHESTPLATE.get();"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 87,
+          "text": "public static final DeferredHolder<Item, Item> PERUNITE_CHESTPLATE = ITEMS.register(\"perunite_chestplate\", () -> new ArmorItem(ModGear.PERUNITE_ARMOR, ArmorItem.Type.CHESTPLATE, properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(23))));"
+        }
+      ],
+      "descriptions": {},
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "perunite_chestplate",
+        "class": "net.minecraft.world.item.ArmorItem",
+        "durability": 368,
+        "enchantability": 13,
+        "rune_capacity": 3,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 6,
+        "toughness": 0.5,
+        "material_knockback": 0.0,
+        "repair": [
+          "slavicmyths:perunite"
+        ],
+        "slot": "chest",
+        "equipped": {
+          "generic.armor": 6.0,
+          "generic.armor_toughness": 0.5,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "perunite_leggings",
+      "name": "Перунитовые поножи",
+      "role": "ArmorItem",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/perunite_leggings.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+          "line": 142,
+          "text": "@SubscribeEvent public static void extensions(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent e){e.registerItem(new RewardArmor(0),org.slavicmyths.rewards.RewardContent.item(\"trophy_idol_chest\"));e.registerItem(new RewardArmor(1),org.slavicmyths.rewards.RewardContent.item(\"trophy_marinka_cloak\"));e.registerItem(new RewardArmor(2),org.slavicmyths.rewards.RewardContent.item(\"trophy_kartaus_mantle\"));e.registerItem(new PeruniteArmor(),org.slavicmyths.registry.ModItems.PERUNITE_HELMET.get(),org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE.get(),org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS.get(),org.slavicmyths.registry.ModItems.PERUNITE_BOOTS.get());}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/compat/JeiSpecialProcesses.java",
+          "line": 28,
+          "text": "for(var base:List.of(org.slavicmyths.registry.ModItems.PERUNITE_HELMET,org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE,org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS,org.slavicmyths.registry.ModItems.PERUNITE_BOOTS)){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/gorynych/GorynychUpgrade.java",
+          "line": 13,
+          "text": "public static Item target(ItemStack base){if(base.is(GorynychContent.item(\"serpent_crossbow\")))return GorynychContent.item(\"three_breath_crossbow\");for(var slot:GorynychContent.ARMOR.keySet()){Item source=switch(slot){case HEAD->org.slavicmyths.registry.ModItems.PERUNITE_HELMET.get();case CHEST->org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE.get();case LEGS->org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS.get();default->org.slavicmyths.registry.ModItems.PERUNITE_BOOTS.get();};if(base.is(source))return GorynychContent.ARMOR.get(slot).get();}return null;}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/item/ArmorSetHealth.java",
+          "line": 19,
+          "text": "&& entity.getItemBySlot(EquipmentSlot.LEGS).is(ModItems.PERUNITE_LEGGINGS.get())"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/item/ArmorSetHealth.java",
+          "line": 48,
+          "text": "|| stack.is(ModItems.PERUNITE_LEGGINGS.get()) || stack.is(ModItems.PERUNITE_BOOTS.get())) return \"armor_set_health.perunite\";"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/item/StormProtection.java",
+          "line": 37,
+          "text": "&& player.getItemBySlot(EquipmentSlot.LEGS).getItem() == ModItems.PERUNITE_LEGGINGS.get()"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 88,
+          "text": "public static final DeferredHolder<Item, Item> PERUNITE_LEGGINGS = ITEMS.register(\"perunite_leggings\", () -> new ArmorItem(ModGear.PERUNITE_ARMOR, ArmorItem.Type.LEGGINGS, properties().durability(ArmorItem.Type.LEGGINGS.getDurability(23))));"
+        }
+      ],
+      "descriptions": {},
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "perunite_leggings",
+        "class": "net.minecraft.world.item.ArmorItem",
+        "durability": 345,
+        "enchantability": 13,
+        "rune_capacity": 3,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 5,
+        "toughness": 0.5,
+        "material_knockback": 0.0,
+        "repair": [
+          "slavicmyths:perunite"
+        ],
+        "slot": "legs",
+        "equipped": {
+          "generic.armor": 5.0,
+          "generic.armor_toughness": 0.5,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "perunite_boots",
+      "name": "Перунитовые сапоги",
+      "role": "ArmorItem",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/perunite_boots.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+          "line": 142,
+          "text": "@SubscribeEvent public static void extensions(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent e){e.registerItem(new RewardArmor(0),org.slavicmyths.rewards.RewardContent.item(\"trophy_idol_chest\"));e.registerItem(new RewardArmor(1),org.slavicmyths.rewards.RewardContent.item(\"trophy_marinka_cloak\"));e.registerItem(new RewardArmor(2),org.slavicmyths.rewards.RewardContent.item(\"trophy_kartaus_mantle\"));e.registerItem(new PeruniteArmor(),org.slavicmyths.registry.ModItems.PERUNITE_HELMET.get(),org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE.get(),org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS.get(),org.slavicmyths.registry.ModItems.PERUNITE_BOOTS.get());}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/compat/JeiSpecialProcesses.java",
+          "line": 28,
+          "text": "for(var base:List.of(org.slavicmyths.registry.ModItems.PERUNITE_HELMET,org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE,org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS,org.slavicmyths.registry.ModItems.PERUNITE_BOOTS)){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/gorynych/GorynychUpgrade.java",
+          "line": 13,
+          "text": "public static Item target(ItemStack base){if(base.is(GorynychContent.item(\"serpent_crossbow\")))return GorynychContent.item(\"three_breath_crossbow\");for(var slot:GorynychContent.ARMOR.keySet()){Item source=switch(slot){case HEAD->org.slavicmyths.registry.ModItems.PERUNITE_HELMET.get();case CHEST->org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE.get();case LEGS->org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS.get();default->org.slavicmyths.registry.ModItems.PERUNITE_BOOTS.get();};if(base.is(source))return GorynychContent.ARMOR.get(slot).get();}return null;}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/item/ArmorSetHealth.java",
+          "line": 20,
+          "text": "&& entity.getItemBySlot(EquipmentSlot.FEET).is(ModItems.PERUNITE_BOOTS.get());"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/item/ArmorSetHealth.java",
+          "line": 48,
+          "text": "|| stack.is(ModItems.PERUNITE_LEGGINGS.get()) || stack.is(ModItems.PERUNITE_BOOTS.get())) return \"armor_set_health.perunite\";"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/item/StormProtection.java",
+          "line": 38,
+          "text": "&& player.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.PERUNITE_BOOTS.get()) {"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 89,
+          "text": "public static final DeferredHolder<Item, Item> PERUNITE_BOOTS = ITEMS.register(\"perunite_boots\", () -> new ArmorItem(ModGear.PERUNITE_ARMOR, ArmorItem.Type.BOOTS, properties().durability(ArmorItem.Type.BOOTS.getDurability(23))));"
+        }
+      ],
+      "descriptions": {},
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "perunite_boots",
+        "class": "net.minecraft.world.item.ArmorItem",
+        "durability": 299,
+        "enchantability": 13,
+        "rune_capacity": 3,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 2,
+        "toughness": 0.5,
+        "material_knockback": 0.0,
+        "repair": [
+          "slavicmyths:perunite"
+        ],
+        "slot": "feet",
+        "equipped": {
+          "generic.armor": 2.0,
+          "generic.armor_toughness": 0.5,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "dragon_helmet",
+      "name": "Драконий шлем",
+      "role": "ArmorItem",
+      "recipes": [],
+      "loot": [],
+      "dynamic": "gorynych/GorynychUpgrade: perunite donor +scale +2perunite +2diamond",
+      "source_refs": [],
+      "descriptions": {
+        "item.slavicmyths.dragon_helmet.desc": "Ослепление, тьма и тошнота на 25% короче."
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "dragon_helmet",
+        "class": "org.slavicmyths.gorynych.GorynychContent$2",
+        "durability": 418,
+        "enchantability": 18,
+        "rune_capacity": 3,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 3,
+        "toughness": 2.0,
+        "material_knockback": 0.1,
+        "repair": [
+          "slavicmyths:perunite"
+        ],
+        "slot": "head",
+        "equipped": {
+          "generic.armor": 3.0,
+          "generic.armor_toughness": 2.0,
+          "generic.knockback_resistance": 0.10000000149011612,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "dragon_chestplate",
+      "name": "Драконий нагрудник",
+      "role": "ArmorItem",
+      "recipes": [],
+      "loot": [],
+      "dynamic": "gorynych/GorynychUpgrade: perunite donor +scale +2perunite +2diamond",
+      "source_refs": [],
+      "descriptions": {
+        "item.slavicmyths.dragon_chestplate.desc": "Урон огня/взрывов −15%."
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "dragon_chestplate",
+        "class": "org.slavicmyths.gorynych.GorynychContent$2",
+        "durability": 608,
+        "enchantability": 18,
+        "rune_capacity": 3,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 7,
+        "toughness": 2.0,
+        "material_knockback": 0.1,
+        "repair": [
+          "slavicmyths:perunite"
+        ],
+        "slot": "chest",
+        "equipped": {
+          "generic.armor": 7.0,
+          "generic.armor_toughness": 2.0,
+          "generic.knockback_resistance": 0.10000000149011612,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "dragon_leggings",
+      "name": "Драконьи поножи",
+      "role": "ArmorItem",
+      "recipes": [],
+      "loot": [],
+      "dynamic": "gorynych/GorynychUpgrade: perunite donor +scale +2perunite +2diamond",
+      "source_refs": [],
+      "descriptions": {
+        "item.slavicmyths.dragon_leggings.desc": "Отбрасывание −30%."
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "dragon_leggings",
+        "class": "org.slavicmyths.gorynych.GorynychContent$2",
+        "durability": 570,
+        "enchantability": 18,
+        "rune_capacity": 3,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 6,
+        "toughness": 2.0,
+        "material_knockback": 0.1,
+        "repair": [
+          "slavicmyths:perunite"
+        ],
+        "slot": "legs",
+        "equipped": {
+          "generic.armor": 6.0,
+          "generic.armor_toughness": 2.0,
+          "generic.knockback_resistance": 0.10000000149011612,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "dragon_boots",
+      "name": "Драконьи ботинки",
+      "role": "ArmorItem",
+      "recipes": [],
+      "loot": [],
+      "dynamic": "gorynych/GorynychUpgrade: perunite donor +scale +2perunite +2diamond",
+      "source_refs": [],
+      "descriptions": {
+        "item.slavicmyths.dragon_boots.desc": "Урон падения −35%."
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "dragon_boots",
+        "class": "org.slavicmyths.gorynych.GorynychContent$2",
+        "durability": 494,
+        "enchantability": 18,
+        "rune_capacity": 3,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 3,
+        "toughness": 2.0,
+        "material_knockback": 0.1,
+        "repair": [
+          "slavicmyths:perunite"
+        ],
+        "slot": "feet",
+        "equipped": {
+          "generic.armor": 3.0,
+          "generic.armor_toughness": 2.0,
+          "generic.knockback_resistance": 0.10000000149011612,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "poloz_helmet",
+      "name": "Шлем, укреплённый чешуёй Полоза",
+      "role": "ArmorItem",
+      "recipes": [],
+      "loot": [],
+      "dynamic": "poloz/PolozRewardEvents.smith: netherite donor +2 scales at smithing table",
+      "source_refs": [],
+      "descriptions": {
+        "item.slavicmyths.poloz_helmet.desc": "+10% сопротивление отбрасыванию; −4% входящего урона. Улучшение: Shift + ПКМ по столу кузнеца с незеритовой частью в руке и 2 чешуями в инвентаре."
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "poloz_helmet",
+        "class": "org.slavicmyths.poloz.PolozRewards$1",
+        "durability": 407,
+        "enchantability": 15,
+        "rune_capacity": 2,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 3,
+        "toughness": 3.0,
+        "material_knockback": 0.1,
+        "repair": [
+          "minecraft:netherite_ingot"
+        ],
+        "slot": "head",
+        "equipped": {
+          "generic.armor": 3.0,
+          "generic.armor_toughness": 3.0,
+          "generic.knockback_resistance": 0.20000000149011612,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "poloz_chestplate",
+      "name": "Нагрудник, укреплённый чешуёй Полоза",
+      "role": "ArmorItem",
+      "recipes": [],
+      "loot": [],
+      "dynamic": "poloz/PolozRewardEvents.smith: netherite donor +2 scales at smithing table",
+      "source_refs": [],
+      "descriptions": {
+        "item.slavicmyths.poloz_chestplate.desc": "+20% сопротивление отбрасыванию; −8% входящего урона. Улучшение: Shift + ПКМ по столу кузнеца с незеритовой частью в руке и 2 чешуями в инвентаре."
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "poloz_chestplate",
+        "class": "org.slavicmyths.poloz.PolozRewards$1",
+        "durability": 592,
+        "enchantability": 15,
+        "rune_capacity": 2,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 8,
+        "toughness": 3.0,
+        "material_knockback": 0.1,
+        "repair": [
+          "minecraft:netherite_ingot"
+        ],
+        "slot": "chest",
+        "equipped": {
+          "generic.armor": 8.0,
+          "generic.armor_toughness": 3.0,
+          "generic.knockback_resistance": 0.30000000149011613,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "poloz_leggings",
+      "name": "Поножи, укреплённые чешуёй Полоза",
+      "role": "ArmorItem",
+      "recipes": [],
+      "loot": [],
+      "dynamic": "poloz/PolozRewardEvents.smith: netherite donor +2 scales at smithing table",
+      "source_refs": [],
+      "descriptions": {
+        "item.slavicmyths.poloz_leggings.desc": "+15% сопротивление отбрасыванию; −6% входящего урона. Улучшение: Shift + ПКМ по столу кузнеца с незеритовой частью в руке и 2 чешуями в инвентаре."
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "poloz_leggings",
+        "class": "org.slavicmyths.poloz.PolozRewards$1",
+        "durability": 555,
+        "enchantability": 15,
+        "rune_capacity": 2,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 6,
+        "toughness": 3.0,
+        "material_knockback": 0.1,
+        "repair": [
+          "minecraft:netherite_ingot"
+        ],
+        "slot": "legs",
+        "equipped": {
+          "generic.armor": 6.0,
+          "generic.armor_toughness": 3.0,
+          "generic.knockback_resistance": 0.25000000149011614,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "poloz_boots",
+      "name": "Ботинки, укреплённые чешуёй Полоза",
+      "role": "ArmorItem",
+      "recipes": [],
+      "loot": [],
+      "dynamic": "poloz/PolozRewardEvents.smith: netherite donor +2 scales at smithing table",
+      "source_refs": [],
+      "descriptions": {
+        "item.slavicmyths.poloz_boots.desc": "+10% сопротивление отбрасыванию; −4% входящего урона. Улучшение: Shift + ПКМ по столу кузнеца с незеритовой частью в руке и 2 чешуями в инвентаре."
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "poloz_boots",
+        "class": "org.slavicmyths.poloz.PolozRewards$1",
+        "durability": 481,
+        "enchantability": 15,
+        "rune_capacity": 2,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 3,
+        "toughness": 3.0,
+        "material_knockback": 0.1,
+        "repair": [
+          "minecraft:netherite_ingot"
+        ],
+        "slot": "feet",
+        "equipped": {
+          "generic.armor": 3.0,
+          "generic.armor_toughness": 3.0,
+          "generic.knockback_resistance": 0.20000000149011612,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "clear_sight_helmet",
+      "name": "Шлем ясного взора",
+      "role": "ArmorItem",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/unique/clear_sight_helmet.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClearSightClient.java",
+          "line": 18,
+          "text": "@SubscribeEvent public static void received(ClearSightNetwork.Received event){var mc=Minecraft.getInstance();if(mc.level==null||mc.player==null||!mc.level.dimension().location().equals(event.payload.dimension()))return;TARGETS.clear();for(var t:event.payload.targets())TARGETS.put(t.id(),t.uuid());remaining=org.slavicmyths.rewards.RewardEvents.wears(mc.player,\"gift_finist_amulet\")&&!mc.player.getItemBySlot(EquipmentSlot.HEAD).is(UniqueEquipment.CLEAR_SIGHT_HELMET.get())?20:UniqueEquipmentRules.SIGHT_DURATION;dimension=event.payload.dimension();origin=mc.level;}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClearSightClient.java",
+          "line": 19,
+          "text": "@SubscribeEvent public static void tick(net.neoforged.neoforge.client.event.ClientTickEvent.Post event){var mc=Minecraft.getInstance();if(remaining<=0)return;if(mc.level!=origin||mc.player==null||!mc.player.isAlive()||!(mc.player.getItemBySlot(EquipmentSlot.HEAD).is(UniqueEquipment.CLEAR_SIGHT_HELMET.get())||org.slavicmyths.rewards.RewardEvents.wears(mc.player,\"gift_finist_amulet\"))||--remaining<=0){remaining=0;TARGETS.clear();origin=null;}}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClearSightClient.java",
+          "line": 20,
+          "text": "public static boolean outlined(Entity entity){var mc=Minecraft.getInstance();return remaining>0&&mc.level==origin&&mc.player!=null&&mc.player.isAlive()&&(mc.player.getItemBySlot(EquipmentSlot.HEAD).is(UniqueEquipment.CLEAR_SIGHT_HELMET.get())||org.slavicmyths.rewards.RewardEvents.wears(mc.player,\"gift_finist_amulet\"))&&mc.level.dimension().location().equals(dimension)&&entity.getUUID().equals(TARGETS.get(entity.getId()))&&entity.distanceToSqr(mc.player)<=576;}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClearSightClient.java",
+          "line": 21,
+          "text": "@SubscribeEvent public static void tooltip(net.neoforged.neoforge.event.entity.player.ItemTooltipEvent event){if(event.getItemStack().is(UniqueEquipment.CLEAR_SIGHT_HELMET.get()))event.getToolTip().add(net.minecraft.network.chat.Component.translatable(\"unique.slavicmyths.sight_key\",RareRuneClient.USE.getTranslatedKeyMessage()));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/UniqueArmorModels.java",
+          "line": 19,
+          "text": "@SubscribeEvent public static void register(RegisterClientExtensionsEvent event){event.registerItem(new UniqueArmorModels(),UniqueEquipment.WIND_BOOTS.get(),UniqueEquipment.BOGATYR_CHESTPLATE.get(),UniqueEquipment.CLEAR_SIGHT_HELMET.get(),UniqueEquipment.INDOMITABILITY_LEGGINGS.get());}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/ClearSightNetwork.java",
+          "line": 46,
+          "text": "if(!p.isAlive()||p.isSpectator()||!UniqueEquipmentEvents.wears(p,EquipmentSlot.HEAD,UniqueEquipment.CLEAR_SIGHT_HELMET.get()))return;"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/UniqueEquipment.java",
+          "line": 29,
+          "text": "public static final DeferredHolder<Item, Item> CLEAR_SIGHT_HELMET = armor(\"clear_sight_helmet\", SIGHT_MATERIAL, ArmorItem.Type.HELMET, 330);"
+        }
+      ],
+      "descriptions": {
+        "item.slavicmyths.clear_sight_helmet.effect": "Ясный взор • радиус 24 блока",
+        "item.slavicmyths.clear_sight_helmet.base": "Улучшение: Железный шлем",
+        "item.slavicmyths.clear_sight_helmet.detail": "Длительность 5 с • перезарядка 40 с",
+        "item.slavicmyths.clear_sight_helmet.extra": "Контуры живых существ сквозь стены"
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "clear_sight_helmet",
+        "class": "org.slavicmyths.equipment.UniqueEquipment$UniqueArmor",
+        "durability": 330,
+        "enchantability": 15,
+        "rune_capacity": 3,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 3,
+        "toughness": 1.0,
+        "material_knockback": 0.0,
+        "repair": [
+          "slavicmyths:hardened_iron"
+        ],
+        "slot": "head",
+        "equipped": {
+          "generic.armor": 3.0,
+          "generic.armor_toughness": 1.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "bogatyr_chestplate",
+      "name": "Нагрудник богатыря",
+      "role": "ArmorItem",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/unique/bogatyr_chestplate.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/UniqueArmorModels.java",
+          "line": 19,
+          "text": "@SubscribeEvent public static void register(RegisterClientExtensionsEvent event){event.registerItem(new UniqueArmorModels(),UniqueEquipment.WIND_BOOTS.get(),UniqueEquipment.BOGATYR_CHESTPLATE.get(),UniqueEquipment.CLEAR_SIGHT_HELMET.get(),UniqueEquipment.INDOMITABILITY_LEGGINGS.get());}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/UniqueEquipment.java",
+          "line": 28,
+          "text": "public static final DeferredHolder<Item, Item> BOGATYR_CHESTPLATE = armor(\"bogatyr_chestplate\", BOGATYR_MATERIAL, ArmorItem.Type.CHESTPLATE, 640);"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+          "line": 37,
+          "text": "modifier(e,STANCE,UniqueEquipmentRules.STANCE_KB,wears(e,EquipmentSlot.CHEST,UniqueEquipment.BOGATYR_CHESTPLATE.get()) && UniqueEquipmentRules.stance(e.getHealth(),e.getMaxHealth()));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+          "line": 53,
+          "text": "if(wears(e,EquipmentSlot.CHEST,UniqueEquipment.BOGATYR_CHESTPLATE.get()) && UniqueEquipmentRules.stance(e.getHealth(),e.getMaxHealth()) && !event.getSource().is(net.minecraft.tags.DamageTypeTags.BYPASSES_INVULNERABILITY))event.setNewDamage(event.getNewDamage()*(float)(1-UniqueEquipmentRules.STANCE_REDUCTION));"
+        }
+      ],
+      "descriptions": {
+        "item.slavicmyths.bogatyr_chestplate.effect": "Броня 8 • прочность брони 3",
+        "item.slavicmyths.bogatyr_chestplate.base": "Улучшение: Железный нагрудник",
+        "item.slavicmyths.bogatyr_chestplate.detail": "Сопротивление отбрасыванию +20%",
+        "item.slavicmyths.bogatyr_chestplate.extra": "HP ≤35%: урон −15%, сопротивление +15%"
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "bogatyr_chestplate",
+        "class": "org.slavicmyths.equipment.UniqueEquipment$UniqueArmor",
+        "durability": 640,
+        "enchantability": 15,
+        "rune_capacity": 3,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 8,
+        "toughness": 3.0,
+        "material_knockback": 0.2,
+        "repair": [
+          "slavicmyths:hardened_iron"
+        ],
+        "slot": "chest",
+        "equipped": {
+          "generic.armor": 8.0,
+          "generic.armor_toughness": 3.0,
+          "generic.knockback_resistance": 0.20000000298023224,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "indomitability_leggings",
+      "name": "Поножи неукротимости",
+      "role": "ArmorItem",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/unique/indomitability_leggings.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/UniqueArmorModels.java",
+          "line": 19,
+          "text": "@SubscribeEvent public static void register(RegisterClientExtensionsEvent event){event.registerItem(new UniqueArmorModels(),UniqueEquipment.WIND_BOOTS.get(),UniqueEquipment.BOGATYR_CHESTPLATE.get(),UniqueEquipment.CLEAR_SIGHT_HELMET.get(),UniqueEquipment.INDOMITABILITY_LEGGINGS.get());}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/UniqueEquipment.java",
+          "line": 30,
+          "text": "public static final DeferredHolder<Item, Item> INDOMITABILITY_LEGGINGS = armor(\"indomitability_leggings\", LEGS_MATERIAL, ArmorItem.Type.LEGGINGS, 600);"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+          "line": 41,
+          "text": "if(!e.level().isClientSide && e instanceof Player p && !wears(p,EquipmentSlot.LEGS,UniqueEquipment.INDOMITABILITY_LEGGINGS.get())) { modifier(p,KB,0,false);p.getPersistentData().remove(\"UniqueKbUntil\"); }"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+          "line": 56,
+          "text": "if(!(event.getEntity() instanceof Player p) || p.level().isClientSide || event.isCanceled() || !wears(p,EquipmentSlot.LEGS,UniqueEquipment.INDOMITABILITY_LEGGINGS.get()) || event.getStrength()*(1-p.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE))<UniqueEquipmentRules.STRONG_KB)return;"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+          "line": 64,
+          "text": "if(now(p)>=p.getPersistentData().getLong(\"UniqueKbUntil\") || !wears(p,EquipmentSlot.LEGS,UniqueEquipment.INDOMITABILITY_LEGGINGS.get())){modifier(p,KB,0,false);p.getPersistentData().remove(\"UniqueKbUntil\");}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+          "line": 67,
+          "text": "var e=event.getEntity();var incoming=event.getEffectInstance();if(e.level().isClientSide || event.getResult()==MobEffectEvent.Applicable.Result.DO_NOT_APPLY || !wears(e,EquipmentSlot.LEGS,UniqueEquipment.INDOMITABILITY_LEGGINGS.get()) || !incoming.getEffect().is(CONTROL) || incoming.getDuration()<1 || e.getPersistentData().getBoolean(\"UniqueControlGuard\"))return;"
+        }
+      ],
+      "descriptions": {
+        "item.slavicmyths.indomitability_leggings.effect": "Длительность контроля −35%",
+        "item.slavicmyths.indomitability_leggings.base": "Улучшение: Железные поножи",
+        "item.slavicmyths.indomitability_leggings.detail": "Сильный толчок: сопротивление +35%",
+        "item.slavicmyths.indomitability_leggings.extra": "Длительность 5 с • перезарядка 15 с"
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "indomitability_leggings",
+        "class": "org.slavicmyths.equipment.UniqueEquipment$UniqueArmor",
+        "durability": 600,
+        "enchantability": 15,
+        "rune_capacity": 3,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 6,
+        "toughness": 2.0,
+        "material_knockback": 0.1,
+        "repair": [
+          "slavicmyths:hardened_iron"
+        ],
+        "slot": "legs",
+        "equipped": {
+          "generic.armor": 6.0,
+          "generic.armor_toughness": 2.0,
+          "generic.knockback_resistance": 0.10000000149011612,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "wind_boots",
+      "name": "Сапоги ветра",
+      "role": "ArmorItem",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/unique/wind_boots.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/UniqueArmorModels.java",
+          "line": 19,
+          "text": "@SubscribeEvent public static void register(RegisterClientExtensionsEvent event){event.registerItem(new UniqueArmorModels(),UniqueEquipment.WIND_BOOTS.get(),UniqueEquipment.BOGATYR_CHESTPLATE.get(),UniqueEquipment.CLEAR_SIGHT_HELMET.get(),UniqueEquipment.INDOMITABILITY_LEGGINGS.get());}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/UniqueEquipment.java",
+          "line": 27,
+          "text": "public static final DeferredHolder<Item, Item> WIND_BOOTS = armor(\"wind_boots\", WIND_MATERIAL, ArmorItem.Type.BOOTS, 260);"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+          "line": 44,
+          "text": "if(wears(event.getEntity(),EquipmentSlot.FEET,UniqueEquipment.WIND_BOOTS.get()))event.setDamageMultiplier(event.getDamageMultiplier()*(float)UniqueEquipmentRules.FALL);"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+          "line": 47,
+          "text": "var e=event.getEntity();if(wears(e,EquipmentSlot.FEET,UniqueEquipment.WIND_BOOTS.get()) && e.isSprinting()) {"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/WindBootsMomentum.java",
+          "line": 29,
+          "text": "private static boolean eligible(Player p){return p.isAlive()&&!p.isSpectator()&&!p.getAbilities().flying&&!p.isFallFlying()&&!p.isPassenger()&&!p.isInWaterOrBubble()&&!p.isInLava()&&!p.onClimbable()&&UniqueEquipmentEvents.wears(p,EquipmentSlot.FEET,UniqueEquipment.WIND_BOOTS.get());}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/WindBootsMomentum.java",
+          "line": 60,
+          "text": "if(UniqueEquipmentEvents.wears(p,EquipmentSlot.FEET,UniqueEquipment.WIND_BOOTS.get()))event.setDistance(Math.max(0,event.getDistance()-(float)credit));"
+        }
+      ],
+      "descriptions": {
+        "item.slavicmyths.wind_boots.effect": "Скорость +40% • высота 4,15–12,46 блока",
+        "item.slavicmyths.wind_boots.base": "Улучшение: Сапоги-скороходы",
+        "item.slavicmyths.wind_boots.detail": "Разгон за 8 с спринта, включая прыжки",
+        "item.slavicmyths.wind_boots.extra": "Падение −40%; доп. высота прыжка защищена"
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "wind_boots",
+        "class": "org.slavicmyths.equipment.UniqueEquipment$UniqueArmor",
+        "durability": 260,
+        "enchantability": 15,
+        "rune_capacity": 3,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 2,
+        "toughness": 0.0,
+        "material_knockback": 0.0,
+        "repair": [
+          "minecraft:leather"
+        ],
+        "slot": "feet",
+        "equipped": {
+          "generic.armor": 2.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.14000000208616256,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.8199999743983859
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "seven_league_boots",
+      "name": "Сапоги-скороходы",
+      "role": "ArmorItem",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/seven_league_boots.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/BasicArmorModels.java",
+          "line": 24,
+          "text": "e.registerItem(new BasicArmorModels(\"seven_league_boots\"),ModItems.SEVEN_LEAGUE_BOOTS.get());"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/item/FolkEquipmentEffects.java",
+          "line": 27,
+          "text": "boolean boots=p.getItemBySlot(EquipmentSlot.FEET).getItem()==ModItems.SEVEN_LEAGUE_BOOTS.get();"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 206,
+          "text": "public static final DeferredHolder<Item, Item> SEVEN_LEAGUE_BOOTS=ITEMS.register(\"seven_league_boots\",()->new org.slavicmyths.item.SevenLeagueBoots(properties().rarity(Rarity.RARE)));"
+        }
+      ],
+      "descriptions": {
+        "item.slavicmyths.seven_league_boots.effect": "Слот: обувь. Разгон до +30% за 3 с прямого бега; остановка, прыжок и резкий поворот сбрасывают разгон."
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "seven_league_boots",
+        "class": "org.slavicmyths.item.SevenLeagueBoots",
+        "durability": 65,
+        "enchantability": 15,
+        "rune_capacity": 0,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 1,
+        "toughness": 0.0,
+        "material_knockback": 0.0,
+        "repair": [
+          "minecraft:leather"
+        ],
+        "slot": "feet",
+        "equipped": {
+          "generic.armor": 1.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "trophy_idol_chest",
+      "name": "Нагрудник Ненасытного",
+      "role": "ArmorItem",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/trophy_idol_chest.json"
+      ],
+      "loot": [],
+      "dynamic": "rewards/RewardLedger: source-specific victory receipts",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+          "line": 142,
+          "text": "@SubscribeEvent public static void extensions(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent e){e.registerItem(new RewardArmor(0),org.slavicmyths.rewards.RewardContent.item(\"trophy_idol_chest\"));e.registerItem(new RewardArmor(1),org.slavicmyths.rewards.RewardContent.item(\"trophy_marinka_cloak\"));e.registerItem(new RewardArmor(2),org.slavicmyths.rewards.RewardContent.item(\"trophy_kartaus_mantle\"));e.registerItem(new PeruniteArmor(),org.slavicmyths.registry.ModItems.PERUNITE_HELMET.get(),org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE.get(),org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS.get(),org.slavicmyths.registry.ModItems.PERUNITE_BOOTS.get());}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
+          "line": 23,
+          "text": "for(String id:List.of(\"trophy_idol_chest\",\"trophy_marinka_cloak\",\"trophy_kartaus_mantle\"))register(id,()->new ArmorItem(id.equals(\"trophy_idol_chest\")?ArmorMaterials.DIAMOND:ArmorMaterials.LEATHER,ArmorItem.Type.CHESTPLATE,new Item.Properties().durability(id.equals(\"trophy_idol_chest\")?528:240).rarity(Rarity.RARE)){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+          "line": 52,
+          "text": "}amount=Math.max(0,amount-p.getAbsorptionAmount());if(amount>=6&&source.getEntity() instanceof LivingEntity attacker&&hostile(attacker,p)&&!source.is(DamageTypeTags.BYPASSES_ARMOR)&&!source.is(DamageTypeTags.IS_FIRE)&&!source.is(DamageTypeTags.IS_EXPLOSION)){if(wears(p,\"trophy_idol_chest\"))amount*=.9F;if(RewardRunes.active(p,\"battle_line\")&&ready(p,\"LineReady\")&&allies(p)>=2)amount*=.85F;}return amount;}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+          "line": 74,
+          "text": "if(physical&&e.getNewDamage()>=6){if(wears(p,\"trophy_idol_chest\")){e.setNewDamage(e.getNewDamage()*.9F);fx(p,\"trophy_idol_heavy_guard\");}if(RewardRunes.active(p,\"battle_line\")&&ready(p,\"LineReady\")&&allies(p)>=2){e.setNewDamage(e.getNewDamage()*.85F);cooldown(p,\"LineReady\",600);fx(p,\"rune_battle_line_proc\");}}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+          "line": 86,
+          "text": "@SubscribeEvent public static void knockback(LivingKnockBackEvent e){if(wears(e.getEntity(),\"trophy_idol_chest\"))e.setStrength(e.getStrength()*.55F);}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+          "line": 87,
+          "text": "@SubscribeEvent public static void equipment(LivingEquipmentChangeEvent e){if(!(e.getEntity() instanceof ServerPlayer p))return;var id=ResourceLocation.fromNamespaceAndPath(\"slavicmyths\",\"idol_chest_slow176\");var attr=p.getAttribute(Attributes.MOVEMENT_SPEED);if(attr!=null){attr.removeModifier(id);if(wears(p,\"trophy_idol_chest\"))attr.addTransientModifier(new AttributeModifier(id,-.05,AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));}}"
+        }
+      ],
+      "descriptions": {
+        "item.slavicmyths.trophy_idol_chest.desc": "Отбрасывание −45%, сильный прямой физический урон −10%, скорость −5%."
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "trophy_idol_chest",
+        "class": "org.slavicmyths.rewards.RewardContent$2",
+        "durability": 528,
+        "enchantability": 10,
+        "rune_capacity": 2,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 8,
+        "toughness": 2.0,
+        "material_knockback": 0.0,
+        "repair": [
+          "minecraft:diamond"
+        ],
+        "slot": "chest",
+        "equipped": {
+          "generic.armor": 8.0,
+          "generic.armor_toughness": 2.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.09500000141561031,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "trophy_marinka_cloak",
+      "name": "Накидка Морока",
+      "role": "ArmorItem",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/trophy_marinka_cloak.json"
+      ],
+      "loot": [],
+      "dynamic": "rewards/RewardLedger: source-specific victory receipts",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+          "line": 142,
+          "text": "@SubscribeEvent public static void extensions(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent e){e.registerItem(new RewardArmor(0),org.slavicmyths.rewards.RewardContent.item(\"trophy_idol_chest\"));e.registerItem(new RewardArmor(1),org.slavicmyths.rewards.RewardContent.item(\"trophy_marinka_cloak\"));e.registerItem(new RewardArmor(2),org.slavicmyths.rewards.RewardContent.item(\"trophy_kartaus_mantle\"));e.registerItem(new PeruniteArmor(),org.slavicmyths.registry.ModItems.PERUNITE_HELMET.get(),org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE.get(),org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS.get(),org.slavicmyths.registry.ModItems.PERUNITE_BOOTS.get());}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
+          "line": 23,
+          "text": "for(String id:List.of(\"trophy_idol_chest\",\"trophy_marinka_cloak\",\"trophy_kartaus_mantle\"))register(id,()->new ArmorItem(id.equals(\"trophy_idol_chest\")?ArmorMaterials.DIAMOND:ArmorMaterials.LEATHER,ArmorItem.Type.CHESTPLATE,new Item.Properties().durability(id.equals(\"trophy_idol_chest\")?528:240).rarity(Rarity.RARE)){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+          "line": 82,
+          "text": "@SubscribeEvent public static void after(LivingDamageEvent.Post e){if(e.getEntity() instanceof ServerPlayer p&&e.getNewDamage()>0&&wears(p,\"trophy_marinka_cloak\")&&ready(p,\"BlinkReady\")&&p.isAlive()){var to=safeSide(p);if(to!=null){p.teleportTo(p.serverLevel(),to.x,to.y,to.z,p.getYRot(),p.getXRot());cooldown(p,\"BlinkReady\",900);fx(p,\"trophy_marinka_blink\");}}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rpg/Runes.java",
+          "line": 38,
+          "text": "if(armor(s)&&net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(s.getItem()).getNamespace().equals(\"slavicmyths\")){String reward=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(s.getItem()).getPath();if(reward.equals(\"trophy_marinka_cloak\")||reward.equals(\"trophy_kartaus_mantle\"))return 1;}"
+        }
+      ],
+      "descriptions": {
+        "item.slavicmyths.trophy_marinka_cloak.desc": "При получении урона перемещает на 2–3 блока в безопасную сторону; 45 с."
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "trophy_marinka_cloak",
+        "class": "org.slavicmyths.rewards.RewardContent$2",
+        "durability": 240,
+        "enchantability": 15,
+        "rune_capacity": 1,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 3,
+        "toughness": 0.0,
+        "material_knockback": 0.0,
+        "repair": [
+          "minecraft:leather"
+        ],
+        "slot": "chest",
+        "equipped": {
+          "generic.armor": 3.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "trophy_kartaus_mantle",
+      "name": "Накидка Чёрного знамени",
+      "role": "ArmorItem",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/trophy_kartaus_mantle.json"
+      ],
+      "loot": [],
+      "dynamic": "rewards/RewardLedger: source-specific victory receipts",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+          "line": 142,
+          "text": "@SubscribeEvent public static void extensions(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent e){e.registerItem(new RewardArmor(0),org.slavicmyths.rewards.RewardContent.item(\"trophy_idol_chest\"));e.registerItem(new RewardArmor(1),org.slavicmyths.rewards.RewardContent.item(\"trophy_marinka_cloak\"));e.registerItem(new RewardArmor(2),org.slavicmyths.rewards.RewardContent.item(\"trophy_kartaus_mantle\"));e.registerItem(new PeruniteArmor(),org.slavicmyths.registry.ModItems.PERUNITE_HELMET.get(),org.slavicmyths.registry.ModItems.PERUNITE_CHESTPLATE.get(),org.slavicmyths.registry.ModItems.PERUNITE_LEGGINGS.get(),org.slavicmyths.registry.ModItems.PERUNITE_BOOTS.get());}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
+          "line": 23,
+          "text": "for(String id:List.of(\"trophy_idol_chest\",\"trophy_marinka_cloak\",\"trophy_kartaus_mantle\"))register(id,()->new ArmorItem(id.equals(\"trophy_idol_chest\")?ArmorMaterials.DIAMOND:ArmorMaterials.LEATHER,ArmorItem.Type.CHESTPLATE,new Item.Properties().durability(id.equals(\"trophy_idol_chest\")?528:240).rarity(Rarity.RARE)){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+          "line": 91,
+          "text": "}if(n.getBoolean(\"MantleBuff\")&&!wears(p,\"trophy_kartaus_mantle\")){var effect=p.getEffect(MobEffects.DAMAGE_RESISTANCE);if(effect!=null&&effect.getAmplifier()==0&&effect.getDuration()<=100)p.removeEffect(MobEffects.DAMAGE_RESISTANCE);n.remove(\"MantleBuff\");}if(p.tickCount%20==0&&RewardRunes.active(p,\"dispelling\")&&ready(p,\"DispelReady\"))for(var effect:p.getActiveEffects())if(magic(effect)){p.removeEffect(effect.getEffect());cooldown(p,\"DispelReady\",900);fx(p,\"rune_dispelling_proc\");break;}}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+          "line": 96,
+          "text": "@SubscribeEvent(priority=EventPriority.LOWEST) public static void death(LivingDeathEvent e){if(!(e.getSource().getEntity() instanceof ServerPlayer p)||e.isCanceled()||!enemy(e.getEntity(),p))return;var mob=e.getEntity();if(ownedSummon(mob)&&wears(p,\"trophy_kartaus_mantle\")&&ready(p,\"MantleReady\")){p.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,100,0));state(p).putBoolean(\"MantleBuff\",true);cooldown(p,\"MantleReady\",400);fx(p,\"trophy_kartaus_resistance\");}}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rpg/Runes.java",
+          "line": 38,
+          "text": "if(armor(s)&&net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(s.getItem()).getNamespace().equals(\"slavicmyths\")){String reward=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(s.getItem()).getPath();if(reward.equals(\"trophy_marinka_cloak\")||reward.equals(\"trophy_kartaus_mantle\"))return 1;}"
+        }
+      ],
+      "descriptions": {
+        "item.slavicmyths.trophy_kartaus_mantle.desc": "Победа над вражеским призванным существом: Сопротивление I на 5 с; 20 с."
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "trophy_kartaus_mantle",
+        "class": "org.slavicmyths.rewards.RewardContent$2",
+        "durability": 240,
+        "enchantability": 15,
+        "rune_capacity": 1,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "defense": 3,
+        "toughness": 0.0,
+        "material_knockback": 0.0,
+        "repair": [
+          "minecraft:leather"
+        ],
+        "slot": "chest",
+        "equipped": {
+          "generic.armor": 3.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "woven_belt",
+      "name": "Тканый пояс",
+      "role": "belt attachment",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/woven_belt.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 21,
+          "text": "public TextileClothingLayer(PlayerRenderer r,boolean slim){super(r);for(String id:List.of(\"linen_shirt\",\"linen_ports\",\"sarafan\",\"linen_headscarf\",\"linen_apron\",\"folk_vest\",\"bast_shoes\",\"woven_belt\"))garments.put(id,mesh(id,slim));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 74,
+          "text": "}else if(id.equals(\"woven_belt\")){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/TextileClothingLayer.java",
+          "line": 87,
+          "text": "if(player.getData(BeltData.BELT).is(Textiles.item(\"woven_belt\")))show(\"woven_belt\",pose,buffers,light);"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/textile/Textiles.java",
+          "line": 31,
+          "text": "register(\"woven_belt\",BeltItem::new);"
+        }
+      ],
+      "descriptions": {},
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "woven_belt",
+        "class": "org.slavicmyths.textile.BeltItem",
+        "durability": 0,
+        "enchantability": 0,
+        "rune_capacity": 0,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "slot": "BeltData attachment",
+        "equipped": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "perunite_shield",
+      "name": "Перунитовый щит",
+      "role": "shield",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/perunite_shield.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+          "line": 44,
+          "text": "org.slavicmyths.registry.ModItems.PERUNITE_SHIELD.get(),"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 131,
+          "text": "public static final DeferredHolder<Item, Item> PERUNITE_SHIELD = ITEMS.register(\"perunite_shield\", () -> new org.slavicmyths.item.MythShieldItem(properties().durability(420).rarity(Rarity.UNCOMMON)));"
+        }
+      ],
+      "descriptions": {},
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "perunite_shield",
+        "class": "org.slavicmyths.item.MythShieldItem",
+        "durability": 420,
+        "enchantability": 0,
+        "rune_capacity": 3,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "slot": "offhand",
+        "equipped": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "retainer_shield",
+      "name": "Щит дружинника",
+      "role": "shield",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/retainer_shield.json"
+      ],
+      "loot": [
+        "src/main/resources/data/slavicmyths/loot_table/chests/bandit_medium.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/bandit_small.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/barracks_supply.json"
+      ],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+          "line": 43,
+          "text": "org.slavicmyths.registry.ModItems.RETAINER_SHIELD.get(),"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/GuardEquipmentLayer.java",
+          "line": 25,
+          "text": "if(GuardBehavior.shield(kind))held(v,new ItemStack(ModItems.RETAINER_SHIELD.get()),left,true,pose,buffers,light);pose.popPose();"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/MilitaryScreen.java",
+          "line": 31,
+          "text": "protected void renderLabels(GuiGraphics g,int mx,int my){g.drawString(font,title,8,9,0xffead8ac,false);int l=imageWidth*30/100;for(var row:rows.entrySet()){var q=quests.get(row.getKey());int yy=row.getValue()+2;var lines=font.split(tr(\"quest.\"+q.getString(\"Id\")),l-36);g.renderItem(new ItemStack(q.getString(\"Type\").equals(\"trophy\")?Military.TOKEN.get():q.getString(\"Type\").equals(\"defend\")?org.slavicmyths.registry.ModItems.RETAINER_SHIELD.get():net.minecraft.world.item.Items.IRON_SWORD),10,yy+3);for(int n=0;n<lines.size();n++)g.drawString(font,lines.get(n),29,yy+n*9,0xff3b281c,false);int bottom=yy+lines.size()*9;g.drawString(font,tr(\"status.\"+status(q)),12,bottom,0xff713b30,false);var detail=font.split(Component.literal(q.getInt(\"Progress\")+\"/\"+q.getInt(\"Amount\")+\" • \").append(tr(\"difficulty.\"+q.getInt(\"Difficulty\"))),l-24);for(int n=0;n<detail.size();n++)g.drawString(font,detail.get(n),12,bottom+9+n*9,0xff493c2b,false);}}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/RpgScreen.java",
+          "line": 39,
+          "text": "private Item pathIcon(int i){return new Item[]{org.slavicmyths.registry.ModItems.RETAINER_SHIELD.get(),org.slavicmyths.registry.ModItems.CARVED_STAFF.get(),org.slavicmyths.registry.ModItems.SILVER_DAGGER.get(),org.slavicmyths.registry.ModItems.ANCIENT_SIGN.get()}[i];}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 130,
+          "text": "public static final DeferredHolder<Item, Item> RETAINER_SHIELD = ITEMS.register(\"retainer_shield\", () -> new org.slavicmyths.item.MythShieldItem(properties().durability(280)));"
+        }
+      ],
+      "descriptions": {},
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "retainer_shield",
+        "class": "org.slavicmyths.item.MythShieldItem",
+        "durability": 280,
+        "enchantability": 0,
+        "rune_capacity": 2,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "slot": "offhand",
+        "equipped": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "ward_shield",
+      "name": "Щит-оберег",
+      "role": "shield",
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/unique/ward_shield.json"
+      ],
+      "loot": [],
+      "dynamic": "",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+          "line": 45,
+          "text": "org.slavicmyths.equipment.UniqueEquipment.WARD_SHIELD.get(),org.slavicmyths.rewards.RewardContent.item(\"gift_ilya_shield\") }) {"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/UniqueEquipment.java",
+          "line": 31,
+          "text": "public static final DeferredHolder<Item, Item> WARD_SHIELD = ModItems.ITEMS.register(\"ward_shield\", () -> new WardShield());"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/UniqueEquipmentEvents.java",
+          "line": 74,
+          "text": "if(defender.level().isClientSide || !defender.getUseItem().is(UniqueEquipment.WARD_SHIELD.get()))return;"
+        }
+      ],
+      "descriptions": {
+        "item.slavicmyths.ward_shield.effect": "Воздаяние: 25% при успешном блоке",
+        "item.slavicmyths.ward_shield.base": "Улучшение: Щит",
+        "item.slavicmyths.ward_shield.detail": "Отражает 125% поглощённого урона",
+        "item.slavicmyths.ward_shield.extra": "Без отражения урона окружения"
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "ward_shield",
+        "class": "org.slavicmyths.equipment.UniqueEquipment$WardShield",
+        "durability": 672,
+        "enchantability": 0,
+        "rune_capacity": 3,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "slot": "offhand",
+        "equipped": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    },
+    {
+      "id": "gift_ilya_shield",
+      "name": "Щит «Богатырский оплот»",
+      "role": "shield",
+      "recipes": [],
+      "loot": [],
+      "dynamic": "rewards/RewardLedger: source-specific victory receipts",
+      "source_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+          "line": 45,
+          "text": "org.slavicmyths.equipment.UniqueEquipment.WARD_SHIELD.get(),org.slavicmyths.rewards.RewardContent.item(\"gift_ilya_shield\") }) {"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
+          "line": 19,
+          "text": "register(\"gift_ilya_shield\",()->new ShieldItem(new Item.Properties().durability(672).rarity(Rarity.EPIC)){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+          "line": 56,
+          "text": "if(p.getUseItem().is(RewardContent.item(\"gift_ilya_shield\"))&&ready(p,\"ShieldReady\")){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rewards/RewardEvents.java",
+          "line": 120,
+          "text": "@SubscribeEvent public static void tooltip(net.neoforged.neoforge.event.entity.player.ItemTooltipEvent e){var id=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(e.getItemStack().getItem());if(!id.getNamespace().equals(\"slavicmyths\"))return;if(id.getPath().equals(\"gift_dobrynya_ring\"))e.getToolTip().add(Component.translatable(\"reward176.counter_numbers\",COUNTER));if(id.getPath().equals(\"gift_ilya_shield\"))e.getToolTip().add(Component.translatable(\"reward176.shield_numbers\",REFLECTION));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rewards/RewardLedger.java",
+          "line": 15,
+          "text": "public static final String[] GIFTS={\"gift_ilya_shield\",\"gift_dobrynya_ring\",\"gift_alyosha_belt\",\"gift_finist_amulet\"};"
+        }
+      ],
+      "descriptions": {
+        "item.slavicmyths.gift_ilya_shield.desc": "Успешный блок отбрасывает врагов и отражает ×1,5 получаемого без щита урона в нападающего; 35 с."
+      },
+      "player_path": "Крафт/персональная награда/улучшение из указанных sources → надеть по настоящему слоту → сравнить защиту/эффект → снять → повторить → смерть/измерение/перезаход/MP",
+      "decision": "KEEP values/art; fix only reproduced functional defects",
+      "gameplay": "native evidence file; natural route/client/real relog/MP NOT_RUN",
+      "native": {
+        "id": "gift_ilya_shield",
+        "class": "org.slavicmyths.rewards.RewardContent$1",
+        "durability": 672,
+        "enchantability": 0,
+        "rune_capacity": 2,
+        "before": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "slot": "offhand",
+        "equipped": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        },
+        "removed": {
+          "generic.armor": 0.0,
+          "generic.armor_toughness": 0.0,
+          "generic.knockback_resistance": 0.0,
+          "generic.movement_speed": 0.10000000149011612,
+          "generic.max_health": 20.0,
+          "generic.jump_strength": 0.41999998688697815
+        }
+      }
+    }
+  ]
+}

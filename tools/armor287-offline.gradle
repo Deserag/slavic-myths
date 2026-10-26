@@ -1,0 +1,4 @@
+allprojects { plugins.withId('java') {
+ sourceSets { armor287Offline { java.srcDir 'tools/armor287-offline';compileClasspath += sourceSets.main.output+sourceSets.main.compileClasspath;runtimeClasspath += sourceSets.main.output+sourceSets.main.runtimeClasspath } }
+ tasks.register('verifyArmor287Offline',JavaExec){dependsOn 'armor287OfflineClasses';classpath=sourceSets.armor287Offline.runtimeClasspath;mainClass='org.slavicmyths.verify.Armor287Offline';maxHeapSize='384m';jvmArgs '-XX:ActiveProcessorCount=2';workingDir project.projectDir}
+} }

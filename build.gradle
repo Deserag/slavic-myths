@@ -55,7 +55,20 @@ if (project.hasProperty('accessories278Check')) {
     } }
 }
 
-// Plain JVM, no NeoForge run configuration and no game/world construction.
+// Explicit owner-authorized disposable #287 server fixture; excluded from production.
+if (project.hasProperty('armor287Check')) {
+    sourceSets { armor287Check { java.srcDirs 'tools/armor287-tests','tools/unique-equipment-tests'; resources.srcDir 'tools/armor287-test-resources' } }
+    sourceSets.armor287Check.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.armor287Check.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileArmor287CheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.armor287Check)
+    neoForge.runs { armor287Checks {
+        type = 'gameTestServer'
+        gameDirectory = file('run-armor287-20261026')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_armor287'
+    } }
+}
+
 if (project.hasProperty('artifacts284Check')) {
     sourceSets { artifacts284Check { java.srcDir 'tools/artifacts284-tests'; resources.srcDir 'tools/artifacts284-test-resources' } }
     sourceSets.artifacts284Check.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath

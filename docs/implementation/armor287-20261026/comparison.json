@@ -1,0 +1,62 @@
+[
+  {
+    "generic.armor": 15.0,
+    "generic.armor_toughness": 0.0,
+    "generic.knockback_resistance": 0.0,
+    "generic.movement_speed": 0.10000000149011612,
+    "generic.max_health": 20.0,
+    "generic.jump_strength": 0.41999998688697815,
+    "family": "iron",
+    "raw10_damage": 6.0
+  },
+  {
+    "generic.armor": 20.0,
+    "generic.armor_toughness": 8.0,
+    "generic.knockback_resistance": 0.0,
+    "generic.movement_speed": 0.10000000149011612,
+    "generic.max_health": 20.0,
+    "generic.jump_strength": 0.41999998688697815,
+    "family": "diamond",
+    "raw10_damage": 3.0
+  },
+  {
+    "generic.armor": 20.0,
+    "generic.armor_toughness": 12.0,
+    "generic.knockback_resistance": 0.4000000059604645,
+    "generic.movement_speed": 0.10000000149011612,
+    "generic.max_health": 20.0,
+    "generic.jump_strength": 0.41999998688697815,
+    "family": "netherite",
+    "raw10_damage": 2.7999992
+  },
+  {
+    "generic.armor": 15.0,
+    "generic.armor_toughness": 2.0,
+    "generic.knockback_resistance": 0.0,
+    "generic.movement_speed": 0.10000000149011612,
+    "generic.max_health": 25.0,
+    "generic.jump_strength": 0.41999998688697815,
+    "family": "perunite",
+    "raw10_damage": 5.6000004
+  },
+  {
+    "generic.armor": 19.0,
+    "generic.armor_toughness": 8.0,
+    "generic.knockback_resistance": 0.4000000059604645,
+    "generic.movement_speed": 0.10000000149011612,
+    "generic.max_health": 40.0,
+    "generic.jump_strength": 0.41999998688697815,
+    "family": "dragon",
+    "raw10_damage": 3.4000015
+  },
+  {
+    "generic.armor": 20.0,
+    "generic.armor_toughness": 12.0,
+    "generic.knockback_resistance": 0.9500000059604645,
+    "generic.movement_speed": 0.10000000149011612,
+    "generic.max_health": 34.0,
+    "generic.jump_strength": 0.41999998688697815,
+    "family": "poloz",
+    "raw10_damage": 2.184
+  }
+]
