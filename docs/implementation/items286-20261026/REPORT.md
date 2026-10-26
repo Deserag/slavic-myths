@@ -92,3 +92,6 @@ OP-диагностика при необходимости: `/data get entity @
 Откат: закрыть игру, вернуть сохранённый2.0.1-HELL JAR из backup delivery.json, удалить только новый2.0.2-HELL JAR; миры не переписывать. Компоненты/ID/схема saves неизменны. Source откат — отдельный revert commit по согласованию, без reset/force.
 
 Следующая задача: владелец выбирает E1/E2, судьбу ovinnik_claw/коллекционных материалов и вариант наград #276; затем отдельно разрешает реализацию/игровую проверку. Автоматического продолжения и закрытия Issues нет.
+
+
+Фактическая доставка: 2.0.2-HELL установлен в `C:/Users/pavel/AppData/Roaming/PolyMC/instances/Slavic-Myths-2.0.0-HELL/.minecraft/mods/slavicmyths-2.0.2-HELL.jar`; SHA256 `d4583f90d8c4531e1e0d78d20cf4ac11c24868af6ecfea40531d1d0e4951c6bb`; source `cb3ed533f754fc1b82de2238f3955867bd37b23b`. Backup `D:/slavic-myths-backups/items286-20261026T064725Z/slavicmyths-2.0.1-HELL.jar`; metadata-проверка всех JAR подтверждает единственный modId slavicmyths. Minecraft/PolyMC не запускались. Project №9: обе карточки фактически «В работе», проверенное чтение в project-status.json. Это тестовый кандидат OWNER_PENDING, не принятый релиз.

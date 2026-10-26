@@ -35,10 +35,10 @@ def run():
     pending=mods/(source.name+'.pending');assert not pending.exists();shutil.copy2(source,pending);assert sha(pending)==qa['sha256']
     # Rename the previous JAR into its external backup directory only after the
     # independent backup has been verified, then publish the staged new bytes.
-    moved=backup/(oldfile.name+'.original');oldfile.rename(moved)
+    moved=backup/(oldfile.name+'.original');shutil.move(str(oldfile),str(moved))
     try:pending.rename(target)
     except BaseException:
-        moved.rename(oldfile)
+        shutil.copy2(moved,oldfile)
         raise
     assert sha(target)==qa['sha256'] and sha(moved)==oldhash
     final=[]
