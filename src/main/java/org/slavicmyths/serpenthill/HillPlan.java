@@ -16,6 +16,8 @@ public final class HillPlan {
  private void stairZ(int z0,int z1,int x,int y,int sign){int n=0;for(int z=z0;sign>0?z<=z1:z>=z1;z+=sign,n++){if(x>=100)box(x-2,0,z,x+2,y+n,z,STONE);box(x-2,y+n,z,x+2,y+n+6,z,AIR);box(x-2,y+n,z,x+2,y+n,z,"minecraft:polished_blackstone_brick_stairs@"+(sign>0?"SOUTH":"NORTH"));}}
  private void lamp(int x,int y,int z,boolean mor){box(x,y,z,x,y,z,mor?"slavicmyths:defiled_ritual_brazier":"slavicmyths:ritual_brazier");}
  private void chest(int x,int y,int z){box(x,y,z,x,y,z,"minecraft:chest@SOUTH");chests.add(new Chest(x,y,z));}
+ /** All authored reward containers, including the five barrels beside the upper chests. */
+ public List<Chest> rewardContainers(){var out=new ArrayList<>(chests);for(var c:chests)if(c.y()==81)out.add(new Chest(c.x()+1,c.y(),c.z()));return List.copyOf(out);}
  private void build(){
   // The plateau belongs to the same solid hill, with four different fortress levels.
   box(28,72,28,99,80,99,STONE);box(28,81,28,99,143,99,AIR);
