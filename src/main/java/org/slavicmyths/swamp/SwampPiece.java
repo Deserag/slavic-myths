@@ -83,12 +83,12 @@ private void load(StructureTemplateManager ignored){boundingBox=new BoundingBox(
         if(!box.isInside(pos))return;
         if(marker.startsWith("loot:")) {
             var existing=world.getBlockEntity(pos);
-            if(existing instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity&&existing.getPersistentData().getBoolean("SlavicSwampLoot"))return;
+            if(existing instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity container&&(existing.getPersistentData().getBoolean("SlavicSwampLoot")||container.getLootTable()!=null||!container.isEmpty()))return;
             Random choice=new Random(seed^pos.asLong());
             if(!name.startsWith("v097_")&&((marker.endsWith("_home")&&choice.nextInt(4)==0)||(marker.endsWith("_remnants")&&choice.nextBoolean())))return;
             world.setBlock(pos,Blocks.BARREL.defaultBlockState(),2);
             if(world.getBlockEntity(pos) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity container){
-                container.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath("slavicmyths","chests/"+marker.substring(5))),seed^pos.asLong());
+                container.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath("slavicmyths",org.slavicmyths.loot.OverworldRewards276.swamp(name,marker.substring(5),pos.getX()-templatePosition.getX(),pos.getY()-templatePosition.getY(),pos.getZ()-templatePosition.getZ()))),seed^pos.asLong());
                 container.getPersistentData().putBoolean("SlavicSwampLoot",true);container.setChanged();
             }
         } else if(marker.startsWith("encounter:")) {

@@ -131,7 +131,7 @@ public final class DepthsService {
 
         void next(){release();plan=null;cells=List.of();scan=0;phase="CANDIDATE";}
         void reject(String reason){rejected.merge(reason,1,Integer::sum);next();}
-        Component rejectionDetails(){var result=Component.empty();rejected.forEach((reason,count)->{if(!result.getString().isEmpty())result.append("; ");result.append(message("reason_"+reason)).append(" ×"+count);});return result;}
+        Component rejectionDetails(){var result=Component.empty();rejected.forEach((reason,count)->{if(!result.getString().isEmpty())result.append("; ");result.append(message("reason_"+reason)).append(" Г—"+count);});return result;}
         boolean border(BoundingBox b){return level.getWorldBorder().isWithinBounds(new BlockPos(b.minX(),0,b.minZ()))&&level.getWorldBorder().isWithinBounds(new BlockPos(b.maxX(),0,b.maxZ()));}
         void blueprint(){
             cells=new ArrayList<>(DepthsLayout.build(plan).entrySet());
@@ -233,7 +233,9 @@ public final class DepthsService {
             if(level.getBlockEntity(at)!=null)throw new IllegalStateException("foreign loot container");
             level.setBlock(at,state("chest[facing="+plan.facing(true)+"]"),2);
             if(!(level.getBlockEntity(at) instanceof ChestBlockEntity chest))throw new IllegalStateException("missing chest");
-            chest.getPersistentData().putString("DepthsId",id.toString());var r=new Random(seed^index*773L);int slot=0;
+            chest.getPersistentData().putString("DepthsId",id.toString());
+            if(index==1){chest.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","rewards276/overworld/depths_main")),seed^index*773L);chest.setChanged();return;}
+            var r=new Random(seed^index*773L);int slot=0;
             if(index==0){chest.setItem(slot++,new ItemStack(Items.IRON_INGOT,1+r.nextInt(3)));chest.setItem(slot++,new ItemStack(Items.TORCH,2+r.nextInt(4)));chest.setItem(slot++,new ItemStack(Items.BREAD,1+r.nextInt(2)));chest.setItem(slot++,new ItemStack(Items.GOLD_NUGGET,1+r.nextInt(3)));}
             else{boolean goldIngot=r.nextBoolean();chest.setItem(slot++,new ItemStack(goldIngot?Items.GOLD_INGOT:Items.GOLD_NUGGET,goldIngot?2+r.nextInt(3):5+r.nextInt(5)));chest.setItem(slot++,new ItemStack(Items.AMETHYST_SHARD,2+r.nextInt(3)));chest.setItem(slot++,new ItemStack(Items.IRON_INGOT,1+r.nextInt(2)));}
             if(r.nextFloat()<.3F)chest.setItem(slot,new ItemStack(ModItems.ANCIENT_COIN.get(),index==0?1+r.nextInt(2):1));chest.setChanged();
