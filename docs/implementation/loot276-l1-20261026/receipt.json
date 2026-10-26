@@ -1,0 +1,18 @@
+{
+  "version": "2.0.3-HELL",
+  "baseline": "fe3d2752318ed40a00fbfdd79cf050a2b3c99c4b",
+  "build": "Java21 clean build --no-build-cache PASS 1m16s",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.3-HELL.jar",
+  "sha256": "9fe6b227c8737777fa39903f2a840920287a2740070bc03eaa9494d58bc724d8",
+  "resources": 8015,
+  "classes": 1949,
+  "offline_checks": 1760,
+  "actual_native_layouts": 60000,
+  "monte_carlo_samples": 120000,
+  "samples_per_type": 20000,
+  "game_launches": 0,
+  "runtime": "NOT_RUN / OWNER_PENDING",
+  "polymc": "POLYMC_NOT_INSTALLED; installed2.0.2 untouched",
+  "issue276": "OPEN",
+  "main_remote_observed": "26e73424f16ae703e9a9b75fe432731663d30e05"
+}

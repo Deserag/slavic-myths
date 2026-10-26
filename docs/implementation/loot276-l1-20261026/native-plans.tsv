@@ -1,0 +1,45 @@
+K	0	10005	kurgan/burial=1,kurgan/common_cache=1,kurgan/secret=1	kurgan/common_cache=1,kurgan/secret=1,rewards276/kurgan_1_main=1
+K	0	9995	kurgan/burial=1,kurgan/common_cache=2	kurgan/common_cache=2,rewards276/kurgan_1_main=1
+K	1	20000	kurgan/burial=2,kurgan/common_cache=2,kurgan/secret=2,kurgan/treasury=2,kurgan/warrior=1	kurgan/burial=1,kurgan/common_cache=2,kurgan/secret=2,kurgan/treasury=2,kurgan/warrior=1,rewards276/kurgan_2_main=1
+K	2	3187	kurgan/burial=2,kurgan/common_cache=3,kurgan/great_special=1,kurgan/ritual=1,kurgan/secret=3,kurgan/treasury=2,kurgan/warrior=1	rewards276/kurgan_3_burial=2,rewards276/kurgan_3_common_cache=3,rewards276/kurgan_3_main=1,rewards276/kurgan_3_ritual=1,rewards276/kurgan_3_secret=3,rewards276/kurgan_3_treasury=2,rewards276/kurgan_3_warrior=1
+K	2	9553	kurgan/burial=2,kurgan/common_cache=4,kurgan/great_special=1,kurgan/ritual=1,kurgan/secret=3,kurgan/treasury=2	rewards276/kurgan_3_burial=2,rewards276/kurgan_3_common_cache=4,rewards276/kurgan_3_main=1,rewards276/kurgan_3_ritual=1,rewards276/kurgan_3_secret=3,rewards276/kurgan_3_treasury=2
+K	2	446	kurgan/burial=2,kurgan/common_cache=5,kurgan/great_special=1,kurgan/ritual=1,kurgan/secret=4,kurgan/treasury=2,kurgan/warrior=2	rewards276/kurgan_3_burial=2,rewards276/kurgan_3_common_cache=5,rewards276/kurgan_3_main=1,rewards276/kurgan_3_ritual=1,rewards276/kurgan_3_secret=4,rewards276/kurgan_3_treasury=2,rewards276/kurgan_3_warrior=2
+K	2	2736	kurgan/burial=2,kurgan/common_cache=6,kurgan/great_special=1,kurgan/ritual=1,kurgan/secret=4,kurgan/treasury=2,kurgan/warrior=1	rewards276/kurgan_3_burial=2,rewards276/kurgan_3_common_cache=6,rewards276/kurgan_3_main=1,rewards276/kurgan_3_ritual=1,rewards276/kurgan_3_secret=4,rewards276/kurgan_3_treasury=2,rewards276/kurgan_3_warrior=1
+K	2	4078	kurgan/burial=2,kurgan/common_cache=7,kurgan/great_special=1,kurgan/ritual=1,kurgan/secret=4,kurgan/treasury=2	rewards276/kurgan_3_burial=2,rewards276/kurgan_3_common_cache=7,rewards276/kurgan_3_main=1,rewards276/kurgan_3_ritual=1,rewards276/kurgan_3_secret=4,rewards276/kurgan_3_treasury=2
+R	bandit:canopy:camp:false	chests/bandit_small
+R	bandit:canopy:camp:true	chests/bandit_medium
+R	bandit:cart:camp:false	chests/bandit_small
+R	bandit:cart:camp:true	chests/bandit_medium
+R	bandit:leader:camp:false	chests/bandit_small
+R	bandit:leader:camp:true	rewards276/camp_2_main
+R	bandit:senior:camp:false	rewards276/camp_1_main
+R	bandit:senior:camp:true	chests/bandit_medium
+R	bandit:sleeping:camp:false	chests/bandit_small
+R	bandit:sleeping:camp:true	chests/bandit_medium
+R	bandit:storage_tent:camp:false	chests/bandit_small
+R	bandit:storage_tent:camp:true	chests/bandit_medium
+R	bandit:warehouse:camp:false	chests/bandit_small
+R	bandit:warehouse:camp:true	chests/bandit_medium
+R	bandit:warehouse:camp:false	chests/bandit_small
+R	bandit:warehouse:camp:true	chests/bandit_medium
+R	bandit:warehouse:camp:false	chests/bandit_small
+R	bandit:warehouse:camp:true	chests/bandit_medium
+R	stronghold:ataman_house:ataman	rewards276/camp_3_main
+R	stronghold:barracks_porch:barracks	chests/stronghold_barracks
+R	stronghold:barracks_side:barracks	chests/stronghold_barracks
+R	stronghold:cache_0:cache	rewards276/camp_3_cache
+R	stronghold:cache_1:cache	rewards276/camp_3_cache
+R	stronghold:commander:ataman	chests/stronghold_ataman
+R	stronghold:forge_closed:forge	chests/stronghold_forge
+R	stronghold:forge_open:forge	chests/stronghold_forge
+R	stronghold:kitchen:kitchen	chests/stronghold_kitchen
+R	stronghold:nightingale_yard:feather	chests/stronghold_feather
+R	stronghold:nightingale_yard:nightingale	chests/stronghold_nightingale
+R	stronghold:tower_open:barracks	chests/stronghold_barracks
+R	stronghold:tower_roof:barracks	chests/stronghold_barracks
+R	stronghold:tower_tall:barracks	chests/stronghold_barracks
+R	stronghold:utility:warehouse	chests/stronghold_warehouse
+R	stronghold:warehouse_long:warehouse	chests/stronghold_warehouse
+R	stronghold:warehouse_long:warehouse	chests/stronghold_warehouse
+R	stronghold:warehouse_square:warehouse	chests/stronghold_warehouse
+R	stronghold:warehouse_square:warehouse	chests/stronghold_warehouse

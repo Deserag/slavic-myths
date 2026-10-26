@@ -1,0 +1,21 @@
+{
+  "gradle.properties": "ee0849d4dc3d9ded9e7495181696338672e153aa9fe983517bc223833127c399",
+  "src/main/java/org/slavicmyths/bandit/CampPiece.java": "55325f2aa024dc6924151cd1c47bca51ce4ee991e2bad02fc2cf332135ee26d9",
+  "src/main/java/org/slavicmyths/bandit/LargeCampPiece.java": "6d7b6ceea88a4c9a98cb93cdd0aa1702fd47eb3a73a3918275715d7db5e4179a",
+  "src/main/java/org/slavicmyths/kurgan/KurganArchitecture.java": "04a9f2edd05fba2f3b12a7efe2c358b53f456b54bb0ed7c9ccdaae9749456df6",
+  "src/main/java/org/slavicmyths/loot/StructureRewards276.java": "52b04243941d6fc04909221a3773f41fafd233fe853c1eb7562608420fbda02f",
+  "src/main/resources/data/slavicmyths/loot_table/rewards276/camp_1_main.json": "502091600e3c79dc7a7ca907bf70447eab45b1673a0aacb562eb20e5245e36c7",
+  "src/main/resources/data/slavicmyths/loot_table/rewards276/camp_2_main.json": "86ea685125cf1cafa6509d0bb4b49767d8924e44f5895c09c5c5275c8539fc28",
+  "src/main/resources/data/slavicmyths/loot_table/rewards276/camp_3_cache.json": "7491d833a138a4d6a3b83c416ed25b17a21562bbeefa1796beb11f2f19e9965d",
+  "src/main/resources/data/slavicmyths/loot_table/rewards276/camp_3_main.json": "8101cbf7be8790c5c5b7df6feba5bb2d6ce99c3580cde697292687761df4c0a4",
+  "src/main/resources/data/slavicmyths/loot_table/rewards276/kurgan_1_main.json": "43516a868ffd4bc62a5d5bd829bf32740988d6ffc7f3da9a4c8e9328757c5381",
+  "src/main/resources/data/slavicmyths/loot_table/rewards276/kurgan_2_main.json": "b3324c262bf5b2a8357bfb0267ec38e52f1471d445d67e3a32755b7f17538c53",
+  "src/main/resources/data/slavicmyths/loot_table/rewards276/kurgan_3_burial.json": "352a8ba1dc93e5d6d707315a29fff7eb82d4ccfa60e7abe679f7be7bceaf84e1",
+  "src/main/resources/data/slavicmyths/loot_table/rewards276/kurgan_3_common_cache.json": "c0f5b7880ec9b8e9de1874adfa00685338c5a9198b970c5315d6a3d4b45c0d99",
+  "src/main/resources/data/slavicmyths/loot_table/rewards276/kurgan_3_great_special.json": "fc27842f8dc816be866a48ddd096d6ab76d3439af0384053325589b3d64731e7",
+  "src/main/resources/data/slavicmyths/loot_table/rewards276/kurgan_3_main.json": "cfc840d51b2f498d7fc7f7ce0b04ae8149cfc80592d0bd63fa20ac67791c2f9a",
+  "src/main/resources/data/slavicmyths/loot_table/rewards276/kurgan_3_ritual.json": "094743127b03fb243657acf90dd3251cccdf2115b51d036249fd584a9c202026",
+  "src/main/resources/data/slavicmyths/loot_table/rewards276/kurgan_3_secret.json": "fe241afd01f392fd14ff293041da1efd69b9b9c18aa86e81bb28d05c23b9dc01",
+  "src/main/resources/data/slavicmyths/loot_table/rewards276/kurgan_3_treasury.json": "4eeb10aac4aaa5e723bfa9a1911159acb63c999410b606bfeb9f031a4b4bb44e",
+  "src/main/resources/data/slavicmyths/loot_table/rewards276/kurgan_3_warrior.json": "4114d8f7eae6a26de3e5a2f4ca4fd81c4f3f2626e16f59004a1c5da508c889ab"
+}

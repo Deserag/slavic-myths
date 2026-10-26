@@ -177,7 +177,7 @@ final class KurganArchitecture {
   if(world.getBlockEntity(foot) instanceof RandomizableContainerBlockEntity tile){
    if(tile instanceof BurialCoffinTile coffin)coffin.natural(piece.id,Math.floorMod(r.id,4));
    tile.getPersistentData().putUUID("SlavicKurganContainer",piece.id);
-   tile.setLootTable(ResourceKey.create(Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath("slavicmyths","kurgan/"+r.loot)),plan.seed+r.id*31L+index);tile.setChanged();filled.add(key);
+   tile.setLootTable(ResourceKey.create(Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath("slavicmyths",org.slavicmyths.loot.StructureRewards276.kurgan(plan.tier,r.id==plan.finalRoom,index,r.loot))),plan.seed+r.id*31L+index);tile.setChanged();filled.add(key);
   }
  }
 }

@@ -1,0 +1,4407 @@
+{
+  "baseline": "fe3d2752318ed40a00fbfdd79cf050a2b3c99c4b",
+  "large_existing_rune_probability": 0.25117600000000007,
+  "large_supplemental_rune_probability": 0.13197226584618005,
+  "large_target_rune_probability": 0.35,
+  "capacity": "kurgan main max5 nonempty stacks; ordinary roles and camp containers unchanged",
+  "tables": {
+    "rewards276/kurgan_1_main": {
+      "type": "minecraft:chest",
+      "pools": [
+        {
+          "name": "slavicmyths:rewards276/materials_one",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_ingot",
+              "weight": 600,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 2,
+                    "max": 4
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_ingot",
+              "weight": 220,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:silver_ingot",
+              "weight": 150,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:diamond",
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/craftable_rune",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_strength",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_speed",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_resilience",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_heat",
+              "weight": 1
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.08
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/fragment",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_flight_fragment",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_rare_protection_fragment",
+              "weight": 1
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.04
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/equipment_one_result",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 100,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 100,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:unbreaking": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 100,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:sharpness": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 100,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:efficiency": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 100,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:power": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 100,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:feather_falling": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_sword",
+              "weight": 120,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:sharpness": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_axe",
+              "weight": 120,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:efficiency": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_helmet",
+              "weight": 120,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_chestplate",
+              "weight": 120,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_leggings",
+              "weight": 120,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_boots",
+              "weight": 120,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:sentry_armor_trim_smithing_template",
+              "weight": 120
+            },
+            {
+              "type": "minecraft:empty",
+              "weight": 4560
+            }
+          ]
+        }
+      ]
+    },
+    "rewards276/kurgan_2_main": {
+      "type": "minecraft:chest",
+      "pools": [
+        {
+          "name": "slavicmyths:rewards276/materials_one",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_ingot",
+              "weight": 400,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 3,
+                    "max": 6
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_ingot",
+              "weight": 300,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 2,
+                    "max": 4
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:silver_ingot",
+              "weight": 220,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:diamond",
+              "weight": 80,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/craftable_rune",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_strength",
+              "weight": 3
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_speed",
+              "weight": 3
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_resilience",
+              "weight": 3
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_heat",
+              "weight": 3
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_crushing",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_wind",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_blood",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_fortitude",
+              "weight": 1
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.25
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/perunite",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:perunite",
+              "weight": 1,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.12
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/fragment",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_flight_fragment",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_rare_protection_fragment",
+              "weight": 1
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.1
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/equipment_one_result",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:unbreaking": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:sharpness": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:efficiency": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:power": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:feather_falling": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_sword",
+              "weight": 220,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:sharpness": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_axe",
+              "weight": 220,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:efficiency": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_helmet",
+              "weight": 220,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_chestplate",
+              "weight": 220,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_leggings",
+              "weight": 220,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_boots",
+              "weight": 220,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:host_armor_trim_smithing_template",
+              "weight": 180
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:raiser_armor_trim_smithing_template",
+              "weight": 180
+            },
+            {
+              "type": "minecraft:empty",
+              "weight": 3120
+            }
+          ]
+        }
+      ]
+    },
+    "rewards276/kurgan_3_main": {
+      "type": "minecraft:chest",
+      "pools": [
+        {
+          "name": "slavicmyths:rewards276/materials_one",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_ingot",
+              "weight": 500,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 3,
+                    "max": 6
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:silver_ingot",
+              "weight": 350,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 2,
+                    "max": 4
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:diamond",
+              "weight": 150,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/craftable_rune",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_strength",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_speed",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_resilience",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_heat",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_crushing",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_wind",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_blood",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_fortitude",
+              "weight": 2
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.45
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/perunite",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:perunite",
+              "weight": 1,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.3
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/fragment",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_flight_fragment",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_rare_protection_fragment",
+              "weight": 1
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.18
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/equipment_one_result",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 300,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 3
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 300,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:unbreaking": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 3
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 300,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:sharpness": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 3
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 300,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:efficiency": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 3
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 300,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:power": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 3
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 300,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:feather_falling": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 3
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_sword",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:sharpness": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_axe",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:efficiency": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_helmet",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_chestplate",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_leggings",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_boots",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:shaper_armor_trim_smithing_template",
+              "weight": 240
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:wayfinder_armor_trim_smithing_template",
+              "weight": 240
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:netherite_scrap",
+              "weight": 900
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:diamond_helmet",
+              "weight": 45,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": 2
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:diamond_chestplate",
+              "weight": 45,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": 2
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:diamond_leggings",
+              "weight": 45,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": 2
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:diamond_boots",
+              "weight": 45,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": 2
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:empty",
+              "weight": 1440
+            }
+          ]
+        }
+      ]
+    },
+    "rewards276/kurgan_3_burial": {
+      "type": "minecraft:chest",
+      "pools": [
+        {
+          "rolls": {
+            "type": "minecraft:uniform",
+            "min": 2,
+            "max": 5
+          },
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:pottery_fragment",
+              "weight": 12,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:old_arrowhead",
+              "weight": 10,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_nugget",
+              "weight": 12,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 2,
+                    "max": 7
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_nugget",
+              "weight": 6,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 4
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:grave_cloth_scrap",
+              "weight": 7
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_comb",
+              "weight": 5
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:old_buckle",
+              "weight": 5
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:bone",
+              "weight": 8,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_fibula",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_beads",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:lunula",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:grivna",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:grave_ward",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_carolingian_sword",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_spear",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_chekan",
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    "rewards276/kurgan_3_common_cache": {
+      "type": "minecraft:chest",
+      "pools": [
+        {
+          "rolls": {
+            "type": "minecraft:uniform",
+            "min": 2,
+            "max": 4
+          },
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:pottery_fragment",
+              "weight": 12,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:old_arrowhead",
+              "weight": 10,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_nugget",
+              "weight": 12,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 2,
+                    "max": 7
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_nugget",
+              "weight": 6,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 4
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:grave_cloth_scrap",
+              "weight": 7
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_comb",
+              "weight": 5
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:old_buckle",
+              "weight": 5
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:bone",
+              "weight": 8,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rewards276/kurgan_3_great_special": {
+      "type": "minecraft:chest",
+      "pools": [
+        {
+          "rolls": {
+            "type": "minecraft:uniform",
+            "min": 3,
+            "max": 6
+          },
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_fibula",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_beads",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:lunula",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:grivna",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:grave_ward",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_carolingian_sword",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_spear",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_chekan",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:shield_boss_fragment",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:druzhinnik_blade_fragment",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:old_arrowhead",
+              "weight": 10,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 2,
+                    "max": 4
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_spear",
+              "weight": 3
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_chekan",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_carolingian_sword",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_nugget",
+              "weight": 14,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 3,
+                    "max": 8
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_fibula",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_beads",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:grivna",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:lunula",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:old_buckle",
+              "weight": 5
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_ingot",
+              "weight": 4,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rewards276/kurgan_3_ritual": {
+      "type": "minecraft:chest",
+      "pools": [
+        {
+          "rolls": {
+            "type": "minecraft:uniform",
+            "min": 2,
+            "max": 5
+          },
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:pottery_fragment",
+              "weight": 12,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:old_arrowhead",
+              "weight": 10,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_nugget",
+              "weight": 12,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 2,
+                    "max": 7
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_nugget",
+              "weight": 6,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 4
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:grave_cloth_scrap",
+              "weight": 7
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_comb",
+              "weight": 5
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:old_buckle",
+              "weight": 5
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:bone",
+              "weight": 8,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:torn_burial_ribbon",
+              "weight": 10
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:nav_essence",
+              "weight": 4
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:volkhv_amulet",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:grave_ward",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:lunula",
+              "weight": 2
+            }
+          ]
+        }
+      ]
+    },
+    "rewards276/kurgan_3_secret": {
+      "type": "minecraft:chest",
+      "pools": [
+        {
+          "rolls": {
+            "type": "minecraft:uniform",
+            "min": 2,
+            "max": 4
+          },
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_fibula",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_beads",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:lunula",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:grivna",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:grave_ward",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_carolingian_sword",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_spear",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_chekan",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:torn_burial_ribbon",
+              "weight": 10
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:nav_essence",
+              "weight": 4
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:volkhv_amulet",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:grave_ward",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:lunula",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_nugget",
+              "weight": 14,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 3,
+                    "max": 8
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_fibula",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_beads",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:grivna",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:lunula",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:old_buckle",
+              "weight": 5
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_ingot",
+              "weight": 4,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rewards276/kurgan_3_treasury": {
+      "type": "minecraft:chest",
+      "pools": [
+        {
+          "rolls": {
+            "type": "minecraft:uniform",
+            "min": 4,
+            "max": 7
+          },
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_nugget",
+              "weight": 14,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 3,
+                    "max": 8
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_fibula",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_beads",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:grivna",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:lunula",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:old_buckle",
+              "weight": 5
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_ingot",
+              "weight": 4,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rewards276/kurgan_3_warrior": {
+      "type": "minecraft:chest",
+      "pools": [
+        {
+          "rolls": {
+            "type": "minecraft:uniform",
+            "min": 2,
+            "max": 5
+          },
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:pottery_fragment",
+              "weight": 12,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:old_arrowhead",
+              "weight": 10,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_nugget",
+              "weight": 12,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 2,
+                    "max": 7
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_nugget",
+              "weight": 6,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 4
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:grave_cloth_scrap",
+              "weight": 7
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_comb",
+              "weight": 5
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:old_buckle",
+              "weight": 5
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:bone",
+              "weight": 8,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:shield_boss_fragment",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:druzhinnik_blade_fragment",
+              "weight": 8
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:old_arrowhead",
+              "weight": 10,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 2,
+                    "max": 4
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_spear",
+              "weight": 3
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_chekan",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_carolingian_sword",
+              "weight": 2
+            }
+          ]
+        }
+      ]
+    },
+    "rewards276/camp_1_main": {
+      "type": "minecraft:chest",
+      "pools": [
+        {
+          "name": "slavicmyths:rewards276/original_once",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:loot_table",
+              "value": "slavicmyths:chests/bandit_small"
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/materials_one",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_ingot",
+              "weight": 650,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_ingot",
+              "weight": 150
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:silver_ingot",
+              "weight": 180
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:diamond",
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/craftable_rune",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_strength",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_speed",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_resilience",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_heat",
+              "weight": 1
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.05
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/fragment",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_flight_fragment",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_rare_protection_fragment",
+              "weight": 1
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.03
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/equipment_one_result",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 80,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 80,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:unbreaking": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 80,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:sharpness": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 80,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:efficiency": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 80,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:power": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 80,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:feather_falling": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_sword",
+              "weight": 100,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:sharpness": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_axe",
+              "weight": 100,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:efficiency": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_helmet",
+              "weight": 100,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_chestplate",
+              "weight": 100,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_leggings",
+              "weight": 100,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_boots",
+              "weight": 100,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:empty",
+              "weight": 4920
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/supplies",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:organic_fertilizer",
+              "weight": 3,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:cooked_beef",
+              "weight": 3,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 2,
+                    "max": 4
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:torch",
+              "weight": 3,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 4,
+                    "max": 8
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.3
+            }
+          ]
+        }
+      ]
+    },
+    "rewards276/camp_2_main": {
+      "type": "minecraft:chest",
+      "pools": [
+        {
+          "name": "slavicmyths:rewards276/original_once",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:loot_table",
+              "value": "slavicmyths:chests/bandit_medium"
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/materials_one",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_ingot",
+              "weight": 500,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 2,
+                    "max": 4
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_ingot",
+              "weight": 220,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:silver_ingot",
+              "weight": 220,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:diamond",
+              "weight": 60
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/craftable_rune",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_strength",
+              "weight": 3
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_speed",
+              "weight": 3
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_resilience",
+              "weight": 3
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_heat",
+              "weight": 3
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.2
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/perunite",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:perunite",
+              "weight": 1,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.08
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/fragment",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_flight_fragment",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_rare_protection_fragment",
+              "weight": 1
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.08
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/equipment_one_result",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 160,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 160,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:unbreaking": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 160,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:sharpness": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 160,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:efficiency": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 160,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:power": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 160,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:feather_falling": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_sword",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:sharpness": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_axe",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:efficiency": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_helmet",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_chestplate",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_leggings",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_boots",
+              "weight": 200,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:empty",
+              "weight": 3840
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/supplies",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:organic_fertilizer",
+              "weight": 3,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:cooked_beef",
+              "weight": 3,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 2,
+                    "max": 4
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:torch",
+              "weight": 3,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 4,
+                    "max": 8
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:golden_apple",
+              "weight": 1
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.45
+            }
+          ]
+        }
+      ]
+    },
+    "rewards276/camp_3_main": {
+      "type": "minecraft:chest",
+      "pools": [
+        {
+          "name": "slavicmyths:rewards276/original_once",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:loot_table",
+              "value": "slavicmyths:chests/stronghold_ataman"
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/materials_one",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_ingot",
+              "weight": 380,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:silver_ingot",
+              "weight": 500,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:diamond",
+              "weight": 120,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/craftable_rune",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_strength",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_speed",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_resilience",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_heat",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_crushing",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_wind",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_blood",
+              "weight": 2
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_fortitude",
+              "weight": 2
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.13197226584618005
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/perunite",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:perunite",
+              "weight": 1,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.25
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/fragment",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_flight_fragment",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_rare_protection_fragment",
+              "weight": 1
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.12
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/equipment_one_result",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 250,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 3
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 250,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:unbreaking": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 3
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 250,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:sharpness": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 3
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 250,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:efficiency": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 3
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 250,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:power": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 3
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:book",
+              "weight": 250,
+              "functions": [
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:feather_falling": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 3
+                    }
+                  },
+                  "add": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_sword",
+              "weight": 250,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:sharpness": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_axe",
+              "weight": 250,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:efficiency": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_helmet",
+              "weight": 250,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_chestplate",
+              "weight": 250,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_leggings",
+              "weight": 250,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_boots",
+              "weight": 250,
+              "functions": [
+                {
+                  "function": "minecraft:set_damage",
+                  "damage": {
+                    "type": "minecraft:uniform",
+                    "min": 0.35,
+                    "max": 0.85
+                  },
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.6
+                    }
+                  ]
+                },
+                {
+                  "function": "minecraft:set_enchantments",
+                  "enchantments": {
+                    "minecraft:protection": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  },
+                  "add": false,
+                  "conditions": [
+                    {
+                      "condition": "minecraft:random_chance",
+                      "chance": 0.35
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:empty",
+              "weight": 3000
+            }
+          ]
+        },
+        {
+          "name": "slavicmyths:rewards276/supplies",
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:organic_fertilizer",
+              "weight": 3,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:cooked_beef",
+              "weight": 3,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 2,
+                    "max": 4
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:torch",
+              "weight": 3,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 4,
+                    "max": 8
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:golden_apple",
+              "weight": 1
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    "rewards276/camp_3_cache": {
+      "type": "minecraft:chest",
+      "pools": [
+        {
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_ingot",
+              "weight": 1,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "min": 3,
+                    "max": 9
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.7
+            }
+          ]
+        },
+        {
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:gold_ingot",
+              "weight": 1,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "min": 2,
+                    "max": 6
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.45
+            }
+          ]
+        },
+        {
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:silver_ingot",
+              "weight": 1,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "min": 2,
+                    "max": 7
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.45
+            }
+          ]
+        },
+        {
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:diamond",
+              "weight": 1,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 1
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.004
+            }
+          ]
+        },
+        {
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:emerald",
+              "weight": 1,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "min": 2,
+                    "max": 7
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.35
+            }
+          ]
+        },
+        {
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:ancient_coin",
+              "weight": 1,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "min": 4,
+                    "max": 14
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_strength",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_speed",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_resilience",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_heat",
+              "weight": 1
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.2
+            }
+          ]
+        },
+        {
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_strength",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_speed",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_resilience",
+              "weight": 1
+            },
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:rune_heat",
+              "weight": 1
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.06
+            }
+          ]
+        },
+        {
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:veles_amulet",
+              "weight": 1,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "min": 1,
+                    "max": 1
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.1
+            }
+          ]
+        },
+        {
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:resin_ring",
+              "weight": 1,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "min": 1,
+                    "max": 1
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.12
+            }
+          ]
+        },
+        {
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:depth_amulet",
+              "weight": 1,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "min": 1,
+                    "max": 1
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.08
+            }
+          ]
+        },
+        {
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "slavicmyths:silver_mace",
+              "weight": 1,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "min": 1,
+                    "max": 1
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.05
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "rune_strength": {
+    "tier": 1,
+    "recipes": [
+      "src\\main\\resources\\data\\slavicmyths\\recipe\\rune_rework_strength.json"
+    ],
+    "source": "rpg/RuneBalance.java + RuneRework.java + RuneRuntime.java"
+  },
+  "rune_speed": {
+    "tier": 1,
+    "recipes": [
+      "src\\main\\resources\\data\\slavicmyths\\recipe\\rune_rework_speed.json"
+    ],
+    "source": "rpg/RuneBalance.java + RuneRework.java + RuneRuntime.java"
+  },
+  "rune_resilience": {
+    "tier": 1,
+    "recipes": [
+      "src\\main\\resources\\data\\slavicmyths\\recipe\\rune_rework_resilience.json"
+    ],
+    "source": "rpg/RuneBalance.java + RuneRework.java + RuneRuntime.java"
+  },
+  "rune_heat": {
+    "tier": 1,
+    "recipes": [
+      "src\\main\\resources\\data\\slavicmyths\\recipe\\rune_rework_heat.json"
+    ],
+    "source": "rpg/RuneBalance.java + RuneRework.java + RuneRuntime.java"
+  },
+  "rune_crushing": {
+    "tier": 2,
+    "recipes": [
+      "src\\main\\resources\\data\\slavicmyths\\recipe\\rune_rework_crushing.json"
+    ],
+    "source": "rpg/RuneBalance.java + RuneRework.java + RuneRuntime.java"
+  },
+  "rune_wind": {
+    "tier": 2,
+    "recipes": [
+      "src\\main\\resources\\data\\slavicmyths\\recipe\\rune_rework_wind.json"
+    ],
+    "source": "rpg/RuneBalance.java + RuneRework.java + RuneRuntime.java"
+  },
+  "rune_blood": {
+    "tier": 2,
+    "recipes": [
+      "src\\main\\resources\\data\\slavicmyths\\recipe\\rune_rework_blood.json"
+    ],
+    "source": "rpg/RuneBalance.java + RuneRework.java + RuneRuntime.java"
+  },
+  "rune_fortitude": {
+    "tier": 2,
+    "recipes": [
+      "src\\main\\resources\\data\\slavicmyths\\recipe\\rune_rework_fortitude.json"
+    ],
+    "source": "rpg/RuneBalance.java + RuneRework.java + RuneRuntime.java"
+  },
+  "rune_flight_fragment": {
+    "recipe": "src\\main\\resources\\data\\slavicmyths\\recipe\\rare_rune_restore_flight.json",
+    "role": "ingredient, not a whole rune",
+    "limits": "flight100ticks/CD900, boots only",
+    "source": "rpg/RareRunes.java;RareRuneRuntime.java;RareRuneRules.java"
+  },
+  "rune_rare_protection_fragment": {
+    "recipe": "src\\main\\resources\\data\\slavicmyths\\recipe\\rare_rune_restore_rare_protection.json",
+    "role": "ingredient, not a whole rune",
+    "limits": "rare_protection400ticks/CD1200, chestplate only; bounded charges",
+    "source": "rpg/RareRunes.java;RareRuneRuntime.java;RareRuneRules.java"
+  }
+}
