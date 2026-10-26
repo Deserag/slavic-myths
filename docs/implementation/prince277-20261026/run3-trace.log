@@ -1,0 +1,24 @@
+outside24 time=42 pos=(739252.1095482999, -58.0, 1.36327255E7) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+hidden20 time=46 pos=(739422.0577180411, -58.0, 1.36327255E7) hp=348.24 phase=0 action=IDLE target=false guard=false navDone=true inside=true
+guard39 time=70 pos=(739507.6457827551, -58.0, 1.363272581267999E7) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+outside24 time=82 pos=(739252.6850202243, -58.0, 1.3632725823581371E7) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+phase2 time=92 pos=(739338.9953143797, -58.0, 1.3632729050544308E7) hp=90.0 phase=2 action=HEAVY target=true guard=false navDone=true inside=true
+outside24 time=142 pos=(739252.6850202243, -58.0, 1.3632725823581371E7) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+outside24 time=202 pos=(739252.6850202243, -58.0, 1.3632725823581371E7) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+outside24 time=42 pos=(-3816463.848863153, -58.0, -1428086.1582891364) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+hidden20 time=42 pos=(-3816378.040857684, -58.0, -1428086.0289388124) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=false inside=true
+guard39 time=79 pos=(-3816204.995435926, -58.0, -1428086.0037917618) hp=348.24 phase=0 action=IDLE target=true guard=true navDone=false inside=true
+outside24 time=82 pos=(-3816457.800863716, -58.0, -1428086.001696913) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=false inside=true
+phase2 time=101 pos=(-3816294.957122042, -58.0, -1428086.9023420191) hp=102.0 phase=2 action=HEAVY target=true guard=false navDone=true inside=true
+outside24 time=142 pos=(-3816455.2334616496, -58.0, -1428086.0005109594) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+outside24 time=202 pos=(-3816455.2334616496, -58.0, -1428086.0005109594) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+outside24 time=42 pos=(-3044682.848863153, -58.0, 9849411.841710864) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+hidden20 time=42 pos=(-3044597.040857684, -58.0, 9849411.971061187) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=false inside=true
+guard39 time=68 pos=(-3044083.995435926, -58.0, 9849411.996208232) hp=348.24 phase=0 action=IDLE target=true guard=true navDone=false inside=true
+outside24 time=82 pos=(-3044676.800863716, -58.0, 9849411.998303084) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=false inside=true
+phase2 time=92 pos=(-3044513.957122042, -58.0, 9849411.097657979) hp=102.0 phase=2 action=HEAVY target=true guard=false navDone=true inside=true
+range16.0 door=false time=132 pos=(-3044419.447401622, -58.0, 9849411.85384339) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+range8.0 door=false time=132 pos=(-3044338.6049727844, -58.0, 9849411.74917177) hp=348.24 phase=0 action=IDLE target=false guard=false navDone=true inside=true
+range28.0 door=true time=132 pos=(-3044164.3422542596, -58.0, 9849411.99963489) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+outside24 time=142 pos=(-3044674.2334616496, -58.0, 9849411.999489037) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+outside24 time=202 pos=(-3044674.2334616496, -58.0, 9849411.999489037) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true

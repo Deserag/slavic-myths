@@ -1,0 +1,111 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compilePrince277CheckJava
+> Task :downloadAssets UP-TO-DATE
+> Task :writePrince277ChecksLegacyClasspath UP-TO-DATE
+> Task :preparePrince277ChecksRun UP-TO-DATE
+> Task :processPrince277CheckResources UP-TO-DATE
+> Task :prince277CheckClasses
+
+> Task :runPrince277Checks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[08:49:01] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[08:49:01] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[08:49:01] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[08:49:01] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[08:49:01] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[08:49:02] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[08:49:02] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 2.0.1-HELL (slavicmyths)
+[08:49:03] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[08:49:03] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[08:49:03] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[08:49:03] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[08:49:04] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[08:49:04] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[08:49:09] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:49:09] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:49:09] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[08:49:09] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[08:49:09] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:49:09] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[08:49:11] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[08:49:11] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[08:49:11] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[08:49:11] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_prince277]
+[08:49:13] [main/INFO] [minecraft/RecipeManager]: Loaded 1854 recipes
+[08:49:13] [main/INFO] [minecraft/AdvancementTree]: Loaded 1644 advancements
+[08:49:13] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[08:49:13] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[08:49:14] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[08:49:14] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[08:49:14] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 129 ms
+[08:49:14] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[08:49:14] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[08:49:14] [Server thread/INFO] [minecraft/GameTestServer]: 8 tests are now running at position -3044719, -59, 9849376!
+[08:49:16] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (8 tests)...
+[08:49:16] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 2163ms or 43 ticks behind
+[08:49:17] [Server thread/INFO] [minecraft/GameTestServer]: [        ]
+[08:49:17] [Server thread/INFO] [minecraft/MinecraftServer]: Prince277 has made the advancement [Take Aim]
+[08:49:17] [Server thread/INFO] [minecraft/MinecraftServer]: Prince277 has made the advancement [Take Aim]
+[08:49:17] [Server thread/INFO] [minecraft/MinecraftServer]: Prince277 has made the advancement [Take Aim]
+[08:49:17] [Server thread/INFO] [minecraft/MinecraftServer]: Prince277 has made the advancement [Take Aim]
+PRINCE277 guarded damage=0.4607849
+[08:49:18] [Server thread/INFO] [minecraft/MinecraftServer]: Prince277 has made the advancement [Take Aim]
+[08:49:18] [Server thread/INFO] [minecraft/MinecraftServer]: Prince277 has made the advancement [Take Aim]
+[08:49:18] [Server thread/INFO] [minecraft/MinecraftServer]: Prince277 has made the advancement [Take Aim]
+[08:49:18] [Server thread/INFO] [minecraft/MinecraftServer]: Prince277 has made the advancement [Take Aim]
+[08:49:18] [Server thread/INFO] [minecraft/MinecraftServer]: Prince277 has made the advancement [Take Aim]
+[08:49:18] [Server thread/INFO] [minecraft/GameTestServer]: [________]
+PRINCE277 outside24 time=42 pos=(-3044682.848863153, -58.0, 9849411.841710864) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+PRINCE277 hidden20 time=42 pos=(-3044597.040857684, -58.0, 9849411.971061187) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=false inside=true
+[08:49:18] [Server thread/INFO] [minecraft/GameTestServer]: [_+___+__]
+PRINCE277 guard39 time=68 pos=(-3044083.995435926, -58.0, 9849411.996208232) hp=348.24 phase=0 action=IDLE target=true guard=true navDone=false inside=true
+[08:49:18] [Server thread/INFO] [minecraft/MinecraftServer]: Prince277 was slain by Unresting Prince
+[08:49:18] [Server thread/INFO] [minecraft/GameTestServer]: [_+___+_+]
+PRINCE277 outside24 time=82 pos=(-3044676.800863716, -58.0, 9849411.998303084) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=false inside=true
+[08:49:18] [Server thread/INFO] [minecraft/MinecraftServer]: Prince277 was slain by Unresting Prince
+PRINCE277 phase2 time=92 pos=(-3044513.957122042, -58.0, 9849411.097657979) hp=102.0 phase=2 action=HEAVY target=true guard=false navDone=true inside=true
+[08:49:18] [Server thread/INFO] [minecraft/GameTestServer]: [_++__+_+]
+[08:49:18] [Server thread/INFO] [minecraft/GameTestServer]: [_++__+_+]
+PRINCE277 range16.0 door=false time=132 pos=(-3044419.447401622, -58.0, 9849411.85384339) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+PRINCE277 range8.0 door=false time=132 pos=(-3044338.6049727844, -58.0, 9849411.74917177) hp=348.24 phase=0 action=IDLE target=false guard=false navDone=true inside=true
+PRINCE277 range28.0 door=true time=132 pos=(-3044164.3422542596, -58.0, 9849411.99963489) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+[08:49:18] [Server thread/INFO] [minecraft/GameTestServer]: [_+++++++]
+PRINCE277 outside24 time=142 pos=(-3044674.2334616496, -58.0, 9849411.999489037) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+[08:49:18] [Server thread/INFO] [minecraft/GameTestServer]: [_+++++++]
+[08:49:18] [Server thread/INFO] [minecraft/GameTestServer]: [_+++++++]
+[08:49:18] [Server thread/INFO] [minecraft/GameTestServer]: [_+++++++]
+PRINCE277 outside24 time=202 pos=(-3044674.2334616496, -58.0, 9849411.999489037) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+[08:49:18] [Server thread/INFO] [minecraft/GameTestServer]: [_+++++++]
+[08:49:18] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++]
+[08:49:18] [Server thread/INFO] [minecraft/GameTestServer]: ========= 8 GAME TESTS COMPLETE IN 4.424 s ======================
+[08:49:18] [Server thread/INFO] [minecraft/GameTestServer]: All 8 required tests passed :)
+[08:49:18] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[08:49:18] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[08:49:18] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[08:49:18] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[08:49:19] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[08:49:20] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[08:49:20] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[08:49:20] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[08:49:20] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[08:49:20] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[08:49:20] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[08:49:20] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+BUILD SUCCESSFUL in 34s
+10 actionable tasks: 3 executed, 7 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

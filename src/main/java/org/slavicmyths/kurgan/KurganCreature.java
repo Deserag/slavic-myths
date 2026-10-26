@@ -76,7 +76,17 @@ public final class KurganCreature extends Monster {
         if(!level().isClientSide&&guarding()&&frontal&&!source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_INVULNERABILITY)&&!source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_ARMOR)){
             damage*=kind==Kind.DRUZHINNIK?.4F:.3F;blocks++;if(blocks>=3){blocks=0;riposte=true;}
             cue(kind==Kind.VOEVODA?"shield_impact":"shield_block");
-        }return super.hurt(source,damage);
+        }
+        boolean accepted=super.hurt(source,damage);
+        // A confirmed hit supplies the same finite last-known-position memory as sight.
+        // HurtByTargetGoal alone can acquire an unseen attacker with memory still zero.
+        if(accepted&&!level().isClientSide&&kind==Kind.PRINCE&&source.getEntity() instanceof LivingEntity attacker
+            &&attacker.level()==level()&&attacker.isAlive()&&canAttack(attacker)&&!isAlliedTo(attacker)
+            &&!(attacker instanceof Player player&&(player.isCreative()||player.isSpectator()))
+            &&distanceToSqr(attacker)<=getAttributeValue(Attributes.FOLLOW_RANGE)*getAttributeValue(Attributes.FOLLOW_RANGE)){
+            setTarget(attacker);lastSeen=attacker.blockPosition();memory=120;
+        }
+        return accepted;
     }
     private boolean ready(Move m){return cooldowns.getOrDefault(m,0)<=0;}
     private void begin(Move move,LivingEntity target){entityData.set(ACTION,move.ordinal());entityData.set(START,(int)level().getGameTime());actionTick=0;alignWait=0;dashHit=false;entityData.set(GUARD,false);navigation.stop();aim=target.position().subtract(position()).multiply(1,0,1).normalize();sealTarget=target.blockPosition();cooldowns.put(move,move.cooldown);
@@ -101,6 +111,17 @@ public final class KurganCreature extends Monster {
         return distance<3.3&&basicWait<=0?Move.COMBO:Move.IDLE;
     }
     private boolean allowed(Vec3 pos){if(kurgan==null)return true;KurganInstance i=BurialRecords.get((ServerLevel)level()).instances.get(kurgan);if(i==null)return true;BlockPos p=BlockPos.containing(pos);return kind==Kind.PRINCE?i.plan.rooms.get(i.plan.finalRoom).box().contains(p.getX()-i.origin.getX(),p.getY()-i.origin.getY(),p.getZ()-i.origin.getZ()):i.contains(p);}
+    private Vec3 arenaApproach(Vec3 destination){
+        if(kind!=Kind.PRINCE||kurgan==null||allowed(destination))return destination;
+        KurganInstance instance=BurialRecords.get((ServerLevel)level()).instances.get(kurgan);if(instance==null)return destination;
+        KurganPlan.Room arena=instance.plan.rooms.get(instance.plan.finalRoom);
+        // Aim at the inner edge toward the attacker, rather than retreating home.
+        // Normal navigation still resolves walls; neither the leash nor geometry changes.
+        double inset=getBbWidth()*.5;
+        return new Vec3(Mth.clamp(destination.x,instance.origin.getX()+arena.x-arena.rx+1+inset,instance.origin.getX()+arena.x+arena.rx-inset),
+            Mth.clamp(destination.y,instance.origin.getY()+arena.y+1,instance.origin.getY()+arena.y+arena.height+1-getBbHeight()),
+            Mth.clamp(destination.z,instance.origin.getZ()+arena.z-arena.rz+1+inset,instance.origin.getZ()+arena.z+arena.rz-inset));
+    }
     private void dash(){Vec3 next=position().add(aim.scale(.75));if(allowed(next)){setDeltaMovement(aim.scale(kind==Kind.UPYR?.72:.65).add(0,getDeltaMovement().y,0));hasImpulse=true;}}
     private boolean strike(LivingEntity target,float damage,double reach,double cone,boolean bash){if(!target.isAlive()||distanceTo(target)>reach||!getSensing().hasLineOfSight(target))return false;Vec3 direction=target.position().subtract(position()).multiply(1,0,1).normalize();if(aim.dot(direction)<cone)return false;
         if(bash&&target instanceof Player&&target.isBlocking()){((Player)target).getCooldowns().addCooldown(Items.SHIELD,60);target.stopUsingItem();}
@@ -156,7 +177,10 @@ public final class KurganCreature extends Monster {
             }
             double distance=distanceTo(target);Move selected=choose(distance,sight);if(selected!=Move.IDLE){begin(selected,target);return;}
             lookControl.setLookAt(target,35,35);
-            boolean shield=(kind==Kind.DRUZHINNIK||kind==Kind.VOEVODA||kind==Kind.PRINCE)&&distance<6&&(tickCount%36<(phase()>0?6:12));entityData.set(GUARD,shield);
+            DamageSource recent=getLastDamageSource();
+            boolean rangedGuard=kind==Kind.PRINCE&&sight&&recent!=null&&recent.getEntity()==target
+                &&recent.is(net.minecraft.tags.DamageTypeTags.IS_PROJECTILE)&&distance<=getAttributeValue(Attributes.FOLLOW_RANGE);
+            boolean shield=(kind==Kind.DRUZHINNIK||kind==Kind.VOEVODA||kind==Kind.PRINCE)&&(distance<6||rangedGuard)&&(tickCount%36<(phase()>0?6:12));entityData.set(GUARD,shield);
             if(tickCount%8==0){Vec3 destination=lastSeen==null?target.position():new Vec3(lastSeen.getX()+.5,lastSeen.getY(),lastSeen.getZ()+.5);
                 if(kind==Kind.VOLKHV&&distance<5){Vec3 away=position().subtract(target.position()).multiply(1,0,1).normalize();BlockPos retreat=KurganEncounters.safePosition(KurganCreature.this,position().add(away.scale(3)),true);if(retreat!=null)destination=new Vec3(retreat.getX()+.5,retreat.getY(),retreat.getZ()+.5);}
                 else if(kind==Kind.NAV&&distance<6)destination=destination.add(Math.sin(tickCount*.12)*1.5,0,Math.cos(tickCount*.12)*1.5);
@@ -166,6 +190,7 @@ public final class KurganCreature extends Monster {
                     BlockPos spaced=KurganEncounters.safePosition(KurganCreature.this,destination.add(-forward.z*offset,0,forward.x*offset),false);
                     if(spaced!=null)destination=new Vec3(spaced.getX()+.5,spaced.getY(),spaced.getZ()+.5);
                 }
+                destination=arenaApproach(destination);
                 if(allowed(destination))navigation.moveTo(destination.x,destination.y,destination.z,phase()>0?1.12:1.0);else if(home!=null)navigation.moveTo(home.getX()+.5,home.getY(),home.getZ()+.5,1);
             }
         }

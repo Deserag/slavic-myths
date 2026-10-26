@@ -1,0 +1,24 @@
+{
+  "checks": [
+    "production changes only KurganCreature; #278/#284 and all armor/resources unchanged",
+    "unchanged private Move choose(",
+    "unchanged private void begin(",
+    "unchanged private boolean allowed(",
+    "unchanged private void dash(",
+    "unchanged private boolean strike(",
+    "unchanged private void release(",
+    "unchanged private void reposition(",
+    "unchanged public void addAdditionalSaveData(",
+    "unchanged public void readAdditionalSaveData(",
+    "unchanged public void die(",
+    "unchanged public void tick(",
+    "existing memory, path cadence, guard cadence retained",
+    "all test code/templates excluded from production JAR",
+    "production AI packaged"
+  ],
+  "count": 15,
+  "base_commit": "1ef5dacef72da99b4914aef39e629fd396d5e00d",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.1-HELL.jar",
+  "sha256": "758d63ae17e256653823927ca7c0ff454c1563c6f07ec505cfe9fb457719ba9e",
+  "scope": "source/package only; native cases in run5.log"
+}

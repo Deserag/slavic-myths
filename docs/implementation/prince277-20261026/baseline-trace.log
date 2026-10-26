@@ -1,0 +1,7 @@
+outside24 time=42 pos=(739252.1095482999, -58.0, 1.36327255E7) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+hidden20 time=46 pos=(739422.0577180411, -58.0, 1.36327255E7) hp=348.24 phase=0 action=IDLE target=false guard=false navDone=true inside=true
+guard39 time=70 pos=(739507.6457827551, -58.0, 1.363272581267999E7) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+outside24 time=82 pos=(739252.6850202243, -58.0, 1.3632725823581371E7) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+phase2 time=92 pos=(739338.9953143797, -58.0, 1.3632729050544308E7) hp=90.0 phase=2 action=HEAVY target=true guard=false navDone=true inside=true
+outside24 time=142 pos=(739252.6850202243, -58.0, 1.3632725823581371E7) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true
+outside24 time=202 pos=(739252.6850202243, -58.0, 1.3632725823581371E7) hp=348.24 phase=0 action=IDLE target=true guard=false navDone=true inside=true

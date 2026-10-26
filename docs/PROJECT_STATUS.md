@@ -1,3 +1,7 @@
+## 26.10.2026 — #277: реакция князя на дальние попадания, IN_PROGRESS / OWNER_PENDING
+
+Только KurganCreature: PRINCE запоминает допустимого attacker после принятого урона; target вне арены ведёт к внутреннему краю вместо home; видимый дальний projectile attacker разрешает прежние конечные окна guard. Stats/фазы/move release/leash/geometry/loot/save/остальные kinds не менялись. [Baseline3FAIL, финальные11/11 native GameTest, trace, source guards и owner checklist](implementation/prince277-20261026/REPORT.md). Пять изолированных server запусков,0клиентов; natural полный курган/реальный relog/network MP NOT_RUN. Java21 clean build,15source/package guards и8001resources PASS. #277 OPEN/«В работе», Project fields не менялись, POLYMC_NOT_INSTALLED. #278/#284/production броня сохранены; owner acceptance ожидается.
+
 ## 26.10.2026 — #287: native-аудит брони, IN_PROGRESS / OWNER_PENDING
 
 В hell проверены34 catalog IDs:22 ArmorItem/7 ClothingItem/4 ShieldItem/1 BeltItem. Production-код/ресурсы/баланс не менялись: доказанных дефектов в проверенных сценариях нет. [Каталог,14/14 GameTest, матрица ограничений и owner checklist](implementation/armor287-20261026/REPORT.md). Реальные четыре изолированных server запуска; client0. Native equip/remove/repeat,22 anvil calculations,6sets physical damage, selected unique/dragon effects PASS; полный trophy/charge/lightning/GUI/relog/MP NOT_RUN. Отдельный opt-in harness исключён из JAR. #287 OPEN, Project Status не менялся; POLYMC_NOT_INSTALLED. Следующая разрешённая часть — #277 отдельным коммитом, не готовый релиз цепочки.
