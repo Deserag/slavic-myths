@@ -1,0 +1,118 @@
+{
+  "bandit/CampPiece.java": [
+    {
+      "line": 61,
+      "text": "world.setBlock(pos,Blocks.BARREL.defaultBlockState(),2);if(world.getBlockEntity(pos) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity){net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity chest=(net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity)world.getBlockEntity(pos);chest.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath(\"slavicmyths\",org.slavicmyths.loot.StructureRewards276.camp(total>=7,name))),camp.getLeastSignificantBits()^pos.asLong());chest.getPersistentData().putBoolean(\"BanditLoot\",true);}return;"
+    }
+  ],
+  "bandit/LargeCampPiece.java": [
+    {
+      "line": 71,
+      "text": "if(parts[0].equals(\"loot\")){if(w.getBlockEntity(pos) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity existing&&(existing.getPersistentData().getBoolean(\"SlavicStrongholdLoot\")||existing.getLootTable()!=null||!existing.isEmpty()))return;w.setBlock(pos,Blocks.BARREL.defaultBlockState(),2);net.minecraft.world.level.block.entity.BlockEntity tile=w.getBlockEntity(pos);if(tile instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity container){container.getPersistentData().putBoolean(\"SlavicStrongholdLoot\",true);container.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath(\"slavicmyths\",org.slavicmyths.loot.StructureRewards276.stronghold(name,parts[1]))),camp.getLeastSignificantBits()^pos.asLong());}return;}"
+    }
+  ],
+  "depth/DeepPoolFeature.java": [
+    {
+      "line": 21,
+      "text": "BlockPos barrel=base.offset(4,6,4);w.setBlock(barrel,Blocks.BARREL.defaultBlockState(),2);if(w.getBlockEntity(barrel) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity)((net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity)w.getBlockEntity(barrel)).setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(\"slavicmyths\",\"chests/fishing_supplies\")),r.nextLong());return true;"
+    }
+  ],
+  "depths/DepthsService.java": [
+    {
+      "line": 237,
+      "text": "if(index==0){chest.setItem(slot++,new ItemStack(Items.IRON_INGOT,1+r.nextInt(3)));chest.setItem(slot++,new ItemStack(Items.TORCH,2+r.nextInt(4)));chest.setItem(slot++,new ItemStack(Items.BREAD,1+r.nextInt(2)));chest.setItem(slot++,new ItemStack(Items.GOLD_NUGGET,1+r.nextInt(3)));}"
+    },
+    {
+      "line": 238,
+      "text": "else{boolean goldIngot=r.nextBoolean();chest.setItem(slot++,new ItemStack(goldIngot?Items.GOLD_INGOT:Items.GOLD_NUGGET,goldIngot?2+r.nextInt(3):5+r.nextInt(5)));chest.setItem(slot++,new ItemStack(Items.AMETHYST_SHARD,2+r.nextInt(3)));chest.setItem(slot++,new ItemStack(Items.IRON_INGOT,1+r.nextInt(2)));}"
+    },
+    {
+      "line": 239,
+      "text": "if(r.nextFloat()<.3F)chest.setItem(slot,new ItemStack(ModItems.ANCIENT_COIN.get(),index==0?1+r.nextInt(2):1));chest.setChanged();"
+    }
+  ],
+  "gorodishche/CityPlacement.java": [
+    {
+      "line": 28,
+      "text": "for(var raw:saved.getList(\"blocks\",10)){var n=((CompoundTag)raw).getCompound(\"nbt\");if(n.contains(\"LootTable\")){var id=ResourceLocation.parse(n.getString(\"LootTable\"));if(resources.getResource(ResourceLocation.fromNamespaceAndPath(id.getNamespace(),\"loot_table/\"+id.getPath()+\".json\")).isEmpty())throw new IllegalStateException(\"MISSING_LOOT_TABLE \"+id);}}"
+    }
+  ],
+  "industry/ChudContents.java": [
+    {
+      "line": 65,
+      "text": "if(world.setBlock(at,Blocks.CHEST.defaultBlockState().setValue(ChestBlock.FACING,facing),2)&&world.getBlockEntity(at) instanceof ChestBlockEntity chest){chest.setLootTable(ResourceKey.create(Registries.LOOT_TABLE,Industry.id(\"chests/\"+s.content)),seed^at.asLong()^s.content.hashCode());chest.getPersistentData().putString(\"ChudContent\",root+\":\"+s.key);chest.setChanged();done=true;}"
+    }
+  ],
+  "kurgan/KurganArchitecture.java": [
+    {
+      "line": 180,
+      "text": "tile.setLootTable(ResourceKey.create(Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath(\"slavicmyths\",org.slavicmyths.loot.StructureRewards276.kurgan(plan.tier,r.id==plan.finalRoom,index,r.loot))),plan.seed+r.id*31L+index);tile.setChanged();filled.add(key);"
+    }
+  ],
+  "kurgan/KurganDungeonPiece.java": [
+    {
+      "line": 133,
+      "text": "if(clip.isInside(foot)&&!filled.contains(r.id)){w.setBlock(foot,s,2);if(w.getBlockEntity(foot) instanceof BurialCoffinTile){BurialCoffinTile tile=(BurialCoffinTile)w.getBlockEntity(foot);tile.natural(id,Math.floorMod(r.id,4));String tier=new String[]{\"small\",\"warrior\",\"great\"}[plan.tier];tile.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath(\"slavicmyths\",\"chests/kurgan_\"+tier+\"_\"+(r.id==plan.finalRoom?\"important\":r.loot))),plan.seed+r.id);filled.add(r.id);}}"
+    }
+  ],
+  "kurgan/KurganPiece.java": [
+    {
+      "line": 80,
+      "text": "if(clip.isInside(foot)&&!burialPlaced){BlockState coffin=ModBlocks.BURIAL_COFFIN.get().defaultBlockState().setValue(BurialCoffinBlock.FACING,Direction.NORTH);w.setBlock(foot,coffin,2);w.setBlock(head,coffin.setValue(BurialCoffinBlock.PART,BedPart.HEAD),2);if(w.getBlockEntity(foot)instanceof BurialCoffinTile){BurialCoffinTile tile=(BurialCoffinTile)w.getBlockEntity(foot);tile.natural(id,Math.floorMod(id.hashCode(),4));tile.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath(\"slavicmyths\",\"chests/burial_\"+(kind==0?\"small\":kind==1?\"warrior\":\"great\"))),id.getLeastSignificantBits());burialPlaced=true;}}"
+    }
+  ],
+  "sanctuary/SanctuaryPiece.java": [
+    {
+      "line": 23,
+      "text": "else if(role.equals(\"loot\")||role.equals(\"cache\")){boolean cache=role.equals(\"cache\");BlockState state=(cache?SanctuaryContent.CACHE.get():Blocks.CHEST).defaultBlockState().setValue(ChestBlock.FACING,rotation.rotate(Direction.SOUTH));w.setBlock(p,state,2);if(w.getBlockEntity(p) instanceof SanctuaryChest chest)chest.configure(instance,spring);if(w.getBlockEntity(p) instanceof RandomizableContainerBlockEntity chest){String table=cache?\"cache\":parts.length>1?parts[1]:\"regular\";chest.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,SanctuaryContent.id(\"chests/\"+(spring?\"spring_\":\"fire_\")+table)),instance.getMostSignificantBits()^p.asLong());}}"
+    }
+  ],
+  "serpenthill/HillCommands.java": [
+    {
+      "line": 20,
+      "text": "@SubscribeEvent public static void tick(net.neoforged.neoforge.event.tick.ServerTickEvent.Post event){var w=event.getServer().overworld();if(w==null)return;var d=HillWorld.get(w);if(d.jobs().isEmpty()){plans.clear();return;}UUID id=d.jobs().iterator().next();var n=d.row(id);var origin=BlockPos.of(n.getLong(\"Origin\"));var r=Rotation.valueOf(n.getString(\"Rotation\"));var plan=plans.computeIfAbsent(id,key->new HillPlan(n.getLong(\"Seed\")));int cursor=n.getInt(\"Cursor\"),end=Math.min(128*128*144,cursor+HillRules.BUILD_BUDGET);var type=w.registryAccess().registryOrThrow(Registries.STRUCTURE).get(HillContent.id(\"serpent_hill\"));for(;cursor<end;cursor++){int tile=cursor/(256*144),within=cursor%(256*144),x=tile/8*16+within/(16*144),z=tile%8*16+(within/144)%16,y=within%144;if(!plan.authored(x,z))continue;var at=origin.offset(new BlockPos(x,y,z).rotate(r));if(at.getY()<w.getMinBuildHeight()||at.getY()>=w.getMaxBuildHeight())continue;if(!w.hasChunkAt(at))w.getChunk(at.getX()>>4,at.getZ()>>4);if(y==0&&type!=null){var c=w.getChunk(at.getX()>>4,at.getZ()>>4);c.addReferenceForStructure(type,n.getLong(\"Owner\"));c.setUnsaved(true);}if(w.getBlockState(at).is(Blocks.BEDROCK))continue;var state=HillContent.palette.state(plan.state(x,y,z)).rotate(r);if(!w.getBlockState(at).equals(state))w.setBlock(at,state,2);if(state.is(Blocks.CHEST)&&w.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity chest){var seen=n.getCompound(\"SeededChests\");String token=at.asLong()+\"\";if(!seen.getBoolean(token)){chest.setLootTable(net.minecraft.resources.ResourceKey.create(Registries.LOOT_TABLE,HillContent.id(\"chests/serpent_fortress\")),id.getMostSignificantBits()^at.asLong());seen.putBoolean(token,true);n.put(\"SeededChests\",seen);}}}"
+    }
+  ],
+  "serpenthill/SerpentHillPiece.java": [
+    {
+      "line": 17,
+      "text": "for(var c:p.chests){var at=origin.offset(new BlockPos(c.x(),c.y(),c.z()).rotate(rotation));if(clip.isInside(at)&&chestMarkers.add(at.asLong())&&w.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity chest)chest.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,HillContent.id(\"chests/serpent_fortress\")),instance.getMostSignificantBits()^at.asLong());}"
+    }
+  ],
+  "skim/SkimValley.java": [
+    {
+      "line": 42,
+      "text": "for(var id:new ArrayList<>(jobs)){var e=valleys.get(id);if(e==null){jobs.remove(id);continue;}if(e.status==Status.ACTIVE||e.status==Status.STARTING){if(w.getGameTime()%60==0){for(var player:e.participants){var p=w.getServer().getPlayerList().getPlayer(player);if(p!=null&&p.isAlive()&&!p.isCreative()&&!p.isSpectator()&&p.level()==w&&e.inside(p.position(),32)){e.lastPlayerAt=w.getGameTime();break;}}if(w.getGameTime()-e.lastPlayerAt>1200||(e.bossPos!=null&&w.hasChunkAt(e.bossPos)&&!(w.getEntity(e.boss) instanceof SkimBeastEntity b&&b.isAlive())))abort(w,e);setDirty();}continue;}if(e.status==Status.BUILDING){var plan=ValleyBlueprint.plan();for(int budget=0;budget<256&&e.cursor<plan.size();budget++){var cell=plan.get(e.cursor);var q=e.at(cell.at().getX(),cell.at().getY(),cell.at().getZ());if(!w.hasChunkAt(q))break;if(!w.getBlockState(q).toString().equals(e.expected.get(q.asLong()))&&!w.getBlockState(q).equals(cell.state())){e.status=Status.BLOCKED;break;}w.setBlock(q,cell.state(),3);e.cursor++;}if(e.cursor>=plan.size()){boolean loaded=true;for(var q:List.of(e.at(4,1,-43),e.at(-4,1,-46)))loaded&=w.hasChunkAt(q)&&w.getBlockEntity(q) instanceof net.minecraft.world.level.block.entity.ChestBlockEntity;if(!loaded)continue;if(!e.loot){for(var q:List.of(e.at(4,1,-43),e.at(-4,1,-46))){var chest=(net.minecraft.world.level.block.entity.ChestBlockEntity)w.getBlockEntity(q);chest.setItem(0,new ItemStack(Items.BONE,12));chest.setItem(3,new ItemStack(Items.ARROW,16));chest.setItem(7,new ItemStack(Items.BREAD,4));chest.setItem(12,new ItemStack(Items.IRON_INGOT,3));chest.setChanged();}e.loot=true;}e.status=Status.READY;e.expected.clear();}if(e.status!=Status.BUILDING)jobs.remove(id);setDirty();}"
+    }
+  ],
+  "swamp/SwampPiece.java": [
+    {
+      "line": 91,
+      "text": "container.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath(\"slavicmyths\",\"chests/\"+marker.substring(5))),seed^pos.asLong());"
+    }
+  ],
+  "water/WaterFeature.java": [
+    {
+      "line": 30,
+      "text": "BlockPos loot=base.offset(0,1,1);w.setBlock(loot,Blocks.BARREL.defaultBlockState(),2);BlockEntity te=w.getBlockEntity(loot);if(te instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity)((net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity)te).setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath(\"slavicmyths\",\"chests/fishing_supplies\")),r.nextLong());return true;"
+    }
+  ],
+  "world/HomesteadFeature.java": [
+    {
+      "line": 48,
+      "text": "if(te instanceof ChestBlockEntity)((ChestBlockEntity)te).setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath(\"slavicmyths\",\"chests/\"+(barn?\"old_barn\":\"bathhouse\"))),r.nextLong());"
+    }
+  ],
+  "world/ShrineFeature.java": [
+    {
+      "line": 53,
+      "text": "if (chest instanceof ChestBlockEntity) ((ChestBlockEntity) chest).setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath(\"slavicmyths\", \"chests/ancient_shrine\")), random.nextLong());"
+    }
+  ],
+  "yaga/YagaHut.java": [
+    {
+      "line": 37,
+      "text": "return new YagaPlacement.Cursor(w,site,()->{if(!w.addFreshEntity(npc)||!w.addFreshEntity(kuzya))return false;net.minecraft.world.level.block.entity.BlockEntity tile=w.getBlockEntity(site.anchor.offset(-4,4,5));if(!(tile instanceof net.minecraft.world.level.block.entity.BarrelBlockEntity barrel))throw new IllegalStateException(\"Missing household barrel\");net.minecraft.world.level.block.entity.BlockEntity foodTile=w.getBlockEntity(site.anchor.offset(2,4,-2));if(!(foodTile instanceof org.slavicmyths.kitchen.TableTile table))throw new IllegalStateException(\"Missing food table\");barrel.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,org.slavicmyths.kuzya.KuzyaContent.id(\"chests/baba_yaga_household_supplies\")),w.getSeed()^site.anchor.asLong());table.food.set(0,new net.minecraft.world.item.ItemStack(org.slavicmyths.kitchen.KitchenII.item(\"oat_porridge\")));table.food.set(1,new net.minecraft.world.item.ItemStack(org.slavicmyths.kitchen.KitchenII.item(\"rye_bread\")));table.food.set(2,new net.minecraft.world.item.ItemStack(org.slavicmyths.kitchen.KitchenII.item(\"apple_pie\")));table.food.set(3,new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.HONEY_BOTTLE));table.setChanged();w.sendBlockUpdated(table.getBlockPos(),table.getBlockState(),table.getBlockState(),2);return true;},()->{npc.discard();kuzya.discard();},result->{"
+    }
+  ]
+}
