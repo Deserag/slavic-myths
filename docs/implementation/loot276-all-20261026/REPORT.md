@@ -164,7 +164,7 @@ LikhoStaffItem: лечит1HP с интервалом180ticks, серверны�
 
 JAR: `build/libs/slavicmyths-2.0.4-HELL.jar`, SHA256 `1c22bf186ab6886fee8a464fb44b123620354ef93ee0f990d1208660d3743010`. Полный [package receipt](package-receipt.json). Предыдущий build2.0.3 сохранён вне clean: `D:/slavic-myths-baselines/loot276-all-5ffe6476/slavicmyths-2.0.3-HELL.jar`.
 
-Установка ещё не выполнена: POLYMC_NOT_INSTALLED до отдельного installation-receipt.json.
+**Установлен только файл**, без запуска: `C:\Users\pavel\AppData\Roaming\PolyMC\instances\Slavic-Myths-2.0.0-HELL\.minecraft\mods\slavicmyths-2.0.4-HELL.jar`. Version `2.0.4-HELL`, SHA256 `1c22bf186ab6886fee8a464fb44b123620354ef93ee0f990d1208660d3743010`, source commit `8d0f71b446f59d144f4ea9bd6631759117de80ff`. Ровно1mod JAR. Backup прежней2.0.2: `D:\slavic-myths-backups\loot276-all-20261026T075550Z\slavicmyths-2.0.2-HELL.jar`, SHA256 `d4583f90d8c4531e1e0d78d20cf4ac11c24868af6ecfea40531d1d0e4951c6bb`. MC1.21.1/NeoForge21.1.255 подтверждены mmc-pack.json. Миры/config не менялись. [Installation receipt](installation-receipt.json).
 
 ## Как проверить в Minecraft — владельцу
 

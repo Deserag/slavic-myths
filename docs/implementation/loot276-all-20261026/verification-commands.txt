@@ -44,3 +44,8 @@ python tools/verify_rewards276_scenarios.py
 PASS8 conditional full-clear profiles;160000 draws;60000 actual KurganPlan+Roster calls.
 Includes unchanged entity drops/nightingale, two first Guardian claims, Gorynych first claim.
 Scenarios use fixed planned enemies, not unbounded natural reinforcements; no game bootstrap.
+
+python tools/install_rewards276.py
+PASS installed2.0.4-HELL file-only; source8d0f71b446f59d144f4ea9bd6631759117de80ff; one mod JAR.
+Verified external backup2.0.2; exact paths/SHA in installation-receipt.json.
+No launcher/client/server/Minecraft/GameTest process started.

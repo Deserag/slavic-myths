@@ -1,0 +1,19 @@
+{
+  "status": "INSTALLED_FILE_ONLY_OWNER_PENDING",
+  "version": "2.0.4-HELL",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.4-HELL.jar",
+  "sha256": "1c22bf186ab6886fee8a464fb44b123620354ef93ee0f990d1208660d3743010",
+  "source_commit": "8d0f71b446f59d144f4ea9bd6631759117de80ff",
+  "backup": "D:\\slavic-myths-backups\\loot276-all-20261026T075550Z\\slavicmyths-2.0.2-HELL.jar",
+  "backup_sha256": "d4583f90d8c4531e1e0d78d20cf4ac11c24868af6ecfea40531d1d0e4951c6bb",
+  "old_version": "2.0.2-HELL",
+  "mod_jar_count": 1,
+  "instance_components": {
+    "org.lwjgl3": "3.3.3",
+    "net.minecraft": "1.21.1",
+    "net.neoforged.neoforge": "21.1.255"
+  },
+  "game_launches": 0,
+  "polymc_launches": 0,
+  "worlds_configs_untouched": true
+}
