@@ -1,0 +1,46 @@
+Workspace D:/slavic-myths; branch hell; Minecraft/PolyMC/client/server/GameTest launches = 0.
+JAVA_HOME for build command only: C:/Program Files/Java/jdk-21.0.12
+
+gradlew.bat clean build --no-build-cache
+BUILD SUCCESSFUL in 1m34s; 6 actionable tasks executed; test NO-SOURCE.
+100 existing deprecation/removal warnings, no compile error. Full local log: clean-build.log.
+
+python tools/verify_resources.py
+PASS 8031 resources /4432 JSON /1443 PNG /1886 models /1950 Java21 classes.
+SHA256 1c22bf186ab6886fee8a464fb44b123620354ef93ee0f990d1208660d3743010
+
+python tools/verify_rewards276_all.py
+PASS 2959 checks;119 profiles;20000 samples each;2380000 draws.
+Native pure HillPlan seeds0,1,-1,276,Long.MAX_VALUE; one main/6chests/5barrels.
+Exact 21 swamp selectors + fallback; selected vanilla enchantment max levels pinned.
+First QA iteration failed a test-double class-byte comparison on CRLF, then fixed normalization.
+Second QA iteration failed at absent rune_II group: actual IDs do not use _ii suffix.
+Fixed grouping by existing CRAFT_II; final rerun PASS (no production change for either).
+Medium Chud treasury presence corrected to9/12 from actual module rotation before final run.
+
+python tools/rewards276_city_corpus.py
+PASS actual unchanged CityPlan with explicit API doubles, 100 flat seeds each of3climates.
+Not natural worldgen / native Minecraft geometry evidence.
+
+python tools/verify_rewards276_inventory.py
+PASS 5 additional whole-site profiles;100000 draws; includes direct town/Yaga Items.
+PASS1941 old production classes unchanged;8 allowed old classes differ;one helper class new.
+Initial manifest allowance missed version-only META-INF/MANIFEST.MF; corrected comparison
+to allow only literal2.0.3-HELLв†’2.0.4-HELL in both metadata files; final PASS.
+
+verify_loot276_l1.model_boundary_checks() (import only; full legacy verifier not invoked)
+PASS4 independent exact weighted/conditional/nested/cycle boundary checks.
+
+python tools/test_items286_offline.py
+checks=204 failures=0; exact production method bodies against explicit API doubles.
+No game integration asserted. Legacy generators, audio tools, runClient/runServer not run.
+
+git ls-remote origin refs/heads/main refs/heads/hell (before push)
+main26e73424f16ae703e9a9b75fe432731663d30e05
+hell5ffe64764cb10c80385de10cd8eed50836911947
+GitHub #276 state OPEN verified by connected GitHub fetch_issue; no status/labels/close mutation.
+
+python tools/verify_rewards276_scenarios.py
+PASS8 conditional full-clear profiles;160000 draws;60000 actual KurganPlan+Roster calls.
+Includes unchanged entity drops/nightingale, two first Guardian claims, Gorynych first claim.
+Scenarios use fixed planned enemies, not unbounded natural reinforcements; no game bootstrap.

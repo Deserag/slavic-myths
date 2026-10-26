@@ -1,3 +1,7 @@
+## 26.10.2026 — #276, исполнение расширенного поручения в hell
+
+Тематические награды Overworld реализованы в рамках делегированных параметров: сохранение L1, святилища, один main крепости (IV3%, Poloz1+8%второй), болота и умеренные малые магические места. Остальные хозяйственные/инженерные/сценарные места проверены без несогласованных механик. [Отчёт и ограничения](implementation/loot276-all-20261026/REPORT.md):2,64млн автономных draws, clean build/resources PASS; runtime NOT_RUN владельцу. Этап IN_PROGRESS/OWNER_PENDING, #276 не закрыта; следующие задачи не запускаются автоматически. Версия2.0.4-HELL, подтверждение файловой установки отдельно в receipt; main сохранён.
+
 ## 26.10.2026 — #287: расширение проверки до28/28, IN_PROGRESS
 
 [Дополнение аудита](implementation/armor287-20261026/REPORT.md): после #277 ещё20/20 и28/28native cases, всего6изолированных armor server запусков/client0. Добавлены trophy3, Perunite lightning, SevenLeague ramp, Ward shield negative cases, Wind charge/native arc/fall-credit. Armor production не менялся. Natural full acquisition/GUI/real relog/MP и остальные shield procs NOT_RUN; owner acceptance ожидается. [Итоговый JAR/source/SHA](implementation/armor287-20261026/extended-receipt.json), POLYMC_NOT_INSTALLED; Issues OPEN, main не менялся.

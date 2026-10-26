@@ -28,8 +28,9 @@ def run():
         doc=read_nbt(p.read_bytes());records=[]
         for b in doc.get('blocks',[]):
             n=b.get('nbt',{});state=doc['palette'][b['state']];name=state['Name']
-            if 'LootTable' in n or 'Items' in n or n.get('metadata','').startswith(('loot:','cache','heart','pool','reward')):
-                records.append(dict(pos=b['pos'],block=name,table=n.get('LootTable'),items=n.get('Items',[]),marker=n.get('metadata')))
+            container=any(t in name for t in ['chest','barrel','burial_coffin','cabinet','cupboard','shulker_box','dispenser','dropper','hopper','furnace','bloomery','refining_hearth'])
+            if container or 'LootTable' in n or 'Items' in n or n.get('metadata','').startswith(('loot:','cache','heart','pool','reward')):
+                records.append(dict(pos=b['pos'],block=name,table=n.get('LootTable'),items=n.get('Items',[]),marker=n.get('metadata'),container_block=container))
         if records:templates[p.relative_to(D/'structure').as_posix()[:-4]]=dict(size=doc.get('size'),contents=records)
     definitions={p.stem:json.loads(p.read_text()) for p in (D/'worldgen/structure').glob('*.json')}
     sources={p.relative_to(J).as_posix():p.read_text(encoding='utf8') for p in J.rglob('*.java')}

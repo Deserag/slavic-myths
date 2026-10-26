@@ -1,0 +1,191 @@
+{
+  "ruin_0": {
+    "kind": "ruins",
+    "base": "chests/swamp_ruins",
+    "pos": [
+      4,
+      1,
+      7
+    ]
+  },
+  "ruin_1": {
+    "kind": "ruins",
+    "base": "chests/swamp_ruins",
+    "pos": [
+      4,
+      1,
+      8
+    ]
+  },
+  "ruin_2": {
+    "kind": "ruins",
+    "base": "chests/swamp_ruins",
+    "pos": [
+      3,
+      1,
+      2
+    ]
+  },
+  "v097_abandoned_0": {
+    "kind": "home",
+    "base": "chests/swamp_hidden",
+    "pos": [
+      4,
+      2,
+      3
+    ]
+  },
+  "v097_abandoned_1": {
+    "kind": "home",
+    "base": "chests/swamp_hidden",
+    "pos": [
+      4,
+      2,
+      3
+    ]
+  },
+  "v097_abandoned_2": {
+    "kind": "home",
+    "base": "chests/swamp_hidden",
+    "pos": [
+      4,
+      2,
+      3
+    ]
+  },
+  "v097_cluster_0": {
+    "kind": "great",
+    "base": "chests/swamp_great_shrine",
+    "pos": [
+      8,
+      2,
+      10
+    ]
+  },
+  "v097_cluster_1": {
+    "kind": "great",
+    "base": "chests/swamp_great_shrine",
+    "pos": [
+      8,
+      2,
+      10
+    ]
+  },
+  "v097_cluster_2": {
+    "kind": "great",
+    "base": "chests/swamp_great_shrine",
+    "pos": [
+      8,
+      2,
+      10
+    ]
+  },
+  "v097_fisher_0": {
+    "kind": "fisher",
+    "base": "chests/swamp_fisher",
+    "pos": [
+      5,
+      2,
+      14
+    ]
+  },
+  "v097_fisher_1": {
+    "kind": "fisher",
+    "base": "chests/swamp_fisher",
+    "pos": [
+      5,
+      2,
+      14
+    ]
+  },
+  "v097_fisher_2": {
+    "kind": "fisher",
+    "base": "chests/swamp_fisher",
+    "pos": [
+      5,
+      2,
+      14
+    ]
+  },
+  "v097_landing_0": {
+    "kind": "fisher",
+    "base": "chests/swamp_fisher",
+    "pos": [
+      7,
+      2,
+      4
+    ]
+  },
+  "v097_landing_1": {
+    "kind": "fisher",
+    "base": "chests/swamp_fisher",
+    "pos": [
+      7,
+      2,
+      4
+    ]
+  },
+  "v097_landing_2": {
+    "kind": "fisher",
+    "base": "chests/swamp_fisher",
+    "pos": [
+      7,
+      2,
+      4
+    ]
+  },
+  "v097_shrine_0": {
+    "kind": "ritual",
+    "base": "chests/swamp_ritual",
+    "pos": [
+      3,
+      2,
+      4
+    ]
+  },
+  "v097_shrine_1": {
+    "kind": "ritual",
+    "base": "chests/swamp_ritual",
+    "pos": [
+      3,
+      2,
+      4
+    ]
+  },
+  "v097_shrine_2": {
+    "kind": "ritual",
+    "base": "chests/swamp_ritual",
+    "pos": [
+      3,
+      2,
+      4
+    ]
+  },
+  "v097_watchtower_0": {
+    "kind": "watch",
+    "base": "chests/swamp_watchtower",
+    "pos": [
+      5,
+      10,
+      5
+    ]
+  },
+  "v097_watchtower_1": {
+    "kind": "watch",
+    "base": "chests/swamp_watchtower",
+    "pos": [
+      5,
+      12,
+      5
+    ]
+  },
+  "v097_watchtower_2": {
+    "kind": "watch",
+    "base": "chests/swamp_watchtower",
+    "pos": [
+      5,
+      14,
+      5
+    ]
+  }
+}

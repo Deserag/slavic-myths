@@ -1,3 +1,7 @@
+## 26.10.2026 — #276: награды всех сооружений Overworld, OWNER_PENDING
+
+В `hell` сохранён прежний L1 курганов/лагерей, добавлены16 scoped loot tables для двух святилищ, крепости Горыныча, болот, древнего святилища и второго сундука глубин. Чудь/города/деревни/малые бытовые места и сценарные награды учтены отдельно и сохранены. [Полный отчёт, before/after, матрица всех мест и пошаговый плейтест](implementation/loot276-all-20261026/REPORT.md). 132 профиля×20k=2,64млн автономных симуляций; Java21 clean build1m34s,8031resources/1950classes PASS,1941старый class побайтно сохранён. Игровых запусков0: natural generation/эффекты/relog/MP NOT_RUN. Сборка2.0.4-HELL; точное состояние установки/backup/source/SHA — в отчёте и installation receipt после файловой установки. #276 OPEN, main не менялся, ручной приёмки нет.
+
 ## 26.10.2026 — #287: расширение проверки до28/28, IN_PROGRESS
 
 [Дополнение аудита](implementation/armor287-20261026/REPORT.md): после #277 ещё20/20 и28/28native cases, всего6изолированных armor server запусков/client0. Добавлены trophy3, Perunite lightning, SevenLeague ramp, Ward shield negative cases, Wind charge/native arc/fall-credit. Armor production не менялся. Natural full acquisition/GUI/real relog/MP и остальные shield procs NOT_RUN; owner acceptance ожидается. [Итоговый JAR/source/SHA](implementation/armor287-20261026/extended-receipt.json), POLYMC_NOT_INSTALLED; Issues OPEN, main не менялся.

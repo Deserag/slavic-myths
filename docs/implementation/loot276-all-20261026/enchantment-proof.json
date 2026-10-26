@@ -1,0 +1,578 @@
+[
+  {
+    "table": "rewards276/overworld/fire_main",
+    "enchantment": "minecraft:protection",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/fire_main",
+    "enchantment": "minecraft:unbreaking",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 3
+  },
+  {
+    "table": "rewards276/overworld/fire_main",
+    "enchantment": "minecraft:sharpness",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/fire_main",
+    "enchantment": "minecraft:efficiency",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/fire_main",
+    "enchantment": "minecraft:power",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/fire_main",
+    "enchantment": "minecraft:feather_falling",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/spring_main",
+    "enchantment": "minecraft:protection",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/spring_main",
+    "enchantment": "minecraft:unbreaking",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 3
+  },
+  {
+    "table": "rewards276/overworld/spring_main",
+    "enchantment": "minecraft:sharpness",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/spring_main",
+    "enchantment": "minecraft:efficiency",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/spring_main",
+    "enchantment": "minecraft:power",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/spring_main",
+    "enchantment": "minecraft:feather_falling",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/fortress_main",
+    "enchantment": "minecraft:protection",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/fortress_main",
+    "enchantment": "minecraft:unbreaking",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 3
+  },
+  {
+    "table": "rewards276/overworld/fortress_main",
+    "enchantment": "minecraft:sharpness",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/fortress_main",
+    "enchantment": "minecraft:efficiency",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/fortress_main",
+    "enchantment": "minecraft:power",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/fortress_main",
+    "enchantment": "minecraft:feather_falling",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/fortress_main",
+    "enchantment": "minecraft:protection",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/fortress_main",
+    "enchantment": "minecraft:unbreaking",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 3
+  },
+  {
+    "table": "rewards276/overworld/fortress_main",
+    "enchantment": "minecraft:sharpness",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/fortress_main",
+    "enchantment": "minecraft:efficiency",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/fortress_main",
+    "enchantment": "minecraft:power",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/fortress_main",
+    "enchantment": "minecraft:feather_falling",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/swamp_watch_main",
+    "enchantment": "minecraft:protection",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/swamp_watch_main",
+    "enchantment": "minecraft:unbreaking",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 3
+  },
+  {
+    "table": "rewards276/overworld/swamp_watch_main",
+    "enchantment": "minecraft:sharpness",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/swamp_watch_main",
+    "enchantment": "minecraft:efficiency",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/swamp_watch_main",
+    "enchantment": "minecraft:power",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/swamp_watch_main",
+    "enchantment": "minecraft:feather_falling",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/swamp_ruins_main",
+    "enchantment": "minecraft:protection",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/swamp_ruins_main",
+    "enchantment": "minecraft:unbreaking",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 3
+  },
+  {
+    "table": "rewards276/overworld/swamp_ruins_main",
+    "enchantment": "minecraft:sharpness",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/swamp_ruins_main",
+    "enchantment": "minecraft:efficiency",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/swamp_ruins_main",
+    "enchantment": "minecraft:power",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/swamp_ruins_main",
+    "enchantment": "minecraft:feather_falling",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/swamp_ritual_main",
+    "enchantment": "minecraft:protection",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/swamp_ritual_main",
+    "enchantment": "minecraft:unbreaking",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 3
+  },
+  {
+    "table": "rewards276/overworld/swamp_ritual_main",
+    "enchantment": "minecraft:sharpness",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/swamp_ritual_main",
+    "enchantment": "minecraft:efficiency",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/swamp_ritual_main",
+    "enchantment": "minecraft:power",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/swamp_ritual_main",
+    "enchantment": "minecraft:feather_falling",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/swamp_great_main",
+    "enchantment": "minecraft:protection",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/swamp_great_main",
+    "enchantment": "minecraft:unbreaking",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 3
+  },
+  {
+    "table": "rewards276/overworld/swamp_great_main",
+    "enchantment": "minecraft:sharpness",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/swamp_great_main",
+    "enchantment": "minecraft:efficiency",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/swamp_great_main",
+    "enchantment": "minecraft:power",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/swamp_great_main",
+    "enchantment": "minecraft:feather_falling",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/ancient_shrine",
+    "enchantment": "minecraft:protection",
+    "level": 1,
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/ancient_shrine",
+    "enchantment": "minecraft:unbreaking",
+    "level": 1,
+    "max": 3
+  },
+  {
+    "table": "rewards276/overworld/ancient_shrine",
+    "enchantment": "minecraft:sharpness",
+    "level": 1,
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/ancient_shrine",
+    "enchantment": "minecraft:efficiency",
+    "level": 1,
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/ancient_shrine",
+    "enchantment": "minecraft:power",
+    "level": 1,
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/ancient_shrine",
+    "enchantment": "minecraft:feather_falling",
+    "level": 1,
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/depths_main",
+    "enchantment": "minecraft:protection",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4
+  },
+  {
+    "table": "rewards276/overworld/depths_main",
+    "enchantment": "minecraft:unbreaking",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 3
+  },
+  {
+    "table": "rewards276/overworld/depths_main",
+    "enchantment": "minecraft:sharpness",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/depths_main",
+    "enchantment": "minecraft:efficiency",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/depths_main",
+    "enchantment": "minecraft:power",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5
+  },
+  {
+    "table": "rewards276/overworld/depths_main",
+    "enchantment": "minecraft:feather_falling",
+    "level": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4
+  }
+]
