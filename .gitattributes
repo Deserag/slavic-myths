@@ -54,3 +54,6 @@
 /docs/implementation/rune-glow-104/NATIVE-EXPORT.log -text -whitespace
 
 /docs/implementation/accessories278-20261025/*.log -text -whitespace
+
+/docs/implementation/artifacts284-20261025/*.log -text -whitespace
+/docs/implementation/artifacts284-20261025/before/** -text -whitespace

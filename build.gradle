@@ -56,6 +56,19 @@ if (project.hasProperty('accessories278Check')) {
 }
 
 // Plain JVM, no NeoForge run configuration and no game/world construction.
+if (project.hasProperty('artifacts284Check')) {
+    sourceSets { artifacts284Check { java.srcDir 'tools/artifacts284-tests'; resources.srcDir 'tools/artifacts284-test-resources' } }
+    sourceSets.artifacts284Check.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.artifacts284Check.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileArtifacts284CheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.artifacts284Check)
+    neoForge.runs { artifacts284Checks {
+        type = 'gameTestServer'
+        gameDirectory = file('run-artifacts284-20261025')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_artifacts284'
+    } }
+}
+
 if (project.hasProperty('barrelOfflineCheck')) {
     sourceSets { barrelOffline { java.srcDir 'tools/barrel-offline' } }
     sourceSets.barrelOffline.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath

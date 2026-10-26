@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "flask only adds native spawn acceptance; cooldown10/sound/creative behavior unchanged",
+    "quest only native effect acceptance before item/CD commit; durations/gates/special GuardianWard unchanged",
+    "sanctuary only accepted effect before commit; water/flame vial/other behavior unchanged",
+    "only three production Java files and two book language files; recipes/art/IDs/loot/armor/weapons unchanged",
+    "common isolation src/main/java/org/slavicmyths/sanctuary/SanctuaryItem.java",
+    "common isolation src/main/java/org/slavicmyths/mor/MorFlaskItem.java",
+    "common isolation src/main/java/org/slavicmyths/quest185/Quest185Item.java",
+    "only two existing book texts changed ru_ru",
+    "only two existing book texts changed en_us",
+    "book overlay idempotence ru_ru",
+    "book overlay idempotence en_us",
+    "all24 required and10 additional real IDs",
+    "honest four unresolved acquisition decisions",
+    "exact final class mor/MorFlaskItem",
+    "exact final class quest185/Quest185Item",
+    "exact final class sanctuary/SanctuaryItem",
+    "no test fixtures in production JAR"
+  ],
+  "count": 17,
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.1-HELL.jar",
+  "sha256": "b24ea1a8e984a45beb257b223a5a8b00480959220d5170531dd2b1a600e27748",
+  "scope": "source/resource/package only; runtime in runtime.json"
+}

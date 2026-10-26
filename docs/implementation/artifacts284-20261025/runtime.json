@@ -1,0 +1,137 @@
+{
+  "artifacts284_game_test_launches": 4,
+  "accessories278_game_test_launches_including_regression": 4,
+  "total_server_launches_this_task": 8,
+  "client_launches": 0,
+  "run1": {
+    "tests": 14,
+    "pass": 7,
+    "fail": 7,
+    "reasons": "5 production rejection defects +2 fixture errors"
+  },
+  "run2": {
+    "tests": 14,
+    "pass": 13,
+    "fail": 1,
+    "reason": "cloud fixture used Entity.tick without ServerLevel tickCount increment"
+  },
+  "run3": {
+    "tests": 15,
+    "pass": 15,
+    "fail": 0
+  },
+  "run4": {
+    "tests": 19,
+    "pass": 19,
+    "fail": 0
+  },
+  "accessory_regression": {
+    "tests": 7,
+    "pass": 7,
+    "fail": 0
+  },
+  "final_test_names": [
+    "all34RegistryAndAcquisitionRecipes",
+    "rejectedMorFlaskSpawnDoesNotConsume",
+    "rejectedFlameGuardDoesNotConsume",
+    "rejectedMorWardDoesNotConsume",
+    "rejectedTrackerDoesNotSpendCooldown",
+    "rejectedSpringTearDoesNotConsume",
+    "successfulWardsRepeatAndSpecialWard",
+    "morFlaskSuccessfulUseAndNativeCooldown",
+    "gusliCalmRangeImmunityExpiryAndCancel",
+    "skatertPortionsSingleReturnAndRest",
+    "flightOwnerPestleCargoAndSinglePack",
+    "storyCallsCannotBypassIntroductions",
+    "breathBottlesActualUpgradeAndRemainders",
+    "threeBreathImpactEffectsAndStormRepeatGuard",
+    "trackerTearSuccessRepeatAndSavedCooldown",
+    "bottlesCollectedOnceAndNotDirectWeapons",
+    "broomPlacementCollisionOwnerAndOneSeat",
+    "introducedHeroesSingleCanonicalEntityAndRecall",
+    "morFlaskRealProjectileTransformsEligibleSpirit"
+  ],
+  "per_item_coverage": {
+    "ilya_call_token": [
+      "storyCallsCannotBypassIntroductions",
+      "introducedHeroesSingleCanonicalEntityAndRecall"
+    ],
+    "dobrynya_call_emblem": [
+      "storyCallsCannotBypassIntroductions",
+      "introducedHeroesSingleCanonicalEntityAndRecall"
+    ],
+    "alyosha_call_whistle": [
+      "storyCallsCannotBypassIntroductions",
+      "introducedHeroesSingleCanonicalEntityAndRecall"
+    ],
+    "finist_call_feather": [
+      "storyCallsCannotBypassIntroductions",
+      "introducedHeroesSingleCanonicalEntityAndRecall"
+    ],
+    "gorynych_mor_breath_bottle": [
+      "breathBottlesActualUpgradeAndRemainders",
+      "threeBreathImpactEffectsAndStormRepeatGuard",
+      "bottlesCollectedOnceAndNotDirectWeapons"
+    ],
+    "gorynych_flame_breath_bottle": [
+      "breathBottlesActualUpgradeAndRemainders",
+      "threeBreathImpactEffectsAndStormRepeatGuard",
+      "bottlesCollectedOnceAndNotDirectWeapons"
+    ],
+    "gorynych_storm_breath_bottle": [
+      "breathBottlesActualUpgradeAndRemainders",
+      "threeBreathImpactEffectsAndStormRepeatGuard",
+      "bottlesCollectedOnceAndNotDirectWeapons"
+    ],
+    "gusli": [
+      "gusliCalmRangeImmunityExpiryAndCancel"
+    ],
+    "skatert": [
+      "skatertPortionsSingleReturnAndRest"
+    ],
+    "flying_broom": [
+      "broomPlacementCollisionOwnerAndOneSeat"
+    ],
+    "flying_mortar": [
+      "flightOwnerPestleCargoAndSinglePack"
+    ],
+    "pestle": [
+      "flightOwnerPestleCargoAndSinglePack"
+    ],
+    "mor_flask": [
+      "rejectedMorFlaskSpawnDoesNotConsume",
+      "morFlaskSuccessfulUseAndNativeCooldown",
+      "morFlaskRealProjectileTransformsEligibleSpirit"
+    ],
+    "mor_ward": [
+      "rejectedMorWardDoesNotConsume",
+      "successfulWardsRepeatAndSpecialWard"
+    ],
+    "fading_flame_charm": [
+      "rejectedFlameGuardDoesNotConsume",
+      "successfulWardsRepeatAndSpecialWard"
+    ],
+    "tracker_sense": [
+      "rejectedTrackerDoesNotSpendCooldown",
+      "trackerTearSuccessRepeatAndSavedCooldown"
+    ],
+    "spring_tear": [
+      "rejectedSpringTearDoesNotConsume",
+      "trackerTearSuccessRepeatAndSavedCooldown"
+    ],
+    "wolf_call": [
+      "storyCallsCannotBypassIntroductions (locked case only)"
+    ],
+    "sivka_whistle": [
+      "storyCallsCannotBypassIntroductions (unbound case only)"
+    ]
+  },
+  "world": "D:/slavic-myths/run-artifacts284-20261025",
+  "limits": [
+    "all34RegistryAndAcquisitionRecipes applies to all IDs but does not prove natural acquisition",
+    "controlled helped state is not introduction playthrough",
+    "embedded network listener is not MP",
+    "native player save/load is not real relog",
+    "only specific tested subcases PASS; remaining GUI/story/control/respawn/dimension/owner acceptance NOT_RUN"
+  ]
+}

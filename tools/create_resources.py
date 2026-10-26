@@ -139,3 +139,6 @@ apply_yaga272_strings(root)
 
 from accessories278_resources import apply as apply_accessories278_resources
 apply_accessories278_resources(root)
+
+from artifacts284_resources import apply as apply_artifacts284_resources
+apply_artifacts284_resources(root)

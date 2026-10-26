@@ -1,0 +1,1891 @@
+{
+  "base_commit": "4fba8ac19b0d8946c7c7f2f33effef9c9eec1dc8",
+  "required_catalog_count": 24,
+  "total_entries": 34,
+  "scope": "20 artifacts +4 magic charms +10 existing functional relics; no wearable Curios duplication",
+  "items": [
+    {
+      "id": "thunder_stone",
+      "name": "Громовой камень",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "INGREDIENT",
+      "actual": "Ритуальный материал; не активная граната/оружие",
+      "player_path": "Капища/таблицы ниже → ритуалы Перуна/посоха/оружия",
+      "source": [
+        "registry/ModItems.java",
+        "ritual/Rituals.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/noon_stone.json",
+        "src/main/resources/data/slavicmyths/recipe/thunder_stone.json"
+      ],
+      "loot": [
+        "src/main/resources/data/slavicmyths/loot_table/chests/ancient_shrine.json"
+      ],
+      "ingredient_in": [
+        "src/main/resources/data/slavicmyths/recipe/thunder_crystal_powder.json"
+      ],
+      "acquisition_code": [],
+      "survival": "SOURCE_PATH_FOUND",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/RpgClient.java",
+          "line": 24,
+          "text": "if(e.getEntity()!=null&&PathData.has(e.getEntity(),\"sign_sense\")&&net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(e.getItemStack().getItem())!=null){String id=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(e.getItemStack().getItem()).getPath();if(id.startsWith(\"rune_\"))e.getToolTip().add(Component.translatable(\"rpg.slavicmyths.\"+id));else if(id.equals(\"ancient_sign\")||id.equals(\"ritual_charcoal\")||id.equals(\"thunder_stone\"))e.getToolTip().add(Component.translatable(\"rpg.slavicmyths.ritual_hint\"));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItemGroup.java",
+          "line": 51,
+          "text": "case 7 -> ModItems.THUNDER_STONE.get();"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 47,
+          "text": "public static final DeferredHolder<Item, Item> THUNDER_STONE = ITEMS.register("
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 48,
+          "text": "\"thunder_stone\", () -> new Item(properties()"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/ritual/Rituals.java",
+          "line": 17,
+          "text": "{ModItems.THUNDER_STONE.get(),ModItems.PERUNITE.get(),ModItems.ANCIENT_SIGN.get()},"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/ritual/Rituals.java",
+          "line": 35,
+          "text": "case 2: return ModItems.THUNDER_STONE.get();"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/ritual/Rituals.java",
+          "line": 42,
+          "text": "case 1: return ModItems.THUNDER_STONE.get();"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/ritual/Rituals.java",
+          "line": 50,
+          "text": "case 1: return ModItems.THUNDER_STONE.get();"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/ritual/Rituals.java",
+          "line": 58,
+          "text": "case 2: return ModItems.THUNDER_STONE.get();"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rpg/PathData.java",
+          "line": 39,
+          "text": "public static String gate(int i){if(i%6<4)return \"\";return i==23?\"thunder_stone\":i/6==1?\"friend_domovoy\":i/6==2?\"meet_leshy\":\"first_ritual\";}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rpg/RpgNetwork.java",
+          "line": 20,
+          "text": "private static net.minecraft.nbt.CompoundTag presentation(ServerPlayer player){var d=PathData.data(player).copy();d.getCompound(\"Class2\").remove(\"XpLedger\");d.getCompound(\"Class2\").putLong(\"ServerTick\",org.slavicmyths.rpg.classes.ClassState.now(player));var gates=new net.minecraft.nbt.CompoundTag();for(String id:new String[]{\"first_ritual\",\"friend_domovoy\",\"meet_leshy\",\"thunder_stone\"})gates.putBoolean(id,org.slavicmyths.progression.Knowledge.knows(player,id));d.put(\"KnownGates\",gates);if(player.containerMenu instanceof RpgMenu menu&&menu.anvil)d.putInt(\"AnvilMode\",menu.mode);return d;}"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "all34RegistryAndAcquisitionRecipes (registry/loaded recipes only)"
+      ]
+    },
+    {
+      "id": "gusli",
+      "name": "Гусли-самогуды",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "ACTIVE",
+      "actual": "Удерживать ПКМ; pulses10 ticks, exposure30; r12, cap64; calm60ticks; release CD600/100; иммунны guardian/boss/mod mobs кроме wildlife",
+      "player_path": "Survival recipe/loot/trade/reward не найден в текущих production источниках. Механика существует; новый способ получения и стоимость утверждает владелец.",
+      "source": [
+        "artifact/GusliItem.java",
+        "artifact/ArtifactEvents.java"
+      ],
+      "recipes": [],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [],
+      "survival": "BLOCKED_NEEDS_ACQUISITION_APPROVAL",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/GusliClient.java",
+          "line": 23,
+          "text": "private static boolean playing(AbstractClientPlayer p){return p.isAlive()&&p.isUsingItem()&&p.getUseItem().getItem()==ModItems.GUSLI.get();}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/GusliClient.java",
+          "line": 34,
+          "text": "@SubscribeEvent public static void hand(RenderHandEvent e){Minecraft mc=Minecraft.getInstance();if(mc.player==null||!playing(mc.player)||e.getItemStack().getItem()!=ModItems.GUSLI.get())return;e.setCanceled(true);PoseStack m=e.getPoseStack();m.pushPose();m.translate(.05,-.48,-.8);m.mulPose(com.mojang.math.Axis.XP.rotationDegrees(65));m.mulPose(com.mojang.math.Axis.ZP.rotationDegrees(Mth.sin((mc.player.tickCount+e.getPartialTick())*.6F)*1.5F));mc.getItemRenderer().renderStatic(e.getItemStack(),ItemDisplayContext.NONE,e.getPackedLight(),net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY,m,e.getMultiBufferSource(),mc.level,0);m.popPose();}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 213,
+          "text": "public static final DeferredHolder<Item, Item> GUSLI=ITEMS.register(\"gusli\",()->new org.slavicmyths.artifact.GusliItem(properties().rarity(Rarity.RARE)));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/water/RusalkaSong.java",
+          "line": 13,
+          "text": "public static void expose(Player p,RusalkaEntity r){if(!p.isAlive()||p.isCreative()||p.isSpectator()||!r.singing()||p.level()!=r.level()||r.distanceToSqr(p)>400)return;CompoundTag d=p.getPersistentData();long now=p.level().getGameTime();if(now-d.getLong(\"SlavicSongApplied\")<19)return;d.putLong(\"SlavicSongApplied\",now);float charm=d.getFloat(\"SlavicWaterCharm\");if(!r.hasLineOfSight(p)){d.putFloat(\"SlavicWaterCharm\",Math.max(0,charm-3));return;}float amount=r.distanceToSqr(p)<100?5:2.5F;if(p.isUsingItem()&&p.getUseItem().getItem()==ModItems.GUSLI.get())amount*=.25F;if(org.slavicmyths.item.FolkEquipmentEffects.wears(p,ModItems.VELES_AMULET.get()))amount*=.5F;d.putFloat(\"SlavicWaterCharm\",Math.min(100,charm+amount));d.putInt(\"SlavicSinger\",r.getId());d.putLong(\"SlavicSongLast\",now);if(charm>=50){d.putBoolean(\"SlavicStrongSong\",true);Knowledge.award(p,\"water_call\");}}"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "BLOCKED_NEEDS_ACQUISITION_APPROVAL",
+      "server_tests": [
+        "gusliCalmRangeImmunityExpiryAndCancel"
+      ]
+    },
+    {
+      "id": "skatert",
+      "name": "Скатерть-самобранка",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "PLACED_ARTIFACT",
+      "actual": "BlockItem:6 portions по6food/.6 saturation; eat CD24; lifetime2400; pickup returns one cloth with rest6000 stored in component",
+      "player_path": "Survival recipe/loot/trade/reward не найден в текущих production источниках. Механика существует; новый способ получения и стоимость утверждает владелец.",
+      "source": [
+        "artifact/SkatertItem.java",
+        "artifact/SkatertBlock.java",
+        "artifact/SkatertTile.java"
+      ],
+      "recipes": [],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [],
+      "survival": "BLOCKED_NEEDS_ACQUISITION_APPROVAL",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/artifact/SkatertBlock.java",
+          "line": 38,
+          "text": "@Override public net.minecraft.world.ItemInteractionResult useItemOn(net.minecraft.world.item.ItemStack interactionStack,BlockState s,Level w,BlockPos pos,Player p,InteractionHand hand,BlockHitResult hit){if(w.isClientSide)return net.minecraft.world.ItemInteractionResult.SUCCESS;if(p.isSecondaryUseActive()){w.removeBlock(pos,false);return net.minecraft.world.ItemInteractionResult.CONSUME;}int portions=s.getValue(PORTIONS);if(portions>0&&p.canEat(false)&&!p.getCooldowns().isOnCooldown(org.slavicmyths.registry.ModItems.SKATERT.get())){p.getFoodData().eat(6,.6F);p.getCooldowns().addCooldown(org.slavicmyths.registry.ModItems.SKATERT.get(),24);w.setBlock(pos,s.setValue(PORTIONS,portions-1),3);w.playSound(null,pos,SoundEvents.GENERIC_EAT,SoundSource.PLAYERS,.65F,1);((ServerLevel)w).sendParticles(new net.minecraft.core.particles.ItemParticleOption(net.minecraft.core.particles.ParticleTypes.ITEM,new ItemStack(org.slavicmyths.registry.ModItems.PANCAKES.get())),p.getX(),p.getEyeY()-.2,p.getZ(),4,.1,.1,.1,.015);}return net.minecraft.world.ItemInteractionResult.CONSUME;}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/artifact/SkatertItem.java",
+          "line": 5,
+          "text": "public SkatertItem(Properties p){super(org.slavicmyths.registry.ModBlocks.SKATERT.get(),p.stacksTo(1));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/artifact/SkatertTile.java",
+          "line": 8,
+          "text": "public ItemStack cloth=new ItemStack(ModItems.SKATERT.get());public long expires;"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/artifact/SkatertTile.java",
+          "line": 9,
+          "text": "public SkatertTile(net.minecraft.core.BlockPos pos,BlockState state){super(ModTiles.SKATERT.get(),pos,state);}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/artifact/SkatertTile.java",
+          "line": 12,
+          "text": "public void onLoad(){super.onLoad();if(level!=null&&!level.isClientSide)level.scheduleTick(worldPosition,ModBlocks.SKATERT.get(),(int)Math.max(1,Math.min(2400,expires-ArtifactEvents.now(level))));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModBlocks.java",
+          "line": 80,
+          "text": "public static final DeferredHolder<Block, Block> SKATERT=BLOCKS.register(\"skatert\",org.slavicmyths.artifact.SkatertBlock::new);"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 214,
+          "text": "public static final DeferredHolder<Item, Item> SKATERT=ITEMS.register(\"skatert\",()->new org.slavicmyths.artifact.SkatertItem(properties().rarity(Rarity.EPIC)));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModTiles.java",
+          "line": 13,
+          "text": "public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<org.slavicmyths.artifact.SkatertTile>> SKATERT = TILES.register(\"skatert\",()->BlockEntityType.Builder.of(org.slavicmyths.artifact.SkatertTile::new,ModBlocks.SKATERT.get()).build(null));"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "BLOCKED_NEEDS_ACQUISITION_APPROVAL",
+      "server_tests": [
+        "skatertPortionsSingleReturnAndRest"
+      ]
+    },
+    {
+      "id": "flying_broom",
+      "name": "Метла Бабы-Яги",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "VEHICLE",
+      "actual": "Разместить→владелец садится; серверный input; одно место; упаковать crouch-hit без riders/viewers; vessel components сохраняются",
+      "player_path": "Сделка/поручения Яги → поставить → сесть → полёт → безопасно слезть → упаковать",
+      "source": [
+        "flight/FlightItem.java",
+        "flight/FlyingVessel.java",
+        "flight/FlightNetwork.java"
+      ],
+      "recipes": [],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [
+        "yaga/YagaServices.java:EXCHANGES"
+      ],
+      "survival": "YAGA_EXCHANGE_STAGE_2",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+          "line": 97,
+          "text": "event.registerEntityRenderer(ModEntities.FLYING_BROOM.get(),FlightRenderer::new);"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/FlightRenderer.java",
+          "line": 16,
+          "text": "private final ItemStack broom=new ItemStack(ModItems.FLYING_BROOM.get()),mortar=new ItemStack(ModItems.FLYING_MORTAR.get());"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/flight/FlightItem.java",
+          "line": 20,
+          "text": "FlyingVessel v=(mortar?ModEntities.FLYING_MORTAR.get():ModEntities.FLYING_BROOM.get()).create(c.getLevel());if(v==null)return InteractionResult.FAIL;v.setPos(p.getX()+.5,p.getY()+.1,p.getZ()+.5);v.setYRot(c.getPlayer().getYRot());"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/flight/FlyingVessel.java",
+          "line": 68,
+          "text": "ItemStack result=vessel.isEmpty()?new ItemStack(mortar?ModItems.FLYING_MORTAR.get():ModItems.FLYING_BROOM.get()):vessel.copy();if(mortar)org.slavicmyths.item.ItemState.inventory(result,true,itemCargo());cargo.clearContent();org.slavicmyths.yaga.FlightRecovery.repack(p);discard();if(!p.getInventory().add(result))p.drop(result,false);return true;"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/flight/FlyingVessel.java",
+          "line": 100,
+          "text": "@Override public ItemStack getPickedResult(net.minecraft.world.phys.HitResult hit){return new ItemStack(mortar?ModItems.FLYING_MORTAR.get():ModItems.FLYING_BROOM.get());}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+          "line": 124,
+          "text": "public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.flight.FlyingVessel>> FLYING_BROOM=ENTITIES.register(\"flying_broom\",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,false),MobCategory.MISC).sized(1F,.45F).clientTrackingRange(10).updateInterval(3).build(\"slavicmyths:flying_broom\"));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 210,
+          "text": "public static final DeferredHolder<Item, Item> FLYING_BROOM=ITEMS.register(\"flying_broom\",()->new org.slavicmyths.flight.FlightItem(properties().rarity(Rarity.RARE),false));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/yaga/FlightRecovery.java",
+          "line": 9,
+          "text": "private static void set(Player p,int ticks){p.getPersistentData().putLong(\"YagaFlightRecovery\",p.level().getGameTime()+ticks);p.getCooldowns().addCooldown(ModItems.FLYING_BROOM.get(),ticks);p.getCooldowns().addCooldown(ModItems.FLYING_MORTAR.get(),ticks);}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/yaga/YagaServices.java",
+          "line": 29,
+          "text": "new Entry(\"flying_broom\",2,\"flying_broom\",1,n(\"svyazka_trav_yagi\",8),n(\"vihrevaya_nit\",4),n(\"ognennoe_pero\",2)),"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "broomPlacementCollisionOwnerAndOneSeat"
+      ]
+    },
+    {
+      "id": "flying_mortar",
+      "name": "Летающая ступа",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "VEHICLE",
+      "actual": "Два места/явный pilot; требует pestle в руке;9 cargo; ownership/input validation; pack preserves cargo",
+      "player_path": "Поручения/обмен Яги → pestle → поставить/сесть → input/багаж → посадка/упаковка",
+      "source": [
+        "flight/FlightItem.java",
+        "flight/FlyingVessel.java",
+        "flight/CargoMenu.java"
+      ],
+      "recipes": [],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [
+        "yaga/YagaServices.java:EXCHANGES"
+      ],
+      "survival": "YAGA_EXCHANGE_STAGE_3",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/ClientSetup.java",
+          "line": 98,
+          "text": "event.registerEntityRenderer(ModEntities.FLYING_MORTAR.get(),FlightRenderer::new);"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/client/FlightRenderer.java",
+          "line": 16,
+          "text": "private final ItemStack broom=new ItemStack(ModItems.FLYING_BROOM.get()),mortar=new ItemStack(ModItems.FLYING_MORTAR.get());"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/flight/FlightItem.java",
+          "line": 20,
+          "text": "FlyingVessel v=(mortar?ModEntities.FLYING_MORTAR.get():ModEntities.FLYING_BROOM.get()).create(c.getLevel());if(v==null)return InteractionResult.FAIL;v.setPos(p.getX()+.5,p.getY()+.1,p.getZ()+.5);v.setYRot(c.getPlayer().getYRot());"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/flight/FlyingVessel.java",
+          "line": 68,
+          "text": "ItemStack result=vessel.isEmpty()?new ItemStack(mortar?ModItems.FLYING_MORTAR.get():ModItems.FLYING_BROOM.get()):vessel.copy();if(mortar)org.slavicmyths.item.ItemState.inventory(result,true,itemCargo());cargo.clearContent();org.slavicmyths.yaga.FlightRecovery.repack(p);discard();if(!p.getInventory().add(result))p.drop(result,false);return true;"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/flight/FlyingVessel.java",
+          "line": 100,
+          "text": "@Override public ItemStack getPickedResult(net.minecraft.world.phys.HitResult hit){return new ItemStack(mortar?ModItems.FLYING_MORTAR.get():ModItems.FLYING_BROOM.get());}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModEntities.java",
+          "line": 125,
+          "text": "public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.flight.FlyingVessel>> FLYING_MORTAR=ENTITIES.register(\"flying_mortar\",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,true),MobCategory.MISC).sized(.95F,1.2F).clientTrackingRange(10).updateInterval(3).build(\"slavicmyths:flying_mortar\"));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 211,
+          "text": "public static final DeferredHolder<Item, Item> FLYING_MORTAR=ITEMS.register(\"flying_mortar\",()->new org.slavicmyths.flight.FlightItem(properties().rarity(Rarity.RARE),true));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/yaga/FlightRecovery.java",
+          "line": 9,
+          "text": "private static void set(Player p,int ticks){p.getPersistentData().putLong(\"YagaFlightRecovery\",p.level().getGameTime()+ticks);p.getCooldowns().addCooldown(ModItems.FLYING_BROOM.get(),ticks);p.getCooldowns().addCooldown(ModItems.FLYING_MORTAR.get(),ticks);}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/yaga/YagaServices.java",
+          "line": 30,
+          "text": "new Entry(\"flying_mortar\",3,\"flying_mortar\",1,n(\"svyazka_trav_yagi\",16),n(\"tugarinova_kozha\",4),n(\"minecraft:iron_ingot\",16)),"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "flightOwnerPestleCargoAndSinglePack"
+      ]
+    },
+    {
+      "id": "pestle",
+      "name": "Пест",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "CONTROL_KEY",
+      "actual": "Plain Item; FlyingVessel требует его в любой руке для управления ступой; не отдельное оружие",
+      "player_path": "Яга stage3: 4 svyazka_trav_yagi +2 uzel_podveya +8 iron_ingot → pestle → управление ступой",
+      "source": [
+        "registry/ModItems.java",
+        "flight/FlyingVessel.java"
+      ],
+      "recipes": [],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [
+        "yaga/YagaServices.java:EXCHANGES"
+      ],
+      "survival": "YAGA_EXCHANGE_STAGE_3",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/FlightClient.java",
+          "line": 37,
+          "text": "if(v.mortar&&v.pilot()==mc.player&&e.getItemStack().getItem()==ModItems.PESTLE.get()){float wave=Mth.sin((mc.player.tickCount+e.getPartialTick())*.19F);m.translate(v.roll()*.004,Math.abs(v.drive())*.025*wave,Math.max(0,v.drive())*.06*wave);m.mulPose(com.mojang.math.Axis.XP.rotationDegrees(v.drive()==-2?-18:wave*9*Math.abs(v.drive())-v.pitch()));m.mulPose(com.mojang.math.Axis.ZP.rotationDegrees(v.roll()*2));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/flight/FlyingVessel.java",
+          "line": 81,
+          "text": "if(active&&mortar&&p.getMainHandItem().getItem()!=ModItems.PESTLE.get()&&p.getOffhandItem().getItem()!=ModItems.PESTLE.get()){forward=strafe=lift=0;brake=true;if(tickCount%80==0)p.displayClientMessage(Component.translatable(\"flight.slavicmyths.need_pestle\"),true);}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 212,
+          "text": "public static final DeferredHolder<Item, Item> PESTLE=ITEMS.register(\"pestle\",()->new Item(properties().stacksTo(1)));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/yaga/YagaServices.java",
+          "line": 31,
+          "text": "new Entry(\"pestle\",3,\"pestle\",1,n(\"svyazka_trav_yagi\",4),n(\"uzel_podveya\",2),n(\"minecraft:iron_ingot\",8))};"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "flightOwnerPestleCargoAndSinglePack"
+      ]
+    },
+    {
+      "id": "mor_flask",
+      "name": "Склянка мора",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "DEBUG_CONSUMABLE",
+      "actual": "По tooltip: для испытаний. Бросок, CD10, splash r3 запускает MorController.apply(false): превращает обычного подходящего духа в моровую форму; не очищает",
+      "player_path": "Технический предмет для испытаний; survival recipe/loot/reward не найден и не добавляется; бросок → заражение обычного духа",
+      "source": [
+        "mor/MorFlaskItem.java",
+        "mor/MorFlaskProjectile.java",
+        "mor/MorController.java",
+        "mor/MorRules.java"
+      ],
+      "recipes": [],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [],
+      "survival": "INTENTIONAL_DEBUG_TOOLTIP_NO_SURVIVAL",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/mor/MorFlaskProjectile.java",
+          "line": 16,
+          "text": "@Override protected Item getDefaultItem(){return ModItems.MOR_FLASK.get();}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 19,
+          "text": "public static final DeferredHolder<Item,Item> MOR_FLASK=ITEMS.register(\"mor_flask\",()->new org.slavicmyths.mor.MorFlaskItem(properties()));"
+        }
+      ],
+      "tooltip": {},
+      "before": "server rejection consumed item/cooldown (baseline GameTest FAIL)",
+      "change": "commit consumption/cooldown only after native success",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "rejectedMorFlaskSpawnDoesNotConsume",
+        "morFlaskSuccessfulUseAndNativeCooldown",
+        "morFlaskRealProjectileTransformsEligibleSpirit"
+      ]
+    },
+    {
+      "id": "oko_likha",
+      "name": "Око Лиха",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "QUEST_INGREDIENT",
+      "actual": "HuntItems.Role.FANG: не активный ПКМ; boss ingredient и сюжетный ключ, не искатель сам по себе",
+      "player_path": "Победа над Лихом/штатный трофей → рецепты/сюжет; не новая способность обнаружения",
+      "source": [
+        "hunt/HuntItems.java",
+        "registry/ModItems.java"
+      ],
+      "recipes": [],
+      "loot": [
+        "src/main/resources/data/slavicmyths/loot_table/entities/likho_one_eyed.json"
+      ],
+      "ingredient_in": [
+        "src/main/resources/data/slavicmyths/recipe/odnoglazyy_obereg.json",
+        "src/main/resources/data/slavicmyths/recipe/rare_likho_staff.json",
+        "src/main/resources/data/slavicmyths/recipe/unique/clear_sight_helmet.json"
+      ],
+      "acquisition_code": [],
+      "survival": "SOURCE_PATH_FOUND",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 305,
+          "text": "public static final DeferredHolder<Item, Item> OKO_LIKHA=ITEMS.register(\"oko_likha\",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(1).rarity(Rarity.EPIC),org.slavicmyths.hunt.HuntItems.Role.FANG));"
+        }
+      ],
+      "tooltip": {
+        "item.slavicmyths.oko_likha.effect": "Трофей Лиха; компонент оберега и будущих ритуалов."
+      },
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "all34RegistryAndAcquisitionRecipes (registry/loaded recipes only)"
+      ]
+    },
+    {
+      "id": "wolf_call",
+      "name": "Волчий зов",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "ALLY_SUMMON",
+      "actual": "WolfUnlocked gate; один support UUID; expires2400, CD6000; refuses active/unloaded lease; combat renews expiry",
+      "player_path": "Цепочка очищения земли у Яги/Волка → WolfUnlocked → ПКМ → временный боевой представитель Волка",
+      "source": [
+        "quest185/Quest185Item.java",
+        "quest185/WolfSupport.java",
+        "quest185/Quest185Story.java"
+      ],
+      "recipes": [],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [
+        "quest185/Quest185Story.java:reward(8)/claim"
+      ],
+      "survival": "QUEST_185_REWARD_8_WOLF_UNLOCKED",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/Quest185Client.java",
+          "line": 32,
+          "text": "@SubscribeEvent public static void models(net.neoforged.neoforge.client.event.ModelEvent.RegisterAdditional e){for(String name:List.of(\"wolf_call\",\"mor_ward\",\"tracker_sense\",\"cleansing_powder\"))for(String suffix:List.of(\"_icon\",\"_held\"))e.register(net.minecraft.client.resources.model.ModelResourceLocation.standalone(Quest185Content.id(\"item/\"+name+suffix)));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/quest185/Quest185Commands.java",
+          "line": 12,
+          "text": "for(String action:List.of(\"status\",\"reset\",\"invite\",\"debug_actors\",\"wolf_call\",\"cleansing_sample\",\"cleansing_status\")){final String selected=action;root.then(Commands.literal(action).then(Commands.argument(\"player\",EntityArgument.player()).executes(c->run(c.getSource(),EntityArgument.getPlayer(c,\"player\"),selected))));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/quest185/Quest185Commands.java",
+          "line": 16,
+          "text": "private static int run(CommandSourceStack source,ServerPlayer p,String action){switch(action){case \"status\"->source.sendSuccess(()->Component.literal(Quest185Story.snapshot(p).toString()),false);case \"reset\"->{Quest185Sessions.close(p);CleansingLessons.get(p.serverLevel()).reset(p);org.slavicmyths.rpg.PathData.data(p).remove(\"Quest185\");}case \"invite\"->{Quest185Story.data(p).putInt(\"MorKills\",Math.max(1,Quest185Story.data(p).getInt(\"MorKills\")));Quest185Story.invite(p);}case \"debug_actors\"->source.sendSuccess(()->Component.literal(\"Yaga=\"+Quest185Story.yagaTrust(p)+\", Bayun met=\"+Quest185Story.metBayun(p)+\" trust=\"+Quest185Story.bayunTrust(p)+\", Wolf=\"+Quest185Story.wolfTrust(p)),false);case \"wolf_call\"->{return WolfSupport.summon(p)?1:0;}case \"cleansing_status\"->source.sendSuccess(()->Component.literal(\"cleaned=\"+CleansingLessons.get(p.serverLevel()).count(p.getUUID())+\", tasks=\"+CleansingTasks.get(p.serverLevel()).activeTasks()+\", immunityAtFeet=\"+CleansedLand.remaining(p.serverLevel(),p.blockPosition().below())),false);case \"cleansing_sample\"->{var s=new net.minecraft.world.item.ItemStack(Quest185Content.POWDER.get(),12);if(!p.getInventory().add(s))return 0;}}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/quest185/Quest185Content.java",
+          "line": 12,
+          "text": "public static final DeferredHolder<Item,Item> WARD=ModItems.ITEMS.register(\"mor_ward\",()->new Quest185Item(\"ward\")),TRACKER=ModItems.ITEMS.register(\"tracker_sense\",()->new Quest185Item(\"tracker\")),CALL=ModItems.ITEMS.register(\"wolf_call\",()->new Quest185Item(\"wolf\")),POWDER=ModItems.ITEMS.register(\"cleansing_powder\",CleansingPowder::new);"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/quest185/Quest185Content.java",
+          "line": 18,
+          "text": "static{for(String s:List.of(\"invitation\",\"teleport_start\",\"teleport_end\",\"yaga_greeting\",\"bayun_comment\",\"wolf_comment\",\"ritual_sample\",\"quest_claim\",\"wolf_call\",\"wolf_arrive\",\"wolf_howl\",\"tracker_on\",\"ward_on\",\"purify\"))SOUNDS.put(s,ModSounds.SOUNDS.register(\"quest185.\"+s,()->SoundEvent.createFixedRangeEvent(id(\"quest185.\"+s),s.equals(\"wolf_howl\")?48:s.equals(\"wolf_call\")?32:12)));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/quest185/WolfSupport.java",
+          "line": 22,
+          "text": "if(now<n.getLong(\"WolfReady\")){p.displayClientMessage(Quest185Story.text(\"cooldown\",(n.getLong(\"WolfReady\")-now+19)/20),true);return false;}var at=Quest185Sessions.safe(p,p.blockPosition(),3,6,2.2f,3.5f);if(at==null){p.displayClientMessage(Quest185Story.text(\"no_safe_ground\"),true);return false;}var wolf=Quest185Content.WOLF.get().create(p.serverLevel());if(wolf==null)return false;wolf.owner=p.getUUID();wolf.expiry=now+2400;wolf.setHealth(50);wolf.moveTo(at);wolf.setPersistenceRequired();if(!p.serverLevel().addFreshEntity(wolf))return false;n.putUUID(\"Support\",wolf.getUUID());n.putLong(\"SupportExpires\",wolf.expiry);n.putLong(\"WolfReady\",now+6000);Quest185Content.sound(p,\"wolf_call\");Quest185Content.sound(p,\"wolf_arrive\");p.serverLevel().sendParticles(net.minecraft.core.particles.ParticleTypes.CLOUD,at.x,at.y+1,at.z,16,.6,.6,.6,.01);return true;"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "storyCallsCannotBypassIntroductions (locked case only)"
+      ]
+    },
+    {
+      "id": "tracker_sense",
+      "name": "Чутьё следопыта",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "ACTIVE_EFFECT",
+      "actual": "Tracker effect3600; Ready12000 overworld clock; повтор active/CD fail; player saved quest data",
+      "player_path": "Сюжет185 → ПКМ → временное видение/поиск предусмотренных заражённых целей",
+      "source": [
+        "quest185/Quest185Item.java",
+        "quest185/Quest185Events.java",
+        "quest185/Quest185Story.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/tracker_sense.json"
+      ],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [
+        "quest185/Quest185Story.java:UtilityRecipes/reward",
+        "equipment/mixin/Quest185CraftingMixin.java",
+        "equipment/mixin/Quest185CrafterMixin.java"
+      ],
+      "survival": "QUEST_GATED_PERSONAL_RECIPE",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/Quest185Client.java",
+          "line": 32,
+          "text": "@SubscribeEvent public static void models(net.neoforged.neoforge.client.event.ModelEvent.RegisterAdditional e){for(String name:List.of(\"wolf_call\",\"mor_ward\",\"tracker_sense\",\"cleansing_powder\"))for(String suffix:List.of(\"_icon\",\"_held\"))e.register(net.minecraft.client.resources.model.ModelResourceLocation.standalone(Quest185Content.id(\"item/\"+name+suffix)));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/quest185/Quest185Content.java",
+          "line": 12,
+          "text": "public static final DeferredHolder<Item,Item> WARD=ModItems.ITEMS.register(\"mor_ward\",()->new Quest185Item(\"ward\")),TRACKER=ModItems.ITEMS.register(\"tracker_sense\",()->new Quest185Item(\"tracker\")),CALL=ModItems.ITEMS.register(\"wolf_call\",()->new Quest185Item(\"wolf\")),POWDER=ModItems.ITEMS.register(\"cleansing_powder\",CleansingPowder::new);"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/quest185/Quest185Content.java",
+          "line": 13,
+          "text": "public static final DeferredHolder<MobEffect,MobEffect> WARD_EFFECT=ModEffects.EFFECTS.register(\"mor_ward\",()->new MobEffect(MobEffectCategory.BENEFICIAL,0xCBAD75){}),TRACKER_EFFECT=ModEffects.EFFECTS.register(\"tracker_sense\",()->new MobEffect(MobEffectCategory.BENEFICIAL,0x9C2839){});"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/quest185/Quest185Story.java",
+          "line": 32,
+          "text": "var reward=reward(i);if(!reward.isEmpty())Quest185State.quest(n,i).put(\"Pending\",reward.save(p.registryAccess()));p.giveExperiencePoints(Quest185State.XP[i]);collect(p);if(i==1){n.putBoolean(\"UtilityRecipes\",true);discover(p,\"mor_ward\",\"tracker_sense\");}if(i==2||i==3)discover(p,\"mor_horn\");if(i==5){n.putBoolean(\"FinalChapter\",true);org.slavicmyths.progression.AdvancementJourney.award(p,\"mor_story_complete\");TaleService.promote(p,\"slavicmyths:mor_investigation\",4,true);}if(i==8)n.putBoolean(\"WolfUnlocked\",true);TaleService.promote(p,\"slavicmyths:mor_investigation\",3,false);Quest185Content.sound(p,\"quest_claim\");return true;"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/mixin/Quest185CrafterMixin.java",
+          "line": 13,
+          "text": "private static void quest185$personal(Level level,CraftingInput input,CallbackInfoReturnable<Optional<RecipeHolder<CraftingRecipe>>> ci){var recipe=ci.getReturnValue();if(recipe.isEmpty())return;var id=recipe.get().id();if(id.getNamespace().equals(\"slavicmyths\")&&java.util.Set.of(\"mor_ward\",\"tracker_sense\",\"two_winters_original\",\"two_winters_copy\",\"ilya_call_token\",\"dobrynya_call_emblem\",\"alyosha_call_whistle\",\"finist_call_feather\").contains(id.getPath()))ci.setReturnValue(Optional.empty());}"
+        }
+      ],
+      "tooltip": {},
+      "before": "server rejection consumed item/cooldown (baseline GameTest FAIL)",
+      "change": "commit consumption/cooldown only after native success",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "rejectedTrackerDoesNotSpendCooldown",
+        "trackerTearSuccessRepeatAndSavedCooldown"
+      ]
+    },
+    {
+      "id": "sivka_whistle",
+      "name": "Молодецкий свист",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "BOUND_SUMMON",
+      "actual": "Owner/bond/token/generation checks; play-time CD/recovery; safe loaded spot; retire previous only after successful spawn",
+      "player_path": "Естественная Сивка → испытание/кормление/личная связь → свисток → вызов; чужой/истёкший запрещён",
+      "source": [
+        "sivka/SivkaWhistle.java",
+        "sivka/SivkaBonds.java",
+        "sivka/SivkaRules.java"
+      ],
+      "recipes": [],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [
+        "sivka/SivkaBonds.java:give/stamp"
+      ],
+      "survival": "PERSONAL_SIVKA_BOND",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/sivka/SivkaContent.java",
+          "line": 19,
+          "text": "public static final DeferredHolder<Item,Item> WHISTLE=ModItems.ITEMS.register(\"sivka_whistle\",SivkaWhistle::new);"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "storyCallsCannotBypassIntroductions (unbound case only)"
+      ]
+    },
+    {
+      "id": "ilya_call_token",
+      "name": "Знак Ильи Муромца",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "STORY_ALLY",
+      "actual": "Channel12 of22 ticks; HeroCalls.toggle; canonical UUID maps; StoryPolicy/party/lease/cooldown gates",
+      "player_path": "Яга/Баюн → поручение знакомства с соответствующим героем → выполнить помощь (Helped) → получить его токен → вызов/отзыв; possession не заменяет Helped",
+      "source": [
+        "skim/HeroCallItem.java",
+        "skim/HeroCalls.java",
+        "marinka/StoryPolicy.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/ilya_call_token.json"
+      ],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [
+        "bogatyr/HeroIntroductions.java:offer/interact/deliver"
+      ],
+      "survival": "PERSONAL_INTRODUCTION_HELP_REWARD",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/bogatyr/HeroIntroductions.java",
+          "line": 25,
+          "text": "private static final String[] TOKENS={\"ilya_call_token\",\"dobrynya_call_emblem\",\"alyosha_call_whistle\",\"finist_call_feather\"};"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/skim/HeroCallItem.java",
+          "line": 18,
+          "text": "boolean ok=horn()?SkimValley.start(p):HeroCalls.toggle(p,id.equals(\"ilya_call_token\")?\"ilya_muromets\":id.equals(\"dobrynya_call_emblem\")?\"dobrynya_nikitich\":\"alyosha_popovich\");if(ok)p.playSound(SkimContent.sound(horn()?\"items.beast_horn\":id.equals(\"alyosha_call_whistle\")?\"items.alyosha_whistle\":id.equals(\"ilya_call_token\")?\"items.ilya_token\":\"items.dobrynya_emblem\"),.8F,1);"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/skim/SkimContent.java",
+          "line": 21,
+          "text": "for(String k:List.of(\"alyosha_call_whistle\",\"ilya_call_token\",\"dobrynya_call_emblem\",\"beast_challenge_horn\"))ModItems.ITEMS.register(k,()->new HeroCallItem(k));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/mixin/Quest185CrafterMixin.java",
+          "line": 13,
+          "text": "private static void quest185$personal(Level level,CraftingInput input,CallbackInfoReturnable<Optional<RecipeHolder<CraftingRecipe>>> ci){var recipe=ci.getReturnValue();if(recipe.isEmpty())return;var id=recipe.get().id();if(id.getNamespace().equals(\"slavicmyths\")&&java.util.Set.of(\"mor_ward\",\"tracker_sense\",\"two_winters_original\",\"two_winters_copy\",\"ilya_call_token\",\"dobrynya_call_emblem\",\"alyosha_call_whistle\",\"finist_call_feather\").contains(id.getPath()))ci.setReturnValue(Optional.empty());}"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "storyCallsCannotBypassIntroductions",
+        "introducedHeroesSingleCanonicalEntityAndRecall"
+      ]
+    },
+    {
+      "id": "dobrynya_call_emblem",
+      "name": "Знак Добрыни Никитича",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "STORY_ALLY",
+      "actual": "Channel12/22; HeroCalls.toggle; actual Dobrynya release gate, canonical owner/maps",
+      "player_path": "Яга/Баюн → поручение знакомства с соответствующим героем → выполнить помощь (Helped) → получить его токен → вызов/отзыв; possession не заменяет Helped",
+      "source": [
+        "skim/HeroCallItem.java",
+        "skim/HeroCalls.java",
+        "marinka/StoryPolicy.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/dobrynya_call_emblem.json"
+      ],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [
+        "bogatyr/HeroIntroductions.java:offer/interact/deliver"
+      ],
+      "survival": "PERSONAL_INTRODUCTION_HELP_REWARD",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/bogatyr/HeroIntroductions.java",
+          "line": 25,
+          "text": "private static final String[] TOKENS={\"ilya_call_token\",\"dobrynya_call_emblem\",\"alyosha_call_whistle\",\"finist_call_feather\"};"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/skim/HeroCallItem.java",
+          "line": 18,
+          "text": "boolean ok=horn()?SkimValley.start(p):HeroCalls.toggle(p,id.equals(\"ilya_call_token\")?\"ilya_muromets\":id.equals(\"dobrynya_call_emblem\")?\"dobrynya_nikitich\":\"alyosha_popovich\");if(ok)p.playSound(SkimContent.sound(horn()?\"items.beast_horn\":id.equals(\"alyosha_call_whistle\")?\"items.alyosha_whistle\":id.equals(\"ilya_call_token\")?\"items.ilya_token\":\"items.dobrynya_emblem\"),.8F,1);"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/skim/SkimContent.java",
+          "line": 21,
+          "text": "for(String k:List.of(\"alyosha_call_whistle\",\"ilya_call_token\",\"dobrynya_call_emblem\",\"beast_challenge_horn\"))ModItems.ITEMS.register(k,()->new HeroCallItem(k));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/mixin/Quest185CrafterMixin.java",
+          "line": 13,
+          "text": "private static void quest185$personal(Level level,CraftingInput input,CallbackInfoReturnable<Optional<RecipeHolder<CraftingRecipe>>> ci){var recipe=ci.getReturnValue();if(recipe.isEmpty())return;var id=recipe.get().id();if(id.getNamespace().equals(\"slavicmyths\")&&java.util.Set.of(\"mor_ward\",\"tracker_sense\",\"two_winters_original\",\"two_winters_copy\",\"ilya_call_token\",\"dobrynya_call_emblem\",\"alyosha_call_whistle\",\"finist_call_feather\").contains(id.getPath()))ci.setReturnValue(Optional.empty());}"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "storyCallsCannotBypassIntroductions",
+        "introducedHeroesSingleCanonicalEntityAndRecall"
+      ]
+    },
+    {
+      "id": "alyosha_call_whistle",
+      "name": "Свисток Алёши",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "STORY_ALLY",
+      "actual": "Channel12/22; HeroCalls.toggle; actual story gate, party cap and lease",
+      "player_path": "Яга/Баюн → поручение знакомства с соответствующим героем → выполнить помощь (Helped) → получить его токен → вызов/отзыв; possession не заменяет Helped",
+      "source": [
+        "skim/HeroCallItem.java",
+        "skim/HeroCalls.java",
+        "marinka/StoryPolicy.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/alyosha_call_whistle.json"
+      ],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [
+        "bogatyr/HeroIntroductions.java:offer/interact/deliver"
+      ],
+      "survival": "PERSONAL_INTRODUCTION_HELP_REWARD",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/bogatyr/HeroIntroductions.java",
+          "line": 25,
+          "text": "private static final String[] TOKENS={\"ilya_call_token\",\"dobrynya_call_emblem\",\"alyosha_call_whistle\",\"finist_call_feather\"};"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/skim/HeroCallItem.java",
+          "line": 14,
+          "text": "@Override public UseAnim getUseAnimation(ItemStack s){return horn()||id.equals(\"alyosha_call_whistle\")?UseAnim.TOOT_HORN:UseAnim.BOW;}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/skim/HeroCallItem.java",
+          "line": 18,
+          "text": "boolean ok=horn()?SkimValley.start(p):HeroCalls.toggle(p,id.equals(\"ilya_call_token\")?\"ilya_muromets\":id.equals(\"dobrynya_call_emblem\")?\"dobrynya_nikitich\":\"alyosha_popovich\");if(ok)p.playSound(SkimContent.sound(horn()?\"items.beast_horn\":id.equals(\"alyosha_call_whistle\")?\"items.alyosha_whistle\":id.equals(\"ilya_call_token\")?\"items.ilya_token\":\"items.dobrynya_emblem\"),.8F,1);"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/skim/SkimContent.java",
+          "line": 21,
+          "text": "for(String k:List.of(\"alyosha_call_whistle\",\"ilya_call_token\",\"dobrynya_call_emblem\",\"beast_challenge_horn\"))ModItems.ITEMS.register(k,()->new HeroCallItem(k));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/mixin/Quest185CrafterMixin.java",
+          "line": 13,
+          "text": "private static void quest185$personal(Level level,CraftingInput input,CallbackInfoReturnable<Optional<RecipeHolder<CraftingRecipe>>> ci){var recipe=ci.getReturnValue();if(recipe.isEmpty())return;var id=recipe.get().id();if(id.getNamespace().equals(\"slavicmyths\")&&java.util.Set.of(\"mor_ward\",\"tracker_sense\",\"two_winters_original\",\"two_winters_copy\",\"ilya_call_token\",\"dobrynya_call_emblem\",\"alyosha_call_whistle\",\"finist_call_feather\").contains(id.getPath()))ci.setReturnValue(Optional.empty());}"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "storyCallsCannotBypassIntroductions",
+        "introducedHeroesSingleCanonicalEntityAndRecall"
+      ]
+    },
+    {
+      "id": "finist_call_feather",
+      "name": "Перо Финиста",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "STORY_ALLY",
+      "actual": "Channel15/28; HeroCalls.toggle finist; success CD40/failure8; canonical hero maps, story gate",
+      "player_path": "Яга/Баюн → поручение знакомства с соответствующим героем → выполнить помощь (Helped) → получить его токен → вызов/отзыв; possession не заменяет Helped",
+      "source": [
+        "finist/FalconCallItem.java",
+        "skim/HeroCalls.java",
+        "marinka/StoryPolicy.java"
+      ],
+      "recipes": [],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [
+        "bogatyr/HeroIntroductions.java:offer/interact/deliver"
+      ],
+      "survival": "PERSONAL_INTRODUCTION_HELP_REWARD",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/bogatyr/HeroIntroductions.java",
+          "line": 25,
+          "text": "private static final String[] TOKENS={\"ilya_call_token\",\"dobrynya_call_emblem\",\"alyosha_call_whistle\",\"finist_call_feather\"};"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/finist/FalconCallItem.java",
+          "line": 11,
+          "text": "@Override public void appendHoverText(ItemStack s,TooltipContext c,List<Component> lines,TooltipFlag f){lines.add(Component.translatable(\"tooltip.slavicmyths.\"+(seal?\"kartaus_black_seal\":\"finist_call_feather\")));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/finist/FinistContent.java",
+          "line": 21,
+          "text": "ModItems.ITEMS.register(\"finist_call_feather\",()->new FalconCallItem(false));ModItems.ITEMS.register(\"kartaus_black_seal\",()->new FalconCallItem(true));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/mixin/Quest185CrafterMixin.java",
+          "line": 13,
+          "text": "private static void quest185$personal(Level level,CraftingInput input,CallbackInfoReturnable<Optional<RecipeHolder<CraftingRecipe>>> ci){var recipe=ci.getReturnValue();if(recipe.isEmpty())return;var id=recipe.get().id();if(id.getNamespace().equals(\"slavicmyths\")&&java.util.Set.of(\"mor_ward\",\"tracker_sense\",\"two_winters_original\",\"two_winters_copy\",\"ilya_call_token\",\"dobrynya_call_emblem\",\"alyosha_call_whistle\",\"finist_call_feather\").contains(id.getPath()))ci.setReturnValue(Optional.empty());}"
+        }
+      ],
+      "tooltip": {
+        "tooltip.slavicmyths.finist_call_feather": "Призывает Финиста. Не расходуется."
+      },
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "storyCallsCannotBypassIntroductions",
+        "introducedHeroesSingleCanonicalEntityAndRecall"
+      ]
+    },
+    {
+      "id": "kartaus_black_seal",
+      "name": "Печать чёрного знамени",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "BOSS_KEY",
+      "actual": "Channel8/40; KartausEncounter.start; story/encounter validation; CD40/8",
+      "player_path": "Survival recipe/loot/trade/reward не найден в текущих production источниках. Механика существует; новый способ получения и стоимость утверждает владелец.",
+      "source": [
+        "finist/FalconCallItem.java",
+        "finist/KartausEncounter.java"
+      ],
+      "recipes": [],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [],
+      "survival": "BLOCKED_NEEDS_ACQUISITION_APPROVAL",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/finist/FalconCallItem.java",
+          "line": 11,
+          "text": "@Override public void appendHoverText(ItemStack s,TooltipContext c,List<Component> lines,TooltipFlag f){lines.add(Component.translatable(\"tooltip.slavicmyths.\"+(seal?\"kartaus_black_seal\":\"finist_call_feather\")));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/finist/FinistContent.java",
+          "line": 21,
+          "text": "ModItems.ITEMS.register(\"finist_call_feather\",()->new FalconCallItem(false));ModItems.ITEMS.register(\"kartaus_black_seal\",()->new FalconCallItem(true));"
+        }
+      ],
+      "tooltip": {
+        "tooltip.slavicmyths.kartaus_black_seal": "Начинает испытание Картауса. Не расходуется."
+      },
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "BLOCKED_NEEDS_ACQUISITION_APPROVAL",
+      "server_tests": [
+        "all34RegistryAndAcquisitionRecipes (registry/loaded recipes only)"
+      ]
+    },
+    {
+      "id": "kalin_battle_seal",
+      "name": "Печать ставки Калина",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "BOSS_KEY",
+      "actual": "KalinEncounter.start; story party gates; success CD100/fail20; not consumed",
+      "player_path": "Survival recipe/loot/trade/reward не найден в текущих production источниках. Механика существует; новый способ получения и стоимость утверждает владелец.",
+      "source": [
+        "kalin/KalinSeal.java",
+        "kalin/KalinEncounter.java"
+      ],
+      "recipes": [],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [],
+      "survival": "BLOCKED_NEEDS_ACQUISITION_APPROVAL",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/kalin/KalinContent.java",
+          "line": 22,
+          "text": "ModItems.ITEMS.register(\"kalin_battle_seal\",KalinSeal::new);"
+        }
+      ],
+      "tooltip": {
+        "tooltip.slavicmyths.kalin_battle_seal": "Призовите ровно двух богатырей и примените печать на открытой ровной площадке 65×65. Не расходуется."
+      },
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "BLOCKED_NEEDS_ACQUISITION_APPROVAL",
+      "server_tests": [
+        "all34RegistryAndAcquisitionRecipes (registry/loaded recipes only)"
+      ]
+    },
+    {
+      "id": "gorynych_mor_breath_bottle",
+      "name": "Моровое дыхание",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "UPGRADE_INGREDIENT",
+      "actual": "Plain Item + glass craft remainder; component for three_breath_crossbow, not throwable; Mor weapon mode creates80tick weakness/damage cloud",
+      "player_path": "Собрать бутылкой облако моровой головы живого Горыныча → upgrade crossbow → режим mor",
+      "source": [
+        "gorynych/GorynychContent.java",
+        "gorynych/GorynychUpgrade.java",
+        "gorynych/BreathCloud.java",
+        "gorynych/SerpentCrossbow.java"
+      ],
+      "recipes": [],
+      "loot": [],
+      "ingredient_in": [
+        "src/main/resources/data/slavicmyths/recipe/gorynych_upgrade.json"
+      ],
+      "acquisition_code": [
+        "gorynych/BreathCloud.java:interact"
+      ],
+      "survival": "BOSS_CLOUD_COLLECTION_3_USES",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
+          "line": 21,
+          "text": "for(String s:List.of(\"gorynych_scale\",\"ancient_serpent_steel\",\"serpent_seal\",\"gorynych_flame_breath_bottle\",\"gorynych_mor_breath_bottle\",\"gorynych_storm_breath_bottle\",\"rune_mor_breath\",\"rune_dragon_flame\",\"rune_storm_strike\"))ITEMS.put(s,ModItems.ITEMS.register(s,()->new Item(new Item.Properties().craftRemainder(s.endsWith(\"_bottle\")?Items.GLASS_BOTTLE:null).rarity(s.startsWith(\"rune_\")||s.equals(\"serpent_seal\")?Rarity.EPIC:Rarity.RARE)){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
+          "line": 33,
+          "text": "public static Item bottle(int type){return item(type==0?\"gorynych_mor_breath_bottle\":type==1?\"gorynych_flame_breath_bottle\":\"gorynych_storm_breath_bottle\");}"
+        }
+      ],
+      "tooltip": {
+        "item.slavicmyths.gorynych_mor_breath_bottle.desc": "Собранное дыхание Мора. Компонент улучшения арбалета; для стрельбы не требуется."
+      },
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "breathBottlesActualUpgradeAndRemainders",
+        "threeBreathImpactEffectsAndStormRepeatGuard",
+        "bottlesCollectedOnceAndNotDirectWeapons"
+      ]
+    },
+    {
+      "id": "gorynych_flame_breath_bottle",
+      "name": "Пламенное дыхание",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "UPGRADE_INGREDIENT",
+      "actual": "Plain Item + glass craft remainder; upgrade ingredient; flame crossbow/rune burst damage/fire, not direct bottle use",
+      "player_path": "Собрать огненное облако Горыныча → upgrade → режим пламени",
+      "source": [
+        "gorynych/GorynychContent.java",
+        "gorynych/GorynychUpgrade.java",
+        "gorynych/GorynychEquipment.java"
+      ],
+      "recipes": [],
+      "loot": [],
+      "ingredient_in": [
+        "src/main/resources/data/slavicmyths/recipe/gorynych_upgrade.json"
+      ],
+      "acquisition_code": [
+        "gorynych/BreathCloud.java:interact"
+      ],
+      "survival": "BOSS_CLOUD_COLLECTION_3_USES",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
+          "line": 21,
+          "text": "for(String s:List.of(\"gorynych_scale\",\"ancient_serpent_steel\",\"serpent_seal\",\"gorynych_flame_breath_bottle\",\"gorynych_mor_breath_bottle\",\"gorynych_storm_breath_bottle\",\"rune_mor_breath\",\"rune_dragon_flame\",\"rune_storm_strike\"))ITEMS.put(s,ModItems.ITEMS.register(s,()->new Item(new Item.Properties().craftRemainder(s.endsWith(\"_bottle\")?Items.GLASS_BOTTLE:null).rarity(s.startsWith(\"rune_\")||s.equals(\"serpent_seal\")?Rarity.EPIC:Rarity.RARE)){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
+          "line": 33,
+          "text": "public static Item bottle(int type){return item(type==0?\"gorynych_mor_breath_bottle\":type==1?\"gorynych_flame_breath_bottle\":\"gorynych_storm_breath_bottle\");}"
+        }
+      ],
+      "tooltip": {
+        "item.slavicmyths.gorynych_flame_breath_bottle.desc": "Собранное дыхание пламени. Компонент улучшения арбалета; для стрельбы не требуется."
+      },
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "breathBottlesActualUpgradeAndRemainders",
+        "threeBreathImpactEffectsAndStormRepeatGuard",
+        "bottlesCollectedOnceAndNotDirectWeapons"
+      ]
+    },
+    {
+      "id": "gorynych_storm_breath_bottle",
+      "name": "Дыхание бури",
+      "category": [
+        "magic",
+        "artifacts"
+      ],
+      "role": "UPGRADE_INGREDIENT",
+      "actual": "Plain Item + glass craft remainder; upgrade ingredient; storm mode uses StormCrossbow bounded targets/control/cooldown",
+      "player_path": "Собрать штормовое облако → upgrade → режим шторма; значения не меняются",
+      "source": [
+        "gorynych/GorynychContent.java",
+        "gorynych/GorynychUpgrade.java",
+        "gorynych/StormCrossbow.java"
+      ],
+      "recipes": [],
+      "loot": [],
+      "ingredient_in": [
+        "src/main/resources/data/slavicmyths/recipe/gorynych_upgrade.json"
+      ],
+      "acquisition_code": [
+        "gorynych/BreathCloud.java:interact"
+      ],
+      "survival": "BOSS_CLOUD_COLLECTION_3_USES",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
+          "line": 21,
+          "text": "for(String s:List.of(\"gorynych_scale\",\"ancient_serpent_steel\",\"serpent_seal\",\"gorynych_flame_breath_bottle\",\"gorynych_mor_breath_bottle\",\"gorynych_storm_breath_bottle\",\"rune_mor_breath\",\"rune_dragon_flame\",\"rune_storm_strike\"))ITEMS.put(s,ModItems.ITEMS.register(s,()->new Item(new Item.Properties().craftRemainder(s.endsWith(\"_bottle\")?Items.GLASS_BOTTLE:null).rarity(s.startsWith(\"rune_\")||s.equals(\"serpent_seal\")?Rarity.EPIC:Rarity.RARE)){"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
+          "line": 33,
+          "text": "public static Item bottle(int type){return item(type==0?\"gorynych_mor_breath_bottle\":type==1?\"gorynych_flame_breath_bottle\":\"gorynych_storm_breath_bottle\");}"
+        }
+      ],
+      "tooltip": {
+        "item.slavicmyths.gorynych_storm_breath_bottle.desc": "Собранное дыхание бури. Компонент улучшения арбалета; для стрельбы не требуется."
+      },
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "breathBottlesActualUpgradeAndRemainders",
+        "threeBreathImpactEffectsAndStormRepeatGuard",
+        "bottlesCollectedOnceAndNotDirectWeapons"
+      ]
+    },
+    {
+      "id": "warding_charm",
+      "name": "Оберег",
+      "category": [
+        "magic",
+        "charms"
+      ],
+      "role": "RITUAL_INGREDIENT",
+      "actual": "Plain Item; FirstRitual/Rituals/legacy PathData offerings, not Curios passive",
+      "player_path": "Крафт → ритуальный компонент → янтарный оберег/ритуалы",
+      "source": [
+        "registry/ModItems.java",
+        "ritual/FirstRitual.java",
+        "ritual/Rituals.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/hair_charm.json",
+        "src/main/resources/data/slavicmyths/recipe/warding_charm.json"
+      ],
+      "loot": [
+        "src/main/resources/data/slavicmyths/loot_table/chests/swamp_ruins.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/swamp_shrine.json"
+      ],
+      "ingredient_in": [
+        "src/main/resources/data/slavicmyths/recipe/unique/ward_shield.json"
+      ],
+      "acquisition_code": [],
+      "survival": "SOURCE_PATH_FOUND",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/RpgScreen.java",
+          "line": 46,
+          "text": "private Component chooseBlocker(){var d=RpgClient.data;if(!d.getString(\"Main\").isEmpty()&&(!d.getString(\"Secondary\").isEmpty()||PathData.PATHS[path].equals(d.getString(\"Main\"))||PathData.points(d,d.getString(\"Main\"))<3))return tr(\"secondary_locked\");if(!creative()&&RpgClient.xp<10)return tr(\"need_xp\",10);Item[][] offers={{Items.IRON_SWORD,Items.SHIELD},{org.slavicmyths.registry.ModItems.WARDING_CHARM.get(),org.slavicmyths.registry.ModItems.WORMWOOD.get()},{Items.BOW,org.slavicmyths.registry.ModItems.SILVER_DAGGER.get()},{org.slavicmyths.registry.ModItems.CARVED_STAFF.get(),org.slavicmyths.registry.ModItems.ANCIENT_SIGN.get()}};for(int n=0;n<2;n++){int count=path==1&&n==1?4:1;if(Runes.inventoryCount(minecraft.player,offers[path][n])<count)return tr(\"missing_material\",offers[path][n].getDescription(),count);}return null;}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 50,
+          "text": "public static final DeferredHolder<Item, Item> WARDING_CHARM = ITEMS.register("
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 51,
+          "text": "\"warding_charm\", () -> new Item(properties()));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/ritual/FirstRitual.java",
+          "line": 14,
+          "text": "default: return ModItems.WARDING_CHARM.get();"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/ritual/Rituals.java",
+          "line": 22,
+          "text": "{ModItems.SILVER_INGOT.get(),ModItems.WARDING_CHARM.get(),ModItems.ANCIENT_SIGN.get()},"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/ritual/Rituals.java",
+          "line": 64,
+          "text": "case 0: return ModItems.WARDING_CHARM.get();"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/rpg/PathData.java",
+          "line": 34,
+          "text": "Item[][] offerings={{Items.IRON_SWORD,Items.SHIELD},{ModItems.WARDING_CHARM.get(),ModItems.WORMWOOD.get()},{Items.BOW,ModItems.SILVER_DAGGER.get()},{ModItems.CARVED_STAFF.get(),ModItems.ANCIENT_SIGN.get()}};"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "all34RegistryAndAcquisitionRecipes (registry/loaded recipes only)"
+      ]
+    },
+    {
+      "id": "volkhv_amulet",
+      "name": "Амулет волхва",
+      "category": [
+        "magic",
+        "charms"
+      ],
+      "role": "DESIGN_UNDECIDED",
+      "actual": "Plain Item; нет собственного equipment/use handler; отсутствие способности не объявляется дефектом без заявленной роли",
+      "player_path": "Штатный рецепт/loot index → коллекционный/ритуальный предмет; новую способность/слот утверждает владелец",
+      "source": [
+        "registry/ModItems.java"
+      ],
+      "recipes": [],
+      "loot": [
+        "src/main/resources/data/slavicmyths/loot_table/entities/buried_volkhv.json",
+        "src/main/resources/data/slavicmyths/loot_table/kurgan/ritual.json",
+        "src/main/resources/data/slavicmyths/loot_table/kurgan/secret.json"
+      ],
+      "ingredient_in": [],
+      "acquisition_code": [],
+      "survival": "SOURCE_PATH_FOUND",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 282,
+          "text": "public static final DeferredHolder<Item, Item> VOLKHV_AMULET=ITEMS.register(\"volkhv_amulet\",()->new Item(properties()));"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "DESIGN_UNDECIDED",
+      "server_tests": [
+        "all34RegistryAndAcquisitionRecipes (registry/loaded recipes only)"
+      ]
+    },
+    {
+      "id": "fading_flame_charm",
+      "name": "Оберег угасающего пламени",
+      "category": [
+        "magic",
+        "charms"
+      ],
+      "role": "CONSUMABLE_EFFECT",
+      "actual": "ПКМ: GUARD на WARD_SECONDS*20; active rejects; consume1 only after effect accepted; fire/mor_block damage reduced by SanctuaryConfig.GUARD",
+      "player_path": "Святилище/рецепт → ПКМ → временная защита от огня/mor_block и сокращение mor duration по SanctuaryEvents",
+      "source": [
+        "sanctuary/SanctuaryItem.java",
+        "sanctuary/SanctuaryConfig.java",
+        "sanctuary/SanctuaryEvents.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/fading_flame_charm.json"
+      ],
+      "loot": [
+        "src/main/resources/data/slavicmyths/loot_table/chests/fire_guaranteed.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/fire_regular.json"
+      ],
+      "ingredient_in": [],
+      "acquisition_code": [],
+      "survival": "SOURCE_PATH_FOUND",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryContent.java",
+          "line": 21,
+          "text": "static{for(String s:List.of(\"sacred_ember\",\"purifying_ash\",\"flame_vial\",\"fading_flame_charm\",\"ancient_rune_fragment\",\"pure_spring_drop\",\"purified_water_bottle\",\"spring_tear\",\"purification_stone\"))ITEMS.put(s,ModItems.ITEMS.register(s,()->new SanctuaryItem(s)));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryItem.java",
+          "line": 15,
+          "text": "if(kind.equals(\"fading_flame_charm\")){if(p.hasEffect(SanctuaryContent.GUARD))return InteractionResultHolder.fail(s);if(p instanceof ServerPlayer){if(!p.addEffect(new MobEffectInstance(SanctuaryContent.GUARD,SanctuaryConfig.WARD_SECONDS.get()*20)))return InteractionResultHolder.fail(s);s.shrink(1);SanctuaryContent.sound(w,p.blockPosition(),\"fire_restore\");}return InteractionResultHolder.sidedSuccess(s,w.isClientSide);}"
+        }
+      ],
+      "tooltip": {
+        "item.slavicmyths.fading_flame_charm.desc": "Одноразовый: на 40 с уменьшает огненный и моровой урон, длительность местных дебафов Мора на 30%. Не даёт полного иммунитета."
+      },
+      "before": "server rejection consumed item/cooldown (baseline GameTest FAIL)",
+      "change": "commit consumption/cooldown only after native success",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "rejectedFlameGuardDoesNotConsume",
+        "successfulWardsRepeatAndSpecialWard"
+      ]
+    },
+    {
+      "id": "mor_ward",
+      "name": "Оберег от мора",
+      "category": [
+        "magic",
+        "charms"
+      ],
+      "role": "CONSUMABLE_EFFECT",
+      "actual": "ПКМ WARD24000 ticks; active rejects; ordinary consumes1; GuardianWard196 reusable special recipe",
+      "player_path": "Сюжет/крафт → ПКМ → mor protection; особая версия из двух fragment + Око Мора сохраняется",
+      "source": [
+        "quest185/Quest185Item.java",
+        "quest185/Quest185Events.java",
+        "gorynych/GorynychUpgrade.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/mor_ward.json"
+      ],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [
+        "quest185/Quest185Story.java:UtilityRecipes/reward",
+        "equipment/mixin/Quest185CraftingMixin.java",
+        "equipment/mixin/Quest185CrafterMixin.java"
+      ],
+      "survival": "QUEST_GATED_PERSONAL_RECIPE",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/Quest185Client.java",
+          "line": 32,
+          "text": "@SubscribeEvent public static void models(net.neoforged.neoforge.client.event.ModelEvent.RegisterAdditional e){for(String name:List.of(\"wolf_call\",\"mor_ward\",\"tracker_sense\",\"cleansing_powder\"))for(String suffix:List.of(\"_icon\",\"_held\"))e.register(net.minecraft.client.resources.model.ModelResourceLocation.standalone(Quest185Content.id(\"item/\"+name+suffix)));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/quest185/Quest185Content.java",
+          "line": 12,
+          "text": "public static final DeferredHolder<Item,Item> WARD=ModItems.ITEMS.register(\"mor_ward\",()->new Quest185Item(\"ward\")),TRACKER=ModItems.ITEMS.register(\"tracker_sense\",()->new Quest185Item(\"tracker\")),CALL=ModItems.ITEMS.register(\"wolf_call\",()->new Quest185Item(\"wolf\")),POWDER=ModItems.ITEMS.register(\"cleansing_powder\",CleansingPowder::new);"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/quest185/Quest185Content.java",
+          "line": 13,
+          "text": "public static final DeferredHolder<MobEffect,MobEffect> WARD_EFFECT=ModEffects.EFFECTS.register(\"mor_ward\",()->new MobEffect(MobEffectCategory.BENEFICIAL,0xCBAD75){}),TRACKER_EFFECT=ModEffects.EFFECTS.register(\"tracker_sense\",()->new MobEffect(MobEffectCategory.BENEFICIAL,0x9C2839){});"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/quest185/Quest185Story.java",
+          "line": 32,
+          "text": "var reward=reward(i);if(!reward.isEmpty())Quest185State.quest(n,i).put(\"Pending\",reward.save(p.registryAccess()));p.giveExperiencePoints(Quest185State.XP[i]);collect(p);if(i==1){n.putBoolean(\"UtilityRecipes\",true);discover(p,\"mor_ward\",\"tracker_sense\");}if(i==2||i==3)discover(p,\"mor_horn\");if(i==5){n.putBoolean(\"FinalChapter\",true);org.slavicmyths.progression.AdvancementJourney.award(p,\"mor_story_complete\");TaleService.promote(p,\"slavicmyths:mor_investigation\",4,true);}if(i==8)n.putBoolean(\"WolfUnlocked\",true);TaleService.promote(p,\"slavicmyths:mor_investigation\",3,false);Quest185Content.sound(p,\"quest_claim\");return true;"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/equipment/mixin/Quest185CrafterMixin.java",
+          "line": 13,
+          "text": "private static void quest185$personal(Level level,CraftingInput input,CallbackInfoReturnable<Optional<RecipeHolder<CraftingRecipe>>> ci){var recipe=ci.getReturnValue();if(recipe.isEmpty())return;var id=recipe.get().id();if(id.getNamespace().equals(\"slavicmyths\")&&java.util.Set.of(\"mor_ward\",\"tracker_sense\",\"two_winters_original\",\"two_winters_copy\",\"ilya_call_token\",\"dobrynya_call_emblem\",\"alyosha_call_whistle\",\"finist_call_feather\").contains(id.getPath()))ci.setReturnValue(Optional.empty());}"
+        }
+      ],
+      "tooltip": {},
+      "before": "server rejection consumed item/cooldown (baseline GameTest FAIL)",
+      "change": "commit consumption/cooldown only after native success",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "rejectedMorWardDoesNotConsume",
+        "successfulWardsRepeatAndSpecialWard"
+      ]
+    },
+    {
+      "id": "cleansing_powder",
+      "name": "Очищающий порошок",
+      "category": [
+        "magic",
+        "consumables"
+      ],
+      "role": "RITUAL_TOOL",
+      "actual": "CleansingTasks.start; timed cleaning with permissions/cancel/saved task state",
+      "player_path": "Сюжет/рецепт → применять на заражённой земле/голове Горыныча по этапу → очищение",
+      "source": [
+        "quest185/CleansingPowder.java",
+        "quest185/CleansingTasks.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/cleansing_powder.json",
+        "src/main/resources/data/slavicmyths/recipe/cleansing_powder_from_ash.json"
+      ],
+      "loot": [
+        "src/main/resources/data/slavicmyths/loot_table/chests/serpent_fortress.json"
+      ],
+      "ingredient_in": [],
+      "acquisition_code": [],
+      "survival": "SOURCE_PATH_FOUND",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/client/Quest185Client.java",
+          "line": 32,
+          "text": "@SubscribeEvent public static void models(net.neoforged.neoforge.client.event.ModelEvent.RegisterAdditional e){for(String name:List.of(\"wolf_call\",\"mor_ward\",\"tracker_sense\",\"cleansing_powder\"))for(String suffix:List.of(\"_icon\",\"_held\"))e.register(net.minecraft.client.resources.model.ModelResourceLocation.standalone(Quest185Content.id(\"item/\"+name+suffix)));}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/quest185/Quest185Content.java",
+          "line": 12,
+          "text": "public static final DeferredHolder<Item,Item> WARD=ModItems.ITEMS.register(\"mor_ward\",()->new Quest185Item(\"ward\")),TRACKER=ModItems.ITEMS.register(\"tracker_sense\",()->new Quest185Item(\"tracker\")),CALL=ModItems.ITEMS.register(\"wolf_call\",()->new Quest185Item(\"wolf\")),POWDER=ModItems.ITEMS.register(\"cleansing_powder\",CleansingPowder::new);"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/quest185/Quest185Story.java",
+          "line": 38,
+          "text": "public static boolean researchEye(ServerPlayer p){var n=data(p);if(!Quest185State.claimEarly(n,Runes.inventoryCount(p,PolozContent.EYE.get())>0))return false;n.put(\"EarlyPending\",new ItemStack(Quest185Content.POWDER.get(),4).save(p.registryAccess()));discover(p,\"cleansing_powder\");TaleService.promote(p,\"slavicmyths:cleansing_knowledge\",4,true);collect(p);return true;}"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "all34RegistryAndAcquisitionRecipes (registry/loaded recipes only)"
+      ]
+    },
+    {
+      "id": "purified_water_bottle",
+      "name": "Очищенная вода",
+      "category": [
+        "magic",
+        "consumables"
+      ],
+      "role": "CONSUMABLE",
+      "actual": "Drink32; shorten finite slowness/weakness/poison by SanctuaryRules; preserve protected story effects; glass return",
+      "player_path": "Святилище воды/крафт → выпить или применить на огненной голове по этапу → очищение",
+      "source": [
+        "sanctuary/SanctuaryItem.java",
+        "sanctuary/SanctuaryRules.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/purified_water_bottle.json"
+      ],
+      "loot": [
+        "src/main/resources/data/slavicmyths/loot_table/chests/serpent_fortress.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/spring_guaranteed.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/spring_regular.json"
+      ],
+      "ingredient_in": [],
+      "acquisition_code": [],
+      "survival": "SOURCE_PATH_FOUND",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/gorynych/Gorynych.java",
+          "line": 96,
+          "text": "public InteractionResult cleanse(Player player,InteractionHand hand,int head){if(level().isClientSide)return InteractionResult.SUCCESS;if(!(player instanceof ServerPlayer p)||!p.isAlive()||p.isSpectator()||!GorynychRules.canClean(state(),cleanMask(),head)||parts[head].distanceToSqr(p)>100)return InteractionResult.PASS;if(!layout.getBoolean(\"Standalone\")&&!p.isCreative()&&!org.slavicmyths.serpenthill.HillEvents.protectedPlayer(p)){p.displayClientMessage(org.slavicmyths.serpenthill.HillContent.text(\"ward_needed\"),true);return InteractionResult.FAIL;}var stack=p.getItemInHand(hand);Item required=head==0?org.slavicmyths.quest185.Quest185Content.POWDER.get():org.slavicmyths.sanctuary.SanctuaryContent.ITEMS.get(head==1?\"purifying_ash\":\"purified_water_bottle\").get();if(!stack.is(required)){p.displayClientMessage(GorynychContent.text(\"cleanse_\"+head),true);return InteractionResult.FAIL;}stack.shrink(1);if(head==2){var bottle=new ItemStack(Items.GLASS_BOTTLE);if(!p.getInventory().add(bottle))p.drop(bottle,false);}credit(p);entityData.set(CLEAN,GorynychRules.clean(cleanMask(),head));state(GorynychRules.CLEANSING);sound(head==0?\"cleanse_mor_head\":head==1?\"cleanse_fire_head\":\"cleanse_predator_head\");particle(head,parts[head].position(),40);persist();p.getInventory().setChanged();((org.slavicmyths.equipment.mixin.FrostPlayerSaveInvoker)p.server.getPlayerList()).slavicmyths$saveFrost(p);p.serverLevel().getServer().overworld().getDataStorage().save();return InteractionResult.SUCCESS;}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryContent.java",
+          "line": 21,
+          "text": "static{for(String s:List.of(\"sacred_ember\",\"purifying_ash\",\"flame_vial\",\"fading_flame_charm\",\"ancient_rune_fragment\",\"pure_spring_drop\",\"purified_water_bottle\",\"spring_tear\",\"purification_stone\"))ITEMS.put(s,ModItems.ITEMS.register(s,()->new SanctuaryItem(s)));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryItem.java",
+          "line": 16,
+          "text": "if(kind.equals(\"purified_water_bottle\")||kind.equals(\"spring_tear\")){if(p instanceof ServerPlayer server&&kind.equals(\"spring_tear\")&&now(server)<org.slavicmyths.rpg.PathData.data(p).getLong(\"Sanctuary193TearReady\")){p.displayClientMessage(SanctuaryContent.text(\"tear_wait\"),true);return InteractionResultHolder.fail(s);}p.startUsingItem(hand);return InteractionResultHolder.consume(s);}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryItem.java",
+          "line": 24,
+          "text": "else if(kind.equals(\"purified_water_bottle\")){for(var effect:List.of(MobEffects.MOVEMENT_SLOWDOWN,MobEffects.WEAKNESS,MobEffects.POISON)){var active=p.getEffect(effect);if(active==null||active.isInfiniteDuration()||protectedEffect(p,effect))continue;var shortened=new MobEffectInstance(effect,SanctuaryRules.shortened(active.getDuration()),active.getAmplifier(),active.isAmbient(),active.isVisible(),active.showIcon());p.removeEffect(effect);p.addEffect(shortened);}SanctuaryContent.sound(w,p.blockPosition(),\"water_use\");}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryItem.java",
+          "line": 25,
+          "text": "else return stack;stack.shrink(1);if(kind.equals(\"purified_water_bottle\")){var bottle=new ItemStack(Items.GLASS_BOTTLE);if(stack.isEmpty())return bottle;if(!p.getInventory().add(bottle))p.drop(bottle,false);}return stack;"
+        }
+      ],
+      "tooltip": {
+        "item.slavicmyths.purified_water_bottle.desc": "Сокращает обычные Замедление, Слабость и Отравление на 35%. Не снимает шкалы Мора, Морозко или Карачуна."
+      },
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "all34RegistryAndAcquisitionRecipes (registry/loaded recipes only)"
+      ]
+    },
+    {
+      "id": "spring_tear",
+      "name": "Слеза источника",
+      "category": [
+        "resources",
+        "legendary_trophies"
+      ],
+      "role": "CONSUMABLE",
+      "actual": "Drink32, TEAR160ticks, heal1 on configured ticks; per-player TEAR_COOLDOWN; no bottle remainder",
+      "player_path": "Чистый источник/награда → выпить при ранении → постепенное лечение",
+      "source": [
+        "sanctuary/SanctuaryItem.java",
+        "sanctuary/SanctuaryRules.java",
+        "sanctuary/SanctuaryConfig.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/spring_tear.json"
+      ],
+      "loot": [
+        "src/main/resources/data/slavicmyths/loot_table/chests/spring_cache.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/spring_guaranteed.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/spring_regular.json"
+      ],
+      "ingredient_in": [],
+      "acquisition_code": [],
+      "survival": "SOURCE_PATH_FOUND",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryContent.java",
+          "line": 21,
+          "text": "static{for(String s:List.of(\"sacred_ember\",\"purifying_ash\",\"flame_vial\",\"fading_flame_charm\",\"ancient_rune_fragment\",\"pure_spring_drop\",\"purified_water_bottle\",\"spring_tear\",\"purification_stone\"))ITEMS.put(s,ModItems.ITEMS.register(s,()->new SanctuaryItem(s)));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryItem.java",
+          "line": 12,
+          "text": "public SanctuaryItem(String kind){super(new Properties().stacksTo(kind.equals(\"flame_vial\")||kind.equals(\"spring_tear\")?16:64).rarity(kind.equals(\"purification_stone\")?Rarity.RARE:Rarity.UNCOMMON));this.kind=kind;}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryItem.java",
+          "line": 16,
+          "text": "if(kind.equals(\"purified_water_bottle\")||kind.equals(\"spring_tear\")){if(p instanceof ServerPlayer server&&kind.equals(\"spring_tear\")&&now(server)<org.slavicmyths.rpg.PathData.data(p).getLong(\"Sanctuary193TearReady\")){p.displayClientMessage(SanctuaryContent.text(\"tear_wait\"),true);return InteractionResultHolder.fail(s);}p.startUsingItem(hand);return InteractionResultHolder.consume(s);}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryItem.java",
+          "line": 23,
+          "text": "if(kind.equals(\"spring_tear\")){var n=org.slavicmyths.rpg.PathData.data(p);if(now(p)<n.getLong(\"Sanctuary193TearReady\"))return stack;if(!p.addEffect(new MobEffectInstance(SanctuaryContent.TEAR,160)))return stack;n.putLong(\"Sanctuary193TearReady\",now(p)+SanctuaryConfig.TEAR_COOLDOWN.get()*20);p.getCooldowns().addCooldown(this,SanctuaryConfig.TEAR_COOLDOWN.get()*20);SanctuaryContent.sound(w,p.blockPosition(),\"tear_use\");}"
+        }
+      ],
+      "tooltip": {
+        "item.slavicmyths.spring_tear.desc": "Восстанавливает 8 здоровья за 8 с; ожидание 45 с, без складывания исцеления."
+      },
+      "before": "server rejection consumed item/cooldown (baseline GameTest FAIL)",
+      "change": "commit consumption/cooldown only after native success",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "rejectedSpringTearDoesNotConsume",
+        "trackerTearSuccessRepeatAndSavedCooldown"
+      ]
+    },
+    {
+      "id": "flame_vial",
+      "name": "Огненная склянка",
+      "category": [
+        "magic",
+        "consumables"
+      ],
+      "role": "CONSUMABLE",
+      "actual": "Projectile spawn success required; consume1 survival; CD20",
+      "player_path": "Огненное святилище/рецепт → бросить → существующее воздействие огня",
+      "source": [
+        "sanctuary/SanctuaryItem.java",
+        "sanctuary/FlameVial.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/flame_vial.json"
+      ],
+      "loot": [
+        "src/main/resources/data/slavicmyths/loot_table/chests/fire_cache.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/fire_guaranteed.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/fire_regular.json"
+      ],
+      "ingredient_in": [],
+      "acquisition_code": [],
+      "survival": "SOURCE_PATH_FOUND",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/FlameVial.java",
+          "line": 10,
+          "text": "@Override protected Item getDefaultItem(){return SanctuaryContent.item(\"flame_vial\");}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryContent.java",
+          "line": 21,
+          "text": "static{for(String s:List.of(\"sacred_ember\",\"purifying_ash\",\"flame_vial\",\"fading_flame_charm\",\"ancient_rune_fragment\",\"pure_spring_drop\",\"purified_water_bottle\",\"spring_tear\",\"purification_stone\"))ITEMS.put(s,ModItems.ITEMS.register(s,()->new SanctuaryItem(s)));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryContent.java",
+          "line": 28,
+          "text": "public static final DeferredHolder<EntityType<?>,EntityType<FlameVial>> VIAL=ModEntities.ENTITIES.register(\"flame_vial\",()->EntityType.Builder.<FlameVial>of(FlameVial::new,MobCategory.MISC).sized(.25f,.25f).noSave().clientTrackingRange(8).build(\"slavicmyths:flame_vial\"));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryItem.java",
+          "line": 12,
+          "text": "public SanctuaryItem(String kind){super(new Properties().stacksTo(kind.equals(\"flame_vial\")||kind.equals(\"spring_tear\")?16:64).rarity(kind.equals(\"purification_stone\")?Rarity.RARE:Rarity.UNCOMMON));this.kind=kind;}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryItem.java",
+          "line": 14,
+          "text": "if(kind.equals(\"flame_vial\")){if(p.getCooldowns().isOnCooldown(this))return InteractionResultHolder.fail(s);if(p instanceof ServerPlayer server){var vial=SanctuaryContent.VIAL.get().create(w);if(vial==null)return InteractionResultHolder.fail(s);vial.setOwner(p);vial.setPos(p.getEyePosition());vial.shootFromRotation(p,p.getXRot(),p.getYRot(),-10,1.1f,.5f);if(!w.addFreshEntity(vial))return InteractionResultHolder.fail(s);if(!p.isCreative())s.shrink(1);p.getCooldowns().addCooldown(this,20);SanctuaryContent.sound(w,p.blockPosition(),\"vial_throw\");}return InteractionResultHolder.sidedSuccess(s,w.isClientSide);}"
+        }
+      ],
+      "tooltip": {
+        "item.slavicmyths.flame_vial.desc": "Метательная: 3 урона и короткий огонь по враждебным мобам в радиусе 2,5. Заражённым духам +25%; блоки не поджигает."
+      },
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "all34RegistryAndAcquisitionRecipes (registry/loaded recipes only)"
+      ]
+    },
+    {
+      "id": "purification_stone",
+      "name": "Камень очищения",
+      "category": [
+        "magic",
+        "consumables"
+      ],
+      "role": "INGREDIENT",
+      "actual": "SanctuaryItem без active use; обязательный компонент fading_flame_charm, не боевой оберег",
+      "player_path": "Лут Чистого источника → рецепт оберега угасающего пламени; нет своего ПКМ",
+      "source": [
+        "sanctuary/SanctuaryItem.java",
+        "sanctuary/SanctuaryContent.java"
+      ],
+      "recipes": [],
+      "loot": [
+        "src/main/resources/data/slavicmyths/loot_table/chests/spring_cache.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/spring_guaranteed.json",
+        "src/main/resources/data/slavicmyths/loot_table/chests/spring_regular.json"
+      ],
+      "ingredient_in": [
+        "src/main/resources/data/slavicmyths/recipe/fading_flame_charm.json"
+      ],
+      "acquisition_code": [],
+      "survival": "SOURCE_PATH_FOUND",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryContent.java",
+          "line": 21,
+          "text": "static{for(String s:List.of(\"sacred_ember\",\"purifying_ash\",\"flame_vial\",\"fading_flame_charm\",\"ancient_rune_fragment\",\"pure_spring_drop\",\"purified_water_bottle\",\"spring_tear\",\"purification_stone\"))ITEMS.put(s,ModItems.ITEMS.register(s,()->new SanctuaryItem(s)));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/sanctuary/SanctuaryItem.java",
+          "line": 12,
+          "text": "public SanctuaryItem(String kind){super(new Properties().stacksTo(kind.equals(\"flame_vial\")||kind.equals(\"spring_tear\")?16:64).rarity(kind.equals(\"purification_stone\")?Rarity.RARE:Rarity.UNCOMMON));this.kind=kind;}"
+        }
+      ],
+      "tooltip": {
+        "item.slavicmyths.purification_stone.desc": "Редкая речная галька. Обязательный компонент оберега угасающего пламени."
+      },
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "all34RegistryAndAcquisitionRecipes (registry/loaded recipes only)"
+      ]
+    },
+    {
+      "id": "beast_challenge_horn",
+      "name": "Рог вызова Ским-зверя",
+      "category": [
+        "magic",
+        "rituals"
+      ],
+      "role": "ENCOUNTER_KEY",
+      "actual": "Channel20/38; SkimValley.start; story gate; CD300; not consumed",
+      "player_path": "История Алёши → рог → предусмотренная встреча Скима",
+      "source": [
+        "skim/HeroCallItem.java",
+        "skim/SkimValley.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/beast_challenge_horn.json"
+      ],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [],
+      "survival": "SOURCE_PATH_FOUND",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/skim/HeroCallItem.java",
+          "line": 12,
+          "text": "private boolean horn(){return id.equals(\"beast_challenge_horn\");}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/skim/SkimContent.java",
+          "line": 21,
+          "text": "for(String k:List.of(\"alyosha_call_whistle\",\"ilya_call_token\",\"dobrynya_call_emblem\",\"beast_challenge_horn\"))ModItems.ITEMS.register(k,()->new HeroCallItem(k));"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "all34RegistryAndAcquisitionRecipes (registry/loaded recipes only)"
+      ]
+    },
+    {
+      "id": "mor_horn",
+      "name": "Моровой рог",
+      "category": [
+        "magic",
+        "rituals"
+      ],
+      "role": "ENCOUNTER_KEY",
+      "actual": "Владение рогом разрешает60tick call; Overworld, один world event; первый вызов без dust, повтор с платой по commit; нет отдельного story gate",
+      "player_path": "Штатный крафт/источник рога → удерживать60ticks без прерывания → встреча Полоза; факт владения, не новая проверка истории",
+      "source": [
+        "poloz/MorHorn.java",
+        "poloz/PolozEvent.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/mor_horn.json"
+      ],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [],
+      "survival": "SOURCE_PATH_FOUND",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/poloz/PolozContent.java",
+          "line": 14,
+          "text": "public static final DeferredHolder<Item,Item> DUST=ModItems.ITEMS.register(\"mor_dust\",()->new PolozRelic(\"mor_dust\",new Item.Properties())),EYE=ModItems.ITEMS.register(\"eye_of_mor\",()->new PolozRelic(\"eye_of_mor\",new Item.Properties().stacksTo(16))),HEART=ModItems.ITEMS.register(\"ashen_heart\",()->new PolozRelic(\"ashen_heart\",new Item.Properties().stacksTo(16))),CORE=ModItems.ITEMS.register(\"poloz_core\",()->new PolozRelic(\"poloz_core\",new Item.Properties().stacksTo(1))),SCALE=ModItems.ITEMS.register(\"poloz_scale\",()->new PolozRelic(\"poloz_scale\",new Item.Properties())),HORN=ModItems.ITEMS.register(\"mor_horn\",()->new MorHorn(new Item.Properties().stacksTo(1)));"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/quest185/Quest185Story.java",
+          "line": 32,
+          "text": "var reward=reward(i);if(!reward.isEmpty())Quest185State.quest(n,i).put(\"Pending\",reward.save(p.registryAccess()));p.giveExperiencePoints(Quest185State.XP[i]);collect(p);if(i==1){n.putBoolean(\"UtilityRecipes\",true);discover(p,\"mor_ward\",\"tracker_sense\");}if(i==2||i==3)discover(p,\"mor_horn\");if(i==5){n.putBoolean(\"FinalChapter\",true);org.slavicmyths.progression.AdvancementJourney.award(p,\"mor_story_complete\");TaleService.promote(p,\"slavicmyths:mor_investigation\",4,true);}if(i==8)n.putBoolean(\"WolfUnlocked\",true);TaleService.promote(p,\"slavicmyths:mor_investigation\",3,false);Quest185Content.sound(p,\"quest_claim\");return true;"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "all34RegistryAndAcquisitionRecipes (registry/loaded recipes only)"
+      ]
+    },
+    {
+      "id": "obereg_ohotnika",
+      "name": "Оберег охотника",
+      "category": [
+        "accessories",
+        "use"
+      ],
+      "role": "DETECTOR",
+      "actual": "ПКМ bounded HuntItems.detect; CD400; not Curios",
+      "player_path": "Штатный рецепт → ПКМ → ближайшая подходящая охотничья цель",
+      "source": [
+        "hunt/HuntItems.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/obereg_ohotnika.json"
+      ],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [],
+      "survival": "SOURCE_PATH_FOUND",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 288,
+          "text": "public static final DeferredHolder<Item, Item> OBEREG_OHOTNIKA=ITEMS.register(\"obereg_ohotnika\",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(1).rarity(Rarity.RARE),org.slavicmyths.hunt.HuntItems.Role.DETECTOR));"
+        }
+      ],
+      "tooltip": {
+        "item.slavicmyths.obereg_ohotnika.effect": "Помогает отыскать уже потревоженную крупную нечисть."
+      },
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "all34RegistryAndAcquisitionRecipes (registry/loaded recipes only)"
+      ]
+    },
+    {
+      "id": "hunter_charm",
+      "name": "Охотничий амулет",
+      "category": [
+        "accessories",
+        "use"
+      ],
+      "role": "DETECTOR",
+      "actual": "ПКМ HuntItems.detect; CD400; tooltip corrected in #278; not passive",
+      "player_path": "Штатный рецепт → ПКМ → поиск; #278 already fixed text, no duplicate edit",
+      "source": [
+        "item/SimpleCharmItem.java",
+        "hunt/HuntItems.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/hunter_charm.json"
+      ],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [],
+      "survival": "SOURCE_PATH_FOUND",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/item/SilverCombat.java",
+          "line": 21,
+          "text": "if (!event.getSource().getMsgId().equals(\"slavic_cut\") && attacker.getOffhandItem().getItem() == ModItems.HUNTER_CHARM.get()"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/item/SimpleCharmItem.java",
+          "line": 16,
+          "text": "@Override public net.minecraft.world.InteractionResultHolder<ItemStack> use(Level w,net.minecraft.world.entity.player.Player p,net.minecraft.world.InteractionHand hand){if(!kind.equals(\"hunter_charm\"))return super.use(w,p,hand);ItemStack stack=p.getItemInHand(hand);if(p.getCooldowns().isOnCooldown(this))return net.minecraft.world.InteractionResultHolder.fail(stack);if(!w.isClientSide){p.getCooldowns().addCooldown(this,400);org.slavicmyths.hunt.HuntItems.detect(p);}return net.minecraft.world.InteractionResultHolder.consume(stack);}"
+        },
+        {
+          "path": "src/main/java/org/slavicmyths/registry/ModItems.java",
+          "line": 128,
+          "text": "public static final DeferredHolder<Item, Item> HUNTER_CHARM = ITEMS.register(\"hunter_charm\", () -> new org.slavicmyths.item.SimpleCharmItem(\"hunter_charm\", properties()));"
+        }
+      ],
+      "tooltip": {
+        "tooltip.slavicmyths.hunter_charm": "ПКМ: обнаружение ближайшей охотничьей цели. Восстановление: 20 с. Не пассивный аксессуар."
+      },
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "all34RegistryAndAcquisitionRecipes (registry/loaded recipes only)"
+      ]
+    },
+    {
+      "id": "amulet_two_winters",
+      "name": "Оберег двух зим",
+      "category": [
+        "accessories",
+        "inventory/use"
+      ],
+      "role": "INVENTORY_ACTIVE",
+      "actual": "Существующие режимы/инвентарный passive и Nether use; не переносить в Curios",
+      "player_path": "Морозко+Карачун → поздний амулет → выбранный режим; отдельные cooldown/условия",
+      "source": [
+        "winters/WintersItem.java",
+        "winters/WintersEvents.java",
+        "winters/WintersRules.java"
+      ],
+      "recipes": [
+        "src/main/resources/data/slavicmyths/recipe/two_winters_original.json",
+        "src/main/resources/data/slavicmyths/recipe/two_winters_copy.json"
+      ],
+      "loot": [],
+      "ingredient_in": [],
+      "acquisition_code": [
+        "winters/WintersRecipe.java"
+      ],
+      "survival": "CUSTOM_PERSONAL_RECIPE",
+      "java_refs": [
+        {
+          "path": "src/main/java/org/slavicmyths/winters/WintersContent.java",
+          "line": 10,
+          "text": "public static final DeferredHolder<Item,Item> AMULET=org.slavicmyths.registry.ModItems.ITEMS.register(\"amulet_two_winters\",WintersItem::new);"
+        }
+      ],
+      "tooltip": {},
+      "before": "existing implementation",
+      "change": "KEEP / source audit",
+      "gameplay": "NOT_RUN unless specific test listed in runtime.json",
+      "loot_proposal": "HOLD: new rewards/rarity require #276 approval; story/unique never random chest",
+      "status": "SOURCE_AUDITED_OWNER_PENDING",
+      "server_tests": [
+        "all34RegistryAndAcquisitionRecipes (registry/loaded recipes only)"
+      ]
+    }
+  ],
+  "runtime": "specific server tests in runtime.json; natural acquisition/GUI/real relog/MP NOT_RUN"
+}
