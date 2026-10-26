@@ -1,0 +1,86 @@
+{
+  "camp_1": {
+    "RUNE": {
+      "expected": 0.0,
+      "p_any": 0.0
+    },
+    "PERUNITE": {
+      "expected": 0.0,
+      "p_any": 0.0
+    },
+    "slavicmyths:ancient_coin": {
+      "expected": 17.50125,
+      "p_any": 1.0
+    }
+  },
+  "camp_2": {
+    "RUNE": {
+      "expected": 0.0,
+      "p_any": 0.0
+    },
+    "PERUNITE": {
+      "expected": 0.0,
+      "p_any": 0.0
+    },
+    "slavicmyths:ancient_coin": {
+      "expected": 45.0,
+      "p_any": 1.0
+    }
+  },
+  "camp_3": {
+    "RUNE": {
+      "expected": 0.27153299999999997,
+      "p_any": 0.25159288799999996
+    },
+    "PERUNITE": {
+      "expected": 0.0,
+      "p_any": 0.0
+    },
+    "slavicmyths:ancient_coin": {
+      "expected": 23.291367857142856,
+      "p_any": 0.9925366916702911
+    }
+  },
+  "kurgan_1": {
+    "RUNE": {
+      "expected": 0.0,
+      "p_any": 0.0
+    },
+    "PERUNITE": {
+      "expected": 0.0,
+      "p_any": 0.0
+    },
+    "slavicmyths:ancient_coin": {
+      "expected": 0.0,
+      "p_any": 0.0
+    }
+  },
+  "kurgan_2": {
+    "RUNE": {
+      "expected": 0.0,
+      "p_any": 0.0
+    },
+    "PERUNITE": {
+      "expected": 0.0,
+      "p_any": 0.0
+    },
+    "slavicmyths:ancient_coin": {
+      "expected": 0.0,
+      "p_any": 0.0
+    }
+  },
+  "kurgan_3": {
+    "RUNE": {
+      "expected": 0.0,
+      "p_any": 0.0
+    },
+    "PERUNITE": {
+      "expected": 0.0,
+      "p_any": 0.0
+    },
+    "slavicmyths:ancient_coin": {
+      "expected": 0.0,
+      "p_any": 0.0
+    }
+  }
+}

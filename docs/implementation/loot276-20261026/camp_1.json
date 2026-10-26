@@ -1,0 +1,74 @@
+{
+  "samples": 20000,
+  "seed": 27600,
+  "containers": {
+    "min": 3,
+    "mean": 3.50025,
+    "max": 4
+  },
+  "expected": {
+    "minecraft:torch": 11.550825,
+    "minecraft:leather": 2.8002000000000002,
+    "minecraft:bread": 8.4006,
+    "slavicmyths:retainer_shield": 0.28002,
+    "minecraft:iron_horse_armor": 0.070005,
+    "minecraft:arrow": 22.401600000000002,
+    "minecraft:iron_ingot": 1.750125,
+    "minecraft:diamond": 0.014001,
+    "minecraft:saddle": 0.08750625000000001,
+    "minecraft:diamond_horse_armor": 0.0070005,
+    "minecraft:iron_sword": 0.2450175,
+    "minecraft:golden_horse_armor": 0.042003,
+    "slavicmyths:ancient_coin": 17.50125
+  },
+  "probability_at_least_one": {
+    "minecraft:torch": 0.9552096,
+    "minecraft:leather": 0.8272216000000001,
+    "minecraft:bread": 0.9952015999999999,
+    "slavicmyths:retainer_shield": 0.25247509375999994,
+    "minecraft:iron_horse_armor": 0.06822462596000009,
+    "minecraft:arrow": 0.9952015999999999,
+    "minecraft:iron_ingot": 0.6308857421875,
+    "minecraft:diamond": 0.013929147919936023,
+    "minecraft:saddle": 0.08473216005859385,
+    "minecraft:diamond_horse_armor": 0.006982516997995987,
+    "minecraft:iron_sword": 0.22380957124750017,
+    "minecraft:golden_horse_armor": 0.041359202922816043,
+    "slavicmyths:ancient_coin": 1.0
+  },
+  "observed_expected": {
+    "slavicmyths:ancient_coin": 17.5462,
+    "minecraft:arrow": 22.44085,
+    "minecraft:bread": 8.39715,
+    "minecraft:torch": 11.4721,
+    "minecraft:leather": 2.79245,
+    "minecraft:iron_ingot": 1.7626,
+    "minecraft:iron_horse_armor": 0.0705,
+    "minecraft:diamond": 0.01385,
+    "minecraft:saddle": 0.0873,
+    "slavicmyths:retainer_shield": 0.2754,
+    "minecraft:iron_sword": 0.2424,
+    "minecraft:golden_horse_armor": 0.044,
+    "minecraft:diamond_horse_armor": 0.00705
+  },
+  "observed_probability": {
+    "slavicmyths:ancient_coin": 1.0,
+    "minecraft:arrow": 0.99525,
+    "minecraft:bread": 0.99495,
+    "minecraft:torch": 0.953,
+    "minecraft:leather": 0.82745,
+    "minecraft:iron_ingot": 0.63435,
+    "minecraft:iron_horse_armor": 0.0686,
+    "minecraft:diamond": 0.0138,
+    "minecraft:saddle": 0.08475,
+    "slavicmyths:retainer_shield": 0.25045,
+    "minecraft:iron_sword": 0.2212,
+    "minecraft:golden_horse_armor": 0.0433,
+    "minecraft:diamond_horse_armor": 0.00705
+  },
+  "manifest_histogram": {
+    "{\"chests/bandit_small\": 4}": 10005,
+    "{\"chests/bandit_small\": 3}": 9995
+  },
+  "scope": "all template/plan containers; no entity drops; Luck=0; reachability/clear time NOT_RUN"
+}

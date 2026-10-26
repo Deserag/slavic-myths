@@ -1,0 +1,14 @@
+{
+  "samples_per_site": 20000,
+  "sites": 6,
+  "pure_layout_plans_per_tier": 20000,
+  "chest_tables_analyzed": 81,
+  "unsupported": {},
+  "loot_tables_changed": 0,
+  "game_launches": 0,
+  "runtime": "NOT_RUN",
+  "luck": 0,
+  "entity_drops": "excluded from site totals; separate #241 boss soul pools preserved",
+  "random": "Python Mersenne Twister; not Minecraft seed parity",
+  "native": "actual KurganPlan.java and KurganLayout.java; no Minecraft dependency"
+}
