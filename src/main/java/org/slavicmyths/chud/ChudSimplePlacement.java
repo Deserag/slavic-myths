@@ -17,7 +17,7 @@ public final class ChudSimplePlacement {
         int y=candidate;
         for(int x=minX;x<=maxX;x++)for(int z=minZ;z<=maxZ;z++){int roof=roofs[(x-minX)*depth+z-minZ];if(roof==Integer.MIN_VALUE)continue;ChudSearchBudget.check();
             int ground=ChudRegionPlanner.surface(c,x,z);
-            y=Math.min(y,ChudTerrainPolicy.roofAnchor(ground,roof,false));
+            y=Math.min(y,ground-ChudRoofCover.DEPTH-roof);
             if(y+bottom<c.heightAccessor().getMinBuildHeight()+6)return null;
         }
         return ChudTerrainPolicy.fits(y,bottom,top,c.heightAccessor().getMinBuildHeight()+5,c.heightAccessor().getMaxBuildHeight())?y:null;
@@ -39,7 +39,7 @@ public final class ChudSimplePlacement {
             if(roof==Integer.MIN_VALUE)continue;
             int sx=Math.min(x+8,maxX),sz=Math.min(z+8,maxZ),ground=terrain.surface(sx,sz);
             if(above){anchor=Math.max(anchor,ground+1-bottom);continue;}
-            anchor=Math.min(anchor,ChudTerrainPolicy.roofAnchor(ground,roof,false));
+            anchor=Math.min(anchor,ground-ChudRoofCover.DEPTH-roof);
         }
         if(!ChudTerrainPolicy.fits(anchor,bottom,top,c.heightAccessor().getMinBuildHeight()+5,c.heightAccessor().getMaxBuildHeight())){
             if(Boolean.getBoolean("slavicmyths.chudPlacementDiagnostics"))com.mojang.logging.LogUtils.getLogger().info("Chud vertical refusal {} anchor={} construction={}..{} dimension={}..{}",c.chunkPos(),anchor,anchor+bottom,anchor+top,c.heightAccessor().getMinBuildHeight(),c.heightAccessor().getMaxBuildHeight());
