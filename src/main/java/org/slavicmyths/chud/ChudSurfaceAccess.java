@@ -61,27 +61,33 @@ public final class ChudSurfaceAccess {
             for(int flight=0;flight<3;flight++){
                 int end=sign<0?-118:118;
                 while(z!=end){
-                    z+=sign;run++;if(run%15<12)y++;
-                    var p=world.apply(new BlockPos(x,y,z));ChudSearchBudget.check();
+                    z+=sign;run++;ChudSearchBudget.check();
+                    // Follow the actual hillside instead of endlessly climbing past the
+                    // first possible opening. An overstepped exit used to reject the
+                    // whole underground city even when a dry slope was nearby.
+                    var at=world.apply(new BlockPos(x,y,z));int groundHere=t.surface(at.getX(),at.getZ());
+                    if(y+world.apply(new BlockPos(0,0,0)).getY()<groundHere-1&&run%15<12)y++;
+                    else if(y+world.apply(new BlockPos(0,0,0)).getY()>groundHere+1)y--;
+                    var p=world.apply(new BlockPos(x,y,z));
                     if(p.getY()+5>=c.heightAccessor().getMaxBuildHeight())break;
                     path.add(p);int ground=t.surface(p.getX(),p.getZ());
                     if(p.getY()>=ground&&p.getY()-ground<=1&&path.size()>12){
                         boolean safe=true;
                         for(int dx=-3;dx<=3&&safe;dx++)for(int dz=-3;dz<=3;dz++){
                             int g=t.surface(p.getX()+dx,p.getZ()+dz);
-                            if(Math.abs(g-p.getY())>2||!t.column(p.getX()+dx,p.getZ()+dz).getBlock(g+1).getFluidState().isEmpty()){safe=false;break;}
+                            if(Math.abs(g-p.getY())>4||!t.column(p.getX()+dx,p.getZ()+dz).getBlock(g+1).getFluidState().isEmpty()){safe=false;break;}
                         }
                         if(safe){
                             var connected=new ArrayList<>(path);var previous=p;
                             for(int k=1;k<=4;k++){
                                 var q=world.apply(new BlockPos(x,y,z+sign*k));int g=t.surface(q.getX(),q.getZ());
-                                if(Math.abs(g-previous.getY())>1||!t.column(q.getX(),q.getZ()).getBlock(g+1).getFluidState().isEmpty()){safe=false;break;}
-                                previous=q.atY(g);connected.add(previous);
+                                if(Math.abs(g-previous.getY())>4||!t.column(q.getX(),q.getZ()).getBlock(g+1).getFluidState().isEmpty()){safe=false;break;}
+                                previous=q.atY(previous.getY()+Math.max(-1,Math.min(1,g-previous.getY())));if(k==4&&Math.abs(g-previous.getY())>1){safe=false;break;}connected.add(previous);
                             }
                             if(!safe)continue;
                             // The outside natural cell must also be reachable on foot in both directions.
                             var q=world.apply(new BlockPos(x,y,z+sign*6));int g=t.surface(q.getX(),q.getZ());
-                            if(Math.abs(g-previous.getY())>1||!t.column(q.getX(),q.getZ()).getBlock(g+1).getFluidState().isEmpty())continue;
+                            if(Math.abs(g-previous.getY())>2||!t.column(q.getX(),q.getZ()).getBlock(g+1).getFluidState().isEmpty())continue;
                             var access=new ChudSurfaceAccess(connected);var b=access.bounds;
                             if((b.minX()>>4)<c.chunkPos().x-8||(b.maxX()>>4)>c.chunkPos().x+8||(b.minZ()>>4)<c.chunkPos().z-8||(b.maxZ()>>4)>c.chunkPos().z+8)continue;
                             return access; // Whole assembly protection is checked once by clearFull.
