@@ -60,15 +60,21 @@ public final class ChudCreationJobs {
     if(planned==null){planned=WORKER.submit(()->{ChudSearchBudget.begin(System.nanoTime()+30_000_000_000L);try(var terrain=new ChudRegionPlanner.TerrainScope()){return city?ChudSimplePlacement.city(context,false,kind.equals("attached")):ChudSimplePlacement.abandoned(context,false,kind.equals("great"));}finally{ChudSearchBudget.end();}});return;}
     if(!planned.isDone())return;
     try{piece=planned.get();}catch(Exception failure){throw new IllegalStateException("Планирование площадки завершилось отказом",failure);}
-    if(piece==null)throw new IllegalStateException("Безопасный подземный объём/наружный выход не найдены у кандидата "+(attempt+1)+" в "+owner);entrance=access(piece).mouth;
-    box=BoundingBox.encapsulatingBoxes(List.of(piece.getBoundingBox(),access(piece).bounds)).orElseThrow();    if(box.minY()<world.getMinBuildHeight()+1||box.maxY()>=world.getMaxBuildHeight()||!world.getWorldBorder().isWithinBounds(new BlockPos(box.minX(),0,box.minZ()))||!world.getWorldBorder().isWithinBounds(new BlockPos(box.maxX(),0,box.maxZ())))throw new IllegalStateException("Граница мира или высоты.");
+    if(piece==null)throw new IllegalStateException("Подходящий подземный объём не найден у кандидата "+(attempt+1)+" в "+owner);
+    // Underground complexes need no surface annex. Publish a surface X/Z landmark
+    // for the quest/book, without pretending that a staircase has been built.
+    var annex=access(piece);entrance=annex!=null?annex.mouth:new BlockPos(owner.getMiddleBlockX(),world.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,owner.getMiddleBlockX(),owner.getMiddleBlockZ()),owner.getMiddleBlockZ());
+    box=access(piece)==null?piece.getBoundingBox():BoundingBox.encapsulatingBoxes(List.of(piece.getBoundingBox(),access(piece).bounds)).orElseThrow();    if(box.minY()<world.getMinBuildHeight()+1||box.maxY()>=world.getMaxBuildHeight()||!world.getWorldBorder().isWithinBounds(new BlockPos(box.minX(),0,box.minZ()))||!world.getWorldBorder().isWithinBounds(new BlockPos(box.maxX(),0,box.maxZ())))throw new IllegalStateException("Граница мира или высоты.");
     if(!ManualStructureRecords.get(world).overlapping(box).isEmpty())throw new IllegalStateException("Область занята сохранённой постройкой.");
     structure=world.registryAccess().registryOrThrow(Registries.STRUCTURE).get(ResourceLocation.fromNamespaceAndPath("slavicmyths",city?"chud_city":"chud_abandoned"));
     phase=1;return;
    }
    if(phase==1){if(!adjusted){adjusted=true;var selected=piece;var cancelled=new java.util.concurrent.atomic.AtomicBoolean();rasterCancelled=cancelled;raster=CompletableFuture.supplyAsync(()->raster(selected,cancelled::get),WORKER);return;    }if(!raster.isDone())return;
     if(sections.isEmpty()){sections=raster.join();var needed=new LinkedHashSet<ChunkPos>();needed.add(owner);needed.add(new ChunkPos(entrance));for(var s:sections)needed.add(new ChunkPos(s.origin));footprint.clear();footprint.addAll(needed);}
-    chunks.prefetch(footprint,chunk);if(chunk<footprint.size()){if(chunks.ready(footprint.get(chunk))){var at=footprint.get(chunk);var cover=piece instanceof ChudPiece city?city.roofCover():((AbandonedPiece)piece).roofCover();if(!cover.sufficient(world,at))throw new IllegalStateException("Недостаточно фактического грунта над кровлей после генерации");chunk++;}return;}
+    chunks.prefetch(footprint,chunk);if(chunk<footprint.size()){if(chunks.ready(footprint.get(chunk))){var at=footprint.get(chunk);var cover=piece instanceof ChudPiece city?city.roofCover():((AbandonedPiece)piece).roofCover();// Caves and ravines can remove modeled overburden after noise sampling.
+            // Do not discard a valid underground hall: repair available air/fluid
+            // above its roof during the final per-chunk placement instead.
+            chunk++;}return;}
     phase=2;return;}
    long deadline=System.nanoTime()+chunks.budgetNanos();int operations=0;
    if(phase==2||phase==3){while(section<sections.size()&&operations<8192&&System.nanoTime()<deadline){var s=sections.get(section);if(phase==2&&voxel==0){if(org.slavicmyths.rpg.tools.ToolLogOrigins.get(world).blocked(s.origin))throw new IllegalStateException("Защищённая область: "+s.origin.toShortString());var full=world.getChunkSource().getChunkNow(s.origin.getX()>>4,s.origin.getZ()>>4);var nativeSection=full.getSection(world.getSectionIndex(s.origin.getY()));if(!nativeSection.maybeHas(st->st.hasBlockEntity()||st.is(Blocks.BEDROCK)||st.is(net.minecraft.tags.BlockTags.LOGS)||!excavatable(st))){section++;continue;}}if(voxel==4096){voxel=0;section++;continue;}int i=voxel++;var next=s.states[i];if(next==null)continue;operations++;var p=s.origin.offset(i&15,i>>8,(i>>4)&15);var old=world.getBlockState(p);
@@ -77,12 +83,13 @@ public final class ChudCreationJobs {
     }
     if(section==sections.size()){section=voxel=0;if(phase==2){if(!ManualStructureRecords.get(world).overlapping(box).isEmpty())throw new IllegalStateException("Область занята другим заданием во время подготовки");ManualStructureRecords.get(world).add(id,"construction",0,entrance,box);reserved=true;phase=3;}else{phase=4;chunk=0;}}return;
    }
-   if(phase==4){if(chunk<footprint.size()){var pos=footprint.get(chunk++);var clip=new BoundingBox(pos.getMinBlockX(),world.getMinBuildHeight(),pos.getMinBlockZ(),pos.getMaxBlockX(),world.getMaxBuildHeight()-1,pos.getMaxBlockZ());if(piece instanceof ChudPiece p)p.finishManual(world,clip,pos);else ((AbandonedPiece)piece).finishManual(world,clip,pos);return;}
-    var start=new StructureStart(structure,owner,0,new PiecesContainer(List.of(piece,new ChudAccessPiece(access(piece)))));world.getChunkSource().getChunkNow(owner.x,owner.z).setStartForStructure(structure,start);
+   if(phase==4){if(chunk<footprint.size()){var pos=footprint.get(chunk++);var clip=new BoundingBox(pos.getMinBlockX(),world.getMinBuildHeight(),pos.getMinBlockZ(),pos.getMaxBlockX(),world.getMaxBuildHeight()-1,pos.getMaxBlockZ());if(piece instanceof ChudPiece p){if(p.repairsRoof())p.roofCover().repair(world,clip,pos);p.finishManual(world,clip,pos);}else {var p=(AbandonedPiece)piece;if(p.repairsRoof())p.roofCover().repair(world,clip,pos);p.finishManual(world,clip,pos);}return;}
+    var pieces=new ArrayList<StructurePiece>();pieces.add(piece);if(access(piece)!=null)pieces.add(new ChudAccessPiece(access(piece)));
+    var start=new StructureStart(structure,owner,0,new PiecesContainer(pieces));world.getChunkSource().getChunkNow(owner.x,owner.z).setStartForStructure(structure,start);
     for(var pos:footprint){var c=world.getChunkSource().getChunkNow(pos.x,pos.z);c.addReferenceForStructure(structure,owner.toLong());c.setUnsaved(true);}
     if(piece instanceof AbandonedPiece p)org.slavicmyths.underground.EncounterPopulation.data(world).plan(world,p.plan);
     else if(((ChudPiece)piece).abandoned!=null)org.slavicmyths.underground.EncounterPopulation.data(world).plan(world,((ChudPiece)piece).abandoned);
-    ManualStructureRecords.get(world).replace(id,kind.equals("city")||kind.equals("attached")?"chud_city":"chud_abandoned",kind.equals("great")?2:0,entrance,box);finish(new Result(entrance,owner,box,2),"Место Чуди создано: "+entrance.toShortString());
+    ManualStructureRecords.get(world).replace(id,kind.equals("city")||kind.equals("attached")?"chud_city":"chud_abandoned",kind.equals("great")?2:0,entrance,box);finish(new Result(entrance,owner,box,pieces.size()),"Подземное место Чуди создано. Ориентир на поверхности X/Z: "+entrance.getX()+" / "+entrance.getZ()+"; найдите вход раскопкой.");
    }
   }catch(RuntimeException e){
    com.mojang.logging.LogUtils.getLogger().warn("Chud preflight phase {} at {}: {}",phase,owner,e.toString());
