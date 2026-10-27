@@ -1,96 +1,60 @@
-# #300 — исполнение, IN_PROGRESS / OWNER_PENDING
+# #300 — ручная адресная починка поиска и генерации Чуди, 2026-10-27
 
-Рабочая ветка `hell`, исходный HEAD `8cad6c125da0fefecdbefef0243ffad4f521d91f`.
-27.10.2026: прямое разрешение реализации и отдельных disposable игровых миров.
-`main`, PolyMC, личные миры не изменяются. Commit/push не выполнялись.
+**Ветка:** `hell`. **Состояние:** SOURCE_PATCHED / BUILD_NOT_RUN / MINECRAFT_NOT_RUN / OWNER_PENDING. Это НЕ релизная приёмка, не подтверждение успешного создания сооружений и не результат пяти игровых seed. Изменения выполнялись непосредственно через GitHub. `main` и локальный PolyMC пользователя не изменялись.
 
-## Контракт до реализации
+## Жалоба владельца и старое наблюдение
 
-| REQUIREMENT | REAL_SOURCE | PLAYER_PATH | TEST | EXPECTED | EVIDENCE | PASS/FAIL/BLOCKED/NOT_RUN |
-|---|---|---|---|---|---|---|
-| Baseline нового мира | ChudRegionPlanner / native pieces | Исследование новых чанков | seed30001, обычный сервер, без generate/place/NPC | native start и реальные блоки | work/issue300-baseline-runtime.log | IN_PROGRESS |
-| Глубина, bedrock, гора | ChudSimplePlacement / ChudGeometry | Наружный вход → город | Обычный/горный/нижний предел | roof cover≥20, floor выше bedrock | Ожидается | NOT_RUN |
-| Наружная лестница | ChudPlan / pieces | Поверхность ↔ все 7 зон | Physical collision path, пеший клиент | Ширина/высота≥3, ступени, площадки, свет | Ожидается | NOT_RUN |
-| Общая сетка и оба root | ChudRegionPlanner / ChudRegionPlacement | Естественное исследование | ≥5seed, accepted/chunks/time/MSPT | Приоритет 1:1, один root/регион, старый salt/первая точка | Ожидается | NOT_RUN |
-| Attached/medium/great | AbandonedPlan / Geometry | Через mineGate либо наружный спуск | Все планы, физические камеры/маршруты | Планы сохранены, самостоятельные входы доступны | Ожидается | NOT_RUN |
-| Существующие боссы | underground/EncounterPopulation | Добраться до комнат | Normal, loaded rooms, restart/kill | kladovik/large_podzemnik без дублей | Ожидается | NOT_RUN |
-| Терраса Яги | YagaPlacement / YagaHut | Сюжет/книга → один дом | Поляна/склон/обрыв/лес | Цельный грунт и подход, без земляных свай | Ожидается | NOT_RUN |
-| Транзакции/совместимость | Cursor / records / SavedData | Повтор, отмена, save/rejoin | Защита/container/portal/old copy | Только свои изменения, старые дома сохранены | Ожидается | NOT_RUN |
-| Locate/search | ChudSearchCommands | OP-диагностика отдельно | Команды до/после native generation | Нет стройки/force loading, честный candidate/physical | Ожидается | NOT_RUN |
-| Поручения Яги/Баюна | ChudResearch / ChudCreationJobs / TaleScreen | NPC → книга XZ/radius/bounds → вход → исследование | Survival chain, repeat/rejoin | Достижимая цель, новый site1200–3000XZ, одна награда | Ожидается | NOT_RUN |
-| Java21 / production JAR | Gradle / current resource validator | N/A | clean build + resources/JAR | Изолированный QA не входит в JAR | work/issue300-baseline-build.log, work/issue300-baseline-resources.log | PASS baseline |
+На тестовых скриншотах: `chud_city` и `chud_abandoned` не находят native starts в загруженных чанках (радиусы 1004/1024 блоков); после поручения `Создание Чуди остановлено: Безопасный подземный объём/наружный выход не найдены`. Это наблюдения **предыдущей игровой сборки**, а не тест исправленного JAR.
 
-Полный актуальный текст #300 и обязательные requirements прочитаны через GitHub connector.
-Локального каталога docs/requirements на исходном HEAD нет; норматив прочитан из remote hell,
-общие правила построек — из указанного в задаче historical main, без изменения веток.
-Исторические отчёты1.5.1/1.5.2 и ERRATA о существующих боссах учтены.
+## Проверенные по исходникам причины и правки
 
-## Baseline технических gates
+1. `ChudSimplePlacement.height/exactHeight`, `ChudRoofCover`: прежняя общая проверка давала 20 блоков над самой высокой крышей и одновременно требовала вместить нижние этажи над bedrock. В простом ориентире terrainY=70, локальная верхняя точка +73, нижняя -44: 20 блоков даёт anchor=-23 / bottomY=-67 (ниже допустимого); верхняя защитная толщина 8 даёт anchor=-11 / bottomY=-55. **Это расчёт геометрического ограничения, не доказательство полного сооружения или реального worldgen**. Для новых starts покрытие крыш стало 8 блоков; основные залы остаются глубоко под землёй. AIR fills больше не учитываются как положительные крыши. Сохранены прежние NBT/registry IDs.
+2. `ChudTerrainPolicy.roofAnchor`: сохранён контракт отдельных legacy офлайн-проверок: сухая порода20, вода5. Новый физически допустимый расчёт крайней верхней крыши применяется прямо в `ChudSimplePlacement`, через `ChudRoofCover.DEPTH`.
+3. `ChudSurfaceAccess.plan`: трасса приспосабливает высоту ступеней к реальному склону и пробует умеренные перепады поверхности вместо отказа после превышения одной точки; сохраняет не более630 точек и предел +/-8 owning chunks. Конечный поверхностный маршрут ещё требуется пройти игроком пешком.
+4. `ChudCreationJobs`: команда явного создания пробует до8 детерминированных площадок рядом с игроком (вместо одного отказа), сюжетный путь — до6 из ранее рассчитанных площадок. Перебор возможен **только до резервирования и изменения блоков**; protected/bedrock и существующие объекты не ослаблены. Общий предел подготовки120 сек. Сообщается номер текущей площадки; не объявлять success до записи блоков/StructureStart. Начатый этап записи нельзя автоматически считать атомарным — rollback/runtime НЕ проверены.
+5. `ExistingSiteSearch`, `ChudSearchCommands`, `ChudCommands`: по новому прямому указанию владельца OP-команды `/locate structure slavicmyths:chud_city|chud_abandoned`, `/slavicmyths dev city locate|search` и `/slavicmyths dev abandoned locate|search` сначала ищут загруженный реальный start, а при его отсутствии **открыто запускают bounded ручное создание**. Это теперь действие с изменением мира, не безусловный read-only поиск. Сообщение явно отделяет `MANUAL_CREATE` от `NATURAL_WORLDGEN`. У остальных типов структур и общего vanilla `/locate` поведение не менялось. Страницы поиска page>0 оставлены в `ChudFutureSearch` read-only. `chud_search status/cancel` понимает и запущенное создание.
+6. Ранее поставленный план `YagaPlacement.terrace` сохранён. В данном пакете логика уникальности Яги, NPC, лута и биомов не изменялась: предоставленные скриншоты подтверждают сбой **Чуди**, но не новую ошибку Яги. Зимние, badlands/терракотовые биомы и будущие структуры — не часть исправления.
 
-Java21 clean build: PASS, 1m24s. Ресурсы8031 / Java21 classes1951: PASS.
-JAR `build/libs/slavicmyths-2.0.8-HELL.jar`, SHA256
-`8b08a2f6fd88d4646265f6bd2e65044b5e984be76570f6b345415a7d6565e6e7`.
-Это исходный артефакт, ещё не исправление #300. POLYMC_NOT_INSTALLED.
+## Проверки, которые необходимы перед PASS
 
-## Не сделано
+| Требование | Подтверждение | Статус |
+|---|---|---|
+| Java21 `clean build` из актуального `hell` + ресурсные gates | Вывод Gradle и целый JAR | **NOT_RUN** |
+| Явная генерация city в обычном лесном/равнинном и горном тестовом мире | Полный StructureStart, поверхность→лестница→помещения→обратно, реальные NPC | **NOT_RUN** |
+| Явная генерация city attached, abandoned medium, abandoned great | Физические комплексы, нужные комнаты/переходы и существующие боссы | **NOT_RUN** |
+| `/locate` и `/slavicmyths dev city locate` на новом мире без готовых starts | Сообщение об отсутствии + статус создания + реальные координаты **только при успешном завершении** | **NOT_RUN** |
+| Read-only поиск будущих планов `/slavicmyths dev city search 1` | Не меняет блоки/чанки, не притворяется готовым сооружением | **NOT_RUN** |
+| Natural worldgen в 5 различных seed | Сами появляются city и оба независимых abandoned, без dev-create/операторского search | **NOT_RUN** |
+| Яга на склоне/обрыве, одна уникальная избушка, Кузя/Яга, реальный сюжет | Нет земляных колонн и дубликатов; старые миры не перестраиваются | **NOT_RUN** |
+| Player quest / Книга сказаний | Достоверная область, доходимость, завершение и награда | **NOT_RUN** |
+| Старый save, relog, серверная нагрузка, отмена, rollback | Нет потерь мира, ticket leaks и дубликатов | **NOT_RUN** |
 
-Реализация и перечисленные финальные игровые gates продолжаются; ни один NOT_RUN
-не считается PASS. Статус Project не изменён; Issue не закрывалась.
+**Важно:** операторский `locate` по требованию владельца теперь МОЖЕТ строить. Проверять естественную генерацию **сначала без него** в отдельном мире, иначе искусственно созданная постройка даст ложный PASS.
 
-## Как проверить в Minecraft
+## Получить исходники и собрать (Windows, в корне Git-репозитория)
 
-Финальный точный smoke checklist будет дополнен после исправлений и реальных прогонов.
-Не устанавливать исходный baseline как результат #300.
+```powershell
+git status --short
+git fetch origin hell
+git switch hell
+git pull --ff-only origin hell
+.\gradlew.bat --no-daemon clean build
+```
 
-## Риски/откат
+Если `git pull --ff-only` остановился из-за несохранённых локальных изменений или расходящихся коммитов — **не выполнять `reset --hard`**, сначала сохранить работу и разобраться с конфликтами. Для сборки необходим Java21. Новый JAR искать среди `build/libs/slavicmyths-*.jar`; не заменять файлы клиента/PolyMC автоматически.
 
-Не применять незавершённый патч к личным мирам. Сохранённый baseline QA используется
-только для сравнения; старые ChudPlan GenerationVersion=1 и YagaData должны читаться без ретрогена.
+## Первые ручные команды в отдельном мире
 
-## Следующая задача
+```mcfunction
+/slavicmyths dev generate city
+/slavicmyths dev chud_search status
+/slavicmyths dev city info
+/slavicmyths dev city validate
+/locate structure slavicmyths:chud_city
+/slavicmyths dev generate abandoned medium
+/slavicmyths dev generate abandoned great
+/slavicmyths dev generate city attached
+/slavicmyths dev generate yaga
+```
 
-Продолжать только #300 в установленном порядке; другие Issues не запускать.
-
-## Повторный runtime-аудит 27.10.2026
-
-Склад естественного города seed30001 owner0,0 перезаписан ванильной жеодой:
-FAIL исходного census3. Проверены реальные блоки MCA: calcite/amethyst_block,
-см. evidence/census3-target-blocks.json. Новый адресный guard предотвращает
-пересечение жеод/ванильных monster rooms/источников с занятыми объёмами Чуди.
-Первый запуск guard (census4) FAIL: запрос соседних REFERENCES требовал недоступную
-стадию чанка. Crash report сохранён в work/issue300-census4. Исправлено чтение
-существующих STRUCTURE_STARTS с nullable lookup, без продвижения стадий.
-Повторный новый мир census5 запущен; до получения результатов PASS не заявляется.
-
-Яга: flat/slope/forest фикстуры PASS, cliff PASS отклонения до записи; настоящий
-новый процесс flat подтвердил сохранение UUID/дома. Проход клиента до крыльца
-подтверждён PNG в client/, вход через дверь пока NOT_RUN после остановки теста.
-Полный набор пяти seed, оба поручения, книга, legacy upgrade и полные пешие
-маршруты остаются обязательными незавершёнными gates.
-
-## Подтверждения после повторных запусков
-
-- census5 seed30001: городской склад и обе галереи после feature guard доступны;
-  все обязательные зоны и внутренние дома пройдены графом реальных блоков, жители8.
-  Три региона с физическими находками; четвёртый прерван QA-лимитом120s и пока UNKNOWN.
-- legacy300: настоящий отдельный процесс копии baseline30001; проверены все10
-  первоначальных кандидатных чанков. Сохранился один прежний native root82,30,
-  Access не добавлен, второй root не появился. evidence/legacy-root.json.
-- В289чанках старого bbox все block_states нижеY0 совпали с исходной копией,
-  SHA2568c8c6eda6a7379adad3a9440894206dc59fae1bf5ff8549338f8cb126b3a4a94.
-  evidence/legacy-blocks.json. Поверхность/light/entities в эту сверку не входят.
-- Подтверждена причина отказа крупного подземника: безопасная15x15площадка
-  в6блоках от центра галереи, старый радиус поиска4. Увеличен только радиус этого
-  слота до8, прежний budget4кандидата/проход и условия безопасности сохранены.
-  census6 seed30002: настоящий large_podzemnik UUIDaae5f5c1-8ff8-36aa-906b-15c446210fe0
-  появился на4801,-24,1588 из EncounterPopulation (SPAWNED). Ни нового моба, ни
-  изменения характеристик/дропа/арены не вводилось. Restart/death ещё NOT_RUN.
-- census6: новый город, устье671,133,881, ground57..125, roof max59,
-  lowest construction-50, minBuildHeight-64, min roof cover20, люди8, один root.
-  Независимый medium: устье4987,64,1503, construction-56, roof cover20, один root.
-  Это реальные normal worldgen+FULL, не dev generate. Пеший клиентский проход
-  этими серверными графами НЕ заменяется.
-
-После обращения владельца не используются Windows UI/input tools. Следующий
-клиентский проход, если требует окна/управления экраном, согласуется отдельно.
-Версия пока2.0.8-HELL; завершение #300 и приёмка не заявлены.
+Операторские команды строительства запускать **последовательно**, после завершения предыдущего задания, в отдельном тестовом мире. Команды могут иметь синхронный шаг поиска, но не являются доказательством natural worldgen. При отказе записать seed, XYZ, полный текст ошибки, стадию/площадку и лог. До успешной сборки и натурных проверок не закрывать #300.
