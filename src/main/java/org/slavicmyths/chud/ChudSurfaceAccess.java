@@ -51,7 +51,7 @@ public final class ChudSurfaceAccess {
     public static ChudSurfaceAccess city(Structure.GenerationContext c,ChudPlan p){return plan(c,p.points.get(ChudPlan.Role.ENTRANCE).below(),p::world);}
     public static ChudSurfaceAccess abandoned(Structure.GenerationContext c,AbandonedPlan p){return plan(c,p.targets.get("entrance").below(),p::world);}
     private static ChudSurfaceAccess plan(Structure.GenerationContext c,BlockPos local,UnaryOperator<BlockPos> world){
-        var t=new ChudStructure.Terrain(c);
+        var t=new ChudStructure.Terrain(c);int anchorY=world.apply(BlockPos.ZERO).getY();
         // Stay inside the native reference window (owning chunk +/-8), even for deep mountain starts.
         for(int initial:new int[]{-1,1}){
             int sign=initial;var path=new ArrayList<BlockPos>();int y=local.getY(),x=local.getX(),z=local.getZ();
@@ -66,11 +66,11 @@ public final class ChudSurfaceAccess {
                     // first possible opening. An overstepped exit used to reject the
                     // whole underground city even when a dry slope was nearby.
                     var at=world.apply(new BlockPos(x,y,z));int groundHere=t.surface(at.getX(),at.getZ());
-                    if(y+world.apply(new BlockPos(0,0,0)).getY()<groundHere-1&&run%15<12)y++;
-                    else if(y+world.apply(new BlockPos(0,0,0)).getY()>groundHere+1)y--;
+                    if(y+anchorY<groundHere-1&&run%15<12)y++;
+                    else if(y+anchorY>groundHere+1)y--;
                     var p=world.apply(new BlockPos(x,y,z));
                     if(p.getY()+5>=c.heightAccessor().getMaxBuildHeight())break;
-                    path.add(p);int ground=t.surface(p.getX(),p.getZ());
+                    path.add(p);if(path.size()>630)break;int ground=t.surface(p.getX(),p.getZ());
                     if(p.getY()>=ground&&p.getY()-ground<=1&&path.size()>12){
                         boolean safe=true;
                         for(int dx=-3;dx<=3&&safe;dx++)for(int dz=-3;dz<=3;dz++){
