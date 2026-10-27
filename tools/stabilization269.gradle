@@ -3,7 +3,7 @@ allprojects { afterEvaluate {
  tasks.named('compileStabilization269Java'){dependsOn 'classes'}
  neoForge.mods.slavicmyths.sourceSet(sourceSets.stabilization269)
  neoForge.runs { stabilization269Server {
-  type='server';programArgument '--nogui';if(project.hasProperty('qa269Port'))programArguments.addAll('--port',project.property('qa269Port')); jvmArgument '-Xmx2304M';jvmArgument '-XX:ActiveProcessorCount=4'
+  type='server';programArgument '--nogui';if(project.hasProperty('qa269Port'))programArguments.addAll('--port',project.property('qa269Port')); jvmArgument (project.hasProperty('qa269LowLoad')?'-Xmx1536M':'-Xmx2304M');jvmArgument (project.hasProperty('qa269LowLoad')?'-XX:ActiveProcessorCount=2':'-XX:ActiveProcessorCount=4')
   gameDirectory=file('work/stabilization269-'+(project.findProperty('qa269Run') ?: 'baseline'))
   systemProperty 'slavicmyths.qa269',project.findProperty('qa269Scenario') ?: 'core'
   if(project.hasProperty('qa269NaturalSets'))systemProperty 'slavicmyths.qa269.naturalSets',project.property('qa269NaturalSets')

@@ -3,6 +3,11 @@ allprojects { afterEvaluate {
  tasks.named('compileStabilization269ClientJava'){dependsOn 'classes'}
  def qa=neoForge.mods.create('stabilization269client'){sourceSet sourceSets.stabilization269Client}
  neoForge.runs { stabilization269Client {
+  systemProperty 'slavicmyths.qa269.art298',project.findProperty('qa269Art298') ?: 'false'
+  if(project.hasProperty('qa269Art298'))programArguments.addAll('--username','QA298Preview')
+  systemProperty 'slavicmyths.qa269.repair',project.findProperty('qa269Repair') ?: 'false'
+  systemProperty 'slavicmyths.qa269.repairMode',project.findProperty('qa269RepairMode') ?: 'baseline'
+  if(project.hasProperty('qa269Repair'))programArguments.addAll('--username',project.findProperty('qa269RepairMode')=='baseline'?'QA269Repair':'QA269Fixed')
   systemProperty 'slavicmyths.qa269.survey',project.findProperty('qa269Survey') ?: 'false'
   systemProperty 'slavicmyths.qa269.scout',project.findProperty('qa269Scout') ?: 'false'
   if(project.hasProperty('qa269Scout'))programArguments.addAll('--username','QA269Scout')
