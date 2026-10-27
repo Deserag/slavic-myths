@@ -13,6 +13,21 @@ import org.slavicmyths.worldgen.*;
 public final class ChudRegionPlanner {
     private static final ThreadLocal<Boolean> RAW=new ThreadLocal<>();
     private static final ThreadLocal<Map<Long,net.minecraft.world.level.NoiseColumn>> COLUMNS=new ThreadLocal<>();
+    private static final ThreadLocal<Map<Long,Integer>> SURFACES=new ThreadLocal<>();
+    static final class TerrainScope implements AutoCloseable {
+        private final Map<Long,net.minecraft.world.level.NoiseColumn> previousColumns=COLUMNS.get();
+        private final Map<Long,Integer> previousSurfaces=SURFACES.get();
+        TerrainScope(){if(previousColumns==null)COLUMNS.set(new HashMap<>());if(previousSurfaces==null)SURFACES.set(new LinkedHashMap<>(4096,.75f,true));}
+        @Override public void close(){if(previousColumns==null)COLUMNS.remove();else COLUMNS.set(previousColumns);if(previousSurfaces==null)SURFACES.remove();else SURFACES.set(previousSurfaces);}
+    }
+    static int surface(Structure.GenerationContext c,int x,int z){
+        var samples=SURFACES.get();long key=BlockPos.asLong(x,0,z);if(samples!=null){var saved=samples.get(key);if(saved!=null)return saved;}
+        ChudSearchBudget.check();
+        if(samples==null)return c.chunkGenerator().getBaseHeight(x,z,net.minecraft.world.level.levelgen.Heightmap.Types.OCEAN_FLOOR_WG,c.heightAccessor(),c.randomState())-1;
+        var at=new ChunkPos(x>>4,z>>4);var heights=ChudNoiseSurvey.heights(c,at);
+        for(int dz=0;dz<16;dz++)for(int dx=0;dx<16;dx++){samples.put(BlockPos.asLong(at.getMinBlockX()+dx,0,at.getMinBlockZ()+dz),heights[(dz<<4)|dx]);if(samples.size()>65536)samples.remove(samples.keySet().iterator().next());}
+        return heights[((z&15)<<4)|(x&15)];
+    }
     static net.minecraft.world.level.NoiseColumn column(Structure.GenerationContext c,int x,int z) {
         var columns=COLUMNS.get();long key=BlockPos.asLong(x,0,z);
         if(columns!=null){var saved=columns.get(key);if(saved!=null)return saved;}
@@ -21,11 +36,12 @@ public final class ChudRegionPlanner {
         return result;
     }
     private record Key(Object generator,Object random,Object registries,Object templates,long seed,int x,int z,int min,int height,double attached) {}
-    public record Selected(ChunkPos owner,BlockPos surface,ChudPlan city,AbandonedPlan abandoned) {
+    public record Selected(ChunkPos owner,BlockPos surface,ChudPlan city,AbandonedPlan abandoned,ChudSurfaceAccess access,int roofShell,boolean persisted) {
         Optional<Structure.GenerationStub> stub(ChunkPos requested,boolean wantCity) {
-            if(!owner.equals(requested)||(city!=null)!=wantCity)return Optional.empty();
+            if(persisted||!owner.equals(requested)||(city!=null)!=wantCity)return Optional.empty();
             return Optional.of(new Structure.GenerationStub(surface,b->{
-                if(city!=null)b.addPiece(new ChudPiece(city,abandoned));else b.addPiece(new AbandonedPiece(abandoned));
+                if(city!=null){var p=new ChudPiece(city,abandoned);p.roofShell=roofShell;p.access=access;p.enableRoofCover();b.addPiece(p);}else{var p=new AbandonedPiece(abandoned);p.access=access;p.enableRoofCover();b.addPiece(p);}
+                if(access!=null)b.addPiece(new ChudAccessPiece(access));
             }));
         }
     }
@@ -33,7 +49,7 @@ public final class ChudRegionPlanner {
     private record Slot(Key region,long chunk) {}
     private static final Map<Slot,Optional<Selected>> SLOTS=new LinkedHashMap<>(1024,.75f,true);
     private static long epoch;
-    public static void clear() { synchronized(CACHE){epoch++;CACHE.clear();SLOTS.clear();} }
+    public static void clear() { synchronized(CACHE){epoch++;CACHE.clear();SLOTS.clear();}ChudPlacement.clearCache(); }
     public static boolean raw() { return Boolean.TRUE.equals(RAW.get()); }
     public static ChudRegionPlacement placement(Structure.GenerationContext c) {
         var set=c.registryAccess().registryOrThrow(Registries.STRUCTURE_SET).get(ResourceLocation.fromNamespaceAndPath("slavicmyths","chud_city"));
@@ -44,6 +60,7 @@ public final class ChudRegionPlanner {
     }
     public static Optional<Selected> select(Structure.GenerationContext c) {
         var placement=placement(c);if(placement==null)return Optional.empty();
+        var existing=ChudRegionArchive.existing(c,placement);if(existing.blocked())return Optional.empty();if(existing.selected()!=null)return Optional.of(existing.selected());
         var key=new Key(c.chunkGenerator(),c.randomState(),c.registryAccess(),c.structureTemplateManager(),c.seed(),
             Math.floorDiv(c.chunkPos().x,placement.spacing()),Math.floorDiv(c.chunkPos().z,placement.spacing()),
             c.heightAccessor().getMinBuildHeight(),c.heightAccessor().getHeight(),AbandonedConfig.ATTACHED_CHANCE.get());
@@ -64,6 +81,7 @@ public final class ChudRegionPlanner {
         Optional<Selected> result=Optional.empty();
         RAW.set(true);
         COLUMNS.set(new HashMap<>());
+        SURFACES.set(new LinkedHashMap<>(4096,.75f,true));
         try(var samples=StructureCoverageService.sampleTerrain(c)) {
             outer:for(var owner:candidates) {
                 ChudSearchBudget.check();
@@ -73,22 +91,26 @@ public final class ChudRegionPlanner {
                 if(saved!=null){if(saved.isPresent()){result=saved;break;}continue;}
                 var local=new Structure.GenerationContext(c.registryAccess(),c.chunkGenerator(),c.biomeSource(),c.randomState(),
                     c.structureTemplateManager(),c.seed(),owner,c.heightAccessor(),c.validBiome());
-                for(var type:Arrays.asList(city,abandoned)) {
+                // One seed-derived right of first choice for the whole region. No parity veto,
+                // no recursive city-first check in abandoned: either type may safely fall back.
+                boolean cityFirst=cityFirst(c.seed(),key.x(),key.z());
+                for(var type:cityFirst?Arrays.asList(city,abandoned):Arrays.asList(abandoned,city)) {
                     if(type==null)continue;
                     var start=StructureCoverageService.neighborPlan(local,type,owner);
                     if(!start.isValid())continue;
                     for(var piece:start.getPieces()) {
-                        if(piece instanceof ChudPiece a)result=Optional.of(new Selected(owner,new BlockPos(owner.getMiddleBlockX(),heights.get(owner),owner.getMiddleBlockZ()),a.plan,a.abandoned));
-                        else if(piece instanceof AbandonedPiece b)result=Optional.of(new Selected(owner,new BlockPos(owner.getMiddleBlockX(),heights.get(owner),owner.getMiddleBlockZ()),null,b.plan));
+                        if(piece instanceof ChudPiece a)result=Optional.of(new Selected(owner,new BlockPos(owner.getMiddleBlockX(),heights.get(owner),owner.getMiddleBlockZ()),a.plan,a.abandoned,a.access,a.roofShell,false));
+                        else if(piece instanceof AbandonedPiece b)result=Optional.of(new Selected(owner,new BlockPos(owner.getMiddleBlockX(),heights.get(owner),owner.getMiddleBlockZ()),null,b.plan,b.access,14,false));
                     }
                     if(result.isPresent())break;
                 }
                 synchronized(CACHE){if(epoch==currentEpoch){SLOTS.put(slot,result);while(SLOTS.size()>1024)SLOTS.remove(SLOTS.keySet().iterator().next());}}
                 if(result.isPresent())break outer;
             }
-        } finally { RAW.remove();COLUMNS.remove(); }
+        } finally { RAW.remove();COLUMNS.remove();SURFACES.remove(); }
         synchronized(CACHE){if(epoch==currentEpoch){CACHE.put(key,result);while(CACHE.size()>128)CACHE.remove(CACHE.keySet().iterator().next());}}
         return result;
     }
+    public static boolean cityFirst(long seed,int regionX,int regionZ){return new Random(seed^((long)regionX*341873128712L)^((long)regionZ*132897987541L)^0x43485544524f4f54L).nextBoolean();}
     private ChudRegionPlanner() {}
 }

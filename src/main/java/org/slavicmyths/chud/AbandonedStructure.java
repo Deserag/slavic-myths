@@ -19,14 +19,12 @@ public final class AbandonedStructure extends Structure {
     }
     @Override public Optional<GenerationStub> findGenerationPoint(GenerationContext c){
         if(!ChudRegionPlanner.raw()&&ChudRegionPlanner.placement(c)!=null)return ChudRegionPlanner.find(c,false);
-        var city=c.registryAccess().registryOrThrow(Registries.STRUCTURE).get(ResourceLocation.fromNamespaceAndPath("slavicmyths","chud_city"));
-        if(city!=null&&StructureCoverageService.neighborPlan(c,city,c.chunkPos()).isValid())return Optional.empty();
         boolean great=new Random(c.seed()^c.chunkPos().toLong()^0x4142414e444f4eL).nextInt(100)>=65;
         var piece=ChudSimplePlacement.abandoned(c,false,great);
         if(piece==null&&great)piece=ChudSimplePlacement.abandoned(c,false,false);
         if(piece==null)return Optional.empty();
         var accepted=piece;
-        return Optional.of(new GenerationStub(accepted.plan.anchor,b->b.addPiece(accepted)));
+        return Optional.of(new GenerationStub(accepted.plan.anchor,b->{b.addPiece(accepted);if(accepted.access!=null)b.addPiece(new ChudAccessPiece(accepted.access));}));
     }
     public static boolean suitable(GenerationContext c,AbandonedPlan p){return suitable(new ChudStructure.Terrain(c),p);}
     private static boolean suitable(ChudStructure.Terrain terrain,AbandonedPlan p){

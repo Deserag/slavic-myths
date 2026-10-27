@@ -1,0 +1,23 @@
+{
+  "mode": "yaga-forest",
+  "seed": 30006,
+  "scope": "EXPLICIT_PREPARED_TERRAIN; not natural city or full Survival progression",
+  "checks": [
+    {
+      "test": "preflight protects Block{minecraft:chest}",
+      "status": "PASS"
+    },
+    {
+      "test": "preflight protects Block{minecraft:end_portal_frame}",
+      "status": "PASS"
+    },
+    {
+      "test": "preflight protects Block{minecraft:bedrock}",
+      "status": "PASS"
+    }
+  ],
+  "error": "java.lang.IllegalStateException: fixture not accepted: terrace_budget BlockPos{x\u003d-5, y\u003d80, z\u003d-22}",
+  "status": "FAIL",
+  "elapsed_s": 4.7269538,
+  "p95_ms": 37.5903
+}

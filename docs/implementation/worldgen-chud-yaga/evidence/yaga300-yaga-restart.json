@@ -1,0 +1,29 @@
+{
+  "mode": "yaga-restart",
+  "seed": 30003,
+  "scope": "EXPLICIT_PREPARED_TERRAIN; not natural city or full Survival progression",
+  "anchor": "0, 81, 0",
+  "npc": "61635b98-c8c7-4f67-9f89-9794f4774046",
+  "kuzya": "3e4883bd-e860-4790-b3d5-46ec242af22e",
+  "checks": [
+    {
+      "status": "PASS",
+      "test": "actual saved canonical Yaga loads after new JVM"
+    },
+    {
+      "status": "PASS",
+      "test": "actual saved Kuzya loads after new JVM"
+    },
+    {
+      "status": "PASS",
+      "test": "household barrel survived actual restart"
+    },
+    {
+      "status": "PASS",
+      "test": "repeat after restart refuses second house"
+    }
+  ],
+  "status": "PASS_SCOPED_FIXTURE",
+  "elapsed_s": 2.8873008,
+  "p95_ms": 37.377
+}

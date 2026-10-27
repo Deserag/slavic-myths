@@ -1,0 +1,242 @@
+{
+  "seed": 30001,
+  "samples": [
+    {
+      "region": [
+        0,
+        0
+      ],
+      "first_choice": "abandoned",
+      "planning_ms": 165.7758,
+      "owner": [
+        47,
+        0
+      ],
+      "type": "INDEPENDENT_GREAT",
+      "attached": false,
+      "variant": 0,
+      "mouth": "864, 77, -113",
+      "distance_spawn": 871.3948588326649,
+      "native_pieces": 2,
+      "bbox": [
+        633,
+        -50,
+        -125,
+        887,
+        81,
+        135
+      ],
+      "surface_to_zones": {
+        "status": "UNKNOWN_UNLOADED_CHUNKS",
+        "visited": 35379,
+        "unreachable": [
+          "AB:maze_13"
+        ]
+      },
+      "biome": "minecraft:bamboo_jungle",
+      "mouth_block": "Block{minecraft:air}",
+      "minBuildHeight": -64,
+      "encounters": "{Consumed:{\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:0\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:1\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:10\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:11\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:4\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:5\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:8\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:9\":\"SPAWNED\"},Pending:[{At:227049150943187L,Cursor:0,Key:\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:6\",Kind:\"podzemnik\",Room:[I;761,-45,-103,883,-36,1],Seed:18368721739594320L,Variant:1},{At:227049150918611L,Cursor:0,Key:\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:7\",Kind:\"podzemnik\",Room:[I;761,-45,-103,883,-36,1],Seed:18368721739594320L,Variant:0},{At:228973296795643L,Cursor:0,Key:\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:large\",Kind:\"large_podzemnik\",Room:[I;795,-5,46,865,25,104],Seed:18368721739594320L,Variant:0},{At:228973296807931L,Cursor:0,Key:\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:2\",Kind:\"podzemnik\",Room:[I;795,-5,46,865,25,104],Seed:18368721739594320L,Variant:1},{At:228973296783355L,Cursor:0,Key:\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:3\",Kind:\"podzemnik\",Room:[I;795,-5,46,865,25,104],Seed:18368721739594320L,Variant:0}],Planned:[\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT\"]}",
+      "actual_underground_mobs": [
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "718, 9, 88",
+          "uuid": "19c0f542-1fc3-34c9-85f6-d12b52295333"
+        },
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "718, 9, 82",
+          "uuid": "42204093-755c-30e1-bf8c-de2dade27566"
+        },
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "709, -45, -55",
+          "uuid": "fa8285cb-1142-3807-80bb-91815e5c3142"
+        },
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "709, -45, -61",
+          "uuid": "f1975fba-900c-3187-8b71-9b354524f232"
+        },
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "777, -5, 84",
+          "uuid": "74b7edd6-6052-307b-9d36-23ff45652ae5"
+        },
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "777, -5, 90",
+          "uuid": "f3c61080-6757-354d-8e18-46fbd4a52d5c"
+        },
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "776, -5, 110",
+          "uuid": "24dbdd42-a543-359f-a4c6-c142d6f850d3"
+        },
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "776, -5, 114",
+          "uuid": "beb8b082-c546-33ab-b3ae-1bd4c8b6c49f"
+        }
+      ],
+      "locate_ms": 25.6588,
+      "locate_records_unchanged": true,
+      "status": "FAIL_BLOCK_PATH",
+      "full_construction_chunks": 226,
+      "elapsed_s": 66.8795179
+    },
+    {
+      "region": [
+        1,
+        0
+      ],
+      "first_choice": "abandoned",
+      "planning_ms": 56482.1316,
+      "owner": [
+        303,
+        95
+      ],
+      "type": "INDEPENDENT_MEDIUM",
+      "attached": false,
+      "variant": 0,
+      "mouth": "4987, 114, 1471",
+      "distance_spawn": 5199.50488027466,
+      "native_pieces": 2,
+      "bbox": [
+        4752,
+        -58,
+        1424,
+        4989,
+        118,
+        1632
+      ],
+      "surface_to_zones": {
+        "status": "PASS",
+        "visited": 33632,
+        "unreachable": []
+      },
+      "biome": "minecraft:cherry_grove",
+      "mouth_block": "Block{minecraft:air}",
+      "minBuildHeight": -64,
+      "encounters": "{Consumed:{\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:0\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:1\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:10\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:11\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:2\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:3\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:6\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:9\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:0\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:1\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:10\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:11\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:4\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:5\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:8\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:9\":\"SPAWNED\"},Pending:[{At:1311992256192499L,Cursor:16,Key:\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:7\",Kind:\"podzemnik\",Room:[I;4766,-13,1541,4774,-6,1551],Seed:18368571415739216L,Variant:0},{At:1317489814331379L,Cursor:16,Key:\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:8\",Kind:\"podzemnik\",Room:[I;4791,-13,1540,4801,-6,1552],Seed:18368571415739216L,Variant:0},{At:1318864203862003L,Cursor:16,Key:\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:kladovik\",Kind:\"kladovik\",Room:[I;4791,-13,1540,4801,-6,1552],Seed:18368571415739216L,Variant:0},{At:1321063227301875L,Cursor:16,Key:\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:large\",Kind:\"large_podzemnik\",Room:[I;4785,-13,1565,4827,11,1615],Seed:18368571415739216L,Variant:0},{At:227049150943187L,Cursor:0,Key:\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:6\",Kind:\"podzemnik\",Room:[I;761,-45,-103,883,-36,1],Seed:18368721739594320L,Variant:1},{At:227049150918611L,Cursor:0,Key:\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:7\",Kind:\"podzemnik\",Room:[I;761,-45,-103,883,-36,1],Seed:18368721739594320L,Variant:0},{At:228973296795643L,Cursor:0,Key:\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:large\",Kind:\"large_podzemnik\",Room:[I;795,-5,46,865,25,104],Seed:18368721739594320L,Variant:0},{At:228973296807931L,Cursor:0,Key:\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:2\",Kind:\"podzemnik\",Room:[I;795,-5,46,865,25,104],Seed:18368721739594320L,Variant:1},{At:228973296783355L,Cursor:0,Key:\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:3\",Kind:\"podzemnik\",Room:[I;795,-5,46,865,25,104],Seed:18368721739594320L,Variant:0},{At:1345527360888791L,Cursor:16,Key:\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:4\",Kind:\"podzemnik\",Room:[I;4861,-41,1521,4935,-32,1595],Seed:18368571415739216L,Variant:0},{At:1347176628330455L,Cursor:16,Key:\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:5\",Kind:\"podzemnik\",Room:[I;4861,-41,1521,4935,-32,1595],Seed:18368571415739216L,Variant:0}],Planned:[\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT\"]}",
+      "actual_underground_mobs": [
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "4767, -13, 1547",
+          "uuid": "d2739813-347e-3a54-912b-d250a7ec7564"
+        },
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "4796, 1, 1501",
+          "uuid": "014fcac1-0006-312d-b18b-1c60adc43da5"
+        },
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "4798, -13, 1548",
+          "uuid": "16069006-2730-3b96-a30e-06e569278bce"
+        },
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "4802, 1, 1501",
+          "uuid": "faac97ed-b83d-34e1-89fc-5abcfe462e82"
+        },
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "4803, -13, 1593",
+          "uuid": "b0fee997-504e-3efc-aec2-3b517bd1cb50"
+        },
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "4807, -13, 1591",
+          "uuid": "55f14e3b-33a6-3d69-a9b8-e5127d71935a"
+        },
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "4823, 1, 1461",
+          "uuid": "868d6fdf-5339-3454-8df6-6b723f0edfdd"
+        },
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "4829, 1, 1461",
+          "uuid": "1e1993c1-f432-3e6f-b33f-13824db8253c"
+        }
+      ],
+      "locate_ms": 5.763,
+      "locate_records_unchanged": true,
+      "status": "PASS_BLOCK_PATH_ONLY",
+      "full_construction_chunks": 108,
+      "elapsed_s": 122.4716414
+    },
+    {
+      "region": [
+        0,
+        1
+      ],
+      "first_choice": "city",
+      "planning_ms": 18955.1773,
+      "owner": [
+        95,
+        256
+      ],
+      "type": "city",
+      "attached": true,
+      "variant": 0,
+      "mouth": "1445, 89, 4235",
+      "distance_spawn": 4474.736416818314,
+      "native_pieces": 2,
+      "bbox": [
+        1401,
+        -46,
+        3977,
+        1655,
+        93,
+        4237
+      ],
+      "city_internal": {
+        "status": "PASS",
+        "visited": 16637,
+        "unreachable": []
+      },
+      "surface_to_zones": {
+        "status": "PASS",
+        "visited": 19681,
+        "unreachable": []
+      },
+      "biome": "minecraft:birch_forest",
+      "mouth_block": "Block{minecraft:air}",
+      "minBuildHeight": -64,
+      "encounters": "{Consumed:{\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:0\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:1\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:10\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:11\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:2\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:3\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:6\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:9\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:0\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:1\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:10\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:11\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:4\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:5\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:8\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:9\":\"SPAWNED\",\"minecraft:overworld:chud-v1-1528-4104:ATTACHED_SMALL:ordinary:0\":\"SPAWNED\",\"minecraft:overworld:chud-v1-1528-4104:ATTACHED_SMALL:ordinary:1\":\"SPAWNED\"},Pending:[{At:1318864203862003L,Cursor:16,Key:\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:kladovik\",Kind:\"kladovik\",Room:[I;4791,-13,1540,4801,-6,1552],Seed:18368571415739216L,Variant:0},{At:1321063227301875L,Cursor:16,Key:\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:large\",Kind:\"large_podzemnik\",Room:[I;4785,-13,1565,4827,11,1615],Seed:18368571415739216L,Variant:0},{At:227049150943187L,Cursor:0,Key:\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:6\",Kind:\"podzemnik\",Room:[I;761,-45,-103,883,-36,1],Seed:18368721739594320L,Variant:1},{At:227049150918611L,Cursor:0,Key:\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:7\",Kind:\"podzemnik\",Room:[I;761,-45,-103,883,-36,1],Seed:18368721739594320L,Variant:0},{At:228973296795643L,Cursor:0,Key:\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:large\",Kind:\"large_podzemnik\",Room:[I;795,-5,46,865,25,104],Seed:18368721739594320L,Variant:0},{At:228973296807931L,Cursor:0,Key:\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:2\",Kind:\"podzemnik\",Room:[I;795,-5,46,865,25,104],Seed:18368721739594320L,Variant:1},{At:228973296783355L,Cursor:0,Key:\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT:ordinary:3\",Kind:\"podzemnik\",Room:[I;795,-5,46,865,25,104],Seed:18368721739594320L,Variant:0},{At:1345527360888791L,Cursor:16,Key:\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:4\",Kind:\"podzemnik\",Room:[I;4861,-41,1521,4935,-32,1595],Seed:18368571415739216L,Variant:0},{At:1347176628330455L,Cursor:16,Key:\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:5\",Kind:\"podzemnik\",Room:[I;4861,-41,1521,4935,-32,1595],Seed:18368571415739216L,Variant:0},{At:438155400306647L,Cursor:12,Key:\"minecraft:overworld:chud-v1-1528-4104:ATTACHED_SMALL:ordinary:2\",Kind:\"podzemnik\",Room:[I;1588,-41,4050,1606,-29,4078],Seed:1100640428074L,Variant:0},{At:438155400331223L,Cursor:16,Key:\"minecraft:overworld:chud-v1-1528-4104:ATTACHED_SMALL:ordinary:3\",Kind:\"podzemnik\",Room:[I;1588,-41,4050,1606,-29,4078],Seed:1100640428074L,Variant:0},{At:1311992256192499L,Cursor:16,Key:\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:7\",Kind:\"podzemnik\",Room:[I;4766,-13,1541,4774,-6,1551],Seed:18368571415739216L,Variant:0},{At:1317489814331379L,Cursor:16,Key:\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM:ordinary:8\",Kind:\"podzemnik\",Room:[I;4791,-13,1540,4801,-6,1552],Seed:18368571415739216L,Variant:0}],Planned:[\"minecraft:overworld:abandoned-v2-4856-1528:INDEPENDENT_MEDIUM\",\"minecraft:overworld:abandoned-v2-760-8:INDEPENDENT_GREAT\",\"minecraft:overworld:chud-v1-1528-4104:ATTACHED_SMALL\"]}",
+      "actual_underground_mobs": [
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "1630, -41, 4061",
+          "uuid": "b45ca963-da04-3489-ba50-4dcebf947153"
+        },
+        {
+          "id": "slavicmyths:podzemnik",
+          "pos": "1630, -41, 4067",
+          "uuid": "f5145e3b-c030-37d8-8ccb-bf7bfcbcc50d"
+        }
+      ],
+      "locate_ms": 12.4578,
+      "locate_records_unchanged": true,
+      "status": "PASS_BLOCK_PATH_ONLY",
+      "full_construction_chunks": 120,
+      "elapsed_s": 64.9345035
+    },
+    {
+      "region": [
+        1,
+        1
+      ],
+      "first_choice": "city",
+      "status": "FAIL_OR_UNKNOWN",
+      "error": "java.util.concurrent.ExecutionException: java.util.concurrent.CancellationException: Search cancelled or time limit reached"
+    }
+  ],
+  "error": "java.util.concurrent.ExecutionException: java.util.concurrent.CancellationException: Search cancelled or time limit reached",
+  "elapsed_s": 374.3540243,
+  "p95_ms": 1.7586,
+  "max_ms": 147.3071,
+  "player_walk_relog_client": "NOT_RUN by this dedicated observation"
+}

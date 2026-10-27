@@ -1,0 +1,67 @@
+{
+  "mode": "yaga-slope",
+  "seed": 30004,
+  "scope": "EXPLICIT_PREPARED_TERRAIN; not natural city or full Survival progression",
+  "anchor": "0, 81, 0",
+  "planned_destinations": 6213,
+  "max_coarse_dirt_run": 1,
+  "npc": "1884fecf-21e3-4056-8c40-660931dc790f",
+  "kuzya": "f5470142-41ba-41c4-80da-22b12a71eac2",
+  "checks": [
+    {
+      "test": "preflight protects Block{minecraft:chest}",
+      "status": "PASS"
+    },
+    {
+      "test": "preflight protects Block{minecraft:end_portal_frame}",
+      "status": "PASS"
+    },
+    {
+      "test": "preflight protects Block{minecraft:bedrock}",
+      "status": "PASS"
+    },
+    {
+      "test": "cancelled partial house never claims placed",
+      "status": "PASS"
+    },
+    {
+      "test": "rollback restores every snapshotted terrain/house destination",
+      "status": "PASS"
+    },
+    {
+      "test": "cancel releases own construction reservation",
+      "status": "PASS"
+    },
+    {
+      "test": "actual bounded house placement succeeds: ok",
+      "status": "PASS"
+    },
+    {
+      "test": "real canonical Yaga exists only after full house",
+      "status": "PASS"
+    },
+    {
+      "test": "real Kuzya exists after full house",
+      "status": "PASS"
+    },
+    {
+      "test": "actual household loot barrel exists",
+      "status": "PASS"
+    },
+    {
+      "test": "whole yard has solid continuous ground: unsupported\u003d0",
+      "status": "PASS"
+    },
+    {
+      "test": "no coarse_dirt foundation columns: maxRun\u003d1",
+      "status": "PASS"
+    },
+    {
+      "test": "second request preserves unique saved house",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS_SCOPED_FIXTURE",
+  "elapsed_s": 7.3065194,
+  "p95_ms": 10.5641
+}

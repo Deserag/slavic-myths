@@ -24,7 +24,8 @@ public final class ChudKnownSites {
         world.getServer().execute(()->{
             if(world.getServer().isStopped())return;
             for(var start:starts)if(start.isValid())for(var piece:start.getPieces())if(piece instanceof ChudPiece city){
-                var entrance=city.plan.world(city.plan.points.get(ChudPlan.Role.ENTRANCE));
+                var entrance=city.access==null?city.plan.world(city.plan.points.get(ChudPlan.Role.ENTRANCE)):city.access.mouth;
+                if(city.access==null){var loaded=world.getChunkSource().getChunkNow(entrance.getX()>>4,entrance.getZ()>>4);if(loaded==null||entrance.getY()<=org.slavicmyths.worldgen.LandTerrain.ground(world,entrance.getX(),entrance.getZ())||!ChudCommands.safe(world,entrance))continue;}
                 var b=start.getBoundingBox();
                 if(!b.isInside(entrance))continue;
                 var bounds=new BoundingBox(b.minX(),b.minY(),b.minZ(),b.maxX(),b.maxY(),b.maxZ());
@@ -43,8 +44,8 @@ public final class ChudKnownSites {
             var sites=KNOWN.get(world);
             if(sites==null)return Optional.empty();
             return sites.values().stream().filter(site->!targets.contains(site.entrance().asLong())&&
-                    !visitedOwners.contains(site.owner().toLong())&&world.getWorldBorder().isWithinBounds(site.entrance()))
-                .min(Comparator.comparingDouble(site->site.entrance().distSqr(origin)));
+                    !visitedOwners.contains(site.owner().toLong())&&world.getWorldBorder().isWithinBounds(site.entrance())&&ChudResearch.xzDistanceSquared(site.entrance(),origin)<=3000.*3000)
+                .min(Comparator.comparingDouble(site->ChudResearch.xzDistanceSquared(site.entrance(),origin)));
         }
     }
 

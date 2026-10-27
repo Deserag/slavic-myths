@@ -20,7 +20,13 @@ public final class ExistingSiteSearch {
   if(type!=null)for(int x=(at.getX()>>4)-range;x<=(at.getX()>>4)+range;x++)for(int z=(at.getZ()>>4)-range;z<=(at.getZ()>>4)+range;z++){
    var chunk=world.getChunkSource().getChunkNow(x,z);if(chunk==null)continue;
    var start=chunk.getStartForStructure(type);if(start==null||!start.isValid())continue;
-   var pos=start.getBoundingBox().getCenter();double d=pos.distSqr(at);if(d<distance){distance=d;nearest=pos;}
+   var pos=start.getBoundingBox().getCenter();
+   // New Chud starts save their real outside arrival separately from the deep root.
+   for(var piece:start.getPieces()){
+    if(piece instanceof org.slavicmyths.chud.ChudPiece city&&city.access!=null){pos=city.access.mouth;break;}
+    if(piece instanceof org.slavicmyths.chud.AbandonedPiece abandoned&&abandoned.access!=null){pos=abandoned.access.mouth;break;}
+   }
+   double d=pos.distSqr(at);if(d<distance){distance=d;nearest=pos;}
   }
   if(nearest==null){source.sendFailure(Component.literal(id+": существующий старт не найден в загруженных чанках (радиус "+radius+"). Неизвестные чанки не загружались; строительство не запускалось."));return 0;}
   var result=nearest;source.sendSuccess(()->Component.literal(id+": существующая структура "+result.toShortString()),false);return 1;

@@ -15,6 +15,13 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 public final class ChudPiece extends StructurePiece {
     public final ChudPlan plan;
     public final AbandonedPlan abandoned;
+    /** Only new starts carry this annex. Legacy NBT has no Access field. */
+    public ChudSurfaceAccess access;
+    private boolean repairRoof;private volatile ChudRoofCover roofCover;
+    public ChudRoofCover roofCover(){var cover=roofCover;if(cover==null)synchronized(this){cover=roofCover;if(cover==null)roofCover=cover=ChudRoofCover.from(blueprint());}return cover;}
+    public void enableRoofCover(){repairRoof=true;boundingBox=roofCover().include(boundingBox);}
+    public boolean repairsRoof(){return repairRoof;}
+    public int roofShell=14;
     private volatile List<ChudGeometry.Fill> blueprint;
     private boolean industryContents=true;
     private boolean encounterMobs=true;
@@ -22,11 +29,12 @@ public final class ChudPiece extends StructurePiece {
     private final Set<Long> industryChunks=java.util.concurrent.ConcurrentHashMap.newKeySet();
     public ChudPiece(ChudPlan plan){this(plan,null);}
     public ChudPiece(ChudPlan plan,AbandonedPlan abandoned){super(ChudStructures.PIECE.get(),0,new BoundingBox(plan.anchor.getX()-127,plan.anchor.getY()-(abandoned==null?44:58),plan.anchor.getZ()-127,plan.anchor.getX()+127,plan.anchor.getY()+Math.max(73,plan.entranceFloor+12),plan.anchor.getZ()+127));this.plan=plan;this.abandoned=abandoned;if(abandoned!=null&&(abandoned.kind!=AbandonedPlan.Kind.ATTACHED_SMALL||!abandoned.anchor.equals(plan.anchor)||abandoned.rotation!=plan.rotation||!abandoned.rootId.equals(plan.cityId())))throw new IllegalArgumentException("invalid city extension");}
-    public ChudPiece(CompoundTag tag){super(ChudStructures.PIECE.get(),tag);plan=ChudPlan.load(tag.getCompound("ChudPlan"));abandoned=tag.contains("AbandonedPlan")?AbandonedPlan.load(tag.getCompound("AbandonedPlan")):null;industryContents=tag.getBoolean("IndustryContents");encounterMobs=tag.getBoolean("EncounterMobs");for(long id:tag.getLongArray("IndustryChunks"))industryChunks.add(id);}
-    public List<ChudGeometry.Fill> blueprint(){var b=blueprint;if(b==null){synchronized(this){b=blueprint;if(b==null){var combined=new ArrayList<>(ChudGeometry.build(plan));if(abandoned!=null)combined.addAll(AbandonedGeometry.build(abandoned));blueprint=b=List.copyOf(combined);}}}return b;}
-    @Override protected void addAdditionalSaveData(StructurePieceSerializationContext context,CompoundTag tag){tag.put("ChudPlan",plan.save());if(abandoned!=null)tag.put("AbandonedPlan",abandoned.save());tag.putBoolean("IndustryContents",industryContents);tag.putBoolean("EncounterMobs",encounterMobs);tag.putLongArray("IndustryChunks",industryChunks.stream().mapToLong(Long::longValue).sorted().toArray());}
+    public ChudPiece(CompoundTag tag){super(ChudStructures.PIECE.get(),tag);plan=ChudPlan.load(tag.getCompound("ChudPlan"));abandoned=tag.contains("AbandonedPlan")?AbandonedPlan.load(tag.getCompound("AbandonedPlan")):null;roofShell=tag.contains("RoofShell")?tag.getInt("RoofShell"):14;repairRoof=tag.getBoolean("RepairRoof");access=tag.contains("Access")?ChudSurfaceAccess.load(tag.getCompound("Access")):null;industryContents=tag.getBoolean("IndustryContents");encounterMobs=tag.getBoolean("EncounterMobs");for(long id:tag.getLongArray("IndustryChunks"))industryChunks.add(id);}
+    public List<ChudGeometry.Fill> blueprint(){var b=blueprint;if(b==null){synchronized(this){b=blueprint;if(b==null){var combined=new ArrayList<>(ChudGeometry.build(plan,roofShell));if(abandoned!=null)combined.addAll(AbandonedGeometry.build(abandoned));blueprint=b=List.copyOf(combined);}}}return b;}
+    @Override protected void addAdditionalSaveData(StructurePieceSerializationContext context,CompoundTag tag){tag.put("ChudPlan",plan.save());tag.putBoolean("RepairRoof",repairRoof);tag.putInt("RoofShell",roofShell);if(abandoned!=null)tag.put("AbandonedPlan",abandoned.save());if(access!=null)tag.put("Access",access.save());tag.putBoolean("IndustryContents",industryContents);tag.putBoolean("EncounterMobs",encounterMobs);tag.putLongArray("IndustryChunks",industryChunks.stream().mapToLong(Long::longValue).sorted().toArray());}
     @Override public void postProcess(WorldGenLevel world,StructureManager manager,ChunkGenerator generator,RandomSource random,BoundingBox clip,ChunkPos chunk,BlockPos pivot){
         if(industryContents&&industryChunks.contains(chunk.toLong()))return;
+        if(repairRoof)roofCover().repair(world,clip,chunk);
         place(world,boundingBox,blueprint(),clip,chunk,new ChudDecor(plan,abandoned));
         if(industryContents){org.slavicmyths.industry.ChudContents.city(world,plan,abandoned,clip);industryChunks.add(chunk.toLong());}
     }
@@ -50,7 +58,7 @@ public final class ChudPiece extends StructurePiece {
             if(!clip.isInside(pos)||world.isOutsideBuildHeight(pos))continue;
             var old=world.getBlockState(pos);
             // Last defence against unknown mods' block entities; candidate rejection does the primary work.
-            if(old.is(Blocks.BEDROCK)||old.is(Blocks.END_PORTAL)||old.is(Blocks.END_PORTAL_FRAME))continue;
+            if(old.hasBlockEntity()||old.is(Blocks.BEDROCK)||old.is(Blocks.NETHER_PORTAL)||old.is(Blocks.END_GATEWAY)||old.is(Blocks.END_PORTAL)||old.is(Blocks.END_PORTAL_FRAME))continue;
             if(decor!=null){
                 int above=(y-minY+1)*256+z*16+x;
                 boolean open=y+2<=maxY&&states[above]!=null&&states[above].isAir()&&states[above+256]!=null&&states[above+256].isAir();

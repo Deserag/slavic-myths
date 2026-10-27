@@ -1,0 +1,15 @@
+{
+  "status": "PASS_SAVED_ROOT_NO_SECOND_ROOT",
+  "seed": 30001,
+  "roots": [
+    {
+      "id": "slavicmyths:chud_abandoned",
+      "owner": [
+        82,
+        30
+      ],
+      "pieces": 1
+    }
+  ],
+  "original_candidate_chunks_checked": 10
+}

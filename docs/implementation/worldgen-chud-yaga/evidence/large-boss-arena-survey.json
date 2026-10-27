@@ -1,0 +1,109 @@
+{
+  "safe15x15_candidates": [
+    [
+      4800,
+      -14,
+      1584
+    ],
+    [
+      4800,
+      -14,
+      1585
+    ],
+    [
+      4800,
+      -14,
+      1586
+    ],
+    [
+      4800,
+      -14,
+      1587
+    ],
+    [
+      4800,
+      -14,
+      1588
+    ],
+    [
+      4800,
+      -14,
+      1589
+    ],
+    [
+      4800,
+      -14,
+      1590
+    ],
+    [
+      4800,
+      -14,
+      1591
+    ],
+    [
+      4800,
+      -14,
+      1592
+    ],
+    [
+      4801,
+      -14,
+      1584
+    ],
+    [
+      4801,
+      -14,
+      1585
+    ],
+    [
+      4801,
+      -14,
+      1586
+    ],
+    [
+      4801,
+      -14,
+      1587
+    ],
+    [
+      4801,
+      -14,
+      1588
+    ],
+    [
+      4801,
+      -14,
+      1589
+    ],
+    [
+      4801,
+      -14,
+      1590
+    ],
+    [
+      4801,
+      -14,
+      1591
+    ],
+    [
+      4801,
+      -14,
+      1592
+    ]
+  ],
+  "first_blockers": {
+    "body:minecraft:deepslate Compound({'axis': String('y')})": 41,
+    "body:minecraft:tuff": 89,
+    "body:minecraft:stone": 201,
+    "body:minecraft:cobblestone": 305,
+    "body:minecraft:mossy_cobblestone": 140,
+    "body:minecraft:cracked_stone_bricks": 26,
+    "body:minecraft:polished_andesite": 111,
+    "body:minecraft:tuff_bricks": 3,
+    "body:minecraft:deepslate_gold_ore": 1,
+    "body:minecraft:deepslate_diamond_ore": 3,
+    "body:minecraft:raw_iron_block": 112,
+    "body:minecraft:gravel": 3,
+    "floor:minecraft:air": 20
+  }
+}

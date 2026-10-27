@@ -1,0 +1,131 @@
+{
+  "store": {
+    "point": [
+      -63,
+      -16,
+      -64
+    ],
+    "vertical": {
+      "-3": "minecraft:air",
+      "-2": "minecraft:air",
+      "-1": "minecraft:amethyst_block",
+      "0": "minecraft:calcite",
+      "1": "minecraft:air",
+      "2": "minecraft:air",
+      "3": "minecraft:air"
+    },
+    "cross": {
+      "-2,-2": "minecraft:air",
+      "-2,-1": "minecraft:air",
+      "-2,0": "minecraft:air",
+      "-2,1": "minecraft:air",
+      "-2,2": "minecraft:air",
+      "-1,-2": "minecraft:air",
+      "-1,-1": "minecraft:air",
+      "-1,0": "minecraft:smooth_basalt",
+      "-1,1": "minecraft:smooth_basalt",
+      "-1,2": "minecraft:smooth_basalt",
+      "0,-2": "minecraft:smooth_basalt",
+      "0,-1": "minecraft:smooth_basalt",
+      "0,0": "minecraft:calcite",
+      "0,1": "minecraft:calcite",
+      "0,2": "minecraft:calcite",
+      "1,-2": "minecraft:smooth_basalt",
+      "1,-1": "minecraft:calcite",
+      "1,0": "minecraft:calcite",
+      "1,1": "minecraft:calcite",
+      "1,2": "minecraft:calcite",
+      "2,-2": "minecraft:smooth_basalt",
+      "2,-1": "minecraft:calcite",
+      "2,0": "minecraft:calcite",
+      "2,1": "minecraft:calcite",
+      "2,2": "minecraft:calcite"
+    }
+  },
+  "gallery0": {
+    "point": [
+      0,
+      5,
+      -12
+    ],
+    "vertical": {
+      "-3": "minecraft:air",
+      "-2": "minecraft:chiseled_tuff_bricks",
+      "-1": "minecraft:chiseled_tuff_bricks",
+      "0": "minecraft:air",
+      "1": "minecraft:air",
+      "2": "minecraft:air",
+      "3": "minecraft:air"
+    },
+    "cross": {
+      "-2,-2": "minecraft:air",
+      "-2,-1": "minecraft:air",
+      "-2,0": "minecraft:air",
+      "-2,1": "minecraft:air",
+      "-2,2": "minecraft:air",
+      "-1,-2": "minecraft:air",
+      "-1,-1": "minecraft:air",
+      "-1,0": "minecraft:air",
+      "-1,1": "minecraft:air",
+      "-1,2": "minecraft:air",
+      "0,-2": "minecraft:air",
+      "0,-1": "minecraft:air",
+      "0,0": "minecraft:air",
+      "0,1": "minecraft:air",
+      "0,2": "minecraft:air",
+      "1,-2": "minecraft:air",
+      "1,-1": "minecraft:air",
+      "1,0": "minecraft:air",
+      "1,1": "minecraft:air",
+      "1,2": "minecraft:air",
+      "2,-2": "minecraft:spruce_planks",
+      "2,-1": "minecraft:spruce_door Compound({'hinge': String('left'), 'half': String('lower'), 'powered': String('false'), 'facing': String('west'), 'open': String('false')})",
+      "2,0": "minecraft:air",
+      "2,1": "minecraft:spruce_planks",
+      "2,2": "minecraft:spruce_planks"
+    }
+  },
+  "store_center": {
+    "point": [
+      -71,
+      -16,
+      -64
+    ],
+    "vertical": {
+      "-3": "minecraft:cobblestone",
+      "-2": "minecraft:cobblestone",
+      "-1": "minecraft:cobblestone",
+      "0": "minecraft:air",
+      "1": "minecraft:air",
+      "2": "minecraft:air",
+      "3": "minecraft:air"
+    },
+    "cross": {
+      "-2,-2": "minecraft:air",
+      "-2,-1": "minecraft:air",
+      "-2,0": "minecraft:air",
+      "-2,1": "minecraft:air",
+      "-2,2": "minecraft:air",
+      "-1,-2": "minecraft:air",
+      "-1,-1": "minecraft:air",
+      "-1,0": "minecraft:air",
+      "-1,1": "minecraft:air",
+      "-1,2": "minecraft:air",
+      "0,-2": "minecraft:air",
+      "0,-1": "minecraft:air",
+      "0,0": "minecraft:air",
+      "0,1": "minecraft:air",
+      "0,2": "minecraft:air",
+      "1,-2": "minecraft:air",
+      "1,-1": "minecraft:air",
+      "1,0": "minecraft:air",
+      "1,1": "minecraft:air",
+      "1,2": "minecraft:air",
+      "2,-2": "minecraft:air",
+      "2,-1": "minecraft:air",
+      "2,0": "minecraft:air",
+      "2,1": "minecraft:air",
+      "2,2": "minecraft:air"
+    }
+  }
+}

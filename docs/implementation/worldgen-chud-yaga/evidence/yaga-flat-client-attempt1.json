@@ -1,0 +1,15 @@
+{
+  "status": "FAIL_TEST_WALK_NOT_FINISHED",
+  "world": "work/issue300-client-yaga-flat/saves/Worldgen300",
+  "seed": 30003,
+  "physical_arrivals": [
+    "outside",
+    "approach",
+    "porch"
+  ],
+  "door_interior": "NOT_RUN",
+  "termination": "Alt+F4 via selected own Minecraft window; normal player logout and all dimensions saved at 15:30:58",
+  "initial_diagnostic_teleport": true,
+  "client_log": "work/issue300-client-yaga-flat-runtime.log",
+  "screenshots": "../client/yaga-flat-[0..2]-*.png"
+}

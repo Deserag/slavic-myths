@@ -1,0 +1,65 @@
+{
+  "seed": 30001,
+  "mode": "core",
+  "owner": [
+    82,
+    30
+  ],
+  "type": "city",
+  "bbox": [
+    1193,
+    -37,
+    355,
+    1447,
+    110,
+    615
+  ],
+  "native_start": true,
+  "entrance": [
+    1358,
+    78,
+    364
+  ],
+  "groundY": 107,
+  "entrance_block": "Block{minecraft:air}",
+  "biome": "minecraft:savanna",
+  "surface_access": "NOT_RUN physical player traversal",
+  "mouth": "1324, 106, 357",
+  "route_samples": 42,
+  "blocked_access_samples": 0,
+  "city_navigation": {
+    "status": "UNREACHABLE",
+    "visited": 81,
+    "unreachable": [
+      "COUNCIL",
+      "FORGE",
+      "GATE",
+      "RESIDENTIAL",
+      "SQUARE",
+      "STORE",
+      "gallery_0",
+      "gallery_1",
+      "gallery_2",
+      "gallery_3",
+      "gallery_4",
+      "gallery_5",
+      "home_0",
+      "home_1",
+      "home_10",
+      "home_11",
+      "home_2",
+      "home_3",
+      "home_4",
+      "home_5",
+      "home_6",
+      "home_7",
+      "home_8",
+      "home_9",
+      "home_9_upper"
+    ]
+  },
+  "generated_bbox_chunks": 289,
+  "elapsed_s": 53.8599727,
+  "p95_ms": 2.8371,
+  "max_ms": 161.5787
+}

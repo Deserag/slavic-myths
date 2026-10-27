@@ -1,0 +1,133 @@
+{
+  "seed": 30002,
+  "samples": [
+    {
+      "region": [
+        1,
+        1
+      ],
+      "first_choice": "city",
+      "planning_ms": 43176.8485,
+      "owner": [
+        256,
+        351
+      ],
+      "type": "INDEPENDENT_MEDIUM",
+      "attached": false,
+      "variant": 0,
+      "mouth": "4122, 72, 5755",
+      "distance_spawn": 7078.934171187072,
+      "before_exploration_command": [
+        "chud_abandoned: существующий старт не найден в загруженных чанках (радиус 1024). Неизвестные чанки не загружались; строительство не запускалось.",
+        "Проверяются seed-планы и сохранённые starts, страница 0. Чанки не загружаются; строительство не запускается.",
+        "chud_abandoned: Предполагаемое место будущей естественной генерации; start-чанк ещё не сохранён. Это НЕ FOUND_PHYSICAL; X/Y/Z\u003d4122, 72, 5755; owner\u003d[256, 351]; страница\u003d0"
+      ],
+      "forecast_loaded_before": 841,
+      "forecast_loaded_after": 841,
+      "forecast_records_unchanged": true,
+      "native_pieces": 2,
+      "bbox": [
+        4000,
+        -53,
+        5520,
+        4208,
+        76,
+        5757
+      ],
+      "occupied_chunks": 105,
+      "bbox_chunks": 210,
+      "accepted_roots": 1,
+      "depth": {
+        "mouth_y": 72,
+        "minimum_roof_cover_actual": 20,
+        "min_ground_y": 22,
+        "max_ground_y": 71,
+        "worst_roof": "4125, 24, 5560",
+        "top_roof_y": 24,
+        "min_construction_y": -53,
+        "min_build_height": -64
+      },
+      "surface_to_zones": {
+        "status": "PASS",
+        "visited": 22424,
+        "unreachable": []
+      },
+      "biome": "minecraft:beach",
+      "mouth_block": "Block{minecraft:air}",
+      "minBuildHeight": -64,
+      "actual_city_people": 0,
+      "encounters": "{Consumed:{\"minecraft:overworld:abandoned-v2-4104-5624:INDEPENDENT_MEDIUM:kladovik\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4104-5624:INDEPENDENT_MEDIUM:large\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4104-5624:INDEPENDENT_MEDIUM:ordinary:0\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4104-5624:INDEPENDENT_MEDIUM:ordinary:1\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4104-5624:INDEPENDENT_MEDIUM:ordinary:10\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4104-5624:INDEPENDENT_MEDIUM:ordinary:11\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4104-5624:INDEPENDENT_MEDIUM:ordinary:2\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4104-5624:INDEPENDENT_MEDIUM:ordinary:3\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4104-5624:INDEPENDENT_MEDIUM:ordinary:4\":\"SKIPPED_NO_SAFE_FLOOR\",\"minecraft:overworld:abandoned-v2-4104-5624:INDEPENDENT_MEDIUM:ordinary:5\":\"SKIPPED_NO_SAFE_FLOOR\",\"minecraft:overworld:abandoned-v2-4104-5624:INDEPENDENT_MEDIUM:ordinary:6\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4104-5624:INDEPENDENT_MEDIUM:ordinary:7\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4104-5624:INDEPENDENT_MEDIUM:ordinary:8\":\"SPAWNED\",\"minecraft:overworld:abandoned-v2-4104-5624:INDEPENDENT_MEDIUM:ordinary:9\":\"SPAWNED\"},Pending:[],Planned:[\"minecraft:overworld:abandoned-v2-4104-5624:INDEPENDENT_MEDIUM\"]}",
+      "actual_underground_mobs": [
+        {
+          "pos": "4039, -21, 5571",
+          "uuid": "0aaa8d14-9117-3582-b4b2-f0a470fa1d79",
+          "id": "slavicmyths:podzemnik"
+        },
+        {
+          "pos": "4037, -21, 5575",
+          "uuid": "d5b51c12-f6bb-3ba3-9a8d-8b3ae35f9313",
+          "id": "slavicmyths:podzemnik"
+        },
+        {
+          "pos": "4042, -21, 5569",
+          "uuid": "eb717822-427f-34c9-b44e-c4df9724fec6",
+          "id": "slavicmyths:large_podzemnik"
+        },
+        {
+          "pos": "4085, -21, 5535",
+          "uuid": "04592572-bdcb-3c74-b78c-e0851fd07f63",
+          "id": "slavicmyths:podzemnik"
+        },
+        {
+          "pos": "4082, -21, 5538",
+          "uuid": "ae3a3f37-dcbc-3b2e-881e-4bb65a22536d",
+          "id": "slavicmyths:podzemnik"
+        },
+        {
+          "pos": "4086, -21, 5564",
+          "uuid": "6961acda-622f-32a2-9d05-552fb303fae6",
+          "id": "slavicmyths:kladovik"
+        },
+        {
+          "pos": "4081, -21, 5564",
+          "uuid": "673f2df3-1c48-37a0-80d9-c3b09ec11e6e",
+          "id": "slavicmyths:podzemnik"
+        },
+        {
+          "pos": "4083, -21, 5568",
+          "uuid": "7e6d833d-348c-3110-bb03-3ba40e39db9b",
+          "id": "slavicmyths:podzemnik"
+        },
+        {
+          "pos": "4131, -7, 5564",
+          "uuid": "31184f3a-9544-356e-9e4e-ee0737b3afda",
+          "id": "slavicmyths:podzemnik"
+        },
+        {
+          "pos": "4131, -7, 5570",
+          "uuid": "92be62d5-0671-33d3-ac06-d7bfc1c942ec",
+          "id": "slavicmyths:podzemnik"
+        },
+        {
+          "pos": "4171, -7, 5591",
+          "uuid": "581d6c33-d81e-3c96-8f3d-a3e7e5fe51b1",
+          "id": "slavicmyths:podzemnik"
+        },
+        {
+          "pos": "4171, -7, 5597",
+          "uuid": "c04b907d-572c-3443-a0c8-389874530611",
+          "id": "slavicmyths:podzemnik"
+        }
+      ],
+      "locate_ms": 7.5288,
+      "locate_records_unchanged": true,
+      "status": "PASS_BLOCK_PATH_ONLY",
+      "full_construction_chunks": 219,
+      "elapsed_s": 130.7075998
+    }
+  ],
+  "elapsed_s": 130.9522815,
+  "p95_ms": 1.7441,
+  "max_ms": 182.0634,
+  "player_walk_relog_client": "NOT_RUN by this dedicated observation"
+}

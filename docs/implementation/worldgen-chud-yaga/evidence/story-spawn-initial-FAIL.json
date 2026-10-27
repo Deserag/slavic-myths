@@ -1,0 +1,7 @@
+{
+  "cancel_before_write": "PASS_NO_SITE_NO_RESERVATION",
+  "status": "FAIL",
+  "scope": "Actual bounded story queue with permission0 source; NPC dialogue, player progression, reward and book NOT_RUN here",
+  "error": "java.lang.IllegalStateException: story placement exhausted safe candidates; see runtime reason",
+  "elapsed_s": 21.1518246
+}

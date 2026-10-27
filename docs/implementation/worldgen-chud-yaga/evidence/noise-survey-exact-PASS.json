@@ -1,0 +1,247 @@
+{
+  "scope": "RAW_NOISE_API_EQUIVALENCE_ONLY; no physical worldgen or gameplay claim",
+  "samples": [
+    {
+      "seed": 30001,
+      "chunk": [
+        0,
+        0
+      ],
+      "examples": [],
+      "batch_ms": 160.445,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 1425.7257
+    },
+    {
+      "seed": 30001,
+      "chunk": [
+        -1,
+        0
+      ],
+      "examples": [],
+      "batch_ms": 28.927,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 826.2074
+    },
+    {
+      "seed": 30001,
+      "chunk": [
+        47,
+        0
+      ],
+      "examples": [],
+      "batch_ms": 19.8541,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 837.4288
+    },
+    {
+      "seed": 30001,
+      "chunk": [
+        1024,
+        -1024
+      ],
+      "examples": [],
+      "batch_ms": 23.4139,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 865.292
+    },
+    {
+      "seed": 30002,
+      "chunk": [
+        0,
+        0
+      ],
+      "examples": [],
+      "batch_ms": 21.1767,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 774.8534
+    },
+    {
+      "seed": 30002,
+      "chunk": [
+        -1,
+        0
+      ],
+      "examples": [],
+      "batch_ms": 19.3899,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 771.5865
+    },
+    {
+      "seed": 30002,
+      "chunk": [
+        47,
+        0
+      ],
+      "examples": [],
+      "batch_ms": 29.9119,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 733.8455
+    },
+    {
+      "seed": 30002,
+      "chunk": [
+        1024,
+        -1024
+      ],
+      "examples": [],
+      "batch_ms": 20.9793,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 781.6994
+    },
+    {
+      "seed": 8675309,
+      "chunk": [
+        0,
+        0
+      ],
+      "examples": [],
+      "batch_ms": 25.0773,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 738.6215
+    },
+    {
+      "seed": 8675309,
+      "chunk": [
+        -1,
+        0
+      ],
+      "examples": [],
+      "batch_ms": 19.3261,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 749.1734
+    },
+    {
+      "seed": 8675309,
+      "chunk": [
+        47,
+        0
+      ],
+      "examples": [],
+      "batch_ms": 18.2921,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 740.3286
+    },
+    {
+      "seed": 8675309,
+      "chunk": [
+        1024,
+        -1024
+      ],
+      "examples": [],
+      "batch_ms": 20.4924,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 816.9346
+    },
+    {
+      "seed": 2692026,
+      "chunk": [
+        0,
+        0
+      ],
+      "examples": [],
+      "batch_ms": 20.4013,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 809.84
+    },
+    {
+      "seed": 2692026,
+      "chunk": [
+        -1,
+        0
+      ],
+      "examples": [],
+      "batch_ms": 29.5226,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 924.5588
+    },
+    {
+      "seed": 2692026,
+      "chunk": [
+        47,
+        0
+      ],
+      "examples": [],
+      "batch_ms": 20.5487,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 803.5662
+    },
+    {
+      "seed": 2692026,
+      "chunk": [
+        1024,
+        -1024
+      ],
+      "examples": [],
+      "batch_ms": 18.2259,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 775.5946
+    },
+    {
+      "seed": -30005,
+      "chunk": [
+        0,
+        0
+      ],
+      "examples": [],
+      "batch_ms": 19.5757,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 752.2705
+    },
+    {
+      "seed": -30005,
+      "chunk": [
+        -1,
+        0
+      ],
+      "examples": [],
+      "batch_ms": 19.6862,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 765.6914
+    },
+    {
+      "seed": -30005,
+      "chunk": [
+        47,
+        0
+      ],
+      "examples": [],
+      "batch_ms": 21.7149,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 733.4134
+    },
+    {
+      "seed": -30005,
+      "chunk": [
+        1024,
+        -1024
+      ],
+      "examples": [],
+      "batch_ms": 21.4721,
+      "mismatches": 0,
+      "columns": 256,
+      "vanilla_individual_ms": 743.7164
+    }
+  ],
+  "status": "PASS",
+  "elapsed_s": 18.7529921
+}

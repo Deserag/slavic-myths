@@ -11,8 +11,10 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 public final class ChudGeometry {
     public record Fill(BoundingBox box, BlockState state) {}
     private final ChudPlan plan;
+    private final int roofShell;
     private final List<Fill> fills=new ArrayList<>();
-    private ChudGeometry(ChudPlan p) { plan=p; }
+    private ChudGeometry(ChudPlan p) { this(p,14); }
+    private ChudGeometry(ChudPlan p,int shell) { plan=p;roofShell=shell; }
     private static BlockState state(Block b) { return b.defaultBlockState(); }
     private void box(int x,int y,int z,int xx,int yy,int zz,BlockState s) {
         var a=plan.world(new BlockPos(x,y,z));var b=plan.world(new BlockPos(xx,yy,zz));
@@ -36,7 +38,13 @@ public final class ChudGeometry {
     private void table(int x,int y,int z,int width){at(x,y+1,z,Blocks.DARK_OAK_FENCE);at(x+width-1,y+1,z,Blocks.DARK_OAK_FENCE);box(x,y+2,z,x+width-1,y+2,z+1,state(Blocks.DARK_OAK_SLAB).setValue(BlockStateProperties.SLAB_TYPE,SlabType.TOP));}
 
     public static List<Fill> build(ChudPlan plan){
-        var g=new ChudGeometry(plan);
+        return build(plan,14);
+    }
+    /** New excavations need four solid sealing blocks, not fourteen blocks of redundant rock.
+     * The cavern ceiling, rooms, art and all legacy saves retain their original geometry. */
+    public static List<Fill> build(ChudPlan plan,int roofShell){
+        if(roofShell!=4&&roofShell!=14)throw new IllegalArgumentException("roof shell");
+        var g=new ChudGeometry(plan,roofShell);
         for(var hall:plan.halls)g.cavern(hall);
         g.corridors(true);
         g.square(plan.halls.get(0));g.residential(plan.halls.get(1));g.forge(plan.halls.get(2));g.store(plan.halls.get(3));g.council(plan.halls.get(4));g.gate(plan.halls.get(5));g.entrance();
@@ -53,7 +61,7 @@ public final class ChudGeometry {
             int x=h.x()+dx,z=h.z()+dz;
             int top=cavernTop(plan,h,dx,dz);
             Block rock=((dx/7+dz/9)&3)==0?Blocks.TUFF:((dx/11-dz/8)&3)==0?Blocks.ANDESITE:Blocks.STONE;
-            box(x,h.y()-3,z,x,top+14,z,rock);
+            box(x,h.y()-3,z,x,top+roofShell,z,rock);
             if(q<.98){air(x,h.y()+1,z,x,top,z);Block floor=Math.floorMod(dx/5+dz/7,7)==0?Blocks.POLISHED_ANDESITE:Math.floorMod(dx+dz,5)==0?Blocks.ANDESITE:Blocks.STONE_BRICKS;at(x,h.y(),z,floor);}
         }
     }

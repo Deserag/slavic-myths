@@ -1,0 +1,31 @@
+{
+  "seed": 30001,
+  "mode": "baseline",
+  "owner": [
+    82,
+    30
+  ],
+  "type": "INDEPENDENT_GREAT",
+  "bbox": [
+    1193,
+    -47,
+    361,
+    1447,
+    70,
+    615
+  ],
+  "native_start": true,
+  "entrance": [
+    1196,
+    30,
+    418
+  ],
+  "groundY": 50,
+  "entrance_block": "Block{minecraft:air}",
+  "biome": "minecraft:forest",
+  "surface_access": "NOT_RUN physical player traversal",
+  "generated_bbox_chunks": 289,
+  "elapsed_s": 145.2713187,
+  "p95_ms": 50.0982,
+  "max_ms": 143.0231
+}

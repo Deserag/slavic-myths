@@ -1,0 +1,59 @@
+{
+  "seed": 30002,
+  "samples": [
+    {
+      "region": [
+        1,
+        1
+      ],
+      "first_choice": "city",
+      "planning_ms": 38371.2464,
+      "owner": [
+        256,
+        351
+      ],
+      "type": "INDEPENDENT_MEDIUM",
+      "attached": false,
+      "variant": 0,
+      "mouth": "4122, 72, 5755",
+      "distance_spawn": 7078.934171187072,
+      "before_exploration_command": [
+        "chud_abandoned: существующий старт не найден в загруженных чанках (радиус 1024). Неизвестные чанки не загружались; строительство не запускалось.",
+        "Проверяются seed-планы и сохранённые starts, страница 0. Чанки не загружаются; строительство не запускается.",
+        "chud_abandoned: Предполагаемое место будущей естественной генерации; start-чанк ещё не сохранён. Это НЕ FOUND_PHYSICAL; X/Y/Z\u003d4122, 72, 5755; owner\u003d[256, 351]; страница\u003d0"
+      ],
+      "forecast_loaded_before": 841,
+      "forecast_loaded_after": 841,
+      "forecast_records_unchanged": true,
+      "native_pieces": 2,
+      "bbox": [
+        4000,
+        -66,
+        5520,
+        4208,
+        76,
+        5757
+      ],
+      "occupied_chunks": 105,
+      "bbox_chunks": 210,
+      "accepted_roots": 1,
+      "depth": {
+        "min_build_height": -64,
+        "mouth_y": 72,
+        "minimum_roof_cover_actual": 1,
+        "min_ground_y": 22,
+        "max_ground_y": 71,
+        "worst_roof": "4134, 23, 5553",
+        "top_roof_y": 24,
+        "min_construction_y": -53
+      },
+      "status": "FAIL_OR_UNKNOWN",
+      "error": "java.lang.IllegalStateException: actual depth failed: {min_build_height\u003d-64, mouth_y\u003d72, minimum_roof_cover_actual\u003d1, min_ground_y\u003d22, max_ground_y\u003d71, worst_roof\u003d4134, 23, 5553, top_roof_y\u003d24, min_construction_y\u003d-53}"
+    }
+  ],
+  "error": "java.lang.IllegalStateException: actual depth failed: {min_build_height\u003d-64, mouth_y\u003d72, minimum_roof_cover_actual\u003d1, min_ground_y\u003d22, max_ground_y\u003d71, worst_roof\u003d4134, 23, 5553, top_roof_y\u003d24, min_construction_y\u003d-53}",
+  "elapsed_s": 123.8368781,
+  "p95_ms": 2.4308,
+  "max_ms": 53.0343,
+  "player_walk_relog_client": "NOT_RUN by this dedicated observation"
+}

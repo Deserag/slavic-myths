@@ -48,13 +48,13 @@ public final class ChudSearchCommands {
             .then(Commands.literal("next").executes(c->next(c.getSource())))
             .then(Commands.literal("cancel").executes(c->control(c.getSource(),true)))));
     }
-    private static int control(CommandSourceStack source,boolean cancel){return ChudCreationJobs.control(source,cancel);}
-    private static int next(CommandSourceStack source){return start(source,"chud_city",null,0);}
+    private static int control(CommandSourceStack source,boolean cancel){return ChudFutureSearch.control(source,cancel);}
+    private static int next(CommandSourceStack source){return ChudFutureSearch.next(source);}
     static int searchCity(CommandSourceStack source){return start(source,"chud_city",null,0);}
     static int searchAbandoned(CommandSourceStack source,AbandonedPlan.Kind kind){return start(source,"chud_abandoned",kind,0);}
     private static int start(CommandSourceStack source,String name,AbandonedPlan.Kind kind,int page){
-        if(page!=0||kind!=null){source.sendFailure(Component.literal("Страницы кандидатов/вариантов не являются поиском существующих построек. Используйте явную команду generate для создания."));return 0;}
-        return org.slavicmyths.worldgen.ExistingSiteSearch.locate(source,name);
+        if(page==0&&kind==null&&org.slavicmyths.worldgen.ExistingSiteSearch.locate(source,name)!=0)return 1;
+        return ChudFutureSearch.start(source,name,kind,page);
     }
     private ChudSearchCommands(){}
 }

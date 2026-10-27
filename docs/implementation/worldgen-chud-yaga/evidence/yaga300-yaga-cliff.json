@@ -1,0 +1,19 @@
+{
+  "mode": "yaga-cliff",
+  "seed": 30005,
+  "scope": "EXPLICIT_PREPARED_TERRAIN; not natural city or full Survival progression",
+  "cliff_rejection": "terrace_budget",
+  "checks": [
+    {
+      "status": "PASS",
+      "test": "deep cliff rejected before first write"
+    },
+    {
+      "status": "PASS",
+      "test": "cliff refusal never sets placed/NPC state"
+    }
+  ],
+  "status": "PASS_SCOPED_FIXTURE",
+  "elapsed_s": 4.7064308,
+  "p95_ms": 48.6482
+}

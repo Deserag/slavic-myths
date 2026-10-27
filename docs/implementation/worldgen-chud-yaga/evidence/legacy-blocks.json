@@ -1,0 +1,8 @@
+{
+  "status": "PASS_UNDERGROUND_BLOCKS_UNCHANGED",
+  "chunks_compared": 289,
+  "scope": "all saved block states below Y=0 in original full native bbox; excludes unrelated surface ticks/light/entities",
+  "baseline_sha256": "8c8c6eda6a7379adad3a9440894206dc59fae1bf5ff8549338f8cb126b3a4a94",
+  "upgrade_sha256": "8c8c6eda6a7379adad3a9440894206dc59fae1bf5ff8549338f8cb126b3a4a94",
+  "different_chunks": []
+}

@@ -37,6 +37,7 @@ public final class YagaPlacement {
  public static Site prepare(LevelAccessor w,BlockPos candidate,YagaHutPlan plan,Function<String,BlockState> resolve){return prepare(w,candidate,plan,resolve,false);}
  public static Site prepareForCreation(LevelAccessor w,BlockPos candidate,YagaHutPlan plan,Function<String,BlockState> resolve){return prepare(w,candidate,plan,resolve,true);}
  private static Site prepare(LevelAccessor w,BlockPos candidate,YagaHutPlan plan,Function<String,BlockState> resolve,boolean reshape){Site site=new Site();
+  if(reshape)return terrace(w,candidate,plan,resolve);
   if(!w.hasChunksAt(candidate.offset(-10,0,-17),candidate.offset(10,0,10)))return site.fail("chunks",candidate);
   var heights=new ArrayList<Integer>();int min=w.getMaxBuildHeight(),max=w.getMinBuildHeight()-1;for(int x=-9;x<=9;x+=3)for(int z=-15;z<=9;z+=3){int y=ground(w,candidate.getX()+x,candidate.getZ()+z,reshape);if(y==NO_SURFACE||y==WATER)return site.fail(y==WATER?"water":"surface",candidate.offset(x,0,z));min=Math.min(min,y);max=Math.max(max,y);heights.add(y);}
   if(max-min>3)return site.fail("slope",candidate);if(max+15>=w.getMaxBuildHeight())return site.fail("height",candidate);
@@ -47,6 +48,61 @@ public final class YagaPlacement {
   // Ornamental herbs also need real soil. A rocky accepted surface must not
   // make every cooperative transaction roll back at the first wormwood plant.
   for(Map.Entry<BlockPos,String> e:plan.blocks.entrySet())if(e.getValue().equals("minecraft:brown_mushroom")||e.getValue().equals("slavicmyths:wormwood")){BlockPos p=site.anchor.offset(e.getKey()).below();BlockState before=w.getBlockState(p);if(w.getBlockEntity(p)!=null)return site.fail("container",p);String bad=unsafe(w,p,before);if(bad!=null&&!(reshape&&(bad.equals("water")||bad.equals("obstruction")&&org.slavicmyths.worldgen.ManualStructureJobs.natural(before)&&!before.is(Blocks.BEDROCK))))return site.fail(bad,p);site.old.putIfAbsent(p,before);site.desired.put(p,e.getValue().equals("minecraft:brown_mushroom")?Blocks.PODZOL.defaultBlockState():before.is(BlockTags.DIRT)?before:Blocks.DIRT.defaultBlockState());}
+  return site;
+ }
+ /** Full yard + six-block transition, precomputed before reservation or the first write. */
+ public static final int TERRACE_MIN_X=-15,TERRACE_MAX_X=15,TERRACE_MIN_Z=-22,TERRACE_MAX_Z=15;
+ public static BlockPos minCorner(BlockPos p){return p.offset(TERRACE_MIN_X,0,TERRACE_MIN_Z-1);}
+ public static BlockPos maxCorner(BlockPos p){return p.offset(TERRACE_MAX_X,0,TERRACE_MAX_Z);}
+ private static boolean terrainAllowed(LevelAccessor w,BlockPos p,BlockState old){
+  if(w.getBlockEntity(p)!=null||old.is(Blocks.BEDROCK)||old.is(Blocks.NETHER_PORTAL)||old.is(Blocks.END_PORTAL)||old.is(Blocks.END_PORTAL_FRAME)||old.is(Blocks.END_GATEWAY))return false;
+  if(w instanceof net.minecraft.server.level.ServerLevel level&&org.slavicmyths.rpg.tools.ToolLogOrigins.get(level).blocked(p))return false;
+  return !old.liquid()&&org.slavicmyths.worldgen.ManualStructureJobs.natural(old);
+ }
+ private static boolean desired(Site site,LevelAccessor w,BlockPos p,BlockState next){
+  if(w.isOutsideBuildHeight(p)){site.fail("height",p);return false;}var old=w.getBlockState(p);
+  if(!terrainAllowed(w,p,old)){site.fail(w.getBlockEntity(p)!=null?"container":"protected",p);return false;}
+  site.old.putIfAbsent(p,old);site.desired.put(p,next);return true;
+ }
+ private static Site terrace(LevelAccessor w,BlockPos candidate,YagaHutPlan plan,Function<String,BlockState> resolve){
+  var site=new Site();if(!w.hasChunksAt(minCorner(candidate),maxCorner(candidate)))return site.fail("chunks",candidate);
+  int width=TERRACE_MAX_X-TERRACE_MIN_X+1,depth=TERRACE_MAX_Z-TERRACE_MIN_Z+1;int[] ground=new int[width*depth];var levels=new ArrayList<Integer>();
+  for(int x=TERRACE_MIN_X;x<=TERRACE_MAX_X;x++)for(int z=TERRACE_MIN_Z;z<=TERRACE_MAX_Z;z++){
+   int g=ground(w,candidate.getX()+x,candidate.getZ()+z,false);if(g==WATER||g==NO_SURFACE)return site.fail(g==WATER?"water":"surface",candidate.offset(x,0,z));
+   ground[(x-TERRACE_MIN_X)*depth+z-TERRACE_MIN_Z]=g;if(x>=-9&&x<=9&&z>=-16&&z<=9)levels.add(g);
+  }
+  levels.sort(Integer::compare);int target=levels.get(levels.size()/2);if(target+15>=w.getMaxBuildHeight()||target-6<=w.getMinBuildHeight()+5)return site.fail("height",candidate);
+  site.anchor=candidate.atY(target+1);long volume=0;
+  // Same principle as KurganEarthwork: grade the complete footprint, taper back to actual terrain.
+  for(int x=TERRACE_MIN_X;x<=TERRACE_MAX_X;x++)for(int z=TERRACE_MIN_Z;z<=TERRACE_MAX_Z;z++){
+   int g=ground[(x-TERRACE_MIN_X)*depth+z-TERRACE_MIN_Z],distance=Math.max(0,Math.max(Math.max(-9-x,x-9),Math.max(-16-z,z-9)));
+   if(distance==0&&Math.abs(g-target)>6)return site.fail("terrace_budget",candidate.offset(x,g-candidate.getY(),z));
+   int top=g+Integer.signum(target-g)*Math.max(0,Math.abs(target-g)-distance);
+   if(Math.abs(top-g)>6)return site.fail("terrace_budget",candidate.offset(x,0,z));
+   volume+=Math.abs(top-g);if(volume>6000)return site.fail("terrace_budget",candidate);
+   // Continuous soil under the entire yard, including all leg toes, fence and approach.
+   for(int y=Math.min(g,top)-1;y<=Math.max(g,top);y++){
+    BlockState next=y>top?Blocks.AIR.defaultBlockState():y==top?Blocks.GRASS_BLOCK.defaultBlockState():y<top-3?Blocks.STONE.defaultBlockState():Blocks.DIRT.defaultBlockState();
+    if(!desired(site,w,new BlockPos(candidate.getX()+x,y,candidate.getZ()+z),next))return site;
+   }
+   if(distance==0){
+    int clear=Math.max(top+3,Math.min(top+18,w.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,candidate.getX()+x,candidate.getZ()+z)));
+    for(int y=top+1;y<=clear;y++)if(!desired(site,w,new BlockPos(candidate.getX()+x,y,candidate.getZ()+z),Blocks.AIR.defaultBlockState()))return site;
+   }
+  }
+  // Actual central approach must meet natural ground in one-block grades, in both directions.
+  int previous=target;
+  for(int z=-17;z>=TERRACE_MIN_Z;z--){int g=ground[(0-TERRACE_MIN_X)*depth+z-TERRACE_MIN_Z];int top=Math.max(previous-1,Math.min(previous+1,g));
+   for(int x=-1;x<=1;x++){int oldGround=ground[(x-TERRACE_MIN_X)*depth+z-TERRACE_MIN_Z];if(Math.abs(top-oldGround)>6)return site.fail("approach",candidate.offset(x,0,z));
+    for(int y=Math.min(oldGround,top)-1;y<=Math.max(oldGround+3,top+3);y++)if(!desired(site,w,new BlockPos(candidate.getX()+x,y,candidate.getZ()+z),y>top?Blocks.AIR.defaultBlockState():y==top?Blocks.DIRT_PATH.defaultBlockState():y<top-3?Blocks.STONE.defaultBlockState():Blocks.DIRT.defaultBlockState()))return site;
+   }previous=top;
+  }
+  int outside=ground(w,candidate.getX(),candidate.getZ()+TERRACE_MIN_Z-1,false);if(outside==NO_SURFACE||outside==WATER||Math.abs(outside-previous)>1)return site.fail("approach",candidate);
+  // The final exterior and unchanged artistic house blueprint take precedence over grading.
+  for(var e:plan.blocks.entrySet())if(!desired(site,w,site.anchor.offset(e.getKey()),resolve.apply(e.getValue())))return site;
+  for(var e:plan.blocks.entrySet())if(e.getValue().equals("minecraft:brown_mushroom")||e.getValue().equals("slavicmyths:wormwood")){
+   if(!desired(site,w,site.anchor.offset(e.getKey()).below(),e.getValue().equals("minecraft:brown_mushroom")?Blocks.PODZOL.defaultBlockState():Blocks.DIRT.defaultBlockState()))return site;
+  }
   return site;
  }
  private static final class Refused extends RuntimeException {final String reason;final BlockPos pos;Refused(String reason,BlockPos pos){super(reason+" at "+pos);this.reason=reason;this.pos=pos;}}
