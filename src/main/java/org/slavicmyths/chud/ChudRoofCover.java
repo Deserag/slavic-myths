@@ -13,13 +13,16 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
  * New starts opt in; old starts do not acquire earthworks on load.
  */
 public final class ChudRoofCover {
-    public static final int DEPTH=20;
+    // The main halls remain deep underground. The cover above the highest tower is a
+    // separate clearance: demanding 20 above *every* high roof while leaving the
+    // lowest storeys above bedrock made normal Overworld sites impossible.
+    public static final int DEPTH=8;
     private final Map<Long,Integer> roofs;
     public final int top;private final int bottom;
     private ChudRoofCover(Map<Long,Integer> roofs,int bottom){this.bottom=bottom;this.roofs=Map.copyOf(roofs);top=roofs.values().stream().mapToInt(Integer::intValue).max().orElseThrow()+DEPTH;}
     public static ChudRoofCover from(List<ChudGeometry.Fill> fills){
         var roofs=new HashMap<Long,Integer>();
-        for(var f:fills){var b=f.box();for(int x=b.minX();x<=b.maxX();x++)for(int z=b.minZ();z<=b.maxZ();z++)roofs.merge(BlockPos.asLong(x,0,z),b.maxY(),Math::max);}
+        for(var f:fills){if(f.state().isAir())continue;var b=f.box();for(int x=b.minX();x<=b.maxX();x++)for(int z=b.minZ();z<=b.maxZ();z++)roofs.merge(BlockPos.asLong(x,0,z),b.maxY(),Math::max);}
         return new ChudRoofCover(roofs,fills.stream().mapToInt(f->f.box().minY()).min().orElseThrow());
     }
     public BoundingBox include(BoundingBox b){return new BoundingBox(b.minX(),Math.max(b.minY(),bottom),b.minZ(),b.maxX(),Math.max(b.maxY(),top),b.maxZ());}
