@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "slavicmyths:block/blackwood_planks",
+    "side": "slavicmyths:block/blackwood_planks",
+    "top": "slavicmyths:block/blackwood_planks"
+  }
+}

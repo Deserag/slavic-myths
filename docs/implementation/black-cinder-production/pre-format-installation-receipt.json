@@ -1,0 +1,20 @@
+{
+  "Status": "CANDIDATE_INSTALLED_NOT_OWNER_ACCEPTED",
+  "Path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.8-HELL.jar",
+  "Version": "2.0.8-HELL",
+  "ContentStage": "2.0.3 Black Cinder",
+  "SHA256": "59b32f1426b34c130645787c91c47c06c010620bf1719321f754add16ef404b5",
+  "SourceCommit": "02765c5ebcbced3595181b8ada8d01cdda0e1ad0",
+  "SourceDelta": "docs/implementation/black-cinder-production/source-manifest.json",
+  "SourceArchive": "docs/implementation/black-cinder-production/working-source-delta.zip",
+  "SourceArchiveSHA256": "c78ca344faeb8a81021de90103bf6d60ef3fa0faf75c6e5a5b544abee6131fbc",
+  "Backup": "D:/slavic-myths-backups/black-cinder-203-final-20261027T193627Z/slavicmyths-2.0.8-HELL.jar",
+  "BackupSHA256": "a4e6d1aa5e67e7e1af1a00a081004d444d62c8ff587df42babe1e5471e53bde0",
+  "PreTaskBackup": "D:\\slavic-myths-backups\\black-cinder-203-20261027T191936Z/slavicmyths-2.0.8-HELL.jar",
+  "PreTaskBackupSHA256": "9353a679e82f3375db34939e8c05610e89637feadb6712790f2578fa2ba2e727",
+  "ModJarCount": 1,
+  "Minecraft": "1.21.1",
+  "NeoForge": "21.1.255",
+  "GameLaunches": 0,
+  "Authorization": "User instruction to update mod after implementation; technical gates PASS; game launch prohibited"
+}

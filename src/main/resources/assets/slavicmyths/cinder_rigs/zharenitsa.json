@@ -1,0 +1,998 @@
+{
+  "atlas": 512,
+  "parts": [
+    {
+      "name": "body",
+      "parent": "root",
+      "pivot": [
+        0,
+        -17,
+        0
+      ],
+      "size": [
+        13,
+        18,
+        8
+      ],
+      "material": "coal",
+      "uv": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "waist",
+      "parent": "root",
+      "pivot": [
+        0,
+        -4,
+        0
+      ],
+      "size": [
+        9,
+        8,
+        7
+      ],
+      "material": "coal",
+      "uv": [
+        46,
+        2
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "root",
+      "pivot": [
+        0,
+        -33,
+        0
+      ],
+      "size": [
+        9,
+        10,
+        9
+      ],
+      "material": "coal",
+      "uv": [
+        80,
+        2
+      ]
+    },
+    {
+      "name": "heart",
+      "parent": "root",
+      "pivot": [
+        0,
+        -19,
+        -4.5
+      ],
+      "size": [
+        5,
+        7,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        118,
+        2
+      ]
+    },
+    {
+      "name": "eye-2",
+      "parent": "head",
+      "pivot": [
+        -2,
+        -1,
+        -5
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        134,
+        2
+      ]
+    },
+    {
+      "name": "eye2",
+      "parent": "head",
+      "pivot": [
+        2,
+        -1,
+        -5
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        142,
+        2
+      ]
+    },
+    {
+      "name": "arm0",
+      "parent": "root",
+      "pivot": [
+        -11,
+        -22,
+        0
+      ],
+      "size": [
+        4,
+        22,
+        5
+      ],
+      "material": "coal",
+      "uv": [
+        150,
+        2
+      ]
+    },
+    {
+      "name": "hand0",
+      "parent": "arm0",
+      "pivot": [
+        0,
+        15,
+        0
+      ],
+      "size": [
+        4,
+        9,
+        3
+      ],
+      "material": "ember",
+      "uv": [
+        170,
+        2
+      ]
+    },
+    {
+      "name": "arm1",
+      "parent": "root",
+      "pivot": [
+        11,
+        -22,
+        0
+      ],
+      "size": [
+        4,
+        22,
+        5
+      ],
+      "material": "coal",
+      "uv": [
+        186,
+        2
+      ]
+    },
+    {
+      "name": "hand1",
+      "parent": "arm1",
+      "pivot": [
+        0,
+        15,
+        0
+      ],
+      "size": [
+        4,
+        9,
+        3
+      ],
+      "material": "ember",
+      "uv": [
+        206,
+        2
+      ]
+    },
+    {
+      "name": "crown0",
+      "parent": "head",
+      "pivot": [
+        6.0,
+        -8,
+        0.0
+      ],
+      "size": [
+        2,
+        6,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        222,
+        2
+      ]
+    },
+    {
+      "name": "crown1",
+      "parent": "head",
+      "pivot": [
+        5.196152422706632,
+        -10,
+        2.9999999999999996
+      ],
+      "size": [
+        2,
+        7,
+        2
+      ],
+      "material": "coal",
+      "uv": [
+        232,
+        2
+      ]
+    },
+    {
+      "name": "crown2",
+      "parent": "head",
+      "pivot": [
+        3.000000000000001,
+        -12,
+        5.196152422706632
+      ],
+      "size": [
+        2,
+        8,
+        2
+      ],
+      "material": "coal",
+      "uv": [
+        242,
+        2
+      ]
+    },
+    {
+      "name": "crown3",
+      "parent": "head",
+      "pivot": [
+        3.6739403974420594e-16,
+        -8,
+        6.0
+      ],
+      "size": [
+        2,
+        9,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        252,
+        2
+      ]
+    },
+    {
+      "name": "crown4",
+      "parent": "head",
+      "pivot": [
+        -2.9999999999999987,
+        -10,
+        5.196152422706632
+      ],
+      "size": [
+        2,
+        6,
+        2
+      ],
+      "material": "coal",
+      "uv": [
+        262,
+        2
+      ]
+    },
+    {
+      "name": "crown5",
+      "parent": "head",
+      "pivot": [
+        -5.196152422706632,
+        -12,
+        2.9999999999999996
+      ],
+      "size": [
+        2,
+        7,
+        2
+      ],
+      "material": "coal",
+      "uv": [
+        272,
+        2
+      ]
+    },
+    {
+      "name": "crown6",
+      "parent": "head",
+      "pivot": [
+        -6.0,
+        -8,
+        7.347880794884119e-16
+      ],
+      "size": [
+        2,
+        8,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        282,
+        2
+      ]
+    },
+    {
+      "name": "crown7",
+      "parent": "head",
+      "pivot": [
+        -5.196152422706633,
+        -10,
+        -2.9999999999999982
+      ],
+      "size": [
+        2,
+        9,
+        2
+      ],
+      "material": "coal",
+      "uv": [
+        292,
+        2
+      ]
+    },
+    {
+      "name": "crown8",
+      "parent": "head",
+      "pivot": [
+        -3.0000000000000027,
+        -12,
+        -5.196152422706631
+      ],
+      "size": [
+        2,
+        6,
+        2
+      ],
+      "material": "coal",
+      "uv": [
+        302,
+        2
+      ]
+    },
+    {
+      "name": "crown9",
+      "parent": "head",
+      "pivot": [
+        -1.102182119232618e-15,
+        -8,
+        -6.0
+      ],
+      "size": [
+        2,
+        7,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        312,
+        2
+      ]
+    },
+    {
+      "name": "crown10",
+      "parent": "head",
+      "pivot": [
+        3.000000000000001,
+        -10,
+        -5.196152422706632
+      ],
+      "size": [
+        2,
+        8,
+        2
+      ],
+      "material": "coal",
+      "uv": [
+        322,
+        2
+      ]
+    },
+    {
+      "name": "crown11",
+      "parent": "head",
+      "pivot": [
+        5.19615242270663,
+        -12,
+        -3.0000000000000027
+      ],
+      "size": [
+        2,
+        9,
+        2
+      ],
+      "material": "coal",
+      "uv": [
+        332,
+        2
+      ]
+    },
+    {
+      "name": "ribbon0",
+      "parent": "root",
+      "pivot": [
+        5.0,
+        -3,
+        0.0
+      ],
+      "size": [
+        3,
+        29,
+        3
+      ],
+      "material": "coal",
+      "offset": [
+        -1.5,
+        0,
+        -1.5
+      ],
+      "rotation": [
+        0.0,
+        0,
+        -0.32
+      ],
+      "uv": [
+        342,
+        2
+      ]
+    },
+    {
+      "name": "tip0",
+      "parent": "ribbon0",
+      "pivot": [
+        0,
+        29,
+        0
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        356,
+        2
+      ]
+    },
+    {
+      "name": "ribbon1",
+      "parent": "root",
+      "pivot": [
+        4.045084971874737,
+        -3,
+        2.938926261462366
+      ],
+      "size": [
+        3,
+        31,
+        3
+      ],
+      "material": "coal",
+      "offset": [
+        -1.5,
+        0,
+        -1.5
+      ],
+      "rotation": [
+        0.14106846055019354,
+        0,
+        -0.25888543819998316
+      ],
+      "uv": [
+        366,
+        2
+      ]
+    },
+    {
+      "name": "tip1",
+      "parent": "ribbon1",
+      "pivot": [
+        0,
+        31,
+        0
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        380,
+        2
+      ]
+    },
+    {
+      "name": "ribbon2",
+      "parent": "root",
+      "pivot": [
+        1.5450849718747373,
+        -3,
+        4.755282581475767
+      ],
+      "size": [
+        3,
+        33,
+        3
+      ],
+      "material": "coal",
+      "offset": [
+        -1.5,
+        0,
+        -1.5
+      ],
+      "rotation": [
+        0.22825356391083684,
+        0,
+        -0.09888543819998319
+      ],
+      "uv": [
+        390,
+        2
+      ]
+    },
+    {
+      "name": "tip2",
+      "parent": "ribbon2",
+      "pivot": [
+        0,
+        33,
+        0
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        404,
+        2
+      ]
+    },
+    {
+      "name": "ribbon3",
+      "parent": "root",
+      "pivot": [
+        -1.5450849718747368,
+        -3,
+        4.755282581475768
+      ],
+      "size": [
+        3,
+        29,
+        3
+      ],
+      "material": "coal",
+      "offset": [
+        -1.5,
+        0,
+        -1.5
+      ],
+      "rotation": [
+        0.22825356391083687,
+        0,
+        0.09888543819998315
+      ],
+      "uv": [
+        414,
+        2
+      ]
+    },
+    {
+      "name": "tip3",
+      "parent": "ribbon3",
+      "pivot": [
+        0,
+        29,
+        0
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        428,
+        2
+      ]
+    },
+    {
+      "name": "ribbon4",
+      "parent": "root",
+      "pivot": [
+        -4.045084971874736,
+        -3,
+        2.9389262614623664
+      ],
+      "size": [
+        3,
+        31,
+        3
+      ],
+      "material": "coal",
+      "offset": [
+        -1.5,
+        0,
+        -1.5
+      ],
+      "rotation": [
+        0.14106846055019356,
+        0,
+        0.25888543819998316
+      ],
+      "uv": [
+        438,
+        2
+      ]
+    },
+    {
+      "name": "tip4",
+      "parent": "ribbon4",
+      "pivot": [
+        0,
+        31,
+        0
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        452,
+        2
+      ]
+    },
+    {
+      "name": "ribbon5",
+      "parent": "root",
+      "pivot": [
+        -5.0,
+        -3,
+        6.123233995736766e-16
+      ],
+      "size": [
+        3,
+        33,
+        3
+      ],
+      "material": "coal",
+      "offset": [
+        -1.5,
+        0,
+        -1.5
+      ],
+      "rotation": [
+        2.9391523179536474e-17,
+        0,
+        0.32
+      ],
+      "uv": [
+        462,
+        2
+      ]
+    },
+    {
+      "name": "tip5",
+      "parent": "ribbon5",
+      "pivot": [
+        0,
+        33,
+        0
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        476,
+        2
+      ]
+    },
+    {
+      "name": "ribbon6",
+      "parent": "root",
+      "pivot": [
+        -4.045084971874737,
+        -3,
+        -2.938926261462365
+      ],
+      "size": [
+        3,
+        29,
+        3
+      ],
+      "material": "coal",
+      "offset": [
+        -1.5,
+        0,
+        -1.5
+      ],
+      "rotation": [
+        -0.1410684605501935,
+        0,
+        0.25888543819998316
+      ],
+      "uv": [
+        486,
+        2
+      ]
+    },
+    {
+      "name": "tip6",
+      "parent": "ribbon6",
+      "pivot": [
+        0,
+        29,
+        0
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        500,
+        2
+      ]
+    },
+    {
+      "name": "ribbon7",
+      "parent": "root",
+      "pivot": [
+        -1.5450849718747377,
+        -3,
+        -4.755282581475767
+      ],
+      "size": [
+        3,
+        31,
+        3
+      ],
+      "material": "coal",
+      "offset": [
+        -1.5,
+        0,
+        -1.5
+      ],
+      "rotation": [
+        -0.22825356391083684,
+        0,
+        0.09888543819998322
+      ],
+      "uv": [
+        2,
+        40
+      ]
+    },
+    {
+      "name": "tip7",
+      "parent": "ribbon7",
+      "pivot": [
+        0,
+        31,
+        0
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        16,
+        40
+      ]
+    },
+    {
+      "name": "ribbon8",
+      "parent": "root",
+      "pivot": [
+        1.5450849718747361,
+        -3,
+        -4.755282581475768
+      ],
+      "size": [
+        3,
+        33,
+        3
+      ],
+      "material": "coal",
+      "offset": [
+        -1.5,
+        0,
+        -1.5
+      ],
+      "rotation": [
+        -0.22825356391083687,
+        0,
+        -0.09888543819998312
+      ],
+      "uv": [
+        26,
+        40
+      ]
+    },
+    {
+      "name": "tip8",
+      "parent": "ribbon8",
+      "pivot": [
+        0,
+        33,
+        0
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "ribbon9",
+      "parent": "root",
+      "pivot": [
+        4.045084971874736,
+        -3,
+        -2.938926261462367
+      ],
+      "size": [
+        3,
+        29,
+        3
+      ],
+      "material": "coal",
+      "offset": [
+        -1.5,
+        0,
+        -1.5
+      ],
+      "rotation": [
+        -0.1410684605501936,
+        0,
+        -0.25888543819998316
+      ],
+      "uv": [
+        50,
+        40
+      ]
+    },
+    {
+      "name": "tip9",
+      "parent": "ribbon9",
+      "pivot": [
+        0,
+        29,
+        0
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        64,
+        40
+      ]
+    },
+    {
+      "name": "hair0",
+      "parent": "head",
+      "pivot": [
+        -5.0,
+        10,
+        5
+      ],
+      "size": [
+        2,
+        18,
+        3
+      ],
+      "material": "ash",
+      "uv": [
+        74,
+        40
+      ]
+    },
+    {
+      "name": "hair1",
+      "parent": "head",
+      "pivot": [
+        -2.5,
+        10,
+        5
+      ],
+      "size": [
+        2,
+        22,
+        3
+      ],
+      "material": "ash",
+      "uv": [
+        86,
+        40
+      ]
+    },
+    {
+      "name": "hair2",
+      "parent": "head",
+      "pivot": [
+        0.0,
+        10,
+        5
+      ],
+      "size": [
+        2,
+        18,
+        3
+      ],
+      "material": "ash",
+      "uv": [
+        98,
+        40
+      ]
+    },
+    {
+      "name": "hair3",
+      "parent": "head",
+      "pivot": [
+        2.5,
+        10,
+        5
+      ],
+      "size": [
+        2,
+        22,
+        3
+      ],
+      "material": "ash",
+      "uv": [
+        110,
+        40
+      ]
+    },
+    {
+      "name": "hair4",
+      "parent": "head",
+      "pivot": [
+        5.0,
+        10,
+        5
+      ],
+      "size": [
+        2,
+        18,
+        3
+      ],
+      "material": "ash",
+      "uv": [
+        122,
+        40
+      ]
+    }
+  ]
+}

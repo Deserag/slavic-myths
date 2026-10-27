@@ -1,0 +1,176 @@
+{
+  "atlas": 512,
+  "parts": [
+    {
+      "name": "face",
+      "parent": "root",
+      "pivot": [
+        0,
+        18,
+        0
+      ],
+      "size": [
+        6,
+        6,
+        6
+      ],
+      "material": "coal",
+      "uv": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "eye-2",
+      "parent": "face",
+      "pivot": [
+        -2,
+        -1,
+        -3.5
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        28,
+        2
+      ]
+    },
+    {
+      "name": "eye2",
+      "parent": "face",
+      "pivot": [
+        2,
+        -1,
+        -3.5
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        36,
+        2
+      ]
+    },
+    {
+      "name": "fleck0",
+      "parent": "root",
+      "pivot": [
+        5.0,
+        17,
+        0.0
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        44,
+        2
+      ]
+    },
+    {
+      "name": "fleck1",
+      "parent": "root",
+      "pivot": [
+        2.701511529340699,
+        19,
+        4.207354924039483
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        50,
+        2
+      ]
+    },
+    {
+      "name": "fleck2",
+      "parent": "root",
+      "pivot": [
+        -2.080734182735712,
+        21,
+        4.546487134128409
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        56,
+        2
+      ]
+    },
+    {
+      "name": "fleck3",
+      "parent": "root",
+      "pivot": [
+        -4.949962483002227,
+        17,
+        0.7056000402993361
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        62,
+        2
+      ]
+    },
+    {
+      "name": "fleck4",
+      "parent": "root",
+      "pivot": [
+        -3.2682181043180596,
+        19,
+        -3.7840124765396412
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        68,
+        2
+      ]
+    },
+    {
+      "name": "fleck5",
+      "parent": "root",
+      "pivot": [
+        1.4183109273161312,
+        21,
+        -4.794621373315692
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        74,
+        2
+      ]
+    }
+  ]
+}

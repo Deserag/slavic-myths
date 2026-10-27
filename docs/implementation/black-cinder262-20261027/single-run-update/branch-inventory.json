@@ -1,0 +1,26 @@
+{
+  "main": {
+    "commit": "8789e08dbcb029ae7b252049dec62c47c7780cce",
+    "files": {
+      "src/main/java/org/slavicmyths/blackcinder/ZharenitsaSeals.java": null,
+      "src/main/java/org/slavicmyths/item/ArmorSetHealth.java": "100644 blob 931b5cef5c2a67be2cedee4d01626eae1a39fa4f\tsrc/main/java/org/slavicmyths/item/ArmorSetHealth.java",
+      "src/main/resources/assets/slavicmyths/models/item/zharenitsa_heat_seal.json": null
+    }
+  },
+  "origin/main": {
+    "commit": "ba5c07cbf389dd164707de10797853c0c07db2e0",
+    "files": {
+      "src/main/java/org/slavicmyths/blackcinder/ZharenitsaSeals.java": "100644 blob 9ed10265362a0ff8a3d3a79e83d66bfbfca9b226\tsrc/main/java/org/slavicmyths/blackcinder/ZharenitsaSeals.java",
+      "src/main/java/org/slavicmyths/item/ArmorSetHealth.java": "100644 blob 9e0311117928b86711a7c2cc5cc496b50a7d10fa\tsrc/main/java/org/slavicmyths/item/ArmorSetHealth.java",
+      "src/main/resources/assets/slavicmyths/models/item/zharenitsa_heat_seal.json": "100644 blob aef2a1012ac2e4d35e150570df7def434af98427\tsrc/main/resources/assets/slavicmyths/models/item/zharenitsa_heat_seal.json"
+    }
+  },
+  "hell": {
+    "commit": "02765c5ebcbced3595181b8ada8d01cdda0e1ad0",
+    "files": {
+      "src/main/java/org/slavicmyths/blackcinder/ZharenitsaSeals.java": null,
+      "src/main/java/org/slavicmyths/item/ArmorSetHealth.java": "100644 blob 931b5cef5c2a67be2cedee4d01626eae1a39fa4f\tsrc/main/java/org/slavicmyths/item/ArmorSetHealth.java",
+      "src/main/resources/assets/slavicmyths/models/item/zharenitsa_heat_seal.json": null
+    }
+  }
+}

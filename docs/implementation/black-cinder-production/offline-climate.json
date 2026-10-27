@@ -1,0 +1,65 @@
+{
+  "scope": "Offline classification only, vanilla native noise settings, step64 across 16k area; not actual hell worldgen/arena/spawn",
+  "seeds": [
+    {
+      "seed": 0,
+      "counts": {
+        "minecraft:basalt_deltas": 7945,
+        "minecraft:crimson_forest": 13153,
+        "minecraft:nether_wastes": 21505,
+        "minecraft:soul_sand_valley": 10752,
+        "minecraft:warped_forest": 2507,
+        "slavicmyths:black_cinder": 1536,
+        "slavicmyths:navya_grove": 8138
+      }
+    },
+    {
+      "seed": 1,
+      "counts": {
+        "minecraft:basalt_deltas": 7459,
+        "minecraft:crimson_forest": 12815,
+        "minecraft:nether_wastes": 20571,
+        "minecraft:soul_sand_valley": 11319,
+        "minecraft:warped_forest": 3221,
+        "slavicmyths:black_cinder": 1934,
+        "slavicmyths:navya_grove": 8217
+      }
+    },
+    {
+      "seed": -8675309,
+      "counts": {
+        "minecraft:basalt_deltas": 9079,
+        "minecraft:crimson_forest": 12393,
+        "minecraft:nether_wastes": 20206,
+        "minecraft:soul_sand_valley": 10712,
+        "minecraft:warped_forest": 2662,
+        "slavicmyths:black_cinder": 1961,
+        "slavicmyths:navya_grove": 8523
+      }
+    },
+    {
+      "seed": 20261024,
+      "counts": {
+        "minecraft:basalt_deltas": 8303,
+        "minecraft:crimson_forest": 13335,
+        "minecraft:nether_wastes": 23011,
+        "minecraft:soul_sand_valley": 10087,
+        "minecraft:warped_forest": 2252,
+        "slavicmyths:black_cinder": 1429,
+        "slavicmyths:navya_grove": 7119
+      }
+    },
+    {
+      "seed": 987654321,
+      "counts": {
+        "minecraft:basalt_deltas": 7323,
+        "minecraft:crimson_forest": 12676,
+        "minecraft:nether_wastes": 23619,
+        "minecraft:soul_sand_valley": 10900,
+        "minecraft:warped_forest": 2417,
+        "slavicmyths:black_cinder": 1492,
+        "slavicmyths:navya_grove": 7109
+      }
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+{
+  "source": "Minecraft1.21.1 aliases; no copied/generated audio",
+  "listening": "NOT_RUN",
+  "events": {
+    "cinder.crawler_warn": {
+      "vanilla_event": "entity.ravager.attack",
+      "actual_files": [
+        {
+          "asset": "minecraft/sounds/mob/ravager/bite1.ogg",
+          "sha1": "5d4fe362c17d084874084c64e9023c346da1c3f7",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/ravager/bite2.ogg",
+          "sha1": "de9731fda83623d10c76d760a52b8159eae65dd0",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/ravager/bite3.ogg",
+          "sha1": "7df3f4cabae8ab988f5df49ad2836c9ba6ab79c2",
+          "cached": true,
+          "bytes_verified": true
+        }
+      ],
+      "subtitles": "subtitle.slavicmyths.cinder.crawler_warn"
+    },
+    "cinder.crawler_hit": {
+      "vanilla_event": "entity.ravager.step",
+      "actual_files": [
+        {
+          "asset": "minecraft/sounds/mob/ravager/step1.ogg",
+          "sha1": "3b27142409aa1b667a967117b49b960b3fe797fb",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/ravager/step2.ogg",
+          "sha1": "a52569d5616b47e9c299e8e3b9f25fd346cf9d83",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/ravager/step3.ogg",
+          "sha1": "d2128874ccc2863022cb864f4cce7b90df592c9a",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/ravager/step4.ogg",
+          "sha1": "0e137e530e9228da1af0d0e6377a7c46a115e246",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/ravager/step5.ogg",
+          "sha1": "1b429890e72f1e901bcb989de0d2f1845016936f",
+          "cached": true,
+          "bytes_verified": true
+        }
+      ],
+      "subtitles": "subtitle.slavicmyths.cinder.crawler_hit"
+    },
+    "cinder.spirit_warn": {
+      "vanilla_event": "entity.breeze.idle_air",
+      "actual_files": [
+        {
+          "asset": "minecraft/sounds/mob/breeze/idle_air1.ogg",
+          "sha1": "fb444b48bc2d5cf6960de7d5d4e6a0be91dc9321",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/breeze/idle_air2.ogg",
+          "sha1": "edbb18c9026dd2d40b9446400463c3d5b662c0a0",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/breeze/idle_air3.ogg",
+          "sha1": "286f6b96458622474fc03f5152603e811b9d3887",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/breeze/idle_air4.ogg",
+          "sha1": "ae4ffd746ff417111f7b7a2ba6eba2aa01645a6b",
+          "cached": true,
+          "bytes_verified": true
+        }
+      ],
+      "subtitles": "subtitle.slavicmyths.cinder.spirit_warn"
+    },
+    "cinder.spirit_pulse": {
+      "vanilla_event": "entity.breeze.wind_burst",
+      "actual_files": [
+        {
+          "asset": "minecraft/sounds/mob/breeze/wind_burst1.ogg",
+          "sha1": "ed1eb91a8f52c44fab47bfae8502a0758e0fcaff",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/breeze/wind_burst2.ogg",
+          "sha1": "bfb5ae6dc11ef5c6c863c822da59e10497195c47",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/breeze/wind_burst3.ogg",
+          "sha1": "b980f449c9fde0ca1422e44e3d1605185f0c595f",
+          "cached": true,
+          "bytes_verified": true
+        }
+      ],
+      "subtitles": "subtitle.slavicmyths.cinder.spirit_pulse"
+    },
+    "cinder.pekelnik_warn": {
+      "vanilla_event": "entity.iron_golem.attack",
+      "actual_files": [
+        {
+          "asset": "minecraft/sounds/mob/irongolem/throw.ogg",
+          "sha1": "607d51883e137d5d423dde865232ab1ee78f2694",
+          "cached": true,
+          "bytes_verified": true
+        }
+      ],
+      "subtitles": "subtitle.slavicmyths.cinder.pekelnik_warn"
+    },
+    "cinder.pekelnik_throw": {
+      "vanilla_event": "entity.blaze.shoot",
+      "actual_files": [
+        {
+          "asset": "minecraft/sounds/mob/ghast/fireball4.ogg",
+          "sha1": "eafa60d7ec34f86e8f07a001ddcdf5c4600bb174",
+          "cached": true,
+          "bytes_verified": true
+        }
+      ],
+      "subtitles": "subtitle.slavicmyths.cinder.pekelnik_throw"
+    },
+    "cinder.spark_idle": {
+      "vanilla_event": "block.fire.ambient",
+      "actual_files": [
+        {
+          "asset": "minecraft/sounds/fire/fire.ogg",
+          "sha1": "8b260108a73470c16cd244325242d4780cfb7d78",
+          "cached": true,
+          "bytes_verified": true
+        }
+      ],
+      "subtitles": "subtitle.slavicmyths.cinder.spark_idle"
+    },
+    "cinder.ring": {
+      "vanilla_event": "entity.blaze.shoot",
+      "actual_files": [
+        {
+          "asset": "minecraft/sounds/mob/ghast/fireball4.ogg",
+          "sha1": "eafa60d7ec34f86e8f07a001ddcdf5c4600bb174",
+          "cached": true,
+          "bytes_verified": true
+        }
+      ],
+      "subtitles": "subtitle.slavicmyths.cinder.ring"
+    },
+    "cinder.spikes": {
+      "vanilla_event": "block.basalt.break",
+      "actual_files": [
+        {
+          "asset": "minecraft/sounds/block/basalt/break1.ogg",
+          "sha1": "ded8cd2d9d1835b1868b7c740f47cb02e7cf51f2",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/block/basalt/break2.ogg",
+          "sha1": "47676e0ac57616b21d42e7d805a5ff8a5fa1305b",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/block/basalt/break3.ogg",
+          "sha1": "378a4a01f9dfef97a93f7bd9f9b22d45ad4b863d",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/block/basalt/break4.ogg",
+          "sha1": "6a0e71c3d6e23485c1b0254ff0beed270bd4ba34",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/block/basalt/break5.ogg",
+          "sha1": "d1c8695c6687c0bf319021e74d1ce63e2cc0e478",
+          "cached": true,
+          "bytes_verified": true
+        }
+      ],
+      "subtitles": "subtitle.slavicmyths.cinder.spikes"
+    },
+    "cinder.shift": {
+      "vanilla_event": "entity.breeze.jump",
+      "actual_files": [
+        {
+          "asset": "minecraft/sounds/mob/breeze/jump1.ogg",
+          "sha1": "38ae67559dd3d1b390f3bd9bbed3a258d9b2038a",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/breeze/jump2.ogg",
+          "sha1": "3497fd1c0597325bb3226c53fd9f076609f89c7e",
+          "cached": true,
+          "bytes_verified": true
+        }
+      ],
+      "subtitles": "subtitle.slavicmyths.cinder.shift"
+    },
+    "cinder.vortex": {
+      "vanilla_event": "entity.breeze.whirl",
+      "actual_files": [
+        {
+          "asset": "minecraft/sounds/mob/breeze/whirl.ogg",
+          "sha1": "b4ee736f5c053aad10a62731c82c5f19dc751aa2",
+          "cached": true,
+          "bytes_verified": true
+        }
+      ],
+      "subtitles": "subtitle.slavicmyths.cinder.vortex"
+    },
+    "cinder.phase": {
+      "vanilla_event": "entity.blaze.ambient",
+      "actual_files": [
+        {
+          "asset": "minecraft/sounds/mob/blaze/breathe1.ogg",
+          "sha1": "4e398c518ae706ad4d90afd6914f748faf18a7b5",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/blaze/breathe2.ogg",
+          "sha1": "c74368d2b978f570b4e7ce9645fd84b07f8f145c",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/blaze/breathe3.ogg",
+          "sha1": "24d643885f9b83d8f034f49e2c5e00e70d4f175a",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/blaze/breathe4.ogg",
+          "sha1": "78d544a240d627005aaef6033fd646eafc66fe7a",
+          "cached": true,
+          "bytes_verified": true
+        }
+      ],
+      "subtitles": "subtitle.slavicmyths.cinder.phase"
+    },
+    "cinder.death": {
+      "vanilla_event": "entity.blaze.death",
+      "actual_files": [
+        {
+          "asset": "minecraft/sounds/mob/blaze/death.ogg",
+          "sha1": "17491c8dd9511e9d848c92b4b7ae047aed164072",
+          "cached": true,
+          "bytes_verified": true
+        }
+      ],
+      "subtitles": "subtitle.slavicmyths.cinder.death"
+    },
+    "cinder.hurt": {
+      "vanilla_event": "entity.blaze.hurt",
+      "actual_files": [
+        {
+          "asset": "minecraft/sounds/mob/blaze/hit1.ogg",
+          "sha1": "cb1cf4b405d930ad27f09ea39d6a64f35fc13308",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/blaze/hit2.ogg",
+          "sha1": "00b38fae5d28d99514a3e73a913af16359b12b7a",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/blaze/hit3.ogg",
+          "sha1": "97e09d51c82b78ab82fb3a4dbbb8cd701b2d0aeb",
+          "cached": true,
+          "bytes_verified": true
+        },
+        {
+          "asset": "minecraft/sounds/mob/blaze/hit4.ogg",
+          "sha1": "3f447f3e331b59ad014d9bd4a6536f98cf3a08c3",
+          "cached": true,
+          "bytes_verified": true
+        }
+      ],
+      "subtitles": "subtitle.slavicmyths.cinder.hurt"
+    },
+    "cinder.mantle": {
+      "vanilla_event": "item.firecharge.use",
+      "actual_files": [
+        {
+          "asset": "minecraft/sounds/mob/ghast/fireball4.ogg",
+          "sha1": "eafa60d7ec34f86e8f07a001ddcdf5c4600bb174",
+          "cached": true,
+          "bytes_verified": true
+        }
+      ],
+      "subtitles": "subtitle.slavicmyths.cinder.mantle"
+    }
+  },
+  "callsites": [
+    "CinderMob#begin/impact/bite/getHurtSound/getDeathSound",
+    "CinderMantle#use/damage"
+  ]
+}

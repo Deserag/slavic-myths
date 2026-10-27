@@ -17,6 +17,7 @@ public final class SlavicMyths {
     public static final String MOD_ID = "slavicmyths";
 
     public SlavicMyths(IEventBus bus, ModContainer container) {
+        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.blackcinder.CinderConfig.SPEC,"slavicmyths-black-cinder.toml");
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,org.slavicmyths.rpg.classes.ClassHudConfig.SPEC);
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,org.slavicmyths.bogatyr.HeroHudConfig.SPEC,"slavicmyths-hero-hud.toml");
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,org.slavicmyths.earth.EarthVisualConfig.SPEC,"slavicmyths-earth-visuals.toml");
@@ -35,6 +36,10 @@ public final class SlavicMyths {
         org.slavicmyths.kitchen.KitchenRecipe.SERIALIZER.getId();
         org.slavicmyths.wood.Woodlands.init();
         org.slavicmyths.navya.NavyaBlocks.init();
+        org.slavicmyths.blackcinder.CinderBlocks.init();
+        org.slavicmyths.blackcinder.CinderContent.init(bus);
+        org.slavicmyths.blackcinder.ZharenitsaSeals.init();
+        org.slavicmyths.blackcinder.CinderWorldgen.init(bus);
         org.slavicmyths.navya.NavyaFeatures.init();
         org.slavicmyths.navya.NavyaContent.init(bus);
         org.slavicmyths.navya.NavyaWorldgen.init();

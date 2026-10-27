@@ -8836,5 +8836,140 @@
         "volume": 1.0
       }
     ]
+  },
+  "cinder.crawler_warn": {
+    "subtitle": "subtitle.slavicmyths.cinder.crawler_warn",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.attack",
+        "type": "event"
+      }
+    ]
+  },
+  "cinder.crawler_hit": {
+    "subtitle": "subtitle.slavicmyths.cinder.crawler_hit",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.step",
+        "type": "event"
+      }
+    ]
+  },
+  "cinder.spirit_warn": {
+    "subtitle": "subtitle.slavicmyths.cinder.spirit_warn",
+    "sounds": [
+      {
+        "name": "minecraft:entity.breeze.idle_air",
+        "type": "event"
+      }
+    ]
+  },
+  "cinder.spirit_pulse": {
+    "subtitle": "subtitle.slavicmyths.cinder.spirit_pulse",
+    "sounds": [
+      {
+        "name": "minecraft:entity.breeze.wind_burst",
+        "type": "event"
+      }
+    ]
+  },
+  "cinder.pekelnik_warn": {
+    "subtitle": "subtitle.slavicmyths.cinder.pekelnik_warn",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.attack",
+        "type": "event"
+      }
+    ]
+  },
+  "cinder.pekelnik_throw": {
+    "subtitle": "subtitle.slavicmyths.cinder.pekelnik_throw",
+    "sounds": [
+      {
+        "name": "minecraft:entity.blaze.shoot",
+        "type": "event"
+      }
+    ]
+  },
+  "cinder.spark_idle": {
+    "subtitle": "subtitle.slavicmyths.cinder.spark_idle",
+    "sounds": [
+      {
+        "name": "minecraft:block.fire.ambient",
+        "type": "event"
+      }
+    ]
+  },
+  "cinder.ring": {
+    "subtitle": "subtitle.slavicmyths.cinder.ring",
+    "sounds": [
+      {
+        "name": "minecraft:entity.blaze.shoot",
+        "type": "event"
+      }
+    ]
+  },
+  "cinder.spikes": {
+    "subtitle": "subtitle.slavicmyths.cinder.spikes",
+    "sounds": [
+      {
+        "name": "minecraft:block.basalt.break",
+        "type": "event"
+      }
+    ]
+  },
+  "cinder.shift": {
+    "subtitle": "subtitle.slavicmyths.cinder.shift",
+    "sounds": [
+      {
+        "name": "minecraft:entity.breeze.jump",
+        "type": "event"
+      }
+    ]
+  },
+  "cinder.vortex": {
+    "subtitle": "subtitle.slavicmyths.cinder.vortex",
+    "sounds": [
+      {
+        "name": "minecraft:entity.breeze.whirl",
+        "type": "event"
+      }
+    ]
+  },
+  "cinder.phase": {
+    "subtitle": "subtitle.slavicmyths.cinder.phase",
+    "sounds": [
+      {
+        "name": "minecraft:entity.blaze.ambient",
+        "type": "event"
+      }
+    ]
+  },
+  "cinder.death": {
+    "subtitle": "subtitle.slavicmyths.cinder.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.blaze.death",
+        "type": "event"
+      }
+    ]
+  },
+  "cinder.hurt": {
+    "subtitle": "subtitle.slavicmyths.cinder.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.blaze.hurt",
+        "type": "event"
+      }
+    ]
+  },
+  "cinder.mantle": {
+    "subtitle": "subtitle.slavicmyths.cinder.mantle",
+    "sounds": [
+      {
+        "name": "minecraft:item.firecharge.use",
+        "type": "event"
+      }
+    ]
   }
 }

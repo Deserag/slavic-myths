@@ -1,0 +1,4 @@
+{
+  "same_production_classes": 2004,
+  "scope": "final formatting-only resource rebuild preserves all classes tested by native final-gates"
+}

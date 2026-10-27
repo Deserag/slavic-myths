@@ -53,6 +53,16 @@
     "slavicmyths:grove_bone_block",
     "slavicmyths:grove_bone_column",
     "slavicmyths:grove_bone_spike",
-    "slavicmyths:rooted_navya_stone"
+    "slavicmyths:rooted_navya_stone",
+    "slavicmyths:smoking_cinder",
+    "slavicmyths:charred_stone",
+    "slavicmyths:cracked_charred_stone",
+    "slavicmyths:zharenitsa_head",
+    "slavicmyths:charred_stone_stairs",
+    "slavicmyths:charred_stone_slab",
+    "slavicmyths:charred_stone_wall",
+    "slavicmyths:cracked_charred_stone_stairs",
+    "slavicmyths:cracked_charred_stone_slab",
+    "slavicmyths:cracked_charred_stone_wall"
   ]
 }

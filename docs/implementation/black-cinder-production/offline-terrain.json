@@ -1,0 +1,10 @@
+{
+  "scope": "Pure production height/profile and tree plans only; no generated worlds",
+  "seeds": 5,
+  "windowsPerSeed": 4,
+  "sampleColumns": 327680,
+  "minHeight": 55,
+  "maxHeight": 74,
+  "maxAdjacentSlope": 1,
+  "connectedTreePlans": 1500
+}

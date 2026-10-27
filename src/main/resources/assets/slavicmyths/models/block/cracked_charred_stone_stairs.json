@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "slavicmyths:block/cracked_charred_stone",
+    "side": "slavicmyths:block/cracked_charred_stone",
+    "top": "slavicmyths:block/cracked_charred_stone"
+  }
+}

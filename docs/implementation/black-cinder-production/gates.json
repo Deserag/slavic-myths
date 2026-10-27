@@ -1,0 +1,15 @@
+{
+  "source_and_JAR": "PASS",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.8-HELL.jar",
+  "sha256": "64b042ae3def10952a0c120d8dac9b16c95658070450bb0b323fd48afad3084e",
+  "blocks": 26,
+  "residents": 4,
+  "bosses": 1,
+  "auxiliary_entities": 2,
+  "sound_aliases": 15,
+  "native_model_frames": 230,
+  "runtime_launches": 0,
+  "gameplay": "NOT_RUN",
+  "original_art": "ART_ORIGINAL_COMPARE_NOT_RUN",
+  "owner": "OWNER_PENDING"
+}

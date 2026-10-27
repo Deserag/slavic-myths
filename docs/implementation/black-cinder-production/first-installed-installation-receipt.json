@@ -1,0 +1,17 @@
+{
+  "Status": "CANDIDATE_INSTALLED_NOT_OWNER_ACCEPTED",
+  "Path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.8-HELL.jar",
+  "Version": "2.0.8-HELL",
+  "ContentStage": "2.0.3 Black Cinder",
+  "SHA256": "a4e6d1aa5e67e7e1af1a00a081004d444d62c8ff587df42babe1e5471e53bde0",
+  "SourceCommit": "02765c5ebcbced3595181b8ada8d01cdda0e1ad0",
+  "SourceDelta": "docs/implementation/black-cinder-production/source-manifest.json",
+  "Backup": "D:\\slavic-myths-backups\\black-cinder-203-20261027T191936Z/slavicmyths-2.0.8-HELL.jar",
+  "BackupSHA256": "9353a679e82f3375db34939e8c05610e89637feadb6712790f2578fa2ba2e727",
+  "ModJarCount": 1,
+  "Minecraft": "1.21.1",
+  "NeoForge": "21.1.255",
+  "GameLaunches": 0,
+  "FirstAttempt": "File.Replace null backup argument rejected; original restored; verified Move-Item retry succeeded",
+  "Authorization": "Prior direct user instruction to update mod after implementation; no game launch"
+}

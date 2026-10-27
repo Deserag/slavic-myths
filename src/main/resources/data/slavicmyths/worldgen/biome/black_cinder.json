@@ -1,0 +1,122 @@
+{
+  "carvers": {
+    "air": "minecraft:nether_cave"
+  },
+  "downfall": 0.0,
+  "effects": {
+    "fog_color": 4991268,
+    "sky_color": 3546653,
+    "water_color": 5461085,
+    "water_fog_color": 2630445,
+    "ambient_sound": "minecraft:ambient.nether_wastes.loop",
+    "mood_sound": {
+      "sound": "minecraft:ambient.nether_wastes.mood",
+      "tick_delay": 8000,
+      "block_search_extent": 8,
+      "offset": 2
+    },
+    "particle": {
+      "options": {
+        "type": "minecraft:ash"
+      },
+      "probability": 0.0008
+    }
+  },
+  "features": [
+    [],
+    [],
+    [
+      "slavicmyths:black_cinder_terrain"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:spring_open",
+      "minecraft:patch_fire",
+      "minecraft:patch_soul_fire",
+      "minecraft:glowstone_extra",
+      "minecraft:glowstone",
+      "minecraft:brown_mushroom_nether",
+      "minecraft:red_mushroom_nether",
+      "minecraft:ore_magma",
+      "minecraft:spring_closed",
+      "minecraft:ore_gravel_nether",
+      "minecraft:ore_blackstone",
+      "minecraft:ore_gold_nether",
+      "minecraft:ore_quartz_nether",
+      "minecraft:ore_ancient_debris_large",
+      "minecraft:ore_debris_small"
+    ],
+    [],
+    [
+      "minecraft:spring_lava",
+      "slavicmyths:black_cinder_nature"
+    ]
+  ],
+  "has_precipitation": false,
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [
+      {
+        "type": "slavicmyths:sparkling",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "axolotls": [],
+    "creature": [
+      {
+        "type": "minecraft:strider",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 60
+      }
+    ],
+    "misc": [],
+    "monster": [
+      {
+        "type": "slavicmyths:coal_crawler",
+        "weight": 22,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "slavicmyths:ash_spirit",
+        "weight": 15,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "slavicmyths:pekelnik",
+        "weight": 16,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "minecraft:zombified_piglin",
+        "weight": 30,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "minecraft:piglin",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "minecraft:ghast",
+        "weight": 2,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 2.0
+}

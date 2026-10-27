@@ -1,0 +1,48 @@
+{
+  "scope": "SOURCE IDENTITY ONLY; not ART/runtime acceptance",
+  "source": "D:\\slavic-myths\\docs\\concepts\\black-cinder\\approved_refs",
+  "status": "BLOCKED_REFERENCE",
+  "references": [
+    {
+      "name": "landscape.png",
+      "expected_sha256": "09a92d889d1dcabc2821d872e2287e6400f00bf01baf8674d32323d3bdb3bce8",
+      "expected_size": [
+        1672,
+        941
+      ],
+      "status": "BLOCKED_REFERENCE",
+      "reason": "missing original"
+    },
+    {
+      "name": "blocks_REVISED.png",
+      "expected_sha256": "8697b9bd400c7790065bfa243db65d02d7468d19f873b9929a09ba54e47c5e0a",
+      "expected_size": [
+        1448,
+        1086
+      ],
+      "status": "BLOCKED_REFERENCE",
+      "reason": "missing original"
+    },
+    {
+      "name": "mobs.png",
+      "expected_sha256": "0210bc96b2b4ff72b8ded59a5a0a2b1ba75f0e980974ec14a86f2ad090b29a81",
+      "expected_size": [
+        1448,
+        1086
+      ],
+      "status": "BLOCKED_REFERENCE",
+      "reason": "missing original"
+    },
+    {
+      "name": "zharenitsa.png",
+      "expected_sha256": "ad805df5f2c2c3e2ee3e2ab0ff86c5103464a54c662d3c2f2e820ed96f4d874e",
+      "expected_size": [
+        1312,
+        1199
+      ],
+      "status": "BLOCKED_REFERENCE",
+      "reason": "missing original"
+    }
+  ],
+  "runtime_runs": 0
+}

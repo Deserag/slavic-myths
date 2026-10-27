@@ -62,6 +62,19 @@
     "slavicmyths:navya_button",
     "slavicmyths:navya_pressure_plate",
     "slavicmyths:navya_sign",
-    "slavicmyths:navya_hanging_sign"
+    "slavicmyths:navya_hanging_sign",
+    "slavicmyths:blackwood_log",
+    "slavicmyths:charred_blackwood_log",
+    "slavicmyths:blackwood_wood",
+    "slavicmyths:charred_blackwood_wood",
+    "slavicmyths:blackwood_planks",
+    "slavicmyths:blackwood_stairs",
+    "slavicmyths:blackwood_slab",
+    "slavicmyths:blackwood_fence",
+    "slavicmyths:blackwood_fence_gate",
+    "slavicmyths:blackwood_door",
+    "slavicmyths:blackwood_trapdoor",
+    "slavicmyths:blackwood_button",
+    "slavicmyths:blackwood_pressure_plate"
   ]
 }

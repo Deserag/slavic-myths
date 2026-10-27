@@ -31,6 +31,7 @@ public final class ArmorSetHealth {
         set(health, "poloz_set_health", PolozRewards.full(entity) ? 14 : 0);
         set(health, "perunite_set_health", perunite(entity) ? 5 : 0);
         set(health, "dragon_set_health", dragon(entity) ? 20 : 0);
+        set(health, "zharenitsa_seal_health", org.slavicmyths.blackcinder.ZharenitsaSeals.bonus(entity));
         if (entity.getHealth() > entity.getMaxHealth()) entity.setHealth(entity.getMaxHealth());
     }
     private static void set(net.minecraft.world.entity.ai.attributes.AttributeInstance health, String name, double value) {

@@ -1,0 +1,890 @@
+diff --git a/src/main/java/org/slavicmyths/SlavicMyths.java b/src/main/java/org/slavicmyths/SlavicMyths.java
+index 6db04b2a..5c22b87c 100644
+--- a/src/main/java/org/slavicmyths/SlavicMyths.java
++++ b/src/main/java/org/slavicmyths/SlavicMyths.java
+@@ -17,6 +17,7 @@ public final class SlavicMyths {
+     public static final String MOD_ID = "slavicmyths";
+ 
+     public SlavicMyths(IEventBus bus, ModContainer container) {
++        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.blackcinder.CinderConfig.SPEC,"slavicmyths-black-cinder.toml");
+         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,org.slavicmyths.rpg.classes.ClassHudConfig.SPEC);
+         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,org.slavicmyths.bogatyr.HeroHudConfig.SPEC,"slavicmyths-hero-hud.toml");
+         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,org.slavicmyths.earth.EarthVisualConfig.SPEC,"slavicmyths-earth-visuals.toml");
+@@ -35,6 +36,10 @@ public final class SlavicMyths {
+         org.slavicmyths.kitchen.KitchenRecipe.SERIALIZER.getId();
+         org.slavicmyths.wood.Woodlands.init();
+         org.slavicmyths.navya.NavyaBlocks.init();
++        org.slavicmyths.blackcinder.CinderBlocks.init();
++        org.slavicmyths.blackcinder.CinderContent.init(bus);
++        org.slavicmyths.blackcinder.ZharenitsaSeals.init();
++        org.slavicmyths.blackcinder.CinderWorldgen.init(bus);
+         org.slavicmyths.navya.NavyaFeatures.init();
+         org.slavicmyths.navya.NavyaContent.init(bus);
+         org.slavicmyths.navya.NavyaWorldgen.init();
+diff --git a/src/main/java/org/slavicmyths/item/ArmorSetHealth.java b/src/main/java/org/slavicmyths/item/ArmorSetHealth.java
+index 931b5cef..9e031111 100644
+--- a/src/main/java/org/slavicmyths/item/ArmorSetHealth.java
++++ b/src/main/java/org/slavicmyths/item/ArmorSetHealth.java
+@@ -31,6 +31,7 @@ public final class ArmorSetHealth {
+         set(health, "poloz_set_health", PolozRewards.full(entity) ? 14 : 0);
+         set(health, "perunite_set_health", perunite(entity) ? 5 : 0);
+         set(health, "dragon_set_health", dragon(entity) ? 20 : 0);
++        set(health, "zharenitsa_seal_health", org.slavicmyths.blackcinder.ZharenitsaSeals.bonus(entity));
+         if (entity.getHealth() > entity.getMaxHealth()) entity.setHealth(entity.getMaxHealth());
+     }
+     private static void set(net.minecraft.world.entity.ai.attributes.AttributeInstance health, String name, double value) {
+diff --git a/src/main/java/org/slavicmyths/navya/mixin/NetherParametersMixin.java b/src/main/java/org/slavicmyths/navya/mixin/NetherParametersMixin.java
+index efc3c27c..bbd0b170 100644
+--- a/src/main/java/org/slavicmyths/navya/mixin/NetherParametersMixin.java
++++ b/src/main/java/org/slavicmyths/navya/mixin/NetherParametersMixin.java
+@@ -9,7 +9,10 @@ import org.slavicmyths.navya.*;
+ public abstract class NetherParametersMixin implements NavyaPresetAccess {
+  @Shadow @Final @Mutable private Climate.ParameterList<Holder<Biome>> parameters;
+  @Override @Unique public void slavicmyths$append(Holder<Biome> holder){
+-  if(parameters.values().stream().anyMatch(pair->pair.getSecond().is(NavyaWorldgen.BIOME)))return;
+-  var values=new ArrayList<>(parameters.values());values.add(Pair.of(Climate.parameters(-.3F,.4F,0,0,0,0,.175F),holder));parameters=new Climate.ParameterList<>(values);
++  var key=holder.unwrapKey().orElseThrow();
++  if(parameters.values().stream().anyMatch(pair->pair.getSecond().is(key)))return;
++  var values=new ArrayList<>(parameters.values());
++  boolean cinder=holder.is(org.slavicmyths.blackcinder.CinderWorldgen.BIOME);
++  values.add(Pair.of(cinder?Climate.parameters(.7F,-.4F,0,0,0,0,.175F):Climate.parameters(-.3F,.4F,0,0,0,0,.175F),holder));parameters=new Climate.ParameterList<>(values);
+  }
+ }
+diff --git a/src/main/java/org/slavicmyths/rpg/RuneDefinition.java b/src/main/java/org/slavicmyths/rpg/RuneDefinition.java
+index 0ecd36b0..a7410e63 100644
+--- a/src/main/java/org/slavicmyths/rpg/RuneDefinition.java
++++ b/src/main/java/org/slavicmyths/rpg/RuneDefinition.java
+@@ -32,10 +32,11 @@ public record RuneDefinition(String id,Map<String,Double> parameters,Set<String>
+  static {ALL.put("mor_breath",new RuneDefinition("mor_breath",Map.of(),Set.of("sword","dagger","spear","heavy","staff","whip")));ALL.put("dragon_flame",new RuneDefinition("dragon_flame",Map.of(),Set.of("sword","dagger","spear","heavy","whip")));ALL.put("storm_strike",new RuneDefinition("storm_strike",Map.of(),Set.of("bow")));}
+  public Component legacyEffect(){if(org.slavicmyths.gorynych.GorynychContent.RUNES.contains(id))return Component.translatable("item.slavicmyths.rune_"+id+".desc");if(org.slavicmyths.rewards.RewardContent.RUNES.contains(id))return Component.translatable("item.slavicmyths.rune_"+id+".desc");return org.slavicmyths.industry.MiningRunes.mining(id)?Component.translatable("industry.slavicmyths.hint."+org.slavicmyths.industry.MiningRunes.itemId(id)):Component.translatable("rpg.slavicmyths.effect_"+id,effectArguments());}
+  static {for(String id:org.slavicmyths.rpg.tools.ToolRuneRules.IDS)ALL.put(id,new RuneDefinition(id,Map.of(),Set.of()));}
+- public Component effect(){if(org.slavicmyths.rpg.tools.ToolRuneRules.tool(id))return org.slavicmyths.rpg.tools.ToolRuneContent.effect(id);if(AdvancedRunes.newRune(id))return AdvancedRunes.description(id);if(id.equals("waning"))return Component.translatable("item.slavicmyths.rune_of_waning.desc");if(id.startsWith("frost"))return Component.translatable("item.slavicmyths."+(id.equals("frost")?"frost_rune":"frost_resistance_rune")+".desc");if(RareRunes.rare(id))return RareRunes.text("effect_"+id);if(!RuneBalance.modern(id))return legacyEffect();var text=Component.empty();for(var c:RuneRework.effects(id,1,null)){if(!text.getString().isEmpty())text.append("; ");text.append(c);}return text;}
+- public List<Component> tooltip(){if(org.slavicmyths.rpg.tools.ToolRuneRules.tool(id))return org.slavicmyths.rpg.tools.ToolRuneContent.tooltip(id);if(AdvancedRunes.newRune(id))return List.of(effect(),compatible());if(org.slavicmyths.gorynych.GorynychContent.RUNES.contains(id))return List.of(legacyEffect(),Component.translatable("gorynych196.compatible_"+id));if(id.equals("waning"))return List.of(effect(),compatible());if(id.startsWith("frost"))return List.of(effect(),Component.translatable("frost191.compatible."+id));if(org.slavicmyths.rewards.RewardContent.RUNES.contains(id))return List.of(legacyEffect(),compatible());if(id.equals("earth_heart_iii"))return org.slavicmyths.earth.EarthRune.tooltip();if(org.slavicmyths.industry.MiningRunes.mining(id))return org.slavicmyths.industry.MiningRunes.tooltip(id);if(RareRunes.rare(id))return RareRunes.tooltip(id);return RuneBalance.modern(id)?RuneRework.runeTooltip(id):java.util.stream.IntStream.rangeClosed(1,3).mapToObj(i->(Component)Component.translatable("rpg.slavicmyths.rune_hint_"+id+"_"+i,effectArguments())).toList();}
++ public Component effect(){if(id.equals("ash_mantle"))return Component.translatable("cinder.mantle.desc");if(org.slavicmyths.rpg.tools.ToolRuneRules.tool(id))return org.slavicmyths.rpg.tools.ToolRuneContent.effect(id);if(AdvancedRunes.newRune(id))return AdvancedRunes.description(id);if(id.equals("waning"))return Component.translatable("item.slavicmyths.rune_of_waning.desc");if(id.startsWith("frost"))return Component.translatable("item.slavicmyths."+(id.equals("frost")?"frost_rune":"frost_resistance_rune")+".desc");if(RareRunes.rare(id))return RareRunes.text("effect_"+id);if(!RuneBalance.modern(id))return legacyEffect();var text=Component.empty();for(var c:RuneRework.effects(id,1,null)){if(!text.getString().isEmpty())text.append("; ");text.append(c);}return text;}
++ public List<Component> tooltip(){if(id.equals("ash_mantle"))return List.of(Component.translatable("cinder.mantle.desc"),Component.translatable("cinder.mantle.armor"));if(org.slavicmyths.rpg.tools.ToolRuneRules.tool(id))return org.slavicmyths.rpg.tools.ToolRuneContent.tooltip(id);if(AdvancedRunes.newRune(id))return List.of(effect(),compatible());if(org.slavicmyths.gorynych.GorynychContent.RUNES.contains(id))return List.of(legacyEffect(),Component.translatable("gorynych196.compatible_"+id));if(id.equals("waning"))return List.of(effect(),compatible());if(id.startsWith("frost"))return List.of(effect(),Component.translatable("frost191.compatible."+id));if(org.slavicmyths.rewards.RewardContent.RUNES.contains(id))return List.of(legacyEffect(),compatible());if(id.equals("earth_heart_iii"))return org.slavicmyths.earth.EarthRune.tooltip();if(org.slavicmyths.industry.MiningRunes.mining(id))return org.slavicmyths.industry.MiningRunes.tooltip(id);if(RareRunes.rare(id))return RareRunes.tooltip(id);return RuneBalance.modern(id)?RuneRework.runeTooltip(id):java.util.stream.IntStream.rangeClosed(1,3).mapToObj(i->(Component)Component.translatable("rpg.slavicmyths.rune_hint_"+id+"_"+i,effectArguments())).toList();}
+  public Component compatible(){if(org.slavicmyths.rpg.tools.ToolRuneRules.tool(id))return org.slavicmyths.rpg.tools.ToolRuneContent.compatible(id);if(AdvancedRunes.newRune(id))return Component.translatable("runes_patch.compatible."+id);if(org.slavicmyths.gorynych.GorynychContent.RUNES.contains(id))return Component.translatable("gorynych196.compatible_"+id);if(id.equals("waning"))return Component.translatable("night192.compatible.waning");if(id.startsWith("frost"))return Component.translatable("frost191.compatible."+id);if(org.slavicmyths.rewards.RewardContent.RUNES.contains(id))return Component.translatable("reward176.compatible."+id);if(org.slavicmyths.industry.MiningRunes.mining(id))return Component.translatable("industry.slavicmyths.pickaxe_only");if(RareRunes.rare(id))return RareRunes.compatibility(id);if(RuneBalance.modern(id))return RuneRework.compatibility(id);var names=categories.stream().sorted().map(c->Component.translatable("rpg.slavicmyths.category_"+c)).toList();var text=Component.empty();for(var c:names){if(!text.getString().isEmpty())text.append(", ");text.append(c);}return Component.translatable("rpg.slavicmyths.compatible",text);}
+  static {for(var d:RuneBalance.DEFINITIONS)if(!ALL.containsKey(d.id()))ALL.put(d.id(),new RuneDefinition(d.id(),Map.of(),Set.of()));}
+  static {for(String id:RareRuneRules.IDS)ALL.put(id,new RuneDefinition(id,Map.of(),Set.of()));}
+  static {for(String id:List.of("stomp","dispelling","pursuit","suppression","battle_line"))ALL.put(id,new RuneDefinition(id,Map.of(),Set.of()));}
++ static {ALL.put("ash_mantle",new RuneDefinition("ash_mantle",Map.of(),Set.of("armor")));}
+ }
+diff --git a/src/main/java/org/slavicmyths/rpg/Runes.java b/src/main/java/org/slavicmyths/rpg/Runes.java
+index e5ccccf0..28c206a3 100644
+--- a/src/main/java/org/slavicmyths/rpg/Runes.java
++++ b/src/main/java/org/slavicmyths/rpg/Runes.java
+@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
+ import org.slavicmyths.registry.ModItems;
+ import org.slavicmyths.progression.Knowledge;
+ public final class Runes {
+- public static final String[] IDS={"thunder","heat","forest","midday","shadow","protection","life","wind","strength","speed","resilience","crushing","blood","fortitude","floating_weapon","flight","rare_protection","death","berserker","sacrifice","mining_1","mining_2","fortune_1","ominous_aura","earth_heart_iii","stomp","dispelling","pursuit","suppression","battle_line","earth_lord_iv","frost_resistance","frost","waning","mor_breath","dragon_flame","storm_strike","counterstrike_iii","hunter_iii","last_stand_iii","depths_iii","veles_oath_iv","unbreakable_iv","perun_rage_iv","forest_spirit_iv","mastery_iv","miner_iii","excavator_iii","farmer_iii","lumberjack_iii","miner_iv","excavator_iv","farmer_iv","lumberjack_iv"};
++ public static final String[] IDS={"thunder","heat","forest","midday","shadow","protection","life","wind","strength","speed","resilience","crushing","blood","fortitude","floating_weapon","flight","rare_protection","death","berserker","sacrifice","mining_1","mining_2","fortune_1","ominous_aura","earth_heart_iii","stomp","dispelling","pursuit","suppression","battle_line","earth_lord_iv","frost_resistance","frost","waning","mor_breath","dragon_flame","storm_strike","counterstrike_iii","hunter_iii","last_stand_iii","depths_iii","veles_oath_iv","unbreakable_iv","perun_rage_iv","forest_spirit_iv","mastery_iv","miner_iii","excavator_iii","farmer_iii","lumberjack_iii","miner_iv","excavator_iv","farmer_iv","lumberjack_iv","ash_mantle"};
+  private static final java.util.Map<String,net.minecraft.tags.TagKey<Item>> TAGS=new java.util.HashMap<>();
+  static {for(String key:new String[]{"rune_staff","rune_dagger","rune_spear","rune_heavy","rune_capacity_1","rune_capacity_3","no_reforging"})TAGS.put(key,ItemTags.create(ResourceLocation.fromNamespaceAndPath("slavicmyths",key)));}
+  public static boolean tagged(ItemStack s,String tag){return s.is(TAGS.get(tag));}
+@@ -48,7 +48,7 @@ public final class Runes {
+   case "slavicmyths:perunite","slavicmyths:dragon"->3;
+   default->0;
+  };}
+- public static boolean compatible(ItemStack equipment,String id){var rune=RuneDefinition.ALL.get(id);return rune!=null&&capacity(equipment)>0&&(org.slavicmyths.rpg.tools.ToolRuneRules.tool(id)?org.slavicmyths.rpg.tools.ToolRuneContent.supports(equipment,id):AdvancedRunes.newRune(id)?AdvancedRunes.supports(equipment,id):(org.slavicmyths.gorynych.GorynychContent.RUNES.contains(id)?org.slavicmyths.gorynych.GorynychEquipment.supports(equipment,id):id.equals("frost_resistance")?armor(equipment):(id.equals("frost")||id.equals("waning"))?Set.of("sword","dagger","spear","heavy","staff","bow","whip").contains(category(equipment)):org.slavicmyths.rewards.RewardContent.RUNES.contains(id)?org.slavicmyths.rewards.RewardRunes.supports(equipment,id):id.equals("earth_heart_iii")?armor(equipment):org.slavicmyths.industry.MiningRunes.mining(id)?equipment.getItem() instanceof PickaxeItem:RareRunes.rare(id)?RareRunes.supports(equipment,id):RuneBalance.modern(id)?RuneRework.supports(equipment,id):(id.equals("earth_lord_iv")?rune.categories().contains(category(equipment)):(id.equals("ominous_aura")&&armor(equipment)||rune.categories().contains(category(equipment))))));}
++ public static boolean compatible(ItemStack equipment,String id){if(id.equals("ash_mantle"))return armor(equipment)&&capacity(equipment)>0;var rune=RuneDefinition.ALL.get(id);return rune!=null&&capacity(equipment)>0&&(org.slavicmyths.rpg.tools.ToolRuneRules.tool(id)?org.slavicmyths.rpg.tools.ToolRuneContent.supports(equipment,id):AdvancedRunes.newRune(id)?AdvancedRunes.supports(equipment,id):(org.slavicmyths.gorynych.GorynychContent.RUNES.contains(id)?org.slavicmyths.gorynych.GorynychEquipment.supports(equipment,id):id.equals("frost_resistance")?armor(equipment):(id.equals("frost")||id.equals("waning"))?Set.of("sword","dagger","spear","heavy","staff","bow","whip").contains(category(equipment)):org.slavicmyths.rewards.RewardContent.RUNES.contains(id)?org.slavicmyths.rewards.RewardRunes.supports(equipment,id):id.equals("earth_heart_iii")?armor(equipment):org.slavicmyths.industry.MiningRunes.mining(id)?equipment.getItem() instanceof PickaxeItem:RareRunes.rare(id)?RareRunes.supports(equipment,id):RuneBalance.modern(id)?RuneRework.supports(equipment,id):(id.equals("earth_lord_iv")?rune.categories().contains(category(equipment)):(id.equals("ominous_aura")&&armor(equipment)||rune.categories().contains(category(equipment))))));}
+  /** Equipment-only validation shared by preview and the authoritative operation. */
+  public static net.minecraft.network.chat.Component installationBlocker(ItemStack equipment,ItemStack material){
+   String id=rune(material);boolean legacy=material.getOrDefault(org.slavicmyths.item.ItemState.LEGACY_RUNE_SPECIALS.get(),List.of()).contains(id);String reason=installationReason(equipment.getCount(),max(equipment),slots(equipment),list(equipment),id,compatible(equipment,id)||legacy&&(id.equals("heat")||id.equals("wind"))&&RuneDefinition.ALL.get(id).categories().contains(category(equipment)));
+diff --git a/src/main/java/org/slavicmyths/serpenthill/SerpentHillStructure.java b/src/main/java/org/slavicmyths/serpenthill/SerpentHillStructure.java
+index 24298a84..948576da 100644
+--- a/src/main/java/org/slavicmyths/serpenthill/SerpentHillStructure.java
++++ b/src/main/java/org/slavicmyths/serpenthill/SerpentHillStructure.java
+@@ -12,5 +12,5 @@ public final class SerpentHillStructure extends Structure {
+  private static final long MIN_ORIGIN_DISTANCE_SQUARED=5000L*5000L;
+  public SerpentHillStructure(StructureSettings s){super(s);}
+  @Override public StructureType<?> type(){return HillContent.STRUCTURE.get();}
+- @Override public Optional<GenerationStub> findGenerationPoint(GenerationContext c){if(c.heightAccessor() instanceof net.minecraft.world.level.WorldGenLevel w&&w.getLevel().dimension()!=net.minecraft.world.level.Level.OVERWORLD)return Optional.empty();var center=c.chunkPos().getMiddleBlockPosition(0);long x=center.getX(),z=center.getZ();if(x*x+z*z<MIN_ORIGIN_DISTANCE_SQUARED)return Optional.empty();var heights=new ArrayList<Integer>();for(int dx=-56;dx<=56;dx+=28)for(int dz=-56;dz<=56;dz+=28){int x=center.getX()+dx,z=center.getZ()+dz,y=c.chunkGenerator().getBaseHeight(x,z,Heightmap.Types.OCEAN_FLOOR_WG,c.heightAccessor(),c.randomState());var column=c.chunkGenerator().getBaseColumn(x,z,c.heightAccessor(),c.randomState());if(y<63||!column.getBlock(y-1).getFluidState().isEmpty())return Optional.empty();heights.add(y);}Collections.sort(heights);if(heights.getLast()-heights.getFirst()>40)return Optional.empty();int y=heights.get(heights.size()/2)-12;if(y<c.heightAccessor().getMinBuildHeight()||y+144>c.heightAccessor().getMaxBuildHeight())return Optional.empty();var rotation=Rotation.getRandom(c.random());var origin=HillGeometry.origin(new BlockPos(center.getX()-64,y,center.getZ()-64),rotation);var piece=new SerpentHillPiece(origin,rotation,c.random().nextLong(),new UUID(c.random().nextLong(),c.random().nextLong()));var parts=List.<StructurePiece>of(piece);if(!StructureCoverageService.referencesFit(c.chunkPos(),parts)||!StructureCandidates.clearAccepted(c,c.chunkPos(),other->other==null||other.equals(HillContent.id("serpent_hill"))?0:other.getNamespace().equals("minecraft")&&StructureCandidates.vanilla(other,"village","woodland_mansion","pillager_outpost","ruined_portal")?12:other.getNamespace().equals("slavicmyths")?8:0,parts))return Optional.empty();return Optional.of(new GenerationStub(origin.offset(new BlockPos(97,81,82).rotate(rotation)),b->b.addPiece(piece)));}
++ @Override public Optional<GenerationStub> findGenerationPoint(GenerationContext c){if(c.heightAccessor() instanceof net.minecraft.world.level.WorldGenLevel w&&w.getLevel().dimension()!=net.minecraft.world.level.Level.OVERWORLD)return Optional.empty();var center=c.chunkPos().getMiddleBlockPosition(0);long originX=center.getX(),originZ=center.getZ();if(originX*originX+originZ*originZ<MIN_ORIGIN_DISTANCE_SQUARED)return Optional.empty();var heights=new ArrayList<Integer>();for(int dx=-56;dx<=56;dx+=28)for(int dz=-56;dz<=56;dz+=28){int x=center.getX()+dx,z=center.getZ()+dz,y=c.chunkGenerator().getBaseHeight(x,z,Heightmap.Types.OCEAN_FLOOR_WG,c.heightAccessor(),c.randomState());var column=c.chunkGenerator().getBaseColumn(x,z,c.heightAccessor(),c.randomState());if(y<63||!column.getBlock(y-1).getFluidState().isEmpty())return Optional.empty();heights.add(y);}Collections.sort(heights);if(heights.getLast()-heights.getFirst()>40)return Optional.empty();int y=heights.get(heights.size()/2)-12;if(y<c.heightAccessor().getMinBuildHeight()||y+144>c.heightAccessor().getMaxBuildHeight())return Optional.empty();var rotation=Rotation.getRandom(c.random());var origin=HillGeometry.origin(new BlockPos(center.getX()-64,y,center.getZ()-64),rotation);var piece=new SerpentHillPiece(origin,rotation,c.random().nextLong(),new UUID(c.random().nextLong(),c.random().nextLong()));var parts=List.<StructurePiece>of(piece);if(!StructureCoverageService.referencesFit(c.chunkPos(),parts)||!StructureCandidates.clearAccepted(c,c.chunkPos(),other->other==null||other.equals(HillContent.id("serpent_hill"))?0:other.getNamespace().equals("minecraft")&&StructureCandidates.vanilla(other,"village","woodland_mansion","pillager_outpost","ruined_portal")?12:other.getNamespace().equals("slavicmyths")?8:0,parts))return Optional.empty();return Optional.of(new GenerationStub(origin.offset(new BlockPos(97,81,82).rotate(rotation)),b->b.addPiece(piece)));}
+ }
+diff --git a/src/main/resources/assets/slavicmyths/creative_catalog.tsv b/src/main/resources/assets/slavicmyths/creative_catalog.tsv
+index dbf960d7..a2b67832 100644
+--- a/src/main/resources/assets/slavicmyths/creative_catalog.tsv
++++ b/src/main/resources/assets/slavicmyths/creative_catalog.tsv
+@@ -925,3 +925,36 @@ bone_thorn	resources	navya_grove
+ grove_core	resources	navya_grove
+ guardian_branch	resources	navya_grove
+ soul_blight	resources	navya_grove
++black_cinder_soil	decor	nether
++ash_crust	decor	nether
++smoking_cinder	decor	nether
++charred_stone	decor	nether
++cracked_charred_stone	decor	nether
++blackwood_log	decor	nether
++charred_blackwood_log	decor	nether
++blackwood_wood	decor	nether
++charred_blackwood_wood	decor	nether
++blackwood_planks	decor	nether
++charred_blackwood_leaves	decor	nether
++zharenitsa_head	decor	nether
++charred_stone_stairs	decor	nether
++charred_stone_slab	decor	nether
++charred_stone_wall	decor	nether
++cracked_charred_stone_stairs	decor	nether
++cracked_charred_stone_slab	decor	nether
++cracked_charred_stone_wall	decor	nether
++blackwood_stairs	decor	nether
++blackwood_slab	decor	nether
++blackwood_fence	decor	nether
++blackwood_fence_gate	decor	nether
++blackwood_door	decor	nether
++blackwood_trapdoor	decor	nether
++blackwood_button	decor	nether
++blackwood_pressure_plate	decor	nether
++zharenitsa_heat_seal	magic	nether
++rune_ash_mantle	magic	nether
++coal_crawler_spawn_egg	mobs	nether
++ash_spirit_spawn_egg	mobs	nether
++pekelnik_spawn_egg	mobs	nether
++sparkling_spawn_egg	mobs	nether
++zharenitsa_spawn_egg	mobs	nether
+diff --git a/src/main/resources/assets/slavicmyths/lang/en_us.json b/src/main/resources/assets/slavicmyths/lang/en_us.json
+index 5d465233..14c6fd34 100644
+--- a/src/main/resources/assets/slavicmyths/lang/en_us.json
++++ b/src/main/resources/assets/slavicmyths/lang/en_us.json
+@@ -6123,5 +6123,66 @@
+   "navigation.search.point_known": "Location known.",
+   "navigation.search.open": "Where to search",
+   "navigation.search.page": "Location %s of %s",
+-  "navigation.search.ended": "Tracking has ended. These coordinates are no longer current."
++  "navigation.search.ended": "Tracking has ended. These coordinates are no longer current.",
++  "block.slavicmyths.black_cinder_soil": "Scorched Soil",
++  "block.slavicmyths.ash_crust": "Ash Crust",
++  "block.slavicmyths.smoking_cinder": "Smoking Cinder",
++  "block.slavicmyths.charred_stone": "Charred Stone",
++  "block.slavicmyths.cracked_charred_stone": "Cracked Charred Stone",
++  "block.slavicmyths.blackwood_log": "Blackwood Log",
++  "block.slavicmyths.charred_blackwood_log": "Burnt Blackwood Log",
++  "block.slavicmyths.blackwood_wood": "Blackwood Wood",
++  "block.slavicmyths.charred_blackwood_wood": "Burnt Blackwood Wood",
++  "block.slavicmyths.blackwood_planks": "Blackwood Planks",
++  "block.slavicmyths.charred_blackwood_leaves": "Charred Blackwood Foliage",
++  "block.slavicmyths.zharenitsa_head": "Zharenitsa Head",
++  "block.slavicmyths.charred_stone_stairs": "Charred Stone Stairs",
++  "block.slavicmyths.charred_stone_slab": "Charred Stone Slab",
++  "block.slavicmyths.charred_stone_wall": "Charred Stone Wall",
++  "block.slavicmyths.cracked_charred_stone_stairs": "Cracked Charred Stone Stairs",
++  "block.slavicmyths.cracked_charred_stone_slab": "Cracked Charred Stone Slab",
++  "block.slavicmyths.cracked_charred_stone_wall": "Cracked Charred Stone Wall",
++  "block.slavicmyths.blackwood_stairs": "Blackwood Stairs",
++  "block.slavicmyths.blackwood_slab": "Blackwood Slab",
++  "block.slavicmyths.blackwood_fence": "Blackwood Fence",
++  "block.slavicmyths.blackwood_fence_gate": "Blackwood Fence Gate",
++  "block.slavicmyths.blackwood_door": "Blackwood Door",
++  "block.slavicmyths.blackwood_trapdoor": "Blackwood Trapdoor",
++  "block.slavicmyths.blackwood_button": "Blackwood Button",
++  "block.slavicmyths.blackwood_pressure_plate": "Blackwood Pressure Plate",
++  "entity.slavicmyths.coal_crawler": "Coal Crawler",
++  "item.slavicmyths.coal_crawler_spawn_egg": "Spawn Egg: Coal Crawler",
++  "entity.slavicmyths.ash_spirit": "Ash Spirit",
++  "item.slavicmyths.ash_spirit_spawn_egg": "Spawn Egg: Ash Spirit",
++  "entity.slavicmyths.pekelnik": "Pekelnik",
++  "item.slavicmyths.pekelnik_spawn_egg": "Spawn Egg: Pekelnik",
++  "entity.slavicmyths.sparkling": "Sparkling",
++  "item.slavicmyths.sparkling_spawn_egg": "Spawn Egg: Sparkling",
++  "entity.slavicmyths.zharenitsa": "Zharenitsa, Mistress of Cinders",
++  "item.slavicmyths.zharenitsa_spawn_egg": "Spawn Egg: Zharenitsa, Mistress of Cinders",
++  "item.slavicmyths.zharenitsa_heat_seal": "Heatproof Seal",
++  "item.slavicmyths.rune_ash_mantle": "Rune of the Ash Mantle",
++  "item.slavicmyths.infected_medium_soul": "Medium Infected Soul",
++  "biome.slavicmyths.black_cinder": "Black Cinder",
++  "cinder.mantle.desc": "Use: 8s of 40% fire damage reduction; one retaliation gust. 30s cooldown.",
++  "subtitle.slavicmyths.cinder.crawler_warn": "Cinders: crawler warn",
++  "subtitle.slavicmyths.cinder.crawler_hit": "Cinders: crawler hit",
++  "subtitle.slavicmyths.cinder.spirit_warn": "Cinders: spirit warn",
++  "subtitle.slavicmyths.cinder.spirit_pulse": "Cinders: spirit pulse",
++  "subtitle.slavicmyths.cinder.pekelnik_warn": "Cinders: pekelnik warn",
++  "subtitle.slavicmyths.cinder.pekelnik_throw": "Cinders: pekelnik throw",
++  "subtitle.slavicmyths.cinder.spark_idle": "Cinders: spark idle",
++  "subtitle.slavicmyths.cinder.ring": "Cinders: ring",
++  "subtitle.slavicmyths.cinder.spikes": "Cinders: spikes",
++  "subtitle.slavicmyths.cinder.shift": "Cinders: shift",
++  "subtitle.slavicmyths.cinder.vortex": "Cinders: vortex",
++  "subtitle.slavicmyths.cinder.phase": "Cinders: phase",
++  "subtitle.slavicmyths.cinder.death": "Cinders: death",
++  "subtitle.slavicmyths.cinder.hurt": "Cinders: hurt",
++  "subtitle.slavicmyths.cinder.mantle": "Cinders: mantle",
++  "zharenitsa.seal.need_material": "A Heatproof Seal is required",
++  "zharenitsa.seal.applied": "Armor enhanced with a Heatproof Seal",
++  "cinder.mantle.armor": "Install in an armor rune slot: activates on fire damage.",
++  "death.attack.cinder_heat": "%1$s perished in cinder heat",
++  "death.attack.cinder_heat.player": "%1$s burned in heat from %2$s"
+ }
+diff --git a/src/main/resources/assets/slavicmyths/lang/ru_ru.json b/src/main/resources/assets/slavicmyths/lang/ru_ru.json
+index e98a2799..5d9df993 100644
+--- a/src/main/resources/assets/slavicmyths/lang/ru_ru.json
++++ b/src/main/resources/assets/slavicmyths/lang/ru_ru.json
+@@ -6123,5 +6123,66 @@
+   "navigation.search.point_known": "Место известно.",
+   "navigation.search.open": "Где искать",
+   "navigation.search.page": "Место %s из %s",
+-  "navigation.search.ended": "Отслеживание завершено. Координаты больше не актуальны."
++  "navigation.search.ended": "Отслеживание завершено. Координаты больше не актуальны.",
++  "block.slavicmyths.black_cinder_soil": "Обожжённая земля",
++  "block.slavicmyths.ash_crust": "Пепельный наст",
++  "block.slavicmyths.smoking_cinder": "Дымящаяся гарь",
++  "block.slavicmyths.charred_stone": "Обугленный камень",
++  "block.slavicmyths.cracked_charred_stone": "Треснувший обугленный камень",
++  "block.slavicmyths.blackwood_log": "Бревно чернодрева",
++  "block.slavicmyths.charred_blackwood_log": "Обгорелое бревно чернодрева",
++  "block.slavicmyths.blackwood_wood": "Чернодрево",
++  "block.slavicmyths.charred_blackwood_wood": "Обгорелое чернодрево",
++  "block.slavicmyths.blackwood_planks": "Доски чернодрева",
++  "block.slavicmyths.charred_blackwood_leaves": "Обугленная крона",
++  "block.slavicmyths.zharenitsa_head": "Голова Жареницы",
++  "block.slavicmyths.charred_stone_stairs": "Обугленный камень — ступени",
++  "block.slavicmyths.charred_stone_slab": "Обугленный камень — плита",
++  "block.slavicmyths.charred_stone_wall": "Обугленный камень — ограда",
++  "block.slavicmyths.cracked_charred_stone_stairs": "Треснувший обугленный камень — ступени",
++  "block.slavicmyths.cracked_charred_stone_slab": "Треснувший обугленный камень — плита",
++  "block.slavicmyths.cracked_charred_stone_wall": "Треснувший обугленный камень — ограда",
++  "block.slavicmyths.blackwood_stairs": "Ступени чернодрева",
++  "block.slavicmyths.blackwood_slab": "Плита чернодрева",
++  "block.slavicmyths.blackwood_fence": "Забор чернодрева",
++  "block.slavicmyths.blackwood_fence_gate": "Калитка чернодрева",
++  "block.slavicmyths.blackwood_door": "Дверь чернодрева",
++  "block.slavicmyths.blackwood_trapdoor": "Люк чернодрева",
++  "block.slavicmyths.blackwood_button": "Кнопка чернодрева",
++  "block.slavicmyths.blackwood_pressure_plate": "Нажимная плита чернодрева",
++  "entity.slavicmyths.coal_crawler": "Углеполз",
++  "item.slavicmyths.coal_crawler_spawn_egg": "Яйцо призыва: Углеполз",
++  "entity.slavicmyths.ash_spirit": "Пепельный дух",
++  "item.slavicmyths.ash_spirit_spawn_egg": "Яйцо призыва: Пепельный дух",
++  "entity.slavicmyths.pekelnik": "Пекельник",
++  "item.slavicmyths.pekelnik_spawn_egg": "Яйцо призыва: Пекельник",
++  "entity.slavicmyths.sparkling": "Искровик",
++  "item.slavicmyths.sparkling_spawn_egg": "Яйцо призыва: Искровик",
++  "entity.slavicmyths.zharenitsa": "Жареница — Хозяйка гари",
++  "item.slavicmyths.zharenitsa_spawn_egg": "Яйцо призыва: Жареница — Хозяйка гари",
++  "item.slavicmyths.zharenitsa_heat_seal": "Жаростойкая печать",
++  "item.slavicmyths.rune_ash_mantle": "Руна Пепельного покрова",
++  "item.slavicmyths.infected_medium_soul": "Заражённая душа средней силы",
++  "biome.slavicmyths.black_cinder": "Чёрная гарь",
++  "cinder.mantle.desc": "ПКМ: на 8 с уменьшает огненный урон на 40%; один ответный порыв. Перезарядка 30 с.",
++  "subtitle.slavicmyths.cinder.crawler_warn": "Чёрная гарь: хищник готовится к рывку",
++  "subtitle.slavicmyths.cinder.crawler_hit": "Чёрная гарь: тяжёлые лапы",
++  "subtitle.slavicmyths.cinder.spirit_warn": "Чёрная гарь: дух собирает пепел",
++  "subtitle.slavicmyths.cinder.spirit_pulse": "Чёрная гарь: пепельный всплеск",
++  "subtitle.slavicmyths.cinder.pekelnik_warn": "Чёрная гарь: замах когтей",
++  "subtitle.slavicmyths.cinder.pekelnik_throw": "Чёрная гарь: брошены угли",
++  "subtitle.slavicmyths.cinder.spark_idle": "Чёрная гарь: потрескивание искр",
++  "subtitle.slavicmyths.cinder.ring": "Чёрная гарь: кольцо жара",
++  "subtitle.slavicmyths.cinder.spikes": "Чёрная гарь: поднимаются пики",
++  "subtitle.slavicmyths.cinder.shift": "Чёрная гарь: дымовой сдвиг",
++  "subtitle.slavicmyths.cinder.vortex": "Чёрная гарь: пепельный вихрь",
++  "subtitle.slavicmyths.cinder.phase": "Чёрная гарь: раскрывается сердцевина",
++  "subtitle.slavicmyths.cinder.death": "Чёрная гарь: угасание",
++  "subtitle.slavicmyths.cinder.hurt": "Чёрная гарь: треск породы",
++  "subtitle.slavicmyths.cinder.mantle": "Чёрная гарь: пепельный покров",
++  "zharenitsa.seal.need_material": "Нужна Жаростойкая печать",
++  "zharenitsa.seal.applied": "Броня усилена печатью Жареницы",
++  "cinder.mantle.armor": "Устанавливается в рунный слот брони: срабатывает от огненного урона.",
++  "death.attack.cinder_heat": "%1$s погибает в пепельном жаре",
++  "death.attack.cinder_heat.player": "%1$s сгорел в жаре от %2$s"
+ }
+diff --git a/src/main/resources/assets/slavicmyths/sounds.json b/src/main/resources/assets/slavicmyths/sounds.json
+index 159553b7..0f774fa2 100644
+--- a/src/main/resources/assets/slavicmyths/sounds.json
++++ b/src/main/resources/assets/slavicmyths/sounds.json
+@@ -8836,5 +8836,140 @@
+         "volume": 1.0
+       }
+     ]
++  },
++  "cinder.crawler_warn": {
++    "subtitle": "subtitle.slavicmyths.cinder.crawler_warn",
++    "sounds": [
++      {
++        "name": "minecraft:entity.ravager.attack",
++        "type": "event"
++      }
++    ]
++  },
++  "cinder.crawler_hit": {
++    "subtitle": "subtitle.slavicmyths.cinder.crawler_hit",
++    "sounds": [
++      {
++        "name": "minecraft:entity.ravager.step",
++        "type": "event"
++      }
++    ]
++  },
++  "cinder.spirit_warn": {
++    "subtitle": "subtitle.slavicmyths.cinder.spirit_warn",
++    "sounds": [
++      {
++        "name": "minecraft:entity.breeze.idle_air",
++        "type": "event"
++      }
++    ]
++  },
++  "cinder.spirit_pulse": {
++    "subtitle": "subtitle.slavicmyths.cinder.spirit_pulse",
++    "sounds": [
++      {
++        "name": "minecraft:entity.breeze.wind_burst",
++        "type": "event"
++      }
++    ]
++  },
++  "cinder.pekelnik_warn": {
++    "subtitle": "subtitle.slavicmyths.cinder.pekelnik_warn",
++    "sounds": [
++      {
++        "name": "minecraft:entity.iron_golem.attack",
++        "type": "event"
++      }
++    ]
++  },
++  "cinder.pekelnik_throw": {
++    "subtitle": "subtitle.slavicmyths.cinder.pekelnik_throw",
++    "sounds": [
++      {
++        "name": "minecraft:entity.blaze.shoot",
++        "type": "event"
++      }
++    ]
++  },
++  "cinder.spark_idle": {
++    "subtitle": "subtitle.slavicmyths.cinder.spark_idle",
++    "sounds": [
++      {
++        "name": "minecraft:block.fire.ambient",
++        "type": "event"
++      }
++    ]
++  },
++  "cinder.ring": {
++    "subtitle": "subtitle.slavicmyths.cinder.ring",
++    "sounds": [
++      {
++        "name": "minecraft:entity.blaze.shoot",
++        "type": "event"
++      }
++    ]
++  },
++  "cinder.spikes": {
++    "subtitle": "subtitle.slavicmyths.cinder.spikes",
++    "sounds": [
++      {
++        "name": "minecraft:block.basalt.break",
++        "type": "event"
++      }
++    ]
++  },
++  "cinder.shift": {
++    "subtitle": "subtitle.slavicmyths.cinder.shift",
++    "sounds": [
++      {
++        "name": "minecraft:entity.breeze.jump",
++        "type": "event"
++      }
++    ]
++  },
++  "cinder.vortex": {
++    "subtitle": "subtitle.slavicmyths.cinder.vortex",
++    "sounds": [
++      {
++        "name": "minecraft:entity.breeze.whirl",
++        "type": "event"
++      }
++    ]
++  },
++  "cinder.phase": {
++    "subtitle": "subtitle.slavicmyths.cinder.phase",
++    "sounds": [
++      {
++        "name": "minecraft:entity.blaze.ambient",
++        "type": "event"
++      }
++    ]
++  },
++  "cinder.death": {
++    "subtitle": "subtitle.slavicmyths.cinder.death",
++    "sounds": [
++      {
++        "name": "minecraft:entity.blaze.death",
++        "type": "event"
++      }
++    ]
++  },
++  "cinder.hurt": {
++    "subtitle": "subtitle.slavicmyths.cinder.hurt",
++    "sounds": [
++      {
++        "name": "minecraft:entity.blaze.hurt",
++        "type": "event"
++      }
++    ]
++  },
++  "cinder.mantle": {
++    "subtitle": "subtitle.slavicmyths.cinder.mantle",
++    "sounds": [
++      {
++        "name": "minecraft:item.firecharge.use",
++        "type": "event"
++      }
++    ]
+   }
+ }
+diff --git a/src/main/resources/data/minecraft/tags/block/fence_gates.json b/src/main/resources/data/minecraft/tags/block/fence_gates.json
+index 12b70da7..208761d8 100644
+--- a/src/main/resources/data/minecraft/tags/block/fence_gates.json
++++ b/src/main/resources/data/minecraft/tags/block/fence_gates.json
+@@ -7,6 +7,7 @@
+     "slavicmyths:pine_fence_gate",
+     "slavicmyths:darkened_fence_gate",
+     "slavicmyths:apple_fence_gate",
+-    "slavicmyths:navya_fence_gate"
++    "slavicmyths:navya_fence_gate",
++    "slavicmyths:blackwood_fence_gate"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/block/leaves.json b/src/main/resources/data/minecraft/tags/block/leaves.json
+index c65f1911..0ba20aca 100644
+--- a/src/main/resources/data/minecraft/tags/block/leaves.json
++++ b/src/main/resources/data/minecraft/tags/block/leaves.json
+@@ -7,6 +7,7 @@
+     "slavicmyths:pine_leaves",
+     "slavicmyths:apple_leaves",
+     "slavicmyths:mor_oak_leaves",
+-    "slavicmyths:navya_dead_leaves"
++    "slavicmyths:navya_dead_leaves",
++    "slavicmyths:charred_blackwood_leaves"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/block/logs.json b/src/main/resources/data/minecraft/tags/block/logs.json
+index 4a0f236a..76cfd9b2 100644
+--- a/src/main/resources/data/minecraft/tags/block/logs.json
++++ b/src/main/resources/data/minecraft/tags/block/logs.json
+@@ -7,6 +7,7 @@
+     "#slavicmyths:pine_logs",
+     "#slavicmyths:darkened_logs",
+     "#slavicmyths:apple_logs",
+-    "#slavicmyths:navya_logs"
++    "#slavicmyths:navya_logs",
++    "#slavicmyths:blackwood_logs"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/block/mineable/axe.json b/src/main/resources/data/minecraft/tags/block/mineable/axe.json
+index a3510f69..70641b07 100644
+--- a/src/main/resources/data/minecraft/tags/block/mineable/axe.json
++++ b/src/main/resources/data/minecraft/tags/block/mineable/axe.json
+@@ -62,6 +62,19 @@
+     "slavicmyths:navya_button",
+     "slavicmyths:navya_pressure_plate",
+     "slavicmyths:navya_sign",
+-    "slavicmyths:navya_hanging_sign"
++    "slavicmyths:navya_hanging_sign",
++    "slavicmyths:blackwood_log",
++    "slavicmyths:charred_blackwood_log",
++    "slavicmyths:blackwood_wood",
++    "slavicmyths:charred_blackwood_wood",
++    "slavicmyths:blackwood_planks",
++    "slavicmyths:blackwood_stairs",
++    "slavicmyths:blackwood_slab",
++    "slavicmyths:blackwood_fence",
++    "slavicmyths:blackwood_fence_gate",
++    "slavicmyths:blackwood_door",
++    "slavicmyths:blackwood_trapdoor",
++    "slavicmyths:blackwood_button",
++    "slavicmyths:blackwood_pressure_plate"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json b/src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json
+index 5100a021..65fb24e9 100644
+--- a/src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json
++++ b/src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json
+@@ -53,6 +53,16 @@
+     "slavicmyths:grove_bone_block",
+     "slavicmyths:grove_bone_column",
+     "slavicmyths:grove_bone_spike",
+-    "slavicmyths:rooted_navya_stone"
++    "slavicmyths:rooted_navya_stone",
++    "slavicmyths:smoking_cinder",
++    "slavicmyths:charred_stone",
++    "slavicmyths:cracked_charred_stone",
++    "slavicmyths:zharenitsa_head",
++    "slavicmyths:charred_stone_stairs",
++    "slavicmyths:charred_stone_slab",
++    "slavicmyths:charred_stone_wall",
++    "slavicmyths:cracked_charred_stone_stairs",
++    "slavicmyths:cracked_charred_stone_slab",
++    "slavicmyths:cracked_charred_stone_wall"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/block/mineable/shovel.json b/src/main/resources/data/minecraft/tags/block/mineable/shovel.json
+index 783df085..099223eb 100644
+--- a/src/main/resources/data/minecraft/tags/block/mineable/shovel.json
++++ b/src/main/resources/data/minecraft/tags/block/mineable/shovel.json
+@@ -6,6 +6,8 @@
+     "slavicmyths:mor_sand",
+     "slavicmyths:mor_gravel",
+     "slavicmyths:navya_soil",
+-    "slavicmyths:mossy_navya_soil"
++    "slavicmyths:mossy_navya_soil",
++    "slavicmyths:black_cinder_soil",
++    "slavicmyths:ash_crust"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/block/planks.json b/src/main/resources/data/minecraft/tags/block/planks.json
+index 1eba2905..ef3488c7 100644
+--- a/src/main/resources/data/minecraft/tags/block/planks.json
++++ b/src/main/resources/data/minecraft/tags/block/planks.json
+@@ -8,6 +8,7 @@
+     "slavicmyths:darkened_planks",
+     "slavicmyths:apple_planks",
+     "slavicmyths:mor_oak_planks",
+-    "slavicmyths:navya_planks"
++    "slavicmyths:navya_planks",
++    "slavicmyths:blackwood_planks"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/block/slabs.json b/src/main/resources/data/minecraft/tags/block/slabs.json
+index 9ff76ce0..60adb0f2 100644
+--- a/src/main/resources/data/minecraft/tags/block/slabs.json
++++ b/src/main/resources/data/minecraft/tags/block/slabs.json
+@@ -9,6 +9,9 @@
+     "slavicmyths:bog_green_kurgan_cobblestone_slab",
+     "slavicmyths:cracked_bog_green_kurgan_cobblestone_slab",
+     "slavicmyths:mossy_bog_green_kurgan_cobblestone_slab",
+-    "slavicmyths:carved_burial_stone_slab"
++    "slavicmyths:carved_burial_stone_slab",
++    "slavicmyths:charred_stone_slab",
++    "slavicmyths:cracked_charred_stone_slab",
++    "slavicmyths:blackwood_slab"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/block/walls.json b/src/main/resources/data/minecraft/tags/block/walls.json
+index a2dd3223..264eb375 100644
+--- a/src/main/resources/data/minecraft/tags/block/walls.json
++++ b/src/main/resources/data/minecraft/tags/block/walls.json
+@@ -8,6 +8,8 @@
+     "slavicmyths:bog_green_kurgan_stone_wall",
+     "slavicmyths:bog_green_kurgan_cobblestone_wall",
+     "slavicmyths:cracked_bog_green_kurgan_cobblestone_wall",
+-    "slavicmyths:mossy_bog_green_kurgan_cobblestone_wall"
++    "slavicmyths:mossy_bog_green_kurgan_cobblestone_wall",
++    "slavicmyths:charred_stone_wall",
++    "slavicmyths:cracked_charred_stone_wall"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/block/wooden_buttons.json b/src/main/resources/data/minecraft/tags/block/wooden_buttons.json
+index d0dc8cf7..4764cce2 100644
+--- a/src/main/resources/data/minecraft/tags/block/wooden_buttons.json
++++ b/src/main/resources/data/minecraft/tags/block/wooden_buttons.json
+@@ -6,6 +6,7 @@
+     "slavicmyths:willow_button",
+     "slavicmyths:pine_button",
+     "slavicmyths:apple_button",
+-    "slavicmyths:navya_button"
++    "slavicmyths:navya_button",
++    "slavicmyths:blackwood_button"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/block/wooden_doors.json b/src/main/resources/data/minecraft/tags/block/wooden_doors.json
+index 7c454148..038985c8 100644
+--- a/src/main/resources/data/minecraft/tags/block/wooden_doors.json
++++ b/src/main/resources/data/minecraft/tags/block/wooden_doors.json
+@@ -7,6 +7,7 @@
+     "slavicmyths:pine_door",
+     "slavicmyths:darkened_door",
+     "slavicmyths:apple_door",
+-    "slavicmyths:navya_door"
++    "slavicmyths:navya_door",
++    "slavicmyths:blackwood_door"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/block/wooden_fences.json b/src/main/resources/data/minecraft/tags/block/wooden_fences.json
+index a7daf556..c053f459 100644
+--- a/src/main/resources/data/minecraft/tags/block/wooden_fences.json
++++ b/src/main/resources/data/minecraft/tags/block/wooden_fences.json
+@@ -7,6 +7,7 @@
+     "slavicmyths:pine_fence",
+     "slavicmyths:darkened_fence",
+     "slavicmyths:apple_fence",
+-    "slavicmyths:navya_fence"
++    "slavicmyths:navya_fence",
++    "slavicmyths:blackwood_fence"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/block/wooden_pressure_plates.json b/src/main/resources/data/minecraft/tags/block/wooden_pressure_plates.json
+index 4bc221cc..b813936d 100644
+--- a/src/main/resources/data/minecraft/tags/block/wooden_pressure_plates.json
++++ b/src/main/resources/data/minecraft/tags/block/wooden_pressure_plates.json
+@@ -6,6 +6,7 @@
+     "slavicmyths:willow_pressure_plate",
+     "slavicmyths:pine_pressure_plate",
+     "slavicmyths:apple_pressure_plate",
+-    "slavicmyths:navya_pressure_plate"
++    "slavicmyths:navya_pressure_plate",
++    "slavicmyths:blackwood_pressure_plate"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/block/wooden_slabs.json b/src/main/resources/data/minecraft/tags/block/wooden_slabs.json
+index 7e40ece4..d9d22a43 100644
+--- a/src/main/resources/data/minecraft/tags/block/wooden_slabs.json
++++ b/src/main/resources/data/minecraft/tags/block/wooden_slabs.json
+@@ -7,6 +7,7 @@
+     "slavicmyths:pine_slab",
+     "slavicmyths:darkened_slab",
+     "slavicmyths:apple_slab",
+-    "slavicmyths:navya_slab"
++    "slavicmyths:navya_slab",
++    "slavicmyths:blackwood_slab"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/block/wooden_stairs.json b/src/main/resources/data/minecraft/tags/block/wooden_stairs.json
+index a24c8f1e..dd3dea1b 100644
+--- a/src/main/resources/data/minecraft/tags/block/wooden_stairs.json
++++ b/src/main/resources/data/minecraft/tags/block/wooden_stairs.json
+@@ -7,6 +7,7 @@
+     "slavicmyths:pine_stairs",
+     "slavicmyths:darkened_stairs",
+     "slavicmyths:apple_stairs",
+-    "slavicmyths:navya_stairs"
++    "slavicmyths:navya_stairs",
++    "slavicmyths:blackwood_stairs"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/block/wooden_trapdoors.json b/src/main/resources/data/minecraft/tags/block/wooden_trapdoors.json
+index 46b08bc6..20408d70 100644
+--- a/src/main/resources/data/minecraft/tags/block/wooden_trapdoors.json
++++ b/src/main/resources/data/minecraft/tags/block/wooden_trapdoors.json
+@@ -7,6 +7,7 @@
+     "slavicmyths:pine_trapdoor",
+     "slavicmyths:darkened_trapdoor",
+     "slavicmyths:apple_trapdoor",
+-    "slavicmyths:navya_trapdoor"
++    "slavicmyths:navya_trapdoor",
++    "slavicmyths:blackwood_trapdoor"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/damage_type/is_fire.json b/src/main/resources/data/minecraft/tags/damage_type/is_fire.json
+index 1db668c7..e26a485f 100644
+--- a/src/main/resources/data/minecraft/tags/damage_type/is_fire.json
++++ b/src/main/resources/data/minecraft/tags/damage_type/is_fire.json
+@@ -7,6 +7,7 @@
+     "slavicmyths:ember_projectile",
+     "slavicmyths:guardian_fire",
+     "slavicmyths:gorynych_fire",
+-    "slavicmyths:marinka_fire"
++    "slavicmyths:marinka_fire",
++    "slavicmyths:cinder_heat"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/item/fence_gates.json b/src/main/resources/data/minecraft/tags/item/fence_gates.json
+index 0445046d..8b08e2fa 100644
+--- a/src/main/resources/data/minecraft/tags/item/fence_gates.json
++++ b/src/main/resources/data/minecraft/tags/item/fence_gates.json
+@@ -2,6 +2,7 @@
+   "replace": false,
+   "values": [
+     "slavicmyths:apple_fence_gate",
+-    "slavicmyths:navya_fence_gate"
++    "slavicmyths:navya_fence_gate",
++    "slavicmyths:blackwood_fence_gate"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/item/leaves.json b/src/main/resources/data/minecraft/tags/item/leaves.json
+index 94aeda4c..f0908dc2 100644
+--- a/src/main/resources/data/minecraft/tags/item/leaves.json
++++ b/src/main/resources/data/minecraft/tags/item/leaves.json
+@@ -6,6 +6,7 @@
+     "slavicmyths:willow_leaves",
+     "slavicmyths:pine_leaves",
+     "slavicmyths:apple_leaves",
+-    "slavicmyths:navya_dead_leaves"
++    "slavicmyths:navya_dead_leaves",
++    "slavicmyths:charred_blackwood_leaves"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/item/logs.json b/src/main/resources/data/minecraft/tags/item/logs.json
+index 4a0f236a..76cfd9b2 100644
+--- a/src/main/resources/data/minecraft/tags/item/logs.json
++++ b/src/main/resources/data/minecraft/tags/item/logs.json
+@@ -7,6 +7,7 @@
+     "#slavicmyths:pine_logs",
+     "#slavicmyths:darkened_logs",
+     "#slavicmyths:apple_logs",
+-    "#slavicmyths:navya_logs"
++    "#slavicmyths:navya_logs",
++    "#slavicmyths:blackwood_logs"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/item/planks.json b/src/main/resources/data/minecraft/tags/item/planks.json
+index d31f1cc6..ffcf3438 100644
+--- a/src/main/resources/data/minecraft/tags/item/planks.json
++++ b/src/main/resources/data/minecraft/tags/item/planks.json
+@@ -7,6 +7,7 @@
+     "slavicmyths:pine_planks",
+     "slavicmyths:darkened_planks",
+     "slavicmyths:apple_planks",
+-    "slavicmyths:navya_planks"
++    "slavicmyths:navya_planks",
++    "slavicmyths:blackwood_planks"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/item/slabs.json b/src/main/resources/data/minecraft/tags/item/slabs.json
+index 9ff76ce0..60adb0f2 100644
+--- a/src/main/resources/data/minecraft/tags/item/slabs.json
++++ b/src/main/resources/data/minecraft/tags/item/slabs.json
+@@ -9,6 +9,9 @@
+     "slavicmyths:bog_green_kurgan_cobblestone_slab",
+     "slavicmyths:cracked_bog_green_kurgan_cobblestone_slab",
+     "slavicmyths:mossy_bog_green_kurgan_cobblestone_slab",
+-    "slavicmyths:carved_burial_stone_slab"
++    "slavicmyths:carved_burial_stone_slab",
++    "slavicmyths:charred_stone_slab",
++    "slavicmyths:cracked_charred_stone_slab",
++    "slavicmyths:blackwood_slab"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/item/walls.json b/src/main/resources/data/minecraft/tags/item/walls.json
+index a2dd3223..264eb375 100644
+--- a/src/main/resources/data/minecraft/tags/item/walls.json
++++ b/src/main/resources/data/minecraft/tags/item/walls.json
+@@ -8,6 +8,8 @@
+     "slavicmyths:bog_green_kurgan_stone_wall",
+     "slavicmyths:bog_green_kurgan_cobblestone_wall",
+     "slavicmyths:cracked_bog_green_kurgan_cobblestone_wall",
+-    "slavicmyths:mossy_bog_green_kurgan_cobblestone_wall"
++    "slavicmyths:mossy_bog_green_kurgan_cobblestone_wall",
++    "slavicmyths:charred_stone_wall",
++    "slavicmyths:cracked_charred_stone_wall"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/item/wooden_buttons.json b/src/main/resources/data/minecraft/tags/item/wooden_buttons.json
+index d0dc8cf7..4764cce2 100644
+--- a/src/main/resources/data/minecraft/tags/item/wooden_buttons.json
++++ b/src/main/resources/data/minecraft/tags/item/wooden_buttons.json
+@@ -6,6 +6,7 @@
+     "slavicmyths:willow_button",
+     "slavicmyths:pine_button",
+     "slavicmyths:apple_button",
+-    "slavicmyths:navya_button"
++    "slavicmyths:navya_button",
++    "slavicmyths:blackwood_button"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/item/wooden_doors.json b/src/main/resources/data/minecraft/tags/item/wooden_doors.json
+index 7c454148..038985c8 100644
+--- a/src/main/resources/data/minecraft/tags/item/wooden_doors.json
++++ b/src/main/resources/data/minecraft/tags/item/wooden_doors.json
+@@ -7,6 +7,7 @@
+     "slavicmyths:pine_door",
+     "slavicmyths:darkened_door",
+     "slavicmyths:apple_door",
+-    "slavicmyths:navya_door"
++    "slavicmyths:navya_door",
++    "slavicmyths:blackwood_door"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/item/wooden_fences.json b/src/main/resources/data/minecraft/tags/item/wooden_fences.json
+index a7daf556..c053f459 100644
+--- a/src/main/resources/data/minecraft/tags/item/wooden_fences.json
++++ b/src/main/resources/data/minecraft/tags/item/wooden_fences.json
+@@ -7,6 +7,7 @@
+     "slavicmyths:pine_fence",
+     "slavicmyths:darkened_fence",
+     "slavicmyths:apple_fence",
+-    "slavicmyths:navya_fence"
++    "slavicmyths:navya_fence",
++    "slavicmyths:blackwood_fence"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/item/wooden_pressure_plates.json b/src/main/resources/data/minecraft/tags/item/wooden_pressure_plates.json
+index 4bc221cc..b813936d 100644
+--- a/src/main/resources/data/minecraft/tags/item/wooden_pressure_plates.json
++++ b/src/main/resources/data/minecraft/tags/item/wooden_pressure_plates.json
+@@ -6,6 +6,7 @@
+     "slavicmyths:willow_pressure_plate",
+     "slavicmyths:pine_pressure_plate",
+     "slavicmyths:apple_pressure_plate",
+-    "slavicmyths:navya_pressure_plate"
++    "slavicmyths:navya_pressure_plate",
++    "slavicmyths:blackwood_pressure_plate"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/item/wooden_slabs.json b/src/main/resources/data/minecraft/tags/item/wooden_slabs.json
+index 7e40ece4..d9d22a43 100644
+--- a/src/main/resources/data/minecraft/tags/item/wooden_slabs.json
++++ b/src/main/resources/data/minecraft/tags/item/wooden_slabs.json
+@@ -7,6 +7,7 @@
+     "slavicmyths:pine_slab",
+     "slavicmyths:darkened_slab",
+     "slavicmyths:apple_slab",
+-    "slavicmyths:navya_slab"
++    "slavicmyths:navya_slab",
++    "slavicmyths:blackwood_slab"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/item/wooden_stairs.json b/src/main/resources/data/minecraft/tags/item/wooden_stairs.json
+index a24c8f1e..dd3dea1b 100644
+--- a/src/main/resources/data/minecraft/tags/item/wooden_stairs.json
++++ b/src/main/resources/data/minecraft/tags/item/wooden_stairs.json
+@@ -7,6 +7,7 @@
+     "slavicmyths:pine_stairs",
+     "slavicmyths:darkened_stairs",
+     "slavicmyths:apple_stairs",
+-    "slavicmyths:navya_stairs"
++    "slavicmyths:navya_stairs",
++    "slavicmyths:blackwood_stairs"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/item/wooden_trapdoors.json b/src/main/resources/data/minecraft/tags/item/wooden_trapdoors.json
+index 46b08bc6..20408d70 100644
+--- a/src/main/resources/data/minecraft/tags/item/wooden_trapdoors.json
++++ b/src/main/resources/data/minecraft/tags/item/wooden_trapdoors.json
+@@ -7,6 +7,7 @@
+     "slavicmyths:pine_trapdoor",
+     "slavicmyths:darkened_trapdoor",
+     "slavicmyths:apple_trapdoor",
+-    "slavicmyths:navya_trapdoor"
++    "slavicmyths:navya_trapdoor",
++    "slavicmyths:blackwood_trapdoor"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/worldgen/biome/has_structure/bastion_remnant.json b/src/main/resources/data/minecraft/tags/worldgen/biome/has_structure/bastion_remnant.json
+index 21a0cb92..bdaf142d 100644
+--- a/src/main/resources/data/minecraft/tags/worldgen/biome/has_structure/bastion_remnant.json
++++ b/src/main/resources/data/minecraft/tags/worldgen/biome/has_structure/bastion_remnant.json
+@@ -1,6 +1,7 @@
+ {
+   "replace": false,
+   "values": [
+-    "slavicmyths:navya_grove"
++    "slavicmyths:navya_grove",
++    "slavicmyths:black_cinder"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/worldgen/biome/has_structure/nether_fortress.json b/src/main/resources/data/minecraft/tags/worldgen/biome/has_structure/nether_fortress.json
+index 21a0cb92..bdaf142d 100644
+--- a/src/main/resources/data/minecraft/tags/worldgen/biome/has_structure/nether_fortress.json
++++ b/src/main/resources/data/minecraft/tags/worldgen/biome/has_structure/nether_fortress.json
+@@ -1,6 +1,7 @@
+ {
+   "replace": false,
+   "values": [
+-    "slavicmyths:navya_grove"
++    "slavicmyths:navya_grove",
++    "slavicmyths:black_cinder"
+   ]
+ }
+diff --git a/src/main/resources/data/minecraft/tags/worldgen/biome/has_structure/ruined_portal_nether.json b/src/main/resources/data/minecraft/tags/worldgen/biome/has_structure/ruined_portal_nether.json
+index 21a0cb92..bdaf142d 100644
+--- a/src/main/resources/data/minecraft/tags/worldgen/biome/has_structure/ruined_portal_nether.json
++++ b/src/main/resources/data/minecraft/tags/worldgen/biome/has_structure/ruined_portal_nether.json
+@@ -1,6 +1,7 @@
+ {
+   "replace": false,
+   "values": [
+-    "slavicmyths:navya_grove"
++    "slavicmyths:navya_grove",
++    "slavicmyths:black_cinder"
+   ]
+ }

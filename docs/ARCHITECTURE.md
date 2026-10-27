@@ -1,3 +1,64 @@
+## 27.10.2026 — Чёрная гарь #261–#267: код и ресурсы реализованы, IN_PROGRESS
+
+По восстановленному паспорту в hell добавлены 26 блоков/чернодрево/3 формы деревьев,
+4 жителя с отдельными 3D rigs/атаками/анимациями, Жареница 750 HP с 2 фазами,
+4 приёмами и 4 обязательными наградами. Печати из main перенесены адресно,
+руна связана с существующими armor sockets, journal сохраняет defeated/one-shot claim.
+Добавлены biome black_cinder, natural tables, bounded geology/nature, структура
+zharenitsa_arena и native locate IDs; существующий Nether payload сохранён.
+Гарантия арены пока условная по безопасному ядру 512×512; реальный connected
+coverage/проходимость/спавны ещё не измерены. Java21 clean build/native/JAR PASS,
+230 baked poses, 1500 связных tree plans, 5-seed offline climate сохраняет 7 biome
+категорий. Это не игровые проверки: Minecraft/сервер/GameTest/PolyMC launches=0;
+ART_ORIGINAL_COMPARE_NOT_RUN, OWNER_PENDING. Кандидат 2.0.8-HELL с контентом2.0.3
+установлен по прямому поручению с backup/одним JAR; SHA64b042ae3def10952a0c120d8dac9b16c95658070450bb0b323fd48afad3084e.
+Новых commit/push/PR/Project Status нет, Issues OPEN с IN_PROGRESS комментариями.
+[Матрицы/исходники/evidence/ручной checklist](implementation/black-cinder-production/REPORT.md),
+[installed receipt](implementation/black-cinder-production/installation-receipt.json).
+
+## 27.10.2026 — единое поручение #261–#267, актуализация источников
+
+Прочитаны обновлённые верхние разделы от17:55UTC. Без merge получена свежая
+origin/main ba5c07cb: частичная ZharenitsaSeals найдена именно там, в hell её нет.
+ZIP/полное новое ТЗ физически не поступили: доступно57TXT+1JSON, ZIP0/PNG0;
+повторный SOURCE gate BLOCKED_REFERENCE. Запрошен путь/ссылка, новые поручения
+между этапами не нужны. Gameplay не добавлялся; Minecraft/установка/commit/push/
+Project Status не выполнялись. [Точная матрица #262–#267 и свидетельства](implementation/black-cinder262-20261027/single-run-update/REPORT.md).
+
+## 27.10.2026 — продолжение #262, build blocker устранён
+
+Переименованы только внешние локальные x/z в SerpentHillStructure, поведение
+не менялось. Java21 clean build1m42s/resources8032/production JAR PASS;
+SHA03547c81efaf364a09d2d72732e59d91c0c3de675641928d7e507d4b4faead53.
+Расширенный поиск9119PNG не нашёл ни одного из4approved SHA. SOURCE gate
+BLOCKED_REFERENCE, #263–#267 не реализованы, команда поиска ещё не существует.
+Сборка не установлена, Minecraft/сервер/GameTest=0; финальная приёмка не заявлена.
+[Квитанция/матрица/ограничения](implementation/black-cinder262-20261027/REPORT.md).
+
+## 27.10.2026 — Чёрная гарь #262, начат первый этап
+
+Прямое поручение на второй биом: прочитаны #261–#267, восстановлен strict2.0.3,
+добавлены технический контракт и рабочая SHA/PNG/ZIP проверка четырёх оригиналов.
+Негативные проверки PASS; реальные оригиналы отсутствуют — BLOCKED_REFERENCE.
+Production не менялся: #263–#267 заблокированы зависимостью первого этапа.
+Повторный Java21 clean build FAIL на прежних x/z в SerpentHillStructure:15,
+нового JAR нет. Minecraft/PolyMC/сервер/GameTest=0, установка не выполнялась.
+Project статусы «Анализ» проверены, не менялись; Issues OPEN, OWNER_PENDING.
+[Матрица/контракт/следующий шаг](implementation/black-cinder262-20261027/REPORT.md).
+
+## 27.10.2026 — #252, техническая подготовка Навьей рощи, IN_PROGRESS
+
+По прямому поручению проверены #251–#257, main/hell и существующая реализация.
+Добавлены воспроизводимая source-инвентаризация (33 блока/7 entity types), лист
+фактических текстур восьми материалов, три вспомогательных разреза и локальная
+копия STRICT_ACCEPTANCE_2.0.2. Production/worldgen не менялись; дубли не создавались.
+SOURCE+DESIGN gate: BLOCKED_REFERENCE, оригиналы PNG недоступны. Java21 clean build
+FAIL на исходном SerpentHillStructure:15 (повторные x/z); production JAR gate
+BLOCKED. Minecraft/PolyMC/сервер/GameTest=0, POLYMC_NOT_INSTALLED для этой работы.
+Переход к #253 заблокирован, прочие этапы не запускались; GitHub статусы уже
+«В работе», не менялись. Матрица, артефакты, installed SHA и ручной checklist:
+[отчёт #252](implementation/navya252-20261027/REPORT.md).
+
 ## 27.10.2026 — #300, генерация Чуди и площадка Яги, IN_PROGRESS
 
 Работа ведётся в `hell`, без commit/push и изменения установленного PolyMC. Новые

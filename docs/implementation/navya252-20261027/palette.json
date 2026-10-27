@@ -1,0 +1,247 @@
+[
+  {
+    "id": "slavicmyths:navya_soil",
+    "textures": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/block/navya_soil.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "e4e4968ec62d02e36031a2dfa45782ba0c2ae44966cbb297a44e3a371d3d37bc",
+        "dominant_rgb": [
+          "#171c20",
+          "#23272b",
+          "#2b3033",
+          "#1c2023"
+        ]
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/block/navya_soil_side.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "6495713f2bcdc8aaaa851cc2049c49753cc15dfd5f5b6fd1b48929a0a3dd544a",
+        "dominant_rgb": [
+          "#171c20",
+          "#23272b",
+          "#2b3033",
+          "#1c2023"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:mossy_navya_soil",
+    "textures": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/block/mossy_navya_soil.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "e1403b3dcdae49a038cf3b4dfa8d49d63fd54d99233cb0d728593286c9c92a37",
+        "dominant_rgb": [
+          "#171c20",
+          "#23272b",
+          "#2b3033",
+          "#a9a394",
+          "#1c2023"
+        ]
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/block/mossy_navya_soil_side.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "4c59a2622012d7402dc04f7c9b6f923c8991102c0f255f78985823c26566b101",
+        "dominant_rgb": [
+          "#171c20",
+          "#23272b",
+          "#2b3033",
+          "#1c2023",
+          "#969489"
+        ]
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/block/navya_soil.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "e4e4968ec62d02e36031a2dfa45782ba0c2ae44966cbb297a44e3a371d3d37bc",
+        "dominant_rgb": [
+          "#171c20",
+          "#23272b",
+          "#2b3033",
+          "#1c2023"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:navya_stone",
+    "textures": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/block/navya_stone.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "0c654cbbb7fb40e8d57df36575925c1d85c9e11e87c36809f05a9c91c42fbf46",
+        "dominant_rgb": [
+          "#373b40",
+          "#303238",
+          "#45484b",
+          "#4d5053",
+          "#66686b"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:cracked_navya_stone",
+    "textures": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/block/cracked_navya_stone.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "91ec09f6cd3148a903ccb0538514f06820c79afb691e8c48ce139023ebcdf32f",
+        "dominant_rgb": [
+          "#373b40",
+          "#45484b",
+          "#303238",
+          "#4d5053",
+          "#191d22"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:grove_bone_block",
+    "textures": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/block/grove_bone_block.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "e279579527b400000479e15e45e2d64dd9b9720ef2ce8349a9cc23e5156de806",
+        "dominant_rgb": [
+          "#a89f8f",
+          "#c1b6a3",
+          "#615c53",
+          "#d5cbb9",
+          "#68645d"
+        ]
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/block/grove_bone_block_top.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "917d64404c36a9f06ecbe55cfea09ff25f6b37933e9fc19dd3b9b50e767be89e",
+        "dominant_rgb": [
+          "#a89f8f",
+          "#8c8170",
+          "#c1b6a3",
+          "#615c53",
+          "#d5cbb9"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:grove_bone_column",
+    "textures": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/block/grove_bone_column.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "1bf18a9eb8eb13f61009a5848046e87ce0e3717ad2101f5f82c995bae48754a7",
+        "dominant_rgb": [
+          "#c7bca8",
+          "#313439",
+          "#dfd3bd"
+        ]
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/block/grove_bone_column_top.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "917d64404c36a9f06ecbe55cfea09ff25f6b37933e9fc19dd3b9b50e767be89e",
+        "dominant_rgb": [
+          "#a89f8f",
+          "#8c8170",
+          "#c1b6a3",
+          "#615c53",
+          "#d5cbb9"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:grove_bone_spike",
+    "textures": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/block/grove_bone_block.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "e279579527b400000479e15e45e2d64dd9b9720ef2ce8349a9cc23e5156de806",
+        "dominant_rgb": [
+          "#a89f8f",
+          "#c1b6a3",
+          "#615c53",
+          "#d5cbb9",
+          "#68645d"
+        ]
+      },
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/block/navya_stone.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "0c654cbbb7fb40e8d57df36575925c1d85c9e11e87c36809f05a9c91c42fbf46",
+        "dominant_rgb": [
+          "#373b40",
+          "#303238",
+          "#45484b",
+          "#4d5053",
+          "#66686b"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "slavicmyths:rooted_navya_stone",
+    "textures": [
+      {
+        "path": "src/main/resources/assets/slavicmyths/textures/block/rooted_navya_stone.png",
+        "size": [
+          16,
+          16
+        ],
+        "sha256": "f99d8580e8218a30d371a0afee4c220360a3bd4c3b9b7e4b8276f2c8c7ad8172",
+        "dominant_rgb": [
+          "#373b40",
+          "#a49d8c",
+          "#303238",
+          "#45484b",
+          "#4d5053"
+        ]
+      }
+    ]
+  }
+]

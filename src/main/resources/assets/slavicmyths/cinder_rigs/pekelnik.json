@@ -1,0 +1,290 @@
+{
+  "atlas": 512,
+  "parts": [
+    {
+      "name": "body",
+      "parent": "root",
+      "pivot": [
+        0,
+        -4,
+        0
+      ],
+      "size": [
+        19,
+        22,
+        11
+      ],
+      "material": "coal",
+      "uv": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "root",
+      "pivot": [
+        0,
+        -21,
+        -1
+      ],
+      "size": [
+        12,
+        12,
+        11
+      ],
+      "material": "coal",
+      "uv": [
+        64,
+        2
+      ]
+    },
+    {
+      "name": "leg0",
+      "parent": "root",
+      "pivot": [
+        -7,
+        15,
+        0
+      ],
+      "size": [
+        8,
+        18,
+        9
+      ],
+      "material": "coal",
+      "uv": [
+        112,
+        2
+      ]
+    },
+    {
+      "name": "leg1",
+      "parent": "root",
+      "pivot": [
+        7,
+        15,
+        0
+      ],
+      "size": [
+        8,
+        18,
+        9
+      ],
+      "material": "coal",
+      "uv": [
+        148,
+        2
+      ]
+    },
+    {
+      "name": "arm0",
+      "parent": "root",
+      "pivot": [
+        -14,
+        -9,
+        0
+      ],
+      "size": [
+        8,
+        25,
+        8
+      ],
+      "material": "coal",
+      "uv": [
+        184,
+        2
+      ]
+    },
+    {
+      "name": "claw00",
+      "parent": "arm0",
+      "pivot": [
+        0,
+        16,
+        -3
+      ],
+      "size": [
+        2,
+        11,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        218,
+        2
+      ]
+    },
+    {
+      "name": "claw01",
+      "parent": "arm0",
+      "pivot": [
+        0,
+        16,
+        0
+      ],
+      "size": [
+        2,
+        11,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        228,
+        2
+      ]
+    },
+    {
+      "name": "claw02",
+      "parent": "arm0",
+      "pivot": [
+        0,
+        16,
+        3
+      ],
+      "size": [
+        2,
+        11,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        238,
+        2
+      ]
+    },
+    {
+      "name": "arm1",
+      "parent": "root",
+      "pivot": [
+        14,
+        -9,
+        0
+      ],
+      "size": [
+        8,
+        25,
+        8
+      ],
+      "material": "coal",
+      "uv": [
+        248,
+        2
+      ]
+    },
+    {
+      "name": "claw10",
+      "parent": "arm1",
+      "pivot": [
+        0,
+        16,
+        -3
+      ],
+      "size": [
+        2,
+        11,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        282,
+        2
+      ]
+    },
+    {
+      "name": "claw11",
+      "parent": "arm1",
+      "pivot": [
+        0,
+        16,
+        0
+      ],
+      "size": [
+        2,
+        11,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        292,
+        2
+      ]
+    },
+    {
+      "name": "claw12",
+      "parent": "arm1",
+      "pivot": [
+        0,
+        16,
+        3
+      ],
+      "size": [
+        2,
+        11,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        302,
+        2
+      ]
+    },
+    {
+      "name": "heart",
+      "parent": "root",
+      "pivot": [
+        0,
+        -5,
+        -6
+      ],
+      "size": [
+        5,
+        9,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        312,
+        2
+      ]
+    },
+    {
+      "name": "eye-3",
+      "parent": "head",
+      "pivot": [
+        -3,
+        -2,
+        -5.5
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        326,
+        2
+      ]
+    },
+    {
+      "name": "eye3",
+      "parent": "head",
+      "pivot": [
+        3,
+        -2,
+        -5.5
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        334,
+        2
+      ]
+    }
+  ]
+}

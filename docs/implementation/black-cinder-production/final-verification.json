@@ -1,0 +1,11 @@
+{
+  "installed_build_sha256": "64b042ae3def10952a0c120d8dac9b16c95658070450bb0b323fd48afad3084e",
+  "source_snapshot_files": 285,
+  "source_drift": 0,
+  "single_mod_jar": true,
+  "backups_verified": true,
+  "git_diff_check": "PASS",
+  "game_launches": 0,
+  "source_commit": "02765c5ebcbced3595181b8ada8d01cdda0e1ad0",
+  "status": "CANDIDATE_INSTALLED_OWNER_PENDING"
+}

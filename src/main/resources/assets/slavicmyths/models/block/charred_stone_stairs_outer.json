@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "slavicmyths:block/charred_stone_top",
+    "side": "slavicmyths:block/charred_stone",
+    "top": "slavicmyths:block/charred_stone_top"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "blocks": [
+    "black_cinder_soil",
+    "ash_crust",
+    "smoking_cinder",
+    "charred_stone",
+    "cracked_charred_stone",
+    "blackwood_log",
+    "charred_blackwood_log",
+    "blackwood_wood",
+    "charred_blackwood_wood",
+    "blackwood_planks",
+    "charred_blackwood_leaves",
+    "zharenitsa_head",
+    "charred_stone_stairs",
+    "charred_stone_slab",
+    "charred_stone_wall",
+    "cracked_charred_stone_stairs",
+    "cracked_charred_stone_slab",
+    "cracked_charred_stone_wall",
+    "blackwood_stairs",
+    "blackwood_slab",
+    "blackwood_fence",
+    "blackwood_fence_gate",
+    "blackwood_door",
+    "blackwood_trapdoor",
+    "blackwood_button",
+    "blackwood_pressure_plate"
+  ],
+  "residents": [
+    "coal_crawler",
+    "ash_spirit",
+    "pekelnik",
+    "sparkling"
+  ],
+  "boss": "zharenitsa",
+  "attack_entities": [
+    "cinder_coal",
+    "cinder_ash_spike"
+  ],
+  "items": [
+    "zharenitsa_heat_seal",
+    "rune_ash_mantle"
+  ],
+  "original_compare": "ART_ORIGINAL_COMPARE_NOT_RUN",
+  "source": "RECOVERED_VISUAL_SPEC_2.0.3.md"
+}
