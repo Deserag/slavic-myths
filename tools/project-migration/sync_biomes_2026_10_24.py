@@ -38,7 +38,7 @@ TARGETS = {
     289: ("Анализ", 2041),
     290: ("Анализ", 2042),
     291: ("Анализ", 2043),
-    292: ("Концепция", 2044),
+    292: ("Ожидание", 2044),
     293: ("Концепция", 2045),
     294: ("Анализ", 2046),
 }
@@ -177,9 +177,9 @@ for number, (target_status, order) in TARGETS.items():
     status = values.get("Status")
     # Promote only explicit owner-approved transitions; never demote progressed work.
     allowed = status is None or (
-        status == "Концепция" and target_status in ("Анализ", "В работе")
+        status == "Концепция" and target_status in ("Анализ", "Ожидание", "В работе")
     ) or (
-        status == "Анализ" and target_status == "В работе"
+        status == "Анализ" and target_status in ("Ожидание", "В работе")
     )
     if allowed:
         set_field(pid, item_id, fields, "Status", target_status)
@@ -195,6 +195,8 @@ for number, (target_status, order) in TARGETS.items():
     now = field_values(item_id).get("Status")
     if target_status == "Анализ" and now not in ("Анализ", "Ожидание", "В работе", "Тестирование", "Доработка", "Готово"):
         raise RuntimeError("Status verification failed #" + str(number) + ": " + str(now))
+    if target_status == "Ожидание" and now not in ("Ожидание", "В работе", "Тестирование", "Доработка", "Готово"):
+        raise RuntimeError("Awaiting owner-approved implementation #" + str(number) + ": " + str(now))
     if target_status == "В работе" and now not in ("В работе", "Тестирование", "Доработка", "Готово"):
         raise RuntimeError("In-progress status verification failed #" + str(number) + ": " + str(now))
     if target_status == "Концепция" and now is None:
