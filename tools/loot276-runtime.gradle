@@ -8,5 +8,6 @@ allprojects { afterEvaluate {
   programArgument '--nogui';jvmArgument '-Xmx2304M';jvmArgument '-XX:ActiveProcessorCount=4'
   gameDirectory=file(project.findProperty('loot276Dir') ?: 'work/loot276-runtime-20261026')
   systemProperty 'loot276.phase',project.findProperty('loot276Phase') ?: 'create'
+  if(project.hasProperty('loot276Out'))systemProperty 'loot276.out',project.property('loot276Out')
  } }
 } }

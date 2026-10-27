@@ -17,12 +17,12 @@ public final class OnDemandStructures {
  }
  public static int locate(CommandSourceStack source,String id){
   String family=id.startsWith("kurgan_")?"kurgan":id.startsWith("bandit_camp_")?"bandit_camp":null;
-  if(family==null)return TemplateSiteJobs.create(source,id);
+  if(family==null)return ExistingSiteSearch.locate(source,id);
   int tier=id.endsWith("small")?0:id.endsWith("great")||id.endsWith("large")?2:1;
   var origin=BlockPos.containing(source.getPosition());var known=ManualStructureRecords.get(source.getLevel()).entries().stream().filter(e->e.family().equals(family)&&e.tier()==tier&&e.arrival().distSqr(origin)<=1024.*1024).min(java.util.Comparator.comparingDouble(e->e.arrival().distSqr(origin)));
   if(known.isPresent()){source.sendSuccess(()->net.minecraft.network.chat.Component.literal(id+": "+known.get().arrival().toShortString()),false);return 1;}
   if(family.equals("kurgan")){var burial=org.slavicmyths.kurgan.BurialRecords.get(source.getLevel()).instances.values().stream().filter(e->e.plan.tier==tier&&e.origin.distSqr(origin)<=1024.*1024).min(java.util.Comparator.comparingDouble(e->e.origin.distSqr(origin)));if(burial.isPresent()){var e=burial.get();var at=e.origin.offset(0,1,e.plan.radius+2);source.sendSuccess(()->net.minecraft.network.chat.Component.literal(id+": "+at.toShortString()),false);return 1;}}
-  return create(source,family,tier,result->{if(result.success())source.sendSuccess(()->net.minecraft.network.chat.Component.literal(id+": "+result.entrance().toShortString()),false);});
+  return ExistingSiteSearch.locate(source,id);
  }
  @net.neoforged.bus.api.SubscribeEvent public static void tick(net.neoforged.neoforge.event.tick.ServerTickEvent.Post e){
   for(var entry:List.copyOf(PENDING.entrySet())){if(entry.getValue().world.getServer()!=e.getServer())continue;var result=ManualStructureJobs.result(entry.getKey());if(result!=null){PENDING.remove(entry.getKey());for(var callback:entry.getValue().callbacks)try{callback.accept(result);}catch(RuntimeException failure){com.mojang.logging.LogUtils.getLogger().warn("Structure completion callback",failure);}}}

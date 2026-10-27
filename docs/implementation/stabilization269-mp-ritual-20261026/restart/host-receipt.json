@@ -1,0 +1,104 @@
+{
+  "master_volume": 0.3,
+  "GLFW_visible": 1,
+  "sent_phase_0_game_time": 14591,
+  "validated_phase_0": "openEmptyFire",
+  "openEmptyFire_expected_stock": {},
+  "sent_phase_1_game_time": 14661,
+  "validated_phase_1": "emptyFire",
+  "sent_phase_2_game_time": 14732,
+  "validated_phase_2": "openEmptySpring",
+  "openEmptySpring_expected_stock": {},
+  "sent_phase_3_game_time": 14802,
+  "validated_phase_3": "emptySpring",
+  "sent_phase_4_game_time": 14872,
+  "validated_phase_4": "repeatFire",
+  "sent_phase_5_game_time": 14942,
+  "validated_phase_5": "repeatPool0",
+  "sent_phase_6_game_time": 15012,
+  "validated_phase_6": "repeatPool1",
+  "checks": [
+    {
+      "test": "correct actual client connection role",
+      "status": "PASS"
+    },
+    {
+      "test": "two distinct actual client profiles connected",
+      "status": "PASS"
+    },
+    {
+      "test": "two real network players open unlocked menu openEmptyFire",
+      "status": "PASS"
+    },
+    {
+      "test": "pending table resolves exactly once openEmptyFire",
+      "status": "PASS"
+    },
+    {
+      "test": "expected actual reward state openEmptyFire",
+      "status": "PASS"
+    },
+    {
+      "test": "real client has synchronized ChestMenu for quick-move phase1",
+      "status": "PASS"
+    },
+    {
+      "test": "total component-aware stock preserved after two clients quick-move emptyFire",
+      "status": "PASS"
+    },
+    {
+      "test": "cache empty and no reroll emptyFire",
+      "status": "PASS"
+    },
+    {
+      "test": "two real network players open unlocked menu openEmptySpring",
+      "status": "PASS"
+    },
+    {
+      "test": "pending table resolves exactly once openEmptySpring",
+      "status": "PASS"
+    },
+    {
+      "test": "expected actual reward state openEmptySpring",
+      "status": "PASS"
+    },
+    {
+      "test": "real client has synchronized ChestMenu for quick-move phase3",
+      "status": "PASS"
+    },
+    {
+      "test": "total component-aware stock preserved after two clients quick-move emptySpring",
+      "status": "PASS"
+    },
+    {
+      "test": "cache empty and no reroll emptySpring",
+      "status": "PASS"
+    },
+    {
+      "test": "already restored fire consumes no extra embers after restart",
+      "status": "PASS"
+    },
+    {
+      "test": "repeat fire interaction does not refill cache",
+      "status": "PASS"
+    },
+    {
+      "test": "already clean pools consume no extra powder repeatPool0",
+      "status": "PASS"
+    },
+    {
+      "test": "repeat pool interaction does not refill cache repeatPool0",
+      "status": "PASS"
+    },
+    {
+      "test": "already clean pools consume no extra powder repeatPool1",
+      "status": "PASS"
+    },
+    {
+      "test": "repeat pool interaction does not refill cache repeatPool1",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS_NETWORK_RITUAL_SCOPE",
+  "scope": "two real clients over loopback TCP; actual useItemOn/container packets; supplied fixture/reagents, not natural Survival acquisition; server receipt timing not instrumented"
+}

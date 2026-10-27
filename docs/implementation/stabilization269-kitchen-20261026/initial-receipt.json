@@ -1,0 +1,70 @@
+{
+  "master_volume": 0.3,
+  "fps_limit": 30,
+  "render_distance": 2,
+  "available_processors": 2,
+  "max_heap_bytes": 1610612736,
+  "GLFW_visible": 1,
+  "saved_progress_before_stop": 51,
+  "saved_total": 160,
+  "checks": [
+    {
+      "test": "missing rolling pin prevents craft and consumption",
+      "status": "PASS"
+    },
+    {
+      "test": "blocked remainder slots prevent craft and consumption",
+      "status": "PASS"
+    },
+    {
+      "test": "actual block ticks start native80tick rolling recipe",
+      "status": "PASS"
+    },
+    {
+      "test": "rolling inputs consumed once on start",
+      "status": "PASS"
+    },
+    {
+      "test": "one empty bucket returned on start",
+      "status": "PASS"
+    },
+    {
+      "test": "output absent before native timer completion",
+      "status": "PASS"
+    },
+    {
+      "test": "busy rolling pin cannot be removed",
+      "status": "PASS"
+    },
+    {
+      "test": "real80tick completion produces exactly two dough",
+      "status": "PASS"
+    },
+    {
+      "test": "rolling tool retained",
+      "status": "PASS"
+    },
+    {
+      "test": "actual right-click packet opens KitchenMenu",
+      "status": "PASS"
+    },
+    {
+      "test": "client received real synchronized KitchenMenu action2",
+      "status": "PASS"
+    },
+    {
+      "test": "real client quick-move takes output exactly once",
+      "status": "PASS"
+    },
+    {
+      "test": "stop while native160tick pot recipe is genuinely in progress",
+      "status": "PASS"
+    },
+    {
+      "test": "three servings pending, no food prematurely available",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS_SINGLE_CLIENT_KITCHEN_SCOPE",
+  "scope": "one actual client/integrated server; native timer, supplied tools/ingredients; real menu packets; acquisition/MP NOT_RUN"
+}

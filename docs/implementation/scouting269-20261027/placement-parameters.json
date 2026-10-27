@@ -1,0 +1,88 @@
+{
+  "scope": "RESOURCE PARAMETERS ONLY, NOT MEASURED PHYSICAL WORLD DENSITY. Chud sets share one regional selector, do not sum. Terrain/biome/exclusion and weighted fallback affect final rate.",
+  "sets": [
+    {
+      "set": "kurgan_small",
+      "spacing_chunks": 50,
+      "cell_side_blocks": 800,
+      "cell_area_million_blocks2": 0.64,
+      "frequency": 1,
+      "type": "minecraft:random_spread",
+      "entries": [
+        {
+          "structure": "slavicmyths:kurgan_small",
+          "weight": 41
+        },
+        {
+          "structure": "slavicmyths:kurgan_warrior",
+          "weight": 4
+        },
+        {
+          "structure": "slavicmyths:kurgan_great",
+          "weight": 1
+        }
+      ],
+      "first_draw_equivalent_area_per_great_kurgan_million_blocks2": 29.44
+    },
+    {
+      "set": "chud_city",
+      "spacing_chunks": 256,
+      "cell_side_blocks": 4096,
+      "cell_area_million_blocks2": 16.777216,
+      "frequency": 1,
+      "type": "slavicmyths:chud_region",
+      "entries": [
+        {
+          "structure": "slavicmyths:chud_city",
+          "weight": 1
+        }
+      ],
+      "first_draw_equivalent_area_per_great_kurgan_million_blocks2": null
+    },
+    {
+      "set": "chud_abandoned",
+      "spacing_chunks": 256,
+      "cell_side_blocks": 4096,
+      "cell_area_million_blocks2": 16.777216,
+      "frequency": 1,
+      "type": "slavicmyths:chud_region",
+      "entries": [
+        {
+          "structure": "slavicmyths:chud_abandoned",
+          "weight": 1
+        }
+      ],
+      "first_draw_equivalent_area_per_great_kurgan_million_blocks2": null
+    },
+    {
+      "set": "serpent_hill",
+      "spacing_chunks": 80,
+      "cell_side_blocks": 1280,
+      "cell_area_million_blocks2": 1.6384,
+      "frequency": 1,
+      "type": "minecraft:random_spread",
+      "entries": [
+        {
+          "structure": "slavicmyths:serpent_hill",
+          "weight": 1
+        }
+      ],
+      "first_draw_equivalent_area_per_great_kurgan_million_blocks2": null
+    },
+    {
+      "set": "gorodishche",
+      "spacing_chunks": 128,
+      "cell_side_blocks": 2048,
+      "cell_area_million_blocks2": 4.194304,
+      "frequency": 1,
+      "type": "minecraft:random_spread",
+      "entries": [
+        {
+          "structure": "slavicmyths:gorodishche",
+          "weight": 1
+        }
+      ],
+      "first_draw_equivalent_area_per_great_kurgan_million_blocks2": null
+    }
+  ]
+}

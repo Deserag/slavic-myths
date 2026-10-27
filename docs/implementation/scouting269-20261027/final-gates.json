@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "version": "2.0.7-HELL",
+  "installed_and_rebuilt_jar_sha256": "6995a9fbc54f5e70f84227341cf020d309b27ae48f43b7c6fcfa7dd6c76dc221",
+  "compiled_classes_identical_to_installed_jar": 1950,
+  "QA_in_production": false,
+  "production_patch_unchanged_since_207": true,
+  "hell": true,
+  "main_unchanged": true,
+  "clean_build": "PASS 1m39s",
+  "offline_assertions": 7457,
+  "resources": 8031,
+  "json": 4432,
+  "png": 1443,
+  "models": 1886
+}

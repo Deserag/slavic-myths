@@ -1,0 +1,164 @@
+{
+  "master_volume": 0.3,
+  "GLFW_visible": 1,
+  "sent_phase_0_game_time": 11983,
+  "validated_phase_0": "sealedFire",
+  "sent_phase_1_game_time": 12053,
+  "validated_phase_1": "wrongFire",
+  "sent_phase_2_game_time": 12123,
+  "validated_phase_2": "fire",
+  "sent_phase_3_game_time": 12193,
+  "validated_phase_3": "openFire",
+  "openFire_expected_stock": {
+    "{components:{\"!minecraft:enchantments\":{},\"minecraft:stored_enchantments\":{levels:{\"minecraft:sharpness\":2}}},count:1,id:\"minecraft:enchanted_book\"}": 1,
+    "{count:1,id:\"minecraft:diamond\"}": 3,
+    "{count:1,id:\"slavicmyths:ancient_rune_fragment\"}": 1,
+    "{count:1,id:\"slavicmyths:flame_vial\"}": 1,
+    "{count:1,id:\"slavicmyths:perunite\"}": 2,
+    "{count:1,id:\"slavicmyths:purifying_ash\"}": 1,
+    "{count:1,id:\"slavicmyths:rune_strength\"}": 1,
+    "{count:1,id:\"slavicmyths:sacred_ember\"}": 3,
+    "{count:1,id:\"slavicmyths:silver_ingot\"}": 6
+  },
+  "sent_phase_4_game_time": 12263,
+  "validated_phase_4": "lootFire",
+  "sent_phase_5_game_time": 12333,
+  "validated_phase_5": "sealedSpring",
+  "sent_phase_6_game_time": 12403,
+  "validated_phase_6": "pool0",
+  "sent_phase_7_game_time": 12473,
+  "validated_phase_7": "halfSpring",
+  "sent_phase_8_game_time": 12543,
+  "validated_phase_8": "pool1",
+  "sent_phase_9_game_time": 12613,
+  "validated_phase_9": "openSpring",
+  "openSpring_expected_stock": {
+    "{components:{\"!minecraft:enchantments\":{},\"minecraft:stored_enchantments\":{levels:{\"minecraft:sharpness\":2}}},count:1,id:\"minecraft:enchanted_book\"}": 1,
+    "{count:1,id:\"minecraft:diamond\"}": 3,
+    "{count:1,id:\"slavicmyths:ancient_rune_fragment\"}": 1,
+    "{count:1,id:\"slavicmyths:perunite\"}": 2,
+    "{count:1,id:\"slavicmyths:pure_spring_drop\"}": 3,
+    "{count:1,id:\"slavicmyths:purification_stone\"}": 1,
+    "{count:1,id:\"slavicmyths:rune_strength\"}": 1,
+    "{count:1,id:\"slavicmyths:silver_ingot\"}": 6,
+    "{count:1,id:\"slavicmyths:spring_tear\"}": 1
+  },
+  "sent_phase_10_game_time": 12683,
+  "validated_phase_10": "lootSpring",
+  "checks": [
+    {
+      "test": "correct actual client connection role",
+      "status": "PASS"
+    },
+    {
+      "test": "two distinct actual client profiles connected",
+      "status": "PASS"
+    },
+    {
+      "test": "fire remains sealed after sealedFire",
+      "status": "PASS"
+    },
+    {
+      "test": "neither network player opens sealed fire menu sealedFire",
+      "status": "PASS"
+    },
+    {
+      "test": "fire remains sealed after wrongFire",
+      "status": "PASS"
+    },
+    {
+      "test": "neither network player opens sealed fire menu wrongFire",
+      "status": "PASS"
+    },
+    {
+      "test": "real duplicate client interactions restore fire",
+      "status": "PASS"
+    },
+    {
+      "test": "two concurrent fire requests consume exactly one of two embers",
+      "status": "PASS"
+    },
+    {
+      "test": "two real network players open unlocked menu openFire",
+      "status": "PASS"
+    },
+    {
+      "test": "pending table resolves exactly once openFire",
+      "status": "PASS"
+    },
+    {
+      "test": "expected actual reward state openFire",
+      "status": "PASS"
+    },
+    {
+      "test": "real client has synchronized ChestMenu for quick-move phase4",
+      "status": "PASS"
+    },
+    {
+      "test": "total component-aware stock preserved after two clients quick-move lootFire",
+      "status": "PASS"
+    },
+    {
+      "test": "cache empty and no reroll lootFire",
+      "status": "PASS"
+    },
+    {
+      "test": "spring sealed after sealedSpring",
+      "status": "PASS"
+    },
+    {
+      "test": "both clients denied spring menu sealedSpring",
+      "status": "PASS"
+    },
+    {
+      "test": "one pool does not complete network ritual",
+      "status": "PASS"
+    },
+    {
+      "test": "duplicate pool0 requests consume exactly one powder",
+      "status": "PASS"
+    },
+    {
+      "test": "spring sealed after halfSpring",
+      "status": "PASS"
+    },
+    {
+      "test": "both clients denied spring menu halfSpring",
+      "status": "PASS"
+    },
+    {
+      "test": "second pool completes network ritual",
+      "status": "PASS"
+    },
+    {
+      "test": "two pools consume two of four supplied powders",
+      "status": "PASS"
+    },
+    {
+      "test": "two real network players open unlocked menu openSpring",
+      "status": "PASS"
+    },
+    {
+      "test": "pending table resolves exactly once openSpring",
+      "status": "PASS"
+    },
+    {
+      "test": "expected actual reward state openSpring",
+      "status": "PASS"
+    },
+    {
+      "test": "real client has synchronized ChestMenu for quick-move phase10",
+      "status": "PASS"
+    },
+    {
+      "test": "total component-aware stock preserved after two clients quick-move lootSpring",
+      "status": "PASS"
+    },
+    {
+      "test": "cache empty and no reroll lootSpring",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS_NETWORK_RITUAL_SCOPE",
+  "scope": "two real clients over loopback TCP; actual useItemOn/container packets; supplied fixture/reagents, not natural Survival acquisition; server receipt timing not instrumented"
+}

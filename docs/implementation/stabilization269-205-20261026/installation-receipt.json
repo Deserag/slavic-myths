@@ -1,0 +1,21 @@
+{
+  "status": "INSTALLED_TEST_BUILD_NOT_OWNER_ACCEPTED",
+  "version": "2.0.5-HELL",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.5-HELL.jar",
+  "installed_sha256": "1746acf792f1599f8d36dbc855c88823e7ecd71bf072053cefd01f823dbd55df",
+  "mod_jar_count": 1,
+  "source_commit": "61cb344eeaf3a31db098052800a5e8ab710568de",
+  "source_dirty": true,
+  "source_production_patch": "D:\\slavic-myths\\docs\\implementation\\stabilization269-205-20261026\\source-production.patch",
+  "source_production_patch_sha256": "4e9681b1fe0105cd276d1d80b483b089fe05237445e5d2b7c52b008b89e6d12c",
+  "backup": "D:\\slavic-myths-backups\\stabilization269-205-20261026T180601Z\\slavicmyths-2.0.4-HELL.jar",
+  "backup_sha256": "1c22bf186ab6886fee8a464fb44b123620354ef93ee0f990d1208660d3743010",
+  "previous_installed_sha256": "1c22bf186ab6886fee8a464fb44b123620354ef93ee0f990d1208660d3743010",
+  "java21_clean_build": "PASS",
+  "resources": "PASS",
+  "actual_jar_save_checks": 415,
+  "gameplay_classes_identical_to_tested_204_snapshot": 1950,
+  "worlds_modified_by_install": false,
+  "launcher_started_by_install": false,
+  "timestamp_utc": "2026-10-26T18:06:01.585716+00:00"
+}

@@ -1,0 +1,20 @@
+{
+  "actual-saved-chunks.json": "cbe9c1c8c2359d77abbe8a448afa4d26d538aea9892ced23d860ad10ba94b1b9",
+  "actual-yaga-menu.png": "8aa4a155ac5adbdc694207add8e4c633f11e841adc482edad608ad3576a66be3",
+  "clean-build.log": "17e2124e30522c2eb061586e2b1dc6499a756a722d0b96a37213c767a46fc854",
+  "client.log": "b421b0ee22d6ddfe57fc2684526245868329e31579bfdf55519af56814bd6bc5",
+  "constructed-city-ticket-release-qa-failed.json": "9c9b34c69994efba6ecea67b49a890ccea26ddb631310ab6d511fb9da3155342",
+  "constructed-city-ticket-release-qa-failed.log": "c55b1a20a23a8a48eb2845101da3cef8ae0cc352bc1d0a3576a3d7ceffea0aef",
+  "final-gates.json": "01a61ca661d1a0e8daca768a08dc2a088fec7cb3c23e8ec86628101d2810c578",
+  "first-native-menu-fixture-interrupted.log": "7d56fa5200a55d191e6b5a26f46410f95eb1052ad908af81f550e4e947ad28ee",
+  "native-progress.json": "c7226dc32863712d439820b5d40146dc23a855f2ff219c7597d0a9d9d94bd0fd",
+  "placement-parameters.json": "9f500378eb711be1d16d2400165a5bfeabf09e534373d2ca2d7f9376f931d118",
+  "receipt.json": "322330a65d93ab97f76e8a4b3073fe7bfc656d70d95c8c330f35ffc6abf8ca55",
+  "REPORT.md": "7eb92c0aaeb2e933cf3bfb667124871d1797caac5c0337f8870971e0c7655e2e",
+  "resources.log": "405fa3a02200d1cde63db25950e671f806b28c094576976cc2b45fd9434b9b2f",
+  "setup.json": "5aba2ff6cefc0bcbafc370675ac38562607c72327951dafb4bfbb2c9d6117b1f",
+  "summary.json": "c0742f9dc610e0cc48936e858400eb565ad5e6c8d33179b656d0396e909ad91a",
+  "survey-client.log": "b6dabd91f618af136af0939f6c86002b04da595d48db7d86812bfd636562290c",
+  "survey-receipt.json": "76e8e6ccb80fe723c63c1f4735a1df28b04beaa24005a74201df2686bc9fd2c4",
+  "yaga-protected-terrain-refused.log": "0d8c85e1b3ebd4fc8537d7e6aadf85caaf2c80ba65173dfd3c02d5e229067080"
+}

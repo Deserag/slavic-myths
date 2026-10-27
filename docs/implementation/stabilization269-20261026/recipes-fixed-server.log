@@ -1,0 +1,1701 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileStabilization269Java
+> Task :downloadAssets UP-TO-DATE
+> Task :writeStabilization269ServerLegacyClasspath UP-TO-DATE
+> Task :prepareStabilization269ServerRun
+> Task :processStabilization269Resources NO-SOURCE
+> Task :stabilization269Classes
+
+> Task :runStabilization269Server
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[15:33:50] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430, --nogui]
+[15:33:50] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[15:33:50] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[15:33:50] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[15:33:50] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[15:33:50] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[15:33:50] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 2.0.4-HELL (slavicmyths)
+[15:33:51] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[15:33:51] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, ., --nogui]
+[15:33:51] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[15:33:51] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[15:33:52] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[15:33:53] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[15:34:00] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15:34:00] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15:34:00] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[15:34:00] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[15:34:00] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15:34:00] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[15:34:02] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[15:34:02] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[15:34:02] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[15:34:04] [main/INFO] [minecraft/RecipeManager]: Loaded 1853 recipes
+[15:34:04] [main/INFO] [minecraft/AdvancementTree]: Loaded 1643 advancements
+[15:34:04] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[15:34:04] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[15:34:05] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.21.1
+[15:34:05] [Server thread/INFO] [minecraft/DedicatedServer]: Loading properties
+[15:34:05] [Server thread/INFO] [minecraft/DedicatedServer]: Default game type: SURVIVAL
+[15:34:05] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[15:34:05] [Server thread/INFO] [minecraft/DedicatedServer]: Starting Minecraft server on 127.0.0.1:25769
+[15:34:05] [Server thread/INFO] [minecraft/ServerConnectionListener]: Using default channel type
+[15:34:05] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[15:34:05] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.
+[15:34:05] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[15:34:05] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set "online-mode" to "true" in the server.properties file.
+[15:34:05] [Server thread/INFO] [minecraft/DedicatedServer]: Preparing level "stabilization269-test"
+[15:34:07] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[15:34:08] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[15:34:08] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[15:34:08] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[15:34:08] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 1120 ms
+[15:34:08] [Server thread/INFO] [minecraft/DedicatedServer]: Done (3.281s)! For help, type "help"
+[15:34:08] [Server thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[15:34:08] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+QA269 PASS native_loaded_recipes native RecipeManager loaded without recipe errors
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:honey_flatbread
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:honey_flatbread
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:honey_flatbread
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:honey_flatbread
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:straw_block
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:straw_block
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:straw_block
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:straw_block
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bear_stew
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bear_stew
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bear_stew
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:bear_stew
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_bench
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_bench
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_bench
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_bench
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:tallow_candle
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:tallow_candle
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:tallow_candle
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:tallow_candle
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:navya_planks
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:navya_planks
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:navya_planks
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:navya_planks
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_bedside_cabinet
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_bedside_cabinet
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_bedside_cabinet
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_bedside_cabinet
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:wall_shelf
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:wall_shelf
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:wall_shelf
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:wall_shelf
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_stairs
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_stairs
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_stairs
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_stairs
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:claw_knife
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:claw_knife
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:claw_knife
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:claw_knife
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rowan_wood
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rowan_wood
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rowan_wood
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rowan_wood
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:navya_wood
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:navya_wood
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:navya_wood
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:navya_wood
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:navya_stairs
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:navya_stairs
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:navya_stairs
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:navya_stairs
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:oat_groats
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:oat_groats
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:oat_groats
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:oat_groats
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:perunite_shield
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:perunite_shield
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:perunite_shield
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:perunite_shield
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bog_green_kurgan_stone
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bog_green_kurgan_stone
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bog_green_kurgan_stone
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:bog_green_kurgan_stone
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:baked_turnip_smoking
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:baked_turnip_smoking
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:baked_turnip_smoking
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:baked_turnip_smoking
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linen_headscarf
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linen_headscarf
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linen_headscarf
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linen_headscarf
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_flail_handle
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_flail_handle
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_flail_handle
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_flail_handle
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cracked_pale_blue_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cracked_pale_blue_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cracked_pale_blue_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:cracked_pale_blue_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:malt_sack
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:malt_sack
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:malt_sack
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:malt_sack
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rowan_button
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rowan_button
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rowan_button
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rowan_button
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:thunder_crystal_powder
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:thunder_crystal_powder
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:thunder_crystal_powder
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:thunder_crystal_powder
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:stripped_apple_wood
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:stripped_apple_wood
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:stripped_apple_wood
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:stripped_apple_wood
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:willow_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:willow_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:willow_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:willow_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:honey_bread
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:honey_bread
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:honey_bread
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:honey_bread
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:traveler_charm
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:traveler_charm
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:traveler_charm
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:traveler_charm
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:wheat_flour
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:wheat_flour
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:wheat_flour
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:wheat_flour
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:navya_trapdoor
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:navya_trapdoor
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:navya_trapdoor
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:navya_trapdoor
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pale_blue_kurgan_stone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pale_blue_kurgan_stone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pale_blue_kurgan_stone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mossy_pale_blue_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mossy_pale_blue_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mossy_pale_blue_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:mossy_pale_blue_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:baked_apple
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:baked_apple
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:baked_apple
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:baked_apple
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:refining_hearth
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:refining_hearth
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:refining_hearth
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:refining_hearth
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rye_sheaf
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rye_sheaf
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rye_sheaf
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rye_sheaf
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rowan_door
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rowan_door
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rowan_door
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rowan_door
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cranberry_sapling_from_berries
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cranberry_sapling_from_berries
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cranberry_sapling_from_berries
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:cranberry_sapling_from_berries
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:silver_nugget
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:silver_nugget
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:silver_nugget
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:silver_nugget
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:perunite_sword
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:perunite_sword
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:perunite_sword
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:perunite_sword
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:ruined_serpent_masonry
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:ruined_serpent_masonry
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:ruined_serpent_masonry
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:ruined_serpent_masonry
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:navya_hanging_sign
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:navya_hanging_sign
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:navya_hanging_sign
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:navya_hanging_sign
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_silver_spearhead
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_silver_spearhead
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_silver_spearhead
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_silver_spearhead
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:perunite_hoe
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:perunite_hoe
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:perunite_hoe
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:perunite_hoe
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cracked_pale_blue_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cracked_pale_blue_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cracked_pale_blue_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:underground_guard_belt
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:underground_guard_belt
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:underground_guard_belt
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:underground_guard_belt
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_iron_flail_ball
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_iron_flail_ball
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_iron_flail_ball
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_iron_flail_ball
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:butchering_knife
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:butchering_knife
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:butchering_knife
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:butchering_knife
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bog_green_kurgan_stone_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bog_green_kurgan_stone_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bog_green_kurgan_stone_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:bog_green_kurgan_stone_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_fence
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_fence
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_fence
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_fence
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:navya_pressure_plate
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:navya_pressure_plate
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:navya_pressure_plate
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:navya_pressure_plate
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cracked_bog_green_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cracked_bog_green_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cracked_bog_green_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:cracked_bog_green_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:sarafan
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:sarafan
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:sarafan
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:sarafan
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:silver_block
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:silver_block
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:silver_block
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:silver_block
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:millstone
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:millstone
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:millstone
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:millstone
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:defiled_ritual_brazier
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:defiled_ritual_brazier
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:defiled_ritual_brazier
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:defiled_ritual_brazier
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:barley_sheaf_unpack
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:barley_sheaf_unpack
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:barley_sheaf_unpack
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:barley_sheaf_unpack
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_bench
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_bench
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_bench
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_bench
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rowan_fence_gate
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rowan_fence_gate
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rowan_fence_gate
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rowan_fence_gate
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pale_blue_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pale_blue_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pale_blue_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pale_blue_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bog_green_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bog_green_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bog_green_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:bog_green_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:willow_wood
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:willow_wood
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:willow_wood
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:willow_wood
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bog_green_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bog_green_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bog_green_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linen_bed
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linen_bed
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linen_bed
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linen_bed
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:perunite_pickaxe
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:perunite_pickaxe
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:perunite_pickaxe
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:perunite_pickaxe
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cooked_goat_from_smoking
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cooked_goat_from_smoking
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cooked_goat_from_smoking
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cooked_goat_from_smoking
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:carved_oak_pillar
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:carved_oak_pillar
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:carved_oak_pillar
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:carved_oak_pillar
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:field_hoe
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:field_hoe
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:field_hoe
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:field_hoe
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:barley_sheaf
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:barley_sheaf
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:barley_sheaf
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:barley_sheaf
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:apple_pressure_plate
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:apple_pressure_plate
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:apple_pressure_plate
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:apple_pressure_plate
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mor_crystal
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mor_crystal
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mor_crystal
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:mor_crystal
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_pressure_plate
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_pressure_plate
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_pressure_plate
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_pressure_plate
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:carved_burial_stone_slab_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:carved_burial_stone_slab_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:carved_burial_stone_slab_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bog_green_kurgan_stone_wall_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bog_green_kurgan_stone_wall_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bog_green_kurgan_stone_wall_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:thunder_stone
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:thunder_stone
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:thunder_stone
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:thunder_stone
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:navya_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:navya_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:navya_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:navya_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_planks
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_planks
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_planks
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_planks
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_button
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_button
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_button
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_button
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:straw_nest
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:straw_nest
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:straw_nest
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:straw_nest
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:beast_challenge_horn
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:beast_challenge_horn
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:beast_challenge_horn
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:beast_challenge_horn
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bog_green_kurgan_stone_slab_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bog_green_kurgan_stone_slab_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bog_green_kurgan_stone_slab_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cleansing_powder_from_ash
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cleansing_powder_from_ash
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cleansing_powder_from_ash
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:cleansing_powder_from_ash
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:meshochek_trofeev
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:meshochek_trofeev
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:meshochek_trofeev
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:meshochek_trofeev
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_stool
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_stool
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_stool
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_stool
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:seven_league_boots
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:seven_league_boots
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:seven_league_boots
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:seven_league_boots
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:purifying_ash
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:purifying_ash
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:purifying_ash
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:purifying_ash
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:ritual_bowl
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:ritual_bowl
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:ritual_bowl
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:ritual_bowl
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_wardrobe
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_wardrobe
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_wardrobe
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_wardrobe
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:darkened_fence
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:darkened_fence
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:darkened_fence
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:darkened_fence
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:apple_trapdoor
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:apple_trapdoor
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:apple_trapdoor
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:apple_trapdoor
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pale_blue_kurgan_stone_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pale_blue_kurgan_stone_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pale_blue_kurgan_stone_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:flour
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:flour
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:flour
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:flour
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_fence
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_fence
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_fence
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_fence
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:willow_door
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:willow_door
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:willow_door
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:willow_door
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:serpent_torch
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:serpent_torch
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:serpent_torch
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:serpent_torch
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pale_blue_kurgan_stone_wall_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pale_blue_kurgan_stone_wall_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pale_blue_kurgan_stone_wall_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pork_stew
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pork_stew
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pork_stew
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pork_stew
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:stripped_navya_wood
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:stripped_navya_wood
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:stripped_navya_wood
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:stripped_navya_wood
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pale_blue_kurgan_stone_slab_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pale_blue_kurgan_stone_slab_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pale_blue_kurgan_stone_slab_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:retribution_charm
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:retribution_charm
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:retribution_charm
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:retribution_charm
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:training_dummy
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:training_dummy
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:training_dummy
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:training_dummy
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:loom_table
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:loom_table
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:loom_table
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:loom_table
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:berry_mors
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:berry_mors
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:berry_mors
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:berry_mors
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:silver_fitting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:silver_fitting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:silver_fitting
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:silver_fitting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:ritual_knife
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:ritual_knife
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:ritual_knife
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:ritual_knife
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:feeder
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:feeder
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:feeder
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:feeder
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rowan_pressure_plate
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rowan_pressure_plate
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rowan_pressure_plate
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rowan_pressure_plate
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:druzhinnik_table
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:druzhinnik_table
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:druzhinnik_table
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:druzhinnik_table
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:firewood_bundle
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:firewood_bundle
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:firewood_bundle
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:firewood_bundle
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pale_blue_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pale_blue_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pale_blue_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pale_blue_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:field_sign
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:field_sign
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:field_sign
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:field_sign
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mossy_bog_green_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mossy_bog_green_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mossy_bog_green_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:mossy_bog_green_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mossy_bog_green_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mossy_bog_green_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mossy_bog_green_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:mossy_bog_green_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:serpent_masonry
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:serpent_masonry
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:serpent_masonry
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:serpent_masonry
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pancakes
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pancakes
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pancakes
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pancakes
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:raspberry_sapling_from_berries
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:raspberry_sapling_from_berries
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:raspberry_sapling_from_berries
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:raspberry_sapling_from_berries
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pool_spear
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pool_spear
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pool_spear
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pool_spear
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mor_horn
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mor_horn
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mor_horn
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:mor_horn
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_wood
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_wood
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_wood
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_wood
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:willow_pressure_plate
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:willow_pressure_plate
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:willow_pressure_plate
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:willow_pressure_plate
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:herb_pouch
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:herb_pouch
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:herb_pouch
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:herb_pouch
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_diamond_spearhead
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_diamond_spearhead
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_diamond_spearhead
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_diamond_spearhead
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_door
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_door
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_door
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_door
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_iron_blank
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_iron_blank
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_iron_blank
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_iron_blank
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_trapdoor
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_trapdoor
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_trapdoor
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_trapdoor
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:silver_spear
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:silver_spear
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:silver_spear
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:silver_spear
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:oat_sheaf_unpack
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:oat_sheaf_unpack
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:oat_sheaf_unpack
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:oat_sheaf_unpack
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_silver_flail_ball
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_silver_flail_ball
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_silver_flail_ball
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_silver_flail_ball
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bone_arrow
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bone_arrow
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bone_arrow
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:bone_arrow
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:amber_block
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:amber_block
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:amber_block
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:amber_block
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_stool
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_stool
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_stool
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_stool
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:ancient_hanging_lamp
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:ancient_hanging_lamp
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:ancient_hanging_lamp
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:ancient_hanging_lamp
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cooked_goose_from_smelting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cooked_goose_from_smelting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cooked_goose_from_smelting
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cooked_goose_from_smelting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:vetrovoy_uzel
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:vetrovoy_uzel
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:vetrovoy_uzel
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:vetrovoy_uzel
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cooked_venison
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cooked_venison
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cooked_venison
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cooked_venison
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:apple_door
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:apple_door
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:apple_door
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:apple_door
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:willow_planks
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:willow_planks
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:willow_planks
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:willow_planks
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cooked_boar_meat
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cooked_boar_meat
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cooked_boar_meat
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cooked_boar_meat
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_weapon_rack
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_weapon_rack
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_weapon_rack
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_weapon_rack
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:basket
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:basket
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:basket
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:basket
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:willow_button
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:willow_button
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:willow_button
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:willow_button
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:reed_string
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:reed_string
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:reed_string
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:reed_string
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:apple_wood
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:apple_wood
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:apple_wood
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:apple_wood
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:apple_hanging_sign
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:apple_hanging_sign
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:apple_hanging_sign
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:apple_hanging_sign
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cooked_bear_meat
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cooked_bear_meat
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cooked_bear_meat
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cooked_bear_meat
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_spear_shaft
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_spear_shaft
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_spear_shaft
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_spear_shaft
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:storage_shelf
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:storage_shelf
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:storage_shelf
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:storage_shelf
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:fruit_press
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:fruit_press
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:fruit_press
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:fruit_press
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_gold_spearhead
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_gold_spearhead
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_gold_spearhead
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_gold_spearhead
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pale_blue_kurgan_stone_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pale_blue_kurgan_stone_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pale_blue_kurgan_stone_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pale_blue_kurgan_stone_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pale_blue_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pale_blue_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pale_blue_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pale_blue_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:wall_carving
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:wall_carving
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:wall_carving
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:wall_carving
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:trophy_kalin_sabre
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:trophy_kalin_sabre
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:trophy_kalin_sabre
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:trophy_kalin_sabre
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:birch_bark_scroll
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:birch_bark_scroll
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:birch_bark_scroll
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:birch_bark_scroll
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:ritual_candle
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:ritual_candle
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:ritual_candle
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:ritual_candle
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:spear
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:spear
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:spear
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:spear
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cracked_pale_blue_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cracked_pale_blue_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cracked_pale_blue_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:silver_ingot_from_ore
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:silver_ingot_from_ore
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:silver_ingot_from_ore
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:silver_ingot_from_ore
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bog_green_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bog_green_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bog_green_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cracked_bog_green_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cracked_bog_green_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cracked_bog_green_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cracked_pale_blue_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cracked_pale_blue_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cracked_pale_blue_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:cracked_pale_blue_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:organic_fertilizer
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:organic_fertilizer
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:organic_fertilizer
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:organic_fertilizer
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:forest_mix
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:forest_mix
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:forest_mix
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:forest_mix
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:path_stone
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:path_stone
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:path_stone
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:path_stone
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:depth_amulet
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:depth_amulet
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:depth_amulet
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:depth_amulet
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_button
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_button
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_button
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_button
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bog_green_kurgan_stone_stairs
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bog_green_kurgan_stone_stairs
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bog_green_kurgan_stone_stairs
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:bog_green_kurgan_stone_stairs
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mossy_pale_blue_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mossy_pale_blue_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mossy_pale_blue_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cooked_pike_campfire_cooking
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cooked_pike_campfire_cooking
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cooked_pike_campfire_cooking
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cooked_pike_campfire_cooking
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pale_blue_kurgan_stone_stairs
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pale_blue_kurgan_stone_stairs
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pale_blue_kurgan_stone_stairs
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pale_blue_kurgan_stone_stairs
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:small_keg
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:small_keg
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:small_keg
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:small_keg
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cracked_pale_blue_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cracked_pale_blue_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cracked_pale_blue_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bog_green_kurgan_stone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bog_green_kurgan_stone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bog_green_kurgan_stone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:settlement_chest
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:settlement_chest
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:settlement_chest
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:settlement_chest
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_silver_light_spearhead
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_silver_light_spearhead
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_silver_light_spearhead
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_silver_light_spearhead
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_table
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_table
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_table
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_table
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bog_green_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bog_green_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bog_green_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:bog_green_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:sosud_ognennogo_dyhaniya
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:sosud_ognennogo_dyhaniya
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:sosud_ognennogo_dyhaniya
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:sosud_ognennogo_dyhaniya
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:fading_flame_charm
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:fading_flame_charm
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:fading_flame_charm
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:fading_flame_charm
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:haystack
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:haystack
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:haystack
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:haystack
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_stairs
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_stairs
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_stairs
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_stairs
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:hair_charm
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:hair_charm
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:hair_charm
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:hair_charm
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_bedside_cabinet
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_bedside_cabinet
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_bedside_cabinet
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_bedside_cabinet
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_trapdoor
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_trapdoor
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_trapdoor
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_trapdoor
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_diamond_light_spearhead
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_diamond_light_spearhead
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_diamond_light_spearhead
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_diamond_light_spearhead
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:harvest_ring
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:harvest_ring
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:harvest_ring
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:harvest_ring
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mossy_bog_green_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mossy_bog_green_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mossy_bog_green_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:mossy_bog_green_kurgan_cobblestone_wall
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:darkened_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:darkened_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:darkened_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:darkened_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:wooden_mug
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:wooden_mug
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:wooden_mug
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:wooden_mug
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_diamond_flail_ball
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_diamond_flail_ball
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_diamond_flail_ball
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_diamond_flail_ball
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:large_basket
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:large_basket
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:large_basket
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:large_basket
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cracked_bog_green_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cracked_bog_green_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cracked_bog_green_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_door
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_door
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_door
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_door
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:blank_rune_1_from_ancient
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:blank_rune_1_from_ancient
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:blank_rune_1_from_ancient
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:blank_rune_1_from_ancient
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:resin_ring
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:resin_ring
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:resin_ring
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:resin_ring
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rowan_trapdoor
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rowan_trapdoor
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rowan_trapdoor
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rowan_trapdoor
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:perunite_shovel
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:perunite_shovel
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:perunite_shovel
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:perunite_shovel
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:uzel_durnoy_doli
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:uzel_durnoy_doli
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:uzel_durnoy_doli
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:uzel_durnoy_doli
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bog_green_kurgan_stone_wall
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bog_green_kurgan_stone_wall
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bog_green_kurgan_stone_wall
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:bog_green_kurgan_stone_wall
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:blackcurrant_sapling_from_berries
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:blackcurrant_sapling_from_berries
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:blackcurrant_sapling_from_berries
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:blackcurrant_sapling_from_berries
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rowan_sign
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rowan_sign
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rowan_sign
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rowan_sign
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:venison_stew
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:venison_stew
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:venison_stew
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:venison_stew
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_wardrobe
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_wardrobe
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_wardrobe
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_wardrobe
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:carved_burial_stone_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:carved_burial_stone_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:carved_burial_stone_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:carved_burial_stone_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:lingonberry_sapling_from_berries
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:lingonberry_sapling_from_berries
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:lingonberry_sapling_from_berries
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:lingonberry_sapling_from_berries
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:wooden_crate
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:wooden_crate
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:wooden_crate
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:wooden_crate
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:willow_trapdoor
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:willow_trapdoor
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:willow_trapdoor
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:willow_trapdoor
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:darkened_planks
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:darkened_planks
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:darkened_planks
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:darkened_planks
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:apple_stairs
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:apple_stairs
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:apple_stairs
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:apple_stairs
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:smoked_carp
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:smoked_carp
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:smoked_carp
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:smoked_carp
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:produce_crate
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:produce_crate
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:produce_crate
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:produce_crate
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:retainer_shield
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:retainer_shield
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:retainer_shield
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:retainer_shield
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:amber_from_block
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:amber_from_block
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:amber_from_block
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:amber_from_block
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_table
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_table
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_table
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_table
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:perunite_chestplate
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:perunite_chestplate
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:perunite_chestplate
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:perunite_chestplate
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_fence_gate
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_fence_gate
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_fence_gate
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_fence_gate
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:juniper_blend
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:juniper_blend
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:juniper_blend
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:juniper_blend
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rolling_pin
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rolling_pin
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rolling_pin
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rolling_pin
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:noon_stone
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:noon_stone
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:noon_stone
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:noon_stone
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linen_apron
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linen_apron
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linen_apron
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linen_apron
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_stripped_wood
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_stripped_wood
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_stripped_wood
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_stripped_wood
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_perunite_light_spearhead
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_perunite_light_spearhead
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_perunite_light_spearhead
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_perunite_light_spearhead
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pale_blue_kurgan_stone_wall
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pale_blue_kurgan_stone_wall
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pale_blue_kurgan_stone_wall
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pale_blue_kurgan_stone_wall
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:veles_amulet
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:veles_amulet
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:veles_amulet
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:veles_amulet
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_gold_flail_ball
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_gold_flail_ball
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_gold_flail_ball
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_gold_flail_ball
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:prospectors_ring
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:prospectors_ring
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:prospectors_ring
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:prospectors_ring
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cracked_bog_green_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cracked_bog_green_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cracked_bog_green_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:cracked_bog_green_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pale_blue_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pale_blue_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pale_blue_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:carved_birch_planks
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:carved_birch_planks
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:carved_birch_planks
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:carved_birch_planks
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pale_blue_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pale_blue_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pale_blue_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:runic_anvil
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:runic_anvil
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:runic_anvil
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:runic_anvil
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pale_blue_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pale_blue_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pale_blue_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pale_blue_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:miners_goggles
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:miners_goggles
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:miners_goggles
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:miners_goggles
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:watering_can
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:watering_can
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:watering_can
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:watering_can
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:ritual_brazier
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:ritual_brazier
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:ritual_brazier
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:ritual_brazier
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:navya_fence
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:navya_fence
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:navya_fence
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:navya_fence
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:berdysh
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:berdysh
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:berdysh
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:berdysh
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:ground_wormwood
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:ground_wormwood
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:ground_wormwood
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:ground_wormwood
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:drying_rack
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:drying_rack
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:drying_rack
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:drying_rack
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:zolny_obereg
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:zolny_obereg
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:zolny_obereg
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:zolny_obereg
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:wooden_tub
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:wooden_tub
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:wooden_tub
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:wooden_tub
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:club
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:club
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:club
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:club
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_wood
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_wood
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_wood
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_wood
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_shelf
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_shelf
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_shelf
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_shelf
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:warding_charm
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:warding_charm
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:warding_charm
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:warding_charm
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:ceramic_pitcher
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:ceramic_pitcher
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:ceramic_pitcher
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:ceramic_pitcher
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:apple_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:apple_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:apple_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:apple_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:nightingale_whistle
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:nightingale_whistle
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:nightingale_whistle
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:nightingale_whistle
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_stone_light_spearhead
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_stone_light_spearhead
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_stone_light_spearhead
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_stone_light_spearhead
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:navya_sign
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:navya_sign
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:navya_sign
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:navya_sign
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:raspberry_pancakes
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:raspberry_pancakes
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:raspberry_pancakes
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:raspberry_pancakes
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:flax_breaker
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:flax_breaker
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:flax_breaker
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:flax_breaker
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bog_green_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bog_green_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bog_green_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:bog_green_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:willow_sign
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:willow_sign
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:willow_sign
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:willow_sign
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:darkened_stairs
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:darkened_stairs
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:darkened_stairs
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:darkened_stairs
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linen_shirt
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linen_shirt
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linen_shirt
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linen_shirt
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:darkened_trapdoor
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:darkened_trapdoor
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:darkened_trapdoor
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:darkened_trapdoor
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:darkened_door
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:darkened_door
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:darkened_door
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:darkened_door
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cracked_serpent_masonry
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cracked_serpent_masonry
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cracked_serpent_masonry
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:cracked_serpent_masonry
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_stone_flail_ball
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_stone_flail_ball
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_stone_flail_ball
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_stone_flail_ball
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:old_hook
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:old_hook
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:old_hook
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:old_hook
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mossy_bog_green_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mossy_bog_green_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mossy_bog_green_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:perunite_leggings
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:perunite_leggings
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:perunite_leggings
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:perunite_leggings
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_shelf
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_shelf
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_shelf
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_shelf
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:flame_vial
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:flame_vial
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:flame_vial
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:flame_vial
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cooked_duck_from_smoking
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cooked_duck_from_smoking
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cooked_duck_from_smoking
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cooked_duck_from_smoking
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cooked_crayfish_campfire_cooking
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cooked_crayfish_campfire_cooking
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cooked_crayfish_campfire_cooking
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cooked_crayfish_campfire_cooking
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mossy_pale_blue_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mossy_pale_blue_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mossy_pale_blue_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:mossy_pale_blue_kurgan_cobblestone_stairs
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:household_chest
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:household_chest
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:household_chest
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:household_chest
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:metal_pot
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:metal_pot
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:metal_pot
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:metal_pot
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:barley_groats
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:barley_groats
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:barley_groats
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:barley_groats
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cooked_crayfish_smelting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cooked_crayfish_smelting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cooked_crayfish_smelting
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cooked_crayfish_smelting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:leshy_necklace
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:leshy_necklace
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:leshy_necklace
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:leshy_necklace
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:folk_vest
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:folk_vest
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:folk_vest
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:folk_vest
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:trophy_idol_chest
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:trophy_idol_chest
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:trophy_idol_chest
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:trophy_idol_chest
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:dobrynya_call_emblem
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:dobrynya_call_emblem
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:dobrynya_call_emblem
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:dobrynya_call_emblem
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:oat_sheaf
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:oat_sheaf
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:oat_sheaf
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:oat_sheaf
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:spark_ring
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:spark_ring
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:spark_ring
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:spark_ring
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cooked_carp_campfire_cooking
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cooked_carp_campfire_cooking
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cooked_carp_campfire_cooking
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cooked_carp_campfire_cooking
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_pressure_plate
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_pressure_plate
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_pressure_plate
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_pressure_plate
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:spinning_wheel
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:spinning_wheel
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:spinning_wheel
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:spinning_wheel
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:carved_oak_block
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:carved_oak_block
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:carved_oak_block
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:carved_oak_block
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cooked_pike_smelting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cooked_pike_smelting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cooked_pike_smelting
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cooked_pike_smelting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:vodyanoy_net
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:vodyanoy_net
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:vodyanoy_net
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:vodyanoy_net
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:beef_stew
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:beef_stew
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:beef_stew
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:beef_stew
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rowan_planks
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rowan_planks
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rowan_planks
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rowan_planks
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mossy_pale_blue_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:apple_fence_gate
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:apple_fence_gate
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:apple_fence_gate
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:apple_fence_gate
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:willow_fence
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:willow_fence
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:willow_fence
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:willow_fence
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pool_ring
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pool_ring
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pool_ring
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pool_ring
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mossy_pale_blue_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mossy_pale_blue_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mossy_pale_blue_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:sosud_podveya
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:sosud_podveya
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:sosud_podveya
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:sosud_podveya
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:carved_staff
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:carved_staff
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:carved_staff
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:carved_staff
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cooked_goat_from_smelting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cooked_goat_from_smelting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cooked_goat_from_smelting
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cooked_goat_from_smelting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rye_flour
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rye_flour
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rye_flour
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rye_flour
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rowan_stripped_wood
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rowan_stripped_wood
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rowan_stripped_wood
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rowan_stripped_wood
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:chud_bloomery
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:chud_bloomery
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:chud_bloomery
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:chud_bloomery
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:tracker_sense
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:tracker_sense
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:tracker_sense
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:tracker_sense
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:willow_fence_gate
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:willow_fence_gate
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:willow_fence_gate
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:willow_fence_gate
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:poyas_tugarina
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:poyas_tugarina
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:poyas_tugarina
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:poyas_tugarina
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mossy_bog_green_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mossy_bog_green_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mossy_bog_green_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:woven_belt
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:woven_belt
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:woven_belt
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:woven_belt
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:fishing_net
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:fishing_net
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:fishing_net
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:fishing_net
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cracked_bog_green_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cracked_bog_green_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cracked_bog_green_kurgan_cobblestone
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cracked_bog_green_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:obereg_ohotnika
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:obereg_ohotnika
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:obereg_ohotnika
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:obereg_ohotnika
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bath_stove
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bath_stove
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bath_stove
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:bath_stove
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:silver_dagger
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:silver_dagger
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:silver_dagger
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:silver_dagger
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:lore_book
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:lore_book
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:lore_book
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:lore_book
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_stripped_wood
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_stripped_wood
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_stripped_wood
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_stripped_wood
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cloth_bag
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cloth_bag
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cloth_bag
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:cloth_bag
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:willow_stairs
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:willow_stairs
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:willow_stairs
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:willow_stairs
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_perunite_flail_ball
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_perunite_flail_ball
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_perunite_flail_ball
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_perunite_flail_ball
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:darkened_fence_gate
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:darkened_fence_gate
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:darkened_fence_gate
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:darkened_fence_gate
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cooked_carp_smelting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cooked_carp_smelting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cooked_carp_smelting
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cooked_carp_smelting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:ancient_ritual_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:ancient_ritual_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:ancient_ritual_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:ancient_ritual_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:trophy_kartaus_mantle
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:trophy_kartaus_mantle
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:trophy_kartaus_mantle
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:trophy_kartaus_mantle
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:defiled_ritual_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:defiled_ritual_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:defiled_ritual_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:defiled_ritual_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_stone_spearhead
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_stone_spearhead
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_stone_spearhead
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_stone_spearhead
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bath_ward
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bath_ward
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bath_ward
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:bath_ward
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_perunite_spearhead
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_perunite_spearhead
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_perunite_spearhead
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_perunite_spearhead
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bast_shoes
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bast_shoes
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bast_shoes
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:bast_shoes
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linen_ports
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linen_ports
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linen_ports
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linen_ports
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:stone_path_amulet
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:stone_path_amulet
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:stone_path_amulet
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:stone_path_amulet
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:trophy_skim_necklace
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:trophy_skim_necklace
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:trophy_skim_necklace
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:trophy_skim_necklace
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:willow_stripped_wood
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:willow_stripped_wood
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:willow_stripped_wood
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:willow_stripped_wood
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_iron_light_spearhead
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_iron_light_spearhead
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_iron_light_spearhead
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_iron_light_spearhead
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_chair
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_chair
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_chair
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_chair
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:blueberry_pancakes
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:blueberry_pancakes
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:blueberry_pancakes
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:blueberry_pancakes
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_short_shaft
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_short_shaft
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_short_shaft
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_short_shaft
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bog_green_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bog_green_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bog_green_kurgan_cobblestone_wall_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:burial_log_coffin
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:burial_log_coffin
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:burial_log_coffin
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:burial_log_coffin
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cracked_bog_green_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cracked_bog_green_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cracked_bog_green_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:cracked_bog_green_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:silver_ingot
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:silver_ingot
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:silver_ingot
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:silver_ingot
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rye_sheaf_unpack
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rye_sheaf_unpack
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rye_sheaf_unpack
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rye_sheaf_unpack
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:perunite_axe
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:perunite_axe
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:perunite_axe
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:perunite_axe
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bone_knife
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bone_knife
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bone_knife
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:bone_knife
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_wrap
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_wrap
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_wrap
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_wrap
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:signal_bell
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:signal_bell
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:signal_bell
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:signal_bell
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:stepnoy_shtandart
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:stepnoy_shtandart
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:stepnoy_shtandart
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:stepnoy_shtandart
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:trophy_marinka_cloak
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:trophy_marinka_cloak
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:trophy_marinka_cloak
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:trophy_marinka_cloak
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_chair
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_chair
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_chair
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_chair
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:perunite_boots
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:perunite_boots
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:perunite_boots
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:perunite_boots
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:button_charm
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:button_charm
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:button_charm
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:button_charm
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:serpent_bas_relief
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:serpent_bas_relief
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:serpent_bas_relief
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:serpent_bas_relief
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:purified_water_bottle
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:purified_water_bottle
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:purified_water_bottle
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:purified_water_bottle
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cooked_duck_from_smelting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cooked_duck_from_smelting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cooked_duck_from_smelting
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cooked_duck_from_smelting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:honey_baked_apple
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:honey_baked_apple
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:honey_baked_apple
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:honey_baked_apple
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:birch_bark
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:birch_bark
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:birch_bark
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:birch_bark
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mushroom_stew
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mushroom_stew
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mushroom_stew
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:mushroom_stew
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:ilya_call_token
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:ilya_call_token
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:ilya_call_token
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:ilya_call_token
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:podvey_belt
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:podvey_belt
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:podvey_belt
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:podvey_belt
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mossy_bog_green_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mossy_bog_green_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mossy_bog_green_kurgan_cobblestone_slab_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rowan_stairs
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rowan_stairs
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rowan_stairs
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rowan_stairs
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:navya_button
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:navya_button
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:navya_button
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:navya_button
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mossy_bog_green_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mossy_bog_green_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mossy_bog_green_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:mossy_bog_green_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_sign
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_sign
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_sign
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_sign
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:alyosha_call_whistle
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:alyosha_call_whistle
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:alyosha_call_whistle
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:alyosha_call_whistle
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bath_broom
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bath_broom
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bath_broom
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:bath_broom
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cracked_bog_green_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cracked_bog_green_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cracked_bog_green_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:blueberry_sapling_from_berries
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:blueberry_sapling_from_berries
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:blueberry_sapling_from_berries
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:blueberry_sapling_from_berries
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_gold_light_spearhead
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_gold_light_spearhead
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_gold_light_spearhead
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_gold_light_spearhead
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:navya_door
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:navya_door
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:navya_door
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:navya_door
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:apple_planks
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:apple_planks
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:apple_planks
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:apple_planks
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:volchiy_poyas
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:volchiy_poyas
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:volchiy_poyas
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:volchiy_poyas
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:storage_sack
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:storage_sack
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:storage_sack
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:storage_sack
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:hunter_charm
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:hunter_charm
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:hunter_charm
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:hunter_charm
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rune_chisel
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rune_chisel
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rune_chisel
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rune_chisel
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:weapon_part_flail_chain
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:weapon_part_flail_chain
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:weapon_part_flail_chain
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:weapon_part_flail_chain
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:dark_bottle
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:dark_bottle
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:dark_bottle
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:dark_bottle
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:malt_sack_unpack
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:malt_sack_unpack
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:malt_sack_unpack
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:malt_sack_unpack
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:sickle
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:sickle
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:sickle
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:sickle
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:mossy_pale_blue_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:mossy_pale_blue_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:mossy_pale_blue_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:mossy_pale_blue_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:baked_turnip_smelting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:baked_turnip_smelting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:baked_turnip_smelting
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:baked_turnip_smelting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pale_blue_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pale_blue_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pale_blue_kurgan_cobblestone_stairs_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:apple_fence
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:apple_fence
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:apple_fence
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:apple_fence
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cleansing_powder
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cleansing_powder
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cleansing_powder
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:cleansing_powder
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:meat_pancakes
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:meat_pancakes
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:meat_pancakes
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:meat_pancakes
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_weapon_rack
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_weapon_rack
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_weapon_rack
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_weapon_rack
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rowan_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rowan_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rowan_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rowan_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:obereg_padayuschey_zvezdy
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:obereg_padayuschey_zvezdy
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:obereg_padayuschey_zvezdy
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:obereg_padayuschey_zvezdy
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:apple_button
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:apple_button
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:apple_button
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:apple_button
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_sign
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_sign
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_sign
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_sign
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:bog_green_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:bog_green_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:bog_green_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:bog_green_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:pine_planks
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:pine_planks
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:pine_planks
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:pine_planks
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:spring_tear
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:spring_tear
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:spring_tear
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:spring_tear
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:hearth
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:hearth
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:hearth
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:hearth
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:rowan_fence
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:rowan_fence
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:rowan_fence
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:rowan_fence
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:perun_ring
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:perun_ring
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:perun_ring
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:perun_ring
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:odnoglazyy_obereg
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:odnoglazyy_obereg
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:odnoglazyy_obereg
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:odnoglazyy_obereg
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cooked_goose_from_smoking
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cooked_goose_from_smoking
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cooked_goose_from_smoking
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cooked_goose_from_smoking
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:perunite_helmet
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:perunite_helmet
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:perunite_helmet
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:perunite_helmet
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:silver_sword
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:silver_sword
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:silver_sword
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:silver_sword
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:fermentation_vat
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:fermentation_vat
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:fermentation_vat
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:fermentation_vat
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:linden_fence_gate
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:linden_fence_gate
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:linden_fence_gate
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:linden_fence_gate
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:silver_block_unpack
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:silver_block_unpack
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:silver_block_unpack
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:silver_block_unpack
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:apple_sign
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:apple_sign
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:apple_sign
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:apple_sign
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cracked_pale_blue_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cracked_pale_blue_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cracked_pale_blue_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:cracked_pale_blue_kurgan_cobblestone_slab
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:carved_burial_stone
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:carved_burial_stone
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:carved_burial_stone
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:carved_burial_stone
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:invisibility_cap
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:invisibility_cap
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:invisibility_cap
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:invisibility_cap
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:navya_fence_gate
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:navya_fence_gate
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:navya_fence_gate
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:navya_fence_gate
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:carved_burial_stone_stonecutting
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:carved_burial_stone_stonecutting
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:carved_burial_stone_stonecutting
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:armorer_table
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:armorer_table
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:armorer_table
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:armorer_table
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:cracked_pale_blue_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:cracked_pale_blue_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:cracked_pale_blue_kurgan_cobblestone
+QA269 PASS native_loaded_recipes cooking time/experience valid slavicmyths:cracked_pale_blue_kurgan_cobblestone
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:kitchen_table
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:kitchen_table
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:kitchen_table
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:kitchen_table
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:ohotnichiy_rog
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:ohotnichiy_rog
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:ohotnichiy_rog
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:ohotnichiy_rog
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:hunter_belt
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:hunter_belt
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:hunter_belt
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:hunter_belt
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:forest_charm
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:forest_charm
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:forest_charm
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:forest_charm
+QA269 PASS native_loaded_recipes native ingredient witness matches slavicmyths:ground_st_johns_wort
+QA269 PASS native_loaded_recipes native legal assembly slavicmyths:ground_st_johns_wort
+QA269 PASS native_loaded_recipes native result matches declaration slavicmyths:ground_st_johns_wort
+QA269 PASS native_loaded_recipes native remainder grid size slavicmyths:ground_st_johns_wort
+QA269 PASS native_loaded_recipes native namespace recipes actually exercised
+STABILIZATION269 PASS
+[15:34:08] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:overworld
+[15:34:09] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_end
+[15:34:09] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_nether
+[15:34:09] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (stabilization269-test): All chunks are saved
+[15:34:09] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15:34:09] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15:34:09] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[15:34:09] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[15:34:09] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[15:34:09] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[15:34:10] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:overworld
+[15:34:10] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_end
+[15:34:10] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_nether
+[15:34:10] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (stabilization269-test): All chunks are saved
+[15:34:10] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15:34:10] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15:34:10] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+
+BUILD SUCCESSFUL in 34s
+9 actionable tasks: 4 executed, 5 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

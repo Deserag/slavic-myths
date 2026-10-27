@@ -1,0 +1,126 @@
+[
+  {
+    "count": 1,
+    "Slot": 0,
+    "components": {
+      "minecraft:custom_data": {
+        "Container": "dark_bottle",
+        "Quality": "spoiled",
+        "Servings": 1,
+        "Beverage": "spoiled_brew"
+      }
+    },
+    "id": "slavicmyths:spoiled_brew"
+  },
+  {
+    "count": 1,
+    "Slot": 2,
+    "components": {
+      "minecraft:custom_data": {
+        "Container": "wooden_mug",
+        "Quality": "young",
+        "Servings": 1,
+        "Beverage": "light_beer"
+      }
+    },
+    "id": "slavicmyths:light_beer_mug"
+  },
+  {
+    "count": 1,
+    "Slot": 6,
+    "components": {
+      "minecraft:custom_model_data": 1,
+      "minecraft:custom_data": {
+        "Container": "dark_bottle",
+        "Quality": "ready",
+        "Servings": 1,
+        "Beverage": "light_beer"
+      }
+    },
+    "id": "slavicmyths:light_beer_mug"
+  },
+  {
+    "count": 1,
+    "Slot": 7,
+    "components": {
+      "minecraft:custom_model_data": 1,
+      "minecraft:custom_data": {
+        "Container": "ceramic_pitcher",
+        "Quality": "ready",
+        "Servings": 4,
+        "Beverage": "kvass"
+      }
+    },
+    "id": "slavicmyths:filled_pitcher"
+  },
+  {
+    "count": 1,
+    "Slot": 8,
+    "components": {
+      "minecraft:custom_data": {
+        "Container": "wooden_mug",
+        "Quality": "young",
+        "Servings": 1,
+        "Beverage": "kvass"
+      }
+    },
+    "id": "slavicmyths:kvass_mug"
+  },
+  {
+    "count": 1,
+    "Slot": 9,
+    "id": "slavicmyths:ceramic_pitcher"
+  },
+  {
+    "count": 2,
+    "Slot": 10,
+    "components": {
+      "minecraft:custom_data": {
+        "Container": "wooden_mug",
+        "Quality": "ready",
+        "Servings": 1,
+        "Beverage": "light_beer"
+      }
+    },
+    "id": "slavicmyths:light_beer_mug"
+  },
+  {
+    "count": 1,
+    "Slot": 11,
+    "components": {
+      "minecraft:custom_data": {
+        "Container": "wooden_mug",
+        "Quality": "ready",
+        "Servings": 1,
+        "Beverage": "kvass"
+      }
+    },
+    "id": "slavicmyths:kvass_mug"
+  },
+  {
+    "count": 1,
+    "Slot": 12,
+    "components": {
+      "minecraft:custom_data": {
+        "Container": "wooden_mug",
+        "Quality": "aged",
+        "Servings": 1,
+        "Beverage": "light_beer"
+      }
+    },
+    "id": "slavicmyths:light_beer_mug"
+  },
+  {
+    "count": 1,
+    "Slot": 13,
+    "components": {
+      "minecraft:custom_data": {
+        "Container": "wooden_mug",
+        "Quality": "aged",
+        "Servings": 1,
+        "Beverage": "kvass"
+      }
+    },
+    "id": "slavicmyths:kvass_mug"
+  }
+]

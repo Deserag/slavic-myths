@@ -1,0 +1,60 @@
+{
+  "master_volume": 0.3,
+  "GLFW_visible": 1,
+  "ground_jump_peak": 1.960000000000008,
+  "client_flight_speed": 40.0,
+  "server_flight_speed": 40.0,
+  "hover_speed": 0.0,
+  "strafe_z_before": 215.83999999999997,
+  "strafe_z_after": 223.04000028610227,
+  "saved_horse_uuid": "cb431b59-ac74-4da8-b6e6-05fa34186d00",
+  "checks": [
+    {
+      "status": "PASS",
+      "test": "actual client tracks canonical server mount"
+    },
+    {
+      "status": "PASS",
+      "test": "real client Space key binding jumps over one block without saddle"
+    },
+    {
+      "status": "PASS",
+      "test": "real client Sprint+W+Space packets take off quickly"
+    },
+    {
+      "status": "PASS",
+      "test": "actual client forward input reaches server40blocks/s"
+    },
+    {
+      "status": "PASS",
+      "test": "actual client receives flight speed sync"
+    },
+    {
+      "status": "PASS",
+      "test": "real client release keys brakes to airborne hover"
+    },
+    {
+      "status": "PASS",
+      "test": "actual client yaw packet steers server horse"
+    },
+    {
+      "status": "PASS",
+      "test": "actual client A key produces lateral displacement"
+    },
+    {
+      "status": "PASS",
+      "test": "strafe does not autonomously turn mount"
+    },
+    {
+      "status": "FAIL",
+      "test": "real client descend binding lands safely on platform"
+    },
+    {
+      "status": "PASS",
+      "test": "client exits mounted and airborne for genuine relog scenario"
+    }
+  ],
+  "status": "FAIL",
+  "manual_keyboard": "NOT_RUN; actual KeyMapping states set by QA, production sender/receiver untouched",
+  "network_MP": "NOT_RUN; one actual client with integrated server"
+}

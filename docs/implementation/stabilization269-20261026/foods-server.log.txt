@@ -1,0 +1,357 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileStabilization269Java
+> Task :downloadAssets UP-TO-DATE
+> Task :writeStabilization269ServerLegacyClasspath UP-TO-DATE
+> Task :prepareStabilization269ServerRun
+> Task :processStabilization269Resources NO-SOURCE
+> Task :stabilization269Classes
+
+> Task :runStabilization269Server
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[15:36:34] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430, --nogui]
+[15:36:34] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[15:36:34] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[15:36:34] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[15:36:34] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[15:36:34] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[15:36:34] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]:
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 2.0.4-HELL (slavicmyths)
+[15:36:35] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[15:36:35] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, ., --nogui]
+[15:36:35] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[15:36:35] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[15:36:36] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[15:36:37] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[15:36:42] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15:36:42] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15:36:42] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[15:36:42] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[15:36:42] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15:36:42] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[15:36:44] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[15:36:44] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[15:36:44] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[15:36:46] [main/INFO] [minecraft/RecipeManager]: Loaded 1853 recipes
+[15:36:46] [main/INFO] [minecraft/AdvancementTree]: Loaded 1643 advancements
+[15:36:46] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[15:36:46] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[15:36:47] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.21.1
+[15:36:47] [Server thread/INFO] [minecraft/DedicatedServer]: Loading properties
+[15:36:47] [Server thread/INFO] [minecraft/DedicatedServer]: Default game type: SURVIVAL
+[15:36:47] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[15:36:47] [Server thread/INFO] [minecraft/DedicatedServer]: Starting Minecraft server on 127.0.0.1:25769
+[15:36:47] [Server thread/INFO] [minecraft/ServerConnectionListener]: Using default channel type
+[15:36:47] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[15:36:47] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.
+[15:36:47] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[15:36:47] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set "online-mode" to "true" in the server.properties file.
+[15:36:47] [Server thread/INFO] [minecraft/DedicatedServer]: Preparing level "stabilization269-test"
+[15:36:49] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[15:36:50] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[15:36:50] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[15:36:50] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[15:36:50] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[15:36:51] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 1641 ms
+[15:36:51] [Server thread/INFO] [minecraft/DedicatedServer]: Done (3.706s)! For help, type "help"
+[15:36:51] [Server thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[15:36:51] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:turnip
+QA269 PASS native_food_consumption native legal remainder slavicmyths:turnip
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:turnip
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:cabbage
+QA269 PASS native_food_consumption native legal remainder slavicmyths:cabbage
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:cabbage
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:pea_pod
+QA269 PASS native_food_consumption native legal remainder slavicmyths:pea_pod
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:pea_pod
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:honey_bread
+QA269 PASS native_food_consumption native legal remainder slavicmyths:honey_bread
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:honey_bread
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:honey_baked_apple
+QA269 PASS native_food_consumption native legal remainder slavicmyths:honey_baked_apple
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:honey_baked_apple
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:honey_flatbread
+QA269 PASS native_food_consumption native legal remainder slavicmyths:honey_flatbread
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:honey_flatbread
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:berry_mors
+QA269 PASS native_food_consumption native legal remainder slavicmyths:berry_mors
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:berry_mors
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:forest_mix
+QA269 PASS native_food_consumption native legal remainder slavicmyths:forest_mix
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:forest_mix
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:raw_bear_meat
+QA269 PASS native_food_consumption native legal remainder slavicmyths:raw_bear_meat
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:raw_bear_meat
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:cooked_bear_meat
+QA269 PASS native_food_consumption native legal remainder slavicmyths:cooked_bear_meat
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:cooked_bear_meat
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:raw_venison
+QA269 PASS native_food_consumption native legal remainder slavicmyths:raw_venison
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:raw_venison
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:cooked_venison
+QA269 PASS native_food_consumption native legal remainder slavicmyths:cooked_venison
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:cooked_venison
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:raw_boar_meat
+QA269 PASS native_food_consumption native legal remainder slavicmyths:raw_boar_meat
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:raw_boar_meat
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:cooked_boar_meat
+QA269 PASS native_food_consumption native legal remainder slavicmyths:cooked_boar_meat
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:cooked_boar_meat
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:raspberry
+QA269 PASS native_food_consumption native legal remainder slavicmyths:raspberry
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:raspberry
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:blueberry
+QA269 PASS native_food_consumption native legal remainder slavicmyths:blueberry
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:blueberry
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:pancakes
+QA269 PASS native_food_consumption native legal remainder slavicmyths:pancakes
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:pancakes
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:raspberry_pancakes
+QA269 PASS native_food_consumption native legal remainder slavicmyths:raspberry_pancakes
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:raspberry_pancakes
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:blueberry_pancakes
+QA269 PASS native_food_consumption native legal remainder slavicmyths:blueberry_pancakes
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:blueberry_pancakes
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:meat_pancakes
+QA269 PASS native_food_consumption native legal remainder slavicmyths:meat_pancakes
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:meat_pancakes
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:karavai
+QA269 PASS native_food_consumption native legal remainder slavicmyths:karavai
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:karavai
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:berry_pie
+QA269 PASS native_food_consumption native legal remainder slavicmyths:berry_pie
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:berry_pie
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:baked_apple
+QA269 PASS native_food_consumption native legal remainder slavicmyths:baked_apple
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:baked_apple
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:mushroom_stew
+QA269 PASS native_food_consumption native legal remainder slavicmyths:mushroom_stew
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:mushroom_stew
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:beef_stew
+QA269 PASS native_food_consumption native legal remainder slavicmyths:beef_stew
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:beef_stew
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:pork_stew
+QA269 PASS native_food_consumption native legal remainder slavicmyths:pork_stew
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:pork_stew
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:venison_stew
+QA269 PASS native_food_consumption native legal remainder slavicmyths:venison_stew
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:venison_stew
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:bear_stew
+QA269 PASS native_food_consumption native legal remainder slavicmyths:bear_stew
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:bear_stew
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:raw_pike
+QA269 PASS native_food_consumption native legal remainder slavicmyths:raw_pike
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:raw_pike
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:cooked_pike
+QA269 PASS native_food_consumption native legal remainder slavicmyths:cooked_pike
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:cooked_pike
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:raw_carp
+QA269 PASS native_food_consumption native legal remainder slavicmyths:raw_carp
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:raw_carp
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:cooked_carp
+QA269 PASS native_food_consumption native legal remainder slavicmyths:cooked_carp
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:cooked_carp
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:smoked_carp
+QA269 PASS native_food_consumption native legal remainder slavicmyths:smoked_carp
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:smoked_carp
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:raw_crayfish
+QA269 PASS native_food_consumption native legal remainder slavicmyths:raw_crayfish
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:raw_crayfish
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:cooked_crayfish
+QA269 PASS native_food_consumption native legal remainder slavicmyths:cooked_crayfish
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:cooked_crayfish
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:ukha
+QA269 PASS native_food_consumption native legal remainder slavicmyths:ukha
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:ukha
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:blackcurrant
+QA269 PASS native_food_consumption native legal remainder slavicmyths:blackcurrant
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:blackcurrant
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:lingonberry
+QA269 PASS native_food_consumption native legal remainder slavicmyths:lingonberry
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:lingonberry
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:cranberry
+QA269 PASS native_food_consumption native legal remainder slavicmyths:cranberry
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:cranberry
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:raw_goose
+QA269 PASS native_food_consumption native legal remainder slavicmyths:raw_goose
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:raw_goose
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:cooked_goose
+QA269 PASS native_food_consumption native legal remainder slavicmyths:cooked_goose
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:cooked_goose
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:raw_duck
+QA269 PASS native_food_consumption native legal remainder slavicmyths:raw_duck
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:raw_duck
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:cooked_duck
+QA269 PASS native_food_consumption native legal remainder slavicmyths:cooked_duck
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:cooked_duck
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:raw_goat
+QA269 PASS native_food_consumption native legal remainder slavicmyths:raw_goat
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:raw_goat
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:cooked_goat
+QA269 PASS native_food_consumption native legal remainder slavicmyths:cooked_goat
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:cooked_goat
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:rye_bread
+QA269 PASS native_food_consumption native legal remainder slavicmyths:rye_bread
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:rye_bread
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:baked_turnip
+QA269 PASS native_food_consumption native legal remainder slavicmyths:baked_turnip
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:baked_turnip
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:stewed_turnip
+QA269 PASS native_food_consumption native legal remainder slavicmyths:stewed_turnip
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:stewed_turnip
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:stewed_cabbage
+QA269 PASS native_food_consumption native legal remainder slavicmyths:stewed_cabbage
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:stewed_cabbage
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:oat_porridge
+QA269 PASS native_food_consumption native legal remainder slavicmyths:oat_porridge
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:oat_porridge
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:barley_porridge
+QA269 PASS native_food_consumption native legal remainder slavicmyths:barley_porridge
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:barley_porridge
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:berry_porridge
+QA269 PASS native_food_consumption native legal remainder slavicmyths:berry_porridge
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:berry_porridge
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:vegetable_stew
+QA269 PASS native_food_consumption native legal remainder slavicmyths:vegetable_stew
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:vegetable_stew
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:meat_stew
+QA269 PASS native_food_consumption native legal remainder slavicmyths:meat_stew
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:meat_stew
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:pea_soup
+QA269 PASS native_food_consumption native legal remainder slavicmyths:pea_soup
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:pea_soup
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:mushroom_stew_slavic
+QA269 PASS native_food_consumption native legal remainder slavicmyths:mushroom_stew_slavic
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:mushroom_stew_slavic
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:bliny
+QA269 PASS native_food_consumption native legal remainder slavicmyths:bliny
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:bliny
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:berry_bliny
+QA269 PASS native_food_consumption native legal remainder slavicmyths:berry_bliny
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:berry_bliny
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:meat_bliny
+QA269 PASS native_food_consumption native legal remainder slavicmyths:meat_bliny
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:meat_bliny
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:apple_bliny
+QA269 PASS native_food_consumption native legal remainder slavicmyths:apple_bliny
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:apple_bliny
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:honey_bliny
+QA269 PASS native_food_consumption native legal remainder slavicmyths:honey_bliny
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:honey_bliny
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:apple_pie
+QA269 PASS native_food_consumption native legal remainder slavicmyths:apple_pie
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:apple_pie
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:meat_pie
+QA269 PASS native_food_consumption native legal remainder slavicmyths:meat_pie
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:meat_pie
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:cabbage_pie
+QA269 PASS native_food_consumption native legal remainder slavicmyths:cabbage_pie
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:cabbage_pie
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:dried_berries
+QA269 PASS native_food_consumption native legal remainder slavicmyths:dried_berries
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:dried_berries
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:wooden_mug
+QA269 PASS native_food_consumption native legal remainder slavicmyths:wooden_mug
+QA269 PASS native_food_consumption native alcohol load matches beverage slavicmyths:wooden_mug
+QA269 PASS native_food_consumption correct mug/bottle returned slavicmyths:wooden_mug
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:dark_bottle
+QA269 PASS native_food_consumption native legal remainder slavicmyths:dark_bottle
+QA269 PASS native_food_consumption native alcohol load matches beverage slavicmyths:dark_bottle
+QA269 PASS native_food_consumption correct mug/bottle returned slavicmyths:dark_bottle
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:light_beer_mug
+QA269 PASS native_food_consumption native legal remainder slavicmyths:light_beer_mug
+QA269 PASS native_food_consumption native alcohol load matches beverage slavicmyths:light_beer_mug
+QA269 PASS native_food_consumption correct mug/bottle returned slavicmyths:light_beer_mug
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:dark_beer_mug
+QA269 PASS native_food_consumption native legal remainder slavicmyths:dark_beer_mug
+QA269 PASS native_food_consumption native alcohol load matches beverage slavicmyths:dark_beer_mug
+QA269 PASS native_food_consumption correct mug/bottle returned slavicmyths:dark_beer_mug
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:hopped_beer_mug
+QA269 PASS native_food_consumption native legal remainder slavicmyths:hopped_beer_mug
+QA269 PASS native_food_consumption native alcohol load matches beverage slavicmyths:hopped_beer_mug
+QA269 PASS native_food_consumption correct mug/bottle returned slavicmyths:hopped_beer_mug
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:honey_beer_mug
+QA269 PASS native_food_consumption native legal remainder slavicmyths:honey_beer_mug
+QA269 PASS native_food_consumption native alcohol load matches beverage slavicmyths:honey_beer_mug
+QA269 PASS native_food_consumption correct mug/bottle returned slavicmyths:honey_beer_mug
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:forest_beer_mug
+QA269 PASS native_food_consumption native legal remainder slavicmyths:forest_beer_mug
+QA269 PASS native_food_consumption native alcohol load matches beverage slavicmyths:forest_beer_mug
+QA269 PASS native_food_consumption correct mug/bottle returned slavicmyths:forest_beer_mug
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:thunder_beer_mug
+QA269 PASS native_food_consumption native legal remainder slavicmyths:thunder_beer_mug
+QA269 PASS native_food_consumption native alcohol load matches beverage slavicmyths:thunder_beer_mug
+QA269 PASS native_food_consumption correct mug/bottle returned slavicmyths:thunder_beer_mug
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:veles_dark_beer_mug
+QA269 PASS native_food_consumption native legal remainder slavicmyths:veles_dark_beer_mug
+QA269 PASS native_food_consumption native alcohol load matches beverage slavicmyths:veles_dark_beer_mug
+QA269 PASS native_food_consumption correct mug/bottle returned slavicmyths:veles_dark_beer_mug
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:witch_berry_beer_mug
+QA269 PASS native_food_consumption native legal remainder slavicmyths:witch_berry_beer_mug
+QA269 PASS native_food_consumption native alcohol load matches beverage slavicmyths:witch_berry_beer_mug
+QA269 PASS native_food_consumption correct mug/bottle returned slavicmyths:witch_berry_beer_mug
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:kvass_mug
+QA269 PASS native_food_consumption native legal remainder slavicmyths:kvass_mug
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:kvass_mug
+QA269 PASS native_food_consumption native alcohol load matches beverage slavicmyths:kvass_mug
+QA269 PASS native_food_consumption correct mug/bottle returned slavicmyths:kvass_mug
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:berry_mors_mug
+QA269 PASS native_food_consumption native legal remainder slavicmyths:berry_mors_mug
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:berry_mors_mug
+QA269 PASS native_food_consumption native alcohol load matches beverage slavicmyths:berry_mors_mug
+QA269 PASS native_food_consumption correct mug/bottle returned slavicmyths:berry_mors_mug
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:mead_bottle
+QA269 PASS native_food_consumption native legal remainder slavicmyths:mead_bottle
+QA269 PASS native_food_consumption native alcohol load matches beverage slavicmyths:mead_bottle
+QA269 PASS native_food_consumption correct mug/bottle returned slavicmyths:mead_bottle
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:apple_cider_bottle
+QA269 PASS native_food_consumption native legal remainder slavicmyths:apple_cider_bottle
+QA269 PASS native_food_consumption native alcohol load matches beverage slavicmyths:apple_cider_bottle
+QA269 PASS native_food_consumption correct mug/bottle returned slavicmyths:apple_cider_bottle
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:apple_juice_bottle
+QA269 PASS native_food_consumption native legal remainder slavicmyths:apple_juice_bottle
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:apple_juice_bottle
+QA269 PASS native_food_consumption native alcohol load matches beverage slavicmyths:apple_juice_bottle
+QA269 PASS native_food_consumption correct mug/bottle returned slavicmyths:apple_juice_bottle
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:spoiled_brew
+QA269 PASS native_food_consumption native legal remainder slavicmyths:spoiled_brew
+QA269 PASS native_food_consumption native alcohol load matches beverage slavicmyths:spoiled_brew
+QA269 PASS native_food_consumption correct mug/bottle returned slavicmyths:spoiled_brew
+QA269 PASS native_food_consumption actual Survival consumes one serving slavicmyths:rowan_berries
+QA269 PASS native_food_consumption native legal remainder slavicmyths:rowan_berries
+QA269 PASS native_food_consumption actual nutrition matches food component slavicmyths:rowan_berries
+QA269 PASS native_food_consumption real registered foods and drinks exercised
+STABILIZATION269 PASS
+[15:36:51] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:overworld
+[15:36:52] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_end
+[15:36:52] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_nether
+[15:36:52] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (stabilization269-test): All chunks are saved
+[15:36:52] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15:36:52] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15:36:52] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[15:36:52] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[15:36:52] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[15:36:52] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[15:36:52] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:overworld
+[15:36:52] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_end
+[15:36:52] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_nether
+[15:36:52] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (stabilization269-test): All chunks are saved
+[15:36:52] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15:36:52] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15:36:52] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+
+BUILD SUCCESSFUL in 33s
+9 actionable tasks: 4 executed, 5 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

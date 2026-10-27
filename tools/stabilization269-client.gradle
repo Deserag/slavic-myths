@@ -1,0 +1,30 @@
+allprojects { afterEvaluate {
+ sourceSets { stabilization269Client { java.srcDir 'tools/stabilization269-client';resources.srcDir 'tools/stabilization269-client-resources';compileClasspath += sourceSets.main.output+sourceSets.main.compileClasspath;runtimeClasspath += sourceSets.main.output+sourceSets.main.runtimeClasspath } }
+ tasks.named('compileStabilization269ClientJava'){dependsOn 'classes'}
+ def qa=neoForge.mods.create('stabilization269client'){sourceSet sourceSets.stabilization269Client}
+ neoForge.runs { stabilization269Client {
+  systemProperty 'slavicmyths.qa269.survey',project.findProperty('qa269Survey') ?: 'false'
+  systemProperty 'slavicmyths.qa269.scout',project.findProperty('qa269Scout') ?: 'false'
+  if(project.hasProperty('qa269Scout'))programArguments.addAll('--username','QA269Scout')
+  systemProperty 'slavicmyths.qa269.brew',project.findProperty('qa269Brew') ?: 'false'
+  systemProperty 'slavicmyths.qa269.brewMode',project.findProperty('qa269BrewMode') ?: 'initial'
+  if(project.hasProperty('qa269Brew'))programArguments.addAll('--username','QA269Brewer')
+  systemProperty 'slavicmyths.qa269.kitchen',project.findProperty('qa269Kitchen') ?: 'false'
+  systemProperty 'slavicmyths.qa269.kitchenVisual',project.findProperty('qa269KitchenVisual') ?: 'false'
+  systemProperty 'slavicmyths.qa269.kitchenRestart',project.findProperty('qa269KitchenRestart') ?: 'false'
+  systemProperty 'slavicmyths.qa269.lowLoad',project.findProperty('qa269LowLoad') ?: 'false'
+  systemProperty 'slavicmyths.qa269.ritualMp',project.findProperty('qa269RitualMp') ?: 'false'
+  systemProperty 'slavicmyths.qa269.ritualRestart',project.findProperty('qa269RitualRestart') ?: 'false'
+  systemProperty 'slavicmyths.qa269.pose',project.findProperty('qa269Pose') ?: 'false'
+  systemProperty 'slavicmyths.qa269.poseLabel',project.findProperty('qa269PoseLabel') ?: 'before'
+  systemProperty 'slavicmyths.qa269.assets',project.findProperty('qa269Assets') ?: 'false'
+  systemProperty 'slavicmyths.qa269.mp',project.findProperty('qa269Mp') ?: 'false'
+  systemProperty 'slavicmyths.qa269.remote',project.findProperty('qa269Remote') ?: 'false'
+  if(project.hasProperty('qa269Remote'))programArguments.addAll('--username','QA269Guest')
+  systemProperty 'slavicmyths.qa269.controls',project.findProperty('qa269Controls') ?: 'false'
+  systemProperty 'slavicmyths.qa269.resume',project.findProperty('qa269Resume') ?: 'false'
+  systemProperty 'slavicmyths.qa269.side',project.findProperty('qa269Side') ?: 'false'
+  type='client';gameDirectory=file(project.findProperty('qa269ClientDir') ?: (project.hasProperty('qa269Remote')?'work/stabilization269-client-guest':'work/stabilization269-client'));loadedMods.set([neoForge.mods.slavicmyths,qa]);sourceSet=sourceSets.stabilization269Client
+  programArguments.addAll('--width','1280','--height','800');jvmArgument (project.hasProperty('qa269LowLoad')?'-Xmx1536M':project.hasProperty('qa269Remote')?'-Xmx1280M':'-Xmx2304M');jvmArgument (project.hasProperty('qa269LowLoad')?'-XX:ActiveProcessorCount=2':'-XX:ActiveProcessorCount=4')
+ } }
+} }

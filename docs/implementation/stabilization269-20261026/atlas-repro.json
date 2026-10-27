@@ -1,0 +1,7 @@
+{
+  "scope": "only existing-texture atlas updater; audio/art generators not executed",
+  "before_sha256": "d30b834885ce4ea709ed7342448f3ce3e2041ca44c531a3ab8b946986cbbe2ba",
+  "after_sha256": "d30b834885ce4ea709ed7342448f3ce3e2041ca44c531a3ab8b946986cbbe2ba",
+  "idempotent": true,
+  "stdout": "Existing texture sprites registered: [] ; art/UV/models/IDs unchanged by this script\n"
+}

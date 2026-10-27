@@ -1,0 +1,280 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileStabilization269Java
+> Task :downloadAssets UP-TO-DATE
+> Task :writeStabilization269ServerLegacyClasspath UP-TO-DATE
+> Task :prepareStabilization269ServerRun
+> Task :processStabilization269Resources NO-SOURCE
+> Task :stabilization269Classes
+
+> Task :runStabilization269Server
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[16:13:01] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430, --nogui]
+[16:13:01] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[16:13:01] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[16:13:01] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[16:13:01] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[16:13:02] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[16:13:02] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 2.0.4-HELL (slavicmyths)
+[16:13:03] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[16:13:03] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, ., --nogui]
+[16:13:03] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[16:13:03] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[16:13:04] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[16:13:04] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[16:13:09] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:13:09] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:13:09] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[16:13:09] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[16:13:09] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:13:09] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[16:13:11] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[16:13:11] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[16:13:11] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[16:13:12] [main/INFO] [minecraft/RecipeManager]: Loaded 1853 recipes
+[16:13:13] [main/INFO] [minecraft/AdvancementTree]: Loaded 1643 advancements
+[16:13:13] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[16:13:13] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[16:13:13] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.21.1
+[16:13:13] [Server thread/INFO] [minecraft/DedicatedServer]: Loading properties
+[16:13:13] [Server thread/INFO] [minecraft/DedicatedServer]: Default game type: SURVIVAL
+[16:13:13] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[16:13:13] [Server thread/INFO] [minecraft/DedicatedServer]: Starting Minecraft server on 127.0.0.1:25769
+[16:13:13] [Server thread/INFO] [minecraft/ServerConnectionListener]: Using default channel type
+[16:13:13] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[16:13:13] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.
+[16:13:13] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[16:13:13] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set "online-mode" to "true" in the server.properties file.
+[16:13:13] [Server thread/INFO] [minecraft/DedicatedServer]: Preparing level "stabilization269-test"
+[16:13:16] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[16:13:16] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[16:13:16] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 301 ms
+[16:13:16] [Server thread/INFO] [minecraft/DedicatedServer]: Done (2.623s)! For help, type "help"
+[16:13:16] [Server thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[16:13:16] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -28590,747
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -11803,-11706
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 8895,22864
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -1307,-8006
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 28133,24543
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 29118,26665
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 1987,-16851
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -7141,19009
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -2674,-6719
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 10112,-9185
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -16595,-14872
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 24608,15540
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -24606,-26840
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 6626,-27784
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 26475,1200
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 20680,-27258
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -24012,4767
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 7625,-1657
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -22008,-20617
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -7286,13192
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -17190,-9474
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 19679,3790
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 25719,-19127
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 17079,25684
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -26500,2870
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -29341,29916
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -5946,24221
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -29263,-8366
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -17444,9972
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -9022,-28266
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 9757,11925
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 1284,-6875
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 25444,25137
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 29692,-21590
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -557,18170
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -19709,-17416
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -26304,-18221
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -27399,2094
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -14274,7195
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 29578,20793
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 26733,11343
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 3111,-23055
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -14495,11686
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 7434,9983
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 12625,-12137
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -8672,28671
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 27916,11054
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 10059,-23644
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -22240,13785
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 20522,-5737
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 22111,-2952
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 27334,12248
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 9989,10637
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 17565,-19680
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 6516,-21329
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -17663,18028
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -14272,-27597
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -5993,7756
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 23471,-7149
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 14277,-158
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -12813,15371
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 1902,20958
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 14193,-22636
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -3835,15747
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 11332,3632
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 6316,-13780
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 7353,12466
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 14524,-5380
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 3231,20192
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 13201,4615
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -16998,14641
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 17847,-26874
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 7190,-4795
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 11909,1340
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -25611,-24366
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 46,20835
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 19692,-2332
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 4043,25569
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 19709,953
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 5227,-411
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -3609,16897
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -28374,8898
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 21193,-22786
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -10434,21077
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -26533,14624
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 4931,15491
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -19052,2173
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 16883,24803
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 28636,-18073
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 6547,4822
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 17884,15462
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -25423,-26921
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 10443,-4065
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -26554,-8423
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -8348,13714
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -8331,-8375
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -5883,-2788
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -14274,262
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 29826,-775
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 29277,1028
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 10126,14295
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -9196,-24891
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -2183,13791
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -9674,20742
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -24151,26842
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -5532,4719
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 5951,2504
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -15432,-22338
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -24576,-3670
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -4052,7623
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 22406,7428
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 2782,11416
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 5922,8755
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -17557,1802
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -10452,386
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 19733,-8827
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -14160,-21850
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -8578,28772
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -6344,-8823
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -13910,22607
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -9663,20774
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 23677,-25160
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -15748,15186
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -10593,-12191
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 25753,-10364
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -29934,-3006
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 11390,-19489
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 25564,-17185
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 23264,3461
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 20226,14426
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 22889,-20000
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -20167,-11145
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 21435,7317
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 27159,13859
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -8334,-5477
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -12055,-9602
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -29297,4912
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 24763,-23817
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -7718,5299
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -1909,-28889
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 243,1235
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 18096,-29311
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -22867,22366
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 25291,7353
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -13787,9555
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -7890,7624
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 25586,-23887
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 25771,29153
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 20995,-11862
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 3749,-9145
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -7608,17866
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -11986,-598
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -13833,-7112
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 28884,29183
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -5083,1521
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -25981,-4681
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -27107,22469
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -18901,-26898
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -1519,-27177
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -4568,-9998
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 8980,-26851
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -29088,-17074
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -15239,-25653
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 3200,-3231
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -20477,-27864
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -14824,3248
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 4732,-2803
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -18826,21482
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -7421,3613
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -2759,24382
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 2852,-21161
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 167,-13390
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 18485,1610
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 5311,20680
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 25323,21340
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -17133,-14439
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -5104,-13830
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -19250,22771
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -21338,-6109
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -3247,-6187
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -744,-4602
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 2774,29496
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 24135,-1862
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 271,-12467
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 12006,-18325
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 16688,-28831
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 1548,-3635
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 20699,25705
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity 23802,-12350
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -27563,-3230
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -8688,-18727
+QA269 PASS native_exact_terrain_benchmark exact native heightmap parity -7696,-6846
+STABILIZATION269 PASS
+[16:13:18] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:overworld
+[16:13:18] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_nether
+[16:13:18] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_end
+[16:13:18] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (stabilization269-test): All chunks are saved
+[16:13:18] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[16:13:18] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[16:13:18] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[16:13:18] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[16:13:18] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[16:13:18] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[16:13:19] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:overworld
+[16:13:19] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_nether
+[16:13:19] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_end
+[16:13:19] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (stabilization269-test): All chunks are saved
+[16:13:19] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[16:13:19] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[16:13:19] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+
+BUILD SUCCESSFUL in 30s
+9 actionable tasks: 4 executed, 5 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

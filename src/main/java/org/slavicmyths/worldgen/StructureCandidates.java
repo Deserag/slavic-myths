@@ -54,6 +54,9 @@ public final class StructureCandidates {
                 for(int gx=Math.floorDiv(minX-8,spacing);gx<=Math.floorDiv(maxX+8,spacing);gx++)for(int gz=Math.floorDiv(minZ-8,spacing);gz<=Math.floorDiv(maxZ+8,spacing);gz++){
                     ChunkPos neighbor=placement.getPotentialStructureChunk(c.seed(),gx*spacing,gz*spacing);
                     if(neighbor.x<minX-8||neighbor.x>maxX+8||neighbor.z<minZ-8||neighbor.z>maxZ+8)continue;
+                    // Disabled/reduced-frequency cells own no footprint when native placement rejects them.
+                    // Keep datapack frequencies unchanged; use the same native predicate as generation.
+                    if(!placement.applyAdditionalChunkRestrictions(neighbor.x,neighbor.z,c.seed()))continue;
                     var accepted=StructureCoverageService.neighborFootprints(c,other,neighbor);
                     for(var part:proposed)for(var existing:accepted)if(part.getBoundingBox().intersects(existing))return false;
                 }

@@ -98,7 +98,7 @@ def held(r):
   uv={'west':[u,v+d,u+d,v+d+h],'north':[u+d,v+d,u+d+w,v+d+h],'east':[u+d+w,v+d,u+2*d+w,v+d+h],'south':[u+2*d+w,v+d,u+2*d+2*w,v+d+h],'up':[u+d,v,u+d+w,v+d],'down':[u+d+w,v,u+d+2*w,v+d]}
   elements.append({'from':lo,'to':hi,'faces':{face:{'texture':'#surface','uv':[value*16/512 for value in values]} for face,values in uv.items()}})
  write(A/'models/item/karachun_scythe_held.json',{'textures':{'surface':'slavicmyths:entity/karachun'},'elements':elements,'display':{'thirdperson_righthand':{'rotation':[0,0,0],'translation':[0,3,0],'scale':[1,1,1]},'thirdperson_lefthand':{'rotation':[0,0,0],'translation':[0,3,0],'scale':[1,1,1]},'firstperson_righthand':{'rotation':[0,-10,0],'translation':[0,1,-2],'scale':[.8,.8,.8]},'firstperson_lefthand':{'rotation':[0,10,0],'translation':[0,1,-2],'scale':[.8,.8,.8]}}})
- write(A/'models/item/karachun_scythe.json',{'parent':'builtin/entity','gui_light':'front'});write(A/'models/item/karachun_scythe_icon.json',{'parent':'minecraft:item/generated','textures':{'layer0':'slavicmyths:item/karachun_scythe'}})
+ write(A/'models/item/karachun_scythe.json',{'parent':'builtin/entity','gui_light':'front','textures':{'particle':'slavicmyths:item/karachun_scythe'}});write(A/'models/item/karachun_scythe_icon.json',{'parent':'minecraft:item/generated','textures':{'layer0':'slavicmyths:item/karachun_scythe'}})
 def icons():
  for name in ['karachun_scythe','rune_of_waning','black_wing_amulet','shard_of_last_night','karachun_trial_totem']:
   im=Image.new('RGBA',(32,32));d=ImageDraw.Draw(im);black='#242735';edge='#676974';ice='#A9C6EE';violet='#AC79FF'

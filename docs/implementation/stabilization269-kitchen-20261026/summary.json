@@ -1,0 +1,59 @@
+{
+  "scope": "one client at a time, supplied kitchen fixture, ordinary production block ticks and native client menu packets",
+  "runs": [
+    {
+      "phase": "initial",
+      "checks": 14,
+      "status": "PASS_SINGLE_CLIENT_KITCHEN_SCOPE",
+      "current_log_matches_receipt": true,
+      "saved_progress": 51,
+      "loaded_progress": null
+    },
+    {
+      "phase": "restart",
+      "checks": 20,
+      "status": "PASS_SINGLE_CLIENT_KITCHEN_SCOPE",
+      "current_log_matches_receipt": true,
+      "saved_progress": null,
+      "loaded_progress": 64
+    },
+    {
+      "phase": "visual",
+      "checks": 2,
+      "status": "PASS_SINGLE_CLIENT_KITCHEN_SCOPE",
+      "current_log_matches_receipt": true,
+      "saved_progress": null,
+      "loaded_progress": null
+    }
+  ],
+  "final_checks": 36,
+  "client_processes": 3,
+  "integrated_servers": 3,
+  "dedicated_servers": 0,
+  "GameTest": 0,
+  "process_intervals_local": [
+    {
+      "phase": "initial",
+      "launch_time": "21:34:25",
+      "stopping_time": "21:35:35"
+    },
+    {
+      "phase": "restart",
+      "launch_time": "21:36:51",
+      "stopping_time": "21:38:02"
+    },
+    {
+      "phase": "visual",
+      "launch_time": "21:44:45",
+      "stopping_time": "21:45:37"
+    }
+  ],
+  "no_client_overlap": true,
+  "errors_or_exceptions": [],
+  "production_compiled_classes_matching_206_jar": 1950,
+  "installed_sha256": "027b8269d9c893659e66b1e69742f9d18796564828a7dfb6e4c194d8cc07cb2c",
+  "remaining_direction_count": 14,
+  "total_directions": 16,
+  "passed_scoped_technical_directions": 2,
+  "full_remaining_scenario_count": "NOT_ENUMERATED;14 means directions, not14 tests"
+}

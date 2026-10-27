@@ -1,0 +1,295 @@
+{
+  "scope": "Actual launches after renewed owner permission; automated scenes, not manual Survival acceptance.",
+  "runs": [
+    {
+      "receipt": "client-controls/receipt.json",
+      "status": "PASS_CLIENT_AUTOMATED",
+      "checks": 11,
+      "failed_checks": [],
+      "error": null,
+      "current_log_contains_all_receipt_checks": true
+    },
+    {
+      "receipt": "client-relogin/receipt.json",
+      "status": "PASS_CLIENT_AUTOMATED",
+      "checks": 4,
+      "failed_checks": [],
+      "error": null,
+      "current_log_contains_all_receipt_checks": true
+    },
+    {
+      "receipt": "jar-regression/restart-results.json",
+      "status": "PASS",
+      "checks": 415,
+      "failed_checks": [],
+      "error": null
+    },
+    {
+      "receipt": "mp-guest/receipt.json",
+      "status": "PASS_NETWORK_SCOPE",
+      "checks": 5,
+      "failed_checks": [],
+      "error": null,
+      "current_log_contains_all_receipt_checks": true
+    },
+    {
+      "receipt": "mp-host/receipt.json",
+      "status": "PASS_NETWORK_SCOPE",
+      "checks": 9,
+      "failed_checks": [],
+      "error": null,
+      "current_log_contains_all_receipt_checks": true
+    },
+    {
+      "receipt": "natural-targeted-results.json",
+      "status": "PASS",
+      "checks": 15,
+      "failed_checks": [],
+      "error": null,
+      "seed": 2692026,
+      "sampled_cells": 26,
+      "observed": [
+        {
+          "id": "slavicmyths:bandit_camp_large",
+          "chunk": [
+            -255,
+            -265
+          ],
+          "main_count": 1
+        },
+        {
+          "id": "slavicmyths:kurgan_warrior",
+          "chunk": [
+            -390,
+            15
+          ],
+          "main_count": 1
+        },
+        {
+          "id": "slavicmyths:serpent_hill",
+          "chunk": [
+            41,
+            274
+          ],
+          "main_count": 1
+        }
+      ],
+      "no_start_cells": 23
+    },
+    {
+      "receipt": "natural0-results.json",
+      "status": "PASS",
+      "checks": 12,
+      "failed_checks": [],
+      "error": null,
+      "seed": 2692026,
+      "sampled_cells": 20,
+      "observed": [
+        {
+          "id": "slavicmyths:bandit_camp_medium",
+          "chunk": [
+            7,
+            3
+          ],
+          "main_count": 1
+        },
+        {
+          "id": "slavicmyths:bandit_camp_small",
+          "chunk": [
+            7,
+            1
+          ],
+          "main_count": 1
+        },
+        {
+          "id": "slavicmyths:chud_city",
+          "chunk": [
+            88,
+            63
+          ],
+          "main_count": null
+        },
+        {
+          "id": "slavicmyths:kurgan_small",
+          "chunk": [
+            17,
+            7
+          ],
+          "main_count": 1
+        }
+      ],
+      "no_start_cells": 16,
+      "same_cells_before_after_changes": []
+    },
+    {
+      "receipt": "natural1-results.json",
+      "status": "PASS",
+      "checks": 8,
+      "failed_checks": [],
+      "error": null,
+      "seed": 12345,
+      "sampled_cells": 20,
+      "observed": [
+        {
+          "id": "slavicmyths:bandit_camp_medium",
+          "chunk": [
+            4,
+            6
+          ],
+          "main_count": 1
+        },
+        {
+          "id": "slavicmyths:chud_city",
+          "chunk": [
+            63,
+            28
+          ],
+          "main_count": null
+        },
+        {
+          "id": "slavicmyths:underwater_ruins",
+          "chunk": [
+            2,
+            3
+          ],
+          "main_count": null
+        }
+      ],
+      "no_start_cells": 17,
+      "same_cells_before_after_changes": []
+    },
+    {
+      "receipt": "natural2-results.json",
+      "status": "PASS",
+      "checks": 8,
+      "failed_checks": [],
+      "error": null,
+      "seed": -269,
+      "sampled_cells": 20,
+      "observed": [
+        {
+          "id": "slavicmyths:bandit_camp_small",
+          "chunk": [
+            6,
+            7
+          ],
+          "main_count": 1
+        },
+        {
+          "id": "slavicmyths:chud_abandoned",
+          "chunk": [
+            74,
+            89
+          ],
+          "main_count": null
+        },
+        {
+          "id": "slavicmyths:navya_heart",
+          "chunk": [
+            1,
+            11
+          ],
+          "main_count": null
+        }
+      ],
+      "no_start_cells": 17,
+      "same_cells_before_after_changes": []
+    },
+    {
+      "receipt": "natural3-results.json",
+      "status": "PASS",
+      "checks": 11,
+      "failed_checks": [],
+      "error": null,
+      "seed": 8675309,
+      "sampled_cells": 20,
+      "observed": [
+        {
+          "id": "slavicmyths:bandit_camp_medium",
+          "chunk": [
+            0,
+            6
+          ],
+          "main_count": 1
+        },
+        {
+          "id": "slavicmyths:bandit_camp_small",
+          "chunk": [
+            4,
+            5
+          ],
+          "main_count": 1
+        },
+        {
+          "id": "slavicmyths:chud_abandoned",
+          "chunk": [
+            92,
+            88
+          ],
+          "main_count": null
+        },
+        {
+          "id": "slavicmyths:underwater_ruins",
+          "chunk": [
+            2,
+            1
+          ],
+          "main_count": null
+        }
+      ],
+      "no_start_cells": 16,
+      "same_cells_before_after_changes": []
+    },
+    {
+      "receipt": "natural4-results.json",
+      "status": "PASS",
+      "checks": 12,
+      "failed_checks": [],
+      "error": null,
+      "seed": 20261026,
+      "sampled_cells": 20,
+      "observed": [
+        {
+          "id": "slavicmyths:bandit_camp_medium",
+          "chunk": [
+            4,
+            0
+          ],
+          "main_count": 1
+        },
+        {
+          "id": "slavicmyths:bandit_camp_small",
+          "chunk": [
+            5,
+            4
+          ],
+          "main_count": 1
+        },
+        {
+          "id": "slavicmyths:chud_abandoned",
+          "chunk": [
+            17,
+            13
+          ],
+          "main_count": null
+        },
+        {
+          "id": "slavicmyths:kurgan_small",
+          "chunk": [
+            13,
+            17
+          ],
+          "main_count": 1
+        }
+      ],
+      "no_start_cells": 16,
+      "same_cells_before_after_changes": []
+    }
+  ],
+  "jar_sha256": "636ab1c948244f3f7857501d0ebc7f91a461fb8b7809c0f2bcb53696649ca7d5",
+  "collision_class_sha256": "0927f5162d762f3738576f0e513588d3a6f6d5041a353924da2cf119193488d1",
+  "actual_jar_class_matches": true,
+  "actual_jar_origin": "union:/D:/slavic-myths/work/stabilization269-jar-regression/mods/slavicmyths-2.0.4-HELL.jar%23128!/",
+  "server_processes": 7,
+  "client_processes": 6
+}

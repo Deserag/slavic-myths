@@ -1,0 +1,422 @@
+[
+  {
+    "original": "baseline-server.log",
+    "original_sha256": "6b42586657d3ce4cec5d6957630ba050798e5ef30cbfeb17b8e0abcc003b3682",
+    "review_copy": "baseline-server.log.txt",
+    "review_sha256": "ea393f61e0bc74064c7c7f1630f8fc64af916893560f39c21a34f3f7bfeec3d0",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "braking-corridor-server.log",
+    "original_sha256": "fec0a01dd77ebdcaa17900526b04fcf8933b6fbe04b47aa68cee4c12d0b7753e",
+    "review_copy": "braking-corridor-server.log.txt",
+    "review_sha256": "99d226e0cdd5e693e982a4779623cf2963d394a411e30c46e7fec85e039f8917",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "braking-diagnostic-server.log",
+    "original_sha256": "2636848e54ec5a0b4fbbc0407ce5f4e23a08bc204033b21c78805af0418340fa",
+    "review_copy": "braking-diagnostic-server.log.txt",
+    "review_sha256": "ce0da12b2a1c252ffab9e72acedd3742ca96d942c357197930b26c36e85363bf",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "census-server.log",
+    "original_sha256": "d226634ca7e46f8eead346d5da4104e5ba91f148651577c4137412a1598142b9",
+    "review_copy": "census-server.log.txt",
+    "review_sha256": "5fb677a7abbb5195d39f7667de7c1e04fe2ac1b21d6268d0880e0d977006cccb",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "clean-build-final.log",
+    "original_sha256": "60e15239009cfcc445256cf99e0c75a9c3886fdb2b80cb7a840519f75d11f37a",
+    "review_copy": "clean-build-final.log.txt",
+    "review_sha256": "a47acdbfd5a716e6e3270da0959549fd68b6e98823d52e7f559dd46f0017abe6",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "clean-build.log",
+    "original_sha256": "d5989fdc6f487091a69d6f545cae81c564a074e5aafb1ab11eea3146c1a2dd6d",
+    "review_copy": "clean-build.log.txt",
+    "review_sha256": "1f3466fadddb5174aa23094f6c54be158db88852a25cb2c146c2194fe07b3abd",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "client-assets-particles-before-run.log",
+    "original_sha256": "5fa0157e88838af1c9ba0c7adb0f6719b8c5b62f826b4f93b047642d97471536",
+    "review_copy": "client-assets-particles-before-run.log.txt",
+    "review_sha256": "7d41b3403025e48be3c18192310e6f17590068775c24f79ad0f2e59aeeb9327c",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "client-assets-particles-fixed-run.log",
+    "original_sha256": "b899f21e263c9c60bebf94de0bc638fc8df1e64e34811cf80cb4d5458d48c019",
+    "review_copy": "client-assets-particles-fixed-run.log.txt",
+    "review_sha256": "81f2f25d9a0824827de0fa67c8e4dc81af6964f442f375ded7842dff5ccef6a1",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "client-assets-run.log",
+    "original_sha256": "a56065946ee79758bef3e092fe543de756fc900eb89704c22b1bf285c428b5b4",
+    "review_copy": "client-assets-run.log.txt",
+    "review_sha256": "bf62c7652b2967846931d740ef1dc10cdd1f445a3248716941b77aacc6f89c43",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "client-attempt1.log",
+    "original_sha256": "51c67270fc5e45b2f851ceb33f2c6ebc952a8790e99a3dc31e6396121ce6621f",
+    "review_copy": "client-attempt1.log.txt",
+    "review_sha256": "88824cdfb11263df3e41d63ad037a7cf0a6f4a20d55754d9415e0e57d9c52c4a",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "client-attempt2.log",
+    "original_sha256": "9e2c881246aee3bbaaa4de6d970f75a48c7b9f55e7c2406d5169d6d1dedd2c72",
+    "review_copy": "client-attempt2.log.txt",
+    "review_sha256": "83221de7d258695f47b84a4b82b94d9799dba477619d1ac07589763f9cb741bd",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "client-controls-platform-run.log",
+    "original_sha256": "3cd044053281f3c303b149dd8a18cd2addb2fda8f19297f6f11ca2485959c032",
+    "review_copy": "client-controls-platform-run.log.txt",
+    "review_sha256": "3c8ca792bad223285ee06e5d582a0c8551a936edec5f1133bbcf135e383490c1",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "client-controls-postseat-run.log",
+    "original_sha256": "9282422b5d0af6cb0ef22e8c7ecdf178ef62d3c2a22de55adb782ae65992d5cf",
+    "review_copy": "client-controls-postseat-run.log.txt",
+    "review_sha256": "d6751d6fa29aebc2adad34c418d68bc4713f8ea52142d410a2593bfb29e7b078",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "client-controls-run.log",
+    "original_sha256": "de65339bf27c519155131a42ba90726dac70cf64675a92c9865f3b3a3dc5adbe",
+    "review_copy": "client-controls-run.log.txt",
+    "review_sha256": "4b21c0460fac077f4785cd5cc70087a07e75fca305317911cad1adc3c95c5c87",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "client-relogin-postseat-run.log",
+    "original_sha256": "226ab4baea34ed5cd27d52b0024378bf9c13ab3dc80a4a93671e8b6f47c4709b",
+    "review_copy": "client-relogin-postseat-run.log.txt",
+    "review_sha256": "af64de009140fad80eb011537fd4ab546ab0ffe170cb5d08b88912035dc932d7",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "client-relogin-run.log",
+    "original_sha256": "6e2200f7ad166d177ae9f7357301f647235cb4a359455a53c2a10bd33b5841fe",
+    "review_copy": "client-relogin-run.log.txt",
+    "review_sha256": "d70dfacdaff7da7267ba32f060db8478527140b916e562abf69bc40b878b9681",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "client-ru-jei-run.log",
+    "original_sha256": "0a012c14dd4a2f451d8680c0cddeb29e6ac89c36fcb62fb2b30d2adacd266e45",
+    "review_copy": "client-ru-jei-run.log.txt",
+    "review_sha256": "7c5870a3c013bf2149f2b9210f23e2141db408771b1498e2330d2252a01df01c",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "client-run.log",
+    "original_sha256": "e620ff477ebf63958a228a5217d75e21aed541963efc85b6b291b329155e8508",
+    "review_copy": "client-run.log.txt",
+    "review_sha256": "62efee862123ac3784d8b1cfc2d6178b3cd09e7e5e4b041ea44e81c0e3409480",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "client-side-fixed-run.log",
+    "original_sha256": "d669496caf86ded8daa7117fe117563cfa89172593c304a4fa11d7dfbb092001",
+    "review_copy": "client-side-fixed-run.log.txt",
+    "review_sha256": "832a872a3791b577ddd7809d60713dfa7ae8cbe6f363047a37ad1a5da93e1b36",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "client-side-run.log",
+    "original_sha256": "8515c603897352631c1672a75b8255eb7d96d35bc5135f72962850b9de507c61",
+    "review_copy": "client-side-run.log.txt",
+    "review_sha256": "1a39fcf9dc89252edefcbfe10d79994c2c3566689be03c9758741e3d5a33fb3a",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "client-visible-run.log",
+    "original_sha256": "4cc91ccb55c2af9c268db4b421b8c17f097ac2546d5e1c9059a18e92d08c402f",
+    "review_copy": "client-visible-run.log.txt",
+    "review_sha256": "484cffbef8dbe9dc0addad5bc940a5e8c9ec09cfb8fbb36c120b771ce87b172e",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "effects-server.log",
+    "original_sha256": "dc005e058dde0a3b5a690eb1a4e7ffa378f8c938a2c4350924d554c6f18a5677",
+    "review_copy": "effects-server.log.txt",
+    "review_sha256": "c724ce8d6f0a7e75a0e196e21f28de24a5de480ed9e5c3c7620f1fc60ecefece",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "final-offline-gates.log",
+    "original_sha256": "3ebd86722aa2345db1e9be47578b3a2cc7ff416f69024153220ffd47a4de79ff",
+    "review_copy": "final-offline-gates.log.txt",
+    "review_sha256": "ba81398f892296332214e6c3fe8a79c52820d2881bf76f156136a5f9d6995ce7",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "fix1-server.log",
+    "original_sha256": "ff6188ff201f76f94641276fc4b347ff5876d14c9f1bc25f22c044457f3aad4e",
+    "review_copy": "fix1-server.log.txt",
+    "review_sha256": "875af10551098f96db37cb3752130a5c27930ccd541c26c34ea08669659f3607",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "foods-server.log",
+    "original_sha256": "fdcb34a550ee9413eda9012a3b729daa2fbca1e5b6c47d06897871ebed46a911",
+    "review_copy": "foods-server.log.txt",
+    "review_sha256": "22a28ae6e2a375a3ee36d3fa0022299955774a3870cccac3612d57c2bc7326dc",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "mp-guest-ipv6-run.log",
+    "original_sha256": "4f6d491e2056928995f79350a9d3777944884438ce1fb2ca7a2210d360f7ea5e",
+    "review_copy": "mp-guest-ipv6-run.log.txt",
+    "review_sha256": "87f78a0c9b61aad5f1473e8504186ffed2657411466e815182b11d4d9feb64b4",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "mp-guest-run.log",
+    "original_sha256": "09221443c7600d56a79be1bfcd08db665d89435c77c190ea397a48d08dd81b5c",
+    "review_copy": "mp-guest-run.log.txt",
+    "review_sha256": "27965b788b51843df2e288ea5af326783b6fab64bb906a752e5650ff34e55d28",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "mp-host-run.log",
+    "original_sha256": "4e5337ba1f1ab9af0c91df533ddefca3370fd5d950a373336c593aae6db3c30f",
+    "review_copy": "mp-host-run.log.txt",
+    "review_sha256": "23edbd53b87b53397ddecf7660f22fcf5495f0d192679214c8410a7d6e13104f",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "natural0-deep-server.log",
+    "original_sha256": "2906c3d32443c1a5ab1e87e87718a15bee7373943fb1b8d029aaf047634dbf31",
+    "review_copy": "natural0-deep-server.log.txt",
+    "review_sha256": "1d82bbf8637a42317df298374e97f6eb02414468642552aaaf79402337d20802",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "natural0-server.log",
+    "original_sha256": "5b25e8889bdd822980e8f682ef879602df4e0f2742477e5459e10afe81c7e048",
+    "review_copy": "natural0-server.log.txt",
+    "review_sha256": "92dc548e74d9d0c5e71fbf9b2149767f366b03b31d45dacb37ac41f36e5b0f53",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "natural0-weighted-server.log",
+    "original_sha256": "8b54b302b91ad3e1f879264ae0e246c53eb1bb94885dcd11049959bdadc91a75",
+    "review_copy": "natural0-weighted-server.log.txt",
+    "review_sha256": "ba1e075ab293fecca6a7cb00c0fd4d9f8e98ed1a06f9695f31e882b967579987",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "natural1-server.log",
+    "original_sha256": "57b0ce3e3b629968007f717afac4aeff1298ef714f0ea211b8078f88b345da0e",
+    "review_copy": "natural1-server.log.txt",
+    "review_sha256": "3b5f12f8cfc0d5caef72941155d186a5b3321ca90f6008fe27c8372486997c55",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "natural2-server.log",
+    "original_sha256": "5be9c8ab1b797a873cbf3b8c6d4e1bf5b908b037372283edacb0f37d475420d7",
+    "review_copy": "natural2-server.log.txt",
+    "review_sha256": "00477eb1053ca340bc0332cf01f346ef21e768e5170d2ab93d89ea2e0be94a98",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "natural3-server.log",
+    "original_sha256": "09bbb2f8f7c218cb45778811ecbf5150201b240fcf4d327616e78f0a8898e114",
+    "review_copy": "natural3-server.log.txt",
+    "review_sha256": "ca740eb5d0b5f6482727269aaa62d099db88d4c789f48524df3e76fa374fa3e2",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "natural4-bounds-qafix-server.log",
+    "original_sha256": "ff9d8e9ab68de9cbaafdf76ff56fcb09ae599b261673207f7b9b8963ccb35d23",
+    "review_copy": "natural4-bounds-qafix-server.log.txt",
+    "review_sha256": "d6dfcaf85e23df56b2d65f603e989fed2e5aeea6c5dbec64d07d069f2df72c6d",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "natural4-server.log",
+    "original_sha256": "9e7bbcaccc987ee7bf6af9cfc749aebcf9887adf996e81289d879c5fab931827",
+    "review_copy": "natural4-server.log.txt",
+    "review_sha256": "dc9ca6c1e6e79c6817bb798e858481dca0ad94640c917ea98481e36377a41c87",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "offline-regression.log",
+    "original_sha256": "e002455e54d69bc8bac930853d2577999ccd30b2fddb4eea9effe65e6996dd09",
+    "review_copy": "offline-regression.log.txt",
+    "review_sha256": "40c38111b058ca993137263cd9c7533950660bec0821453f3e5362a2586a3a18",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "offline-structures.log",
+    "original_sha256": "ee4ae5bc4d8c6103a8051685c91c45a9a24c517aa8aeeefc42450f8de5cd1ceb",
+    "review_copy": "offline-structures.log.txt",
+    "review_sha256": "eb980f64feff80e70379dda600e831d51b128729dcd703cf5b890d90134a53ae",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "oldsave-server.log",
+    "original_sha256": "5aebffa9adabf68d96e9f136f6a460dbd06848358d1c4cced2671d64debfe59d",
+    "review_copy": "oldsave-server.log.txt",
+    "review_sha256": "805296b1d7177df75af78b7e82ff9be29c7e95866aa0fbd255c82f69275f82e5",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "placement-offline-baseline.log",
+    "original_sha256": "df3c20168b8b8a0e8ee89cec0f8593093d834e386d2a9891bc21ada785a7073b",
+    "review_copy": "placement-offline-baseline.log.txt",
+    "review_sha256": "13a00150f2ab43c6acf5866d9eca32fceca75517c4c9cb0182d2bc6c7ce2312b",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "placement-offline-before.log",
+    "original_sha256": "e9891f6285477ebb31cb41a941d68f9745d9c604ff796e484f307c48560624fa",
+    "review_copy": "placement-offline-before.log.txt",
+    "review_sha256": "eb9f7d0551f392f119ae62bbc99c6b8053766c61453b4ea97010ec88328e71cb",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "placement-offline-fixed.log",
+    "original_sha256": "6c0af4d885b2dbd3dba9ea7cbb9fd37b886df9b162f8d8894fc9fe119f6e9fd3",
+    "review_copy": "placement-offline-fixed.log.txt",
+    "review_sha256": "bc58167f786ce42d6f66c426d27b2aa8c8263fcc56d1997c035272b1610d4b8a",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "poses-after-run.log",
+    "original_sha256": "c8d6332879872ad825415cb9f5d4591cbba4acfe9274991f73d06c9cfc7dd420",
+    "review_copy": "poses-after-run.log.txt",
+    "review_sha256": "af349d44ce4d1bac9e5487d8ee50630474a0eaaf692cdd1e5ad21c3e56dc8b53",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "poses-before-run.log",
+    "original_sha256": "84185f8b0c33c1b1ebeba29dc7a81c28499f76794982d33dd338d6bfbec24d4d",
+    "review_copy": "poses-before-run.log.txt",
+    "review_sha256": "0a0c230f53f04f48b62c6a83660f24758063e9a312185a553a331038338f718f",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "postseat-restart-server.log",
+    "original_sha256": "3ed435fd289ab743e6421c439936681dd9aad25a1a709376164f5252c2c627ee",
+    "review_copy": "postseat-restart-server.log.txt",
+    "review_sha256": "41e78e1f237e00fbdc2d6be181e8fff6b71864f6bfe6a52759f2b6632ca6b0c2",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "postseat-server.log",
+    "original_sha256": "f69b311ee3e1257720362afdbd96f4455f71e73aec5ae0db4b264367f86a2c75",
+    "review_copy": "postseat-server.log.txt",
+    "review_sha256": "096349bd2bb9500afde49f5869375f6c4c32b548adb9536122e4b1635610142b",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "quests-server.log",
+    "original_sha256": "67d78de878527b5831e6cbe1ddb84ae64b39630d8338c5ab60863416b55d05f8",
+    "review_copy": "quests-server.log.txt",
+    "review_sha256": "b1b4154f22fad0883dd03a2163598f6a8b8f81adf710681ecc07fded122f8a1a",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "recipes-custom-server.log",
+    "original_sha256": "043b7e2fd5d8bd02a4fec9fb7ac8debb285da05742983824548c1403f7f64b5a",
+    "review_copy": "recipes-custom-server.log.txt",
+    "review_sha256": "6f78e33c340824baddb74654a732912227ac89a6018f046e18be890a117b7974",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "recipes-fixed-server.log",
+    "original_sha256": "27e66b848951cbe2124bce08ceabc46993d1be4eb809e372a1383b0ab604d406",
+    "review_copy": "recipes-fixed-server.log.txt",
+    "review_sha256": "622a4ed74540bb3a297016f2ab301da76bffd384f16fc5876142d7ca420f9b59",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "recipes-server.log",
+    "original_sha256": "bbd9661e6b45c48959226c61173f57e361e5cac90fde1d2706b813e3a7776f74",
+    "review_copy": "recipes-server.log.txt",
+    "review_sha256": "c7c7bc703554eefe7138058fcd7cea188848d44aba70c62bdf89c36bd7c3c7b9",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "resources-final.log",
+    "original_sha256": "2f504ef3479e2563f94373c20f9e79a7a320fbcccc320478f3bfdcdf4cc18e8b",
+    "review_copy": "resources-final.log.txt",
+    "review_sha256": "2f504ef3479e2563f94373c20f9e79a7a320fbcccc320478f3bfdcdf4cc18e8b",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "resources.log",
+    "original_sha256": "953c25adc7536b1ffba4420352949c761e9c3e505416794113e1328db25d23c4",
+    "review_copy": "resources.log.txt",
+    "review_sha256": "953c25adc7536b1ffba4420352949c761e9c3e505416794113e1328db25d23c4",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "restart-server.log",
+    "original_sha256": "b2143df13d775cf750ee0b5e90919e5a9190ac9c4e2a88f8d1454de24620baaf",
+    "review_copy": "restart-server.log.txt",
+    "review_sha256": "18d10987f089945cbcda4da4c24c5f935ff36e8e5787fb31cde18d5a071454dc",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "seed0-server.log",
+    "original_sha256": "f503fcc835e652c032187b8faca3d0da75cb09eed44e5c4d038557e146c462e1",
+    "review_copy": "seed0-server.log.txt",
+    "review_sha256": "3f605580410619046bec6501f1811569ea3a5e13018cb3bd0b21ac9469c7d377",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "seed1-server.log",
+    "original_sha256": "cd842178b781dcb0ed3e9e02831ae4ac51a4e8831e72e0212258e8497a2e1df0",
+    "review_copy": "seed1-server.log.txt",
+    "review_sha256": "e00ca9dbf3802a7b8de4f6ea9b28bd6d4e534a4c80d774ae4072d8a625e410c1",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "seed2-server.log",
+    "original_sha256": "d4291e0656c935a132238ee73de9a63d6caa0f22f9ba53b2ca1d740271bc44bf",
+    "review_copy": "seed2-server.log.txt",
+    "review_sha256": "eb5a66293eae51e048c263745fd095a8c5605c482f500ec439f33b65c0d3688d",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "seed3-server.log",
+    "original_sha256": "bcd00ab767c46a15e7d83a326917f7e8737dc14388a889a968d32cee72a80685",
+    "review_copy": "seed3-server.log.txt",
+    "review_sha256": "a103f763d359d0313c4ad983f31b52f8558e26f717c60d5cdaf8cd7391d02973",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "seed4-server.log",
+    "original_sha256": "47306a6319d031b920f99add4bdf82543ad43e9bb5e348271790ebe659aa8f7e",
+    "review_copy": "seed4-server.log.txt",
+    "review_sha256": "33480c10400d611315c73c3bbb40a56f19bcf83cc8841a3a5dcfcac0272cd03e",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "terrain-benchmark-server.log",
+    "original_sha256": "85c60ad25fea70c5d80d1febbd8064c059cf9172c22101b249e45c1ea4fb6921",
+    "review_copy": "terrain-benchmark-server.log.txt",
+    "review_sha256": "bda37cee7fe78b0b2856d8109e066f27e1137c6fd31b3adba910ecd7c4074c75",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  },
+  {
+    "original": "winters-server.log",
+    "original_sha256": "5bd9b57d333929273c3bc98439ade899a5680ea001e6c97739cf59a1afeac9d8",
+    "review_copy": "winters-server.log.txt",
+    "review_sha256": "2bb50f1bad94c0a7102904dec2b6cb28bc2e872b3fc51255afb1c14d5315aea1",
+    "normalization": "UTF8 and trailing whitespace only; original preserved"
+  }
+]

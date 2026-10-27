@@ -1,0 +1,147 @@
+{
+  "master_volume": 0.3,
+  "fps_limit": 30,
+  "available_processors": 2,
+  "max_heap_bytes": 1610612736,
+  "GLFW_visible": 1,
+  "player_uuid": "dace75c4-06ba-39a8-b9bf-c66b92ee16f0",
+  "production_brew_class_sha256": "5f71e467ffa79fe7827d2295941e0f8de2832686a2b28f1724fa0f4eef868bb6",
+  "sent_phase_0_client_position": "(1002.5, 201.0, 8.5)",
+  "blocked_age": 0,
+  "blocked_server_position": "(1002.5, 201.0, 8.5)",
+  "blocked_held": "1 slavicmyths:light_beer_wort",
+  "blocked_ready_beer_samples": 0,
+  "sent_phase_1_client_position": "(1002.5, 201.0, 8.5)",
+  "beerStart_age": 20,
+  "beerStart_server_position": "(1002.5, 201.0, 8.5)",
+  "beerStart_held": "0 minecraft:air",
+  "beerStart_ready_beer_samples": 0,
+  "sent_phase_2_client_position": "(1002.5, 201.0, 8.5)",
+  "kvassStart_age": 61,
+  "kvassStart_server_position": "(1002.5, 201.0, 8.5)",
+  "kvassStart_held": "0 minecraft:air",
+  "kvassStart_ready_beer_samples": 0,
+  "sent_phase_3_client_position": "(1002.5, 201.0, 8.5)",
+  "wrong_age": 102,
+  "wrong_server_position": "(1002.5, 201.0, 8.5)",
+  "wrong_held": "1 minecraft:dirt",
+  "wrong_ready_beer_samples": 0,
+  "sent_phase_4_client_position": "(1002.5, 201.0, 8.5)",
+  "youngBeer_age": 143,
+  "youngBeer_server_position": "(1002.5, 201.0, 8.5)",
+  "youngBeer_held": "1 slavicmyths:light_beer_mug",
+  "youngBeer_ready_beer_samples": 0,
+  "sent_phase_5_client_position": "(1002.5, 201.0, 8.5)",
+  "youngKvass_age": 185,
+  "youngKvass_server_position": "(1002.5, 201.0, 8.5)",
+  "youngKvass_held": "1 slavicmyths:kvass_mug",
+  "youngKvass_ready_beer_samples": 0,
+  "sent_phase_6_client_position": "(1002.5, 201.0, 8.5)",
+  "pressLoad_age": 226,
+  "pressLoad_server_position": "(1002.5, 201.0, 8.5)",
+  "pressLoad_held": "0 minecraft:air",
+  "pressLoad_ready_beer_samples": 0,
+  "sent_phase_7_client_position": "(1002.5, 201.0, 8.5)",
+  "press1_age": 267,
+  "press1_server_position": "(1002.5, 201.0, 8.5)",
+  "press1_held": "0 minecraft:air",
+  "press1_ready_beer_samples": 0,
+  "sent_phase_8_client_position": "(1002.5, 201.0, 8.5)",
+  "press2_age": 308,
+  "press2_server_position": "(1002.5, 201.0, 8.5)",
+  "press2_held": "0 minecraft:air",
+  "press2_ready_beer_samples": 0,
+  "sent_phase_9_client_position": "(1002.5, 201.0, 8.5)",
+  "press3_age": 349,
+  "press3_server_position": "(1002.5, 201.0, 8.5)",
+  "press3_held": "0 minecraft:air",
+  "press3_ready_beer_samples": 0,
+  "sent_phase_10_client_position": "(1002.5, 201.0, 8.5)",
+  "juice_age": 390,
+  "juice_server_position": "(1002.5, 201.0, 8.5)",
+  "juice_held": "1 slavicmyths:apple_juice_bottle",
+  "juice_ready_beer_samples": 0,
+  "sent_phase_11_client_position": "(1002.5, 201.0, 8.5)",
+  "pomace_age": 431,
+  "pomace_server_position": "(1002.5, 201.0, 8.5)",
+  "pomace_held": "1 slavicmyths:fruit_pomace",
+  "pomace_ready_beer_samples": 0,
+  "saved_beer_age": 431,
+  "saved_kvass_age": 390,
+  "status": "PASS_SINGLE_CLIENT_BREW_SCOPE",
+  "checks": [
+    {
+      "test": "distinct actual brewing test profile",
+      "status": "PASS"
+    },
+    {
+      "test": "journey data compatible",
+      "status": "PASS"
+    },
+    {
+      "test": "fresh player lacks self_brewed_beer before actual completion",
+      "status": "PASS"
+    },
+    {
+      "test": "occupied vat rejects batch without consumption",
+      "status": "PASS"
+    },
+    {
+      "test": "real beer batch starts eight portions at young age",
+      "status": "PASS"
+    },
+    {
+      "test": "one real wort item consumed",
+      "status": "PASS"
+    },
+    {
+      "test": "second physical vat starts real kvass batch",
+      "status": "PASS"
+    },
+    {
+      "test": "wrong vessel cannot extract fermentation",
+      "status": "PASS"
+    },
+    {
+      "test": "active fermentation denies ingredient insertion",
+      "status": "PASS"
+    },
+    {
+      "test": "young beer pour consumes one serving with young metadata",
+      "status": "PASS"
+    },
+    {
+      "test": "young kvass pour consumes one serving with young metadata",
+      "status": "PASS"
+    },
+    {
+      "test": "real press interaction loads four apples",
+      "status": "PASS"
+    },
+    {
+      "test": "no premature juice press1",
+      "status": "PASS"
+    },
+    {
+      "test": "no premature juice press2",
+      "status": "PASS"
+    },
+    {
+      "test": "three native press actions produce one juice and one pomace",
+      "status": "PASS"
+    },
+    {
+      "test": "real press interaction retrieves juice once",
+      "status": "PASS"
+    },
+    {
+      "test": "real press interaction retrieves pomace once",
+      "status": "PASS"
+    }
+  ],
+  "scope": "one actual client, supplied fixtures/batches, native useItemOn packets and unaccelerated block ticks; Survival acquisition/MP NOT_RUN",
+  "final_beer_age": 432,
+  "final_kvass_age": 391,
+  "final_beer_servings": 7,
+  "final_kvass_servings": 7
+}

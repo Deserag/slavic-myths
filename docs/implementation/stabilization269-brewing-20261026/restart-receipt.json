@@ -1,0 +1,49 @@
+{
+  "master_volume": 0.3,
+  "fps_limit": 30,
+  "available_processors": 2,
+  "max_heap_bytes": 1610612736,
+  "GLFW_visible": 1,
+  "player_uuid": "dace75c4-06ba-39a8-b9bf-c66b92ee16f0",
+  "production_brew_class_sha256": "5f71e467ffa79fe7827d2295941e0f8de2832686a2b28f1724fa0f4eef868bb6",
+  "status": "PASS_SINGLE_CLIENT_BREW_SCOPE",
+  "checks": [
+    {
+      "status": "PASS",
+      "test": "distinct actual brewing test profile"
+    },
+    {
+      "status": "PASS",
+      "test": "journey data compatible"
+    },
+    {
+      "status": "PASS",
+      "test": "destroyed beer vat stays absent after actual process restart"
+    },
+    {
+      "status": "PASS",
+      "test": "exhausted kvass vat stays empty after actual process restart"
+    },
+    {
+      "status": "PASS",
+      "test": "drained keg stays empty after actual process restart"
+    },
+    {
+      "status": "PASS",
+      "test": "existing beer journey persists after actual process restart"
+    },
+    {
+      "status": "PASS",
+      "test": "three new beer samples and two distinct pre-existing cleanup drops persist exactly"
+    },
+    {
+      "status": "PASS",
+      "test": "all seven poured kvass portions persist without duplication"
+    },
+    {
+      "status": "PASS",
+      "test": "six total spoiled portions persist across actual process restart"
+    }
+  ],
+  "scope": "one actual client, supplied fixtures/batches, native useItemOn packets and unaccelerated block ticks; Survival acquisition/MP NOT_RUN"
+}

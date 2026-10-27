@@ -1,0 +1,29 @@
+{
+  "master_volume": 0.3,
+  "remote_address": "0:0:0:0:0:0:0:1/[0:0:0:0:0:0:0:1]:25770",
+  "pickup_client_game_time": 10720,
+  "checks": [
+    {
+      "test": "guest has no integrated server; genuine remote client",
+      "status": "PASS"
+    },
+    {
+      "test": "second real client has distinct player profile",
+      "status": "PASS"
+    },
+    {
+      "test": "foreign client cannot mount or hijack unoccupied owner horse",
+      "status": "PASS"
+    },
+    {
+      "test": "guest opens actual shared chest GUI over TCP",
+      "status": "PASS"
+    },
+    {
+      "test": "guest sent real chest pickup packet",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS_NETWORK_SCOPE",
+  "scope": "two real Minecraft clients; loopback TCP, ownership and shared chest race only; natural Survival/ritual MP NOT_RUN"
+}

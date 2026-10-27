@@ -1,0 +1,27 @@
+{
+  "status": "INSTALLED_TEST_BUILD_NOT_OWNER_ACCEPTED",
+  "version": "2.0.6-HELL",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.6-HELL.jar",
+  "installed_sha256": "027b8269d9c893659e66b1e69742f9d18796564828a7dfb6e4c194d8cc07cb2c",
+  "mod_jar_count": 1,
+  "backup": "D:\\slavic-myths-backups\\stabilization269-206-20261026T184629Z\\slavicmyths-2.0.5-HELL.jar",
+  "backup_sha256": "1746acf792f1599f8d36dbc855c88823e7ecd71bf072053cefd01f823dbd55df",
+  "source_commit": "61cb344eeaf3a31db098052800a5e8ab710568de",
+  "source_dirty": true,
+  "source_production_patch": "D:\\slavic-myths\\docs\\implementation\\stabilization269-kitchen-20261026\\source-production-206.patch",
+  "source_production_patch_sha256": "df8621619fb73de4a42536ac093fa5511bbefbbeb1c346f979314a5cbdf689da",
+  "changed_entries_vs_installed_205": [
+    "META-INF/MANIFEST.MF",
+    "META-INF/neoforge.mods.toml",
+    "org/slavicmyths/client/KitchenScreen.class"
+  ],
+  "unchanged_gameplay_classes_vs_205": 1949,
+  "actual_compiled_main_classes_match_jar": 1950,
+  "clean_build": "PASS",
+  "resource_gate": "PASS",
+  "functional_checks_before_ui_fix": 34,
+  "visual_checks_after_ui_fix": 2,
+  "installation_started_launcher": false,
+  "installation_modified_worlds": false,
+  "timestamp_utc": "2026-10-26T18:46:30.274107+00:00"
+}

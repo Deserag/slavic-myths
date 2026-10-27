@@ -1,0 +1,506 @@
+[
+  {
+    "seed": 2692026,
+    "world": "work/stabilization269-resume-natural0/stabilization269-test",
+    "id": "slavicmyths:bandit_camp_large",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      -255,
+      -265
+    ],
+    "bounds": [
+      -4043,
+      -64,
+      -4213,
+      -3946,
+      319,
+      -4108
+    ],
+    "center_xz": [
+      -3995,
+      -4161
+    ],
+    "main_route": "slavicmyths:rewards276/camp_3_main",
+    "main_count": 1
+  },
+  {
+    "seed": 2692026,
+    "world": "work/stabilization269-resume-natural0/stabilization269-test",
+    "id": "slavicmyths:kurgan_warrior",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      -390,
+      15
+    ],
+    "bounds": [
+      -6266,
+      46,
+      169,
+      -6134,
+      107,
+      325
+    ],
+    "center_xz": [
+      -6200,
+      247
+    ],
+    "main_route": "slavicmyths:rewards276/kurgan_2_main",
+    "main_count": 1
+  },
+  {
+    "seed": 2692026,
+    "world": "work/stabilization269-resume-natural0/stabilization269-test",
+    "id": "slavicmyths:serpent_hill",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      41,
+      274
+    ],
+    "bounds": [
+      600,
+      79,
+      4328,
+      727,
+      222,
+      4455
+    ],
+    "center_xz": [
+      663,
+      4391
+    ],
+    "main_route": "slavicmyths:rewards276/overworld/fortress_main",
+    "main_count": 1
+  },
+  {
+    "seed": 2692026,
+    "world": "work/stabilization269-resume-natural0/stabilization269-test",
+    "id": "slavicmyths:bandit_camp_medium",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      7,
+      3
+    ],
+    "bounds": [
+      104,
+      -64,
+      32,
+      162,
+      319,
+      93
+    ],
+    "center_xz": [
+      133,
+      62
+    ],
+    "main_route": "slavicmyths:rewards276/camp_2_main",
+    "main_count": 1
+  },
+  {
+    "seed": 2692026,
+    "world": "work/stabilization269-resume-natural0/stabilization269-test",
+    "id": "slavicmyths:bandit_camp_small",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      7,
+      1
+    ],
+    "bounds": [
+      82,
+      -64,
+      -22,
+      122,
+      319,
+      26
+    ],
+    "center_xz": [
+      102,
+      2
+    ],
+    "main_route": "slavicmyths:rewards276/camp_1_main",
+    "main_count": 1
+  },
+  {
+    "seed": 2692026,
+    "world": "work/stabilization269-resume-natural0/stabilization269-test",
+    "id": "slavicmyths:chud_city",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      88,
+      63
+    ],
+    "bounds": [
+      1289,
+      -63,
+      889,
+      1543,
+      54,
+      1143
+    ],
+    "center_xz": [
+      1416,
+      1016
+    ],
+    "main_route": null,
+    "main_count": null
+  },
+  {
+    "seed": 2692026,
+    "world": "work/stabilization269-resume-natural0/stabilization269-test",
+    "id": "slavicmyths:kurgan_small",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      17,
+      7
+    ],
+    "bounds": [
+      254,
+      50,
+      57,
+      324,
+      79,
+      159
+    ],
+    "center_xz": [
+      289,
+      108
+    ],
+    "main_route": "slavicmyths:rewards276/kurgan_1_main",
+    "main_count": 1
+  },
+  {
+    "seed": 12345,
+    "world": "work/stabilization269-resume-natural1/stabilization269-test",
+    "id": "slavicmyths:bandit_camp_medium",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      4,
+      6
+    ],
+    "bounds": [
+      123,
+      -64,
+      13,
+      181,
+      319,
+      74
+    ],
+    "center_xz": [
+      152,
+      43
+    ],
+    "main_route": "slavicmyths:rewards276/camp_2_main",
+    "main_count": 1
+  },
+  {
+    "seed": 12345,
+    "world": "work/stabilization269-resume-natural1/stabilization269-test",
+    "id": "slavicmyths:chud_city",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      63,
+      28
+    ],
+    "bounds": [
+      889,
+      -62,
+      329,
+      1143,
+      55,
+      583
+    ],
+    "center_xz": [
+      1016,
+      456
+    ],
+    "main_route": null,
+    "main_count": null
+  },
+  {
+    "seed": 12345,
+    "world": "work/stabilization269-resume-natural1/stabilization269-test",
+    "id": "slavicmyths:underwater_ruins",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      2,
+      3
+    ],
+    "bounds": [
+      32,
+      41,
+      48,
+      48,
+      55,
+      64
+    ],
+    "center_xz": [
+      40,
+      56
+    ],
+    "main_route": null,
+    "main_count": null
+  },
+  {
+    "seed": -269,
+    "world": "work/stabilization269-resume-natural2/stabilization269-test",
+    "id": "slavicmyths:bandit_camp_small",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      6,
+      7
+    ],
+    "bounds": [
+      -2,
+      -64,
+      6,
+      38,
+      319,
+      54
+    ],
+    "center_xz": [
+      18,
+      30
+    ],
+    "main_route": "slavicmyths:rewards276/camp_1_main",
+    "main_count": 1
+  },
+  {
+    "seed": -269,
+    "world": "work/stabilization269-resume-natural2/stabilization269-test",
+    "id": "slavicmyths:chud_abandoned",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      74,
+      89
+    ],
+    "bounds": [
+      1065,
+      -51,
+      1305,
+      1319,
+      66,
+      1559
+    ],
+    "center_xz": [
+      1192,
+      1432
+    ],
+    "main_route": null,
+    "main_count": null
+  },
+  {
+    "seed": -269,
+    "world": "work/stabilization269-resume-natural2/stabilization269-test",
+    "id": "slavicmyths:navya_heart",
+    "dimension": "minecraft:the_nether",
+    "chunk": [
+      1,
+      11
+    ],
+    "bounds": [
+      9,
+      83,
+      169,
+      39,
+      103,
+      199
+    ],
+    "center_xz": [
+      24,
+      184
+    ],
+    "main_route": null,
+    "main_count": null
+  },
+  {
+    "seed": 8675309,
+    "world": "work/stabilization269-resume-natural3/stabilization269-test",
+    "id": "slavicmyths:bandit_camp_medium",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      0,
+      6
+    ],
+    "bounds": [
+      -8,
+      -64,
+      80,
+      50,
+      319,
+      141
+    ],
+    "center_xz": [
+      21,
+      110
+    ],
+    "main_route": "slavicmyths:rewards276/camp_2_main",
+    "main_count": 1
+  },
+  {
+    "seed": 8675309,
+    "world": "work/stabilization269-resume-natural3/stabilization269-test",
+    "id": "slavicmyths:bandit_camp_small",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      4,
+      5
+    ],
+    "bounds": [
+      56,
+      -64,
+      64,
+      96,
+      319,
+      112
+    ],
+    "center_xz": [
+      76,
+      88
+    ],
+    "main_route": "slavicmyths:rewards276/camp_1_main",
+    "main_count": 1
+  },
+  {
+    "seed": 8675309,
+    "world": "work/stabilization269-resume-natural3/stabilization269-test",
+    "id": "slavicmyths:chud_abandoned",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      92,
+      88
+    ],
+    "bounds": [
+      1376,
+      -50,
+      1312,
+      1584,
+      67,
+      1520
+    ],
+    "center_xz": [
+      1480,
+      1416
+    ],
+    "main_route": null,
+    "main_count": null
+  },
+  {
+    "seed": 8675309,
+    "world": "work/stabilization269-resume-natural3/stabilization269-test",
+    "id": "slavicmyths:underwater_ruins",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      2,
+      1
+    ],
+    "bounds": [
+      96,
+      41,
+      16,
+      112,
+      55,
+      32
+    ],
+    "center_xz": [
+      104,
+      24
+    ],
+    "main_route": null,
+    "main_count": null
+  },
+  {
+    "seed": 20261026,
+    "world": "work/stabilization269-resume-natural4/stabilization269-test",
+    "id": "slavicmyths:bandit_camp_medium",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      4,
+      0
+    ],
+    "bounds": [
+      56,
+      -64,
+      0,
+      114,
+      319,
+      61
+    ],
+    "center_xz": [
+      85,
+      30
+    ],
+    "main_route": "slavicmyths:rewards276/camp_2_main",
+    "main_count": 1
+  },
+  {
+    "seed": 20261026,
+    "world": "work/stabilization269-resume-natural4/stabilization269-test",
+    "id": "slavicmyths:bandit_camp_small",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      5,
+      4
+    ],
+    "bounds": [
+      72,
+      -64,
+      64,
+      112,
+      319,
+      112
+    ],
+    "center_xz": [
+      92,
+      88
+    ],
+    "main_route": "slavicmyths:rewards276/camp_1_main",
+    "main_count": 1
+  },
+  {
+    "seed": 20261026,
+    "world": "work/stabilization269-resume-natural4/stabilization269-test",
+    "id": "slavicmyths:chud_abandoned",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      17,
+      13
+    ],
+    "bounds": [
+      153,
+      -67,
+      89,
+      407,
+      50,
+      343
+    ],
+    "center_xz": [
+      280,
+      216
+    ],
+    "main_route": null,
+    "main_count": null
+  },
+  {
+    "seed": 20261026,
+    "world": "work/stabilization269-resume-natural4/stabilization269-test",
+    "id": "slavicmyths:kurgan_small",
+    "dimension": "minecraft:overworld",
+    "chunk": [
+      13,
+      17
+    ],
+    "bounds": [
+      190,
+      50,
+      217,
+      260,
+      77,
+      319
+    ],
+    "center_xz": [
+      225,
+      268
+    ],
+    "main_route": "slavicmyths:rewards276/kurgan_1_main",
+    "main_count": 1
+  }
+]

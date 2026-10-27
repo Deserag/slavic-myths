@@ -1,0 +1,18 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :compilePlacement269OfflineJava UP-TO-DATE
+> Task :processPlacement269OfflineResources NO-SOURCE
+> Task :placement269OfflineClasses UP-TO-DATE
+
+> Task :verifyPlacement269Offline
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PLACEMENT269_OFFLINE PASS checks=1028; production collision/predicate integration, metadata probes only; game/world/server/client launches=0; natural generation NOT_RUN
+
+BUILD SUCCESSFUL in 36s
+6 actionable tasks: 3 executed, 3 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

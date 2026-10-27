@@ -21,6 +21,6 @@ public final class KitchenScreen extends AbstractContainerScreen<KitchenMenu> {
   int n=menu.data.get(2);serve.active=n>0;label(g,"pot",12,102);g.drawString(font,tr("servings",n,menu.data.get(3)),leftPos+58,topPos+102,0xff34291f,false);
   if(minecraft.level.getBlockEntity(menu.pos) instanceof KitchenTile t&&!t.dish.isEmpty())g.renderItem(t.dish,leftPos+20,topPos+114);
  }
- protected void renderLabels(GuiGraphics g,int x,int y){label(g,"inventory",inventoryLabelX,inventoryLabelY);}
+ protected void renderLabels(GuiGraphics g,int x,int y){g.drawString(font,tr("inventory"),inventoryLabelX,inventoryLabelY,0xff34291f,false);}
  public void render(GuiGraphics g,int x,int y,float f){super.render(g,x,y,f);renderTooltip(g,x,y);}
 }

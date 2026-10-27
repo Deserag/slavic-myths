@@ -1,0 +1,93 @@
+{
+  "master_volume": 0.3,
+  "fps_limit": 30,
+  "render_distance": 2,
+  "available_processors": 2,
+  "max_heap_bytes": 1610612736,
+  "GLFW_visible": 1,
+  "loaded_progress": 64,
+  "checks": [
+    {
+      "test": "both physical stations survive new client/server process",
+      "status": "PASS"
+    },
+    {
+      "test": "taken dough inventory survives actual process restart",
+      "status": "PASS"
+    },
+    {
+      "test": "already consumed pot inputs stay consumed after restart",
+      "status": "PASS"
+    },
+    {
+      "test": "exactly one water bucket remainder persisted",
+      "status": "PASS"
+    },
+    {
+      "test": "actual in-progress pot recipe persisted, not NBT-only roundtrip",
+      "status": "PASS"
+    },
+    {
+      "test": "native time160 and pending three portions persisted",
+      "status": "PASS"
+    },
+    {
+      "test": "resumed native timer completes into exactly three portions",
+      "status": "PASS"
+    },
+    {
+      "test": "resumed completion does not duplicate bucket",
+      "status": "PASS"
+    },
+    {
+      "test": "new client opens persisted pot station through packet",
+      "status": "PASS"
+    },
+    {
+      "test": "client received real synchronized KitchenMenu action4",
+      "status": "PASS"
+    },
+    {
+      "test": "real serving button without bowl awards nothing",
+      "status": "PASS"
+    },
+    {
+      "test": "client received real synchronized KitchenMenu action5",
+      "status": "PASS"
+    },
+    {
+      "test": "three real button packets with two bowls give exactly two portions",
+      "status": "PASS"
+    },
+    {
+      "test": "pot remains locked while one serving remains",
+      "status": "PASS"
+    },
+    {
+      "test": "client received real synchronized KitchenMenu action6",
+      "status": "PASS"
+    },
+    {
+      "test": "last bowl gives third portion and clears prepared dish",
+      "status": "PASS"
+    },
+    {
+      "test": "empty pot tool unlocks",
+      "status": "PASS"
+    },
+    {
+      "test": "client received real synchronized KitchenMenu action7",
+      "status": "PASS"
+    },
+    {
+      "test": "repeated serving after exhaustion cannot duplicate food",
+      "status": "PASS"
+    },
+    {
+      "test": "no repeated recipe or remainder after exhaustion",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS_SINGLE_CLIENT_KITCHEN_SCOPE",
+  "scope": "one actual client/integrated server; native timer, supplied tools/ingredients; real menu packets; acquisition/MP NOT_RUN"
+}

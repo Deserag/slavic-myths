@@ -1,0 +1,71 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileArmor287OfflineJava
+> Task :processArmor287OfflineResources NO-SOURCE
+> Task :armor287OfflineClasses
+
+> Task :verifyArmor287Offline
+ARMOR287_OFFLINE PASS checks=41; no server/world/player
+
+> Task :compileAccessories278OfflineJava
+> Task :processAccessories278OfflineResources NO-SOURCE
+> Task :accessories278OfflineClasses
+
+> Task :verifyAccessories278Offline
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+ACCESSORIES278_NATIVE PASS checks=10; world/player/game launches=0; damage/equip sync/relog/MP NOT_RUN
+
+> Task :compileArtifacts284OfflineJava
+> Task :processArtifacts284OfflineResources NO-SOURCE
+> Task :artifacts284OfflineClasses
+
+> Task :verifyArtifacts284Offline
+ARTIFACTS284_OFFLINE PASS checks=10 game launches=0
+
+> Task :compileYaga272OfflineJava
+> Task :processYaga272OfflineResources NO-SOURCE
+> Task :yaga272OfflineClasses
+
+> Task :verifyYaga272Offline
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+YAGA272_OFFLINE_PASS checks=76 game_runs=0 (event/mixin/world runtime NOT_RUN)
+
+> Task :compileRituals273OfflineJava
+> Task :processRituals273OfflineResources NO-SOURCE
+> Task :rituals273OfflineClasses
+
+> Task :verifyRituals273Offline
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+RITUALS273_OFFLINE_PASS suites=3 checks=201; native saved-data/door/template methods, GAMEPLAY_NOT_RUN, no world/client/server
+
+> Task :compileEncounters271OfflineJava
+> Task :processEncounters271OfflineResources NO-SOURCE
+> Task :encounters271OfflineClasses
+
+> Task :verifyEncounters271Offline
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+Sivka day10: 30.2825% pending, analytic 30.2939%
+Sivka day20: 66.1819% pending, analytic 66.1389%
+Sivka day30: 88.6756% pending, analytic 88.6913%
+Sivka day35: 94.3525% pending, analytic 94.3469%
+Sivka day40: 100.0000% pending, analytic 100.0000%
+PASS 39253 native offline checks + 2M first-opportunity histories. No game bootstrap/world/server; GAMEPLAY_NOT_RUN.
+
+> Task :compileSivkaOffline
+Note: D:\slavic-myths\tools\sivka-tests\SivkaChecks.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :sivkaOfflineChecks
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+SIVKA OFFLINE PASS: 7107 checks; height=2.975, cubes=152. Game launches: 0; codec is not real relog.
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 49s
+18 actionable tasks: 15 executed, 3 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

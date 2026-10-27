@@ -1,0 +1,34 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compilePlacement269OfflineJava
+> Task :processPlacement269OfflineResources NO-SOURCE
+> Task :placement269OfflineClasses
+
+> Task :verifyPlacement269Offline
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+Exception in thread "main" java.lang.AssertionError: frequency=0.0 seed=269 native_active=false collision_clear=false raw_neighbor_calls=1
+	at org.slavicmyths.verify.Placement269Offline.check(Placement269Offline.java:8)
+	at org.slavicmyths.verify.Placement269Offline.scenario(Placement269Offline.java:27)
+	at org.slavicmyths.verify.Placement269Offline.main(Placement269Offline.java:30)
+
+> Task :verifyPlacement269Offline FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':verifyPlacement269Offline'.
+> Process 'command 'C:\Program Files\Java\jdk-21.0.12\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 30s
+6 actionable tasks: 3 executed, 3 up-to-date

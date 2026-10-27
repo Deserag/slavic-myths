@@ -1,0 +1,39 @@
+{
+  "master_volume": 0.3,
+  "fps_limit": 30,
+  "available_processors": 2,
+  "max_heap_bytes": 1610612736,
+  "GLFW_visible": 1,
+  "player_uuid": "dace75c4-06ba-39a8-b9bf-c66b92ee16f0",
+  "production_brew_class_sha256": "5f71e467ffa79fe7827d2295941e0f8de2832686a2b28f1724fa0f4eef868bb6",
+  "sent_phase_0_client_position": "(1002.7746896849633, 201.0, 8.105472616342968)",
+  "blocked_age": 2587,
+  "blocked_server_position": "(1002.8223096764528, 201.0, 8.026328244542153)",
+  "blocked_held": "1 slavicmyths:light_beer_wort",
+  "blocked_ready_beer_samples": 0,
+  "status": "FAIL",
+  "checks": [
+    {
+      "status": "PASS",
+      "test": "distinct actual brewing test profile"
+    },
+    {
+      "status": "PASS",
+      "test": "journey data compatible"
+    },
+    {
+      "status": "PASS",
+      "test": "fresh player lacks self_brewed_beer before actual completion"
+    },
+    {
+      "status": "FAIL",
+      "test": "occupied vat rejects batch without consumption"
+    }
+  ],
+  "error": "java.lang.IllegalStateException: occupied vat rejects batch without consumption",
+  "scope": "one actual client, supplied fixtures/batches, native useItemOn packets and unaccelerated block ticks; Survival acquisition/MP NOT_RUN",
+  "final_beer_age": 2587,
+  "final_kvass_age": 2539,
+  "final_beer_servings": 6,
+  "final_kvass_servings": 7
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "original": "clean-build.log",
+    "original_sha256": "dd3d6d1da68a6ec437b5c046dee3d8cbdaa8014d90e944eccfc5bc38f2f1cbee",
+    "review": "clean-build.log.txt",
+    "review_sha256": "5c33bb2134e0789fb801e4887c5779af0816fabba6b6ab8faa760276688ef981"
+  },
+  {
+    "original": "jar-regression-before-qa-version-fix.log",
+    "original_sha256": "8a5e1d3d32ab85d79187a50f6b585c14ef7778dae4a3f5ec9b3a0b08411910be",
+    "review": "jar-regression-before-qa-version-fix.log.txt",
+    "review_sha256": "03f1efd8faa6345151967fcd0d42a6b9dca3283304fbbc217dc93a6d617cc701"
+  },
+  {
+    "original": "jar-regression.log",
+    "original_sha256": "0f3c815636492eec636b8a8f6f556a700619bf9f166ce10a610e7817587b82fc",
+    "review": "jar-regression.log.txt",
+    "review_sha256": "64d27237281e38ff9a36aea3c189849d44647ab9131dfd87a053e2b7a3545d89"
+  },
+  {
+    "original": "native-ritual-8675309.log",
+    "original_sha256": "1b02d9c5277d37d69fb61781ac36adf9c9e9e31fc8360a647037c3bc384e8049",
+    "review": "native-ritual-8675309.log.txt",
+    "review_sha256": "09c6be620406c9a0c1ebcd8e8deee8e54f2bcd18cf3cee475308302cd2011739"
+  },
+  {
+    "original": "native-ritual-minus269.log",
+    "original_sha256": "208b190e38f39cdd9b3f63b39b2f323704bb6fe53e54890d52b9fa61aadf73d9",
+    "review": "native-ritual-minus269.log.txt",
+    "review_sha256": "c1d7bd3d6124a041653658e0f49ad079b7ab50dcc67656d37b030c6caf84a50d"
+  },
+  {
+    "original": "native-ritual-restart-8675309.log",
+    "original_sha256": "6417da532e04fe46a957483e6793e9466343c77db8b4f163ed682afa3812cbb0",
+    "review": "native-ritual-restart-8675309.log.txt",
+    "review_sha256": "23bc0ec7a2767958a03ccaee560ffa67452b70f3c307acd9adf4c99faab53c44"
+  },
+  {
+    "original": "native-ritual-restart-minus269.log",
+    "original_sha256": "91c4c01ff5189d99647619677923218f2a31c393d94af72b15adc867e8ea61fc",
+    "review": "native-ritual-restart-minus269.log.txt",
+    "review_sha256": "ce5e2c00d8d8db65a7867a2d8ec5860e627b94a786f771cffab71925934ec278"
+  },
+  {
+    "original": "natural-seed12345.log",
+    "original_sha256": "cfad2a91bc2ac7db57e779bfde2638565a61a3b05d483eb68bc856de9724066c",
+    "review": "natural-seed12345.log.txt",
+    "review_sha256": "1a5dcfb8338678a95dd0819b821675da6915e08623961b9190ed1d883ad38012"
+  },
+  {
+    "original": "natural-shrines-seed-minus269.log",
+    "original_sha256": "b68132ada3a29b0d1a51628096109ce500721d43f12a65f626ce558332c10393",
+    "review": "natural-shrines-seed-minus269.log.txt",
+    "review_sha256": "5d57fafe07afd36a8f6a51543a58503ecf9dbb5ec08d310ad95a84c0273bc140"
+  },
+  {
+    "original": "natural-spring-seed8675309.log",
+    "original_sha256": "fc2c01803c0482d60ff4d80f3bfa890ce22f857911933bf31b239ed220534bca",
+    "review": "natural-spring-seed8675309.log.txt",
+    "review_sha256": "b7d7b68f96e0eabfeac4783877296d3d705d8edcbbbc35d25c405aab3d20c53d"
+  },
+  {
+    "original": "resources.log",
+    "original_sha256": "861755dd44e17607e3e96e42d9bf7db4787e9f8f1233c314f94f651a1493e769",
+    "review": "resources.log.txt",
+    "review_sha256": "3cf0fb07766a6b683deadb68410537c17cbd943c1f8bd2b0c5067fc9d8ed6d7d"
+  }
+]
