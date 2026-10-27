@@ -1,0 +1,57 @@
+{
+  "master_volume": 0.3,
+  "fps_limit": 30,
+  "available_processors": 2,
+  "max_heap_bytes": 1610612736,
+  "GLFW_visible": 1,
+  "player_uuid": "dace75c4-06ba-39a8-b9bf-c66b92ee16f0",
+  "production_brew_class_sha256": "5f71e467ffa79fe7827d2295941e0f8de2832686a2b28f1724fa0f4eef868bb6",
+  "loaded_beer_age": 1873,
+  "loaded_kvass_age": 1825,
+  "sent_phase_0_client_position": "(1002.5, 201.0, 8.5)",
+  "readyBeer_age": 2488,
+  "readyBeer_server_position": "(1002.5, 201.0, 8.5)",
+  "readyBeer_held": "0 minecraft:air",
+  "readyBeer_ready_beer_samples": 0,
+  "status": "FAIL",
+  "checks": [
+    {
+      "test": "distinct actual brewing test profile",
+      "status": "PASS"
+    },
+    {
+      "test": "journey data compatible",
+      "status": "PASS"
+    },
+    {
+      "test": "fresh player lacks self_brewed_beer before actual completion",
+      "status": "PASS"
+    },
+    {
+      "test": "physical batches survive new client/server process",
+      "status": "PASS"
+    },
+    {
+      "test": "previous young samples remain deducted after restart",
+      "status": "PASS"
+    },
+    {
+      "test": "batch age survives offline interval (young required except diagnostic baseline2)",
+      "status": "PASS"
+    },
+    {
+      "test": "young sample metadata persisted in actual player inventory",
+      "status": "PASS"
+    },
+    {
+      "test": "unaccelerated age2400 produces ready beer in dark bottle",
+      "status": "FAIL"
+    }
+  ],
+  "error": "java.lang.IllegalStateException: unaccelerated age2400 produces ready beer in dark bottle",
+  "scope": "one actual client, supplied fixtures/batches, native useItemOn packets and unaccelerated block ticks; Survival acquisition/MP NOT_RUN",
+  "final_beer_age": 2489,
+  "final_kvass_age": 2441,
+  "final_beer_servings": 7,
+  "final_kvass_servings": 7
+}

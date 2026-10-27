@@ -1,0 +1,49 @@
+{
+  "master_volume": 0.3,
+  "players": [
+    "Dev",
+    "QA269Guest"
+  ],
+  "pickup_client_game_time": 10720,
+  "server_total_diamonds_after_two_pickups": 3,
+  "checks": [
+    {
+      "status": "PASS",
+      "test": "two real connections registered in native PlayerList"
+    },
+    {
+      "status": "PASS",
+      "test": "guest mount request rejected while owner seat was empty"
+    },
+    {
+      "status": "PASS",
+      "test": "foreign input packet cannot steer canonical mount"
+    },
+    {
+      "status": "PASS",
+      "test": "owner reclaims horse through real client interaction packet"
+    },
+    {
+      "status": "PASS",
+      "test": "host opens actual shared chest GUI"
+    },
+    {
+      "status": "PASS",
+      "test": "two actual clients preserve exactly3diamonds across cursors/inventories/chest"
+    },
+    {
+      "status": "PASS",
+      "test": "shared slot taken once and remains empty"
+    },
+    {
+      "status": "PASS",
+      "test": "both network clients remain connected for final shared-state check"
+    },
+    {
+      "status": "PASS",
+      "test": "host sent real chest pickup packet"
+    }
+  ],
+  "status": "PASS_NETWORK_SCOPE",
+  "scope": "two real Minecraft clients; loopback TCP, ownership and shared chest race only; natural Survival/ritual MP NOT_RUN"
+}

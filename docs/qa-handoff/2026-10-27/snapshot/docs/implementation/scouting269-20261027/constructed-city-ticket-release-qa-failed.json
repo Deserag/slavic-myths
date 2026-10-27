@@ -1,0 +1,318 @@
+{
+  "seed": 2692026,
+  "master_volume": 0.3,
+  "fps": 30,
+  "source_mode": "dev classes matching installed 2.0.7; fixture player/NPC; no full Survival acquisition",
+  "initial_manual_records": 0,
+  "native_samples": [
+    {
+      "set": "chud_city",
+      "chunk": [
+        88,
+        63
+      ],
+      "position": [
+        1416,
+        1016
+      ],
+      "valid_native_start": true,
+      "elapsed_seconds": 0.1627718,
+      "block_entities_in_start_chunk": 0,
+      "bounds": [
+        1289,
+        -63,
+        889,
+        1543,
+        54,
+        1143
+      ],
+      "pieces": 1,
+      "city_variant": 0,
+      "entrance": "1378, 38, 1140"
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        -58,
+        -54
+      ],
+      "position": [
+        -920,
+        -856
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0507557,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        -33,
+        36
+      ],
+      "position": [
+        -520,
+        584
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.1028817,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        -57,
+        103
+      ],
+      "position": [
+        -904,
+        1656
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.1079648,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        32,
+        -67
+      ],
+      "position": [
+        520,
+        -1064
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0666893,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        36,
+        26
+      ],
+      "position": [
+        584,
+        424
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0669762,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        8,
+        92
+      ],
+      "position": [
+        136,
+        1480
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0556898,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        101,
+        -42
+      ],
+      "position": [
+        1624,
+        -664
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0677084,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        98,
+        15
+      ],
+      "position": [
+        1576,
+        248
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0669233,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        92,
+        122
+      ],
+      "position": [
+        1480,
+        1960
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0671654,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        -110,
+        -121
+      ],
+      "position": [
+        -1752,
+        -1928
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0668091,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        -122,
+        19
+      ],
+      "position": [
+        -1944,
+        312
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0671185,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        -117,
+        150
+      ],
+      "position": [
+        -1864,
+        2408
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0665539,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        21,
+        -98
+      ],
+      "position": [
+        344,
+        -1560
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0671975,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        31,
+        10
+      ],
+      "position": [
+        504,
+        168
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0290095,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        2,
+        155
+      ],
+      "position": [
+        40,
+        2488
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0665593,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        139,
+        -104
+      ],
+      "position": [
+        2232,
+        -1656
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0666084,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        137,
+        18
+      ],
+      "position": [
+        2200,
+        296
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0667822,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        151,
+        134
+      ],
+      "position": [
+        2424,
+        2152
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0662606,
+      "block_entities_in_start_chunk": 0
+    }
+  ],
+  "quest_origin": "12000, 200, 12000",
+  "records_before_request": 0,
+  "quest_state": "{Bounds:[I;11881,-48,11625,12135,90,11879],CreatedSite:1b,Dimension:\"minecraft:overworld\",Owner:3152505996014L,StartPieces:1,Target:3334818815336527L}",
+  "quest_target": "12132, 79, 11790",
+  "horizontal_distance": 248.04031930313266,
+  "vertical_difference": -121,
+  "records_after_request": 1,
+  "status": "FAIL_OR_INCOMPLETE",
+  "error": "java.lang.IllegalStateException: Yaga-built city has native valid structure start",
+  "checks": [
+    {
+      "test": "isolated scout world has no manually created structures before request",
+      "status": "PASS"
+    },
+    {
+      "test": "native samples existed before any Yaga request or dev-create command",
+      "status": "PASS"
+    },
+    {
+      "test": "actual Yaga menu request binds a completed constructed site",
+      "status": "PASS"
+    },
+    {
+      "test": "Yaga request added one saved city record to fresh world",
+      "status": "PASS"
+    },
+    {
+      "test": "Yaga-built city has native valid structure start",
+      "status": "FAIL"
+    }
+  ],
+  "elapsed_seconds": 51.5833447
+}

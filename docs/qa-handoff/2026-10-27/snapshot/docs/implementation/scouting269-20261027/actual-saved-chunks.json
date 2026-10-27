@@ -1,0 +1,162 @@
+[
+  {
+    "structure": "slavicmyths:chud_abandoned",
+    "chunk": [
+      270,
+      22
+    ],
+    "saved_start_id": "slavicmyths:chud_abandoned",
+    "palette_size": 31,
+    "crafted_palette_names": [],
+    "block_entity_count": 0,
+    "region_file": "D:\\slavic-myths\\work\\stabilization269-scout-20261027\\saves\\Stabilization269\\region\\r.8.0.mca",
+    "uncompressed_chunk_sha256": "17356fde22ede84550355c58927f388067197a886988227534e4a99baecb056d"
+  },
+  {
+    "structure": "slavicmyths:chud_abandoned",
+    "chunk": [
+      -251,
+      27
+    ],
+    "saved_start_id": "slavicmyths:chud_abandoned",
+    "palette_size": 49,
+    "crafted_palette_names": [
+      "minecraft:deepslate_tiles",
+      "minecraft:polished_andesite",
+      "minecraft:polished_deepslate",
+      "minecraft:polished_deepslate_wall"
+    ],
+    "block_entity_count": 5,
+    "region_file": "D:\\slavic-myths\\work\\stabilization269-scout-20261027\\saves\\Stabilization269\\region\\r.-8.0.mca",
+    "uncompressed_chunk_sha256": "1792334bf1bcd083a4fcd34bf0983b8d91c130e89af2b9a2599f6d17230f9ee5"
+  },
+  {
+    "structure": "slavicmyths:chud_city",
+    "chunk": [
+      30,
+      317
+    ],
+    "saved_start_id": "slavicmyths:chud_city",
+    "palette_size": 39,
+    "crafted_palette_names": [
+      "minecraft:chiseled_stone_bricks",
+      "minecraft:cracked_stone_bricks",
+      "minecraft:polished_andesite",
+      "minecraft:polished_tuff"
+    ],
+    "block_entity_count": 0,
+    "region_file": "D:\\slavic-myths\\work\\stabilization269-scout-20261027\\saves\\Stabilization269\\region\\r.0.9.mca",
+    "uncompressed_chunk_sha256": "521bc0aee32bc9d5151efd86ea7628814746596c6a633611962caf137512ac22"
+  },
+  {
+    "structure": "slavicmyths:chud_abandoned",
+    "chunk": [
+      47,
+      -217
+    ],
+    "saved_start_id": "slavicmyths:chud_abandoned",
+    "palette_size": 40,
+    "crafted_palette_names": [],
+    "block_entity_count": 0,
+    "region_file": "D:\\slavic-myths\\work\\stabilization269-scout-20261027\\saves\\Stabilization269\\region\\r.1.-7.mca",
+    "uncompressed_chunk_sha256": "7a6dd1353f07cdbc739f11131d4511b96c53dcd4614fc7c7de7f2b7fcc4936bb"
+  },
+  {
+    "structure": "slavicmyths:chud_abandoned",
+    "chunk": [
+      299,
+      323
+    ],
+    "saved_start_id": "slavicmyths:chud_abandoned",
+    "palette_size": 36,
+    "crafted_palette_names": [],
+    "block_entity_count": 0,
+    "region_file": "D:\\slavic-myths\\work\\stabilization269-scout-20261027\\saves\\Stabilization269\\region\\r.9.10.mca",
+    "uncompressed_chunk_sha256": "9c50c26acb8de2d9b53d07bc7799aea8859334511ef28e9f3d49e4dd2e12d045"
+  },
+  {
+    "structure": "slavicmyths:chud_city",
+    "chunk": [
+      -216,
+      276
+    ],
+    "saved_start_id": "slavicmyths:chud_city",
+    "palette_size": 40,
+    "crafted_palette_names": [
+      "minecraft:chiseled_stone_bricks",
+      "minecraft:cracked_stone_bricks",
+      "minecraft:polished_andesite",
+      "minecraft:polished_tuff"
+    ],
+    "block_entity_count": 0,
+    "region_file": "D:\\slavic-myths\\work\\stabilization269-scout-20261027\\saves\\Stabilization269\\region\\r.-7.8.mca",
+    "uncompressed_chunk_sha256": "edb795aa196beb0ce0c7fd531c3e282b28582513500e913ac62b07c57a3a0c8c"
+  },
+  {
+    "structure": "slavicmyths:chud_city",
+    "chunk": [
+      336,
+      -180
+    ],
+    "saved_start_id": "slavicmyths:chud_city",
+    "palette_size": 40,
+    "crafted_palette_names": [
+      "minecraft:chiseled_stone_bricks",
+      "minecraft:cracked_stone_bricks",
+      "minecraft:polished_andesite",
+      "minecraft:polished_tuff"
+    ],
+    "block_entity_count": 0,
+    "region_file": "D:\\slavic-myths\\work\\stabilization269-scout-20261027\\saves\\Stabilization269\\region\\r.10.-6.mca",
+    "uncompressed_chunk_sha256": "2ef1806d235990165ddb07aac0d8bb0ca81abd095f496b398298f931eac0a4ec"
+  },
+  {
+    "structure": "slavicmyths:chud_city",
+    "chunk": [
+      -162,
+      -179
+    ],
+    "saved_start_id": "slavicmyths:chud_city",
+    "palette_size": 33,
+    "crafted_palette_names": [
+      "minecraft:chiseled_stone_bricks",
+      "minecraft:cracked_stone_bricks",
+      "minecraft:polished_andesite",
+      "minecraft:polished_tuff"
+    ],
+    "block_entity_count": 0,
+    "region_file": "D:\\slavic-myths\\work\\stabilization269-scout-20261027\\saves\\Stabilization269\\region\\r.-6.-6.mca",
+    "uncompressed_chunk_sha256": "8bce2b3d18f88f305fa934304f5e7c1e9247b381820e95acf5180f32ef072e19"
+  },
+  {
+    "structure": "slavicmyths:serpent_hill",
+    "chunk": [
+      41,
+      274
+    ],
+    "saved_start_id": "slavicmyths:serpent_hill",
+    "palette_size": 43,
+    "crafted_palette_names": [
+      "minecraft:polished_blackstone_brick_stairs"
+    ],
+    "block_entity_count": 0,
+    "region_file": "D:\\slavic-myths\\work\\stabilization269-scout-20261027\\saves\\Stabilization269\\region\\r.1.8.mca",
+    "uncompressed_chunk_sha256": "ff41933ff13564bcf3c1f3afb9e93d3320dcfa3850c7ed2e00e8f293d9239f98"
+  },
+  {
+    "structure": "slavicmyths:gorodishche",
+    "chunk": [
+      412,
+      389
+    ],
+    "saved_start_id": "slavicmyths:gorodishche",
+    "palette_size": 34,
+    "crafted_palette_names": [
+      "minecraft:oak_planks",
+      "minecraft:stone_bricks"
+    ],
+    "block_entity_count": 3,
+    "region_file": "D:\\slavic-myths\\work\\stabilization269-scout-20261027\\saves\\Stabilization269\\region\\r.12.12.mca",
+    "uncompressed_chunk_sha256": "8e48d1557cb7f00176dd29061c6f1a98ce7a3c345f5b462e8fd62c1638ee62a2"
+  }
+]

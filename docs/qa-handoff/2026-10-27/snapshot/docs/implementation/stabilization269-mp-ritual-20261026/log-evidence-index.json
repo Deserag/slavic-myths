@@ -1,0 +1,32 @@
+[
+  {
+    "original": "initial-guest.log",
+    "original_sha256": "d0bf84da6e405502b3e150cfebd760fcdbae22e3dabda02cd221d2ca133a1e87",
+    "review": "initial-guest.log.txt",
+    "review_sha256": "5fb13d7e300a263721d727bc102d618c003ff3eb5e4fb881068c0c6b6fc495f4"
+  },
+  {
+    "original": "initial-host.log",
+    "original_sha256": "82d4884418df58ed916169e9061d6e09ff70ae915032b9d6d2ffbfe53c043a05",
+    "review": "initial-host.log.txt",
+    "review_sha256": "04b7f1a6964474c3639375633c14f6ae8f1178dd6649d56e678e66b61be1131e"
+  },
+  {
+    "original": "resources.log",
+    "original_sha256": "861755dd44e17607e3e96e42d9bf7db4787e9f8f1233c314f94f651a1493e769",
+    "review": "resources.log.txt",
+    "review_sha256": "3cf0fb07766a6b683deadb68410537c17cbd943c1f8bd2b0c5067fc9d8ed6d7d"
+  },
+  {
+    "original": "restart-guest.log",
+    "original_sha256": "3025487ed3c437b4e6f613348c2a33113526d406a335be6377c0aea773018426",
+    "review": "restart-guest.log.txt",
+    "review_sha256": "a0c17dcfdfc7455eda970fd416f8f44342dc0f1d8ebce0362c5030bfe6c256f7"
+  },
+  {
+    "original": "restart-host.log",
+    "original_sha256": "ef677d93c0e33e92c0fd3b93110eeeaf47f6c9cfa93be4b709f179d9c956367a",
+    "review": "restart-host.log.txt",
+    "review_sha256": "c516faff98c3bbd6c8bca2394159073443bbede938c55e4f2cc9e2441e53cfb6"
+  }
+]

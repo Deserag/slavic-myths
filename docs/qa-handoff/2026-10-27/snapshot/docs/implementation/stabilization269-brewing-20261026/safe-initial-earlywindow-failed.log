@@ -1,0 +1,896 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileStabilization269ClientJava
+> Task :downloadAssets UP-TO-DATE
+> Task :writeStabilization269ClientLegacyClasspath UP-TO-DATE
+> Task :prepareStabilization269ClientRun
+> Task :processStabilization269ClientResources UP-TO-DATE
+> Task :stabilization269ClientClasses
+
+> Task :runStabilization269Client
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[07:44:42] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientdev, --version, 21.1.255, --assetIndex, 17, --assetsDir, C:\\Users\\pavel\\.gradle\\caches\\neoformruntime\\assets, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430, --username, QA269Brewer, --width, 1280, --height, 800]
+[07:44:42] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[07:44:42] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[07:44:42] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[07:44:42] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[07:44:42] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
+[07:44:42] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%23138!/ Service=ModLauncher Env=CLIENT
+[07:44:43] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: AMD Radeon RX 6600M GL version 4.6.0 Core Profile Context 26.10.1.261008, ATI Technologies Inc.
+[07:44:43] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[07:44:43] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Isolated stabilization render probe 1 (stabilization269client)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 2.0.7-HELL (slavicmyths)
+[07:44:44] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[07:44:44] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientdev' with arguments [--version, 21.1.255, --gameDir, ., --assetsDir, C:\Users\pavel\.gradle\caches\neoformruntime\assets, --assetIndex, 17, --username, QA269Brewer, --width, 1280, --height, 800]
+[07:44:44] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[07:44:44] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[07:44:44] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[07:44:46] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[07:44:46] [Datafixer Bootstrap/INFO] [mojang/DataFixerBuilder]: 229 Datafixer optimizations took 468 milliseconds
+[07:44:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[07:44:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[07:44:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[07:44:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[07:44:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[07:44:51] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23190!/assets/.mcassetsroot' uses unexpected schema
+[07:44:51] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23190!/data/.mcassetsroot' uses unexpected schema
+[07:44:51] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[07:44:51] [Render thread/INFO] [minecraft/Minecraft]: Setting user: QA269Brewer
+[07:44:51] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.3.3+5
+[07:44:51] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[07:44:54] [Render thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[07:44:54] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/stabilization269client, mod/curios, mod/slavicmyths, mod/neoforge
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Worker-Main-1/INFO] [minecraft/UnihexProvider]: Found unifont_all_no_pua-15.1.05.hex, loading
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Worker-Main-1/INFO] [minecraft/UnihexProvider]: Found unifont_jp_patch-15.1.05.hex, loading
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:54] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/ERROR] [minecraft/Minecraft]: Reported exception thrown!
+net.minecraft.ReportedException: Rendering overlay
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.GameRenderer.render(GameRenderer.java:1086) ~[neoforge-21.1.255.jar%23190!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.Minecraft.runTick(Minecraft.java:1195) ~[neoforge-21.1.255.jar%23190!/:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:mixin:A,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.Minecraft.run(Minecraft.java:807) ~[neoforge-21.1.255.jar%23190!/:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:mixin:A,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.main.Main.main(Main.java:230) ~[neoforge-21.1.255.jar%23190!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.45.jar%23146!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:124) ~[loader-4.0.45.jar%23146!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.NeoForgeClientDevLaunchHandler.runService(NeoForgeClientDevLaunchHandler.java:23) ~[loader-4.0.45.jar%23146!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.45.jar%23146!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:57) [DevLaunch-1.0.2.jar:?] {}
+Caused by: java.lang.IllegalStateException: Already building.
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.SimpleBufferBuilder.begin(SimpleBufferBuilder.java:149) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.RenderElement.renderText(RenderElement.java:262) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.RenderElement.lambda$initializeText$23(RenderElement.java:256) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.RenderElement.render(RenderElement.java:62) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.DisplayWindow.lambda$paintFramebuffer$7(DisplayWindow.java:259) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at java.base/java.util.ArrayList.removeIf(ArrayList.java:1755) ~[?:?] {}
+	at java.base/java.util.ArrayList.removeIf(ArrayList.java:1743) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.DisplayWindow.paintFramebuffer(DisplayWindow.java:259) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.DisplayWindow.render(DisplayWindow.java:273) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at TRANSFORMER/neoforge@21.1.255/net.neoforged.neoforge.client.loading.NeoForgeLoadingOverlay.render(NeoForgeLoadingOverlay.java:84) ~[neoforge-21.1.255.jar%23191!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.GameRenderer.render(GameRenderer.java:1081) ~[neoforge-21.1.255.jar%23190!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	... 21 more
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:55] [Render thread/INFO] [mojang/GlDebug]: OpenGL debug message: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context'
+[07:44:56] [Render thread/FATAL] [ne.ne.ne.co.NeoForgeMod/]: Preparing crash report with UUID 73050122-6c58-4996-8035-46efd4a49494
+---- Minecraft Crash Report ----
+// Daisy, daisy...
+
+Time: 2026-10-27 07:44:55
+Description: Rendering overlay
+
+java.lang.IllegalStateException: Already building.
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.SimpleBufferBuilder.begin(SimpleBufferBuilder.java:149) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.RenderElement.renderText(RenderElement.java:262) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.RenderElement.lambda$initializeText$23(RenderElement.java:256) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.RenderElement.render(RenderElement.java:62) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.DisplayWindow.lambda$paintFramebuffer$7(DisplayWindow.java:259) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at java.base/java.util.ArrayList.removeIf(ArrayList.java:1755) ~[?:?] {}
+	at java.base/java.util.ArrayList.removeIf(ArrayList.java:1743) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.DisplayWindow.paintFramebuffer(DisplayWindow.java:259) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.DisplayWindow.render(DisplayWindow.java:273) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at TRANSFORMER/neoforge@21.1.255/net.neoforged.neoforge.client.loading.NeoForgeLoadingOverlay.render(NeoForgeLoadingOverlay.java:84) ~[neoforge-21.1.255.jar%23191!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.GameRenderer.render(GameRenderer.java:1081) ~[neoforge-21.1.255.jar%23190!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.Minecraft.runTick(Minecraft.java:1195) ~[neoforge-21.1.255.jar%23190!/:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:mixin:A,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.Minecraft.run(Minecraft.java:807) ~[neoforge-21.1.255.jar%23190!/:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:mixin:A,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.main.Main.main(Main.java:230) ~[neoforge-21.1.255.jar%23190!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.45.jar%23146!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:124) ~[loader-4.0.45.jar%23146!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.NeoForgeClientDevLaunchHandler.runService(NeoForgeClientDevLaunchHandler.java:23) ~[loader-4.0.45.jar%23146!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.45.jar%23146!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:57) [DevLaunch-1.0.2.jar:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.SimpleBufferBuilder.begin(SimpleBufferBuilder.java:149) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.RenderElement.renderText(RenderElement.java:262) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.RenderElement.lambda$initializeText$23(RenderElement.java:256) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.RenderElement.render(RenderElement.java:62) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.DisplayWindow.lambda$paintFramebuffer$7(DisplayWindow.java:259) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at java.base/java.util.ArrayList.removeIf(ArrayList.java:1755) ~[?:?] {}
+	at java.base/java.util.ArrayList.removeIf(ArrayList.java:1743) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.DisplayWindow.paintFramebuffer(DisplayWindow.java:259) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at MC-BOOTSTRAP/fml_earlydisplay@4.0.45/net.neoforged.fml.earlydisplay.DisplayWindow.render(DisplayWindow.java:273) ~[earlydisplay-4.0.45.jar%23145!/:4.0] {}
+	at TRANSFORMER/neoforge@21.1.255/net.neoforged.neoforge.client.loading.NeoForgeLoadingOverlay.render(NeoForgeLoadingOverlay.java:84) ~[neoforge-21.1.255.jar%23191!/:?] {re:classloading}
+-- Overlay render details --
+Details:
+	Overlay name: net.neoforged.neoforge.client.loading.NeoForgeLoadingOverlay
+Stacktrace:
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.GameRenderer.render(GameRenderer.java:1081) ~[neoforge-21.1.255.jar%23190!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.Minecraft.runTick(Minecraft.java:1195) ~[neoforge-21.1.255.jar%23190!/:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:mixin:A,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.Minecraft.run(Minecraft.java:807) ~[neoforge-21.1.255.jar%23190!/:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:mixin:A,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.main.Main.main(Main.java:230) ~[neoforge-21.1.255.jar%23190!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.45.jar%23146!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:124) ~[loader-4.0.45.jar%23146!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.NeoForgeClientDevLaunchHandler.runService(NeoForgeClientDevLaunchHandler.java:23) ~[loader-4.0.45.jar%23146!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.45.jar%23146!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:57) [DevLaunch-1.0.2.jar:?] {}
+
+
+-- Uptime --
+Details:
+	JVM uptime: 14.656s
+	Wall uptime: 4.507s
+	High-res time: 12.887s
+	Client ticks: 30 ticks / 1.500s
+Stacktrace:
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.Minecraft.fillReport(Minecraft.java:2395) ~[neoforge-21.1.255.jar%23190!/:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:mixin:A,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.Minecraft.emergencySaveAndCrash(Minecraft.java:868) ~[neoforge-21.1.255.jar%23190!/:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:mixin:A,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.Minecraft.run(Minecraft.java:825) ~[neoforge-21.1.255.jar%23190!/:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:mixin:A,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.main.Main.main(Main.java:230) ~[neoforge-21.1.255.jar%23190!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.45.jar%23146!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:124) ~[loader-4.0.45.jar%23146!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.NeoForgeClientDevLaunchHandler.runService(NeoForgeClientDevLaunchHandler.java:23) ~[loader-4.0.45.jar%23146!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.45.jar%23146!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.5.jar%23128!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:57) [DevLaunch-1.0.2.jar:?] {}
+
+
+-- Last reload --
+Details:
+	Reload number: 1
+	Reload reason: initial
+	Finished: No
+	Packs: vanilla, mod_resources, mod/stabilization269client, mod/curios, mod/slavicmyths, mod/neoforge
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.1
+	Minecraft Version ID: 1.21.1
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 21.0.12, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 200783288 bytes (191 MiB) / 525336576 bytes (501 MiB) up to 1610612736 bytes (1536 MiB)
+	CPUs: 2
+	Processor Vendor: AuthenticAMD
+	Processor Name: AMD Ryzen 5 5600H with Radeon Graphics         
+	Identifier: AuthenticAMD Family 25 Model 80 Stepping 0
+	Microarchitecture: Zen 3
+	Frequency (GHz): 3.29
+	Number of physical packages: 1
+	Number of physical CPUs: 6
+	Number of logical CPUs: 12
+	Graphics card #0 name: AMD Radeon(TM) Graphics
+	Graphics card #0 vendor: Advanced Micro Devices, Inc.
+	Graphics card #0 VRAM (MiB): 512.00
+	Graphics card #0 deviceId: VideoController1
+	Graphics card #0 versionInfo: 27.20.21018.1012
+	Graphics card #1 name: AMD Radeon RX 6600M
+	Graphics card #1 vendor: Advanced Micro Devices, Inc.
+	Graphics card #1 VRAM (MiB): 8176.00
+	Graphics card #1 deviceId: VideoController2
+	Graphics card #1 versionInfo: 32.0.21045.16010
+	Memory slot #0 capacity (MiB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 3.20
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MiB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 3.20
+	Memory slot #1 type: DDR4
+	Virtual memory max (MiB): 42378.78
+	Virtual memory used (MiB): 13172.64
+	Swap memory total (MiB): 26624.00
+	Swap memory used (MiB): 0.00
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 125465.47, total: 488369.00
+	Space in storage for workdir (MiB): available: 18814.80, total: 459514.00
+	JVM Flags: 2 total; -Xmx1536M -XX:ActiveProcessorCount=2
+	Launched Version: 21.1.255
+	Backend library: LWJGL version 3.3.3+5
+	Backend API: AMD Radeon RX 6600M GL version 3.2.0 Core Profile Context 26.10.1.261008, ATI Technologies Inc.
+	Window size: 1280x800
+	GFLW Platform: win32
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: id=1206, source=API, type=ERROR, severity=HIGH, message='No detailed debug message due to a non-debug context' x 565
+	Is Modded: Definitely; Client brand changed to 'neoforge'
+	Universe: 400921fb54442d18
+	Type: Client (map_client.txt)
+	Graphics mode: fast
+	Render Distance: 2/2 chunks
+	Resource Packs: vanilla, mod_resources, mod/stabilization269client, mod/curios (incompatible), mod/slavicmyths, mod/neoforge
+	Current Language: ru_ru
+	Locale: ru_RU
+	System encoding: Cp1251
+	File encoding: UTF-8
+	CPU: 12x AMD Ryzen 5 5600H with Radeon Graphics 
+	ModLauncher: 11.0.5+main.901c6ea8
+	ModLauncher launch target: forgeclientdev
+	ModLauncher services: 
+		sponge-mixin-0.16.4+mixin.0.8.7.jar mixin PLUGINSERVICE 
+		loader-4.0.45.jar slf4jfixer PLUGINSERVICE 
+		loader-4.0.45.jar runtime_enum_extender PLUGINSERVICE 
+		at-modlauncher-10.0.1.jar accesstransformer PLUGINSERVICE 
+		loader-4.0.45.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-11.0.5.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-11.0.5.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		javafml@4.0
+		lowcodefml@4.0
+		minecraft@4.0
+	Mod List: 
+		curios-neoforge-9.5.1+1.21.1.jar                  |Curios API                    |curios                        |9.5.1+1.21.1        |Manifest: NOSIGNATURE
+		stabilization269Client                            |Isolated stabilization render |stabilization269client        |1                   |Manifest: NOSIGNATURE
+		neoforge-21.1.255.jar                             |Minecraft                     |minecraft                     |1.21.1              |Manifest: NOSIGNATURE
+		neoforge-21.1.255.jar                             |NeoForge                      |neoforge                      |21.1.255            |Manifest: NOSIGNATURE
+		main                                              |Slavic Myths                  |slavicmyths                   |2.0.7-HELL          |Manifest: NOSIGNATURE
+	Crash Report UUID: 73050122-6c58-4996-8035-46efd4a49494
+	FML: 4.0.45
+	NeoForge: 21.1.255
+[07:44:56] [Render thread/FATAL] [ne.ne.ne.co.NeoForgeMod/]: Preparing crash report with UUID b4706bed-a47a-4e2a-808d-7a250963e285
+#@!@# Game crashed! Crash report saved to: #@!@# D:\slavic-myths\work\stabilization269-brew-safe\.\crash-reports\crash-2026-10-27_07.44.55-client.txt
+
+> Task :runStabilization269Client FAILED
+
+10 actionable tasks: 4 executed, 6 up-to-date
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runStabilization269Client'.
+> Process 'command 'C:\Program Files\Java\jdk-21.0.12\bin\java.exe'' finished with non-zero exit value -1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 25s

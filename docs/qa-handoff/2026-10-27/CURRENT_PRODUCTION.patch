@@ -1,0 +1,331 @@
+diff --git a/gradle.properties b/gradle.properties
+index cb355059..5d627167 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -3,7 +3,7 @@ org.gradle.daemon=false
+ org.gradle.caching=true
+ minecraft_version=1.21.1
+ neo_version=21.1.255
+-mod_version=2.0.4-HELL
++mod_version=2.0.7-HELL
+ mod_group_id=org.slavicmyths
+ curios_version=9.5.1+1.21.1
+ jei_version=19.51.0.418
+diff --git a/src/main/java/org/slavicmyths/brewing/BrewTile.java b/src/main/java/org/slavicmyths/brewing/BrewTile.java
+index 83f22c1c..f8888a27 100644
+--- a/src/main/java/org/slavicmyths/brewing/BrewTile.java
++++ b/src/main/java/org/slavicmyths/brewing/BrewTile.java
+@@ -27,7 +27,7 @@ public final class BrewTile extends BlockEntity implements Container,MenuProvide
+  private void saveProgress(){super.setChanged();}
+  private static boolean insert(ItemStack[] slots,ItemStack s){s=s.copy();for(int i=0;i<slots.length;i++){if(slots[i].isEmpty()){slots[i]=s;return true;}if(ItemStack.isSameItemSameComponents(slots[i],s)){int n=Math.min(s.getCount(),slots[i].getMaxStackSize()-slots[i].getCount());slots[i].grow(n);s.shrink(n);if(s.isEmpty())return true;}}return false;}
+  public static void tick(BrewTile t){if(t.level==null||t.level.isClientSide)return;
+-  if(t.fermentation.active()){if(t.fermentation.age<12000){String before=BrewRules.quality(t.fermentation.age);t.fermentation.age++;t.saveProgress();if(!before.equals(BrewRules.quality(t.fermentation.age)))t.setChanged();}return;}
++  if(t.fermentation.active()){if(t.fermentation.age<12000){String before=BrewRules.quality(t.fermentation.age);t.fermentation.age++;t.saveProgress();if(!before.equals(BrewRules.quality(t.fermentation.age))){t.fermentation.completed((net.minecraft.server.level.ServerLevel)t.level);t.setChanged();}}return;}
+   if(t.total>0){t.progress++;t.saveProgress();if(t.progress%100==0&&t.level instanceof net.minecraft.server.level.ServerLevel server)server.sendParticles(net.minecraft.core.particles.ParticleTypes.BUBBLE_POP,t.worldPosition.getX()+.5,t.worldPosition.getY()+.8,t.worldPosition.getZ()+.5,2,.2,.02,.2,.01);if(t.progress>=t.total){ItemStack[] out={t.items.get(6).copy(),t.items.get(7).copy()};if(insert(out,t.pending)){t.items.set(6,out[0]);t.items.set(7,out[1]);t.pending=ItemStack.EMPTY;t.total=t.progress=0;t.mode="";t.setChanged();}}return;}
+   if(!t.dirty)return;t.dirty=false;KitchenInput input=new KitchenInput(List.of(t.items.get(0),t.items.get(1),t.items.get(2),t.items.get(3)));
+   for(var h:t.level.getRecipeManager().getRecipesFor(VatRecipe.TYPE.get(),input,t.level)){VatRecipe r=h.value();ItemStack catalyst=t.items.get(8);if(!r.catalyst().isEmpty()&&!r.catalyst().test(catalyst)||r.catalyst().isEmpty()&&!catalyst.isEmpty())continue;int[] used=r.allocation(input);ItemStack[] out={t.items.get(6).copy(),t.items.get(7).copy()},rem={t.items.get(4).copy(),t.items.get(5).copy()};if(!insert(out,r.result()))continue;boolean fits=true;for(ItemStack s:r.remainders())if(!insert(rem,s))fits=false;if(!fits)continue;for(int i=0;i<4;i++)t.items.get(i).shrink(used[i]);if(!r.catalyst().isEmpty()&&!r.retainCatalyst())catalyst.shrink(1);t.items.set(4,rem[0]);t.items.set(5,rem[1]);t.pending=r.result().copy();t.total=r.time();t.progress=0;t.mode=r.mode();t.setChanged();t.dirty=false;break;}
+diff --git a/src/main/java/org/slavicmyths/client/KitchenScreen.java b/src/main/java/org/slavicmyths/client/KitchenScreen.java
+index f978c1af..1d691c0c 100644
+--- a/src/main/java/org/slavicmyths/client/KitchenScreen.java
++++ b/src/main/java/org/slavicmyths/client/KitchenScreen.java
+@@ -21,6 +21,6 @@ public final class KitchenScreen extends AbstractContainerScreen<KitchenMenu> {
+   int n=menu.data.get(2);serve.active=n>0;label(g,"pot",12,102);g.drawString(font,tr("servings",n,menu.data.get(3)),leftPos+58,topPos+102,0xff34291f,false);
+   if(minecraft.level.getBlockEntity(menu.pos) instanceof KitchenTile t&&!t.dish.isEmpty())g.renderItem(t.dish,leftPos+20,topPos+114);
+  }
+- protected void renderLabels(GuiGraphics g,int x,int y){label(g,"inventory",inventoryLabelX,inventoryLabelY);}
++ protected void renderLabels(GuiGraphics g,int x,int y){g.drawString(font,tr("inventory"),inventoryLabelX,inventoryLabelY,0xff34291f,false);}
+  public void render(GuiGraphics g,int x,int y,float f){super.render(g,x,y,f);renderTooltip(g,x,y);}
+ }
+diff --git a/src/main/java/org/slavicmyths/sivka/SivkaBonds.java b/src/main/java/org/slavicmyths/sivka/SivkaBonds.java
+index 5e44a3f8..fe685728 100644
+--- a/src/main/java/org/slavicmyths/sivka/SivkaBonds.java
++++ b/src/main/java/org/slavicmyths/sivka/SivkaBonds.java
+@@ -56,7 +56,7 @@ public final class SivkaBonds extends SavedData {
+         if(b==null){b=new Bond(p.getUUID());bonds.put(p.getUUID(),b);}
+         if(renew){var old=loaded(p.serverLevel(),b);b.generation++;b.entity=null;if(old!=null&&old!=h){old.ejectPassengers();old.discard();}b.token++;}else b.stage++;
+         b.expired=false;b.expiry=b.stage==7?0:b.play+SivkaRules.TEMP_TICKS;b.lastFeed=b.play;b.entity=h.getUUID();b.dimension=p.level().dimension().location().toString();b.last=h.blockPosition();
+-        h.owner=b.owner;h.bond=b.id;h.generation=b.generation;h.react(1,30);
++        h.owner=b.owner;h.bond=b.id;h.generation=b.generation;h.renewedInteraction();h.react(1,30);
+         if(!p.getAbilities().instabuild){boolean honey=held.is(Items.HONEY_BOTTLE);held.shrink(1);if(honey&&!p.getInventory().add(new ItemStack(Items.GLASS_BOTTLE)))p.drop(new ItemStack(Items.GLASS_BOTTLE),false);}
+         if(b.stage==1||renew)give(p,b);
+         h.cue("feed_chew",.4F);h.cue(b.stage==7?"bond_complete":"bond_progress",.55F);if(b.stage==3||b.stage==6)h.cue("whinny_soft",.6F);h.spark(b.stage==7?20:10);
+@@ -69,5 +69,5 @@ public final class SivkaBonds extends SavedData {
+         if(p.tickCount%20==0){for(var s:p.getInventory().items)reconcile(s,p,b);for(var s:p.getInventory().offhand)reconcile(s,p,b);}
+     }
+     private static void reconcile(ItemStack s,ServerPlayer p,Bond b){if(!s.is(SivkaContent.WHISTLE.get()))return;var n=token(s);if(n.hasUUID("Owner")&&n.getUUID("Owner").equals(p.getUUID())){if(!matches(s,b,p.getUUID())||!b.valid())s.setCount(0);else stamp(s,b);}}
+-    @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent e){if(e.getEntity() instanceof ServerPlayer p){var d=get(p.serverLevel());var b=d.bonds.get(p.getUUID());if(b!=null)d.retire(p.serverLevel(),b);}}
++    @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent e){if(e.getEntity() instanceof ServerPlayer p){var d=get(p.serverLevel());var b=d.bonds.get(p.getUUID());if(b!=null){var h=d.loaded(p.serverLevel(),b);if(h!=null){h.renewedInteraction();b.health=h.getHealth();b.last=h.blockPosition();}d.setDirty();}}}
+ }
+diff --git a/src/main/java/org/slavicmyths/sivka/SivkaEntity.java b/src/main/java/org/slavicmyths/sivka/SivkaEntity.java
+index 395f4657..b0b9a8d8 100644
+--- a/src/main/java/org/slavicmyths/sivka/SivkaEntity.java
++++ b/src/main/java/org/slavicmyths/sivka/SivkaEntity.java
+@@ -36,6 +36,8 @@ public final class SivkaEntity extends PathfinderMob {
+     public void spark(int count){if(level() instanceof ServerLevel w)w.sendParticles(ParticleTypes.WAX_ON,getX(),getY()+1.6,getZ(),count,.7,.6,.7,.04);}
+     public boolean owns(Player p){if(owner==null||!owner.equals(p.getUUID())||!(level() instanceof ServerLevel w))return false;var b=SivkaBonds.get(w).bonds.get(owner);return b!=null&&b.id.equals(bond)&&b.generation==generation&&b.stage==7&&b.valid();}
+     public void arrive(ServerPlayer p){navigation.moveTo(p,1.2);arrivalTicks=160;departTicks=0;idleTicks=0;}
++    public void renewedInteraction(){idleTicks=departTicks=0;}
++    @Override protected void addPassenger(Entity passenger){super.addPassenger(passenger);lastSequence=-1;inputTime=-100;forward=strafe=0;sprint=jump=down=priorJump=false;wantedYaw=passenger.getYRot();navigation.stop();renewedInteraction();}
+     public void input(SivkaNetwork.Input i){long now=level().getGameTime();if(now-inputTime<2||i.sequence()<=lastSequence)return;lastSequence=i.sequence();inputTime=now;forward=i.forward();strafe=i.strafe();wantedYaw=Mth.wrapDegrees(i.yaw());sprint=i.sprint();jump=i.jump();down=i.down();}
+     @Override public InteractionResult mobInteract(Player p,InteractionHand hand){var s=p.getItemInHand(hand);if(s.is(Items.LEAD)||s.is(Items.SADDLE)||s.is(Items.IRON_HORSE_ARMOR)||s.is(Items.GOLDEN_HORSE_ARMOR)||s.is(Items.DIAMOND_HORSE_ARMOR)||s.is(Items.LEATHER_HORSE_ARMOR)){if(!level().isClientSide)SivkaBonds.message(p,"free_horse");return InteractionResult.sidedSuccess(level().isClientSide);}
+         if(level().isClientSide)return InteractionResult.SUCCESS;
+@@ -49,7 +51,20 @@ public final class SivkaEntity extends PathfinderMob {
+     @Override public boolean startRiding(Entity e,boolean force){return false;}
+     @Override protected boolean canAddPassenger(Entity e){return !isVehicle()&&e instanceof Player p&&owns(p);}
+     @Override @Nullable public LivingEntity getControllingPassenger(){return null;}
+-    @Override public Vec3 getPassengerRidingPosition(Entity rider){return position().add(Math.sin(Math.toRadians(getYRot()))*.08,2.18,-Math.cos(Math.toRadians(getYRot()))*.08);}
++    @Override public Vec3 getPassengerRidingPosition(Entity rider){
++        // Follow the actual body animation rather than leaving the rider at a fixed world height.
++        // SivkaMesh body pivot is 25.92/16 above the feet; vanilla seated player hips are
++        // .75 above player feet, with a .6 vehicle attachment. Model/UV and gait curves stay intact.
++        boolean air=flying();double fast=Math.clamp((actualSpeed()-6)/3,0,1);
++        double bob=SivkaPoses.sample(air,gait(),2)*(air?1:fast);
++        double pitch=-SivkaPoses.sample(air,gait(),1)*(air?1:fast)-lift()*50;
++        if(mode()==1)pitch-=14*Math.sin(Math.clamp(modeAge()/16.0,0,1)*Math.PI);
++        double tilt=Math.toRadians(pitch),roll=Math.toRadians(bank()),yaw=Math.toRadians(getYRot());
++        double hip=.71*Math.cos(roll),side=-.71*Math.sin(roll);
++        double back=-.08*Math.cos(tilt)+hip*Math.sin(tilt);
++        double height=1.47+bob+hip*Math.cos(tilt)+.08*Math.sin(tilt);
++        return position().add(side*Math.cos(yaw)-back*Math.sin(yaw),height,side*Math.sin(yaw)+back*Math.cos(yaw));
++    }
+     @Override protected void positionRider(Entity e,Entity.MoveFunction f){super.positionRider(e,f);e.fallDistance=0;}
+     @Override public Vec3 getDismountLocationForPassenger(LivingEntity rider){
+         if(flying()&&level() instanceof ServerLevel){rider.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,80,0,false,true));}
+@@ -64,18 +79,19 @@ public final class SivkaEntity extends PathfinderMob {
+         boolean edge=jump&&!priorJump;priorJump=jump;double actual=actualSpeed();
+         if(onGround()&&sprint&&forward>.5&&actual>=9){if(readyTicks++==0)cue("gallop_burst",.4F);}else if(!flying())readyTicks=0;
+         if(!flying()&&edge&&onGround()){
+-            if(SivkaRules.ready(actual,readyTicks,true,sprint)&&!isInWater()&&headClear(1.8)){setMode(1);vertical=.14;}
+-            else {setDeltaMovement(getDeltaMovement().x,.42,getDeltaMovement().z);if(mounted&&getFirstPassenger() instanceof Player p)SivkaBonds.message(p,readyTicks>=50?"obstacle":"not_ready");}
++            if(forward>.5&&SivkaRules.ready(actual,readyTicks,true,sprint)&&!isInWater()&&headClear(1.8)){setMode(1);vertical=.24;}
++            else {setDeltaMovement(getDeltaMovement().x,SivkaRules.GROUND_JUMP,getDeltaMovement().z);}
+         }
+-        float turn=Mth.clamp(Mth.wrapDegrees(wantedYaw-getYRot())+strafe*2,flying()?-3F:-3.5F,flying()?3F:3.5F);if(mounted){setYRot(getYRot()+turn);yBodyRot=getYRot();yHeadRot=getYRot();}
+-        double target=flying()?(forward>0?16:forward<0?3:Math.max(3,speed-.08)):(forward>0?(sprint?12:6):forward<0?2:0);
+-        speed=SivkaRules.approach(speed,target,(flying()?5:target>speed?4:5.5)/20);
++        float turn=Mth.clamp(Mth.wrapDegrees(wantedYaw-getYRot()),flying()?-6F:-12F,flying()?6F:12F);if(mounted){setYRot(getYRot()+turn);yBodyRot=getYRot();yHeadRot=getYRot();}
++        double target=flying()?(forward>0?SivkaRules.AIR_SPEED:forward<0?6:0):(forward>0?(sprint?12:6):forward<0?2:0);
++        speed=SivkaRules.approach(speed,target,(flying()?(target>speed?SivkaRules.AIR_ACCELERATION:SivkaRules.AIR_BRAKING):target>speed?4:5.5)/20);
+         if(flying()&&speed<=3.1)slowTicks++;else slowTicks=0;
+-        double rad=Math.toRadians(getYRot()),vx=-Math.sin(rad)*speed/20,vz=Math.cos(rad)*speed/20;if(!flying()&&forward<0){vx=-vx;vz=-vz;}
++        double rad=Math.toRadians(getYRot()),vx=-Math.sin(rad)*speed/20,vz=Math.cos(rad)*speed/20;if(forward<0){vx=-vx;vz=-vz;}
++        if(mounted&&Math.abs(strafe)>0){double side=(flying()?6:3)*strafe/20;vx+=Math.cos(rad)*side;vz+=Math.sin(rad)*side;}
+         double vy;
+         if(flying()){
+             if(mode()==1&&modeTicks>=16)setMode(2);
+-            double desired=mode()==1?.14:down||!mounted||slowTicks>30?-.15:jump?.15:0;vertical=SivkaRules.approach(vertical,desired,.01875);
++            double desired=mode()==1?.24:down||!mounted?-.18:jump?.18:0;vertical=SivkaRules.approach(vertical,desired,.025);
+             double nextPhase=(phase+1/14.4)%1;vy=vertical+SivkaRules.physicalWave(nextPhase)-SivkaRules.physicalWave(phase);
+             if(getY()>level().getMaxBuildHeight()-5&&vy>0)vy=0;
+             if(horizontalCollision){vx*=.3;vz*=.3;vy=-.08;}
+@@ -90,12 +106,12 @@ public final class SivkaEntity extends PathfinderMob {
+         if(mode()==3&&modeTicks>=20)setMode(0);
+         if(flying())fallDistance=0;entityData.set(BANK,bank()+(-turn*1.8F-bank())*.2F);entityData.set(LIFT,(float)vertical);
+     }
+-    @Override public void tick(){super.tick();if(level().isClientSide)return;
++    @Override public void tick(){if(!level().isClientSide){boolean ai=!isVehicle()&&!flying();for(var flag:new Goal.Flag[]{Goal.Flag.MOVE,Goal.Flag.LOOK,Goal.Flag.JUMP})goalSelector.setControlFlag(flag,ai);}super.tick();if(level().isClientSide)return;
+         modeTicks++;if(scared>0)scared--;if(reaction()!=0&&tickCount>=reactionEnd)entityData.set(REACTION,0);
+         if(owner!=null&&level() instanceof ServerLevel w){var d=SivkaBonds.get(w);var b=d.bonds.get(owner);if(b==null||!b.id.equals(bond)||b.generation!=generation||!getUUID().equals(b.entity)||!b.valid()){ejectPassengers();discard();return;}
+             if(tickCount%20==0){b.health=getHealth();b.last=blockPosition();d.setDirty();}
+             if(wasMounted&&!isVehicle()){idleTicks=0;react(5,7);}wasMounted=isVehicle();
+-            if(!isVehicle())idleTicks++;else {idleTicks=departTicks=0;navigation.stop();}
++            if(!isVehicle()&&w.getServer().getPlayerList().getPlayer(owner)!=null)idleTicks++;else {idleTicks=departTicks=0;navigation.stop();}
+             if(idleTicks>=SivkaRules.DEPART_DELAY&&!isVehicle()){
+                 if(departTicks++==0){react(6,48);cue("depart",.5F);var away=net.minecraft.world.entity.ai.util.DefaultRandomPos.getPos(this,8,2);if(away!=null)navigation.moveTo(away.x,away.y,away.z,1.4);}
+                 if(departTicks==32)spark(12);if(departTicks>=48){b.entity=null;d.setDirty();discard();return;}
+diff --git a/src/main/java/org/slavicmyths/sivka/SivkaRules.java b/src/main/java/org/slavicmyths/sivka/SivkaRules.java
+index 5fba0381..36b0ddef 100644
+--- a/src/main/java/org/slavicmyths/sivka/SivkaRules.java
++++ b/src/main/java/org/slavicmyths/sivka/SivkaRules.java
+@@ -1,12 +1,13 @@
+ package org.slavicmyths.sivka;
+ 
+-/** Server defaults from the 1.6 package. Speeds use blocks/second. */
++/** Server transport limits. Speeds use blocks/second, accelerations blocks/second squared. */
+ public final class SivkaRules {
+     public static final int TEMP_TICKS=72000, FEED_DELAY=24, CALL_DELAY=160, DEPART_DELAY=500;
+     public static final float WIDTH=1.65F, HEIGHT=2.85F, HEALTH=80;
++    public static final double GROUND_JUMP=.60, AIR_SPEED=40, AIR_ACCELERATION=10, AIR_BRAKING=24;
+     public static final String[] FOODS={"minecraft:apple","minecraft:wheat","minecraft:carrot","slavicmyths:blueberry","slavicmyths:blueberry_pancakes","minecraft:honey_bottle","minecraft:golden_apple"};
+     public static double approach(double current,double target,double step){return current+Math.clamp(target-current,-step,step);}
+-    public static boolean ready(double actualSpeed,int sustainedTicks,boolean ground,boolean sprint){return ground&&sprint&&actualSpeed>=9&&sustainedTicks>=50;}
++    public static boolean ready(double actualSpeed,int sustainedTicks,boolean ground,boolean sprint){return ground&&sprint;}
+     public static double physicalWave(double phase){return .025*Math.sin(phase*Math.PI*2);}
+     private SivkaRules(){}
+ }
+diff --git a/src/main/java/org/slavicmyths/worldgen/OnDemandStructures.java b/src/main/java/org/slavicmyths/worldgen/OnDemandStructures.java
+index 82913f3f..f5067d55 100644
+--- a/src/main/java/org/slavicmyths/worldgen/OnDemandStructures.java
++++ b/src/main/java/org/slavicmyths/worldgen/OnDemandStructures.java
+@@ -17,12 +17,12 @@ public final class OnDemandStructures {
+  }
+  public static int locate(CommandSourceStack source,String id){
+   String family=id.startsWith("kurgan_")?"kurgan":id.startsWith("bandit_camp_")?"bandit_camp":null;
+-  if(family==null)return TemplateSiteJobs.create(source,id);
++  if(family==null)return ExistingSiteSearch.locate(source,id);
+   int tier=id.endsWith("small")?0:id.endsWith("great")||id.endsWith("large")?2:1;
+   var origin=BlockPos.containing(source.getPosition());var known=ManualStructureRecords.get(source.getLevel()).entries().stream().filter(e->e.family().equals(family)&&e.tier()==tier&&e.arrival().distSqr(origin)<=1024.*1024).min(java.util.Comparator.comparingDouble(e->e.arrival().distSqr(origin)));
+   if(known.isPresent()){source.sendSuccess(()->net.minecraft.network.chat.Component.literal(id+": "+known.get().arrival().toShortString()),false);return 1;}
+   if(family.equals("kurgan")){var burial=org.slavicmyths.kurgan.BurialRecords.get(source.getLevel()).instances.values().stream().filter(e->e.plan.tier==tier&&e.origin.distSqr(origin)<=1024.*1024).min(java.util.Comparator.comparingDouble(e->e.origin.distSqr(origin)));if(burial.isPresent()){var e=burial.get();var at=e.origin.offset(0,1,e.plan.radius+2);source.sendSuccess(()->net.minecraft.network.chat.Component.literal(id+": "+at.toShortString()),false);return 1;}}
+-  return create(source,family,tier,result->{if(result.success())source.sendSuccess(()->net.minecraft.network.chat.Component.literal(id+": "+result.entrance().toShortString()),false);});
++  return ExistingSiteSearch.locate(source,id);
+  }
+  @net.neoforged.bus.api.SubscribeEvent public static void tick(net.neoforged.neoforge.event.tick.ServerTickEvent.Post e){
+   for(var entry:List.copyOf(PENDING.entrySet())){if(entry.getValue().world.getServer()!=e.getServer())continue;var result=ManualStructureJobs.result(entry.getKey());if(result!=null){PENDING.remove(entry.getKey());for(var callback:entry.getValue().callbacks)try{callback.accept(result);}catch(RuntimeException failure){com.mojang.logging.LogUtils.getLogger().warn("Structure completion callback",failure);}}}
+diff --git a/src/main/java/org/slavicmyths/worldgen/StructureCandidates.java b/src/main/java/org/slavicmyths/worldgen/StructureCandidates.java
+index 554834a1..9a5aae52 100644
+--- a/src/main/java/org/slavicmyths/worldgen/StructureCandidates.java
++++ b/src/main/java/org/slavicmyths/worldgen/StructureCandidates.java
+@@ -54,6 +54,9 @@ public final class StructureCandidates {
+                 for(int gx=Math.floorDiv(minX-8,spacing);gx<=Math.floorDiv(maxX+8,spacing);gx++)for(int gz=Math.floorDiv(minZ-8,spacing);gz<=Math.floorDiv(maxZ+8,spacing);gz++){
+                     ChunkPos neighbor=placement.getPotentialStructureChunk(c.seed(),gx*spacing,gz*spacing);
+                     if(neighbor.x<minX-8||neighbor.x>maxX+8||neighbor.z<minZ-8||neighbor.z>maxZ+8)continue;
++                    // Disabled/reduced-frequency cells own no footprint when native placement rejects them.
++                    // Keep datapack frequencies unchanged; use the same native predicate as generation.
++                    if(!placement.applyAdditionalChunkRestrictions(neighbor.x,neighbor.z,c.seed()))continue;
+                     var accepted=StructureCoverageService.neighborFootprints(c,other,neighbor);
+                     for(var part:proposed)for(var existing:accepted)if(part.getBoundingBox().intersects(existing))return false;
+                 }
+diff --git a/src/main/java/org/slavicmyths/yaga/YagaPlacement.java b/src/main/java/org/slavicmyths/yaga/YagaPlacement.java
+index 753f91f0..3d49ae44 100644
+--- a/src/main/java/org/slavicmyths/yaga/YagaPlacement.java
++++ b/src/main/java/org/slavicmyths/yaga/YagaPlacement.java
+@@ -44,7 +44,9 @@ public final class YagaPlacement {
+   for(Map.Entry<BlockPos,String> e:plan.blocks.entrySet()){BlockPos p=site.anchor.offset(e.getKey());BlockState before=w.getBlockState(p);String bad=unsafe(w,p,before);if(bad!=null&&!(reshape&&(bad.equals("water")||bad.equals("obstruction")&&org.slavicmyths.worldgen.ManualStructureJobs.natural(before)&&!before.is(Blocks.BEDROCK))))return site.fail(bad,p);site.desired.put(p,resolve.apply(e.getValue()));site.old.put(p,before);}
+   for(Map.Entry<BlockPos,String> e:plan.blocks.entrySet()){if(e.getKey().getY()!=0)continue;BlockPos base=site.anchor.offset(e.getKey()).below();int terrain=ground(w,base.getX(),base.getZ(),reshape);if(terrain==NO_SURFACE||terrain==WATER)return site.fail(terrain==WATER?"water":"surface",base);if(site.anchor.getY()-1-terrain>4)return site.fail("slope",base);
+    for(int y=terrain+1;y<site.anchor.getY();y++){BlockPos p=new BlockPos(base.getX(),y,base.getZ());BlockState before=w.getBlockState(p);if(w.getBlockEntity(p)!=null)return site.fail("container",p);String bad=unsafe(w,p,before);if(bad!=null&&!(reshape&&(bad.equals("water")||bad.equals("obstruction")&&org.slavicmyths.worldgen.ManualStructureJobs.natural(before)&&!before.is(Blocks.BEDROCK))))return site.fail(bad,p);site.old.putIfAbsent(p,before);site.desired.put(p,Blocks.COARSE_DIRT.defaultBlockState());}}
+-  for(Map.Entry<BlockPos,String> e:plan.blocks.entrySet())if(e.getValue().equals("minecraft:brown_mushroom")){BlockPos p=site.anchor.offset(e.getKey()).below();BlockState before=w.getBlockState(p);if(w.getBlockEntity(p)!=null)return site.fail("container",p);String bad=unsafe(w,p,before);if(bad!=null&&!(reshape&&(bad.equals("water")||bad.equals("obstruction")&&org.slavicmyths.worldgen.ManualStructureJobs.natural(before)&&!before.is(Blocks.BEDROCK))))return site.fail(bad,p);site.old.putIfAbsent(p,before);site.desired.put(p,Blocks.PODZOL.defaultBlockState());}
++  // Ornamental herbs also need real soil. A rocky accepted surface must not
++  // make every cooperative transaction roll back at the first wormwood plant.
++  for(Map.Entry<BlockPos,String> e:plan.blocks.entrySet())if(e.getValue().equals("minecraft:brown_mushroom")||e.getValue().equals("slavicmyths:wormwood")){BlockPos p=site.anchor.offset(e.getKey()).below();BlockState before=w.getBlockState(p);if(w.getBlockEntity(p)!=null)return site.fail("container",p);String bad=unsafe(w,p,before);if(bad!=null&&!(reshape&&(bad.equals("water")||bad.equals("obstruction")&&org.slavicmyths.worldgen.ManualStructureJobs.natural(before)&&!before.is(Blocks.BEDROCK))))return site.fail(bad,p);site.old.putIfAbsent(p,before);site.desired.put(p,e.getValue().equals("minecraft:brown_mushroom")?Blocks.PODZOL.defaultBlockState():before.is(BlockTags.DIRT)?before:Blocks.DIRT.defaultBlockState());}
+   return site;
+  }
+  private static final class Refused extends RuntimeException {final String reason;final BlockPos pos;Refused(String reason,BlockPos pos){super(reason+" at "+pos);this.reason=reason;this.pos=pos;}}
+diff --git a/src/main/resources/assets/minecraft/atlases/blocks.json b/src/main/resources/assets/minecraft/atlases/blocks.json
+index 4bd3679d..a8258757 100644
+--- a/src/main/resources/assets/minecraft/atlases/blocks.json
++++ b/src/main/resources/assets/minecraft/atlases/blocks.json
+@@ -15,6 +15,30 @@
+     {
+       "type": "minecraft:single",
+       "resource": "slavicmyths:entity/great_poloz_head"
++    },
++    {
++      "type": "minecraft:single",
++      "resource": "slavicmyths:entity/cursed_volkolak"
++    },
++    {
++      "type": "minecraft:single",
++      "resource": "slavicmyths:entity/likho_one_eyed"
++    },
++    {
++      "type": "minecraft:single",
++      "resource": "slavicmyths:entity/mor/likho"
++    },
++    {
++      "type": "minecraft:single",
++      "resource": "slavicmyths:entity/skim_beast"
++    },
++    {
++      "type": "minecraft:single",
++      "resource": "slavicmyths:entity/tugarin_phase2"
++    },
++    {
++      "type": "minecraft:single",
++      "resource": "slavicmyths:entity/underground/large_podzemnik"
+     }
+   ]
+ }
+diff --git a/src/main/resources/assets/slavicmyths/lang/en_us.json b/src/main/resources/assets/slavicmyths/lang/en_us.json
+index 58df0ef6..a4b65b76 100644
+--- a/src/main/resources/assets/slavicmyths/lang/en_us.json
++++ b/src/main/resources/assets/slavicmyths/lang/en_us.json
+@@ -2588,14 +2588,14 @@
+   "sivka.slavicmyths.expired": "The bond faded. Find Sivka and offer an apple; trust is preserved",
+   "sivka.slavicmyths.nearby": "Sivka is already nearby",
+   "sivka.slavicmyths.no_room": "There is not enough safe space for Sivka-Burka",
+-  "sivka.slavicmyths.not_ready": "First build up speed at a gallop",
++  "sivka.slavicmyths.not_ready": "Press Ctrl+W+Space on the ground to take off",
+   "sivka.slavicmyths.obstacle": "There is not enough clearance above Sivka",
+   "sivka.slavicmyths.cooldown": "Sivka cannot answer yet",
+   "sivka.slavicmyths.other_owner": "This whistle or horse belongs to another owner",
+   "sivka.slavicmyths.existing_bond": "Complete your current Sivka bond first",
+   "sivka.slavicmyths.free_horse": "Sivka is free: no saddle or lead",
+   "sivka.slavicmyths.reissued": "A new whistle was issued; the old token is revoked",
+-  "sivka.slavicmyths.controls": "Run Ctrl+W → Space; flight: Space up, X down, Shift dismount",
++  "sivka.slavicmyths.controls": "W/S move, A/D strafe; Space jump; Ctrl+W+Space take off; in flight Space up, X down, release W to brake; Shift dismount",
+   "subtitles.slavicmyths.sivka.breath": "Sivka-Burka: breath",
+   "subtitles.slavicmyths.sivka.snort_soft": "Sivka-Burka: snort soft",
+   "subtitles.slavicmyths.sivka.whinny_soft": "Sivka-Burka: whinny soft",
+@@ -5745,7 +5745,7 @@
+   "advancements.slavicmyths.linen_woven.title": "From stem to cloth",
+   "advancements.slavicmyths.linen_woven.description": "Craft linen cloth.",
+   "advancements.slavicmyths.self_brewed_beer.title": "The brewing craft",
+-  "advancements.slavicmyths.self_brewed_beer.description": "Complete your own beer fermentation in a barrel.",
++  "advancements.slavicmyths.self_brewed_beer.description": "Complete your own beer fermentation in a fermentation vat.",
+   "advancements.slavicmyths.first_structure.title": "The first trail",
+   "advancements.slavicmyths.first_structure.description": "Discover any registered mod structure.",
+   "advancements.slavicmyths.find_large_camp.title": "The great camp",
+diff --git a/src/main/resources/assets/slavicmyths/lang/ru_ru.json b/src/main/resources/assets/slavicmyths/lang/ru_ru.json
+index 7f21dd9b..efac331d 100644
+--- a/src/main/resources/assets/slavicmyths/lang/ru_ru.json
++++ b/src/main/resources/assets/slavicmyths/lang/ru_ru.json
+@@ -2588,14 +2588,14 @@
+   "sivka.slavicmyths.expired": "Связь ослабла. Найдите Сивку и дайте яблоко; доверие сохранено",
+   "sivka.slavicmyths.nearby": "Сивка уже рядом",
+   "sivka.slavicmyths.no_room": "Здесь для Сивки-Бурки недостаточно места",
+-  "sivka.slavicmyths.not_ready": "Сначала разгонитесь галопом",
++  "sivka.slavicmyths.not_ready": "Для взлёта нажмите Ctrl+W+Space на земле",
+   "sivka.slavicmyths.obstacle": "Над Сивкой недостаточно свободного пространства",
+   "sivka.slavicmyths.cooldown": "Сивка ещё не может откликнуться",
+   "sivka.slavicmyths.other_owner": "Этот свист или конь предназначен другому хозяину",
+   "sivka.slavicmyths.existing_bond": "Сначала завершите текущую связь с Сивкой",
+   "sivka.slavicmyths.free_horse": "Сивка свободна: ей не нужны седло и поводок",
+   "sivka.slavicmyths.reissued": "Выдан новый свист; прежний больше не действует",
+-  "sivka.slavicmyths.controls": "Разбег Ctrl+W → Space; полёт: Space вверх, X вниз, Shift спешиться",
++  "sivka.slavicmyths.controls": "W/S — ход, A/D — вбок; Space — прыжок; Ctrl+W+Space — взлёт; в полёте Space вверх, X вниз, отпустите W для торможения; Shift — спешиться",
+   "subtitles.slavicmyths.sivka.breath": "Сивка-Бурка тяжело дышит",
+   "subtitles.slavicmyths.sivka.snort_soft": "Сивка-Бурка фыркает",
+   "subtitles.slavicmyths.sivka.whinny_soft": "Сивка-Бурка ржёт",
+@@ -5745,7 +5745,7 @@
+   "advancements.slavicmyths.linen_woven.title": "От стебля до полотна",
+   "advancements.slavicmyths.linen_woven.description": "Изготовьте льняное полотно.",
+   "advancements.slavicmyths.self_brewed_beer.title": "Пенное ремесло",
+-  "advancements.slavicmyths.self_brewed_beer.description": "Завершите собственное брожение пива в бочке.",
++  "advancements.slavicmyths.self_brewed_beer.description": "Завершите собственное брожение пива в бродильном чане.",
+   "advancements.slavicmyths.first_structure.title": "Первый след",
+   "advancements.slavicmyths.first_structure.description": "Обнаружьте любую зарегистрированную постройку мода.",
+   "advancements.slavicmyths.find_large_camp.title": "Большой стан",
+diff --git a/src/main/resources/assets/slavicmyths/models/item/heart_of_eternal_cold.json b/src/main/resources/assets/slavicmyths/models/item/heart_of_eternal_cold.json
+index a0be4726..5347f38f 100644
+--- a/src/main/resources/assets/slavicmyths/models/item/heart_of_eternal_cold.json
++++ b/src/main/resources/assets/slavicmyths/models/item/heart_of_eternal_cold.json
+@@ -1,4 +1,5 @@
+ {
+   "parent": "builtin/entity",
+-  "gui_light": "front"
++  "gui_light": "front",
++  "textures": {"particle": "slavicmyths:item/heart_of_eternal_cold"}
+ }
+diff --git a/src/main/resources/assets/slavicmyths/models/item/karachun_scythe.json b/src/main/resources/assets/slavicmyths/models/item/karachun_scythe.json
+index a0be4726..321fabdf 100644
+--- a/src/main/resources/assets/slavicmyths/models/item/karachun_scythe.json
++++ b/src/main/resources/assets/slavicmyths/models/item/karachun_scythe.json
+@@ -1,4 +1,5 @@
+ {
+   "parent": "builtin/entity",
+-  "gui_light": "front"
++  "gui_light": "front",
++  "textures": {"particle": "slavicmyths:item/karachun_scythe"}
+ }
+diff --git a/src/main/resources/assets/slavicmyths/models/item/morozko_staff.json b/src/main/resources/assets/slavicmyths/models/item/morozko_staff.json
+index a0be4726..3af47096 100644
+--- a/src/main/resources/assets/slavicmyths/models/item/morozko_staff.json
++++ b/src/main/resources/assets/slavicmyths/models/item/morozko_staff.json
+@@ -1,4 +1,5 @@
+ {
+   "parent": "builtin/entity",
+-  "gui_light": "front"
++  "gui_light": "front",
++  "textures": {"particle": "slavicmyths:item/morozko_staff"}
+ }

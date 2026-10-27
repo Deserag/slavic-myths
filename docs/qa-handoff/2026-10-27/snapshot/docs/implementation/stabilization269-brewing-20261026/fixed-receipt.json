@@ -1,0 +1,158 @@
+{
+  "master_volume": 0.3,
+  "fps_limit": 30,
+  "available_processors": 2,
+  "max_heap_bytes": 1610612736,
+  "GLFW_visible": 1,
+  "player_uuid": "dace75c4-06ba-39a8-b9bf-c66b92ee16f0",
+  "production_brew_class_sha256": "5f71e467ffa79fe7827d2295941e0f8de2832686a2b28f1724fa0f4eef868bb6",
+  "loaded_beer_age": 436,
+  "loaded_kvass_age": 395,
+  "sent_phase_0_client_position": "(1002.5, 201.0, 8.5)",
+  "readyBeer_age": 2481,
+  "readyBeer_server_position": "(1002.5, 201.0, 8.5)",
+  "readyBeer_held": "1 slavicmyths:light_beer_mug",
+  "readyBeer_ready_beer_samples": 1,
+  "sent_phase_1_client_position": "(1002.5, 201.0, 8.5)",
+  "pitcher_age": 2522,
+  "pitcher_server_position": "(1002.5, 201.0, 8.5)",
+  "pitcher_held": "1 slavicmyths:filled_pitcher",
+  "pitcher_ready_beer_samples": 1,
+  "sent_phase_2_client_position": "(1002.5, 201.0, 8.5)",
+  "readyKvass_age": 2563,
+  "readyKvass_server_position": "(1002.5, 201.0, 8.5)",
+  "readyKvass_held": "1 slavicmyths:kvass_mug",
+  "readyKvass_ready_beer_samples": 1,
+  "sent_phase_3_client_position": "(1002.5, 201.0, 8.5)",
+  "kegInsert_age": 2605,
+  "kegInsert_server_position": "(1002.5, 201.0, 8.5)",
+  "kegInsert_held": "1 slavicmyths:wooden_mug",
+  "kegInsert_ready_beer_samples": 1,
+  "sent_phase_4_client_position": "(1002.5, 201.0, 8.5)",
+  "kegReject_age": 2647,
+  "kegReject_server_position": "(1002.5, 201.0, 8.5)",
+  "kegReject_held": "1 slavicmyths:kvass_mug",
+  "kegReject_ready_beer_samples": 1,
+  "sent_phase_5_client_position": "(1002.5, 201.0, 8.5)",
+  "kegPitcher_age": 2688,
+  "kegPitcher_server_position": "(1002.5, 201.0, 8.5)",
+  "kegPitcher_held": "1 slavicmyths:ceramic_pitcher",
+  "kegPitcher_ready_beer_samples": 1,
+  "sent_phase_6_client_position": "(1002.5, 201.0, 8.5)",
+  "kegDraw_age": 2729,
+  "kegDraw_server_position": "(1002.5, 201.0, 8.5)",
+  "kegDraw_held": "1 slavicmyths:kvass_mug",
+  "kegDraw_ready_beer_samples": 1,
+  "sent_phase_7_client_position": "(1002.5, 201.0, 8.5)",
+  "agedBeer_age": 8482,
+  "agedBeer_server_position": "(1002.5, 201.0, 8.5)",
+  "agedBeer_held": "1 slavicmyths:light_beer_mug",
+  "agedBeer_ready_beer_samples": 3,
+  "sent_phase_8_client_position": "(1002.5, 201.0, 8.5)",
+  "agedKvass_age": 8524,
+  "agedKvass_server_position": "(1002.5, 201.0, 8.5)",
+  "agedKvass_held": "1 slavicmyths:kvass_mug",
+  "agedKvass_ready_beer_samples": 3,
+  "sent_phase_9_client_position": "(1002.5, 201.0, 8.5)",
+  "spoiledKvass_age": 12000,
+  "spoiledKvass_server_position": "(1002.5, 201.0, 8.5)",
+  "spoiledKvass_held": "1 slavicmyths:spoiled_brew",
+  "spoiledKvass_ready_beer_samples": 3,
+  "beer_age_before_native_break": 12000,
+  "status": "PASS_SINGLE_CLIENT_BREW_SCOPE",
+  "checks": [
+    {
+      "status": "PASS",
+      "test": "distinct actual brewing test profile"
+    },
+    {
+      "status": "PASS",
+      "test": "journey data compatible"
+    },
+    {
+      "status": "PASS",
+      "test": "fresh player lacks self_brewed_beer before actual completion"
+    },
+    {
+      "status": "PASS",
+      "test": "physical batches survive new client/server process"
+    },
+    {
+      "status": "PASS",
+      "test": "previous young samples remain deducted after restart"
+    },
+    {
+      "status": "PASS",
+      "test": "batch age survives offline interval (young required except diagnostic baseline2)"
+    },
+    {
+      "status": "PASS",
+      "test": "young sample metadata persisted in actual player inventory"
+    },
+    {
+      "status": "PASS",
+      "test": "unaccelerated age2400 produces ready beer in dark bottle"
+    },
+    {
+      "status": "PASS",
+      "test": "vat completion awards existing self_brewed_beer journey"
+    },
+    {
+      "status": "PASS",
+      "test": "ready pitcher stores four portions and deducts four"
+    },
+    {
+      "status": "PASS",
+      "test": "ready kvass mug deducts one additional portion"
+    },
+    {
+      "status": "PASS",
+      "test": "real ready sample transfers into keg with quality"
+    },
+    {
+      "status": "PASS",
+      "test": "keg rejects different quality without consuming young sample"
+    },
+    {
+      "status": "PASS",
+      "test": "keg under four portions does not consume pitcher"
+    },
+    {
+      "status": "PASS",
+      "test": "keg round trip preserves exact five ready sample portions"
+    },
+    {
+      "status": "PASS",
+      "test": "unaccelerated age8400 produces aged beer"
+    },
+    {
+      "status": "PASS",
+      "test": "unaccelerated age8400 produces aged kvass"
+    },
+    {
+      "status": "PASS",
+      "test": "native age12000 pour exhausts vat as spoiled brew"
+    },
+    {
+      "status": "PASS",
+      "test": "five beer servings remain before native destruction"
+    },
+    {
+      "status": "PASS",
+      "test": "native player destruction removes spoiled vessel"
+    },
+    {
+      "status": "PASS",
+      "test": "native break preserves all five remaining servings exactly once"
+    },
+    {
+      "status": "PASS",
+      "test": "repeat destruction cannot duplicate spoiled drops"
+    }
+  ],
+  "scope": "one actual client, supplied fixtures/batches, native useItemOn packets and unaccelerated block ticks; Survival acquisition/MP NOT_RUN",
+  "final_beer_age": 0,
+  "final_kvass_age": 12000,
+  "final_beer_servings": 0,
+  "final_kvass_servings": 0
+}

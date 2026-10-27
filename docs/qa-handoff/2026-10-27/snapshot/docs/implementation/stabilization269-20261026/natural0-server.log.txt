@@ -1,0 +1,147 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileStabilization269Java
+> Task :downloadAssets UP-TO-DATE
+> Task :writeStabilization269ServerLegacyClasspath UP-TO-DATE
+> Task :prepareStabilization269ServerRun
+> Task :processStabilization269Resources NO-SOURCE
+> Task :stabilization269Classes
+
+> Task :runStabilization269Server
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[16:16:43] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430, --nogui]
+[16:16:43] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[16:16:43] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[16:16:43] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[16:16:43] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[16:16:43] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[16:16:43] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]:
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 2.0.4-HELL (slavicmyths)
+[16:16:44] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[16:16:44] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, ., --nogui]
+[16:16:44] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[16:16:44] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[16:16:45] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[16:16:46] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[16:16:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:16:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:16:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[16:16:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[16:16:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:16:51] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[16:16:53] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[16:16:53] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[16:16:53] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[16:16:54] [main/INFO] [minecraft/Main]: No existing world data, creating new world
+[16:16:54] [main/INFO] [minecraft/RecipeManager]: Loaded 1853 recipes
+[16:16:54] [main/INFO] [minecraft/AdvancementTree]: Loaded 1643 advancements
+[16:16:54] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[16:16:54] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[16:16:55] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.21.1
+[16:16:55] [Server thread/INFO] [minecraft/DedicatedServer]: Loading properties
+[16:16:55] [Server thread/INFO] [minecraft/DedicatedServer]: Default game type: SURVIVAL
+[16:16:55] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[16:16:55] [Server thread/INFO] [minecraft/DedicatedServer]: Starting Minecraft server on 127.0.0.1:25769
+[16:16:55] [Server thread/INFO] [minecraft/ServerConnectionListener]: Using default channel type
+[16:16:55] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[16:16:55] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.
+[16:16:55] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[16:16:55] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set "online-mode" to "true" in the server.properties file.
+[16:16:55] [Server thread/INFO] [minecraft/DedicatedServer]: Preparing level "stabilization269-test"
+[16:17:07] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[16:17:07] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[16:17:08] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[16:17:08] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[16:17:09] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[16:17:09] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 18%
+[16:17:10] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 18%
+[16:17:10] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 18%
+[16:17:11] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 18%
+[16:17:11] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 51%
+[16:17:12] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 51%
+[16:17:12] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 4907 ms
+[16:17:12] [Server thread/INFO] [minecraft/DedicatedServer]: Done (17.112s)! For help, type "help"
+[16:17:12] [Server thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[16:17:12] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+QA269_NATURAL_BEGIN slavicmyths:abandoned_settlement [6, 8] minecraft:overworld
+QA269_NATURAL {set=slavicmyths:abandoned_settlement, dimension=minecraft:overworld, candidate_chunk=[6, 8], elapsed_seconds=3.5568158, status=NOT_RUN_NO_VALID_START_IN_THIS_CELL}
+QA269_NATURAL_BEGIN slavicmyths:bandit_camp_large [39, 13] minecraft:overworld
+QA269_NATURAL {set=slavicmyths:bandit_camp_large, dimension=minecraft:overworld, candidate_chunk=[39, 13], elapsed_seconds=3.2500105, status=NOT_RUN_NO_VALID_START_IN_THIS_CELL}
+QA269_NATURAL_BEGIN slavicmyths:bandit_camp_medium [7, 3] minecraft:overworld
+QA269 PASS natural_chunk_generation natural native start has pieces slavicmyths:bandit_camp_medium
+QA269 PASS natural_chunk_generation natural native bounds inside dimension slavicmyths:bandit_camp_medium
+QA269_NATURAL {set=slavicmyths:bandit_camp_medium, dimension=minecraft:overworld, candidate_chunk=[7, 3], elapsed_seconds=3.751021, status=PASS_NATIVE_GENERATION_SAMPLE, actual_structure=slavicmyths:bandit_camp_medium, bounds=[104, -64, 32, 162, 319, 93], pieces=10, full_footprint_chunks=20, containers_unopened=[{position=116, 72, 57, block_entity=minecraft:barrel, table=slavicmyths:chests/bandit_medium}, {position=118, 72, 76, block_entity=minecraft:barrel, table=slavicmyths:chests/bandit_medium}, {position=138, -34, 36, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}, {position=138, -29, 41, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}, {position=132, 72, 55, block_entity=minecraft:barrel, table=slavicmyths:rewards276/camp_2_main}, {position=142, 72, 55, block_entity=minecraft:barrel, table=slavicmyths:chests/bandit_medium}, {position=131, 72, 78, block_entity=minecraft:barrel, table=slavicmyths:chests/bandit_medium}, {position=140, 72, 80, block_entity=minecraft:barrel, table=slavicmyths:chests/bandit_medium}, {position=146, -34, 44, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}, {position=146, -29, 44, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}, {position=150, -29, 44, block_entity=minecraft:chest, table=null}, {position=144, 72, 55, block_entity=minecraft:barrel, table=null}, {position=151, -34, 58, block_entity=minecraft:chest, table=null}, {position=157, -10, 74, block_entity=minecraft:chest, table=null}, {position=151, 72, 66, block_entity=minecraft:barrel, table=slavicmyths:chests/bandit_medium}, {position=148, 72, 66, block_entity=minecraft:barrel, table=slavicmyths:chests/bandit_medium}, {position=147, 72, 66, block_entity=minecraft:barrel, table=slavicmyths:chests/bandit_medium}, {position=155, -42, 82, block_entity=minecraft:chest, table=minecraft:chests/trial_chambers/reward}, {position=161, -34, 44, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}, {position=161, -29, 44, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}]}
+QA269_NATURAL_BEGIN slavicmyths:bandit_camp_small [7, 1] minecraft:overworld
+QA269 PASS natural_chunk_generation natural native start has pieces slavicmyths:bandit_camp_small
+QA269 PASS natural_chunk_generation natural native bounds inside dimension slavicmyths:bandit_camp_small
+QA269_NATURAL {set=slavicmyths:bandit_camp_small, dimension=minecraft:overworld, candidate_chunk=[7, 1], elapsed_seconds=1.3347757, status=PASS_NATIVE_GENERATION_SAMPLE, actual_structure=slavicmyths:bandit_camp_small, bounds=[82, -64, -22, 122, 319, 26], pieces=5, full_footprint_chunks=12, containers_unopened=[{position=93, 68, -1, block_entity=minecraft:barrel, table=slavicmyths:chests/bandit_small}, {position=107, 68, -1, block_entity=minecraft:barrel, table=slavicmyths:chests/bandit_small}, {position=109, 68, -1, block_entity=minecraft:barrel, table=null}, {position=100, 68, 15, block_entity=minecraft:barrel, table=slavicmyths:rewards276/camp_1_main}]}
+QA269_NATURAL_BEGIN slavicmyths:bog_causeway [0, 2] minecraft:overworld
+QA269_NATURAL {set=slavicmyths:bog_causeway, dimension=minecraft:overworld, candidate_chunk=[0, 2], elapsed_seconds=0.5031694, status=NOT_RUN_NO_VALID_START_IN_THIS_CELL}
+QA269_NATURAL_BEGIN slavicmyths:chud_abandoned [88, 63] minecraft:overworld
+QA269_NATURAL {set=slavicmyths:chud_abandoned, dimension=minecraft:overworld, candidate_chunk=[88, 63], elapsed_seconds=2.4094169, status=NOT_RUN_NO_VALID_START_IN_THIS_CELL}
+QA269_NATURAL_BEGIN slavicmyths:chud_city [88, 63] minecraft:overworld
+QA269 PASS natural_chunk_generation natural native start has pieces slavicmyths:chud_city
+QA269 PASS natural_chunk_generation natural native bounds inside dimension slavicmyths:chud_city
+QA269_NATURAL {set=slavicmyths:chud_city, dimension=minecraft:overworld, candidate_chunk=[88, 63], elapsed_seconds=91.3626089, status=PASS_NATIVE_GENERATION_SAMPLE, actual_structure=slavicmyths:chud_city, bounds=[1289, -63, 889, 1543, 54, 1143], pieces=1, full_footprint_chunks=289, containers_unopened=[{position=1290, -15, 973, block_entity=minecraft:chest, table=minecraft:chests/simple_dungeon}, {position=1291, -15, 971, block_entity=minecraft:chest, table=minecraft:chests/simple_dungeon}, {position=1289, -41, 998, block_entity=minecraft:chest, table=minecraft:chests/simple_dungeon}, {position=1294, -30, 1107, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}, {position=1291, -6, 1118, block_entity=minecraft:barrel, table=minecraft:chests/trial_chambers/corridor}, {position=1291, -6, 1113, block_entity=minecraft:barrel, table=minecraft:chests/trial_chambers/corridor}, {position=1294, -11, 1116, block_entity=minecraft:barrel, table=minecraft:chests/trial_chambers/corridor}, {position=1289, -40, 1107, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}, {position=1289, -30, 1128, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}, {position=1290, -38, 1120, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}, {position=1294, -40, 1128, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}, {position=1299, -40, 1107, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}, {position=1298, -35, 1106, block_entity=minecraft:chest, table=null}, {position=1304, -40, 1107, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}, {position=1309, -30, 1107, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}, {position=1297, -21, 1111, block_entity=minecraft:chest, table=minecraft:chests/trial_chambers/reward}, {position=1302, -21, 1129, block_entity=minecraft:chest, table=minecraft:chests/trial_chambers/reward}, {position=1296, -11, 1127, block_entity=minecraft:barrel, table=minecraft:chests/trial_chambers/corridor}, {position=1304, -30, 1128, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}, {position=1300, -30, 1129, block_entity=minecraft:chest, table=null}, {position=1325, -11, 977, block_entity=minecraft:chest, table=minecraft:chests/simple_dungeon}, {position=1325, -11, 978, block_entity=minecraft:chest, table=minecraft:chests/simple_dungeon}, {position=1312, -40, 1115, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}, {position=1312, -30, 1115, block_entity=minecraft:dispenser, table=minecraft:dispensers/trial_chambers/chamber}, {position=1329, -32, 936, block_entity=minecraft:chest, table=slavicmyths:chests/chud_storehouse}, {position=1329, -32, 952, block_entity=minecraft:chest, table=slavicmyths:chests/chud_storehouse}, {position=1337, -6, 1117, block_entity=minecraft:chest, table=minecraft:chests/trial_chambers/reward}, {position=1330, 0, 1115, block_entity=minecraft:chest, table=minecraft:chests/trial_chambers/entrance}, {position=1330, 0, 1120, block_entity=minecraft:chest, table=minecraft:chests/trial_chambers/entrance}, {position=1373, -32, 964, block_entity=minecraft:chest, table=slavicmyths:chests/chud_workshop}, {position=1371, -7, 1131, block_entity=minecraft:chest, table=minecraft:chests/simple_dungeon}, {position=1394, -25, 983, block_entity=minecraft:chest, table=minecraft:chests/simple_dungeon}, {position=1397, -25, 982, block_entity=minecraft:chest, table=minecraft:chests/simple_dungeon}, {position=1442, -37, 1127, block_entity=minecraft:chest, table=minecraft:chests/simple_dungeon}, {position=1442, -37, 1125, block_entity=minecraft:chest, table=minecraft:chests/simple_dungeon}]}
+QA269_NATURAL_BEGIN slavicmyths:fishing_camp [0, 0] minecraft:overworld
+QA269_NATURAL {set=slavicmyths:fishing_camp, dimension=minecraft:overworld, candidate_chunk=[0, 0], elapsed_seconds=0.1956001, status=NOT_RUN_NO_VALID_START_IN_THIS_CELL}
+QA269_NATURAL_BEGIN slavicmyths:flooded_shrine [3, 4] minecraft:overworld
+QA269_NATURAL {set=slavicmyths:flooded_shrine, dimension=minecraft:overworld, candidate_chunk=[3, 4], elapsed_seconds=0.3867108, status=NOT_RUN_NO_VALID_START_IN_THIS_CELL}
+QA269_NATURAL_BEGIN slavicmyths:gorodishche [31, 10] minecraft:overworld
+QA269_NATURAL {set=slavicmyths:gorodishche, dimension=minecraft:overworld, candidate_chunk=[31, 10], elapsed_seconds=1.5187849, status=NOT_RUN_NO_VALID_START_IN_THIS_CELL}
+QA269_NATURAL_BEGIN slavicmyths:kurgan_great [49, 35] minecraft:overworld
+QA269_NATURAL {set=slavicmyths:kurgan_great, dimension=minecraft:overworld, candidate_chunk=[49, 35], elapsed_seconds=1.351271, status=NOT_RUN_NO_VALID_START_IN_THIS_CELL}
+QA269_NATURAL_BEGIN slavicmyths:kurgan_small [17, 7] minecraft:overworld
+QA269 PASS natural_chunk_generation natural native start has pieces slavicmyths:kurgan_small
+QA269 PASS natural_chunk_generation natural native bounds inside dimension slavicmyths:kurgan_small
+QA269_NATURAL {set=slavicmyths:kurgan_small, dimension=minecraft:overworld, candidate_chunk=[17, 7], elapsed_seconds=3.4519266, status=PASS_NATIVE_GENERATION_SAMPLE, actual_structure=slavicmyths:kurgan_small, bounds=[254, 50, 57, 324, 79, 159], pieces=1, full_footprint_chunks=42, containers_unopened=[{position=279, 54, 149, block_entity=minecraft:barrel, table=slavicmyths:kurgan/common_cache}, {position=312, 54, 69, block_entity=minecraft:barrel, table=slavicmyths:kurgan/secret}, {position=310, 54, 127, block_entity=slavicmyths:burial_coffin, table=slavicmyths:rewards276/kurgan_1_main}]}
+QA269_NATURAL_BEGIN slavicmyths:kurgan_warrior [28, 17] minecraft:overworld
+QA269_NATURAL {set=slavicmyths:kurgan_warrior, dimension=minecraft:overworld, candidate_chunk=[28, 17], elapsed_seconds=1.102152, status=NOT_RUN_NO_VALID_START_IN_THIS_CELL}
+QA269_NATURAL_BEGIN slavicmyths:navya_heart [0, 15] minecraft:the_nether
+QA269_NATURAL {set=slavicmyths:navya_heart, dimension=minecraft:the_nether, candidate_chunk=[0, 15], elapsed_seconds=0.7007551, status=NOT_RUN_NO_VALID_START_IN_THIS_CELL}
+QA269_NATURAL_BEGIN slavicmyths:serpent_hill [36, 26] minecraft:overworld
+QA269_NATURAL {set=slavicmyths:serpent_hill, dimension=minecraft:overworld, candidate_chunk=[36, 26], elapsed_seconds=0.850927, status=NOT_RUN_NO_VALID_START_IN_THIS_CELL}
+QA269_NATURAL_BEGIN slavicmyths:swamp_hut [3, 1] minecraft:overworld
+QA269_NATURAL {set=slavicmyths:swamp_hut, dimension=minecraft:overworld, candidate_chunk=[3, 1], elapsed_seconds=0.2502248, status=NOT_RUN_NO_VALID_START_IN_THIS_CELL}
+QA269_NATURAL_BEGIN slavicmyths:swamp_remnants [1, 4] minecraft:overworld
+QA269_NATURAL {set=slavicmyths:swamp_remnants, dimension=minecraft:overworld, candidate_chunk=[1, 4], elapsed_seconds=0.2200077, status=NOT_RUN_NO_VALID_START_IN_THIS_CELL}
+QA269_NATURAL_BEGIN slavicmyths:swamp_watchtower [3, 1] minecraft:overworld
+QA269_NATURAL {set=slavicmyths:swamp_watchtower, dimension=minecraft:overworld, candidate_chunk=[3, 1], elapsed_seconds=0.0698193, status=NOT_RUN_NO_VALID_START_IN_THIS_CELL}
+QA269_NATURAL_BEGIN slavicmyths:two_sanctuaries [18, 14] minecraft:overworld
+QA269_NATURAL {set=slavicmyths:two_sanctuaries, dimension=minecraft:overworld, candidate_chunk=[18, 14], elapsed_seconds=0.5501469, status=NOT_RUN_NO_VALID_START_IN_THIS_CELL}
+QA269_NATURAL_BEGIN slavicmyths:underwater_ruins [2, 4] minecraft:overworld
+QA269_NATURAL {set=slavicmyths:underwater_ruins, dimension=minecraft:overworld, candidate_chunk=[2, 4], elapsed_seconds=0.2008008, status=NOT_RUN_NO_VALID_START_IN_THIS_CELL}
+QA269 PASS natural_chunk_generation actual registered native placement targets sampled
+STABILIZATION269 PASS
+[16:19:11] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:overworld
+[16:19:11] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_end
+[16:19:11] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_nether
+[16:19:11] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (stabilization269-test): All chunks are saved
+[16:19:11] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[16:19:11] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[16:19:11] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[16:19:11] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[16:19:11] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[16:19:11] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[16:19:11] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:overworld
+[16:19:12] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_end
+[16:19:12] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_nether
+[16:19:12] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (stabilization269-test): All chunks are saved
+[16:19:12] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[16:19:12] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[16:19:12] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+
+BUILD SUCCESSFUL in 2m 41s
+9 actionable tasks: 4 executed, 5 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

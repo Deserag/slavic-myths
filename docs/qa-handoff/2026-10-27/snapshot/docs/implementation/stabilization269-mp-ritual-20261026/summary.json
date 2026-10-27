@@ -1,0 +1,91 @@
+{
+  "scope": "controlled real network fixture, supplied reagents; not full Survival, not same-server-tick proof",
+  "runs": [
+    {
+      "phase": "initial",
+      "role": "host",
+      "status": "PASS_NETWORK_RITUAL_SCOPE",
+      "checks": 28,
+      "failed_checks": [],
+      "current_log_matches_receipt": true,
+      "action_client_game_times": {
+        "sent_phase_0_game_time": 11983,
+        "sent_phase_1_game_time": 12053,
+        "sent_phase_2_game_time": 12123,
+        "sent_phase_3_game_time": 12193,
+        "sent_phase_4_game_time": 12263,
+        "sent_phase_5_game_time": 12333,
+        "sent_phase_6_game_time": 12403,
+        "sent_phase_7_game_time": 12473,
+        "sent_phase_8_game_time": 12543,
+        "sent_phase_9_game_time": 12613,
+        "sent_phase_10_game_time": 12683
+      }
+    },
+    {
+      "phase": "initial",
+      "role": "guest",
+      "status": "PASS_NETWORK_RITUAL_SCOPE",
+      "checks": 3,
+      "failed_checks": [],
+      "current_log_matches_receipt": true,
+      "action_client_game_times": {
+        "sent_phase_0_game_time": 11983,
+        "sent_phase_1_game_time": 12053,
+        "sent_phase_2_game_time": 12123,
+        "sent_phase_3_game_time": 12193,
+        "sent_phase_4_game_time": 12263,
+        "sent_phase_5_game_time": 12333,
+        "sent_phase_6_game_time": 12403,
+        "sent_phase_7_game_time": 12473,
+        "sent_phase_8_game_time": 12543,
+        "sent_phase_9_game_time": 12613,
+        "sent_phase_10_game_time": 12683
+      }
+    },
+    {
+      "phase": "restart",
+      "role": "host",
+      "status": "PASS_NETWORK_RITUAL_SCOPE",
+      "checks": 20,
+      "failed_checks": [],
+      "current_log_matches_receipt": true,
+      "action_client_game_times": {
+        "sent_phase_0_game_time": 14591,
+        "sent_phase_1_game_time": 14661,
+        "sent_phase_2_game_time": 14732,
+        "sent_phase_3_game_time": 14802,
+        "sent_phase_4_game_time": 14872,
+        "sent_phase_5_game_time": 14942,
+        "sent_phase_6_game_time": 15012
+      }
+    },
+    {
+      "phase": "restart",
+      "role": "guest",
+      "status": "PASS_NETWORK_RITUAL_SCOPE",
+      "checks": 3,
+      "failed_checks": [],
+      "current_log_matches_receipt": true,
+      "action_client_game_times": {
+        "sent_phase_0_game_time": 14591,
+        "sent_phase_1_game_time": 14661,
+        "sent_phase_2_game_time": 14732,
+        "sent_phase_3_game_time": 14802,
+        "sent_phase_4_game_time": 14872,
+        "sent_phase_5_game_time": 14942,
+        "sent_phase_6_game_time": 15012
+      }
+    }
+  ],
+  "final_checks": 54,
+  "actual_client_processes": 4,
+  "integrated_servers": 2,
+  "dedicated_servers": 0,
+  "GameTest": 0,
+  "errors_or_exceptions": [],
+  "production_classes_matching_installed_jar": 1950,
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.5-HELL.jar",
+  "installed_sha256": "1746acf792f1599f8d36dbc855c88823e7ecd71bf072053cefd01f823dbd55df",
+  "single_mod_jar": true
+}

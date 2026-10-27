@@ -1,0 +1,154 @@
+{
+  "scope": "Current limited native/server checks, not full Survival acceptance",
+  "runs": [
+    {
+      "receipt": "jar-regression/restart-results.json",
+      "status": "PASS",
+      "checks": 415,
+      "failed_checks": [],
+      "error": null
+    },
+    {
+      "receipt": "native-ritual-8675309-results.json",
+      "status": "PASS",
+      "checks": 13,
+      "failed_checks": [],
+      "error": null
+    },
+    {
+      "receipt": "native-ritual-minus269-results.json",
+      "status": "PASS",
+      "checks": 11,
+      "failed_checks": [],
+      "error": null
+    },
+    {
+      "receipt": "native-ritual-restart-8675309-results.json",
+      "status": "PASS",
+      "checks": 4,
+      "failed_checks": [],
+      "error": null
+    },
+    {
+      "receipt": "native-ritual-restart-minus269-results.json",
+      "status": "PASS",
+      "checks": 4,
+      "failed_checks": [],
+      "error": null
+    },
+    {
+      "receipt": "natural-seed12345-results.json",
+      "status": "PASS",
+      "checks": 10,
+      "failed_checks": [],
+      "error": null,
+      "seed": 12345,
+      "sampled_cells": 6,
+      "found": [
+        {
+          "actual_structure": "slavicmyths:kurgan_small",
+          "candidate_chunk": [
+            -89,
+            -193
+          ],
+          "predicted_first_choice": null,
+          "bounds": [
+            -1375,
+            53,
+            -3210,
+            -1305,
+            80,
+            -3108
+          ],
+          "full_footprint_chunks": 35,
+          "actual_main_route_count": 1
+        },
+        {
+          "actual_structure": "slavicmyths:kurgan_great",
+          "candidate_chunk": [
+            -843,
+            807
+          ],
+          "predicted_first_choice": null,
+          "bounds": [
+            -13578,
+            2,
+            12856,
+            -13446,
+            78,
+            13016
+          ],
+          "full_footprint_chunks": 99,
+          "actual_main_route_count": 1
+        }
+      ]
+    },
+    {
+      "receipt": "natural-shrines-seed-minus269-results.json",
+      "status": "PASS",
+      "checks": 5,
+      "failed_checks": [],
+      "error": null,
+      "seed": -269,
+      "sampled_cells": 2,
+      "found": [
+        {
+          "actual_structure": "slavicmyths:sanctuary_unfading_fire",
+          "candidate_chunk": [
+            98,
+            -230
+          ],
+          "predicted_first_choice": "slavicmyths:abode_pure_spring",
+          "bounds": [
+            1568,
+            67,
+            -3680,
+            1647,
+            93,
+            -3605
+          ],
+          "full_footprint_chunks": 25,
+          "actual_main_route_count": 1
+        }
+      ]
+    },
+    {
+      "receipt": "natural-spring-seed8675309-results.json",
+      "status": "PASS",
+      "checks": 5,
+      "failed_checks": [],
+      "error": null,
+      "seed": 8675309,
+      "sampled_cells": 4,
+      "found": [
+        {
+          "actual_structure": "slavicmyths:abode_pure_spring",
+          "candidate_chunk": [
+            121,
+            -602
+          ],
+          "predicted_first_choice": "slavicmyths:abode_pure_spring",
+          "bounds": [
+            1947,
+            48,
+            -9643,
+            2042,
+            74,
+            -9558
+          ],
+          "full_footprint_chunks": 42,
+          "actual_main_route_count": 1
+        }
+      ]
+    }
+  ],
+  "final_checks": 467,
+  "server_processes_including_failed_QA": 9,
+  "client_processes": 0,
+  "game_test_processes": 0,
+  "installed_jar_verified": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.5-HELL.jar",
+  "installed_sha256": "1746acf792f1599f8d36dbc855c88823e7ecd71bf072053cefd01f823dbd55df",
+  "single_mod_jar": true,
+  "backup_verified": true,
+  "current_production_diff_matches_installed_snapshot": true
+}

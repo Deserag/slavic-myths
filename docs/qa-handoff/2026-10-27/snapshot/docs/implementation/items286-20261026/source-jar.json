@@ -1,0 +1,42 @@
+{
+  "source_baseline": "79ff212c447080a6c333cb85d5f0e24956d89101",
+  "version": "2.0.2-HELL",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.2-HELL.jar",
+  "sha256": "d4583f90d8c4531e1e0d78d20cf4ac11c24868af6ecfea40531d1d0e4951c6bb",
+  "checks": [
+    "working branch hell",
+    "production delta exactly two existing handlers; all resources/recipes/loot/registry unchanged",
+    "no generated/untracked production resources",
+    "full catalog triage 923/441",
+    "all detailed entries have literal or dynamic family source evidence",
+    "unchanged protected source registry/ModItems.java",
+    "unchanged protected source item/ItemState.java",
+    "unchanged protected source kurgan/KurganCreature.java",
+    "unchanged protected source equipment/UniqueEquipment.java",
+    "unchanged protected source equipment/UniqueEquipmentEvents.java",
+    "unchanged protected source equipment/UniqueEquipmentRules.java",
+    "unchanged protected source mor/MorFlaskItem.java",
+    "unchanged protected source quest185/Quest185Item.java",
+    "unchanged protected source sanctuary/SanctuaryItem.java",
+    "unchanged protected source item/PassiveCharm.java",
+    "unchanged protected source item/StormProtection.java",
+    "unchanged protected source industry/ChudTools.java",
+    "unchanged protected source industry/ChudPerson.java",
+    "unchanged protected source village/VillageTrades.java",
+    "unchanged protected source yaga/YagaServices.java",
+    "unchanged protected source brewing/BeverageItem.java",
+    "same production JAR entry IDs/count; no new systems",
+    "all #277/#278/#284/#287 classes and all resources byte-identical to baseline",
+    "new version and both fixes packaged",
+    "offline fixtures absent from JAR"
+  ],
+  "jar_delta": [
+    "META-INF/MANIFEST.MF",
+    "META-INF/neoforge.mods.toml",
+    "org/slavicmyths/farming/WateringCanItem.class",
+    "org/slavicmyths/yaga/YagaUtilityItem.class"
+  ],
+  "minecraft_launches": 0,
+  "runtime": "NOT_RUN / OWNER_PENDING",
+  "rules_checks": 70
+}

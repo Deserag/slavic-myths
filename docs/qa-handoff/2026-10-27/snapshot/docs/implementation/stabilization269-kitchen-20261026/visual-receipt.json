@@ -1,0 +1,20 @@
+{
+  "master_volume": 0.3,
+  "fps_limit": 30,
+  "render_distance": 2,
+  "available_processors": 2,
+  "max_heap_bytes": 1610612736,
+  "GLFW_visible": 1,
+  "checks": [
+    {
+      "status": "PASS",
+      "test": "visual repeat uses same physical saved stations"
+    },
+    {
+      "status": "PASS",
+      "test": "corrected screen opens through real menu packet"
+    }
+  ],
+  "status": "PASS_SINGLE_CLIENT_KITCHEN_SCOPE",
+  "scope": "one actual client/integrated server; native timer, supplied tools/ingredients; real menu packets; acquisition/MP NOT_RUN"
+}

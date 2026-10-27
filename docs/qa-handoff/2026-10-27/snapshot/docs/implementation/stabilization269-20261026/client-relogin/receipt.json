@@ -1,0 +1,25 @@
+{
+  "master_volume": 0.3,
+  "GLFW_visible": 1,
+  "checks": [
+    {
+      "test": "actual client login restores Sivka vehicle",
+      "status": "PASS"
+    },
+    {
+      "test": "actual vanilla server login restores RootVehicle",
+      "status": "PASS"
+    },
+    {
+      "test": "same UUID and owner after real client process restart",
+      "status": "PASS"
+    },
+    {
+      "test": "saved airborne state survives real client process restart",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS_CLIENT_AUTOMATED",
+  "manual_keyboard": "NOT_RUN; actual KeyMapping states set by QA, production sender/receiver untouched",
+  "network_MP": "NOT_RUN; one actual client with integrated server"
+}

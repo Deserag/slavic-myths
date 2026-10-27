@@ -1,0 +1,49 @@
+{
+  "frames": [
+    {
+      "vehicle_attachment_y": 0.6,
+      "phase": 0.0,
+      "image": "air-phase-000.png",
+      "rider_feet_y": 212.5748400931763
+    },
+    {
+      "vehicle_attachment_y": 0.6,
+      "phase": 0.12,
+      "image": "air-phase-012.png",
+      "rider_feet_y": 212.66774827014018
+    },
+    {
+      "vehicle_attachment_y": 0.6,
+      "phase": 0.27,
+      "image": "air-phase-027.png",
+      "rider_feet_y": 212.73677552387107
+    },
+    {
+      "vehicle_attachment_y": 0.6,
+      "phase": 0.4,
+      "image": "air-phase-040.png",
+      "rider_feet_y": 212.68000000149013
+    },
+    {
+      "vehicle_attachment_y": 0.6,
+      "phase": 0.56,
+      "image": "air-phase-056.png",
+      "rider_feet_y": 212.5238509986504
+    },
+    {
+      "vehicle_attachment_y": 0.6,
+      "phase": 0.7,
+      "image": "air-phase-070.png",
+      "rider_feet_y": 212.43128805011557
+    },
+    {
+      "vehicle_attachment_y": 0.6,
+      "phase": 0.86,
+      "image": "air-phase-086.png",
+      "rider_feet_y": 212.52268996076518
+    }
+  ],
+  "master_volume": 0.3,
+  "status": "CAPTURED_OWNER_REVIEW_PENDING",
+  "scope": "actual Minecraft renderer and current SivkaMesh/SivkaClient, fixed pose/camera; not gameplay"
+}

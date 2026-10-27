@@ -1,0 +1,16 @@
+{
+  "branch": "hell",
+  "source_commit": "b66b7e0639a81fc32478198428d0244cadc187dd",
+  "version": "2.0.3-HELL",
+  "built_jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.3-HELL.jar",
+  "sha256": "9fe6b227c8737777fa39903f2a840920287a2740070bc03eaa9494d58bc724d8",
+  "installed_status": "POLYMC_NOT_INSTALLED for2.0.3",
+  "existing_installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.2-HELL.jar",
+  "existing_installed_sha256": "d4583f90d8c4531e1e0d78d20cf4ac11c24868af6ecfea40531d1d0e4951c6bb",
+  "minecraft_launches": 0,
+  "gametest_launches": 0,
+  "polymc_launches": 0,
+  "issue276": "OPEN / В работе / OWNER_PENDING",
+  "publication": "push hell only; no main merge",
+  "main_before": "26e73424f16ae703e9a9b75fe432731663d30e05"
+}

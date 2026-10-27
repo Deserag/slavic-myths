@@ -1,0 +1,25 @@
+{
+  "assembled_date": "2026-10-27",
+  "scope": "reports #286, #276 and stabilization #269, including scouting; snapshot only",
+  "source_base_commit": "61cb344eeaf3a31db098052800a5e8ab710568de",
+  "source_branch": "hell",
+  "source_production_patch_sha256": "a2a91e45aeb6914d7ae331e3313e825c8177b26c55dd4c08aecc570b16d08238",
+  "installed_version": "2.0.7-HELL",
+  "installed_jar_sha256": "6995a9fbc54f5e70f84227341cf020d309b27ae48f43b7c6fcfa7dd6c76dc221",
+  "git_publication_scope": "only docs/qa-handoff/2026-10-27; live source and original untracked QA/report trees remain uncommitted",
+  "original_report_directories": [
+    "docs/implementation/items286-20261026",
+    "docs/implementation/loot276-20261026",
+    "docs/implementation/loot276-all-20261026",
+    "docs/implementation/loot276-l1-20261026",
+    "docs/implementation/loot276-runtime-20261026",
+    "docs/implementation/scouting269-20261027",
+    "docs/implementation/stabilization269-20261026",
+    "docs/implementation/stabilization269-205-20261026",
+    "docs/implementation/stabilization269-brewing-20261026",
+    "docs/implementation/stabilization269-kitchen-20261026",
+    "docs/implementation/stabilization269-mp-ritual-20261026",
+    "docs/implementation/stabilization269-resume-20261026"
+  ],
+  "acceptance": "Issues OPEN; no owner acceptance, no main changes; PASS scoped, not whole-mod readiness"
+}

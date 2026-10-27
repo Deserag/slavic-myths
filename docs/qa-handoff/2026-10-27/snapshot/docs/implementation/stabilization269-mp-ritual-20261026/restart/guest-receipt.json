@@ -1,0 +1,27 @@
+{
+  "master_volume": 0.3,
+  "GLFW_visible": 1,
+  "sent_phase_0_game_time": 14591,
+  "sent_phase_1_game_time": 14661,
+  "sent_phase_2_game_time": 14732,
+  "sent_phase_3_game_time": 14802,
+  "sent_phase_4_game_time": 14872,
+  "sent_phase_5_game_time": 14942,
+  "sent_phase_6_game_time": 15012,
+  "checks": [
+    {
+      "status": "PASS",
+      "test": "correct actual client connection role"
+    },
+    {
+      "status": "PASS",
+      "test": "real client has synchronized ChestMenu for quick-move phase1"
+    },
+    {
+      "status": "PASS",
+      "test": "real client has synchronized ChestMenu for quick-move phase3"
+    }
+  ],
+  "status": "PASS_NETWORK_RITUAL_SCOPE",
+  "scope": "two real clients over loopback TCP; actual useItemOn/container packets; supplied fixture/reagents, not natural Survival acquisition; server receipt timing not instrumented"
+}

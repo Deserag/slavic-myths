@@ -1,0 +1,13 @@
+{
+  "master_volume": 0.3,
+  "GL_vendor": "ATI Technologies Inc.",
+  "GL_renderer": "AMD Radeon RX 6600M",
+  "GL_version": "3.2.0 Core Profile Context 26.10.1.261008",
+  "GLFW_visible": 1,
+  "sivka-ground-rider": "real Minecraft RenderFrame screenshot",
+  "sivka-air-rider": "real Minecraft RenderFrame screenshot",
+  "status": "PASS_RENDER_ONLY",
+  "frames": 638,
+  "p95_frame_interval_ms": 19.8603,
+  "manual_keyboard_and_network_mp": "NOT_RUN; automated render scenes, visible window"
+}

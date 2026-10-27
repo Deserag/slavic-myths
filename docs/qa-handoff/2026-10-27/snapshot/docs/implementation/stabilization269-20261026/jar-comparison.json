@@ -1,0 +1,17 @@
+{
+  "old_sha256": "1c22bf186ab6886fee8a464fb44b123620354ef93ee0f990d1208660d3743010",
+  "new_sha256": "3813903b74ed104475b238ce459ed1f29304af341696ffc60092dfc6bd0ebc50",
+  "changed_entries": [
+    "assets/slavicmyths/lang/en_us.json",
+    "assets/slavicmyths/lang/ru_ru.json",
+    "org/slavicmyths/sivka/SivkaBonds.class",
+    "org/slavicmyths/sivka/SivkaEntity.class",
+    "org/slavicmyths/sivka/SivkaRules.class",
+    "org/slavicmyths/worldgen/OnDemandStructures.class",
+    "org/slavicmyths/yaga/YagaPlacement$Cursor.class",
+    "org/slavicmyths/yaga/YagaPlacement$Refused.class",
+    "org/slavicmyths/yaga/YagaPlacement.class"
+  ],
+  "loot_resources_changed": [],
+  "scope": "byte comparison supports reuse of historical evidence only for identical code/resources; not new Survival acceptance"
+}

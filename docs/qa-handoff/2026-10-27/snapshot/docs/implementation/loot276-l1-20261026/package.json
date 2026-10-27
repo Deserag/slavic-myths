@@ -1,0 +1,31 @@
+{
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.3-HELL.jar",
+  "sha256": "9fe6b227c8737777fa39903f2a840920287a2740070bc03eaa9494d58bc724d8",
+  "baseline": "fe3d2752318ed40a00fbfdd79cf050a2b3c99c4b",
+  "added_entries": [
+    "data/slavicmyths/loot_table/rewards276/camp_1_main.json",
+    "data/slavicmyths/loot_table/rewards276/camp_2_main.json",
+    "data/slavicmyths/loot_table/rewards276/camp_3_cache.json",
+    "data/slavicmyths/loot_table/rewards276/camp_3_main.json",
+    "data/slavicmyths/loot_table/rewards276/kurgan_1_main.json",
+    "data/slavicmyths/loot_table/rewards276/kurgan_2_main.json",
+    "data/slavicmyths/loot_table/rewards276/kurgan_3_burial.json",
+    "data/slavicmyths/loot_table/rewards276/kurgan_3_common_cache.json",
+    "data/slavicmyths/loot_table/rewards276/kurgan_3_great_special.json",
+    "data/slavicmyths/loot_table/rewards276/kurgan_3_main.json",
+    "data/slavicmyths/loot_table/rewards276/kurgan_3_ritual.json",
+    "data/slavicmyths/loot_table/rewards276/kurgan_3_secret.json",
+    "data/slavicmyths/loot_table/rewards276/kurgan_3_treasury.json",
+    "data/slavicmyths/loot_table/rewards276/kurgan_3_warrior.json",
+    "org/slavicmyths/loot/StructureRewards276.class"
+  ],
+  "modified_entries": [
+    "META-INF/MANIFEST.MF",
+    "org/slavicmyths/bandit/CampPiece.class",
+    "org/slavicmyths/bandit/LargeCampPiece.class",
+    "org/slavicmyths/kurgan/KurganArchitecture.class",
+    "META-INF/neoforge.mods.toml"
+  ],
+  "game_launches": 0,
+  "polymc": "NOT_INSTALLED; installed2.0.2 remains untouched"
+}

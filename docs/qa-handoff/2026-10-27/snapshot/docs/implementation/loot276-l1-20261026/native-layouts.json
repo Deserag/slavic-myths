@@ -1,0 +1,151 @@
+{
+  "0": [
+    {
+      "count": 10005,
+      "before": {
+        "kurgan/burial": 1,
+        "kurgan/common_cache": 1,
+        "kurgan/secret": 1
+      },
+      "after": {
+        "kurgan/common_cache": 1,
+        "kurgan/secret": 1,
+        "rewards276/kurgan_1_main": 1
+      }
+    },
+    {
+      "count": 9995,
+      "before": {
+        "kurgan/burial": 1,
+        "kurgan/common_cache": 2
+      },
+      "after": {
+        "kurgan/common_cache": 2,
+        "rewards276/kurgan_1_main": 1
+      }
+    }
+  ],
+  "1": [
+    {
+      "count": 20000,
+      "before": {
+        "kurgan/burial": 2,
+        "kurgan/common_cache": 2,
+        "kurgan/secret": 2,
+        "kurgan/treasury": 2,
+        "kurgan/warrior": 1
+      },
+      "after": {
+        "kurgan/burial": 1,
+        "kurgan/common_cache": 2,
+        "kurgan/secret": 2,
+        "kurgan/treasury": 2,
+        "kurgan/warrior": 1,
+        "rewards276/kurgan_2_main": 1
+      }
+    }
+  ],
+  "2": [
+    {
+      "count": 3187,
+      "before": {
+        "kurgan/burial": 2,
+        "kurgan/common_cache": 3,
+        "kurgan/great_special": 1,
+        "kurgan/ritual": 1,
+        "kurgan/secret": 3,
+        "kurgan/treasury": 2,
+        "kurgan/warrior": 1
+      },
+      "after": {
+        "rewards276/kurgan_3_burial": 2,
+        "rewards276/kurgan_3_common_cache": 3,
+        "rewards276/kurgan_3_main": 1,
+        "rewards276/kurgan_3_ritual": 1,
+        "rewards276/kurgan_3_secret": 3,
+        "rewards276/kurgan_3_treasury": 2,
+        "rewards276/kurgan_3_warrior": 1
+      }
+    },
+    {
+      "count": 9553,
+      "before": {
+        "kurgan/burial": 2,
+        "kurgan/common_cache": 4,
+        "kurgan/great_special": 1,
+        "kurgan/ritual": 1,
+        "kurgan/secret": 3,
+        "kurgan/treasury": 2
+      },
+      "after": {
+        "rewards276/kurgan_3_burial": 2,
+        "rewards276/kurgan_3_common_cache": 4,
+        "rewards276/kurgan_3_main": 1,
+        "rewards276/kurgan_3_ritual": 1,
+        "rewards276/kurgan_3_secret": 3,
+        "rewards276/kurgan_3_treasury": 2
+      }
+    },
+    {
+      "count": 446,
+      "before": {
+        "kurgan/burial": 2,
+        "kurgan/common_cache": 5,
+        "kurgan/great_special": 1,
+        "kurgan/ritual": 1,
+        "kurgan/secret": 4,
+        "kurgan/treasury": 2,
+        "kurgan/warrior": 2
+      },
+      "after": {
+        "rewards276/kurgan_3_burial": 2,
+        "rewards276/kurgan_3_common_cache": 5,
+        "rewards276/kurgan_3_main": 1,
+        "rewards276/kurgan_3_ritual": 1,
+        "rewards276/kurgan_3_secret": 4,
+        "rewards276/kurgan_3_treasury": 2,
+        "rewards276/kurgan_3_warrior": 2
+      }
+    },
+    {
+      "count": 2736,
+      "before": {
+        "kurgan/burial": 2,
+        "kurgan/common_cache": 6,
+        "kurgan/great_special": 1,
+        "kurgan/ritual": 1,
+        "kurgan/secret": 4,
+        "kurgan/treasury": 2,
+        "kurgan/warrior": 1
+      },
+      "after": {
+        "rewards276/kurgan_3_burial": 2,
+        "rewards276/kurgan_3_common_cache": 6,
+        "rewards276/kurgan_3_main": 1,
+        "rewards276/kurgan_3_ritual": 1,
+        "rewards276/kurgan_3_secret": 4,
+        "rewards276/kurgan_3_treasury": 2,
+        "rewards276/kurgan_3_warrior": 1
+      }
+    },
+    {
+      "count": 4078,
+      "before": {
+        "kurgan/burial": 2,
+        "kurgan/common_cache": 7,
+        "kurgan/great_special": 1,
+        "kurgan/ritual": 1,
+        "kurgan/secret": 4,
+        "kurgan/treasury": 2
+      },
+      "after": {
+        "rewards276/kurgan_3_burial": 2,
+        "rewards276/kurgan_3_common_cache": 7,
+        "rewards276/kurgan_3_main": 1,
+        "rewards276/kurgan_3_ritual": 1,
+        "rewards276/kurgan_3_secret": 4,
+        "rewards276/kurgan_3_treasury": 2
+      }
+    }
+  ]
+}

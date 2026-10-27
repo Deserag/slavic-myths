@@ -1,0 +1,17 @@
+allprojects { afterEvaluate {
+ sourceSets { stabilization269 { java.srcDir 'tools/stabilization269';resources.srcDir 'tools/stabilization269-resources';compileClasspath += sourceSets.main.output+sourceSets.main.compileClasspath;runtimeClasspath += sourceSets.main.output+sourceSets.main.runtimeClasspath } }
+ tasks.named('compileStabilization269Java'){dependsOn 'classes'}
+ neoForge.mods.slavicmyths.sourceSet(sourceSets.stabilization269)
+ neoForge.runs { stabilization269Server {
+  type='server';programArgument '--nogui';if(project.hasProperty('qa269Port'))programArguments.addAll('--port',project.property('qa269Port')); jvmArgument '-Xmx2304M';jvmArgument '-XX:ActiveProcessorCount=4'
+  gameDirectory=file('work/stabilization269-'+(project.findProperty('qa269Run') ?: 'baseline'))
+  systemProperty 'slavicmyths.qa269',project.findProperty('qa269Scenario') ?: 'core'
+  if(project.hasProperty('qa269NaturalSets'))systemProperty 'slavicmyths.qa269.naturalSets',project.property('qa269NaturalSets')
+  if(project.hasProperty('qa269NaturalBudget'))systemProperty 'slavicmyths.qa269.naturalBudget',project.property('qa269NaturalBudget')
+  if(project.hasProperty('qa269Locate'))systemProperty 'slavicmyths.qa269.locate',project.property('qa269Locate')
+  if(project.hasProperty('qa269NaturalVariants'))systemProperty 'slavicmyths.qa269.naturalVariants',project.property('qa269NaturalVariants')
+  if(project.hasProperty('qa269NaturalRing'))systemProperty 'slavicmyths.qa269.naturalRing',project.property('qa269NaturalRing')
+  if(project.hasProperty('qa269SanctuaryTerrainFilter'))systemProperty 'slavicmyths.qa269.sanctuaryTerrainFilter',project.property('qa269SanctuaryTerrainFilter')
+  if(project.hasProperty('qa269RitualSource'))systemProperty 'slavicmyths.qa269.ritualSource',project.property('qa269RitualSource')
+ } }
+} }

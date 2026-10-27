@@ -1,0 +1,286 @@
+{
+  "seed": 2692026,
+  "master_volume": 0.3,
+  "fps": 30,
+  "source_mode": "dev classes matching installed 2.0.7; fixture player/NPC; no full Survival acquisition",
+  "initial_manual_records": 1,
+  "native_samples": [
+    {
+      "set": "chud_city",
+      "chunk": [
+        88,
+        63
+      ],
+      "position": [
+        1416,
+        1016
+      ],
+      "valid_native_start": true,
+      "elapsed_seconds": 0.1602827,
+      "block_entities_in_start_chunk": 0,
+      "bounds": [
+        1289,
+        -63,
+        889,
+        1543,
+        54,
+        1143
+      ],
+      "pieces": 1,
+      "city_variant": 0,
+      "entrance": "1378, 38, 1140"
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        -58,
+        -54
+      ],
+      "position": [
+        -920,
+        -856
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0838322,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        -33,
+        36
+      ],
+      "position": [
+        -520,
+        584
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.1359522,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        -57,
+        103
+      ],
+      "position": [
+        -904,
+        1656
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.1008649,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        32,
+        -67
+      ],
+      "position": [
+        520,
+        -1064
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.1003026,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        36,
+        26
+      ],
+      "position": [
+        584,
+        424
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.099098,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        8,
+        92
+      ],
+      "position": [
+        136,
+        1480
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.066161,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        101,
+        -42
+      ],
+      "position": [
+        1624,
+        -664
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0665793,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        98,
+        15
+      ],
+      "position": [
+        1576,
+        248
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0668275,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "serpent_hill",
+      "chunk": [
+        92,
+        122
+      ],
+      "position": [
+        1480,
+        1960
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0667374,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        -110,
+        -121
+      ],
+      "position": [
+        -1752,
+        -1928
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0665513,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        -122,
+        19
+      ],
+      "position": [
+        -1944,
+        312
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.067142,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        -117,
+        150
+      ],
+      "position": [
+        -1864,
+        2408
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0662337,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        21,
+        -98
+      ],
+      "position": [
+        344,
+        -1560
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.5764368,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        31,
+        10
+      ],
+      "position": [
+        504,
+        168
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.0662734,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        2,
+        155
+      ],
+      "position": [
+        40,
+        2488
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.1039592,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        139,
+        -104
+      ],
+      "position": [
+        2232,
+        -1656
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.1002794,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        137,
+        18
+      ],
+      "position": [
+        2200,
+        296
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.1010958,
+      "block_entities_in_start_chunk": 0
+    },
+    {
+      "set": "gorodishche",
+      "chunk": [
+        151,
+        134
+      ],
+      "position": [
+        2424,
+        2152
+      ],
+      "valid_native_start": false,
+      "elapsed_seconds": 0.1007212,
+      "block_entities_in_start_chunk": 0
+    }
+  ]
+}

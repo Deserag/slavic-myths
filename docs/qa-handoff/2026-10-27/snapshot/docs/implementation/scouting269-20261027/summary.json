@@ -1,0 +1,37 @@
+{
+  "status": "SCOPED_TESTS_PASS; requested_missing_quests_boss_not_implemented",
+  "seed": 2692026,
+  "quest_distance_xz_blocks": 248.04031930313266,
+  "quest_origin": "12000, 200, 12000",
+  "quest_target": "12132, 79, 11790",
+  "native_start_confirmations": 10,
+  "native_city_variants_observed": [
+    0,
+    2
+  ],
+  "abandoned_kinds_observed": [
+    "INDEPENDENT_GREAT",
+    "INDEPENDENT_MEDIUM"
+  ],
+  "placement_survey": {
+    "serpent_hill": {
+      "sampled_placement_cells": 100,
+      "placement_allowed": 100,
+      "accepted_start_forecasts": 1,
+      "nominal_grid_area_million_blocks2": 163.84
+    },
+    "gorodishche": {
+      "sampled_placement_cells": 100,
+      "placement_allowed": 53,
+      "accepted_start_forecasts": 1,
+      "nominal_grid_area_million_blocks2": 419.4304
+    }
+  },
+  "client_process_starts_this_task": 5,
+  "simultaneous_clients_max": 1,
+  "production_changes_this_task": false,
+  "new_world_terrain": true,
+  "full_survival_progression": false,
+  "full_footprints_rendered": false,
+  "all_runtime_issues_closed": false
+}

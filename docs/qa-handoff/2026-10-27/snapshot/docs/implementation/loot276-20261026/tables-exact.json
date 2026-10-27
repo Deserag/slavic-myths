@@ -1,0 +1,2296 @@
+{
+  "chests/abandoned_living": {
+    "expected": {
+      "minecraft:iron_nugget": 2.1,
+      "minecraft:gold_ingot": 0.15000000000000002,
+      "minecraft:leather": 0.6749999999999999,
+      "minecraft:iron_ingot": 0.45000000000000007,
+      "slavicmyths:ancient_coin": 0.6000000000000001,
+      "minecraft:rotten_flesh": 1.2000000000000002,
+      "minecraft:string": 1.5,
+      "minecraft:diamond": 0.04,
+      "slavicmyths:purification_flux": 0.08,
+      "slavicmyths:bog_iron_lump": 0.4
+    },
+    "probability_at_least_one": {
+      "minecraft:iron_nugget": 0.4794666666666666,
+      "minecraft:gold_ingot": 0.1418729166666668,
+      "minecraft:leather": 0.38045625000000016,
+      "minecraft:iron_ingot": 0.2683,
+      "slavicmyths:ancient_coin": 0.2683,
+      "minecraft:rotten_flesh": 0.4794666666666666,
+      "minecraft:string": 0.4794666666666666,
+      "minecraft:diamond": 0.040000000000000036,
+      "slavicmyths:purification_flux": 0.07999999999999996,
+      "slavicmyths:bog_iron_lump": 0.19999999999999996
+    }
+  },
+  "chests/abandoned_mine": {
+    "expected": {
+      "minecraft:gold_ingot": 0.4,
+      "minecraft:torch": 2.0,
+      "minecraft:coal": 4.0,
+      "minecraft:raw_iron": 1.0,
+      "slavicmyths:bog_iron_lump": 1.5,
+      "minecraft:iron_ingot": 1.7999999999999998,
+      "minecraft:copper_ingot": 2.4,
+      "minecraft:iron_pickaxe": 0.4,
+      "minecraft:diamond": 0.24,
+      "slavicmyths:purification_flux": 0.21000000000000002,
+      "slavicmyths:purified_copper_ingot": 0.07,
+      "slavicmyths:purified_iron_ingot": 0.07,
+      "minecraft:netherite_scrap": 0.015,
+      "slavicmyths:mining_rune_1": 0.03,
+      "slavicmyths:rune_strength": 0.03,
+      "slavicmyths:chud_master_pickaxe": 0.007000000000000001,
+      "slavicmyths:chud_multitool_axe": 0.007000000000000001,
+      "slavicmyths:chud_mining_lantern": 0.014000000000000002,
+      "slavicmyths:chud_mining_lift": 0.007000000000000001
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.18477927083333356,
+      "minecraft:torch": 0.34146999999999994,
+      "minecraft:coal": 0.5835733333333333,
+      "minecraft:raw_iron": 0.34146999999999994,
+      "slavicmyths:bog_iron_lump": 0.47338781250000017,
+      "minecraft:iron_ingot": 0.47338781250000017,
+      "minecraft:copper_ingot": 0.47338781250000017,
+      "minecraft:iron_pickaxe": 0.34146999999999994,
+      "minecraft:diamond": 0.12,
+      "slavicmyths:purification_flux": 0.14,
+      "slavicmyths:purified_copper_ingot": 0.07000000000000006,
+      "slavicmyths:purified_iron_ingot": 0.07000000000000006,
+      "minecraft:netherite_scrap": 0.015000000000000013,
+      "slavicmyths:mining_rune_1": 0.030000000000000027,
+      "slavicmyths:rune_strength": 0.030000000000000027,
+      "slavicmyths:chud_master_pickaxe": 0.007000000000000006,
+      "slavicmyths:chud_multitool_axe": 0.007000000000000006,
+      "slavicmyths:chud_mining_lantern": 0.014000000000000012,
+      "slavicmyths:chud_mining_lift": 0.007000000000000006
+    }
+  },
+  "chests/abandoned_treasury": {
+    "expected": {
+      "minecraft:gold_ingot": 5.0,
+      "slavicmyths:purified_copper_ingot": 1.0,
+      "minecraft:diamond": 4.05,
+      "slavicmyths:purified_iron_ingot": 1.0,
+      "minecraft:iron_ingot": 2.625,
+      "slavicmyths:silver_ingot": 1.5,
+      "slavicmyths:ancient_coin": 3.75,
+      "minecraft:netherite_scrap": 0.09,
+      "minecraft:netherite_ingot": 0.005,
+      "slavicmyths:mining_rune_1": 0.07,
+      "slavicmyths:mining_rune_2": 0.02,
+      "slavicmyths:fortune_rune_1": 0.01,
+      "slavicmyths:rune_strength": 0.08,
+      "slavicmyths:rune_crushing": 0.03,
+      "slavicmyths:miners_goggles": 0.002,
+      "slavicmyths:chud_master_pickaxe": 0.016,
+      "slavicmyths:chud_multitool_axe": 0.016,
+      "slavicmyths:chud_mining_lantern": 0.032,
+      "slavicmyths:chud_mining_lift": 0.016
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.756103515625,
+      "slavicmyths:purified_copper_ingot": 0.407323,
+      "minecraft:diamond": 1.0,
+      "slavicmyths:purified_iron_ingot": 0.407323,
+      "minecraft:iron_ingot": 0.5523796406250001,
+      "slavicmyths:silver_ingot": 0.5523796406250001,
+      "slavicmyths:ancient_coin": 0.5523796406250001,
+      "minecraft:netherite_scrap": 0.06000000000000005,
+      "minecraft:netherite_ingot": 0.0050000000000000044,
+      "slavicmyths:mining_rune_1": 0.07000000000000006,
+      "slavicmyths:mining_rune_2": 0.020000000000000018,
+      "slavicmyths:fortune_rune_1": 0.010000000000000009,
+      "slavicmyths:rune_strength": 0.07999999999999996,
+      "slavicmyths:rune_crushing": 0.030000000000000027,
+      "slavicmyths:miners_goggles": 0.0020000000000000018,
+      "slavicmyths:chud_master_pickaxe": 0.016000000000000014,
+      "slavicmyths:chud_multitool_axe": 0.016000000000000014,
+      "slavicmyths:chud_mining_lantern": 0.03199999999999992,
+      "slavicmyths:chud_mining_lift": 0.016000000000000014
+    }
+  },
+  "chests/ancient_shrine": {
+    "expected": {
+      "minecraft:coal": 0.6666666666666666,
+      "slavicmyths:thunder_stone": 0.041666666666666664,
+      "minecraft:bread": 0.8333333333333334,
+      "slavicmyths:wormwood": 0.5,
+      "slavicmyths:juniper_berries": 0.16666666666666666,
+      "slavicmyths:silver_ingot": 0.125,
+      "slavicmyths:amber": 0.08333333333333333,
+      "minecraft:string": 0.6666666666666666,
+      "minecraft:iron_nugget": 1.3333333333333333,
+      "slavicmyths:birch_bark_scroll": 0.16666666666666666,
+      "slavicmyths:idol_fragment": 0.125,
+      "slavicmyths:st_johns_wort": 0.20833333333333334,
+      "slavicmyths:flax": 0.5,
+      "slavicmyths:ritual_bowl": 0.041666666666666664,
+      "minecraft:bone": 0.6666666666666666,
+      "slavicmyths:birch_bark": 0.6666666666666666,
+      "slavicmyths:nettle": 0.16666666666666666,
+      "slavicmyths:ancient_coin": 0.1875
+    },
+    "probability_at_least_one": {
+      "minecraft:coal": 0.2921502593449933,
+      "slavicmyths:thunder_stone": 0.04098508391524203,
+      "minecraft:bread": 0.35336561817854684,
+      "slavicmyths:wormwood": 0.2921502593449933,
+      "slavicmyths:juniper_berries": 0.15602699980977786,
+      "slavicmyths:silver_ingot": 0.11896579464276646,
+      "slavicmyths:amber": 0.0806293265155642,
+      "minecraft:string": 0.2921502593449933,
+      "minecraft:iron_nugget": 0.2921502593449933,
+      "slavicmyths:birch_bark_scroll": 0.15602699980977786,
+      "slavicmyths:idol_fragment": 0.11896579464276646,
+      "slavicmyths:st_johns_wort": 0.1918449031063887,
+      "slavicmyths:flax": 0.2921502593449933,
+      "slavicmyths:ritual_bowl": 0.04098508391524203,
+      "minecraft:bone": 0.2921502593449933,
+      "slavicmyths:birch_bark": 0.2921502593449933,
+      "slavicmyths:nettle": 0.15602699980977786,
+      "slavicmyths:ancient_coin": 0.11896579464276646
+    }
+  },
+  "chests/baba_yaga_household_supplies": {
+    "expected": {
+      "minecraft:bowl": 1.3038793103448276,
+      "minecraft:brown_mushroom": 2.370689655172414,
+      "minecraft:red_mushroom": 1.5804597701149423,
+      "minecraft:fermented_spider_eye": 0.1896551724137931,
+      "minecraft:glow_berries": 0.987787356321839,
+      "minecraft:glass_bottle": 2.3706896551724137,
+      "minecraft:spider_eye": 0.28448275862068967,
+      "minecraft:paper": 1.10632183908046,
+      "minecraft:honey_bottle": 0.28448275862068967
+    },
+    "probability_at_least_one": {
+      "minecraft:bowl": 0.6045555011491841,
+      "minecraft:brown_mushroom": 0.6388856805454326,
+      "minecraft:red_mushroom": 0.5674743514086764,
+      "minecraft:fermented_spider_eye": 0.1748852139551882,
+      "minecraft:glow_berries": 0.33405954105305535,
+      "minecraft:glass_bottle": 0.7270584809991443,
+      "minecraft:spider_eye": 0.2519921711610943,
+      "minecraft:paper": 0.4378490275661091,
+      "minecraft:honey_bottle": 0.2519921711610943
+    }
+  },
+  "chests/bandit_medium": {
+    "expected": {
+      "slavicmyths:ancient_coin": 5.0,
+      "minecraft:arrow": 6.4,
+      "minecraft:bread": 2.4000000000000004,
+      "minecraft:torch": 3.3,
+      "minecraft:leather": 0.8,
+      "minecraft:iron_ingot": 0.5,
+      "slavicmyths:retainer_shield": 0.08,
+      "minecraft:iron_sword": 0.07,
+      "minecraft:saddle": 0.025,
+      "minecraft:iron_horse_armor": 0.02,
+      "minecraft:golden_horse_armor": 0.012,
+      "minecraft:diamond": 0.004,
+      "minecraft:diamond_horse_armor": 0.002
+    },
+    "probability_at_least_one": {
+      "slavicmyths:ancient_coin": 1.0,
+      "minecraft:arrow": 0.8,
+      "minecraft:bread": 0.8,
+      "minecraft:torch": 0.6,
+      "minecraft:leather": 0.4,
+      "minecraft:iron_ingot": 0.25,
+      "slavicmyths:retainer_shield": 0.07999999999999996,
+      "minecraft:iron_sword": 0.07000000000000006,
+      "minecraft:saddle": 0.025000000000000022,
+      "minecraft:iron_horse_armor": 0.020000000000000018,
+      "minecraft:golden_horse_armor": 0.01200000000000001,
+      "minecraft:diamond": 0.0040000000000000036,
+      "minecraft:diamond_horse_armor": 0.0020000000000000018
+    }
+  },
+  "chests/bandit_small": {
+    "expected": {
+      "slavicmyths:ancient_coin": 5.0,
+      "minecraft:arrow": 6.4,
+      "minecraft:bread": 2.4000000000000004,
+      "minecraft:torch": 3.3,
+      "minecraft:leather": 0.8,
+      "minecraft:iron_ingot": 0.5,
+      "slavicmyths:retainer_shield": 0.08,
+      "minecraft:iron_sword": 0.07,
+      "minecraft:saddle": 0.025,
+      "minecraft:iron_horse_armor": 0.02,
+      "minecraft:golden_horse_armor": 0.012,
+      "minecraft:diamond": 0.004,
+      "minecraft:diamond_horse_armor": 0.002
+    },
+    "probability_at_least_one": {
+      "slavicmyths:ancient_coin": 1.0,
+      "minecraft:arrow": 0.8,
+      "minecraft:bread": 0.8,
+      "minecraft:torch": 0.6,
+      "minecraft:leather": 0.4,
+      "minecraft:iron_ingot": 0.25,
+      "slavicmyths:retainer_shield": 0.07999999999999996,
+      "minecraft:iron_sword": 0.07000000000000006,
+      "minecraft:saddle": 0.025000000000000022,
+      "minecraft:iron_horse_armor": 0.020000000000000018,
+      "minecraft:golden_horse_armor": 0.01200000000000001,
+      "minecraft:diamond": 0.0040000000000000036,
+      "minecraft:diamond_horse_armor": 0.0020000000000000018
+    }
+  },
+  "chests/barracks_supply": {
+    "expected": {
+      "slavicmyths:ancient_coin": 5.0,
+      "minecraft:arrow": 6.4,
+      "minecraft:bread": 2.4000000000000004,
+      "minecraft:torch": 3.3,
+      "minecraft:leather": 0.8,
+      "minecraft:iron_ingot": 0.5,
+      "slavicmyths:retainer_shield": 0.08,
+      "minecraft:iron_sword": 0.07,
+      "minecraft:saddle": 0.025,
+      "minecraft:iron_horse_armor": 0.02,
+      "minecraft:golden_horse_armor": 0.012,
+      "minecraft:diamond": 0.004,
+      "minecraft:diamond_horse_armor": 0.002
+    },
+    "probability_at_least_one": {
+      "slavicmyths:ancient_coin": 1.0,
+      "minecraft:arrow": 0.8,
+      "minecraft:bread": 0.8,
+      "minecraft:torch": 0.6,
+      "minecraft:leather": 0.4,
+      "minecraft:iron_ingot": 0.25,
+      "slavicmyths:retainer_shield": 0.07999999999999996,
+      "minecraft:iron_sword": 0.07000000000000006,
+      "minecraft:saddle": 0.025000000000000022,
+      "minecraft:iron_horse_armor": 0.020000000000000018,
+      "minecraft:golden_horse_armor": 0.01200000000000001,
+      "minecraft:diamond": 0.0040000000000000036,
+      "minecraft:diamond_horse_armor": 0.0020000000000000018
+    }
+  },
+  "chests/bathhouse": {
+    "expected": {
+      "minecraft:stick": 0.6666666666666666,
+      "slavicmyths:bath_broom": 0.6666666666666666,
+      "minecraft:bread": 0.6666666666666666
+    },
+    "probability_at_least_one": {
+      "minecraft:stick": 0.5308641975308641,
+      "slavicmyths:bath_broom": 0.5308641975308641,
+      "minecraft:bread": 0.5308641975308641
+    }
+  },
+  "chests/burial_common": {
+    "expected": {
+      "slavicmyths:old_buckle": 0.16666666666666666,
+      "slavicmyths:ancient_beads": 0.16666666666666666,
+      "slavicmyths:ancient_comb": 0.16666666666666666,
+      "slavicmyths:old_arrowhead": 0.16666666666666666,
+      "slavicmyths:pottery_fragment": 0.16666666666666666,
+      "slavicmyths:ancient_coin": 0.16666666666666666
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_buckle": 0.16666666666666663,
+      "slavicmyths:ancient_beads": 0.16666666666666663,
+      "slavicmyths:ancient_comb": 0.16666666666666663,
+      "slavicmyths:old_arrowhead": 0.16666666666666663,
+      "slavicmyths:pottery_fragment": 0.16666666666666663,
+      "slavicmyths:ancient_coin": 0.16666666666666663
+    }
+  },
+  "chests/burial_great": {
+    "expected": {
+      "slavicmyths:old_buckle": 0.10916666666666668,
+      "slavicmyths:ancient_beads": 0.10916666666666668,
+      "slavicmyths:ancient_comb": 0.10916666666666668,
+      "slavicmyths:old_arrowhead": 0.10916666666666668,
+      "slavicmyths:pottery_fragment": 0.10916666666666668,
+      "slavicmyths:ancient_coin": 0.10916666666666668,
+      "slavicmyths:grave_ward": 0.026250000000000002,
+      "slavicmyths:ancient_spear": 0.023333333333333334,
+      "slavicmyths:ancient_carolingian_sword": 0.023333333333333334,
+      "slavicmyths:lunula": 0.026250000000000002,
+      "slavicmyths:ancient_chekan": 0.023333333333333334,
+      "slavicmyths:grivna": 0.026250000000000002,
+      "slavicmyths:ancient_fibula": 0.026250000000000002
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_buckle": 0.10756250000000012,
+      "slavicmyths:ancient_beads": 0.10756250000000012,
+      "slavicmyths:ancient_comb": 0.10756250000000012,
+      "slavicmyths:old_arrowhead": 0.10756250000000012,
+      "slavicmyths:pottery_fragment": 0.10756250000000012,
+      "slavicmyths:ancient_coin": 0.10756250000000012,
+      "slavicmyths:grave_ward": 0.026249999999999996,
+      "slavicmyths:ancient_spear": 0.023333333333333317,
+      "slavicmyths:ancient_carolingian_sword": 0.023333333333333317,
+      "slavicmyths:lunula": 0.026249999999999996,
+      "slavicmyths:ancient_chekan": 0.023333333333333317,
+      "slavicmyths:grivna": 0.026249999999999996,
+      "slavicmyths:ancient_fibula": 0.026249999999999996
+    }
+  },
+  "chests/burial_jewelry": {
+    "expected": {
+      "slavicmyths:grivna": 0.25,
+      "slavicmyths:ancient_fibula": 0.25,
+      "slavicmyths:grave_ward": 0.25,
+      "slavicmyths:lunula": 0.25
+    },
+    "probability_at_least_one": {
+      "slavicmyths:grivna": 0.25,
+      "slavicmyths:ancient_fibula": 0.25,
+      "slavicmyths:grave_ward": 0.25,
+      "slavicmyths:lunula": 0.25
+    }
+  },
+  "chests/burial_small": {
+    "expected": {
+      "slavicmyths:old_buckle": 0.11712121212121213,
+      "slavicmyths:ancient_beads": 0.11712121212121213,
+      "slavicmyths:ancient_comb": 0.11712121212121213,
+      "slavicmyths:old_arrowhead": 0.11712121212121213,
+      "slavicmyths:pottery_fragment": 0.11712121212121213,
+      "slavicmyths:ancient_coin": 0.11712121212121213,
+      "slavicmyths:grave_ward": 0.019090909090909092,
+      "slavicmyths:ancient_spear": 0.01696969696969697,
+      "slavicmyths:ancient_carolingian_sword": 0.01696969696969697,
+      "slavicmyths:lunula": 0.019090909090909092,
+      "slavicmyths:ancient_chekan": 0.01696969696969697,
+      "slavicmyths:grivna": 0.019090909090909092,
+      "slavicmyths:ancient_fibula": 0.019090909090909092
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_buckle": 0.11478787878787877,
+      "slavicmyths:ancient_beads": 0.11478787878787877,
+      "slavicmyths:ancient_comb": 0.11478787878787877,
+      "slavicmyths:old_arrowhead": 0.11478787878787877,
+      "slavicmyths:pottery_fragment": 0.11478787878787877,
+      "slavicmyths:ancient_coin": 0.11478787878787877,
+      "slavicmyths:grave_ward": 0.019090909090909047,
+      "slavicmyths:ancient_spear": 0.016969696969696968,
+      "slavicmyths:ancient_carolingian_sword": 0.016969696969696968,
+      "slavicmyths:lunula": 0.019090909090909047,
+      "slavicmyths:ancient_chekan": 0.016969696969696968,
+      "slavicmyths:grivna": 0.019090909090909047,
+      "slavicmyths:ancient_fibula": 0.019090909090909047
+    }
+  },
+  "chests/burial_warrior": {
+    "expected": {
+      "slavicmyths:old_buckle": 0.11033333333333334,
+      "slavicmyths:ancient_beads": 0.11033333333333334,
+      "slavicmyths:ancient_comb": 0.11033333333333334,
+      "slavicmyths:old_arrowhead": 0.11033333333333334,
+      "slavicmyths:pottery_fragment": 0.11033333333333334,
+      "slavicmyths:ancient_coin": 0.11033333333333334,
+      "slavicmyths:grave_ward": 0.018666666666666668,
+      "slavicmyths:ancient_spear": 0.031111111111111114,
+      "slavicmyths:ancient_carolingian_sword": 0.031111111111111114,
+      "slavicmyths:lunula": 0.018666666666666668,
+      "slavicmyths:ancient_chekan": 0.031111111111111114,
+      "slavicmyths:grivna": 0.018666666666666668,
+      "slavicmyths:ancient_fibula": 0.018666666666666668
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_buckle": 0.10862222222222218,
+      "slavicmyths:ancient_beads": 0.10862222222222218,
+      "slavicmyths:ancient_comb": 0.10862222222222218,
+      "slavicmyths:old_arrowhead": 0.10862222222222218,
+      "slavicmyths:pottery_fragment": 0.10862222222222218,
+      "slavicmyths:ancient_coin": 0.10862222222222218,
+      "slavicmyths:grave_ward": 0.01866666666666661,
+      "slavicmyths:ancient_spear": 0.03111111111111109,
+      "slavicmyths:ancient_carolingian_sword": 0.03111111111111109,
+      "slavicmyths:lunula": 0.01866666666666661,
+      "slavicmyths:ancient_chekan": 0.03111111111111109,
+      "slavicmyths:grivna": 0.01866666666666661,
+      "slavicmyths:ancient_fibula": 0.01866666666666661
+    }
+  },
+  "chests/burial_weapons": {
+    "expected": {
+      "slavicmyths:ancient_spear": 0.3333333333333333,
+      "slavicmyths:ancient_carolingian_sword": 0.3333333333333333,
+      "slavicmyths:ancient_chekan": 0.3333333333333333
+    },
+    "probability_at_least_one": {
+      "slavicmyths:ancient_spear": 0.33333333333333326,
+      "slavicmyths:ancient_carolingian_sword": 0.33333333333333326,
+      "slavicmyths:ancient_chekan": 0.33333333333333326
+    }
+  },
+  "chests/chud_residential": {
+    "expected": {
+      "minecraft:coal": 0.6000000000000001,
+      "minecraft:leather": 0.45000000000000007,
+      "minecraft:stick": 1.05,
+      "minecraft:bread": 1.875,
+      "slavicmyths:ancient_coin": 0.30000000000000004,
+      "minecraft:string": 0.75,
+      "minecraft:copper_ingot": 0.8999999999999999,
+      "slavicmyths:karavai": 0.6749999999999999,
+      "minecraft:iron_ingot": 0.30000000000000004,
+      "minecraft:gold_ingot": 0.05
+    },
+    "probability_at_least_one": {
+      "minecraft:coal": 0.2683,
+      "minecraft:leather": 0.2683,
+      "minecraft:stick": 0.2683,
+      "minecraft:bread": 0.56640625,
+      "slavicmyths:ancient_coin": 0.1418729166666668,
+      "minecraft:string": 0.2683,
+      "minecraft:copper_ingot": 0.38045625000000016,
+      "slavicmyths:karavai": 0.38045625000000016,
+      "minecraft:iron_ingot": 0.19999999999999996,
+      "minecraft:gold_ingot": 0.050000000000000044
+    }
+  },
+  "chests/chud_storehouse": {
+    "expected": {
+      "minecraft:spruce_planks": 2.4,
+      "minecraft:gravel": 1.6,
+      "minecraft:coal": 5.0,
+      "minecraft:leather": 0.8,
+      "minecraft:iron_ingot": 2.4000000000000004,
+      "minecraft:copper_ingot": 2.8000000000000003,
+      "slavicmyths:silver_ingot": 0.22499999999999998,
+      "slavicmyths:purification_flux": 0.1,
+      "minecraft:gold_ingot": 0.15000000000000002,
+      "slavicmyths:chud_master_pickaxe": 0.005000000000000001,
+      "slavicmyths:chud_multitool_axe": 0.005000000000000001,
+      "slavicmyths:chud_mining_lantern": 0.010000000000000002,
+      "slavicmyths:chud_mining_lift": 0.005000000000000001
+    },
+    "probability_at_least_one": {
+      "minecraft:spruce_planks": 0.47338781250000017,
+      "minecraft:gravel": 0.34146999999999994,
+      "minecraft:coal": 0.6748046875,
+      "minecraft:leather": 0.34146999999999994,
+      "minecraft:iron_ingot": 0.5835733333333333,
+      "minecraft:copper_ingot": 0.5835733333333333,
+      "slavicmyths:silver_ingot": 0.15000000000000002,
+      "slavicmyths:purification_flux": 0.09999999999999998,
+      "minecraft:gold_ingot": 0.09999999999999998,
+      "slavicmyths:chud_master_pickaxe": 0.0050000000000000044,
+      "slavicmyths:chud_multitool_axe": 0.0050000000000000044,
+      "slavicmyths:chud_mining_lantern": 0.010000000000000009,
+      "slavicmyths:chud_mining_lift": 0.0050000000000000044
+    }
+  },
+  "chests/chud_workshop": {
+    "expected": {
+      "minecraft:charcoal": 1.6,
+      "minecraft:coal": 4.7,
+      "minecraft:iron_ingot": 2.5,
+      "slavicmyths:silver_ingot": 0.4,
+      "minecraft:copper_ingot": 3.5,
+      "minecraft:iron_pickaxe": 0.4,
+      "slavicmyths:purification_flux": 0.44999999999999996,
+      "slavicmyths:purified_iron_ingot": 0.12,
+      "slavicmyths:purified_copper_ingot": 0.12,
+      "minecraft:diamond": 0.03
+    },
+    "probability_at_least_one": {
+      "minecraft:charcoal": 0.34146999999999994,
+      "minecraft:coal": 1.0,
+      "minecraft:iron_ingot": 0.6748046875,
+      "slavicmyths:silver_ingot": 0.34146999999999994,
+      "minecraft:copper_ingot": 0.6748046875,
+      "minecraft:iron_pickaxe": 0.34146999999999994,
+      "slavicmyths:purification_flux": 0.30000000000000004,
+      "slavicmyths:purified_iron_ingot": 0.12,
+      "slavicmyths:purified_copper_ingot": 0.12,
+      "minecraft:diamond": 0.030000000000000027
+    }
+  },
+  "chests/fire_cache": {
+    "expected": {
+      "slavicmyths:purifying_ash": 1.0,
+      "slavicmyths:ancient_rune_fragment": 1.0,
+      "slavicmyths:flame_vial": 1.0
+    },
+    "probability_at_least_one": {
+      "slavicmyths:purifying_ash": 1.0,
+      "slavicmyths:ancient_rune_fragment": 1.0,
+      "slavicmyths:flame_vial": 1.0
+    }
+  },
+  "chests/fire_guaranteed": {
+    "expected": {
+      "minecraft:coal": 1.3333333333333333,
+      "minecraft:bread": 1.3333333333333333,
+      "minecraft:string": 1.3333333333333333,
+      "slavicmyths:sacred_ember": 1.975,
+      "slavicmyths:flame_vial": 0.15,
+      "slavicmyths:purifying_ash": 0.15,
+      "slavicmyths:fading_flame_charm": 0.125,
+      "slavicmyths:ancient_rune_fragment": 0.1
+    },
+    "probability_at_least_one": {
+      "minecraft:coal": 0.5308641975308641,
+      "minecraft:bread": 0.5308641975308641,
+      "minecraft:string": 0.5308641975308641,
+      "slavicmyths:sacred_ember": 1.0,
+      "slavicmyths:flame_vial": 0.15000000000000002,
+      "slavicmyths:purifying_ash": 0.15000000000000002,
+      "slavicmyths:fading_flame_charm": 0.125,
+      "slavicmyths:ancient_rune_fragment": 0.09999999999999998
+    }
+  },
+  "chests/fire_regular": {
+    "expected": {
+      "minecraft:coal": 1.3333333333333333,
+      "minecraft:bread": 1.3333333333333333,
+      "minecraft:string": 1.3333333333333333,
+      "slavicmyths:sacred_ember": 1.5,
+      "slavicmyths:flame_vial": 0.15,
+      "slavicmyths:purifying_ash": 0.15,
+      "slavicmyths:fading_flame_charm": 0.125,
+      "slavicmyths:ancient_rune_fragment": 0.1,
+      "minecraft:iron_ingot": 3.0
+    },
+    "probability_at_least_one": {
+      "minecraft:coal": 0.5308641975308641,
+      "minecraft:bread": 0.5308641975308641,
+      "minecraft:string": 0.5308641975308641,
+      "slavicmyths:sacred_ember": 1.0,
+      "slavicmyths:flame_vial": 0.15000000000000002,
+      "slavicmyths:purifying_ash": 0.15000000000000002,
+      "slavicmyths:fading_flame_charm": 0.125,
+      "slavicmyths:ancient_rune_fragment": 0.09999999999999998,
+      "minecraft:iron_ingot": 1.0
+    }
+  },
+  "chests/fishing_supplies": {
+    "expected": {
+      "minecraft:bread": 0.8,
+      "minecraft:fishing_rod": 0.2,
+      "slavicmyths:pearl_fragment": 0.2,
+      "slavicmyths:old_hook": 0.4,
+      "slavicmyths:smoked_carp": 0.4,
+      "minecraft:string": 1.0
+    },
+    "probability_at_least_one": {
+      "minecraft:bread": 0.5928823045267488,
+      "minecraft:fishing_rod": 0.1856724279835391,
+      "slavicmyths:pearl_fragment": 0.1856724279835391,
+      "slavicmyths:old_hook": 0.3445860082304526,
+      "slavicmyths:smoked_carp": 0.3445860082304526,
+      "minecraft:string": 0.6872427983539093
+    }
+  },
+  "chests/kurgan_great_burial": {
+    "expected": {
+      "slavicmyths:old_buckle": 0.16666666666666666,
+      "slavicmyths:ancient_beads": 0.16666666666666666,
+      "slavicmyths:ancient_comb": 0.16666666666666666,
+      "slavicmyths:old_arrowhead": 0.16666666666666666,
+      "slavicmyths:pottery_fragment": 0.16666666666666666,
+      "slavicmyths:ancient_coin": 0.16666666666666666,
+      "minecraft:iron_ingot": 1.9500000000000002,
+      "minecraft:gold_ingot": 0.28888888888888886,
+      "minecraft:emerald": 0.14444444444444443,
+      "slavicmyths:soul_fragment": 0.8,
+      "slavicmyths:blank_rune_1": 0.072,
+      "minecraft:diamond": 0.024,
+      "slavicmyths:rune_resilience": 0.012,
+      "slavicmyths:rune_strength": 0.012
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_buckle": 0.15999999999999992,
+      "slavicmyths:ancient_beads": 0.15999999999999992,
+      "slavicmyths:ancient_comb": 0.15999999999999992,
+      "slavicmyths:old_arrowhead": 0.15999999999999992,
+      "slavicmyths:pottery_fragment": 0.15999999999999992,
+      "slavicmyths:ancient_coin": 0.15999999999999992,
+      "minecraft:iron_ingot": 0.43333333333333335,
+      "minecraft:gold_ingot": 0.1444444444444445,
+      "minecraft:emerald": 0.0722222222222223,
+      "slavicmyths:soul_fragment": 0.4,
+      "slavicmyths:blank_rune_1": 0.07199999999999995,
+      "minecraft:diamond": 0.02400000000000002,
+      "slavicmyths:rune_resilience": 0.01200000000000001,
+      "slavicmyths:rune_strength": 0.01200000000000001
+    }
+  },
+  "chests/kurgan_great_common_cache": {
+    "expected": {
+      "minecraft:gold_ingot": 0.28888888888888886,
+      "slavicmyths:rune_resilience": 0.012,
+      "slavicmyths:rune_strength": 0.012,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "minecraft:iron_ingot": 1.9500000000000002,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:grave_ward": 0.1,
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:grivna": 0.1,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "minecraft:emerald": 0.14444444444444443,
+      "minecraft:diamond": 0.024,
+      "slavicmyths:soul_fragment": 0.8,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:lunula": 0.1,
+      "slavicmyths:blank_rune_1": 0.072,
+      "slavicmyths:ancient_fibula": 0.1
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.1444444444444445,
+      "slavicmyths:rune_resilience": 0.01200000000000001,
+      "slavicmyths:rune_strength": 0.01200000000000001,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "minecraft:iron_ingot": 0.43333333333333335,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:grave_ward": 0.09999999999999998,
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:grivna": 0.09999999999999998,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "minecraft:emerald": 0.0722222222222223,
+      "minecraft:diamond": 0.02400000000000002,
+      "slavicmyths:soul_fragment": 0.4,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:lunula": 0.09999999999999998,
+      "slavicmyths:blank_rune_1": 0.07199999999999995,
+      "slavicmyths:ancient_fibula": 0.09999999999999998
+    }
+  },
+  "chests/kurgan_great_great_special": {
+    "expected": {
+      "minecraft:gold_ingot": 0.4444444444444444,
+      "slavicmyths:rune_resilience": 0.02545454545454546,
+      "slavicmyths:rune_strength": 0.02545454545454546,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "minecraft:iron_ingot": 3.0,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_spear": 0.13333333333333333,
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:soul": 0.02545454545454546,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_carolingian_sword": 0.13333333333333333,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "minecraft:emerald": 0.2222222222222222,
+      "minecraft:diamond": 0.05090909090909092,
+      "slavicmyths:soul_fragment": 1.4,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:ancient_chekan": 0.13333333333333333,
+      "slavicmyths:blank_rune_1": 0.15272727272727274
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "slavicmyths:rune_resilience": 0.025454545454545396,
+      "slavicmyths:rune_strength": 0.025454545454545396,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "minecraft:iron_ingot": 0.6666666666666666,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_spear": 0.1333333333333333,
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:soul": 0.025454545454545396,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_carolingian_sword": 0.1333333333333333,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "minecraft:emerald": 0.11111111111111116,
+      "minecraft:diamond": 0.050909090909090904,
+      "slavicmyths:soul_fragment": 0.7,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:ancient_chekan": 0.1333333333333333,
+      "slavicmyths:blank_rune_1": 0.1527272727272727
+    }
+  },
+  "chests/kurgan_great_important": {
+    "expected": {
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "slavicmyths:ancient_spear": 0.13333333333333333,
+      "slavicmyths:ancient_carolingian_sword": 0.13333333333333333,
+      "slavicmyths:ancient_chekan": 0.13333333333333333,
+      "minecraft:iron_ingot": 3.0,
+      "minecraft:gold_ingot": 0.4444444444444444,
+      "minecraft:emerald": 0.2222222222222222,
+      "slavicmyths:soul_fragment": 1.4,
+      "slavicmyths:soul": 0.02545454545454546,
+      "slavicmyths:rune_resilience": 0.02545454545454546,
+      "slavicmyths:rune_strength": 0.02545454545454546,
+      "slavicmyths:blank_rune_1": 0.15272727272727274,
+      "minecraft:diamond": 0.05090909090909092
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "slavicmyths:ancient_spear": 0.1333333333333333,
+      "slavicmyths:ancient_carolingian_sword": 0.1333333333333333,
+      "slavicmyths:ancient_chekan": 0.1333333333333333,
+      "minecraft:iron_ingot": 0.6666666666666666,
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "minecraft:emerald": 0.11111111111111116,
+      "slavicmyths:soul_fragment": 0.7,
+      "slavicmyths:soul": 0.025454545454545396,
+      "slavicmyths:rune_resilience": 0.025454545454545396,
+      "slavicmyths:rune_strength": 0.025454545454545396,
+      "slavicmyths:blank_rune_1": 0.1527272727272727,
+      "minecraft:diamond": 0.050909090909090904
+    }
+  },
+  "chests/kurgan_great_offering": {
+    "expected": {
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "slavicmyths:grivna": 0.1,
+      "slavicmyths:ancient_fibula": 0.1,
+      "slavicmyths:grave_ward": 0.1,
+      "slavicmyths:lunula": 0.1,
+      "minecraft:iron_ingot": 1.9500000000000002,
+      "minecraft:gold_ingot": 0.28888888888888886,
+      "minecraft:emerald": 0.14444444444444443,
+      "slavicmyths:soul_fragment": 0.8,
+      "slavicmyths:blank_rune_1": 0.072,
+      "minecraft:diamond": 0.024,
+      "slavicmyths:rune_resilience": 0.012,
+      "slavicmyths:rune_strength": 0.012
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "slavicmyths:grivna": 0.09999999999999998,
+      "slavicmyths:ancient_fibula": 0.09999999999999998,
+      "slavicmyths:grave_ward": 0.09999999999999998,
+      "slavicmyths:lunula": 0.09999999999999998,
+      "minecraft:iron_ingot": 0.43333333333333335,
+      "minecraft:gold_ingot": 0.1444444444444445,
+      "minecraft:emerald": 0.0722222222222223,
+      "slavicmyths:soul_fragment": 0.4,
+      "slavicmyths:blank_rune_1": 0.07199999999999995,
+      "minecraft:diamond": 0.02400000000000002,
+      "slavicmyths:rune_resilience": 0.01200000000000001,
+      "slavicmyths:rune_strength": 0.01200000000000001
+    }
+  },
+  "chests/kurgan_great_ritual": {
+    "expected": {
+      "minecraft:gold_ingot": 0.4444444444444444,
+      "slavicmyths:rune_resilience": 0.02545454545454546,
+      "slavicmyths:rune_strength": 0.02545454545454546,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "minecraft:iron_ingot": 3.0,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_spear": 0.13333333333333333,
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:soul": 0.02545454545454546,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_carolingian_sword": 0.13333333333333333,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "minecraft:emerald": 0.2222222222222222,
+      "minecraft:diamond": 0.05090909090909092,
+      "slavicmyths:soul_fragment": 1.4,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:ancient_chekan": 0.13333333333333333,
+      "slavicmyths:blank_rune_1": 0.15272727272727274
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "slavicmyths:rune_resilience": 0.025454545454545396,
+      "slavicmyths:rune_strength": 0.025454545454545396,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "minecraft:iron_ingot": 0.6666666666666666,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_spear": 0.1333333333333333,
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:soul": 0.025454545454545396,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_carolingian_sword": 0.1333333333333333,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "minecraft:emerald": 0.11111111111111116,
+      "minecraft:diamond": 0.050909090909090904,
+      "slavicmyths:soul_fragment": 0.7,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:ancient_chekan": 0.1333333333333333,
+      "slavicmyths:blank_rune_1": 0.1527272727272727
+    }
+  },
+  "chests/kurgan_great_secret": {
+    "expected": {
+      "minecraft:gold_ingot": 0.4444444444444444,
+      "slavicmyths:rune_resilience": 0.02545454545454546,
+      "slavicmyths:rune_strength": 0.02545454545454546,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "minecraft:iron_ingot": 3.0,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_spear": 0.13333333333333333,
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:soul": 0.02545454545454546,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_carolingian_sword": 0.13333333333333333,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "minecraft:emerald": 0.2222222222222222,
+      "minecraft:diamond": 0.05090909090909092,
+      "slavicmyths:soul_fragment": 1.4,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:ancient_chekan": 0.13333333333333333,
+      "slavicmyths:blank_rune_1": 0.15272727272727274
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "slavicmyths:rune_resilience": 0.025454545454545396,
+      "slavicmyths:rune_strength": 0.025454545454545396,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "minecraft:iron_ingot": 0.6666666666666666,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_spear": 0.1333333333333333,
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:soul": 0.025454545454545396,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_carolingian_sword": 0.1333333333333333,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "minecraft:emerald": 0.11111111111111116,
+      "minecraft:diamond": 0.050909090909090904,
+      "slavicmyths:soul_fragment": 0.7,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:ancient_chekan": 0.1333333333333333,
+      "slavicmyths:blank_rune_1": 0.1527272727272727
+    }
+  },
+  "chests/kurgan_great_treasury": {
+    "expected": {
+      "minecraft:gold_ingot": 0.4444444444444444,
+      "slavicmyths:rune_resilience": 0.02545454545454546,
+      "slavicmyths:rune_strength": 0.02545454545454546,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "minecraft:iron_ingot": 3.0,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_spear": 0.13333333333333333,
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:soul": 0.02545454545454546,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_carolingian_sword": 0.13333333333333333,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "minecraft:emerald": 0.2222222222222222,
+      "minecraft:diamond": 0.05090909090909092,
+      "slavicmyths:soul_fragment": 1.4,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:ancient_chekan": 0.13333333333333333,
+      "slavicmyths:blank_rune_1": 0.15272727272727274
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "slavicmyths:rune_resilience": 0.025454545454545396,
+      "slavicmyths:rune_strength": 0.025454545454545396,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "minecraft:iron_ingot": 0.6666666666666666,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_spear": 0.1333333333333333,
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:soul": 0.025454545454545396,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_carolingian_sword": 0.1333333333333333,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "minecraft:emerald": 0.11111111111111116,
+      "minecraft:diamond": 0.050909090909090904,
+      "slavicmyths:soul_fragment": 0.7,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:ancient_chekan": 0.1333333333333333,
+      "slavicmyths:blank_rune_1": 0.1527272727272727
+    }
+  },
+  "chests/kurgan_great_warrior": {
+    "expected": {
+      "minecraft:gold_ingot": 0.28888888888888886,
+      "slavicmyths:rune_resilience": 0.012,
+      "minecraft:emerald": 0.14444444444444443,
+      "slavicmyths:rune_strength": 0.012,
+      "slavicmyths:old_arrowhead": 0.16666666666666666,
+      "minecraft:iron_ingot": 1.9500000000000002,
+      "slavicmyths:pottery_fragment": 0.16666666666666666,
+      "minecraft:diamond": 0.024,
+      "slavicmyths:soul_fragment": 0.8,
+      "slavicmyths:old_buckle": 0.16666666666666666,
+      "slavicmyths:ancient_beads": 0.16666666666666666,
+      "slavicmyths:ancient_comb": 0.16666666666666666,
+      "slavicmyths:blank_rune_1": 0.072,
+      "slavicmyths:ancient_coin": 0.16666666666666666
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.1444444444444445,
+      "slavicmyths:rune_resilience": 0.01200000000000001,
+      "minecraft:emerald": 0.0722222222222223,
+      "slavicmyths:rune_strength": 0.01200000000000001,
+      "slavicmyths:old_arrowhead": 0.15999999999999992,
+      "minecraft:iron_ingot": 0.43333333333333335,
+      "slavicmyths:pottery_fragment": 0.15999999999999992,
+      "minecraft:diamond": 0.02400000000000002,
+      "slavicmyths:soul_fragment": 0.4,
+      "slavicmyths:old_buckle": 0.15999999999999992,
+      "slavicmyths:ancient_beads": 0.15999999999999992,
+      "slavicmyths:ancient_comb": 0.15999999999999992,
+      "slavicmyths:blank_rune_1": 0.07199999999999995,
+      "slavicmyths:ancient_coin": 0.15999999999999992
+    }
+  },
+  "chests/kurgan_small_burial": {
+    "expected": {
+      "slavicmyths:old_buckle": 0.14166666666666666,
+      "slavicmyths:ancient_beads": 0.14166666666666666,
+      "slavicmyths:ancient_comb": 0.14166666666666666,
+      "slavicmyths:old_arrowhead": 0.14166666666666666,
+      "slavicmyths:pottery_fragment": 0.14166666666666666,
+      "slavicmyths:ancient_coin": 0.14166666666666666,
+      "minecraft:iron_ingot": 0.35,
+      "minecraft:gold_ingot": 0.07777777777777777,
+      "minecraft:emerald": 0.03888888888888888,
+      "slavicmyths:soul_fragment": 0.2,
+      "slavicmyths:blank_rune_1": 0.024,
+      "minecraft:diamond": 0.008,
+      "slavicmyths:rune_resilience": 0.004,
+      "slavicmyths:rune_strength": 0.004
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_buckle": 0.13749999999999996,
+      "slavicmyths:ancient_beads": 0.13749999999999996,
+      "slavicmyths:ancient_comb": 0.13749999999999996,
+      "slavicmyths:old_arrowhead": 0.13749999999999996,
+      "slavicmyths:pottery_fragment": 0.13749999999999996,
+      "slavicmyths:ancient_coin": 0.13749999999999996,
+      "minecraft:iron_ingot": 0.23333333333333328,
+      "minecraft:gold_ingot": 0.07777777777777772,
+      "minecraft:emerald": 0.03888888888888897,
+      "slavicmyths:soul_fragment": 0.19999999999999996,
+      "slavicmyths:blank_rune_1": 0.02400000000000002,
+      "minecraft:diamond": 0.008000000000000007,
+      "slavicmyths:rune_resilience": 0.0040000000000000036,
+      "slavicmyths:rune_strength": 0.0040000000000000036
+    }
+  },
+  "chests/kurgan_small_common_cache": {
+    "expected": {
+      "minecraft:gold_ingot": 0.07777777777777777,
+      "slavicmyths:rune_resilience": 0.004,
+      "slavicmyths:rune_strength": 0.004,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "minecraft:iron_ingot": 0.35,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:grave_ward": 0.0625,
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:grivna": 0.0625,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "minecraft:emerald": 0.03888888888888888,
+      "minecraft:diamond": 0.008,
+      "slavicmyths:soul_fragment": 0.2,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:lunula": 0.0625,
+      "slavicmyths:blank_rune_1": 0.024,
+      "slavicmyths:ancient_fibula": 0.0625
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.07777777777777772,
+      "slavicmyths:rune_resilience": 0.0040000000000000036,
+      "slavicmyths:rune_strength": 0.0040000000000000036,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "minecraft:iron_ingot": 0.23333333333333328,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:grave_ward": 0.0625,
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:grivna": 0.0625,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "minecraft:emerald": 0.03888888888888897,
+      "minecraft:diamond": 0.008000000000000007,
+      "slavicmyths:soul_fragment": 0.19999999999999996,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:lunula": 0.0625,
+      "slavicmyths:blank_rune_1": 0.02400000000000002,
+      "slavicmyths:ancient_fibula": 0.0625
+    }
+  },
+  "chests/kurgan_small_great_special": {
+    "expected": {
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "slavicmyths:rune_resilience": 0.010000000000000002,
+      "slavicmyths:rune_strength": 0.010000000000000002,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "minecraft:iron_ingot": 1.0,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_spear": 0.08333333333333333,
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333333,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "minecraft:emerald": 0.1111111111111111,
+      "minecraft:diamond": 0.020000000000000004,
+      "slavicmyths:soul_fragment": 0.4,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:ancient_chekan": 0.08333333333333333,
+      "slavicmyths:blank_rune_1": 0.06
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "slavicmyths:rune_resilience": 0.010000000000000009,
+      "slavicmyths:rune_strength": 0.010000000000000009,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "minecraft:iron_ingot": 0.6666666666666666,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_spear": 0.08333333333333326,
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333326,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "minecraft:emerald": 0.11111111111111116,
+      "minecraft:diamond": 0.020000000000000018,
+      "slavicmyths:soul_fragment": 0.4,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:ancient_chekan": 0.08333333333333326,
+      "slavicmyths:blank_rune_1": 0.05999999999999994
+    }
+  },
+  "chests/kurgan_small_important": {
+    "expected": {
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "slavicmyths:ancient_spear": 0.08333333333333333,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333333,
+      "slavicmyths:ancient_chekan": 0.08333333333333333,
+      "minecraft:iron_ingot": 1.0,
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "minecraft:emerald": 0.1111111111111111,
+      "slavicmyths:soul_fragment": 0.4,
+      "slavicmyths:blank_rune_1": 0.06,
+      "minecraft:diamond": 0.020000000000000004,
+      "slavicmyths:rune_resilience": 0.010000000000000002,
+      "slavicmyths:rune_strength": 0.010000000000000002
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "slavicmyths:ancient_spear": 0.08333333333333326,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333326,
+      "slavicmyths:ancient_chekan": 0.08333333333333326,
+      "minecraft:iron_ingot": 0.6666666666666666,
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "minecraft:emerald": 0.11111111111111116,
+      "slavicmyths:soul_fragment": 0.4,
+      "slavicmyths:blank_rune_1": 0.05999999999999994,
+      "minecraft:diamond": 0.020000000000000018,
+      "slavicmyths:rune_resilience": 0.010000000000000009,
+      "slavicmyths:rune_strength": 0.010000000000000009
+    }
+  },
+  "chests/kurgan_small_offering": {
+    "expected": {
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "slavicmyths:grivna": 0.0625,
+      "slavicmyths:ancient_fibula": 0.0625,
+      "slavicmyths:grave_ward": 0.0625,
+      "slavicmyths:lunula": 0.0625,
+      "minecraft:iron_ingot": 0.35,
+      "minecraft:gold_ingot": 0.07777777777777777,
+      "minecraft:emerald": 0.03888888888888888,
+      "slavicmyths:soul_fragment": 0.2,
+      "slavicmyths:blank_rune_1": 0.024,
+      "minecraft:diamond": 0.008,
+      "slavicmyths:rune_resilience": 0.004,
+      "slavicmyths:rune_strength": 0.004
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "slavicmyths:grivna": 0.0625,
+      "slavicmyths:ancient_fibula": 0.0625,
+      "slavicmyths:grave_ward": 0.0625,
+      "slavicmyths:lunula": 0.0625,
+      "minecraft:iron_ingot": 0.23333333333333328,
+      "minecraft:gold_ingot": 0.07777777777777772,
+      "minecraft:emerald": 0.03888888888888897,
+      "slavicmyths:soul_fragment": 0.19999999999999996,
+      "slavicmyths:blank_rune_1": 0.02400000000000002,
+      "minecraft:diamond": 0.008000000000000007,
+      "slavicmyths:rune_resilience": 0.0040000000000000036,
+      "slavicmyths:rune_strength": 0.0040000000000000036
+    }
+  },
+  "chests/kurgan_small_ritual": {
+    "expected": {
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "slavicmyths:rune_resilience": 0.010000000000000002,
+      "slavicmyths:rune_strength": 0.010000000000000002,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "minecraft:iron_ingot": 1.0,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_spear": 0.08333333333333333,
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333333,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "minecraft:emerald": 0.1111111111111111,
+      "minecraft:diamond": 0.020000000000000004,
+      "slavicmyths:soul_fragment": 0.4,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:ancient_chekan": 0.08333333333333333,
+      "slavicmyths:blank_rune_1": 0.06
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "slavicmyths:rune_resilience": 0.010000000000000009,
+      "slavicmyths:rune_strength": 0.010000000000000009,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "minecraft:iron_ingot": 0.6666666666666666,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_spear": 0.08333333333333326,
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333326,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "minecraft:emerald": 0.11111111111111116,
+      "minecraft:diamond": 0.020000000000000018,
+      "slavicmyths:soul_fragment": 0.4,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:ancient_chekan": 0.08333333333333326,
+      "slavicmyths:blank_rune_1": 0.05999999999999994
+    }
+  },
+  "chests/kurgan_small_secret": {
+    "expected": {
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "slavicmyths:rune_resilience": 0.010000000000000002,
+      "slavicmyths:rune_strength": 0.010000000000000002,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "minecraft:iron_ingot": 1.0,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_spear": 0.08333333333333333,
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333333,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "minecraft:emerald": 0.1111111111111111,
+      "minecraft:diamond": 0.020000000000000004,
+      "slavicmyths:soul_fragment": 0.4,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:ancient_chekan": 0.08333333333333333,
+      "slavicmyths:blank_rune_1": 0.06
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "slavicmyths:rune_resilience": 0.010000000000000009,
+      "slavicmyths:rune_strength": 0.010000000000000009,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "minecraft:iron_ingot": 0.6666666666666666,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_spear": 0.08333333333333326,
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333326,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "minecraft:emerald": 0.11111111111111116,
+      "minecraft:diamond": 0.020000000000000018,
+      "slavicmyths:soul_fragment": 0.4,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:ancient_chekan": 0.08333333333333326,
+      "slavicmyths:blank_rune_1": 0.05999999999999994
+    }
+  },
+  "chests/kurgan_small_treasury": {
+    "expected": {
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "slavicmyths:rune_resilience": 0.010000000000000002,
+      "slavicmyths:rune_strength": 0.010000000000000002,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "minecraft:iron_ingot": 1.0,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_spear": 0.08333333333333333,
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333333,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "minecraft:emerald": 0.1111111111111111,
+      "minecraft:diamond": 0.020000000000000004,
+      "slavicmyths:soul_fragment": 0.4,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:ancient_chekan": 0.08333333333333333,
+      "slavicmyths:blank_rune_1": 0.06
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "slavicmyths:rune_resilience": 0.010000000000000009,
+      "slavicmyths:rune_strength": 0.010000000000000009,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "minecraft:iron_ingot": 0.6666666666666666,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_spear": 0.08333333333333326,
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333326,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "minecraft:emerald": 0.11111111111111116,
+      "minecraft:diamond": 0.020000000000000018,
+      "slavicmyths:soul_fragment": 0.4,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:ancient_chekan": 0.08333333333333326,
+      "slavicmyths:blank_rune_1": 0.05999999999999994
+    }
+  },
+  "chests/kurgan_small_warrior": {
+    "expected": {
+      "minecraft:gold_ingot": 0.07777777777777777,
+      "slavicmyths:rune_resilience": 0.004,
+      "minecraft:emerald": 0.03888888888888888,
+      "slavicmyths:rune_strength": 0.004,
+      "slavicmyths:old_arrowhead": 0.14166666666666666,
+      "minecraft:iron_ingot": 0.35,
+      "slavicmyths:pottery_fragment": 0.14166666666666666,
+      "minecraft:diamond": 0.008,
+      "slavicmyths:soul_fragment": 0.2,
+      "slavicmyths:old_buckle": 0.14166666666666666,
+      "slavicmyths:ancient_beads": 0.14166666666666666,
+      "slavicmyths:ancient_comb": 0.14166666666666666,
+      "slavicmyths:blank_rune_1": 0.024,
+      "slavicmyths:ancient_coin": 0.14166666666666666
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.07777777777777772,
+      "slavicmyths:rune_resilience": 0.0040000000000000036,
+      "minecraft:emerald": 0.03888888888888897,
+      "slavicmyths:rune_strength": 0.0040000000000000036,
+      "slavicmyths:old_arrowhead": 0.13749999999999996,
+      "minecraft:iron_ingot": 0.23333333333333328,
+      "slavicmyths:pottery_fragment": 0.13749999999999996,
+      "minecraft:diamond": 0.008000000000000007,
+      "slavicmyths:soul_fragment": 0.19999999999999996,
+      "slavicmyths:old_buckle": 0.13749999999999996,
+      "slavicmyths:ancient_beads": 0.13749999999999996,
+      "slavicmyths:ancient_comb": 0.13749999999999996,
+      "slavicmyths:blank_rune_1": 0.02400000000000002,
+      "slavicmyths:ancient_coin": 0.13749999999999996
+    }
+  },
+  "chests/kurgan_warrior_burial": {
+    "expected": {
+      "slavicmyths:old_buckle": 0.14166666666666666,
+      "slavicmyths:ancient_beads": 0.14166666666666666,
+      "slavicmyths:ancient_comb": 0.14166666666666666,
+      "slavicmyths:old_arrowhead": 0.14166666666666666,
+      "slavicmyths:pottery_fragment": 0.14166666666666666,
+      "slavicmyths:ancient_coin": 0.14166666666666666,
+      "minecraft:iron_ingot": 1.0,
+      "minecraft:gold_ingot": 0.16666666666666666,
+      "minecraft:emerald": 0.08333333333333333,
+      "slavicmyths:soul_fragment": 0.44999999999999996,
+      "slavicmyths:blank_rune_1": 0.048,
+      "minecraft:diamond": 0.016,
+      "slavicmyths:rune_resilience": 0.008,
+      "slavicmyths:rune_strength": 0.008
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_buckle": 0.13749999999999996,
+      "slavicmyths:ancient_beads": 0.13749999999999996,
+      "slavicmyths:ancient_comb": 0.13749999999999996,
+      "slavicmyths:old_arrowhead": 0.13749999999999996,
+      "slavicmyths:pottery_fragment": 0.13749999999999996,
+      "slavicmyths:ancient_coin": 0.13749999999999996,
+      "minecraft:iron_ingot": 0.33333333333333326,
+      "minecraft:gold_ingot": 0.11111111111111116,
+      "minecraft:emerald": 0.05555555555555558,
+      "slavicmyths:soul_fragment": 0.30000000000000004,
+      "slavicmyths:blank_rune_1": 0.04799999999999993,
+      "minecraft:diamond": 0.016000000000000014,
+      "slavicmyths:rune_resilience": 0.008000000000000007,
+      "slavicmyths:rune_strength": 0.008000000000000007
+    }
+  },
+  "chests/kurgan_warrior_common_cache": {
+    "expected": {
+      "minecraft:gold_ingot": 0.16666666666666666,
+      "slavicmyths:rune_resilience": 0.008,
+      "slavicmyths:rune_strength": 0.008,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "minecraft:iron_ingot": 1.0,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:grave_ward": 0.0625,
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:grivna": 0.0625,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "minecraft:emerald": 0.08333333333333333,
+      "minecraft:diamond": 0.016,
+      "slavicmyths:soul_fragment": 0.44999999999999996,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:lunula": 0.0625,
+      "slavicmyths:blank_rune_1": 0.048,
+      "slavicmyths:ancient_fibula": 0.0625
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.11111111111111116,
+      "slavicmyths:rune_resilience": 0.008000000000000007,
+      "slavicmyths:rune_strength": 0.008000000000000007,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "minecraft:iron_ingot": 0.33333333333333326,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:grave_ward": 0.0625,
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:grivna": 0.0625,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "minecraft:emerald": 0.05555555555555558,
+      "minecraft:diamond": 0.016000000000000014,
+      "slavicmyths:soul_fragment": 0.30000000000000004,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:lunula": 0.0625,
+      "slavicmyths:blank_rune_1": 0.04799999999999993,
+      "slavicmyths:ancient_fibula": 0.0625
+    }
+  },
+  "chests/kurgan_warrior_great_special": {
+    "expected": {
+      "minecraft:gold_ingot": 0.3333333333333333,
+      "slavicmyths:rune_resilience": 0.018,
+      "slavicmyths:rune_strength": 0.018,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "minecraft:iron_ingot": 2.0,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_spear": 0.08333333333333333,
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333333,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "minecraft:emerald": 0.16666666666666666,
+      "minecraft:diamond": 0.036,
+      "slavicmyths:soul_fragment": 0.8250000000000001,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:ancient_chekan": 0.08333333333333333,
+      "slavicmyths:blank_rune_1": 0.108
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "slavicmyths:rune_resilience": 0.017999999999999905,
+      "slavicmyths:rune_strength": 0.017999999999999905,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "minecraft:iron_ingot": 0.6666666666666666,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_spear": 0.08333333333333326,
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333326,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "minecraft:emerald": 0.11111111111111116,
+      "minecraft:diamond": 0.03599999999999992,
+      "slavicmyths:soul_fragment": 0.55,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:ancient_chekan": 0.08333333333333326,
+      "slavicmyths:blank_rune_1": 0.10799999999999998
+    }
+  },
+  "chests/kurgan_warrior_important": {
+    "expected": {
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "slavicmyths:ancient_spear": 0.08333333333333333,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333333,
+      "slavicmyths:ancient_chekan": 0.08333333333333333,
+      "minecraft:iron_ingot": 2.0,
+      "minecraft:gold_ingot": 0.3333333333333333,
+      "minecraft:emerald": 0.16666666666666666,
+      "slavicmyths:soul_fragment": 0.8250000000000001,
+      "slavicmyths:blank_rune_1": 0.108,
+      "minecraft:diamond": 0.036,
+      "slavicmyths:rune_resilience": 0.018,
+      "slavicmyths:rune_strength": 0.018
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "slavicmyths:ancient_spear": 0.08333333333333326,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333326,
+      "slavicmyths:ancient_chekan": 0.08333333333333326,
+      "minecraft:iron_ingot": 0.6666666666666666,
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "minecraft:emerald": 0.11111111111111116,
+      "slavicmyths:soul_fragment": 0.55,
+      "slavicmyths:blank_rune_1": 0.10799999999999998,
+      "minecraft:diamond": 0.03599999999999992,
+      "slavicmyths:rune_resilience": 0.017999999999999905,
+      "slavicmyths:rune_strength": 0.017999999999999905
+    }
+  },
+  "chests/kurgan_warrior_offering": {
+    "expected": {
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "slavicmyths:grivna": 0.0625,
+      "slavicmyths:ancient_fibula": 0.0625,
+      "slavicmyths:grave_ward": 0.0625,
+      "slavicmyths:lunula": 0.0625,
+      "minecraft:iron_ingot": 1.0,
+      "minecraft:gold_ingot": 0.16666666666666666,
+      "minecraft:emerald": 0.08333333333333333,
+      "slavicmyths:soul_fragment": 0.44999999999999996,
+      "slavicmyths:blank_rune_1": 0.048,
+      "minecraft:diamond": 0.016,
+      "slavicmyths:rune_resilience": 0.008,
+      "slavicmyths:rune_strength": 0.008
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "slavicmyths:grivna": 0.0625,
+      "slavicmyths:ancient_fibula": 0.0625,
+      "slavicmyths:grave_ward": 0.0625,
+      "slavicmyths:lunula": 0.0625,
+      "minecraft:iron_ingot": 0.33333333333333326,
+      "minecraft:gold_ingot": 0.11111111111111116,
+      "minecraft:emerald": 0.05555555555555558,
+      "slavicmyths:soul_fragment": 0.30000000000000004,
+      "slavicmyths:blank_rune_1": 0.04799999999999993,
+      "minecraft:diamond": 0.016000000000000014,
+      "slavicmyths:rune_resilience": 0.008000000000000007,
+      "slavicmyths:rune_strength": 0.008000000000000007
+    }
+  },
+  "chests/kurgan_warrior_ritual": {
+    "expected": {
+      "minecraft:gold_ingot": 0.3333333333333333,
+      "slavicmyths:rune_resilience": 0.018,
+      "slavicmyths:rune_strength": 0.018,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "minecraft:iron_ingot": 2.0,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_spear": 0.08333333333333333,
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333333,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "minecraft:emerald": 0.16666666666666666,
+      "minecraft:diamond": 0.036,
+      "slavicmyths:soul_fragment": 0.8250000000000001,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:ancient_chekan": 0.08333333333333333,
+      "slavicmyths:blank_rune_1": 0.108
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "slavicmyths:rune_resilience": 0.017999999999999905,
+      "slavicmyths:rune_strength": 0.017999999999999905,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "minecraft:iron_ingot": 0.6666666666666666,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_spear": 0.08333333333333326,
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333326,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "minecraft:emerald": 0.11111111111111116,
+      "minecraft:diamond": 0.03599999999999992,
+      "slavicmyths:soul_fragment": 0.55,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:ancient_chekan": 0.08333333333333326,
+      "slavicmyths:blank_rune_1": 0.10799999999999998
+    }
+  },
+  "chests/kurgan_warrior_secret": {
+    "expected": {
+      "minecraft:gold_ingot": 0.3333333333333333,
+      "slavicmyths:rune_resilience": 0.018,
+      "slavicmyths:rune_strength": 0.018,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "minecraft:iron_ingot": 2.0,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_spear": 0.08333333333333333,
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333333,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "minecraft:emerald": 0.16666666666666666,
+      "minecraft:diamond": 0.036,
+      "slavicmyths:soul_fragment": 0.8250000000000001,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:ancient_chekan": 0.08333333333333333,
+      "slavicmyths:blank_rune_1": 0.108
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "slavicmyths:rune_resilience": 0.017999999999999905,
+      "slavicmyths:rune_strength": 0.017999999999999905,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "minecraft:iron_ingot": 0.6666666666666666,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_spear": 0.08333333333333326,
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333326,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "minecraft:emerald": 0.11111111111111116,
+      "minecraft:diamond": 0.03599999999999992,
+      "slavicmyths:soul_fragment": 0.55,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:ancient_chekan": 0.08333333333333326,
+      "slavicmyths:blank_rune_1": 0.10799999999999998
+    }
+  },
+  "chests/kurgan_warrior_treasury": {
+    "expected": {
+      "minecraft:gold_ingot": 0.3333333333333333,
+      "slavicmyths:rune_resilience": 0.018,
+      "slavicmyths:rune_strength": 0.018,
+      "slavicmyths:old_arrowhead": 0.09999999999999999,
+      "minecraft:iron_ingot": 2.0,
+      "slavicmyths:pottery_fragment": 0.09999999999999999,
+      "slavicmyths:ancient_spear": 0.08333333333333333,
+      "slavicmyths:old_buckle": 0.09999999999999999,
+      "slavicmyths:ancient_beads": 0.09999999999999999,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333333,
+      "slavicmyths:ancient_coin": 0.09999999999999999,
+      "minecraft:emerald": 0.16666666666666666,
+      "minecraft:diamond": 0.036,
+      "slavicmyths:soul_fragment": 0.8250000000000001,
+      "slavicmyths:ancient_comb": 0.09999999999999999,
+      "slavicmyths:ancient_chekan": 0.08333333333333333,
+      "slavicmyths:blank_rune_1": 0.108
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.2222222222222222,
+      "slavicmyths:rune_resilience": 0.017999999999999905,
+      "slavicmyths:rune_strength": 0.017999999999999905,
+      "slavicmyths:old_arrowhead": 0.09999999999999998,
+      "minecraft:iron_ingot": 0.6666666666666666,
+      "slavicmyths:pottery_fragment": 0.09999999999999998,
+      "slavicmyths:ancient_spear": 0.08333333333333326,
+      "slavicmyths:old_buckle": 0.09999999999999998,
+      "slavicmyths:ancient_beads": 0.09999999999999998,
+      "slavicmyths:ancient_carolingian_sword": 0.08333333333333326,
+      "slavicmyths:ancient_coin": 0.09999999999999998,
+      "minecraft:emerald": 0.11111111111111116,
+      "minecraft:diamond": 0.03599999999999992,
+      "slavicmyths:soul_fragment": 0.55,
+      "slavicmyths:ancient_comb": 0.09999999999999998,
+      "slavicmyths:ancient_chekan": 0.08333333333333326,
+      "slavicmyths:blank_rune_1": 0.10799999999999998
+    }
+  },
+  "chests/kurgan_warrior_warrior": {
+    "expected": {
+      "minecraft:gold_ingot": 0.16666666666666666,
+      "slavicmyths:rune_resilience": 0.008,
+      "minecraft:emerald": 0.08333333333333333,
+      "slavicmyths:rune_strength": 0.008,
+      "slavicmyths:old_arrowhead": 0.14166666666666666,
+      "minecraft:iron_ingot": 1.0,
+      "slavicmyths:pottery_fragment": 0.14166666666666666,
+      "minecraft:diamond": 0.016,
+      "slavicmyths:soul_fragment": 0.44999999999999996,
+      "slavicmyths:old_buckle": 0.14166666666666666,
+      "slavicmyths:ancient_beads": 0.14166666666666666,
+      "slavicmyths:ancient_comb": 0.14166666666666666,
+      "slavicmyths:blank_rune_1": 0.048,
+      "slavicmyths:ancient_coin": 0.14166666666666666
+    },
+    "probability_at_least_one": {
+      "minecraft:gold_ingot": 0.11111111111111116,
+      "slavicmyths:rune_resilience": 0.008000000000000007,
+      "minecraft:emerald": 0.05555555555555558,
+      "slavicmyths:rune_strength": 0.008000000000000007,
+      "slavicmyths:old_arrowhead": 0.13749999999999996,
+      "minecraft:iron_ingot": 0.33333333333333326,
+      "slavicmyths:pottery_fragment": 0.13749999999999996,
+      "minecraft:diamond": 0.016000000000000014,
+      "slavicmyths:soul_fragment": 0.30000000000000004,
+      "slavicmyths:old_buckle": 0.13749999999999996,
+      "slavicmyths:ancient_beads": 0.13749999999999996,
+      "slavicmyths:ancient_comb": 0.13749999999999996,
+      "slavicmyths:blank_rune_1": 0.04799999999999993,
+      "slavicmyths:ancient_coin": 0.13749999999999996
+    }
+  },
+  "chests/old_barn": {
+    "expected": {
+      "slavicmyths:ritual_charcoal": 0.6666666666666666,
+      "minecraft:wheat": 0.6666666666666666,
+      "slavicmyths:ancient_coin": 0.6666666666666666
+    },
+    "probability_at_least_one": {
+      "slavicmyths:ritual_charcoal": 0.5308641975308641,
+      "minecraft:wheat": 0.5308641975308641,
+      "slavicmyths:ancient_coin": 0.5308641975308641
+    }
+  },
+  "chests/serpent_fortress": {
+    "expected": {
+      "slavicmyths:serpent_masonry": 5.333333333333333,
+      "minecraft:coal": 4.583333333333334,
+      "slavicmyths:purified_water_bottle": 0.16666666666666666,
+      "minecraft:bread": 2.0,
+      "slavicmyths:cleansing_powder": 0.25,
+      "minecraft:iron_ingot": 1.7499999999999998,
+      "slavicmyths:serpent_crossbow": 0.125,
+      "EMPTY": 0.25,
+      "slavicmyths:ancient_serpent_steel": 0.9375
+    },
+    "probability_at_least_one": {
+      "slavicmyths:serpent_masonry": 0.5195346237870243,
+      "minecraft:coal": 0.6098695574861556,
+      "slavicmyths:purified_water_bottle": 0.15666120510084858,
+      "minecraft:bread": 0.5195346237870243,
+      "slavicmyths:cleansing_powder": 0.15666120510084858,
+      "minecraft:iron_ingot": 0.41486625514403286,
+      "slavicmyths:serpent_crossbow": 0.125,
+      "EMPTY": 0.25,
+      "slavicmyths:ancient_serpent_steel": 0.625
+    }
+  },
+  "chests/spring_cache": {
+    "expected": {
+      "slavicmyths:purification_stone": 1.0,
+      "slavicmyths:ancient_rune_fragment": 1.0,
+      "slavicmyths:spring_tear": 1.0
+    },
+    "probability_at_least_one": {
+      "slavicmyths:purification_stone": 1.0,
+      "slavicmyths:ancient_rune_fragment": 1.0,
+      "slavicmyths:spring_tear": 1.0
+    }
+  },
+  "chests/spring_guaranteed": {
+    "expected": {
+      "minecraft:wheat": 1.3333333333333333,
+      "minecraft:bread": 1.3333333333333333,
+      "minecraft:glass_bottle": 1.3333333333333333,
+      "slavicmyths:pure_spring_drop": 1.975,
+      "slavicmyths:purified_water_bottle": 0.3,
+      "slavicmyths:spring_tear": 0.0625,
+      "slavicmyths:purification_stone": 0.0625,
+      "slavicmyths:ancient_rune_fragment": 0.1
+    },
+    "probability_at_least_one": {
+      "minecraft:wheat": 0.5308641975308641,
+      "minecraft:bread": 0.5308641975308641,
+      "minecraft:glass_bottle": 0.5308641975308641,
+      "slavicmyths:pure_spring_drop": 1.0,
+      "slavicmyths:purified_water_bottle": 0.30000000000000004,
+      "slavicmyths:spring_tear": 0.0625,
+      "slavicmyths:purification_stone": 0.0625,
+      "slavicmyths:ancient_rune_fragment": 0.09999999999999998
+    }
+  },
+  "chests/spring_regular": {
+    "expected": {
+      "minecraft:wheat": 1.3333333333333333,
+      "minecraft:bread": 1.3333333333333333,
+      "minecraft:glass_bottle": 1.3333333333333333,
+      "slavicmyths:pure_spring_drop": 0.9750000000000001,
+      "slavicmyths:purified_water_bottle": 0.3,
+      "slavicmyths:spring_tear": 0.0625,
+      "slavicmyths:purification_stone": 0.0625,
+      "slavicmyths:ancient_rune_fragment": 0.1
+    },
+    "probability_at_least_one": {
+      "minecraft:wheat": 0.5308641975308641,
+      "minecraft:bread": 0.5308641975308641,
+      "minecraft:glass_bottle": 0.5308641975308641,
+      "slavicmyths:pure_spring_drop": 0.65,
+      "slavicmyths:purified_water_bottle": 0.30000000000000004,
+      "slavicmyths:spring_tear": 0.0625,
+      "slavicmyths:purification_stone": 0.0625,
+      "slavicmyths:ancient_rune_fragment": 0.09999999999999998
+    }
+  },
+  "chests/stronghold_ataman": {
+    "expected": {
+      "minecraft:iron_ingot": 6.6000000000000005,
+      "minecraft:gold_ingot": 1.2000000000000002,
+      "slavicmyths:mace": 0.30000000000000004,
+      "slavicmyths:ancient_coin": 4.949999999999999
+    },
+    "probability_at_least_one": {
+      "minecraft:iron_ingot": 0.784,
+      "minecraft:gold_ingot": 0.4879999999999999,
+      "slavicmyths:mace": 0.2709999999999999,
+      "slavicmyths:ancient_coin": 0.657
+    }
+  },
+  "chests/stronghold_barracks": {
+    "expected": {
+      "minecraft:iron_sword": 0.30000000000000004,
+      "minecraft:arrow": 18.0,
+      "slavicmyths:gambeson": 0.30000000000000004,
+      "slavicmyths:iron_rings": 4.05
+    },
+    "probability_at_least_one": {
+      "minecraft:iron_sword": 0.2709999999999999,
+      "minecraft:arrow": 0.875,
+      "slavicmyths:gambeson": 0.2709999999999999,
+      "slavicmyths:iron_rings": 0.657
+    }
+  },
+  "chests/stronghold_cache": {
+    "expected": {
+      "minecraft:iron_ingot": 4.199999999999999,
+      "minecraft:gold_ingot": 1.8,
+      "slavicmyths:silver_ingot": 2.025,
+      "minecraft:diamond": 0.004,
+      "minecraft:emerald": 1.575,
+      "slavicmyths:ancient_coin": 4.5,
+      "slavicmyths:rune_forest": 0.02857142857142857,
+      "slavicmyths:rune_shadow": 0.02857142857142857,
+      "slavicmyths:rune_heat": 0.02857142857142857,
+      "slavicmyths:rune_protection": 0.02857142857142857,
+      "slavicmyths:rune_life": 0.02857142857142857,
+      "slavicmyths:rune_midday": 0.02857142857142857,
+      "slavicmyths:rune_wind": 0.02857142857142857,
+      "slavicmyths:rune_thunder": 0.06,
+      "slavicmyths:veles_amulet": 0.1,
+      "slavicmyths:resin_ring": 0.12,
+      "slavicmyths:depth_amulet": 0.08,
+      "slavicmyths:silver_mace": 0.05
+    },
+    "probability_at_least_one": {
+      "minecraft:iron_ingot": 0.7,
+      "minecraft:gold_ingot": 0.44999999999999996,
+      "slavicmyths:silver_ingot": 0.44999999999999996,
+      "minecraft:diamond": 0.0040000000000000036,
+      "minecraft:emerald": 0.35,
+      "slavicmyths:ancient_coin": 0.5,
+      "slavicmyths:rune_forest": 0.02857142857142847,
+      "slavicmyths:rune_shadow": 0.02857142857142847,
+      "slavicmyths:rune_heat": 0.02857142857142847,
+      "slavicmyths:rune_protection": 0.02857142857142847,
+      "slavicmyths:rune_life": 0.02857142857142847,
+      "slavicmyths:rune_midday": 0.02857142857142847,
+      "slavicmyths:rune_wind": 0.02857142857142847,
+      "slavicmyths:rune_thunder": 0.06000000000000005,
+      "slavicmyths:veles_amulet": 0.09999999999999998,
+      "slavicmyths:resin_ring": 0.12,
+      "slavicmyths:depth_amulet": 0.07999999999999996,
+      "slavicmyths:silver_mace": 0.050000000000000044
+    }
+  },
+  "chests/stronghold_feather": {
+    "expected": {
+      "slavicmyths:mysterious_black_feather": 1.0
+    },
+    "probability_at_least_one": {
+      "slavicmyths:mysterious_black_feather": 1.0
+    }
+  },
+  "chests/stronghold_forge": {
+    "expected": {
+      "slavicmyths:iron_rings": 3.0,
+      "minecraft:iron_ingot": 4.5,
+      "minecraft:coal": 7.800000000000001,
+      "slavicmyths:silver_fitting": 0.30000000000000004
+    },
+    "probability_at_least_one": {
+      "slavicmyths:iron_rings": 0.4879999999999999,
+      "minecraft:iron_ingot": 0.7037037037037036,
+      "minecraft:coal": 0.784,
+      "slavicmyths:silver_fitting": 0.1869629629629629
+    }
+  },
+  "chests/stronghold_kitchen": {
+    "expected": {
+      "minecraft:cooked_beef": 1.0714285714285712,
+      "minecraft:carrot": 4.285714285714285,
+      "minecraft:bread": 4.821428571428571,
+      "slavicmyths:rowan_berries": 2.25
+    },
+    "probability_at_least_one": {
+      "minecraft:cooked_beef": 0.3702623906705538,
+      "minecraft:carrot": 0.6355685131195334,
+      "minecraft:bread": 0.7343294460641401,
+      "slavicmyths:rowan_berries": 0.5149416909620992
+    }
+  },
+  "chests/stronghold_nightingale": {
+    "expected": {
+      "slavicmyths:bandit_horn": 1.0,
+      "slavicmyths:mysterious_black_feather": 1.0,
+      "slavicmyths:silver_ingot": 4.675,
+      "slavicmyths:ancient_coin": 10.2,
+      "minecraft:cooked_beef": 5.5,
+      "minecraft:arrow": 12.8,
+      "slavicmyths:amber": 0.7,
+      "slavicmyths:rune_wind": 0.18,
+      "slavicmyths:resin_ring": 0.1
+    },
+    "probability_at_least_one": {
+      "slavicmyths:bandit_horn": 1.0,
+      "slavicmyths:mysterious_black_feather": 1.0,
+      "slavicmyths:silver_ingot": 0.85,
+      "slavicmyths:ancient_coin": 0.85,
+      "minecraft:cooked_beef": 1.0,
+      "minecraft:arrow": 0.8,
+      "slavicmyths:amber": 0.35,
+      "slavicmyths:rune_wind": 0.17999999999999994,
+      "slavicmyths:resin_ring": 0.09999999999999998
+    }
+  },
+  "chests/stronghold_warehouse": {
+    "expected": {
+      "minecraft:leather": 3.4285714285714284,
+      "minecraft:bread": 2.25,
+      "minecraft:iron_ingot": 1.0714285714285712,
+      "slavicmyths:ancient_coin": 0.5357142857142856,
+      "minecraft:string": 3.8571428571428568
+    },
+    "probability_at_least_one": {
+      "minecraft:leather": 0.6355685131195334,
+      "minecraft:bread": 0.5149416909620992,
+      "minecraft:iron_ingot": 0.3702623906705538,
+      "slavicmyths:ancient_coin": 0.19934402332361512,
+      "minecraft:string": 0.6355685131195334
+    }
+  },
+  "chests/swamp_fisher": {
+    "expected": {
+      "minecraft:salmon": 1.7307692307692308,
+      "slavicmyths:reed": 2.019230769230769,
+      "minecraft:fishing_rod": 0.23076923076923078,
+      "minecraft:cod": 2.8269230769230766,
+      "minecraft:string": 2.769230769230769
+    },
+    "probability_at_least_one": {
+      "minecraft:salmon": 0.5343300304611185,
+      "slavicmyths:reed": 0.4650463044011064,
+      "minecraft:fishing_rod": 0.21179230419102968,
+      "minecraft:cod": 0.5968489957167699,
+      "minecraft:string": 0.5343300304611185
+    }
+  },
+  "chests/swamp_fishing": {
+    "expected": {
+      "minecraft:bowl": 1.0285714285714285,
+      "slavicmyths:raw_pike": 0.5142857142857142,
+      "minecraft:fishing_rod": 0.2571428571428571,
+      "slavicmyths:fishing_net": 0.17142857142857143,
+      "slavicmyths:raw_carp": 0.7714285714285714,
+      "minecraft:string": 4.114285714285714
+    },
+    "probability_at_least_one": {
+      "minecraft:bowl": 0.5305576009995835,
+      "slavicmyths:raw_pike": 0.3017507149798696,
+      "minecraft:fishing_rod": 0.2336846314035821,
+      "slavicmyths:fishing_net": 0.1608516451478551,
+      "slavicmyths:raw_carp": 0.4244351520199918,
+      "minecraft:string": 0.6993006247396918
+    }
+  },
+  "chests/swamp_great_shrine": {
+    "expected": {
+      "slavicmyths:pearl_fragment": 5.249999999999999,
+      "minecraft:gold_ingot": 3.6,
+      "minecraft:emerald": 4.2,
+      "slavicmyths:ancient_water_sign": 0.6
+    },
+    "probability_at_least_one": {
+      "slavicmyths:pearl_fragment": 0.8216735253772289,
+      "minecraft:gold_ingot": 0.7372032702331961,
+      "minecraft:emerald": 0.7372032702331961,
+      "slavicmyths:ancient_water_sign": 0.4680427105624142
+    }
+  },
+  "chests/swamp_hidden": {
+    "expected": {
+      "slavicmyths:ancient_water_sign": 0.1875,
+      "minecraft:iron_ingot": 1.96875,
+      "slavicmyths:silver_ingot": 0.84375,
+      "slavicmyths:ancient_coin": 1.40625
+    },
+    "probability_at_least_one": {
+      "slavicmyths:ancient_water_sign": 0.1748809814453125,
+      "minecraft:iron_ingot": 0.8018341064453125,
+      "slavicmyths:silver_ingot": 0.4558868408203125,
+      "slavicmyths:ancient_coin": 0.6596628824869792
+    }
+  },
+  "chests/swamp_home": {
+    "expected": {
+      "minecraft:bowl": 0.8,
+      "slavicmyths:wormwood": 0.7,
+      "minecraft:bread": 1.6,
+      "slavicmyths:ancient_coin": 0.06666666666666667,
+      "minecraft:string": 1.3333333333333335,
+      "slavicmyths:flour": 1.2000000000000002
+    },
+    "probability_at_least_one": {
+      "minecraft:bowl": 0.43701500787481595,
+      "slavicmyths:wormwood": 0.3920864908804552,
+      "minecraft:bread": 0.5928823045267488,
+      "slavicmyths:ancient_coin": 0.06503878473809899,
+      "minecraft:string": 0.43701500787481595,
+      "slavicmyths:flour": 0.4794666666666666
+    }
+  },
+  "chests/swamp_remnants": {
+    "expected": {
+      "slavicmyths:ancient_coin": 0.11538461538461539,
+      "minecraft:flint": 1.2115384615384617,
+      "minecraft:stick": 2.769230769230769,
+      "minecraft:string": 1.0384615384615383
+    },
+    "probability_at_least_one": {
+      "slavicmyths:ancient_coin": 0.11054774576053594,
+      "minecraft:flint": 0.5968489957167699,
+      "minecraft:stick": 0.823290501032877,
+      "minecraft:string": 0.5343300304611185
+    }
+  },
+  "chests/swamp_ritual": {
+    "expected": {
+      "slavicmyths:pearl_fragment": 1.263157894736842,
+      "minecraft:bone": 5.052631578947368,
+      "slavicmyths:reed": 4.7368421052631575,
+      "slavicmyths:ancient_water_sign": 0.15789473684210525
+    },
+    "probability_at_least_one": {
+      "slavicmyths:pearl_fragment": 0.4987377322150689,
+      "minecraft:bone": 0.7861408880124205,
+      "slavicmyths:reed": 0.6641293421628134,
+      "slavicmyths:ancient_water_sign": 0.14890155845949604
+    }
+  },
+  "chests/swamp_ruins": {
+    "expected": {
+      "slavicmyths:ancient_water_sign": 0.14285714285714285,
+      "slavicmyths:silver_ingot": 1.0714285714285712,
+      "minecraft:fishing_rod": 0.5714285714285714,
+      "slavicmyths:amber": 0.2857142857142857,
+      "slavicmyths:ancient_coin": 2.571428571428571,
+      "slavicmyths:warding_charm": 0.02,
+      "EMPTY": 0.98
+    },
+    "probability_at_least_one": {
+      "slavicmyths:ancient_water_sign": 0.13547681607286421,
+      "slavicmyths:silver_ingot": 0.5467457832213259,
+      "minecraft:fishing_rod": 0.46157036762802883,
+      "slavicmyths:amber": 0.25689227568074346,
+      "slavicmyths:ancient_coin": 0.7934194085797585,
+      "slavicmyths:warding_charm": 0.020000000000000018,
+      "EMPTY": 0.98
+    }
+  },
+  "chests/swamp_salvage": {
+    "expected": {
+      "minecraft:iron_nugget": 7.578947368421052,
+      "minecraft:bread": 1.5789473684210527,
+      "minecraft:string": 3.31578947368421
+    },
+    "probability_at_least_one": {
+      "minecraft:iron_nugget": 0.7861408880124205,
+      "minecraft:bread": 0.5874085271496279,
+      "minecraft:string": 0.6641293421628134
+    }
+  },
+  "chests/swamp_shrine": {
+    "expected": {
+      "slavicmyths:silver_ingot": 1.125,
+      "slavicmyths:wormwood": 1.875,
+      "slavicmyths:ancient_water_sign": 0.1875,
+      "slavicmyths:amber": 0.375,
+      "slavicmyths:ancient_coin": 1.875,
+      "slavicmyths:warding_charm": 0.02,
+      "EMPTY": 0.98
+    },
+    "probability_at_least_one": {
+      "slavicmyths:silver_ingot": 0.4558868408203125,
+      "slavicmyths:wormwood": 0.6596628824869792,
+      "slavicmyths:ancient_water_sign": 0.1748809814453125,
+      "slavicmyths:amber": 0.32609049479166674,
+      "slavicmyths:ancient_coin": 0.6596628824869792,
+      "slavicmyths:warding_charm": 0.020000000000000018,
+      "EMPTY": 0.98
+    }
+  },
+  "chests/swamp_supplies": {
+    "expected": {
+      "minecraft:iron_nugget": 2.526315789473684,
+      "minecraft:spruce_planks": 5.684210526315789,
+      "minecraft:stone_axe": 0.15789473684210525,
+      "minecraft:stick": 2.763157894736842,
+      "minecraft:wheat": 1.1842105263157894
+    },
+    "probability_at_least_one": {
+      "minecraft:iron_nugget": 0.4987377322150689,
+      "minecraft:spruce_planks": 0.6641293421628134,
+      "minecraft:stone_axe": 0.14890155845949604,
+      "minecraft:stick": 0.5874085271496279,
+      "minecraft:wheat": 0.3969352598583499
+    }
+  },
+  "chests/swamp_watchtower": {
+    "expected": {
+      "minecraft:arrow": 13.894736842105264,
+      "minecraft:iron_ingot": 0.9473684210526315,
+      "minecraft:bread": 3.31578947368421,
+      "minecraft:bow": 0.3157894736842105
+    },
+    "probability_at_least_one": {
+      "minecraft:arrow": 0.7861408880124205,
+      "minecraft:iron_ingot": 0.3969352598583499,
+      "minecraft:bread": 0.6641293421628134,
+      "minecraft:bow": 0.2807580256955262
+    }
+  },
+  "kurgan/burial": {
+    "expected": {
+      "slavicmyths:old_arrowhead": 0.7692307692307692,
+      "slavicmyths:pottery_fragment": 0.9230769230769231,
+      "slavicmyths:grave_ward": 0.07692307692307693,
+      "minecraft:iron_nugget": 2.076923076923077,
+      "slavicmyths:grave_cloth_scrap": 0.2692307692307693,
+      "slavicmyths:old_buckle": 0.1923076923076923,
+      "slavicmyths:ancient_carolingian_sword": 0.038461538461538464,
+      "slavicmyths:ancient_beads": 0.3076923076923077,
+      "slavicmyths:ancient_comb": 0.1923076923076923,
+      "slavicmyths:lunula": 0.07692307692307693,
+      "slavicmyths:ancient_spear": 0.07692307692307693,
+      "slavicmyths:ancient_chekan": 0.038461538461538464,
+      "minecraft:bone": 0.6153846153846154,
+      "slavicmyths:grivna": 0.07692307692307693,
+      "slavicmyths:ancient_fibula": 0.3076923076923077,
+      "minecraft:gold_nugget": 0.5769230769230769
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_arrowhead": 0.32899777697685795,
+      "slavicmyths:pottery_fragment": 0.382747889632713,
+      "slavicmyths:grave_ward": 0.07454737142194068,
+      "minecraft:iron_nugget": 0.382747889632713,
+      "slavicmyths:grave_cloth_scrap": 0.24129999757603815,
+      "slavicmyths:old_buckle": 0.17782138928471047,
+      "slavicmyths:ancient_carolingian_sword": 0.03786270112129175,
+      "slavicmyths:ancient_beads": 0.27150921780295323,
+      "slavicmyths:ancient_comb": 0.17782138928471047,
+      "slavicmyths:lunula": 0.07454737142194068,
+      "slavicmyths:ancient_spear": 0.07454737142194068,
+      "slavicmyths:ancient_chekan": 0.03786270112129175,
+      "minecraft:bone": 0.27150921780295323,
+      "slavicmyths:grivna": 0.07454737142194068,
+      "slavicmyths:ancient_fibula": 0.27150921780295323,
+      "minecraft:gold_nugget": 0.21007957062691385
+    }
+  },
+  "kurgan/common_cache": {
+    "expected": {
+      "minecraft:iron_nugget": 2.4923076923076923,
+      "slavicmyths:grave_cloth_scrap": 0.3230769230769231,
+      "slavicmyths:old_buckle": 0.23076923076923078,
+      "slavicmyths:ancient_comb": 0.23076923076923078,
+      "slavicmyths:old_arrowhead": 0.9230769230769231,
+      "minecraft:bone": 0.7384615384615385,
+      "slavicmyths:pottery_fragment": 1.1076923076923078,
+      "minecraft:gold_nugget": 0.6923076923076923
+    },
+    "probability_at_least_one": {
+      "minecraft:iron_nugget": 0.4503365008228004,
+      "slavicmyths:grave_cloth_scrap": 0.2864549373854792,
+      "slavicmyths:old_buckle": 0.21179230419102968,
+      "slavicmyths:ancient_comb": 0.21179230419102968,
+      "slavicmyths:old_arrowhead": 0.38852514501126245,
+      "minecraft:bone": 0.3217684534855223,
+      "slavicmyths:pottery_fragment": 0.4503365008228004,
+      "minecraft:gold_nugget": 0.24980738769650934
+    }
+  },
+  "kurgan/great_special": {
+    "expected": {
+      "slavicmyths:old_arrowhead": 1.3235294117647058,
+      "slavicmyths:druzhinnik_blade_fragment": 0.3529411764705882,
+      "slavicmyths:grave_ward": 0.08823529411764705,
+      "minecraft:iron_ingot": 0.2647058823529412,
+      "slavicmyths:ancient_spear": 0.22058823529411764,
+      "slavicmyths:old_buckle": 0.22058823529411764,
+      "slavicmyths:ancient_beads": 0.7058823529411764,
+      "minecraft:gold_nugget": 3.397058823529412,
+      "slavicmyths:lunula": 0.1764705882352941,
+      "slavicmyths:ancient_chekan": 0.1323529411764706,
+      "slavicmyths:shield_boss_fragment": 0.3529411764705882,
+      "slavicmyths:ancient_carolingian_sword": 0.1323529411764706,
+      "slavicmyths:ancient_fibula": 0.7058823529411764,
+      "slavicmyths:grivna": 0.1764705882352941
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_arrowhead": 0.3672530540579557,
+      "slavicmyths:druzhinnik_blade_fragment": 0.304681670738263,
+      "slavicmyths:grave_ward": 0.08503251185258343,
+      "minecraft:iron_ingot": 0.1639141382329563,
+      "slavicmyths:ancient_spear": 0.2011642419210784,
+      "slavicmyths:old_buckle": 0.2011642419210784,
+      "slavicmyths:ancient_beads": 0.5274887169936213,
+      "minecraft:gold_nugget": 0.47836182586884246,
+      "slavicmyths:lunula": 0.1639141382329563,
+      "slavicmyths:ancient_chekan": 0.12521873335323253,
+      "slavicmyths:shield_boss_fragment": 0.304681670738263,
+      "slavicmyths:ancient_carolingian_sword": 0.12521873335323253,
+      "slavicmyths:ancient_fibula": 0.5274887169936213,
+      "slavicmyths:grivna": 0.1639141382329563
+    }
+  },
+  "kurgan/ritual": {
+    "expected": {
+      "slavicmyths:nav_essence": 0.16666666666666666,
+      "slavicmyths:old_arrowhead": 0.8333333333333333,
+      "slavicmyths:volkhv_amulet": 0.041666666666666664,
+      "slavicmyths:pottery_fragment": 1.0,
+      "slavicmyths:grave_ward": 0.08333333333333333,
+      "minecraft:iron_nugget": 2.25,
+      "slavicmyths:grave_cloth_scrap": 0.29166666666666663,
+      "slavicmyths:old_buckle": 0.20833333333333331,
+      "slavicmyths:torn_burial_ribbon": 0.41666666666666663,
+      "slavicmyths:ancient_comb": 0.20833333333333331,
+      "slavicmyths:lunula": 0.08333333333333333,
+      "minecraft:bone": 0.6666666666666666,
+      "minecraft:gold_nugget": 0.6249999999999999
+    },
+    "probability_at_least_one": {
+      "slavicmyths:nav_essence": 0.1557260704375334,
+      "slavicmyths:old_arrowhead": 0.3518366193839232,
+      "slavicmyths:volkhv_amulet": 0.04096434675367111,
+      "slavicmyths:pottery_fragment": 0.4082822633426547,
+      "slavicmyths:grave_ward": 0.0805490015581154,
+      "minecraft:iron_nugget": 0.4082822633426547,
+      "slavicmyths:grave_cloth_scrap": 0.2590432500643005,
+      "slavicmyths:old_buckle": 0.19139013741612376,
+      "slavicmyths:torn_burial_ribbon": 0.3518366193839232,
+      "slavicmyths:ancient_comb": 0.19139013741612376,
+      "slavicmyths:lunula": 0.0805490015581154,
+      "minecraft:bone": 0.29109980384912126,
+      "minecraft:gold_nugget": 0.22581783259951205
+    }
+  },
+  "kurgan/secret": {
+    "expected": {
+      "slavicmyths:nav_essence": 0.13636363636363635,
+      "slavicmyths:volkhv_amulet": 0.03409090909090909,
+      "minecraft:iron_ingot": 0.20454545454545453,
+      "slavicmyths:grave_ward": 0.13636363636363635,
+      "slavicmyths:ancient_spear": 0.06818181818181818,
+      "slavicmyths:torn_burial_ribbon": 0.3409090909090909,
+      "slavicmyths:old_buckle": 0.17045454545454544,
+      "slavicmyths:ancient_beads": 0.5454545454545454,
+      "minecraft:gold_nugget": 2.625,
+      "slavicmyths:lunula": 0.20454545454545453,
+      "slavicmyths:ancient_chekan": 0.03409090909090909,
+      "slavicmyths:ancient_carolingian_sword": 0.03409090909090909,
+      "slavicmyths:ancient_fibula": 0.5454545454545454,
+      "slavicmyths:grivna": 0.13636363636363635
+    },
+    "probability_at_least_one": {
+      "slavicmyths:nav_essence": 0.1296316849941943,
+      "slavicmyths:volkhv_amulet": 0.0336629084473824,
+      "minecraft:iron_ingot": 0.1296316849941943,
+      "slavicmyths:grave_ward": 0.1296316849941943,
+      "slavicmyths:ancient_spear": 0.06647953165198195,
+      "slavicmyths:torn_burial_ribbon": 0.3002551161976641,
+      "slavicmyths:old_buckle": 0.15999576295982454,
+      "slavicmyths:ancient_beads": 0.4449149648248072,
+      "minecraft:gold_nugget": 0.39940376838444547,
+      "slavicmyths:lunula": 0.18957065133870632,
+      "slavicmyths:ancient_chekan": 0.0336629084473824,
+      "slavicmyths:ancient_carolingian_sword": 0.0336629084473824,
+      "slavicmyths:ancient_fibula": 0.4449149648248072,
+      "slavicmyths:grivna": 0.1296316849941943
+    }
+  },
+  "kurgan/treasury": {
+    "expected": {
+      "slavicmyths:old_buckle": 0.6395348837209303,
+      "slavicmyths:ancient_beads": 1.0232558139534884,
+      "slavicmyths:lunula": 0.2558139534883721,
+      "minecraft:iron_ingot": 0.7674418604651163,
+      "slavicmyths:grivna": 0.2558139534883721,
+      "slavicmyths:ancient_fibula": 1.0232558139534884,
+      "minecraft:gold_nugget": 9.848837209302326
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_buckle": 0.48846900289227735,
+      "slavicmyths:ancient_beads": 0.6690735634007383,
+      "slavicmyths:lunula": 0.2293623233637162,
+      "minecraft:iron_ingot": 0.41201939472023086,
+      "slavicmyths:grivna": 0.2293623233637162,
+      "slavicmyths:ancient_fibula": 0.6690735634007383,
+      "minecraft:gold_nugget": 0.8740095614478767
+    }
+  },
+  "kurgan/warrior": {
+    "expected": {
+      "slavicmyths:old_arrowhead": 1.7857142857142858,
+      "slavicmyths:shield_boss_fragment": 0.2857142857142857,
+      "slavicmyths:pottery_fragment": 0.8571428571428571,
+      "slavicmyths:druzhinnik_blade_fragment": 0.2857142857142857,
+      "minecraft:iron_nugget": 1.9285714285714284,
+      "slavicmyths:grave_cloth_scrap": 0.25,
+      "slavicmyths:old_buckle": 0.17857142857142858,
+      "slavicmyths:ancient_spear": 0.10714285714285714,
+      "slavicmyths:ancient_comb": 0.17857142857142858,
+      "slavicmyths:ancient_chekan": 0.07142857142857142,
+      "minecraft:bone": 0.5714285714285714,
+      "slavicmyths:ancient_carolingian_sword": 0.07142857142857142,
+      "minecraft:gold_nugget": 0.5357142857142857
+    },
+    "probability_at_least_one": {
+      "slavicmyths:old_arrowhead": 0.5354001298712016,
+      "slavicmyths:shield_boss_fragment": 0.2543690969540484,
+      "slavicmyths:pottery_fragment": 0.36015721504860065,
+      "slavicmyths:druzhinnik_blade_fragment": 0.2543690969540484,
+      "minecraft:iron_nugget": 0.36015721504860065,
+      "slavicmyths:grave_cloth_scrap": 0.22581783259951205,
+      "slavicmyths:old_buckle": 0.1660439793578603,
+      "slavicmyths:ancient_spear": 0.10256357526367743,
+      "slavicmyths:ancient_comb": 0.1660439793578603,
+      "slavicmyths:ancient_chekan": 0.06937772094857064,
+      "minecraft:bone": 0.2543690969540484,
+      "slavicmyths:ancient_carolingian_sword": 0.06937772094857064,
+      "minecraft:gold_nugget": 0.19638327321201854
+    }
+  }
+}

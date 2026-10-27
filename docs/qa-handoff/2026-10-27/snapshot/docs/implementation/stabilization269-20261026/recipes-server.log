@@ -1,0 +1,64 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compileStabilization269Java FAILED
+D:\slavic-myths\tools\stabilization269\Recipes269.java:13: error: incompatible types: Object cannot be converted to Ingredient
+   if(recipe instanceof ShapedRecipe shaped){var stacks=new ArrayList<ItemStack>(Collections.nCopies(9,ItemStack.EMPTY));for(int y=0;y<shaped.getHeight();y++)for(int x=0;x<shaped.getWidth();x++)stacks.set(y*3+x,witness(ingredients.get(y*shaped.getWidth()+x)));input=CraftingInput.of(3,3,stacks);}
+                                                                                                                                                                                                                                          ^
+D:\slavic-myths\tools\stabilization269\Recipes269.java:14: error: incompatible types: Object cannot be converted to Ingredient
+   else if(recipe instanceof ShapelessRecipe){var stacks=new ArrayList<ItemStack>(Collections.nCopies(9,ItemStack.EMPTY));for(int i=0;i<ingredients.size();i++)stacks.set(i,witness(ingredients.get(i)));input=CraftingInput.of(3,3,stacks);}
+                                                                                                                                                                                                   ^
+D:\slavic-myths\tools\stabilization269\Recipes269.java:15: error: incompatible types: Object cannot be converted to Ingredient
+   else if(recipe instanceof AbstractCookingRecipe||recipe instanceof SingleItemRecipe)input=new SingleRecipeInput(witness(ingredients.getFirst()));
+                                                                                                                                               ^
+D:\slavic-myths\tools\stabilization269\Recipes269.java:16: error: incompatible types: Object cannot be converted to Ingredient
+   else if(recipe instanceof SmithingRecipe&&ingredients.size()==3)input=new SmithingRecipeInput(witness(ingredients.get(0)),witness(ingredients.get(1)),witness(ingredients.get(2)));
+                                                                                                                        ^
+D:\slavic-myths\tools\stabilization269\Recipes269.java:16: error: incompatible types: Object cannot be converted to Ingredient
+   else if(recipe instanceof SmithingRecipe&&ingredients.size()==3)input=new SmithingRecipeInput(witness(ingredients.get(0)),witness(ingredients.get(1)),witness(ingredients.get(2)));
+                                                                                                                                                    ^
+D:\slavic-myths\tools\stabilization269\Recipes269.java:16: error: incompatible types: Object cannot be converted to Ingredient
+   else if(recipe instanceof SmithingRecipe&&ingredients.size()==3)input=new SmithingRecipeInput(witness(ingredients.get(0)),witness(ingredients.get(1)),witness(ingredients.get(2)));
+                                                                                                                                                                                ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+6 errors
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileStabilization269Java'.
+> Compilation failed; see the compiler output below.
+  D:\slavic-myths\tools\stabilization269\Recipes269.java:13: error: incompatible types: Object cannot be converted to Ingredient
+     if(recipe instanceof ShapedRecipe shaped){var stacks=new ArrayList<ItemStack>(Collections.nCopies(9,ItemStack.EMPTY));for(int y=0;y<shaped.getHeight();y++)for(int x=0;x<shaped.getWidth();x++)stacks.set(y*3+x,witness(ingredients.get(y*shaped.getWidth()+x)));input=CraftingInput.of(3,3,stacks);}
+                                                                                                                                                                                                                                            ^
+  D:\slavic-myths\tools\stabilization269\Recipes269.java:14: error: incompatible types: Object cannot be converted to Ingredient
+     else if(recipe instanceof ShapelessRecipe){var stacks=new ArrayList<ItemStack>(Collections.nCopies(9,ItemStack.EMPTY));for(int i=0;i<ingredients.size();i++)stacks.set(i,witness(ingredients.get(i)));input=CraftingInput.of(3,3,stacks);}
+                                                                                                                                                                                                     ^
+  D:\slavic-myths\tools\stabilization269\Recipes269.java:15: error: incompatible types: Object cannot be converted to Ingredient
+     else if(recipe instanceof AbstractCookingRecipe||recipe instanceof SingleItemRecipe)input=new SingleRecipeInput(witness(ingredients.getFirst()));
+                                                                                                                                                 ^
+  D:\slavic-myths\tools\stabilization269\Recipes269.java:16: error: incompatible types: Object cannot be converted to Ingredient
+     else if(recipe instanceof SmithingRecipe&&ingredients.size()==3)input=new SmithingRecipeInput(witness(ingredients.get(0)),witness(ingredients.get(1)),witness(ingredients.get(2)));
+                                                                                                                          ^
+  D:\slavic-myths\tools\stabilization269\Recipes269.java:16: error: incompatible types: Object cannot be converted to Ingredient
+     else if(recipe instanceof SmithingRecipe&&ingredients.size()==3)input=new SmithingRecipeInput(witness(ingredients.get(0)),witness(ingredients.get(1)),witness(ingredients.get(2)));
+                                                                                                                                                      ^
+  D:\slavic-myths\tools\stabilization269\Recipes269.java:16: error: incompatible types: Object cannot be converted to Ingredient
+     else if(recipe instanceof SmithingRecipe&&ingredients.size()==3)input=new SmithingRecipeInput(witness(ingredients.get(0)),witness(ingredients.get(1)),witness(ingredients.get(2)));
+                                                                                                                                                                                  ^
+  Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+  6 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 11s
+5 actionable tasks: 2 executed, 3 up-to-date

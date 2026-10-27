@@ -1,0 +1,1 @@
+{"required":true,"package":"org.slavicmyths.verify.client.mixin","compatibilityLevel":"JAVA_21","client":["HiddenWindow269","SideCamera269","BindingFocus269"],"injectors":{"defaultRequire":1}}

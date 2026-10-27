@@ -1,0 +1,37 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileStructures275OfflineJava
+> Task :processStructures275OfflineResources NO-SOURCE
+> Task :structures275OfflineClasses
+
+> Task :verifyStructures275Offline
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+Bayun fixture slope=false, desired cells=111
+Bayun fixture slope=true, desired cells=162
+PASS 99852 native offline checks; vanilla registry bootstrap only, no world/client/server. GAMEPLAY_NOT_RUN.
+
+> Task :compileNavigation296OfflineJava
+> Task :processNavigation296OfflineResources NO-SOURCE
+> Task :navigation296OfflineClasses
+
+> Task :verifyNavigation296Offline
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS 5068 native offline checks; no Minecraft client/server/world. Visual, relog and MP NOT_RUN.
+
+> Task :compilePerformance274OfflineJava
+> Task :processPerformance274OfflineResources NO-SOURCE
+> Task :performance274OfflineClasses
+
+> Task :verifyPerformance274Offline
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+COLUMN_CANDIDATES before=97200 after=3540; same 405 clip maps, not gameplay timing
+PASS 6 offline suites / 90701 checks; GAMEPLAY_NOT_RUN, zero worlds/client/server
+
+BUILD SUCCESSFUL in 33s
+10 actionable tasks: 7 executed, 3 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

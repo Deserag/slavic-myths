@@ -1,0 +1,90 @@
+{
+  "bandit": {
+    "canopy": [
+      "loot:camp"
+    ],
+    "cart": [
+      "loot:camp"
+    ],
+    "leader": [
+      "loot:camp"
+    ],
+    "senior": [
+      "loot:camp"
+    ],
+    "sleeping": [
+      "loot:camp"
+    ],
+    "storage_tent": [
+      "loot:camp"
+    ],
+    "warehouse": [
+      "loot:camp",
+      "loot:camp",
+      "loot:camp"
+    ],
+    "watch": [],
+    "yard_medium": [],
+    "yard_small": []
+  },
+  "stronghold": {
+    "ataman_house": [
+      "loot:ataman"
+    ],
+    "barracks_porch": [
+      "loot:barracks"
+    ],
+    "barracks_side": [
+      "loot:barracks"
+    ],
+    "cache_0": [
+      "loot:cache"
+    ],
+    "cache_1": [
+      "loot:cache"
+    ],
+    "central_yard": [],
+    "commander": [
+      "loot:ataman"
+    ],
+    "forge_closed": [
+      "loot:forge"
+    ],
+    "forge_open": [
+      "loot:forge"
+    ],
+    "gate": [],
+    "kitchen": [
+      "loot:kitchen"
+    ],
+    "nightingale_yard": [
+      "loot:feather",
+      "loot:nightingale"
+    ],
+    "perimeter_forest": [],
+    "perimeter_hill": [],
+    "perimeter_plains": [],
+    "prison": [],
+    "stable": [],
+    "tower_open": [
+      "loot:barracks"
+    ],
+    "tower_roof": [
+      "loot:barracks"
+    ],
+    "tower_tall": [
+      "loot:barracks"
+    ],
+    "utility": [
+      "loot:warehouse"
+    ],
+    "warehouse_long": [
+      "loot:warehouse",
+      "loot:warehouse"
+    ],
+    "warehouse_square": [
+      "loot:warehouse",
+      "loot:warehouse"
+    ]
+  }
+}

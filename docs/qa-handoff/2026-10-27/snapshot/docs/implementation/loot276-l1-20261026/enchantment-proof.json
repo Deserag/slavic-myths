@@ -1,0 +1,898 @@
+[
+  {
+    "table": "rewards276/kurgan_1_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_1_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:unbreaking",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 3,
+    "supported": "#minecraft:enchantable/durability"
+  },
+  {
+    "table": "rewards276/kurgan_1_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:sharpness",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/sharp_weapon"
+  },
+  {
+    "table": "rewards276/kurgan_1_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:efficiency",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/mining"
+  },
+  {
+    "table": "rewards276/kurgan_1_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:power",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/bow"
+  },
+  {
+    "table": "rewards276/kurgan_1_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:feather_falling",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/foot_armor"
+  },
+  {
+    "table": "rewards276/kurgan_1_main",
+    "item": "minecraft:iron_sword",
+    "enchantment": "minecraft:sharpness",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/sharp_weapon"
+  },
+  {
+    "table": "rewards276/kurgan_1_main",
+    "item": "minecraft:iron_axe",
+    "enchantment": "minecraft:efficiency",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/mining"
+  },
+  {
+    "table": "rewards276/kurgan_1_main",
+    "item": "minecraft:iron_helmet",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_1_main",
+    "item": "minecraft:iron_chestplate",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_1_main",
+    "item": "minecraft:iron_leggings",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_1_main",
+    "item": "minecraft:iron_boots",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_2_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_2_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:unbreaking",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 3,
+    "supported": "#minecraft:enchantable/durability"
+  },
+  {
+    "table": "rewards276/kurgan_2_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:sharpness",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/sharp_weapon"
+  },
+  {
+    "table": "rewards276/kurgan_2_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:efficiency",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/mining"
+  },
+  {
+    "table": "rewards276/kurgan_2_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:power",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/bow"
+  },
+  {
+    "table": "rewards276/kurgan_2_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:feather_falling",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/foot_armor"
+  },
+  {
+    "table": "rewards276/kurgan_2_main",
+    "item": "minecraft:iron_sword",
+    "enchantment": "minecraft:sharpness",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/sharp_weapon"
+  },
+  {
+    "table": "rewards276/kurgan_2_main",
+    "item": "minecraft:iron_axe",
+    "enchantment": "minecraft:efficiency",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/mining"
+  },
+  {
+    "table": "rewards276/kurgan_2_main",
+    "item": "minecraft:iron_helmet",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_2_main",
+    "item": "minecraft:iron_chestplate",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_2_main",
+    "item": "minecraft:iron_leggings",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_2_main",
+    "item": "minecraft:iron_boots",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_3_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_3_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:unbreaking",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 3,
+    "supported": "#minecraft:enchantable/durability"
+  },
+  {
+    "table": "rewards276/kurgan_3_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:sharpness",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/sharp_weapon"
+  },
+  {
+    "table": "rewards276/kurgan_3_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:efficiency",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/mining"
+  },
+  {
+    "table": "rewards276/kurgan_3_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:power",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/bow"
+  },
+  {
+    "table": "rewards276/kurgan_3_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:feather_falling",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/foot_armor"
+  },
+  {
+    "table": "rewards276/kurgan_3_main",
+    "item": "minecraft:iron_sword",
+    "enchantment": "minecraft:sharpness",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/sharp_weapon"
+  },
+  {
+    "table": "rewards276/kurgan_3_main",
+    "item": "minecraft:iron_axe",
+    "enchantment": "minecraft:efficiency",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/mining"
+  },
+  {
+    "table": "rewards276/kurgan_3_main",
+    "item": "minecraft:iron_helmet",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_3_main",
+    "item": "minecraft:iron_chestplate",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_3_main",
+    "item": "minecraft:iron_leggings",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_3_main",
+    "item": "minecraft:iron_boots",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_3_main",
+    "item": "minecraft:diamond_helmet",
+    "enchantment": "minecraft:protection",
+    "levels": 2,
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_3_main",
+    "item": "minecraft:diamond_chestplate",
+    "enchantment": "minecraft:protection",
+    "levels": 2,
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_3_main",
+    "item": "minecraft:diamond_leggings",
+    "enchantment": "minecraft:protection",
+    "levels": 2,
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/kurgan_3_main",
+    "item": "minecraft:diamond_boots",
+    "enchantment": "minecraft:protection",
+    "levels": 2,
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/camp_1_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/camp_1_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:unbreaking",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 3,
+    "supported": "#minecraft:enchantable/durability"
+  },
+  {
+    "table": "rewards276/camp_1_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:sharpness",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/sharp_weapon"
+  },
+  {
+    "table": "rewards276/camp_1_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:efficiency",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/mining"
+  },
+  {
+    "table": "rewards276/camp_1_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:power",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/bow"
+  },
+  {
+    "table": "rewards276/camp_1_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:feather_falling",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/foot_armor"
+  },
+  {
+    "table": "rewards276/camp_1_main",
+    "item": "minecraft:iron_sword",
+    "enchantment": "minecraft:sharpness",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/sharp_weapon"
+  },
+  {
+    "table": "rewards276/camp_1_main",
+    "item": "minecraft:iron_axe",
+    "enchantment": "minecraft:efficiency",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/mining"
+  },
+  {
+    "table": "rewards276/camp_1_main",
+    "item": "minecraft:iron_helmet",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/camp_1_main",
+    "item": "minecraft:iron_chestplate",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/camp_1_main",
+    "item": "minecraft:iron_leggings",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/camp_1_main",
+    "item": "minecraft:iron_boots",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/camp_2_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/camp_2_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:unbreaking",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 3,
+    "supported": "#minecraft:enchantable/durability"
+  },
+  {
+    "table": "rewards276/camp_2_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:sharpness",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/sharp_weapon"
+  },
+  {
+    "table": "rewards276/camp_2_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:efficiency",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/mining"
+  },
+  {
+    "table": "rewards276/camp_2_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:power",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/bow"
+  },
+  {
+    "table": "rewards276/camp_2_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:feather_falling",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/foot_armor"
+  },
+  {
+    "table": "rewards276/camp_2_main",
+    "item": "minecraft:iron_sword",
+    "enchantment": "minecraft:sharpness",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/sharp_weapon"
+  },
+  {
+    "table": "rewards276/camp_2_main",
+    "item": "minecraft:iron_axe",
+    "enchantment": "minecraft:efficiency",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/mining"
+  },
+  {
+    "table": "rewards276/camp_2_main",
+    "item": "minecraft:iron_helmet",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/camp_2_main",
+    "item": "minecraft:iron_chestplate",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/camp_2_main",
+    "item": "minecraft:iron_leggings",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/camp_2_main",
+    "item": "minecraft:iron_boots",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/camp_3_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/camp_3_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:unbreaking",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 3,
+    "supported": "#minecraft:enchantable/durability"
+  },
+  {
+    "table": "rewards276/camp_3_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:sharpness",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/sharp_weapon"
+  },
+  {
+    "table": "rewards276/camp_3_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:efficiency",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/mining"
+  },
+  {
+    "table": "rewards276/camp_3_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:power",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/bow"
+  },
+  {
+    "table": "rewards276/camp_3_main",
+    "item": "minecraft:book",
+    "enchantment": "minecraft:feather_falling",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 3
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/foot_armor"
+  },
+  {
+    "table": "rewards276/camp_3_main",
+    "item": "minecraft:iron_sword",
+    "enchantment": "minecraft:sharpness",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/sharp_weapon"
+  },
+  {
+    "table": "rewards276/camp_3_main",
+    "item": "minecraft:iron_axe",
+    "enchantment": "minecraft:efficiency",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 5,
+    "supported": "#minecraft:enchantable/mining"
+  },
+  {
+    "table": "rewards276/camp_3_main",
+    "item": "minecraft:iron_helmet",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/camp_3_main",
+    "item": "minecraft:iron_chestplate",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/camp_3_main",
+    "item": "minecraft:iron_leggings",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  },
+  {
+    "table": "rewards276/camp_3_main",
+    "item": "minecraft:iron_boots",
+    "enchantment": "minecraft:protection",
+    "levels": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 2
+    },
+    "max": 4,
+    "supported": "#minecraft:enchantable/armor"
+  }
+]

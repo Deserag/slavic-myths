@@ -1,0 +1,32 @@
+[
+  {
+    "original": "clean-build-206.log",
+    "original_sha256": "b672c4b09a2e568efe7b17988a6d80787aa2c83ccbc7eb186ab94eec5bde90c7",
+    "review": "clean-build-206.log.txt",
+    "review_sha256": "32f159bdadb5a322598662919caf3d30c2b87a70134d46baef7bc4a235717e56"
+  },
+  {
+    "original": "initial-client.log",
+    "original_sha256": "e06d177c7a62d2e7e2bef52fe974ad2fe58848aeeec440c67c97d529682ec293",
+    "review": "initial-client.log.txt",
+    "review_sha256": "ef5eb6265cd7bdab42a0ca312d703446267cb9ebaaf2b7a7ab2233e893fbbbe3"
+  },
+  {
+    "original": "resources-206.log",
+    "original_sha256": "57aa5282891dca4375060f2166581f8fd395d0d33b1def099a1669105e55a53d",
+    "review": "resources-206.log.txt",
+    "review_sha256": "510681452fcea39e6065106ee04e36b2a51da4608b19e9d550d8689a107165d2"
+  },
+  {
+    "original": "restart-client.log",
+    "original_sha256": "4851e390285d70369e6ac1a9ff1dc1495df22b4e62e966634a0b8f682c79e30b",
+    "review": "restart-client.log.txt",
+    "review_sha256": "620b872f4319f192c50f7bbe9f3464b702c66a9d7948aef912917d15cc5e18bf"
+  },
+  {
+    "original": "visual-client-206.log",
+    "original_sha256": "5ca093980944d6edebc866a1844082d9f95fb797de3a2a2b590237929dea1444",
+    "review": "visual-client-206.log.txt",
+    "review_sha256": "f49cf7c8b3dcfc1d52f67c23d92ce88ffe0e574ae206a50d8c544f0f0bc7010f"
+  }
+]

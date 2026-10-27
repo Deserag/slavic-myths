@@ -1,0 +1,31 @@
+{
+  "scope": "CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted",
+  "version": "2.0.4-HELL",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.4-HELL.jar",
+  "sha256": "1c22bf186ab6886fee8a464fb44b123620354ef93ee0f990d1208660d3743010",
+  "resources": 8031,
+  "json": 4432,
+  "png": 1443,
+  "models": 1886,
+  "java21_classes": 1950,
+  "runtime_launches": 0,
+  "runtime": "NOT_RUN, 0 launches",
+  "baseline": "5ffe64764cb10c80385de10cd8eed50836911947",
+  "baseline_jar_sha256": "9fe6b227c8737777fa39903f2a840920287a2740070bc03eaa9494d58bc724d8",
+  "changed_old_entries": [
+    "META-INF/MANIFEST.MF",
+    "org/slavicmyths/depths/DepthsService$Job.class",
+    "org/slavicmyths/depths/DepthsService.class",
+    "org/slavicmyths/sanctuary/SanctuaryPiece.class",
+    "org/slavicmyths/serpenthill/HillCommands.class",
+    "org/slavicmyths/serpenthill/HillPlan.class",
+    "org/slavicmyths/serpenthill/SerpentHillPiece.class",
+    "org/slavicmyths/swamp/SwampPiece.class",
+    "org/slavicmyths/world/ShrineFeature.class",
+    "META-INF/neoforge.mods.toml"
+  ],
+  "unchanged_old_classes": 1941,
+  "additional_profiles": 5,
+  "additional_draws": 100000,
+  "build": "Java21 gradlew.bat clean build --no-build-cache SUCCESS 1m34s; test NO-SOURCE; autonomous tests separate"
+}

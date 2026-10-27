@@ -1,0 +1,2085 @@
+{
+  "production_code_origin": "union:/D:/slavic-myths/work/loot276-runtime-20261026-run5/mods/slavicmyths-2.0.4-HELL.jar%23128!/",
+  "status": "PASS",
+  "phase": "restart",
+  "checks": [
+    {
+      "test": "actual installed production JAR loaded; no main class output",
+      "site": "bootstrap",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d999, y\u003d89, z\u003d29}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d999, y\u003d89, z\u003d29}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1032, y\u003d89, z\u003d-51}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1032, y\u003d89, z\u003d-51}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1030, y\u003d89, z\u003d7}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1030, y\u003d89, z\u003d7}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1252, y\u003d89, z\u003d-22}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1252, y\u003d89, z\u003d-22}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1287, y\u003d73, z\u003d-51}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1287, y\u003d73, z\u003d-51}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1287, y\u003d89, z\u003d-51}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1287, y\u003d89, z\u003d-51}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1287, y\u003d89, z\u003d61}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1287, y\u003d89, z\u003d61}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1283, y\u003d73, z\u003d80}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1283, y\u003d73, z\u003d80}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1318, y\u003d73, z\u003d-23}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1318, y\u003d73, z\u003d-23}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1323, y\u003d89, z\u003d40}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1323, y\u003d89, z\u003d40}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1317, y\u003d89, z\u003d40}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1317, y\u003d89, z\u003d40}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1316, y\u003d73, z\u003d41}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1316, y\u003d73, z\u003d41}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1508, y\u003d73, z\u003d41}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1508, y\u003d73, z\u003d41}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1516, y\u003d73, z\u003d41}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1516, y\u003d73, z\u003d41}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1511, y\u003d73, z\u003d61}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1511, y\u003d73, z\u003d61}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1511, y\u003d57, z\u003d61}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1511, y\u003d57, z\u003d61}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1543, y\u003d89, z\u003d-50}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1543, y\u003d89, z\u003d-50}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1540, y\u003d57, z\u003d-23}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1540, y\u003d57, z\u003d-23}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1540, y\u003d41, z\u003d-23}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1540, y\u003d41, z\u003d-23}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1543, y\u003d89, z\u003d61}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1543, y\u003d89, z\u003d61}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1536, y\u003d41, z\u003d83}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1536, y\u003d41, z\u003d83}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1575, y\u003d73, z\u003d-50}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1575, y\u003d73, z\u003d-50}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1575, y\u003d41, z\u003d-50}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1575, y\u003d41, z\u003d-50}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1575, y\u003d57, z\u003d-50}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1575, y\u003d57, z\u003d-50}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1572, y\u003d73, z\u003d-25}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1572, y\u003d73, z\u003d-25}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1574, y\u003d57, z\u003d9}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1574, y\u003d57, z\u003d9}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1573, y\u003d41, z\u003d7}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1573, y\u003d41, z\u003d7}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1582, y\u003d89, z\u003d43}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1582, y\u003d89, z\u003d43}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d1570, y\u003d89, z\u003d43}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d1570, y\u003d89, z\u003d43}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d2002, y\u003d101, z\u003d4}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d2002, y\u003d101, z\u003d4}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d2098, y\u003d101, z\u003d2}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d2098, y\u003d101, z\u003d2}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d2194, y\u003d101, z\u003d6}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d2194, y\u003d101, z\u003d6}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d2388, y\u003d102, z\u003d4}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d2388, y\u003d102, z\u003d4}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d3026, y\u003d101, z\u003d6}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d3026, y\u003d101, z\u003d6}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d3122, y\u003d101, z\u003d4}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d3122, y\u003d101, z\u003d4}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d3218, y\u003d101, z\u003d4}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d3218, y\u003d101, z\u003d4}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d3314, y\u003d101, z\u003d2}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d3314, y\u003d101, z\u003d2}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d3410, y\u003d101, z\u003d6}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d3410, y\u003d101, z\u003d6}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d3027, y\u003d101, z\u003d98}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d3027, y\u003d101, z\u003d98}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d3030, y\u003d101, z\u003d98}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d3030, y\u003d101, z\u003d98}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d3026, y\u003d101, z\u003d98}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d3026, y\u003d101, z\u003d98}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d3220, y\u003d101, z\u003d98}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d3220, y\u003d101, z\u003d98}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d4154, y\u003d101, z\u003d5}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d4154, y\u003d101, z\u003d5}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d4248, y\u003d101, z\u003d2}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d4248, y\u003d101, z\u003d2}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d4338, y\u003d101, z\u003d6}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d4338, y\u003d101, z\u003d6}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d4346, y\u003d101, z\u003d6}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d4346, y\u003d101, z\u003d6}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d4440, y\u003d101, z\u003d6}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d4440, y\u003d101, z\u003d6}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d4060, y\u003d101, z\u003d101}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d4060, y\u003d101, z\u003d101}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d4337, y\u003d101, z\u003d99}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d4337, y\u003d101, z\u003d99}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d4440, y\u003d101, z\u003d98}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d4440, y\u003d101, z\u003d98}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d4164, y\u003d108, z\u003d203}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d4164, y\u003d108, z\u003d203}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d4170, y\u003d101, z\u003d210}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d4170, y\u003d101, z\u003d210}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d4241, y\u003d106, z\u003d197}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d4241, y\u003d106, z\u003d197}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d4337, y\u003d107, z\u003d197}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d4337, y\u003d107, z\u003d197}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d4433, y\u003d109, z\u003d197}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d4433, y\u003d109, z\u003d197}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d4148, y\u003d101, z\u003d292}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d4148, y\u003d101, z\u003d292}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d5511, y\u003d102, z\u003d17}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d5511, y\u003d102, z\u003d17}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d5510, y\u003d101, z\u003d45}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d5510, y\u003d101, z\u003d45}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d5518, y\u003d102, z\u003d20}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d5518, y\u003d102, z\u003d20}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d5529, y\u003d104, z\u003d21}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d5529, y\u003d104, z\u003d21}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d5517, y\u003d101, z\u003d39}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d5517, y\u003d101, z\u003d39}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d6012, y\u003d101, z\u003d14}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d6012, y\u003d101, z\u003d14}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d6011, y\u003d101, z\u003d23}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d6011, y\u003d101, z\u003d23}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d6023, y\u003d101, z\u003d22}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d6023, y\u003d101, z\u003d22}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d6089, y\u003d101, z\u003d35}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d6089, y\u003d101, z\u003d35}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d6536, y\u003d161, z\u003d89}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d6536, y\u003d161, z\u003d89}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d6537, y\u003d161, z\u003d89}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d6537, y\u003d161, z\u003d89}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d6545, y\u003d161, z\u003d44}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d6545, y\u003d161, z\u003d44}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d6546, y\u003d161, z\u003d44}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d6546, y\u003d161, z\u003d44}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d6554, y\u003d85, z\u003d86}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d6554, y\u003d85, z\u003d86}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d6591, y\u003d161, z\u003d56}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d6591, y\u003d161, z\u003d56}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d6590, y\u003d161, z\u003d56}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d6590, y\u003d161, z\u003d56}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d6584, y\u003d161, z\u003d55}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d6584, y\u003d161, z\u003d55}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d6583, y\u003d161, z\u003d55}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d6583, y\u003d161, z\u003d55}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d6584, y\u003d161, z\u003d65}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d6584, y\u003d161, z\u003d65}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d6585, y\u003d161, z\u003d65}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d6585, y\u003d161, z\u003d65}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7004, y\u003d102, z\u003d3}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7004, y\u003d102, z\u003d3}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7008, y\u003d102, z\u003d7}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7008, y\u003d102, z\u003d7}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7132, y\u003d102, z\u003d3}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7132, y\u003d102, z\u003d3}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7136, y\u003d102, z\u003d7}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7136, y\u003d102, z\u003d7}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7260, y\u003d102, z\u003d3}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7260, y\u003d102, z\u003d3}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7264, y\u003d102, z\u003d7}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7264, y\u003d102, z\u003d7}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7389, y\u003d102, z\u003d14}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7389, y\u003d102, z\u003d14}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7392, y\u003d102, z\u003d8}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7392, y\u003d102, z\u003d8}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7517, y\u003d102, z\u003d14}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7517, y\u003d102, z\u003d14}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7520, y\u003d102, z\u003d8}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7520, y\u003d102, z\u003d8}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7645, y\u003d102, z\u003d14}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7645, y\u003d102, z\u003d14}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7648, y\u003d102, z\u003d8}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7648, y\u003d102, z\u003d8}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7775, y\u003d102, z\u003d9}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7775, y\u003d102, z\u003d9}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7775, y\u003d102, z\u003d4}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7775, y\u003d102, z\u003d4}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7903, y\u003d102, z\u003d4}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7903, y\u003d102, z\u003d4}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7903, y\u003d102, z\u003d9}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7903, y\u003d102, z\u003d9}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7007, y\u003d102, z\u003d132}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7007, y\u003d102, z\u003d132}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7007, y\u003d102, z\u003d137}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7007, y\u003d102, z\u003d137}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7132, y\u003d102, z\u003d145}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7132, y\u003d102, z\u003d145}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7260, y\u003d102, z\u003d145}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7260, y\u003d102, z\u003d145}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7388, y\u003d102, z\u003d145}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7388, y\u003d102, z\u003d145}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7517, y\u003d110, z\u003d133}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7517, y\u003d110, z\u003d133}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7516, y\u003d102, z\u003d132}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7516, y\u003d102, z\u003d132}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7645, y\u003d112, z\u003d133}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7645, y\u003d112, z\u003d133}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7644, y\u003d102, z\u003d132}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7644, y\u003d102, z\u003d132}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7772, y\u003d102, z\u003d132}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7772, y\u003d102, z\u003d132}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7773, y\u003d114, z\u003d133}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7773, y\u003d114, z\u003d133}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7900, y\u003d101, z\u003d135}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7900, y\u003d101, z\u003d135}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7004, y\u003d101, z\u003d264}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7004, y\u003d101, z\u003d264}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7009, y\u003d101, z\u003d259}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7009, y\u003d101, z\u003d259}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7131, y\u003d101, z\u003d258}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7131, y\u003d101, z\u003d258}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7259, y\u003d102, z\u003d260}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7259, y\u003d102, z\u003d260}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7265, y\u003d102, z\u003d260}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7265, y\u003d102, z\u003d260}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7387, y\u003d102, z\u003d260}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7387, y\u003d102, z\u003d260}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7393, y\u003d102, z\u003d260}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7393, y\u003d102, z\u003d260}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7515, y\u003d102, z\u003d260}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7515, y\u003d102, z\u003d260}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7521, y\u003d102, z\u003d260}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7521, y\u003d102, z\u003d260}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7644, y\u003d102, z\u003d261}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7644, y\u003d102, z\u003d261}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7648, y\u003d102, z\u003d266}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7648, y\u003d102, z\u003d266}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7650, y\u003d102, z\u003d261}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7650, y\u003d102, z\u003d261}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7666, y\u003d102, z\u003d264}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7666, y\u003d102, z\u003d264}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7666, y\u003d110, z\u003d281}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7666, y\u003d110, z\u003d281}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7772, y\u003d102, z\u003d261}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7772, y\u003d102, z\u003d261}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7778, y\u003d102, z\u003d261}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7778, y\u003d102, z\u003d261}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7776, y\u003d102, z\u003d266}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7776, y\u003d102, z\u003d266}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7794, y\u003d102, z\u003d264}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7794, y\u003d102, z\u003d264}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7794, y\u003d111, z\u003d281}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7794, y\u003d111, z\u003d281}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7900, y\u003d102, z\u003d261}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7900, y\u003d102, z\u003d261}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7906, y\u003d102, z\u003d261}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7906, y\u003d102, z\u003d261}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7904, y\u003d102, z\u003d266}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7904, y\u003d102, z\u003d266}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7922, y\u003d102, z\u003d264}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7922, y\u003d102, z\u003d264}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d7922, y\u003d112, z\u003d281}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d7922, y\u003d112, z\u003d281}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d12928, y\u003d17, z\u003d1447}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d12928, y\u003d17, z\u003d1447}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d12920, y\u003d9, z\u003d1524}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "emptied container remains empty after process restart BlockPos{x\u003d12920, y\u003d9, z\u003d1524}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d9000, y\u003d100, z\u003d0}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "filled inventory persisted after process restart",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted container exists BlockPos{x\u003d9003, y\u003d100, z\u003d0}",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "unopened table persisted",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "single depths instance persisted",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "completed depths receipts persisted",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "saved DepthsId prevents repeat job chest refill",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "saved DepthsId prevents repeat job chest refill",
+      "site": "restart",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d999, y\u003d89, z\u003d29}",
+      "site": "reprocess/kurgan_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1032, y\u003d89, z\u003d-51}",
+      "site": "reprocess/kurgan_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1030, y\u003d89, z\u003d7}",
+      "site": "reprocess/kurgan_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1252, y\u003d89, z\u003d-22}",
+      "site": "reprocess/kurgan_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1287, y\u003d73, z\u003d-51}",
+      "site": "reprocess/kurgan_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1287, y\u003d89, z\u003d-51}",
+      "site": "reprocess/kurgan_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1287, y\u003d89, z\u003d61}",
+      "site": "reprocess/kurgan_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1283, y\u003d73, z\u003d80}",
+      "site": "reprocess/kurgan_2",
+      "result": "PASS"
+    },
+    {
+      "test": "no new loot assigned outside witnessed reward positions (trap/decor inventory allowed) BlockPos{x\u003d1320, y\u003d72, z\u003d-28}",
+      "site": "reprocess/kurgan_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1318, y\u003d73, z\u003d-23}",
+      "site": "reprocess/kurgan_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1323, y\u003d89, z\u003d40}",
+      "site": "reprocess/kurgan_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1317, y\u003d89, z\u003d40}",
+      "site": "reprocess/kurgan_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1316, y\u003d73, z\u003d41}",
+      "site": "reprocess/kurgan_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1508, y\u003d73, z\u003d41}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1516, y\u003d73, z\u003d41}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1511, y\u003d73, z\u003d61}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1511, y\u003d57, z\u003d61}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1543, y\u003d89, z\u003d-50}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1540, y\u003d57, z\u003d-23}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1540, y\u003d41, z\u003d-23}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1543, y\u003d89, z\u003d61}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1536, y\u003d41, z\u003d83}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1575, y\u003d73, z\u003d-50}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1575, y\u003d41, z\u003d-50}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1575, y\u003d57, z\u003d-50}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1572, y\u003d73, z\u003d-25}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1574, y\u003d57, z\u003d9}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1573, y\u003d41, z\u003d7}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1582, y\u003d89, z\u003d43}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d1570, y\u003d89, z\u003d43}",
+      "site": "reprocess/kurgan_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d2002, y\u003d101, z\u003d4}",
+      "site": "reprocess/camp_1",
+      "result": "PASS"
+    },
+    {
+      "test": "no new loot assigned outside witnessed reward positions (trap/decor inventory allowed) BlockPos{x\u003d2100, y\u003d101, z\u003d2}",
+      "site": "reprocess/camp_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d2098, y\u003d101, z\u003d2}",
+      "site": "reprocess/camp_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d2194, y\u003d101, z\u003d6}",
+      "site": "reprocess/camp_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d2388, y\u003d102, z\u003d4}",
+      "site": "reprocess/camp_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d3026, y\u003d101, z\u003d6}",
+      "site": "reprocess/camp_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d3122, y\u003d101, z\u003d4}",
+      "site": "reprocess/camp_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d3218, y\u003d101, z\u003d4}",
+      "site": "reprocess/camp_2",
+      "result": "PASS"
+    },
+    {
+      "test": "no new loot assigned outside witnessed reward positions (trap/decor inventory allowed) BlockPos{x\u003d3316, y\u003d101, z\u003d2}",
+      "site": "reprocess/camp_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d3314, y\u003d101, z\u003d2}",
+      "site": "reprocess/camp_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d3410, y\u003d101, z\u003d6}",
+      "site": "reprocess/camp_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d3027, y\u003d101, z\u003d98}",
+      "site": "reprocess/camp_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d3030, y\u003d101, z\u003d98}",
+      "site": "reprocess/camp_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d3026, y\u003d101, z\u003d98}",
+      "site": "reprocess/camp_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d3220, y\u003d101, z\u003d98}",
+      "site": "reprocess/camp_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d4154, y\u003d101, z\u003d5}",
+      "site": "reprocess/camp_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d4248, y\u003d101, z\u003d2}",
+      "site": "reprocess/camp_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d4338, y\u003d101, z\u003d6}",
+      "site": "reprocess/camp_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d4346, y\u003d101, z\u003d6}",
+      "site": "reprocess/camp_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d4440, y\u003d101, z\u003d6}",
+      "site": "reprocess/camp_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d4060, y\u003d101, z\u003d101}",
+      "site": "reprocess/camp_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d4337, y\u003d101, z\u003d99}",
+      "site": "reprocess/camp_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d4440, y\u003d101, z\u003d98}",
+      "site": "reprocess/camp_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d4164, y\u003d108, z\u003d203}",
+      "site": "reprocess/camp_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d4170, y\u003d101, z\u003d210}",
+      "site": "reprocess/camp_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d4241, y\u003d106, z\u003d197}",
+      "site": "reprocess/camp_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d4337, y\u003d107, z\u003d197}",
+      "site": "reprocess/camp_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d4433, y\u003d109, z\u003d197}",
+      "site": "reprocess/camp_3",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d4148, y\u003d101, z\u003d292}",
+      "site": "reprocess/camp_3",
+      "result": "PASS"
+    },
+    {
+      "test": "no new loot assigned outside witnessed reward positions (trap/decor inventory allowed) BlockPos{x\u003d5509, y\u003d102, z\u003d14}",
+      "site": "reprocess/fire",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d5511, y\u003d102, z\u003d17}",
+      "site": "reprocess/fire",
+      "result": "PASS"
+    },
+    {
+      "test": "no new loot assigned outside witnessed reward positions (trap/decor inventory allowed) BlockPos{x\u003d5509, y\u003d102, z\u003d23}",
+      "site": "reprocess/fire",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d5510, y\u003d101, z\u003d45}",
+      "site": "reprocess/fire",
+      "result": "PASS"
+    },
+    {
+      "test": "no new loot assigned outside witnessed reward positions (trap/decor inventory allowed) BlockPos{x\u003d5519, y\u003d102, z\u003d14}",
+      "site": "reprocess/fire",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d5518, y\u003d102, z\u003d20}",
+      "site": "reprocess/fire",
+      "result": "PASS"
+    },
+    {
+      "test": "ritual unlock persists after real restart",
+      "site": "reprocess/fire",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d5529, y\u003d104, z\u003d21}",
+      "site": "reprocess/fire",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d5517, y\u003d101, z\u003d39}",
+      "site": "reprocess/fire",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d6012, y\u003d101, z\u003d14}",
+      "site": "reprocess/spring",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d6011, y\u003d101, z\u003d23}",
+      "site": "reprocess/spring",
+      "result": "PASS"
+    },
+    {
+      "test": "ritual unlock persists after real restart",
+      "site": "reprocess/spring",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d6023, y\u003d101, z\u003d22}",
+      "site": "reprocess/spring",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d6089, y\u003d101, z\u003d35}",
+      "site": "reprocess/spring",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d6536, y\u003d161, z\u003d89}",
+      "site": "reprocess/fortress",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d6537, y\u003d161, z\u003d89}",
+      "site": "reprocess/fortress",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d6545, y\u003d161, z\u003d44}",
+      "site": "reprocess/fortress",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d6546, y\u003d161, z\u003d44}",
+      "site": "reprocess/fortress",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d6554, y\u003d85, z\u003d86}",
+      "site": "reprocess/fortress",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d6591, y\u003d161, z\u003d56}",
+      "site": "reprocess/fortress",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d6590, y\u003d161, z\u003d56}",
+      "site": "reprocess/fortress",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d6584, y\u003d161, z\u003d55}",
+      "site": "reprocess/fortress",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d6583, y\u003d161, z\u003d55}",
+      "site": "reprocess/fortress",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d6584, y\u003d161, z\u003d65}",
+      "site": "reprocess/fortress",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d6585, y\u003d161, z\u003d65}",
+      "site": "reprocess/fortress",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7004, y\u003d102, z\u003d3}",
+      "site": "reprocess/swamp/v097_abandoned_0",
+      "result": "PASS"
+    },
+    {
+      "test": "no new loot assigned outside witnessed reward positions (trap/decor inventory allowed) BlockPos{x\u003d7008, y\u003d102, z\u003d3}",
+      "site": "reprocess/swamp/v097_abandoned_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7008, y\u003d102, z\u003d7}",
+      "site": "reprocess/swamp/v097_abandoned_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7132, y\u003d102, z\u003d3}",
+      "site": "reprocess/swamp/v097_abandoned_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7136, y\u003d102, z\u003d7}",
+      "site": "reprocess/swamp/v097_abandoned_1",
+      "result": "PASS"
+    },
+    {
+      "test": "no new loot assigned outside witnessed reward positions (trap/decor inventory allowed) BlockPos{x\u003d7136, y\u003d102, z\u003d3}",
+      "site": "reprocess/swamp/v097_abandoned_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7260, y\u003d102, z\u003d3}",
+      "site": "reprocess/swamp/v097_abandoned_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7264, y\u003d102, z\u003d7}",
+      "site": "reprocess/swamp/v097_abandoned_2",
+      "result": "PASS"
+    },
+    {
+      "test": "no new loot assigned outside witnessed reward positions (trap/decor inventory allowed) BlockPos{x\u003d7264, y\u003d102, z\u003d3}",
+      "site": "reprocess/swamp/v097_abandoned_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7389, y\u003d102, z\u003d14}",
+      "site": "reprocess/swamp/v097_fisher_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7392, y\u003d102, z\u003d8}",
+      "site": "reprocess/swamp/v097_fisher_0",
+      "result": "PASS"
+    },
+    {
+      "test": "no new loot assigned outside witnessed reward positions (trap/decor inventory allowed) BlockPos{x\u003d7392, y\u003d102, z\u003d3}",
+      "site": "reprocess/swamp/v097_fisher_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7517, y\u003d102, z\u003d14}",
+      "site": "reprocess/swamp/v097_fisher_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7520, y\u003d102, z\u003d8}",
+      "site": "reprocess/swamp/v097_fisher_1",
+      "result": "PASS"
+    },
+    {
+      "test": "no new loot assigned outside witnessed reward positions (trap/decor inventory allowed) BlockPos{x\u003d7520, y\u003d102, z\u003d3}",
+      "site": "reprocess/swamp/v097_fisher_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7645, y\u003d102, z\u003d14}",
+      "site": "reprocess/swamp/v097_fisher_2",
+      "result": "PASS"
+    },
+    {
+      "test": "no new loot assigned outside witnessed reward positions (trap/decor inventory allowed) BlockPos{x\u003d7648, y\u003d102, z\u003d3}",
+      "site": "reprocess/swamp/v097_fisher_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7648, y\u003d102, z\u003d8}",
+      "site": "reprocess/swamp/v097_fisher_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7775, y\u003d102, z\u003d9}",
+      "site": "reprocess/swamp/v097_landing_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7775, y\u003d102, z\u003d4}",
+      "site": "reprocess/swamp/v097_landing_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7903, y\u003d102, z\u003d4}",
+      "site": "reprocess/swamp/v097_landing_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7903, y\u003d102, z\u003d9}",
+      "site": "reprocess/swamp/v097_landing_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7007, y\u003d102, z\u003d132}",
+      "site": "reprocess/swamp/v097_landing_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7007, y\u003d102, z\u003d137}",
+      "site": "reprocess/swamp/v097_landing_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7132, y\u003d102, z\u003d145}",
+      "site": "reprocess/swamp/v097_boardwalk_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7260, y\u003d102, z\u003d145}",
+      "site": "reprocess/swamp/v097_boardwalk_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7388, y\u003d102, z\u003d145}",
+      "site": "reprocess/swamp/v097_boardwalk_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7517, y\u003d110, z\u003d133}",
+      "site": "reprocess/swamp/v097_watchtower_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7516, y\u003d102, z\u003d132}",
+      "site": "reprocess/swamp/v097_watchtower_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7645, y\u003d112, z\u003d133}",
+      "site": "reprocess/swamp/v097_watchtower_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7644, y\u003d102, z\u003d132}",
+      "site": "reprocess/swamp/v097_watchtower_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7772, y\u003d102, z\u003d132}",
+      "site": "reprocess/swamp/v097_watchtower_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7773, y\u003d114, z\u003d133}",
+      "site": "reprocess/swamp/v097_watchtower_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7900, y\u003d101, z\u003d135}",
+      "site": "reprocess/swamp/ruin_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7004, y\u003d101, z\u003d264}",
+      "site": "reprocess/swamp/ruin_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7009, y\u003d101, z\u003d259}",
+      "site": "reprocess/swamp/ruin_1",
+      "result": "PASS"
+    },
+    {
+      "test": "no new loot assigned outside witnessed reward positions (trap/decor inventory allowed) BlockPos{x\u003d7010, y\u003d101, z\u003d259}",
+      "site": "reprocess/swamp/ruin_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7131, y\u003d101, z\u003d258}",
+      "site": "reprocess/swamp/ruin_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7259, y\u003d102, z\u003d260}",
+      "site": "reprocess/swamp/v097_shrine_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7265, y\u003d102, z\u003d260}",
+      "site": "reprocess/swamp/v097_shrine_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7387, y\u003d102, z\u003d260}",
+      "site": "reprocess/swamp/v097_shrine_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7393, y\u003d102, z\u003d260}",
+      "site": "reprocess/swamp/v097_shrine_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7515, y\u003d102, z\u003d260}",
+      "site": "reprocess/swamp/v097_shrine_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7521, y\u003d102, z\u003d260}",
+      "site": "reprocess/swamp/v097_shrine_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7644, y\u003d102, z\u003d261}",
+      "site": "reprocess/swamp/v097_cluster_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7648, y\u003d102, z\u003d266}",
+      "site": "reprocess/swamp/v097_cluster_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7650, y\u003d102, z\u003d261}",
+      "site": "reprocess/swamp/v097_cluster_0",
+      "result": "PASS"
+    },
+    {
+      "test": "no new loot assigned outside witnessed reward positions (trap/decor inventory allowed) BlockPos{x\u003d7666, y\u003d102, z\u003d260}",
+      "site": "reprocess/swamp/v097_cluster_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7666, y\u003d102, z\u003d264}",
+      "site": "reprocess/swamp/v097_cluster_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7666, y\u003d110, z\u003d281}",
+      "site": "reprocess/swamp/v097_cluster_0",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7772, y\u003d102, z\u003d261}",
+      "site": "reprocess/swamp/v097_cluster_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7778, y\u003d102, z\u003d261}",
+      "site": "reprocess/swamp/v097_cluster_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7776, y\u003d102, z\u003d266}",
+      "site": "reprocess/swamp/v097_cluster_1",
+      "result": "PASS"
+    },
+    {
+      "test": "no new loot assigned outside witnessed reward positions (trap/decor inventory allowed) BlockPos{x\u003d7794, y\u003d102, z\u003d260}",
+      "site": "reprocess/swamp/v097_cluster_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7794, y\u003d102, z\u003d264}",
+      "site": "reprocess/swamp/v097_cluster_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7794, y\u003d111, z\u003d281}",
+      "site": "reprocess/swamp/v097_cluster_1",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7900, y\u003d102, z\u003d261}",
+      "site": "reprocess/swamp/v097_cluster_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7906, y\u003d102, z\u003d261}",
+      "site": "reprocess/swamp/v097_cluster_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7904, y\u003d102, z\u003d266}",
+      "site": "reprocess/swamp/v097_cluster_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7922, y\u003d102, z\u003d264}",
+      "site": "reprocess/swamp/v097_cluster_2",
+      "result": "PASS"
+    },
+    {
+      "test": "no new loot assigned outside witnessed reward positions (trap/decor inventory allowed) BlockPos{x\u003d7922, y\u003d102, z\u003d260}",
+      "site": "reprocess/swamp/v097_cluster_2",
+      "result": "PASS"
+    },
+    {
+      "test": "persisted processed marker prevents reward refill BlockPos{x\u003d7922, y\u003d112, z\u003d281}",
+      "site": "reprocess/swamp/v097_cluster_2",
+      "result": "PASS"
+    }
+  ],
+  "native_stack_assertions": 0,
+  "seed": 2762026,
+  "elapsed_seconds": 9.2950814
+}

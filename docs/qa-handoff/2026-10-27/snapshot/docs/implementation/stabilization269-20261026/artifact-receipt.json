@@ -1,0 +1,36 @@
+{
+  "source_head": "61cb344eeaf3a31db098052800a5e8ab710568de",
+  "branch": "hell",
+  "source_state": "UNCOMMITTED_DIFF; not installed; latest collision fix gameplay NOT_RUN per owner instruction",
+  "production_diff_sha256": "5bd06248ad34b9e5f4e28230e9f8c08bfd7236e0da2318cafe3d107d085bb0f2",
+  "built_jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.4-HELL.jar",
+  "built_sha256": "636ab1c948244f3f7857501d0ebc7f91a461fb8b7809c0f2bcb53696649ca7d5",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.4-HELL.jar",
+  "installed_sha256": "1c22bf186ab6886fee8a464fb44b123620354ef93ee0f990d1208660d3743010",
+  "installed_mod_jars": [
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.4-HELL.jar"
+  ],
+  "production_classes_checked": 1950,
+  "class_byte_mismatches": [],
+  "qa_leaks": [],
+  "changed_jar_entries": [
+    "assets/minecraft/atlases/blocks.json",
+    "assets/slavicmyths/lang/en_us.json",
+    "assets/slavicmyths/lang/ru_ru.json",
+    "assets/slavicmyths/models/item/heart_of_eternal_cold.json",
+    "assets/slavicmyths/models/item/karachun_scythe.json",
+    "assets/slavicmyths/models/item/morozko_staff.json",
+    "org/slavicmyths/sivka/SivkaBonds.class",
+    "org/slavicmyths/sivka/SivkaEntity.class",
+    "org/slavicmyths/sivka/SivkaRules.class",
+    "org/slavicmyths/worldgen/OnDemandStructures.class",
+    "org/slavicmyths/worldgen/StructureCandidates.class",
+    "org/slavicmyths/yaga/YagaPlacement$Cursor.class",
+    "org/slavicmyths/yaga/YagaPlacement$Refused.class",
+    "org/slavicmyths/yaga/YagaPlacement.class"
+  ],
+  "loot_resources_changed": [],
+  "art_or_audio_files_changed": [],
+  "runtime_after_latest_collision_fix": "NOT_RUN; owner asked not to launch Minecraft",
+  "deployment": "POLYMC_NOT_INSTALLED; existing installation preserved, no deployment requested in current phase"
+}

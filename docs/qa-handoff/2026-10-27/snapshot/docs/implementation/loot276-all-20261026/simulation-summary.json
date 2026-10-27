@@ -1,0 +1,19 @@
+{
+  "core_profiles": 119,
+  "additional_profiles": 5,
+  "conditional_full_clear_profiles": 8,
+  "profiles": 132,
+  "samples_per_profile": 20000,
+  "total_draws": 2640000,
+  "runtime_launches": 0,
+  "native_kurgan_plan_roster_calls": 60000,
+  "city_plan_corpus": {
+    "climates": 3,
+    "flat_seeds_each": 100,
+    "api_test_doubles": true
+  },
+  "core_checks": 2959,
+  "independent_model_boundaries": 4,
+  "items286_transaction_checks": 204,
+  "status": "PASS_OFFLINE_OWNER_PENDING"
+}

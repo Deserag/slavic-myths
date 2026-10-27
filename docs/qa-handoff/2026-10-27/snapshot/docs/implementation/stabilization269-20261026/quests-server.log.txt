@@ -1,0 +1,182 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileStabilization269Java
+> Task :downloadAssets UP-TO-DATE
+> Task :writeStabilization269ServerLegacyClasspath UP-TO-DATE
+> Task :prepareStabilization269ServerRun
+> Task :processStabilization269Resources NO-SOURCE
+> Task :stabilization269Classes
+
+> Task :runStabilization269Server
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[15:27:44] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430, --nogui]
+[15:27:44] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[15:27:44] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[15:27:44] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[15:27:44] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[15:27:44] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[15:27:44] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]:
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 2.0.4-HELL (slavicmyths)
+[15:27:45] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[15:27:45] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, ., --nogui]
+[15:27:45] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[15:27:45] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[15:27:46] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[15:27:47] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[15:27:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15:27:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15:27:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[15:27:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[15:27:51] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15:27:52] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[15:27:53] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[15:27:53] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[15:27:53] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[15:27:55] [main/INFO] [minecraft/RecipeManager]: Loaded 1853 recipes
+[15:27:55] [main/INFO] [minecraft/AdvancementTree]: Loaded 1643 advancements
+[15:27:55] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[15:27:55] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[15:27:55] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.21.1
+[15:27:55] [Server thread/INFO] [minecraft/DedicatedServer]: Loading properties
+[15:27:55] [Server thread/INFO] [minecraft/DedicatedServer]: Default game type: SURVIVAL
+[15:27:55] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[15:27:56] [Server thread/INFO] [minecraft/DedicatedServer]: Starting Minecraft server on 127.0.0.1:25769
+[15:27:56] [Server thread/INFO] [minecraft/ServerConnectionListener]: Using default channel type
+[15:27:56] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[15:27:56] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.
+[15:27:56] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[15:27:56] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set "online-mode" to "true" in the server.properties file.
+[15:27:56] [Server thread/INFO] [minecraft/DedicatedServer]: Preparing level "stabilization269-test"
+[15:27:58] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[15:27:58] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[15:27:58] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[15:27:58] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 924 ms
+[15:27:58] [Server thread/INFO] [minecraft/DedicatedServer]: Done (2.859s)! For help, type "help"
+[15:27:59] [Server thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[15:27:59] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+QA269 PASS yaga_quest_transactions saved canonical NPC present for real quest menu
+QA269 PASS yaga_quest_transactions accept real main quest not_empty_handed
+QA269 PASS yaga_quest_transactions main rejects missing ingredients not_empty_handed
+QA269 PASS yaga_quest_transactions complete real main quest not_empty_handed
+QA269 PASS yaga_quest_transactions main advances one stage not_empty_handed
+QA269 PASS yaga_quest_transactions main reward exact quantity not_empty_handed
+QA269 PASS yaga_quest_transactions main reward cannot repeat not_empty_handed
+QA269 PASS yaga_quest_transactions accept real main quest heat_and_wind
+QA269 PASS yaga_quest_transactions main rejects missing ingredients heat_and_wind
+QA269 PASS yaga_quest_transactions complete real main quest heat_and_wind
+QA269 PASS yaga_quest_transactions main advances one stage heat_and_wind
+QA269 PASS yaga_quest_transactions main reward exact quantity heat_and_wind
+QA269 PASS yaga_quest_transactions main reward cannot repeat heat_and_wind
+QA269 PASS yaga_quest_transactions accept strength quest
+QA269 PASS yaga_quest_transactions strength rejects absent two boss credits
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: Stabilization269 has completed the challenge [An ill fate]
+QA269 PASS yaga_quest_transactions actual boss death awards player credit name_your_misfortune
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: Stabilization269 has completed the challenge [Champion of the steppe]
+QA269 PASS yaga_quest_transactions actual boss death awards player credit steppe_champion
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: Stabilization269 has completed the challenge [Trusted by Yaga]
+QA269 PASS yaga_quest_transactions strength completes with real boss death credits
+QA269 PASS yaga_quest_transactions trusted stage earned through menu chain
+QA269 PASS yaga_quest_transactions strength reward cannot repeat
+QA269 PASS yaga_quest_transactions accept contract pool slot 0
+QA269 PASS yaga_quest_transactions contract missing inputs rejected slot 0
+QA269 PASS yaga_quest_transactions complete contract slot 0
+QA269 PASS yaga_quest_transactions contract real day cooldown slot 0
+QA269 PASS yaga_quest_transactions contract cannot immediately repeat slot 0
+QA269 PASS yaga_quest_transactions accept contract pool slot 1
+QA269 PASS yaga_quest_transactions contract missing inputs rejected slot 1
+QA269 PASS yaga_quest_transactions complete contract slot 1
+QA269 PASS yaga_quest_transactions contract real day cooldown slot 1
+QA269 PASS yaga_quest_transactions contract cannot immediately repeat slot 1
+QA269 PASS yaga_quest_transactions accept contract pool slot 2
+QA269 PASS yaga_quest_transactions contract missing inputs rejected slot 2
+QA269 PASS yaga_quest_transactions complete contract slot 2
+QA269 PASS yaga_quest_transactions contract real day cooldown slot 2
+QA269 PASS yaga_quest_transactions contract cannot immediately repeat slot 2
+QA269 PASS yaga_quest_transactions accept contract pool slot 3
+QA269 PASS yaga_quest_transactions contract missing inputs rejected slot 3
+QA269 PASS yaga_quest_transactions complete contract slot 3
+QA269 PASS yaga_quest_transactions contract real day cooldown slot 3
+QA269 PASS yaga_quest_transactions contract cannot immediately repeat slot 3
+QA269 PASS yaga_quest_transactions accept contract pool slot 4
+QA269 PASS yaga_quest_transactions contract missing inputs rejected slot 4
+QA269 PASS yaga_quest_transactions complete contract slot 4
+QA269 PASS yaga_quest_transactions contract real day cooldown slot 4
+QA269 PASS yaga_quest_transactions contract cannot immediately repeat slot 4
+QA269 PASS yaga_quest_transactions accept contract pool slot 5
+QA269 PASS yaga_quest_transactions contract missing inputs rejected slot 5
+QA269 PASS yaga_quest_transactions complete contract slot 5
+QA269 PASS yaga_quest_transactions contract real day cooldown slot 5
+QA269 PASS yaga_quest_transactions contract cannot immediately repeat slot 5
+QA269 PASS yaga_quest_transactions accept contract pool slot 6
+QA269 PASS yaga_quest_transactions contract missing inputs rejected slot 6
+QA269 PASS yaga_quest_transactions complete contract slot 6
+QA269 PASS yaga_quest_transactions contract real day cooldown slot 6
+QA269 PASS yaga_quest_transactions contract cannot immediately repeat slot 6
+QA269 PASS yaga_quest_transactions accept contract pool slot 7
+QA269 PASS yaga_quest_transactions contract missing inputs rejected slot 7
+QA269 PASS yaga_quest_transactions complete contract slot 7
+QA269 PASS yaga_quest_transactions contract real day cooldown slot 7
+QA269 PASS yaga_quest_transactions contract cannot immediately repeat slot 7
+QA269 PASS yaga_quest_transactions accept contract pool slot 8
+QA269 PASS yaga_quest_transactions contract missing inputs rejected slot 8
+QA269 PASS yaga_quest_transactions complete contract slot 8
+QA269 PASS yaga_quest_transactions contract real day cooldown slot 8
+QA269 PASS yaga_quest_transactions contract cannot immediately repeat slot 8
+QA269 PASS yaga_quest_transactions accept contract pool slot 9
+QA269 PASS yaga_quest_transactions contract missing inputs rejected slot 9
+QA269 PASS yaga_quest_transactions complete contract slot 9
+QA269 PASS yaga_quest_transactions contract real day cooldown slot 9
+QA269 PASS yaga_quest_transactions contract cannot immediately repeat slot 9
+QA269 PASS yaga_quest_transactions accept contract pool slot 10
+QA269 PASS yaga_quest_transactions contract missing inputs rejected slot 10
+QA269 PASS yaga_quest_transactions complete contract slot 10
+QA269 PASS yaga_quest_transactions contract real day cooldown slot 10
+QA269 PASS yaga_quest_transactions contract cannot immediately repeat slot 10
+QA269 PASS yaga_quest_transactions accept contract pool slot 11
+QA269 PASS yaga_quest_transactions contract missing inputs rejected slot 11
+QA269 PASS yaga_quest_transactions complete contract slot 11
+QA269 PASS yaga_quest_transactions contract real day cooldown slot 11
+QA269 PASS yaga_quest_transactions contract cannot immediately repeat slot 11
+QA269 PASS yaga_quest_transactions accept contract pool slot 12
+QA269 PASS yaga_quest_transactions contract missing inputs rejected slot 12
+QA269 PASS yaga_quest_transactions complete contract slot 12
+QA269 PASS yaga_quest_transactions contract real day cooldown slot 12
+QA269 PASS yaga_quest_transactions contract cannot immediately repeat slot 12
+QA269 PASS yaga_quest_transactions accept contract pool slot 13
+QA269 PASS yaga_quest_transactions contract missing inputs rejected slot 13
+QA269 PASS yaga_quest_transactions complete contract slot 13
+QA269 PASS yaga_quest_transactions contract real day cooldown slot 13
+QA269 PASS yaga_quest_transactions contract cannot immediately repeat slot 13
+STABILIZATION269 PASS
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:overworld
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_nether
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_end
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (stabilization269-test): All chunks are saved
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:overworld
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_nether
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_end
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (stabilization269-test): All chunks are saved
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15:28:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+
+BUILD SUCCESSFUL in 30s
+9 actionable tasks: 4 executed, 5 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

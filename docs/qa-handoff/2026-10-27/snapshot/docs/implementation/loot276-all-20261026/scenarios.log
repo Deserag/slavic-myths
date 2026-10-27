@@ -1,0 +1,9 @@
+20k full-clear kurgan_full_clear/1
+20k full-clear kurgan_full_clear/2
+20k full-clear kurgan_full_clear/3
+20k full-clear camp/3_with_boss
+20k full-clear deep_pool_with_boss
+20k full-clear sanctuary/fire_first_claim
+20k full-clear sanctuary/spring_first_claim
+20k full-clear serpent_fortress_first_claim
+PASS 8 conditional full-clear profiles; 160000 draws;60000 actual KurganPlan+Roster calls without game bootstrap

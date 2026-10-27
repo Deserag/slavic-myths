@@ -1,0 +1,3297 @@
+{
+  "file_count": 658,
+  "total_bytes": 53257345,
+  "verbatim_report_evidence_files_verified": 594,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 9,
+      "sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992"
+    },
+    {
+      "path": "ANSWERS.md",
+      "bytes": 12380,
+      "sha256": "ce3aef4d471660478fd1862d25d362c674d4204cbf0e95a266c113f190678979"
+    },
+    {
+      "path": "CHATGPT_BRIEF.md",
+      "bytes": 6219,
+      "sha256": "b7ff24f30c9b44efbd9a306028e7274bc02e6ca8b9b5947fbdd2deec490dc3b1"
+    },
+    {
+      "path": "CURRENT_PRODUCTION.patch",
+      "bytes": 31816,
+      "sha256": "a2a91e45aeb6914d7ae331e3313e825c8177b26c55dd4c08aecc570b16d08238"
+    },
+    {
+      "path": "FULL_REPORTS.md",
+      "bytes": 277717,
+      "sha256": "e3a4dfb9ac53a4989e91eddee0bbf85716f161a2180912ae3f632c67924db237"
+    },
+    {
+      "path": "PACKAGE.json",
+      "bytes": 1401,
+      "sha256": "4aa3cb7f783fba8ebbacc039453b52fc0931c52619c03816cb55d92ab845fea1"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6699,
+      "sha256": "35c1e2a0e85ae48998fe7d05c5e9efaa2ab950bb3f29a4b80e4ae9b062e81d28"
+    },
+    {
+      "path": "snapshot/docs/ARCHITECTURE.md",
+      "bytes": 554829,
+      "sha256": "d7ca3487b68b12f0829d925409323825beb23680cbe5fa322a2a7cbf84d80563"
+    },
+    {
+      "path": "snapshot/docs/CODEX_PROJECT_PLAYBOOK.md",
+      "bytes": 22489,
+      "sha256": "e74c06391203d543d21b726628944b3a213e65abcdcafde7fdcd4f7c2dfd135d"
+    },
+    {
+      "path": "snapshot/docs/implementation/items286-20261026/build-receipt.txt",
+      "bytes": 754,
+      "sha256": "ba1c75db387e52b2095b2afe6aacedbb62157c08f9c89dffd905a1d063cf6aad"
+    },
+    {
+      "path": "snapshot/docs/implementation/items286-20261026/build.log",
+      "bytes": 35877,
+      "sha256": "67df920ce766f4e58e06939cde57bf9619813e1717641c5871c0281f35bd2f17"
+    },
+    {
+      "path": "snapshot/docs/implementation/items286-20261026/catalog-triage.tsv",
+      "bytes": 82306,
+      "sha256": "4d84826b025ddfdd9e6da2ccc548bf9b77379e2f9c28854b52dbc78815ab48d1"
+    },
+    {
+      "path": "snapshot/docs/implementation/items286-20261026/current-resources.json",
+      "bytes": 443,
+      "sha256": "67f9fadda84d60017d1a4633730accdf939778ccb8ad0d85d545e19e48e4a0a5"
+    },
+    {
+      "path": "snapshot/docs/implementation/items286-20261026/delivery.json",
+      "bytes": 1261,
+      "sha256": "51dd43ec594571a6d01762114431c9c96f12e19bd6db72e80b9402698f4ba929"
+    },
+    {
+      "path": "snapshot/docs/implementation/items286-20261026/gameplay-matrix.tsv",
+      "bytes": 612090,
+      "sha256": "b09dbe2dff858f911eeb590bd648e905ea7dbaee48ee85c74a3831ce154e6618"
+    },
+    {
+      "path": "snapshot/docs/implementation/items286-20261026/project-status.json",
+      "bytes": 351,
+      "sha256": "6bee788593a01df44252ff736ca35b28431a238cdaa1fd5e31c7c3e8eff52b8b"
+    },
+    {
+      "path": "snapshot/docs/implementation/items286-20261026/publication.json",
+      "bytes": 619,
+      "sha256": "fd5cb8a9327cda4f28f79dd0f835b0fb5cc9789b09131ed74513819473528885"
+    },
+    {
+      "path": "snapshot/docs/implementation/items286-20261026/REPORT.md",
+      "bytes": 26651,
+      "sha256": "0c7ff92b0c007f813025346137a833b771789e981ff96e1ca259d6b0ea3e4974"
+    },
+    {
+      "path": "snapshot/docs/implementation/items286-20261026/source-index.json",
+      "bytes": 1717436,
+      "sha256": "8bcb9d823ec78512387233a68bd4c7602f31d3e156af2f47f01eee5ec9e89ff0"
+    },
+    {
+      "path": "snapshot/docs/implementation/items286-20261026/source-jar.json",
+      "bytes": 2066,
+      "sha256": "d1a7a73b3bac19988a9fef003fbcae32ada4cf69dcdf3df1aecff9fe1b82efb8"
+    },
+    {
+      "path": "snapshot/docs/implementation/items286-20261026/summary.json",
+      "bytes": 726,
+      "sha256": "4e2975676eceb2255a4fbd4e5498335f651748d9c7ebc3de9e4d5cf1b9e0cbea"
+    },
+    {
+      "path": "snapshot/docs/implementation/items286-20261026/tests/after.txt",
+      "bytes": 84,
+      "sha256": "f6df4791aee0f2a47025a928e24843ae20d1ac2b16c670ae79f9cc1337184dba"
+    },
+    {
+      "path": "snapshot/docs/implementation/items286-20261026/tests/baseline.txt",
+      "bytes": 1211,
+      "sha256": "250442097156a1471d859e7e5ccc01f845f3a5e1ed76fea1567acf4d07efcba0"
+    },
+    {
+      "path": "snapshot/docs/implementation/items286-20261026/tests/rules.txt",
+      "bytes": 60,
+      "sha256": "ae95d1b97854a8429fb7ce029bfe99cab109834533303c7862e24f3263a77f63"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-20261026/camp_1.json",
+      "bytes": 2632,
+      "sha256": "45a5c43497311a02e2eab8f4fd0edce1bd69697f69b354ac721893952145ddf4"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-20261026/camp_2.json",
+      "bytes": 2530,
+      "sha256": "30c4dd83d086313af6e4a0d8b948bb4acea830de5425f6fa28194abd3e5b0ab5"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-20261026/camp_3.json",
+      "bytes": 6794,
+      "sha256": "3212efe67bd88389e4306939bafbf6426fad171d0475a2d66e3495fbac8a6283"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-20261026/category-summary.json",
+      "bytes": 1549,
+      "sha256": "00d3fc25d6be18bbb2df8e2033b82bad9b4975558790c259a107a0badc127f8c"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-20261026/kurgan_1.json",
+      "bytes": 4321,
+      "sha256": "8d95dd8bb14e43f350414457e6757cb5fb3ecf0beee32d278c605ed2e2fa7893"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-20261026/kurgan_2.json",
+      "bytes": 4746,
+      "sha256": "25f7916a1675a12c812b24e44e22da0f6b06d622ac4587240d5475739c3a38f3"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-20261026/kurgan_3.json",
+      "bytes": 5480,
+      "sha256": "3d4996a5ff07042f3ad18df17e5bf56c6c5fb5a8a8ae7ca1160a3f3d15f2b34f"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-20261026/loot-hashes.json",
+      "bytes": 65955,
+      "sha256": "be77ee18965a1a9d7a16075e7969ee2d6ec5295fce7042e8b188a70761167da8"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-20261026/native-plan-histogram.tsv",
+      "bytes": 551,
+      "sha256": "45d82c3baa842ab11b0edd4b5d50398a623773fd61207d25742e33841013ed16"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-20261026/receipt.json",
+      "bytes": 477,
+      "sha256": "334d355bac362040311301d2922726e1f35b3274f2d93a1820ae6a037a953d00"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-20261026/REPORT.md",
+      "bytes": 18767,
+      "sha256": "b8367367d2c3f81cd16bcf3f9d358c6463c2b9e115a07bce901d43a28c908dd1"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-20261026/site-rewards.tsv",
+      "bytes": 10713,
+      "sha256": "a3f0ad355727cd47370d3eff936e14af9e8260a131d32c2f509a2c89d9a40ff3"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-20261026/tables-exact.json",
+      "bytes": 101248,
+      "sha256": "b64d32e8e65be6054458647098bfe8c2712097a31415576c494d7f0137ba27cd"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-20261026/template-loot-markers.json",
+      "bytes": 1544,
+      "sha256": "7967bf2958107cadf67561740bce48666859d050da0a4be6e32bc0145261d586"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-20261026/unsupported.json",
+      "bytes": 4,
+      "sha256": "e3566b3a06430868d71e9287dfd6c6c520a3da027aabea01951d407ee131dc2f"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/additional-simulations.json",
+      "bytes": 68466,
+      "sha256": "843b40bc8eb16506843dd23fb47571ed46eaa88ee1a6dc9c16197612dcdc6794"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/before-after.tsv",
+      "bytes": 10670,
+      "sha256": "ba10fb59f0508b5805943dbcbdf127fca9ff2b93dacdf5041c15618d25f883d2"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/build-result.txt",
+      "bytes": 577,
+      "sha256": "97303145b37f28a2f5993a79d6f426093db765bb70403070bc169d202b583881"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/checks.json",
+      "bytes": 237611,
+      "sha256": "2ef88539a30fb635dc5bc358eb7603e75890023d1ea73bd83e723d2bbad66d7f"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/city-corpus.json",
+      "bytes": 456235,
+      "sha256": "3529c1b17d45373edf796a148e2bd74639fa522ec2da48f9143cdbc4c64e51a9"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/city-native-corpus.tsv",
+      "bytes": 1100311,
+      "sha256": "e51292211b3d72cc46e5dca3151cfc6456f559204c4489b333b87c6cbb6b6232"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/clean-build.log",
+      "bytes": 35878,
+      "sha256": "74364b24a30e37717f6b95a2dd8ee769ff228c8edda9d9b4d439932b2133f5b7"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/CONTRACT.md",
+      "bytes": 4252,
+      "sha256": "afe290912c89532811af8b8fce5e587d3c314e4813210c904823441c2f8ec211"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/enchantment-proof.json",
+      "bytes": 12415,
+      "sha256": "4981de4c391c0f923a46485accdf2c8dfea1f3a476d99881f706fe5fa2424569"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/installation-receipt.json",
+      "bytes": 839,
+      "sha256": "ec2d09e4bb5b25914b2f79523323a9d1cf2fb5dadd7fddfb0315e254bbfb29ca"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/inventory.log",
+      "bytes": 8019,
+      "sha256": "00b0644e6de0dc55313a96d746e069a4cff5d5bf016ac082fc2591ca4b78f4c6"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/kurgan-full-roster.tsv",
+      "bytes": 68036,
+      "sha256": "adcc5739aaae4b9fa0f556015280155e6ac45a4f2117130f39bb6a05f80e1425"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/native-routing.txt",
+      "bytes": 411,
+      "sha256": "a8f5dc32db6b9ad2a5539245846b323967c1cf0d953699894c463b0bf770ef6d"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/package-receipt.json",
+      "bytes": 1327,
+      "sha256": "026df1eabff9ad7a0363b24e18b0f71c695ced58050b4b61f9d7f92055b809a6"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/registered-structures.json",
+      "bytes": 4803,
+      "sha256": "4bbb4cb5f1b11f567895e2b46e152bcbdb1b035f2c9142bd295b20a6f2519114"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/REPORT.md",
+      "bytes": 42322,
+      "sha256": "3bb9e9a592c973f3ab0d5474f23ebc3b39c2c5396e46020301fb21489d9258bb"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/scenario-simulations.json",
+      "bytes": 354626,
+      "sha256": "15f09cebd8a1caa61dee7295087a02af8aa699db8ac8e9efc0d7a49afb7303d5"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/scenarios.log",
+      "bytes": 424,
+      "sha256": "58622e76bf9e7a538d12946618bc79c7828866cdbe8b4c509d9c2ea51f12ba3c"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/simulation-results.json",
+      "bytes": 675024,
+      "sha256": "3b9cbbf301ff2477edac4f69b9cabba6dd048b562eaa59cd7bd779d6e4b3f6ca"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/simulation-summary.json",
+      "bytes": 505,
+      "sha256": "a573ff706423c0013104bb925b06f50add654724aa31d237c29487a834c7709e"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/simulation.log",
+      "bytes": 5103,
+      "sha256": "a45cc32271346340404a537d89b73dc4cb78fbcf33baa500037e14a2868315f7"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/source-loot-routes.json",
+      "bytes": 15189,
+      "sha256": "77114462d0060d0109a974c8cd5f09bb4338121fb5557bf5c23668104cf3a90b"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/swamp-selectors.json",
+      "bytes": 2909,
+      "sha256": "cd01e143bed97d7b49f1bd70eca2f12ebab05136195fbf9d64363c2773a4663a"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/template-inventory.json",
+      "bytes": 777740,
+      "sha256": "48226da647b04c3083e385b326aeb1716accec4ab4969d315eba24f56a5970f4"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/template-totals.json",
+      "bytes": 395851,
+      "sha256": "e56125003f5735cb76aac137bb05bb58b51f747c6cfcea8bc82343bc43149812"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/verification-commands.txt",
+      "bytes": 3055,
+      "sha256": "808fc5e6cf5b9e74f65a6c0ec232127b9fc69750c689257a81498cdcb0cf289a"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-all-20261026/world-profiles.json",
+      "bytes": 90726,
+      "sha256": "04b23abb90ff45c2a1a5513c7654dcb0fac83edcdbbf6b55e2fa6355ee60c397"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/after-totals.json",
+      "bytes": 81229,
+      "sha256": "28f13f8ec1e41a2eccd1805bfdf09f9d7312046131f95140da3e1b2f10280109"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/build-receipt.txt",
+      "bytes": 755,
+      "sha256": "c8ed60e977c13ed1b76926dd2ae9d1f586d0d2972bc8da6d6c2cb98f70be0d97"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/build.log",
+      "bytes": 35878,
+      "sha256": "8290f3648376666416b16ce8cefbcf6e4aec452ada8437608727663c0f7bfc14"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/checks.json",
+      "bytes": 101661,
+      "sha256": "b2705e4a832c1dc09ee0af6dad4dd20ed548d3e6f28f5f27533e6bf5f65f1473"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/CONTRACT.md",
+      "bytes": 4616,
+      "sha256": "a0d1da254b12767bac4d90257b3b4027335a8453a368a9b32f799fa5c2cfe947"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/current-resources.json",
+      "bytes": 443,
+      "sha256": "49d7acb59b1da52febc113d13f3c13f7f41035ff838b3805f0d4523dc76fc6a5"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/enchantment-proof.json",
+      "bytes": 21800,
+      "sha256": "121d8130312a621fda5af24962be7192a6d07e9f311f567dbaaefd03941f9033"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/markers.json",
+      "bytes": 1515,
+      "sha256": "5a31c58121cedd27f2c2f8044c5b0b18721ff937c61e802841785f94782cb86a"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/native-layouts.json",
+      "bytes": 3917,
+      "sha256": "85b505ad7b45bd51d3919a1b87ec320fb61528dd4eb2f1129ebddc07ddf9b1d9"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/native-plans.tsv",
+      "bytes": 4154,
+      "sha256": "90013b4cf0c6830ab6ede474f643da7485dd06f184ab6329fb17a8bfe745e838"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/native-routes.json",
+      "bytes": 1917,
+      "sha256": "6a25f0acdbbc5099ec8f80008495eb9ddc2480538db449eaef5aa803c591e9e8"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/native-source-hashes.json",
+      "bytes": 413,
+      "sha256": "35e08e81d899f3563d4b1a5c19ea7f8722cfe00e62498a8d361f3f9da5315a5f"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/package.json",
+      "bytes": 1582,
+      "sha256": "6a755471bfa5b6fefe0f3f2c1b67cf1f3abf07594203544d4d0decff9198e891"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/preflight-checks.json",
+      "bytes": 85203,
+      "sha256": "f9275df677d79b42f224e1586749ca87af5bdb40e689605894696f1b56480eec"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/preflight-totals.json",
+      "bytes": 45022,
+      "sha256": "e3391cdd31e2d219eca436a99e35c627567ccc2b1a53af220ff0f2bbd87803e4"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/profiles.json",
+      "bytes": 132978,
+      "sha256": "32fc55ebaea356eadeaa649f3b8f48a2441676b39a4eec36f35051b0df139aeb"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/project-status.json",
+      "bytes": 112,
+      "sha256": "a48864762572cfd640ad3305bb64550afb21b4eaf10491740edbfdaa871cccd6"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/publication.json",
+      "bytes": 839,
+      "sha256": "28756b4f57ea370176567e8078d4455657d71e0aaa42a711009cd4edac23437e"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/receipt.json",
+      "bytes": 695,
+      "sha256": "b2460c492b2b0808813bdb72fd535bba89f60783e2c59ada7fd8ad94a30a89ce"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/REPORT.md",
+      "bytes": 27886,
+      "sha256": "ad644ce90f9d9dab81ab2c972f8123dcb0de7b9ec03eb2fdebc0afaea9a778ad"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/resources.tsv",
+      "bytes": 29804,
+      "sha256": "475e383a54bd3cf91ceb213b6fff65eff5bf9aae4ad8e783fb452ad18f0323f4"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/rune-proof.json",
+      "bytes": 2473,
+      "sha256": "7bd08184c69914dec9252cc096e2ffde24bea334d8ff133c6a8a1c007daa0382"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-l1-20261026/source-hashes.json",
+      "bytes": 2760,
+      "sha256": "513aa5f4fe534ada9c79f010ba314f8486b13bb42c647b16af56d1d992ecca98"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/attempt1-create-gradle.log",
+      "bytes": 10411,
+      "sha256": "3cc9c82db56950cbf52ba52d78f2a83037f190345be5e253e78c65b595cdfe35"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/attempt1-create-results.json",
+      "bytes": 27610,
+      "sha256": "6ba98fae2b3dc6450f9992439dcc3598a6cec78c1893dc2e02db28008f032450"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/attempt2-create-gradle.log",
+      "bytes": 10181,
+      "sha256": "20233aa59e1ff01a3d6e57215877c8a50116975c9da57acb4e8e19647577cec8"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/attempt2-create-results.json",
+      "bytes": 43437,
+      "sha256": "b048b28e57d1ab434e4fff2395562244885a1326bd0acdfababc5235d929d86c"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/attempt3-create-gradle.log",
+      "bytes": 10837,
+      "sha256": "16692b3092c3be15b61accad51d7a7657a5146de9fc13961104ba1456e9584a6"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/attempt3-create-results.json",
+      "bytes": 43437,
+      "sha256": "d8abf507b3cc39cb8690c843db501d09c258341e2aee45f14f3118426667647c"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/attempt4-create-gradle.log",
+      "bytes": 11665,
+      "sha256": "6fc69c56871ead5abf9380ee47979dd69d082cebff59a2b669d32f2cdc7bfec5"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/attempt4-create-results.json",
+      "bytes": 98571,
+      "sha256": "b4f4abc50252fc501fed2bed94e655f9d7bd3a59bee5944b08a40af5091f0b8a"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/attempt4-restart-gradle.log",
+      "bytes": 9336,
+      "sha256": "ee70f7610c93c40c79d1ed6d2f077ac7ee7cac0ea188333bcb60858003b7cf30"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/attempt4-restart-results.json",
+      "bytes": 891,
+      "sha256": "6f4c83294829021c7e41d87b0ca278539e42e8a211c87b4c975ca422e4525304"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/build-receipt.json",
+      "bytes": 681,
+      "sha256": "14fb3dbf160ade71d33d445bc4a63281677b848c49534238246555ea65503d5b"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/build-result.txt",
+      "bytes": 556,
+      "sha256": "998eae493fb964ef429c1d8a9ef33da0c6a91ebc0e2d30d089513c725f589b7a"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/clean-build.log",
+      "bytes": 35878,
+      "sha256": "ef5b10a4cb9acd895fcc88bb770365ef1a216b71057adf50903ab8c00f05eafa"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/compile-attempt1.log",
+      "bytes": 2678,
+      "sha256": "24448c77bc120ea68e692d7872dc3a205c91e14eccb443fe71c12e8b97dbac1f"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/create-gradle.log",
+      "bytes": 11656,
+      "sha256": "8da1782e159f9c542463236b3a9de7ea731276e87c9b60edaf580bcf599e1d74"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/create-results.json",
+      "bytes": 117026,
+      "sha256": "1e4a0a8c5ebe05d161e5ddf6215a708b6eb6b0cbaaee351602b8650069f3be06"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/create-server-log.txt",
+      "bytes": 11654,
+      "sha256": "855c42f59fc934cb1dcb8e65a3d8fc4c16376359ded55b42c4113f05fbc9c728"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/fixture-ash-diagnostic.txt",
+      "bytes": 10835,
+      "sha256": "c02a7b5d8ab61218f50b2694acd25fa368a6af77a7a3c537d91f41221dbccc0d"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/pieces.json",
+      "bytes": 84029,
+      "sha256": "33ed94ba0dab5745f9212df81cac4672174d43e562e3608543601cc003cd56f0"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/preflight.json",
+      "bytes": 1094,
+      "sha256": "ae336b694b9c3c926539d9605be9846ab2f65eb73ea6016520736cdaf057233b"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/REPORT.md",
+      "bytes": 33750,
+      "sha256": "d0d556149b79ff98debcb1626b4b45676e070a80ff0e59a6a17fea000a5d5a0a"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/restart-gradle.log",
+      "bytes": 8963,
+      "sha256": "ee4b190282d1419271962f9873b6467cf68564f33c299964bd0e292167130ce3"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/restart-results.json",
+      "bytes": 71891,
+      "sha256": "1cd597c4f1425371770430e199f4a6d422eac422efec2f0ccdd17ac402bd976c"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/restart-server-log.txt",
+      "bytes": 8961,
+      "sha256": "20008f99e21fa5a5d4ccc5ed65f4272d844cccbe6fe8224fa9081d6a816b377c"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/restart-trap-expectation-results.json",
+      "bytes": 45764,
+      "sha256": "28f23a297a277c70bad48f0f5da580932da33ecaa0c42c7f1871fc376764f48b"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/restart-trap-expectation.log",
+      "bytes": 9648,
+      "sha256": "ecbe0202c0bcfe649e87120f0febee8ce10aadbfe9c3a4bab8b86e06e12ec828"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/verification.json",
+      "bytes": 14767,
+      "sha256": "4bea4ac5fefbd37d797a0d68db2af52c5fb6976c348255d3e5b1109d57522af5"
+    },
+    {
+      "path": "snapshot/docs/implementation/loot276-runtime-20261026/witnesses.json",
+      "bytes": 19601,
+      "sha256": "b16c9c016af21896a5badfb499709eb3ba8b41febc8b91370d74cb01de47013d"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/actual-saved-chunks.json",
+      "bytes": 5615,
+      "sha256": "cbe9c1c8c2359d77abbe8a448afa4d26d538aea9892ced23d860ad10ba94b1b9"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/actual-yaga-menu.png",
+      "bytes": 75049,
+      "sha256": "8aa4a155ac5adbdc694207add8e4c633f11e841adc482edad608ad3576a66be3"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/clean-build.log",
+      "bytes": 2939,
+      "sha256": "17e2124e30522c2eb061586e2b1dc6499a756a722d0b96a37213c767a46fc854"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/client.log",
+      "bytes": 16335,
+      "sha256": "b421b0ee22d6ddfe57fc2684526245868329e31579bfdf55519af56814bd6bc5"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/constructed-city-ticket-release-qa-failed.json",
+      "bytes": 6472,
+      "sha256": "9c9b34c69994efba6ecea67b49a890ccea26ddb631310ab6d511fb9da3155342"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/constructed-city-ticket-release-qa-failed.log",
+      "bytes": 19318,
+      "sha256": "c55b1a20a23a8a48eb2845101da3cef8ae0cc352bc1d0a3576a3d7ceffea0aef"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/evidence-sha256.json",
+      "bytes": 1743,
+      "sha256": "b4c79a5226b866f180ced0cd534dcc6aa4bfeefc6b36ec26b86b6fd7e5deb224"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/final-gates.json",
+      "bytes": 477,
+      "sha256": "01a61ca661d1a0e8daca768a08dc2a088fec7cb3c23e8ec86628101d2810c578"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/first-native-menu-fixture-interrupted.log",
+      "bytes": 23270,
+      "sha256": "7d56fa5200a55d191e6b5a26f46410f95eb1052ad908af81f550e4e947ad28ee"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/native-progress.json",
+      "bytes": 5331,
+      "sha256": "c7226dc32863712d439820b5d40146dc23a855f2ff219c7597d0a9d9d94bd0fd"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/placement-parameters.json",
+      "bytes": 2511,
+      "sha256": "9f500378eb711be1d16d2400165a5bfeabf09e534373d2ca2d7f9376f931d118"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/receipt.json",
+      "bytes": 6604,
+      "sha256": "322330a65d93ab97f76e8a4b3073fe7bfc656d70d95c8c330f35ffc6abf8ca55"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/REPORT.md",
+      "bytes": 23262,
+      "sha256": "7eb92c0aaeb2e933cf3bfb667124871d1797caac5c0337f8870971e0c7655e2e"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/resources.log",
+      "bytes": 440,
+      "sha256": "405fa3a02200d1cde63db25950e671f806b28c094576976cc2b45fd9434b9b2f"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/setup.json",
+      "bytes": 708,
+      "sha256": "5aba2ff6cefc0bcbafc370675ac38562607c72327951dafb4bfbb2c9d6117b1f"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/summary.json",
+      "bytes": 1100,
+      "sha256": "c0742f9dc610e0cc48936e858400eb565ad5e6c8d33179b656d0396e909ad91a"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/survey-client.log",
+      "bytes": 17468,
+      "sha256": "b6dabd91f618af136af0939f6c86002b04da595d48db7d86812bfd636562290c"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/survey-receipt.json",
+      "bytes": 53848,
+      "sha256": "76e8e6ccb80fe723c63c1f4735a1df28b04beaa24005a74201df2686bc9fd2c4"
+    },
+    {
+      "path": "snapshot/docs/implementation/scouting269-20261027/yaga-protected-terrain-refused.log",
+      "bytes": 17306,
+      "sha256": "0d8c85e1b3ebd4fc8537d7e6aadf85caaf2c80ba65173dfd3c02d5e229067080"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/artifact-receipt-preseat.json",
+      "bytes": 838,
+      "sha256": "c9e62e58b75ee54185e7c506bed4e9bd80fecd818d9ad1456e249db6296c8cae"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/artifact-receipt.json",
+      "bytes": 2000,
+      "sha256": "95bbdf86baf5fd52d2ded78b882a0a742ffaaa925319a14bb870468a55a1715f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/atlas-repro.json",
+      "bytes": 390,
+      "sha256": "d6048a2d7ecfa423de85898405a1224b846c52fb12a644171df492e7ac79980d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/baseline-results.json",
+      "bytes": 54645,
+      "sha256": "be98fcc395804a9632c8cec706f2c2edd2aa9fd1209db82924255088140864e8"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/baseline-server.log",
+      "bytes": 20821,
+      "sha256": "6b42586657d3ce4cec5d6957630ba050798e5ef30cbfeb17b8e0abcc003b3682"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/baseline-server.log.txt",
+      "bytes": 20819,
+      "sha256": "ea393f61e0bc74064c7c7f1630f8fc64af916893560f39c21a34f3f7bfeec3d0"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/braking-corridor-results.json",
+      "bytes": 53600,
+      "sha256": "b66119f2b03e981c1bb9fa2516edb4d0cdbe6e3de6751449852d0625d9c30ec1"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/braking-corridor-server.log",
+      "bytes": 10075,
+      "sha256": "fec0a01dd77ebdcaa17900526b04fcf8933b6fbe04b47aa68cee4c12d0b7753e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/braking-corridor-server.log.txt",
+      "bytes": 10073,
+      "sha256": "99d226e0cdd5e693e982a4779623cf2963d394a411e30c46e7fec85e039f8917"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/braking-diagnostic-results.json",
+      "bytes": 53512,
+      "sha256": "69fb197a237fd7dffa313029f3569842b5c5d0cb8b5f7b76c9d2a7e726904d82"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/braking-diagnostic-server.log",
+      "bytes": 10453,
+      "sha256": "2636848e54ec5a0b4fbbc0407ce5f4e23a08bc204033b21c78805af0418340fa"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/braking-diagnostic-server.log.txt",
+      "bytes": 10451,
+      "sha256": "ce0da12b2a1c252ffab9e72acedd3742ca96d942c357197930b26c36e85363bf"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/census-results.json",
+      "bytes": 372256,
+      "sha256": "9cde2afeb6b4905ca416b880b8b4941fea811799d599993a1dcf221b2e3d8174"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/census-server.log",
+      "bytes": 22134,
+      "sha256": "d226634ca7e46f8eead346d5da4104e5ba91f148651577c4137412a1598142b9"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/census-server.log.txt",
+      "bytes": 22132,
+      "sha256": "5fb677a7abbb5195d39f7667de7c1e04fe2ac1b21d6268d0880e0d977006cccb"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/clean-build-final.log",
+      "bytes": 2605,
+      "sha256": "60e15239009cfcc445256cf99e0c75a9c3886fdb2b80cb7a840519f75d11f37a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/clean-build-final.log.txt",
+      "bytes": 2604,
+      "sha256": "a47acdbfd5a716e6e3270da0959549fd68b6e98823d52e7f559dd46f0017abe6"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/clean-build.log",
+      "bytes": 2605,
+      "sha256": "d5989fdc6f487091a69d6f545cae81c564a074e5aafb1ab11eea3146c1a2dd6d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/clean-build.log.txt",
+      "bytes": 2604,
+      "sha256": "1f3466fadddb5174aa23094f6c54be158db88852a25cb2c146c2194fe07b3abd"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client/receipt-hidden.json",
+      "bytes": 640,
+      "sha256": "f08f4cfe86f922de6dd89c1e3b2b37612a2b493fe0050ea24caaa10169d63eff"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client/receipt.json",
+      "bytes": 665,
+      "sha256": "d359545b896bae5d3b2a7058e899f10b26d4eb22bc3e48b325a94a7fe91b0104"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client/sivka-air-rider.png",
+      "bytes": 331916,
+      "sha256": "50aee704f21f2090b5fdf429db2bc538bc672f34803a491bfc6b43628cac4f61"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client/sivka-ground-rider.png",
+      "bytes": 337272,
+      "sha256": "59b4f387bd9453f99375b11c5f5a355787f95a3d77db014d2e64e27180678ea6"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client/tale-book.png",
+      "bytes": 65719,
+      "sha256": "4e4ed739c5b9ee29d293d65295c2491a4179547a8a3043da6c463fbc527b4928"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client/yaga-cauldron.png",
+      "bytes": 325773,
+      "sha256": "d3767e498c753667daab7ca5b9bc60b485c2e6f1c28f6fec842101207e01cd7a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client/yaga-dialogue.png",
+      "bytes": 324215,
+      "sha256": "6b4de93d266708d4868d5adb3be3c2f834f7b27a8fe1a1c1c48f8be3f6c92a31"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-assets/basic-registry-before-particle-check.json",
+      "bytes": 1554208,
+      "sha256": "ab7bbe84621f26aac880ccbd7ba9fe38671ff35a3d83b2a30bc029c9eb7a1041"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-assets/particles-before-fix.json",
+      "bytes": 3144831,
+      "sha256": "8c88df91b067f908f7706e14d2c9cae87e7232c53f22d8a2297d5e23ad012e4c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-assets/receipt.json",
+      "bytes": 4725583,
+      "sha256": "34a2d42ab85f8f1d293c801faa2ba2035c39a90d4b919f3a8ab7df507daa92a2"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-assets-particles-before-run.log",
+      "bytes": 15183,
+      "sha256": "5fa0157e88838af1c9ba0c7adb0f6719b8c5b62f826b4f93b047642d97471536"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-assets-particles-before-run.log.txt",
+      "bytes": 15181,
+      "sha256": "7d41b3403025e48be3c18192310e6f17590068775c24f79ad0f2e59aeeb9327c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-assets-particles-fixed-run.log",
+      "bytes": 19249,
+      "sha256": "b899f21e263c9c60bebf94de0bc638fc8df1e64e34811cf80cb4d5458d48c019"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-assets-particles-fixed-run.log.txt",
+      "bytes": 19247,
+      "sha256": "81f2f25d9a0824827de0fa67c8e4dc81af6964f442f375ded7842dff5ccef6a1"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-assets-run.log",
+      "bytes": 14452,
+      "sha256": "a56065946ee79758bef3e092fe543de756fc900eb89704c22b1bf285c428b5b4"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-assets-run.log.txt",
+      "bytes": 14450,
+      "sha256": "bf62c7652b2967846931d740ef1dc10cdd1f445a3248716941b77aacc6f89c43"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-attempt1.log",
+      "bytes": 54573,
+      "sha256": "51c67270fc5e45b2f851ceb33f2c6ebc952a8790e99a3dc31e6396121ce6621f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-attempt1.log.txt",
+      "bytes": 54552,
+      "sha256": "88824cdfb11263df3e41d63ad037a7cf0a6f4a20d55754d9415e0e57d9c52c4a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-attempt2.log",
+      "bytes": 11229,
+      "sha256": "9e2c881246aee3bbaaa4de6d970f75a48c7b9f55e7c2406d5169d6d1dedd2c72"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-attempt2.log.txt",
+      "bytes": 11227,
+      "sha256": "83221de7d258695f47b84a4b82b94d9799dba477619d1ac07589763f9cb741bd"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls/flight.png",
+      "bytes": 186071,
+      "sha256": "9492f4780f1f7f2601af28b233fe6eed13050ba2802b207ea2623c6501e77b0c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls/jump.png",
+      "bytes": 495013,
+      "sha256": "271db301c4476e3a9630cd3542d20f8ee76a4e2b066c5a932eb91688fc0e04ae"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls/landing.png",
+      "bytes": 178575,
+      "sha256": "8dc21487b6e1fc512d9eb4a7efd6492656e876dd6168587f0c2abb2a9a181a1e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls/receipt.json",
+      "bytes": 1683,
+      "sha256": "ab89ac7a0ac9d568f480f1821b4b8dfa7770223a5b3b2621c2b10d36cee60d4a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls-attempt1/flight.png",
+      "bytes": 96102,
+      "sha256": "6994505e601991c47ae6b1d594ab94e86de44eba000c5d7be46f7943cb779dec"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls-attempt1/jump.png",
+      "bytes": 352082,
+      "sha256": "10472e592ed56f643842c8cdbc90c9e00e39c40a3256ab05661cd3cdf5a25cf9"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls-attempt1/landing.png",
+      "bytes": 72179,
+      "sha256": "010f567ad373db8f58f522b6c077c4f3b5d16d3d52076c06a4a3766a50392eb7"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls-attempt1/receipt.json",
+      "bytes": 1666,
+      "sha256": "29a6d357e4861ef5d3d5701f35e20bfd2f5140e283d80824de8322715d56ae02"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls-platform-run.log",
+      "bytes": 15255,
+      "sha256": "3cd044053281f3c303b149dd8a18cd2addb2fda8f19297f6f11ca2485959c032"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls-platform-run.log.txt",
+      "bytes": 15253,
+      "sha256": "3c8ca792bad223285ee06e5d582a0c8551a936edec5f1133bbcf135e383490c1"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls-postseat-run.log",
+      "bytes": 15270,
+      "sha256": "9282422b5d0af6cb0ef22e8c7ecdf178ef62d3c2a22de55adb782ae65992d5cf"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls-postseat-run.log.txt",
+      "bytes": 15268,
+      "sha256": "d6751d6fa29aebc2adad34c418d68bc4713f8ea52142d410a2593bfb29e7b078"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls-preseat/flight.png",
+      "bytes": 183765,
+      "sha256": "e230d45996d007b9b3fb6fff14ea05729f6d2c663a2b9b7d4c605c2075de1848"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls-preseat/jump.png",
+      "bytes": 483645,
+      "sha256": "66e20b001fcfa4c5196764d4c7004cdea8db284d600444ed6e0d1334388e2a0d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls-preseat/landing.png",
+      "bytes": 178736,
+      "sha256": "e1d2e64d1a341ad55756a4486b2c97dc64e3a06eaac979e37422158344b2b901"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls-preseat/receipt.json",
+      "bytes": 1683,
+      "sha256": "c02b454feefc2d2254b4c7fdcf5b82176924cdee675854b62fe8b44ea402aa40"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls-run.log",
+      "bytes": 15521,
+      "sha256": "de65339bf27c519155131a42ba90726dac70cf64675a92c9865f3b3a3dc5adbe"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-controls-run.log.txt",
+      "bytes": 15519,
+      "sha256": "4b21c0460fac077f4785cd5cc70087a07e75fca305317911cad1adc3c95c5c87"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-en/receipt-hidden.json",
+      "bytes": 640,
+      "sha256": "f08f4cfe86f922de6dd89c1e3b2b37612a2b493fe0050ea24caaa10169d63eff"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-en/receipt.json",
+      "bytes": 641,
+      "sha256": "655060e6371df5d206ba72579eec9859a00a3059838c6eda492ea53740052487"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-en/sivka-air-rider.png",
+      "bytes": 333303,
+      "sha256": "3b65d34a5972bd523a2efc821740e3fe94d0864e8e505fd7bfbbb77fb022b956"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-en/sivka-ground-rider.png",
+      "bytes": 338774,
+      "sha256": "564030305d4b510f20b2c1a6a0c5323fee9574c5a8c7e688a175cfb9f6092913"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-en/tale-book.png",
+      "bytes": 66236,
+      "sha256": "42f2709783021b03c0a45e0982e029855e30c4cc1002f35324f58337a57f7dee"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-en/yaga-cauldron.png",
+      "bytes": 210242,
+      "sha256": "81f944f4171bef53ba9b978fd5e1ec6a761f67eb6591aa071741214c9b62af45"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-en/yaga-dialogue.png",
+      "bytes": 210135,
+      "sha256": "0e08b2276330d82359f6d14c758d9c039b2a615489ada04253e494d4e2a83bda"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-relogin/jump.png",
+      "bytes": 490682,
+      "sha256": "ebab6087d466ae68830f89e0a5cacccf2c19251bdc9e5dd34ad9139c6cb4064a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-relogin/receipt.json",
+      "bytes": 693,
+      "sha256": "d30c908bce335ab4d982409c9c9c461271769a0b31fc840249e0b278c7e7a45a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-relogin-postseat-run.log",
+      "bytes": 20695,
+      "sha256": "226ab4baea34ed5cd27d52b0024378bf9c13ab3dc80a4a93671e8b6f47c4709b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-relogin-postseat-run.log.txt",
+      "bytes": 20693,
+      "sha256": "af64de009140fad80eb011537fd4ab546ab0ffe170cb5d08b88912035dc932d7"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-relogin-preseat.json",
+      "bytes": 693,
+      "sha256": "d30c908bce335ab4d982409c9c9c461271769a0b31fc840249e0b278c7e7a45a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-relogin-run.log",
+      "bytes": 14751,
+      "sha256": "6e2200f7ad166d177ae9f7357301f647235cb4a359455a53c2a10bd33b5841fe"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-relogin-run.log.txt",
+      "bytes": 14749,
+      "sha256": "d70dfacdaff7da7267ba32f060db8478527140b916e562abf69bc40b878b9681"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-ru-jei-run.log",
+      "bytes": 20790,
+      "sha256": "0a012c14dd4a2f451d8680c0cddeb29e6ac89c36fcb62fb2b30d2adacd266e45"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-ru-jei-run.log.txt",
+      "bytes": 20788,
+      "sha256": "7c5870a3c013bf2149f2b9210f23e2141db408771b1498e2330d2252a01df01c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-run.log",
+      "bytes": 14867,
+      "sha256": "e620ff477ebf63958a228a5217d75e21aed541963efc85b6b291b329155e8508"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-run.log.txt",
+      "bytes": 14865,
+      "sha256": "62efee862123ac3784d8b1cfc2d6178b3cd09e7e5e4b041ea44e81c0e3409480"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-side/receipt.json",
+      "bytes": 488,
+      "sha256": "f86665bfcdff3437bf301b51442a08a3401c7faecf70a88650c30e225be75d94"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-side/sivka-air-rider.png",
+      "bytes": 393327,
+      "sha256": "d69f746fbcc19f72a22a8f5ea5e10cea7ab1078c749775b8a63b33922df95c41"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-side/sivka-ground-rider.png",
+      "bytes": 405444,
+      "sha256": "ba1f1341488eec75ff3aa42a91bcd335819ae4f31a3b711189c71dbc98cc490b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-side-attempt1/receipt.json",
+      "bytes": 488,
+      "sha256": "895a059f1d587fd5a811913622c81bc001d3d5a7f843f5441abf2160831b164c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-side-attempt1/sivka-air-rider.png",
+      "bytes": 323345,
+      "sha256": "ca5a1bec23db0f2c89f28e66fc606acaf1926ff8b6b0e1981fbbff74dd62372b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-side-attempt1/sivka-ground-rider.png",
+      "bytes": 309704,
+      "sha256": "207f0d731f9050c418128f5227345f60095b88cf02a41964346811181d77ca8b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-side-fixed-run.log",
+      "bytes": 14627,
+      "sha256": "d669496caf86ded8daa7117fe117563cfa89172593c304a4fa11d7dfbb092001"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-side-fixed-run.log.txt",
+      "bytes": 14625,
+      "sha256": "832a872a3791b577ddd7809d60713dfa7ae8cbe6f363047a37ad1a5da93e1b36"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-side-run.log",
+      "bytes": 14605,
+      "sha256": "8515c603897352631c1672a75b8255eb7d96d35bc5135f72962850b9de507c61"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-side-run.log.txt",
+      "bytes": 14603,
+      "sha256": "1a39fcf9dc89252edefcbfe10d79994c2c3566689be03c9758741e3d5a33fb3a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-visible-run.log",
+      "bytes": 14614,
+      "sha256": "4cc91ccb55c2af9c268db4b421b8c17f097ac2546d5e1c9059a18e92d08c402f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/client-visible-run.log.txt",
+      "bytes": 14612,
+      "sha256": "484cffbef8dbe9dc0addad5bc940a5e8c9ec09cfb8fbb36c120b771ce87b172e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/effects-results.json",
+      "bytes": 63819,
+      "sha256": "ed84cde36f80511d8f64f274ba08423128f02de9433ba5dafed03ea6d9241188"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/effects-server.log",
+      "bytes": 16850,
+      "sha256": "dc005e058dde0a3b5a690eb1a4e7ffa378f8c938a2c4350924d554c6f18a5677"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/effects-server.log.txt",
+      "bytes": 16848,
+      "sha256": "c724ce8d6f0a7e75a0e196e21f28de24a5de480ed9e5c3c7620f1fc60ecefece"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/effects-thread-dump.txt",
+      "bytes": 34804,
+      "sha256": "d0d2911723b1ed6c411be4904350d72ece2fd383e893fcdec057b55779d7185f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/final-offline-gates.log",
+      "bytes": 4009,
+      "sha256": "3ebd86722aa2345db1e9be47578b3a2cc7ff416f69024153220ffd47a4de79ff"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/final-offline-gates.log.txt",
+      "bytes": 4008,
+      "sha256": "ba81398f892296332214e6c3fe8a79c52820d2881bf76f156136a5f9d6995ce7"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/fix1-results.json",
+      "bytes": 61010,
+      "sha256": "43c4c58abf79e7c013bc963d159857917a7b6cb8c347ce5d89945abbd365b84d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/fix1-server.log",
+      "bytes": 15539,
+      "sha256": "ff6188ff201f76f94641276fc4b347ff5876d14c9f1bc25f22c044457f3aad4e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/fix1-server.log.txt",
+      "bytes": 15537,
+      "sha256": "875af10551098f96db37cb3752130a5c27930ccd541c26c34ea08669659f3607"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/foods-results.json",
+      "bytes": 92852,
+      "sha256": "e24fa1a397cfbb1c0958485d99fa8acc93ae08714968a4eeb622c3d680298d14"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/foods-server.log",
+      "bytes": 34478,
+      "sha256": "fdcb34a550ee9413eda9012a3b729daa2fbca1e5b6c47d06897871ebed46a911"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/foods-server.log.txt",
+      "bytes": 34476,
+      "sha256": "22a28ae6e2a375a3ee36d3fa0022299955774a3870cccac3612d57c2bc7326dc"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/issues-snapshot.json",
+      "bytes": 249330,
+      "sha256": "bf3832cbd310372ab6489855be4eddf80af793ca0a14131188bc4148a626ed2f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/jar-comparison.json",
+      "bytes": 815,
+      "sha256": "b668797bd727589dab0ba4f0abbe2939538b53be66b07f4663dc1191440fd083"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/log-evidence-index.json",
+      "bytes": 21799,
+      "sha256": "ac36be7ea891f8c6c6adb6cc5151bfe1868d0c0848832bd41646918812a2de17"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/mechanics-inventory.json",
+      "bytes": 502478,
+      "sha256": "4bfaa71bcd8a5a74ffa2e837dfea65e16b837cd1a8f91e10d08dcaaf1dd46ceb"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/MECHANICS.md",
+      "bytes": 41431,
+      "sha256": "0c848f09bc18d0fcffc870101c54d34e7a735f13f90b1a809fce828d375879ac"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/mp-guest/receipt.json",
+      "bytes": 814,
+      "sha256": "7e3917396082c176808ae443b05c4bc58f09321f0c3daf5e5062212d1cd379de"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/mp-guest/shared-chest.png",
+      "bytes": 124061,
+      "sha256": "05376a349c59681467b7f7c7be935fa47632b4e9b8362dd75d9a67ff36c8f6a5"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/mp-guest-ipv6-run.log",
+      "bytes": 12474,
+      "sha256": "4f6d491e2056928995f79350a9d3777944884438ce1fb2ca7a2210d360f7ea5e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/mp-guest-ipv6-run.log.txt",
+      "bytes": 12472,
+      "sha256": "87f78a0c9b61aad5f1473e8504186ffed2657411466e815182b11d4d9feb64b4"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/mp-guest-run.log",
+      "bytes": 15595,
+      "sha256": "09221443c7600d56a79be1bfcd08db665d89435c77c190ea397a48d08dd81b5c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/mp-guest-run.log.txt",
+      "bytes": 15593,
+      "sha256": "27965b788b51843df2e288ea5af326783b6fab64bb906a752e5650ff34e55d28"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/mp-host/listening.txt",
+      "bytes": 43,
+      "sha256": "d53c3465e451207e4d773ff7ee80017410942d8b6f044c90e2ce5b42883b3db9"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/mp-host/receipt.json",
+      "bytes": 1291,
+      "sha256": "fab49afac920edc28325eb0bc085804e2da2b32fb58cf8922aa6d1a9ceb9d6cf"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/mp-host/shared-chest.png",
+      "bytes": 115615,
+      "sha256": "c2ccede29653c6def04c06659af84ab43dc401e8f2d5f7887820ef609b643129"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/mp-host-run.log",
+      "bytes": 15520,
+      "sha256": "4e5337ba1f1ab9af0c91df533ddefca3370fd5d950a373336c593aae6db3c30f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/mp-host-run.log.txt",
+      "bytes": 15518,
+      "sha256": "23edbd53b87b53397ddecf7660f22fcf5495f0d192679214c8410a7d6e13104f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural-sites.json",
+      "bytes": 54303,
+      "sha256": "535cdda9bde8456c7eed6cd967bfc07a1000356c59a098b5c8b180d711c1171b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural0-deep-results.json",
+      "bytes": 75828,
+      "sha256": "b5c3b0257f5d1060cae0940ebec3bd7197040018ba7e4373b0590163a5166387"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural0-deep-server.log",
+      "bytes": 26150,
+      "sha256": "2906c3d32443c1a5ab1e87e87718a15bee7373943fb1b8d029aaf047634dbf31"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural0-deep-server.log.txt",
+      "bytes": 26148,
+      "sha256": "1d82bbf8637a42317df298374e97f6eb02414468642552aaaf79402337d20802"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural0-results.json",
+      "bytes": 69297,
+      "sha256": "7db21aee169f342d3ff269cacb5697e4a92872b703ba4fb2174eb85deeed29f7"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural0-server.log",
+      "bytes": 22741,
+      "sha256": "5b25e8889bdd822980e8f682ef879602df4e0f2742477e5459e10afe81c7e048"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural0-server.log.txt",
+      "bytes": 22739,
+      "sha256": "92dc548e74d9d0c5e71fbf9b2149767f366b03b31d45dacb37ac41f36e5b0f53"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural0-weighted-results.json",
+      "bytes": 62708,
+      "sha256": "3bf83cd03249daaf3e0add10835daf465ee90a324cbda274319c1ec24a8f1147"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural0-weighted-server.log",
+      "bytes": 15744,
+      "sha256": "8b54b302b91ad3e1f879264ae0e246c53eb1bb94885dcd11049959bdadc91a75"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural0-weighted-server.log.txt",
+      "bytes": 15742,
+      "sha256": "ba1e075ab293fecca6a7cb00c0fd4d9f8e98ed1a06f9695f31e882b967579987"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural1-results.json",
+      "bytes": 63736,
+      "sha256": "3bf268ba571900362288e807712fe98a005972d4ab7134e87d24c366d7303142"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural1-server.log",
+      "bytes": 19315,
+      "sha256": "57b0ce3e3b629968007f717afac4aeff1298ef714f0ea211b8078f88b345da0e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural1-server.log.txt",
+      "bytes": 19313,
+      "sha256": "3b5f12f8cfc0d5caef72941155d186a5b3321ca90f6008fe27c8372486997c55"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural2-results.json",
+      "bytes": 61741,
+      "sha256": "2ba89b38da98845c701398ccc64536d516e7571171348ca216ca21ab2253d7e4"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural2-server.log",
+      "bytes": 17852,
+      "sha256": "5be9c8ab1b797a873cbf3b8c6d4e1bf5b908b037372283edacb0f37d475420d7"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural2-server.log.txt",
+      "bytes": 17850,
+      "sha256": "00477eb1053ca340bc0332cf01f346ef21e768e5170d2ab93d89ea2e0be94a98"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural3-results.json",
+      "bytes": 65504,
+      "sha256": "6effda852d6d691afa6946b1e2345a2d9002bc8eff9bc94cf869fa316fa0e973"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural3-server.log",
+      "bytes": 20207,
+      "sha256": "09bbb2f8f7c218cb45778811ecbf5150201b240fcf4d327616e78f0a8898e114"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural3-server.log.txt",
+      "bytes": 20205,
+      "sha256": "ca740eb5d0b5f6482727269aaa62d099db88d4c789f48524df3e76fa374fa3e2"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural4-before-bounds-qafix-results.json",
+      "bytes": 69015,
+      "sha256": "76f8754c905016917c6be95404b1b9f2ce691f2b1ed5b6292a0b5e4849cf1c91"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural4-bounds-qafix-server.log",
+      "bytes": 22161,
+      "sha256": "ff9d8e9ab68de9cbaafdf76ff56fcb09ae599b261673207f7b9b8963ccb35d23"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural4-bounds-qafix-server.log.txt",
+      "bytes": 22159,
+      "sha256": "d6dfcaf85e23df56b2d65f603e989fed2e5aeea6c5dbec64d07d069f2df72c6d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural4-results.json",
+      "bytes": 69376,
+      "sha256": "4717065907b07f428a884533f1b5b6e599c53f6907fba65efe8fae9a71d4bfa8"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural4-server.log",
+      "bytes": 22412,
+      "sha256": "9e7bbcaccc987ee7bf6af9cfc749aebcf9887adf996e81289d879c5fab931827"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/natural4-server.log.txt",
+      "bytes": 22410,
+      "sha256": "dc9ca6c1e6e79c6817bb798e858481dca0ad94640c917ea98481e36377a41c87"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/NATURAL_SITES.md",
+      "bytes": 3202,
+      "sha256": "304b8e2767e2d1c05ed7e947113fcca6b5dd62f176d4c3488491a68b13cefbf6"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/offline-regression.log",
+      "bytes": 3346,
+      "sha256": "e002455e54d69bc8bac930853d2577999ccd30b2fddb4eea9effe65e6996dd09"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/offline-regression.log.txt",
+      "bytes": 3345,
+      "sha256": "40c38111b058ca993137263cd9c7533950660bec0821453f3e5362a2586a3a18"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/offline-structures.log",
+      "bytes": 1944,
+      "sha256": "ee4ae5bc4d8c6103a8051685c91c45a9a24c517aa8aeeefc42450f8de5cd1ceb"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/offline-structures.log.txt",
+      "bytes": 1943,
+      "sha256": "eb980f64feff80e70379dda600e831d51b128729dcd703cf5b890d90134a53ae"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/oldsave-results.json",
+      "bytes": 100170,
+      "sha256": "0e328806aecd9619edde53a9ed0233a23126cac5083b07a8699bcf13d7d056e4"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/oldsave-server.log",
+      "bytes": 37679,
+      "sha256": "5aebffa9adabf68d96e9f136f6a460dbd06848358d1c4cced2671d64debfe59d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/oldsave-server.log.txt",
+      "bytes": 37677,
+      "sha256": "805296b1d7177df75af78b7e82ff9be29c7e95866aa0fbd255c82f69275f82e5"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/placement-offline-baseline.log",
+      "bytes": 1698,
+      "sha256": "df3c20168b8b8a0e8ee89cec0f8593093d834e386d2a9891bc21ada785a7073b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/placement-offline-baseline.log.txt",
+      "bytes": 1697,
+      "sha256": "13a00150f2ab43c6acf5866d9eca32fceca75517c4c9cb0182d2bc6c7ce2312b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/placement-offline-before.log",
+      "bytes": 2260,
+      "sha256": "e9891f6285477ebb31cb41a941d68f9745d9c604ff796e484f307c48560624fa"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/placement-offline-before.log.txt",
+      "bytes": 2259,
+      "sha256": "eb9f7d0551f392f119ae62bbc99c6b8053766c61453b4ea97010ec88328e71cb"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/placement-offline-fixed.log",
+      "bytes": 1105,
+      "sha256": "6c0af4d885b2dbd3dba9ea7cbb9fd37b886df9b162f8d8894fc9fe119f6e9fd3"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/placement-offline-fixed.log.txt",
+      "bytes": 1104,
+      "sha256": "bc58167f786ce42d6f66c426d27b2aa8c8263fcc56d1997c035272b1610d4b8a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-after/air-phase-000.png",
+      "bytes": 530140,
+      "sha256": "b13141315427a1671ea89a6f53e337b5790c711e9475d006bc3acffa741223a1"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-after/air-phase-012.png",
+      "bytes": 503096,
+      "sha256": "2ba51c16c59c67de33c6d53430d70101c1107371ad33514389877a5d23862b6a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-after/air-phase-027.png",
+      "bytes": 468567,
+      "sha256": "92975bc9b74699cd2955a93c3a239617f9999330b03d5ec61d4ea46c00b90536"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-after/air-phase-040.png",
+      "bytes": 438325,
+      "sha256": "a63ea8d5a1dc80c0f81702fb356105ff9bdf3f07448698ba5d28acede0ea19ff"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-after/air-phase-056.png",
+      "bytes": 414391,
+      "sha256": "54fba4285939cb910bf2306d012f28c905022118732433a0d9f4e94a0a39a8b7"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-after/air-phase-070.png",
+      "bytes": 395951,
+      "sha256": "65dcca677769d8d64679479e0c31d45cdd736fa2f40a15263e40bc7dd4c7250f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-after/air-phase-086.png",
+      "bytes": 382793,
+      "sha256": "39bbcd1f55d26e776799793ac3852837ff8eca00e6cc72ec126752b235421908"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-after/receipt.json",
+      "bytes": 1213,
+      "sha256": "96c51b30356c9c1b7b2da5d2e8788da1839b4a96cc55ac6056b68fcd311c69b1"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-after-run.log",
+      "bytes": 15948,
+      "sha256": "c8d6332879872ad825415cb9f5d4591cbba4acfe9274991f73d06c9cfc7dd420"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-after-run.log.txt",
+      "bytes": 15946,
+      "sha256": "af349d44ce4d1bac9e5487d8ee50630474a0eaaf692cdd1e5ad21c3e56dc8b53"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-before/air-phase-000.png",
+      "bytes": 534095,
+      "sha256": "3630fedb0611e1eb707a036ae99294cfa74ebaa23253dc4fc8b807be2e0f0286"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-before/air-phase-012.png",
+      "bytes": 502424,
+      "sha256": "a8b71deb4aa81651caf02364608c195f81a0339415a89274d8d92efef441e38b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-before/air-phase-027.png",
+      "bytes": 469662,
+      "sha256": "cce6e9d46e7f200bfdef3bcef8ee7cd25b7b0194bc438b93080c2a43cc64110f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-before/air-phase-040.png",
+      "bytes": 440887,
+      "sha256": "624f9b0431079da2090e7f3ac87aed03ed454c5be01c0cc95409a8d1dd5458ca"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-before/air-phase-056.png",
+      "bytes": 415115,
+      "sha256": "315ba74df2d7022434538c7e91c0a44eaa5a127685eb7f9ead7c1074a860f1d0"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-before/air-phase-070.png",
+      "bytes": 398766,
+      "sha256": "c2f78876391948661420ed17bfd8ea70a9b3dc359ca0d064735ddf8be50aabbc"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-before/air-phase-086.png",
+      "bytes": 383654,
+      "sha256": "81f892e2395ab47232c0e459b86289f453d0d68531e93498cc6ce9088cf0de0c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-before/receipt.json",
+      "bytes": 1131,
+      "sha256": "4231a15e4bf41c45ca9bb616955378a2f80d0e63f284077bc25ad6b4f17fd890"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-before-run.log",
+      "bytes": 14458,
+      "sha256": "84185f8b0c33c1b1ebeba29dc7a81c28499f76794982d33dd338d6bfbec24d4d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/poses-before-run.log.txt",
+      "bytes": 14456,
+      "sha256": "0a0c230f53f04f48b62c6a83660f24758063e9a312185a553a331038338f718f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/postseat-restart-results.json",
+      "bytes": 52994,
+      "sha256": "c482d0dd08c801a555e7ed04abfdc593022fb255e634952bcad23544060600b9"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/postseat-restart-server.log",
+      "bytes": 9869,
+      "sha256": "3ed435fd289ab743e6421c439936681dd9aad25a1a709376164f5252c2c627ee"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/postseat-restart-server.log.txt",
+      "bytes": 9867,
+      "sha256": "41e78e1f237e00fbdc2d6be181e8fff6b71864f6bfe6a52759f2b6632ca6b0c2"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/postseat-results.json",
+      "bytes": 64157,
+      "sha256": "2ef0d308ece7eb93a5bbccef8f87867e19e71cc95e0a19b115f087f9de1c53be"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/postseat-server.log",
+      "bytes": 16850,
+      "sha256": "f69b311ee3e1257720362afdbd96f4455f71e73aec5ae0db4b264367f86a2c75"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/postseat-server.log.txt",
+      "bytes": 16848,
+      "sha256": "096349bd2bb9500afde49f5869375f6c4c32b548adb9536122e4b1635610142b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/PROGRESS.md",
+      "bytes": 3031,
+      "sha256": "24dc249dd8aad5c002f8058b44b4fda03920c374147942a13fa1c1c6e9912794"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/quests-results.json",
+      "bytes": 63760,
+      "sha256": "95154bf765e0b35a0c67b33115a5e78b50fb79f1a3a54c1b2a58bd8738de7882"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/quests-server.log",
+      "bytes": 16199,
+      "sha256": "67d78de878527b5831e6cbe1ddb84ae64b39630d8338c5ab60863416b55d05f8"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/quests-server.log.txt",
+      "bytes": 16197,
+      "sha256": "b1b4154f22fad0883dd03a2163598f6a8b8f81adf710681ecc07fded122f8a1a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/recipes-custom-results.json",
+      "bytes": 374521,
+      "sha256": "eaf25c7d7b33bec630872f74a2dd1d4e0068badbf98511ba0cc0ca6f509e1bbd"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/recipes-custom-server.log",
+      "bytes": 207354,
+      "sha256": "043b7e2fd5d8bd02a4fec9fb7ac8debb285da05742983824548c1403f7f64b5a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/recipes-custom-server.log.txt",
+      "bytes": 207352,
+      "sha256": "6f78e33c340824baddb74654a732912227ac89a6018f046e18be890a117b7974"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/recipes-fixed-server.log",
+      "bytes": 161683,
+      "sha256": "27e66b848951cbe2124bce08ceabc46993d1be4eb809e372a1383b0ab604d406"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/recipes-fixed-server.log.txt",
+      "bytes": 161681,
+      "sha256": "622a4ed74540bb3a297016f2ab301da76bffd384f16fc5876142d7ca420f9b59"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/recipes-results.json",
+      "bytes": 313499,
+      "sha256": "435351cbb34af1758165033510f11d7264ed02bb1e16a7372ab51c32ba6b497f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/recipes-server.log",
+      "bytes": 7350,
+      "sha256": "bbd9661e6b45c48959226c61173f57e361e5cac90fde1d2706b813e3a7776f74"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/recipes-server.log.txt",
+      "bytes": 7349,
+      "sha256": "c7c7bc703554eefe7138058fcd7cea188848d44aba70c62bdf89c36bd7c3c7b9"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/registry-routes.json",
+      "bytes": 1160679,
+      "sha256": "fed6ca38aa1d2c97aab1a2700634fe7ed8c231c46aa6badcc39e50edeb0a25b0"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/REGISTRY_ROUTES.md",
+      "bytes": 36335,
+      "sha256": "5e58b564d9e302597099436637339f9373436f9d467c52fa0089d67f598f4108"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/REPORT.md",
+      "bytes": 30578,
+      "sha256": "0929743ca8fb0e68d13741c68c7b29b3be6a5861122834e64253a29ce9aaadf2"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/resources-final.log",
+      "bytes": 440,
+      "sha256": "2f504ef3479e2563f94373c20f9e79a7a320fbcccc320478f3bfdcdf4cc18e8b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/resources-final.log.txt",
+      "bytes": 440,
+      "sha256": "2f504ef3479e2563f94373c20f9e79a7a320fbcccc320478f3bfdcdf4cc18e8b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/resources.log",
+      "bytes": 440,
+      "sha256": "953c25adc7536b1ffba4420352949c761e9c3e505416794113e1328db25d23c4"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/resources.log.txt",
+      "bytes": 440,
+      "sha256": "953c25adc7536b1ffba4420352949c761e9c3e505416794113e1328db25d23c4"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/restart-results.json",
+      "bytes": 52994,
+      "sha256": "0d863d54efafdb4599cc1c1efc3c2122fc47e6b802f5583973cc9d67189fa2dd"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/restart-server.log",
+      "bytes": 9847,
+      "sha256": "b2143df13d775cf750ee0b5e90919e5a9190ac9c4e2a88f8d1454de24620baaf"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/restart-server.log.txt",
+      "bytes": 9845,
+      "sha256": "18d10987f089945cbcda4da4c24c5f935ff36e8e5787fb31cde18d5a071454dc"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/run-index.json",
+      "bytes": 4497,
+      "sha256": "3974ef803b94de03df805c5a1fe9fd4091065ea36afc6f836028226d484797de"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/SCOPE_MATRIX.md",
+      "bytes": 7800,
+      "sha256": "03bea054b981b6fb2afe014ee88695efae011a587e2469785e409afd0d8b82b5"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/seed0-results.json",
+      "bytes": 62883,
+      "sha256": "3c848efa3c1c9dfed4e1eb1bb5d3972da17dfeae5eb4019da7fe473b8bcb3667"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/seed0-server.log",
+      "bytes": 15463,
+      "sha256": "f503fcc835e652c032187b8faca3d0da75cb09eed44e5c4d038557e146c462e1"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/seed0-server.log.txt",
+      "bytes": 15461,
+      "sha256": "3f605580410619046bec6501f1811569ea3a5e13018cb3bd0b21ac9469c7d377"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/seed1-results.json",
+      "bytes": 62880,
+      "sha256": "3585e1707308e2cd05d7b42f960fd151a5cd98c13910c2dc783cccc568cdaddb"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/seed1-server.log",
+      "bytes": 15229,
+      "sha256": "cd842178b781dcb0ed3e9e02831ae4ac51a4e8831e72e0212258e8497a2e1df0"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/seed1-server.log.txt",
+      "bytes": 15227,
+      "sha256": "e00ca9dbf3802a7b8de4f6ea9b28bd6d4e534a4c80d774ae4072d8a625e410c1"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/seed2-results.json",
+      "bytes": 62879,
+      "sha256": "aa92b1674bd59d8b2881a8fc5053b46d92c50cc48d576845db2ccf9858284e71"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/seed2-server.log",
+      "bytes": 14945,
+      "sha256": "d4291e0656c935a132238ee73de9a63d6caa0f22f9ba53b2ca1d740271bc44bf"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/seed2-server.log.txt",
+      "bytes": 14943,
+      "sha256": "eb5a66293eae51e048c263745fd095a8c5605c482f500ec439f33b65c0d3688d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/seed3-results.json",
+      "bytes": 62883,
+      "sha256": "dce1096e1bfecd7c7df396e923a870acc3fe34401012a08e895ef6dd9b3c2112"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/seed3-server.log",
+      "bytes": 14945,
+      "sha256": "bcd00ab767c46a15e7d83a326917f7e8737dc14388a889a968d32cee72a80685"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/seed3-server.log.txt",
+      "bytes": 14943,
+      "sha256": "a103f763d359d0313c4ad983f31b52f8558e26f717c60d5cdaf8cd7391d02973"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/seed4-results.json",
+      "bytes": 61120,
+      "sha256": "c818f36dda8870ef7da1b0457bd0466f1067aaf328cccb873c3d8105e1697f13"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/seed4-server.log",
+      "bytes": 14946,
+      "sha256": "47306a6319d031b920f99add4bdf82543ad43e9bb5e348271790ebe659aa8f7e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/seed4-server.log.txt",
+      "bytes": 14944,
+      "sha256": "33480c10400d611315c73c3bbb40a56f19bcf83cc8841a3a5dcfcac0272cd03e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/seed4-thread-dump.txt",
+      "bytes": 520,
+      "sha256": "7c7674ac62ec850a757cdecc889b72fe53e0db9cadc02bebaa9a31b19dd5718d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/terrain-benchmark-results.json",
+      "bytes": 110990,
+      "sha256": "bff6ce341dc8febfca2d010ef92578e2888cb1fc687d321b9223bd743fc3cc1a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/terrain-benchmark-server.log",
+      "bytes": 25601,
+      "sha256": "85c60ad25fea70c5d80d1febbd8064c059cf9172c22101b249e45c1ea4fb6921"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/terrain-benchmark-server.log.txt",
+      "bytes": 25599,
+      "sha256": "bda37cee7fe78b0b2856d8109e066f27e1137c6fd31b3adba910ecd7c4074c75"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/validation-summary.json",
+      "bytes": 2637,
+      "sha256": "e02d38324604b04cf69ef2198f076cfa74aa340f750f0887b0cb5ef6e791d978"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/winters-results.json",
+      "bytes": 55378,
+      "sha256": "7f4f515f3be5cddc88311c27c8192ee2741b9bcf47687dfd24ee45ad249aeffa"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/winters-server.log",
+      "bytes": 11307,
+      "sha256": "5bd9b57d333929273c3bc98439ade899a5680ea001e6c97739cf59a1afeac9d8"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-20261026/winters-server.log.txt",
+      "bytes": 11305,
+      "sha256": "2bb50f1bad94c0a7102904dec2b6cb28bc2e872b3fc51255afb1c14d5315aea1"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/clean-build.log",
+      "bytes": 2602,
+      "sha256": "dd3d6d1da68a6ec437b5c046dee3d8cbdaa8014d90e944eccfc5bc38f2f1cbee"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/clean-build.log.txt",
+      "bytes": 2666,
+      "sha256": "5c33bb2134e0789fb801e4887c5779af0816fabba6b6ab8faa760276688ef981"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/installation-receipt.json",
+      "bytes": 1259,
+      "sha256": "abff9abdf1acf13e0eced8abe7aaea16c63d3d4dc76ea3843a67b26ad0af368f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/jar-regression/restart-results.json",
+      "bytes": 72024,
+      "sha256": "3b37b7323725d0ad38d607c90de0979c075f02094233ca8032641cb8885989e8"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/jar-regression-before-qa-version-fix.log",
+      "bytes": 11875,
+      "sha256": "8a5e1d3d32ab85d79187a50f6b585c14ef7778dae4a3f5ec9b3a0b08411910be"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/jar-regression-before-qa-version-fix.log.txt",
+      "bytes": 12041,
+      "sha256": "03f1efd8faa6345151967fcd0d42a6b9dca3283304fbbc217dc93a6d617cc701"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/jar-regression.log",
+      "bytes": 9160,
+      "sha256": "0f3c815636492eec636b8a8f6f556a700619bf9f166ce10a610e7817587b82fc"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/jar-regression.log.txt",
+      "bytes": 9257,
+      "sha256": "64d27237281e38ff9a36aea3c189849d44647ab9131dfd87a053e2b7a3545d89"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/log-evidence-index.json",
+      "bytes": 3177,
+      "sha256": "007c8bbbc8c0e753c172faee3e5211b99e9d5c56c168b6df15a792e9946a8d10"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/native-ritual-8675309-results.json",
+      "bytes": 53780,
+      "sha256": "2fbe60b40b292e1a2f74df56ce6b1795cdd99fb148322a6f7f500377398bb597"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/native-ritual-8675309.log",
+      "bytes": 10605,
+      "sha256": "1b02d9c5277d37d69fb61781ac36adf9c9e9e31fc8360a647037c3bc384e8049"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/native-ritual-8675309.log.txt",
+      "bytes": 10708,
+      "sha256": "09c6be620406c9a0c1ebcd8e8deee8e54f2bcd18cf3cee475308302cd2011739"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/native-ritual-minus269-results.json",
+      "bytes": 53592,
+      "sha256": "1b63cc7f40c9b37679815f14178b4661f661ea40b67eeb82ddfcaea2072198a1"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/native-ritual-minus269.log",
+      "bytes": 10602,
+      "sha256": "208b190e38f39cdd9b3f63b39b2f323704bb6fe53e54890d52b9fa61aadf73d9"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/native-ritual-minus269.log.txt",
+      "bytes": 10707,
+      "sha256": "c1d7bd3d6124a041653658e0f49ad079b7ab50dcc67656d37b030c6caf84a50d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/native-ritual-restart-8675309-results.json",
+      "bytes": 52587,
+      "sha256": "244cc1120e08ad35f2014a442286470adfa6f6042f0e111043b51eae5635b809"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/native-ritual-restart-8675309.log",
+      "bytes": 9885,
+      "sha256": "6417da532e04fe46a957483e6793e9466343c77db8b4f163ed682afa3812cbb0"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/native-ritual-restart-8675309.log.txt",
+      "bytes": 9979,
+      "sha256": "23bc0ec7a2767958a03ccaee560ffa67452b70f3c307acd9adf4c99faab53c44"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/native-ritual-restart-minus269-results.json",
+      "bytes": 52584,
+      "sha256": "52acabc9aaacf2fda83f506ae19bfc0a5327ab9649abbb90ac480698f818e4a3"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/native-ritual-restart-minus269.log",
+      "bytes": 9696,
+      "sha256": "91c4c01ff5189d99647619677923218f2a31c393d94af72b15adc867e8ea61fc"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/native-ritual-restart-minus269.log.txt",
+      "bytes": 9788,
+      "sha256": "ce5e2c00d8d8db65a7867a2d8ec5860e627b94a786f771cffab71925934ec278"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/natural-seed12345-results.json",
+      "bytes": 61878,
+      "sha256": "7053736412d4ed840e347c62686c419ea6aad0871b4710606d416498eb0c2ed5"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/natural-seed12345.log",
+      "bytes": 15837,
+      "sha256": "cfad2a91bc2ac7db57e779bfde2638565a61a3b05d483eb68bc856de9724066c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/natural-seed12345.log.txt",
+      "bytes": 15956,
+      "sha256": "1a5dcfb8338678a95dd0819b821675da6915e08623961b9190ed1d883ad38012"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/natural-shrines-seed-minus269-results.json",
+      "bytes": 56406,
+      "sha256": "438530ee05b5f6c36d6a6cbc458b87ccf6ff242b792b5b9b020ae4b005be42be"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/natural-shrines-seed-minus269.log",
+      "bytes": 11887,
+      "sha256": "b68132ada3a29b0d1a51628096109ce500721d43f12a65f626ce558332c10393"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/natural-shrines-seed-minus269.log.txt",
+      "bytes": 11987,
+      "sha256": "5d57fafe07afd36a8f6a51543a58503ecf9dbb5ec08d310ad95a84c0273bc140"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/natural-spring-seed8675309-results.json",
+      "bytes": 56546,
+      "sha256": "4e4b451a9540705f9b69da535821566d681054ee5e898179b247fee49f177361"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/natural-spring-seed8675309.log",
+      "bytes": 12390,
+      "sha256": "fc2c01803c0482d60ff4d80f3bfa890ce22f857911933bf31b239ed220534bca"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/natural-spring-seed8675309.log.txt",
+      "bytes": 12496,
+      "sha256": "b7d7b68f96e0eabfeac4783877296d3d705d8edcbbbc35d25c405aab3d20c53d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/packaging-diff.json",
+      "bytes": 167,
+      "sha256": "7ac72cb96f79037da9e6c504c85cebf90bf0d41ad19860a0cd446ceaccfcab8f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/REPORT.md",
+      "bytes": 13483,
+      "sha256": "1dc394f1032e27f57e123f23c2ac086d9b86d5f4f4cce5926f857de7ef8d8d25"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/resources.log",
+      "bytes": 440,
+      "sha256": "861755dd44e17607e3e96e42d9bf7db4787e9f8f1233c314f94f651a1493e769"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/resources.log.txt",
+      "bytes": 441,
+      "sha256": "3cf0fb07766a6b683deadb68410537c17cbd943c1f8bd2b0c5067fc9d8ed6d7d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/source-production.patch",
+      "bytes": 26233,
+      "sha256": "4e9681b1fe0105cd276d1d80b483b089fe05237445e5d2b7c52b008b89e6d12c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/summary-console.txt",
+      "bytes": 3992,
+      "sha256": "f3b03618d0204e4a0f1124ee67b5b7582a26ba4e5739103600c1e9f8c672d93c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-205-20261026/summary.json",
+      "bytes": 3992,
+      "sha256": "f3b03618d0204e4a0f1124ee67b5b7582a26ba4e5739103600c1e9f8c672d93c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/baseline-advancement-disk.json",
+      "bytes": 185,
+      "sha256": "90ea5c9848213fd05373d75c99adf49637c1999207a3cee61b46c7e11b0ad4ce"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/baseline-client.log",
+      "bytes": 15155,
+      "sha256": "61a61b5ab587efbd572cd32ee7176d415de4b3b1e0b2e34ecec474003d1bc9a4"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/baseline-phase0.png",
+      "bytes": 668059,
+      "sha256": "7ed0e733e5d12d2c2c09e9846da31d7ad8abd3fc58b4fbe5fbdb3d5084603443"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/baseline-receipt.json",
+      "bytes": 1495,
+      "sha256": "545ee382b54e7b42acdd62791297ce8b1223d1d052ff67a1d77a9542a4698915"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/baseline2-client.log",
+      "bytes": 14880,
+      "sha256": "9e181ce185408007591bc67a096aa78eda458b72a655792b40bfdc89042e9208"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/baseline2-phase0.png",
+      "bytes": 672452,
+      "sha256": "7560fcd707e0b9a5c1a5d9c069ec489150ee7db611a7323695fc0d68ae89df82"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/baseline2-receipt.json",
+      "bytes": 1844,
+      "sha256": "2e2e746861075b6f30b0b90b391e9aa266de5222d53470d948f49468d2bb7df5"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/clean-build-207-before-offline-qa-fix.log",
+      "bytes": 36591,
+      "sha256": "825f183c6082553abcb73a903362e17de53c0caa17d409511a4dc621f857ead4"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/clean-build-207.log",
+      "bytes": 2914,
+      "sha256": "69e525a97e12c5ae1040f710b444527725b00d6fdb1b05c8082befefeb65ed71"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/evidence-sha256.json",
+      "bytes": 2930,
+      "sha256": "0c6599fa76a34796c350c97622ce93b808063fdf7fa63b86b5716623ff2dabf6"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/failed-early-window-fml.toml",
+      "bytes": 1551,
+      "sha256": "86b806c690814a5aef03dbe4da869e9a3482b68f07ce0ef1c14ecdae7b1d1dca"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/fixed-client-207-resumed.log",
+      "bytes": 15181,
+      "sha256": "dbaa7f5d45264323e113ec879bfcb3dcd493975cbfca13f1267f0b2f6e1ec29e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/fixed-client-207.log",
+      "bytes": 13503,
+      "sha256": "39745b89a36bf49b1698131ca43a6d56a87527108a5943893d0564e32b4be12d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/fixed-phase0.png",
+      "bytes": 646829,
+      "sha256": "c636fd976f53b8a30f91582d861b76ab0f64075530e11e385a980932e95e8d9b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/fixed-phase1.png",
+      "bytes": 119765,
+      "sha256": "0a2db7c6c7836f0cd9b33c5dd0ea072876d6a594419ba735bd2e80ae56c11e25"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/fixed-phase10.png",
+      "bytes": 116750,
+      "sha256": "6a0ad734c7eed5148e7702107cb19c0d2dbf9c39883f1b2e51eaa637c9a32dcd"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/fixed-phase2.png",
+      "bytes": 113420,
+      "sha256": "ecdd644c7cbe84548c2ca8dacd5ffd0a68a88ba96ea625fa5aedc8ec77b43681"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/fixed-phase3.png",
+      "bytes": 114790,
+      "sha256": "9b87b91ae3fbbb5aa868fb29458938713d4120f76c703bf646ce49a0526dadd5"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/fixed-phase4.png",
+      "bytes": 112058,
+      "sha256": "a1ab6604beea3f8f25273b3050c6bc81a03b7b82af88105d9625b20186ee01f7"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/fixed-phase5.png",
+      "bytes": 113788,
+      "sha256": "1e33195f747c70b5686b8a4faf1dfd2c1dfb4df67b40447b48151ea30b52280c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/fixed-phase6.png",
+      "bytes": 99232,
+      "sha256": "3e17217c7ef052bc7073762698ffc59e0e90892c8512dae56c0a39a3e1bfd581"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/fixed-phase7.png",
+      "bytes": 106219,
+      "sha256": "2942541c54eea13595b8973c04aba1689451867cbd181cb19a3b3ae381ed1b13"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/fixed-phase8.png",
+      "bytes": 125571,
+      "sha256": "e451269bd6a10eb35d07a0fe1482903e7474e7974708d48a3c94da411022469b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/fixed-phase9.png",
+      "bytes": 128600,
+      "sha256": "befbf6b23592f7e08f271f9b8c60cb784d117c8b23071b287eea2d5988131bd1"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/fixed-receipt.json",
+      "bytes": 5255,
+      "sha256": "d9d49e76ed7ea8c54ab9cc5ade9fd7fa3b200a35f53552be7a4b29ad4df114fa"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/initial-client.log",
+      "bytes": 13541,
+      "sha256": "26b95197ac35fa40f1e314420f921259774812d016f942ee1f3b6953aea5f78e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/initial-phase0.png",
+      "bytes": 646747,
+      "sha256": "471622e0928242486a31a7640bf55d3c4a8f14730eef3d53266f8c426dbe2108"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/initial-phase1.png",
+      "bytes": 73767,
+      "sha256": "11575a8219cc53dcf9d606a8688585a1f441cd00a79ca66ff8d56dff2db03a2d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/initial-phase10.png",
+      "bytes": 106456,
+      "sha256": "477b1dc9ac026ebdd9e68fb3a9fa4049eb7c597450a0c33b19eb51a590ef8cf5"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/initial-phase11.png",
+      "bytes": 104123,
+      "sha256": "e93bbe7f86730d63281687d2e5c1208187ec0e0efa5b9cd26055d584ce825bf9"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/initial-phase12.png",
+      "bytes": 108323,
+      "sha256": "073fbbfc4154c560a9a5a0d9473f6109a1fff4befb3dda07835aae6c51386f75"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/initial-phase2.png",
+      "bytes": 104795,
+      "sha256": "af03b07306939425e0935b155816960360625889f3e07640283da355d6beaef2"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/initial-phase3.png",
+      "bytes": 104980,
+      "sha256": "cf94f3e8b876b707e00bd686d3736b37c9f68e620ac54fc95c08edf385e947c7"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/initial-phase4.png",
+      "bytes": 108198,
+      "sha256": "6aef7d0e9970ecd2d632281d2dfbc38e35b2945a7222ffd3fcdde3d62d3457c7"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/initial-phase5.png",
+      "bytes": 105052,
+      "sha256": "a4d95f30a04cae0cd4ab330db937fccf81257ed02bd276df8c01ffb0d69d11b3"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/initial-phase6.png",
+      "bytes": 102551,
+      "sha256": "c949ef0f0396b263818091e6c5c94e0ecbe38daa1fef5ee230d4d675cb3c1f73"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/initial-phase7.png",
+      "bytes": 105937,
+      "sha256": "af61933f5841422838e3ed1c59843df71c58de0da3e61b0ed97bf3b42bbe2524"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/initial-phase8.png",
+      "bytes": 106263,
+      "sha256": "92917de6c5fdcdec8b54deca2ea50673962518f9bc23ff9ff170824b5bd88890"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/initial-phase9.png",
+      "bytes": 106256,
+      "sha256": "5801aa936df53bf97a1722cbb03993dad93b60c940cf38ddd7552674cc0aa5ff"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/initial-receipt.json",
+      "bytes": 4833,
+      "sha256": "86d140e97ab7b0c20ce57c5c79e3b5ec63fe7d2fd6b120896dd7d253f158c72c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/installation-receipt-207.json",
+      "bytes": 1521,
+      "sha256": "e66c72867b1ecd4e775610db85b4f1d8824a97d754486dced5c6377c2c08877e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/live-progress.json",
+      "bytes": 92,
+      "sha256": "8ad8266ab692029da3f85e8d83de0fb89e531e54b5bcece7b8e4b8df91ca786a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/previous-fixed-receipt.json",
+      "bytes": 1802,
+      "sha256": "5761c7aec97817a11abe1a709d9a6b50a066c85906926f1db35df254cc07397c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/previous-initial-receipt.json",
+      "bytes": 2457,
+      "sha256": "675c46221546dec01cefcbd6f7961d24437539049499cf61aae79fce32ff574d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/REPORT.md",
+      "bytes": 12639,
+      "sha256": "1d7a9ec8803803398a7fae9abb776662cfed5bbb5081ae4ab3fd7e88e585ceb4"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/resources-207.log",
+      "bytes": 440,
+      "sha256": "405fa3a02200d1cde63db25950e671f806b28c094576976cc2b45fd9434b9b2f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/restart-cleanup-drops-failed-receipt.json",
+      "bytes": 1314,
+      "sha256": "d97973bd7551b2f54dc9b3fad614f500b1300a9e646984f19cc3ae3558d0eb92"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/restart-cleanup-drops-failed.log",
+      "bytes": 14557,
+      "sha256": "3b2b79f55e77a0e06d4e0aa9b48548bfa61fe4b74ea14ce9a934725d3490158b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/restart-inventory-disk.json",
+      "bytes": 2657,
+      "sha256": "c78be6ed4b46f3bdc43bfc6b98b84f7d2bca1162df230980d8b2667b6199bc8c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/restart-receipt.json",
+      "bytes": 1478,
+      "sha256": "823b4aaf527429620fb65e6640941d4d934fe8d576512279eb198ec35c57a813"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/safe-fixed-client-207.log",
+      "bytes": 14861,
+      "sha256": "6782573e71fcd6895a832e6b33d5ba0b675acd36aa680a5d124f2c4290b63c70"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/safe-initial-client-207.log",
+      "bytes": 13891,
+      "sha256": "9acd73531d49dbb834288aa58c85f991d35c9567324fb57c98cc265751a7425e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/safe-initial-earlywindow-failed.log",
+      "bytes": 136946,
+      "sha256": "22deb4d44e42fd061916e5e98e795895f23af19d7a57c3412a5385350176d7df"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/safe-initial-reused-block-failed-receipt.json",
+      "bytes": 1329,
+      "sha256": "2ba99c7d6f307c519b6a39c1be5d082f448d76e1b00c51b2654397cf5e34c04e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/safe-initial-reused-block-failed.log",
+      "bytes": 14744,
+      "sha256": "84c931630dbcf09d0e17a135869b19c7745f28f2241ac66d5d8f1ef59ccbc195"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/safe-restart-client-207.log",
+      "bytes": 12745,
+      "sha256": "633597860814f34a3923418403100fae5b5c1da0279b5a65eaf048edccd568d6"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/source-production-207.patch",
+      "bytes": 31816,
+      "sha256": "a2a91e45aeb6914d7ae331e3313e825c8177b26c55dd4c08aecc570b16d08238"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-brewing-20261026/summary.json",
+      "bytes": 1094,
+      "sha256": "38359cbd608fb65e293af89ea3587cab0fa6f56faac9b9e67e32ad3267ab4cf2"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/clean-build-206.log",
+      "bytes": 35878,
+      "sha256": "b672c4b09a2e568efe7b17988a6d80787aa2c83ccbc7eb186ab94eec5bde90c7"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/clean-build-206.log.txt",
+      "bytes": 36251,
+      "sha256": "32f159bdadb5a322598662919caf3d30c2b87a70134d46baef7bc4a235717e56"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/initial-client.log",
+      "bytes": 13435,
+      "sha256": "e06d177c7a62d2e7e2bef52fe974ad2fe58848aeeec440c67c97d529682ec293"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/initial-client.log.txt",
+      "bytes": 13563,
+      "sha256": "ef5eb6265cd7bdab42a0ca312d703446267cb9ebaaf2b7a7ab2233e893fbbbe3"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/initial-menu1.png",
+      "bytes": 79460,
+      "sha256": "938e94529ab5b443c33ee158dacc786952d178b728b1a81950d1752294f24b9d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/initial-menu2.png",
+      "bytes": 79789,
+      "sha256": "6bd8ea0e5ce1aa07b803befd22fdcb5c468ec293b894f3567de02993d6a88e38"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/initial-receipt.json",
+      "bytes": 1796,
+      "sha256": "d97da73361238b9f47bd63b771d09a5b1696416386d155ef10501de848fdd5d6"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/installation-receipt-206.json",
+      "bytes": 1409,
+      "sha256": "b0d521e1cf7a90135a2d085ea6d6da5102cb00e388a314f40f30c555e86bf777"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/log-evidence-index.json",
+      "bytes": 1371,
+      "sha256": "bde9483e0da81761e976767ad32b912656942cede0791d9afe9464f71ede38fa"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/REMAINING.md",
+      "bytes": 7311,
+      "sha256": "38f73512e006d517689c07c2ae6d33c229d228f117bc97ed181915450cc0c215"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/REPORT.md",
+      "bytes": 12168,
+      "sha256": "f1f58929b70bba0445be8cbdefb55c19c7379c529156d57387c3c8ccd88cbe63"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/resources-206.log",
+      "bytes": 440,
+      "sha256": "57aa5282891dca4375060f2166581f8fd395d0d33b1def099a1669105e55a53d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/resources-206.log.txt",
+      "bytes": 441,
+      "sha256": "510681452fcea39e6065106ee04e36b2a51da4608b19e9d550d8689a107165d2"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/restart-client.log",
+      "bytes": 13772,
+      "sha256": "4851e390285d70369e6ac1a9ff1dc1495df22b4e62e966634a0b8f682c79e30b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/restart-client.log.txt",
+      "bytes": 13903,
+      "sha256": "620b872f4319f192c50f7bbe9f3464b702c66a9d7948aef912917d15cc5e18bf"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/restart-menu3.png",
+      "bytes": 80274,
+      "sha256": "49d218f4738fc5352f267d4ebca7e39600c3002db7d4a77e2b3c68d719365e6a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/restart-menu4.png",
+      "bytes": 83124,
+      "sha256": "5f2dfae1c9c70648266e2f93c918aa7e9ce201f59028351ed9be951ae6900eba"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/restart-menu5.png",
+      "bytes": 87976,
+      "sha256": "bf87fafd347000a659b7e8bf391e0b2e5fb4de39f5ccb2ec53192ac85790e9bb"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/restart-menu6.png",
+      "bytes": 82801,
+      "sha256": "73b027f01ad304d836b5fd643fea2a4c9574727f944d0b71e2a960c8309280c2"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/restart-menu7.png",
+      "bytes": 81340,
+      "sha256": "2f8b464913f228f17d820a66d02c684facc31c14e282d3f257f3c5e6e55e21f0"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/restart-receipt.json",
+      "bytes": 2482,
+      "sha256": "7e076d9409184cf8a41ca3b10c7bf1bb69a88b25751726c8e2b4dfaece73d0f7"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/source-production-206.patch",
+      "bytes": 27270,
+      "sha256": "df8621619fb73de4a42536ac093fa5511bbefbbeb1c346f979314a5cbdf689da"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/summary-console.txt",
+      "bytes": 1703,
+      "sha256": "71f5ea39bb925765b95cb804e5edbbac0fc778113b11bf62dc380196f7d9c7e8"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/summary.json",
+      "bytes": 1703,
+      "sha256": "71f5ea39bb925765b95cb804e5edbbac0fc778113b11bf62dc380196f7d9c7e8"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/visual-client-206.log",
+      "bytes": 12982,
+      "sha256": "5ca093980944d6edebc866a1844082d9f95fb797de3a2a2b590237929dea1444"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/visual-client-206.log.txt",
+      "bytes": 13107,
+      "sha256": "f49cf7c8b3dcfc1d52f67c23d92ce88ffe0e574ae206a50d8c544f0f0bc7010f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/visual-menu3.png",
+      "bytes": 79335,
+      "sha256": "bb8f9b745adbf370317c4b60e013c84cfdcaddfa88e912c88f58762859051f3b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-kitchen-20261026/visual-receipt.json",
+      "bytes": 554,
+      "sha256": "1646846e4a6d969c1384b9a8670c7b0f0d3aa898a3766bf7652f0102732f01f2"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/command.json",
+      "bytes": 84,
+      "sha256": "55059b8bd9dbd3c881e726333ace3d1f4fd5d09dd4d181734cc18c2e3373eb47"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/guest-ack.json",
+      "bytes": 39,
+      "sha256": "719663e9a9097a4b3d40b71d30d697a42da220900a537474c3a60a4f4661180f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/guest-phase0.png",
+      "bytes": 218021,
+      "sha256": "8b2d6f05625d48ad8e54f61e8e7d663e13096d08d9ca77561b136cf0778e1ae7"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/guest-phase1.png",
+      "bytes": 139607,
+      "sha256": "432272470f4a41d3798c4602600a9dc9f6053861aced9610e05195d4b0b4fc61"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/guest-phase10.png",
+      "bytes": 61517,
+      "sha256": "46c6886291021191b62a6339aa07c398e8131db94de9cdae6efb14161de7ddee"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/guest-phase2.png",
+      "bytes": 87463,
+      "sha256": "a15aad615588a61556c36c6d4213c69ae38118e789892a9d84e7b4fea46cf257"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/guest-phase3.png",
+      "bytes": 82695,
+      "sha256": "55b5449730b066889856a17a104341d93f8b03a87ca59b0c85d654b8edfc5908"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/guest-phase4.png",
+      "bytes": 66237,
+      "sha256": "a7e409c47dc90fb3d88b4d4a9c1ba49c40f79beacb2989a3ea93930993dc0ec9"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/guest-phase5.png",
+      "bytes": 69115,
+      "sha256": "32df43b6a949773e06d449db032a338ccf283d984303aab0c68f164d646d1aba"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/guest-phase6.png",
+      "bytes": 55425,
+      "sha256": "dad8a1e6ddbb75251afc8669a6795f223a32c3e65168b512c833e5d4b659dab1"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/guest-phase7.png",
+      "bytes": 55363,
+      "sha256": "9d24de0662f0770022bf6ec1e2d823ba08aa99f2545d229ef2ac52e83b9c7a7e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/guest-phase8.png",
+      "bytes": 54463,
+      "sha256": "751c357b7881a1a66f2e027041985bb962f62806b0b2b9cfb4d513592e34aa68"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/guest-phase9.png",
+      "bytes": 55399,
+      "sha256": "8bbfc640a2c480ab6a193002cc040940b8cffd1b034076b3d201352af05dd7af"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/guest-receipt.json",
+      "bytes": 998,
+      "sha256": "f848e147cb82acaa9a98b1b2f156d7374a579d5a22a09c7417cba6b202e4c6f1"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/host-ack.json",
+      "bytes": 39,
+      "sha256": "719663e9a9097a4b3d40b71d30d697a42da220900a537474c3a60a4f4661180f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/host-phase0.png",
+      "bytes": 61092,
+      "sha256": "20a92a4d8e0568160ba751623f7fc50ab8f01bd5a76166879295986eea348558"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/host-phase1.png",
+      "bytes": 63328,
+      "sha256": "c68ae301bfe3b82f1f36f8b27910f8757b6c1b8d61e887a67f7ddf6fd7167022"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/host-phase10.png",
+      "bytes": 58880,
+      "sha256": "c9d07d2698befa97f1fb0156988311d32fae1f67e714bc55aa0e1032f5fbb3a5"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/host-phase2.png",
+      "bytes": 57172,
+      "sha256": "39c643187a730870bd89102dbce4e244dcdba40ed7fccebe63417d48af76c769"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/host-phase3.png",
+      "bytes": 53226,
+      "sha256": "2aaf5f4ef7147787e22ec1874f414b9ed355082351ee0c246f3847f1abcd08bc"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/host-phase4.png",
+      "bytes": 58867,
+      "sha256": "7d6a45d905301c5c772b38ab281fd592423c28c6f978d3c768eedf806ecb7e65"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/host-phase5.png",
+      "bytes": 62102,
+      "sha256": "d6cb24c296c7301a85918454c939bfd99ae24a35a1774e3922abbab8925df36b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/host-phase6.png",
+      "bytes": 53947,
+      "sha256": "10764f6952e486288c49add15f854df6752ab58f361aae7700cb135ae0683228"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/host-phase7.png",
+      "bytes": 52905,
+      "sha256": "39180b784084c8e50873b8960867bf8d75d0f6649e4688cd889797bcfa75fad6"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/host-phase8.png",
+      "bytes": 54094,
+      "sha256": "4143cfff041cbc2e5d6ce76b34ea8d5f6b20f52033fbab6969f827d264b22a4c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/host-phase9.png",
+      "bytes": 53060,
+      "sha256": "db0b649701acff1d95bbc75beebe2c21e9dfd7c3fd1e8679318dc66414ce6f06"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/host-receipt.json",
+      "bytes": 5133,
+      "sha256": "f0f3ddd1bb8e1bed08311ca0077c34c021c2afc4f4775b8241bd95d887b73ec8"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial/listening.txt",
+      "bytes": 11,
+      "sha256": "e5dbe3f538a93c8361456eced17d1e485af33f592c488ed3953473fe9aad49b9"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial-guest.log",
+      "bytes": 11493,
+      "sha256": "d0bf84da6e405502b3e150cfebd760fcdbae22e3dabda02cd221d2ca133a1e87"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial-guest.log.txt",
+      "bytes": 11598,
+      "sha256": "5fb13d7e300a263721d727bc102d618c003ff3eb5e4fb881068c0c6b6fc495f4"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial-host.log",
+      "bytes": 17360,
+      "sha256": "82d4884418df58ed916169e9061d6e09ff70ae915032b9d6d2ffbfe53c043a05"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/initial-host.log.txt",
+      "bytes": 17538,
+      "sha256": "04b7f1a6964474c3639375633c14f6ae8f1178dd6649d56e678e66b61be1131e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/log-evidence-index.json",
+      "bytes": 1343,
+      "sha256": "9c14e83574d3359e99e26b845303cf0231c8dabc5806268d35ce1f13d18f866b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/REPORT.md",
+      "bytes": 10660,
+      "sha256": "0bf00c8bb1e9b4dce29b9ed35829eeb7267eada17a42ccd83e88adf3c3783934"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/resources.log",
+      "bytes": 440,
+      "sha256": "861755dd44e17607e3e96e42d9bf7db4787e9f8f1233c314f94f651a1493e769"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/resources.log.txt",
+      "bytes": 441,
+      "sha256": "3cf0fb07766a6b683deadb68410537c17cbd943c1f8bd2b0c5067fc9d8ed6d7d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/command.json",
+      "bytes": 82,
+      "sha256": "2a870e9c308ade2bb24547303097588a383d4c3b8309317dba00c796f5e09135"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/guest-ack.json",
+      "bytes": 38,
+      "sha256": "dfcc275eca5b4bf27d26cfa4e7c4e223edf3a6a7449d8d9b40064666ac5bc549"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/guest-phase0.png",
+      "bytes": 213469,
+      "sha256": "53d78aada6984ace00aa5fed686af87af71448c8e7b66f115b09dea80f3111cd"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/guest-phase1.png",
+      "bytes": 72308,
+      "sha256": "420a76a795ef32d0e69e1a407169c7a43c4b12f4f7eae2286c05b3726e2cfe95"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/guest-phase2.png",
+      "bytes": 94223,
+      "sha256": "da98749f7a63759d44da5be34ae67708d6a0930d3040b4b05a54b2d1655f6846"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/guest-phase3.png",
+      "bytes": 56079,
+      "sha256": "745ff024af2c8ed43409145ef7d6e6c7307569dcecbb3cff8c9ff8eb75ad6f2b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/guest-phase4.png",
+      "bytes": 63737,
+      "sha256": "d65ff0f37108b0279f2a97591ec2883fe3b891d350d55cb92f4a9e2fbf002487"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/guest-phase5.png",
+      "bytes": 58863,
+      "sha256": "5e650c0a358ce9e21fd8c3c229163a8c9715dee7b5c79ee1cc89b021fa0df400"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/guest-phase6.png",
+      "bytes": 54350,
+      "sha256": "433c7fa4ae2c0c75c5f98f941c92c8ecf41fd9a79c64edf8bfb49aac33930ff2"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/guest-receipt.json",
+      "bytes": 856,
+      "sha256": "93fa8f86e423813a610c84585bc209d647f9e67529e9b9ae31fc5058c6221b5f"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/host-ack.json",
+      "bytes": 38,
+      "sha256": "dfcc275eca5b4bf27d26cfa4e7c4e223edf3a6a7449d8d9b40064666ac5bc549"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/host-phase0.png",
+      "bytes": 54211,
+      "sha256": "5eb4c8c28baafe188e4ac13cdceb4a8c97c2bcc108663bde5c84d95b5fe270a7"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/host-phase1.png",
+      "bytes": 53331,
+      "sha256": "3a88b614e9bc817f57fe451205390f076bc644287594f38a83407990d81bdf78"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/host-phase2.png",
+      "bytes": 54211,
+      "sha256": "89015d54ad81e9a99f2adaefe33655a3926089ad1352bfa6e36a2014df0d0674"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/host-phase3.png",
+      "bytes": 52250,
+      "sha256": "4933132b404af000e997b4862baefb41ea6a8839022e8496970f61acce1fd784"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/host-phase4.png",
+      "bytes": 53033,
+      "sha256": "163ba8cc5790472f8aebc8ff920e6447f9d4727d3b9c5995593a0a63a398eea1"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/host-phase5.png",
+      "bytes": 52183,
+      "sha256": "d09ad884bb4c7acf58c7b34104004fabf50b14939145a50d68766ed3d7ec7eb2"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/host-phase6.png",
+      "bytes": 52115,
+      "sha256": "d243820935cedd317081853fc95df36d2208c1d5ff0fcc0190d69c8de4db84c8"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/host-receipt.json",
+      "bytes": 3023,
+      "sha256": "5a5869db1deda1c20a93cbe9236956117d067bcaaf8572a1822601e2944a3b98"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart/listening.txt",
+      "bytes": 11,
+      "sha256": "e5dbe3f538a93c8361456eced17d1e485af33f592c488ed3953473fe9aad49b9"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart-guest.log",
+      "bytes": 9966,
+      "sha256": "3025487ed3c437b4e6f613348c2a33113526d406a335be6377c0aea773018426"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart-guest.log.txt",
+      "bytes": 10060,
+      "sha256": "a0c17dcfdfc7455eda970fd416f8f44342dc0f1d8ebce0362c5030bfe6c256f7"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart-host.log",
+      "bytes": 15844,
+      "sha256": "ef677d93c0e33e92c0fd3b93110eeeaf47f6c9cfa93be4b709f179d9c956367a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/restart-host.log.txt",
+      "bytes": 15996,
+      "sha256": "c516faff98c3bbd6c8bca2394159073443bbede938c55e4f2cc9e2441e53cfb6"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/summary-console.txt",
+      "bytes": 3126,
+      "sha256": "4d1c728946d6829363b75ebb3018bda97092507078c4c89c63b4ceb54356823a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-mp-ritual-20261026/summary.json",
+      "bytes": 3126,
+      "sha256": "4d1c728946d6829363b75ebb3018bda97092507078c4c89c63b4ceb54356823a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/client-controls/flight.png",
+      "bytes": 186071,
+      "sha256": "9492f4780f1f7f2601af28b233fe6eed13050ba2802b207ea2623c6501e77b0c"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/client-controls/jump.png",
+      "bytes": 495013,
+      "sha256": "271db301c4476e3a9630cd3542d20f8ee76a4e2b066c5a932eb91688fc0e04ae"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/client-controls/landing.png",
+      "bytes": 178575,
+      "sha256": "8dc21487b6e1fc512d9eb4a7efd6492656e876dd6168587f0c2abb2a9a181a1e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/client-controls/receipt.json",
+      "bytes": 1683,
+      "sha256": "ab89ac7a0ac9d568f480f1821b4b8dfa7770223a5b3b2621c2b10d36cee60d4a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/client-controls-repeat.log",
+      "bytes": 12849,
+      "sha256": "ff583f299ae99c11fa44f18c729ecd77c38b825495c155bdf562e8e205182918"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/client-controls-repeat.log.txt",
+      "bytes": 12969,
+      "sha256": "864d248bf7579aa87c8452ab933cd9fee82abefd5ad5277c3bcee3d6e1bc42cf"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/client-controls.log",
+      "bytes": 13048,
+      "sha256": "3d4bf6b9f61fdb5bb393511df5cfc13fed4ead3d4d38be39702e670e5ce0aac6"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/client-controls.log.txt",
+      "bytes": 13171,
+      "sha256": "dd264dd1e909841a930ccccbe56968818d8e188f95a43ed8d203819fe4edafb8"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/client-relogin/jump.png",
+      "bytes": 490150,
+      "sha256": "7c8192fbb9bbd81de7c1e74af6ecdd7ddacab8ae35ecc062dcc5eaa43a0e2264"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/client-relogin/receipt-stale.json",
+      "bytes": 693,
+      "sha256": "c05bd2346d3197b2131c31f86698e4acafc35b131b5881f54b6214e1f8b5f0bc"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/client-relogin/receipt.json",
+      "bytes": 693,
+      "sha256": "d30c908bce335ab4d982409c9c9c461271769a0b31fc840249e0b278c7e7a45a"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/client-relogin-before-dispatch-qafix.log",
+      "bytes": 12093,
+      "sha256": "a656bada523022eb6288226cffa19c7a6497e8abed657b2f155b82cbf87521ce"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/client-relogin-before-dispatch-qafix.log.txt",
+      "bytes": 12202,
+      "sha256": "644d3a22859d2afe7e456d188c199839f138935b28cc16925e9726e5f37971ed"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/client-relogin.log",
+      "bytes": 12373,
+      "sha256": "28e8ae0a64ce1896ddd9165b69a78dd95bdf667fef59ddb0b08866334de0587d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/client-relogin.log.txt",
+      "bytes": 12486,
+      "sha256": "06ca6d44e955c01da3c2d9b3ef8a08b9fff4ccd4d5496af9ccb008ab7254f852"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/final-evidence-check.json",
+      "bytes": 478,
+      "sha256": "a5e37e596d9ab7a9788b09faff5befc433ba9a94c8639792aa4cc92cf86f07b8"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/jar-regression/restart-results.json",
+      "bytes": 72001,
+      "sha256": "6c1326e1fcc8992afc8ad8c08ba7d98317fb6d0acc4179b12e6cd25db7d0860b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/jar-regression.log",
+      "bytes": 8930,
+      "sha256": "fe0a37e2becad993a7e5d74e316bdb2fd97f0b6e0cd6780a5b8ec2b7334fdca4"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/jar-regression.log.txt",
+      "bytes": 9024,
+      "sha256": "0589c69adea77620712b98a33c3de661d302cf4faf8f4fbac77279672d15c894"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/log-evidence-index.json",
+      "bytes": 3839,
+      "sha256": "cacecf0fc85cc59db1ca36aad79ea513b0efc3db4a04ad5a84cd3c8bf6d8e02d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/mp-guest/receipt.json",
+      "bytes": 814,
+      "sha256": "7e3917396082c176808ae443b05c4bc58f09321f0c3daf5e5062212d1cd379de"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/mp-guest/shared-chest.png",
+      "bytes": 124061,
+      "sha256": "05376a349c59681467b7f7c7be935fa47632b4e9b8362dd75d9a67ff36c8f6a5"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/mp-guest.log",
+      "bytes": 12508,
+      "sha256": "c319f8552859d69d0dd7eca116e51fcf90b78261cc920c8905e8e680bc260ad1"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/mp-guest.log.txt",
+      "bytes": 12616,
+      "sha256": "48366290484cff429208e5694dc80d13aebd06373fdbd84f1887e04310d91a98"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/mp-host/listening.txt",
+      "bytes": 43,
+      "sha256": "d53c3465e451207e4d773ff7ee80017410942d8b6f044c90e2ce5b42883b3db9"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/mp-host/receipt.json",
+      "bytes": 1291,
+      "sha256": "fab49afac920edc28325eb0bc085804e2da2b32fb58cf8922aa6d1a9ceb9d6cf"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/mp-host/shared-chest.png",
+      "bytes": 115615,
+      "sha256": "c2ccede29653c6def04c06659af84ab43dc401e8f2d5f7887820ef609b643129"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/mp-host.log",
+      "bytes": 13200,
+      "sha256": "fd04c315dad9d20dc145c9e1e214fbeb5ca4b6644538186d3dbe09c1ac7f1efa"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/mp-host.log.txt",
+      "bytes": 13323,
+      "sha256": "19662cd07059014a2f1c6df3e521a944ea32d87b4db659e7f934147b9cb21de8"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural-sites.json",
+      "bytes": 9456,
+      "sha256": "c421a1fad2b168fabaea3f802199e96965c76644d890747d5d4ac615bb779ec4"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural-targeted-results.json",
+      "bytes": 70996,
+      "sha256": "a67f2ff74d93dd346842067488f8676098cdf68aef9ced75e64474e795113aa0"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural-targeted-server.log",
+      "bytes": 22833,
+      "sha256": "c742d348e1a488a008348a7241827a552428c12c9ff4c24e433038281065f479"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural-targeted-server.log.txt",
+      "bytes": 22988,
+      "sha256": "2aefd8c2aea436c46f61d96ee0747f326d808302136191c77ea592ceded6d748"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural-targeted-thread-sample.txt",
+      "bytes": 35109,
+      "sha256": "87a896154a67e784ca57643d5754f4794de2c83da12e13ca508d19e71b4aa8c9"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural0-results.json",
+      "bytes": 71468,
+      "sha256": "4942e38ef14b5073da8d27c0e4d0753cc9be212b9a139e44ef38776e1526d5de"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural0-server.log",
+      "bytes": 24841,
+      "sha256": "2532d2be4c7ae73f60af7ce8b315f5be38963e015376c8b2e9ca5e61688e8ab3"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural0-server.log.txt",
+      "bytes": 25001,
+      "sha256": "e2afd34c73dba3874203016e3d4624b7162be1dd77b4136e9120610c69cb51f3"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural1-results.json",
+      "bytes": 64281,
+      "sha256": "ae514df2c02af65c9673c73a555966fa535f6f9c2f8ded9113dadcec44b72d73"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural1-server.log",
+      "bytes": 19700,
+      "sha256": "196b5c9b82f0e4d78ab21a88a89979684f038bd48c78263ab0e32e490a3bbefe"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural1-server.log.txt",
+      "bytes": 19847,
+      "sha256": "2935d50304f7d1e38a05f1598f38167621589777b72e3dc4811be13701a6bd14"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural2-results.json",
+      "bytes": 62288,
+      "sha256": "73aaf173ad1f9cab223d067c612d42452e368784b035fb5c63b31a51e75c5de3"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural2-server.log",
+      "bytes": 18122,
+      "sha256": "e7e9467d150d520446d6fc4f374c5d361e99a396fa88c86020e2d040969b6445"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural2-server.log.txt",
+      "bytes": 18265,
+      "sha256": "94d17689c5adc46701a3b807833794e44dcbe9a411f94200f9a9e8e09590ec22"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural3-results.json",
+      "bytes": 66234,
+      "sha256": "3b50d3cf6c176afc783ce2bcd6591fb1447705d3b6d0f04f288fb777a5f19168"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural3-server.log",
+      "bytes": 20321,
+      "sha256": "eaaa26dfd8ee1b6f2a20478119171d88f8f46a936055d3b5705eb2ccda4741a5"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural3-server.log.txt",
+      "bytes": 20465,
+      "sha256": "cac88a465f585d7048d1f86327d60f7cc7b6e3934bf0caa013a770c38f55860d"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural4-results.json",
+      "bytes": 69735,
+      "sha256": "1c3225d60466443d74210bc99b8086d69df5933c42f312815796981d1d3d0e78"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural4-server.log",
+      "bytes": 22840,
+      "sha256": "c65c8ee91886e83fb8b5c6ce29fe6ca109594db5f1dd162c97700efa868a1beb"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/natural4-server.log.txt",
+      "bytes": 22988,
+      "sha256": "5dc1fe73cbbe753f04239b5943376a1e18f4df75242039ff34d3e1794830dd10"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/NATURAL_SITES.md",
+      "bytes": 4294,
+      "sha256": "64b0669a638def20dda26f7517d766d8cf9db18a326548801210404394862a7e"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/REPORT.md",
+      "bytes": 17297,
+      "sha256": "786a7ecb358baba3f522f6fdadf8a8649641ce50773f7f7688c092bd63dc7ca4"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/resources.log",
+      "bytes": 440,
+      "sha256": "2f504ef3479e2563f94373c20f9e79a7a320fbcccc320478f3bfdcdf4cc18e8b"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/resources.log.txt",
+      "bytes": 441,
+      "sha256": "e16b8deeac7bf3c6d47e5d19ffd31f6758542cafe06447fa74d0275947584943"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/summary-console.txt",
+      "bytes": 6936,
+      "sha256": "e40548cdf3a239a06bbfafb13fbbdced2c4fd9b24b8fb1a0857fa12e28455011"
+    },
+    {
+      "path": "snapshot/docs/implementation/stabilization269-resume-20261026/summary.json",
+      "bytes": 6936,
+      "sha256": "e40548cdf3a239a06bbfafb13fbbdced2c4fd9b24b8fb1a0857fa12e28455011"
+    },
+    {
+      "path": "snapshot/docs/PROJECT_STATUS.md",
+      "bytes": 491039,
+      "sha256": "6b75fbc604260ded1569828897ac1e34726d85aa9a374d7f06989b21ec3e9d19"
+    },
+    {
+      "path": "snapshot/docs/PROJECT_WORKFLOW.md",
+      "bytes": 27586,
+      "sha256": "8813ed6cd8acfd7300343c837c06432d40f6c49078123c824eae9acd9f6b1e54"
+    },
+    {
+      "path": "snapshot/docs/ROADMAP.md",
+      "bytes": 392432,
+      "sha256": "0af532d1338ce46c16dbceb1ad4bbfa5a2af789ae5aa5c69ebbb9553508a4b9f"
+    },
+    {
+      "path": "snapshot/tools/advancements3_resources.py",
+      "bytes": 16283,
+      "sha256": "9a27f14bc75e60130ab44d662405fd72e1c158bd4467a0ac34da48d64482b29d"
+    },
+    {
+      "path": "snapshot/tools/audit_stabilization269.py",
+      "bytes": 17470,
+      "sha256": "3dd4f4a05fa13164a5844f3891afba76f917d081f6dccce0034ac521d33e74d2"
+    },
+    {
+      "path": "snapshot/tools/audit_stabilization269_routes.py",
+      "bytes": 7811,
+      "sha256": "d7924dababcd8ef656b813fbc95342da9f7007c5b827d47ce2169ab0698b2814"
+    },
+    {
+      "path": "snapshot/tools/barrel-offline/FermentationOffline.java",
+      "bytes": 6355,
+      "sha256": "1a981defe52bfcf9e64a539cd856a078179e24957b4262356ef5d5505e8496ef"
+    },
+    {
+      "path": "snapshot/tools/check_kalin_saveddata_disk.py",
+      "bytes": 1661,
+      "sha256": "2e60de4e01f6509cb33c7d26247697e01f518006a36f9875a0323a77f380a513"
+    },
+    {
+      "path": "snapshot/tools/fix_trophy_atlas269.py",
+      "bytes": 1112,
+      "sha256": "17cbbe7307eb4702b9118829717be73f2edbcfbba1cdf7c2f08c41027eeabb9a"
+    },
+    {
+      "path": "snapshot/tools/install_stabilization269_205.py",
+      "bytes": 4195,
+      "sha256": "2f92091ce555e204f8498e6a0341a7b5dfce5efa2962def98b959267227ffcc8"
+    },
+    {
+      "path": "snapshot/tools/install_stabilization269_206.py",
+      "bytes": 3772,
+      "sha256": "17a2006a068cc7a04c6c835058913bb6683af65c7b6453587de1803a841007cd"
+    },
+    {
+      "path": "snapshot/tools/install_stabilization269_207.py",
+      "bytes": 4329,
+      "sha256": "ef754ad843b8fa02bdc69c62adf1eaf6eb54cfea27bd1624132d667d8b8fb3b9"
+    },
+    {
+      "path": "snapshot/tools/karachun_assets.py",
+      "bytes": 23252,
+      "sha256": "0ebdd8c8f6e2043b487bbaac8839aaf74ea627ee2e26e8391df68e296ffbae44"
+    },
+    {
+      "path": "snapshot/tools/loot276-runtime/Loot276Runtime.java",
+      "bytes": 20447,
+      "sha256": "eba5133ce1645f3cdcc2e254cd4c678baea432166fd61a4569f6bf1cb4cebfc2"
+    },
+    {
+      "path": "snapshot/tools/loot276-runtime-resources/META-INF/neoforge.mods.toml",
+      "bytes": 285,
+      "sha256": "11e2d78b5bdf1f20ca117648840f03d9888df8f1ce553aa08eb807c3adab1699"
+    },
+    {
+      "path": "snapshot/tools/loot276-runtime.gradle",
+      "bytes": 905,
+      "sha256": "dce99e59efc29e2272cdfaaedecb804378e28888bacdeb8ffb699214e5a18815"
+    },
+    {
+      "path": "snapshot/tools/loot276_l1_resources.py",
+      "bytes": 8422,
+      "sha256": "248e5d355954b0839a26a6d4ef3d321de01d4c0d0fff8cec19a0bb9778586904"
+    },
+    {
+      "path": "snapshot/tools/morozko_assets.py",
+      "bytes": 28242,
+      "sha256": "f8b1fc26f072d00d69420e453d9b7a219745a481ef6413763de662540590bf0c"
+    },
+    {
+      "path": "snapshot/tools/placement269-offline/Placement269Offline.java",
+      "bytes": 4493,
+      "sha256": "757881870ecf4b978a4a701c18ee33668bf58b8064db6d38020e392cfea31db1"
+    },
+    {
+      "path": "snapshot/tools/placement269-offline.gradle",
+      "bytes": 569,
+      "sha256": "a48e18c168fe57e1685f17e1486cc478934dc9d0af0c3a614533ae6b921e4590"
+    },
+    {
+      "path": "snapshot/tools/sivka-tests/SivkaChecks.java",
+      "bytes": 4478,
+      "sha256": "b3e2400f5ebb32a2de5959a77439d7757d7763bcb4983ed780230919bba42e50"
+    },
+    {
+      "path": "snapshot/tools/sivka_resources.py",
+      "bytes": 15322,
+      "sha256": "fb47c609f572331a699392c2557acf913d20464c5a0cb8976616cdf50b43ac9a"
+    },
+    {
+      "path": "snapshot/tools/stabilization269/Census269.java",
+      "bytes": 2570,
+      "sha256": "690ac192d5f6b906eec7f0a721d157fd638d9ce9c6c99d9eb639698493f5898c"
+    },
+    {
+      "path": "snapshot/tools/stabilization269/Foods269.java",
+      "bytes": 2035,
+      "sha256": "33621193df9fc53a4f966fc1f1602c6df216e3871d873dde9bb62d3213d2caab"
+    },
+    {
+      "path": "snapshot/tools/stabilization269/NativeRitual269.java",
+      "bytes": 5425,
+      "sha256": "01adcdc865f3b30112a9fb74af99c4713951e1afbacfa232424dc8f80c3eaecd"
+    },
+    {
+      "path": "snapshot/tools/stabilization269/Natural269.java",
+      "bytes": 16129,
+      "sha256": "bf0c867981544cdd6b3b3f91eda86a1d86aaec69e50841b8a4cca86d48003b47"
+    },
+    {
+      "path": "snapshot/tools/stabilization269/OldSave269.java",
+      "bytes": 1735,
+      "sha256": "daa95bc4adb6381bc8615015bc9dd959eef34528119a19c06bdbae3159886be7"
+    },
+    {
+      "path": "snapshot/tools/stabilization269/Quests269.java",
+      "bytes": 3094,
+      "sha256": "954fb421ac08d898068526cd34a3a9a3b5be21facc160f219c6f567a3d312fa4"
+    },
+    {
+      "path": "snapshot/tools/stabilization269/Recipes269.java",
+      "bytes": 6029,
+      "sha256": "fe6a15e88bf29770d03c14b35b366e7623222c8f41fa3fb43b41cc0c90f6ea2d"
+    },
+    {
+      "path": "snapshot/tools/stabilization269/Stabilization269.java",
+      "bytes": 17768,
+      "sha256": "fca0123c823c9596cbe150becad34b59f2bc431b742a03c5f7160e408488815e"
+    },
+    {
+      "path": "snapshot/tools/stabilization269/TerrainBench269.java",
+      "bytes": 2327,
+      "sha256": "03df72aa6a203a259c54013891f0e4cc549c4075493860e8bfdc4f5eaaafb755"
+    },
+    {
+      "path": "snapshot/tools/stabilization269/Winters269.java",
+      "bytes": 2592,
+      "sha256": "52cf9465516eebe7092d8ed39034ca0ff3db1ad1b91702c634d3ac80196603d7"
+    },
+    {
+      "path": "snapshot/tools/stabilization269-client/Assets269.java",
+      "bytes": 4270,
+      "sha256": "5540321cd6973f60c42c27bb76e4a18f16a8f8724e4fa51cd5af9d397b094583"
+    },
+    {
+      "path": "snapshot/tools/stabilization269-client/BindingFocus269.java",
+      "bytes": 634,
+      "sha256": "84d18aa605bf057363013a57debba6c791ef0fa4e1f433da1222984c84338562"
+    },
+    {
+      "path": "snapshot/tools/stabilization269-client/Brew269.java",
+      "bytes": 17438,
+      "sha256": "91173d26806fd40fcb206455ce09e8f4f99610019022d5919662fe7a80a34ed5"
+    },
+    {
+      "path": "snapshot/tools/stabilization269-client/Client269.java",
+      "bytes": 7738,
+      "sha256": "752ba74b34afff65511f6ab8f601712a4361350c472a1c992f15c44c7a401f46"
+    },
+    {
+      "path": "snapshot/tools/stabilization269-client/Controls269.java",
+      "bytes": 6753,
+      "sha256": "c61e7a47e637d1eb0de54829ff179426bc75ce89a3598d9c0a425fbec2ea5970"
+    },
+    {
+      "path": "snapshot/tools/stabilization269-client/HiddenWindow269.java",
+      "bytes": 960,
+      "sha256": "a72a22841ce9277ec5d863fd8b3cc79f9352f922476fab0c0015ac9e05af5a2d"
+    },
+    {
+      "path": "snapshot/tools/stabilization269-client/Kitchen269.java",
+      "bytes": 10799,
+      "sha256": "4d0c1a8444690369f6b146a9358355c36829ec0837ab39d737957233c47c4248"
+    },
+    {
+      "path": "snapshot/tools/stabilization269-client/Multiplayer269.java",
+      "bytes": 8306,
+      "sha256": "5c6b1a83960d868bbcbbd119bcb999676ea5c81f0926af25ac3fcab44939e33e"
+    },
+    {
+      "path": "snapshot/tools/stabilization269-client/Pose269.java",
+      "bytes": 3728,
+      "sha256": "cbc25bafdcc13452f2f1650f69d24958d244e006f2d71f1fcac14c2dfd6120b2"
+    },
+    {
+      "path": "snapshot/tools/stabilization269-client/RitualMp269.java",
+      "bytes": 13143,
+      "sha256": "8ddbc085817bf6f73f8a57ee14d7f6b80aacc07c034f07dab1237b1acf27d50e"
+    },
+    {
+      "path": "snapshot/tools/stabilization269-client/Scout269.java",
+      "bytes": 10235,
+      "sha256": "ddb9f48294f5d4bd0b16050d340fa358a24de524a73fbed3c1e6026803af7f7e"
+    },
+    {
+      "path": "snapshot/tools/stabilization269-client/SideCamera269.java",
+      "bytes": 1003,
+      "sha256": "bc943a64bf8b57cd2945f63d097bd5fda50cd6461b10bd5d6abcc1a39818c8ff"
+    },
+    {
+      "path": "snapshot/tools/stabilization269-client/Survey269.java",
+      "bytes": 6844,
+      "sha256": "5cfbf8ee62fbfc467b6fd3a23aeedd2ffe208de33f7ed4dc3dc4d51e451e1582"
+    },
+    {
+      "path": "snapshot/tools/stabilization269-client-resources/META-INF/neoforge.mods.toml",
+      "bytes": 216,
+      "sha256": "d4b03fbc5a37867e98667fb2db1f56180117d333fe0884bb6440ff51c4f5c72b"
+    },
+    {
+      "path": "snapshot/tools/stabilization269-client-resources/stabilization269client.mixins.json",
+      "bytes": 193,
+      "sha256": "eb4093462bcc156c41c1da0bd96785a522247d0033b19ac590433127dc5bf05c"
+    },
+    {
+      "path": "snapshot/tools/stabilization269-client.gradle",
+      "bytes": 3100,
+      "sha256": "7e1b84e8a47e695cf11f48a27f7ec79c35ed82eccb35cf15d60d1b4b5d4e18fc"
+    },
+    {
+      "path": "snapshot/tools/stabilization269.gradle",
+      "bytes": 1838,
+      "sha256": "71fe15be2cc29ba8867e5f6e0782a5fc0b124fd433f805b2b0b2be6a50083d9c"
+    },
+    {
+      "path": "snapshot/tools/summarize_stabilization269_205.py",
+      "bytes": 2748,
+      "sha256": "14ec6754ccf5272f6c1544da82d7fc1fc03793eb30c617f8f2b150c4d834abc1"
+    },
+    {
+      "path": "snapshot/tools/summarize_stabilization269_brewing.py",
+      "bytes": 1947,
+      "sha256": "6f5b073210213d139943533b9ef21405a370133d36626321350f15d5009255db"
+    },
+    {
+      "path": "snapshot/tools/summarize_stabilization269_kitchen.py",
+      "bytes": 3620,
+      "sha256": "66f743eef95d717f24c4858cd3e6f3eb02655e159cbbcf0112d7a02c844e80a8"
+    },
+    {
+      "path": "snapshot/tools/summarize_stabilization269_mp_ritual.py",
+      "bytes": 3126,
+      "sha256": "549339a20a11578f051cdf8145909ca952b19f8c3ebe481f5d0f15f5decaa30f"
+    },
+    {
+      "path": "snapshot/tools/summarize_stabilization269_resume.py",
+      "bytes": 6596,
+      "sha256": "a22cf7a63d5d95adcaf6e719a44a47cd29740b4f88f19f6abed27ff22c23b04b"
+    },
+    {
+      "path": "snapshot/tools/verify_current_resources.py",
+      "bytes": 4485,
+      "sha256": "e61f586c3c93a33a178ea57c2c99fd46cdfe62020788ebc93e64faf74e7470c6"
+    }
+  ]
+}

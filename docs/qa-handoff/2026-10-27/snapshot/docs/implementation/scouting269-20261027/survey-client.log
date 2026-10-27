@@ -1,0 +1,146 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileStabilization269ClientJava UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :writeStabilization269ClientLegacyClasspath UP-TO-DATE
+> Task :prepareStabilization269ClientRun
+> Task :processStabilization269ClientResources UP-TO-DATE
+> Task :stabilization269ClientClasses UP-TO-DATE
+
+> Task :runStabilization269Client
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[08:19:41] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientdev, --version, 21.1.255, --assetIndex, 17, --assetsDir, C:\\Users\\pavel\\.gradle\\caches\\neoformruntime\\assets, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430, --width, 1280, --height, 800]
+[08:19:41] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[08:19:41] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[08:19:41] [main/WARN] [ne.ne.fm.lo.FMLConfig/CORE]: Configuration file D:\slavic-myths\work\stabilization269-scout-20261027\config\fml.toml is not correct. Correcting
+[08:19:41] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because splash screen is disabled
+[08:19:41] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%23138!/ Service=ModLauncher Env=CLIENT
+[08:19:41] [main/WARN] [ne.ne.fm.lo.FMLConfig/CORE]: Configuration file D:\slavic-myths\work\stabilization269-scout-20261027\config\fml.toml is not correct. Correcting
+[08:19:42] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[08:19:42] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Isolated stabilization render probe 1 (stabilization269client)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 2.0.7-HELL (slavicmyths)
+[08:19:42] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[08:19:42] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientdev' with arguments [--version, 21.1.255, --gameDir, ., --assetsDir, C:\Users\pavel\.gradle\caches\neoformruntime\assets, --assetIndex, 17, --width, 1280, --height, 800]
+[08:19:42] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[08:19:42] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[08:19:43] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[08:19:44] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[08:19:44] [Datafixer Bootstrap/INFO] [mojang/DataFixerBuilder]: 229 Datafixer optimizations took 469 milliseconds
+[08:19:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:19:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:19:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[08:19:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[08:19:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:19:49] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23190!/assets/.mcassetsroot' uses unexpected schema
+[08:19:49] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23190!/data/.mcassetsroot' uses unexpected schema
+[08:19:50] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[08:19:50] [Render thread/INFO] [minecraft/Minecraft]: Setting user: Dev
+[08:19:50] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.3.3+5
+[08:19:50] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[08:19:54] [Render thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[08:19:55] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/stabilization269client, mod/curios, mod/slavicmyths, mod/neoforge
+[08:19:55] [Worker-Main-1/INFO] [minecraft/UnihexProvider]: Found unifont_all_no_pua-15.1.05.hex, loading
+[08:19:55] [Worker-Main-1/INFO] [minecraft/UnihexProvider]: Found unifont_jp_patch-15.1.05.hex, loading
+[08:20:01] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:item.goat_horn.play
+[08:20:01] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[08:20:01] [Render thread/INFO] [mojang/Library]: OpenAL initialized on device OpenAL Soft on Наушники (G435 Bluetooth Gaming Headset Stereo)
+[08:20:01] [Render thread/INFO] [minecraft/SoundEngine]: Sound engine started
+[08:20:01] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 2048x2048x4 minecraft:textures/atlas/blocks.png-atlas
+[08:20:01] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/signs.png-atlas
+[08:20:01] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[08:20:01] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[08:20:01] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[08:20:01] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[08:20:01] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[08:20:01] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[08:20:01] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[08:20:01] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[08:20:01] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[08:20:01] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[08:20:01] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[08:20:01] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[08:20:02] [Render thread/WARN] [minecraft/ShaderInstance]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[08:20:02] [Render thread/INFO] [ne.ne.ne.cl.en.an.js.AnimationLoader/]: Loaded 0 entity animations
+QA269_CLIENT_OPEN from=TitleScreen
+[08:20:06] [Render thread/INFO] [minecraft/RecipeManager]: Loaded 1853 recipes
+[08:20:06] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 1643 advancements
+[08:20:06] [Render thread/INFO] [Curios API/]: Loaded 10 curio slots
+[08:20:06] [Render thread/INFO] [Curios API/]: Loaded 1 curio entities
+[08:20:08] [Server thread/INFO] [minecraft/IntegratedServer]: Starting integrated minecraft server version 1.21.1
+[08:20:08] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[08:20:14] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[08:20:15] [progressListener/INFO] [minecraft/LoggerChunkProgressListener]: Подготовка области возрождения: 0%
+[08:20:15] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[08:20:15] [progressListener/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 365 ms
+[08:20:15] [Server thread/INFO] [minecraft/IntegratedServer]: Changing view distance to 2, from 10
+[08:20:15] [Server thread/INFO] [minecraft/IntegratedServer]: Changing simulation distance to 5, from 0
+[08:20:15] [Server thread/INFO] [minecraft/PlayerList]: Dev[local:E:219f9f70] logged in with entity id 7 at (12000.5, 200.0, 12000.5)
+[08:20:15] [Server thread/INFO] [minecraft/MinecraftServer]: Dev присоединился к игре
+[08:20:15] [Server thread/INFO] [minecraft/MinecraftServer]: Dev получил достижение «[Алмазы!]»
+[08:20:15] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Dev получил достижение «[Алмазы!]»
+SURVEY269_PROGRESS phase=0 index=0 confirm=0
+[08:20:16] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 55 advancements
+SURVEY269_PLAN {type=chud_region_forecast, region=[1, 0], accepted=true, structure=chud_abandoned, owner=[270, 22], kind=INDEPENDENT_GREAT}
+[08:20:24] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 8443ms or 168 ticks behind
+SURVEY269_PLAN {type=chud_region_forecast, region=[-1, 0], accepted=true, structure=chud_abandoned, owner=[-251, 27], kind=INDEPENDENT_MEDIUM}
+SURVEY269_PLAN {type=chud_region_forecast, region=[0, 1], accepted=true, structure=chud_city, owner=[30, 317], variant=0, attached=false}
+SURVEY269_PLAN {type=chud_region_forecast, region=[0, -1], accepted=true, structure=chud_abandoned, owner=[47, -217], kind=INDEPENDENT_MEDIUM}
+SURVEY269_PLAN {type=chud_region_forecast, region=[1, 1], accepted=true, structure=chud_abandoned, owner=[299, 323], kind=INDEPENDENT_GREAT}
+SURVEY269_PLAN {type=chud_region_forecast, region=[-1, 1], accepted=true, structure=chud_city, owner=[-216, 276], variant=2, attached=false}
+SURVEY269_PLAN {type=chud_region_forecast, region=[1, -1], accepted=true, structure=chud_city, owner=[336, -180], variant=0, attached=false}
+SURVEY269_PLAN {type=chud_region_forecast, region=[-1, -1], accepted=true, structure=chud_city, owner=[-162, -179], variant=0, attached=false}
+SURVEY269_PLAN {type=serpent_hill, cell=[-5, -5], chunk=[-397, -393], placement_allowed=true, accepted_start_forecast=false, elapsed_ms=154.8462}
+SURVEY269_PLAN {type=serpent_hill, cell=[-4, -5], chunk=[-286, -398], placement_allowed=true, accepted_start_forecast=false, elapsed_ms=5.5846}
+[08:21:23] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 44081ms or 881 ticks behind
+SURVEY269_PLAN {type=serpent_hill, cell=[-3, -5], chunk=[-222, -365], placement_allowed=true, accepted_start_forecast=false, elapsed_ms=6.3191}
+SURVEY269_PLAN {type=serpent_hill, cell=[-2, -5], chunk=[-153, -353], placement_allowed=true, accepted_start_forecast=false, elapsed_ms=10.9829}
+SURVEY269_PLAN {type=serpent_hill, cell=[-1, -5], chunk=[-40, -383], placement_allowed=true, accepted_start_forecast=false, elapsed_ms=75.1986}
+SURVEY269_PLAN {type=serpent_hill, cell=[0, -5], chunk=[7, -356], placement_allowed=true, accepted_start_forecast=false, elapsed_ms=6.0513}
+SURVEY269_PLAN {type=serpent_hill, cell=[0, 3], chunk=[41, 274], placement_allowed=true, accepted_start_forecast=true, elapsed_ms=1904.4965}
+SURVEY269_PLAN {type=serpent_hill, cell=[1, -5], chunk=[89, -400], placement_allowed=true, accepted_start_forecast=false, elapsed_ms=146.1008}
+SURVEY269_PLAN {type=serpent_hill, cell=[2, -5], chunk=[188, -371], placement_allowed=true, accepted_start_forecast=false, elapsed_ms=9.8441}
+SURVEY269_PLAN {type=serpent_hill, cell=[3, -5], chunk=[255, -382], placement_allowed=true, accepted_start_forecast=false, elapsed_ms=5.7757}
+SURVEY269_PLAN {type=gorodishche, cell=[3, 3], chunk=[412, 389], placement_allowed=true, accepted_start_forecast=true, elapsed_ms=5333.5974}
+[08:22:07] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 5298ms or 105 ticks behind
+SURVEY269_PLAN {type=serpent_hill, cell=[4, -5], chunk=[337, -368], placement_allowed=true, accepted_start_forecast=false, elapsed_ms=125.1508}
+SURVEY269_PROGRESS phase=2 index=0 confirm=0
+SURVEY269_NATIVE {structure=chud_abandoned, chunk=[270, 22], valid_native_start=true, bounds=[4201, -47, 233, 4455, 70, 487], kind=INDEPENDENT_GREAT, entrance=4398, 29, 236, levels=4}
+SURVEY269_NATIVE {structure=chud_abandoned, chunk=[-251, 27], valid_native_start=true, bounds=[-4112, -12, 336, -3904, 105, 544], kind=INDEPENDENT_MEDIUM, entrance=-4108, 64, 378, levels=3}
+SURVEY269_NATIVE {structure=chud_city, chunk=[30, 317], valid_native_start=true, bounds=[361, -63, 4953, 615, 54, 5207], variant=0, entrance=450, 38, 5204, attached=false}
+SURVEY269_NATIVE {structure=chud_abandoned, chunk=[47, -217], valid_native_start=true, bounds=[656, -48, -3568, 864, 69, -3360], kind=INDEPENDENT_MEDIUM, entrance=698, 28, -3364, levels=3}
+SURVEY269_NATIVE {structure=chud_abandoned, chunk=[299, 323], valid_native_start=true, bounds=[4665, -54, 5049, 4919, 63, 5303], kind=INDEPENDENT_GREAT, entrance=4668, 22, 5106, levels=4}
+SURVEY269_NATIVE {structure=chud_city, chunk=[-216, 276], valid_native_start=true, bounds=[-3575, -63, 4297, -3321, 54, 4551], variant=2, entrance=-3324, 38, 4462, attached=false}
+SURVEY269_NATIVE {structure=chud_city, chunk=[336, -180], valid_native_start=true, bounds=[5257, -63, -2999, 5511, 54, -2745], variant=0, entrance=5422, 38, -2996, attached=false}
+SURVEY269_NATIVE {structure=chud_city, chunk=[-162, -179], valid_native_start=true, bounds=[-2711, -62, -2983, -2457, 55, -2729], variant=0, entrance=-2708, 39, -2894, attached=false}
+SURVEY269_NATIVE {structure=serpent_hill, chunk=[41, 274], valid_native_start=true, bounds=[600, 79, 4328, 727, 222, 4455]}
+SURVEY269_NATIVE {structure=gorodishche, chunk=[412, 389], valid_native_start=true, bounds=[6512, 57, 6144, 6687, 91, 6319]}
+[08:22:58] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+[08:22:58] [Server thread/INFO] [minecraft/ServerGamePacketListenerImpl]: Dev lost connection: Отключение
+[08:22:58] [Server thread/INFO] [minecraft/MinecraftServer]: Dev покинул игру
+[08:22:58] [Server thread/INFO] [minecraft/ServerCommonPacketListenerImpl]: Stopping singleplayer server as player logged out
+[08:22:58] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[08:22:58] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[08:22:58] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[08:22:58] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:overworld
+[08:22:59] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_end
+[08:22:59] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_nether
+[08:22:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (Stabilization269): All chunks are saved
+[08:22:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[08:22:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[08:22:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+
+BUILD SUCCESSFUL in 3m 27s
+10 actionable tasks: 3 executed, 7 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

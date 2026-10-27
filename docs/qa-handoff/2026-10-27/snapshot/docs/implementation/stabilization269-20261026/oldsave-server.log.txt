@@ -1,0 +1,358 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileStabilization269Java
+> Task :downloadAssets UP-TO-DATE
+> Task :writeStabilization269ServerLegacyClasspath UP-TO-DATE
+> Task :prepareStabilization269ServerRun
+> Task :processStabilization269Resources NO-SOURCE
+> Task :stabilization269Classes
+
+> Task :runStabilization269Server
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[15:53:05] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430, --nogui]
+[15:53:05] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[15:53:05] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[15:53:05] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[15:53:05] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[15:53:05] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[15:53:05] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]:
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 2.0.4-HELL (slavicmyths)
+[15:53:06] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[15:53:06] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, ., --nogui]
+[15:53:06] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[15:53:06] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[15:53:07] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[15:53:08] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[15:53:13] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15:53:13] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15:53:13] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[15:53:13] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[15:53:13] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15:53:13] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[15:53:15] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[15:53:15] [main/WARN] [ne.ne.ne.co.CommonHooks/WP]: The following mods have version differences that were not resolved:
+loot276qa (version 1 -> MISSING)
+Things may not work well.
+[15:53:15] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[15:53:15] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[15:53:16] [main/INFO] [minecraft/RecipeManager]: Loaded 1853 recipes
+[15:53:16] [main/INFO] [minecraft/AdvancementTree]: Loaded 1643 advancements
+[15:53:16] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[15:53:16] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[15:53:17] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.21.1
+[15:53:17] [Server thread/INFO] [minecraft/DedicatedServer]: Loading properties
+[15:53:17] [Server thread/INFO] [minecraft/DedicatedServer]: Default game type: SURVIVAL
+[15:53:17] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[15:53:17] [Server thread/INFO] [minecraft/DedicatedServer]: Starting Minecraft server on 127.0.0.1:25769
+[15:53:17] [Server thread/INFO] [minecraft/ServerConnectionListener]: Using default channel type
+[15:53:17] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[15:53:17] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.
+[15:53:17] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[15:53:17] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set "online-mode" to "true" in the server.properties file.
+[15:53:17] [Server thread/INFO] [minecraft/DedicatedServer]: Preparing level "loot276-disposable"
+[15:53:18] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[15:53:18] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[15:53:18] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 231 ms
+[15:53:18] [Server thread/INFO] [minecraft/DedicatedServer]: Done (0.462s)! For help, type "help"
+[15:53:18] [Server thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[15:53:18] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=999, y=89, z=29}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=999, y=89, z=29}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1032, y=89, z=-51}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1032, y=89, z=-51}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1030, y=89, z=7}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1030, y=89, z=7}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1252, y=89, z=-22}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1252, y=89, z=-22}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1287, y=73, z=-51}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1287, y=73, z=-51}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1287, y=89, z=-51}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1287, y=89, z=-51}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1287, y=89, z=61}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1287, y=89, z=61}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1283, y=73, z=80}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1283, y=73, z=80}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1318, y=73, z=-23}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1318, y=73, z=-23}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1323, y=89, z=40}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1323, y=89, z=40}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1317, y=89, z=40}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1317, y=89, z=40}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1316, y=73, z=41}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1316, y=73, z=41}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1508, y=73, z=41}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1508, y=73, z=41}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1516, y=73, z=41}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1516, y=73, z=41}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1511, y=73, z=61}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1511, y=73, z=61}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1511, y=57, z=61}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1511, y=57, z=61}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1543, y=89, z=-50}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1543, y=89, z=-50}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1540, y=57, z=-23}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1540, y=57, z=-23}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1540, y=41, z=-23}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1540, y=41, z=-23}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1543, y=89, z=61}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1543, y=89, z=61}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1536, y=41, z=83}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1536, y=41, z=83}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1575, y=73, z=-50}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1575, y=73, z=-50}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1575, y=41, z=-50}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1575, y=41, z=-50}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1575, y=57, z=-50}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1575, y=57, z=-50}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1572, y=73, z=-25}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1572, y=73, z=-25}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1574, y=57, z=9}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1574, y=57, z=9}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1573, y=41, z=7}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1573, y=41, z=7}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1582, y=89, z=43}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1582, y=89, z=43}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=1570, y=89, z=43}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=1570, y=89, z=43}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=2002, y=101, z=4}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=2002, y=101, z=4}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=2098, y=101, z=2}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=2098, y=101, z=2}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=2194, y=101, z=6}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=2194, y=101, z=6}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=2388, y=102, z=4}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=2388, y=102, z=4}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=3026, y=101, z=6}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=3026, y=101, z=6}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=3122, y=101, z=4}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=3122, y=101, z=4}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=3218, y=101, z=4}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=3218, y=101, z=4}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=3314, y=101, z=2}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=3314, y=101, z=2}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=3410, y=101, z=6}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=3410, y=101, z=6}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=3027, y=101, z=98}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=3027, y=101, z=98}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=3030, y=101, z=98}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=3030, y=101, z=98}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=3026, y=101, z=98}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=3026, y=101, z=98}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=3220, y=101, z=98}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=3220, y=101, z=98}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=4154, y=101, z=5}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=4154, y=101, z=5}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=4248, y=101, z=2}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=4248, y=101, z=2}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=4338, y=101, z=6}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=4338, y=101, z=6}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=4346, y=101, z=6}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=4346, y=101, z=6}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=4440, y=101, z=6}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=4440, y=101, z=6}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=4060, y=101, z=101}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=4060, y=101, z=101}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=4337, y=101, z=99}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=4337, y=101, z=99}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=4440, y=101, z=98}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=4440, y=101, z=98}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=4164, y=108, z=203}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=4164, y=108, z=203}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=4170, y=101, z=210}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=4170, y=101, z=210}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=4241, y=106, z=197}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=4241, y=106, z=197}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=4337, y=107, z=197}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=4337, y=107, z=197}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=4433, y=109, z=197}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=4433, y=109, z=197}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=4148, y=101, z=292}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=4148, y=101, z=292}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=5511, y=102, z=17}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=5511, y=102, z=17}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=5510, y=101, z=45}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=5510, y=101, z=45}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=5518, y=102, z=20}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=5518, y=102, z=20}
+QA269 PASS old_204_save_compatibility old ritual unlock persists on real restored cache BlockPos{x=5518, y=102, z=20}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=5529, y=104, z=21}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=5529, y=104, z=21}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=5517, y=101, z=39}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=5517, y=101, z=39}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=6012, y=101, z=14}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=6012, y=101, z=14}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=6011, y=101, z=23}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=6011, y=101, z=23}
+QA269 PASS old_204_save_compatibility old ritual unlock persists on real restored cache BlockPos{x=6011, y=101, z=23}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=6023, y=101, z=22}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=6023, y=101, z=22}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=6089, y=101, z=35}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=6089, y=101, z=35}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=6536, y=161, z=89}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=6536, y=161, z=89}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=6537, y=161, z=89}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=6537, y=161, z=89}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=6545, y=161, z=44}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=6545, y=161, z=44}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=6546, y=161, z=44}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=6546, y=161, z=44}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=6554, y=85, z=86}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=6554, y=85, z=86}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=6591, y=161, z=56}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=6591, y=161, z=56}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=6590, y=161, z=56}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=6590, y=161, z=56}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=6584, y=161, z=55}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=6584, y=161, z=55}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=6583, y=161, z=55}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=6583, y=161, z=55}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=6584, y=161, z=65}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=6584, y=161, z=65}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=6585, y=161, z=65}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=6585, y=161, z=65}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7004, y=102, z=3}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7004, y=102, z=3}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7008, y=102, z=7}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7008, y=102, z=7}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7132, y=102, z=3}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7132, y=102, z=3}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7136, y=102, z=7}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7136, y=102, z=7}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7260, y=102, z=3}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7260, y=102, z=3}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7264, y=102, z=7}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7264, y=102, z=7}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7389, y=102, z=14}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7389, y=102, z=14}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7392, y=102, z=8}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7392, y=102, z=8}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7517, y=102, z=14}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7517, y=102, z=14}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7520, y=102, z=8}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7520, y=102, z=8}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7645, y=102, z=14}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7645, y=102, z=14}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7648, y=102, z=8}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7648, y=102, z=8}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7775, y=102, z=9}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7775, y=102, z=9}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7775, y=102, z=4}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7775, y=102, z=4}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7903, y=102, z=4}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7903, y=102, z=4}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7903, y=102, z=9}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7903, y=102, z=9}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7007, y=102, z=132}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7007, y=102, z=132}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7007, y=102, z=137}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7007, y=102, z=137}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7132, y=102, z=145}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7132, y=102, z=145}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7260, y=102, z=145}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7260, y=102, z=145}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7388, y=102, z=145}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7388, y=102, z=145}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7517, y=110, z=133}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7517, y=110, z=133}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7516, y=102, z=132}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7516, y=102, z=132}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7645, y=112, z=133}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7645, y=112, z=133}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7644, y=102, z=132}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7644, y=102, z=132}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7772, y=102, z=132}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7772, y=102, z=132}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7773, y=114, z=133}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7773, y=114, z=133}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7900, y=101, z=135}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7900, y=101, z=135}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7004, y=101, z=264}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7004, y=101, z=264}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7009, y=101, z=259}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7009, y=101, z=259}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7131, y=101, z=258}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7131, y=101, z=258}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7259, y=102, z=260}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7259, y=102, z=260}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7265, y=102, z=260}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7265, y=102, z=260}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7387, y=102, z=260}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7387, y=102, z=260}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7393, y=102, z=260}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7393, y=102, z=260}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7515, y=102, z=260}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7515, y=102, z=260}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7521, y=102, z=260}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7521, y=102, z=260}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7644, y=102, z=261}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7644, y=102, z=261}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7648, y=102, z=266}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7648, y=102, z=266}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7650, y=102, z=261}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7650, y=102, z=261}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7666, y=102, z=264}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7666, y=102, z=264}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7666, y=110, z=281}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7666, y=110, z=281}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7772, y=102, z=261}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7772, y=102, z=261}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7778, y=102, z=261}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7778, y=102, z=261}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7776, y=102, z=266}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7776, y=102, z=266}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7794, y=102, z=264}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7794, y=102, z=264}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7794, y=111, z=281}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7794, y=111, z=281}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7900, y=102, z=261}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7900, y=102, z=261}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7906, y=102, z=261}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7906, y=102, z=261}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7904, y=102, z=266}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7904, y=102, z=266}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7922, y=102, z=264}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7922, y=102, z=264}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=7922, y=112, z=281}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=7922, y=112, z=281}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=12928, y=17, z=1447}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=12928, y=17, z=1447}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=12920, y=9, z=1524}
+QA269 PASS old_204_save_compatibility old emptied reward remains empty BlockPos{x=12920, y=9, z=1524}
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=9000, y=100, z=0}
+QA269 PASS old_204_save_compatibility old filled inventory preserves exactly3diamonds
+QA269 PASS old_204_save_compatibility old installed204 container type restored BlockPos{x=9003, y=100, z=0}
+QA269 PASS old_204_save_compatibility old unopened native loot table preserves registry ID
+QA269 PASS old_204_save_compatibility substantial real old-save corpus loaded
+STABILIZATION269 PASS
+[15:53:20] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[loot276-disposable]'/minecraft:overworld
+[15:53:21] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[loot276-disposable]'/minecraft:the_end
+[15:53:21] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[loot276-disposable]'/minecraft:the_nether
+[15:53:21] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (loot276-disposable): All chunks are saved
+[15:53:21] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15:53:21] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15:53:21] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[15:53:21] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[15:53:21] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[15:53:21] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[15:53:22] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[loot276-disposable]'/minecraft:overworld
+[15:53:23] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[loot276-disposable]'/minecraft:the_end
+[15:53:23] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[loot276-disposable]'/minecraft:the_nether
+[15:53:23] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (loot276-disposable): All chunks are saved
+[15:53:23] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15:53:23] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15:53:23] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+
+BUILD SUCCESSFUL in 33s
+9 actionable tasks: 4 executed, 5 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

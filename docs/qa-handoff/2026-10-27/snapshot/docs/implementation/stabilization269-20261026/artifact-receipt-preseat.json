@@ -1,0 +1,14 @@
+{
+  "source_head": "61cb344eeaf3a31db098052800a5e8ab710568de",
+  "source_state": "UNCOMMITTED_DIFF; not installed",
+  "tracked_production_diff_sha256": "b6431316e8caa4c97d10392e3f864c0004a47d7b19cefcbb55ac3a44664a71d4",
+  "built_jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.4-HELL.jar",
+  "built_sha256": "3813903b74ed104475b238ce459ed1f29304af341696ffc60092dfc6bd0ebc50",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.4-HELL.jar",
+  "installed_sha256": "1c22bf186ab6886fee8a464fb44b123620354ef93ee0f990d1208660d3743010",
+  "installed_mod_jars": [
+    "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.4-HELL.jar"
+  ],
+  "qa_leaks": [],
+  "qa_exclusion": "PASS"
+}

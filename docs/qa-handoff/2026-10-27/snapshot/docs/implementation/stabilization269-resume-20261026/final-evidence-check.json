@@ -1,0 +1,11 @@
+{
+  "status": "PASS_EVIDENCE_INTEGRITY_ONLY",
+  "checks": 510,
+  "server_launches": 7,
+  "client_launches": 6,
+  "receipt_log_correspondence": true,
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.4-HELL.jar",
+  "installed_sha256": "1c22bf186ab6886fee8a464fb44b123620354ef93ee0f990d1208660d3743010",
+  "installed_mod_jar_count": 1,
+  "deployment": "POLYMC_NOT_INSTALLED_NEW_JAR"
+}

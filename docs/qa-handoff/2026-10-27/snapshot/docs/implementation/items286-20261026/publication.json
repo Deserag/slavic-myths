@@ -1,0 +1,15 @@
+{
+  "branch": "hell",
+  "implementation_commit": "37c0609e",
+  "audit276_commit": "cb3ed533",
+  "installed_source_commit": "cb3ed533f754fc1b82de2238f3955867bd37b23b",
+  "jar_sha256": "d4583f90d8c4531e1e0d78d20cf4ac11c24868af6ecfea40531d1d0e4951c6bb",
+  "issues": {
+    "286": "OPEN / В работе / OWNER_PENDING",
+    "276": "OPEN / В работе / audit-only"
+  },
+  "main_local_observed": "8789e08dbcb029ae7b252049dec62c47c7780cce",
+  "main_remote_observed": "26e73424f16ae703e9a9b75fe432731663d30e05",
+  "game_processes_this_task": 0,
+  "publication": "push hell only; receipt commit follows"
+}

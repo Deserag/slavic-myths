@@ -1,0 +1,13 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="Test only"
+[[mods]]
+modId="loot276qa"
+version="1"
+displayName="Disposable loot276 probe"
+[[dependencies.loot276qa]]
+modId="slavicmyths"
+type="required"
+versionRange="[2.0.4-HELL,2.0.8-HELL)"
+ordering="AFTER"
+side="SERVER"

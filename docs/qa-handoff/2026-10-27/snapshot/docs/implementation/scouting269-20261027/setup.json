@@ -1,0 +1,12 @@
+{
+  "world": "D:\\slavic-myths\\work\\stabilization269-scout-20261027\\saves\\Stabilization269",
+  "creation_method": "only level.dat metadata copied into empty dedicated save; no region/entities/playerdata/TaleData copied; initial embedded Data.Player inherited diagnostic inventory, not full Survival test",
+  "seed": 2692026,
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.7-HELL.jar",
+  "installed_sha256": "6995a9fbc54f5e70f84227341cf020d309b27ae48f43b7c6fcfa7dd6c76dc221",
+  "one_client_at_a_time": true,
+  "volume": 0.3,
+  "fps": 30,
+  "main_unchanged": true,
+  "production_changes_this_task": false
+}

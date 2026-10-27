@@ -1,0 +1,86 @@
+[
+  {
+    "source": "client-controls-repeat.log",
+    "raw_sha256": "ff583f299ae99c11fa44f18c729ecd77c38b825495c155bdf562e8e205182918",
+    "review_copy": "client-controls-repeat.log.txt",
+    "review_sha256": "864d248bf7579aa87c8452ab933cd9fee82abefd5ad5277c3bcee3d6e1bc42cf"
+  },
+  {
+    "source": "client-controls.log",
+    "raw_sha256": "3d4bf6b9f61fdb5bb393511df5cfc13fed4ead3d4d38be39702e670e5ce0aac6",
+    "review_copy": "client-controls.log.txt",
+    "review_sha256": "dd264dd1e909841a930ccccbe56968818d8e188f95a43ed8d203819fe4edafb8"
+  },
+  {
+    "source": "client-relogin-before-dispatch-qafix.log",
+    "raw_sha256": "a656bada523022eb6288226cffa19c7a6497e8abed657b2f155b82cbf87521ce",
+    "review_copy": "client-relogin-before-dispatch-qafix.log.txt",
+    "review_sha256": "644d3a22859d2afe7e456d188c199839f138935b28cc16925e9726e5f37971ed"
+  },
+  {
+    "source": "client-relogin.log",
+    "raw_sha256": "28e8ae0a64ce1896ddd9165b69a78dd95bdf667fef59ddb0b08866334de0587d",
+    "review_copy": "client-relogin.log.txt",
+    "review_sha256": "06ca6d44e955c01da3c2d9b3ef8a08b9fff4ccd4d5496af9ccb008ab7254f852"
+  },
+  {
+    "source": "jar-regression.log",
+    "raw_sha256": "fe0a37e2becad993a7e5d74e316bdb2fd97f0b6e0cd6780a5b8ec2b7334fdca4",
+    "review_copy": "jar-regression.log.txt",
+    "review_sha256": "0589c69adea77620712b98a33c3de661d302cf4faf8f4fbac77279672d15c894"
+  },
+  {
+    "source": "mp-guest.log",
+    "raw_sha256": "c319f8552859d69d0dd7eca116e51fcf90b78261cc920c8905e8e680bc260ad1",
+    "review_copy": "mp-guest.log.txt",
+    "review_sha256": "48366290484cff429208e5694dc80d13aebd06373fdbd84f1887e04310d91a98"
+  },
+  {
+    "source": "mp-host.log",
+    "raw_sha256": "fd04c315dad9d20dc145c9e1e214fbeb5ca4b6644538186d3dbe09c1ac7f1efa",
+    "review_copy": "mp-host.log.txt",
+    "review_sha256": "19662cd07059014a2f1c6df3e521a944ea32d87b4db659e7f934147b9cb21de8"
+  },
+  {
+    "source": "natural-targeted-server.log",
+    "raw_sha256": "c742d348e1a488a008348a7241827a552428c12c9ff4c24e433038281065f479",
+    "review_copy": "natural-targeted-server.log.txt",
+    "review_sha256": "2aefd8c2aea436c46f61d96ee0747f326d808302136191c77ea592ceded6d748"
+  },
+  {
+    "source": "natural0-server.log",
+    "raw_sha256": "2532d2be4c7ae73f60af7ce8b315f5be38963e015376c8b2e9ca5e61688e8ab3",
+    "review_copy": "natural0-server.log.txt",
+    "review_sha256": "e2afd34c73dba3874203016e3d4624b7162be1dd77b4136e9120610c69cb51f3"
+  },
+  {
+    "source": "natural1-server.log",
+    "raw_sha256": "196b5c9b82f0e4d78ab21a88a89979684f038bd48c78263ab0e32e490a3bbefe",
+    "review_copy": "natural1-server.log.txt",
+    "review_sha256": "2935d50304f7d1e38a05f1598f38167621589777b72e3dc4811be13701a6bd14"
+  },
+  {
+    "source": "natural2-server.log",
+    "raw_sha256": "e7e9467d150d520446d6fc4f374c5d361e99a396fa88c86020e2d040969b6445",
+    "review_copy": "natural2-server.log.txt",
+    "review_sha256": "94d17689c5adc46701a3b807833794e44dcbe9a411f94200f9a9e8e09590ec22"
+  },
+  {
+    "source": "natural3-server.log",
+    "raw_sha256": "eaaa26dfd8ee1b6f2a20478119171d88f8f46a936055d3b5705eb2ccda4741a5",
+    "review_copy": "natural3-server.log.txt",
+    "review_sha256": "cac88a465f585d7048d1f86327d60f7cc7b6e3934bf0caa013a770c38f55860d"
+  },
+  {
+    "source": "natural4-server.log",
+    "raw_sha256": "c65c8ee91886e83fb8b5c6ce29fe6ca109594db5f1dd162c97700efa868a1beb",
+    "review_copy": "natural4-server.log.txt",
+    "review_sha256": "5dc1fe73cbbe753f04239b5943376a1e18f4df75242039ff34d3e1794830dd10"
+  },
+  {
+    "source": "resources.log",
+    "raw_sha256": "2f504ef3479e2563f94373c20f9e79a7a320fbcccc320478f3bfdcdf4cc18e8b",
+    "review_copy": "resources.log.txt",
+    "review_sha256": "e16b8deeac7bf3c6d47e5d19ffd31f6758542cafe06447fa74d0275947584943"
+  }
+]

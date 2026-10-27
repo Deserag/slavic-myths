@@ -1,0 +1,8 @@
+package org.slavicmyths.verify;
+import java.nio.file.*;import net.minecraft.core.BlockPos;import net.minecraft.world.level.block.entity.*;import net.minecraft.world.item.Items;
+import static org.slavicmyths.verify.Stabilization269.*;
+/** Copy of real installed-2.0.4 save; never reads or writes a personal world. */
+final class OldSave269 {
+ static void run()throws Exception{current="old_204_save_compatibility";int containers=0;for(var entry:com.google.gson.JsonParser.parseString(Files.readString(Path.of("witnesses.json"))).getAsJsonArray()){var row=entry.getAsJsonObject();var at=BlockPos.of(row.get("position").getAsLong());w.getChunkAt(at);var tile=w.getBlockEntity(at);check(tile instanceof RandomizableContainerBlockEntity,"old installed204 container type restored "+at);if(!(tile instanceof RandomizableContainerBlockEntity c))continue;containers++;switch(row.get("expected").getAsString()){case "EMPTY"->check(c.getLootTable()==null&&c.isEmpty(),"old emptied reward remains empty "+at);case "DIAMOND3"->{int diamonds=0;for(int i=0;i<c.getContainerSize();i++)if(c.getItem(i).is(Items.DIAMOND))diamonds+=c.getItem(i).getCount();check(diamonds==3,"old filled inventory preserves exactly3diamonds");}case "PENDING"->check(c.getLootTable()!=null&&c.getLootTable().location().toString().equals("slavicmyths:rewards276/overworld/fortress_main"),"old unopened native loot table preserves registry ID");default->throw new IllegalStateException("unknown old witness");}if(c instanceof org.slavicmyths.sanctuary.SanctuaryChest cache)check(cache.canOpen(p),"old ritual unlock persists on real restored cache "+at);}
+ out.put("old_installed_204_containers",containers);check(containers>100,"substantial real old-save corpus loaded");}
+}
