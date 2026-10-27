@@ -8,15 +8,16 @@ import net.minecraft.world.level.levelgen.structure.*;
 public final class ChudSimplePlacement {
     /** Final roof clearance checks every occupied X/Z column; the coarse survey only rejects cheaply. */
     private static Integer exactHeight(Structure.GenerationContext c,List<ChudGeometry.Fill> fills,int candidate){
-        int minX=fills.stream().mapToInt(f->f.box().minX()).min().orElseThrow(),maxX=fills.stream().mapToInt(f->f.box().maxX()).max().orElseThrow();
-        int minZ=fills.stream().mapToInt(f->f.box().minZ()).min().orElseThrow(),maxZ=fills.stream().mapToInt(f->f.box().maxZ()).max().orElseThrow();
+        var solids=fills.stream().filter(f->!f.state().isAir()).toList();
+        int minX=solids.stream().mapToInt(f->f.box().minX()).min().orElseThrow(),maxX=solids.stream().mapToInt(f->f.box().maxX()).max().orElseThrow();
+        int minZ=solids.stream().mapToInt(f->f.box().minZ()).min().orElseThrow(),maxZ=solids.stream().mapToInt(f->f.box().maxZ()).max().orElseThrow();
         int depth=maxZ-minZ+1;int[] roofs=new int[(maxX-minX+1)*depth];Arrays.fill(roofs,Integer.MIN_VALUE);
         int bottom=fills.stream().mapToInt(f->f.box().minY()).min().orElseThrow(),top=fills.stream().mapToInt(f->f.box().maxY()).max().orElseThrow();
-        for(var fill:fills){ChudSearchBudget.check();var b=fill.box();for(int x=b.minX();x<=b.maxX();x++)for(int z=b.minZ();z<=b.maxZ();z++){int i=(x-minX)*depth+z-minZ;roofs[i]=Math.max(roofs[i],b.maxY());}}
+        for(var fill:solids){ChudSearchBudget.check();var b=fill.box();for(int x=b.minX();x<=b.maxX();x++)for(int z=b.minZ();z<=b.maxZ();z++){int i=(x-minX)*depth+z-minZ;roofs[i]=Math.max(roofs[i],b.maxY());}}
         int y=candidate;
         for(int x=minX;x<=maxX;x++)for(int z=minZ;z<=maxZ;z++){int roof=roofs[(x-minX)*depth+z-minZ];if(roof==Integer.MIN_VALUE)continue;ChudSearchBudget.check();
             int ground=ChudRegionPlanner.surface(c,x,z);
-            y=Math.min(y,ground-20-roof);
+            y=Math.min(y,ChudTerrainPolicy.roofAnchor(ground,roof,false));
             if(y+bottom<c.heightAccessor().getMinBuildHeight()+6)return null;
         }
         return ChudTerrainPolicy.fits(y,bottom,top,c.heightAccessor().getMinBuildHeight()+5,c.heightAccessor().getMaxBuildHeight())?y:null;
@@ -24,11 +25,12 @@ public final class ChudSimplePlacement {
     private static Integer height(Structure.GenerationContext c, List<ChudGeometry.Fill> fills, boolean above) {
         int bottom=fills.stream().mapToInt(f->f.box().minY()).min().orElse(0);
         int top=fills.stream().mapToInt(f->f.box().maxY()).max().orElse(0);
-        int minX=fills.stream().mapToInt(f->f.box().minX()).min().orElse(0),maxX=fills.stream().mapToInt(f->f.box().maxX()).max().orElse(0);
-        int minZ=fills.stream().mapToInt(f->f.box().minZ()).min().orElse(0),maxZ=fills.stream().mapToInt(f->f.box().maxZ()).max().orElse(0);
+        var solids=fills.stream().filter(f->!f.state().isAir()).toList();
+        int minX=solids.stream().mapToInt(f->f.box().minX()).min().orElse(0),maxX=solids.stream().mapToInt(f->f.box().maxX()).max().orElse(0);
+        int minZ=solids.stream().mapToInt(f->f.box().minZ()).min().orElse(0),maxZ=solids.stream().mapToInt(f->f.box().maxZ()).max().orElse(0);
         int nx=(maxX-minX)/16+1,nz=(maxZ-minZ)/16+1;
         int[] roofs=new int[nx*nz];Arrays.fill(roofs,Integer.MIN_VALUE);
-        for(var fill:fills){ChudSearchBudget.check();var b=fill.box();
+        for(var fill:solids){ChudSearchBudget.check();var b=fill.box();
             for(int ix=(b.minX()-minX)/16;ix<=(b.maxX()-minX)/16;ix++)for(int iz=(b.minZ()-minZ)/16;iz<=(b.maxZ()-minZ)/16;iz++)roofs[ix*nz+iz]=Math.max(roofs[ix*nz+iz],b.maxY());
         }
         var terrain=new ChudStructure.Terrain(c);int anchor=above?Integer.MIN_VALUE:Integer.MAX_VALUE;
