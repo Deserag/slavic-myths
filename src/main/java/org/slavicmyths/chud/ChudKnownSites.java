@@ -25,7 +25,9 @@ public final class ChudKnownSites {
             if(world.getServer().isStopped())return;
             for(var start:starts)if(start.isValid())for(var piece:start.getPieces())if(piece instanceof ChudPiece city){
                 var entrance=city.access==null?city.plan.world(city.plan.points.get(ChudPlan.Role.ENTRANCE)):city.access.mouth;
-                if(city.access==null){var loaded=world.getChunkSource().getChunkNow(entrance.getX()>>4,entrance.getZ()>>4);if(loaded==null||entrance.getY()<=org.slavicmyths.worldgen.LandTerrain.ground(world,entrance.getX(),entrance.getZ())||!ChudCommands.safe(world,entrance))continue;}
+                // An underground-only native start is legitimate: the book gives its X/Z
+                // exploration area and the player may excavate to the existing entrance.
+                // Lack of a staircase must not hide a real city from Yaga/Bayun quests.
                 var b=start.getBoundingBox();
                 if(!b.isInside(entrance))continue;
                 var bounds=new BoundingBox(b.minX(),b.minY(),b.minZ(),b.maxX(),b.maxY(),b.maxZ());
