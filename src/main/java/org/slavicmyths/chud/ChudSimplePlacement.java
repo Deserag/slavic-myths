@@ -53,7 +53,7 @@ public final class ChudSimplePlacement {
     private static ChudPiece cityPlan(Structure.GenerationContext c,boolean above,boolean attached) {
         int x=c.chunkPos().getMiddleBlockX(),z=c.chunkPos().getMiddleBlockZ();long seed=c.seed()^c.chunkPos().toLong()^0x43485544L;
         var random=new Random(seed);int variant=random.nextInt(3),rotation=random.nextInt(4);
-        for(int size=variant;size>=0;size--)for(int entry:new int[]{56,40}){
+        for(int size=variant;size>=0;size--)for(int entry:new int[]{40,24,12}){
             // Keep the original vestibule when it fits; on low ground lower only
             // this landing, rather than exposing the roof or cutting bedrock.
             var probe=new ChudPlan(seed,new BlockPos(x,0,z),size,rotation,entry);
@@ -65,9 +65,10 @@ public final class ChudSimplePlacement {
             extension=attached?new AbandonedPlan(seed,plan.anchor,rotation,AbandonedPlan.Kind.ATTACHED_SMALL,entry,plan.cityId(),0):null;
             var piece=new ChudPiece(plan,extension);
             piece.roofShell=4;
-            piece.access=above?null:ChudSurfaceAccess.city(c,plan);
-            if(!above&&piece.access==null){if(Boolean.getBoolean("slavicmyths.chudPlacementDiagnostics"))com.mojang.logging.LogUtils.getLogger().info("Chud city {} variant={} vestibule={} refused: no safe dry surface route",c.chunkPos(),size,entry);continue;}
-            if(!above)piece.enableRoofCover();if(ChudPlacement.clearFull(c,piece,piece.access))return piece;
+            // Underground complexes are independent of a long surface staircase. Players use
+            // a surface X/Z search area and can excavate a short entrance themselves.
+            // Existing saved starts with Access retain their original staircase.
+            if(!above)piece.enableRoofCover();if(ChudPlacement.clearFull(c,piece,null))return piece;
         }
         return null;
     }
@@ -83,9 +84,9 @@ public final class ChudSimplePlacement {
             var fills=AbandonedGeometry.build(probe);Integer y=height(c,fills,above);if(y==null)continue;
             if(!above){y=exactHeight(c,fills,y);if(y==null)continue;}
             var plan=new AbandonedPlan(seed,new BlockPos(x,y,z),rotation,kind,32,null,flavor,profile);
-            var piece=new AbandonedPiece(plan);piece.access=above?null:ChudSurfaceAccess.abandoned(c,plan);
-            if(!above&&piece.access==null&&Boolean.getBoolean("slavicmyths.chudPlacementDiagnostics"))com.mojang.logging.LogUtils.getLogger().info("Chud abandoned {} kind={} shaft={} refused: no safe dry surface route",c.chunkPos(),kind,profile);
-            if(!above)piece.enableRoofCover();if((above||piece.access!=null)&&ChudPlacement.clearFull(c,piece,piece.access))return piece;
+            var piece=new AbandonedPiece(plan);
+            // Independent underground ruins do not require a surface staircase either.
+            if(!above)piece.enableRoofCover();if(ChudPlacement.clearFull(c,piece,null))return piece;
         }
         return null;
     }
