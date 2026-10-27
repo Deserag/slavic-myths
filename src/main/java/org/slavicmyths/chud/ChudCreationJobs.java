@@ -47,7 +47,7 @@ public final class ChudCreationJobs {
   Job(CommandSourceStack source,String kind,Consumer<Result> callback,boolean story){this.source=source;world=source.getLevel();this.kind=kind;this.story=story;chunks=new SiteChunks(world);listeners.add(callback);origin=BlockPos.containing(source.getPosition());explicitSites=List.of(new ChunkPos(origin.offset(0,0,-256)),new ChunkPos(origin.offset(384,0,-256)),new ChunkPos(origin.offset(-384,0,-256)),new ChunkPos(origin.offset(0,0,384)),new ChunkPos(origin.offset(512,0,384)),new ChunkPos(origin.offset(-512,0,384)),new ChunkPos(origin.offset(768,0,0)),new ChunkPos(origin.offset(-768,0,0)));owner=candidateOwner();}
   ChunkPos candidateOwner(){return story?storySites.isEmpty()?new ChunkPos(origin):storySites.get(attempt):explicitSites.get(attempt);}
   void step(){try{
-   if(!reserved&&System.nanoTime()>planningDeadline){finish(null,"Создание Чуди остановлено: общий лимит подготовки 120 секунд, мир не изменён.");return;}
+   if(!reserved&&System.nanoTime()>planningDeadline){finish(null,"Создание Чуди остановлено: общий лимит подготовки 120 секунд; блоки сооружения не записывались.");return;}
    if(world.getGameTime()>=notice){notice=world.getGameTime()+100;source.sendSuccess(()->Component.literal("Создание Чуди: площадка "+(attempt+1)+"/"+(story?Math.min(6,Math.max(1,storySites.size())):explicitSites.size())+", этап "+phase+", чанки "+chunk+"/"+footprint.size()+", секции "+section+"/"+sections.size()),false);}
    if(phase==0){
     if(story&&storySites.isEmpty()){
