@@ -2,7 +2,7 @@ package org.slavicmyths.chud;
 
 /** Lowest actual construction, including floor shells and shaft deck supports; saved boxes stay unchanged. */
 public final class ChudTerrainPolicy {
-    public static int roofAnchor(int ground,int roof,boolean water) { return ground-20-roof; }
+    public static int roofAnchor(int ground,int roof,boolean water) { return ground-ChudRoofCover.DEPTH-roof; }
     public static boolean fits(int anchor,int bottom,int top,int minY,int maxY) { return anchor+bottom>=minY+1&&anchor+top<maxY; }
     public static int bottom(boolean attached,boolean great,int profile) {
         if(attached)return -58;
