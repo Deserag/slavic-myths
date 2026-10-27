@@ -1,0 +1,117 @@
+{
+  "scope": "PARTIAL: UNKNOWN/unexamined forbid density/rank conclusions; seed2692026 is diagnostic-only due earlier QA cache safeguard version",
+  "seeds": [
+    {
+      "seed": 2692026,
+      "status": "PARTIAL_NO_DENSITY_CLAIM",
+      "counts": {
+        "serpent_hill": {
+          "sampled": 39,
+          "allowed_measured": 38,
+          "outcomes": {
+            "REJECTED": 38,
+            "UNKNOWN_BUDGET": 1
+          }
+        },
+        "gorodishche": {
+          "sampled": 39,
+          "allowed_measured": 22,
+          "outcomes": {
+            "REJECTED": 39
+          }
+        },
+        "kurgan_small": {
+          "sampled": 39,
+          "allowed_measured": 30,
+          "outcomes": {
+            "REJECTED": 23,
+            "UNKNOWN_BUDGET": 9,
+            "slavicmyths:kurgan_small": 7
+          }
+        }
+      },
+      "native_confirmed": {
+        "slavicmyths:chud_abandoned": 3,
+        "slavicmyths:chud_city": 1
+      },
+      "unexamined": 183,
+      "unknown": 10,
+      "p95_diagnostic_tick_ms": 1.6896
+    },
+    {
+      "seed": 12345,
+      "status": "PARTIAL_NO_DENSITY_CLAIM",
+      "counts": {
+        "serpent_hill": {
+          "sampled": 32,
+          "allowed_measured": 32,
+          "outcomes": {
+            "REJECTED": 32
+          }
+        },
+        "gorodishche": {
+          "sampled": 31,
+          "allowed_measured": 18,
+          "outcomes": {
+            "REJECTED": 31
+          }
+        },
+        "kurgan_small": {
+          "sampled": 31,
+          "allowed_measured": 20,
+          "outcomes": {
+            "REJECTED": 15,
+            "UNKNOWN_BUDGET": 11,
+            "slavicmyths:kurgan_small": 4,
+            "slavicmyths:kurgan_warrior": 1
+          }
+        }
+      },
+      "native_confirmed": {
+        "slavicmyths:chud_abandoned": 3,
+        "slavicmyths:chud_city": 1
+      },
+      "unexamined": 206,
+      "unknown": 11,
+      "p95_diagnostic_tick_ms": 0.697
+    },
+    {
+      "seed": -269,
+      "status": "PARTIAL_NO_DENSITY_CLAIM",
+      "counts": {
+        "serpent_hill": {
+          "sampled": 75,
+          "allowed_measured": 75,
+          "outcomes": {
+            "REJECTED": 74,
+            "slavicmyths:serpent_hill": 1
+          }
+        },
+        "gorodishche": {
+          "sampled": 75,
+          "allowed_measured": 36,
+          "outcomes": {
+            "REJECTED": 75
+          }
+        },
+        "kurgan_small": {
+          "sampled": 75,
+          "allowed_measured": 73,
+          "outcomes": {
+            "REJECTED": 64,
+            "slavicmyths:kurgan_small": 8,
+            "UNKNOWN_BUDGET": 2,
+            "slavicmyths:kurgan_warrior": 1
+          }
+        }
+      },
+      "native_confirmed": {
+        "slavicmyths:serpent_hill": 1,
+        "slavicmyths:chud_abandoned": 4
+      },
+      "unexamined": 75,
+      "unknown": 2,
+      "p95_diagnostic_tick_ms": 1.3994
+    }
+  ]
+}

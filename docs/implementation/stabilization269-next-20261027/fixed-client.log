@@ -1,0 +1,211 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                         ^
+D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+                                                                                                                          ^
+Note: D:\slavic-myths\src\main\java\org\slavicmyths\client\ClientSetup.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 warnings
+
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources
+> Task :classes
+> Task :compileStabilization269ClientJava
+> Task :downloadAssets UP-TO-DATE
+> Task :writeStabilization269ClientLegacyClasspath UP-TO-DATE
+> Task :prepareStabilization269ClientRun
+> Task :processStabilization269ClientResources UP-TO-DATE
+> Task :stabilization269ClientClasses
+
+> Task :runStabilization269Client
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[09:17:20] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientdev, --version, 21.1.255, --assetIndex, 17, --assetsDir, C:\\Users\\pavel\\.gradle\\caches\\neoformruntime\\assets, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430, --username, QA269Fixed, --width, 1280, --height, 800]
+[09:17:20] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[09:17:20] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[09:17:21] [main/WARN] [ne.ne.fm.lo.FMLConfig/CORE]: Configuration file D:\slavic-myths\work\stabilization269-repair-20261027\config\fml.toml is not correct. Correcting
+[09:17:21] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because splash screen is disabled
+[09:17:21] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%23138!/ Service=ModLauncher Env=CLIENT
+[09:17:21] [main/WARN] [ne.ne.fm.lo.FMLConfig/CORE]: Configuration file D:\slavic-myths\work\stabilization269-repair-20261027\config\fml.toml is not correct. Correcting
+[09:17:21] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[09:17:21] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Isolated stabilization render probe 1 (stabilization269client)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 2.0.8-HELL (slavicmyths)
+[09:17:22] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[09:17:22] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientdev' with arguments [--version, 21.1.255, --gameDir, ., --assetsDir, C:\Users\pavel\.gradle\caches\neoformruntime\assets, --assetIndex, 17, --username, QA269Fixed, --width, 1280, --height, 800]
+[09:17:22] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:17:22] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:17:23] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[09:17:24] [Datafixer Bootstrap/INFO] [mojang/DataFixerBuilder]: 229 Datafixer optimizations took 542 milliseconds
+[09:17:24] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[09:17:30] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:17:30] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:17:30] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:17:30] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:17:30] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:17:30] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23190!/assets/.mcassetsroot' uses unexpected schema
+[09:17:30] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23190!/data/.mcassetsroot' uses unexpected schema
+[09:17:30] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[09:17:30] [Render thread/INFO] [minecraft/Minecraft]: Setting user: QA269Fixed
+[09:17:30] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.3.3+5
+[09:17:31] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[09:17:33] [Render thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[09:17:34] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/stabilization269client, mod/curios, mod/slavicmyths, mod/neoforge
+[09:17:34] [Worker-Main-1/INFO] [minecraft/UnihexProvider]: Found unifont_all_no_pua-15.1.05.hex, loading
+[09:17:34] [Worker-Main-1/INFO] [minecraft/UnihexProvider]: Found unifont_jp_patch-15.1.05.hex, loading
+[09:17:38] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:item.goat_horn.play
+[09:17:38] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[09:17:38] [Render thread/INFO] [mojang/Library]: OpenAL initialized on device OpenAL Soft on Наушники (G435 Bluetooth Gaming Headset Stereo)
+[09:17:38] [Render thread/INFO] [minecraft/SoundEngine]: Sound engine started
+[09:17:38] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 2048x2048x4 minecraft:textures/atlas/blocks.png-atlas
+[09:17:38] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/signs.png-atlas
+[09:17:38] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[09:17:38] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[09:17:38] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[09:17:38] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[09:17:38] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[09:17:38] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[09:17:38] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[09:17:38] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[09:17:38] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[09:17:38] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[09:17:38] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[09:17:38] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[09:17:38] [Render thread/WARN] [minecraft/ShaderInstance]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[09:17:38] [Render thread/INFO] [ne.ne.ne.cl.en.an.js.AnimationLoader/]: Loaded 0 entity animations
+QA269_CLIENT_OPEN from=TitleScreen
+[09:17:41] [Render thread/WARN] [ne.ne.ne.co.CommonHooks/WP]: The following mods have version differences that were not resolved:
+slavicmyths (version 2.0.7-HELL -> 2.0.8-HELL)
+Things may not work well.
+[09:17:42] [Render thread/INFO] [minecraft/RecipeManager]: Loaded 1853 recipes
+[09:17:42] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 1643 advancements
+[09:17:42] [Render thread/INFO] [Curios API/]: Loaded 10 curio slots
+[09:17:42] [Render thread/INFO] [Curios API/]: Loaded 1 curio entities
+[09:17:43] [Server thread/INFO] [minecraft/IntegratedServer]: Starting integrated minecraft server version 1.21.1
+[09:17:43] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[09:17:50] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[09:17:50] [progressListener/INFO] [minecraft/LoggerChunkProgressListener]: Подготовка области возрождения: 0%
+[09:17:50] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[09:17:50] [progressListener/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 482 ms
+[09:17:50] [Server thread/INFO] [minecraft/IntegratedServer]: Changing view distance to 2, from 10
+[09:17:50] [Server thread/INFO] [minecraft/IntegratedServer]: Changing simulation distance to 5, from 0
+[09:17:52] [Server thread/INFO] [minecraft/PlayerList]: QA269Fixed[local:E:882d766e] logged in with entity id 8 at (1378.5, 200.0, 1140.5)
+[09:17:52] [Server thread/INFO] [minecraft/MinecraftServer]: QA269Fixed присоединился к игре
+[09:17:52] [Server thread/INFO] [minecraft/MinecraftServer]: QA269Fixed получил достижение «[Алмазы!]»
+[09:17:52] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] QA269Fixed получил достижение «[Алмазы!]»
+REPAIR269 PASS fresh Survival profile has no earned Yaga access
+REPAIR269 PASS actual client Creative transition unlocks Yaga without boss kills
+REPAIR269 PASS Yaga access remains after returning to Survival
+REPAIR269 PASS Creative access does not grant combat milestones
+[09:17:53] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 55 advancements
+REPAIR269 PASS prior-world native city loaded through normal chunk lifecycle
+REPAIR269_PACKET phase=2
+[09:17:56] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 60 advancements
+[09:17:56] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Исследуйте указанную в книге область Чуди и вернитесь к поручителю.
+REPAIR269 PASS Yaga reuses nearest already observed natural city instead of distant manual city or construction
+REPAIR269 PASS existing-city request adds no construction record
+REPAIR269 PASS real player enters referenced native city and visit observer advances existing quest
+[09:17:58] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Поселение Чуди исследовано. Вернитесь за наградой.
+REPAIR269_PACKET phase=4
+[09:18:02] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Исследование принято: получен древний знак. Следующее поручение — к ещё не исследованному известному поселению.
+[09:18:02] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 63 advancements
+REPAIR269 PASS first completed quest grants exactly one existing ancient sign
+REPAIR269_PACKET phase=5
+[09:18:04] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Исследуйте указанную в книге область Чуди и вернитесь к поручителю.
+REPAIR269 PASS completed research request never starts a new excavation
+REPAIR269 PASS completed request preserves structure record count
+REPAIR269 PASS completed repeat never duplicates ancient sign
+REPAIR269 PASS one contextual help control ui0
+REPAIR269 PASS one contextual help control ui1
+REPAIR269 PASS one contextual help control ui2
+REPAIR269 PASS one contextual help control ui3
+REPAIR269 PASS one contextual help control ui4
+REPAIR269 PASS one contextual help control ui5
+REPAIR269 PASS one contextual help control ui6
+REPAIR269 PASS one contextual help control ui7
+REPAIR269 PASS one contextual help control ui8
+REPAIR269 PASS one contextual help control ui9
+REPAIR269 PASS one contextual help control ui10
+REPAIR269 PASS one contextual help control ui11
+[09:18:21] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/stabilization269client, mod/curios, mod/slavicmyths, mod/neoforge
+[09:18:21] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
+[09:18:21] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:overworld
+[09:18:21] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_nether
+[09:18:21] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_end
+[09:18:21] [Worker-Main-1/INFO] [minecraft/UnihexProvider]: Found unifont_all_no_pua-15.1.05.hex, loading
+[09:18:21] [Worker-Main-1/INFO] [minecraft/UnihexProvider]: Found unifont_jp_patch-15.1.05.hex, loading
+[09:18:24] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:item.goat_horn.play
+[09:18:24] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[09:18:24] [Render thread/INFO] [mojang/Library]: OpenAL initialized on device OpenAL Soft on Наушники (G435 Bluetooth Gaming Headset Stereo)
+[09:18:24] [Render thread/INFO] [minecraft/SoundEngine]: Sound engine started
+[09:18:24] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 2048x2048x4 minecraft:textures/atlas/blocks.png-atlas
+[09:18:24] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/signs.png-atlas
+[09:18:24] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[09:18:24] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[09:18:24] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[09:18:24] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[09:18:24] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[09:18:24] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[09:18:24] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[09:18:24] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[09:18:24] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[09:18:24] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[09:18:24] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[09:18:24] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[09:18:24] [Render thread/WARN] [minecraft/ShaderInstance]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[09:18:24] [Render thread/INFO] [ne.ne.ne.cl.en.an.js.AnimationLoader/]: Loaded 0 entity animations
+REPAIR269 PASS one contextual help control ui12
+REPAIR269 PASS one contextual help control ui13
+REPAIR269 PASS one contextual help control ui14
+REPAIR269 PASS one contextual help control ui15
+REPAIR269 PASS one contextual help control ui16
+REPAIR269 PASS one contextual help control ui17
+REPAIR269 PASS one contextual help control ui18
+REPAIR269 PASS one contextual help control ui19
+REPAIR269 PASS one contextual help control ui20
+REPAIR269 PASS one contextual help control ui21
+REPAIR269 PASS one contextual help control ui22
+REPAIR269 PASS one contextual help control ui23
+REPAIR269 PASS one contextual help control ui24
+REPAIR269 PASS modal help hides all underlying buttons ui24
+REPAIR269 PASS modal help consumes Enter instead of activating underlying action ui24
+REPAIR269 PASS one contextual help control ui25
+REPAIR269 PASS modal help hides all underlying buttons ui25
+REPAIR269 PASS modal help consumes Enter instead of activating underlying action ui25
+REPAIR269 PASS one contextual help control ui26
+REPAIR269 PASS modal help hides all underlying buttons ui26
+REPAIR269 PASS modal help consumes Enter instead of activating underlying action ui26
+REPAIR269 PASS one contextual help control ui27
+REPAIR269 PASS modal help hides all underlying buttons ui27
+REPAIR269 PASS modal help consumes Enter instead of activating underlying action ui27
+[09:18:44] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+[09:18:44] [Server thread/INFO] [minecraft/ServerGamePacketListenerImpl]: QA269Fixed lost connection: Disconnected
+[09:18:44] [Server thread/INFO] [minecraft/MinecraftServer]: QA269Fixed left the game
+[09:18:44] [Server thread/INFO] [minecraft/ServerCommonPacketListenerImpl]: Stopping singleplayer server as player logged out
+[09:18:44] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[09:18:44] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[09:18:44] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[09:18:44] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:overworld
+[09:18:44] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_nether
+[09:18:44] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[stabilization269-test]'/minecraft:the_end
+[09:18:44] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (Stabilization269): All chunks are saved
+[09:18:44] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[09:18:44] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[09:18:44] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+
+[Incubating] Problems report is available at: file:///D:/slavic-myths/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 2m 42s
+10 actionable tasks: 6 executed, 4 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

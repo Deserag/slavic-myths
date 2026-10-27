@@ -1,0 +1,56 @@
+{
+  "status": "PASS_SCOPED_TECHNICAL_GATES",
+  "version": "2.0.8-HELL",
+  "source_commit": "23c2728feff82cbf9af60f89e41edfe7f9f86746",
+  "baseline_commit": "a08a19d6ca359f4187d04deff1e44ce8f71e0a9b",
+  "branch": "hell",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.8-HELL.jar",
+  "sha256": "8b08a2f6fd88d4646265f6bd2e65044b5e984be76570f6b345415a7d6565e6e7",
+  "java": "21.0.12",
+  "clean_build": "PASS 1m32s; compileJava FROM-CACHE",
+  "offline_fermentation_assertions": 7457,
+  "gradle_test_task": "NO-SOURCE; not a gameplay test",
+  "resource_gate": {
+    "scope": "CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted",
+    "version": "2.0.8-HELL",
+    "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.8-HELL.jar",
+    "sha256": "8b08a2f6fd88d4646265f6bd2e65044b5e984be76570f6b345415a7d6565e6e7",
+    "resources": 8031,
+    "json": 4432,
+    "png": 1443,
+    "models": 1886,
+    "java21_classes": 1951,
+    "runtime_launches": 0,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  "classes_equal_compiled_main": 1951,
+  "unchanged_classes_vs_installed_207": 1948,
+  "added_entries": [
+    "org/slavicmyths/chud/ChudKnownSites.class"
+  ],
+  "changed_entries": [
+    "META-INF/MANIFEST.MF",
+    "META-INF/neoforge.mods.toml",
+    "assets/slavicmyths/lang/en_us.json",
+    "assets/slavicmyths/lang/ru_ru.json",
+    "org/slavicmyths/chud/ChudResearch.class",
+    "org/slavicmyths/client/YagaScreen.class"
+  ],
+  "removed_entries": [],
+  "QA_in_production": false,
+  "loot_recipe_model_texture_resources_unchanged_vs_207": true,
+  "new_client_link_from_common": false,
+  "installation_status": "POLYMC_NOT_INSTALLED for 2.0.8; installed 2.0.7 preserved",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.7-HELL.jar",
+  "installed_sha256": "6995a9fbc54f5e70f84227341cf020d309b27ae48f43b7c6fcfa7dd6c76dc221",
+  "installed_jar_count": 1,
+  "game_launches_this_task": {
+    "repair_clients": 6,
+    "art_preview_clients": 2,
+    "dedicated_servers": 4,
+    "dedicated_watchdog_failures": 1,
+    "simultaneous_game_processes_max": 1
+  },
+  "owner_acceptance": "NOT_RUN; issues OPEN",
+  "backup_previous_206": "D:/slavic-myths-backups/stabilization269-207-20261027T050048Z/slavicmyths-2.0.6-HELL.jar"
+}

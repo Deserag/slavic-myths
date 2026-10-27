@@ -1,6 +1,6 @@
 {
-  "file_count": 658,
-  "total_bytes": 53257345,
+  "file_count": 659,
+  "total_bytes": 53260922,
   "verbatim_report_evidence_files_verified": 594,
   "files": [
     {
@@ -24,6 +24,11 @@
       "sha256": "a2a91e45aeb6914d7ae331e3313e825c8177b26c55dd4c08aecc570b16d08238"
     },
     {
+      "path": "ERRATA_2026-10-27.md",
+      "bytes": 2865,
+      "sha256": "6de004bc9a4f06816724ab70caf72f9ddf1f84e2f784eb2f5dba9d80bda9df02"
+    },
+    {
       "path": "FULL_REPORTS.md",
       "bytes": 277717,
       "sha256": "e3a4dfb9ac53a4989e91eddee0bbf85716f161a2180912ae3f632c67924db237"
@@ -35,8 +40,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 6699,
-      "sha256": "35c1e2a0e85ae48998fe7d05c5e9efaa2ab950bb3f29a4b80e4ae9b062e81d28"
+      "bytes": 7411,
+      "sha256": "ac90dd66137c1a00b2f3cbfdb4acb4f962310bcd6805aa37880b711a2249639c"
     },
     {
       "path": "snapshot/docs/ARCHITECTURE.md",

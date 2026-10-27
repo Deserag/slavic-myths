@@ -1,0 +1,400 @@
+---- Minecraft Crash Report ----
+// Don't be sad, have a hug! <3
+
+Time: 2026-10-27 09:24:18
+Description: Watching Server
+
+java.lang.Error: ServerHangWatchdog detected that a single server tick took 60000004.00 seconds (should be max 0.05)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.synth.PerlinNoise.wrap(PerlinNoise.java:192) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue(PerlinNoise.java:154) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue(PerlinNoise.java:141) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.synth.NormalNoise.getValue(NormalNoise.java:80) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.DensityFunction$NoiseHolder.getValue(DensityFunction.java:89) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.DensityFunctions$ShiftedNoise.compute(DensityFunctions.java:1010) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk$FlatCache.<init>(NoiseChunk.java:616) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk.wrapNew(NoiseChunk.java:358) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk$$Lambda/0x000001a3112b1870.apply(Unknown Source) ~[?:?] {}
+	at java.base/java.util.HashMap.computeIfAbsent(HashMap.java:1228) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk.wrap(NoiseChunk.java:351) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk$$Lambda/0x000001a3112b1648.apply(Unknown Source) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.DensityFunctions$MarkerOrMarked.mapAll(DensityFunctions.java:718) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.DensityFunctions$HolderHolder.mapAll(DensityFunctions.java:580) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseRouter.mapAll(NoiseRouter.java:58) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk.<init>(NoiseChunk.java:139) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator.iterateNoiseColumn(NoiseBasedChunkGenerator.java:198) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator.getBaseColumn(NoiseBasedChunkGenerator.java:122) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.worldgen.StructureCoverageService.baseHeight(StructureCoverageService.java:90) ~[%23127!/:?] {re:classloading}
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.worldgen.StructureCoverageService$1.hasNext(StructureCoverageService.java:124) ~[%23127!/:?] {re:classloading}
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.kurgan.KurganStructure.findGenerationPoint(KurganStructure.java:25) ~[%23127!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.structure.Structure.findValidGenerationPoint(Structure.java:197) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,xf:fml:default}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.structure.Structure.generate(Structure.java:96) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,xf:fml:default}
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.verify.Frequency269.generate(Frequency269.java:9) ~[%23127!/:?] {re:classloading}
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.verify.Frequency269.tick(Frequency269.java:13) ~[%23127!/:?] {re:classloading}
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.verify.Stabilization269.tick(Stabilization269.java:32) ~[%23127!/:?] {re:classloading}
+	at java.base/java.lang.invoke.LambdaForm$DMH/0x000001a310003000.invokeStatic(LambdaForm$DMH) ~[?:?] {}
+	at java.base/java.lang.invoke.LambdaForm$MH/0x000001a310014c00.invoke(LambdaForm$MH) ~[?:?] {}
+	at java.base/java.lang.invoke.LambdaForm$MH/0x000001a31030c400.invokeExact_MT(LambdaForm$MH) ~[?:?] {}
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventListenerFactory$tick/0x000001a310dbc800.invoke(.dynamic) ~[?:?] {}
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:360) ~[bus-8.0.5.jar%23106!/:?] {}
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:328) ~[bus-8.0.5.jar%23106!/:?] {}
+	at TRANSFORMER/neoforge@21.1.255/net.neoforged.neoforge.event.EventHooks.fireServerTickPost(EventHooks.java:1020) ~[neoforge-21.1.255.jar%23126!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:943) ~[neoforge-21.1.255.jar%23125!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:707) ~[neoforge-21.1.255.jar%23125!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:267) ~[neoforge-21.1.255.jar%23125!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer$$Lambda/0x000001a3112199a0.run(Unknown Source) ~[?:?] {}
+	at java.base/java.lang.Thread.runWith(Thread.java:1596) [?:?] {}
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server Watchdog
+Stacktrace:
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.synth.PerlinNoise.wrap(PerlinNoise.java:192) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue(PerlinNoise.java:154) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue(PerlinNoise.java:141) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.synth.NormalNoise.getValue(NormalNoise.java:80) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.DensityFunction$NoiseHolder.getValue(DensityFunction.java:89) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.DensityFunctions$ShiftedNoise.compute(DensityFunctions.java:1010) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk$FlatCache.<init>(NoiseChunk.java:616) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk.wrapNew(NoiseChunk.java:358) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk$$Lambda/0x000001a3112b1870.apply(Unknown Source) ~[?:?] {}
+	at java.base/java.util.HashMap.computeIfAbsent(HashMap.java:1228) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk.wrap(NoiseChunk.java:351) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk$$Lambda/0x000001a3112b1648.apply(Unknown Source) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.DensityFunctions$MarkerOrMarked.mapAll(DensityFunctions.java:718) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.DensityFunctions$HolderHolder.mapAll(DensityFunctions.java:580) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseRouter.mapAll(NoiseRouter.java:58) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk.<init>(NoiseChunk.java:139) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator.iterateNoiseColumn(NoiseBasedChunkGenerator.java:198) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator.getBaseColumn(NoiseBasedChunkGenerator.java:122) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.worldgen.StructureCoverageService.baseHeight(StructureCoverageService.java:90) ~[%23127!/:?] {re:classloading}
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.worldgen.StructureCoverageService$1.hasNext(StructureCoverageService.java:124) ~[%23127!/:?] {re:classloading}
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.kurgan.KurganStructure.findGenerationPoint(KurganStructure.java:25) ~[%23127!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.structure.Structure.findValidGenerationPoint(Structure.java:197) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,xf:fml:default}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.structure.Structure.generate(Structure.java:96) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading,xf:fml:default}
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.verify.Frequency269.generate(Frequency269.java:9) ~[%23127!/:?] {re:classloading}
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.verify.Frequency269.tick(Frequency269.java:13) ~[%23127!/:?] {re:classloading}
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.verify.Stabilization269.tick(Stabilization269.java:32) ~[%23127!/:?] {re:classloading}
+	at java.base/java.lang.invoke.LambdaForm$DMH/0x000001a310003000.invokeStatic(LambdaForm$DMH) ~[?:?] {}
+	at java.base/java.lang.invoke.LambdaForm$MH/0x000001a310014c00.invoke(LambdaForm$MH) ~[?:?] {}
+	at java.base/java.lang.invoke.LambdaForm$MH/0x000001a31030c400.invokeExact_MT(LambdaForm$MH) ~[?:?] {}
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventListenerFactory$tick/0x000001a310dbc800.invoke(.dynamic) ~[?:?] {}
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:360) ~[bus-8.0.5.jar%23106!/:?] {}
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:328) ~[bus-8.0.5.jar%23106!/:?] {}
+	at TRANSFORMER/neoforge@21.1.255/net.neoforged.neoforge.event.EventHooks.fireServerTickPost(EventHooks.java:1020) ~[neoforge-21.1.255.jar%23126!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:943) ~[neoforge-21.1.255.jar%23125!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:707) ~[neoforge-21.1.255.jar%23125!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:267) ~[neoforge-21.1.255.jar%23125!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer$$Lambda/0x000001a3112199a0.run(Unknown Source) ~[?:?] {}
+-- Thread Dump --
+Details:
+	Threads: "Reference Handler" daemon prio=10 Id=9 RUNNABLE
+	at java.base@21.0.12/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+	at java.base@21.0.12/java.lang.ref.Reference.processPendingReferences(Reference.java:246)
+	at java.base@21.0.12/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:208)
+
+
+"Finalizer" daemon prio=8 Id=10 WAITING on java.lang.ref.NativeReferenceQueue$Lock@270ec277
+	at java.base@21.0.12/java.lang.Object.wait0(Native Method)
+	-  waiting on java.lang.ref.NativeReferenceQueue$Lock@270ec277
+	at java.base@21.0.12/java.lang.Object.wait(Object.java:366)
+	at java.base@21.0.12/java.lang.Object.wait(Object.java:339)
+	at java.base@21.0.12/java.lang.ref.NativeReferenceQueue.await(NativeReferenceQueue.java:48)
+	at java.base@21.0.12/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:158)
+	at java.base@21.0.12/java.lang.ref.NativeReferenceQueue.remove(NativeReferenceQueue.java:89)
+	at java.base@21.0.12/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:173)
+
+
+"Signal Dispatcher" daemon prio=9 Id=11 RUNNABLE
+
+
+"Attach Listener" daemon prio=5 Id=12 RUNNABLE
+
+
+"Common-Cleaner" daemon prio=8 Id=17 TIMED_WAITING on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@29c938e6
+	at java.base@21.0.12/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@29c938e6
+	at java.base@21.0.12/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.base@21.0.12/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1852)
+	at java.base@21.0.12/java.lang.ref.ReferenceQueue.await(ReferenceQueue.java:71)
+	at java.base@21.0.12/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:143)
+	at java.base@21.0.12/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:218)
+	at java.base@21.0.12/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
+	at java.base@21.0.12/java.lang.Thread.runWith(Thread.java:1596)
+	at java.base@21.0.12/java.lang.Thread.run(Thread.java:1583)
+	at java.base@21.0.12/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:186)
+
+
+"Notification Thread" daemon prio=9 Id=18 RUNNABLE
+
+
+"JNA Cleaner" daemon prio=5 Id=24 TIMED_WAITING on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@2df6a907
+	at java.base@21.0.12/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@2df6a907
+	at java.base@21.0.12/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.base@21.0.12/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1852)
+	at java.base@21.0.12/java.lang.ref.ReferenceQueue.await(ReferenceQueue.java:71)
+	at java.base@21.0.12/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:143)
+	at java.base@21.0.12/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:218)
+	at MC-BOOTSTRAP/com.sun.jna@5.14.0/com.sun.jna.internal.Cleaner$CleanerThread.run(Cleaner.java:154)
+
+
+"Timer hack thread" daemon prio=5 Id=25 TIMED_WAITING
+	at java.base@21.0.12/java.lang.Thread.sleep0(Native Method)
+	at java.base@21.0.12/java.lang.Thread.sleep(Thread.java:509)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.Util$7.run(Util.java:759)
+
+
+"modloading-worker-0" daemon prio=5 Id=26 TIMED_WAITING on java.util.concurrent.ForkJoinPool@68f432dd
+	at java.base@21.0.12/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@68f432dd
+	at java.base@21.0.12/java.util.concurrent.locks.LockSupport.parkUntil(LockSupport.java:449)
+	at java.base@21.0.12/java.util.concurrent.ForkJoinPool.awaitWork(ForkJoinPool.java:1889)
+	at java.base@21.0.12/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1807)
+	at java.base@21.0.12/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
+
+
+"modloading-sync-worker" daemon prio=5 Id=28 WAITING on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@39b848ce
+	at java.base@21.0.12/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@39b848ce
+	at java.base@21.0.12/java.util.concurrent.locks.LockSupport.park(LockSupport.java:371)
+	at java.base@21.0.12/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:519)
+	at java.base@21.0.12/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3778)
+	at java.base@21.0.12/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3723)
+	at java.base@21.0.12/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1712)
+	at java.base@21.0.12/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+	at java.base@21.0.12/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+	at java.base@21.0.12/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base@21.0.12/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base@21.0.12/java.lang.Thread.runWith(Thread.java:1596)
+	at java.base@21.0.12/java.lang.Thread.run(Thread.java:1583)
+
+
+"FileSystemWatchService" daemon prio=5 Id=29 RUNNABLE (in native)
+	at java.base@21.0.12/sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0(Native Method)
+	at java.base@21.0.12/sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus(WindowsNativeDispatcher.java:1075)
+	at java.base@21.0.12/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:587)
+	at java.base@21.0.12/java.lang.Thread.runWith(Thread.java:1596)
+	at java.base@21.0.12/java.lang.Thread.run(Thread.java:1583)
+
+
+"config-file-watcher-0-0" daemon prio=5 Id=30 TIMED_WAITING on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@59565917
+	at java.base@21.0.12/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@59565917
+	at java.base@21.0.12/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.base@21.0.12/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+	at java.base@21.0.12/java.util.concurrent.LinkedBlockingDeque.pollFirst(LinkedBlockingDeque.java:515)
+	at java.base@21.0.12/java.util.concurrent.LinkedBlockingDeque.poll(LinkedBlockingDeque.java:677)
+	at java.base@21.0.12/sun.nio.fs.AbstractWatchService.poll(AbstractWatchService.java:108)
+	at MC-BOOTSTRAP/com.electronwill.nightconfig.core@3.8.3/com.electronwill.nightconfig.core.file.FileWatcher$FsWatcher.run(FileWatcher.java:531)
+	at java.base@21.0.12/java.lang.Thread.runWith(Thread.java:1596)
+	at java.base@21.0.12/java.lang.Thread.run(Thread.java:1583)
+
+
+"Yggdrasil Key Fetcher" daemon prio=5 Id=33 TIMED_WAITING on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@41f07dab
+	at java.base@21.0.12/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@41f07dab
+	at java.base@21.0.12/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.base@21.0.12/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+	at java.base@21.0.12/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+	at java.base@21.0.12/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+	at java.base@21.0.12/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+	at java.base@21.0.12/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base@21.0.12/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base@21.0.12/java.lang.Thread.runWith(Thread.java:1596)
+	at java.base@21.0.12/java.lang.Thread.run(Thread.java:1583)
+
+
+"Worker-Main-1" daemon prio=5 Id=36 WAITING on java.util.concurrent.ForkJoinPool@8dbcd92
+	at java.base@21.0.12/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@8dbcd92
+	at java.base@21.0.12/java.util.concurrent.locks.LockSupport.park(LockSupport.java:371)
+	at java.base@21.0.12/java.util.concurrent.ForkJoinPool.awaitWork(ForkJoinPool.java:1891)
+	at java.base@21.0.12/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1807)
+	at java.base@21.0.12/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
+
+
+"Server thread" prio=5 Id=37 RUNNABLE
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.synth.PerlinNoise.wrap(PerlinNoise.java:192)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue(PerlinNoise.java:154)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.synth.PerlinNoise.getValue(PerlinNoise.java:141)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.synth.NormalNoise.getValue(NormalNoise.java:80)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.DensityFunction$NoiseHolder.getValue(DensityFunction.java:89)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.DensityFunctions$ShiftedNoise.compute(DensityFunctions.java:1010)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk$FlatCache.<init>(NoiseChunk.java:616)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk.wrapNew(NoiseChunk.java:358)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk$$Lambda/0x000001a3112b1870.apply(Unknown Source)
+	at java.base@21.0.12/java.util.HashMap.computeIfAbsent(HashMap.java:1228)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk.wrap(NoiseChunk.java:351)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk$$Lambda/0x000001a3112b1648.apply(Unknown Source)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.DensityFunctions$MarkerOrMarked.mapAll(DensityFunctions.java:718)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.DensityFunctions$HolderHolder.mapAll(DensityFunctions.java:580)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseRouter.mapAll(NoiseRouter.java:58)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseChunk.<init>(NoiseChunk.java:139)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator.iterateNoiseColumn(NoiseBasedChunkGenerator.java:198)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator.getBaseColumn(NoiseBasedChunkGenerator.java:122)
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.worldgen.StructureCoverageService.baseHeight(StructureCoverageService.java:90)
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.worldgen.StructureCoverageService$1.hasNext(StructureCoverageService.java:124)
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.kurgan.KurganStructure.findGenerationPoint(KurganStructure.java:25)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.structure.Structure.findValidGenerationPoint(Structure.java:197)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.levelgen.structure.Structure.generate(Structure.java:96)
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.verify.Frequency269.generate(Frequency269.java:9)
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.verify.Frequency269.tick(Frequency269.java:13)
+	at TRANSFORMER/slavicmyths@2.0.8-HELL/org.slavicmyths.verify.Stabilization269.tick(Stabilization269.java:32)
+	at java.base@21.0.12/java.lang.invoke.LambdaForm$DMH/0x000001a310003000.invokeStatic(LambdaForm$DMH)
+	at java.base@21.0.12/java.lang.invoke.LambdaForm$MH/0x000001a310014c00.invoke(LambdaForm$MH)
+	at java.base@21.0.12/java.lang.invoke.LambdaForm$MH/0x000001a31030c400.invokeExact_MT(LambdaForm$MH)
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventListenerFactory$tick/0x000001a310dbc800.invoke(.dynamic)
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:360)
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:328)
+	at TRANSFORMER/neoforge@21.1.255/net.neoforged.neoforge.event.EventHooks.fireServerTickPost(EventHooks.java:1020)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:943)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:707)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:267)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer$$Lambda/0x000001a3112199a0.run(Unknown Source)
+	at java.base@21.0.12/java.lang.Thread.runWith(Thread.java:1596)
+	at java.base@21.0.12/java.lang.Thread.run(Thread.java:1583)
+
+
+"DestroyJavaVM" prio=5 Id=40 RUNNABLE
+
+
+"Netty Server IO #0" daemon prio=5 Id=41 RUNNABLE (in native)
+	at java.base@21.0.12/sun.nio.ch.WEPoll.wait(Native Method)
+	at java.base@21.0.12/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+	at java.base@21.0.12/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+	-  locked io.netty.channel.nio.SelectedSelectionKeySet@735e0a7f
+	-  locked sun.nio.ch.WEPollSelectorImpl@182b7be2
+	at java.base@21.0.12/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:147)
+	at MC-BOOTSTRAP/io.netty.transport@4.1.97.Final/io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:68)
+	at MC-BOOTSTRAP/io.netty.transport@4.1.97.Final/io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:879)
+	at MC-BOOTSTRAP/io.netty.transport@4.1.97.Final/io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:526)
+	at MC-BOOTSTRAP/io.netty.common@4.1.97.Final/io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at MC-BOOTSTRAP/io.netty.common@4.1.97.Final/io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base@21.0.12/java.lang.Thread.runWith(Thread.java:1596)
+	at java.base@21.0.12/java.lang.Thread.run(Thread.java:1583)
+
+
+"Worker-Main-2" daemon prio=5 Id=45 TIMED_WAITING on java.util.concurrent.ForkJoinPool@8dbcd92
+	at java.base@21.0.12/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@8dbcd92
+	at java.base@21.0.12/java.util.concurrent.locks.LockSupport.parkUntil(LockSupport.java:449)
+	at java.base@21.0.12/java.util.concurrent.ForkJoinPool.awaitWork(ForkJoinPool.java:1889)
+	at java.base@21.0.12/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1807)
+	at java.base@21.0.12/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
+
+
+"Worker-Main-3" daemon prio=5 Id=46 TIMED_WAITING on java.util.concurrent.ForkJoinPool@8dbcd92
+	at java.base@21.0.12/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@8dbcd92
+	at java.base@21.0.12/java.util.concurrent.locks.LockSupport.parkUntil(LockSupport.java:449)
+	at java.base@21.0.12/java.util.concurrent.ForkJoinPool.awaitWork(ForkJoinPool.java:1889)
+	at java.base@21.0.12/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1807)
+	at java.base@21.0.12/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
+
+
+"Server Watchdog" daemon prio=5 Id=47 RUNNABLE
+	at java.management@21.0.12/sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at java.management@21.0.12/sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:518)
+	at java.management@21.0.12/sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:506)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.ServerWatchdog.run(ServerWatchdog.java:50)
+	at java.base@21.0.12/java.lang.Thread.runWith(Thread.java:1596)
+	at java.base@21.0.12/java.lang.Thread.run(Thread.java:1583)
+
+
+"LanServerPinger #1" daemon prio=5 Id=48 TIMED_WAITING
+	at java.base@21.0.12/java.lang.Thread.sleep0(Native Method)
+	at java.base@21.0.12/java.lang.Thread.sleep(Thread.java:509)
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.server.LanServerPinger.run(LanServerPinger.java:52)
+
+
+
+Stacktrace:
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.ServerWatchdog.run(ServerWatchdog.java:65) ~[neoforge-21.1.255.jar%23125!/:?] {re:classloading}
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?] {}
+
+
+-- Performance stats --
+Details:
+	Random tick rate: 3
+	Level stats: ResourceKey[minecraft:dimension / minecraft:overworld]: players: 0, entities: 6,6,3,49,49,0,0 [minecraft:cow:4,minecraft:wolf:1,minecraft:chicken:1], block_entities: 0 [], block_ticks: 7789, fluid_ticks: 87, chunk_source: Chunks[S] W: 841 E: 6,6,3,49,49,0,0,
+ResourceKey[minecraft:dimension / minecraft:the_nether]: players: 0, entities: 0,0,0,0,0,0,0 [], block_entities: 0 [], block_ticks: 0, fluid_ticks: 0, chunk_source: Chunks[S] W: 0 E: 0,0,0,0,0,0,0,
+ResourceKey[minecraft:dimension / minecraft:the_end]: players: 0, entities: 0,0,0,0,0,0,0 [], block_entities: 0 [], block_ticks: 0, fluid_ticks: 0, chunk_source: Chunks[S] W: 0 E: 0,0,0,0,0,0,0
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.1
+	Minecraft Version ID: 1.21.1
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 21.0.12, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 528082248 bytes (503 MiB) / 1396703232 bytes (1332 MiB) up to 1610612736 bytes (1536 MiB)
+	CPUs: 2
+	Processor Vendor: AuthenticAMD
+	Processor Name: AMD Ryzen 5 5600H with Radeon Graphics         
+	Identifier: AuthenticAMD Family 25 Model 80 Stepping 0
+	Microarchitecture: Zen 3
+	Frequency (GHz): 3.29
+	Number of physical packages: 1
+	Number of physical CPUs: 6
+	Number of logical CPUs: 12
+	Graphics card #0 name: AMD Radeon(TM) Graphics
+	Graphics card #0 vendor: Advanced Micro Devices, Inc.
+	Graphics card #0 VRAM (MiB): 512.00
+	Graphics card #0 deviceId: VideoController1
+	Graphics card #0 versionInfo: 27.20.21018.1012
+	Graphics card #1 name: AMD Radeon RX 6600M
+	Graphics card #1 vendor: Advanced Micro Devices, Inc.
+	Graphics card #1 VRAM (MiB): 8176.00
+	Graphics card #1 deviceId: VideoController2
+	Graphics card #1 versionInfo: 32.0.21045.16010
+	Memory slot #0 capacity (MiB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 3.20
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MiB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 3.20
+	Memory slot #1 type: DDR4
+	Virtual memory max (MiB): 42378.78
+	Virtual memory used (MiB): 23616.16
+	Swap memory total (MiB): 26624.00
+	Swap memory used (MiB): 1179.84
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 125414.98, total: 488369.00
+	Space in storage for workdir (MiB): available: 18547.84, total: 459514.00
+	JVM Flags: 2 total; -Xmx1536M -XX:ActiveProcessorCount=2
+	Server Running: true
+	Player Count: 0 / 1; []
+	Active Data Packs: vanilla, mod_data, mod/curios (incompatible), mod/slavicmyths (incompatible), mod/neoforge
+	Available Data Packs: bundle, trade_rebalance, vanilla, mod/curios (incompatible), mod/neoforge, mod/slavicmyths (incompatible), mod_data
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	World Seed: 2692026
+	Is Modded: Definitely; Server brand changed to 'neoforge'
+	Type: Dedicated Server (map_server.txt)
+	ModLauncher: 11.0.5+main.901c6ea8
+	ModLauncher launch target: forgeserverdev
+	ModLauncher services: 
+		sponge-mixin-0.16.4+mixin.0.8.7.jar mixin PLUGINSERVICE 
+		loader-4.0.45.jar slf4jfixer PLUGINSERVICE 
+		loader-4.0.45.jar runtime_enum_extender PLUGINSERVICE 
+		at-modlauncher-10.0.1.jar accesstransformer PLUGINSERVICE 
+		loader-4.0.45.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-11.0.5.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-11.0.5.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		javafml@4.0
+		lowcodefml@4.0
+		minecraft@4.0
+	Mod List: 
+		curios-neoforge-9.5.1+1.21.1.jar                  |Curios API                    |curios                        |9.5.1+1.21.1        |Manifest: NOSIGNATURE
+		neoforge-21.1.255.jar                             |Minecraft                     |minecraft                     |1.21.1              |Manifest: NOSIGNATURE
+		neoforge-21.1.255.jar                             |NeoForge                      |neoforge                      |21.1.255            |Manifest: NOSIGNATURE
+		main                                              |Slavic Myths                  |slavicmyths                   |2.0.8-HELL          |Manifest: NOSIGNATURE
+	Crash Report UUID: 300d29e5-d4ae-4ebe-9735-73fe3e7eb648
+	FML: 4.0.45
+	NeoForge: 21.1.255

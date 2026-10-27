@@ -1,0 +1,49 @@
+{
+  "scope": "preview only; production assets unchanged",
+  "items": [
+    {
+      "id": "chud_master_pickaxe",
+      "preview_sha256": "a3f7e6de763aa13cc3baa46c99f43ddc09e897a544eec08ee2e335de120ce130",
+      "production_texture_sha256": "5efda43c73fab212b053319940808db418bba325467b7556bf3a422ac4b9d1be",
+      "production_model": {
+        "parent": "minecraft:item/handheld",
+        "textures": {
+          "layer0": "slavicmyths:item/chud_master_pickaxe"
+        }
+      }
+    },
+    {
+      "id": "chud_multitool_axe",
+      "preview_sha256": "1876e4998a1bba90553ddf92cc041f4e7e6d7ccf9eba873bafc5a2903bdde5c5",
+      "production_texture_sha256": "3882f02355f3ebee0127b2d5b71189902f209560d43dae18b8de1db00cbaf58b",
+      "production_model": {
+        "parent": "minecraft:item/handheld",
+        "textures": {
+          "layer0": "slavicmyths:item/chud_multitool_axe"
+        }
+      }
+    },
+    {
+      "id": "chud_multitool_pickaxe",
+      "preview_sha256": "c3fd9ed4ceebf0297d9f4e60fbd2ba4971cb1121507c650692f08540adffed19",
+      "production_texture_sha256": "f799287d2ceb637afeff746394a759670d3c4bc681a4b8e3716a5e832cb4df85",
+      "production_model": {
+        "parent": "minecraft:item/handheld",
+        "textures": {
+          "layer0": "slavicmyths:item/chud_multitool_pickaxe"
+        }
+      }
+    },
+    {
+      "id": "chud_multitool_shovel",
+      "preview_sha256": "acd37783dc6c82f0ed499849ec21e74a23bb8e3143dbddd5b15c942da7c86a72",
+      "production_texture_sha256": "57927ee6929395b46c90986d8f33084bd66169b7768da48abcde8bcbb9568ca5",
+      "production_model": {
+        "parent": "minecraft:item/handheld",
+        "textures": {
+          "layer0": "slavicmyths:item/chud_multitool_shovel"
+        }
+      }
+    }
+  ]
+}

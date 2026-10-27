@@ -1,0 +1,122 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileStabilization269Java
+> Task :downloadAssets UP-TO-DATE
+> Task :writeStabilization269ServerLegacyClasspath UP-TO-DATE
+> Task :prepareStabilization269ServerRun UP-TO-DATE
+> Task :processStabilization269Resources NO-SOURCE
+> Task :stabilization269Classes
+
+> Task :runStabilization269Server
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[09:28:38] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430, --nogui]
+[09:28:38] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[09:28:38] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[09:28:38] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[09:28:39] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/pavel/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[09:28:39] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[09:28:39] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 2.0.8-HELL (slavicmyths)
+[09:28:40] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[09:28:40] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, ., --nogui]
+[09:28:40] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:28:40] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:28:41] [main/WARN] [os.dr.wi.pe.PerfmonDisabled/]: Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[09:28:41] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[09:28:47] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:28:47] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:28:47] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:28:47] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:28:47] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:28:47] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[09:28:49] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[09:28:49] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[09:28:49] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/D:/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[09:28:51] [main/INFO] [minecraft/RecipeManager]: Loaded 1853 recipes
+[09:28:51] [main/INFO] [minecraft/AdvancementTree]: Loaded 1643 advancements
+[09:28:51] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[09:28:51] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[09:28:52] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.21.1
+[09:28:52] [Server thread/INFO] [minecraft/DedicatedServer]: Loading properties
+[09:28:52] [Server thread/INFO] [minecraft/DedicatedServer]: Default game type: SURVIVAL
+[09:28:52] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[09:28:52] [Server thread/INFO] [minecraft/DedicatedServer]: Starting Minecraft server on 127.0.0.1:25780
+[09:28:52] [Server thread/INFO] [minecraft/ServerConnectionListener]: Using default channel type
+[09:28:52] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[09:28:52] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.
+[09:28:52] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[09:28:52] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set "online-mode" to "true" in the server.properties file.
+[09:28:52] [Server thread/INFO] [minecraft/DedicatedServer]: Preparing level "world"
+[09:28:57] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[09:28:58] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[09:28:58] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 445 ms
+[09:28:58] [Server thread/INFO] [minecraft/DedicatedServer]: Done (5.499s)! For help, type "help"
+[09:28:58] [Server thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[09:28:58] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+FREQUENCY269_PLAN {set=serpent_hill, cell=[-5, -5], chunk=[-397, -393], placement_allowed=true, attempted_structures=[slavicmyths:serpent_hill], accepted=null, cpu_wall_ms=525.6414}
+FREQUENCY269_PLAN {set=kurgan_small, serial=8, accepted=UNKNOWN_BUDGET, cpu_wall_ms=5000.5326}
+FREQUENCY269_PLAN {set=kurgan_small, cell=[-5, -2], chunk=[-231, -91], placement_allowed=true, attempted_structures=[slavicmyths:kurgan_small], accepted=slavicmyths:kurgan_small, cpu_wall_ms=4417.9816}
+FREQUENCY269_PLAN {set=kurgan_small, serial=14, accepted=UNKNOWN_BUDGET, cpu_wall_ms=5001.8496}
+FREQUENCY269_PLAN {set=kurgan_small, cell=[-5, 2], chunk=[-239, 104], placement_allowed=true, attempted_structures=[slavicmyths:kurgan_small], accepted=slavicmyths:kurgan_small, cpu_wall_ms=2538.2695}
+FREQUENCY269_PLAN {set=kurgan_small, cell=[-5, 3], chunk=[-249, 168], placement_allowed=true, attempted_structures=[slavicmyths:kurgan_small], accepted=slavicmyths:kurgan_small, cpu_wall_ms=2183.4299}
+FREQUENCY269_PLAN {set=serpent_hill, cell=[-4, -5], chunk=[-286, -398], placement_allowed=true, attempted_structures=[slavicmyths:serpent_hill], accepted=null, cpu_wall_ms=5.6211}
+FREQUENCY269_PLAN {set=kurgan_small, cell=[-4, -5], chunk=[-187, -232], placement_allowed=true, attempted_structures=[slavicmyths:kurgan_small], accepted=slavicmyths:kurgan_small, cpu_wall_ms=2740.6047}
+FREQUENCY269_PLAN {set=kurgan_small, serial=35, accepted=UNKNOWN_BUDGET, cpu_wall_ms=5000.718}
+FREQUENCY269_PLAN {set=kurgan_small, serial=41, accepted=UNKNOWN_BUDGET, cpu_wall_ms=5001.4385}
+FREQUENCY269_PLAN {set=serpent_hill, cell=[-3, -5], chunk=[-222, -365], placement_allowed=true, attempted_structures=[slavicmyths:serpent_hill], accepted=null, cpu_wall_ms=5.1972}
+FREQUENCY269_PLAN {set=kurgan_small, serial=62, accepted=UNKNOWN_BUDGET, cpu_wall_ms=5000.4233}
+FREQUENCY269_PLAN {set=kurgan_small, serial=65, accepted=UNKNOWN_BUDGET, cpu_wall_ms=5000.5642}
+FREQUENCY269_PLAN {set=serpent_hill, serial=75, accepted=UNKNOWN_BUDGET, cpu_wall_ms=5001.4395}
+FREQUENCY269_PLAN {set=kurgan_small, cell=[-3, 1], chunk=[-148, 58], placement_allowed=true, attempted_structures=[slavicmyths:kurgan_small], accepted=slavicmyths:kurgan_small, cpu_wall_ms=3221.4761}
+FREQUENCY269_PLAN {set=kurgan_small, cell=[-3, 3], chunk=[-136, 150], placement_allowed=true, attempted_structures=[slavicmyths:kurgan_small], accepted=slavicmyths:kurgan_small, cpu_wall_ms=2046.4495}
+FREQUENCY269_PLAN {set=serpent_hill, cell=[-2, -5], chunk=[-153, -353], placement_allowed=true, attempted_structures=[slavicmyths:serpent_hill], accepted=null, cpu_wall_ms=9.2033}
+FREQUENCY269_PLAN {set=kurgan_small, cell=[-2, -5], chunk=[-88, -248], placement_allowed=true, attempted_structures=[slavicmyths:kurgan_small], accepted=slavicmyths:kurgan_small, cpu_wall_ms=3309.4127}
+FREQUENCY269_PLAN {set=kurgan_small, serial=95, accepted=UNKNOWN_BUDGET, cpu_wall_ms=5000.7623}
+FREQUENCY269_PLAN {set=kurgan_small, serial=98, accepted=UNKNOWN_BUDGET, cpu_wall_ms=5001.5519}
+FREQUENCY269_PLAN {set=kurgan_small, serial=116, accepted=UNKNOWN_BUDGET, cpu_wall_ms=5002.6118}
+FREQUENCY269_CHUD {region=[1, 0], accepted=true, structure=slavicmyths:chud_abandoned, owner=[270, 22], kind=INDEPENDENT_GREAT}
+[09:31:05] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 6224ms or 124 ticks behind
+FREQUENCY269_CHUD {region=[-1, 0], accepted=true, structure=slavicmyths:chud_abandoned, owner=[-251, 27], kind=INDEPENDENT_MEDIUM}
+FREQUENCY269_CHUD {region=[0, 1], accepted=true, structure=slavicmyths:chud_city, owner=[30, 317], variant=0}
+FREQUENCY269_CHUD {region=[0, -1], accepted=true, structure=slavicmyths:chud_abandoned, owner=[47, -217], kind=INDEPENDENT_MEDIUM}
+QA269 PASS paired_frequency_native forecast matches actual FULL slavicmyths:chud_abandoned [270, 22]
+FREQUENCY269_NATIVE {structure=slavicmyths:chud_abandoned, chunk=[270, 22], valid_native_start=true, block_entity_count=0, bounds=[4201, -47, 233, 4455, 70, 487], abandoned_kind=INDEPENDENT_GREAT}
+QA269 PASS paired_frequency_native forecast matches actual FULL slavicmyths:chud_abandoned [-251, 27]
+FREQUENCY269_NATIVE {structure=slavicmyths:chud_abandoned, chunk=[-251, 27], valid_native_start=true, block_entity_count=5, bounds=[-4112, -12, 336, -3904, 105, 544], abandoned_kind=INDEPENDENT_MEDIUM}
+QA269 PASS paired_frequency_native forecast matches actual FULL slavicmyths:chud_city [30, 317]
+FREQUENCY269_NATIVE {structure=slavicmyths:chud_city, chunk=[30, 317], valid_native_start=true, block_entity_count=0, bounds=[361, -63, 4953, 615, 54, 5207], city_variant=0}
+QA269 PASS paired_frequency_native forecast matches actual FULL slavicmyths:chud_abandoned [47, -217]
+FREQUENCY269_NATIVE {structure=slavicmyths:chud_abandoned, chunk=[47, -217], valid_native_start=true, block_entity_count=0, bounds=[656, -48, -3568, 864, 69, -3360], abandoned_kind=INDEPENDENT_MEDIUM}
+STABILIZATION269 PASS
+[09:31:39] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[09:31:40] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[09:31:40] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[09:31:40] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[09:31:40] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[09:31:40] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[09:31:40] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[09:31:40] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[09:31:40] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[09:31:40] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[09:31:40] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[09:31:40] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[09:31:40] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[09:31:40] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[09:31:40] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[09:31:40] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[09:31:40] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+
+BUILD SUCCESSFUL in 3m 15s
+9 actionable tasks: 3 executed, 6 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

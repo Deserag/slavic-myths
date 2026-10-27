@@ -1,0 +1,378 @@
+{
+  "loaded_quest": "{}",
+  "seed": 2692026,
+  "profile": "QA269Fixed",
+  "uuid": "46630693-101e-34ed-9393-c086319102b5",
+  "master_volume": 0.3,
+  "fps": 30,
+  "first_quest": "{Bounds:[I;1289,-63,889,1543,54,1143],CreatedSite:1b,Dimension:\"minecraft:overworld\",Owner:270582939736L,StartPieces:1,Target:378781760438310L}",
+  "first_completed_quest": "{Bounds:[I;1289,-63,889,1543,54,1143],Claimed:1b,CreatedSite:1b,Dimension:\"minecraft:overworld\",Owner:270582939736L,StartPieces:1,Target:378781760438310L,Visited:1b}",
+  "final_quest": "{Bounds:[I;11881,-48,11625,12135,90,11879],CreatedSite:1b,Dimension:\"minecraft:overworld\",Owner:3152505996014L,StartPieces:1,Target:3334818815336527L}",
+  "sign_count": 1,
+  "ui_0": {
+    "gui_height": 240,
+    "gui_width": 427,
+    "language": "ru_ru",
+    "tab": 0
+  },
+  "ui_1": {
+    "gui_height": 240,
+    "gui_width": 427,
+    "language": "ru_ru",
+    "tab": 1
+  },
+  "ui_2": {
+    "gui_height": 240,
+    "gui_width": 427,
+    "language": "ru_ru",
+    "tab": 2
+  },
+  "ui_3": {
+    "gui_height": 240,
+    "gui_width": 427,
+    "language": "ru_ru",
+    "tab": 3
+  },
+  "ui_4": {
+    "gui_height": 400,
+    "gui_width": 640,
+    "language": "ru_ru",
+    "tab": 0
+  },
+  "ui_5": {
+    "gui_height": 400,
+    "gui_width": 640,
+    "language": "ru_ru",
+    "tab": 1
+  },
+  "ui_6": {
+    "gui_height": 400,
+    "gui_width": 640,
+    "language": "ru_ru",
+    "tab": 2
+  },
+  "ui_7": {
+    "gui_height": 400,
+    "gui_width": 640,
+    "language": "ru_ru",
+    "tab": 3
+  },
+  "ui_8": {
+    "gui_height": 360,
+    "gui_width": 640,
+    "language": "ru_ru",
+    "tab": 0
+  },
+  "ui_9": {
+    "gui_height": 360,
+    "gui_width": 640,
+    "language": "ru_ru",
+    "tab": 1
+  },
+  "ui_10": {
+    "gui_height": 360,
+    "gui_width": 640,
+    "language": "ru_ru",
+    "tab": 2
+  },
+  "ui_11": {
+    "gui_height": 360,
+    "gui_width": 640,
+    "language": "ru_ru",
+    "tab": 3
+  },
+  "ui_12": {
+    "gui_height": 673,
+    "gui_width": 1280,
+    "language": "en_us",
+    "tab": 0
+  },
+  "ui_13": {
+    "gui_height": 240,
+    "gui_width": 427,
+    "language": "en_us",
+    "tab": 1
+  },
+  "ui_14": {
+    "gui_height": 240,
+    "gui_width": 427,
+    "language": "en_us",
+    "tab": 2
+  },
+  "ui_15": {
+    "gui_height": 240,
+    "gui_width": 427,
+    "language": "en_us",
+    "tab": 3
+  },
+  "ui_16": {
+    "gui_height": 400,
+    "gui_width": 640,
+    "language": "en_us",
+    "tab": 0
+  },
+  "ui_17": {
+    "gui_height": 400,
+    "gui_width": 640,
+    "language": "en_us",
+    "tab": 1
+  },
+  "ui_18": {
+    "gui_height": 400,
+    "gui_width": 640,
+    "language": "en_us",
+    "tab": 2
+  },
+  "ui_19": {
+    "gui_height": 400,
+    "gui_width": 640,
+    "language": "en_us",
+    "tab": 3
+  },
+  "ui_20": {
+    "gui_height": 360,
+    "gui_width": 640,
+    "language": "en_us",
+    "tab": 0
+  },
+  "ui_21": {
+    "gui_height": 240,
+    "gui_width": 427,
+    "language": "en_us",
+    "tab": 1
+  },
+  "ui_22": {
+    "gui_height": 360,
+    "gui_width": 640,
+    "language": "en_us",
+    "tab": 2
+  },
+  "ui_23": {
+    "gui_height": 360,
+    "gui_width": 640,
+    "language": "en_us",
+    "tab": 3
+  },
+  "ui_24": {
+    "gui_height": 240,
+    "gui_width": 427,
+    "language": "en_us",
+    "tab": 0
+  },
+  "ui_25": {
+    "gui_height": 240,
+    "gui_width": 427,
+    "language": "en_us",
+    "tab": 1
+  },
+  "ui_26": {
+    "gui_height": 240,
+    "gui_width": 427,
+    "language": "en_us",
+    "tab": 2
+  },
+  "ui_27": {
+    "gui_height": 240,
+    "gui_width": 427,
+    "language": "en_us",
+    "tab": 3
+  },
+  "mode": "fixed",
+  "checks": [
+    {
+      "test": "fresh Survival profile has no earned Yaga access",
+      "status": "PASS"
+    },
+    {
+      "test": "actual client Creative transition unlocks Yaga without boss kills",
+      "status": "PASS"
+    },
+    {
+      "test": "Yaga access remains after returning to Survival",
+      "status": "PASS"
+    },
+    {
+      "test": "Creative access does not grant combat milestones",
+      "status": "PASS"
+    },
+    {
+      "test": "prior-world native city loaded through normal chunk lifecycle",
+      "status": "PASS"
+    },
+    {
+      "test": "Yaga reuses nearest already observed natural city instead of distant manual city or construction",
+      "status": "PASS"
+    },
+    {
+      "test": "existing-city request adds no construction record",
+      "status": "PASS"
+    },
+    {
+      "test": "real player enters referenced native city and visit observer advances existing quest",
+      "status": "PASS"
+    },
+    {
+      "test": "first completed quest grants exactly one existing ancient sign",
+      "status": "PASS"
+    },
+    {
+      "test": "completed research request never starts a new excavation",
+      "status": "PASS"
+    },
+    {
+      "test": "completed request preserves structure record count",
+      "status": "PASS"
+    },
+    {
+      "test": "completed repeat never duplicates ancient sign",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui0",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui1",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui2",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui3",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui4",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui5",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui6",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui7",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui8",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui9",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui10",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui11",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui12",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui13",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui14",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui15",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui16",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui17",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui18",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui19",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui20",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui21",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui22",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui23",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui24",
+      "status": "PASS"
+    },
+    {
+      "test": "modal help hides all underlying buttons ui24",
+      "status": "PASS"
+    },
+    {
+      "test": "modal help consumes Enter instead of activating underlying action ui24",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui25",
+      "status": "PASS"
+    },
+    {
+      "test": "modal help hides all underlying buttons ui25",
+      "status": "PASS"
+    },
+    {
+      "test": "modal help consumes Enter instead of activating underlying action ui25",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui26",
+      "status": "PASS"
+    },
+    {
+      "test": "modal help hides all underlying buttons ui26",
+      "status": "PASS"
+    },
+    {
+      "test": "modal help consumes Enter instead of activating underlying action ui26",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui27",
+      "status": "PASS"
+    },
+    {
+      "test": "modal help hides all underlying buttons ui27",
+      "status": "PASS"
+    },
+    {
+      "test": "modal help consumes Enter instead of activating underlying action ui27",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS_SCOPED_REPAIR",
+  "elapsed_seconds": 65.5219499,
+  "scope": "one actual dev client, copied disposable prior world, supplied NPC; not full Survival acquisition/MP"
+}

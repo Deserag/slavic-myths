@@ -1,0 +1,69 @@
+{
+  "scope": "SOURCE_ONLY; no natural spawn runtime measured in this batch",
+  "rows": [
+    {
+      "entity": "slavicmyths:ovinnik",
+      "weight": 1,
+      "min": 1,
+      "max": 1,
+      "biomes": "#slavicmyths:spawn_ovinnik",
+      "source": "src/main/resources/data/slavicmyths/neoforge/biome_modifier/hunt_ovinnik.json"
+    },
+    {
+      "entity": "slavicmyths:podvey",
+      "weight": 1,
+      "min": 1,
+      "max": 1,
+      "biomes": "#slavicmyths:spawn_open",
+      "source": "src/main/resources/data/slavicmyths/neoforge/biome_modifier/hunt_podvey.json"
+    },
+    {
+      "entity": "slavicmyths:fire_serpent",
+      "weight": 1,
+      "min": 1,
+      "max": 1,
+      "biomes": "#slavicmyths:spawn_serpent",
+      "source": "src/main/resources/data/slavicmyths/neoforge/biome_modifier/hunt_serpent.json"
+    },
+    {
+      "entity": "slavicmyths:volkolak",
+      "weight": 1,
+      "min": 1,
+      "max": 1,
+      "biomes": "#slavicmyths:spawn_forest_taiga",
+      "source": "src/main/resources/data/slavicmyths/neoforge/biome_modifier/hunt_volkolak.json"
+    },
+    {
+      "entity": "slavicmyths:poludnitsa",
+      "weight": 2,
+      "min": 1,
+      "max": 1,
+      "biomes": "#slavicmyths:spawn_fields",
+      "source": "src/main/resources/data/slavicmyths/neoforge/biome_modifier/land_fields.json"
+    },
+    {
+      "entity": "slavicmyths:polevik",
+      "weight": 2,
+      "min": 1,
+      "max": 1,
+      "biomes": "#slavicmyths:spawn_fields",
+      "source": "src/main/resources/data/slavicmyths/neoforge/biome_modifier/land_fields.json"
+    },
+    {
+      "entity": "slavicmyths:sivka_burka",
+      "weight": 1,
+      "min": 1,
+      "max": 1,
+      "biomes": "#slavicmyths:sivka_grasslands",
+      "source": "src/main/resources/data/slavicmyths/neoforge/biome_modifier/sivka_burka.json"
+    },
+    {
+      "entity": "slavicmyths:vodyanoy",
+      "weight": 1,
+      "min": 1,
+      "max": 1,
+      "biomes": "#slavicmyths:spawn_water",
+      "source": "src/main/resources/data/slavicmyths/neoforge/biome_modifier/water_spawns.json"
+    }
+  ]
+}

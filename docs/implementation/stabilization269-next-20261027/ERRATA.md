@@ -1,0 +1,7 @@
+# Уточнение прежнего отчёта: боссы abandoned уже существуют
+
+Прежний вывод в scouting269-20261027/REPORT.md и отчётном пакете4252bdbb, что босс abandoned отсутствует, был ошибочным: аудит просмотрел chud/industry и пропустил отдельную подсистему underground. Архивный вывод не является основанием создавать нового босса.
+
+Реальные IDs: `slavicmyths:kladovik` и `slavicmyths:large_podzemnik`, зарегистрированы UndergroundMobs. Kladovik и LargePodzemnik наследуют RoomBoss с bossbar. EncounterPopulation.plan для независимых MEDIUM/GREAT планирует кладовика в нижнем ABANDONED_STORAGE при размере≥13×13×4 и большого подземника в GALLERY≥19×19×5. ATTACHED_SMALL не получает эти boss slots. EncounterPopulation.chunk слушает реальные ChunkEvent.Load, process каждые40ticks проверяет4slots; room должен быть полностью загружен, Peaceful не подходит; нужны безопасные пол/объём и отсутствие мешающих сущностей. При исчерпании безопасных позиций записывается SKIPPED_NO_SAFE_FLOOR. UUID детерминирован, pending/consumed/planned/cursor сохранены в SavedData.Это source proof существующей системы, не доказательство появления каждого босса в Survival.
+
+FutureGateId остаётся заделом другого прохода; он не равен этим уже существующим комнатным боссам. В текущем пакете новых боссов, арены или наград не создаётся. Проверка живого появления в нескольких полных комнатах и после перезапуска остаётся NOT_RUN; желательно считать loaded/Peaceful/no-safe-floor отдельно. Файлы прежнего qa-handoff snapshot сохранены как история, эта поправка имеет приоритет над ошибочным выводом.

@@ -1,0 +1,45 @@
+{
+  "fixture_note": "second site marked previously completed to reproduce exhausted old-save state; reward not issued by fixture",
+  "loaded_quest": "{Bounds:[I;11881,-48,11625,12135,90,11879],Claimed:1b,CreatedSite:1b,Dimension:\"minecraft:overworld\",Owner:3152505996014L,StartPieces:1,Target:3334818815336527L,Visited:1b}",
+  "seed": 2692026,
+  "profile": "QA269Fixed",
+  "uuid": "46630693-101e-34ed-9393-c086319102b5",
+  "master_volume": 0.3,
+  "fps": 30,
+  "final_quest": "{Bounds:[I;11881,-48,11625,12135,90,11879],Claimed:1b,CreatedSite:1b,Dimension:\"minecraft:overworld\",Owner:3152505996014L,StartPieces:1,Target:3334818815336527L,Visited:1b}",
+  "sign_count": 1,
+  "mode": "exhausted",
+  "checks": [
+    {
+      "test": "prior-world native city loaded through normal chunk lifecycle",
+      "status": "PASS"
+    },
+    {
+      "test": "completed research request never starts a new excavation",
+      "status": "PASS"
+    },
+    {
+      "test": "completed request preserves structure record count",
+      "status": "PASS"
+    },
+    {
+      "test": "completed repeat never duplicates ancient sign",
+      "status": "PASS"
+    },
+    {
+      "test": "persisted selected quest survives actual process restart and repeated request",
+      "status": "PASS"
+    },
+    {
+      "test": "Creative-unlocked access remains after actual process restart in Survival",
+      "status": "PASS"
+    },
+    {
+      "test": "relogged public hint retains approximate geometry without private anchor",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS_SCOPED_REPAIR",
+  "elapsed_seconds": 16.5899383,
+  "scope": "one actual dev client, copied disposable prior world, supplied NPC; not full Survival acquisition/MP"
+}

@@ -1,0 +1,80 @@
+{
+  "seed": 2692026,
+  "profile": "QA269Repair",
+  "uuid": "3ef413bd-4899-3138-af21-0ae489f2a6e8",
+  "master_volume": 0.3,
+  "fps": 30,
+  "first_quest": "{Bounds:[I;11881,-48,11625,12135,90,11879],CreatedSite:1b,Dimension:\"minecraft:overworld\",Owner:3152505996014L,StartPieces:1,Target:3334818815336527L}",
+  "final_quest": "{Bounds:[I;11881,-48,11625,12135,90,11879],Claimed:1b,CreatedSite:1b,Dimension:\"minecraft:overworld\",Owner:3152505996014L,StartPieces:1,Target:3334818815336527L,Visited:1b}",
+  "sign_count": 0,
+  "ui_0": {
+    "language": "ru_ru",
+    "tab": 0,
+    "gui_height": 240,
+    "gui_width": 427
+  },
+  "ui_1": {
+    "language": "ru_ru",
+    "tab": 1,
+    "gui_height": 240,
+    "gui_width": 427
+  },
+  "ui_2": {
+    "language": "ru_ru",
+    "tab": 2,
+    "gui_height": 240,
+    "gui_width": 427
+  },
+  "ui_3": {
+    "language": "ru_ru",
+    "tab": 3,
+    "gui_height": 240,
+    "gui_width": 427
+  },
+  "mode": "baseline",
+  "checks": [
+    {
+      "test": "prior-world native city loaded through normal chunk lifecycle",
+      "status": "PASS"
+    },
+    {
+      "test": "Yaga reuses nearest already observed natural city instead of distant manual city or construction",
+      "status": "FAIL"
+    },
+    {
+      "test": "existing-city request adds no construction record",
+      "status": "PASS"
+    },
+    {
+      "test": "completed research request never starts a new excavation",
+      "status": "FAIL"
+    },
+    {
+      "test": "completed request preserves structure record count",
+      "status": "PASS"
+    },
+    {
+      "test": "completed repeat never duplicates ancient sign",
+      "status": "PASS"
+    },
+    {
+      "test": "one contextual help control ui0",
+      "status": "FAIL"
+    },
+    {
+      "test": "one contextual help control ui1",
+      "status": "FAIL"
+    },
+    {
+      "test": "one contextual help control ui2",
+      "status": "FAIL"
+    },
+    {
+      "test": "one contextual help control ui3",
+      "status": "FAIL"
+    }
+  ],
+  "status": "BASELINE_DEFECTS_REPRODUCED",
+  "elapsed_seconds": 38.5443302,
+  "scope": "one actual dev client, copied disposable prior world, supplied NPC; not full Survival acquisition/MP"
+}

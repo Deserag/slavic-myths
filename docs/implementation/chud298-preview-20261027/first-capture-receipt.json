@@ -1,0 +1,29 @@
+{
+  "error": "",
+  "images": [
+    "before-chud_master_pickaxe-hand.png",
+    "before-chud_master_pickaxe-gui.png",
+    "before-chud_multitool_pickaxe-hand.png",
+    "before-chud_multitool_pickaxe-gui.png",
+    "before-chud_multitool_axe-hand.png",
+    "before-chud_multitool_axe-gui.png",
+    "before-chud_multitool_shovel-hand.png",
+    "before-chud_multitool_shovel-gui.png",
+    "preview-chud_master_pickaxe-hand.png",
+    "preview-chud_master_pickaxe-gui.png",
+    "preview-chud_multitool_pickaxe-hand.png",
+    "preview-chud_multitool_pickaxe-gui.png",
+    "preview-chud_multitool_axe-hand.png",
+    "preview-chud_multitool_axe-gui.png",
+    "preview-chud_multitool_shovel-hand.png",
+    "preview-chud_multitool_shovel-gui.png"
+  ],
+  "scope": "actual dev-client screenshots; preview pack only, owner visual approval pending",
+  "resource_packs": [
+    "vanilla",
+    "mod_resources",
+    "file/Chud298-preview"
+  ],
+  "status": "PASS_CAPTURE_ONLY",
+  "master_volume": 0.3
+}
