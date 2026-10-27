@@ -87,7 +87,7 @@ public final class ChudCreationJobs {
   }catch(RuntimeException e){
    com.mojang.logging.LogUtils.getLogger().warn("Chud preflight phase {} at {}: {}",phase,owner,e.toString());
    if(phase<3&&!reserved&&attempt<(story?Math.min(6,storySites.size()):explicitSites.size())-1){cancelRaster();chunks.close();chunks=new SiteChunks(world);attempt++;owner=candidateOwner();planned=null;raster=null;rasterCancelled=null;piece=null;box=null;entrance=null;phase=chunk=section=voxel=0;adjusted=false;sections=List.of();footprint.clear();return;}
-   // Explicit OP requests still check one site. Story retries occur only before the first write.
+   // Both OP and story creation retry safe alternative sites only before reserving or writing blocks.
    finish(null,"Создание Чуди остановлено после "+(attempt+1)+" площадок: "+e.getMessage());}}
   void cancelRaster(){if(surveyed!=null&&!surveyed.isDone())surveyed.cancel(true);if(planned!=null&&!planned.isDone())planned.cancel(true);if(rasterCancelled!=null)rasterCancelled.set(true);if(raster!=null)raster.cancel(false);}
   void finish(Result result,String message){JOBS.remove(world);chunks.close();cancelRaster();if(result==null)source.sendFailure(Component.literal(message));else source.sendSuccess(()->Component.literal(message),false);for(var callback:listeners)try{callback.accept(result);}catch(RuntimeException e){com.mojang.logging.LogUtils.getLogger().warn("Chud completion callback",e);}}
