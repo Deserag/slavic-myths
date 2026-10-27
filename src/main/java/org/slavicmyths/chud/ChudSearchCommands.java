@@ -19,7 +19,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.server.ServerStoppingEvent;
 
-/** OP lookup: reuse loaded starts or start bounded explicit creation, never a silent phantom result. */
+/** Read-only diagnostics: inspect loaded starts or forecast natural starts. Never build. */
 public final class ChudSearchCommands {
     public static void register(org.slavicmyths.commands.CommandTree tree) {
         for(String name:List.of("chud_city","chud_abandoned")) {
@@ -48,19 +48,13 @@ public final class ChudSearchCommands {
             .then(Commands.literal("next").executes(c->next(c.getSource())))
             .then(Commands.literal("cancel").executes(c->control(c.getSource(),true)))));
     }
-    private static int control(CommandSourceStack source,boolean cancel){int active=ChudCreationJobs.control(source,cancel);return active!=0?active:ChudFutureSearch.control(source,cancel);}
+    private static int control(CommandSourceStack source,boolean cancel){return ChudFutureSearch.control(source,cancel);}
     private static int next(CommandSourceStack source){return ChudFutureSearch.next(source);}
     static int searchCity(CommandSourceStack source){return start(source,"chud_city",null,0);}
     static int searchAbandoned(CommandSourceStack source,AbandonedPlan.Kind kind){return start(source,"chud_abandoned",kind,0);}
     private static int start(CommandSourceStack source,String name,AbandonedPlan.Kind kind,int page){
-        if(page!=0)return ChudFutureSearch.start(source,name,kind,page);
-        String build=name.equals("chud_city")?"city":kind==AbandonedPlan.Kind.ATTACHED_SMALL?"attached":kind==AbandonedPlan.Kind.INDEPENDENT_GREAT?"great":"medium";
-        return locateOrCreate(source,name,build,1024);
-    }
-    static int locateOrCreate(CommandSourceStack source,String structure,String kind,int radius){
-        if(org.slavicmyths.worldgen.ExistingSiteSearch.locate(source,structure,radius,false)!=0)return 1;
-        source.sendSuccess(()->Component.literal("Готового "+structure+" в загруженных чанках нет. Начато явное создание в другой безопасной области. Это НЕ естественный спавн; дождитесь координат готового объекта."),false);
-        return ChudCreationJobs.create(source,kind,result->{});
+        if(page==0&&kind==null&&org.slavicmyths.worldgen.ExistingSiteSearch.locate(source,name,1024,false)!=0)return 1;
+        return ChudFutureSearch.start(source,name,kind,page);
     }
     private ChudSearchCommands(){}
 }
