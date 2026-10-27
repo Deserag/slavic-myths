@@ -41,13 +41,14 @@ public final class ChudCreationJobs {
  @net.neoforged.bus.api.SubscribeEvent public static void stop(net.neoforged.neoforge.event.server.ServerStoppingEvent e){for(var j:List.copyOf(JOBS.values()))if(j.world.getServer()==e.getServer())j.finish(null,"Сервер останавливается.");}
  private static final class Job {
   final CommandSourceStack source;final ServerLevel world;final String kind;SiteChunks chunks;final List<Consumer<Result>> listeners=new ArrayList<>();final UUID id=UUID.randomUUID();
-  final boolean story;final BlockPos origin;final List<ChunkPos> explicitSites;int attempt;Future<StructurePiece> planned;Future<List<ChunkPos>> surveyed;List<ChunkPos> storySites=List.of();
+  final boolean story;final BlockPos origin;final long planningDeadline=System.nanoTime()+120_000_000_000L;final List<ChunkPos> explicitSites;int attempt;Future<StructurePiece> planned;Future<List<ChunkPos>> surveyed;List<ChunkPos> storySites=List.of();
   ChunkPos owner;final List<ChunkPos> footprint=new ArrayList<>();List<Section> sections=List.of();CompletableFuture<List<Section>> raster;java.util.concurrent.atomic.AtomicBoolean rasterCancelled;
   StructurePiece piece;Structure structure;BoundingBox box;BlockPos entrance;int phase,chunk,section,voxel;boolean reserved,adjusted;long notice;
   Job(CommandSourceStack source,String kind,Consumer<Result> callback,boolean story){this.source=source;world=source.getLevel();this.kind=kind;this.story=story;chunks=new SiteChunks(world);listeners.add(callback);origin=BlockPos.containing(source.getPosition());explicitSites=List.of(new ChunkPos(origin.offset(0,0,-256)),new ChunkPos(origin.offset(384,0,-256)),new ChunkPos(origin.offset(-384,0,-256)),new ChunkPos(origin.offset(0,0,384)),new ChunkPos(origin.offset(512,0,384)),new ChunkPos(origin.offset(-512,0,384)),new ChunkPos(origin.offset(768,0,0)),new ChunkPos(origin.offset(-768,0,0)));owner=candidateOwner();}
   ChunkPos candidateOwner(){return story?storySites.isEmpty()?new ChunkPos(origin):storySites.get(attempt):explicitSites.get(attempt);}
   void step(){try{
-   if(world.getGameTime()>=notice){notice=world.getGameTime()+100;source.sendSuccess(()->Component.literal("Создание Чуди: этап "+phase+", чанки "+chunk+"/"+footprint.size()+", секции "+section+"/"+sections.size()),false);}
+   if(!reserved&&System.nanoTime()>planningDeadline){finish(null,"Создание Чуди остановлено: общий лимит подготовки 120 секунд, мир не изменён.");return;}
+   if(world.getGameTime()>=notice){notice=world.getGameTime()+100;source.sendSuccess(()->Component.literal("Создание Чуди: площадка "+(attempt+1)+"/"+(story?Math.min(6,Math.max(1,storySites.size())):explicitSites.size())+", этап "+phase+", чанки "+chunk+"/"+footprint.size()+", секции "+section+"/"+sections.size()),false);}
    if(phase==0){
     if(story&&storySites.isEmpty()){
      if(surveyed==null){var generator=world.getChunkSource().getGenerator();var context=new Structure.GenerationContext(world.registryAccess(),generator,generator.getBiomeSource(),world.getChunkSource().randomState(),world.getStructureManager(),world.getSeed(),new ChunkPos(origin),world,b->true);surveyed=WORKER.submit(()->rankStorySites(context,origin));return;}
