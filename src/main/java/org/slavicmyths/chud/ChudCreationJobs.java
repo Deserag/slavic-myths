@@ -41,17 +41,17 @@ public final class ChudCreationJobs {
  @net.neoforged.bus.api.SubscribeEvent public static void stop(net.neoforged.neoforge.event.server.ServerStoppingEvent e){for(var j:List.copyOf(JOBS.values()))if(j.world.getServer()==e.getServer())j.finish(null,"Сервер останавливается.");}
  private static final class Job {
   final CommandSourceStack source;final ServerLevel world;final String kind;SiteChunks chunks;final List<Consumer<Result>> listeners=new ArrayList<>();final UUID id=UUID.randomUUID();
-  final boolean story;final BlockPos origin;int attempt;Future<StructurePiece> planned;Future<List<ChunkPos>> surveyed;List<ChunkPos> storySites=List.of();
+  final boolean story;final BlockPos origin;final List<ChunkPos> explicitSites;int attempt;Future<StructurePiece> planned;Future<List<ChunkPos>> surveyed;List<ChunkPos> storySites=List.of();
   ChunkPos owner;final List<ChunkPos> footprint=new ArrayList<>();List<Section> sections=List.of();CompletableFuture<List<Section>> raster;java.util.concurrent.atomic.AtomicBoolean rasterCancelled;
   StructurePiece piece;Structure structure;BoundingBox box;BlockPos entrance;int phase,chunk,section,voxel;boolean reserved,adjusted;long notice;
-  Job(CommandSourceStack source,String kind,Consumer<Result> callback,boolean story){this.source=source;world=source.getLevel();this.kind=kind;this.story=story;chunks=new SiteChunks(world);listeners.add(callback);origin=BlockPos.containing(source.getPosition());owner=story?storyOwner():new ChunkPos(origin.offset(0,0,-256));}
-  ChunkPos storyOwner(){return storySites.isEmpty()?new ChunkPos(origin):storySites.get(attempt);}
+  Job(CommandSourceStack source,String kind,Consumer<Result> callback,boolean story){this.source=source;world=source.getLevel();this.kind=kind;this.story=story;chunks=new SiteChunks(world);listeners.add(callback);origin=BlockPos.containing(source.getPosition());explicitSites=List.of(new ChunkPos(origin.offset(0,0,-256)),new ChunkPos(origin.offset(384,0,-256)),new ChunkPos(origin.offset(-384,0,-256)),new ChunkPos(origin.offset(0,0,384)),new ChunkPos(origin.offset(512,0,384)),new ChunkPos(origin.offset(-512,0,384)),new ChunkPos(origin.offset(768,0,0)),new ChunkPos(origin.offset(-768,0,0)));owner=candidateOwner();}
+  ChunkPos candidateOwner(){return story?storySites.isEmpty()?new ChunkPos(origin):storySites.get(attempt):explicitSites.get(attempt);}
   void step(){try{
    if(world.getGameTime()>=notice){notice=world.getGameTime()+100;source.sendSuccess(()->Component.literal("Создание Чуди: этап "+phase+", чанки "+chunk+"/"+footprint.size()+", секции "+section+"/"+sections.size()),false);}
    if(phase==0){
     if(story&&storySites.isEmpty()){
      if(surveyed==null){var generator=world.getChunkSource().getGenerator();var context=new Structure.GenerationContext(world.registryAccess(),generator,generator.getBiomeSource(),world.getChunkSource().randomState(),world.getStructureManager(),world.getSeed(),new ChunkPos(origin),world,b->true);surveyed=WORKER.submit(()->rankStorySites(context,origin));return;}
-     if(!surveyed.isDone())return;try{storySites=surveyed.get();owner=storyOwner();}catch(Exception failure){throw new IllegalStateException("Предварительный отбор площадок завершился отказом",failure);}
+     if(!surveyed.isDone())return;try{storySites=surveyed.get();if(storySites.isEmpty())throw new IllegalStateException("Нет допустимых сюжетных кандидатов");owner=candidateOwner();}catch(Exception failure){throw new IllegalStateException("Предварительный отбор площадок завершился отказом",failure);}
     }
     if(!chunks.ready(owner))return;
     boolean city=kind.equals("city")||kind.equals("attached");var g=world.getChunkSource().getGenerator();
@@ -59,7 +59,7 @@ public final class ChudCreationJobs {
     if(planned==null){planned=WORKER.submit(()->{ChudSearchBudget.begin(System.nanoTime()+30_000_000_000L);try(var terrain=new ChudRegionPlanner.TerrainScope()){return city?ChudSimplePlacement.city(context,false,kind.equals("attached")):ChudSimplePlacement.abandoned(context,false,kind.equals("great"));}finally{ChudSearchBudget.end();}});return;}
     if(!planned.isDone())return;
     try{piece=planned.get();}catch(Exception failure){throw new IllegalStateException("Планирование площадки завершилось отказом",failure);}
-    if(piece==null)throw new IllegalStateException("Безопасный подземный объём/наружный выход не найдены");entrance=access(piece).mouth;
+    if(piece==null)throw new IllegalStateException("Безопасный подземный объём/наружный выход не найдены у кандидата "+(attempt+1)+" в "+owner);entrance=access(piece).mouth;
     box=BoundingBox.encapsulatingBoxes(List.of(piece.getBoundingBox(),access(piece).bounds)).orElseThrow();    if(box.minY()<world.getMinBuildHeight()+1||box.maxY()>=world.getMaxBuildHeight()||!world.getWorldBorder().isWithinBounds(new BlockPos(box.minX(),0,box.minZ()))||!world.getWorldBorder().isWithinBounds(new BlockPos(box.maxX(),0,box.maxZ())))throw new IllegalStateException("Граница мира или высоты.");
     if(!ManualStructureRecords.get(world).overlapping(box).isEmpty())throw new IllegalStateException("Область занята сохранённой постройкой.");
     structure=world.registryAccess().registryOrThrow(Registries.STRUCTURE).get(ResourceLocation.fromNamespaceAndPath("slavicmyths",city?"chud_city":"chud_abandoned"));
@@ -85,9 +85,9 @@ public final class ChudCreationJobs {
    }
   }catch(RuntimeException e){
    com.mojang.logging.LogUtils.getLogger().warn("Chud preflight phase {} at {}: {}",phase,owner,e.toString());
-   if(story&&phase<3&&!reserved&&attempt<2){cancelRaster();chunks.close();chunks=new SiteChunks(world);attempt++;owner=storyOwner();planned=null;raster=null;rasterCancelled=null;piece=null;box=null;entrance=null;phase=chunk=section=voxel=0;adjusted=false;sections=List.of();footprint.clear();return;}
+   if(phase<3&&!reserved&&attempt<(story?Math.min(6,storySites.size()):explicitSites.size())-1){cancelRaster();chunks.close();chunks=new SiteChunks(world);attempt++;owner=candidateOwner();planned=null;raster=null;rasterCancelled=null;piece=null;box=null;entrance=null;phase=chunk=section=voxel=0;adjusted=false;sections=List.of();footprint.clear();return;}
    // Explicit OP requests still check one site. Story retries occur only before the first write.
-   finish(null,"Создание Чуди остановлено: "+e.getMessage());}}
+   finish(null,"Создание Чуди остановлено после "+(attempt+1)+" площадок: "+e.getMessage());}}
   void cancelRaster(){if(surveyed!=null&&!surveyed.isDone())surveyed.cancel(true);if(planned!=null&&!planned.isDone())planned.cancel(true);if(rasterCancelled!=null)rasterCancelled.set(true);if(raster!=null)raster.cancel(false);}
   void finish(Result result,String message){JOBS.remove(world);chunks.close();cancelRaster();if(result==null)source.sendFailure(Component.literal(message));else source.sendSuccess(()->Component.literal(message),false);for(var callback:listeners)try{callback.accept(result);}catch(RuntimeException e){com.mojang.logging.LogUtils.getLogger().warn("Chud completion callback",e);}}
  }
