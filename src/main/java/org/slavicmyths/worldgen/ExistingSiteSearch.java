@@ -9,7 +9,8 @@ import net.minecraft.resources.ResourceLocation;
 /** Inspect actual starts only. Never requests a chunk or invokes placement/worldgen. */
 public final class ExistingSiteSearch {
  public static int locate(CommandSourceStack source,String id){return locate(source,id,1024);}
- public static int locate(CommandSourceStack source,String id,int radius){
+ public static int locate(CommandSourceStack source,String id,int radius){return locate(source,id,radius,true);}
+ public static int locate(CommandSourceStack source,String id,int radius,boolean reportMissing){
   var world=source.getLevel();var at=BlockPos.containing(source.getPosition());
   var type=world.registryAccess().registryOrThrow(Registries.STRUCTURE).get(ResourceLocation.fromNamespaceAndPath("slavicmyths",id));
   BlockPos nearest=null;double distance=(double)radius*radius;int range=(radius+15)/16;
@@ -28,7 +29,7 @@ public final class ExistingSiteSearch {
    }
    double d=pos.distSqr(at);if(d<distance){distance=d;nearest=pos;}
   }
-  if(nearest==null){source.sendFailure(Component.literal(id+": существующий старт не найден в загруженных чанках (радиус "+radius+"). Неизвестные чанки не загружались; строительство не запускалось."));return 0;}
+  if(nearest==null){if(reportMissing)source.sendFailure(Component.literal(id+": существующий старт не найден в загруженных чанках (радиус "+radius+"). Неизвестные чанки не загружались; строительство не запускалось."));return 0;}
   var result=nearest;source.sendSuccess(()->Component.literal(id+": существующая структура "+result.toShortString()),false);return 1;
  }
  private static boolean validLoadedRecord(net.minecraft.server.level.ServerLevel world,net.minecraft.world.level.levelgen.structure.Structure type,BlockPos arrival){
