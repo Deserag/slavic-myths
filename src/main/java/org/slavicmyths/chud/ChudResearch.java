@@ -30,7 +30,12 @@ public final class ChudResearch {
         if(!PENDING.add(p.getUUID()))return false;
         var world=p.serverLevel();UUID player=p.getUUID();var excluded=new HashSet<Long>();for(String key:root.getAllKeys()){var old=root.getCompound(key);if(old.contains("Target"))excluded.add(old.getLong("Target"));}for(long visited:root.getLongArray("Visited"))excluded.add(visited);
         var known=org.slavicmyths.worldgen.ManualStructureRecords.get(world).entries().stream().filter(e->e.family().equals("chud_city")&&!excluded.contains(e.arrival().asLong())).min(Comparator.comparingDouble(e->e.arrival().distSqr(p.blockPosition())));
+        var visitedOwners=new HashSet<Long>();for(long owner:root.getLongArray("VisitedStarts"))visitedOwners.add(owner);
+        var natural=ChudKnownSites.nearest(world,p.blockPosition(),excluded,visitedOwners);
+        if(natural.isPresent()&&(known.isEmpty()||natural.get().entrance().distSqr(p.blockPosition())<known.get().arrival().distSqr(p.blockPosition()))){assign(p,giver,natural.get());PENDING.remove(player);return true;}
         if(known.isPresent()){var e=known.get();assign(p,giver,new ChudCreationJobs.Result(e.arrival(),new ChunkPos(e.bounds().getCenter()),e.bounds(),1));PENDING.remove(player);return true;}
+        // Repeatable research may use other existing sites, but must not mint a new city/reward source every time.
+        if(q.getBoolean("Claimed")){PENDING.remove(player);p.displayClientMessage(Component.translatable("research.chud.completed"),false);sync(p);return true;}
         int accepted=ChudCreationJobs.create(p.createCommandSourceStack(),"city",result->{try{var online=world.getServer().getPlayerList().getPlayer(player);if(online==null||online.serverLevel()!=world)return;if(result==null){online.displayClientMessage(Component.translatable("research.chud.unavailable"),false);return;}assign(online,giver,result);}finally{PENDING.remove(player);}});
         if(accepted==0)PENDING.remove(player);return accepted!=0;
     }
