@@ -63,7 +63,7 @@ public final class ChudCreationJobs {
     if(piece==null)throw new IllegalStateException("Подходящий подземный объём не найден у кандидата "+(attempt+1)+" в "+owner);
     // Underground complexes need no surface annex. Publish a surface X/Z landmark
     // for the quest/book, without pretending that a staircase has been built.
-    var annex=access(piece);entrance=annex!=null?annex.mouth:new BlockPos(owner.getMiddleBlockX(),world.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,owner.getMiddleBlockX(),owner.getMiddleBlockZ()),owner.getMiddleBlockZ());
+    var annex=access(piece);entrance=annex!=null?annex.mouth:piece instanceof ChudPiece p?p.plan.world(p.plan.points.get(ChudPlan.Role.ENTRANCE)):((AbandonedPiece)piece).plan.world(((AbandonedPiece)piece).plan.targets.get("entrance"));
     box=access(piece)==null?piece.getBoundingBox():BoundingBox.encapsulatingBoxes(List.of(piece.getBoundingBox(),access(piece).bounds)).orElseThrow();    if(box.minY()<world.getMinBuildHeight()+1||box.maxY()>=world.getMaxBuildHeight()||!world.getWorldBorder().isWithinBounds(new BlockPos(box.minX(),0,box.minZ()))||!world.getWorldBorder().isWithinBounds(new BlockPos(box.maxX(),0,box.maxZ())))throw new IllegalStateException("Граница мира или высоты.");
     if(!ManualStructureRecords.get(world).overlapping(box).isEmpty())throw new IllegalStateException("Область занята сохранённой постройкой.");
     structure=world.registryAccess().registryOrThrow(Registries.STRUCTURE).get(ResourceLocation.fromNamespaceAndPath("slavicmyths",city?"chud_city":"chud_abandoned"));
