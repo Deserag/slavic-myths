@@ -48,7 +48,7 @@ public final class ChudSearchCommands {
             .then(Commands.literal("next").executes(c->next(c.getSource())))
             .then(Commands.literal("cancel").executes(c->control(c.getSource(),true)))));
     }
-    private static int control(CommandSourceStack source,boolean cancel){return ChudFutureSearch.control(source,cancel);}
+    private static int control(CommandSourceStack source,boolean cancel){int active=ChudCreationJobs.control(source,cancel);return active!=0?active:ChudFutureSearch.control(source,cancel);}
     private static int next(CommandSourceStack source){return ChudFutureSearch.next(source);}
     static int searchCity(CommandSourceStack source){return start(source,"chud_city",null,0);}
     static int searchAbandoned(CommandSourceStack source,AbandonedPlan.Kind kind){return start(source,"chud_abandoned",kind,0);}
