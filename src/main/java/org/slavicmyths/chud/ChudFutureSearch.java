@@ -77,7 +77,7 @@ public final class ChudFutureSearch {
             s.disk=world.getChunkSource().chunkMap.read(owner);
         }catch(Exception failure){s.worker.cancel(true);end(s,"Поиск завершён без результата: "+(System.nanoTime()>=s.deadline?"лимит 60 секунд":failure.getClass().getSimpleName())+". Блоки и chunk tickets не изменялись.");}
     }
-    private static void report(Search s,String status){BlockPos at=s.resolved!=null?s.resolved:s.selected.access()!=null?s.selected.access().mouth:s.selected.surface();s.source.sendSuccess(()->Component.literal(s.name+": "+status+"; X/Y/Z="+at.toShortString()+"; owner="+s.selected.owner()+"; страница="+s.page),false);ACTIVE.remove(s.source.getServer());}
+    private static void report(Search s,String status){BlockPos at=s.resolved!=null?s.resolved:s.selected.surface();String place=s.selected.access()==null?"примерные X/Z="+at.getX()+"/"+at.getZ()+" (вход ПОД ЗЕМЛЁЙ, Y не является уровнем поверхности)":"X/Y/Z="+at.toShortString();s.source.sendSuccess(()->Component.literal(s.name+": "+status+"; "+place+"; owner="+s.selected.owner()+"; страница="+s.page),false);ACTIVE.remove(s.source.getServer());}
     private static void end(Search s,String message){s.source.sendFailure(Component.literal(message));ACTIVE.remove(s.source.getServer());}
     @net.neoforged.bus.api.SubscribeEvent public static void stop(net.neoforged.neoforge.event.server.ServerStoppingEvent e){var s=ACTIVE.remove(e.getServer());if(s!=null)s.worker.cancel(true);LAST.remove(e.getServer());}
     private ChudFutureSearch(){}
