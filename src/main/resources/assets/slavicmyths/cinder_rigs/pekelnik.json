@@ -49,10 +49,15 @@
       ],
       "size": [
         8,
-        18,
+        10,
         9
       ],
       "material": "coal",
+      "offset": [
+        -4,
+        -9,
+        -4.5
+      ],
       "uv": [
         112,
         2
@@ -68,10 +73,15 @@
       ],
       "size": [
         8,
-        18,
+        10,
         9
       ],
       "material": "coal",
+      "offset": [
+        -4,
+        -9,
+        -4.5
+      ],
       "uv": [
         148,
         2
@@ -284,6 +294,196 @@
       "uv": [
         334,
         2
+      ]
+    },
+    {
+      "name": "furnace_shoulder0",
+      "parent": "body",
+      "pivot": [
+        -10,
+        -8,
+        0
+      ],
+      "size": [
+        7,
+        7,
+        10
+      ],
+      "material": "coal",
+      "uv": [
+        342,
+        2
+      ]
+    },
+    {
+      "name": "shin0",
+      "parent": "leg0",
+      "pivot": [
+        0,
+        6,
+        0
+      ],
+      "size": [
+        7,
+        10,
+        8
+      ],
+      "material": "coal",
+      "uv": [
+        378,
+        2
+      ]
+    },
+    {
+      "name": "furnace_shoulder1",
+      "parent": "body",
+      "pivot": [
+        10,
+        -8,
+        0
+      ],
+      "size": [
+        7,
+        7,
+        10
+      ],
+      "material": "coal",
+      "uv": [
+        410,
+        2
+      ]
+    },
+    {
+      "name": "shin1",
+      "parent": "leg1",
+      "pivot": [
+        0,
+        6,
+        0
+      ],
+      "size": [
+        7,
+        10,
+        8
+      ],
+      "material": "coal",
+      "uv": [
+        446,
+        2
+      ]
+    },
+    {
+      "name": "brick_belt0",
+      "parent": "body",
+      "pivot": [
+        0,
+        -6,
+        -6
+      ],
+      "size": [
+        17,
+        3,
+        3
+      ],
+      "material": "coal",
+      "uv": [
+        2,
+        37
+      ]
+    },
+    {
+      "name": "vent0",
+      "parent": "body",
+      "pivot": [
+        -5,
+        -15,
+        3
+      ],
+      "size": [
+        3,
+        8,
+        4
+      ],
+      "material": "ash",
+      "uv": [
+        44,
+        37
+      ]
+    },
+    {
+      "name": "brick_belt1",
+      "parent": "body",
+      "pivot": [
+        0,
+        0,
+        -6
+      ],
+      "size": [
+        17,
+        3,
+        3
+      ],
+      "material": "coal",
+      "uv": [
+        60,
+        37
+      ]
+    },
+    {
+      "name": "vent1",
+      "parent": "body",
+      "pivot": [
+        0,
+        -15,
+        3
+      ],
+      "size": [
+        3,
+        8,
+        4
+      ],
+      "material": "ash",
+      "uv": [
+        102,
+        37
+      ]
+    },
+    {
+      "name": "brick_belt2",
+      "parent": "body",
+      "pivot": [
+        0,
+        6,
+        -6
+      ],
+      "size": [
+        17,
+        3,
+        3
+      ],
+      "material": "coal",
+      "uv": [
+        118,
+        37
+      ]
+    },
+    {
+      "name": "vent2",
+      "parent": "body",
+      "pivot": [
+        5,
+        -15,
+        3
+      ],
+      "size": [
+        3,
+        8,
+        4
+      ],
+      "material": "ash",
+      "uv": [
+        160,
+        37
       ]
     }
   ]

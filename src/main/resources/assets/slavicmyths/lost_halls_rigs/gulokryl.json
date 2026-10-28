@@ -159,7 +159,7 @@
         3,
         13
       ],
-      "material": "fire",
+      "material": "cloth",
       "rotation": [
         0,
         0,
@@ -188,7 +188,7 @@
         2,
         10
       ],
-      "material": "fire",
+      "material": "cloth",
       "rotation": [
         0,
         0,
@@ -275,7 +275,7 @@
         3,
         13
       ],
-      "material": "fire",
+      "material": "cloth",
       "rotation": [
         0,
         0,
@@ -304,7 +304,7 @@
         2,
         10
       ],
-      "material": "fire",
+      "material": "cloth",
       "rotation": [
         0,
         0,

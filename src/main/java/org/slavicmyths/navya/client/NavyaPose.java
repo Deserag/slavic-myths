@@ -33,10 +33,14 @@ public final class NavyaPose {
                 p.get("forearm_right").xRot=action==Action.SHOT?-.6F*reach:0;
                 var charge=p.get("charge");charge.visible=action==Action.SHOT && time<windup;
                 charge.xScale=charge.yScale=charge.zScale=.15F+.85F*prepare;
-                p.get("arm_left").zRot=-.12F;
+                p.get("arm_left").zRot=-.12F-reach*.25F;
+                p.get("forearm_left").xRot=-reach*.35F;
+                p.get("skirt").xRot=(float)Math.sin(age*.04)*.05F+reach*.12F;
             }
             case ROOTLING -> {
-                body.zRot=step*.08F;body.xRot=.03F;
+                body.zRot=step*.12F;body.xRot=.06F;
+                body.y-=Math.abs(step)*.35F;
+                p.get("knee_left").xRot=Math.max(0,-step)*.6F;p.get("knee_right").xRot=Math.max(0,step)*.6F;
                 p.get("leg_left").xRot=step*.4F;p.get("leg_right").xRot=-step*.4F;
                 for(int i=0;i<2;i++) {
                     p.get(ARMS[i]).xRot=(i==0?-step:step)*.25F;
@@ -47,8 +51,11 @@ public final class NavyaPose {
             case CRAWLER -> {
                 body.y+=(float)Math.sin(walk*1.3F)*amount*.45F;
                 for(int side=0;side<2;side++)for(int i=0;i<4;i++) {
-                    float gait=(float)Math.sin(walk*1.1F+i*2.1F+side*Math.PI)*amount;
-                    p.get(LEGS[side][i]).yRot+=gait*.20F;p.get(LEGS[side][i]).zRot+=gait*.10F;
+                    String n=(side==0?"left":"right")+i;int direction=side==0?-1:1;
+                    float phase=walk*.8F+((i+side)%2)*(float)Math.PI;
+                    float attack=i==0&&(action==Action.MELEE||action==Action.SHOT)?reach:0;
+                    org.slavicmyths.client.MobMotion.leg(p.get("leg_"+n),p.get("upper_"+n),p.get("shin_"+n),p.get("toe_"+n),direction,15,9,9,11,phase,Math.min(1,amount),.6F,attack);
+                    p.get("leg_"+n).yRot+=direction*(.6F-i*.4F);
                 }
                 p.get("jaw").xRot=action==Action.MELEE?.65F*reach-strike*.25F:action==Action.SHOT?.3F*reach:.04F;
                 if(action==Action.SHOT)p.get("head").xRot-=.25F*reach;
@@ -56,7 +63,7 @@ public final class NavyaPose {
                 p.get("tail").yRot=(float)Math.sin(walk*.65F)*amount*.15F;
             }
             case WISP -> {
-                body.y+=(float)Math.sin(age*.09F)*1.1F;body.yRot=age*.015F;
+                body.y+=(float)Math.sin(age*.067F)*.8F+(float)Math.sin(age*.137F)*.3F;body.x+=(float)Math.sin(age*.031F)*.5F;body.z+=(float)Math.cos(age*.047F)*.4F;body.yRot=age*.012F;body.xScale=body.zScale=1+(float)Math.sin(age*.17F)*.08F;
                 for(int i=0;i<6;i++) {
                     var flame=p.get("flame_"+i);flame.xRot=(float)Math.sin(age*.11F+i)*.12F;flame.zRot=(float)Math.cos(age*.09F+i)*.12F;
                     flame.yScale=.8F+(float)Math.sin(age*.18F+i)*.18F;

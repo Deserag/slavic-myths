@@ -69,7 +69,7 @@
       ],
       "size": [
         7,
-        12,
+        6,
         8
       ],
       "material": "stone",
@@ -98,7 +98,7 @@
       ],
       "size": [
         7,
-        12,
+        6,
         8
       ],
       "material": "stone",
@@ -127,7 +127,7 @@
       ],
       "size": [
         7,
-        12,
+        6,
         8
       ],
       "material": "stone",
@@ -156,7 +156,7 @@
       ],
       "size": [
         7,
-        12,
+        6,
         8
       ],
       "material": "stone",
@@ -405,6 +405,122 @@
       "uv": [
         406,
         0
+      ]
+    },
+    {
+      "name": "knee0",
+      "parent": "leg0",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        7,
+        6,
+        8
+      ],
+      "material": "stone",
+      "offset": [
+        -3.5,
+        -3.0,
+        -4.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        414,
+        0
+      ]
+    },
+    {
+      "name": "knee1",
+      "parent": "leg1",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        7,
+        6,
+        8
+      ],
+      "material": "stone",
+      "offset": [
+        -3.5,
+        -3.0,
+        -4.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        446,
+        0
+      ]
+    },
+    {
+      "name": "knee2",
+      "parent": "leg2",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        7,
+        6,
+        8
+      ],
+      "material": "stone",
+      "offset": [
+        -3.5,
+        -3.0,
+        -4.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        478,
+        0
+      ]
+    },
+    {
+      "name": "knee3",
+      "parent": "leg3",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        7,
+        6,
+        8
+      ],
+      "material": "stone",
+      "offset": [
+        -3.5,
+        -3.0,
+        -4.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        0,
+        51
       ]
     }
   ]

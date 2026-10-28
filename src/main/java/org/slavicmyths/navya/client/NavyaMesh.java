@@ -79,8 +79,9 @@ public final class NavyaMesh {
                     m.box("arm_"+n,"elbow_"+n,0,10,-1,-2,0,-1,4,4,3,"root");
                     m.box("arm_"+n,"forearm_"+n,0,11,0,-1.5F,0,-1.5F,3,10,3,"root");
                     for(int i=0;i<3;i++)m.box("forearm_"+n,"finger_"+n+i,(i-1)*1.5F,9,-1,-.5F,0,-.5F,1,5+i%2,1,"root");
-                    m.box("body","leg_"+n,side*2.5F,7,0,-1.5F,0,-1.5F,3,13,3,"root");
-                    m.box("leg_"+n,"foot_"+n,0,12,-1,-2,0,-3,4,2,5,"root");
+                    m.box("body","leg_"+n,side*2.5F,7,0,-1.5F,0,-1.5F,3,7,3,"root");
+                    m.box("leg_"+n,"knee_"+n,0,7,0,-1.5F,0,-1.5F,3,6,3,"root");
+                    m.box("knee_"+n,"foot_"+n,0,5,-1,-2,0,-3,4,2,5,"root");
                     m.box("body","bark_ridge_"+n,side*3.5F,-8,-2,-1,-1,-1,2,15,2,"bark");
                 }
                 m.box("body","shoulder_branch",-4,-8,0,-1,-5,-1,2,8,2,"bark");
@@ -99,10 +100,11 @@ public final class NavyaMesh {
                     m.box("head","fang_"+n,side*2,2,-5,-.5F,0,-.5F,1,4,1,"bone");
                     for(int i=0;i<4;i++) {
                         String leg="leg_"+n+i;
-                        m.box("body",leg,side*4.5F,-1,-5+i*3.5F,side>0?0:-9,-1,-1,9,2,2,"bone");
-                        m.box(leg,"joint_"+n+i,side*8.5F,0,0,-1.5F,-1.5F,-1.5F,3,3,3,"bone_dark");
-                        m.box(leg,"shin_"+n+i,side*8.5F,0,0,-1,0,-1,2,11,2,"bone");
-                        m.box("shin_"+n+i,"toe_"+n+i,0,10,0,side>0?0:-4,0,-1,4,2,2,"bone_dark");
+                        m.box("body",leg,side*4.5F,-1,-5+i*3.5F,-1,-1,-1,2,2,2,"bone_dark");
+                        m.box(leg,"upper_"+n+i,0,0,0,side>0?0:-9,-1,-1,9,2,2,"bone");
+                        m.box("upper_"+n+i,"joint_"+n+i,side*9,0,0,-1.5F,-1.5F,-1.5F,3,3,3,"bone_dark");
+                        m.box("joint_"+n+i,"shin_"+n+i,0,0,0,-1,0,-1,2,11,2,"bone");
+                        m.box("shin_"+n+i,"toe_"+n+i,0,11,0,side>0?0:-4,0,-1,4,2,2,"bone_dark");
                     }
                 }
                 for(int i=0;i<4;i++)m.box("body","spine_"+i,0,-4,-4+i*3,-2.5F,-1,-1,5,2,2,"bone");
@@ -159,10 +161,6 @@ public final class NavyaMesh {
             }
         }
         var rig=m.bake();
-        if(kind==Kind.CRAWLER)for(int side:new int[]{-1,1})for(int i=0;i<4;i++){
-            String n=side<0?"left":"right";var upper=rig.nodes().get("leg_"+n+i);upper.yRot=side*(.65F-i*.43F);upper.zRot=-side*.35F;upper.setInitialPose(upper.storePose());
-            var lower=rig.nodes().get("shin_"+n+i);lower.zRot=side*.75F;lower.setInitialPose(lower.storePose());
-        }
         if(kind==Kind.ROOTLING)for(int side:new int[]{-1,1}){String n=side<0?"left":"right";var arm=rig.nodes().get("arm_"+n);arm.zRot=-side*.12F;arm.setInitialPose(arm.storePose());for(int i=0;i<3;i++){var finger=rig.nodes().get("finger_"+n+i);finger.zRot=(i-1)*.2F;finger.setInitialPose(finger.storePose());}}
         if(kind==Kind.GUARDIAN)for(var e:rig.nodes().entrySet()){
             String name=e.getKey();float side=name.contains("left")?-1:1;

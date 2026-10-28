@@ -39,6 +39,8 @@ def rig(name):
    box(f'eye{i}','head',[side*4,-1,-6.1],[5,2,1],True);box(f'horn{i}','head',[side*7,-12,0],[3,15,4]);box(f'horn_back{i}','head',[side*5,-9,5],[3,9,3]);box(f'shard_head{i}','head',[side*11,1,0],[3,5,4])
   box('crown','head',[0,-11,2],[4,10,4])
  else:raise ValueError(name)
+ from mob332_assets import islands_parts,palette as mob_palette,pattern
+ islands_parts(name,parts)
  from nether_boss327_geometry import islands
  islands(name,parts)
  atlas=512;u=v=row=0;im=Image.new('RGBA',(atlas,atlas));glow=Image.new('RGBA',(atlas,atlas));rng=random.Random(name)
@@ -53,6 +55,10 @@ def rig(name):
     hot=p['hot'] or ((lx+int(ly/5)+len(p['name']))%37==0 and ly%11<5)
     if name=='magma_lord':hot=p['hot'] or (lx%max(7,x+z)==(ly//5+len(p['name']))%max(7,x+z) and ly%13<7)
     rgb=(242+noise//2,104+noise*2,19) if hot else ((39+noise,35+noise,44+noise) if name=='magma_lord' else (47+noise,39+noise,49+noise))
+    if name!='magma_lord':
+     base=mob_palette(name,p,rgb);delta=noise+pattern(name,p['name'],xx-u,yy-v);rgb=tuple(max(0,min(255,c+delta)) for c in base)
+     if p['hot']:rgb=(255,219,120) if name=='vent_golem' else (255,148,48)
+     hot=p['hot'] or (name=='heat_salamander' and ly%13==0 and lx%7<2)
     im.putpixel((xx,yy),(*rgb,255))
     if hot:glow.putpixel((xx,yy),(*rgb,255))
   u+=w+2

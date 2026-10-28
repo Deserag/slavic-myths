@@ -171,6 +171,25 @@
         74,
         2
       ]
+    },
+    {
+      "name": "gold_core",
+      "parent": "face",
+      "pivot": [
+        0,
+        0,
+        -0.2
+      ],
+      "size": [
+        4,
+        4,
+        6
+      ],
+      "material": "ember",
+      "uv": [
+        80,
+        2
+      ]
     }
   ]
 }

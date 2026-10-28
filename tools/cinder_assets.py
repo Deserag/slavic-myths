@@ -173,6 +173,8 @@ def rigs():
    for i in range(10):
     a=i*math.pi/5;box('ribbon'+str(i),[math.cos(a)*5,-3,math.sin(a)*5],[3,29+i%3*2,3]);parts[-1]['offset']=[-1.5,0,-1.5];parts[-1]['rotation']=[math.sin(a)*.24,0,-math.cos(a)*.32];box('tip'+str(i),[0,29+i%3*2,0],[2,3,2],'ember','ribbon'+str(i))
    for i in range(5):box('hair'+str(i),[-5+i*2.5,10,5],[2,18+i%2*4,3],'ash','head')
+  from mob332_assets import cinder_parts,palette as mob_palette,pattern
+  cinder_parts(name,parts)
   from nether_boss327_geometry import cinder
   cinder(name,parts)
   # Disjoint UV islands, also used directly to author the matching textures.
@@ -185,9 +187,14 @@ def rigs():
    part['uv']=[cursor_x,cursor_y];rowh=max(rowh,h)
    palette={'coal':[(32,29,30),(45,39,36),(22,23,25)],'ash':[(108,105,101),(77,76,75),(139,134,125)],'ember':[(204,76,20),(245,132,35),(255,181,62)]}[part['material']]
    if name=='zharenitsa' and part['material']=='ash':palette=[(76,72,75),(56,53,59),(107,101,102)]
+   if name!='zharenitsa':
+    base=mob_palette(name,part,palette[0]);palette=[base,tuple(max(0,c-9) for c in base),tuple(min(255,c+12) for c in base)]
+    if part['material']=='ember':palette=[(255,210,78),(255,166,32),(255,235,141)] if name=='sparkling' else [(156,133,228),(113,145,220),(192,185,243)] if name=='ash_spirit' else [(239,103,35),(244,143,47),(255,191,79)]
    for y in range(cursor_y,cursor_y+h):
     for x in range(cursor_x,cursor_x+w):
-     rgb=rng.choice(palette) if (x//2+y//3)%5==0 else palette[0];im.putpixel((x,y),(*rgb,255))
+     rgb=rng.choice(palette) if (x//2+y//3)%5==0 else palette[0]
+     if name!='zharenitsa' and part['material']!='ember':rgb=tuple(max(0,min(255,c+pattern(name,part['name'],x-cursor_x,y-cursor_y))) for c in rgb)
+     im.putpixel((x,y),(*rgb,255))
      if part['material']=='ember':glow.putpixel((x,y),(*rgb,255))
    # Local fractured incandescent veins in dark body surfaces, never full-body glow.
    if part['material']=='coal' and part['name'] in ('body','head','face'):

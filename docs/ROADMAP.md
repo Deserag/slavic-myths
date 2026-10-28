@@ -1,3 +1,7 @@
+> 28.10.2026 #332–#336: manual Posten изолирован; ordinary ModelPart IK/material/poses.
+> Офлайн gates и ограничения: [mob332 REPORT](implementation/mob332/REPORT.md).
+> Gameplay/MP NOT_RUN, original art BLOCKED_REFERENCE; Issues OPEN.
+
 ## 28.10.2026 — #331: доработки боссов, головы и реальные клиентские кадры
 
 Пересобраны3boss rigs/UV/PNG; полный skull Сторожа, jaw/6–8proximityFX,

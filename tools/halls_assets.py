@@ -112,6 +112,8 @@ def rig(name):
    box('lantern'+str(i),[s*16,0,0],[4,5,4],'light')
   for i in range(8):a=i*math.pi/4;box('ribbon'+str(i),[math.cos(a)*5,-5,math.sin(a)*4],[3,20+i%3*4,3],'cloth',off=[-1.5,0,-1.5])
  else:raise ValueError(name)
+ from mob332_assets import halls_parts,palette as mob_palette,pattern
+ halls_parts(name,parts)
  atlas=512;u=v=row=0
  for p in parts:
   x,y,z=p['size'];w,h=2*(x+z),y+z
@@ -124,9 +126,11 @@ def rig(name):
   palette={'stone':(56,63,75),'cloth':(39,33,53),'dark':(21,21,31),'light':[(231,65,47),(73,218,73),(192,193,201),(155,74,229)][variant] if variant is not None else (49,180,203),'fire':(231,102,32),'cap':(155,35,80),'pale':(193,206,203),'sorrow':(130,183,199),'anger':(150,58,55),'decay':(69,109,66),'silence':(104,62,143)}
   for p in parts:
    u,v=p['uv'];x,y,z=p['size'];w,h=2*(x+z),y+z;color=palette[p['material']]
+   if name!='posten' and p['material'] not in ['light','fire']:color=mob_palette(name,p,color)
+   if name in ['oskolnik','ekhovik'] and p['material']=='light':color=(100,150,236) if name=='oskolnik' else (83,206,177)
    for yy in range(v,v+h):
     for xx in range(u,u+w):
-     noise=rng.randrange(-6,7);rgb=tuple(max(0,min(255,c+noise)) for c in color);im.putpixel((xx,yy),(*rgb,255))
+     noise=rng.randrange(-6,7);rgb=tuple(max(0,min(255,c+noise+(pattern(name,p['name'],xx-u,yy-v) if name!='posten' else 0))) for c in color);im.putpixel((xx,yy),(*rgb,255))
      if p['material'] in ['light','fire'] or p['name'].startswith('eye_mask'):glow.putpixel((xx,yy),(*rgb,255))
   suffix='_'+str(variant) if variant is not None else '';folder=A/'textures/entity/lost_halls';folder.mkdir(parents=True,exist_ok=True);im.save(folder/(name+suffix+'.png'));glow.save(folder/(name+suffix+'_glow.png'))
 def icons():

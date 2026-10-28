@@ -1,3 +1,12 @@
+## Checkpoint B — 28.10.2026
+
+#333 опубликован94c9cc3e. #334–#336: production articulated limbs, different materials,
+personal poses +19 native before/after exports,19 four-view PNG/19 GIF; source offline PASS,
+runtime NOT_RUN/art BLOCKED_REFERENCE. Первый Java21 clean build + manual/NBT,
+IK/poses, Halls/Islands/legacyhead regressions PASS (../mob332/pass1.log).
+Все изменённые пути и матрица: ../mob332/REPORT.md. Коммит текущего блока содержит
+этот журнал; его SHA смотреть `git log -- STATUS.md`. Этапы C–G пока NOT_STARTED.
+
 ## Исполнение Codex — checkpoint A1
 
 Исходный remote50236705 интегрирован обычным merge без reset; принятые локальные

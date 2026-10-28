@@ -1,0 +1,333 @@
+{
+  "native_geometry": "PASS",
+  "variants": [
+    {
+      "id": "ash_spirit",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 15
+    },
+    {
+      "id": "bone_crawler",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 55
+    },
+    {
+      "id": "coal_crawler",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 51
+    },
+    {
+      "id": "ekhovik",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 19
+    },
+    {
+      "id": "griboshmyg",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 18
+    },
+    {
+      "id": "gulokryl",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 12
+    },
+    {
+      "id": "heat_salamander",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 21
+    },
+    {
+      "id": "navka",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 31
+    },
+    {
+      "id": "navya_wisp",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 9
+    },
+    {
+      "id": "oskolnik",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 16
+    },
+    {
+      "id": "pekelnik",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 26
+    },
+    {
+      "id": "rootling",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 30
+    },
+    {
+      "id": "sheptun_0",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 18
+    },
+    {
+      "id": "sheptun_1",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 18
+    },
+    {
+      "id": "sheptun_2",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 18
+    },
+    {
+      "id": "sheptun_3",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 18
+    },
+    {
+      "id": "slag_crab",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 27
+    },
+    {
+      "id": "sparkling",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 11
+    },
+    {
+      "id": "vent_golem",
+      "frames": 152,
+      "states": [
+        "alert",
+        "attack",
+        "death",
+        "glide",
+        "hurt",
+        "idle",
+        "run",
+        "sit",
+        "stop",
+        "walk"
+      ],
+      "parts": 17
+    }
+  ],
+  "boss_files_unchanged": 41,
+  "runtime_launches": 0,
+  "runtime": "NOT_RUN",
+  "original_art": "BLOCKED_REFERENCE",
+  "limits": "Finite vertices and changing joints do not prove actual world-ground contact, render FPS or combat correctness."
+}

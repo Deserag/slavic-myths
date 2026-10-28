@@ -5,3 +5,4 @@ allprojects { p -> p.plugins.withId('java') {
  p.tasks.register('verifyManualPosten',JavaExec){dependsOn p.tasks.named('mob332OfflineClasses');classpath=p.sourceSets.mob332Offline.runtimeClasspath;mainClass='org.slavicmyths.verify.ManualPostenOffline'}
  p.tasks.register('exportMob332',JavaExec){dependsOn p.tasks.named('mob332OfflineClasses');classpath=p.sourceSets.mob332Offline.runtimeClasspath;mainClass='org.slavicmyths.verify.Mob332Export';args p.findProperty('mobStage')?:'after'}
 } }
+allprojects { p -> p.plugins.withId('java') { p.tasks.register('verifyMobMotion',JavaExec){ dependsOn p.tasks.named('mob332OfflineClasses'); classpath=p.sourceSets.mob332Offline.runtimeClasspath; mainClass='org.slavicmyths.verify.MobMotionOffline' } } }

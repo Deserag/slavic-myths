@@ -17,6 +17,8 @@ def atlas(name,rig):
  size=rig['atlas'];im=Image.new('RGBA',(size,size));glow=im.copy()
  for index,b in enumerate(rig['boxes']):
   rng=random.Random(name+':'+b['part']+':'+str(index));u,v=b['u'],b['v'];sx,sy,sz=b['sx'],b['sy'],b['sz'];mat=b['material'];base=PALETTE[mat]
+  from mob332_assets import palette as mob_palette
+  if name!='grove_guardian':base=mob_palette(name,b['part'],base)
   # The six UV rectangles are the native Cube texture net, not a generic sprite.
   faces=[(u+sz,v,sx,sz),(u+sz+sx,v,sx,sz),(u,v+sz,sz,sy),(u+sz,v+sz,sx,sy),(u+sz+sx,v+sz,sz,sy),(u+2*sz+sx,v+sz,sx,sy)]
   for face,(x0,y0,w,h) in enumerate(faces):

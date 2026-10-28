@@ -25,6 +25,8 @@ public final class HallsMob extends TamableAnimal {
  private static final EntityDataAccessor<Integer> CAST=SynchedEntityData.defineId(HallsMob.class,EntityDataSerializers.INT);
  private static final EntityDataAccessor<Long> START=SynchedEntityData.defineId(HallsMob.class,EntityDataSerializers.LONG);
  public final Kind kind;
+ private int feedPulse;public int feedPulse(){return feedPulse;}
+ @Override public void handleEntityEvent(byte event){if(event==73)feedPulse=12;else super.handleEntityEvent(event);}
  private int cooldown,anger,castAge,sequence;private long nextHarvest,echoUntil;private int spores;private net.minecraft.world.phys.Vec3 charge=net.minecraft.world.phys.Vec3.ZERO;private boolean struck;
  public HallsMob(EntityType<? extends HallsMob> t,Level w,Kind k){super(t,w);kind=k;xpReward=k==Kind.SHEPTUN||k==Kind.OSKOLNIK?10:0;if(k==Kind.GULOKRYL){moveControl=new FlyingMoveControl(this,20,true);navigation=new FlyingPathNavigation(this,w);setNoGravity(true);}}
  public static AttributeSupplier.Builder attributes(Kind k){return Mob.createMobAttributes().add(Attributes.MAX_HEALTH,k==Kind.OSKOLNIK?90:k==Kind.GULOKRYL?30:60).add(Attributes.MOVEMENT_SPEED,k==Kind.GRIBOSHMYG?.22:.25).add(Attributes.FLYING_SPEED,.38).add(Attributes.ATTACK_DAMAGE,k==Kind.OSKOLNIK?7:5).add(Attributes.FOLLOW_RANGE,24);}
@@ -49,7 +51,7 @@ public final class HallsMob extends TamableAnimal {
  @Override public boolean doHurtTarget(Entity e){return false;}
  private void begin(int cast){entityData.set(CAST,cast);entityData.set(START,level().getGameTime());castAge=0;struck=false;charge=getTarget()==null?net.minecraft.world.phys.Vec3.ZERO:getTarget().position().subtract(position()).multiply(1,0,1).normalize();navigation.stop();}
  @Override public void tick(){
-  super.tick();if(level().isClientSide){if(kind==Kind.EKHOVIK&&cast()!=0&&tickCount%3==0){double radius=castTime(0)<16?1:Math.min(8,(castTime(0)-16)*.65);for(int i=0;i<12;i++){double a=i*Math.PI/6;level().addParticle(net.minecraft.core.particles.ParticleTypes.SOUL_FIRE_FLAME,getX()+Math.cos(a)*radius,getY()+.15,getZ()+Math.sin(a)*radius,0,0,0);}}return;}if(!isAlive())return;if(cooldown>0)cooldown--;
+  super.tick();if(level().isClientSide){if(feedPulse>0)feedPulse--;if(kind==Kind.EKHOVIK&&cast()!=0&&tickCount%3==0){double radius=castTime(0)<16?1:Math.min(8,(castTime(0)-16)*.65);for(int i=0;i<12;i++){double a=i*Math.PI/6;level().addParticle(net.minecraft.core.particles.ParticleTypes.SOUL_FIRE_FLAME,getX()+Math.cos(a)*radius,getY()+.15,getZ()+Math.sin(a)*radius,0,0,0);}}return;}if(!isAlive())return;if(cooldown>0)cooldown--;
   if(kind==Kind.GULOKRYL)setNoGravity(true);
   if(kind==Kind.EKHOVIK&&anger>0&&--anger==0){setTarget(null);setLastHurtByMob(null);}
   var target=getTarget();if(target!=null&&(!target.isAlive()||!canAttack(target)||distanceToSqr(target)>32*32)){setTarget(null);target=null;}
@@ -75,7 +77,7 @@ public final class HallsMob extends TamableAnimal {
   if(kind==Kind.EKHOVIK&&getTarget()==null&&held.is(Items.GLASS_BOTTLE)&&now<echoUntil&&now>=nextHarvest){if(!level().isClientSide){p.setItemInHand(h,ItemUtils.createFilledResult(held,p,new ItemStack(HallsContent.item("echo_vial"))));nextHarvest=now+6000;echoUntil=0;setPersistenceRequired();}return InteractionResult.sidedSuccess(level().isClientSide);}
   if(kind==Kind.GRIBOSHMYG){
    if(spores>0&&now>=nextHarvest){if(!level().isClientSide){ItemStack reward=new ItemStack(HallsContent.item("spore_pouch"),spores);if(!p.addItem(reward))p.drop(reward,false);spores=0;nextHarvest=now+3600;}return InteractionResult.sidedSuccess(level().isClientSide);}
-   if(spores==0&&now>=nextHarvest&&(held.is(Items.WARPED_FUNGUS)||held.is(Items.CRIMSON_FUNGUS))){if(!level().isClientSide){held.consume(1,p);spores=1+random.nextInt(2);setPersistenceRequired();}return InteractionResult.sidedSuccess(level().isClientSide);}
+   if(spores==0&&now>=nextHarvest&&(held.is(Items.WARPED_FUNGUS)||held.is(Items.CRIMSON_FUNGUS))){if(!level().isClientSide){held.consume(1,p);spores=1+random.nextInt(2);setPersistenceRequired();level().broadcastEntityEvent(this,(byte)73);}return InteractionResult.sidedSuccess(level().isClientSide);}
   }return InteractionResult.PASS;
  }
  @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor w,DifficultyInstance d,MobSpawnType r,SpawnGroupData data){entityData.set(VARIANT,random.nextInt(4));return super.finalizeSpawn(w,d,r,data);}

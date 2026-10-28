@@ -377,6 +377,122 @@
         220,
         0
       ]
+    },
+    {
+      "name": "variant_hood0",
+      "parent": "head",
+      "pivot": [
+        -3,
+        -7,
+        0
+      ],
+      "size": [
+        3,
+        5,
+        4
+      ],
+      "material": "cloth",
+      "offset": [
+        -1.5,
+        -2.5,
+        -2.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        232,
+        0
+      ]
+    },
+    {
+      "name": "variant_hood1",
+      "parent": "head",
+      "pivot": [
+        -1,
+        -7,
+        0
+      ],
+      "size": [
+        3,
+        8,
+        4
+      ],
+      "material": "cloth",
+      "offset": [
+        -1.5,
+        -4.0,
+        -2.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        248,
+        0
+      ]
+    },
+    {
+      "name": "variant_hood2",
+      "parent": "head",
+      "pivot": [
+        1,
+        -7,
+        0
+      ],
+      "size": [
+        3,
+        5,
+        4
+      ],
+      "material": "cloth",
+      "offset": [
+        -1.5,
+        -2.5,
+        -2.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        264,
+        0
+      ]
+    },
+    {
+      "name": "variant_hood3",
+      "parent": "head",
+      "pivot": [
+        3,
+        -7,
+        0
+      ],
+      "size": [
+        3,
+        8,
+        4
+      ],
+      "material": "cloth",
+      "offset": [
+        -1.5,
+        -4.0,
+        -2.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        280,
+        0
+      ]
     }
   ]
 }

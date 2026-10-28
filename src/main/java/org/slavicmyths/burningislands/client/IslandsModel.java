@@ -37,6 +37,7 @@ public final class IslandsModel extends HierarchicalModel<IslandsMob> {
  public void pose(IslandsContent.Kind kind,Action action,float time,boolean second,boolean exposed,float walk,float amount,float age,float yaw,float pitch,int hurt,int death){
   root.getAllParts().forEach(ModelPart::resetPose);
   boolean boss=kind==IslandsContent.Kind.MAGMA_LORD;
+  if(!boss){ordinaryPose(kind,action,time,walk,amount,age,yaw,pitch,hurt,death);return;}
   float charge=action.release==0?0:Math.min(1,time/action.release);
   float release=time<action.release?0:Math.max(0,1-(time-action.release)/Math.max(1,action.duration-action.release));
   for(var entry:nodes.entrySet()){
@@ -69,4 +70,23 @@ public final class IslandsModel extends HierarchicalModel<IslandsMob> {
   if(hurt>0)root.zRot+=(float)Math.sin(hurt)*.045F;
   if(death>0){float fade=Math.min(1,death/(boss?80F:20F));for(var entry:nodes.entrySet())if(entry.getKey().startsWith("shard"))entry.getValue().y+=fade*6;root.y+=fade*5;root.xRot=fade*.4F;}
  }
+ private void ordinaryPose(IslandsContent.Kind kind,Action action,float time,float walk,float amount,float age,float yaw,float pitch,int hurt,int death){
+  float gesture=action==Action.IDLE?0:org.slavicmyths.client.MobMotion.envelope(time,action.release,action.duration);
+  var body=nodes.get("body");var head=nodes.get("head");head.yRot=yaw*.0174533F;head.xRot=pitch*.0174533F;
+  if(kind==IslandsContent.Kind.HEAT_SALAMANDER){
+   for(int i=0;i<4;i++){float phase=walk*.8F+(i==0||i==3?0:(float)Math.PI);var step=org.slavicmyths.client.MobMotion.step(phase,.65F,5,2);var leg=nodes.get("leg"+i);leg.xRot=step.forward()*amount*.12F;leg.y-=step.lift()*amount;nodes.get("foot"+i).xRot=-leg.xRot;}
+   body.yRot=(float)Math.sin(walk*.8)*amount*.045F;nodes.get("tail").yRot=(float)Math.sin(walk*.8-.65)*amount*.24F+(float)Math.sin(age*.045)*.08F;nodes.get("tail_tip").yRot=(float)Math.sin(walk*.8-1.4)*amount*.3F+(float)Math.sin(age*.045-.7)*.12F;nodes.get("jaw").xRot=gesture*.45F;head.xRot-=gesture*.18F;
+  }else if(kind==IslandsContent.Kind.SLAG_CRAB){
+   for(int i=0;i<6;i++){int side=i%2==0?-1:1;var step=org.slavicmyths.client.MobMotion.step(walk*.65F+(i%2+i/2%2)*(float)Math.PI,.7F,4,2);var leg=nodes.get("leg"+i);leg.zRot=side*step.forward()*amount*.09F;leg.y-=step.lift()*amount;nodes.get("toe"+i).zRot=-leg.zRot;}
+   body.zRot=(float)Math.sin(walk*1.3)*amount*.025F;
+   for(int i=0;i<2;i++){float side=i==0?-1:1;nodes.get("arm"+i).yRot=side*gesture*.5F;nodes.get("claw"+i).xRot=-gesture*.7F;nodes.get("pincer"+i).yRot=side*gesture*.65F;nodes.get("eyestalk"+i).xRot=(float)Math.sin(age*.04+i)*.06F;}
+  }else{
+   float shift=(float)Math.sin(walk*.4)*amount;body.zRot=shift*.065F;body.y+=Math.abs(shift)*.5F;body.xRot=gesture*.1F;
+   for(int i=0;i<2;i++){float step=(i==0?1:-1)*shift;nodes.get("leg"+i).xRot=step*.28F;nodes.get("knee"+i).xRot=Math.max(0,-step)*.5F;nodes.get("foot"+i).xRot=-step*.15F;nodes.get("arm"+i).xRot=-step*.12F-gesture*(i==0?1.15F:.75F);nodes.get("fist"+i).xRot=-gesture*.3F;}
+   var core=nodes.get("core");core.xScale=core.yScale=1+(float)Math.sin(age*.085)*.025F+gesture*.08F;
+  }
+  if(hurt>0){root.zRot=(float)Math.sin(hurt)*(kind==IslandsContent.Kind.VENT_GOLEM?.025F:.07F);head.xRot-=.08F;}
+  if(death>0){float d=Math.min(1,death/20F);root.zRot=d*(kind==IslandsContent.Kind.SLAG_CRAB?1.3F:.45F);root.y+=d*4;if(kind==IslandsContent.Kind.HEAT_SALAMANDER)nodes.get("tail_tip").yRot+=d*.35F;}
+ }
+
 }

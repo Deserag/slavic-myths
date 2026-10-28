@@ -30,7 +30,7 @@ public final class CinderModel extends HierarchicalModel<CinderMob> {
   for(var entry:nodes.entrySet()){
    String n=entry.getKey();var p=entry.getValue();
    if(n.equals("head")||n.equals("face")){p.yRot=yaw*.0174533F;p.xRot=pitch*.0174533F;}
-   if(n.startsWith("leg")){int i=n.charAt(3)-'0';p.xRot=(float)Math.cos(walk*.7+(i%2)*Math.PI)*amount*.6F;}
+   if(n.startsWith("leg")&&kind!=CinderContent.Kind.COAL_CRAWLER){int i=n.charAt(3)-'0';p.xRot=(float)Math.cos(walk*.7+(i%2)*Math.PI)*amount*.6F;}
    if(n.startsWith("cloud")||n.startsWith("fleck")){p.y+=(float)Math.sin(age*.06+n.hashCode())*1.5F;p.yRot=(float)Math.sin(age*.025+n.hashCode())*.25F;}
    if(kind==CinderContent.Kind.ASH_SPIRIT&&(n.startsWith("cloud")||n.equals("whorl"))&&(action==CinderMob.Action.SMOKE||action==CinderMob.Action.PULSE)){float spread=active?1+(float)Math.sin(Math.min(Math.PI,(time-wind)*.18))*.5F:1-charge*.35F;p.x*=spread;p.z*=spread;p.yRot+=charge*.8F;if(n.equals("whorl"))p.xRot=charge*.18F;}
    if(n.startsWith("ribbon")||n.startsWith("hair")||n.startsWith("ash_tress")){p.xRot+=(float)Math.sin(age*.045+n.hashCode())*(second?.22F:.1F);p.zRot+=(float)Math.sin(age*.035+n.hashCode())*.08F;}
@@ -43,6 +43,18 @@ public final class CinderModel extends HierarchicalModel<CinderMob> {
    if(n.startsWith("forearm"))p.xRot+=action==CinderMob.Action.IDLE?-.18F:-charge*.7F;
    if(n.equals("jaw")&&action==CinderMob.Action.BITE)p.xRot=active?-.08F:charge*.65F;
   }
+  float gesture=org.slavicmyths.client.MobMotion.envelope(time,wind,wind+18);
+  if(kind==CinderContent.Kind.COAL_CRAWLER){
+   for(int i=0;i<4;i++){int side=i%2==0?-1:1;float phase=walk*.55F+((i==0||i==3)?0:(float)Math.PI);
+    org.slavicmyths.client.MobMotion.leg(nodes.get("leg"+i),nodes.get("upper"+i),nodes.get("shin"+i),nodes.get("foot"+i),side,13,10,8,11,phase,amount,.72F,action==CinderMob.Action.BITE&&i<2?gesture:0);
+   }nodes.get("body").y+=(float)Math.sin(walk*1.1)*amount*.25F;
+  }
+  if(kind==CinderContent.Kind.PEKELNIK){
+   for(int i=0;i<2;i++){float step=(float)Math.sin(walk*.5+i*Math.PI)*amount;nodes.get("leg"+i).xRot=step*.35F;nodes.get("shin"+i).xRot=Math.max(0,-step)*.65F;nodes.get("arm"+i).xRot=action==CinderMob.Action.IDLE?-step*.18F:-gesture*(i==0?.3F:1.5F);}
+   nodes.get("body").zRot=(float)Math.sin(walk*.5)*amount*.055F;
+  }
+  if(kind==CinderContent.Kind.ASH_SPIRIT){nodes.get("whorl").yRot+=age*.045F;nodes.get("face").zRot=(float)Math.sin(age*.035)*.08F;}
+  if(kind==CinderContent.Kind.SPARKLING){float pulse=1+(float)Math.sin(age*.19)*.08F+(float)Math.sin(age*.47)*.035F;nodes.get("gold_core").xScale=nodes.get("gold_core").yScale=nodes.get("gold_core").zScale=pulse;root.x=(float)Math.sin(age*.043)*.9F;root.z=(float)Math.sin(age*.073)*.65F;}
   if(flying)root.y=(float)Math.sin(age*.06)*(kind==CinderContent.Kind.SPARKLING?1.5F:1);
   if(action==CinderMob.Action.BITE)root.xRot=active?-.12F:charge*.12F;
   if(action==CinderMob.Action.PHASE)root.yRot=(float)Math.sin(time*.13)*.1F;

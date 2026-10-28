@@ -97,82 +97,6 @@
       ]
     },
     {
-      "name": "leg0",
-      "parent": "root",
-      "pivot": [
-        -12,
-        17,
-        -8
-      ],
-      "size": [
-        7,
-        13,
-        8
-      ],
-      "material": "coal",
-      "uv": [
-        224,
-        2
-      ]
-    },
-    {
-      "name": "leg1",
-      "parent": "root",
-      "pivot": [
-        12,
-        17,
-        -8
-      ],
-      "size": [
-        7,
-        13,
-        8
-      ],
-      "material": "coal",
-      "uv": [
-        256,
-        2
-      ]
-    },
-    {
-      "name": "leg2",
-      "parent": "root",
-      "pivot": [
-        -11,
-        17,
-        10
-      ],
-      "size": [
-        7,
-        13,
-        8
-      ],
-      "material": "coal",
-      "uv": [
-        288,
-        2
-      ]
-    },
-    {
-      "name": "leg3",
-      "parent": "root",
-      "pivot": [
-        11,
-        17,
-        10
-      ],
-      "size": [
-        7,
-        13,
-        8
-      ],
-      "material": "coal",
-      "uv": [
-        320,
-        2
-      ]
-    },
-    {
       "name": "spine0",
       "parent": "root",
       "pivot": [
@@ -187,7 +111,7 @@
       ],
       "material": "coal",
       "uv": [
-        352,
+        224,
         2
       ]
     },
@@ -206,7 +130,7 @@
       ],
       "material": "ember",
       "uv": [
-        368,
+        240,
         2
       ]
     },
@@ -225,7 +149,7 @@
       ],
       "material": "coal",
       "uv": [
-        380,
+        252,
         2
       ]
     },
@@ -244,7 +168,7 @@
       ],
       "material": "ember",
       "uv": [
-        396,
+        268,
         2
       ]
     },
@@ -263,7 +187,7 @@
       ],
       "material": "coal",
       "uv": [
-        408,
+        280,
         2
       ]
     },
@@ -282,7 +206,7 @@
       ],
       "material": "ember",
       "uv": [
-        424,
+        296,
         2
       ]
     },
@@ -301,7 +225,7 @@
       ],
       "material": "coal",
       "uv": [
-        436,
+        308,
         2
       ]
     },
@@ -320,7 +244,7 @@
       ],
       "material": "ember",
       "uv": [
-        452,
+        324,
         2
       ]
     },
@@ -339,7 +263,7 @@
       ],
       "material": "coal",
       "uv": [
-        464,
+        336,
         2
       ]
     },
@@ -358,7 +282,7 @@
       ],
       "material": "ember",
       "uv": [
-        480,
+        352,
         2
       ]
     },
@@ -377,7 +301,7 @@
       ],
       "material": "coal",
       "uv": [
-        492,
+        364,
         2
       ]
     },
@@ -396,8 +320,8 @@
       ],
       "material": "ember",
       "uv": [
-        2,
-        40
+        380,
+        2
       ]
     },
     {
@@ -415,8 +339,8 @@
       ],
       "material": "coal",
       "uv": [
-        14,
-        40
+        392,
+        2
       ]
     },
     {
@@ -434,8 +358,8 @@
       ],
       "material": "ember",
       "uv": [
-        30,
-        40
+        408,
+        2
       ]
     },
     {
@@ -453,8 +377,8 @@
       ],
       "material": "coal",
       "uv": [
-        42,
-        40
+        420,
+        2
       ]
     },
     {
@@ -472,8 +396,8 @@
       ],
       "material": "ember",
       "uv": [
-        58,
-        40
+        436,
+        2
       ]
     },
     {
@@ -491,8 +415,8 @@
       ],
       "material": "ash",
       "uv": [
-        70,
-        40
+        448,
+        2
       ]
     },
     {
@@ -510,8 +434,8 @@
       ],
       "material": "ash",
       "uv": [
-        78,
-        40
+        456,
+        2
       ]
     },
     {
@@ -529,8 +453,8 @@
       ],
       "material": "ash",
       "uv": [
-        86,
-        40
+        464,
+        2
       ]
     },
     {
@@ -548,8 +472,8 @@
       ],
       "material": "ash",
       "uv": [
-        94,
-        40
+        472,
+        2
       ]
     },
     {
@@ -567,8 +491,8 @@
       ],
       "material": "ash",
       "uv": [
-        102,
-        40
+        480,
+        2
       ]
     },
     {
@@ -586,8 +510,485 @@
       ],
       "material": "ash",
       "uv": [
-        110,
+        488,
+        2
+      ]
+    },
+    {
+      "name": "leg0",
+      "parent": "body",
+      "pivot": [
+        -9,
+        1,
+        -8
+      ],
+      "size": [
+        3,
+        3,
+        3
+      ],
+      "material": "coal",
+      "uv": [
+        496,
+        2
+      ]
+    },
+    {
+      "name": "upper0",
+      "parent": "leg0",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        8,
+        4,
+        4
+      ],
+      "material": "coal",
+      "offset": [
+        -8,
+        -2,
+        -2
+      ],
+      "uv": [
+        2,
         40
+      ]
+    },
+    {
+      "name": "knee0",
+      "parent": "upper0",
+      "pivot": [
+        -8,
+        0,
+        0
+      ],
+      "size": [
+        5,
+        5,
+        5
+      ],
+      "material": "coal",
+      "uv": [
+        28,
+        40
+      ]
+    },
+    {
+      "name": "shin0",
+      "parent": "knee0",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        3,
+        11,
+        3
+      ],
+      "material": "coal",
+      "offset": [
+        -1.5,
+        0,
+        -1.5
+      ],
+      "uv": [
+        50,
+        40
+      ]
+    },
+    {
+      "name": "foot0",
+      "parent": "shin0",
+      "pivot": [
+        0,
+        11,
+        0
+      ],
+      "size": [
+        5,
+        2,
+        5
+      ],
+      "material": "coal",
+      "uv": [
+        64,
+        40
+      ]
+    },
+    {
+      "name": "leg1",
+      "parent": "body",
+      "pivot": [
+        9,
+        1,
+        -8
+      ],
+      "size": [
+        3,
+        3,
+        3
+      ],
+      "material": "coal",
+      "uv": [
+        86,
+        40
+      ]
+    },
+    {
+      "name": "upper1",
+      "parent": "leg1",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        8,
+        4,
+        4
+      ],
+      "material": "coal",
+      "offset": [
+        0,
+        -2,
+        -2
+      ],
+      "uv": [
+        100,
+        40
+      ]
+    },
+    {
+      "name": "knee1",
+      "parent": "upper1",
+      "pivot": [
+        8,
+        0,
+        0
+      ],
+      "size": [
+        5,
+        5,
+        5
+      ],
+      "material": "coal",
+      "uv": [
+        126,
+        40
+      ]
+    },
+    {
+      "name": "shin1",
+      "parent": "knee1",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        3,
+        11,
+        3
+      ],
+      "material": "coal",
+      "offset": [
+        -1.5,
+        0,
+        -1.5
+      ],
+      "uv": [
+        148,
+        40
+      ]
+    },
+    {
+      "name": "foot1",
+      "parent": "shin1",
+      "pivot": [
+        0,
+        11,
+        0
+      ],
+      "size": [
+        5,
+        2,
+        5
+      ],
+      "material": "coal",
+      "uv": [
+        162,
+        40
+      ]
+    },
+    {
+      "name": "leg2",
+      "parent": "body",
+      "pivot": [
+        -9,
+        1,
+        9
+      ],
+      "size": [
+        3,
+        3,
+        3
+      ],
+      "material": "coal",
+      "uv": [
+        184,
+        40
+      ]
+    },
+    {
+      "name": "upper2",
+      "parent": "leg2",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        8,
+        4,
+        4
+      ],
+      "material": "coal",
+      "offset": [
+        -8,
+        -2,
+        -2
+      ],
+      "uv": [
+        198,
+        40
+      ]
+    },
+    {
+      "name": "knee2",
+      "parent": "upper2",
+      "pivot": [
+        -8,
+        0,
+        0
+      ],
+      "size": [
+        5,
+        5,
+        5
+      ],
+      "material": "coal",
+      "uv": [
+        224,
+        40
+      ]
+    },
+    {
+      "name": "shin2",
+      "parent": "knee2",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        3,
+        11,
+        3
+      ],
+      "material": "coal",
+      "offset": [
+        -1.5,
+        0,
+        -1.5
+      ],
+      "uv": [
+        246,
+        40
+      ]
+    },
+    {
+      "name": "foot2",
+      "parent": "shin2",
+      "pivot": [
+        0,
+        11,
+        0
+      ],
+      "size": [
+        5,
+        2,
+        5
+      ],
+      "material": "coal",
+      "uv": [
+        260,
+        40
+      ]
+    },
+    {
+      "name": "leg3",
+      "parent": "body",
+      "pivot": [
+        9,
+        1,
+        9
+      ],
+      "size": [
+        3,
+        3,
+        3
+      ],
+      "material": "coal",
+      "uv": [
+        282,
+        40
+      ]
+    },
+    {
+      "name": "upper3",
+      "parent": "leg3",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        8,
+        4,
+        4
+      ],
+      "material": "coal",
+      "offset": [
+        0,
+        -2,
+        -2
+      ],
+      "uv": [
+        296,
+        40
+      ]
+    },
+    {
+      "name": "knee3",
+      "parent": "upper3",
+      "pivot": [
+        8,
+        0,
+        0
+      ],
+      "size": [
+        5,
+        5,
+        5
+      ],
+      "material": "coal",
+      "uv": [
+        322,
+        40
+      ]
+    },
+    {
+      "name": "shin3",
+      "parent": "knee3",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        3,
+        11,
+        3
+      ],
+      "material": "coal",
+      "offset": [
+        -1.5,
+        0,
+        -1.5
+      ],
+      "uv": [
+        344,
+        40
+      ]
+    },
+    {
+      "name": "foot3",
+      "parent": "shin3",
+      "pivot": [
+        0,
+        11,
+        0
+      ],
+      "size": [
+        5,
+        2,
+        5
+      ],
+      "material": "coal",
+      "uv": [
+        358,
+        40
+      ]
+    },
+    {
+      "name": "coal_plate0",
+      "parent": "body",
+      "pivot": [
+        0,
+        -6,
+        -7
+      ],
+      "size": [
+        17,
+        4,
+        7
+      ],
+      "material": "coal",
+      "uv": [
+        380,
+        40
+      ]
+    },
+    {
+      "name": "coal_plate1",
+      "parent": "body",
+      "pivot": [
+        0,
+        -6,
+        1
+      ],
+      "size": [
+        15,
+        4,
+        7
+      ],
+      "material": "coal",
+      "uv": [
+        430,
+        40
+      ]
+    },
+    {
+      "name": "coal_plate2",
+      "parent": "body",
+      "pivot": [
+        0,
+        -6,
+        9
+      ],
+      "size": [
+        13,
+        4,
+        7
+      ],
+      "material": "coal",
+      "uv": [
+        2,
+        56
       ]
     }
   ]
