@@ -431,6 +431,26 @@ public final class LostHallsOffline {
             org.slavicmyths.losthalls.PostenReconciliation.inspect(invalid, List.of(), true);
         } catch (IllegalArgumentException expected) { rejected = true; }
         check(rejected, "malformed saved mask identities fail closed");
+        var foreignClone = new ArrayList<>(split.copies());
+        var oldClone = foreignClone.getFirst();
+        foreignClone.set(0, new PostenEncounters.Copy(id(9998), oldClone.mask(), oldClone.health()));
+        rejected = false;
+        try {
+            org.slavicmyths.losthalls.PostenReconciliation.inspect(
+                    new PostenEncounters.Snapshot(arena, body, Phase.COPIES, 260,
+                            foreignClone, false), List.of(), true);
+        } catch (IllegalArgumentException expected) { rejected = true; }
+        check(rejected, "forged copy UUID cannot request resurrection");
+        var deadBeforeSplit = new ArrayList<>(first.copies());
+        var before = deadBeforeSplit.getFirst();
+        deadBeforeSplit.set(0, new PostenEncounters.Copy(before.entity(), before.mask(), 0));
+        rejected = false;
+        try {
+            org.slavicmyths.losthalls.PostenReconciliation.inspect(
+                    new PostenEncounters.Snapshot(arena, body, Phase.BODY, 650,
+                            deadBeforeSplit, false), List.of(), true);
+        } catch (IllegalArgumentException expected) { rejected = true; }
+        check(rejected, "body phase with prematurely dead clone fails closed");
     }
 
 
