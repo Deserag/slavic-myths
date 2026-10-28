@@ -15,6 +15,11 @@ public final class NavyaHeartStructure extends Structure {
         if(checksBasalFluid(y)&&!context.chunkGenerator().getBaseColumn(x,z,context.heightAccessor(),context.randomState()).getBlock(31).getFluidState().isEmpty())return Optional.empty();
         if(y+10>=context.heightAccessor().getMaxBuildHeight())return Optional.empty();
         var pos=new BlockPos(x,y,z);
-        return Optional.of(new GenerationStub(pos,builder->builder.addPiece(new NavyaHeartPiece(pos,context.seed()))));
+        var piece=new NavyaHeartPiece(pos,context.seed());
+        // Check actual accepted neighboring structure footprints before placement:
+        // chunk-by-chunk postProcess must not demand that nine neighbors are loaded.
+        if(!org.slavicmyths.worldgen.StructureCandidates.clearAccepted(context,context.chunkPos(),
+                other->other!=null&&other.getNamespace().equals("minecraft")?8:0,java.util.List.of(piece)))return Optional.empty();
+        return Optional.of(new GenerationStub(pos,builder->builder.addPiece(piece)));
     }
 }
