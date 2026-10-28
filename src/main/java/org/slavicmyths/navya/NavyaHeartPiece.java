@@ -17,11 +17,11 @@ public final class NavyaHeartPiece extends StructurePiece {
     public NavyaHeartPiece(CompoundTag tag){super(NavyaWorldgen.PIECE.get(),tag);center=BlockPos.of(tag.getLong("Center"));seed=tag.getLong("Seed");bossPlaced=tag.getBoolean("BossPlaced");}
     @Override protected void addAdditionalSaveData(StructurePieceSerializationContext context,CompoundTag tag){tag.putLong("Center",center.asLong());tag.putLong("Seed",seed);tag.putBoolean("BossPlaced",bossPlaced);}
     @Override public void postProcess(WorldGenLevel world,StructureManager manager,ChunkGenerator generator,RandomSource random,BoundingBox clip,ChunkPos chunk,BlockPos pivot){
-        // Refuse overlap with any other registered structure, before any edits.
-        for(int dx=-1;dx<=1;dx++)for(int dz=-1;dz<=1;dz++) {
-            var check=center.offset(dx*16,0,dz*16);
-            if(!world.hasChunkAt(check) || NavyaWorldgen.protectedChunk(world,check))return;
-        }
+        // postProcess is per chunk: checking unloaded neighbors here would
+        // silently skip valid pieces. Global overlap is preflighted by the
+        // structure planner; protect the current writable chunk locally.
+        var current=new BlockPos(chunk.getMinBlockX(),center.getY(),chunk.getMinBlockZ());
+        if(!world.hasChunkAt(current) || NavyaWorldgen.protectedChunk(world,current))return;
         for(int dx=-12;dx<=12;dx++)for(int dz=-12;dz<=12;dz++) {
             double radius=Math.sqrt(dx*dx+dz*dz);if(radius>12+.8*NavyaProfile.noise(seed,center.getX()+dx,center.getZ()+dz,9))continue;
             var floor=center.offset(dx,0,dz);
