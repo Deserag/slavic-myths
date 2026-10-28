@@ -1,5 +1,6 @@
 package org.slavicmyths.losthalls;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -55,6 +56,9 @@ public final class PostenReconciliation {
         for (Copy copy : state.copies()) {
             if (copy == null || copy.entity() == null || copy.mask() == null
                     || !masks.add(copy.mask()) || !owned.add(copy.entity())
+                    || !copy.entity().equals(UUID.nameUUIDFromBytes(
+                            ("slavicmyths:posten:" + state.arena() + ":" + copy.mask().name())
+                                    .getBytes(StandardCharsets.UTF_8)))
                     || !Float.isFinite(copy.health()) || copy.health() < 0
                     || copy.health() > PostenEncounters.COPY_HEALTH) {
                 throw new IllegalArgumentException("Conflicting Posten clone identity");
@@ -71,7 +75,8 @@ public final class PostenReconciliation {
         float cloneSum = 0;
         for (Copy copy : state.copies()) cloneSum += copy.health();
         if (state.phase() == Phase.BODY) {
-            if (state.health() <= PostenEncounters.SPLIT_HEALTH || state.rewardsClaimed()) {
+            if (state.health() <= PostenEncounters.SPLIT_HEALTH || state.rewardsClaimed()
+                    || state.copies().stream().anyMatch(copy -> copy.health() != PostenEncounters.COPY_HEALTH)) {
                 throw new IllegalArgumentException("Body phase cannot be complete");
             }
             expected.put(state.body(), new Instance(state.body(), null, state.health()));
