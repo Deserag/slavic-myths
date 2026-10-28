@@ -33,7 +33,7 @@ def rig(name):
   for i,side in enumerate([-1,1]):
    box(f'shell{i}','body',[side*6,-2,-8],[6,16,4]);box(f'arm{i}','body',[side*15,-7,0],[7,23,7]);box(f'claw{i}',f'arm{i}',[0,15,-2],[8,10,6]);
    for j in range(3):box(f'finger{i}_{j}',f'claw{i}',[(j-1)*3,7,-1],[2,8,2],j==1)
-   box(f'backarm{i}','body',[side*13,-10,7],[6,22,6]);box(f'backtalon{i}',f'backarm{i}',[side*4,14,-3],[5,10,4]);box(f'leg{i}','body',[side*6,27,0],[7,24,8]);box(f'shard{i}','body',[side*13,18,0],[5,9,6]);box(f'shard_back{i}','body',[side*9,-16,9],[5,11,5])
+   box(f'backarm{i}','body',[side*16,-12,7],[6,22,6]);parts[-1]['rotation']=[.25,0,side*.65];box(f'backtalon{i}',f'backarm{i}',[side*4,14,-3],[5,10,4]);box(f'leg{i}','body',[side*6,27,0],[7,24,8]);box(f'shard{i}','body',[side*13,18,0],[5,9,6]);box(f'shard_back{i}','body',[side*9,-16,9],[5,11,5])
   box('head','body',[0,-23,-1],[15,13,12]);box('jaw','head',[0,6,-1],[13,4,11]);box('mouth','head',[0,4,-6.1],[10,3,1],True)
   for i,side in enumerate([-1,1]):
    box(f'eye{i}','head',[side*4,-1,-6.1],[5,2,1],True);box(f'horn{i}','head',[side*7,-12,0],[3,15,4]);box(f'horn_back{i}','head',[side*5,-9,5],[3,9,3]);box(f'shard_head{i}','head',[side*11,1,0],[3,5,4])

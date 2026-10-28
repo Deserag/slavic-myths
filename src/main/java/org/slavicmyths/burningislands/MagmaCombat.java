@@ -11,14 +11,15 @@ public final class MagmaCombat {
   public boolean heavy(){return this==FRACTURE||this==ERUPTION||this==RING;}
  }
  public static Action choose(int sequence,boolean second,double distance){
+  if(distance>22)return Action.HANDS; // Answer a real distant attacker without chasing outside home.
   Action[] cycle=second?new Action[]{Action.CLAWS,Action.FRACTURE,Action.HANDS,Action.PULL,Action.ERUPTION,Action.RING}:new Action[]{Action.CLAWS,Action.FRACTURE,Action.PULL};
   Action a=cycle[Math.floorMod(sequence,cycle.length)];
   return a==Action.CLAWS&&distance>5?Action.FRACTURE:a;
  }
  /** Three non-overlapping rays, in coordinates fixed at cast start. */
  public static boolean fracture(double forward,double side){
-  if(forward<2||forward>22)return false;
-  for(double angle:new double[]{-.35,0,.35})if(Math.abs(side-Math.tan(angle)*forward)<.65)return true;
+  if(forward<3||forward>22)return false;
+  for(double angle:new double[]{-.35,0,.35})if(Math.abs(side-Math.tan(angle)*forward)<.45)return true;
   return false;
  }
  public static boolean eruption(double forward,double side,int pulse){return Math.hypot(forward-(5+6*pulse),side)<2.2;}

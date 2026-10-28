@@ -16,11 +16,17 @@ public final class IslandsModel extends HierarchicalModel<IslandsMob> {
  private final Map<String,ModelPart> nodes=new LinkedHashMap<>();
  public IslandsModel(IslandsContent.Kind kind){this(load(kind));}
  private static JsonObject load(IslandsContent.Kind kind){try(var reader=Minecraft.getInstance().getResourceManager().openAsReader(ResourceLocation.fromNamespaceAndPath("slavicmyths","burning_islands_rigs/"+IslandsContent.id(kind)+".json"))){return JsonParser.parseReader(reader).getAsJsonObject();}catch(java.io.IOException ex){throw new IllegalStateException("Missing islands rig "+kind,ex);}}
+ public static IslandsModel bundled(IslandsContent.Kind kind){
+  try(var stream=IslandsModel.class.getResourceAsStream("/assets/slavicmyths/burning_islands_rigs/"+IslandsContent.id(kind)+".json")){
+   if(stream==null)throw new IllegalStateException("Missing bundled islands rig "+kind);
+   return new IslandsModel(JsonParser.parseReader(new java.io.InputStreamReader(stream,java.nio.charset.StandardCharsets.UTF_8)).getAsJsonObject());
+  }catch(java.io.IOException ex){throw new IllegalStateException(ex);}
+ }
  public IslandsModel(JsonObject data){
   var mesh=new MeshDefinition();var definitions=new LinkedHashMap<String,PartDefinition>();definitions.put("root",mesh.getRoot());
   for(var element:data.getAsJsonArray("parts")){
-   var p=element.getAsJsonObject();var pivot=p.getAsJsonArray("pivot");var size=p.getAsJsonArray("size");var uv=p.getAsJsonArray("uv");var offset=p.getAsJsonArray("offset");
-   var def=definitions.get(p.get("parent").getAsString()).addOrReplaceChild(p.get("name").getAsString(),CubeListBuilder.create().texOffs(uv.get(0).getAsInt(),uv.get(1).getAsInt()).addBox(offset.get(0).getAsFloat(),offset.get(1).getAsFloat(),offset.get(2).getAsFloat(),size.get(0).getAsFloat(),size.get(1).getAsFloat(),size.get(2).getAsFloat()),PartPose.offset(pivot.get(0).getAsFloat(),pivot.get(1).getAsFloat(),pivot.get(2).getAsFloat()));definitions.put(p.get("name").getAsString(),def);
+   var p=element.getAsJsonObject();var pivot=p.getAsJsonArray("pivot");var size=p.getAsJsonArray("size");var uv=p.getAsJsonArray("uv");var offset=p.getAsJsonArray("offset");var rotation=p.has("rotation")?p.getAsJsonArray("rotation"):null;
+   var def=definitions.get(p.get("parent").getAsString()).addOrReplaceChild(p.get("name").getAsString(),CubeListBuilder.create().texOffs(uv.get(0).getAsInt(),uv.get(1).getAsInt()).addBox(offset.get(0).getAsFloat(),offset.get(1).getAsFloat(),offset.get(2).getAsFloat(),size.get(0).getAsFloat(),size.get(1).getAsFloat(),size.get(2).getAsFloat()),PartPose.offsetAndRotation(pivot.get(0).getAsFloat(),pivot.get(1).getAsFloat(),pivot.get(2).getAsFloat(),rotation==null?0:rotation.get(0).getAsFloat(),rotation==null?0:rotation.get(1).getAsFloat(),rotation==null?0:rotation.get(2).getAsFloat()));definitions.put(p.get("name").getAsString(),def);
   }
   root=LayerDefinition.create(mesh,data.get("atlas").getAsInt(),data.get("atlas").getAsInt()).bakeRoot();collect(root,"root",data.getAsJsonArray("parts"));
  }
@@ -58,6 +64,6 @@ public final class IslandsModel extends HierarchicalModel<IslandsMob> {
   }
   if(boss){root.y+=(float)Math.sin(age*.05)*.7F;if(action==Action.PHASE)root.zRot=(float)Math.sin(time*.7)*.025F;}
   if(hurt>0)root.zRot+=(float)Math.sin(hurt)*.045F;
-  if(death>0){float fade=Math.min(1,death/20F);for(var entry:nodes.entrySet())if(entry.getKey().startsWith("shard"))entry.getValue().y+=fade*6;root.y+=fade*5;root.xRot=fade*.4F;}
+  if(death>0){float fade=Math.min(1,death/(boss?80F:20F));for(var entry:nodes.entrySet())if(entry.getKey().startsWith("shard"))entry.getValue().y+=fade*6;root.y+=fade*5;root.xRot=fade*.4F;}
  }
 }

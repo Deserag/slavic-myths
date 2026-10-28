@@ -1,0 +1,30 @@
+{
+  "scope": "Static source/assets/production JAR only; NOT gameplay or data codec under a registered NeoForge runtime",
+  "baselineFiles": 9464,
+  "missingBaselineFiles": [],
+  "changedExistingFiles": [
+    "src/main/resources/assets/slavicmyths/creative_catalog.tsv",
+    "src/main/resources/assets/slavicmyths/lang/en_us.json",
+    "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
+    "src/main/java/org/slavicmyths/SlavicMyths.java",
+    "src/main/java/org/slavicmyths/client/TrophyHeadsClient.java",
+    "src/main/java/org/slavicmyths/rpg/RuneDefinition.java",
+    "src/main/java/org/slavicmyths/rpg/Runes.java",
+    "src/main/java/org/slavicmyths/trophy/TrophyHeadBlock.java",
+    "src/main/java/org/slavicmyths/trophy/TrophyHeads.java"
+  ],
+  "uvIslands": {
+    "heat_salamander": 20,
+    "slag_crab": 26,
+    "vent_golem": 14,
+    "magma_lord": 36
+  },
+  "naturalBiome": "BLOCKED_OCEAN_BIOME_ARCHITECTURE; not selected",
+  "temporaryMagma": "BLOCKED_TEMP_MAGMA_RESTORE; no mutations",
+  "audio": "BLOCKED_NEEDS_AUDIO_SOURCE",
+  "referenceMatch": "BLOCKED_REFERENCE_BINARY",
+  "jar": "C:\\Users\\user\\.codex\\worktrees\\lost-halls\\slavic-myths\\build\\libs\\slavicmyths-2.0.8-HELL.jar",
+  "bytes": 24846421,
+  "sha256": "7edd8e282a0696377b17192a69f12e491484c3e6ef9748cc20cbeced8502fa20",
+  "minecraftLaunches": 0
+}

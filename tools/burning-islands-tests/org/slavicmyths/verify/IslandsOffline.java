@@ -41,10 +41,13 @@ public final class IslandsOffline {
     item.add("trophyFrames",headFrames);
    }
   }
+  // Native AttributeSupplier construction requires registered NeoForge attributes.
+  // Do not bind fake holders: attribute/entity runtime remains NOT_RUN under the game-launch ban.
   for(int i=0;i<500;i++){
    var a=MagmaCombat.choose(i,false,3);check(a==Action.CLAWS||a==Action.FRACTURE||a==Action.PULL,"P1 only approved techniques");
    check(MagmaCombat.choose(i,false,20)!=Action.CLAWS,"long range is not a blind melee cast");
   }
+  check(MagmaCombat.choose(0,false,64)==Action.HANDS,"distant provoker gets telegraphed return fire, not endless idle");
   check(Action.CLAWS.damage==14&&Action.FRACTURE.damage==18&&Action.PULL.damage==0&&Action.HANDS.damage==16&&Action.ERUPTION.damage==18&&Action.RING.damage==20,"approved raw damage");
   check(Action.CLAWS.release==23&&Action.FRACTURE.release==27&&Action.HANDS.release==25&&Action.ERUPTION.release==31&&Action.RING.release==37,"cue-sheet release frames");
   for(int f=3;f<22;f++){
@@ -63,15 +66,40 @@ public final class IslandsOffline {
   for(var item:List.of(net.minecraft.world.item.Items.IRON_CHESTPLATE,net.minecraft.world.item.Items.DIAMOND_CHESTPLATE,net.minecraft.world.item.Items.NETHERITE_CHESTPLATE))check(MagmaRunes.supports(new net.minecraft.world.item.ItemStack(item)),"native chestplate support");
   check(!MagmaRunes.supports(new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.IRON_HELMET)),"helmet rejected");
   check(!org.slavicmyths.rpg.Runes.installationReason(1,2,2,List.of("magma_1"),"magma_2",true).isEmpty(),"forge conflict integration");
-  var lookup=net.minecraft.data.registries.VanillaRegistries.createLookup();var journal=new MagmaEncounters();var owner=UUID.randomUUID();
-  check(!journal.claim(205,owner),"unregistered arena cannot yield rewards");check(journal.register(205,owner),"first encounter");check(!journal.register(205,UUID.randomUUID()),"duplicate encounter refused");
-  check(!journal.register(206,owner),"same boss cannot own another anchor");check(journal.claim(205,owner)&&!journal.claim(205,owner),"one reward claim");
+  for(int wins=1;wins<=200;wins++)for(int extra=0;extra<=2*wins;extra++){
+   int cores=4*wins+extra;int first=MagmaRewardRules.nextCores(wins,cores);
+   check(first>=4&&first<=6,"aggregate delivers legal bundle");
+   check(wins==1?cores==first:MagmaRewardRules.nextCores(wins-1,cores-first)>0,"aggregate leaves legal remainder");
+  }
+  check(MagmaRewardRules.nextCores(0,0)==0&&MagmaRewardRules.nextCores(1,7)==0&&MagmaRewardRules.nextCores(Long.MAX_VALUE,1)==0,"malformed aggregate rejected");
+  var full=new ArrayList<net.minecraft.world.item.ItemStack>();for(int i=0;i<36;i++)full.add(new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.COBBLESTONE,64));
+  var reward=new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.DIAMOND,5);
+  check(MagmaRewards.inventoryPlan(full,List.of(reward))==null,"full inventory refuses entire batch");
+  check(full.stream().allMatch(s->s.getCount()==64)&&reward.getCount()==5,"admission failure never mutates source/reward");
+  full.set(35,net.minecraft.world.item.ItemStack.EMPTY);var plan=MagmaRewards.inventoryPlan(full,List.of(reward));
+  check(plan!=null&&plan.get(35).getCount()==5&&full.get(35).isEmpty(),"successful plan still only copies");
+  var named=reward.copy();named.set(net.minecraft.core.component.DataComponents.CUSTOM_NAME,net.minecraft.network.chat.Component.literal("existing component"));full.set(35,named);
+  check(MagmaRewards.inventoryPlan(full,List.of(reward))==null&&full.get(35).getHoverName().getString().equals("existing component"),"different components never merge or get overwritten");
+  var lookup=net.minecraft.data.registries.VanillaRegistries.createLookup();var journal=new MagmaEncounters();var owner=UUID.randomUUID();var recipient=UUID.randomUUID();
+  check(!journal.claim(205,owner,recipient,5,80),"unregistered arena cannot yield rewards");check(journal.register(205,owner),"first encounter");check(!journal.register(205,UUID.randomUUID()),"duplicate encounter refused");
+  check(!journal.register(206,owner),"same boss cannot own another anchor");check(journal.claim(205,owner,recipient,5,80)&&!journal.claim(205,owner,recipient,5,80),"one reward claim");
   var valid=journal.save(new net.minecraft.nbt.CompoundTag(),lookup);var bytes=new java.io.ByteArrayOutputStream();net.minecraft.nbt.NbtIo.writeCompressed(valid,bytes);
   var restored=MagmaEncounters.load(net.minecraft.nbt.NbtIo.readCompressed(new java.io.ByteArrayInputStream(bytes.toByteArray()),net.minecraft.nbt.NbtAccounter.unlimitedHeap()),lookup);
-  check(!restored.claim(205,owner)&&!restored.register(205,owner),"binary NBT preserves victory");
+  check(!restored.claim(205,owner,recipient,5,80)&&!restored.register(205,owner),"binary NBT preserves victory");
+  check(restored.deliveries(recipient,79).isEmpty()&&restored.deliveries(recipient,80).size()==1,"reward waits for death animation and survives binary reload");
+  check(restored.deliveries(UUID.randomUUID(),80).isEmpty(),"another player cannot reconcile someone else's reward");
+  var playerData=new net.minecraft.nbt.CompoundTag();String claimId="minecraft:the_nether:205";
+  check(MagmaRewards.queueData(playerData,claimId,5),"journal-only persistence recovers missing player inbox");
+  check(!MagmaRewards.queueData(playerData,claimId,6),"same recipient receipt prevents reroll and duplicate enqueue");
+  var savedPlayer=new java.io.ByteArrayOutputStream();net.minecraft.nbt.NbtIo.writeCompressed(playerData,savedPlayer);
+  var loadedPlayer=net.minecraft.nbt.NbtIo.readCompressed(new java.io.ByteArrayInputStream(savedPlayer.toByteArray()),net.minecraft.nbt.NbtAccounter.unlimitedHeap());
+  check(!MagmaRewards.queueData(loadedPlayer,claimId,5),"player-only persistence rejects repeat queue after world journal rollback for SAME recipient");
+  check(loadedPlayer.getCompound("slavicmyths_magma_rewards").getLong("Wins")==1&&loadedPlayer.getCompound("slavicmyths_magma_rewards").getLong("Cores")==5,"receipt and aggregate serialized together without duplication");
+  check(MagmaRewards.queueData(loadedPlayer,"minecraft:the_nether:206",4),"different arena remains an independent victory");
+  // This does not establish cross-player crash atomicity: that remains a hard NOT_RUN/BLOCKED gate.
   var duplicate=valid.copy();duplicate.getList("Encounters",10).add(duplicate.getList("Encounters",10).getCompound(0).copy());
   var future=valid.copy();future.putInt("Version",99);var malformed=valid.copy();malformed.getList("Encounters",10).getCompound(0).remove("Boss");
-  for(var invalid:List.of(duplicate,future,malformed)){var q=MagmaEncounters.load(invalid,lookup);check(q.isReadOnly()&&!q.register(206,UUID.randomUUID())&&!q.claim(205,owner)&&q.save(new net.minecraft.nbt.CompoundTag(),lookup).equals(invalid),"malformed/future NBT fails closed and preserves bytes");}
+  for(var invalid:List.of(duplicate,future,malformed)){var q=MagmaEncounters.load(invalid,lookup);check(q.isReadOnly()&&!q.register(206,UUID.randomUUID())&&!q.claim(205,owner,recipient,5,80)&&q.save(new net.minecraft.nbt.CompoundTag(),lookup).equals(invalid),"malformed/future NBT fails closed and preserves bytes");}
   Files.writeString(output.resolve("native-rigs.json"),new Gson().toJson(rigs));
   var receipt=new JsonObject();receipt.addProperty("scope","Native ModelPart/UV + pure production policy + NBT, NOT gameplay");receipt.addProperty("checks",checks);receipt.addProperty("nativeFrames",frames);receipt.addProperty("minecraftLaunches",0);receipt.addProperty("runtime","NOT_RUN");Files.writeString(output.resolve("offline-results.json"),new GsonBuilder().setPrettyPrinting().create().toJson(receipt));
   System.out.println("PASS "+checks+" offline checks; "+frames+" native frames; Minecraft/client/server/world/GameTest launches=0.");

@@ -28,7 +28,7 @@ public final class TrophyHeads {
  public static final Map<Kind,DeferredHolder<Item,Item>> ITEMS=new EnumMap<>(Kind.class);
  static {for(Kind k:Kind.values()){
   DeferredHolder<Block,Block> b=ModBlocks.BLOCKS.register(k.id,()->new TrophyHeadBlock(k));BLOCKS.put(k,b);
-  ITEMS.put(k,ModItems.ITEMS.register(k.id,()->new BlockItem(b.get(),new Item.Properties().rarity(Rarity.EPIC))));
+  ITEMS.put(k,ModItems.ITEMS.register(k.id,()->new BlockItem(b.get(),k==Kind.MAGMA_LORD?new Item.Properties().rarity(Rarity.EPIC).fireResistant():new Item.Properties().rarity(Rarity.EPIC))));
  }}
  public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<TrophyHeadBlock.Tile>> TILE=ModTiles.TILES.register("trophy_head",()->BlockEntityType.Builder.of(TrophyHeadBlock.Tile::new,BLOCKS.values().stream().map(DeferredHolder::get).toArray(Block[]::new)).build(null));
  public static void init(){}
