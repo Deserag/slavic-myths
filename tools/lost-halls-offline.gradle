@@ -9,5 +9,16 @@ allprojects { p ->
             classpath = p.sourceSets.lostHallsOffline.runtimeClasspath
             mainClass = 'org.slavicmyths.verify.LostHallsOffline'
         }
+        p.tasks.register('exportNether327Models', JavaExec) {
+            dependsOn p.tasks.named('lostHallsOfflineClasses')
+            classpath = p.sourceSets.lostHallsOffline.runtimeClasspath
+            mainClass = 'org.slavicmyths.verify.Nether327Models'
+            args p.findProperty('modelStage') ?: 'after'
+        }
+        p.tasks.register('auditHallsNativeClimate', JavaExec) {
+            dependsOn p.tasks.named('lostHallsOfflineClasses')
+            classpath = p.sourceSets.lostHallsOffline.runtimeClasspath
+            mainClass = 'org.slavicmyths.verify.HallsNativeAudit'
+        }
     }
 }

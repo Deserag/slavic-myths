@@ -474,7 +474,7 @@ public final class LostHallsOffline {
                 check(plan.rooms().size() == 6 && plan.isConnected(), "six scenes and arena connected");
                 check(plan.rooms().stream().map(Node::scene).collect(java.util.stream.Collectors.toSet())
                         .equals(java.util.EnumSet.allOf(Scene.class)), "six distinct scene types");
-                check(plan.links().size() == 8, "ring, alternative edge and terminal boss arena");
+                check(plan.links().size() == 9, "ring, alternative edge and two independent arena approaches");
                 java.util.Map<UUID, Integer> degrees = new java.util.HashMap<>();
                 for (var link : plan.links()) {
                     degrees.merge(link.from(), 1, Integer::sum);
@@ -484,7 +484,7 @@ public final class LostHallsOffline {
                     check(node.exits() == degrees.get(node.id()), "node exits agree with graph degree");
                     check(all.add(node.id()), "room ID is seed-and-region unique");
                 }
-                check(degrees.get(plan.arenaId()) == 1 && all.add(plan.arenaId()),
+                check(degrees.get(plan.arenaId()) == 2 && all.add(plan.arenaId()),
                         "one unique planned Posten arena");
             }
         }
@@ -499,6 +499,9 @@ public final class LostHallsOffline {
     }
 
     public static void main(String[] args) throws Exception {
+        rewardAuthority();
+        physicalRegionRoutes();
+        encounterIdentityIsolation();
         encounterBoundaries();
         encounterTrials();
         corruptEncounters();
@@ -510,11 +513,75 @@ public final class LostHallsOffline {
         regionTopology();
         Path out = Path.of("docs/implementation/lost-halls-2.0.4/offline-logic.json");
         Files.createDirectories(out.getParent());
-        String report = "{\n  \"scope\": \"Production accounting/index, finite voxel routes and binary NBT only\",\n"
+        String report = "{\n  \"scope\": \"Production journals, binary NBT, finite voxel routes and 20 pure heightfield regions; no generated worlds\",\n"
                 + "  \"status\": \"PASS\",\n  \"assertions\": " + assertions
                 + ",\n  \"randomized_encounters\": 200,\n  \"distant_room_records\": 5000,\n"
                 + "  \"runtime_launches\": 0,\n  \"gameplay\": \"NOT_RUN_ENV_BLOCK\"\n}\n";
         Files.writeString(out, report);
         System.out.println(report);
+    }
+
+    private static void rewardAuthority() throws Exception {
+        var folder=Files.createTempDirectory("slavicmyths-reward-test-");var file=folder.resolve("authority.json");
+        var a=new org.slavicmyths.losthalls.BossRewardAuthority(file);
+        var first=new org.slavicmyths.losthalls.BossRewardAuthority.Entry("magma:1","magma",id(1),4,80);
+        check(a.pin(first).equals(first),"first pin durable");byte[] bytes=Files.readAllBytes(file);
+        a=new org.slavicmyths.losthalls.BossRewardAuthority(file);
+        check(a.pin(new org.slavicmyths.losthalls.BossRewardAuthority.Entry("magma:1","magma",id(2),6,0)).equals(first),"rollback cannot reassign recipient or reroll amount");
+        check(java.util.Arrays.equals(bytes,Files.readAllBytes(file)),"duplicate pin never rewrites authority");
+        check(a.forRecipient(id(1)).size()==1&&a.forRecipient(id(2)).isEmpty(),"recipient index isolated");
+        boolean conflict=false;try{a.pin(new org.slavicmyths.losthalls.BossRewardAuthority.Entry("magma:1","posten",id(2),0,0));}catch(java.io.IOException expected){conflict=true;}check(conflict,"cross-kind collision rejected");
+        for(String invalid:List.of("{broken","{\"version\":2,\"entries\":[]}")){
+            Files.writeString(file,invalid);a=new org.slavicmyths.losthalls.BossRewardAuthority(file);check(a.isReadOnly(),"invalid authority fail closed");
+            boolean denied=false;try{a.pin(first);}catch(java.io.IOException expected){denied=true;}check(denied&&Files.readString(file).equals(invalid),"invalid authority bytes preserved");
+        }
+        Files.delete(file);Files.delete(folder);
+    }
+
+    private static void physicalRegionRoutes() {
+        for(long seed:new long[]{42041,42042,42043,42044,42045})for(int rx:new int[]{-2,-1,0,1}){
+            var plan=org.slavicmyths.losthalls.LostHallsRegionTopology.plan(seed,rx,-1,76);
+            int width=192,ox=rx*width,oz=-width;int[] floor=new int[width*width];java.util.Arrays.fill(floor,Integer.MIN_VALUE);
+            for(int x=0;x<width;x++)for(int z=0;z<width;z++){
+                var column=org.slavicmyths.losthalls.HallsGeometry.column(plan,ox+x,oz+z);
+                if(column!=null&&!column.pillar()&&column.ceiling()-column.floor()>=2)floor[x*width+z]=column.floor();
+            }
+            var start=plan.rooms().getFirst().anchor();int first=(start.getX()-ox)*width+start.getZ()-oz;
+            java.util.Set<Integer> reached=new java.util.HashSet<>();java.util.ArrayDeque<Integer> pending=new java.util.ArrayDeque<>();reached.add(first);pending.add(first);
+            while(!pending.isEmpty()){
+                int cell=pending.remove(),x=cell/width,z=cell%width;
+                for(int[] d:new int[][]{{1,0},{-1,0},{0,1},{0,-1}}){int nx=x+d[0],nz=z+d[1];if(nx<0||nz<0||nx>=width||nz>=width)continue;int next=nx*width+nz;if(floor[next]!=Integer.MIN_VALUE&&Math.abs((long)floor[cell]-floor[next])<=1&&reached.add(next))pending.add(next);}
+            }
+            for(var n:plan.rooms()){check(floor[(n.anchor().getX()-ox)*width+n.anchor().getZ()-oz]==n.anchor().getY()-1,"published anchor has its actual floor");check(reached.contains((n.anchor().getX()-ox)*width+n.anchor().getZ()-oz),"physical heightfield route to "+n.scene()+" seed="+seed+" region="+rx);}
+            check(reached.contains((plan.arena().getX()-ox)*width+plan.arena().getZ()-oz),"physical heightfield route to arena seed="+seed+" region="+rx);
+            for(int dx=-16;dx<16;dx++)for(int dz=-16;dz<16;dz++){
+                var c=org.slavicmyths.losthalls.HallsGeometry.column(plan,plan.arena().getX()+dx,plan.arena().getZ()+dz);
+                check(c!=null&&!c.pillar()&&!c.openBelow()&&c.ceiling()-c.floor()>=5,"32x32 arena footprint clear");
+            }
+        }
+    }
+
+    private static void encounterIdentityIsolation() throws Exception {
+        UUID arena = id(70001), body = id(70002), secondArena = id(70003);
+        PostenEncounters data = new PostenEncounters();
+        check(data.register(arena, body), "identity fixture registration");
+        UUID copy = data.snapshot(arena).orElseThrow().copies().getFirst().entity();
+        check(!data.register(secondArena, copy), "existing clone cannot become another arena body");
+        PostenEncounters reverse = new PostenEncounters();
+        check(reverse.register(secondArena, copy), "reverse identity fixture registration");
+        check(!reverse.register(arena, body), "new clone cannot reuse another arena body");
+        PostenEncounters self = new PostenEncounters();
+        check(!self.register(arena, copy), "body cannot reuse its own deterministic clone UUID");
+        data = reload(data);
+        check(!data.register(secondArena, copy), "identity reservation survives binary NBT");
+
+        // Both records are individually valid under V1, but share an entity UUID.
+        var firstTag = data.save(new CompoundTag(), null);
+        var secondTag = reverse.save(new CompoundTag(), null);
+        firstTag.getList("Encounters", 10).add(secondTag.getList("Encounters", 10).getCompound(0).copy());
+        var corrupt = PostenEncounters.load(binary(firstTag), null);
+        check(corrupt.isReadOnly(), "cross-arena UUID alias fails closed");
+        check(corrupt.save(new CompoundTag(), null).equals(firstTag), "aliased V1 preserved verbatim");
+        check(!corrupt.register(id(70004), id(70005)), "aliased journal cannot authorize a new encounter");
     }
 }

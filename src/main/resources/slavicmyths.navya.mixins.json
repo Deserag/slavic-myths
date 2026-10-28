@@ -3,6 +3,12 @@
   "minVersion": "0.8",
   "package": "org.slavicmyths.navya.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": ["NetherParametersMixin"],
-  "injectors": {"defaultRequire": 1}
+  "mixins": [
+    "NetherParametersMixin",
+    "HallsBiomeSourceMixin",
+    "PlayerListSaveInvoker"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

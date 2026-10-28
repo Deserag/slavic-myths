@@ -21,6 +21,7 @@ public final class CinderEncounters extends SavedData {
   if(entries.values().stream().anyMatch(e->e.boss.equals(boss)))return false;
   entries.put(anchor,new Entry(boss,false));setDirty();return true;
  }
+ public boolean canClaim(long anchor,UUID boss){var old=entries.get(anchor);return !isReadOnly()&&old!=null&&old.boss.equals(boss)&&!old.defeated;}
  public boolean claim(long anchor,UUID boss){
   if(isReadOnly()||boss==null)return false;
   var old=entries.get(anchor);

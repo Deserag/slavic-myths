@@ -1,0 +1,415 @@
+{
+  "scope": "20 windows of native noise classification plus seven-anchor biome checks; not terrain/arena/route/spawn proof",
+  "status": "PASS_OFFLINE_CLASSIFICATION_ONLY",
+  "runtime_launches": 0,
+  "biomes": [
+    "slavicmyths:lost_halls",
+    "minecraft:crimson_forest",
+    "minecraft:soul_sand_valley",
+    "minecraft:nether_wastes",
+    "minecraft:basalt_deltas",
+    "minecraft:warped_forest",
+    "slavicmyths:black_cinder",
+    "slavicmyths:navya_grove"
+  ],
+  "completeCandidateRegions": 53,
+  "windows": [
+    {
+      "seed": 42041,
+      "center": [
+        0,
+        0
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 104,
+        "minecraft:crimson_forest": 255,
+        "minecraft:nether_wastes": 358,
+        "minecraft:soul_sand_valley": 125,
+        "minecraft:warped_forest": 17,
+        "slavicmyths:black_cinder": 33,
+        "slavicmyths:lost_halls": 31,
+        "slavicmyths:navya_grove": 101
+      },
+      "allSevenAnchorsClassifiedHalls": 5
+    },
+    {
+      "seed": 42041,
+      "center": [
+        16384,
+        0
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 91,
+        "minecraft:crimson_forest": 134,
+        "minecraft:nether_wastes": 374,
+        "minecraft:soul_sand_valley": 124,
+        "minecraft:warped_forest": 68,
+        "slavicmyths:black_cinder": 5,
+        "slavicmyths:lost_halls": 27,
+        "slavicmyths:navya_grove": 201
+      },
+      "allSevenAnchorsClassifiedHalls": 3
+    },
+    {
+      "seed": 42041,
+      "center": [
+        -16384,
+        8192
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 105,
+        "minecraft:crimson_forest": 184,
+        "minecraft:nether_wastes": 296,
+        "minecraft:soul_sand_valley": 146,
+        "minecraft:warped_forest": 49,
+        "slavicmyths:black_cinder": 29,
+        "slavicmyths:lost_halls": 9,
+        "slavicmyths:navya_grove": 206
+      },
+      "allSevenAnchorsClassifiedHalls": 1
+    },
+    {
+      "seed": 42041,
+      "center": [
+        8192,
+        -16384
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 113,
+        "minecraft:crimson_forest": 206,
+        "minecraft:nether_wastes": 290,
+        "minecraft:soul_sand_valley": 65,
+        "minecraft:warped_forest": 133,
+        "slavicmyths:black_cinder": 16,
+        "slavicmyths:lost_halls": 36,
+        "slavicmyths:navya_grove": 165
+      },
+      "allSevenAnchorsClassifiedHalls": 4
+    },
+    {
+      "seed": 42042,
+      "center": [
+        0,
+        0
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 137,
+        "minecraft:crimson_forest": 212,
+        "minecraft:nether_wastes": 425,
+        "minecraft:soul_sand_valley": 163,
+        "minecraft:warped_forest": 15,
+        "slavicmyths:black_cinder": 18,
+        "slavicmyths:lost_halls": 3,
+        "slavicmyths:navya_grove": 51
+      },
+      "allSevenAnchorsClassifiedHalls": 1
+    },
+    {
+      "seed": 42042,
+      "center": [
+        16384,
+        0
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 53,
+        "minecraft:crimson_forest": 290,
+        "minecraft:nether_wastes": 237,
+        "minecraft:soul_sand_valley": 204,
+        "minecraft:warped_forest": 36,
+        "slavicmyths:black_cinder": 46,
+        "slavicmyths:navya_grove": 158
+      },
+      "allSevenAnchorsClassifiedHalls": 0
+    },
+    {
+      "seed": 42042,
+      "center": [
+        -16384,
+        8192
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 90,
+        "minecraft:crimson_forest": 282,
+        "minecraft:nether_wastes": 274,
+        "minecraft:soul_sand_valley": 152,
+        "minecraft:warped_forest": 66,
+        "slavicmyths:black_cinder": 20,
+        "slavicmyths:lost_halls": 9,
+        "slavicmyths:navya_grove": 131
+      },
+      "allSevenAnchorsClassifiedHalls": 1
+    },
+    {
+      "seed": 42042,
+      "center": [
+        8192,
+        -16384
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 55,
+        "minecraft:crimson_forest": 327,
+        "minecraft:nether_wastes": 309,
+        "minecraft:soul_sand_valley": 136,
+        "minecraft:warped_forest": 22,
+        "slavicmyths:black_cinder": 80,
+        "slavicmyths:lost_halls": 27,
+        "slavicmyths:navya_grove": 68
+      },
+      "allSevenAnchorsClassifiedHalls": 3
+    },
+    {
+      "seed": 42043,
+      "center": [
+        0,
+        0
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 70,
+        "minecraft:crimson_forest": 137,
+        "minecraft:nether_wastes": 403,
+        "minecraft:soul_sand_valley": 162,
+        "minecraft:warped_forest": 21,
+        "slavicmyths:black_cinder": 10,
+        "slavicmyths:navya_grove": 221
+      },
+      "allSevenAnchorsClassifiedHalls": 0
+    },
+    {
+      "seed": 42043,
+      "center": [
+        16384,
+        0
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 135,
+        "minecraft:crimson_forest": 300,
+        "minecraft:nether_wastes": 267,
+        "minecraft:soul_sand_valley": 185,
+        "minecraft:warped_forest": 33,
+        "slavicmyths:black_cinder": 1,
+        "slavicmyths:lost_halls": 54,
+        "slavicmyths:navya_grove": 49
+      },
+      "allSevenAnchorsClassifiedHalls": 6
+    },
+    {
+      "seed": 42043,
+      "center": [
+        -16384,
+        8192
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 81,
+        "minecraft:crimson_forest": 314,
+        "minecraft:nether_wastes": 298,
+        "minecraft:soul_sand_valley": 116,
+        "minecraft:warped_forest": 53,
+        "slavicmyths:black_cinder": 26,
+        "slavicmyths:lost_halls": 18,
+        "slavicmyths:navya_grove": 118
+      },
+      "allSevenAnchorsClassifiedHalls": 2
+    },
+    {
+      "seed": 42043,
+      "center": [
+        8192,
+        -16384
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 119,
+        "minecraft:crimson_forest": 193,
+        "minecraft:nether_wastes": 355,
+        "minecraft:soul_sand_valley": 149,
+        "minecraft:warped_forest": 35,
+        "slavicmyths:black_cinder": 16,
+        "slavicmyths:lost_halls": 36,
+        "slavicmyths:navya_grove": 121
+      },
+      "allSevenAnchorsClassifiedHalls": 4
+    },
+    {
+      "seed": 42044,
+      "center": [
+        0,
+        0
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 119,
+        "minecraft:crimson_forest": 269,
+        "minecraft:nether_wastes": 347,
+        "minecraft:soul_sand_valley": 137,
+        "minecraft:warped_forest": 26,
+        "slavicmyths:black_cinder": 34,
+        "slavicmyths:navya_grove": 92
+      },
+      "allSevenAnchorsClassifiedHalls": 0
+    },
+    {
+      "seed": 42044,
+      "center": [
+        16384,
+        0
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 87,
+        "minecraft:crimson_forest": 153,
+        "minecraft:nether_wastes": 254,
+        "minecraft:soul_sand_valley": 126,
+        "minecraft:warped_forest": 144,
+        "slavicmyths:black_cinder": 6,
+        "slavicmyths:lost_halls": 45,
+        "slavicmyths:navya_grove": 209
+      },
+      "allSevenAnchorsClassifiedHalls": 5
+    },
+    {
+      "seed": 42044,
+      "center": [
+        -16384,
+        8192
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 81,
+        "minecraft:crimson_forest": 167,
+        "minecraft:nether_wastes": 389,
+        "minecraft:soul_sand_valley": 228,
+        "minecraft:warped_forest": 2,
+        "slavicmyths:black_cinder": 74,
+        "slavicmyths:lost_halls": 39,
+        "slavicmyths:navya_grove": 44
+      },
+      "allSevenAnchorsClassifiedHalls": 5
+    },
+    {
+      "seed": 42044,
+      "center": [
+        8192,
+        -16384
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 109,
+        "minecraft:crimson_forest": 185,
+        "minecraft:nether_wastes": 343,
+        "minecraft:soul_sand_valley": 219,
+        "minecraft:warped_forest": 24,
+        "slavicmyths:black_cinder": 21,
+        "slavicmyths:lost_halls": 18,
+        "slavicmyths:navya_grove": 105
+      },
+      "allSevenAnchorsClassifiedHalls": 2
+    },
+    {
+      "seed": 42045,
+      "center": [
+        0,
+        0
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 90,
+        "minecraft:crimson_forest": 171,
+        "minecraft:nether_wastes": 387,
+        "minecraft:soul_sand_valley": 145,
+        "minecraft:warped_forest": 51,
+        "slavicmyths:black_cinder": 26,
+        "slavicmyths:lost_halls": 6,
+        "slavicmyths:navya_grove": 148
+      },
+      "allSevenAnchorsClassifiedHalls": 0
+    },
+    {
+      "seed": 42045,
+      "center": [
+        16384,
+        0
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 111,
+        "minecraft:crimson_forest": 340,
+        "minecraft:nether_wastes": 241,
+        "minecraft:soul_sand_valley": 126,
+        "minecraft:warped_forest": 42,
+        "slavicmyths:black_cinder": 76,
+        "slavicmyths:lost_halls": 18,
+        "slavicmyths:navya_grove": 70
+      },
+      "allSevenAnchorsClassifiedHalls": 2
+    },
+    {
+      "seed": 42045,
+      "center": [
+        -16384,
+        8192
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 235,
+        "minecraft:crimson_forest": 94,
+        "minecraft:nether_wastes": 335,
+        "minecraft:soul_sand_valley": 145,
+        "minecraft:warped_forest": 51,
+        "slavicmyths:black_cinder": 1,
+        "slavicmyths:lost_halls": 27,
+        "slavicmyths:navya_grove": 136
+      },
+      "allSevenAnchorsClassifiedHalls": 3
+    },
+    {
+      "seed": 42045,
+      "center": [
+        8192,
+        -16384
+      ],
+      "sampleSpanBlocks": 2048,
+      "stepBlocks": 64,
+      "counts": {
+        "minecraft:basalt_deltas": 134,
+        "minecraft:crimson_forest": 176,
+        "minecraft:nether_wastes": 288,
+        "minecraft:soul_sand_valley": 130,
+        "minecraft:warped_forest": 67,
+        "slavicmyths:black_cinder": 7,
+        "slavicmyths:lost_halls": 51,
+        "slavicmyths:navya_grove": 171
+      },
+      "allSevenAnchorsClassifiedHalls": 6
+    }
+  ]
+}

@@ -36,6 +36,14 @@ public final class IslandsMob extends PathfinderMob {
  public IslandsMob(EntityType<? extends IslandsMob> type,Level level,Kind kind){super(type,level);this.kind=kind;xpReward=kind==Kind.MAGMA_LORD?60:kind==Kind.VENT_GOLEM?15:5;}
  public static AttributeSupplier.Builder attributes(Kind k){return Mob.createMobAttributes().add(Attributes.MAX_HEALTH,k==Kind.MAGMA_LORD?850:k==Kind.VENT_GOLEM?150:55).add(Attributes.ATTACK_DAMAGE,switch(k){case HEAT_SALAMANDER->6;case SLAG_CRAB->7;case VENT_GOLEM->12;case MAGMA_LORD->14;}).add(Attributes.MOVEMENT_SPEED,switch(k){case HEAT_SALAMANDER->.24;case SLAG_CRAB->.20;case VENT_GOLEM->.18;case MAGMA_LORD->.23;}).add(Attributes.FOLLOW_RANGE,32).add(Attributes.KNOCKBACK_RESISTANCE,k==Kind.MAGMA_LORD?.85:k==Kind.VENT_GOLEM?.65:.15);}
  public boolean boss(){return kind==Kind.MAGMA_LORD;}
+ @Override protected boolean shouldDespawnInPeaceful(){return boss();}
+ /** Category alone does not remove a PathfinderMob. Keep ordinary neutral island fauna. */
+ private boolean peacefulBoss(){return boss()&&level().getDifficulty()==Difficulty.PEACEFUL;}
+ @Override public void remove(Entity.RemovalReason reason){
+  // Includes discard/checkDespawn, unload, dimension removal and the normal death path.
+  if(!level().isClientSide)bar.removeAllPlayers();
+  super.remove(reason);
+ }
  public boolean second(){return entityData.get(SECOND);}
  public boolean exposed(){return entityData.get(EXPOSED)>0;}
  public Action action(){return Action.values()[Math.clamp(entityData.get(ACTION),0,Action.values().length-1)];}
@@ -58,6 +66,7 @@ public final class IslandsMob extends PathfinderMob {
  @Override public boolean isAlliedTo(Entity e){return e instanceof IslandsMob||super.isAlliedTo(e);}
  private void remember(LivingEntity attacker){provoker=attacker.getUUID();anger=600;if(participants.size()<16)participants.add(provoker);setTarget(attacker);}
  @Override public boolean hurt(DamageSource source,float amount){
+  if(!level().isClientSide&&peacefulBoss()){discard();return false;}
   // Chest is a real spatial weak zone: projectile impact or adjacent melee eye ray through core height.
   if(boss()&&exposed()&&source.getEntity() instanceof LivingEntity a&&coreHit(source,a))amount*=1.35F;
   boolean hit=super.hurt(source,amount);
@@ -81,6 +90,8 @@ public final class IslandsMob extends PathfinderMob {
  }
  private void begin(Action a){entityData.set(ACTION,a.ordinal());entityData.set(START,level().getGameTime());age=0;struck.clear();origin=position();castReach=getTarget()==null?18:Math.clamp(distanceTo(getTarget()),18,128);forward=getTarget()==null?getLookAngle().multiply(1,0,1).normalize():getTarget().position().subtract(origin).multiply(1,0,1).normalize();navigation.stop();}
  @Override public void tick(){
+  // Run before super.tick(): no goal, cast, phase, encounter registration or death loot in Peaceful.
+  if(!level().isClientSide&&peacefulBoss()){discard();return;}
   super.tick();if(level().isClientSide||!isAlive())return;
   if(alarmCooldown>0)alarmCooldown--;if(cooldown>0)cooldown--;
   if(entityData.get(EXPOSED)>0)entityData.set(EXPOSED,entityData.get(EXPOSED)-1);
@@ -182,13 +193,15 @@ public final class IslandsMob extends PathfinderMob {
   if(deathTime>=80&&!level().isClientSide){if(lastPlayer!=null&&level() instanceof ServerLevel s){var winner=s.getServer().getPlayerList().getPlayer(lastPlayer);if(winner!=null)MagmaRewards.reconcile(winner);}level().broadcastEntityEvent(this,(byte)60);remove(Entity.RemovalReason.KILLED);}
  }
  @Override public boolean doHurtTarget(Entity target){return false;}
- @Override public void startSeenByPlayer(ServerPlayer p){super.startSeenByPlayer(p);if(boss())bar.addPlayer(p);}
+ @Override public void startSeenByPlayer(ServerPlayer p){super.startSeenByPlayer(p);if(boss()&&!peacefulBoss()&&!isRemoved())bar.addPlayer(p);}
  @Override public void stopSeenByPlayer(ServerPlayer p){super.stopSeenByPlayer(p);bar.removePlayer(p);}
  @Override protected void dropCustomDeathLoot(ServerLevel s,DamageSource source,boolean recentlyHit){
   super.dropCustomDeathLoot(s,source,recentlyHit);
   if(!boss()||rewarded||home==null)return;
   UUID winner=source.getEntity() instanceof ServerPlayer p?p.getUUID():lastPlayer;
-  if(winner==null||!MagmaEncounters.get(s).claim(home.asLong(),getUUID(),winner,4+random.nextInt(3),s.getGameTime()+80))return;
+  if(winner==null||!MagmaEncounters.get(s).canClaim(home.asLong(),getUUID()))return;
+  var pin=org.slavicmyths.losthalls.BossRewardInbox.prepare(s.getServer(),s.dimension().location()+":"+home.asLong(),"magma",winner,4+random.nextInt(3),s.getServer().overworld().getGameTime()+80);
+  if(pin==null||!MagmaEncounters.get(s).claim(home.asLong(),getUUID(),pin.recipient(),pin.cores(),s.getGameTime()+80))return;winner=pin.recipient();
   rewarded=true;lastPlayer=winner;
   var player=s.getServer().getPlayerList().getPlayer(winner);if(player!=null)MagmaRewards.expect(player);
  }

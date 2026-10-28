@@ -37,7 +37,7 @@ public final class JeiRituals implements IModPlugin {
             ResourceLocation.fromNamespaceAndPath("slavicmyths", "amber_charm"), ResourceLocation.fromNamespaceAndPath("slavicmyths", "ritual_charcoal"),
             ResourceLocation.fromNamespaceAndPath("slavicmyths", "thunder_spear"), ResourceLocation.fromNamespaceAndPath("slavicmyths", "perunite_mace"),
             ResourceLocation.fromNamespaceAndPath("slavicmyths", "ember_axe")));
-        java.util.List<ResourceLocation> runes=new java.util.ArrayList<>();for(String id:org.slavicmyths.rpg.Runes.IDS)if(!org.slavicmyths.burningislands.MagmaRuneRules.rune(id))runes.add(ResourceLocation.fromNamespaceAndPath("slavicmyths","rune_"+id));registration.addRecipes(RECIPE_TYPE,runes); }
+        java.util.List<ResourceLocation> runes=new java.util.ArrayList<>();for(String id:org.slavicmyths.rpg.Runes.IDS)if(!id.equals("shadow_face")&&!org.slavicmyths.burningislands.MagmaRuneRules.rune(id))runes.add(ResourceLocation.fromNamespaceAndPath("slavicmyths","rune_"+id));registration.addRecipes(RECIPE_TYPE,runes); }
     @Override public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(new ItemStack(ModItems.ALTAR.get()),RECIPE_TYPE);
     }

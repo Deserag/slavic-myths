@@ -15,6 +15,7 @@ import org.slavicmyths.registry.*;
 
 /** Non-damaging geology and one fireproof Nether timber family. No sapling. */
 public final class CinderBlocks {
+ public static final Map<String,DeferredHolder<Item,Item>> ITEMS=new LinkedHashMap<>();
  public static final Map<String,DeferredHolder<Block,Block>> ALL=new LinkedHashMap<>();
  public static final WoodType WOOD=WoodType.register(new WoodType("slavicmyths:blackwood",BlockSetType.CRIMSON));
  static {
@@ -43,7 +44,7 @@ public final class CinderBlocks {
   add("blackwood_button",()->new ButtonBlock(BlockSetType.CRIMSON,30,BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_BUTTON)));
   add("blackwood_pressure_plate",()->new PressurePlateBlock(BlockSetType.CRIMSON,BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PRESSURE_PLATE)));
   add("charred_blackwood_leaves",()->new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_WART_BLOCK).strength(.2F).noOcclusion().sound(SoundType.AZALEA_LEAVES)));
-  add("zharenitsa_head",()->new Head());
+  add("zharenitsa_head",()->new org.slavicmyths.trophy.TrophyHeadBlock(org.slavicmyths.trophy.TrophyHeads.Kind.ZHARENITSA));
  }
  public static final class Head extends HorizontalDirectionalBlock {
   private static final Map<net.minecraft.core.Direction,net.minecraft.world.phys.shapes.VoxelShape> SHAPES=shapes();
@@ -64,7 +65,7 @@ public final class CinderBlocks {
  }
  private static BlockBehaviour.Properties stone(){return BlockBehaviour.Properties.ofFullCopy(Blocks.BLACKSTONE);}
  private static BlockBehaviour.Properties wood(){return BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS);}
- private static void add(String id,Supplier<Block> factory){var block=ModBlocks.BLOCKS.register(id,factory);ALL.put(id,block);ModItems.ITEMS.register(id,()->new BlockItem(block.get(),new Item.Properties()));}
+ private static void add(String id,Supplier<Block> factory){var block=ModBlocks.BLOCKS.register(id,factory);ALL.put(id,block);ITEMS.put(id,ModItems.ITEMS.register(id,()->new BlockItem(block.get(),new Item.Properties())));}
  public static Block get(String id){return ALL.get(id).get();}
  public static void init(){}
  private CinderBlocks(){}

@@ -1,0 +1,820 @@
+{
+  "scope": "Texture-only coarse RGB histogram audit; UV background/packing affects metric. No silhouette/art/runtime conclusion; no bestiary changes.",
+  "textures": [
+    {
+      "id": "slavicmyths:navka",
+      "texture": "src/main/resources/assets/slavicmyths/textures/entity/navka.png",
+      "sha256": "9bc612a40a20a506ddc39f914ba16d9beb9c8e7a7ef8aaa9b4040eedc921eecf",
+      "size": [
+        128,
+        128
+      ],
+      "dominant_rgb32": [
+        {
+          "rgb": [
+            48,
+            48,
+            80
+          ],
+          "fraction": 0.1686
+        },
+        {
+          "rgb": [
+            48,
+            48,
+            48
+          ],
+          "fraction": 0.1597
+        },
+        {
+          "rgb": [
+            176,
+            176,
+            176
+          ],
+          "fraction": 0.1559
+        },
+        {
+          "rgb": [
+            80,
+            80,
+            80
+          ],
+          "fraction": 0.1533
+        },
+        {
+          "rgb": [
+            16,
+            16,
+            48
+          ],
+          "fraction": 0.1174
+        }
+      ]
+    },
+    {
+      "id": "slavicmyths:rootling",
+      "texture": "src/main/resources/assets/slavicmyths/textures/entity/rootling.png",
+      "sha256": "4ef5bf157084af22ad2162fcf6472cb7c1c89c99248d6aea50afe8985f0de5b4",
+      "size": [
+        128,
+        128
+      ],
+      "dominant_rgb32": [
+        {
+          "rgb": [
+            48,
+            48,
+            48
+          ],
+          "fraction": 0.3415
+        },
+        {
+          "rgb": [
+            80,
+            48,
+            48
+          ],
+          "fraction": 0.3314
+        },
+        {
+          "rgb": [
+            48,
+            16,
+            16
+          ],
+          "fraction": 0.1515
+        },
+        {
+          "rgb": [
+            48,
+            16,
+            48
+          ],
+          "fraction": 0.0822
+        },
+        {
+          "rgb": [
+            16,
+            16,
+            16
+          ],
+          "fraction": 0.0721
+        }
+      ]
+    },
+    {
+      "id": "slavicmyths:bone_crawler",
+      "texture": "src/main/resources/assets/slavicmyths/textures/entity/bone_crawler.png",
+      "sha256": "820fd7738a43c371fb124bf455e5925ec357bb3b8af66f27cd47d5c55cf07d86",
+      "size": [
+        256,
+        256
+      ],
+      "dominant_rgb32": [
+        {
+          "rgb": [
+            176,
+            176,
+            144
+          ],
+          "fraction": 0.4326
+        },
+        {
+          "rgb": [
+            112,
+            112,
+            80
+          ],
+          "fraction": 0.2261
+        },
+        {
+          "rgb": [
+            112,
+            80,
+            80
+          ],
+          "fraction": 0.1191
+        },
+        {
+          "rgb": [
+            208,
+            176,
+            144
+          ],
+          "fraction": 0.1042
+        },
+        {
+          "rgb": [
+            176,
+            144,
+            112
+          ],
+          "fraction": 0.0601
+        }
+      ]
+    },
+    {
+      "id": "slavicmyths:navya_wisp",
+      "texture": "src/main/resources/assets/slavicmyths/textures/entity/navya_wisp.png",
+      "sha256": "e38049430d574eae572d4eb8ca9c7eee133d6a886a79d7674b1b44396910f218",
+      "size": [
+        128,
+        128
+      ],
+      "dominant_rgb32": [
+        {
+          "rgb": [
+            112,
+            112,
+            176
+          ],
+          "fraction": 0.2832
+        },
+        {
+          "rgb": [
+            176,
+            176,
+            208
+          ],
+          "fraction": 0.1676
+        },
+        {
+          "rgb": [
+            80,
+            80,
+            144
+          ],
+          "fraction": 0.1532
+        },
+        {
+          "rgb": [
+            80,
+            112,
+            176
+          ],
+          "fraction": 0.0896
+        },
+        {
+          "rgb": [
+            112,
+            144,
+            176
+          ],
+          "fraction": 0.0809
+        }
+      ]
+    },
+    {
+      "id": "slavicmyths:ash_spirit",
+      "texture": "src/main/resources/assets/slavicmyths/textures/entity/ash_spirit.png",
+      "sha256": "e4b3a07e7c82b6f1ba8978ae8ad79d9d33e85ee963e00d5aec45f9aa8372d2c2",
+      "size": [
+        512,
+        512
+      ],
+      "dominant_rgb32": [
+        {
+          "rgb": [
+            112,
+            112,
+            112
+          ],
+          "fraction": 0.7292
+        },
+        {
+          "rgb": [
+            48,
+            16,
+            16
+          ],
+          "fraction": 0.1282
+        },
+        {
+          "rgb": [
+            144,
+            144,
+            112
+          ],
+          "fraction": 0.0551
+        },
+        {
+          "rgb": [
+            80,
+            80,
+            80
+          ],
+          "fraction": 0.0495
+        },
+        {
+          "rgb": [
+            208,
+            112,
+            48
+          ],
+          "fraction": 0.0115
+        }
+      ]
+    },
+    {
+      "id": "slavicmyths:coal_crawler",
+      "texture": "src/main/resources/assets/slavicmyths/textures/entity/coal_crawler.png",
+      "sha256": "455ef7b6487cfd72e9bbf484128d51fea98f9cf75ec9d0c7cd76f4b9763d13d6",
+      "size": [
+        512,
+        512
+      ],
+      "dominant_rgb32": [
+        {
+          "rgb": [
+            48,
+            16,
+            16
+          ],
+          "fraction": 0.7821
+        },
+        {
+          "rgb": [
+            48,
+            48,
+            48
+          ],
+          "fraction": 0.0584
+        },
+        {
+          "rgb": [
+            16,
+            16,
+            16
+          ],
+          "fraction": 0.0572
+        },
+        {
+          "rgb": [
+            208,
+            80,
+            16
+          ],
+          "fraction": 0.0382
+        },
+        {
+          "rgb": [
+            208,
+            112,
+            48
+          ],
+          "fraction": 0.0382
+        }
+      ]
+    },
+    {
+      "id": "slavicmyths:pekelnik",
+      "texture": "src/main/resources/assets/slavicmyths/textures/entity/pekelnik.png",
+      "sha256": "cc49132f33f46a9ae40778eba99d4b9d2b8c9d7655680e8317d0ef645165573d",
+      "size": [
+        512,
+        512
+      ],
+      "dominant_rgb32": [
+        {
+          "rgb": [
+            48,
+            16,
+            16
+          ],
+          "fraction": 0.7508
+        },
+        {
+          "rgb": [
+            208,
+            80,
+            16
+          ],
+          "fraction": 0.0865
+        },
+        {
+          "rgb": [
+            16,
+            16,
+            16
+          ],
+          "fraction": 0.0594
+        },
+        {
+          "rgb": [
+            48,
+            48,
+            48
+          ],
+          "fraction": 0.0586
+        },
+        {
+          "rgb": [
+            208,
+            112,
+            48
+          ],
+          "fraction": 0.0308
+        }
+      ]
+    },
+    {
+      "id": "slavicmyths:sparkling",
+      "texture": "src/main/resources/assets/slavicmyths/textures/entity/sparkling.png",
+      "sha256": "2a0a5fb320d4f3ce3b6747ad91c013ff2fe9b2383023ee423495d2f4dd63cba5",
+      "size": [
+        512,
+        512
+      ],
+      "dominant_rgb32": [
+        {
+          "rgb": [
+            48,
+            16,
+            16
+          ],
+          "fraction": 0.6183
+        },
+        {
+          "rgb": [
+            208,
+            80,
+            16
+          ],
+          "fraction": 0.1882
+        },
+        {
+          "rgb": [
+            16,
+            16,
+            16
+          ],
+          "fraction": 0.0591
+        },
+        {
+          "rgb": [
+            208,
+            112,
+            48
+          ],
+          "fraction": 0.0538
+        },
+        {
+          "rgb": [
+            48,
+            48,
+            48
+          ],
+          "fraction": 0.043
+        }
+      ]
+    },
+    {
+      "id": "slavicmyths:heat_salamander",
+      "texture": "src/main/resources/assets/slavicmyths/textures/entity/burning_islands/heat_salamander.png",
+      "sha256": "b8687046a8bdda6ce172c8184cc723fecce9f880e79fa46a469647c23a48b767",
+      "size": [
+        512,
+        512
+      ],
+      "dominant_rgb32": [
+        {
+          "rgb": [
+            48,
+            48,
+            48
+          ],
+          "fraction": 0.8046
+        },
+        {
+          "rgb": [
+            48,
+            16,
+            48
+          ],
+          "fraction": 0.102
+        },
+        {
+          "rgb": [
+            240,
+            112,
+            16
+          ],
+          "fraction": 0.0704
+        },
+        {
+          "rgb": [
+            240,
+            80,
+            16
+          ],
+          "fraction": 0.023
+        }
+      ]
+    },
+    {
+      "id": "slavicmyths:slag_crab",
+      "texture": "src/main/resources/assets/slavicmyths/textures/entity/burning_islands/slag_crab.png",
+      "sha256": "9124abeb2e351fdeccedbb148862283358659ce86b6007e11d49633c76a69002",
+      "size": [
+        512,
+        512
+      ],
+      "dominant_rgb32": [
+        {
+          "rgb": [
+            48,
+            48,
+            48
+          ],
+          "fraction": 0.851
+        },
+        {
+          "rgb": [
+            48,
+            16,
+            48
+          ],
+          "fraction": 0.097
+        },
+        {
+          "rgb": [
+            240,
+            112,
+            16
+          ],
+          "fraction": 0.0402
+        },
+        {
+          "rgb": [
+            240,
+            80,
+            16
+          ],
+          "fraction": 0.0118
+        }
+      ]
+    },
+    {
+      "id": "slavicmyths:vent_golem",
+      "texture": "src/main/resources/assets/slavicmyths/textures/entity/burning_islands/vent_golem.png",
+      "sha256": "8a77dd5b31dbaf12edc5912604d7644c5d266a535f8bd8b10ac704d6ceb74c9f",
+      "size": [
+        512,
+        512
+      ],
+      "dominant_rgb32": [
+        {
+          "rgb": [
+            48,
+            48,
+            48
+          ],
+          "fraction": 0.8398
+        },
+        {
+          "rgb": [
+            48,
+            16,
+            48
+          ],
+          "fraction": 0.0969
+        },
+        {
+          "rgb": [
+            240,
+            112,
+            16
+          ],
+          "fraction": 0.0459
+        },
+        {
+          "rgb": [
+            240,
+            80,
+            16
+          ],
+          "fraction": 0.0174
+        }
+      ]
+    }
+  ],
+  "pairs_descending": [
+    {
+      "a": "slavicmyths:slag_crab",
+      "b": "slavicmyths:vent_golem",
+      "quantized_histogram_overlap": 0.9888
+    },
+    {
+      "a": "slavicmyths:heat_salamander",
+      "b": "slavicmyths:vent_golem",
+      "quantized_histogram_overlap": 0.9648
+    },
+    {
+      "a": "slavicmyths:heat_salamander",
+      "b": "slavicmyths:slag_crab",
+      "quantized_histogram_overlap": 0.9536
+    },
+    {
+      "a": "slavicmyths:coal_crawler",
+      "b": "slavicmyths:pekelnik",
+      "quantized_histogram_overlap": 0.9426
+    },
+    {
+      "a": "slavicmyths:pekelnik",
+      "b": "slavicmyths:sparkling",
+      "quantized_histogram_overlap": 0.8516
+    },
+    {
+      "a": "slavicmyths:coal_crawler",
+      "b": "slavicmyths:sparkling",
+      "quantized_histogram_overlap": 0.8021
+    },
+    {
+      "a": "slavicmyths:rootling",
+      "b": "slavicmyths:heat_salamander",
+      "quantized_histogram_overlap": 0.4237
+    },
+    {
+      "a": "slavicmyths:rootling",
+      "b": "slavicmyths:slag_crab",
+      "quantized_histogram_overlap": 0.4237
+    },
+    {
+      "a": "slavicmyths:rootling",
+      "b": "slavicmyths:vent_golem",
+      "quantized_histogram_overlap": 0.4237
+    },
+    {
+      "a": "slavicmyths:navka",
+      "b": "slavicmyths:rootling",
+      "quantized_histogram_overlap": 0.3154
+    },
+    {
+      "a": "slavicmyths:rootling",
+      "b": "slavicmyths:pekelnik",
+      "quantized_histogram_overlap": 0.2695
+    },
+    {
+      "a": "slavicmyths:rootling",
+      "b": "slavicmyths:coal_crawler",
+      "quantized_histogram_overlap": 0.2671
+    },
+    {
+      "a": "slavicmyths:rootling",
+      "b": "slavicmyths:sparkling",
+      "quantized_histogram_overlap": 0.2537
+    },
+    {
+      "a": "slavicmyths:navka",
+      "b": "slavicmyths:heat_salamander",
+      "quantized_histogram_overlap": 0.2519
+    },
+    {
+      "a": "slavicmyths:navka",
+      "b": "slavicmyths:slag_crab",
+      "quantized_histogram_overlap": 0.2519
+    },
+    {
+      "a": "slavicmyths:navka",
+      "b": "slavicmyths:vent_golem",
+      "quantized_histogram_overlap": 0.2519
+    },
+    {
+      "a": "slavicmyths:ash_spirit",
+      "b": "slavicmyths:coal_crawler",
+      "quantized_histogram_overlap": 0.1849
+    },
+    {
+      "a": "slavicmyths:ash_spirit",
+      "b": "slavicmyths:pekelnik",
+      "quantized_histogram_overlap": 0.1662
+    },
+    {
+      "a": "slavicmyths:ash_spirit",
+      "b": "slavicmyths:sparkling",
+      "quantized_histogram_overlap": 0.1662
+    },
+    {
+      "a": "slavicmyths:rootling",
+      "b": "slavicmyths:ash_spirit",
+      "quantized_histogram_overlap": 0.1454
+    },
+    {
+      "a": "slavicmyths:navka",
+      "b": "slavicmyths:pekelnik",
+      "quantized_histogram_overlap": 0.118
+    },
+    {
+      "a": "slavicmyths:navka",
+      "b": "slavicmyths:coal_crawler",
+      "quantized_histogram_overlap": 0.117
+    },
+    {
+      "a": "slavicmyths:navka",
+      "b": "slavicmyths:sparkling",
+      "quantized_histogram_overlap": 0.1022
+    },
+    {
+      "a": "slavicmyths:navka",
+      "b": "slavicmyths:ash_spirit",
+      "quantized_histogram_overlap": 0.0667
+    },
+    {
+      "a": "slavicmyths:pekelnik",
+      "b": "slavicmyths:heat_salamander",
+      "quantized_histogram_overlap": 0.0586
+    },
+    {
+      "a": "slavicmyths:pekelnik",
+      "b": "slavicmyths:slag_crab",
+      "quantized_histogram_overlap": 0.0586
+    },
+    {
+      "a": "slavicmyths:pekelnik",
+      "b": "slavicmyths:vent_golem",
+      "quantized_histogram_overlap": 0.0586
+    },
+    {
+      "a": "slavicmyths:coal_crawler",
+      "b": "slavicmyths:heat_salamander",
+      "quantized_histogram_overlap": 0.0584
+    },
+    {
+      "a": "slavicmyths:coal_crawler",
+      "b": "slavicmyths:slag_crab",
+      "quantized_histogram_overlap": 0.0584
+    },
+    {
+      "a": "slavicmyths:coal_crawler",
+      "b": "slavicmyths:vent_golem",
+      "quantized_histogram_overlap": 0.0584
+    },
+    {
+      "a": "slavicmyths:bone_crawler",
+      "b": "slavicmyths:ash_spirit",
+      "quantized_histogram_overlap": 0.0479
+    },
+    {
+      "a": "slavicmyths:navka",
+      "b": "slavicmyths:bone_crawler",
+      "quantized_histogram_overlap": 0.0437
+    },
+    {
+      "a": "slavicmyths:sparkling",
+      "b": "slavicmyths:heat_salamander",
+      "quantized_histogram_overlap": 0.043
+    },
+    {
+      "a": "slavicmyths:sparkling",
+      "b": "slavicmyths:slag_crab",
+      "quantized_histogram_overlap": 0.043
+    },
+    {
+      "a": "slavicmyths:sparkling",
+      "b": "slavicmyths:vent_golem",
+      "quantized_histogram_overlap": 0.043
+    },
+    {
+      "a": "slavicmyths:ash_spirit",
+      "b": "slavicmyths:heat_salamander",
+      "quantized_histogram_overlap": 0.009
+    },
+    {
+      "a": "slavicmyths:ash_spirit",
+      "b": "slavicmyths:slag_crab",
+      "quantized_histogram_overlap": 0.009
+    },
+    {
+      "a": "slavicmyths:ash_spirit",
+      "b": "slavicmyths:vent_golem",
+      "quantized_histogram_overlap": 0.009
+    },
+    {
+      "a": "slavicmyths:bone_crawler",
+      "b": "slavicmyths:coal_crawler",
+      "quantized_histogram_overlap": 0.0075
+    },
+    {
+      "a": "slavicmyths:navka",
+      "b": "slavicmyths:navya_wisp",
+      "quantized_histogram_overlap": 0
+    },
+    {
+      "a": "slavicmyths:rootling",
+      "b": "slavicmyths:bone_crawler",
+      "quantized_histogram_overlap": 0
+    },
+    {
+      "a": "slavicmyths:rootling",
+      "b": "slavicmyths:navya_wisp",
+      "quantized_histogram_overlap": 0
+    },
+    {
+      "a": "slavicmyths:bone_crawler",
+      "b": "slavicmyths:navya_wisp",
+      "quantized_histogram_overlap": 0
+    },
+    {
+      "a": "slavicmyths:bone_crawler",
+      "b": "slavicmyths:pekelnik",
+      "quantized_histogram_overlap": 0
+    },
+    {
+      "a": "slavicmyths:bone_crawler",
+      "b": "slavicmyths:sparkling",
+      "quantized_histogram_overlap": 0
+    },
+    {
+      "a": "slavicmyths:bone_crawler",
+      "b": "slavicmyths:heat_salamander",
+      "quantized_histogram_overlap": 0
+    },
+    {
+      "a": "slavicmyths:bone_crawler",
+      "b": "slavicmyths:slag_crab",
+      "quantized_histogram_overlap": 0
+    },
+    {
+      "a": "slavicmyths:bone_crawler",
+      "b": "slavicmyths:vent_golem",
+      "quantized_histogram_overlap": 0
+    },
+    {
+      "a": "slavicmyths:navya_wisp",
+      "b": "slavicmyths:ash_spirit",
+      "quantized_histogram_overlap": 0
+    },
+    {
+      "a": "slavicmyths:navya_wisp",
+      "b": "slavicmyths:coal_crawler",
+      "quantized_histogram_overlap": 0
+    },
+    {
+      "a": "slavicmyths:navya_wisp",
+      "b": "slavicmyths:pekelnik",
+      "quantized_histogram_overlap": 0
+    },
+    {
+      "a": "slavicmyths:navya_wisp",
+      "b": "slavicmyths:sparkling",
+      "quantized_histogram_overlap": 0
+    },
+    {
+      "a": "slavicmyths:navya_wisp",
+      "b": "slavicmyths:heat_salamander",
+      "quantized_histogram_overlap": 0
+    },
+    {
+      "a": "slavicmyths:navya_wisp",
+      "b": "slavicmyths:slag_crab",
+      "quantized_histogram_overlap": 0
+    },
+    {
+      "a": "slavicmyths:navya_wisp",
+      "b": "slavicmyths:vent_golem",
+      "quantized_histogram_overlap": 0
+    }
+  ],
+  "next": "Separate owner-prioritized bestiary audit after bosses, not automatic implementation."
+}

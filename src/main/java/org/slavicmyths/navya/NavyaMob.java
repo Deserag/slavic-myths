@@ -198,6 +198,12 @@ public final class NavyaMob extends PathfinderMob {
         // Cancel an interrupted telegraph on reload; never replay its damage.
         entityData.set(ACTION,0);entityData.set(START,level().getGameTime());recovery=Math.max(recovery,30);
     }
+    @Override protected void dropCustomDeathLoot(ServerLevel level,DamageSource source,boolean hit){
+        super.dropCustomDeathLoot(level,source,hit);if(kind!=Kind.GUARDIAN)return;
+        ServerPlayer winner=source.getEntity() instanceof ServerPlayer p?p:getKillCredit() instanceof ServerPlayer p?p:null;
+        if(winner!=null)org.slavicmyths.losthalls.BossRewardInbox.prepare(level.getServer(),"guardian:"+getUUID(),"guardian_head",winner.getUUID(),0,level.getServer().overworld().getGameTime());
+        else spawnAtLocation(org.slavicmyths.trophy.TrophyHeads.ITEMS.get(org.slavicmyths.trophy.TrophyHeads.Kind.GROVE_GUARDIAN).get());
+    }
     private static int clamp(int value) { return Math.max(0,Math.min(1200,value)); }
     public void home(BlockPos pos) { home=pos.immutable();restrictTo(home,24);setPersistenceRequired(); }
     private final class CombatGoal extends Goal {

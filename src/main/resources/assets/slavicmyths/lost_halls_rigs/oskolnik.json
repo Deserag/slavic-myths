@@ -1,0 +1,382 @@
+{
+  "atlas": 512,
+  "parts": [
+    {
+      "name": "body",
+      "parent": "root",
+      "pivot": [
+        0,
+        -5,
+        0
+      ],
+      "size": [
+        22,
+        20,
+        13
+      ],
+      "material": "stone",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -11.0,
+        -10.0,
+        -6.5
+      ],
+      "uv": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "root",
+      "pivot": [
+        0,
+        -20,
+        -1
+      ],
+      "size": [
+        10,
+        10,
+        10
+      ],
+      "material": "stone",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -5.0,
+        -5.0,
+        -5.0
+      ],
+      "uv": [
+        72,
+        0
+      ]
+    },
+    {
+      "name": "leg0",
+      "parent": "root",
+      "pivot": [
+        -6,
+        13,
+        0
+      ],
+      "size": [
+        9,
+        18,
+        9
+      ],
+      "material": "stone",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -4.5,
+        -9.0,
+        -4.5
+      ],
+      "uv": [
+        114,
+        0
+      ]
+    },
+    {
+      "name": "arm0",
+      "parent": "root",
+      "pivot": [
+        -15,
+        -5,
+        0
+      ],
+      "size": [
+        7,
+        17,
+        7
+      ],
+      "material": "stone",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -3.5,
+        -8.5,
+        -3.5
+      ],
+      "uv": [
+        152,
+        0
+      ]
+    },
+    {
+      "name": "forearm0",
+      "parent": "arm0",
+      "pivot": [
+        0,
+        12,
+        0
+      ],
+      "size": [
+        8,
+        12,
+        8
+      ],
+      "material": "stone",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -4.0,
+        -6.0,
+        -4.0
+      ],
+      "uv": [
+        182,
+        0
+      ]
+    },
+    {
+      "name": "eye0",
+      "parent": "head",
+      "pivot": [
+        -3,
+        -1,
+        -5.5
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "light",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -1.0,
+        -0.5
+      ],
+      "uv": [
+        216,
+        0
+      ]
+    },
+    {
+      "name": "leg1",
+      "parent": "root",
+      "pivot": [
+        6,
+        13,
+        0
+      ],
+      "size": [
+        9,
+        18,
+        9
+      ],
+      "material": "stone",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -4.5,
+        -9.0,
+        -4.5
+      ],
+      "uv": [
+        224,
+        0
+      ]
+    },
+    {
+      "name": "arm1",
+      "parent": "root",
+      "pivot": [
+        15,
+        -5,
+        0
+      ],
+      "size": [
+        7,
+        17,
+        7
+      ],
+      "material": "stone",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -3.5,
+        -8.5,
+        -3.5
+      ],
+      "uv": [
+        262,
+        0
+      ]
+    },
+    {
+      "name": "forearm1",
+      "parent": "arm1",
+      "pivot": [
+        0,
+        12,
+        0
+      ],
+      "size": [
+        8,
+        12,
+        8
+      ],
+      "material": "stone",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -4.0,
+        -6.0,
+        -4.0
+      ],
+      "uv": [
+        292,
+        0
+      ]
+    },
+    {
+      "name": "eye1",
+      "parent": "head",
+      "pivot": [
+        3,
+        -1,
+        -5.5
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "light",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -1.0,
+        -0.5
+      ],
+      "uv": [
+        326,
+        0
+      ]
+    },
+    {
+      "name": "crystal0",
+      "parent": "root",
+      "pivot": [
+        -8,
+        -21,
+        7
+      ],
+      "size": [
+        4,
+        15,
+        4
+      ],
+      "material": "light",
+      "rotation": [
+        0,
+        0,
+        -0.17
+      ],
+      "offset": [
+        -2.0,
+        -7.5,
+        -2.0
+      ],
+      "uv": [
+        334,
+        0
+      ]
+    },
+    {
+      "name": "crystal1",
+      "parent": "root",
+      "pivot": [
+        0,
+        -21,
+        7
+      ],
+      "size": [
+        4,
+        20,
+        4
+      ],
+      "material": "light",
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "offset": [
+        -2.0,
+        -10.0,
+        -2.0
+      ],
+      "uv": [
+        352,
+        0
+      ]
+    },
+    {
+      "name": "crystal2",
+      "parent": "root",
+      "pivot": [
+        8,
+        -21,
+        7
+      ],
+      "size": [
+        4,
+        15,
+        4
+      ],
+      "material": "light",
+      "rotation": [
+        0,
+        0,
+        0.17
+      ],
+      "offset": [
+        -2.0,
+        -7.5,
+        -2.0
+      ],
+      "uv": [
+        370,
+        0
+      ]
+    }
+  ]
+}

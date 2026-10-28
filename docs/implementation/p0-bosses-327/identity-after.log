@@ -1,0 +1,27 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :compileLostHallsOfflineJava UP-TO-DATE
+> Task :processLostHallsOfflineResources NO-SOURCE
+> Task :lostHallsOfflineClasses UP-TO-DATE
+
+> Task :verifyLostHallsLogic
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+{
+  "scope": "Production accounting/index, finite voxel routes and binary NBT only",
+  "status": "PASS",
+  "assertions": 12077,
+  "randomized_encounters": 200,
+  "distant_room_records": 5000,
+  "runtime_launches": 0,
+  "gameplay": "NOT_RUN_ENV_BLOCK"
+}
+
+
+BUILD SUCCESSFUL in 7s
+6 actionable tasks: 3 executed, 3 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

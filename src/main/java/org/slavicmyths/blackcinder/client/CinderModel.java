@@ -39,6 +39,7 @@ public final class CinderModel extends HierarchicalModel<CinderMob> {
     if(action!=CinderMob.Action.IDLE){p.xRot=active?(float)Math.sin((time-wind)*.2)*.45F:-charge*1.4F;if(action==CinderMob.Action.VORTEX)p.zRot=(n.endsWith("0")?1:-1)*1.15F;}
     if(action==CinderMob.Action.COAL&&n.endsWith("0"))p.xRot=-.15F;
    }
+   if(n.startsWith("forearm"))p.xRot+=action==CinderMob.Action.IDLE?-.18F:-charge*.7F;
    if(n.equals("jaw")&&action==CinderMob.Action.BITE)p.xRot=active?-.08F:charge*.65F;
   }
   if(flying)root.y=(float)Math.sin(age*.06)*(kind==CinderContent.Kind.SPARKLING?1.5F:1);

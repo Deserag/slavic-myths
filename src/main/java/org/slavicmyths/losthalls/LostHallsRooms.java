@@ -73,6 +73,7 @@ public final class LostHallsRooms extends SavedData {
 
     public boolean isReadOnly() { return readOnlySnapshot != null; }
     public int size() { return nodes.size(); }
+    public Optional<Node> node(UUID id) { return isReadOnly() ? Optional.empty() : Optional.ofNullable(nodes.get(id)); }
 
     /** Idempotent completion publication; a conflicting UUID cannot move a room. */
     public boolean registerCompleted(Node node) {

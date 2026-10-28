@@ -39,6 +39,12 @@ public final class SlavicMyths {
         org.slavicmyths.blackcinder.CinderBlocks.init();
         org.slavicmyths.blackcinder.CinderContent.init(bus);
         org.slavicmyths.burningislands.IslandsContent.init(bus);
+        org.slavicmyths.losthalls.HallsContent.init(bus);
+        org.slavicmyths.losthalls.HallsWorldgen.init();
+        org.slavicmyths.losthalls.HallsBolt.init();
+        org.slavicmyths.losthalls.PostenMob.init(bus);
+        org.slavicmyths.losthalls.ShadowFace.init();
+        org.slavicmyths.losthalls.ShadowDecoy.init(bus);
         org.slavicmyths.blackcinder.ZharenitsaSeals.init();
         org.slavicmyths.blackcinder.CinderWorldgen.init(bus);
         org.slavicmyths.navya.NavyaFeatures.init();

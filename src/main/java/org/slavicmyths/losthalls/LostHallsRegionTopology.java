@@ -89,7 +89,7 @@ public final class LostHallsRegionTopology {
                     + regionX + ":" + regionZ + ":" + i).getBytes(StandardCharsets.UTF_8));
         }
         int[][] edges = {{0, 1}, {1, 2}, {2, 3}, {3, 4}, {4, 5},
-                {5, 0}, {1, 3}, {3, 6}};
+                {5, 0}, {1, 3}, {3, 6}, {4, 6}};
         int[] exits = new int[6];
         List<Link> links = new ArrayList<>();
         for (int[] pair : edges) {

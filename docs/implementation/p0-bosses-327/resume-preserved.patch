@@ -1,0 +1,230 @@
+diff --git a/docs/ARCHITECTURE.md b/docs/ARCHITECTURE.md
+index 15678109..85425f6a 100644
+--- a/docs/ARCHITECTURE.md
++++ b/docs/ARCHITECTURE.md
+@@ -3512,3 +3512,13 @@ hell, source f9beb28d: зарегистрированы три нейтраль
+ Новый кандидат SHA256 102952bb4c573fcb370c13fca2e702d19fed189d6d965d89aa26cdde677cc9ab
+ не установлен в PolyMC. Не DONE, приёмка владельцем отсутствует, Issues/Project не менялись.
+ [Полный отчёт, матрица и ручной checklist](implementation/burning-islands-205/FINAL_QA_REPORT.md).
++
++
++## Установка кандидата 28.10.2026
++
++2.0.8-HELL установлен в тестовый PolyMC, SHA256 `102952BB4C573FCB370C13FCA2E702D19FED189D6D965D89AA26CDDE677CC9AB`; backup сохранён вне mods, один JAR. Java21 clean build и ресурсы PASS. Исходники hell актуальны относительно origin (3 локальных коммита впереди), VS Code открыт на эту копию. Игровых запусков 0, runtime NOT_RUN; блокеры Горючих островов сохраняются. Это обновляет прежнюю запись «не установлен», не означает приёмку. [Установка и проверки Ада](implementation/polymc-update-20261028/INSTALL_AND_NETHER_CHECKLIST.md).
++
++
++## P0 #327 — частичное исполнение 28.10.2026
++
++Только hell, HEAD c884e63c + uncommitted delta. В IslandsMob/IslandsContent добавлены boss-only Peaceful discard до AI/hurt, MONSTER для Повелителя и bossbar cleanup. PostenEncounters резервирует body+4 clone UUID без cross-arena/self alias; V1 conflict read-only. Новый негативный тест воспроизвёл старый дефект; затем 12077 offline assertions и Java21 clean build 13s PASS, resources/JAR PASS. Кандидат SHA256 d7521e97b1dd51df4650155072a3f4643b106178549944992e6225fa4b44c574, POLYMC_NOT_INSTALLED; прежний установленный кандидат не заменён. Игровых запусков 0 / runtime NOT_RUN. Оригинальные 8 PNG не найдены (36005 headers/126 ZIP): ART BLOCKED_REFERENCE. Модели/головы/полные Чертоги 2.0.4 не завершены, 2.0.5 WORLDGEN_NOT_INTEGRATED. Нет DONE/owner acceptance/закрытия Issue. [Фактический отчёт #327 и checklist](implementation/p0-bosses-327/REPORT.md).
+diff --git a/docs/PROJECT_STATUS.md b/docs/PROJECT_STATUS.md
+index 44eb73fc..1effc3fd 100644
+--- a/docs/PROJECT_STATUS.md
++++ b/docs/PROJECT_STATUS.md
+@@ -3190,3 +3190,13 @@ hell, source f9beb28d: зарегистрированы три нейтраль
+ Новый кандидат SHA256 102952bb4c573fcb370c13fca2e702d19fed189d6d965d89aa26cdde677cc9ab
+ не установлен в PolyMC. Не DONE, приёмка владельцем отсутствует, Issues/Project не менялись.
+ [Полный отчёт, матрица и ручной checklist](implementation/burning-islands-205/FINAL_QA_REPORT.md).
++
++
++## Установка кандидата 28.10.2026
++
++2.0.8-HELL установлен в тестовый PolyMC, SHA256 `102952BB4C573FCB370C13FCA2E702D19FED189D6D965D89AA26CDDE677CC9AB`; backup сохранён вне mods, один JAR. Java21 clean build и ресурсы PASS. Исходники hell актуальны относительно origin (3 локальных коммита впереди), VS Code открыт на эту копию. Игровых запусков 0, runtime NOT_RUN; блокеры Горючих островов сохраняются. Это обновляет прежнюю запись «не установлен», не означает приёмку. [Установка и проверки Ада](implementation/polymc-update-20261028/INSTALL_AND_NETHER_CHECKLIST.md).
++
++
++## P0 #327 — частичное исполнение 28.10.2026
++
++Только hell, HEAD c884e63c + uncommitted delta. В IslandsMob/IslandsContent добавлены boss-only Peaceful discard до AI/hurt, MONSTER для Повелителя и bossbar cleanup. PostenEncounters резервирует body+4 clone UUID без cross-arena/self alias; V1 conflict read-only. Новый негативный тест воспроизвёл старый дефект; затем 12077 offline assertions и Java21 clean build 13s PASS, resources/JAR PASS. Кандидат SHA256 d7521e97b1dd51df4650155072a3f4643b106178549944992e6225fa4b44c574, POLYMC_NOT_INSTALLED; прежний установленный кандидат не заменён. Игровых запусков 0 / runtime NOT_RUN. Оригинальные 8 PNG не найдены (36005 headers/126 ZIP): ART BLOCKED_REFERENCE. Модели/головы/полные Чертоги 2.0.4 не завершены, 2.0.5 WORLDGEN_NOT_INTEGRATED. Нет DONE/owner acceptance/закрытия Issue. [Фактический отчёт #327 и checklist](implementation/p0-bosses-327/REPORT.md).
+diff --git a/docs/ROADMAP.md b/docs/ROADMAP.md
+index 227c4973..3b723a6a 100644
+--- a/docs/ROADMAP.md
++++ b/docs/ROADMAP.md
+@@ -2612,3 +2612,13 @@ hell, source f9beb28d: зарегистрированы три нейтраль
+ Новый кандидат SHA256 102952bb4c573fcb370c13fca2e702d19fed189d6d965d89aa26cdde677cc9ab
+ не установлен в PolyMC. Не DONE, приёмка владельцем отсутствует, Issues/Project не менялись.
+ [Полный отчёт, матрица и ручной checklist](implementation/burning-islands-205/FINAL_QA_REPORT.md).
++
++
++## Установка кандидата 28.10.2026
++
++2.0.8-HELL установлен в тестовый PolyMC, SHA256 `102952BB4C573FCB370C13FCA2E702D19FED189D6D965D89AA26CDDE677CC9AB`; backup сохранён вне mods, один JAR. Java21 clean build и ресурсы PASS. Исходники hell актуальны относительно origin (3 локальных коммита впереди), VS Code открыт на эту копию. Игровых запусков 0, runtime NOT_RUN; блокеры Горючих островов сохраняются. Это обновляет прежнюю запись «не установлен», не означает приёмку. [Установка и проверки Ада](implementation/polymc-update-20261028/INSTALL_AND_NETHER_CHECKLIST.md).
++
++
++## P0 #327 — частичное исполнение 28.10.2026
++
++Только hell, HEAD c884e63c + uncommitted delta. В IslandsMob/IslandsContent добавлены boss-only Peaceful discard до AI/hurt, MONSTER для Повелителя и bossbar cleanup. PostenEncounters резервирует body+4 clone UUID без cross-arena/self alias; V1 conflict read-only. Новый негативный тест воспроизвёл старый дефект; затем 12077 offline assertions и Java21 clean build 13s PASS, resources/JAR PASS. Кандидат SHA256 d7521e97b1dd51df4650155072a3f4643b106178549944992e6225fa4b44c574, POLYMC_NOT_INSTALLED; прежний установленный кандидат не заменён. Игровых запусков 0 / runtime NOT_RUN. Оригинальные 8 PNG не найдены (36005 headers/126 ZIP): ART BLOCKED_REFERENCE. Модели/головы/полные Чертоги 2.0.4 не завершены, 2.0.5 WORLDGEN_NOT_INTEGRATED. Нет DONE/owner acceptance/закрытия Issue. [Фактический отчёт #327 и checklist](implementation/p0-bosses-327/REPORT.md).
+diff --git a/docs/implementation/burning-islands-205/OWNER_SMOKE_CHECKLIST.md b/docs/implementation/burning-islands-205/OWNER_SMOKE_CHECKLIST.md
+index 2b1891c3..dec54dd4 100644
+--- a/docs/implementation/burning-islands-205/OWNER_SMOKE_CHECKLIST.md
++++ b/docs/implementation/burning-islands-205/OWNER_SMOKE_CHECKLIST.md
+@@ -1,6 +1,6 @@
+ # Ручная проверка владельцем — текущий частичный кандидат
+ 
+-**Версия2.0.8-HELL,sourcef9beb28d. JAR `C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\build\libs\slavicmyths-2.0.8-HELL.jar`;24845769bytes; SHA256 `102952bb4c573fcb370c13fca2e702d19fed189d6d965d89aa26cdde677cc9ab`.** Текущий PolyMC JAR имеет другой SHA и НЕ содержит этот кандидат. Установка новым поручением/владельцем: backup старогоJAR внеmods, одинSlavicMythsJAR, Minecraft1.21.1/NeoForge21.1.255/Java21/Curios9.5.1. Новые игровые данные проверять только в отдельном экземпляре/мире. Исходные важные saves не открывать.
++**Версия2.0.8-HELL,sourcef9beb28d. JAR `C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\build\libs\slavicmyths-2.0.8-HELL.jar`;24845769bytes; SHA256 `102952bb4c573fcb370c13fca2e702d19fed189d6d965d89aa26cdde677cc9ab`.** Обновление 28.10.2026: этот кандидат установлен в тестовый PolyMC; receipt и backup см. ../polymc-update-20261028/INSTALL_AND_NETHER_CHECKLIST.md. Установка новым поручением/владельцем: backup старогоJAR внеmods, одинSlavicMythsJAR, Minecraft1.21.1/NeoForge21.1.255/Java21/Curios9.5.1. Новые игровые данные проверять только в отдельном экземпляре/мире. Исходные важные saves не открывать.
+ 
+ ## Путь без OP — пока BLOCKED, не тратить часы на поиск
+ 
+diff --git a/docs/implementation/lost-halls-2.0.4/offline-logic.json b/docs/implementation/lost-halls-2.0.4/offline-logic.json
+index 57b8efce..2003470f 100644
+--- a/docs/implementation/lost-halls-2.0.4/offline-logic.json
++++ b/docs/implementation/lost-halls-2.0.4/offline-logic.json
+@@ -1,7 +1,7 @@
+ {
+   "scope": "Production accounting/index, finite voxel routes and binary NBT only",
+   "status": "PASS",
+-  "assertions": 11755,
++  "assertions": 12077,
+   "randomized_encounters": 200,
+   "distant_room_records": 5000,
+   "runtime_launches": 0,
+diff --git a/src/main/java/org/slavicmyths/burningislands/IslandsContent.java b/src/main/java/org/slavicmyths/burningislands/IslandsContent.java
+index 87e124dc..1ba22166 100644
+--- a/src/main/java/org/slavicmyths/burningislands/IslandsContent.java
++++ b/src/main/java/org/slavicmyths/burningislands/IslandsContent.java
+@@ -20,7 +20,7 @@ public final class IslandsContent {
+   for(Kind k:Kind.values()){
+    float w=switch(k){case HEAT_SALAMANDER->1.5F;case SLAG_CRAB->2F;case VENT_GOLEM->1.8F;case MAGMA_LORD->2.2F;};
+    float h=switch(k){case HEAT_SALAMANDER->.8F;case SLAG_CRAB->1F;case VENT_GOLEM->3F;case MAGMA_LORD->5.3F;};
+-   var type=ModEntities.ENTITIES.register(id(k),()->EntityType.Builder.<IslandsMob>of((t,l)->new IslandsMob(t,l,k),MobCategory.CREATURE).sized(w,h).fireImmune().clientTrackingRange(12).updateInterval(2).build("slavicmyths:"+id(k)));
++   var type=ModEntities.ENTITIES.register(id(k),()->EntityType.Builder.<IslandsMob>of((t,l)->new IslandsMob(t,l,k),k==Kind.MAGMA_LORD?MobCategory.MONSTER:MobCategory.CREATURE).sized(w,h).fireImmune().clientTrackingRange(12).updateInterval(2).build("slavicmyths:"+id(k)));
+    TYPES.put(k,type);
+    ModItems.ITEMS.register(id(k)+"_spawn_egg",()->new net.neoforged.neoforge.common.DeferredSpawnEggItem(type,0x29232c,0xea6d19,new Item.Properties()));
+   }
+diff --git a/src/main/java/org/slavicmyths/burningislands/IslandsMob.java b/src/main/java/org/slavicmyths/burningislands/IslandsMob.java
+index 5792ae37..f707b697 100644
+--- a/src/main/java/org/slavicmyths/burningislands/IslandsMob.java
++++ b/src/main/java/org/slavicmyths/burningislands/IslandsMob.java
+@@ -36,6 +36,14 @@ public final class IslandsMob extends PathfinderMob {
+  public IslandsMob(EntityType<? extends IslandsMob> type,Level level,Kind kind){super(type,level);this.kind=kind;xpReward=kind==Kind.MAGMA_LORD?60:kind==Kind.VENT_GOLEM?15:5;}
+  public static AttributeSupplier.Builder attributes(Kind k){return Mob.createMobAttributes().add(Attributes.MAX_HEALTH,k==Kind.MAGMA_LORD?850:k==Kind.VENT_GOLEM?150:55).add(Attributes.ATTACK_DAMAGE,switch(k){case HEAT_SALAMANDER->6;case SLAG_CRAB->7;case VENT_GOLEM->12;case MAGMA_LORD->14;}).add(Attributes.MOVEMENT_SPEED,switch(k){case HEAT_SALAMANDER->.24;case SLAG_CRAB->.20;case VENT_GOLEM->.18;case MAGMA_LORD->.23;}).add(Attributes.FOLLOW_RANGE,32).add(Attributes.KNOCKBACK_RESISTANCE,k==Kind.MAGMA_LORD?.85:k==Kind.VENT_GOLEM?.65:.15);}
+  public boolean boss(){return kind==Kind.MAGMA_LORD;}
++ @Override protected boolean shouldDespawnInPeaceful(){return boss();}
++ /** Category alone does not remove a PathfinderMob. Keep ordinary neutral island fauna. */
++ private boolean peacefulBoss(){return boss()&&level().getDifficulty()==Difficulty.PEACEFUL;}
++ @Override public void remove(Entity.RemovalReason reason){
++  // Includes discard/checkDespawn, unload, dimension removal and the normal death path.
++  if(!level().isClientSide)bar.removeAllPlayers();
++  super.remove(reason);
++ }
+  public boolean second(){return entityData.get(SECOND);}
+  public boolean exposed(){return entityData.get(EXPOSED)>0;}
+  public Action action(){return Action.values()[Math.clamp(entityData.get(ACTION),0,Action.values().length-1)];}
+@@ -58,6 +66,7 @@ public final class IslandsMob extends PathfinderMob {
+  @Override public boolean isAlliedTo(Entity e){return e instanceof IslandsMob||super.isAlliedTo(e);}
+  private void remember(LivingEntity attacker){provoker=attacker.getUUID();anger=600;if(participants.size()<16)participants.add(provoker);setTarget(attacker);}
+  @Override public boolean hurt(DamageSource source,float amount){
++  if(!level().isClientSide&&peacefulBoss()){discard();return false;}
+   // Chest is a real spatial weak zone: projectile impact or adjacent melee eye ray through core height.
+   if(boss()&&exposed()&&source.getEntity() instanceof LivingEntity a&&coreHit(source,a))amount*=1.35F;
+   boolean hit=super.hurt(source,amount);
+@@ -81,6 +90,8 @@ public final class IslandsMob extends PathfinderMob {
+  }
+  private void begin(Action a){entityData.set(ACTION,a.ordinal());entityData.set(START,level().getGameTime());age=0;struck.clear();origin=position();castReach=getTarget()==null?18:Math.clamp(distanceTo(getTarget()),18,128);forward=getTarget()==null?getLookAngle().multiply(1,0,1).normalize():getTarget().position().subtract(origin).multiply(1,0,1).normalize();navigation.stop();}
+  @Override public void tick(){
++  // Run before super.tick(): no goal, cast, phase, encounter registration or death loot in Peaceful.
++  if(!level().isClientSide&&peacefulBoss()){discard();return;}
+   super.tick();if(level().isClientSide||!isAlive())return;
+   if(alarmCooldown>0)alarmCooldown--;if(cooldown>0)cooldown--;
+   if(entityData.get(EXPOSED)>0)entityData.set(EXPOSED,entityData.get(EXPOSED)-1);
+@@ -182,7 +193,7 @@ public final class IslandsMob extends PathfinderMob {
+   if(deathTime>=80&&!level().isClientSide){if(lastPlayer!=null&&level() instanceof ServerLevel s){var winner=s.getServer().getPlayerList().getPlayer(lastPlayer);if(winner!=null)MagmaRewards.reconcile(winner);}level().broadcastEntityEvent(this,(byte)60);remove(Entity.RemovalReason.KILLED);}
+  }
+  @Override public boolean doHurtTarget(Entity target){return false;}
+- @Override public void startSeenByPlayer(ServerPlayer p){super.startSeenByPlayer(p);if(boss())bar.addPlayer(p);}
++ @Override public void startSeenByPlayer(ServerPlayer p){super.startSeenByPlayer(p);if(boss()&&!peacefulBoss()&&!isRemoved())bar.addPlayer(p);}
+  @Override public void stopSeenByPlayer(ServerPlayer p){super.stopSeenByPlayer(p);bar.removePlayer(p);}
+  @Override protected void dropCustomDeathLoot(ServerLevel s,DamageSource source,boolean recentlyHit){
+   super.dropCustomDeathLoot(s,source,recentlyHit);
+diff --git a/src/main/java/org/slavicmyths/losthalls/PostenEncounters.java b/src/main/java/org/slavicmyths/losthalls/PostenEncounters.java
+index 2f7aea04..f6b266ab 100644
+--- a/src/main/java/org/slavicmyths/losthalls/PostenEncounters.java
++++ b/src/main/java/org/slavicmyths/losthalls/PostenEncounters.java
+@@ -70,6 +70,8 @@ public final class PostenEncounters extends SavedData {
+     }
+ 
+     private final Map<UUID, Encounter> encounters = new HashMap<>();
++    // Reserve body AND deterministic clone identities, including defeated arenas.
++    private final HashSet<UUID> entityIds = new HashSet<>();
+     // Preserve unknown/corrupt data verbatim and reject mutations, rather than
+     // recreating an encounter and paying rewards a second time after reload.
+     private CompoundTag readOnlySnapshot;
+@@ -92,8 +94,13 @@ public final class PostenEncounters extends SavedData {
+         if (isReadOnly()) return false;
+         Encounter existing = encounters.get(arena);
+         if (existing != null) return existing.body.equals(body) && existing.phase != Phase.DEFEATED;
+-        if (encounters.values().stream().anyMatch(e -> e.body.equals(body))) return false;
+-        encounters.put(arena, new Encounter(arena, body));
++        Encounter created = new Encounter(arena, body);
++        HashSet<UUID> identities = new HashSet<>();
++        identities.add(body);
++        for (UUID copy : created.copies) if (!identities.add(copy)) return false;
++        if (identities.stream().anyMatch(entityIds::contains)) return false;
++        entityIds.addAll(identities);
++        encounters.put(arena, created);
+         setDirty();
+         return true;
+     }
+@@ -184,12 +191,12 @@ public final class PostenEncounters extends SavedData {
+             require(root.contains("Encounters", Tag.TAG_LIST));
+             ListTag list = root.getList("Encounters", Tag.TAG_COMPOUND);
+             require(list.size() == ((ListTag) root.get("Encounters")).size());
+-            HashSet<UUID> bodies = new HashSet<>();
+             for (Tag raw : list) {
+                 CompoundTag tag = (CompoundTag) raw;
+                 require(tag.hasUUID("Arena") && tag.hasUUID("Body"));
+                 Encounter e = new Encounter(tag.getUUID("Arena"), tag.getUUID("Body"));
+-                require(!data.encounters.containsKey(e.arena) && bodies.add(e.body));
++                require(!data.encounters.containsKey(e.arena) && data.entityIds.add(e.body));
++                for (UUID copyId : e.copies) require(data.entityIds.add(copyId));
+                 require(tag.contains("Phase", Tag.TAG_STRING) && tag.contains("BodyHealth", Tag.TAG_FLOAT));
+                 require(tag.contains("RewardsClaimed", Tag.TAG_BYTE) && tag.contains("Copies", Tag.TAG_LIST));
+                 e.phase = Phase.valueOf(tag.getString("Phase"));
+@@ -221,6 +228,7 @@ public final class PostenEncounters extends SavedData {
+             }
+         } catch (IllegalArgumentException | ClassCastException invalid) {
+             data.encounters.clear();
++            data.entityIds.clear();
+             data.readOnlySnapshot = root.copy();
+         }
+         return data;
+diff --git a/tools/lost-halls-tests/org/slavicmyths/verify/LostHallsOffline.java b/tools/lost-halls-tests/org/slavicmyths/verify/LostHallsOffline.java
+index 8308a442..0ccf3d2e 100644
+--- a/tools/lost-halls-tests/org/slavicmyths/verify/LostHallsOffline.java
++++ b/tools/lost-halls-tests/org/slavicmyths/verify/LostHallsOffline.java
+@@ -499,6 +499,7 @@ public final class LostHallsOffline {
+     }
+ 
+     public static void main(String[] args) throws Exception {
++        encounterIdentityIsolation();
+         encounterBoundaries();
+         encounterTrials();
+         corruptEncounters();
+@@ -517,4 +518,28 @@ public final class LostHallsOffline {
+         Files.writeString(out, report);
+         System.out.println(report);
+     }
++
++    private static void encounterIdentityIsolation() throws Exception {
++        UUID arena = id(70001), body = id(70002), secondArena = id(70003);
++        PostenEncounters data = new PostenEncounters();
++        check(data.register(arena, body), "identity fixture registration");
++        UUID copy = data.snapshot(arena).orElseThrow().copies().getFirst().entity();
++        check(!data.register(secondArena, copy), "existing clone cannot become another arena body");
++        PostenEncounters reverse = new PostenEncounters();
++        check(reverse.register(secondArena, copy), "reverse identity fixture registration");
++        check(!reverse.register(arena, body), "new clone cannot reuse another arena body");
++        PostenEncounters self = new PostenEncounters();
++        check(!self.register(arena, copy), "body cannot reuse its own deterministic clone UUID");
++        data = reload(data);
++        check(!data.register(secondArena, copy), "identity reservation survives binary NBT");
++
++        // Both records are individually valid under V1, but share an entity UUID.
++        var firstTag = data.save(new CompoundTag(), null);
++        var secondTag = reverse.save(new CompoundTag(), null);
++        firstTag.getList("Encounters", 10).add(secondTag.getList("Encounters", 10).getCompound(0).copy());
++        var corrupt = PostenEncounters.load(binary(firstTag), null);
++        check(corrupt.isReadOnly(), "cross-arena UUID alias fails closed");
++        check(corrupt.save(new CompoundTag(), null).equals(firstTag), "aliased V1 preserved verbatim");
++        check(!corrupt.register(id(70004), id(70005)), "aliased journal cannot authorize a new encounter");
++    }
+ }

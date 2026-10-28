@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "changed_resources_on_repeat": [],
+  "scope": "halls_assets.py only; full legacy generators not asserted"
+}

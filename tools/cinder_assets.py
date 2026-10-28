@@ -173,6 +173,8 @@ def rigs():
    for i in range(10):
     a=i*math.pi/5;box('ribbon'+str(i),[math.cos(a)*5,-3,math.sin(a)*5],[3,29+i%3*2,3]);parts[-1]['offset']=[-1.5,0,-1.5];parts[-1]['rotation']=[math.sin(a)*.24,0,-math.cos(a)*.32];box('tip'+str(i),[0,29+i%3*2,0],[2,3,2],'ember','ribbon'+str(i))
    for i in range(5):box('hair'+str(i),[-5+i*2.5,10,5],[2,18+i%2*4,3],'ash','head')
+  from nether_boss327_geometry import cinder
+  cinder(name,parts)
   # Disjoint UV islands, also used directly to author the matching textures.
   cursor_x=2;cursor_y=2;rowh=0;atlas=512
   im=Image.new('RGBA',(atlas,atlas));glow=Image.new('RGBA',(atlas,atlas));rng=random.Random(name)
@@ -259,4 +261,7 @@ def main():
  im.save(A/'textures/entity/cinder_effect.png')
  write(R/'docs/implementation/black-cinder-production/asset-manifest.json',{'blocks':names,'residents':list(MOBS)[:4],'boss':'zharenitsa','attack_entities':['cinder_coal','cinder_ash_spike'],'items':list(materials),'original_compare':'ART_ORIGINAL_COMPARE_NOT_RUN','source':'RECOVERED_VISUAL_SPEC_2.0.3.md'})
  print('Black Cinder: scoped assets,',len(names),'blocks, five distinct rigs; original compare NOT_RUN')
-if __name__=='__main__':main()
+if __name__=='__main__':
+ main()
+ from halls_assets import world_and_heads
+ world_and_heads()

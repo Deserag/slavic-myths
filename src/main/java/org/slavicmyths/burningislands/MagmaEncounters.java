@@ -22,6 +22,7 @@ public final class MagmaEncounters extends SavedData {
   if(!bossIds.add(boss))return false;
   entries.put(anchor,new Entry(boss,false,null,0,0));setDirty();return true;
  }
+ public boolean canClaim(long anchor,UUID boss){var old=entries.get(anchor);return !isReadOnly()&&old!=null&&old.boss.equals(boss)&&!old.defeated;}
  public boolean claim(long anchor,UUID boss,UUID recipient,int cores,long readyAt){
   if(isReadOnly()||boss==null||recipient==null||cores<4||cores>6||readyAt<0)return false;
   var old=entries.get(anchor);if(old==null||!old.boss.equals(boss)||old.defeated)return false;

@@ -1,0 +1,41 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\src\main\java\org\slavicmyths\losthalls\client\HallsClient.java:13: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                          ^
+C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\src\main\java\org\slavicmyths\losthalls\client\HallsClient.java:13: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                                                ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 warnings
+
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources
+> Task :classes
+> Task :jarJar NO-SOURCE
+> Task :jar
+> Task :assemble
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :check UP-TO-DATE
+> Task :build
+> Task :compileLostHallsOfflineJava
+> Task :processLostHallsOfflineResources NO-SOURCE
+> Task :lostHallsOfflineClasses
+
+> Task :exportNether327Models
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+New trophy native rotated vertex checks: 1674432
+Native meshes exported: 9; finite vertices/UV PASS; gameplay/ART original match NOT_RUN.
+
+[Incubating] Problems report is available at: file:///C:/Users/user/.codex/worktrees/lost-halls/slavic-myths/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 27s
+7 actionable tasks: 6 executed, 1 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

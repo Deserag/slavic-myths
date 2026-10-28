@@ -117,7 +117,11 @@ public final class NavyaMesh {
                 m.box("body","spark",0,-4,0,-.5F,-1,-.5F,1,2,1,"wisp_core");
             }
             case GUARDIAN -> {
-                m.box("root","body",0,-25,0,-18,-31,-12,36,56,24,"bark");
+                m.box("root","body",0,-25,0,-14,-24,-10,28,38,20,"bark");
+                m.box("body","trunk_base",0,20,1,-12,-12,-10,24,24,20,"bark");
+                m.box("body","burl_left",-15,-10,3,-6,-9,-7,12,18,14,"bark");
+                m.box("body","burl_right",15,-2,2,-4,-11,-7,9,22,14,"bark");
+                m.box("body","broken_collar",0,-28,2,-12,-5,-8,24,10,16,"bone_dark");
                 m.box("body","held_trunk",0,-16,-28,-36,-5,-5,72,10,10,"bark");
                 m.box("body","buttress_left",-17,-12,0,-6,-16,-10,8,43,20,"bark");
                 m.box("body","buttress_right",17,-12,0,-2,-16,-10,8,43,20,"bark");
@@ -127,6 +131,8 @@ public final class NavyaMesh {
                 for(int side:new int[]{-1,1}) {
                     String s=side<0?"left":"right";
                     m.box("face","cheek_"+s,side*10,-4,-1,-2,-3,-2,4,15,4,"bone_dark");
+                    m.box("face","twig_"+s,side*9,-9,0,side>0?0:-8,-2,-2,8,4,4,"bark");
+                    m.box("face","twig_fork_"+s,side*14,-12,0,-1,-5,-1,2,8,2,"root");
                     m.box("face","eye_"+s,side*5,-4,-2.5F,-3,0,-1,6,3,2,"red");
                     m.box("body","arm_"+s,side*23,-26,0,-6,0,-6,12,25,12,"bark");
                     m.box("arm_"+s,"shoulder_plate_"+s,side*2,0,-4,-6,-3,-2,12,9,5,"bone_dark");
@@ -146,6 +152,14 @@ public final class NavyaMesh {
             var lower=rig.nodes().get("shin_"+n+i);lower.zRot=side*.75F;lower.setInitialPose(lower.storePose());
         }
         if(kind==Kind.ROOTLING)for(int side:new int[]{-1,1}){String n=side<0?"left":"right";var arm=rig.nodes().get("arm_"+n);arm.zRot=-side*.12F;arm.setInitialPose(arm.storePose());for(int i=0;i<3;i++){var finger=rig.nodes().get("finger_"+n+i);finger.zRot=(i-1)*.2F;finger.setInitialPose(finger.storePose());}}
+        if(kind==Kind.GUARDIAN)for(var e:rig.nodes().entrySet()){
+            String name=e.getKey();float side=name.contains("left")?-1:1;
+            if(name.startsWith("crown_"))e.getValue().zRot=side*.24F;
+            if(name.startsWith("burl_"))e.getValue().zRot=side*.2F;
+            if(name.startsWith("twig_"))e.getValue().zRot=side*.3F;
+            if(name.startsWith("leg_"))e.getValue().zRot=side*.18F;
+            e.getValue().setInitialPose(e.getValue().storePose());
+        }
         return rig;
     }
     public static Rig projectile(int mode) {

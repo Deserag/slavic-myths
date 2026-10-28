@@ -1,6 +1,6 @@
 # Ручная проверка владельцем — текущий частичный кандидат
 
-**Версия2.0.8-HELL,sourcef9beb28d. JAR `C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\build\libs\slavicmyths-2.0.8-HELL.jar`;24845769bytes; SHA256 `102952bb4c573fcb370c13fca2e702d19fed189d6d965d89aa26cdde677cc9ab`.** Текущий PolyMC JAR имеет другой SHA и НЕ содержит этот кандидат. Установка новым поручением/владельцем: backup старогоJAR внеmods, одинSlavicMythsJAR, Minecraft1.21.1/NeoForge21.1.255/Java21/Curios9.5.1. Новые игровые данные проверять только в отдельном экземпляре/мире. Исходные важные saves не открывать.
+**Версия2.0.8-HELL,sourcef9beb28d. JAR `C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\build\libs\slavicmyths-2.0.8-HELL.jar`;24845769bytes; SHA256 `102952bb4c573fcb370c13fca2e702d19fed189d6d965d89aa26cdde677cc9ab`.** Обновление 28.10.2026: этот кандидат установлен в тестовый PolyMC; receipt и backup см. ../polymc-update-20261028/INSTALL_AND_NETHER_CHECKLIST.md. Установка новым поручением/владельцем: backup старогоJAR внеmods, одинSlavicMythsJAR, Minecraft1.21.1/NeoForge21.1.255/Java21/Curios9.5.1. Новые игровые данные проверять только в отдельном экземпляре/мире. Исходные важные saves не открывать.
 
 ## Путь без OP — пока BLOCKED, не тратить часы на поиск
 

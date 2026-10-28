@@ -20,7 +20,7 @@ public final class IslandsContent {
   for(Kind k:Kind.values()){
    float w=switch(k){case HEAT_SALAMANDER->1.5F;case SLAG_CRAB->2F;case VENT_GOLEM->1.8F;case MAGMA_LORD->2.2F;};
    float h=switch(k){case HEAT_SALAMANDER->.8F;case SLAG_CRAB->1F;case VENT_GOLEM->3F;case MAGMA_LORD->5.3F;};
-   var type=ModEntities.ENTITIES.register(id(k),()->EntityType.Builder.<IslandsMob>of((t,l)->new IslandsMob(t,l,k),MobCategory.CREATURE).sized(w,h).fireImmune().clientTrackingRange(12).updateInterval(2).build("slavicmyths:"+id(k)));
+   var type=ModEntities.ENTITIES.register(id(k),()->EntityType.Builder.<IslandsMob>of((t,l)->new IslandsMob(t,l,k),k==Kind.MAGMA_LORD?MobCategory.MONSTER:MobCategory.CREATURE).sized(w,h).fireImmune().clientTrackingRange(12).updateInterval(2).build("slavicmyths:"+id(k)));
    TYPES.put(k,type);
    ModItems.ITEMS.register(id(k)+"_spawn_egg",()->new net.neoforged.neoforge.common.DeferredSpawnEggItem(type,0x29232c,0xea6d19,new Item.Properties()));
   }

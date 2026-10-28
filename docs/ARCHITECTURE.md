@@ -3512,3 +3512,17 @@ hell, source f9beb28d: зарегистрированы три нейтраль�
 Новый кандидат SHA256 102952bb4c573fcb370c13fca2e702d19fed189d6d965d89aa26cdde677cc9ab
 не установлен в PolyMC. Не DONE, приёмка владельцем отсутствует, Issues/Project не менялись.
 [Полный отчёт, матрица и ручной checklist](implementation/burning-islands-205/FINAL_QA_REPORT.md).
+
+
+## Установка кандидата 28.10.2026
+
+2.0.8-HELL установлен в тестовый PolyMC, SHA256 `102952BB4C573FCB370C13FCA2E702D19FED189D6D965D89AA26CDDE677CC9AB`; backup сохранён вне mods, один JAR. Java21 clean build и ресурсы PASS. Исходники hell актуальны относительно origin (3 локальных коммита впереди), VS Code открыт на эту копию. Игровых запусков 0, runtime NOT_RUN; блокеры Горючих островов сохраняются. Это обновляет прежнюю запись «не установлен», не означает приёмку. [Установка и проверки Ада](implementation/polymc-update-20261028/INSTALL_AND_NETHER_CHECKLIST.md).
+
+
+## P0 #327 — частичное исполнение 28.10.2026
+
+Только hell, HEAD c884e63c + uncommitted delta. В IslandsMob/IslandsContent добавлены boss-only Peaceful discard до AI/hurt, MONSTER для Повелителя и bossbar cleanup. PostenEncounters резервирует body+4 clone UUID без cross-arena/self alias; V1 conflict read-only. Новый негативный тест воспроизвёл старый дефект; затем 12077 offline assertions и Java21 clean build 13s PASS, resources/JAR PASS. Кандидат SHA256 d7521e97b1dd51df4650155072a3f4643b106178549944992e6225fa4b44c574, POLYMC_NOT_INSTALLED; прежний установленный кандидат не заменён. Игровых запусков 0 / runtime NOT_RUN. Оригинальные 8 PNG не найдены (36005 headers/126 ZIP): ART BLOCKED_REFERENCE. Модели/головы/полные Чертоги 2.0.4 не завершены, 2.0.5 WORLDGEN_NOT_INTEGRATED. Нет DONE/owner acceptance/закрытия Issue. [Фактический отчёт #327 и checklist](implementation/p0-bosses-327/REPORT.md).
+
+
+### 28.10.2026 — #327 resume / Nether 2.0.4 production candidate (hell)
+Подключены lost_halls biome/terrain/metadata,5 species, Posten entity+4 stable clones, Shadow Face rune/decoys, utility rewards,3 new TrophyHeads preserving zharenitsa_head ID; native geometry3 bosses обновлена. Reward recipient pin хранится в world/data/slavicmyths_boss_reward_authority.json; batch+receipt в player save, corrupted authority read-only. Technical gates/evidence: docs/implementation/p0-bosses-327/REPORT.md, ACCEPTANCE_MATRIX.md, final-gates.log и BUILD_DELIVERY.json. IN_PROGRESS: originals ART_SOURCE_BLOCKED, all real gameplay/relog/MP/performance NOT_RUN, zero game launches; natural full-region/arena coverage not established. PolyMC candidate NOT_INSTALLED; no owner acceptance/Issue close. #313/#320/#323 ocean islands worldgen не объявлен реализованным. Decisions and two QA passes: OPEN_QUESTIONS_AND_RESOLUTIONS.md. Commit/push hell explicitly authorized by latest user message; main/release untouched.

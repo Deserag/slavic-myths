@@ -70,6 +70,8 @@ public final class PostenEncounters extends SavedData {
     }
 
     private final Map<UUID, Encounter> encounters = new HashMap<>();
+    // Reserve body AND deterministic clone identities, including defeated arenas.
+    private final HashSet<UUID> entityIds = new HashSet<>();
     // Preserve unknown/corrupt data verbatim and reject mutations, rather than
     // recreating an encounter and paying rewards a second time after reload.
     private CompoundTag readOnlySnapshot;
@@ -92,8 +94,13 @@ public final class PostenEncounters extends SavedData {
         if (isReadOnly()) return false;
         Encounter existing = encounters.get(arena);
         if (existing != null) return existing.body.equals(body) && existing.phase != Phase.DEFEATED;
-        if (encounters.values().stream().anyMatch(e -> e.body.equals(body))) return false;
-        encounters.put(arena, new Encounter(arena, body));
+        Encounter created = new Encounter(arena, body);
+        HashSet<UUID> identities = new HashSet<>();
+        identities.add(body);
+        for (UUID copy : created.copies) if (!identities.add(copy)) return false;
+        if (identities.stream().anyMatch(entityIds::contains)) return false;
+        entityIds.addAll(identities);
+        encounters.put(arena, created);
         setDirty();
         return true;
     }
@@ -184,12 +191,12 @@ public final class PostenEncounters extends SavedData {
             require(root.contains("Encounters", Tag.TAG_LIST));
             ListTag list = root.getList("Encounters", Tag.TAG_COMPOUND);
             require(list.size() == ((ListTag) root.get("Encounters")).size());
-            HashSet<UUID> bodies = new HashSet<>();
             for (Tag raw : list) {
                 CompoundTag tag = (CompoundTag) raw;
                 require(tag.hasUUID("Arena") && tag.hasUUID("Body"));
                 Encounter e = new Encounter(tag.getUUID("Arena"), tag.getUUID("Body"));
-                require(!data.encounters.containsKey(e.arena) && bodies.add(e.body));
+                require(!data.encounters.containsKey(e.arena) && data.entityIds.add(e.body));
+                for (UUID copyId : e.copies) require(data.entityIds.add(copyId));
                 require(tag.contains("Phase", Tag.TAG_STRING) && tag.contains("BodyHealth", Tag.TAG_FLOAT));
                 require(tag.contains("RewardsClaimed", Tag.TAG_BYTE) && tag.contains("Copies", Tag.TAG_LIST));
                 e.phase = Phase.valueOf(tag.getString("Phase"));
@@ -221,6 +228,7 @@ public final class PostenEncounters extends SavedData {
             }
         } catch (IllegalArgumentException | ClassCastException invalid) {
             data.encounters.clear();
+            data.entityIds.clear();
             data.readOnlySnapshot = root.copy();
         }
         return data;

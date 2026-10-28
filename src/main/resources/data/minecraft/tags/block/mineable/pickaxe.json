@@ -63,6 +63,19 @@
     "slavicmyths:charred_stone_wall",
     "slavicmyths:cracked_charred_stone_stairs",
     "slavicmyths:cracked_charred_stone_slab",
-    "slavicmyths:cracked_charred_stone_wall"
+    "slavicmyths:cracked_charred_stone_wall",
+    "slavicmyths:lost_hall_stone",
+    "slavicmyths:cracked_lost_hall_stone",
+    "slavicmyths:polished_lost_hall_stone",
+    "slavicmyths:luminous_vein_stone",
+    "slavicmyths:lost_halls_waymark",
+    "slavicmyths:lost_hall_stone_stairs",
+    "slavicmyths:lost_hall_stone_slab",
+    "slavicmyths:lost_hall_stone_wall",
+    "slavicmyths:polished_lost_hall_stone_stairs",
+    "slavicmyths:polished_lost_hall_stone_slab",
+    "slavicmyths:polished_lost_hall_stone_wall",
+    "slavicmyths:grove_guardian_head",
+    "slavicmyths:posten_head"
   ]
 }

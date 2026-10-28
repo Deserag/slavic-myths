@@ -1,0 +1,51 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\src\main\java\org\slavicmyths\burningislands\client\IslandsClient.java:11: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                          ^
+C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\src\main\java\org\slavicmyths\burningislands\client\IslandsClient.java:11: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                                                ^
+C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\src\main\java\org\slavicmyths\client\TrophyHeadsClient.java:24: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                          ^
+C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\src\main\java\org\slavicmyths\client\TrophyHeadsClient.java:24: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+                                                                                ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+4 warnings
+
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :compileLostHallsOfflineJava
+> Task :processLostHallsOfflineResources NO-SOURCE
+> Task :lostHallsOfflineClasses
+
+> Task :verifyLostHallsLogic FAILED
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+Exception in thread "main" java.lang.AssertionError: existing clone cannot become another arena body
+	at org.slavicmyths.verify.LostHallsOffline.check(LostHallsOffline.java:39)
+	at org.slavicmyths.verify.LostHallsOffline.encounterIdentityIsolation(LostHallsOffline.java:527)
+	at org.slavicmyths.verify.LostHallsOffline.main(LostHallsOffline.java:502)
+
+[Incubating] Problems report is available at: file:///C:/Users/user/.codex/worktrees/lost-halls/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':verifyLostHallsLogic'.
+> Process 'command 'C:\Users\user\Documents\slavic-myths\.tools\jdk21\jdk-21.0.12.1+1\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 10s
+6 actionable tasks: 4 executed, 2 up-to-date

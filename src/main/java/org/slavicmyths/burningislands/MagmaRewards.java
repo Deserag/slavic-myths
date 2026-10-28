@@ -25,11 +25,12 @@ public final class MagmaRewards {
  }
  public static void reconcile(ServerPlayer p){
   for(var level:p.getServer().getAllLevels())for(var delivery:MagmaEncounters.get(level).deliveries(p.getUUID(),level.getGameTime()))
-   queueData(p.getPersistentData(),level.dimension().location()+":"+delivery.anchor(),delivery.cores());
+   org.slavicmyths.losthalls.BossRewardInbox.prepare(p.getServer(),level.dimension().location()+":"+delivery.anchor(),"magma",p.getUUID(),delivery.cores(),p.getServer().overworld().getGameTime());
   deliver(p);
+  org.slavicmyths.losthalls.BossRewardInbox.reconcile(p);
  }
  public static void expect(ServerPlayer p){p.getPersistentData().putLong(RECONCILE,p.getServer().overworld().getGameTime()+160);}
- private static List<ItemStack> batch(int cores){
+ public static List<ItemStack> batch(int cores){
   var soul=new ItemStack(org.slavicmyths.rpg.RuneFoundation.item("soul"));
   var data=new CompoundTag();data.putBoolean("slavicmyths_infected_medium",true);
   soul.set(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.of(data));

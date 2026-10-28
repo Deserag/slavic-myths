@@ -42,7 +42,7 @@ public final class RareRuneRuntime {
     public static void intent(ServerPlayer p,boolean cycle){if(!p.isAlive()||p.isSpectator()){p.displayClientMessage(RareRunes.text("invalid_state"),true);return;}var t=temp(p);if(t.getLong("RuneRequestUntil")>now(p))return;t.putLong("RuneRequestUntil",now(p)+4);
         var active=RareRunes.active(p);if(active.isEmpty()){p.displayClientMessage(RareRunes.text("not_equipped"),true);return;}int selected=RareRuneRules.selected(data(p).getInt("Selected"),active.size());
         if(cycle){data(p).putInt("Selected",(selected+1)%active.size());data(p).putLong("ServerTick",now(p));RpgNetwork.sync(p);return;}
-        String id=active.get(selected);if(!ready(p,id)){p.displayClientMessage(RareRunes.text("cooldown",(data(p).getLong("CD_"+id)-now(p)+19)/20),true);return;}
+        String id=active.get(selected);if(id.equals("shadow_face")){org.slavicmyths.losthalls.ShadowFace.activate(p);return;}if(!ready(p,id)){p.displayClientMessage(RareRunes.text("cooldown",(data(p).getLong("CD_"+id)-now(p)+19)/20),true);return;}
         switch(id){
             case "floating_weapon"->{var visual=RuneVisual.weapon(p);if(!p.serverLevel().addFreshEntity(visual))return;t.putInt("RuneWeaponVisual",visual.getId());}
             case "flight"->{var a=p.getAbilities();var d=data(p);d.putBoolean("FlightLease",true);d.putFloat("FlightSpeedBefore",a.getFlyingSpeed());d.putBoolean("FlightMayflyBefore",a.mayfly);d.putBoolean("FlightFlyingBefore",a.flying);d.putString("FlightModeBefore",p.gameMode.getGameModeForPlayer().getName());t.putLong("RuneFlightUntil",now(p)+100);a.mayfly=true;a.flying=true;a.setFlyingSpeed(.05F*1.35F);p.onUpdateAbilities();p.displayClientMessage(RareRunes.text("flight_started"),true);}

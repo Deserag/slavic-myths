@@ -39,6 +39,8 @@ def rig(name):
    box(f'eye{i}','head',[side*4,-1,-6.1],[5,2,1],True);box(f'horn{i}','head',[side*7,-12,0],[3,15,4]);box(f'horn_back{i}','head',[side*5,-9,5],[3,9,3]);box(f'shard_head{i}','head',[side*11,1,0],[3,5,4])
   box('crown','head',[0,-11,2],[4,10,4])
  else:raise ValueError(name)
+ from nether_boss327_geometry import islands
+ islands(name,parts)
  atlas=512;u=v=row=0;im=Image.new('RGBA',(atlas,atlas));glow=Image.new('RGBA',(atlas,atlas));rng=random.Random(name)
  for p in parts:
   x,y,z=p['size'];w=2*(x+z);h=y+z

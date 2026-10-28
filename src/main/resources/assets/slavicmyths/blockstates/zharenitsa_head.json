@@ -1,20 +1,7 @@
 {
   "variants": {
-    "facing=north": {
-      "model": "slavicmyths:block/zharenitsa_head",
-      "y": 0
-    },
-    "facing=east": {
-      "model": "slavicmyths:block/zharenitsa_head",
-      "y": 90
-    },
-    "facing=south": {
-      "model": "slavicmyths:block/zharenitsa_head",
-      "y": 180
-    },
-    "facing=west": {
-      "model": "slavicmyths:block/zharenitsa_head",
-      "y": 270
+    "": {
+      "model": "slavicmyths:block/zharenitsa_head"
     }
   }
 }
