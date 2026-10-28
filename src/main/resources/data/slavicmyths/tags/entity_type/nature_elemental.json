@@ -9,6 +9,11 @@
     "slavicmyths:guardian_water_prison",
     "minecraft:blaze",
     "minecraft:breeze",
-    "minecraft:magma_cube"
+    "minecraft:magma_cube",
+    "slavicmyths:coal_crawler",
+    "slavicmyths:pekelnik",
+    "slavicmyths:sparkling",
+    "slavicmyths:zharenitsa",
+    "slavicmyths:magma_lord"
   ]
 }

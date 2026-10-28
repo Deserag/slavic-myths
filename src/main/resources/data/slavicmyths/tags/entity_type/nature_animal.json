@@ -21,6 +21,8 @@
     "minecraft:silverfish",
     "minecraft:endermite",
     "minecraft:guardian",
-    "minecraft:elder_guardian"
+    "minecraft:elder_guardian",
+    "slavicmyths:heat_salamander",
+    "slavicmyths:slag_crab"
   ]
 }

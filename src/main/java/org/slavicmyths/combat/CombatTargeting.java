@@ -113,6 +113,11 @@ public final class CombatTargeting {
     }
     public static Intent intent(LivingEntity e){
         if(e.getType().is(PROXY))return Intent.NEUTRAL;
+        // Explicit biome roles precede Enemy/tag fallbacks. Traits must not provoke neutrals.
+        if(e instanceof org.slavicmyths.navya.NavyaMob mob)return mob.kind==org.slavicmyths.navya.NavyaContent.Kind.WISP?Intent.PEACEFUL:Intent.HOSTILE;
+        if(e instanceof org.slavicmyths.blackcinder.CinderMob mob)return switch(mob.kind){case SPARKLING->Intent.PEACEFUL;case ASH_SPIRIT->mob.getTarget()==null?Intent.NEUTRAL:Intent.HOSTILE;default->Intent.HOSTILE;};
+        if(e instanceof org.slavicmyths.burningislands.IslandsMob mob)return mob.getTarget()==null?Intent.NEUTRAL:Intent.HOSTILE;
+        if(e instanceof org.slavicmyths.losthalls.HallsMob mob)return switch(mob.kind){case GRIBOSHMYG->Intent.PEACEFUL;case GULOKRYL->mob.isTame()?Intent.DEFENDER:Intent.NEUTRAL;case EKHOVIK->mob.getTarget()==null?Intent.NEUTRAL:Intent.HOSTILE;default->Intent.HOSTILE;};
         if(e instanceof org.slavicmyths.industry.ChudPerson p)return p.role()==3?Intent.DEFENDER:Intent.PEACEFUL;
         if(e instanceof net.minecraft.world.entity.npc.Villager v)return org.slavicmyths.military.Military.guard(v)?Intent.DEFENDER:Intent.PEACEFUL;
         if(e instanceof net.minecraft.world.entity.npc.WanderingTrader)return Intent.PEACEFUL;

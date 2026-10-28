@@ -1,0 +1,9 @@
+{
+  "new_entities": 20,
+  "source_declarations": 140,
+  "merged_rows": 140,
+  "historical_sha256_unchanged": "11dfa926d58f480e30bb22185f131491bdd1953d0dfa144778f19074aab5ac6e",
+  "source_nature_unique": "PASS",
+  "runtime_registry": "NOT_RUN",
+  "tier_damage_changes": "NOT_APPLIED;OWNER_REVIEW_PROPOSED"
+}
