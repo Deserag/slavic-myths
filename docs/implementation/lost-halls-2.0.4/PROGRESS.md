@@ -1,5 +1,14 @@
 # ПЕРЕДАЧА КОНТЕКСТА — SLAVIC MYTHS 2.0.4
 
+## Posten server reconciliation checkpoint — 28.10.2026
+
+- HEAD before stage `7c770fa31e35db2a4f4500c43b0a6c912f640c68`; source commit [`bd8db5c7d57d`](https://github.com/Deserag/slavic-myths/commit/bd8db5c7d57d6b99f9273ccb592fb2e32a495d7d), branch `hell`.
+- `PostenReconciliation.inspect` computes a **read-only, deterministic** recovery plan from journal snapshots and observed owned UUIDs when *all arena chunks and entities are loaded*: restore BODY at 650→260, restore ONLY living copies (each at own NBT HP), never restore dead copies/defeated boss, mark obsolete body/clones for removal. Duplicate UUID observations and invalid snapshots fail closed. Missing chunks => **defer**, no chunk tickets or speculative spawns.
+- Tests authored for body, split, one dead clone, defeated after NBT reload, missing/unloaded area, duplicate observed UUID, malformed masks; these new tests and production code are **NOT_RUN/NOT_COMPILED**. Important: **this is the reconciliation decision model, NOT physical spawning/recovery**; no Posten EntityType/arena controller exists and no actual server hook invokes it.
+- New `LostHallsRoomPieces` completion journal + its tests remain unexecuted too. No Minecraft/GameTest/server/PolyMC runs; owner runtime QA intentionally deferred. Art SOURCE_GATE `BLOCKED_REFERENCE`, scene generator and boss EntityType `BLOCKED_DEPENDENCY`.
+- Next concrete integration: obtain approved PNGs/SHA, implement genuine model/EntityType/arena anchors, then on bounded arena load inspect the journal and reconcile actual entities with health, masks, spawn checks and bossbar; implement **crash-consistent** physical reward delivery before claiming victory.
+
+
 ## Checkpoint — продолжение третьего биома (28.10.2026)
 
 - Starting HEAD `ab421d9186ee11a84fef46d6b7d8f43bdf4e6560`, production commit: [`a0f3608955b1`](https://github.com/Deserag/slavic-myths/commit/a0f3608955b178c99f0192d1310d3cfa70c54cf4), branch **hell**.

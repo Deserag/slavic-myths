@@ -379,6 +379,60 @@ public final class LostHallsOffline {
                 "corrupt plan excluding anchor chunk fails closed");
     }
 
+
+    private static void postenReloadPlan() throws Exception {
+        UUID arena = id(9201), body = id(9202);
+        PostenEncounters journal = new PostenEncounters();
+        check(journal.register(arena, body), "recovery fixture registered");
+        var first = journal.snapshot(arena).orElseThrow();
+        var pending = org.slavicmyths.losthalls.PostenReconciliation.inspect(first, List.of(), false);
+        check(pending.deferred() && !pending.hasChanges(), "no boss spawning before all arena chunks loaded");
+        var bodyPlan = org.slavicmyths.losthalls.PostenReconciliation.inspect(first, List.of(), true);
+        check(bodyPlan.missing().size() == 1 && bodyPlan.missing().getFirst().isBody()
+                && bodyPlan.missing().getFirst().health() == 650, "missing body restored at journal HP");
+        check(!org.slavicmyths.losthalls.PostenReconciliation.inspect(first,
+                List.of(body), true).hasChanges(), "loaded body kept without second spawn");
+        check(journal.damageBody(arena, body, 390).splitNow(), "phase boundary accepted");
+        journal = reload(journal);
+        var split = journal.snapshot(arena).orElseThrow();
+        var firstSplit = org.slavicmyths.losthalls.PostenReconciliation.inspect(split,
+                List.of(body), true);
+        check(firstSplit.missing().size() == 4 && firstSplit.stale().equals(java.util.Set.of(body)),
+                "body removed and exactly four correct clones requested after restart");
+        UUID dead = split.copies().getFirst().entity();
+        check(journal.damageCopy(arena, dead, 65).applied() == 65, "first clone died");
+        journal = reload(journal);
+        var afterDeath = org.slavicmyths.losthalls.PostenReconciliation.inspect(
+                journal.snapshot(arena).orElseThrow(), List.of(dead), true);
+        check(afterDeath.missing().size() == 3 && afterDeath.stale().contains(dead),
+                "dead clone never resurrected, stale physical clone removed");
+        for (int i = 1; i < 4; i++) {
+            check(journal.damageCopy(arena, split.copies().get(i).entity(), 65).applied() == 65,
+                    "remaining clone killed once");
+        }
+        journal = reload(journal);
+        var finished = journal.snapshot(arena).orElseThrow();
+        check(finished.phase() == Phase.DEFEATED, "terminal status survives binary reload");
+        var noBoss = org.slavicmyths.losthalls.PostenReconciliation.inspect(
+                finished, List.of(body, dead), true);
+        check(noBoss.missing().isEmpty() && noBoss.stale().containsAll(List.of(body, dead)),
+                "defeated arena never respawns a body or copy");
+        boolean rejected = false;
+        try {
+            org.slavicmyths.losthalls.PostenReconciliation.inspect(split, List.of(body, body), true);
+        } catch (IllegalArgumentException expected) { rejected = true; }
+        check(rejected, "duplicate observed entity UUID rejected");
+        var badCopies = new ArrayList<>(split.copies());
+        badCopies.set(1, badCopies.getFirst());
+        var invalid = new PostenEncounters.Snapshot(arena, body, Phase.COPIES, 260,
+                badCopies, false);
+        rejected = false;
+        try {
+            org.slavicmyths.losthalls.PostenReconciliation.inspect(invalid, List.of(), true);
+        } catch (IllegalArgumentException expected) { rejected = true; }
+        check(rejected, "malformed saved mask identities fail closed");
+    }
+
     public static void main(String[] args) throws Exception {
         encounterBoundaries();
         encounterTrials();
@@ -387,6 +441,7 @@ public final class LostHallsOffline {
         routes();
         publicationPlans();
         roomPieceReceipts();
+        postenReloadPlan();
         Path out = Path.of("docs/implementation/lost-halls-2.0.4/offline-logic.json");
         Files.createDirectories(out.getParent());
         String report = "{\n  \"scope\": \"Production accounting/index, finite voxel routes and binary NBT only\",\n"
