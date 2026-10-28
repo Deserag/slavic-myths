@@ -1,0 +1,23 @@
+{
+  "status": "IN_PROGRESS; technical candidate, not accepted release",
+  "source_commit": "c0dafcac9019ac55eaea0f50e4b71a4cfee5f311",
+  "merged_head": "af3af34d33a7ed2c8905e825aefd733f8046ecc2",
+  "branch": "hell",
+  "jar": "C:\\Users\\user\\.codex\\worktrees\\lost-halls\\slavic-myths\\build\\libs\\slavicmyths-2.0.8-HELL.jar",
+  "version": "2.0.8-HELL",
+  "sha256": "8e04ee7c70eeb5aaa328942e1f897b11694b71e7766957632f6781b250a47913",
+  "source_manifest": "build-source-manifest.json",
+  "manifest_sha256": "2c49b9981a602f990b17c6f84321017e905da3d325c0297cada07d36f557ab7c",
+  "source_manifest_verified_after_merge": true,
+  "runtime_launches": 0,
+  "runtime": "NOT_RUN",
+  "art": "BLOCKED_REFERENCE",
+  "polymc": "POLYMC_NOT_INSTALLED",
+  "previous_installed_jar": "C:\\Users\\user\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.8-HELL-Testing\\.minecraft\\mods\\slavicmyths-2.0.8-HELL.jar",
+  "previous_installed_sha256": "102952bb4c573fcb370c13fca2e702d19fed189d6d965d89aa26cdde677cc9ab",
+  "installed_mod_jars": [
+    "slavicmyths-2.0.8-HELL.jar"
+  ],
+  "previous_backup_directory": "C:\\Users\\user\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.8-HELL-Testing\\mod-backups\\20261028-143450",
+  "git_publish": "Pending normal push; source and merge committed locally. See PUBLISH_RESULT.md for actual remote confirmation."
+}

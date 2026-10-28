@@ -120,10 +120,10 @@ public final class org.slavicmyths.burningislands.IslandsMob extends net.minecra
       44: aload_0
       45: invokevirtual #124                // Method org/slavicmyths/burningislands/IslandsContent$Kind.ordinal:()I
       48: iaload
-      49: tableswitch   { // 1 to 4
-                     1: 90
-                     2: 96
-                     3: 102
+      49: tableswitch   { // 1 to 4
+                     1: 90
+                     2: 96
+                     3: 102
                      4: 108
                default: 80
           }
@@ -146,10 +146,10 @@ public final class org.slavicmyths.burningislands.IslandsMob extends net.minecra
      120: aload_0
      121: invokevirtual #124                // Method org/slavicmyths/burningislands/IslandsContent$Kind.ordinal:()I
      124: iaload
-     125: tableswitch   { // 1 to 4
-                     1: 166
-                     2: 172
-                     3: 178
+     125: tableswitch   { // 1 to 4
+                     1: 166
+                     2: 172
+                     3: 178
                      4: 184
                default: 156
           }
@@ -1347,15 +1347,15 @@ public final class org.slavicmyths.burningislands.IslandsMob extends net.minecra
      138: invokevirtual #417                // Method action:()Lorg/slavicmyths/burningislands/MagmaCombat$Action;
      141: invokevirtual #548                // Method org/slavicmyths/burningislands/MagmaCombat$Action.ordinal:()I
      144: iaload
-     145: tableswitch   { // 1 to 9
-                     1: 196
-                     2: 280
-                     3: 357
-                     4: 414
-                     5: 471
-                     6: 504
-                     7: 504
-                     8: 504
+     145: tableswitch   { // 1 to 9
+                     1: 196
+                     2: 280
+                     3: 357
+                     4: 414
+                     5: 471
+                     6: 504
+                     7: 504
+                     8: 504
                      9: 504
                default: 550
           }
@@ -1826,12 +1826,12 @@ public final class org.slavicmyths.burningislands.IslandsMob extends net.minecra
      222: aload_1
      223: invokevirtual #548                // Method org/slavicmyths/burningislands/MagmaCombat$Action.ordinal:()I
      226: iaload
-     227: tableswitch   { // 1 to 6
-                     1: 314
-                     2: 361
-                     3: 381
-                     4: 427
-                     5: 324
+     227: tableswitch   { // 1 to 6
+                     1: 314
+                     2: 361
+                     3: 381
+                     4: 427
+                     5: 324
                      6: 264
                default: 427
           }
