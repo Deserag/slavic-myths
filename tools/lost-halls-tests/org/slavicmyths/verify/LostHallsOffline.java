@@ -433,6 +433,41 @@ public final class LostHallsOffline {
         check(rejected, "malformed saved mask identities fail closed");
     }
 
+
+    private static void regionTopology() {
+        java.util.Set<UUID> all = new java.util.HashSet<>();
+        for (long seed : new long[]{42041, 42042, 42043, 42044, 42045}) {
+            for (int rx : new int[]{-2, 0, 2}) {
+                var plan = org.slavicmyths.losthalls.LostHallsRegionTopology.plan(seed, rx, -1, 76);
+                check(plan.equals(org.slavicmyths.losthalls.LostHallsRegionTopology.plan(seed, rx, -1, 76)),
+                        "same seed and region produce the same topology");
+                check(plan.rooms().size() == 6 && plan.isConnected(), "six scenes and arena connected");
+                check(plan.rooms().stream().map(Node::scene).collect(java.util.stream.Collectors.toSet())
+                        .equals(java.util.EnumSet.allOf(Scene.class)), "six distinct scene types");
+                check(plan.links().size() == 8, "ring, alternative edge and terminal boss arena");
+                java.util.Map<UUID, Integer> degrees = new java.util.HashMap<>();
+                for (var link : plan.links()) {
+                    degrees.merge(link.from(), 1, Integer::sum);
+                    degrees.merge(link.to(), 1, Integer::sum);
+                }
+                for (Node node : plan.rooms()) {
+                    check(node.exits() == degrees.get(node.id()), "node exits agree with graph degree");
+                    check(all.add(node.id()), "room ID is seed-and-region unique");
+                }
+                check(degrees.get(plan.arenaId()) == 1 && all.add(plan.arenaId()),
+                        "one unique planned Posten arena");
+            }
+        }
+        boolean invalid = false;
+        try { org.slavicmyths.losthalls.LostHallsRegionTopology.plan(42041, 200_000, 0, 76); }
+        catch (IllegalArgumentException expected) { invalid = true; }
+        check(invalid, "reject out-of-bounds region before coordinate conversion");
+        invalid = false;
+        try { org.slavicmyths.losthalls.LostHallsRegionTopology.plan(42041, 0, 0, 255); }
+        catch (IllegalArgumentException expected) { invalid = true; }
+        check(invalid, "reject unsafe vertical planning anchor");
+    }
+
     public static void main(String[] args) throws Exception {
         encounterBoundaries();
         encounterTrials();
@@ -442,6 +477,7 @@ public final class LostHallsOffline {
         publicationPlans();
         roomPieceReceipts();
         postenReloadPlan();
+        regionTopology();
         Path out = Path.of("docs/implementation/lost-halls-2.0.4/offline-logic.json");
         Files.createDirectories(out.getParent());
         String report = "{\n  \"scope\": \"Production accounting/index, finite voxel routes and binary NBT only\",\n"
