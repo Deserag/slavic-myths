@@ -1,5 +1,15 @@
 # ПЕРЕДАЧА КОНТЕКСТА — SLAVIC MYTHS 2.0.4
 
+## Checkpoint — продолжение третьего биома (28.10.2026)
+
+- Starting HEAD `ab421d9186ee11a84fef46d6b7d8f43bdf4e6560`, production commit: [`a0f3608955b1`](https://github.com/Deserag/slavic-myths/commit/a0f3608955b178c99f0192d1310d3cfa70c54cf4), branch **hell**.
+- New `LostHallsRoomPieces` server SavedData: per-UUID S1–S6 room descriptor and immutable expected chunk footprint, persistent per-chunk completion receipts, replay-safe acknowledgements, fail-closed corrupt/unknown NBT. Only when *all* pieces have acknowledged can producer invoke `publish`, which checks final loaded blocks and walkable exits using existing `LostHallsRoomPublication` and stores the navigable node in `LostHallsRooms`. No force-load, global tick scan or new registry IDs. Pending receipts persist on incomplete/unloaded routes.
+- Offline fixtures added for 2-chunk out-of-order completion, duplicate/unknown/wrong chunks, wrong UUID/scene, NBT reload and fail-closed corruption. These fixtures were **AUTHORED but NOT_RUN**, including no Java/Gradle compilation; remote GitHub commit is not verification of their execution.
+- Genuine worldgen producer/callback for S1–S6 **does not exist yet**, so no actual room can currently acknowledge a piece or publish itself in gameplay; Posten entity/arena/spawns/items also missing. **BLOCKED_DEPENDENCY**.
+- Approved PNGs not present in available local/repository files: **BLOCKED_REFERENCE**. NeoForge client/dedicated server/Minecraft/GameTest/PolyMC **NOT_RUN_ENV_BLOCK**; no owner acceptance claimed. The second biome also remains pending joint runtime QA.
+- Next: obtain exact original approved art/SHA for #289/#290; implement real chunks/clipping and server-thread completion callbacks, call `LostHallsRoomPieces.begin/acknowledge/publish` only after physical chunk pieces complete. Separately implement Posten entities + recovery when source models are available; review its crash-consistent loot delivery before claiming rewards.
+
+
 ## Browser/GitHub checkpoint — 28.10.2026, route publication (#291)
 
 - Baseline `hell` HEAD: `c7bbe137d8cd842be8d66636a409252aa9150f13`; production gate commit: [`cf289f11bd68`](https://github.com/Deserag/slavic-myths/commit/cf289f11bd689d057c5c435f40b6ff10f05181a5).

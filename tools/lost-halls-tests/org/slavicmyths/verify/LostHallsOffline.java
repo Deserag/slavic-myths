@@ -317,6 +317,68 @@ public final class LostHallsOffline {
                 "metadata survives binary NBT roundtrip (offline, not actual world save)");
     }
 
+
+    private static org.slavicmyths.losthalls.LostHallsRoomPieces reload(
+            org.slavicmyths.losthalls.LostHallsRoomPieces data) throws Exception {
+        var restored = org.slavicmyths.losthalls.LostHallsRoomPieces.load(
+                binary(data.save(new CompoundTag(), null)), null);
+        check(!restored.isReadOnly() && !restored.isDirty(), "piece receipts survived native binary NBT");
+        return restored;
+    }
+
+    private static void roomPieceReceipts() throws Exception {
+        var data = new org.slavicmyths.losthalls.LostHallsRoomPieces();
+        Node room = node(8201, Scene.LARGE_HALL, -16, 70, 0, 2);
+        var west = new net.minecraft.world.level.ChunkPos(-1, 0);
+        var east = new net.minecraft.world.level.ChunkPos(0, 0);
+        check(data.status(room.id()).isEmpty(), "unknown room not ready");
+        check(data.begin(room, List.of(west, east)), "two-chunk room plan recorded");
+        check(data.begin(room, List.of(east, west)), "plan idempotent across chunk ordering");
+        check(!data.begin(new Node(room.id(), Scene.LUMINOUS_GROTTO, room.anchor(), 2),
+                List.of(west, east)), "same UUID cannot change a reserved scene");
+        check(!data.begin(room, List.of(west)), "same UUID cannot shrink planned footprint");
+        check(!data.begin(node(8202, Scene.BRIDGE, -16, 70, 0, 2),
+                List.of(west, west)), "duplicate chunk cannot fake a distinct part");
+        check(!data.begin(node(8203, Scene.BRIDGE, -16, 70, 0, 2),
+                List.of(east)), "footprint must include anchor chunk");
+        check(!data.begin(node(8204, Scene.BRIDGE, -16, 70, 0, 2),
+                List.of(west, new net.minecraft.world.level.ChunkPos(10, 0))),
+                "far-away chunk receipt rejected");
+        check(!data.acknowledge(room.id(), new net.minecraft.world.level.ChunkPos(1, 0)),
+                "unplanned chunk receipt rejected");
+        check(!data.acknowledge(id(999), west), "unregistered room cannot receive a chunk");
+        check(data.acknowledge(room.id(), east) && data.acknowledge(room.id(), east),
+                "chunk receipt replay is idempotent");
+        check(!data.status(room.id()).orElseThrow().ready(), "one of two chunks cannot publish");
+        check(data.status(room.id()).orElseThrow().completed().size() == 1,
+                "repeated receipt did not count twice");
+        data = reload(data);
+        check(!data.status(room.id()).orElseThrow().ready(), "partial completion survives reload");
+        check(data.acknowledge(room.id(), west), "final actual chunk receipt accepted");
+        check(data.status(room.id()).orElseThrow().ready(), "only fully acknowledged plan becomes ready");
+        data = reload(data);
+        check(data.status(room.id()).orElseThrow().ready(), "completed set survives reload");
+        CompoundTag valid = data.save(new CompoundTag(), null);
+        CompoundTag future = valid.copy();
+        future.putInt("Version", 999);
+        var readOnly = org.slavicmyths.losthalls.LostHallsRoomPieces.load(binary(future), null);
+        check(readOnly.isReadOnly() && !readOnly.begin(room, List.of(west, east))
+                && !readOnly.acknowledge(room.id(), west) && readOnly.status(room.id()).isEmpty(),
+                "unknown schema cannot rearm a room plan");
+        check(readOnly.save(new CompoundTag(), null).equals(future),
+                "unknown completion schema preserved byte-for-byte in NBT values");
+        CompoundTag repeated = valid.copy();
+        var receipt = repeated.getList("Plans", 10).getCompound(0);
+        receipt.putLongArray("Completed", new long[]{west.toLong(), west.toLong()});
+        var invalid = org.slavicmyths.losthalls.LostHallsRoomPieces.load(binary(repeated), null);
+        check(invalid.isReadOnly() && invalid.size() == 0,
+                "duplicate completed receipt fails closed after reload");
+        CompoundTag missing = valid.copy();
+        missing.getList("Plans", 10).getCompound(0).putLongArray("Expected", new long[]{east.toLong()});
+        check(org.slavicmyths.losthalls.LostHallsRoomPieces.load(binary(missing), null).isReadOnly(),
+                "corrupt plan excluding anchor chunk fails closed");
+    }
+
     public static void main(String[] args) throws Exception {
         encounterBoundaries();
         encounterTrials();
@@ -324,6 +386,7 @@ public final class LostHallsOffline {
         rooms();
         routes();
         publicationPlans();
+        roomPieceReceipts();
         Path out = Path.of("docs/implementation/lost-halls-2.0.4/offline-logic.json");
         Files.createDirectories(out.getParent());
         String report = "{\n  \"scope\": \"Production accounting/index, finite voxel routes and binary NBT only\",\n"
