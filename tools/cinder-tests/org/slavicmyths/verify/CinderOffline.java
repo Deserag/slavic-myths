@@ -31,7 +31,11 @@ public final class CinderOffline {
   }
   for(var item:List.of(net.minecraft.world.item.Items.GOLDEN_HELMET,net.minecraft.world.item.Items.NETHERITE_HELMET,net.minecraft.world.item.Items.LEATHER_BOOTS))if(!ZharenitsaSeals.seal(new net.minecraft.world.item.ItemStack(item)).isEmpty())throw new AssertionError("unsupported armor");
   var ids=Set.of("ash_mantle");if(!Arrays.asList(org.slavicmyths.rpg.Runes.IDS).containsAll(ids))throw new AssertionError("rune integration");
-  var journal=new CinderEncounters();var owner=UUID.randomUUID();if(!journal.register(203,owner)||journal.register(203,UUID.randomUUID())||!journal.claim(203,owner)||journal.claim(203,owner))throw new AssertionError("encounter ownership/duplicate claim");
+  var journal=new CinderEncounters();var owner=UUID.randomUUID();
+  if(journal.claim(999999,owner) || journal.claim(999999,null))throw new AssertionError("missing arena can never claim reward");
+  if(!journal.register(203,owner)||journal.register(203,UUID.randomUUID())||journal.claim(203,UUID.randomUUID())
+      ||journal.claim(203,null)||!journal.claim(203,owner)||journal.claim(203,owner))
+   throw new AssertionError("encounter ownership/duplicate claim");
   var restored=CinderEncounters.load(journal.save(new net.minecraft.nbt.CompoundTag(),lookup),lookup);if(restored.register(203,owner)||restored.claim(203,owner))throw new AssertionError("defeated journal NBT");
   // Lattice coverage is arithmetic, not natural worldgen evidence.
   for(int start=-2048;start<2048;start++){
