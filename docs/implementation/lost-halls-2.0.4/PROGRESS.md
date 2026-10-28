@@ -1,5 +1,15 @@
 # ПЕРЕДАЧА КОНТЕКСТА — SLAVIC MYTHS 2.0.4
 
+## Browser/GitHub checkpoint — 28.10.2026, route publication (#291)
+
+- Baseline `hell` HEAD: `c7bbe137d8cd842be8d66636a409252aa9150f13`; production gate commit: [`cf289f11bd68`](https://github.com/Deserag/slavic-myths/commit/cf289f11bd689d057c5c435f40b6ff10f05181a5).
+- `LostHallsRoomPublication.publish` validates ONLY already loaded Nether blocks and final declared exits through a 4096-candidate bounded route before saving a node in existing `LostHallsRooms`; no old registry ID or NBT schema changed.
+- Offline fixture coverage added to `tools/lost-halls-tests/.../LostHallsOffline.java`: crossing a chunk border; missing, duplicate and unreachable exits; unsafe bridge support; out-of-bounds candidate; existing metadata NBT roundtrip. Fixtures and new Java code are **NOT_RUN** (GitHub connector is not a Gradle/JDK execution environment).
+- The S1–S6 generator does not exist and therefore cannot call this production gate yet. Never publish unbuilt rooms; future producer MUST call `publish` after final multi-chunk placement.
+- Posten entity/arena reconciliation and physical phase restoration remain `BLOCKED_DEPENDENCY` (no real Posten EntityType). Existing `PostenEncounters` NBT phase records are present, but do not spawn or restore physical copies.
+- Minecraft / dedicated server / GameTest / PolyMC: **NOT_RUN_ENV_BLOCK**; original PNG art: **BLOCKED_REFERENCE**; no Issue accepted or closed.
+
+
 > **Актуализация через GitHub, 28.10.2026.** Текущая реализация трёх backend-классов отправлена в `hell` коммитом [`6f79d3f9`](https://github.com/Deserag/slavic-myths/commit/6f79d3f98783e9cff1defa835394c6b13e16e47a). Ниже сохранён **исторический checkpoint Codex до коммита**, включая старый `HEAD=877b7d69` и уже неактуальную пометку «незакоммичено» — он не описывает нынешнее состояние удалённой ветки. Для продолжения разработки, порядка этапов, актуальных блокеров и code-review см. [NEXT_IMPLEMENTATION_REQUIREMENTS.md](NEXT_IMPLEMENTATION_REQUIREMENTS.md). Полный статус независимой серверной инфраструктуры — [REPORT.md](REPORT.md). SOURCE ART остаётся `BLOCKED_REFERENCE`, gameplay `NOT_RUN`.
 
 

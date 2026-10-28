@@ -286,12 +286,44 @@ public final class LostHallsOffline {
                 == Status.INVALID_ENTRY, "unknown geometry cannot pass");
     }
 
+
+    private static void publicationPlans() throws Exception {
+        BlockPos entry = new BlockPos(15, 64, 0), exit = new BlockPos(17, 64, 0);
+        Node room = new Node(id(7501), Scene.BRIDGE, entry, 2);
+        List<BlockPos> feet = List.of(entry, entry.east(), exit);
+        Map<BlockPos, Cell> cells = new HashMap<>();
+        feet.forEach(pos -> standable(cells, pos));
+        var snapshot = new LostHallsRouteCheck.Snapshot(cells);
+        check(org.slavicmyths.losthalls.LostHallsRoomPublication.verifyTopology(room,
+                List.of(entry, exit), feet, snapshot), "completed two-chunk passage accepted");
+        check(!org.slavicmyths.losthalls.LostHallsRoomPublication.verifyTopology(room,
+                List.of(entry, entry), feet, snapshot), "duplicate exit cannot fake completion");
+        check(!org.slavicmyths.losthalls.LostHallsRoomPublication.verifyTopology(room,
+                List.of(entry), feet, snapshot), "missing exit cannot fake completion");
+        check(!org.slavicmyths.losthalls.LostHallsRoomPublication.verifyTopology(room,
+                List.of(entry, exit), List.of(entry, entry.east()), snapshot),
+                "absent exit cannot fake completion");
+        Map<BlockPos, Cell> collapsed = new HashMap<>(cells);
+        collapsed.put(entry.east().below(), Cell.HAZARD);
+        check(!org.slavicmyths.losthalls.LostHallsRoomPublication.verifyTopology(room,
+                List.of(entry, exit), feet, new LostHallsRouteCheck.Snapshot(collapsed)),
+                "collapsed crossing rejected before metadata publication");
+        check(!org.slavicmyths.losthalls.LostHallsRoomPublication.verifyTopology(room,
+                List.of(entry, exit), List.of(entry, entry.east(), exit.offset(97, 0, 0)), snapshot),
+                "out-of-bounds geometry rejected");
+        LostHallsRooms stored = new LostHallsRooms();
+        check(stored.size() == 0, "unpublished room is not navigable");
+        check(stored.registerCompleted(room) && reload(stored).size() == 1,
+                "metadata survives binary NBT roundtrip (offline, not actual world save)");
+    }
+
     public static void main(String[] args) throws Exception {
         encounterBoundaries();
         encounterTrials();
         corruptEncounters();
         rooms();
         routes();
+        publicationPlans();
         Path out = Path.of("docs/implementation/lost-halls-2.0.4/offline-logic.json");
         Files.createDirectories(out.getParent());
         String report = "{\n  \"scope\": \"Production accounting/index, finite voxel routes and binary NBT only\",\n"
