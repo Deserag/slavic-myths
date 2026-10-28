@@ -11,7 +11,7 @@ import org.slavicmyths.registry.*;
 public final class TrophyHeads {
  public enum Kind {
   TUGARIN("tugarin_head",1),SKIM("skim_head",1),VOLKOLAK("cursed_volkolak_head",1),
-  LIKHO("likho_head",2),MOR_LIKHO("mor_likho_head",2),PODZEMNIK("large_podzemnik_head",2);
+  LIKHO("likho_head",2),MOR_LIKHO("mor_likho_head",2),PODZEMNIK("large_podzemnik_head",2),MAGMA_LORD("magma_lord_head",1);
   public final String id;public final int height;Kind(String id,int height){this.id=id;this.height=height;}
   /** Native-renderer envelope, verified by Heads140Offline; keeps server collision client-free. */
   public float[] bounds(){return switch(this){
@@ -20,6 +20,7 @@ public final class TrophyHeads {
    case VOLKOLAK->new float[]{.174895F,.04F,.196157F,.825105F,.94F,.803843F};
    case LIKHO->new float[]{.313548F,.04F,.33809F,.686452F,1.94F,.66191F};
    case MOR_LIKHO->new float[]{.313548F,.04F,.332444F,.686452F,1.94F,.667556F};
+   case MAGMA_LORD->new float[]{.03F,.04F,.03F,.97F,.94F,.97F};
    case PODZEMNIK->new float[]{.03F,.04F,.0535F,.97F,1.058333F,.9465F};
   };}
  }

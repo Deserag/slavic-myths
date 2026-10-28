@@ -1,0 +1,17 @@
+allprojects { p ->
+ p.plugins.withId('java') {
+  p.sourceSets.create('islandsOffline') { java.srcDir('tools/burning-islands-tests') }
+  p.sourceSets.islandsOffline.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+  p.sourceSets.islandsOffline.runtimeClasspath += p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+  p.tasks.register('auditBurningIslandsOcean',JavaExec) {
+   dependsOn p.tasks.named('islandsOfflineClasses')
+   classpath=p.sourceSets.islandsOffline.runtimeClasspath
+   mainClass='org.slavicmyths.verify.IslandsOceanAudit'
+  }
+  p.tasks.register('verifyBurningIslandsOffline',JavaExec) {
+   dependsOn p.tasks.named('islandsOfflineClasses')
+   classpath=p.sourceSets.islandsOffline.runtimeClasspath
+   mainClass='org.slavicmyths.verify.IslandsOffline'
+  }
+ }
+}

@@ -1,0 +1,137 @@
+{
+  "scope": "Offline native base columns + hypothetical climate append, NOT actual generated hell worlds or ocean coverage",
+  "status": "BLOCKED_OCEAN_BIOME_ARCHITECTURE",
+  "productionSelectorChanged": false,
+  "seeds": [
+    {
+      "seed": 0,
+      "windows": 3,
+      "selectedQuartSamples": 258,
+      "notLavaAtSea": 111,
+      "counterexamples": [
+        {
+          "x": -1664,
+          "y": 32,
+          "z": 128,
+          "baseSeaBlock": "Block{minecraft:netherrack}"
+        },
+        {
+          "x": -1664,
+          "y": 48,
+          "z": 128,
+          "baseSeaBlock": "Block{minecraft:netherrack}"
+        },
+        {
+          "x": -1664,
+          "y": 80,
+          "z": 128,
+          "baseSeaBlock": "Block{minecraft:netherrack}"
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "windows": 3,
+      "selectedQuartSamples": 285,
+      "notLavaAtSea": 135,
+      "counterexamples": [
+        {
+          "x": -1664,
+          "y": 32,
+          "z": 512,
+          "baseSeaBlock": "Block{minecraft:netherrack}"
+        },
+        {
+          "x": -1664,
+          "y": 48,
+          "z": 512,
+          "baseSeaBlock": "Block{minecraft:netherrack}"
+        },
+        {
+          "x": -1664,
+          "y": 80,
+          "z": 512,
+          "baseSeaBlock": "Block{minecraft:netherrack}"
+        }
+      ]
+    },
+    {
+      "seed": -8675309,
+      "windows": 3,
+      "selectedQuartSamples": 189,
+      "notLavaAtSea": 102,
+      "counterexamples": [
+        {
+          "x": -960,
+          "y": 32,
+          "z": -192,
+          "baseSeaBlock": "Block{minecraft:netherrack}"
+        },
+        {
+          "x": -960,
+          "y": 48,
+          "z": -192,
+          "baseSeaBlock": "Block{minecraft:netherrack}"
+        },
+        {
+          "x": -960,
+          "y": 80,
+          "z": -192,
+          "baseSeaBlock": "Block{minecraft:netherrack}"
+        }
+      ]
+    },
+    {
+      "seed": 20261024,
+      "windows": 3,
+      "selectedQuartSamples": 201,
+      "notLavaAtSea": 123,
+      "counterexamples": [
+        {
+          "x": -1408,
+          "y": 32,
+          "z": -320,
+          "baseSeaBlock": "Block{minecraft:netherrack}"
+        },
+        {
+          "x": -1408,
+          "y": 48,
+          "z": -320,
+          "baseSeaBlock": "Block{minecraft:netherrack}"
+        },
+        {
+          "x": -1408,
+          "y": 80,
+          "z": -320,
+          "baseSeaBlock": "Block{minecraft:netherrack}"
+        }
+      ]
+    },
+    {
+      "seed": 987654321,
+      "windows": 3,
+      "selectedQuartSamples": 120,
+      "notLavaAtSea": 63,
+      "counterexamples": [
+        {
+          "x": -896,
+          "y": 32,
+          "z": -256,
+          "baseSeaBlock": "Block{minecraft:netherrack}"
+        },
+        {
+          "x": -896,
+          "y": 48,
+          "z": -256,
+          "baseSeaBlock": "Block{minecraft:netherrack}"
+        },
+        {
+          "x": -896,
+          "y": 80,
+          "z": -256,
+          "baseSeaBlock": "Block{minecraft:netherrack}"
+        }
+      ]
+    }
+  ]
+}

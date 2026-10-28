@@ -1,0 +1,869 @@
+{
+  "atlas": 512,
+  "parts": [
+    {
+      "name": "body",
+      "parent": "root",
+      "pivot": [
+        0,
+        -20,
+        0
+      ],
+      "size": [
+        17,
+        28,
+        12
+      ],
+      "offset": [
+        -8.5,
+        -14.0,
+        -6.0
+      ],
+      "hot": false,
+      "uv": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "core",
+      "parent": "body",
+      "pivot": [
+        0,
+        -2,
+        -7
+      ],
+      "size": [
+        9,
+        11,
+        3
+      ],
+      "offset": [
+        -4.5,
+        -5.5,
+        -1.5
+      ],
+      "hot": true,
+      "uv": [
+        60,
+        0
+      ]
+    },
+    {
+      "name": "shell0",
+      "parent": "body",
+      "pivot": [
+        -6,
+        -2,
+        -8
+      ],
+      "size": [
+        6,
+        16,
+        4
+      ],
+      "offset": [
+        -3.0,
+        -8.0,
+        -2.0
+      ],
+      "hot": false,
+      "uv": [
+        86,
+        0
+      ]
+    },
+    {
+      "name": "arm0",
+      "parent": "body",
+      "pivot": [
+        -15,
+        -7,
+        0
+      ],
+      "size": [
+        7,
+        23,
+        7
+      ],
+      "offset": [
+        -3.5,
+        -11.5,
+        -3.5
+      ],
+      "hot": false,
+      "uv": [
+        108,
+        0
+      ]
+    },
+    {
+      "name": "claw0",
+      "parent": "arm0",
+      "pivot": [
+        0,
+        15,
+        -2
+      ],
+      "size": [
+        8,
+        10,
+        6
+      ],
+      "offset": [
+        -4.0,
+        -5.0,
+        -3.0
+      ],
+      "hot": false,
+      "uv": [
+        138,
+        0
+      ]
+    },
+    {
+      "name": "finger0_0",
+      "parent": "claw0",
+      "pivot": [
+        -3,
+        7,
+        -1
+      ],
+      "size": [
+        2,
+        8,
+        2
+      ],
+      "offset": [
+        -1.0,
+        -4.0,
+        -1.0
+      ],
+      "hot": false,
+      "uv": [
+        168,
+        0
+      ]
+    },
+    {
+      "name": "finger0_1",
+      "parent": "claw0",
+      "pivot": [
+        0,
+        7,
+        -1
+      ],
+      "size": [
+        2,
+        8,
+        2
+      ],
+      "offset": [
+        -1.0,
+        -4.0,
+        -1.0
+      ],
+      "hot": true,
+      "uv": [
+        178,
+        0
+      ]
+    },
+    {
+      "name": "finger0_2",
+      "parent": "claw0",
+      "pivot": [
+        3,
+        7,
+        -1
+      ],
+      "size": [
+        2,
+        8,
+        2
+      ],
+      "offset": [
+        -1.0,
+        -4.0,
+        -1.0
+      ],
+      "hot": false,
+      "uv": [
+        188,
+        0
+      ]
+    },
+    {
+      "name": "backarm0",
+      "parent": "body",
+      "pivot": [
+        -13,
+        -10,
+        7
+      ],
+      "size": [
+        6,
+        22,
+        6
+      ],
+      "offset": [
+        -3.0,
+        -11.0,
+        -3.0
+      ],
+      "hot": false,
+      "uv": [
+        198,
+        0
+      ]
+    },
+    {
+      "name": "backtalon0",
+      "parent": "backarm0",
+      "pivot": [
+        -4,
+        14,
+        -3
+      ],
+      "size": [
+        5,
+        10,
+        4
+      ],
+      "offset": [
+        -2.5,
+        -5.0,
+        -2.0
+      ],
+      "hot": false,
+      "uv": [
+        224,
+        0
+      ]
+    },
+    {
+      "name": "leg0",
+      "parent": "body",
+      "pivot": [
+        -6,
+        27,
+        0
+      ],
+      "size": [
+        7,
+        24,
+        8
+      ],
+      "offset": [
+        -3.5,
+        -12.0,
+        -4.0
+      ],
+      "hot": false,
+      "uv": [
+        244,
+        0
+      ]
+    },
+    {
+      "name": "shard0",
+      "parent": "body",
+      "pivot": [
+        -13,
+        18,
+        0
+      ],
+      "size": [
+        5,
+        9,
+        6
+      ],
+      "offset": [
+        -2.5,
+        -4.5,
+        -3.0
+      ],
+      "hot": false,
+      "uv": [
+        276,
+        0
+      ]
+    },
+    {
+      "name": "shard_back0",
+      "parent": "body",
+      "pivot": [
+        -9,
+        -16,
+        9
+      ],
+      "size": [
+        5,
+        11,
+        5
+      ],
+      "offset": [
+        -2.5,
+        -5.5,
+        -2.5
+      ],
+      "hot": false,
+      "uv": [
+        300,
+        0
+      ]
+    },
+    {
+      "name": "shell1",
+      "parent": "body",
+      "pivot": [
+        6,
+        -2,
+        -8
+      ],
+      "size": [
+        6,
+        16,
+        4
+      ],
+      "offset": [
+        -3.0,
+        -8.0,
+        -2.0
+      ],
+      "hot": false,
+      "uv": [
+        322,
+        0
+      ]
+    },
+    {
+      "name": "arm1",
+      "parent": "body",
+      "pivot": [
+        15,
+        -7,
+        0
+      ],
+      "size": [
+        7,
+        23,
+        7
+      ],
+      "offset": [
+        -3.5,
+        -11.5,
+        -3.5
+      ],
+      "hot": false,
+      "uv": [
+        344,
+        0
+      ]
+    },
+    {
+      "name": "claw1",
+      "parent": "arm1",
+      "pivot": [
+        0,
+        15,
+        -2
+      ],
+      "size": [
+        8,
+        10,
+        6
+      ],
+      "offset": [
+        -4.0,
+        -5.0,
+        -3.0
+      ],
+      "hot": false,
+      "uv": [
+        374,
+        0
+      ]
+    },
+    {
+      "name": "finger1_0",
+      "parent": "claw1",
+      "pivot": [
+        -3,
+        7,
+        -1
+      ],
+      "size": [
+        2,
+        8,
+        2
+      ],
+      "offset": [
+        -1.0,
+        -4.0,
+        -1.0
+      ],
+      "hot": false,
+      "uv": [
+        404,
+        0
+      ]
+    },
+    {
+      "name": "finger1_1",
+      "parent": "claw1",
+      "pivot": [
+        0,
+        7,
+        -1
+      ],
+      "size": [
+        2,
+        8,
+        2
+      ],
+      "offset": [
+        -1.0,
+        -4.0,
+        -1.0
+      ],
+      "hot": true,
+      "uv": [
+        414,
+        0
+      ]
+    },
+    {
+      "name": "finger1_2",
+      "parent": "claw1",
+      "pivot": [
+        3,
+        7,
+        -1
+      ],
+      "size": [
+        2,
+        8,
+        2
+      ],
+      "offset": [
+        -1.0,
+        -4.0,
+        -1.0
+      ],
+      "hot": false,
+      "uv": [
+        424,
+        0
+      ]
+    },
+    {
+      "name": "backarm1",
+      "parent": "body",
+      "pivot": [
+        13,
+        -10,
+        7
+      ],
+      "size": [
+        6,
+        22,
+        6
+      ],
+      "offset": [
+        -3.0,
+        -11.0,
+        -3.0
+      ],
+      "hot": false,
+      "uv": [
+        434,
+        0
+      ]
+    },
+    {
+      "name": "backtalon1",
+      "parent": "backarm1",
+      "pivot": [
+        4,
+        14,
+        -3
+      ],
+      "size": [
+        5,
+        10,
+        4
+      ],
+      "offset": [
+        -2.5,
+        -5.0,
+        -2.0
+      ],
+      "hot": false,
+      "uv": [
+        460,
+        0
+      ]
+    },
+    {
+      "name": "leg1",
+      "parent": "body",
+      "pivot": [
+        6,
+        27,
+        0
+      ],
+      "size": [
+        7,
+        24,
+        8
+      ],
+      "offset": [
+        -3.5,
+        -12.0,
+        -4.0
+      ],
+      "hot": false,
+      "uv": [
+        480,
+        0
+      ]
+    },
+    {
+      "name": "shard1",
+      "parent": "body",
+      "pivot": [
+        13,
+        18,
+        0
+      ],
+      "size": [
+        5,
+        9,
+        6
+      ],
+      "offset": [
+        -2.5,
+        -4.5,
+        -3.0
+      ],
+      "hot": false,
+      "uv": [
+        0,
+        42
+      ]
+    },
+    {
+      "name": "shard_back1",
+      "parent": "body",
+      "pivot": [
+        9,
+        -16,
+        9
+      ],
+      "size": [
+        5,
+        11,
+        5
+      ],
+      "offset": [
+        -2.5,
+        -5.5,
+        -2.5
+      ],
+      "hot": false,
+      "uv": [
+        24,
+        42
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "body",
+      "pivot": [
+        0,
+        -23,
+        -1
+      ],
+      "size": [
+        15,
+        13,
+        12
+      ],
+      "offset": [
+        -7.5,
+        -6.5,
+        -6.0
+      ],
+      "hot": false,
+      "uv": [
+        46,
+        42
+      ]
+    },
+    {
+      "name": "jaw",
+      "parent": "head",
+      "pivot": [
+        0,
+        6,
+        -1
+      ],
+      "size": [
+        13,
+        4,
+        11
+      ],
+      "offset": [
+        -6.5,
+        -2.0,
+        -5.5
+      ],
+      "hot": false,
+      "uv": [
+        102,
+        42
+      ]
+    },
+    {
+      "name": "mouth",
+      "parent": "head",
+      "pivot": [
+        0,
+        4,
+        -6.1
+      ],
+      "size": [
+        10,
+        3,
+        1
+      ],
+      "offset": [
+        -5.0,
+        -1.5,
+        -0.5
+      ],
+      "hot": true,
+      "uv": [
+        152,
+        42
+      ]
+    },
+    {
+      "name": "eye0",
+      "parent": "head",
+      "pivot": [
+        -4,
+        -1,
+        -6.1
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "offset": [
+        -2.5,
+        -1.0,
+        -0.5
+      ],
+      "hot": true,
+      "uv": [
+        176,
+        42
+      ]
+    },
+    {
+      "name": "horn0",
+      "parent": "head",
+      "pivot": [
+        -7,
+        -12,
+        0
+      ],
+      "size": [
+        3,
+        15,
+        4
+      ],
+      "offset": [
+        -1.5,
+        -7.5,
+        -2.0
+      ],
+      "hot": false,
+      "uv": [
+        190,
+        42
+      ]
+    },
+    {
+      "name": "horn_back0",
+      "parent": "head",
+      "pivot": [
+        -5,
+        -9,
+        5
+      ],
+      "size": [
+        3,
+        9,
+        3
+      ],
+      "offset": [
+        -1.5,
+        -4.5,
+        -1.5
+      ],
+      "hot": false,
+      "uv": [
+        206,
+        42
+      ]
+    },
+    {
+      "name": "shard_head0",
+      "parent": "head",
+      "pivot": [
+        -11,
+        1,
+        0
+      ],
+      "size": [
+        3,
+        5,
+        4
+      ],
+      "offset": [
+        -1.5,
+        -2.5,
+        -2.0
+      ],
+      "hot": false,
+      "uv": [
+        220,
+        42
+      ]
+    },
+    {
+      "name": "eye1",
+      "parent": "head",
+      "pivot": [
+        4,
+        -1,
+        -6.1
+      ],
+      "size": [
+        5,
+        2,
+        1
+      ],
+      "offset": [
+        -2.5,
+        -1.0,
+        -0.5
+      ],
+      "hot": true,
+      "uv": [
+        236,
+        42
+      ]
+    },
+    {
+      "name": "horn1",
+      "parent": "head",
+      "pivot": [
+        7,
+        -12,
+        0
+      ],
+      "size": [
+        3,
+        15,
+        4
+      ],
+      "offset": [
+        -1.5,
+        -7.5,
+        -2.0
+      ],
+      "hot": false,
+      "uv": [
+        250,
+        42
+      ]
+    },
+    {
+      "name": "horn_back1",
+      "parent": "head",
+      "pivot": [
+        5,
+        -9,
+        5
+      ],
+      "size": [
+        3,
+        9,
+        3
+      ],
+      "offset": [
+        -1.5,
+        -4.5,
+        -1.5
+      ],
+      "hot": false,
+      "uv": [
+        266,
+        42
+      ]
+    },
+    {
+      "name": "shard_head1",
+      "parent": "head",
+      "pivot": [
+        11,
+        1,
+        0
+      ],
+      "size": [
+        3,
+        5,
+        4
+      ],
+      "offset": [
+        -1.5,
+        -2.5,
+        -2.0
+      ],
+      "hot": false,
+      "uv": [
+        280,
+        42
+      ]
+    },
+    {
+      "name": "crown",
+      "parent": "head",
+      "pivot": [
+        0,
+        -11,
+        2
+      ],
+      "size": [
+        4,
+        10,
+        4
+      ],
+      "offset": [
+        -2.0,
+        -5.0,
+        -2.0
+      ],
+      "hot": false,
+      "uv": [
+        296,
+        42
+      ]
+    }
+  ]
+}

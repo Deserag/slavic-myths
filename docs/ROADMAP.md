@@ -2592,3 +2592,8 @@ All 11 workflows for e0560924 SUCCESS; Java21 clean build + P52 source/JAR PASS:
 
 ## 26.10.2026 — #276 L1: реализация согласованного scope, ручная проверка ожидается
 Шесть типов: курганы V2 I–III, лагеря small/medium/large. Реализованы ограниченные main-награды, craftable runes I–II/фрагменты, металлы/книги/gear/vanilla trims; scrap15% и enchanted diamond armor3% только III. Старые tables/coins/trades/boss drops/прочие сооружения и сохранённые inventories не мигрируются. Технические gates PASS, owner gameplay NOT_RUN, #276 OPEN. Следующий шаг — playtest владельца и отдельные коррекции, без автозапуска других сооружений. Новый2.0.3-HELL JAR собран, не установлен. [Полный before/after и checklist](implementation/loot276-l1-20261026/REPORT.md).
+
+
+## 28.10.2026 — локальная сборка и отдельный PolyMC Testing
+
+hell35c81997: Java21 clean build PASS26s, production2.0.8-HELL установлен в новый экземпляр1.21.1/NeoForge21.1.255/Curios9.5.1; исходники и старые1.16.5 не изменены. Один клиент загрузил ресурсы без ERROR/FATAL и закрыт, миры0; визуальное меню NOT_RUN (capture timeout), gameplay/MP NOT_RUN. Чертоги НЕ ГОТОВЫ; приёмка не заявлена. [Матрица, SHA, пути, логи и ручные шаги](implementation/build-install-20261028/REPORT.md).

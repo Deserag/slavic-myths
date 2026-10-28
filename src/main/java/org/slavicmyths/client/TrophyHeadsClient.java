@@ -92,6 +92,11 @@ public final class TrophyHeadsClient {
     };
    }
   }
+  public void magmaPose(float time,float open){
+   part.getAllParts().forEach(ModelPart::resetPose);part.setPos(0,0,0);part.xRot=part.yRot=part.zRot=0;
+   if(detail!=null){detail.xRot=.28F*open;detail.y=detailBaseY-2F*open;}
+   if(accent!=null){accent.y=accentBaseY+(float)Math.sin(time*.06)*.12F;accent.yRot=(float)Math.sin(time*.03)*.1F;}
+  }
   public void resetPose(){
    if(lid!=null){lid.x=lidBaseX;lid.xScale=lidScaleX;lid.y=lidBaseY;lid.z=lidBaseZ;lid.yScale=lidScaleY;}
    if(earLeft!=null){earLeft.zRot=earLeftBaseZ;earRight.zRot=earRightBaseZ;}
@@ -116,8 +121,10 @@ public final class TrophyHeadsClient {
   case VOLKOLAK->{var model=new CursedVolkolakModel();var part=model.trophyHead();part.zScale=CursedVolkolakRenderer.DEPTH_SCALE;yield new Head(kind,part,"textures/entity/cursed_volkolak.png",null,null,null,model.trophyHeadPart("jaw"),null).ears(model.trophyHeadPart("earL"),model.trophyHeadPart("earR"));}
   case LIKHO->{var model=new WorldBossModel(true);yield new Head(kind,model.trophyHead(),"textures/entity/likho_one_eyed.png",model.trophyHeadPart("upperLid"),null,model.trophyHeadPart("irisRing"),null,model.trophyHeadPart("lowerLid"),model.trophyHeadPart("iris"),model.trophyHeadPart("pupil"));}
   case MOR_LIKHO->{var model=new WorldBossModel(true,false,true);yield new Head(kind,model.trophyHead(),"textures/entity/mor/likho.png",model.trophyHeadPart("upperLid"),model.trophyHeadPart("morEye"),model.trophyHeadPart("morEye"));}
+  case MAGMA_LORD->{var model=new org.slavicmyths.burningislands.client.IslandsModel(org.slavicmyths.burningislands.IslandsContent.Kind.MAGMA_LORD);yield magmaHead(model.part("head"));}
   case PODZEMNIK->{var head=UndergroundClient.Model.mesh(3).getChild("body").getChild("head");yield new Head(kind,head,"textures/entity/underground/large_podzemnik.png",null,null,null,head.getChild("jaw"),head.getChild("brows"));}
  };}
+ public static Head magmaHead(ModelPart head){return new Head(TrophyHeads.Kind.MAGMA_LORD,head,"textures/entity/burning_islands/magma_lord.png",null,null,null,head.getChild("jaw"),head.getChild("shard_head0"));}
  private static final Map<TrophyHeads.Kind,Head> HEADS=new EnumMap<>(TrophyHeads.Kind.class);
  private static Head head(TrophyHeads.Kind kind){return HEADS.computeIfAbsent(kind,TrophyHeadsClient::create);}
  public static final class Capture implements VertexConsumer {
@@ -158,7 +165,17 @@ public final class TrophyHeadsClient {
      }
      h.pose(time,gazeX,gazeY);
     }
+    if(block.kind==TrophyHeads.Kind.MAGMA_LORD&&tile.getLevel()!=null){
+     long tick=tile.getLevel().getGameTime();
+     if(tile.magmaPoseTick!=tick){
+      boolean near=tile.getLevel().getNearestPlayer(tile.getBlockPos().getX()+.5,tile.getBlockPos().getY()+.5,tile.getBlockPos().getZ()+.5,tile.magmaAwake?8:6,false)!=null;
+      tile.magmaAwake=near;
+      tile.magmaOpenness=net.minecraft.util.Mth.clamp(tile.magmaOpenness+(near?.0625F:-.033333F),0,1);tile.magmaPoseTick=tick;
+     }
+     h.magmaPose(time,tile.magmaOpenness);
+    }
     h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);
+    if(block.kind==TrophyHeads.Kind.MAGMA_LORD)h.render(pose,buffer.getBuffer(RenderType.eyes(org.slavicmyths.burningislands.client.IslandsClient.texture(org.slavicmyths.burningislands.IslandsContent.Kind.MAGMA_LORD,true))),15728880,overlay);
     if(animated&&(block.kind==TrophyHeads.Kind.MOR_LIKHO||TrophyHeadFxRules.likhoGlow(time)))
      h.renderGlow(pose,buffer.getBuffer(RenderType.eyes(h.texture)),overlay);
    }finally{
@@ -173,7 +190,7 @@ public final class TrophyHeadsClient {
    if(Minecraft.getInstance().player.distanceToSqr(pos.getX()+.5,pos.getY()+1.2,pos.getZ()+.5)>24*24)return;
    long now=world.getGameTime();
    int period=switch(kind){
-    case TUGARIN->9;case SKIM->10;case VOLKOLAK->9;case PODZEMNIK->11;
+    case MAGMA_LORD->200;case TUGARIN->9;case SKIM->10;case VOLKOLAK->9;case PODZEMNIK->11;
     case LIKHO->8;case MOR_LIKHO->7;
    };
    if(!TrophyHeadFxRules.particleDue(now,tile.clientLastFxTick,period))return;
@@ -181,18 +198,18 @@ public final class TrophyHeadsClient {
    Direction facing=tile.getBlockState().getValue(TrophyHeadBlock.FACING);
    double dx=(world.getRandom().nextDouble()-.5)*.17,dz=(world.getRandom().nextDouble()-.5)*.17;
    double height=switch(kind){
-    case TUGARIN->.37;case SKIM->.66;case VOLKOLAK->.77;case PODZEMNIK->.95;
+    case MAGMA_LORD->.65;case TUGARIN->.37;case SKIM->.66;case VOLKOLAK->.77;case PODZEMNIK->.95;
     case LIKHO,MOR_LIKHO->1.25;
    };
    var particle=switch(kind){
-    case TUGARIN->ParticleTypes.DRAGON_BREATH;
+    case MAGMA_LORD->ParticleTypes.SMALL_FLAME;case TUGARIN->ParticleTypes.DRAGON_BREATH;
     case SKIM->ParticleTypes.CLOUD;
     case VOLKOLAK->ParticleTypes.SMOKE;
     case PODZEMNIK->ParticleTypes.ASH;
     case LIKHO->ParticleTypes.SOUL;
     case MOR_LIKHO->ParticleTypes.CRIMSON_SPORE;
    };
-   for(int i=0;i<5;i++)world.addParticle(particle,pos.getX()+.5+facing.getStepX()*.28+dx+(world.getRandom().nextDouble()-.5)*.14,
+   for(int i=0;i<(kind==TrophyHeads.Kind.MAGMA_LORD?1:5);i++)world.addParticle(particle,pos.getX()+.5+facing.getStepX()*.28+dx+(world.getRandom().nextDouble()-.5)*.14,
     pos.getY()+height+world.getRandom().nextDouble()*.25,
     pos.getZ()+.5+facing.getStepZ()*.28+dz+(world.getRandom().nextDouble()-.5)*.14,0,.018,0);
   }

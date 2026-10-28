@@ -1,0 +1,37 @@
+{
+  "instance": "C:\\Users\\user\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.8-HELL-Testing",
+  "sourceCommit": "35c819973167e24890ca192efb5b7d1f584df611",
+  "components": [
+    {
+      "uid": "org.lwjgl3",
+      "version": "3.3.3",
+      "dependencyOnly": true
+    },
+    {
+      "uid": "net.minecraft",
+      "version": "1.21.1",
+      "important": true
+    },
+    {
+      "uid": "net.neoforged.neoforge",
+      "version": "21.1.255",
+      "important": true
+    }
+  ],
+  "installedJar": "C:\\Users\\user\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.8-HELL-Testing\\.minecraft\\mods\\slavicmyths-2.0.8-HELL.jar",
+  "size": 24699888,
+  "sha256": "57445d037bd18238950cdf9cdc8b94714e2e2522cf0f942bbd95b199cb8ee3f1",
+  "backup": "NOT_APPLICABLE_NEW_INSTANCE; old 1.16.5 instances untouched",
+  "java": "C:\\Users\\user\\Documents\\slavic-myths\\.tools\\jdk21\\jdk-21.0.12.1+1\\bin\\javaw.exe",
+  "mods": [
+    "curios-neoforge-9.5.1+1.21.1.jar",
+    "slavicmyths-2.0.8-HELL.jar"
+  ],
+  "launchAttempts": 3,
+  "minecraftClientsLoaded": 1,
+  "menuVisual": "NOT_RUN: window capture timeout",
+  "gameplay": "NOT_RUN; no worlds opened",
+  "clientLogErrors": 0,
+  "metadataCorrection": "Instance-only NeoForge installer/universal SHA1 and size synchronized with official Maven .sha1; original saved",
+  "sourceCodeChanges": false
+}

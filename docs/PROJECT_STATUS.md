@@ -3170,3 +3170,8 @@ All 11 workflows for e0560924 SUCCESS; Java21 clean build + P52 source/JAR PASS:
 
 ## 26.10.2026 — #276 L1, шесть сооружений, OWNER_PENDING
 По прямому поручению реализован один главный ценный roll в существующих контейнерах курганов V2 I–III и малого/среднего/большого лагерей. Только 14 новых rewards276 tables, pure routing helper и 3 подстановки table ID. Whole-rune шансы 8/25/45% и 5/20/35%; perunite 0/12/30% и 0/8/25%; III scrap15%, одна enchanted diamond armor piece3%, сырьевое iron0. Main кургана помещается в 5 slots, без сложения прежней полной таблицы поверх новых pools. Монеты, торговля, князь/Тугарин, прочие структуры/старые loot references сохранены. Java21 clean build1m16s, 8015 resources/1949 classes, 1760 offline checks, 60k actual pure layouts, 6x20k samples PASS; gameplay/server/GameTest/PolyMC запусков0. BUILT2.0.3-HELL, POLYMC_NOT_INSTALLED; установленный2.0.2 не менялся. #276 OPEN / OWNER_PENDING, main не менялся. [Отчёт, вероятности/количества, все table IDs, save limits и playtest](implementation/loot276-l1-20261026/REPORT.md). Старый audit-only отчёт #276 — baseline, не описание новой реализации.
+
+
+## 28.10.2026 — локальная сборка и отдельный PolyMC Testing
+
+hell35c81997: Java21 clean build PASS26s, production2.0.8-HELL установлен в новый экземпляр1.21.1/NeoForge21.1.255/Curios9.5.1; исходники и старые1.16.5 не изменены. Один клиент загрузил ресурсы без ERROR/FATAL и закрыт, миры0; визуальное меню NOT_RUN (capture timeout), gameplay/MP NOT_RUN. Чертоги НЕ ГОТОВЫ; приёмка не заявлена. [Матрица, SHA, пути, логи и ручные шаги](implementation/build-install-20261028/REPORT.md).

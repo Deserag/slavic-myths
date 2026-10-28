@@ -958,3 +958,16 @@ ash_spirit_spawn_egg	mobs	nether
 pekelnik_spawn_egg	mobs	nether
 sparkling_spawn_egg	mobs	nether
 zharenitsa_spawn_egg	mobs	nether
+magma_clot	resources	burning_islands_205
+magma_core	resources	burning_islands_205
+salamander_hide	resources	burning_islands_205
+crab_claw	resources	burning_islands_205
+magma_rune_fragment	resources	burning_islands_205
+rune_magma_1	magic	burning_islands_205
+rune_magma_2	magic	burning_islands_205
+magma_lord_heart	resources	burning_islands_205
+magma_lord_head	decor	burning_islands_205
+heat_salamander_spawn_egg	mobs	burning_islands_205
+slag_crab_spawn_egg	mobs	burning_islands_205
+vent_golem_spawn_egg	mobs	burning_islands_205
+magma_lord_spawn_egg	mobs	burning_islands_205

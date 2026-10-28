@@ -38,6 +38,7 @@ public final class SlavicMyths {
         org.slavicmyths.navya.NavyaBlocks.init();
         org.slavicmyths.blackcinder.CinderBlocks.init();
         org.slavicmyths.blackcinder.CinderContent.init(bus);
+        org.slavicmyths.burningislands.IslandsContent.init(bus);
         org.slavicmyths.blackcinder.ZharenitsaSeals.init();
         org.slavicmyths.blackcinder.CinderWorldgen.init(bus);
         org.slavicmyths.navya.NavyaFeatures.init();
