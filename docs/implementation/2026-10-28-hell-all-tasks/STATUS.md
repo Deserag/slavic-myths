@@ -1,3 +1,16 @@
+## Исполнение Codex — checkpoint A1
+
+Исходный remote50236705 интегрирован обычным merge без reset; принятые локальные
+boss331 изменения сохранены commitdcccbde8 и опубликованы в merge d6d2bfff.
+Старая работа также сохранена D:/slavic-myths-backups/mob332-preexisting-20261028.zip.
+#333: реализован отдельный per-dimension manual SavedData, без natural claims/unique
+loot/XP, canonical legacy natural binding, сохранение режима/копий, Peaceful cancel.
+Production build + actual manual journal binaryNBT/split/isolation negatives PASS;
+лог ../mob332/posten-gates.log. Призыв/бой/перезаход/MP в игре NOT_RUN: запуск запрещён.
+#334–#336 IN_PROGRESS: before native export19вариантов сохранён в ../mob332/before;
+исходники суставов/палитр в работе. Этапы C–G НЕ НАЧАТЫ в новом запуске.
+Все обязательные original art/audio gates остаются BLOCKED/OWNER_PENDING.
+
 # 28.10.2026 — status журнала исполнения всех сегодняшних задач
 
 **Статус создания файла:** создан при постановке задачи в ChatGPT; **производственный Java-код, OGG, original PNG и реальные тесты этой постановкой не выполнялись**. Эту таблицу Codex должен обновлять **после каждого checkpoint**, с реальными commit SHA и документом-доказательством. Пока `NOT_STARTED` означает только отсутствие выполнения в рамках НОВОГО мастер-запуска, а не утверждение, что весь код/биом отсутствует в `hell`.

@@ -85,6 +85,17 @@ public final class PostenEncounters extends SavedData {
                 "slavicmyths_posten_encounters");
     }
 
+    private boolean manual;
+    public static PostenEncounters getManual(ServerLevel level) {
+        if(!level.getServer().isSameThread())throw new IllegalStateException("Manual Posten requires the server thread");
+        return level.getDataStorage().computeIfAbsent(new Factory<>(PostenEncounters::createManual,PostenEncounters::loadManual),"slavicmyths_posten_manual_encounters");
+    }
+    public static PostenEncounters createManual(){var d=new PostenEncounters();d.manual=true;return d;}
+    public static PostenEncounters loadManual(CompoundTag tag,HolderLookup.Provider lookup){var d=load(tag,lookup);d.manual=true;return d;}
+    public void cancelManual(UUID arena,UUID body) {
+        if(!manual||isReadOnly())return;var e=encounters.get(arena);if(e==null||!e.body.equals(body))return;
+        e.phase=Phase.DEFEATED;e.bodyHealth=0;java.util.Arrays.fill(e.copyHealth,0);setDirty();
+    }
     public boolean isReadOnly() { return readOnlySnapshot != null; }
 
     /** One immutable arena identity, one body. An unrelated entity cannot take it over. */
@@ -144,6 +155,7 @@ public final class PostenEncounters extends SavedData {
     /** At-most-once authorization for ONE reward batch, not item delivery itself.
      * The entity integration must own the death/drop pipeline and crash handling. */
     public boolean claimRewards(UUID arena, UUID body) {
+        if(manual)return false;
         Encounter e = encounters.get(arena);
         if (isReadOnly() || e == null || !e.body.equals(body)
                 || e.phase != Phase.DEFEATED || e.rewardsClaimed) return false;

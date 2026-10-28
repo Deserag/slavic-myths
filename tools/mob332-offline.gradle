@@ -1,0 +1,7 @@
+allprojects { p -> p.plugins.withId('java') {
+ p.sourceSets.create('mob332Offline'){java.srcDir('tools/mob332-tests')}
+ p.sourceSets.mob332Offline.compileClasspath+=p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.mob332Offline.runtimeClasspath+=p.sourceSets.main.output+p.sourceSets.main.runtimeClasspath
+ p.tasks.register('verifyManualPosten',JavaExec){dependsOn p.tasks.named('mob332OfflineClasses');classpath=p.sourceSets.mob332Offline.runtimeClasspath;mainClass='org.slavicmyths.verify.ManualPostenOffline'}
+ p.tasks.register('exportMob332',JavaExec){dependsOn p.tasks.named('mob332OfflineClasses');classpath=p.sourceSets.mob332Offline.runtimeClasspath;mainClass='org.slavicmyths.verify.Mob332Export';args p.findProperty('mobStage')?:'after'}
+} }
