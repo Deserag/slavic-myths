@@ -80,7 +80,23 @@ public final class LostHallsRoomPieces extends SavedData {
                     || Math.abs((long) chunk.z - z) > MAX_CHUNK_DISTANCE
                     || !expected.add(chunk.toLong())) return false;
         }
-        if (!expected.contains(ChunkPos.asLong(x, z))) return false;
+        long anchorChunk = ChunkPos.asLong(x, z);
+        if (!expected.contains(anchorChunk)) return false;
+        // Corner-only contact or disconnected chunk islands cannot be a single
+        // walkable room. Validate bounded 4-neighbor connectivity before saving.
+        Set<Long> reachable = new HashSet<>();
+        java.util.ArrayDeque<Long> pending = new java.util.ArrayDeque<>();
+        reachable.add(anchorChunk);
+        pending.add(anchorChunk);
+        while (!pending.isEmpty()) {
+            ChunkPos at = new ChunkPos(pending.remove());
+            for (long next : new long[]{ChunkPos.asLong(at.x + 1, at.z),
+                    ChunkPos.asLong(at.x - 1, at.z), ChunkPos.asLong(at.x, at.z + 1),
+                    ChunkPos.asLong(at.x, at.z - 1)}) {
+                if (expected.contains(next) && reachable.add(next)) pending.add(next);
+            }
+        }
+        if (reachable.size() != expected.size()) return false;
         Plan current = plans.get(node.id());
         if (current != null) return current.node.equals(node) && current.expected.equals(expected);
         if (plans.size() >= MAX_ACTIVE_ROOMS) return false;
