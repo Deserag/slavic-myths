@@ -10,6 +10,7 @@ import gzip, json, math, hashlib
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'docs/implementation/mob332'
 BG=(32,35,43,255)
+AFTER=(OUT/'latest-after.txt').read_text().strip() if (OUT/'latest-after.txt').exists() else 'after'
 
 def read(stage,name):
     return json.loads(gzip.decompress((OUT/stage/(name+'.json.gz')).read_bytes()))
@@ -67,7 +68,7 @@ def uv_histogram(frame,tex):
 def main():
     dest=OUT/'renders';dest.mkdir(exist_ok=True);stats={}
     for path in sorted((OUT/'before').glob('*.json.gz')):
-        name=path.name.removesuffix('.json.gz');ds=[read(s,name) for s in ['before','after']];textures=[Image.open(OUT/s/(name+'.png')).convert('RGBA') for s in ['before','after']]
+        name=path.name.removesuffix('.json.gz');ds=[read(s,name) for s in ['before',AFTER]];textures=[Image.open(OUT/s/(name+'.png')).convert('RGBA') for s in ['before',AFTER]]
         angles=[0,math.pi/2,math.pi,-math.pi/2];points=[projected(v,a) for d in ds for f in d['frames'] for face in f['faces'] for v in face for a in [-.55]]
         # Stable scale across every pose and all four horizontal views.
         radius=max(math.hypot(v[0],v[2]) for d in ds for f in d['frames'] for face in f['faces'] for v in face)
@@ -86,7 +87,9 @@ def main():
         clips[0].save(dest/(name+'-motion.gif'),save_all=True,append_images=clips[1:],duration=100,loop=0,optimize=False)
         stats[name]={}
         for d,tex,stage in zip(ds,textures,['before','after']):
-            f=d['frames'][0];stats[name][stage]={'visible_3quarter':histogram(render(f,tex,-.55,scale,cx,cy)),'uv_surface_area_weighted':uv_histogram(f,tex),'sha256_png':hashlib.sha256((OUT/stage/(name+'.png')).read_bytes()).hexdigest()}
+            f=d['frames'][0];stats[name][stage]={'visible_3quarter':histogram(render(f,tex,-.55,scale,cx,cy)),'uv_surface_area_weighted':uv_histogram(f,tex),'sha256_png':hashlib.sha256((OUT/('before' if stage=='before' else AFTER)/(name+'.png')).read_bytes()).hexdigest()}
+        long_frames=[render(f,textures[1],-.55,scale,cx,cy).convert('RGB') for f in ds[1]['frames'] if f['state']=='walk_long']
+        if long_frames:long_frames[0].save(dest/(name+'-three-cycles-after.gif'),save_all=True,append_images=long_frames[1:],duration=100,loop=0,optimize=False)
         print('Rendered '+name,flush=True)
     overlap={}
     for a,b in [('heat_salamander','slag_crab'),('heat_salamander','vent_golem'),('slag_crab','vent_golem'),('coal_crawler','pekelnik')]:

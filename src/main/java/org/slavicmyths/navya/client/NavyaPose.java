@@ -54,7 +54,7 @@ public final class NavyaPose {
                     String n=(side==0?"left":"right")+i;int direction=side==0?-1:1;
                     float phase=walk*.8F+((i+side)%2)*(float)Math.PI;
                     float attack=i==0&&(action==Action.MELEE||action==Action.SHOT)?reach:0;
-                    org.slavicmyths.client.MobMotion.leg(p.get("leg_"+n),p.get("upper_"+n),p.get("shin_"+n),p.get("toe_"+n),direction,15,9,9,11,phase,Math.min(1,amount),.6F,attack);
+                    org.slavicmyths.client.MobMotion.leg(p.get("leg_"+n),p.get("upper_"+n),p.get("shin_"+n),p.get("toe_"+n),direction,15,23-body.y,9,11,phase,Math.min(1,amount),.6F,attack);
                     p.get("leg_"+n).yRot+=direction*(.6F-i*.4F);
                 }
                 p.get("jaw").xRot=action==Action.MELEE?.65F*reach-strike*.25F:action==Action.SHOT?.3F*reach:.04F;

@@ -45,9 +45,10 @@ public final class CinderModel extends HierarchicalModel<CinderMob> {
   }
   float gesture=org.slavicmyths.client.MobMotion.envelope(time,wind,wind+18);
   if(kind==CinderContent.Kind.COAL_CRAWLER){
+   nodes.get("body").y+=(float)Math.sin(walk*1.1)*amount*.25F;
    for(int i=0;i<4;i++){int side=i%2==0?-1:1;float phase=walk*.55F+((i==0||i==3)?0:(float)Math.PI);
-    org.slavicmyths.client.MobMotion.leg(nodes.get("leg"+i),nodes.get("upper"+i),nodes.get("shin"+i),nodes.get("foot"+i),side,13,10,8,11,phase,amount,.72F,action==CinderMob.Action.BITE&&i<2?gesture:0);
-   }nodes.get("body").y+=(float)Math.sin(walk*1.1)*amount*.25F;
+    org.slavicmyths.client.MobMotion.leg(nodes.get("leg"+i),nodes.get("upper"+i),nodes.get("shin"+i),nodes.get("foot"+i),side,13,22-nodes.get("body").y,8,11,phase,amount,.72F,action==CinderMob.Action.BITE&&i<2?gesture:0);
+   }
   }
   if(kind==CinderContent.Kind.PEKELNIK){
    for(int i=0;i<2;i++){float step=(float)Math.sin(walk*.5+i*Math.PI)*amount;nodes.get("leg"+i).xRot=step*.35F;nodes.get("shin"+i).xRot=Math.max(0,-step)*.65F;nodes.get("arm"+i).xRot=action==CinderMob.Action.IDLE?-step*.18F:-gesture*(i==0?.3F:1.5F);}

@@ -29,6 +29,7 @@ public final class Mob332Export {
     int count=state.equals("walk")?48:state.equals("attack")?24:state.equals("run")?24:8;
     for(int i=0;i<count;i++){float t=i*2,w=state.equals("walk")?i*(float)(6*Math.PI/.8/48):state.equals("run")?i*.8F:state.equals("stop")?24:0;float a=state.equals("walk")?.7F:state.equals("run")?1:state.equals("stop")?(1-i/7F)*.7F:0;frames.add(frame(e.getValue(),state,t,w,a));}
    }
+   if(e.getKey().equals("coal_crawler"))for(int i=0;i<96;i++)frames.add(frame(e.getValue(),"walk_long",i*2,i*(float)(6*Math.PI/.55/96),.7F));
    d.add("frames",frames);try(var stream=new GZIPOutputStream(Files.newOutputStream(out.resolve(e.getKey()+".json.gz")))){stream.write(new Gson().toJson(d).getBytes(java.nio.charset.StandardCharsets.UTF_8));}
    Files.copy(Path.of("src/main/resources/assets/slavicmyths/"+e.getValue().texture),out.resolve(e.getKey()+".png"),StandardCopyOption.REPLACE_EXISTING);
   }System.out.println("MOB332 native export: "+rigs.size()+" variants, real ModelPart UV/texture/poses; no game/world/server started.");

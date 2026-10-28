@@ -394,7 +394,7 @@
       "material": "stone",
       "offset": [
         -1.5,
-        -1.0,
+        0,
         -2.0
       ],
       "rotation": [
@@ -423,7 +423,7 @@
       "material": "stone",
       "offset": [
         -1.5,
-        -1.0,
+        0,
         -2.0
       ],
       "rotation": [
@@ -452,7 +452,7 @@
       "material": "stone",
       "offset": [
         -1.5,
-        -1.0,
+        0,
         -2.0
       ],
       "rotation": [
@@ -481,7 +481,7 @@
       "material": "stone",
       "offset": [
         -1.5,
-        -1.0,
+        0,
         -2.0
       ],
       "rotation": [

@@ -2,10 +2,11 @@
 from pathlib import Path
 import gzip,json,math,hashlib
 R=Path(__file__).resolve().parents[1];D=R/'docs/implementation/mob332'
-def load(n):return json.loads(gzip.decompress((D/'after'/(n+'.json.gz')).read_bytes()))
+AFTER=(D/'latest-after.txt').read_text().strip() if (D/'latest-after.txt').exists() else 'after'
+def load(n):return json.loads(gzip.decompress((D/AFTER/(n+'.json.gz')).read_bytes()))
 def main():
     models=[]
-    for p in sorted((D/'after').glob('*.json.gz')):
+    for p in sorted((D/AFTER).glob('*.json.gz')):
         name=p.name.removesuffix('.json.gz');d=load(name)
         for f in d['frames']:
             assert f['faces'],(name,'empty pose')

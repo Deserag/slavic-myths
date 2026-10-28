@@ -1,0 +1,8 @@
+{
+  "base_commit": "94c9cc3e",
+  "base_source_blob": "0d8704ffb90b2cb03d517bb3ec9fe1dba47edae6",
+  "current_source_blob": "0d8704ffb90b2cb03d517bb3ec9fe1dba47edae6",
+  "source_unchanged": true,
+  "test": "weapons87Balance",
+  "result": "FAIL_EXPECTS_60_54_SOURCE_ALREADY_48_42"
+}

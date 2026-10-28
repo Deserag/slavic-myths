@@ -14,7 +14,7 @@ def cinder_parts(name,parts):
  if name=='pekelnik':
   for p in parts:
    if p['name'].startswith('leg'):p['size'][1]=10;p['offset']=[-4,-9,-4.5]
-  for i,side in enumerate([-1,1]):box('furnace_shoulder'+str(i),'body',[side*10,-8,0],[7,7,10]);box('shin'+str(i),'leg'+str(i),[0,6,0],[7,10,8])
+  for i,side in enumerate([-1,1]):box('furnace_shoulder'+str(i),'body',[side*10,-8,0],[7,7,10]);box('shin'+str(i),'leg'+str(i),[0,1,0],[7,8,8],off=[-3.5,0,-4])
   for i in range(3):box('brick_belt'+str(i),'body',[0,-6+i*6,-6],[17,3,3]);box('vent'+str(i),'body',[-5+i*5,-15,3],[3,8,4],'ash')
  if name=='sparkling':box('gold_core','face',[0,0,-.2],[4,4,6],'ember')
 
@@ -27,7 +27,7 @@ def halls_parts(name,parts):
   for p in list(parts):
    if p['name'].startswith('leg'):
     x,y,z=p['size'];p['size']=[x,max(2,y//2),z];p['offset']=[-x/2,-y/2,-z/2]
-    box('knee'+p['name'][3:],p['name'],[0,0,0],[x,max(2,y//2),z])
+    box('knee'+p['name'][3:],p['name'],[0,0,0],[x,max(2,y//2),z]);parts[-1]['offset']=[-x/2,0,-z/2]
  if name=='gulokryl':
   for p in parts:
    if p['name'].startswith('wing'):p['material']='cloth'
@@ -44,7 +44,8 @@ def islands_parts(name,parts):
  if name=='vent_golem':
   for p in parts:
    if p['name'].startswith('leg'):p['size'][1]=10;p['offset']=[-5,-8.5,-6]
-  for i in range(2):parts.append(dict(name='knee'+str(i),parent='leg'+str(i),pivot=[0,5,0],size=[9,7,10],offset=[-4.5,-3.5,-5],hot=False))
+   if p['name'].startswith('foot'):p['parent']='knee'+p['name'][4:];p['pivot']=[0,3,-2]
+  for i in range(2):parts.insert(next(j for j,p in enumerate(parts) if p['name']=='foot'+str(i)),dict(name='knee'+str(i),parent='leg'+str(i),pivot=[0,5,0],size=[9,7,10],offset=[-4.5,-3.5,-5],hot=False))
 
 def palette(name,part,default):
  n=part if isinstance(part,str) else part['name']

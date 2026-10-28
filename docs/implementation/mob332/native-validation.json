@@ -37,7 +37,7 @@
     },
     {
       "id": "coal_crawler",
-      "frames": 152,
+      "frames": 248,
       "states": [
         "alert",
         "attack",
@@ -48,7 +48,8 @@
         "run",
         "sit",
         "stop",
-        "walk"
+        "walk",
+        "walk_long"
       ],
       "parts": 51
     },

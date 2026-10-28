@@ -32,7 +32,7 @@ public final class Weapons87FlailMotion {
    }
    item.put("fp_matrices",matrices);item.put("pose",FlailMotion.sample(20,walk,charge,Math.max(0,swing),swing>=0,heavy));samples.add(item);
   }
-  Path out=Path.of("docs/implementation/weapons87/flail-motion-native.json");Files.writeString(out,new GsonBuilder().setPrettyPrinting().create().toJson(samples));
+  Path out=Path.of(System.getProperty("weapons87FlailMotionOutput","docs/implementation/weapons87/flail-motion-native.json"));Files.createDirectories(out.toAbsolutePath().getParent());String text=new GsonBuilder().setPrettyPrinting().create().toJson(samples);if(!Files.exists(out)||!Files.readString(out).equals(text))Files.writeString(out,text);
   System.out.println("PASS: bounded non-inverted connected chain, idle/charge below grip, exact return; 15120 actual numeric poses; no game/world/entity. Exported "+samples.size()+" phase poses.");
  }
  private static double distance(FlailMotion.Point a,FlailMotion.Point b){return Math.sqrt(Math.pow(a.x()-b.x(),2)+Math.pow(a.y()-b.y(),2)+Math.pow(a.z()-b.z(),2));}
