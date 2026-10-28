@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 940" width="1400" height="940">
+<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#24191d"/><stop offset="1" stop-color="#100e13"/></linearGradient><linearGradient id="lava"><stop stop-color="#ffe17d"/><stop offset=".35" stop-color="#fd8529"/><stop offset="1" stop-color="#a1270b"/></linearGradient><linearGradient id="rock"><stop stop-color="#64514b"/><stop offset="1" stop-color="#211e25"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="6"/></filter></defs>
+<rect width="1400" height="940" fill="url(#bg)"/>
+<g font-family="DejaVu Sans,Arial,sans-serif" fill="#f2d9c7"><text x="45" y="54" font-size="31" font-weight="bold">ПОВЕЛИТЕЛЬ МАГМЫ · КОНСТРУКЦИЯ 3D-МОДЕЛИ</text><text x="46" y="86" font-size="17" fill="#c6ad9c">Slavic Myths 2.0.5  ·  технический SVG по утверждённому образу, НЕ оригинальный PNG</text></g>
+<g stroke="#8a675b" fill="#17171b"><rect x="33" y="112" width="426" height="650" rx="12"/><rect x="486" y="112" width="426" height="650" rx="12"/><rect x="939" y="112" width="428" height="650" rx="12"/></g>
+<g font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#eccab1" text-anchor="middle"><text x="247" y="150">СПЕРЕДИ · силуэт</text><text x="699" y="150">СБОКУ · глубина</text><text x="1154" y="150">СЗАДИ · сегменты</text></g>
+<defs><g id="lord">
+ <path d="M-44 -170 L-59 -221 -80 -244 -70 -274 -41 -258 -20 -292 0 -271 22 -308 47 -270 66 -282 80 -245 58 -222 42 -170Z" fill="url(#rock)" stroke="#a77761" stroke-width="3"/>
+ <path d="M-34 -239 L-23 -201 -11 -250 7 -221 29 -267 35 -214" stroke="#fa6623" stroke-width="11" fill="none" opacity=".85"/>
+ <path d="M-65 -178 Q0 -209 65 -178 L52 -125 Q20 -105 0 -129 Q-31 -108 -53 -133Z" fill="#33282a" stroke="#997360" stroke-width="4"/>
+ <path d="M-43 -177 L-15 -167 -25 -156 -42 -162 M20 -166 L48 -179 42 -160 26 -155" stroke="#ff902b" stroke-width="10" fill="none"/>
+ <path d="M-56 -141 L-36 -102 0 -112 39 -96 57 -146 L39 -123 17 -129 0 -112 -18 -123 -39 -121Z" fill="#19171b" stroke="#8d6d62" stroke-width="3"/>
+ <path d="M-24 -125 L-9 -105 0 -113 15 -102 28 -124" stroke="#fc8d28" stroke-width="8" fill="none"/>
+ <path d="M-70 -110 L-121 -74 -100 1 -69 22 -78 87 -36 117 -15 67 0 31 17 73 37 113 72 86 65 19 103 0 122 -74 70 -112 37 -119 0 -102Z" fill="url(#rock)" stroke="#af8e77" stroke-width="5"/>
+ <path d="M-74 -95 L-51 -54 -75 2 M68 -92 L49 -60 67 -4 M0 -72 L-31 -34 0 10 28 -30 0 -72Z" fill="none" stroke="#df6420" stroke-width="9"/>
+ <ellipse cx="0" cy="-28" rx="34" ry="39" fill="#f9771d" filter="url(#glow)" opacity=".5"/>
+ <path d="M0 -80 L33 -41 21 -4 0 19 -20 -4 -32 -41Z" fill="url(#lava)" stroke="#ffcd71" stroke-width="4"/>
+ <path d="M-113 -76 L-159 -39 -178 17 -155 34 -129 9 -111 -14 -91 -36 M110 -72 L152 -41 179 16 156 34 132 7 111 -13 91 -36" fill="none" stroke="#43383b" stroke-width="28" stroke-linejoin="round"/>
+ <path d="M-113 -76 L-158 -40 -179 17 M111 -72 L153 -40 180 17" fill="none" stroke="#ff772a" stroke-width="7" stroke-linecap="round"/>
+ <path d="M-164 10 L-183 35 -170 55 -146 24 M163 11 L184 35 172 55 147 25" fill="#2c262b" stroke="#d48363" stroke-width="5"/>
+ <path d="M-70 65 L-112 110 -118 166 -95 172 -77 139 -45 116 M67 65 L113 106 115 162 90 173 74 140 42 114" fill="none" stroke="#544346" stroke-width="24"/>
+ <path d="M-73 74 L-109 128 M73 73 L108 130" stroke="#e86e27" stroke-width="7"/>
+ <path d="M-30 78 L-54 135 -26 183 0 167 26 184 55 135 31 78" fill="#403538" stroke="#977867" stroke-width="4"/>
+ <path d="M-22 91 L0 140 24 91" fill="none" stroke="#f87728" stroke-width="8"/>
+ <g fill="#3a2d32" stroke="#e07845" stroke-width="3"><path d="M-200 -94 l18 -34 23 15 -5 32 -22 12z"/><path d="M187 -107 l23 -23 26 16 -6 28 -29 12z"/><path d="M-178 100 l-22 -23 -13 25 18 25z"/><path d="M189 92 l-11 31 25 18 20 -27z"/></g>
+ <g fill="#f79427"><circle cx="-183" cy="-100" r="5"/><circle cx="213" cy="-103" r="5"/><circle cx="199" cy="119" r="4"/></g>
+ </g></defs>
+<g transform="translate(247 480) scale(0.86)"><use href="#lord"/></g>
+<g transform="translate(699 480) scale(0.82)"><g transform="scale(0.72 1)"><use href="#lord"/></g><path d="M-35 -159 Q-85 -124 -67 -83 Q-94 -24 -67 7" stroke="#fa7c2b" fill="none" stroke-width="7"/><path d="M-13 -18 L50 19 -9 43" fill="#ff8d28" stroke="#e4a471" stroke-width="4"/></g>
+<g transform="translate(1154 480) scale(0.86)"><use href="#lord"/><path d="M-62 -105 L-35 -68 -22 24 0 45 29 17 34 -61 62 -106" fill="#4c4041" stroke="#b08d77" stroke-width="5"/><path d="M-51 -93 L-21 -56 -2 -7 21 -60 47 -90" stroke="#e97123" stroke-width="8" fill="none"/><path d="M-20 30 L0 66 20 29" stroke="#f68327" stroke-width="6" fill="none"/></g>
+<g font-family="DejaVu Sans,Arial,sans-serif" fill="#c1a598" font-size="16" text-anchor="middle"><text x="247" y="716">Многосегментные конечности, парящие осколки</text><text x="699" y="716">Отчётливая толщина туловища и грудного ядра</text><text x="1154" y="716">Отдельная броня спины + открытые жаровые швы</text></g>
+<rect x="33" y="782" width="1334" height="117" rx="12" fill="#302528" stroke="#886658"/>
+<g font-family="DejaVu Sans,Arial,sans-serif" font-size="17" fill="#f1dccd"><text x="53" y="815" font-weight="bold">ОБЯЗАТЕЛЬНЫЕ УЗЛЫ ДЛЯ МОДЕЛИ И АНИМАЦИЙ</text><text x="53" y="849">head · jaw · crown_spikes · core_iris · core_shells · arms_L/R · back_limbs · leg_segments · floating_shards</text><text x="53" y="878" fill="#d0ad9d">P1: собранное ядро, плавный idle   ·   P2: раскрытые пластины и повышенная яркость   ·   death: затухание / осыпание</text></g>
+</svg>
