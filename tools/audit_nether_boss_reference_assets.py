@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Read-only SHA audit of approved Nether concept originals (no downloads, no substitutes).
+r"""Read-only SHA audit of approved Nether concept originals (no downloads, no substitutes).
 
 Usage (from the repository root):
   python tools/audit_nether_boss_reference_assets.py
