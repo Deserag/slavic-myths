@@ -1,0 +1,21 @@
+﻿biome,entity_id,display_name_ru,source_presence,combat_role,current_hp_source_or_contract,current_attack_damage_attribute,proposed_danger_level,approved_scale_A4_for_level,known_behavior,semantic_types_proposed,balance_state
+Навья роща,slavicmyths:navka,Навка,registered,hostile,80,6,IV,14,flying ranged,дух+нечисть,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Навья роща,slavicmyths:rootling,Корневик,registered,hostile,120,9,IV,14,roots control,земляной+дух,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Навья роща,slavicmyths:bone_crawler,Костяной ползун,registered,hostile,150,10,V,18,dash+projectile,чудовище+костяной,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Навья роща,slavicmyths:navya_wisp,Навий огонёк,registered,ambient,20,0,0,N/A,peaceful,магический+дух,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Навья роща,slavicmyths:grove_guardian,Сторож чащи,registered,boss,700,14,VI,20,phase50%;roots;throw;summon,босс+земляной,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Чёрная гарь,slavicmyths:coal_crawler,Углеполз,registered,hostile,90,9,IV,14,bite,огненный+чудовище,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Чёрная гарь,slavicmyths:ash_spirit,Пепельный дух,registered,neutral,70,6,IV,14,smoke+pulse; provoked only,огненный+дух,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Чёрная гарь,slavicmyths:pekelnik,Пекельник,registered,hostile,120,11,V,18,claw+coal shot,огненный+нечисть,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Чёрная гарь,slavicmyths:sparkling,Искринка,registered,ambient,16,0,0,N/A,no combat,огненный+дух,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Чёрная гарь,slavicmyths:zharenitsa,Жареница,registered,boss,750,14,VI,20,phase50%;ring;spikes;vortex,босс+огненный,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Чертоги заблудших,UNCONFIRMED:whisperer,Шептун 4 варианта,concept/not registered,hostile,60,unknown,IV,14,four fire/poison/wither/magic ranged variants,дух+нечисть,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Чертоги заблудших,UNCONFIRMED:shardling,Оскольник,concept/not registered,hostile,90,unknown,V,18,crystal projectile; double shot,земляной+магический,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Чертоги заблудших,UNCONFIRMED:glowbat,Гулокрыл,concept/not registered,pet/neutral,30,unknown,0,N/A,tame; protective ranged only,животное+магический,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Чертоги заблудших,UNCONFIRMED:echo_beast,Эховик,concept/not registered,neutral,60,unknown,III,N/A,provoked wave+ram; peaceful vial,животное+магический,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Чертоги заблудших,UNCONFIRMED:sporeling,Грибошмыг,concept/not registered,peaceful,60,0,0,N/A,"spores decorative, no damage",животное+магический,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Чертоги заблудших,UNCONFIRMED:posten,Постень,concept/not registered,boss,650,unknown,VI,20,4 masks; phase; four clones 65HP,босс+дух,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Горючие острова,slavicmyths:heat_salamander,Жар-саламандра,registered,neutral,55,6,IV,14,provoked; sibling assist,огненный+животное,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Горючие острова,slavicmyths:slag_crab,Шлаковый краб,registered,neutral,55,7,IV,14,provoked; armored,земляной+огненный,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Горючие острова,slavicmyths:vent_golem,Вентильный голем,registered,neutral,150,12,V,18,provoked; magma-rune fragment,земляной+огненный,DRAFT_AWAITING_OWNER_AND_RUNTIME
+Горючие острова,slavicmyths:magma_lord,Повелитель магмы,registered,boss,850,14,VI,20,phase50%;weak chest;eruption/fracture,босс+огненный,DRAFT_AWAITING_OWNER_AND_RUNTIME
