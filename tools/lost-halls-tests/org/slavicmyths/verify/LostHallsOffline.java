@@ -344,6 +344,16 @@ public final class LostHallsOffline {
         check(!data.begin(node(8204, Scene.BRIDGE, -16, 70, 0, 2),
                 List.of(west, new net.minecraft.world.level.ChunkPos(10, 0))),
                 "far-away chunk receipt rejected");
+
+        check(!data.begin(node(8205, Scene.BRIDGE, -16, 70, 0, 2),
+                List.of(west, new net.minecraft.world.level.ChunkPos(1, 1))),
+                "disconnected room footprint rejected even inside bounded radius");
+        check(!data.begin(node(8206, Scene.BRIDGE, -16, 70, 0, 2),
+                List.of(west, new net.minecraft.world.level.ChunkPos(0, 1))),
+                "diagonal corner contact is not a walkable room connection");
+        check(data.begin(node(8207, Scene.BRIDGE, -16, 70, 0, 2),
+                List.of(west, east, new net.minecraft.world.level.ChunkPos(0, 1))),
+                "connected three-chunk room accepted regardless of input order");
         check(!data.acknowledge(room.id(), new net.minecraft.world.level.ChunkPos(1, 0)),
                 "unplanned chunk receipt rejected");
         check(!data.acknowledge(id(999), west), "unregistered room cannot receive a chunk");
