@@ -60,7 +60,9 @@ public final class NavyaMob extends PathfinderMob {
     }
     // registerGoals is called by Mob's constructor, before our kind is assigned.
     @Override public void setTarget(LivingEntity target) { super.setTarget(kind==Kind.WISP?null:target); }
-    @Override public boolean canAttack(LivingEntity target) { return kind!=Kind.WISP && !(target instanceof NavyaMob) && super.canAttack(target); }
+    @Override public boolean canAttack(LivingEntity target) { return kind!=Kind.WISP && !(target instanceof NavyaMob)
+            && !target.getType().is(org.slavicmyths.combat.CombatTargeting.PROTECTED)
+            && !org.slavicmyths.combat.CombatTargeting.sceneProtected(target) && super.canAttack(target); }
     @Override public boolean isAlliedTo(Entity entity) { return entity instanceof NavyaMob || super.isAlliedTo(entity); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder);builder.define(ACTION,0);builder.define(START,0L);builder.define(SECOND,false); }
     public Action action() { return Action.values()[Math.min(Action.values().length-1,Math.max(0,entityData.get(ACTION)))]; }
