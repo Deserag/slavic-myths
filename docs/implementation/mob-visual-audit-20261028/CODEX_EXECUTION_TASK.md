@@ -19,7 +19,7 @@
 **P0 #333 — Постень**: сейчас `PostenMob.tick()` делает `discard` везде, кроме `Level.NETHER`, а `PostenEncounters.get(ServerLevel)` может выбросить исключение вне Незера. Для ручного `/summon slavicmyths:posten` и `posten_spawn_egg` сделать безопасный **debug/manual encounter** во всех трёх измерениях (Overworld/Nether/End), модель, bossbar, 4 маски, 2 фазы, копии, без уникальных трофеев/фарма и без изменения журнала настоящей природной арены. Настоящий Постень естественно по-прежнему только в «Чертогах заблудших» в Незере. Удалить один dimension check без безопасной модели state запрещено.
 
 **P0 #334 — пауки/ползуны**:
-- `bone_crawler`: восемь физических legs уже есть, но анимируются только bases root по yRot/zRot, а knees/shins/feet неподвижны. Сделать реальные joints/иксы, alternating 4+4 gait, swing/lift/plant, attack windup и idle; 8 ног не должны двигаться синхронно.
+- `bone_crawler`: восемь физических legs уже есть, но анимируются только bases root по yRot/zRot, а knees/shins/feet неподвижны. Сделать реальные шарниры коленей, голени и опорные стопы, alternating 4+4 gait, swing/lift/plant, attack windup и idle; 8 ног не должны двигаться синхронно.
 - `coal_crawler`: 4 примитивных root legs+общий CinderModel gait; сверить канон референса, переработать суставную походку, до/после с собственным отличным ритмом, при утверждённом паучьем образе — настоящие 8 ног. Не пересоздавать сущность/AI, не ломать ID.
 - В обязательных Native before/after показать модель с 4 сторон, 2 разных опорных фазы ходьбы, сгибание knee, walk→idle и удар. Сдать не GIF чужой анимации, а реальный экспорт изменённых ModelParts.
 
