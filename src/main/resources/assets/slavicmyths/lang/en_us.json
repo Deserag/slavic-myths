@@ -6207,5 +6207,8 @@
   "burningislands.rune.1": "Chestplate: retaliate for 2 HP and ignite for 2 s after combat damage. Cooldown: 2 s.",
   "burningislands.rune.2": "Chestplate: retaliate for 4 HP and ignite for 4 s. Shared cooldown: 2 s; does not stack with I.",
   "burningislands.rune.terrain_blocked": "Temporary magma is disabled pending proven natural-block provenance and safe restoration.",
-  "burningislands.rune.chest": "Chestplate only; one magma-family rune."
+  "burningislands.rune.chest": "Chestplate only; one magma-family rune.",
+  "burningislands.rune.family_conflict": "Cannot share equipment with another Magma Rune.",
+  "rpg.slavicmyths.rune_magma_1": "Chestplate: retaliate for 2 HP and ignite for 2 s after combat damage. Cooldown: 2 s.",
+  "rpg.slavicmyths.rune_magma_2": "Chestplate: retaliate for 4 HP and ignite for 4 s. Shared cooldown: 2 s; does not stack with I."
 }

@@ -7,8 +7,11 @@
     "src/main/resources/assets/slavicmyths/lang/en_us.json",
     "src/main/resources/assets/slavicmyths/lang/ru_ru.json",
     "src/main/java/org/slavicmyths/SlavicMyths.java",
+    "src/main/java/org/slavicmyths/client/RpgScreen.java",
     "src/main/java/org/slavicmyths/client/TrophyHeadsClient.java",
+    "src/main/java/org/slavicmyths/compat/JeiRituals.java",
     "src/main/java/org/slavicmyths/rpg/RuneDefinition.java",
+    "src/main/java/org/slavicmyths/rpg/RuneRework.java",
     "src/main/java/org/slavicmyths/rpg/Runes.java",
     "src/main/java/org/slavicmyths/trophy/TrophyHeadBlock.java",
     "src/main/java/org/slavicmyths/trophy/TrophyHeads.java"
@@ -24,7 +27,7 @@
   "audio": "BLOCKED_NEEDS_AUDIO_SOURCE",
   "referenceMatch": "BLOCKED_REFERENCE_BINARY",
   "jar": "C:\\Users\\user\\.codex\\worktrees\\lost-halls\\slavic-myths\\build\\libs\\slavicmyths-2.0.8-HELL.jar",
-  "bytes": 24846421,
-  "sha256": "7edd8e282a0696377b17192a69f12e491484c3e6ef9748cc20cbeced8502fa20",
+  "bytes": 24845769,
+  "sha256": "102952bb4c573fcb370c13fca2e702d19fed189d6d965d89aa26cdde677cc9ab",
   "minecraftLaunches": 0
 }

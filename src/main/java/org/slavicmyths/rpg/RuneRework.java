@@ -49,7 +49,8 @@ public final class RuneRework {
     }
     public static List<Component> runeTooltip(String id){var d=RuneBalance.definition(id);var out=new ArrayList<Component>();out.add(Component.translatable("rune_foundation.slavicmyths.tier",d.tier()==1?"I":"II"));out.add(Component.translatable("rune_foundation.slavicmyths.base",Component.translatable("rune_foundation.slavicmyths.material."+d.base())));out.addAll(effects(id,1,null));return out;}
     public static List<Component> equipmentTooltip(ItemStack s){var out=new ArrayList<Component>();var ids=new LinkedHashSet<>(Runes.list(s));for(String id:ids){int count=copies(s,id);Component name=RuneDefinition.ALL.get(id).name();out.add(count>1?name.copy().append(" Г—"+count):name);
-        if(org.slavicmyths.rpg.tools.ToolRuneRules.tool(id))out.addAll(org.slavicmyths.rpg.tools.ToolRuneContent.equipped(s,id));
+        if(org.slavicmyths.burningislands.MagmaRuneRules.rune(id)){out.addAll(RuneDefinition.ALL.get(id).tooltip());if(!org.slavicmyths.burningislands.MagmaRunes.supports(s))out.add(Component.translatable("rpg.slavicmyths.armor_runes_inactive"));}
+        else if(org.slavicmyths.rpg.tools.ToolRuneRules.tool(id))out.addAll(org.slavicmyths.rpg.tools.ToolRuneContent.equipped(s,id));
         else if(AdvancedRunes.newRune(id)){out.add(AdvancedRunes.description(id));if(!AdvancedRunes.supports(s,id)||AdvancedRunes.iv(id)&&!AdvancedRunes.active(s,id))out.add(Component.translatable("rpg.slavicmyths.armor_runes_inactive"));}
         else if(org.slavicmyths.industry.MiningRunes.mining(id))out.addAll(org.slavicmyths.industry.MiningRunes.tooltip(id));
         else if(id.equals("ominous_aura")||id.equals("earth_heart_iii"))out.addAll(RuneDefinition.ALL.get(id).tooltip());

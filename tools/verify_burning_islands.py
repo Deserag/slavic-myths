@@ -9,7 +9,7 @@ def main():
   if not p.is_file():missing.append(rel)
   elif hashlib.sha256(p.read_bytes()).hexdigest()!=sha:changed.append(rel)
  assert not missing,missing
- allowed={'src/main/java/org/slavicmyths/SlavicMyths.java','src/main/java/org/slavicmyths/rpg/Runes.java','src/main/java/org/slavicmyths/rpg/RuneDefinition.java','src/main/java/org/slavicmyths/trophy/TrophyHeads.java','src/main/java/org/slavicmyths/trophy/TrophyHeadBlock.java','src/main/java/org/slavicmyths/client/TrophyHeadsClient.java','src/main/resources/assets/slavicmyths/lang/en_us.json','src/main/resources/assets/slavicmyths/lang/ru_ru.json','src/main/resources/assets/slavicmyths/creative_catalog.tsv'}
+ allowed={'src/main/java/org/slavicmyths/SlavicMyths.java','src/main/java/org/slavicmyths/compat/JeiRituals.java','src/main/java/org/slavicmyths/rpg/RuneRework.java','src/main/java/org/slavicmyths/client/RpgScreen.java','src/main/java/org/slavicmyths/rpg/Runes.java','src/main/java/org/slavicmyths/rpg/RuneDefinition.java','src/main/java/org/slavicmyths/trophy/TrophyHeads.java','src/main/java/org/slavicmyths/trophy/TrophyHeadBlock.java','src/main/java/org/slavicmyths/client/TrophyHeadsClient.java','src/main/resources/assets/slavicmyths/lang/en_us.json','src/main/resources/assets/slavicmyths/lang/ru_ru.json','src/main/resources/assets/slavicmyths/creative_catalog.tsv'}
  assert set(changed)<=allowed,set(changed)-allowed
  # Existing Nether climate source, geology, worldgen and content are byte-preserved.
  ids=['heat_salamander','slag_crab','vent_golem','magma_lord']
@@ -29,6 +29,8 @@ def main():
   assert 'looting' not in json.dumps(data).lower()
  for name,ingredients in [('magma_core',['magma_clot']*4),('rune_magma_1',['magma_rune_fragment','magma_core','salamander_hide','salamander_hide','crab_claw','blank_rune_1']),('rune_magma_2',['rune_magma_1']*2+['magma_core']*2)]:
   data=json.loads((D/f'recipe/{name}.json').read_text());assert [x['item'] for x in data['ingredients']]==['slavicmyths:'+i for i in ingredients];assert data['result']['id']=='slavicmyths:'+name
+ assert 'if(!org.slavicmyths.burningislands.MagmaRuneRules.rune(id))runes.add' in (R/'src/main/java/org/slavicmyths/compat/JeiRituals.java').read_text(encoding='utf-8'),'no fake magma altar recipe'
+ assert 'MagmaRuneRules.rune(id)){out.addAll(RuneDefinition.ALL.get(id).tooltip())' in (R/'src/main/java/org/slavicmyths/rpg/RuneRework.java').read_text(encoding='utf-8'),'magma armor tooltip has active-family branch'
  mob=(R/'src/main/java/org/slavicmyths/burningislands/IslandsMob.java').read_text()
  assert 'addFreshEntity' not in mob and 'new IslandsMob' not in mob,'alarm must never spawn'
  runes=(R/'src/main/java/org/slavicmyths/burningislands/MagmaRunes.java').read_text()

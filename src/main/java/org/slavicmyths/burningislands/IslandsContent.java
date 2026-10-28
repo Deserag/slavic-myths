@@ -29,10 +29,9 @@ public final class IslandsContent {
     @Override public void appendHoverText(ItemStack stack,TooltipContext c,List<net.minecraft.network.chat.Component> lines,TooltipFlag f){if(id.equals("magma_lord_heart"))lines.add(net.minecraft.network.chat.Component.translatable("burningislands.heart.future"));}
    }));
   for(int tier=1;tier<=2;tier++){
-   int t=tier;String id="rune_magma_"+tier;
-   MATERIALS.put(id,ModItems.ITEMS.register(id,()->new Item(new Item.Properties().stacksTo(16).fireResistant().rarity(Rarity.RARE)){
-    @Override public void appendHoverText(ItemStack stack,TooltipContext c,List<net.minecraft.network.chat.Component> lines,TooltipFlag f){lines.add(net.minecraft.network.chat.Component.translatable("burningislands.rune."+t));if(t==2)lines.add(net.minecraft.network.chat.Component.translatable("burningislands.rune.terrain_blocked"));}
-   }));
+   String id="rune_magma_"+tier;
+   // RpgClient/RuneDefinition owns rune tooltips; do not append the same effect twice.
+   MATERIALS.put(id,ModItems.ITEMS.register(id,()->new Item(new Item.Properties().stacksTo(16).fireResistant().rarity(Rarity.RARE))));
   }
  }
  public static Item item(String id){return MATERIALS.get(id).get();}
