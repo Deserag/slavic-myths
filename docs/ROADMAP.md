@@ -1,3 +1,7 @@
+> 28.10.2026 #337: ресурсный блок #324, Nature/Traits20мобов#328 и
+> 6обычныхкузнечныхupgrades добавленывhell. МастерзадачаНЕзавершена;
+> [фактический журнал](implementation/2026-10-28-hell-all-tasks/STATUS.md).
+
 > 28.10.2026 #332–#336: manual Posten изолирован; ordinary ModelPart IK/material/poses.
 > Офлайн gates и ограничения: [mob332 REPORT](implementation/mob332/REPORT.md).
 > Gameplay/MP NOT_RUN, original art BLOCKED_REFERENCE; Issues OPEN.

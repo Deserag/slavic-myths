@@ -18,3 +18,9 @@
 - F#328: примененыNature/TraitsпоdraftсчетырьмяявнымикорректировкамиIssue;
   этоOWNER_REVIEW_PROPOSED. HP/damageнеперебалансированы;A1–A7таблицаproposed.
   Enemyfallbackне долженвключатьнейтральногоAshSpirit/мирногоSparkling.
+
+- G: шестьЖаровыхформ — точные копии геометрии существующихdiamondформ сновыми
+  пиксельнымипалитрами;productiondefaultcomponenteventберётреальныеsourceатрибуты,
+  меняеттолькоdirectdamageиmaxdamage. Метание/chargeмножительотдельно1.15.
+  Старыеconstructorsимеют1.0. Кузнечныйmixinтолько6newIDs, normalizedceilwear.
+  Armor/specialweaponoriginalsотсутствуют;ихgenericмоделивместоlockнеподставлены.

@@ -27,7 +27,7 @@ public final class WeaponMotionClient {
         register(event,Shape.HEAVY,"club","wooden_mace","stone_mace","mace","silver_mace",
                 "perunite_mace","battle_axe","chekan","ancient_chekan");
         register(event,Shape.SPEAR,"ancient_spear","restored_spear","spear","gold_spear",
-                "iron_spear","silver_spear","diamond_spear","perunite_spear",
+                "iron_spear","silver_spear","diamond_spear","zhara_spear","perunite_spear",
                 "netherite_spear","pool_spear","thunder_spear","victor_spear");
         register(event,Shape.POLEAXE,"berdysh");
         register(event,Shape.SICKLE,"noon_sickle");

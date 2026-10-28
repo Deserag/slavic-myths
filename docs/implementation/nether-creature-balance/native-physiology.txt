@@ -1,0 +1,31 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :jarJar NO-SOURCE
+> Task :jar
+> Task :assemble
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :check UP-TO-DATE
+> Task :build
+> Task :compileNether324OfflineJava UP-TO-DATE
+> Task :processNether324OfflineResources NO-SOURCE
+> Task :nether324OfflineClasses UP-TO-DATE
+
+> Task :verifyNether324
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+{"livingstone_ore":[1.5021,2.0014,2.6093,3.2913],"alatyrite_ore":[1.0,1.3313,1.747,2.188],"runnik_ore":[1.0,1.3313,1.747,2.188],"infernal_ore":[1.0,1.3313,1.747,2.188],"sulfur_deposit":[1.9902,2.6621,3.4696,4.3796],"clampedHeightRanges":["24:122","24:176","24:176","24:122","24:176","24:176","24:122","24:176","24:176"],"scope":"PASS native vanilla ore_drops simulation 10000/material/Fortune; structural alternatives/height checks. Actual LootContext, mining tool, worldgen, furnace, relog and MP NOT_RUN."}
+
+> Task :verifyNether328
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS twenty source tag profiles through production bleed/poison/fire functions. Actual runtime tag binding, entity effects and MP NOT_RUN; HP/damage unchanged.
+
+BUILD SUCCESSFUL in 25s
+8 actionable tasks: 5 executed, 3 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

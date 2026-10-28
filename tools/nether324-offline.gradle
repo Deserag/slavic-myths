@@ -4,4 +4,5 @@ allprojects { p -> p.plugins.withId('java') {
  p.sourceSets.nether324Offline.runtimeClasspath+=p.sourceSets.main.output+p.sourceSets.main.runtimeClasspath
  p.tasks.register('verifyNether324',JavaExec){dependsOn p.tasks.named('nether324OfflineClasses');classpath=p.sourceSets.nether324Offline.runtimeClasspath;mainClass='org.slavicmyths.verify.Nether324Offline'}
  p.tasks.register('verifyNether328',JavaExec){dependsOn p.tasks.named('nether324OfflineClasses');classpath=p.sourceSets.nether324Offline.runtimeClasspath;mainClass='org.slavicmyths.verify.Nether328Offline'}
+ p.tasks.register('verifyNether337Smithing',JavaExec){dependsOn p.tasks.named('nether324OfflineClasses');classpath=p.sourceSets.nether324Offline.runtimeClasspath;mainClass='org.slavicmyths.verify.Nether337SmithingOffline'}
 } }

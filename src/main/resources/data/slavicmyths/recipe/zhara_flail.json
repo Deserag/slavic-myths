@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "slavicmyths:nether_hardening_template"
+  },
+  "base": {
+    "item": "slavicmyths:diamond_flail"
+  },
+  "addition": {
+    "item": "slavicmyths:zhara_plate"
+  },
+  "result": {
+    "id": "slavicmyths:zhara_flail",
+    "count": 1
+  }
+}

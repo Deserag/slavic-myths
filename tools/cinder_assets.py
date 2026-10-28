@@ -223,7 +223,11 @@ def main():
   pools=[]
   if name not in ('sparkling','zharenitsa'):
    pools=[{'rolls':1,'entries':[{'type':'minecraft:alternatives','children':[{'type':'minecraft:item','name':'slavicmyths:soul','conditions':[{'condition':'minecraft:random_chance_with_enchanted_bonus','enchantment':'minecraft:looting','unenchanted_chance':.02,'enchanted_chance':{'type':'minecraft:linear','base':.03,'per_level_above_first':.01}}]},{'type':'minecraft:item','name':'slavicmyths:soul_fragment','functions':[{'function':'minecraft:set_count','count':{'type':'minecraft:uniform','min':1,'max':3}}]}]}]}]
-  write(D/f'loot_table/entities/{name}.json',{'type':'minecraft:entity','pools':pools})
+  data={'type':'minecraft:entity','pools':pools}
+  if name=='pekelnik':
+   from nether337_smithing_assets import apply_ember
+   data=apply_ember(data)
+  write(D/f'loot_table/entities/{name}.json',data)
  sounds={'crawler_warn':'entity.ravager.attack','crawler_hit':'entity.ravager.step','spirit_warn':'entity.breeze.idle_air','spirit_pulse':'entity.breeze.wind_burst','pekelnik_warn':'entity.iron_golem.attack','pekelnik_throw':'entity.blaze.shoot','spark_idle':'block.fire.ambient','ring':'entity.blaze.shoot','spikes':'block.basalt.break','shift':'entity.breeze.jump','vortex':'entity.breeze.whirl','phase':'entity.blaze.ambient','death':'entity.blaze.death','hurt':'entity.blaze.hurt','mantle':'item.firecharge.use'}
  p=A/'sounds.json'; data=json.loads(p.read_text(encoding='utf-8'))
  for name,event in sounds.items():data['cinder.'+name]={'subtitle':'subtitle.slavicmyths.cinder.'+name,'sounds':[{'name':'minecraft:'+event,'type':'event'}]}

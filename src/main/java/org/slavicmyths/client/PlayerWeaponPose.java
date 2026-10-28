@@ -17,7 +17,7 @@ public final class PlayerWeaponPose {
  static {
   add(Shape.BLADE,"bone_knife","silver_dagger","ancient_carolingian_sword","restored_carolingian_sword","silver_sword","perunite_sword","tugarin_sword","trophy_kalin_sabre","nightingale_dagger");
   add(Shape.HEAVY,"club","wooden_mace","stone_mace","mace","silver_mace","perunite_mace","battle_axe","chekan","ancient_chekan","thunder_axe");
-  add(Shape.SPEAR,"ancient_spear","restored_spear","spear","gold_spear","iron_spear","silver_spear","diamond_spear","perunite_spear","netherite_spear","pool_spear","thunder_spear","victor_spear");
+  add(Shape.SPEAR,"ancient_spear","restored_spear","spear","gold_spear","iron_spear","silver_spear","diamond_spear","zhara_spear","perunite_spear","netherite_spear","pool_spear","thunder_spear","victor_spear");
   add(Shape.POLEAXE,"berdysh");add(Shape.SICKLE,"noon_sickle");add(Shape.STAFF,"carved_staff","storm_staff","veles_staff","likho_staff");
   for(String metal:new String[]{"stone","gold","iron","silver","diamond","perunite","netherite"}){add(Shape.KNIFE,metal+"_throwing_knife");add(Shape.SULITSA,metal+"_sulitsa");}
   add(Shape.WHIP,"poloz_whip");

@@ -26,10 +26,10 @@ import org.joml.Quaternionf;
 import org.joml.Vector3f;
 import java.util.List;
 
-/** Only eight weapon models participate. No world polling, packets or server-side chain. */
+/** Only explicitly registered flail models participate. No world polling, packets or server-side chain. */
 @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
 public final class FlailClient {
-    static final List<String> IDS=List.of("stone_flail","gold_flail","flail","silver_flail","diamond_flail","perunite_flail","netherite_flail","ataman_flail");
+    static final List<String> IDS=List.of("stone_flail","gold_flail","flail","silver_flail","diamond_flail","zhara_flail","perunite_flail","netherite_flail","ataman_flail");
     private record Binding(LivingEntity owner, ItemStack stack, ItemDisplayContext context) {}
     // applyTransform and BEWLR run synchronously on the render thread. Consumed before nested piece draws.
     private static final ThreadLocal<Binding> BINDING=new ThreadLocal<>();

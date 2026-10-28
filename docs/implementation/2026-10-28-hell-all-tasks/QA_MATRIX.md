@@ -13,3 +13,7 @@
 |324|4ores/raw/roasted/loot/recipes/newchunkfeature|NetherOres/NetherOreFeature|native vanilla Fortune+height|../nether-ores-2.0.x|PASS source/formula;worldgen/art NOT_RUN/BLOCKED|
 |328|20IDs/Nature/Traits/preservehistorical|tags+CombatTargeting+newCSV|nativephysiology/sourcevalidation|../nether-creature-balance|PASS source;runtime NOT_RUN;attackbudget WIP|
 |337D|oceanresolver/volcano/arena/IIrestore|notimplemented|sourceconsumersearch|SOURCE_DEPENDENCIES.md|BLOCKED/WIP|
+
+|325/326/330|12materials/6diamondupgrades|NetherSmithing/Rules/mixin+recipes|source/native transforms|../nether-smithing-337|PASS source;runtime NOT_RUN|
+|326/329/330|8wearables/5specialweapons+skills|notimplemented|no generic substitution|ART locks|WIP/BLOCKED_REFERENCE|
+|325|infernal furnace/fuel|notimplemented|exactoperatingparametersnotapproved|Issue325|WIP/BALANCE_UNAPPROVED|

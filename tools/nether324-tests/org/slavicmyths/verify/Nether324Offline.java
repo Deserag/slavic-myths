@@ -17,6 +17,6 @@ public final class Nether324Offline {
   }
   var limits=new JsonArray();for(int min:new int[]{-64,0,16})for(int max:new int[]{128,224,256}){int low=org.slavicmyths.netherores.NetherOreFeature.low(min,24),high=org.slavicmyths.netherores.NetherOreFeature.high(max,176);if(low<min+5||high>max-6)throw new AssertionError("unsafe height");limits.add(low+":"+high);}report.add("clampedHeightRanges",limits);
   report.addProperty("scope","PASS native vanilla ore_drops simulation 10000/material/Fortune; structural alternatives/height checks. Actual LootContext, mining tool, worldgen, furnace, relog and MP NOT_RUN.");
-  Files.createDirectories(Path.of("docs/implementation/nether-ores-2.0.x"));Files.writeString(Path.of("docs/implementation/nether-ores-2.0.x/native-loot.json"),new GsonBuilder().setPrettyPrinting().create().toJson(report));System.out.println(report);
+  Files.createDirectories(Path.of("docs/implementation/nether-ores-2.0.x"));Path output=Path.of("docs/implementation/nether-ores-2.0.x/native-loot.json");String text=new GsonBuilder().setPrettyPrinting().create().toJson(report);if(!Files.exists(output)||!Files.readString(output).equals(text))Files.writeString(output,text);System.out.println(report);
  }
 }

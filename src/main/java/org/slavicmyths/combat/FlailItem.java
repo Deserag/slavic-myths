@@ -17,8 +17,12 @@ import net.minecraft.world.level.Level;
 
 /** Charged, line-of-sight strike at 4 blocks; no global reach attribute or chain physics. */
 public final class FlailItem extends MaceItem {
-    public FlailItem(Properties p){super(Tiers.IRON,8,.7F,.22F,.65F,p);}
-    public FlailItem(Tier tier,Properties p){super(tier,6+tier.getAttackDamageBonus(),.7F,.22F,.65F,p);}
+    private final float directMultiplier;
+    public FlailItem(Properties p){super(Tiers.IRON,8,.7F,.22F,.65F,p);directMultiplier=1;}
+    public FlailItem(Tier tier,Properties p){this(tier,p,1);}
+    public FlailItem(Tier tier,Properties p,float directMultiplier){super(tier,(6+tier.getAttackDamageBonus())*directMultiplier,.7F,.22F,.65F,p);this.directMultiplier=directMultiplier;}
+    public static float chargedDamage(Tier tier,float multiplier){return (7+tier.getAttackDamageBonus())*multiplier;}
+    public float chargedDamage(){return chargedDamage(getTier(),directMultiplier);}
     @Override public boolean canDisableShield(ItemStack stack,ItemStack shield,LivingEntity entity,LivingEntity attacker){return true;}
     @Override public int getUseDuration(ItemStack s,LivingEntity user){return 72000;}
     @Override public UseAnim getUseAnimation(ItemStack s){return UseAnim.SPEAR;}
@@ -35,7 +39,7 @@ public final class FlailItem extends MaceItem {
             java.util.Optional<Vec3> hit=candidate.getBoundingBox().inflate(.2).clip(eye,end);
             if(hit.isPresent()&&eye.distanceToSqr(hit.get())<=best){target=candidate;best=eye.distanceToSqr(hit.get());}
         }
-        if(target!=null&&org.slavicmyths.rpg.Abilities.canHit(player,target)&&target.hurt(player.damageSources().playerAttack(player),7+getTier().getAttackDamageBonus())){hurtEnemy(stack,target,player);player.setLastHurtMob(target);}
+        if(target!=null&&org.slavicmyths.rpg.Abilities.canHit(player,target)&&target.hurt(player.damageSources().playerAttack(player),chargedDamage())){hurtEnemy(stack,target,player);player.setLastHurtMob(target);}
         player.swing(InteractionHand.MAIN_HAND,true);
     }
 }

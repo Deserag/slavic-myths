@@ -14,14 +14,21 @@ import net.minecraft.resources.ResourceLocation;
 /** One durable item per throw; the server transfers its exact component-bearing stack. */
 public final class ThrowingWeaponItem extends TieredItem {
     public final boolean knife;
+    private final float directMultiplier;
     public ThrowingWeaponItem(Tier tier,boolean knife,Properties properties) {
-        super(tier,properties.attributes(ItemAttributeModifiers.builder()
+        this(tier,knife,properties,1);
+    }
+    public ThrowingWeaponItem(Tier tier,boolean knife,Properties properties,float directMultiplier) {
+        super(tier,properties.attributes(attributes(tier,knife)));
+        this.knife=knife;
+        this.directMultiplier=directMultiplier;
+    }
+    public static ItemAttributeModifiers attributes(Tier tier,boolean knife){return ItemAttributeModifiers.builder()
             .add(Attributes.ATTACK_DAMAGE,new AttributeModifier(BASE_ATTACK_DAMAGE_ID,(knife?1:2)+tier.getAttackDamageBonus(),AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND)
             .add(Attributes.ATTACK_SPEED,new AttributeModifier(BASE_ATTACK_SPEED_ID,knife?-1.7:-2.5,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND)
-            .add(Attributes.ENTITY_INTERACTION_RANGE,new AttributeModifier(ResourceLocation.fromNamespaceAndPath("slavicmyths","sulitsa_reach"),knife?0:.5,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND).build()));
-        this.knife=knife;
-    }
-    public float thrownDamage(){return knife?2+getTier().getAttackDamageBonus()*.35F:5+getTier().getAttackDamageBonus();}
+            .add(Attributes.ENTITY_INTERACTION_RANGE,new AttributeModifier(ResourceLocation.fromNamespaceAndPath("slavicmyths","sulitsa_reach"),knife?0:.5,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND).build();}
+    public static float thrownDamage(Tier tier,boolean knife,float multiplier){return (knife?2+tier.getAttackDamageBonus()*.35F:5+tier.getAttackDamageBonus())*multiplier;}
+    public float thrownDamage(){return thrownDamage(getTier(),knife,directMultiplier);}
     @Override public int getUseDuration(ItemStack stack,LivingEntity user){return 72000;}
     @Override public UseAnim getUseAnimation(ItemStack stack){return UseAnim.SPEAR;}
     @Override public InteractionResultHolder<ItemStack> use(Level level,Player player,InteractionHand hand) {

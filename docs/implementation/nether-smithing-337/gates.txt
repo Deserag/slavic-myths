@@ -1,0 +1,47 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :jarJar NO-SOURCE
+> Task :jar UP-TO-DATE
+> Task :assemble UP-TO-DATE
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :check UP-TO-DATE
+> Task :build UP-TO-DATE
+> Task :compileNether324OfflineJava
+> Task :processNether324OfflineResources NO-SOURCE
+> Task :nether324OfflineClasses
+
+> Task :verifyNether324
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+{"livingstone_ore":[1.5021,2.0014,2.6093,3.2913],"alatyrite_ore":[1.0,1.3313,1.747,2.188],"runnik_ore":[1.0,1.3313,1.747,2.188],"infernal_ore":[1.0,1.3313,1.747,2.188],"sulfur_deposit":[1.9902,2.6621,3.4696,4.3796],"clampedHeightRanges":["24:122","24:176","24:176","24:122","24:176","24:176","24:122","24:176","24:176"],"scope":"PASS native vanilla ore_drops simulation 10000/material/Fortune; structural alternatives/height checks. Actual LootContext, mining tool, worldgen, furnace, relog and MP NOT_RUN."}
+
+> Task :verifyNether328
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS twenty source tag profiles through production bleed/poison/fire functions. Actual runtime tag binding, entity effects and MP NOT_RUN; HP/damage unchanged.
+
+> Task :verifyNether337Smithing
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS six source-form native attribute transformations +15% direct/+20% durability; knife projectile/flail charge; smithing wear and arbitrary components. Actual new item registry/default component event/mixin/UI/runes/MP NOT_RUN.
+
+> Task :compileMob332OfflineJava
+> Task :processMob332OfflineResources NO-SOURCE
+> Task :mob332OfflineClasses
+
+> Task :verifyMobMotion
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS production gait: 24/30/60 temporal sampling, stance/swing IK sole height, eight independent bone knees/toes, four Sheptun variants, bat sit/glide. Runtime FPS/ground collision NOT_RUN.
+
+> Task :verifyManualPosten
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+PASS production manual journal: independent contexts, 650/260/4x65, binary NBT, reward refusal, foreign UUID, cancellation; dimension entity runtime NOT_RUN
+
+BUILD SUCCESSFUL in 31s
+12 actionable tasks: 8 executed, 4 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CHC",
+    "MAM",
+    "IRI"
+  ],
+  "key": {
+    "C": {
+      "item": "slavicmyths:magma_core"
+    },
+    "H": {
+      "item": "slavicmyths:magma_lord_heart"
+    },
+    "M": {
+      "item": "slavicmyths:magma_clot"
+    },
+    "A": {
+      "item": "slavicmyths:alatyr_ingot"
+    },
+    "I": {
+      "item": "slavicmyths:roasted_infernal_shard"
+    },
+    "R": {
+      "item": "slavicmyths:magma_rune_fragment"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:infernal_armor_heart",
+    "count": 1
+  }
+}

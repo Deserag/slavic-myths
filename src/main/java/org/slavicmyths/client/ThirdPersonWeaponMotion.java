@@ -33,12 +33,12 @@ public final class ThirdPersonWeaponMotion {
     static {
         register(Shape.BLADE,"bone_knife","silver_dagger","ancient_carolingian_sword","restored_carolingian_sword","silver_sword","perunite_sword");
         register(Shape.HEAVY,"club","wooden_mace","stone_mace","mace","silver_mace","perunite_mace","battle_axe","chekan","ancient_chekan");
-        register(Shape.SPEAR,"ancient_spear","restored_spear","spear","gold_spear","iron_spear","silver_spear","diamond_spear","perunite_spear","netherite_spear","pool_spear","thunder_spear","victor_spear");
+        register(Shape.SPEAR,"ancient_spear","restored_spear","spear","gold_spear","iron_spear","silver_spear","diamond_spear","zhara_spear","perunite_spear","netherite_spear","pool_spear","thunder_spear","victor_spear");
         register(Shape.POLEAXE,"berdysh");
         register(Shape.SICKLE,"noon_sickle");
         register(Shape.STAFF,"carved_staff","veles_staff","storm_staff");
-        register(Shape.KNIFE,"stone_throwing_knife","gold_throwing_knife","iron_throwing_knife","silver_throwing_knife","diamond_throwing_knife","perunite_throwing_knife","netherite_throwing_knife");
-        register(Shape.SULITSA,"stone_sulitsa","gold_sulitsa","iron_sulitsa","silver_sulitsa","diamond_sulitsa","perunite_sulitsa","netherite_sulitsa");
+        register(Shape.KNIFE,"stone_throwing_knife","gold_throwing_knife","iron_throwing_knife","silver_throwing_knife","diamond_throwing_knife","zhara_throwing_knife","perunite_throwing_knife","netherite_throwing_knife");
+        register(Shape.SULITSA,"stone_sulitsa","gold_sulitsa","iron_sulitsa","silver_sulitsa","diamond_sulitsa","zhara_sulitsa","perunite_sulitsa","netherite_sulitsa");
         register(Shape.CROSSBOW,"serpent_crossbow","three_breath_crossbow");
         register(Shape.BOW,"short_bow","heavy_bow","finist_bow");
     }

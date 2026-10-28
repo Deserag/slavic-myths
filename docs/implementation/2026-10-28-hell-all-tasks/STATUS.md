@@ -1,3 +1,11 @@
+## G checkpoint — 28.10.2026
+
+E опубликован6cacdb7f;Fопубликованb6d8ae0c. G:12материалов,11craftinggrids,
+6реальныхordinaryZharaweaponupgrades,normalizedsmithingwear,прежниеформы/анимации,
+emberloot. Java21build+nativeformula/physiology/smithing/gait/manualgatesPASS;
+см../nether-smithing-337/REPORT.md. 8armor/5specialskills/furnaceНЕреализованы;
+C/Dworld/runtime/art/audio debtнеисчез. ЭтоIN_PROGRESS,неowneraccepted.
+
 ## Checkpoint C/D inventory + E/F implementation — 28.10.2026
 
 Опубликовано: A1#33394c9cc3e; B#334–33609e14a53. B прошёл2cleanbuilds,

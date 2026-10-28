@@ -36,6 +36,7 @@ public final class SlavicMyths {
         org.slavicmyths.kitchen.KitchenRecipe.SERIALIZER.getId();
         org.slavicmyths.wood.Woodlands.init();
         org.slavicmyths.netherores.NetherOres.init();
+        org.slavicmyths.nethersmithing.NetherSmithing.init();
         org.slavicmyths.navya.NavyaBlocks.init();
         org.slavicmyths.blackcinder.CinderBlocks.init();
         org.slavicmyths.blackcinder.CinderContent.init(bus);

@@ -6,7 +6,8 @@
   "mixins": [
     "NetherParametersMixin",
     "HallsBiomeSourceMixin",
-    "PlayerListSaveInvoker"
+    "PlayerListSaveInvoker",
+    "NetherSmithingMixin"
   ],
   "injectors": {
     "defaultRequire": 1
