@@ -1,0 +1,11 @@
+{
+  "version": "2.0.10-HELL",
+  "source_commit": "09e14a53e22a4a30b30b6ebf8a72d873651ae618",
+  "installed_path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.10-HELL.jar",
+  "sha256": "11b64ab43a69131c6369784d4cdea18201aed7b11197eca1c491b359347a5a4a",
+  "backup_path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\mod-backups\\20261028-mob332-09e14a53\\slavicmyths-2.0.10-HELL.jar",
+  "backup_sha256": "e84bb45be63bfd04134373f524eb34bcd10a714292e37dee9c41e99a5f7d6953",
+  "installed": true,
+  "game_launches": 0,
+  "scope": "mob332 checkpoint, master337 not complete"
+}

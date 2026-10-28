@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "slavicmyths:bog_iron_ore"
+    "slavicmyths:bog_iron_ore",
+    "slavicmyths:livingstone_ore"
   ]
 }

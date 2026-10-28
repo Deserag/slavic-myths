@@ -1,0 +1,44 @@
+{
+  "livingstone_ore": [
+    1.5021,
+    2.0014,
+    2.6093,
+    3.2913
+  ],
+  "alatyrite_ore": [
+    1.0,
+    1.3313,
+    1.747,
+    2.188
+  ],
+  "runnik_ore": [
+    1.0,
+    1.3313,
+    1.747,
+    2.188
+  ],
+  "infernal_ore": [
+    1.0,
+    1.3313,
+    1.747,
+    2.188
+  ],
+  "sulfur_deposit": [
+    1.9902,
+    2.6621,
+    3.4696,
+    4.3796
+  ],
+  "clampedHeightRanges": [
+    "24:122",
+    "24:176",
+    "24:176",
+    "24:122",
+    "24:176",
+    "24:176",
+    "24:122",
+    "24:176",
+    "24:176"
+  ],
+  "scope": "PASS native vanilla ore_drops simulation 10000/material/Fortune; structural alternatives/height checks. Actual LootContext, mining tool, worldgen, furnace, relog and MP NOT_RUN."
+}

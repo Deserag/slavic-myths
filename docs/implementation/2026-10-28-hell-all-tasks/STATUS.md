@@ -1,3 +1,14 @@
+## Checkpoint C/D inventory + E/F implementation — 28.10.2026
+
+Опубликовано: A1#33394c9cc3e; B#334–33609e14a53. B прошёл2cleanbuilds,
+ресурсыиустановказафиксированы ../mob332/installation.json (игровыхзапусков0).
+C проверенпоsource,прежниеHallsрегистрациисохранены. Dterrain/arenaнеподключены,
+IIrestoreblocked,см.SOURCE_DEPENDENCIES.md. E#324код/ресурсы/raw-roasted/рецепты/
+feature+Fortuneformulaреализованы,actualworld/runtime/artNOT_RUN/BLOCKED;F#328
+20Nature/Traitsиобщиеотношенияинтегрированы,уронHPнеменялся,бюджетыWIP/proposed.
+Подробныематрицы ../nether-ores-2.0.x/REPORT.md и ../nether-creature-balance/REPORT.md.
+Gещёнеисполнен. Номеррудного/предметногопатчанеприсвоен. НиоднаIssueнезакрыта.
+
 ## Checkpoint B — 28.10.2026
 
 #333 опубликован94c9cc3e. #334–#336: production articulated limbs, different materials,
@@ -28,17 +39,17 @@ Production build + actual manual journal binaryNBT/split/isolation negatives PAS
 
 | Приоритет | Issues | Scope | Статус нового запуска | Доказательства / commit SHA |
 | --- | --- | --- | --- | --- |
-| P0-A | #327, #331 | Известные ошибки голов/FX/Peaceful + JAR parity | NOT_STARTED | — |
-| P0-A | #333 | Постень: ручной призыв во всех измерениях без farm | NOT_STARTED | — |
-| P0-B | #334 | 8-лапый костяной/угольный ползуны, суставная походка | NOT_STARTED | — |
-| P1-B | #335 | Разные палитры и фактуры 16 видов | NOT_STARTED | — |
-| P1-B | #336 | Видоспецифические анимации 16 видов (+4 Шептуна) | NOT_STARTED | — |
-| P1-C | #251–#257, #258–#267, #288–#294, #301–#303 | Неисправленные регрессии биомов 2.0.2–2.0.4 | NOT_STARTED | — |
-| P1-D | #304–#314, #316–#323 | 2.0.5: океанская генерация, мобы, руна, босс, голова | NOT_STARTED | — |
-| P2-E | #324 | Отдельный патч руд, природного worldgen и переработки | NOT_STARTED | — |
-| P2-F | #328 | Level/Nature/Traits 20 новых существ | NOT_STARTED | — |
-| P3-G | #325, #326, #329, #330 | Отдельный патч кузницы, 2 доспехов и 11 оружий | NOT_STARTED | — |
-| QA | #337 | Итоговый source build/JAR/ресурсы/отчёты и Owner QA | NOT_STARTED | — |
+| P0-A | #327, #331 | Известные ошибки голов/FX/Peaceful + JAR parity | NOT_RUN / см. checkpoints выше | — |
+| P0-A | #333 | Постень: ручной призыв во всех измерениях без farm | NOT_RUN / см. checkpoints выше | — |
+| P0-B | #334 | 8-лапый костяной/угольный ползуны, суставная походка | NOT_RUN / см. checkpoints выше | — |
+| P1-B | #335 | Разные палитры и фактуры 16 видов | NOT_RUN / см. checkpoints выше | — |
+| P1-B | #336 | Видоспецифические анимации 16 видов (+4 Шептуна) | NOT_RUN / см. checkpoints выше | — |
+| P1-C | #251–#257, #258–#267, #288–#294, #301–#303 | Неисправленные регрессии биомов 2.0.2–2.0.4 | NOT_RUN / см. checkpoints выше | — |
+| P1-D | #304–#314, #316–#323 | 2.0.5: океанская генерация, мобы, руна, босс, голова | NOT_RUN / см. checkpoints выше | — |
+| P2-E | #324 | Отдельный патч руд, природного worldgen и переработки | NOT_RUN / см. checkpoints выше | — |
+| P2-F | #328 | Level/Nature/Traits 20 новых существ | NOT_RUN / см. checkpoints выше | — |
+| P3-G | #325, #326, #329, #330 | Отдельный патч кузницы, 2 доспехов и 11 оружий | NOT_RUN / см. checkpoints выше | — |
+| QA | #337 | Итоговый source build/JAR/ресурсы/отчёты и Owner QA | NOT_RUN / см. checkpoints выше | — |
 
 ## Checkpoint template — заполнять при каждом коммите
 
