@@ -1,0 +1,65 @@
+{
+  "scope": "SOURCE_IDENTITY_ONLY; ART and runtime NOT_RUN",
+  "status": "BLOCKED_REFERENCE",
+  "sources": [
+    "C:\\Users\\user\\.codex\\attachments",
+    "C:\\Users\\user\\Downloads",
+    "C:\\Users\\user\\.codex\\worktrees\\lost-halls\\slavic-myths\\docs\\concepts"
+  ],
+  "pngs_scanned": 469,
+  "references": [
+    {
+      "reference": "blocks",
+      "sha256": "ff3b278772fe276a464c6a5c0da7592552a1e921e016e6c075ffe20cce01e781",
+      "size": [
+        1448,
+        1086
+      ],
+      "locations": [],
+      "status": "BLOCKED_REFERENCE"
+    },
+    {
+      "reference": "scenes",
+      "sha256": "d0d95085857c930a24d6ed6fc67729ae927a5103d77b536a1387ff8db79fe4b2",
+      "size": [
+        1448,
+        1086
+      ],
+      "locations": [],
+      "status": "BLOCKED_REFERENCE"
+    },
+    {
+      "reference": "mobs",
+      "sha256": "a330f127e60c4055dd86aadb91f169e337f4e60c9c90ad8e7982b49cac4be042",
+      "size": [
+        1672,
+        941
+      ],
+      "locations": [],
+      "status": "BLOCKED_REFERENCE"
+    },
+    {
+      "reference": "rewards",
+      "sha256": "0eb92eea714205ca75219af6aa9f9f1e586dae30494b6534ad28e412daff9856",
+      "size": [
+        1536,
+        1024
+      ],
+      "locations": [],
+      "status": "BLOCKED_REFERENCE"
+    },
+    {
+      "reference": "posten",
+      "sha256": "34e30e8cde56dffa7ab8e2ff0bf917da3ebdd808675e02da5cfeb123502d65d0",
+      "size": [
+        1536,
+        1024
+      ],
+      "locations": [],
+      "status": "BLOCKED_REFERENCE"
+    }
+  ],
+  "scan_errors": [],
+  "runtime_launches": 0,
+  "heads_note": "Guardian/Zharenitsa original references require their own contracts; these five PNGs do not pass the complete three-head ART gate."
+}

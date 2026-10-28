@@ -1,0 +1,40 @@
+{
+  "scope": "STATIC source inventory plus resource candidates; NOT a runtime registry dump",
+  "branch": "hell",
+  "head": "877b7d69af0e809850827806045d82fde901a1a3",
+  "spec_commit": "e7fcd0e2f761ab81dd2b5694d3ee78f04f733c2c",
+  "production_diff": "",
+  "untracked_production": "",
+  "counts": {
+    "biome": 2,
+    "block": 351,
+    "entity_type": 119,
+    "item": 1152
+  },
+  "candidate_collisions": {
+    "lost_hall_stone": [],
+    "cracked_lost_hall_stone": [],
+    "luminous_vein_stone": [],
+    "cave_coating": [],
+    "lost_whisper_thread": [],
+    "lightvein_shard": [],
+    "echo_vial": [],
+    "spore_pouch": [],
+    "lost_halls_waymark": [],
+    "lost_halls_tuning_fork": [],
+    "posten": [],
+    "posten_head": [],
+    "rune_shadow_face": [],
+    "polished_lost_hall_stone": [],
+    "lost_hall_stone_stairs": [],
+    "lost_hall_stone_slab": [],
+    "lost_hall_stone_wall": [],
+    "polished_lost_hall_stone_stairs": [],
+    "polished_lost_hall_stone_slab": [],
+    "polished_lost_hall_stone_wall": []
+  },
+  "hashed_production_files": 9457,
+  "existing_head": "slavicmyths:zharenitsa_head; preserve ID and migrate behavior in #302",
+  "runtime_launches": 0,
+  "runtime_registry_validation": "NOT_RUN_ENV_BLOCK"
+}

@@ -1,0 +1,11 @@
+// Local verification fallback only: exact 9.5.1+1.21.1 release, SHA512 verified
+// against Modrinth version yohfFbgD. Does not change published dependency coordinates.
+gradle.projectsEvaluated {
+    allprojects {
+        def localCurios = repositories.flatDir { dirs 'C:/Users/user/Documents/slavic-myths/.tools/curios-9.5.1' }
+        repositories.exclusiveContent {
+            forRepositories(localCurios)
+            filter { includeModule 'top.theillusivec4.curios', 'curios-neoforge' }
+        }
+    }
+}

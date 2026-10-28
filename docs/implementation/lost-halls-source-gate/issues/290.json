@@ -1,0 +1,24 @@
+{
+  "url": "https://github.com/Deserag/slavic-myths/issues/290",
+  "title": "[2.0.4.2][АД][ЧЕРТОГИ][СТРОГОЕ ТЗ] Камень №3, трещины, светожилы, налёт и строительные формы",
+  "issue_number": 290,
+  "body": "<!-- PROJECT9_CONCEPT_KEY:lost-halls-2042 -->\n<!-- STRICT_REWRITE_20261027 -->\n# 2.0.4.2 — ЧЕТЫРЕ СЕМЕЙСТВА БЛОКОВ С ОБЯЗАТЕЛЬНОЙ ТЕКСТУРНОЙ ПРИЁМКОЙ\n\n**Родитель:** [#288](https://github.com/Deserag/slavic-myths/issues/288). Minecraft 1.21.1, NeoForge, Java 21, `slavicmyths`. Обязательно прочитать [строгий контракт](https://github.com/Deserag/slavic-myths/blob/main/docs/concepts/lost-halls/STRICT_ACCEPTANCE_2.0.4.md) и [AGENTS.md](https://github.com/Deserag/slavic-myths/blob/main/AGENTS.md). ТЗ не доказывает реализацию. Релизный код и сохранения владельца не изменять без поручения. **Применять канонические исходные PNG по SHA; при отсутствии у Codex `BLOCKED_REFERENCE`.**\n\n**Целевой Status: Анализ** до явного поручения. **Полное покомпонентное ТЗ**: [BLOCK_PIXEL_CONTRACT_2.0.4.md](https://github.com/Deserag/slavic-myths/blob/main/docs/concepts/lost-halls/BLOCK_PIXEL_CONTRACT_2.0.4.md). **Именно эту подробную таблицу выполнить, а не придумывать «похожий камень».**\n\n## ЖЁСТКО УТВЕРЖДЕНО\n| Семейство | Основная функция | Формы и внешность | Запрет |\n|---|---|---|---|\n| **Камень заблудших** | основная природная порода пола/стен/сводов | **вариант 3 ПЕРВОЙ СТРОКИ** оригинального постера: крупные холодные слоистые сегменты, не чёрный ровный куб | никакого варианта №1 или №2, никакой обычной `deepslate` под новым ID |\n| **Треснувший камень** | зоны разломов и обвалов | тёмные неровные раскрытые трещины на базе main stone; красно-пурпурный оттенок почти не заметен | без lava/fire damage, без самопадающих обвалов |\n| **Светожильный камень** | редкий ориентир и гроты | голубые/бирюзовые светящиеся вкрапления **в тёмной основной породе**, различимы в 16×16, `light emission` vanilla | не новый алмазный блок, не лазурит, не фантазии о цветном dynamic light |\n| **Пещерный налёт** | тонкая поверхностная растительность | на 1–6 гранях, cutout, холодный зеленовато-бирюзовый рисунок | не полный solid block, не перекрывать проход |\n\n**Текстуры и модели:** все 4 front/top/side, по необходимости bottom/overlays, pixels в стилистике Minecraft 16×16, tileable, один размер пикселя на всех. **Дополнительные строительные формы** из основного камня: полированный вариант, stairs, slab, wall; возможно кирпичи только после согласования. У всех правильные `BlockState`, `ItemModel`, collision/rotation/mirror/slab-double/wall connection, добыча, tool tags, loot, Creative Tab, ru_ru/en_us, recipes где крафт нужен.\n\n## ИСПОЛНИТЕЛЬНЫЙ ПРОТОКОЛ\n1. Сверить реальный Block registry, item group and DATAGEN conventions, оформить IDs; **никогда не менять старые registry IDs**.\n2. Сделать texture atlas с `reference panel crop → created 16×16` для **каждого** материала. Отметить отличие от blackstone/basalt/deepslate и причину.\n3. Реализовать только блоки/строительные формы без добавления полного Nether worldgen или «мини-босса-руды».\n4. Измерить реальное `light emission` светожильного блока; инженерное начальное значение **10/15, допустимые 8–12**, изменить только по визуальному QA, а не обещать цветной свет/шейдер.\n5. Пещерный налёт имеет поддержку стороны, разрушение при отсутствии support, не мешает двум блокам высокого прохода, корректно рендерится без прозрачных артефактов.\n6. Проверить модели/текстуры в собранном JAR, разделить source path и rendered behavior, сохранить manifest.\n\n## ОБЯЗАТЕЛЬНЫЕ ТЕСТЫ\n`B01` оригинал SHA; `B02` approved main variant 3; `B03` текстуры 16×16/UV; `B04` нет missingno; `B05` модель/collision 4 блоков; `B06` 6 ориентаций налёта; `B07` stairs/slabs/walls mirror+rotation; `B08` light 10 по старту и в допустимом 0–15; `B09` loot/drop/creative/recipes/локализация; `B10` client+server clean build; `B11` настоящий Minecraft screenshot без шейдеров; `B12` не вмешивался в worldgen #294.\n**Отсутствие хотя бы B02 или B11 не позволяет объявить художественно готовым** (у B11 `NOT_RUN` если запрещён игровой запуск).\nОтчёт: `B_ID | APPROVED_REFERENCE | ACTUAL_TEXTURE/ID | SCREENSHOT_OR_LOG | PASS/FAIL/BLOCKED/NOT_RUN`.\n",
+  "state": "open",
+  "user": {
+    "login": "Deserag",
+    "name": "Deserag",
+    "email": null,
+    "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+    "id": 98634457
+  },
+  "assignees": null,
+  "labels": null,
+  "milestone": null,
+  "state_reason": null,
+  "comments": 0,
+  "created_at": "2026-10-25T13:20:17Z",
+  "updated_at": "2026-10-27T07:33:09Z",
+  "closed_at": null,
+  "display_url": "https://github.com/Deserag/slavic-myths/issues/290",
+  "display_title": "[2.0.4.2][АД][ЧЕРТОГИ][СТРОГОЕ ТЗ] Камень №3, трещины, светожилы, налёт и строительные формы"
+}

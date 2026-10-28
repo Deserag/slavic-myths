@@ -1,3 +1,41 @@
+## 28.10.2026 — Чертоги: независимый production backend, IN_PROGRESS
+
+По уточнению владельца отсутствие PNG блокирует ART, но не независимый код.
+Добавлены LostHallsRooms (saved metadata/nearest48blocks без chunk loads),
+PostenEncounters (650→260→4×65, stable UUID/NBT/одно разрешение reward batch)
+и LostHallsRouteCheck (bounded проверка конечного voxel snapshot).
+Consumers пока отсутствуют: предмет/мобы/генератор/боевые атаки/реальная выдача
+не подключены. Это инфраструктура, не готовый третий биом.
+Java21 clean build+offline logic PASS21s с точным localCurios fallback;
+11755assertions/200расчётныхбоёв/binaryNBT/5000дальнихузлов, не игровые тесты.
+Resource/JAR PASS8254resources/2019classes; SHA256
+9ab1c2e7c68208b4d8dfdac077023b6859e8c7fd84ffcc670919113f7dffafa6.
+9457прежнихproductionфайлов сохранены. Minecraft/сервер/GameTest/PolyMC=0;
+не установлено, ART BLOCKED_REFERENCE, runtime NOT_RUN. Архивы обнаружены
+в библиотеке ChatGPT, но физически ещё не переданы в эту сессию.
+Следующий шаг: получить4архива, SHA-проверка и #289/#290; затем подключить
+готовую геометрию/сущность к backend. Commit/push/Issues Status не менялись.
+[Отчёт и матрица](implementation/lost-halls-2.0.4/REPORT.md),
+[checkpoint для продолжения](implementation/lost-halls-2.0.4/PROGRESS.md).
+
+## 28.10.2026 — Чертоги 2.0.4: начато исполнение, SOURCE BLOCKED_REFERENCE
+
+Рабочая `hell` на 877b7d69 получена в отдельный worktree; старая локальная
+`master` и её пользовательские изменения сохранены. Из origin/main e7fcd0e2
+адресно перенесены 14 контрактов/чертежей, без merge. Добавлены source inventory,
+SHA256/PNG/ZIP validator и 8 успешных тестов самого validator. Ни один из пяти
+original PNG не найден среди 469 просмотренных кандидатов. Третий биом,
+новые блоки/мобы/босс/руна пока НЕ реализованы; арт BLOCKED_REFERENCE.
+Production src/main не менялся (9457 файлов в manifest). В build.gradle добавлены
+Maven group filters; обычный clean build FAIL из-за timeout Curios Maven.
+Java21 clean build с локальным точным Curios 9.5.1 (Modrinth, SHA512 проверен)
+PASS за28s; resources/JAR PASS:8254resources/2004classes. JAR2.0.8-HELL,
+SHA256872c3f468b5c626faafc4aeb32b500da2b7214f685905178ac93d9c52778be18.
+Minecraft/client/server/GameTest/PolyMC:0запусков; установка не выполнялась.
+Следующий шаг: получить оригиналы, пройти SOURCE и завершить #289, затем #290
+в рамках уже порученной цепочки. Commit/push/GitHub Status не выполнялись.
+[Матрица, baseline, ограничения и ручной checklist](implementation/lost-halls-source-gate/REPORT.md).
+
 ## 27.10.2026 — Чёрная гарь #261–#267: код и ресурсы реализованы, IN_PROGRESS
 
 По восстановленному паспорту в hell добавлены 26 блоков/чернодрево/3 формы деревьев,

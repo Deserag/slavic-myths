@@ -1,0 +1,9 @@
+{
+  "scope": "Production accounting/index, finite voxel routes and binary NBT only",
+  "status": "PASS",
+  "assertions": 11755,
+  "randomized_encounters": 200,
+  "distant_room_records": 5000,
+  "runtime_launches": 0,
+  "gameplay": "NOT_RUN_ENV_BLOCK"
+}

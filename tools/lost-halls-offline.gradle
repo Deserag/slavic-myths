@@ -1,0 +1,13 @@
+// Plain JVM/NBT tests only. No loader bootstrap, world, client/server or GameTest.
+allprojects { p ->
+    p.plugins.withId('java') {
+        p.sourceSets.create('lostHallsOffline') { java.srcDir('tools/lost-halls-tests') }
+        p.sourceSets.lostHallsOffline.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+        p.sourceSets.lostHallsOffline.runtimeClasspath += p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+        p.tasks.register('verifyLostHallsLogic', JavaExec) {
+            dependsOn p.tasks.named('lostHallsOfflineClasses')
+            classpath = p.sourceSets.lostHallsOffline.runtimeClasspath
+            mainClass = 'org.slavicmyths.verify.LostHallsOffline'
+        }
+    }
+}

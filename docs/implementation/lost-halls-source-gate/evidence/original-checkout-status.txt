@@ -1,0 +1,162 @@
+ M README.md
+ M docs/ARCHITECTURE.md
+ M docs/PROJECT_STATUS.md
+ M docs/ROADMAP.md
+ M src/main/resources/assets/slavicmyths/textures/item/amber.png
+ M src/main/resources/assets/slavicmyths/textures/item/amber_charm.png
+ M src/main/resources/assets/slavicmyths/textures/item/ancient_coin.png
+ M src/main/resources/assets/slavicmyths/textures/item/ancient_sign.png
+ M src/main/resources/assets/slavicmyths/textures/item/baked_apple.png
+ M src/main/resources/assets/slavicmyths/textures/item/bath_broom.png
+ M src/main/resources/assets/slavicmyths/textures/item/bath_stone.png
+ M src/main/resources/assets/slavicmyths/textures/item/battle_axe.png
+ M src/main/resources/assets/slavicmyths/textures/item/bear_stew.png
+ M src/main/resources/assets/slavicmyths/textures/item/beef_stew.png
+ M src/main/resources/assets/slavicmyths/textures/item/berdysh.png
+ M src/main/resources/assets/slavicmyths/textures/item/berry_mors.png
+ M src/main/resources/assets/slavicmyths/textures/item/berry_pie.png
+ M src/main/resources/assets/slavicmyths/textures/item/birch_bark.png
+ M src/main/resources/assets/slavicmyths/textures/item/birch_bark_scroll.png
+ M src/main/resources/assets/slavicmyths/textures/item/blueberry.png
+ M src/main/resources/assets/slavicmyths/textures/item/blueberry_pancakes.png
+ M src/main/resources/assets/slavicmyths/textures/item/bone_arrow.png
+ M src/main/resources/assets/slavicmyths/textures/item/bone_knife.png
+ M src/main/resources/assets/slavicmyths/textures/item/burial_amber.png
+ M src/main/resources/assets/slavicmyths/textures/item/burial_blue.png
+ M src/main/resources/assets/slavicmyths/textures/item/burial_bone.png
+ M src/main/resources/assets/slavicmyths/textures/item/burial_clay.png
+ M src/main/resources/assets/slavicmyths/textures/item/burial_edge.png
+ M src/main/resources/assets/slavicmyths/textures/item/burial_iron.png
+ M src/main/resources/assets/slavicmyths/textures/item/burial_leather.png
+ M src/main/resources/assets/slavicmyths/textures/item/burial_patina.png
+ M src/main/resources/assets/slavicmyths/textures/item/burial_red.png
+ M src/main/resources/assets/slavicmyths/textures/item/burial_rust.png
+ M src/main/resources/assets/slavicmyths/textures/item/burial_silver.png
+ M src/main/resources/assets/slavicmyths/textures/item/burial_wood.png
+ M src/main/resources/assets/slavicmyths/textures/item/carved_staff.png
+ M src/main/resources/assets/slavicmyths/textures/item/club.png
+ M src/main/resources/assets/slavicmyths/textures/item/cooked_bear_meat.png
+ M src/main/resources/assets/slavicmyths/textures/item/cooked_boar_meat.png
+ M src/main/resources/assets/slavicmyths/textures/item/cooked_carp.png
+ M src/main/resources/assets/slavicmyths/textures/item/cooked_crayfish.png
+ M src/main/resources/assets/slavicmyths/textures/item/cooked_pike.png
+ M src/main/resources/assets/slavicmyths/textures/item/cooked_venison.png
+ M src/main/resources/assets/slavicmyths/textures/item/darkened_door.png
+ M src/main/resources/assets/slavicmyths/textures/item/ember_heart.png
+ M src/main/resources/assets/slavicmyths/textures/item/fern_flower.png
+ M src/main/resources/assets/slavicmyths/textures/item/field_bundle.png
+ M src/main/resources/assets/slavicmyths/textures/item/fireweed.png
+ M src/main/resources/assets/slavicmyths/textures/item/flax.png
+ M src/main/resources/assets/slavicmyths/textures/item/flour.png
+ M src/main/resources/assets/slavicmyths/textures/item/folk_materials.png
+ M src/main/resources/assets/slavicmyths/textures/item/forest_charm.png
+ M src/main/resources/assets/slavicmyths/textures/item/forest_mix.png
+ M src/main/resources/assets/slavicmyths/textures/item/ground_st_johns_wort.png
+ M src/main/resources/assets/slavicmyths/textures/item/ground_wormwood.png
+ M src/main/resources/assets/slavicmyths/textures/item/herb_pouch.png
+ M src/main/resources/assets/slavicmyths/textures/item/honey_baked_apple.png
+ M src/main/resources/assets/slavicmyths/textures/item/honey_bread.png
+ M src/main/resources/assets/slavicmyths/textures/item/honey_flatbread.png
+ M src/main/resources/assets/slavicmyths/textures/item/hunter_charm.png
+ M src/main/resources/assets/slavicmyths/textures/item/idol_fragment.png
+ M src/main/resources/assets/slavicmyths/textures/item/juniper_berries.png
+ M src/main/resources/assets/slavicmyths/textures/item/juniper_blend.png
+ M src/main/resources/assets/slavicmyths/textures/item/karavai.png
+ M src/main/resources/assets/slavicmyths/textures/item/kikimora_lock.png
+ M src/main/resources/assets/slavicmyths/textures/item/large_animal_bone.png
+ M src/main/resources/assets/slavicmyths/textures/item/leshy_heart.png
+ M src/main/resources/assets/slavicmyths/textures/item/linden_door.png
+ M src/main/resources/assets/slavicmyths/textures/item/linden_sign.png
+ M src/main/resources/assets/slavicmyths/textures/item/linen_cloth.png
+ M src/main/resources/assets/slavicmyths/textures/item/linen_thread.png
+ M src/main/resources/assets/slavicmyths/textures/item/lore_book.png
+ M src/main/resources/assets/slavicmyths/textures/item/mace.png
+ M src/main/resources/assets/slavicmyths/textures/item/meat_pancakes.png
+ M src/main/resources/assets/slavicmyths/textures/item/mushroom_stew.png
+ M src/main/resources/assets/slavicmyths/textures/item/mysterious_black_feather.png
+ M src/main/resources/assets/slavicmyths/textures/item/nettle.png
+ M src/main/resources/assets/slavicmyths/textures/item/nightingale_bone.png
+ M src/main/resources/assets/slavicmyths/textures/item/nightingale_dark.png
+ M src/main/resources/assets/slavicmyths/textures/item/nightingale_edge.png
+ M src/main/resources/assets/slavicmyths/textures/item/nightingale_hair.png
+ M src/main/resources/assets/slavicmyths/textures/item/nightingale_leather.png
+ M src/main/resources/assets/slavicmyths/textures/item/nightingale_silver.png
+ M src/main/resources/assets/slavicmyths/textures/item/nightingale_steel.png
+ M src/main/resources/assets/slavicmyths/textures/item/noon_ear.png
+ M src/main/resources/assets/slavicmyths/textures/item/noon_sickle.png
+ M src/main/resources/assets/slavicmyths/textures/item/old_button.png
+ M src/main/resources/assets/slavicmyths/textures/item/old_hook.png
+ M src/main/resources/assets/slavicmyths/textures/item/ovinnik_claw.png
+ M src/main/resources/assets/slavicmyths/textures/item/pancakes.png
+ M src/main/resources/assets/slavicmyths/textures/item/pearl_fragment.png
+ M src/main/resources/assets/slavicmyths/textures/item/perun_charm.png
+ M src/main/resources/assets/slavicmyths/textures/item/perunite.png
+ M src/main/resources/assets/slavicmyths/textures/item/perunite_axe.png
+ M src/main/resources/assets/slavicmyths/textures/item/perunite_boots.png
+ M src/main/resources/assets/slavicmyths/textures/item/perunite_chestplate.png
+ M src/main/resources/assets/slavicmyths/textures/item/perunite_helmet.png
+ M src/main/resources/assets/slavicmyths/textures/item/perunite_hoe.png
+ M src/main/resources/assets/slavicmyths/textures/item/perunite_leggings.png
+ M src/main/resources/assets/slavicmyths/textures/item/perunite_mace.png
+ M src/main/resources/assets/slavicmyths/textures/item/perunite_pickaxe.png
+ M src/main/resources/assets/slavicmyths/textures/item/perunite_shield.png
+ M src/main/resources/assets/slavicmyths/textures/item/perunite_shovel.png
+ M src/main/resources/assets/slavicmyths/textures/item/perunite_sword.png
+ M src/main/resources/assets/slavicmyths/textures/item/pine_door.png
+ M src/main/resources/assets/slavicmyths/textures/item/pine_sign.png
+ M src/main/resources/assets/slavicmyths/textures/item/pork_stew.png
+ M src/main/resources/assets/slavicmyths/textures/item/raspberry.png
+ M src/main/resources/assets/slavicmyths/textures/item/raspberry_pancakes.png
+ M src/main/resources/assets/slavicmyths/textures/item/raw_bear_meat.png
+ M src/main/resources/assets/slavicmyths/textures/item/raw_boar_meat.png
+ M src/main/resources/assets/slavicmyths/textures/item/raw_carp.png
+ M src/main/resources/assets/slavicmyths/textures/item/raw_crayfish.png
+ M src/main/resources/assets/slavicmyths/textures/item/raw_pike.png
+ M src/main/resources/assets/slavicmyths/textures/item/raw_venison.png
+ M src/main/resources/assets/slavicmyths/textures/item/retainer_shield.png
+ M src/main/resources/assets/slavicmyths/textures/item/ritual_bowl.png
+ M src/main/resources/assets/slavicmyths/textures/item/ritual_charcoal.png
+ M src/main/resources/assets/slavicmyths/textures/item/ritual_knife.png
+ M src/main/resources/assets/slavicmyths/textures/item/rowan_berries.png
+ M src/main/resources/assets/slavicmyths/textures/item/rowan_door.png
+ M src/main/resources/assets/slavicmyths/textures/item/rowan_sign.png
+ M src/main/resources/assets/slavicmyths/textures/item/silver_dagger.png
+ M src/main/resources/assets/slavicmyths/textures/item/silver_fitting.png
+ M src/main/resources/assets/slavicmyths/textures/item/silver_ingot.png
+ M src/main/resources/assets/slavicmyths/textures/item/silver_nugget.png
+ M src/main/resources/assets/slavicmyths/textures/item/silver_spear.png
+ M src/main/resources/assets/slavicmyths/textures/item/silver_sword.png
+ M src/main/resources/assets/slavicmyths/textures/item/smoked_carp.png
+ M src/main/resources/assets/slavicmyths/textures/item/spear.png
+ M src/main/resources/assets/slavicmyths/textures/item/st_johns_wort.png
+ M src/main/resources/assets/slavicmyths/textures/item/storm_staff.png
+ M src/main/resources/assets/slavicmyths/textures/item/thunder_axe.png
+ M src/main/resources/assets/slavicmyths/textures/item/thunder_spear.png
+ M src/main/resources/assets/slavicmyths/textures/item/thunder_stone.png
+ M src/main/resources/assets/slavicmyths/textures/item/traveler_charm.png
+ M src/main/resources/assets/slavicmyths/textures/item/ukha.png
+ M src/main/resources/assets/slavicmyths/textures/item/venison_stew.png
+ M src/main/resources/assets/slavicmyths/textures/item/warding_charm.png
+ M src/main/resources/assets/slavicmyths/textures/item/weapon_wrap.png
+ M src/main/resources/assets/slavicmyths/textures/item/willow_door.png
+ M src/main/resources/assets/slavicmyths/textures/item/willow_sign.png
+ M src/main/resources/assets/slavicmyths/textures/item/wormwood.png
+?? docs/verification/package-0.8.4-build.log
+?? docs/verification/package-0.8.4-polymc.json
+?? docs/verification/package-0.8.4.json
+?? release/
+?? src/main/resources/assets/slavicmyths/textures/item/baked_beet.png
+?? src/main/resources/assets/slavicmyths/textures/item/berry_pancake.png
+?? src/main/resources/assets/slavicmyths/textures/item/cabbage_stew.png
+?? src/main/resources/assets/slavicmyths/textures/item/cloth_scrap.png
+?? src/main/resources/assets/slavicmyths/textures/item/dried_mushrooms.png
+?? src/main/resources/assets/slavicmyths/textures/item/honey_cookie.png
+?? src/main/resources/assets/slavicmyths/textures/item/iron_ring.png
+?? src/main/resources/assets/slavicmyths/textures/item/leather_strip.png
+?? src/main/resources/assets/slavicmyths/textures/item/meat_pancake.png
+?? src/main/resources/assets/slavicmyths/textures/item/pancake.png
+?? src/main/resources/assets/slavicmyths/textures/item/perunite_ingot.png
+?? src/main/resources/assets/slavicmyths/textures/item/pumpkin_porridge.png
+?? src/main/resources/assets/slavicmyths/textures/item/rope.png
+?? src/main/resources/assets/slavicmyths/textures/item/wooden_handle.png
+?? src/main/resources/assets/slavicmyths/textures/models/item/

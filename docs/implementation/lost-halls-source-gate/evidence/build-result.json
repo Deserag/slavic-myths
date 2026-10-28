@@ -1,0 +1,31 @@
+{
+  "source_commit": "877b7d69af0e809850827806045d82fde901a1a3",
+  "spec_commit": "e7fcd0e2f761ab81dd2b5694d3ee78f04f733c2c",
+  "java": "Temurin 21.0.12.1+1",
+  "plain_clean_build": "FAIL_NETWORK_CURiOS_MAVEN_TIMEOUT",
+  "clean_build_with_local_curios": "PASS",
+  "command": "gradlew.bat clean build -I C:/Users/user/Documents/slavic-myths/.tools/curios-9.5.1/local-curios.init.gradle",
+  "duration_seconds": 28,
+  "resources_and_production_jar": {
+    "scope": "CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted",
+    "version": "2.0.8-HELL",
+    "jar": "C:\\Users\\user\\.codex\\worktrees\\lost-halls\\slavic-myths\\build\\libs\\slavicmyths-2.0.8-HELL.jar",
+    "sha256": "872c3f468b5c626faafc4aeb32b500da2b7214f685905178ac93d9c52778be18",
+    "resources": 8254,
+    "json": 4624,
+    "png": 1474,
+    "models": 1978,
+    "java21_classes": 2004,
+    "runtime_launches": 0,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  "curios_version": "9.5.1+1.21.1",
+  "curios_modrinth_version": "yohfFbgD",
+  "curios_sha512": "5981a267686b744e7e3c227f78cbcd5267c14ac6979a28e814695f4589273998563147207fef4a5cdb7cdbdc39797cd95d9e4abadb55869f18e02a38d0654ae5",
+  "runtime_launches": 0,
+  "installed": "POLYMC_NOT_INSTALLED",
+  "new_biome_implemented": false,
+  "compiler_warnings": "100 shown; existing deprecated/unchecked APIs",
+  "gradle_tests": "NO-SOURCE; not claimed as gameplay or unit test PASS",
+  "source_validator_tests": 8
+}

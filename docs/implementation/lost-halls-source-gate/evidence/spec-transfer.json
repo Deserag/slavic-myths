@@ -1,0 +1,58 @@
+{
+  "docs/concepts/lost-halls/approved-biome-2.0.4.md": {
+    "sha256": "f83ca71a95e79dd1b8a31fbf3f1a4e299597dfc995ecad017aaac36e79a328f6",
+    "matches_origin_main_normalized": true
+  },
+  "docs/concepts/lost-halls/BLOCK_PIXEL_CONTRACT_2.0.4.md": {
+    "sha256": "e9080c2b6add2a3dc54e71f36dad0a693642fa67bc6b9df20f55ecc62a8f264d",
+    "matches_origin_main_normalized": true
+  },
+  "docs/concepts/lost-halls/FINAL_INTEGRATION_QA_LOCK_2.0.4.6.md": {
+    "sha256": "2dbd0899efb4a1e6e583fc15cea9f93261e92db852ffaaaa0cb8396e005444b4",
+    "matches_origin_main_normalized": true
+  },
+  "docs/concepts/lost-halls/mobs-2.0.4.4-approved.md": {
+    "sha256": "b351e42c8a87550aecc2dd0827860599cd5521a2c111dadf3ee3a2e99d405dea",
+    "matches_origin_main_normalized": true
+  },
+  "docs/concepts/lost-halls/MODEL_AND_AI_LOCK_2.0.4.4.md": {
+    "sha256": "512545e08e5924a4bc8fcc62101eefe27333e0c0d081199e1aa276882d1c62ec",
+    "matches_origin_main_normalized": true
+  },
+  "docs/concepts/lost-halls/POSTEN_MODEL_COMBAT_LOCK_2.0.4.5.md": {
+    "sha256": "3a21d0b64b445557943f36226471f57670eddf4bcf79e4783b5c7ec320fef1af",
+    "matches_origin_main_normalized": true
+  },
+  "docs/concepts/lost-halls/POSTEN_TECHNICAL_BLUEPRINT_2.0.4.5.svg": {
+    "sha256": "d25769cf99764de8ab79f4c42ad592fa6c916f254b3234965b4570ace294e149",
+    "matches_origin_main_normalized": true
+  },
+  "docs/concepts/lost-halls/REWARDS_AND_NAVIGATION_LOCK_2.0.4.md": {
+    "sha256": "6bc7b715429a59f1fc9974238c231a5c545ea41434d55426ce1b91c314bef98b",
+    "matches_origin_main_normalized": true
+  },
+  "docs/concepts/lost-halls/RUNE_SHADOW_FACE_LOCK_2.0.4.5.md": {
+    "sha256": "d800a377ece0262523ddbcc6a0c5860ba8d98985362b6a6467448a34bdb376bd",
+    "matches_origin_main_normalized": true
+  },
+  "docs/concepts/lost-halls/SCENE_AND_NAVIGATION_CONTRACT_2.0.4.3.md": {
+    "sha256": "f6ad05299341af16d4bcf9976f33b6247d2aca3b0ce88d34a09d3da3f5d5447b",
+    "matches_origin_main_normalized": true
+  },
+  "docs/concepts/lost-halls/STRICT_ACCEPTANCE_2.0.4.md": {
+    "sha256": "4804c332c85107b09d4ab9288e63fc3d541012bb4d406721a3fb5c35ed06094f",
+    "matches_origin_main_normalized": true
+  },
+  "docs/concepts/lost-halls/WORLDGEN_GATES_2.0.4.6.md": {
+    "sha256": "3bec2ad6e867f398dd22a557d6eac310beab3d3f180ab4e4418a2a688eddf723",
+    "matches_origin_main_normalized": true
+  },
+  "docs/concepts/NETHER_THREE_BOSS_HEADS_LOCK_2.0.X.md": {
+    "sha256": "7a4aa4f3917dac7f57357dc5e4297cc1f2a206703da71bcd641dacb599fc3e58",
+    "matches_origin_main_normalized": true
+  },
+  "docs/concepts/NETHER_HEADS_TECHNICAL_BLUEPRINT_2.0.X.svg": {
+    "sha256": "db407f647a13c08324ba5146e7b4df5d7fc095ecbce48439696fa9f095523e27",
+    "matches_origin_main_normalized": true
+  }
+}

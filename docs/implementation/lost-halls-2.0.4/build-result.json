@@ -1,0 +1,46 @@
+{
+  "branch": "hell",
+  "head": "877b7d69af0e809850827806045d82fde901a1a3",
+  "spec_commit": "e7fcd0e2f761ab81dd2b5694d3ee78f04f733c2c",
+  "java": "Temurin21.0.12.1+1",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.255",
+  "clean_build": "PASS_WITH_EXACT_LOCAL_CURIOS",
+  "command": "gradlew.bat clean build verifyLostHallsLogic -I C:/Users/user/Documents/slavic-myths/.tools/curios-9.5.1/local-curios.init.gradle -I tools/lost-halls-offline.gradle",
+  "duration_seconds": 21,
+  "resources": {
+    "scope": "CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted",
+    "version": "2.0.8-HELL",
+    "jar": "C:\\Users\\user\\.codex\\worktrees\\lost-halls\\slavic-myths\\build\\libs\\slavicmyths-2.0.8-HELL.jar",
+    "sha256": "9ab1c2e7c68208b4d8dfdac077023b6859e8c7fd84ffcc670919113f7dffafa6",
+    "resources": 8254,
+    "json": 4624,
+    "png": 1474,
+    "models": 1978,
+    "java21_classes": 2019,
+    "runtime_launches": 0,
+    "runtime": "NOT_RUN / OWNER_PENDING"
+  },
+  "offline_logic": {
+    "scope": "Production accounting/index, finite voxel routes and binary NBT only",
+    "status": "PASS",
+    "assertions": 11755,
+    "randomized_encounters": 200,
+    "distant_room_records": 5000,
+    "runtime_launches": 0,
+    "gameplay": "NOT_RUN_ENV_BLOCK"
+  },
+  "source_sha256": {
+    "src/main/java/org/slavicmyths/losthalls/LostHallsRooms.java": "0c362ab7b605a1a05a4b4feb6c6836d15b01b2b74ad6817fd45244a6d3fa0a38",
+    "src/main/java/org/slavicmyths/losthalls/LostHallsRouteCheck.java": "a7f254134850e2ece05306f3a9848de126890bec09075b42f151de57a485fab0",
+    "src/main/java/org/slavicmyths/losthalls/PostenEncounters.java": "95fc985e1037402b03123dc81fe35a561f3219510161c70076751c16086694bc",
+    "tools/lost-halls-offline.gradle": "f09c40e6c5046651f68ac757e148d758f658c0f4300d1d808b5bcfa158e7b5e0",
+    "tools/lost-halls-tests/org/slavicmyths/verify/LostHallsOffline.java": "b519429b831722b6e987ad7d7c2d2797a979a572f98eee5921a912df41460678",
+    "build.gradle": "ab93d4779e7b799aa98d7a5be199f2c6688b0bf9ecf5db21b8495cdca3adb95b"
+  },
+  "original_production_files_unchanged": 9457,
+  "runtime_launches": 0,
+  "installed": "POLYMC_NOT_INSTALLED",
+  "art": "BLOCKED_REFERENCE",
+  "biome_complete": false
+}

@@ -1,0 +1,24 @@
+{
+  "url": "https://github.com/Deserag/slavic-myths/issues/303",
+  "title": "[2.0.4.5-RUNE][АД][CODEX] Руна Теневого лика — невидимость 4 c, 3 боевые копии 6 c, строгий QA",
+  "issue_number": 303,
+  "body": "<!-- PROJECT9_CONCEPT_KEY:lost-halls-2045-rune -->\n# 2.0.4.5-RUNE — РУНА ТЕНЕВОГО ЛИКА ПОСТЕНЯ\n\n**Прямое решение владельца 27.10.2026.** Микрозадача для Codex отдельно от boss model/combat [#293](https://github.com/Deserag/slavic-myths/issues/293), трех трофейных голов [#302](https://github.com/Deserag/slavic-myths/issues/302) и финального worldgen [#294](https://github.com/Deserag/slavic-myths/issues/294).\n\n**КАНОНИЧЕСКИЙ ТЕХНИЧЕСКИЙ КОНТРАКТ:** [RUNE_SHADOW_FACE_LOCK_2.0.4.5.md](https://github.com/Deserag/slavic-myths/blob/main/docs/concepts/lost-halls/RUNE_SHADOW_FACE_LOCK_2.0.4.5.md). **Все 12 R01–R12 критериев обязательны**, не сокращать до одного PotionEffect. Стандарт разработки [STRICT_ACCEPTANCE_2.0.4.md](https://github.com/Deserag/slavic-myths/blob/main/docs/concepts/lost-halls/STRICT_ACCEPTANCE_2.0.4.md), безопасность AGENTS.md.\n\n**Источник внешнего вида:** утверждённый постер Постеня 1536×1024, SHA256 `34e30e8cde56dffa7ab8e2ff0bf917da3ebdd808675e02da5cfeb123502d65d0`, нижний блок «Способность для игрока». Оригинал и точные вырезки предоставляются владельцем в ZIP; без изображения `BLOCKED_REFERENCE` для художественной приёмки, не выдумывать другие пиксельные символы.\n\n## Не подлежащие изменению правила\n\n1. Игрок нажимает **штатную кнопку активной руны** и исчезает на **80 серверных тиков = 4 секунды**. Повторное нажатие в состоянии invis досрочно прекращает его и запускает клонов.\n2. На выходе из режима invis — **3 копии** вокруг игрока на **120 тиков = 6 секунд**; позиции чередуются слева/справа/по диагонали и проверяются на отсутствие стены, лавы и unloaded chunks.\n3. Копии **реально атакуют**, копируют ключевые движения/позы игрока, имеют собственную видимую геометрию игрока с тенью, не настоящий ServerPlayer. **После 1 попадания исчезают**, не дропают loot/XP/инвентарь.\n4. Агрессивные мобы могут целиться **как в игрока, так и в копии**, с предпочтением копий при прочих равных; инженерный baseline 70% на группу клонов, 30% на игрока при валидных целях, но нет гарантированной неуязвимости и переписывания агрессии каждую секунду.\n5. Копии наносят ограниченный урон (~20–25% обычного одиночного удара владельца), не активируют его другие руны/чары, не атакуют друзей/питомцев, не спамят снарядами.\n6. **75 секунд начального cooldown** (балансное число), сохраняются при relog/dimension change; недопустимы дубли копий при relog, залипание невидимости, удаление ранее полученного обычного Potion of Invisibility, unlimited spam.\n7. **Единственный guaranteed drop руны** с Постеня **×1, 100%, только после смерти всех 4 boss clone**; другие боссы/клоны не дропают её. Реальные icon+UV, creative, ru_ru/en_us, звук и визуальный эффект.\n\n## Gate'ы реализации\n\nR01 активация; R02 ранний выход; R03 timeout; R04 hit-once death; R05 expiry; R06 safe locations; R07 target prioritization; R08 preserve unrelated invis effect; R09 relog/restart/death; R10 two players/spam; R11 combat replay with nonzero damage; R12 real item texture, integrated rune slots, clean build/JAR/client+server. Всё в полном контракте с edge cases.\n\n**QA отчет** `docs/implementation/lost-halls-shadow-rune/REPORT.md`; PASS/FAIL/BLOCKED/NOT_RUN по каждой проверке, исходный PNG/видеозапись игрового поведения не подменять картинкой. Запуск реального Minecraft только по действующим правилам AGENTS.md. **Задача не считается выполненной просто после компиляции и регистрации Item.**\n\n**Целевой Project №9: «Ожидание»**; не утверждать, что status в Project изменился от текста, и не менять его без подтверждения; не закрывать Issue до личной приёмки владельца. Не реализовывать в этой Issue босса, генерацию мира или третью голову.\n",
+  "state": "open",
+  "user": {
+    "login": "Deserag",
+    "name": "Deserag",
+    "email": null,
+    "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+    "id": 98634457
+  },
+  "assignees": null,
+  "labels": null,
+  "milestone": null,
+  "state_reason": null,
+  "comments": 0,
+  "created_at": "2026-10-27T18:07:19Z",
+  "updated_at": "2026-10-27T18:07:19Z",
+  "closed_at": null,
+  "display_url": "https://github.com/Deserag/slavic-myths/issues/303",
+  "display_title": "[2.0.4.5-RUNE][АД][CODEX] Руна Теневого лика — невидимость 4 c, 3 боевые копии 6 c, строгий QA"
+}
