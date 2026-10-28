@@ -63,5 +63,51 @@
   ],
   "scan_errors": [],
   "runtime_launches": 0,
-  "heads_note": "Guardian/Zharenitsa original references require their own contracts; these five PNGs do not pass the complete three-head ART gate."
+  "heads_note": "Guardian/Zharenitsa original references require their own contracts; these five PNGs do not pass the complete three-head ART gate.",
+  "library_discovery": {
+    "observed_at": "2026-10-28",
+    "source": "ChatGPT Library: /славянская мифология/",
+    "status": "LIBRARY_FOUND_RAW_UNAVAILABLE",
+    "artifact_index": "docs/concepts/lost-halls/APPROVED_REFERENCE_ASSET_INDEX_2.0.4.md",
+    "archives": [
+      {
+        "name": "Чертоги_заблудших_2.0.4_жёсткое_ТЗ_референсы.zip",
+        "bytes": 8837561,
+        "expected_references": [
+          "blocks",
+          "scenes",
+          "mobs"
+        ]
+      },
+      {
+        "name": "Чертоги_2.0.4_награды_утверждённые_референсы.zip",
+        "bytes": 3241149,
+        "expected_references": [
+          "rewards"
+        ]
+      },
+      {
+        "name": "Постень_2.0.4.5_утверждённый_арт_и_чертежи_Codex.zip",
+        "bytes": 5106217,
+        "expected_references": [
+          "posten"
+        ]
+      },
+      {
+        "name": "Чертоги_заблудших_2.0.4.4_референсы_для_Codex.zip",
+        "bytes": 4629422,
+        "expected_references": [
+          "mobs"
+        ]
+      }
+    ],
+    "individual_pngs_viewable": [
+      "Чертоги заблудших: варианты блоков.png",
+      "Постень: Хозяин Чертогов.png"
+    ],
+    "materialization": "DENIED: This Project file does not have an authorized raw-byte materialization path",
+    "original_png_sha256_verified": false,
+    "github_binary_assets_present": false,
+    "interpretation": "Past scan locations[] refers only to local Codex/Downloads; it does not imply the files are absent from user's Library. Approved SHA values remain canonical; ART is BLOCKED_REFERENCE until bytes are accessible and checked."
+  }
 }
