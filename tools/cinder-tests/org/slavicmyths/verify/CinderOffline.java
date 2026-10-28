@@ -37,6 +37,24 @@ public final class CinderOffline {
       ||journal.claim(203,null)||!journal.claim(203,owner)||journal.claim(203,owner))
    throw new AssertionError("encounter ownership/duplicate claim");
   var restored=CinderEncounters.load(journal.save(new net.minecraft.nbt.CompoundTag(),lookup),lookup);if(restored.register(203,owner)||restored.claim(203,owner))throw new AssertionError("defeated journal NBT");
+
+  // Malformed, duplicate and unknown-version snapshots must remain immutable,
+  // preserving the original bytes rather than resurrecting the defeated boss.
+  if(journal.register(204,null))throw new AssertionError("null boss registration");
+  var valid=journal.save(new net.minecraft.nbt.CompoundTag(),lookup);
+  var legacy=valid.copy();legacy.remove("Version");
+  var oldSave=CinderEncounters.load(legacy,lookup);
+  if(oldSave.isReadOnly()||oldSave.claim(203,owner))throw new AssertionError("legacy encounter compatibility");
+  var duplicate=valid.copy();duplicate.getList("Encounters",10).add(duplicate.getList("Encounters",10).getCompound(0).copy());
+  var future=valid.copy();future.putInt("Version",CinderEncounters.VERSION+1);
+  var malformed=valid.copy();malformed.getList("Encounters",10).getCompound(0).remove("Defeated");
+  for(var invalid:List.of(duplicate,future,malformed)){
+   var quarantined=CinderEncounters.load(invalid,lookup);
+   if(!quarantined.isReadOnly()||quarantined.register(205,UUID.randomUUID())
+      ||quarantined.claim(203,owner)||!quarantined.save(new net.minecraft.nbt.CompoundTag(),lookup).equals(invalid))
+    throw new AssertionError("invalid encounter journal must fail closed");
+  }
+
   // Lattice coverage is arithmetic, not natural worldgen evidence.
   for(int start=-2048;start<2048;start++){
    int count=0;for(int x=Math.floorDiv(start,256)*256+8;x<=start+512;x+=256)if(x>=start+16&&x<=start+496)count++;
