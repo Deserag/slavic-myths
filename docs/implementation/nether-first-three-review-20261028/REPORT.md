@@ -10,6 +10,8 @@
 | 2.0.3 Чёрная гарь, Жареница | `CinderEncounters.claim` ранее создавал терминальную запись для **несуществующей** арены (при `old==null`), разрешая ложный claim | `claim` возвращает false для отсутствующего anchor, чужого UUID и уже побеждённого босса; `CinderMob.dropCustomDeathLoot` выдаёт уникальные трофеи только при непустом `home` и успешном journal claim | Написаны отрицательные assertions в `tools/cinder-tests/.../CinderOffline.java`; **NOT_RUN**, реальный drop/reload/MP **NOT_RUN** | IN_PROGRESS / NOT_RUN |
 | 2.0.4 Чертоги заблудших, Постень | `PostenReconciliation.inspect` разрешал план восстановления по внешнему snapshot с чужими UUID масок или с уже погибшей копией ещё в фазе тела | Задаёт **детерминированные UUID каждой маски** на основе arena и имени маски, сверяет фазы и 4×65 до split | Два отрицательных offline fixture добавлены в `LostHallsOffline.java`; **NOT_RUN**, реальный EntityType/renderer/arena/spawn пока отсутствуют | IN_PROGRESS / BLOCKED_DEPENDENCY |
 
+**Коррекция связей задач:** фиксы Жареницы относятся к **[#266](https://github.com/Deserag/slavic-myths/issues/266)** и финальному **[#267](https://github.com/Deserag/slavic-myths/issues/267)**, НЕ к #264 (чернодрево). В трёх ранних commit messages ошибочно упомянута `#264`; хеши не переписывались, ни один файл чернодрева не менялся. Навья `navya_heart` связана с #275/#257, Постень с #293.
+
 ## Коммиты этой ревизии
 
 - `3b42324b0cdbb43843a24ec57a79591c8bfa6bee` — корректная проверка claim Жареницы.
