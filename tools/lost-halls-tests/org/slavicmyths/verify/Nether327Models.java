@@ -40,7 +40,7 @@ public final class Nether327Models {
   for(var kind:List.of(org.slavicmyths.trophy.TrophyHeads.Kind.GROVE_GUARDIAN,org.slavicmyths.trophy.TrophyHeads.Kind.ZHARENITSA,org.slavicmyths.trophy.TrophyHeads.Kind.POSTEN)){
    var h=TrophyHeadsClient.create(kind);
    for(int time=0;time<=90;time+=5)for(int degrees=0;degrees<360;degrees+=5){
-    h.pose(time);var pose=new PoseStack();pose.translate(.5,0,.5);pose.mulPose(com.mojang.math.Axis.YP.rotationDegrees(degrees));pose.translate(-.5,0,-.5);var cap=new TrophyHeadsClient.Capture();h.render(pose,cap,0,0);
+    h.pose(time);if(kind==org.slavicmyths.trophy.TrophyHeads.Kind.POSTEN){h.part.getChild("mask_ring").yRot=(float)Math.toRadians(time*4);h.part.yRot=time%10==0?.35F:-.35F;}if(kind==org.slavicmyths.trophy.TrophyHeads.Kind.GROVE_GUARDIAN)h.guardianPose(time,time%10==0?1:0);var pose=new PoseStack();pose.translate(.5,0,.5);pose.mulPose(com.mojang.math.Axis.YP.rotationDegrees(degrees));pose.translate(-.5,0,-.5);var cap=new TrophyHeadsClient.Capture();h.render(pose,cap,0,0);
     for(var v:cap.vertices){if(v[0]<-.001||v[0]>1.001||v[1]<-.001||v[1]>1.001||v[2]<-.001||v[2]>1.001)throw new AssertionError("Head rotated bounds: "+kind+" "+degrees+" "+Arrays.toString(v));headChecks++;}
    }
   }System.out.println("New trophy native rotated vertex checks: "+headChecks);

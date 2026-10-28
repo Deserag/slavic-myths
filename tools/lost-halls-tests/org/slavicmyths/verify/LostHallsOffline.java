@@ -511,7 +511,7 @@ public final class LostHallsOffline {
         roomPieceReceipts();
         postenReloadPlan();
         regionTopology();
-        Path out = Path.of("docs/implementation/lost-halls-2.0.4/offline-logic.json");
+        Path out = Path.of(System.getProperty("halls.logic.report","docs/implementation/lost-halls-2.0.4/offline-logic.json"));
         Files.createDirectories(out.getParent());
         String report = "{\n  \"scope\": \"Production journals, binary NBT, finite voxel routes and 20 pure heightfield regions; no generated worlds\",\n"
                 + "  \"status\": \"PASS\",\n  \"assertions\": " + assertions

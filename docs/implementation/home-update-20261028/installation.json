@@ -1,0 +1,15 @@
+{
+  "sha256": "4a76d2198a7c3dbad006774586ef8d041bb8df8dfefb5d02f6935896bcec830b",
+  "other_mods_unchanged": true,
+  "installed_at": "2026-10-28T20:24:19.5177173+03:00",
+  "branch": "hell",
+  "backup_sha256": "64b042ae3def10952a0c120d8dac9b16c95658070450bb0b323fd48afad3084e",
+  "runtime_launches": 0,
+  "backup_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\mod-backups\\20261028-202419\\slavicmyths-2.0.8-HELL.jar",
+  "source_head": "d97a625fbe23b9345e7879f39463099fa676b71f",
+  "installed_jar": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.8-HELL.jar",
+  "version": "2.0.8-HELL",
+  "source_jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.8-HELL.jar",
+  "installed_slavicmyths_count": 1,
+  "target_resolution": "Requested C:/Users/user instance absent. Existing selected PolyMC HELL test instance resolved from polymc.cfg and MC/NeoForge metadata."
+}

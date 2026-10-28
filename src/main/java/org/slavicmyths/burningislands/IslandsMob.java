@@ -88,7 +88,10 @@ public final class IslandsMob extends PathfinderMob {
   if(source.getDirectEntity() instanceof net.minecraft.world.entity.projectile.Projectile p){Vec3 v=p.position().subtract(position());return v.y>2.5&&v.y<3.6&&Math.abs(v.x)<.7&&Math.abs(v.z)<.7;}
   Vec3 start=attacker.getEyePosition(),end=start.add(attacker.getLookAngle().scale(4.5));return new AABB(getX()-.65,getY()+2.5,getZ()-.65,getX()+.65,getY()+3.6,getZ()+.65).clip(start,end).isPresent();
  }
- private void begin(Action a){entityData.set(ACTION,a.ordinal());entityData.set(START,level().getGameTime());age=0;struck.clear();origin=position();castReach=getTarget()==null?18:Math.clamp(distanceTo(getTarget()),18,128);forward=getTarget()==null?getLookAngle().multiply(1,0,1).normalize():getTarget().position().subtract(origin).multiply(1,0,1).normalize();navigation.stop();}
+ private void begin(Action a){if(boss()){
+   String cue=a==Action.PHASE?"phase":a==Action.WAKE||a==Action.WARN?"wake":a==Action.IDLE?null:a.name().toLowerCase(java.util.Locale.ROOT)+"_charge";
+   if(cue!=null)playSound(IslandsSounds.get(cue),.65F,a==Action.PHASE?.8F:1F);
+  }entityData.set(ACTION,a.ordinal());entityData.set(START,level().getGameTime());age=0;struck.clear();origin=position();castReach=getTarget()==null?18:Math.clamp(distanceTo(getTarget()),18,128);forward=getTarget()==null?getLookAngle().multiply(1,0,1).normalize():getTarget().position().subtract(origin).multiply(1,0,1).normalize();navigation.stop();}
  @Override public void tick(){
   // Run before super.tick(): no goal, cast, phase, encounter registration or death loot in Peaceful.
   if(!level().isClientSide&&peacefulBoss()){discard();return;}
@@ -113,6 +116,7 @@ public final class IslandsMob extends PathfinderMob {
    telegraph();
    // Loss of target cancels hostile casts; phase/warning poses may finish harmlessly.
    if(target==null&&action()!=Action.PHASE&&action()!=Action.WARN){cancelCast();return;}
+   if(boss()&&age==action().release&&action()!=Action.PHASE&&action()!=Action.WARN&&action()!=Action.WAKE&&action()!=Action.IDLE)playSound(IslandsSounds.get(action().name().toLowerCase(java.util.Locale.ROOT)+"_release"),.75F,1);
    perform();
    if(age>=action().duration){boolean heavy=action().heavy();cancelCast();cooldown=boss()?40:30;if(boss()&&second()&&heavy)entityData.set(EXPOSED,60);}
    return;
@@ -125,6 +129,10 @@ public final class IslandsMob extends PathfinderMob {
   if(boss()&&distance<=128)begin(MagmaCombat.choose(sequence++,second(),distance));
   else if(!boss()&&distance<=getBbWidth()+target.getBbWidth()+1)begin(Action.CLAWS);
  }
+ @Override protected net.minecraft.sounds.SoundEvent getAmbientSound(){return boss()?IslandsSounds.get("idle"):null;}
+ @Override protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource source){return boss()?IslandsSounds.get("hurt"):super.getHurtSound(source);}
+ @Override protected net.minecraft.sounds.SoundEvent getDeathSound(){return boss()?IslandsSounds.get("death"):super.getDeathSound();}
+ @Override public int getAmbientSoundInterval(){return 240;}
  private void cancelCast(){entityData.set(ACTION,0);age=0;struck.clear();}
  private Vec3 point(double f,double side){return origin.add(forward.scale(f)).add(-forward.z*side,0,forward.x*side);}
  private void mark(ServerLevel s,Vec3 p){BlockPos b=BlockPos.containing(p);if(s.hasChunkAt(b))s.sendParticles(ParticleTypes.SMALL_FLAME,p.x,p.y+.1,p.z,1,0,0,0,0);}

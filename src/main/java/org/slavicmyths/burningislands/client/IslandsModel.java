@@ -44,6 +44,8 @@ public final class IslandsModel extends HierarchicalModel<IslandsMob> {
    if(n.equals("head")){p.yRot=yaw*.0174533F;p.xRot=pitch*.0174533F;}
    if(n.startsWith("leg")){int i=n.charAt(3)-'0';if(kind==IslandsContent.Kind.SLAG_CRAB)p.zRot=(float)Math.cos(walk*.8+(i%2)*Math.PI)*amount*.4F;else p.xRot=(float)Math.cos(walk*.7+(i%2)*Math.PI)*amount*.55F;}
    if(n.equals("tail"))p.yRot=(float)Math.sin(age*.08)*.15F+(float)Math.sin(walk*.6)*amount*.3F;
+   if(boss&&(n.startsWith("rib")||n.startsWith("back_crest"))){float spread=second?1.8F:0;float side=n.contains("0")?-1:1;p.x+=side*spread;p.yRot+=side*(second?.13F:0);}
+   if(boss&&n.startsWith("shin")){p.y+=(float)Math.sin(age*.035+n.hashCode())*1.2F;}
    if(n.startsWith("shard")){p.y+=(float)Math.sin(age*.045+n.hashCode())*.65F;p.yRot=(float)Math.sin(age*.03+n.hashCode())*.13F;}
    if(n.startsWith("shell")){float spread=exposed?1:second?.25F:0;if(action==Action.PHASE)spread=charge;p.x+=(n.endsWith("0")?-1:1)*spread*3.5F;p.yRot+=(n.endsWith("0")?-1:1)*spread*.35F;}
    if(n.equals("jaw"))p.xRot=action==Action.WARN?charge*.35F:action==Action.CLAWS&&!boss?charge*.4F:0;
@@ -62,6 +64,7 @@ public final class IslandsModel extends HierarchicalModel<IslandsMob> {
     }
    }
   }
+  if(boss&&nodes.containsKey("core")){var core=nodes.get("core");float pulse=1+(float)Math.sin(age*.1)*(exposed?.12F:.04F);core.xScale=core.yScale=core.zScale=pulse;}
   if(boss){root.y+=(float)Math.sin(age*.05)*.7F;if(action==Action.PHASE)root.zRot=(float)Math.sin(time*.7)*.025F;}
   if(hurt>0)root.zRot+=(float)Math.sin(hurt)*.045F;
   if(death>0){float fade=Math.min(1,death/(boss?80F:20F));for(var entry:nodes.entrySet())if(entry.getKey().startsWith("shard"))entry.getValue().y+=fade*6;root.y+=fade*5;root.xRot=fade*.4F;}

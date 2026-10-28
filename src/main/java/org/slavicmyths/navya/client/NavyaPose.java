@@ -63,6 +63,9 @@ public final class NavyaPose {
                 }
             }
             case GUARDIAN -> {
+                p.get("jaw").xRot=.045F+(float)Math.sin(age*.06F)*.025F+(action==Action.PHASE?.18F*prepare:0);
+                for(String n:new String[]{"twig_left","twig_right"})p.get(n).zRot+=(float)Math.sin(age*.035F+n.hashCode())*.06F;
+
                 body.xRot=(float)Math.sin(age*.035F)*.01F;body.y+=(float)Math.sin(age*.04F)*.2F;
                 for(int side=0;side<2;side++) {
                     for(int i=0;i<2;i++)p.get((side==0?"leg_left":"leg_right")+i).xRot=step*(side==i?.15F:-.15F);

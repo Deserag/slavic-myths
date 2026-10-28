@@ -1,3 +1,45 @@
+## 28.10.2026 — #331: доработки боссов, головы и реальные клиентские кадры
+
+Пересобраны3boss rigs/UV/PNG; полный skull Сторожа, jaw/6–8proximityFX,
+увеличенный отдельный трофей Постеня4маски; loaded-only missingTile repair Жареницы.
+Vanilla audio cues17events, явная причина no-arena loot; HP/registryIDs сохранены.
+Java21 clean build/native/resources PASS;4разрешённых devclient запуска в новых
+отдельных мирах,20финальных реальных кадров;4BlockItem placement/Tile/render и
+break→1предмет PASS. Это не survival/MP/старыймир/ARToriginal приёмка.
+Кандидат2.0.10-HELL установлен с backup/однимJAR; SHA256
+e84bb45be63bfd04134373f524eb34bcd10a714292e37dee9c41e99a5f7d6953.
+Изменения локальны, безcommit/push/Issueclose; originalPNG BLOCKED/OWNER_PENDING.
+[Реальные скриншоты, исходники, матрица и ограничения](implementation/boss331-rework/REPORT.md).
+
+## 28.10.2026 — #331: повторный аудит визуала, без production-исправлений
+
+origin/hell=d97a625f; установлен2.0.9-HELL SHA d5fbefe1e0041dc3d2c3b32779c4c8f5eee23274089a811fb7843c209f0991f9.
+Журнал владельца20:36МСК подтверждает запуск2.0.9; старыйJAR не объясняет последний тест.
+Подтверждены source-различия3моделей, плоский guardian trophy и Posten .85scale.
+Четыреheadпути упакованы; manualZharenitsaбезhome не выдаёт награды, oldBE migration рискNOT_RUN.
+Арт владельцем отвергнут/originalPNG BLOCKED; собственных игровых запусков0.
+[Аудит, реальные before/after и план следующего патча](implementation/boss-audit-331/REPORT.md).
+
+## 28.10.2026 — номер кандидата обновлён до 2.0.9-HELL
+
+По поручению владельца изменён только mod_version в gradle.properties.
+Java21 clean build PASS1m47s; resources/JAR PASS; все2090classes и игровые
+ресурсы побайтово равны предыдущему кандидату (различаются только два metadata).
+2.0.9-HELL установлен в привычный HELL-инстанс с backup и однимJAR.
+Minecraft/PolyMC/сервер/GameTest0; прежние ограничения2.0.5/ART/audio сохраняются.
+[Квитанция/SHA/build](implementation/version-209-20261028/installation.json).
+
+## 28.10.2026 — домашний ПК: актуальный hell собран и установлен
+
+Fast-forward877b7d69→d97a625f; production без локальных правок. Java21 clean build
+PASS2m17s, offline journals/native models/legacy heads PASS; runtime launches0.
+Кандидат2.0.8-HELL установлен в реальный выбранный Slavic-Myths-2.0.0-HELL,
+backup/одинJAR/SHA совпадают:4a76d2198a7c3dbad006774586ef8d041bb8df8dfefb5d02f6935896bcec830b.
+Чертоги и #327 присутствуют в коде; старые записи ниже о backend-only исторические.
+2.0.5 ocean-only worldgen/вулкан/арена отсутствуют; originalPNG/audio BLOCKED,
+игровые/MP/старыймир NOT_RUN. Полная приёмка не заявляется.
+[Текущий отчёт/матрица/установка/checklist](implementation/home-update-20261028/REPORT.md).
+
 ## 28.10.2026 — Ревизия первых трёх биомов Незера, только hell (2.0.2–2.0.4)
 
 Новые адресные исправления **без изменения четвёртого биома 2.0.5**: Навья роща — preflight `navya_heart` до генерации и chunk-local проверки при размещении; Чёрная гарь — запрещён reward claim незарегистрированной арены и лут Жареницы без home; Чертоги — сверка канонических UUID и фазы копий при восстановлении Постеня. Негативные офлайн-тесты для двух последних подготовлены, **НЕ ЗАПУЩЕНЫ**. Общий [report/source matrix](implementation/nether-first-three-review-20261028/REPORT.md). Java/Gradle NOT_RUN, Minecraft/PolyMC/MP 0 запусков. Чертоги **НЕ ГОТОВЫ**: реальные модели/мобы/биом/worldgen/loot/руна/головы ещё отсутствуют. Арт BLOCKED_REFERENCE по отсутствующим доступным raw PNG/SHA, ссылки на архивы в Library не равны реальным бинарным файлам. Игровую проверку первых трёх биомов проведёт владелец совместно после завершения; никакие Issues не закрыты.

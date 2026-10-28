@@ -1,8 +1,8 @@
 {
   "scope": "Read-only home-profile PNG headers and exact candidate SHA; ZIP<=30MB central directories/approved filenames only",
-  "pngHeadersRead": 36001,
-  "pngHashCandidates": 34,
-  "zipArchivesInspected": 126,
+  "pngHeadersRead": 10639,
+  "pngHashCandidates": 3,
+  "zipArchivesInspected": 343,
   "unreadableOrInvalidFiles": 0,
   "matches": [],
   "status": "BLOCKED_REFERENCE_BINARY",

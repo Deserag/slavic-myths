@@ -1,0 +1,9 @@
+{
+  "scope": "Production journals, binary NBT, finite voxel routes and 20 pure heightfield regions; no generated worlds",
+  "status": "PASS",
+  "assertions": 32826,
+  "randomized_encounters": 200,
+  "distant_room_records": 5000,
+  "runtime_launches": 0,
+  "gameplay": "NOT_RUN_ENV_BLOCK"
+}

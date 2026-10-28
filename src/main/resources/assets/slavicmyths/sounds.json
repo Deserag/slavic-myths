@@ -8971,5 +8971,175 @@
         "type": "event"
       }
     ]
+  },
+  "islands.magma_lord.idle": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.idle",
+    "sounds": [
+      {
+        "name": "minecraft:block.campfire.crackle",
+        "type": "event",
+        "volume": 0.18
+      }
+    ]
+  },
+  "islands.magma_lord.hurt": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.damage",
+        "type": "event",
+        "volume": 0.7
+      }
+    ]
+  },
+  "islands.magma_lord.death": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.death",
+        "type": "event",
+        "volume": 0.7
+      }
+    ]
+  },
+  "islands.magma_lord.wake": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.wake",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.roar",
+        "type": "event",
+        "volume": 0.7
+      }
+    ]
+  },
+  "islands.magma_lord.phase": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.phase",
+    "sounds": [
+      {
+        "name": "minecraft:entity.wither.spawn",
+        "type": "event",
+        "volume": 0.55
+      }
+    ]
+  },
+  "islands.magma_lord.claws_charge": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.claws_charge",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.step",
+        "type": "event",
+        "volume": 0.7
+      }
+    ]
+  },
+  "islands.magma_lord.claws_release": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.claws_release",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event",
+        "volume": 0.7
+      }
+    ]
+  },
+  "islands.magma_lord.fracture_charge": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.fracture_charge",
+    "sounds": [
+      {
+        "name": "minecraft:block.respawn_anchor.charge",
+        "type": "event",
+        "volume": 0.7
+      }
+    ]
+  },
+  "islands.magma_lord.fracture_release": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.fracture_release",
+    "sounds": [
+      {
+        "name": "minecraft:block.basalt.break",
+        "type": "event",
+        "volume": 0.7
+      }
+    ]
+  },
+  "islands.magma_lord.pull_charge": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.pull_charge",
+    "sounds": [
+      {
+        "name": "minecraft:block.portal.ambient",
+        "type": "event",
+        "volume": 0.7
+      }
+    ]
+  },
+  "islands.magma_lord.pull_release": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.pull_release",
+    "sounds": [
+      {
+        "name": "minecraft:block.respawn_anchor.deplete",
+        "type": "event",
+        "volume": 0.7
+      }
+    ]
+  },
+  "islands.magma_lord.hands_charge": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.hands_charge",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.tendril_clicks",
+        "type": "event",
+        "volume": 0.7
+      }
+    ]
+  },
+  "islands.magma_lord.hands_release": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.hands_release",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.attack",
+        "type": "event",
+        "volume": 0.7
+      }
+    ]
+  },
+  "islands.magma_lord.eruption_charge": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.eruption_charge",
+    "sounds": [
+      {
+        "name": "minecraft:entity.blaze.ambient",
+        "type": "event",
+        "volume": 0.7
+      }
+    ]
+  },
+  "islands.magma_lord.eruption_release": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.eruption_release",
+    "sounds": [
+      {
+        "name": "minecraft:entity.generic.explode",
+        "type": "event",
+        "volume": 0.7
+      }
+    ]
+  },
+  "islands.magma_lord.ring_charge": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.ring_charge",
+    "sounds": [
+      {
+        "name": "minecraft:block.lava.ambient",
+        "type": "event",
+        "volume": 0.7
+      }
+    ]
+  },
+  "islands.magma_lord.ring_release": {
+    "subtitle": "subtitles.slavicmyths.islands.magma_lord.ring_release",
+    "sounds": [
+      {
+        "name": "minecraft:entity.blaze.shoot",
+        "type": "event",
+        "volume": 0.7
+      }
+    ]
   }
 }

@@ -1,0 +1,17 @@
+{
+  "result": "PASS delivery integrity",
+  "source_files_verified": 9695,
+  "installed_sha256": "e84bb45be63bfd04134373f524eb34bcd10a714292e37dee9c41e99a5f7d6953",
+  "final_screenshots": 20,
+  "client_launches": 4,
+  "integrated_worlds": "Four new disposable flat worlds; no standalone server/GameTest/PolyMC launches",
+  "head_break_drop": {
+    "grove_guardian_head": 1,
+    "zharenitsa_head": 1,
+    "posten_head": 1,
+    "magma_lord_head": 1
+  },
+  "source_delta_zip_sha256": "f42d50b8993601666d49761e254799c19da2cf8b1194fbfecf6270e92ddab21e",
+  "source_manifest_sha256": "af933d04b90a351300953ffc20426c8b804578260eaa3f6f8e28d8d46e131bc0",
+  "production_gameplay": "Only visual fixture/head placement/missing tile repair/break checked; survival combat/natural loot/MP/relog not asserted"
+}

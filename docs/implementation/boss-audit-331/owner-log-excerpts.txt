@@ -1,0 +1,4 @@
+[28Oct2026 20:36:06.422] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "slavicmyths-2.0.9-HELL.jar" [locator: {mods folder locator at C:\Users\pavel\AppData\Roaming\PolyMC\instances\Slavic-Myths-2.0.0-HELL\.minecraft\mods}, reader: mod manifest]
+		Slavic Myths 2.0.9-HELL (slavicmyths)
+[28Oct2026 20:36:36.691] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.21.1
+[28Oct2026 20:39:04.184] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server

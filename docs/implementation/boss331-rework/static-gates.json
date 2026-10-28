@@ -1,0 +1,389 @@
+{
+  "rig_uv_islands": {
+    "cinder_rigs/zharenitsa": 67,
+    "burning_islands_rigs/magma_lord": 57,
+    "lost_halls_rigs/posten_trophy": 32,
+    "lost_halls_rigs/zharenitsa_trophy": 25
+  },
+  "audio_routes": {
+    "islands.magma_lord.idle": {
+      "vanilla_event": "block.campfire.crackle",
+      "files": [
+        {
+          "asset": "minecraft/sounds/block/campfire/crackle1.ogg",
+          "sha1": "5cc75e9e824a6ae798e657282694cc4174bfdd15",
+          "bytes": 19377
+        },
+        {
+          "asset": "minecraft/sounds/block/campfire/crackle2.ogg",
+          "sha1": "c076377ba38821a3b050ebcf333043cb4cf59b81",
+          "bytes": 17334
+        },
+        {
+          "asset": "minecraft/sounds/block/campfire/crackle3.ogg",
+          "sha1": "f1a2ede27259b0b2321e36b2d70c2fd63d82e862",
+          "bytes": 19745
+        },
+        {
+          "asset": "minecraft/sounds/block/campfire/crackle4.ogg",
+          "sha1": "d696e2d6640747987a056319dfd6e15c25e75191",
+          "bytes": 12572
+        },
+        {
+          "asset": "minecraft/sounds/block/campfire/crackle5.ogg",
+          "sha1": "2b15d255ecf10baa81d8f51df3d2e43c68b52152",
+          "bytes": 14104
+        },
+        {
+          "asset": "minecraft/sounds/block/campfire/crackle6.ogg",
+          "sha1": "e1e793d3c910f0c270eeb9d590774583451f94f5",
+          "bytes": 13172
+        }
+      ]
+    },
+    "islands.magma_lord.hurt": {
+      "vanilla_event": "entity.iron_golem.damage",
+      "files": [
+        {
+          "asset": "minecraft/sounds/mob/irongolem/damage1.ogg",
+          "sha1": "5a3407cf5481a839159f7ebd1d32e245ae888cfc",
+          "bytes": 25132
+        },
+        {
+          "asset": "minecraft/sounds/mob/irongolem/damage1.ogg",
+          "sha1": "5a3407cf5481a839159f7ebd1d32e245ae888cfc",
+          "bytes": 25132
+        },
+        {
+          "asset": "minecraft/sounds/mob/irongolem/damage2.ogg",
+          "sha1": "3fb232d67903ea25b9beeefaa11d21183f397aee",
+          "bytes": 34503
+        },
+        {
+          "asset": "minecraft/sounds/mob/irongolem/damage2.ogg",
+          "sha1": "3fb232d67903ea25b9beeefaa11d21183f397aee",
+          "bytes": 34503
+        }
+      ]
+    },
+    "islands.magma_lord.death": {
+      "vanilla_event": "entity.ravager.death",
+      "files": [
+        {
+          "asset": "minecraft/sounds/mob/ravager/death1.ogg",
+          "sha1": "78183ddf604932321529eead4266f5d1607e1e03",
+          "bytes": 36851
+        },
+        {
+          "asset": "minecraft/sounds/mob/ravager/death2.ogg",
+          "sha1": "608bf241c72812309ce6a97d406dbaa82308b1b3",
+          "bytes": 32132
+        },
+        {
+          "asset": "minecraft/sounds/mob/ravager/death3.ogg",
+          "sha1": "d84952f93aa55b9e79a69e3377a3322a6f3a7e04",
+          "bytes": 37365
+        }
+      ]
+    },
+    "islands.magma_lord.wake": {
+      "vanilla_event": "entity.ravager.roar",
+      "files": [
+        {
+          "asset": "minecraft/sounds/mob/ravager/roar1.ogg",
+          "sha1": "b4dc3a8ee8960ae4fc142592ede8a7611affebe4",
+          "bytes": 43069
+        },
+        {
+          "asset": "minecraft/sounds/mob/ravager/roar2.ogg",
+          "sha1": "93e77a3654e3169c4687449b8ad92bfcd53d62dc",
+          "bytes": 46932
+        },
+        {
+          "asset": "minecraft/sounds/mob/ravager/roar3.ogg",
+          "sha1": "ee7bdedbe587cfc9452a9ec9232bdbbbb37d6d84",
+          "bytes": 44998
+        },
+        {
+          "asset": "minecraft/sounds/mob/ravager/roar4.ogg",
+          "sha1": "2dfd4e077bac712adcbcbe32e7e148563cebb3d8",
+          "bytes": 43159
+        }
+      ]
+    },
+    "islands.magma_lord.phase": {
+      "vanilla_event": "entity.wither.spawn",
+      "files": [
+        {
+          "asset": "minecraft/sounds/mob/wither/spawn.ogg",
+          "sha1": "d8caaead680c20a4f51361587aeddd57a3357a72",
+          "bytes": 151896
+        }
+      ]
+    },
+    "islands.magma_lord.claws_charge": {
+      "vanilla_event": "entity.ravager.step",
+      "files": [
+        {
+          "asset": "minecraft/sounds/mob/ravager/step1.ogg",
+          "sha1": "3b27142409aa1b667a967117b49b960b3fe797fb",
+          "bytes": 20571
+        },
+        {
+          "asset": "minecraft/sounds/mob/ravager/step2.ogg",
+          "sha1": "a52569d5616b47e9c299e8e3b9f25fd346cf9d83",
+          "bytes": 35934
+        },
+        {
+          "asset": "minecraft/sounds/mob/ravager/step3.ogg",
+          "sha1": "d2128874ccc2863022cb864f4cce7b90df592c9a",
+          "bytes": 23796
+        },
+        {
+          "asset": "minecraft/sounds/mob/ravager/step4.ogg",
+          "sha1": "0e137e530e9228da1af0d0e6377a7c46a115e246",
+          "bytes": 31456
+        },
+        {
+          "asset": "minecraft/sounds/mob/ravager/step5.ogg",
+          "sha1": "1b429890e72f1e901bcb989de0d2f1845016936f",
+          "bytes": 32316
+        }
+      ]
+    },
+    "islands.magma_lord.claws_release": {
+      "vanilla_event": "entity.player.attack.sweep",
+      "files": [
+        {
+          "asset": "minecraft/sounds/entity/player/attack/sweep1.ogg",
+          "sha1": "fd20e1cd8c69bc2f037de950b078a729a4b7d6a6",
+          "bytes": 5546
+        },
+        {
+          "asset": "minecraft/sounds/entity/player/attack/sweep2.ogg",
+          "sha1": "c9534f4d840470b3c6efbcb84cff23c57baa3393",
+          "bytes": 5398
+        },
+        {
+          "asset": "minecraft/sounds/entity/player/attack/sweep3.ogg",
+          "sha1": "4c26fd4c2774e7afcbda1e293a27595e04e87c47",
+          "bytes": 5238
+        },
+        {
+          "asset": "minecraft/sounds/entity/player/attack/sweep4.ogg",
+          "sha1": "ae9bb7a332e3e3d3665f282b60b296ec01be97df",
+          "bytes": 4969
+        },
+        {
+          "asset": "minecraft/sounds/entity/player/attack/sweep5.ogg",
+          "sha1": "50a317f837b0604c3ebe8224951c1a0d7a94516a",
+          "bytes": 5329
+        },
+        {
+          "asset": "minecraft/sounds/entity/player/attack/sweep6.ogg",
+          "sha1": "39077d824a27e8040b0e1f2b4707d81149830d11",
+          "bytes": 5117
+        },
+        {
+          "asset": "minecraft/sounds/entity/player/attack/sweep7.ogg",
+          "sha1": "e8d0df494880f2067bb64d08a7428a78239c9a29",
+          "bytes": 5515
+        }
+      ]
+    },
+    "islands.magma_lord.fracture_charge": {
+      "vanilla_event": "block.respawn_anchor.charge",
+      "files": [
+        {
+          "asset": "minecraft/sounds/block/respawn_anchor/charge1.ogg",
+          "sha1": "6c3f77e54f908e9be146a6e336d9c89a5a89a2e3",
+          "bytes": 103402
+        },
+        {
+          "asset": "minecraft/sounds/block/respawn_anchor/charge2.ogg",
+          "sha1": "b32c375b8d9bbabf1035034c976e0216ac4ec852",
+          "bytes": 75978
+        },
+        {
+          "asset": "minecraft/sounds/block/respawn_anchor/charge3.ogg",
+          "sha1": "dfe1839135affb6c70b235ef5023277b0f984aa5",
+          "bytes": 88407
+        }
+      ]
+    },
+    "islands.magma_lord.fracture_release": {
+      "vanilla_event": "block.basalt.break",
+      "files": [
+        {
+          "asset": "minecraft/sounds/block/basalt/break1.ogg",
+          "sha1": "ded8cd2d9d1835b1868b7c740f47cb02e7cf51f2",
+          "bytes": 20623
+        },
+        {
+          "asset": "minecraft/sounds/block/basalt/break2.ogg",
+          "sha1": "47676e0ac57616b21d42e7d805a5ff8a5fa1305b",
+          "bytes": 20969
+        },
+        {
+          "asset": "minecraft/sounds/block/basalt/break3.ogg",
+          "sha1": "378a4a01f9dfef97a93f7bd9f9b22d45ad4b863d",
+          "bytes": 20065
+        },
+        {
+          "asset": "minecraft/sounds/block/basalt/break4.ogg",
+          "sha1": "6a0e71c3d6e23485c1b0254ff0beed270bd4ba34",
+          "bytes": 19142
+        },
+        {
+          "asset": "minecraft/sounds/block/basalt/break5.ogg",
+          "sha1": "d1c8695c6687c0bf319021e74d1ce63e2cc0e478",
+          "bytes": 21194
+        }
+      ]
+    },
+    "islands.magma_lord.pull_charge": {
+      "vanilla_event": "block.portal.ambient",
+      "files": [
+        {
+          "asset": "minecraft/sounds/portal/portal.ogg",
+          "sha1": "9a20be18fed05330f745a54eb8aeba11aac5403b",
+          "bytes": 25153
+        }
+      ]
+    },
+    "islands.magma_lord.pull_release": {
+      "vanilla_event": "block.respawn_anchor.deplete",
+      "files": [
+        {
+          "asset": "minecraft/sounds/block/respawn_anchor/deplete1.ogg",
+          "sha1": "b46e4ad96959b7e4994514fae4c91eba5f4ee916",
+          "bytes": 59960
+        },
+        {
+          "asset": "minecraft/sounds/block/respawn_anchor/deplete2.ogg",
+          "sha1": "6ba7a78d726c4c876232a1c60f06e9d077eb7b69",
+          "bytes": 60532
+        }
+      ]
+    },
+    "islands.magma_lord.hands_charge": {
+      "vanilla_event": "entity.warden.tendril_clicks",
+      "files": [
+        {
+          "asset": "minecraft/sounds/mob/warden/tendril_clicks_1.ogg",
+          "sha1": "1b5871a3af4dc425f20f9c1e06297f5fff2f3545",
+          "bytes": 12287
+        },
+        {
+          "asset": "minecraft/sounds/mob/warden/tendril_clicks_2.ogg",
+          "sha1": "ae5309997bb45581abda6f80b78c77648cef9313",
+          "bytes": 13337
+        },
+        {
+          "asset": "minecraft/sounds/mob/warden/tendril_clicks_3.ogg",
+          "sha1": "cba537acd887eb709d3fb44ff11dd2a370f64dc6",
+          "bytes": 12310
+        },
+        {
+          "asset": "minecraft/sounds/mob/warden/tendril_clicks_4.ogg",
+          "sha1": "0350aeae0132a9a0b08532250861fbe2208d9f78",
+          "bytes": 14777
+        },
+        {
+          "asset": "minecraft/sounds/mob/warden/tendril_clicks_5.ogg",
+          "sha1": "cd39ba3ef95ea55ccf82a164485fecab65f3cb69",
+          "bytes": 10206
+        },
+        {
+          "asset": "minecraft/sounds/mob/warden/tendril_clicks_6.ogg",
+          "sha1": "9c137787095596d770aa3e4f0fe4f9de1ed0b635",
+          "bytes": 11430
+        }
+      ]
+    },
+    "islands.magma_lord.hands_release": {
+      "vanilla_event": "entity.iron_golem.attack",
+      "files": [
+        {
+          "asset": "minecraft/sounds/mob/irongolem/throw.ogg",
+          "sha1": "607d51883e137d5d423dde865232ab1ee78f2694",
+          "bytes": 5316
+        }
+      ]
+    },
+    "islands.magma_lord.eruption_charge": {
+      "vanilla_event": "entity.blaze.ambient",
+      "files": [
+        {
+          "asset": "minecraft/sounds/mob/blaze/breathe1.ogg",
+          "sha1": "4e398c518ae706ad4d90afd6914f748faf18a7b5",
+          "bytes": 22308
+        },
+        {
+          "asset": "minecraft/sounds/mob/blaze/breathe2.ogg",
+          "sha1": "c74368d2b978f570b4e7ce9645fd84b07f8f145c",
+          "bytes": 22547
+        },
+        {
+          "asset": "minecraft/sounds/mob/blaze/breathe3.ogg",
+          "sha1": "24d643885f9b83d8f034f49e2c5e00e70d4f175a",
+          "bytes": 21883
+        },
+        {
+          "asset": "minecraft/sounds/mob/blaze/breathe4.ogg",
+          "sha1": "78d544a240d627005aaef6033fd646eafc66fe7a",
+          "bytes": 22054
+        }
+      ]
+    },
+    "islands.magma_lord.eruption_release": {
+      "vanilla_event": "entity.generic.explode",
+      "files": [
+        {
+          "asset": "minecraft/sounds/random/explode1.ogg",
+          "sha1": "cd46e41023887558b134547e28327de6e7df189a",
+          "bytes": 19732
+        },
+        {
+          "asset": "minecraft/sounds/random/explode2.ogg",
+          "sha1": "a116e396d95a0ee245000dd4cdcc333d38ea9e3b",
+          "bytes": 25246
+        },
+        {
+          "asset": "minecraft/sounds/random/explode3.ogg",
+          "sha1": "a94a69e56568f5789cab05382cfd81f601189fd1",
+          "bytes": 25298
+        },
+        {
+          "asset": "minecraft/sounds/random/explode4.ogg",
+          "sha1": "f259be40364341edcaf88e339bc24ab01e49845a",
+          "bytes": 25090
+        }
+      ]
+    },
+    "islands.magma_lord.ring_charge": {
+      "vanilla_event": "block.lava.ambient",
+      "files": [
+        {
+          "asset": "minecraft/sounds/liquid/lava.ogg",
+          "sha1": "9272aef9f27dfcc10b6e3879b7a2a67f8faa1a83",
+          "bytes": 65328
+        }
+      ]
+    },
+    "islands.magma_lord.ring_release": {
+      "vanilla_event": "entity.blaze.shoot",
+      "files": [
+        {
+          "asset": "minecraft/sounds/mob/ghast/fireball4.ogg",
+          "sha1": "eafa60d7ec34f86e8f07a001ddcdf5c4600bb174",
+          "bytes": 8535
+        }
+      ]
+    }
+  },
+  "audio_source": "Minecraft vanilla aliases; no new synthetic or original voice recordings",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.10-HELL.jar",
+  "sha256": "e84bb45be63bfd04134373f524eb34bcd10a714292e37dee9c41e99a5f7d6953",
+  "result": "PASS static/native-resource scope only"
+}

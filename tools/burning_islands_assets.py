@@ -49,8 +49,10 @@ def rig(name):
   p['uv']=[u,v];row=max(row,h)
   for yy in range(v,v+h):
    for xx in range(u,u+w):
-    noise=rng.randrange(-9,10);hot=p['hot'] or ((xx-u+2*(yy-v))%23==0)
-    rgb=(242+noise//2,104+noise*2,19) if hot else (47+noise,39+noise,49+noise)
+    noise=rng.randrange(-7,8);lx,ly=xx-u,yy-v
+    hot=p['hot'] or ((lx+int(ly/5)+len(p['name']))%37==0 and ly%11<5)
+    if name=='magma_lord':hot=p['hot'] or (lx%max(7,x+z)==(ly//5+len(p['name']))%max(7,x+z) and ly%13<7)
+    rgb=(242+noise//2,104+noise*2,19) if hot else ((39+noise,35+noise,44+noise) if name=='magma_lord' else (47+noise,39+noise,49+noise))
     im.putpixel((xx,yy),(*rgb,255))
     if hot:glow.putpixel((xx,yy),(*rgb,255))
   u+=w+2
@@ -88,6 +90,8 @@ def loot(name,extras):
   pools.append(pool)
  write(D/f'loot_table/entities/{name}.json',dict(type='minecraft:entity',pools=pools))
 def main():
+ from boss331_audio import main as audio
+ audio()
  mobs={'heat_salamander':('Жаровая саламандра','Heat Salamander'),'slag_crab':('Шлаковый краб','Slag Crab'),'vent_golem':('Жерловик','Vent Golem'),'magma_lord':('Повелитель магмы','Magma Lord')}
  items={'magma_clot':('Сгусток магмы','Magma Clot'),'magma_core':('Магмовое ядро','Magma Core'),'salamander_hide':('Кожа саламандры','Salamander Hide'),'crab_claw':('Клешня краба','Crab Claw'),'magma_rune_fragment':('Фрагмент Руны магмы','Magma Rune Fragment'),'rune_magma_1':('Руна магмы I','Magma Rune I'),'rune_magma_2':('Руна магмы II','Magma Rune II'),'magma_lord_heart':('Сердце Повелителя магмы','Heart of the Magma Lord'),'magma_lord_head':('Голова Повелителя магмы','Magma Lord Head')}
  for name in mobs:rig(name);write(A/f'models/item/{name}_spawn_egg.json',dict(parent='minecraft:item/template_spawn_egg'))

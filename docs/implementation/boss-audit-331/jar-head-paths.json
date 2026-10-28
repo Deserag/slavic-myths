@@ -1,0 +1,165 @@
+{
+  "installed": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.9-HELL.jar",
+  "sha256": "d5fbefe1e0041dc3d2c3b32779c4c8f5eee23274089a811fb7843c209f0991f9",
+  "metadata": "modLoader=\"javafml\"\nloaderVersion=\"[4,)\"\nlicense=\"All Rights Reserved\"\n[[mixins]]\nconfig=\"slavicmyths.chud_worldgen.mixins.json\"\n[[mixins]]\nconfig=\"slavicmyths.work.mixins.json\"\n[[mixins]]\nconfig=\"slavicmyths.equipment.mixins.json\"\n[[mixins]]\nconfig=\"slavicmyths.industry.mixins.json\"\n[[mixins]]\nconfig=\"slavicmyths.underground.mixins.json\"\n[[mixins]]\nconfig=\"slavicmyths.tool_runes.mixins.json\"\n[[mixins]]\nconfig=\"slavicmyths.chud_light.mixins.json\"\n[[mods]]\nmodId=\"slavicmyths\"\nversion=\"2.0.9-HELL\"\ndisplayName=\"Slavic Myths\"\ndescription='''A small foundation for a world gradually touched by Slavic mythology. Mythological connections are game interpretations.'''\n[[dependencies.slavicmyths]]\nmodId=\"neoforge\"\ntype=\"required\"\nversionRange=\"[21.1.255,21.2)\"\nordering=\"NONE\"\nside=\"BOTH\"\n[[dependencies.slavicmyths]]\nmodId=\"minecraft\"\ntype=\"required\"\nversionRange=\"[1.21.1]\"\nordering=\"NONE\"\nside=\"BOTH\"\n[[dependencies.slavicmyths]]\nmodId=\"curios\"\ntype=\"required\"\nversionRange=\"[9.5.1,10)\"\nordering=\"AFTER\"\nside=\"BOTH\"\n[[dependencies.slavicmyths]]\nmodId=\"jei\"\ntype=\"optional\"\nversionRange=\"[19,20)\"\nordering=\"AFTER\"\nside=\"CLIENT\"\n\n[[mixins]]\nconfig=\"slavicmyths.physiology.mixins.json\"\n\n[[mixins]]\nconfig=\"slavicmyths.rune_glow.mixins.json\"\n[[mixins]]\nconfig=\"slavicmyths.navya.mixins.json\"\n",
+  "heads": {
+    "grove_guardian_head": {
+      "packaged": {
+        "assets/slavicmyths/models/item/grove_guardian_head.json": true,
+        "assets/slavicmyths/blockstates/grove_guardian_head.json": true,
+        "assets/slavicmyths/models/block/grove_guardian_head.json": true,
+        "assets/slavicmyths/textures/entity/grove_guardian.png": true,
+        "assets/slavicmyths/textures/entity/grove_guardian_glow.png": true,
+        "data/slavicmyths/loot_table/blocks/grove_guardian_head.json": true
+      },
+      "item_model": {
+        "parent": "minecraft:builtin/entity",
+        "gui_light": "front",
+        "display": {
+          "gui": {
+            "rotation": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.7,
+              0.7,
+              0.7
+            ]
+          },
+          "fixed": {
+            "rotation": [
+              0,
+              180,
+              0
+            ]
+          }
+        }
+      },
+      "base_dimensions": [
+        256,
+        256
+      ],
+      "base_sha": "59db2e17cedc6e55d870622458d28442d319e63a0c891970081247411fdfbe89",
+      "glow_dimensions": [
+        256,
+        256
+      ]
+    },
+    "zharenitsa_head": {
+      "packaged": {
+        "assets/slavicmyths/models/item/zharenitsa_head.json": true,
+        "assets/slavicmyths/blockstates/zharenitsa_head.json": true,
+        "assets/slavicmyths/models/block/zharenitsa_head.json": true,
+        "assets/slavicmyths/textures/entity/lost_halls/zharenitsa_trophy.png": true,
+        "assets/slavicmyths/textures/entity/lost_halls/zharenitsa_trophy_glow.png": true,
+        "data/slavicmyths/loot_table/blocks/zharenitsa_head.json": true
+      },
+      "item_model": {
+        "parent": "minecraft:builtin/entity",
+        "gui_light": "front",
+        "display": {
+          "gui": {
+            "rotation": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.7,
+              0.7,
+              0.7
+            ]
+          },
+          "fixed": {
+            "rotation": [
+              0,
+              180,
+              0
+            ]
+          }
+        }
+      },
+      "base_dimensions": [
+        512,
+        512
+      ],
+      "base_sha": "a2ad2e4962e7546dd74127e74a03cffeef03f63403dedf74d3efc8d9bf052be6",
+      "glow_dimensions": [
+        512,
+        512
+      ]
+    },
+    "posten_head": {
+      "packaged": {
+        "assets/slavicmyths/models/item/posten_head.json": true,
+        "assets/slavicmyths/blockstates/posten_head.json": true,
+        "assets/slavicmyths/models/block/posten_head.json": true,
+        "assets/slavicmyths/textures/entity/lost_halls/posten.png": true,
+        "assets/slavicmyths/textures/entity/lost_halls/posten_glow.png": true,
+        "data/slavicmyths/loot_table/blocks/posten_head.json": true
+      },
+      "item_model": {
+        "parent": "minecraft:builtin/entity",
+        "gui_light": "front",
+        "display": {
+          "gui": {
+            "rotation": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.7,
+              0.7,
+              0.7
+            ]
+          },
+          "fixed": {
+            "rotation": [
+              0,
+              180,
+              0
+            ]
+          }
+        }
+      },
+      "base_dimensions": [
+        512,
+        512
+      ],
+      "base_sha": "72f8c347f469b4e79d77b485450a1cde058d086fb18d7b36e4700cf889e6d2dc",
+      "glow_dimensions": [
+        512,
+        512
+      ]
+    },
+    "magma_lord_head": {
+      "packaged": {
+        "assets/slavicmyths/models/item/magma_lord_head.json": true,
+        "assets/slavicmyths/blockstates/magma_lord_head.json": true,
+        "assets/slavicmyths/models/block/magma_lord_head.json": true,
+        "assets/slavicmyths/textures/entity/burning_islands/magma_lord.png": true,
+        "assets/slavicmyths/textures/entity/burning_islands/magma_lord_glow.png": true,
+        "data/slavicmyths/loot_table/blocks/magma_lord_head.json": true
+      },
+      "item_model": {
+        "parent": "minecraft:item/generated",
+        "textures": {
+          "layer0": "slavicmyths:item/magma_lord_head"
+        }
+      },
+      "base_dimensions": [
+        512,
+        512
+      ],
+      "base_sha": "421995203af778fbf6590ff6cf6aeecbce6e1b23beee8484ea471d42d770c33f",
+      "glow_dimensions": [
+        512,
+        512
+      ]
+    }
+  },
+  "game_launches_by_auditor": 0
+}

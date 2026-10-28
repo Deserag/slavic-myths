@@ -177,6 +177,17 @@ def world_and_heads():
   write(A/f'blockstates/{name}.json',{'variants':{'':{'model':'slavicmyths:block/'+name}}});write(A/f'models/block/{name}.json',{'textures':{'particle':'slavicmyths:block/lost_hall_stone'}})
   write(A/f'models/item/{name}.json',{'parent':'minecraft:builtin/entity','gui_light':'front','display':{'gui':{'rotation':[0,180,0],'scale':[.7,.7,.7]},'fixed':{'rotation':[0,180,0]}}})
   write(D/f'loot_table/blocks/{name}.json',{'type':'minecraft:block','pools':[{'rolls':1,'conditions':[{'condition':'minecraft:block_state_property','block':'slavicmyths:'+name,'properties':{'half':'lower'}},{'condition':'minecraft:survives_explosion'}],'entries':[{'type':'minecraft:item','name':'slavicmyths:'+name}]}]})
+ # Trophy-only larger masks; the living boss rig and existing block ID stay unchanged.
+ source=json.loads((A/'lost_halls_rigs/posten.json').read_text());selected=[];known={'head'}
+ for part in source['parts']:
+  if part['name']=='head' or part['parent'] in known:
+   part=json.loads(json.dumps(part));selected.append(part);known.add(part['name'])
+   if part['name'].startswith('mask_') and part['name']!='mask_ring':
+    part['pivot'][0]*=.9;part['pivot'][2]*=.9;part['size'][1]=19;part['offset'][1]=-9.5
+   elif part['parent'].startswith('mask_') and part['parent']!='mask_ring':part['pivot'][1]*=1.2
+ write(A/'lost_halls_rigs/posten_trophy.json',{'atlas':source['atlas'],'parts':selected})
+ from boss331_assets import posten_trophy
+ posten_trophy()
  # One additional head from the existing guardian loot route, not a second death event.
  p=D/'loot_table/entities/grove_guardian.json';data=json.loads(p.read_text());data['pools']=[v for v in data['pools'] if all(e.get('name')!='slavicmyths:grove_guardian_head' for e in v.get('entries',[]))];write(p,data)
  source=json.loads((A/'cinder_rigs/zharenitsa.json').read_text());selected=[];known={'head'}
@@ -190,6 +201,7 @@ def world_and_heads():
  for name in ['gulokryl','ekhovik','griboshmyg','posten','shadow_face_decoy']:write(D/f'loot_table/entities/{name}.json',{'type':'minecraft:entity','pools':[]})
  for name in ['sheptun','oskolnik']:
   p=D/f'loot_table/entities/{name}.json';data=json.loads(p.read_text())
+  data['pools']=[pool for pool in data['pools'] if all(e.get('name') not in {'slavicmyths:soul_fragment','slavicmyths:soul'} for e in pool.get('entries',[]))]
   for item,base,bonus in [('soul_fragment',.25,.05),('soul',.02,.01)]:data['pools'].append({'rolls':1,'conditions':[{'condition':'minecraft:random_chance_with_enchanted_bonus','unenchanted_chance':base,'enchanted_chance':{'type':'minecraft:clamped','value':{'type':'minecraft:linear','base':base+bonus,'per_level_above_first':bonus},'min':base,'max':.4 if item=='soul_fragment' else .05},'enchantment':'minecraft:looting'}],'entries':[{'type':'minecraft:item','name':'slavicmyths:'+item}]})
   write(p,data)
 def shadow_language():

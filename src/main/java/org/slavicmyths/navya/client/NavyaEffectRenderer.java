@@ -16,7 +16,7 @@ public final class NavyaEffectRenderer<T extends Entity> extends EntityRenderer<
         stack.pushPose();int mode=entity instanceof NavyaShot shot?shot.mode():0;var rig=rigs[mode];
         for(var part:rig.nodes().values())part.resetPose();
         if(roots){
-            float age=((NavyaRoots)entity).age(partial);float rise=Math.max(0,Math.min(1,(age-15)/9)),recede=Math.max(0,Math.min(1,(age-45)/15));
+            float age=((NavyaRoots)entity).age(partial);float rise=Math.max(0,Math.min(1,(age-15)/5)),recede=Math.max(0,Math.min(1,(age-45)/15));
             rig.nodes().get("body").y+=(1-rise+recede)*32;
             rig.nodes().get("warning").visible=age<23;
             stack.translate(0,1.5,0);stack.scale(1,-1,-1);

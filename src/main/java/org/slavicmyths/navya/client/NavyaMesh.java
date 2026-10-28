@@ -117,33 +117,45 @@ public final class NavyaMesh {
                 m.box("body","spark",0,-4,0,-.5F,-1,-.5F,1,2,1,"wisp_core");
             }
             case GUARDIAN -> {
-                m.box("root","body",0,-25,0,-14,-24,-10,28,38,20,"bark");
-                m.box("body","trunk_base",0,20,1,-12,-12,-10,24,24,20,"bark");
-                m.box("body","burl_left",-15,-10,3,-6,-9,-7,12,18,14,"bark");
-                m.box("body","burl_right",15,-2,2,-4,-11,-7,9,22,14,"bark");
-                m.box("body","broken_collar",0,-28,2,-12,-5,-8,24,10,16,"bone_dark");
+                // A branching ancient tree, not a rectangular humanoid trunk.
+                m.box("root","body",0,-25,0,-10,-25,-8,20,42,16,"bark");
+                m.box("body","trunk_base",0,19,1,-15,-8,-12,30,24,24,"bark");
+                m.box("body","burl_left",-12,-4,1,-7,-13,-9,12,27,18,"bark");
+                m.box("body","burl_right",12,4,3,-3,-12,-8,9,25,16,"bark");
                 m.box("body","held_trunk",0,-16,-28,-36,-5,-5,72,10,10,"bark");
-                m.box("body","buttress_left",-17,-12,0,-6,-16,-10,8,43,20,"bark");
-                m.box("body","buttress_right",17,-12,0,-2,-16,-10,8,43,20,"bark");
-                m.box("body","face",0,-3,-13,-10,-11,-1,20,22,2,"dark");
-                m.box("face","brow",0,-11,-2,-11,-2,-1,22,4,3,"bone_dark");
-                m.box("face","jaw",0,6,-2,-8,0,-2,16,5,4,"bone_dark");
+                m.box("body","buttress_left",-12,8,0,-5,-16,-9,7,32,18,"bark");
+                m.box("body","buttress_right",12,8,1,-2,-13,-8,7,30,16,"bark");
+                // The same complete skull subtree is used by the placed trophy.
+                m.box("body","face",0,-3,-12,-9,-11,-2,18,22,14,"dark");
+                m.box("face","occiput",0,-3,10,-8,-8,-2,16,18,7,"bark");
+                m.box("face","brow",0,-9,-3,-10,-2,-2,20,4,4,"bone_dark");
+                m.box("face","nose_root",0,-3,-4,-2,-3,-2,4,9,4,"bark");
+                m.box("face","jaw",0,7,-1,-8,0,-5,16,5,11,"bone_dark");
+                m.box("jaw","chin_root",0,4,1,-3,0,-3,6,7,6,"root");
                 for(int side:new int[]{-1,1}) {
                     String s=side<0?"left":"right";
-                    m.box("face","cheek_"+s,side*10,-4,-1,-2,-3,-2,4,15,4,"bone_dark");
-                    m.box("face","twig_"+s,side*9,-9,0,side>0?0:-8,-2,-2,8,4,4,"bark");
-                    m.box("face","twig_fork_"+s,side*14,-12,0,-1,-5,-1,2,8,2,"root");
-                    m.box("face","eye_"+s,side*5,-4,-2.5F,-3,0,-1,6,3,2,"red");
-                    m.box("body","arm_"+s,side*23,-26,0,-6,0,-6,12,25,12,"bark");
-                    m.box("arm_"+s,"shoulder_plate_"+s,side*2,0,-4,-6,-3,-2,12,9,5,"bone_dark");
-                    m.box("arm_"+s,"forearm_"+s,0,23,0,-5,0,-5,10,28,10,"root");
-                    for(int i=0;i<3;i++)m.box("forearm_"+s,"finger_"+s+i,(i-1)*4,25,-2,-1,0,-2,2,10-i,4,"root");
-                    for(int back=0;back<2;back++)m.box("body","leg_"+s+back,side*11,25,back==0?-7:8,-5,0,-6,10,24,12,"root");
-                    m.box("body","crown_"+s,side*10,-36,1,-3,-19,-3,6,25,6,"bark");
-                    m.box("crown_"+s,"fork_"+s,side*3,-13,0,side>0?0:-9,-2,-2,9,4,4,"bark");
+                    m.box("face","cheek_"+s,side*9,-2,-2,-2,-5,-3,4,14,7,"bone_dark");
+                    m.box("face","twig_"+s,side*8,-8,3,side>0?0:-9,-3,-2,9,5,5,"bark");
+                    m.box("twig_"+s,"twig_fork_"+s,side*7,-3,0,-1,-9,-1,3,11,3,"root");
+                    m.box("face","eye_"+s,side*5,-4,-4.5F,-2,0,-1,4,2,2,"violet");
+                    m.box("body","arm_"+s,side*17,-23,1,-5,0,-5,10,25+(side<0?5:0),10,"bark");
+                    m.box("arm_"+s,"shoulder_plate_"+s,side*2,0,-3,-5,-3,-2,10,8,4,"bone_dark");
+                    m.box("arm_"+s,"forearm_"+s,side*2,23,0,-4,0,-4,8,26,8,"root");
+                    for(int i=0;i<3;i++)m.box("forearm_"+s,"finger_"+s+i,(i-1)*4,23,-2,-1,0,-2,2,10-i,4,"root");
+                    for(int back=0;back<2;back++) {
+                        String leg="leg_"+s+back;
+                        m.box("body",leg,side*10,27,back==0?-6:7,-4,0,-5,8,20,10,"root");
+                        m.box(leg,"ground_root_"+s+back,side*2,17,-1,side<0?-13:0,0,-4,13,4,9,"bark");
+                    }
+                    m.box("body","crown_"+s,side*7,-22,1,-4,-25,-4,8,28,8,"bark");
+                    m.box("crown_"+s,"fork_"+s,side*3,-17,0,side>0?0:-14,-3,-3,14,5,6,"bark");
+                    m.box("fork_"+s,"antler_"+s,side*10,-3,1,-2,-13,-2,4,14+(side<0?5:0),4,"root");
+                    m.box("body","core_frame_"+s,side*5,14,-10,-2,-9,-2,4,16,4,"bone_dark");
                 }
-                m.box("body","core_frame",0,16,-14,-8,-8,-2,16,16,4,"bone_dark");
-                m.box("core_frame","core",0,0,-2.5F,-5,-6,-1,10,12,3,"ember");
+                m.box("body","core",0,13,-11,-2,-7,-1,4,14,2,"ember");
+                m.box("core","vein_left",-2,-2,0,-6,-1,-.5F,6,2,1,"red");
+                m.box("core","vein_right",2,3,0,0,-1,-.5F,5,2,1,"violet");
+                m.box("body","back_ridge",0,-8,8,-4,-17,-1,8,30,5,"bark");
             }
         }
         var rig=m.bake();
@@ -154,10 +166,11 @@ public final class NavyaMesh {
         if(kind==Kind.ROOTLING)for(int side:new int[]{-1,1}){String n=side<0?"left":"right";var arm=rig.nodes().get("arm_"+n);arm.zRot=-side*.12F;arm.setInitialPose(arm.storePose());for(int i=0;i<3;i++){var finger=rig.nodes().get("finger_"+n+i);finger.zRot=(i-1)*.2F;finger.setInitialPose(finger.storePose());}}
         if(kind==Kind.GUARDIAN)for(var e:rig.nodes().entrySet()){
             String name=e.getKey();float side=name.contains("left")?-1:1;
-            if(name.startsWith("crown_"))e.getValue().zRot=side*.24F;
+            if(name.startsWith("crown_"))e.getValue().zRot=side*.58F;
             if(name.startsWith("burl_"))e.getValue().zRot=side*.2F;
             if(name.startsWith("twig_"))e.getValue().zRot=side*.3F;
-            if(name.startsWith("leg_"))e.getValue().zRot=side*.18F;
+            if(name.startsWith("leg_"))e.getValue().zRot=side*.25F;
+            if(name.startsWith("arm_"))e.getValue().zRot=side*.16F;
             e.getValue().setInitialPose(e.getValue().storePose());
         }
         return rig;

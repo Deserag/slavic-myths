@@ -1,0 +1,16 @@
+{
+  "grove_guardian": {
+    "before_png_matches_c0_parent": true,
+    "after_png_matches_working_source": true
+  },
+  "zharenitsa": {
+    "before_png_matches_c0_parent": true,
+    "after_png_matches_working_source": true
+  },
+  "magma_lord": {
+    "before_png_matches_c0_parent": true,
+    "after_png_matches_working_source": true
+  },
+  "installed_equals_build": true,
+  "production_working_diff": []
+}

@@ -133,7 +133,10 @@ public final class CinderMob extends PathfinderMob {
  @Override protected net.minecraft.sounds.SoundEvent getDeathSound(){return CinderSounds.get("death");}
  @Override protected void dropCustomDeathLoot(ServerLevel level,DamageSource source,boolean hit){
   super.dropCustomDeathLoot(level,source,hit);if(rewarded||kind==Kind.SPARKLING)return;rewarded=true;
-  if(kind==Kind.ZHARENITSA){if(home==null||!CinderEncounters.get(level).canClaim(home.asLong(),getUUID()))return;
+  if(kind==Kind.ZHARENITSA){if(home==null||!CinderEncounters.get(level).canClaim(home.asLong(),getUUID())){
+    if(source.getEntity() instanceof ServerPlayer player)player.displayClientMessage(net.minecraft.network.chat.Component.translatable("cinder.boss.no_arena_reward"),false);
+    return;
+   }
    ServerPlayer winner=source.getEntity() instanceof ServerPlayer p?p:getKillCredit() instanceof ServerPlayer p?p:null;
    if(winner!=null){var pin=org.slavicmyths.losthalls.BossRewardInbox.prepare(level.getServer(),"zharenitsa:"+level.dimension().location()+":"+home.asLong(),"zharenitsa_head",winner.getUUID(),0,level.getServer().overworld().getGameTime());if(pin==null)return;}
    if(!CinderEncounters.get(level).claim(home.asLong(),getUUID()))return;if(winner==null)spawnAtLocation(CinderBlocks.get("zharenitsa_head").asItem());spawnAtLocation(new ItemStack(ZharenitsaSeals.SEAL.get(),4+random.nextInt(3)));spawnAtLocation(CinderContent.RUNE.get());

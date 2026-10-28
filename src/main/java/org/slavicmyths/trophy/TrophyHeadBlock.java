@@ -39,5 +39,8 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
   double height=Math.min(kind.height,1.8);
   server.sendParticles(particle,anchor.getX()+.5,anchor.getY()+height*.5,anchor.getZ()+.5,24,.325,height*.35,.325,.06);
  }
- public static final class Tile extends BlockEntity {public long clientLastFxTick=Long.MIN_VALUE;public float maskAngle,maskPrevious;public int maskCycle;public boolean magmaAwake;public float magmaOpenness;public long magmaPoseTick=Long.MIN_VALUE;public Tile(BlockPos p,BlockState s){super(TrophyHeads.TILE.get(),p,s);}public net.minecraft.world.phys.AABB getRenderBoundingBox(){return new net.minecraft.world.phys.AABB(worldPosition).expandTowards(0,((TrophyHeadBlock)getBlockState().getBlock()).kind.height-1,0);}}
+ public static final class Tile extends BlockEntity {public long clientLastFxTick=Long.MIN_VALUE;public float maskAngle,maskPrevious;public int maskCycle,guardianBurst;public boolean magmaAwake;public float magmaOpenness;public long magmaPoseTick=Long.MIN_VALUE;public Tile(BlockPos p,BlockState s){super(TrophyHeads.TILE.get(),p,s);}
+ @Override public net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket getUpdatePacket(){return net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket.create(this);}
+ @Override public net.minecraft.nbt.CompoundTag getUpdateTag(net.minecraft.core.HolderLookup.Provider lookup){return saveWithoutMetadata(lookup);}
+public net.minecraft.world.phys.AABB getRenderBoundingBox(){return new net.minecraft.world.phys.AABB(worldPosition).expandTowards(0,((TrophyHeadBlock)getBlockState().getBlock()).kind.height-1,0);}}
 }

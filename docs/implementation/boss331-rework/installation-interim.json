@@ -1,0 +1,19 @@
+{
+  "backup_sha256": "d5fbefe1e0041dc3d2c3b32779c4c8f5eee23274089a811fb7843c209f0991f9",
+  "polymc_launches": 0,
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\mod-backups\\20261028-212832-boss331\\slavicmyths-2.0.9-HELL.jar",
+  "base_commit": "d97a625fbe23b9345e7879f39463099fa676b71f",
+  "standalone_server_launches": 0,
+  "single_mod_jar": true,
+  "installed_at": "2026-10-28T21:28:32.8414153+03:00",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.0.10-HELL.jar",
+  "source": "Uncommitted #331 production delta; source-manifest.json and source-delta.zip identify exact bytes",
+  "client_launches": 3,
+  "installed": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.10-HELL.jar",
+  "sha256": "0cb7495d689c5ecb15f739b17f5d767ea7917d343578089a87907ecc68a3271f",
+  "owner_art": "PENDING; original PNG match BLOCKED_REFERENCE",
+  "gametest_launches": 0,
+  "branch": "hell",
+  "other_mods_unchanged": true,
+  "version": "2.0.10-HELL"
+}

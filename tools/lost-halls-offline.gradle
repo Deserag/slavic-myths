@@ -8,6 +8,7 @@ allprojects { p ->
             dependsOn p.tasks.named('lostHallsOfflineClasses')
             classpath = p.sourceSets.lostHallsOffline.runtimeClasspath
             mainClass = 'org.slavicmyths.verify.LostHallsOffline'
+            systemProperty 'halls.logic.report', p.findProperty('hallsLogicReport') ?: 'docs/implementation/lost-halls-2.0.4/offline-logic.json'
         }
         p.tasks.register('exportNether327Models', JavaExec) {
             dependsOn p.tasks.named('lostHallsOfflineClasses')

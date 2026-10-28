@@ -25,7 +25,7 @@ public final class NavyaRigExport {
         }
         var roots=NavyaMesh.roots();var rootEntry=metadata(roots);var rootFrames=new JsonArray();
         for(float age:new float[]{5,19,25,44,53}) {
-            for(var part:roots.nodes().values())part.resetPose();float rise=Math.max(0,Math.min(1,(age-15)/9)),recede=Math.max(0,Math.min(1,(age-45)/15));
+            for(var part:roots.nodes().values())part.resetPose();float rise=Math.max(0,Math.min(1,(age-15)/5)),recede=Math.max(0,Math.min(1,(age-45)/15));
             roots.nodes().get("body").y+=(1-rise+recede)*32;roots.nodes().get("warning").visible=age<23;rootFrames.add(frame(roots,"ROOTS",age));
         }
         rootEntry.add("frames",rootFrames);data.add("navya_roots",rootEntry);

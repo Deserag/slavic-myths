@@ -1,0 +1,26 @@
+{
+  "run": "client-run4.log",
+  "frames": {
+    "00-guardian-front.png": "9abd8d9a8b0cc534bbc4f41eae98762de28f5fe2a8de3a3d3f5a91060be109f4",
+    "01-guardian-three-quarter.png": "f77c0bad7db5a59cfb2b36f125b2db2962f85c5c8c0c2ab7257f144d10f8ca84",
+    "02-guardian-side.png": "37cb3e5c9dfeaceac5574b71c7b815c3d41c7b798ee0c91b5c1191b652550346",
+    "03-guardian-back.png": "d0b653ca4ae546e4ba548887428c61fa23d30f75489d86f88a0a86d6b4af76a5",
+    "04-zharenitsa-front.png": "a4363f357775b8f3b808d20e925c8b0179f025acba71d3886e5ae979ef4c7e26",
+    "05-zharenitsa-three-quarter.png": "7d5d9d89802ce6be5c18debc341029892a3e1e59da622077be152a46f3219179",
+    "06-zharenitsa-side.png": "628206e9dbba4d92e3791790c4e23eeeca065bf477fd0fd2a1651095732872fd",
+    "07-zharenitsa-back.png": "a8208dda5e1091520c3e7795cf28b244ca58d1cc34d24f0b6b5b2277b236dceb",
+    "08-magma_lord-front.png": "0226f3a57612268310abcbe3a986f5c88b215ce0b9eabec35cd8381451dbe3fe",
+    "09-magma_lord-three-quarter.png": "1caf590868b7a83d16401ebf958b24fa59fb3d8292a95d494361eeb55ca3df74",
+    "10-magma_lord-side.png": "36a9ccf8077f57563e224c07c70a9b22465fea3da0b26a541bff803669564e8c",
+    "11-magma_lord-back.png": "f5f0bba17712ab0a213abf9483c3af0f22b4582146bc4c1824c8e8a7c4e87b60",
+    "12-four-trophy-heads.png": "a1341ae6f7d37ac1f7921e5ea9413c0d330fdbcabac7afe52f530f47b6993118",
+    "13-guardian-head-three-quarter.png": "f3e764b874f85cfb89a0d89eae04e50fdf33404697adc61276ba769f91ba46d1",
+    "14-guardian-head-back.png": "8ed62844c27be3e2824b78d00efc909df572b23cfb4c09baada93dddc67c06d9",
+    "15-posten-head-awake.png": "f0a73cb07afa6239695868229785624e24d206b30b494ebe62d5455edba7c91f",
+    "16-zharenitsa-head.png": "444c7c659bb1faef23b199c0b0886cd84cc8028403a8b6de28468b4447ad9809",
+    "17-magma-lord-head.png": "18ab87186151116b03d3d6694ae7edbcfe446973214a6b6dd4251ac75ef1e0b2",
+    "18-magma-lord-phase2.png": "f5924b753cc04cf24a54c721a369361b2f25c8a9140628a7a3e90267129ed6ef",
+    "19-heads-inventory.png": "e9b01d792496c44760d58563283a096c5a2f411da2f1762306876c4421f8f216"
+  },
+  "scope": "Unedited Minecraft framebuffer screenshots"
+}

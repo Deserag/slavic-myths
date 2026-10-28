@@ -1,0 +1,12 @@
+{
+  "source_commit": "d97a625fbe23b9345e7879f39463099fa676b71f",
+  "backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\mod-backups\\20261028-203253-version209\\slavicmyths-2.0.8-HELL.jar",
+  "minecraft_launches": 0,
+  "jar_delta": "Only MANIFEST.MF and neoforge.mods.toml; all classes/resources identical to previous tested candidate",
+  "version": "2.0.9-HELL",
+  "source_delta": "gradle.properties: mod_version only",
+  "sha256": "d5fbefe1e0041dc3d2c3b32779c4c8f5eee23274089a811fb7843c209f0991f9",
+  "installed": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.0-HELL\\.minecraft\\mods\\slavicmyths-2.0.9-HELL.jar",
+  "single_jar": true,
+  "backup_sha256": "4a76d2198a7c3dbad006774586ef8d041bb8df8dfefb5d02f6935896bcec830b"
+}

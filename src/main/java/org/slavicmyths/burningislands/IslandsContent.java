@@ -36,6 +36,7 @@ public final class IslandsContent {
  }
  public static Item item(String id){return MATERIALS.get(id).get();}
  public static void init(net.neoforged.bus.api.IEventBus bus){
+  IslandsSounds.init();
   bus.addListener((net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent e)->TYPES.forEach((k,t)->e.put(t.get(),IslandsMob.attributes(k).build())));
   bus.addListener((net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent e)->{
    for(Kind k:new Kind[]{Kind.HEAT_SALAMANDER,Kind.SLAG_CRAB,Kind.VENT_GOLEM})e.register(TYPES.get(k).get(),SpawnPlacementTypes.ON_GROUND,net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,

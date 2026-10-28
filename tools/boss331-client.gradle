@@ -1,0 +1,13 @@
+// Owner explicitly authorized one disposable client/world for actual screenshots.
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { boss331Client { java.srcDir 'tools/boss331-client' } }
+ p.sourceSets.boss331Client.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.boss331Client.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileBoss331ClientJava'){dependsOn p.tasks.named('classes')}
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.boss331Client)
+} }
+gradle.projectsEvaluated { def p=gradle.rootProject
+ p.neoForge.runs.client.systemProperty 'boss331.inventoryOnly', (p.findProperty('boss331InventoryOnly') ?: 'false')
+ p.neoForge.runs.client.gameDirectory=p.file('work/boss331-client')
+ p.neoForge.runs.client.programArguments.addAll('--width','1600','--height','1000')
+}

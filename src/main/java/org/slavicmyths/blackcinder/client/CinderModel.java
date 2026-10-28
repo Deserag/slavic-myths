@@ -33,9 +33,10 @@ public final class CinderModel extends HierarchicalModel<CinderMob> {
    if(n.startsWith("leg")){int i=n.charAt(3)-'0';p.xRot=(float)Math.cos(walk*.7+(i%2)*Math.PI)*amount*.6F;}
    if(n.startsWith("cloud")||n.startsWith("fleck")){p.y+=(float)Math.sin(age*.06+n.hashCode())*1.5F;p.yRot=(float)Math.sin(age*.025+n.hashCode())*.25F;}
    if(kind==CinderContent.Kind.ASH_SPIRIT&&(n.startsWith("cloud")||n.equals("whorl"))&&(action==CinderMob.Action.SMOKE||action==CinderMob.Action.PULSE)){float spread=active?1+(float)Math.sin(Math.min(Math.PI,(time-wind)*.18))*.5F:1-charge*.35F;p.x*=spread;p.z*=spread;p.yRot+=charge*.8F;if(n.equals("whorl"))p.xRot=charge*.18F;}
-   if(n.startsWith("ribbon")||n.startsWith("hair")){p.xRot+=(float)Math.sin(age*.045+n.hashCode())*(second?.22F:.1F);p.zRot+=(float)Math.sin(age*.035+n.hashCode())*.08F;}
+   if(n.startsWith("ribbon")||n.startsWith("hair")||n.startsWith("ash_tress")){p.xRot+=(float)Math.sin(age*.045+n.hashCode())*(second?.22F:.1F);p.zRot+=(float)Math.sin(age*.035+n.hashCode())*.08F;}
+   if(n.startsWith("gown")||n.startsWith("fold")){p.zRot+=(float)Math.sin(age*.035+n.hashCode())*.025F;p.y+=(float)Math.sin(age*.04+n.hashCode())*.3F;}
    if(n.startsWith("arm")){
-    p.zRot=(n.endsWith("0")?1:-1)*.16F;
+    p.zRot+=(n.endsWith("0")?1:-1)*.07F;
     if(action!=CinderMob.Action.IDLE){p.xRot=active?(float)Math.sin((time-wind)*.2)*.45F:-charge*1.4F;if(action==CinderMob.Action.VORTEX)p.zRot=(n.endsWith("0")?1:-1)*1.15F;}
     if(action==CinderMob.Action.COAL&&n.endsWith("0"))p.xRot=-.15F;
    }

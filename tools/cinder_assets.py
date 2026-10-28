@@ -184,6 +184,7 @@ def rigs():
    assert cursor_y+h+2<=atlas
    part['uv']=[cursor_x,cursor_y];rowh=max(rowh,h)
    palette={'coal':[(32,29,30),(45,39,36),(22,23,25)],'ash':[(108,105,101),(77,76,75),(139,134,125)],'ember':[(204,76,20),(245,132,35),(255,181,62)]}[part['material']]
+   if name=='zharenitsa' and part['material']=='ash':palette=[(76,72,75),(56,53,59),(107,101,102)]
    for y in range(cursor_y,cursor_y+h):
     for x in range(cursor_x,cursor_x+w):
      rgb=rng.choice(palette) if (x//2+y//3)%5==0 else palette[0];im.putpixel((x,y),(*rgb,255))
@@ -194,7 +195,11 @@ def rigs():
     for off in range(0,w,13):
      points=[(cursor_x+off,cursor_y+2),(cursor_x+off+2,cursor_y+h//2),(cursor_x+min(w-1,off+1),cursor_y+h-1)];d.line(points,fill='#c66025');g.line(points,fill='#b34b1f')
    cursor_x+=w+2
-  out=A/'textures/entity';out.mkdir(parents=True,exist_ok=True);im.save(out/(name+'.png'));glow.save(out/(name+'_glow.png'));write(A/f'cinder_rigs/{name}.json',{'atlas':atlas,'parts':parts});allrigs[name]=parts
+  out=A/'textures/entity';out.mkdir(parents=True,exist_ok=True)
+  for image,suffix in [(im,''),(glow,'_glow')]:
+   path=out/(name+suffix+'.png')
+   if not path.exists() or Image.open(path).convert('RGBA').tobytes()!=image.tobytes():image.save(path)
+  write(A/f'cinder_rigs/{name}.json',{'atlas':atlas,'parts':parts});allrigs[name]=parts
  write(R/'docs/implementation/black-cinder-production/rig-ledger.json',allrigs)
 
 def main():
@@ -221,6 +226,7 @@ def main():
   for name,pair in NAMES.items():d['block.slavicmyths.'+name]=pair[index]
   for name,pair in MOBS.items():d['entity.slavicmyths.'+name]=pair[index];d['item.slavicmyths.'+name+'_spawn_egg']=('Яйцо призыва: ' if index==0 else 'Spawn Egg: ')+pair[index]
   for name,pair in materials.items():d['item.slavicmyths.'+name]=pair[index]
+  d['cinder.boss.no_arena_reward']=['Награды Жареницы выдаются за победу на зарегистрированной природной арене.','Zharenitsa rewards require a registered natural arena victory.'][index]
   d['item.slavicmyths.infected_medium_soul']=('Заражённая душа средней силы','Medium Infected Soul')[index]
   d['biome.slavicmyths.black_cinder']=('Чёрная гарь','Black Cinder')[index]
   d['cinder.mantle.desc']=('ПКМ: на 8 с уменьшает огненный урон на 40%; один ответный порыв. Перезарядка 30 с.','Use: 8s of 40% fire damage reduction; one retaliation gust. 30s cooldown.')[index]
