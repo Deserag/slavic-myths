@@ -1,0 +1,20 @@
+# Матрица до реализации — 28.10.2026
+
+| REQUIREMENT | ISSUE | PRODUCTION_CODE/ASSET | PLAYER_PATH | CHECK_OR_STEPS | EVIDENCE | PASS/FAIL/BLOCKED/NOT_RUN |
+|---|---|---|---|---|---|---|
+| Строгий ocean-only registered biome/3D quart selection, без материка/малых карманов | #313/#306 | MultiNoiseBiomeSource/NoiseBasedChunkGenerator/NavyaPresetAccess | Survival→портал→новые чанки океана | 5+seed,3D mask,locate read-only | architecture analysis pending | NOT_RUN |
+| Проходимые плоские острова, пологий вулкан, кратер lava, безопасные швы и структуры/руды/порталы, без ретрогена/chunkloads | #313/#312 | current Nether generator | обычный подъём и переправы | deterministic topology, terrain, old/new world | pending | NOT_RUN |
+| 3 EntityType, нейтральность, настоящий виновник, alarm только existing same type, без summon/каскада/chunkload | #316 | burningislands planned entities | встретить→атаковать→сородичи помогают | negative:creative,spectator,NPC,projectile,death/logout,MP | pending | NOT_RUN |
+| HP55/55/150,тревога16б/200t,память600t; damage6/7/12 speed.24/.20/.18; weights12/10/3 packs1–2/1–2/1 | #316 | owner replies in this chat | fight | attributes+offline/runtime | explicitly owner-approved28.10 | NOT_RUN |
+| 5 ресурсов, реальные модели/иконки,creative,RU/EN,loot,recipes/JEI;фрагмент22.5%,кожа50%,клешня10%;ядро4сгустка | #316 | pending | kill→craft→use | negative full inventory/reload; useful skin/claw consumers | owner-approved28.10 | NOT_RUN |
+| Руна I2HP/2s;II4HP/4s;общий40t cooldown,нагрудник,не складываются;I fragment+core+2skin+claw+blank;II2I+2core | #314 | native Runes/forge planned | craft→socket→hurt→retaliation→remove | actual post damage,recursion,PVP,server authority,NBT/enchant preserved | owner-approved28.10 | NOT_RUN |
+| Временная магма II только доказуемо природная, exact restore/pos/state/owner/expiry;overlap/replacement/claims/unload/logout/crash/restart | #314 | safety gate before any setBlock | combat on allowed terrain | unproven provenance must refuse mutation | no durable natural-block provenance in current code | BLOCKED |
+| 850HP/425phase,neutral,6 distinct server telegraphs14/18/0/16/18/20,Normal/Hard,weak core,anti-chain/NPC/ranged | #319 | pending | provoke→dodge→win | timeline/geometry + real armor gameplay | pending | NOT_RUN |
+| Guaranteed crater arena for every connected biome, dry platform/moat/bridges,home/UUID/phase/death/reward persistence/no duplicate | #320 | dependent on313 | walk to boss without OP | 5seeds/reload/MP | ocean architecture unresolved | BLOCKED |
+| Head1/heart1/core4–6/existing infected soul1,one-time safe reward/full inventory/lava/MP | #321 | existing trophy and soul systems | defeat→collect | actual delivery+relog/crash | pending | NOT_RUN |
+| Trophy floor/wall/facings,static GUI,jaw/shards/glow,6/8hysteresis,10heads,client-only/no world effect | #321 | existing TrophyHeads | place→approach→leave→break/relog | native poses+runtime | pending | NOT_RUN |
+| Original5PNG SHA/import;actual distinct ModelPart/UV/PNG idle/walk/react/warn/attack/hurt/death/boss timelines;native before/after | #318 | references+models | see models | raw search/import→native renders→ownerA/B | namedZIP not found in Downloads/Documents/attachments | BLOCKED_REFERENCE_BINARY |
+| Genuine distinct OGG/legal license,event→file→callsite,RU/ENsubtitles,volume/10heads/MP/JAR | #322 | no supplied recordings | hear telegraphs | real audio source + owner listening | no recordings supplied | BLOCKED_NEEDS_AUDIO_SOURCE |
+| Java21 clean build,production class/resource JAR,sourceSHA,singlewriter,unchanged version/no other branches | #323 | build/libs | owner installs later | build/resource/JAR audit | pending | NOT_RUN |
+| No315/smallbuildings/trees/fluids/gear/runeIII;preserve3biomes/IDs/saves | all | scoped source diff | old worlds remain usable | baseline hashes/diff + runtime copy | baseline-production.json | NOT_RUN |
+| Runtime/5seeds/worlds/MP/performance/owner acceptance | all | owner checklist | full Survival chain | Minecraft/PolyMC/GameTest/server forbidden by current assignment | 0 launches this task;previous task launch is not205evidence | NOT_RUN |

@@ -3497,3 +3497,18 @@ loot.StructureRewards276 — pure String policy, без hooks/ticks/world access
 ## 28.10.2026 — локальная сборка и отдельный PolyMC Testing
 
 hell35c81997: Java21 clean build PASS26s, production2.0.8-HELL установлен в новый экземпляр1.21.1/NeoForge21.1.255/Curios9.5.1; исходники и старые1.16.5 не изменены. Один клиент загрузил ресурсы без ERROR/FATAL и закрыт, миры0; визуальное меню NOT_RUN (capture timeout), gameplay/MP NOT_RUN. Чертоги НЕ ГОТОВЫ; приёмка не заявлена. [Матрица, SHA, пути, логи и ручные шаги](implementation/build-install-20261028/REPORT.md).
+
+
+## 28.10.2026 — Горючие острова 2.0.5: независимый код, IN_PROGRESS / BLOCKED
+
+hell, source f9beb28d: зарегистрированы три нейтральных моба и босс 850 HP,
+написаны отдельные ModelPart/UV/PNG, материалы, рецепты, ответный эффект рун I/II,
+новая голова в прежней TrophyHeads и журнал/inbox наград. Native/UV, прежние шесть
+голов и resource/JAR gates PASS; Java21 clean build 21s, 8302 ресурса/2049 классов.
+Настоящих ocean-only selection, островов, вулкана и арены НЕТ: 534/1053 проб
+гипотетического climate append не имеют lava на уровне моря (5 native noise seed).
+Временная магма II, PNG match, genuine audio и cross-player crash authority BLOCKED.
+Реальные AI/бой/MP/performance NOT_RUN; игровых запусков этой задачи 0.
+Новый кандидат SHA256 102952bb4c573fcb370c13fca2e702d19fed189d6d965d89aa26cdde677cc9ab
+не установлен в PolyMC. Не DONE, приёмка владельцем отсутствует, Issues/Project не менялись.
+[Полный отчёт, матрица и ручной checklist](implementation/burning-islands-205/FINAL_QA_REPORT.md).

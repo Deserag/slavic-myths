@@ -1,0 +1,39 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileIslandsOfflineJava
+> Task :processIslandsOfflineResources NO-SOURCE
+> Task :islandsOfflineClasses
+
+> Task :verifyBurningIslandsOffline
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+Exception in thread "main" java.lang.NullPointerException: Trying to access unbound value: ResourceKey[minecraft:attribute / neoforge:swim_speed]
+	at net.neoforged.neoforge.registries.DeferredHolder.value(DeferredHolder.java:103)
+	at net.minecraft.world.entity.ai.attributes.AttributeInstance.<init>(AttributeInstance.java:37)
+	at net.minecraft.world.entity.ai.attributes.AttributeSupplier$Builder.create(AttributeSupplier.java:89)
+	at net.minecraft.world.entity.ai.attributes.AttributeSupplier$Builder.add(AttributeSupplier.java:99)
+	at net.minecraft.world.entity.LivingEntity.createLivingAttributes(LivingEntity.java:332)
+	at net.minecraft.world.entity.Mob.createMobAttributes(Mob.java:160)
+	at org.slavicmyths.burningislands.IslandsMob.attributes(IslandsMob.java:36)
+	at org.slavicmyths.verify.IslandsOffline.main(IslandsOffline.java:45)
+
+> Task :verifyBurningIslandsOffline FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':verifyBurningIslandsOffline'.
+> Process 'command 'C:\Users\user\Documents\slavic-myths\.tools\jdk21\jdk-21.0.12.1+1\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 10s
+6 actionable tasks: 3 executed, 3 up-to-date
