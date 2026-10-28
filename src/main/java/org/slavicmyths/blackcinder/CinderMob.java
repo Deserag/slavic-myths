@@ -133,7 +133,7 @@ public final class CinderMob extends PathfinderMob {
  @Override protected net.minecraft.sounds.SoundEvent getDeathSound(){return CinderSounds.get("death");}
  @Override protected void dropCustomDeathLoot(ServerLevel level,DamageSource source,boolean hit){
   super.dropCustomDeathLoot(level,source,hit);if(rewarded||kind==Kind.SPARKLING)return;rewarded=true;
-  if(kind==Kind.ZHARENITSA){if(home!=null&&!CinderEncounters.get(level).claim(home.asLong(),getUUID()))return;spawnAtLocation(CinderBlocks.get("zharenitsa_head").asItem());spawnAtLocation(new ItemStack(ZharenitsaSeals.SEAL.get(),4+random.nextInt(3)));spawnAtLocation(CinderContent.RUNE.get());
+  if(kind==Kind.ZHARENITSA){if(home==null||!CinderEncounters.get(level).claim(home.asLong(),getUUID()))return;spawnAtLocation(CinderBlocks.get("zharenitsa_head").asItem());spawnAtLocation(new ItemStack(ZharenitsaSeals.SEAL.get(),4+random.nextInt(3)));spawnAtLocation(CinderContent.RUNE.get());
    var soul=new ItemStack(org.slavicmyths.rpg.RuneFoundation.item("soul"));var tag=new CompoundTag();tag.putBoolean("slavicmyths_infected_medium",true);soul.set(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.of(tag));soul.set(net.minecraft.core.component.DataComponents.CUSTOM_NAME,net.minecraft.network.chat.Component.translatable("item.slavicmyths.infected_medium_soul"));spawnAtLocation(soul);
   }
  }
