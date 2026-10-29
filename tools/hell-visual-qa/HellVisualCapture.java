@@ -119,7 +119,14 @@ public final class HellVisualCapture {
         p.stopUsingItem();p.setShiftKeyDown(v.crouch);p.setGameMode(v.mode.equals("spectator")||v.mode.equals("mobwalk")?GameType.SPECTATOR:GameType.CREATIVE);
         for(var actor:ACTORS.values())if(!actor.isNoAi()){actor.getNavigation().stop();actor.setNoAi(true);}
         if(v.mode.equals("mobwalk")){
-            var actor=ACTORS.get(v.name.substring(0,v.name.length()-5));actor.setNoAi(false);actor.setTarget(null);
+            var actor=ACTORS.get(v.name.substring(0,v.name.length()-5));
+            // A NoAi actor placed exactly on the slab has never integrated a landing.
+            // GroundPathNavigation refuses canUpdatePath while onGround is still false.
+            // These temporary tickets belong only to the disposable visual fixture.
+            var chunk=actor.chunkPosition();
+            for(int dx=-1;dx<=1;dx++)for(int dz=-1;dz<=1;dz++)p.serverLevel().setChunkForced(chunk.x+dx,chunk.z+dz,true);
+            if(!p.serverLevel().getBlockState(actor.blockPosition().below()).is(Blocks.SMOOTH_STONE))throw new AssertionError("Crawler fixture floor missing");
+            actor.setOnGround(true);actor.setNoAi(false);actor.setTarget(null);
             if(!actor.getNavigation().moveTo(actor.getX()+4,actor.getY(),actor.getZ(),.7))throw new AssertionError("Actual crawler navigation refused fixture route: "+v.name);
         }
         p.getInventory().clearContent();p.getInventory().selected=0;
