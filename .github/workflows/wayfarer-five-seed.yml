@@ -1,5 +1,5 @@
 name: Wayfarer natural generation five-seed headless QA
-# Revalidate 2.1.3 one-block natural floor grading after 9aa872b.
+# Revalidate one-block grading and bounded same-chunk fallback after 5996c5c.
 on:
   push:
     branches: [hell]
