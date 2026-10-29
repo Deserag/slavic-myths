@@ -75,7 +75,7 @@ public final class NetherWatchpostPiece extends StructurePiece {
         }
         if (y == 0 && ax <= 4 && az <= 4) return Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState();
         if (y == deck && ax <= 5 && az <= 5) {
-            if (x == 0 && z == 0) return Blocks.AIR.defaultBlockState(); // continuous ladder opening
+            if (x == 0 && z == 0) return Blocks.LADDER.defaultBlockState().setValue(LadderBlock.FACING, Direction.SOUTH); // vertical access through the deck
             return ax == 5 || az == 5 ? Blocks.POLISHED_BLACKSTONE_BRICK_SLAB.defaultBlockState()
                     : Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState();
         }
