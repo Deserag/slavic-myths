@@ -77,7 +77,7 @@ public final class BridgeQaTests {
   check(placement!=null,"No native bridge structure_set");
   var generator=world.getChunkSource().getGenerator();
   int sampled=0,plans=0;
-  for(int ring=0;ring<=6;ring++)for(int gx=-ring;gx<=ring;gx++)for(int gz=-ring;gz<=ring++){
+  for(int ring=0;ring<=6;ring++)for(int gx=-ring;gx<=ring;gx++)for(int gz=-ring;gz<=ring;gz++){
    if(Math.max(Math.abs(gx),Math.abs(gz))!=ring)continue;
    var cp=placement.getPotentialStructureChunk(world.getSeed(),gx*placement.spacing(),gz*placement.spacing());
    if(!placement.applyAdditionalChunkRestrictions(cp.x,cp.z,world.getSeed()))continue;
