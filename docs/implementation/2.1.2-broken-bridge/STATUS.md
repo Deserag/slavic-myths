@@ -43,3 +43,21 @@ No owner acceptance, Issue closing, `main` modifications, force-push, user-deskt
 - Follow-up [8530018](https://github.com/Deserag/slavic-myths/commit/853001826e04d64c2c10cad5b1b272afb7075305) broadens safe local bank probes (centre and four ±6 positions); ruin variants with pier footings may have an intentionally unsupported *destination shore* while intact bridges still require both banks. Every constructed pier still searches up to 24 blocks down for actual natural rock, no forced lava-sea fill. **Requires independent rerun** at [40838712956](https://github.com/Deserag/slavic-myths/actions/runs/40838712956); no PASS assumed prior to its result.
 
 All owner-visual, five-seed, multiplayer and game-world acceptance gates remain open even if the one-seed headless check later passes.
+
+## Follow-up: direct regression and independent seed run, 29.10.2026
+
+The above early candidate statuses are historic. Verified actual later GitHub Actions logs (do **not** treat every checked candidate as a placed bridge):
+
+- [40838712956](https://github.com/Deserag/slavic-myths/actions/runs/40838712956) **FAIL** 15/16 despite real accepted start: deck overlapped `crimson_roots` at (208,40,-807).
+- [40839950532](https://github.com/Deserag/slavic-myths/actions/runs/40839950532) **FAIL** 15/16: deck overlapped `crimson_fungus` at (212,40,-808), after moving bridge to the `top_layer_modification` generation step.
+- [40841112330](https://github.com/Deserag/slavic-myths/actions/runs/40841112330) **FAIL** 17/19: `weeping_vines` overlapped the bridge (211,40,-807). The expanding QA suite includes Wayfarer tests.
+- [40842160665](https://github.com/Deserag/slavic-myths/actions/runs/40842160665) **FAIL** 18/21: physical bridge headroom blocked (211,40,-807). All 64 authored bridge geometry profiles still PASS; physical result does not.
+- [five-seed run 40842359154](https://github.com/Deserag/slavic-myths/actions/runs/40842359154), build on `6f340715`:
+  - seed `20261025`: **PASS** genuine natural bridge, chunk [91,-70], biome `minecraft:nether_wastes`, length38 variant2, 33 road steps / 165 unobstructed road cells; entire 21-test headless suite PASS.
+  - seed `3412026`: bridge **PASS**, chunk [-95,1], `minecraft:nether_wastes`, length38 variant3, 30 steps / 150 road cells; separate Wayfarer/boss checks failed.
+  - seed `9132026`: bridge **PASS**, chunk [62,-25], `slavicmyths:navya_grove`, length30 variant2, 25 steps / 125 cells; separate Wayfarer check failed.
+  - seed `20261026`: bridge **FAIL**, `crimson_stem` at (1870,33,-2023).
+  - seed `20261024`: bridge **FAIL**, obstructed deck headroom (211,40,-807).
+- Follow-up [258c7f1](https://github.com/Deserag/slavic-myths/commit/258c7f15490070566c448361ab1e87deee3f9926) permits removal of identified *naturally generated* fungal tree parts from the structure footprint, and expands finite Wayfarer preflight. Re-evaluate at the next CI; this is not a verified PASS yet.
+
+There is confirmed natural worldgen on multiple fresh Nether seeds, **but 2.1.2 remains FAIL as cross-seed geometry regression until a repeat pass**. Owner visual/survival and multiplayer/restart are still `NOT_RUN`; the Issue stays OPEN and no owner acceptance is asserted.
