@@ -103,7 +103,10 @@ public final class WayfarerPiece extends StructurePiece {
             old.is(Blocks.NETHER_SPROUTS) || old.is(Blocks.WEEPING_VINES) ||
             old.is(Blocks.WEEPING_VINES_PLANT) || old.is(Blocks.TWISTING_VINES) ||
             old.is(Blocks.TWISTING_VINES_PLANT) || old.is(Blocks.BROWN_MUSHROOM) ||
-            old.is(Blocks.RED_MUSHROOM) ||
+            old.is(Blocks.RED_MUSHROOM) || old.is(Blocks.CRIMSON_STEM) ||
+            old.is(Blocks.WARPED_STEM) || old.is(Blocks.CRIMSON_HYPHAE) ||
+            old.is(Blocks.WARPED_HYPHAE) || old.is(Blocks.NETHER_WART_BLOCK) ||
+            old.is(Blocks.WARPED_WART_BLOCK) || old.is(Blocks.SHROOMLIGHT) ||
             (old.canBeReplaced() && old.getFluidState().isEmpty());
     }
     private static final java.util.concurrent.atomic.AtomicInteger DEBUG_REJECTIONS =

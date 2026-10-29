@@ -47,7 +47,9 @@ public final class NetherBridgePiece extends StructurePiece {
     s.is(Blocks.NETHER_SPROUTS)||s.is(Blocks.WEEPING_VINES)||
     s.is(Blocks.WEEPING_VINES_PLANT)||s.is(Blocks.TWISTING_VINES)||
     s.is(Blocks.TWISTING_VINES_PLANT)||s.is(Blocks.BROWN_MUSHROOM)||
-    s.is(Blocks.RED_MUSHROOM);
+    s.is(Blocks.RED_MUSHROOM)||s.is(Blocks.CRIMSON_STEM)||
+    s.is(Blocks.WARPED_STEM)||s.is(Blocks.CRIMSON_HYPHAE)||s.is(Blocks.WARPED_HYPHAE)||
+    s.is(Blocks.NETHER_WART_BLOCK)||s.is(Blocks.WARPED_WART_BLOCK)||s.is(Blocks.SHROOMLIGHT);
  }
  private boolean battered(int lane,int t){
   long h=seed+lane*73856093L+t*19349663L;

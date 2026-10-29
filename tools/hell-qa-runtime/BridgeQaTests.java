@@ -106,7 +106,7 @@ public final class BridgeQaTests {
      check(actual.is(Blocks.POLISHED_BLACKSTONE_BRICKS)||actual.is(Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS)||
            actual.is(Blocks.POLISHED_BLACKSTONE),"Native physical deck lane missing at "+pos+" got="+actual);
      check(world.isEmptyBlock(pos.above())&&world.isEmptyBlock(pos.above(2)),
-        "Native bridge 5-lane headroom blocked at "+pos);
+        "Native bridge 5-lane headroom blocked at "+pos+" above="+world.getBlockState(pos.above())+" above2="+world.getBlockState(pos.above(2)));
      lanes++;
     }
    }

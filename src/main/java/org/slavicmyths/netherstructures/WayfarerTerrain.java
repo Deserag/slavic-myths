@@ -38,8 +38,8 @@ public final class WayfarerTerrain {
     }
     public static Plan find(Structure.GenerationContext c) {
         int cx=c.chunkPos().getMiddleBlockX(), cz=c.chunkPos().getMiddleBlockZ();
-        int[][] offsets={{0,0},{-2,0},{2,0},{0,-2},{0,2}};
-        int minY=Math.max(33,c.heightAccessor().getMinBuildHeight()+4);
+        int[][] offsets={{0,0},{-2,0},{2,0},{0,-2},{0,2},{-3,-2},{3,2},{-2,3},{2,-3}};
+        int minY=Math.max(24,c.heightAccessor().getMinBuildHeight()+4);
         int maxY=Math.min(106,c.heightAccessor().getMaxBuildHeight()-9);
         // Columns are immutable terrain samples; cache within this one candidate only.
         Map<Long,NoiseColumn> columns=new HashMap<>();
