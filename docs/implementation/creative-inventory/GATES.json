@@ -2,7 +2,7 @@
   "status": "PASS",
   "version": "2.1.6-HELL",
   "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.1.6-HELL.jar",
-  "sha256": "51ce73c42243bb48dfaf5aabaab8ba6003ff09d8be39f375b3bd171cffd9ca95",
+  "sha256": "039da8ed774e44065bef750657d94f3791d689a04a8062d82b0396907867a4de",
   "source_items": 1045,
   "categories": {
     "slavicmyths": 3,
@@ -37,7 +37,7 @@
     "veles_dark_wort",
     "witch_berry_wort"
   ],
-  "checks": 20005,
+  "checks": 20020,
   "scope": "CURRENT_SOURCE_STATIC + pure Java parser + production resources; not a loaded registry/gameplay/visual test",
   "client_starts": 0,
   "server_starts": 0,

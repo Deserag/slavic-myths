@@ -26,10 +26,10 @@
 ## Добавлено из #349 — точный scope
 | ID | Owner requirement | Current result | Evidence |
 |---|---|---|---|
-| O-12 | King cape/body anchor, colors/glow, Steve/Alex; approved design сохранить | GUI run IN_PROGRESS; native UV/vertices проверены, визуальный PASS не дан | home-desktop-sync-20261029/ENVIRONMENT.md |
-| O-13 | Infernal bow actual creative/survival shots/ammo/special/CD/hit | HEADLESS_PASS для ammo/undercharge/one arrow/one consumption/damage/fire; actual GUI pending | bow349.log, fire-integration-v4.log |
-| O-14 | Short/heavy bow GUI/first/third orientation/draw | source/timing есть, current in-game visual pending | GitHub isolated visual40904333746 |
-| O-15 | Separate heads tab, six Chud tools category, RU/EN | Java2115 + static20005 PASS; explicit RU heads добавлена; actual creative tab GUI NOT_RUN | creative-inventory/GATES.json |
+| O-12 | King cape/body anchor, colors/glow, Steve/Alex; approved design сохранить | Crouch cape fix c38c593b; actual SLIM/WIDE before/after +run/jump/elytra/glint/trim; original color/design comparison BLOCKED_ART_SOURCE | home-desktop-sync-20261029/CURRENT.md |
+| O-13 | Infernal bow actual creative/survival shots/ammo/special/CD/hit | HEADLESS_PASS для ammo/undercharge/one arrow/one consumption/damage/fire; actual draw/left/third/GUI screenshots сохранены; final full regression capture ожидается | bow349.log, fire-integration-v4.log |
+| O-14 | Short/heavy bow GUI/first/third orientation/draw | исправлен display basis040655d5,96native checks; actual SLIM/WIDE draw/left/third/GUI after f83 сохранены | home-desktop-sync-20261029/bow-client-slim иbow-client-wide |
+| O-15 | Separate heads tab, six Chud tools category, RU/EN | Java2115 + static20020 PASS; explicit RU heads; actual selected Creative tabs11heads/6Chudtools/armor вобоихskinmodels | creative-inventory/GATES.json |
 | O-16 | Chud4 approved16×16preview before production replacement | OWNER_PENDING; финальныеPNG не менялись | chud298-preview-20261027/APPROVED_REFERENCE.md |
 
 Source: [#349](https://github.com/Deserag/slavic-myths/issues/349), [#298](https://github.com/Deserag/slavic-myths/issues/298). Не приписывать первичным регрессиям эти статусы как полную приёмку.

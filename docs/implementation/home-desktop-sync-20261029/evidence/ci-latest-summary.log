@@ -1,0 +1,3 @@
+headless	Clean production JAR and offline checks	2026-10-29T17:01:45.8117609Z BUILD SUCCESSFUL in 1m 18s
+headless	Headless GameTest against packaged production JAR	2026-10-29T17:02:50.0804102Z [17:02:50] [Server thread/INFO] [minecraft/GameTestServer]: All 36 required tests passed :)
+headless	Headless GameTest against packaged production JAR	2026-10-29T17:02:53.4746699Z BUILD SUCCESSFUL in 1m 6s

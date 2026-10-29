@@ -1,11 +1,12 @@
 {
   "version": "2.1.6-HELL",
-  "source_commit": "e760aabb10d26b0428cc5f6ff50acdf15926b714",
+  "source_commit": "5748bcf137f77d327cf07720e323a03d81238445",
   "installed_path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-2.1.6-HELL.jar",
-  "sha256": "51ce73c42243bb48dfaf5aabaab8ba6003ff09d8be39f375b3bd171cffd9ca95",
-  "backup_path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\mod-backups\\20261029-e760aabb\\slavicmyths-2.1.6-HELL.jar",
-  "backup_sha256": "1cf4a2d8b16a301f475ed6fdf093d827d5adb7c1d2ae7367531a665da6c09032",
+  "sha256": "039da8ed774e44065bef750657d94f3791d689a04a8062d82b0396907867a4de",
+  "backup_path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\mod-backups\\20261029-5748bcf1\\slavicmyths-2.1.6-HELL.jar",
+  "backup_sha256": "51ce73c42243bb48dfaf5aabaab8ba6003ff09d8be39f375b3bd171cffd9ca95",
+  "instance_cfg_backup": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\mod-backups\\20261029-5748bcf1\\instance.cfg",
   "single_slavicmyths_mod_id": true,
-  "note": "Testing instance only; headless CI40904333901 success; isolated GUI40904333746 pending; not release/owner acceptance",
+  "note": "Technical Testing delivery; not final release or art/audio acceptance. Local GUI launches0. Production inputs unchanged by subsequent QA/docs commits.",
   "local_client_launches_by_agent": 0
 }
