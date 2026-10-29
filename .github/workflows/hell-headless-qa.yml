@@ -1,0 +1,62 @@
+name: Hell isolated headless QA (Java 21)
+on:
+  push:
+    branches: [hell]
+    paths:
+      - 'src/**'
+      - 'tools/hell-qa-runtime/**'
+      - 'tools/hell-qa-runtime-resources/**'
+      - 'tools/hell-qa-runtime.gradle'
+      - 'tools/verify_current_resources.py'
+      - 'build.gradle'
+      - 'gradle.properties'
+      - '.github/workflows/hell-headless-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  headless:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install resource checker dependency
+        run: python -m pip install Pillow
+      - name: Clean production JAR and offline checks
+        shell: bash
+        run: |
+          set -o pipefail
+          chmod +x gradlew
+          ./gradlew --no-daemon clean build --console=plain 2>&1 | tee /tmp/hell-build.log
+          mkdir -p build/hell-ci
+          cp /tmp/hell-build.log build/hell-ci/build.log
+      - name: Verify resources and record SHA256
+        shell: bash
+        run: |
+          set -o pipefail
+          python tools/verify_current_resources.py 2>&1 | tee build/hell-ci/resources.log
+          sha256sum build/libs/slavicmyths-*.jar | tee build/hell-ci/jar-sha256.txt
+      - name: Headless GameTest against packaged production JAR
+        shell: bash
+        run: |
+          set -o pipefail
+          ./gradlew --no-daemon -I tools/hell-qa-runtime.gradle runHellQa \
+            -PhellQaDir=work/hell-qa-20261029/github-actions \
+            -PhellQaSeed=20261024 --console=plain 2>&1 | tee build/hell-ci/game-test.log
+      - name: Preserve logs and candidate JAR (not owner acceptance)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hell-headless-${{ github.sha }}
+          path: |
+            build/hell-ci/
+            build/libs/slavicmyths-*.jar
+          if-no-files-found: warn
+          retention-days: 14
