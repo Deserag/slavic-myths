@@ -35,3 +35,11 @@ The original raster concept from ChatGPT is **not** present in GitHub: `ART_BLOC
 | FPS/MSPT and true multiplayer/restart | Requirements 12,13 | Dedicated server + client | NOT_RUN |
 
 No owner acceptance, Issue closing, `main` modifications, force-push, user-desktop interactions or PolyMC changes were performed. Do not claim the candidate production-ready from a clean build alone.
+
+## CI evidence and diagnosed natural-worldgen failure
+
+- [Run 40837834811](https://github.com/Deserag/slavic-myths/actions/runs/40837834811): Java 21 build & resources **PASS**, server test source initially had a missing `gz++` in a loop (**TEST_COMPILE_FAIL**). Repaired in `a86883f`.
+- [Run 40838225692](https://github.com/Deserag/slavic-myths/actions/runs/40838225692): Java21 clean build, resource scan, and **15 of 16 GameTests PASS** (all previous 2.0/2.1.1 tests plus 2.1.2 sixty-four variant geometry checks). **Natural bridge test FAIL**: seed `20261024`, 130 candidate cells within 13×13 grid, **0 accepted starts**. Never reinterpret code registration as natural placement PASS.
+- Follow-up [8530018](https://github.com/Deserag/slavic-myths/commit/853001826e04d64c2c10cad5b1b272afb7075305) broadens safe local bank probes (centre and four ±6 positions); ruin variants with pier footings may have an intentionally unsupported *destination shore* while intact bridges still require both banks. Every constructed pier still searches up to 24 blocks down for actual natural rock, no forced lava-sea fill. **Requires independent rerun** at [40838712956](https://github.com/Deserag/slavic-myths/actions/runs/40838712956); no PASS assumed prior to its result.
+
+All owner-visual, five-seed, multiplayer and game-world acceptance gates remain open even if the one-seed headless check later passes.
