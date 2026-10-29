@@ -32,3 +32,14 @@ Owner override: the owner explicitly instructed work on the 2.1 series **before*
 | 2.1.2 / 2.1.3 / 2.1.4 and others | Their original Issues remain separate, no speculative item additions | NOT_STARTED |
 
 The original 2.0 technical JAR and test logs remain untouched. This work does not install a new JAR in the owner's PolyMC or modify `main`. Latest clean Java21 build, actual run, source SHA, JAR checksum and regression results must be added after completed CI. No issue closed.
+
+## First verified 2.1.1 candidate — 29.10.2026
+
+- Candidate branch/source at test: `hell`, [738e8f78e57aafd66a54efa10ddcb2fd37b3f208](https://github.com/Deserag/slavic-myths/commit/738e8f78e57aafd66a54efa10ddcb2fd37b3f208).
+- GitHub Actions [run 40836266223](https://github.com/Deserag/slavic-myths/actions/runs/40836266223), **success**: Java 21 clean build **PASS**, resources/JAR packaging **PASS**, headless actual packaged Minecraft GameTest **14/14 PASS**. No local desktop/GUI launch, main change or PolyMC replacement.
+- The native watchpost generated in a **real new Nether chunk** (not only a theoretical planner candidate): seed `20261024`, owning chunk `[-54,7]`, biome `slavicmyths:lost_halls`, bounding box `(-861,50,115)..(-851,75,125)`. The bounded scan needed 9 potential placement candidates and found 1 accepted natural plan. The generated world had exactly 1 chest and 18 ladder blocks.
+- 96 separate geometric variants (four section heights, four rotations, three ruin levels and two chest choices) passed native server checks. Native chest loot **1000/1000** had real guaranteed arrow and food; `bone_arrow` was present in optional outcomes; diamond-item mutual exclusion held; 26/1000 chests contained a rare diamond item in this seeded sample. These are **not** final economic/owner-ART approvals.
+- Build artifact `slavicmyths-2.1.1-HELL.jar`, 25,378,009 bytes, SHA256 `172daa56badad584e08f5d0656dd7ee728556a6455723197c421c8cd028e1c46`. SHA was reverified against extracted CI output. Original technical build `2.0.10-HELL` remains separately available, no owner installation changed.
+- Still **NOT_RUN**: minimum 5 independent natural seed worlds across all 9 Nether biome IDs; survival no-OP discovery and `/locate` read-only; old world/Nether fortress/bastion/ruined portal proximity; real map visuals, four facades and movement, FPS/MSPT, 2-client MP, restart and chests at chunk boundaries. The missing owner PNG remains `ART_BLOCKED_REFERENCE`; **OWNER_ACCEPTED remains false**. The next structure is separately Issue #339, not part of 2.1.1.
+
+This candidate is a **technical checkpoint**, not an accepted 2.1 release or a claim that the 2.0 owner testing was completed.
