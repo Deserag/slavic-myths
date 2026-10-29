@@ -56,7 +56,7 @@ public final class WatchpostWorldgenQaTests {
             check(chestCount==1&&ladderCount>=6,
                     "Native generated start had wrong physical chest/ladder count "+chestCount+"/"+ladderCount+" at "+candidate);
             System.out.println("HELLQA_PASS 2.1.1 ACTUAL NATURAL WATCHPOST seed="+w.getSeed()+
-                    " chunk="+candidate+" biome="+w.getBiome(start.getLocatePos()).unwrapKey().orElseThrow().location()+
+                    " chunk="+candidate+" biome="+w.getBiome(new BlockPos(candidate.getMiddleBlockX(),bounds.minY()+4,candidate.getMiddleBlockZ())).unwrapKey().orElseThrow().location()+
                     " bounding="+bounds+" chest="+chestCount+" ladder="+ladderCount+
                     " candidateProbes="+seen+" acceptedPlans="+eligible+" (no direct placement or player GUI)");
             t.succeed();return;
