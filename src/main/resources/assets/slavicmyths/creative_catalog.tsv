@@ -109,7 +109,7 @@ eye_of_mor	resources	legendary_trophies
 ashen_heart	resources	legendary_trophies
 poloz_scale	resources	legendary_trophies
 poloz_core	resources	legendary_trophies
-poloz_head	resources	legendary_trophies
+poloz_head	heads	legendary_trophies
 gorynych_scale	resources	legendary_trophies
 ancient_serpent_steel	resources	legendary_trophies
 serpent_seal	resources	legendary_trophies
@@ -829,12 +829,12 @@ rune_excavator_iv	magic	runes_IV
 rune_farmer_iv	magic	runes_IV
 rune_lumberjack_iv	magic	runes_IV
 
-tugarin_head	resources	trophy_heads
-skim_head	resources	trophy_heads
-cursed_volkolak_head	resources	trophy_heads
-likho_head	resources	trophy_heads
-mor_likho_head	resources	trophy_heads
-large_podzemnik_head	resources	trophy_heads
+tugarin_head	heads	trophy_heads
+skim_head	heads	trophy_heads
+cursed_volkolak_head	heads	trophy_heads
+likho_head	heads	trophy_heads
+mor_likho_head	heads	trophy_heads
+large_podzemnik_head	heads	trophy_heads
 invisibility_cap	accessories	head
 miners_goggles	accessories	head
 black_wing_amulet	accessories	necklace
@@ -877,12 +877,12 @@ obereg_ohotnika	accessories	use
 amulet_two_winters	accessories	inventory/use
 
 silver_block	resources	metals
-chud_mining_lantern	slavicmyths	chud_tools
-chud_master_pickaxe	slavicmyths	chud_tools
-chud_multitool_axe	slavicmyths	chud_tools
-chud_multitool_pickaxe	slavicmyths	chud_tools
-chud_multitool_shovel	slavicmyths	chud_tools
-chud_mining_lift	slavicmyths	chud_tools
+chud_mining_lantern	tools	chud_tools
+chud_master_pickaxe	tools	chud_tools
+chud_multitool_axe	tools	chud_tools
+chud_multitool_pickaxe	tools	chud_tools
+chud_multitool_shovel	tools	chud_tools
+chud_mining_lift	tools	chud_tools
 navya_soil	decor	navya_grove
 mossy_navya_soil	decor	navya_grove
 navya_stone	decor	navya_grove
@@ -936,7 +936,7 @@ blackwood_wood	decor	nether
 charred_blackwood_wood	decor	nether
 blackwood_planks	decor	nether
 charred_blackwood_leaves	decor	nether
-zharenitsa_head	decor	nether
+zharenitsa_head	heads	nether
 charred_stone_stairs	decor	nether
 charred_stone_slab	decor	nether
 charred_stone_wall	decor	nether
@@ -966,7 +966,7 @@ magma_rune_fragment	resources	burning_islands_205
 rune_magma_1	magic	burning_islands_205
 rune_magma_2	magic	burning_islands_205
 magma_lord_heart	resources	burning_islands_205
-magma_lord_head	decor	burning_islands_205
+magma_lord_head	heads	burning_islands_205
 heat_salamander_spawn_egg	mobs	burning_islands_205
 slag_crab_spawn_egg	mobs	burning_islands_205
 vent_golem_spawn_egg	mobs	burning_islands_205
@@ -984,8 +984,8 @@ spore_pouch	resources	nether_lost_halls
 lost_halls_tuning_fork	tools	nether_lost_halls
 posten_heart	resources	nether_lost_halls
 rune_shadow_face	resources	nether_lost_halls
-grove_guardian_head	resources	nether_lost_halls
-posten_head	resources	nether_lost_halls
+grove_guardian_head	heads	nether_lost_halls
+posten_head	heads	nether_lost_halls
 lost_hall_stone_stairs	decor	nether_lost_halls
 lost_hall_stone_slab	decor	nether_lost_halls
 lost_hall_stone_wall	decor	nether_lost_halls
