@@ -65,3 +65,8 @@ No personal desktop game client or owner's PolyMC instance was touched.
 **Remaining implementation QA:** add and run a dedicated actual-natural-world `ancestor_shrine` test, inspect Nether terrain/black_cinder custom surface feature interactions, measure accepted starts and rejected candidates across at least five seeds, and resolve any newly demonstrated 2.1.5-specific failures without expanding other patches' scope. Owner must still approve real in-game visuals.
 
 This checkpoint must stay **WIP / IN_PROGRESS**, not owner accepted or complete. No new task/Issue is automatically started.
+
+## Native-start QA follow-up (source added, result pending)
+
+- [Commit `5f2d35f`](https://github.com/Deserag/slavic-myths/commit/5f2d35f83185bc42567362629ccdbd64d6cf33ba) adds `actualNaturalAncestorShrine` to `tools/hell-qa-runtime/AncestorShrineQaTests.java`. It requires an accepted native start with physical chest, block entity, floor and entrance; a theoretical candidate is not PASS.
+- [Run 40842749940](https://github.com/Deserag/slavic-myths/actions/runs/40842749940) and [run 40842977819](https://github.com/Deserag/slavic-myths/actions/runs/40842977819) were cancelled by later concurrent source pushes before GameTest. Thus **native-start test NOT_RUN** as of this checkpoint; no PASS is claimed. The earlier geometry and loot tests did PASS (run 40842160665).
