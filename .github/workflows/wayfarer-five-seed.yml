@@ -11,6 +11,8 @@ on:
       - 'src/main/resources/data/slavicmyths/neoforge/biome_modifier/bridge_clearance.json'
       - 'tools/hell-qa-runtime/BridgeQaTests.java'
       - 'tools/hell-qa-runtime/WayfarerQaTests.java'
+      - 'tools/hell-qa-runtime/ForgottenShrineQaTests.java'
+      - 'tools/wayfarer-qa-runtime.gradle'
   workflow_dispatch:
 permissions:
   contents: read
