@@ -47,3 +47,5 @@
 Риски: native frequency, производительность, codecs/tools/JEI не проверены в игре;
 широкие structure skip могут снизить частоты. Не удалять новые IDs из использованного
 сейва: для отката нужна исходная копия мира и JARbackup.
+
+29.10.2026 remaining debts: sulfur heat multiplier1.5 and full vertical surface pass implemented; see current task REMAINING_DEBTS_IMPLEMENTATION.md. Prior density/surface NOT_IMPLEMENTED statement above is historical. Native thermal acceptance5seed PASS; actual generated ore frequencies/vanilla impact still NOT_RUN.

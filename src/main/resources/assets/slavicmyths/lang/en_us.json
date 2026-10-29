@@ -6358,5 +6358,10 @@
   "netherweapons.tip.infernal_bow": "Draw 1.2s. Sneak on release: igniting arrow. Recovery 10s; normal shots remain available.",
   "block.slavicmyths.infernal_furnace": "Infernal Furnace",
   "item.slavicmyths.infernal_coal": "Infernal Coal",
-  "infernal_furnace.fuel": "Infernal coal only"
+  "infernal_furnace.fuel": "Infernal coal only",
+  "item.slavicmyths.nether_aura_amulet": "Nether Aura Ward",
+  "item.slavicmyths.nether_aura_amulet.effect": "In a Curios necklace slot, protects only against Nether Aura. Inactive in inventory. Prototype.",
+  "netherores.count.nether": "Nether only.",
+  "netherores.count.unloaded": "Chunk is not loaded.",
+  "netherores.count.result": "Chunk %s, %s: [Livingstone, Alatyrite, Runnik, Infernal, Sulfur] = %s. Existing blocks only."
 }

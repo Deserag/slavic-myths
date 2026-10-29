@@ -3584,3 +3584,5 @@ hell, source f9beb28d: зарегистрированы три нейтраль�
 G2 29.10: NetherWeapons/NetherSkills/InfernalBow расширяют существующие Sword/ThrowingWeapon/WeaponProjectile/Flail/FieldBow, без параллельной системы снарядов. Долгий persistent cooldown отдельно от обычного использования; клиентские отдельные GUI meshes, FlailClient chain и PlayerWeaponPose two-hand.
 
 InfernalFurnace (29.10) расширяет AbstractFurnaceBlockEntity и AbstractFurnaceMenu, recipe type SMELTING;2 вызова нативного serverTick, native recipebook screen, отдельный fuel-only Slot и canPlaceItem/getBurnDuration, SidedInvWrapper capabilities. Client screen изолирован Dist.CLIENT.
+
+Remaining debts29.10: native-only new-chunk mineral heat sampling (bounded343, no chunk loads), read-only one-loaded-chunk ore diagnostic; Nether Aura Ward uses existing FolkAccessory/Curios active necklace slots and existing aura exclusion; no Two Winters replacement. NETHER_CURRENT_ACTION_BUDGETS source records do not alter mob HP/damage.

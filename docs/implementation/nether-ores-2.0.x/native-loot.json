@@ -40,5 +40,42 @@
     "24:176",
     "24:176"
   ],
+  "sulfurAcceptanceNotWorldgen": [
+    {
+      "seed": 0,
+      "hot": 100000,
+      "cold": 66755,
+      "ratio": 1.4980151299528126,
+      "thermalSurfaceAttemptRange": "3:6"
+    },
+    {
+      "seed": 1,
+      "hot": 100000,
+      "cold": 66571,
+      "ratio": 1.5021555932763515,
+      "thermalSurfaceAttemptRange": "3:6"
+    },
+    {
+      "seed": -8675309,
+      "hot": 100000,
+      "cold": 66712,
+      "ratio": 1.4989806931286724,
+      "thermalSurfaceAttemptRange": "3:6"
+    },
+    {
+      "seed": 20261024,
+      "hot": 100000,
+      "cold": 66417,
+      "ratio": 1.505638616619239,
+      "thermalSurfaceAttemptRange": "3:6"
+    },
+    {
+      "seed": 987654321,
+      "hot": 100000,
+      "cold": 66589,
+      "ratio": 1.501749538212017,
+      "thermalSurfaceAttemptRange": "3:6"
+    }
+  ],
   "scope": "PASS native vanilla ore_drops simulation 10000/material/Fortune; structural alternatives/height checks. Actual LootContext, mining tool, worldgen, furnace, relog and MP NOT_RUN."
 }

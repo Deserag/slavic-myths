@@ -1,0 +1,9 @@
+{
+  "twenty_entities": 20,
+  "current_actions": 52,
+  "damage_effect_callsites": 27,
+  "master_rows": 140,
+  "status": "SOURCE_BUDGET_COMPLETE;NO_HP_DAMAGE_REBALANCE",
+  "runtime": "NOT_RUN",
+  "historical_sha256": "11dfa926d58f480e30bb22185f131491bdd1953d0dfa144778f19074aab5ac6e"
+}

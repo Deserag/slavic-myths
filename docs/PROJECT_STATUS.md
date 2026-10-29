@@ -3262,3 +3262,5 @@ hell, source f9beb28d: зарегистрированы три нейтраль�
 29.10.2026 G2: реализованы пять особых оружий/приёмов через прежние melee/projectile/bow/flail pipelines, модели и рецепты. Подробности и неутверждённые инженерные числа: implementation/2026-10-29-hell-remaining/WEAPONS_IMPLEMENTATION.md. Игровые проверки не запускались; ART originals отсутствуют.
 
 29.10.2026 G3: Адская печь и Адский уголь реализованы как функциональный прототип; vanilla furnace NBT/recipes/XP/progress и строгий fuel gate. Параметры BALANCE_OWNER_PENDING, игровой результат NOT_RUN. См. implementation/2026-10-29-hell-remaining/FURNACE_IMPLEMENTATION.md.
+
+29.10 remaining debts: source52 current combat actions for20 Nether entities (without HP/damage rebalance), sulfur heat bias/surface range, independent nether_aura necklace prototype, StormStaff offline norm48/42. Реальные worldgen/combat/Curios tests NOT_RUN. См. implementation/2026-10-29-hell-remaining/REMAINING_DEBTS_IMPLEMENTATION.md.

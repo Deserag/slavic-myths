@@ -1,0 +1,45 @@
+{
+  "scope": "READ_ONLY actual installed JAR; no launch or replacement",
+  "installed_paths": [
+    "C:\\Users\\user\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.8-HELL-Testing\\.minecraft\\mods\\slavicmyths-2.0.10-HELL.jar"
+  ],
+  "single_slavicmyths_jar": true,
+  "candidate_installed": false,
+  "runtime": "NOT_RUN",
+  "installed": [
+    {
+      "path": "C:\\Users\\user\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.8-HELL-Testing\\.minecraft\\mods\\slavicmyths-2.0.10-HELL.jar",
+      "sha256": "685387c355ba9665e6921dbd1757761cfddfe75651ff6bd5b48ab50f826a77f9",
+      "metadata": "modLoader=\"javafml\"\nloaderVersion=\"[4,)\"\nlicense=\"All Rights Reserved\"\n[[mixins]]\nconfig=\"slavicmyths.chud_worldgen.mixins.json\"\n[[mixins]]\nconfig=\"slavicmyths.work.mixins.json\"\n[[mixins]]\nconfig=\"slavicmyths.equipment.mixins.json\"\n[[mixins]]\nconfig=\"slavicmyths.industry.mixins.json\"\n[[mixins]]\nconfig=\"slavicmyths.underground.mixins.json\"\n[[mixins]]\nconfig=\"slavicmyths.tool_runes.mixins.json\"\n[[mixins]]\nconfig=\"slavicmyths.chud_light.mixins.json\"\n[[mods]]\nmodId=\"slavicmyths\"\nversion=\"2.0.10-HELL\"\ndisplayName=\"Slavic Myths\"\ndescription='''A small foundation for a world gradually touched by Slavic mythology. Mythological connections are game interpretations.'''\n[[dependencies.slavicmyths]]\nmodId=\"neoforge\"\ntype=\"required\"\nversionRange=\"[21.1.255,21.2)\"\nordering=\"NONE\"\nside=\"BOTH\"\n[[dependencies.slavicmyths]]\nmodId=\"minecraft\"\ntype=\"required\"\nversionRange=\"[1.21.1]\"\nordering=\"NONE\"\nside=\"BOTH\"\n[[dependencies.slavicmyths]]\nmodId=\"curios\"\ntype=\"required\"\nversionRange=\"[9.5.1,10)\"\nordering=\"AFTER\"\nside=\"BOTH\"\n[[dependencies.slavicmyths]]\nmodId=\"jei\"\ntype=\"optional\"\nversionRange=\"[19,20)\"\nordering=\"AFTER\"\nside=\"CLIENT\"\n\n[[mixins]]\nconfig=\"slavicmyths.physiology.mixins.json\"\n\n[[mixins]]\nconfig=\"slavicmyths.rune_glow.mixins.json\"\n[[mixins]]\nconfig=\"slavicmyths.navya.mixins.json\"\n",
+      "manifest": "Manifest-Version: 1.0\r\nImplementation-Version: 2.0.10-HELL\r\n\r\n",
+      "boss_head_entry_parity": {
+        "org/slavicmyths/blackcinder/client/CinderClient.class": "SAME",
+        "org/slavicmyths/blackcinder/client/CinderEffectRenderer.class": "SAME",
+        "org/slavicmyths/blackcinder/client/CinderModel.class": "SAME",
+        "org/slavicmyths/blackcinder/client/CinderRenderer$1.class": "SAME",
+        "org/slavicmyths/blackcinder/client/CinderRenderer.class": "SAME",
+        "org/slavicmyths/burningislands/client/IslandsClient$Renderer$1.class": "SAME",
+        "org/slavicmyths/burningislands/client/IslandsClient$Renderer.class": "SAME",
+        "org/slavicmyths/burningislands/client/IslandsClient.class": "SAME",
+        "org/slavicmyths/burningislands/client/IslandsModel$1.class": "SAME",
+        "org/slavicmyths/burningislands/client/IslandsModel.class": "SAME",
+        "org/slavicmyths/client/TrophyHeadsClient$1.class": "SAME",
+        "org/slavicmyths/client/TrophyHeadsClient$2.class": "SAME",
+        "org/slavicmyths/client/TrophyHeadsClient$Capture.class": "SAME",
+        "org/slavicmyths/client/TrophyHeadsClient$Head.class": "SAME",
+        "org/slavicmyths/client/TrophyHeadsClient$ItemRenderer.class": "SAME",
+        "org/slavicmyths/client/TrophyHeadsClient$Renderer.class": "SAME",
+        "org/slavicmyths/client/TrophyHeadsClient.class": "SAME",
+        "org/slavicmyths/losthalls/client/PostenRenderer$Model.class": "SAME",
+        "org/slavicmyths/losthalls/client/PostenRenderer.class": "SAME",
+        "org/slavicmyths/trophy/TrophyHeadBlock$1.class": "SAME",
+        "org/slavicmyths/trophy/TrophyHeadBlock$Tile.class": "SAME",
+        "org/slavicmyths/trophy/TrophyHeadBlock.class": "SAME",
+        "org/slavicmyths/trophy/TrophyHeadDrops.class": "SAME",
+        "org/slavicmyths/trophy/TrophyHeadMigration.class": "SAME",
+        "org/slavicmyths/trophy/TrophyHeads$Kind.class": "SAME",
+        "org/slavicmyths/trophy/TrophyHeads.class": "SAME"
+      }
+    }
+  ]
+}

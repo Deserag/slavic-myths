@@ -11,7 +11,7 @@ public final class GreatswordClient {
    if(!player.isInvisible())for(HumanoidArm hand:HumanoidArm.values()){
     int h=hand==HumanoidArm.LEFT?-1:1;pose.pushPose();pose.translate(h*(.42-.08*wave),-.55-equip*.6+.12*wave,-.7-.18*wave);
     pose.mulPose(Axis.YP.rotationDegrees(h*45));pose.translate(h*-1,3.6,3.5);pose.mulPose(Axis.ZP.rotationDegrees(h*120));pose.mulPose(Axis.XP.rotationDegrees(200));pose.mulPose(Axis.YP.rotationDegrees(h*-135));pose.translate(h*5.6,0,0);
-    if(hand==HumanoidArm.LEFT)renderer.renderLeftHand(pose,buffer,light,player);else renderer.renderRightHand(pose,buffer,light,player);pose.popPose();
+    if(!net.neoforged.neoforge.client.ClientHooks.renderSpecificFirstPersonArm(pose,buffer,light,player,hand)){if(hand==HumanoidArm.LEFT)renderer.renderLeftHand(pose,buffer,light,player);else renderer.renderRightHand(pose,buffer,light,player);}pose.popPose();
    }
    pose.translate(sign*.20,-.25-equip*.6+.12*wave,-.95-.18*wave);pose.mulPose(Axis.XP.rotationDegrees(-20-45*wave));return true;
   }

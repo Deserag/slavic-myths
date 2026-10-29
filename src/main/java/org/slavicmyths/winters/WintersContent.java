@@ -8,6 +8,9 @@ import net.neoforged.bus.api.IEventBus;
 /** One artifact; all player state belongs to the existing persisted PathData. */
 public final class WintersContent {
  public static final DeferredHolder<Item,Item> AMULET=org.slavicmyths.registry.ModItems.ITEMS.register("amulet_two_winters",WintersItem::new);
+ /** Independent recipe/equip prototype; not an upgrade or replacement of Two Winters. */
+ public static final DeferredHolder<Item,Item> AURA_WARD=org.slavicmyths.registry.ModItems.ITEMS.register("nether_aura_amulet",()->new org.slavicmyths.item.FolkAccessoryItem(new Item.Properties().rarity(Rarity.RARE).fireResistant(),"necklace"));
+ public static boolean ward(net.minecraft.world.entity.LivingEntity e){return !org.slavicmyths.item.FolkAccessoryItem.equipped(e,AURA_WARD.get()).isEmpty();}
  public static final DeferredRegister<MobEffect> EFFECTS=DeferredRegister.create(Registries.MOB_EFFECT,"slavicmyths");
  public static final DeferredHolder<MobEffect,MobEffect> AURA=EFFECTS.register("nether_aura",()->new Aura());
  private static final class Aura extends MobEffect {

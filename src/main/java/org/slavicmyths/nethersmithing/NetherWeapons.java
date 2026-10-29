@@ -34,6 +34,7 @@ public final class NetherWeapons {
   @Override protected void prepareThrownStack(Player p,ItemStack s){if(special(p)&&p instanceof ServerPlayer player)NetherSkills.stackReady(s,"shadow_throwing_knife",NetherSkills.now(player)+240);}
   @Override protected void configureProjectile(WeaponProjectile projectile,Player p,ItemStack s){projectile.netherSkill(special(p));}
   @Override protected void afterThrow(Player p,ItemStack s){if(special(p)&&p instanceof ServerPlayer player)NetherSkills.consume(player,s,"shadow_throwing_knife");p.getPersistentData().remove("NetherKnifeSkill");}
+  @Override public boolean hurtEnemy(ItemStack s,LivingEntity t,LivingEntity user){if(user instanceof ServerPlayer p&&NetherSkills.legal(p,t))NetherSkills.knifeHit(p,t,false);return super.hurtEnemy(s,t,user);}
   @Override public float thrownDamage(){return 8;}@Override public float projectileDamage(WeaponProjectile p){return p.netherSkill()?10:8;}
   @Override public void projectileHit(WeaponProjectile projectile,LivingEntity target,LivingEntity owner,boolean success){if(success&&owner instanceof ServerPlayer p&&NetherSkills.legal(p,target))NetherSkills.knifeHit(p,target,projectile.netherSkill());}
  }

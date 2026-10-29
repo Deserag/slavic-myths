@@ -22,3 +22,5 @@ G1:8 wearables,effects,3D king model/cape,8 transforms,slots and client emissive
 G2 checkpoint: five new item/skill/server/client/mesh/recipe paths implemented; source bounds and separate GUI models. Knife exact debuff,160t fire and ordinary flail charge ratio are engineering proposals, not owner-approved. Actual game/client animation/MP NOT_RUN, originals ART_BLOCKED_REFERENCE. Next G3 furnace, then remaining ore/Nature/amulet/regressions.
 
 G3 implemented: native furnace subclass, strict infernal coal at menu/container/burn/capability paths, native recipes/XP/progress/sided automation/NBT/recipebook. Economy prototype BALANCE_OWNER_PENDING. Native inherited protocol6 checks PASS, actual station/game/MP NOT_RUN. See FURNACE_IMPLEMENTATION.md. Next ore/Nature/amulet/regressions.
+
+Debts checkpoint: sulfur/full-height exposed minerals,52 current action/DoT budget records/20 entities/master140, independent Curios nether_aura ward prototype, stale StormStaff test48/42; no production HP rebalance. Native/build/resources PASS scopes in debts-build.txt. See REMAINING_DEBTS_IMPLEMENTATION.md. Final two-pass QA/old-biome regressions/manifest next.

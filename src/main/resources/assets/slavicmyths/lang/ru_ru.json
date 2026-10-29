@@ -6358,5 +6358,10 @@
   "netherweapons.tip.infernal_bow": "Натяжение 1,2 с. Shift при выстреле: поджигающая стрела. Откат 10 с; обычная стрельба доступна.",
   "block.slavicmyths.infernal_furnace": "Адская печь",
   "item.slavicmyths.infernal_coal": "Адский уголь",
-  "infernal_furnace.fuel": "Только Адский уголь"
+  "infernal_furnace.fuel": "Только Адский уголь",
+  "item.slavicmyths.nether_aura_amulet": "Оберег адской ауры",
+  "item.slavicmyths.nether_aura_amulet.effect": "В слоте ожерелья Curios защищает только от адской ауры. В сумке не действует. Прототип.",
+  "netherores.count.nether": "Только в Аду.",
+  "netherores.count.unloaded": "Чанк не загружен.",
+  "netherores.count.result": "Чанк %s, %s: [Живокамень, Алатырит, Рунник, Пекельная, Сера] = %s. Только имеющиеся блоки."
 }
