@@ -1,0 +1,74 @@
+{
+  "version": "2.1.6-HELL",
+  "source_commit": "17f2bc7c981a8e2c9fbe476a9be0761f33350ba3",
+  "jar_sha256": "c584fb87057d2cb2079249e0c2b8bb5c2e01f3b0b81a9134d3bfdca0385db87e",
+  "five_seed_tests": "105/105 PASS",
+  "full_baseline": "32/32 PASS seed20261024 fresh world",
+  "worlds": [
+    {
+      "seed": 20261024,
+      "result": "21/21 PASS",
+      "native_pyre": "HELLQA_PASS 2.1.6 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-87, 100] biome=minecraft:nether_wastes variant=1 candidates=25 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-1392, minY=53, minZ=1600, maxX=-1378, maxY=61, maxZ=1614}",
+      "native_ancestor": "HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-14, 81] biome=minecraft:basalt_deltas variant=0 chest=BlockPos{x=-214, y=48, z=1304} sampled=34 accepted=2 lateRejected=1 native start and physical blocks CONFIRMED",
+      "native_forgotten": "HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-130, 153] biome=slavicmyths:lost_halls bottom=-5 variant=0 candidates=108 noiseProposals=2 lateRejected=1 bbox=BoundingBox{minX=-2080, minY=47, minZ=2448, maxX=-2066, maxY=60, maxZ=2462}"
+    },
+    {
+      "seed": 20261025,
+      "result": "21/21 PASS",
+      "native_pyre": "HELLQA_PASS 2.1.6 ACTUAL NATURAL SHRINE seed=20261025 chunk=[-53, -50] biome=minecraft:nether_wastes variant=0 candidates=9 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-848, minY=42, minZ=-800, maxX=-834, maxY=50, maxZ=-786}",
+      "native_ancestor": "HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=20261025 chunk=[-43, 77] biome=slavicmyths:black_cinder variant=2 chest=BlockPos{x=-683, y=69, z=1239} sampled=25 accepted=1 lateRejected=0 native start and physical blocks CONFIRMED",
+      "native_forgotten": "HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=20261025 chunk=[-142, 155] biome=minecraft:nether_wastes bottom=-5 variant=2 candidates=104 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-2271, minY=51, minZ=2480, maxX=-2257, maxY=64, maxZ=2494}"
+    },
+    {
+      "seed": 20261026,
+      "result": "21/21 PASS",
+      "native_pyre": "HELLQA_PASS 2.1.6 ACTUAL NATURAL SHRINE seed=20261026 chunk=[-88, -16] biome=minecraft:nether_wastes variant=0 candidates=20 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-1408, minY=57, minZ=-255, maxX=-1394, maxY=65, maxZ=-241}",
+      "native_ancestor": "HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=20261026 chunk=[3, -107] biome=minecraft:basalt_deltas variant=1 chest=BlockPos{x=57, y=60, z=-1704} sampled=76 accepted=2 lateRejected=1 native start and physical blocks CONFIRMED",
+      "native_forgotten": "HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=20261026 chunk=[60, 29] biome=minecraft:nether_wastes bottom=-5 variant=0 candidates=15 noiseProposals=2 lateRejected=1 bbox=BoundingBox{minX=960, minY=47, minZ=464, maxX=974, maxY=60, maxZ=478}"
+    },
+    {
+      "seed": 3412026,
+      "result": "21/21 PASS",
+      "native_pyre": "HELLQA_PASS 2.1.6 ACTUAL NATURAL SHRINE seed=3412026 chunk=[-103, -103] biome=slavicmyths:navya_grove variant=1 candidates=35 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-1647, minY=71, minZ=-1648, maxX=-1633, maxY=79, maxZ=-1634}",
+      "native_ancestor": "HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=3412026 chunk=[28, -24] biome=slavicmyths:black_cinder variant=2 chest=BlockPos{x=454, y=82, z=-375} sampled=7 accepted=1 lateRejected=0 native start and physical blocks CONFIRMED",
+      "native_forgotten": "HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=3412026 chunk=[-91, -94] biome=minecraft:nether_wastes bottom=-5 variant=2 candidates=44 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-1456, minY=58, minZ=-1504, maxX=-1442, maxY=71, maxZ=-1490}"
+    },
+    {
+      "seed": 9132026,
+      "result": "21/21 PASS",
+      "native_pyre": "HELLQA_PASS 2.1.6 ACTUAL NATURAL SHRINE seed=9132026 chunk=[161, -50] biome=minecraft:nether_wastes variant=0 candidates=88 noiseProposals=4 lateRejected=3 bbox=BoundingBox{minX=2576, minY=51, minZ=-800, maxX=2590, maxY=59, maxZ=-786}",
+      "native_ancestor": "HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=9132026 chunk=[-38, 35] biome=minecraft:basalt_deltas variant=0 chest=BlockPos{x=-601, y=54, z=569} sampled=8 accepted=1 lateRejected=0 native start and physical blocks CONFIRMED",
+      "native_forgotten": "HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=9132026 chunk=[97, 78] biome=slavicmyths:lost_halls bottom=-10 variant=1 candidates=61 noiseProposals=3 lateRejected=2 bbox=BoundingBox{minX=1552, minY=35, minZ=1248, maxX=1566, maxY=53, maxZ=1262}"
+    }
+  ],
+  "loot_optional_found_of_10000": [
+    4501,
+    2993,
+    2210,
+    1497,
+    808,
+    188,
+    317
+  ],
+  "graphical_launches": 0,
+  "ci": [
+    {
+      "url": "https://github.com/Deserag/slavic-myths/actions/runs/40868996414",
+      "status": "IN_PROGRESS at initial report"
+    },
+    {
+      "url": "https://github.com/Deserag/slavic-myths/actions/runs/40868996594",
+      "status": "IN_PROGRESS at initial report"
+    }
+  ],
+  "not_run": [
+    "graphical visual acceptance",
+    "survival discovery without OP",
+    "natural coverage of each of nine individual biomes",
+    "full density census",
+    "true process restart/relog/MP",
+    "old-world copy",
+    "MSPT/ticket census",
+    "explicit all fortress/bastion/portal collision fixtures"
+  ]
+}

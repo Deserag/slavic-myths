@@ -1,0 +1,225 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileHellQaJava UP-TO-DATE
+> Task :processHellQaResources UP-TO-DATE
+> Task :hellQaClasses UP-TO-DATE
+> Task :jarJar NO-SOURCE
+> Task :jar UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :writeHellQaLegacyClasspath UP-TO-DATE
+> Task :prepareHellQaRun
+
+> Task :runHellQa
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[14:52:47] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[14:52:47] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12.1+1-LTS
+[14:52:47] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12.1 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
+[14:52:47] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[14:52:47] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/user/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[14:52:47] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[14:52:47] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Disposable headless Hell QA 1 (slavicmyths_hellqa)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 2.1.6-HELL (slavicmyths)
+[14:52:48] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[14:52:48] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[14:52:48] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:52:48] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:52:48] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[14:52:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:52:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:52:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:52:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:52:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:52:52] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[14:52:54] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[14:52:54] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/user/.codex/worktrees/lost-halls/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23126!/assets/.mcassetsroot' uses unexpected schema
+[14:52:54] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/user/.codex/worktrees/lost-halls/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23126!/data/.mcassetsroot' uses unexpected schema
+[14:52:54] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_hellqa]
+[14:52:55] [main/INFO] [minecraft/RecipeManager]: Loaded 1931 recipes
+[14:52:55] [main/INFO] [minecraft/AdvancementTree]: Loaded 1692 advancements
+[14:52:55] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[14:52:55] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[14:52:56] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[14:52:56] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[14:52:56] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 315 ms
+[14:52:56] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[14:52:56] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[14:52:56] [Server thread/INFO] [minecraft/GameTestServer]: 21 tests are now running at position 1194132, -59, 13045514!
+[14:52:57] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (21 tests)...
+[14:52:57] [Server thread/INFO] [minecraft/GameTestServer]: [                     ]
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=818, y=56, z=226} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=818, y=56, z=226} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT chunk=[51, 14] actual terrain unsafe; zero writes
+HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=20261026 chunk=[60, 29] biome=minecraft:nether_wastes bottom=-5 variant=0 candidates=15 noiseProposals=2 lateRejected=1 bbox=BoundingBox{minX=960, minY=47, minZ=464, maxX=974, maxY=60, maxZ=478}
+[14:52:58] [Server thread/INFO] [minecraft/GameTestServer]: [+                    ]
+HELLQA_PASS 2.1.6 16 geometry profiles solids=[264, 253, 242, 218] lit=[5, 5, 3, 0]
+HELLQA_PASS 2.1.2 64 geometry profiles / 4 variants / four rotations / 4 lengths, width5, no rewards, non-floating designed supports
+HELLQA_PASS real native BasaltColumnsFeature: natural columns present; crafted floor and mixed neighbouring roof protected
+HELLQA_PASS 2.1.6 10000 actual native loot rolls optional=[4501, 2993, 2210, 1497, 808, 188, 317] no reroll
+HELLQA_PASS 2.1.1 1000 native loot unpack operations: guaranteed food/arrow, rare cap, actual bone_arrow, diamond occurrences=26
+HELLQA_PASS 2.1.2 ACTUAL NATURAL NETHER BRIDGE seed=20261026 chunk=[116, -127] biome=minecraft:crimson_forest length=38 variant=3 roadSteps=30 width5Cells=150 bbox=BoundingBox{minX=1833, minY=9, minZ=-2027, maxX=1870, maxY=37, maxZ=-2021} sampledCandidates=86 acceptedPlans=1 no loot; chunk-clipped natural generation, not manual place
+HELLQA_PASS bridge late-fungus fixture: wart/stem removed; obsidian/lava/chest preserved
+HELLQA_PASS real vanilla DeltaFeature: natural control gets lava, crafted blackstone floors preserved; no natural basalt/blackstone tag protection
+HELLQA_PASS 2.1.1 ACTUAL NATURAL WATCHPOST seed=20261026 chunk=[-16, 39] biome=minecraft:nether_wastes bounding=BoundingBox{minX=-253, minY=76, minZ=627, maxX=-243, maxY=101, maxZ=637} chest=1 ladder=18 candidateProbes=2 acceptedPlans=1 (no direct placement or player GUI)
+HELLQA_PASS 2.1.4 16 geometry profiles; 1/2 rooms, three-wide surface stair, two-wide second stair, clear lids and anchored lamps
+HELLQA_PASS 2.1.5 12 native geometry profiles: A644/B604/C370, one chest, open entrance/lid, lamps and memory wall
+HELLQA_PASS 2.1.3 12 profiles; real cantilever, chain, hanging lamp, one fireproof campfire, chest headroom and bypass
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PASS 2.1.6 16 actual placements/replays; foreign chest/lava/obsidian/bedrock reject zero writes; lava below rejected; restart NOT_RUN
+HELLQA_PASS 2.1.1 watchpost 96 geometry profiles: 4 heights,4 rotations,2 chest positions,3 ruin levels,1 chest/fire/lantern,continuous ladder and chunk bounds
+HELLQA_PASS 2.1.3 1000 real native chest loot generations, 100% two guarantee groups; six independent extras=[181, 301, 127, 255, 72, 40]; repeat-open no extra payout (save/restart still NOT_RUN)
+[14:53:02] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 2495ms or 49 ticks behind
+HELLQA_PASS 2.1.4 10000 real native chest rolls; 2 active I + third tiers=[8401, 1490, 109]; no blank runes, no reroll
+[14:53:02] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++ +    ]
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_PASS 2.1.4 16 actual placement/replay fixtures; foreign chest rejection zero floor writes, ordinary physical stairs, persisted Placed prevents loot refill; true restart NOT_RUN
+HELLQA_ANCESTOR_REJECT no safe full actual fit pos=BlockPos{x=-1449, y=35, z=2073} block=Block{minecraft:air} zero writes, invalid start
+HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=20261026 chunk=[3, -107] biome=minecraft:basalt_deltas variant=1 chest=BlockPos{x=57, y=60, z=-1704} sampled=76 accepted=2 lateRejected=1 native start and physical blocks CONFIRMED
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=393, y=53, z=744} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=393, y=53, z=744} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=392, y=53, z=745} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=391, y=53, z=745} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=391, y=53, z=746} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=393, y=53, z=744} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=394, y=53, z=746} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=393, y=53, z=744} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=391, y=54, z=743} block=Block{minecraft:basalt}[axis=y]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=391, y=53, z=745} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=391, y=53, z=746} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=391, y=53, z=745} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=391, y=53, z=746} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=393, y=53, z=744} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=392, y=53, z=745} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=394, y=53, z=744} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=394, y=53, z=746} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=395, y=53, z=744} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=395, y=53, z=745} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=395, y=53, z=744} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=395, y=53, z=745} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=394, y=53, z=746} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=390, y=53, z=750} block=Block{minecraft:lava}[level=0]
+HELLQA_WAYFARER_REJECT occupied-or-clip pos=BlockPos{x=392, y=54, z=743} block=Block{minecraft:basalt}[axis=y]
+HELLQA_WAYFARER_INVALIDATED chunk=[24, 46] no safe actual site; zero writes, no phantom locate target
+HELLQA_WAYFARER_SAFE_REJECTION seed=20261026 chunk=[24, 46] invalid native start excluded from locate; NOT a physical placement
+HELLQA_PASS 2.1.3 ACTUAL NATURAL WAYFARER seed=20261026 chunk=[-78, 51] biome=minecraft:nether_wastes Y=47 variant=0 bbox=BoundingBox{minX=-1243, minY=47, minZ=820, maxX=-1237, maxY=52, maxZ=828} sampledCandidates=46 acceptedPlans=2 lateRejectedStarts=1 physical chest/fire/table/chain/lantern each one
+HELLQA_PASS 2.1.5 1000 native loot rolls, guaranteed bones, no reroll, soul-torch-containing=549
+HELLQA_PASS 2.1.6 ACTUAL NATURAL SHRINE seed=20261026 chunk=[-88, -16] biome=minecraft:nether_wastes variant=0 candidates=20 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-1408, minY=57, minZ=-255, maxX=-1394, maxY=65, maxZ=-241}
+[14:53:06] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++]
+[14:53:06] [Server thread/INFO] [minecraft/GameTestServer]: ========= 21 GAME TESTS COMPLETE IN 9.489 s ======================
+[14:53:06] [Server thread/INFO] [minecraft/GameTestServer]: All 21 required tests passed :)
+[14:53:06] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[14:53:06] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[14:53:06] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[14:53:06] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[14:53:07] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[14:53:07] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[14:53:07] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[14:53:07] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[14:53:07] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[14:53:07] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[14:53:07] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[14:53:07] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+[Incubating] Problems report is available at: file:///C:/Users/user/.codex/worktrees/lost-halls/slavic-myths/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 27s
+11 actionable tasks: 3 executed, 8 up-to-date

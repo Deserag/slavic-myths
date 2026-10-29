@@ -1,3 +1,5 @@
+> Актуальный checkpoint 29.10.2026: 2.1.4/2.1.6 реализованы с разрешением всех девяти биомов Незера; редкость подобрана на пяти seed. Исправлена native generation 2.1.5. Итоговый 2.1.6-HELL установлен в тестовый PolyMC, GUI 0; headless 105/105 и 32/32. [Код, SHA, отчёт, NOT_RUN и checklist](implementation/2.1.6-trizna-pyre/STATUS.md). Старые BLOCKED_TZ для 2.1.4/2.1.6 и FAIL natural 2.1.5 ниже — исторические. 2.1.7 без ТЗ; 2.1.8/2.1.9 исключены.
+
 > 29.10.2026: 2.1.5 native generation repaired; five-seed headless85/85, crafted floor protection from delta/basalt features, exact source designs retained. [Evidence and limitations](implementation/2.1.5-ancestor-shrine/STATUS.md). 2.1.4 implemented;2.1.6 authorized all9biomes;2.1.7 blocked specification;2.1.8/9 excluded.
 
 > 29.10.2026: домашний VS Code `hell` синхронизирован; `be639736`/`bd604be3`
