@@ -12,6 +12,9 @@ on:
       - 'gradle.properties'
       - '.github/workflows/hell-headless-qa.yml'
   workflow_dispatch:
+concurrency:
+  group: hell-headless-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -34,9 +37,8 @@ jobs:
         run: |
           set -o pipefail
           chmod +x gradlew
+          trap 'mkdir -p build/hell-ci; cp /tmp/hell-build.log build/hell-ci/build.log || true' EXIT
           ./gradlew --no-daemon clean build --console=plain 2>&1 | tee /tmp/hell-build.log
-          mkdir -p build/hell-ci
-          cp /tmp/hell-build.log build/hell-ci/build.log
       - name: Verify resources and record SHA256
         shell: bash
         run: |
