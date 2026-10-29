@@ -23,7 +23,12 @@ def orient(model,name,gui_scale=None):
         old=display.get(context,{})
         rotation=list(rotation);rotation[2]+= -135 if context.endswith('lefthand') else 135
         fallback=({'short_bow':.78,'heavy_bow':1.0}.get(name,.65) if context.startswith('thirdperson') else {'short_bow':.62,'heavy_bow':.8}.get(name,.65))
-        display[context]={'rotation':rotation,'translation':list(translation),'scale':old.get('scale',[fallback]*3)}
+        scale=old.get('scale',[fallback]*3)
+        if name=='infernal_bow' and context.startswith('firstperson'):
+            # 38 model-pixel limbs and the full-draw string otherwise cross the near
+            # camera plane at .65. Keep the palm anchor; reduce FP mesh only (not TP).
+            scale=[.32]*3
+        display[context]={'rotation':rotation,'translation':list(translation),'scale':scale}
     if name in ('short_bow','heavy_bow'):
         display['gui']={'rotation':[0,0,135],'scale':[gui_scale]*3}
     return model

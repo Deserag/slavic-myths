@@ -35,6 +35,7 @@ public final class HellVisualCapture {
     record View(String name,double x,double y,double z,double tx,double ty,double tz,
                 String item,String mode,String armor,boolean crouch) {}
     static final List<View> VIEWS=new ArrayList<>();
+    static final Map<String,Mob> ACTORS=new LinkedHashMap<>();
     static final JsonArray FRAMES=new JsonArray();
     static boolean opened,requested,finished;static volatile boolean ready,positioned;
     static int scene=-1,age;static String loadedSha;
@@ -51,7 +52,7 @@ public final class HellVisualCapture {
         double x=index*16;
         for(int bx=(int)x-6;bx<=x+6;bx++)for(int bz=-6;bz<=6;bz++)w.setBlock(new BlockPos(bx,80,bz),Blocks.SMOOTH_STONE.defaultBlockState(),2);
         mob.moveTo(x,81,0,0,0);mob.setNoAi(true);mob.setPersistenceRequired();mob.setInvulnerable(true);mob.setYBodyRot(0);mob.setYHeadRot(0);w.addFreshEntity(mob);
-        views(label,x,0,mob.getBbHeight(),Math.max(4,mob.getBbHeight()*1.6));
+        ACTORS.put(label,mob);views(label,x,0,mob.getBbHeight(),Math.max(4,mob.getBbHeight()*1.6));
     }
     static void gear(String name,String held,String mode,String armor,boolean crouch){
         VIEWS.add(new View(name,0,81,120,0,82,110,held,mode,armor,crouch));
@@ -102,11 +103,25 @@ public final class HellVisualCapture {
             if(!id.equals("shadow_throwing_knife"))gear(id+"-charge",id,"charge","king",true);
         }
         gear("actual-heads-tab","","heads_tab","",false);gear("actual-tools-tab","","tools_tab","",false);gear("actual-armor-tab","","armor_tab","",false);
+        for(String id:List.of("bone_crawler","coal_crawler")){
+            var mob=ACTORS.get(id);double x=mob.getX(),y=81+mob.getBbHeight()*.5;
+            VIEWS.add(new View(id+"-walk",x+4.5,y-1.62,5,x+.75,y,0,"","mobwalk","",false));
+        }
         if(Boolean.getBoolean("hellvisual.gearOnly"))VIEWS.removeIf(v->v.mode.equals("spectator"));
+        String scope=System.getProperty("hellvisual.scope","all");
+        if(!Set.of("all","gear","motion","regressions").contains(scope))throw new IllegalArgumentException("Unknown isolated visual scope: "+scope);
+        if(scope.equals("motion"))VIEWS.removeIf(v->!v.mode.equals("mobwalk"));
+        else if(scope.equals("gear"))VIEWS.removeIf(v->v.mode.equals("spectator")||v.mode.equals("mobwalk"));
+        else if(scope.equals("regressions"))VIEWS.removeIf(v->v.mode.equals("spectator"));
         ready=true;
     }
     static void position(ServerPlayer p,View v){
-        p.stopUsingItem();p.setShiftKeyDown(v.crouch);p.setGameMode(v.mode.equals("spectator")?GameType.SPECTATOR:GameType.CREATIVE);
+        p.stopUsingItem();p.setShiftKeyDown(v.crouch);p.setGameMode(v.mode.equals("spectator")||v.mode.equals("mobwalk")?GameType.SPECTATOR:GameType.CREATIVE);
+        for(var actor:ACTORS.values())if(!actor.isNoAi()){actor.getNavigation().stop();actor.setNoAi(true);}
+        if(v.mode.equals("mobwalk")){
+            var actor=ACTORS.get(v.name.substring(0,v.name.length()-5));actor.setNoAi(false);actor.setTarget(null);
+            if(!actor.getNavigation().moveTo(actor.getX()+4,actor.getY(),actor.getZ(),.7))throw new AssertionError("Actual crawler navigation refused fixture route: "+v.name);
+        }
         p.getInventory().clearContent();p.getInventory().selected=0;
         p.setItemInHand(InteractionHand.MAIN_HAND,v.item.isEmpty()?ItemStack.EMPTY:item(v.item));
         p.getInventory().setItem(9,new ItemStack(Items.ARROW,64));
@@ -175,7 +190,7 @@ public final class HellVisualCapture {
                 if(tab.getDisplayItems().stream().noneMatch(s->s.is(item(id).getItem())))throw new AssertionError("Actual tools tab missing "+id);
             System.out.println("HELL_VISUAL_ACTUAL_TAB "+view.mode+" items="+tab.getDisplayItems().size()+" title="+tab.getDisplayName().getString());
         }
-        if(age==55||(Set.of("run","jump","charge").contains(view.mode)&&Set.of(15,25,35,45).contains(age))){
+        if(age==55||(Set.of("run","jump","charge","mobwalk").contains(view.mode)&&Set.of(15,25,35,45).contains(age))){
             if(view.mode.startsWith("draw")&&age==55&&(!mc.player.isUsingItem()||mc.player.getTicksUsingItem()<24))throw new AssertionError("Actual bow draw input did not remain active: "+view.name);
             String file=String.format("%03d-%s%s.png",scene,view.name,age==55?"":"-t"+age);
             try(var image=Screenshot.takeScreenshot(mc.getMainRenderTarget())){image.writeToFile(OUT.resolve(file));}
@@ -184,6 +199,12 @@ public final class HellVisualCapture {
             frame.addProperty("x",mc.player.getX());frame.addProperty("y",mc.player.getY());frame.addProperty("z",mc.player.getZ());
             frame.addProperty("age",age);frame.addProperty("using_item",mc.player.isUsingItem());
             frame.addProperty("held_item",BuiltInRegistries.ITEM.getKey(mc.player.getMainHandItem().getItem()).toString());
+            if(view.mode.equals("mobwalk")){
+                var actor=ACTORS.get(view.name.substring(0,view.name.length()-5));var visible=mc.level.getEntity(actor.getId());
+                if(!(visible instanceof LivingEntity living))throw new AssertionError("Actual moving crawler not tracked by client");
+                frame.addProperty("actor_x",living.getX());frame.addProperty("actor_y",living.getY());frame.addProperty("actor_z",living.getZ());
+                frame.addProperty("actor_walk_speed",living.walkAnimation.speed(1));
+            }
             System.out.println("HELL_VISUAL_FRAME "+file+" jar="+loadedSha);
         }
     }
