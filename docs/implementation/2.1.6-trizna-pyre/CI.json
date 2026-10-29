@@ -1,0 +1,75 @@
+[
+  {
+    "id": 123430911822,
+    "name": "headless",
+    "conclusion": "success",
+    "evidence": [
+      "2026-10-29T11:56:25.5541401Z \u001b[36;1msha256sum build/libs/slavicmyths-*.jar | tee build/hell-ci/jar-sha256.txt\u001b[0m",
+      "2026-10-29T11:56:26.7568410Z PASS current NeoForge resources: {\"scope\": \"CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted\", \"version\": \"2.1.6-HELL\", \"jar\": \"/home/runner/work/slavic-myths/slavic-myths/build/libs/slavicmyths-2.1.6-HELL.jar\", \"sha256\": \"29a6c1bb2b40694038a15207774ab06cb91c38c1509ff2f8759f5e91b385ad84\", \"resources\": 8729, \"json\": 4974, \"png\": 1599, \"models\": 2123, \"java21_classes\": 2190, \"runtime_launches\": \"NOT_TRACKED_BY_STATIC_CHECK\", \"runtime\": \"NOT_ASSESSED_BY_RESOURCE_CHECK; see actual QA logs\"}",
+      "2026-10-29T11:57:00.5248546Z HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-14, 81] biome=minecraft:basalt_deltas variant=0 chest=BlockPos{x=-214, y=48, z=1304} sampled=34 accepted=2 lateRejected=1 native start and physical blocks CONFIRMED",
+      "2026-10-29T11:57:03.1248266Z HELLQA_PASS 2.1.6 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-87, 100] biome=minecraft:nether_wastes variant=1 candidates=25 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-1392, minY=53, minZ=1600, maxX=-1378, maxY=61, maxZ=1614}",
+      "2026-10-29T11:57:05.3256440Z HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-130, 153] biome=slavicmyths:lost_halls bottom=-5 variant=0 candidates=108 noiseProposals=2 lateRejected=1 bbox=BoundingBox{minX=-2080, minY=47, minZ=2448, maxX=-2066, maxY=60, maxZ=2462}",
+      "2026-10-29T11:57:14.4271626Z [11:57:14] [Server thread/INFO] [minecraft/GameTestServer]: All 32 required tests passed :)"
+    ]
+  },
+  {
+    "id": 123430910779,
+    "name": "Native Nether QA seed 20261024",
+    "conclusion": "success",
+    "evidence": [
+      "2026-10-29T11:57:48.6943535Z HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-130, 153] biome=slavicmyths:lost_halls bottom=-5 variant=0 candidates=108 noiseProposals=2 lateRejected=1 bbox=BoundingBox{minX=-2080, minY=47, minZ=2448, maxX=-2066, maxY=60, maxZ=2462}",
+      "2026-10-29T11:57:56.0936002Z HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-14, 81] biome=minecraft:basalt_deltas variant=0 chest=BlockPos{x=-214, y=48, z=1304} sampled=34 accepted=2 lateRejected=1 native start and physical blocks CONFIRMED",
+      "2026-10-29T11:58:00.2957401Z HELLQA_PASS 2.1.6 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-87, 100] biome=minecraft:nether_wastes variant=1 candidates=25 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-1392, minY=53, minZ=1600, maxX=-1378, maxY=61, maxZ=1614}",
+      "2026-10-29T11:58:00.2969716Z [11:58:00] [Server thread/INFO] [minecraft/GameTestServer]: All 21 required tests passed :)",
+      "2026-10-29T11:58:05.0937820Z \u001b[36;1msha256sum build/libs/slavicmyths-*.jar > build/wayfarer-qa/sha256.txt 2>/dev/null || true\u001b[0m"
+    ]
+  },
+  {
+    "id": 123430910975,
+    "name": "Native Nether QA seed 3412026",
+    "conclusion": "success",
+    "evidence": [
+      "2026-10-29T11:57:29.1813806Z HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=3412026 chunk=[-91, -94] biome=minecraft:nether_wastes bottom=-5 variant=2 candidates=44 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-1456, minY=58, minZ=-1504, maxX=-1442, maxY=71, maxZ=-1490}",
+      "2026-10-29T11:57:33.5814566Z HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=3412026 chunk=[28, -24] biome=slavicmyths:black_cinder variant=2 chest=BlockPos{x=454, y=82, z=-375} sampled=7 accepted=1 lateRejected=0 native start and physical blocks CONFIRMED",
+      "2026-10-29T11:57:35.0816642Z HELLQA_PASS 2.1.6 ACTUAL NATURAL SHRINE seed=3412026 chunk=[-103, -103] biome=slavicmyths:navya_grove variant=1 candidates=35 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-1647, minY=71, minZ=-1648, maxX=-1633, maxY=79, maxZ=-1634}",
+      "2026-10-29T11:57:35.1876198Z [11:57:35] [Server thread/INFO] [minecraft/GameTestServer]: All 21 required tests passed :)",
+      "2026-10-29T11:57:38.1699640Z \u001b[36;1msha256sum build/libs/slavicmyths-*.jar > build/wayfarer-qa/sha256.txt 2>/dev/null || true\u001b[0m"
+    ]
+  },
+  {
+    "id": 123430910976,
+    "name": "Native Nether QA seed 20261025",
+    "conclusion": "success",
+    "evidence": [
+      "2026-10-29T11:57:41.2276223Z HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=20261025 chunk=[-142, 155] biome=minecraft:nether_wastes bottom=-5 variant=2 candidates=104 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-2271, minY=51, minZ=2480, maxX=-2257, maxY=64, maxZ=2494}",
+      "2026-10-29T11:57:47.9276715Z HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=20261025 chunk=[-43, 77] biome=slavicmyths:black_cinder variant=2 chest=BlockPos{x=-683, y=69, z=1239} sampled=25 accepted=1 lateRejected=0 native start and physical blocks CONFIRMED",
+      "2026-10-29T11:57:49.6272337Z HELLQA_PASS 2.1.6 ACTUAL NATURAL SHRINE seed=20261025 chunk=[-53, -50] biome=minecraft:nether_wastes variant=0 candidates=9 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-848, minY=42, minZ=-800, maxX=-834, maxY=50, maxZ=-786}",
+      "2026-10-29T11:57:49.6281475Z [11:57:49] [Server thread/INFO] [minecraft/GameTestServer]: All 21 required tests passed :)",
+      "2026-10-29T11:57:58.5548730Z \u001b[36;1msha256sum build/libs/slavicmyths-*.jar > build/wayfarer-qa/sha256.txt 2>/dev/null || true\u001b[0m"
+    ]
+  },
+  {
+    "id": 123430910983,
+    "name": "Native Nether QA seed 9132026",
+    "conclusion": "success",
+    "evidence": [
+      "2026-10-29T11:57:43.2829331Z HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=9132026 chunk=[97, 78] biome=slavicmyths:lost_halls bottom=-10 variant=1 candidates=61 noiseProposals=3 lateRejected=2 bbox=BoundingBox{minX=1552, minY=35, minZ=1248, maxX=1566, maxY=53, maxZ=1262}",
+      "2026-10-29T11:57:51.3829314Z HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=9132026 chunk=[-38, 35] biome=minecraft:basalt_deltas variant=0 chest=BlockPos{x=-601, y=54, z=569} sampled=8 accepted=1 lateRejected=0 native start and physical blocks CONFIRMED",
+      "2026-10-29T11:57:58.2846380Z HELLQA_PASS 2.1.6 ACTUAL NATURAL SHRINE seed=9132026 chunk=[161, -50] biome=minecraft:nether_wastes variant=0 candidates=88 noiseProposals=4 lateRejected=3 bbox=BoundingBox{minX=2576, minY=51, minZ=-800, maxX=2590, maxY=59, maxZ=-786}",
+      "2026-10-29T11:57:58.2905471Z [11:57:58] [Server thread/INFO] [minecraft/GameTestServer]: All 21 required tests passed :)",
+      "2026-10-29T11:58:03.6181314Z \u001b[36;1msha256sum build/libs/slavicmyths-*.jar > build/wayfarer-qa/sha256.txt 2>/dev/null || true\u001b[0m"
+    ]
+  },
+  {
+    "id": 123430910992,
+    "name": "Native Nether QA seed 20261026",
+    "conclusion": "success",
+    "evidence": [
+      "2026-10-29T11:57:33.9932506Z HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=20261026 chunk=[60, 29] biome=minecraft:nether_wastes bottom=-5 variant=0 candidates=15 noiseProposals=2 lateRejected=1 bbox=BoundingBox{minX=960, minY=47, minZ=464, maxX=974, maxY=60, maxZ=478}",
+      "2026-10-29T11:57:43.5933270Z HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=20261026 chunk=[3, -107] biome=minecraft:basalt_deltas variant=1 chest=BlockPos{x=57, y=60, z=-1704} sampled=76 accepted=2 lateRejected=1 native start and physical blocks CONFIRMED",
+      "2026-10-29T11:57:47.2936708Z HELLQA_PASS 2.1.6 ACTUAL NATURAL SHRINE seed=20261026 chunk=[-88, -16] biome=minecraft:nether_wastes variant=0 candidates=20 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-1408, minY=57, minZ=-255, maxX=-1394, maxY=65, maxZ=-241}",
+      "2026-10-29T11:57:47.2980369Z [11:57:47] [Server thread/INFO] [minecraft/GameTestServer]: All 21 required tests passed :)",
+      "2026-10-29T11:57:52.0507532Z \u001b[36;1msha256sum build/libs/slavicmyths-*.jar > build/wayfarer-qa/sha256.txt 2>/dev/null || true\u001b[0m"
+    ]
+  }
+]

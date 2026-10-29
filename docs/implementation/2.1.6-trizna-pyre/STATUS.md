@@ -46,7 +46,7 @@ Seed: 20261024, 20261025, 20261026, 3412026, 9132026. [Точные коорди
 
 [Послойный атлас](LAYERS.svg), [верхние проекции](SURFACE.png), [GameTest voxel export](VOXELS.tsv) показывают фактическую геометрию кода, **не игровые скриншоты**. Состояния блоков сохранены в TSV/SVG.
 
-CI исходника: [пять seed](https://github.com/Deserag/slavic-myths/actions/runs/40868996414), [общий headless](https://github.com/Deserag/slavic-myths/actions/runs/40868996594). При создании отчёта IN_PROGRESS; локальные результаты подтверждены отдельными логами. CI заранее не объявлен PASS.
+CI исходника: [пять seed](https://github.com/Deserag/slavic-myths/actions/runs/40868996414), [общий headless](https://github.com/Deserag/slavic-myths/actions/runs/40868996594). **Оба CI завершились SUCCESS.** Проверены все шесть jobs и строки логов: 21/21 на каждом из пяти seed, общий 32/32. [Извлечения CI](CI.json). Linux CI собрал отдельный JAR SHA256 `29a6c1bb2b40694038a15207774ab06cb91c38c1509ff2f8759f5e91b385ad84`; в PolyMC установлен именно локально проверенный Windows-артефакт с SHA256 `c584fb87…`, указанный выше. Разные сборки не выдаются за один побайтовый файл.
 
 ## Ручная проверка владельцем
 

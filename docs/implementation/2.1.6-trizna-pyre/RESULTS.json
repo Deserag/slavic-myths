@@ -54,11 +54,11 @@
   "ci": [
     {
       "url": "https://github.com/Deserag/slavic-myths/actions/runs/40868996414",
-      "status": "IN_PROGRESS at initial report"
+      "status": "SUCCESS verified through workflow jobs and test log lines"
     },
     {
       "url": "https://github.com/Deserag/slavic-myths/actions/runs/40868996594",
-      "status": "IN_PROGRESS at initial report"
+      "status": "SUCCESS verified through workflow jobs and test log lines"
     }
   ],
   "not_run": [
@@ -70,5 +70,7 @@
     "old-world copy",
     "MSPT/ticket census",
     "explicit all fortress/bastion/portal collision fixtures"
-  ]
+  ],
+  "ci_jobs_evidence": "CI.json",
+  "ci_linux_jar_sha256": "29a6c1bb2b40694038a15207774ab06cb91c38c1509ff2f8759f5e91b385ad84"
 }
