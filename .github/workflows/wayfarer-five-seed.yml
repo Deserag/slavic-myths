@@ -36,7 +36,7 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p build/wayfarer-qa
-          ./gradlew --no-daemon -I tools/hell-qa-runtime.gradle runHellQa \
+          ./gradlew --no-daemon -I tools/wayfarer-qa-runtime.gradle runHellQa \
             -PhellQaDir=work/wayfarer-5seed/${{ matrix.seed }} \
             -PhellQaSeed=${{ matrix.seed }} --console=plain 2>&1 | tee build/wayfarer-qa/gametest.log
       - name: Record checksum and preserve failures without asserting acceptance
