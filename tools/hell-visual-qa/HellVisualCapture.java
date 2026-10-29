@@ -86,6 +86,10 @@ public final class HellVisualCapture {
         for(String id:List.of("chud_master_pickaxe","chud_multitool_axe","chud_multitool_pickaxe","chud_multitool_shovel")){
             gear(id+"-first",id,"first","",false);gear(id+"-inventory",id,"inventory","",false);
         }
+        gear("king-run-back","","run","king",false);gear("king-jump-back","","jump","king",false);
+        gear("king-chest-only-back","","back","chest_only",false);gear("king-elytra-replacement","","back","elytra",false);
+        for(String id:List.of("short_bow","heavy_bow","infernal_bow"))gear(id+"-draw-left",id,"draw_left","king",false);
+        if(Boolean.getBoolean("hellvisual.gearOnly"))VIEWS.removeIf(v->v.mode.equals("spectator"));
         ready=true;
     }
     static void position(ServerPlayer p,View v){
@@ -93,10 +97,13 @@ public final class HellVisualCapture {
         p.getInventory().clearContent();p.getInventory().selected=0;
         p.setItemInHand(InteractionHand.MAIN_HAND,v.item.isEmpty()?ItemStack.EMPTY:item(v.item));
         p.getInventory().setItem(9,new ItemStack(Items.ARROW,64));
-        String[] ids=v.armor.equals("king")?new String[]{"infernal_crown_helmet","infernal_king_cuirass","infernal_king_leggings","infernal_king_boots"}:
+        String[] ids=Set.of("king","chest_only","elytra").contains(v.armor)?new String[]{"infernal_crown_helmet","infernal_king_cuirass","infernal_king_leggings","infernal_king_boots"}:
                 v.armor.equals("zhara")?new String[]{"zhara_helmet","zhara_chestplate","zhara_leggings","zhara_boots"}:null;
         var slots=new EquipmentSlot[]{EquipmentSlot.HEAD,EquipmentSlot.CHEST,EquipmentSlot.LEGS,EquipmentSlot.FEET};
         for(int n=0;n<4;n++)p.setItemSlot(slots[n],ids==null?ItemStack.EMPTY:item(ids[n]));
+        if(v.armor.equals("chest_only"))for(var slot:List.of(EquipmentSlot.HEAD,EquipmentSlot.LEGS,EquipmentSlot.FEET))p.setItemSlot(slot,ItemStack.EMPTY);
+        if(v.armor.equals("elytra"))p.setItemSlot(EquipmentSlot.CHEST,new ItemStack(Items.ELYTRA));
+        p.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);
         double dx=v.tx-v.x,dz=v.tz-v.z,dy=v.ty-(v.y+p.getEyeHeight());
         p.teleportTo(p.serverLevel(),v.x,v.y,v.z,(float)Math.toDegrees(Math.atan2(-dx,dz)),(float)-Math.toDegrees(Math.atan2(dy,Math.hypot(dx,dz))));
         p.getInventory().setChanged();p.inventoryMenu.broadcastChanges();positioned=true;
@@ -119,26 +126,33 @@ public final class HellVisualCapture {
         if(mc.level==null||mc.player==null||mc.getSingleplayerServer()==null)return;
         if(!requested){requested=true;mc.getSingleplayerServer().execute(()->setup(mc.getSingleplayerServer().getPlayerList().getPlayers().getFirst()));return;}
         if(!ready)return;
+        if(!mc.player.getSkin().model().toString().equals(System.getProperty("hellvisual.expectedModel")))throw new AssertionError("Unexpected actual skin model: "+mc.player.getSkin().model());
         if(scene<0||age>=65){
-            scene++;age=0;positioned=false;mc.options.keyUse.setDown(false);mc.options.keyShift.setDown(false);mc.setScreen(null);
+            scene++;age=0;positioned=false;mc.options.keyUse.setDown(false);mc.options.keyShift.setDown(false);mc.options.keyUp.setDown(false);mc.options.keySprint.setDown(false);mc.options.keyJump.setDown(false);mc.player.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);mc.setScreen(null);
             if(scene==VIEWS.size()){
                 finished=true;var receipt=new JsonObject();receipt.addProperty("jar_sha256",loadedSha);receipt.addProperty("seed",3492026);
                 receipt.addProperty("scope","Actual packaged-mod framebuffer; artificial creative poses, not survival/AI/audio/owner acceptance");receipt.add("frames",FRAMES);
                 Files.writeString(OUT.resolve("finished.json"),new GsonBuilder().setPrettyPrinting().create().toJson(receipt));mc.stop();return;
             }
-            var view=VIEWS.get(scene);mc.options.hideGui=!view.mode.equals("inventory");
-            mc.options.setCameraType(view.mode.equals("front")?CameraType.THIRD_PERSON_FRONT:view.mode.equals("back")?CameraType.THIRD_PERSON_BACK:CameraType.FIRST_PERSON);
+            var view=VIEWS.get(scene);mc.options.hideGui=!(view.mode.equals("inventory")||view.mode.startsWith("first")||view.mode.startsWith("draw"));
+            mc.player.setMainArm(view.mode.endsWith("_left")?HumanoidArm.LEFT:HumanoidArm.RIGHT);
+            mc.options.setCameraType(view.mode.equals("front")?CameraType.THIRD_PERSON_FRONT:Set.of("back","run","jump").contains(view.mode)?CameraType.THIRD_PERSON_BACK:CameraType.FIRST_PERSON);
             mc.getSingleplayerServer().execute(()->position(mc.getSingleplayerServer().getPlayerList().getPlayers().getFirst(),view));return;
         }
         if(!positioned)return;age++;
         var view=VIEWS.get(scene);mc.options.keyShift.setDown(view.crouch);
-        if(view.mode.equals("draw"))mc.options.keyUse.setDown(true);
+        if(view.mode.startsWith("draw"))mc.options.keyUse.setDown(true);
+        if(view.mode.equals("run")){mc.options.keyUp.setDown(true);mc.options.keySprint.setDown(true);}
+        if(view.mode.equals("jump"))mc.options.keyJump.setDown(true);
         if(view.mode.equals("inventory")&&age==25)mc.setScreen(new InventoryScreen(mc.player));
-        if(age==55){
-            String file=String.format("%03d-%s.png",scene,view.name);
+        if(age==55||(Set.of("run","jump").contains(view.mode)&&Set.of(15,25,35,45).contains(age))){
+            if(view.mode.startsWith("draw")&&age==55&&(!mc.player.isUsingItem()||mc.player.getTicksUsingItem()<24))throw new AssertionError("Actual bow draw input did not remain active: "+view.name);
+            String file=String.format("%03d-%s%s.png",scene,view.name,age==55?"":"-t"+age);
             try(var image=Screenshot.takeScreenshot(mc.getMainRenderTarget())){image.writeToFile(OUT.resolve(file));}
             var frame=new JsonObject();frame.addProperty("file",file);frame.addProperty("skin_model",mc.player.getSkin().model().toString());
             frame.addProperty("server_tick",mc.level.getGameTime());frame.addProperty("mode",view.mode);FRAMES.add(frame);
+            frame.addProperty("x",mc.player.getX());frame.addProperty("y",mc.player.getY());frame.addProperty("z",mc.player.getZ());
+            frame.addProperty("age",age);frame.addProperty("using_item",mc.player.isUsingItem());
             System.out.println("HELL_VISUAL_FRAME "+file+" jar="+loadedSha);
         }
     }

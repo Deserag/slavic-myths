@@ -7,6 +7,10 @@ allprojects { afterEvaluate {
   type='client';sourceSet=sourceSets.hellVisualQa;loadedMods.set([qa])
   gameDirectory=file('work/hell-visual-qa-isolated')
   programArguments.addAll('--width','1600','--height','1000')
+  def model=project.findProperty('hellVisualModel') ?: 'slim'
+  programArguments.addAll('--uuid',model=='wide'?'00000000-0000-0000-0000-00000000000f':'00000000-0000-0000-0000-000000000000')
+  systemProperty 'hellvisual.expectedModel',model.toString().toUpperCase()
+  systemProperty 'hellvisual.gearOnly',(project.findProperty('hellVisualGearOnly') ?: 'false').toString()
   jvmArgument '-Xmx3G';jvmArgument '-XX:ActiveProcessorCount=2'
   systemProperty 'hellvisual.output',file('build/hell-visual-qa/frames').absolutePath
  } }
