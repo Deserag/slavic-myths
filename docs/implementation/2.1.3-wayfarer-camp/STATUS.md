@@ -1,5 +1,16 @@
 # 2.1.3 «Стоянка странника» — технический checkpoint
 
+> **Проверенный поздний checkpoint `bd604be3`, 29.10.2026:** ограниченный поиск
+> высот в исходном чанке; полный поздний отказ публикует INVALID_START и обновляет
+> vanilla locate cache через серверный поток. Seed20261026: лавовый `[24,46]`
+> явно отвергнут и НЕ считается размещением; настоящая стоянка `[-78,51]`, Y47.
+> 5 seed × 8 GameTest = **40/40 локально и в CI**
+> [40857737938](https://github.com/Deserag/slavic-myths/actions/runs/40857737938),
+> включая INVALID serialization/cache и функциональные блоки natural camp.
+> Общий CI 21/22: единственный FAIL — 2.1.5 natural shrine. JAR2.1.3 установлен
+> с backup/одним JAR; полная survival/MP/restart/visual приёмка НЕ заявляется.
+> [Report/source/SHA/установка/логи](../home-sync-20261029/REPORT.md).
+
 **Дата:** 2026-10-29 · **Ветка:** `hell` · **Issue:** [#341](https://github.com/Deserag/slavic-myths/issues/341) (**OPEN, owner acceptance pending**) · **Версия:** `2.1.3-HELL`
 
 ## Источник дизайна и границы

@@ -1,5 +1,14 @@
 # Slavic Myths 2.1.2 — Разбитый мост (WIP checkpoint, 29.10.2026)
 
+> **Позднее проверенное исправление 29.10.2026:** `be639736` / итоговый source `bd604be3`.
+> Final-decoration очистка существующего настила устраняет поздние грибные кроны.
+> 5 seed × 8 GameTest = **40/40 локально и независимо в CI**
+> [40857737938](https://github.com/Deserag/slavic-myths/actions/runs/40857737938).
+> Физический natural bridge проверен во всех пяти мирах; protected-solid/fluid/chest
+> negative fixture PASS. Общий CI 21/22 (2.1.5 natural FAIL). Кандидат установлен
+> в тестовый PolyMC с backup/одним JAR; GUI/MP/restart/survival/owner acceptance NOT_RUN.
+> [Точная квитанция, SHA и логи](../home-sync-20261029/REPORT.md).
+
 **Owner instruction:** proceed with next micro-patch now, retain `hell` only, final owner acceptance of 2.0+2.1 later. The earlier wait-for-2.0 gate is superseded ONLY for start of development, not acceptance.
 
 ## Primary sources available in the repository

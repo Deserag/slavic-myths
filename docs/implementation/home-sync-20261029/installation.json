@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-29",
+  "source_commit": "bd604be3b211bd291dbf7c817ffd78099e1d410d",
+  "version": "2.1.3-HELL",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.255",
+  "status": "INSTALLED_TEST_CANDIDATE",
+  "installed_jar": "C:\\Users\\user\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.8-HELL-Testing\\.minecraft\\mods\\slavicmyths-2.1.3-HELL.jar",
+  "size_bytes": 25445606,
+  "sha256": "7ae4d816d82e4bb20300c904013cb0514eaa8f405eb22394e497ca7e93a0fddb",
+  "backup_jar": "C:\\Users\\user\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.8-HELL-Testing\\mod-backups\\2026-10-29-bd604be3\\slavicmyths-2.0.10-HELL.jar",
+  "backup_sha256": "685387c355ba9665e6921dbd1757761cfddfe75651ff6bd5b48ab50f826a77f9",
+  "slavic_jars_in_mods": 1,
+  "graphical_client_launches": 0,
+  "owner_accepted": false
+}

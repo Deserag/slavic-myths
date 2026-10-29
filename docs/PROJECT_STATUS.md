@@ -1,3 +1,10 @@
+> 29.10.2026: домашний VS Code `hell` синхронизирован; `be639736`/`bd604be3`
+> исправляют поздние грибные кроны моста и phantom/locate-cache стоянки.
+> Java21 clean build/resources PASS; 5 seed 40/40, общий baseline 21/22 (FAIL 2.1.5 natural).
+> Тестовый 2.1.3-HELL установлен в отдельный PolyMC с backup/одним JAR; GUI 0.
+> Новые 2.1.4/2.1.6/2.1.7 BLOCKED_TZ; 2.1.8/2.1.9 исключены, owner acceptance нет.
+> [SHA, установка, фактические seed, ограничения и checklist](implementation/home-sync-20261029/REPORT.md).
+
 > 28.10.2026 #337: ресурсный блок #324, Nature/Traits20мобов#328 и
 > 6обычныхкузнечныхupgrades добавленывhell. МастерзадачаНЕзавершена;
 > [фактический журнал](implementation/2026-10-28-hell-all-tasks/STATUS.md).

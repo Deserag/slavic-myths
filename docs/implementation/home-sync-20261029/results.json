@@ -1,0 +1,131 @@
+{
+  "source_commit": "bd604be3b211bd291dbf7c817ffd78099e1d410d",
+  "version": "2.1.3-HELL",
+  "sha256": "7ae4d816d82e4bb20300c904013cb0514eaa8f405eb22394e497ca7e93a0fddb",
+  "clean_build": "PASS",
+  "resources_and_production_jar": "PASS",
+  "resource_counts": {
+    "scope": "CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted",
+    "version": "2.1.3-HELL",
+    "jar": "C:\\Users\\user\\.codex\\worktrees\\lost-halls\\slavic-myths\\build\\libs\\slavicmyths-2.1.3-HELL.jar",
+    "sha256": "7ae4d816d82e4bb20300c904013cb0514eaa8f405eb22394e497ca7e93a0fddb",
+    "resources": 8721,
+    "json": 4966,
+    "png": 1599,
+    "models": 2123,
+    "java21_classes": 2177,
+    "runtime_launches": "NOT_TRACKED_BY_STATIC_CHECK",
+    "runtime": "NOT_ASSESSED_BY_RESOURCE_CHECK; see actual QA logs"
+  },
+  "five_seed_tests": {
+    "passed": 40,
+    "total": 40,
+    "seeds": [
+      {
+        "seed": 20261024,
+        "tests_passed": 8,
+        "tests_total": 8,
+        "result": "PASS",
+        "bridge": "HELLQA_PASS 2.1.2 ACTUAL NATURAL NETHER BRIDGE seed=20261024 chunk=[13, -51] biome=minecraft:crimson_forest length=30 variant=2 roadSteps=25 width5Cells=125 bbox=BoundingBox{minX=207, minY=16, minZ=-808, maxX=213, maxY=44, maxZ=-779} sampledCandidates=14 acceptedPlans=1 no loot; chunk-clipped natural generation, not manual place",
+        "camp": "HELLQA_PASS 2.1.3 ACTUAL NATURAL WAYFARER seed=20261024 chunk=[29, 7] biome=minecraft:nether_wastes Y=47 variant=1 bbox=BoundingBox{minX=468, minY=47, minZ=117, maxX=476, maxY=52, maxZ=123} sampledCandidates=7 acceptedPlans=1 lateRejectedStarts=0 physical chest/fire/table/chain/lantern each one",
+        "watchpost": "HELLQA_PASS 2.1.1 ACTUAL NATURAL WATCHPOST seed=20261024 chunk=[-54, 7] biome=slavicmyths:lost_halls bounding=BoundingBox{minX=-861, minY=50, minZ=115, maxX=-851, maxY=75, maxZ=125} chest=1 ladder=18 candidateProbes=9 acceptedPlans=1 (no direct placement or player GUI)",
+        "rejections": []
+      },
+      {
+        "seed": 20261025,
+        "tests_passed": 8,
+        "tests_total": 8,
+        "result": "PASS",
+        "bridge": "HELLQA_PASS 2.1.2 ACTUAL NATURAL NETHER BRIDGE seed=20261025 chunk=[91, -70] biome=minecraft:nether_wastes length=38 variant=2 roadSteps=33 width5Cells=165 bbox=BoundingBox{minX=1464, minY=15, minZ=-1115, maxX=1501, maxY=43, maxZ=-1109} sampledCandidates=33 acceptedPlans=1 no loot; chunk-clipped natural generation, not manual place",
+        "camp": "HELLQA_PASS 2.1.3 ACTUAL NATURAL WAYFARER seed=20261025 chunk=[30, 0] biome=minecraft:nether_wastes Y=60 variant=0 bbox=BoundingBox{minX=487, minY=60, minZ=4, maxX=493, maxY=65, maxZ=12} sampledCandidates=5 acceptedPlans=1 lateRejectedStarts=0 physical chest/fire/table/chain/lantern each one",
+        "watchpost": "HELLQA_PASS 2.1.1 ACTUAL NATURAL WATCHPOST seed=20261025 chunk=[-52, 50] biome=minecraft:nether_wastes bounding=BoundingBox{minX=-829, minY=92, minZ=803, maxX=-819, maxY=117, maxZ=813} chest=1 ladder=18 candidateProbes=10 acceptedPlans=1 (no direct placement or player GUI)",
+        "rejections": []
+      },
+      {
+        "seed": 20261026,
+        "tests_passed": 8,
+        "tests_total": 8,
+        "result": "PASS",
+        "bridge": "HELLQA_PASS 2.1.2 ACTUAL NATURAL NETHER BRIDGE seed=20261026 chunk=[116, -127] biome=minecraft:crimson_forest length=38 variant=3 roadSteps=30 width5Cells=150 bbox=BoundingBox{minX=1833, minY=9, minZ=-2027, maxX=1870, maxY=37, maxZ=-2021} sampledCandidates=86 acceptedPlans=1 no loot; chunk-clipped natural generation, not manual place",
+        "camp": "HELLQA_PASS 2.1.3 ACTUAL NATURAL WAYFARER seed=20261026 chunk=[-78, 51] biome=minecraft:nether_wastes Y=47 variant=0 bbox=BoundingBox{minX=-1243, minY=47, minZ=820, maxX=-1237, maxY=52, maxZ=828} sampledCandidates=46 acceptedPlans=2 lateRejectedStarts=1 physical chest/fire/table/chain/lantern each one",
+        "watchpost": "HELLQA_PASS 2.1.1 ACTUAL NATURAL WATCHPOST seed=20261026 chunk=[-16, 39] biome=minecraft:nether_wastes bounding=BoundingBox{minX=-253, minY=76, minZ=627, maxX=-243, maxY=101, maxZ=637} chest=1 ladder=18 candidateProbes=2 acceptedPlans=1 (no direct placement or player GUI)",
+        "rejections": [
+          "HELLQA_WAYFARER_SAFE_REJECTION seed=20261026 chunk=[24, 46] invalid native start excluded from locate; NOT a physical placement"
+        ]
+      },
+      {
+        "seed": 3412026,
+        "tests_passed": 8,
+        "tests_total": 8,
+        "result": "PASS",
+        "bridge": "HELLQA_PASS 2.1.2 ACTUAL NATURAL NETHER BRIDGE seed=3412026 chunk=[-95, 1] biome=minecraft:nether_wastes length=38 variant=3 roadSteps=30 width5Cells=150 bbox=BoundingBox{minX=-1515, minY=9, minZ=-19, maxX=-1509, maxY=37, maxZ=18} sampledCandidates=49 acceptedPlans=1 no loot; chunk-clipped natural generation, not manual place",
+        "camp": "HELLQA_PASS 2.1.3 ACTUAL NATURAL WAYFARER seed=3412026 chunk=[-11, 11] biome=slavicmyths:black_cinder Y=55 variant=1 bbox=BoundingBox{minX=-172, minY=55, minZ=183, maxX=-164, maxY=60, maxZ=189} sampledCandidates=3 acceptedPlans=1 lateRejectedStarts=0 physical chest/fire/table/chain/lantern each one",
+        "watchpost": "HELLQA_PASS 2.1.1 ACTUAL NATURAL WATCHPOST seed=3412026 chunk=[35, 77] biome=minecraft:nether_wastes bounding=BoundingBox{minX=563, minY=43, minZ=1235, maxX=573, maxY=68, maxZ=1245} chest=1 ladder=18 candidateProbes=16 acceptedPlans=1 (no direct placement or player GUI)",
+        "rejections": []
+      },
+      {
+        "seed": 9132026,
+        "tests_passed": 8,
+        "tests_total": 8,
+        "result": "PASS",
+        "bridge": "HELLQA_PASS 2.1.2 ACTUAL NATURAL NETHER BRIDGE seed=9132026 chunk=[62, -25] biome=slavicmyths:navya_grove length=30 variant=2 roadSteps=25 width5Cells=125 bbox=BoundingBox{minX=994, minY=10, minZ=-395, maxX=1023, maxY=38, maxZ=-389} sampledCandidates=19 acceptedPlans=1 no loot; chunk-clipped natural generation, not manual place",
+        "camp": "HELLQA_PASS 2.1.3 ACTUAL NATURAL WAYFARER seed=9132026 chunk=[-62, 76] biome=slavicmyths:navya_grove Y=52 variant=1 bbox=BoundingBox{minX=-988, minY=52, minZ=1221, maxX=-980, maxY=57, maxZ=1227} sampledCandidates=24 acceptedPlans=1 lateRejectedStarts=0 physical chest/fire/table/chain/lantern each one",
+        "watchpost": "HELLQA_PASS 2.1.1 ACTUAL NATURAL WATCHPOST seed=9132026 chunk=[-30, -32] biome=minecraft:crimson_forest bounding=BoundingBox{minX=-477, minY=46, minZ=-509, maxX=-467, maxY=71, maxZ=-499} chest=1 ladder=18 candidateProbes=2 acceptedPlans=1 (no direct placement or player GUI)",
+        "rejections": []
+      }
+    ]
+  },
+  "full_baseline_tests": {
+    "passed": 21,
+    "total": 22,
+    "result": "FAIL",
+    "failures": [
+      "[13:29:38] [Server thread/ERROR] [minecraft/LogTestReporter]: actualnaturalancestorshrine failed at -5033929, -60, 10667104! 2.1.5 NO accepted natural Nether shrine seed=20261024 sampledCandidates=110 acceptedPlans=0 in bounded 17x17 placement-cell grid; geometry alone is not worldgen success"
+    ]
+  },
+  "graphical_client_launches": 0,
+  "production_mod_ids": {
+    "curios-neoforge-9.5.1+1.21.1.jar": [
+      "curios",
+      "neoforge",
+      "minecraft"
+    ],
+    "slavicmyths-2.1.3-HELL.jar": [
+      "slavicmyths",
+      "neoforge",
+      "minecraft",
+      "curios",
+      "jei"
+    ]
+  },
+  "new_micro_patches": {
+    "2.1.4": "BLOCKED_TZ",
+    "2.1.6": "BLOCKED_TZ",
+    "2.1.7": "BLOCKED_TZ",
+    "2.1.8": "EXCLUDED",
+    "2.1.9": "EXCLUDED"
+  },
+  "ci": [
+    {
+      "run": 40857737938,
+      "url": "https://github.com/Deserag/slavic-myths/actions/runs/40857737938",
+      "result": "PASS: five jobs, 40/40 GameTest"
+    },
+    {
+      "run": 40857737940,
+      "url": "https://github.com/Deserag/slavic-myths/actions/runs/40857737940",
+      "result": "FAIL: 21/22 GameTest; actualnaturalancestorshrine only"
+    }
+  ],
+  "not_run": [
+    "GUI/visual owner acceptance",
+    "full save/restart/old world",
+    "two-client MP",
+    "all nine biomes physical placements",
+    "survival discovery without OP",
+    "full structures/claims matrix",
+    "MSPT/FPS"
+  ],
+  "local_final_headless_worlds": 6,
+  "independent_ci_worlds": 6
+}

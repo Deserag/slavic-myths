@@ -1,3 +1,9 @@
+> 29.10.2026: BridgeClearanceFeature выполняет bounded очистку свежей декорации
+> над существующим настилом, пропуская FULL-чанки/жидкости/BE. WayfarerPiece
+> атомарно отвергает небезопасную площадку через INVALID_START и публикует
+> окончательные starts в vanilla StructureCheck на серверном потоке (адресный AT).
+> Нет tick polling/ретрогена; [evidence и ограничения](implementation/home-sync-20261029/REPORT.md).
+
 > 28.10.2026 #337: ресурсный блок #324, Nature/Traits20мобов#328 и
 > 6обычныхкузнечныхupgrades добавленывhell. МастерзадачаНЕзавершена;
 > [фактический журнал](implementation/2026-10-28-hell-all-tasks/STATUS.md).

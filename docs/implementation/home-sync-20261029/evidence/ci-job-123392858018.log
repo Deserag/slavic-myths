@@ -1,0 +1,862 @@
+﻿2026-10-29T10:27:45.2590869Z Current runner version: '2.338.0'
+2026-10-29T10:27:45.2614145Z ##[group]Runner Image Provisioner
+2026-10-29T10:27:45.2614966Z Hosted Compute Agent
+2026-10-29T10:27:45.2615553Z Version: 20261021.618
+2026-10-29T10:27:45.2616309Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-29T10:27:45.2616919Z Build Date: 2026-10-21T00:45:21Z
+2026-10-29T10:27:45.2617551Z Worker ID: {d2f2d36d-290a-4d80-86b9-9379ebfc7361}
+2026-10-29T10:27:45.2618155Z Region: centralus
+2026-10-29T10:27:45.2618639Z Cloud: Azure
+2026-10-29T10:27:45.2619141Z ##[endgroup]
+2026-10-29T10:27:45.2620657Z ##[group]Operating System
+2026-10-29T10:27:45.2621262Z Ubuntu
+2026-10-29T10:27:45.2621718Z 24.04.5
+2026-10-29T10:27:45.2622195Z LTS
+2026-10-29T10:27:45.2622659Z ##[endgroup]
+2026-10-29T10:27:45.2623134Z ##[group]Runner Image
+2026-10-29T10:27:45.2623986Z Image: ubuntu-24.04
+2026-10-29T10:27:45.2624553Z Version: 20261025.353.1
+2026-10-29T10:27:45.2626017Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261025.353/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-29T10:27:45.2627338Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261025.353
+2026-10-29T10:27:45.2628147Z ##[endgroup]
+2026-10-29T10:27:45.2629121Z ##[group]GITHUB_TOKEN Permissions
+2026-10-29T10:27:45.2631291Z Contents: read
+2026-10-29T10:27:45.2631790Z Metadata: read
+2026-10-29T10:27:45.2632248Z ##[endgroup]
+2026-10-29T10:27:45.2634100Z Secret source: Actions
+2026-10-29T10:27:45.2634911Z Cache mode: write
+2026-10-29T10:27:45.2635979Z Prepare workflow directory
+2026-10-29T10:27:45.2961826Z Prepare all required actions
+2026-10-29T10:27:45.3004073Z Getting action download info
+2026-10-29T10:27:45.5542117Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-29T10:27:45.6492760Z Download action repository 'actions/setup-java@v4' (SHA:cf277c60eb25467037889841efdb72551f06f6c3)
+2026-10-29T10:27:46.3244824Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-29T10:27:46.5361226Z Complete job name: Native Nether QA seed 20261025
+2026-10-29T10:27:46.5967877Z ##[group]Run actions/checkout@v4
+2026-10-29T10:27:46.5968598Z with:
+2026-10-29T10:27:46.5969038Z   repository: Deserag/slavic-myths
+2026-10-29T10:27:46.5972389Z   token: ***
+2026-10-29T10:27:46.5972806Z   ssh-strict: true
+2026-10-29T10:27:46.5973247Z   ssh-user: git
+2026-10-29T10:27:46.5973698Z   persist-credentials: true
+2026-10-29T10:27:46.5974163Z   clean: true
+2026-10-29T10:27:46.5974634Z   sparse-checkout-cone-mode: true
+2026-10-29T10:27:46.5975128Z   fetch-depth: 1
+2026-10-29T10:27:46.5975539Z   fetch-tags: false
+2026-10-29T10:27:46.5976219Z   show-progress: true
+2026-10-29T10:27:46.5976713Z   lfs: false
+2026-10-29T10:27:46.5977155Z   submodules: false
+2026-10-29T10:27:46.5977586Z   set-safe-directory: true
+2026-10-29T10:27:46.5978068Z   allow-unsafe-pr-checkout: false
+2026-10-29T10:27:46.5978743Z ##[endgroup]
+2026-10-29T10:27:46.8840449Z Syncing repository: Deserag/slavic-myths
+2026-10-29T10:27:46.8843003Z ##[group]Getting Git version info
+2026-10-29T10:27:46.8844594Z Working directory is '/home/runner/work/slavic-myths/slavic-myths'
+2026-10-29T10:27:46.8847612Z [command]/usr/bin/git version
+2026-10-29T10:27:46.8941563Z git version 2.56.0
+2026-10-29T10:27:46.8960047Z ##[endgroup]
+2026-10-29T10:27:46.8971529Z Temporarily overriding HOME='/home/runner/work/_temp/56ed4776-da04-4fae-96ef-9d30554b62a9' before making global git config changes
+2026-10-29T10:27:46.8975858Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-29T10:27:46.8979518Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/slavic-myths/slavic-myths
+2026-10-29T10:27:46.9027274Z Deleting the contents of '/home/runner/work/slavic-myths/slavic-myths'
+2026-10-29T10:27:46.9045127Z ##[group]Initializing the repository
+2026-10-29T10:27:46.9048757Z [command]/usr/bin/git init /home/runner/work/slavic-myths/slavic-myths
+2026-10-29T10:27:46.9163920Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-29T10:27:46.9167326Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-29T10:27:46.9169850Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-29T10:27:46.9171882Z hint: call:
+2026-10-29T10:27:46.9172990Z hint:
+2026-10-29T10:27:46.9174481Z hint: 	git config --global init.defaultBranch <name>
+2026-10-29T10:27:46.9177172Z hint:
+2026-10-29T10:27:46.9179369Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-29T10:27:46.9182674Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-29T10:27:46.9185473Z hint:
+2026-10-29T10:27:46.9187685Z hint: 	git branch -m <name>
+2026-10-29T10:27:46.9189109Z hint:
+2026-10-29T10:27:46.9190780Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-29T10:27:46.9193296Z Initialized empty Git repository in /home/runner/work/slavic-myths/slavic-myths/.git/
+2026-10-29T10:27:46.9197739Z [command]/usr/bin/git remote add origin https://github.com/Deserag/slavic-myths
+2026-10-29T10:27:46.9241586Z ##[endgroup]
+2026-10-29T10:27:46.9244176Z ##[group]Disabling automatic garbage collection
+2026-10-29T10:27:46.9246476Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-29T10:27:46.9272651Z ##[endgroup]
+2026-10-29T10:27:46.9274829Z ##[group]Setting up auth
+2026-10-29T10:27:46.9277540Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-29T10:27:46.9315283Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-29T10:27:46.9660587Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-29T10:27:46.9694727Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-29T10:27:46.9862007Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-29T10:27:46.9891884Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-29T10:27:47.0058012Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-29T10:27:47.0090581Z ##[endgroup]
+2026-10-29T10:27:47.0092330Z ##[group]Fetching the repository
+2026-10-29T10:27:47.0101924Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bd604be3b211bd291dbf7c817ffd78099e1d410d:refs/remotes/origin/hell
+2026-10-29T10:28:20.8004434Z From https://github.com/Deserag/slavic-myths
+2026-10-29T10:28:20.8006458Z  * [new ref]           bd604be3b211bd291dbf7c817ffd78099e1d410d -> origin/hell
+2026-10-29T10:28:20.8010256Z ##[endgroup]
+2026-10-29T10:28:20.8011283Z ##[group]Determining the checkout info
+2026-10-29T10:28:20.8012359Z ##[endgroup]
+2026-10-29T10:28:20.8016551Z [command]/usr/bin/git sparse-checkout disable
+2026-10-29T10:28:20.8169721Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-29T10:28:20.8196748Z ##[group]Checking out the ref
+2026-10-29T10:28:20.8200205Z [command]/usr/bin/git checkout --progress --force -B hell refs/remotes/origin/hell
+2026-10-29T10:28:21.9592790Z Updating files:   9% (2213/24302)
+2026-10-29T10:28:21.9802867Z Updating files:  10% (2431/24302)
+2026-10-29T10:28:22.0167317Z Updating files:  11% (2674/24302)
+2026-10-29T10:28:22.1883249Z Updating files:  12% (2917/24302)
+2026-10-29T10:28:22.2258542Z Updating files:  13% (3160/24302)
+2026-10-29T10:28:22.4114223Z Updating files:  14% (3403/24302)
+2026-10-29T10:28:22.5363461Z Updating files:  15% (3646/24302)
+2026-10-29T10:28:22.5741319Z Updating files:  16% (3889/24302)
+2026-10-29T10:28:22.8424717Z Updating files:  17% (4132/24302)
+2026-10-29T10:28:22.8517304Z Updating files:  17% (4364/24302)
+2026-10-29T10:28:22.9455752Z Updating files:  18% (4375/24302)
+2026-10-29T10:28:22.9955287Z Updating files:  19% (4618/24302)
+2026-10-29T10:28:23.0784685Z Updating files:  20% (4861/24302)
+2026-10-29T10:28:23.3051232Z Updating files:  21% (5104/24302)
+2026-10-29T10:28:23.5207789Z Updating files:  22% (5347/24302)
+2026-10-29T10:28:23.6246221Z Updating files:  23% (5590/24302)
+2026-10-29T10:28:23.6543373Z Updating files:  24% (5833/24302)
+2026-10-29T10:28:23.6995405Z Updating files:  25% (6076/24302)
+2026-10-29T10:28:23.8417943Z Updating files:  26% (6319/24302)
+2026-10-29T10:28:23.9377393Z Updating files:  26% (6503/24302)
+2026-10-29T10:28:24.1790764Z Updating files:  27% (6562/24302)
+2026-10-29T10:28:24.3876124Z Updating files:  28% (6805/24302)
+2026-10-29T10:28:24.5598126Z Updating files:  29% (7048/24302)
+2026-10-29T10:28:24.7411770Z Updating files:  30% (7291/24302)
+2026-10-29T10:28:24.8416506Z Updating files:  31% (7534/24302)
+2026-10-29T10:28:24.9183631Z Updating files:  31% (7670/24302)
+2026-10-29T10:28:25.1603746Z Updating files:  32% (7777/24302)
+2026-10-29T10:28:25.3874324Z Updating files:  33% (8020/24302)
+2026-10-29T10:28:25.6071051Z Updating files:  34% (8263/24302)
+2026-10-29T10:28:25.8234785Z Updating files:  35% (8506/24302)
+2026-10-29T10:28:25.8412946Z Updating files:  36% (8749/24302)
+2026-10-29T10:28:26.0359024Z Updating files:  36% (8774/24302)
+2026-10-29T10:28:26.2466374Z Updating files:  37% (8992/24302)
+2026-10-29T10:28:26.4475259Z Updating files:  38% (9235/24302)
+2026-10-29T10:28:26.4788771Z Updating files:  39% (9478/24302)
+2026-10-29T10:28:26.5180439Z Updating files:  40% (9721/24302)
+2026-10-29T10:28:26.6046924Z Updating files:  41% (9964/24302)
+2026-10-29T10:28:26.6459335Z Updating files:  42% (10207/24302)
+2026-10-29T10:28:26.7333531Z Updating files:  43% (10450/24302)
+2026-10-29T10:28:26.7823630Z Updating files:  44% (10693/24302)
+2026-10-29T10:28:26.8544101Z Updating files:  45% (10936/24302)
+2026-10-29T10:28:27.1003196Z Updating files:  45% (11077/24302)
+2026-10-29T10:28:27.2394303Z Updating files:  46% (11179/24302)
+2026-10-29T10:28:27.3354186Z Updating files:  47% (11422/24302)
+2026-10-29T10:28:27.7253597Z Updating files:  48% (11665/24302)
+2026-10-29T10:28:27.8201104Z Updating files:  49% (11908/24302)
+2026-10-29T10:28:27.8376461Z Updating files:  50% (12151/24302)
+2026-10-29T10:28:27.8418934Z Updating files:  51% (12395/24302)
+2026-10-29T10:28:27.8733821Z Updating files:  51% (12471/24302)
+2026-10-29T10:28:27.9130280Z Updating files:  52% (12638/24302)
+2026-10-29T10:28:27.9224758Z Updating files:  53% (12881/24302)
+2026-10-29T10:28:27.9318456Z Updating files:  54% (13124/24302)
+2026-10-29T10:28:27.9397954Z Updating files:  55% (13367/24302)
+2026-10-29T10:28:27.9478970Z Updating files:  56% (13610/24302)
+2026-10-29T10:28:27.9560474Z Updating files:  57% (13853/24302)
+2026-10-29T10:28:27.9617189Z Updating files:  58% (14096/24302)
+2026-10-29T10:28:27.9677320Z Updating files:  59% (14339/24302)
+2026-10-29T10:28:27.9719253Z Updating files:  60% (14582/24302)
+2026-10-29T10:28:27.9770005Z Updating files:  61% (14825/24302)
+2026-10-29T10:28:27.9812193Z Updating files:  62% (15068/24302)
+2026-10-29T10:28:27.9855988Z Updating files:  63% (15311/24302)
+2026-10-29T10:28:27.9900792Z Updating files:  64% (15554/24302)
+2026-10-29T10:28:27.9943214Z Updating files:  65% (15797/24302)
+2026-10-29T10:28:27.9990018Z Updating files:  66% (16040/24302)
+2026-10-29T10:28:28.0033286Z Updating files:  67% (16283/24302)
+2026-10-29T10:28:28.0110037Z Updating files:  68% (16526/24302)
+2026-10-29T10:28:28.0260048Z Updating files:  69% (16769/24302)
+2026-10-29T10:28:28.0386544Z Updating files:  70% (17012/24302)
+2026-10-29T10:28:28.0529082Z Updating files:  71% (17255/24302)
+2026-10-29T10:28:28.0630274Z Updating files:  72% (17498/24302)
+2026-10-29T10:28:28.0742662Z Updating files:  73% (17741/24302)
+2026-10-29T10:28:28.1795882Z Updating files:  74% (17984/24302)
+2026-10-29T10:28:28.1833458Z Updating files:  75% (18227/24302)
+2026-10-29T10:28:28.1922826Z Updating files:  76% (18470/24302)
+2026-10-29T10:28:28.1982272Z Updating files:  77% (18713/24302)
+2026-10-29T10:28:28.2018828Z Updating files:  78% (18956/24302)
+2026-10-29T10:28:28.2057841Z Updating files:  79% (19199/24302)
+2026-10-29T10:28:28.2101878Z Updating files:  80% (19442/24302)
+2026-10-29T10:28:28.2144880Z Updating files:  81% (19685/24302)
+2026-10-29T10:28:28.2181107Z Updating files:  82% (19928/24302)
+2026-10-29T10:28:28.2222027Z Updating files:  83% (20171/24302)
+2026-10-29T10:28:28.2258341Z Updating files:  84% (20414/24302)
+2026-10-29T10:28:28.2295511Z Updating files:  85% (20657/24302)
+2026-10-29T10:28:28.2333645Z Updating files:  86% (20900/24302)
+2026-10-29T10:28:28.2372731Z Updating files:  87% (21143/24302)
+2026-10-29T10:28:28.2453046Z Updating files:  88% (21386/24302)
+2026-10-29T10:28:28.2535355Z Updating files:  89% (21629/24302)
+2026-10-29T10:28:28.2601516Z Updating files:  90% (21872/24302)
+2026-10-29T10:28:28.2649836Z Updating files:  91% (22115/24302)
+2026-10-29T10:28:28.2688844Z Updating files:  92% (22358/24302)
+2026-10-29T10:28:28.2729109Z Updating files:  93% (22601/24302)
+2026-10-29T10:28:28.2838066Z Updating files:  94% (22844/24302)
+2026-10-29T10:28:28.2979619Z Updating files:  95% (23087/24302)
+2026-10-29T10:28:28.3078618Z Updating files:  96% (23330/24302)
+2026-10-29T10:28:28.3191847Z Updating files:  97% (23573/24302)
+2026-10-29T10:28:28.3296201Z Updating files:  98% (23816/24302)
+2026-10-29T10:28:28.3402108Z Updating files:  99% (24059/24302)
+2026-10-29T10:28:28.3402653Z Updating files: 100% (24302/24302)
+2026-10-29T10:28:28.3403179Z Updating files: 100% (24302/24302), done.
+2026-10-29T10:28:28.4959644Z Switched to a new branch 'hell'
+2026-10-29T10:28:28.4960507Z branch 'hell' set up to track 'origin/hell'.
+2026-10-29T10:28:28.5114730Z ##[endgroup]
+2026-10-29T10:28:28.5153579Z [command]/usr/bin/git log -1 --format=%H
+2026-10-29T10:28:28.5187800Z bd604be3b211bd291dbf7c817ffd78099e1d410d
+2026-10-29T10:28:28.5900068Z ##[group]Run actions/setup-java@v4
+2026-10-29T10:28:28.5900399Z with:
+2026-10-29T10:28:28.5900665Z   distribution: temurin
+2026-10-29T10:28:28.5900953Z   java-version: 21
+2026-10-29T10:28:28.5901230Z   java-package: jdk
+2026-10-29T10:28:28.5901810Z   check-latest: false
+2026-10-29T10:28:28.5902081Z   server-id: github
+2026-10-29T10:28:28.5902381Z   server-username: GITHUB_ACTOR
+2026-10-29T10:28:28.5902708Z   server-password: GITHUB_TOKEN
+2026-10-29T10:28:28.5903020Z   overwrite-settings: true
+2026-10-29T10:28:28.5903345Z   job-status: success
+2026-10-29T10:28:28.5905369Z   token: ***
+2026-10-29T10:28:28.5905787Z ##[endgroup]
+2026-10-29T10:28:28.7450167Z ##[warning]setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+2026-10-29T10:28:28.7456405Z ##[group]Installed distributions
+2026-10-29T10:28:28.7482735Z Resolved Java 21.0.13+9 from tool-cache
+2026-10-29T10:28:28.7483192Z Setting Java 21.0.13+9 as the default
+2026-10-29T10:28:28.7490542Z (node:2100) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-29T10:28:28.7491104Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-29T10:28:28.7492968Z Creating toolchains.xml for JDK version 21 from temurin
+2026-10-29T10:28:28.7549663Z Writing to /home/runner/.m2/toolchains.xml
+2026-10-29T10:28:28.7550440Z 
+2026-10-29T10:28:28.7550623Z Java configuration:
+2026-10-29T10:28:28.7550892Z   Distribution: temurin
+2026-10-29T10:28:28.7551310Z   Version: 21.0.13+9
+2026-10-29T10:28:28.7551862Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-10-29T10:28:28.7552091Z 
+2026-10-29T10:28:28.7552422Z ##[endgroup]
+2026-10-29T10:28:28.7570691Z Creating settings.xml with server-id: github
+2026-10-29T10:28:28.7592088Z Writing to /home/runner/.m2/settings.xml
+2026-10-29T10:28:28.7762309Z ##[group]Run set -o pipefail
+2026-10-29T10:28:28.7762644Z [36;1mset -o pipefail[0m
+2026-10-29T10:28:28.7762866Z [36;1mchmod +x gradlew[0m
+2026-10-29T10:28:28.7763249Z [36;1m./gradlew --no-daemon clean build --console=plain 2>&1 | tee /tmp/wayfarer-build.log[0m
+2026-10-29T10:28:28.7783468Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-29T10:28:28.7783752Z env:
+2026-10-29T10:28:28.7784017Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-10-29T10:28:28.7784429Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-10-29T10:28:28.7784733Z ##[endgroup]
+2026-10-29T10:28:31.5189820Z Downloading https://services.gradle.org/distributions/gradle-9.2.1-bin.zip
+2026-10-29T10:28:34.0720121Z ............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+2026-10-29T10:28:35.7589965Z 
+2026-10-29T10:28:35.7591473Z Welcome to Gradle 9.2.1!
+2026-10-29T10:28:35.7591963Z 
+2026-10-29T10:28:35.7592694Z Here are the highlights of this release:
+2026-10-29T10:28:35.7593124Z  - Windows ARM support
+2026-10-29T10:28:35.7593476Z  - Improved publishing APIs
+2026-10-29T10:28:35.7593904Z  - Better guidance for dependency verification failures
+2026-10-29T10:28:35.7594216Z 
+2026-10-29T10:28:35.7594447Z For more details see https://docs.gradle.org/9.2.1/release-notes.html
+2026-10-29T10:28:35.7594813Z 
+2026-10-29T10:28:35.8578560Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+2026-10-29T10:28:37.2579020Z Daemon will be stopped at the end of the build 
+2026-10-29T10:28:45.4606330Z 
+2026-10-29T10:28:45.4617180Z > Configure project :
+2026-10-29T10:28:45.4617951Z Creating Minecraft artifacts without recompilation.
+2026-10-29T10:28:53.7576324Z 
+2026-10-29T10:28:53.7578819Z > Task :clean UP-TO-DATE
+2026-10-29T10:29:04.8576696Z 
+2026-10-29T10:29:04.8584442Z > Task :createMinecraftArtifacts
+2026-10-29T10:29:04.8585309Z Loaded 131 artifacts from /home/runner/work/slavic-myths/slavic-myths/build/tmp/createMinecraftArtifacts/nfrt_artifact_manifest.properties
+2026-10-29T10:29:05.0577065Z [1m*** Started working on [4mdownloadJson[23;0m[23;0m
+2026-10-29T10:29:05.1577051Z   ↓ https://piston-meta.mojang.com/mc/game/version_manifest_v2.json
+2026-10-29T10:29:05.3577778Z   ↓ https://piston-meta.mojang.com/v1/packages/018296bcb207bea6fd25b05f08eee3942dcec406/1.21.1.json
+2026-10-29T10:29:05.4576569Z  [1m[92m✓[23;0m Completed [4mdownloadJson[23;0m in 0.31s
+2026-10-29T10:29:05.4579715Z [1m*** Started working on [4mdownloadServer[23;0m[23;0m
+2026-10-29T10:29:05.4580166Z [1m*** Started working on [4mdownloadClientMappings[23;0m[23;0m
+2026-10-29T10:29:05.4580542Z [1m*** Started working on [4mdownloadClient[23;0m[23;0m
+2026-10-29T10:29:05.4581108Z   ↓ https://piston-data.mojang.com/v1/objects/30c73b1c5da787909b2f73340419fdf13b9def88/client.jar
+2026-10-29T10:29:05.4581704Z   ↓ https://piston-data.mojang.com/v1/objects/2244b6f072256667bcd9a73df124d6c58de77992/client.txt
+2026-10-29T10:29:05.4582285Z   ↓ https://piston-data.mojang.com/v1/objects/59353fb40c36d304f2035d51e7d6e6baa98dc05c/server.jar
+2026-10-29T10:29:05.8587760Z  [1m[92m✓[23;0m Completed [4mdownloadClientMappings[23;0m in 0.43s
+2026-10-29T10:29:05.9587248Z [1m*** Started working on [4mmergeMappings[23;0m[23;0m
+2026-10-29T10:29:05.9631146Z  ↳ Running external tool net.neoforged.installertools:installertools:2.1.2:fatjar
+2026-10-29T10:29:06.0647363Z  [1m[92m✓[23;0m Completed [4mdownloadClient[23;0m in 0.60s
+2026-10-29T10:29:06.0676870Z [1m*** Started working on [4mstripClient[23;0m[23;0m
+2026-10-29T10:29:06.1606745Z  [1m[92m✓[23;0m Completed [4mdownloadServer[23;0m in 0.79s
+2026-10-29T10:29:06.2626984Z [1m*** Started working on [4mextractServer[23;0m[23;0m
+2026-10-29T10:29:06.2667491Z  ↳ Running external tool net.neoforged.installertools:installertools:2.1.2:fatjar
+2026-10-29T10:29:07.0601820Z  [1m[92m✓[23;0m Completed [4mextractServer[23;0m in 0.75s
+2026-10-29T10:29:07.0604245Z [1m*** Started working on [4mstripServer[23;0m[23;0m
+2026-10-29T10:29:08.9577387Z  [1m[92m✓[23;0m Completed [4mstripServer[23;0m in 1.95s
+2026-10-29T10:29:09.0577293Z  [1m[92m✓[23;0m Completed [4mmergeMappings[23;0m in 3.15s
+2026-10-29T10:29:09.1579365Z  [1m[92m✓[23;0m Completed [4mstripClient[23;0m in 3.06s
+2026-10-29T10:29:09.1580322Z [1m*** Started working on [4mmerge[23;0m[23;0m
+2026-10-29T10:29:09.1581022Z  ↳ Running external tool net.neoforged:mergetool:2.0.3:fatjar
+2026-10-29T10:29:11.6584077Z  [1m[92m✓[23;0m Completed [4mmerge[23;0m in 2.52s
+2026-10-29T10:29:11.7577419Z [1m*** Started working on [4mrename[23;0m[23;0m
+2026-10-29T10:29:11.7578299Z  ↳ Running external tool net.neoforged:AutoRenamingTool:2.0.3:all
+2026-10-29T10:29:16.9577102Z  [1m[92m✓[23;0m Completed [4mrename[23;0m in 5.20s
+2026-10-29T10:29:16.9577596Z [1m*** Started working on [4mbinaryPatch[23;0m[23;0m
+2026-10-29T10:29:16.9578243Z   [33mWARNING: [23;0mnet.neoforged.installertools:binarypatcher:2.1.2:fatjar is not present in the artifact manifest
+2026-10-29T10:29:16.9579126Z   ↓ https://maven.neoforged.net/releases/net/neoforged/installertools/binarypatcher/2.1.2/binarypatcher-2.1.2-fatjar.jar
+2026-10-29T10:29:17.3577238Z  ↳ Running external tool net.neoforged.installertools:binarypatcher:2.1.2:fatjar
+2026-10-29T10:29:20.0576782Z  [1m[92m✓[23;0m Completed [4mbinaryPatch[23;0m in 3.06s
+2026-10-29T10:29:20.0577368Z [1m*** Started working on [4mcopyUnpatchedClasses[23;0m[23;0m
+2026-10-29T10:29:21.5578844Z  [1m[92m✓[23;0m Completed [4mcopyUnpatchedClasses[23;0m in 1.52s
+2026-10-29T10:29:21.5579515Z [1m*** Started working on [4mapplyDevTransforms[23;0m[23;0m
+2026-10-29T10:29:21.5580231Z  ↳ Running external tool net.neoforged.installertools:installertools:4.0.12:fatjar
+2026-10-29T10:29:23.4577012Z  [1m[92m✓[23;0m Completed [4mapplyDevTransforms[23;0m in 1.90s
+2026-10-29T10:29:23.6576326Z [1m*** Started working on [4mbinaryWithNeoForge[23;0m[23;0m
+2026-10-29T10:29:27.4577300Z  [1m[92m✓[23;0m Completed [4mbinaryWithNeoForge[23;0m in 3.86s
+2026-10-29T10:29:27.5575470Z Total runtime: 22.91s
+2026-10-29T10:29:27.5575856Z 
+2026-10-29T10:29:37.9587267Z 
+2026-10-29T10:29:37.9616803Z > Task :compileJava
+2026-10-29T10:29:37.9617870Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/gorynych/CrossbowVolley.java:35: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:37.9618678Z  @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:37.9619108Z                                          ^
+2026-10-29T10:29:37.9619897Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/gorynych/CrossbowVolley.java:35: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:37.9620681Z  @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:37.9621098Z                                                                ^
+2026-10-29T10:29:38.6577227Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/pesigolovtsy/DogheadContent.java:25: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:38.6590485Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:38.6591418Z                                         ^
+2026-10-29T10:29:38.6592818Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/pesigolovtsy/DogheadContent.java:25: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:38.6594355Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:38.6595780Z                                                               ^
+2026-10-29T10:29:38.6597190Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/pesigolovtsy/DogheadConfig.java:6: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:38.6598810Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:38.6599630Z                                         ^
+2026-10-29T10:29:38.6600950Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/pesigolovtsy/DogheadConfig.java:6: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:38.6602365Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:38.6603164Z                                                               ^
+2026-10-29T10:29:38.9597811Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/earth/EarthContent.java:17: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:38.9626877Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:38.9627477Z                                         ^
+2026-10-29T10:29:38.9628776Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/earth/EarthContent.java:17: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:38.9630112Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:38.9630817Z                                                               ^
+2026-10-29T10:29:39.1610286Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/earth/EarthConfig.java:11: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:39.1636769Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:39.1670795Z                                         ^
+2026-10-29T10:29:39.1672190Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/earth/EarthConfig.java:11: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:39.1697114Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:39.1740896Z                                                               ^
+2026-10-29T10:29:39.2576154Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/skim/SkimContent.java:12: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:39.2599429Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:39.2601187Z                                         ^
+2026-10-29T10:29:39.2602318Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/skim/SkimContent.java:12: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:39.2603774Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:39.2604530Z                                                               ^
+2026-10-29T10:29:39.3578596Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/skim/HeroLifecycleNetwork.java:13: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:39.3585315Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:39.3586613Z                                         ^
+2026-10-29T10:29:39.3588024Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/skim/HeroLifecycleNetwork.java:13: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:39.3589516Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:39.3590356Z                                                               ^
+2026-10-29T10:29:39.6578782Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/underground/UndergroundMobs.java:13: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:39.6595973Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:39.6597088Z                                         ^
+2026-10-29T10:29:39.6598456Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/underground/UndergroundMobs.java:13: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:39.6599958Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:39.6600832Z                                                               ^
+2026-10-29T10:29:39.7584961Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/military/MilitaryNetwork.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:39.7595389Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:39.7596622Z                                         ^
+2026-10-29T10:29:39.7598157Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/military/MilitaryNetwork.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:39.7599847Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:39.7600631Z                                                               ^
+2026-10-29T10:29:40.3587823Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/losthalls/client/HallsClient.java:13: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:40.3627229Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:40.3628373Z                                                           ^
+2026-10-29T10:29:40.3629792Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/losthalls/client/HallsClient.java:13: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:40.3631292Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:40.3632226Z                                                                                 ^
+2026-10-29T10:29:40.6588106Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/poloz/PolozRegistration.java:5: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:40.6589866Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:40.6590946Z                                         ^
+2026-10-29T10:29:40.6592192Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/poloz/PolozRegistration.java:5: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:40.6593620Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:40.6594413Z                                                               ^
+2026-10-29T10:29:41.3588567Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/firebird/FirebirdContent.java:15: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:41.3596845Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:41.3597773Z                                         ^
+2026-10-29T10:29:41.3599247Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/firebird/FirebirdContent.java:15: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:41.3600738Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:41.3601935Z                                                               ^
+2026-10-29T10:29:41.4576717Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/finist/FinistContent.java:12: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:41.4582982Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:41.4583794Z                                         ^
+2026-10-29T10:29:41.4585255Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/finist/FinistContent.java:12: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:41.4586812Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:41.4591966Z                                                               ^
+2026-10-29T10:29:41.5575416Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/furniture/FurnitureClient.java:16: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:41.5579299Z @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:41.5598776Z                                                                                    ^
+2026-10-29T10:29:41.5600139Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/furniture/FurnitureClient.java:16: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:41.5601789Z @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:41.5602889Z                                                                                                                                   ^
+2026-10-29T10:29:41.7576894Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/navya/NavyaClient.java:11: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:41.7583038Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+2026-10-29T10:29:41.7584118Z                                         ^
+2026-10-29T10:29:41.7586022Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/navya/NavyaClient.java:11: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:41.7588118Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+2026-10-29T10:29:41.7589152Z                                                               ^
+2026-10-29T10:29:42.1576511Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/kuzya/KuzyaContent.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:42.1579436Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:42.1580163Z                                         ^
+2026-10-29T10:29:42.1581458Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/kuzya/KuzyaContent.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:42.1582971Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:42.1583690Z                                                               ^
+2026-10-29T10:29:42.3576893Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/combat/WeaponDefaults.java:12: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:42.3579950Z @EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:42.3580641Z                                          ^
+2026-10-29T10:29:42.3582111Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/combat/WeaponDefaults.java:12: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:42.3583467Z @EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:42.3584282Z                                                                ^
+2026-10-29T10:29:42.4576331Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/nochnitsa/NochnitsaContent.java:21: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:42.4613402Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:42.4629380Z                                         ^
+2026-10-29T10:29:42.4630666Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/nochnitsa/NochnitsaContent.java:21: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:42.4632014Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:42.4632689Z                                                               ^
+2026-10-29T10:29:42.4633927Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/nochnitsa/NochnitsaConfig.java:6: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:42.4635510Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:42.4636304Z                                         ^
+2026-10-29T10:29:42.4637447Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/nochnitsa/NochnitsaConfig.java:6: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:42.4638793Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:42.4639441Z                                                               ^
+2026-10-29T10:29:42.8577778Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/burningislands/client/IslandsClient.java:11: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:42.8587355Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:42.8588274Z                                                           ^
+2026-10-29T10:29:42.8589625Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/burningislands/client/IslandsClient.java:11: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:42.8591068Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:42.8591725Z                                                                                 ^
+2026-10-29T10:29:43.0576794Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/registry/ModEntities.java:15: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:43.0583877Z @EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:43.0584711Z                                                 ^
+2026-10-29T10:29:43.0586149Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/registry/ModEntities.java:15: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:43.0587605Z @EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:43.0588305Z                                                                         ^
+2026-10-29T10:29:43.2576707Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/wood/WoodlandClient.java:9: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:43.2601494Z @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:43.2603036Z                                                                                    ^
+2026-10-29T10:29:43.2604334Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/wood/WoodlandClient.java:9: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:43.2606635Z @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:43.2610500Z                                                                                                                                   ^
+2026-10-29T10:29:43.4576857Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/marinka/MarinkaContent.java:12: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:43.4589922Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:43.4592319Z                                         ^
+2026-10-29T10:29:43.4593533Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/marinka/MarinkaContent.java:12: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:43.4594878Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:43.4595542Z                                                               ^
+2026-10-29T10:29:43.5574475Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/sivka/SivkaContent.java:16: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:43.5598086Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:43.5598785Z                                         ^
+2026-10-29T10:29:43.5599934Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/sivka/SivkaContent.java:16: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:43.5601209Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:43.5601796Z                                                               ^
+2026-10-29T10:29:43.5602789Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/wolf/WolfStoryNetwork.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:43.5603966Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:43.5604542Z                                         ^
+2026-10-29T10:29:43.5605814Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/wolf/WolfStoryNetwork.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:43.5607098Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:43.5607908Z                                                               ^
+2026-10-29T10:29:43.6579615Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/bayun/BayunContent.java:15: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:43.6602144Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:43.6609055Z                                         ^
+2026-10-29T10:29:43.6610280Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/bayun/BayunContent.java:15: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:43.6611568Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:43.6612217Z                                                               ^
+2026-10-29T10:29:44.0577523Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/blackcinder/client/CinderClient.java:7: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.0606806Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+2026-10-29T10:29:44.0626246Z                                         ^
+2026-10-29T10:29:44.0657084Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/blackcinder/client/CinderClient.java:7: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.0686381Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+2026-10-29T10:29:44.0716145Z                                                               ^
+2026-10-29T10:29:44.6576325Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/FrostClient.java:35: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.6579282Z  @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:44.6580107Z                                                            ^
+2026-10-29T10:29:44.6581294Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/FrostClient.java:35: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.6582705Z  @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:44.6583467Z                                                                                  ^
+2026-10-29T10:29:44.8583166Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/ClientSetup.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.8607557Z @net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+2026-10-29T10:29:44.8636622Z                                                                          ^
+2026-10-29T10:29:44.8657964Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/ClientSetup.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.8678843Z @net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+2026-10-29T10:29:44.8681343Z                                                                                                                           ^
+2026-10-29T10:29:44.8683870Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/UniqueArmorModels.java:15: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.8686344Z @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:44.8688693Z                                                                                    ^
+2026-10-29T10:29:44.8689875Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/UniqueArmorModels.java:15: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.8691257Z @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:44.8692141Z                                                                                                                                   ^
+2026-10-29T10:29:44.8693235Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/MarinkaClient.java:21: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.8694391Z  @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:44.8695316Z                                                            ^
+2026-10-29T10:29:44.8696521Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/MarinkaClient.java:21: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.8699243Z  @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:44.8699911Z                                                                                  ^
+2026-10-29T10:29:44.9594527Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/SanctuaryClient.java:7: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.9596133Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:44.9596819Z                                                           ^
+2026-10-29T10:29:44.9605274Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/SanctuaryClient.java:7: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.9607036Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:44.9607842Z                                                                                 ^
+2026-10-29T10:29:44.9608927Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/ChudPeopleClient.java:13: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.9611722Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+2026-10-29T10:29:44.9612428Z                                         ^
+2026-10-29T10:29:44.9613497Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/ChudPeopleClient.java:13: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.9614912Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+2026-10-29T10:29:44.9615746Z                                                               ^
+2026-10-29T10:29:44.9616940Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/WeaponMotionClient.java:21: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.9618301Z @EventBusSubscriber(modid="slavicmyths", value=Dist.CLIENT, bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:44.9619002Z                                                             ^
+2026-10-29T10:29:44.9620207Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/WeaponMotionClient.java:21: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.9623751Z @EventBusSubscriber(modid="slavicmyths", value=Dist.CLIENT, bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:44.9624583Z                                                                                   ^
+2026-10-29T10:29:44.9625936Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/Quest185Client.java:29: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.9627274Z  @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:44.9628010Z                                                            ^
+2026-10-29T10:29:44.9628998Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/Quest185Client.java:29: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.9630263Z  @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:44.9630924Z                                                                                  ^
+2026-10-29T10:29:44.9632385Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/TrophyHeadsClient.java:24: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.9633859Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:44.9634746Z                                                           ^
+2026-10-29T10:29:44.9636055Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/TrophyHeadsClient.java:24: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:44.9637286Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:44.9637993Z                                                                                 ^
+2026-10-29T10:29:45.0577081Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/GorynychClient.java:10: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.0606618Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.0615958Z                                                           ^
+2026-10-29T10:29:45.0617368Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/GorynychClient.java:10: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.0618865Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.0619644Z                                                                                 ^
+2026-10-29T10:29:45.0620821Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/DogheadClient.java:18: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.0622168Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+2026-10-29T10:29:45.0622895Z                                         ^
+2026-10-29T10:29:45.0627621Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/DogheadClient.java:18: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.0629125Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+2026-10-29T10:29:45.0629864Z                                                               ^
+2026-10-29T10:29:45.0631042Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/FlailClient.java:30: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.0632418Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.0633133Z                                                           ^
+2026-10-29T10:29:45.0634298Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/FlailClient.java:30: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.0635870Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.0636675Z                                                                                 ^
+2026-10-29T10:29:45.0637874Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/BowDrawClient.java:20: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.0639226Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.0639979Z                                                           ^
+2026-10-29T10:29:45.0641156Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/BowDrawClient.java:20: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.0642883Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.0643727Z                                                                                 ^
+2026-10-29T10:29:45.3576395Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/SkimClient.java:14: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.3580968Z  @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.3581892Z                                                            ^
+2026-10-29T10:29:45.3583109Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/SkimClient.java:14: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.3584523Z  @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.3585319Z                                                                                  ^
+2026-10-29T10:29:45.3586831Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/GreatswordClient.java:4: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.3588442Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.3589187Z                                                           ^
+2026-10-29T10:29:45.3590434Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/GreatswordClient.java:4: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.3591846Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.3592676Z                                                                                 ^
+2026-10-29T10:29:45.3594170Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/BogatyrClient.java:30: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.3595779Z     @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+2026-10-29T10:29:45.3596559Z                                             ^
+2026-10-29T10:29:45.3597696Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/BogatyrClient.java:30: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.3599084Z     @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+2026-10-29T10:29:45.3599830Z                                                                   ^
+2026-10-29T10:29:45.4575494Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/NochnitsaClient.java:19: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.4584443Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+2026-10-29T10:29:45.4585465Z                                         ^
+2026-10-29T10:29:45.4586975Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/NochnitsaClient.java:19: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.4588492Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+2026-10-29T10:29:45.4589179Z                                                               ^
+2026-10-29T10:29:45.4590428Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/KuzyaClient.java:16: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.4591908Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+2026-10-29T10:29:45.4592646Z                                         ^
+2026-10-29T10:29:45.4594200Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/KuzyaClient.java:16: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.4595864Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+2026-10-29T10:29:45.4596833Z                                                               ^
+2026-10-29T10:29:45.4598047Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/InfernalFurnaceClient.java:3: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.4599472Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.4600196Z                                                           ^
+2026-10-29T10:29:45.4601424Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/InfernalFurnaceClient.java:3: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.4602870Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.4603628Z                                                                                 ^
+2026-10-29T10:29:45.4604911Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/ArmorStandClothingLayer.java:19: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.4606929Z @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.4607936Z                                                                                    ^
+2026-10-29T10:29:45.4609196Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/ArmorStandClothingLayer.java:19: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.4610943Z @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.4612033Z                                                                                                                                   ^
+2026-10-29T10:29:45.4613390Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/IndustryClient.java:12: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.4614813Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+2026-10-29T10:29:45.4615524Z                                         ^
+2026-10-29T10:29:45.4617079Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/IndustryClient.java:12: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.4618501Z @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+2026-10-29T10:29:45.4619236Z                                                               ^
+2026-10-29T10:29:45.4620855Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/PolozClient.java:7: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.4622447Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.4623220Z                                                           ^
+2026-10-29T10:29:45.4624344Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/PolozClient.java:7: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.4625861Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.4626972Z                                                                                 ^
+2026-10-29T10:29:45.4628239Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/ThirdPersonWeaponMotion.java:29: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.4629919Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.4630684Z                                                           ^
+2026-10-29T10:29:45.4631997Z /home/runner/work/slavic-myths/slavic-myths/src/main/java/org/slavicmyths/client/ThirdPersonWeaponMotion.java:29: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-10-29T10:29:45.4633553Z @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+2026-10-29T10:29:45.4634337Z                                                                                 ^
+2026-10-29T10:29:47.4587598Z Note: Some input files use or override a deprecated API.
+2026-10-29T10:29:47.4606832Z Note: Recompile with -Xlint:deprecation for details.
+2026-10-29T10:29:47.4636748Z Note: Some input files additionally use or override a deprecated API that is marked for removal.
+2026-10-29T10:29:47.4637715Z Note: Some input files use unchecked or unsafe operations.
+2026-10-29T10:29:47.4646598Z Note: Recompile with -Xlint:unchecked for details.
+2026-10-29T10:29:47.4647278Z 100 warnings
+2026-10-29T10:29:54.4575719Z 
+2026-10-29T10:29:54.4577446Z > Task :verifyRejectedVoiceQuarantine
+2026-10-29T10:29:56.5578955Z > Task :processResources
+2026-10-29T10:29:56.5579690Z > Task :classes
+2026-10-29T10:29:56.5579958Z > Task :jarJar NO-SOURCE
+2026-10-29T10:29:57.7544173Z > Task :jar
+2026-10-29T10:29:57.7544872Z > Task :assemble
+2026-10-29T10:29:57.7545444Z > Task :compileTestJava NO-SOURCE
+2026-10-29T10:29:57.7546315Z > Task :processTestResources NO-SOURCE
+2026-10-29T10:29:57.7546819Z > Task :testClasses UP-TO-DATE
+2026-10-29T10:29:57.7547246Z > Task :test NO-SOURCE
+2026-10-29T10:29:57.7547647Z > Task :check UP-TO-DATE
+2026-10-29T10:29:57.7548088Z > Task :build
+2026-10-29T10:29:57.7548356Z 
+2026-10-29T10:29:57.7549062Z [Incubating] Problems report is available at: file:///home/runner/work/slavic-myths/slavic-myths/build/reports/problems/problems-report.html
+2026-10-29T10:29:57.7549861Z 
+2026-10-29T10:29:57.7550067Z BUILD SUCCESSFUL in 1m 26s
+2026-10-29T10:29:57.7550508Z 6 actionable tasks: 5 executed, 1 up-to-date
+2026-10-29T10:29:57.7551413Z Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html
+2026-10-29T10:29:57.8606386Z ##[group]Run set -o pipefail
+2026-10-29T10:29:57.8606706Z [36;1mset -o pipefail[0m
+2026-10-29T10:29:57.8606929Z [36;1mmkdir -p build/wayfarer-qa[0m
+2026-10-29T10:29:57.8607266Z [36;1m./gradlew --no-daemon -I tools/wayfarer-qa-runtime.gradle runHellQa \[0m
+2026-10-29T10:29:57.8607647Z [36;1m  -PhellQaDir=work/wayfarer-5seed/20261025 \[0m
+2026-10-29T10:29:57.8608020Z [36;1m  -PhellQaSeed=20261025 --console=plain 2>&1 | tee build/wayfarer-qa/gametest.log[0m
+2026-10-29T10:29:57.8621497Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-29T10:29:57.8621772Z env:
+2026-10-29T10:29:57.8622037Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-10-29T10:29:57.8622441Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-10-29T10:29:57.8622752Z ##[endgroup]
+2026-10-29T10:29:58.4489952Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+2026-10-29T10:29:59.3468709Z Daemon will be stopped at the end of the build 
+2026-10-29T10:30:03.3469476Z 
+2026-10-29T10:30:03.3500829Z > Configure project :
+2026-10-29T10:30:03.3502584Z Creating Minecraft artifacts without recompilation.
+2026-10-29T10:30:04.1487007Z 
+2026-10-29T10:30:04.1501947Z > Task :createMinecraftArtifacts UP-TO-DATE
+2026-10-29T10:30:04.3477510Z > Task :compileJava UP-TO-DATE
+2026-10-29T10:30:04.6486746Z > Task :verifyRejectedVoiceQuarantine
+2026-10-29T10:30:05.4488183Z > Task :processResources UP-TO-DATE
+2026-10-29T10:30:05.4503563Z > Task :classes UP-TO-DATE
+2026-10-29T10:30:07.5467655Z 
+2026-10-29T10:30:07.5473269Z > Task :compileHellQaJava
+2026-10-29T10:30:07.5480672Z Note: /home/runner/work/slavic-myths/slavic-myths/tools/hell-qa-runtime/BridgeQaTests.java uses or overrides a deprecated API.
+2026-10-29T10:30:07.5482938Z Note: Recompile with -Xlint:deprecation for details.
+2026-10-29T10:30:08.1469994Z 
+2026-10-29T10:30:08.1470813Z > Task :processHellQaResources
+2026-10-29T10:30:08.1471353Z > Task :hellQaClasses
+2026-10-29T10:30:08.1471763Z > Task :jarJar NO-SOURCE
+2026-10-29T10:30:08.1472175Z > Task :jar UP-TO-DATE
+2026-10-29T10:30:10.1496543Z 
+2026-10-29T10:30:10.1497561Z > Task :downloadAssets
+2026-10-29T10:30:10.1498389Z Loaded 131 artifacts from /home/runner/work/slavic-myths/slavic-myths/build/tmp/downloadAssets/nfrt_artifact_manifest.properties
+2026-10-29T10:30:10.1498874Z Downloading asset index 17
+2026-10-29T10:30:10.1499186Z Using Minecraft asset root: /home/runner/.gradle/caches/neoformruntime/assets
+2026-10-29T10:30:10.1500643Z   ↓ https://piston-meta.mojang.com/v1/packages/cd09c6948871a888359b45607a1dfac4e97f2561/17.json
+2026-10-29T10:30:10.1501663Z 100/3888 downloads
+2026-10-29T10:30:10.1502610Z 200/3888 downloads
+2026-10-29T10:30:10.4477412Z 300/3888 downloads
+2026-10-29T10:30:10.6468558Z 400/3888 downloads
+2026-10-29T10:30:10.7467881Z 500/3888 downloads
+2026-10-29T10:30:10.9483456Z 600/3888 downloads
+2026-10-29T10:30:11.1477037Z 700/3888 downloads
+2026-10-29T10:30:11.2467714Z 800/3888 downloads
+2026-10-29T10:30:11.4468224Z 900/3888 downloads
+2026-10-29T10:30:11.5471577Z 1000/3888 downloads
+2026-10-29T10:30:11.7467513Z 1100/3888 downloads
+2026-10-29T10:30:11.8467310Z 1200/3888 downloads
+2026-10-29T10:30:12.0468185Z 1300/3888 downloads
+2026-10-29T10:30:12.1468018Z 1400/3888 downloads
+2026-10-29T10:30:12.3468513Z 1500/3888 downloads
+2026-10-29T10:30:12.4467916Z 1600/3888 downloads
+2026-10-29T10:30:12.6468084Z 1700/3888 downloads
+2026-10-29T10:30:12.8468972Z 1800/3888 downloads
+2026-10-29T10:30:12.9468420Z 1900/3888 downloads
+2026-10-29T10:30:13.0467731Z 2000/3888 downloads
+2026-10-29T10:30:13.1467697Z 2100/3888 downloads
+2026-10-29T10:30:13.3467617Z 2200/3888 downloads
+2026-10-29T10:30:13.5467653Z 2300/3888 downloads
+2026-10-29T10:30:13.6467718Z 2400/3888 downloads
+2026-10-29T10:30:13.8468209Z 2500/3888 downloads
+2026-10-29T10:30:14.0470793Z 2600/3888 downloads
+2026-10-29T10:30:14.2468259Z 2700/3888 downloads
+2026-10-29T10:30:14.3468470Z 2800/3888 downloads
+2026-10-29T10:30:14.5467998Z 2900/3888 downloads
+2026-10-29T10:30:14.6467942Z 3000/3888 downloads
+2026-10-29T10:30:14.8468999Z 3100/3888 downloads
+2026-10-29T10:30:14.9468507Z 3200/3888 downloads
+2026-10-29T10:30:15.1470060Z 3300/3888 downloads
+2026-10-29T10:30:15.2468779Z 3400/3888 downloads
+2026-10-29T10:30:15.4468146Z 3500/3888 downloads
+2026-10-29T10:30:15.5468737Z 3600/3888 downloads
+2026-10-29T10:30:17.6469907Z 3700/3888 downloads
+2026-10-29T10:30:18.1472756Z 3800/3888 downloads
+2026-10-29T10:30:18.4468635Z Downloaded 3888 files with a total size of 787 MiB
+2026-10-29T10:30:19.1467461Z 
+2026-10-29T10:30:19.1468511Z > Task :writeHellQaLegacyClasspath
+2026-10-29T10:30:19.4468817Z > Task :prepareHellQaRun
+2026-10-29T10:30:21.4472949Z 
+2026-10-29T10:30:21.4514133Z > Task :runHellQa
+2026-10-29T10:30:21.4536787Z WARN StatusConsoleListener Advanced terminal features are not available in this environment
+2026-10-29T10:30:21.4547554Z [10:30:20] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+2026-10-29T10:30:21.4549159Z [10:30:20] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.13+9-LTS
+2026-10-29T10:30:21.4550316Z [10:30:20] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.13 by Eclipse Adoptium; OS Linux arch amd64 version 7.0.0-1017-azure
+2026-10-29T10:30:21.4551310Z [10:30:20] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+2026-10-29T10:30:21.4555323Z [10:30:20] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/runner/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+2026-10-29T10:30:21.4556787Z [10:30:21] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+2026-10-29T10:30:21.4557418Z [10:30:21] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+2026-10-29T10:30:21.4557731Z      Mod List:
+2026-10-29T10:30:21.4557969Z 		Name Version (Mod Id)
+2026-10-29T10:30:21.4558124Z 
+2026-10-29T10:30:21.4558237Z 		Curios API 9.5.1+1.21.1 (curios)
+2026-10-29T10:30:21.4558547Z 		Disposable headless Hell QA 1 (slavicmyths_hellqa)
+2026-10-29T10:30:21.4558885Z 		Just Enough Items 19.51.0.418 (jei)
+2026-10-29T10:30:21.4559211Z 		Minecraft 1.21.1 (minecraft)
+2026-10-29T10:30:21.4559490Z 		NeoForge 21.1.255 (neoforge)
+2026-10-29T10:30:21.4559758Z 		Slavic Myths 2.1.3-HELL (slavicmyths)
+2026-10-29T10:30:21.5485442Z [10:30:21] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+2026-10-29T10:30:21.5517026Z [10:30:21] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+2026-10-29T10:30:21.6503273Z [10:30:21] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+2026-10-29T10:30:21.6505871Z [10:30:21] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+2026-10-29T10:30:22.8473215Z [10:30:22] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+2026-10-29T10:30:27.5468724Z [10:30:27] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+2026-10-29T10:30:27.5474668Z [10:30:27] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+2026-10-29T10:30:27.5476617Z [10:30:27] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+2026-10-29T10:30:27.5478632Z [10:30:27] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+2026-10-29T10:30:27.5480378Z [10:30:27] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+2026-10-29T10:30:27.6468109Z [10:30:27] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+2026-10-29T10:30:29.3497801Z [10:30:29] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+2026-10-29T10:30:29.3515451Z [10:30:29] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/home/runner/work/slavic-myths/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23126!/assets/.mcassetsroot' uses unexpected schema
+2026-10-29T10:30:29.3547886Z [10:30:29] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/home/runner/work/slavic-myths/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23126!/data/.mcassetsroot' uses unexpected schema
+2026-10-29T10:30:29.3572773Z [10:30:29] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_hellqa]
+2026-10-29T10:30:30.3468884Z [10:30:30] [main/INFO] [minecraft/RecipeManager]: Loaded 1931 recipes
+2026-10-29T10:30:30.4475141Z [10:30:30] [main/INFO] [minecraft/AdvancementTree]: Loaded 1692 advancements
+2026-10-29T10:30:30.5467145Z [10:30:30] [main/INFO] [Curios API/]: Loaded 10 curio slots
+2026-10-29T10:30:30.5468164Z [10:30:30] [main/INFO] [Curios API/]: Loaded 1 curio entities
+2026-10-29T10:30:31.6517123Z [10:30:31] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+2026-10-29T10:30:31.6526920Z [10:30:31] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+2026-10-29T10:30:31.8468749Z [10:30:31] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 240 ms
+2026-10-29T10:30:31.8469585Z [10:30:31] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+2026-10-29T10:30:31.8470483Z [10:30:31] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+2026-10-29T10:30:31.9469690Z [10:30:31] [Server thread/INFO] [minecraft/GameTestServer]: 8 tests are now running at position 12576112, -59, -12320540!
+2026-10-29T10:30:32.6467441Z [10:30:32] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (8 tests)...
+2026-10-29T10:30:32.6468303Z [10:30:32] [Server thread/INFO] [minecraft/GameTestServer]: [        ]
+2026-10-29T10:30:32.7469535Z HELLQA_PASS 2.1.3 1000 real native chest loot generations, 100% two guarantee groups; six independent extras=[181, 301, 127, 255, 72, 40]; repeat-open no extra payout (save/restart still NOT_RUN)
+2026-10-29T10:30:32.7471672Z HELLQA_PASS 2.1.1 watchpost 96 geometry profiles: 4 heights,4 rotations,2 chest positions,3 ruin levels,1 chest/fire/lantern,continuous ladder and chunk bounds
+2026-10-29T10:30:32.8470728Z HELLQA_PASS 2.1.1 1000 native loot unpack operations: guaranteed food/arrow, rare cap, actual bone_arrow, diamond occurrences=26
+2026-10-29T10:30:34.3470107Z HELLQA_PASS 2.1.3 ACTUAL NATURAL WAYFARER seed=20261025 chunk=[30, 0] biome=minecraft:nether_wastes Y=60 variant=0 bbox=BoundingBox{minX=487, minY=60, minZ=4, maxX=493, maxY=65, maxZ=12} sampledCandidates=5 acceptedPlans=1 lateRejectedStarts=0 physical chest/fire/table/chain/lantern each one
+2026-10-29T10:30:35.6468838Z HELLQA_PASS 2.1.2 ACTUAL NATURAL NETHER BRIDGE seed=20261025 chunk=[91, -70] biome=minecraft:nether_wastes length=38 variant=2 roadSteps=33 width5Cells=165 bbox=BoundingBox{minX=1464, minY=15, minZ=-1115, maxX=1501, maxY=43, maxZ=-1109} sampledCandidates=33 acceptedPlans=1 no loot; chunk-clipped natural generation, not manual place
+2026-10-29T10:30:35.7470509Z HELLQA_PASS bridge late-fungus fixture: wart/stem removed; obsidian/lava/chest preserved
+2026-10-29T10:30:35.7471695Z [10:30:35] [Server thread/INFO] [minecraft/GameTestServer]: [+++_+   ]
+2026-10-29T10:30:36.4478845Z HELLQA_PASS 2.1.1 ACTUAL NATURAL WATCHPOST seed=20261025 chunk=[-52, 50] biome=minecraft:nether_wastes bounding=BoundingBox{minX=-829, minY=92, minZ=803, maxX=-819, maxY=117, maxZ=813} chest=1 ladder=18 candidateProbes=10 acceptedPlans=1 (no direct placement or player GUI)
+2026-10-29T10:30:36.4481026Z [10:30:36] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 2476ms or 49 ticks behind
+2026-10-29T10:30:36.5477512Z HELLQA_PASS 2.1.3 12 profiles; real cantilever, chain, hanging lamp, one fireproof campfire, chest headroom and bypass
+2026-10-29T10:30:36.6474373Z HELLQA_PASS 2.1.2 64 geometry profiles / 4 variants / four rotations / 4 lengths, width5, no rewards, non-floating designed supports
+2026-10-29T10:30:36.6486921Z [10:30:36] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++]
+2026-10-29T10:30:36.6487851Z [10:30:36] [Server thread/INFO] [minecraft/GameTestServer]: ========= 8 GAME TESTS COMPLETE IN 4.709 s ======================
+2026-10-29T10:30:36.6488881Z [10:30:36] [Server thread/INFO] [minecraft/GameTestServer]: All 8 required tests passed :)
+2026-10-29T10:30:36.6489864Z [10:30:36] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+2026-10-29T10:30:36.6491090Z [10:30:36] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+2026-10-29T10:30:36.6491867Z [10:30:36] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+2026-10-29T10:30:36.6492553Z [10:30:36] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+2026-10-29T10:30:37.5468264Z [10:30:37] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+2026-10-29T10:30:38.2467690Z [10:30:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+2026-10-29T10:30:38.2468542Z [10:30:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+2026-10-29T10:30:38.2469254Z [10:30:38] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+2026-10-29T10:30:38.2469943Z [10:30:38] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+2026-10-29T10:30:38.2470619Z [10:30:38] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+2026-10-29T10:30:38.2471272Z [10:30:38] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+2026-10-29T10:30:38.2471842Z [10:30:38] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+2026-10-29T10:30:38.6265207Z 
+2026-10-29T10:30:38.6298276Z [Incubating] Problems report is available at: file:///home/runner/work/slavic-myths/slavic-myths/build/reports/problems/problems-report.html
+2026-10-29T10:30:38.6301738Z 
+2026-10-29T10:30:38.6326658Z Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+2026-10-29T10:30:38.6327145Z 
+2026-10-29T10:30:38.6327510Z You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+2026-10-29T10:30:38.6327937Z 
+2026-10-29T10:30:38.6328331Z For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2026-10-29T10:30:38.6329011Z 
+2026-10-29T10:30:38.6329110Z BUILD SUCCESSFUL in 40s
+2026-10-29T10:30:38.6329347Z 11 actionable tasks: 7 executed, 4 up-to-date
+2026-10-29T10:30:38.7214145Z ##[group]Run mkdir -p build/wayfarer-qa
+2026-10-29T10:30:38.7214460Z [36;1mmkdir -p build/wayfarer-qa[0m
+2026-10-29T10:30:38.7214877Z [36;1mprintf 'seed=20261025\nsource=bd604be3b211bd291dbf7c817ffd78099e1d410d\n' > build/wayfarer-qa/source.txt[0m
+2026-10-29T10:30:38.7215438Z [36;1msha256sum build/libs/slavicmyths-*.jar > build/wayfarer-qa/sha256.txt 2>/dev/null || true[0m
+2026-10-29T10:30:38.7216642Z [36;1mcp /tmp/wayfarer-build.log build/wayfarer-qa/build.log 2>/dev/null || true[0m
+2026-10-29T10:30:38.7230231Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-29T10:30:38.7230515Z env:
+2026-10-29T10:30:38.7230784Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-10-29T10:30:38.7231187Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-10-29T10:30:38.7231495Z ##[endgroup]
+2026-10-29T10:30:38.7534898Z ##[group]Run actions/upload-artifact@v4
+2026-10-29T10:30:38.7535141Z with:
+2026-10-29T10:30:38.7535412Z   name: wayfarer-seed-20261025-bd604be3b211bd291dbf7c817ffd78099e1d410d
+2026-10-29T10:30:38.7536050Z   path: build/wayfarer-qa/
+build/libs/slavicmyths-*.jar
+
+2026-10-29T10:30:38.7536322Z   retention-days: 14
+2026-10-29T10:30:38.7536519Z   if-no-files-found: warn
+2026-10-29T10:30:38.7536738Z   compression-level: 6
+2026-10-29T10:30:38.7536938Z   overwrite: false
+2026-10-29T10:30:38.7537137Z   include-hidden-files: false
+2026-10-29T10:30:38.7537333Z env:
+2026-10-29T10:30:38.7537579Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-10-29T10:30:38.7538125Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-10-29T10:30:38.7538434Z ##[endgroup]
+2026-10-29T10:30:38.8961462Z (node:2921) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-29T10:30:38.8962167Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-29T10:30:38.9023788Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-29T10:30:38.9025542Z The least common ancestor is /home/runner/work/slavic-myths/slavic-myths/build. This will be the root directory of the artifact
+2026-10-29T10:30:38.9026610Z With the provided path, there will be 5 files uploaded
+2026-10-29T10:30:38.9029718Z Artifact name is valid!
+2026-10-29T10:30:38.9030772Z Root directory input is valid!
+2026-10-29T10:30:39.2279535Z Beginning upload of artifact content to blob storage
+2026-10-29T10:30:39.4923666Z (node:2921) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-29T10:30:40.0140670Z Uploaded bytes 8388608
+2026-10-29T10:30:40.2703609Z Uploaded bytes 16777216
+2026-10-29T10:30:40.4733433Z Uploaded bytes 23655009
+2026-10-29T10:30:40.5204765Z Finished uploading artifact content to blob storage!
+2026-10-29T10:30:40.5205788Z SHA256 digest of uploaded artifact zip is 9a754916123cd6f821dbc798f2a9aff27dbc88d86d6d7d844bd44505ae04b4ff
+2026-10-29T10:30:40.5207597Z Finalizing artifact upload
+2026-10-29T10:30:41.0367481Z Artifact wayfarer-seed-20261025-bd604be3b211bd291dbf7c817ffd78099e1d410d.zip successfully finalized. Artifact ID 12890685514
+2026-10-29T10:30:41.0368802Z Artifact wayfarer-seed-20261025-bd604be3b211bd291dbf7c817ffd78099e1d410d has been successfully uploaded! Final size is 23655009 bytes. Artifact ID is 12890685514
+2026-10-29T10:30:41.0373436Z Artifact download URL: https://github.com/Deserag/slavic-myths/actions/runs/40857737938/artifacts/12890685514
+2026-10-29T10:30:41.0579406Z Post job cleanup.
+2026-10-29T10:30:41.1742225Z (node:2933) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-29T10:30:41.1871573Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-29T10:30:41.1930239Z Post job cleanup.
+2026-10-29T10:30:41.2712574Z [command]/usr/bin/git version
+2026-10-29T10:30:41.2743000Z git version 2.56.0
+2026-10-29T10:30:41.2775514Z Temporarily overriding HOME='/home/runner/work/_temp/6bb92a60-4ba3-4049-8192-f31b3449a2df' before making global git config changes
+2026-10-29T10:30:41.2778707Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-29T10:30:41.2780948Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/slavic-myths/slavic-myths
+2026-10-29T10:30:41.2815313Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-29T10:30:41.2847069Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-29T10:30:41.3092488Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-29T10:30:41.3112229Z http.https://github.com/.extraheader
+2026-10-29T10:30:41.3122252Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-29T10:30:41.3149849Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-29T10:30:41.3436245Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-29T10:30:41.3464758Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-29T10:30:41.3884300Z Cleaning up orphan processes
+2026-10-29T10:30:41.4099725Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
