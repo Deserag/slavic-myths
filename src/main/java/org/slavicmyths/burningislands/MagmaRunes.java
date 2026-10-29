@@ -27,8 +27,7 @@ public final class MagmaRunes {
   data.putLong("MagmaRuneReady",now+40);
   REFLECTING.set(true);
   try {if(attacker.hurt(wearer.damageSources().thorns(wearer),MagmaRuneRules.damage(tier))&&!attacker.fireImmune()&&!attacker.hasEffect(net.minecraft.world.effect.MobEffects.FIRE_RESISTANCE))attacker.igniteForSeconds(MagmaRuneRules.damage(tier));}finally{REFLECTING.remove();}
-  // BLOCKED_TEMP_MAGMA_RESTORE: player-placed natural-looking stone is indistinguishable.
-  // Refusal is intentional: no block writes, chunk loads, fallback lava, or restore queue.
+  if(tier==2&&wearer instanceof net.minecraft.server.level.ServerPlayer player)TemporaryTerrain.magma(player);
  }
  private MagmaRunes(){}
 }

@@ -41,7 +41,7 @@ public final class SlavicMyths {
         org.slavicmyths.blackcinder.CinderBlocks.init();
         org.slavicmyths.blackcinder.CinderContent.init(bus);
         org.slavicmyths.burningislands.IslandsContent.init(bus);
-        org.slavicmyths.burningislands.IslandsWorldgen.init();
+        org.slavicmyths.burningislands.IslandsWorldgen.init(bus);
         org.slavicmyths.losthalls.HallsContent.init(bus);
         org.slavicmyths.losthalls.HallsWorldgen.init();
         org.slavicmyths.losthalls.HallsBolt.init();

@@ -8,6 +8,11 @@ allprojects { p ->
    classpath=p.sourceSets.islandsOffline.runtimeClasspath
    mainClass='org.slavicmyths.client.Heads140Offline'
   }
+  p.tasks.register('verifyTerrainLeases',JavaExec) {
+   dependsOn p.tasks.named('islandsOfflineClasses')
+   classpath=p.sourceSets.islandsOffline.runtimeClasspath
+   mainClass='org.slavicmyths.verify.TerrainLeaseAudit'
+  }
   p.tasks.register('verifyOceanTerrain',JavaExec) {
    dependsOn p.tasks.named('islandsOfflineClasses')
    classpath=p.sourceSets.islandsOffline.runtimeClasspath

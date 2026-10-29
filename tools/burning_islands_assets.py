@@ -122,7 +122,7 @@ def main():
   data['burningislands.heart.future']=('Трофей. Рецепты экипировки появятся в отдельном патче.','Trophy. Equipment recipes are reserved for a later patch.')[index]
   data['burningislands.rune.1']=('Нагрудник: ответный урон 2 HP и поджог 2 с после боевого урона. Перезарядка 2 с.','Chestplate: retaliate for 2 HP and ignite for 2 s after combat damage. Cooldown: 2 s.')[index]
   data['burningislands.rune.2']=('Нагрудник: ответный урон 4 HP и поджог 4 с. Общая перезарядка 2 с; с I не складывается.','Chestplate: retaliate for 4 HP and ignite for 4 s. Shared cooldown: 2 s; does not stack with I.')[index]
-  data['burningislands.rune.terrain_blocked']=('Временная магма отключена: безопасное восстановление природных блоков ещё не доказано.','Temporary magma is disabled pending proven natural-block provenance and safe restoration.')[index]
+  data['burningislands.rune.terrain_blocked']=('Временно заменяет доказанную природную землю новых Горючих островов на магму на 6 с; чужие/старые блоки не меняет.','Turns proven natural ground in new Burning Islands into magma for 6 s; refuses old or player-replaced blocks.')[index]
   data['burningislands.rune.family_conflict']=('Не совмещается с другой Руной магмы.','Cannot share equipment with another Magma Rune.')[index]
   data['burningislands.rune.chest']=('Только нагрудник; одна руна семейства магмы.','Chestplate only; one magma-family rune.')[index]
   for tier in [1,2]:data[f'rpg.slavicmyths.rune_magma_{tier}']=data[f'burningislands.rune.{tier}']

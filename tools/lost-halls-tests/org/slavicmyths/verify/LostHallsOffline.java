@@ -499,6 +499,7 @@ public final class LostHallsOffline {
     }
 
     public static void main(String[] args) throws Exception {
+        rewardCrashCuts();
         rewardAuthority();
         physicalRegionRoutes();
         encounterIdentityIsolation();
@@ -519,6 +520,19 @@ public final class LostHallsOffline {
                 + "  \"runtime_launches\": 0,\n  \"gameplay\": \"NOT_RUN_ENV_BLOCK\"\n}\n";
         Files.writeString(out, report);
         System.out.println(report);
+    }
+
+    private static void rewardCrashCuts() throws Exception {
+        for(int cut=1;cut<=4;cut++){
+            var folder=Files.createTempDirectory("slavic-reward-cut-");String java=Path.of(System.getProperty("java.home"),"bin","java.exe").toString();
+            var process=new ProcessBuilder(java,"-cp",System.getProperty("java.class.path"),"org.slavicmyths.verify.RewardCrashCut",folder.toString(),Integer.toString(cut)).redirectErrorStream(true).start();
+            check(process.waitFor()==31,"deliberate process cut "+cut+": "+new String(process.getInputStream().readAllBytes()));
+            var authority=new org.slavicmyths.losthalls.BossRewardAuthority(folder.resolve("authority.json"));
+            var pin=authority.pin(new org.slavicmyths.losthalls.BossRewardAuthority.Entry("arena","magma",new UUID(0,2),6,0));check(pin.recipient().equals(new UUID(0,1))&&pin.cores()==4,"world rollback never transfers reward to B at cut "+cut);
+            var player=folder.resolve("playerA.json");boolean delivered=Files.exists(player);if(!delivered)RewardCrashCut.save(player,"inventory=one_batch;receipt=arena");
+            check(Files.readString(player).equals("inventory=one_batch;receipt=arena")&&!Files.exists(folder.resolve("playerB.json")),"recipient A recovers exactly one coupled batch/receipt; B none");
+            for(var file:Files.list(folder).toList())Files.delete(file);Files.delete(folder);
+        }
     }
 
     private static void rewardAuthority() throws Exception {

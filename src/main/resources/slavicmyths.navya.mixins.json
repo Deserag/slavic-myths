@@ -10,7 +10,10 @@
     "NetherSmithingMixin",
     "OceanSamplerMixin",
     "OceanSeedMixin",
-    "OceanGeneratorMixin"
+    "OceanGeneratorMixin",
+    "NaturalGroundWriteMixin",
+    "TemporaryBlockTickMixin",
+    "TemporaryFireContactMixin"
   ],
   "injectors": {
     "defaultRequire": 1

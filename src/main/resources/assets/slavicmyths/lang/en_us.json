@@ -6206,7 +6206,7 @@
   "burningislands.heart.future": "Trophy. Equipment recipes are reserved for a later patch.",
   "burningislands.rune.1": "Chestplate: retaliate for 2 HP and ignite for 2 s after combat damage. Cooldown: 2 s.",
   "burningislands.rune.2": "Chestplate: retaliate for 4 HP and ignite for 4 s. Shared cooldown: 2 s; does not stack with I.",
-  "burningislands.rune.terrain_blocked": "Temporary magma is disabled pending proven natural-block provenance and safe restoration.",
+  "burningislands.rune.terrain_blocked": "Turns proven natural ground in new Burning Islands into magma for 6 s; refuses old or player-replaced blocks.",
   "burningislands.rune.chest": "Chestplate only; one magma-family rune.",
   "burningislands.rune.family_conflict": "Cannot share equipment with another Magma Rune.",
   "rpg.slavicmyths.rune_magma_1": "Chestplate: retaliate for 2 HP and ignite for 2 s after combat damage. Cooldown: 2 s.",

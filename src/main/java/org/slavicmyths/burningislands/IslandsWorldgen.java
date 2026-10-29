@@ -15,7 +15,7 @@ import org.slavicmyths.registry.ModFeatures;
 @EventBusSubscriber(modid="slavicmyths")
 public final class IslandsWorldgen {
  public static final net.neoforged.neoforge.registries.DeferredHolder<Feature<?>,Terrain> TERRAIN=ModFeatures.FEATURES.register("burning_islands_terrain",Terrain::new);
- public static void init(){}
+ public static void init(net.neoforged.bus.api.IEventBus bus){TemporaryTerrain.init(bus);}
  @SubscribeEvent public static void preset(net.neoforged.neoforge.event.server.ServerAboutToStartEvent e){var r=e.getServer().registryAccess();var b=r.registryOrThrow(Registries.BIOME).getHolder(IslandsContent.BIOME);var p=r.registryOrThrow(Registries.MULTI_NOISE_BIOME_SOURCE_PARAMETER_LIST).get(net.minecraft.world.level.biome.MultiNoiseBiomeSourceParameterLists.NETHER);if(b.isPresent()&&p!=null)((org.slavicmyths.navya.NavyaPresetAccess)(Object)p).slavicmyths$append(b.get());}
  @SubscribeEvent public static void ready(net.neoforged.neoforge.event.server.ServerStartedEvent e){for(var s:e.getServer().getAllLevels())if(s.dimension().equals(Level.NETHER))context(s);}
  public static OceanTerrain context(ServerLevel s){return s.getChunkSource().getGenerator() instanceof NoiseBasedChunkGenerator g?((OceanTerrain.GeneratorAccess)(Object)g).slavicmyths$ocean(s.getChunkSource().randomState()):null;}
@@ -28,6 +28,7 @@ public final class IslandsWorldgen {
      if(z==p.z()+36&&x>p.x()+38&&x<p.x()+72&&y==floor+1)block=Blocks.LAVA;
      w.setBlock(at,block.defaultBlockState(),2);changed=true;
     }
+    var ground=new BlockPos(x,floor,z);var actual=w.getBlockState(ground);if(actual.is(Blocks.BLACKSTONE)||actual.is(Blocks.BASALT)||actual.is(Blocks.OBSIDIAN))TemporaryTerrain.natural(chunk,ground,actual);
    }return changed;
   }
  }
