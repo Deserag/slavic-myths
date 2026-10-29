@@ -20,7 +20,7 @@ Only existing registered vanilla blocks and items, no extra mobs, NPC, barrels, 
 
 - [CI run 40840706388](https://github.com/Deserag/slavic-myths/actions/runs/40840706388): **PASS** clean production `gradlew clean build` (Java 21, MC 1.21.1, NeoForge 21.1.255), `PASS` resource verification; **FAIL** QA harness compilation at test source line 131, corrected later in [88a22b9](https://github.com/Deserag/slavic-myths/commit/88a22b9c142c3a2a2cfc327208b0826d400d9a7b). This CI does **not** establish GameTest pass.
 - Initial production JAR for run 40840706388: `build/libs/slavicmyths-2.1.3-HELL.jar` (within workflow artifact); SHA256 **`66ab5af0aee47e8157b22c032ea5d5978f7c643dcd3295a78de9262488d6c58b`**. The final post-test JAR hash must be confirmed again on the final HEAD.
-- Follow-up [CI run 40841112330](https://github.com/Deserag/slavic-myths/actions/runs/40841112330): **IN_PROGRESS at report creation**. Record actual completed results before claiming runtime pass.
+- Follow-up [CI run 40841112330](https://github.com/Deserag/slavic-myths/actions/runs/40841112330): **FAIL, 17/19 GameTests passed**. The source geometry test passed all 12 variant/rotation profiles. The native chest test passed 1,000 unpack operations: optional item occurrences [181,301,127,255,72,40], both guaranteed groups on all 1,000, no second payout on immediate repeat-open. The two failures: natural broken bridge deck contained `minecraft:weeping_vines` at (211,40,-807), and a native wayfarer start was valid but postProcess wrote zero expected blocks at chunk [75,141] (seed 20261024). Later patch [c4a1452](https://github.com/Deserag/slavic-myths/commit/c4a145241aa096655b55662bb9fbf5ef6ba1a4c9) handles Nether vines/nylium and enables an isolated diagnostic; **unverified pending fresh CI**.
 - PolyMC: **NOT INSTALLED**. GUI images: **BLOCKED_ISOLATION** (no demonstrated separate graphics desktop).
 
 ## Requirements/acceptance matrix (initial; update from actual CI only)
@@ -29,15 +29,15 @@ Only existing registered vanilla blocks and items, no extra mobs, NPC, barrels, 
 |---|---|---|
 | Source permissions, no `main`, no force | `hell` commits and owner scope | PASS |
 | Native ID, expected biome tag and structure set | `wayfarer_camp` JSON/Java source; JAR resources | PASS (static/build) |
-| 3 ruins × 4 rotations, 9×7×6; attachment/clearances | `WayfarerQaTests.twelveRotationRuinProfiles` | NOT_RUN (new harness CI pending) |
-| Physical one chest/fire/table, actual new-chunk natural start | `WayfarerQaTests.actualNativeNetherWayfarer` | NOT_RUN |
-| 1000 chest loot generations, optional pools, no repeated unpack | `WayfarerQaTests.nativeChestLoot1000AndNoReroll` | NOT_RUN |
+| 3 ruins × 4 rotations, 9×7×6; attachment/clearances | run 40841112330: 12 source profiles PASS | PASS (source geometry only) |
+| Physical one chest/fire/table, actual new-chunk natural start | run 40841112330: valid native start, 0/5 functional blocks at chunk [75,141], seed 20261024 | FAIL (retest c4a1452 pending) |
+| 1000 chest loot generations, optional pools, no repeated unpack | run 40841112330: 1000 PASS, extras [181,301,127,255,72,40] | PASS (in-process; save/restart separate) |
 | At least five actual different world seeds, coordinates, variant/biome, accepted/rejected candidate counts | independent fresh-world CI runs | NOT_RUN |
 | 3D cave/roof/lava/bedrock, edge chunks, actual ground access | generation preflight source; additional runtime scenarios required | NOT_RUN (runtime) |
 | Protected vanilla/mod structures, claims, player builds | conservative bounded candidate check + placement guard; in-world negative tests | NOT_RUN |
 | Save/restart, no loot duplication after save, two-player MP | isolated persistent world and MP | NOT_RUN |
 | `/locate` read-only; survival without OP | native registration source; live check | NOT_RUN |
-| 2.0, 2.1.1, 2.1.2 targeted headless regression | `hell-headless-qa.yml` | NOT_RUN (latest CI pending) |
+| 2.0, 2.1.1, 2.1.2 targeted headless regression | run 40841112330: bridge physical deck FAIL on weeping vines; others passing | FAIL (2.1.2); follow-up CI pending |
 | Render compared with approved SVG, owner visual + survival acceptance | no GUI/owner evaluation | BLOCKED_ISOLATION / OWNER_PENDING |
 | Repackaged JAR source hash / checksum for final HEAD | latest CI checksum | NOT_RUN |
 
