@@ -1,0 +1,21 @@
+allprojects { afterEvaluate {
+ sourceSets { hellQa { java.srcDir 'tools/hell-qa-runtime';resources.srcDir 'tools/hell-qa-runtime-resources' } }
+ sourceSets.hellQa.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.hellQa.runtimeClasspath += sourceSets.main.runtimeClasspath - sourceSets.main.output
+ def qa=neoForge.mods.create('slavicmyths_hellqa'){sourceSet sourceSets.hellQa}
+ neoForge.runs { hellQa {
+  type='gameTestServer';sourceSet=sourceSets.hellQa;loadedMods.set([qa])
+  jvmArgument '-Xmx1200M';jvmArgument '-XX:ActiveProcessorCount=2';jvmArgument '-Djava.awt.headless=true'
+  gameDirectory=file(project.findProperty('hellQaDir') ?: 'work/hell-qa-20261029/run1')
+  systemProperty 'hellqa.seed',project.findProperty('hellQaSeed') ?: '0'
+  systemProperty 'neoforge.enabledGameTestNamespaces','slavicmyths_hellqa'
+  systemProperty 'hellqa.expectedJar',file('build/libs/slavicmyths-'+project.version+'.jar').absolutePath
+ } }
+ tasks.named('runHellQa'){dependsOn tasks.named('jar');doFirst {
+  def dir=neoForge.runs.hellQa.gameDirectory.get().asFile
+  def mods=new File(dir,'mods');mods.mkdirs()
+  def jar=tasks.named('jar').get().archiveFile.get().asFile
+  copy {from jar;into mods}
+  new File(dir,'server.properties').text='server-ip=127.0.0.1\nserver-port=25588\nonline-mode=false\nview-distance=2\nsimulation-distance=2\nspawn-protection=0\nlevel-seed=20261024\nmax-players=2\n'
+ }}
+} }

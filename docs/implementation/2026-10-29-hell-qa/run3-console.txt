@@ -1,0 +1,220 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compileHellQaJava
+
+> Task :processHellQaResources UP-TO-DATE
+> Task :hellQaClasses
+Note: C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\tools\hell-qa-runtime\HellBossQaTests.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+> Task :jarJar NO-SOURCE
+> Task :jar UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :writeHellQaLegacyClasspath UP-TO-DATE
+> Task :prepareHellQaRun UP-TO-DATE
+
+> Task :runHellQa
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[09:15:51] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[09:15:51] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12.1+1-LTS
+[09:15:51] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12.1 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
+[09:15:51] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[09:15:51] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/user/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[09:15:51] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[09:15:51] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Disposable headless Hell QA 1 (slavicmyths_hellqa)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 2.0.10-HELL (slavicmyths)
+[09:15:52] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[09:15:52] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[09:15:52] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:15:52] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:15:52] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[09:15:56] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:15:56] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:15:56] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:15:56] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:15:56] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:15:56] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[09:15:58] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[09:15:58] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/user/.codex/worktrees/lost-halls/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23126!/assets/.mcassetsroot' uses unexpected schema
+[09:15:58] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/user/.codex/worktrees/lost-halls/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23126!/data/.mcassetsroot' uses unexpected schema
+[09:15:58] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_hellqa]
+[09:16:00] [main/INFO] [minecraft/RecipeManager]: Loaded 1931 recipes
+[09:16:00] [main/INFO] [minecraft/AdvancementTree]: Loaded 1692 advancements
+[09:16:00] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[09:16:00] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[09:16:02] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[09:16:02] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[09:16:02] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 295 ms
+[09:16:02] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[09:16:02] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[09:16:02] [Server thread/INFO] [minecraft/GameTestServer]: 6 tests are now running at position -13749861, -59, -5255002!
+[09:16:03] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (6 tests)...
+[09:16:03] [Server thread/INFO] [minecraft/GameTestServer]: [      ]
+[09:16:03] [Server thread/INFO] [minecraft/GameTestServer]: [      ]
+HELLQA_PASS manual Posten dimension=minecraft:overworld seed=1 XYZ=0,90,0 survives initial tick; manual NBT
+HELLQA_PASS manual Posten dimension=minecraft:the_nether seed=1 XYZ=0,90,0 survives initial tick; manual NBT
+HELLQA_PASS manual Posten dimension=minecraft:the_end seed=1 XYZ=0,90,0 survives initial tick; manual NBT
+HELLQA_PASS real Peaceful removes magma lord and retains neutral salamander
+HELLQA_WORLD seed=1 dimension=minecraft:overworld origin=BlockPos{x=-13749844, y=-60, z=-5255002}
+HELLQA_PASS production JAR=C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\work\hell-qa-20261029\run3\mods\slavicmyths-2.0.10-HELL.jar registry/socket/creative/actual smithing assemble
+HELLQA_PASS four real trophy BlockItems/BE/rotations/loot anchors; client rendering NOT_RUN
+HELLQA_PASS real furnace: rejected5 fuels/menu/hopper, actual smelt/blocked-output/NBT
+HELLQA_WORLDGEN seed=1 biome=slavicmyths:navya_grove sampledXYZ=BlockPos{x=-4096, y=36, z=-3584} actualChunk=[-256, -224]
+HELLQA_WORLDGEN seed=1 biome=slavicmyths:black_cinder sampledXYZ=BlockPos{x=-4096, y=36, z=-4096} actualChunk=[-256, -256]
+HELLQA_WORLDGEN seed=1 biome=slavicmyths:lost_halls sampledXYZ=BlockPos{x=-4096, y=36, z=-1024} actualChunk=[-256, -64]
+HELLQA_WORLDGEN seed=1 biome=slavicmyths:burning_islands home=BlockPos{x=-246, y=59, z=-260} found=[minecraft:basalt_deltas, minecraft:crimson_forest, minecraft:nether_wastes, minecraft:soul_sand_valley, minecraft:warped_forest, slavicmyths:black_cinder, slavicmyths:burning_islands, slavicmyths:lost_halls, slavicmyths:navya_grove] nativeSamplingAnd4ChunksMs=6885; diagnostic chunk requests, not survival
+[09:16:16] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 11665ms or 233 ticks behind
+HELLQA_PASS real armor equip/unequip HP/speed and charged skill/copy-CD/offhand guards
+[09:16:17] [Server thread/INFO] [minecraft/GameTestServer]: [++++_+]
+[09:16:18] [Server thread/INFO] [minecraft/GameTestServer]: [++++_+]
+[09:16:18] [Server thread/INFO] [minecraft/GameTestServer]: [++++_+]
+[09:16:18] [Server thread/INFO] [minecraft/GameTestServer]: [++++_+]
+[09:16:18] [Server thread/INFO] [minecraft/GameTestServer]: [++++_+]
+[09:16:18] [Server thread/INFO] [minecraft/GameTestServer]: [++++_+]
+[09:16:18] [Server thread/INFO] [minecraft/GameTestServer]: [++++_+]
+[09:16:18] [Server thread/ERROR] [minecraft/MinecraftServer]: Encountered an unexpected exception
+java.lang.AssertionError: Expected one natural boss after49 forced chunks, found 0
+	at TRANSFORMER/slavicmyths_hellqa@1/org.slavicmyths.hellqa.HellQaTests.check(HellQaTests.java:9) ~[%23129!/:?] {re:classloading}
+	at TRANSFORMER/slavicmyths_hellqa@1/org.slavicmyths.hellqa.HellBossQaTests.lambda$realNetherBiomeAndOceanChunk$2(HellBossQaTests.java:29) ~[%23129!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestInfo.tickInternal(GameTestInfo.java:133) ~[neoforge-21.1.255.jar%23126!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestInfo.tick(GameTestInfo.java:107) ~[neoforge-21.1.255.jar%23126!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestTicker.lambda$tick$0(GameTestTicker.java:39) ~[neoforge-21.1.255.jar%23126!/:?] {re:classloading}
+	at java.base/java.util.concurrent.CopyOnWriteArrayList.forEach(CopyOnWriteArrayList.java:891) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestTicker.tick(GameTestTicker.java:39) ~[neoforge-21.1.255.jar%23126!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1055) ~[neoforge-21.1.255.jar%23126!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:917) ~[neoforge-21.1.255.jar%23126!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestServer.tickServer(GameTestServer.java:168) ~[neoforge-21.1.255.jar%23126!/:?] {re:mixin,re:classloading,pl:mixin:APP:hellqa.mixins.json:SeedMixin from mod slavicmyths_hellqa,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:707) ~[neoforge-21.1.255.jar%23126!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:267) ~[neoforge-21.1.255.jar%23126!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?] {}
+[09:16:18] [Server thread/FATAL] [ne.ne.ne.co.NeoForgeMod/]: Preparing crash report with UUID 0ed78c37-688c-4e90-b8f1-127bbdc79796
+[09:16:18] [Server thread/ERROR] [minecraft/MinecraftServer]: This crash report has been saved to: C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\work\hell-qa-20261029\run3\crash-reports\crash-2026-10-29_09.16.18-server.txt
+[09:16:18] [Server thread/FATAL] [ne.ne.ne.co.NeoForgeMod/]: Preparing crash report with UUID 50d95168-fe93-420c-955a-a5feddeaf686
+[09:16:18] [Server thread/ERROR] [minecraft/GameTestServer]: Game test server crashed
+---- Minecraft Crash Report ----
+// You should try our sister game, Minceraft!
+
+Time: 2026-10-29 09:16:18
+Description: Exception in server tick loop
+
+java.lang.AssertionError: Expected one natural boss after49 forced chunks, found 0
+	at TRANSFORMER/slavicmyths_hellqa@1/org.slavicmyths.hellqa.HellQaTests.check(HellQaTests.java:9) ~[%23129!/:?] {re:classloading}
+	at TRANSFORMER/slavicmyths_hellqa@1/org.slavicmyths.hellqa.HellBossQaTests.lambda$realNetherBiomeAndOceanChunk$2(HellBossQaTests.java:29) ~[%23129!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestInfo.tickInternal(GameTestInfo.java:133) ~[neoforge-21.1.255.jar%23126!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestInfo.tick(GameTestInfo.java:107) ~[neoforge-21.1.255.jar%23126!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestTicker.lambda$tick$0(GameTestTicker.java:39) ~[neoforge-21.1.255.jar%23126!/:?] {re:classloading}
+	at java.base/java.util.concurrent.CopyOnWriteArrayList.forEach(CopyOnWriteArrayList.java:891) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestTicker.tick(GameTestTicker.java:39) ~[neoforge-21.1.255.jar%23126!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1055) ~[neoforge-21.1.255.jar%23126!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:917) ~[neoforge-21.1.255.jar%23126!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.gametest.framework.GameTestServer.tickServer(GameTestServer.java:168) ~[neoforge-21.1.255.jar%23126!/:?] {re:mixin,re:classloading,pl:mixin:APP:hellqa.mixins.json:SeedMixin from mod slavicmyths_hellqa,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:707) ~[neoforge-21.1.255.jar%23126!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:267) ~[neoforge-21.1.255.jar%23126!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.1
+	Minecraft Version ID: 1.21.1
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 21.0.12.1, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 159367232 bytes (151 MiB) / 617611264 bytes (589 MiB) up to 1258291200 bytes (1200 MiB)
+	CPUs: 2
+	Processor Vendor: GenuineIntel
+	Processor Name: 12th Gen Intel(R) Core(TM) i7-12700
+	Identifier: Intel64 Family 6 Model 151 Stepping 2
+	Microarchitecture: Alder Lake
+	Frequency (GHz): 2.11
+	Number of physical packages: 1
+	Number of physical CPUs: 12
+	Number of logical CPUs: 20
+	Graphics card #0 name: Intel(R) UHD Graphics 770
+	Graphics card #0 vendor: Intel Corporation
+	Graphics card #0 VRAM (MiB): 2048.00
+	Graphics card #0 deviceId: VideoController1
+	Graphics card #0 versionInfo: 32.0.101.7084
+	Memory slot #0 capacity (MiB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 3.20
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MiB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 3.20
+	Memory slot #1 type: DDR4
+	Virtual memory max (MiB): 32985.18
+	Virtual memory used (MiB): 29252.38
+	Swap memory total (MiB): 16830.69
+	Swap memory used (MiB): 3948.71
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 175950.94, total: 386386.00
+	Space in storage for workdir (MiB): available: 175950.94, total: 386386.00
+	JVM Flags: 2 total; -Xmx1200M -XX:ActiveProcessorCount=2
+	Server Running: true
+	Player Count: 0 / 1; []
+	Active Data Packs: bundle, trade_rebalance, vanilla, mod_data, mod/curios (incompatible), mod/neoforge, mod/jei (incompatible), mod/slavicmyths (incompatible), mod/slavicmyths_hellqa
+	Available Data Packs: bundle, trade_rebalance, vanilla, mod/curios (incompatible), mod/jei (incompatible), mod/neoforge, mod/slavicmyths (incompatible), mod/slavicmyths_hellqa, mod_data
+	Enabled Feature Flags: minecraft:bundle, minecraft:vanilla, minecraft:trade_rebalance
+	World Generation: Stable
+	World Seed: 1
+	Type: Game test server
+	ModLauncher: 11.0.5+main.901c6ea8
+	ModLauncher launch target: forgeserverdev
+	ModLauncher services: 
+		sponge-mixin-0.16.4+mixin.0.8.7.jar mixin PLUGINSERVICE 
+		loader-4.0.45.jar slf4jfixer PLUGINSERVICE 
+		loader-4.0.45.jar runtime_enum_extender PLUGINSERVICE 
+		at-modlauncher-10.0.1.jar accesstransformer PLUGINSERVICE 
+		loader-4.0.45.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-11.0.5.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-11.0.5.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		javafml@4.0
+		lowcodefml@4.0
+		minecraft@4.0
+	Mod List: 
+		curios-neoforge-9.5.1+1.21.1.jar                  |Curios API                    |curios                        |9.5.1+1.21.1        |Manifest: NOSIGNATURE
+		hellQa                                            |Disposable headless Hell QA   |slavicmyths_hellqa            |1                   |Manifest: NOSIGNATURE
+		jei-1.21.1-neoforge-19.51.0.418.jar               |Just Enough Items             |jei                           |19.51.0.418         |Manifest: NOSIGNATURE
+		neoforge-21.1.255.jar                             |Minecraft                     |minecraft                     |1.21.1              |Manifest: NOSIGNATURE
+		neoforge-21.1.255.jar                             |NeoForge                      |neoforge                      |21.1.255            |Manifest: NOSIGNATURE
+		slavicmyths-2.0.10-HELL.jar                       |Slavic Myths                  |slavicmyths                   |2.0.10-HELL         |Manifest: NOSIGNATURE
+	Crash Report UUID: 50d95168-fe93-420c-955a-a5feddeaf686
+	FML: 4.0.45
+	NeoForge: 21.1.255
+
+> Task :runHellQa FAILED
+
+[Incubating] Problems report is available at: file:///C:/Users/user/.codex/worktrees/lost-halls/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runHellQa'.
+> Process 'command 'C:\Users\user\Documents\slavic-myths\.tools\jdk21\jdk-21.0.12.1+1\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 36s
+11 actionable tasks: 3 executed, 8 up-to-date

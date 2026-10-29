@@ -1,0 +1,60 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compileHellQaJava FAILED
+C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\tools\hell-qa-runtime\HellBossQaTests.java:8: error: cannot find symbol
+   var w=t.getLevel();var boss=IslandsContent.MOBS.get(IslandsContent.Kind.MAGMA_LORD).get().create(w);boss.moveTo(t.absoluteVec(new net.minecraft.world.phys.Vec3(3,2,3)));w.addFreshEntity(boss);var neutral=IslandsContent.MOBS.get(IslandsContent.Kind.HEAT_SALAMANDER).get().create(w);neutral.moveTo(boss.position().add(3,0,0));w.addFreshEntity(neutral);server.setDifficulty(Difficulty.PEACEFUL,true);boss.tick();neutral.tick();HellQaTests.check(boss.isRemoved()&&!neutral.isRemoved(),"Peaceful boss/neutral regression");neutral.discard();System.out.println("HELLQA_PASS real Peaceful removes magma lord and retains neutral salamander");
+                                             ^
+  symbol:   variable MOBS
+  location: class IslandsContent
+C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\tools\hell-qa-runtime\HellBossQaTests.java:8: error: cannot find symbol
+   var w=t.getLevel();var boss=IslandsContent.MOBS.get(IslandsContent.Kind.MAGMA_LORD).get().create(w);boss.moveTo(t.absoluteVec(new net.minecraft.world.phys.Vec3(3,2,3)));w.addFreshEntity(boss);var neutral=IslandsContent.MOBS.get(IslandsContent.Kind.HEAT_SALAMANDER).get().create(w);neutral.moveTo(boss.position().add(3,0,0));w.addFreshEntity(neutral);server.setDifficulty(Difficulty.PEACEFUL,true);boss.tick();neutral.tick();HellQaTests.check(boss.isRemoved()&&!neutral.isRemoved(),"Peaceful boss/neutral regression");neutral.discard();System.out.println("HELLQA_PASS real Peaceful removes magma lord and retains neutral salamander");
+                                                                                                                                                                                                                             ^
+  symbol:   variable MOBS
+  location: class IslandsContent
+C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\tools\hell-qa-runtime\HellBossQaTests.java:19: error: cannot find symbol
+  for(String id:List.of("slavicmyths:navya_grove","slavicmyths:black_cinder","slavicmyths:lost_halls")){HellQaTests.check(found.contains(id),"Actual native biome source missing "+id+" in8192 window, seed="+w.getSeed()+" found="+found);var p=first.get(id);var chunk=w.getChunk(p);HellQaTests.check(chunk.getStatus().isOrAfter(net.minecraft.world.level.chunk.status.ChunkStatus.FULL),"Chunk did not generate "+id);System.out.println("HELLQA_WORLDGEN seed="+w.getSeed()+" biome="+id+" sampledXYZ="+p+" actualChunk="+chunk.getPos());}
+                                                                                                                                                                                                                                                                                                              ^
+  symbol:   method getStatus()
+  location: variable chunk of type ChunkAccess
+Note: C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\tools\hell-qa-runtime\HellBossQaTests.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 errors
+
+[Incubating] Problems report is available at: file:///C:/Users/user/.codex/worktrees/lost-halls/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileHellQaJava'.
+> Compilation failed; see the compiler output below.
+  Note: C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\tools\hell-qa-runtime\HellBossQaTests.java uses or overrides a deprecated API.
+  Note: Recompile with -Xlint:deprecation for details.
+  C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\tools\hell-qa-runtime\HellBossQaTests.java:8: error: cannot find symbol
+     var w=t.getLevel();var boss=IslandsContent.MOBS.get(IslandsContent.Kind.MAGMA_LORD).get().create(w);boss.moveTo(t.absoluteVec(new net.minecraft.world.phys.Vec3(3,2,3)));w.addFreshEntity(boss);var neutral=IslandsContent.MOBS.get(IslandsContent.Kind.HEAT_SALAMANDER).get().create(w);neutral.moveTo(boss.position().add(3,0,0));w.addFreshEntity(neutral);server.setDifficulty(Difficulty.PEACEFUL,true);boss.tick();neutral.tick();HellQaTests.check(boss.isRemoved()&&!neutral.isRemoved(),"Peaceful boss/neutral regression");neutral.discard();System.out.println("HELLQA_PASS real Peaceful removes magma lord and retains neutral salamander");
+                                               ^
+    symbol:   variable MOBS
+    location: class IslandsContent
+  C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\tools\hell-qa-runtime\HellBossQaTests.java:8: error: cannot find symbol
+     var w=t.getLevel();var boss=IslandsContent.MOBS.get(IslandsContent.Kind.MAGMA_LORD).get().create(w);boss.moveTo(t.absoluteVec(new net.minecraft.world.phys.Vec3(3,2,3)));w.addFreshEntity(boss);var neutral=IslandsContent.MOBS.get(IslandsContent.Kind.HEAT_SALAMANDER).get().create(w);neutral.moveTo(boss.position().add(3,0,0));w.addFreshEntity(neutral);server.setDifficulty(Difficulty.PEACEFUL,true);boss.tick();neutral.tick();HellQaTests.check(boss.isRemoved()&&!neutral.isRemoved(),"Peaceful boss/neutral regression");neutral.discard();System.out.println("HELLQA_PASS real Peaceful removes magma lord and retains neutral salamander");
+                                                                                                                                                                                                                               ^
+    symbol:   variable MOBS
+    location: class IslandsContent
+  C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\tools\hell-qa-runtime\HellBossQaTests.java:19: error: cannot find symbol
+    for(String id:List.of("slavicmyths:navya_grove","slavicmyths:black_cinder","slavicmyths:lost_halls")){HellQaTests.check(found.contains(id),"Actual native biome source missing "+id+" in8192 window, seed="+w.getSeed()+" found="+found);var p=first.get(id);var chunk=w.getChunk(p);HellQaTests.check(chunk.getStatus().isOrAfter(net.minecraft.world.level.chunk.status.ChunkStatus.FULL),"Chunk did not generate "+id);System.out.println("HELLQA_WORLDGEN seed="+w.getSeed()+" biome="+id+" sampledXYZ="+p+" actualChunk="+chunk.getPos());}
+                                                                                                                                                                                                                                                                                                                ^
+    symbol:   method getStatus()
+    location: variable chunk of type ChunkAccess
+  3 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 7s
+5 actionable tasks: 2 executed, 3 up-to-date

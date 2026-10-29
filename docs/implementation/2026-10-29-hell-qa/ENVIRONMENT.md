@@ -1,0 +1,13 @@
+# ENVIRONMENT — isolated headless QA29.10.2026
+
+Current authorization: AGENTS.md special owner exception29.10 and CODEX_ISOLATED_RUNTIME_VISUAL_QA.md (merged from origin/hell after implementation). Earlier no-runtime statements remain historical checkpoints.
+
+Host Windows10 Pro,16GB visible RAM,3.47GB free at preflight. No VBoxManage/QEMU available; WSL executable returned help/error instead of a working guest distribution inventory. No independent GUI display/input/OpenGL proof. GUI_VISUAL_QA_BLOCKED_ISOLATION. No attempt to create/switch an interactive Windows/RDP desktop. No Minecraft GUI/PolyMC/input automation.
+
+Permitted path: separate java GameTest SERVER, java.awt.headless=true, Xmx1200M, ActiveProcessorCount2, Gradle daemon512M; bounded disposable work/hell-qa-20261029/run1. No real player saves. Fixture is separate mod slavicmyths_hellqa, production SlavicMyths loaded from copied build JAR in that directory's mods; test asserts actual mod file bytes equal expected production JAR. Main sourceSet excluded from loadedMods and runtimeClasspath. No tests enter production JAR. Server uses automated fake ServerPlayer network listener only; this does not constitute real2-client MP or visual/survival acceptance.
+
+Candidate before launch:2.0.10-HELL, production tree7459a2ed (later merges docs only), SHA256f00cefdba325129f342f6cb0695363c590f325b165413157647c048833fd9764. Source-built path build/libs/slavicmyths-2.0.10-HELL.jar. Exact copied JAR SHA is checked by fixture before PASS. Seed/XYZ must be read from actual runtime logs, not assumed from server.properties.
+
+Initial fixture: actual registry/Creative/rune capacity and smithing assemble; armor equipment/removal, spear charge/damage/CD/copy/offhand guards; real furnace fuel slots/SidedInvWrapper/smelt/blocked-output/NBT. These limited diagnostic fixtures do not demonstrate natural worldgen, true chunk unload/restart, real clients or survival.
+
+Run1:3/3 real headless GameTests PASS (actual seed0, overworld fixture origin−10138129,−60,12196507). First compile setup failed to create directories; corrected before actual server run. Run2:5/6 PASS, all3 manual Posten dimensions, Peaceful neutral distinction and4 trophy anchors passed. Worldgen test incorrectly required only blackstone though production explicitly permits basalt/obsidian; actual floor basalt is intended, fixture corrected. No production bug inferred from this assertion. Added independently checked full arena/provenance TTL/natural chunk-event boss test for next run. Real sampling and forced test chunks do not establish survival accessibility or normal player loading performance.
