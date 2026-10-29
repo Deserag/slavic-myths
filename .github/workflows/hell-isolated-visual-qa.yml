@@ -1,5 +1,12 @@
 name: Hell isolated client visual QA
 on:
+  push:
+    branches: [hell]
+    paths:
+      - '.github/workflows/hell-isolated-visual-qa.yml'
+      - 'tools/hell-visual-qa/**'
+      - 'tools/hell-visual-qa-resources/**'
+      - 'tools/hell-visual-qa.gradle'
   workflow_dispatch:
 permissions:
   contents: read
