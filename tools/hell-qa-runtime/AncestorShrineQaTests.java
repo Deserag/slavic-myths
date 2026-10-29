@@ -3,6 +3,10 @@ package org.slavicmyths.hellqa;
 import java.util.HashSet;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.levelgen.structure.Structure;
+import org.slavicmyths.worldgen.StructureCandidates;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.gametest.framework.*;
 import net.minecraft.resources.ResourceKey;
@@ -87,4 +91,57 @@ public final class AncestorShrineQaTests {
         w.removeBlock(pos,false);
         t.succeed();
     }
+    /**
+     * Native worldgen, not a dev-create command. One new Nether chunk must contain
+     * the ACTUAL authored blocks; an accepted plan with zero physical blocks is FAIL.
+     * This is a bounded smoke, NOT the required five-seed statistical acceptance.
+     */
+    @GameTest(template="empty",timeoutTicks=1200)
+    public static void actualNaturalAncestorShrine(GameTestHelper t){
+        var w=t.getLevel().getServer().getLevel(Level.NETHER);
+        var registered=w.registryAccess().registryOrThrow(Registries.STRUCTURE)
+                .get(AncestorShrineWorldgen.id("ancestor_shrine"));
+        check(registered instanceof AncestorShrineStructure,"2.1.5 registry missing");
+        var structure=(AncestorShrineStructure)registered;
+        var placement=StructureCandidates.placement(w,structure);
+        check(placement!=null,"2.1.5 native structure_set absent");
+        var generator=w.getChunkSource().getGenerator();
+        int sampled=0,planned=0;
+        for(int ring=0;ring<=8;ring++)for(int gx=-ring;gx<=ring;gx++)for(int gz=-ring;gz<=ring++){
+            if(Math.max(Math.abs(gx),Math.abs(gz))!=ring)continue;
+            ChunkPos cp=placement.getPotentialStructureChunk(w.getSeed(),
+                    gx*placement.spacing(),gz*placement.spacing());
+            if(!placement.applyAdditionalChunkRestrictions(cp.x,cp.z,w.getSeed()))continue;
+            sampled++;
+            var c=new Structure.GenerationContext(w.registryAccess(),generator,generator.getBiomeSource(),
+                    w.getChunkSource().randomState(),w.getStructureManager(),w.getSeed(),cp,
+                    w,structure.biomes()::contains);
+            if(structure.findGenerationPoint(c).isEmpty())continue;
+            planned++;
+            var chunk=w.getChunk(cp.x,cp.z);
+            var start=chunk.getAllStarts().get(structure);
+            check(start!=null&&start.isValid(),"Accepted shrine candidate has no native start "+cp);
+            var piece=start.getPieces().stream().filter(AncestorShrinePiece.class::isInstance)
+                    .map(AncestorShrinePiece.class::cast).findFirst().orElseThrow();
+            var chest=piece.at(8,2,5);
+            check(w.getBlockState(chest).is(Blocks.CHEST),
+                    "Accepted ancestor shrine generated NO physical chest at "+chest);
+            check(w.getBlockEntity(chest) instanceof ChestBlockEntity,
+                    "Shrine chest has no native block entity "+chest);
+            check(w.isEmptyBlock(chest.above()),"Shrine chest lid blocked "+chest);
+            check(w.getBlockState(piece.at(6,1,10)).isSolid(),
+                    "Shrine internal floor missing "+piece.at(6,1,10));
+            check(w.isEmptyBlock(piece.at(6,2,12))&&w.isEmptyBlock(piece.at(6,3,12)),
+                    "Shrine main entrance not walkable");
+            System.out.println("HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed="+w.getSeed()+
+                    " chunk="+cp+" biome="+w.getBiome(piece.at(6,2,7)).unwrapKey().orElseThrow().location()+
+                    " variant="+piece.variant()+" chest="+chest+" sampled="+sampled+
+                    " accepted="+planned+" native start and physical blocks CONFIRMED");
+            t.succeed();return;
+        }
+        throw new GameTestAssertException("2.1.5 NO accepted natural Nether shrine seed="+w.getSeed()+
+                " sampledCandidates="+sampled+" acceptedPlans="+planned+
+                " in bounded 17x17 placement-cell grid; geometry alone is not worldgen success");
+    }
+
 }
