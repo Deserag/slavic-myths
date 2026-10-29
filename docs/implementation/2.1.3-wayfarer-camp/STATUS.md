@@ -58,3 +58,21 @@ The [five-seed run](https://github.com/Deserag/slavic-myths/actions/runs/4084235
 All tested runs passed 12 static variant/rotation profiles and 1,000 real vanilla loot-table generations, but this is not five natural-placement passes. [Commit 258c7f1](https://github.com/Deserag/slavic-myths/commit/258c7f15490070566c448361ab1e87deee3f9926) extends bounded 3D site search and permits replacing naturally generated fungal stems in fresh chunks; [61727ae](https://github.com/Deserag/slavic-myths/commit/61727ae7d6b143a930feff96d671b85fdde9a5e7) strengthens mandatory real rock underneath walking bypass corridors and clears their floor-level vegetation. Re-tests of the later code are **NOT_YET_VERIFIED** as of this checkpoint.
 
 The five-seed workflow ran the **whole** Hell QA suite; some older boss tests assume the fixture world seed and may fail on other seeds independently of the camp. They are shown above instead of silently suppressed. Detailed protected structures, restart, MP, permissions, visual, and full survival owner checks still NOT_RUN / BLOCKED_ISOLATION.
+
+## Verified second five-seed run 40844279117 (source 4131c24)
+
+[CI evidence](https://github.com/Deserag/slavic-myths/actions/runs/40844279117): headless NeoForge test namespace restricted to 2.1.1/2.1.2/2.1.3 (eight tests per world). This is a **mixed result, 3/5 full seed-jobs PASS**, not five accepted worlds.
+
+| Seed | Wayfarer real new-chunk result | Bridge real new-chunk result |
+|---|---|---|
+| 9132026 | **PASS**: `slavicmyths:navya_grove`, chunk [-62,76], Y52, variant B (1), sampled24/accepted1 | **PASS**: `slavicmyths:navya_grove`, chunk [62,-25] |
+| 20261025 | **PASS**: `minecraft:nether_wastes`, chunk [30,0], Y60, variant A (0), sampled5/accepted1 | **PASS**: `minecraft:nether_wastes`, chunk [91,-70] |
+| 3412026 | **PASS**: `slavicmyths:black_cinder`, chunk [-11,11], Y55, variant B (1), sampled3/accepted1 | **PASS**: `minecraft:nether_wastes`, chunk [-95,1] |
+| 20261024 | **PASS**: `minecraft:nether_wastes`, chunk [29,7], Y47, variant B (1), sampled7/accepted1 | **FAIL**: headroom `minecraft:nether_wart_block` at (210,41,-801)/(210,42,-801), origin (210,40,-808), variant2, length30 |
+| 20261026 | **FAIL**: valid native start at chunk [24,46] but refused `minecraft:lava` at (393,53,744) and placed no functional blocks | **PASS**: `minecraft:crimson_forest`, chunk [116,-127], length38, variant3 |
+
+Thus at least **four distinct seed worlds yielded genuine physical Wayfarer camps**, but not all five. On three seeds both new structure worldgen regressions passed. A compile-only result MUST NOT replace the two remaining failures.
+
+Follow-up [5996c5c](https://github.com/Deserag/slavic-myths/commit/5996c5c5fdadb465930d9fe8cbd4670e8d94a6aa) adds a bounded deterministic same-chunk full-preflight relocation after a late lava/vegetation collision; [4b32b00](https://github.com/Deserag/slavic-myths/commit/4b32b0043152c926bbc4f41f611effaa42d208ac) also verifies real rock beneath **all** relocated walking corridors. The new [five-seed run 40844914637](https://github.com/Deserag/slavic-myths/actions/runs/40844914637) is **IN_PROGRESS** when this note was written; do not claim its results until logged. No post-restart chest test or owner acceptance.
+
+**Separately:** the full Hell baseline CI on [40843190915](https://github.com/Deserag/slavic-myths/actions/runs/40843190915) had successful clean production JAR/resource verification but its wider harness failed to **compile** due a newly introduced syntax error in another executor's `tools/hell-qa-runtime/AncestorShrineQaTests.java:110`. This belongs to an unrelated later micro-patch and was not modified in this task. The separate Nether-structures runner intentionally isolates these unrelated seed-specific/parallel tests without changing the full CI gate.
