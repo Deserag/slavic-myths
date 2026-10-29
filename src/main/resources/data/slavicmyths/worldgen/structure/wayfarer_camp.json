@@ -1,0 +1,7 @@
+{
+  "type": "slavicmyths:wayfarer_camp",
+  "biomes": "#slavicmyths:nether_structure_biomes",
+  "step": "top_layer_modification",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}
