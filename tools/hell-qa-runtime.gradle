@@ -1,5 +1,8 @@
 allprojects { afterEvaluate {
  sourceSets { hellQa { java.srcDir 'tools/hell-qa-runtime';resources.srcDir 'tools/hell-qa-runtime-resources' } }
+ if (project.hasProperty('hellQaBiomeOnly')) {
+  sourceSets.hellQa.java.include 'HellQaMod.java','HellQaTests.java','NetherBiomeQaTests.java','org/slavicmyths/hellqa/mixin/SeedMixin.java'
+ }
  sourceSets.hellQa.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
  sourceSets.hellQa.runtimeClasspath += sourceSets.main.runtimeClasspath - sourceSets.main.output
  def qa=neoForge.mods.create('slavicmyths_hellqa'){sourceSet sourceSets.hellQa}

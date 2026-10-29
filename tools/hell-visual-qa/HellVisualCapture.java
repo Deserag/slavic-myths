@@ -1,0 +1,145 @@
+package org.slavicmyths.hellvisualqa;
+
+import java.nio.file.*;
+import java.security.MessageDigest;
+import java.util.*;
+import com.google.gson.*;
+import net.minecraft.client.*;
+import net.minecraft.client.gui.screens.*;
+import net.minecraft.client.gui.screens.inventory.InventoryScreen;
+import net.minecraft.core.*;
+import net.minecraft.core.registries.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.*;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.*;
+import net.minecraft.world.level.levelgen.presets.WorldPresets;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
+import org.slavicmyths.navya.*;
+import org.slavicmyths.blackcinder.*;
+import org.slavicmyths.losthalls.*;
+import org.slavicmyths.burningislands.*;
+import org.slavicmyths.trophy.*;
+
+/** Actual framebuffer only. Artificial creative fixtures are never labelled survival/AI/owner acceptance. */
+@EventBusSubscriber(modid="slavicmyths_hellvisualqa",value=Dist.CLIENT)
+public final class HellVisualCapture {
+    static final Path OUT=Path.of(System.getProperty("hellvisual.output"));
+    record View(String name,double x,double y,double z,double tx,double ty,double tz,
+                String item,String mode,String armor,boolean crouch) {}
+    static final List<View> VIEWS=new ArrayList<>();
+    static final JsonArray FRAMES=new JsonArray();
+    static boolean opened,requested,finished;static volatile boolean ready,positioned;
+    static int scene=-1,age;static String loadedSha;
+    static ItemStack item(String id){return new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("slavicmyths",id)));}
+    static void views(String name,double x,double z,double height,double distance){
+        double y=81+height*.5;
+        for(var d:new double[][]{{0,1},{.7,.7},{1,0},{0,-1}}){
+            String angle=new String[]{"front","quarter","side","back"}[VIEWS.size()%4];
+            VIEWS.add(new View(name+"-"+angle,x+d[0]*distance,y-1.62,z+d[1]*distance,x,y,z,"","spectator","",false));
+        }
+    }
+    static void spawn(ServerLevel w,Mob mob,int index){spawn(w,mob,index,BuiltInRegistries.ENTITY_TYPE.getKey(mob.getType()).getPath());}
+    static void spawn(ServerLevel w,Mob mob,int index,String label){
+        double x=index*16;
+        for(int bx=(int)x-6;bx<=x+6;bx++)for(int bz=-6;bz<=6;bz++)w.setBlock(new BlockPos(bx,80,bz),Blocks.SMOOTH_STONE.defaultBlockState(),2);
+        mob.moveTo(x,81,0,0,0);mob.setNoAi(true);mob.setPersistenceRequired();mob.setInvulnerable(true);mob.setYBodyRot(0);mob.setYHeadRot(0);w.addFreshEntity(mob);
+        views(label,x,0,mob.getBbHeight(),Math.max(4,mob.getBbHeight()*1.6));
+    }
+    static void gear(String name,String held,String mode,String armor,boolean crouch){
+        VIEWS.add(new View(name,0,81,120,0,82,110,held,mode,armor,crouch));
+    }
+    static void setup(ServerPlayer p){
+        var w=p.serverLevel();w.getGameRules().getRule(GameRules.RULE_DOMOBSPAWNING).set(false,w.getServer());
+        w.getGameRules().getRule(GameRules.RULE_DAYLIGHT).set(false,w.getServer());w.setDayTime(6000);
+        int i=0;
+        for(var k:NavyaContent.Kind.values())spawn(w,NavyaContent.MOBS.get(k).get().create(w),i++);
+        for(var k:CinderContent.Kind.values())spawn(w,CinderContent.TYPES.get(k).get().create(w),i++);
+        for(var k:HallsContent.Kind.values())for(int variant=0;variant<(k==HallsContent.Kind.SHEPTUN?4:1);variant++){
+            var mob=HallsContent.TYPES.get(k).get().create(w);var tag=new net.minecraft.nbt.CompoundTag();
+            mob.addAdditionalSaveData(tag);tag.putInt("HallsVariant",variant);mob.readAdditionalSaveData(tag);
+            spawn(w,mob,i++,HallsContent.id(k)+(k==HallsContent.Kind.SHEPTUN?"-variant-"+variant:""));
+        }
+        spawn(w,PostenMob.TYPE.get().create(w),i++);
+        for(var k:IslandsContent.Kind.values())spawn(w,IslandsContent.TYPES.get(k).get().create(w),i++);
+        for(int x=-12;x<=12;x++)for(int z=94;z<=140;z++)w.setBlock(new BlockPos(x,80,z),Blocks.SMOOTH_STONE.defaultBlockState(),2);
+        var kinds=List.of(TrophyHeads.Kind.GROVE_GUARDIAN,TrophyHeads.Kind.ZHARENITSA,TrophyHeads.Kind.POSTEN,TrophyHeads.Kind.MAGMA_LORD);
+        for(int n=0;n<kinds.size();n++){
+            double x=-6+n*4;w.setBlock(new BlockPos((int)x,81,100),TrophyHeads.BLOCKS.get(kinds.get(n)).get().defaultBlockState(),3);
+            views(kinds.get(n).id,x+.5,100.5,1,2.7);
+        }
+        for(String armor:List.of("king","zhara")){
+            gear(armor+"-front","","front",armor,false);gear(armor+"-back","","back",armor,false);
+            gear(armor+"-crouch-back","","back",armor,true);gear(armor+"-inventory","","inventory",armor,false);
+        }
+        for(String id:List.of("short_bow","heavy_bow","infernal_bow")){
+            gear(id+"-first",id,"first","king",false);gear(id+"-draw",id,"draw","king",false);
+            gear(id+"-third",id,"front","king",false);gear(id+"-inventory",id,"inventory","king",false);
+        }
+        for(String id:List.of("chud_master_pickaxe","chud_multitool_axe","chud_multitool_pickaxe","chud_multitool_shovel")){
+            gear(id+"-first",id,"first","",false);gear(id+"-inventory",id,"inventory","",false);
+        }
+        ready=true;
+    }
+    static void position(ServerPlayer p,View v){
+        p.stopUsingItem();p.setShiftKeyDown(v.crouch);p.setGameMode(v.mode.equals("spectator")?GameType.SPECTATOR:GameType.CREATIVE);
+        p.getInventory().clearContent();p.getInventory().selected=0;
+        p.setItemInHand(InteractionHand.MAIN_HAND,v.item.isEmpty()?ItemStack.EMPTY:item(v.item));
+        p.getInventory().setItem(9,new ItemStack(Items.ARROW,64));
+        String[] ids=v.armor.equals("king")?new String[]{"infernal_crown_helmet","infernal_king_cuirass","infernal_king_leggings","infernal_king_boots"}:
+                v.armor.equals("zhara")?new String[]{"zhara_helmet","zhara_chestplate","zhara_leggings","zhara_boots"}:null;
+        var slots=new EquipmentSlot[]{EquipmentSlot.HEAD,EquipmentSlot.CHEST,EquipmentSlot.LEGS,EquipmentSlot.FEET};
+        for(int n=0;n<4;n++)p.setItemSlot(slots[n],ids==null?ItemStack.EMPTY:item(ids[n]));
+        double dx=v.tx-v.x,dz=v.tz-v.z,dy=v.ty-(v.y+p.getEyeHeight());
+        p.teleportTo(p.serverLevel(),v.x,v.y,v.z,(float)Math.toDegrees(Math.atan2(-dx,dz)),(float)-Math.toDegrees(Math.atan2(dy,Math.hypot(dx,dz))));
+        p.getInventory().setChanged();p.inventoryMenu.broadcastChanges();positioned=true;
+    }
+    @SubscribeEvent public static void tick(ClientTickEvent.Post event)throws Exception {
+        if(finished)return;
+        if(!"true".equals(System.getenv("GITHUB_ACTIONS"))||!"github-hosted".equals(System.getenv("RUNNER_ENVIRONMENT")))throw new IllegalStateException("Isolated hosted runner only");
+        var mc=Minecraft.getInstance();
+        if(mc.screen!=null&&mc.screen.getClass().getSimpleName().equals("AccessibilityOnboardingScreen")){mc.setScreen(new TitleScreen());return;}
+        if(!opened&&mc.screen instanceof TitleScreen){
+            opened=true;Files.createDirectories(OUT);
+            var jar=net.neoforged.fml.ModList.get().getModFileById("slavicmyths").getFile().getFilePath();
+            if(!jar.toString().endsWith(".jar"))throw new AssertionError("Production mod must load from actual packaged JAR: "+jar);
+            loadedSha=HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(jar)));
+            mc.options.pauseOnLostFocus=false;mc.options.renderDistance().set(5);mc.options.simulationDistance().set(5);
+            mc.options.enableVsync().set(false);mc.options.framerateLimit().set(60);mc.options.guiScale().set(2);mc.options.fov().set(55);
+            mc.options.tutorialStep=net.minecraft.client.tutorial.TutorialSteps.NONE;
+            mc.createWorldOpenFlows().createFreshLevel("HellVisual-"+System.currentTimeMillis(),new LevelSettings("Isolated artificial Hell visual fixtures",GameType.CREATIVE,false,Difficulty.NORMAL,true,new GameRules(),WorldDataConfiguration.DEFAULT),new WorldOptions(3492026L,true,false),r->r.registryOrThrow(Registries.WORLD_PRESET).getHolderOrThrow(WorldPresets.FLAT).value().createWorldDimensions(),mc.screen);return;
+        }
+        if(mc.level==null||mc.player==null||mc.getSingleplayerServer()==null)return;
+        if(!requested){requested=true;mc.getSingleplayerServer().execute(()->setup(mc.getSingleplayerServer().getPlayerList().getPlayers().getFirst()));return;}
+        if(!ready)return;
+        if(scene<0||age>=65){
+            scene++;age=0;positioned=false;mc.options.keyUse.setDown(false);mc.options.keyShift.setDown(false);mc.setScreen(null);
+            if(scene==VIEWS.size()){
+                finished=true;var receipt=new JsonObject();receipt.addProperty("jar_sha256",loadedSha);receipt.addProperty("seed",3492026);
+                receipt.addProperty("scope","Actual packaged-mod framebuffer; artificial creative poses, not survival/AI/audio/owner acceptance");receipt.add("frames",FRAMES);
+                Files.writeString(OUT.resolve("finished.json"),new GsonBuilder().setPrettyPrinting().create().toJson(receipt));mc.stop();return;
+            }
+            var view=VIEWS.get(scene);mc.options.hideGui=!view.mode.equals("inventory");
+            mc.options.setCameraType(view.mode.equals("front")?CameraType.THIRD_PERSON_FRONT:view.mode.equals("back")?CameraType.THIRD_PERSON_BACK:CameraType.FIRST_PERSON);
+            mc.getSingleplayerServer().execute(()->position(mc.getSingleplayerServer().getPlayerList().getPlayers().getFirst(),view));return;
+        }
+        if(!positioned)return;age++;
+        var view=VIEWS.get(scene);mc.options.keyShift.setDown(view.crouch);
+        if(view.mode.equals("draw"))mc.options.keyUse.setDown(true);
+        if(view.mode.equals("inventory")&&age==25)mc.setScreen(new InventoryScreen(mc.player));
+        if(age==55){
+            String file=String.format("%03d-%s.png",scene,view.name);
+            try(var image=Screenshot.takeScreenshot(mc.getMainRenderTarget())){image.writeToFile(OUT.resolve(file));}
+            var frame=new JsonObject();frame.addProperty("file",file);frame.addProperty("skin_model",mc.player.getSkin().model().toString());
+            frame.addProperty("server_tick",mc.level.getGameTime());frame.addProperty("mode",view.mode);FRAMES.add(frame);
+            System.out.println("HELL_VISUAL_FRAME "+file+" jar="+loadedSha);
+        }
+    }
+}

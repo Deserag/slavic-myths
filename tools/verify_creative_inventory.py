@@ -12,6 +12,8 @@ checks=[]
 parser=argparse.ArgumentParser()
 parser.add_argument('--build-dir',default='build')
 parser.add_argument('--jar',default=None)
+parser.add_argument('--build-log',default='.tools/creative-clean-build.log')
+parser.add_argument('--offline-log',default='.tools/creative-offline.log')
 args=parser.parse_args()
 build_dir=ROOT/args.build_dir
 def require(ok,label):
@@ -67,16 +69,13 @@ for path in (RES/'data/slavicmyths/recipe').glob('*.json'):
     recipe=json.loads(path.read_text())
     if recipe.get('type')!='slavicmyths:rune_crafting' or not path.name.startswith('rune_rework'):continue
     id=recipe['result']['id'].split(':')[1];tier=recipe['inputs'][0]['base']['tier']
-    require(catalog[id]['group']=='runes_'+{1:'I',2:'II',3:'III'}[tier],'actual typed recipe tier '+id)
+    require(catalog[id]['group']=='runes_'+{1:'I',2:'II',3:'III',4:'IV'}[tier],'actual typed recipe tier '+id)
 
 for lang in ['ru_ru','en_us']:
     data=json.loads((RES/f'assets/slavicmyths/lang/{lang}.json').read_text(encoding='utf-8'))
     for tab,names in TAB_NAMES.items():
         actual=data.get('itemGroup.slavicmyths.'+tab)
-        # Russian asset currently has no explicit heads key: the game uses
-        # Component.translatableWithFallback("...heads", "Головы боссов").
-        # Once localization is regenerated the explicit key is validated normally.
-        require(actual==names[0 if lang=='ru_ru' else 1] or (lang=='ru_ru' and tab=='heads' and actual is None),lang+' tab '+tab)
+        require(actual==names[0 if lang=='ru_ru' else 1],lang+' tab '+tab)
     for id in catalog:
         require(bool(data.get('item.slavicmyths.'+id) or data.get('block.slavicmyths.'+id)),lang+' item label '+id)
     before_path=ROOT/f'.tools/creative-before/{lang}.json'
@@ -137,8 +136,8 @@ if manifest_path.exists():
     current['gradle.properties']=sha(ROOT/'gradle.properties')
     require(current==manifest,'all production inputs unchanged during final clean build and audit')
 
-require('BUILD SUCCESSFUL' in (ROOT/'.tools/creative-clean-build.log').read_text(encoding='utf-8-sig'),'clean build PASS')
-require('CREATIVE_CATALOG_OFFLINE_PASS' in (ROOT/'.tools/creative-offline.log').read_text(encoding='utf-8-sig'),'pure Java catalog test PASS')
+require('BUILD SUCCESSFUL' in (ROOT/args.build_log).read_text(encoding='utf-8-sig'),'clean build PASS')
+require('CREATIVE_CATALOG_OFFLINE_PASS' in (ROOT/args.offline_log).read_text(encoding='utf-8-sig'),'pure Java catalog test PASS')
 (OUT/'INVENTORY.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 with (OUT/'INVENTORY.csv').open('w',encoding='utf-8',newline='') as f:
     writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
