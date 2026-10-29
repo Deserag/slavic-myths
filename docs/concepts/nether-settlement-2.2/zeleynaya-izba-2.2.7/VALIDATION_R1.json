@@ -1,5 +1,5 @@
 {
-  "model_blocks": 1547,
+  "model_blocks": 1599,
   "reachable_ground_tiles": 321,
   "chests": {
     "brewing": {
@@ -96,7 +96,7 @@
     },
     {
       "Y": 5,
-      "count": 112
+      "count": 164
     },
     {
       "Y": 6,
@@ -131,7 +131,8 @@
     "in-bounds 25×26",
     "5 accessible chests from western approach",
     "canopy/garden path",
-    "2x2 reserve under future workstation"
+    "2x2 reserve under future workstation",
+    "support beam at Y5 above each interior suspended lantern"
   ],
   "limitations": [
     "no actual Minecraft or NeoForge runtime tests",
