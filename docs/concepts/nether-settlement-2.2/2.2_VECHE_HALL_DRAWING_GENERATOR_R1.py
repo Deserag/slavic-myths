@@ -37,8 +37,8 @@ def save(name,title,grids,room_key=None,labels=None):
     # Each grid is (name, two-dimensional array of block symbols); render 3 cols of panels.
     scale=15
     cols=3
-    blockw=max(len(g[0][0]) for g in grids)
-    blockh=max(len(g[0]) for g in grids)
+    blockw=max(len(g[0]) for _,g in grids)
+    blockh=max(len(g) for _,g in grids)
     panelw=blockw*scale+62
     panelh=blockh*scale+105
     rows=(len(grids)+cols-1)//cols
