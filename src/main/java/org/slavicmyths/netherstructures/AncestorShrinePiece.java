@@ -651,7 +651,10 @@ public final class AncestorShrinePiece extends StructurePiece {
         return old.isAir() || (old.getFluidState().isEmpty() &&
                 (old.is(Blocks.CRIMSON_ROOTS)||old.is(Blocks.WARPED_ROOTS)||
                  old.is(Blocks.NETHER_SPROUTS)||old.is(Blocks.CRIMSON_FUNGUS)||
-                 old.is(Blocks.WARPED_FUNGUS) || old.canBeReplaced()));
+                 old.is(Blocks.WARPED_FUNGUS) || old.is(Blocks.WEEPING_VINES) ||
+                 old.is(Blocks.WEEPING_VINES_PLANT) || old.is(Blocks.TWISTING_VINES) ||
+                 old.is(Blocks.TWISTING_VINES_PLANT) || old.is(Blocks.BROWN_MUSHROOM) ||
+                 old.is(Blocks.RED_MUSHROOM) || old.canBeReplaced()));
     }
     /**
      * A single-chunk ALL-OR-NOTHING preflight. Never overwrites someone else's block
@@ -660,6 +663,10 @@ public final class AncestorShrinePiece extends StructurePiece {
     @Override public void postProcess(WorldGenLevel world,StructureManager manager,
             ChunkGenerator generator,RandomSource random,BoundingBox clip,ChunkPos chunk,BlockPos pivot) {
         if(variant<0||variant>2)return;
+        // Record whether this is a newly created chest BEFORE touching any blocks.
+        // An emptied existing chest must NEVER acquire another loot table on reprocessing.
+        BlockPos chestPos=at(8,2,5);
+        boolean chestAlreadyExists=world.getBlockState(chestPos).is(Blocks.CHEST);
         // Check every proposed voxel BEFORE committing any changes.
         for(int y=0;y<HEIGHT;y++)for(int z=0;z<DEPTH;z++)for(int x=0;x<WIDTH;x++) {
             BlockState authored=voxel(x,y,z);
@@ -698,8 +705,7 @@ public final class AncestorShrinePiece extends StructurePiece {
             if(lamp!=null&&!world.getBlockState(pos).equals(lamp.rotate(rotation)))
                 world.setBlock(pos,lamp.rotate(rotation),2);
         }
-        BlockPos chestPos=at(8,2,5);
-        if(world.getBlockEntity(chestPos) instanceof RandomizableContainerBlockEntity chest
+        if(!chestAlreadyExists && world.getBlockEntity(chestPos) instanceof RandomizableContainerBlockEntity chest
                 &&chest.getLootTable()==null&&chest.isEmpty()) {
             chest.setLootTable(ResourceKey.create(Registries.LOOT_TABLE,
                     AncestorShrineWorldgen.id("chests/ancestor_shrine")),seed^chestPos.asLong());
