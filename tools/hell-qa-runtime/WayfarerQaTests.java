@@ -128,7 +128,7 @@ public final class WayfarerQaTests {
         check(placement!=null,"Missing wayfarer structure_set");
         var generator=w.getChunkSource().getGenerator();
         int sampled=0,accepted=0;
-        for(int ring=0;ring<=6;ring++)for(int gx=-ring;gx<=ring;gx++)for(int gz=-ring;gz<=ring++) {
+        for(int ring=0;ring<=6;ring++)for(int gx=-ring;gx<=ring;gx++)for(int gz=-ring;gz<=ring;gz++) {
             if(Math.max(Math.abs(gx),Math.abs(gz))!=ring)continue;
             ChunkPos cp=placement.getPotentialStructureChunk(w.getSeed(),gx*placement.spacing(),gz*placement.spacing());
             if(!placement.applyAdditionalChunkRestrictions(cp.x,cp.z,w.getSeed()))continue;
