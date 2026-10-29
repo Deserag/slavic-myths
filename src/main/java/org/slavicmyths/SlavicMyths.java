@@ -56,6 +56,7 @@ public final class SlavicMyths {
         org.slavicmyths.navya.NavyaFeatures.init();
         org.slavicmyths.navya.NavyaContent.init(bus);
         org.slavicmyths.navya.NavyaWorldgen.init();
+        org.slavicmyths.netherstructures.NetherWatchpostWorldgen.init();
         bus.addListener(org.slavicmyths.navya.NavyaSpawns::register);
         org.slavicmyths.furniture.Furniture.init();
         org.slavicmyths.trophy.TrophyHeads.init();
