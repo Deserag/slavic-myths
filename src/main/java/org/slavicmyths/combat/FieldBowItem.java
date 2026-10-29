@@ -10,7 +10,7 @@ import net.minecraft.sounds.*;
 import net.minecraft.stats.Stats;
 
 /** Vanilla ammo/enchantment pipeline; draw speed, velocity and damage define the two roles. */
-public final class FieldBowItem extends BowItem {
+public class FieldBowItem extends BowItem {
     public final boolean heavy;
     public FieldBowItem(boolean heavy,Properties properties){super(properties);this.heavy=heavy;}
     public int drawTicks(){return heavy?30:12;}

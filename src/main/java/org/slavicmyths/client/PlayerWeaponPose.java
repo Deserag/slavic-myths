@@ -16,10 +16,11 @@ public final class PlayerWeaponPose {
  private static final Map<String,Shape> IDS=new HashMap<>();
  static {
   add(Shape.BLADE,"bone_knife","silver_dagger","ancient_carolingian_sword","restored_carolingian_sword","silver_sword","perunite_sword","tugarin_sword","trophy_kalin_sabre","nightingale_dagger");
-  add(Shape.HEAVY,"club","wooden_mace","stone_mace","mace","silver_mace","perunite_mace","battle_axe","chekan","ancient_chekan","thunder_axe");
-  add(Shape.SPEAR,"ancient_spear","restored_spear","spear","gold_spear","iron_spear","silver_spear","diamond_spear","zhara_spear","perunite_spear","netherite_spear","pool_spear","thunder_spear","victor_spear");
+  add(Shape.HEAVY,"ashen_greatsword","club","wooden_mace","stone_mace","mace","silver_mace","perunite_mace","battle_axe","chekan","ancient_chekan","thunder_axe");
+  add(Shape.SPEAR,"navya_ostroga","ancient_spear","restored_spear","spear","gold_spear","iron_spear","silver_spear","diamond_spear","zhara_spear","perunite_spear","netherite_spear","pool_spear","thunder_spear","victor_spear");
   add(Shape.POLEAXE,"berdysh");add(Shape.SICKLE,"noon_sickle");add(Shape.STAFF,"carved_staff","storm_staff","veles_staff","likho_staff");
   for(String metal:new String[]{"stone","gold","iron","silver","diamond","perunite","netherite"}){add(Shape.KNIFE,metal+"_throwing_knife");add(Shape.SULITSA,metal+"_sulitsa");}
+  add(Shape.KNIFE,"shadow_throwing_knife");
   add(Shape.WHIP,"poloz_whip");
  }
  private static void add(Shape shape,String... names){for(String name:names)if(IDS.put(name,shape)!=null)throw new IllegalStateException(name);}
@@ -27,6 +28,12 @@ public final class PlayerWeaponPose {
  public static void apply(PlayerModel<?> model,LivingEntity entity,float age){
   if(!(entity instanceof net.minecraft.client.player.AbstractClientPlayer)||entity.isFallFlying()||entity.isVisuallySwimming()||entity.isSleeping())return;
   poseHand(model,entity,HumanoidArm.RIGHT,age);poseHand(model,entity,HumanoidArm.LEFT,age);
+  if(entity.getMainHandItem().getItem() instanceof org.slavicmyths.nethersmithing.NetherWeapons.Greatsword&&entity.getOffhandItem().isEmpty()){
+   boolean left=entity.getMainArm()==HumanoidArm.LEFT;ModelPart primary=left?model.leftArm:model.rightArm,support=left?model.rightArm:model.leftArm;
+   float swing=entity.getAttackAnim(Mth.clamp(age-entity.tickCount,0,1)),wave=Mth.sin((float)Math.sqrt(swing)*Mth.PI);
+   primary.xRot=-.85F-.65F*wave;primary.yRot=(left?-1:1)*-.25F;
+   support.xRot=-.95F-.65F*wave;support.yRot=(left?-1:1)*.55F;support.zRot=(left?-1:1)*-.25F;
+  }
   model.rightSleeve.copyFrom(model.rightArm);model.leftSleeve.copyFrom(model.leftArm);
  }
  private static void poseHand(PlayerModel<?> model,LivingEntity owner,HumanoidArm arm,float age){

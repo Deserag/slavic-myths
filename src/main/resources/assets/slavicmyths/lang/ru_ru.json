@@ -6343,5 +6343,17 @@
   "item.slavicmyths.infernal_king_boots": "Сапоги Пекельного царя",
   "netherarmor.effect.infernal_king_boots": "+30% силы прыжка и мягкое падение.",
   "netherarmor.hp": "Здоровье: +%s сердца",
-  "netherarmor.sockets": "Рунные гнёзда: %s / максимум %s"
+  "netherarmor.sockets": "Рунные гнёзда: %s / максимум %s",
+  "item.slavicmyths.navya_ostroga": "Навья острога",
+  "item.slavicmyths.ashen_greatsword": "Пепельный двуручный меч",
+  "item.slavicmyths.shadow_throwing_knife": "Теневой метательный нож",
+  "item.slavicmyths.volcanic_heart_flail": "Кистень вулканического сердца",
+  "item.slavicmyths.infernal_bow": "Пекельный лук",
+  "netherweapons.skill_used": "Приём: %s. Восстановление: %s с.",
+  "netherweapons.cooldown": "До приёма: %s с.",
+  "netherweapons.tip.navya_ostroga": "ПКМ: накопить 0,5 с и отпустить — укол с замедлением II. Откат 12 с.",
+  "netherweapons.tip.ashen_greatsword": "Пустая вторая рука: 15 урона; занятая: 9. Shift+ПКМ 0,8 с: дуга по 3 целям. Откат 18 с.",
+  "netherweapons.tip.shadow_throwing_knife": "ПКМ: бросок; Shift+ПКМ: слабость и ослабление брони. Откат 12 с.",
+  "netherweapons.tip.volcanic_heart_flail": "ПКМ: заряд кистеня; Shift+ПКМ 0,9 с: круговой импульс. Откат 18 с.",
+  "netherweapons.tip.infernal_bow": "Натяжение 1,2 с. Shift при выстреле: поджигающая стрела. Откат 10 с; обычная стрельба доступна."
 }

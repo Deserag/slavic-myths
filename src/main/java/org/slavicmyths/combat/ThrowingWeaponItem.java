@@ -12,7 +12,7 @@ import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.resources.ResourceLocation;
 
 /** One durable item per throw; the server transfers its exact component-bearing stack. */
-public final class ThrowingWeaponItem extends TieredItem {
+public class ThrowingWeaponItem extends TieredItem {
     public final boolean knife;
     private final float directMultiplier;
     public ThrowingWeaponItem(Tier tier,boolean knife,Properties properties) {
@@ -44,20 +44,29 @@ public final class ThrowingWeaponItem extends TieredItem {
         if(level.isClientSide)player.swing(player.getUsedItemHand());
         throwOne(level,player,player.getUsedItemHand(),stack,1.3F+Math.min(held,20)/20F*1.2F);
     }
-    private void throwOne(Level level,Player player,InteractionHand hand,ItemStack stack,float velocity) {
+    protected void throwOne(Level level,Player player,InteractionHand hand,ItemStack stack,float velocity) {
         if(level.isClientSide)return;
         boolean creative=player.hasInfiniteMaterials();
         ItemStack carried=stack.copyWithCount(1);
-        if(!creative)carried.hurtAndBreak(1,player,LivingEntity.getSlotForHand(hand));
+        if(!creative)carried.hurtAndBreak(throwingWear(player,carried),player,LivingEntity.getSlotForHand(hand));
         if(carried.isEmpty())return;
+        prepareThrownStack(player,carried);
         WeaponProjectile projectile=new WeaponProjectile(level,player,carried,knife,creative);
+        configureProjectile(projectile,player,carried);
         projectile.shootFromRotation(player,player.getXRot(),player.getYRot(),0,velocity,knife?1.5F:1F);
         if(!level.addFreshEntity(projectile))return;
+        afterThrow(player,carried);
         if(!creative)stack.shrink(1);
         player.getCooldowns().addCooldown(this,knife?8:16);
         player.awardStat(Stats.ITEM_USED.get(this));
         level.playSound(null,player.blockPosition(),knife?SoundEvents.SNOWBALL_THROW:SoundEvents.TRIDENT_THROW.value(),SoundSource.PLAYERS,knife?.3F:.45F,knife?1.7F:1F);
     }
+    protected int throwingWear(Player player,ItemStack stack){return 1;}
+    protected void prepareThrownStack(Player player,ItemStack stack){}
+    protected void configureProjectile(WeaponProjectile projectile,Player player,ItemStack stack){}
+    protected void afterThrow(Player player,ItemStack stack){}
+    public float projectileDamage(WeaponProjectile projectile){return thrownDamage();}
+    public void projectileHit(WeaponProjectile projectile,LivingEntity target,LivingEntity owner,boolean success){}
     @Override public boolean hurtEnemy(ItemStack stack,LivingEntity target,LivingEntity attacker){stack.hurtAndBreak(1,attacker,EquipmentSlot.MAINHAND);return true;}
     @Override public boolean supportsEnchantment(ItemStack stack,net.minecraft.core.Holder<net.minecraft.world.item.enchantment.Enchantment> enchantment) {
         return knife&&enchantment.is(net.minecraft.world.item.enchantment.Enchantments.LOYALTY)||!enchantment.is(net.minecraft.world.item.enchantment.Enchantments.SWEEPING_EDGE)&&

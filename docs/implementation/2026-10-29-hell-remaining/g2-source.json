@@ -1,0 +1,5 @@
+{
+  "status": "SOURCE_PASS",
+  "checks": 91,
+  "scope": "actual cuboid coordinates/limits,5 transform identities and four source views; actual animation/GUI/gameplay NOT_RUN; ART_BLOCKED_REFERENCE"
+}

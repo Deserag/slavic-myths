@@ -31,7 +31,7 @@ public final class BowDrawClient {
                 drawPose(pose,arm==HumanoidArm.LEFT,equip,ticks,duration);
                 return true;
             }
-        },WeaponCatalog.item("short_bow"),WeaponCatalog.item("heavy_bow"),FinistItems.BOW.get());
+        },WeaponCatalog.item("short_bow"),WeaponCatalog.item("heavy_bow"),FinistItems.BOW.get(),org.slavicmyths.nethersmithing.NetherWeapons.ITEMS.get("infernal_bow").get());
     }
 
     public static float visualPower(float ticks,int duration) {

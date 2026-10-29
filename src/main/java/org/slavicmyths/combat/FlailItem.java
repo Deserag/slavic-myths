@@ -16,11 +16,12 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.Level;
 
 /** Charged, line-of-sight strike at 4 blocks; no global reach attribute or chain physics. */
-public final class FlailItem extends MaceItem {
+public class FlailItem extends MaceItem {
     private final float directMultiplier;
     public FlailItem(Properties p){super(Tiers.IRON,8,.7F,.22F,.65F,p);directMultiplier=1;}
     public FlailItem(Tier tier,Properties p){this(tier,p,1);}
-    public FlailItem(Tier tier,Properties p,float directMultiplier){super(tier,(6+tier.getAttackDamageBonus())*directMultiplier,.7F,.22F,.65F,p);this.directMultiplier=directMultiplier;}
+    public FlailItem(Tier tier,Properties p,float directMultiplier){this(tier,p,directMultiplier,.7F,.65F);}
+    protected FlailItem(Tier tier,Properties p,float directMultiplier,float speed,float push){super(tier,(6+tier.getAttackDamageBonus())*directMultiplier,speed,.22F,push,p);this.directMultiplier=directMultiplier;}
     public static float chargedDamage(Tier tier,float multiplier){return (7+tier.getAttackDamageBonus())*multiplier;}
     public float chargedDamage(){return chargedDamage(getTier(),directMultiplier);}
     @Override public boolean canDisableShield(ItemStack stack,ItemStack shield,LivingEntity entity,LivingEntity attacker){return true;}

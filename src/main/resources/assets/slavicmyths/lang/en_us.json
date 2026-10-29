@@ -6343,5 +6343,17 @@
   "item.slavicmyths.infernal_king_boots": "Infernal King Boots",
   "netherarmor.effect.infernal_king_boots": "+30% jump strength and slow descent.",
   "netherarmor.hp": "Health: +%s hearts",
-  "netherarmor.sockets": "Rune sockets: %s / maximum %s"
+  "netherarmor.sockets": "Rune sockets: %s / maximum %s",
+  "item.slavicmyths.navya_ostroga": "Navya Ostroga",
+  "item.slavicmyths.ashen_greatsword": "Ashen Greatsword",
+  "item.slavicmyths.shadow_throwing_knife": "Shadow Throwing Knife",
+  "item.slavicmyths.volcanic_heart_flail": "Volcanic Heart Flail",
+  "item.slavicmyths.infernal_bow": "Infernal Bow",
+  "netherweapons.skill_used": "Skill: %s. Recovery: %s s.",
+  "netherweapons.cooldown": "Skill recovery: %s s.",
+  "netherweapons.tip.navya_ostroga": "Hold RMB 0.5s and release: slowing thrust II. Recovery 12s.",
+  "netherweapons.tip.ashen_greatsword": "Empty offhand: 15 damage; occupied: 9. Sneak+RMB 0.8s: arc hitting up to 3. Recovery 18s.",
+  "netherweapons.tip.shadow_throwing_knife": "RMB: throw; Sneak+RMB: weakness and armor debuff. Recovery 12s.",
+  "netherweapons.tip.volcanic_heart_flail": "RMB: charged flail; Sneak+RMB 0.9s: circular pulse. Recovery 18s.",
+  "netherweapons.tip.infernal_bow": "Draw 1.2s. Sneak on release: igniting arrow. Recovery 10s; normal shots remain available."
 }

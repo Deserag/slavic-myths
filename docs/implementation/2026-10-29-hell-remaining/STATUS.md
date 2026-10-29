@@ -18,3 +18,5 @@ D1: shared native ocean mask, biome sampler/locate context, island/volcano/crate
 D2: temporary natural-ground provenance/leases and real-fire safety helper implemented; owner/chunk lifecycle and drop/piston/explosion guards. Native NBT24 checks and4 child JVM reward cuts PASS; total Halls pure assertions32838. Actual game chunk persistence/claims/server crash/MP still NOT_RUN. Next G1 armor after final D gates.
 
 G1:8 wearables,effects,3D king model/cape,8 transforms,slots and client emissive/first-person/cape priorities implemented. Native96030 checks; source renders inspected. Actual game/ART acceptance NOT_RUN/BLOCKED_REFERENCE. Next G2 five weapons/skills, thenG3/debts.
+
+G2 checkpoint: five new item/skill/server/client/mesh/recipe paths implemented; source bounds and separate GUI models. Knife exact debuff,160t fire and ordinary flail charge ratio are engineering proposals, not owner-approved. Actual game/client animation/MP NOT_RUN, originals ART_BLOCKED_REFERENCE. Next G3 furnace, then remaining ore/Nature/amulet/regressions.

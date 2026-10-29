@@ -20,7 +20,7 @@ import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsE
 /** Player-local throw windup: no replacement projectile, entity tick scans or server timing changes. */
 @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
 public final class ThrowingMotionClient {
-    private static final String[] KNIVES={"stone_throwing_knife","gold_throwing_knife",
+    private static final String[] KNIVES={"shadow_throwing_knife","stone_throwing_knife","gold_throwing_knife",
             "iron_throwing_knife","silver_throwing_knife","diamond_throwing_knife","zhara_throwing_knife",
             "perunite_throwing_knife","netherite_throwing_knife"};
     private static final String[] SULITSAS={"stone_sulitsa","gold_sulitsa","iron_sulitsa",
