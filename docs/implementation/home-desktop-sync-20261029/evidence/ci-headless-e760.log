@@ -1,0 +1,176 @@
+headless	Clean production JAR and offline checks	2026-10-29T15:45:12.3018591Z BUILD SUCCESSFUL in 1m 32s
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:56.8931978Z HELLQA_PASS four real trophy BlockItems/BE/rotations/loot anchors; client rendering NOT_RUN
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:56.9932560Z HELLQA_PASS 2.1.3 1000 real native chest loot generations, 100% two guarantee groups; six independent extras=[181, 301, 127, 255, 72, 40]; repeat-open no extra payout (save/restart still NOT_RUN)
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.4928915Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.4931070Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.4932540Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.4933730Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.5927817Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.5929314Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.5939854Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.5941039Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.6936456Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.6943282Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.6945028Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.6946304Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.6947803Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.6949259Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.7930605Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.7931967Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.7932932Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.7933885Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.7934838Z HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:45:59.7936442Z HELLQA_PASS 2.1.4 16 actual placement/replay fixtures; foreign chest rejection zero floor writes, ordinary physical stairs, persisted Placed prevents loot refill; true restart NOT_RUN
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:01.1929106Z HELLQA_ANCESTOR_REJECT no safe full actual fit pos=BlockPos{x=183, y=60, z=470} block=Block{minecraft:blackstone} zero writes, invalid start
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:02.3933834Z HELLQA_ANCESTOR_LOCAL_FIT from=BlockPos{x=-217, y=46, z=1302} to=BlockPos{x=-216, y=46, z=1302} rotation=CLOCKWISE_90
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:02.4948667Z HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-14, 81] biome=minecraft:basalt_deltas variant=0 chest=BlockPos{x=-214, y=48, z=1304} sampled=34 accepted=2 lateRejected=1 native start and physical blocks CONFIRMED
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:02.6932539Z HELLQA_PASS actual Curios active necklace/inventory/removal/aura applicability and original Two Winters regression
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:03.5929331Z HELLQA_PASS 2.1.3 ACTUAL NATURAL WAYFARER seed=20261024 chunk=[29, 7] biome=minecraft:nether_wastes Y=47 variant=1 bbox=BoundingBox{minX=468, minY=47, minZ=117, maxX=476, maxY=52, maxZ=123} sampledCandidates=7 acceptedPlans=1 lateRejectedStarts=0 physical chest/fire/table/chain/lantern each one
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:03.6928747Z HELLQA_PASS real64 smelts and result-slot XP=45 claimed once
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:03.6929883Z HELLQA_PASS real furnace: rejected5 fuels/menu/hopper, actual smelt/blocked-output/NBT
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:05.4929441Z HELLQA_PASS 2.1.6 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-87, 100] biome=minecraft:nether_wastes variant=1 candidates=25 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-1392, minY=53, minZ=1600, maxX=-1378, maxY=61, maxZ=1614}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:05.5928824Z HELLQA_PASS real one-arrow special13/fire160/wear4; ordinary10 on CD; PowerII14 native verified; native ammo and crit flag
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:05.5932573Z HELLQA_PASS #349 short_bow survival no-ammo/undercharge/one-shot/one-ammo/one-wear; creative no-ammo/no-wear/nonfarmable
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:05.5934950Z HELLQA_PASS #349 heavy_bow survival no-ammo/undercharge/one-shot/one-ammo/one-wear; creative no-ammo/no-wear/nonfarmable
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:05.5936643Z HELLQA_PASS #349 infernal_bow survival no-ammo/undercharge/one-shot/one-ammo/one-wear; creative no-ammo/no-wear/nonfarmable
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:05.6932869Z HELLQA_PASS 2.1.1 1000 native loot unpack operations: guaranteed food/arrow, rare cap, actual bone_arrow, diamond occurrences=26
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:05.8928760Z HELLQA_PASS 2.1.4 16 geometry profiles; 1/2 rooms, three-wide surface stair, two-wide second stair, clear lids and anchored lamps
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0928510Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1859, y=39, z=1990} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0940979Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=39, z=1990} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0943071Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1863, y=39, z=1992} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0945045Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1864, y=39, z=1990} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0946907Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=39, z=1988} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0951225Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=39, z=1990} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0953527Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1863, y=39, z=1992} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0955468Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1864, y=39, z=1990} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0957285Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=39, z=1988} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0959148Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1859, y=39, z=1990} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0960887Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1863, y=39, z=1992} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0962900Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1864, y=39, z=1990} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0964723Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1859, y=39, z=1987} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0966458Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=40, z=1990} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0968061Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1870, y=49, z=1996} old=Block{minecraft:air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0969745Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1870, y=49, z=1994} old=Block{minecraft:air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0971509Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=40, z=1988} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0973409Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=40, z=1990} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0975017Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1870, y=49, z=1997} old=Block{minecraft:air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0976824Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1870, y=49, z=1994} old=Block{minecraft:air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0978487Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=40, z=1988} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0980161Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1859, y=40, z=1990} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0981908Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1869, y=49, z=1997} old=Block{minecraft:air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0983827Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1869, y=49, z=1996} old=Block{minecraft:air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0985898Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1859, y=40, z=1987} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0987758Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=38, z=1990} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0989553Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1863, y=38, z=1992} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0991793Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1867, y=51, z=1988} old=Block{minecraft:netherrack}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0993519Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=38, z=1988} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0995234Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1859, y=38, z=1990} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0997024Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1863, y=38, z=1992} old=Block{minecraft:cave_air}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.0998801Z HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1867, y=51, z=1988} old=Block{minecraft:netherrack}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:08.1000213Z HELLQA_SHRINE_REJECT chunk=[-117, 124] actual terrain unsafe; zero writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:09.6930678Z HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-130, 153] biome=slavicmyths:lost_halls bottom=-5 variant=0 candidates=108 noiseProposals=2 lateRejected=1 bbox=BoundingBox{minX=-2080, minY=47, minZ=2448, maxX=-2066, maxY=60, maxZ=2462}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:09.7929353Z HELLQA_PASS 2.1.6 10000 actual native loot rolls optional=[4501, 2993, 2210, 1497, 808, 188, 317] no reroll
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:11.0934670Z HELLQA_PASS 2.1.2 ACTUAL NATURAL NETHER BRIDGE seed=20261024 chunk=[13, -51] biome=minecraft:crimson_forest length=30 variant=2 roadSteps=25 width5Cells=125 bbox=BoundingBox{minX=207, minY=16, minZ=-808, maxX=213, maxY=44, maxZ=-779} sampledCandidates=14 acceptedPlans=1 no loot; chunk-clipped natural generation, not manual place
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:11.0938550Z HELLQA_PASS bridge late-fungus fixture: wart/stem removed; obsidian/lava/chest preserved
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:11.1932255Z HELLQA_PASS real vanilla DeltaFeature: natural control gets lava, crafted blackstone floors preserved; no natural basalt/blackstone tag protection
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:12.0936017Z HELLQA_PASS 2.1.1 ACTUAL NATURAL WATCHPOST seed=20261024 chunk=[-54, 7] biome=slavicmyths:lost_halls bounding=BoundingBox{minX=-861, minY=50, minZ=115, maxX=-851, maxY=75, maxZ=125} chest=1 ladder=18 candidateProbes=9 acceptedPlans=1 (no direct placement or player GUI)
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:12.0938844Z HELLQA_PASS 2.1.5 12 native geometry profiles: A644/B604/C370, one chest, open entrance/lid, lamps and memory wall
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:13.3936123Z HELLQA_WORLDGEN seed=20261024 biome=slavicmyths:navya_grove sampledXYZ=BlockPos{x=-4096, y=36, z=-3328} actualChunk=[-256, -208]
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:14.0934733Z HELLQA_WORLDGEN seed=20261024 biome=slavicmyths:black_cinder sampledXYZ=BlockPos{x=-4096, y=36, z=-768} actualChunk=[-256, -48]
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:14.9929059Z HELLQA_WORLDGEN seed=20261024 biome=slavicmyths:lost_halls sampledXYZ=BlockPos{x=-2816, y=36, z=-3840} actualChunk=[-176, -240]
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:16.0930761Z HELLQA_WORLDGEN seed=20261024 biome=slavicmyths:burning_islands home=BlockPos{x=2293, y=59, z=-3846} found=[minecraft:basalt_deltas, minecraft:crimson_forest, minecraft:nether_wastes, minecraft:soul_sand_valley, minecraft:warped_forest, slavicmyths:black_cinder, slavicmyths:burning_islands, slavicmyths:lost_halls, slavicmyths:navya_grove] nativeSamplingAnd4ChunksMs=3968; diagnostic chunk requests, not survival
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.2928522Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.2929888Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.2931009Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.2932362Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3937974Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3939586Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3940748Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3941801Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3943248Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3944096Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3945008Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3945867Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3946690Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3947518Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3948366Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3949195Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3950032Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3950878Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3951916Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3952737Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3953694Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3954518Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3955342Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3956185Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3957054Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3957894Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3958724Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3959599Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3960450Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3961556Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3962508Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3963362Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3964221Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3965071Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3965934Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.3966801Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.4933224Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.4980338Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.4995444Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5002583Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5003697Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5004732Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5005785Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5007322Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5009725Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5010792Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5012481Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5013806Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5014808Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5016159Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5017181Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5018203Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5019860Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5021592Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5022868Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5024282Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5025367Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5026793Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5028301Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5029403Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5030884Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5032244Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5033723Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5034805Z HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5931987Z HELLQA_PASS 2.1.6 16 actual placements/replays; foreign chest/lava/obsidian/bedrock reject zero writes; lava below rejected; restart NOT_RUN
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:22.5938137Z HELLQA_PASS flail actual pulse/fire/wear, knife status/nonstack/removal (knife projectile separate NOT_RUN)
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:23.2927952Z HELLQA_PASS manual Posten dimension=minecraft:overworld seed=20261024 XYZ=0,90,0 survives initial tick; manual NBT
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:25.3928553Z HELLQA_PASS manual Posten dimension=minecraft:the_nether seed=20261024 XYZ=0,90,0 survives initial tick; manual NBT
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:25.7930434Z HELLQA_PASS manual Posten dimension=minecraft:the_end seed=20261024 XYZ=0,90,0 survives initial tick; manual NBT
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:25.7932299Z HELLQA_PASS real Peaceful removes magma lord and retains neutral salamander
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:25.8929112Z HELLQA_PASS real armor equip/unequip HP/speed and charged skill/copy-CD/offhand guards
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:25.8930673Z HELLQA_WORLD seed=20261024 dimension=minecraft:overworld origin=BlockPos{x=4653736, y=-60, z=-7507087}
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:25.9930897Z HELLQA_PASS production JAR=/home/runner/work/slavic-myths/slavic-myths/work/hell-qa-20261029/github-actions/mods/slavicmyths-2.1.6-HELL.jar registry/socket/creative/actual smithing assemble
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:25.9933244Z HELLQA_PASS 2.1.3 12 profiles; real cantilever, chain, hanging lamp, one fireproof campfire, chest headroom and bypass
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:26.1928866Z HELLQA_PASS 2.1.6 16 geometry profiles solids=[264, 253, 242, 218] lit=[5, 5, 3, 0]
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:26.2939793Z HELLQA_PASS 2.1.2 64 geometry profiles / 4 variants / four rotations / 4 lengths, width5, no rewards, non-floating designed supports
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:26.3946277Z HELLQA_PASS real knife projectile10/Weakness, one consumed and LoyaltyIII returned once with wear/stack cooldown
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:26.4933904Z HELLQA_PASS real native BasaltColumnsFeature: natural columns present; crafted floor and mixed neighbouring roof protected
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:27.9928567Z HELLQA_BIOME seed=20261024 id=minecraft:nether_wastes quartSample=BlockPos{x=-4096, y=36, z=-2560} physicalXYZ=BlockPos{x=-4100, y=32, z=-2564} actualChunk=[-256, -160]
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:28.6928698Z HELLQA_BIOME seed=20261024 id=minecraft:soul_sand_valley quartSample=BlockPos{x=-4096, y=36, z=-2816} physicalXYZ=BlockPos{x=-4100, y=32, z=-2820} actualChunk=[-256, -176]
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:29.2928237Z HELLQA_BIOME seed=20261024 id=minecraft:crimson_forest quartSample=BlockPos{x=-4096, y=36, z=-4096} physicalXYZ=BlockPos{x=-4100, y=32, z=-4100} actualChunk=[-256, -256]
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:29.9935401Z HELLQA_BIOME seed=20261024 id=minecraft:warped_forest quartSample=BlockPos{x=-3840, y=36, z=-2304} physicalXYZ=BlockPos{x=-3844, y=32, z=-2308} actualChunk=[-240, -144]
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:30.8928468Z HELLQA_BIOME seed=20261024 id=minecraft:basalt_deltas quartSample=BlockPos{x=-4096, y=36, z=2560} physicalXYZ=BlockPos{x=-4100, y=32, z=2556} actualChunk=[-256, 160]
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:30.8930551Z HELLQA_BIOME seed=20261024 id=slavicmyths:navya_grove quartSample=BlockPos{x=-4096, y=36, z=-3328} physicalXYZ=BlockPos{x=-4100, y=32, z=-3332} actualChunk=[-256, -208]
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:30.8932786Z HELLQA_BIOME seed=20261024 id=slavicmyths:black_cinder quartSample=BlockPos{x=-4096, y=36, z=-768} physicalXYZ=BlockPos{x=-4100, y=32, z=-772} actualChunk=[-256, -48]
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:30.8934735Z HELLQA_BIOME seed=20261024 id=slavicmyths:lost_halls quartSample=BlockPos{x=-2816, y=36, z=-3840} physicalXYZ=BlockPos{x=-2820, y=32, z=-3840} actualChunk=[-176, -240]
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:31.4929513Z HELLQA_BIOME seed=20261024 id=slavicmyths:burning_islands XYZ=BlockPos{x=2293, y=59, z=-3846} physical arena floor=Block{minecraft:blackstone}; bounded diagnostic chunk requests, not survival/natural spawn proof
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:31.4936019Z HELLQA_PASS 2.1.1 watchpost 96 geometry profiles: 4 heights,4 rotations,2 chest positions,3 ruin levels,1 chest/fire/lantern,continuous ladder and chunk bounds
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:31.6932638Z HELLQA_PASS 2.1.4 10000 real native chest rolls; 2 active I + third tiers=[8401, 1490, 109]; no blank runes, no reroll
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:31.6933729Z HELLQA_PASS 2.1.5 1000 native loot rolls, guaranteed bones, no reroll, soul-torch-containing=549
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:32.5929858Z HELLQA_PASS actual four FIRE blocks; unmarked player floor rejected; external replacement preserved; three scheduled TTL expirations; artificial provenance fixture, not natural spawn/restart/claims proof
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:33.9933337Z HELLQA_PASS seed=20261024 full dry arena/6headroom and one chunk-event natural boss UUID=87e193f4-250a-3d2b-afa6-d81cdb79faa1;49 artificial tickets, not normal player loading
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:34.1949836Z HELLQA_PASS real120t magma TTL restored original native island floor
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:34.2010989Z [15:46:34] [Server thread/INFO] [minecraft/GameTestServer]: All 35 required tests passed :)
+headless	Headless GameTest against packaged production JAR	2026-10-29T15:46:37.8728538Z BUILD SUCCESSFUL in 1m 22s

@@ -1,0 +1,4 @@
+Nether armor native model/HP/socket/wear checks PASS 96030; equipment/runtime/trim/MP/original ART NOT_RUN or BLOCKED_REFERENCE.
+Nether weapon pure arrow-speed/rounding and declared bounds PASS 1233; not projectile/gameplay test.
+Native inherited furnace NBT and sided inventory primitives PASS 6; custom station tick/fuel/XP/recipebook/hopper/reload/MP NOT_RUN.
+BUILD SUCCESSFUL in 45s

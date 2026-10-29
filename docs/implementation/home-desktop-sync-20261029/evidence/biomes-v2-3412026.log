@@ -1,0 +1,15 @@
+HELLQA_BIOME seed=3412026 id=minecraft:nether_wastes quartSample=BlockPos{x=-4096, y=36, z=-4096} physicalXYZ=BlockPos{x=-4100, y=32, z=-4100} actualChunk=[-256, -256]
+HELLQA_BIOME seed=3412026 id=minecraft:soul_sand_valley quartSample=BlockPos{x=-4096, y=36, z=-2816} physicalXYZ=BlockPos{x=-4100, y=32, z=-2820} actualChunk=[-256, -176]
+HELLQA_BIOME seed=3412026 id=minecraft:crimson_forest quartSample=BlockPos{x=-4096, y=36, z=-3584} physicalXYZ=BlockPos{x=-4100, y=32, z=-3588} actualChunk=[-256, -224]
+HELLQA_BIOME seed=3412026 id=minecraft:warped_forest quartSample=BlockPos{x=-4096, y=36, z=-1792} physicalXYZ=BlockPos{x=-4100, y=32, z=-1796} actualChunk=[-256, -112]
+HELLQA_BIOME seed=3412026 id=minecraft:basalt_deltas quartSample=BlockPos{x=-4096, y=36, z=-512} physicalXYZ=BlockPos{x=-4100, y=32, z=-516} actualChunk=[-256, -32]
+HELLQA_BIOME seed=3412026 id=slavicmyths:navya_grove quartSample=BlockPos{x=-4096, y=36, z=-1536} physicalXYZ=BlockPos{x=-4100, y=32, z=-1540} actualChunk=[-256, -96]
+HELLQA_BIOME seed=3412026 id=slavicmyths:black_cinder quartSample=BlockPos{x=-3584, y=36, z=-2048} physicalXYZ=BlockPos{x=-3588, y=32, z=-2052} actualChunk=[-224, -128]
+HELLQA_BIOME seed=3412026 id=slavicmyths:lost_halls quartSample=BlockPos{x=-3840, y=36, z=0} physicalXYZ=BlockPos{x=-3840, y=32, z=4} actualChunk=[-240, 0]
+HELLQA_BIOME seed=3412026 id=slavicmyths:burning_islands XYZ=BlockPos{x=2819, y=59, z=-2298} physical arena floor=Block{minecraft:blackstone}; bounded diagnostic chunk requests, not survival/natural spawn proof
+HELLQA_WORLD seed=3412026 dimension=minecraft:overworld origin=BlockPos{x=12831190, y=-60, z=1675181}
+HELLQA_PASS production JAR=D:\slavic-myths\work\home-biomes-v2-20261029\3412026\mods\slavicmyths-2.1.6-HELL.jar registry/socket/creative/actual smithing assemble
+HELLQA_PASS real furnace: rejected5 fuels/menu/hopper, actual smelt/blocked-output/NBT
+HELLQA_PASS real armor equip/unequip HP/speed and charged skill/copy-CD/offhand guards
+[18:29:33] [Server thread/INFO] [minecraft/GameTestServer]: All 4 required tests passed :)
+BUILD SUCCESSFUL in 42s
