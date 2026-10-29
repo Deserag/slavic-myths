@@ -59,6 +59,7 @@ public final class SlavicMyths {
         org.slavicmyths.netherstructures.NetherWatchpostWorldgen.init();
         org.slavicmyths.netherstructures.NetherBridgeWorldgen.init();
         org.slavicmyths.netherstructures.WayfarerWorldgen.init();
+        org.slavicmyths.netherstructures.AncestorShrineWorldgen.init();
         bus.addListener(org.slavicmyths.navya.NavyaSpawns::register);
         org.slavicmyths.furniture.Furniture.init();
         org.slavicmyths.trophy.TrophyHeads.init();
