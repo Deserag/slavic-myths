@@ -1,7 +1,7 @@
 {
   "type": "slavicmyths:broken_nether_bridge",
   "biomes": "#slavicmyths:nether_structure_biomes",
-  "step": "surface_structures",
+  "step": "top_layer_modification",
   "spawn_overrides": {},
   "terrain_adaptation": "none"
 }
