@@ -1031,3 +1031,11 @@ zhara_spear	weapons	nether_smithing
 zhara_sulitsa	weapons	nether_smithing
 zhara_throwing_knife	weapons	nether_smithing
 zhara_flail	weapons	nether_smithing
+zhara_helmet	armor	nether_equipment
+zhara_chestplate	armor	nether_equipment
+zhara_leggings	armor	nether_equipment
+zhara_boots	armor	nether_equipment
+infernal_crown_helmet	armor	nether_equipment
+infernal_king_cuirass	armor	nether_equipment
+infernal_king_leggings	armor	nether_equipment
+infernal_king_boots	armor	nether_equipment

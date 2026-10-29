@@ -33,6 +33,7 @@ public final class Runes {
   Item i=s.getItem();if(i instanceof BowItem||i instanceof CrossbowItem)return "bow";if(i instanceof ShieldItem)return "shield";if(i instanceof AxeItem||i instanceof net.minecraft.world.item.MaceItem||i instanceof org.slavicmyths.combat.MaceItem)return "heavy";if(i instanceof TridentItem)return "spear";if(i instanceof SwordItem)return "sword";return "";
  }
  public static int capacity(ItemStack s){
+  if(s.getItem() instanceof org.slavicmyths.nethersmithing.NetherArmor.Piece p)return org.slavicmyths.nethersmithing.NetherArmorRules.sockets(p.king,p.getType());
   if(org.slavicmyths.industry.ChudTools.multi(s)||s.is(org.slavicmyths.industry.ChudTools.PICKAXE.get()))return 2;
   if(org.slavicmyths.equipment.UniqueEquipment.unique(s))return 3;
   if(armor(s)&&net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(s.getItem()).getNamespace().equals("slavicmyths")){String reward=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(s.getItem()).getPath();if(reward.equals("trophy_marinka_cloak")||reward.equals("trophy_kartaus_mantle"))return 1;}

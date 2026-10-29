@@ -1,0 +1,5 @@
+{
+  "status": "SOURCE_PASS",
+  "checks": 148,
+  "scope": "exact recipes/components declared,32 negatives,native atlas packing and resource files; no recipe menu/equip/runtime/art acceptance"
+}

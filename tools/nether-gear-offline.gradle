@@ -1,0 +1,12 @@
+allprojects { p ->
+ p.plugins.withId('java') {
+  p.sourceSets.create('netherGearOffline') { java.srcDir('tools/nether-gear-tests') }
+  p.sourceSets.netherGearOffline.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+  p.sourceSets.netherGearOffline.runtimeClasspath += p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+  p.tasks.register('verifyNetherArmor',JavaExec) {
+   dependsOn p.tasks.named('netherGearOfflineClasses')
+   classpath=p.sourceSets.netherGearOffline.runtimeClasspath
+   mainClass='org.slavicmyths.verify.NetherArmorOffline'
+  }
+ }
+}
