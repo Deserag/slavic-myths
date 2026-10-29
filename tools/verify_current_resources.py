@@ -57,7 +57,7 @@ def main():
         for name in classes:assert int.from_bytes(archive.read(name)[6:8],'big')==65,('not Java21',name)
         assert not any(name.startswith(('mezz/','top/theillusivec4/','org/slavicmyths/verify/','tools/smoke/')) or 'Weapons87Continuation' in name or 'Heads140Offline' in name for name in names),'test/dependency classes in production'
         assert 'data/slavicmyths/structure/port_empty.nbt' not in names
-    report={'scope':'CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted','version':version,'jar':str(jar.resolve()),'sha256':hashlib.sha256(jar.read_bytes()).hexdigest(),'resources':count,'json':json_count,'png':png_count,'models':model_count,'java21_classes':len(classes),'runtime_launches':0,'runtime':'NOT_RUN / OWNER_PENDING'}
+    report={'scope':'CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted','version':version,'jar':str(jar.resolve()),'sha256':hashlib.sha256(jar.read_bytes()).hexdigest(),'resources':count,'json':json_count,'png':png_count,'models':model_count,'java21_classes':len(classes),'runtime_launches':'NOT_TRACKED_BY_STATIC_CHECK','runtime':'NOT_ASSESSED_BY_RESOURCE_CHECK; see actual QA logs'}
     out=R/'build/current-resources.json';out.write_text(json.dumps(report,indent=2)+'\n')
     print('PASS current NeoForge resources:',json.dumps(report))
 if __name__=='__main__':main()

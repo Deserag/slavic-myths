@@ -1,0 +1,123 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+Note: C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\src\main\java\org\slavicmyths\burningislands\IslandsWorldgen.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :verifyRejectedVoiceQuarantine
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :compileHellQaJava UP-TO-DATE
+> Task :processHellQaResources UP-TO-DATE
+> Task :hellQaClasses UP-TO-DATE
+> Task :jarJar NO-SOURCE
+> Task :jar
+> Task :downloadAssets UP-TO-DATE
+> Task :writeHellQaLegacyClasspath UP-TO-DATE
+> Task :prepareHellQaRun UP-TO-DATE
+
+> Task :runHellQa
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[09:24:43] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.255, --fml.neoFormVersion, 20240808.144430]
+[09:24:43] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12.1+1-LTS
+[09:24:43] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12.1 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
+[09:24:43] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[09:24:43] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/user/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[09:24:43] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[09:24:43] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Curios API 9.5.1+1.21.1 (curios)
+		Disposable headless Hell QA 1 (slavicmyths_hellqa)
+		Just Enough Items 19.51.0.418 (jei)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.255 (neoforge)
+		Slavic Myths 2.0.10-HELL (slavicmyths)
+[09:24:43] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[09:24:43] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[09:24:43] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:24:43] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:24:44] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[09:24:48] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:24:48] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:24:48] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:24:48] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:24:48] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:24:48] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.255, for MC 1.21.1
+[09:24:50] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[09:24:50] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/user/.codex/worktrees/lost-halls/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23126!/assets/.mcassetsroot' uses unexpected schema
+[09:24:50] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/user/.codex/worktrees/lost-halls/slavic-myths/build/moddev/artifacts/neoforge-21.1.255.jar%23126!/data/.mcassetsroot' uses unexpected schema
+[09:24:50] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [slavicmyths_hellqa]
+[09:24:51] [main/INFO] [minecraft/RecipeManager]: Loaded 1931 recipes
+[09:24:51] [main/INFO] [minecraft/AdvancementTree]: Loaded 1692 advancements
+[09:24:51] [main/INFO] [Curios API/]: Loaded 10 curio slots
+[09:24:51] [main/INFO] [Curios API/]: Loaded 1 curio entities
+[09:24:52] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[09:24:52] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[09:24:52] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 199 ms
+[09:24:52] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[09:24:52] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[09:24:52] [Server thread/INFO] [minecraft/GameTestServer]: 6 tests are now running at position -2079460, -59, -31355!
+[09:24:52] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (6 tests)...
+[09:24:52] [Server thread/INFO] [minecraft/GameTestServer]: [      ]
+HELLQA_PASS manual Posten dimension=minecraft:overworld seed=1 XYZ=0,90,0 survives initial tick; manual NBT
+HELLQA_PASS manual Posten dimension=minecraft:the_nether seed=1 XYZ=0,90,0 survives initial tick; manual NBT
+HELLQA_PASS manual Posten dimension=minecraft:the_end seed=1 XYZ=0,90,0 survives initial tick; manual NBT
+HELLQA_PASS real Peaceful removes magma lord and retains neutral salamander
+HELLQA_WORLD seed=1 dimension=minecraft:overworld origin=BlockPos{x=-2079443, y=-60, z=-31355}
+HELLQA_PASS production JAR=C:\Users\user\.codex\worktrees\lost-halls\slavic-myths\work\hell-qa-20261029\run6\mods\slavicmyths-2.0.10-HELL.jar registry/socket/creative/actual smithing assemble
+HELLQA_PASS four real trophy BlockItems/BE/rotations/loot anchors; client rendering NOT_RUN
+HELLQA_PASS real furnace: rejected5 fuels/menu/hopper, actual smelt/blocked-output/NBT
+HELLQA_WORLDGEN seed=1 biome=slavicmyths:navya_grove sampledXYZ=BlockPos{x=-4096, y=36, z=-3584} actualChunk=[-256, -224]
+HELLQA_WORLDGEN seed=1 biome=slavicmyths:black_cinder sampledXYZ=BlockPos{x=-4096, y=36, z=-4096} actualChunk=[-256, -256]
+HELLQA_WORLDGEN seed=1 biome=slavicmyths:lost_halls sampledXYZ=BlockPos{x=-4096, y=36, z=-1024} actualChunk=[-256, -64]
+HELLQA_WORLDGEN seed=1 biome=slavicmyths:burning_islands home=BlockPos{x=-246, y=59, z=-260} found=[minecraft:basalt_deltas, minecraft:crimson_forest, minecraft:nether_wastes, minecraft:soul_sand_valley, minecraft:warped_forest, slavicmyths:black_cinder, slavicmyths:burning_islands, slavicmyths:lost_halls, slavicmyths:navya_grove] nativeSamplingAnd4ChunksMs=3685; diagnostic chunk requests, not survival
+[09:25:00] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 6418ms or 128 ticks behind
+HELLQA_PASS real armor equip/unequip HP/speed and charged skill/copy-CD/offhand guards
+[09:25:00] [Server thread/INFO] [minecraft/GameTestServer]: [++++_+]
+[09:25:01] [Server thread/INFO] [minecraft/GameTestServer]: [++++_+]
+[09:25:01] [Server thread/INFO] [minecraft/GameTestServer]: [++++_+]
+[09:25:01] [Server thread/INFO] [minecraft/GameTestServer]: [++++_+]
+[09:25:01] [Server thread/INFO] [minecraft/GameTestServer]: [++++_+]
+[09:25:01] [Server thread/INFO] [minecraft/GameTestServer]: [++++_+]
+[09:25:01] [Server thread/INFO] [minecraft/GameTestServer]: [++++_+]
+HELLQA_BOSS_DIAGNOSTIC loaded=49 entityChunks=49 badBiome=0 badBridge=0 pending={ServerLevel[Test Level]={70643623067707=Pending[plan=Plan[x=257, z=240, sea=32], until=1222, last=WAITING_CHUNKS], -67345088266181=Pending[plan=Plan[x=-246, z=-260, sea=32], until=1255, last=BAD_FLOOR], 67345086152763=Pending[plan=Plan[x=244, z=-256, sea=32], until=1222, last=WAITING_CHUNKS], -71468254797765=Pending[plan=Plan[x=-260, z=246, sea=32], until=1222, last=WAITING_CHUNKS], -1055806054227909=Pending[plan=Plan[x=-3842, z=-3334, sea=32], until=1232, last=WAITING_CHUNKS], -1054156788813765=Pending[plan=Plan[x=-3836, z=-3829, sea=32], until=1232, last=WAITING_CHUNKS], -1051407997161413=Pending[plan=Plan[x=-3826, z=-757, sea=32], until=1232, last=WAITING_CHUNKS]}} journal=Optional.empty difficulty=NORMAL
+[09:25:01] [Server thread/ERROR] [minecraft/LogTestReporter]: realnetherbiomeandoceanchunk failed at -2079392, -60, -31355! Expected one natural boss after49 forced chunks, found 0
+[09:25:01] [Server thread/INFO] [minecraft/GameTestServer]: [++++X+]
+[09:25:01] [Server thread/INFO] [minecraft/GameTestServer]: ========= 6 GAME TESTS COMPLETE IN 9.254 s ======================
+[09:25:01] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+[09:25:01] [Server thread/INFO] [minecraft/GameTestServer]:    - realnetherbiomeandoceanchunk
+[09:25:01] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[09:25:01] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[09:25:01] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[09:25:01] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[09:25:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[09:25:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[09:25:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[09:25:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[09:25:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[09:25:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[09:25:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[09:25:02] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :runHellQa FAILED
+
+[Incubating] Problems report is available at: file:///C:/Users/user/.codex/worktrees/lost-halls/slavic-myths/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runHellQa'.
+> Process 'command 'C:\Users\user\Documents\slavic-myths\.tools\jdk21\jdk-21.0.12.1+1\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 31s
+11 actionable tasks: 4 executed, 7 up-to-date
