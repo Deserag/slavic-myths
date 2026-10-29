@@ -1,3 +1,5 @@
+> 29.10.2026: 2.1.5 native generation repaired; five-seed headless85/85, crafted floor protection from delta/basalt features, exact source designs retained. [Evidence and limitations](implementation/2.1.5-ancestor-shrine/STATUS.md). 2.1.4 implemented;2.1.6 authorized all9biomes;2.1.7 blocked specification;2.1.8/9 excluded.
+
 > 29.10.2026: регрессии 2.1.2/2.1.3 получили две production-правки и 40/40
 > целевых headless GameTest на 5 seed. Общий baseline 21/22: 2.1.5 natural FAIL.
 > 2.1.4/2.1.6 BLOCKED_TZ по несогласованному контракту биомов/частоты; 2.1.7 без ТЗ.

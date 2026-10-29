@@ -594,8 +594,8 @@ public final class AncestorShrinePiece extends StructurePiece {
     }
     }
     };
-    private final BlockPos center;
-    private final Rotation rotation;
+    private BlockPos center;
+    private Rotation rotation;
     private final int variant;
     private final long seed;
 
@@ -648,7 +648,7 @@ public final class AncestorShrinePiece extends StructurePiece {
     }
     private static boolean replaceable(BlockState old) {
         // Deliberately refuse lava, bedrock, solid blocks, portals and block entities.
-        return old.isAir() || (old.getFluidState().isEmpty() &&
+        return old.isAir() || NetherBridgePiece.harmlessFlora(old) || (old.getFluidState().isEmpty() &&
                 (old.is(Blocks.CRIMSON_ROOTS)||old.is(Blocks.WARPED_ROOTS)||
                  old.is(Blocks.NETHER_SPROUTS)||old.is(Blocks.CRIMSON_FUNGUS)||
                  old.is(Blocks.WARPED_FUNGUS) || old.is(Blocks.WEEPING_VINES) ||
@@ -663,33 +663,26 @@ public final class AncestorShrinePiece extends StructurePiece {
     @Override public void postProcess(WorldGenLevel world,StructureManager manager,
             ChunkGenerator generator,RandomSource random,BoundingBox clip,ChunkPos chunk,BlockPos pivot) {
         if(variant<0||variant>2)return;
-        // Record whether this is a newly created chest BEFORE touching any blocks.
-        // An emptied existing chest must NEVER acquire another loot table on reprocessing.
+        if(!canPlace(world,clip)&&world instanceof net.minecraft.server.level.WorldGenRegion) {
+            var original=center;var originalRotation=rotation;boolean fit=false;
+            search: for(int dy:new int[]{0,1,-1,2,-2})for(int k=0;k<64;k++) {
+                center=new BlockPos(chunk.getMinBlockX()+6+(k/4)%4,original.getY()+dy,chunk.getMinBlockZ()+6+k/16);
+                rotation=Rotation.values()[(originalRotation.ordinal()+k)%4];
+                var box=new AncestorShrineTerrain.Plan(center,rotation,variant,seed).bounds();
+                if((box.minX()>>4)!=chunk.x||(box.maxX()>>4)!=chunk.x||(box.minZ()>>4)!=chunk.z||(box.maxZ()>>4)!=chunk.z)continue;
+                if(canPlace(world,clip)){boundingBox=box;fit=true;break search;}
+            }
+            if(fit) {
+                var structure=world.registryAccess().registryOrThrow(Registries.STRUCTURE).get(AncestorShrineWorldgen.id("ancestor_shrine"));
+                var owner=world.getChunk(chunk.x,chunk.z,net.minecraft.world.level.chunk.status.ChunkStatus.STRUCTURE_STARTS,false);
+                var previous=owner.getStartForStructure(structure);
+                if(previous!=null&&previous.isValid())owner.setStartForStructure(structure,new StructureStart(structure,chunk,previous.getReferences(),new net.minecraft.world.level.levelgen.structure.pieces.PiecesContainer(java.util.List.of(this))));
+                if(System.getProperty("hellqa.seed")!=null)System.out.println("HELLQA_ANCESTOR_LOCAL_FIT from="+original+" to="+center+" rotation="+rotation);
+            } else {center=original;rotation=originalRotation;}
+        }
+        if(!canPlace(world,clip)){reject(world,manager,chunk,center,"no safe full actual fit");return;}
         BlockPos chestPos=at(8,2,5);
         boolean chestAlreadyExists=world.getBlockState(chestPos).is(Blocks.CHEST);
-        // Check every proposed voxel BEFORE committing any changes.
-        for(int y=0;y<HEIGHT;y++)for(int z=0;z<DEPTH;z++)for(int x=0;x<WIDTH;x++) {
-            BlockState authored=voxel(x,y,z);
-            if(authored==null)continue;
-            BlockPos pos=at(x,y,z);
-            if(!clip.isInside(pos)||!world.ensureCanWrite(pos))return;
-            BlockState old=world.getBlockState(pos);
-            BlockState rotated=authored.rotate(rotation);
-            boolean ours=old.equals(rotated);
-            if(world.getBlockEntity(pos)!=null &&
-                   !(ours&&old.is(Blocks.CHEST)&&x==8&&y==2&&z==5))return;
-            if(!ours&&!replaceable(old))return;
-        }
-        // Also reject a blocked entrance, walking spine or chest lid.
-        for(int z=5;z<=14;z++)for(int y=2;y<=3;y++)for(int x=5;x<=7;x++) {
-            BlockPos pos=at(x,y,z);
-            if(!clip.isInside(pos)||!world.ensureCanWrite(pos))return;
-            BlockState intended=voxel(x,y,z),old=world.getBlockState(pos);
-            if(intended==null&&!replaceable(old))return;
-        }
-        BlockPos aboveChest=at(8,3,5);
-        if(!clip.isInside(aboveChest)||!world.ensureCanWrite(aboveChest)||
-                !replaceable(world.getBlockState(aboveChest)))return;
         // All three variants use unchanged accessible coordinates for the same single chest.
         // Set non-hanging pieces first; hanging lamps last once chain and roof exist.
         for(int y=0;y<HEIGHT;y++)for(int z=0;z<DEPTH;z++)for(int x=0;x<WIDTH;x++) {
@@ -699,6 +692,7 @@ public final class AncestorShrinePiece extends StructurePiece {
             next=next.rotate(rotation);
             if(!world.getBlockState(pos).equals(next))world.setBlock(pos,next,2);
         }
+        clearPassage(world,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE,false);
         for(int x:new int[]{5,7}) {
             BlockPos pos=at(x,4,13);
             BlockState lamp=voxel(x,4,13);
@@ -710,5 +704,65 @@ public final class AncestorShrinePiece extends StructurePiece {
             chest.setLootTable(ResourceKey.create(Registries.LOOT_TABLE,
                     AncestorShrineWorldgen.id("chests/ancestor_shrine")),seed^chestPos.asLong());
         }
+    }
+    private boolean canPlace(WorldGenLevel world,BoundingBox clip) {
+        if(!world.getBiome(center).is(net.minecraft.tags.TagKey.create(Registries.BIOME,
+                AncestorShrineWorldgen.id("ancestor_shrine_biomes"))))return false;
+        int supported=0;
+        for(int x=0;x<WIDTH;x++)for(int z=0;z<DEPTH;z++) {
+            var below=world.getBlockState(at(x,-1,z));
+            if(below.hasBlockEntity()||!below.getFluidState().isEmpty())return false;
+            if(AncestorShrineTerrain.natural(below)&&!below.is(Blocks.GRAVEL))supported++;
+        }
+        if(supported<40)return false;
+        for(int[] foot:new int[][]{{2,2},{10,2},{2,12},{10,12},{6,13}}) {
+            var old=world.getBlockState(at(foot[0],-1,foot[1]));
+            if(!AncestorShrineTerrain.natural(old)||old.is(Blocks.GRAVEL))return false;
+        }
+        for(int y=0;y<HEIGHT;y++)for(int z=0;z<DEPTH;z++)for(int x=0;x<WIDTH;x++) {
+            var intended=voxel(x,y,z);if(intended==null&&!passage(x,y,z))continue;
+            var pos=at(x,y,z);if(!clip.isInside(pos)||!world.ensureCanWrite(pos))return false;
+            var old=world.getBlockState(pos);
+            boolean ours=intended!=null&&old.equals(intended.rotate(rotation));
+            if(old.hasBlockEntity()&&!(ours&&old.is(Blocks.CHEST)&&x==8&&y==2&&z==5))return false;
+            if(!ours&&!replaceable(old)&&!(y<=3&&AncestorShrineTerrain.natural(old)))return false;
+        }
+        return true;
+    }
+    private void reject(WorldGenLevel w,StructureManager manager,ChunkPos cp,BlockPos at,String reason) {
+        var structure=w.registryAccess().registryOrThrow(Registries.STRUCTURE).get(AncestorShrineWorldgen.id("ancestor_shrine"));
+        var owner=w.getChunk(cp.x,cp.z,net.minecraft.world.level.chunk.status.ChunkStatus.STRUCTURE_STARTS,false);
+        if(owner!=null&&structure!=null) {
+            var start=owner.getStartForStructure(structure);
+            if(start!=null&&start.isValid()&&start.getPieces().contains(this)) {
+                owner.setStartForStructure(structure,StructureStart.INVALID_START);
+                var snapshot=java.util.Map.copyOf(owner.getAllStarts());
+                w.getLevel().getServer().execute(()->manager.structureCheck.onStructureLoad(cp,snapshot));
+            }
+        }
+        if(System.getProperty("hellqa.seed")!=null)
+            System.out.println("HELLQA_ANCESTOR_REJECT "+reason+" pos="+at+" block="+w.getBlockState(at)+" zero writes, invalid start");
+    }
+    public boolean clearAmbient(WorldGenLevel world,int minX,int minZ,int maxX,int maxZ) {
+        if(!world.getBlockState(at(8,2,5)).is(Blocks.CHEST))return false;
+        return clearPassage(world,minX,minZ,maxX,maxZ,true);
+    }
+    private static boolean passage(int x,int y,int z) {
+        return x>=3&&x<=9&&z>=3&&z<=11&&y>=2&&y<=6||
+               x>=5&&x<=7&&z>=5&&z<=14&&y>=2&&y<=3||x==8&&z==5&&y==3;
+    }
+    private boolean clearPassage(WorldGenLevel world,int minX,int minZ,int maxX,int maxZ,boolean freshOnly) {
+        boolean changed=false;
+        for(int x=3;x<=9;x++)for(int z=3;z<=14;z++)for(int y=2;y<=6;y++) {
+            if(!passage(x,y,z))continue;
+            if(voxel(x,y,z)!=null)continue;
+            var p=at(x,y,z);
+            if(p.getX()<minX||p.getX()>maxX||p.getZ()<minZ||p.getZ()>maxZ)continue;
+            if(freshOnly&&world.getChunk(p).getPersistedStatus().isOrAfter(net.minecraft.world.level.chunk.status.ChunkStatus.FULL))continue;
+            var old=world.getBlockState(p);
+            if(!old.isAir()&&(replaceable(old)||!freshOnly&&y<=3&&AncestorShrineTerrain.natural(old))&&!old.hasBlockEntity()&&world.ensureCanWrite(p))
+                changed|=world.setBlock(p,Blocks.AIR.defaultBlockState(),2);
+        }
+        return changed;
     }
 }

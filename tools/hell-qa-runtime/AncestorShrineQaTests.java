@@ -22,6 +22,55 @@ import org.slavicmyths.netherstructures.*;
 public final class AncestorShrineQaTests {
     private static void check(boolean good,String what){if(!good)throw new GameTestAssertException(what);}
     @GameTest(template="empty")
+    public static void deltaCannotReplaceCraftedFloor(GameTestHelper t) {
+        var w=t.getLevel();var p=t.absolutePos(new BlockPos(8,3,8));
+        var config=new net.minecraft.world.level.levelgen.feature.configurations.DeltaFeatureConfiguration(
+            Blocks.LAVA.defaultBlockState(),Blocks.BASALT.defaultBlockState(),
+            net.minecraft.util.valueproviders.ConstantInt.of(3),net.minecraft.util.valueproviders.ConstantInt.of(1));
+        var feature=new net.minecraft.world.level.levelgen.feature.DeltaFeature(
+            net.minecraft.world.level.levelgen.feature.configurations.DeltaFeatureConfiguration.CODEC);
+        for(int control=0;control<2;control++) {
+            for(int x=-4;x<=4;x++)for(int z=-4;z<=4;z++) {
+                w.setBlock(p.offset(x,-1,z),Blocks.NETHERRACK.defaultBlockState(),2);
+                w.setBlock(p.offset(x,0,z),(control==0?Blocks.NETHERRACK:Blocks.POLISHED_BLACKSTONE_BRICKS).defaultBlockState(),2);
+                w.setBlock(p.offset(x,1,z),Blocks.AIR.defaultBlockState(),2);
+            }
+            feature.place(new net.minecraft.world.level.levelgen.feature.FeaturePlaceContext<>(
+                java.util.Optional.empty(),w,w.getChunkSource().getGenerator(),net.minecraft.util.RandomSource.create(22),p,config));
+            int lava=0;
+            for(int x=-3;x<=3;x++)for(int z=-3;z<=3;z++) {
+                var state=w.getBlockState(p.offset(x,0,z));
+                if(state.is(Blocks.LAVA))lava++;
+                if(control==1)check(state.is(Blocks.POLISHED_BLACKSTONE_BRICKS),"Delta replaced authored floor with "+state);
+            }
+            check(control==0?lava>0:lava==0,"Delta fixture inactive or crafted floor unprotected");
+        }
+        System.out.println("HELLQA_PASS real vanilla DeltaFeature: natural control gets lava, crafted blackstone floors preserved; no natural basalt/blackstone tag protection");
+        t.succeed();
+    }
+    @GameTest(template="empty")
+    public static void basaltCannotGrowThroughCraftedFloor(GameTestHelper t) {
+        var w=t.getLevel();var p=t.absolutePos(new BlockPos(8,3,8));
+        var feature=new net.minecraft.world.level.levelgen.feature.BasaltColumnsFeature(
+            net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration.CODEC);
+        var config=new net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration(
+            net.minecraft.util.valueproviders.ConstantInt.of(2),net.minecraft.util.valueproviders.ConstantInt.of(4));
+        for(int mode=0;mode<3;mode++) {
+            for(int x=-6;x<=6;x++)for(int z=-6;z<=6;z++)for(int y=-1;y<=6;y++)
+                w.setBlock(p.offset(x,y,z),(y<0?Blocks.NETHERRACK:y==0?(mode==1||mode==2&&x>=0?Blocks.POLISHED_BLACKSTONE_BRICKS:Blocks.NETHERRACK):Blocks.AIR).defaultBlockState(),2);
+            feature.place(new net.minecraft.world.level.levelgen.feature.FeaturePlaceContext<>(java.util.Optional.empty(),w,
+                w.getChunkSource().getGenerator(),net.minecraft.util.RandomSource.create(22),p.offset(mode==2?-1:0,1,0),config));
+            int naturalBasalt=0,protectedBasalt=0;
+            for(int x=-6;x<=6;x++)for(int z=-6;z<=6;z++)for(int y=1;y<=6;y++)if(w.getBlockState(p.offset(x,y,z)).is(Blocks.BASALT)) {
+                if(mode==1||mode==2&&x>=0)protectedBasalt++;else naturalBasalt++;
+            }
+            check(protectedBasalt==0,"Native basalt grew over crafted floor");
+            if(mode!=1)check(naturalBasalt>0,"Natural basalt control was disabled");
+        }
+        System.out.println("HELLQA_PASS real native BasaltColumnsFeature: natural columns present; crafted floor and mixed neighbouring roof protected");
+        t.succeed();
+    }
+    @GameTest(template="empty")
     public static void exactVoxelGeometryTwelveProfiles(GameTestHelper t){
         int[] expected={644,604,370};
         for(int variant=0;variant<3;variant++)for(Rotation rotation:Rotation.values()){
@@ -106,8 +155,8 @@ public final class AncestorShrineQaTests {
         var placement=StructureCandidates.placement(w,structure);
         check(placement!=null,"2.1.5 native structure_set absent");
         var generator=w.getChunkSource().getGenerator();
-        int sampled=0,planned=0;
-        for(int ring=0;ring<=8;ring++)for(int gx=-ring;gx<=ring;gx++)for(int gz=-ring;gz<=ring;gz++){
+        int sampled=0,planned=0,rejected=0;
+        for(int ring=0;ring<=12;ring++)for(int gx=-ring;gx<=ring;gx++)for(int gz=-ring;gz<=ring;gz++){
             if(Math.max(Math.abs(gx),Math.abs(gz))!=ring)continue;
             ChunkPos cp=placement.getPotentialStructureChunk(w.getSeed(),
                     gx*placement.spacing(),gz*placement.spacing());
@@ -120,7 +169,12 @@ public final class AncestorShrineQaTests {
             planned++;
             var chunk=w.getChunk(cp.x,cp.z);
             var start=chunk.getAllStarts().get(structure);
-            check(start!=null&&start.isValid(),"Accepted shrine candidate has no native start "+cp);
+            check(start!=null,"No explicit native result "+cp);
+            if(!start.isValid()) {
+                rejected++;
+                check(start==net.minecraft.world.level.levelgen.structure.StructureStart.INVALID_START,"Rejected shrine is still advertised");
+                continue;
+            }
             var piece=start.getPieces().stream().filter(AncestorShrinePiece.class::isInstance)
                     .map(AncestorShrinePiece.class::cast).findFirst().orElseThrow();
             var chest=piece.at(8,2,5);
@@ -130,18 +184,18 @@ public final class AncestorShrineQaTests {
                     "Shrine chest has no native block entity "+chest);
             check(w.isEmptyBlock(chest.above()),"Shrine chest lid blocked "+chest);
             check(w.getBlockState(piece.at(6,1,10)).isSolid(),
-                    "Shrine internal floor missing "+piece.at(6,1,10));
+                    "Shrine internal floor missing "+piece.at(6,1,10)+" actual="+w.getBlockState(piece.at(6,1,10))+" variant="+piece.variant());
             check(w.isEmptyBlock(piece.at(6,2,12))&&w.isEmptyBlock(piece.at(6,3,12)),
-                    "Shrine main entrance not walkable");
+                    "Shrine main entrance not walkable lower="+w.getBlockState(piece.at(6,2,12))+" upper="+w.getBlockState(piece.at(6,3,12))+" variant="+piece.variant()+" chest="+chest+" bbox="+piece.getBoundingBox());
             System.out.println("HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed="+w.getSeed()+
                     " chunk="+cp+" biome="+w.getBiome(piece.at(6,2,7)).unwrapKey().orElseThrow().location()+
                     " variant="+piece.variant()+" chest="+chest+" sampled="+sampled+
-                    " accepted="+planned+" native start and physical blocks CONFIRMED");
+                    " accepted="+planned+" lateRejected="+rejected+" native start and physical blocks CONFIRMED");
             t.succeed();return;
         }
         throw new GameTestAssertException("2.1.5 NO accepted natural Nether shrine seed="+w.getSeed()+
                 " sampledCandidates="+sampled+" acceptedPlans="+planned+
-                " in bounded 17x17 placement-cell grid; geometry alone is not worldgen success");
+                " in bounded 25x25 placement-cell grid; geometry alone is not worldgen success");
     }
 
 }

@@ -33,7 +33,11 @@ public final class AncestorShrineTerrain {
         return s.is(Blocks.NETHERRACK)||s.is(Blocks.BLACKSTONE)||s.is(Blocks.BASALT)||
                 s.is(Blocks.SOUL_SAND)||s.is(Blocks.SOUL_SOIL)||s.is(Blocks.GRAVEL)||
                 s.is(Blocks.NETHER_QUARTZ_ORE)||s.is(Blocks.NETHER_GOLD_ORE)||
-                s.is(Blocks.MAGMA_BLOCK);
+                s.is(Blocks.MAGMA_BLOCK)||
+                s.is(org.slavicmyths.blackcinder.CinderBlocks.get("black_cinder_soil"))||
+                s.is(org.slavicmyths.blackcinder.CinderBlocks.get("ash_crust"))||
+                s.is(org.slavicmyths.blackcinder.CinderBlocks.get("smoking_cinder"))||
+                s.is(org.slavicmyths.blackcinder.CinderBlocks.get("charred_stone"));
     }
     private static long packed(int x,int z) {return ((long)x<<32)^(z&0xffffffffL);}
     public static Plan find(Structure.GenerationContext c) {
@@ -44,12 +48,12 @@ public final class AncestorShrineTerrain {
         var cache=new HashMap<Long,NoiseColumn>();
         int minY=Math.max(35,c.heightAccessor().getMinBuildHeight()+5);
         int maxY=Math.min(104,c.heightAccessor().getMaxBuildHeight()-15);
-        // ±1 block jitter still entirely fits the owning 16x16 chunk for all four rotations.
-        int[][] offsets={{0,0},{-1,0},{0,-1},{-1,-1}};
-        for(int k=0;k<offsets.length;k++) {
-            BlockPos at=new BlockPos(bx+offsets[k][0],0,bz+offsets[k][1]);
+        // Try every legal 13x15/15x13 footprint, highest shelf first. The old
+        // four samples often chose one low lava ledge before inspecting a
+        // neighbouring dry shelf higher in the SAME chunk.
+        for(int y=maxY;y>=minY;y--)for(int k=0;k<64;k++) {
+            BlockPos at=new BlockPos(bx+(k/4)%4-2,0,bz+k/16-2);
             Rotation rotation=Rotation.values()[(int)Math.floorMod((hash>>>20)+k,4)];
-            for(int y=maxY;y>=minY;y--) {
                 var center=new BlockPos(at.getX(),y,at.getZ());
                 var plan=new Plan(center,rotation,variant,hash^((long)y<<32));
                 var bounds=plan.bounds();
@@ -74,14 +78,17 @@ public final class AncestorShrineTerrain {
                     if(natural(column.getBlock(y-1)))supported++;
                     // No lava at/below platform, no solid geometry hidden in a roof or room.
                     if(!column.getBlock(y-1).getFluidState().isEmpty()) {good=false;break;}
-                    for(int dy=0;dy<11;dy++)if(!column.getBlock(y+dy).isAir()){
+                    // The authored raised floor occupies Y=0/1. Grade at most
+                    // two additional terrain layers Y=2/3 above that floor.
+                    for(int dy=0;dy<11;dy++)if(dy<=3?
+                            !(column.getBlock(y+dy).isAir()||natural(column.getBlock(y+dy))):
+                            !column.getBlock(y+dy).isAir()){
                         good=false;break;
                     }
                     if(!good)break;
                 }
                 // Cantilever is supported by five real anchors and a substantial stone shelf.
                 if(good&&supported>=40)return plan;
-            }
         }
         return null;
     }

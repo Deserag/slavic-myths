@@ -70,3 +70,22 @@ This checkpoint must stay **WIP / IN_PROGRESS**, not owner accepted or complete.
 
 - [Commit `5f2d35f`](https://github.com/Deserag/slavic-myths/commit/5f2d35f83185bc42567362629ccdbd64d6cf33ba) adds `actualNaturalAncestorShrine` to `tools/hell-qa-runtime/AncestorShrineQaTests.java`. It requires an accepted native start with physical chest, block entity, floor and entrance; a theoretical candidate is not PASS.
 - [Run 40842749940](https://github.com/Deserag/slavic-myths/actions/runs/40842749940) and [run 40842977819](https://github.com/Deserag/slavic-myths/actions/runs/40842977819) were cancelled by later concurrent source pushes before GameTest. Thus **native-start test NOT_RUN** as of this checkpoint; no PASS is claimed. The earlier geometry and loot tests did PASS (run 40842160665).
+
+## 29.10.2026 — corrected native generation (supersedes pending/failed checkpoints above)
+
+Java21 clean build and resource/production-JAR checks PASS. Five fresh disposable headless worlds, 17/17 each (85/85); [logs/coordinates/hash](native-20261029/RESULTS.json). This is actual native placement, not dev-create.
+
+Terrain probes now consider all legal same-chunk footprints, grade at most two extra natural layers, use actual stable footing and biome guards, and reject unsafe starts with locate-cache invalidation. Finite pre-write local fitting avoids otherwise safe small surface offsets. Exact A644/B604/C370 geometry stays unchanged. Native DeltaFeature/BasaltColumnsFeature control tests reproduce and prevent late destruction of crafted floors; natural terrain remains eligible. Final fungal decoration clears only authored passage flora in fresh chunks.
+
+Calibrated rare baseline: spacing24/separation9/frequency0.8/salt21015021, restricted to basalt_deltas/soul_sand_valley/black_cinder. Earlier32/11/0.6 produced physical starts in3/5 bounded searches; final24/9/0.8 produced5/5, searching7/8/25/34/76 candidates. These bounded first-hit searches are not a density census or a survival discovery test. Balance remains subject to owner acceptance.
+
+| Requirement | Evidence | Result |
+|---|---|---|
+| Exact three source designs × rotations | native geometry test; original TSV arrays | PASS |
+| Physical natural starts on five seeds | native-20261029 logs | PASS |
+| Native loot, no repeat unpack | 1000 native rolls per world | PASS |
+| Delta/basalt neighbour protection | real native feature control tests per world | PASS |
+| Build/resources/JAR | build.log/resources.json | PASS |
+| Client visuals, survival discovery, old-world copy, true restart, MP, MSPT/tickets census | no such run | NOT_RUN |
+
+Owner checklist: use a fresh survival Nether without OP; discover a shrine, enter from the south, open the side chest, remove contents, leave/save/rejoin and verify it remains empty. Repeat on a copy of an old world in new chunks and with two players. Check basalt-delta floors and entrances stay clear after neighbour generation. Diagnostic only: `/locate structure slavicmyths:ancestor_shrine` finds rather than constructs. Rollback requires the backed-up previous JAR and a world backup; new chunks already generated are not undone by changing JARs. No owner acceptance asserted.

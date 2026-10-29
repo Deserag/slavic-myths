@@ -52,8 +52,9 @@ public final class BridgeClearanceFeature extends Feature<NoneFeatureConfigurati
                 }
         }
         // 2.1.4 has the same cross-chunk fungal-canopy race in its open courtyard.
+        for(String ruinId:new String[]{"forgotten_shrine","ancestor_shrine"}) {
         var shrine=world.registryAccess().registryOrThrow(Registries.STRUCTURE)
-            .get(ForgottenShrineWorldgen.id("forgotten_shrine"));
+            .get(ForgottenShrineWorldgen.id(ruinId));
         if(shrine!=null) {
             starts.clear();
             for(int cx=cp.x-1;cx<=cp.x+1;cx++)for(int cz=cp.z-1;cz<=cp.z+1;cz++) {
@@ -67,7 +68,10 @@ public final class BridgeClearanceFeature extends Feature<NoneFeatureConfigurati
                 if(start==null||!start.isValid())continue;
                 for(var piece:start.getPieces())if(piece instanceof ForgottenShrinePiece p)
                     changed|=p.clearAmbient(world,cp.getMinBlockX()-8,cp.getMinBlockZ()-8,cp.getMaxBlockX()+8,cp.getMaxBlockZ()+8);
+                else if(piece instanceof AncestorShrinePiece p)
+                    changed|=p.clearAmbient(world,cp.getMinBlockX()-8,cp.getMinBlockZ()-8,cp.getMaxBlockX()+8,cp.getMaxBlockZ()+8);
             }
+        }
         }
         return changed;
     }

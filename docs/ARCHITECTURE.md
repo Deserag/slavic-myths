@@ -1,3 +1,5 @@
+> 29.10.2026: 2.1.5 native generation repaired; five-seed headless85/85, crafted floor protection from delta/basalt features, exact source designs retained. [Evidence and limitations](implementation/2.1.5-ancestor-shrine/STATUS.md). 2.1.4 implemented;2.1.6 authorized all9biomes;2.1.7 blocked specification;2.1.8/9 excluded.
+
 > 29.10.2026: BridgeClearanceFeature выполняет bounded очистку свежей декорации
 > над существующим настилом, пропуская FULL-чанки/жидкости/BE. WayfarerPiece
 > атомарно отвергает небезопасную площадку через INVALID_START и публикует

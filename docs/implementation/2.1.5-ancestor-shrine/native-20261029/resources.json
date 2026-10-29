@@ -1,0 +1,13 @@
+{
+  "scope": "CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted",
+  "version": "2.1.5-HELL",
+  "jar": "C:\\Users\\user\\.codex\\worktrees\\lost-halls\\slavic-myths\\build\\libs\\slavicmyths-2.1.5-HELL.jar",
+  "sha256": "fbe1acc9641c95ff21203a483785021837facefe2ab6bea4d4bc5c92f41a523c",
+  "resources": 8726,
+  "json": 4971,
+  "png": 1599,
+  "models": 2123,
+  "java21_classes": 2184,
+  "runtime_launches": "NOT_TRACKED_BY_STATIC_CHECK",
+  "runtime": "NOT_ASSESSED_BY_RESOURCE_CHECK; see actual QA logs"
+}

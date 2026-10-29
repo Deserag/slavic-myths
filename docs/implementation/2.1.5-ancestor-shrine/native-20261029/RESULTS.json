@@ -1,0 +1,32 @@
+{
+  "version": "2.1.5-HELL",
+  "sha256": "fbe1acc9641c95ff21203a483785021837facefe2ab6bea4d4bc5c92f41a523c",
+  "five_seeds": [
+    {
+      "seed": 9132026,
+      "result": "17/17 PASS",
+      "native": "HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=9132026 chunk=[-38, 35] biome=minecraft:basalt_deltas variant=0 chest=BlockPos{x=-601, y=54, z=569} sampled=8 accepted=1 lateRejected=0 native start and physical blocks CONFIRMED"
+    },
+    {
+      "seed": 3412026,
+      "result": "17/17 PASS",
+      "native": "HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=3412026 chunk=[28, -24] biome=slavicmyths:black_cinder variant=2 chest=BlockPos{x=454, y=82, z=-375} sampled=7 accepted=1 lateRejected=0 native start and physical blocks CONFIRMED"
+    },
+    {
+      "seed": 20261024,
+      "result": "17/17 PASS",
+      "native": "HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-14, 81] biome=minecraft:basalt_deltas variant=0 chest=BlockPos{x=-214, y=48, z=1304} sampled=34 accepted=2 lateRejected=1 native start and physical blocks CONFIRMED"
+    },
+    {
+      "seed": 20261025,
+      "result": "17/17 PASS",
+      "native": "HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=20261025 chunk=[-43, 77] biome=slavicmyths:black_cinder variant=2 chest=BlockPos{x=-683, y=69, z=1239} sampled=25 accepted=1 lateRejected=0 native start and physical blocks CONFIRMED"
+    },
+    {
+      "seed": 20261026,
+      "result": "17/17 PASS",
+      "native": "HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=20261026 chunk=[3, -107] biome=minecraft:basalt_deltas variant=1 chest=BlockPos{x=57, y=60, z=-1704} sampled=76 accepted=2 lateRejected=1 native start and physical blocks CONFIRMED"
+    }
+  ],
+  "graphical_launches": 0
+}
