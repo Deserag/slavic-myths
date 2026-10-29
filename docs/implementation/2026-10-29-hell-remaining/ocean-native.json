@@ -1,0 +1,64 @@
+{
+  "scope": "Current224-high Nether settings/native base columns, short-slice equivalence and pure geometry only; no actual chunks/world/structures/spawn/performance QA",
+  "status": "OFFLINE_PASS",
+  "selectedQuartSamples": 445,
+  "checks": 8600,
+  "wallSeconds": 2.2600688,
+  "seeds": [
+    {
+      "seed": 0,
+      "sampledRegions": [
+        {
+          "x": -12021,
+          "z": 11527,
+          "homeY": 59,
+          "includedQuartSamples": 89
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "sampledRegions": [
+        {
+          "x": -11519,
+          "z": -2823,
+          "homeY": 59,
+          "includedQuartSamples": 89
+        }
+      ]
+    },
+    {
+      "seed": -8675309,
+      "sampledRegions": [
+        {
+          "x": -12041,
+          "z": -765,
+          "homeY": 59,
+          "includedQuartSamples": 89
+        }
+      ]
+    },
+    {
+      "seed": 20261024,
+      "sampledRegions": [
+        {
+          "x": -12029,
+          "z": -8456,
+          "homeY": 59,
+          "includedQuartSamples": 89
+        }
+      ]
+    },
+    {
+      "seed": 987654321,
+      "sampledRegions": [
+        {
+          "x": -11522,
+          "z": 2319,
+          "homeY": 59,
+          "includedQuartSamples": 89
+        }
+      ]
+    }
+  ]
+}

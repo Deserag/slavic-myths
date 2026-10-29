@@ -112,8 +112,8 @@ def main():
  write(A/'blockstates/magma_lord_head.json',dict(variants={'':{'model':'slavicmyths:block/magma_lord_head'}}))
  write(A/'models/block/magma_lord_head.json',dict(textures={'particle':'slavicmyths:item/magma_lord_head'},elements=[]))
  write(D/'loot_table/blocks/magma_lord_head.json',dict(type='minecraft:block',pools=[dict(rolls=1,conditions=[dict(condition='minecraft:survives_explosion')],entries=[dict(type='minecraft:item',name='slavicmyths:magma_lord_head')])]))
- # A real data-registry biome, intentionally absent from climate selection until strict ocean mask.
- biome=json.loads((D/'worldgen/biome/black_cinder.json').read_text());biome['features']=[[] for _ in range(11)];biome['spawners']={'creature':[dict(type='slavicmyths:'+n,weight=w,minCount=1,maxCount=m) for n,w,m in [('heat_salamander',12,2),('slag_crab',10,2),('vent_golem',3,1)]]};biome['spawn_costs']={};biome['effects']['fog_color']=3550759;biome['effects']['particle']['options']['type']='minecraft:white_ash';write(D/'worldgen/biome/burning_islands.json',biome)
+ # Registered through the shared native ocean mask; never a climate-only candidate.
+ biome=json.loads((D/'worldgen/biome/black_cinder.json').read_text());biome['features']=[[] for _ in range(11)];biome['features'][0]=['slavicmyths:burning_islands_terrain'];biome['spawners']={'creature':[dict(type='slavicmyths:'+n,weight=w,minCount=1,maxCount=m) for n,w,m in [('heat_salamander',12,2),('slag_crab',10,2),('vent_golem',3,1)]]};biome['spawn_costs']={};biome['effects']['fog_color']=3550759;biome['effects']['particle']['options']['type']='minecraft:white_ash';write(D/'worldgen/biome/burning_islands.json',biome)
  for lang,index in [('ru_ru',0),('en_us',1)]:
   p=A/f'lang/{lang}.json';data=json.loads(p.read_text(encoding='utf-8'))
   for n,names in items.items():data[('block.' if n=='magma_lord_head' else 'item.')+'slavicmyths.'+n]=names[index]
@@ -131,5 +131,5 @@ def main():
  for n in list(items)+[n+'_spawn_egg' for n in mobs]:
   if n not in existing:text+=f"{n}\t{'mobs' if n.endswith('_spawn_egg') else 'magic' if n.startswith('rune_') else 'decor' if n.endswith('_head') else 'resources'}\tburning_islands_205\n"
  catalog.write_text(text,encoding='utf-8')
- print('Wrote four independent rigs, eight entity textures, nine icons, three recipes, loot, data biome and translations. Natural selection not enabled; source PNG/audio acceptance blocked.')
+ print('Wrote four independent rigs, eight entity textures, nine icons, three recipes, loot, data biome and translations. Native ocean selection wired; actual generated-world QA and PNG/audio acceptance pending.')
 if __name__=='__main__':main()

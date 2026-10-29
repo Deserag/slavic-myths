@@ -13,7 +13,8 @@ public abstract class NetherParametersMixin implements NavyaPresetAccess {
   if(parameters.values().stream().anyMatch(pair->pair.getSecond().is(key)))return;
   var values=new ArrayList<>(parameters.values());
   boolean cinder=holder.is(org.slavicmyths.blackcinder.CinderWorldgen.BIOME);
+  boolean islands=holder.is(org.slavicmyths.burningislands.IslandsContent.BIOME);
   boolean halls=holder.is(org.slavicmyths.losthalls.HallsContent.BIOME);
-  values.add(Pair.of(halls?org.slavicmyths.losthalls.HallsClimate.POINT:cinder?Climate.parameters(.7F,-.4F,0,0,0,0,.175F):Climate.parameters(-.3F,.4F,0,0,0,0,.175F),holder));parameters=new Climate.ParameterList<>(values);
+  values.add(Pair.of(islands?Climate.parameters(.9F,.9F,0,0,0,0,1F):halls?org.slavicmyths.losthalls.HallsClimate.POINT:cinder?Climate.parameters(.7F,-.4F,0,0,0,0,.175F):Climate.parameters(-.3F,.4F,0,0,0,0,.175F),holder));parameters=new Climate.ParameterList<>(values);
  }
 }

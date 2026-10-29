@@ -23,7 +23,9 @@
     }
   },
   "features": [
-    [],
+    [
+      "slavicmyths:burning_islands_terrain"
+    ],
     [],
     [],
     [],

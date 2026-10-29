@@ -15,6 +15,7 @@ public final class MagmaEncounters extends SavedData {
  private final Map<UUID,Set<Long>> recipients=new HashMap<>();
  private CompoundTag readOnlySnapshot;
  public static MagmaEncounters get(ServerLevel level){return level.getDataStorage().computeIfAbsent(new SavedData.Factory<>(MagmaEncounters::new,MagmaEncounters::load),"slavicmyths_magma_encounters");}
+ public java.util.Optional<Entry> snapshot(long anchor){return java.util.Optional.ofNullable(entries.get(anchor));}
  public boolean isReadOnly(){return readOnlySnapshot!=null;}
  public boolean register(long anchor,UUID boss){
   if(isReadOnly()||boss==null)return false;

@@ -32,6 +32,7 @@ public final class IslandsMob extends PathfinderMob {
  private Vec3 origin=Vec3.ZERO,forward=new Vec3(0,0,1);
  private final Set<UUID> struck=new HashSet<>(),participants=new HashSet<>();
  private boolean rewarded,journalChecked;
+ public void bindNatural(net.minecraft.core.BlockPos at){home=at.immutable();setPersistenceRequired();}
  private final ServerBossEvent bar=new ServerBossEvent(net.minecraft.network.chat.Component.translatable("entity.slavicmyths.magma_lord"),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
  public IslandsMob(EntityType<? extends IslandsMob> type,Level level,Kind kind){super(type,level);this.kind=kind;xpReward=kind==Kind.MAGMA_LORD?60:kind==Kind.VENT_GOLEM?15:5;}
  public static AttributeSupplier.Builder attributes(Kind k){return Mob.createMobAttributes().add(Attributes.MAX_HEALTH,k==Kind.MAGMA_LORD?850:k==Kind.VENT_GOLEM?150:55).add(Attributes.ATTACK_DAMAGE,switch(k){case HEAT_SALAMANDER->6;case SLAG_CRAB->7;case VENT_GOLEM->12;case MAGMA_LORD->14;}).add(Attributes.MOVEMENT_SPEED,switch(k){case HEAT_SALAMANDER->.24;case SLAG_CRAB->.20;case VENT_GOLEM->.18;case MAGMA_LORD->.23;}).add(Attributes.FOLLOW_RANGE,32).add(Attributes.KNOCKBACK_RESISTANCE,k==Kind.MAGMA_LORD?.85:k==Kind.VENT_GOLEM?.65:.15);}

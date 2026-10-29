@@ -12,3 +12,5 @@ Baseline hell410033ce. Direct owner authorization: all remaining tasks, independ
 | QA | previous reports historical | current full build/resources/native/source/owner checklist | NOT_RUN |
 
 Minecraft/client/server/GameTest launches0. Original binary art gates not assumed fulfilled. No Issue closed/owner acceptance.
+
+D1: shared native ocean mask, biome sampler/locate context, island/volcano/crater/moat/two bridges/arena and natural boss wiring implemented. Native5seed audit PASS445quart/8600column/path checks; source details OCEAN_IMPLEMENTATION.md. Whole D still IN_PROGRESS: temporary magma and reward cut tests next; all real generated worlds NOT_RUN.
