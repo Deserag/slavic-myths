@@ -1,0 +1,59 @@
+name: Wayfarer natural generation five-seed headless QA
+on:
+  push:
+    branches: [hell]
+    paths:
+      - '.github/workflows/wayfarer-five-seed.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: wayfarer-five-seed-${{ github.sha }}
+  cancel-in-progress: false
+jobs:
+  independent-seeds:
+    name: "Native Nether QA seed ${{ matrix.seed }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [20261024, 20261025, 20261026, 3412026, 9132026]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Build production JAR without client or player save access
+        shell: bash
+        run: |
+          set -o pipefail
+          chmod +x gradlew
+          ./gradlew --no-daemon clean build --console=plain 2>&1 | tee /tmp/wayfarer-build.log
+      - name: Native headless GameTest in disposable per-seed world
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p build/wayfarer-qa
+          ./gradlew --no-daemon -I tools/hell-qa-runtime.gradle runHellQa \
+            -PhellQaDir=work/wayfarer-5seed/${{ matrix.seed }} \
+            -PhellQaSeed=${{ matrix.seed }} --console=plain 2>&1 | tee build/wayfarer-qa/gametest.log
+      - name: Record checksum and preserve failures without asserting acceptance
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p build/wayfarer-qa
+          printf 'seed=${{ matrix.seed }}\nsource=${{ github.sha }}\n' > build/wayfarer-qa/source.txt
+          sha256sum build/libs/slavicmyths-*.jar > build/wayfarer-qa/sha256.txt 2>/dev/null || true
+          cp /tmp/wayfarer-build.log build/wayfarer-qa/build.log 2>/dev/null || true
+      - name: Upload reproducible evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wayfarer-seed-${{ matrix.seed }}-${{ github.sha }}
+          path: |
+            build/wayfarer-qa/
+            build/libs/slavicmyths-*.jar
+          retention-days: 14
+          if-no-files-found: warn
