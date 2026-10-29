@@ -136,7 +136,7 @@ public final class WayfarerPiece extends StructurePiece {
                 return false;
             }
         }
-        for(int x=0;x<9;x++)for(int z=0;z<7;z++)if(foundation(x,z)) {
+        for(int x=0;x<9;x++)for(int z=0;z<7;z++)if(foundation(x,z)||walkingGround(x,z)) {
             BlockPos below=at(x,-1,z);
             if(!WayfarerTerrain.natural(world.getBlockState(below))) {
                 diagnostic("foundation",below,world.getBlockState(below));
