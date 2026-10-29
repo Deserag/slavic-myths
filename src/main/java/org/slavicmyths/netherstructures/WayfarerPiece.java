@@ -20,7 +20,7 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
  * half of the building has already been placed.
  */
 public final class WayfarerPiece extends StructurePiece {
-    private final BlockPos center;
+    private BlockPos center;
     private final Rotation rotation;
     private final int variant;
     private final boolean lit;
@@ -120,10 +120,10 @@ public final class WayfarerPiece extends StructurePiece {
         if(System.getProperty("hellqa.seed") != null && DEBUG_REJECTIONS.getAndIncrement()<24)
             System.out.println("HELLQA_WAYFARER_REJECT "+reason+" pos="+p+" block="+state);
     }
-    @Override public void postProcess(WorldGenLevel world,StructureManager manager,
-            ChunkGenerator generator,RandomSource random,BoundingBox clip,ChunkPos chunk,BlockPos pivot) {
-        // The bounds and 9x7 layout are wholly inside the start chunk in all four rotations.
-        // Abort intact if another generator/player feature occupies a single proposed voxel.
+    /** Check the entire candidate before writing any block. No chunk loads or fluids are modified. */
+    private boolean validSite(WorldGenLevel world, BoundingBox clip) {
+        // Even after native noise preflight, late placed features may create lava or trees.
+        // Reject these collisions, then look for a different position IN THE SAME start chunk.
         for(int y=0;y<=5;y++)for(int x=0;x<9;x++)for(int z=0;z<7;z++) {
             BlockState state=voxel(x,y,z);
             if(state==null)continue;
@@ -133,14 +133,45 @@ public final class WayfarerPiece extends StructurePiece {
                     world.getBlockEntity(pos)!=null||
                     !(replaceable(old)||(y==0&&WayfarerTerrain.natural(old)))) {
                 diagnostic("occupied-or-clip",pos,old);
-                return;
+                return false;
             }
         }
         for(int x=0;x<9;x++)for(int z=0;z<7;z++)if(foundation(x,z)) {
             BlockPos below=at(x,-1,z);
             if(!WayfarerTerrain.natural(world.getBlockState(below))) {
                 diagnostic("foundation",below,world.getBlockState(below));
-                return;
+                return false;
+            }
+        }
+        return true;
+    }
+    @Override public void postProcess(WorldGenLevel world,StructureManager manager,
+            ChunkGenerator generator,RandomSource random,BoundingBox clip,ChunkPos chunk,BlockPos pivot) {
+        if(!validSite(world,clip)) {
+            BlockPos oldCenter=center;
+            boolean relocated=false;
+            // A bounded deterministic fallback: never moves a native start to another chunk,
+            // never writes after a partial failure, and never generates/load nearby chunks.
+            int[][] shifts={{-2,0},{2,0},{0,-2},{0,2},{-3,0},{3,0},
+                            {0,-3},{0,3},{-2,-2},{2,2},{-2,2},{2,-2}};
+            for(int[] shift:shifts) {
+                BlockPos proposed=oldCenter.offset(shift[0],0,shift[1]);
+                var b=new WayfarerTerrain.Plan(proposed,rotation,variant,lit,seed).bounds();
+                if((b.minX()>>4)!=chunk.x||(b.maxX()>>4)!=chunk.x||
+                   (b.minZ()>>4)!=chunk.z||(b.maxZ()>>4)!=chunk.z)continue;
+                center=proposed;
+                if(validSite(world,clip)) {
+                    move(shift[0],0,shift[1]);
+                    relocated=true;
+                    if(System.getProperty("hellqa.seed")!=null)
+                        System.out.println("HELLQA_WAYFARER_RELOCATED from="+oldCenter+
+                            " to="+center+" chunk="+chunk);
+                    break;
+                }
+            }
+            if(!relocated) {
+                center=oldCenter;
+                return; // fully rejected: no partial construction or destroyed player blocks
             }
         }
         // Ground pads first, then top-down for real roof -> chain -> hanging lantern.
