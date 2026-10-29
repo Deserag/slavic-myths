@@ -107,7 +107,7 @@ public final class AncestorShrineQaTests {
         check(placement!=null,"2.1.5 native structure_set absent");
         var generator=w.getChunkSource().getGenerator();
         int sampled=0,planned=0;
-        for(int ring=0;ring<=8;ring++)for(int gx=-ring;gx<=ring;gx++)for(int gz=-ring;gz<=ring++){
+        for(int ring=0;ring<=8;ring++)for(int gx=-ring;gx<=ring;gx++)for(int gz=-ring;gz<=ring;gz++){
             if(Math.max(Math.abs(gx),Math.abs(gz))!=ring)continue;
             ChunkPos cp=placement.getPotentialStructureChunk(w.getSeed(),
                     gx*placement.spacing(),gz*placement.spacing());
