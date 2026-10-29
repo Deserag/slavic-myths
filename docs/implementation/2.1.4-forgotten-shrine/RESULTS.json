@@ -1,0 +1,53 @@
+{
+  "source_commit": "dae97c540bb4f79c8c17e66ae67d666a12543d22",
+  "version": "2.1.4-HELL",
+  "sha256": "cd4e6d326e4765836b2625425e82003220906896e1d27d3f539a2e9cb19d5e59",
+  "clean_build": "PASS",
+  "resources": "PASS",
+  "five_seed_gametest": "60/60",
+  "worlds": [
+    {
+      "seed": 20261024,
+      "tests": "12/12",
+      "physical_placement": "HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-130, 153] biome=slavicmyths:lost_halls bottom=-5 variant=0 candidates=108 noiseProposals=2 lateRejected=1 bbox=BoundingBox{minX=-2080, minY=47, minZ=2448, maxX=-2066, maxY=60, maxZ=2462}"
+    },
+    {
+      "seed": 20261025,
+      "tests": "12/12",
+      "physical_placement": "HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=20261025 chunk=[-142, 155] biome=minecraft:nether_wastes bottom=-5 variant=2 candidates=104 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-2271, minY=51, minZ=2480, maxX=-2257, maxY=64, maxZ=2494}"
+    },
+    {
+      "seed": 20261026,
+      "tests": "12/12",
+      "physical_placement": "HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=20261026 chunk=[60, 29] biome=minecraft:nether_wastes bottom=-5 variant=0 candidates=15 noiseProposals=2 lateRejected=1 bbox=BoundingBox{minX=960, minY=47, minZ=464, maxX=974, maxY=60, maxZ=478}"
+    },
+    {
+      "seed": 3412026,
+      "tests": "12/12",
+      "physical_placement": "HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=3412026 chunk=[-91, -94] biome=minecraft:nether_wastes bottom=-5 variant=2 candidates=44 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-1456, minY=58, minZ=-1504, maxX=-1442, maxY=71, maxZ=-1490}"
+    },
+    {
+      "seed": 9132026,
+      "tests": "12/12",
+      "physical_placement": "HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=9132026 chunk=[97, 78] biome=slavicmyths:lost_halls bottom=-10 variant=1 candidates=61 noiseProposals=4 lateRejected=3 bbox=BoundingBox{minX=1552, minY=35, minZ=1248, maxX=1566, maxY=53, maxZ=1262}"
+    }
+  ],
+  "graphical_launches": 0,
+  "installed_in_PolyMC": "NOT_INSTALLED_THIS_CHECKPOINT; final chain delivery follows",
+  "placement": {
+    "spacing": 24,
+    "separation": 9,
+    "frequency": 0.8,
+    "salt": 21014021,
+    "biomes": "all nine project Nether biomes"
+  },
+  "not_run": [
+    "original PNG/client comparison",
+    "true world restart",
+    "old world copy",
+    "MP2",
+    "survival without OP",
+    "all 9 biomes physical coverage",
+    "full census and MSPT/FPS"
+  ]
+}
