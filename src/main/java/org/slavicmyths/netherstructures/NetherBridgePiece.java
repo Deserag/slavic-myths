@@ -41,6 +41,14 @@ public final class NetherBridgePiece extends StructurePiece {
   return false;
  }
  public boolean span(int t){return t>=0&&t<length&&!absent(t);}
+ private static boolean harmlessFlora(BlockState s){
+  return s.is(Blocks.CRIMSON_FUNGUS)||s.is(Blocks.CRIMSON_ROOTS)||
+    s.is(Blocks.WARPED_FUNGUS)||s.is(Blocks.WARPED_ROOTS)||
+    s.is(Blocks.NETHER_SPROUTS)||s.is(Blocks.WEEPING_VINES)||
+    s.is(Blocks.WEEPING_VINES_PLANT)||s.is(Blocks.TWISTING_VINES)||
+    s.is(Blocks.TWISTING_VINES_PLANT)||s.is(Blocks.BROWN_MUSHROOM)||
+    s.is(Blocks.RED_MUSHROOM);
+ }
  private boolean battered(int lane,int t){
   long h=seed+lane*73856093L+t*19349663L;
   h=(h^(h>>>30))*-4658895280553007687L;
@@ -80,14 +88,9 @@ public final class NetherBridgePiece extends StructurePiece {
     BlockState old=w.getBlockState(at);
     if(old.hasBlockEntity()||old.is(Blocks.BEDROCK)||
       !(old.isAir()||old.is(Blocks.LAVA)||NetherBridgeTerrain.natural(old)||
-        old.is(Blocks.CRIMSON_FUNGUS)||old.is(Blocks.CRIMSON_ROOTS)||
-        old.is(Blocks.WARPED_FUNGUS)||old.is(Blocks.WARPED_ROOTS)||
-        old.is(Blocks.NETHER_SPROUTS)||old.canBeReplaced()))continue;
+        harmlessFlora(old)||old.canBeReplaced()))continue;
     // Air clears ONLY ambient vegetation; never cut another solid structure to create headroom.
-    if(next.isAir() && !(old.isAir()||old.is(Blocks.CRIMSON_FUNGUS)||
-       old.is(Blocks.CRIMSON_ROOTS)||old.is(Blocks.WARPED_FUNGUS)||
-       old.is(Blocks.WARPED_ROOTS)||old.is(Blocks.NETHER_SPROUTS)||
-       (old.canBeReplaced()&&old.getFluidState().isEmpty())))continue;
+    if(next.isAir() && !(old.isAir()||harmlessFlora(old)||(old.canBeReplaced()&&old.getFluidState().isEmpty())))continue;
     if(!old.equals(next))w.setBlock(at,next,2);
    }
  }

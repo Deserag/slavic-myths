@@ -24,7 +24,8 @@ public final class WayfarerTerrain {
         }
     }
     public static boolean natural(BlockState s) {
-        return s.is(Blocks.NETHERRACK) || s.is(Blocks.BLACKSTONE) ||
+        return s.is(Blocks.NETHERRACK) || s.is(Blocks.CRIMSON_NYLIUM) ||
+            s.is(Blocks.WARPED_NYLIUM) || s.is(Blocks.BLACKSTONE) ||
             s.is(Blocks.BASALT) || s.is(Blocks.SOUL_SAND) || s.is(Blocks.SOUL_SOIL) ||
             s.is(Blocks.GRAVEL) || s.is(Blocks.MAGMA_BLOCK) ||
             s.is(Blocks.NETHER_QUARTZ_ORE) || s.is(Blocks.NETHER_GOLD_ORE);

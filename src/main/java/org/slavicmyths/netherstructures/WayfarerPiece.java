@@ -100,8 +100,17 @@ public final class WayfarerPiece extends StructurePiece {
     private static boolean replaceable(BlockState old) {
         return old.isAir() || old.is(Blocks.CRIMSON_FUNGUS) || old.is(Blocks.CRIMSON_ROOTS) ||
             old.is(Blocks.WARPED_FUNGUS) || old.is(Blocks.WARPED_ROOTS) ||
-            old.is(Blocks.NETHER_SPROUTS) ||
+            old.is(Blocks.NETHER_SPROUTS) || old.is(Blocks.WEEPING_VINES) ||
+            old.is(Blocks.WEEPING_VINES_PLANT) || old.is(Blocks.TWISTING_VINES) ||
+            old.is(Blocks.TWISTING_VINES_PLANT) || old.is(Blocks.BROWN_MUSHROOM) ||
+            old.is(Blocks.RED_MUSHROOM) ||
             (old.canBeReplaced() && old.getFluidState().isEmpty());
+    }
+    private static final java.util.concurrent.atomic.AtomicInteger DEBUG_REJECTIONS =
+        new java.util.concurrent.atomic.AtomicInteger();
+    private static void diagnostic(String reason,BlockPos p,BlockState state) {
+        if(System.getProperty("hellqa.seed") != null && DEBUG_REJECTIONS.getAndIncrement()<24)
+            System.out.println("HELLQA_WAYFARER_REJECT "+reason+" pos="+p+" block="+state);
     }
     @Override public void postProcess(WorldGenLevel world,StructureManager manager,
             ChunkGenerator generator,RandomSource random,BoundingBox clip,ChunkPos chunk,BlockPos pivot) {
@@ -111,13 +120,19 @@ public final class WayfarerPiece extends StructurePiece {
             BlockState state=voxel(x,y,z);
             if(state==null)continue;
             BlockPos pos=at(x,y,z);
+            BlockState old=world.getBlockState(pos);
             if(!clip.isInside(pos)||!world.ensureCanWrite(pos)||
-                    world.getBlockEntity(pos)!=null||
-                    !replaceable(world.getBlockState(pos)))return;
+                    world.getBlockEntity(pos)!=null||!replaceable(old)) {
+                diagnostic("occupied-or-clip",pos,old);
+                return;
+            }
         }
         for(int x=0;x<9;x++)for(int z=0;z<7;z++)if(foundation(x,z)) {
             BlockPos below=at(x,-1,z);
-            if(!WayfarerTerrain.natural(world.getBlockState(below)))return;
+            if(!WayfarerTerrain.natural(world.getBlockState(below))) {
+                diagnostic("foundation",below,world.getBlockState(below));
+                return;
+            }
         }
         // Ground pads first, then top-down for real roof -> chain -> hanging lantern.
         for(int layer=0;layer<=6;layer++) {
