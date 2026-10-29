@@ -20,3 +20,10 @@ G. После ядра — 2.2.9 растения/еда, 2.2.10 зелейны�
 
 ## Фактический статус
 Этот коммит вводит только A и запретительный вычислительный precheck E. Нет действующего worldgen, размещения NBT, сохранённого журнала миграции или серверного QA. Offline javac/Actions не равны сборке всего мода и Minecraft QA.
+
+## Дельта после исходного SHA 29.10.2026
+- Введён серверно-нейтральный геометрический контракт и fail-closed policy в a8101a7. [Java21 оффлайн CI](https://github.com/Deserag/slavic-myths/actions/runs/40909295495) — 154107 проверок успешно.
+- В ecf1db3 в runtime добавлен второй NBT: src/main/resources/data/slavicmyths/structure/posad/zeleynaya_2_2_7.nbt и 5 таблиц posad_zeleynaya_*.json. Теперь NBT **два**: 2.2.7 и 2.2.8. Это подготовленные ресурсы, они пока НЕ ставятся worldgen.
+- В 718102a включён независимый Python NBT verifier. [Оффлайн CI](https://github.com/Deserag/slavic-myths/actions/runs/40910358802) подтверждает точную идентичность всех 1599 блоков модели 2.2.7, 33 blockstates, 5 LootTable markers и регистрацию modded ID. Это не GameTest.
+- Отдельное утверждённое ТЗ жителей уже существует: #357, включая 12 профессий, 50/70 HP и 15-минутный персональный cooldown агрессии. Не создавать дубликат Issue и не менять параметры.
+- После этих коммитов **нет** действующего posad native Structure/StructureSet, интеграции NBT в структуру и проверенного механизма retrofit. Все ограничения и QA gate сохраняются.
