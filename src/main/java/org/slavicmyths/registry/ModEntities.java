@@ -49,8 +49,6 @@ public final class ModEntities {
     @SubscribeEvent
     public static void attributes(EntityAttributeCreationEvent event) {
         event.put(GREY_WOLF.get(),org.slavicmyths.wolf.GreyWolf.attributes().build());
-        event.put(MOROVA_DEVA.get(),org.slavicmyths.netherboss.NetherSummonBoss.attributes(true).build());
-        event.put(TRIZNA_PRINCE.get(),org.slavicmyths.netherboss.NetherSummonBoss.attributes(false).build());
         event.put(NIGHTINGALE.get(),org.slavicmyths.bandit.NightingaleEntity.attributes().build());
         event.put(BANDIT_FIGHTER.get(),org.slavicmyths.bandit.BanditEntity.attributes(0).build());
         event.put(BANDIT_ARCHER.get(),org.slavicmyths.bandit.BanditEntity.attributes(1).build());
@@ -122,8 +120,6 @@ public final class ModEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.hunt.WorldBoss>> LIKHO_ONE_EYED=ENTITIES.register("likho_one_eyed",()->EntityType.Builder.of(org.slavicmyths.hunt.WorldBoss::new,MobCategory.MONSTER).sized(.95F,3.25F).clientTrackingRange(12).build("slavicmyths:likho_one_eyed"));
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.hunt.WorldBoss>> TUGARIN_ZMEY=ENTITIES.register("tugarin_zmey",()->EntityType.Builder.of(org.slavicmyths.hunt.WorldBoss::new,MobCategory.MONSTER).sized(3.5F,4.85F).eyeHeight(4.15F).clientTrackingRange(12).build("slavicmyths:tugarin_zmey"));
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.hunt.BossStone>> TUGARIN_STONE=ENTITIES.register("tugarin_stone",()->EntityType.Builder.of(org.slavicmyths.hunt.BossStone::new,MobCategory.MISC).sized(.4F,.4F).clientTrackingRange(8).updateInterval(2).build("slavicmyths:tugarin_stone"));
-    public static final DeferredHolder<EntityType<?>,EntityType<org.slavicmyths.netherboss.NetherSummonBoss>> MOROVA_DEVA=ENTITIES.register("morova_deva",()->EntityType.Builder.<org.slavicmyths.netherboss.NetherSummonBoss>of((t,w)->new org.slavicmyths.netherboss.NetherSummonBoss(t,w,org.slavicmyths.netherboss.NetherSummonBoss.MOROVA),MobCategory.MONSTER).sized(.88F,2.65F).clientTrackingRange(12).updateInterval(2).build("slavicmyths:morova_deva"));
-    public static final DeferredHolder<EntityType<?>,EntityType<org.slavicmyths.netherboss.NetherSummonBoss>> TRIZNA_PRINCE=ENTITIES.register("trizna_prince",()->EntityType.Builder.<org.slavicmyths.netherboss.NetherSummonBoss>of((t,w)->new org.slavicmyths.netherboss.NetherSummonBoss(t,w,org.slavicmyths.netherboss.NetherSummonBoss.TRIZNA),MobCategory.MONSTER).sized(1.18F,3.0F).fireImmune().clientTrackingRange(12).updateInterval(2).build("slavicmyths:trizna_prince"));
     private ModEntities() { }
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.flight.FlyingVessel>> FLYING_BROOM=ENTITIES.register("flying_broom",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,false),MobCategory.MISC).sized(1F,.45F).clientTrackingRange(10).updateInterval(3).build("slavicmyths:flying_broom"));
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.flight.FlyingVessel>> FLYING_MORTAR=ENTITIES.register("flying_mortar",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,true),MobCategory.MISC).sized(.95F,1.2F).clientTrackingRange(10).updateInterval(3).build("slavicmyths:flying_mortar"));
