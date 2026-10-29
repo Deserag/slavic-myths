@@ -1,10 +1,16 @@
 name: Wayfarer natural generation five-seed headless QA
-# Revalidate one-block grading and bounded same-chunk fallback after 5996c5c.
+# Revalidate real physical placements and explicit late-worldgen rejections.
 on:
   push:
     branches: [hell]
     paths:
       - '.github/workflows/wayfarer-five-seed.yml'
+      - 'src/main/java/org/slavicmyths/netherstructures/**'
+      - 'src/main/java/org/slavicmyths/registry/ModFeatures.java'
+      - 'src/main/resources/data/slavicmyths/worldgen/**'
+      - 'src/main/resources/data/slavicmyths/neoforge/biome_modifier/bridge_clearance.json'
+      - 'tools/hell-qa-runtime/BridgeQaTests.java'
+      - 'tools/hell-qa-runtime/WayfarerQaTests.java'
   workflow_dispatch:
 permissions:
   contents: read

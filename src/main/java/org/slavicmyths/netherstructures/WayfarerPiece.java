@@ -152,25 +152,49 @@ public final class WayfarerPiece extends StructurePiece {
             boolean relocated=false;
             // A bounded deterministic fallback: never moves a native start to another chunk,
             // never writes after a partial failure, and never generates/load nearby chunks.
-            int[][] shifts={{-2,0},{2,0},{0,-2},{0,2},{-3,0},{3,0},
-                            {0,-3},{0,3},{-2,-2},{2,2},{-2,2},{2,-2}};
-            for(int[] shift:shifts) {
-                BlockPos proposed=oldCenter.offset(shift[0],0,shift[1]);
+            // A horizontal-only retry repeats a lava-filled ledge at the same Y.
+            // Survey alternate ledges, nearest height first, inside this chunk only.
+            // At most 83 * 16 * 16 candidates, with cheap footprint/ground rejection.
+            search: for(int delta=0;delta<=82;delta++)for(int sign:new int[]{1,-1}) {
+              if(delta==0&&sign==-1)continue;
+              int y=oldCenter.getY()+delta*sign;
+              if(y<24||y>106)continue;
+              for(int radius=0;radius<=8;radius++)for(int dx=-radius;dx<=radius;dx++)
+               for(int dz=-radius;dz<=radius;dz++) {
+                if(Math.max(Math.abs(dx),Math.abs(dz))!=radius)continue;
+                BlockPos proposed=new BlockPos(oldCenter.getX()+dx,y,oldCenter.getZ()+dz);
                 var b=new WayfarerTerrain.Plan(proposed,rotation,variant,lit,seed).bounds();
                 if((b.minX()>>4)!=chunk.x||(b.maxX()>>4)!=chunk.x||
                    (b.minZ()>>4)!=chunk.z||(b.maxZ()>>4)!=chunk.z)continue;
                 center=proposed;
+                if(!WayfarerTerrain.natural(world.getBlockState(at(4,-1,5))))continue;
                 if(validSite(world,clip)) {
-                    move(shift[0],0,shift[1]);
+                    move(dx,y-oldCenter.getY(),dz);
                     relocated=true;
                     if(System.getProperty("hellqa.seed")!=null)
                         System.out.println("HELLQA_WAYFARER_RELOCATED from="+oldCenter+
                             " to="+center+" chunk="+chunk);
-                    break;
+                    break search;
                 }
+              }
             }
             if(!relocated) {
                 center=oldCenter;
+                // Noise is a proposal. If late lava makes the whole chunk unsafe,
+                // do not save an empty but locatable structure. No blocks were written.
+                var structure=world.registryAccess().registryOrThrow(Registries.STRUCTURE)
+                    .get(WayfarerWorldgen.id("wayfarer_camp"));
+                var owner=world.getChunk(chunk.x,chunk.z,
+                    net.minecraft.world.level.chunk.status.ChunkStatus.STRUCTURE_STARTS,false);
+                if(owner!=null&&structure!=null) {
+                    owner.setStartForStructure(structure,StructureStart.INVALID_START);
+                    var finalStarts=java.util.Map.copyOf(owner.getAllStarts());
+                    // StructureCheck owns non-concurrent maps. Worldgen workers
+                    // must publish through the server thread, not mutate them here.
+                    world.getLevel().getServer().execute(()->manager.structureCheck.onStructureLoad(chunk,finalStarts));
+                }
+                if(System.getProperty("hellqa.seed")!=null)
+                    System.out.println("HELLQA_WAYFARER_INVALIDATED chunk="+chunk+" no safe actual site; zero writes, no phantom locate target");
                 return; // fully rejected: no partial construction or destroyed player blocks
             }
         }

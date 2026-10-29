@@ -129,7 +129,8 @@ public final class WayfarerQaTests {
         var placement=StructureCandidates.placement(w,structure);
         check(placement!=null,"Missing wayfarer structure_set");
         var generator=w.getChunkSource().getGenerator();
-        int sampled=0,accepted=0;
+        int sampled=0,accepted=0,rejected=0;
+        var rejectedChunks=new java.util.ArrayList<ChunkPos>();
         for(int ring=0;ring<=6;ring++)for(int gx=-ring;gx<=ring;gx++)for(int gz=-ring;gz<=ring;gz++) {
             if(Math.max(Math.abs(gx),Math.abs(gz))!=ring)continue;
             ChunkPos cp=placement.getPotentialStructureChunk(w.getSeed(),gx*placement.spacing(),gz*placement.spacing());
@@ -142,7 +143,19 @@ public final class WayfarerQaTests {
             accepted++;
             var chunk=w.getChunk(cp.x,cp.z);
             var start=chunk.getAllStarts().get(structure);
-            check(start!=null&&start.isValid(),"Accepted plan had no actual native start at "+cp);
+            check(start!=null,"Noise proposal vanished without explicit invalid start at "+cp);
+            if(!start.isValid()) {
+                rejected++;
+                check(start==net.minecraft.world.level.levelgen.structure.StructureStart.INVALID_START,
+                    "Unsafe site did not remove its phantom native start at "+cp);
+                rejectedChunks.add(cp);
+                var serialized=start.createTag(
+                    net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext.fromLevel(w),cp);
+                check(serialized.getString("id").equals("INVALID"),"Rejected start would persist as a real structure");
+                System.out.println("HELLQA_WAYFARER_SAFE_REJECTION seed="+w.getSeed()+" chunk="+cp+
+                    " invalid native start excluded from locate; NOT a physical placement");
+                continue;
+            }
             var piece=start.getPieces().stream().filter(WayfarerPiece.class::isInstance)
                 .map(WayfarerPiece.class::cast).findFirst().orElseThrow();
             var box=piece.getBoundingBox();
@@ -174,8 +187,16 @@ public final class WayfarerQaTests {
             System.out.println("HELLQA_PASS 2.1.3 ACTUAL NATURAL WAYFARER seed="+w.getSeed()+
                   " chunk="+cp+" biome="+w.getBiome(piece.at(4,1,3)).unwrapKey().orElseThrow().location()+
                   " Y="+piece.at(4,0,3).getY()+" variant="+piece.variant()+" bbox="+box+
-                  " sampledCandidates="+sampled+" acceptedPlans="+accepted+" physical chest/fire/table/chain/lantern each one");
-            t.succeed();return;
+                  " sampledCandidates="+sampled+" acceptedPlans="+accepted+" lateRejectedStarts="+rejected+" physical chest/fire/table/chain/lantern each one");
+            // Cache publication is deliberately server-thread-only, after the
+            // synchronous chunk request has completed and yielded to the server.
+            t.runAfterDelay(1,()->{
+                for(var rejectedChunk:rejectedChunks)
+                    check(w.structureManager().checkStructurePresence(rejectedChunk,structure,placement,false)==
+                        net.minecraft.world.level.levelgen.structure.StructureCheckResult.START_NOT_PRESENT,
+                        "Structure presence cache still advertises the rejected campsite at "+rejectedChunk);
+                t.succeed();
+            });return;
         }
         throw new GameTestAssertException("No accepted native wayfarer in bounded 13x13 sample seed="+
                 w.getSeed()+" candidates="+sampled+" accepted="+accepted);
