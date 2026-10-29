@@ -7,7 +7,7 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.NoiseColumn;
+import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.levelgen.structure.*;
 import org.slavicmyths.worldgen.StructureCandidates;
 
