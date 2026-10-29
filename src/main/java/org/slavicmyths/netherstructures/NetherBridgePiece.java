@@ -41,7 +41,7 @@ public final class NetherBridgePiece extends StructurePiece {
   return false;
  }
  public boolean span(int t){return t>=0&&t<length&&!absent(t);}
- private static boolean harmlessFlora(BlockState s){
+ static boolean harmlessFlora(BlockState s){
   return s.is(Blocks.CRIMSON_FUNGUS)||s.is(Blocks.CRIMSON_ROOTS)||
     s.is(Blocks.WARPED_FUNGUS)||s.is(Blocks.WARPED_ROOTS)||
     s.is(Blocks.NETHER_SPROUTS)||s.is(Blocks.WEEPING_VINES)||

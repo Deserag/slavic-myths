@@ -122,6 +122,24 @@ public final class BridgeQaTests {
        " length="+bridge.length()+" variant="+bridge.variant()+" roadSteps="+road+
        " width5Cells="+lanes+" bbox="+box+" sampledCandidates="+sampled+" acceptedPlans="+plans+
        " no loot; chunk-clipped natural generation, not manual place");
+   // AFTER recording the untouched natural result: simulate a neighbouring
+   // fungus writing late, and verify that final decoration leaves protected
+   // solids, fluids and player containers alone. This is a separate fixture.
+   world.setBlock(bridge.at(-2,1,0),Blocks.NETHER_WART_BLOCK.defaultBlockState(),2);
+   world.setBlock(bridge.at(-1,1,0),Blocks.CRIMSON_STEM.defaultBlockState(),2);
+   world.setBlock(bridge.at(0,1,0),Blocks.OBSIDIAN.defaultBlockState(),2);
+   world.setBlock(bridge.at(1,1,0),Blocks.LAVA.defaultBlockState(),2);
+   world.setBlock(bridge.at(2,1,0),Blocks.CHEST.defaultBlockState(),2);
+   new BridgeClearanceFeature().place(new net.minecraft.world.level.levelgen.feature.FeaturePlaceContext<>(
+       Optional.empty(),world,generator,net.minecraft.util.RandomSource.create(1),
+       cp.getWorldPosition(),net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration.INSTANCE));
+   check(world.isEmptyBlock(bridge.at(-2,1,0))&&world.isEmptyBlock(bridge.at(-1,1,0)),
+       "Final decoration did not remove simulated late fungus");
+   check(world.getBlockState(bridge.at(0,1,0)).is(Blocks.OBSIDIAN)&&
+       world.getBlockState(bridge.at(1,1,0)).is(Blocks.LAVA)&&
+       world.getBlockState(bridge.at(2,1,0)).is(Blocks.CHEST),
+       "Bridge clearance destroyed protected solid, fluid or container");
+   System.out.println("HELLQA_PASS bridge late-fungus fixture: wart/stem removed; obsidian/lava/chest preserved");
    t.succeed();return;
   }
   throw new GameTestAssertException("No accepted true natural Nether bridge in 13x13 placement-cell sample seed="+
