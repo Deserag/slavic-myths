@@ -6,7 +6,7 @@
 - Нельзя расширять участок или менять ранее принятый план других районов. Все границы включительные.
 - Житница 12×11, сарай 8×6, два фермерских участка 8×11 и 8×9, все помещения/сундуки кликабельны, передний просвет не менее 2 блоков.
 - Реальные агроблоки: soul_sand/nether_wart (age 0..3); crimson_nylium и warped_nylium под соответствующие корни и грибы. Никаких farmland/water/vanilla beds в Незере.
-- 5 независимых loot tables: `slavicmyths:chests/posad_granary_*`, реальные пути `src/main/resources/data/slavicmyths/loot_table/chests/posad_granary_*.json` на 1.21.1. Не путать проектные loot_drafts и зарегистрированные игровые ресурсы.
+- 5 независимых loot tables уже опубликованы в src/main/resources/data/slavicmyths/loot_table/chests/: `slavicmyths:chests/posad_granary_*`, реальные пути `src/main/resources/data/slavicmyths/loot_table/chests/posad_granary_*.json` на 1.21.1. Не путать проектные loot_drafts и зарегистрированные игровые ресурсы.
 - Сервер создаёт обычные сундуки с назначенными LootTable только один раз, с сохранением при открытии и save/load. При достройке старых городов использовать стабильный идентификатор города, слот, schemaVersion, атомарность/идемпотентность и проверку блоков игрока до записи.
 - Не запускать изолированный worldgen этого участка. Он размещается только внутри общего 113×113 «Пекельного посада»; если движка размещения нет, оформить и реализовать его как отдельную зависимость, а не объявлять постройку доступной в игре.
 - Не добавлять рецепты, AI работников, NPC, новых предметов/блоков, новый farm GUI, автоматику роста или торговлю.
@@ -18,3 +18,8 @@
 
 ## Проверка перед закрытием
 См. [QA_CHECKLIST.md](./QA_CHECKLIST.md). Проверять в реальном Minecraft 1.21.1 NeoForge + dedicated server и на нескольких seed.
+
+## Созданные игровые ресурсы
+- `src/main/resources/data/slavicmyths/structure/posad/granary_2_2_8.nbt` — gzip-сжатый vanilla structure template с DataVersion 3955, блоками 1349 и chest LootTable NBT.
+- 5 настоящих JSON в `src/main/resources/data/slavicmyths/loot_table/chests/posad_granary_*.json`.
+- Интегрирующий код worldgen не написан: для появления постройки в городе нужен отдельный этап.
