@@ -6364,5 +6364,7 @@
   "item.slavicmyths.nether_aura_amulet.effect": "In a Curios necklace slot, protects only against Nether Aura. Inactive in inventory. Prototype.",
   "netherores.count.nether": "Nether only.",
   "netherores.count.unloaded": "Chunk is not loaded.",
-  "netherores.count.result": "Chunk %s, %s: [Livingstone, Alatyrite, Runnik, Infernal, Sulfur] = %s. Existing blocks only."
+  "netherores.count.result": "Chunk %s, %s: [Livingstone, Alatyrite, Runnik, Infernal, Sulfur] = %s. Existing blocks only.",
+  "entity.slavicmyths.morova_deva": "Morova Maiden — Bride of Pestilence",
+  "entity.slavicmyths.trizna_prince": "Prince of the Last Funeral Feast"
 }
