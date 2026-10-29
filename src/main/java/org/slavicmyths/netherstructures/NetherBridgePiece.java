@@ -78,7 +78,10 @@ public final class NetherBridgePiece extends StructurePiece {
     if(!clip.isInside(at)||!w.ensureCanWrite(at))continue;
     BlockState old=w.getBlockState(at);
     if(old.hasBlockEntity()||old.is(Blocks.BEDROCK)||
-      !(old.isAir()||old.is(Blocks.LAVA)||NetherBridgeTerrain.natural(old)))continue;
+      !(old.isAir()||old.is(Blocks.LAVA)||NetherBridgeTerrain.natural(old)||
+        old.is(Blocks.CRIMSON_FUNGUS)||old.is(Blocks.CRIMSON_ROOTS)||
+        old.is(Blocks.WARPED_FUNGUS)||old.is(Blocks.WARPED_ROOTS)||
+        old.is(Blocks.NETHER_SPROUTS)||old.canBeReplaced()))continue;
     if(!old.equals(next))w.setBlock(at,next,2);
    }
  }
