@@ -1,0 +1,24 @@
+{
+  "url": "https://github.com/Deserag/slavic-myths/issues/318",
+  "title": "[2.0.5.8a][ПОВЕЛИТЕЛЬ МАГМЫ] Референсы PNG, настоящая 3D-модель, UV, анимационные узлы",
+  "issue_number": 318,
+  "body": "**Оригиналы PNG подготовлены:** архив `BURNING_ISLANDS_205_COMPLETE_REFERENCES_FOR_GITHUB.zip` приложен в беседе, проверены SHA256 пяти оригиналов. **Скрипт безопасного импорта в Windows-репозиторий:** https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/references/IMPORT_REFERENCES.ps1 — проверяет ветку hell, архив и SHA, ничего не перезаписывает без проверки, коммиты и push не выполняет. Настоящие PNG в GitHub пока отсутствуют; визуальный SOURCE PASS до их импорта запрещён.\n\n**Родитель:** [#317](https://github.com/Deserag/slavic-myths/issues/317). Ветка только **hell**, main не менять. Читать hell/AGENTS.md, docs/requirements и реальные классы. Нельзя закрывать без приёмки владельца.\n\n## Блокер отсутствовавших референсов\nВ прошлых задачах были только имена и SHA256: **оригинальные PNG отсутствуют в git**. Полный архив BURNING_ISLANDS_205_COMPLETE_REFERENCES_FOR_GITHUB.zip подготовлен в беседе, содержит 5 PNG с путями для hell. Добавить оригиналы из архива в docs/concepts/burning-islands/references, сверить SHA: босс 354c2c318c01ee67b21b60adc653a0a4747acc81786a433cb28e1c3fc26881a6, голова 287ce3f15e28b1a646cf31de1e51fab85519bb03dc935d83bb7aea920395bc93. До импорта — BLOCKED_REFERENCE_BINARY.\n\n**Уже доступные в GitHub ЧЕРТЕЖИ:** [трёхракурсный облик](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/references/MAGMA_LORD_ORTHOGRAPHIC_DESIGN_GUIDE.svg), [голова и GUI](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/references/MAGMA_LORD_TROPHY_HEAD_MODEL_GUI_GUIDE.svg). Это технические SVG, не оригинальные концепт-PNG и не готовые игровые модели.\n\n## Что делать\nСоздать **настоящую самостоятельную** voxel ModelPart+UV+PNG модель без копирования чужих игр. Высокий магмово-теневой силуэт, каменные сегменты/отростки, грудное ядро, тёмные трещины. Раздельные pivots: head, jaw, crown, core_shell, chest_core, arms L/R, back_limbs, legs, floating_shards. Сравнить геометрию с игроком и референсами, front/side/back/top (Native render до/после), P1/P2. Не спутать с Жерловиком-големом.\n\n## Обязательные анимации\nidle-парение, поворот/слежение, первый удар пробуждения, подготовка и удар когтями, разлом, притяжение, руки преисподней, кольцо, теневое извержение, раскрытие ядра, P1→P2, hurt, death. Таймлайны и реальные ModelPart кадры для каждой, синхронизация с #319 и #322.\n\n**Приёмка:** исходные PNG физически лежат в git с совпадающим SHA; отдельные UV/texture/render/model source, 3D+анимации, скрины из разрешённого клиента (если запуск запрещён — NOT_RUN), никакого fake art PASS.",
+  "state": "open",
+  "user": {
+    "login": "Deserag",
+    "name": "Deserag",
+    "email": null,
+    "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+    "id": 98634457
+  },
+  "assignees": null,
+  "labels": null,
+  "milestone": null,
+  "state_reason": null,
+  "comments": 0,
+  "created_at": "2026-10-28T07:39:52Z",
+  "updated_at": "2026-10-28T07:45:21Z",
+  "closed_at": null,
+  "display_url": "https://github.com/Deserag/slavic-myths/issues/318",
+  "display_title": "[2.0.5.8a][ПОВЕЛИТЕЛЬ МАГМЫ] Референсы PNG, настоящая 3D-модель, UV, анимационные узлы"
+}

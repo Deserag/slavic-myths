@@ -1,0 +1,24 @@
+{
+  "url": "https://github.com/Deserag/slavic-myths/issues/323",
+  "title": "[2.0.5.8f][ПОВЕЛИТЕЛЬ МАГМЫ] Финальные QA-gates для полной сдачи 2.0.5",
+  "issue_number": 323,
+  "body": "<!-- REFERENCE_CONTRACT_AND_CUE_SHEET_20261028 -->\n**Физические файлы в `hell`:** [полное ТЗ на выполнение](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/CODEX_STAGE3_MAGMA_LORD_IMPLEMENTATION_2.0.5.md), [анимационный и звуковой cue-sheet с покадровыми таймингами](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/MAGMA_LORD_ANIMATION_AUDIO_CUE_SHEET_2.0.5.md), [safe PowerShell importer оригинальных пяти PNG с SHA check](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/references/IMPORT_REFERENCES.ps1); [три ракурса босса](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/references/MAGMA_LORD_ORTHOGRAPHIC_DESIGN_GUIDE.svg) и [голова + GUI](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/references/MAGMA_LORD_TROPHY_HEAD_MODEL_GUI_GUIDE.svg) — настоящие доступные SVG, **не сам исходный PNG**. Архив PNG существует только как приложенный к беседе ZIP, до фактического импорта originals в GitHub ART SOURCE=BLOCKED_REFERENCE_BINARY. Оригинальные OGG пока не подготовлены, SOUND SOURCE=BLOCKED_NEEDS_AUDIO_SOURCE. Составление задач НЕ приравнивать к фактической реализации или QA.\n\n**Родитель:** [#317](https://github.com/Deserag/slavic-myths/issues/317). Ветка только **hell**, main не менять. Читать hell/AGENTS.md, docs/requirements и реальные классы. Нельзя закрывать без приёмки владельца.\n\n## Обязательные проверки зависимых подзадач #317\n- Текущая ветка hell, правильный HEAD/single writer, реальный clean Java21 NeoForge21.1.255 build и JAR SHA только если собран; не затрагивать main. Все новые IDs совместимы со старыми save.\n- Оригинальные 5 PNG доступны физически в GitHub, hashes совпадают, ModelPart UV/texture для босса и головы; native source render front/side/back/top/phase/casting, анимации с реальными кадрами, звук с реально существующими OGG/subtitles.\n- Кратер в лавовом океане: 5+ разных seed и несколько географических окон, ни одного нового biome на обычной суше, доступные мосты/арена без parkour, vanilla structures/старые миры целы, нет chunk seams и дублей босса.\n- Бой: neutral-to-attacker, 850HP/2 фазы, все атаки с телеграфами, Normal/Hard в полном железе/алмазе/незерите, melee/ranged, allies, 2 игрока, impossible line-of-sight, boss arena boundaries/anti-cheese, save/load and respawn.\n- Смерть и награды: голова 1, сердце 1, ядра 4–6, душа 1, всё гарантированно и не дублируется, коллекция у лавы/полного инвентаря, никакого нового оружия, брони или аксессуара.\n- Голова: 3D placed vs static inventory icon, пол/стена и поворот, 0/5.9/6.1/7.9/8.1 блока, jaw/shards/particles/audio, 10 голов рядом, две камеры, performance; **не наносит урон и не меняет мир**.\n- Негативные тесты: отсутствует оригинал → BLOCKED; отсутствует OGG → BLOCKED; запрещён Minecraft/GameTest/PolyMC/server по AGENTS.md → NOT_RUN. Не выдавать Gradle PASS за реальный бой.\n\n**Отчёт:** docs/implementation/burning-islands-205/BOSS_QA_REPORT.md с матрицей `REQUIREMENT | SOURCE | TEST | EVIDENCE | PASS/FAIL/BLOCKED/NOT_RUN`, seed/coords/sha, defects, steps user. Owner только лично переводит в Готово и закрывает. Нет полного аудио/арта/игрового QA = открытая issue.",
+  "state": "open",
+  "user": {
+    "login": "Deserag",
+    "name": "Deserag",
+    "email": null,
+    "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+    "id": 98634457
+  },
+  "assignees": null,
+  "labels": null,
+  "milestone": null,
+  "state_reason": null,
+  "comments": 0,
+  "created_at": "2026-10-28T07:40:02Z",
+  "updated_at": "2026-10-28T07:45:01Z",
+  "closed_at": null,
+  "display_url": "https://github.com/Deserag/slavic-myths/issues/323",
+  "display_title": "[2.0.5.8f][ПОВЕЛИТЕЛЬ МАГМЫ] Финальные QA-gates для полной сдачи 2.0.5"
+}

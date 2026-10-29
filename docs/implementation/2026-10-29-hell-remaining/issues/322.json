@@ -1,0 +1,24 @@
+{
+  "url": "https://github.com/Deserag/slavic-myths/issues/322",
+  "title": "[2.0.5.8e][ПОВЕЛИТЕЛЬ МАГМЫ] Звуки, кадры анимаций и визуальные телеграфы",
+  "issue_number": 322,
+  "body": "**Анимационные кадры и звуки описаны в реальном файле ветки `hell`:** https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/MAGMA_LORD_ANIMATION_AUDIO_CUE_SHEET_2.0.5.md . До появления реальных аудиофайлов эта часть не считается завершённой.\n\n<!-- REFERENCE_CONTRACT_AND_CUE_SHEET_20261028 -->\n**Физические файлы в `hell`:** [полное ТЗ на выполнение](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/CODEX_STAGE3_MAGMA_LORD_IMPLEMENTATION_2.0.5.md), [анимационный и звуковой cue-sheet с покадровыми таймингами](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/MAGMA_LORD_ANIMATION_AUDIO_CUE_SHEET_2.0.5.md), [safe PowerShell importer оригинальных пяти PNG с SHA check](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/references/IMPORT_REFERENCES.ps1); [три ракурса босса](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/references/MAGMA_LORD_ORTHOGRAPHIC_DESIGN_GUIDE.svg) и [голова + GUI](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/references/MAGMA_LORD_TROPHY_HEAD_MODEL_GUI_GUIDE.svg) — настоящие доступные SVG, **не сам исходный PNG**. Архив PNG существует только как приложенный к беседе ZIP, до фактического импорта originals в GitHub ART SOURCE=BLOCKED_REFERENCE_BINARY. Оригинальные OGG пока не подготовлены, SOUND SOURCE=BLOCKED_NEEDS_AUDIO_SOURCE. Составление задач НЕ приравнивать к фактической реализации или QA.\n\n**Родитель:** [#317](https://github.com/Deserag/slavic-myths/issues/317). Ветка только **hell**, main не менять. Читать hell/AGENTS.md, docs/requirements и реальные классы. Нельзя закрывать без приёмки владельца.\n\n## НЕОБХОДИМЫ НАСТОЯЩИЕ РАЗЛИЧИМЫЕ ЗВУКИ\nДля босса: idle низкий жаровый гул; агро-первая реакция; замах когтей/попадание; заряд/выход Магмового разлома; старт/завершение Притяжения теней; взмах Рук преисподней; заряд/взрыв Теневого извержения; заряд/удар Кольца извержения; треск тела и рёв при переходе P1→P2; раскрытие/закрытие ядра; получение урона; затухание и смерть. **Независимая анимация и телеграф для каждой техники**, включая реальную геометрию, release frame и cooldown. Сравнивать с оригинальным boss reference PNG (SHA354c2...); [трёхракурсный SVG](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/references/MAGMA_LORD_ORTHOGRAPHIC_DESIGN_GUIDE.svg).\n\nДля трофейной головы: очень тихое idle-потрескивание с cooldown, однократные `head_jaw_crack` и `head_wake_exhale` при приближении, установка и разрушение. Анимации: пульс, поворот осколков, раскрытие/закрытие челюсти, ограниченные искры; GUI остаётся статичным.\n\n**Стандарт:** актуальный AGENTS.md запрещает синтетические однотонные/формантные filler, pitch-shift копии, заимствованные чужие game audio. Нужны реальная законно полученная уникальная аудиодорожка в OGG, `sounds.json`, callsite, RU/EN subtitles, лицензия и присутствие в настоящем JAR. Допустимы адекватные vanilla/оригинальные слои только как конкретное художественное решение, не бесконечный звук Blaze. Нет источника OGG = BLOCKED_NEEDS_AUDIO_SOURCE, не подставлять пустой файл и не объявлять DONE.\n\n**Таблица приёмки:** `event id | actual OGG | license | activation | model animation | windup/damage/recovery ticks | particle | RU/EN subtitle | evidence`. Проверки громкости, 2 клиента, 10 голов рядом, диапазон звуков, no spam, отсутствие audio bleed; runtime при запрете = NOT_RUN.",
+  "state": "open",
+  "user": {
+    "login": "Deserag",
+    "name": "Deserag",
+    "email": null,
+    "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+    "id": 98634457
+  },
+  "assignees": null,
+  "labels": null,
+  "milestone": null,
+  "state_reason": null,
+  "comments": 0,
+  "created_at": "2026-10-28T07:40:00Z",
+  "updated_at": "2026-10-28T07:45:11Z",
+  "closed_at": null,
+  "display_url": "https://github.com/Deserag/slavic-myths/issues/322",
+  "display_title": "[2.0.5.8e][ПОВЕЛИТЕЛЬ МАГМЫ] Звуки, кадры анимаций и визуальные телеграфы"
+}

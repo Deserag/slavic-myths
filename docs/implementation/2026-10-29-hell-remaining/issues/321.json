@@ -1,0 +1,24 @@
+{
+  "url": "https://github.com/Deserag/slavic-myths/issues/321",
+  "title": "[2.0.5.8d][ПОВЕЛИТЕЛЬ МАГМЫ] Сердце, ядра, душа, 3D-голова и статичный GUI",
+  "issue_number": 321,
+  "body": "<!-- REFERENCE_CONTRACT_AND_CUE_SHEET_20261028 -->\n**Физические файлы в `hell`:** [полное ТЗ на выполнение](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/CODEX_STAGE3_MAGMA_LORD_IMPLEMENTATION_2.0.5.md), [анимационный и звуковой cue-sheet с покадровыми таймингами](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/MAGMA_LORD_ANIMATION_AUDIO_CUE_SHEET_2.0.5.md), [safe PowerShell importer оригинальных пяти PNG с SHA check](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/references/IMPORT_REFERENCES.ps1); [три ракурса босса](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/references/MAGMA_LORD_ORTHOGRAPHIC_DESIGN_GUIDE.svg) и [голова + GUI](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/references/MAGMA_LORD_TROPHY_HEAD_MODEL_GUI_GUIDE.svg) — настоящие доступные SVG, **не сам исходный PNG**. Архив PNG существует только как приложенный к беседе ZIP, до фактического импорта originals в GitHub ART SOURCE=BLOCKED_REFERENCE_BINARY. Оригинальные OGG пока не подготовлены, SOUND SOURCE=BLOCKED_NEEDS_AUDIO_SOURCE. Составление задач НЕ приравнивать к фактической реализации или QA.\n\n**Родитель:** [#317](https://github.com/Deserag/slavic-myths/issues/317). Ветка только **hell**, main не менять. Читать hell/AGENTS.md, docs/requirements и реальные классы. Нельзя закрывать без приёмки владельца.\n\n## Награды — ТОЛЬКО ПРЕДМЕТЫ/ТРОФЕИ\nПосле единственной легальной победы игрок получает: **Голова Повелителя магмы ×1 (100%)**, **Сердце Повелителя ×1 (100%)**, **Магмовые ядра ×4–6 с гарантией**, **заражённая душа подходящего уже существующего типа ×1**. Уникальные предметы 100%, без повторного ролла и без дюпа от event+loot_table. Изучить registry Soul и текущие boss loot; не регистрировать дубликат душ. Сердце — пока предмет/материал для будущего gear patch, **не делать в 2.0.5** ни оружия, ни брони, ни амулетов, ни фальшивых рецептов. Скипетр разлома и Оберег вулкана отложены.\n\n## Реальная голова\n**Одобренный владельцем исходный PNG**: BURNING_ISLANDS_205_MAGMA_LORD_HEAD_PLACED_INVENTORY.png (SHA256 287ce3f15e28b1a646cf31de1e51fab85519bb03dc935d83bb7aea920395bc93). До импорта из ZIP в GitHub — BLOCKED_REFERENCE_BINARY. [Технический SVG установленной модели и иконки](https://github.com/Deserag/slavic-myths/blob/hell/docs/concepts/burning-islands/references/MAGMA_LORD_TROPHY_HEAD_MODEL_GUI_GUIDE.svg).\n\nГолова: тёмный зубчатый каменный череп, высокие коронные шипы, магмовые трещины, горящие глаза, **геометрически подвижная челюсть**, 2–3 парящих осколка, локальное свечение. Отдельная **СТАТИЧНАЯ** читаемая 2D-иконка слота 16/32 px; настоящий поставленный Block/Item/ModelPart/UV/texture. Установка на пол или стену, поворот, разрушение и повторная установка, единая система TrophyHeads (не параллельный framework).\n\n**Косметические анимации:** idle пульс ~4–5с; подход на 6 блоков — глаза разгораются, челюсть плавно открывается на 12–20° за ~0.6–1с, единичный каменный треск + глубокий выдох; уход за 8 блоков — плавное закрытие ~1–2с; редкие искры. **Без gameplay effects:** не наносить урон, не создавать блоков огня/лавы/магмы, не трогать постройки; клиентские bounded particles и аудио без server scan.\n\n**Приёмка:** крафт/выдача только реальных материалов, инвентарь/tooltip RU/EN, 100% loot и head ×1 без дублей, тест 10 голов и двух игроков, 4 ориентации и floor/wall, анимации/звуки/нежелательные эффекты, при отсутствии исходника нет ART_PASS.",
+  "state": "open",
+  "user": {
+    "login": "Deserag",
+    "name": "Deserag",
+    "email": null,
+    "avatar_url": "https://avatars.githubusercontent.com/u/98634457?v=4",
+    "id": 98634457
+  },
+  "assignees": null,
+  "labels": null,
+  "milestone": null,
+  "state_reason": null,
+  "comments": 0,
+  "created_at": "2026-10-28T07:39:57Z",
+  "updated_at": "2026-10-28T07:44:57Z",
+  "closed_at": null,
+  "display_url": "https://github.com/Deserag/slavic-myths/issues/321",
+  "display_title": "[2.0.5.8d][ПОВЕЛИТЕЛЬ МАГМЫ] Сердце, ядра, душа, 3D-голова и статичный GUI"
+}

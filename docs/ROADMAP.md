@@ -2676,3 +2676,7 @@ hell, source f9beb28d: зарегистрированы три нейтраль�
 
 ### 28.10.2026 — #327 resume / Nether 2.0.4 production candidate (hell)
 Подключены lost_halls biome/terrain/metadata,5 species, Posten entity+4 stable clones, Shadow Face rune/decoys, utility rewards,3 new TrophyHeads preserving zharenitsa_head ID; native geometry3 bosses обновлена. Reward recipient pin хранится в world/data/slavicmyths_boss_reward_authority.json; batch+receipt в player save, corrupted authority read-only. Technical gates/evidence: docs/implementation/p0-bosses-327/REPORT.md, ACCEPTANCE_MATRIX.md, final-gates.log и BUILD_DELIVERY.json. IN_PROGRESS: originals ART_SOURCE_BLOCKED, all real gameplay/relog/MP/performance NOT_RUN, zero game launches; natural full-region/arena coverage not established. PolyMC candidate NOT_INSTALLED; no owner acceptance/Issue close. #313/#320/#323 ocean islands worldgen не объявлен реализованным. Decisions and two QA passes: OPEN_QUESTIONS_AND_RESOLUTIONS.md. Commit/push hell explicitly authorized by latest user message; main/release untouched.
+
+
+### 29.10.2026 — обновление тестового PolyMC
+По прямому поручению подтянута hell@537e3a7a, clean build/resources PASS. Установлен2.0.10-HELL, SHA256 `685387c355ba9665e6921dbd1757761cfddfe75651ff6bd5b48ab50f826a77f9`, backup и единственный JAR подтверждены. Каталог инстанса2.0.8 сохранён, отображаемое имя2.0.10. Исходный код/миры не менялись; запусков0, runtime NOT_RUN, не owner acceptance. Отчёт: implementation/polymc-update-20261029/REPORT.md.
