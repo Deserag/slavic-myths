@@ -26,7 +26,7 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 public final class AncestorShrinePiece extends StructurePiece {
     public static final int WIDTH=13, DEPTH=15, HEIGHT=11;
     private static final String[][][] VOXELS = {
-    // A: intact
+    { // A: intact
     { // y=0
         ".............",
         "..SSSSSSSSS..",
@@ -214,7 +214,8 @@ public final class AncestorShrinePiece extends StructurePiece {
         "......P......",
         "............."
     },
-    // B: damaged
+    },
+    { // B: damaged
     { // y=0
         ".............",
         "..SSSSSSSSS..",
@@ -402,7 +403,8 @@ public final class AncestorShrinePiece extends StructurePiece {
         "......P......",
         "............."
     },
-    // C: severe ruin
+    },
+    { // C: severe ruin
     { // y=0
         ".............",
         "..SSSSSSSSS..",
@@ -589,6 +591,7 @@ public final class AncestorShrinePiece extends StructurePiece {
         ".............",
         ".............",
         "............."
+    }
     }
     };
     private final BlockPos center;
