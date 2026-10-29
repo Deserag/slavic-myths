@@ -64,7 +64,7 @@ public final class NetherWatchpostPiece extends StructurePiece {
         return Math.floorMod(h ^ (h >>> 27), 10) < degradation * 2;
     }
     /** Null = untouched world; AIR = explicit open aperture, never a missing structure part. */
-    BlockState state(int x, int y, int z) {
+    public BlockState state(int x, int y, int z) {
         int ax = Math.abs(x), az = Math.abs(z), deck = deck();
         if (y < 0) {
             if (y == -1 && ax <= 4 && az <= 4) return Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState();
