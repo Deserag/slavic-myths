@@ -61,7 +61,11 @@ public final class WayfarerTerrain {
                         c.chunkGenerator().getBaseColumn(at.getX(),at.getZ(),c.heightAccessor(),c.randomState()));
                     // Full footprint and six-block high open volume, even where no block is placed.
                     for(int dy=0;dy<=5;dy++) {
-                        if(!col.getBlock(y+dy).isAir()) {ok=false;break;}
+                        var existing=col.getBlock(y+dy);
+                        // A one-block natural rise at floor level may be graded away.
+                        // Every block above the floor must remain empty: no wall/roof clipping.
+                        if(dy==0 ? !(existing.isAir() || natural(existing)) :
+                                !existing.isAir()) {ok=false;break;}
                     }
                     if(!ok)break;
                     // Every actual authored paving/foundation block must rest on genuine terrain.

@@ -130,7 +130,8 @@ public final class WayfarerPiece extends StructurePiece {
             BlockPos pos=at(x,y,z);
             BlockState old=world.getBlockState(pos);
             if(!clip.isInside(pos)||!world.ensureCanWrite(pos)||
-                    world.getBlockEntity(pos)!=null||!replaceable(old)) {
+                    world.getBlockEntity(pos)!=null||
+                    !(replaceable(old)||(y==0&&WayfarerTerrain.natural(old)))) {
                 diagnostic("occupied-or-clip",pos,old);
                 return;
             }
