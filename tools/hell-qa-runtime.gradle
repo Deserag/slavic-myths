@@ -3,6 +3,10 @@ allprojects { afterEvaluate {
  if (project.hasProperty('hellQaBiomeOnly')) {
   sourceSets.hellQa.java.include 'HellQaMod.java','HellQaTests.java','NetherBiomeQaTests.java','org/slavicmyths/hellqa/mixin/SeedMixin.java'
  }
+ if (project.hasProperty('hellQaRewardCrash')) {
+  sourceSets.hellQa.java.srcDir 'tools/hell-reward-crash'
+  sourceSets.hellQa.java.include 'HellQaMod.java','HellQaTests.java','RewardCrashQaTests.java','org/slavicmyths/hellqa/mixin/SeedMixin.java'
+ }
  sourceSets.hellQa.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
  sourceSets.hellQa.runtimeClasspath += sourceSets.main.runtimeClasspath - sourceSets.main.output
  def qa=neoForge.mods.create('slavicmyths_hellqa'){sourceSet sourceSets.hellQa}
@@ -13,6 +17,7 @@ allprojects { afterEvaluate {
   systemProperty 'hellqa.seed',project.findProperty('hellQaSeed') ?: '0'
   systemProperty 'neoforge.enabledGameTestNamespaces','slavicmyths_hellqa'
   systemProperty 'hellqa.expectedJar',file(project.findProperty('hellQaJar') ?: 'build/libs/slavicmyths-'+project.version+'.jar').absolutePath
+  if(project.hasProperty('hellQaRewardCrash'))systemProperty 'hellqa.rewardCrashPhase',project.property('hellQaRewardCrash')
  } }
  tasks.named('runHellQa'){dependsOn tasks.named('jar');doFirst {
   def dir=neoForge.runs.hellQa.gameDirectory.get().asFile

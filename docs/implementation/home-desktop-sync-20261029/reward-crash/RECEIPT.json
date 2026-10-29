@@ -1,0 +1,36 @@
+{
+  "production_source": "c38c593b25a4d64d07b39db62fecf2256fd38494",
+  "tested_packaged_jar_sha256": "ce65fde1faecd45b1e06fdb1e09ed37ddcd3f365004d7bbaa3da70d1a4089096",
+  "files": [
+    {
+      "actual_path": "D:\\slavic-myths\\work\\home-reward-crash-v1-20261029\\world\\data\\slavicmyths_boss_reward_authority.json",
+      "file": "slavicmyths_boss_reward_authority.json",
+      "sha256": "b23052e19395b7116db35d204b636bf7ed248a64806ea8f6bef599f4461e94ac",
+      "bytes": 174
+    },
+    {
+      "actual_path": "D:\\slavic-myths\\work\\home-reward-crash-v1-20261029\\world\\playerdata\\a1770000-0000-0000-0000-000000000001.dat",
+      "file": "a1770000-0000-0000-0000-000000000001.dat",
+      "sha256": "4959bc0e3fd68c1cd438c37983e443c1f06fac88fd57540c7bdaa39b6f153715",
+      "bytes": 1067
+    },
+    {
+      "actual_path": "D:\\slavic-myths\\work\\home-reward-crash-v1-20261029\\world\\playerdata\\a1770000-0000-0000-0000-000000000002.dat",
+      "file": "a1770000-0000-0000-0000-000000000002.dat",
+      "sha256": "dc7be8081689c15640f71b8cc27aceca5b0e9e60a30d498280f9407b68f70d74",
+      "bytes": 784
+    }
+  ],
+  "processes": 3,
+  "deliberate_halts": [
+    61,
+    62
+  ],
+  "result": "PASS actual PlayerList save/load and two process cuts; A one reward, B none; no cores4->6 reroll",
+  "not_tested": [
+    "natural boss kill",
+    "two real clients/network MP",
+    "power loss or filesystem corruption",
+    "inconsistent backups"
+  ]
+}

@@ -1,0 +1,3 @@
+HELLQA_PASS ACTUAL_NEOFORGE_PROCESS_CRASH two halts + three JVMs; actual PlayerList/PlayerDataStorage A.dat; inventory+receipt survive; A one head/heart/4cores; B zero; no reroll 4->6; fixture authority not natural boss kill or real network MP/power loss
+[19:14:28] [Server thread/INFO] [minecraft/GameTestServer]: All 4 required tests passed :)
+BUILD SUCCESSFUL in 30s
