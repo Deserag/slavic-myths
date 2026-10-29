@@ -3,7 +3,7 @@
 <text x="42" y="58" font-family="DejaVu Sans,Arial,sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#f3f1e8">ПЕКЕЛЬНЫЙ ПОСАД — ПОСЛОЙНАЯ КЛАДКА ПРИВРАТНОГО УЗЛА</text>
 <text x="42" y="94" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#b6c8d4">ЛИСТ А3   ·   8 контрольных сечений из 18 уровней   ·   X=42..70 (29 блоков), Z=102..112 (11 блоков)   ·   вид строго сверху</text>
 <line x1="42" y1="110" x2="1948" y2="110" stroke="#506a7e" stroke-width="2" />
-<rect x="42" y="135" width="932" height="320" fill="#1b2b3c" stroke="#39536a" stroke-width="2"/>
+<rect x="42" y="135" width="932" height="338" fill="#1b2b3c" stroke="#39536a" stroke-width="2"/>
 <text x="62" y="170" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#f3f1e8">СЛОЙ Y=0  /  проекция X=42..70, Z=102..112</text>
 <rect x="127" y="197" width="25" height="25" fill="#b6a48b" stroke="#425568" stroke-width="0.55"/>
 <rect x="152" y="197" width="25" height="25" fill="#b6a48b" stroke="#425568" stroke-width="0.55"/>
@@ -328,7 +328,7 @@
 <text x="115" y="347" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="end" fill="#b6c8d4">Z ↓</text>
 <text x="877" y="231" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#f3f1e8">Y=0</text>
 <text x="877" y="265" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#b6c8d4">По указанному блочному правилу</text>
-<rect x="1016" y="135" width="932" height="320" fill="#1b2b3c" stroke="#39536a" stroke-width="2"/>
+<rect x="1016" y="135" width="932" height="338" fill="#1b2b3c" stroke="#39536a" stroke-width="2"/>
 <text x="1036" y="170" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#f3f1e8">СЛОЙ Y=1  /  проекция X=42..70, Z=102..112</text>
 <rect x="1101" y="197" width="25" height="25" fill="#687785" stroke="#425568" stroke-width="0.55"/>
 <rect x="1126" y="197" width="25" height="25" fill="#687785" stroke="#425568" stroke-width="0.55"/>
@@ -653,7 +653,7 @@
 <text x="1089" y="347" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="end" fill="#b6c8d4">Z ↓</text>
 <text x="1851" y="231" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#f3f1e8">Y=1</text>
 <text x="1851" y="265" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#b6c8d4">Арка 7×6 свободна</text>
-<rect x="42" y="475" width="932" height="320" fill="#1b2b3c" stroke="#39536a" stroke-width="2"/>
+<rect x="42" y="475" width="932" height="338" fill="#1b2b3c" stroke="#39536a" stroke-width="2"/>
 <text x="62" y="510" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#f3f1e8">СЛОЙ Y=6  /  проекция X=42..70, Z=102..112</text>
 <rect x="127" y="537" width="25" height="25" fill="#687785" stroke="#425568" stroke-width="0.55"/>
 <rect x="152" y="537" width="25" height="25" fill="#687785" stroke="#425568" stroke-width="0.55"/>
@@ -978,7 +978,7 @@
 <text x="115" y="687" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="end" fill="#b6c8d4">Z ↓</text>
 <text x="877" y="571" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#f3f1e8">Y=6</text>
 <text x="877" y="605" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#b6c8d4">Арка 7×6 свободна</text>
-<rect x="1016" y="475" width="932" height="320" fill="#1b2b3c" stroke="#39536a" stroke-width="2"/>
+<rect x="1016" y="475" width="932" height="338" fill="#1b2b3c" stroke="#39536a" stroke-width="2"/>
 <text x="1036" y="510" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#f3f1e8">СЛОЙ Y=7  /  проекция X=42..70, Z=102..112</text>
 <rect x="1101" y="537" width="25" height="25" fill="#687785" stroke="#425568" stroke-width="0.55"/>
 <rect x="1126" y="537" width="25" height="25" fill="#687785" stroke="#425568" stroke-width="0.55"/>
@@ -1303,7 +1303,7 @@
 <text x="1089" y="687" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="end" fill="#b6c8d4">Z ↓</text>
 <text x="1851" y="571" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#f3f1e8">Y=7</text>
 <text x="1851" y="605" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#b6c8d4">По указанному блочному правилу</text>
-<rect x="42" y="815" width="932" height="320" fill="#1b2b3c" stroke="#39536a" stroke-width="2"/>
+<rect x="42" y="815" width="932" height="338" fill="#1b2b3c" stroke="#39536a" stroke-width="2"/>
 <text x="62" y="850" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#f3f1e8">СЛОЙ Y=8  /  проекция X=42..70, Z=102..112</text>
 <rect x="127" y="877" width="25" height="25" fill="#b6a48b" stroke="#425568" stroke-width="0.55"/>
 <rect x="152" y="877" width="25" height="25" fill="#b6a48b" stroke="#425568" stroke-width="0.55"/>
@@ -1628,7 +1628,7 @@
 <text x="115" y="1027" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="end" fill="#b6c8d4">Z ↓</text>
 <text x="877" y="911" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#f3f1e8">Y=8</text>
 <text x="877" y="945" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#b6c8d4">Палуба / проход сверху</text>
-<rect x="1016" y="815" width="932" height="320" fill="#1b2b3c" stroke="#39536a" stroke-width="2"/>
+<rect x="1016" y="815" width="932" height="338" fill="#1b2b3c" stroke="#39536a" stroke-width="2"/>
 <text x="1036" y="850" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#f3f1e8">СЛОЙ Y=9  /  проекция X=42..70, Z=102..112</text>
 <rect x="1101" y="877" width="25" height="25" fill="#687785" stroke="#425568" stroke-width="0.55"/>
 <rect x="1126" y="877" width="25" height="25" fill="#687785" stroke="#425568" stroke-width="0.55"/>
@@ -1953,7 +1953,7 @@
 <text x="1089" y="1027" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="end" fill="#b6c8d4">Z ↓</text>
 <text x="1851" y="911" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#f3f1e8">Y=9</text>
 <text x="1851" y="945" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#b6c8d4">По указанному блочному правилу</text>
-<rect x="42" y="1155" width="932" height="320" fill="#1b2b3c" stroke="#39536a" stroke-width="2"/>
+<rect x="42" y="1155" width="932" height="338" fill="#1b2b3c" stroke="#39536a" stroke-width="2"/>
 <text x="62" y="1190" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#f3f1e8">СЛОЙ Y=10  /  проекция X=42..70, Z=102..112</text>
 <rect x="127" y="1217" width="25" height="25" fill="#687785" stroke="#425568" stroke-width="0.55"/>
 <rect x="152" y="1217" width="25" height="25" fill="#687785" stroke="#425568" stroke-width="0.55"/>
@@ -2278,7 +2278,7 @@
 <text x="115" y="1367" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="end" fill="#b6c8d4">Z ↓</text>
 <text x="877" y="1251" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#f3f1e8">Y=10</text>
 <text x="877" y="1285" font-family="DejaVu Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#b6c8d4">По указанному блочному правилу</text>
-<rect x="1016" y="1155" width="932" height="320" fill="#1b2b3c" stroke="#39536a" stroke-width="2"/>
+<rect x="1016" y="1155" width="932" height="338" fill="#1b2b3c" stroke="#39536a" stroke-width="2"/>
 <text x="1036" y="1190" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#f3f1e8">СЛОЙ Y=16  /  проекция X=42..70, Z=102..112</text>
 <rect x="1101" y="1217" width="25" height="25" fill="#a84e44" stroke="#425568" stroke-width="0.55"/>
 <rect x="1126" y="1217" width="25" height="25" fill="#a84e44" stroke="#425568" stroke-width="0.55"/>
