@@ -18,9 +18,11 @@ public class FieldBowItem extends BowItem {
     @Override public void releaseUsing(ItemStack stack,Level level,LivingEntity user,int remaining) {
         if(!(user instanceof Player player))return;
         ItemStack ammo=player.getProjectile(stack);
-        if(ammo.isEmpty())return;
-        int held=net.neoforged.neoforge.event.EventHooks.onArrowLoose(stack,level,player,getUseDuration(stack,user)-remaining,true);
+        boolean creative=player.hasInfiniteMaterials();
+        if(ammo.isEmpty()&&!creative)return;
+        int held=net.neoforged.neoforge.event.EventHooks.onArrowLoose(stack,level,player,getUseDuration(stack,user)-remaining,!ammo.isEmpty()||creative);
         if(held<0)return;
+        if(ammo.isEmpty())ammo=new ItemStack(Items.ARROW);
         float power=drawPower(held);if(power<.1)return;
         var list=draw(stack,ammo,player);
         if(level instanceof ServerLevel server&&!list.isEmpty())shoot(server,player,player.getUsedItemHand(),stack,list,power*(heavy?3.6F:2.4F),heavy?.7F:1.1F,power==1,null);
