@@ -1,0 +1,140 @@
+{
+  "model_blocks": 1547,
+  "reachable_ground_tiles": 321,
+  "chests": {
+    "brewing": {
+      "local": [
+        6,
+        1,
+        7
+      ],
+      "city": [
+        82,
+        1,
+        51
+      ],
+      "facing": "south",
+      "loot_table": "slavicmyths:chests/posad_zeleynaya_brewing"
+    },
+    "preparation": {
+      "local": [
+        6,
+        1,
+        13
+      ],
+      "city": [
+        82,
+        1,
+        57
+      ],
+      "facing": "east",
+      "loot_table": "slavicmyths:chests/posad_zeleynaya_preparation"
+    },
+    "drying": {
+      "local": [
+        14,
+        1,
+        7
+      ],
+      "city": [
+        90,
+        1,
+        51
+      ],
+      "facing": "west",
+      "loot_table": "slavicmyths:chests/posad_zeleynaya_drying"
+    },
+    "pantry": {
+      "local": [
+        14,
+        1,
+        13
+      ],
+      "city": [
+        90,
+        1,
+        57
+      ],
+      "facing": "west",
+      "loot_table": "slavicmyths:chests/posad_zeleynaya_pantry"
+    },
+    "storehouse": {
+      "local": [
+        22,
+        1,
+        7
+      ],
+      "city": [
+        98,
+        1,
+        51
+      ],
+      "facing": "west",
+      "loot_table": "slavicmyths:chests/posad_zeleynaya_storehouse"
+    }
+  },
+  "layer_counts": [
+    {
+      "Y": 0,
+      "count": 478
+    },
+    {
+      "Y": 1,
+      "count": 185
+    },
+    {
+      "Y": 2,
+      "count": 129
+    },
+    {
+      "Y": 3,
+      "count": 126
+    },
+    {
+      "Y": 4,
+      "count": 132
+    },
+    {
+      "Y": 5,
+      "count": 112
+    },
+    {
+      "Y": 6,
+      "count": 116
+    },
+    {
+      "Y": 7,
+      "count": 104
+    },
+    {
+      "Y": 8,
+      "count": 78
+    },
+    {
+      "Y": 9,
+      "count": 70
+    },
+    {
+      "Y": 10,
+      "count": 17
+    },
+    {
+      "Y": 11,
+      "count": 0
+    },
+    {
+      "Y": 12,
+      "count": 0
+    }
+  ],
+  "checks": [
+    "in-bounds 25×26",
+    "5 accessible chests from western approach",
+    "canopy/garden path",
+    "2x2 reserve under future workstation"
+  ],
+  "limitations": [
+    "no actual Minecraft or NeoForge runtime tests",
+    "no idempotent city retrofit implemented"
+  ]
+}
