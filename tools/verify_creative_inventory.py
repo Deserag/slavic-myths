@@ -94,7 +94,7 @@ with zipfile.ZipFile(jar) as z:
     names=set(z.namelist())
     require('META-INF/neoforge.mods.toml' in names,'NeoForge metadata')
     require(('version="'+version+'"') in z.read('META-INF/neoforge.mods.toml').decode(),'production version')
-    require(not any(n.startswith(('tools/','smoke/')) or 'CreativeCatalogChecks' in n or '/verify/' in n or 'GameTests.class' in n or 'CreatureFeedbackTests' in n for n in names),'offline/runtime fixtures excluded from production')
+    require(not any(n.startswith(('tools/','smoke/','org/slavicmyths/hellqa/','org/slavicmyths/hellvisualqa/')) or 'CreativeCatalogChecks' in n or '/verify/' in n or 'GameTests.class' in n or 'CreatureFeedbackTests' in n for n in names),'offline/runtime fixtures excluded from production')
     for p in RES.rglob('*'):
         if not p.is_file() or p.name=='neoforge.mods.toml':continue
         key=p.relative_to(RES).as_posix();require(key in names and z.read(key)==p.read_bytes(),'production resource '+key)

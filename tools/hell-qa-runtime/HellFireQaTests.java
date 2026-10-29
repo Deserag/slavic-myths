@@ -5,6 +5,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.GameType;
@@ -52,6 +57,37 @@ public final class HellFireQaTests {
                 HellQaTests.check(w.getBlockState(replaced).is(Blocks.STONE),"Expiry overwrote external replacement");
                 for(var q:List.of(center.west(),center.north(),center.south()))
                     HellQaTests.check(w.isEmptyBlock(q)&&!TemporaryTerrain.leased(w,q),"Real fire failed expiry at "+q);
+                w.removeBlock(replaced,false); // Remove our own replacement only after asserting it survived expiration.
+                rules.getRule(GameRules.RULE_DOFIRETICK).set(true,w.getServer());
+                rules.getRule(GameRules.RULE_MOBGRIEFING).set(true,w.getServer());
+                var online=HellProjectileQaTests.online(p);online.put(p.getUUID(),p);
+                try {
+                    target.setNoAi(true);target.setNoGravity(true);target.getAttribute(Attributes.MAX_HEALTH).setBaseValue(200);target.setHealth(200);
+                    target.moveTo(center.getX()+.5,80.5,center.getZ()+.5);w.addFreshEntity(target);
+                    p.moveTo(center.getX()+.5,80,center.getZ()-2.5,0,0);p.setShiftKeyDown(true);
+                    var bow=HellQaTests.item("infernal_bow");p.setItemInHand(InteractionHand.MAIN_HAND,bow);p.getInventory().setItem(1,new ItemStack(Items.ARROW,2));
+                    p.startUsingItem(InteractionHand.MAIN_HAND);
+                    try {bow.getItem().releaseUsing(bow,w,p,bow.getUseDuration(p)-24);} finally {p.stopUsingItem();}
+                    var arrows=w.getEntitiesOfClass(AbstractArrow.class,p.getBoundingBox().inflate(8),a->a.getOwner()==p);
+                    HellQaTests.check(arrows.size()==1,"Real fire integration did not create one bow arrow");
+                    var arrow=arrows.getFirst();arrow.setCritArrow(false);arrow.tick();arrow.discard();
+                    HellQaTests.check(target.getHealth()==187&&target.getRemainingFireTicks()>=160,"Actual bow hit did not apply skill damage/fire");
+                    for(var q:List.of(center.east(),center.west(),center.north(),center.south())) {
+                        HellQaTests.check(w.getBlockState(q).is(Blocks.FIRE)&&TemporaryTerrain.leased(w,q),"Actual bow hit missing leased surrounding fire "+q);
+                        w.removeBlock(q,false);
+                    }
+                    target.invulnerableTime=0;target.setHealth(200);target.setRemainingFireTicks(0);
+                    var flail=HellQaTests.item("volcanic_heart_flail");p.setItemInHand(InteractionHand.MAIN_HAND,flail);
+                    org.slavicmyths.nethersmithing.NetherSkills.release(p,flail,"volcanic_heart_flail",18);
+                    HellQaTests.check(target.getHealth()==192&&target.getRemainingFireTicks()>=160,"Actual flail pulse damage/fire");
+                    for(var q:List.of(center.east(),center.west(),center.north(),center.south()))
+                        HellQaTests.check(w.getBlockState(q).is(Blocks.FIRE)&&TemporaryTerrain.leased(w,q),"Actual flail pulse missing surrounding fire "+q);
+                    System.out.println("HELLQA_PASS actual special bow projectile hit and actual flail pulse each placed four leased FIRE blocks around target; no helper-only integration claim");
+                } finally {
+                    online.remove(p.getUUID());target.discard();
+                    rules.getRule(GameRules.RULE_DOFIRETICK).set(fireTick,w.getServer());
+                    rules.getRule(GameRules.RULE_MOBGRIEFING).set(griefing,w.getServer());
+                }
                 System.out.println("HELLQA_PASS actual four FIRE blocks; unmarked player floor rejected; external replacement preserved; three scheduled TTL expirations; artificial provenance fixture, not natural spawn/restart/claims proof");
                 t.succeed();
             } finally {w.setChunkForced(chunk.getPos().x,chunk.getPos().z,false);}});

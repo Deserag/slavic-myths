@@ -1101,8 +1101,8 @@
   },
   {
     "registry_id": "slavicmyths:poloz_head",
-    "category": "resources",
-    "order": 107,
+    "category": "heads",
+    "order": 0,
     "group": "legendary_trophies",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/poloz/PolozTrophy.java",
@@ -1112,7 +1112,7 @@
   {
     "registry_id": "slavicmyths:gorynych_scale",
     "category": "resources",
-    "order": 108,
+    "order": 107,
     "group": "legendary_trophies",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
@@ -1122,7 +1122,7 @@
   {
     "registry_id": "slavicmyths:ancient_serpent_steel",
     "category": "resources",
-    "order": 109,
+    "order": 108,
     "group": "legendary_trophies",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
@@ -1132,7 +1132,7 @@
   {
     "registry_id": "slavicmyths:serpent_seal",
     "category": "resources",
-    "order": 110,
+    "order": 109,
     "group": "legendary_trophies",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
@@ -1142,7 +1142,7 @@
   {
     "registry_id": "slavicmyths:heart_of_eternal_cold",
     "category": "resources",
-    "order": 111,
+    "order": 110,
     "group": "legendary_trophies",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/morozko/FrostContent.java",
@@ -1152,7 +1152,7 @@
   {
     "registry_id": "slavicmyths:shard_of_last_night",
     "category": "resources",
-    "order": 112,
+    "order": 111,
     "group": "legendary_trophies",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/karachun/NightContent.java",
@@ -1162,7 +1162,7 @@
   {
     "registry_id": "slavicmyths:cursed_volkolak_skull",
     "category": "resources",
-    "order": 113,
+    "order": 112,
     "group": "legendary_trophies",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -3710,19 +3710,9 @@
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
-    "registry_id": "slavicmyths:invisibility_cap",
-    "category": "armor",
-    "order": 25,
-    "group": "unique",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"invisibility_cap\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
     "registry_id": "slavicmyths:seven_league_boots",
     "category": "armor",
-    "order": 26,
+    "order": 25,
     "group": "unique",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -3732,7 +3722,7 @@
   {
     "registry_id": "slavicmyths:trophy_idol_chest",
     "category": "armor",
-    "order": 27,
+    "order": 26,
     "group": "unique",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
@@ -3742,7 +3732,7 @@
   {
     "registry_id": "slavicmyths:trophy_marinka_cloak",
     "category": "armor",
-    "order": 28,
+    "order": 27,
     "group": "unique",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
@@ -3752,7 +3742,7 @@
   {
     "registry_id": "slavicmyths:trophy_kartaus_mantle",
     "category": "armor",
-    "order": 29,
+    "order": 28,
     "group": "unique",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
@@ -3762,7 +3752,7 @@
   {
     "registry_id": "slavicmyths:woven_belt",
     "category": "armor",
-    "order": 30,
+    "order": 29,
     "group": "belts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/textile/Textiles.java",
@@ -3770,59 +3760,9 @@
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
-    "registry_id": "slavicmyths:hunter_belt",
-    "category": "armor",
-    "order": 31,
-    "group": "belts",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"hunter_belt\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:volchiy_poyas",
-    "category": "armor",
-    "order": 32,
-    "group": "belts",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"volchiy_poyas\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:poyas_tugarina",
-    "category": "armor",
-    "order": 33,
-    "group": "belts",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"poyas_tugarina\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:gift_alyosha_belt",
-    "category": "armor",
-    "order": 34,
-    "group": "belts",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
-    "evidence": "literal item loop List.of(\"gift_dobrynya_ring\",\"gift_alyosha_belt\",\"gift_finist_amulet\",\"trophy_skim_necklace\")",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:underground_guard_belt",
-    "category": "armor",
-    "order": 35,
-    "group": "belts",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/industry/IndustryAccessories.java",
-    "evidence": "register(\"underground_guard_belt\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
     "registry_id": "slavicmyths:perunite_shield",
     "category": "armor",
-    "order": 36,
+    "order": 30,
     "group": "protective",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -3832,7 +3772,7 @@
   {
     "registry_id": "slavicmyths:retainer_shield",
     "category": "armor",
-    "order": 37,
+    "order": 31,
     "group": "protective",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -3842,7 +3782,7 @@
   {
     "registry_id": "slavicmyths:ward_shield",
     "category": "armor",
-    "order": 38,
+    "order": 32,
     "group": "protective",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/equipment/UniqueEquipment.java",
@@ -3852,31 +3792,11 @@
   {
     "registry_id": "slavicmyths:gift_ilya_shield",
     "category": "armor",
-    "order": 39,
+    "order": 33,
     "group": "protective",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
     "evidence": "register(\"gift_ilya_shield\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:miners_goggles",
-    "category": "armor",
-    "order": 40,
-    "group": "protective",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/industry/IndustryAccessories.java",
-    "evidence": "register(\"miners_goggles\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:finist_quiver",
-    "category": "armor",
-    "order": 41,
-    "group": "protective",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/finist/FinistItems.java",
-    "evidence": "ModItems.ITEMS.register(\"finist_quiver\",",
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
@@ -4334,9 +4254,9 @@
     "category": "magic",
     "order": 45,
     "group": "runes_I",
-    "stack_variants": 2,
+    "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/rpg/RuneFoundation.java",
-    "evidence": "expanded existing family: tier<=3; \"blank_rune_\"+t",
+    "evidence": "expanded existing family: tier<=4; \"blank_rune_\"+t",
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
@@ -4404,9 +4324,9 @@
     "category": "magic",
     "order": 52,
     "group": "runes_II",
-    "stack_variants": 2,
+    "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/rpg/RuneFoundation.java",
-    "evidence": "expanded existing family: tier<=3; \"blank_rune_\"+t",
+    "evidence": "expanded existing family: tier<=4; \"blank_rune_\"+t",
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
@@ -4546,7 +4466,7 @@
     "group": "runes_III",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/rpg/RuneFoundation.java",
-    "evidence": "expanded existing family: tier<=3; \"blank_rune_\"+t",
+    "evidence": "expanded existing family: tier<=4; \"blank_rune_\"+t",
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
@@ -4600,47 +4520,47 @@
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
-    "registry_id": "slavicmyths:rune_stomp",
+    "registry_id": "slavicmyths:rune_miner_iii",
     "category": "magic",
     "order": 72,
-    "group": "story_runes",
+    "group": "runes_III",
     "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
-    "evidence": "expanded existing family: \"stomp\",\"dispelling\",\"pursuit\",\"suppression\",\"battle_line\"; register(\"rune_\"+id",
+    "source": "src/main/java/org/slavicmyths/rpg/RuneRework.java",
+    "evidence": "expanded existing family: org.slavicmyths.rpg.tools.ToolRuneRules.IDS",
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
-    "registry_id": "slavicmyths:rune_dispelling",
+    "registry_id": "slavicmyths:rune_excavator_iii",
     "category": "magic",
     "order": 73,
-    "group": "story_runes",
+    "group": "runes_III",
     "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
-    "evidence": "expanded existing family: \"stomp\",\"dispelling\",\"pursuit\",\"suppression\",\"battle_line\"; register(\"rune_\"+id",
+    "source": "src/main/java/org/slavicmyths/rpg/RuneRework.java",
+    "evidence": "expanded existing family: org.slavicmyths.rpg.tools.ToolRuneRules.IDS",
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
-    "registry_id": "slavicmyths:rune_pursuit",
+    "registry_id": "slavicmyths:rune_farmer_iii",
     "category": "magic",
     "order": 74,
-    "group": "story_runes",
+    "group": "runes_III",
     "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
-    "evidence": "expanded existing family: \"stomp\",\"dispelling\",\"pursuit\",\"suppression\",\"battle_line\"; register(\"rune_\"+id",
+    "source": "src/main/java/org/slavicmyths/rpg/RuneRework.java",
+    "evidence": "expanded existing family: org.slavicmyths.rpg.tools.ToolRuneRules.IDS",
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
-    "registry_id": "slavicmyths:rune_suppression",
+    "registry_id": "slavicmyths:rune_lumberjack_iii",
     "category": "magic",
     "order": 75,
-    "group": "story_runes",
+    "group": "runes_III",
     "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
-    "evidence": "expanded existing family: \"stomp\",\"dispelling\",\"pursuit\",\"suppression\",\"battle_line\"; register(\"rune_\"+id",
+    "source": "src/main/java/org/slavicmyths/rpg/RuneRework.java",
+    "evidence": "expanded existing family: org.slavicmyths.rpg.tools.ToolRuneRules.IDS",
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
-    "registry_id": "slavicmyths:rune_battle_line",
+    "registry_id": "slavicmyths:rune_stomp",
     "category": "magic",
     "order": 76,
     "group": "story_runes",
@@ -4650,9 +4570,49 @@
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
-    "registry_id": "slavicmyths:frost_rune",
+    "registry_id": "slavicmyths:rune_dispelling",
     "category": "magic",
     "order": 77,
+    "group": "story_runes",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
+    "evidence": "expanded existing family: \"stomp\",\"dispelling\",\"pursuit\",\"suppression\",\"battle_line\"; register(\"rune_\"+id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rune_pursuit",
+    "category": "magic",
+    "order": 78,
+    "group": "story_runes",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
+    "evidence": "expanded existing family: \"stomp\",\"dispelling\",\"pursuit\",\"suppression\",\"battle_line\"; register(\"rune_\"+id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rune_suppression",
+    "category": "magic",
+    "order": 79,
+    "group": "story_runes",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
+    "evidence": "expanded existing family: \"stomp\",\"dispelling\",\"pursuit\",\"suppression\",\"battle_line\"; register(\"rune_\"+id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rune_battle_line",
+    "category": "magic",
+    "order": 80,
+    "group": "story_runes",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
+    "evidence": "expanded existing family: \"stomp\",\"dispelling\",\"pursuit\",\"suppression\",\"battle_line\"; register(\"rune_\"+id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:frost_rune",
+    "category": "magic",
+    "order": 81,
     "group": "story_runes",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/morozko/FrostContent.java",
@@ -4662,7 +4622,7 @@
   {
     "registry_id": "slavicmyths:rune_of_waning",
     "category": "magic",
-    "order": 78,
+    "order": 82,
     "group": "story_runes",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/karachun/NightContent.java",
@@ -4672,7 +4632,7 @@
   {
     "registry_id": "slavicmyths:rune_mor_breath",
     "category": "magic",
-    "order": 79,
+    "order": 83,
     "group": "story_runes",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
@@ -4682,7 +4642,7 @@
   {
     "registry_id": "slavicmyths:rune_dragon_flame",
     "category": "magic",
-    "order": 80,
+    "order": 84,
     "group": "story_runes",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
@@ -4692,7 +4652,7 @@
   {
     "registry_id": "slavicmyths:rune_storm_strike",
     "category": "magic",
-    "order": 81,
+    "order": 85,
     "group": "story_runes",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
@@ -4702,7 +4662,7 @@
   {
     "registry_id": "slavicmyths:rune_earth_lord_iv",
     "category": "magic",
-    "order": 82,
+    "order": 86,
     "group": "runes_IV",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/poloz/PolozRewards.java",
@@ -4712,7 +4672,7 @@
   {
     "registry_id": "slavicmyths:rune_veles_oath_iv",
     "category": "magic",
-    "order": 83,
+    "order": 87,
     "group": "runes_IV",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/rpg/RuneRework.java",
@@ -4720,59 +4680,9 @@
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
-    "registry_id": "slavicmyths:amber_charm",
-    "category": "magic",
-    "order": 84,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"amber_charm\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:forest_charm",
-    "category": "magic",
-    "order": 85,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"forest_charm\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:hunter_charm",
-    "category": "magic",
-    "order": 86,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"hunter_charm\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:traveler_charm",
-    "category": "magic",
-    "order": 87,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"traveler_charm\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:perun_charm",
-    "category": "magic",
-    "order": 88,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"perun_charm\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
     "registry_id": "slavicmyths:warding_charm",
     "category": "magic",
-    "order": 89,
+    "order": 88,
     "group": "charms",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -4780,109 +4690,9 @@
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
-    "registry_id": "slavicmyths:retribution_charm",
-    "category": "magic",
-    "order": 90,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"retribution_charm\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:obereg_ohotnika",
-    "category": "magic",
-    "order": 91,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"obereg_ohotnika\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:zolny_obereg",
-    "category": "magic",
-    "order": 92,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"zolny_obereg\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:obereg_padayuschey_zvezdy",
-    "category": "magic",
-    "order": 93,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"obereg_padayuschey_zvezdy\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:grave_ward",
-    "category": "magic",
-    "order": 94,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"grave_ward\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:lunula",
-    "category": "magic",
-    "order": 95,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"lunula\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:grivna",
-    "category": "magic",
-    "order": 96,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"grivna\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:perun_ring",
-    "category": "magic",
-    "order": 97,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"perun_ring\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:resin_ring",
-    "category": "magic",
-    "order": 98,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"resin_ring\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:veles_amulet",
-    "category": "magic",
-    "order": 99,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"veles_amulet\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
     "registry_id": "slavicmyths:volkhv_amulet",
     "category": "magic",
-    "order": 100,
+    "order": 89,
     "group": "charms",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -4890,79 +4700,9 @@
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
-    "registry_id": "slavicmyths:prospectors_ring",
-    "category": "magic",
-    "order": 101,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/industry/IndustryAccessories.java",
-    "evidence": "register(\"prospectors_ring\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:stone_path_amulet",
-    "category": "magic",
-    "order": 102,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/industry/IndustryAccessories.java",
-    "evidence": "register(\"stone_path_amulet\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:depth_amulet",
-    "category": "magic",
-    "order": 103,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"depth_amulet\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:ring_of_grey_pack",
-    "category": "magic",
-    "order": 104,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/finist/FinistItems.java",
-    "evidence": "ModItems.ITEMS.register(\"ring_of_grey_pack\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:gift_dobrynya_ring",
-    "category": "magic",
-    "order": 105,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
-    "evidence": "literal item loop List.of(\"gift_dobrynya_ring\",\"gift_alyosha_belt\",\"gift_finist_amulet\",\"trophy_skim_necklace\")",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:gift_finist_amulet",
-    "category": "magic",
-    "order": 106,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
-    "evidence": "literal item loop List.of(\"gift_dobrynya_ring\",\"gift_alyosha_belt\",\"gift_finist_amulet\",\"trophy_skim_necklace\")",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:trophy_skim_necklace",
-    "category": "magic",
-    "order": 107,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
-    "evidence": "literal item loop List.of(\"gift_dobrynya_ring\",\"gift_alyosha_belt\",\"gift_finist_amulet\",\"trophy_skim_necklace\")",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
     "registry_id": "slavicmyths:fading_flame_charm",
     "category": "magic",
-    "order": 108,
+    "order": 90,
     "group": "charms",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/sanctuary/SanctuaryContent.java",
@@ -4970,39 +4710,9 @@
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
-    "registry_id": "slavicmyths:odnoglazyy_obereg",
-    "category": "magic",
-    "order": 109,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
-    "evidence": "ITEMS.register(\"odnoglazyy_obereg\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:black_wing_amulet",
-    "category": "magic",
-    "order": 110,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/karachun/NightContent.java",
-    "evidence": "ModItems.ITEMS.register(\"black_wing_amulet\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
-    "registry_id": "slavicmyths:frost_mirror",
-    "category": "magic",
-    "order": 111,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/morozko/FrostContent.java",
-    "evidence": "ModItems.ITEMS.register(\"frost_mirror\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
     "registry_id": "slavicmyths:mor_ward",
     "category": "magic",
-    "order": 112,
+    "order": 91,
     "group": "charms",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/quest185/Quest185Content.java",
@@ -5010,19 +4720,9 @@
     "scope": "CURRENT_SOURCE_STATIC"
   },
   {
-    "registry_id": "slavicmyths:amulet_two_winters",
-    "category": "magic",
-    "order": 113,
-    "group": "charms",
-    "stack_variants": 1,
-    "source": "src/main/java/org/slavicmyths/winters/WintersContent.java",
-    "evidence": "ModItems.ITEMS.register(\"amulet_two_winters\",",
-    "scope": "CURRENT_SOURCE_STATIC"
-  },
-  {
     "registry_id": "slavicmyths:ancient_idol",
     "category": "magic",
-    "order": 114,
+    "order": 92,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5032,7 +4732,7 @@
   {
     "registry_id": "slavicmyths:altar",
     "category": "magic",
-    "order": 115,
+    "order": 93,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5042,7 +4742,7 @@
   {
     "registry_id": "slavicmyths:path_stone",
     "category": "magic",
-    "order": 116,
+    "order": 94,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5052,7 +4752,7 @@
   {
     "registry_id": "slavicmyths:runic_anvil",
     "category": "magic",
-    "order": 117,
+    "order": 95,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5062,7 +4762,7 @@
   {
     "registry_id": "slavicmyths:badnyak",
     "category": "magic",
-    "order": 118,
+    "order": 96,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5072,7 +4772,7 @@
   {
     "registry_id": "slavicmyths:earth_heart_seal",
     "category": "magic",
-    "order": 119,
+    "order": 97,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/earth/EarthContent.java",
@@ -5082,7 +4782,7 @@
   {
     "registry_id": "slavicmyths:earth_gate_stone",
     "category": "magic",
-    "order": 120,
+    "order": 98,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/earth/EarthContent.java",
@@ -5092,7 +4792,7 @@
   {
     "registry_id": "slavicmyths:earth_pillar_stone",
     "category": "magic",
-    "order": 121,
+    "order": 99,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/earth/EarthContent.java",
@@ -5102,7 +4802,7 @@
   {
     "registry_id": "slavicmyths:earth_shelter_stone",
     "category": "magic",
-    "order": 122,
+    "order": 100,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/earth/EarthContent.java",
@@ -5112,7 +4812,7 @@
   {
     "registry_id": "slavicmyths:putevodny_klubok",
     "category": "magic",
-    "order": 123,
+    "order": 101,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5122,7 +4822,7 @@
   {
     "registry_id": "slavicmyths:vodyanoy_net",
     "category": "magic",
-    "order": 124,
+    "order": 102,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5132,7 +4832,7 @@
   {
     "registry_id": "slavicmyths:pustoy_ritualny_sosud",
     "category": "magic",
-    "order": 125,
+    "order": 103,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5142,7 +4842,7 @@
   {
     "registry_id": "slavicmyths:sosud_ognennogo_dyhaniya",
     "category": "magic",
-    "order": 126,
+    "order": 104,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5152,7 +4852,7 @@
   {
     "registry_id": "slavicmyths:sosud_podveya",
     "category": "magic",
-    "order": 127,
+    "order": 105,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5162,7 +4862,7 @@
   {
     "registry_id": "slavicmyths:uzel_podveya",
     "category": "magic",
-    "order": 128,
+    "order": 106,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5172,7 +4872,7 @@
   {
     "registry_id": "slavicmyths:vetrovoy_uzel",
     "category": "magic",
-    "order": 129,
+    "order": 107,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5182,7 +4882,7 @@
   {
     "registry_id": "slavicmyths:uzel_durnoy_doli",
     "category": "magic",
-    "order": 130,
+    "order": 108,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5192,7 +4892,7 @@
   {
     "registry_id": "slavicmyths:stepnoy_shtandart",
     "category": "magic",
-    "order": 131,
+    "order": 109,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5202,7 +4902,7 @@
   {
     "registry_id": "slavicmyths:beast_challenge_horn",
     "category": "magic",
-    "order": 132,
+    "order": 110,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/skim/SkimContent.java",
@@ -5212,7 +4912,7 @@
   {
     "registry_id": "slavicmyths:mor_horn",
     "category": "magic",
-    "order": 133,
+    "order": 111,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/poloz/PolozContent.java",
@@ -5222,7 +4922,7 @@
   {
     "registry_id": "slavicmyths:morozko_trial_totem",
     "category": "magic",
-    "order": 134,
+    "order": 112,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/morozko/FrostContent.java",
@@ -5232,7 +4932,7 @@
   {
     "registry_id": "slavicmyths:karachun_trial_totem",
     "category": "magic",
-    "order": 135,
+    "order": 113,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/karachun/NightContent.java",
@@ -5242,7 +4942,7 @@
   {
     "registry_id": "slavicmyths:unfading_brazier",
     "category": "magic",
-    "order": 136,
+    "order": 114,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/sanctuary/SanctuaryContent.java",
@@ -5252,7 +4952,7 @@
   {
     "registry_id": "slavicmyths:pure_spring_heart",
     "category": "magic",
-    "order": 137,
+    "order": 115,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/sanctuary/SanctuaryContent.java",
@@ -5262,7 +4962,7 @@
   {
     "registry_id": "slavicmyths:tainted_spring_node",
     "category": "magic",
-    "order": 138,
+    "order": 116,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/sanctuary/SanctuaryContent.java",
@@ -5272,7 +4972,7 @@
   {
     "registry_id": "slavicmyths:ritual_brazier",
     "category": "magic",
-    "order": 139,
+    "order": 117,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/serpenthill/HillContent.java",
@@ -5282,7 +4982,7 @@
   {
     "registry_id": "slavicmyths:defiled_ritual_brazier",
     "category": "magic",
-    "order": 140,
+    "order": 118,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/serpenthill/HillContent.java",
@@ -5292,7 +4992,7 @@
   {
     "registry_id": "slavicmyths:ancient_ritual_slab",
     "category": "magic",
-    "order": 141,
+    "order": 119,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/serpenthill/HillContent.java",
@@ -5302,7 +5002,7 @@
   {
     "registry_id": "slavicmyths:defiled_ritual_slab",
     "category": "magic",
-    "order": 142,
+    "order": 120,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/serpenthill/HillContent.java",
@@ -5312,7 +5012,7 @@
   {
     "registry_id": "slavicmyths:witch_yard_altar",
     "category": "magic",
-    "order": 143,
+    "order": 121,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/marinka/MarinkaContent.java",
@@ -5322,7 +5022,7 @@
   {
     "registry_id": "slavicmyths:guardian_relic_pedestal",
     "category": "magic",
-    "order": 144,
+    "order": 122,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/guardians/GuardianContent.java",
@@ -5332,7 +5032,7 @@
   {
     "registry_id": "slavicmyths:sanctuary_ritual_cache",
     "category": "magic",
-    "order": 145,
+    "order": 123,
     "group": "rituals",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/sanctuary/SanctuaryContent.java",
@@ -5342,7 +5042,7 @@
   {
     "registry_id": "slavicmyths:thunder_stone",
     "category": "magic",
-    "order": 146,
+    "order": 124,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5352,7 +5052,7 @@
   {
     "registry_id": "slavicmyths:gusli",
     "category": "magic",
-    "order": 147,
+    "order": 125,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5362,7 +5062,7 @@
   {
     "registry_id": "slavicmyths:skatert",
     "category": "magic",
-    "order": 148,
+    "order": 126,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5372,7 +5072,7 @@
   {
     "registry_id": "slavicmyths:flying_broom",
     "category": "magic",
-    "order": 149,
+    "order": 127,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5382,7 +5082,7 @@
   {
     "registry_id": "slavicmyths:flying_mortar",
     "category": "magic",
-    "order": 150,
+    "order": 128,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5392,7 +5092,7 @@
   {
     "registry_id": "slavicmyths:pestle",
     "category": "magic",
-    "order": 151,
+    "order": 129,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5402,7 +5102,7 @@
   {
     "registry_id": "slavicmyths:mor_flask",
     "category": "magic",
-    "order": 152,
+    "order": 130,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5412,7 +5112,7 @@
   {
     "registry_id": "slavicmyths:oko_likha",
     "category": "magic",
-    "order": 153,
+    "order": 131,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
@@ -5422,7 +5122,7 @@
   {
     "registry_id": "slavicmyths:wolf_call",
     "category": "magic",
-    "order": 154,
+    "order": 132,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/quest185/Quest185Content.java",
@@ -5432,7 +5132,7 @@
   {
     "registry_id": "slavicmyths:tracker_sense",
     "category": "magic",
-    "order": 155,
+    "order": 133,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/quest185/Quest185Content.java",
@@ -5442,7 +5142,7 @@
   {
     "registry_id": "slavicmyths:sivka_whistle",
     "category": "magic",
-    "order": 156,
+    "order": 134,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/sivka/SivkaContent.java",
@@ -5452,7 +5152,7 @@
   {
     "registry_id": "slavicmyths:ilya_call_token",
     "category": "magic",
-    "order": 157,
+    "order": 135,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/skim/SkimContent.java",
@@ -5462,7 +5162,7 @@
   {
     "registry_id": "slavicmyths:dobrynya_call_emblem",
     "category": "magic",
-    "order": 158,
+    "order": 136,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/skim/SkimContent.java",
@@ -5472,7 +5172,7 @@
   {
     "registry_id": "slavicmyths:alyosha_call_whistle",
     "category": "magic",
-    "order": 159,
+    "order": 137,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/skim/SkimContent.java",
@@ -5482,7 +5182,7 @@
   {
     "registry_id": "slavicmyths:finist_call_feather",
     "category": "magic",
-    "order": 160,
+    "order": 138,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/finist/FinistContent.java",
@@ -5492,7 +5192,7 @@
   {
     "registry_id": "slavicmyths:kartaus_black_seal",
     "category": "magic",
-    "order": 161,
+    "order": 139,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/finist/FinistContent.java",
@@ -5502,7 +5202,7 @@
   {
     "registry_id": "slavicmyths:kalin_battle_seal",
     "category": "magic",
-    "order": 162,
+    "order": 140,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/kalin/KalinContent.java",
@@ -5512,7 +5212,7 @@
   {
     "registry_id": "slavicmyths:gorynych_mor_breath_bottle",
     "category": "magic",
-    "order": 163,
+    "order": 141,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
@@ -5522,7 +5222,7 @@
   {
     "registry_id": "slavicmyths:gorynych_flame_breath_bottle",
     "category": "magic",
-    "order": 164,
+    "order": 142,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
@@ -5532,7 +5232,7 @@
   {
     "registry_id": "slavicmyths:gorynych_storm_breath_bottle",
     "category": "magic",
-    "order": 165,
+    "order": 143,
     "group": "artifacts",
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/gorynych/GorynychContent.java",
@@ -8487,6 +8187,2266 @@
     "stack_variants": 1,
     "source": "src/main/java/org/slavicmyths/mor/MorGrowth.java",
     "evidence": "ModItems.ITEMS.register(\"mor_growth\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:blank_rune_4",
+    "category": "magic",
+    "order": 144,
+    "group": "runes_IV",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rpg/RuneFoundation.java",
+    "evidence": "expanded existing family: tier<=4; \"blank_rune_\"+t",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rune_unbreakable_iv",
+    "category": "magic",
+    "order": 145,
+    "group": "runes_IV",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rpg/RuneRework.java",
+    "evidence": "expanded existing family: AdvancedRuneRules.IDS; RuneBalance.DEFINITIONS; \"rune_\"+id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rune_perun_rage_iv",
+    "category": "magic",
+    "order": 146,
+    "group": "runes_IV",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rpg/RuneRework.java",
+    "evidence": "expanded existing family: AdvancedRuneRules.IDS; RuneBalance.DEFINITIONS; \"rune_\"+id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rune_forest_spirit_iv",
+    "category": "magic",
+    "order": 147,
+    "group": "runes_IV",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rpg/RuneRework.java",
+    "evidence": "expanded existing family: AdvancedRuneRules.IDS; RuneBalance.DEFINITIONS; \"rune_\"+id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rune_mastery_iv",
+    "category": "magic",
+    "order": 148,
+    "group": "runes_IV",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rpg/RuneRework.java",
+    "evidence": "expanded existing family: AdvancedRuneRules.IDS; RuneBalance.DEFINITIONS; \"rune_\"+id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rune_miner_iv",
+    "category": "magic",
+    "order": 149,
+    "group": "runes_IV",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rpg/RuneRework.java",
+    "evidence": "expanded existing family: org.slavicmyths.rpg.tools.ToolRuneRules.IDS",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rune_excavator_iv",
+    "category": "magic",
+    "order": 150,
+    "group": "runes_IV",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rpg/RuneRework.java",
+    "evidence": "expanded existing family: org.slavicmyths.rpg.tools.ToolRuneRules.IDS",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rune_farmer_iv",
+    "category": "magic",
+    "order": 151,
+    "group": "runes_IV",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rpg/RuneRework.java",
+    "evidence": "expanded existing family: org.slavicmyths.rpg.tools.ToolRuneRules.IDS",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rune_lumberjack_iv",
+    "category": "magic",
+    "order": 152,
+    "group": "runes_IV",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rpg/RuneRework.java",
+    "evidence": "expanded existing family: org.slavicmyths.rpg.tools.ToolRuneRules.IDS",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:tugarin_head",
+    "category": "heads",
+    "order": 1,
+    "group": "trophy_heads",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/trophy/TrophyHeads.java",
+    "evidence": "expanded existing family: ModItems.ITEMS.register(k.id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:skim_head",
+    "category": "heads",
+    "order": 2,
+    "group": "trophy_heads",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/trophy/TrophyHeads.java",
+    "evidence": "expanded existing family: ModItems.ITEMS.register(k.id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:cursed_volkolak_head",
+    "category": "heads",
+    "order": 3,
+    "group": "trophy_heads",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/trophy/TrophyHeads.java",
+    "evidence": "expanded existing family: ModItems.ITEMS.register(k.id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:likho_head",
+    "category": "heads",
+    "order": 4,
+    "group": "trophy_heads",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/trophy/TrophyHeads.java",
+    "evidence": "expanded existing family: ModItems.ITEMS.register(k.id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:mor_likho_head",
+    "category": "heads",
+    "order": 5,
+    "group": "trophy_heads",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/trophy/TrophyHeads.java",
+    "evidence": "expanded existing family: ModItems.ITEMS.register(k.id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:large_podzemnik_head",
+    "category": "heads",
+    "order": 6,
+    "group": "trophy_heads",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/trophy/TrophyHeads.java",
+    "evidence": "expanded existing family: ModItems.ITEMS.register(k.id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:invisibility_cap",
+    "category": "accessories",
+    "order": 0,
+    "group": "head",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"invisibility_cap\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:miners_goggles",
+    "category": "accessories",
+    "order": 1,
+    "group": "head",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/industry/IndustryAccessories.java",
+    "evidence": "register(\"miners_goggles\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:black_wing_amulet",
+    "category": "accessories",
+    "order": 2,
+    "group": "necklace",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/karachun/NightContent.java",
+    "evidence": "ModItems.ITEMS.register(\"black_wing_amulet\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:depth_amulet",
+    "category": "accessories",
+    "order": 3,
+    "group": "necklace",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"depth_amulet\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:frost_mirror",
+    "category": "accessories",
+    "order": 4,
+    "group": "necklace",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/morozko/FrostContent.java",
+    "evidence": "ModItems.ITEMS.register(\"frost_mirror\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:gift_finist_amulet",
+    "category": "accessories",
+    "order": 5,
+    "group": "necklace",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
+    "evidence": "literal item loop List.of(\"gift_dobrynya_ring\",\"gift_alyosha_belt\",\"gift_finist_amulet\",\"trophy_skim_necklace\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:grivna",
+    "category": "accessories",
+    "order": 6,
+    "group": "necklace",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"grivna\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:leshy_necklace",
+    "category": "accessories",
+    "order": 7,
+    "group": "necklace",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/accessories/Accessories.java",
+    "evidence": "literal item loop List.of(\"pool_ring\",\"bath_ward\",\"harvest_ring\",\"podvey_belt\",\"leshy_necklace\",\"spark_ring\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:lunula",
+    "category": "accessories",
+    "order": 8,
+    "group": "necklace",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"lunula\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:obereg_padayuschey_zvezdy",
+    "category": "accessories",
+    "order": 9,
+    "group": "necklace",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"obereg_padayuschey_zvezdy\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:odnoglazyy_obereg",
+    "category": "accessories",
+    "order": 10,
+    "group": "necklace",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"odnoglazyy_obereg\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:stone_path_amulet",
+    "category": "accessories",
+    "order": 11,
+    "group": "necklace",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/industry/IndustryAccessories.java",
+    "evidence": "register(\"stone_path_amulet\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:trophy_skim_necklace",
+    "category": "accessories",
+    "order": 12,
+    "group": "necklace",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
+    "evidence": "literal item loop List.of(\"gift_dobrynya_ring\",\"gift_alyosha_belt\",\"gift_finist_amulet\",\"trophy_skim_necklace\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:veles_amulet",
+    "category": "accessories",
+    "order": 13,
+    "group": "necklace",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"veles_amulet\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:zolny_obereg",
+    "category": "accessories",
+    "order": 14,
+    "group": "necklace",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"zolny_obereg\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:gift_dobrynya_ring",
+    "category": "accessories",
+    "order": 15,
+    "group": "ring",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
+    "evidence": "literal item loop List.of(\"gift_dobrynya_ring\",\"gift_alyosha_belt\",\"gift_finist_amulet\",\"trophy_skim_necklace\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:harvest_ring",
+    "category": "accessories",
+    "order": 16,
+    "group": "ring",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/accessories/Accessories.java",
+    "evidence": "literal item loop List.of(\"pool_ring\",\"bath_ward\",\"harvest_ring\",\"podvey_belt\",\"leshy_necklace\",\"spark_ring\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:perun_ring",
+    "category": "accessories",
+    "order": 17,
+    "group": "ring",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"perun_ring\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:pool_ring",
+    "category": "accessories",
+    "order": 18,
+    "group": "ring",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/accessories/Accessories.java",
+    "evidence": "literal item loop List.of(\"pool_ring\",\"bath_ward\",\"harvest_ring\",\"podvey_belt\",\"leshy_necklace\",\"spark_ring\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:prospectors_ring",
+    "category": "accessories",
+    "order": 19,
+    "group": "ring",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/industry/IndustryAccessories.java",
+    "evidence": "register(\"prospectors_ring\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:resin_ring",
+    "category": "accessories",
+    "order": 20,
+    "group": "ring",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"resin_ring\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:ring_of_grey_pack",
+    "category": "accessories",
+    "order": 21,
+    "group": "ring",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/finist/FinistItems.java",
+    "evidence": "ModItems.ITEMS.register(\"ring_of_grey_pack\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:spark_ring",
+    "category": "accessories",
+    "order": 22,
+    "group": "ring",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/accessories/Accessories.java",
+    "evidence": "literal item loop List.of(\"pool_ring\",\"bath_ward\",\"harvest_ring\",\"podvey_belt\",\"leshy_necklace\",\"spark_ring\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:finist_quiver",
+    "category": "accessories",
+    "order": 23,
+    "group": "belt",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/finist/FinistItems.java",
+    "evidence": "ModItems.ITEMS.register(\"finist_quiver\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:gift_alyosha_belt",
+    "category": "accessories",
+    "order": 24,
+    "group": "belt",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/rewards/RewardContent.java",
+    "evidence": "literal item loop List.of(\"gift_dobrynya_ring\",\"gift_alyosha_belt\",\"gift_finist_amulet\",\"trophy_skim_necklace\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:hunter_belt",
+    "category": "accessories",
+    "order": 25,
+    "group": "belt",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"hunter_belt\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:podvey_belt",
+    "category": "accessories",
+    "order": 26,
+    "group": "belt",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/accessories/Accessories.java",
+    "evidence": "literal item loop List.of(\"pool_ring\",\"bath_ward\",\"harvest_ring\",\"podvey_belt\",\"leshy_necklace\",\"spark_ring\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:poyas_tugarina",
+    "category": "accessories",
+    "order": 27,
+    "group": "belt",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"poyas_tugarina\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:underground_guard_belt",
+    "category": "accessories",
+    "order": 28,
+    "group": "belt",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/industry/IndustryAccessories.java",
+    "evidence": "register(\"underground_guard_belt\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:volchiy_poyas",
+    "category": "accessories",
+    "order": 29,
+    "group": "belt",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"volchiy_poyas\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:bath_ward",
+    "category": "accessories",
+    "order": 30,
+    "group": "charm",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/accessories/Accessories.java",
+    "evidence": "literal item loop List.of(\"pool_ring\",\"bath_ward\",\"harvest_ring\",\"podvey_belt\",\"leshy_necklace\",\"spark_ring\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:grave_ward",
+    "category": "accessories",
+    "order": 31,
+    "group": "charm",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"grave_ward\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:retribution_charm",
+    "category": "accessories",
+    "order": 32,
+    "group": "charm",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"retribution_charm\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:amber_charm",
+    "category": "accessories",
+    "order": 33,
+    "group": "offhand",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"amber_charm\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:forest_charm",
+    "category": "accessories",
+    "order": 34,
+    "group": "offhand",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"forest_charm\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:perun_charm",
+    "category": "accessories",
+    "order": 35,
+    "group": "offhand",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"perun_charm\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:traveler_charm",
+    "category": "accessories",
+    "order": 36,
+    "group": "offhand",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"traveler_charm\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:hunter_charm",
+    "category": "accessories",
+    "order": 37,
+    "group": "use",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"hunter_charm\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:obereg_ohotnika",
+    "category": "accessories",
+    "order": 38,
+    "group": "use",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"obereg_ohotnika\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:amulet_two_winters",
+    "category": "accessories",
+    "order": 39,
+    "group": "inventory/use",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/winters/WintersContent.java",
+    "evidence": "ModItems.ITEMS.register(\"amulet_two_winters\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:silver_block",
+    "category": "resources",
+    "order": 113,
+    "group": "metals",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/registry/ModItems.java",
+    "evidence": "ITEMS.register(\"silver_block\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:chud_mining_lantern",
+    "category": "tools",
+    "order": 19,
+    "group": "chud_tools",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/industry/ChudTools.java",
+    "evidence": "ModItems.ITEMS.register(\"chud_mining_lantern\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:chud_master_pickaxe",
+    "category": "tools",
+    "order": 20,
+    "group": "chud_tools",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/industry/ChudTools.java",
+    "evidence": "ModItems.ITEMS.register(\"chud_master_pickaxe\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:chud_multitool_axe",
+    "category": "tools",
+    "order": 21,
+    "group": "chud_tools",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/industry/ChudTools.java",
+    "evidence": "ModItems.ITEMS.register(\"chud_multitool_axe\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:chud_multitool_pickaxe",
+    "category": "tools",
+    "order": 22,
+    "group": "chud_tools",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/industry/ChudTools.java",
+    "evidence": "ModItems.ITEMS.register(\"chud_multitool_pickaxe\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:chud_multitool_shovel",
+    "category": "tools",
+    "order": 23,
+    "group": "chud_tools",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/industry/ChudTools.java",
+    "evidence": "ModItems.ITEMS.register(\"chud_multitool_shovel\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:chud_mining_lift",
+    "category": "tools",
+    "order": 24,
+    "group": "chud_tools",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/industry/ChudTools.java",
+    "evidence": "ModItems.ITEMS.register(\"chud_mining_lift\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_soil",
+    "category": "decor",
+    "order": 216,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"navya_soil\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:mossy_navya_soil",
+    "category": "decor",
+    "order": 217,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"mossy_navya_soil\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_stone",
+    "category": "decor",
+    "order": 218,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"navya_stone\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:cracked_navya_stone",
+    "category": "decor",
+    "order": 219,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"cracked_navya_stone\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:grove_bone_block",
+    "category": "decor",
+    "order": 220,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"grove_bone_block\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:grove_bone_column",
+    "category": "decor",
+    "order": 221,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"grove_bone_column\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:grove_bone_spike",
+    "category": "decor",
+    "order": 222,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"grove_bone_spike\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rooted_navya_stone",
+    "category": "decor",
+    "order": 223,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"rooted_navya_stone\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_log",
+    "category": "decor",
+    "order": 224,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"navya_log\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_wood",
+    "category": "decor",
+    "order": 225,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"navya_wood\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:stripped_navya_log",
+    "category": "decor",
+    "order": 226,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"stripped_navya_log\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:stripped_navya_wood",
+    "category": "decor",
+    "order": 227,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"stripped_navya_wood\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_planks",
+    "category": "decor",
+    "order": 228,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"navya_planks\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_stairs",
+    "category": "decor",
+    "order": 229,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"navya_stairs\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_slab",
+    "category": "decor",
+    "order": 230,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"navya_slab\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_fence",
+    "category": "decor",
+    "order": 231,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"navya_fence\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_fence_gate",
+    "category": "decor",
+    "order": 232,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"navya_fence_gate\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_door",
+    "category": "decor",
+    "order": 233,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"navya_door\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_trapdoor",
+    "category": "decor",
+    "order": 234,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"navya_trapdoor\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_button",
+    "category": "decor",
+    "order": 235,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"navya_button\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_pressure_plate",
+    "category": "decor",
+    "order": 236,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"navya_pressure_plate\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_sign",
+    "category": "decor",
+    "order": 237,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "ModItems.ITEMS.register(\"navya_sign\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_hanging_sign",
+    "category": "decor",
+    "order": 238,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "ModItems.ITEMS.register(\"navya_hanging_sign\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_dry_branches",
+    "category": "decor",
+    "order": 239,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "literal item loop List.of(\"navya_dry_branches\",\"navya_roots\",\"navya_hanging_roots\",\"navya_shrub\",\"ghost_fungus\",\"navya_growth\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_roots",
+    "category": "decor",
+    "order": 240,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "literal item loop List.of(\"navya_dry_branches\",\"navya_roots\",\"navya_hanging_roots\",\"navya_shrub\",\"ghost_fungus\",\"navya_growth\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_hanging_roots",
+    "category": "decor",
+    "order": 241,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "literal item loop List.of(\"navya_dry_branches\",\"navya_roots\",\"navya_hanging_roots\",\"navya_shrub\",\"ghost_fungus\",\"navya_growth\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_shrub",
+    "category": "decor",
+    "order": 242,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "literal item loop List.of(\"navya_dry_branches\",\"navya_roots\",\"navya_hanging_roots\",\"navya_shrub\",\"ghost_fungus\",\"navya_growth\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:ghost_fungus",
+    "category": "decor",
+    "order": 243,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "literal item loop List.of(\"navya_dry_branches\",\"navya_roots\",\"navya_hanging_roots\",\"navya_shrub\",\"ghost_fungus\",\"navya_growth\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_growth",
+    "category": "decor",
+    "order": 244,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "literal item loop List.of(\"navya_dry_branches\",\"navya_roots\",\"navya_hanging_roots\",\"navya_shrub\",\"ghost_fungus\",\"navya_growth\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_sapling",
+    "category": "decor",
+    "order": 245,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"navya_sapling\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_dead_leaves",
+    "category": "decor",
+    "order": 246,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaBlocks.java",
+    "evidence": "add(\"navya_dead_leaves\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navka_spawn_egg",
+    "category": "mobs",
+    "order": 65,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaContent.java",
+    "evidence": "expanded existing family: String name=NAMES.get(kind); name+\"_spawn_egg\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rootling_spawn_egg",
+    "category": "mobs",
+    "order": 66,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaContent.java",
+    "evidence": "expanded existing family: String name=NAMES.get(kind); name+\"_spawn_egg\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:bone_crawler_spawn_egg",
+    "category": "mobs",
+    "order": 67,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaContent.java",
+    "evidence": "expanded existing family: String name=NAMES.get(kind); name+\"_spawn_egg\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_wisp_spawn_egg",
+    "category": "mobs",
+    "order": 68,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaContent.java",
+    "evidence": "expanded existing family: String name=NAMES.get(kind); name+\"_spawn_egg\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:grove_guardian_spawn_egg",
+    "category": "mobs",
+    "order": 69,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaContent.java",
+    "evidence": "expanded existing family: String name=NAMES.get(kind); name+\"_spawn_egg\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_ash",
+    "category": "resources",
+    "order": 114,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaContent.java",
+    "evidence": "literal item loop List.of(\"navya_ash\",\"living_root\",\"bone_thorn\",\"grove_core\",\"guardian_branch\",\"soul_blight\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:living_root",
+    "category": "resources",
+    "order": 115,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaContent.java",
+    "evidence": "literal item loop List.of(\"navya_ash\",\"living_root\",\"bone_thorn\",\"grove_core\",\"guardian_branch\",\"soul_blight\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:bone_thorn",
+    "category": "resources",
+    "order": 116,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaContent.java",
+    "evidence": "literal item loop List.of(\"navya_ash\",\"living_root\",\"bone_thorn\",\"grove_core\",\"guardian_branch\",\"soul_blight\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:grove_core",
+    "category": "resources",
+    "order": 117,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaContent.java",
+    "evidence": "literal item loop List.of(\"navya_ash\",\"living_root\",\"bone_thorn\",\"grove_core\",\"guardian_branch\",\"soul_blight\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:guardian_branch",
+    "category": "resources",
+    "order": 118,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaContent.java",
+    "evidence": "literal item loop List.of(\"navya_ash\",\"living_root\",\"bone_thorn\",\"grove_core\",\"guardian_branch\",\"soul_blight\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:soul_blight",
+    "category": "resources",
+    "order": 119,
+    "group": "navya_grove",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/navya/NavyaContent.java",
+    "evidence": "literal item loop List.of(\"navya_ash\",\"living_root\",\"bone_thorn\",\"grove_core\",\"guardian_branch\",\"soul_blight\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:black_cinder_soil",
+    "category": "decor",
+    "order": 247,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "add(\"black_cinder_soil\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:ash_crust",
+    "category": "decor",
+    "order": 248,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "add(\"ash_crust\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:smoking_cinder",
+    "category": "decor",
+    "order": 249,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "add(\"smoking_cinder\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:charred_stone",
+    "category": "decor",
+    "order": 250,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "literal item loop List.of(\"charred_stone\",\"cracked_charred_stone\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:cracked_charred_stone",
+    "category": "decor",
+    "order": 251,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "literal item loop List.of(\"charred_stone\",\"cracked_charred_stone\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:blackwood_log",
+    "category": "decor",
+    "order": 252,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "literal item loop List.of(\"blackwood_log\",\"charred_blackwood_log\",\"blackwood_wood\",\"charred_blackwood_wood\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:charred_blackwood_log",
+    "category": "decor",
+    "order": 253,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "literal item loop List.of(\"blackwood_log\",\"charred_blackwood_log\",\"blackwood_wood\",\"charred_blackwood_wood\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:blackwood_wood",
+    "category": "decor",
+    "order": 254,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "literal item loop List.of(\"blackwood_log\",\"charred_blackwood_log\",\"blackwood_wood\",\"charred_blackwood_wood\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:charred_blackwood_wood",
+    "category": "decor",
+    "order": 255,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "literal item loop List.of(\"blackwood_log\",\"charred_blackwood_log\",\"blackwood_wood\",\"charred_blackwood_wood\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:blackwood_planks",
+    "category": "decor",
+    "order": 256,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "add(\"blackwood_planks\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:charred_blackwood_leaves",
+    "category": "decor",
+    "order": 257,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "add(\"charred_blackwood_leaves\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:zharenitsa_head",
+    "category": "heads",
+    "order": 7,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "add(\"zharenitsa_head\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:charred_stone_stairs",
+    "category": "decor",
+    "order": 258,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "expanded existing family: id+\"_stairs\"; id+\"_slab\"; id+\"_wall\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:charred_stone_slab",
+    "category": "decor",
+    "order": 259,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "expanded existing family: id+\"_stairs\"; id+\"_slab\"; id+\"_wall\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:charred_stone_wall",
+    "category": "decor",
+    "order": 260,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "expanded existing family: id+\"_stairs\"; id+\"_slab\"; id+\"_wall\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:cracked_charred_stone_stairs",
+    "category": "decor",
+    "order": 261,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "expanded existing family: id+\"_stairs\"; id+\"_slab\"; id+\"_wall\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:cracked_charred_stone_slab",
+    "category": "decor",
+    "order": 262,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "expanded existing family: id+\"_stairs\"; id+\"_slab\"; id+\"_wall\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:cracked_charred_stone_wall",
+    "category": "decor",
+    "order": 263,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "expanded existing family: id+\"_stairs\"; id+\"_slab\"; id+\"_wall\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:blackwood_stairs",
+    "category": "decor",
+    "order": 264,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "add(\"blackwood_stairs\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:blackwood_slab",
+    "category": "decor",
+    "order": 265,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "add(\"blackwood_slab\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:blackwood_fence",
+    "category": "decor",
+    "order": 266,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "add(\"blackwood_fence\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:blackwood_fence_gate",
+    "category": "decor",
+    "order": 267,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "add(\"blackwood_fence_gate\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:blackwood_door",
+    "category": "decor",
+    "order": 268,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "add(\"blackwood_door\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:blackwood_trapdoor",
+    "category": "decor",
+    "order": 269,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "add(\"blackwood_trapdoor\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:blackwood_button",
+    "category": "decor",
+    "order": 270,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "add(\"blackwood_button\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:blackwood_pressure_plate",
+    "category": "decor",
+    "order": 271,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderBlocks.java",
+    "evidence": "add(\"blackwood_pressure_plate\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:zharenitsa_heat_seal",
+    "category": "magic",
+    "order": 153,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/ZharenitsaSeals.java",
+    "evidence": "ModItems.ITEMS.register(\"zharenitsa_heat_seal\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rune_ash_mantle",
+    "category": "magic",
+    "order": 154,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderContent.java",
+    "evidence": "ModItems.ITEMS.register(\"rune_ash_mantle\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:coal_crawler_spawn_egg",
+    "category": "mobs",
+    "order": 70,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderContent.java",
+    "evidence": "expanded existing family: id(k)+\"_spawn_egg\"; k.name().toLowerCase(Locale.ROOT)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:ash_spirit_spawn_egg",
+    "category": "mobs",
+    "order": 71,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderContent.java",
+    "evidence": "expanded existing family: id(k)+\"_spawn_egg\"; k.name().toLowerCase(Locale.ROOT)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:pekelnik_spawn_egg",
+    "category": "mobs",
+    "order": 72,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderContent.java",
+    "evidence": "expanded existing family: id(k)+\"_spawn_egg\"; k.name().toLowerCase(Locale.ROOT)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:sparkling_spawn_egg",
+    "category": "mobs",
+    "order": 73,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderContent.java",
+    "evidence": "expanded existing family: id(k)+\"_spawn_egg\"; k.name().toLowerCase(Locale.ROOT)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:zharenitsa_spawn_egg",
+    "category": "mobs",
+    "order": 74,
+    "group": "nether",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/blackcinder/CinderContent.java",
+    "evidence": "expanded existing family: id(k)+\"_spawn_egg\"; k.name().toLowerCase(Locale.ROOT)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:magma_clot",
+    "category": "resources",
+    "order": 120,
+    "group": "burning_islands_205",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/burningislands/IslandsContent.java",
+    "evidence": "literal item loop List.of(\"magma_clot\",\"magma_core\",\"salamander_hide\",\"crab_claw\",\"magma_rune_fragment\",\"magma_lord_heart\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:magma_core",
+    "category": "resources",
+    "order": 121,
+    "group": "burning_islands_205",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/burningislands/IslandsContent.java",
+    "evidence": "literal item loop List.of(\"magma_clot\",\"magma_core\",\"salamander_hide\",\"crab_claw\",\"magma_rune_fragment\",\"magma_lord_heart\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:salamander_hide",
+    "category": "resources",
+    "order": 122,
+    "group": "burning_islands_205",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/burningislands/IslandsContent.java",
+    "evidence": "literal item loop List.of(\"magma_clot\",\"magma_core\",\"salamander_hide\",\"crab_claw\",\"magma_rune_fragment\",\"magma_lord_heart\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:crab_claw",
+    "category": "resources",
+    "order": 123,
+    "group": "burning_islands_205",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/burningislands/IslandsContent.java",
+    "evidence": "literal item loop List.of(\"magma_clot\",\"magma_core\",\"salamander_hide\",\"crab_claw\",\"magma_rune_fragment\",\"magma_lord_heart\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:magma_rune_fragment",
+    "category": "resources",
+    "order": 124,
+    "group": "burning_islands_205",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/burningislands/IslandsContent.java",
+    "evidence": "literal item loop List.of(\"magma_clot\",\"magma_core\",\"salamander_hide\",\"crab_claw\",\"magma_rune_fragment\",\"magma_lord_heart\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rune_magma_1",
+    "category": "magic",
+    "order": 155,
+    "group": "burning_islands_205",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/burningislands/IslandsContent.java",
+    "evidence": "expanded existing family: tier<=2; String id=\"rune_magma_\"+tier; ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rune_magma_2",
+    "category": "magic",
+    "order": 156,
+    "group": "burning_islands_205",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/burningislands/IslandsContent.java",
+    "evidence": "expanded existing family: tier<=2; String id=\"rune_magma_\"+tier; ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:magma_lord_heart",
+    "category": "resources",
+    "order": 125,
+    "group": "burning_islands_205",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/burningislands/IslandsContent.java",
+    "evidence": "literal item loop List.of(\"magma_clot\",\"magma_core\",\"salamander_hide\",\"crab_claw\",\"magma_rune_fragment\",\"magma_lord_heart\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:magma_lord_head",
+    "category": "heads",
+    "order": 8,
+    "group": "burning_islands_205",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/trophy/TrophyHeads.java",
+    "evidence": "expanded existing family: ModItems.ITEMS.register(k.id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:heat_salamander_spawn_egg",
+    "category": "mobs",
+    "order": 75,
+    "group": "burning_islands_205",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/burningislands/IslandsContent.java",
+    "evidence": "expanded existing family: id(k)+\"_spawn_egg\"; k.name().toLowerCase(Locale.ROOT)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:slag_crab_spawn_egg",
+    "category": "mobs",
+    "order": 76,
+    "group": "burning_islands_205",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/burningislands/IslandsContent.java",
+    "evidence": "expanded existing family: id(k)+\"_spawn_egg\"; k.name().toLowerCase(Locale.ROOT)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:vent_golem_spawn_egg",
+    "category": "mobs",
+    "order": 77,
+    "group": "burning_islands_205",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/burningislands/IslandsContent.java",
+    "evidence": "expanded existing family: id(k)+\"_spawn_egg\"; k.name().toLowerCase(Locale.ROOT)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:magma_lord_spawn_egg",
+    "category": "mobs",
+    "order": 78,
+    "group": "burning_islands_205",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/burningislands/IslandsContent.java",
+    "evidence": "expanded existing family: id(k)+\"_spawn_egg\"; k.name().toLowerCase(Locale.ROOT)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:lost_hall_stone",
+    "category": "decor",
+    "order": 272,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsBlocks.java",
+    "evidence": "literal item loop List.of(\"lost_hall_stone\",\"cracked_lost_hall_stone\",\"polished_lost_hall_stone\",\"luminous_vein_stone\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:cracked_lost_hall_stone",
+    "category": "decor",
+    "order": 273,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsBlocks.java",
+    "evidence": "literal item loop List.of(\"lost_hall_stone\",\"cracked_lost_hall_stone\",\"polished_lost_hall_stone\",\"luminous_vein_stone\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:polished_lost_hall_stone",
+    "category": "decor",
+    "order": 274,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsBlocks.java",
+    "evidence": "literal item loop List.of(\"lost_hall_stone\",\"cracked_lost_hall_stone\",\"polished_lost_hall_stone\",\"luminous_vein_stone\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:luminous_vein_stone",
+    "category": "decor",
+    "order": 275,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsBlocks.java",
+    "evidence": "literal item loop List.of(\"lost_hall_stone\",\"cracked_lost_hall_stone\",\"polished_lost_hall_stone\",\"luminous_vein_stone\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:cave_coating",
+    "category": "decor",
+    "order": 276,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsBlocks.java",
+    "evidence": "add(\"cave_coating\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:lost_halls_waymark",
+    "category": "decor",
+    "order": 277,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsBlocks.java",
+    "evidence": "add(\"lost_halls_waymark\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:lost_whisper_thread",
+    "category": "resources",
+    "order": 126,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsContent.java",
+    "evidence": "literal item loop List.of(\"lost_whisper_thread\",\"lightvein_shard\",\"echo_vial\",\"spore_pouch\",\"posten_heart\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:lightvein_shard",
+    "category": "resources",
+    "order": 127,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsContent.java",
+    "evidence": "literal item loop List.of(\"lost_whisper_thread\",\"lightvein_shard\",\"echo_vial\",\"spore_pouch\",\"posten_heart\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:echo_vial",
+    "category": "resources",
+    "order": 128,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsContent.java",
+    "evidence": "literal item loop List.of(\"lost_whisper_thread\",\"lightvein_shard\",\"echo_vial\",\"spore_pouch\",\"posten_heart\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:spore_pouch",
+    "category": "resources",
+    "order": 129,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsContent.java",
+    "evidence": "literal item loop List.of(\"lost_whisper_thread\",\"lightvein_shard\",\"echo_vial\",\"spore_pouch\",\"posten_heart\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:lost_halls_tuning_fork",
+    "category": "tools",
+    "order": 25,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsContent.java",
+    "evidence": "ModItems.ITEMS.register(\"lost_halls_tuning_fork\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:posten_heart",
+    "category": "resources",
+    "order": 130,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsContent.java",
+    "evidence": "literal item loop List.of(\"lost_whisper_thread\",\"lightvein_shard\",\"echo_vial\",\"spore_pouch\",\"posten_heart\")",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:rune_shadow_face",
+    "category": "resources",
+    "order": 131,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/ShadowFace.java",
+    "evidence": "ModItems.ITEMS.register(\"rune_shadow_face\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:grove_guardian_head",
+    "category": "heads",
+    "order": 9,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/trophy/TrophyHeads.java",
+    "evidence": "expanded existing family: ModItems.ITEMS.register(k.id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:posten_head",
+    "category": "heads",
+    "order": 10,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/trophy/TrophyHeads.java",
+    "evidence": "expanded existing family: ModItems.ITEMS.register(k.id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:lost_hall_stone_stairs",
+    "category": "decor",
+    "order": 278,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsBlocks.java",
+    "evidence": "expanded existing family: base+\"_stairs\"; base+\"_slab\"; base+\"_wall\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:lost_hall_stone_slab",
+    "category": "decor",
+    "order": 279,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsBlocks.java",
+    "evidence": "expanded existing family: base+\"_stairs\"; base+\"_slab\"; base+\"_wall\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:lost_hall_stone_wall",
+    "category": "decor",
+    "order": 280,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsBlocks.java",
+    "evidence": "expanded existing family: base+\"_stairs\"; base+\"_slab\"; base+\"_wall\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:polished_lost_hall_stone_stairs",
+    "category": "decor",
+    "order": 281,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsBlocks.java",
+    "evidence": "expanded existing family: base+\"_stairs\"; base+\"_slab\"; base+\"_wall\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:polished_lost_hall_stone_slab",
+    "category": "decor",
+    "order": 282,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsBlocks.java",
+    "evidence": "expanded existing family: base+\"_stairs\"; base+\"_slab\"; base+\"_wall\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:polished_lost_hall_stone_wall",
+    "category": "decor",
+    "order": 283,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsBlocks.java",
+    "evidence": "expanded existing family: base+\"_stairs\"; base+\"_slab\"; base+\"_wall\"",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:sheptun_spawn_egg",
+    "category": "mobs",
+    "order": 79,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsContent.java",
+    "evidence": "expanded existing family: id(k)+\"_spawn_egg\"; k.name().toLowerCase(Locale.ROOT)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:oskolnik_spawn_egg",
+    "category": "mobs",
+    "order": 80,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsContent.java",
+    "evidence": "expanded existing family: id(k)+\"_spawn_egg\"; k.name().toLowerCase(Locale.ROOT)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:gulokryl_spawn_egg",
+    "category": "mobs",
+    "order": 81,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsContent.java",
+    "evidence": "expanded existing family: id(k)+\"_spawn_egg\"; k.name().toLowerCase(Locale.ROOT)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:ekhovik_spawn_egg",
+    "category": "mobs",
+    "order": 82,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsContent.java",
+    "evidence": "expanded existing family: id(k)+\"_spawn_egg\"; k.name().toLowerCase(Locale.ROOT)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:griboshmyg_spawn_egg",
+    "category": "mobs",
+    "order": 83,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/HallsContent.java",
+    "evidence": "expanded existing family: id(k)+\"_spawn_egg\"; k.name().toLowerCase(Locale.ROOT)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:posten_spawn_egg",
+    "category": "mobs",
+    "order": 84,
+    "group": "nether_lost_halls",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/losthalls/PostenMob.java",
+    "evidence": "ModItems.ITEMS.register(\"posten_spawn_egg\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:livingstone_ore",
+    "category": "resources",
+    "order": 132,
+    "group": "nether_minerals",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/netherores/NetherOres.java",
+    "evidence": "expanded existing family: new ArrayList<>(ORES); items.addAll(ROASTED); ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:alatyrite_ore",
+    "category": "resources",
+    "order": 133,
+    "group": "nether_minerals",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/netherores/NetherOres.java",
+    "evidence": "expanded existing family: new ArrayList<>(ORES); items.addAll(ROASTED); ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:runnik_ore",
+    "category": "resources",
+    "order": 134,
+    "group": "nether_minerals",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/netherores/NetherOres.java",
+    "evidence": "expanded existing family: new ArrayList<>(ORES); items.addAll(ROASTED); ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:infernal_ore",
+    "category": "resources",
+    "order": 135,
+    "group": "nether_minerals",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/netherores/NetherOres.java",
+    "evidence": "expanded existing family: new ArrayList<>(ORES); items.addAll(ROASTED); ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:sulfur_deposit",
+    "category": "resources",
+    "order": 136,
+    "group": "nether_minerals",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/netherores/NetherOres.java",
+    "evidence": "expanded existing family: new ArrayList<>(ORES); items.addAll(ROASTED); ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:raw_livingstone",
+    "category": "resources",
+    "order": 137,
+    "group": "nether_minerals",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/netherores/NetherOres.java",
+    "evidence": "expanded existing family: new ArrayList<>(ORES); items.addAll(ROASTED); ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:raw_alatyrite",
+    "category": "resources",
+    "order": 138,
+    "group": "nether_minerals",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/netherores/NetherOres.java",
+    "evidence": "expanded existing family: new ArrayList<>(ORES); items.addAll(ROASTED); ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:raw_runnik",
+    "category": "resources",
+    "order": 139,
+    "group": "nether_minerals",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/netherores/NetherOres.java",
+    "evidence": "expanded existing family: new ArrayList<>(ORES); items.addAll(ROASTED); ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:raw_infernal_shard",
+    "category": "resources",
+    "order": 140,
+    "group": "nether_minerals",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/netherores/NetherOres.java",
+    "evidence": "expanded existing family: new ArrayList<>(ORES); items.addAll(ROASTED); ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:sulfur",
+    "category": "resources",
+    "order": 141,
+    "group": "nether_minerals",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/netherores/NetherOres.java",
+    "evidence": "expanded existing family: new ArrayList<>(ORES); items.addAll(ROASTED); ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:roasted_livingstone",
+    "category": "resources",
+    "order": 142,
+    "group": "nether_minerals",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/netherores/NetherOres.java",
+    "evidence": "expanded existing family: new ArrayList<>(ORES); items.addAll(ROASTED); ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:roasted_alatyrite",
+    "category": "resources",
+    "order": 143,
+    "group": "nether_minerals",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/netherores/NetherOres.java",
+    "evidence": "expanded existing family: new ArrayList<>(ORES); items.addAll(ROASTED); ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:roasted_runnik",
+    "category": "resources",
+    "order": 144,
+    "group": "nether_minerals",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/netherores/NetherOres.java",
+    "evidence": "expanded existing family: new ArrayList<>(ORES); items.addAll(ROASTED); ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:roasted_infernal_shard",
+    "category": "resources",
+    "order": 145,
+    "group": "nether_minerals",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/netherores/NetherOres.java",
+    "evidence": "expanded existing family: new ArrayList<>(ORES); items.addAll(ROASTED); ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:alatyr_ingot",
+    "category": "resources",
+    "order": 146,
+    "group": "nether_minerals",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/netherores/NetherOres.java",
+    "evidence": "expanded existing family: new ArrayList<>(ORES); items.addAll(ROASTED); ModItems.ITEMS.register(id",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:nether_hardening_template",
+    "category": "resources",
+    "order": 147,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "ModItems.ITEMS.register(\"nether_hardening_template\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:zhara_plate",
+    "category": "resources",
+    "order": 148,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:four_faces_crown_core",
+    "category": "resources",
+    "order": 149,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:infernal_armor_heart",
+    "category": "resources",
+    "order": 150,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_armor_weave",
+    "category": "resources",
+    "order": 151,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:blazing_step_seal",
+    "category": "resources",
+    "order": 152,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:pekelnik_ember",
+    "category": "resources",
+    "order": 153,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_fork_core",
+    "category": "resources",
+    "order": 154,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:ashen_blade_core",
+    "category": "resources",
+    "order": 155,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:shadow_knife_core",
+    "category": "resources",
+    "order": 156,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:volcanic_flail_core",
+    "category": "resources",
+    "order": 157,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:infernal_bow_core",
+    "category": "resources",
+    "order": 158,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:zhara_sword",
+    "category": "weapons",
+    "order": 68,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:zhara_axe",
+    "category": "weapons",
+    "order": 69,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:zhara_spear",
+    "category": "weapons",
+    "order": 70,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:zhara_sulitsa",
+    "category": "weapons",
+    "order": 71,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:zhara_throwing_knife",
+    "category": "weapons",
+    "order": 72,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:zhara_flail",
+    "category": "weapons",
+    "order": 73,
+    "group": "nether_smithing",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherSmithing.java",
+    "evidence": "expanded existing family: for(String id:MATERIALS); \"zhara_\"+form",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:zhara_helmet",
+    "category": "armor",
+    "order": 34,
+    "group": "nether_equipment",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherArmor.java",
+    "evidence": "expanded existing family: NetherArmorRules.id(king,type); new Piece(king,type)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:zhara_chestplate",
+    "category": "armor",
+    "order": 35,
+    "group": "nether_equipment",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherArmor.java",
+    "evidence": "expanded existing family: NetherArmorRules.id(king,type); new Piece(king,type)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:zhara_leggings",
+    "category": "armor",
+    "order": 36,
+    "group": "nether_equipment",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherArmor.java",
+    "evidence": "expanded existing family: NetherArmorRules.id(king,type); new Piece(king,type)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:zhara_boots",
+    "category": "armor",
+    "order": 37,
+    "group": "nether_equipment",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherArmor.java",
+    "evidence": "expanded existing family: NetherArmorRules.id(king,type); new Piece(king,type)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:infernal_crown_helmet",
+    "category": "armor",
+    "order": 38,
+    "group": "nether_equipment",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherArmor.java",
+    "evidence": "expanded existing family: NetherArmorRules.id(king,type); new Piece(king,type)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:infernal_king_cuirass",
+    "category": "armor",
+    "order": 39,
+    "group": "nether_equipment",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherArmor.java",
+    "evidence": "expanded existing family: NetherArmorRules.id(king,type); new Piece(king,type)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:infernal_king_leggings",
+    "category": "armor",
+    "order": 40,
+    "group": "nether_equipment",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherArmor.java",
+    "evidence": "expanded existing family: NetherArmorRules.id(king,type); new Piece(king,type)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:infernal_king_boots",
+    "category": "armor",
+    "order": 41,
+    "group": "nether_equipment",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherArmor.java",
+    "evidence": "expanded existing family: NetherArmorRules.id(king,type); new Piece(king,type)",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:navya_ostroga",
+    "category": "weapons",
+    "order": 74,
+    "group": "nether_special",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherWeapons.java",
+    "evidence": "ModItems.ITEMS.register(\"navya_ostroga\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:ashen_greatsword",
+    "category": "weapons",
+    "order": 75,
+    "group": "nether_special",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherWeapons.java",
+    "evidence": "ModItems.ITEMS.register(\"ashen_greatsword\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:shadow_throwing_knife",
+    "category": "weapons",
+    "order": 76,
+    "group": "nether_special",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherWeapons.java",
+    "evidence": "ModItems.ITEMS.register(\"shadow_throwing_knife\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:volcanic_heart_flail",
+    "category": "weapons",
+    "order": 77,
+    "group": "nether_special",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherWeapons.java",
+    "evidence": "ModItems.ITEMS.register(\"volcanic_heart_flail\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:infernal_bow",
+    "category": "weapons",
+    "order": 78,
+    "group": "nether_special",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/nethersmithing/NetherWeapons.java",
+    "evidence": "ModItems.ITEMS.register(\"infernal_bow\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:infernal_coal",
+    "category": "resources",
+    "order": 159,
+    "group": "nether_station",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/infernalfurnace/InfernalFurnace.java",
+    "evidence": "ModItems.ITEMS.register(\"infernal_coal\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:infernal_furnace",
+    "category": "decor",
+    "order": 284,
+    "group": "nether_station",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/infernalfurnace/InfernalFurnace.java",
+    "evidence": "ModItems.ITEMS.register(\"infernal_furnace\",",
+    "scope": "CURRENT_SOURCE_STATIC"
+  },
+  {
+    "registry_id": "slavicmyths:nether_aura_amulet",
+    "category": "accessories",
+    "order": 40,
+    "group": "nether_protection",
+    "stack_variants": 1,
+    "source": "src/main/java/org/slavicmyths/winters/WintersContent.java",
+    "evidence": "ModItems.ITEMS.register(\"nether_aura_amulet\",",
     "scope": "CURRENT_SOURCE_STATIC"
   }
 ]

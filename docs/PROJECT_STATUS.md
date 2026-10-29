@@ -1,3 +1,5 @@
+> 29.10.2026 — домашняя стабилизация IN_PROGRESS: hell e760aabb, Java21 clean build/resources PASS; структуры105/105 на5seed, физические биомы20/20 на5seed, общий35/35 и CI35/35. Исправлены RU heads и устаревшие Creative QA; Xvfb GUI выполняется только в GitHub-hosted VM. Testing JAR установлен с квитанцией. Art/audio/owner acceptance не получены. [Матрица и доказательства](implementation/home-desktop-sync-20261029/REPORT.md).
+
 > Актуальный checkpoint 29.10.2026: 2.1.4/2.1.6 реализованы с разрешением всех девяти биомов Незера; редкость подобрана на пяти seed. Исправлена native generation 2.1.5. Итоговый 2.1.6-HELL установлен в тестовый PolyMC, GUI 0; headless 105/105 и 32/32, оба GitHub CI SUCCESS. [Код, SHA, отчёт, NOT_RUN и checklist](implementation/2.1.6-trizna-pyre/STATUS.md). Старые BLOCKED_TZ для 2.1.4/2.1.6 и FAIL natural 2.1.5 ниже — исторические. 2.1.7 без ТЗ; 2.1.8/2.1.9 исключены.
 
 > 29.10.2026: 2.1.5 native generation repaired; five-seed headless85/85, crafted floor protection from delta/basalt features, exact source designs retained. [Evidence and limitations](implementation/2.1.5-ancestor-shrine/STATUS.md). 2.1.4 implemented;2.1.6 authorized all9biomes;2.1.7 blocked specification;2.1.8/9 excluded.
@@ -3275,3 +3277,5 @@ hell, source f9beb28d: зарегистрированы три нейтраль�
 29.10.2026 G3: Адская печь и Адский уголь реализованы как функциональный прототип; vanilla furnace NBT/recipes/XP/progress и строгий fuel gate. Параметры BALANCE_OWNER_PENDING, игровой результат NOT_RUN. См. implementation/2026-10-29-hell-remaining/FURNACE_IMPLEMENTATION.md.
 
 29.10 remaining debts: source52 current combat actions for20 Nether entities (without HP/damage rebalance), sulfur heat bias/surface range, independent nether_aura necklace prototype, StormStaff offline norm48/42. Реальные worldgen/combat/Curios tests NOT_RUN. См. implementation/2026-10-29-hell-remaining/REMAINING_DEBTS_IMPLEMENTATION.md.
+
+29.10.2026 home desktop: hell a5def9a9 synchronized; Java21 clean build/resources PASS; native baseline32/32 seed20261024 PASS; Testing PolyMC2.1.6 installed. GUI BLOCKED_ISOLATION, survival/MP/relog NOT_RUN; master scope IN_PROGRESS. See implementation/home-desktop-sync-20261029/REPORT.md.

@@ -1,3 +1,5 @@
+> Обновление домашнего QA29.10.2026: актуальные ограниченные headless результаты и source SHA в [матрице](../home-desktop-sync-20261029/ACCEPTANCE.md). Ниже исходная таблица первичных жалоб. O-01 проверен на initial tick в3измерениях; O-07 —4BlockItem/BE/rotations/drop; O-08 —тело босса/нейтральная саламандра. Эти PASS не заменяют complete lifecycle/visual/MP. Новые жалобы #349 перечислены ниже. Другой чат напрямую недоступен: CHAT_SOURCE_NOT_DIRECTLY_ACCESSIBLE.
+
 # Реестр ранее выявленных владельцем ошибок — обязательные повторные тесты
 **Создан 29.10.2026.** Источники — ранее записанные пользовательские замечания в GitHub [#327](https://github.com/Deserag/slavic-myths/issues/327), [#331](https://github.com/Deserag/slavic-myths/issues/331), [#332](https://github.com/Deserag/slavic-myths/issues/332) и дочерних. Список **не претендует на полный доступ к другому чату**: если там есть дополнительные отдельные наблюдения, Codex должен получить их из реально доступной истории/Issues, включить сюда, не приписывать владельцу неподтверждённые жалобы. **Ни один пункт ниже ещё не прошёл новый игровой ретест 29.10.2026.** Не закрывать ошибку на основании одного source fix.
 
@@ -19,3 +21,15 @@
 Для каждого пункта после выполнения указать **head SHA**, установленный test JAR SHA256, сид, XYZ, `/locate biome`/команды (где уместно), OP vs survival, шаги, фактический результат и ссылку на лог/кадр. Разрешённые статусы: `REPRODUCED_FAIL`, `REPRODUCED_FIXED`, `NOT_REPRODUCED_CURRENT_BUILD`, `BLOCKED`, `NOT_RUN`. При `NOT_REPRODUCED_CURRENT_BUILD` показать минимум 3 воспроизведения/попытки; не объявлять, что исходная жалоба была неверной. Добавить остальные достоверные владельческие замечания из доступных источников, не изобретая их.
 
 **Доступ к другому ChatGPT-чату напрямую не подтверждён в этом GitHub-документе.** Если Codex не может его прочитать — статус `CHAT_SOURCE_NOT_DIRECTLY_ACCESSIBLE`; новые детали владелец и Codex смогут добавить отдельно, но это не освобождает от тестирования всех известных проблем.
+
+
+## Добавлено из #349 — точный scope
+| ID | Owner requirement | Current result | Evidence |
+|---|---|---|---|
+| O-12 | King cape/body anchor, colors/glow, Steve/Alex; approved design сохранить | GUI run IN_PROGRESS; native UV/vertices проверены, визуальный PASS не дан | home-desktop-sync-20261029/ENVIRONMENT.md |
+| O-13 | Infernal bow actual creative/survival shots/ammo/special/CD/hit | HEADLESS_PASS для ammo/undercharge/one arrow/one consumption/damage/fire; actual GUI pending | bow349.log, fire-integration-v4.log |
+| O-14 | Short/heavy bow GUI/first/third orientation/draw | source/timing есть, current in-game visual pending | GitHub isolated visual40904333746 |
+| O-15 | Separate heads tab, six Chud tools category, RU/EN | Java2115 + static20005 PASS; explicit RU heads добавлена; actual creative tab GUI NOT_RUN | creative-inventory/GATES.json |
+| O-16 | Chud4 approved16×16preview before production replacement | OWNER_PENDING; финальныеPNG не менялись | chud298-preview-20261027/APPROVED_REFERENCE.md |
+
+Source: [#349](https://github.com/Deserag/slavic-myths/issues/349), [#298](https://github.com/Deserag/slavic-myths/issues/298). Не приписывать первичным регрессиям эти статусы как полную приёмку.

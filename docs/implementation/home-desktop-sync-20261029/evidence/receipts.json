@@ -1,0 +1,142 @@
+[
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\gametest.log",
+    "sha256": "4a62e4d33023cb37ee14447621d788166c2747ea25884f6e3ecfd55266d7a007",
+    "summary": [
+      "32"
+    ],
+    "failure": false
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\bow349.log",
+    "sha256": "4324fd305c7b40d58579222fb57a7175c367426a354594d97c5b31e2f65b1d48",
+    "summary": [
+      "33"
+    ],
+    "failure": false
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\full-final.log",
+    "sha256": "ee8c530875ef1c647f08e177b387bbe2979347f145d778b2bb11e7c666460e51",
+    "summary": [],
+    "failure": true
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\full-fire-v2.log",
+    "sha256": "00052ee74e14411cf4bda9fead43099e916efbaf4d596ad71ffc0c4de3e47168",
+    "summary": [],
+    "failure": true
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\full-queue-v3.log",
+    "sha256": "f26238b98bf0c2daa6f01cc77de01c5e09842d3cc34450f182a66f29af3f9969",
+    "summary": [
+      "35"
+    ],
+    "failure": false
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\native-gear.log",
+    "sha256": "f9b517bb85ba3fec6b571a43b6c848fdc7ae0a24ebff37590ab6ed784da673d8",
+    "summary": [],
+    "failure": false
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\final-clean-build.log",
+    "sha256": "3eca3e6e6078e9da4cb3baa4721106780f10dccb190dfe6197a0d21558f2676a",
+    "summary": [],
+    "failure": false
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\creative-offline.log",
+    "sha256": "a3dc75ccbd8be0d4302985f1e1575ab8b16ad032ae047ccc8a19102d46b3aceb",
+    "summary": [],
+    "failure": false
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\visual-compile.log",
+    "sha256": "4935afc5803523ceffff0fa4edc72729cf5a919eb8a6ec2c17a31558f98684f3",
+    "summary": [],
+    "failure": false
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\seed-20261024.log",
+    "sha256": "3ab31d7a1de596976b7404a8bfae842536e142f8ec6d52dd51496469d048f7f3",
+    "summary": [
+      "21"
+    ],
+    "failure": false
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\seed-20261025.log",
+    "sha256": "40fa3eb48cabf25c5cbb436571ae0f1b1bf63519d612814e2326737c06d52245",
+    "summary": [
+      "21"
+    ],
+    "failure": false
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\seed-20261026.log",
+    "sha256": "9b6a1c20044179e54a07f76cbafdd0f1bd3a66dae7191fba2d43ba94c77f2b2f",
+    "summary": [
+      "21"
+    ],
+    "failure": false
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\seed-3412026.log",
+    "sha256": "a95bec97c193b88af49783c988e8406d7be00dbfae11d45bfe6e6f3273d6eda3",
+    "summary": [
+      "21"
+    ],
+    "failure": false
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\seed-9132026.log",
+    "sha256": "4823e42ea3252385da628214ac9129a9c278d2b73d183d10505d4bf02e9d575b",
+    "summary": [
+      "21"
+    ],
+    "failure": false
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\biomes-v2-20261024.log",
+    "sha256": "38961fb006404bc0d53afa6636977a84ac6e9f1a930809bf26c063ef5498f9df",
+    "summary": [
+      "4"
+    ],
+    "failure": false
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\biomes-v2-20261025.log",
+    "sha256": "e4cc7f1997a6f811167b5d8db46a2c8aba0b2945bd452ce87dad9e4aad530c6a",
+    "summary": [
+      "4"
+    ],
+    "failure": false
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\biomes-v2-20261026.log",
+    "sha256": "47350ea9b67042deecc8c3e0cd8bb479a6d338402cbfbf291a7448b97d72fdcf",
+    "summary": [
+      "4"
+    ],
+    "failure": false
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\biomes-v2-3412026.log",
+    "sha256": "b2157f5851a778f262ea49712c57f48fc63d36c0eab8ee0870db8667335aa578",
+    "summary": [
+      "4"
+    ],
+    "failure": false
+  },
+  {
+    "log": "D:\\slavic-myths-backups\\home-sync-20261029\\biomes-v2-9132026.log",
+    "sha256": "330c7a7330f670887cde5dfc100beaabcb91730c5ab0f297ec212035067b0695",
+    "summary": [
+      "4"
+    ],
+    "failure": false
+  }
+]
