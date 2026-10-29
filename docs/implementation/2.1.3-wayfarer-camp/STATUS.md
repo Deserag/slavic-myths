@@ -42,3 +42,19 @@ Only existing registered vanilla blocks and items, no extra mobs, NPC, barrels, 
 | Repackaged JAR source hash / checksum for final HEAD | latest CI checksum | NOT_RUN |
 
 **Known limitation:** actual runtime plus all 5 seeds, all biome types, save/restart, client, MP, and full player-structure protection have not been demonstrated by a single passing source build. Do not mark `DONE` or `OWNER_ACCEPTED` or close Issue #341 until explicit owner decision. No work on 2.1.4+, 2.1.8 or 2.1.9.
+
+## Independent five-seed checkpoint: 40842359154
+
+The [five-seed run](https://github.com/Deserag/slavic-myths/actions/runs/40842359154) executed **five actual independent new Nether test worlds** at JAR source `6f340715`. This run **FAILS overall**; the five seed-specific logs must not be conflated with five accepted camps:
+
+| World seed | Actual wayfarer result | Candidate/start, biome, Y | Other failures |
+|---|---|---|---|
+| 20261025 | **PASS**, one real natural and physically furnished camp | chunk [-32,-12], `minecraft:nether_wastes`, Y37, variant A (0), sample 7, accepted 1 | None: all 21 GameTests passed |
+| 20261026 | **PASS**, one real natural and physically furnished camp | chunk [-78,51], `minecraft:nether_wastes`, Y48, variant A (0), sample 46, accepted 1 | Broken bridge deck crossed a crimson stem; seed-specific boss test failed |
+| 20261024 | **FAIL**, valid native start but physical postprocess refused tree collision | chunk [75,141], position (1209,52,2267) occupied by `minecraft:crimson_stem` | Broken bridge passage blocked |
+| 9132026 | **FAIL**, valid native start but physical postprocess refused tree collision | chunk [144,-32], position (2312,76,-503) occupied by `minecraft:crimson_stem` | No other GameTest failure |
+| 3412026 | **FAIL**, **zero** accepted natural camp plans among 140 allowed candidate cells | no accepted chunk/start/biome, no physical camp | Seed-specific boss regression test also failed |
+
+All tested runs passed 12 static variant/rotation profiles and 1,000 real vanilla loot-table generations, but this is not five natural-placement passes. [Commit 258c7f1](https://github.com/Deserag/slavic-myths/commit/258c7f15490070566c448361ab1e87deee3f9926) extends bounded 3D site search and permits replacing naturally generated fungal stems in fresh chunks; [61727ae](https://github.com/Deserag/slavic-myths/commit/61727ae7d6b143a930feff96d671b85fdde9a5e7) strengthens mandatory real rock underneath walking bypass corridors and clears their floor-level vegetation. Re-tests of the later code are **NOT_YET_VERIFIED** as of this checkpoint.
+
+The five-seed workflow ran the **whole** Hell QA suite; some older boss tests assume the fixture world seed and may fail on other seeds independently of the camp. They are shown above instead of silently suppressed. Detailed protected structures, restart, MP, permissions, visual, and full survival owner checks still NOT_RUN / BLOCKED_ISOLATION.
