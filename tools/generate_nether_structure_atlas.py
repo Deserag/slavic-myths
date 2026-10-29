@@ -21,7 +21,10 @@ palette={'air':'#e6ebee','netherrack':'#79483f','polished_blackstone_bricks':'#3
  'polished_blackstone_brick_stairs':'#a9875d','polished_blackstone_brick_wall':'#74717e',
  'red_wall_banner':'#c73746','skeleton_skull':'#e6dfd4','candle':'#daccba','blackstone':'#2d303a'}
 def block(s):return re.search(r'Block\{minecraft:([^}]+)',s).group(1)
-def color(s):return palette.get(block(s),'#ad78ba')
+def color(s):
+    if block(s)=='campfire' and 'lit=false' in s:return '#785747'
+    if block(s)=='candle' and 'lit=false' in s:return '#9d9480'
+    return palette.get(block(s),'#ad78ba')
 width,height=920,60+len(ys)*220
 parts=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
  '<rect width="100%" height="100%" fill="#151c26"/>',

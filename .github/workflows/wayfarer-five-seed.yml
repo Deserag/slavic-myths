@@ -12,6 +12,10 @@ on:
       - 'tools/hell-qa-runtime/BridgeQaTests.java'
       - 'tools/hell-qa-runtime/WayfarerQaTests.java'
       - 'tools/hell-qa-runtime/ForgottenShrineQaTests.java'
+      - 'tools/hell-qa-runtime/AncestorShrineQaTests.java'
+      - 'tools/hell-qa-runtime/TriznaPyreQaTests.java'
+      - 'src/main/resources/slavicmyths.nether_structures.mixins.json'
+      - 'src/main/resources/data/slavicmyths/tags/block/nether_structure_protected.json'
       - 'tools/wayfarer-qa-runtime.gradle'
   workflow_dispatch:
 permissions:

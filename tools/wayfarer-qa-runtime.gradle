@@ -4,7 +4,7 @@ allprojects { afterEvaluate {
  // Five-seed cross-world QA intentionally excludes older boss tests that hardcode
  // the baseline fixture seed; full regression remains in hell-headless-qa.yml.
  java.include 'HellQaMod.java','BridgeQaTests.java','WatchpostQaTests.java',
-  'WatchpostWorldgenQaTests.java','WayfarerQaTests.java','ForgottenShrineQaTests.java','AncestorShrineQaTests.java','org/slavicmyths/hellqa/mixin/SeedMixin.java'
+  'WatchpostWorldgenQaTests.java','WayfarerQaTests.java','ForgottenShrineQaTests.java','AncestorShrineQaTests.java','TriznaPyreQaTests.java','org/slavicmyths/hellqa/mixin/SeedMixin.java'
  resources.srcDir 'tools/hell-qa-runtime-resources'
 } }
  sourceSets.hellQa.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
