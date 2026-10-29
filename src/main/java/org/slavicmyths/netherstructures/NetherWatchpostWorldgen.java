@@ -1,0 +1,21 @@
+package org.slavicmyths.netherstructures;
+
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.levelgen.structure.StructureType;
+import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import org.slavicmyths.swamp.SwampStructures;
+
+/** Native Nether structure registration. This patch introduces NO new items, blocks or mobs. */
+public final class NetherWatchpostWorldgen {
+    public static final DeferredHolder<StructureType<?>, StructureType<NetherWatchpostStructure>> STRUCTURE =
+            SwampStructures.STRUCTURES.register("nether_watchpost", () -> () -> NetherWatchpostStructure.CODEC);
+    public static final DeferredHolder<StructurePieceType, StructurePieceType> PIECE =
+            SwampStructures.PIECES.register("nether_watchpost", () -> (context, tag) -> new NetherWatchpostPiece(tag));
+
+    public static ResourceLocation id(String path) {
+        return ResourceLocation.fromNamespaceAndPath("slavicmyths", path);
+    }
+    public static void init() { }
+    private NetherWatchpostWorldgen() { }
+}
