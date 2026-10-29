@@ -50,6 +50,7 @@ public final class NetherBridgePiece extends StructurePiece {
  public BlockState voxel(int lane,int dy,int t){
   if(lane< -3||lane>3||t<0||t>=length||!span(t))return null;
   int a=Math.abs(lane);
+  if(dy>=1&&dy<=2&&a<=2)return Blocks.AIR.defaultBlockState(); // clear harmless foliage from five usable lanes
   if(dy==0){
    if(a<=2)return battered(lane,t)?Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS.defaultBlockState():
      (t%7==0?Blocks.POLISHED_BLACKSTONE.defaultBlockState():Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState());
@@ -82,6 +83,11 @@ public final class NetherBridgePiece extends StructurePiece {
         old.is(Blocks.CRIMSON_FUNGUS)||old.is(Blocks.CRIMSON_ROOTS)||
         old.is(Blocks.WARPED_FUNGUS)||old.is(Blocks.WARPED_ROOTS)||
         old.is(Blocks.NETHER_SPROUTS)||old.canBeReplaced()))continue;
+    // Air clears ONLY ambient vegetation; never cut another solid structure to create headroom.
+    if(next.isAir() && !(old.isAir()||old.is(Blocks.CRIMSON_FUNGUS)||
+       old.is(Blocks.CRIMSON_ROOTS)||old.is(Blocks.WARPED_FUNGUS)||
+       old.is(Blocks.WARPED_ROOTS)||old.is(Blocks.NETHER_SPROUTS)||
+       (old.canBeReplaced()&&old.getFluidState().isEmpty())))continue;
     if(!old.equals(next))w.setBlock(at,next,2);
    }
  }

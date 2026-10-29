@@ -98,7 +98,10 @@ public final class WayfarerPiece extends StructurePiece {
         return null;
     }
     private static boolean replaceable(BlockState old) {
-        return old.isAir() || (old.canBeReplaced() && old.getFluidState().isEmpty());
+        return old.isAir() || old.is(Blocks.CRIMSON_FUNGUS) || old.is(Blocks.CRIMSON_ROOTS) ||
+            old.is(Blocks.WARPED_FUNGUS) || old.is(Blocks.WARPED_ROOTS) ||
+            old.is(Blocks.NETHER_SPROUTS) ||
+            (old.canBeReplaced() && old.getFluidState().isEmpty());
     }
     @Override public void postProcess(WorldGenLevel world,StructureManager manager,
             ChunkGenerator generator,RandomSource random,BoundingBox clip,ChunkPos chunk,BlockPos pivot) {

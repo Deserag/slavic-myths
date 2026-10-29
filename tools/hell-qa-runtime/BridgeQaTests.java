@@ -40,8 +40,8 @@ public final class BridgeQaTests {
       for(int lane=-2;lane<=2;lane++){
        var s=piece.voxel(lane,0,n);
        check(s!=null && s.isSolid(),"Missing road lane="+lane+" span="+n+" variant="+variant);
-       check(piece.voxel(lane,1,n)==null,"Walkway obstructed above five-lane deck");
-       check(piece.voxel(lane,2,n)==null,"Walkway blocked at head height");
+       check(piece.voxel(lane,1,n).isAir(),"Walkway obstructed above five-lane deck");
+       check(piece.voxel(lane,2,n).isAir(),"Walkway blocked at head height");
       }
       for(int lane:new int[]{-3,3})if(NetherBridgeTerrain.pier(n,len)){
        check(piece.voxel(lane,-1,n)!=null,"Missing support connection");
