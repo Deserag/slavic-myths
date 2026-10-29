@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 2,
+        "max": 3
+      },
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_pickaxe",
+          "weight": 18
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_axe",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:stone_pickaxe",
+          "weight": 20
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:shears",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:flint_and_steel",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bucket",
+          "weight": 17
+        }
+      ]
+    }
+  ]
+}
