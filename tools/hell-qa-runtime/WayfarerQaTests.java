@@ -48,6 +48,8 @@ public final class WayfarerQaTests {
             check(piece.voxel(4,0,5).is(Blocks.BLACKSTONE) &&
                   piece.voxel(4,1,5).is(Blocks.CAMPFIRE), "No fireproof campfire footing");
             check(piece.voxel(3,2,2).isAir(),"Chest headspace blocked");
+            check(piece.voxel(2,0,4).isAir()&&piece.voxel(6,0,4).isAir(),
+                  "Foot corridors must explicitly clear vegetation above natural rock");
             check(piece.voxel(2,1,4).isAir() && piece.voxel(2,2,4).isAir() &&
                   piece.voxel(6,1,4).isAir() && piece.voxel(6,2,4).isAir(),
                   "No safe two-wide bypass around the open campfire");
@@ -161,6 +163,11 @@ public final class WayfarerQaTests {
             check(w.getBlockEntity(cpChest) instanceof ChestBlockEntity,"Native chest BlockEntity missing");
             check(w.isEmptyBlock(cpChest.above()),"Natural chest cannot open");
             check(w.getBlockState(piece.at(4,0,5)).is(Blocks.BLACKSTONE),"Natural campfire has unsafe footing");
+            for(int x=2;x<=6;x++)for(int z=2;z<=6;z++) {
+                var floor=w.getBlockState(piece.at(x,-1,z));
+                check(WayfarerTerrain.natural(floor),
+                      "Natural wayfarer path floats above "+floor+" at "+piece.at(x,-1,z));
+            }
             check(w.getBlockState(piece.at(1,4,4)).is(Blocks.CRIMSON_PLANKS) &&
                   w.getBlockState(piece.at(1,3,4)).is(Blocks.CHAIN),
                   "Physical lantern attachment absent");

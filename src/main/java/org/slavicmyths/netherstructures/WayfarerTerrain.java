@@ -65,7 +65,7 @@ public final class WayfarerTerrain {
                     }
                     if(!ok)break;
                     // Every actual authored paving/foundation block must rest on genuine terrain.
-                    if(WayfarerPiece.foundation(x,z) && !natural(col.getBlock(y-1))) {
+                    if((WayfarerPiece.foundation(x,z) || WayfarerPiece.walkingGround(x,z)) && !natural(col.getBlock(y-1))) {
                         ok=false;break;
                     }
                     if(col.getBlock(y-1).is(Blocks.BEDROCK) ||

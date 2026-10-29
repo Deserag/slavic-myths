@@ -53,6 +53,10 @@ public final class WayfarerPiece extends StructurePiece {
             (z==2&&(x==3||x==6)) ||
             (z==5&&(x==3||x==4||x==5));
     }
+    /** Connected natural ground corridor: both approaches around the fire stay walkable. */
+    public static boolean walkingGround(int x,int z) {
+        return x>=2 && x<=6 && z>=2 && z<=6;
+    }
     private boolean roofGap(int x,int z) {
         if(z==3||x==1||x==7)return false; // beams, corner anchors never disappear
         if(variant==1)return false;
@@ -63,7 +67,7 @@ public final class WayfarerPiece extends StructurePiece {
     public BlockState voxel(int x,int y,int z) {
         if(x<0||x>8||y<0||y>5||z<0||z>6)return null;
         if(y==0) {
-            if(!foundation(x,z))return null;
+            if(!foundation(x,z))return walkingGround(x,z) ? Blocks.AIR.defaultBlockState() : null;
             return (z==5&&x==4 ? Blocks.BLACKSTONE : Blocks.POLISHED_BLACKSTONE_BRICKS).defaultBlockState();
         }
         if(y>=1&&y<=4&&((x==1||x==7)&&(z==1||z==3)))
@@ -95,6 +99,7 @@ public final class WayfarerPiece extends StructurePiece {
         // Protect actual access, chest clearance, workbench access and walking headroom
         // from later replaceable vegetation, never carve solid terrain or other builds.
         if(y>=1&&y<=3&&x>=1&&x<=7&&z>=1&&z<=5)return Blocks.AIR.defaultBlockState();
+        if(y>=1&&y<=2&&z==6&&(x==2||x==6))return Blocks.AIR.defaultBlockState();
         return null;
     }
     private static boolean replaceable(BlockState old) {
