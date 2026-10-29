@@ -1,0 +1,28 @@
+name: Posad 2.2 Java 21 offline geometry (not Minecraft QA)
+on:
+  push:
+    branches: [hell]
+    paths:
+      - 'src/main/java/org/slavicmyths/posad/**'
+      - 'tools/posad-tests/**'
+      - 'src/main/resources/data/slavicmyths/structure/posad/**'
+      - 'src/main/resources/data/slavicmyths/loot_table/chests/posad_zeleynaya_*.json'
+      - 'docs/concepts/nether-settlement-2.2/zeleynaya-izba-2.2.7/MODEL_R1.json'
+      - '.github/workflows/posad-geometry-java21.yml'
+  workflow_dispatch:
+jobs:
+  geometry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Compile and execute pure Java geometry contract
+        run: |
+          mkdir -p build/posad-check
+          javac -encoding UTF-8 -d build/posad-check src/main/java/org/slavicmyths/posad/PosadGeometry.java src/main/java/org/slavicmyths/posad/PosadRetrofitPolicy.java tools/posad-tests/PosadGeometryCheck.java
+          java -ea -cp build/posad-check org.slavicmyths.posad.PosadGeometryCheck
+      - name: Verify real compressed 2.2.7 NBT and loot bindings (offline)
+        run: python3 tools/posad-tests/verify_zeleynaya_nbt.py
