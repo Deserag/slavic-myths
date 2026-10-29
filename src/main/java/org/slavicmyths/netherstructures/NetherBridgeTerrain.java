@@ -50,20 +50,25 @@ public final class NetherBridgeTerrain {
   var cols=new Columns(c);int x=c.chunkPos().getMiddleBlockX(),z=c.chunkPos().getMiddleBlockZ();
   long salt=c.seed()^(x*341873128712L)^(z*132897987541L);
   int r0=(int)Math.floorMod(salt,4L),l0=(int)Math.floorMod(salt>>>8,LENGTHS.length);
-  int minY=Math.max(c.heightAccessor().getMinBuildHeight()+MAX_DEPTH+2,35);
+  int minY=Math.max(c.heightAccessor().getMinBuildHeight()+MAX_DEPTH+2,32);
   int maxY=Math.min(c.heightAccessor().getMaxBuildHeight()-6,79);
+  // Five local bank probes per candidate: still strictly bounded, no FULL-chunk work.
+  for(int[] offset:new int[][]{{0,0},{6,0},{-6,0},{0,6},{0,-6}}){
+  int bx=x+offset[0],bz=z+offset[1];
   for(int r=0;r<4;r++){
    Rotation rotation=Rotation.values()[(r0+r)%4];
    for(int n=0;n<LENGTHS.length;n++){
     int len=LENGTHS[(l0+n)%LENGTHS.length];
     for(int deck=maxY;deck>=minY;deck--){
-     BlockPos origin=new BlockPos(x,deck,z);int[] depths=new int[len*2];
+     BlockPos origin=new BlockPos(bx,deck,bz);int[] depths=new int[len*2];
+     int variant=(int)Math.floorMod(salt^(len*37L)^(deck*103L),4);
      boolean valid=true;int lava=0,total=0,wetStreak=0,maxWet=0;
      for(int t=0;t<len;t++){
       BlockPos cp=origin.offset(new BlockPos(0,0,t).rotate(rotation));
       NoiseColumn mid=cols.get(cp.getX(),cp.getZ());
       if(!open(mid,deck)){valid=false;break;}
-      if(t==0||t==len-1){
+      // One-bank ruins are intentional; intact/partially intact bridges still need both stone shores.
+      if(t==0||(t==len-1&&variant<2)){
        for(int lane:new int[]{-2,0,2}){
         BlockPos bp=origin.offset(new BlockPos(lane,0,t).rotate(rotation));
         NoiseColumn bank=cols.get(bp.getX(),bp.getZ());
@@ -88,13 +93,13 @@ public final class NetherBridgeTerrain {
       }
      }
      if(!valid||total<6||lava<Math.max(3,total/3)||maxWet<3)continue;
-     int variant=(int)Math.floorMod(salt^(len*37L)^(deck*103L),4);
      int gap=variant==2?Math.min(5,Math.max(2,len/6)):variant==3?Math.min(5,Math.max(3,len/7)):0;
      int from=(len-gap)/2;
      return new Plan(origin,rotation,len,variant,from,from+gap,depths,
             salt^((long)deck<<32)^len,lava,total);
     }
    }
+  }
   }return null;
  }
  private NetherBridgeTerrain(){}
