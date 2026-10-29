@@ -13,3 +13,6 @@ allprojects { p ->
 allprojects { p -> p.plugins.withId('java') {
  p.tasks.register('verifyNetherWeapons',JavaExec) { dependsOn p.tasks.named('netherGearOfflineClasses');classpath=p.sourceSets.netherGearOffline.runtimeClasspath;mainClass='org.slavicmyths.verify.NetherWeaponsOffline' }
 } }
+allprojects { p -> p.plugins.withId('java') {
+ p.tasks.register('verifyFurnaceProtocol',JavaExec) { dependsOn p.tasks.named('netherGearOfflineClasses');classpath=p.sourceSets.netherGearOffline.runtimeClasspath;mainClass='org.slavicmyths.verify.FurnaceProtocolOffline' }
+} }

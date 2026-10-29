@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IMI",
+    "CFB",
+    "IMI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "M": {
+      "item": "minecraft:magma_block"
+    },
+    "C": {
+      "item": "slavicmyths:magma_clot"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "B": {
+      "item": "slavicmyths:bone_thorn"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:infernal_furnace",
+    "count": 1
+  }
+}

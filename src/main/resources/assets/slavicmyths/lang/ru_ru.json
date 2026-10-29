@@ -6355,5 +6355,8 @@
   "netherweapons.tip.ashen_greatsword": "Пустая вторая рука: 15 урона; занятая: 9. Shift+ПКМ 0,8 с: дуга по 3 целям. Откат 18 с.",
   "netherweapons.tip.shadow_throwing_knife": "ПКМ: бросок; Shift+ПКМ: слабость и ослабление брони. Откат 12 с.",
   "netherweapons.tip.volcanic_heart_flail": "ПКМ: заряд кистеня; Shift+ПКМ 0,9 с: круговой импульс. Откат 18 с.",
-  "netherweapons.tip.infernal_bow": "Натяжение 1,2 с. Shift при выстреле: поджигающая стрела. Откат 10 с; обычная стрельба доступна."
+  "netherweapons.tip.infernal_bow": "Натяжение 1,2 с. Shift при выстреле: поджигающая стрела. Откат 10 с; обычная стрельба доступна.",
+  "block.slavicmyths.infernal_furnace": "Адская печь",
+  "item.slavicmyths.infernal_coal": "Адский уголь",
+  "infernal_furnace.fuel": "Только Адский уголь"
 }

@@ -20,3 +20,5 @@ D2: temporary natural-ground provenance/leases and real-fire safety helper imple
 G1:8 wearables,effects,3D king model/cape,8 transforms,slots and client emissive/first-person/cape priorities implemented. Native96030 checks; source renders inspected. Actual game/ART acceptance NOT_RUN/BLOCKED_REFERENCE. Next G2 five weapons/skills, thenG3/debts.
 
 G2 checkpoint: five new item/skill/server/client/mesh/recipe paths implemented; source bounds and separate GUI models. Knife exact debuff,160t fire and ordinary flail charge ratio are engineering proposals, not owner-approved. Actual game/client animation/MP NOT_RUN, originals ART_BLOCKED_REFERENCE. Next G3 furnace, then remaining ore/Nature/amulet/regressions.
+
+G3 implemented: native furnace subclass, strict infernal coal at menu/container/burn/capability paths, native recipes/XP/progress/sided automation/NBT/recipebook. Economy prototype BALANCE_OWNER_PENDING. Native inherited protocol6 checks PASS, actual station/game/MP NOT_RUN. See FURNACE_IMPLEMENTATION.md. Next ore/Nature/amulet/regressions.

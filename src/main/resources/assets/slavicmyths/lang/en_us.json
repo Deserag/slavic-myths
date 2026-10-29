@@ -6355,5 +6355,8 @@
   "netherweapons.tip.ashen_greatsword": "Empty offhand: 15 damage; occupied: 9. Sneak+RMB 0.8s: arc hitting up to 3. Recovery 18s.",
   "netherweapons.tip.shadow_throwing_knife": "RMB: throw; Sneak+RMB: weakness and armor debuff. Recovery 12s.",
   "netherweapons.tip.volcanic_heart_flail": "RMB: charged flail; Sneak+RMB 0.9s: circular pulse. Recovery 18s.",
-  "netherweapons.tip.infernal_bow": "Draw 1.2s. Sneak on release: igniting arrow. Recovery 10s; normal shots remain available."
+  "netherweapons.tip.infernal_bow": "Draw 1.2s. Sneak on release: igniting arrow. Recovery 10s; normal shots remain available.",
+  "block.slavicmyths.infernal_furnace": "Infernal Furnace",
+  "item.slavicmyths.infernal_coal": "Infernal Coal",
+  "infernal_furnace.fuel": "Infernal coal only"
 }

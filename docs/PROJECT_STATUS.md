@@ -3260,3 +3260,5 @@ hell, source f9beb28d: зарегистрированы три нейтраль�
 По прямому поручению подтянута hell@537e3a7a, clean build/resources PASS. Установлен2.0.10-HELL, SHA256 `685387c355ba9665e6921dbd1757761cfddfe75651ff6bd5b48ab50f826a77f9`, backup и единственный JAR подтверждены. Каталог инстанса2.0.8 сохранён, отображаемое имя2.0.10. Исходный код/миры не менялись; запусков0, runtime NOT_RUN, не owner acceptance. Отчёт: implementation/polymc-update-20261029/REPORT.md.
 
 29.10.2026 G2: реализованы пять особых оружий/приёмов через прежние melee/projectile/bow/flail pipelines, модели и рецепты. Подробности и неутверждённые инженерные числа: implementation/2026-10-29-hell-remaining/WEAPONS_IMPLEMENTATION.md. Игровые проверки не запускались; ART originals отсутствуют.
+
+29.10.2026 G3: Адская печь и Адский уголь реализованы как функциональный прототип; vanilla furnace NBT/recipes/XP/progress и строгий fuel gate. Параметры BALANCE_OWNER_PENDING, игровой результат NOT_RUN. См. implementation/2026-10-29-hell-remaining/FURNACE_IMPLEMENTATION.md.

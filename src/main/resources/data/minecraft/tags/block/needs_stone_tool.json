@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "slavicmyths:bog_iron_ore",
-    "slavicmyths:livingstone_ore"
+    "slavicmyths:livingstone_ore",
+    "slavicmyths:infernal_furnace"
   ]
 }

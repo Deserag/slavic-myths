@@ -1,0 +1,9 @@
+# G3 — Адская печь / BALANCE_OWNER_PENDING
+
+Реализованы Block/BlockItem/BlockEntity/Menu/Screen, recipebook, four synchronized progress fields, input/fuel/output, shift-click, facing/lit/comparator, vanilla bounded crackle/smoke/flame, loot and pickaxe tag, RU/EN, coal sprite/block textures, recipes and unlocks. FurnaceRecipeBook uses only infernal coal for ghost fuel. Server menu keeps native result slot XP handler and stillValid distance/container guard.
+
+Vanilla AbstractFurnaceBlockEntity owns actual recipes, item consumption, RecipesUsed/XP, cooking/burn progress and save/load; AbstractFurnaceBlock owns inventory drop/XP on break and comparator. No separate recipe/XP engine. RecipeType.SMELTING accepts all existing ordinary furnace recipes including #324. Their separate blast recipes are retained. SidedInvWrapper top=input, side=fuel, bottom=output+fuel; unsided InvWrapper also consults canPlaceItem. Native output rejects insertion. Menu fuel slot explicitly replaces vanilla bucket exception. Foreign fuel cannot burn even if inserted by a third-party writer that bypasses slot validation.
+
+Engineering proposal:2 internal vanilla ticks per game tick; fuel3200 internal ticks =1600 world ticks,16 recipes of200 internal ticks; recipes 8coal+magma_clot→9coal, furnace corners iron/top-bottom magma/leftclot/rightbone_thorn/centrevanillafurnace. No infernal coal ore/new boss component. These parameters are prototypes, not final owner approval.
+
+Native inherited NBT/progress and sided inventory primitives:6 checks PASS for1/64 inputs and persisted BurnTime/CookTime. Initial worldless fixture called setItem(input), which legitimately requires a world recipe manager; fixture corrected to use actual NBT initialization. This is not a custom station runtime test. Actual 1/64 smelts, wrong fuel via player/hopper/capability, blocked output, XP claim/break, chunk unload/restart, 2 clients/recipebook GUI all NOT_RUN. No game/server launched.

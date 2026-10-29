@@ -3582,3 +3582,5 @@ hell, source f9beb28d: зарегистрированы три нейтраль�
 По прямому поручению подтянута hell@537e3a7a, clean build/resources PASS. Установлен2.0.10-HELL, SHA256 `685387c355ba9665e6921dbd1757761cfddfe75651ff6bd5b48ab50f826a77f9`, backup и единственный JAR подтверждены. Каталог инстанса2.0.8 сохранён, отображаемое имя2.0.10. Исходный код/миры не менялись; запусков0, runtime NOT_RUN, не owner acceptance. Отчёт: implementation/polymc-update-20261029/REPORT.md.
 
 G2 29.10: NetherWeapons/NetherSkills/InfernalBow расширяют существующие Sword/ThrowingWeapon/WeaponProjectile/Flail/FieldBow, без параллельной системы снарядов. Долгий persistent cooldown отдельно от обычного использования; клиентские отдельные GUI meshes, FlailClient chain и PlayerWeaponPose two-hand.
+
+InfernalFurnace (29.10) расширяет AbstractFurnaceBlockEntity и AbstractFurnaceMenu, recipe type SMELTING;2 вызова нативного serverTick, native recipebook screen, отдельный fuel-only Slot и canPlaceItem/getBurnDuration, SidedInvWrapper capabilities. Client screen изолирован Dist.CLIENT.
