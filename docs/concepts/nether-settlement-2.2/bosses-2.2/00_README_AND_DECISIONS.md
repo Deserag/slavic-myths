@@ -28,3 +28,10 @@
 
 ## Охват работы
 Отдельные исполнительские задачи по двум боссам и общему контракту. Дизайн/документация добавлены в hell; production Java, resource registries, готовые OGG, клиентский рендер, GameTest и PolyMC в этой итерации НЕ изменялись/не запускались.
+
+
+## GitHub Issues, опубликованные 30.10.2026
+- **#365** — shared worldgen/natural roaming/quest/elder claims/MP: https://github.com/Deserag/slavic-myths/issues/365
+- **#366** — Проклятый мытарь, 2.2.13: https://github.com/Deserag/slavic-myths/issues/366
+- **#367** — Баук, 2.2.14: https://github.com/Deserag/slavic-myths/issues/367
+Порядок реализации только по команде владельца, сначала общая система и API, затем Мытарь и Баук. Все 3 Issue сейчас являются исполнительскими ТЗ с открытым статусом; никаких runtime/build/PolyMC изменений от постановки не произошло.
