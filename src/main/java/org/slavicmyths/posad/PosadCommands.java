@@ -144,7 +144,8 @@ public final class PosadCommands {
         // the complete city, including two seeded treasury chests.
         if(id.equals("veche_hall_2_2_2")) {
             for(int y=1;y<=17;y++)for(int z=12;z<=34;z++)for(int x=42;x<=70;x++) {
-                var finish=PosadFinishes.voxel(x,y,z);
+                var finish=PosadHallRefinement.voxel(x,y,z);
+                if(finish==null)finish=PosadFinishes.voxel(x,y,z);
                 if(finish==null)continue;
                 var original=PosadBuildings.voxel(x,y,z);
                 var target=pos.offset(x-42,y,z-12);
