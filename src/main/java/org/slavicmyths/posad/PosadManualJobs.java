@@ -52,6 +52,7 @@ public final class PosadManualJobs {
         try {
             Math.addExact(ax, 112);
             Math.addExact(az, 112);
+            if (Math.abs((long)ax) > 29_998_000L || Math.abs((long)az) > 29_998_000L) throw new IllegalArgumentException("Координаты слишком близко к пределам мира.");
             if (deckY - 48 < world.getMinBuildHeight() || deckY + 17 >= world.getMaxBuildHeight()) throw new IllegalArgumentException("Высота вне допустимых границ.");
             Job job = new Job(source, turns, ax, deckY, az);
             JOBS.put(world, job);
@@ -84,6 +85,7 @@ public final class PosadManualJobs {
         final ServerLevel world;
         final int turns, ax, deckY, az;
         final UUID token = UUID.randomUUID();
+        final ToolLogOrigins protectedOrigins;
         final List<ChunkPos> chunks = new ArrayList<>();
         PosadPiece piece;
         BoundingBox bounds;
@@ -97,6 +99,7 @@ public final class PosadManualJobs {
             this.ax = ax;
             this.deckY = deckY;
             this.az = az;
+            this.protectedOrigins = ToolLogOrigins.get(world);
         }
 
         private PosadTerrain.Material material(int x, int y, int z) {
@@ -142,7 +145,7 @@ public final class PosadManualJobs {
                     var intended = piece.voxel(lx, layer - deckY, lz);
                     if (intended != null) {
                         var old = world.getBlockState(at);
-                        if (old.hasBlockEntity() || world.getBlockEntity(at) != null || old.is(Blocks.BEDROCK) || ToolLogOrigins.get(world).blocked(at) || !(old.isAir() || old.is(Blocks.LAVA) || NetherBridgeTerrain.natural(old))) throw new IllegalStateException("Защищённый/чужой блок: " + at.toShortString() + " " + old);
+                        if (old.hasBlockEntity() || world.getBlockEntity(at) != null || old.is(Blocks.BEDROCK) || protectedOrigins.blocked(at) || !(old.isAir() || old.is(Blocks.LAVA) || NetherBridgeTerrain.natural(old))) throw new IllegalStateException("Защищённый/чужой блок: " + at.toShortString() + " " + old);
                     }
                 }
                 if (++cell == 256) {
