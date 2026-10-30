@@ -27,3 +27,6 @@ G. После ядра — 2.2.9 растения/еда, 2.2.10 зелейны�
 - В 718102a включён независимый Python NBT verifier. [Оффлайн CI](https://github.com/Deserag/slavic-myths/actions/runs/40910358802) подтверждает точную идентичность всех 1599 блоков модели 2.2.7, 33 blockstates, 5 LootTable markers и регистрацию modded ID. Это не GameTest.
 - Отдельное утверждённое ТЗ жителей уже существует: #357, включая 12 профессий, 50/70 HP и 15-минутный персональный cooldown агрессии. Не создавать дубликат Issue и не менять параметры.
 - После этих коммитов **нет** действующего posad native Structure/StructureSet, интеграции NBT в структуру и проверенного механизма retrofit. Все ограничения и QA gate сохраняются.
+
+## 30.10.2026 — baseline утверждён владельцем
+Точный structure_set сохранён в APPROVED_STRUCTURE_SET_2026-10-30.json: slavicmyths:nether_posad, weight=1, random_spread, spacing=80, separation=32, salt=22022026, linear, frequency=0.75. Это НОВЫЙ утверждённый baseline. Конфликтов salt в src/main/resources на момент проверки нет. ID совпадает с PosadWorldgen. Не добавлять произвольную exclusion_zone. Включение production structure_set разрешено только после обязательных защит и успешных проверок. Отсутствие частотных параметров больше НЕ блокер; блокеры реализации/QA сохраняются.

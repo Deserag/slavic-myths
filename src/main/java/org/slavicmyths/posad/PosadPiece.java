@@ -15,30 +15,77 @@ import org.slavicmyths.netherstructures.NetherBridgeTerrain;
 public final class PosadPiece extends StructurePiece {
     private final BlockPos anchor;
     private final int turns;
+    private final PosadTerrain.Plan terrain;
+    private final java.util.Map<Long,Integer> supports=new java.util.HashMap<>();
+    private static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}
     public PosadPiece(BlockPos anchor,int turns) {
         super(PosadWorldgen.PIECE.get(),0,new BoundingBox(anchor.getX(),anchor.getY()-2,anchor.getZ(),anchor.getX()+112,anchor.getY()+17,anchor.getZ()+112));
         this.anchor=anchor.immutable(); this.turns=Math.floorMod(turns,4);
+        terrain=new PosadTerrain.Plan(anchor.getX(),anchor.getY(),anchor.getZ(),this.turns,0,java.util.List.of());
+    }
+    public PosadPiece(PosadTerrain.Plan plan) {
+        super(PosadWorldgen.PIECE.get(),0,bounds(plan));
+        terrain=plan;anchor=new BlockPos(plan.anchorX(),plan.deckY(),plan.anchorZ());turns=plan.turns();
+        for(var support:plan.supports())supports.put(key(support.x(),support.z()),support.depth());
+    }
+    private static BoundingBox bounds(PosadTerrain.Plan plan) {
+        var a=plan.world(0,0);var b=plan.world(112,112);
+        var c=plan.world(52,112+plan.bridgeLength());var d=plan.world(60,112+plan.bridgeLength());
+        return new BoundingBox(Math.min(Math.min(a.x(),b.x()),Math.min(c.x(),d.x())),plan.deckY()-48,
+            Math.min(Math.min(a.z(),b.z()),Math.min(c.z(),d.z())),
+            Math.max(Math.max(a.x(),b.x()),Math.max(c.x(),d.x())),plan.deckY()+17,
+            Math.max(Math.max(a.z(),b.z()),Math.max(c.z(),d.z())));
     }
     public PosadPiece(CompoundTag n) {
         super(PosadWorldgen.PIECE.get(),n);
         anchor=BlockPos.of(n.getLong("Anchor"));turns=Math.floorMod(n.getInt("Turns"),4);
+        var list=new java.util.ArrayList<PosadTerrain.Support>();
+        var raw=n.getIntArray("Supports");
+        if(raw.length%3!=0||raw.length>900)throw new IllegalArgumentException("Invalid posad supports");
+        for(int i=0;i<raw.length;i+=3){var support=new PosadTerrain.Support(raw[i],raw[i+1],raw[i+2]);list.add(support);supports.put(key(support.x(),support.z()),support.depth());}
+        int length=n.getInt("BridgeLength");
+        if(length<0||length>PosadTerrain.MAX_BRIDGE)throw new IllegalArgumentException("Invalid posad bridge");
+        terrain=new PosadTerrain.Plan(anchor.getX(),anchor.getY(),anchor.getZ(),turns,length,list);
     }
     @Override protected void addAdditionalSaveData(StructurePieceSerializationContext c,CompoundTag n) {
         n.putLong("Anchor",anchor.asLong());n.putInt("Turns",turns);n.putInt("Schema",PosadGeometry.SCHEMA_VERSION);
+        n.putInt("BridgeLength",terrain.bridgeLength());
+        var raw=new int[terrain.supports().size()*3];int i=0;
+        for(var support:terrain.supports()){raw[i++]=support.x();raw[i++]=support.z();raw[i++]=support.depth();}
+        n.putIntArray("Supports",raw);
+    }
+    public net.minecraft.world.level.block.state.BlockState voxel(int x,int y,int z) {
+        if(y < -2) {
+            int depth=supports.getOrDefault(key(x,z),0);
+            return -y<depth?Blocks.POLISHED_BASALT.defaultBlockState():null;
+        }
+        if(PosadGeometry.CITY.contains(x,z))return PosadShell.voxel(x,y,z);
+        if(z>112&&z<=112+terrain.bridgeLength()&&x>=52&&x<=60) {
+            if(y>=-2&&y<=0)return Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState();
+            if(y==1||y==2)return (x==52||x==60?Blocks.POLISHED_BLACKSTONE_BRICKS:Blocks.AIR).defaultBlockState();
+            if(y==3&&x>52&&x<60)return Blocks.AIR.defaultBlockState();
+        }
+        return null;
     }
     @Override public void postProcess(WorldGenLevel world,StructureManager manager,ChunkGenerator generator,RandomSource random,BoundingBox clip,ChunkPos chunk,BlockPos pivot) {
-        // At most 16x16x20 voxel decisions per chunk; never scan the whole city per chunk.
+        // At most 16x16x66 voxel decisions per chunk; never scan the whole city per chunk.
         int x0=Math.max(clip.minX(),boundingBox.minX()),x1=Math.min(clip.maxX(),boundingBox.maxX());
         int z0=Math.max(clip.minZ(),boundingBox.minZ()),z1=Math.min(clip.maxZ(),boundingBox.maxZ());
         for(int wz=z0;wz<=z1;wz++)for(int wx=x0;wx<=x1;wx++) {
-            var local=PosadGeometry.rotate(new PosadGeometry.Cell(wx-anchor.getX(),wz-anchor.getZ()),-turns);
-            for(int y=-2;y<18;y++) {
-                var state=PosadShell.voxel(local.x(),y,local.z());
+            int dx=wx-anchor.getX(),dz=wz-anchor.getZ();
+            var local=switch(turns){
+                case 0 -> new PosadGeometry.Cell(dx,dz);
+                case 1 -> new PosadGeometry.Cell(dz,112-dx);
+                case 2 -> new PosadGeometry.Cell(112-dx,112-dz);
+                default -> new PosadGeometry.Cell(112-dz,dx);
+            };
+            for(int y=boundingBox.minY()-anchor.getY();y<18;y++) {
+                var state=voxel(local.x(),y,local.z());
                 if(state==null)continue;
                 BlockPos at=new BlockPos(wx,anchor.getY()+y,wz);
                 if(!clip.isInside(at)||!world.ensureCanWrite(at))continue;
                 var old=world.getBlockState(at);
-                if(old.hasBlockEntity()||old.is(Blocks.BEDROCK)||!(old.isAir()||NetherBridgeTerrain.natural(old)))continue;
+                if(old.hasBlockEntity()||old.is(Blocks.BEDROCK)||!(old.isAir()||old.is(Blocks.LAVA)||NetherBridgeTerrain.natural(old)))continue;
                 if(state.isAir()&&!old.isAir())continue;
                 world.setBlock(at,state.rotate(Rotation.values()[turns]),2);
             }
