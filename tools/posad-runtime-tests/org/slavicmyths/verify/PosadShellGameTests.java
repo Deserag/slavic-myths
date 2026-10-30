@@ -273,6 +273,30 @@ public final class PosadShellGameTests {
   t.succeed();
  }
  @GameTest(template="empty",timeoutTicks=200)
+ public static void granaryFiveChestsDoNotRearmAfterLoot(GameTestHelper t) {
+  var world=t.getLevel();
+  var anchor=t.absolutePos(new net.minecraft.core.BlockPos(0,140,0));
+  var city=new PosadPiece(anchor,0);
+  for(int[] offset:new int[][]{{80,1,17},{87,1,17},{80,1,21},{87,1,21},{85,1,35}}) {
+   var at=anchor.offset(offset[0],offset[1],offset[2]);
+   var cp=new net.minecraft.world.level.ChunkPos(at);
+   world.getChunk(cp.x,cp.z);
+   var clip=new net.minecraft.world.level.levelgen.structure.BoundingBox(at.getX(),at.getY(),at.getZ(),at.getX(),at.getY(),at.getZ());
+   city.postProcess(world,world.structureManager(),world.getChunkSource().getGenerator(),world.random,clip,cp,anchor);
+   t.assertTrue(world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity,"Missing granary chest at "+at);
+   var chest=(net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity)world.getBlockEntity(at);
+   t.assertTrue(chest.getLootTable()!=null,"Granary loot table not armed at "+at);
+   chest.getItem(0);
+   t.assertTrue(chest.getLootTable()==null,"Granary loot was not consumed at "+at);
+   chest.clearContent();
+   city.postProcess(world,world.structureManager(),world.getChunkSource().getGenerator(),world.random,clip,cp,anchor);
+   t.assertTrue(world.getBlockEntity(at)==chest,"Repeat posad pass replaced granary chest "+at);
+   t.assertTrue(chest.getLootTable()==null,"Repeat posad pass re-armed granary loot "+at);
+   for(int i=0;i<chest.getContainerSize();i++)t.assertTrue(chest.getItem(i).isEmpty(),"Granary reward duplication at "+at);
+  }
+  t.succeed();
+ }
+ @GameTest(template="empty",timeoutTicks=200)
  public static void chestRewardsAreNotRearmed(GameTestHelper t) {
   var world=t.getLevel();
   var anchor=t.absolutePos(new net.minecraft.core.BlockPos(0,140,0));
