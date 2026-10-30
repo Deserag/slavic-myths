@@ -61,6 +61,10 @@ public final class PosadPiece extends StructurePiece {
             return -y<depth?Blocks.POLISHED_BASALT.defaultBlockState():null;
         }
         if(PosadGeometry.CITY.contains(x,z)) {
+            if(schema >= 17) {
+                var hallR2=PosadHallR2.voxel(x,y,z);
+                if(hallR2!=null)return hallR2;
+            }
             if(schema >= 16) {
                 var easternRoof=PosadEasternRoofRepair.voxel(x,y,z);
                 if(easternRoof!=null)return easternRoof;
@@ -149,7 +153,7 @@ public final class PosadPiece extends StructurePiece {
                 if(!clip.isInside(at)||!world.ensureCanWrite(at))continue;
                 var old=world.getBlockState(at);
                 if(old.hasBlockEntity()||old.is(Blocks.BEDROCK)||!(old.isAir()||old.is(Blocks.LAVA)||NetherBridgeTerrain.natural(old)))continue;
-                if(state.isAir()&&!old.isAir())continue;
+                if(state.isAir()&&!old.isAir() && !(schema>=17 && PosadHallR2.isOpening(local.x(),y,local.z())))continue;
                 try {
                     var placed=state.rotate(Rotation.values()[turns]);
                     if (state.is(Blocks.CARVED_PUMPKIN)) {

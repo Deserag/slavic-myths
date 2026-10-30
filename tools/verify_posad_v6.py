@@ -5,7 +5,7 @@ root=Path(__file__).resolve().parents[1]
 p=root/"src/main"
 code=(p/"java/org/slavicmyths/posad/PosadShell.java").read_text(encoding="utf-8")
 assert "tx == 42 ? EAST : WEST" in code and "groundDoor && y <= 2" in code
-assert "SCHEMA_VERSION = 16" in (p/"java/org/slavicmyths/posad/PosadGeometry.java").read_text(encoding="utf-8")
+assert "SCHEMA_VERSION = 17" in (p/"java/org/slavicmyths/posad/PosadGeometry.java").read_text(encoding="utf-8")
 f=(p/"java/org/slavicmyths/posad/PosadFinishes.java").read_text(encoding="utf-8")
 assert "linden_table" in f and "pine_weapon_rack" in f and "nether_veche_treasury" in f
 assert "z==33 && y<=3 && base==null" in f and "DoorHingeSide" in f

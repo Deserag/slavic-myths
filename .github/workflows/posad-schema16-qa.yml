@@ -1,15 +1,8 @@
-name: Posad schema 16 accumulated QA (Java 21)
+name: Posad schema 17 R2 accumulated QA (Java 21)
 on:
   push:
     branches:
       - codex/hell-posad-districts-227-228-20261030
-    paths:
-      - 'src/main/java/org/slavicmyths/posad/**'
-      - 'src/main/resources/data/slavicmyths/posad/**'
-      - 'tools/verify_posad_*.py'
-      - '.github/workflows/posad-schema16-qa.yml'
-  pull_request:
-    branches: [hell]
     paths:
       - 'src/main/java/org/slavicmyths/posad/**'
       - 'src/main/resources/data/slavicmyths/posad/**'
@@ -20,7 +13,7 @@ permissions:
   contents: read
 jobs:
   static-geometry:
-    name: Python source-geometry regression (12 checks)
+    name: Python source-geometry regression (13 checks)
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -44,7 +37,8 @@ jobs:
             tools/verify_posad_additional_districts.py \
             tools/verify_posad_roof_ridges.py \
             tools/verify_posad_forge_market_roofs.py \
-            tools/verify_posad_eastern_roofs.py; do
+            tools/verify_posad_eastern_roofs.py \
+            tools/verify_posad_hall_r2.py; do
             echo "::group::$test"
             python3 "$test"
             echo "::endgroup::"

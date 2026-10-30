@@ -212,6 +212,25 @@ public final class PosadCommands {
                 world.setBlock(target,roof,2);
             }
         }
+        // Schema-17 R2 hall: native and standalone use exactly the same
+        // source-checked architectural overlay. Remove only the new open-arch
+        // cells; preserve every pre-existing R1 NBT chest and its loot.
+        if(id.equals("veche_hall_2_2_2")) {
+            for(int y=1;y<=16;y++)for(int z=12;z<=34;z++)for(int x=42;x<=70;x++) {
+                var r2=PosadHallR2.voxel(x,y,z);
+                if(r2==null)continue;
+                var previous=PosadHallRoofRepair.voxel(x,y,z);
+                if(previous==null)previous=PosadHallComfort.voxel(x,y,z);
+                if(previous==null)previous=PosadHallRefinement.voxel(x,y,z);
+                if(previous==null)previous=PosadFinishes.voxel(x,y,z);
+                if(previous==null)previous=PosadBuildings.voxel(x,y,z);
+                var target=pos.offset(x-42,y,z-12);
+                var present=world.getBlockState(target);
+                if(present.hasBlockEntity() || (previous==null ? !present.isAir() : !present.is(previous.getBlock())))
+                    throw new IllegalStateException("Standalone Veche R2/NBT mismatch at "+target+" previous "+previous+" present "+present);
+                world.setBlock(target,r2,2);
+            }
+        }
         // Schema-10 refinements for both R1 courtyards. Match native PosadPiece
         // without touching original chests, doors, stairs or NBT loot tags.
         if(id.equals("druzhinny_dvor_2_2_4") || id.equals("kuznechny_dvor_2_2_5")) {
