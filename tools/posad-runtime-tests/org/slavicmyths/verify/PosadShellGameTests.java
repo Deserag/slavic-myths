@@ -45,6 +45,33 @@ public final class PosadShellGameTests {
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    t.assertTrue(world.getBlockState(anchor.offset(p.x(),y,p.z())).isAir(),"Physical rotated gate blocked");
   }
+  int hallBlocks=0,houseBlocks=0,houseChests=0;
+  for(int x=42;x<=70;x++)for(int z=12;z<=34;z++)for(int y=0;y<18;y++) {
+   var expected=PosadBuildings.voxel(x,y,z);
+   if(expected==null)continue;
+   hallBlocks++;
+   var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+   var actual=world.getBlockState(anchor.offset(p.x(),y,p.z()));
+   t.assertTrue(actual.is(expected.getBlock()),"Veche block missing at "+x+","+y+","+z+" rotation "+turns+": "+actual);
+  }
+  for(int x=13;x<=35;x++)for(int z=15;z<=29;z++)for(int y=0;y<17;y++) {
+   var expected=PosadBuildings.voxel(x,y,z);
+   if(expected==null)continue;
+   houseBlocks++;
+   var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+   var at=anchor.offset(p.x(),y,p.z());
+   var actual=world.getBlockState(at);
+   t.assertTrue(actual.is(expected.getBlock()),"Communal block missing at "+x+","+y+","+z+" rotation "+turns+": "+actual);
+   if(expected.is(Blocks.CHEST)) {
+    houseChests++;
+    t.assertTrue(PosadBuildings.chestLoot(x,y,z)!=null,"Unregistered chest "+at);
+    t.assertTrue(world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity,"Chest block entity missing "+at);
+    var chest=(net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity)world.getBlockEntity(at);
+    t.assertTrue(chest.getLootTable()!=null,"Chest lazy loot table missing "+at);
+   }
+  }
+  t.assertTrue(hallBlocks==3598,"Wrong hall voxel count "+hallBlocks);
+  t.assertTrue(houseBlocks==1992 && houseChests==4,"Wrong house voxel/chest count "+houseBlocks+"/"+houseChests);
   }
   t.succeed();
  }
