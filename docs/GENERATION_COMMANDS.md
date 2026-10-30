@@ -95,6 +95,7 @@
 /slavicmyths dev generate kuznechny_dvor
 /slavicmyths dev generate zeleynaya
 /slavicmyths dev generate granary
+/slavicmyths dev generate menovye_ryady
 /slavicmyths dev generate nether_watchpost
 /slavicmyths dev generate broken_nether_bridge
 /slavicmyths dev generate wayfarer_camp
@@ -108,3 +109,8 @@ OP2/читы. Координаты, номера микропатча и доп�
 Посад: начало участка113×113 на12блоков к югу, центр поX относительно исполнителя. Поэтапный preflight/подготовка/расчистка/опоры/постройка подключённой геометрии; старый запрет HEADROOM для ручной генерации не применяется. Natural StructureSet не включён. Полная реализация всех районов2.2 не заявляется. `/slavicmyths dev posad status` и `cancel` остаются управлением текущим заданием, не новыми именами генерации.
 
 Старые пути из предыдущей тестовой сборки сохранены как совместимость, не являются рекомендуемым новым интерфейсом. Размещённые структуры и контейнеры защищаются от повторной записи; распознавание произвольных домов из природного камня и сторонних claims не объявляется универсальным.
+
+
+### Меновые ряды (#352)
+
+`/slavicmyths dev generate menovye_ryady` — авторский рынок 27x25 из 2203 блоков, с восьмью сундуками и изначальными таблицами лута. `dev posad building menovye_ryady_2_2_6 [pos]` — альтернативный путь. При `dev generate nether_posad` рынок размещается внутри общей схемы 5 вместе с другими зданиями. Прежние сохранения не достраиваются; natural StructureSet выключен.
