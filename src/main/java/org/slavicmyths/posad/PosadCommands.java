@@ -33,13 +33,22 @@ public final class PosadCommands {
                 .then(Commands.argument("deckY", IntegerArgumentType.integer())
                     .then(Commands.argument("anchorZ", IntegerArgumentType.integer())
                         .executes(context -> templates(context.getSource(), IntegerArgumentType.getInteger(context, "anchorX"), IntegerArgumentType.getInteger(context, "deckY"), IntegerArgumentType.getInteger(context, "anchorZ")))))));
+        posad.then(Commands.literal("status").executes(context -> PosadManualJobs.status(context.getSource(), false)));
+        posad.then(Commands.literal("cancel").executes(context -> PosadManualJobs.status(context.getSource(), true)));
+        posad.then(Commands.literal("create")
+            .then(Commands.argument("turns", IntegerArgumentType.integer(0, 3))
+                .then(Commands.argument("anchorX", IntegerArgumentType.integer())
+                    .then(Commands.argument("deckY", IntegerArgumentType.integer())
+                        .then(Commands.argument("anchorZ", IntegerArgumentType.integer())
+                            .then(Commands.literal("confirm_disposable_world")
+                                .executes(context -> PosadManualJobs.create(context.getSource(), IntegerArgumentType.getInteger(context, "turns"), IntegerArgumentType.getInteger(context, "anchorX"), IntegerArgumentType.getInteger(context, "deckY"), IntegerArgumentType.getInteger(context, "anchorZ"))))))));
         tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").then(posad)));
     }
 
     private static int info(CommandSourceStack source) {
         source.sendSuccess(() -> Component.literal("Пекельный посад: фиксированный план 113x113, схема новых городов " + PosadGeometry.SCHEMA_VERSION + ", четыре утверждённых шаблона (3598/1992/2440/1901 блоков)."), false);
-        source.sendSuccess(() -> Component.literal("StructureSet натуральной генерации пока заблокирован: не пройдены atomic worldgen, performance, save/reload и антидюп. Старые города не перестраиваются."), false);
-        source.sendSuccess(() -> Component.literal("Для тестового мира: /slavicmyths dev posad templates <anchorX> <deckY> <anchorZ>; повороты: /slavicmyths dev posad layout <0..3> <anchorX> <anchorZ>. Команды /place template исполняются отдельно с правами OP."), false);
+        source.sendSuccess(() -> Component.literal("Естественная генерация пока заблокирована до native QA, performance, save/reload и anti-dupe. Старые города никогда не перестраиваются."), false);
+        source.sendSuccess(() -> Component.literal("Только мир posad-qa-* и OP 4: /slavicmyths dev posad create <turns> <anchorX> <deckY> <anchorZ> confirm_disposable_world. Чанки должны быть заранее загружены. status/cancel — для управления."), false);
         return 1;
     }
 
