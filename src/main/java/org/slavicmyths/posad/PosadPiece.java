@@ -61,6 +61,11 @@ public final class PosadPiece extends StructurePiece {
             return -y<depth?Blocks.POLISHED_BASALT.defaultBlockState():null;
         }
         if(PosadGeometry.CITY.contains(x,z)) {
+            // No retrofits: only brand-new schema-4 cities receive visual repairs.
+            if(schema >= 4) {
+                var repair=PosadVisualRepairs.voxel(x,y,z);
+                if(repair!=null)return repair;
+            }
             if(schema >= 3) {
                 var district=PosadNextBuildings.voxel(x,y,z);
                 if(district!=null)return district;
