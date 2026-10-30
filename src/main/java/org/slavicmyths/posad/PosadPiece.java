@@ -61,6 +61,10 @@ public final class PosadPiece extends StructurePiece {
             return -y<depth?Blocks.POLISHED_BASALT.defaultBlockState():null;
         }
         if(PosadGeometry.CITY.contains(x,z)) {
+            if(schema >= 4) {
+                var district=PosadAdditionalBuildings.voxel(x,y,z);
+                if(district!=null)return district;
+            }
             if(schema >= 3) {
                 var district=PosadNextBuildings.voxel(x,y,z);
                 if(district!=null)return district;
@@ -115,7 +119,8 @@ public final class PosadPiece extends StructurePiece {
                     throw new IllegalStateException("Posad placement failed: local "+local.x()+","+y+","+local.z()+" world "+at+" block "+state+" rotation "+turns+" schema "+schema, e);
                 }
                 if(schema >= 2 && state.is(Blocks.CHEST) && world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity chest) {
-                    String loot=schema >= 3 ? PosadNextBuildings.chestLoot(local.x(),y,local.z()) : null;
+                    String loot=schema >= 4 ? PosadAdditionalBuildings.chestLoot(local.x(),y,local.z()) : null;
+                    if(loot==null && schema >= 3)loot=PosadNextBuildings.chestLoot(local.x(),y,local.z());
                     if(loot==null)loot=PosadBuildings.chestLoot(local.x(),y,local.z());
                     if(loot==null)throw new IllegalStateException("Unexpected posad chest at "+local);
                     chest.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",loot)),at.asLong()^anchor.asLong());
