@@ -216,7 +216,7 @@ public final class PosadCommands {
         // source-checked architectural overlay. Remove only the new open-arch
         // cells; preserve every pre-existing R1 NBT chest and its loot.
         if(id.equals("veche_hall_2_2_2")) {
-            for(int y=1;y<=16;y++)for(int z=12;z<=34;z++)for(int x=42;x<=70;x++) {
+            for(int y=0;y<=16;y++)for(int z=12;z<=34;z++)for(int x=42;x<=70;x++) {
                 var r2=PosadHallR2.voxel(x,y,z);
                 if(r2==null)continue;
                 var previous=PosadHallRoofRepair.voxel(x,y,z);

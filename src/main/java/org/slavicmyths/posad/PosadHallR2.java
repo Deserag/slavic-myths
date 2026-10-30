@@ -24,7 +24,7 @@ public final class PosadHallR2 {
 
     private static void edit(int u,int y,int v,Block expected,BlockState replacement) {
         int x=43+u,z=13+v;
-        if(!PosadGeometry.Slot.VECHE_HALL.local().contains(x,z) || y<1 || y>16)
+        if(!PosadGeometry.Slot.VECHE_HALL.local().contains(x,z) || y<0 || y>16)
             throw new IllegalStateException("R2 outside reserved Veche plot: "+x+","+y+","+z);
         BlockState source=PosadBuildings.voxel(x,y,z);
         if(expected==null ? source!=null : source==null || !source.is(expected))
@@ -57,6 +57,7 @@ public final class PosadHallR2 {
         for(int u:new int[]{7,19}) {
             BlockState deck=PosadShell.voxel(43+u,0,34);
             if(deck==null || deck.isAir())throw new IllegalStateException("Veche portico lacks city deck at u="+u);
+            edit(u,0,21,null,Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState());
             for(int y=1;y<=10;y++) {
                 BlockState column=y==1 ? Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState()
                     : y==10 ? Blocks.CHISELED_POLISHED_BLACKSTONE.defaultBlockState()
@@ -95,11 +96,11 @@ public final class PosadHallR2 {
             edit(u,13,10,Blocks.NETHER_BRICKS,Blocks.CRIMSON_PLANKS.defaultBlockState());
             edit(u,16,10,Blocks.NETHER_BRICKS,Blocks.CHISELED_POLISHED_BLACKSTONE.defaultBlockState());
         }
-        if(PATCH.size()!=158)throw new IllegalStateException("Veche R2 edit count changed: "+PATCH.size());
+        if(PATCH.size()!=160)throw new IllegalStateException("Veche R2 edit count changed: "+PATCH.size());
     }
 
     public static BlockState voxel(int x,int y,int z) {
-        if(!PosadGeometry.Slot.VECHE_HALL.local().contains(x,z) || y<1 || y>16)return null;
+        if(!PosadGeometry.Slot.VECHE_HALL.local().contains(x,z) || y<0 || y>16)return null;
         return PATCH.get(key(x,y,z));
     }
 

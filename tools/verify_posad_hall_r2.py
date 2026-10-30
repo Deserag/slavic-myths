@@ -16,7 +16,7 @@ def add(u,y,v,expected,new):
     key = (u,y,v)
     assert key not in edits, key
     assert original(u,y,v) == expected, (key, original(u,y,v), expected)
-    assert -1 <= u <= 27 and -1 <= v <= 21 and 1 <= y <= 16
+    assert -1 <= u <= 27 and -1 <= v <= 21 and 0 <= y <= 16
     edits[key] = new
 
 for y in range(1,5):
@@ -30,6 +30,7 @@ for y in (2,3,8,9):
     for u in (9,10,16,17):
         add(u,y,20,"B","G")
 for u in (7,19):
+    add(u,0,21,".","B")
     for y in range(1,11):
         add(u,y,21,".","B" if y == 1 else "C" if y == 10 else "P")
 for u in (11,15):
@@ -49,8 +50,8 @@ for u in (0,26):
     add(u,13,10,"R","V")
     add(u,16,10,"R","C")
 
-assert len(edits) == 158
-assert Counter(edits.values()) == Counter({ "T":58,"P":32,".":24,"C":20,"G":20,"B":2,"V":2})
+assert len(edits) == 160
+assert Counter(edits.values()) == Counter({ "T":58,"P":32,".":24,"C":20,"G":20,"B":4,"V":2})
 # Two 3-wide arched openings were extended to an eleven-wide shared passage;
 # the east/west pillars, top lintel, second floor and main approach remain.
 for y in range(1,5):
@@ -71,14 +72,14 @@ for turns in range(4):
         assert 0 <= wx <= 112 and 0 <= wz <= 112
         assert (wx,y,wz) not in rotated
         rotated.add((wx,y,wz))
-    assert len(rotated) == 158
+    assert len(rotated) == 160
 
 r2 = (JAVA/"PosadHallR2.java").read_text("utf-8")
 piece = (JAVA/"PosadPiece.java").read_text("utf-8")
 commands = (JAVA/"PosadCommands.java").read_text("utf-8")
 geometry = (JAVA/"PosadGeometry.java").read_text("utf-8")
 assert "SCHEMA_VERSION = 17" in geometry
-assert "PATCH.size()!=158" in r2 and "PosadBuildings.voxel(x,y,z)" in r2
+assert "PATCH.size()!=160" in r2 and "PosadBuildings.voxel(x,y,z)" in r2
 assert "isOpening(int x,int y,int z)" in r2
 assert "schema >= 17" in piece and "PosadHallR2.voxel(x,y,z)" in piece
 assert piece.index("schema >= 17") < piece.index("schema >= 16")
@@ -88,4 +89,4 @@ assert "Standalone Veche R2/NBT mismatch" in commands
 assert "present.hasBlockEntity()" in commands
 assert "world.setBlock(target,r2,2)" in commands
 assert "LootTable" not in r2 and "Furniture" not in r2
-print("PASS: R1 3598 unchanged; R2 158 bounded edits, 24 safe arch openings, 13x13 combined ceremonial nave, supported eaves/portico/windows, four rotations; static only")
+print("PASS: R1 3598 unchanged; R2 160 bounded edits, 24 safe arch openings, 13x13 combined ceremonial nave, supported eaves/portico/windows, four rotations; static only")
