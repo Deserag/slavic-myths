@@ -99,7 +99,18 @@ public final class PosadPiece extends StructurePiece {
                 if(old.hasBlockEntity()||old.is(Blocks.BEDROCK)||!(old.isAir()||old.is(Blocks.LAVA)||NetherBridgeTerrain.natural(old)))continue;
                 if(state.isAir()&&!old.isAir())continue;
                 try {
-                    world.setBlock(at,state.rotate(Rotation.values()[turns]),2);
+                    var placed=state.rotate(Rotation.values()[turns]);
+                    if (state.is(Blocks.CARVED_PUMPKIN)) {
+                        // R1 military practice dummies use three original carved pumpkins.
+                        // Vanilla onPlace invokes a multi-chunk golem BlockPattern read even
+                        // in WorldGenRegion where neighbor states may be inaccessible.
+                        // Chunk-local write preserves the EXACT approved block/facing,
+                        // skips that unrelated entity-spawn probe and never loads neighbors.
+                        var changed=world.getChunk(wx>>4,wz>>4).setBlockState(at,placed,false);
+                        if (changed==null) throw new IllegalStateException("Chunk-local pumpkin write refused at "+at);
+                    } else {
+                        world.setBlock(at,placed,2);
+                    }
                 } catch(RuntimeException e) {
                     throw new IllegalStateException("Posad placement failed: local "+local.x()+","+y+","+local.z()+" world "+at+" block "+state+" rotation "+turns+" schema "+schema, e);
                 }
