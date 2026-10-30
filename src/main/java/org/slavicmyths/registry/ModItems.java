@@ -145,11 +145,11 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> OVINNIK_CLAW = ITEMS.register("ovinnik_claw", () -> new Item(properties()));
     public static final DeferredHolder<Item, Item> EMBER_HEART = ITEMS.register("ember_heart", () -> new Item(properties()));
     public static final DeferredHolder<Item, Item> NOON_SICKLE = ITEMS.register("noon_sickle", () -> new SwordItem(ModGear.SILVER, properties().rarity(Rarity.UNCOMMON).attributes(SwordItem.createAttributes(ModGear.SILVER, 3, -2.5F))));
-    public static final DeferredHolder<Item, Item> KIKIMORA_SPAWN_EGG = ITEMS.register("kikimora_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.KIKIMORA, 0x494137, 0xbca981, properties()));
-    public static final DeferredHolder<Item, Item> POLUDNITSA_SPAWN_EGG = ITEMS.register("poludnitsa_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.POLUDNITSA, 0x494137, 0xbca981, properties()));
-    public static final DeferredHolder<Item, Item> POLEVIK_SPAWN_EGG = ITEMS.register("polevik_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.POLEVIK, 0x494137, 0xbca981, properties()));
-    public static final DeferredHolder<Item, Item> BANNIK_SPAWN_EGG = ITEMS.register("bannik_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.BANNIK, 0x494137, 0xbca981, properties()));
-    public static final DeferredHolder<Item, Item> IGOSHA_SPAWN_EGG = ITEMS.register("igosha_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.IGOSHA, 0x494137, 0xbca981, properties()));
+    public static final DeferredHolder<Item, Item> KIKIMORA_SPAWN_EGG = ITEMS.register("kikimora_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.KIKIMORA, 0x324A3B, 0xA0BA76, properties()));
+    public static final DeferredHolder<Item, Item> POLUDNITSA_SPAWN_EGG = ITEMS.register("poludnitsa_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.POLUDNITSA, 0xC99C45, 0xF5E4A2, properties()));
+    public static final DeferredHolder<Item, Item> POLEVIK_SPAWN_EGG = ITEMS.register("polevik_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.POLEVIK, 0x60472D, 0xBD9A63, properties()));
+    public static final DeferredHolder<Item, Item> BANNIK_SPAWN_EGG = ITEMS.register("bannik_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.BANNIK, 0x393A40, 0xBD6953, properties()));
+    public static final DeferredHolder<Item, Item> IGOSHA_SPAWN_EGG = ITEMS.register("igosha_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.IGOSHA, 0x635D72, 0xD8B9B5, properties()));
     public static final DeferredHolder<Item, Item> OVINNIK_SPAWN_EGG = ITEMS.register("ovinnik_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.OVINNIK, 0x2C2722, 0xE34A18, properties()));
     public static final DeferredHolder<Item, Item> BATH_STOVE = ITEMS.register("bath_stove", () -> new BlockItem(ModBlocks.BATH_STOVE.get(), properties()));
     public static final DeferredHolder<Item, Item> WOODEN_TUB = ITEMS.register("wooden_tub", () -> new BlockItem(ModBlocks.WOODEN_TUB.get(), properties()));
