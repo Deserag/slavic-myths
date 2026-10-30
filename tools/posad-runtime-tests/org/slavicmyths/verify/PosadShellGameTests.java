@@ -151,6 +151,23 @@ public final class PosadShellGameTests {
      System.out.println("POSAD_LIGHT_SURVEY schema="+PosadGeometry.SCHEMA_VERSION+" turn="+turns+" room="+labels[i]+" local="+p[0]+","+p[1]+","+p[2]+" value="+blockLight+" feet="+feet.getBlock()+" head="+head.getBlock()+" floor="+floor.getBlock());
     }
    }
+   // Walkable first-floor R2 central axis and the full eleven-block-wide
+   // passage between R05 nave and former R08 vestibule. Verify AIR at feet
+   // and head height in ACTUAL Minecraft blocks after all overlays/rotations.
+   for(int turns=0;turns<4;turns++){
+    var anchor=t.absolutePos(new net.minecraft.core.BlockPos(turns*160,140,0));
+    for(int z=20;z<=32;z++){
+     var p=PosadGeometry.rotate(new PosadGeometry.Cell(55,z),turns);
+     var at=anchor.offset(p.x(),1,p.z());
+     t.assertTrue(world.getBlockState(at).isAir() && world.getBlockState(at.above()).isAir(),"R2 central route blocked turn="+turns+" local=55,1,"+z);
+     t.assertTrue(!world.getBlockState(at.below()).isAir(),"R2 main route missing floor turn="+turns+" local=55,0,"+z);
+    }
+    for(int x=51;x<=61;x++){
+     var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,28),turns);
+     var at=anchor.offset(p.x(),1,p.z());
+     t.assertTrue(world.getBlockState(at).isAir() && world.getBlockState(at.above()).isAir(),"R2 ceremonial arch blocked turn="+turns+" local="+x+",1,28");
+    }
+   }
    t.succeed();
   });
  }
