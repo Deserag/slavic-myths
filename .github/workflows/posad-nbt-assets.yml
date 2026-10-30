@@ -44,5 +44,23 @@ jobs:
           git config user.name "slavic-myths-posad-assets[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "assets(posad): commit verified exact R1 hall and communal house NBT [skip ci]"
-          # Deliberately use a regular fast-forward push. Concurrent work must not be overwritten.
-          git push origin HEAD:refs/heads/hell
+          # Never force-push. The runner may start from a stale HEAD while other
+          # code work advances hell; replay only this own generated-assets commit.
+          original_base="$(git rev-parse HEAD^)"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:refs/heads/hell; then
+              exit 0
+            fi
+            git fetch origin hell
+            if ! git diff --quiet "$original_base" origin/hell -- \
+              tools/generate_posad_buildings.py \
+              docs/concepts/nether-settlement-2.2/2.2_VECHE_HALL_VOXELS_R1.py \
+              docs/concepts/nether-settlement-2.2/communal-house-2.2.3/2.2_COMMUNAL_HOUSE_MODEL_R1.json \
+              docs/concepts/nether-settlement-2.2/communal-house-2.2.3/loot_drafts; then
+              echo 'FAIL: approved source changed during generation; refuse stale asset publication'
+              exit 1
+            fi
+            git rebase origin/hell
+          done
+          echo 'FAIL: hell advanced repeatedly; no force push was attempted'
+          exit 1
