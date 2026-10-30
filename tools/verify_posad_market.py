@@ -55,7 +55,7 @@ renovation = (root / "src/main/java/org/slavicmyths/posad/PosadMarketRenovation.
 moves = re.findall(r"relocate\((\d+),(\d+),(\d+),(\d+)\)", renovation)
 moves = {(int(x), 1, int(z)): (int(nx), 1, int(nz)) for x,z,nx,nz in moves}
 assert len(moves) == 8 and len(set(moves.values())) == 8
-original_by_pos = {tuple(row[:3]): packed["palette"][row[3]] for row in packed["blocks"]}
+original_by_pos = {tuple(row[:3]): compact["palette"][row[3]] for row in compact["blocks"]}
 for old, new in moves.items():
     assert old in markers and original_by_pos[old].startswith("minecraft:chest")
     assert new not in original_by_pos and new[0] in (3,23)
