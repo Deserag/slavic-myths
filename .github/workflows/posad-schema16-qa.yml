@@ -1,0 +1,90 @@
+name: Posad schema 16 accumulated QA (Java 21)
+on:
+  push:
+    branches:
+      - codex/hell-posad-districts-227-228-20261030
+    paths:
+      - 'src/main/java/org/slavicmyths/posad/**'
+      - 'src/main/resources/data/slavicmyths/posad/**'
+      - 'tools/verify_posad_*.py'
+      - '.github/workflows/posad-schema16-qa.yml'
+  pull_request:
+    branches: [hell]
+    paths:
+      - 'src/main/java/org/slavicmyths/posad/**'
+      - 'src/main/resources/data/slavicmyths/posad/**'
+      - 'tools/verify_posad_*.py'
+      - '.github/workflows/posad-schema16-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  static-geometry:
+    name: Python source-geometry regression (12 checks)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run complete schema 16 geometry suite
+        shell: bash
+        run: |
+          set -euo pipefail
+          for test in \
+            tools/verify_posad_hall_roof.py \
+            tools/verify_posad_hall_comfort.py \
+            tools/verify_posad_druzhina_entrances.py \
+            tools/verify_posad_courtyards.py \
+            tools/verify_posad_market.py \
+            tools/verify_posad_hall_refinement.py \
+            tools/verify_posad_house_renovation.py \
+            tools/verify_posad_v6.py \
+            tools/verify_posad_additional_districts.py \
+            tools/verify_posad_roof_ridges.py \
+            tools/verify_posad_forge_market_roofs.py \
+            tools/verify_posad_eastern_roofs.py; do
+            echo "::group::$test"
+            python3 "$test"
+            echo "::endgroup::"
+          done
+  java-neoforge:
+    name: Java 21 clean build + server GameTest
+    needs: static-geometry
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: NeoForge production clean build
+        shell: bash
+        run: |
+          set -euo pipefail
+          chmod +x gradlew
+          ./gradlew --no-daemon clean build --console=plain
+      - name: Isolated Posad GameTest
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/posad-ci
+          ./gradlew --no-daemon -I tools/posad-qa-runtime.gradle runPosadQa -PposadQaDir=work/posad-schema16-qa --console=plain 2>&1 | tee build/posad-ci/game-test.log
+          if grep -Eiq 'Mod loading has failed|Failed to start the minecraft server|not a valid mod file|[0-9]+ required tests failed|GAME TESTS FAILED' build/posad-ci/game-test.log; then
+            echo 'FAIL: NeoForge loader/server/GameTest reported an error'
+            exit 1
+          fi
+          if ! grep -Eq '[0-9]+ GAME TESTS COMPLETE' build/posad-ci/game-test.log; then
+            echo 'FAIL: no actual GameTest completion evidence'
+            exit 1
+          fi
+      - name: Upload GameTest log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: posad-schema16-game-test
+          path: build/posad-ci/
+          if-no-files-found: warn
+          retention-days: 14
