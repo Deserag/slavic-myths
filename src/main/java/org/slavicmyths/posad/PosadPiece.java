@@ -90,7 +90,7 @@ public final class PosadPiece extends StructurePiece {
                 case 2 -> new PosadGeometry.Cell(112-dx,112-dz);
                 default -> new PosadGeometry.Cell(112-dz,dx);
             };
-            for(int y=boundingBox.minY()-anchor.getY();y<18;y++) {
+            for(int y=Math.max(boundingBox.minY(),clip.minY())-anchor.getY();y<=Math.min(anchor.getY()+17,clip.maxY())-anchor.getY();y++) {
                 var state=voxel(local.x(),y,local.z());
                 if(state==null)continue;
                 BlockPos at=new BlockPos(wx,anchor.getY()+y,wz);
