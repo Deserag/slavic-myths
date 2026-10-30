@@ -123,6 +123,23 @@ public final class PosadCommands {
         for(var at:net.minecraft.core.BlockPos.betweenClosed(pos,end))if(!world.getBlockState(at).isAir())world.setBlock(at,net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),2);
         boolean placed=template.get().placeInWorld(world,pos,pos,new net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings(),world.random,2);
         if(!placed){source.sendFailure(Component.literal("Шаблон не разместился: "+key+"; резерв сохранён."));return 0;}
+        // Restore the public entry corridor in standalone communal-house NBT,
+        // including the side stairwell and the relocated one-time loot chest.
+        if(id.equals("communal_house_2_2_3")) {
+            for(int y=1;y<=11;y++)for(int z=15;z<=29;z++)for(int x=13;x<=35;x++) {
+                var renovation=PosadHouseRenovation.voxel(x,y,z);
+                if(renovation==null)continue;
+                var target=pos.offset(x-13,y,z-15);
+                world.setBlock(target,renovation,2);
+                if(renovation.is(net.minecraft.world.level.block.Blocks.CHEST) && world.getBlockEntity(target) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity chest) {
+                    String table=PosadHouseRenovation.chestLoot(x,y,z);
+                    if(table!=null) {
+                        chest.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",table)),target.asLong()^pos.asLong());
+                        chest.setChanged();
+                    }
+                }
+            }
+        }
         // Standalone veche template receives the same schema-6 finishes as
         // the complete city, including two seeded treasury chests.
         if(id.equals("veche_hall_2_2_2")) {
