@@ -6365,6 +6365,7 @@
   "netherores.count.nether": "Nether only.",
   "netherores.count.unloaded": "Chunk is not loaded.",
   "netherores.count.result": "Chunk %s, %s: [Livingstone, Alatyrite, Runnik, Infernal, Sulfur] = %s. Existing blocks only.",
-  "entity.slavicmyths.morova_deva": "Morova Maiden — Bride of Pestilence",
-  "entity.slavicmyths.trizna_prince": "Prince of the Last Funeral Feast"
+  "entity.slavicmyths.morova_deva": "Morova Bride",
+  "entity.slavicmyths.trizna_prince": "Prince of the Last Trizna",
+  "effect.slavicmyths.morova_plague": "Plague"
 }

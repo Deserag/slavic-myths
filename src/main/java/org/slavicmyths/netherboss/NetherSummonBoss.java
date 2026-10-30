@@ -41,12 +41,15 @@ public final class NetherSummonBoss extends Monster {
     private final int kind;
     private final ServerBossEvent bossBar;
     private int actionTicks=0, actionCooldown=80;
+    private boolean actionResolved;
+    public int actionTicks(){return actionTicks;}
     public NetherSummonBoss(EntityType<? extends NetherSummonBoss> type,Level level,int kind){
         super(type,level);this.kind=kind;
         this.bossBar=new ServerBossEvent(Component.translatable(kind==MOROVA?"entity.slavicmyths.morova_deva":"entity.slavicmyths.trizna_prince"),
                 kind==MOROVA?BossEvent.BossBarColor.GREEN:BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
-        this.xpReward=kind==MOROVA?200:300;
+        this.xpReward=kind==MOROVA?200:300;setHealth(getMaxHealth());
     }
+    @Override public float getMaxHealth(){return (float)org.slavicmyths.combat.CreatureHealthBalance.uncappedMaximum(getAttribute(Attributes.MAX_HEALTH));}
     public boolean isMorova(){return kind==MOROVA;}
     public int phase(){return entityData.get(PHASE);}
     public int action(){return entityData.get(ACTION);}
@@ -63,7 +66,7 @@ public final class NetherSummonBoss extends Monster {
     }
     @Override protected void registerGoals(){
         goalSelector.addGoal(0,new FloatGoal(this));
-        goalSelector.addGoal(2,new MeleeAttackGoal(this,1.0,false));
+        // Scripted hits own damage; vanilla melee must never bypass the windup.
         goalSelector.addGoal(5,new WaterAvoidingRandomStrollGoal(this,.8));
         goalSelector.addGoal(6,new LookAtPlayerGoal(this,Player.class,12));
         goalSelector.addGoal(7,new RandomLookAroundGoal(this));
@@ -84,17 +87,17 @@ public final class NetherSummonBoss extends Monster {
         entityData.set(PHASE,next);
         if(actionTicks>0){
             actionTicks--;
-            if(actionTicks==12)resolveAction();
+            if(actionTicks==12&&!actionResolved){actionResolved=true;resolveAction();}
             if(actionTicks==0)entityData.set(ACTION,0);
             return;
         }
-        if(actionCooldown>0){actionCooldown--;return;}
+        if(actionCooldown>0){actionCooldown--;if(getTarget()!=null&&action()==0)getNavigation().moveTo(getTarget(),1.0);return;}
         LivingEntity victim=getTarget();
         if(victim==null||!victim.isAlive()||distanceToSqr(victim)>144){actionCooldown=25;return;}
         getNavigation().stop();
         getLookControl().setLookAt(victim,30,30);
         entityData.set(ACTION,isMorova()?1:2);
-        actionTicks=36;actionCooldown=next==3?70:next==2?100:130;
+        actionResolved=false;actionTicks=isMorova()?42:48;actionCooldown=next==3?70:next==2?100:130;
         playSound(isMorova()?SoundEvents.EVOKER_PREPARE_ATTACK:SoundEvents.WITHER_SKELETON_AMBIENT,1.3F,isMorova()?.65F:.78F);
     }
     private void resolveAction(){
@@ -106,18 +109,23 @@ public final class NetherSummonBoss extends Monster {
         for(Player player:world.getEntitiesOfClass(Player.class,box,p->p.isAlive()&&!p.isSpectator()&&!p.isCreative())){
             if(player.distanceToSqr(this)>range*range||!hasLineOfSight(player))continue;
             player.hurt(damageSources().mobAttack(this),isMorova()?8:14);
-            if(isMorova())player.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN,100,phase()>=2?1:0));
-            else player.setSecondsOnFire(phase()>=3?4:2);
+            if(isMorova())player.addEffect(new net.minecraft.world.effect.MobEffectInstance(org.slavicmyths.registry.ModEffects.MOROVA_PLAGUE,200,phase()-1));
+            else player.igniteForSeconds(phase()>=3?4:2);
         }
         world.sendParticles(isMorova()?ParticleTypes.SOUL:ParticleTypes.FLAME,getX(),getY(0.6),getZ(),
                 phase()>=3?90:45,range*.6,1.2,range*.6,.03);
         playSound(isMorova()?SoundEvents.WITCH_CELEBRATE:SoundEvents.BLAZE_SHOOT,1.4F,.75F);
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag){
+    @Override public void addAdditionalSaveData(CompoundTag tag){
         super.addAdditionalSaveData(tag);tag.putInt("NetherBossPhase",phase());
+        tag.putInt("NetherBossAction",action());tag.putInt("NetherBossActionTicks",actionTicks);
+        tag.putInt("NetherBossCooldown",actionCooldown);tag.putBoolean("NetherBossResolved",actionResolved);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag){
+    @Override public void readAdditionalSaveData(CompoundTag tag){
         super.readAdditionalSaveData(tag);entityData.set(PHASE,Math.max(1,Math.min(3,tag.getInt("NetherBossPhase"))));
+        actionTicks=Math.clamp(tag.getInt("NetherBossActionTicks"),0,48);
+        actionCooldown=Math.clamp(tag.getInt("NetherBossCooldown"),0,130);actionResolved=tag.getBoolean("NetherBossResolved");
+        entityData.set(ACTION,actionTicks>0?Math.clamp(tag.getInt("NetherBossAction"),0,2):0);
     }
     @Override protected SoundEvent getAmbientSound(){return isMorova()?SoundEvents.WITCH_AMBIENT:SoundEvents.WITHER_SKELETON_AMBIENT;}
     @Override protected SoundEvent getHurtSound(DamageSource source){return isMorova()?SoundEvents.WITCH_HURT:SoundEvents.WITHER_SKELETON_HURT;}

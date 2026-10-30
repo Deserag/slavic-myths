@@ -6364,5 +6364,8 @@
   "item.slavicmyths.nether_aura_amulet.effect": "В слоте ожерелья Curios защищает только от адской ауры. В сумке не действует. Прототип.",
   "netherores.count.nether": "Только в Аду.",
   "netherores.count.unloaded": "Чанк не загружен.",
-  "netherores.count.result": "Чанк %s, %s: [Живокамень, Алатырит, Рунник, Пекельная, Сера] = %s. Только имеющиеся блоки."
+  "netherores.count.result": "Чанк %s, %s: [Живокамень, Алатырит, Рунник, Пекельная, Сера] = %s. Только имеющиеся блоки.",
+  "effect.slavicmyths.morova_plague": "Мор",
+  "entity.slavicmyths.morova_deva": "Морова дева",
+  "entity.slavicmyths.trizna_prince": "Князь Последней Тризны"
 }
