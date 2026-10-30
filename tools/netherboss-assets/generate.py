@@ -12,6 +12,10 @@ NAMES={
 'rune_morova_lingering':('Руна Тлеющего мора','Rune of Lingering Plague'),'rune_trizna_ember_ward':('Руна Погребального жара','Rune of Ember Ward'),
 'amulet_of_the_faded':('Амулет угасших','Amulet of the Faded'),'last_watch_horn':('Рог последнего дозора','Last Watch Horn'),
 'morova_silence_pendant':('Кулон морового безмолвия','Morova Silence Pendant'),'fallen_druzhina_horn':('Рог павшей дружины','Fallen Druzhina Horn')}
+# Translation-only names: never replace special spawn-egg models or textures.
+EGG_NAMES={
+ 'morova_deva_spawn_egg':('Яйцо призыва Моровой девы','Morova Deva Spawn Egg'),
+ 'trizna_prince_spawn_egg':('Яйцо призыва князя Тризны','Prince Trizna Spawn Egg')}
 PAIRS={'nether_watchpost':['broken_watch_horn','charred_signal_ribbon'],'wayfarer_camp':['morova_thread','darkened_waymark'],'forgotten_shrine':['faded_rite_seal','nameless_ashes'],'ancestor_shrine':['ancestor_bone_charm','mourning_circlet'],'trizna_pyre':['nameless_ashes','charred_signal_ribbon']}
 for table,pair in PAIRS.items():
  p=RES/f'data/slavicmyths/loot_table/chests/{table}.json';data=json.loads(p.read_text())
@@ -79,6 +83,7 @@ cat.write_text('\n'.join(lines)+'\n',encoding='utf-8')
 for lang,index in [('ru_ru',0),('en_us',1)]:
  p=RES/f'assets/slavicmyths/lang/{lang}.json';data=json.loads(p.read_text(encoding='utf-8'))
  for name,names in NAMES.items():data['item.slavicmyths.'+name]=names[index]
+ for name,names in EGG_NAMES.items():data['item.slavicmyths.'+name]=names[index]
  data['entity.slavicmyths.nether_retainer']='Призванный дружинник' if index==0 else 'Summoned Retainer'
  for key,pair in {'nether_only':('Ритуал возможен только в Незере.','The ritual requires the Nether.'),'busy':('Поблизости уже идёт ритуал или бой.','A nearby encounter or ritual is already active.'),'unloaded':('Область ритуала ещё не загружена.','The ritual area is not loaded.'),'altar':('Неверный ритуальный алтарь.','Invalid ritual altar.'),'space':('Недостаточно свободного места для босса.','Not enough space for the boss.')}.items():data['netherboss.slavicmyths.'+key]=pair[index]
  data['netherboss.rune.morova_lingering.effect']=('Прямой удар: продление существующих вредных эффектов на 25%, до 5 с; 10 с на цель/эффект.','Direct hit: extend existing harmful effects by 25%, max 5s; 10s per target/effect.')[index]
