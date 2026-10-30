@@ -50,3 +50,12 @@ JAR SHA256: 0b631ddfd1f83814007069c6b67fb93b1ebe11217d54a89911597d21c8f34e2d. Po
 - Полная атомарность через чанки, claims/player protection, сохранение физического города/reload, пять seed с настоящими успешными стартами, blacklist/модовые биомы, locate/manual commands/retrofit/MP/GUI: NOT_RUN/не завершены. Текущее разрешение владельца на активацию условное; обязательные guards пока не выполнены. Ошибку редкости частотой не маскировать.
 
 Логи: terrain-gates.txt, terrain-resources.txt. Следующая задача: устранить стоимость плотного native noise scan и завершить целостную защиту/размещение города, затем production data и штатные команды. Отчёт является checkpoint, не сдачей scope. Smoke для владельца и ограничения выше сохраняются; production/profile не обновлены.
+
+
+## Продолжение 30.10.2026 — целая ручная сборка только в QA-мире (не production release)
+
+Добавлена `PosadManualJobs` и зарегистрирована `/slavicmyths dev posad create <turns> <anchorX> <deckY> <anchorZ> confirm_disposable_world`, отдельные `status` и `cancel`. Только OP4, Незер, имя мира `posad-qa-*`. Нативный `PosadTerrain.inspect`, проверка загруженности всех чанков (без инициирования их загрузки), preflight целевого объёма по слоям, недопуск чужих блок-сущностей/защищённых блоков, поэтапный `PosadPiece.postProcess`, фиксация `ManualStructureRecords` как `construction` **до** записи мира, без повторной выдачи наград при сбое. После записи принудительно сохраняются чанки, и только затем `nether_posad` записывается как завершённый. Оптимизирован Y-clip для piece. Полная детализация и шаги — [QA_WHOLE_CITY_MANUAL_GATE.md](QA_WHOLE_CITY_MANUAL_GATE.md).
+
+Добавлен GameTest `chestRewardsAreNotRearmed`: открытый и опустошённый общинный сундук не должен снова заполниться при повторном `postProcess`. Это ограниченная проверка, а не подтверждение MP/relog/no-dupe при всех состояниях. CI новой ревизии запущен, но **успешный полный build + тест самой команды пока не заявлен**.
+
+**Production natural worldgen по-прежнему OFF.** Ни одного вывода о готовности `StructureSet` без прохождения performance/native starts/five seeds/4 orientations/save-reload/multiplayer/claims QA. Игроковые/старые города не обновляются, #352 и #355 не затронуты. Ветка `hell`, `main` не изменялась.
