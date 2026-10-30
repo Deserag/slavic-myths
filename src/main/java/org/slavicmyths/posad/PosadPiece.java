@@ -61,6 +61,10 @@ public final class PosadPiece extends StructurePiece {
             return -y<depth?Blocks.POLISHED_BASALT.defaultBlockState():null;
         }
         if(PosadGeometry.CITY.contains(x,z)) {
+            if(schema >= 14) {
+                var districtRoof=PosadDistrictRoofRepair.voxel(x,y,z);
+                if(districtRoof!=null)return districtRoof;
+            }
             if(schema >= 13) {
                 var roof=PosadHallRoofRepair.voxel(x,y,z);
                 if(roof!=null)return roof;

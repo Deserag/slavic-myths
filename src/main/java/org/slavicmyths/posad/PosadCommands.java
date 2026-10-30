@@ -243,6 +243,23 @@ public final class PosadCommands {
                 world.setBlock(target,finish,2);
             }
         }
+        // Schema-14 structural ridge shoulders on the house and military hall.
+        // Same city-local states as PosadPiece, after earlier standalone overlays.
+        if(id.equals("communal_house_2_2_3") || id.equals("druzhinny_dvor_2_2_4")) {
+            boolean communal=id.equals("communal_house_2_2_3");
+            int y=communal?16:17, ox=communal?13:12, oz=communal?15:75;
+            int[] rows=communal?new int[]{21,23}:new int[]{80,82};
+            for(int x=13;x<=(communal?35:38);x++)for(int z:rows) {
+                var roof=PosadDistrictRoofRepair.voxel(x,y,z);
+                var original=communal?PosadBuildings.voxel(x,y,z):PosadNextBuildings.voxel(x,y,z);
+                var target=pos.offset(x-ox,y,z-oz);
+                var present=world.getBlockState(target);
+                if(roof==null || original==null || !original.is(net.minecraft.world.level.block.Blocks.NETHER_BRICKS)
+                        || present.hasBlockEntity() || !present.is(original.getBlock()))
+                    throw new IllegalStateException("Standalone district roof/NBT mismatch at "+target);
+                world.setBlock(target,roof,2);
+            }
+        }
         // Template barrels are authored empty: assign persistent single-use loot after placement.
         String table=id.startsWith("menovye_ryady")?"chests/posad_barrel_market":"chests/posad_barrel_supplies";
         for(var at:net.minecraft.core.BlockPos.betweenClosed(pos,end)) {
