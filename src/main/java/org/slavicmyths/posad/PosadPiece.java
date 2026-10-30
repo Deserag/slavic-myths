@@ -15,17 +15,18 @@ import org.slavicmyths.netherstructures.NetherBridgeTerrain;
 public final class PosadPiece extends StructurePiece {
     private final BlockPos anchor;
     private final int turns;
+    private final int schema;
     private final PosadTerrain.Plan terrain;
     private final java.util.Map<Long,Integer> supports=new java.util.HashMap<>();
     private static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}
     public PosadPiece(BlockPos anchor,int turns) {
         super(PosadWorldgen.PIECE.get(),0,new BoundingBox(anchor.getX(),anchor.getY()-2,anchor.getZ(),anchor.getX()+112,anchor.getY()+17,anchor.getZ()+112));
-        this.anchor=anchor.immutable(); this.turns=Math.floorMod(turns,4);
+        this.anchor=anchor.immutable(); this.turns=Math.floorMod(turns,4); this.schema=PosadGeometry.SCHEMA_VERSION;
         terrain=new PosadTerrain.Plan(anchor.getX(),anchor.getY(),anchor.getZ(),this.turns,0,java.util.List.of());
     }
     public PosadPiece(PosadTerrain.Plan plan) {
         super(PosadWorldgen.PIECE.get(),0,bounds(plan));
-        terrain=plan;anchor=new BlockPos(plan.anchorX(),plan.deckY(),plan.anchorZ());turns=plan.turns();
+        terrain=plan;anchor=new BlockPos(plan.anchorX(),plan.deckY(),plan.anchorZ());turns=plan.turns();schema=PosadGeometry.SCHEMA_VERSION;
         for(var support:plan.supports())supports.put(key(support.x(),support.z()),support.depth());
     }
     private static BoundingBox bounds(PosadTerrain.Plan plan) {
@@ -38,7 +39,7 @@ public final class PosadPiece extends StructurePiece {
     }
     public PosadPiece(CompoundTag n) {
         super(PosadWorldgen.PIECE.get(),n);
-        anchor=BlockPos.of(n.getLong("Anchor"));turns=Math.floorMod(n.getInt("Turns"),4);
+        anchor=BlockPos.of(n.getLong("Anchor"));turns=Math.floorMod(n.getInt("Turns"),4);schema=n.getInt("Schema");
         var list=new java.util.ArrayList<PosadTerrain.Support>();
         var raw=n.getIntArray("Supports");
         if(raw.length%3!=0||raw.length>900)throw new IllegalArgumentException("Invalid posad supports");
@@ -48,7 +49,7 @@ public final class PosadPiece extends StructurePiece {
         terrain=new PosadTerrain.Plan(anchor.getX(),anchor.getY(),anchor.getZ(),turns,length,list);
     }
     @Override protected void addAdditionalSaveData(StructurePieceSerializationContext c,CompoundTag n) {
-        n.putLong("Anchor",anchor.asLong());n.putInt("Turns",turns);n.putInt("Schema",PosadGeometry.SCHEMA_VERSION);
+        n.putLong("Anchor",anchor.asLong());n.putInt("Turns",turns);n.putInt("Schema",schema);
         n.putInt("BridgeLength",terrain.bridgeLength());
         var raw=new int[terrain.supports().size()*3];int i=0;
         for(var support:terrain.supports()){raw[i++]=support.x();raw[i++]=support.z();raw[i++]=support.depth();}
@@ -59,7 +60,13 @@ public final class PosadPiece extends StructurePiece {
             int depth=supports.getOrDefault(key(x,z),0);
             return -y<depth?Blocks.POLISHED_BASALT.defaultBlockState():null;
         }
-        if(PosadGeometry.CITY.contains(x,z))return PosadShell.voxel(x,y,z);
+        if(PosadGeometry.CITY.contains(x,z)) {
+            if(schema >= 2) {
+                var building=PosadBuildings.voxel(x,y,z);
+                if(building!=null)return building;
+            }
+            return PosadShell.voxel(x,y,z);
+        }
         if(z>112&&z<=112+terrain.bridgeLength()&&x>=52&&x<=60) {
             if(y>=-2&&y<=0)return Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState();
             if(y==1||y==2)return (x==52||x==60?Blocks.POLISHED_BLACKSTONE_BRICKS:Blocks.AIR).defaultBlockState();
@@ -88,6 +95,12 @@ public final class PosadPiece extends StructurePiece {
                 if(old.hasBlockEntity()||old.is(Blocks.BEDROCK)||!(old.isAir()||old.is(Blocks.LAVA)||NetherBridgeTerrain.natural(old)))continue;
                 if(state.isAir()&&!old.isAir())continue;
                 world.setBlock(at,state.rotate(Rotation.values()[turns]),2);
+                if(schema >= 2 && state.is(Blocks.CHEST) && world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity chest) {
+                    String loot=PosadBuildings.chestLoot(local.x(),y,local.z());
+                    if(loot==null)throw new IllegalStateException("Unexpected posad chest at "+local);
+                    chest.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",loot)),at.asLong()^anchor.asLong());
+                    chest.setChanged();
+                }
             }
         }
     }
