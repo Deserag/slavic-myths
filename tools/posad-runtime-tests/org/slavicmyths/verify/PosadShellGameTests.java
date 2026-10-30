@@ -6,6 +6,35 @@ import net.minecraft.world.level.block.Blocks;
 @GameTestHolder("slavicmyths_posad") @PrefixGameTestTemplate(false)
 public final class PosadShellGameTests {
  @GameTest(template="empty",timeoutTicks=200)
+ public static void marketSchemaSixAndExactLoot(GameTestHelper t) {
+  var fresh=new PosadPiece(new net.minecraft.core.BlockPos(0,64,0),0);
+  var oldTag=fresh.createTag(net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext.fromLevel(t.getLevel()));
+  oldTag.putInt("Schema",5);
+  var old=new PosadPiece(oldTag);
+  int blocks=0,chests=0;
+  for(int x=75;x<=101;x++)for(int z=75;z<=99;z++)for(int y=0;y<12;y++) {
+   var state=PosadMarket.voxel(x,y,z);
+   if(state==null)continue;
+   blocks++;
+   t.assertTrue(fresh.voxel(x,y,z).equals(state),"New market voxel omitted "+x+","+y+","+z);
+   if(y>0)t.assertTrue(old.voxel(x,y,z)==null,"Saved schema 5 must not retrofit market "+x+","+y+","+z);
+   if(state.is(Blocks.CHEST)) {
+    chests++;
+    t.assertTrue(PosadMarket.chestLoot(x,y,z).startsWith("chests/nether_market_"),"Missing market loot binding");
+   } else t.assertTrue(PosadMarket.chestLoot(x,y,z)==null,"Extra market loot marker");
+  }
+  t.assertTrue(blocks==2203&&chests==8,"Wrong market block/chest count");
+  for(int turns=0;turns<4;turns++) {
+   var city=new PosadPiece(new net.minecraft.core.BlockPos(0,64,0),turns);
+   for(int x=75;x<=101;x++)for(int z=75;z<=99;z++)for(int y=0;y<12;y++) {
+    var state=PosadMarket.voxel(x,y,z);
+    if(state!=null)t.assertTrue(city.voxel(x,y,z).equals(state),"Rotated market changed local model "+turns);
+   }
+  }
+  t.succeed();
+ }
+
+ @GameTest(template="empty",timeoutTicks=200)
  public static void herbalHutSchemaAndLoot(GameTestHelper t) {
   var fresh=new PosadPiece(new net.minecraft.core.BlockPos(0,64,0),0);
   var oldTag=fresh.createTag(net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext.fromLevel(t.getLevel()));
@@ -153,6 +182,23 @@ public final class PosadShellGameTests {
    }
   }
   t.assertTrue(herbalBlocks==1599&&herbalChests==5,"Herbal district physical totals mismatch");
+  int marketBlocks=0,marketChests=0;
+  for(int x=75;x<=101;x++)for(int z=75;z<=99;z++)for(int y=0;y<12;y++) {
+   var expected=PosadMarket.voxel(x,y,z);
+   if(expected==null)continue;
+   marketBlocks++;
+   var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+   var at=anchor.offset(p.x(),y,p.z());
+   var actual=world.getBlockState(at);
+   t.assertTrue(actual.is(expected.getBlock()),"Physical market voxel missing "+at+": "+actual);
+   if(expected.is(Blocks.CHEST)) {
+    marketChests++;
+    t.assertTrue(world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity,"Missing market chest at "+at);
+    var chest=(net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity)world.getBlockEntity(at);
+    t.assertTrue(chest.getLootTable()!=null,"Market chest loot not armed "+at);
+   }
+  }
+  t.assertTrue(marketBlocks==2203&&marketChests==8,"Physical market count mismatch");
   t.assertTrue(militaryBlocks==2440&&forgeBlocks==1901,"Wrong 2.2.4/2.2.5 block counts "+militaryBlocks+"/"+forgeBlocks);
   t.assertTrue(militaryChests==5&&forgeChests==5,"Wrong district chest counts "+militaryChests+"/"+forgeChests);
   t.assertTrue(hallBlocks==3598,"Wrong hall voxel count "+hallBlocks);

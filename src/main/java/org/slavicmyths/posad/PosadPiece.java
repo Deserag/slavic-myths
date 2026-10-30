@@ -61,6 +61,10 @@ public final class PosadPiece extends StructurePiece {
             return -y<depth?Blocks.POLISHED_BASALT.defaultBlockState():null;
         }
         if(PosadGeometry.CITY.contains(x,z)) {
+            if(schema >= 6) {
+                var market=PosadMarket.voxel(x,y,z);
+                if(market!=null)return market;
+            }
             if(schema >= 5) {
                 var hut=PosadHerbalHut.voxel(x,y,z);
                 if(hut!=null)return hut;
@@ -125,6 +129,7 @@ public final class PosadPiece extends StructurePiece {
                 }
                 if(schema >= 2 && state.is(Blocks.CHEST) && world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity chest) {
                     String loot=schema >= 3 ? PosadNextBuildings.chestLoot(local.x(),y,local.z()) : null;
+                    if(loot==null&&schema>=6)loot=PosadMarket.chestLoot(local.x(),y,local.z());
                     if(loot==null&&schema>=5)loot=PosadHerbalHut.chestLoot(local.x(),y,local.z());
                     if(loot==null)loot=PosadBuildings.chestLoot(local.x(),y,local.z());
                     if(loot==null)throw new IllegalStateException("Unexpected posad chest at "+local);

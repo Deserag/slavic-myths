@@ -16,13 +16,14 @@ public final class PosadCommands {
         new Template("Общинный дом", "communal_house_2_2_3", PosadGeometry.Slot.COMMUNAL_HOUSE, 13, 15),
         new Template("Дружинный двор", "druzhinny_dvor_2_2_4", PosadGeometry.Slot.DRUZHINNY_DVOR, 12, 75),
         new Template("Кузнечный двор", "kuznechny_dvor_2_2_5", PosadGeometry.Slot.KUZNECHNY_DVOR, 12, 44),
-        new Template("Зелейная изба", "zeleynaya_2_2_7", PosadGeometry.Slot.ZELEYNAYA_IZBA, 76, 44)
+        new Template("Зелейная изба", "zeleynaya_2_2_7", PosadGeometry.Slot.ZELEYNAYA_IZBA, 76, 44),
+        new Template("Меновые ряды", "menovye_ryady_2_2_6", PosadGeometry.Slot.MENOVYE_RYADY, 75, 75)
     };
 
     public static void register(org.slavicmyths.commands.CommandTree tree) {
         var generate=Commands.literal("generate").requires(source->source.hasPermission(2));
         generate.then(Commands.literal("nether_posad").executes(c->start(c.getSource())));
-        String[][] names={{"veche_hall","veche_hall_2_2_2"},{"communal_house","communal_house_2_2_3"},{"druzhinny_dvor","druzhinny_dvor_2_2_4"},{"kuznechny_dvor","kuznechny_dvor_2_2_5"},{"zeleynaya","zeleynaya_2_2_7"},{"granary","granary_2_2_8"}};
+        String[][] names={{"veche_hall","veche_hall_2_2_2"},{"communal_house","communal_house_2_2_3"},{"druzhinny_dvor","druzhinny_dvor_2_2_4"},{"kuznechny_dvor","kuznechny_dvor_2_2_5"},{"zeleynaya","zeleynaya_2_2_7"},{"granary","granary_2_2_8"},{"menovye_ryady","menovye_ryady_2_2_6"}};
         for(var name:names)generate.then(Commands.literal(name[0]).executes(c->building(c.getSource(),name[1],org.slavicmyths.worldgen.ManualTerrain.ground(c.getSource()))));
         tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").then(generate)));
         var posad = Commands.literal("posad").requires(source -> source.hasPermission(2));
@@ -42,7 +43,7 @@ public final class PosadCommands {
         var createPosition=Commands.argument("origin",net.minecraft.commands.arguments.coordinates.BlockPosArgument.blockPos())
             .executes(c -> create(c));
         posad.then(Commands.literal("create").then(Commands.argument("turns",IntegerArgumentType.integer(0,3)).then(createPosition)));
-        for(String id : new String[]{"veche_hall_2_2_2","communal_house_2_2_3","druzhinny_dvor_2_2_4","kuznechny_dvor_2_2_5","zeleynaya_2_2_7","granary_2_2_8"}) {
+        for(String id : new String[]{"veche_hall_2_2_2","communal_house_2_2_3","druzhinny_dvor_2_2_4","kuznechny_dvor_2_2_5","zeleynaya_2_2_7","granary_2_2_8","menovye_ryady_2_2_6"}) {
             var building=Commands.literal(id).executes(c -> building(c.getSource(),id,net.minecraft.core.BlockPos.containing(c.getSource().getPosition())));
             building.then(Commands.argument("pos",net.minecraft.commands.arguments.coordinates.BlockPosArgument.blockPos()).executes(c -> building(c.getSource(),id,net.minecraft.commands.arguments.coordinates.BlockPosArgument.getLoadedBlockPos(c,"pos"))));
             posad.then(Commands.literal("building").then(building));
@@ -55,7 +56,7 @@ public final class PosadCommands {
         return PosadManualJobs.create(source,0,at.getX(),at.getY(),at.getZ());
     }
     private static int info(CommandSourceStack source) {
-        source.sendSuccess(() -> Component.literal("Пекельный посад: фиксированный план 113x113, схема новых городов " + PosadGeometry.SCHEMA_VERSION + ", пять утверждённых шаблонов (3598/1992/2440/1901/1599 блоков)."), false);
+        source.sendSuccess(() -> Component.literal("Пекельный посад: фиксированный план 113x113, схема новых городов " + PosadGeometry.SCHEMA_VERSION + ", шесть шаблонов (3598/1992/2440/1901/1599/2203 блоков)."), false);
         source.sendSuccess(() -> Component.literal("Естественная генерация пока заблокирована до native QA, performance, save/reload и anti-dupe. Старые города никогда не перестраиваются."), false);
         source.sendSuccess(() -> Component.literal("Ручное создание с OP 2 в любом мире: /slavicmyths dev posad create <turns> <anchorX> <deckY> <anchorZ>. Чанки подготавливаются постепенно. status/cancel — для управления."), false);
         return 1;
@@ -83,13 +84,8 @@ public final class PosadCommands {
             String command = "/slavicmyths dev posad building " + t.id() + " " + x + " " + deckY + " " + z;
             source.sendSuccess(() -> Component.literal(t.name() + " [слот " + t.slot().local() + "]: " + command), false);
         }
-        // Next task #355: an existing, independently verified 2.2.7 NBT asset.
-        // Expose it for isolated hands-on QA only; do not silently add it to schema-4 cities.
-        int hutX = Math.addExact(anchorX, 76);
-        int hutZ = Math.addExact(anchorZ, 44);
-        source.sendSuccess(() -> Component.literal("Зелейная изба [только отдельный QA NBT, ещё не в городе]: /place template slavicmyths:posad/zeleynaya_2_2_7 " + hutX + " " + deckY + " " + hutZ), false);
         source.sendSuccess(() -> Component.literal("Городская ориентация для команд: только 0°; для 90/180/270 используйте native PosadPiece и тесты, не поворачивайте отдельные дома независимо."), false);
-        return TEMPLATES.length + 1;
+        return TEMPLATES.length;
     }
 
     private static int create(com.mojang.brigadier.context.CommandContext<CommandSourceStack> c) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
