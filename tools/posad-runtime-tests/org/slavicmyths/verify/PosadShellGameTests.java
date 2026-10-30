@@ -250,6 +250,14 @@ public final class PosadShellGameTests {
    t.assertTrue(fresh.voxel(p[0],p[1],p[2]).is(Blocks.SOUL_LANTERN),"New interior light missing");
    t.assertTrue(PosadBuildings.chestLoot(p[0],p[1],p[2])==null,"Lighting must not override loot");
   }
+  for(int y=1;y<=2;y++)for(int turns=0;turns<4;turns++) {
+   var left=PosadVisualRepairs.voxel(23,y,28).rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
+   var right=PosadVisualRepairs.voxel(24,y,28).rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
+   t.assertTrue(left.is(Blocks.CRIMSON_DOOR)&&right.is(Blocks.CRIMSON_DOOR),"Paired doors missing after rotation");
+   t.assertTrue(left.getValue(net.minecraft.world.level.block.DoorBlock.HINGE)==net.minecraft.world.level.block.state.properties.DoorHingeSide.RIGHT,"Western hinge faces inward");
+   t.assertTrue(right.getValue(net.minecraft.world.level.block.DoorBlock.HINGE)==net.minecraft.world.level.block.state.properties.DoorHingeSide.LEFT,"Eastern hinge faces inward");
+   t.assertTrue(left.getValue(net.minecraft.world.level.block.DoorBlock.HALF)==(y==1?net.minecraft.world.level.block.state.properties.DoubleBlockHalf.LOWER:net.minecraft.world.level.block.state.properties.DoubleBlockHalf.UPPER),"Wrong left leaf half");
+  }
   t.succeed();
  }
  @GameTest(template="empty",timeoutTicks=200)
