@@ -19,10 +19,10 @@ public final class NetherBossItems {
  public static final List<String> COMPONENTS=List.of("morova_thread","faded_rite_seal","ancestor_bone_charm","nameless_ashes","broken_watch_horn","darkened_waymark","mourning_circlet","charred_signal_ribbon");
  static {
   register("morova_deva_spawn_egg",()->new net.neoforged.neoforge.common.DeferredSpawnEggItem(org.slavicmyths.registry.ModEntities.MOROVA_DEVA,0xe0dbc7,0x922533,new Item.Properties()) {
-   @Override public net.minecraft.network.chat.Component getName(ItemStack stack) {return net.minecraft.network.chat.Component.translatable("item.minecraft.spawn_egg").append(" — ").append(net.minecraft.network.chat.Component.translatable("entity.slavicmyths.morova_deva"));}
+   @Override public net.minecraft.network.chat.Component getName(ItemStack stack) {return net.minecraft.network.chat.Component.translatable("item.slavicmyths.morova_deva_spawn_egg");}
   });
   register("trizna_prince_spawn_egg",()->new net.neoforged.neoforge.common.DeferredSpawnEggItem(org.slavicmyths.registry.ModEntities.TRIZNA_PRINCE,0x252329,0xee7132,new Item.Properties()) {
-   @Override public net.minecraft.network.chat.Component getName(ItemStack stack) {return net.minecraft.network.chat.Component.translatable("item.minecraft.spawn_egg").append(" — ").append(net.minecraft.network.chat.Component.translatable("entity.slavicmyths.trizna_prince"));}
+   @Override public net.minecraft.network.chat.Component getName(ItemStack stack) {return net.minecraft.network.chat.Component.translatable("item.slavicmyths.trizna_prince_spawn_egg");}
   });
   for(String id:COMPONENTS)register(id,()->new Item(new Item.Properties().rarity(Rarity.RARE)));
   for(String id:List.of("legendary_soul","scroll_of_waning","scroll_of_last_call","rune_morova_lingering","rune_trizna_ember_ward"))register(id,()->new Item(new Item.Properties().rarity(Rarity.EPIC)));
