@@ -20,7 +20,7 @@ geometry = (java / "PosadGeometry.java").read_text("utf-8")
 assert len(rows) == 18 and len(rows[0]) == 25
 assert model["non_air_block_count"] == 2440
 assert sum(c != "." for layer in rows for row in layer for c in row) == 2440
-assert "SCHEMA_VERSION = 12" in geometry
+assert "SCHEMA_VERSION = 13" in geometry
 
 def original(x,y,z):
     mark = rows[y][z][x]

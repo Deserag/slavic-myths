@@ -194,6 +194,24 @@ public final class PosadCommands {
                 world.setBlock(target,finish,2);
             }
         }
+        // Schema-13 real roof repair, after schema-12 interior/facade overlays.
+        // The same city-local voxel source is used by native PosadPiece and
+        // standalone structures. Preserve the untouched R1 NBT on disk.
+        if(id.equals("veche_hall_2_2_2")) {
+            for(int y=12;y<=17;y++)for(int z=12;z<=34;z++)for(int x=42;x<=70;x++) {
+                var roof=PosadHallRoofRepair.voxel(x,y,z);
+                if(roof==null)continue;
+                var prior=PosadHallComfort.voxel(x,y,z);
+                if(prior==null)prior=PosadHallRefinement.voxel(x,y,z);
+                if(prior==null)prior=PosadFinishes.voxel(x,y,z);
+                if(prior==null)prior=PosadBuildings.voxel(x,y,z);
+                var target=pos.offset(x-42,y,z-12);
+                var present=world.getBlockState(target);
+                if(present.hasBlockEntity() || (prior==null ? !present.isAir() : !present.is(prior.getBlock())))
+                    throw new IllegalStateException("Standalone Veche roof/NBT mismatch at "+target+" prior "+prior+" found "+present);
+                world.setBlock(target,roof,2);
+            }
+        }
         // Schema-10 refinements for both R1 courtyards. Match native PosadPiece
         // without touching original chests, doors, stairs or NBT loot tags.
         if(id.equals("druzhinny_dvor_2_2_4") || id.equals("kuznechny_dvor_2_2_5")) {
