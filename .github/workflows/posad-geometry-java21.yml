@@ -10,6 +10,8 @@ on:
       - 'src/main/resources/data/slavicmyths/structure/posad/**'
       - 'src/main/resources/data/slavicmyths/loot_table/chests/nether_market_*.json'
       - 'docs/concepts/nether-settlement-2.2/menovye-ryady-2.2.6/2.2_6_MARKET_VOXELS_DRAFT_A.json'
+      - 'src/main/resources/data/slavicmyths/loot_table/chests/posad_granary_*.json'
+      - 'docs/concepts/nether-settlement-2.2/gryadki-zhitnitsa-2.2.8/MODEL_R1.json'
       - 'src/main/resources/data/slavicmyths/loot_table/chests/posad_zeleynaya_*.json'
       - 'docs/concepts/nether-settlement-2.2/zeleynaya-izba-2.2.7/MODEL_R1.json'
       - '.github/workflows/posad-geometry-java21.yml'
@@ -33,6 +35,8 @@ jobs:
           javac -encoding UTF-8 -cp build/posad-check -d build/posad-check src/main/java/org/slavicmyths/posad/PosadTerrain.java src/main/java/org/slavicmyths/posad/PosadTerrainSurvey.java tools/posad-tests/PosadTerrainCheck.java tools/posad-tests/PosadTerrainSurveyCheck.java
           java -ea -cp build/posad-check org.slavicmyths.posad.PosadTerrainCheck
           java -ea -cp build/posad-check org.slavicmyths.posad.PosadTerrainSurveyCheck
+      - name: Verify exact granary model and five loot tables
+        run: python3 tools/posad-tests/verify_granary_nbt.py
       - name: Verify exact Menovye Ryady market model and eight loot tables
         run: python3 tools/posad-tests/verify_market_nbt.py
       - name: Verify Vече / communal R1 models and four loot tables (offline)

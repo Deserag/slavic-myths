@@ -6,6 +6,35 @@ import net.minecraft.world.level.block.Blocks;
 @GameTestHolder("slavicmyths_posad") @PrefixGameTestTemplate(false)
 public final class PosadShellGameTests {
  @GameTest(template="empty",timeoutTicks=200)
+ public static void granarySchemaSevenAndFiveLootChests(GameTestHelper t) {
+  var fresh=new PosadPiece(new net.minecraft.core.BlockPos(0,64,0),0);
+  var tag=fresh.createTag(net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext.fromLevel(t.getLevel()));
+  tag.putInt("Schema",6);
+  var legacy=new PosadPiece(tag);
+  int count=0,chests=0;
+  for(int x=76;x<=100;x++)for(int z=12;z<=39;z++)for(int y=0;y<11;y++) {
+   var state=PosadGranary.voxel(x,y,z);
+   if(state==null)continue;
+   count++;
+   t.assertTrue(fresh.voxel(x,y,z).equals(state),"Fresh granary voxel mismatch "+x+","+y+","+z);
+   if(y>0)t.assertTrue(legacy.voxel(x,y,z)==null,"Schema 6 city must not retrofit granary "+x+","+y+","+z);
+   if(state.is(Blocks.CHEST)) {
+    chests++;
+    t.assertTrue(PosadGranary.chestLoot(x,y,z).startsWith("chests/posad_granary_"),"Missing granary loot marker");
+   } else t.assertTrue(PosadGranary.chestLoot(x,y,z)==null,"Extra granary loot marker");
+  }
+  t.assertTrue(count==1349&&chests==5,"Incorrect granary voxel/chest count: "+count+"/"+chests);
+  for(int turns=0;turns<4;turns++) {
+   var city=new PosadPiece(new net.minecraft.core.BlockPos(0,64,0),turns);
+   for(int x=76;x<=100;x++)for(int z=12;z<=39;z++)for(int y=0;y<11;y++) {
+    var state=PosadGranary.voxel(x,y,z);
+    if(state!=null)t.assertTrue(city.voxel(x,y,z).equals(state),"Granary local voxel changed at turn "+turns);
+   }
+  }
+  t.succeed();
+ }
+
+ @GameTest(template="empty",timeoutTicks=200)
  public static void marketSchemaSixAndExactLoot(GameTestHelper t) {
   var fresh=new PosadPiece(new net.minecraft.core.BlockPos(0,64,0),0);
   var oldTag=fresh.createTag(net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext.fromLevel(t.getLevel()));
@@ -199,6 +228,23 @@ public final class PosadShellGameTests {
    }
   }
   t.assertTrue(marketBlocks==2203&&marketChests==8,"Physical market count mismatch");
+  int granaryBlocks=0,granaryChests=0;
+  for(int x=76;x<=100;x++)for(int z=12;z<=39;z++)for(int y=0;y<11;y++) {
+   var expected=PosadGranary.voxel(x,y,z);
+   if(expected==null)continue;
+   granaryBlocks++;
+   var rotated=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+   var at=anchor.offset(rotated.x(),y,rotated.z());
+   var actual=world.getBlockState(at);
+   t.assertTrue(actual.is(expected.getBlock()),"Physical granary block missing "+at+": "+actual);
+   if(expected.is(Blocks.CHEST)) {
+    granaryChests++;
+    t.assertTrue(world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity,"Missing granary chest BE "+at);
+    var chest=(net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity)world.getBlockEntity(at);
+    t.assertTrue(chest.getLootTable()!=null,"Granary chest loot not armed at "+at);
+   }
+  }
+  t.assertTrue(granaryBlocks==1349&&granaryChests==5,"Physical granary block/chest mismatch");
   t.assertTrue(militaryBlocks==2440&&forgeBlocks==1901,"Wrong 2.2.4/2.2.5 block counts "+militaryBlocks+"/"+forgeBlocks);
   t.assertTrue(militaryChests==5&&forgeChests==5,"Wrong district chest counts "+militaryChests+"/"+forgeChests);
   t.assertTrue(hallBlocks==3598,"Wrong hall voxel count "+hallBlocks);

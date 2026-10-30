@@ -15,6 +15,9 @@ on:
       - 'src/main/resources/data/slavicmyths/structure/posad/menovye_ryady_2_2_6.nbt'
       - 'src/main/resources/data/slavicmyths/loot_table/chests/nether_market_*.json'
       - 'docs/concepts/nether-settlement-2.2/menovye-ryady-2.2.6/2.2_6_MARKET_VOXELS_DRAFT_A.json'
+      - 'src/main/resources/data/slavicmyths/structure/posad/granary_2_2_8.nbt'
+      - 'src/main/resources/data/slavicmyths/loot_table/chests/posad_granary_*.json'
+      - 'docs/concepts/nether-settlement-2.2/gryadki-zhitnitsa-2.2.8/MODEL_R1.json'
       - 'tools/posad-runtime-tests/**'
       - 'tools/posad-test-resources/**'
       - 'tools/posad-qa-runtime.gradle'
@@ -39,6 +42,8 @@ jobs:
         run: python3 tools/posad-tests/verify_next_buildings.py
       - name: Verify Menovye Ryady exact NBT and loot
         run: python3 tools/posad-tests/verify_market_nbt.py
+      - name: Verify exact granary NBT and five loot tables
+        run: python3 tools/posad-tests/verify_granary_nbt.py
       - name: Build real NeoForge production JAR
         shell: bash
         run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain

@@ -7,7 +7,7 @@ import java.util.List;
 public final class PosadGeometry {
     public static final int SIZE = 113;
     public static final int MAX = SIZE - 1;
-    public static final int SCHEMA_VERSION = 6;
+    public static final int SCHEMA_VERSION = 7;
     public record Cell(int x, int z) {}
     /** Inclusive coordinates. */
     public record Rect(int minX, int maxX, int minZ, int maxZ) {
