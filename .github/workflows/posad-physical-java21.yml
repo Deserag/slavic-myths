@@ -1,7 +1,7 @@
-name: Posad 2.2 physical GameTest (isolated Java 21)
+name: Posad 2.3 physical GameTest (isolated Java 21)
 on:
   push:
-    branches: [hell]
+    branches: [hell, 'feat/2.3-pekelny-posad']
     paths:
       - 'src/main/java/org/slavicmyths/posad/**'
       - 'src/main/resources/data/slavicmyths/posad/**'
