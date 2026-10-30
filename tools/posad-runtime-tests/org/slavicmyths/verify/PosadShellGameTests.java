@@ -92,4 +92,47 @@ public final class PosadShellGameTests {
   t.succeed();
  }
 
+
+ @GameTest(template="empty",timeoutTicks=200)
+ public static void towerLaddersEntrancesAndMasonry(GameTestHelper t) {
+  int[][] towers={{0,0},{102,0},{0,102},{102,102},{42,102},{62,102}};
+  for(int[] tower:towers) {
+   int ox=tower[0],oz=tower[1];
+   for(int y=1;y<=13;y++) {
+    t.assertTrue(PosadShell.voxel(ox+2,y,oz+2).is(Blocks.LADDER),"Missing ladder "+ox+","+y+","+oz);
+    t.assertTrue(!PosadShell.voxel(ox+2,y,oz+1).isAir(),"Unsupported ladder "+ox+","+y+","+oz);
+   }
+  }
+  for(int y=1;y<=3;y++) {
+   for(int z=0;z<113;z++) {
+    t.assertTrue(!PosadShell.voxel(0,y,z).isAir(),"West exterior exit "+y+","+z);
+    t.assertTrue(!PosadShell.voxel(112,y,z).isAir(),"East exterior exit "+y+","+z);
+   }
+   for(int x=0;x<113;x++) {
+    t.assertTrue(!PosadShell.voxel(x,y,0).isAir(),"North exterior exit "+x+","+y);
+    if(x<53||x>59)t.assertTrue(!PosadShell.voxel(x,y,112).isAir(),"South exterior exit "+x+","+y);
+   }
+  }
+  // Inner entrances and connected high patrol openings must remain traversable.
+  t.assertTrue(PosadShell.voxel(10,2,5).isAir(),"NW inner entry");
+  t.assertTrue(PosadShell.voxel(102,2,5).isAir(),"NE inner entry");
+  t.assertTrue(PosadShell.voxel(10,2,107).isAir(),"SW inner entry");
+  t.assertTrue(PosadShell.voxel(102,2,107).isAir(),"SE inner entry");
+  t.assertTrue(PosadShell.voxel(46,2,102).isAir(),"Left gate tower inner entry");
+  t.assertTrue(PosadShell.voxel(66,2,102).isAir(),"Right gate tower inner entry");
+  t.assertTrue(PosadShell.voxel(10,9,2).isAir(),"NW patrol link");
+  t.assertTrue(PosadShell.voxel(102,9,2).isAir(),"NE patrol link");
+  t.assertTrue(PosadShell.voxel(10,9,110).isAir(),"SW patrol link");
+  t.assertTrue(PosadShell.voxel(102,9,110).isAir(),"SE patrol link");
+  t.assertTrue(PosadShell.voxel(42,9,110).isAir(),"West gate patrol link");
+  t.assertTrue(PosadShell.voxel(70,9,110).isAir(),"East gate patrol link");
+  var roadMaterials=new java.util.HashSet<net.minecraft.world.level.block.Block>();
+  var wallMaterials=new java.util.HashSet<net.minecraft.world.level.block.Block>();
+  for(int z=12;z<=100;z++)roadMaterials.add(PosadShell.voxel(55,0,z).getBlock());
+  for(int x=15;x<=90;x++)for(int y=1;y<=8;y++)wallMaterials.add(PosadShell.voxel(x,y,0).getBlock());
+  t.assertTrue(roadMaterials.size()>=3,"Road palette lacks variety");
+  t.assertTrue(wallMaterials.size()>=3,"Wall palette lacks variety");
+  t.succeed();
+ }
+
 }
