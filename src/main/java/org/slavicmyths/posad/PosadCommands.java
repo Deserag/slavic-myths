@@ -82,8 +82,13 @@ public final class PosadCommands {
             String command = "/slavicmyths dev posad building " + t.id() + " " + x + " " + deckY + " " + z;
             source.sendSuccess(() -> Component.literal(t.name() + " [слот " + t.slot().local() + "]: " + command), false);
         }
+        // Next task #355: an existing, independently verified 2.2.7 NBT asset.
+        // Expose it for isolated hands-on QA only; do not silently add it to schema-4 cities.
+        int hutX = Math.addExact(anchorX, 76);
+        int hutZ = Math.addExact(anchorZ, 44);
+        source.sendSuccess(() -> Component.literal("Зелейная изба [только отдельный QA NBT, ещё не в городе]: /place template slavicmyths:posad/zeleynaya_2_2_7 " + hutX + " " + deckY + " " + hutZ), false);
         source.sendSuccess(() -> Component.literal("Городская ориентация для команд: только 0°; для 90/180/270 используйте native PosadPiece и тесты, не поворачивайте отдельные дома независимо."), false);
-        return TEMPLATES.length;
+        return TEMPLATES.length + 1;
     }
 
     private static int create(com.mojang.brigadier.context.CommandContext<CommandSourceStack> c) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
