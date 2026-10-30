@@ -41,7 +41,7 @@ public final class RewardCrashQaTests {
         try {
             if(phase.equals("pin")){
                 HellQaTests.check(!Files.exists(authority),"Refuse to overwrite an existing crash fixture authority");
-                a.getInventory().setItem(0,new ItemStack(Items.COBBLESTONE,3));b.getInventory().setItem(0,new ItemStack(Items.GOLD_INGOT,7));save(a);save(b);
+                a.getInventory().setItem(0,new ItemStack(Items.COBBLESTONE,3));b.getInventory().setItem(0,new ItemStack(Items.GOLD_INGOT,7));var state=org.slavicmyths.rpg.PathData.data(a);state.putLong("MorovaPendantCD",3600);state.putLong("TriznaHornCD",3600);state.putLong("TriznaHealNext",100);state.putLongArray("TriznaHealing",new long[]{1,2,3,4,5,6});save(a);save(b);
                 HellQaTests.check(Files.isRegularFile(playerFile),"Actual PlayerDataStorage did not create A.dat");
                 var entry=BossRewardInbox.prepare(server,KEY,"magma",A,4,0);
                 HellQaTests.check(BossRewardInbox.prepare(server,MOROVA_KEY,"morova_21x",A,3,0)!=null,"Morova pin rejected");
@@ -52,6 +52,8 @@ public final class RewardCrashQaTests {
             }
             HellQaTests.check(players.load(a).isPresent()&&players.load(b).isPresent(),"Actual saved player files missing after JVM restart");
             HellQaTests.check(a.getInventory().countItem(Items.COBBLESTONE)==3&&b.getInventory().countItem(Items.GOLD_INGOT)==7,"Vanilla player load lost baseline inventory");
+            var state=org.slavicmyths.rpg.PathData.data(a);
+            HellQaTests.check(state.getLong("MorovaPendantCD")==3600&&state.getLong("TriznaHornCD")==3600&&state.getLong("TriznaHealNext")==100&&state.getLongArray("TriznaHealing").length==6,"Actual PlayerDataStorage lost trophy cooldowns/heal budget");
             var repeated=BossRewardInbox.prepare(server,KEY,"magma",B,6,0);
             HellQaTests.check(repeated!=null&&repeated.recipient().equals(A)&&repeated.cores()==4,"Cross-player retry reassigned or rerolled reward");
             var morovaPin=BossRewardInbox.prepare(server,MOROVA_KEY,"morova_21x",B,1,0);

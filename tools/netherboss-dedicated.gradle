@@ -6,7 +6,7 @@ allprojects { afterEvaluate {
  neoForge.runs { bossDedicated {
   type='server';sourceSet=sourceSets.bossDedicated;loadedMods.set([qa]);programArgument '--nogui'
   jvmArgument '-Xmx1400M';jvmArgument '-XX:ActiveProcessorCount=2';jvmArgument '-Djava.awt.headless=true'
-  gameDirectory=file('work/netherboss-dedicated-restart')
+  gameDirectory=file(project.findProperty('bossQaDir') ?: 'work/netherboss-dedicated-restart')
   systemProperty 'bossqa.stage',project.findProperty('bossQaStage') ?: 'write'
  } }
  tasks.named('runBossDedicated'){dependsOn tasks.named('jar');doFirst {

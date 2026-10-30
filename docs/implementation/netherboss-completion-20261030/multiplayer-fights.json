@@ -1,0 +1,263 @@
+{
+  "fights": 30,
+  "two_actual_clients": true,
+  "fixture": "Survival-mode players with diagnostic 200HP/35 base attack, full netherite and periodic healing; NOT normal balance or owner acceptance",
+  "encounters": [
+    {
+      "fight": 0,
+      "boss": "morova_deva",
+      "client_ticks": 927,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "f34fcf32-91c2-4aa4-9f1d-322382f46021"
+    },
+    {
+      "fight": 1,
+      "boss": "trizna_prince",
+      "client_ticks": 1258,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "5e2a602e-d669-43ac-8c34-21b49f32d118"
+    },
+    {
+      "fight": 2,
+      "boss": "morova_deva",
+      "client_ticks": 1049,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "c258b19b-f34b-4ac9-b425-7558cde64fc7"
+    },
+    {
+      "fight": 3,
+      "boss": "trizna_prince",
+      "client_ticks": 1347,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "eb64ee54-b1ef-4c15-8e8d-902fbfb1d1db"
+    },
+    {
+      "fight": 4,
+      "boss": "morova_deva",
+      "client_ticks": 1029,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "f78bf69e-ba7c-4c3e-b6b2-b4bf915eb9a9"
+    },
+    {
+      "fight": 5,
+      "boss": "trizna_prince",
+      "client_ticks": 1347,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "0f17c8b5-b402-42ef-8141-77c9b193e56a"
+    },
+    {
+      "fight": 6,
+      "boss": "morova_deva",
+      "client_ticks": 1030,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "ce4d38ed-b649-45cc-9389-9c51477d8c13"
+    },
+    {
+      "fight": 7,
+      "boss": "trizna_prince",
+      "client_ticks": 1308,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "e62998d8-c73f-4435-867e-a345b28aa801"
+    },
+    {
+      "fight": 8,
+      "boss": "morova_deva",
+      "client_ticks": 1030,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "58667f84-d3be-4e21-a37e-fd15c324fd3a"
+    },
+    {
+      "fight": 9,
+      "boss": "trizna_prince",
+      "client_ticks": 1308,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": false,
+      "boss_uuid": "757c11bd-cef5-4161-9709-617fdeb42a8b"
+    },
+    {
+      "fight": 10,
+      "boss": "morova_deva",
+      "client_ticks": 1050,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "bd7dee7c-644b-4ff8-8c6b-7f4f2e4f740f"
+    },
+    {
+      "fight": 11,
+      "boss": "trizna_prince",
+      "client_ticks": 1347,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "17576bfd-76f5-4789-b6c4-7b72e07a696e"
+    },
+    {
+      "fight": 12,
+      "boss": "morova_deva",
+      "client_ticks": 1049,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "fd317177-2165-4bae-8e03-4112c419f8d1"
+    },
+    {
+      "fight": 13,
+      "boss": "trizna_prince",
+      "client_ticks": 1348,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "1e58d9ca-d2ab-47a2-8820-5a84c8ddb8ef"
+    },
+    {
+      "fight": 14,
+      "boss": "morova_deva",
+      "client_ticks": 1050,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "51315afe-570e-4169-a015-2d97440f212d"
+    },
+    {
+      "fight": 15,
+      "boss": "trizna_prince",
+      "client_ticks": 1287,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "31efb44e-44b8-4b5c-8838-f0695a5871c6"
+    },
+    {
+      "fight": 16,
+      "boss": "morova_deva",
+      "client_ticks": 1069,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "404b5d17-dd52-43ba-a1d8-07b9a5bff2b0"
+    },
+    {
+      "fight": 17,
+      "boss": "trizna_prince",
+      "client_ticks": 1306,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "f8d0658a-f68c-4095-a83a-4e266d55bde7"
+    },
+    {
+      "fight": 18,
+      "boss": "morova_deva",
+      "client_ticks": 1031,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "c71c153a-9944-4daf-8242-df1c3fae91ae"
+    },
+    {
+      "fight": 19,
+      "boss": "trizna_prince",
+      "client_ticks": 1348,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "33d7edd0-6f94-42e8-838c-1f9449c4dccc"
+    },
+    {
+      "fight": 20,
+      "boss": "morova_deva",
+      "client_ticks": 1029,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "ccc112e0-afd4-449a-90fe-77ef2e51d8e6"
+    },
+    {
+      "fight": 21,
+      "boss": "trizna_prince",
+      "client_ticks": 1288,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "ffdd74db-6ef2-40ff-9d83-2189a04d2e5b"
+    },
+    {
+      "fight": 22,
+      "boss": "morova_deva",
+      "client_ticks": 1029,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "4a354969-a83b-4f90-b496-545175b02223"
+    },
+    {
+      "fight": 23,
+      "boss": "trizna_prince",
+      "client_ticks": 1328,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "f7faa7b5-9cf3-4aa9-bc34-72463800fad0"
+    },
+    {
+      "fight": 24,
+      "boss": "morova_deva",
+      "client_ticks": 1029,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "2cba5205-b4ce-4f21-9ec9-697a0852633b"
+    },
+    {
+      "fight": 25,
+      "boss": "trizna_prince",
+      "client_ticks": 1298,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "a6b0858f-5704-4da0-a39a-e90936ba25fa"
+    },
+    {
+      "fight": 26,
+      "boss": "morova_deva",
+      "client_ticks": 988,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "72dc2432-7167-4ade-8073-c3d468a8b6db"
+    },
+    {
+      "fight": 27,
+      "boss": "trizna_prince",
+      "client_ticks": 1229,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "e181deb4-5fb4-49f1-91ce-b778374473c2"
+    },
+    {
+      "fight": 28,
+      "boss": "morova_deva",
+      "client_ticks": 1028,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "1d413ed6-1956-458a-850e-1276a0e3bf7c"
+    },
+    {
+      "fight": 29,
+      "boss": "trizna_prince",
+      "client_ticks": 1270,
+      "phases": "[1, 2, 3]",
+      "host_observed_health_loss": true,
+      "boss_uuid": "b9f697fd-70bc-4938-9745-16591170dac5"
+    }
+  ],
+  "boss_damage_contacts": {
+    "morova/phase3/action1": 20,
+    "trizna/phase2/action2": 15,
+    "morova/phase3/action3": 17,
+    "trizna/phase2/action8": 1,
+    "morova/phase1/action1": 30,
+    "trizna/phase3/action2": 2,
+    "trizna/phase2/action9": 1,
+    "morova/phase1/action3": 14,
+    "trizna/phase3/action9": 20,
+    "trizna/phase3/action8": 19,
+    "morova/phase2/action3": 1,
+    "trizna/phase1/action8": 15,
+    "trizna/phase1/action9": 12,
+    "trizna/phase1/action2": 26
+  }
+}

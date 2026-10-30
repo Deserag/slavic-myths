@@ -1,3 +1,5 @@
+> 30.10.2026 — боссы353/354:16/16 GameTest,30 реальных диагностических MP боёв, isolated slim/wide PASS; отдельный PolyMC TEST установлен. Оригинальный звук BLOCKED, обычный баланс/приёмка PENDING. [Матрица](implementation/netherboss-completion-20261030/ACCEPTANCE.md).
+
 > 30.10.2026 — #353/#354: 14/14 GameTest, 80k наград, естественные компоненты 105/105 на пяти seed; durable inbox, безопасный призыв, Curios, руны и модели подключены. Новый MP/client QA в работе, не сдача. 2.2 на паузе. [Статус](implementation/netherboss-completion-20261030/CURRENT.md).
 
 > 30.10.2026 — продолжаются353/354: combat/items/ritual/rewards/runes/Curios и survival recipes/loot подключены;6/6 GameTest,80k loot simulations PASS. Полный бой/MP/client ещё в QA, не сдача.2.2 остаётся на паузе. [Текущее состояние](implementation/netherboss-completion-20261030/CURRENT.md).
