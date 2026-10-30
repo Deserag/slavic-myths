@@ -174,6 +174,22 @@ public final class PosadCommands {
                 }
             }
         }
+        // Schema-10 refinements for both R1 courtyards. Match native PosadPiece
+        // without touching original chests, doors, stairs or NBT loot tags.
+        if(id.equals("druzhinny_dvor_2_2_4") || id.equals("kuznechny_dvor_2_2_5")) {
+            boolean military=id.equals("druzhinny_dvor_2_2_4");
+            int ox=12,oz=military?75:44,width=military?28:26,depth=military?25:26;
+            for(int y=1;y<=17;y++)for(int z=oz;z<oz+depth;z++)for(int x=ox;x<ox+width;x++) {
+                var finish=PosadCourtyardFinishes.voxel(x,y,z);
+                if(finish==null)continue;
+                var original=PosadNextBuildings.voxel(x,y,z);
+                var target=pos.offset(x-ox,y,z-oz);
+                var present=world.getBlockState(target);
+                if(present.hasBlockEntity() || (original==null && !present.isAir()) || (original!=null && !present.is(original.getBlock())))
+                    throw new IllegalStateException("Standalone courtyard/NBT mismatch at "+target+" source "+original+" placed "+present);
+                world.setBlock(target,finish,2);
+            }
+        }
         // Template barrels are authored empty: assign persistent single-use loot after placement.
         String table=id.startsWith("menovye_ryady")?"chests/posad_barrel_market":"chests/posad_barrel_supplies";
         for(var at:net.minecraft.core.BlockPos.betweenClosed(pos,end)) {
