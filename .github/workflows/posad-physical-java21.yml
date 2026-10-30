@@ -5,6 +5,8 @@ on:
     paths:
       - 'src/main/java/org/slavicmyths/posad/**'
       - 'src/main/resources/data/slavicmyths/posad/**'
+      - 'src/main/resources/data/slavicmyths/structure/posad/veche_hall_2_2_2.nbt'
+      - 'src/main/resources/data/slavicmyths/structure/posad/communal_house_2_2_3.nbt'
       - 'src/main/resources/data/slavicmyths/loot_table/chests/nether_communal_*.json'
       - 'tools/posad-runtime-tests/**'
       - 'tools/posad-test-resources/**'
