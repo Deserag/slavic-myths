@@ -1,3 +1,5 @@
+> 30.10.2026 — 2.2 Пекельный посад, реализационный checkpoint: #347 Вечевая палата (3598 точных R1 блоков) + #348 Общинный корпус (1992 R1 блока, четыре lazy loot-сундука) подключены к PosadPiece в новых schema-2 городах; Schema 0/1 не ретрофитится. [Отчёт](implementation/posad-runtime-20261030/BUILDINGS_2_2_2_AND_2_2_3.md). Offline model CI PASS, Java21 production build PASS; отдельный физический GameTest/визуальная приёмка не подтверждены, StructureSet ещё не активирован. #347/#348/#358 IN_PROGRESS, main не менялась.
+
 > 30.10.2026 — Posad terrain/shore checkpoint: baseline утверждён, foundations/bridge NBT, 5/5 GameTest; реальный Nether noise planner принял5/40 на5seed. Performance gate НЕ ПРОЙДЕН; physical native starts/commands/retrofit не завершены, StructureSet не активирован. [Отчёт](implementation/posad-runtime-20261030/REPORT.md).
 
 > 30.10.2026 — частичный runtime checkpoint посада: native types и shell placement, Java21 build/resources PASS, 3/3 GameTest (физические блоки/4 поворота). Естественная генерация, lava/bridge, commands и retrofit ещё НЕ реализованы. [Отчёт](implementation/posad-runtime-20261030/REPORT.md).
