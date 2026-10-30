@@ -131,7 +131,28 @@ public final class PosadShellGameTests {
   t.assertTrue(hallBlocks==3598,"Wrong immutable R1 hall count "+hallBlocks);
   t.assertTrue(houseBlocks==1992 && houseChests==4,"Wrong house voxel/chest count "+houseBlocks+"/"+houseChests);
   }
-  t.succeed();
+  // Observe actual BLOCK light AFTER Minecraft's light engine has processed the
+  // placed chunks. This is a survey, not a fake PASS for 8/10 light targets.
+  // Samples include the entry, R2 nave, north room, stairs and upper floor,
+  // plus major public routes. Log blocked samples rather than hiding them.
+  t.runAfterDelay(60,()->{
+   String[] labels={"hall_entry","hall_south","hall_nave","hall_north","hall_elder","hall_upper_north","hall_upper_south","hall_west_stair","hall_upper_west","hall_upper_east","city_veche_square","city_veche_street","city_east_road","city_south_road"};
+   int[][] samples={{55,1,32},{55,1,30},{55,1,25},{55,1,21},{55,1,17},{55,7,17},{55,7,31},{46,1,26},{46,7,21},{65,7,24},{56,1,56},{56,1,38},{73,1,56},{56,1,76}};
+   for(int turns=0;turns<4;turns++){
+    var anchor=t.absolutePos(new net.minecraft.core.BlockPos(turns*160,140,0));
+    for(int i=0;i<samples.length;i++){
+     int[] p=samples[i];
+     var local=PosadGeometry.rotate(new PosadGeometry.Cell(p[0],p[2]),turns);
+     var at=anchor.offset(local.x(),p[1],local.z());
+     var feet=world.getBlockState(at);
+     var head=world.getBlockState(at.above());
+     var floor=world.getBlockState(at.below());
+     int blockLight=world.getBrightness(net.minecraft.world.level.LightLayer.BLOCK,at);
+     System.out.println("POSAD_LIGHT_SURVEY schema="+PosadGeometry.SCHEMA_VERSION+" turn="+turns+" room="+labels[i]+" local="+p[0]+","+p[1]+","+p[2]+" value="+blockLight+" feet="+feet.getBlock()+" head="+head.getBlock()+" floor="+floor.getBlock());
+    }
+   }
+   t.succeed();
+  });
  }
  @GameTest(template="empty",timeoutTicks=200)
  public static void reservedAndCompletedCitiesSurviveDataRoundTrip(GameTestHelper t) {
