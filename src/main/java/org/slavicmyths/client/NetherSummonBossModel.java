@@ -9,11 +9,12 @@ import org.slavicmyths.netherboss.NetherSummonBoss;
 
 /** Generated from owner-approved Nether boss editable .bbmodel sources.
  * Phase, action and walk are client-rendered only; server handles collision and hits.
- * Original audio, projectile VFX, robe physics and full owner-art fidelity remain WIP.
+ * Technical SVG reference interpretation; original raster fidelity remains owner acceptance.
  */
 public final class NetherSummonBossModel extends EntityModel<NetherSummonBoss> {
     private final ModelPart root,body,head,leftArm,rightArm,leftLeg,rightLeg,cape;
     private final java.util.List<ModelPart> cloth=new java.util.ArrayList<>(),hairMotion=new java.util.ArrayList<>(),ornaments=new java.util.ArrayList<>();
+    private ModelPart leftForearm,rightForearm,leftHand,rightHand,leftShin,rightShin;
     private final boolean morova;
     public float opacity=1;
     public NetherSummonBossModel(boolean morova) {
@@ -34,25 +35,29 @@ public final class NetherSummonBossModel extends EntityModel<NetherSummonBoss> {
         geometry.box(part_head,0,96,1.4F,-4.368F,-3.78F,1.3F,0.728F,0.32F);
         geometry.box(part_head,0,32,-1.3F,-2.457F,-3.76F,2.6F,0.364F,0.3F);
         ModelPart part_left_arm=geometry.part(128,256);part_left_arm.setPos(6F,-6.026F,0F);geometry.attach(root,part_left_arm);
+        leftForearm=geometry.part(128,256);leftForearm.setPos(0F,9.099F,0F);geometry.attach(part_left_arm,leftForearm);
+        leftHand=geometry.part(128,256);leftHand.setPos(0F,3F,0F);geometry.attach(leftForearm,leftHand);
         geometry.box(part_left_arm,0,64,-1.6F,-0.91F,-2.5F,3.2F,10.919F,5F);
         geometry.box(part_left_arm,0,0,-2.1F,0.91F,-3.1F,4.2F,9.099F,6.2F);
-        geometry.box(part_left_arm,0,0,-2.6F,9.099F,-3.3F,5.2F,5.459F,6.6F);
+        geometry.box(leftForearm,0,0,-2.6F,0.0000F,-3.3F,5.2F,5.459F,6.6F);
         ModelPart detail_1=geometry.part(128,256);geometry.attach(part_left_arm,detail_1);cloth.add(detail_1);
         geometry.box(detail_1,0,96,-0.9F,2.73F,-3.8F,0.8F,13.648F,0.6F);
-        geometry.box(part_left_arm,0,64,-1.1F,12.738F,-2.1F,2.2F,3.64F,4.2F);
-        geometry.box(part_left_arm,0,128,-1.3F,15.104F,-2.1F,0.45F,3.731F,0.5F);
-        geometry.box(part_left_arm,0,128,-0.6F,15.104F,-2.1F,0.45F,3.731F,0.5F);
-        geometry.box(part_left_arm,0,128,0.1F,15.104F,-2.1F,0.45F,3.731F,0.5F);
+        geometry.box(leftHand,0,64,-1.1F,0.6390F,-2.1F,2.2F,3.64F,4.2F);
+        geometry.box(leftHand,0,128,-1.3F,3.0050F,-2.1F,0.45F,3.731F,0.5F);
+        geometry.box(leftHand,0,128,-0.6F,3.0050F,-2.1F,0.45F,3.731F,0.5F);
+        geometry.box(leftHand,0,128,0.1F,3.0050F,-2.1F,0.45F,3.731F,0.5F);
         ModelPart part_right_arm=geometry.part(128,256);part_right_arm.setPos(-6F,-6.026F,0F);geometry.attach(root,part_right_arm);
+        rightForearm=geometry.part(128,256);rightForearm.setPos(0F,9.099F,0F);geometry.attach(part_right_arm,rightForearm);
+        rightHand=geometry.part(128,256);rightHand.setPos(0F,3F,0F);geometry.attach(rightForearm,rightHand);
         geometry.box(part_right_arm,0,64,-1.6F,-0.91F,-2.5F,3.2F,10.919F,5F);
         geometry.box(part_right_arm,0,0,-2.1F,0.91F,-3.1F,4.2F,9.099F,6.2F);
-        geometry.box(part_right_arm,0,0,-2.6F,9.099F,-3.3F,5.2F,5.459F,6.6F);
+        geometry.box(rightForearm,0,0,-2.6F,0.0000F,-3.3F,5.2F,5.459F,6.6F);
         ModelPart detail_2=geometry.part(128,256);geometry.attach(part_right_arm,detail_2);cloth.add(detail_2);
         geometry.box(detail_2,0,96,-0.9F,2.73F,-3.8F,0.8F,13.648F,0.6F);
-        geometry.box(part_right_arm,0,64,-1.1F,12.738F,-2.1F,2.2F,3.64F,4.2F);
-        geometry.box(part_right_arm,0,128,-1.3F,15.104F,-2.1F,0.45F,3.731F,0.5F);
-        geometry.box(part_right_arm,0,128,-0.6F,15.104F,-2.1F,0.45F,3.731F,0.5F);
-        geometry.box(part_right_arm,0,128,0.1F,15.104F,-2.1F,0.45F,3.731F,0.5F);
+        geometry.box(rightHand,0,64,-1.1F,0.6390F,-2.1F,2.2F,3.64F,4.2F);
+        geometry.box(rightHand,0,128,-1.3F,3.0050F,-2.1F,0.45F,3.731F,0.5F);
+        geometry.box(rightHand,0,128,-0.6F,3.0050F,-2.1F,0.45F,3.731F,0.5F);
+        geometry.box(rightHand,0,128,0.1F,3.0050F,-2.1F,0.45F,3.731F,0.5F);
         ModelPart part_left_leg=geometry.part(128,256);part_left_leg.setPos(2F,7.622F,0F);geometry.attach(root,part_left_leg);
         ModelPart part_right_leg=geometry.part(128,256);part_right_leg.setPos(-2F,7.622F,0F);geometry.attach(root,part_right_leg);
         ModelPart part_hair=geometry.part(128,256);part_hair.setPos(0F,-5.46F,0F);geometry.attach(part_head,part_hair);
@@ -132,29 +137,35 @@ public final class NetherSummonBossModel extends EntityModel<NetherSummonBoss> {
         geometry.box(part_head,0,224,2F,-8.3F,-2.4F,0.7F,2.8F,1.2F);
         geometry.box(part_head,0,224,4F,-9.1F,-2.4F,0.7F,3.6F,1.2F);
         ModelPart part_left_arm=geometry.part(128,256);part_left_arm.setPos(8F,-10F,0F);geometry.attach(root,part_left_arm);
+        leftForearm=geometry.part(128,256);leftForearm.setPos(0F,9F,0F);geometry.attach(part_left_arm,leftForearm);
+        leftHand=geometry.part(128,256);leftHand.setPos(0F,3F,0F);geometry.attach(leftForearm,leftHand);
         geometry.box(part_left_arm,0,0,-1.6F,-5F,-5.2F,6.6F,8F,10.4F);
         geometry.box(part_left_arm,0,160,-2.1F,-5.4F,-5.7F,7.6F,3.4F,11.4F);
         geometry.box(part_left_arm,0,32,-0.6F,1F,-4.1F,4.6F,15F,8.2F);
-        geometry.box(part_left_arm,0,64,-1F,9F,-4.5F,5.4F,2F,9F);
-        geometry.box(part_left_arm,0,0,-1.2F,12F,-4.4F,5.8F,5F,8.8F);
+        geometry.box(leftForearm,0,64,-1F,0.0000F,-4.5F,5.4F,2F,9F);
+        geometry.box(leftHand,0,0,-1.2F,0.0000F,-4.4F,5.8F,5F,8.8F);
         geometry.box(part_left_arm,0,96,-0.1F,3F,-4.8F,1F,4F,0.6F);
         ModelPart part_right_arm=geometry.part(128,256);part_right_arm.setPos(-8F,-10F,0F);geometry.attach(root,part_right_arm);
+        rightForearm=geometry.part(128,256);rightForearm.setPos(0F,9F,0F);geometry.attach(part_right_arm,rightForearm);
+        rightHand=geometry.part(128,256);rightHand.setPos(0F,3F,0F);geometry.attach(rightForearm,rightHand);
         geometry.box(part_right_arm,0,0,-5F,-5F,-5.2F,6.6F,8F,10.4F);
         geometry.box(part_right_arm,0,160,-5.5F,-5.4F,-5.7F,7.6F,3.4F,11.4F);
         geometry.box(part_right_arm,0,32,-4F,1F,-4.1F,4.6F,15F,8.2F);
-        geometry.box(part_right_arm,0,64,-4.4F,9F,-4.5F,5.4F,2F,9F);
-        geometry.box(part_right_arm,0,0,-4.6F,12F,-4.4F,5.8F,5F,8.8F);
+        geometry.box(rightForearm,0,64,-4.4F,0.0000F,-4.5F,5.4F,2F,9F);
+        geometry.box(rightHand,0,0,-4.6F,0.0000F,-4.4F,5.8F,5F,8.8F);
         geometry.box(part_right_arm,0,96,-3.5F,3F,-4.8F,1F,4F,0.6F);
         ModelPart part_left_leg=geometry.part(128,256);part_left_leg.setPos(4F,5F,0F);geometry.attach(root,part_left_leg);
         geometry.box(part_left_leg,0,32,-2.8F,-5F,-3.8F,5F,23F,7.6F);
         geometry.box(part_left_leg,0,0,-3.3F,-1F,-4.4F,6F,13F,8.8F);
         geometry.box(part_left_leg,0,64,-3.3F,4F,-5F,6F,4F,9F);
-        geometry.box(part_left_leg,0,0,-3.5F,12F,-5.5F,6.4F,7F,9.8F);
+        leftShin=geometry.part(128,256);leftShin.setPos(0F,12F,0F);geometry.attach(part_left_leg,leftShin);
+        geometry.box(leftShin,0,0,-3.5F,0F,-5.5F,6.4F,7F,9.8F);
         ModelPart part_right_leg=geometry.part(128,256);part_right_leg.setPos(-4F,5F,0F);geometry.attach(root,part_right_leg);
         geometry.box(part_right_leg,0,32,-2.2F,-5F,-3.8F,5F,23F,7.6F);
         geometry.box(part_right_leg,0,0,-2.7F,-1F,-4.4F,6F,13F,8.8F);
         geometry.box(part_right_leg,0,64,-2.7F,4F,-5F,6F,4F,9F);
-        geometry.box(part_right_leg,0,0,-2.9F,12F,-5.5F,6.4F,7F,9.8F);
+        rightShin=geometry.part(128,256);rightShin.setPos(0F,12F,0F);geometry.attach(part_right_leg,rightShin);
+        geometry.box(rightShin,0,0,-2.9F,0F,-5.5F,6.4F,7F,9.8F);
         ModelPart part_cape=geometry.part(128,256);part_cape.setPos(0F,-12F,5F);geometry.attach(root,part_cape);
         ModelPart detail_24=geometry.part(128,256);geometry.attach(part_cape,detail_24);cloth.add(detail_24);
         geometry.box(detail_24,0,128,-8.7F,-2F,0.5F,17.4F,4F,1.5F);
@@ -205,6 +216,9 @@ public final class NetherSummonBossModel extends EntityModel<NetherSummonBoss> {
         for(int i=0;i<hairMotion.size();i++){var part=hairMotion.get(i);part.xRot=.018F*Mth.sin(age*.06F+i);part.zRot=.012F*Mth.sin(age*.07F+i);}
         for(int i=0;i<ornaments.size();i++)ornaments.get(i).zRot=morova?0:.012F*Mth.sin(age*.09F+i);
         leftArm.zRot=0;rightArm.zRot=0;
+        leftForearm.xRot=rightForearm.xRot=e.action()!=0?-.3F:0;
+        leftHand.xRot=rightHand.xRot=morova?.06F*Mth.sin(age*.13F):0;
+        if(leftShin!=null){leftShin.xRot=Math.max(0,-leftLeg.xRot)*.35F;rightShin.xRot=Math.max(0,-rightLeg.xRot)*.35F;}
         if(e.action()!=0){
             float progress=Mth.clamp(e.actionFrame()/30F,0,1);
             switch(e.action()){
@@ -219,8 +233,13 @@ public final class NetherSummonBossModel extends EntityModel<NetherSummonBoss> {
         int contact=e.action()==8?36:30;
         if(e.action()!=0&&e.actionFrame()>=contact){
             float recovery=1-Mth.clamp((e.actionFrame()-contact)/12F,0,1);
-            if(e.action()==2||e.action()==8){rightArm.xRot=.85F*recovery;leftArm.xRot=-.3F*recovery;body.xRot=.25F*recovery;}
+            if(e.action()==2||e.action()==8){rightForearm.xRot=.25F*recovery;rightArm.xRot=.85F*recovery;leftArm.xRot=-.3F*recovery;body.xRot=.25F*recovery;}
             else if(e.action()==1||e.action()==3){rightArm.xRot=-.9F*recovery;leftArm.xRot=-.9F*recovery;leftArm.zRot=-.8F*recovery;}
+        }
+        if(e.transitionTicks()>0){
+            float pulse=Mth.sin((40-e.transitionTicks())*(float)Math.PI/40);
+            head.xRot-=.22F*pulse;leftArm.zRot-=.75F*pulse;rightArm.zRot+=.75F*pulse;
+            for(var segment:cloth)segment.xRot+=.06F*pulse;
         }
         if(e.hurtTime>0)body.xRot-=.12F;
         if(e.phase()>=3){cape.xRot*=1.35F;body.zRot=.025F*Mth.sin(age*.22F);}else body.zRot=0;

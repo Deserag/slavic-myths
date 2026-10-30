@@ -51,7 +51,10 @@ public final class NetherTrophies {
    if(added.size()!=planned.size()){
     added.forEach(Entity::discard);state.remove(key);((org.slavicmyths.navya.mixin.PlayerListSaveInvoker)p.server.getPlayerList()).slavicmyths$save(p);return false;
    }
-  }return true;
+  }
+  p.serverLevel().playSound(null,p.blockPosition(),NetherBossSounds.cue(pendant,"trophy"),net.minecraft.sounds.SoundSource.PLAYERS,1F,1F);
+  p.serverLevel().sendParticles(pendant?NetherSummonBoss.plagueParticle():net.minecraft.core.particles.ParticleTypes.FLAME,p.getX(),p.getY()+1,p.getZ(),24,.7,.5,.7,.01);
+  return true;
  }
  private static boolean silenced(Entity e){return e instanceof LivingEntity living&&living.getServer()!=null&&living.getPersistentData().getLong("MorovaSilenceUntil")>living.getServer().overworld().getGameTime();}
  @SubscribeEvent public static void tick(net.neoforged.neoforge.event.tick.ServerTickEvent.Post e){

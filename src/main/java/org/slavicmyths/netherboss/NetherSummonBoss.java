@@ -19,7 +19,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
@@ -30,15 +29,13 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 
-/** First WIP runtime slice for the two approved humanoid Nether bosses.
- * Summoning rites, custom minion AI, rune rewards and unique recorded sounds are
- * tracked in issues #353/#354 and MUST NOT be described as implemented.
- */
+/** Server-authoritative ritual boss with persisted attacks and owner-bound encounter rewards. */
 public final class NetherSummonBoss extends Monster {
     public static final int MOROVA=0, TRIZNA=1;
     private static final EntityDataAccessor<Integer> PHASE=SynchedEntityData.defineId(NetherSummonBoss.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> ACTION=SynchedEntityData.defineId(NetherSummonBoss.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> COPIES=SynchedEntityData.defineId(NetherSummonBoss.class,EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> TRANSITION=SynchedEntityData.defineId(NetherSummonBoss.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> FRAME=SynchedEntityData.defineId(NetherSummonBoss.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Float> AIM=SynchedEntityData.defineId(NetherSummonBoss.class,EntityDataSerializers.FLOAT);
     private final int kind;
@@ -47,6 +44,8 @@ public final class NetherSummonBoss extends Monster {
     private boolean actionResolved;
     private final NetherBossCombat combat=new NetherBossCombat(this);
     private net.minecraft.world.phys.Vec3 attackAim=new net.minecraft.world.phys.Vec3(0,0,1);
+    public int transitionTicks(){return entityData.get(TRANSITION);}
+    public static net.minecraft.core.particles.DustParticleOptions plagueParticle(){return new net.minecraft.core.particles.DustParticleOptions(new org.joml.Vector3f(.32F,.44F,.31F),1.3F);}
     public int actionTicks(){return actionTicks;}
     public int actionFrame(){return entityData.get(FRAME);}
     public net.minecraft.world.phys.Vec3 attackDirection(){double angle=entityData.get(AIM);return new net.minecraft.world.phys.Vec3(Math.cos(angle),0,Math.sin(angle));}
@@ -74,7 +73,7 @@ public final class NetherSummonBoss extends Monster {
             .add(Attributes.FOLLOW_RANGE,36);
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder){
-        super.defineSynchedData(builder);builder.define(PHASE,1);builder.define(ACTION,0);builder.define(COPIES,0);builder.define(FRAME,0);builder.define(AIM,0F);
+        super.defineSynchedData(builder);builder.define(PHASE,1);builder.define(TRANSITION,0);builder.define(ACTION,0);builder.define(COPIES,0);builder.define(FRAME,0);builder.define(AIM,0F);
     }
     @Override protected void registerGoals(){
         goalSelector.addGoal(0,new FloatGoal(this));
@@ -93,6 +92,7 @@ public final class NetherSummonBoss extends Monster {
     }
     @Override public void tick(){
         super.tick();
+        if(!level().isClientSide&&transitionTicks()>0)entityData.set(TRANSITION,transitionTicks()-1);
         if(level().isClientSide&&isAlive()&&action()!=0&&tickCount%3==0&&actionFrame()<=(action()==8?36:30)){
             var direction=attackDirection();int length=action()==3?12:action()==8?12:action()==9?6:0;
             for(int distance=2;distance<=length;distance+=2)for(int lane=-1;lane<=1;lane++){
@@ -103,7 +103,7 @@ public final class NetherSummonBoss extends Monster {
             }
         }
         if(level().isClientSide&&isAlive()&&tickCount%8==0){
-            for(int i=0;i<phase()*2;i++)level().addParticle(isMorova()?ParticleTypes.SOUL:ParticleTypes.FLAME,
+            for(int i=0;i<phase()*2;i++)level().addParticle(isMorova()?plagueParticle():ParticleTypes.FLAME,
                 getX()+(random.nextDouble()-.5)*1.2,getY()+random.nextDouble()*.5,getZ()+(random.nextDouble()-.5)*1.2,0,.015,0);
         }
     }
@@ -114,6 +114,10 @@ public final class NetherSummonBoss extends Monster {
         bossBar.setProgress(Math.max(0,Math.min(1,getHealth()/getMaxHealth())));
         int next=isMorova()?(getHealth()>getMaxHealth()*.7?1:getHealth()>getMaxHealth()*.35?2:3)
                 :(getHealth()>getMaxHealth()*.65?1:getHealth()>getMaxHealth()*.3?2:3);
+        if(next!=phase()){
+            entityData.set(TRANSITION,40);playSound(NetherBossSounds.cue(isMorova(),"phase"),1.2F,1F);
+            if(level() instanceof ServerLevel world)world.sendParticles(isMorova()?plagueParticle():ParticleTypes.FLAME,getX(),getY()+1,getZ(),32,.8,.7,.8,.03);
+        }
         entityData.set(PHASE,next);
         if(actionTicks>0){
             getNavigation().stop();
@@ -130,7 +134,7 @@ public final class NetherSummonBoss extends Monster {
         entityData.set(ACTION,combat.choose());entityData.set(FRAME,0);
         attackAim=victim.position().subtract(position()).multiply(1,0,1).normalize();entityData.set(AIM,(float)Math.atan2(attackAim.z,attackAim.x));
         actionResolved=false;actionTicks=action()==NetherBossCombat.SPLIT?48:42;actionCooldown=next==3?70:next==2?100:130;
-        playSound(isMorova()?SoundEvents.EVOKER_PREPARE_ATTACK:SoundEvents.WITHER_SKELETON_AMBIENT,1.3F,isMorova()?.65F:.78F);
+        playSound(NetherBossSounds.cue(isMorova(),"windup"),1.3F,1F);
     }
     private void resolveAction(){combat.resolve(action(),attackAim);}
     @Override protected void dropCustomDeathLoot(ServerLevel world,DamageSource source,boolean recent){super.dropCustomDeathLoot(world,source,recent);NetherBossRewards.grant(this,world,source);}
@@ -144,7 +148,7 @@ public final class NetherSummonBoss extends Monster {
         super.remove(reason);
     }
     @Override public void addAdditionalSaveData(CompoundTag tag){
-        super.addAdditionalSaveData(tag);tag.putInt("NetherBossPhase",phase());
+        super.addAdditionalSaveData(tag);tag.putInt("NetherBossPhase",phase());tag.putInt("BossTransition",transitionTicks());
         tag.putInt("NetherBossAction",action());tag.putInt("NetherBossActionTicks",actionTicks);
         tag.putInt("NetherBossCooldown",actionCooldown);tag.putBoolean("NetherBossResolved",actionResolved);
         tag.putInt("BossCopies",entityData.get(COPIES));tag.putInt("BossFrame",entityData.get(FRAME));
@@ -152,13 +156,14 @@ public final class NetherSummonBoss extends Monster {
     }
     @Override public void readAdditionalSaveData(CompoundTag tag){
         super.readAdditionalSaveData(tag);entityData.set(PHASE,Math.max(1,Math.min(3,tag.getInt("NetherBossPhase"))));
+        entityData.set(TRANSITION,Math.clamp(tag.getInt("BossTransition"),0,40));
         actionTicks=Math.clamp(tag.getInt("NetherBossActionTicks"),0,48);
         actionCooldown=Math.clamp(tag.getInt("NetherBossCooldown"),0,130);actionResolved=tag.getBoolean("NetherBossResolved");
         entityData.set(ACTION,actionTicks>0?Math.clamp(tag.getInt("NetherBossAction"),0,12):0);
         entityData.set(COPIES,Math.clamp(tag.getInt("BossCopies"),0,120));entityData.set(FRAME,Math.clamp(tag.getInt("BossFrame"),0,48));
         attackAim=new net.minecraft.world.phys.Vec3(tag.getDouble("AttackAimX"),0,tag.getDouble("AttackAimZ")).normalize();entityData.set(AIM,(float)Math.atan2(attackAim.z,attackAim.x));combat.load(tag);
     }
-    @Override protected SoundEvent getAmbientSound(){return isMorova()?SoundEvents.WITCH_AMBIENT:SoundEvents.WITHER_SKELETON_AMBIENT;}
-    @Override protected SoundEvent getHurtSound(DamageSource source){return isMorova()?SoundEvents.WITCH_HURT:SoundEvents.WITHER_SKELETON_HURT;}
-    @Override protected SoundEvent getDeathSound(){return isMorova()?SoundEvents.WITCH_DEATH:SoundEvents.WITHER_SKELETON_DEATH;}
+    @Override protected SoundEvent getAmbientSound(){return NetherBossSounds.cue(isMorova(),"ambient");}
+    @Override protected SoundEvent getHurtSound(DamageSource source){return NetherBossSounds.cue(isMorova(),"hurt");}
+    @Override protected SoundEvent getDeathSound(){return NetherBossSounds.cue(isMorova(),"death");}
 }

@@ -87,3 +87,20 @@ for lang,index in [('ru_ru',0),('en_us',1)]:
  data['netherboss.rune.trizna_ember_ward.compatible']=('Только нагрудники; руническая наковальня.','Chestplates only; runic anvil.')[index]
  p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print('Generated',len(NAMES),'distinct item assets, two recipes, five additive loot pools')
+
+# Deliberate, legal vanilla foley; no borrowed character voices or synthetic random noise.
+# Original whisper/voice recordings are BLOCKED_AUDIO, these cues do not claim art acceptance.
+foley={
+ 'morova':{'ambient':'particle.soul_escape','windup':'block.wool.step','impact':'block.soul_sand.break','zone':'block.sculk_catalyst.bloom','wave':'entity.player.attack.sweep','summon':'particle.soul_escape','phase':'block.sculk_catalyst.bloom','hurt':'block.soul_soil.fall','death':'block.fire.extinguish','ritual':'particle.soul_escape','trophy':'block.sculk_catalyst.bloom'},
+ 'trizna':{'ambient':'block.chain.step','windup':'item.armor.equip_netherite','impact':'block.basalt.break','zone':'item.firecharge.use','wave':'entity.player.attack.sweep','summon':'item.goat_horn.sound.0','phase':'item.firecharge.use','hurt':'block.netherite_block.step','death':'block.fire.extinguish','ritual':'item.goat_horn.sound.0','trophy':'item.goat_horn.sound.0'}}
+p=RES/'assets/slavicmyths/sounds.json';sounds=json.loads(p.read_text(encoding='utf-8'))
+for boss,cues in foley.items():
+ for cue,event in cues.items():
+  id=boss+'_'+cue;sounds[id]={'subtitle':'subtitles.slavicmyths.'+id,'sounds':[{'name':'minecraft:'+event,'type':'event'}]}
+p.write_text(json.dumps(sounds,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ru={'ambient':'Движение','windup':'Подготовка атаки','impact':'Удар','zone':'Область поражения','wave':'Волна','summon':'Призыв','phase':'Смена фазы','hurt':'Ранение','death':'Угасание','ritual':'Ритуал','trophy':'Активация трофея'}
+for lang in ['ru_ru','en_us']:
+ p=RES/f'assets/slavicmyths/lang/{lang}.json';data=json.loads(p.read_text(encoding='utf-8'))
+ for boss,cues in foley.items():
+  for cue in cues:data['subtitles.slavicmyths.'+boss+'_'+cue]=(('Морова дева' if boss=='morova' else 'Князь Тризны')+': '+ru[cue]) if lang=='ru_ru' else boss.title()+': '+cue
+ p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

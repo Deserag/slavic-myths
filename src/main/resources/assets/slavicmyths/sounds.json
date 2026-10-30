@@ -9141,5 +9141,203 @@
         "volume": 0.7
       }
     ]
+  },
+  "morova_ambient": {
+    "subtitle": "subtitles.slavicmyths.morova_ambient",
+    "sounds": [
+      {
+        "name": "minecraft:particle.soul_escape",
+        "type": "event"
+      }
+    ]
+  },
+  "morova_windup": {
+    "subtitle": "subtitles.slavicmyths.morova_windup",
+    "sounds": [
+      {
+        "name": "minecraft:block.wool.step",
+        "type": "event"
+      }
+    ]
+  },
+  "morova_impact": {
+    "subtitle": "subtitles.slavicmyths.morova_impact",
+    "sounds": [
+      {
+        "name": "minecraft:block.soul_sand.break",
+        "type": "event"
+      }
+    ]
+  },
+  "morova_zone": {
+    "subtitle": "subtitles.slavicmyths.morova_zone",
+    "sounds": [
+      {
+        "name": "minecraft:block.sculk_catalyst.bloom",
+        "type": "event"
+      }
+    ]
+  },
+  "morova_wave": {
+    "subtitle": "subtitles.slavicmyths.morova_wave",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event"
+      }
+    ]
+  },
+  "morova_summon": {
+    "subtitle": "subtitles.slavicmyths.morova_summon",
+    "sounds": [
+      {
+        "name": "minecraft:particle.soul_escape",
+        "type": "event"
+      }
+    ]
+  },
+  "morova_phase": {
+    "subtitle": "subtitles.slavicmyths.morova_phase",
+    "sounds": [
+      {
+        "name": "minecraft:block.sculk_catalyst.bloom",
+        "type": "event"
+      }
+    ]
+  },
+  "morova_hurt": {
+    "subtitle": "subtitles.slavicmyths.morova_hurt",
+    "sounds": [
+      {
+        "name": "minecraft:block.soul_soil.fall",
+        "type": "event"
+      }
+    ]
+  },
+  "morova_death": {
+    "subtitle": "subtitles.slavicmyths.morova_death",
+    "sounds": [
+      {
+        "name": "minecraft:block.fire.extinguish",
+        "type": "event"
+      }
+    ]
+  },
+  "morova_ritual": {
+    "subtitle": "subtitles.slavicmyths.morova_ritual",
+    "sounds": [
+      {
+        "name": "minecraft:particle.soul_escape",
+        "type": "event"
+      }
+    ]
+  },
+  "morova_trophy": {
+    "subtitle": "subtitles.slavicmyths.morova_trophy",
+    "sounds": [
+      {
+        "name": "minecraft:block.sculk_catalyst.bloom",
+        "type": "event"
+      }
+    ]
+  },
+  "trizna_ambient": {
+    "subtitle": "subtitles.slavicmyths.trizna_ambient",
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.step",
+        "type": "event"
+      }
+    ]
+  },
+  "trizna_windup": {
+    "subtitle": "subtitles.slavicmyths.trizna_windup",
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_netherite",
+        "type": "event"
+      }
+    ]
+  },
+  "trizna_impact": {
+    "subtitle": "subtitles.slavicmyths.trizna_impact",
+    "sounds": [
+      {
+        "name": "minecraft:block.basalt.break",
+        "type": "event"
+      }
+    ]
+  },
+  "trizna_zone": {
+    "subtitle": "subtitles.slavicmyths.trizna_zone",
+    "sounds": [
+      {
+        "name": "minecraft:item.firecharge.use",
+        "type": "event"
+      }
+    ]
+  },
+  "trizna_wave": {
+    "subtitle": "subtitles.slavicmyths.trizna_wave",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event"
+      }
+    ]
+  },
+  "trizna_summon": {
+    "subtitle": "subtitles.slavicmyths.trizna_summon",
+    "sounds": [
+      {
+        "name": "minecraft:item.goat_horn.sound.0",
+        "type": "event"
+      }
+    ]
+  },
+  "trizna_phase": {
+    "subtitle": "subtitles.slavicmyths.trizna_phase",
+    "sounds": [
+      {
+        "name": "minecraft:item.firecharge.use",
+        "type": "event"
+      }
+    ]
+  },
+  "trizna_hurt": {
+    "subtitle": "subtitles.slavicmyths.trizna_hurt",
+    "sounds": [
+      {
+        "name": "minecraft:block.netherite_block.step",
+        "type": "event"
+      }
+    ]
+  },
+  "trizna_death": {
+    "subtitle": "subtitles.slavicmyths.trizna_death",
+    "sounds": [
+      {
+        "name": "minecraft:block.fire.extinguish",
+        "type": "event"
+      }
+    ]
+  },
+  "trizna_ritual": {
+    "subtitle": "subtitles.slavicmyths.trizna_ritual",
+    "sounds": [
+      {
+        "name": "minecraft:item.goat_horn.sound.0",
+        "type": "event"
+      }
+    ]
+  },
+  "trizna_trophy": {
+    "subtitle": "subtitles.slavicmyths.trizna_trophy",
+    "sounds": [
+      {
+        "name": "minecraft:item.goat_horn.sound.0",
+        "type": "event"
+      }
+    ]
   }
 }

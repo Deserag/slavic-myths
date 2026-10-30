@@ -37,6 +37,7 @@ public final class NetherBossCombat {
  private boolean hit(LivingEntity target,float damage){return boss.hasLineOfSight(target)&&target.hurt(boss.damageSources().mobAttack(boss),damage);}
  public void resolve(int action,Vec3 aim){
   if(!(boss.level() instanceof ServerLevel world))return;
+  boss.playSound(NetherBossSounds.cue(boss.isMorova(),switch(action){case PLAGUE_ZONES,FIRE->"zone";case SHADOWS,COPIES,DRUZHINA->"summon";case TRIPLE_WAVE,RING->"wave";default->"impact";}),1F,1F);
   switch(action){
    case BREATH -> {for(var t:targets(6))if(t.distanceToSqr(boss)<=36&&hit(t,8))t.addEffect(new MobEffectInstance(ModEffects.MOROVA_PLAGUE,200,boss.phase()-1),boss);}
    case STRIKE -> {for(var t:targets(4))if(t.distanceToSqr(boss)<=16)hit(t,16);}
@@ -77,7 +78,7 @@ public final class NetherBossCombat {
  public void tick(){
   if(!(boss.level() instanceof ServerLevel world))return;
   for(int i=zones.size()-1;i>=0;i--){var z=zones.get(i);if(z.remaining<=0){zones.remove(i);continue;}
-   if(boss.tickCount%5==0)world.sendParticles(boss.isMorova()?ParticleTypes.SOUL:ParticleTypes.FLAME,z.center.x,z.center.y+.1,z.center.z,8,1,.1,1,0);
+   if(boss.tickCount%5==0)world.sendParticles(boss.isMorova()?NetherSummonBoss.plagueParticle():ParticleTypes.FLAME,z.center.x,z.center.y+.1,z.center.z,8,1,.1,1,0);
    zones.set(i,new Zone(z.center,z.remaining-1));
   }
   if(boss.tickCount%20==0&&!zones.isEmpty())for(var t:targets(20)){
@@ -86,7 +87,7 @@ public final class NetherBossCombat {
   }
   for(int i=waves.size()-1;i>=0;i--){var wave=waves.get(i);if(wave.delay-->0)continue;
    double radius=++wave.age*.4;if(radius>12){waves.remove(i);continue;}
-   for(int p=0;p<32;p++){double a=p*Math.PI/16;world.sendParticles(boss.isMorova()?ParticleTypes.SOUL:ParticleTypes.FLAME,wave.center.x+Math.cos(a)*radius,wave.center.y+.2,wave.center.z+Math.sin(a)*radius,1,0,0,0,0);}
+   for(int p=0;p<32;p++){double a=p*Math.PI/16;world.sendParticles(boss.isMorova()?NetherSummonBoss.plagueParticle():ParticleTypes.FLAME,wave.center.x+Math.cos(a)*radius,wave.center.y+.2,wave.center.z+Math.sin(a)*radius,1,0,0,0,0);}
    for(var t:targets(16)){double r=t.position().subtract(wave.center).horizontalDistance();
     if(Math.abs(r-radius)<=.7&&Math.abs(t.getY()-wave.center.y)<=2&&!wave.hit.contains(t.getUUID())&&hit(t,wave.damage))wave.hit.add(t.getUUID());
    }

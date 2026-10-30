@@ -45,6 +45,7 @@ public final class NetherRituals {
    var row=ledger.records.getCompound(key);if(!row.getString("State").equals("ENDED")&&BlockPos.of(row.getLong("Anchor")).distSqr(pos)<96*96)return fail(p,"busy");
   }
   String id=UUID.randomUUID().toString();var row=new CompoundTag();row.putString("State","RESERVED");row.putLong("Anchor",pos.asLong());row.putUUID("Owner",p.getUUID());ledger.records.put(id,row);ledger.flush(w);
+  w.playSound(null,pos,NetherBossSounds.cue(morova,"ritual"),net.minecraft.sounds.SoundSource.HOSTILE,1F,1F);
   ACTIVE.put(p.getUUID(),new Pending(p,w,pos.immutable(),hand,morova,w.getGameTime()+200,id));return true;
  }
  @SubscribeEvent public static void tick(ServerTickEvent.Post e){
@@ -54,7 +55,7 @@ public final class NetherRituals {
     cancel(ritual);continue;
    }
    if(w.getGameTime()<ritual.ends){
-    if(w.getGameTime()%5==0)w.sendParticles(ritual.morova?net.minecraft.core.particles.ParticleTypes.SOUL:net.minecraft.core.particles.ParticleTypes.FLAME,ritual.altar.getX()+.5,ritual.altar.getY()+1.2,ritual.altar.getZ()+.5,6,.7,.5,.7,.01);
+    if(w.getGameTime()%5==0)w.sendParticles(ritual.morova?NetherSummonBoss.plagueParticle():net.minecraft.core.particles.ParticleTypes.FLAME,ritual.altar.getX()+.5,ritual.altar.getY()+1.2,ritual.altar.getZ()+.5,6,.7,.5,.7,.01);
     continue;
    }
    var stack=p.getItemInHand(ritual.hand);var required=NetherBossItems.item(ritual.morova?"amulet_of_the_faded":"last_watch_horn");
