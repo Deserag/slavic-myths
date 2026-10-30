@@ -49,6 +49,8 @@ try:
  host_result=json.loads((out/'host/multiplayer-fights.json').read_text());peer_result=json.loads((out/'peer/peer-finished.json').read_text())
  assert host_result['fights']==30,host_result
  assert peer_result['two_players_seen'] and peer_result['distinct_bosses_tracked']>=30,peer_result
+ for fight in [0,1]:
+  subprocess.run(['ffmpeg','-hide_banner','-loglevel','warning','-y','-framerate','10','-start_number','1','-i',str(out/'host'/('motion-f%02d-frame%%05d.png'%fight)),'-c:v','libx264','-pix_fmt','yuv420p',str(out/('actual-boss-fight-%02d.mp4'%fight))],check=True)
  print('PASS actual two-client loopback MP and30diagnostic fights. Modified arena stats; not normal balance/owner acceptance.')
 finally:
  for p in processes:

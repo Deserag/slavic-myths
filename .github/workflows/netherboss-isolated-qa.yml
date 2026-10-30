@@ -25,7 +25,7 @@ jobs:
           distribution: temurin
           java-version: '21'
       - name: Install isolated virtual display and software OpenGL
-        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri mesa-utils libopenal1
+        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri mesa-utils libopenal1 ffmpeg
       - name: Build production JAR
         shell: bash
         run: |
@@ -65,7 +65,7 @@ jobs:
           distribution: temurin
           java-version: '21'
       - name: Install isolated virtual display
-        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri mesa-utils libopenal1
+        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri mesa-utils libopenal1 ffmpeg
       - name: Build and export two-client launcher
         run: |
           chmod +x gradlew

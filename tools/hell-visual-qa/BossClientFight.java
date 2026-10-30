@@ -59,6 +59,7 @@ public final class BossClientFight {
    PHASES.add(boss.phase());if(boss.phase()!=previousPhase){previousPhase=boss.phase();phaseAt=mc.level.getGameTime();}
    attack(mc,boss,mc.level.getGameTime()-phaseAt>=120);
    if(mc.player.getHealth()<lastHealth)playerHurt=true;lastHealth=mc.player.getHealth();
+   if(fight<2&&age>0&&age<=400&&age%2==0){try(var image=Screenshot.takeScreenshot(mc.getMainRenderTarget())){image.writeToFile(HellVisualCapture.OUT.resolve(String.format("motion-f%02d-frame%05d.png",fight,age/2)));}}
    if(age%100==0||boss.deathTime>0){try(var image=Screenshot.takeScreenshot(mc.getMainRenderTarget())){image.writeToFile(HellVisualCapture.OUT.resolve(String.format("fight-%02d-phase-%d-t%05d.png",fight,boss.phase(),age)));}}
   }
   if(age%20==0)server.execute(()->{for(var p:server.getPlayerList().getPlayers()){p.heal(80);p.getFoodData().setFoodLevel(20);}});
