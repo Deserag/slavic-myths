@@ -101,7 +101,7 @@ assert "new int[]{7,14,21}" in c
 assert "Blocks.NETHER_BRICK_STAIRS" in c and "Blocks.POLISHED_BLACKSTONE_BRICK_STAIRS" in c
 assert "Blocks.CHISELED_POLISHED_BLACKSTONE" in c and "Blocks.GILDED_BLACKSTONE" in c
 assert "Blocks.LANTERN" in c and "Blocks.WALL_TORCH" in c
-assert "SCHEMA_VERSION = 17" in geometry
+assert "SCHEMA_VERSION = 18" in geometry
 assert "schema >= 12" in piece and "PosadHallComfort.voxel" in piece
 assert 'id.equals("veche_hall_2_2_2")' in command
 assert "PosadHallComfort.voxel" in command

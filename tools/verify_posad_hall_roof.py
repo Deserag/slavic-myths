@@ -64,7 +64,7 @@ command = (JAVA/"PosadCommands.java").read_text("utf-8")
 geometry = (JAVA/"PosadGeometry.java").read_text("utf-8")
 old_finish = (JAVA/"PosadFinishes.java").read_text("utf-8")
 
-assert "SCHEMA_VERSION = 17" in geometry
+assert "SCHEMA_VERSION = 18" in geometry
 assert "schema >= 13" in piece and "PosadHallRoofRepair.voxel(x,y,z)" in piece
 assert piece.index("schema >= 13") < piece.index("schema >= 12")
 assert "PosadHallRoofRepair.voxel(x,y,z)" in command
