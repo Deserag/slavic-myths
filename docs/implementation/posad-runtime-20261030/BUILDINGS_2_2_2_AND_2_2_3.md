@@ -31,3 +31,16 @@ Scope: #347 Вечевая палата + #348 Общинный жилой ко�
 | Original owner-approved PNG visual reference | Not currently in GitHub | BLOCKED ART |
 
 No Issue is closed or owner-accepted. StructureSet remains inactive. Do not confuse successful physical isolated GameTests with finished worldgen, staged migration or complete client/survival QA. `hell` only; `main` unchanged.
+
+## Продолжение 30.10.2026 — проверенные бинарные NBT и 10 000 loot seeds
+
+Из ветки hell (не main) воспроизводимо запущен существующий `tools/generate_posad_buildings.py`; обе структуры записаны **реальными gzip NBT** в коммите [9d0d553](https://github.com/Deserag/slavic-myths/commit/9d0d55302c384624dc33f789bbe5d81d41ba868f):
+
+- `src/main/resources/data/slavicmyths/structure/posad/veche_hall_2_2_2.nbt` — 10 362 байта, ровно 3598 non-air блоков, 15 палитровых состояний, SHA256 `f0abcac0718159fddb53099bd2519801be102ff1c37b88fe438c54b8cb7118fc`.
+- `src/main/resources/data/slavicmyths/structure/posad/communal_house_2_2_3.nbt` — 6071 байт, ровно 1992 блока, 17 палитровых состояний, четыре chest NBT LootTable, SHA256 `d9bc3ed45785d235d33ef367f7bcd21b4d261f40af81ac9c5b9bfe4285a57da7`.
+
+Новые проверки: `tools/posad-tests/verify_generated_building_nbt.py` сверяет КАЖДУЮ позицию и каждый blockstate с одобренными R1-исходниками, NBT-метаданные и строго четыре loot-маркера; `tools/posad-tests/verify_communal_loot_distribution.py` моделирует 10 000 различных seed по точным JSON-таблицам. **PASS:** [offline CI 41044271772](https://github.com/Deserag/slavic-myths/actions/runs/41044271772) — 154 107 Java-geometry assertions, оба NBT, четыре исходных loot JSON, 10 000 loot simulations (20.30% шанс домов с монетой, среднее 0.3048 монеты на дом). Это аналитическая проверка конфигурации, НЕ реальное серверное открытие сундуков.
+
+Добавлен `.github/workflows/posad-nbt-assets.yml`: Python-only воспроизводимое создание, валидация до публикации, запись только двух NBT, обычный push без force; при изменении одобренных исходников во время задания workflow отказывает в публикации устаревших NBT. Исходники архитектуры и лут не менялись. Уже существующая `PosadBuildings` продолжает детерминированно читать R1-ресурсы и строить город через `PosadPiece`; опубликованные NBT пока являются дополнительными проверенными ресурсами и НЕ отдельными спавнящимися structures.
+
+**Нерешённые ограничения:** natural StructureSet отключён; новые натуральные старты 5 seed / multiplayer / save-reload / игроковая навигация / визуальная сверка PNG не пройдены. Реальное раскрытие loot и защита при удалении сундука перед повторным `postProcess` не подтверждены: по анализу текущего кода есть риск повторного создания сундука после его удаления, поэтому anti-dupe = **NOT_PASS** до защищённого runtime-сценария и исправления. Старые schema 0/1 не достраиваются. PolyMC не изменялся. Issues #347/#348/#358 остаются OPEN, без owner acceptance.
