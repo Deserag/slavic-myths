@@ -213,6 +213,26 @@
           "chance": 0.03
         }
       ]
+    },
+    {
+      "name": "slavicmyths:boss_components_21x_0",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:nameless_ashes"
+        }
+      ]
+    },
+    {
+      "name": "slavicmyths:boss_components_21x_1",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:charred_signal_ribbon"
+        }
+      ]
     }
   ]
 }

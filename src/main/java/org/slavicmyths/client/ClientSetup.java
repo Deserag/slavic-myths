@@ -60,6 +60,7 @@ public final class ClientSetup {
 
     @SubscribeEvent public static void morParticles(net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent event){event.registerSpriteSet(org.slavicmyths.mor.MorContent.SPARK.get(),s->MorParticle.provider(s,false));event.registerSpriteSet(org.slavicmyths.mor.MorContent.ASH.get(),s->MorParticle.provider(s,true));}
     @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers event){
+        event.registerEntityRenderer(ModEntities.NETHER_RETAINER.get(),net.minecraft.client.renderer.entity.ZombieRenderer::new);
         event.registerEntityRenderer(ModEntities.MOROVA_DEVA.get(),ctx->new NetherSummonBossRenderer(ctx,true));
         event.registerEntityRenderer(ModEntities.TRIZNA_PRINCE.get(),ctx->new NetherSummonBossRenderer(ctx,false));
         event.registerEntityRenderer(org.slavicmyths.mor.MorContent.ZONE.get(),MorZoneRenderer::new);

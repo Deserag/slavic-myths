@@ -41,6 +41,7 @@ public final class CombatTargeting {
     public enum Relation { FORBIDDEN, ALLY, NEUTRAL, ENEMY }
     public enum Intent { PEACEFUL, NEUTRAL, HOSTILE, DEFENDER }
     public static java.util.UUID affiliation(LivingEntity e){
+        if(e instanceof org.slavicmyths.netherboss.NetherRetainer retainer)return retainer.owner();
         if(e.getPersistentData().hasUUID("summonedByPolozUUID"))return e.getPersistentData().getUUID("summonedByPolozUUID");
         if(e.getPersistentData().hasUUID("GreyPackOwner"))return e.getPersistentData().getUUID("GreyPackOwner");
         for(String key:SUMMON_OWNER_KEYS)if(e.getPersistentData().hasUUID(key))return e.getPersistentData().getUUID(key);
@@ -59,6 +60,7 @@ public final class CombatTargeting {
         return org.slavicmyths.kalin.KalinParty.owner(e);
     }
     private static java.util.UUID playerOwner(LivingEntity e){
+        if(e instanceof org.slavicmyths.netherboss.NetherRetainer retainer)return retainer.owner();
         if(e instanceof Player p)return p.getUUID();
         if(e instanceof TamableAnimal pet)return pet.getOwnerUUID();
         if(e instanceof org.slavicmyths.morozko.PlayerDouble d)return d.owner();

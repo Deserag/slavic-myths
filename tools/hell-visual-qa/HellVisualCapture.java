@@ -61,6 +61,17 @@ public final class HellVisualCapture {
         var w=p.serverLevel();w.getGameRules().getRule(GameRules.RULE_DOMOBSPAWNING).set(false,w.getServer());
         w.getGameRules().getRule(GameRules.RULE_DAYLIGHT).set(false,w.getServer());w.setDayTime(6000);
         int i=0;
+        if(System.getProperty("hellvisual.scope","").equals("bosses")){
+            for(boolean bride:new boolean[]{true,false})for(int phase=1;phase<=3;phase++){
+                var boss=(bride?org.slavicmyths.registry.ModEntities.MOROVA_DEVA:org.slavicmyths.registry.ModEntities.TRIZNA_PRINCE).get().create(w);
+                var data=new net.minecraft.nbt.CompoundTag();boss.addAdditionalSaveData(data);data.putInt("NetherBossPhase",phase);
+                data.putInt("NetherBossAction",bride?(phase==1?1:phase==2?3:7):(phase==1?8:phase==2?10:12));
+                data.putInt("NetherBossActionTicks",25);data.putInt("BossFrame",17);if(bride&&phase==2)data.putInt("BossCopies",100);
+                boss.readAdditionalSaveData(data);spawn(w,boss,i++,(bride?"morova":"trizna")+"-phase-"+phase);
+            }
+            for(String id:org.slavicmyths.netherboss.NetherBossItems.ITEMS.keySet())gear("boss-item-"+id,id,"inventory","",false);
+            ready=true;return;
+        }
         for(var k:NavyaContent.Kind.values())spawn(w,NavyaContent.MOBS.get(k).get().create(w),i++);
         for(var k:CinderContent.Kind.values())spawn(w,CinderContent.TYPES.get(k).get().create(w),i++);
         for(var k:HallsContent.Kind.values())for(int variant=0;variant<(k==HallsContent.Kind.SHEPTUN?4:1);variant++){

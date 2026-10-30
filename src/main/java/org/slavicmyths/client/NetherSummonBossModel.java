@@ -14,6 +14,7 @@ import org.slavicmyths.netherboss.NetherSummonBoss;
 public final class NetherSummonBossModel extends EntityModel<NetherSummonBoss> {
     private final ModelPart root,body,head,leftArm,rightArm,leftLeg,rightLeg,cape;
     private final boolean morova;
+    public float opacity=1;
     public NetherSummonBossModel(boolean morova) {
         this.morova=morova;
         var geometry=new FolkModelGeometry();
@@ -160,9 +161,22 @@ public final class NetherSummonBossModel extends EntityModel<NetherSummonBoss> {
             rightArm.xRot=morova?-1.7F-chant:-2.2F-chant;
             head.xRot-=morova?.22F:.12F;
         }
+        leftArm.zRot=0;rightArm.zRot=0;
+        if(e.action()!=0){
+            float progress=Mth.clamp(e.actionFrame()/30F,0,1);
+            switch(e.action()){
+                case 3 -> {leftArm.xRot=-.4F;leftArm.zRot=-1.4F*progress;rightArm.xRot=-1.1F;}
+                case 5,6,10 -> {leftArm.xRot=-2.6F*progress;rightArm.xRot=-2.6F*progress;}
+                case 8 -> {rightArm.xRot=-2.8F*progress;leftArm.xRot=-1.3F*progress;body.xRot=.18F*progress;}
+                case 9 -> {body.xRot=.35F;leftArm.xRot=.6F;rightArm.xRot=-.8F;}
+                case 7,12 -> {leftArm.zRot=-1.3F;rightArm.zRot=1.3F;}
+                default -> {leftArm.xRot=-1.6F*progress;rightArm.xRot=-1.6F*progress;}
+            }
+        }
+        if(e.hurtTime>0)body.xRot-=.12F;
         if(e.phase()>=3){cape.xRot*=1.35F;body.zRot=.025F*Mth.sin(age*.22F);}else body.zRot=0;
     }
     @Override public void renderToBuffer(PoseStack pose,VertexConsumer buffer,int light,int overlay,int color){
-        root.render(pose,buffer,light,overlay,color);
+        root.render(pose,buffer,light,overlay,((int)(((color>>>24)&255)*opacity)<<24)|(color&0xffffff));
     }
 }
