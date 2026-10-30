@@ -59,7 +59,7 @@ for v in range(18,25):
             assert at(u,y,v).startswith("minecraft:nether_brick_stairs[facing=" + facing)
             rear_stairs += 1
     assert at(19,11,v) == "minecraft:nether_brick_slab[type=bottom,waterlogged=false]"
-assert rear_stairs == 161
+assert rear_stairs == 173
 
 market = json.loads((root / "src/main/resources/data/slavicmyths/posad/menovye_ryady_2_2_6.json").read_text(encoding="utf-8"))
 assert market["origin"] == [75,75] and market["size"] == [27,12,25]
