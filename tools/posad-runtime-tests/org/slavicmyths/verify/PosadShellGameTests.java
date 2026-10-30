@@ -229,6 +229,30 @@ public final class PosadShellGameTests {
   t.succeed();
  }
  @GameTest(template="empty",timeoutTicks=200)
+ public static void newCityRoofUnderlapsStaySealedWithoutRetrofits(GameTestHelper t) {
+  var fresh=new PosadPiece(new net.minecraft.core.BlockPos(0,64,0),0);
+  var oldTag=fresh.createTag(net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext.fromLevel(t.getLevel()));
+  oldTag.putInt("Schema",3);
+  var legacy=new PosadPiece(oldTag);
+  for(int z=0;z<=22;z++) {
+   int roofY=12+Math.min(z/2,(22-z)/2);
+   if(roofY<=12)continue;
+   t.assertTrue(fresh.voxel(53,roofY-1,12+z)!=null,"Veche seam lacks backing "+z);
+   t.assertTrue(legacy.voxel(53,roofY-1,12+z)==PosadBuildings.voxel(53,roofY-1,12+z),"Old city must not retrofit roof "+z);
+  }
+  for(int z=0;z<=14;z++) {
+   int roofY=13+Math.min(z/2,(14-z)/2);
+   if(roofY<=13)continue;
+   t.assertTrue(fresh.voxel(17,roofY-1,15+z)!=null,"Communal roof seam lacks backing "+z);
+   t.assertTrue(legacy.voxel(17,roofY-1,15+z)==PosadBuildings.voxel(17,roofY-1,15+z),"Old house must keep R1 "+z);
+  }
+  for(int[] p:new int[][]{{53,1,17},{60,1,29},{17,1,18},{31,1,23},{17,7,18},{31,7,23}}) {
+   t.assertTrue(fresh.voxel(p[0],p[1],p[2]).is(Blocks.SOUL_LANTERN),"New interior light missing");
+   t.assertTrue(PosadBuildings.chestLoot(p[0],p[1],p[2])==null,"Lighting must not override loot");
+  }
+  t.succeed();
+ }
+ @GameTest(template="empty",timeoutTicks=200)
  public static void towerLaddersEntrancesAndMasonry(GameTestHelper t) {
   int[][] towers={{0,0},{102,0},{0,102},{102,102},{42,102},{62,102}};
   for(int[] tower:towers) {
