@@ -1,0 +1,48 @@
+name: Posad 2.2 exact R1 NBT assets (hell only)
+on:
+  push:
+    branches: [hell]
+    paths:
+      - 'tools/generate_posad_buildings.py'
+      - 'tools/posad-tests/verify_generated_building_nbt.py'
+      - 'docs/concepts/nether-settlement-2.2/2.2_VECHE_HALL_VOXELS_R1.py'
+      - 'docs/concepts/nether-settlement-2.2/communal-house-2.2.3/2.2_COMMUNAL_HOUSE_MODEL_R1.json'
+      - 'docs/concepts/nether-settlement-2.2/communal-house-2.2.3/loot_drafts/**'
+      - '.github/workflows/posad-nbt-assets.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: posad-nbt-hell
+  cancel-in-progress: false
+jobs:
+  generate-and-publish:
+    if: github.repository == 'Deserag/slavic-myths' && github.ref == 'refs/heads/hell'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Build exact approved R1 NBT with Python stdlib
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/generate_posad_buildings.py
+          python3 tools/posad-tests/verify_city_buildings.py
+          python3 tools/posad-tests/verify_generated_building_nbt.py
+      - name: Commit only the two checked binary templates to hell (no force)
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -- src/main/resources/data/slavicmyths/structure/posad/veche_hall_2_2_2.nbt src/main/resources/data/slavicmyths/structure/posad/communal_house_2_2_3.nbt
+          if git diff --cached --quiet; then
+            echo 'PASS: tracked NBT files are already reproducible and unchanged'
+            exit 0
+          fi
+          git diff --cached --name-only
+          git config user.name "slavic-myths-posad-assets[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "assets(posad): commit verified exact R1 hall and communal house NBT [skip ci]"
+          # Deliberately use a regular fast-forward push. Concurrent work must not be overwritten.
+          git push origin HEAD:refs/heads/hell
