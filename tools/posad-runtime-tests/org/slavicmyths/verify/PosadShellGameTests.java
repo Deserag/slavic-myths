@@ -202,6 +202,33 @@ public final class PosadShellGameTests {
 
 
  @GameTest(template="empty",timeoutTicks=200)
+ public static void gatewayBridgeAndLighting(GameTestHelper t) {
+  // The north-facing land entrance stays open; upper doors on BOTH sides must
+  // connect a single usable path over the south gate, not face away from it.
+  for(int y=9;y<=10;y++) {
+   t.assertTrue(PosadShell.voxel(50,y,110).isAir(),"Left gate tower has no bridge door");
+   t.assertTrue(PosadShell.voxel(62,y,110).isAir(),"Right gate tower has no bridge door");
+   for(int x=51;x<=61;x++)for(int z=109;z<=111;z++)
+    t.assertTrue(PosadShell.voxel(x,y,z).isAir(),"Bridge headroom obstructed "+x+","+y+","+z);
+  }
+  for(int x=50;x<=62;x++)for(int z=109;z<=111;z++)
+   t.assertTrue(!PosadShell.voxel(x,8,z).isAir(),"Missing gate bridge deck "+x+","+z);
+  for(int[] post:new int[][]{{51,36},{61,36},{51,75},{61,75},{51,95},{61,95}}) {
+   t.assertTrue(PosadShell.voxel(post[0],3,post[1]).is(Blocks.SOUL_LANTERN),"Missing street lantern");
+   t.assertTrue(!PosadShell.voxel(post[0],1,post[1]).isAir(),"Unanchored lamp post");
+  }
+  for(int[] tower:new int[][]{{0,0},{102,0},{0,102},{102,102},{42,102},{62,102}}) {
+   t.assertTrue(PosadShell.voxel(tower[0]+4,1,tower[1]+4).is(Blocks.SOUL_LANTERN),"Ground floor tower light missing");
+   t.assertTrue(PosadShell.voxel(tower[0]+4,9,tower[1]+4).is(Blocks.SOUL_LANTERN),"Upper tower light missing");
+  }
+  for(int turns=0;turns<4;turns++) {
+   var piece=new PosadPiece(new net.minecraft.core.BlockPos(0,64,0),turns);
+   for(int x=50;x<=62;x++)for(int z=109;z<=111;z++)
+    t.assertTrue(!piece.voxel(x,8,z).isAir(),"Rotated native piece lost gateway deck: "+turns);
+  }
+  t.succeed();
+ }
+ @GameTest(template="empty",timeoutTicks=200)
  public static void towerLaddersEntrancesAndMasonry(GameTestHelper t) {
   int[][] towers={{0,0},{102,0},{0,102},{102,102},{42,102},{62,102}};
   for(int[] tower:towers) {
