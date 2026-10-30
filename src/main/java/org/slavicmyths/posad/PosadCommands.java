@@ -271,6 +271,20 @@ public final class PosadCommands {
                 throw new IllegalStateException("Standalone forge chimney/NBT mismatch at "+target);
             world.setBlock(target,repair,2);
         }
+        // Schema-16 main granary crest. The roof is shared with native
+        // PosadPiece, but the original R1 template NBT remains untouched.
+        if(id.equals("granary_2_2_8")) {
+            for(int v=1;v<=13;v++)for(int u:new int[]{7,8}) {
+                var finish=PosadEasternRoofRepair.voxel(76+u,10,12+v);
+                var original=PosadAdditionalBuildings.voxel(76+u,10,12+v);
+                var target=pos.offset(u,10,v);
+                var present=world.getBlockState(target);
+                if(finish==null || original==null || !original.is(net.minecraft.world.level.block.Blocks.NETHER_BRICK_SLAB)
+                        || present.hasBlockEntity() || !present.is(original.getBlock()))
+                    throw new IllegalStateException("Standalone granary roof/NBT mismatch at "+target);
+                world.setBlock(target,finish,2);
+            }
+        }
         // Template barrels are authored empty: assign persistent single-use loot after placement.
         String table=id.startsWith("menovye_ryady")?"chests/posad_barrel_market":"chests/posad_barrel_supplies";
         for(var at:net.minecraft.core.BlockPos.betweenClosed(pos,end)) {
