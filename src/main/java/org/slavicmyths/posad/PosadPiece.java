@@ -61,6 +61,10 @@ public final class PosadPiece extends StructurePiece {
             return -y<depth?Blocks.POLISHED_BASALT.defaultBlockState():null;
         }
         if(PosadGeometry.CITY.contains(x,z)) {
+            if(schema >= 6) {
+                var finish=PosadFinishes.voxel(x,y,z);
+                if(finish!=null)return finish;
+            }
             if(schema >= 5) {
                 var market=PosadMarketBuildings.voxel(x,y,z);
                 if(market!=null)return market;
@@ -122,8 +126,14 @@ public final class PosadPiece extends StructurePiece {
                 } catch(RuntimeException e) {
                     throw new IllegalStateException("Posad placement failed: local "+local.x()+","+y+","+local.z()+" world "+at+" block "+state+" rotation "+turns+" schema "+schema, e);
                 }
+                if(schema >= 6 && state.is(Blocks.BARREL) && world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity barrel) {
+                    String table=PosadFinishes.barrelLoot(local.x(),local.z());
+                    barrel.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",table)),at.asLong()^anchor.asLong());
+                    barrel.setChanged();
+                }
                 if(schema >= 2 && state.is(Blocks.CHEST) && world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity chest) {
-                    String loot=schema >= 5 ? PosadMarketBuildings.chestLoot(local.x(),y,local.z()) : null;
+                    String loot=schema >= 6 ? PosadFinishes.chestLoot(local.x(),y,local.z()) : null;
+                    if(loot==null && schema >= 5)loot=PosadMarketBuildings.chestLoot(local.x(),y,local.z());
                     if(loot==null && schema >= 4)loot=PosadAdditionalBuildings.chestLoot(local.x(),y,local.z());
                     if(loot==null && schema >= 3)loot=PosadNextBuildings.chestLoot(local.x(),y,local.z());
                     if(loot==null)loot=PosadBuildings.chestLoot(local.x(),y,local.z());

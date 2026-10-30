@@ -55,7 +55,7 @@ public final class PosadCommands {
         return PosadManualJobs.create(source,0,at.getX(),at.getY(),at.getZ());
     }
     private static int info(CommandSourceStack source) {
-        source.sendSuccess(() -> Component.literal("Пекельный посад: фиксированный план 113x113, схема новых городов " + PosadGeometry.SCHEMA_VERSION + ", четыре утверждённых шаблона (3598/1992/2440/1901 блоков)."), false);
+        source.sendSuccess(() -> Component.literal("Пекельный посад: фиксированный план 113x113, схема новых городов " + PosadGeometry.SCHEMA_VERSION + ", несколько зданий, мебель и башенный переход."), false);
         source.sendSuccess(() -> Component.literal("Естественная генерация пока заблокирована до native QA, performance, save/reload и anti-dupe. Старые города никогда не перестраиваются."), false);
         source.sendSuccess(() -> Component.literal("Ручное создание с OP 2 в любом мире: /slavicmyths dev posad create <turns> <anchorX> <deckY> <anchorZ>. Чанки подготавливаются постепенно. status/cancel — для управления."), false);
         return 1;
@@ -123,6 +123,14 @@ public final class PosadCommands {
         for(var at:net.minecraft.core.BlockPos.betweenClosed(pos,end))if(!world.getBlockState(at).isAir())world.setBlock(at,net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),2);
         boolean placed=template.get().placeInWorld(world,pos,pos,new net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings(),world.random,2);
         if(!placed){source.sendFailure(Component.literal("Шаблон не разместился: "+key+"; резерв сохранён."));return 0;}
+        // Template barrels are authored empty: assign persistent single-use loot after placement.
+        String table=id.startsWith("menovye_ryady")?"chests/posad_barrel_market":"chests/posad_barrel_supplies";
+        for(var at:net.minecraft.core.BlockPos.betweenClosed(pos,end)) {
+            if(world.getBlockState(at).is(net.minecraft.world.level.block.Blocks.BARREL) && world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity barrel) {
+                barrel.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",table)),at.asLong()^pos.asLong());
+                barrel.setChanged();
+            }
+        }
         source.sendSuccess(()->Component.literal("Построено: "+id+" в "+pos.toShortString()),false);
         return 1;
     }

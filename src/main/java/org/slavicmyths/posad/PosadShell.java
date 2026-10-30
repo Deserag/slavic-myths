@@ -48,9 +48,17 @@ public final class PosadShell {
         }
         for (int tx : new int[]{42, 62}) {
             if (x >= tx && x <= tx + 8 && z >= 102) {
-                int patrol = tx == 42 ? WEST : EAST;
+                int patrol = tx == 42 ? EAST : WEST;
                 return tower(x - tx, y, z - 102, 9, 11, tx, 102, NORTH, patrol);
             }
+        }
+        // Continuous three-wide patrol bridge at Y=8 between gate towers.
+        // Open eastern/western patrol doors meet the bridge at Z=109..111.
+        if (x >= 51 && x <= 61 && z >= 108 && z <= 112 && y >= 8 && y <= 10) {
+            if (y == 8) return Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState();
+            if (z >= 109 && z <= 111) return Blocks.AIR.defaultBlockState();
+            if (y == 10 && z == 108 && (x == 53 || x == 59)) return Blocks.SOUL_LANTERN.defaultBlockState();
+            return masonry(x,y,z);
         }
         if (x >= 51 && x <= 61 && z >= 108) {
             if (x >= 53 && x <= 59 && y <= 6) return Blocks.AIR.defaultBlockState();
@@ -99,7 +107,7 @@ public final class PosadShell {
                 || ((patrolFaces & EAST) != 0 && x == width - 1 && Math.abs(z - patrolZ) <= 1)
                 || ((patrolFaces & NORTH) != 0 && z == 0 && Math.abs(x - patrolX) <= 1)
                 || ((patrolFaces & SOUTH) != 0 && z == depth - 1 && Math.abs(x - patrolX) <= 1);
-            if ((groundDoor && y <= 3) || (patrolDoor && (y == 9 || y == 10)))
+            if ((groundDoor && y <= 2) || (patrolDoor && (y == 9 || y == 10)))
                 return Blocks.AIR.defaultBlockState();
             return edge ? masonry(originX + x, y, originZ + z) : Blocks.AIR.defaultBlockState();
         }
