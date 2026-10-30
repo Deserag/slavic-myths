@@ -98,7 +98,11 @@ public final class PosadPiece extends StructurePiece {
                 var old=world.getBlockState(at);
                 if(old.hasBlockEntity()||old.is(Blocks.BEDROCK)||!(old.isAir()||old.is(Blocks.LAVA)||NetherBridgeTerrain.natural(old)))continue;
                 if(state.isAir()&&!old.isAir())continue;
-                world.setBlock(at,state.rotate(Rotation.values()[turns]),2);
+                try {
+                    world.setBlock(at,state.rotate(Rotation.values()[turns]),2);
+                } catch(RuntimeException e) {
+                    throw new IllegalStateException("Posad placement failed: local "+local.x()+","+y+","+local.z()+" world "+at+" block "+state+" rotation "+turns+" schema "+schema, e);
+                }
                 if(schema >= 2 && state.is(Blocks.CHEST) && world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity chest) {
                     String loot=schema >= 3 ? PosadNextBuildings.chestLoot(local.x(),y,local.z()) : null;
                     if(loot==null)loot=PosadBuildings.chestLoot(local.x(),y,local.z());
