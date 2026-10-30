@@ -50,7 +50,7 @@ for v in range(21):
 piece = (java / "PosadPiece.java").read_text("utf-8")
 command = (java / "PosadCommands.java").read_text("utf-8")
 geometry = (java / "PosadGeometry.java").read_text("utf-8")
-assert "SCHEMA_VERSION = 14" in geometry
+assert "SCHEMA_VERSION = 15" in geometry
 assert "schema >= 8" in piece and "PosadHallRefinement.voxel" in piece
 assert 'id.equals("veche_hall_2_2_2")' in command
 assert "var finish=PosadHallRefinement.voxel(x,y,z)" in command

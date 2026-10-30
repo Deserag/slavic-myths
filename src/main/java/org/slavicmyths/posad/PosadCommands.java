@@ -260,6 +260,17 @@ public final class PosadCommands {
                 world.setBlock(target,roof,2);
             }
         }
+        // Schema-15 forge chimney/roof joint, using the same source as native.
+        // Place after the R1 template and courtyards without touching chests.
+        if(id.equals("kuznechny_dvor_2_2_5")) {
+            var repair=PosadForgeChimneyRoofRepair.voxel(16,9,47);
+            var original=PosadNextBuildings.voxel(16,9,47);
+            var target=pos.offset(4,9,3);
+            var present=world.getBlockState(target);
+            if(repair==null || original==null || present.hasBlockEntity() || !present.is(original.getBlock()))
+                throw new IllegalStateException("Standalone forge chimney/NBT mismatch at "+target);
+            world.setBlock(target,repair,2);
+        }
         // Template barrels are authored empty: assign persistent single-use loot after placement.
         String table=id.startsWith("menovye_ryady")?"chests/posad_barrel_market":"chests/posad_barrel_supplies";
         for(var at:net.minecraft.core.BlockPos.betweenClosed(pos,end)) {
