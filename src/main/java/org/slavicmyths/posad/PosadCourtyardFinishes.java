@@ -2,9 +2,11 @@ package org.slavicmyths.posad;
 
 import java.util.HashMap;
 import java.util.Map;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import org.slavicmyths.furniture.Furniture;
+import org.slavicmyths.furniture.FurnitureBlock;
 
 /**
  * Schema-10 new-city-only furnishing for the R1 military and forge districts.
@@ -23,7 +25,23 @@ public final class PosadCourtyardFinishes {
         BlockState floor=PosadNextBuildings.voxel(x,y-1,z);
         if (floor==null || floor.isAir() || PosadNextBuildings.voxel(x,y,z)!=null || PosadNextBuildings.voxel(x,y+1,z)!=null || PosadNextBuildings.voxel(x,y+2,z)!=null)
             throw new IllegalStateException("Courtyard furniture obstructs approved R1 at "+x+","+y+","+z);
-        put(x,y,z,Furniture.get(name).defaultBlockState());
+        BlockState state=Furniture.get(name).defaultBlockState();
+        if (name.endsWith("_shelf")) {
+            Direction facing=null;
+            // Shelves require a sturdy R1 wall at their back. Match the
+            // registered FurnitureBlock.canSurvive rule and rotate the facing.
+            for (Direction front : new Direction[]{Direction.NORTH,Direction.EAST,Direction.SOUTH,Direction.WEST}) {
+                Direction back=front.getOpposite();
+                BlockState wall=PosadNextBuildings.voxel(x+back.getStepX(),y,z+back.getStepZ());
+                if (wall!=null && (wall.is(Blocks.POLISHED_BLACKSTONE_BRICKS) || wall.is(Blocks.NETHER_BRICKS) || wall.is(Blocks.CRIMSON_PLANKS))) {
+                    facing=front;
+                    break;
+                }
+            }
+            if (facing==null) throw new IllegalStateException("Unsupported courtyard shelf at "+x+","+y+","+z);
+            state=state.setValue(FurnitureBlock.FACING,facing);
+        }
+        put(x,y,z,state);
     }
     private static void light(int ox,int oz,int u,int y,int v) {
         int x=ox+u,z=oz+v;
@@ -48,7 +66,7 @@ public final class PosadCourtyardFinishes {
 
     static {
         // R01 armory, R02 mess, R03 barracks, R04 supply.
-        military(4,1,3,"pine_weapon_rack"); military(5,1,5,"pine_shelf");
+        military(4,1,3,"pine_weapon_rack"); military(3,1,5,"pine_shelf");
         military(20,1,2,"linden_shelf"); military(21,1,4,"pine_table"); military(21,1,5,"pine_chair");
         military(4,1,7,"pine_bedside_cabinet"); military(6,1,10,"pine_bench");
         military(20,1,8,"pine_shelf"); military(21,1,10,"linden_table");
@@ -62,9 +80,9 @@ public final class PosadCourtyardFinishes {
         // Forge: one open working hall, storehouse, yard and roofed work bay.
         forge(4,1,3,"pine_shelf"); forge(11,1,3,"linden_shelf");
         forge(12,1,8,"pine_table"); forge(13,1,9,"pine_stool"); forge(4,1,10,"pine_weapon_rack");
-        forge(5,1,19,"pine_shelf"); forge(6,1,20,"linden_table"); forge(9,1,20,"linden_shelf");
+        forge(5,1,19,"pine_shelf"); forge(6,1,20,"linden_table"); forge(10,1,19,"linden_shelf");
         forge(16,1,4,"pine_weapon_rack"); forge(21,1,9,"pine_table"); forge(20,1,15,"pine_bench");
-        forge(18,1,22,"linden_table"); forge(21,1,22,"pine_shelf");
+        forge(18,1,22,"linden_table"); forge(21,1,22,"pine_bench");
         forgeLight(5,1,6); forgeLight(9,1,7); forgeLight(7,1,21);
         forgeLight(18,1,20); forgeLight(23,1,16);
 

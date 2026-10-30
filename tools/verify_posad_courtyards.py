@@ -45,6 +45,11 @@ for kind, origin, dims, furniture_count, lights_count, accents_count in [
     for x,y,z,name in items:
         wood, furniture_type = name.split("_",1)
         assert wood in ("pine","linden") and furniture_type in kinds, name
+        if furniture_type == "shelf":
+            # The actual FurnitureBlock canSurvive requires wall support
+            # behind the facing. The Java overlay chooses a valid direction.
+            backing = [cell(kind,x+dx,y,z+dz) for dx,dz in ((0,1),(-1,0),(0,-1),(1,0))]
+            assert any(block in ("minecraft:polished_blackstone_bricks","minecraft:nether_bricks","minecraft:crimson_planks") for block in backing), (kind,"unsupported shelf",x,y,z)
     for x,y,z in [(a,b,c) for a,b,c,_ in items] + lights:
         assert 0 <= x < dims[0] and 0 <= z < dims[1] and y in (1,7), (kind,x,y,z)
         assert cell(kind,x,y-1,z) is not None, (kind,"floor",x,y,z)
@@ -82,5 +87,7 @@ assert "schema >= 10" in piece and "PosadCourtyardFinishes.voxel" in piece
 assert 'id.equals("druzhinny_dvor_2_2_4")' in command
 assert 'id.equals("kuznechny_dvor_2_2_5")' in command
 assert "PosadCourtyardFinishes.voxel" in command
+assert "state.setValue(FurnitureBlock.FACING,facing)" in code
+assert "public BlockState rotate(BlockState s,Rotation r)" in (root / "src/main/java/org/slavicmyths/furniture/FurnitureBlock.java").read_text("utf-8")
 assert "present.hasBlockEntity()" in command
 print(f"PASS: R1 2440/1901 blocks, 5+5 chests untouched, room floor/headroom, 4 rotations; military {counts['military']}, forge {counts['forge']}")
