@@ -124,4 +124,36 @@ public final class NetherBossAbilityTests {
   t.getLevel().removeBlock(pos,false);t.succeed();
  }
 
+ @GameTest(template="empty",timeoutTicks=400)
+ public static void everyAttackGeometryZonesWavesAndSummonCaps(GameTestHelper t){
+  var w=t.getLevel();var at=arena(t,256);
+  t.runAtTickTime(100,()->{
+   for(boolean morova:new boolean[]{true,false}){
+    var boss=(morova?org.slavicmyths.registry.ModEntities.MOROVA_DEVA:org.slavicmyths.registry.ModEntities.TRIZNA_PRINCE).get().create(w);
+    boss.moveTo(at.getX(),at.getY()+1,at.getZ(),0,0);boss.setNoAi(true);w.addFreshEntity(boss);
+    var target=net.minecraft.world.entity.EntityType.HUSK.create(w);target.setNoAi(true);target.setNoGravity(true);target.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.ARMOR).setBaseValue(0);target.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE).setBaseValue(1);target.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).setBaseValue(1000);target.setHealth(1000);target.moveTo(at.getX()+3,at.getY()+1,at.getZ(),0,0);w.addFreshEntity(target);boss.setTarget(target);
+    var combat=new NetherBossCombat(boss);var aim=new net.minecraft.world.phys.Vec3(1,0,0);
+    int[] direct=morova?new int[]{1,3}:new int[]{2,8,9};float[] damage=morova?new float[]{8,12}:new float[]{16,22,14};
+    for(int n=0;n<direct.length;n++){
+     boss.moveTo(at.getX(),at.getY()+1,at.getZ(),0,0);target.setHealth(1000);target.invulnerableTime=0;
+     combat.resolve(direct[n],aim);t.assertTrue(target.getHealth()==1000-damage[n],"Wrong contact damage action="+direct[n]+" hp="+target.getHealth());
+    }
+    boss.moveTo(at.getX(),at.getY()+1,at.getZ(),0,0);target.setHealth(1000);target.invulnerableTime=0;
+    if(morova)t.assertTrue(target.hasEffect(org.slavicmyths.registry.ModEffects.MOROVA_PLAGUE),"Breath omitted plague");
+    combat.resolve(morova?4:11,aim);
+    for(int tick=1;tick<=20;tick++){boss.tickCount=tick;target.tick();combat.tick();}
+    t.assertTrue(target.getHealth()==(morova?997:996),"Overlapping zones stacked or missed: "+target.getHealth());combat.clear();
+    target.setHealth(1000);target.invulnerableTime=0;combat.resolve(morova?7:12,aim);
+    for(int tick=1;tick<=65;tick++){boss.tickCount=tick;target.tick();combat.tick();}
+    t.assertTrue(target.getHealth()==(morova?970:982),"Waves failed exact crossing/one hit per wave: "+target.getHealth());combat.clear();
+    combat.resolve(morova?5:10,aim);combat.resolve(morova?5:10,aim);combat.resolve(morova?5:10,aim);
+    var minions=w.getEntitiesOfClass(NetherRetainer.class,boss.getBoundingBox().inflate(10),r->boss.getUUID().equals(r.owner()));
+    t.assertTrue(minions.size()>=2&&minions.size()<=4,"Summon cap failed: "+minions.size());
+    for(var minion:minions)t.assertTrue(minion.getMaxHealth()==(morova?30:50)&&minion.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE)==(morova?5:7),"Wrong minion attributes");
+    if(morova){combat.resolve(6,aim);t.assertTrue(boss.hasCopies(),"Copies animation not activated");t.assertTrue(w.getEntitiesOfClass(NetherSummonBoss.class,boss.getBoundingBox().inflate(10),b->b!=boss).isEmpty(),"Copies created loot-bearing bosses");}
+    combat.clear();t.assertTrue(w.getEntitiesOfClass(NetherRetainer.class,boss.getBoundingBox().inflate(10),r->boss.getUUID().equals(r.owner())).isEmpty(),"Encounter cleanup leaked minions");boss.discard();target.discard();
+   }t.succeed();
+  });
+ }
+
 }
