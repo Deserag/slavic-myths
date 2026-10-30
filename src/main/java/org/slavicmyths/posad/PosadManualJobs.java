@@ -171,6 +171,31 @@ public final class PosadManualJobs {
             source.sendSuccess(() -> Component.literal("Проверка всей территории завершена. Область зарезервирована; начинается поэтапное строительство."), false);
         }
 
+        /**
+         * Recheck a whole target chunk immediately before changing it. Full-area
+         * preflight can take several ticks; another player or mod might have
+         * altered blocks in that interval. Both check and placement are on the
+         * same server tick, with no opportunity for interleaved server actions.
+         */
+        private void verifyChunkImmediately(ChunkPos cp) {
+            for (var entry : ManualStructureRecords.get(world).overlapping(bounds)) {
+                if (!entry.id().equals(token)) throw new IllegalStateException("Другой объект занял территорию во время строительства");
+            }
+            for (int z = cp.getMinBlockZ(); z <= cp.getMaxBlockZ(); z++) {
+                for (int x = cp.getMinBlockX(); x <= cp.getMaxBlockX(); x++) {
+                    int dx = x - ax, dz = z - az;
+                    int lx = switch (turns) { case 0 -> dx; case 1 -> dz; case 2 -> 112 - dx; default -> 112 - dz; };
+                    int lz = switch (turns) { case 0 -> dz; case 1 -> 112 - dx; case 2 -> 112 - dz; default -> dx; };
+                    for (int y = bounds.minY(); y <= bounds.maxY(); y++) {
+                        BlockPos at = new BlockPos(x, y, z);
+                        if (!bounds.isInside(at) || piece.voxel(lx, y - deckY, lz) == null) continue;
+                        var old = world.getBlockState(at);
+                        if (old.hasBlockEntity() || world.getBlockEntity(at) != null || old.is(Blocks.BEDROCK) || protectedOrigins.blocked(at) || !(old.isAir() || old.is(Blocks.LAVA) || NetherBridgeTerrain.natural(old))) throw new IllegalStateException("Участок изменён после preflight: " + at.toShortString() + " " + old);
+                    }
+                }
+            }
+        }
+
         private void place() {
             if (chunk >= chunks.size()) {
                 // Persist modified chunks while the durable reservation still says construction.
@@ -184,6 +209,7 @@ public final class PosadManualJobs {
             }
             ChunkPos cp = chunks.get(chunk);
             if (world.getChunkSource().getChunkNow(cp.x, cp.z) == null) throw new IllegalStateException("Чанк выгружен во время строительства: " + cp);
+            verifyChunkImmediately(cp);
             BoundingBox clip = new BoundingBox(cp.getMinBlockX(), bounds.minY(), cp.getMinBlockZ(), cp.getMaxBlockX(), bounds.maxY(), cp.getMaxBlockZ());
             piece.postProcess(world, world.structureManager(), world.getChunkSource().getGenerator(), world.random, clip, cp, new BlockPos(ax, deckY, az));
             world.getChunkSource().getChunkNow(cp.x, cp.z).setUnsaved(true);
