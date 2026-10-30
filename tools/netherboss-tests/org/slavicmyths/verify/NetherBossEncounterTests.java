@@ -20,7 +20,7 @@ public final class NetherBossEncounterTests {
  private static void platform(net.minecraft.server.level.ServerLevel w,BlockPos a){
   for(int cx=(a.getX()-6)>>4;cx<=(a.getX()+6)>>4;cx++)for(int cz=(a.getZ()-6)>>4;cz<=(a.getZ()+6)>>4;cz++){var cp=new net.minecraft.world.level.ChunkPos(cx,cz);w.setChunkForced(cp.x,cp.z,true);}
   for(int x=-6;x<=6;x++)for(int z=-6;z<=6;z++){
-   w.getChunk((a.getX()+x)>>4,(a.getZ()+z)>>4);w.setBlock(a.offset(x,0,z),Blocks.BLACKSTONE.defaultBlockState(),2);
+   w.getChunk((a.getX()+x)>>4,(a.getZ()+z)>>4);w.setBlock(a.offset(x,8,z),Blocks.BLACKSTONE.defaultBlockState(),2);w.setBlock(a.offset(x,0,z),Blocks.BLACKSTONE.defaultBlockState(),2);
    for(int y=1;y<=7;y++)w.setBlock(a.offset(x,y,z),Blocks.AIR.defaultBlockState(),2);
   }
  }
@@ -37,6 +37,9 @@ public final class NetherBossEncounterTests {
    p.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,new ItemStack(NetherBossItems.item(morova?"amulet_of_the_faded":"last_watch_horn")));
    t.assertTrue(NetherRituals.begin(p,a,net.minecraft.world.InteractionHand.MAIN_HAND,morova),"Valid rite rejected");
    t.assertTrue(!NetherRituals.begin(p,a,net.minecraft.world.InteractionHand.MAIN_HAND,morova),"Parallel rite accepted");
+   var other=FakePlayerFactory.get(w,new com.mojang.authlib.GameProfile(UUID.randomUUID(),"ConcurrentRiteQA"));other.setPos(p.position());
+   other.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,p.getMainHandItem().copy());
+   t.assertTrue(!NetherRituals.begin(other,a,net.minecraft.world.InteractionHand.MAIN_HAND,morova)&&other.getMainHandItem().getCount()==1,"Other player bypassed ritual reservation or lost token");
    t.assertTrue(p.getMainHandItem().getCount()==1,"Premature token consumption");actors.add(p);
   }
   // The ritual is under test, not random walking off this small artificial platform.
@@ -46,6 +49,11 @@ public final class NetherBossEncounterTests {
    for(int i=0;i<actors.size();i++){
     var p=actors.get(i);var a=base.offset(i==0?0:256,0,0);
     var bosses=w.getEntitiesOfClass(NetherSummonBoss.class,new net.minecraft.world.phys.AABB(a).inflate(16),e->e.isAlive());
+    if(bosses.size()!=1){
+     var details=new ArrayList<String>();var ledger=NetherBossLedger.get(w);
+     for(String key:ledger.records.getAllKeys()){var row=ledger.records.getCompound(key);if(row.hasUUID("Owner")&&row.getUUID("Owner").equals(p.getUUID()))details.add(row+" entity="+(row.hasUUID("Boss")?w.getEntity(row.getUUID("Boss")):null));}
+     System.out.println("RITUAL_FIXTURE_FAILURE i="+i+" altar="+w.getBlockState(a)+" valid="+NetherRituals.validAltar(w,a,i==0)+" token="+p.getMainHandItem()+" gameTime="+w.getGameTime()+" player="+p.position()+" records="+details);
+    }
     t.assertTrue(bosses.size()==1,"Rite did not produce exactly one boss "+i+" count="+bosses.size());
     t.assertTrue(p.getMainHandItem().isEmpty(),"Token not consumed exactly once");bosses.forEach(Entity::discard);
    }t.succeed();

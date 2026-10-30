@@ -33,7 +33,7 @@ public final class BossClientFight {
  public static void recordDamage(org.slavicmyths.netherboss.NetherSummonBoss boss,float amount){if(amount>0)DAMAGE.merge((boss.isMorova()?"morova":"trizna")+"/phase"+boss.phase()+"/action"+boss.action(),1,Integer::sum);}
  public static void openLoopback(net.minecraft.server.MinecraftServer server){
   if(!Boolean.getBoolean("hellvisual.mp"))return;
-  try{server.setUsesAuthentication(false);server.getConnection().startTcpServerListener(java.net.InetAddress.getLoopbackAddress(),25591);System.out.println("BOSS_MP_LOOPBACK_READY 127.0.0.1:25591");}
+  try{server.setUsesAuthentication(false);server.getConnection().startTcpServerListener(java.net.InetAddress.getByName("127.0.0.1"),25591);System.out.println("BOSS_MP_LOOPBACK_READY 127.0.0.1:25591");}
   catch(java.io.IOException ex){throw new RuntimeException(ex);}
  }
  private static void arena(ServerPlayer host){

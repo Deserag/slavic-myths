@@ -104,4 +104,24 @@ public final class NetherBossAbilityTests {
   });
  }
 
+ @GameTest(template="empty",timeoutTicks=200)
+ public static void actualRuneAnvilInstallsAndReturnsBossRunes(GameTestHelper t){
+  var p=player(t);var pos=p.blockPosition();t.getLevel().setBlock(pos,org.slavicmyths.registry.ModBlocks.RUNIC_ANVIL.get().defaultBlockState(),2);
+  var menu=new org.slavicmyths.rpg.RpgMenu(7,p.getInventory(),pos,true);
+  for(boolean morova:new boolean[]{true,false}){
+   p.experienceLevel=100;var gear=new ItemStack(morova?Items.DIAMOND_SWORD:Items.DIAMOND_CHESTPLATE);
+   Runes.write(gear,1,List.of());String rune=morova?"morova_lingering":"trizna_ember_ward";
+   menu.input.setItem(0,gear);menu.input.setItem(1,new ItemStack(NetherBossItems.item("rune_"+rune)));
+   t.assertTrue(menu.clickMenuButton(p,101),"Native rune anvil install mode rejected");
+   t.assertTrue(menu.slots.get(1).mayPlace(menu.input.getItem(1)),"Native rune slot rejected boss rune");
+   t.assertTrue(menu.clickMenuButton(p,1)&&Runes.has(gear,rune)&&menu.input.getItem(1).isEmpty(),"Native anvil failed installation/consumption");
+   int experience=p.experienceLevel;
+   menu.input.setItem(1,new ItemStack(NetherBossItems.item("rune_"+rune)));
+   menu.clickMenuButton(p,1);t.assertTrue(p.experienceLevel==experience&&menu.input.getItem(1).getCount()==1&&Runes.list(gear).size()==1,"Duplicate install spent XP/material or duplicated rune");
+   t.assertTrue(menu.clickMenuButton(p,102)&&menu.clickMenuButton(p,2)&&!Runes.has(gear,rune),"Native anvil failed removal");
+   t.assertTrue(p.getInventory().countItem(NetherBossItems.item("rune_"+rune))==1,"Native anvil did not return exact rune");
+  }
+  t.getLevel().removeBlock(pos,false);t.succeed();
+ }
+
 }
