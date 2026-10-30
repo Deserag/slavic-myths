@@ -76,7 +76,7 @@ public final class PosadManualJobs {
             source.sendSuccess(() -> Component.literal(partial ? "ОСТАНОВЛЕНО: область навсегда зарезервирована; возможна незавершённая постройка, автоматического повтора и выдачи наград нет." : "Отменено до записи блоков. Область не зарезервирована."), false);
             return 1;
         }
-        source.sendSuccess(() -> Component.literal("Пекельный посад: " + job.phase + ", чанки " + job.chunk + "/" + job.chunks.size() + ", резерв " + job.reserved), false);
+        source.sendSuccess(() -> Component.literal("Пекельный посад: " + (job.phase == 0 ? "TERRAIN/" + job.survey.stage() + " reads=" + job.survey.inspected() : job.phase == 1 ? "PREFLIGHT" : "BUILD") + ", чанки " + job.chunk + "/" + job.chunks.size() + ", резерв " + job.reserved), false);
         return 1;
     }
 
@@ -87,6 +87,7 @@ public final class PosadManualJobs {
         final UUID token = UUID.randomUUID();
         final ToolLogOrigins protectedOrigins;
         final List<ChunkPos> chunks = new ArrayList<>();
+        final PosadTerrainSurvey survey;
         PosadPiece piece;
         BoundingBox bounds;
         int phase, chunk, layer, cell;
@@ -100,6 +101,7 @@ public final class PosadManualJobs {
             this.deckY = deckY;
             this.az = az;
             this.protectedOrigins = ToolLogOrigins.get(world);
+            this.survey = new PosadTerrainSurvey(this::material, ax, deckY, az, turns);
         }
 
         private PosadTerrain.Material material(int x, int y, int z) {
@@ -112,9 +114,10 @@ public final class PosadManualJobs {
         }
 
         private void plan() {
-            // The native terrain planner is reused verbatim; a different shore
-            // orientation is NOT silently substituted for the owner's test request.
-            PosadTerrain.Decision check = PosadTerrain.inspect(this::material, ax, deckY, az, turns);
+            // Bounded, exact equivalent of the native terrain contract: at most
+            // 4096 reads per server tick, with no chunk loads or world writes.
+            if (!survey.advance(4096)) return;
+            PosadTerrain.Decision check = survey.result();
             if (!check.accepted()) throw new IllegalStateException("terrain: " + check.reason() + "; заранее загрузите чанки города и берега");
             if (check.plan().turns() != turns) throw new IllegalStateException("Подход к берегу недоступен для запрошенного поворота " + turns);
             piece = new PosadPiece(check.plan());
