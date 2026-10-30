@@ -33,15 +33,14 @@ public final class PosadCommands {
                 .then(Commands.argument("deckY", IntegerArgumentType.integer())
                     .then(Commands.argument("anchorZ", IntegerArgumentType.integer())
                         .executes(context -> templates(context.getSource(), IntegerArgumentType.getInteger(context, "anchorX"), IntegerArgumentType.getInteger(context, "deckY"), IntegerArgumentType.getInteger(context, "anchorZ")))))));
-        posad.then(Commands.literal("status").executes(context -> PosadManualJobs.status(context.getSource(), false)));
-        posad.then(Commands.literal("cancel").executes(context -> PosadManualJobs.status(context.getSource(), true)));
-        posad.then(Commands.literal("create")
-            .then(Commands.argument("turns", IntegerArgumentType.integer(0, 3))
-                .then(Commands.argument("anchorX", IntegerArgumentType.integer())
-                    .then(Commands.argument("deckY", IntegerArgumentType.integer())
-                        .then(Commands.argument("anchorZ", IntegerArgumentType.integer())
-                            .then(Commands.literal("confirm_disposable_world")
-                                .executes(context -> PosadManualJobs.create(context.getSource(), IntegerArgumentType.getInteger(context, "turns"), IntegerArgumentType.getInteger(context, "anchorX"), IntegerArgumentType.getInteger(context, "deckY"), IntegerArgumentType.getInteger(context, "anchorZ"))))))));
+        posad.then(Commands.literal("status").requires(source -> source.hasPermission(4)).executes(context -> PosadManualJobs.status(context.getSource(), false)));
+        posad.then(Commands.literal("cancel").requires(source -> source.hasPermission(4)).executes(context -> PosadManualJobs.status(context.getSource(), true)));
+        var confirmation = Commands.literal("confirm_disposable_world").executes(context -> PosadManualJobs.create(context.getSource(), IntegerArgumentType.getInteger(context, "turns"), IntegerArgumentType.getInteger(context, "anchorX"), IntegerArgumentType.getInteger(context, "deckY"), IntegerArgumentType.getInteger(context, "anchorZ")));
+        var createZ = Commands.argument("anchorZ", IntegerArgumentType.integer()).then(confirmation);
+        var createY = Commands.argument("deckY", IntegerArgumentType.integer()).then(createZ);
+        var createX = Commands.argument("anchorX", IntegerArgumentType.integer()).then(createY);
+        var createTurns = Commands.argument("turns", IntegerArgumentType.integer(0, 3)).then(createX);
+        posad.then(Commands.literal("create").requires(source -> source.hasPermission(4)).then(createTurns));
         tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").then(posad)));
     }
 
