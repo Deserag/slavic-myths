@@ -1,4 +1,4 @@
-name: Posad schema 17 R2 accumulated QA (Java 21)
+name: Posad schema 18 lighting and R2 QA (Java 21)
 on:
   push:
     branches:
@@ -15,7 +15,7 @@ permissions:
   contents: read
 jobs:
   static-geometry:
-    name: Python source-geometry regression (13 checks)
+    name: Python source-geometry regression (14 checks)
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -40,7 +40,8 @@ jobs:
             tools/verify_posad_roof_ridges.py \
             tools/verify_posad_forge_market_roofs.py \
             tools/verify_posad_eastern_roofs.py \
-            tools/verify_posad_hall_r2.py; do
+            tools/verify_posad_hall_r2.py \
+            tools/verify_posad_lighting_r3.py; do
             echo "::group::$test"
             python3 "$test"
             echo "::endgroup::"
