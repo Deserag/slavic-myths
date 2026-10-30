@@ -11,10 +11,7 @@ public final class RpgNetwork {
   var registrar=event.registrar("0.9.4");
   registrar.playToServer(MythPayloads.NetherTrophy.TYPE,MythPayloads.NetherTrophy.CODEC,(payload,context)->{
    if(!(context.player() instanceof ServerPlayer player)||!player.isAlive()||player.isSpectator())return;
-   var item=org.slavicmyths.netherboss.NetherBossItems.item(payload.pendant()?"morova_silence_pendant":"fallen_druzhina_horn");
-   String slot=payload.pendant()?"necklace":"belt";
-   boolean wears=top.theillusivec4.curios.api.CuriosApi.getCuriosInventory(player).map(h->h.findCurios(stack->stack.is(item)).stream().anyMatch(r->r.slotContext().identifier().equals(slot))).orElse(false);
-   if(wears)org.slavicmyths.netherboss.NetherTrophies.activate(player,payload.pendant());
+   if(PathData.ready(player,"nether_trophy_request",4))org.slavicmyths.netherboss.NetherTrophies.activateEquipped(player,payload.pendant());
   });
   registrar.playToClient(MythPayloads.RpgSync.TYPE,MythPayloads.RpgSync.CODEC,
    (payload,context)->NeoForge.EVENT_BUS.post(new ClientPayloadEvents.RpgSynced(payload)));

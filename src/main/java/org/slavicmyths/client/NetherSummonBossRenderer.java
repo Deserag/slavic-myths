@@ -10,8 +10,9 @@ public final class NetherSummonBossRenderer extends MobRenderer<NetherSummonBoss
     private static final ResourceLocation BRIDE=ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/morova_bride.png");
     private static final ResourceLocation PRINCE=ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/trizna_flaming_prince.png");
     public NetherSummonBossRenderer(EntityRendererProvider.Context context,boolean bride){
-        super(context,new NetherSummonBossModel(bride),bride?.44F:.7F);
+        super(context,new NetherSummonBossModel(bride),bride?.44F:.7F);addLayer(new NetherBossGlowLayer(this));
     }
+    @Override protected void scale(NetherSummonBoss boss,com.mojang.blaze3d.vertex.PoseStack pose,float partial){if(!boss.isMorova())pose.scale(.975F,.975F,.975F);}
     @Override public void render(NetherSummonBoss boss,float yaw,float partial,com.mojang.blaze3d.vertex.PoseStack pose,net.minecraft.client.renderer.MultiBufferSource buffers,int light){
         if(boss.isMorova()){pose.pushPose();pose.translate(0,.35+Math.sin((boss.tickCount+partial)*.06)*.04,0);}
         if(boss.hasCopies())for(int side:new int[]{-1,1}){

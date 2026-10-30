@@ -69,13 +69,10 @@ public final class NetherBossCombat {
  }
  private void summon(int number,int cap,float hp,float damage){
   ServerLevel world=(ServerLevel)boss.level();retainers.removeIf(id->world.getEntity(id) instanceof NetherRetainer e&&!e.isAlive());
-  for(int i=0;i<number&&retainers.size()<cap;i++){
-   var minion=ModEntities.NETHER_RETAINER.get().create(world);if(minion==null)break;
-   double angle=i*Math.PI*2/number;minion.moveTo(boss.getX()+Math.cos(angle)*2,boss.getY(),boss.getZ()+Math.sin(angle)*2,0,0);
-   if(!world.noCollision(minion))continue;
-   minion.configure(boss,hp,damage,1200);minion.setTarget(boss.getTarget());
-   if(world.addFreshEntity(minion))retainers.add(minion.getUUID());
-  }
+  int wanted=Math.min(number,cap-retainers.size());if(wanted<2)return;
+  var planned=NetherRetainer.prepare(boss,wanted,hp,damage);if(planned.size()<2)return;
+  for(var minion:planned){minion.setTarget(boss.getTarget());if(world.addFreshEntity(minion))retainers.add(minion.getUUID());}
+
  }
  public void tick(){
   if(!(boss.level() instanceof ServerLevel world))return;
@@ -96,7 +93,7 @@ public final class NetherBossCombat {
   }
  }
  public void release(UUID id){retainers.remove(id);}
- public void clear(){if(boss.level() instanceof ServerLevel world)for(var id:retainers){var entity=world.getEntity(id);if(entity!=null)entity.discard();}retainers.clear();zones.clear();waves.clear();}
+ public void clear(){var ids=List.copyOf(retainers);retainers.clear();if(boss.level() instanceof ServerLevel world)for(var id:ids){var entity=world.getEntity(id);if(entity!=null)entity.discard();}zones.clear();waves.clear();}
  public void save(CompoundTag root){
   root.putInt("BossSequence",sequence);var list=new ListTag();
   for(var z:zones){var n=new CompoundTag();n.putDouble("X",z.center.x);n.putDouble("Y",z.center.y);n.putDouble("Z",z.center.z);n.putInt("Life",z.remaining);list.add(n);}root.put("BossZones",list);

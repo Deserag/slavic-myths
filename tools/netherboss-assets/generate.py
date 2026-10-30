@@ -28,7 +28,22 @@ for name,vanilla,components in [
 for i,(name,names) in enumerate(NAMES.items()):
  image=Image.new('RGBA',(16,16));d=ImageDraw.Draw(image)
  dark='#252329';silver='#b6ad91';red='#8f2436';gold='#d9a954';green='#83a083'
- if 'horn' in name:
+ if name=='morova_thread':
+  d.ellipse((3,3,12,11),outline='#4cbf9d',width=2);d.arc((2,5,11,14),20,280,fill='#83dfba',width=2);d.line([(10,11),(13,14)],fill='#4cbf9d')
+ elif name=='faded_rite_seal':
+  d.ellipse((2,2,13,13),fill='#9d6c3e',outline='#ddbb77',width=2);d.line([(6,5),(6,10),(10,10),(10,5),(4,8),(12,8)],fill='#ead092',width=1)
+ elif name=='ancestor_bone_charm':
+  d.polygon([(5,1),(9,2),(8,6),(13,10),(10,12),(7,9),(6,14),(2,13),(4,8),(1,6)],fill='#c8bfa7',outline='#635b4e');d.line([(4,7),(8,9)],fill='#514842',width=1)
+ elif name=='nameless_ashes':
+  d.polygon([(1,13),(3,8),(6,7),(8,4),(10,5),(14,13)],fill='#726e70',outline='#a7a09a');d.point((5,10),fill='#b9b3a5');d.point((10,11),fill='#4e4b50')
+ elif name=='mourning_circlet':
+  d.ellipse((1,4,14,12),fill='#382b2b',outline='#b48b5c',width=2);d.ellipse((4,6,11,9),fill=(0,0,0,0))
+  for x in (4,8,11):d.rectangle((x,4,x+1,5),fill='#992836')
+ elif name=='morova_silence_pendant':
+  d.line([(3,3),(7,1),(12,4)],fill='#9b2938',width=2);d.ellipse((2,4,13,15),fill='#b5a58a',outline='#403b3c');d.ellipse((4,6,11,13),fill='#247f75',outline='#9ce0c4');d.point((6,8),fill='#d2fff0')
+ elif name=='legendary_soul':
+  d.polygon([(8,1),(12,7),(12,11),(9,14),(6,14),(3,11),(4,6)],fill='#90f4d9',outline='#dccb8e');d.line([(7,4),(5,9),(6,11)],fill='#d4fff0',width=1)
+ elif 'horn' in name:
   d.polygon([(2,3),(5,2),(7,6),(10,8),(14,8),(13,11),(8,12),(5,9)],fill=dark)
   d.line([(3,3),(6,6),(7,9),(11,10),(13,9)],fill=silver,width=2)
   d.line([(5,4),(7,3)],fill=gold,width=1)

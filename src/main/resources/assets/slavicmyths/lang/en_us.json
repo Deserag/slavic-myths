@@ -6398,5 +6398,12 @@
   "key.slavicmyths.morova_pendant": "Activate Morova Pendant",
   "key.slavicmyths.trizna_horn": "Call Fallen Druzhina",
   "item.slavicmyths.morova_deva_spawn_egg": "Morova Bride Spawn Egg (test)",
-  "item.slavicmyths.trizna_prince_spawn_egg": "Trizna Prince Spawn Egg (test)"
+  "item.slavicmyths.trizna_prince_spawn_egg": "Trizna Prince Spawn Egg (test)",
+  "netherboss.slavicmyths.peaceful": "The ritual is unavailable on Peaceful difficulty.",
+  "netherboss.tooltip.morova_rite": "Nether: soul sand and four candles. Use the center: 10s ritual.",
+  "netherboss.tooltip.trizna_rite": "Nether: campfire and eight surrounding stones. Use the center: 10s ritual.",
+  "netherboss.tooltip.pendant": "Silence within 10 blocks. Ordinary foes: 6s control, then 15s debuffs. Cooldown: 180s.",
+  "netherboss.tooltip.horn": "Four allied retainers, 25% chance of a fifth. Lifetime: 60s. Cooldown: 180s.",
+  "netherboss.tooltip.controls": "Use from hand; when equipped in Curios, use the binding in Controls.",
+  "netherboss.slavicmyths.retainer_space": "Not enough safe space for the summoned retainers."
 }

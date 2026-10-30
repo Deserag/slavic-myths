@@ -114,6 +114,7 @@ public final class CombatTargeting {
         return e instanceof Mob m&&m.getTarget()!=null;
     }
     public static Intent intent(LivingEntity e){
+        if(e instanceof org.slavicmyths.netherboss.NetherRetainer retainer)return retainer.playerOwned()?Intent.DEFENDER:Intent.HOSTILE;
         if(e.getType().is(PROXY))return Intent.NEUTRAL;
         // Explicit biome roles precede Enemy/tag fallbacks. Traits must not provoke neutrals.
         if(e instanceof org.slavicmyths.navya.NavyaMob mob)return mob.kind==org.slavicmyths.navya.NavyaContent.Kind.WISP?Intent.PEACEFUL:Intent.HOSTILE;

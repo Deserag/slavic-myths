@@ -30,6 +30,7 @@ public final class NetherBossItems {
  public static void init(){}
  private static final class Summoner extends Item {
   final boolean morova;Summoner(boolean m){super(new Properties().stacksTo(1).rarity(Rarity.EPIC));morova=m;}
+  @Override public void appendHoverText(ItemStack stack,TooltipContext c,java.util.List<net.minecraft.network.chat.Component> lines,TooltipFlag flag){lines.add(net.minecraft.network.chat.Component.translatable(morova?"netherboss.tooltip.morova_rite":"netherboss.tooltip.trizna_rite"));}
   @Override public InteractionResult useOn(UseOnContext c){
    if(c.getLevel().isClientSide)return InteractionResult.SUCCESS;
    return c.getPlayer() instanceof ServerPlayer p&&NetherRituals.begin(p,c.getClickedPos(),c.getHand(),morova)?InteractionResult.CONSUME:InteractionResult.FAIL;
@@ -37,6 +38,7 @@ public final class NetherBossItems {
  }
  public static final class Trophy extends Item implements ICurioItem {
   final boolean pendant;Trophy(boolean p){super(new Properties().stacksTo(1).rarity(Rarity.EPIC));pendant=p;}
+  @Override public void appendHoverText(ItemStack stack,TooltipContext c,java.util.List<net.minecraft.network.chat.Component> lines,TooltipFlag flag){lines.add(net.minecraft.network.chat.Component.translatable(pendant?"netherboss.tooltip.pendant":"netherboss.tooltip.horn"));lines.add(net.minecraft.network.chat.Component.translatable("netherboss.tooltip.controls"));}
   @Override public boolean canEquip(SlotContext c,ItemStack stack){return c.identifier().equals(pendant?"necklace":"belt");}
   @Override public InteractionResultHolder<ItemStack> use(Level world,Player player,InteractionHand hand){
    if(world.isClientSide)return InteractionResultHolder.success(player.getItemInHand(hand));

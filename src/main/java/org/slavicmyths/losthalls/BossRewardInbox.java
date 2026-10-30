@@ -20,6 +20,7 @@ public final class BossRewardInbox {
  private static List<ItemStack> batch(BossRewardAuthority.Entry e){return switch(e.kind()){
   case "guardian_head"->List.of(head(TrophyHeads.Kind.GROVE_GUARDIAN));case "zharenitsa_head"->List.of(head(TrophyHeads.Kind.ZHARENITSA));
   case "posten"->List.of(head(TrophyHeads.Kind.POSTEN),new ItemStack(HallsContent.item("posten_heart")),new ItemStack(ShadowFace.RUNE.get()),new ItemStack(org.slavicmyths.rpg.RuneFoundation.item("soul")));
+  case "morova_21x","trizna_21x"->org.slavicmyths.netherboss.NetherBossRewards.batch(e.kind().equals("morova_21x"),e.cores());
   case "magma"->org.slavicmyths.burningislands.MagmaRewards.batch(e.cores());default->throw new IllegalArgumentException("Unknown reward kind");};}
  public static boolean hasReceipt(CompoundTag data,String key){return data.getCompound(RECEIPTS).getBoolean(key);}
  public static void receipt(CompoundTag data,String key){var tags=data.getCompound(RECEIPTS);tags.putBoolean(key,true);data.put(RECEIPTS,tags);}

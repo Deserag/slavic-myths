@@ -6398,5 +6398,12 @@
   "key.slavicmyths.morova_pendant": "Активировать кулон Моровой девы",
   "key.slavicmyths.trizna_horn": "Призвать павшую дружину",
   "item.slavicmyths.morova_deva_spawn_egg": "Яйцо призыва Моровой девы (тест)",
-  "item.slavicmyths.trizna_prince_spawn_egg": "Яйцо призыва Князя Тризны (тест)"
+  "item.slavicmyths.trizna_prince_spawn_egg": "Яйцо призыва Князя Тризны (тест)",
+  "netherboss.slavicmyths.peaceful": "На мирной сложности ритуал недоступен.",
+  "netherboss.tooltip.morova_rite": "Незер: песок душ и четыре свечи. ПКМ по центру: обряд 10 с.",
+  "netherboss.tooltip.trizna_rite": "Незер: кострище и восемь камней. ПКМ по центру: обряд 10 с.",
+  "netherboss.tooltip.pendant": "Безмолвие в радиусе 10. Обычные враги: 6 с контроля, затем 15 с ослабления. Перезарядка: 180 с.",
+  "netherboss.tooltip.horn": "Четыре союзных дружинника, 25% шанс пятого. Живут 60 с. Перезарядка: 180 с.",
+  "netherboss.tooltip.controls": "ПКМ из руки; в Curios — клавиша, назначенная в настройках управления.",
+  "netherboss.slavicmyths.retainer_space": "Недостаточно безопасного места для дружины."
 }

@@ -34,6 +34,7 @@ public final class NetherRituals {
  }
  public static boolean begin(ServerPlayer p,BlockPos pos,InteractionHand hand,boolean morova){
   ServerLevel w=p.serverLevel();if(w.dimension()!=Level.NETHER)return fail(p,"nether_only");
+  if(w.getDifficulty()==net.minecraft.world.Difficulty.PEACEFUL)return fail(p,"peaceful");
   if(!p.isAlive()||p.isSpectator()||ACTIVE.containsKey(p.getUUID()))return fail(p,"busy");
   // All inspected altar/chunk cells are already loaded; never request a remote chunk.
   for(int x=-2;x<=2;x++)for(int z=-2;z<=2;z++)if(!w.hasChunkAt(pos.offset(x,0,z)))return fail(p,"unloaded");
@@ -63,7 +64,7 @@ public final class NetherRituals {
    if(!w.noCollision(boss)){cancel(ritual);fail(p,"space");continue;}
    var ledger=NetherBossLedger.get(w);var row=ledger.records.getCompound(ritual.id);
    row.putString("State","SPAWNING");row.putUUID("Boss",boss.getUUID());ledger.flush(w);
-   stack.shrink(1);p.getInventory().setChanged();p.server.getPlayerList().save(p);
+   stack.shrink(1);p.getInventory().setChanged();((org.slavicmyths.navya.mixin.PlayerListSaveInvoker)p.server.getPlayerList()).slavicmyths$save(p);
    boss.getPersistentData().putString("RiteEncounter",ritual.id);boss.setTarget(p);
    if(w.addFreshEntity(boss)){row.putString("State","ACTIVE");ledger.flush(w);}
    // Failed spawn stays reserved: no automatic retry or duplicate token/refund on unknown outcomes.

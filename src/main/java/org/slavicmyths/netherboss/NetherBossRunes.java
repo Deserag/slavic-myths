@@ -26,7 +26,7 @@ public final class NetherBossRunes {
    if(effect.isInfiniteDuration()||effect.getDuration()<=0||effect.getEffect().value().getCategory()!=MobEffectCategory.HARMFUL)continue;
    String key=BuiltInRegistries.MOB_EFFECT.getKey(effect.getEffect().value()).toString();
    if(times.getLong(key)>now)continue;
-   int extra=Math.min(100,effect.getDuration()/4);if(extra<=0)continue;
+   int extra=Math.min(Math.min(100,effect.getDuration()/4),Integer.MAX_VALUE-effect.getDuration());if(extra<=0)continue;
    var updated=new MobEffectInstance(effect);updated.duration=effect.getDuration()+extra;
    if(target.addEffect(updated,p))times.putLong(key,now+200);
   }root.put("MorovaLingeringCD",times);

@@ -1,3 +1,5 @@
+> 30.10.2026 — #353/#354: 14/14 GameTest, 80k наград, естественные компоненты 105/105 на пяти seed; durable inbox, безопасный призыв, Curios, руны и модели подключены. Новый MP/client QA в работе, не сдача. 2.2 на паузе. [Статус](implementation/netherboss-completion-20261030/CURRENT.md).
+
 > 30.10.2026 — продолжаются353/354: combat/items/ritual/rewards/runes/Curios и survival recipes/loot подключены;6/6 GameTest,80k loot simulations PASS. Полный бой/MP/client ещё в QA, не сдача.2.2 остаётся на паузе. [Текущее состояние](implementation/netherboss-completion-20261030/CURRENT.md).
 
 > 30.10.2026 — срочный приоритет353/354:2.2 приостановлена на3f7ae53d, StructureSet не активирован. WIP359 восстановлен на отдельной ветке, исправлены API/HP/timing,2/2 GameTest PASS. Боссы НЕ завершены,PolyMC не изменён. [Отчёт](implementation/netherboss-completion-20261030/REPORT.md).

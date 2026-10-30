@@ -40,6 +40,7 @@ public final class NetherSummonBoss extends Monster {
     private static final EntityDataAccessor<Integer> ACTION=SynchedEntityData.defineId(NetherSummonBoss.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> COPIES=SynchedEntityData.defineId(NetherSummonBoss.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> FRAME=SynchedEntityData.defineId(NetherSummonBoss.class,EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Float> AIM=SynchedEntityData.defineId(NetherSummonBoss.class,EntityDataSerializers.FLOAT);
     private final int kind;
     private final ServerBossEvent bossBar;
     private int actionTicks=0, actionCooldown=80;
@@ -48,6 +49,7 @@ public final class NetherSummonBoss extends Monster {
     private net.minecraft.world.phys.Vec3 attackAim=new net.minecraft.world.phys.Vec3(0,0,1);
     public int actionTicks(){return actionTicks;}
     public int actionFrame(){return entityData.get(FRAME);}
+    public net.minecraft.world.phys.Vec3 attackDirection(){double angle=entityData.get(AIM);return new net.minecraft.world.phys.Vec3(Math.cos(angle),0,Math.sin(angle));}
     public boolean hasCopies(){return entityData.get(COPIES)>0;}
     public void showCopies(){entityData.set(COPIES,120);}
     public NetherSummonBoss(EntityType<? extends NetherSummonBoss> type,Level level,int kind){
@@ -72,7 +74,7 @@ public final class NetherSummonBoss extends Monster {
             .add(Attributes.FOLLOW_RANGE,36);
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder){
-        super.defineSynchedData(builder);builder.define(PHASE,1);builder.define(ACTION,0);builder.define(COPIES,0);builder.define(FRAME,0);
+        super.defineSynchedData(builder);builder.define(PHASE,1);builder.define(ACTION,0);builder.define(COPIES,0);builder.define(FRAME,0);builder.define(AIM,0F);
     }
     @Override protected void registerGoals(){
         goalSelector.addGoal(0,new FloatGoal(this));
@@ -88,6 +90,22 @@ public final class NetherSummonBoss extends Monster {
     }
     @Override public void stopSeenByPlayer(ServerPlayer player){
         super.stopSeenByPlayer(player);bossBar.removePlayer(player);
+    }
+    @Override public void tick(){
+        super.tick();
+        if(level().isClientSide&&isAlive()&&action()!=0&&tickCount%3==0&&actionFrame()<=(action()==8?36:30)){
+            var direction=attackDirection();int length=action()==3?12:action()==8?12:action()==9?6:0;
+            for(int distance=2;distance<=length;distance+=2)for(int lane=-1;lane<=1;lane++){
+                double spread=action()==3?distance*.7*lane:lane*.35;
+                double x=getX()+direction.x*distance-direction.z*spread,z=getZ()+direction.z*distance+direction.x*spread;
+                var dust=new net.minecraft.core.particles.DustParticleOptions(new org.joml.Vector3f(action()==3?.65F:1F,action()==3?.04F:.35F,.08F),1.2F);
+                level().addParticle(dust,x,getY()+.2,z,0,.015,0);
+            }
+        }
+        if(level().isClientSide&&isAlive()&&tickCount%8==0){
+            for(int i=0;i<phase()*2;i++)level().addParticle(isMorova()?ParticleTypes.SOUL:ParticleTypes.FLAME,
+                getX()+(random.nextDouble()-.5)*1.2,getY()+random.nextDouble()*.5,getZ()+(random.nextDouble()-.5)*1.2,0,.015,0);
+        }
     }
     @Override protected void customServerAiStep(){
         super.customServerAiStep();
@@ -110,7 +128,7 @@ public final class NetherSummonBoss extends Monster {
         getNavigation().stop();
         getLookControl().setLookAt(victim,30,30);
         entityData.set(ACTION,combat.choose());entityData.set(FRAME,0);
-        attackAim=victim.position().subtract(position()).multiply(1,0,1).normalize();
+        attackAim=victim.position().subtract(position()).multiply(1,0,1).normalize();entityData.set(AIM,(float)Math.atan2(attackAim.z,attackAim.x));
         actionResolved=false;actionTicks=action()==NetherBossCombat.SPLIT?48:42;actionCooldown=next==3?70:next==2?100:130;
         playSound(isMorova()?SoundEvents.EVOKER_PREPARE_ATTACK:SoundEvents.WITHER_SKELETON_AMBIENT,1.3F,isMorova()?.65F:.78F);
     }
@@ -138,7 +156,7 @@ public final class NetherSummonBoss extends Monster {
         actionCooldown=Math.clamp(tag.getInt("NetherBossCooldown"),0,130);actionResolved=tag.getBoolean("NetherBossResolved");
         entityData.set(ACTION,actionTicks>0?Math.clamp(tag.getInt("NetherBossAction"),0,12):0);
         entityData.set(COPIES,Math.clamp(tag.getInt("BossCopies"),0,120));entityData.set(FRAME,Math.clamp(tag.getInt("BossFrame"),0,48));
-        attackAim=new net.minecraft.world.phys.Vec3(tag.getDouble("AttackAimX"),0,tag.getDouble("AttackAimZ")).normalize();combat.load(tag);
+        attackAim=new net.minecraft.world.phys.Vec3(tag.getDouble("AttackAimX"),0,tag.getDouble("AttackAimZ")).normalize();entityData.set(AIM,(float)Math.atan2(attackAim.z,attackAim.x));combat.load(tag);
     }
     @Override protected SoundEvent getAmbientSound(){return isMorova()?SoundEvents.WITCH_AMBIENT:SoundEvents.WITHER_SKELETON_AMBIENT;}
     @Override protected SoundEvent getHurtSound(DamageSource source){return isMorova()?SoundEvents.WITCH_HURT:SoundEvents.WITHER_SKELETON_HURT;}
