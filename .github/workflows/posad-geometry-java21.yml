@@ -1,7 +1,7 @@
-name: Posad 2.2 Java 21 offline geometry (not Minecraft QA)
+name: Posad 2.3 Java 21 offline geometry (not Minecraft QA)
 on:
   push:
-    branches: [hell]
+    branches: [hell, 'feat/2.3-pekelny-posad']
     paths:
       - 'src/main/java/org/slavicmyths/posad/**'
       - 'tools/posad-tests/**'
