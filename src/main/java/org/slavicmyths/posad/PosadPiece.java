@@ -134,10 +134,19 @@ public final class PosadPiece extends StructurePiece {
         }
         return null;
     }
+    private static boolean shelf(net.minecraft.world.level.block.state.BlockState state) {
+        return state.getBlock() instanceof org.slavicmyths.furniture.FurnitureBlock f && "shelf".equals(f.kind);
+    }
+    private static boolean lateAttachment(net.minecraft.world.level.block.state.BlockState state) {
+        if(shelf(state) || state.is(Blocks.WALL_TORCH) || state.is(Blocks.SOUL_WALL_TORCH))return true;
+        return (state.is(Blocks.LANTERN) || state.is(Blocks.SOUL_LANTERN))
+            && state.getValue(net.minecraft.world.level.block.LanternBlock.HANGING);
+    }
     @Override public void postProcess(WorldGenLevel world,StructureManager manager,ChunkGenerator generator,RandomSource random,BoundingBox clip,ChunkPos chunk,BlockPos pivot) {
-        // At most 16x16x66 voxel decisions per chunk; never scan the whole city per chunk.
+        // Two bounded 16x16x66 passes: masonry/support first, attached lights and shelves last.
         int x0=Math.max(clip.minX(),boundingBox.minX()),x1=Math.min(clip.maxX(),boundingBox.maxX());
         int z0=Math.max(clip.minZ(),boundingBox.minZ()),z1=Math.min(clip.maxZ(),boundingBox.maxZ());
+        for(int pass=0;pass<2;pass++) {
         for(int wz=z0;wz<=z1;wz++)for(int wx=x0;wx<=x1;wx++) {
             int dx=wx-anchor.getX(),dz=wz-anchor.getZ();
             var local=switch(turns){
@@ -148,7 +157,7 @@ public final class PosadPiece extends StructurePiece {
             };
             for(int y=Math.max(boundingBox.minY(),clip.minY())-anchor.getY();y<=Math.min(anchor.getY()+17,clip.maxY())-anchor.getY();y++) {
                 var state=voxel(local.x(),y,local.z());
-                if(state==null)continue;
+                if(state==null || lateAttachment(state)!=(pass==1))continue;
                 BlockPos at=new BlockPos(wx,anchor.getY()+y,wz);
                 if(!clip.isInside(at)||!world.ensureCanWrite(at))continue;
                 var old=world.getBlockState(at);
@@ -156,12 +165,11 @@ public final class PosadPiece extends StructurePiece {
                 if(state.isAir()&&!old.isAir() && !(schema>=17 && PosadHallR2.isOpening(local.x(),y,local.z())))continue;
                 try {
                     var placed=state.rotate(Rotation.values()[turns]);
-                    if (state.is(Blocks.CARVED_PUMPKIN)) {
-                        // R1 military practice dummies use three original carved pumpkins.
-                        // Vanilla onPlace invokes a multi-chunk golem BlockPattern read even
-                        // in WorldGenRegion where neighbor states may be inaccessible.
-                        // Chunk-local write preserves the EXACT approved block/facing,
-                        // skips that unrelated entity-spawn probe and never loads neighbors.
+                    if (state.is(Blocks.CARVED_PUMPKIN) || shelf(state)) {
+                        // Carved pumpkins avoid vanilla multi-chunk golem probes. Wall
+                        // shelves are deferred until masonry is in place and written
+                        // without premature neighbor updates across chunk boundaries.
+                        // Neither block has an inventory nor emits light.
                         var changed=world.getChunk(wx>>4,wz>>4).setBlockState(at,placed,false);
                         if (changed==null) throw new IllegalStateException("Chunk-local pumpkin write refused at "+at);
                     } else {
@@ -188,6 +196,7 @@ public final class PosadPiece extends StructurePiece {
                     chest.setChanged();
                 }
             }
+        }
         }
     }
 }
