@@ -18,6 +18,7 @@ import org.slavicmyths.trophy.*;
 @GameTestHolder("slavicmyths_hellqa") @PrefixGameTestTemplate(false)
 public final class RewardCrashQaTests {
     static final UUID A=UUID.fromString("a1770000-0000-0000-0000-000000000001"),B=UUID.fromString("a1770000-0000-0000-0000-000000000002");
+    static final String MOROVA_KEY="hellqa:morova21x:crash",TRIZNA_KEY="hellqa:trizna21x:crash";
     static final String KEY="hellqa:actual-player-storage-crash:fixed-recipient";
     static ServerPlayer player(GameTestHelper t,UUID id,String name){
         var p=new ServerPlayer(t.getLevel().getServer(),t.getLevel(),new com.mojang.authlib.GameProfile(id,name),ClientInformation.createDefault());
@@ -43,6 +44,8 @@ public final class RewardCrashQaTests {
                 a.getInventory().setItem(0,new ItemStack(Items.COBBLESTONE,3));b.getInventory().setItem(0,new ItemStack(Items.GOLD_INGOT,7));save(a);save(b);
                 HellQaTests.check(Files.isRegularFile(playerFile),"Actual PlayerDataStorage did not create A.dat");
                 var entry=BossRewardInbox.prepare(server,KEY,"magma",A,4,0);
+                HellQaTests.check(BossRewardInbox.prepare(server,MOROVA_KEY,"morova_21x",A,3,0)!=null,"Morova pin rejected");
+                HellQaTests.check(BossRewardInbox.prepare(server,TRIZNA_KEY,"trizna_21x",A,1,0)!=null,"Trizna pin rejected");
                 HellQaTests.check(entry!=null&&entry.recipient().equals(A)&&Files.isRegularFile(authority),"Pin not durable");
                 // File pin is durable; player inventory/receipt still pre-delivery. No clean shutdown.
                 halt(61,"after_authority_pin_before_player_delivery");
@@ -51,6 +54,9 @@ public final class RewardCrashQaTests {
             HellQaTests.check(a.getInventory().countItem(Items.COBBLESTONE)==3&&b.getInventory().countItem(Items.GOLD_INGOT)==7,"Vanilla player load lost baseline inventory");
             var repeated=BossRewardInbox.prepare(server,KEY,"magma",B,6,0);
             HellQaTests.check(repeated!=null&&repeated.recipient().equals(A)&&repeated.cores()==4,"Cross-player retry reassigned or rerolled reward");
+            var morovaPin=BossRewardInbox.prepare(server,MOROVA_KEY,"morova_21x",B,1,0);
+            var triznaPin=BossRewardInbox.prepare(server,TRIZNA_KEY,"trizna_21x",B,3,0);
+            HellQaTests.check(morovaPin.recipient().equals(A)&&morovaPin.cores()==3&&triznaPin.recipient().equals(A)&&triznaPin.cores()==1,"Boss rewards rerolled/reassigned on restart");
             var head=TrophyHeads.ITEMS.get(TrophyHeads.Kind.MAGMA_LORD).get();
             if(phase.equals("deliver")){
                 HellQaTests.check(!BossRewardInbox.hasReceipt(a.getPersistentData(),KEY)&&a.getInventory().countItem(head)==0,"Unexpected delivery survived the pre-delivery cut");
@@ -63,6 +69,11 @@ public final class RewardCrashQaTests {
             BossRewardInbox.reconcile(a);BossRewardInbox.reconcile(a);BossRewardInbox.reconcile(b);
             HellQaTests.check(a.getInventory().countItem(head)==1&&a.getInventory().countItem(IslandsContent.item("magma_core"))==4&&a.getInventory().countItem(IslandsContent.item("magma_lord_heart"))==1,"Actual restart duplicated or lost A reward");
             HellQaTests.check(b.getInventory().countItem(head)==0&&b.getInventory().countItem(IslandsContent.item("magma_core"))==0&&!BossRewardInbox.hasReceipt(b.getPersistentData(),KEY),"Recipient B stole a reward after restart");
+            for(var expected:Map.of("legendary_soul",2,"scroll_of_waning",1,"scroll_of_last_call",1,"morova_silence_pendant",1,"rune_morova_lingering",1,"fallen_druzhina_horn",1,"rune_trizna_ember_ward",0).entrySet()){
+                var item=org.slavicmyths.netherboss.NetherBossItems.item(expected.getKey());
+                HellQaTests.check(a.getInventory().countItem(item)==expected.getValue()&&b.getInventory().countItem(item)==0,"Restart duplicated/lost/stole "+expected.getKey());
+            }
+            System.out.println("HELLQA_PASS MOROVA_TRIZNA_CRASH two hard JVM halts; actual player files; shared souls=2; exact scrolls/pairs/masks; retry recipient B gets zero; authority survives restart");
             System.out.println("HELLQA_PASS ACTUAL_NEOFORGE_PROCESS_CRASH two halts + three JVMs; actual PlayerList/PlayerDataStorage A.dat; inventory+receipt survive; A one head/heart/4cores; B zero; no reroll 4->6; fixture authority not natural boss kill or real network MP/power loss");
             t.succeed();
         } finally {online.remove(A);online.remove(B);}

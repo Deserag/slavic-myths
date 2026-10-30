@@ -1,0 +1,18 @@
+allprojects { afterEvaluate {
+ sourceSets { bossDedicated { java.srcDir 'tools/netherboss-dedicated';resources.srcDir 'tools/netherboss-dedicated-resources' } }
+ sourceSets.bossDedicated.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.bossDedicated.runtimeClasspath += sourceSets.main.runtimeClasspath - sourceSets.main.output
+ def qa=neoForge.mods.create('slavicmyths_bossdedicated'){sourceSet sourceSets.bossDedicated}
+ neoForge.runs { bossDedicated {
+  type='server';sourceSet=sourceSets.bossDedicated;loadedMods.set([qa]);programArgument '--nogui'
+  jvmArgument '-Xmx1400M';jvmArgument '-XX:ActiveProcessorCount=2';jvmArgument '-Djava.awt.headless=true'
+  gameDirectory=file('work/netherboss-dedicated-restart')
+  systemProperty 'bossqa.stage',project.findProperty('bossQaStage') ?: 'write'
+ } }
+ tasks.named('runBossDedicated'){dependsOn tasks.named('jar');doFirst {
+  def dir=neoForge.runs.bossDedicated.gameDirectory.get().asFile
+  copy {from tasks.named('jar').get().archiveFile;into new File(dir,'mods')}
+  new File(dir,'eula.txt').text='eula=true\n'
+  new File(dir,'server.properties').text='server-ip=127.0.0.1\nserver-port=25592\nonline-mode=false\nview-distance=2\nsimulation-distance=2\nspawn-protection=0\nlevel-type=minecraft:flat\ngenerate-structures=false\nmax-players=2\n'
+ }}
+} }

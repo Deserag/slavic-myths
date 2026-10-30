@@ -39,6 +39,9 @@ public final class NetherBossEncounterTests {
    t.assertTrue(!NetherRituals.begin(p,a,net.minecraft.world.InteractionHand.MAIN_HAND,morova),"Parallel rite accepted");
    t.assertTrue(p.getMainHandItem().getCount()==1,"Premature token consumption");actors.add(p);
   }
+  // The ritual is under test, not random walking off this small artificial platform.
+  // Freeze newly spawned actors before they can leave the fixture or fall into native terrain.
+  t.onEachTick(()->{for(var p:actors)for(var b:w.getEntitiesOfClass(NetherSummonBoss.class,p.getBoundingBox().inflate(24),e->e.isAlive()))b.setNoAi(true);});
   t.runAtTickTime(350,()->{
    for(int i=0;i<actors.size();i++){
     var p=actors.get(i);var a=base.offset(i==0?0:256,0,0);
