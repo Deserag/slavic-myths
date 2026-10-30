@@ -70,6 +70,30 @@ public final class PosadShellGameTests {
     t.assertTrue(chest.getLootTable()!=null,"Chest lazy loot table missing "+at);
    }
   }
+  int militaryBlocks=0,forgeBlocks=0,militaryChests=0,forgeChests=0;
+  for(var slot:java.util.List.of(PosadGeometry.Slot.DRUZHINNY_DVOR,PosadGeometry.Slot.KUZNECHNY_DVOR)) {
+   for(int x=slot.local().minX();x<=slot.local().maxX();x++)for(int z=slot.local().minZ();z<=slot.local().maxZ();z++)for(int y=0;y<18;y++) {
+    var expected=PosadNextBuildings.voxel(x,y,z);
+    if(expected==null)continue;
+    if(slot==PosadGeometry.Slot.DRUZHINNY_DVOR)militaryBlocks++;else forgeBlocks++;
+    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+    var at=anchor.offset(p.x(),y,p.z());
+    var actual=world.getBlockState(at);
+    var rotated=expected.rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
+    t.assertTrue(actual.equals(rotated),"Physical military/forge state mismatch "+slot+" "+x+","+y+","+z+" rot="+turns+" expected="+rotated+" found="+actual);
+    if(expected.is(Blocks.CHEST)) {
+     if(slot==PosadGeometry.Slot.DRUZHINNY_DVOR)militaryChests++;else forgeChests++;
+     var loot=PosadNextBuildings.chestLoot(x,y,z);
+     t.assertTrue(loot!=null,"Missing fixed district loot marker "+at);
+     t.assertTrue(world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity,"No district chest BE "+at);
+     var chest=(net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity)world.getBlockEntity(at);
+     t.assertTrue(chest.getLootTable()!=null,"No district lazy loot at "+at);
+     t.assertTrue(chest.getLootTable().location().toString().equals("slavicmyths:"+loot),"Incorrect district table at "+at);
+    }
+   }
+  }
+  t.assertTrue(militaryBlocks==2440&&forgeBlocks==1901,"Wrong 2.2.4/2.2.5 block counts "+militaryBlocks+"/"+forgeBlocks);
+  t.assertTrue(militaryChests==5&&forgeChests==5,"Wrong district chest counts "+militaryChests+"/"+forgeChests);
   t.assertTrue(hallBlocks==3598,"Wrong hall voxel count "+hallBlocks);
   t.assertTrue(houseBlocks==1992 && houseChests==4,"Wrong house voxel/chest count "+houseBlocks+"/"+houseChests);
   }
