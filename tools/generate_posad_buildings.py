@@ -128,7 +128,7 @@ def communal():
         table_name = marker["loot_table"].split("/", 1)[1]
         source_path = source_loot / (table_name + ".json")
         draft = json.loads(source_path.read_text(encoding="utf8"))
-        (target_loot / (table_name + ".json")).write_text(json.dumps(draft, ensure_ascii=False, indent=2) + "\\n", encoding="utf8")
+        (target_loot / (table_name + ".json")).write_text(json.dumps(draft, ensure_ascii=False, indent=2) + "\n", encoding="utf8")
     assert all(12 <= 13+x <= 37 and 12 <= 15+z <= 37 for x,y,z in blocks)
     assemble("communal_house_2_2_3", (sx,sy,sz), blocks, loot)
 
