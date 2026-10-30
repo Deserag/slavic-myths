@@ -115,6 +115,26 @@ public final class PosadShellGameTests {
   t.succeed();
  }
  @GameTest(template="empty",timeoutTicks=200)
+ public static void reservedAndCompletedCitiesSurviveDataRoundTrip(GameTestHelper t) {
+  var data=org.slavicmyths.worldgen.ManualStructureRecords.load(new net.minecraft.nbt.CompoundTag());
+  var marker=java.util.UUID.fromString("142b04f5-54d9-4e34-8eae-57538990e9e2");
+  var origin=new net.minecraft.core.BlockPos(100,64,100);
+  var box=new net.minecraft.world.level.levelgen.structure.BoundingBox(100,16,100,225,81,225);
+  data.add(marker,"construction",0,origin,box);
+  var snapshot=new net.minecraft.nbt.CompoundTag();
+  data.save(snapshot,t.getLevel().registryAccess());
+  var restored=org.slavicmyths.worldgen.ManualStructureRecords.load(snapshot);
+  t.assertTrue(restored.overlapping(box).size()==1,"Incomplete city reservation was lost after NBT serialization");
+  t.assertTrue(restored.overlapping(box).getFirst().family().equals("construction"),"Incomplete city must remain blocked after reload");
+  restored.replace(marker,"nether_posad",0,origin,box);
+  var complete=new net.minecraft.nbt.CompoundTag();
+  restored.save(complete,t.getLevel().registryAccess());
+  var again=org.slavicmyths.worldgen.ManualStructureRecords.load(complete);
+  t.assertTrue(again.overlapping(box).size()==1,"Completed city was lost after NBT serialization");
+  t.assertTrue(again.overlapping(box).getFirst().family().equals("nether_posad"),"Completed city family not restored on reload");
+  t.succeed();
+ }
+ @GameTest(template="empty",timeoutTicks=200)
  public static void chestRewardsAreNotRearmed(GameTestHelper t) {
   var world=t.getLevel();
   var anchor=t.absolutePos(new net.minecraft.core.BlockPos(0,140,0));
