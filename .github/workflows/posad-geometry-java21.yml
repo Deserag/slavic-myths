@@ -28,5 +28,7 @@ jobs:
           java -ea -cp build/posad-check org.slavicmyths.posad.PosadGeometryCheck
       - name: Verify Vече / communal R1 models and four loot tables (offline)
         run: python3 tools/posad-tests/verify_city_buildings.py
+      - name: Verify committed exact 2.2.2/2.2.3 structure NBT (offline)
+        run: python3 tools/posad-tests/verify_generated_building_nbt.py
       - name: Verify real compressed 2.2.7 NBT and loot bindings (offline)
         run: python3 tools/posad-tests/verify_zeleynaya_nbt.py
