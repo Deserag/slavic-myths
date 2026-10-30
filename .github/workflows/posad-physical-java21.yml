@@ -1,0 +1,42 @@
+name: Posad 2.2 physical GameTest (isolated Java 21)
+on:
+  push:
+    branches: [hell]
+    paths:
+      - 'src/main/java/org/slavicmyths/posad/**'
+      - 'src/main/resources/data/slavicmyths/posad/**'
+      - 'src/main/resources/data/slavicmyths/loot_table/chests/nether_communal_*.json'
+      - 'tools/posad-runtime-tests/**'
+      - 'tools/posad-test-resources/**'
+      - 'tools/posad-qa-runtime.gradle'
+      - '.github/workflows/posad-physical-java21.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  physical-posad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Build real NeoForge production JAR
+        shell: bash
+        run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain
+      - name: Isolated physical Posad GameTest (NOT client QA)
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p build/posad-ci
+          ./gradlew --no-daemon -I tools/posad-qa-runtime.gradle runPosadQa -PposadQaDir=work/posad-qa-20261030/github-actions --console=plain 2>&1 | tee build/posad-ci/game-test.log
+      - name: Upload logs (not owner acceptance)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: posad-physical-${{ github.sha }}
+          path: build/posad-ci/
+          if-no-files-found: warn
+          retention-days: 14
