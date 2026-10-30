@@ -58,6 +58,7 @@ public final class SlavicMyths {
         org.slavicmyths.navya.NavyaWorldgen.init();
         org.slavicmyths.netherstructures.NetherWatchpostWorldgen.init();
         org.slavicmyths.netherstructures.NetherBridgeWorldgen.init();
+        org.slavicmyths.posad.PosadWorldgen.init();
         org.slavicmyths.netherstructures.WayfarerWorldgen.init();
         org.slavicmyths.netherstructures.ForgottenShrineWorldgen.init();
         org.slavicmyths.netherstructures.TriznaPyreWorldgen.init();

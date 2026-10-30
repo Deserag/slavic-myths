@@ -632,3 +632,17 @@ if (project.hasProperty('tugarinModelOfflineCheck')) {
   if(project.hasProperty('grip58Baseline')) systemProperty 'slavicmyths.grip58Baseline', 'true'
  }
 }
+
+// Disposable server-side shell checks; no fixtures in the production JAR.
+if (project.hasProperty('posadCheck')) {
+ sourceSets { posadCheck { java.srcDir 'tools/posad-runtime-tests'; resources.srcDir 'tools/posad-test-resources' } }
+ sourceSets.posadCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.posadCheck.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+ tasks.named('compilePosadCheckJava') { dependsOn 'classes' }
+ neoForge.mods.slavicmyths.sourceSet(sourceSets.posadCheck)
+ neoForge.runs { posadChecks {
+  type = 'gameTestServer'
+  gameDirectory = file('run-posad-isolated')
+  systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_posad'
+ } }
+}

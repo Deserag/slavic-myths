@@ -1,3 +1,5 @@
+> 30.10.2026 — частичный runtime checkpoint посада: native types и shell placement, Java21 build/resources PASS, 3/3 GameTest (физические блоки/4 поворота). Естественная генерация, lava/bridge, commands и retrofit ещё НЕ реализованы. [Отчёт](implementation/posad-runtime-20261030/REPORT.md).
+
 > Текущая техническая стабилизация 29.10.2026: [актуальный отчёт, SHA, матрица и ограничения](implementation/home-desktop-sync-20261029/CURRENT.md). Исправления плаща/луков,36/36 headless и изолированные SLIM/WIDE кадры; original art/audio отложены владельцем, общий IN_PROGRESS. Нижеследующие checkpoint записи исторические.
 
 > 29.10.2026 — домашняя стабилизация IN_PROGRESS: hell e760aabb, Java21 clean build/resources PASS; структуры105/105 на5seed, физические биомы20/20 на5seed, общий35/35 и CI35/35. Исправлены RU heads и устаревшие Creative QA; Xvfb GUI выполняется только в GitHub-hosted VM. Testing JAR установлен с квитанцией. Art/audio/owner acceptance не получены. [Матрица и доказательства](implementation/home-desktop-sync-20261029/REPORT.md).
