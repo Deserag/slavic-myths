@@ -92,7 +92,7 @@ code = (java / "PosadHouseRenovation.java").read_text("utf-8")
 piece = (java / "PosadPiece.java").read_text("utf-8")
 command = (java / "PosadCommands.java").read_text("utf-8")
 geometry = (java / "PosadGeometry.java").read_text("utf-8")
-assert "SCHEMA_VERSION = 10" in geometry
+assert "SCHEMA_VERSION = 11" in geometry
 assert "schema >= 7" in piece and "PosadHouseRenovation.voxel" in piece
 assert "PosadHouseRenovation.chestLoot" in piece
 assert 'id.equals("communal_house_2_2_3")' in command

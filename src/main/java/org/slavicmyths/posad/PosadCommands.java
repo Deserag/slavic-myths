@@ -190,6 +190,21 @@ public final class PosadCommands {
                 world.setBlock(target,finish,2);
             }
         }
+        // Two R1 military entrances had opposite-facing leaves and no lintels.
+        // Match schema-11 city generation in standalone NBT, without touching
+        // the original templates, treasure block entities or older cities.
+        if(id.equals("druzhinny_dvor_2_2_4")) {
+            for(int v:new int[]{1,11})for(int y=1;y<=3;y++)for(int u:new int[]{13,14}) {
+                var finish=PosadDruzhinaEntrances.voxel(12+u,y,75+v);
+                if(finish==null)throw new IllegalStateException("Missing military entrance overlay");
+                var original=PosadNextBuildings.voxel(12+u,y,75+v);
+                var target=pos.offset(u,y,v);
+                var present=world.getBlockState(target);
+                if(present.hasBlockEntity() || (original==null && !present.isAir()) || (original!=null && !present.is(original.getBlock())))
+                    throw new IllegalStateException("Standalone military entrance/NBT mismatch at "+target);
+                world.setBlock(target,finish,2);
+            }
+        }
         // Template barrels are authored empty: assign persistent single-use loot after placement.
         String table=id.startsWith("menovye_ryady")?"chests/posad_barrel_market":"chests/posad_barrel_supplies";
         for(var at:net.minecraft.core.BlockPos.betweenClosed(pos,end)) {
