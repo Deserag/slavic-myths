@@ -174,6 +174,26 @@ public final class PosadCommands {
                 }
             }
         }
+        // Schema-12 hall quality pass. Apply AFTER the existing R1+schema-8
+        // standalone overlays, with exact expected-source checks. Only newly
+        // placed templates are edited; saved player constructions are untouched.
+        if(id.equals("veche_hall_2_2_2")) {
+            for(int y=1;y<=17;y++)for(int z=12;z<=34;z++)for(int x=42;x<=70;x++) {
+                var finish=PosadHallComfort.voxel(x,y,z);
+                if(finish==null)continue;
+                var previous=PosadHallRefinement.voxel(x,y,z);
+                if(previous==null)previous=PosadFinishes.voxel(x,y,z);
+                if(previous==null)previous=PosadBuildings.voxel(x,y,z);
+                var target=pos.offset(x-42,y,z-12);
+                var present=world.getBlockState(target);
+                if(present.hasBlockEntity() && !(present.getBlock() instanceof org.slavicmyths.furniture.TableBlock))
+                    throw new IllegalStateException("Unexpected block entity during hall finishing at "+target);
+                if(previous==null ? !present.isAir() : !present.is(previous.getBlock()) &&
+                        !(present.isAir() && previous.getBlock() instanceof org.slavicmyths.furniture.FurnitureBlock))
+                    throw new IllegalStateException("Standalone hall/NBT mismatch at "+target+" old "+previous+" present "+present);
+                world.setBlock(target,finish,2);
+            }
+        }
         // Schema-10 refinements for both R1 courtyards. Match native PosadPiece
         // without touching original chests, doors, stairs or NBT loot tags.
         if(id.equals("druzhinny_dvor_2_2_4") || id.equals("kuznechny_dvor_2_2_5")) {
