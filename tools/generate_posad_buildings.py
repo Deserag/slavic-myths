@@ -31,13 +31,13 @@ def integer(name, value):
     return tag(3, name, struct.pack(">i", value))
 
 def compound(name, parts):
-    return tag(10, name, b"".join(parts) + b"\\x00")
+    return tag(10, name, b"".join(parts) + b"\x00")
 
 def list_tag(name, element_type, parts):
     return tag(9, name, bytes([element_type]) + struct.pack(">i", len(parts)) + b"".join(parts))
 
 def bare_compound(parts):
-    return b"".join(parts) + b"\\x00"
+    return b"".join(parts) + b"\x00"
 
 def bare_int_list(numbers):
     return struct.pack(">i", len(numbers)) + b"".join(struct.pack(">i", n) for n in numbers)
@@ -74,7 +74,7 @@ def assemble(name, size, blocks, loot=None):
             list_tag("palette", 10, palette_entries),
             list_tag("blocks", 10, block_entries),
             list_tag("entities", 10, [])]
-    output = b"\\x0a\\x00\\x00" + bare_compound(root)
+    output = b"\x0a\x00\x00" + bare_compound(root)
     OUT.mkdir(parents=True, exist_ok=True)
     path = OUT / (name + ".nbt")
     with path.open("wb") as f:
