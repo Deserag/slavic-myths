@@ -61,6 +61,10 @@ public final class PosadPiece extends StructurePiece {
             return -y<depth?Blocks.POLISHED_BASALT.defaultBlockState():null;
         }
         if(PosadGeometry.CITY.contains(x,z)) {
+            if(schema >= 5) {
+                var hut=PosadHerbalHut.voxel(x,y,z);
+                if(hut!=null)return hut;
+            }
             // No retrofits: only brand-new schema-4 cities receive visual repairs.
             if(schema >= 4) {
                 var repair=PosadVisualRepairs.voxel(x,y,z);
@@ -121,6 +125,7 @@ public final class PosadPiece extends StructurePiece {
                 }
                 if(schema >= 2 && state.is(Blocks.CHEST) && world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity chest) {
                     String loot=schema >= 3 ? PosadNextBuildings.chestLoot(local.x(),y,local.z()) : null;
+                    if(loot==null&&schema>=5)loot=PosadHerbalHut.chestLoot(local.x(),y,local.z());
                     if(loot==null)loot=PosadBuildings.chestLoot(local.x(),y,local.z());
                     if(loot==null)throw new IllegalStateException("Unexpected posad chest at "+local);
                     chest.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",loot)),at.asLong()^anchor.asLong());

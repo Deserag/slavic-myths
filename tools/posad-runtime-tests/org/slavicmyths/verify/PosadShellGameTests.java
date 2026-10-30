@@ -6,6 +6,35 @@ import net.minecraft.world.level.block.Blocks;
 @GameTestHolder("slavicmyths_posad") @PrefixGameTestTemplate(false)
 public final class PosadShellGameTests {
  @GameTest(template="empty",timeoutTicks=200)
+ public static void herbalHutSchemaAndLoot(GameTestHelper t) {
+  var fresh=new PosadPiece(new net.minecraft.core.BlockPos(0,64,0),0);
+  var oldTag=fresh.createTag(net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext.fromLevel(t.getLevel()));
+  oldTag.putInt("Schema",4);
+  var old=new PosadPiece(oldTag);
+  int total=0,chests=0;
+  for(int x=76;x<=100;x++)for(int z=44;z<=69;z++)for(int y=0;y<13;y++) {
+   var state=PosadHerbalHut.voxel(x,y,z);
+   if(state==null)continue;
+   total++;
+   t.assertTrue(fresh.voxel(x,y,z).equals(state),"New schema missing herbal voxel");
+   if(y>0)t.assertTrue(old.voxel(x,y,z)==null,"Older city must not retrofit herbal hut");
+   if(state.is(Blocks.CHEST)) {
+    chests++;
+    t.assertTrue(PosadHerbalHut.chestLoot(x,y,z).startsWith("chests/posad_zeleynaya_"),"Herbal chest loot missing");
+   } else t.assertTrue(PosadHerbalHut.chestLoot(x,y,z)==null,"Loot on nonchest block");
+  }
+  t.assertTrue(total==1599&&chests==5,"Herbal hut R1 block/chest totals incorrect");
+  for(int turns=0;turns<4;turns++) {
+   var city=new PosadPiece(new net.minecraft.core.BlockPos(0,64,0),turns);
+   for(int x=76;x<=100;x++)for(int z=44;z<=69;z++)for(int y=0;y<13;y++) {
+    var expected=PosadHerbalHut.voxel(x,y,z);
+    if(expected!=null)t.assertTrue(city.voxel(x,y,z).equals(expected),"Herbal local coordinate changed under rotation "+turns);
+   }
+  }
+  t.succeed();
+ }
+
+ @GameTest(template="empty",timeoutTicks=200)
  public static void openGate(GameTestHelper t) {
   for(int x=53;x<=59;x++)for(int z=108;z<=112;z++)for(int y=1;y<=6;y++)
    t.assertTrue(PosadShell.voxel(x,y,z).isAir(),"Gate blocked "+x+","+y+","+z);
@@ -107,6 +136,23 @@ public final class PosadShellGameTests {
     }
    }
   }
+  int herbalBlocks=0,herbalChests=0;
+  for(int x=76;x<=100;x++)for(int z=44;z<=69;z++)for(int y=0;y<13;y++) {
+   var expected=PosadHerbalHut.voxel(x,y,z);
+   if(expected==null)continue;
+   herbalBlocks++;
+   var rotated=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+   var at=anchor.offset(rotated.x(),y,rotated.z());
+   var actual=world.getBlockState(at);
+   t.assertTrue(actual.is(expected.getBlock()),"Physical herbal hut block missing "+at+" found "+actual);
+   if(expected.is(Blocks.CHEST)) {
+    herbalChests++;
+    t.assertTrue(world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity,"Missing herbal chest BE at "+at);
+    var chest=(net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity)world.getBlockEntity(at);
+    t.assertTrue(chest.getLootTable()!=null,"Herbal lazy loot not armed at "+at);
+   }
+  }
+  t.assertTrue(herbalBlocks==1599&&herbalChests==5,"Herbal district physical totals mismatch");
   t.assertTrue(militaryBlocks==2440&&forgeBlocks==1901,"Wrong 2.2.4/2.2.5 block counts "+militaryBlocks+"/"+forgeBlocks);
   t.assertTrue(militaryChests==5&&forgeChests==5,"Wrong district chest counts "+militaryChests+"/"+forgeChests);
   t.assertTrue(hallBlocks==3598,"Wrong hall voxel count "+hallBlocks);

@@ -15,7 +15,8 @@ public final class PosadCommands {
         new Template("Вечевая палата", "veche_hall_2_2_2", PosadGeometry.Slot.VECHE_HALL, 42, 12),
         new Template("Общинный дом", "communal_house_2_2_3", PosadGeometry.Slot.COMMUNAL_HOUSE, 13, 15),
         new Template("Дружинный двор", "druzhinny_dvor_2_2_4", PosadGeometry.Slot.DRUZHINNY_DVOR, 12, 75),
-        new Template("Кузнечный двор", "kuznechny_dvor_2_2_5", PosadGeometry.Slot.KUZNECHNY_DVOR, 12, 44)
+        new Template("Кузнечный двор", "kuznechny_dvor_2_2_5", PosadGeometry.Slot.KUZNECHNY_DVOR, 12, 44),
+        new Template("Зелейная изба", "zeleynaya_2_2_7", PosadGeometry.Slot.ZELEYNAYA_IZBA, 76, 44)
     };
 
     public static void register(org.slavicmyths.commands.CommandTree tree) {
@@ -54,7 +55,7 @@ public final class PosadCommands {
         return PosadManualJobs.create(source,0,at.getX(),at.getY(),at.getZ());
     }
     private static int info(CommandSourceStack source) {
-        source.sendSuccess(() -> Component.literal("Пекельный посад: фиксированный план 113x113, схема новых городов " + PosadGeometry.SCHEMA_VERSION + ", четыре утверждённых шаблона (3598/1992/2440/1901 блоков)."), false);
+        source.sendSuccess(() -> Component.literal("Пекельный посад: фиксированный план 113x113, схема новых городов " + PosadGeometry.SCHEMA_VERSION + ", пять утверждённых шаблонов (3598/1992/2440/1901/1599 блоков)."), false);
         source.sendSuccess(() -> Component.literal("Естественная генерация пока заблокирована до native QA, performance, save/reload и anti-dupe. Старые города никогда не перестраиваются."), false);
         source.sendSuccess(() -> Component.literal("Ручное создание с OP 2 в любом мире: /slavicmyths dev posad create <turns> <anchorX> <deckY> <anchorZ>. Чанки подготавливаются постепенно. status/cancel — для управления."), false);
         return 1;
