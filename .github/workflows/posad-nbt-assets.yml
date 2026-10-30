@@ -31,6 +31,14 @@ jobs:
           python3 tools/generate_posad_buildings.py
           python3 tools/posad-tests/verify_city_buildings.py
           python3 tools/posad-tests/verify_generated_building_nbt.py
+          # The generator re-formats the four already-approved JSON loot files.
+          # Their semantic equality was checked above; clean only these CI-created
+          # text diffs so a concurrent fast-forward-only rebase stays possible.
+          git restore --worktree -- \
+            src/main/resources/data/slavicmyths/loot_table/chests/nether_communal_pantry.json \
+            src/main/resources/data/slavicmyths/loot_table/chests/nether_communal_utility.json \
+            src/main/resources/data/slavicmyths/loot_table/chests/nether_communal_personal.json \
+            src/main/resources/data/slavicmyths/loot_table/chests/nether_communal_elder.json
       - name: Commit only the two checked binary templates to hell (no force)
         shell: bash
         run: |
