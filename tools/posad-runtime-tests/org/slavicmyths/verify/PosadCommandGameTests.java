@@ -21,7 +21,23 @@ public final class PosadCommandGameTests {
     t.assertTrue(result[0]>0,"Actual command failed "+dimension+" "+id+" result="+result[0]);
     int count=0;for(var p:net.minecraft.core.BlockPos.betweenClosed(at,at.offset(31,24,31)))if(!w.getBlockState(p).isAir())count++;
     t.assertTrue(count>100,"Command reported success without physical building: "+id+" blocks="+count);
-    if(id.equals("veche_hall_2_2_2"))t.assertTrue(count==3598,"Natural stone left inside actual hall: "+count);
+    if(id.equals("veche_hall_2_2_2")) {
+     int expectedCount=0,editCount=0;
+     for(int y=0;y<18;y++)for(int z=12;z<=34;z++)for(int x=42;x<=70;x++) {
+      var expected=PosadBuildings.voxel(x,y,z);
+      var finish=PosadFinishes.voxel(x,y,z);if(finish!=null)expected=finish;
+      finish=PosadHallRefinement.voxel(x,y,z);if(finish!=null)expected=finish;
+      finish=PosadHallComfort.voxel(x,y,z);if(finish!=null)expected=finish;
+      finish=PosadHallRoofRepair.voxel(x,y,z);if(finish!=null)expected=finish;
+      finish=PosadHallR2.voxel(x,y,z);if(finish!=null){expected=finish;editCount++;}
+      var actual=w.getBlockState(at.offset(x-42,y,z-12));
+      t.assertTrue(!actual.is(Blocks.STONE),"Natural stone survived standalone Veche clear at "+x+","+y+","+z);
+      if(expected!=null)t.assertTrue(actual.is(expected.getBlock()),"Standalone Veche schema mismatch "+x+","+y+","+z+" expected="+expected+" found="+actual);
+      if(expected!=null&&!expected.isAir())expectedCount++;
+     }
+     t.assertTrue(editCount==160,"Wrong R2 standalone overlay coverage "+editCount);
+     t.assertTrue(count==expectedCount,"Standalone Veche block count "+count+" expected "+expectedCount);
+    }
     int repeat=PosadCommands.building(source,id,at);t.assertTrue(repeat==0,"Repeated building overwrote existing building");
     System.out.println("POSAD_COMMAND_PASS dimension="+dimension.location()+" id="+id+" physical_blocks="+count+" repeatRejected=true world="+server.getWorldData().getLevelName());
    }
