@@ -70,7 +70,9 @@ public final class PosadShellGameTests {
    t.assertTrue(actual.is(rotated.getBlock()),"Current communal block mismatch "+x+","+y+","+z+" rot="+turns+" expected="+rotated+" actual="+actual);
    if(expected.is(Blocks.CHEST)) {
     houseChests++;
-    t.assertTrue(PosadBuildings.chestLoot(x,y,z)!=null,"Unregistered chest "+at);
+    String loot=PosadHouseRenovation.chestLoot(x,y,z);
+    if(loot==null)loot=PosadBuildings.chestLoot(x,y,z);
+    t.assertTrue(loot!=null,"Missing current-schema communal loot marker "+at);
     t.assertTrue(world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity,"Chest block entity missing "+at);
     var chest=(net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity)world.getBlockEntity(at);
     t.assertTrue(chest.getLootTable()!=null,"Chest lazy loot table missing "+at);
