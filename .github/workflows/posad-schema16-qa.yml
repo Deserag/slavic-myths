@@ -7,6 +7,8 @@ on:
       - 'src/main/java/org/slavicmyths/posad/**'
       - 'src/main/resources/data/slavicmyths/posad/**'
       - 'tools/verify_posad_*.py'
+      - 'tools/posad-runtime-tests/**'
+      - 'tools/posad-qa-runtime.gradle'
       - '.github/workflows/posad-schema16-qa.yml'
   workflow_dispatch:
 permissions:
