@@ -34,7 +34,7 @@ def publish(name, source, size, blocks, markers, docs, expected_count):
     assemble(name, size, blocks, {p: table for p, table in markers.items()})
     RESOURCE.mkdir(parents=True, exist_ok=True)
     packed = gzip.compress(source.read_bytes(), compresslevel=9, mtime=0)
-    (RESOURCE / (name.replace("_2_2_", "_r1_") + ".gz.base64")).write_text(base64.b64encode(packed).decode("ascii") + "\n", encoding="ascii")
+    (RESOURCE / (name + ".gz.base64")).write_text(base64.b64encode(packed).decode("ascii") + "\n", encoding="ascii")
     print(f"PASS {name}: blocks={len(blocks)}, palette={len(set(blocks.values()))}, chests={len(markers)}, runtime bytes={len(packed)}")
 
 
