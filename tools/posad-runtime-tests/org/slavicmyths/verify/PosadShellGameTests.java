@@ -115,6 +115,28 @@ public final class PosadShellGameTests {
   t.succeed();
  }
  @GameTest(template="empty",timeoutTicks=200)
+ public static void chestRewardsAreNotRearmed(GameTestHelper t) {
+  var world=t.getLevel();
+  var anchor=t.absolutePos(new net.minecraft.core.BlockPos(0,140,0));
+  var at=anchor.offset(16,1,18);
+  var cp=new net.minecraft.world.level.ChunkPos(at);
+  world.getChunk(cp.x,cp.z);
+  var piece=new PosadPiece(anchor,0);
+  var clip=new net.minecraft.world.level.levelgen.structure.BoundingBox(at.getX(),at.getY(),at.getZ(),at.getX(),at.getY(),at.getZ());
+  piece.postProcess(world,world.structureManager(),world.getChunkSource().getGenerator(),world.random,clip,cp,anchor);
+  t.assertTrue(world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity,"Posad pantry chest must have a block entity");
+  var chest=(net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity)world.getBlockEntity(at);
+  t.assertTrue(chest.getLootTable()!=null,"Pantry loot table must be armed exactly once");
+  chest.getItem(0); // Emulates the first inventory read: vanilla rolls and consumes lazy loot.
+  t.assertTrue(chest.getLootTable()==null,"Opening the chest must consume its lazy loot marker");
+  chest.clearContent(); // All rewards claimed; a second piece pass must NOT refill them.
+  piece.postProcess(world,world.structureManager(),world.getChunkSource().getGenerator(),world.random,clip,cp,anchor);
+  t.assertTrue(world.getBlockEntity(at)==chest,"Existing opened chest must not be replaced");
+  t.assertTrue(chest.getLootTable()==null,"Repeated generation re-armed an already opened chest");
+  for(int i=0;i<chest.getContainerSize();i++)t.assertTrue(chest.getItem(i).isEmpty(),"Repeated generation duplicated loot in slot "+i);
+  t.succeed();
+ }
+ @GameTest(template="empty",timeoutTicks=200)
  public static void foundationAndBridgeSerialization(GameTestHelper t) {
   var decision=PosadTerrain.inspect((x,y,z)->y>=64?PosadTerrain.Material.AIR:
    (z>=136||y<40?PosadTerrain.Material.NATURAL:PosadTerrain.Material.LAVA),0,64,0,0);
