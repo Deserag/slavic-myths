@@ -23,6 +23,11 @@ public final class PosadCommands {
     public static void register(org.slavicmyths.commands.CommandTree tree) {
         var posad = Commands.literal("posad").requires(source -> source.hasPermission(2));
         posad.then(Commands.literal("info").executes(context -> info(context.getSource())));
+        posad.then(Commands.literal("layout")
+            .then(Commands.argument("turns", IntegerArgumentType.integer(0, 3))
+                .then(Commands.argument("anchorX", IntegerArgumentType.integer())
+                    .then(Commands.argument("anchorZ", IntegerArgumentType.integer())
+                        .executes(context -> layout(context.getSource(), IntegerArgumentType.getInteger(context, "turns"), IntegerArgumentType.getInteger(context, "anchorX"), IntegerArgumentType.getInteger(context, "anchorZ")))))));
         posad.then(Commands.literal("templates")
             .then(Commands.argument("anchorX", IntegerArgumentType.integer())
                 .then(Commands.argument("deckY", IntegerArgumentType.integer())
@@ -34,8 +39,26 @@ public final class PosadCommands {
     private static int info(CommandSourceStack source) {
         source.sendSuccess(() -> Component.literal("Пекельный посад: фиксированный план 113x113, схема новых городов " + PosadGeometry.SCHEMA_VERSION + ", четыре утверждённых шаблона (3598/1992/2440/1901 блоков)."), false);
         source.sendSuccess(() -> Component.literal("StructureSet натуральной генерации пока заблокирован: не пройдены atomic worldgen, performance, save/reload и антидюп. Старые города не перестраиваются."), false);
-        source.sendSuccess(() -> Component.literal("Для тестового мира: /slavicmyths dev posad templates <anchorX> <deckY> <anchorZ>. Команды /place template исполняются отдельно с правами OP."), false);
+        source.sendSuccess(() -> Component.literal("Для тестового мира: /slavicmyths dev posad templates <anchorX> <deckY> <anchorZ>; повороты: /slavicmyths dev posad layout <0..3> <anchorX> <anchorZ>. Команды /place template исполняются отдельно с правами OP."), false);
         return 1;
+    }
+
+    /**
+     * Read-only map for a rotated settlement. This command does not place structures
+     * or trigger chunk generation and works for planning before an isolated QA run.
+     */
+    private static int layout(CommandSourceStack source, int turns, int anchorX, int anchorZ) {
+        if (!source.getLevel().dimension().equals(Level.NETHER)) {
+            source.sendFailure(Component.literal("Пекельный посад: план доступен только в Незере; блоки не изменены."));
+            return 0;
+        }
+        source.sendSuccess(() -> Component.literal("Пекельный посад 113x113, поворот " + (turns * 90) + "°, anchor NW (" + anchorX + "," + anchorZ + "). Только схема, без генерации."), false);
+        for (Template template : TEMPLATES) {
+            PosadGeometry.Rect rect = template.slot().world(anchorX, anchorZ, turns);
+            source.sendSuccess(() -> Component.literal(template.name() + ": X" + rect.minX() + ".." + rect.maxX() + " Z" + rect.minZ() + ".." + rect.maxZ()), false);
+        }
+        source.sendSuccess(() -> Component.literal("Для проверки размещения используйте штатный native PosadPiece; /place template без preflight может разрушить чужие блоки."), false);
+        return TEMPLATES.length;
     }
 
     private static int templates(CommandSourceStack source, int anchorX, int deckY, int anchorZ) {
