@@ -149,6 +149,9 @@ public final class PosadShellGameTests {
      var floor=world.getBlockState(at.below());
      int blockLight=world.getBrightness(net.minecraft.world.level.LightLayer.BLOCK,at);
      System.out.println("POSAD_LIGHT_SURVEY schema="+PosadGeometry.SCHEMA_VERSION+" turn="+turns+" room="+labels[i]+" local="+p[0]+","+p[1]+","+p[2]+" value="+blockLight+" feet="+feet.getBlock()+" head="+head.getBlock()+" floor="+floor.getBlock());
+     // Required public passages >=8 and work rooms >=10, measured after light propagation.
+     int minimum=(i==2||i==3||i==4||i==5||i==6)?10:8;
+     t.assertTrue(blockLight>=minimum,"Schema-18 dark place turn="+turns+" room="+labels[i]+" light="+blockLight+" required="+minimum+" at "+at);
     }
    }
    // Walkable first-floor R2 central axis and the full eleven-block-wide
@@ -161,6 +164,15 @@ public final class PosadShellGameTests {
      var at=anchor.offset(p.x(),1,p.z());
      t.assertTrue(world.getBlockState(at).isAir() && world.getBlockState(at.above()).isAir(),"R2 central route blocked turn="+turns+" local=55,1,"+z);
      t.assertTrue(!world.getBlockState(at.below()).isAir(),"R2 main route missing floor turn="+turns+" local=55,0,"+z);
+     t.assertTrue(world.getBrightness(net.minecraft.world.level.LightLayer.BLOCK,at)>=8,"R2 centerline below light 8 turn="+turns+" city=55,1,"+z);
+    }
+    // Entire public carriageway, not just selected snapshots, stays >=8.
+    for(int z=35;z<=106;z++){
+     var p=PosadGeometry.rotate(new PosadGeometry.Cell(56,z),turns);
+     var at=anchor.offset(p.x(),1,p.z());
+     t.assertTrue(world.getBlockState(at).isAir() && world.getBlockState(at.above()).isAir(),"Street path obstructed turn="+turns+" city=56,1,"+z);
+     int value=world.getBrightness(net.minecraft.world.level.LightLayer.BLOCK,at);
+     t.assertTrue(value>=8,"Dark public road turn="+turns+" city=56,1,"+z+" BLOCK="+value);
     }
     for(int x=51;x<=61;x++){
      var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,28),turns);
