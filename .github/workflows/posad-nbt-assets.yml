@@ -43,7 +43,7 @@ jobs:
           git diff --cached --name-only
           git config user.name "slavic-myths-posad-assets[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "assets(posad): commit verified exact R1 hall and communal house NBT [skip ci]"
+          git commit -m "assets(posad): commit verified exact R1 hall and communal house NBT"
           # Never force-push. The runner may start from a stale HEAD while other
           # code work advances hell; replay only this own generated-assets commit.
           original_base="$(git rev-parse HEAD^)"
