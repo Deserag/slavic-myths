@@ -26,6 +26,11 @@ jobs:
           mkdir -p build/posad-check
           javac -encoding UTF-8 -d build/posad-check src/main/java/org/slavicmyths/posad/PosadGeometry.java src/main/java/org/slavicmyths/posad/PosadRetrofitPolicy.java tools/posad-tests/PosadGeometryCheck.java
           java -ea -cp build/posad-check org.slavicmyths.posad.PosadGeometryCheck
+      - name: Compare budgeted terrain survey with native terrain planner (pure Java 21)
+        run: |
+          javac -encoding UTF-8 -cp build/posad-check -d build/posad-check src/main/java/org/slavicmyths/posad/PosadTerrain.java src/main/java/org/slavicmyths/posad/PosadTerrainSurvey.java tools/posad-tests/PosadTerrainCheck.java tools/posad-tests/PosadTerrainSurveyCheck.java
+          java -ea -cp build/posad-check org.slavicmyths.posad.PosadTerrainCheck
+          java -ea -cp build/posad-check org.slavicmyths.posad.PosadTerrainSurveyCheck
       - name: Verify Vече / communal R1 models and four loot tables (offline)
         run: python3 tools/posad-tests/verify_city_buildings.py
       - name: Verify committed exact 2.2.2/2.2.3 structure NBT (offline)
