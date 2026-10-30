@@ -118,6 +118,18 @@ public final class PosadShellGameTests {
   }
   t.assertTrue(militaryBlocks==2440&&forgeBlocks==1901,"Wrong 2.2.4/2.2.5 block counts "+militaryBlocks+"/"+forgeBlocks);
   t.assertTrue(militaryChests==5&&forgeChests==5,"Wrong district chest counts "+militaryChests+"/"+forgeChests);
+  int emittedLights=0;
+  for(int x=0;x<113;x++)for(int z=0;z<113;z++)for(int y:new int[]{1,7}) {
+   var light=PosadLightingR3.voxel(x,y,z);
+   if(light==null)continue;
+   emittedLights++;
+   var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+   var at=anchor.offset(p.x(),y,p.z());
+   var actual=world.getBlockState(at);
+   t.assertTrue(actual.is(Blocks.LANTERN),"Schema-18 lantern missing at "+x+","+y+","+z+" turn="+turns+" actual="+actual);
+   t.assertTrue(actual.canSurvive(world,at),"Schema-18 lantern unsupported at "+x+","+y+","+z+" turn="+turns);
+  }
+  t.assertTrue(emittedLights==28,"Wrong schema-18 physical lantern count "+emittedLights+" turn="+turns);
   int r2Cells=0;
   for(int x=42;x<=70;x++)for(int z=12;z<=34;z++)for(int y=0;y<=16;y++) {
    var r2=PosadHallR2.voxel(x,y,z);
