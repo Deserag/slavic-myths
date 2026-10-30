@@ -170,6 +170,9 @@ public final class PosadManualJobs {
 
         private void place() {
             if (chunk >= chunks.size()) {
+                // Persist modified chunks while the durable reservation still says construction.
+                // If a save fails, NEVER publish COMPLETE or permit a retry.
+                if (!world.getServer().saveEverything(false, true, true)) throw new IllegalStateException("Не удалось надёжно сохранить построенные чанки");
                 ManualStructureRecords.get(world).replace(token, "nether_posad", 0, new BlockPos(ax, deckY, az), bounds);
                 world.getDataStorage().save();
                 source.sendSuccess(() -> Component.literal("Пекельный посад построен в QA-мире: X=" + ax + " Y=" + deckY + " Z=" + az + ", поворот " + turns * 90 + "°. Награды — только одноразовые сундуки."), false);
