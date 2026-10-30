@@ -8,6 +8,7 @@ assert "tx == 42 ? EAST : WEST" in code and "groundDoor && y <= 2" in code
 assert "SCHEMA_VERSION = 6" in (p/"java/org/slavicmyths/posad/PosadGeometry.java").read_text(encoding="utf-8")
 f=(p/"java/org/slavicmyths/posad/PosadFinishes.java").read_text(encoding="utf-8")
 assert "linden_table" in f and "pine_weapon_rack" in f and "nether_veche_treasury" in f
+assert "z==33 && y<=3 && base==null" in f and "DoorHingeSide" in f
 ru=json.loads((p/"resources/assets/slavicmyths/lang/ru_ru.json").read_text(encoding="utf-8"))
 assert sum(k.endswith("_spawn_egg") for k in ru)>=90
 for n in ("posad_barrel_market","posad_barrel_supplies","nether_veche_treasury","nether_veche_relics"):

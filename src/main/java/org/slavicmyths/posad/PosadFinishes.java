@@ -34,6 +34,18 @@ public final class PosadFinishes {
     public static BlockState voxel(int x,int y,int z) {
         if(x<42||x>70||z<12||z>34||y<1||y>17)return null;
         BlockState base=PosadBuildings.voxel(x,y,z);
+        // R1 supplied a three-high OPEN front entrance but no actual door.
+        // Make it a true two-leaf entrance, close the third side with a frame
+        // and provide a solid lintel above both door leaves.
+        if(z==33 && y<=3 && base==null) {
+            if(x==57)return Blocks.CRIMSON_PLANKS.defaultBlockState();
+            if((x==55||x==56) && y==3)return Blocks.CRIMSON_PLANKS.defaultBlockState();
+            if((x==55||x==56) && (y==1||y==2))
+                return Blocks.CRIMSON_DOOR.defaultBlockState()
+                    .setValue(net.minecraft.world.level.block.DoorBlock.FACING,net.minecraft.core.Direction.SOUTH)
+                    .setValue(net.minecraft.world.level.block.DoorBlock.HINGE,x==55?net.minecraft.world.level.block.state.properties.DoorHingeSide.LEFT:net.minecraft.world.level.block.state.properties.DoorHingeSide.RIGHT)
+                    .setValue(net.minecraft.world.level.block.DoorBlock.HALF,y==1?net.minecraft.world.level.block.state.properties.DoubleBlockHalf.LOWER:net.minecraft.world.level.block.state.properties.DoubleBlockHalf.UPPER);
+        }
         if(y==12&&x>=43&&x<=69&&z>=13&&z<=33&&base==null)return Blocks.CRIMSON_PLANKS.defaultBlockState();
         if(y>=12&&base!=null&&base.is(Blocks.NETHER_BRICK_STAIRS)&&Math.floorMod(x+z,5)==0)
             return Blocks.CRIMSON_STAIRS.defaultBlockState().setValue(StairBlock.FACING,base.getValue(StairBlock.FACING));
