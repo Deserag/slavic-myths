@@ -32,6 +32,16 @@ jobs:
           set -o pipefail
           mkdir -p build/posad-ci
           ./gradlew --no-daemon -I tools/posad-qa-runtime.gradle runPosadQa -PposadQaDir=work/posad-qa-20261030/github-actions --console=plain 2>&1 | tee build/posad-ci/game-test.log
+          # NeoForge can report a fatal mod-loader error while Gradle task itself exits 0.
+          # Require proof of actual Minecraft GameTest execution, not just a successful wrapper.
+          if grep -Eiq 'Mod loading has failed|Failed to start the minecraft server|not a valid mod file|[0-9]+ required tests failed|GAME TESTS FAILED' build/posad-ci/game-test.log; then
+            echo 'FAIL: GameTest server crashed or one/more required tests failed'
+            exit 1
+          fi
+          if ! grep -Eq '[0-9]+ GAME TESTS COMPLETE' build/posad-ci/game-test.log; then
+            echo 'FAIL: no Minecraft GameTest completion evidence'
+            exit 1
+          fi
       - name: Upload logs (not owner acceptance)
         if: always()
         uses: actions/upload-artifact@v4

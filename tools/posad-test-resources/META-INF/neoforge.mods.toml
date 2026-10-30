@@ -1,0 +1,13 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="Test fixture only"
+[[mods]]
+modId="slavicmyths_posad"
+version="1"
+displayName="Disposable isolated Posad GameTests"
+[[dependencies.slavicmyths_posad]]
+modId="slavicmyths"
+type="required"
+versionRange="[2.0.10-HELL,)"
+ordering="AFTER"
+side="SERVER"
