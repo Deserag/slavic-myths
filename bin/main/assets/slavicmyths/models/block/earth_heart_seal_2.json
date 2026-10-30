@@ -1,0 +1,73 @@
+{
+  "textures": {
+    "all": "slavicmyths:block/earth_heart_seal_2",
+    "particle": "slavicmyths:block/earth_heart_seal_2"
+  },
+  "elements": [
+    {
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        15,
+        13,
+        15
+      ],
+      "faces": {
+        "up": {
+          "texture": "#all"
+        },
+        "down": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "from": [
+        3,
+        13,
+        3
+      ],
+      "to": [
+        13,
+        16,
+        13
+      ],
+      "faces": {
+        "up": {
+          "texture": "#all"
+        },
+        "down": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    }
+  ],
+  "ambientocclusion": true
+}

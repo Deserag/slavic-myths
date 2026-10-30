@@ -11,6 +11,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 /** Existing effect IDs/colors and the original non-linear curse penalties. */
 public final class ModEffects {
  public static final DeferredRegister<MobEffect> EFFECTS=DeferredRegister.create(Registries.MOB_EFFECT,"slavicmyths");
+ public static final DeferredHolder<MobEffect,MobEffect> MOROVA_PLAGUE=EFFECTS.register("morova_plague",org.slavicmyths.netherboss.MorovaPlagueEffect::new);
  public static final DeferredHolder<MobEffect,MobEffect> CURSE=EFFECTS.register("kurgan_curse",CurseEffect::new);
  public static final DeferredHolder<MobEffect,MobEffect> ILL_FATE=EFFECTS.register("durnaya_dolya",()->new MobEffect(MobEffectCategory.HARMFUL,0x6C3233){});
  public static final DeferredHolder<MobEffect,MobEffect> CUT=EFFECTS.register("cut",org.slavicmyths.combat.CutEffect::new);

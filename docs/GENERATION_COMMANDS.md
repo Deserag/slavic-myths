@@ -84,3 +84,27 @@
 | `/slavicmyths dev generate yaga` | [2, 3, 4] | [] |
 
 Полный справочник всех команд: [COMMANDS](COMMANDS.md); полная совместимость: [COMMAND_MIGRATION](COMMAND_MIGRATION.md). Brigadier parsing/suggestions/permissions проверены offline с production builders; построек в мире Codex не создавал.
+
+## Адские постройки и Посад — тот же канонический путь
+
+```mcfunction
+/slavicmyths dev generate nether_posad
+/slavicmyths dev generate veche_hall
+/slavicmyths dev generate communal_house
+/slavicmyths dev generate druzhinny_dvor
+/slavicmyths dev generate kuznechny_dvor
+/slavicmyths dev generate zeleynaya
+/slavicmyths dev generate granary
+/slavicmyths dev generate nether_watchpost
+/slavicmyths dev generate broken_nether_bridge
+/slavicmyths dev generate wayfarer_camp
+/slavicmyths dev generate forgotten_shrine
+/slavicmyths dev generate ancestor_shrine
+/slavicmyths dev generate trizna_pyre
+```
+
+OP2/читы. Координаты, номера микропатча и дополнительная фраза подтверждения не требуются. В обычном мире опорой служит настоящий грунт, а не крона дерева или снег. Используется существующая классификация природного рельефа ManualStructureJobs/LandTerrain; отдельного списка разрешённых материалов у новых зданий нет. Природный рельеф расчищается в пределах построек, основание подготавливается; исходные модели и лут сохраняются. Ручные команды работают в текущем измерении; правила естественного Nether worldgen от этого не меняются.
+
+Посад: начало участка113×113 на12блоков к югу, центр поX относительно исполнителя. Поэтапный preflight/подготовка/расчистка/опоры/постройка подключённой геометрии; старый запрет HEADROOM для ручной генерации не применяется. Natural StructureSet не включён. Полная реализация всех районов2.2 не заявляется. `/slavicmyths dev posad status` и `cancel` остаются управлением текущим заданием, не новыми именами генерации.
+
+Старые пути из предыдущей тестовой сборки сохранены как совместимость, не являются рекомендуемым новым интерфейсом. Размещённые структуры и контейнеры защищаются от повторной записи; распознавание произвольных домов из природного камня и сторонних claims не объявляется универсальным.

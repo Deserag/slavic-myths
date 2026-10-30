@@ -60,7 +60,19 @@ public final class HellVisualCapture {
     static void setup(ServerPlayer p){
         var w=p.serverLevel();w.getGameRules().getRule(GameRules.RULE_DOMOBSPAWNING).set(false,w.getServer());
         w.getGameRules().getRule(GameRules.RULE_DAYLIGHT).set(false,w.getServer());w.setDayTime(6000);
+        BossClientFight.openLoopback(w.getServer());
         int i=0;
+        if(System.getProperty("hellvisual.scope","").equals("bosses")){
+            for(boolean bride:new boolean[]{true,false})for(int phase=1;phase<=3;phase++){
+                var boss=(bride?org.slavicmyths.registry.ModEntities.MOROVA_DEVA:org.slavicmyths.registry.ModEntities.TRIZNA_PRINCE).get().create(w);
+                var data=new net.minecraft.nbt.CompoundTag();boss.addAdditionalSaveData(data);data.putInt("NetherBossPhase",phase);
+                data.putInt("NetherBossAction",bride?(phase==1?1:phase==2?3:7):(phase==1?8:phase==2?10:12));
+                data.putInt("NetherBossActionTicks",25);data.putInt("BossFrame",17);if(bride&&phase==2)data.putInt("BossCopies",100);
+                boss.readAdditionalSaveData(data);spawn(w,boss,i++,(bride?"morova":"trizna")+"-phase-"+phase);
+            }
+            for(String id:org.slavicmyths.netherboss.NetherBossItems.ITEMS.keySet())gear("boss-item-"+id,id,"inventory","",false);
+            ready=true;return;
+        }
         for(var k:NavyaContent.Kind.values())spawn(w,NavyaContent.MOBS.get(k).get().create(w),i++);
         for(var k:CinderContent.Kind.values())spawn(w,CinderContent.TYPES.get(k).get().create(w),i++);
         for(var k:HallsContent.Kind.values())for(int variant=0;variant<(k==HallsContent.Kind.SHEPTUN?4:1);variant++){
@@ -151,6 +163,7 @@ public final class HellVisualCapture {
         if(finished)return;
         if(!"true".equals(System.getenv("GITHUB_ACTIONS"))||!"github-hosted".equals(System.getenv("RUNNER_ENVIRONMENT")))throw new IllegalStateException("Isolated hosted runner only");
         var mc=Minecraft.getInstance();
+        if(Boolean.getBoolean("hellvisual.peer")){BossClientFight.peer(mc);return;}
         if(mc.screen!=null&&mc.screen.getClass().getSimpleName().equals("AccessibilityOnboardingScreen")){mc.setScreen(new TitleScreen());return;}
         if(!opened&&mc.screen instanceof TitleScreen){
             opened=true;Files.createDirectories(OUT);
@@ -169,6 +182,7 @@ public final class HellVisualCapture {
         if(scene<0||age>=65){
             scene++;age=0;positioned=false;mc.options.keyUse.setDown(false);mc.options.keyShift.setDown(false);mc.options.keyUp.setDown(false);mc.options.keySprint.setDown(false);mc.options.keyJump.setDown(false);mc.player.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);mc.setScreen(null);
             if(scene==VIEWS.size()){
+                if(Boolean.getBoolean("hellvisual.mp")&&!BossClientFight.host(mc)){scene--;age=65;return;}
                 finished=true;var receipt=new JsonObject();receipt.addProperty("jar_sha256",loadedSha);receipt.addProperty("seed",3492026);
                 receipt.addProperty("scope","Actual packaged-mod framebuffer; artificial creative poses, not survival/AI/audio/owner acceptance");receipt.add("frames",FRAMES);
                 Files.writeString(OUT.resolve("finished.json"),new GsonBuilder().setPrettyPrinting().create().toJson(receipt));mc.stop();return;

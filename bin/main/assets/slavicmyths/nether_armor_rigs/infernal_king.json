@@ -1,0 +1,3405 @@
+{
+  "atlas": 256,
+  "parts": [
+    {
+      "name": "helmet_shell",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        0,
+        -4,
+        0
+      ],
+      "size": [
+        9,
+        9,
+        9
+      ],
+      "material": "metal",
+      "offset": [
+        -4.5,
+        -4.5,
+        -4.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        0,
+        0
+      ],
+      "rect": [
+        36,
+        18
+      ]
+    },
+    {
+      "name": "crown_band",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        0,
+        -8.3,
+        0
+      ],
+      "size": [
+        10,
+        2,
+        10
+      ],
+      "material": "gold",
+      "offset": [
+        -5.0,
+        -1.0,
+        -5.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        38,
+        0
+      ],
+      "rect": [
+        40,
+        12
+      ]
+    },
+    {
+      "name": "brow_bridge",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        0,
+        -5,
+        -4.8
+      ],
+      "size": [
+        8,
+        1.2,
+        1
+      ],
+      "material": "gold",
+      "offset": [
+        -4.0,
+        -0.6,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        80,
+        0
+      ],
+      "rect": [
+        18,
+        3
+      ]
+    },
+    {
+      "name": "central_red_gem",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        0,
+        -8.7,
+        -5.3
+      ],
+      "size": [
+        2,
+        4,
+        1
+      ],
+      "material": "ruby",
+      "offset": [
+        -1.0,
+        -2.0,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        100,
+        0
+      ],
+      "rect": [
+        6,
+        5
+      ]
+    },
+    {
+      "name": "crown_spire_0",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        0.0,
+        -12.0,
+        -4.0
+      ],
+      "size": [
+        1,
+        6,
+        1
+      ],
+      "material": "gold",
+      "offset": [
+        -0.5,
+        -3.0,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        108,
+        0
+      ],
+      "rect": [
+        4,
+        7
+      ]
+    },
+    {
+      "name": "spire_tip_0",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        0.0,
+        -15,
+        -4.0
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "ember",
+      "offset": [
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        114,
+        0
+      ],
+      "rect": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "crown_spire_1",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        2.571150438746157,
+        -11.5,
+        -3.064177772475912
+      ],
+      "size": [
+        1,
+        5,
+        1
+      ],
+      "material": "gold",
+      "offset": [
+        -0.5,
+        -2.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        120,
+        0
+      ],
+      "rect": [
+        4,
+        6
+      ]
+    },
+    {
+      "name": "spire_tip_1",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        2.571150438746157,
+        -14,
+        -3.064177772475912
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "ember",
+      "offset": [
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        126,
+        0
+      ],
+      "rect": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "crown_spire_2",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        3.939231012048832,
+        -10.5,
+        -0.6945927106677217
+      ],
+      "size": [
+        1,
+        3,
+        1
+      ],
+      "material": "gold",
+      "offset": [
+        -0.5,
+        -1.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        132,
+        0
+      ],
+      "rect": [
+        4,
+        4
+      ]
+    },
+    {
+      "name": "spire_tip_2",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        3.939231012048832,
+        -12,
+        -0.6945927106677217
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "ember",
+      "offset": [
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        138,
+        0
+      ],
+      "rect": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "crown_spire_3",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        3.464101615137755,
+        -11.0,
+        1.9999999999999991
+      ],
+      "size": [
+        1,
+        4,
+        1
+      ],
+      "material": "gold",
+      "offset": [
+        -0.5,
+        -2.0,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        144,
+        0
+      ],
+      "rect": [
+        4,
+        5
+      ]
+    },
+    {
+      "name": "spire_tip_3",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        3.464101615137755,
+        -13,
+        1.9999999999999991
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "ember",
+      "offset": [
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        150,
+        0
+      ],
+      "rect": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "crown_spire_4",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        1.3680805733026755,
+        -10.25,
+        3.7587704831436333
+      ],
+      "size": [
+        1,
+        2.5,
+        1
+      ],
+      "material": "gold",
+      "offset": [
+        -0.5,
+        -1.25,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        156,
+        0
+      ],
+      "rect": [
+        4,
+        4
+      ]
+    },
+    {
+      "name": "spire_tip_4",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        1.3680805733026755,
+        -11.5,
+        3.7587704831436333
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "ember",
+      "offset": [
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        162,
+        0
+      ],
+      "rect": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "crown_spire_5",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        -1.3680805733026746,
+        -10.5,
+        3.7587704831436337
+      ],
+      "size": [
+        1,
+        3,
+        1
+      ],
+      "material": "gold",
+      "offset": [
+        -0.5,
+        -1.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        168,
+        0
+      ],
+      "rect": [
+        4,
+        4
+      ]
+    },
+    {
+      "name": "spire_tip_5",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        -1.3680805733026746,
+        -12,
+        3.7587704831436337
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "ember",
+      "offset": [
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        174,
+        0
+      ],
+      "rect": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "crown_spire_6",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        -3.464101615137754,
+        -11.25,
+        2.0000000000000018
+      ],
+      "size": [
+        1,
+        4.5,
+        1
+      ],
+      "material": "gold",
+      "offset": [
+        -0.5,
+        -2.25,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        180,
+        0
+      ],
+      "rect": [
+        4,
+        6
+      ]
+    },
+    {
+      "name": "spire_tip_6",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        -3.464101615137754,
+        -13.5,
+        2.0000000000000018
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "ember",
+      "offset": [
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        186,
+        0
+      ],
+      "rect": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "crown_spire_7",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        -3.9392310120488325,
+        -10.75,
+        -0.6945927106677199
+      ],
+      "size": [
+        1,
+        3.5,
+        1
+      ],
+      "material": "gold",
+      "offset": [
+        -0.5,
+        -1.75,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        192,
+        0
+      ],
+      "rect": [
+        4,
+        5
+      ]
+    },
+    {
+      "name": "spire_tip_7",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        -3.9392310120488325,
+        -12.5,
+        -0.6945927106677199
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "ember",
+      "offset": [
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        198,
+        0
+      ],
+      "rect": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "crown_spire_8",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        -2.5711504387461583,
+        -11.5,
+        -3.064177772475911
+      ],
+      "size": [
+        1,
+        5,
+        1
+      ],
+      "material": "gold",
+      "offset": [
+        -0.5,
+        -2.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        204,
+        0
+      ],
+      "rect": [
+        4,
+        6
+      ]
+    },
+    {
+      "name": "spire_tip_8",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        -2.5711504387461583,
+        -14,
+        -3.064177772475911
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "ember",
+      "offset": [
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        210,
+        0
+      ],
+      "rect": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "cheek_-1",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        -3.8,
+        -1.5,
+        -4.8
+      ],
+      "size": [
+        1.2,
+        4,
+        1
+      ],
+      "material": "gold",
+      "offset": [
+        -0.6,
+        -2.0,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        216,
+        0
+      ],
+      "rect": [
+        5,
+        5
+      ]
+    },
+    {
+      "name": "cheek_1",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        3.8,
+        -1.5,
+        -4.8
+      ],
+      "size": [
+        1.2,
+        4,
+        1
+      ],
+      "material": "gold",
+      "offset": [
+        -0.6,
+        -2.0,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        223,
+        0
+      ],
+      "rect": [
+        5,
+        5
+      ]
+    },
+    {
+      "name": "visor_horizontal",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        0,
+        -3.5,
+        -4.7
+      ],
+      "size": [
+        6,
+        1,
+        1
+      ],
+      "material": "ember",
+      "offset": [
+        -3.0,
+        -0.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        230,
+        0
+      ],
+      "rect": [
+        14,
+        2
+      ]
+    },
+    {
+      "name": "visor_vertical",
+      "parent": "head",
+      "slot": "head",
+      "pivot": [
+        0,
+        -1.5,
+        -4.7
+      ],
+      "size": [
+        1,
+        5,
+        1
+      ],
+      "material": "ember",
+      "offset": [
+        -0.5,
+        -2.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        246,
+        0
+      ],
+      "rect": [
+        4,
+        6
+      ]
+    },
+    {
+      "name": "backplate",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        0,
+        5,
+        2.7
+      ],
+      "size": [
+        9,
+        11,
+        1.5
+      ],
+      "material": "metal",
+      "offset": [
+        -4.5,
+        -5.5,
+        -0.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        0,
+        20
+      ],
+      "rect": [
+        21,
+        13
+      ]
+    },
+    {
+      "name": "belly_plate",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        0,
+        8,
+        -3
+      ],
+      "size": [
+        7.5,
+        4,
+        3
+      ],
+      "material": "metal",
+      "offset": [
+        -3.75,
+        -2.0,
+        -1.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        23,
+        20
+      ],
+      "rect": [
+        21,
+        7
+      ]
+    },
+    {
+      "name": "waist_belt",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        0,
+        10.5,
+        0
+      ],
+      "size": [
+        9.5,
+        2,
+        6
+      ],
+      "material": "gold",
+      "offset": [
+        -4.75,
+        -1.0,
+        -3.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        46,
+        20
+      ],
+      "rect": [
+        31,
+        8
+      ]
+    },
+    {
+      "name": "belt_buckle",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        0,
+        10.5,
+        -3.8
+      ],
+      "size": [
+        2.5,
+        2,
+        1
+      ],
+      "material": "ruby",
+      "offset": [
+        -1.25,
+        -1.0,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        79,
+        20
+      ],
+      "rect": [
+        7,
+        3
+      ]
+    },
+    {
+      "name": "pectoral_-1",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        -2.2,
+        3,
+        -3.6
+      ],
+      "size": [
+        4.4,
+        5,
+        3.5
+      ],
+      "material": "metal",
+      "offset": [
+        -2.2,
+        -2.5,
+        -1.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        88,
+        20
+      ],
+      "rect": [
+        16,
+        9
+      ]
+    },
+    {
+      "name": "breast_gold_-1",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        -2.2,
+        0.6,
+        -4.8
+      ],
+      "size": [
+        4.3,
+        1,
+        1
+      ],
+      "material": "gold",
+      "offset": [
+        -2.15,
+        -0.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        106,
+        20
+      ],
+      "rect": [
+        11,
+        2
+      ]
+    },
+    {
+      "name": "rib_-1_0",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        -3.5,
+        4.5,
+        -2.8
+      ],
+      "size": [
+        2.4,
+        1.4,
+        2.6
+      ],
+      "material": "metal",
+      "offset": [
+        -1.2,
+        -0.7,
+        -1.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        119,
+        20
+      ],
+      "rect": [
+        10,
+        4
+      ]
+    },
+    {
+      "name": "rib_heat_-1_0",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        -1.5,
+        3.0,
+        -5.4
+      ],
+      "size": [
+        1.5,
+        0.7,
+        0.4
+      ],
+      "material": "ember",
+      "offset": [
+        -0.75,
+        -0.35,
+        -0.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        131,
+        20
+      ],
+      "rect": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "rib_-1_1",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        -3.5,
+        6.0,
+        -2.8
+      ],
+      "size": [
+        2.4,
+        1.4,
+        2.6
+      ],
+      "material": "metal",
+      "offset": [
+        -1.2,
+        -0.7,
+        -1.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        137,
+        20
+      ],
+      "rect": [
+        10,
+        4
+      ]
+    },
+    {
+      "name": "rib_heat_-1_1",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        -2.3,
+        4.4,
+        -5.4
+      ],
+      "size": [
+        1.5,
+        0.7,
+        0.4
+      ],
+      "material": "ember",
+      "offset": [
+        -0.75,
+        -0.35,
+        -0.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        149,
+        20
+      ],
+      "rect": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "rib_-1_2",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        -3.5,
+        7.5,
+        -2.8
+      ],
+      "size": [
+        2.4,
+        1.4,
+        2.6
+      ],
+      "material": "metal",
+      "offset": [
+        -1.2,
+        -0.7,
+        -1.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        155,
+        20
+      ],
+      "rect": [
+        10,
+        4
+      ]
+    },
+    {
+      "name": "rib_heat_-1_2",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        -3.1,
+        5.8,
+        -5.4
+      ],
+      "size": [
+        1.5,
+        0.7,
+        0.4
+      ],
+      "material": "ember",
+      "offset": [
+        -0.75,
+        -0.35,
+        -0.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        167,
+        20
+      ],
+      "rect": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "pauldron_-1_0",
+      "parent": "right_arm",
+      "slot": "chest",
+      "pivot": [
+        -1,
+        -1.0,
+        0
+      ],
+      "size": [
+        8.0,
+        2,
+        7.0
+      ],
+      "material": "metal",
+      "offset": [
+        -4.0,
+        -1.0,
+        -3.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        173,
+        20
+      ],
+      "rect": [
+        30,
+        9
+      ]
+    },
+    {
+      "name": "pauldron_-1_1",
+      "parent": "right_arm",
+      "slot": "chest",
+      "pivot": [
+        -1,
+        0.30000000000000004,
+        0
+      ],
+      "size": [
+        7.3,
+        2,
+        6.5
+      ],
+      "material": "gold",
+      "offset": [
+        -3.65,
+        -1.0,
+        -3.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        205,
+        20
+      ],
+      "rect": [
+        28,
+        9
+      ]
+    },
+    {
+      "name": "pauldron_-1_2",
+      "parent": "right_arm",
+      "slot": "chest",
+      "pivot": [
+        -1,
+        1.6,
+        0
+      ],
+      "size": [
+        6.6,
+        2,
+        6.0
+      ],
+      "material": "metal",
+      "offset": [
+        -3.3,
+        -1.0,
+        -3.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        0,
+        35
+      ],
+      "rect": [
+        26,
+        8
+      ]
+    },
+    {
+      "name": "upper_guard_-1",
+      "parent": "right_arm",
+      "slot": "chest",
+      "pivot": [
+        -1,
+        3,
+        0
+      ],
+      "size": [
+        5,
+        3,
+        5
+      ],
+      "material": "metal",
+      "offset": [
+        -2.5,
+        -1.5,
+        -2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        28,
+        35
+      ],
+      "rect": [
+        20,
+        8
+      ]
+    },
+    {
+      "name": "bracer_-1",
+      "parent": "right_arm",
+      "slot": "chest",
+      "pivot": [
+        -1,
+        7,
+        0
+      ],
+      "size": [
+        5,
+        4.5,
+        5
+      ],
+      "material": "metal",
+      "offset": [
+        -2.5,
+        -2.25,
+        -2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        50,
+        35
+      ],
+      "rect": [
+        20,
+        10
+      ]
+    },
+    {
+      "name": "cuff_-1",
+      "parent": "right_arm",
+      "slot": "chest",
+      "pivot": [
+        -1,
+        9,
+        0
+      ],
+      "size": [
+        5.4,
+        1,
+        5.4
+      ],
+      "material": "gold",
+      "offset": [
+        -2.7,
+        -0.5,
+        -2.7
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        72,
+        35
+      ],
+      "rect": [
+        22,
+        7
+      ]
+    },
+    {
+      "name": "pectoral_1",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        2.2,
+        3,
+        -3.6
+      ],
+      "size": [
+        4.4,
+        5,
+        3.5
+      ],
+      "material": "metal",
+      "offset": [
+        -2.2,
+        -2.5,
+        -1.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        96,
+        35
+      ],
+      "rect": [
+        16,
+        9
+      ]
+    },
+    {
+      "name": "breast_gold_1",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        2.2,
+        0.6,
+        -4.8
+      ],
+      "size": [
+        4.3,
+        1,
+        1
+      ],
+      "material": "gold",
+      "offset": [
+        -2.15,
+        -0.5,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        114,
+        35
+      ],
+      "rect": [
+        11,
+        2
+      ]
+    },
+    {
+      "name": "rib_1_0",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        3.5,
+        4.5,
+        -2.8
+      ],
+      "size": [
+        2.4,
+        1.4,
+        2.6
+      ],
+      "material": "metal",
+      "offset": [
+        -1.2,
+        -0.7,
+        -1.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        127,
+        35
+      ],
+      "rect": [
+        10,
+        4
+      ]
+    },
+    {
+      "name": "rib_heat_1_0",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        1.5,
+        3.0,
+        -5.4
+      ],
+      "size": [
+        1.5,
+        0.7,
+        0.4
+      ],
+      "material": "ember",
+      "offset": [
+        -0.75,
+        -0.35,
+        -0.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        139,
+        35
+      ],
+      "rect": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "rib_1_1",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        3.5,
+        6.0,
+        -2.8
+      ],
+      "size": [
+        2.4,
+        1.4,
+        2.6
+      ],
+      "material": "metal",
+      "offset": [
+        -1.2,
+        -0.7,
+        -1.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        145,
+        35
+      ],
+      "rect": [
+        10,
+        4
+      ]
+    },
+    {
+      "name": "rib_heat_1_1",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        2.3,
+        4.4,
+        -5.4
+      ],
+      "size": [
+        1.5,
+        0.7,
+        0.4
+      ],
+      "material": "ember",
+      "offset": [
+        -0.75,
+        -0.35,
+        -0.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        157,
+        35
+      ],
+      "rect": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "rib_1_2",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        3.5,
+        7.5,
+        -2.8
+      ],
+      "size": [
+        2.4,
+        1.4,
+        2.6
+      ],
+      "material": "metal",
+      "offset": [
+        -1.2,
+        -0.7,
+        -1.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        163,
+        35
+      ],
+      "rect": [
+        10,
+        4
+      ]
+    },
+    {
+      "name": "rib_heat_1_2",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        3.1,
+        5.8,
+        -5.4
+      ],
+      "size": [
+        1.5,
+        0.7,
+        0.4
+      ],
+      "material": "ember",
+      "offset": [
+        -0.75,
+        -0.35,
+        -0.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        175,
+        35
+      ],
+      "rect": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "pauldron_1_0",
+      "parent": "left_arm",
+      "slot": "chest",
+      "pivot": [
+        1,
+        -1.0,
+        0
+      ],
+      "size": [
+        8.0,
+        2,
+        7.0
+      ],
+      "material": "metal",
+      "offset": [
+        -4.0,
+        -1.0,
+        -3.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        181,
+        35
+      ],
+      "rect": [
+        30,
+        9
+      ]
+    },
+    {
+      "name": "pauldron_1_1",
+      "parent": "left_arm",
+      "slot": "chest",
+      "pivot": [
+        1,
+        0.30000000000000004,
+        0
+      ],
+      "size": [
+        7.3,
+        2,
+        6.5
+      ],
+      "material": "gold",
+      "offset": [
+        -3.65,
+        -1.0,
+        -3.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        213,
+        35
+      ],
+      "rect": [
+        28,
+        9
+      ]
+    },
+    {
+      "name": "pauldron_1_2",
+      "parent": "left_arm",
+      "slot": "chest",
+      "pivot": [
+        1,
+        1.6,
+        0
+      ],
+      "size": [
+        6.6,
+        2,
+        6.0
+      ],
+      "material": "metal",
+      "offset": [
+        -3.3,
+        -1.0,
+        -3.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        0,
+        47
+      ],
+      "rect": [
+        26,
+        8
+      ]
+    },
+    {
+      "name": "upper_guard_1",
+      "parent": "left_arm",
+      "slot": "chest",
+      "pivot": [
+        1,
+        3,
+        0
+      ],
+      "size": [
+        5,
+        3,
+        5
+      ],
+      "material": "metal",
+      "offset": [
+        -2.5,
+        -1.5,
+        -2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        28,
+        47
+      ],
+      "rect": [
+        20,
+        8
+      ]
+    },
+    {
+      "name": "bracer_1",
+      "parent": "left_arm",
+      "slot": "chest",
+      "pivot": [
+        1,
+        7,
+        0
+      ],
+      "size": [
+        5,
+        4.5,
+        5
+      ],
+      "material": "metal",
+      "offset": [
+        -2.5,
+        -2.25,
+        -2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        50,
+        47
+      ],
+      "rect": [
+        20,
+        10
+      ]
+    },
+    {
+      "name": "cuff_1",
+      "parent": "left_arm",
+      "slot": "chest",
+      "pivot": [
+        1,
+        9,
+        0
+      ],
+      "size": [
+        5.4,
+        1,
+        5.4
+      ],
+      "material": "gold",
+      "offset": [
+        -2.7,
+        -0.5,
+        -2.7
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        72,
+        47
+      ],
+      "rect": [
+        22,
+        7
+      ]
+    },
+    {
+      "name": "sternum_seal",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        0,
+        2.5,
+        -5.6
+      ],
+      "size": [
+        2.2,
+        3.5,
+        1
+      ],
+      "material": "ruby",
+      "offset": [
+        -1.1,
+        -1.75,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        96,
+        47
+      ],
+      "rect": [
+        7,
+        5
+      ]
+    },
+    {
+      "name": "tabard_root",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        0,
+        11,
+        -4.1
+      ],
+      "size": [
+        4,
+        0.5,
+        0.5
+      ],
+      "material": "cloth",
+      "offset": [
+        -2,
+        0,
+        -0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        105,
+        47
+      ],
+      "rect": [
+        9,
+        1
+      ]
+    },
+    {
+      "name": "tabard_segment_0",
+      "parent": "tabard_root",
+      "slot": "chest",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        4,
+        6.5,
+        0.5
+      ],
+      "material": "cloth",
+      "offset": [
+        -2,
+        0,
+        -0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        116,
+        47
+      ],
+      "rect": [
+        9,
+        7
+      ]
+    },
+    {
+      "name": "tabard_rune_0",
+      "parent": "tabard_segment_0",
+      "slot": "chest",
+      "pivot": [
+        0,
+        3,
+        -0.4
+      ],
+      "size": [
+        0.7,
+        4,
+        0.3
+      ],
+      "material": "gold",
+      "offset": [
+        -0.35,
+        -2.0,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        127,
+        47
+      ],
+      "rect": [
+        2,
+        5
+      ]
+    },
+    {
+      "name": "tabard_segment_1",
+      "parent": "tabard_segment_0",
+      "slot": "chest",
+      "pivot": [
+        0,
+        6,
+        0
+      ],
+      "size": [
+        4,
+        6.5,
+        0.5
+      ],
+      "material": "cloth",
+      "offset": [
+        -2,
+        0,
+        -0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        131,
+        47
+      ],
+      "rect": [
+        9,
+        7
+      ]
+    },
+    {
+      "name": "tabard_rune_1",
+      "parent": "tabard_segment_1",
+      "slot": "chest",
+      "pivot": [
+        0,
+        3,
+        -0.4
+      ],
+      "size": [
+        0.7,
+        4,
+        0.3
+      ],
+      "material": "gold",
+      "offset": [
+        -0.35,
+        -2.0,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        142,
+        47
+      ],
+      "rect": [
+        2,
+        5
+      ]
+    },
+    {
+      "name": "cape_root",
+      "parent": "body",
+      "slot": "chest",
+      "pivot": [
+        0,
+        0.3,
+        3.7
+      ],
+      "size": [
+        12,
+        0.5,
+        0.5
+      ],
+      "material": "cloth",
+      "offset": [
+        -6,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        146,
+        47
+      ],
+      "rect": [
+        25,
+        1
+      ]
+    },
+    {
+      "name": "cape_segment_0",
+      "parent": "cape_root",
+      "slot": "chest",
+      "pivot": [
+        0,
+        0,
+        0.2
+      ],
+      "size": [
+        12.0,
+        8.5,
+        0.5
+      ],
+      "material": "cloth",
+      "offset": [
+        -6.0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        173,
+        47
+      ],
+      "rect": [
+        25,
+        9
+      ]
+    },
+    {
+      "name": "cape_border_0_-1",
+      "parent": "cape_segment_0",
+      "slot": "chest",
+      "pivot": [
+        -5.5,
+        4,
+        0.55
+      ],
+      "size": [
+        0.7,
+        8.5,
+        0.3
+      ],
+      "material": "gold",
+      "offset": [
+        -0.35,
+        -4.25,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        200,
+        47
+      ],
+      "rect": [
+        2,
+        9
+      ]
+    },
+    {
+      "name": "cape_border_0_1",
+      "parent": "cape_segment_0",
+      "slot": "chest",
+      "pivot": [
+        5.5,
+        4,
+        0.55
+      ],
+      "size": [
+        0.7,
+        8.5,
+        0.3
+      ],
+      "material": "gold",
+      "offset": [
+        -0.35,
+        -4.25,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        204,
+        47
+      ],
+      "rect": [
+        2,
+        9
+      ]
+    },
+    {
+      "name": "cape_rune_0",
+      "parent": "cape_segment_0",
+      "slot": "chest",
+      "pivot": [
+        0,
+        4,
+        0.65
+      ],
+      "size": [
+        1,
+        5,
+        0.3
+      ],
+      "material": "gold",
+      "offset": [
+        -0.5,
+        -2.5,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        208,
+        47
+      ],
+      "rect": [
+        3,
+        6
+      ]
+    },
+    {
+      "name": "cape_rune_arm_0",
+      "parent": "cape_segment_0",
+      "slot": "chest",
+      "pivot": [
+        0,
+        3,
+        0.65
+      ],
+      "size": [
+        4,
+        0.8,
+        0.3
+      ],
+      "material": "gold",
+      "offset": [
+        -2.0,
+        -0.4,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        213,
+        47
+      ],
+      "rect": [
+        9,
+        2
+      ]
+    },
+    {
+      "name": "cape_segment_1",
+      "parent": "cape_segment_0",
+      "slot": "chest",
+      "pivot": [
+        0,
+        7.8,
+        0.2
+      ],
+      "size": [
+        11.7,
+        8.5,
+        0.5
+      ],
+      "material": "cloth",
+      "offset": [
+        -5.85,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        224,
+        47
+      ],
+      "rect": [
+        25,
+        9
+      ]
+    },
+    {
+      "name": "cape_border_1_-1",
+      "parent": "cape_segment_1",
+      "slot": "chest",
+      "pivot": [
+        -5.35,
+        4,
+        0.55
+      ],
+      "size": [
+        0.7,
+        8.5,
+        0.3
+      ],
+      "material": "gold",
+      "offset": [
+        -0.35,
+        -4.25,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        251,
+        47
+      ],
+      "rect": [
+        2,
+        9
+      ]
+    },
+    {
+      "name": "cape_border_1_1",
+      "parent": "cape_segment_1",
+      "slot": "chest",
+      "pivot": [
+        5.35,
+        4,
+        0.55
+      ],
+      "size": [
+        0.7,
+        8.5,
+        0.3
+      ],
+      "material": "gold",
+      "offset": [
+        -0.35,
+        -4.25,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        0,
+        59
+      ],
+      "rect": [
+        2,
+        9
+      ]
+    },
+    {
+      "name": "cape_rune_1",
+      "parent": "cape_segment_1",
+      "slot": "chest",
+      "pivot": [
+        0,
+        4,
+        0.65
+      ],
+      "size": [
+        1,
+        5,
+        0.3
+      ],
+      "material": "gold",
+      "offset": [
+        -0.5,
+        -2.5,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        4,
+        59
+      ],
+      "rect": [
+        3,
+        6
+      ]
+    },
+    {
+      "name": "cape_rune_arm_1",
+      "parent": "cape_segment_1",
+      "slot": "chest",
+      "pivot": [
+        0,
+        3,
+        0.65
+      ],
+      "size": [
+        4,
+        0.8,
+        0.3
+      ],
+      "material": "gold",
+      "offset": [
+        -2.0,
+        -0.4,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        9,
+        59
+      ],
+      "rect": [
+        9,
+        2
+      ]
+    },
+    {
+      "name": "cape_segment_2",
+      "parent": "cape_segment_1",
+      "slot": "chest",
+      "pivot": [
+        0,
+        7.8,
+        0.2
+      ],
+      "size": [
+        11.4,
+        8.5,
+        0.5
+      ],
+      "material": "cloth",
+      "offset": [
+        -5.7,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        20,
+        59
+      ],
+      "rect": [
+        24,
+        9
+      ]
+    },
+    {
+      "name": "cape_border_2_-1",
+      "parent": "cape_segment_2",
+      "slot": "chest",
+      "pivot": [
+        -5.2,
+        4,
+        0.55
+      ],
+      "size": [
+        0.7,
+        8.5,
+        0.3
+      ],
+      "material": "gold",
+      "offset": [
+        -0.35,
+        -4.25,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        46,
+        59
+      ],
+      "rect": [
+        2,
+        9
+      ]
+    },
+    {
+      "name": "cape_border_2_1",
+      "parent": "cape_segment_2",
+      "slot": "chest",
+      "pivot": [
+        5.2,
+        4,
+        0.55
+      ],
+      "size": [
+        0.7,
+        8.5,
+        0.3
+      ],
+      "material": "gold",
+      "offset": [
+        -0.35,
+        -4.25,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        50,
+        59
+      ],
+      "rect": [
+        2,
+        9
+      ]
+    },
+    {
+      "name": "cape_rune_2",
+      "parent": "cape_segment_2",
+      "slot": "chest",
+      "pivot": [
+        0,
+        4,
+        0.65
+      ],
+      "size": [
+        1,
+        5,
+        0.3
+      ],
+      "material": "gold",
+      "offset": [
+        -0.5,
+        -2.5,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        54,
+        59
+      ],
+      "rect": [
+        3,
+        6
+      ]
+    },
+    {
+      "name": "cape_rune_arm_2",
+      "parent": "cape_segment_2",
+      "slot": "chest",
+      "pivot": [
+        0,
+        3,
+        0.65
+      ],
+      "size": [
+        4,
+        0.8,
+        0.3
+      ],
+      "material": "gold",
+      "offset": [
+        -2.0,
+        -0.4,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        59,
+        59
+      ],
+      "rect": [
+        9,
+        2
+      ]
+    },
+    {
+      "name": "cape_hem",
+      "parent": "cape_segment_2",
+      "slot": "chest",
+      "pivot": [
+        0,
+        8,
+        0.6
+      ],
+      "size": [
+        11.3,
+        0.8,
+        0.5
+      ],
+      "material": "gold",
+      "offset": [
+        -5.65,
+        -0.4,
+        -0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        70,
+        59
+      ],
+      "rect": [
+        24,
+        2
+      ]
+    },
+    {
+      "name": "leggings_belt",
+      "parent": "body",
+      "slot": "legs",
+      "pivot": [
+        0,
+        10,
+        0
+      ],
+      "size": [
+        8.8,
+        2.5,
+        5
+      ],
+      "material": "gold",
+      "offset": [
+        -4.4,
+        -1.25,
+        -2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        96,
+        59
+      ],
+      "rect": [
+        28,
+        8
+      ]
+    },
+    {
+      "name": "thigh_-1",
+      "parent": "right_leg",
+      "slot": "legs",
+      "pivot": [
+        -0.4,
+        3,
+        0
+      ],
+      "size": [
+        3.8,
+        6,
+        4.7
+      ],
+      "material": "metal",
+      "offset": [
+        -1.9,
+        -3.0,
+        -2.35
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        126,
+        59
+      ],
+      "rect": [
+        17,
+        11
+      ]
+    },
+    {
+      "name": "knee_-1",
+      "parent": "right_leg",
+      "slot": "legs",
+      "pivot": [
+        -0.4,
+        7,
+        -2.8
+      ],
+      "size": [
+        4,
+        3,
+        1.6
+      ],
+      "material": "gold",
+      "offset": [
+        -2.0,
+        -1.5,
+        -0.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        145,
+        59
+      ],
+      "rect": [
+        12,
+        5
+      ]
+    },
+    {
+      "name": "knee_core_-1",
+      "parent": "right_leg",
+      "slot": "legs",
+      "pivot": [
+        -0.4,
+        7,
+        -3.7
+      ],
+      "size": [
+        1.5,
+        2,
+        0.4
+      ],
+      "material": "ruby",
+      "offset": [
+        -0.75,
+        -1.0,
+        -0.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        159,
+        59
+      ],
+      "rect": [
+        4,
+        3
+      ]
+    },
+    {
+      "name": "leg_line_-1",
+      "parent": "right_leg",
+      "slot": "legs",
+      "pivot": [
+        -0.4,
+        3,
+        -2.6
+      ],
+      "size": [
+        0.6,
+        4,
+        0.4
+      ],
+      "material": "ember",
+      "offset": [
+        -0.3,
+        -2.0,
+        -0.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        165,
+        59
+      ],
+      "rect": [
+        2,
+        5
+      ]
+    },
+    {
+      "name": "shin_-1",
+      "parent": "right_leg",
+      "slot": "feet",
+      "pivot": [
+        -0.4,
+        8.5,
+        0
+      ],
+      "size": [
+        4,
+        5,
+        5
+      ],
+      "material": "metal",
+      "offset": [
+        -2.0,
+        -2.5,
+        -2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        169,
+        59
+      ],
+      "rect": [
+        18,
+        10
+      ]
+    },
+    {
+      "name": "ankle_-1",
+      "parent": "right_leg",
+      "slot": "feet",
+      "pivot": [
+        -0.4,
+        8,
+        0
+      ],
+      "size": [
+        4.4,
+        1.2,
+        5.4
+      ],
+      "material": "gold",
+      "offset": [
+        -2.2,
+        -0.6,
+        -2.7
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        189,
+        59
+      ],
+      "rect": [
+        20,
+        7
+      ]
+    },
+    {
+      "name": "boot_toe_-1",
+      "parent": "right_leg",
+      "slot": "feet",
+      "pivot": [
+        -0.4,
+        11,
+        -1
+      ],
+      "size": [
+        4.2,
+        2,
+        7
+      ],
+      "material": "metal",
+      "offset": [
+        -2.1,
+        -1.0,
+        -3.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        211,
+        59
+      ],
+      "rect": [
+        23,
+        9
+      ]
+    },
+    {
+      "name": "toe_step_-1",
+      "parent": "right_leg",
+      "slot": "feet",
+      "pivot": [
+        -0.4,
+        10.5,
+        -3.5
+      ],
+      "size": [
+        4.4,
+        1.5,
+        2
+      ],
+      "material": "gold",
+      "offset": [
+        -2.2,
+        -0.75,
+        -1.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        236,
+        59
+      ],
+      "rect": [
+        13,
+        4
+      ]
+    },
+    {
+      "name": "boot_core_-1",
+      "parent": "right_leg",
+      "slot": "feet",
+      "pivot": [
+        -0.4,
+        9,
+        -2.7
+      ],
+      "size": [
+        2,
+        1,
+        0.4
+      ],
+      "material": "ember",
+      "offset": [
+        -1.0,
+        -0.5,
+        -0.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        0,
+        72
+      ],
+      "rect": [
+        5,
+        2
+      ]
+    },
+    {
+      "name": "thigh_1",
+      "parent": "left_leg",
+      "slot": "legs",
+      "pivot": [
+        0.4,
+        3,
+        0
+      ],
+      "size": [
+        3.8,
+        6,
+        4.7
+      ],
+      "material": "metal",
+      "offset": [
+        -1.9,
+        -3.0,
+        -2.35
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        7,
+        72
+      ],
+      "rect": [
+        17,
+        11
+      ]
+    },
+    {
+      "name": "knee_1",
+      "parent": "left_leg",
+      "slot": "legs",
+      "pivot": [
+        0.4,
+        7,
+        -2.8
+      ],
+      "size": [
+        4,
+        3,
+        1.6
+      ],
+      "material": "gold",
+      "offset": [
+        -2.0,
+        -1.5,
+        -0.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        26,
+        72
+      ],
+      "rect": [
+        12,
+        5
+      ]
+    },
+    {
+      "name": "knee_core_1",
+      "parent": "left_leg",
+      "slot": "legs",
+      "pivot": [
+        0.4,
+        7,
+        -3.7
+      ],
+      "size": [
+        1.5,
+        2,
+        0.4
+      ],
+      "material": "ruby",
+      "offset": [
+        -0.75,
+        -1.0,
+        -0.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        40,
+        72
+      ],
+      "rect": [
+        4,
+        3
+      ]
+    },
+    {
+      "name": "leg_line_1",
+      "parent": "left_leg",
+      "slot": "legs",
+      "pivot": [
+        0.4,
+        3,
+        -2.6
+      ],
+      "size": [
+        0.6,
+        4,
+        0.4
+      ],
+      "material": "ember",
+      "offset": [
+        -0.3,
+        -2.0,
+        -0.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        46,
+        72
+      ],
+      "rect": [
+        2,
+        5
+      ]
+    },
+    {
+      "name": "shin_1",
+      "parent": "left_leg",
+      "slot": "feet",
+      "pivot": [
+        0.4,
+        8.5,
+        0
+      ],
+      "size": [
+        4,
+        5,
+        5
+      ],
+      "material": "metal",
+      "offset": [
+        -2.0,
+        -2.5,
+        -2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        50,
+        72
+      ],
+      "rect": [
+        18,
+        10
+      ]
+    },
+    {
+      "name": "ankle_1",
+      "parent": "left_leg",
+      "slot": "feet",
+      "pivot": [
+        0.4,
+        8,
+        0
+      ],
+      "size": [
+        4.4,
+        1.2,
+        5.4
+      ],
+      "material": "gold",
+      "offset": [
+        -2.2,
+        -0.6,
+        -2.7
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        70,
+        72
+      ],
+      "rect": [
+        20,
+        7
+      ]
+    },
+    {
+      "name": "boot_toe_1",
+      "parent": "left_leg",
+      "slot": "feet",
+      "pivot": [
+        0.4,
+        11,
+        -1
+      ],
+      "size": [
+        4.2,
+        2,
+        7
+      ],
+      "material": "metal",
+      "offset": [
+        -2.1,
+        -1.0,
+        -3.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        92,
+        72
+      ],
+      "rect": [
+        23,
+        9
+      ]
+    },
+    {
+      "name": "toe_step_1",
+      "parent": "left_leg",
+      "slot": "feet",
+      "pivot": [
+        0.4,
+        10.5,
+        -3.5
+      ],
+      "size": [
+        4.4,
+        1.5,
+        2
+      ],
+      "material": "gold",
+      "offset": [
+        -2.2,
+        -0.75,
+        -1.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        117,
+        72
+      ],
+      "rect": [
+        13,
+        4
+      ]
+    },
+    {
+      "name": "boot_core_1",
+      "parent": "left_leg",
+      "slot": "feet",
+      "pivot": [
+        0.4,
+        9,
+        -2.7
+      ],
+      "size": [
+        2,
+        1,
+        0.4
+      ],
+      "material": "ember",
+      "offset": [
+        -1.0,
+        -0.5,
+        -0.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        132,
+        72
+      ],
+      "rect": [
+        5,
+        2
+      ]
+    }
+  ]
+}

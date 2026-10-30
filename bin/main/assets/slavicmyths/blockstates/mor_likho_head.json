@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=north,half=lower": {
+      "model": "slavicmyths:block/mor_likho_head"
+    },
+    "facing=north,half=upper": {
+      "model": "slavicmyths:block/mor_likho_head"
+    },
+    "facing=east,half=lower": {
+      "model": "slavicmyths:block/mor_likho_head"
+    },
+    "facing=east,half=upper": {
+      "model": "slavicmyths:block/mor_likho_head"
+    },
+    "facing=south,half=lower": {
+      "model": "slavicmyths:block/mor_likho_head"
+    },
+    "facing=south,half=upper": {
+      "model": "slavicmyths:block/mor_likho_head"
+    },
+    "facing=west,half=lower": {
+      "model": "slavicmyths:block/mor_likho_head"
+    },
+    "facing=west,half=upper": {
+      "model": "slavicmyths:block/mor_likho_head"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slavicmyths:block/cracked_charred_stone_slab"
+    },
+    "type=double": {
+      "model": "slavicmyths:block/cracked_charred_stone"
+    },
+    "type=top": {
+      "model": "slavicmyths:block/cracked_charred_stone_slab_top"
+    }
+  }
+}

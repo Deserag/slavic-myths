@@ -1,0 +1,17 @@
+{
+  "entity.minecraft.villager.farmer": "Земледелец",
+  "entity.minecraft.villager.fisherman": "Рыбак",
+  "entity.minecraft.villager.shepherd": "Пастух",
+  "entity.minecraft.villager.librarian": "Летописец",
+  "entity.minecraft.villager.cartographer": "Картограф",
+  "entity.minecraft.villager.leatherworker": "Кожевник",
+  "entity.minecraft.villager.butcher": "Мясник",
+  "entity.minecraft.villager.mason": "Каменщик",
+  "entity.minecraft.villager.fletcher": "Стрелодел",
+  "entity.minecraft.villager.toolsmith": "Инструментальщик",
+  "entity.minecraft.villager.weaponsmith": "Оружейник",
+  "entity.minecraft.villager.armorer": "Бронник",
+  "entity.minecraft.villager.cleric": "Знахарь",
+  "entity.minecraft.villager.nitwit": "Бездельник",
+  "entity.minecraft.wandering_trader": "Купец"
+}

@@ -1,0 +1,74 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "wax": "slavicmyths:block/tallow_wax",
+    "wick": "slavicmyths:block/tallow_wick",
+    "particle": "slavicmyths:block/tallow_wax"
+  },
+  "elements": [
+    {
+      "from": [
+        6.5,
+        0,
+        6.5
+      ],
+      "to": [
+        9.5,
+        7,
+        9.5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#wax"
+        },
+        "south": {
+          "texture": "#wax"
+        },
+        "east": {
+          "texture": "#wax"
+        },
+        "west": {
+          "texture": "#wax"
+        },
+        "up": {
+          "texture": "#wax"
+        },
+        "down": {
+          "texture": "#wax"
+        }
+      }
+    },
+    {
+      "from": [
+        7.75,
+        7,
+        7.75
+      ],
+      "to": [
+        8.25,
+        8,
+        8.25
+      ],
+      "faces": {
+        "north": {
+          "texture": "#wick"
+        },
+        "south": {
+          "texture": "#wick"
+        },
+        "east": {
+          "texture": "#wick"
+        },
+        "west": {
+          "texture": "#wick"
+        },
+        "up": {
+          "texture": "#wick"
+        },
+        "down": {
+          "texture": "#wick"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/ohotnichiy_rog_held225"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/ohotnichiy_rog"
+      }
+    }
+  }
+}

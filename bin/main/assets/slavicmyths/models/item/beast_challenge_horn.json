@@ -1,0 +1,29 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/beast_challenge_horn_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/beast_challenge_horn"
+      }
+    },
+    "ground": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/beast_challenge_horn"
+      }
+    },
+    "fixed": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/beast_challenge_horn"
+      }
+    }
+  },
+  "textures": {
+    "particle": "slavicmyths:item/beast_challenge_horn"
+  }
+}

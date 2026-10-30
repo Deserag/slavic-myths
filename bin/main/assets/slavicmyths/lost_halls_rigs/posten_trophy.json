@@ -1,0 +1,933 @@
+{
+  "atlas": 512,
+  "parts": [
+    {
+      "name": "head",
+      "parent": "root",
+      "pivot": [
+        0,
+        -39,
+        0
+      ],
+      "size": [
+        8,
+        10,
+        7
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -4.0,
+        -5.0,
+        -3.5
+      ],
+      "uv": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "mask_ring",
+      "parent": "head",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        3,
+        3,
+        3
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.5,
+        -1.5,
+        -1.5
+      ],
+      "uv": [
+        32,
+        0
+      ]
+    },
+    {
+      "name": "mask_0",
+      "parent": "mask_ring",
+      "pivot": [
+        0.0,
+        0,
+        -9.0
+      ],
+      "size": [
+        8,
+        19,
+        3
+      ],
+      "material": "sorrow",
+      "rotation": [
+        0,
+        -0.0,
+        0
+      ],
+      "offset": [
+        -4.0,
+        -9.5,
+        -1.5
+      ],
+      "uv": [
+        46,
+        0
+      ]
+    },
+    {
+      "name": "eye_mask0",
+      "parent": "mask_0",
+      "pivot": [
+        0,
+        -2.4,
+        -2
+      ],
+      "size": [
+        5,
+        1,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -2.5,
+        -0.5,
+        -0.5
+      ],
+      "uv": [
+        70,
+        0
+      ]
+    },
+    {
+      "name": "socket_0_-1",
+      "parent": "mask_0",
+      "pivot": [
+        -2,
+        -2.4,
+        -2
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -1.0,
+        -0.5
+      ],
+      "uv": [
+        84,
+        0
+      ]
+    },
+    {
+      "name": "tear_-1",
+      "parent": "mask_0",
+      "pivot": [
+        -2,
+        1.2,
+        -2
+      ],
+      "size": [
+        1,
+        5,
+        1
+      ],
+      "material": "light",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -0.5,
+        -2.5,
+        -0.5
+      ],
+      "uv": [
+        92,
+        0
+      ]
+    },
+    {
+      "name": "socket_0_1",
+      "parent": "mask_0",
+      "pivot": [
+        2,
+        -2.4,
+        -2
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -1.0,
+        -0.5
+      ],
+      "uv": [
+        98,
+        0
+      ]
+    },
+    {
+      "name": "tear_1",
+      "parent": "mask_0",
+      "pivot": [
+        2,
+        1.2,
+        -2
+      ],
+      "size": [
+        1,
+        5,
+        1
+      ],
+      "material": "light",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -0.5,
+        -2.5,
+        -0.5
+      ],
+      "uv": [
+        106,
+        0
+      ]
+    },
+    {
+      "name": "sorrow_mouth",
+      "parent": "mask_0",
+      "pivot": [
+        0,
+        6.0,
+        -2
+      ],
+      "size": [
+        3,
+        1,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.5,
+        -0.5,
+        -0.5
+      ],
+      "uv": [
+        112,
+        0
+      ]
+    },
+    {
+      "name": "mask_1",
+      "parent": "mask_ring",
+      "pivot": [
+        9.0,
+        0,
+        -5.51091059616309e-16
+      ],
+      "size": [
+        8,
+        19,
+        3
+      ],
+      "material": "anger",
+      "rotation": [
+        0,
+        -1.5707963267948966,
+        0
+      ],
+      "offset": [
+        -4.0,
+        -9.5,
+        -1.5
+      ],
+      "uv": [
+        122,
+        0
+      ]
+    },
+    {
+      "name": "eye_mask1",
+      "parent": "mask_1",
+      "pivot": [
+        0,
+        -2.4,
+        -2
+      ],
+      "size": [
+        5,
+        1,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -2.5,
+        -0.5,
+        -0.5
+      ],
+      "uv": [
+        146,
+        0
+      ]
+    },
+    {
+      "name": "socket_1_-1",
+      "parent": "mask_1",
+      "pivot": [
+        -2,
+        -2.4,
+        -2
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -1.0,
+        -0.5
+      ],
+      "uv": [
+        160,
+        0
+      ]
+    },
+    {
+      "name": "brow_-1",
+      "parent": "mask_1",
+      "pivot": [
+        -2,
+        -4.8,
+        -2
+      ],
+      "size": [
+        4,
+        2,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        -0.3
+      ],
+      "offset": [
+        -2.0,
+        -1.0,
+        -0.5
+      ],
+      "uv": [
+        168,
+        0
+      ]
+    },
+    {
+      "name": "socket_1_1",
+      "parent": "mask_1",
+      "pivot": [
+        2,
+        -2.4,
+        -2
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -1.0,
+        -0.5
+      ],
+      "uv": [
+        180,
+        0
+      ]
+    },
+    {
+      "name": "brow_1",
+      "parent": "mask_1",
+      "pivot": [
+        2,
+        -4.8,
+        -2
+      ],
+      "size": [
+        4,
+        2,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0.3
+      ],
+      "offset": [
+        -2.0,
+        -1.0,
+        -0.5
+      ],
+      "uv": [
+        188,
+        0
+      ]
+    },
+    {
+      "name": "anger_mouth",
+      "parent": "mask_1",
+      "pivot": [
+        0,
+        3.5999999999999996,
+        -2
+      ],
+      "size": [
+        5,
+        3,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -2.5,
+        -1.5,
+        -0.5
+      ],
+      "uv": [
+        200,
+        0
+      ]
+    },
+    {
+      "name": "tooth_-1",
+      "parent": "mask_1",
+      "pivot": [
+        -1,
+        2.4,
+        -3
+      ],
+      "size": [
+        1,
+        2,
+        1
+      ],
+      "material": "pale",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -0.5,
+        -1.0,
+        -0.5
+      ],
+      "uv": [
+        214,
+        0
+      ]
+    },
+    {
+      "name": "tooth_1",
+      "parent": "mask_1",
+      "pivot": [
+        1,
+        2.4,
+        -3
+      ],
+      "size": [
+        1,
+        2,
+        1
+      ],
+      "material": "pale",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -0.5,
+        -1.0,
+        -0.5
+      ],
+      "uv": [
+        220,
+        0
+      ]
+    },
+    {
+      "name": "mask_2",
+      "parent": "mask_ring",
+      "pivot": [
+        1.102182119232618e-15,
+        0,
+        9.0
+      ],
+      "size": [
+        8,
+        19,
+        3
+      ],
+      "material": "decay",
+      "rotation": [
+        0,
+        -3.141592653589793,
+        0
+      ],
+      "offset": [
+        -4.0,
+        -9.5,
+        -1.5
+      ],
+      "uv": [
+        226,
+        0
+      ]
+    },
+    {
+      "name": "eye_mask2",
+      "parent": "mask_2",
+      "pivot": [
+        0,
+        -2.4,
+        -2
+      ],
+      "size": [
+        5,
+        1,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -2.5,
+        -0.5,
+        -0.5
+      ],
+      "uv": [
+        250,
+        0
+      ]
+    },
+    {
+      "name": "socket_2_-1",
+      "parent": "mask_2",
+      "pivot": [
+        -2,
+        -2.4,
+        -2
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -1.0,
+        -0.5
+      ],
+      "uv": [
+        264,
+        0
+      ]
+    },
+    {
+      "name": "socket_2_1",
+      "parent": "mask_2",
+      "pivot": [
+        2,
+        -2.4,
+        -2
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -1.0,
+        -0.5
+      ],
+      "uv": [
+        272,
+        0
+      ]
+    },
+    {
+      "name": "decay_chip_0",
+      "parent": "mask_2",
+      "pivot": [
+        -3,
+        -1.2,
+        -2
+      ],
+      "size": [
+        2,
+        3,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -1.5,
+        -0.5
+      ],
+      "uv": [
+        280,
+        0
+      ]
+    },
+    {
+      "name": "decay_chip_1",
+      "parent": "mask_2",
+      "pivot": [
+        -1,
+        0.0,
+        -2
+      ],
+      "size": [
+        2,
+        3,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -1.5,
+        -0.5
+      ],
+      "uv": [
+        288,
+        0
+      ]
+    },
+    {
+      "name": "decay_chip_2",
+      "parent": "mask_2",
+      "pivot": [
+        1,
+        1.2,
+        -2
+      ],
+      "size": [
+        2,
+        3,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -1.5,
+        -0.5
+      ],
+      "uv": [
+        296,
+        0
+      ]
+    },
+    {
+      "name": "decay_chip_3",
+      "parent": "mask_2",
+      "pivot": [
+        3,
+        2.4,
+        -2
+      ],
+      "size": [
+        2,
+        3,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -1.5,
+        -0.5
+      ],
+      "uv": [
+        304,
+        0
+      ]
+    },
+    {
+      "name": "mask_3",
+      "parent": "mask_ring",
+      "pivot": [
+        -9.0,
+        0,
+        1.6532731788489267e-15
+      ],
+      "size": [
+        8,
+        19,
+        3
+      ],
+      "material": "silence",
+      "rotation": [
+        0,
+        -4.71238898038469,
+        0
+      ],
+      "offset": [
+        -4.0,
+        -9.5,
+        -1.5
+      ],
+      "uv": [
+        312,
+        0
+      ]
+    },
+    {
+      "name": "eye_mask3",
+      "parent": "mask_3",
+      "pivot": [
+        0,
+        -2.4,
+        -2
+      ],
+      "size": [
+        5,
+        1,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -2.5,
+        -0.5,
+        -0.5
+      ],
+      "uv": [
+        336,
+        0
+      ]
+    },
+    {
+      "name": "socket_3_-1",
+      "parent": "mask_3",
+      "pivot": [
+        -2,
+        -2.4,
+        -2
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -1.0,
+        -0.5
+      ],
+      "uv": [
+        350,
+        0
+      ]
+    },
+    {
+      "name": "socket_3_1",
+      "parent": "mask_3",
+      "pivot": [
+        2,
+        -2.4,
+        -2
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -1.0,
+        -0.5
+      ],
+      "uv": [
+        358,
+        0
+      ]
+    },
+    {
+      "name": "silence_hollow",
+      "parent": "mask_3",
+      "pivot": [
+        0,
+        2.4,
+        -2
+      ],
+      "size": [
+        2,
+        8,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -4.0,
+        -0.5
+      ],
+      "uv": [
+        366,
+        0
+      ]
+    },
+    {
+      "name": "silence_crack",
+      "parent": "mask_3",
+      "pivot": [
+        2,
+        -4.8,
+        -2
+      ],
+      "size": [
+        1,
+        4,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -0.5,
+        -2.0,
+        -0.5
+      ],
+      "uv": [
+        374,
+        0
+      ]
+    }
+  ]
+}

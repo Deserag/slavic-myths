@@ -1,0 +1,17 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/hunter_belt_held148"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/hunter_belt"
+      }
+    }
+  },
+  "textures": {
+    "particle": "slavicmyths:item/hunter_belt"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=north,hanging=false": {
+      "model": "slavicmyths:block/serpent_torch",
+      "y": 0
+    },
+    "facing=north,hanging=true": {
+      "model": "slavicmyths:block/serpent_torch_wall",
+      "y": 0
+    },
+    "facing=east,hanging=false": {
+      "model": "slavicmyths:block/serpent_torch",
+      "y": 90
+    },
+    "facing=east,hanging=true": {
+      "model": "slavicmyths:block/serpent_torch_wall",
+      "y": 90
+    },
+    "facing=south,hanging=false": {
+      "model": "slavicmyths:block/serpent_torch",
+      "y": 180
+    },
+    "facing=south,hanging=true": {
+      "model": "slavicmyths:block/serpent_torch_wall",
+      "y": 180
+    },
+    "facing=west,hanging=false": {
+      "model": "slavicmyths:block/serpent_torch",
+      "y": 270
+    },
+    "facing=west,hanging=true": {
+      "model": "slavicmyths:block/serpent_torch_wall",
+      "y": 270
+    }
+  }
+}

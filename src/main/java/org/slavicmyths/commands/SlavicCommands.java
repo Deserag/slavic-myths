@@ -50,6 +50,7 @@ public final class SlavicCommands {
   org.slavicmyths.wood.WoodlandCommands.register(tree);
   org.slavicmyths.navya.NavyaCommands.register(tree);
   org.slavicmyths.posad.PosadCommands.register(tree);
+  org.slavicmyths.netherstructures.ManualNetherBuildings.register(tree);
   org.slavicmyths.worldgen.ManualStructureCommands.register(tree);
   org.slavicmyths.yaga.YagaCommands.register(tree);
   return tree;

@@ -1,0 +1,1568 @@
+{
+  "atlas": 512,
+  "parts": [
+    {
+      "name": "body",
+      "parent": "root",
+      "pivot": [
+        0,
+        -18,
+        0
+      ],
+      "size": [
+        15,
+        15,
+        10
+      ],
+      "material": "coal",
+      "uv": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "waist",
+      "parent": "root",
+      "pivot": [
+        0,
+        -6,
+        0
+      ],
+      "size": [
+        9,
+        10,
+        7
+      ],
+      "material": "coal",
+      "uv": [
+        54,
+        2
+      ]
+    },
+    {
+      "name": "hips",
+      "parent": "root",
+      "pivot": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        16,
+        7,
+        10
+      ],
+      "material": "coal",
+      "uv": [
+        88,
+        2
+      ]
+    },
+    {
+      "name": "arm0",
+      "parent": "root",
+      "pivot": [
+        -11,
+        -22,
+        0
+      ],
+      "size": [
+        5,
+        12,
+        5
+      ],
+      "material": "coal",
+      "rotation": [
+        -0.12,
+        0,
+        0.16
+      ],
+      "offset": [
+        -2.5,
+        0,
+        -2.5
+      ],
+      "uv": [
+        142,
+        2
+      ]
+    },
+    {
+      "name": "arm1",
+      "parent": "root",
+      "pivot": [
+        11,
+        -22,
+        0
+      ],
+      "size": [
+        5,
+        12,
+        5
+      ],
+      "material": "coal",
+      "rotation": [
+        -0.12,
+        0,
+        -0.16
+      ],
+      "offset": [
+        -2.5,
+        0,
+        -2.5
+      ],
+      "uv": [
+        164,
+        2
+      ]
+    },
+    {
+      "name": "gown0",
+      "parent": "root",
+      "pivot": [
+        0,
+        5,
+        1
+      ],
+      "size": [
+        16,
+        11,
+        11
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        -0.05,
+        0
+      ],
+      "uv": [
+        186,
+        2
+      ]
+    },
+    {
+      "name": "gown1",
+      "parent": "root",
+      "pivot": [
+        0,
+        13,
+        1
+      ],
+      "size": [
+        22,
+        12,
+        14
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0.05,
+        0
+      ],
+      "uv": [
+        242,
+        2
+      ]
+    },
+    {
+      "name": "gown2",
+      "parent": "root",
+      "pivot": [
+        0,
+        23,
+        1
+      ],
+      "size": [
+        28,
+        10,
+        18
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        -0.05,
+        0
+      ],
+      "uv": [
+        316,
+        2
+      ]
+    },
+    {
+      "name": "ribbon0",
+      "parent": "root",
+      "pivot": [
+        -10,
+        10,
+        -5
+      ],
+      "size": [
+        4,
+        23,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        -0.065,
+        0,
+        0.18
+      ],
+      "offset": [
+        -2,
+        0,
+        -1.5
+      ],
+      "uv": [
+        410,
+        2
+      ]
+    },
+    {
+      "name": "ribbon1",
+      "parent": "root",
+      "pivot": [
+        -10,
+        10,
+        0
+      ],
+      "size": [
+        4,
+        21,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        0.0,
+        0,
+        0.18
+      ],
+      "offset": [
+        -2,
+        0,
+        -1.5
+      ],
+      "uv": [
+        426,
+        2
+      ]
+    },
+    {
+      "name": "ribbon2",
+      "parent": "root",
+      "pivot": [
+        -10,
+        10,
+        5
+      ],
+      "size": [
+        4,
+        19,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        0.065,
+        0,
+        0.18
+      ],
+      "offset": [
+        -2,
+        0,
+        -1.5
+      ],
+      "uv": [
+        442,
+        2
+      ]
+    },
+    {
+      "name": "ribbon3",
+      "parent": "root",
+      "pivot": [
+        10,
+        10,
+        -5
+      ],
+      "size": [
+        4,
+        23,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        -0.065,
+        0,
+        -0.18
+      ],
+      "offset": [
+        -2,
+        0,
+        -1.5
+      ],
+      "uv": [
+        458,
+        2
+      ]
+    },
+    {
+      "name": "ribbon4",
+      "parent": "root",
+      "pivot": [
+        10,
+        10,
+        0
+      ],
+      "size": [
+        4,
+        21,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        0.0,
+        0,
+        -0.18
+      ],
+      "offset": [
+        -2,
+        0,
+        -1.5
+      ],
+      "uv": [
+        474,
+        2
+      ]
+    },
+    {
+      "name": "ribbon5",
+      "parent": "root",
+      "pivot": [
+        10,
+        10,
+        5
+      ],
+      "size": [
+        4,
+        19,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        0.065,
+        0,
+        -0.18
+      ],
+      "offset": [
+        -2,
+        0,
+        -1.5
+      ],
+      "uv": [
+        490,
+        2
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "root",
+      "pivot": [
+        0,
+        -34,
+        0
+      ],
+      "size": [
+        9,
+        12,
+        8
+      ],
+      "material": "coal",
+      "uv": [
+        2,
+        32
+      ]
+    },
+    {
+      "name": "collar",
+      "parent": "body",
+      "pivot": [
+        0,
+        -9,
+        0
+      ],
+      "size": [
+        13,
+        4,
+        10
+      ],
+      "material": "coal",
+      "uv": [
+        38,
+        32
+      ]
+    },
+    {
+      "name": "heart",
+      "parent": "body",
+      "pivot": [
+        0,
+        -1,
+        -5
+      ],
+      "size": [
+        2,
+        6,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        86,
+        32
+      ]
+    },
+    {
+      "name": "bust0",
+      "parent": "body",
+      "pivot": [
+        -4,
+        -2,
+        -4
+      ],
+      "size": [
+        6,
+        6,
+        5
+      ],
+      "material": "coal",
+      "rotation": [
+        -0.12,
+        0,
+        -0.12
+      ],
+      "uv": [
+        94,
+        32
+      ]
+    },
+    {
+      "name": "shoulder0",
+      "parent": "body",
+      "pivot": [
+        -8,
+        -5,
+        0
+      ],
+      "size": [
+        6,
+        7,
+        7
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        -0.2
+      ],
+      "uv": [
+        118,
+        32
+      ]
+    },
+    {
+      "name": "forearm0",
+      "parent": "arm0",
+      "pivot": [
+        0,
+        12,
+        0
+      ],
+      "size": [
+        4,
+        13,
+        4
+      ],
+      "material": "coal",
+      "rotation": [
+        -0.35,
+        0,
+        0.15
+      ],
+      "offset": [
+        -2,
+        0,
+        -2
+      ],
+      "uv": [
+        146,
+        32
+      ]
+    },
+    {
+      "name": "bust1",
+      "parent": "body",
+      "pivot": [
+        4,
+        -2,
+        -4
+      ],
+      "size": [
+        6,
+        6,
+        5
+      ],
+      "material": "coal",
+      "rotation": [
+        -0.12,
+        0,
+        0.12
+      ],
+      "uv": [
+        164,
+        32
+      ]
+    },
+    {
+      "name": "shoulder1",
+      "parent": "body",
+      "pivot": [
+        8,
+        -5,
+        0
+      ],
+      "size": [
+        6,
+        7,
+        7
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        0.2
+      ],
+      "uv": [
+        188,
+        32
+      ]
+    },
+    {
+      "name": "forearm1",
+      "parent": "arm1",
+      "pivot": [
+        0,
+        12,
+        0
+      ],
+      "size": [
+        4,
+        13,
+        4
+      ],
+      "material": "coal",
+      "rotation": [
+        -0.35,
+        0,
+        -0.15
+      ],
+      "offset": [
+        -2,
+        0,
+        -2
+      ],
+      "uv": [
+        216,
+        32
+      ]
+    },
+    {
+      "name": "fold00",
+      "parent": "gown0",
+      "pivot": [
+        -6.0,
+        1,
+        -5.5
+      ],
+      "size": [
+        4,
+        13,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        -0.18
+      ],
+      "uv": [
+        234,
+        32
+      ]
+    },
+    {
+      "name": "fold01",
+      "parent": "gown0",
+      "pivot": [
+        6.0,
+        1,
+        -5.5
+      ],
+      "size": [
+        4,
+        13,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        0.18
+      ],
+      "uv": [
+        250,
+        32
+      ]
+    },
+    {
+      "name": "fold10",
+      "parent": "gown1",
+      "pivot": [
+        -9.0,
+        1,
+        -7.0
+      ],
+      "size": [
+        4,
+        14,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        -0.18
+      ],
+      "uv": [
+        266,
+        32
+      ]
+    },
+    {
+      "name": "fold11",
+      "parent": "gown1",
+      "pivot": [
+        9.0,
+        1,
+        -7.0
+      ],
+      "size": [
+        4,
+        14,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        0.18
+      ],
+      "uv": [
+        282,
+        32
+      ]
+    },
+    {
+      "name": "fold20",
+      "parent": "gown2",
+      "pivot": [
+        -12.0,
+        1,
+        -9.0
+      ],
+      "size": [
+        4,
+        12,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        -0.18
+      ],
+      "uv": [
+        298,
+        32
+      ]
+    },
+    {
+      "name": "fold21",
+      "parent": "gown2",
+      "pivot": [
+        12.0,
+        1,
+        -9.0
+      ],
+      "size": [
+        4,
+        12,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        0.18
+      ],
+      "uv": [
+        314,
+        32
+      ]
+    },
+    {
+      "name": "tip0",
+      "parent": "ribbon0",
+      "pivot": [
+        0,
+        20,
+        0
+      ],
+      "size": [
+        2,
+        2,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        330,
+        32
+      ]
+    },
+    {
+      "name": "tip1",
+      "parent": "ribbon1",
+      "pivot": [
+        0,
+        18,
+        0
+      ],
+      "size": [
+        2,
+        2,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        340,
+        32
+      ]
+    },
+    {
+      "name": "tip2",
+      "parent": "ribbon2",
+      "pivot": [
+        0,
+        16,
+        0
+      ],
+      "size": [
+        2,
+        2,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        350,
+        32
+      ]
+    },
+    {
+      "name": "tip3",
+      "parent": "ribbon3",
+      "pivot": [
+        0,
+        20,
+        0
+      ],
+      "size": [
+        2,
+        2,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        360,
+        32
+      ]
+    },
+    {
+      "name": "tip4",
+      "parent": "ribbon4",
+      "pivot": [
+        0,
+        18,
+        0
+      ],
+      "size": [
+        2,
+        2,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        370,
+        32
+      ]
+    },
+    {
+      "name": "tip5",
+      "parent": "ribbon5",
+      "pivot": [
+        0,
+        16,
+        0
+      ],
+      "size": [
+        2,
+        2,
+        2
+      ],
+      "material": "ember",
+      "uv": [
+        380,
+        32
+      ]
+    },
+    {
+      "name": "jaw",
+      "parent": "head",
+      "pivot": [
+        0,
+        4,
+        -1
+      ],
+      "size": [
+        7,
+        3,
+        6
+      ],
+      "material": "coal",
+      "uv": [
+        390,
+        32
+      ]
+    },
+    {
+      "name": "nose",
+      "parent": "head",
+      "pivot": [
+        0,
+        0,
+        -4
+      ],
+      "size": [
+        2,
+        4,
+        2
+      ],
+      "material": "coal",
+      "uv": [
+        418,
+        32
+      ]
+    },
+    {
+      "name": "cheek0",
+      "parent": "head",
+      "pivot": [
+        -4,
+        1,
+        -3
+      ],
+      "size": [
+        3,
+        5,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        0.15
+      ],
+      "uv": [
+        428,
+        32
+      ]
+    },
+    {
+      "name": "brow0",
+      "parent": "head",
+      "pivot": [
+        -2,
+        -2,
+        -4
+      ],
+      "size": [
+        4,
+        1,
+        2
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        0.18
+      ],
+      "uv": [
+        442,
+        32
+      ]
+    },
+    {
+      "name": "eye-2",
+      "parent": "head",
+      "pivot": [
+        -2,
+        -1,
+        -4.5
+      ],
+      "size": [
+        2,
+        1,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        456,
+        32
+      ]
+    },
+    {
+      "name": "crown_side0",
+      "parent": "head",
+      "pivot": [
+        -5,
+        -6,
+        1
+      ],
+      "size": [
+        3,
+        10,
+        4
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        -0.35
+      ],
+      "uv": [
+        464,
+        32
+      ]
+    },
+    {
+      "name": "cheek1",
+      "parent": "head",
+      "pivot": [
+        4,
+        1,
+        -3
+      ],
+      "size": [
+        3,
+        5,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        -0.15
+      ],
+      "uv": [
+        480,
+        32
+      ]
+    },
+    {
+      "name": "brow1",
+      "parent": "head",
+      "pivot": [
+        2,
+        -2,
+        -4
+      ],
+      "size": [
+        4,
+        1,
+        2
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        -0.18
+      ],
+      "uv": [
+        494,
+        32
+      ]
+    },
+    {
+      "name": "eye2",
+      "parent": "head",
+      "pivot": [
+        2,
+        -1,
+        -4.5
+      ],
+      "size": [
+        2,
+        1,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        2,
+        54
+      ]
+    },
+    {
+      "name": "crown_side1",
+      "parent": "head",
+      "pivot": [
+        5,
+        -6,
+        1
+      ],
+      "size": [
+        3,
+        10,
+        4
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        0.35
+      ],
+      "uv": [
+        10,
+        54
+      ]
+    },
+    {
+      "name": "crown_front",
+      "parent": "head",
+      "pivot": [
+        0,
+        -6,
+        -3
+      ],
+      "size": [
+        8,
+        3,
+        3
+      ],
+      "material": "coal",
+      "uv": [
+        26,
+        54
+      ]
+    },
+    {
+      "name": "crown_gem",
+      "parent": "head",
+      "pivot": [
+        0,
+        -8,
+        -4
+      ],
+      "size": [
+        2,
+        3,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        50,
+        54
+      ]
+    },
+    {
+      "name": "crown_spire",
+      "parent": "head",
+      "pivot": [
+        0,
+        -13,
+        1
+      ],
+      "size": [
+        3,
+        11,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        0.12,
+        0,
+        0
+      ],
+      "uv": [
+        58,
+        54
+      ]
+    },
+    {
+      "name": "hair_back",
+      "parent": "head",
+      "pivot": [
+        0,
+        6,
+        5
+      ],
+      "size": [
+        10,
+        18,
+        5
+      ],
+      "material": "ash",
+      "rotation": [
+        0.12,
+        0,
+        0
+      ],
+      "uv": [
+        72,
+        54
+      ]
+    },
+    {
+      "name": "hair0",
+      "parent": "head",
+      "pivot": [
+        -5.0,
+        4,
+        4
+      ],
+      "size": [
+        3,
+        19,
+        4
+      ],
+      "material": "ash",
+      "rotation": [
+        0.1,
+        0,
+        -0.24
+      ],
+      "uv": [
+        104,
+        54
+      ]
+    },
+    {
+      "name": "hair1",
+      "parent": "head",
+      "pivot": [
+        -2.5,
+        4,
+        4
+      ],
+      "size": [
+        3,
+        25,
+        4
+      ],
+      "material": "ash",
+      "rotation": [
+        0.1,
+        0,
+        -0.12
+      ],
+      "uv": [
+        120,
+        54
+      ]
+    },
+    {
+      "name": "hair2",
+      "parent": "head",
+      "pivot": [
+        0.0,
+        4,
+        4
+      ],
+      "size": [
+        3,
+        19,
+        4
+      ],
+      "material": "ash",
+      "rotation": [
+        0.1,
+        0,
+        0.0
+      ],
+      "uv": [
+        136,
+        54
+      ]
+    },
+    {
+      "name": "hair3",
+      "parent": "head",
+      "pivot": [
+        2.5,
+        4,
+        4
+      ],
+      "size": [
+        3,
+        25,
+        4
+      ],
+      "material": "ash",
+      "rotation": [
+        0.1,
+        0,
+        0.12
+      ],
+      "uv": [
+        152,
+        54
+      ]
+    },
+    {
+      "name": "hair4",
+      "parent": "head",
+      "pivot": [
+        5.0,
+        4,
+        4
+      ],
+      "size": [
+        3,
+        19,
+        4
+      ],
+      "material": "ash",
+      "rotation": [
+        0.1,
+        0,
+        0.24
+      ],
+      "uv": [
+        168,
+        54
+      ]
+    },
+    {
+      "name": "ash_tress0",
+      "parent": "head",
+      "pivot": [
+        -6,
+        1,
+        1
+      ],
+      "size": [
+        4,
+        24,
+        5
+      ],
+      "material": "coal",
+      "rotation": [
+        0.08,
+        0,
+        -0.18
+      ],
+      "uv": [
+        184,
+        54
+      ]
+    },
+    {
+      "name": "ash_tress1",
+      "parent": "head",
+      "pivot": [
+        6,
+        1,
+        1
+      ],
+      "size": [
+        4,
+        24,
+        5
+      ],
+      "material": "coal",
+      "rotation": [
+        0.08,
+        0,
+        0.18
+      ],
+      "uv": [
+        204,
+        54
+      ]
+    },
+    {
+      "name": "hand0",
+      "parent": "forearm0",
+      "pivot": [
+        0,
+        12,
+        0
+      ],
+      "size": [
+        4,
+        5,
+        3
+      ],
+      "material": "coal",
+      "offset": [
+        -2,
+        0,
+        -1.5
+      ],
+      "uv": [
+        224,
+        54
+      ]
+    },
+    {
+      "name": "hand1",
+      "parent": "forearm1",
+      "pivot": [
+        0,
+        12,
+        0
+      ],
+      "size": [
+        4,
+        5,
+        3
+      ],
+      "material": "coal",
+      "offset": [
+        -2,
+        0,
+        -1.5
+      ],
+      "uv": [
+        240,
+        54
+      ]
+    },
+    {
+      "name": "lower_lip",
+      "parent": "jaw",
+      "pivot": [
+        0,
+        0,
+        -3
+      ],
+      "size": [
+        3,
+        1,
+        1
+      ],
+      "material": "ash",
+      "uv": [
+        256,
+        54
+      ]
+    },
+    {
+      "name": "crown_tip0",
+      "parent": "crown_side0",
+      "pivot": [
+        0,
+        -6,
+        0
+      ],
+      "size": [
+        2,
+        7,
+        2
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        -0.2
+      ],
+      "uv": [
+        266,
+        54
+      ]
+    },
+    {
+      "name": "crown_tip1",
+      "parent": "crown_side1",
+      "pivot": [
+        0,
+        -6,
+        0
+      ],
+      "size": [
+        2,
+        10,
+        2
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        0.2
+      ],
+      "uv": [
+        276,
+        54
+      ]
+    },
+    {
+      "name": "finger00",
+      "parent": "hand0",
+      "pivot": [
+        -1.3,
+        4,
+        -0.4
+      ],
+      "size": [
+        1,
+        4,
+        1
+      ],
+      "material": "coal",
+      "rotation": [
+        -0.12,
+        0,
+        0
+      ],
+      "uv": [
+        286,
+        54
+      ]
+    },
+    {
+      "name": "finger01",
+      "parent": "hand0",
+      "pivot": [
+        0.0,
+        4,
+        -0.4
+      ],
+      "size": [
+        1,
+        5,
+        1
+      ],
+      "material": "coal",
+      "rotation": [
+        -0.12,
+        0,
+        0
+      ],
+      "uv": [
+        292,
+        54
+      ]
+    },
+    {
+      "name": "finger02",
+      "parent": "hand0",
+      "pivot": [
+        1.3,
+        4,
+        -0.4
+      ],
+      "size": [
+        1,
+        4,
+        1
+      ],
+      "material": "coal",
+      "rotation": [
+        -0.12,
+        0,
+        0
+      ],
+      "uv": [
+        298,
+        54
+      ]
+    },
+    {
+      "name": "finger10",
+      "parent": "hand1",
+      "pivot": [
+        -1.3,
+        4,
+        -0.4
+      ],
+      "size": [
+        1,
+        4,
+        1
+      ],
+      "material": "coal",
+      "rotation": [
+        -0.12,
+        0,
+        0
+      ],
+      "uv": [
+        304,
+        54
+      ]
+    },
+    {
+      "name": "finger11",
+      "parent": "hand1",
+      "pivot": [
+        0.0,
+        4,
+        -0.4
+      ],
+      "size": [
+        1,
+        5,
+        1
+      ],
+      "material": "coal",
+      "rotation": [
+        -0.12,
+        0,
+        0
+      ],
+      "uv": [
+        310,
+        54
+      ]
+    },
+    {
+      "name": "finger12",
+      "parent": "hand1",
+      "pivot": [
+        1.3,
+        4,
+        -0.4
+      ],
+      "size": [
+        1,
+        4,
+        1
+      ],
+      "material": "coal",
+      "rotation": [
+        -0.12,
+        0,
+        0
+      ],
+      "uv": [
+        316,
+        54
+      ]
+    }
+  ]
+}

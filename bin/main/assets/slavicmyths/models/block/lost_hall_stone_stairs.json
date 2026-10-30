@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "slavicmyths:block/lost_hall_stone_top",
+    "side": "slavicmyths:block/lost_hall_stone",
+    "top": "slavicmyths:block/lost_hall_stone_top"
+  }
+}

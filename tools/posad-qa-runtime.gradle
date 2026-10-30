@@ -1,5 +1,6 @@
 allprojects { afterEvaluate {
  sourceSets { posadQa { java.srcDir 'tools/posad-runtime-tests'; resources.srcDir 'tools/posad-test-resources' } }
+ if(project.findProperty('posadCommandOnly')=='true')sourceSets.posadQa.java.exclude('**/PosadShellGameTests.java')
  sourceSets.posadQa.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
  sourceSets.posadQa.runtimeClasspath += sourceSets.main.runtimeClasspath - sourceSets.main.output
  def qa=neoForge.mods.create('slavicmyths_posad'){sourceSet sourceSets.posadQa}

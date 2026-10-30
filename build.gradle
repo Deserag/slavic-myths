@@ -646,3 +646,16 @@ if (project.hasProperty('posadCheck')) {
   systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_posad'
  } }
 }
+
+if (project.hasProperty('netherBossCheck')) {
+ sourceSets { netherBossCheck { java.srcDir 'tools/netherboss-tests'; resources.srcDir 'tools/netherboss-test-resources' } }
+ sourceSets.netherBossCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.netherBossCheck.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+ tasks.named('compileNetherBossCheckJava') { dependsOn 'classes' }
+ neoForge.mods.slavicmyths.sourceSet(sourceSets.netherBossCheck)
+ neoForge.runs { netherBossChecks {
+  type = 'gameTestServer'
+  gameDirectory = file('run-netherboss-isolated')
+  systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_netherboss'
+ } }
+}

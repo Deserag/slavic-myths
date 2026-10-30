@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "slavicmyths:block/rowan_planks"
+  }
+}

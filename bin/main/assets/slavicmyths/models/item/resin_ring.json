@@ -1,0 +1,17 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/resin_ring_held148"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/resin_ring"
+      }
+    }
+  },
+  "textures": {
+    "particle": "slavicmyths:item/resin_ring"
+  }
+}

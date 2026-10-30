@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "slavicmyths:item/four_faces_crown_core"
+  }
+}

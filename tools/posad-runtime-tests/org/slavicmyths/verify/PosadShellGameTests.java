@@ -31,7 +31,7 @@ public final class PosadShellGameTests {
   var anchor=t.absolutePos(new net.minecraft.core.BlockPos(turns*160,140,0));
   var piece=new PosadPiece(anchor,turns);
   for(var patch:PosadGeometry.chunkPatches(anchor.getX(),anchor.getZ())) {
-   world.getChunk(patch.chunkX(),patch.chunkZ());
+   world.getChunk(patch.chunkX(),patch.chunkZ());world.setChunkForced(patch.chunkX(),patch.chunkZ(),true);
    var r=patch.worldClip();
    var clip=new net.minecraft.world.level.levelgen.structure.BoundingBox(r.minX(),anchor.getY()-2,r.minZ(),r.maxX(),anchor.getY()+17,r.maxZ());
    piece.postProcess(world,world.structureManager(),world.getChunkSource().getGenerator(),world.random,clip,
@@ -242,5 +242,6 @@ public final class PosadShellGameTests {
   t.assertTrue(wallMaterials.size()>=3,"Wall palette lacks variety");
   t.succeed();
  }
+
 
 }

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slavicmyths:block/lost_hall_stone_slab"
+    },
+    "type=double": {
+      "model": "slavicmyths:block/lost_hall_stone"
+    },
+    "type=top": {
+      "model": "slavicmyths:block/lost_hall_stone_slab_top"
+    }
+  }
+}

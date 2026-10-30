@@ -1,0 +1,2043 @@
+{
+  "name": "tugarin_phase1",
+  "parts": [
+    {
+      "name": "root",
+      "parent": "",
+      "pivot": [
+        0,
+        24,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "pelvis",
+      "parent": "root",
+      "pivot": [
+        0,
+        -24,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "body",
+      "parent": "pelvis",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "legL",
+      "parent": "pelvis",
+      "pivot": [
+        10,
+        0,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "legR",
+      "parent": "pelvis",
+      "pivot": [
+        -10,
+        0,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "chest",
+      "parent": "body",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -24,
+        -32,
+        -10,
+        48,
+        30,
+        20
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "belly",
+      "parent": "body",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "belt",
+      "parent": "body",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -22,
+        1,
+        -18,
+        44,
+        3,
+        27
+      ],
+      "material": 2,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "buckle",
+      "parent": "body",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -4,
+        1,
+        -19,
+        8,
+        3.2,
+        1.2
+      ],
+      "material": 6,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "openVestL",
+      "parent": "body",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        16,
+        -32,
+        -11,
+        9,
+        24,
+        23
+      ],
+      "material": 1,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "openVestR",
+      "parent": "body",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -25,
+        -32,
+        -11,
+        9,
+        24,
+        23
+      ],
+      "material": 1,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "body",
+      "pivot": [
+        0,
+        -39.5,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "armL",
+      "parent": "body",
+      "pivot": [
+        22.4,
+        -28,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0.04
+      ]
+    },
+    {
+      "name": "pantsL",
+      "parent": "legL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -8,
+        0,
+        -7,
+        16,
+        13,
+        14
+      ],
+      "material": 1,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "armR",
+      "parent": "body",
+      "pivot": [
+        -22.4,
+        -28,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        -0.04
+      ]
+    },
+    {
+      "name": "pantsR",
+      "parent": "legR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -8,
+        0,
+        -7,
+        16,
+        13,
+        14
+      ],
+      "material": 1,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "neckMass",
+      "parent": "body",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -10,
+        -42,
+        -7,
+        20,
+        15,
+        14
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "kneeL",
+      "parent": "legL",
+      "pivot": [
+        0,
+        13,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "kneeR",
+      "parent": "legR",
+      "pivot": [
+        0,
+        13,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bellyBand0",
+      "parent": "belly",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -20.12461179749811,
+        -25,
+        -16.18033988749895,
+        40.24922359499622,
+        4.2,
+        22.360679774997898
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bellyBand1",
+      "parent": "belly",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -24.186773244895647,
+        -21,
+        -18.43709624716425,
+        48.373546489791295,
+        4.2,
+        26.874192494328497
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bellyBand2",
+      "parent": "belly",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -26.324893162176366,
+        -17,
+        -19.62494064565354,
+        52.64978632435273,
+        4.2,
+        29.249881291307073
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bellyBand3",
+      "parent": "belly",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -27.0,
+        -13,
+        -20.0,
+        54.0,
+        4.2,
+        30.0
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bellyBand4",
+      "parent": "belly",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -26.324893162176366,
+        -9,
+        -19.62494064565354,
+        52.64978632435273,
+        4.2,
+        29.249881291307073
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bellyBand5",
+      "parent": "belly",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -24.186773244895647,
+        -5,
+        -18.43709624716425,
+        48.373546489791295,
+        4.2,
+        26.874192494328497
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bellyBand6",
+      "parent": "belly",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -20.12461179749811,
+        -1,
+        -16.18033988749895,
+        40.24922359499622,
+        4.2,
+        22.360679774997898
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "face",
+      "parent": "head",
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "box": [
+        -8.25,
+        -13.2,
+        -8.25,
+        16.5,
+        16.5,
+        16.5
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "hairCap",
+      "parent": "head",
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "box": [
+        -8.58,
+        -13.86,
+        -4.949999999999999,
+        17.16,
+        3.3,
+        13.86
+      ],
+      "material": 3,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "nose",
+      "parent": "head",
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "box": [
+        -2.8049999999999997,
+        -4.949999999999999,
+        -11.219999999999999,
+        5.609999999999999,
+        4.949999999999999,
+        3.3
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "jaw",
+      "parent": "head",
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "box": [
+        -6.6,
+        -0.825,
+        -8.745,
+        13.2,
+        3.3,
+        11.549999999999999
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "moustacheL",
+      "parent": "head",
+      "pivot": [
+        2.145,
+        -0.825,
+        -9.239999999999998
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        -0.16
+      ]
+    },
+    {
+      "name": "sideHairL",
+      "parent": "head",
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "box": [
+        6.93,
+        -8.25,
+        3.3,
+        2.64,
+        14.85,
+        4.949999999999999
+      ],
+      "material": 3,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "eyeL",
+      "parent": "head",
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "box": [
+        3.135,
+        -6.6,
+        -8.4975,
+        1.9799999999999998,
+        1.32,
+        0.66
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "pupilL",
+      "parent": "head",
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "box": [
+        3.7949999999999995,
+        -6.6,
+        -9.239999999999998,
+        0.66,
+        1.32,
+        0.33
+      ],
+      "material": 3,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "upperArmL",
+      "parent": "armL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -5.5,
+        -2,
+        -5.5,
+        11,
+        16,
+        11
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "foreL",
+      "parent": "armL",
+      "pivot": [
+        0,
+        14,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "moustacheR",
+      "parent": "head",
+      "pivot": [
+        -2.145,
+        -0.825,
+        -9.239999999999998
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0.16
+      ]
+    },
+    {
+      "name": "sideHairR",
+      "parent": "head",
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "box": [
+        -9.569999999999999,
+        -8.25,
+        3.3,
+        2.64,
+        14.85,
+        4.949999999999999
+      ],
+      "material": 3,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "eyeR",
+      "parent": "head",
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "box": [
+        -5.115,
+        -6.6,
+        -8.4975,
+        1.9799999999999998,
+        1.32,
+        0.66
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "pupilR",
+      "parent": "head",
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "box": [
+        -4.455,
+        -6.6,
+        -9.239999999999998,
+        0.66,
+        1.32,
+        0.33
+      ],
+      "material": 3,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "upperArmR",
+      "parent": "armR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -5.5,
+        -2,
+        -5.5,
+        11,
+        16,
+        11
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "foreR",
+      "parent": "armR",
+      "pivot": [
+        0,
+        14,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "browL",
+      "parent": "head",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        1.0999999999999996,
+        -7.8,
+        -8.8,
+        6,
+        1.5,
+        1.4
+      ],
+      "material": 3,
+      "rotation": [
+        0,
+        0,
+        -0.18
+      ]
+    },
+    {
+      "name": "earL",
+      "parent": "head",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        7,
+        -6,
+        -2,
+        2,
+        5,
+        3
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "browR",
+      "parent": "head",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -7.1,
+        -7.8,
+        -8.8,
+        6,
+        1.5,
+        1.4
+      ],
+      "material": 3,
+      "rotation": [
+        0,
+        0,
+        0.18
+      ]
+    },
+    {
+      "name": "earR",
+      "parent": "head",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -9,
+        -6,
+        -2,
+        2,
+        5,
+        3
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "snarlMouth",
+      "parent": "head",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -5.8,
+        0.2,
+        -8.9,
+        11.6,
+        3.6,
+        0.9
+      ],
+      "material": 3,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "snarlTooth0",
+      "parent": "head",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -5.2,
+        0.35,
+        -9.5,
+        1.4,
+        1.6,
+        0.5
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "snarlTooth1",
+      "parent": "head",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -3.45,
+        0.35,
+        -9.5,
+        1.4,
+        1.6,
+        0.5
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "snarlTooth2",
+      "parent": "head",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -1.7000000000000002,
+        0.35,
+        -9.5,
+        1.4,
+        1.6,
+        0.5
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "snarlTooth3",
+      "parent": "head",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        0.04999999999999982,
+        0.35,
+        -9.5,
+        1.4,
+        1.6,
+        0.5
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "snarlTooth4",
+      "parent": "head",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        1.7999999999999998,
+        0.35,
+        -9.5,
+        1.4,
+        1.6,
+        0.5
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "snarlTooth5",
+      "parent": "head",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        3.55,
+        0.35,
+        -9.5,
+        1.4,
+        1.6,
+        0.5
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "shinShellL",
+      "parent": "kneeL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -7.6,
+        0,
+        -6.8,
+        15.2,
+        7,
+        13.6
+      ],
+      "material": 1,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "ankleL",
+      "parent": "kneeL",
+      "pivot": [
+        0,
+        7,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "shinShellR",
+      "parent": "kneeR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -7.6,
+        0,
+        -6.8,
+        15.2,
+        7,
+        13.6
+      ],
+      "material": 1,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "ankleR",
+      "parent": "kneeR",
+      "pivot": [
+        0,
+        7,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "whiskerL",
+      "parent": "moustacheL",
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "box": [
+        0.0,
+        0.0,
+        0.0,
+        8.25,
+        1.9799999999999998,
+        1.65
+      ],
+      "material": 3,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "forearmL",
+      "parent": "foreL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -5,
+        0,
+        -5,
+        10,
+        15,
+        10
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "cuffL",
+      "parent": "foreL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -5.3,
+        10,
+        -5.3,
+        10.6,
+        4,
+        10.6
+      ],
+      "material": 4,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bootL",
+      "parent": "ankleL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -8.4,
+        -5,
+        -10,
+        16.8,
+        9,
+        19
+      ],
+      "material": 2,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "whiskerR",
+      "parent": "moustacheR",
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "box": [
+        -8.25,
+        0.0,
+        0.0,
+        8.25,
+        1.9799999999999998,
+        1.65
+      ],
+      "material": 3,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "forearmR",
+      "parent": "foreR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -5,
+        0,
+        -5,
+        10,
+        15,
+        10
+      ],
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "cuffR",
+      "parent": "foreR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -5.3,
+        10,
+        -5.3,
+        10.6,
+        4,
+        10.6
+      ],
+      "material": 4,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bootR",
+      "parent": "ankleR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -8.4,
+        -5,
+        -10,
+        16.8,
+        9,
+        19
+      ],
+      "material": 2,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "wristL",
+      "parent": "foreL",
+      "pivot": [
+        0,
+        14,
+        -3
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "wristR",
+      "parent": "foreR",
+      "pivot": [
+        0,
+        14,
+        -3
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeL",
+      "parent": "wristL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        -0.45,
+        0,
+        0.3
+      ]
+    },
+    {
+      "name": "bladeR",
+      "parent": "wristR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": null,
+      "material": 0,
+      "rotation": [
+        -0.45,
+        0,
+        -0.3
+      ]
+    },
+    {
+      "name": "gauntletL",
+      "parent": "wristL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -4.5,
+        -2,
+        -3.5,
+        9,
+        6,
+        7
+      ],
+      "material": 4,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "gauntletR",
+      "parent": "wristR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -4.5,
+        -2,
+        -3.5,
+        9,
+        6,
+        7
+      ],
+      "material": 4,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "gripL",
+      "parent": "bladeL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -1.1199999999999999,
+        -1.6,
+        -0.9099999999999999,
+        2.2399999999999998,
+        6.4,
+        1.8199999999999998
+      ],
+      "material": 2,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "guardL",
+      "parent": "bladeL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -4.800000000000001,
+        3.2,
+        -1.3,
+        9.600000000000001,
+        1.6,
+        2.6
+      ],
+      "material": 6,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeCurveL0",
+      "parent": "bladeL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -4.0,
+        4.800000000000001,
+        -0.78,
+        8.0,
+        5.120000000000001,
+        1.56
+      ],
+      "material": 4,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeEdgeL0",
+      "parent": "bladeL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        3.3600000000000003,
+        4.800000000000001,
+        -0.9750000000000001,
+        0.6400000000000001,
+        5.120000000000001,
+        1.9500000000000002
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeCurveL1",
+      "parent": "bladeL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -1.6,
+        9.600000000000001,
+        -0.78,
+        9.600000000000001,
+        5.120000000000001,
+        1.56
+      ],
+      "material": 4,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeEdgeL1",
+      "parent": "bladeL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        7.359999999999999,
+        9.600000000000001,
+        -0.9750000000000001,
+        0.6400000000000001,
+        5.120000000000001,
+        1.9500000000000002
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeCurveL2",
+      "parent": "bladeL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        0.8,
+        14.4,
+        -0.78,
+        8.0,
+        5.120000000000001,
+        1.56
+      ],
+      "material": 4,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeEdgeL2",
+      "parent": "bladeL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        8.16,
+        14.4,
+        -0.9750000000000001,
+        0.6400000000000001,
+        5.120000000000001,
+        1.9500000000000002
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeCurveL3",
+      "parent": "bladeL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        0.8,
+        19.200000000000003,
+        -0.78,
+        4.800000000000001,
+        5.120000000000001,
+        1.56
+      ],
+      "material": 4,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeEdgeL3",
+      "parent": "bladeL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        4.960000000000001,
+        19.200000000000003,
+        -0.9750000000000001,
+        0.6400000000000001,
+        5.120000000000001,
+        1.9500000000000002
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeCurveL4",
+      "parent": "bladeL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -1.52,
+        24.0,
+        -0.78,
+        2.4000000000000004,
+        5.120000000000001,
+        1.56
+      ],
+      "material": 4,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeEdgeL4",
+      "parent": "bladeL",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        0.24000000000000005,
+        24.0,
+        -0.9750000000000001,
+        0.6400000000000001,
+        5.120000000000001,
+        1.9500000000000002
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "gripR",
+      "parent": "bladeR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -1.1199999999999999,
+        -1.6,
+        -0.9099999999999999,
+        2.2399999999999998,
+        6.4,
+        1.8199999999999998
+      ],
+      "material": 2,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "guardR",
+      "parent": "bladeR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -4.800000000000001,
+        3.2,
+        -1.3,
+        9.600000000000001,
+        1.6,
+        2.6
+      ],
+      "material": 6,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeCurveR0",
+      "parent": "bladeR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -4.0,
+        4.800000000000001,
+        -0.78,
+        8.0,
+        5.120000000000001,
+        1.56
+      ],
+      "material": 4,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeEdgeR0",
+      "parent": "bladeR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -4.0,
+        4.800000000000001,
+        -0.9750000000000001,
+        0.6400000000000001,
+        5.120000000000001,
+        1.9500000000000002
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeCurveR1",
+      "parent": "bladeR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -8.0,
+        9.600000000000001,
+        -0.78,
+        9.600000000000001,
+        5.120000000000001,
+        1.56
+      ],
+      "material": 4,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeEdgeR1",
+      "parent": "bladeR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -8.0,
+        9.600000000000001,
+        -0.9750000000000001,
+        0.6400000000000001,
+        5.120000000000001,
+        1.9500000000000002
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeCurveR2",
+      "parent": "bladeR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -8.8,
+        14.4,
+        -0.78,
+        8.0,
+        5.120000000000001,
+        1.56
+      ],
+      "material": 4,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeEdgeR2",
+      "parent": "bladeR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -8.8,
+        14.4,
+        -0.9750000000000001,
+        0.6400000000000001,
+        5.120000000000001,
+        1.9500000000000002
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeCurveR3",
+      "parent": "bladeR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -5.6000000000000005,
+        19.200000000000003,
+        -0.78,
+        4.800000000000001,
+        5.120000000000001,
+        1.56
+      ],
+      "material": 4,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeEdgeR3",
+      "parent": "bladeR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -5.6000000000000005,
+        19.200000000000003,
+        -0.9750000000000001,
+        0.6400000000000001,
+        5.120000000000001,
+        1.9500000000000002
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeCurveR4",
+      "parent": "bladeR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -0.8800000000000001,
+        24.0,
+        -0.78,
+        2.4000000000000004,
+        5.120000000000001,
+        1.56
+      ],
+      "material": 4,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bladeEdgeR4",
+      "parent": "bladeR",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "box": [
+        -0.8800000000000001,
+        24.0,
+        -0.9750000000000001,
+        0.6400000000000001,
+        5.120000000000001,
+        1.9500000000000002
+      ],
+      "material": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}
