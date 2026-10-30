@@ -1,0 +1,41 @@
+CANONICAL_SUPERFLAT_CITY_PASS actual_ground=-61 min=-64 snow/tree removed; physical platform/gate; durable completion
+PACKAGED_BOSS_PASS id=slavicmyths:morova_deva HP=1350.0 creativeEgg=morova_deva_spawn_egg jar=D:\slavic-myths\work\terrain-boss-20261030-v3\mods\slavicmyths-2.1.6.2-TEST.jar
+PACKAGED_BOSS_PASS id=slavicmyths:trizna_prince HP=1800.0 creativeEgg=trizna_prince_spawn_egg jar=D:\slavic-myths\work\terrain-boss-20261030-v3\mods\slavicmyths-2.1.6.2-TEST.jar
+CANONICAL_TERRAIN_PASS layout=0 id=nether_watchpost ground=BlockPos{x=6000, y=100, z=4000}
+CANONICAL_TERRAIN_PASS layout=0 id=veche_hall ground=BlockPos{x=6064, y=100, z=4000}
+CANONICAL_TERRAIN_PASS layout=1 id=nether_watchpost ground=BlockPos{x=6160, y=100, z=4000}
+CANONICAL_TERRAIN_PASS layout=1 id=veche_hall ground=BlockPos{x=6224, y=100, z=4000}
+CANONICAL_TERRAIN_PASS layout=2 id=nether_watchpost ground=BlockPos{x=6320, y=100, z=4000}
+CANONICAL_TERRAIN_PASS layout=2 id=veche_hall ground=BlockPos{x=6384, y=100, z=4000}
+CANONICAL_TERRAIN_PASS layout=3 id=nether_watchpost ground=BlockPos{x=6480, y=100, z=4000}
+CANONICAL_TERRAIN_PASS layout=3 id=veche_hall ground=BlockPos{x=6544, y=100, z=4000}
+CANONICAL_TERRAIN_PASS layout=4 id=nether_watchpost ground=BlockPos{x=6640, y=100, z=4000}
+CANONICAL_TERRAIN_PASS layout=4 id=veche_hall ground=BlockPos{x=6704, y=100, z=4000}
+POSAD_COMMAND_NEGATIVE_PASS OP1 rejected; foreign chest preserved with3diamonds; immediate cancel zero writes/no active job
+POSAD_COMMAND_PASS dimension=minecraft:overworld id=veche_hall_2_2_2 physical_blocks=3598 repeatRejected=true world=Test Level
+POSAD_COMMAND_PASS dimension=minecraft:overworld id=communal_house_2_2_3 physical_blocks=1992 repeatRejected=true world=Test Level
+POSAD_COMMAND_PASS dimension=minecraft:overworld id=druzhinny_dvor_2_2_4 physical_blocks=2440 repeatRejected=true world=Test Level
+POSAD_COMMAND_PASS dimension=minecraft:overworld id=kuznechny_dvor_2_2_5 physical_blocks=1901 repeatRejected=true world=Test Level
+POSAD_COMMAND_PASS dimension=minecraft:overworld id=zeleynaya_2_2_7 physical_blocks=1599 repeatRejected=true world=Test Level
+POSAD_COMMAND_PASS dimension=minecraft:overworld id=granary_2_2_8 physical_blocks=1349 repeatRejected=true world=Test Level
+POSAD_COMMAND_PASS dimension=minecraft:the_nether id=veche_hall_2_2_2 physical_blocks=3598 repeatRejected=true world=Test Level
+POSAD_COMMAND_PASS dimension=minecraft:the_nether id=communal_house_2_2_3 physical_blocks=1992 repeatRejected=true world=Test Level
+POSAD_COMMAND_PASS dimension=minecraft:the_nether id=druzhinny_dvor_2_2_4 physical_blocks=2440 repeatRejected=true world=Test Level
+POSAD_COMMAND_PASS dimension=minecraft:the_nether id=kuznechny_dvor_2_2_5 physical_blocks=1901 repeatRejected=true world=Test Level
+POSAD_COMMAND_PASS dimension=minecraft:the_nether id=zeleynaya_2_2_7 physical_blocks=1599 repeatRejected=true world=Test Level
+POSAD_COMMAND_PASS dimension=minecraft:the_nether id=granary_2_2_8 physical_blocks=1349 repeatRejected=true world=Test Level
+NETHER_MANUAL_COMMAND_PASS minecraft:overworld nether_watchpost blocks=911 chests=1 repeatRejected
+NETHER_MANUAL_COMMAND_PASS minecraft:overworld broken_nether_bridge blocks=668 chests=0 repeatRejected
+NETHER_MANUAL_COMMAND_PASS minecraft:overworld wayfarer_camp blocks=439 chests=1 repeatRejected
+NETHER_MANUAL_COMMAND_PASS minecraft:overworld forgotten_shrine blocks=819 chests=1 repeatRejected
+NETHER_MANUAL_COMMAND_PASS minecraft:overworld ancestor_shrine blocks=1814 chests=1 repeatRejected
+NETHER_MANUAL_COMMAND_PASS minecraft:overworld trizna_pyre blocks=1614 chests=1 repeatRejected
+NETHER_MANUAL_COMMAND_PASS minecraft:the_nether nether_watchpost blocks=911 chests=1 repeatRejected
+NETHER_MANUAL_COMMAND_PASS minecraft:the_nether broken_nether_bridge blocks=668 chests=0 repeatRejected
+NETHER_MANUAL_COMMAND_PASS minecraft:the_nether wayfarer_camp blocks=439 chests=1 repeatRejected
+NETHER_MANUAL_COMMAND_PASS minecraft:the_nether forgotten_shrine blocks=819 chests=1 repeatRejected
+NETHER_MANUAL_COMMAND_PASS minecraft:the_nether ancestor_shrine blocks=1814 chests=1 repeatRejected
+NETHER_MANUAL_COMMAND_PASS minecraft:the_nether trizna_pyre blocks=1614 chests=1 repeatRejected
+POSAD_CITY_COMMAND_PASS OP2 ordinary world name both dimensions, actual relative-coordinate dispatcher, physical blocks and completed durable records
+[17:48:35] [Server thread/INFO] [minecraft/GameTestServer]: All 7 required tests passed :)
+BUILD SUCCESSFUL in 1m 12s

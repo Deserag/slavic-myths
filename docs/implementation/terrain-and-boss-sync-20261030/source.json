@@ -1,0 +1,7 @@
+{
+  "base_hell_commit": "77dfc5dc75d6a816da9a0737bd4a757f2799a5c0",
+  "boss_import_commit": "71ad57546a6e7c7764eac7a810fe541f1bd0d951",
+  "boss_branch": "codex/hell-bosses-completion-20261030",
+  "production_patch_sha256": "86344a261b41922f33b6d2799187ddfdfe7807a71e8688e2a8bd22cd31a9e164",
+  "automatic_commit": false
+}

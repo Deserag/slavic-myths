@@ -1,0 +1,13 @@
+{
+  "version": "2.1.6-HELL",
+  "source_commit": "77dfc5dc75d6a816da9a0737bd4a757f2799a5c0",
+  "local_production_patch_sha256": "ebcf195413f1305a6d5c04b5b7b503d3b0bba00fe1bb74995fce89adf516b171",
+  "installed_path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-2.1.6-HELL.jar",
+  "sha256": "ba433a20522ac5771bce708e46edb80268a65a77cc995122586e2fac755f5b8d",
+  "backup_path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\mod-backups\\commands-fix-20261030-172015\\slavicmyths-2.1.6-HELL.jar",
+  "backup_sha256": "8372a5476db89bc15e0662d3ce2b8197cfb30f740c0bf6615c246530c51ca588",
+  "headless_runs": 7,
+  "final_targeted_gametest": "4/4 PASS",
+  "local_gui_launches": 0,
+  "single_slavicmyths_mod_id": true
+}

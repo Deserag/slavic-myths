@@ -1,0 +1,6 @@
+{
+  "base_commit": "77dfc5dc75d6a816da9a0737bd4a757f2799a5c0",
+  "working_tree_patch_sha256": "ebcf195413f1305a6d5c04b5b7b503d3b0bba00fe1bb74995fce89adf516b171",
+  "patch": "production.patch",
+  "note": "Local fix; not committed automatically per AGENTS. No user/eclipse/bin files included."
+}

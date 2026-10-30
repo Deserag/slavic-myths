@@ -1,0 +1,7 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="Test fixture only"
+[[mods]]
+modId="slavicmyths_bossdedicated"
+version="1"
+displayName="Disposable boss dedicated restart QA"

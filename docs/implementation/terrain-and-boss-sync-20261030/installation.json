@@ -1,0 +1,16 @@
+{
+  "version": "2.1.6.2-TEST",
+  "installed_path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\.minecraft\\mods\\slavicmyths-2.1.6.2-TEST.jar",
+  "sha256": "de95759f9b0f04f0ee974cd7cb5dabc04abb4b01161b45dc3594d99708fda00a",
+  "backup_path": "C:\\Users\\pavel\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-1.21.1-Testing\\mod-backups\\terrain-bosses-20261030-de95759f\\slavicmyths-2.1.6-HELL.jar",
+  "backup_sha256": "ba433a20522ac5771bce708e46edb80268a65a77cc995122586e2fac755f5b8d",
+  "single_mod_id": true,
+  "local_gui_launches": 0,
+  "source": {
+    "base_hell_commit": "77dfc5dc75d6a816da9a0737bd4a757f2799a5c0",
+    "boss_import_commit": "71ad57546a6e7c7764eac7a810fe541f1bd0d951",
+    "boss_branch": "codex/hell-bosses-completion-20261030",
+    "production_patch_sha256": "86344a261b41922f33b6d2799187ddfdfe7807a71e8688e2a8bd22cd31a9e164",
+    "automatic_commit": false
+  }
+}
