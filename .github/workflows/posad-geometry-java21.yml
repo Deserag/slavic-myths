@@ -30,5 +30,7 @@ jobs:
         run: python3 tools/posad-tests/verify_city_buildings.py
       - name: Verify committed exact 2.2.2/2.2.3 structure NBT (offline)
         run: python3 tools/posad-tests/verify_generated_building_nbt.py
+      - name: Simulate 10,000 seeded communal loot tables (offline only)
+        run: python3 tools/posad-tests/verify_communal_loot_distribution.py
       - name: Verify real compressed 2.2.7 NBT and loot bindings (offline)
         run: python3 tools/posad-tests/verify_zeleynaya_nbt.py
