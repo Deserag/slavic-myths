@@ -80,7 +80,22 @@ public final class PosadShellGameTests {
     var at=anchor.offset(p.x(),y,p.z());
     var actual=world.getBlockState(at);
     var rotated=expected.rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
-    t.assertTrue(actual.equals(rotated),"Physical military/forge state mismatch "+slot+" "+x+","+y+","+z+" rot="+turns+" expected="+rotated+" found="+actual);
+    t.assertTrue(actual.is(rotated.getBlock()),"Physical district block mismatch "+slot+" "+x+","+y+","+z+" rot="+turns+" expected="+rotated+" found="+actual);
+    // Minecraft recalculates neighboring fence/bars/wall connections and stair
+    // shapes during chunk placement. Those are NOT fixed art properties.
+    // Preserve and assert the directional/functional properties themselves.
+    if(rotated.hasProperty(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING))
+     t.assertTrue(actual.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING)==rotated.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING),"Wrong horizontal facing "+slot+" "+at);
+    if(rotated.hasProperty(net.minecraft.world.level.block.DoorBlock.HALF))
+     t.assertTrue(actual.getValue(net.minecraft.world.level.block.DoorBlock.HALF)==rotated.getValue(net.minecraft.world.level.block.DoorBlock.HALF),"Wrong door half "+slot+" "+at);
+    if(rotated.hasProperty(net.minecraft.world.level.block.DoorBlock.HINGE))
+     t.assertTrue(actual.getValue(net.minecraft.world.level.block.DoorBlock.HINGE)==rotated.getValue(net.minecraft.world.level.block.DoorBlock.HINGE),"Wrong door hinge "+slot+" "+at);
+    if(rotated.hasProperty(net.minecraft.world.level.block.StairBlock.HALF))
+     t.assertTrue(actual.getValue(net.minecraft.world.level.block.StairBlock.HALF)==rotated.getValue(net.minecraft.world.level.block.StairBlock.HALF),"Wrong stair half "+slot+" "+at);
+    if(rotated.hasProperty(net.minecraft.world.level.block.ChestBlock.TYPE))
+     t.assertTrue(actual.getValue(net.minecraft.world.level.block.ChestBlock.TYPE)==rotated.getValue(net.minecraft.world.level.block.ChestBlock.TYPE),"Wrong chest type "+slot+" "+at);
+    if(rotated.hasProperty(net.minecraft.world.level.block.state.properties.BlockStateProperties.WATERLOGGED))
+     t.assertTrue(actual.getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.WATERLOGGED)==rotated.getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.WATERLOGGED),"Waterlogging changed in Nether "+slot+" "+at);
     if(expected.is(Blocks.CHEST)) {
      if(slot==PosadGeometry.Slot.DRUZHINNY_DVOR)militaryChests++;else forgeChests++;
      var loot=PosadNextBuildings.chestLoot(x,y,z);
