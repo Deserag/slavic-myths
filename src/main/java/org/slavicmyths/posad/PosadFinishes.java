@@ -18,6 +18,9 @@ public final class PosadFinishes {
         item(22,1,2,"linden_shelf");item(23,1,3,"linden_table");
         item(8,1,8,"pine_table");item(18,1,8,"pine_table");
         item(23,1,8,"linden_table");item(24,1,12,"pine_shelf");
+        // Treasury and upper relic room: both chests are beside the east wall.
+        DECOR.put(key(68,1,16),Blocks.CHEST.defaultBlockState().setValue(net.minecraft.world.level.block.ChestBlock.FACING,net.minecraft.core.Direction.WEST));
+        DECOR.put(key(68,7,16),Blocks.CHEST.defaultBlockState().setValue(net.minecraft.world.level.block.ChestBlock.FACING,net.minecraft.core.Direction.WEST));
         item(23,1,18,"pine_weapon_rack");item(25,1,18,"pine_bench");
         item(3,1,18,"linden_table");item(4,1,18,"linden_chair");
         item(4,7,4,"linden_table");item(3,7,4,"linden_chair");
@@ -41,7 +44,11 @@ public final class PosadFinishes {
         BlockState finish=DECOR.get(key(x,y,z));
         return base==null?finish:null;
     }
-    public static String chestLoot(int x,int y,int z){return null;}
+    public static String chestLoot(int x,int y,int z){
+        if(x==68&&z==16&&y==1)return "chests/nether_veche_treasury";
+        if(x==68&&z==16&&y==7)return "chests/nether_veche_relics";
+        return null;
+    }
     public static String barrelLoot(int x,int z){return PosadGeometry.Slot.MENOVYE_RYADY.local().contains(x,z)?"chests/posad_barrel_market":"chests/posad_barrel_supplies";}
     private PosadFinishes(){}
 }

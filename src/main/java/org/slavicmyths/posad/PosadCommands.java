@@ -123,6 +123,26 @@ public final class PosadCommands {
         for(var at:net.minecraft.core.BlockPos.betweenClosed(pos,end))if(!world.getBlockState(at).isAir())world.setBlock(at,net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),2);
         boolean placed=template.get().placeInWorld(world,pos,pos,new net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings(),world.random,2);
         if(!placed){source.sendFailure(Component.literal("Шаблон не разместился: "+key+"; резерв сохранён."));return 0;}
+        // Standalone veche template receives the same schema-6 finishes as
+        // the complete city, including two seeded treasury chests.
+        if(id.equals("veche_hall_2_2_2")) {
+            for(int y=1;y<=17;y++)for(int z=12;z<=34;z++)for(int x=42;x<=70;x++) {
+                var finish=PosadFinishes.voxel(x,y,z);
+                if(finish==null)continue;
+                var original=PosadBuildings.voxel(x,y,z);
+                var target=pos.offset(x-42,y,z-12);
+                var present=world.getBlockState(target);
+                if(present.hasBlockEntity()||(original==null&&!present.isAir())||(original!=null&&!present.is(original.getBlock())))continue;
+                world.setBlock(target,finish,2);
+                if(finish.is(net.minecraft.world.level.block.Blocks.CHEST) && world.getBlockEntity(target) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity chest) {
+                    String loot=PosadFinishes.chestLoot(x,y,z);
+                    if(loot!=null) {
+                        chest.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",loot)),target.asLong()^pos.asLong());
+                        chest.setChanged();
+                    }
+                }
+            }
+        }
         // Template barrels are authored empty: assign persistent single-use loot after placement.
         String table=id.startsWith("menovye_ryady")?"chests/posad_barrel_market":"chests/posad_barrel_supplies";
         for(var at:net.minecraft.core.BlockPos.betweenClosed(pos,end)) {

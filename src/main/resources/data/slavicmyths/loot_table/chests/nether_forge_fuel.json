@@ -85,6 +85,31 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:blaze_rod",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:blaze_powder",
+          "weight": 26
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:glowstone",
+          "weight": 26
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gold_ingot",
+          "weight": 26
+        }
+      ]
     }
   ]
 }
