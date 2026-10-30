@@ -47,12 +47,16 @@ public final class PosadShellGameTests {
   }
   int hallBlocks=0,houseBlocks=0,houseChests=0;
   for(int x=42;x<=70;x++)for(int z=12;z<=34;z++)for(int y=0;y<18;y++) {
-   var expected=PosadBuildings.voxel(x,y,z);
+   var source=PosadBuildings.voxel(x,y,z);
+   if(source!=null)hallBlocks++;
+   var expected=piece.voxel(x,y,z);
    if(expected==null)continue;
-   hallBlocks++;
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    var actual=world.getBlockState(anchor.offset(p.x(),y,p.z()));
-   t.assertTrue(actual.is(expected.getBlock()),"Veche block missing at "+x+","+y+","+z+" rotation "+turns+": "+actual);
+   var rotated=expected.rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
+   t.assertTrue(actual.is(rotated.getBlock()),"Current Veche mismatch at "+x+","+y+","+z+" rot="+turns+" expected="+rotated+" found="+actual);
+   if(rotated.hasProperty(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING))
+    t.assertTrue(actual.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING)==rotated.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING),"Veche facing mismatch "+x+","+y+","+z+" rot="+turns);
   }
   for(int x=13;x<=35;x++)for(int z=15;z<=29;z++)for(int y=0;y<17;y++) {
    var expected=PosadBuildings.voxel(x,y,z);
@@ -109,7 +113,17 @@ public final class PosadShellGameTests {
   }
   t.assertTrue(militaryBlocks==2440&&forgeBlocks==1901,"Wrong 2.2.4/2.2.5 block counts "+militaryBlocks+"/"+forgeBlocks);
   t.assertTrue(militaryChests==5&&forgeChests==5,"Wrong district chest counts "+militaryChests+"/"+forgeChests);
-  t.assertTrue(hallBlocks==3598,"Wrong hall voxel count "+hallBlocks);
+  int r2Cells=0;
+  for(int x=42;x<=70;x++)for(int z=12;z<=34;z++)for(int y=0;y<=16;y++) {
+   var r2=PosadHallR2.voxel(x,y,z);
+   if(r2==null)continue;
+   r2Cells++;
+   var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+   var actual=world.getBlockState(anchor.offset(p.x(),y,p.z()));
+   t.assertTrue(actual.is(r2.getBlock()),"R2 physical mismatch "+x+","+y+","+z+" rot="+turns+" expected="+r2+" actual="+actual);
+  }
+  t.assertTrue(r2Cells==160,"Wrong Veche R2 geometry count "+r2Cells);
+  t.assertTrue(hallBlocks==3598,"Wrong immutable R1 hall count "+hallBlocks);
   t.assertTrue(houseBlocks==1992 && houseChests==4,"Wrong house voxel/chest count "+houseBlocks+"/"+houseChests);
   }
   t.succeed();
@@ -232,8 +246,11 @@ public final class PosadShellGameTests {
   t.assertTrue(PosadShell.voxel(102,9,2).isAir(),"NE patrol link");
   t.assertTrue(PosadShell.voxel(10,9,110).isAir(),"SW patrol link");
   t.assertTrue(PosadShell.voxel(102,9,110).isAir(),"SE patrol link");
-  t.assertTrue(PosadShell.voxel(42,9,110).isAir(),"West gate patrol link");
-  t.assertTrue(PosadShell.voxel(70,9,110).isAir(),"East gate patrol link");
+  // Gate tower patrol doors open towards their connecting bridge, not outward.
+  t.assertTrue(PosadShell.voxel(50,9,110).isAir(),"West gate bridge access");
+  t.assertTrue(PosadShell.voxel(62,9,110).isAir(),"East gate bridge access");
+  t.assertTrue(!PosadShell.voxel(42,9,110).isAir(),"West gate exterior breach");
+  t.assertTrue(!PosadShell.voxel(70,9,110).isAir(),"East gate exterior breach");
   var roadMaterials=new java.util.HashSet<net.minecraft.world.level.block.Block>();
   var wallMaterials=new java.util.HashSet<net.minecraft.world.level.block.Block>();
   for(int z=12;z<=100;z++)roadMaterials.add(PosadShell.voxel(55,0,z).getBlock());
