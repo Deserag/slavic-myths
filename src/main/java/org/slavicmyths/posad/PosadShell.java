@@ -39,6 +39,13 @@ public final class PosadShell {
                 || (z >= 70 && z <= 74) || PosadGeometry.Slot.VECHE_SQUARE.local().contains(x, z);
             return street ? road(x, z) : Blocks.BLACKSTONE.defaultBlockState();
         }
+        // Sparse Nether lamps on dedicated safe strips, away from all reserved district slots.
+        // A plinth carries the fence; no unsupported floating fixtures.
+        if ((x == 51 || x == 61) && (z == 36 || z == 75 || z == 95)) {
+            if (y == 1) return Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState();
+            if (y == 2) return Blocks.NETHER_BRICK_FENCE.defaultBlockState();
+            if (y == 3) return Blocks.SOUL_LANTERN.defaultBlockState();
+        }
         // Tower ownership precedes gate and wall ownership, including the corner joints.
         for (int tx : new int[]{0, 102}) for (int tz : new int[]{0, 102}) {
             if (x >= tx && x <= tx + 10 && z >= tz && z <= tz + 10) {
@@ -48,7 +55,8 @@ public final class PosadShell {
         }
         for (int tx : new int[]{42, 62}) {
             if (x >= tx && x <= tx + 8 && z >= 102) {
-                int patrol = tx == 42 ? WEST : EAST;
+                // Keep the outer wall link AND open the matching inner gateway bridge door.
+                int patrol = WEST | EAST;
                 return tower(x - tx, y, z - 102, 9, 11, tx, 102, NORTH, patrol);
             }
         }
@@ -68,6 +76,10 @@ public final class PosadShell {
         if (y > 10) return null;
         boolean outer = x == 0 || x == 112 || z == 0 || z == 112;
         boolean inner = x == 4 || x == 108 || z == 4 || z == 108;
+        // Put lights on the inner wall rail, not in the walkable patrol lane.
+        if (inner && y == 9 && (((x == 4 || x == 108) && z > 10 && z < 102 && z % 16 == 0)
+            || ((z == 4 || z == 108) && x > 10 && x < 102 && x % 16 == 0)))
+            return Blocks.SOUL_LANTERN.defaultBlockState();
         if (inner) return masonry(x, y, z);
         if (outer) {
             int along = (x == 0 || x == 112) ? z : x;
@@ -84,6 +96,8 @@ public final class PosadShell {
         if (x == 2 && z == 1 && y <= 14) return masonry(originX + x, y, originZ + z);
         if (x == 2 && z == 2 && y <= 13)
             return Blocks.LADDER.defaultBlockState().setValue(LadderBlock.FACING, Direction.SOUTH);
+        // Lights stand on solid tower decks without intersecting the ladder shaft.
+        if (x == 4 && z == 4 && (y == 1 || y == 9)) return Blocks.SOUL_LANTERN.defaultBlockState();
         if (y == 8 || y == 14) return masonry(originX + x, y, originZ + z);
         if (y <= 14) {
             int centerX = (width - 1) / 2, centerZ = (depth - 1) / 2;
