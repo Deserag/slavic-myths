@@ -59,13 +59,15 @@ public final class PosadShellGameTests {
     t.assertTrue(actual.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING)==rotated.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING),"Veche facing mismatch "+x+","+y+","+z+" rot="+turns);
   }
   for(int x=13;x<=35;x++)for(int z=15;z<=29;z++)for(int y=0;y<17;y++) {
-   var expected=PosadBuildings.voxel(x,y,z);
+   var source=PosadBuildings.voxel(x,y,z);
+   if(source!=null)houseBlocks++;
+   var expected=piece.voxel(x,y,z);
    if(expected==null)continue;
-   houseBlocks++;
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    var at=anchor.offset(p.x(),y,p.z());
    var actual=world.getBlockState(at);
-   t.assertTrue(actual.is(expected.getBlock()),"Communal block missing at "+x+","+y+","+z+" rotation "+turns+": "+actual);
+   var rotated=expected.rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
+   t.assertTrue(actual.is(rotated.getBlock()),"Current communal block mismatch "+x+","+y+","+z+" rot="+turns+" expected="+rotated+" actual="+actual);
    if(expected.is(Blocks.CHEST)) {
     houseChests++;
     t.assertTrue(PosadBuildings.chestLoot(x,y,z)!=null,"Unregistered chest "+at);
@@ -77,9 +79,10 @@ public final class PosadShellGameTests {
   int militaryBlocks=0,forgeBlocks=0,militaryChests=0,forgeChests=0;
   for(var slot:java.util.List.of(PosadGeometry.Slot.DRUZHINNY_DVOR,PosadGeometry.Slot.KUZNECHNY_DVOR)) {
    for(int x=slot.local().minX();x<=slot.local().maxX();x++)for(int z=slot.local().minZ();z<=slot.local().maxZ();z++)for(int y=0;y<18;y++) {
-    var expected=PosadNextBuildings.voxel(x,y,z);
+    var source=PosadNextBuildings.voxel(x,y,z);
+    if(source!=null){if(slot==PosadGeometry.Slot.DRUZHINNY_DVOR)militaryBlocks++;else forgeBlocks++;}
+    var expected=piece.voxel(x,y,z);
     if(expected==null)continue;
-    if(slot==PosadGeometry.Slot.DRUZHINNY_DVOR)militaryBlocks++;else forgeBlocks++;
     var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
     var at=anchor.offset(p.x(),y,p.z());
     var actual=world.getBlockState(at);
