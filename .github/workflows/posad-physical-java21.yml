@@ -25,6 +25,9 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
+      - name: Verify both committed R1 binary structures before Minecraft QA
+        shell: bash
+        run: python3 tools/posad-tests/verify_generated_building_nbt.py
       - name: Build real NeoForge production JAR
         shell: bash
         run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain
