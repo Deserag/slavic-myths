@@ -15,7 +15,7 @@ LOOT=ROOT/"src/main/resources/data/slavicmyths/loot_table/chests"
 def main():
     model=json.loads(MODEL.read_text("utf-8"))
     raw=NBT.read_bytes()
-    assert raw[:2]==b"\\x1f\\x8b", "Not gzip"
+    assert raw[:2]==bytes.fromhex("1f8b"), "Not gzip"
     root=Reader(gzip.decompress(raw)).root()
     assert root["DataVersion"]==3955 and root["size"]==[25,11,28] and root["entities"]==[]
     blocks=root["blocks"]; palette=root["palette"]
