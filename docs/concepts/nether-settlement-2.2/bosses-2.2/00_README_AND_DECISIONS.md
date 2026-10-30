@@ -17,7 +17,8 @@
 1. Общая инфраструктура: 01_SHARED_WORLD_QUEST_REWARDS.md — регистрация/поиск/сохранение/трофейный обмен, интеграция со старейшиной без переписывания чужой 2.2.12.
 2. Мытарь: 02_CURSED_MYTAR.md; независимая босc-сущность и связанное оружие.
 3. Баук: 03_BAUK.md; независимая босc-сущность, настоящий отдельный rig на базе существующего медведя, аксессуар.
-4. Завершение — только после всех обязательных REAL tests, gameplay/visual/MP и owner acceptance. Сама публикация задач не означает начало запуска Codex, завершение кода, Java build, Minecraft тестов или готовый релиз.
+4. Точные registry ID, ключи persistent state и единая приемочная матрица — 04_REGISTRY_IMPLEMENTATION_QA_MATRIX.md; это необходимый handoff для каждой Issue.
+5. Завершение — только после всех обязательных REAL tests, gameplay/visual/MP и owner acceptance. Сама публикация задач не означает начало запуска Codex, завершение кода, Java build, Minecraft тестов или готовый релиз.
 
 ## Реальные исходные опоры для Codex
 * AGENTS.md + docs/requirements/README.md и 03-MOBS-BOSSES, 05-WEAPONS-COMBAT, 06-TOOLS-EQUIPMENT, 07-LOOT-REWARDS, 08-NPC-QUESTS, 10-ART-AUDIO-UI, 12-SAVES-MP-PERFORMANCE, 13-TEST-GATES.
