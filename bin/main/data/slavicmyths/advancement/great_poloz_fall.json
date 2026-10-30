@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:earth_heart",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:silver_ingot"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.great_poloz_fall.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.great_poloz_fall.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "victory": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

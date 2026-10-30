@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "1A2",
+    "B C",
+    "3D4"
+  ],
+  "key": {
+    "1": {
+      "item": "slavicmyths:broken_watch_horn"
+    },
+    "2": {
+      "item": "slavicmyths:darkened_waymark"
+    },
+    "3": {
+      "item": "slavicmyths:mourning_circlet"
+    },
+    "4": {
+      "item": "slavicmyths:charred_signal_ribbon"
+    },
+    "A": {
+      "item": "minecraft:blaze_rod"
+    },
+    "B": {
+      "item": "minecraft:ghast_tear"
+    },
+    "C": {
+      "item": "minecraft:netherite_scrap"
+    },
+    "D": {
+      "item": "minecraft:bone"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:last_watch_horn",
+    "count": 1
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "seeds": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "#slavicmyths:agricultural_seeds"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "seeds"
+    ]
+  ]
+}

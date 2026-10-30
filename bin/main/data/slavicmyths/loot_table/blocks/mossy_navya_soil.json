@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:mossy_navya_soil"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "slavicmyths:blocks/mossy_navya_soil"
+}

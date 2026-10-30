@@ -1,0 +1,23 @@
+{
+  "part": "nature",
+  "chapter": "plants",
+  "section": "catalogue",
+  "title": "tales.entry.feature_willow.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:willow_log",
+    "feature/slavicmyths:swamp_willow",
+    "feature/slavicmyths:willow_12",
+    "feature/slavicmyths:willow_2",
+    "feature/slavicmyths:willow_24",
+    "feature/slavicmyths:willow_4",
+    "feature/slavicmyths:willow_6",
+    "feature/slavicmyths:willow_8",
+    "feature/slavicmyths:willow_sapling",
+    "feature/slavicmyths:willow_tree",
+    "item/slavicmyths:willow_sapling"
+  ],
+  "advancements": [],
+  "links": []
+}

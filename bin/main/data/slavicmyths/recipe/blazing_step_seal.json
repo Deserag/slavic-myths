@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ESE",
+    "IAI",
+    "MLM"
+  ],
+  "key": {
+    "E": {
+      "item": "slavicmyths:pekelnik_ember"
+    },
+    "S": {
+      "item": "slavicmyths:zharenitsa_heat_seal"
+    },
+    "I": {
+      "item": "slavicmyths:roasted_infernal_shard"
+    },
+    "A": {
+      "item": "slavicmyths:alatyr_ingot"
+    },
+    "M": {
+      "item": "minecraft:magma_cream"
+    },
+    "L": {
+      "item": "slavicmyths:roasted_livingstone"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:blazing_step_seal",
+    "count": 1
+  }
+}

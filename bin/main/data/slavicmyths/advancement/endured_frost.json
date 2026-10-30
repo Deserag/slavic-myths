@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:name_your_misfortune",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:lore_book"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.endured_frost"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.endured_frost.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

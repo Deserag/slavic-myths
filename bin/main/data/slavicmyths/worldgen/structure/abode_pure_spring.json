@@ -1,0 +1,7 @@
+{
+  "type": "slavicmyths:abode_pure_spring",
+  "biomes": "#slavicmyths:has_structure/abode_pure_spring",
+  "step": "underground_structures",
+  "terrain_adaptation": "none",
+  "spawn_overrides": {}
+}

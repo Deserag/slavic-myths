@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:short_grass",
+    "minecraft:tall_grass",
+    "minecraft:fern",
+    "minecraft:large_fern",
+    "minecraft:dandelion",
+    "minecraft:poppy",
+    "minecraft:dead_bush",
+    "minecraft:oak_leaves",
+    "minecraft:birch_leaves",
+    "minecraft:spruce_leaves",
+    "slavicmyths:pine_leaves",
+    "slavicmyths:willow_leaves"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "part": "creatures",
+  "chapter": "legends",
+  "section": "inhabitants",
+  "title": "tales.entry.karachun_trial.title",
+  "icon": "slavicmyths:karachun_trial_totem",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:karachun"
+  ],
+  "advancements": [
+    "slavicmyths:endured_last_night"
+  ],
+  "links": []
+}

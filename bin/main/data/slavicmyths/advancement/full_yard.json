@@ -1,0 +1,55 @@
+{
+  "parent": "slavicmyths:own_harvest",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:lore_book"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.full_yard.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.full_yard.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "goose": {
+      "trigger": "minecraft:bred_animals",
+      "conditions": {
+        "child": {
+          "type": "slavicmyths:goose"
+        }
+      }
+    },
+    "duck": {
+      "trigger": "minecraft:bred_animals",
+      "conditions": {
+        "child": {
+          "type": "slavicmyths:duck"
+        }
+      }
+    },
+    "domestic_goat": {
+      "trigger": "minecraft:bred_animals",
+      "conditions": {
+        "child": {
+          "type": "slavicmyths:domestic_goat"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "goose"
+    ],
+    [
+      "duck"
+    ],
+    [
+      "domestic_goat"
+    ]
+  ]
+}

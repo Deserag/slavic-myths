@@ -1,0 +1,45 @@
+{
+  "type": "slavicmyths:vat",
+  "mode": "WORT",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:malted_barley"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:hops"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:berry_mash"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:water_bucket"
+      },
+      "count": 1
+    }
+  ],
+  "time": 1800,
+  "result": {
+    "id": "slavicmyths:witch_berry_wort",
+    "count": 1
+  },
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    }
+  ],
+  "catalyst": {
+    "item": "slavicmyths:rune_forest"
+  },
+  "retain_catalyst": false
+}

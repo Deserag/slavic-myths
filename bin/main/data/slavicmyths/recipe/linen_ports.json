@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CCC",
+    "C C",
+    "C C"
+  ],
+  "key": {
+    "C": {
+      "item": "slavicmyths:linen_cloth"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:linen_ports",
+    "count": 1
+  }
+}

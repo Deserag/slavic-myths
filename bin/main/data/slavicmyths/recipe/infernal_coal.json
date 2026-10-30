@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "CMC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:coal"
+    },
+    "M": {
+      "item": "slavicmyths:magma_clot"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:infernal_coal",
+    "count": 9
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "slavicmyths:drying",
+  "ingredient": {
+    "item": "minecraft:brown_mushroom"
+  },
+  "result": {
+    "id": "slavicmyths:dried_mushrooms",
+    "count": 1
+  },
+  "drying_time": 2400
+}

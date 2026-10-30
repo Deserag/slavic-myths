@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "ingredient": {
+    "item": "slavicmyths:raw_goose"
+  },
+  "result": {
+    "id": "slavicmyths:cooked_goose"
+  },
+  "experience": 0.35,
+  "cookingtime": 100
+}

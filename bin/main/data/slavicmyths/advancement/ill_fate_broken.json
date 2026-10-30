@@ -1,0 +1,17 @@
+{
+  "parent": "slavicmyths:hunt_begins",
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:odnoglazyy_obereg"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

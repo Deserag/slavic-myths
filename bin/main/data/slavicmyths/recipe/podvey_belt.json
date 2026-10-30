@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LLL",
+    "VNV",
+    "LLL"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "V": {
+      "item": "slavicmyths:vetrovoy_uzel"
+    },
+    "N": {
+      "item": "slavicmyths:vihrevaya_nit"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:podvey_belt",
+    "count": 1
+  }
+}

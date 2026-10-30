@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.slavicmyths.rpg.tools.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ToolRuneBreakMixin",
+    "ToolRuneUseMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

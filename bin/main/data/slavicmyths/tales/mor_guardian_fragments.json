@@ -1,0 +1,14 @@
+{
+  "part": "creatures",
+  "chapter": "legends",
+  "section": "inhabitants",
+  "title": "tales.entry.mor_guardian_fragments.title",
+  "icon": "slavicmyths:mor_fire_amulet_fragment",
+  "initial": 0,
+  "subjects": [],
+  "advancements": [
+    "slavicmyths:claimed_fire_fragment",
+    "slavicmyths:claimed_water_fragment"
+  ],
+  "links": []
+}

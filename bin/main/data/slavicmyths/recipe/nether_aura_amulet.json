@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "IRI",
+    " A "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    },
+    "I": {
+      "item": "slavicmyths:alatyr_ingot"
+    },
+    "R": {
+      "item": "slavicmyths:roasted_runnik"
+    },
+    "A": {
+      "item": "slavicmyths:roasted_alatyrite"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:nether_aura_amulet",
+    "count": 1
+  }
+}

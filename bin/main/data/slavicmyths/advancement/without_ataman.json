@@ -1,0 +1,28 @@
+{
+  "parent": "slavicmyths:clear_large_camp",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ],
+  "display": {
+    "icon": {
+      "id": "slavicmyths:iron_spear"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.without_ataman.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.without_ataman.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  }
+}

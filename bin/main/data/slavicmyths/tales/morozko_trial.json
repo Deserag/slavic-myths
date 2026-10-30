@@ -1,0 +1,15 @@
+{
+  "part": "creatures",
+  "chapter": "legends",
+  "section": "inhabitants",
+  "title": "tales.entry.morozko_trial.title",
+  "icon": "slavicmyths:morozko_trial_totem",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:morozko"
+  ],
+  "advancements": [
+    "slavicmyths:endured_frost"
+  ],
+  "links": []
+}

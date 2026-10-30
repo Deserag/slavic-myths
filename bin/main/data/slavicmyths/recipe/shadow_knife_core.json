@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "TLT",
+    "LRL",
+    "QAQ"
+  ],
+  "key": {
+    "T": {
+      "item": "slavicmyths:lost_whisper_thread"
+    },
+    "L": {
+      "item": "slavicmyths:lightvein_shard"
+    },
+    "R": {
+      "item": "slavicmyths:roasted_runnik"
+    },
+    "A": {
+      "item": "slavicmyths:alatyr_ingot"
+    },
+    "Q": {
+      "item": "minecraft:quartz"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:shadow_knife_core",
+    "count": 1
+  }
+}

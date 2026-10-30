@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#slavicmyths:spawn_open",
+  "spawners": [
+    {
+      "type": "slavicmyths:podvey",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 1
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "part": "people",
+  "chapter": "roads",
+  "section": "inhabitants",
+  "title": "tales.entry.bandit_heavy.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:bandit_heavy"
+  ],
+  "advancements": [],
+  "links": []
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BSB",
+    "EAE",
+    "III"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:blaze_rod"
+    },
+    "S": {
+      "item": "slavicmyths:zharenitsa_heat_seal"
+    },
+    "E": {
+      "item": "slavicmyths:pekelnik_ember"
+    },
+    "A": {
+      "item": "slavicmyths:alatyr_ingot"
+    },
+    "I": {
+      "item": "slavicmyths:roasted_infernal_shard"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:ashen_blade_core",
+    "count": 1
+  }
+}

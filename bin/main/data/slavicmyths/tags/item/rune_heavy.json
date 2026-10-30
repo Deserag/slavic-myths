@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:mace",
+    "slavicmyths:perunite_mace",
+    "slavicmyths:battle_axe",
+    "slavicmyths:thunder_axe",
+    "slavicmyths:berdysh",
+    "slavicmyths:wooden_mace",
+    "slavicmyths:stone_mace",
+    "slavicmyths:silver_mace",
+    "slavicmyths:flail",
+    "slavicmyths:ataman_flail",
+    "slavicmyths:karachun_scythe",
+    "slavicmyths:ashen_greatsword",
+    "slavicmyths:volcanic_heart_flail"
+  ]
+}

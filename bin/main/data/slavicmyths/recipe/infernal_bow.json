@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "slavicmyths:nether_hardening_template"
+  },
+  "base": {
+    "item": "slavicmyths:heavy_bow"
+  },
+  "addition": {
+    "item": "slavicmyths:infernal_bow_core"
+  },
+  "result": {
+    "id": "slavicmyths:infernal_bow",
+    "count": 1
+  }
+}

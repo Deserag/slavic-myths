@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:bayun_new_tale",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:lore_book"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.friend_of_bayun.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.friend_of_bayun.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "confirmed": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

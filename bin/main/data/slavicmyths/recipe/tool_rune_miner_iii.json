@@ -1,0 +1,32 @@
+{
+  "type": "slavicmyths:rune_crafting",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:blank_rune_3"
+      },
+      "count": 1,
+      "base": {
+        "tier": 3,
+        "material": "perunite"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:perunite_dust"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:diamond_dust"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:rune_miner_iii",
+    "count": 1
+  },
+  "chisel": false
+}

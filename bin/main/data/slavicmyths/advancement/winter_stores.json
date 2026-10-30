@@ -1,0 +1,22 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "dry": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:dried_berries"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "dry"
+    ]
+  ]
+}

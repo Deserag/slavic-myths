@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "event"
+    ]
+  ],
+  "rewards": {},
+  "parent": "slavicmyths:grey_wolf_kurgan",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:warding_charm"
+    },
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false,
+    "title": {
+      "translate": "advancements.slavicmyths.grey_wolf_likho.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.grey_wolf_likho.description"
+    }
+  }
+}

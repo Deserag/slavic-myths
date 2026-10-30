@@ -1,0 +1,17 @@
+{
+  "parent": "slavicmyths:defeat_leshy",
+  "criteria": {
+    "obtained": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:leshy_heart"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

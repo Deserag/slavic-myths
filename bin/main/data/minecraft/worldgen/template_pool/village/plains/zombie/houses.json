@@ -1,0 +1,398 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/residential/seni_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/residential/seni_02_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/residential/seni_03_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/residential/seni_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/residential/seni_02_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/residential/seni_03_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/residential/seni_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/residential/seni_02_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/residential/zemlyanka_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/residential/zemlyanka_02_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/residential/izba_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/butcher_house_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/butcher_house_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/toolsmith_forge_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/fletcher_house_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/shepherd_house_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/armorer_forge_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/fisher_house_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/tanner_house_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/cartographer_house_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/chronicler_terem_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/chronicler_terem_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/mason_workshop_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/weaponsmith_forge_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/herbalist_house_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/herbalist_house_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/utility/stable_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/utility/stable_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/farm/large_field_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/farm/small_field_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/utility/hlev_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/utility/hlev_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/utility/hlev_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 5
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/center/village_center_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/center/village_center_01",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      },
+      "weight": 10
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/miller_house_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/brewer_house_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/weaver_house_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/hunter_house_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/profession/cook_house_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/utility/ambar_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/utility/klet_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "slavicmyths:village/temperate/defense/druzhinnik_barracks_01_zombie",
+        "processors": "slavicmyths:village_foundation",
+        "projection": "rigid"
+      }
+    }
+  ],
+  "fallback": "minecraft:village/plains/terminators"
+}

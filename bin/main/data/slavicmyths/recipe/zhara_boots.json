@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "slavicmyths:nether_hardening_template"
+  },
+  "base": {
+    "item": "minecraft:diamond_boots"
+  },
+  "addition": {
+    "item": "slavicmyths:zhara_plate"
+  },
+  "result": {
+    "id": "slavicmyths:zhara_boots",
+    "count": 1
+  }
+}

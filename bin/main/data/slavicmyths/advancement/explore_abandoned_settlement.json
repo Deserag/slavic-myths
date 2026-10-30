@@ -1,0 +1,39 @@
+{
+  "parent": "slavicmyths:first_structure",
+  "criteria": {
+    "visit": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "dimension": "minecraft:overworld",
+                "structures": [
+                  "slavicmyths:abandoned_settlement"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "slavicmyths:pine_log"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false,
+    "title": {
+      "translate": "advancements.slavicmyths.explore_abandoned_settlement.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.explore_abandoned_settlement.description"
+    }
+  }
+}

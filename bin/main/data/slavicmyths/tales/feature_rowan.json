@@ -1,0 +1,22 @@
+{
+  "part": "nature",
+  "chapter": "plants",
+  "section": "catalogue",
+  "title": "tales.entry.feature_rowan.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:rowan_log",
+    "feature/slavicmyths:rowan_12",
+    "feature/slavicmyths:rowan_2",
+    "feature/slavicmyths:rowan_24",
+    "feature/slavicmyths:rowan_4",
+    "feature/slavicmyths:rowan_6",
+    "feature/slavicmyths:rowan_8",
+    "feature/slavicmyths:rowan_sapling",
+    "feature/slavicmyths:rowan_tree",
+    "item/slavicmyths:rowan_sapling"
+  ],
+  "advancements": [],
+  "links": []
+}

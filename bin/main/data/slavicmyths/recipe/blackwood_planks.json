@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "slavicmyths:blackwood_logs"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:blackwood_planks",
+    "count": 4
+  }
+}

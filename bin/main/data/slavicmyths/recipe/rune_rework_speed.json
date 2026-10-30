@@ -1,0 +1,32 @@
+{
+  "type": "slavicmyths:rune_crafting",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:blank_rune_1"
+      },
+      "count": 1,
+      "base": {
+        "tier": 1,
+        "material": "gold"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:gold_dust"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:feather"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:rune_speed",
+    "count": 1
+  },
+  "chisel": false
+}

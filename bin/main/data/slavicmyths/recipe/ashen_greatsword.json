@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "slavicmyths:nether_hardening_template"
+  },
+  "base": {
+    "item": "minecraft:diamond_sword"
+  },
+  "addition": {
+    "item": "slavicmyths:ashen_blade_core"
+  },
+  "result": {
+    "id": "slavicmyths:ashen_greatsword",
+    "count": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:linen_cloth"
+    },
+    {
+      "item": "slavicmyths:linen_cloth"
+    },
+    {
+      "item": "slavicmyths:linen_cloth"
+    },
+    {
+      "tag": "c:dyes/brown"
+    },
+    {
+      "tag": "c:dyes/red"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:folk_vest",
+    "count": 1
+  }
+}

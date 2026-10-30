@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "obtained": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:thunder_stone"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "slavicmyths:perunite"
+}

@@ -1,0 +1,13 @@
+{
+  "parent": "slavicmyths:group_home",
+  "criteria": {
+    "encounter": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "entity": {
+          "type": "slavicmyths:domovoy"
+        }
+      }
+    }
+  }
+}

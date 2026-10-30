@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:ancient_find",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:lore_book"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.first_book_entry.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.first_book_entry.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "confirmed": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

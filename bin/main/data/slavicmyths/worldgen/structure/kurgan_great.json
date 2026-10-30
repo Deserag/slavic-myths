@@ -1,0 +1,7 @@
+{
+  "type": "slavicmyths:kurgan_great",
+  "biomes": "#slavicmyths:structures/kurgan_great",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}

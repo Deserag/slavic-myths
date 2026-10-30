@@ -1,0 +1,17 @@
+{
+  "parent": "slavicmyths:first_ritual",
+  "criteria": {
+    "obtained": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:thunder_axe"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

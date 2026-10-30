@@ -1,0 +1,17 @@
+{
+  "parent": "slavicmyths:group_roads",
+  "criteria": {
+    "obtained": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:spear"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

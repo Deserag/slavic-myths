@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:linden_leaves",
+    "slavicmyths:rowan_leaves",
+    "slavicmyths:willow_leaves",
+    "slavicmyths:pine_leaves",
+    "slavicmyths:apple_leaves",
+    "slavicmyths:mor_oak_leaves",
+    "slavicmyths:navya_dead_leaves",
+    "slavicmyths:charred_blackwood_leaves"
+  ]
+}

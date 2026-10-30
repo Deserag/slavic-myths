@@ -1,0 +1,14 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_sevenleagueboots_1.title",
+  "icon": "slavicmyths:seven_league_boots",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:seven_league_boots",
+    "recipe/slavicmyths:seven_league_boots"
+  ],
+  "advancements": [],
+  "links": []
+}

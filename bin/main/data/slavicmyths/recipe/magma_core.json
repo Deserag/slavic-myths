@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:magma_clot"
+    },
+    {
+      "item": "slavicmyths:magma_clot"
+    },
+    {
+      "item": "slavicmyths:magma_clot"
+    },
+    {
+      "item": "slavicmyths:magma_clot"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:magma_core",
+    "count": 1
+  }
+}
