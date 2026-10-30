@@ -1064,5 +1064,5 @@ amulet_of_the_faded	magic	bosses_21x
 last_watch_horn	magic	bosses_21x
 morova_silence_pendant	accessories	bosses_21x
 fallen_druzhina_horn	accessories	bosses_21x
-morova_deva_spawn_egg	hidden	test_only
-trizna_prince_spawn_egg	hidden	test_only
+morova_deva_spawn_egg	mobs	bosses_21x
+trizna_prince_spawn_egg	mobs	bosses_21x

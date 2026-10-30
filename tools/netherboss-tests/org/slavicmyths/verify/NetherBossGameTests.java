@@ -91,4 +91,16 @@ public final class NetherBossGameTests {
   }t.succeed();
  }
 
+ @GameTest(template="empty",timeoutTicks=1800)
+ public static void explicitPosadCommandBuildsPhysicalShell(GameTestHelper t){
+  var w=t.getLevel();var a=t.absolutePos(new net.minecraft.core.BlockPos(4096,0,4096));int y=a.getY();
+  var source=w.getServer().createCommandSourceStack().withLevel(w).withPosition(new net.minecraft.world.phys.Vec3(a.getX()+56,y+1,a.getZ()-12));
+  t.assertTrue(org.slavicmyths.posad.PosadCommands.start(source)==1,"Posad command rejected");
+  t.runAtTickTime(1600,()->{
+   t.assertTrue(w.getBlockState(a).is(net.minecraft.world.level.block.Blocks.BLACKSTONE),"No physical city foundation");
+   t.assertTrue(w.getBlockState(a.offset(56,0,56)).is(net.minecraft.world.level.block.Blocks.POLISHED_BLACKSTONE),"No central street");
+   t.assertTrue(w.getBlockState(a.offset(56,3,110)).isAir(),"Gate passage blocked");t.succeed();
+  });
+ }
+
 }
