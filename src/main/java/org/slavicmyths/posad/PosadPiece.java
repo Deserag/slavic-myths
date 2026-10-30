@@ -61,6 +61,10 @@ public final class PosadPiece extends StructurePiece {
             return -y<depth?Blocks.POLISHED_BASALT.defaultBlockState():null;
         }
         if(PosadGeometry.CITY.contains(x,z)) {
+            if(schema >= 9) {
+                var marketInterior=PosadMarketRenovation.voxel(x,y,z);
+                if(marketInterior!=null)return marketInterior;
+            }
             if(schema >= 8) {
                 var polishedHall=PosadHallRefinement.voxel(x,y,z);
                 if(polishedHall!=null)return polishedHall;
@@ -140,7 +144,8 @@ public final class PosadPiece extends StructurePiece {
                     barrel.setChanged();
                 }
                 if(schema >= 2 && state.is(Blocks.CHEST) && world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity chest) {
-                    String loot=schema >= 7 ? PosadHouseRenovation.chestLoot(local.x(),y,local.z()) : null;
+                    String loot=schema >= 9 ? PosadMarketRenovation.chestLoot(local.x(),y,local.z()) : null;
+                    if(loot==null && schema >= 7)loot=PosadHouseRenovation.chestLoot(local.x(),y,local.z());
                     if(loot==null && schema >= 6)loot=PosadFinishes.chestLoot(local.x(),y,local.z());
                     if(loot==null && schema >= 5)loot=PosadMarketBuildings.chestLoot(local.x(),y,local.z());
                     if(loot==null && schema >= 4)loot=PosadAdditionalBuildings.chestLoot(local.x(),y,local.z());

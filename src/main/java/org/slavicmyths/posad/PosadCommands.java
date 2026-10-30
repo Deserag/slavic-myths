@@ -123,6 +123,19 @@ public final class PosadCommands {
         for(var at:net.minecraft.core.BlockPos.betweenClosed(pos,end))if(!world.getBlockState(at).isAir())world.setBlock(at,net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),2);
         boolean placed=template.get().placeInWorld(world,pos,pos,new net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings(),world.random,2);
         if(!placed){source.sendFailure(Component.literal("Шаблон не разместился: "+key+"; резерв сохранён."));return 0;}
+        // The market NBT already has eight wall-side loot chests. Overlay only
+        // furniture, lights and facade accents; do NOT replace NBT chests
+        // because doing so would reset their saved LootTable block entities.
+        if(id.equals("menovye_ryady_2_2_6")) {
+            for(int y=1;y<=11;y++)for(int z=75;z<=99;z++)for(int x=75;x<=101;x++) {
+                var decoration=PosadMarketRenovation.voxel(x,y,z);
+                if(decoration==null||decoration.is(net.minecraft.world.level.block.Blocks.CHEST)||decoration.isAir())continue;
+                var target=pos.offset(x-75,y,z-75);
+                var present=world.getBlockState(target);
+                if(present.hasBlockEntity()||(!present.isAir()&&!present.is(net.minecraft.world.level.block.Blocks.POLISHED_BLACKSTONE_BRICKS)))continue;
+                world.setBlock(target,decoration,2);
+            }
+        }
         // Restore the public entry corridor in standalone communal-house NBT,
         // including the side stairwell and the relocated one-time loot chest.
         if(id.equals("communal_house_2_2_3")) {

@@ -2,6 +2,7 @@
 """Verify market parity, native structure NBT and eight original loot contracts."""
 import gzip
 import json
+import re
 import struct
 from pathlib import Path
 
@@ -47,6 +48,40 @@ for chest in design["chests"]:
         assert rare["rolls"] == 1 and len(rare["entries"]) == 1
         assert rare["conditions"] == [{"condition": "minecraft:random_chance", "chance": 0.2}]
         assert rare["entries"][0]["functions"][0]["count"] == {"type": "minecraft:uniform", "min": 1, "max": 2}
+
+# Preserve the immutable original source, but compare the manual NBT and
+# current native renderer to the schema-9 wall-side chest positions.
+renovation = (root / "src/main/java/org/slavicmyths/posad/PosadMarketRenovation.java").read_text("utf-8")
+moves = re.findall(r"relocate\((\d+),(\d+),(\d+),(\d+)\)", renovation)
+moves = {(int(x), 1, int(z)): (int(nx), 1, int(nz)) for x,z,nx,nz in moves}
+assert len(moves) == 8 and len(set(moves.values())) == 8
+original_by_pos = {tuple(row[:3]): packed["palette"][row[3]] for row in packed["blocks"]}
+for old, new in moves.items():
+    assert old in markers and original_by_pos[old].startswith("minecraft:chest")
+    assert new not in original_by_pos and new[0] in (3,23)
+    assert original_by_pos.get((new[0],0,new[2])) == "minecraft:crimson_planks"
+
+furnishings = re.findall(r'furnish\((\d+),(\d+),"([^"]+)"\)', renovation)
+lanterns = re.findall(r'(?<!void )lamp\((\d+),(\d+)\)', renovation)
+assert len(furnishings) == 12 and len(lanterns) == 6
+occupied = set(moves.values())
+for sx, sz, name in furnishings:
+    x,z = int(sx),int(sz)
+    assert name.startswith(("pine_","linden_"))
+    assert (x,1,z) not in occupied and (x,1,z) not in original_by_pos
+    assert (x,2,z) not in original_by_pos
+    assert original_by_pos.get((x,0,z)) == "minecraft:crimson_planks"
+    occupied.add((x,1,z))
+for sx,sz in lanterns:
+    x,z=int(sx),int(sz)
+    assert (x,1,z) not in occupied and (x,1,z) not in original_by_pos
+    assert original_by_pos.get((x,0,z)) == "minecraft:crimson_planks"
+    occupied.add((x,1,z))
+
+for x0 in (2,16):
+    for x in range(x0,x0+9):
+        for z in list(range(2,9))+list(range(11,17))+list(range(19,24)):
+            assert any((x,y,z) in original_by_pos for y in range(5,12)), ("roof",x,z)
 
 nbt_path = root / "src/main/resources/data/slavicmyths/structure/posad/menovye_ryady_2_2_6.nbt"
 data = memoryview(gzip.decompress(nbt_path.read_bytes()))
@@ -96,17 +131,24 @@ assert take(">B") == 10 and text() == ""
 structure = payload(10)
 assert offset == len(data)
 assert structure["size"] == [27, 12, 25]
-assert len(structure["palette"]) == len(compact["palette"])
+assert len(structure["palette"]) == len(compact["palette"]) + 2
 assert len(structure["blocks"]) == 2203 and structure["entities"] == []
 assert len({tuple(x["pos"]) for x in structure["blocks"]}) == 2203
 for idx, (original, block) in enumerate(zip(design["blocks"], structure["blocks"])):
-    assert block["pos"] == [original["u"], original["y"], original["v"]], idx
+    old = (original["u"], original["y"], original["v"])
+    new = moves.get(old, old)
+    assert block["pos"] == list(new), idx
+    expected = original["id"]
+    if old in moves:
+        facing = "east" if new[0] == 3 else "west"
+        expected = f"minecraft:chest[facing={facing},type=single,waterlogged=false]"
     state = structure["palette"][block["state"]]
-    assert (state["Name"], state.get("Properties", {})) == canonical(original["id"]), idx
-    xyz = tuple(block["pos"])
-    if xyz in markers:
-        assert block["nbt"]["LootTable"] == "slavicmyths:" + markers[xyz]
-        assert block["nbt"]["id"] == "minecraft:chest"
+    assert (state["Name"], state.get("Properties", {})) == canonical(expected), idx
+    if old in markers:
+        assert block["nbt"]["LootTable"] == "slavicmyths:" + markers[old], idx
+        assert block["nbt"]["id"] == "minecraft:chest", idx
     else:
-        assert "nbt" not in block
-print("PASS: 2203 identical voxels, 675 floor, 8 real NBT chests/tables, 20% chance, 0 extra coins")
+        assert "nbt" not in block, idx
+assert {tuple(row["pos"]) for row in structure["blocks"] if "nbt" in row} == set(moves.values())
+assert all(tuple(row["pos"]) not in moves for row in structure["blocks"])
+print("PASS: 2203 original blocks + native/manual NBT moves of 8 chests, 12 furniture/6 lamps, 20% max2 coins, roof coverage")
