@@ -2,5 +2,10 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "slavicmyths:item/blackwood_door"
+  },
+  "display": {
+    "gui": {
+      "scale": [0.5, 1.0, 1.0]
+    }
   }
 }
