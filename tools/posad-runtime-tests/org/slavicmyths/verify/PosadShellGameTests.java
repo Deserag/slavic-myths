@@ -582,7 +582,7 @@ public final class PosadShellGameTests {
  public static void naturalPopulationRosterPersistenceAndDedup(GameTestHelper t) {
   var world=t.getLevel();
   for(int turns=0;turns<4;turns++){
-   var anchor=t.absolutePos(new net.minecraft.core.BlockPos(turns*160,100,320));
+   var anchor=new net.minecraft.core.BlockPos(8000000+turns*160,100,8000000);
    var piece=new PosadPiece(anchor,turns);
    for(var patch:PosadGeometry.chunkPatches(anchor.getX(),anchor.getZ())){
     world.getChunk(patch.chunkX(),patch.chunkZ());world.setChunkForced(patch.chunkX(),patch.chunkZ(),true);
