@@ -53,7 +53,7 @@ public final class PosadShellGameTests {
   for(var patch:PosadGeometry.chunkPatches(anchor.getX(),anchor.getZ())) {
    world.getChunk(patch.chunkX(),patch.chunkZ());world.setChunkForced(patch.chunkX(),patch.chunkZ(),true);
    var r=patch.worldClip();
-   var clip=new net.minecraft.world.level.levelgen.structure.BoundingBox(r.minX(),anchor.getY()-2,r.minZ(),r.maxX(),anchor.getY()+17,r.maxZ());
+   var clip=new net.minecraft.world.level.levelgen.structure.BoundingBox(r.minX(),anchor.getY()-2,r.minZ(),r.maxX(),anchor.getY()+PosadRoofSlope.MAX_Y,r.maxZ());
    piece.postProcess(world,world.structureManager(),world.getChunkSource().getGenerator(),world.random,clip,
     new net.minecraft.world.level.ChunkPos(patch.chunkX(),patch.chunkZ()),anchor);
   }
@@ -74,7 +74,7 @@ public final class PosadShellGameTests {
    var cell=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    var at=anchor.offset(cell.x(),y,cell.z());
    var actual=world.getBlockState(at);
-   var expected=roofExpected(piece,x,y,z,approved).rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
+   var expected=piece.voxel(x,y,z).rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
    t.assertTrue(actual.is(expected.getBlock()),"Posadnik A+ mismatch "+x+","+y+","+z+" rot="+turns+" expected="+expected+" actual="+actual);
    if(expected.hasProperty(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING))
     t.assertTrue(actual.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING)==expected.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING),"Posadnik facing "+at);
@@ -90,7 +90,7 @@ public final class PosadShellGameTests {
   // R3 physical roof/fronton, dais and both existing double-width staircases.
   int fronton=0;
   for(int y=12;y<=17;y++)for(int x=50;x<=62;x++){
-   var expected=roofExpected(piece,x,y,34,PosadArchitectureR3.voxel(x,y,34));
+   var expected=piece.voxel(x,y,34);
    if(expected==null)continue;
    fronton++;
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,34),turns);
@@ -197,27 +197,22 @@ public final class PosadShellGameTests {
   }
   t.assertTrue(militaryBlocks==2440&&forgeBlocks==1901,"Wrong 2.2.4/2.2.5 block counts "+militaryBlocks+"/"+forgeBlocks);
   t.assertTrue(militaryChests==5&&forgeChests==5,"Wrong district chest counts "+militaryChests+"/"+forgeChests);
-  int closedRoofPairs=0;
-  for(int x=0;x<=112;x++)for(int z=0;z<=112;z++)for(int y=5;y<=17;y++) {
-   var planned=piece.voxel(x,y,z);
-   if(planned==null || !(planned.getBlock() instanceof net.minecraft.world.level.block.StairBlock)
-    || planned.getValue(net.minecraft.world.level.block.StairBlock.HALF)!=net.minecraft.world.level.block.state.properties.Half.BOTTOM)continue;
-   var facing=planned.getValue(net.minecraft.world.level.block.StairBlock.FACING);
-   var outward=piece.voxel(x+facing.getStepX(),y,z+facing.getStepZ());
-   var inward=piece.voxel(x-facing.getStepX(),y,z-facing.getStepZ());
-   var outward2=piece.voxel(x+2*facing.getStepX(),y,z+2*facing.getStepZ());
-   if(!sameRoofRun(planned,outward) || sameRoofRun(planned,inward) || sameRoofRun(planned,outward2))continue;
-   closedRoofPairs++;
-   var rotated=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
-   var at=anchor.offset(rotated.x(),y,rotated.z());
-   var actual=world.getBlockState(at);
-   var expected=roofExpected(piece,x,y,z,planned);
-   t.assertTrue(actual.getBlock()==expected.getBlock(),"Roof pair still broken "+at+" expected="+expected+" actual="+actual);
-   t.assertTrue(net.minecraft.world.level.block.Block.isShapeFullBlock(actual.getCollisionShape(world,at)),
-    "Roof has an inverted stair cavity "+at+" actual="+actual);
+  int pitched=0;
+  for(int x=0;x<=112;x++)for(int z=0;z<=112;z++)for(int y=5;y<=PosadRoofSlope.MAX_Y;y++){
+   var roof=piece.voxel(x,y,z);
+   if(roof==null||!(roof.getBlock() instanceof net.minecraft.world.level.block.StairBlock)||roof.getValue(net.minecraft.world.level.block.StairBlock.HALF)!=net.minecraft.world.level.block.state.properties.Half.BOTTOM)continue;
+   var direction=roof.getValue(net.minecraft.world.level.block.StairBlock.FACING);
+   var above=piece.voxel(x-direction.getStepX(),y+1,z-direction.getStepZ());
+   if(above!=null&&above.getBlock()==roof.getBlock()&&above.getBlock() instanceof net.minecraft.world.level.block.StairBlock
+     &&above.getValue(net.minecraft.world.level.block.StairBlock.FACING)==direction){
+    pitched++;
+    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+    var actual=world.getBlockState(anchor.offset(p.x(),y,p.z()));
+    t.assertTrue(actual.is(roof.getBlock()),"Ascending roof block missing "+x+","+y+","+z);
+   }
   }
-  t.assertTrue(closedRoofPairs>=400,"Too few fixed roof pairs "+closedRoofPairs);
-  System.out.println("POSAD_CLOSED_ROOF_PASS schema="+PosadGeometry.SCHEMA_VERSION+" rotation="+turns+" solid_inward_cells="+closedRoofPairs);
+  t.assertTrue(pitched>=100,"No continuous ascending roof rows "+pitched);
+  System.out.println("POSAD_ASCENDING_ROOF schema="+PosadGeometry.SCHEMA_VERSION+" rotation="+turns+" steps="+pitched);
   int emittedLights=0;
   for(int x=0;x<113;x++)for(int z=0;z<113;z++)for(int y:new int[]{1,7}) {
    var light=PosadLightingR3.voxel(x,y,z);
@@ -602,7 +597,7 @@ public final class PosadShellGameTests {
   for(var patch:PosadGeometry.chunkPatches(anchor.getX(),anchor.getZ())){
    world.getChunk(patch.chunkX(),patch.chunkZ());world.setChunkForced(patch.chunkX(),patch.chunkZ(),true);
    var r=patch.worldClip();
-   var clip=new net.minecraft.world.level.levelgen.structure.BoundingBox(r.minX(),anchor.getY()-2,r.minZ(),r.maxX(),anchor.getY()+17,r.maxZ());
+   var clip=new net.minecraft.world.level.levelgen.structure.BoundingBox(r.minX(),anchor.getY()-2,r.minZ(),r.maxX(),anchor.getY()+PosadRoofSlope.MAX_Y,r.maxZ());
    piece.postProcess(world,world.structureManager(),world.getChunkSource().getGenerator(),world.random,clip,new net.minecraft.world.level.ChunkPos(patch.chunkX(),patch.chunkZ()),anchor);
   }
   var first=PosadResidentSpawner.populateNatural(world,piece);

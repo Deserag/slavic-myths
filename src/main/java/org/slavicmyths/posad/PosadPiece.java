@@ -22,25 +22,28 @@ public final class PosadPiece extends StructurePiece {
     public int cityTurns() { return turns; }
     private final int turns;
     private final int schema;
+    private final java.util.Map<Long,BlockState> roofGeometry;
     private final PosadTerrain.Plan terrain;
     private final java.util.Map<Long,Integer> supports=new java.util.HashMap<>();
     private static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}
     public PosadPiece(BlockPos anchor,int turns) {
-        super(PosadWorldgen.PIECE.get(),0,new BoundingBox(anchor.getX(),anchor.getY()-2,anchor.getZ(),anchor.getX()+112,anchor.getY()+17,anchor.getZ()+112));
+        super(PosadWorldgen.PIECE.get(),0,new BoundingBox(anchor.getX(),anchor.getY()-2,anchor.getZ(),anchor.getX()+112,anchor.getY()+PosadRoofSlope.MAX_Y,anchor.getZ()+112));
         this.anchor=anchor.immutable(); this.turns=Math.floorMod(turns,4); this.schema=PosadGeometry.SCHEMA_VERSION;
         terrain=new PosadTerrain.Plan(anchor.getX(),anchor.getY(),anchor.getZ(),this.turns,0,java.util.List.of());
+        roofGeometry=schema>=24?PosadRoofSlope.build(this::rawVoxel):java.util.Map.of();
     }
     public PosadPiece(PosadTerrain.Plan plan) {
         super(PosadWorldgen.PIECE.get(),0,bounds(plan));
         terrain=plan;anchor=new BlockPos(plan.anchorX(),plan.deckY(),plan.anchorZ());turns=plan.turns();schema=PosadGeometry.SCHEMA_VERSION;
         for(var support:plan.supports())supports.put(key(support.x(),support.z()),support.depth());
+        roofGeometry=schema>=24?PosadRoofSlope.build(this::rawVoxel):java.util.Map.of();
     }
     private static BoundingBox bounds(PosadTerrain.Plan plan) {
         var a=plan.world(0,0);var b=plan.world(112,112);
         var c=plan.world(52,112+plan.bridgeLength());var d=plan.world(60,112+plan.bridgeLength());
         return new BoundingBox(Math.min(Math.min(a.x(),b.x()),Math.min(c.x(),d.x())),plan.deckY()-48,
             Math.min(Math.min(a.z(),b.z()),Math.min(c.z(),d.z())),
-            Math.max(Math.max(a.x(),b.x()),Math.max(c.x(),d.x())),plan.deckY()+17,
+            Math.max(Math.max(a.x(),b.x()),Math.max(c.x(),d.x())),plan.deckY()+PosadRoofSlope.MAX_Y,
             Math.max(Math.max(a.z(),b.z()),Math.max(c.z(),d.z())));
     }
     public PosadPiece(CompoundTag n) {
@@ -53,6 +56,7 @@ public final class PosadPiece extends StructurePiece {
         int length=n.getInt("BridgeLength");
         if(length<0||length>PosadTerrain.MAX_BRIDGE)throw new IllegalArgumentException("Invalid posad bridge");
         terrain=new PosadTerrain.Plan(anchor.getX(),anchor.getY(),anchor.getZ(),turns,length,list);
+        roofGeometry=schema>=24?PosadRoofSlope.build(this::rawVoxel):java.util.Map.of();
     }
     @Override protected void addAdditionalSaveData(StructurePieceSerializationContext c,CompoundTag n) {
         n.putLong("Anchor",anchor.asLong());n.putInt("Turns",turns);n.putInt("Schema",schema);
@@ -62,6 +66,10 @@ public final class PosadPiece extends StructurePiece {
         n.putIntArray("Supports",raw);
     }
     public net.minecraft.world.level.block.state.BlockState voxel(int x,int y,int z) {
+        BlockState moved=roofGeometry.get(PosadRoofSlope.key(x,y,z));
+        return moved!=null?moved:rawVoxel(x,y,z);
+    }
+    private net.minecraft.world.level.block.state.BlockState rawVoxel(int x,int y,int z) {
         if(y < -2) {
             int depth=supports.getOrDefault(key(x,z),0);
             return -y<depth?Blocks.POLISHED_BASALT.defaultBlockState():null;
@@ -318,7 +326,7 @@ public final class PosadPiece extends StructurePiece {
                 case 2 -> new PosadGeometry.Cell(112-dx,112-dz);
                 default -> new PosadGeometry.Cell(112-dz,dx);
             };
-            for(int y=Math.max(boundingBox.minY(),clip.minY())-anchor.getY();y<=Math.min(anchor.getY()+17,clip.maxY())-anchor.getY();y++) {
+            for(int y=Math.max(boundingBox.minY(),clip.minY())-anchor.getY();y<=Math.min(anchor.getY()+PosadRoofSlope.MAX_Y,clip.maxY())-anchor.getY();y++) {
                 var state=voxel(local.x(),y,local.z());
                 if(state==null || lateAttachment(state)!=(pass==1))continue;
                 BlockPos at=new BlockPos(wx,anchor.getY()+y,wz);
