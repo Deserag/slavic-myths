@@ -192,6 +192,35 @@ public final class PosadShellGameTests {
      t.assertTrue(world.getBlockState(at).isAir() && world.getBlockState(at.above()).isAir(),"R2 ceremonial arch blocked turn="+turns+" local="+x+",1,28");
     }
    }
+   // Grounded district survey: sample two-block-high navigable cells with a
+   // solid floor and an overhead structure. Exclude open courtyards, which
+   // intentionally have no roof and need different outdoor design targets.
+   // Do not assert the target yet: first expose all real dark sample positions.
+   for(int turns=0;turns<4;turns++) {
+    var anchor=t.absolutePos(new net.minecraft.core.BlockPos(turns*160,140,0));
+    for(var slot:PosadGeometry.Slot.values()) {
+     if(slot==PosadGeometry.Slot.VECHE_SQUARE||slot==PosadGeometry.Slot.VECHE_HALL)continue;
+     for(int y:new int[]{1,7}) {
+      int total=0,low8=0,low10=0,minimum=15;
+      var dark=new java.util.ArrayList<String>();
+      for(int x=slot.local().minX()+2;x<=slot.local().maxX()-2;x+=2)
+       for(int z=slot.local().minZ()+2;z<=slot.local().maxZ()-2;z+=2) {
+        var rotated=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+        var at=anchor.offset(rotated.x(),y,rotated.z());
+        if(!world.getBlockState(at).isAir()||!world.getBlockState(at.above()).isAir()||world.getBlockState(at.below()).isAir())continue;
+        boolean roof=false;
+        for(int dy=3;dy<=10 && y+dy<=17;dy++)
+         if(!world.getBlockState(at.above(dy)).isAir()){roof=true;break;}
+        if(!roof)continue;
+        int value=world.getBrightness(net.minecraft.world.level.LightLayer.BLOCK,at);
+        total++;minimum=Math.min(minimum,value);
+        if(value<8){low8++;if(dark.size()<16)dark.add(x+","+y+","+z+"="+value);}
+        if(value<10)low10++;
+       }
+      System.out.println("POSAD_DISTRICT_LIGHT_SURVEY schema="+PosadGeometry.SCHEMA_VERSION+" turn="+turns+" district="+slot+" level="+y+" samples="+total+" min="+(total==0?"NA":minimum)+" below8="+low8+" below10="+low10+" dark="+dark);
+     }
+    }
+   }
    t.succeed();
   });
  }
