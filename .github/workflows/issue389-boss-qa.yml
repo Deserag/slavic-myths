@@ -1,0 +1,47 @@
+name: 'Issue 389 — 2.2 boss static validation and Java 21 build'
+on:
+  push:
+    branches:
+      - fix/2.2-389-boss-rework-20261101
+  pull_request:
+    branches:
+      - '2.2'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compile-and-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Validate all PNGs, JSONs, 3D rigs, runes, and Curios slots
+        run: python3 tools/qa_389_assets.py
+      - name: Clean Java 21 NeoForge build
+        shell: bash
+        run: |
+          set -o pipefail
+          chmod +x gradlew
+          ./gradlew --no-daemon clean build --console=plain 2>&1 | tee issue389-build.log
+      - name: Record source and built artifact SHA
+        if: success()
+        shell: bash
+        run: |
+          git rev-parse HEAD > issue389-source-sha.txt
+          sha256sum build/libs/slavicmyths-*.jar > issue389-jar-sha256.txt
+      - name: Preserve build evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: issue389-build-evidence
+          path: |
+            issue389-build.log
+            issue389-source-sha.txt
+            issue389-jar-sha256.txt
+            build/reports/
+          retention-days: 14
