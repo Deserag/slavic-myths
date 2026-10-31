@@ -49,8 +49,8 @@ public final class PosadDialogueMenu extends ChestMenu {
             }
             entry(22,Items.ARROW,"Вернуться к разговору");
         }else if(page==2){
-            entry(11,Items.NETHER_STAR,rank>=3?"Проклятый мытарь — розыск (ожидает подтверждения местоположения)":"Проклятый мытарь — нужен ранг III");
-            entry(15,Items.NETHER_STAR,rank>=3?"Баук — розыск (ожидает подтверждения местоположения)":"Баук — нужен ранг III");
+            entry(11,Items.NETHER_STAR,rank>=3?"Проклятый мытарь — взять контракт / показать реальные X/Z":"Проклятый мытарь — нужен ранг III");
+            entry(15,Items.NETHER_STAR,rank>=3?"Баук — взять контракт / показать реальные X/Z":"Баук — нужен ранг III");
             entry(22,Items.ARROW,"Вернуться к разговору");
         }else{
             entry(13,Items.GOLD_NUGGET,"Трофеи принимаются после проверки подлинности и одноразового claimId");
@@ -77,7 +77,17 @@ public final class PosadDialogueMenu extends ChestMenu {
                 break;
             }
         }else if(page==2 && (slot==11||slot==15)){
-            server.displayClientMessage(Component.literal("Розыск станет доступен после обнаружения проверенных координат босса."),true);
+            PosadQuestLedger ledger=PosadQuestLedger.get(server.serverLevel());
+            String id=slot==11?"hunt_cursed_mytar":"hunt_bauk";
+            if(ledger.tier(posadnik.city(),server.getUUID())<3) server.displayClientMessage(Component.literal("Розыск открывается с III ранга доверия."),false);
+            else {
+                if(!ledger.active(posadnik.city(),server.getUUID(),id)) ledger.acceptBoss(posadnik.city(),server,id);
+                if(ledger.active(posadnik.city(),server.getUUID(),id)){
+                    net.minecraft.core.BlockPos found=PosadQuestLedger.findLoadedBoss(server,id);
+                    if(found!=null) server.displayClientMessage(Component.literal("Реальная цель: X="+found.getX()+" Z="+found.getZ()+"; радиус поиска 48 блоков."),false);
+                    else server.displayClientMessage(Component.literal("Контракт принят. Сейчас подтверждённая цель не обнаружена в загруженных чанках радиусом 256 блоков в Незере; ложные координаты не выдаются."),false);
+                }else server.displayClientMessage(Component.literal("Невозможно принять: лимит поручений исчерпан или контракт уже завершён."),false);
+            }
         }else if(page==3 && slot==13){
             server.displayClientMessage(Component.literal("Подлинность трофея должна подтвердить серверная книга побед."),true);
         }
