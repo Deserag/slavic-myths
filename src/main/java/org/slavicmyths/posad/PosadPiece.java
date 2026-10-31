@@ -161,7 +161,8 @@ public final class PosadPiece extends StructurePiece {
         for(var direction:new net.minecraft.core.Direction[]{net.minecraft.core.Direction.NORTH,net.minecraft.core.Direction.EAST,net.minecraft.core.Direction.SOUTH,net.minecraft.core.Direction.WEST}) {
             // Direction is in the rotated WORLD frame. Map neighbor back to city coordinates.
             int dx=direction.getStepX(),dz=direction.getStepZ(),lx=x,lz=z;
-            for(int i=0;i<Math.floorMod(4-turns,4);i++){int t=dx;dx=dz;dz=-t;}
+            // World -> city inverse of the city's clockwise transform.
+            for(int i=0;i<turns;i++){int t=dx;dx=dz;dz=-t;}
             lx+=dx;lz+=dz;
             var neighbor=voxel(lx,y,lz);
             if(neighbor==null)neighbor=Blocks.AIR.defaultBlockState();
