@@ -74,7 +74,7 @@ manual=(java/"PosadnikTeremManual.java").read_text("utf-8")
 gradle=(ROOT/"build.gradle").read_text("utf-8")
 physical=(ROOT/"tools/posad-runtime-tests/org/slavicmyths/verify/PosadShellGameTests.java").read_text("utf-8")
 standalone=(ROOT/"tools/posad-runtime-tests/org/slavicmyths/verify/PosadCommandGameTests.java").read_text("utf-8")
-assert "SCHEMA_VERSION = 20" in geometry and "POSADNIK_TEREM_ENVELOPE" in geometry
+assert "SCHEMA_VERSION = 21" in geometry and "POSADNIK_TEREM_ENVELOPE" in geometry
 assert "schema >= 19" in piece and "PosadnikTerem.voxel(x,y,z)" in piece
 assert piece.index("schema >= 19") < piece.index("schema >= 18")
 assert "posadnik_terem_A_proposal.json" in gradle and "posadnik_terem_Aplus_delta.json" in gradle
