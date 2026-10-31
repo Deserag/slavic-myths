@@ -82,6 +82,8 @@ public final class PosadBossWorld extends SavedData {
             if (!level.hasChunkAt(top)) continue;
             for (int y = Math.min(level.getMaxBuildHeight() - 8, player.getBlockY() + 24); y >= Math.max(level.getMinBuildHeight() + 5, player.getBlockY() - 24); y--) {
                 BlockPos pos = new BlockPos(x, y, z);
+                // Cheap column test before checking the full 3x3 or 5x5 collision footprint.
+                if (!level.hasChunkAt(pos) || !naturalGround(level.getBlockState(pos.below())) || !level.getBlockState(pos).isAir()) continue;
                 if (!safe(level, pos, kind)) continue;
                 PosadBoss boss = (kind == PosadBoss.Kind.MYTAR ? ModEntities.CURSED_MYTAR : ModEntities.BAUK).get().create(level);
                 if (boss == null) return;
