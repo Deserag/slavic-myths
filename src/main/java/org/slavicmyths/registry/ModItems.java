@@ -23,6 +23,16 @@ public final class ModItems {
     public static final DeferredHolder<Item,Item> CURSED_SKULL_CACHE=ITEMS.register("cursed_skull_cache",()->new BlockItem(ModBlocks.CURSED_SKULL_CACHE.get(),properties()));
     public static final DeferredHolder<Item,Item> CURSED_VOLKOLAK_SPAWN_EGG=egg("cursed_volkolak_spawn_egg",ModEntities.CURSED_VOLKOLAK,0x28272B,0x64574D);
 
+    public static final DeferredHolder<Item, Item> GARLIC_CLOVE = ITEMS.register("garlic_clove", () -> new ItemNameBlockItem(ModBlocks.GARLIC_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> HORSERADISH_CUTTING = ITEMS.register("horseradish_cutting", () -> new ItemNameBlockItem(ModBlocks.HORSERADISH_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> BLACK_RADISH_SEEDS = ITEMS.register("black_radish_seeds", () -> new ItemNameBlockItem(ModBlocks.BLACK_RADISH_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> MUSTARD_SEEDS = ITEMS.register("mustard_seeds", () -> new ItemNameBlockItem(ModBlocks.MUSTARD_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> ONION_SET = ITEMS.register("onion_set", () -> new ItemNameBlockItem(ModBlocks.ONION_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> GARLIC = ITEMS.register("garlic", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
+    public static final DeferredHolder<Item, Item> HORSERADISH = ITEMS.register("horseradish", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
+    public static final DeferredHolder<Item, Item> BLACK_RADISH = ITEMS.register("black_radish", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
+    public static final DeferredHolder<Item, Item> ONION = ITEMS.register("onion", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
+
     public static final DeferredHolder<Item, Item> RYE_SEEDS = ITEMS.register("rye_seeds", () -> new ItemNameBlockItem(ModBlocks.RYE_CROP.get(), properties()));
     public static final DeferredHolder<Item, Item> BARLEY_SEEDS = ITEMS.register("barley_seeds", () -> new ItemNameBlockItem(ModBlocks.BARLEY_CROP.get(), properties()));
     public static final DeferredHolder<Item, Item> OAT_SEEDS = ITEMS.register("oat_seeds", () -> new ItemNameBlockItem(ModBlocks.OAT_CROP.get(), properties()));
