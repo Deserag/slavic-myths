@@ -3,6 +3,13 @@ package org.slavicmyths.posad;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.inventory.MerchantMenu;
+import net.minecraft.world.item.trading.Merchant;
+import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.network.syncher.*;
@@ -22,13 +29,21 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 /** Distinct Nether citizen: 12 professions, city-scoped retaliation, bounded guard duty. */
-public final class PosadResidentEntity extends PathfinderMob {
+public final class PosadResidentEntity extends PathfinderMob implements Merchant {
     private static final EntityDataAccessor<Integer> ROLE = SynchedEntityData.defineId(PosadResidentEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> WEAPON = SynchedEntityData.defineId(PosadResidentEntity.class, EntityDataSerializers.INT);
     private UUID city;
     private String memberKey = "";
     private BlockPos home;
     private int shotCooldown;
+    private final Map<String,Integer> tradeUses = new HashMap<>();
+    private final IdentityHashMap<MerchantOffer,String> offerIdentities = new IdentityHashMap<>();
+    private MerchantOffers trades = new MerchantOffers();
+    private Player tradingPlayer;
+    private boolean tradesInitialized;
+    private int tradeXp;
+    private long tradeRestockDay = -1;
+    private int tradeRestocksToday;
 
     public PosadResidentEntity(EntityType<? extends PosadResidentEntity> type, Level level) {
         super(type, level);
@@ -62,6 +77,7 @@ public final class PosadResidentEntity extends PathfinderMob {
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(role().health());
         setHealth(role().health());
         equip();
+        tradesInitialized = false;
     }
     private void equip() {
         Item weapon = switch (weapon()) {
@@ -123,6 +139,7 @@ public final class PosadResidentEntity extends PathfinderMob {
         if (actuallyHit && amount > 0 && source.getEntity() instanceof Player p && !p.isCreative() && !p.isSpectator()
                 && level() instanceof ServerLevel server && city != null) {
             PosadGrievances.get(server).attacked(city, p.getUUID());
+            if (tradingPlayer == p) p.closeContainer();
             for (PosadResidentEntity guard : server.getEntitiesOfClass(PosadResidentEntity.class, getBoundingBox().inflate(48),
                     e -> e.role().guard() && Objects.equals(e.city(), city))) guard.setTarget(p);
         }
@@ -130,6 +147,7 @@ public final class PosadResidentEntity extends PathfinderMob {
     }
     @Override public void tick() {
         super.tick();
+        if (!level().isClientSide) tickEconomy();
         if (level().isClientSide || !role().guard() || city == null || !(level() instanceof ServerLevel server)) return;
         if (getTarget() instanceof Player player && !canFightPlayer(player)) setTarget(null);
         boolean shield = weapon() == PosadPopulationPlan.Weapon.SWORD_SHIELD || weapon() == PosadPopulationPlan.Weapon.SPEAR_SHIELD;
@@ -187,6 +205,92 @@ public final class PosadResidentEntity extends PathfinderMob {
             return true;
         }
     }
+    /** Trade XP is per NPC, never city trust or a quest. */
+    private int tradeTier() { return PosadTradeCatalog.tier(role(), tradeXp); }
+    private boolean refuses(Player player) {
+        return city != null && level() instanceof ServerLevel server && PosadGrievances.get(server).hostile(city, player.getUUID());
+    }
+    private void rebuildTrades() {
+        trades = PosadTradeCatalog.create(role(), tradeTier(), tradeUses, offerIdentities, level().registryAccess());
+        tradesInitialized = true;
+    }
+    @Override public MerchantOffers getOffers() {
+        if (!tradesInitialized) rebuildTrades();
+        return trades;
+    }
+    @Override public void overrideOffers(MerchantOffers replacement) {
+        if (level().isClientSide) {
+            trades = replacement.copy();
+            tradesInitialized = true;
+        }
+    }
+    @Override public void setTradingPlayer(Player player) { tradingPlayer = player; }
+    @Override public Player getTradingPlayer() { return tradingPlayer; }
+    @Override public int getVillagerXp() { return tradeXp; }
+    @Override public void overrideXp(int xp) {
+        if (level().isClientSide) return;
+        int oldTier = tradeTier();
+        tradeXp = Math.max(tradeXp, Math.min(1_000_000, xp));
+        if (tradeTier() != oldTier) rebuildTrades();
+        if (tradingPlayer instanceof ServerPlayer player && player.containerMenu instanceof MerchantMenu menu) {
+            player.sendMerchantOffers(menu.containerId, getOffers().copy(), tradeTier(), tradeXp, showProgressBar(), false);
+        }
+    }
+    @Override public boolean showProgressBar() { return !PosadTradeCatalog.fixed(role()); }
+    @Override public SoundEvent getNotifyTradeSound() { return SoundEvents.VILLAGER_YES; }
+    @Override public boolean isClientSide() { return level().isClientSide; }
+    @Override public boolean canRestock() { return false; } // Controlled workday restock, never unlimited vanilla refresh.
+    @Override public void notifyTradeUpdated(ItemStack stack) {
+        if (!stack.isEmpty() && !level().isClientSide) playSound(SoundEvents.VILLAGER_YES, .5F, 1.0F);
+    }
+    @Override public void notifyTrade(MerchantOffer offer) {
+        if (level().isClientSide || !isAlive() || tradingPlayer == null || refuses(tradingPlayer) || distanceToSqr(tradingPlayer) > 64) return;
+        String id = offerIdentities.get(offer);
+        if (id == null || offer.isOutOfStock()) return;
+        offer.increaseUses();
+        tradeUses.put(id, offer.getUses());
+    }
+    @Override protected net.minecraft.world.InteractionResult mobInteract(Player player, InteractionHand hand) {
+        if (hand != InteractionHand.MAIN_HAND || !isAlive() || city == null || player.isSpectator() || refuses(player)) return super.mobInteract(player, hand);
+        if (!level().isClientSide) {
+            if (tradingPlayer != null && tradingPlayer != player) tradingPlayer.closeContainer();
+            getOffers();
+            openTradingScreen(player, getName(), tradeTier());
+        }
+        return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+    }
+    private void tickEconomy() {
+        if (!(level() instanceof ServerLevel server)) return;
+        if (tradingPlayer != null && (!isAlive() || tradingPlayer.isRemoved() || tradingPlayer.distanceToSqr(this) > 64
+                || refuses(tradingPlayer) || !(tradingPlayer.containerMenu instanceof MerchantMenu))) {
+            Player previous = tradingPlayer;
+            tradingPlayer = null;
+            if (previous.containerMenu instanceof MerchantMenu) previous.closeContainer();
+        }
+        if (tickCount % 1200 != 0 || city == null || home == null || tradingPlayer != null || blockPosition().distSqr(home) > 64) return;
+        long day = server.getDayTime() / 24000L;
+        if (day > tradeRestockDay) { tradeRestockDay = day; tradeRestocksToday = 0; }
+        if (tradeRestocksToday >= 2) return;
+        MerchantOffers offers = getOffers();
+        boolean needed = false;
+        for (MerchantOffer offer : offers) if (offer.needsRestock()) { needed = true; break; }
+        if (!needed) return;
+        for (MerchantOffer offer : offers) {
+            if (!offer.needsRestock()) continue;
+            offer.resetUses();
+            String id = offerIdentities.get(offer);
+            if (id != null) tradeUses.put(id, 0);
+        }
+        tradeRestocksToday++;
+    }
+    @Override public void die(DamageSource source) {
+        if (tradingPlayer != null) {
+            Player previous = tradingPlayer;
+            tradingPlayer = null;
+            previous.closeContainer();
+        }
+        super.die(source);
+    }
     @Override protected SoundEvent getAmbientSound() { return SoundEvents.PIGLIN_AMBIENT; }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.PIGLIN_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.PIGLIN_DEATH; }
@@ -198,6 +302,18 @@ public final class PosadResidentEntity extends PathfinderMob {
         tag.putString("PosadMember", memberKey);
         if (city != null) tag.putUUID("PosadCity", city);
         if (home != null) tag.putLong("PosadHome", home.asLong());
+        tag.putInt("PosadTradeXp", tradeXp);
+        tag.putLong("PosadTradeDay", tradeRestockDay);
+        tag.putInt("PosadTradeRestocks", tradeRestocksToday);
+        ListTag stock = new ListTag();
+        for (var entry : tradeUses.entrySet()) {
+            if (entry.getValue() <= 0) continue;
+            CompoundTag row = new CompoundTag();
+            row.putString("Offer", entry.getKey());
+            row.putInt("Uses", entry.getValue());
+            stock.add(row);
+        }
+        tag.put("PosadTradeStock", stock);
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
@@ -207,6 +323,15 @@ public final class PosadResidentEntity extends PathfinderMob {
         city = tag.hasUUID("PosadCity") ? tag.getUUID("PosadCity") : null;
         home = tag.contains("PosadHome") ? BlockPos.of(tag.getLong("PosadHome")) : null;
         if (home != null) restrictTo(home, 32);
+        tradeXp = Math.max(0, tag.getInt("PosadTradeXp"));
+        tradeRestockDay = tag.contains("PosadTradeDay") ? tag.getLong("PosadTradeDay") : -1;
+        tradeRestocksToday = Math.max(0, Math.min(2, tag.getInt("PosadTradeRestocks")));
+        tradeUses.clear();
+        for (Tag raw : tag.getList("PosadTradeStock", 10)) {
+            CompoundTag row = (CompoundTag) raw;
+            if (!row.getString("Offer").isBlank()) tradeUses.put(row.getString("Offer"), Math.max(0, row.getInt("Uses")));
+        }
+        tradesInitialized = false;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(role().health());
         equip();
     }
