@@ -29,6 +29,7 @@ jobs:
       - name: Verify current resource inventory
         run: python -m pip install Pillow && python tools/verify_current_resources.py
       - name: Headless GameTest
+        if: success() || failure()
         run: ./gradlew --no-daemon -I tools/hell-qa-runtime.gradle runHellQa -PhellQaDir=work/posad-382/github-actions -PhellQaSeed=20261024 --console=plain
       - name: Save logs and JAR for independent verification
         if: always()
