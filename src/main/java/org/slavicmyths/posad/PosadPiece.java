@@ -187,6 +187,22 @@ public final class PosadPiece extends StructurePiece {
         }
         return state;
     }
+    /**
+     * Whitelist actual authored voids: roof restoration, rerouted stairs,
+     * cleared furniture/chest footprints and the open Veche partitions.
+     * Clearing every AIR in the generic city shell would carve uncontrolled
+     * caves or replace blocks that the structure never claimed.
+     */
+    private boolean authoredClearance(int x,int y,int z) {
+        if(schema>=17 && PosadHallR2.isOpening(x,y,z))return true;
+        if(schema>=13 && isAuthoredAir(PosadHallRoofRepair.voxel(x,y,z)))return true;
+        if(schema>=12 && isAuthoredAir(PosadHallComfort.voxel(x,y,z)))return true;
+        if(schema>=9 && isAuthoredAir(PosadMarketRenovation.voxel(x,y,z)))return true;
+        return schema>=7 && isAuthoredAir(PosadHouseRenovation.voxel(x,y,z));
+    }
+    private static boolean isAuthoredAir(net.minecraft.world.level.block.state.BlockState state) {
+        return state!=null && state.isAir();
+    }
     @Override public void postProcess(WorldGenLevel world,StructureManager manager,ChunkGenerator generator,RandomSource random,BoundingBox clip,ChunkPos chunk,BlockPos pivot) {
         // Two bounded 16x16x66 passes: masonry/doors first; panes, wall attachments and hanging lights second.
         int x0=Math.max(clip.minX(),boundingBox.minX()),x1=Math.min(clip.maxX(),boundingBox.maxX());
@@ -207,7 +223,7 @@ public final class PosadPiece extends StructurePiece {
                 if(!clip.isInside(at)||!world.ensureCanWrite(at))continue;
                 var old=world.getBlockState(at);
                 if(old.hasBlockEntity()||old.is(Blocks.BEDROCK)||!(old.isAir()||old.is(Blocks.LAVA)||NetherBridgeTerrain.natural(old)))continue;
-                if(state.isAir()&&!old.isAir() && !(schema>=17 && PosadHallR2.isOpening(local.x(),y,local.z())))continue;
+                if(state.isAir()&&!old.isAir() && !authoredClearance(local.x(),y,local.z()))continue;
                 try {
                     var placed=resolvedConnections(state,local.x(),y,local.z(),world,at);
                     if (state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock) {
