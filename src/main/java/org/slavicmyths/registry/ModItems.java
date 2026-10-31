@@ -315,6 +315,7 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> POYAS_TUGARINA=ITEMS.register("poyas_tugarina",()->new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.EPIC),"belt"));
     public static final DeferredHolder<Item, Item> LIKHO_ONE_EYED_SPAWN_EGG=egg("likho_one_eyed_spawn_egg",ModEntities.LIKHO_ONE_EYED,0x1E1B1D,0xC7A77A);
     public static final DeferredHolder<Item, Item> TUGARIN_ZMEY_SPAWN_EGG=egg("tugarin_zmey_spawn_egg",ModEntities.TUGARIN_ZMEY,0x8F3D2F,0xC99B45);
+    public static final DeferredHolder<Item, Item> POSAD_RESIDENT_SPAWN_EGG=egg("posad_resident_spawn_egg",ModEntities.POSAD_RESIDENT,0x382024,0xCF6537);
     private ModItems() { }
  public static final DeferredHolder<Item, Item> PUTEVODNY_KLUBOK=ITEMS.register("putevodny_klubok",()->new org.slavicmyths.yaga.YagaUtilityItem(properties().stacksTo(1).rarity(Rarity.RARE),org.slavicmyths.yaga.YagaUtilityItem.Kind.THREAD));
  public static final DeferredHolder<Item, Item> SVYAZKA_TRAV_YAGI=ITEMS.register("svyazka_trav_yagi",()->new org.slavicmyths.yaga.YagaUtilityItem(properties().stacksTo(32),org.slavicmyths.yaga.YagaUtilityItem.Kind.HERBS));
