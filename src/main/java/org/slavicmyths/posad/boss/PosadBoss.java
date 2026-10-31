@@ -220,9 +220,10 @@ public final class PosadBoss extends Monster {
             if (move() == Move.WINDUP_COINS) { distant.hurt(damageSources().mobAttack(this), 5F); return; }
             if (!(level() instanceof net.minecraft.server.level.ServerLevel server)) return;
             MytarSickleProjectile hook = new MytarSickleProjectile(server, this);
-            hook.setPos(getX(), getEyeY() - .25D, getZ());
+            net.minecraft.world.phys.Vec3 launch = MytarSickleProjectile.handAnchor(this, false, 1F);
+            hook.setPos(launch.x, launch.y, launch.z);
             net.minecraft.world.phys.Vec3 aim = distant.getBoundingBox().getCenter().subtract(hook.position());
-            hook.shoot(aim.x, aim.y, aim.z, 1.8F, 0F);
+            hook.shoot(aim.x, aim.y, aim.z, 1.2F, 0F);
             server.addFreshEntity(hook);
             return;
         }
