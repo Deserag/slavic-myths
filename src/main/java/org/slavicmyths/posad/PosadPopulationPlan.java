@@ -5,33 +5,47 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Immutable rotation-aware population manifest for a completed posad.
- * Candidate anchors are NOT safe spawn points; the spawn service must validate
- * collision, floor, fluids and headroom before placing any entity.
- */
+/** Fixed, rotation-aware population manifest. Coordinates are candidates, never trusted spawn locations. */
 public final class PosadPopulationPlan {
-    public enum Role { POSADNIK, CIVILIAN, GUARD }
+    public enum Role {
+        POSADNIK, GUARD, SOTNIK, BLACKSMITH, WEAPONSMITH, CRAFTER, FARMER,
+        MUSHROOM_GROWER, HERBALIST, COOK, STOREKEEPER, CIVILIAN;
+        public boolean guard() { return this == GUARD || this == SOTNIK; }
+        public int health() { return guard() ? 70 : 50; }
+    }
     public enum Weapon { NONE, SWORD, SPEAR, SWORD_SHIELD, SPEAR_SHIELD, BOW }
     public record Member(String key, Role role, Weapon weapon, int health, int localX, int localZ) {
         public Member {
-            if (key == null || key.isBlank() || localX < 0 || localX > 112 || localZ < 0 || localZ > 112) throw new IllegalArgumentException("Invalid member");
-            if (health != switch (role) { case POSADNIK -> 150; case CIVILIAN -> 50; case GUARD -> 70; }) throw new IllegalArgumentException("Incorrect health");
-            if ((role == Role.GUARD) == (weapon == Weapon.NONE)) throw new IllegalArgumentException("Incorrect weapon");
+            if (key == null || key.isBlank() || role == null || weapon == null || localX < 0 || localX > 112 || localZ < 0 || localZ > 112) throw new IllegalArgumentException("Invalid member");
+            if (health != role.health()) throw new IllegalArgumentException("Incorrect role health");
+            if (role.guard() == (weapon == Weapon.NONE)) throw new IllegalArgumentException("Incorrect weapon");
         }
     }
     public record WorldMember(UUID identity, Member member, int worldX, int worldZ) {}
     private static final List<Member> ROSTER = createRoster();
     private static List<Member> createRoster() {
-        List<Member> result = new ArrayList<>();
-        result.add(new Member("posadnik", Role.POSADNIK, Weapon.NONE, 150, 66, 85));
-        int[][] homes = {{19,20},{26,20},{31,27},{19,31},{27,36},{42,43},{48,50},{59,57},{66,65},{81,60}};
-        for (int i = 0; i < homes.length; i++) result.add(new Member("civilian_" + (i + 1), Role.CIVILIAN, Weapon.NONE, 50, homes[i][0], homes[i][1]));
-        int[][] posts = {{53,7},{59,7},{12,83},{24,83},{34,74},{46,81}};
-        Weapon[] weapons = {Weapon.SWORD,Weapon.SPEAR,Weapon.SWORD_SHIELD,Weapon.SPEAR_SHIELD,Weapon.BOW,Weapon.SWORD};
-        for (int i = 0; i < posts.length; i++) result.add(new Member("guard_" + (i + 1), Role.GUARD, weapons[i], 70, posts[i][0], posts[i][1]));
-        return List.copyOf(result);
+        List<Member> members = new ArrayList<>();
+        members.add(member("posadnik", Role.POSADNIK, Weapon.NONE, 66, 85));
+        members.add(member("blacksmith", Role.BLACKSMITH, Weapon.NONE, 20, 52));
+        members.add(member("weaponsmith", Role.WEAPONSMITH, Weapon.NONE, 29, 54));
+        members.add(member("crafter", Role.CRAFTER, Weapon.NONE, 81, 82));
+        members.add(member("farmer", Role.FARMER, Weapon.NONE, 82, 45));
+        members.add(member("mushroom_grower", Role.MUSHROOM_GROWER, Weapon.NONE, 83, 53));
+        members.add(member("herbalist", Role.HERBALIST, Weapon.NONE, 86, 29));
+        members.add(member("cook", Role.COOK, Weapon.NONE, 22, 25));
+        members.add(member("storekeeper", Role.STOREKEEPER, Weapon.NONE, 88, 90));
+        members.add(member("civilian_1", Role.CIVILIAN, Weapon.NONE, 26, 20));
+        members.add(member("civilian_2", Role.CIVILIAN, Weapon.NONE, 27, 36));
+        members.add(member("guard_1", Role.GUARD, Weapon.SWORD, 53, 7));
+        members.add(member("guard_2", Role.GUARD, Weapon.SPEAR, 59, 7));
+        members.add(member("guard_3", Role.GUARD, Weapon.SWORD_SHIELD, 12, 83));
+        members.add(member("guard_4", Role.GUARD, Weapon.SPEAR_SHIELD, 24, 83));
+        members.add(member("guard_5", Role.GUARD, Weapon.BOW, 34, 74));
+        members.add(member("sotnik", Role.SOTNIK, Weapon.SWORD, 46, 81));
+        if (members.stream().map(Member::role).distinct().count() != Role.values().length) throw new AssertionError("Missing profession");
+        return List.copyOf(members);
     }
+    private static Member member(String key, Role role, Weapon weapon, int x, int z) { return new Member(key, role, weapon, role.health(), x, z); }
     public static List<Member> roster() { return ROSTER; }
     public static UUID settlementId(String dimension, int anchorX, int deckY, int anchorZ) {
         return UUID.nameUUIDFromBytes(("slavicmyths:nether_posad:" + dimension + ":" + anchorX + ":" + deckY + ":" + anchorZ).getBytes(StandardCharsets.UTF_8));
