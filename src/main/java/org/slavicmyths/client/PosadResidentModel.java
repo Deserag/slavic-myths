@@ -67,7 +67,7 @@ public final class PosadResidentModel extends HumanoidModel<PosadResidentEntity>
                 PartPose.rotation(0, 0, direction * -0.24F));
         }
         // Workers wear recognizable apron/belt details rather than full-body armor.
-        body.addOrReplaceChild("apron", CubeListBuilder.create().texOffs(40, 20)
+        body.addOrReplaceChild("apron", CubeListBuilder.create().texOffs(40, 32)
             .addBox(-3.45F, 3.2F, -2.38F, 6.9F, 9.2F, .38F), PartPose.ZERO);
         body.addOrReplaceChild("satchel", CubeListBuilder.create().texOffs(0, 48)
             .addBox(2.8F, 7.3F, -2.6F, 1.8F, 3.5F, 1.5F), PartPose.ZERO);
@@ -77,7 +77,7 @@ public final class PosadResidentModel extends HumanoidModel<PosadResidentEntity>
             .addBox(-3.6F, .25F, -2.75F, 7.2F, 7.8F, .65F)
             .texOffs(0, 40).addBox(-4.6F, -.5F, -2.4F, 1.7F, 3.0F, 4.8F)
             .texOffs(0, 40).addBox(2.9F, -.5F, -2.4F, 1.7F, 3.0F, 4.8F), PartPose.ZERO);
-        body.addOrReplaceChild("ceremonial_sash", CubeListBuilder.create().texOffs(40, 48)
+        body.addOrReplaceChild("ceremonial_sash", CubeListBuilder.create().texOffs(40, 32)
             .addBox(-3.1F, .4F, -2.86F, 1.7F, 10.5F, .4F), PartPose.ZERO);
         // Profession identifiers use recognisable silhouettes, not the same
         // anonymous military armour on every citizen. Parts are child geometry
@@ -107,9 +107,9 @@ public final class PosadResidentModel extends HumanoidModel<PosadResidentEntity>
             .texOffs(40, 32).addBox(-3.85F, 7.5F, -2.7F, 7.7F, 1.2F, .55F), PartPose.ZERO);
         body.addOrReplaceChild("cape", CubeListBuilder.create().texOffs(20, 32)
             .addBox(-3.75F, 1.5F, 2.65F, 7.5F, 13.0F, .65F), PartPose.ZERO);
-        leftArm.addOrReplaceChild("smith_gauntlet", CubeListBuilder.create().texOffs(40, 48)
+        leftArm.addOrReplaceChild("smith_gauntlet", CubeListBuilder.create().texOffs(0, 40)
             .addBox(-2.05F, 7.2F, -2.08F, 4.1F, 3.4F, 4.15F), PartPose.ZERO);
-        rightArm.addOrReplaceChild("smith_gauntlet", CubeListBuilder.create().texOffs(40, 48)
+        rightArm.addOrReplaceChild("smith_gauntlet", CubeListBuilder.create().texOffs(0, 40)
             .addBox(-2.05F, 7.2F, -2.08F, 4.1F, 3.4F, 4.15F), PartPose.ZERO);
         return LayerDefinition.create(mesh, 64, 64).bakeRoot();
     }
