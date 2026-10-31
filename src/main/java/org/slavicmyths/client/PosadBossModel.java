@@ -408,7 +408,7 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
     }
     @Override public void setupAnim(PosadBoss entity, float limbSwing, float limbAmount, float age, float yaw, float pitch) {
         root.getAllParts().forEach(ModelPart::resetPose);
-        float stride = Mth.min(1F, limbAmount);
+        float stride = Math.min(1F, limbAmount);
         float gait = Mth.cos(limbSwing * .67F) * stride;
         float breath = Mth.sin(age * .13F);
         float remaining = entity.actionRemaining();
@@ -419,10 +419,10 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
             leg1.xRot = -gait * .32F;
             leg2.xRot = -gait * .27F;
             leg3.xRot = gait * .27F;
-            leg0.y -= Mth.max(0F, gait) * .28F;
-            leg1.y += Mth.min(0F, gait) * .28F;
-            leg2.y += Mth.min(0F, gait) * .2F;
-            leg3.y -= Mth.max(0F, gait) * .2F;
+            leg0.y -= Math.max(0F, gait) * .28F;
+            leg1.y += Math.min(0F, gait) * .28F;
+            leg2.y += Math.min(0F, gait) * .2F;
+            leg3.y -= Math.max(0F, gait) * .2F;
             head.xRot += breath * .013F;
             mane.xRot = breath * .018F;
             cloth.xRot = breath * .009F;
@@ -449,10 +449,10 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
             chainSickle.yRot = entity.move() == PosadBoss.Move.WINDUP_CHAIN ? age * .23F : 0F;
             head.zRot = entity.phase() == 2 ? .05F * Mth.sin(age * .14F) : 0F;
             if (entity.hurtTime > 0) { head.xRot -= .14F; root.xRot += .045F; }
-            if (entity.deathTime > 0) { root.zRot = Mth.min(1.3F, entity.deathTime * .07F); leftArm.xRot = -.15F; }
+            if (entity.deathTime > 0) { root.zRot = Math.min(1.3F, entity.deathTime * .07F); leftArm.xRot = -.15F; }
         }
         if (bauk && entity.hurtTime > 0) head.yRot += .12F;
-        if (bauk && entity.deathTime > 0) { root.zRot = Mth.min(1.1F, entity.deathTime * .055F); jaw.xRot = .7F; }
+        if (bauk && entity.deathTime > 0) { root.zRot = Math.min(1.1F, entity.deathTime * .055F); jaw.xRot = .7F; }
     }
     @Override public void renderToBuffer(PoseStack pose, VertexConsumer vertices, int light, int overlay, int color) { root.render(pose, vertices, light, overlay, color); }
 }
