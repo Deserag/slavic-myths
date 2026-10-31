@@ -6514,5 +6514,19 @@
   "item.slavicmyths.posad_guard_sword_shield_spawn_egg": "Яйцо призыва: Страж (меч и щит)",
   "item.slavicmyths.posad_guard_spear_shield_spawn_egg": "Яйцо призыва: Страж (копьё и щит)",
   "item.slavicmyths.posad_guard_bow_spawn_egg": "Яйцо призыва: Страж (лук)",
-  "item.slavicmyths.posad_resident_spawn_egg": "Яйцо призыва жителя Пекельного посада"
+  "item.slavicmyths.posad_resident_spawn_egg": "Яйцо призыва жителя Пекельного посада",
+  "entity.slavicmyths.cursed_mytar": "Проклятый мытарь",
+  "entity.slavicmyths.bauk": "Баук Пожиратель",
+  "item.slavicmyths.mytar_seal": "Печать Мытаря",
+  "item.slavicmyths.mytar_chain": "Цепь Мытаря",
+  "item.slavicmyths.mytar_sickle": "Серп Мытаря",
+  "item.slavicmyths.mytar_purse": "Кошель сборщика дани",
+  "item.slavicmyths.mytar_shackled_sickle": "Оковный серп",
+  "item.slavicmyths.bauk_fang": "Клык Баука",
+  "item.slavicmyths.bauk_hide": "Шкура Баука",
+  "item.slavicmyths.bauk_claw": "Коготь Баука",
+  "item.slavicmyths.bauk_hide_charm": "Оберег звериной шкуры",
+  "block.slavicmyths.bauk_head": "Голова Баука",
+  "item.slavicmyths.cursed_mytar_spawn_egg": "Яйцо призыва Проклятого мытаря",
+  "item.slavicmyths.bauk_spawn_egg": "Яйцо призыва Баука"
 }
