@@ -60,8 +60,8 @@ public final class PosadResidentSpawner {
             case "druzhinny_dvor_2_2_4" -> { offsetX = 12; offsetZ = 75; }
             case "kuznechny_dvor_2_2_5" -> { offsetX = 12; offsetZ = 44; }
             case "menovye_ryady_2_2_6" -> { offsetX = 75; offsetZ = 75; }
-            case "zeleynaya_2_2_7" -> { offsetX = 75; offsetZ = 12; }
-            case "granary_2_2_8" -> { offsetX = 75; offsetZ = 12; }
+            case "zeleynaya_2_2_7" -> { offsetX = 76; offsetZ = 44; }
+            case "granary_2_2_8" -> { offsetX = 76; offsetZ = 12; }
             default -> { return new Result(0, 0, 0); }
         }
         UUID settlement = PosadPopulationPlan.settlementId(world.dimension().location().toString(), origin.getX() - offsetX, origin.getY(), origin.getZ() - offsetZ);
