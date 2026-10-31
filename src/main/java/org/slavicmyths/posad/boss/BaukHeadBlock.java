@@ -29,7 +29,12 @@ public final class BaukHeadBlock extends HorizontalDirectionalBlock {
     }
     @Override protected MapCodec<? extends HorizontalDirectionalBlock> codec() { return CODEC; }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(FACING, JAW_OPEN); }
-    @Override public BlockState getStateForPlacement(BlockPlaceContext context) { return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()); }
+    @Override public BlockState getStateForPlacement(BlockPlaceContext context) {
+        Direction facing = context.getHorizontalDirection().getOpposite();
+        BlockPos front = context.getClickedPos().relative(facing);
+        if (!context.getLevel().hasChunkAt(front) || !context.getLevel().getBlockState(front).isAir()) return null;
+        return defaultBlockState().setValue(FACING, facing);
+    }
     @Override protected void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean moved) {
         super.onPlace(state, world, pos, oldState, moved);
         if (!world.isClientSide) world.scheduleTick(pos, this, 45);
