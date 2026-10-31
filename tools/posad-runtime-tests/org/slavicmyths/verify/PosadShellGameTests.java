@@ -518,14 +518,17 @@ public final class PosadShellGameTests {
    int accepted=0;long start=System.nanoTime();
    for(int cell=0;cell<8;cell++) {
     var cp=placement.getPotentialStructureChunk(seed,cell*80,0);
-    var context=new net.minecraft.world.level.levelgen.structure.Structure.GenerationContext(registry,generator,generator.getBiomeSource(),random,world.getStructureManager(),seed,cp,world,structure.biomes()::contains);
-    if(structure.findGenerationPoint(context).isPresent())accepted++;
+    var start=structure.generate(registry,generator,generator.getBiomeSource(),random,world.getStructureManager(),seed,cp,0,world,structure.biomes()::contains);
+    if(start.isValid()){
+     accepted++;
+     t.assertTrue(start.getPieces().stream().anyMatch(piece->piece instanceof PosadPiece),"Native Posad start missing PosadPiece seed="+seed+" chunk="+cp);
+    }
    }
    total+=accepted;
    System.out.println("POSAD_NATIVE_SURVEY seed="+seed+" candidates=8 accepted="+accepted+" nanos="+(System.nanoTime()-start));
   }
   t.assertTrue(total>0,"Production nether_posad placement produced no accepted native starts across 40 candidates");
-  System.out.println("POSAD_NATIVE_SURVEY totalAccepted="+total+" candidates=40 productionStructureSet=true nativeGenerationPoint=true");
+  System.out.println("POSAD_NATIVE_SURVEY totalAccepted="+total+" candidates=40 productionStructureSet=true nativeStructureGenerate=true");
   t.succeed();
  }
 
