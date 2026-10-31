@@ -45,13 +45,19 @@ def furnish_urban(b,climate,family,kind,role,x0,x1,z0,z1,cx,floors,frame,beds):
  storage(b,shelf,'wall_shelf',[(item,1) for item in PROFILES[profile][:3]])
  put_empty(b,(x0+1,1,z0+5),'slavicmyths:pine_bench',facing='east')
  put_empty(b,(x0+1,1,z0+6),'slavicmyths:pine_bedside_cabinet',facing='east')
- # Rear sitting area and rug stay off the door and the right-hand stair lane.
+ # Keep the walkable centre clear: all movable furniture belongs against a wall.
  for dz in range(3):put_empty(b,(cx,1,z1-5+dz),'blue_carpet' if climate=='cold' else 'red_carpet')
  if kind!='trading':
-  p=(cx+1,1,z1-3)
+  p=(x0+1,1,z1-3)
   if empty(b,p):table(b,p,['slavicmyths:berry_bliny'])
-  put_empty(b,(cx+1,1,z1-4),'slavicmyths:pine_chair',facing='south')
-  put_empty(b,(cx+2,1,z1-3),'slavicmyths:pine_stool',facing='west')
+  put_empty(b,(x0+1,1,z1-4),'slavicmyths:pine_chair',facing='east')
+  put_empty(b,(x0+2,1,z1-2),'slavicmyths:pine_stool',facing='south')
+ # Remove accidental full wooden filler blocks from the furniture layer, but preserve walls and the stair lane.
+ stair_x=set(range(x1-2,x1)) if floors>1 else set()
+ for x in range(x0+1,x1):
+  for z in range(z0+1,z1):
+   p=(x,1,z);name=b.blocks.get(p,({'Name':'minecraft:air'},None))[0]['Name']
+   if name in [frame+'_planks','spruce_planks','oak_planks','dark_oak_planks'] and x not in stair_x:b.put(x,1,z,'air')
  if floors>1:
   # Bedroom wardrobe, cabinet and a stocked personal shelf; no bed is overwritten.
   p=(x1-1,6,z1-3)
