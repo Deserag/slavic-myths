@@ -21,6 +21,9 @@ assert "schema >= 19" in piece and "PosadnikTerem.voxel(x,y,z)" in piece
 assert "POSAD_R3_PANES_CONNECTED" in tests
 assert "R3 hanging street lantern" in tests
 assert "R3 street light changed" in r3
+assert "R3 tower ceiling missing" in r3
+assert "POSAD_R3_TOWER_LAMPS_PASS" in tests
+assert "POSAD_R3_TOWER_LIGHT" in tests
 assert "old(x,1,z)" in r3 and "LanternBlock.HANGING,true" in r3
 posts=[(52,z,54,z) for z in range(37,98,12)]
 posts += [(60,z,58,z) for z in range(43,104,12)]

@@ -186,6 +186,15 @@ public final class PosadShellGameTests {
     t.assertTrue(world.getBlockState(lampAt.above()).is(Blocks.CHAIN),"R3 street bracket chain missing "+lampAt);
    }
   }
+  for(int[] center:new int[][]{{5,5},{107,5},{5,107},{107,107},{46,107},{66,107}})
+   for(int ceiling:new int[]{8,14}){
+    var loc=PosadGeometry.rotate(new PosadGeometry.Cell(center[0],center[1]),turns);
+    var at=anchor.offset(loc.x(),ceiling-1,loc.z());
+    var state=world.getBlockState(at);
+    t.assertTrue(state.is(Blocks.LANTERN),"R3 tower lantern absent "+at);
+    t.assertTrue(state.canSurvive(world,at),"R3 tower lantern unsupported "+at);
+   }
+  System.out.println("POSAD_R3_TOWER_LAMPS_PASS rotation="+turns+" supported=12");
   int connectedWindows=0;
   for(int x=0;x<=112;x++)for(int z=0;z<=112;z++)for(int y=1;y<=17;y++){
    var planned=piece.voxel(x,y,z);
@@ -318,6 +327,18 @@ public final class PosadShellGameTests {
      t.assertTrue(world.getBlockState(at).isAir() && world.getBlockState(at.above()).isAir(),"R2 ceremonial arch blocked turn="+turns+" local="+x+",1,28");
     }
    }
+    for(int turns=0;turns<4;turns++){
+     var centerAnchor=t.absolutePos(new net.minecraft.core.BlockPos(turns*160,140,0));
+     for(int[] center:new int[][]{{5,5},{107,5},{5,107},{107,107},{46,107},{66,107}}){
+      var loc=PosadGeometry.rotate(new PosadGeometry.Cell(center[0],center[1]),turns);
+      for(int floorY:new int[]{1,9}){
+       var pos=centerAnchor.offset(loc.x(),floorY,loc.z());
+       int brightness=world.getBrightness(net.minecraft.world.level.LightLayer.BLOCK,pos);
+       System.out.println("POSAD_R3_TOWER_LIGHT turn="+turns+" at="+pos+" block="+brightness);
+       t.assertTrue(brightness>=8,"R3 unlit tower "+pos+" brightness="+brightness);
+      }
+     }
+    }
    // Grounded district survey: sample two-block-high navigable cells with a
    // solid floor and an overhead structure. Exclude open courtyards, which
    // intentionally have no roof and need different outdoor design targets.

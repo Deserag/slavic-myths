@@ -132,6 +132,15 @@ public final class PosadArchitectureR3 {
         for(int z:new int[]{39,75})for(int x:new int[]{43,69})streetPost(x,z,0,z==39?1:-1);
         streetPost(40,56,1,0);
         streetPost(72,56,-1,0);
+        // All six tower interiors: existing solid ceilings Y8 and Y14.
+        for(int[] center:new int[][]{{5,5},{107,5},{5,107},{107,107},{46,107},{66,107}})
+            for(int ceiling:new int[]{8,14}){
+                int x=center[0],z=center[1];
+                BlockState oldCeiling=old(x,ceiling,z);
+                if(oldCeiling==null||oldCeiling.isAir())throw new IllegalStateException("R3 tower ceiling missing "+x+","+ceiling+","+z);
+                emptyAt(x,ceiling-1,z,Blocks.LANTERN.defaultBlockState().setValue(LanternBlock.HANGING,true));
+            }
+
     }
     public static BlockState voxel(int x,int y,int z){
         if(y<1||y>17||!PosadGeometry.CITY.contains(x,z))return null;
