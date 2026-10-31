@@ -214,10 +214,14 @@ public final class PosadPiece extends StructurePiece {
                         // Notify the active worldgen level so the initial chunk packet
                         // contains connected bars without depending on a client relog.
                         world.setBlock(at,placed,3);
-                    } else if (state.is(Blocks.CARVED_PUMPKIN) || shelf(state)) {
-                        // Preserve chunk-local placement for special blocks only.
+                    } else if (state.is(Blocks.CARVED_PUMPKIN)) {
+                        // Avoid vanilla snow/iron golem spawning while placing an authored pumpkin.
                         var changed=world.getChunk(wx>>4,wz>>4).setBlockState(at,placed,false);
-                        if (changed==null) throw new IllegalStateException("Chunk-local special-block write refused at "+at);
+                        if (changed==null) throw new IllegalStateException("Chunk-local carved-pumpkin write refused at "+at);
+                    } else if (shelf(state)) {
+                        // A shelf is a wall attachment. Notify the world after its supporting wall
+                        // is placed so the blockstate, neighbors and initial chunk packet agree.
+                        if (!world.setBlock(at,placed,3)) throw new IllegalStateException("Worldgen shelf placement refused at "+at);
                     } else {
                         world.setBlock(at,placed,2);
                     }
