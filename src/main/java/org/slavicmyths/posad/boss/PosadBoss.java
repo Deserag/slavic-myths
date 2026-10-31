@@ -140,6 +140,16 @@ public final class PosadBoss extends Monster {
         cooldown = after;
         connected = false;
         if (next == Move.WINDUP_CHARGE && getTarget() != null) chargeDirection = getTarget().position().subtract(position()).multiply(1D, 0D, 1D).normalize();
+        switch (next) {
+            case WINDUP_CHAIN -> playSound(net.minecraft.sounds.SoundEvents.CHAIN_PLACE, 1.1F, .7F);
+            case WINDUP_COINS -> playSound(net.minecraft.sounds.SoundEvents.EXPERIENCE_ORB_PICKUP, 1F, .55F);
+            case WINDUP_CHARGE, WINDUP_ROAR, RAGE_TRANSITION -> playSound(net.minecraft.sounds.SoundEvents.RAVAGER_ROAR, 1.5F, .7F);
+            case WINDUP_SICKLE, WINDUP_PAW, WINDUP_SLAM -> playSound(net.minecraft.sounds.SoundEvents.PLAYER_ATTACK_SWEEP, 1F, .65F);
+            default -> {}
+        }
+        if (level() instanceof net.minecraft.server.level.ServerLevel server && next != Move.IDLE) {
+            server.sendParticles(kind == Kind.MYTAR ? net.minecraft.core.particles.ParticleTypes.SOUL_FIRE_FLAME : net.minecraft.core.particles.ParticleTypes.CRIT, getX(), getY() + 1.5D, getZ(), 12, .7D, .8D, .7D, .02D);
+        }
     }
     private int impactTick(Move move) { return switch (move) { case WINDUP_BITE -> 18; case WINDUP_PAW -> 20; case WINDUP_SLAM -> 25; case WINDUP_ROAR -> 20; case WINDUP_SICKLE -> 14; case WINDUP_CHAIN -> 14; case WINDUP_GRAB -> 16; default -> -1; }; }
     private boolean canCharge(LivingEntity target) {
