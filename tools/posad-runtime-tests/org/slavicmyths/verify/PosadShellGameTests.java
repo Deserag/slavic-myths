@@ -579,8 +579,9 @@ public final class PosadShellGameTests {
  }
 
  private static void verifyNaturalPopulationRotation(GameTestHelper t,int turns) {
-  var world=t.getLevel();
-  var anchor=new net.minecraft.core.BlockPos(8000000+turns*1000,100,8000000+turns*1000);
+  var world=t.getLevel().getServer().getLevel(net.minecraft.world.level.Level.NETHER);
+  t.assertTrue(world!=null,"Dedicated GameTest server has no Nether level");
+  var anchor=new net.minecraft.core.BlockPos(8000000+turns*1000,64,8000000+turns*1000);
   var piece=new PosadPiece(anchor,turns);
   for(var patch:PosadGeometry.chunkPatches(anchor.getX(),anchor.getZ())){
    world.getChunk(patch.chunkX(),patch.chunkZ());world.setChunkForced(patch.chunkX(),patch.chunkZ(),true);
