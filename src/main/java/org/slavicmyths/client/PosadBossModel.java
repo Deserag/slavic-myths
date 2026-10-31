@@ -411,6 +411,7 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
         float stride = Mth.min(1F, limbAmount);
         float gait = Mth.cos(limbSwing * .67F) * stride;
         float breath = Mth.sin(age * .13F);
+        float remaining = entity.actionRemaining();
         head.yRot = yaw * Mth.DEG_TO_RAD * (bauk ? .32F : .55F);
         head.xRot = pitch * Mth.DEG_TO_RAD * .25F;
         if (bauk) {
@@ -427,7 +428,9 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
             cloth.xRot = breath * .009F;
             tail.yRot = Mth.sin(age * .06F) * .08F;
             jaw.xRot = entity.move() == PosadBoss.Move.WINDUP_BITE || entity.move() == PosadBoss.Move.WINDUP_GRAB ? .74F : entity.move() == PosadBoss.Move.WINDUP_ROAR || entity.move() == PosadBoss.Move.RAGE_TRANSITION ? .95F : .09F + .04F * breath;
-            if (entity.move() == PosadBoss.Move.WINDUP_CHARGE) { head.xRot += -.23F; tail.xRot = -.18F; }
+            if (entity.move() == PosadBoss.Move.WINDUP_BITE) jaw.xRot = remaining > 18 ? .12F + .68F * Mth.clamp((32F - remaining) / 14F, 0F, 1F) : .10F + .70F * Mth.clamp(remaining / 18F, 0F, 1F);
+            if (entity.move() == PosadBoss.Move.WINDUP_GRAB) jaw.xRot = remaining > 16 ? .18F + .72F * Mth.clamp((38F - remaining) / 22F, 0F, 1F) : .15F;
+            if (entity.move() == PosadBoss.Move.WINDUP_CHARGE) { head.xRot -= remaining > 14 ? .25F * Mth.clamp((44F - remaining) / 30F, 0F, 1F) : .32F; tail.xRot = -.18F; if (remaining <= 14F) { leg0.xRot *= 2F; leg1.xRot *= 2F; leg2.xRot *= 2F; leg3.xRot *= 2F; } }
             if (entity.move() == PosadBoss.Move.WINDUP_PAW) { leg0.xRot = -.55F; head.yRot += .1F; }
             if (entity.move() == PosadBoss.Move.WINDUP_SLAM) { leg0.xRot = -.8F; leg1.xRot = -.8F; head.xRot -= .12F; }
             if (entity.enraged()) { head.xRot -= .09F; tail.yRot *= 2F; }
@@ -439,14 +442,17 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
             chainSickle.visible = !entity.chainWeaponAway();
             rightArm.xRot = -.15F + .055F * breath;
             leftArm.xRot = .1F - .07F * breath;
-            if (entity.move() == PosadBoss.Move.WINDUP_SICKLE) { leftArm.xRot = -1.45F; rightArm.xRot = -.75F; }
-            if (entity.move() == PosadBoss.Move.WINDUP_CHAIN) { rightArm.xRot = -1.7F; rightArm.zRot = .15F * Mth.sin(age * .3F); chain.xRot = -.85F + .3F * Mth.sin(age * .4F); }
+            if (entity.move() == PosadBoss.Move.WINDUP_SICKLE) { leftArm.xRot = -1.45F * Mth.clamp((38F - remaining) / 24F, 0F, 1F); rightArm.xRot = -.75F; }
+            if (entity.move() == PosadBoss.Move.WINDUP_COINS) { rightArm.xRot = -.5F; leftArm.zRot = Mth.sin(age * .35F) * .24F; }
+            if (entity.move() == PosadBoss.Move.WINDUP_CHAIN) { float progress = Mth.clamp((50F - remaining) / 24F, 0F, 1F); rightArm.xRot = -1.75F * progress; rightArm.zRot = .2F * Mth.sin(age * .34F); chain.xRot = remaining > 26F ? -.9F * progress + .42F * Mth.sin(age * .55F) : -1.25F; }
             else chain.xRot = .045F * Mth.sin(age * .12F);
             chainSickle.yRot = entity.move() == PosadBoss.Move.WINDUP_CHAIN ? age * .23F : 0F;
             head.zRot = entity.phase() == 2 ? .05F * Mth.sin(age * .14F) : 0F;
+            if (entity.hurtTime > 0) { head.xRot -= .14F; root.xRot += .045F; }
             if (entity.deathTime > 0) { root.zRot = Mth.min(1.3F, entity.deathTime * .07F); leftArm.xRot = -.15F; }
         }
-        if (bauk && entity.deathTime > 0) root.zRot = Mth.min(1.1F, entity.deathTime * .055F);
+        if (bauk && entity.hurtTime > 0) head.yRot += .12F;
+        if (bauk && entity.deathTime > 0) { root.zRot = Mth.min(1.1F, entity.deathTime * .055F); jaw.xRot = .7F; }
     }
     @Override public void renderToBuffer(PoseStack pose, VertexConsumer vertices, int light, int overlay, int color) { root.render(pose, vertices, light, overlay, color); }
 }
