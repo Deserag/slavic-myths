@@ -40,7 +40,7 @@ def main():
         for line in (A/'creative_catalog.tsv').read_text(encoding='utf-8').splitlines():
             if not line or line.startswith('#'):continue
             fields=line.split('\t')
-            assert len(fields)==3 and fields[1] in ['slavicmyths','resources','farming','food','tools','armor','decor','magic','mobs','weapons','accessories','heads','hidden'] and fields[2],('invalid creative catalogue row',line)
+            assert len(fields)==3 and fields[1] in ['slavicmyths','resources','farming','food','tools','armor','decor','magic','mobs','weapons','accessories','heads','furniture','hidden'] and fields[2],('invalid creative catalogue row',line)
             id=fields[0]
             assert any(prefix+'slavicmyths.'+id in lang for prefix in ['item.','block.']),('translation',language,id)
             assert (A/'models/item'/(id+'.json')).is_file(),('catalogue model',id)

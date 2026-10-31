@@ -14,7 +14,7 @@ public final class CreativeCatalogChecks {
     }
     public static void main(String[] args) throws Exception {
         var entries = CreativeCatalog.entries();
-        check(entries.size() == 1045, "1045 source-audited IDs");
+        check(entries.size() == 1123, "1123 catalogued IDs after furniture variants");
         invalid("sword\tweapons\ta\nsword\ttools\tb\n");
         invalid("sword\tunknown\ta\n");
         invalid("sword\tweapons\n");
@@ -41,6 +41,8 @@ public final class CreativeCatalogChecks {
         check(CreativeCatalog.category("three_breath_crossbow") == 9, "Special ranged weapon");
         check(CreativeCatalog.category("thunder_crystal_powder") == 7, "Magical brewing component");
         check(CreativeCatalog.category("wheat_flour") == 3 && CreativeCatalog.category("hearth") == 6, "Kitchen purpose");
+        check(entries.values().stream().filter(e -> e.tab().equals("furniture")).count() == 72, "Nine woods x eight furniture shapes");
+        check(CreativeCatalog.category("pine_chair") == 12 && CreativeCatalog.category("blackwood_weapon_rack") == 12, "Furniture category does not shift old indices");
         check(entries.values().stream().filter(e -> e.tab().equals("heads")).count() == 11, "Eleven trophy heads in dedicated tab");
         for (String id : List.of("grove_guardian_head","zharenitsa_head","posten_head","magma_lord_head"))
             check(CreativeCatalog.entry(id).tab().equals("heads"), "Nether boss head category " + id);
