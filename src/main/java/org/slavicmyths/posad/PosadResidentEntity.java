@@ -95,7 +95,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         goalSelector.addGoal(0, new FloatGoal(this));
         goalSelector.addGoal(1, new OpenDoorGoal(this, true));
         goalSelector.addGoal(1, new PanicGoal(this, 1.25) { @Override public boolean canUse() { return !role().guard() && super.canUse(); } });
-        goalSelector.addGoal(2, new AvoidEntityGoal<>(this, Monster.class, 10, .85, 1.1, candidate -> !role().guard() && candidate instanceof Monster attacker && attacker.getTarget() instanceof PosadResidentEntity));
+        goalSelector.addGoal(2, new AvoidEntityGoal<>(this, Monster.class, 10, .85, 1.1, candidate -> !role().guard() && candidate instanceof Monster attacker && (attacker.getTarget() == PosadResidentEntity.this || attacker.getTarget() instanceof PosadResidentEntity resident && Objects.equals(city, resident.city()))));
         goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0, true) {
             @Override public boolean canUse() { return role().guard() && weapon() != PosadPopulationPlan.Weapon.BOW && super.canUse(); }
             @Override public boolean canContinueToUse() { return role().guard() && weapon() != PosadPopulationPlan.Weapon.BOW && super.canContinueToUse(); }
@@ -118,7 +118,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
                 || !(monster instanceof net.minecraft.world.entity.monster.Enemy)) return false;
         if (home != null && monster.blockPosition().distSqr(home) > 40 * 40) return false;
         if (monster.getTarget() instanceof PosadResidentEntity resident) return Objects.equals(city, resident.city());
-        if (monster.getTarget() instanceof Player) return true;
+        if (monster.getTarget() instanceof Player player) return canFightPlayer(player);
         // Neutral Nether inhabitants must not become hostile merely because
         // a guard sees them; retaliate only after they actually threaten someone.
         if (monster instanceof net.minecraft.world.entity.NeutralMob
@@ -131,12 +131,14 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
     @Override public void setTarget(LivingEntity target) {
         if (target instanceof Player player && !canFightPlayer(player)) target = null;
         if (target instanceof PosadResidentEntity || !role().guard()) target = null;
+        if (target instanceof Mob mob && !mayDefendAgainst(mob)) target = null;
         super.setTarget(target);
     }
     @Override public boolean canAttack(LivingEntity target) {
         if (target instanceof PosadResidentEntity) return false;
         if (target instanceof Player player) return canFightPlayer(player) && super.canAttack(target);
-        return role().guard() && super.canAttack(target);
+        if (target instanceof Mob mob) return mayDefendAgainst(mob) && super.canAttack(target);
+        return false;
     }
     @Override public boolean isAlliedTo(Entity entity) { return entity instanceof PosadResidentEntity || super.isAlliedTo(entity); }
     @Override public boolean hurt(DamageSource source, float amount) {
@@ -156,8 +158,11 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         if (!level().isClientSide) tickEconomy();
         if (level().isClientSide || !role().guard() || city == null || !(level() instanceof ServerLevel server)) return;
         if (getTarget() instanceof Player player && !canFightPlayer(player)) setTarget(null);
+        if (getTarget() instanceof Mob mob && !mayDefendAgainst(mob)) setTarget(null);
         boolean shield = weapon() == PosadPopulationPlan.Weapon.SWORD_SHIELD || weapon() == PosadPopulationPlan.Weapon.SPEAR_SHIELD;
-        boolean defend = shield && getTarget() != null && distanceToSqr(getTarget()) <= 25 && tickCount % 36 < 18;
+        // Never hold a shield up while a melee attack must be delivered.
+        // Shield use stops the normal attack animation on some combat paths.
+        boolean defend = shield && getTarget() != null && getTarget().isAlive() && distanceToSqr(getTarget()) > 9 && distanceToSqr(getTarget()) <= 36 && tickCount % 36 < 18;
         if (defend && !isUsingItem()) startUsingItem(InteractionHand.OFF_HAND);
         if (!defend && isUsingItem()) stopUsingItem();
         if (home != null && blockPosition().distSqr(home) > 48 * 48) {
