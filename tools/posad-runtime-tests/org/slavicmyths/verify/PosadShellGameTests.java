@@ -177,8 +177,20 @@ public final class PosadShellGameTests {
      var local=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
      var at=anchor.offset(local.x(),y,local.z());
      var planned=piece.voxel(x,y,z);
-     t.assertTrue(planned==null||planned.isAir(),"Posadnik candidate has source block turn="+turns+" option="+candidate+" at="+x+","+y+","+z+" state="+planned);
-     t.assertTrue(world.getBlockState(at).isAir(),"Posadnik candidate physically occupied turn="+turns+" option="+candidate+" at="+at+" found="+world.getBlockState(at));
+
+     if(candidate==0){
+      var approved=PosadnikTerem.voxel(x,y,z);
+      if(approved==null){
+       t.assertTrue(planned==null||planned.isAir(),"Unexpected block beside approved Posadnik "+x+","+y+","+z);
+       t.assertTrue(world.getBlockState(at).isAir(),"Unexpected physical block beside Posadnik "+at);
+      }else{
+       t.assertTrue(planned!=null&&planned.is(approved.getBlock()),"Approved Posadnik source missing "+x+","+y+","+z);
+       t.assertTrue(world.getBlockState(at).is(approved.getBlock()),"Approved Posadnik physical block missing "+at);
+      }
+     }else{
+      t.assertTrue(planned==null||planned.isAir(),"West alternative must remain empty "+x+","+y+","+z);
+      t.assertTrue(world.getBlockState(at).isAir(),"West alternative occupied "+at);
+     }
     }
     var local=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
     t.assertTrue(!world.getBlockState(anchor.offset(local.x(),0,local.z())).isAir(),"Posadnik candidate has no platform at "+x+","+z);
@@ -190,7 +202,7 @@ public final class PosadShellGameTests {
     var at=anchor.offset(local.x(),y,local.z());
     t.assertTrue(world.getBlockState(at).isAir(),"Posadnik candidate street access blocked turn="+turns+" option="+candidate+" at="+x+","+y+","+entryZ);
    }
-   System.out.println("POSAD_TEREM_SITE_SURVEY schema="+PosadGeometry.SCHEMA_VERSION+" turn="+turns+" option="+(candidate==0?"east":"west")+" roof="+area[0]+".."+area[1]+","+area[2]+".."+area[3]+" y=1..17 empty=true roadAccess=true DESIGN_ONLY");
+   System.out.println("POSAD_TEREM_SITE_SURVEY schema="+PosadGeometry.SCHEMA_VERSION+" turn="+turns+" option="+(candidate==0?"east":"west")+" roof="+area[0]+".."+area[1]+","+area[2]+".."+area[3]+" y=1..17 "+(candidate==0?"built=true":"empty=true")+" roadAccess=true");
   }
   }
   // Observe actual BLOCK light AFTER Minecraft's light engine has processed the
@@ -214,6 +226,18 @@ public final class PosadShellGameTests {
      // Required public passages >=8 and work rooms >=10, measured after light propagation.
      int minimum=(i==2||i==3||i==4||i==5||i==6)?10:8;
      t.assertTrue(blockLight>=minimum,"Schema-18 dark place turn="+turns+" room="+labels[i]+" light="+blockLight+" required="+minimum+" at "+at);
+    }
+   }
+   // Schema-19: actual Minecraft block light/clearance after light engine updates.
+   for(int rotation=0;rotation<4;rotation++){
+    var residenceAnchor=t.absolutePos(new net.minecraft.core.BlockPos(rotation*160,140,0));
+    for(int[] sample:new int[][]{{67,1,85},{67,1,91},{67,7,83},{67,7,91}}){
+     var spot=PosadGeometry.rotate(new PosadGeometry.Cell(sample[0],sample[2]),rotation);
+     var at=residenceAnchor.offset(spot.x(),sample[1],spot.z());
+     t.assertTrue(world.getBlockState(at).isAir()&&world.getBlockState(at.above()).isAir(),"Posadnik route blocked "+at);
+     int brightness=world.getBrightness(net.minecraft.world.level.LightLayer.BLOCK,at);
+     System.out.println("POSADNIK_LIGHT_SURVEY turn="+rotation+" local="+sample[0]+","+sample[1]+","+sample[2]+" value="+brightness);
+     t.assertTrue(brightness>=8,"Posadnik work area too dark "+at+" BLOCK="+brightness);
     }
    }
    // Walkable first-floor R2 central axis and the full eleven-block-wide
