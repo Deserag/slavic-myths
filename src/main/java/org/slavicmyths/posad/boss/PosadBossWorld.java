@@ -65,9 +65,10 @@ public final class PosadBossWorld extends SavedData {
         int rx = Math.floorDiv(player.getBlockX(), REGION);
         int rz = Math.floorDiv(player.getBlockZ(), REGION);
         long mixed = mix(level.getSeed() ^ (rx * 0x9e3779b97f4a7c15L) ^ (rz * 0xc2b2ae3d27d4eb4fL));
-        int x = rx * REGION + 256 + Math.floorMod((int)mixed, REGION - 512);
-        int z = rz * REGION + 256 + Math.floorMod((int)(mixed >>> 32), REGION - 512);
-        if (Math.abs(player.getX() - x) > 96 || Math.abs(player.getZ() - z) > 96) return;
+        // Spawn in already explored, loaded terrain rather than requiring a player to pass a single invisible pixel.
+        int x = Math.max(rx * REGION + 40, Math.min((rx + 1) * REGION - 40, player.getBlockX() + ((mixed & 1L) == 0 ? 72 : -72)));
+        int z = Math.max(rz * REGION + 40, Math.min((rz + 1) * REGION - 40, player.getBlockZ() + ((mixed & 2L) == 0 ? 64 : -64)));
+        if (player.distanceToSqr(x + .5D, player.getY(), z + .5D) < 48D * 48D) return;
         String key = rx + ":" + rz;
         PosadBossWorld data = get(level);
         if (data.consumed.contains(key)) return;
