@@ -7,6 +7,9 @@ on:
     branches:
       - '2.2'
   workflow_dispatch:
+concurrency:
+  group: issue389-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -28,6 +31,11 @@ jobs:
           set -o pipefail
           chmod +x gradlew
           ./gradlew --no-daemon clean build --console=plain 2>&1 | tee issue389-build.log
+      - name: Isolated NeoForge #389 boss GameTests (Java 21)
+        shell: bash
+        run: |
+          set -o pipefail
+          timeout 12m ./gradlew --no-daemon -Pboss389Check runBoss389Checks --console=plain 2>&1 | tee issue389-gametests.log
       - name: Record source and built artifact SHA
         if: success()
         shell: bash
@@ -41,6 +49,7 @@ jobs:
           name: issue389-build-evidence
           path: |
             issue389-build.log
+            issue389-gametests.log
             issue389-source-sha.txt
             issue389-jar-sha256.txt
             build/reports/
