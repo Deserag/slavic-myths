@@ -61,6 +61,10 @@ public final class PosadPiece extends StructurePiece {
             return -y<depth?Blocks.POLISHED_BASALT.defaultBlockState():null;
         }
         if(PosadGeometry.CITY.contains(x,z)) {
+            if(schema >= 20) {
+                var architecture=PosadArchitectureR3.voxel(x,y,z);
+                if(architecture!=null)return architecture;
+            }
             if(schema >= 19) {
                 var posadnik=PosadnikTerem.voxel(x,y,z);
                 if(posadnik!=null)return posadnik;
@@ -150,6 +154,21 @@ public final class PosadPiece extends StructurePiece {
         return (state.is(Blocks.LANTERN) || state.is(Blocks.SOUL_LANTERN))
             && state.getValue(net.minecraft.world.level.block.LanternBlock.HANGING);
     }
+    /** Resolve iron bars/glass panes from final city-local voxels, not chunk placement order. */
+    private net.minecraft.world.level.block.state.BlockState resolvedConnections(net.minecraft.world.level.block.state.BlockState local,int x,int y,int z,WorldGenLevel world,BlockPos worldPos) {
+        net.minecraft.world.level.block.state.BlockState state=local.rotate(Rotation.values()[turns]);
+        if(!(state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock))return state;
+        for(var direction:new net.minecraft.core.Direction[]{net.minecraft.core.Direction.NORTH,net.minecraft.core.Direction.EAST,net.minecraft.core.Direction.SOUTH,net.minecraft.core.Direction.WEST}) {
+            // Direction is in the rotated WORLD frame. Map neighbor back to city coordinates.
+            int dx=direction.getStepX(),dz=direction.getStepZ(),lx=x,lz=z;
+            for(int i=0;i<Math.floorMod(4-turns,4);i++){int t=dx;dx=dz;dz=-t;}
+            lx+=dx;lz+=dz;
+            var neighbor=voxel(lx,y,lz);
+            if(neighbor==null)neighbor=Blocks.AIR.defaultBlockState();
+            state=state.updateShape(direction,neighbor.rotate(Rotation.values()[turns]),world,worldPos,worldPos.relative(direction));
+        }
+        return state;
+    }
     @Override public void postProcess(WorldGenLevel world,StructureManager manager,ChunkGenerator generator,RandomSource random,BoundingBox clip,ChunkPos chunk,BlockPos pivot) {
         // Two bounded 16x16x66 passes: masonry/support first, attached lights and shelves last.
         int x0=Math.max(clip.minX(),boundingBox.minX()),x1=Math.min(clip.maxX(),boundingBox.maxX());
@@ -172,7 +191,7 @@ public final class PosadPiece extends StructurePiece {
                 if(old.hasBlockEntity()||old.is(Blocks.BEDROCK)||!(old.isAir()||old.is(Blocks.LAVA)||NetherBridgeTerrain.natural(old)))continue;
                 if(state.isAir()&&!old.isAir() && !(schema>=17 && PosadHallR2.isOpening(local.x(),y,local.z())))continue;
                 try {
-                    var placed=state.rotate(Rotation.values()[turns]);
+                    var placed=resolvedConnections(state,local.x(),y,local.z(),world,at);
                     if (state.is(Blocks.CARVED_PUMPKIN) || shelf(state)) {
                         // Carved pumpkins avoid vanilla multi-chunk golem probes. Wall
                         // shelves are deferred until masonry is in place and written

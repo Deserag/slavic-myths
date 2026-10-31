@@ -148,9 +148,37 @@ public final class PosadShellGameTests {
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    var at=anchor.offset(p.x(),y,p.z());
    var actual=world.getBlockState(at);
-   t.assertTrue(actual.is(Blocks.LANTERN),"Schema-18 lantern missing at "+x+","+y+","+z+" turn="+turns+" actual="+actual);
-   t.assertTrue(actual.canSurvive(world,at),"Schema-18 lantern unsupported at "+x+","+y+","+z+" turn="+turns);
+
+   if(PosadGeometry.Slot.VECHE_HALL.local().contains(x,z)){
+    t.assertTrue(actual.is(Blocks.LANTERN),"Veche old lamp missing "+at);
+    t.assertTrue(actual.canSurvive(world,at),"Veche lamp unsupported "+at);
+   }else{
+    t.assertTrue(actual.is(Blocks.POLISHED_BASALT),"R3 lamppost foot missing "+at+" found "+actual);
+    int dx=x==52||x==40?1:x==60||x==72?-1:0;
+    int dz=z==39?1:z==75?-1:0;
+    var hanging=PosadGeometry.rotate(new PosadGeometry.Cell(x+dx,z+dz),turns);
+    var lampAt=anchor.offset(hanging.x(),3,hanging.z());
+    t.assertTrue(world.getBlockState(lampAt).is(Blocks.LANTERN),"R3 hanging street lantern missing "+lampAt);
+    t.assertTrue(world.getBlockState(lampAt).canSurvive(world,lampAt),"R3 hanging street lantern unsupported "+lampAt);
+   }
   }
+  int connectedWindows=0;
+  for(int x=0;x<=112;x++)for(int z=0;z<=112;z++)for(int y=1;y<=17;y++){
+   var planned=piece.voxel(x,y,z);
+   if(planned==null||!(planned.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock))continue;
+   var rotated=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+   var at=anchor.offset(rotated.x(),y,rotated.z());
+   var actual=world.getBlockState(at);
+   t.assertTrue(actual.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock,"Missing pane "+at);
+   for(var side:new net.minecraft.core.Direction[]{net.minecraft.core.Direction.NORTH,net.minecraft.core.Direction.EAST,net.minecraft.core.Direction.SOUTH,net.minecraft.core.Direction.WEST}){
+    var adjacent=at.relative(side);
+    var recomputed=actual.updateShape(side,world.getBlockState(adjacent),world,at,adjacent);
+    t.assertTrue(recomputed.equals(actual),"R3 window disconnected "+at+" "+side+" actual="+actual+" expected="+recomputed);
+   }
+   connectedWindows++;
+  }
+  t.assertTrue(connectedWindows>=40,"R3 pane regression "+connectedWindows);
+  System.out.println("POSAD_R3_PANES_CONNECTED turn="+turns+" panes="+connectedWindows);
   t.assertTrue(emittedLights==28,"Wrong schema-18 physical lantern count "+emittedLights+" turn="+turns);
   int r2Cells=0;
   for(int x=42;x<=70;x++)for(int z=12;z<=34;z++)for(int y=0;y<=16;y++) {
