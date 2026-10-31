@@ -19,6 +19,7 @@ import net.minecraft.world.level.saveddata.SavedData;
 import org.slavicmyths.registry.ModItems;
 
 /** Nether-wide escrow, pending refunds and genuine claim IDs; not owned by a transient boss entity. */
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class PosadBossLedger extends SavedData {
     private final Map<UUID, Map<UUID, Integer>> escrow = new HashMap<>();
     private final Map<UUID, Integer> pending = new HashMap<>();
@@ -155,6 +156,9 @@ public final class PosadBossLedger extends SavedData {
         if (!issued.contains(id) || !redeemed.add(id)) return false;
         setDirty();
         return true;
+    }
+    @net.neoforged.bus.api.SubscribeEvent public static void playerTick(net.neoforged.neoforge.event.tick.PlayerTickEvent.Post event) {
+        if (event.getEntity() instanceof ServerPlayer player && player.tickCount % 100 == 0 && player.isAlive() && player.getServer().getLevel(Level.NETHER) != null) get(player.serverLevel()).collect(player);
     }
     private PosadBossLedger() {}
 }
