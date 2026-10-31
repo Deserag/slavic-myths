@@ -1,6 +1,6 @@
 {
-  "entity.slavicmyths.posad_resident": "Infernal Resident",
-  "entity.slavicmyths.posad_resident.posadnik": "Posadnik",
+  "entity.slavicmyths.posad_resident": "Infernal Settlement Resident",
+  "entity.slavicmyths.posad_resident.posadnik": "Infernal Posadnik",
   "entity.slavicmyths.posad_resident.guard": "Infernal Guard",
   "entity.slavicmyths.posad_resident.sotnik": "Guard Captain",
   "entity.slavicmyths.posad_resident.blacksmith": "Infernal Smith",
@@ -11,7 +11,7 @@
   "entity.slavicmyths.posad_resident.herbalist": "Herbalist",
   "entity.slavicmyths.posad_resident.cook": "Cook",
   "entity.slavicmyths.posad_resident.storekeeper": "Storekeeper",
-  "entity.slavicmyths.posad_resident.civilian": "Infernal Resident",
+  "entity.slavicmyths.posad_resident.civilian": "Infernal Settlement Resident",
   "itemGroup.slavicmyths": "Slavic Myths",
   "item.slavicmyths.birch_bark_scroll": "Birch Bark Scroll",
   "item.slavicmyths.thunder_stone": "Thunder Stone",
@@ -6513,5 +6513,6 @@
   "item.slavicmyths.posad_guard_spear_spawn_egg": "Guard (Spear) Spawn Egg",
   "item.slavicmyths.posad_guard_sword_shield_spawn_egg": "Guard (Sword and Shield) Spawn Egg",
   "item.slavicmyths.posad_guard_spear_shield_spawn_egg": "Guard (Spear and Shield) Spawn Egg",
-  "item.slavicmyths.posad_guard_bow_spawn_egg": "Guard (Bow) Spawn Egg"
+  "item.slavicmyths.posad_guard_bow_spawn_egg": "Guard (Bow) Spawn Egg",
+  "item.slavicmyths.posad_resident_spawn_egg": "Infernal Settlement Resident Spawn Egg"
 }
