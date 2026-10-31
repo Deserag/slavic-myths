@@ -121,6 +121,12 @@ public final class PosadShellGameTests {
    t.assertTrue(actual.is(rotated.getBlock()),"Current Veche mismatch at "+x+","+y+","+z+" rot="+turns+" expected="+rotated+" found="+actual);
    if(rotated.hasProperty(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING))
     t.assertTrue(actual.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING)==rotated.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING),"Veche facing mismatch "+x+","+y+","+z+" rot="+turns);
+   if(rotated.hasProperty(net.minecraft.world.level.block.DoorBlock.HALF))
+    t.assertTrue(actual.getValue(net.minecraft.world.level.block.DoorBlock.HALF)==rotated.getValue(net.minecraft.world.level.block.DoorBlock.HALF),"Veche door half mismatch "+x+","+y+","+z+" rot="+turns);
+   if(rotated.hasProperty(net.minecraft.world.level.block.DoorBlock.HINGE))
+    t.assertTrue(actual.getValue(net.minecraft.world.level.block.DoorBlock.HINGE)==rotated.getValue(net.minecraft.world.level.block.DoorBlock.HINGE),"Veche door hinge mismatch "+x+","+y+","+z+" rot="+turns);
+   if(rotated.hasProperty(net.minecraft.world.level.block.StairBlock.HALF))
+    t.assertTrue(actual.getValue(net.minecraft.world.level.block.StairBlock.HALF)==rotated.getValue(net.minecraft.world.level.block.StairBlock.HALF),"Veche roof/stair half mismatch "+x+","+y+","+z+" rot="+turns);
   }
   for(int x=13;x<=35;x++)for(int z=15;z<=29;z++)for(int y=0;y<17;y++) {
    var source=PosadBuildings.voxel(x,y,z);
@@ -132,6 +138,14 @@ public final class PosadShellGameTests {
    var actual=world.getBlockState(at);
    var rotated=expected.rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
    t.assertTrue(actual.is(rotated.getBlock()),"Current communal block mismatch "+x+","+y+","+z+" rot="+turns+" expected="+rotated+" actual="+actual);
+   if(rotated.hasProperty(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING))
+    t.assertTrue(actual.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING)==rotated.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING),"Communal roof/door facing mismatch "+at);
+   if(rotated.hasProperty(net.minecraft.world.level.block.DoorBlock.HALF))
+    t.assertTrue(actual.getValue(net.minecraft.world.level.block.DoorBlock.HALF)==rotated.getValue(net.minecraft.world.level.block.DoorBlock.HALF),"Communal door half mismatch "+at);
+   if(rotated.hasProperty(net.minecraft.world.level.block.DoorBlock.HINGE))
+    t.assertTrue(actual.getValue(net.minecraft.world.level.block.DoorBlock.HINGE)==rotated.getValue(net.minecraft.world.level.block.DoorBlock.HINGE),"Communal door hinge mismatch "+at);
+   if(rotated.hasProperty(net.minecraft.world.level.block.StairBlock.HALF))
+    t.assertTrue(actual.getValue(net.minecraft.world.level.block.StairBlock.HALF)==rotated.getValue(net.minecraft.world.level.block.StairBlock.HALF),"Communal stair half mismatch "+at);
    if(expected.is(Blocks.CHEST)) {
     houseChests++;
     String loot=PosadHouseRenovation.chestLoot(x,y,z);
