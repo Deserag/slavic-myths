@@ -35,7 +35,7 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> CURSED_MYTAR_SPAWN_EGG=egg("cursed_mytar_spawn_egg",ModEntities.CURSED_MYTAR,0x211D1B,0xFFB341);
     public static final DeferredHolder<Item, Item> BAUK_SPAWN_EGG=egg("bauk_spawn_egg",ModEntities.BAUK,0x211918,0xFF6A25);
     public static final DeferredHolder<Item, Item> BAUK_HEAD_ITEM = ITEMS.register("bauk_head", () -> new BlockItem(ModBlocks.BAUK_HEAD.get(), properties().stacksTo(1).rarity(Rarity.EPIC)));
-    public static final DeferredHolder<Item, Item> MYTAR_SHACKLED_SICKLE = ITEMS.register("mytar_shackled_sickle", () -> new SwordItem(ModGear.SILVER, properties().durability(620).rarity(Rarity.EPIC).attributes(SwordItem.createAttributes(ModGear.SILVER, 7, -2.6F))));
+    public static final DeferredHolder<Item, Item> MYTAR_SHACKLED_SICKLE = ITEMS.register("mytar_shackled_sickle", () -> new org.slavicmyths.posad.boss.ShackledSickleItem(ModGear.SILVER, properties().durability(620).rarity(Rarity.EPIC).attributes(SwordItem.createAttributes(ModGear.SILVER, 7, -2.6F))));
     public static final DeferredHolder<Item, Item> BAUK_HIDE_CHARM_ITEM = ITEMS.register("bauk_hide_charm", () -> new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.EPIC), "charm"));
     public static final DeferredHolder<Item, Item> RYE_SEEDS = ITEMS.register("rye_seeds", () -> new ItemNameBlockItem(ModBlocks.RYE_CROP.get(), properties()));
     public static final DeferredHolder<Item, Item> BARLEY_SEEDS = ITEMS.register("barley_seeds", () -> new ItemNameBlockItem(ModBlocks.BARLEY_CROP.get(), properties()));
