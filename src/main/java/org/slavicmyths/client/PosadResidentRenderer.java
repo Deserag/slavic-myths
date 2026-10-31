@@ -13,6 +13,10 @@ public final class PosadResidentRenderer extends MobRenderer<PosadResidentEntity
         addLayer(new ItemInHandLayer<>(this, context.getItemInHandRenderer()));
     }
     @Override public ResourceLocation getTextureLocation(PosadResidentEntity entity) {
-        return ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/posad_resident_" + entity.traits().skin() + ".png");
+        // Variant 4 PNG is corrupt in the current test build. Reuse an intact existing
+        // approved atlas until the authentic fourth variant can be restored.
+        int skin = entity.traits().skin();
+        if (skin == 4) skin = 3;
+        return ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/posad_resident_" + skin + ".png");
     }
 }
