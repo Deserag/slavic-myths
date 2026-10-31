@@ -295,9 +295,12 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         }
         super.die(source);
     }
-    @Override protected SoundEvent getAmbientSound() { return SoundEvents.PIGLIN_AMBIENT; }
-    @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.PIGLIN_HURT; }
-    @Override protected SoundEvent getDeathSound() { return SoundEvents.PIGLIN_DEATH; }
+    // No piglin impersonation: original Posad OGG assets are not yet approved.
+    // Nullable vanilla ambient/hurt/death hooks safely fall back to silence until
+    // genuine sound events and their audio files are available.
+    @Override protected SoundEvent getAmbientSound() { return null; }
+    @Override protected SoundEvent getHurtSound(DamageSource source) { return null; }
+    @Override protected SoundEvent getDeathSound() { return null; }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
