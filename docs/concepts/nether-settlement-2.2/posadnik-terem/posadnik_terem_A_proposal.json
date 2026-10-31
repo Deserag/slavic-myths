@@ -46,7 +46,8 @@
     "Window/glass, stairs and double door blockstates are proposed; validate actual canSurvive, walkability and four Minecraft rotations after owner approves architecture.",
     "All interior furniture placements deferred until functional new furniture IDs are approved (#369).",
     "Existing terrain at floor Y0 may be overwritten only at new-generation and after owner approval, never via automatic old-world retrofit.",
-    "Fence blockstates use preliminary explicit false connection properties; Minecraft may connect adjacent fences dynamically; verify physical placement."
+    "Fence blockstates use preliminary explicit false connection properties; Minecraft may connect adjacent fences dynamically; verify physical placement.",
+    "Eight proposal floor lanterns are supported at Y1 on the Y0 masonry floor and Y7 on the Y6 wood deck (not floating at Y2/Y8)."
   ],
   "palette": [
     "minecraft:chiseled_polished_blackstone",
@@ -1105,10 +1106,22 @@
       13
     ],
     [
+      63,
+      1,
+      81,
+      8
+    ],
+    [
       64,
       1,
       81,
       7
+    ],
+    [
+      70,
+      1,
+      81,
+      8
     ],
     [
       71,
@@ -1309,6 +1322,18 @@
       13
     ],
     [
+      63,
+      1,
+      92,
+      8
+    ],
+    [
+      70,
+      1,
+      92,
+      8
+    ],
+    [
       71,
       1,
       92,
@@ -1463,18 +1488,6 @@
       2,
       81,
       12
-    ],
-    [
-      63,
-      2,
-      81,
-      8
-    ],
-    [
-      70,
-      2,
-      81,
-      8
     ],
     [
       71,
@@ -1675,18 +1688,6 @@
       12
     ],
     [
-      63,
-      2,
-      92,
-      8
-    ],
-    [
-      70,
-      2,
-      92,
-      8
-    ],
-    [
       71,
       2,
       92,
@@ -3841,10 +3842,22 @@
       13
     ],
     [
+      63,
+      7,
+      81,
+      8
+    ],
+    [
       65,
       7,
       81,
       5
+    ],
+    [
+      70,
+      7,
+      81,
+      8
     ],
     [
       71,
@@ -4037,6 +4050,18 @@
       7,
       92,
       13
+    ],
+    [
+      63,
+      7,
+      92,
+      8
+    ],
+    [
+      70,
+      7,
+      92,
+      8
     ],
     [
       71,
@@ -4195,18 +4220,6 @@
       14
     ],
     [
-      63,
-      8,
-      81,
-      8
-    ],
-    [
-      70,
-      8,
-      81,
-      8
-    ],
-    [
       71,
       8,
       81,
@@ -4337,18 +4350,6 @@
       8,
       92,
       12
-    ],
-    [
-      63,
-      8,
-      92,
-      8
-    ],
-    [
-      70,
-      8,
-      92,
-      8
     ],
     [
       71,
@@ -7623,14 +7624,14 @@
   ],
   "layer_counts": {
     "0": 160,
-    "1": 60,
-    "2": 63,
+    "1": 64,
+    "2": 59,
     "3": 60,
     "4": 59,
     "5": 58,
     "6": 155,
-    "7": 60,
-    "8": 52,
+    "7": 64,
+    "8": 48,
     "9": 48,
     "10": 48,
     "11": 160,
