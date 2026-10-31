@@ -383,6 +383,9 @@ public final class PosadCommands {
         }
         int fixedPanesCount=fixedPanes;
         if(fixedPanesCount>0)source.sendSuccess(()->Component.literal("Исправлено соединений оконных панелей: "+fixedPanesCount),false);
+        var residents=PosadResidentSpawner.populateBuilding(world,id,pos,size.getX(),size.getZ());
+        world.getDataStorage().save();
+        source.sendSuccess(()->Component.literal("Заселение: "+residents.added()+" создано, "+residents.existing()+" ранее учтено, "+residents.blocked()+" требуют безопасного места."),false);
         source.sendSuccess(()->Component.literal("Построено: "+id+" в "+pos.toShortString()),false);
         return 1;
     }
