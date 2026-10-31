@@ -106,7 +106,7 @@ public final class PosadTradeCatalog {
                 if (!original.has("fallback")) {
                     // Only items explicitly staged in future patches may be absent. No AIR substitutions.
                     String name = original.get("id").getAsString();
-                    if (!name.equals("farmer_buy_3") && !name.equals("cook_buy_1")) throw new IllegalStateException("Missing live posad trade item in " + name);
+                    if (!original.has("deferred") || !original.get("deferred").getAsBoolean()) throw new IllegalStateException("Missing live posad trade item in " + name);
                     continue;
                 }
                 actual = original.getAsJsonObject("fallback");
