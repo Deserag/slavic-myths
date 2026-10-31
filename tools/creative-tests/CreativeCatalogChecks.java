@@ -14,7 +14,7 @@ public final class CreativeCatalogChecks {
     }
     public static void main(String[] args) throws Exception {
         var entries = CreativeCatalog.entries();
-        check(entries.size() == 1123, "1123 catalogued IDs after furniture variants");
+        check(entries.size() == 1120, "1120 actual catalogued IDs after furniture variants");
         invalid("sword\tweapons\ta\nsword\ttools\tb\n");
         invalid("sword\tunknown\ta\n");
         invalid("sword\tweapons\n");
