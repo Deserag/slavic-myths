@@ -185,11 +185,12 @@ public final class PosadBoss extends Monster {
         }
     }
     /** A real projectile impact, not an instant ranged damage query, starts the chain pull. */
-    public void catchChain(ServerPlayer victim) {
-        if (kind != Kind.MYTAR || move() != Move.WINDUP_CHAIN || level().isClientSide || chainVictim != null || !victim.isAlive() || victim.isCreative() || victim.isSpectator() || victim.isBlocking() || distanceToSqr(victim) > 196D || !getSensing().hasLineOfSight(victim)) return;
-        if (!victim.hurt(damageSources().mobAttack(this), 6F)) return;
+    public boolean catchChain(ServerPlayer victim) {
+        if (kind != Kind.MYTAR || move() != Move.WINDUP_CHAIN || level().isClientSide || chainVictim != null || !victim.isAlive() || victim.isCreative() || victim.isSpectator() || victim.isBlocking() || distanceToSqr(victim) > 196D || !getSensing().hasLineOfSight(victim)) return false;
+        if (!victim.hurt(damageSources().mobAttack(this), 6F)) return false;
         chainVictim = victim.getUUID();
         chainPullTicks = Math.min(12, Math.max(1, actionTicks - 1));
+        return true;
     }
     private void pullChainedVictim() {
         if (!(level() instanceof net.minecraft.server.level.ServerLevel server) || chainVictim == null) return;
