@@ -62,7 +62,9 @@ public final class ModItemGroup {
         var key = BuiltInRegistries.ITEM.getKey(item);
         if (!key.getNamespace().equals("slavicmyths")) return -1;
         String path = key.getPath();
-        if (path.equals("wooden_barrel")) return -1; // Registered only for old saves.
+        if (path.equals("wooden_barrel")) return -1;
+        // Preserve legacy profession-specific egg IDs for existing saves, but show only the one universal resident egg.
+        if (path.startsWith("posad_") && path.endsWith("_spawn_egg") && !path.equals("posad_resident_spawn_egg")) return -1; // Registered only for old saves.
         if (CreativeCatalog.entry(path) != null) return CreativeCatalog.category(path);
         if (REPORTED_FALLBACKS.add(path))
             System.getLogger("slavicmyths.creative").log(System.Logger.Level.WARNING,
