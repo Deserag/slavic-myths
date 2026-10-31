@@ -508,9 +508,10 @@ public final class PosadShellGameTests {
   var noise=registry.registryOrThrow(net.minecraft.core.registries.Registries.NOISE_SETTINGS).getHolderOrThrow(net.minecraft.world.level.levelgen.NoiseGeneratorSettings.NETHER);
   var preset=registry.registryOrThrow(net.minecraft.core.registries.Registries.MULTI_NOISE_BIOME_SOURCE_PARAMETER_LIST).getHolderOrThrow(net.minecraft.world.level.biome.MultiNoiseBiomeSourceParameterLists.NETHER);
   var generator=new net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator(net.minecraft.world.level.biome.MultiNoiseBiomeSource.createFromPreset(preset),noise);
-  var biome=registry.registryOrThrow(net.minecraft.core.registries.Registries.BIOME).getHolderOrThrow(net.minecraft.world.level.biome.Biomes.NETHER_WASTES);
-  var structure=new PosadStructure(new net.minecraft.world.level.levelgen.structure.Structure.StructureSettings(net.minecraft.core.HolderSet.direct(new java.util.ArrayList<>(generator.getBiomeSource().possibleBiomes()))));
-  var placement=new net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement(80,32,net.minecraft.world.level.levelgen.structure.placement.RandomSpreadType.LINEAR,22022026);
+  var structure=(PosadStructure)registry.registryOrThrow(net.minecraft.core.registries.Registries.STRUCTURE).get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","nether_posad"));
+  var set=registry.registryOrThrow(net.minecraft.core.registries.Registries.STRUCTURE_SET).get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","nether_posad"));
+  t.assertTrue(structure!=null&&set!=null,"Production Nether Posad structure/structure-set missing");
+  var placement=(net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement)set.placement();
   int total=0;
   for(long seed:new long[]{11,29,101,2026,22022026}) {
    var random=net.minecraft.world.level.levelgen.RandomState.create(noise.value(),registry.lookupOrThrow(net.minecraft.core.registries.Registries.NOISE),seed);
@@ -523,7 +524,8 @@ public final class PosadShellGameTests {
    total+=accepted;
    System.out.println("POSAD_NATIVE_SURVEY seed="+seed+" candidates=8 accepted="+accepted+" nanos="+(System.nanoTime()-start));
   }
-  System.out.println("POSAD_NATIVE_SURVEY totalAccepted="+total+" candidates=40; NO PHYSICAL NETHER STARTS/FREQUENCY CLAIM");
+  t.assertTrue(total>0,"Production nether_posad placement produced no accepted native starts across 40 candidates");
+  System.out.println("POSAD_NATIVE_SURVEY totalAccepted="+total+" candidates=40 productionStructureSet=true nativeGenerationPoint=true");
   t.succeed();
  }
 
