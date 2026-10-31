@@ -17,7 +17,9 @@ public final class PosadNaturalPopulation {
     private static int ticks;
     private static final int SEARCH_RADIUS = 128;
     private static final int SAMPLE_STEP = 32;
-    private static final int STRUCTURE_SAMPLE_Y = 32;
+    // Nether city piece spans deckY-48 .. deckY+17; one fixed Y misses elevated cities.
+    // These samples overlap every possible Nether deck height without loading chunks.
+    private static final int[] STRUCTURE_SAMPLE_YS = {16, 64, 112};
 
     @SubscribeEvent
     public static void tick(ServerTickEvent.Post event) {
@@ -32,17 +34,21 @@ public final class PosadNaturalPopulation {
                 // Scan loaded chunks around the player, independent of their altitude.
                 // A 32-block lattice intersects the 113x113 footprint from any approach.
                 for (int ox = -SEARCH_RADIUS; ox <= SEARCH_RADIUS; ox += SAMPLE_STEP) for (int oz = -SEARCH_RADIUS; oz <= SEARCH_RADIUS; oz += SAMPLE_STEP) {
-                    BlockPos sample = new BlockPos(Math.floorDiv(current.getX(), 32) * 32 + 16 + ox, STRUCTURE_SAMPLE_Y, Math.floorDiv(current.getZ(), 32) * 32 + 16 + oz);
-                    if (level.getChunkSource().getChunkNow(sample.getX() >> 4, sample.getZ() >> 4) == null) continue;
-                    var start = level.structureManager().getStructureAt(sample, structure);
-                    if (!start.isValid()) continue;
-                    for (var piece : start.getPieces()) {
-                        if (!(piece instanceof PosadPiece posad)) continue;
-                        BlockPos anchor = posad.cityAnchor();
-                        if (!visited.add(anchor)) continue;
-                        // The spawner checks each candidate's generated, loaded local area.
-                        // Never demand all 64+ city chunks be simultaneously player-loaded.
-                        PosadResidentSpawner.populateNatural(level, posad);
+                    int sampleX = Math.floorDiv(current.getX(), 32) * 32 + 16 + ox;
+                    int sampleZ = Math.floorDiv(current.getZ(), 32) * 32 + 16 + oz;
+                    if (level.getChunkSource().getChunkNow(sampleX >> 4, sampleZ >> 4) == null) continue;
+                    for (int sampleY : STRUCTURE_SAMPLE_YS) {
+                        BlockPos sample = new BlockPos(sampleX, sampleY, sampleZ);
+                        var start = level.structureManager().getStructureAt(sample, structure);
+                        if (!start.isValid()) continue;
+                        for (var piece : start.getPieces()) {
+                            if (!(piece instanceof PosadPiece posad)) continue;
+                            BlockPos anchor = posad.cityAnchor();
+                            if (!visited.add(anchor)) continue;
+                            // The spawner checks each candidate's generated, loaded local area.
+                            // Never demand all 64+ city chunks be simultaneously player-loaded.
+                            PosadResidentSpawner.populateNatural(level, posad);
+                        }
                     }
                 }
             }
