@@ -34,6 +34,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
     private static final EntityDataAccessor<Integer> WEAPON = SynchedEntityData.defineId(PosadResidentEntity.class, EntityDataSerializers.INT);
     private UUID city;
     private String memberKey = "";
+    private boolean eggSpawnPending;
     private BlockPos home;
     private int shotCooldown;
     private final Map<String,Integer> tradeUses = new HashMap<>();
@@ -155,6 +156,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
     }
     @Override public void tick() {
         super.tick();
+        if (!level().isClientSide && eggSpawnPending) initializeEggSpawn();
         if (!level().isClientSide) tickEconomy();
         if (level().isClientSide || !role().guard() || city == null || !(level() instanceof ServerLevel server)) return;
         if (getTarget() instanceof Player player && !canFightPlayer(player)) setTarget(null);
@@ -175,6 +177,19 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
                 break;
             }
         }
+    }
+    private void initializeEggSpawn() {
+        if (!(level() instanceof ServerLevel server)) return;
+        int regionX = Math.floorDiv(blockPosition().getX(), 128);
+        int regionZ = Math.floorDiv(blockPosition().getZ(), 128);
+        city = UUID.nameUUIDFromBytes(("slavicmyths:posad_egg:" + server.dimension().location() + ":" + regionX + ":" + regionZ).getBytes(java.nio.charset.StandardCharsets.UTF_8));
+        home = blockPosition().immutable();
+        memberKey = "egg_" + role().name().toLowerCase(Locale.ROOT) + "_" + weapon().name().toLowerCase(Locale.ROOT);
+        restrictTo(home, 32);
+        getAttribute(Attributes.MAX_HEALTH).setBaseValue(role().health());
+        setHealth(role().health());
+        equip();
+        eggSpawnPending = false;
     }
     private final class RangedDuty extends Goal {
         private int warmup;
@@ -323,6 +338,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         tag.putInt("PosadRole", role().ordinal());
         tag.putInt("PosadWeapon", weapon().ordinal());
         tag.putString("PosadMember", memberKey);
+        if (eggSpawnPending) tag.putBoolean("PosadEgg", true);
         if (city != null) tag.putUUID("PosadCity", city);
         if (home != null) tag.putLong("PosadHome", home.asLong());
         tag.putInt("PosadTradeXp", tradeXp);
@@ -343,6 +359,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         entityData.set(ROLE, Math.floorMod(tag.getInt("PosadRole"), PosadPopulationPlan.Role.values().length));
         entityData.set(WEAPON, Math.floorMod(tag.getInt("PosadWeapon"), PosadPopulationPlan.Weapon.values().length));
         memberKey = tag.getString("PosadMember");
+        eggSpawnPending = tag.getBoolean("PosadEgg");
         city = tag.hasUUID("PosadCity") ? tag.getUUID("PosadCity") : null;
         home = tag.contains("PosadHome") ? BlockPos.of(tag.getLong("PosadHome")) : null;
         if (home != null) restrictTo(home, 32);

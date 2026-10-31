@@ -6497,5 +6497,21 @@
   "block.slavicmyths.blackwood_shelf": "Blackwood Shelf",
   "block.slavicmyths.blackwood_wardrobe": "Blackwood Wardrobe",
   "block.slavicmyths.blackwood_weapon_rack": "Blackwood Weapon Rack",
-  "itemGroup.slavicmyths.furniture": "Furniture"
+  "itemGroup.slavicmyths.furniture": "Furniture",
+  "item.slavicmyths.posad_posadnik_spawn_egg": "Posadnik Spawn Egg",
+  "item.slavicmyths.posad_sotnik_spawn_egg": "Guard Captain Spawn Egg",
+  "item.slavicmyths.posad_blacksmith_spawn_egg": "Blacksmith Spawn Egg",
+  "item.slavicmyths.posad_weaponsmith_spawn_egg": "Weaponsmith Spawn Egg",
+  "item.slavicmyths.posad_crafter_spawn_egg": "Crafter Spawn Egg",
+  "item.slavicmyths.posad_farmer_spawn_egg": "Farmer Spawn Egg",
+  "item.slavicmyths.posad_mushroom_grower_spawn_egg": "Mushroom Grower Spawn Egg",
+  "item.slavicmyths.posad_herbalist_spawn_egg": "Herbalist Spawn Egg",
+  "item.slavicmyths.posad_cook_spawn_egg": "Cook Spawn Egg",
+  "item.slavicmyths.posad_storekeeper_spawn_egg": "Storekeeper Spawn Egg",
+  "item.slavicmyths.posad_civilian_spawn_egg": "Resident Spawn Egg",
+  "item.slavicmyths.posad_guard_sword_spawn_egg": "Guard (Sword) Spawn Egg",
+  "item.slavicmyths.posad_guard_spear_spawn_egg": "Guard (Spear) Spawn Egg",
+  "item.slavicmyths.posad_guard_sword_shield_spawn_egg": "Guard (Sword and Shield) Spawn Egg",
+  "item.slavicmyths.posad_guard_spear_shield_spawn_egg": "Guard (Spear and Shield) Spawn Egg",
+  "item.slavicmyths.posad_guard_bow_spawn_egg": "Guard (Bow) Spawn Egg"
 }
