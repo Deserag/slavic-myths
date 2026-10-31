@@ -872,7 +872,8 @@
           "id": "slavicmyths:hops_cutting",
           "count": 4
         }
-      }
+      },
+      "deferred": true
     },
     {
       "id": "farmer_sale_5_2",
@@ -896,7 +897,8 @@
           "id": "slavicmyths:raspberry_sapling",
           "count": 2
         }
-      }
+      },
+      "deferred": true
     },
     {
       "id": "mushroom_grower_sale_1_1",
@@ -1032,7 +1034,8 @@
           "id": "minecraft:nether_wart",
           "count": 16
         }
-      }
+      },
+      "deferred": true
     },
     {
       "id": "mushroom_grower_sale_5_2",
@@ -1322,7 +1325,8 @@
           "id": "slavicmyths:meat_pie",
           "count": 1
         }
-      }
+      },
+      "deferred": true
     },
     {
       "id": "cook_sale_5_2",
@@ -1346,7 +1350,8 @@
           "id": "slavicmyths:berry_pie",
           "count": 1
         }
-      }
+      },
+      "deferred": true
     },
     {
       "id": "storekeeper_sale_1_1",
@@ -1752,7 +1757,8 @@
       "out": {
         "id": "slavicmyths:ancient_coin",
         "count": 16
-      }
+      },
+      "deferred": true
     },
     {
       "id": "mushroom_grower_buy_1",
@@ -1822,7 +1828,8 @@
       "out": {
         "id": "slavicmyths:ancient_coin",
         "count": 22
-      }
+      },
+      "deferred": true
     },
     {
       "id": "cook_buy_2",
