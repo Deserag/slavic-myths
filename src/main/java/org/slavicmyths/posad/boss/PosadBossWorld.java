@@ -19,12 +19,12 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import org.slavicmyths.registry.ModEntities;
 
-/** Bounded, non-retrogen Nether discovery: one boss candidate per 3072x3072 region.
+/** Bounded, non-retrogen Nether discovery: one boss candidate per 640x640 region.
  * No extra chunks are requested. Regions with successful boss creation persist as consumed.
  */
 @EventBusSubscriber(modid="slavicmyths")
 public final class PosadBossWorld extends SavedData {
-    private static final int REGION = 3072;
+    private static final int REGION = 640;
     private final Set<String> consumed = new HashSet<>();
     public static PosadBossWorld get(ServerLevel level) {
         return level.getDataStorage().computeIfAbsent(new SavedData.Factory<>(PosadBossWorld::new, (tag, lookup) -> {
@@ -48,11 +48,12 @@ public final class PosadBossWorld extends SavedData {
         return state.is(Blocks.NETHERRACK) || state.is(Blocks.BLACKSTONE) || state.is(Blocks.BASALT) || state.is(Blocks.SOUL_SAND) || state.is(Blocks.SOUL_SOIL) || state.is(Blocks.CRIMSON_NYLIUM) || state.is(Blocks.WARPED_NYLIUM);
     }
     private static boolean safe(ServerLevel level, BlockPos pos, PosadBoss.Kind kind) {
-        int radius = kind == PosadBoss.Kind.BAUK ? 2 : 1;
+        // The 7-block beast extends beyond its vanilla 3.5-wide hitbox: validate its entire ground support.
+        int radius = kind == PosadBoss.Kind.BAUK ? 4 : 2;
         for (int x = -radius; x <= radius; x++) for (int z = -radius; z <= radius; z++) {
             BlockPos ground = pos.offset(x, -1, z);
             if (!level.hasChunkAt(ground) || !naturalGround(level.getBlockState(ground))) return false;
-            for (int y = 0; y < 5; y++) {
+            for (int y = 0; y < 6; y++) {
                 BlockPos air = pos.offset(x, y, z);
                 if (!level.hasChunkAt(air) || !level.getBlockState(air).isAir()) return false;
             }
@@ -70,7 +71,10 @@ public final class PosadBossWorld extends SavedData {
         String key = rx + ":" + rz;
         PosadBossWorld data = get(level);
         if (data.consumed.contains(key)) return;
-        PosadBoss.Kind kind = (mixed & 1) == 0 ? PosadBoss.Kind.MYTAR : PosadBoss.Kind.BAUK;
+        int roll = (int) Math.floorMod(mixed >>> 3, 100L);
+        // A deterministic regional encounter: 35% Mytar, 25% Bauk, 40% no boss.
+        if (roll >= 60) return;
+        PosadBoss.Kind kind = roll < 35 ? PosadBoss.Kind.MYTAR : PosadBoss.Kind.BAUK;
         for (int probe = 0; probe < 16; probe++) {
             double angle = ((probe * 5 + (mixed & 7L)) % 16) * Math.PI / 8D;
             int radius = 56 + (probe % 4) * 12;
