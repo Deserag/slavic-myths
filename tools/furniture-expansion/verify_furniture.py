@@ -15,9 +15,18 @@ def check():
     assert len(furniture) == 72 and len({row[0] for row in furniture}) == 72
     assert [r[0] for r in furniture] == [w + "_" + k for k in KINDS for w in ("pine", "linden", *WOODS)]
     assert not any(r[1] == "decor" and r[0].endswith(tuple("_" + k for k in KINDS)) and r[0].startswith(("pine_", "linden_")) for r in rows)
+    # Owner decision 31.10.2026: no charred_blackwood planks or furniture variants.
+    excluded = {"charred_blackwood_" + kind for kind in KINDS}
+    assert "charred_blackwood" not in WOODS
+    assert not any(row[0] in excluded for row in rows)
+    assert '"charred_blackwood"' not in (R / "src/main/java/org/slavicmyths/furniture/Furniture.java").read_text(encoding="utf-8")
+    for item in excluded:
+        for path in (A / "blockstates" / (item + ".json"), A / "models/item" / (item + ".json"), D / "recipe" / (item + ".json"), D / "loot_table/blocks" / (item + ".json")):
+            assert not path.exists(), "Excluded charred wood furniture: " + str(path)
     for type_ in ("block", "item"):
         tags = read(D / "tags" / type_ / "furniture.json")["values"]
         assert len(tags) == len(set(tags))
+        assert not any(value.removeprefix("slavicmyths:") in excluded for value in tags)
         for w in WOODS:
             for k in KINDS:
                 assert "slavicmyths:" + w + "_" + k in tags
