@@ -118,7 +118,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
                 || !(monster instanceof net.minecraft.world.entity.monster.Enemy)) return false;
         if (home != null && monster.blockPosition().distSqr(home) > 40 * 40) return false;
         if (monster.getTarget() instanceof PosadResidentEntity resident) return Objects.equals(city, resident.city());
-        if (monster.getTarget() instanceof Player player) return canFightPlayer(player);
+        if (monster.getTarget() instanceof Player player && canFightPlayer(player)) return true;
         // Neutral Nether inhabitants must not become hostile merely because
         // a guard sees them; retaliate only after they actually threaten someone.
         if (monster instanceof net.minecraft.world.entity.NeutralMob
