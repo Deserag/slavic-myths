@@ -73,7 +73,7 @@ public final class PosadCommands {
     }
     private static int info(CommandSourceStack source) {
         source.sendSuccess(() -> Component.literal("Пекельный посад: фиксированный план 113x113, схема новых городов " + PosadGeometry.SCHEMA_VERSION + ", несколько зданий, мебель и башенный переход."), false);
-        source.sendSuccess(() -> Component.literal("Естественная генерация пока заблокирована до native QA, performance, save/reload и anti-dupe. Старые города никогда не перестраиваются."), false);
+        source.sendSuccess(() -> Component.literal("Естественная генерация в Аду включена. Новые города заселяются по мере готовности загруженных чанков; игровые проверки, relog и старые сохранения ещё требуют подтверждения. Старые постройки не перезаписываются."), false);
         source.sendSuccess(() -> Component.literal("Ручное создание с OP 2 в любом мире: /slavicmyths dev posad create <turns> <anchorX> <deckY> <anchorZ>. Чанки подготавливаются постепенно. status/cancel — для управления."), false);
         return 1;
     }
