@@ -20,6 +20,8 @@ public final class KitchenII {
  private static void food(String s,int n,float sat,int count,boolean bowl){ITEMS.put(s,ModItems.ITEMS.register(s,()->{var b=new FoodProperties.Builder().nutrition(n).saturationModifier(sat);if(bowl)b.usingConvertsTo(Items.BOWL);return new Item(new Item.Properties().stacksTo(count).food(b.build()));}));}
  public static void init(IEventBus bus){
   for(String s:List.of("wheat_flour","rye_flour","oat_groats","barley_groats","dough"))ITEMS.put(s,ModItems.ITEMS.register(s,()->new Item(new Item.Properties())));
+  // 2.2.9-C: standalone culinary ingredients (not crops and not edible dishes).
+  for(String s:List.of("roasted_hot_pepper","ground_hot_pepper","ground_mustard","grated_horseradish","black_pepper","ground_black_pepper","heat_berry_mash","coal_plum_mash"))ITEMS.put(s,ModItems.ITEMS.register(s,()->new Item(new Item.Properties())));
   food("rye_bread",6,.70F,64,false);food("baked_turnip",4,.50F,64,false);
   food("stewed_turnip",6,.65F,1,true);food("stewed_cabbage",6,.70F,1,true);food("oat_porridge",6,.65F,1,true);food("barley_porridge",6,.65F,1,true);food("berry_porridge",7,.75F,1,true);
   food("vegetable_stew",7,.70F,1,true);food("meat_stew",9,.85F,1,true);food("pea_soup",7,.75F,1,true);food("mushroom_stew_slavic",6,.70F,1,true);
