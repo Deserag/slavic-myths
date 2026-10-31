@@ -1,7 +1,7 @@
 name: Posad 2.2 physical GameTest (isolated Java 21)
 on:
   push:
-    branches: [hell]
+    branches: [hell, '2.2']
     paths:
       - 'src/main/java/org/slavicmyths/posad/**'
       - 'src/main/resources/data/slavicmyths/posad/**'
@@ -12,6 +12,9 @@ on:
       - 'src/main/resources/data/slavicmyths/loot_table/chests/nether_druzhina_*.json'
       - 'src/main/resources/data/slavicmyths/loot_table/chests/nether_forge_*.json'
       - 'src/main/resources/data/slavicmyths/loot_table/chests/nether_communal_*.json'
+      - 'docs/concepts/nether-settlement-2.2/posadnik-terem/**'
+      - 'build.gradle'
+      - 'tools/verify_posadnik_integration.py'
       - 'tools/posad-runtime-tests/**'
       - 'tools/posad-test-resources/**'
       - 'tools/posad-qa-runtime.gradle'
@@ -29,6 +32,10 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
+      - name: Verify the exact approved Posadnik A+ source and schema 19
+        run: |
+          python3 tools/verify_posadnik_design.py
+          python3 tools/verify_posadnik_integration.py
       - name: Verify both committed R1 binary structures before Minecraft QA
         shell: bash
         run: python3 tools/posad-tests/verify_generated_building_nbt.py

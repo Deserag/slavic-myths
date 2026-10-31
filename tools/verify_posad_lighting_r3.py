@@ -34,7 +34,7 @@ cmd=(java/"PosadCommands.java").read_text("utf-8")
 light=(java/"PosadLightingR3.java").read_text("utf-8")
 geometry=(java/"PosadGeometry.java").read_text("utf-8")
 workflow=(root/".github/workflows/posad-schema16-qa.yml").read_text("utf-8")
-assert "SCHEMA_VERSION = 18" in geometry
+assert "SCHEMA_VERSION = 19" in geometry
 assert "schema >= 18" in piece and "PosadLightingR3.voxel(x,y,z)" in piece
 assert piece.index("schema >= 18")<piece.index("schema >= 17")
 assert "PosadLightingR3.hallVoxel(x,y,z)" in cmd

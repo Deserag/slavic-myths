@@ -34,6 +34,11 @@ dependencies {
 }
 tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
 processResources {
+    // The official A + A+ voxel authoring files are copied unchanged into the production JAR.
+    from('docs/concepts/nether-settlement-2.2/posadnik-terem') {
+        include 'posadnik_terem_A_proposal.json', 'posadnik_terem_Aplus_delta.json'
+        into 'data/slavicmyths/posad'
+    }
     inputs.properties([mod_version: mod_version, neo_version: neo_version])
     filesMatching('META-INF/neoforge.mods.toml') {
         expand mod_version: mod_version, neo_version: neo_version

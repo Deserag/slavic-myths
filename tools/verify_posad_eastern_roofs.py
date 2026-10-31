@@ -81,7 +81,7 @@ roof = (java / "PosadEasternRoofRepair.java").read_text(encoding="utf-8")
 piece = (java / "PosadPiece.java").read_text(encoding="utf-8")
 commands = (java / "PosadCommands.java").read_text(encoding="utf-8")
 geometry = (java / "PosadGeometry.java").read_text(encoding="utf-8")
-assert "SCHEMA_VERSION = 18" in geometry
+assert "SCHEMA_VERSION = 19" in geometry
 assert "schema >= 16" in piece and "PosadEasternRoofRepair.voxel(x,y,z)" in piece
 assert piece.index("schema >= 16") < piece.index("schema >= 15")
 assert 'id.equals("granary_2_2_8")' in commands and "PosadEasternRoofRepair.voxel(76+u,10,12+v)" in commands

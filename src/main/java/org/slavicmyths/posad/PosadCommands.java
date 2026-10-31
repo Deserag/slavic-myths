@@ -22,7 +22,7 @@ public final class PosadCommands {
     public static void register(org.slavicmyths.commands.CommandTree tree) {
         var generate=Commands.literal("generate").requires(source->source.hasPermission(2));
         generate.then(Commands.literal("nether_posad").executes(c->start(c.getSource())));
-        String[][] names={{"veche_hall","veche_hall_2_2_2"},{"communal_house","communal_house_2_2_3"},{"druzhinny_dvor","druzhinny_dvor_2_2_4"},{"kuznechny_dvor","kuznechny_dvor_2_2_5"},{"zeleynaya","zeleynaya_2_2_7"},{"granary","granary_2_2_8"},{"menovye_ryady","menovye_ryady_2_2_6"}};
+        String[][] names={{"veche_hall","veche_hall_2_2_2"},{"communal_house","communal_house_2_2_3"},{"druzhinny_dvor","druzhinny_dvor_2_2_4"},{"kuznechny_dvor","kuznechny_dvor_2_2_5"},{"zeleynaya","zeleynaya_2_2_7"},{"granary","granary_2_2_8"},{"menovye_ryady","menovye_ryady_2_2_6"},{"posadnik_terem","posadnik_terem_2_2_9"}};
         for(var name:names)generate.then(Commands.literal(name[0]).executes(c->building(c.getSource(),name[1],org.slavicmyths.worldgen.ManualTerrain.ground(c.getSource()))));
         tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").then(generate)));
         var posad = Commands.literal("posad").requires(source -> source.hasPermission(2));
@@ -42,7 +42,7 @@ public final class PosadCommands {
         var createPosition=Commands.argument("origin",net.minecraft.commands.arguments.coordinates.BlockPosArgument.blockPos())
             .executes(c -> create(c));
         posad.then(Commands.literal("create").then(Commands.argument("turns",IntegerArgumentType.integer(0,3)).then(createPosition)));
-        for(String id : new String[]{"veche_hall_2_2_2","communal_house_2_2_3","druzhinny_dvor_2_2_4","kuznechny_dvor_2_2_5","zeleynaya_2_2_7","granary_2_2_8","menovye_ryady_2_2_6"}) {
+        for(String id : new String[]{"veche_hall_2_2_2","communal_house_2_2_3","druzhinny_dvor_2_2_4","kuznechny_dvor_2_2_5","zeleynaya_2_2_7","granary_2_2_8","menovye_ryady_2_2_6","posadnik_terem_2_2_9"}) {
             var building=Commands.literal(id).executes(c -> building(c.getSource(),id,net.minecraft.core.BlockPos.containing(c.getSource().getPosition())));
             building.then(Commands.argument("pos",net.minecraft.commands.arguments.coordinates.BlockPosArgument.blockPos()).executes(c -> building(c.getSource(),id,net.minecraft.commands.arguments.coordinates.BlockPosArgument.getLoadedBlockPos(c,"pos"))));
             posad.then(Commands.literal("building").then(building));
@@ -72,7 +72,8 @@ public final class PosadCommands {
             source.sendSuccess(() -> Component.literal(template.name() + ": X" + rect.minX() + ".." + rect.maxX() + " Z" + rect.minZ() + ".." + rect.maxZ()), false);
         }
         source.sendSuccess(() -> Component.literal("Для проверки размещения используйте штатный native PosadPiece; /place template без preflight может разрушить чужие блоки."), false);
-        return TEMPLATES.length;
+        source.sendSuccess(() -> Component.literal("Посадничий терем A+: X60..72 Z78..95 (крыльцо X60..61; два уличных фонаря вне постройки)"),false);
+        return TEMPLATES.length+1;
     }
 
     private static int templates(CommandSourceStack source, int anchorX, int deckY, int anchorZ) {
@@ -83,6 +84,7 @@ public final class PosadCommands {
             String command = "/slavicmyths dev posad building " + t.id() + " " + x + " " + deckY + " " + z;
             source.sendSuccess(() -> Component.literal(t.name() + " [слот " + t.slot().local() + "]: " + command), false);
         }
+        source.sendSuccess(() -> Component.literal("Посадничий терем A+: /slavicmyths dev posad building posadnik_terem_2_2_9 " + (anchorX+60) + " " + deckY + " " + (anchorZ+78) + " (отдельная пустая тестовая площадка)"),false);
         source.sendSuccess(() -> Component.literal("Городская ориентация для команд: только 0°; для 90/180/270 используйте native PosadPiece и тесты, не поворачивайте отдельные дома независимо."), false);
         return TEMPLATES.length;
     }
@@ -93,6 +95,7 @@ public final class PosadCommands {
     }
     public static int building(CommandSourceStack source,String id,net.minecraft.core.BlockPos pos) {
         if(!source.hasPermission(2))return 0;
+        if(id.equals("posadnik_terem_2_2_9"))return PosadnikTeremManual.place(source,pos);
         var world=source.getLevel();
         var key=net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","posad/"+id);
         var template=world.getStructureManager().get(key);

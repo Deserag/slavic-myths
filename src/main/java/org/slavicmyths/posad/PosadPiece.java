@@ -61,6 +61,10 @@ public final class PosadPiece extends StructurePiece {
             return -y<depth?Blocks.POLISHED_BASALT.defaultBlockState():null;
         }
         if(PosadGeometry.CITY.contains(x,z)) {
+            if(schema >= 19) {
+                var posadnik=PosadnikTerem.voxel(x,y,z);
+                if(posadnik!=null)return posadnik;
+            }
             if(schema >= 18) {
                 var light=PosadLightingR3.voxel(x,y,z);
                 if(light!=null)return light;

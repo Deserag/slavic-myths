@@ -45,6 +45,28 @@ public final class PosadShellGameTests {
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    t.assertTrue(world.getBlockState(anchor.offset(p.x(),y,p.z())).isAir(),"Physical rotated gate blocked");
   }
+  // Schema 19: compare the full approved 1337-voxel source with actual rotated Minecraft blocks.
+  int teremCount=0;
+  for(int y=0;y<18;y++)for(int z=78;z<=95;z++)for(int x=60;x<=72;x++){
+   var approved=PosadnikTerem.voxel(x,y,z);
+   if(approved==null)continue;
+   teremCount++;
+   var cell=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+   var at=anchor.offset(cell.x(),y,cell.z());
+   var actual=world.getBlockState(at);
+   var expected=approved.rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
+   t.assertTrue(actual.is(expected.getBlock()),"Posadnik A+ mismatch "+x+","+y+","+z+" rot="+turns+" expected="+expected+" actual="+actual);
+   if(expected.hasProperty(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING))
+    t.assertTrue(actual.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING)==expected.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING),"Posadnik facing "+at);
+   if(expected.hasProperty(net.minecraft.world.level.block.DoorBlock.HALF))
+    t.assertTrue(actual.getValue(net.minecraft.world.level.block.DoorBlock.HALF)==expected.getValue(net.minecraft.world.level.block.DoorBlock.HALF),"Posadnik door half "+at);
+  }
+  t.assertTrue(teremCount==1337&&PosadnikTerem.count()==1337,"Posadnik block count drift: "+teremCount);
+  for(int z:new int[]{84,85}){
+   var door=PosadGeometry.rotate(new PosadGeometry.Cell(62,z),turns);
+   t.assertTrue(world.getBlockState(anchor.offset(door.x(),1,door.z())).getBlock() instanceof net.minecraft.world.level.block.DoorBlock,"Posadnik entrance missing rotation "+turns);
+  }
+  System.out.println("POSADNIK_A_PLUS_NATIVE_PASS rotation="+turns+" approved_voxels="+teremCount);
   int hallBlocks=0,houseBlocks=0,houseChests=0;
   for(int x=42;x<=70;x++)for(int z=12;z<=34;z++)for(int y=0;y<18;y++) {
    var source=PosadBuildings.voxel(x,y,z);

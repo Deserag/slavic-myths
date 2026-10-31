@@ -5,6 +5,34 @@ import org.slavicmyths.posad.*;
 import net.minecraft.world.level.block.Blocks;
 @GameTestHolder("slavicmyths_posad") @PrefixGameTestTemplate(false)
 public final class PosadCommandGameTests {
+ @GameTest(template="empty",timeoutTicks=450)
+ public static void posadnikStandaloneBuildAndNoDuplicate(GameTestHelper t){
+  var world=t.getLevel();
+  var at=t.absolutePos(new net.minecraft.core.BlockPos(0,140,128));
+  var end=at.offset(12,17,17);
+  for(int cx=at.getX()>>4;cx<=end.getX()>>4;cx++)for(int cz=at.getZ()>>4;cz<=end.getZ()>>4;cz++){
+   world.getChunk(cx,cz);world.setChunkForced(cx,cz,true);
+  }
+  for(var p:net.minecraft.core.BlockPos.betweenClosed(at,end))world.setBlock(p,Blocks.AIR.defaultBlockState(),2);
+  for(int x=at.getX();x<=end.getX();x++)for(int z=at.getZ();z<=end.getZ();z++)
+   world.setBlock(new net.minecraft.core.BlockPos(x,at.getY()-1,z),Blocks.STONE.defaultBlockState(),2);
+  var source=world.getServer().createCommandSourceStack().withLevel(world).withPermission(2).withPosition(net.minecraft.world.phys.Vec3.atLowerCornerOf(at)).withSuppressedOutput();
+  int success=PosadCommands.building(source,"posadnik_terem_2_2_9",at);
+  t.assertTrue(success==1,"Standalone Posadnik command rejected");
+  int found=0;
+  for(int y=0;y<18;y++)for(int z=78;z<=95;z++)for(int x=60;x<=72;x++){
+   var expected=PosadnikTerem.voxel(x,y,z);
+   if(expected==null)continue;
+   var actual=world.getBlockState(at.offset(x-60,y,z-78));
+   t.assertTrue(actual.is(expected.getBlock()),"Standalone A+ source drift "+x+","+y+","+z);
+   found++;
+  }
+  t.assertTrue(found==1337,"Standalone A+ wrong count "+found);
+  t.assertTrue(PosadCommands.building(source,"posadnik_terem_2_2_9",at)==0,"Standalone A+ duplicate placement allowed");
+  System.out.println("POSADNIK_STANDALONE_PASS exact="+found+" duplicate_rejected=true");
+  t.succeed();
+ }
+
  @GameTest(template="empty",timeoutTicks=400)
  public static void actualBuildingCommandsBothDimensions(GameTestHelper t) {
   var server=t.getLevel().getServer();

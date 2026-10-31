@@ -82,7 +82,7 @@ for turns in range(4):
         rotated.add((rx,y,rz))
     assert len(rotated) == len(occupied)
 
-assert "SCHEMA_VERSION = 18" in geometry
+assert "SCHEMA_VERSION = 19" in geometry
 assert "schema >= 10" in piece and "PosadCourtyardFinishes.voxel" in piece
 assert 'id.equals("druzhinny_dvor_2_2_4")' in command
 assert 'id.equals("kuznechny_dvor_2_2_5")' in command
