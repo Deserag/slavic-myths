@@ -89,25 +89,6 @@ public final class PosadShellGameTests {
    t.assertTrue(world.getBlockState(at).getBlock() instanceof net.minecraft.world.level.block.StairBlock,"Blocked 2F flight "+at);
    for(int head=1;head<=2;head++)t.assertTrue(world.getBlockState(at.above(head)).isAir(),"Stair requires jumping "+at+" height="+head);
   }
-  // Schema 21: both northbound interior flights have their LOW edges south.
-  // Verify real placed blockstates, rotated FACING, HALF and unobstructed headroom.
-  int correctedStairs=0;
-  for(int step=0;step<6;step++)for(int[] stair:new int[][]{{20,26-step},{21,26-step},{23,84-step},{24,84-step}}){
-   int x=stair[0],z=stair[1],y=step+1;
-   var source=PosadArchitectureR4.voxel(x,y,z);
-   t.assertTrue(source!=null&&source.getValue(net.minecraft.world.level.block.StairBlock.FACING)==net.minecraft.core.Direction.SOUTH,"Invalid schema-21 northbound tread "+x+","+y+","+z);
-   var local=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
-   var at=anchor.offset(local.x(),y,local.z());
-   var placed=world.getBlockState(at);
-   var expected=source.rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
-   t.assertTrue(placed.is(expected.getBlock()),"Missing schema-21 tread "+at);
-   t.assertTrue(placed.getValue(net.minecraft.world.level.block.StairBlock.FACING)==expected.getValue(net.minecraft.world.level.block.StairBlock.FACING),"Unrotated/reversed schema-21 stair "+at);
-   t.assertTrue(placed.getValue(net.minecraft.world.level.block.StairBlock.HALF)==net.minecraft.world.level.block.state.properties.Half.BOTTOM,"Vertical/upper stair "+at);
-   for(int head=1;head<=2;head++)t.assertTrue(world.getBlockState(at.above(head)).isAir(),"Obstructed stair headroom "+at);
-   correctedStairs++;
-  }
-  t.assertTrue(correctedStairs==24&&PosadArchitectureR4.size()==24,"Missing schema-21 stair repairs");
-  System.out.println("POSAD_R4_STAIRS_NATIVE_PASS rotation="+turns+" treads="+correctedStairs);
   System.out.println("POSAD_R3_ARCH_PASS rotation="+turns+" fronton="+fronton);
   int hallBlocks=0,houseBlocks=0,houseChests=0;
   for(int x=42;x<=70;x++)for(int z=12;z<=34;z++)for(int y=0;y<18;y++) {

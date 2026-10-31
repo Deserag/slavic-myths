@@ -61,16 +61,6 @@ public final class PosadCommandGameTests {
     }
     System.out.println("POSAD_R3_STANDALONE_PANES dimension="+dimension.location()+" id="+id+" count="+checkedPanes);
 
-    if(id.equals("communal_house_2_2_3")||id.equals("druzhinny_dvor_2_2_4")){
-     boolean communal=id.equals("communal_house_2_2_3");int ox=communal?13:12,oz=communal?15:75;
-     for(int step=0;step<6;step++)for(int x:communal?new int[]{20,21}:new int[]{23,24}){
-      int y=step+1,z=(communal?26:84)-step;
-      var stair=w.getBlockState(at.offset(x-ox,y,z-oz));
-      t.assertTrue(stair.is(Blocks.POLISHED_BLACKSTONE_BRICK_STAIRS),"Standalone corrected stair missing "+id+" "+x+","+y+","+z);
-      t.assertTrue(stair.getValue(net.minecraft.world.level.block.StairBlock.FACING)==net.minecraft.core.Direction.SOUTH,"Standalone stair faces wrong ascent "+id+" "+x+","+y+","+z);
-      t.assertTrue(stair.getValue(net.minecraft.world.level.block.StairBlock.HALF)==net.minecraft.world.level.block.state.properties.Half.BOTTOM,"Standalone stair vertically inverted "+id+" "+x+","+y+","+z);
-     }
-    }
     t.assertTrue(count>100,"Command reported success without physical building: "+id+" blocks="+count);
     if(id.equals("veche_hall_2_2_2")) {
      int expectedCount=0,editCount=0,lightCount=0;
