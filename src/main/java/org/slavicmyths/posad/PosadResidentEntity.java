@@ -255,7 +255,8 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         if (level().isClientSide || !isAlive() || tradingPlayer == null || refuses(tradingPlayer) || distanceToSqr(tradingPlayer) > 64) return;
         String id = offerIdentities.get(offer);
         if (id == null || offer.isOutOfStock()) return;
-        offer.increaseUses();
+        // MerchantResultSlot already calls MerchantOffer#increaseUses before notifyTrade.
+        // Incrementing here again consumes two stock uses for one purchase.
         earnedXpPending = PosadTradeCatalog.fixed(role()) ? 0 : offer.getXp();
         tradeUses.put(id, offer.getUses());
     }
