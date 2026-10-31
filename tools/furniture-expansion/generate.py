@@ -9,12 +9,25 @@ WOODS = {"apple": "stripped_apple_log", "rowan": "rowan_stripped_log", "willow":
 KINDS = ("chair", "stool", "bench", "table", "bedside_cabinet", "shelf", "wardrobe", "weapon_rack")
 MODELS = ("chair", "stool", "bench", "table", "table_pair_north", "table_pair_south", "table_pair_east", "table_pair_west", "bedside_cabinet", "shelf", "wardrobe_lower", "wardrobe_upper", "weapon_rack")
 PATTERNS = {"chair": ["P  ", "PPP", "S S"], "stool": ["PP", "SS"], "bench": ["PPP", "S S"], "table": ["PPP", " S ", "S S"], "bedside_cabinet": ["PP", "PP", "SS"], "shelf": ["PPP", "S  "], "wardrobe": ["PPP", "PLP", "PPP"], "weapon_rack": ["S S", "PPP", "S S"]}
+GUI = {
+    "chair": {"rotation": [25, 145, 0], "translation": [0, 0, 0], "scale": [0.52, 0.52, 0.52]},
+    "stool": {"rotation": [25, 145, 0], "translation": [0, 1, 0], "scale": [0.58, 0.58, 0.58]},
+    "bench": {"rotation": [25, 145, 0], "translation": [0, 1, 0], "scale": [0.5, 0.5, 0.5]},
+    "table": {"rotation": [25, 145, 0], "translation": [0, 0, 0], "scale": [0.5, 0.5, 0.5]},
+    "bedside_cabinet": {"rotation": [25, 145, 0], "translation": [0, 0, 0], "scale": [0.5, 0.5, 0.5]},
+    "shelf": {"rotation": [25, 145, 0], "translation": [0, 1, 0], "scale": [0.55, 0.55, 0.55]},
+    "wardrobe": {"rotation": [25, 145, 0], "translation": [0, -2.25, 0], "scale": [0.32, 0.32, 0.32]},
+    "weapon_rack": {"rotation": [25, 145, 0], "translation": [0, 0, 0], "scale": [0.5, 0.5, 0.5]},
+}
 FACES = ("north", "east", "south", "west")
 def write(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+def textures(wood, beam):
+    return {"wood": "slavicmyths:block/" + wood + "_planks", "beam": "slavicmyths:block/" + beam, "iron": "slavicmyths:block/furniture_metal", "cloth": "slavicmyths:block/furniture_cloth", "rope": "slavicmyths:block/furniture_rope", "straw": "minecraft:block/hay_block_side", "log": "slavicmyths:block/" + wood + "_log_top", "particle": "slavicmyths:block/" + wood + "_planks"}
 def generate():
     for wood, beam in WOODS.items():
+        tex = textures(wood, beam)
         for kind in KINDS:
             item = wood + "_" + kind
             variants = {}
@@ -39,9 +52,11 @@ def generate():
             if kind == "wardrobe":
                 entry["conditions"] = [{"condition": "minecraft:block_state_property", "block": "slavicmyths:" + item, "properties": {"half": "lower"}}]
             write(D / "loot_table/blocks" / (item + ".json"), {"type": "minecraft:block", "pools": [{"rolls": 1, "entries": [entry], "conditions": [{"condition": "minecraft:survives_explosion"}]}]})
-            write(A / "models/item" / (item + ".json"), {"parent": "slavicmyths:block/" + item + ("_lower" if kind == "wardrobe" else "")})
+            item_model = {"parent": "slavicmyths:block/" + item, "display": {"gui": GUI[kind]}}
+            if kind == "wardrobe":
+                item_model = {"parent": "slavicmyths:block/pine_wardrobe_inventory", "textures": tex, "display": {"gui": GUI[kind]}}
+            write(A / "models/item" / (item + ".json"), item_model)
         for model in MODELS:
-            tex = {"wood": "slavicmyths:block/" + wood + "_planks", "beam": "slavicmyths:block/" + beam, "iron": "slavicmyths:block/furniture_metal", "cloth": "slavicmyths:block/furniture_cloth", "rope": "slavicmyths:block/furniture_rope", "straw": "minecraft:block/hay_block_side", "log": "slavicmyths:block/" + wood + "_log_top", "particle": "slavicmyths:block/" + wood + "_planks"}
             write(A / "models/block" / (wood + "_" + model + ".json"), {"parent": "slavicmyths:block/pine_" + model, "textures": tex})
 if __name__ == "__main__":
     generate()

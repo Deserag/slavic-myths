@@ -28,6 +28,11 @@ jobs:
         run: |
           python tools/verify_posad_house_renovation.py
           python tools/verify_posad_druzhina_entrances.py
+      - name: Verify complete furniture category
+        run: |
+          python tools/furniture-expansion/verify_furniture.py
+          python tools/furniture-expansion/generate.py
+          git diff --exit-code -- src/main/resources/assets/slavicmyths/blockstates src/main/resources/assets/slavicmyths/models/block src/main/resources/assets/slavicmyths/models/item src/main/resources/data/slavicmyths/recipe src/main/resources/data/slavicmyths/loot_table/blocks
       - name: Compile mod and package resources
         run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain
       - name: Verify current resource inventory
