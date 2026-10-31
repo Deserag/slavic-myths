@@ -45,8 +45,8 @@ public final class MytarSickleProjectile extends ThrowableItemProjectile {
         double yaw = Math.toRadians(owner.getYRot());
         Vec3 front = new Vec3(-Math.sin(yaw), 0D, Math.cos(yaw));
         Vec3 right = new Vec3(-front.z, 0D, front.x);
-        double lateral = owner instanceof PosadBoss ? .58D : .36D;
-        double height = owner instanceof PosadBoss ? 1.55D : owner.getEyeHeight() - .46D;
+        double lateral = owner instanceof PosadBoss ? .6875D : .36D;
+        double height = owner instanceof PosadBoss ? 1.3125D : owner.getEyeHeight() - .46D;
         return base.add(right.scale(offhand ? -lateral : lateral)).add(front.scale(.22D)).add(0D, height, 0D);
     }
     @Override protected Item getDefaultItem() { return ModItems.OKOVNY_SICKLE.get(); }
@@ -55,11 +55,11 @@ public final class MytarSickleProjectile extends ThrowableItemProjectile {
         super.tick();
         if (level().isClientSide) return;
         Entity owner = getOwner();
-        if (!(owner instanceof LivingEntity living) || !living.isAlive() || owner.level() != level()) { discard(); return; }
+        if (!(owner instanceof LivingEntity living) || !living.isAlive() || owner.level() != level()) { if (owner instanceof PosadBoss boss) boss.setChainWeaponAway(false); discard(); return; }
         if (linkedTicks > 0) {
             if (!(level() instanceof ServerLevel server)) { discard(); return; }
             Entity entity = server.getEntity(hookedEntityId);
-            if (!(entity instanceof LivingEntity victim) || !victim.isAlive() || !victim.level().equals(level()) || owner.distanceToSqr(victim) > 196D) { startReturn(); return; }
+            if (!(entity instanceof LivingEntity victim) || !victim.isAlive() || !victim.level().equals(level()) || owner.distanceToSqr(victim) > 196D || !level().hasChunkAt(victim.blockPosition())) { startReturn(); return; }
             setDeltaMovement(Vec3.ZERO);
             setPos(victim.getX(), victim.getY() + victim.getBbHeight() * .6D, victim.getZ());
             if (owner instanceof Player player) pullForPlayer(player, victim);
@@ -69,7 +69,7 @@ public final class MytarSickleProjectile extends ThrowableItemProjectile {
         }
         if (returning) {
             Vec3 toOwner = handAnchor(living, offhand(), 1F).subtract(position());
-            if (toOwner.lengthSqr() <= 2.25D || tickCount > 45) { discard(); return; }
+            if (toOwner.lengthSqr() <= .32D || tickCount > 65) { if (owner instanceof PosadBoss boss) boss.setChainWeaponAway(false); discard(); return; }
             Vec3 step = toOwner.normalize().scale(Math.min(1.5D, toOwner.length()));
             setPos(position().add(step));
             setDeltaMovement(Vec3.ZERO);
@@ -104,7 +104,7 @@ public final class MytarSickleProjectile extends ThrowableItemProjectile {
 
     @Override protected void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
-        if (level().isClientSide) return;
+        if (level().isClientSide || returning || linkedTicks > 0) return;
         if (getOwner() instanceof PosadBoss boss && result.getEntity() instanceof ServerPlayer victim) {
             if (boss.catchChain(victim)) { hookedEntityId = victim.getId(); linkedTicks = 12; noPhysics = true; setDeltaMovement(Vec3.ZERO); }
         } else if (getOwner() instanceof Player player && result.getEntity() instanceof Monster victim && victim.isAlive() && !victim.isAlliedTo(player) && player.hasLineOfSight(victim)) {
@@ -117,7 +117,7 @@ public final class MytarSickleProjectile extends ThrowableItemProjectile {
 
     @Override protected void onHit(HitResult result) {
         super.onHit(result);
-        if (level().isClientSide || linkedTicks > 0) return;
+        if (level().isClientSide || linkedTicks > 0 || returning) return;
         startReturn();
     }
 }
