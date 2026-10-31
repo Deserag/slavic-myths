@@ -163,9 +163,9 @@ public final class PosadPiece extends StructurePiece {
     /**
      * Roof templates intentionally use two horizontal cells per full block of
      * rise. Those cells were both authored as bottom stairs, which produces the
-     * visible paired/gapped profile. Schema 21 turns only the inward stair of an
-     * exact same-facing pair into a TOP stair, yielding a continuous half-block
-     * slope without moving the approved footprint or changing its facing.
+     * visible paired/gapped profile. Schema 21 tried flipping the inner stair
+     * upside down (TOP), leaving hollow cavities and a toothed silhouette.
+     * Schema 23 instead fills its cell with matching solid roof masonry.
      *
      * Minecraft also derives inner/outer corner shapes from neighbours at
      * placement time. Worldgen is chunk-order dependent, so both HALF and SHAPE
@@ -176,7 +176,30 @@ public final class PosadPiece extends StructurePiece {
             && neighbor.getValue(StairBlock.FACING)==stair.getValue(StairBlock.FACING)
             && neighbor.getValue(StairBlock.HALF)==stair.getValue(StairBlock.HALF);
     }
+    private static BlockState roofSolidMaterial(BlockState stair) {
+        if(stair.is(Blocks.NETHER_BRICK_STAIRS))return Blocks.NETHER_BRICKS.defaultBlockState();
+        if(stair.is(Blocks.POLISHED_BLACKSTONE_BRICK_STAIRS))return Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState();
+        if(stair.is(Blocks.CRIMSON_STAIRS))return Blocks.CRIMSON_PLANKS.defaultBlockState();
+        if(stair.is(Blocks.BLACKSTONE_STAIRS))return Blocks.BLACKSTONE.defaultBlockState();
+        if(stair.is(Blocks.POLISHED_BLACKSTONE_STAIRS))return Blocks.POLISHED_BLACKSTONE.defaultBlockState();
+        return null;
+    }
+    /** New cities: the inner member of a two-cell stair row must be solid,
+     * not the upside-down TOP stair introduced by schema 21. */
+    private BlockState resolvedRoofSolid(BlockState stair,int x,int y,int z) {
+        if(schema<23 || y<5 || !(stair.getBlock() instanceof StairBlock)
+            || stair.getValue(StairBlock.HALF)!=net.minecraft.world.level.block.state.properties.Half.BOTTOM)return stair;
+        Direction facing=stair.getValue(StairBlock.FACING);
+        BlockState outward=voxel(x+facing.getStepX(),y,z+facing.getStepZ());
+        BlockState inward=voxel(x-facing.getStepX(),y,z-facing.getStepZ());
+        BlockState outward2=voxel(x+2*facing.getStepX(),y,z+2*facing.getStepZ());
+        if(!sameRoofRun(stair,outward)||sameRoofRun(stair,inward)||sameRoofRun(stair,outward2))return stair;
+        BlockState solid=roofSolidMaterial(stair);
+        if(solid==null)throw new IllegalStateException("Unknown roof stair at "+x+","+y+","+z+": "+stair);
+        return solid;
+    }
     private BlockState resolvedRoofHalf(BlockState stair,int x,int y,int z) {
+        if(schema>=23)return stair;
         if(schema<21 || y<5 || !(stair.getBlock() instanceof StairBlock)
             || stair.getValue(StairBlock.HALF)!=net.minecraft.world.level.block.state.properties.Half.BOTTOM)return stair;
         Direction facing=stair.getValue(StairBlock.FACING);
@@ -189,7 +212,7 @@ public final class PosadPiece extends StructurePiece {
     }
     private BlockState resolvedRoofHalfAt(int x,int y,int z) {
         BlockState neighbor=voxel(x,y,z);
-        return neighbor==null?null:resolvedRoofHalf(neighbor,x,y,z);
+        return neighbor==null?null:(schema>=23?resolvedRoofSolid(neighbor,x,y,z):resolvedRoofHalf(neighbor,x,y,z));
     }
     private static boolean sameStairHalf(BlockState stair, BlockState neighbor) {
         return neighbor != null && neighbor.getBlock() instanceof StairBlock
@@ -204,6 +227,8 @@ public final class PosadPiece extends StructurePiece {
         // for every structural stair, not only roof rows. Schema 21 additionally
         // normalizes paired roof stairs into a continuous half-step pitch.
         if(schema<20 || !(stair.getBlock() instanceof StairBlock))return stair;
+        stair=resolvedRoofSolid(stair,x,y,z);
+        if(!(stair.getBlock() instanceof StairBlock))return stair;
         stair=resolvedRoofHalf(stair,x,y,z);
         Direction facing=stair.getValue(StairBlock.FACING);
         BlockState forward=resolvedRoofHalfAt(x+facing.getStepX(),y,z+facing.getStepZ());

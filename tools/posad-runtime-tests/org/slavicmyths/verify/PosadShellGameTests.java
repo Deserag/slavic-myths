@@ -10,6 +10,21 @@ public final class PosadShellGameTests {
    && neighbor.getValue(net.minecraft.world.level.block.StairBlock.FACING)==stair.getValue(net.minecraft.world.level.block.StairBlock.FACING)
    && neighbor.getValue(net.minecraft.world.level.block.StairBlock.HALF)==stair.getValue(net.minecraft.world.level.block.StairBlock.HALF);
  }
+ private static net.minecraft.world.level.block.state.BlockState roofExpected(PosadPiece piece,int x,int y,int z,net.minecraft.world.level.block.state.BlockState stair) {
+  if(stair==null||y<5||!(stair.getBlock() instanceof net.minecraft.world.level.block.StairBlock)
+   || stair.getValue(net.minecraft.world.level.block.StairBlock.HALF)!=net.minecraft.world.level.block.state.properties.Half.BOTTOM)return stair;
+  var facing=stair.getValue(net.minecraft.world.level.block.StairBlock.FACING);
+  var outward=piece.voxel(x+facing.getStepX(),y,z+facing.getStepZ());
+  var inward=piece.voxel(x-facing.getStepX(),y,z-facing.getStepZ());
+  var outward2=piece.voxel(x+2*facing.getStepX(),y,z+2*facing.getStepZ());
+  if(!sameRoofRun(stair,outward)||sameRoofRun(stair,inward)||sameRoofRun(stair,outward2))return stair;
+  if(stair.is(Blocks.NETHER_BRICK_STAIRS))return Blocks.NETHER_BRICKS.defaultBlockState();
+  if(stair.is(Blocks.POLISHED_BLACKSTONE_BRICK_STAIRS))return Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState();
+  if(stair.is(Blocks.CRIMSON_STAIRS))return Blocks.CRIMSON_PLANKS.defaultBlockState();
+  if(stair.is(Blocks.BLACKSTONE_STAIRS))return Blocks.BLACKSTONE.defaultBlockState();
+  if(stair.is(Blocks.POLISHED_BLACKSTONE_STAIRS))return Blocks.POLISHED_BLACKSTONE.defaultBlockState();
+  throw new AssertionError("Unexpected roof material at "+x+","+y+","+z+": "+stair);
+ }
  @GameTest(template="empty",timeoutTicks=200)
  public static void openGate(GameTestHelper t) {
   for(int x=53;x<=59;x++)for(int z=108;z<=112;z++)for(int y=1;y<=6;y++)
@@ -59,7 +74,7 @@ public final class PosadShellGameTests {
    var cell=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    var at=anchor.offset(cell.x(),y,cell.z());
    var actual=world.getBlockState(at);
-   var expected=approved.rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
+   var expected=roofExpected(piece,x,y,z,approved).rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
    t.assertTrue(actual.is(expected.getBlock()),"Posadnik A+ mismatch "+x+","+y+","+z+" rot="+turns+" expected="+expected+" actual="+actual);
    if(expected.hasProperty(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING))
     t.assertTrue(actual.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING)==expected.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING),"Posadnik facing "+at);
@@ -75,7 +90,7 @@ public final class PosadShellGameTests {
   // R3 physical roof/fronton, dais and both existing double-width staircases.
   int fronton=0;
   for(int y=12;y<=17;y++)for(int x=50;x<=62;x++){
-   var expected=PosadArchitectureR3.voxel(x,y,34);
+   var expected=roofExpected(piece,x,y,34,PosadArchitectureR3.voxel(x,y,34));
    if(expected==null)continue;
    fronton++;
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,34),turns);
@@ -99,7 +114,7 @@ public final class PosadShellGameTests {
   for(int x=42;x<=70;x++)for(int z=12;z<=34;z++)for(int y=0;y<18;y++) {
    var source=PosadBuildings.voxel(x,y,z);
    if(source!=null)hallBlocks++;
-   var expected=piece.voxel(x,y,z);
+   var expected=roofExpected(piece,x,y,z,piece.voxel(x,y,z));
    if(expected==null)continue;
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    var actual=world.getBlockState(anchor.offset(p.x(),y,p.z()));
@@ -117,7 +132,7 @@ public final class PosadShellGameTests {
   for(int x=13;x<=35;x++)for(int z=15;z<=29;z++)for(int y=0;y<17;y++) {
    var source=PosadBuildings.voxel(x,y,z);
    if(source!=null)houseBlocks++;
-   var expected=piece.voxel(x,y,z);
+   var expected=roofExpected(piece,x,y,z,piece.voxel(x,y,z));
    if(expected==null)continue;
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    var at=anchor.offset(p.x(),y,p.z());
@@ -147,7 +162,7 @@ public final class PosadShellGameTests {
    for(int x=slot.local().minX();x<=slot.local().maxX();x++)for(int z=slot.local().minZ();z<=slot.local().maxZ();z++)for(int y=0;y<18;y++) {
     var source=PosadNextBuildings.voxel(x,y,z);
     if(source!=null){if(slot==PosadGeometry.Slot.DRUZHINNY_DVOR)militaryBlocks++;else forgeBlocks++;}
-    var expected=piece.voxel(x,y,z);
+    var expected=roofExpected(piece,x,y,z,piece.voxel(x,y,z));
     if(expected==null)continue;
     var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
     var at=anchor.offset(p.x(),y,p.z());
@@ -182,7 +197,7 @@ public final class PosadShellGameTests {
   }
   t.assertTrue(militaryBlocks==2440&&forgeBlocks==1901,"Wrong 2.2.4/2.2.5 block counts "+militaryBlocks+"/"+forgeBlocks);
   t.assertTrue(militaryChests==5&&forgeChests==5,"Wrong district chest counts "+militaryChests+"/"+forgeChests);
-  int continuousRoofHalfSteps=0;
+  int closedRoofPairs=0;
   for(int x=0;x<=112;x++)for(int z=0;z<=112;z++)for(int y=5;y<=17;y++) {
    var planned=piece.voxel(x,y,z);
    if(planned==null || !(planned.getBlock() instanceof net.minecraft.world.level.block.StairBlock)
@@ -192,16 +207,17 @@ public final class PosadShellGameTests {
    var inward=piece.voxel(x-facing.getStepX(),y,z-facing.getStepZ());
    var outward2=piece.voxel(x+2*facing.getStepX(),y,z+2*facing.getStepZ());
    if(!sameRoofRun(planned,outward) || sameRoofRun(planned,inward) || sameRoofRun(planned,outward2))continue;
-   continuousRoofHalfSteps++;
+   closedRoofPairs++;
    var rotated=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    var at=anchor.offset(rotated.x(),y,rotated.z());
    var actual=world.getBlockState(at);
-   t.assertTrue(actual.getBlock()==planned.getBlock(),"Continuous roof stair block changed "+at+" planned="+planned+" actual="+actual);
-   t.assertTrue(actual.getValue(net.minecraft.world.level.block.StairBlock.HALF)==net.minecraft.world.level.block.state.properties.Half.TOP,
-    "Paired roof stair did not become inward TOP half-step "+at+" planned="+planned+" actual="+actual);
+   var expected=roofExpected(piece,x,y,z,planned);
+   t.assertTrue(actual.getBlock()==expected.getBlock(),"Roof pair still broken "+at+" expected="+expected+" actual="+actual);
+   t.assertTrue(net.minecraft.world.level.block.Block.isShapeFullBlock(actual.getCollisionShape(world,at)),
+    "Roof has an inverted stair cavity "+at+" actual="+actual);
   }
-  t.assertTrue(continuousRoofHalfSteps>0,"No paired roof half-steps found for schema "+PosadGeometry.SCHEMA_VERSION);
-  System.out.println("POSAD_CONTINUOUS_ROOF_PASS schema="+PosadGeometry.SCHEMA_VERSION+" rotation="+turns+" normalized="+continuousRoofHalfSteps);
+  t.assertTrue(closedRoofPairs>=400,"Too few fixed roof pairs "+closedRoofPairs);
+  System.out.println("POSAD_CLOSED_ROOF_PASS schema="+PosadGeometry.SCHEMA_VERSION+" rotation="+turns+" solid_inward_cells="+closedRoofPairs);
   int emittedLights=0;
   for(int x=0;x<113;x++)for(int z=0;z<113;z++)for(int y:new int[]{1,7}) {
    var light=PosadLightingR3.voxel(x,y,z);
