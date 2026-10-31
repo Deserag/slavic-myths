@@ -573,5 +573,56 @@ public final class PosadShellGameTests {
   t.succeed();
  }
 
+ @GameTest(template="empty",timeoutTicks=1200)
+ public static void naturalPopulationRosterPersistenceAndDedup(GameTestHelper t) {
+  var world=t.getLevel();
+  for(int turns=0;turns<4;turns++){
+   var anchor=t.absolutePos(new net.minecraft.core.BlockPos(turns*160,100,320));
+   var piece=new PosadPiece(anchor,turns);
+   for(var patch:PosadGeometry.chunkPatches(anchor.getX(),anchor.getZ())){
+    world.getChunk(patch.chunkX(),patch.chunkZ());world.setChunkForced(patch.chunkX(),patch.chunkZ(),true);
+    var r=patch.worldClip();
+    var clip=new net.minecraft.world.level.levelgen.structure.BoundingBox(r.minX(),anchor.getY()-2,r.minZ(),r.maxX(),anchor.getY()+17,r.maxZ());
+    piece.postProcess(world,world.structureManager(),world.getChunkSource().getGenerator(),world.random,clip,new net.minecraft.world.level.ChunkPos(patch.chunkX(),patch.chunkZ()),anchor);
+   }
+   var first=PosadResidentSpawner.populateNatural(world,piece);
+   t.assertTrue(first.added()==17&&first.existing()==0&&first.blocked()==0,"Natural population incomplete turn="+turns+" result="+first);
+   var second=PosadResidentSpawner.populateNatural(world,piece);
+   t.assertTrue(second.added()==0&&second.existing()==17&&second.blocked()==0,"Natural population duplicated turn="+turns+" result="+second);
+   var cityId=PosadPopulationPlan.settlementId(world.dimension().location().toString(),anchor.getX(),anchor.getY(),anchor.getZ());
+   var box=new net.minecraft.world.phys.AABB(anchor.getX()-2,anchor.getY(),anchor.getZ()-2,anchor.getX()+115,anchor.getY()+8,anchor.getZ()+115);
+   var residents=world.getEntitiesOfClass(PosadResidentEntity.class,box,e->cityId.equals(e.city()));
+   t.assertTrue(residents.size()==17,"Expected exactly 17 residents turn="+turns+" got="+residents.size());
+   var roles=java.util.EnumSet.noneOf(PosadPopulationPlan.Role.class);
+   int guards=0;
+   for(var npc:residents){
+    roles.add(npc.role());
+    if(npc.role().guard())guards++;
+    var feet=npc.blockPosition();
+    t.assertTrue(world.getBlockState(feet).getCollisionShape(world,feet).isEmpty(),"Resident spawned trapped at feet "+feet+" turn="+turns);
+    t.assertTrue(world.getBlockState(feet.above()).getCollisionShape(world,feet.above()).isEmpty(),"Resident spawned trapped at head "+feet+" turn="+turns);
+    var expectedMain=switch(npc.weapon()){
+     case SWORD,SWORD_SHIELD -> net.minecraft.world.item.Items.IRON_SWORD;
+     case SPEAR,SPEAR_SHIELD -> net.minecraft.world.item.Items.TRIDENT;
+     case BOW -> net.minecraft.world.item.Items.BOW;
+     case NONE -> net.minecraft.world.item.Items.AIR;
+    };
+    t.assertTrue((expectedMain==net.minecraft.world.item.Items.AIR&&npc.getMainHandItem().isEmpty())||npc.getMainHandItem().is(expectedMain),"Wrong main-hand equipment "+npc.role()+" "+npc.weapon());
+    boolean shield=npc.weapon()==PosadPopulationPlan.Weapon.SWORD_SHIELD||npc.weapon()==PosadPopulationPlan.Weapon.SPEAR_SHIELD;
+    t.assertTrue(shield==npc.getOffhandItem().is(net.minecraft.world.item.Items.SHIELD),"Wrong off-hand equipment "+npc.role()+" "+npc.weapon());
+    var saved=new net.minecraft.nbt.CompoundTag();
+    npc.saveWithoutId(saved);
+    var restored=org.slavicmyths.registry.ModEntities.POSAD_RESIDENT.get().create(world);
+    t.assertTrue(restored!=null,"Cannot create resident for persistence check");
+    restored.load(saved);
+    t.assertTrue(restored.role()==npc.role()&&restored.weapon()==npc.weapon()&&java.util.Objects.equals(restored.city(),npc.city()),"Resident NBT role/weapon/city lost "+npc.getUUID());
+    t.assertTrue(restored.getMainHandItem().getItem()==npc.getMainHandItem().getItem()&&restored.getOffhandItem().getItem()==npc.getOffhandItem().getItem(),"Resident equipment lost after NBT "+npc.getUUID());
+   }
+   t.assertTrue(roles.size()==12&&guards==6,"Profession/guard roster mismatch turn="+turns+" roles="+roles.size()+" guards="+guards);
+   System.out.println("POSAD_POPULATION_PASS turn="+turns+" residents="+residents.size()+" roles="+roles.size()+" guards="+guards);
+  }
+  t.succeed();
+ }
+
 
 }
