@@ -15,7 +15,7 @@ public final class MytarPurseEffect {
     @SubscribeEvent public static void tick(PlayerTickEvent.Post event) {
         if (!(event.getEntity() instanceof ServerPlayer player) || player.tickCount % 20 != 0) return;
         if (FolkAccessoryItem.equipped(player, ModItems.MYTAR_PURSE.get()).isEmpty()) return;
-        for (ItemEntity dropped : player.serverLevel().getEntitiesOfClass(ItemEntity.class, player.getBoundingBox().inflate(4D), item -> item.isAlive() && item.getItem().is(ModItems.ANCIENT_COIN.get()) && item.getOwner() == player)) {
+        for (ItemEntity dropped : player.serverLevel().getEntitiesOfClass(ItemEntity.class, player.getBoundingBox().inflate(4D), item -> item.isAlive() && item.getItem().is(ModItems.ANCIENT_COIN.get()) && player.getUUID().equals(item.getOwner()))) {
             Vec3 attraction = player.position().add(0D, .65D, 0D).subtract(dropped.position());
             if (attraction.lengthSqr() < .04D) continue;
             Vec3 next = attraction.normalize().scale(.10D);
