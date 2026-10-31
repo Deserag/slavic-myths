@@ -94,6 +94,19 @@ public final class ModItemGroup {
                 .toList();
     }
 
+    // These legacy items remain registered for old-world data, but are not user-facing NPC eggs.
+    public static void hideLegacyPosadEggs(net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent event) {
+        for (ItemStack stack : event.getParentEntries().stream().filter(ModItemGroup::isLegacyPosadEgg).toList())
+            event.remove(stack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+        for (ItemStack stack : event.getSearchEntries().stream().filter(ModItemGroup::isLegacyPosadEgg).toList())
+            event.remove(stack, CreativeModeTab.TabVisibility.SEARCH_TAB_ONLY);
+    }
+
+    private static boolean isLegacyPosadEgg(ItemStack stack) {
+        ResourceLocation id = BuiltInRegistries.ITEM.getKey(stack.getItem());
+        return id.getNamespace().equals("slavicmyths") && id.getPath().startsWith("posad_") && id.getPath().endsWith("_spawn_egg");
+    }
+
     public static List<ItemStack> stacks(int category) {
         var result = new ArrayList<ItemStack>();
         // Preserve typed blank substrates beside their own tier, without duplicate default stacks.

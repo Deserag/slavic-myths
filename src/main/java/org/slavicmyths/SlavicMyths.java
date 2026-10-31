@@ -120,6 +120,7 @@ public final class SlavicMyths {
         org.slavicmyths.equipment.UniqueEquipment.init();
         org.slavicmyths.item.ModGear.ARMOR_MATERIALS.register(bus);
         org.slavicmyths.registry.ModItemGroup.TABS.register(bus);
+        bus.addListener(org.slavicmyths.registry.ModItemGroup::hideLegacyPosadEggs);
         org.slavicmyths.combat.WeaponCatalog.register();
         org.slavicmyths.combat.RareWeapons.init();
         org.slavicmyths.rpg.RuneRepair.init();
