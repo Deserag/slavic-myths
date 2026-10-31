@@ -23,8 +23,8 @@ def main():
             relative=p.relative_to(R).as_posix()
             print(f'CORRUPT PNG: {relative}: {type(exc).__name__}: {exc}',file=sys.stderr,flush=True)
             corrupt_pngs.append(relative)
-    if corrupt_pngs:
-        raise RuntimeError(f'{len(corrupt_pngs)} corrupt PNG(s): '+', '.join(corrupt_pngs))
+    # Continue verifying independent model resources even when an artist PNG is damaged.
+    # The PNG error remains fatal after the unrelated assets have been checked.
     def own_ref(reference,kind):
         if reference.startswith('slavicmyths:'):
             target=A/kind/(reference.split(':',1)[1]+('.json' if kind=='models' else '.png'))
@@ -46,6 +46,9 @@ def main():
             elif isinstance(data,list):
                 for value in data:block_refs(value)
         block_refs(json.loads(p.read_text()))
+    print(f'MODEL CHECK: {model_count} JSON models and blockstate references validated',flush=True)
+    if corrupt_pngs:
+        raise RuntimeError(f'{len(corrupt_pngs)} corrupt PNG(s): '+', '.join(corrupt_pngs))
     for language in ['ru_ru','en_us']:
         lang=json.loads((A/'lang'/(language+'.json')).read_text(encoding='utf-8'))
         for line in (A/'creative_catalog.tsv').read_text(encoding='utf-8').splitlines():
