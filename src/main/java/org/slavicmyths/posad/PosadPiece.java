@@ -150,7 +150,7 @@ public final class PosadPiece extends StructurePiece {
         return state.getBlock() instanceof org.slavicmyths.furniture.FurnitureBlock f && "shelf".equals(f.kind);
     }
     private static boolean lateAttachment(net.minecraft.world.level.block.state.BlockState state) {
-        if(shelf(state) || state.is(Blocks.WALL_TORCH) || state.is(Blocks.SOUL_WALL_TORCH))return true;
+        if(shelf(state) || state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock || state.is(Blocks.WALL_TORCH) || state.is(Blocks.SOUL_WALL_TORCH))return true;
         return (state.is(Blocks.LANTERN) || state.is(Blocks.SOUL_LANTERN))
             && state.getValue(net.minecraft.world.level.block.LanternBlock.HANGING);
     }
@@ -185,7 +185,7 @@ public final class PosadPiece extends StructurePiece {
         return state;
     }
     @Override public void postProcess(WorldGenLevel world,StructureManager manager,ChunkGenerator generator,RandomSource random,BoundingBox clip,ChunkPos chunk,BlockPos pivot) {
-        // Two bounded 16x16x66 passes: masonry/support first, attached lights and shelves last.
+        // Two bounded 16x16x66 passes: masonry/doors first; panes, wall attachments and hanging lights second.
         int x0=Math.max(clip.minX(),boundingBox.minX()),x1=Math.min(clip.maxX(),boundingBox.maxX());
         int z0=Math.max(clip.minZ(),boundingBox.minZ()),z1=Math.min(clip.maxZ(),boundingBox.maxZ());
         for(int pass=0;pass<2;pass++) {
@@ -207,11 +207,11 @@ public final class PosadPiece extends StructurePiece {
                 if(state.isAir()&&!old.isAir() && !(schema>=17 && PosadHallR2.isOpening(local.x(),y,local.z())))continue;
                 try {
                     var placed=resolvedConnections(state,local.x(),y,local.z(),world,at);
-                    if (state.is(Blocks.CARVED_PUMPKIN) || shelf(state)) {
+                    if (state.is(Blocks.CARVED_PUMPKIN) || shelf(state) || state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock) {
                         // Carved pumpkins avoid vanilla multi-chunk golem probes. Wall
-                        // shelves are deferred until masonry is in place and written
-                        // without premature neighbor updates across chunk boundaries.
-                        // Neither block has an inventory nor emits light.
+                        // panes/shelves are deferred until masonry and doors exist.
+                        // Chunk-local writes preserve precisely resolved pane connections
+                        // and prevent later neighbor-shape churn across chunk boundaries.
                         var changed=world.getChunk(wx>>4,wz>>4).setBlockState(at,placed,false);
                         if (changed==null) throw new IllegalStateException("Chunk-local pumpkin write refused at "+at);
                     } else {
