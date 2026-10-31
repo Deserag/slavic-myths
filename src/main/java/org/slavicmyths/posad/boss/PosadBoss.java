@@ -38,6 +38,10 @@ public final class PosadBoss extends Monster {
     private boolean connected;
     private boolean rewardDropped;
     private int specialCooldown;
+    private boolean naturalEncounter;
+    private int healedFromCoins;
+    private final java.util.Set<java.util.UUID> participants = new java.util.HashSet<>();
+    private final java.util.Map<java.util.UUID, Long> stealReady = new java.util.HashMap<>();
     public PosadBoss(EntityType<? extends PosadBoss> type, Level level, Kind kind) {
         super(type, level);
         this.kind = kind;
@@ -51,6 +55,7 @@ public final class PosadBoss extends Monster {
     }
     @Override public float getMaxHealth() { return (float) org.slavicmyths.combat.CreatureHealthBalance.uncappedMaximum(getAttribute(Attributes.MAX_HEALTH)); }
     @Override public void onRemovedFromLevel() { bar.removeAllPlayers(); super.onRemovedFromLevel(); }
+    public void markNaturalEncounter() { naturalEncounter = true; }
     public Kind kind() { return kind; }
     public Move move() { return Move.values()[entityData.get(ACTION)]; }
     public boolean enraged() { return entityData.get(ENRAGED); }
@@ -126,26 +131,43 @@ public final class PosadBoss extends Monster {
         if (!(target instanceof Player player) || !player.isAlive() || player.isCreative() || player.isSpectator()) return;
         if (!getSensing().hasLineOfSight(target) || distanceToSqr(target) > 12.25D) return;
         float damage = kind == Kind.MYTAR ? 10F : move() == Move.WINDUP_PAW ? 12F : 15F;
-        if (target.hurt(damageSources().mobAttack(this), damage) && kind == Kind.BAUK && move() == Move.WINDUP_PAW) target.knockback(.8D, getX() - target.getX(), getZ() - target.getZ());
+        float before = target.getHealth();
+        boolean hit = target.hurt(damageSources().mobAttack(this), damage);
+        if (hit && target.getHealth() < before && kind == Kind.BAUK && move() == Move.WINDUP_PAW) target.knockback(.8D, getX() - target.getX(), getZ() - target.getZ());
+        if (hit && target.getHealth() < before && kind == Kind.MYTAR && target instanceof ServerPlayer playerTarget && level() instanceof net.minecraft.server.level.ServerLevel server) {
+            long now = server.getGameTime();
+            if (now >= stealReady.getOrDefault(playerTarget.getUUID(), 0L)) {
+                stealReady.put(playerTarget.getUUID(), now + 100);
+                int amount = PosadBossLedger.get(server).steal(this, playerTarget, 1 + random.nextInt(2));
+                if (amount > 0) { int restored = Math.min(240 - healedFromCoins, 8 * amount); healedFromCoins += restored; heal(restored); }
+            }
+        }
     }
     @Override public void die(DamageSource source) {
-        if (!level().isClientSide && !rewardDropped && source.getEntity() instanceof Player) {
+        if (!level().isClientSide && !rewardDropped && level() instanceof net.minecraft.server.level.ServerLevel server) {
             rewardDropped = true;
-            if (kind == Kind.MYTAR) {
-                spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.MYTAR_SEAL.get()));
-                spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.MYTAR_CHAIN.get()));
-                if (random.nextFloat() < .20F) spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.MYTAR_SICKLE.get()));
-                if (random.nextFloat() < .15F) spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.MYTAR_PURSE.get()));
-            } else {
-                spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.BAUK_FANG.get()));
-                spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.BAUK_HIDE.get()));
-                spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.BAUK_HEAD_ITEM.get()));
-                spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.BAUK_CLAW.get(), 2));
+            PosadBossLedger ledger = PosadBossLedger.get(server);
+            ledger.settle(server, getUUID(), true);
+            if (naturalEncounter && source.getEntity() instanceof ServerPlayer killer && !killer.isCreative() && !killer.isSpectator()) participants.add(killer.getUUID());
+            if (naturalEncounter) for (java.util.UUID playerId : participants) {
+                ServerPlayer winner = server.getServer().getPlayerList().getPlayer(playerId);
+                if (winner == null || winner.distanceToSqr(this) > 128D * 128D) continue;
+                if (kind == Kind.MYTAR) {
+                    spawnAtLocation(ledger.mint(org.slavicmyths.registry.ModItems.MYTAR_SEAL.get(), getUUID(), playerId));
+                    spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.MYTAR_CHAIN.get()));
+                    if (ledger.sickle(winner, random)) spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.MYTAR_SICKLE.get()));
+                    if (random.nextFloat() < .15F) spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.MYTAR_PURSE.get()));
+                } else {
+                    spawnAtLocation(ledger.mint(org.slavicmyths.registry.ModItems.BAUK_FANG.get(), getUUID(), playerId));
+                    spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.BAUK_HIDE.get()));
+                    spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.BAUK_CLAW.get(), 2));
+                    spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.BAUK_HEAD_ITEM.get()));
+                }
             }
         }
         super.die(source);
     }
-    @Override public boolean hurt(DamageSource source, float damage) { return super.hurt(source, damage); }
+    @Override public boolean hurt(DamageSource source, float damage) { boolean accepted = super.hurt(source, damage); if (accepted && naturalEncounter && source.getEntity() instanceof ServerPlayer player && !player.isCreative() && !player.isSpectator()) participants.add(player.getUUID()); return accepted; }
     @Override public boolean fireImmune() { return true; }
     @Override protected void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
@@ -157,6 +179,11 @@ public final class PosadBoss extends Monster {
         tag.putBoolean("PosadHitDone", connected);
         tag.putInt("PosadSpecialCooldown", specialCooldown);
         tag.putBoolean("PosadRewardDropped", rewardDropped);
+        tag.putBoolean("PosadNatural", naturalEncounter);
+        tag.putInt("PosadCoinHeal", healedFromCoins);
+        net.minecraft.nbt.ListTag players = new net.minecraft.nbt.ListTag();
+        for (java.util.UUID id : participants) { CompoundTag row = new CompoundTag(); row.putUUID("Player", id); players.add(row); }
+        tag.put("PosadParticipants", players);
     }
     @Override protected void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
@@ -167,6 +194,10 @@ public final class PosadBoss extends Monster {
         connected = tag.getBoolean("PosadHitDone");
         specialCooldown = Math.max(0, Math.min(600, tag.getInt("PosadSpecialCooldown")));
         rewardDropped = tag.getBoolean("PosadRewardDropped");
+        naturalEncounter = tag.getBoolean("PosadNatural");
+        healedFromCoins = Math.max(0, Math.min(240, tag.getInt("PosadCoinHeal")));
+        participants.clear();
+        for (net.minecraft.nbt.Tag raw : tag.getList("PosadParticipants", 10)) { CompoundTag row = (CompoundTag) raw; if (row.hasUUID("Player")) participants.add(row.getUUID("Player")); }
         entityData.set(ENRAGED, kind == Kind.BAUK && tag.getBoolean("PosadEnraged"));
         if (enraged()) getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(.27D);
     }
