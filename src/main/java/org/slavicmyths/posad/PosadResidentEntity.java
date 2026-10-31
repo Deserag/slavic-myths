@@ -42,6 +42,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
     private Player tradingPlayer;
     private boolean tradesInitialized;
     private int tradeXp;
+    private int earnedXpPending;
     private long tradeRestockDay = -1;
     private int tradeRestocksToday;
 
@@ -230,7 +231,9 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
     @Override public void overrideXp(int xp) {
         if (level().isClientSide) return;
         int oldTier = tradeTier();
-        tradeXp = Math.max(tradeXp, Math.min(1_000_000, xp));
+        if (earnedXpPending <= 0) return; // Vanilla menu may request XP even when no payment completed.
+        tradeXp = Math.min(1_000_000, tradeXp + earnedXpPending);
+        earnedXpPending = 0;
         if (tradeTier() != oldTier) rebuildTrades();
         if (tradingPlayer instanceof ServerPlayer player && player.containerMenu instanceof MerchantMenu menu) {
             player.sendMerchantOffers(menu.containerId, getOffers().copy(), tradeTier(), tradeXp, showProgressBar(), false);
@@ -239,7 +242,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
     @Override public boolean showProgressBar() { return !PosadTradeCatalog.fixed(role()); }
     @Override public SoundEvent getNotifyTradeSound() { return SoundEvents.VILLAGER_YES; }
     @Override public boolean isClientSide() { return level().isClientSide; }
-    @Override public boolean canRestock() { return false; } // Controlled workday restock, never unlimited vanilla refresh.
+    @Override public boolean canRestock() { return true; } // UI hint only; actual refresh is controlled by tickEconomy.
     @Override public void notifyTradeUpdated(ItemStack stack) {
         if (!stack.isEmpty() && !level().isClientSide) playSound(SoundEvents.VILLAGER_YES, .5F, 1.0F);
     }
@@ -248,6 +251,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         String id = offerIdentities.get(offer);
         if (id == null || offer.isOutOfStock()) return;
         offer.increaseUses();
+        earnedXpPending = PosadTradeCatalog.fixed(role()) ? 0 : offer.getXp();
         tradeUses.put(id, offer.getUses());
     }
     @Override protected net.minecraft.world.InteractionResult mobInteract(Player player, InteractionHand hand) {
