@@ -15,7 +15,8 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = "design/2.2.9-food-expansion-20261030"
 ART = "docs/concepts/nether-settlement-2.2/food-expansion-2.2.9/art"
-NAMES = ("roasted_hot_pepper", "ground_hot_pepper", "ground_mustard", "grated_horseradish", "black_pepper", "ground_black_pepper")
+NAMES = ("roasted_hot_pepper", "ground_hot_pepper", "ground_mustard", "grated_horseradish", "black_pepper", "ground_black_pepper", "garlic", "garlic_clove", "horseradish", "black_radish", "black_radish_seeds", "mustard_seeds", "onion", "onion_set")
+CROPS = {"garlic": "garlic", "horseradish": "horseradish", "black_radish": "radish", "mustard": "mustard", "onion": "onion"}
 
 def git_file(path: str) -> bytes:
     return subprocess.check_output(["git", "show", f"origin/{SOURCE}:{ART}/{path}"], cwd=ROOT)
@@ -37,6 +38,14 @@ def main() -> None:
         image = source.crop((x, y, x + w, y + h))
         image.save(destination / f"{name}.png", optimize=False)
         print(f"{name}: approved 16x16 RGBA")
+    block_destination = ROOT / "src/main/resources/assets/slavicmyths/textures/block"
+    block_destination.mkdir(parents=True, exist_ok=True)
+    for crop, art in CROPS.items():
+        for stage in range(4):
+            x, y, w, h = entries[f"{art}_stage{stage}"]
+            source.crop((x, y, x + w, y + h)).save(block_destination / f"{art}_stage{stage}.png", optimize=False)
+    # The approved atlas contains no separate cutting; use the existing root sprite until a distinct approved cutting is supplied.
+    (destination / "horseradish_cutting.png").write_bytes((destination / "horseradish.png").read_bytes())
     print("Do not generate heat_berry_mash/coal_plum_mash from unrelated sprites.")
 
 if __name__ == "__main__":
