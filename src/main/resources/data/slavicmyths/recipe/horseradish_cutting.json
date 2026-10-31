@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:horseradish"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:horseradish_cutting",
+    "count": 1
+  }
+}
