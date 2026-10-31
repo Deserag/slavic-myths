@@ -35,6 +35,21 @@ jobs:
       - name: Headless GameTest
         if: success() || failure()
         run: ./gradlew --no-daemon -I tools/hell-qa-runtime.gradle runHellQa -PhellQaDir=work/posad-382/github-actions -PhellQaSeed=20261024 --console=plain
+      - name: Physical Posad GameTest - structures, doors and four rotations
+        if: success() || failure()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/posad-ci
+          ./gradlew --no-daemon -I tools/posad-qa-runtime.gradle runPosadQa -PposadQaDir=work/posad-382/native-qa --console=plain 2>&1 | tee build/posad-ci/game-test.log
+          if grep -Eiq 'Mod loading has failed|Failed to start the minecraft server|not a valid mod file|[0-9]+ required tests failed|GAME TESTS FAILED' build/posad-ci/game-test.log; then
+            echo 'FAIL: physical Posad GameTest or mod loading failed'
+            exit 1
+          fi
+          if ! grep -Eq '[0-9]+ GAME TESTS COMPLETE' build/posad-ci/game-test.log; then
+            echo 'FAIL: no physical Posad GameTest completion evidence'
+            exit 1
+          fi
       - name: Save logs and JAR for independent verification
         if: always()
         uses: actions/upload-artifact@v4
@@ -43,5 +58,6 @@ jobs:
           path: |
             build/libs/slavicmyths-*.jar
             build/reports/
+            build/posad-ci/
           if-no-files-found: warn
           retention-days: 14
