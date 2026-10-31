@@ -13,10 +13,9 @@ public final class PosadResidentRenderer extends MobRenderer<PosadResidentEntity
         addLayer(new ItemInHandLayer<>(this, context.getItemInHandRenderer()));
     }
     @Override public ResourceLocation getTextureLocation(PosadResidentEntity entity) {
-        // Variant 4 PNG is corrupt in the current test build. Reuse an intact existing
-        // approved atlas until the authentic fourth variant can be restored.
-        int skin = entity.traits().skin();
-        if (skin == 4) skin = 3;
+        // Skin, face and clothing family are persistent identity traits. The five
+        // authored atlases carry the approved fangs/scars/marks/heterochromia set.
+        int skin = Math.floorMod(entity.traits().skin() * 7 + entity.traits().face() * 3 + entity.traits().clothes(), 5);
         return ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/posad_resident_" + skin + ".png");
     }
 }
