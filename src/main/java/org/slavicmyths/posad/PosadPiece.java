@@ -161,32 +161,57 @@ public final class PosadPiece extends StructurePiece {
             && state.getValue(net.minecraft.world.level.block.LanternBlock.HANGING);
     }
     /**
-     * Minecraft normally derives stair inner/outer corners from the surrounding
-     * states at placement time. Worldgen places Posad voxels in arbitrary chunk
-     * order with flag 2, so roof corner states must come from the FINAL approved
-     * city-local geometry instead of whichever neighbor was placed first.
-     * Preserve the approved block, half and facing; change only its shape.
+     * Roof templates intentionally use two horizontal cells per full block of
+     * rise. Those cells were both authored as bottom stairs, which produces the
+     * visible paired/gapped profile. Schema 21 turns only the inward stair of an
+     * exact same-facing pair into a TOP stair, yielding a continuous half-block
+     * slope without moving the approved footprint or changing its facing.
+     *
+     * Minecraft also derives inner/outer corner shapes from neighbours at
+     * placement time. Worldgen is chunk-order dependent, so both HALF and SHAPE
+     * are resolved from the final city-local voxel graph before rotation.
      */
+    private static boolean sameRoofRun(BlockState stair, BlockState neighbor) {
+        return neighbor != null && neighbor.getBlock()==stair.getBlock() && neighbor.getBlock() instanceof StairBlock
+            && neighbor.getValue(StairBlock.FACING)==stair.getValue(StairBlock.FACING)
+            && neighbor.getValue(StairBlock.HALF)==stair.getValue(StairBlock.HALF);
+    }
+    private BlockState resolvedRoofHalf(BlockState stair,int x,int y,int z) {
+        if(schema<21 || y<5 || !(stair.getBlock() instanceof StairBlock)
+            || stair.getValue(StairBlock.HALF)!=net.minecraft.world.level.block.state.properties.Half.BOTTOM)return stair;
+        Direction facing=stair.getValue(StairBlock.FACING);
+        BlockState outward=voxel(x+facing.getStepX(),y,z+facing.getStepZ());
+        BlockState inward=voxel(x-facing.getStepX(),y,z-facing.getStepZ());
+        BlockState outward2=voxel(x+2*facing.getStepX(),y,z+2*facing.getStepZ());
+        if(sameRoofRun(stair,outward) && !sameRoofRun(stair,inward) && !sameRoofRun(stair,outward2))
+            return stair.setValue(StairBlock.HALF,net.minecraft.world.level.block.state.properties.Half.TOP);
+        return stair;
+    }
+    private BlockState resolvedRoofHalfAt(int x,int y,int z) {
+        BlockState neighbor=voxel(x,y,z);
+        return neighbor==null?null:resolvedRoofHalf(neighbor,x,y,z);
+    }
     private static boolean sameStairHalf(BlockState stair, BlockState neighbor) {
         return neighbor != null && neighbor.getBlock() instanceof StairBlock
             && neighbor.getValue(StairBlock.HALF) == stair.getValue(StairBlock.HALF);
     }
     private boolean freeCornerSide(BlockState stair, int x, int y, int z, Direction side) {
-        BlockState neighbor=voxel(x+side.getStepX(),y,z+side.getStepZ());
+        BlockState neighbor=resolvedRoofHalfAt(x+side.getStepX(),y,z+side.getStepZ());
         return !sameStairHalf(stair,neighbor) || neighbor.getValue(StairBlock.FACING) != stair.getValue(StairBlock.FACING);
     }
     private BlockState resolvedRoofStair(BlockState stair, int x, int y, int z) {
-        // Earlier serialized schemas retain their original roof states. Do not
-        // reinterpret low indoor steps or the immutable approved building assets.
+        // Schema 20 keeps the corner-shape correction; schema 21 additionally
+        // normalizes paired roof stairs into a continuous half-step pitch.
         if(schema<20 || y<5 || !(stair.getBlock() instanceof StairBlock))return stair;
+        stair=resolvedRoofHalf(stair,x,y,z);
         Direction facing=stair.getValue(StairBlock.FACING);
-        BlockState forward=voxel(x+facing.getStepX(),y,z+facing.getStepZ());
+        BlockState forward=resolvedRoofHalfAt(x+facing.getStepX(),y,z+facing.getStepZ());
         if(sameStairHalf(stair,forward)) {
             Direction turn=forward.getValue(StairBlock.FACING);
             if(turn.getAxis()!=facing.getAxis() && freeCornerSide(stair,x,y,z,turn.getOpposite()))
                 return stair.setValue(StairBlock.SHAPE,turn==facing.getCounterClockWise()?StairsShape.OUTER_LEFT:StairsShape.OUTER_RIGHT);
         }
-        BlockState backward=voxel(x-facing.getStepX(),y,z-facing.getStepZ());
+        BlockState backward=resolvedRoofHalfAt(x-facing.getStepX(),y,z-facing.getStepZ());
         if(sameStairHalf(stair,backward)) {
             Direction turn=backward.getValue(StairBlock.FACING);
             if(turn.getAxis()!=facing.getAxis() && freeCornerSide(stair,x,y,z,turn))
