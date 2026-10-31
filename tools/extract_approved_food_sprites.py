@@ -15,7 +15,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = "design/2.2.9-food-expansion-20261030"
 ART = "docs/concepts/nether-settlement-2.2/food-expansion-2.2.9/art"
-NAMES = ("roasted_hot_pepper", "ground_hot_pepper", "ground_mustard", "grated_horseradish", "black_pepper", "ground_black_pepper", "garlic", "garlic_clove", "horseradish", "black_radish", "black_radish_seeds", "mustard_seeds", "onion", "onion_set")
+NAMES = ("infernal_shchi", "druzhina_roast", "onion_pie", "garlic_flatbread", "infernal_mushroom_soup", "roasted_roots", "coal_plum_pie", "heat_berry_jam", "mushroom_onion_pie", "roasted_hot_pepper", "ground_hot_pepper", "ground_mustard", "grated_horseradish", "black_pepper", "ground_black_pepper", "garlic", "garlic_clove", "horseradish", "black_radish", "black_radish_seeds", "mustard_seeds", "onion", "onion_set")
 CROPS = {"garlic": "garlic", "horseradish": "horseradish", "black_radish": "radish", "mustard": "mustard", "onion": "onion"}
 
 def git_file(path: str) -> bytes:
