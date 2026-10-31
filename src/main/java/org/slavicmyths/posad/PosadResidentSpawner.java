@@ -14,10 +14,16 @@ import org.slavicmyths.worldgen.ManualStructureRecords;
 public final class PosadResidentSpawner {
     public record Result(int added, int existing, int blocked) {}
     public static Result populate(ServerLevel world, int anchorX, int deckY, int anchorZ, int turns) {
+        return populateVerified(world, anchorX, deckY, anchorZ, turns, false);
+    }
+    public static Result populateNatural(ServerLevel world, int anchorX, int deckY, int anchorZ, int turns) {
+        return populateVerified(world, anchorX, deckY, anchorZ, turns, true);
+    }
+    private static Result populateVerified(ServerLevel world, int anchorX, int deckY, int anchorZ, int turns, boolean nativeStructure) {
         if (turns < 0 || turns > 3) throw new IllegalArgumentException("Invalid city rotation");
         BlockPos anchor = new BlockPos(anchorX, deckY, anchorZ);
         boolean completed = ManualStructureRecords.get(world).entries().stream().anyMatch(e -> e.family().equals("nether_posad") && e.arrival().equals(anchor));
-        if (!completed) throw new IllegalStateException("Only verified completed manual cities can be populated");
+        if (!nativeStructure && !completed) throw new IllegalStateException("Only verified completed manual cities can be populated");
         UUID settlement = PosadPopulationPlan.settlementId(world.dimension().location().toString(), anchorX, deckY, anchorZ);
         PosadGrievances records = PosadGrievances.get(world);
         int added = 0, existing = 0, blocked = 0;
