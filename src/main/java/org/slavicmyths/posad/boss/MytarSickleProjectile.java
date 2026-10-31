@@ -1,6 +1,9 @@
 package org.slavicmyths.posad.boss;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.FluidTags;
@@ -22,6 +25,7 @@ import org.slavicmyths.registry.ModItems;
 
 /** Physical chain hook for the boss and the player; client renderer draws an unbroken tether. */
 public final class MytarSickleProjectile extends ThrowableItemProjectile {
+    private static final EntityDataAccessor<Boolean> OFFHAND = SynchedEntityData.defineId(MytarSickleProjectile.class, EntityDataSerializers.BOOLEAN);
     private int hookedEntityId = -1;
     private int linkedTicks;
     private double pulledDistance;
@@ -29,7 +33,23 @@ public final class MytarSickleProjectile extends ThrowableItemProjectile {
 
     public MytarSickleProjectile(EntityType<? extends MytarSickleProjectile> type, Level level) { super(type, level); setNoGravity(true); }
     public MytarSickleProjectile(Level level, LivingEntity owner) { super(ModEntities.MYTAR_CHAIN_PROJECTILE.get(), owner, level); setNoGravity(true); }
-    @Override protected Item getDefaultItem() { return ModItems.MYTAR_SHACKLED_SICKLE.get(); }
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(OFFHAND, false);
+    }
+    public void setOffhand(boolean offhand) { entityData.set(OFFHAND, offhand); }
+    public boolean offhand() { return entityData.get(OFFHAND); }
+    /** Animated weapon tether and initial projectile share exactly the same hand-space origin. */
+    public static Vec3 handAnchor(LivingEntity owner, boolean offhand, float partialTick) {
+        Vec3 base = owner.getPosition(partialTick);
+        double yaw = Math.toRadians(owner.getYRot());
+        Vec3 front = new Vec3(-Math.sin(yaw), 0D, Math.cos(yaw));
+        Vec3 right = new Vec3(-front.z, 0D, front.x);
+        double lateral = owner instanceof PosadBoss ? .58D : .36D;
+        double height = owner instanceof PosadBoss ? 1.55D : owner.getEyeHeight() - .46D;
+        return base.add(right.scale(offhand ? -lateral : lateral)).add(front.scale(.22D)).add(0D, height, 0D);
+    }
+    @Override protected Item getDefaultItem() { return ModItems.OKOVNY_SICKLE.get(); }
 
     @Override public void tick() {
         super.tick();
@@ -48,7 +68,7 @@ public final class MytarSickleProjectile extends ThrowableItemProjectile {
             return;
         }
         if (returning) {
-            Vec3 toOwner = living.getEyePosition().subtract(position());
+            Vec3 toOwner = handAnchor(living, offhand(), 1F).subtract(position());
             if (toOwner.lengthSqr() <= 2.25D || tickCount > 45) { discard(); return; }
             Vec3 step = toOwner.normalize().scale(Math.min(1.5D, toOwner.length()));
             setPos(position().add(step));
@@ -56,7 +76,7 @@ public final class MytarSickleProjectile extends ThrowableItemProjectile {
             return;
         }
         if (owner instanceof Player && (tickCount >= 10 || owner.distanceToSqr(this) > 100D)) startReturn();
-        if (owner instanceof PosadBoss && (tickCount > 20 || owner.distanceToSqr(this) > 196D)) discard();
+        if (owner instanceof PosadBoss && (tickCount > 20 || owner.distanceToSqr(this) > 196D)) startReturn();
     }
 
     private void pullForPlayer(Player player, LivingEntity victim) {
@@ -98,7 +118,6 @@ public final class MytarSickleProjectile extends ThrowableItemProjectile {
     @Override protected void onHit(HitResult result) {
         super.onHit(result);
         if (level().isClientSide || linkedTicks > 0) return;
-        if (getOwner() instanceof Player) startReturn();
-        else discard();
+        startReturn();
     }
 }
