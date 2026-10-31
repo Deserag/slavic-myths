@@ -53,7 +53,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         if (getNavigation() instanceof GroundPathNavigation nav) nav.setCanOpenDoors(true);
     }
     public static AttributeSupplier.Builder attributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 70).add(Attributes.MOVEMENT_SPEED, .26)
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 50).add(Attributes.MOVEMENT_SPEED, .26)
                 .add(Attributes.ATTACK_DAMAGE, 5).add(Attributes.FOLLOW_RANGE, 24)
                 .add(Attributes.KNOCKBACK_RESISTANCE, .12);
     }
