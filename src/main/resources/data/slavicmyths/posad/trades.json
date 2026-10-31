@@ -1,0 +1,2122 @@
+{
+  "schema": 1,
+  "currency": "slavicmyths:ancient_coin",
+  "thresholds": [
+    0,
+    10,
+    70,
+    150,
+    250
+  ],
+  "offers": [
+    {
+      "id": "guard_sale_1_1",
+      "role": "GUARD",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 10
+      },
+      "out": {
+        "id": "minecraft:arrow",
+        "count": 16
+      }
+    },
+    {
+      "id": "guard_sale_1_2",
+      "role": "GUARD",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 8
+      },
+      "out": {
+        "id": "minecraft:soul_torch",
+        "count": 8
+      }
+    },
+    {
+      "id": "guard_sale_2_1",
+      "role": "GUARD",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 24
+      },
+      "out": {
+        "id": "minecraft:shield",
+        "count": 1
+      }
+    },
+    {
+      "id": "guard_sale_2_2",
+      "role": "GUARD",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 18
+      },
+      "out": {
+        "id": "minecraft:arrow",
+        "count": 32
+      }
+    },
+    {
+      "id": "guard_sale_3_1",
+      "role": "GUARD",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 34
+      },
+      "out": {
+        "id": "minecraft:iron_helmet",
+        "count": 1
+      }
+    },
+    {
+      "id": "guard_sale_3_2",
+      "role": "GUARD",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 42
+      },
+      "out": {
+        "id": "minecraft:crossbow",
+        "count": 1
+      }
+    },
+    {
+      "id": "guard_sale_4_1",
+      "role": "GUARD",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 40
+      },
+      "out": {
+        "id": "minecraft:spectral_arrow",
+        "count": 16
+      }
+    },
+    {
+      "id": "guard_sale_4_2",
+      "role": "GUARD",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 50
+      },
+      "out": {
+        "id": "minecraft:iron_leggings",
+        "count": 1
+      }
+    },
+    {
+      "id": "guard_sale_5_1",
+      "role": "GUARD",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 64
+      },
+      "out": {
+        "id": "slavicmyths:retainer_shield",
+        "count": 1
+      },
+      "b": {
+        "id": "minecraft:iron_ingot",
+        "count": 8
+      }
+    },
+    {
+      "id": "guard_sale_5_2",
+      "role": "GUARD",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 64
+      },
+      "out": {
+        "id": "minecraft:crossbow",
+        "count": 1
+      },
+      "b": {
+        "id": "minecraft:gold_ingot",
+        "count": 4
+      },
+      "enchant": "minecraft:piercing"
+    },
+    {
+      "id": "sotnik_sale_1_1",
+      "role": "SOTNIK",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 38
+      },
+      "out": {
+        "id": "minecraft:iron_sword",
+        "count": 1
+      }
+    },
+    {
+      "id": "sotnik_sale_1_2",
+      "role": "SOTNIK",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 18
+      },
+      "out": {
+        "id": "minecraft:arrow",
+        "count": 32
+      }
+    },
+    {
+      "id": "sotnik_sale_2_1",
+      "role": "SOTNIK",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 38
+      },
+      "out": {
+        "id": "minecraft:iron_helmet",
+        "count": 1
+      }
+    },
+    {
+      "id": "sotnik_sale_2_2",
+      "role": "SOTNIK",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 25
+      },
+      "out": {
+        "id": "minecraft:shield",
+        "count": 1
+      }
+    },
+    {
+      "id": "sotnik_sale_3_1",
+      "role": "SOTNIK",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 54
+      },
+      "out": {
+        "id": "slavicmyths:iron_spear",
+        "count": 1
+      }
+    },
+    {
+      "id": "sotnik_sale_3_2",
+      "role": "SOTNIK",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 40
+      },
+      "out": {
+        "id": "slavicmyths:iron_sulitsa",
+        "count": 4
+      }
+    },
+    {
+      "id": "sotnik_sale_4_1",
+      "role": "SOTNIK",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 60
+      },
+      "out": {
+        "id": "minecraft:iron_chestplate",
+        "count": 1
+      }
+    },
+    {
+      "id": "sotnik_sale_4_2",
+      "role": "SOTNIK",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 32
+      },
+      "out": {
+        "id": "minecraft:iron_boots",
+        "count": 1
+      }
+    },
+    {
+      "id": "sotnik_sale_5_1",
+      "role": "SOTNIK",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 64
+      },
+      "out": {
+        "id": "slavicmyths:silver_spear",
+        "count": 1
+      },
+      "b": {
+        "id": "slavicmyths:silver_ingot",
+        "count": 2
+      }
+    },
+    {
+      "id": "sotnik_sale_5_2",
+      "role": "SOTNIK",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 64
+      },
+      "out": {
+        "id": "slavicmyths:retainer_shield",
+        "count": 1
+      },
+      "b": {
+        "id": "minecraft:iron_ingot",
+        "count": 4
+      }
+    },
+    {
+      "id": "blacksmith_sale_1_1",
+      "role": "BLACKSMITH",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 20
+      },
+      "out": {
+        "id": "minecraft:iron_ingot",
+        "count": 4
+      }
+    },
+    {
+      "id": "blacksmith_sale_1_2",
+      "role": "BLACKSMITH",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 12
+      },
+      "out": {
+        "id": "minecraft:iron_nugget",
+        "count": 16
+      }
+    },
+    {
+      "id": "blacksmith_sale_2_1",
+      "role": "BLACKSMITH",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 24
+      },
+      "out": {
+        "id": "slavicmyths:iron_blank",
+        "count": 2
+      }
+    },
+    {
+      "id": "blacksmith_sale_2_2",
+      "role": "BLACKSMITH",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 20
+      },
+      "out": {
+        "id": "slavicmyths:iron_rings",
+        "count": 4
+      }
+    },
+    {
+      "id": "blacksmith_sale_3_1",
+      "role": "BLACKSMITH",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 36
+      },
+      "out": {
+        "id": "slavicmyths:purified_iron_ingot",
+        "count": 2
+      }
+    },
+    {
+      "id": "blacksmith_sale_3_2",
+      "role": "BLACKSMITH",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 42
+      },
+      "out": {
+        "id": "slavicmyths:hardened_iron",
+        "count": 1
+      }
+    },
+    {
+      "id": "blacksmith_sale_4_1",
+      "role": "BLACKSMITH",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 38
+      },
+      "out": {
+        "id": "slavicmyths:silver_nugget",
+        "count": 8
+      }
+    },
+    {
+      "id": "blacksmith_sale_4_2",
+      "role": "BLACKSMITH",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 40
+      },
+      "out": {
+        "id": "slavicmyths:iron_blank",
+        "count": 4
+      }
+    },
+    {
+      "id": "blacksmith_sale_5_1",
+      "role": "BLACKSMITH",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 60
+      },
+      "out": {
+        "id": "slavicmyths:silver_ingot",
+        "count": 1
+      }
+    },
+    {
+      "id": "blacksmith_sale_5_2",
+      "role": "BLACKSMITH",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 62
+      },
+      "out": {
+        "id": "slavicmyths:purified_iron_ingot",
+        "count": 4
+      }
+    },
+    {
+      "id": "weaponsmith_sale_1_1",
+      "role": "WEAPONSMITH",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 26
+      },
+      "out": {
+        "id": "slavicmyths:iron_sulitsa",
+        "count": 2
+      }
+    },
+    {
+      "id": "weaponsmith_sale_1_2",
+      "role": "WEAPONSMITH",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 20
+      },
+      "out": {
+        "id": "slavicmyths:iron_spearhead",
+        "count": 2
+      }
+    },
+    {
+      "id": "weaponsmith_sale_2_1",
+      "role": "WEAPONSMITH",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 46
+      },
+      "out": {
+        "id": "slavicmyths:iron_spear",
+        "count": 1
+      }
+    },
+    {
+      "id": "weaponsmith_sale_2_2",
+      "role": "WEAPONSMITH",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 36
+      },
+      "out": {
+        "id": "minecraft:iron_sword",
+        "count": 1
+      }
+    },
+    {
+      "id": "weaponsmith_sale_3_1",
+      "role": "WEAPONSMITH",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 54
+      },
+      "out": {
+        "id": "slavicmyths:battle_axe",
+        "count": 1
+      }
+    },
+    {
+      "id": "weaponsmith_sale_3_2",
+      "role": "WEAPONSMITH",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 52
+      },
+      "out": {
+        "id": "slavicmyths:silver_dagger",
+        "count": 1
+      }
+    },
+    {
+      "id": "weaponsmith_sale_4_1",
+      "role": "WEAPONSMITH",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 62
+      },
+      "out": {
+        "id": "slavicmyths:silver_sulitsa",
+        "count": 2
+      }
+    },
+    {
+      "id": "weaponsmith_sale_4_2",
+      "role": "WEAPONSMITH",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 64
+      },
+      "out": {
+        "id": "slavicmyths:silver_sword",
+        "count": 1
+      },
+      "b": {
+        "id": "slavicmyths:silver_ingot",
+        "count": 1
+      }
+    },
+    {
+      "id": "weaponsmith_sale_5_1",
+      "role": "WEAPONSMITH",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 64
+      },
+      "out": {
+        "id": "slavicmyths:silver_spear",
+        "count": 1
+      },
+      "b": {
+        "id": "slavicmyths:silver_ingot",
+        "count": 2
+      }
+    },
+    {
+      "id": "weaponsmith_sale_5_2",
+      "role": "WEAPONSMITH",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 64
+      },
+      "out": {
+        "id": "slavicmyths:silver_mace",
+        "count": 1
+      },
+      "b": {
+        "id": "slavicmyths:silver_ingot",
+        "count": 2
+      }
+    },
+    {
+      "id": "crafter_sale_1_1",
+      "role": "CRAFTER",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 14
+      },
+      "out": {
+        "id": "slavicmyths:linen_cloth",
+        "count": 4
+      }
+    },
+    {
+      "id": "crafter_sale_1_2",
+      "role": "CRAFTER",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 10
+      },
+      "out": {
+        "id": "slavicmyths:linen_thread",
+        "count": 8
+      }
+    },
+    {
+      "id": "crafter_sale_2_1",
+      "role": "CRAFTER",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 22
+      },
+      "out": {
+        "id": "slavicmyths:basket",
+        "count": 1
+      }
+    },
+    {
+      "id": "crafter_sale_2_2",
+      "role": "CRAFTER",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 30
+      },
+      "out": {
+        "id": "slavicmyths:large_basket",
+        "count": 1
+      }
+    },
+    {
+      "id": "crafter_sale_3_1",
+      "role": "CRAFTER",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 32
+      },
+      "out": {
+        "id": "slavicmyths:wooden_barrel",
+        "count": 1
+      }
+    },
+    {
+      "id": "crafter_sale_3_2",
+      "role": "CRAFTER",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 36
+      },
+      "out": {
+        "id": "slavicmyths:wall_shelf",
+        "count": 1
+      }
+    },
+    {
+      "id": "crafter_sale_4_1",
+      "role": "CRAFTER",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 44
+      },
+      "out": {
+        "id": "slavicmyths:pine_chair",
+        "count": 1
+      }
+    },
+    {
+      "id": "crafter_sale_4_2",
+      "role": "CRAFTER",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 52
+      },
+      "out": {
+        "id": "slavicmyths:household_chest",
+        "count": 1
+      }
+    },
+    {
+      "id": "crafter_sale_5_1",
+      "role": "CRAFTER",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 64
+      },
+      "out": {
+        "id": "slavicmyths:pine_wardrobe",
+        "count": 1
+      }
+    },
+    {
+      "id": "crafter_sale_5_2",
+      "role": "CRAFTER",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 60
+      },
+      "out": {
+        "id": "slavicmyths:pine_weapon_rack",
+        "count": 1
+      }
+    },
+    {
+      "id": "farmer_sale_1_1",
+      "role": "FARMER",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 8
+      },
+      "out": {
+        "id": "slavicmyths:rye_seeds",
+        "count": 8
+      }
+    },
+    {
+      "id": "farmer_sale_1_2",
+      "role": "FARMER",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 9
+      },
+      "out": {
+        "id": "slavicmyths:turnip_seeds",
+        "count": 8
+      }
+    },
+    {
+      "id": "farmer_sale_2_1",
+      "role": "FARMER",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 12
+      },
+      "out": {
+        "id": "slavicmyths:cabbage_seeds",
+        "count": 8
+      }
+    },
+    {
+      "id": "farmer_sale_2_2",
+      "role": "FARMER",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 12
+      },
+      "out": {
+        "id": "slavicmyths:pea_seeds",
+        "count": 8
+      }
+    },
+    {
+      "id": "farmer_sale_3_1",
+      "role": "FARMER",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 13
+      },
+      "out": {
+        "id": "slavicmyths:oat_seeds",
+        "count": 8
+      }
+    },
+    {
+      "id": "farmer_sale_3_2",
+      "role": "FARMER",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 13
+      },
+      "out": {
+        "id": "slavicmyths:barley_seeds",
+        "count": 8
+      }
+    },
+    {
+      "id": "farmer_sale_4_1",
+      "role": "FARMER",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 28
+      },
+      "out": {
+        "id": "slavicmyths:hops_cutting",
+        "count": 4
+      }
+    },
+    {
+      "id": "farmer_sale_4_2",
+      "role": "FARMER",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 36
+      },
+      "out": {
+        "id": "slavicmyths:raspberry_sapling",
+        "count": 2
+      }
+    },
+    {
+      "id": "farmer_sale_5_1",
+      "role": "FARMER",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 48
+      },
+      "out": {
+        "id": "slavicmyths:garlic_clove",
+        "count": 4
+      },
+      "fallback": {
+        "a": {
+          "id": "slavicmyths:ancient_coin",
+          "count": 28
+        },
+        "out": {
+          "id": "slavicmyths:hops_cutting",
+          "count": 4
+        }
+      },
+      "deferred": true
+    },
+    {
+      "id": "farmer_sale_5_2",
+      "role": "FARMER",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 56
+      },
+      "out": {
+        "id": "slavicmyths:heat_berry_cutting",
+        "count": 2
+      },
+      "fallback": {
+        "a": {
+          "id": "slavicmyths:ancient_coin",
+          "count": 36
+        },
+        "out": {
+          "id": "slavicmyths:raspberry_sapling",
+          "count": 2
+        }
+      },
+      "deferred": true
+    },
+    {
+      "id": "mushroom_grower_sale_1_1",
+      "role": "MUSHROOM_GROWER",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 12
+      },
+      "out": {
+        "id": "minecraft:crimson_fungus",
+        "count": 8
+      }
+    },
+    {
+      "id": "mushroom_grower_sale_1_2",
+      "role": "MUSHROOM_GROWER",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 16
+      },
+      "out": {
+        "id": "minecraft:warped_fungus",
+        "count": 8
+      }
+    },
+    {
+      "id": "mushroom_grower_sale_2_1",
+      "role": "MUSHROOM_GROWER",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 20
+      },
+      "out": {
+        "id": "minecraft:soul_sand",
+        "count": 16
+      }
+    },
+    {
+      "id": "mushroom_grower_sale_2_2",
+      "role": "MUSHROOM_GROWER",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 24
+      },
+      "out": {
+        "id": "minecraft:soul_soil",
+        "count": 16
+      }
+    },
+    {
+      "id": "mushroom_grower_sale_3_1",
+      "role": "MUSHROOM_GROWER",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 34
+      },
+      "out": {
+        "id": "minecraft:nether_wart",
+        "count": 8
+      }
+    },
+    {
+      "id": "mushroom_grower_sale_3_2",
+      "role": "MUSHROOM_GROWER",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 18
+      },
+      "out": {
+        "id": "minecraft:bone_meal",
+        "count": 16
+      }
+    },
+    {
+      "id": "mushroom_grower_sale_4_1",
+      "role": "MUSHROOM_GROWER",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 24
+      },
+      "out": {
+        "id": "minecraft:brown_mushroom",
+        "count": 16
+      }
+    },
+    {
+      "id": "mushroom_grower_sale_4_2",
+      "role": "MUSHROOM_GROWER",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 24
+      },
+      "out": {
+        "id": "minecraft:red_mushroom",
+        "count": 16
+      }
+    },
+    {
+      "id": "mushroom_grower_sale_5_1",
+      "role": "MUSHROOM_GROWER",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 50
+      },
+      "out": {
+        "id": "slavicmyths:ash_mushroom",
+        "count": 8
+      },
+      "fallback": {
+        "a": {
+          "id": "slavicmyths:ancient_coin",
+          "count": 56
+        },
+        "out": {
+          "id": "minecraft:nether_wart",
+          "count": 16
+        }
+      },
+      "deferred": true
+    },
+    {
+      "id": "mushroom_grower_sale_5_2",
+      "role": "MUSHROOM_GROWER",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 56
+      },
+      "out": {
+        "id": "minecraft:nether_wart",
+        "count": 16
+      }
+    },
+    {
+      "id": "herbalist_sale_1_1",
+      "role": "HERBALIST",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 12
+      },
+      "out": {
+        "id": "slavicmyths:wormwood",
+        "count": 8
+      }
+    },
+    {
+      "id": "herbalist_sale_1_2",
+      "role": "HERBALIST",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 14
+      },
+      "out": {
+        "id": "slavicmyths:st_johns_wort",
+        "count": 8
+      }
+    },
+    {
+      "id": "herbalist_sale_2_1",
+      "role": "HERBALIST",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 16
+      },
+      "out": {
+        "id": "slavicmyths:nettle",
+        "count": 8
+      }
+    },
+    {
+      "id": "herbalist_sale_2_2",
+      "role": "HERBALIST",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 18
+      },
+      "out": {
+        "id": "slavicmyths:juniper_berries",
+        "count": 8
+      }
+    },
+    {
+      "id": "herbalist_sale_3_1",
+      "role": "HERBALIST",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 30
+      },
+      "out": {
+        "id": "slavicmyths:purified_water_bottle",
+        "count": 2
+      }
+    },
+    {
+      "id": "herbalist_sale_3_2",
+      "role": "HERBALIST",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 32
+      },
+      "out": {
+        "id": "slavicmyths:ground_wormwood",
+        "count": 4
+      }
+    },
+    {
+      "id": "herbalist_sale_4_1",
+      "role": "HERBALIST",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 48
+      },
+      "out": {
+        "id": "slavicmyths:otvar_ochishcheniya",
+        "count": 1
+      }
+    },
+    {
+      "id": "herbalist_sale_4_2",
+      "role": "HERBALIST",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 52
+      },
+      "out": {
+        "id": "slavicmyths:otvar_bodrosti",
+        "count": 1
+      }
+    },
+    {
+      "id": "herbalist_sale_5_1",
+      "role": "HERBALIST",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 64
+      },
+      "out": {
+        "id": "slavicmyths:lesnoy_nastoy_vosstanovleniya",
+        "count": 1
+      }
+    },
+    {
+      "id": "herbalist_sale_5_2",
+      "role": "HERBALIST",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 62
+      },
+      "out": {
+        "id": "slavicmyths:otvar_lesnoy_zorkosti",
+        "count": 1
+      }
+    },
+    {
+      "id": "cook_sale_1_1",
+      "role": "COOK",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 12
+      },
+      "out": {
+        "id": "slavicmyths:rye_bread",
+        "count": 2
+      }
+    },
+    {
+      "id": "cook_sale_1_2",
+      "role": "COOK",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 14
+      },
+      "out": {
+        "id": "slavicmyths:bliny",
+        "count": 2
+      }
+    },
+    {
+      "id": "cook_sale_2_1",
+      "role": "COOK",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 18
+      },
+      "out": {
+        "id": "slavicmyths:pea_soup",
+        "count": 1
+      }
+    },
+    {
+      "id": "cook_sale_2_2",
+      "role": "COOK",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 20
+      },
+      "out": {
+        "id": "slavicmyths:vegetable_stew",
+        "count": 1
+      }
+    },
+    {
+      "id": "cook_sale_3_1",
+      "role": "COOK",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 28
+      },
+      "out": {
+        "id": "slavicmyths:meat_stew",
+        "count": 1
+      }
+    },
+    {
+      "id": "cook_sale_3_2",
+      "role": "COOK",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 26
+      },
+      "out": {
+        "id": "slavicmyths:ukha",
+        "count": 1
+      }
+    },
+    {
+      "id": "cook_sale_4_1",
+      "role": "COOK",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 42
+      },
+      "out": {
+        "id": "slavicmyths:meat_pie",
+        "count": 1
+      }
+    },
+    {
+      "id": "cook_sale_4_2",
+      "role": "COOK",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 38
+      },
+      "out": {
+        "id": "slavicmyths:berry_pie",
+        "count": 1
+      }
+    },
+    {
+      "id": "cook_sale_5_1",
+      "role": "COOK",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 56
+      },
+      "out": {
+        "id": "slavicmyths:infernal_shchi",
+        "count": 2
+      },
+      "fallback": {
+        "a": {
+          "id": "slavicmyths:ancient_coin",
+          "count": 42
+        },
+        "out": {
+          "id": "slavicmyths:meat_pie",
+          "count": 1
+        }
+      },
+      "deferred": true
+    },
+    {
+      "id": "cook_sale_5_2",
+      "role": "COOK",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 48
+      },
+      "out": {
+        "id": "slavicmyths:druzhina_roast",
+        "count": 1
+      },
+      "fallback": {
+        "a": {
+          "id": "slavicmyths:ancient_coin",
+          "count": 38
+        },
+        "out": {
+          "id": "slavicmyths:berry_pie",
+          "count": 1
+        }
+      },
+      "deferred": true
+    },
+    {
+      "id": "storekeeper_sale_1_1",
+      "role": "STOREKEEPER",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 14
+      },
+      "out": {
+        "id": "minecraft:coal",
+        "count": 16
+      }
+    },
+    {
+      "id": "storekeeper_sale_1_2",
+      "role": "STOREKEEPER",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 10
+      },
+      "out": {
+        "id": "minecraft:gravel",
+        "count": 32
+      }
+    },
+    {
+      "id": "storekeeper_sale_2_1",
+      "role": "STOREKEEPER",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 20
+      },
+      "out": {
+        "id": "minecraft:basalt",
+        "count": 32
+      }
+    },
+    {
+      "id": "storekeeper_sale_2_2",
+      "role": "STOREKEEPER",
+      "tier": 2,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 16
+      },
+      "out": {
+        "id": "minecraft:netherrack",
+        "count": 64
+      }
+    },
+    {
+      "id": "storekeeper_sale_3_1",
+      "role": "STOREKEEPER",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 28
+      },
+      "out": {
+        "id": "minecraft:blackstone",
+        "count": 32
+      }
+    },
+    {
+      "id": "storekeeper_sale_3_2",
+      "role": "STOREKEEPER",
+      "tier": 3,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 22
+      },
+      "out": {
+        "id": "minecraft:soul_sand",
+        "count": 16
+      }
+    },
+    {
+      "id": "storekeeper_sale_4_1",
+      "role": "STOREKEEPER",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 44
+      },
+      "out": {
+        "id": "minecraft:obsidian",
+        "count": 8
+      }
+    },
+    {
+      "id": "storekeeper_sale_4_2",
+      "role": "STOREKEEPER",
+      "tier": 4,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 40
+      },
+      "out": {
+        "id": "minecraft:glowstone",
+        "count": 8
+      }
+    },
+    {
+      "id": "storekeeper_sale_5_1",
+      "role": "STOREKEEPER",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 62
+      },
+      "out": {
+        "id": "minecraft:crying_obsidian",
+        "count": 4
+      }
+    },
+    {
+      "id": "storekeeper_sale_5_2",
+      "role": "STOREKEEPER",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 60
+      },
+      "out": {
+        "id": "minecraft:glowstone",
+        "count": 16
+      }
+    },
+    {
+      "id": "posadnik_sale_1_1",
+      "role": "POSADNIK",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 16
+      },
+      "out": {
+        "id": "minecraft:map",
+        "count": 1
+      }
+    },
+    {
+      "id": "posadnik_sale_1_2",
+      "role": "POSADNIK",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 32
+      },
+      "out": {
+        "id": "minecraft:compass",
+        "count": 1
+      }
+    },
+    {
+      "id": "posadnik_sale_1_3",
+      "role": "POSADNIK",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 45
+      },
+      "out": {
+        "id": "minecraft:clock",
+        "count": 1
+      }
+    },
+    {
+      "id": "posadnik_sale_1_4",
+      "role": "POSADNIK",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 55
+      },
+      "out": {
+        "id": "minecraft:name_tag",
+        "count": 1
+      }
+    },
+    {
+      "id": "civilian_sale_1_1",
+      "role": "CIVILIAN",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 8
+      },
+      "out": {
+        "id": "minecraft:bread",
+        "count": 1
+      }
+    },
+    {
+      "id": "civilian_sale_1_2",
+      "role": "CIVILIAN",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 12
+      },
+      "out": {
+        "id": "slavicmyths:tallow_candle",
+        "count": 1
+      }
+    },
+    {
+      "id": "civilian_sale_1_3",
+      "role": "CIVILIAN",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 6
+      },
+      "out": {
+        "id": "minecraft:stick",
+        "count": 16
+      }
+    },
+    {
+      "id": "civilian_sale_1_4",
+      "role": "CIVILIAN",
+      "tier": 1,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 10
+      },
+      "out": {
+        "id": "slavicmyths:flax_fiber",
+        "count": 8
+      }
+    },
+    {
+      "id": "posadnik_buy_1",
+      "role": "POSADNIK",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "minecraft:book",
+        "count": 4
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 10
+      }
+    },
+    {
+      "id": "guard_buy_1",
+      "role": "GUARD",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "minecraft:arrow",
+        "count": 32
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 8
+      }
+    },
+    {
+      "id": "sotnik_buy_1",
+      "role": "SOTNIK",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "minecraft:iron_ingot",
+        "count": 16
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 28
+      }
+    },
+    {
+      "id": "blacksmith_buy_1",
+      "role": "BLACKSMITH",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "minecraft:iron_ingot",
+        "count": 8
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 14
+      }
+    },
+    {
+      "id": "blacksmith_buy_2",
+      "role": "BLACKSMITH",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "slavicmyths:silver_nugget",
+        "count": 8
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 18
+      }
+    },
+    {
+      "id": "weaponsmith_buy_1",
+      "role": "WEAPONSMITH",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "slavicmyths:iron_spearhead",
+        "count": 4
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 12
+      }
+    },
+    {
+      "id": "crafter_buy_1",
+      "role": "CRAFTER",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "slavicmyths:linen_cloth",
+        "count": 8
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 15
+      }
+    },
+    {
+      "id": "crafter_buy_2",
+      "role": "CRAFTER",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "slavicmyths:pine_planks",
+        "count": 32
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 6
+      }
+    },
+    {
+      "id": "farmer_buy_1",
+      "role": "FARMER",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "slavicmyths:turnip",
+        "count": 32
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 10
+      }
+    },
+    {
+      "id": "farmer_buy_2",
+      "role": "FARMER",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "slavicmyths:barley_grain",
+        "count": 32
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 10
+      }
+    },
+    {
+      "id": "farmer_buy_3",
+      "role": "FARMER",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "slavicmyths:garlic_flatbread",
+        "count": 10
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 16
+      },
+      "deferred": true
+    },
+    {
+      "id": "mushroom_grower_buy_1",
+      "role": "MUSHROOM_GROWER",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "minecraft:crimson_fungus",
+        "count": 32
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 10
+      }
+    },
+    {
+      "id": "mushroom_grower_buy_2",
+      "role": "MUSHROOM_GROWER",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "minecraft:warped_fungus",
+        "count": 32
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 12
+      }
+    },
+    {
+      "id": "herbalist_buy_1",
+      "role": "HERBALIST",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "slavicmyths:wormwood",
+        "count": 16
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 10
+      }
+    },
+    {
+      "id": "herbalist_buy_2",
+      "role": "HERBALIST",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "slavicmyths:st_johns_wort",
+        "count": 16
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 12
+      }
+    },
+    {
+      "id": "cook_buy_1",
+      "role": "COOK",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "slavicmyths:garlic_flatbread",
+        "count": 10
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 22
+      },
+      "deferred": true
+    },
+    {
+      "id": "cook_buy_2",
+      "role": "COOK",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "slavicmyths:raw_boar_meat",
+        "count": 16
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 16
+      }
+    },
+    {
+      "id": "cook_buy_3",
+      "role": "COOK",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "slavicmyths:meat_stew",
+        "count": 1
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 3
+      }
+    },
+    {
+      "id": "storekeeper_buy_1",
+      "role": "STOREKEEPER",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "minecraft:basalt",
+        "count": 32
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 10
+      }
+    },
+    {
+      "id": "storekeeper_buy_2",
+      "role": "STOREKEEPER",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "minecraft:coal",
+        "count": 64
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 22
+      }
+    },
+    {
+      "id": "civilian_buy_1",
+      "role": "CIVILIAN",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "minecraft:stick",
+        "count": 16
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 3
+      }
+    },
+    {
+      "id": "civilian_buy_2",
+      "role": "CIVILIAN",
+      "tier": 1,
+      "type": "buy",
+      "a": {
+        "id": "minecraft:apple",
+        "count": 16
+      },
+      "out": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 6
+      }
+    },
+    {
+      "id": "posadnik_barter_1",
+      "role": "POSADNIK",
+      "tier": 1,
+      "type": "barter",
+      "a": {
+        "id": "minecraft:book",
+        "count": 4
+      },
+      "out": {
+        "id": "minecraft:map",
+        "count": 1
+      },
+      "b": {
+        "id": "minecraft:ink_sac",
+        "count": 1
+      }
+    },
+    {
+      "id": "guard_barter_1",
+      "role": "GUARD",
+      "tier": 1,
+      "type": "barter",
+      "a": {
+        "id": "minecraft:arrow",
+        "count": 24
+      },
+      "out": {
+        "id": "minecraft:shield",
+        "count": 1
+      },
+      "b": {
+        "id": "minecraft:iron_ingot",
+        "count": 1
+      }
+    },
+    {
+      "id": "sotnik_barter_1",
+      "role": "SOTNIK",
+      "tier": 1,
+      "type": "barter",
+      "a": {
+        "id": "slavicmyths:iron_spear",
+        "count": 1
+      },
+      "out": {
+        "id": "slavicmyths:retainer_shield",
+        "count": 1
+      },
+      "b": {
+        "id": "minecraft:iron_ingot",
+        "count": 4
+      },
+      "pristine": true
+    },
+    {
+      "id": "blacksmith_barter_1",
+      "role": "BLACKSMITH",
+      "tier": 1,
+      "type": "barter",
+      "a": {
+        "id": "minecraft:iron_ingot",
+        "count": 8
+      },
+      "out": {
+        "id": "slavicmyths:purified_iron_ingot",
+        "count": 2
+      },
+      "b": {
+        "id": "minecraft:coal",
+        "count": 4
+      }
+    },
+    {
+      "id": "weaponsmith_barter_1",
+      "role": "WEAPONSMITH",
+      "tier": 1,
+      "type": "barter",
+      "a": {
+        "id": "slavicmyths:iron_spear",
+        "count": 1
+      },
+      "out": {
+        "id": "slavicmyths:silver_spear",
+        "count": 1
+      },
+      "b": {
+        "id": "slavicmyths:silver_ingot",
+        "count": 2
+      },
+      "pristine": true
+    },
+    {
+      "id": "crafter_barter_1",
+      "role": "CRAFTER",
+      "tier": 1,
+      "type": "barter",
+      "a": {
+        "id": "slavicmyths:linen_cloth",
+        "count": 8
+      },
+      "out": {
+        "id": "slavicmyths:basket",
+        "count": 1
+      },
+      "b": {
+        "id": "slavicmyths:pine_planks",
+        "count": 16
+      }
+    },
+    {
+      "id": "farmer_barter_1",
+      "role": "FARMER",
+      "tier": 1,
+      "type": "barter",
+      "a": {
+        "id": "slavicmyths:turnip",
+        "count": 16
+      },
+      "out": {
+        "id": "slavicmyths:cabbage_seeds",
+        "count": 8
+      }
+    },
+    {
+      "id": "mushroom_grower_barter_1",
+      "role": "MUSHROOM_GROWER",
+      "tier": 1,
+      "type": "barter",
+      "a": {
+        "id": "minecraft:crimson_fungus",
+        "count": 16
+      },
+      "out": {
+        "id": "minecraft:warped_fungus",
+        "count": 8
+      }
+    },
+    {
+      "id": "herbalist_barter_1",
+      "role": "HERBALIST",
+      "tier": 1,
+      "type": "barter",
+      "a": {
+        "id": "slavicmyths:wormwood",
+        "count": 8
+      },
+      "out": {
+        "id": "slavicmyths:purified_water_bottle",
+        "count": 1
+      },
+      "b": {
+        "id": "minecraft:honey_bottle",
+        "count": 1
+      }
+    },
+    {
+      "id": "cook_barter_1",
+      "role": "COOK",
+      "tier": 1,
+      "type": "barter",
+      "a": {
+        "id": "slavicmyths:raw_boar_meat",
+        "count": 4
+      },
+      "out": {
+        "id": "slavicmyths:meat_stew",
+        "count": 1
+      },
+      "b": {
+        "id": "slavicmyths:barley_groats",
+        "count": 2
+      },
+      "note": "Repeat twice for approved 8 meat + 4 barley -> 2 unstackable stews"
+    },
+    {
+      "id": "storekeeper_barter_1",
+      "role": "STOREKEEPER",
+      "tier": 1,
+      "type": "barter",
+      "a": {
+        "id": "minecraft:basalt",
+        "count": 32
+      },
+      "out": {
+        "id": "minecraft:blackstone",
+        "count": 16
+      }
+    },
+    {
+      "id": "civilian_barter_1",
+      "role": "CIVILIAN",
+      "tier": 1,
+      "type": "barter",
+      "a": {
+        "id": "minecraft:apple",
+        "count": 8
+      },
+      "out": {
+        "id": "slavicmyths:rye_bread",
+        "count": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+name: Posad 2.2 issue 382 recovery Java21
+on:
+  push:
+    branches:
+      - fix/2.2-382-full-recovery-20261031
+  pull_request:
+    branches:
+      - '2.2'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify economy catalog
+        run: python tools/posad-tests/verify_economy_catalog.py
+      - name: Verify existing house and military door regressions
+        run: |
+          python tools/verify_posad_house_renovation.py
+          python tools/verify_posad_druzhina_entrances.py
+      - name: Verify complete furniture category
+        run: |
+          python tools/furniture-expansion/verify_furniture.py
+          python tools/furniture-expansion/generate.py
+          git diff --exit-code -- src/main/resources/assets/slavicmyths/blockstates src/main/resources/assets/slavicmyths/models/block src/main/resources/assets/slavicmyths/models/item src/main/resources/data/slavicmyths/recipe src/main/resources/data/slavicmyths/loot_table/blocks
+      - name: Compile mod and package resources
+        run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain
+      - name: Verify current resource inventory
+        run: python -m pip install Pillow && python tools/verify_current_resources.py
+      - name: Headless GameTest
+        if: success() || failure()
+        run: ./gradlew --no-daemon -I tools/hell-qa-runtime.gradle runHellQa -PhellQaDir=work/posad-382/github-actions -PhellQaSeed=20261024 --console=plain
+      - name: Physical Posad GameTest - structures, doors and four rotations
+        if: success() || failure()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/posad-ci
+          ./gradlew --no-daemon -I tools/posad-qa-runtime.gradle runPosadQa -PposadQaDir=work/posad-382/native-qa --console=plain 2>&1 | tee build/posad-ci/game-test.log
+          if grep -Eiq 'Mod loading has failed|Failed to start the minecraft server|not a valid mod file|[0-9]+ required tests failed|GAME TESTS FAILED' build/posad-ci/game-test.log; then
+            echo 'FAIL: physical Posad GameTest or mod loading failed'
+            exit 1
+          fi
+          if ! grep -Eq '[0-9]+ GAME TESTS COMPLETE' build/posad-ci/game-test.log; then
+            echo 'FAIL: no physical Posad GameTest completion evidence'
+            exit 1
+          fi
+      - name: Save logs and JAR for independent verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: posad-382-${{ github.sha }}
+          path: |
+            build/libs/slavicmyths-*.jar
+            build/reports/
+            build/posad-ci/
+          if-no-files-found: warn
+          retention-days: 14
