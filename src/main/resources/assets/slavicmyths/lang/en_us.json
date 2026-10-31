@@ -6514,5 +6514,19 @@
   "item.slavicmyths.posad_guard_sword_shield_spawn_egg": "Guard (Sword and Shield) Spawn Egg",
   "item.slavicmyths.posad_guard_spear_shield_spawn_egg": "Guard (Spear and Shield) Spawn Egg",
   "item.slavicmyths.posad_guard_bow_spawn_egg": "Guard (Bow) Spawn Egg",
-  "item.slavicmyths.posad_resident_spawn_egg": "Infernal Settlement Resident Spawn Egg"
+  "item.slavicmyths.posad_resident_spawn_egg": "Infernal Settlement Resident Spawn Egg",
+  "entity.slavicmyths.cursed_mytar": "Cursed Mytar",
+  "entity.slavicmyths.bauk": "Bauk the Devourer",
+  "item.slavicmyths.mytar_seal": "Mytar's Seal",
+  "item.slavicmyths.mytar_chain": "Mytar's Chain",
+  "item.slavicmyths.mytar_sickle": "Mytar's Sickle",
+  "item.slavicmyths.mytar_purse": "Tax Collector's Purse",
+  "item.slavicmyths.mytar_shackled_sickle": "Shackled Sickle",
+  "item.slavicmyths.bauk_fang": "Bauk Fang",
+  "item.slavicmyths.bauk_hide": "Bauk Hide",
+  "item.slavicmyths.bauk_claw": "Bauk Claw",
+  "item.slavicmyths.bauk_hide_charm": "Beast Hide Charm",
+  "block.slavicmyths.bauk_head": "Bauk Head",
+  "item.slavicmyths.cursed_mytar_spawn_egg": "Cursed Mytar Spawn Egg",
+  "item.slavicmyths.bauk_spawn_egg": "Bauk Spawn Egg"
 }
