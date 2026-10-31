@@ -92,14 +92,13 @@ public final class PosadResidentEntity extends PathfinderMob {
                 && (home == null || player.blockPosition().distSqr(home) <= 48 * 48);
     }
     private boolean mayDefendAgainst(Monster monster) {
-        if (!role().guard() || monster instanceof PosadResidentEntity || city == null || !monster.isAlive()) return false;
+        if (!role().guard() || city == null || !monster.isAlive()) return false;
         if (home != null && monster.blockPosition().distSqr(home) > 40 * 40) return false;
         if (monster.getTarget() instanceof PosadResidentEntity resident) return Objects.equals(city, resident.city());
         if (monster.getTarget() instanceof Player) return true;
         return monster instanceof net.minecraft.world.entity.monster.Blaze
                 || monster instanceof net.minecraft.world.entity.monster.WitherSkeleton
                 || monster instanceof net.minecraft.world.entity.monster.Skeleton
-                || monster instanceof net.minecraft.world.entity.monster.Ghast
                 || monster instanceof net.minecraft.world.entity.monster.MagmaCube;
     }
     @Override public void setTarget(LivingEntity target) {
