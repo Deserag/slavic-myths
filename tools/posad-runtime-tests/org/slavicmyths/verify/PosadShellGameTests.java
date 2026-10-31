@@ -67,6 +67,29 @@ public final class PosadShellGameTests {
    t.assertTrue(world.getBlockState(anchor.offset(door.x(),1,door.z())).getBlock() instanceof net.minecraft.world.level.block.DoorBlock,"Posadnik entrance missing rotation "+turns);
   }
   System.out.println("POSADNIK_A_PLUS_NATIVE_PASS rotation="+turns+" approved_voxels="+teremCount);
+  // R3 physical roof/fronton, dais and both existing double-width staircases.
+  int fronton=0;
+  for(int y=12;y<=17;y++)for(int x=50;x<=62;x++){
+   var expected=PosadArchitectureR3.voxel(x,y,34);
+   if(expected==null)continue;
+   fronton++;
+   var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,34),turns);
+   var at=anchor.offset(p.x(),y,p.z());
+   var actual=world.getBlockState(at);
+   t.assertTrue(actual.is(expected.getBlock()),"R3 portico mismatch "+at);
+  }
+  t.assertTrue(fronton==36,"R3 fronton count "+fronton);
+  for(int[] q:new int[][]{{56,2,15},{55,2,15},{57,2,15},{56,2,14},{56,3,14}}){
+   var p=PosadGeometry.rotate(new PosadGeometry.Cell(q[0],q[2]),turns);
+   t.assertTrue(!world.getBlockState(anchor.offset(p.x(),q[1],p.z())).isAir(),"R3 throne missing");
+  }
+  for(int step=0;step<6;step++)for(int[] stair:new int[][]{{20,26-step},{21,26-step},{23,84-step},{24,84-step}}){
+   var p=PosadGeometry.rotate(new PosadGeometry.Cell(stair[0],stair[1]),turns);
+   var at=anchor.offset(p.x(),step+1,p.z());
+   t.assertTrue(world.getBlockState(at).getBlock() instanceof net.minecraft.world.level.block.StairBlock,"Blocked 2F flight "+at);
+   for(int head=1;head<=2;head++)t.assertTrue(world.getBlockState(at.above(head)).isAir(),"Stair requires jumping "+at+" height="+head);
+  }
+  System.out.println("POSAD_R3_ARCH_PASS rotation="+turns+" fronton="+fronton);
   int hallBlocks=0,houseBlocks=0,houseChests=0;
   for(int x=42;x<=70;x++)for(int z=12;z<=34;z++)for(int y=0;y<18;y++) {
    var source=PosadBuildings.voxel(x,y,z);

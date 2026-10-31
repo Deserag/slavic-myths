@@ -48,6 +48,19 @@ public final class PosadCommandGameTests {
     int[] result={-1};server.getCommands().performPrefixedCommand(source.withCallback((ok,n)->result[0]=ok?n:0),"slavicmyths dev posad building "+id+" ~ ~ ~");
     t.assertTrue(result[0]>0,"Actual command failed "+dimension+" "+id+" result="+result[0]);
     int count=0;for(var p:net.minecraft.core.BlockPos.betweenClosed(at,at.offset(31,24,31)))if(!w.getBlockState(p).isAir())count++;
+    int checkedPanes=0;
+    for(var p:net.minecraft.core.BlockPos.betweenClosed(at,at.offset(31,24,31))) {
+     var state=w.getBlockState(p);
+     if(!(state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock))continue;
+     checkedPanes++;
+     for(var dir:new net.minecraft.core.Direction[]{net.minecraft.core.Direction.NORTH,net.minecraft.core.Direction.EAST,net.minecraft.core.Direction.SOUTH,net.minecraft.core.Direction.WEST}) {
+      var neighbor=p.relative(dir);
+      if(w.getChunkSource().getChunkNow(neighbor.getX()>>4,neighbor.getZ()>>4)==null)continue;
+      t.assertTrue(state.equals(state.updateShape(dir,w.getBlockState(neighbor),w,p,neighbor)),"Standalone pane disconnected "+id+" "+p+" "+dir);
+     }
+    }
+    System.out.println("POSAD_R3_STANDALONE_PANES dimension="+dimension.location()+" id="+id+" count="+checkedPanes);
+
     t.assertTrue(count>100,"Command reported success without physical building: "+id+" blocks="+count);
     if(id.equals("veche_hall_2_2_2")) {
      int expectedCount=0,editCount=0,lightCount=0;

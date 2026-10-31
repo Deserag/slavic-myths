@@ -328,6 +328,23 @@ public final class PosadCommands {
                 barrel.setChanged();
             }
         }
+        // NBT standalone generation used flag 2 and may retain the original
+        // disconnected four-false pane state. All target chunks were already
+        // verified loaded. Recalculate only panes AFTER all overlays, without
+        // affecting chest block entities or loading any extra chunk.
+        int fixedPanes=0;
+        for(var at:net.minecraft.core.BlockPos.betweenClosed(pos,end)) {
+            var existing=world.getBlockState(at);
+            if(!(existing.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock))continue;
+            var corrected=existing;
+            for(var side:new net.minecraft.core.Direction[]{net.minecraft.core.Direction.NORTH,net.minecraft.core.Direction.EAST,net.minecraft.core.Direction.SOUTH,net.minecraft.core.Direction.WEST}){
+                var adjacent=at.relative(side);
+                if(world.getChunkSource().getChunkNow(adjacent.getX()>>4,adjacent.getZ()>>4)==null)continue;
+                corrected=corrected.updateShape(side,world.getBlockState(adjacent),world,at,adjacent);
+            }
+            if(!existing.equals(corrected)){world.setBlock(at,corrected,2);fixedPanes++;}
+        }
+        if(fixedPanes>0)source.sendSuccess(()->Component.literal("Исправлено соединений оконных панелей: "+fixedPanes),false);
         source.sendSuccess(()->Component.literal("Построено: "+id+" в "+pos.toShortString()),false);
         return 1;
     }
