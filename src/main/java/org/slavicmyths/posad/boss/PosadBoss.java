@@ -78,6 +78,14 @@ public final class PosadBoss extends Monster {
         targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
+    @Override public void checkDespawn() {
+        if (!level().isClientSide && level().getDifficulty() == net.minecraft.world.Difficulty.PEACEFUL && level() instanceof net.minecraft.server.level.ServerLevel server) {
+            PosadBossLedger.get(server).settle(server, getUUID(), false);
+            discard();
+            return;
+        }
+        super.checkDespawn();
+    }
     @Override public void startSeenByPlayer(ServerPlayer player) { super.startSeenByPlayer(player); bar.addPlayer(player); }
     @Override public void stopSeenByPlayer(ServerPlayer player) { super.stopSeenByPlayer(player); bar.removePlayer(player); }
     @Override protected void customServerAiStep() {
