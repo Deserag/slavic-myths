@@ -90,15 +90,17 @@ public final class PosadShellGameTests {
   // R3 physical roof/fronton, dais and both existing double-width staircases.
   int fronton=0;
   for(int y=12;y<=17;y++)for(int x=50;x<=62;x++){
-   var expected=piece.voxel(x,y,34);
-   if(expected==null)continue;
+   var authored=PosadArchitectureR3.voxel(x,y,34);
+   if(authored==null)continue;
    fronton++;
+   var expected=piece.voxel(x,y,34);
+   t.assertTrue(expected!=null,"R3 fronton removed by roof geometry "+x+","+y+",34");
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,34),turns);
    var at=anchor.offset(p.x(),y,p.z());
    var actual=world.getBlockState(at);
    t.assertTrue(actual.is(expected.getBlock()),"R3 portico mismatch "+at);
   }
-  t.assertTrue(fronton==36,"R3 fronton count "+fronton);
+  t.assertTrue(fronton==36,"R3 authored fronton count "+fronton);
   for(int[] q:new int[][]{{56,2,15},{55,2,15},{57,2,15},{56,2,14},{56,3,14}}){
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(q[0],q[2]),turns);
    t.assertTrue(!world.getBlockState(anchor.offset(p.x(),q[1],p.z())).isAir(),"R3 throne missing");
