@@ -42,7 +42,7 @@ public final class PosadNaturalPopulation {
                         if (!visited.add(anchor)) continue;
                         // The spawner checks each candidate's generated, loaded local area.
                         // Never demand all 64+ city chunks be simultaneously player-loaded.
-                        PosadResidentSpawner.populateNatural(level, anchor.getX(), anchor.getY(), anchor.getZ(), posad.cityTurns());
+                        PosadResidentSpawner.populateNatural(level, posad);
                     }
                 }
             }
