@@ -31,10 +31,12 @@ def png(path, width, height):
 
 
 def main():
-    contains(JAVA / "registry/ModEntities.java", 'ENTITIES.register("cursed_mytar"', 'ENTITIES.register("bauk"', 'event.put(CURSED_MYTAR.get()', 'event.put(BAUK.get()')
+    contains(JAVA / "registry/ModEntities.java", 'ENTITIES.register("cursed_mytar"', 'ENTITIES.register("bauk"', 'ENTITIES.register("mytar_chain_projectile"', 'event.put(CURSED_MYTAR.get()', 'event.put(BAUK.get()')
     contains(JAVA / "registry/ModItems.java", 'ITEMS.register("mytar_seal"', 'ITEMS.register("mytar_sickle"', 'ITEMS.register("mytar_shackled_sickle"', 'ITEMS.register("bauk_fang"', 'ITEMS.register("bauk_hide_charm"')
     contains(JAVA / "registry/ModBlocks.java", 'BLOCKS.register("bauk_head"')
     contains(JAVA / "posad/boss/PosadBoss.java", 'chainVictim', 'pullChainedVictim()', 'finishChainedVictim()', 'PosadBossLedger.get(server)', 'markNaturalEncounter()')
+    contains(JAVA / "posad/boss/MytarSickleProjectile.java", "extends ThrowableItemProjectile", "boss.catchChain(victim)", "onHitEntity")
+    contains(JAVA / "client/PosadBossRenderer.java", "MYTAR_CHAIN_PROJECTILE", "ThrownItemRenderer")
     contains(JAVA / "posad/boss/PosadBossWorld.java", 'for (int probe = 0; probe < 16; probe++)', 'safe(level, pos, kind)')
     contains(JAVA / "client/PosadBossModel.java", 'leftSickle', 'chainSickle', 'Right horn taper')
     for name in ("PosadBossLedger", "BaukCharmEffect", "BaukBellInterrupt", "ShackledSickleItem"):
