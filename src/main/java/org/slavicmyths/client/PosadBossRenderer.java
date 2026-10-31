@@ -21,6 +21,7 @@ public final class PosadBossRenderer extends MobRenderer<PosadBoss,PosadBossMode
     @Override protected void scale(PosadBoss entity, PoseStack pose, float partialTick) { pose.scale(2F, 2F, 2F); }
     @SubscribeEvent public static void register(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.CURSED_MYTAR.get(), context -> new PosadBossRenderer(context, false));
+        event.registerEntityRenderer(ModEntities.MYTAR_CHAIN_PROJECTILE.get(), net.minecraft.client.renderer.entity.ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.BAUK.get(), context -> new PosadBossRenderer(context, true));
     }
 }
