@@ -20,7 +20,7 @@ public final class PosadArchitectureR3 {
     private static long key(int x,int y,int z){return ((long)x<<32)|((long)y<<16)|z;}
 
     /** Exact effective old state, including every old roof/lighting overlay. */
-    private static BlockState old(int x,int y,int z){
+    static BlockState old(int x,int y,int z){
         BlockState b=PosadnikTerem.voxel(x,y,z);
         if(b!=null)return b;
         b=PosadLightingR3.voxel(x,y,z);if(b!=null)return b;

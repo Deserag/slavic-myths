@@ -320,6 +320,26 @@ public final class PosadCommands {
                 world.setBlock(target,finish,2);
             }
         }
+        // Schema-20 Veche R3 applies the SAME city-local authored voxels as
+        // PosadPiece. Preserve immutable R1 NBT and old chest block entities.
+        // Masonry, posts and chains first; hanging lamps only after supports.
+        if(id.equals("veche_hall_2_2_2")) {
+            for(int pass=0;pass<2;pass++)
+                for(int y=1;y<=17;y++)for(int z=12;z<=34;z++)for(int x=42;x<=70;x++) {
+                    var finish=PosadArchitectureR3.voxel(x,y,z);
+                    if(finish==null)continue;
+                    boolean hanging=(finish.is(net.minecraft.world.level.block.Blocks.LANTERN) ||
+                        finish.is(net.minecraft.world.level.block.Blocks.SOUL_LANTERN))
+                        && finish.getValue(net.minecraft.world.level.block.LanternBlock.HANGING);
+                    if(hanging!=(pass==1))continue;
+                    var previous=PosadArchitectureR3.old(x,y,z);
+                    var at=pos.offset(x-42,y,z-12);
+                    var present=world.getBlockState(at);
+                    if(present.hasBlockEntity() || (previous==null ? !present.isAir() : !present.is(previous.getBlock())))
+                        throw new IllegalStateException("Standalone Veche R3/source mismatch at "+at+" old "+previous+" found "+present);
+                    world.setBlock(at,finish,2);
+                }
+        }
         // Template barrels are authored empty: assign persistent single-use loot after placement.
         String table=id.startsWith("menovye_ryady")?"chests/posad_barrel_market":"chests/posad_barrel_supplies";
         for(var at:net.minecraft.core.BlockPos.betweenClosed(pos,end)) {

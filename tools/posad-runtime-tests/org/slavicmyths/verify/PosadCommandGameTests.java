@@ -72,6 +72,7 @@ public final class PosadCommandGameTests {
       finish=PosadHallRoofRepair.voxel(x,y,z);if(finish!=null)expected=finish;
       finish=PosadHallR2.voxel(x,y,z);if(finish!=null){expected=finish;editCount++;}
       finish=PosadLightingR3.hallVoxel(x,y,z);if(finish!=null){expected=finish;lightCount++;}
+      finish=PosadArchitectureR3.voxel(x,y,z);if(finish!=null)expected=finish;
       var actual=w.getBlockState(at.offset(x-42,y,z-12));
       t.assertTrue(!actual.is(Blocks.STONE),"Natural stone survived standalone Veche clear at "+x+","+y+","+z);
       if(expected!=null)t.assertTrue(actual.is(expected.getBlock()),"Standalone Veche schema mismatch "+x+","+y+","+z+" expected="+expected+" found="+actual);
