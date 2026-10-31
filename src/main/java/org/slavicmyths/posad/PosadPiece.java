@@ -14,6 +14,8 @@ import org.slavicmyths.netherstructures.NetherBridgeTerrain;
 /** Persisted shell, clipped before any world read/write. No rewards or retrofit here. */
 public final class PosadPiece extends StructurePiece {
     private final BlockPos anchor;
+    public BlockPos cityAnchor() { return anchor; }
+    public int cityTurns() { return turns; }
     private final int turns;
     private final int schema;
     private final PosadTerrain.Plan terrain;
