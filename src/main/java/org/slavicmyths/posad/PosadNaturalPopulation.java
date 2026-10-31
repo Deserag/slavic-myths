@@ -15,7 +15,9 @@ import net.neoforged.neoforge.event.tick.ServerTickEvent;
 @EventBusSubscriber(modid = "slavicmyths")
 public final class PosadNaturalPopulation {
     private static int ticks;
-    private static final int[] OFFSETS = {-48, 0, 48};
+    private static final int SEARCH_RADIUS = 128;
+    private static final int SAMPLE_STEP = 32;
+    private static final int STRUCTURE_SAMPLE_Y = 32;
 
     @SubscribeEvent
     public static void tick(ServerTickEvent.Post event) {
@@ -27,10 +29,10 @@ public final class PosadNaturalPopulation {
             Set<BlockPos> visited = new HashSet<>();
             for (var player : level.players()) {
                 BlockPos current = player.blockPosition();
-                // A player approaching a 113x113 structure is usually outside its bounding box.
-                // Sample only loaded chunks, including the city when the player stands near an edge.
-                for (int ox : OFFSETS) for (int oz : OFFSETS) {
-                    BlockPos sample = current.offset(ox, 0, oz);
+                // Scan loaded chunks around the player, independent of their altitude.
+                // A 32-block lattice intersects the 113x113 footprint from any approach.
+                for (int ox = -SEARCH_RADIUS; ox <= SEARCH_RADIUS; ox += SAMPLE_STEP) for (int oz = -SEARCH_RADIUS; oz <= SEARCH_RADIUS; oz += SAMPLE_STEP) {
+                    BlockPos sample = new BlockPos(Math.floorDiv(current.getX(), 32) * 32 + 16 + ox, STRUCTURE_SAMPLE_Y, Math.floorDiv(current.getZ(), 32) * 32 + 16 + oz);
                     if (level.getChunkSource().getChunkNow(sample.getX() >> 4, sample.getZ() >> 4) == null) continue;
                     var start = level.structureManager().getStructureAt(sample, structure);
                     if (!start.isValid()) continue;
