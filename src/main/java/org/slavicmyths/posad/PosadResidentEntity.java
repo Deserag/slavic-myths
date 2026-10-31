@@ -263,7 +263,11 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         if (hand != InteractionHand.MAIN_HAND || !isAlive() || city == null || player.isSpectator() || refuses(player)) return super.mobInteract(player, hand);
         if (!level().isClientSide) {
             if (tradingPlayer != null && tradingPlayer != player) tradingPlayer.closeContainer();
-            getOffers();
+            MerchantOffers available = getOffers();
+            if (available.isEmpty()) return net.minecraft.world.InteractionResult.PASS;
+            // Vanilla MerchantMenu.stillValid requires the owning Merchant to track its customer.
+            // Without this, a valid GUI opens and immediately closes on the next server tick.
+            setTradingPlayer(player);
             openTradingScreen(player, getName(), tradeTier());
         }
         return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
