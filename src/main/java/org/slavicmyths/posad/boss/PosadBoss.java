@@ -29,6 +29,7 @@ public final class PosadBoss extends Monster {
     public enum Kind { MYTAR, BAUK }
     public enum Move { IDLE, WINDUP_BITE, WINDUP_PAW, RECOVERY, RAGE_TRANSITION, WINDUP_SICKLE }
     private static final EntityDataAccessor<Integer> ACTION = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> PHASE = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> ENRAGED = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.BOOLEAN);
     private final Kind kind;
     private final ServerBossEvent bar;
@@ -51,9 +52,11 @@ public final class PosadBoss extends Monster {
     public Kind kind() { return kind; }
     public Move move() { return Move.values()[entityData.get(ACTION)]; }
     public boolean enraged() { return entityData.get(ENRAGED); }
+    public int phase() { return entityData.get(PHASE); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(ACTION, Move.IDLE.ordinal());
+        builder.define(PHASE, 1);
         builder.define(ENRAGED, false);
     }
     @Override protected void registerGoals() {
@@ -69,6 +72,7 @@ public final class PosadBoss extends Monster {
     @Override protected void customServerAiStep() {
         super.customServerAiStep();
         bar.setProgress(Math.max(0F, Math.min(1F, getHealth() / getMaxHealth())));
+        if (kind == Kind.MYTAR && phase() == 1 && getHealth() <= 607.5F) { entityData.set(PHASE, 2); begin(Move.RECOVERY, 35, 35); return; }
         if (kind == Kind.BAUK && !enraged() && getHealth() <= 630F) {
             entityData.set(ENRAGED, true);
             getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(.27D);
@@ -114,6 +118,7 @@ public final class PosadBoss extends Monster {
     @Override protected void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putInt("PosadAction", entityData.get(ACTION));
+        tag.putInt("PosadPhase", phase());
         tag.putInt("PosadActionTicks", actionTicks);
         tag.putInt("PosadCooldown", cooldown);
         tag.putBoolean("PosadEnraged", enraged());
@@ -122,6 +127,7 @@ public final class PosadBoss extends Monster {
     @Override protected void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         entityData.set(ACTION, Math.max(0, Math.min(Move.values().length - 1, tag.getInt("PosadAction"))));
+        entityData.set(PHASE, kind == Kind.MYTAR && tag.getInt("PosadPhase") >= 2 ? 2 : 1);
         actionTicks = Math.max(0, Math.min(80, tag.getInt("PosadActionTicks")));
         cooldown = Math.max(0, Math.min(600, tag.getInt("PosadCooldown")));
         connected = tag.getBoolean("PosadHitDone");
