@@ -12,7 +12,7 @@ source=root/"docs/concepts/nether-settlement-2.2/posadnik-terem"
 proposal=json.loads((source/"posadnik_terem_A_proposal.json").read_text("utf-8"))
 delta=json.loads((source/"posadnik_terem_Aplus_delta.json").read_text("utf-8"))
 assert len(proposal["blocks"])==1259 and len(delta["placements"])==80
-assert "SCHEMA_VERSION = 20" in geom
+assert "SCHEMA_VERSION = 21" in geom
 assert "if(schema >= 20)" in piece and "PosadArchitectureR3.voxel(x,y,z)" in piece
 assert piece.index("if(schema >= 20)")<piece.index("if(schema >= 19)")
 assert "resolvedConnections" in piece and "state.updateShape(direction" in piece
