@@ -51,6 +51,7 @@ def textured_model(path, minimum):
     for cube in model["elements"]:
         assert len(cube["from"]) == len(cube["to"]) == 3
         assert all(a < b for a, b in zip(cube["from"], cube["to"])), (path, cube)
+        assert all(-16 <= v <= 32 for v in cube["from"] + cube["to"]), f"Minecraft block model exceeds [-16,32] bake bounds: {path}"
         for face in cube.get("faces", {}).values():
             assert face["texture"].lstrip("#") in textures, (path, face)
     return model
