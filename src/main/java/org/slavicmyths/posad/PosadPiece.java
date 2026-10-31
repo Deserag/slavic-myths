@@ -5,6 +5,10 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.StairsShape;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.structure.*;
@@ -154,9 +158,83 @@ public final class PosadPiece extends StructurePiece {
         return (state.is(Blocks.LANTERN) || state.is(Blocks.SOUL_LANTERN))
             && state.getValue(net.minecraft.world.level.block.LanternBlock.HANGING);
     }
+    private static boolean sameRoofRun(BlockState stair, BlockState neighbor) {
+        return neighbor != null && neighbor.getBlock()==stair.getBlock() && neighbor.getBlock() instanceof StairBlock
+            && neighbor.getValue(StairBlock.FACING)==stair.getValue(StairBlock.FACING)
+            && neighbor.getValue(StairBlock.HALF)==stair.getValue(StairBlock.HALF);
+    }
+    private static BlockState roofSolidMaterial(BlockState stair) {
+        if(stair.is(Blocks.NETHER_BRICK_STAIRS))return Blocks.NETHER_BRICKS.defaultBlockState();
+        if(stair.is(Blocks.POLISHED_BLACKSTONE_BRICK_STAIRS))return Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState();
+        if(stair.is(Blocks.CRIMSON_STAIRS))return Blocks.CRIMSON_PLANKS.defaultBlockState();
+        if(stair.is(Blocks.BLACKSTONE_STAIRS))return Blocks.BLACKSTONE.defaultBlockState();
+        if(stair.is(Blocks.POLISHED_BLACKSTONE_STAIRS))return Blocks.POLISHED_BLACKSTONE.defaultBlockState();
+        return null;
+    }
+    /** New cities: the inner member of a two-cell stair row must be solid,
+     * not the upside-down TOP stair introduced by schema 21. */
+    private BlockState resolvedRoofSolid(BlockState stair,int x,int y,int z) {
+        if(schema<23 || y<5 || !(stair.getBlock() instanceof StairBlock)
+            || stair.getValue(StairBlock.HALF)!=net.minecraft.world.level.block.state.properties.Half.BOTTOM)return stair;
+        Direction facing=stair.getValue(StairBlock.FACING);
+        BlockState outward=voxel(x+facing.getStepX(),y,z+facing.getStepZ());
+        BlockState inward=voxel(x-facing.getStepX(),y,z-facing.getStepZ());
+        BlockState outward2=voxel(x+2*facing.getStepX(),y,z+2*facing.getStepZ());
+        if(!sameRoofRun(stair,outward)||sameRoofRun(stair,inward)||sameRoofRun(stair,outward2))return stair;
+        BlockState solid=roofSolidMaterial(stair);
+        if(solid==null)throw new IllegalStateException("Unknown roof stair at "+x+","+y+","+z+": "+stair);
+        return solid;
+    }
+    private BlockState resolvedRoofHalf(BlockState stair,int x,int y,int z) {
+        if(schema>=23)return stair;
+        if(schema<21 || y<5 || !(stair.getBlock() instanceof StairBlock)
+            || stair.getValue(StairBlock.HALF)!=net.minecraft.world.level.block.state.properties.Half.BOTTOM)return stair;
+        Direction facing=stair.getValue(StairBlock.FACING);
+        BlockState outward=voxel(x+facing.getStepX(),y,z+facing.getStepZ());
+        BlockState inward=voxel(x-facing.getStepX(),y,z-facing.getStepZ());
+        BlockState outward2=voxel(x+2*facing.getStepX(),y,z+2*facing.getStepZ());
+        if(sameRoofRun(stair,outward) && !sameRoofRun(stair,inward) && !sameRoofRun(stair,outward2))
+            return stair.setValue(StairBlock.HALF,net.minecraft.world.level.block.state.properties.Half.TOP);
+        return stair;
+    }
+    private BlockState resolvedRoofHalfAt(int x,int y,int z) {
+        BlockState neighbor=voxel(x,y,z);
+        return neighbor==null?null:(schema>=23?resolvedRoofSolid(neighbor,x,y,z):resolvedRoofHalf(neighbor,x,y,z));
+    }
+    private static boolean sameStairHalf(BlockState stair, BlockState neighbor) {
+        return neighbor != null && neighbor.getBlock() instanceof StairBlock
+            && neighbor.getValue(StairBlock.HALF) == stair.getValue(StairBlock.HALF);
+    }
+    private boolean freeCornerSide(BlockState stair, int x, int y, int z, Direction side) {
+        BlockState neighbor=resolvedRoofHalfAt(x+side.getStepX(),y,z+side.getStepZ());
+        return !sameStairHalf(stair,neighbor) || neighbor.getValue(StairBlock.FACING) != stair.getValue(StairBlock.FACING);
+    }
+    private BlockState resolvedRoofStair(BlockState stair, int x, int y, int z) {
+        // Schema 20+ resolves stair corner shape from the final authored graph
+        // for every structural stair, not only roof rows. Schema 21 additionally
+        // normalizes paired roof stairs into a continuous half-step pitch.
+        if(schema<20 || !(stair.getBlock() instanceof StairBlock))return stair;
+        stair=resolvedRoofSolid(stair,x,y,z);
+        if(!(stair.getBlock() instanceof StairBlock))return stair;
+        stair=resolvedRoofHalf(stair,x,y,z);
+        Direction facing=stair.getValue(StairBlock.FACING);
+        BlockState forward=resolvedRoofHalfAt(x+facing.getStepX(),y,z+facing.getStepZ());
+        if(sameStairHalf(stair,forward)) {
+            Direction turn=forward.getValue(StairBlock.FACING);
+            if(turn.getAxis()!=facing.getAxis() && freeCornerSide(stair,x,y,z,turn.getOpposite()))
+                return stair.setValue(StairBlock.SHAPE,turn==facing.getCounterClockWise()?StairsShape.OUTER_LEFT:StairsShape.OUTER_RIGHT);
+        }
+        BlockState backward=resolvedRoofHalfAt(x-facing.getStepX(),y,z-facing.getStepZ());
+        if(sameStairHalf(stair,backward)) {
+            Direction turn=backward.getValue(StairBlock.FACING);
+            if(turn.getAxis()!=facing.getAxis() && freeCornerSide(stair,x,y,z,turn))
+                return stair.setValue(StairBlock.SHAPE,turn==facing.getCounterClockWise()?StairsShape.INNER_LEFT:StairsShape.INNER_RIGHT);
+        }
+        return stair.setValue(StairBlock.SHAPE,StairsShape.STRAIGHT);
+    }
     /** Resolve iron bars/glass panes from final city-local voxels, not chunk placement order. */
     private net.minecraft.world.level.block.state.BlockState resolvedConnections(net.minecraft.world.level.block.state.BlockState local,int x,int y,int z,WorldGenLevel world,BlockPos worldPos) {
-        net.minecraft.world.level.block.state.BlockState state=local.rotate(Rotation.values()[turns]);
+        net.minecraft.world.level.block.state.BlockState state=resolvedRoofStair(local,x,y,z).rotate(Rotation.values()[turns]);
         if(!(state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock))return state;
         for(var direction:new net.minecraft.core.Direction[]{net.minecraft.core.Direction.NORTH,net.minecraft.core.Direction.EAST,net.minecraft.core.Direction.SOUTH,net.minecraft.core.Direction.WEST}) {
             // Direction is in the rotated WORLD frame. Map neighbor back to city coordinates.
