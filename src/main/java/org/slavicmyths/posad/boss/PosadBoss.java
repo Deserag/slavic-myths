@@ -41,6 +41,7 @@ public final class PosadBoss extends Monster {
     private int chainCooldown;
     private int coinsCooldown;
     private int grabCooldown;
+    private long bellImmuneUntil;
     private net.minecraft.world.phys.Vec3 chargeDirection = net.minecraft.world.phys.Vec3.ZERO;
     private boolean naturalEncounter;
     private int healedFromCoins;
@@ -60,6 +61,13 @@ public final class PosadBoss extends Monster {
     @Override public float getMaxHealth() { return (float) org.slavicmyths.combat.CreatureHealthBalance.uncappedMaximum(getAttribute(Attributes.MAX_HEALTH)); }
     @Override public void onRemovedFromLevel() { bar.removeAllPlayers(); super.onRemovedFromLevel(); }
     public void markNaturalEncounter() { naturalEncounter = true; }
+    public void interruptByBell() {
+        if (kind != Kind.BAUK || level().isClientSide || level().getGameTime() < bellImmuneUntil) return;
+        if (move() != Move.WINDUP_CHARGE && move() != Move.WINDUP_GRAB) return;
+        if (level().getMaxLocalRawBrightness(blockPosition()) < 11) return;
+        bellImmuneUntil = level().getGameTime() + 800L;
+        begin(Move.RECOVERY, 30, 30);
+    }
     public Kind kind() { return kind; }
     public Move move() { return Move.values()[entityData.get(ACTION)]; }
     public boolean enraged() { return entityData.get(ENRAGED); }
@@ -253,6 +261,7 @@ public final class PosadBoss extends Monster {
         tag.putInt("PosadChainCooldown", chainCooldown);
         tag.putInt("PosadCoinsCooldown", coinsCooldown);
         tag.putInt("PosadGrabCooldown", grabCooldown);
+        tag.putLong("PosadBellImmunity", bellImmuneUntil);
         tag.putDouble("PosadChargeX", chargeDirection.x);
         tag.putDouble("PosadChargeZ", chargeDirection.z);
         tag.putBoolean("PosadRewardDropped", rewardDropped);
@@ -273,6 +282,7 @@ public final class PosadBoss extends Monster {
         chainCooldown = Math.max(0, Math.min(600, tag.getInt("PosadChainCooldown")));
         coinsCooldown = Math.max(0, Math.min(600, tag.getInt("PosadCoinsCooldown")));
         grabCooldown = Math.max(0, Math.min(600, tag.getInt("PosadGrabCooldown")));
+        bellImmuneUntil = tag.getLong("PosadBellImmunity");
         chargeDirection = new net.minecraft.world.phys.Vec3(tag.getDouble("PosadChargeX"), 0D, tag.getDouble("PosadChargeZ"));
         rewardDropped = tag.getBoolean("PosadRewardDropped");
         naturalEncounter = tag.getBoolean("PosadNatural");
