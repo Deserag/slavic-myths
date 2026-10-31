@@ -65,8 +65,9 @@ for turns in range(4):
     assert len(mapped) == 24
 
 # The existing military gates remain valid and separate from the stair repair.
-for z, lower, upper in [(1, "D", "d"), (11, "E", "e")]:
-    for x in (13, 14):
+for z in (1, 11):
+    # R1 had opposing leaf facings; schema-11 repairs both paired doorways.
+    for x, lower, upper in ((13, "D", "d"), (14, "E", "e")):
         assert military["rows_y_z_x"][1][z][x] == lower
         assert military["rows_y_z_x"][2][z][x] == upper
         assert (12+x, 1, 75+z) not in all_steps
