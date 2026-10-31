@@ -597,6 +597,15 @@ public final class PosadShellGameTests {
    var cityId=PosadPopulationPlan.settlementId(world.dimension().location().toString(),anchor.getX(),anchor.getY(),anchor.getZ());
    var box=new net.minecraft.world.phys.AABB(anchor.getX()-2,anchor.getY(),anchor.getZ()-2,anchor.getX()+115,anchor.getY()+8,anchor.getZ()+115);
    var residents=world.getEntitiesOfClass(PosadResidentEntity.class,box,e->cityId.equals(e.city()));
+   var missing=new java.util.ArrayList<String>();
+   for(var planned:PosadPopulationPlan.at(world.dimension().location().toString(),anchor.getX(),anchor.getY(),anchor.getZ(),turns)){
+    var entity=world.getEntity(planned.identity());
+    if(!(entity instanceof PosadResidentEntity npc))missing.add(planned.member().key()+":entity="+entity);
+    else if(!cityId.equals(npc.city()))missing.add(planned.member().key()+":wrongCity="+npc.city()+" pos="+npc.blockPosition());
+    else if(!box.contains(npc.position()))missing.add(planned.member().key()+":outside="+npc.blockPosition());
+   }
+   System.out.println("POSAD_POPULATION_DIAGNOSTIC turn="+turns+" queried="+residents.size()+" missing="+missing);
+   t.assertTrue(missing.isEmpty(),"Population UUID/index mismatch turn="+turns+" "+missing);
    t.assertTrue(residents.size()==17,"Expected exactly 17 residents turn="+turns+" got="+residents.size());
    var roles=java.util.EnumSet.noneOf(PosadPopulationPlan.Role.class);
    int guards=0;
