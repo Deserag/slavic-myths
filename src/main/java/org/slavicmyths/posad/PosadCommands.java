@@ -39,13 +39,13 @@ public final class PosadCommands {
                         .executes(context -> templates(context.getSource(), IntegerArgumentType.getInteger(context, "anchorX"), IntegerArgumentType.getInteger(context, "deckY"), IntegerArgumentType.getInteger(context, "anchorZ")))))));
         posad.then(Commands.literal("status").requires(source -> source.hasPermission(2)).executes(context -> PosadManualJobs.status(context.getSource(), false)));
         posad.then(Commands.literal("cancel").requires(source -> source.hasPermission(2)).executes(context -> PosadManualJobs.status(context.getSource(), true)));
-        posad.then(Commands.literal("populate").then(Commands.argument("turns", IntegerArgumentType.integer(0,3))
-            .then(Commands.argument("anchorX", IntegerArgumentType.integer())
-            .then(Commands.argument("deckY", IntegerArgumentType.integer())
-            .then(Commands.argument("anchorZ", IntegerArgumentType.integer())
-            .executes(context -> populate(context.getSource(), IntegerArgumentType.getInteger(context,"turns"),
-                IntegerArgumentType.getInteger(context,"anchorX"), IntegerArgumentType.getInteger(context,"deckY"),
-                IntegerArgumentType.getInteger(context,"anchorZ")))))));
+        var populateCommand = Commands.literal("populate");
+        var populateZ = Commands.argument("anchorZ", IntegerArgumentType.integer()).executes(context -> populate(context.getSource(), IntegerArgumentType.getInteger(context,"turns"), IntegerArgumentType.getInteger(context,"anchorX"), IntegerArgumentType.getInteger(context,"deckY"), IntegerArgumentType.getInteger(context,"anchorZ")));
+        var populateY = Commands.argument("deckY", IntegerArgumentType.integer()).then(populateZ);
+        var populateX = Commands.argument("anchorX", IntegerArgumentType.integer()).then(populateY);
+        var populateTurns = Commands.argument("turns", IntegerArgumentType.integer(0,3)).then(populateX);
+        populateCommand.then(populateTurns);
+        posad.then(populateCommand);
         var createPosition=Commands.argument("origin",net.minecraft.commands.arguments.coordinates.BlockPosArgument.blockPos())
             .executes(c -> create(c));
         posad.then(Commands.literal("create").then(Commands.argument("turns",IntegerArgumentType.integer(0,3)).then(createPosition)));
