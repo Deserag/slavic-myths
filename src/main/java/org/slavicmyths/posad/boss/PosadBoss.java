@@ -27,7 +27,7 @@ import net.minecraft.world.level.Level;
  */
 public final class PosadBoss extends Monster {
     public enum Kind { MYTAR, BAUK }
-    public enum Move { IDLE, WINDUP_BITE, WINDUP_PAW, RECOVERY, RAGE_TRANSITION, WINDUP_SICKLE, WINDUP_SLAM, WINDUP_ROAR, WINDUP_CHARGE }
+    public enum Move { IDLE, WINDUP_BITE, WINDUP_PAW, RECOVERY, RAGE_TRANSITION, WINDUP_SICKLE, WINDUP_SLAM, WINDUP_ROAR, WINDUP_CHARGE, WINDUP_CHAIN, WINDUP_COINS, WINDUP_GRAB }
     private static final EntityDataAccessor<Integer> ACTION = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> PHASE = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> ENRAGED = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.BOOLEAN);
@@ -38,6 +38,10 @@ public final class PosadBoss extends Monster {
     private boolean connected;
     private boolean rewardDropped;
     private int specialCooldown;
+    private int chainCooldown;
+    private int coinsCooldown;
+    private int grabCooldown;
+    private net.minecraft.world.phys.Vec3 chargeDirection = net.minecraft.world.phys.Vec3.ZERO;
     private boolean naturalEncounter;
     private int healedFromCoins;
     private final java.util.Set<java.util.UUID> participants = new java.util.HashSet<>();
@@ -88,9 +92,14 @@ public final class PosadBoss extends Monster {
         }
         if (cooldown > 0) cooldown--;
         if (specialCooldown > 0) specialCooldown--;
+        if (chainCooldown > 0) chainCooldown--;
+        if (coinsCooldown > 0) coinsCooldown--;
+        if (grabCooldown > 0) grabCooldown--;
         if (actionTicks > 0) {
             actionTicks--;
             getNavigation().stop();
+            if (move() == Move.WINDUP_CHARGE && actionTicks <= 14) chargeStep();
+            if (move() == Move.WINDUP_COINS && (actionTicks == 16 || actionTicks == 8 || actionTicks == 1)) applyHit();
             if (!connected && actionTicks == impactTick(move())) {
                 connected = true;
                 applyHit();
@@ -101,10 +110,17 @@ public final class PosadBoss extends Monster {
         LivingEntity target = getTarget();
         if (!(target instanceof Player player) || !player.isAlive() || player.isCreative() || player.isSpectator()) { getNavigation().stop(); return; }
         getLookControl().setLookAt(target, 30F, 30F);
-        if (distanceToSqr(target) > 12.25D) { getNavigation().moveTo(target, kind == Kind.BAUK && enraged() ? 1.2D : 1D); return; }
+        double distance = distanceToSqr(target);
+        if (cooldown == 0 && getSensing().hasLineOfSight(target)) {
+            if (kind == Kind.MYTAR && distance >= 25D && distance <= 196D && chainCooldown == 0) { chainCooldown = phase() == 2 ? 120 : 160; begin(Move.WINDUP_CHAIN, 40, 25); return; }
+            if (kind == Kind.MYTAR && distance >= 16D && distance <= 144D && coinsCooldown == 0) { coinsCooldown = 220; begin(Move.WINDUP_COINS, 40, 25); return; }
+            if (kind == Kind.BAUK && distance >= 25D && distance <= 169D && specialCooldown == 0 && canCharge(target)) { specialCooldown = enraged() ? 120 : 160; begin(Move.WINDUP_CHARGE, 44, 30); return; }
+        }
+        if (distance > 12.25D) { getNavigation().moveTo(target, kind == Kind.BAUK && enraged() ? 1.2D : 1D); return; }
         getNavigation().stop();
         if (cooldown > 0) return;
-        if (kind == Kind.BAUK && specialCooldown == 0 && random.nextInt(5) == 0) { specialCooldown = 220; begin(Move.WINDUP_SLAM, 55, 50); }
+        if (kind == Kind.BAUK && grabCooldown == 0 && distance <= 7.84D && random.nextInt(4) == 0) { grabCooldown = 160; begin(Move.WINDUP_GRAB, 38, 45); }
+        else if (kind == Kind.BAUK && specialCooldown == 0 && random.nextInt(5) == 0) { specialCooldown = 220; begin(Move.WINDUP_SLAM, 55, 50); }
         else if (kind == Kind.BAUK && specialCooldown == 0 && random.nextInt(4) == 0) { specialCooldown = 260; begin(Move.WINDUP_ROAR, 48, 45); }
         else if (kind == Kind.BAUK && random.nextBoolean()) begin(Move.WINDUP_PAW, 38, 70);
         else if (kind == Kind.BAUK) begin(Move.WINDUP_BITE, 32, 42);
@@ -115,9 +131,47 @@ public final class PosadBoss extends Monster {
         actionTicks = ticks;
         cooldown = after;
         connected = false;
+        if (next == Move.WINDUP_CHARGE && getTarget() != null) chargeDirection = getTarget().position().subtract(position()).multiply(1D, 0D, 1D).normalize();
     }
-    private int impactTick(Move move) { return switch (move) { case WINDUP_BITE -> 18; case WINDUP_PAW -> 20; case WINDUP_SLAM -> 25; case WINDUP_ROAR -> 20; case WINDUP_SICKLE -> 14; default -> -1; }; }
+    private int impactTick(Move move) { return switch (move) { case WINDUP_BITE -> 18; case WINDUP_PAW -> 20; case WINDUP_SLAM -> 25; case WINDUP_ROAR -> 20; case WINDUP_SICKLE -> 14; case WINDUP_CHAIN -> 14; case WINDUP_GRAB -> 16; default -> -1; }; }
+    private boolean canCharge(LivingEntity target) {
+        net.minecraft.world.phys.Vec3 direction = target.position().subtract(position()).multiply(1D, 0D, 1D).normalize();
+        if (direction.lengthSqr() < .1D) return false;
+        for (int distance = 2; distance <= 13; distance += 2) {
+            net.minecraft.core.BlockPos pos = net.minecraft.core.BlockPos.containing(position().add(direction.scale(distance)));
+            if (!level().hasChunkAt(pos) || !level().getBlockState(pos).isAir() || !level().getBlockState(pos.above()).isAir() || !level().getBlockState(pos.below()).isSolid()) return false;
+        }
+        return true;
+    }
+    private void chargeStep() {
+        if (chargeDirection.lengthSqr() < .1D || !(level() instanceof net.minecraft.server.level.ServerLevel server)) return;
+        net.minecraft.world.phys.Vec3 step = chargeDirection.scale(1.15D);
+        net.minecraft.core.BlockPos next = net.minecraft.core.BlockPos.containing(position().add(step));
+        if (!server.hasChunkAt(next) || !server.getBlockState(next.below()).isSolid() || !server.noCollision(this, getBoundingBox().move(step))) { begin(Move.RECOVERY, 30, 30); return; }
+        move(net.minecraft.world.entity.MoverType.SELF, step);
+        for (Player victim : server.getEntitiesOfClass(Player.class, getBoundingBox().inflate(.5D), p -> p.isAlive() && !p.isCreative() && !p.isSpectator())) {
+            if (victim.hurt(damageSources().mobAttack(this), 18F)) victim.knockback(1.2D, -step.x, -step.z);
+            begin(Move.RECOVERY, 25, 45);
+            break;
+        }
+    }
     private void applyHit() {
+        if (move() == Move.WINDUP_CHAIN || move() == Move.WINDUP_COINS) {
+            LivingEntity distant = getTarget();
+            if (!(distant instanceof Player p) || !p.isAlive() || p.isCreative() || p.isSpectator() || !getSensing().hasLineOfSight(distant) || distanceToSqr(distant) > (move() == Move.WINDUP_CHAIN ? 196D : 144D)) return;
+            if (move() == Move.WINDUP_COINS) { distant.hurt(damageSources().mobAttack(this), 5F); return; }
+            if (distant.hurt(damageSources().mobAttack(this), 6F)) {
+                net.minecraft.world.phys.Vec3 pull = position().subtract(distant.position()).multiply(1D, 0D, 1D).normalize().scale(.85D);
+                if (level().noCollision(distant, distant.getBoundingBox().move(pull))) distant.setDeltaMovement(distant.getDeltaMovement().add(pull));
+            }
+            return;
+        }
+        if (move() == Move.WINDUP_GRAB) {
+            LivingEntity victim = getTarget();
+            if (!(victim instanceof Player p) || p.isCreative() || p.isSpectator() || distanceToSqr(p) > 7.84D || !getSensing().hasLineOfSight(p)) return;
+            if (victim.hurt(damageSources().mobAttack(this), 14F)) victim.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 16, 1));
+            return;
+        }
         if (move() == Move.WINDUP_SLAM || move() == Move.WINDUP_ROAR) {
             for (Player victim : level().getEntitiesOfClass(Player.class, getBoundingBox().inflate(move() == Move.WINDUP_ROAR ? 6 : 4), p -> p.isAlive() && !p.isCreative() && !p.isSpectator())) {
                 if (!getSensing().hasLineOfSight(victim)) continue;
@@ -178,6 +232,11 @@ public final class PosadBoss extends Monster {
         tag.putBoolean("PosadEnraged", enraged());
         tag.putBoolean("PosadHitDone", connected);
         tag.putInt("PosadSpecialCooldown", specialCooldown);
+        tag.putInt("PosadChainCooldown", chainCooldown);
+        tag.putInt("PosadCoinsCooldown", coinsCooldown);
+        tag.putInt("PosadGrabCooldown", grabCooldown);
+        tag.putDouble("PosadChargeX", chargeDirection.x);
+        tag.putDouble("PosadChargeZ", chargeDirection.z);
         tag.putBoolean("PosadRewardDropped", rewardDropped);
         tag.putBoolean("PosadNatural", naturalEncounter);
         tag.putInt("PosadCoinHeal", healedFromCoins);
@@ -193,6 +252,10 @@ public final class PosadBoss extends Monster {
         cooldown = Math.max(0, Math.min(600, tag.getInt("PosadCooldown")));
         connected = tag.getBoolean("PosadHitDone");
         specialCooldown = Math.max(0, Math.min(600, tag.getInt("PosadSpecialCooldown")));
+        chainCooldown = Math.max(0, Math.min(600, tag.getInt("PosadChainCooldown")));
+        coinsCooldown = Math.max(0, Math.min(600, tag.getInt("PosadCoinsCooldown")));
+        grabCooldown = Math.max(0, Math.min(600, tag.getInt("PosadGrabCooldown")));
+        chargeDirection = new net.minecraft.world.phys.Vec3(tag.getDouble("PosadChargeX"), 0D, tag.getDouble("PosadChargeZ"));
         rewardDropped = tag.getBoolean("PosadRewardDropped");
         naturalEncounter = tag.getBoolean("PosadNatural");
         healedFromCoins = Math.max(0, Math.min(240, tag.getInt("PosadCoinHeal")));
