@@ -581,8 +581,9 @@ public final class PosadShellGameTests {
  @GameTest(template="empty",timeoutTicks=1200)
  public static void naturalPopulationRosterPersistenceAndDedup(GameTestHelper t) {
   var world=t.getLevel();
+  var anchors=new java.util.ArrayList<net.minecraft.core.BlockPos>();
   for(int turns=0;turns<4;turns++){
-   var anchor=new net.minecraft.core.BlockPos(8000000+turns*160,100,8000000);
+   var anchor=new net.minecraft.core.BlockPos(8000000+turns*160,100,8000000);anchors.add(anchor);
    var piece=new PosadPiece(anchor,turns);
    for(var patch:PosadGeometry.chunkPatches(anchor.getX(),anchor.getZ())){
     world.getChunk(patch.chunkX(),patch.chunkZ());world.setChunkForced(patch.chunkX(),patch.chunkZ(),true);
@@ -594,48 +595,53 @@ public final class PosadShellGameTests {
    t.assertTrue(first.added()==17&&first.existing()==0&&first.blocked()==0,"Natural population incomplete turn="+turns+" result="+first);
    var second=PosadResidentSpawner.populateNatural(world,piece);
    t.assertTrue(second.added()==0&&second.existing()==17&&second.blocked()==0,"Natural population duplicated turn="+turns+" result="+second);
-   var cityId=PosadPopulationPlan.settlementId(world.dimension().location().toString(),anchor.getX(),anchor.getY(),anchor.getZ());
-   var box=new net.minecraft.world.phys.AABB(anchor.getX()-2,anchor.getY(),anchor.getZ()-2,anchor.getX()+115,anchor.getY()+8,anchor.getZ()+115);
-   var residents=world.getEntitiesOfClass(PosadResidentEntity.class,box,e->cityId.equals(e.city()));
-   var missing=new java.util.ArrayList<String>();
-   for(var planned:PosadPopulationPlan.at(world.dimension().location().toString(),anchor.getX(),anchor.getY(),anchor.getZ(),turns)){
-    var entity=world.getEntity(planned.identity());
-    if(!(entity instanceof PosadResidentEntity npc))missing.add(planned.member().key()+":entity="+entity);
-    else if(!cityId.equals(npc.city()))missing.add(planned.member().key()+":wrongCity="+npc.city()+" pos="+npc.blockPosition());
-    else if(!box.contains(npc.position()))missing.add(planned.member().key()+":outside="+npc.blockPosition());
-   }
-   System.out.println("POSAD_POPULATION_DIAGNOSTIC turn="+turns+" queried="+residents.size()+" missing="+missing);
-   t.assertTrue(missing.isEmpty(),"Population UUID/index mismatch turn="+turns+" "+missing);
-   t.assertTrue(residents.size()==17,"Expected exactly 17 residents turn="+turns+" got="+residents.size());
-   var roles=java.util.EnumSet.noneOf(PosadPopulationPlan.Role.class);
-   int guards=0;
-   for(var npc:residents){
-    roles.add(npc.role());
-    if(npc.role().guard())guards++;
-    var feet=npc.blockPosition();
-    t.assertTrue(world.getBlockState(feet).getCollisionShape(world,feet).isEmpty(),"Resident spawned trapped at feet "+feet+" turn="+turns);
-    t.assertTrue(world.getBlockState(feet.above()).getCollisionShape(world,feet.above()).isEmpty(),"Resident spawned trapped at head "+feet+" turn="+turns);
-    var expectedMain=switch(npc.weapon()){
-     case SWORD,SWORD_SHIELD -> net.minecraft.world.item.Items.IRON_SWORD;
-     case SPEAR,SPEAR_SHIELD -> net.minecraft.world.item.Items.TRIDENT;
-     case BOW -> net.minecraft.world.item.Items.BOW;
-     case NONE -> net.minecraft.world.item.Items.AIR;
-    };
-    t.assertTrue((expectedMain==net.minecraft.world.item.Items.AIR&&npc.getMainHandItem().isEmpty())||npc.getMainHandItem().is(expectedMain),"Wrong main-hand equipment "+npc.role()+" "+npc.weapon());
-    boolean shield=npc.weapon()==PosadPopulationPlan.Weapon.SWORD_SHIELD||npc.weapon()==PosadPopulationPlan.Weapon.SPEAR_SHIELD;
-    t.assertTrue(shield==npc.getOffhandItem().is(net.minecraft.world.item.Items.SHIELD),"Wrong off-hand equipment "+npc.role()+" "+npc.weapon());
-    var saved=new net.minecraft.nbt.CompoundTag();
-    npc.saveWithoutId(saved);
-    var restored=org.slavicmyths.registry.ModEntities.POSAD_RESIDENT.get().create(world);
-    t.assertTrue(restored!=null,"Cannot create resident for persistence check");
-    restored.load(saved);
-    t.assertTrue(restored.role()==npc.role()&&restored.weapon()==npc.weapon()&&java.util.Objects.equals(restored.city(),npc.city()),"Resident NBT role/weapon/city lost "+npc.getUUID());
-    t.assertTrue(restored.getMainHandItem().getItem()==npc.getMainHandItem().getItem()&&restored.getOffhandItem().getItem()==npc.getOffhandItem().getItem(),"Resident equipment lost after NBT "+npc.getUUID());
-   }
-   t.assertTrue(roles.size()==12&&guards==6,"Profession/guard roster mismatch turn="+turns+" roles="+roles.size()+" guards="+guards);
-   System.out.println("POSAD_POPULATION_PASS turn="+turns+" residents="+residents.size()+" roles="+roles.size()+" guards="+guards);
   }
-  t.succeed();
+  t.runAfterDelay(10,()->{
+   for(int turns=0;turns<4;turns++){
+    var anchor=anchors.get(turns);
+    var cityId=PosadPopulationPlan.settlementId(world.dimension().location().toString(),anchor.getX(),anchor.getY(),anchor.getZ());
+    var box=new net.minecraft.world.phys.AABB(anchor.getX()-2,anchor.getY(),anchor.getZ()-2,anchor.getX()+115,anchor.getY()+8,anchor.getZ()+115);
+    var residents=world.getEntitiesOfClass(PosadResidentEntity.class,box,e->cityId.equals(e.city()));
+    var missing=new java.util.ArrayList<String>();
+    for(var planned:PosadPopulationPlan.at(world.dimension().location().toString(),anchor.getX(),anchor.getY(),anchor.getZ(),turns)){
+     var entity=world.getEntity(planned.identity());
+     if(!(entity instanceof PosadResidentEntity npc))missing.add(planned.member().key()+":entity="+entity);
+     else if(!cityId.equals(npc.city()))missing.add(planned.member().key()+":wrongCity="+npc.city()+" pos="+npc.blockPosition());
+     else if(!box.contains(npc.position()))missing.add(planned.member().key()+":outside="+npc.blockPosition());
+    }
+    System.out.println("POSAD_POPULATION_DIAGNOSTIC turn="+turns+" queried="+residents.size()+" missing="+missing);
+    t.assertTrue(missing.isEmpty(),"Population UUID/index mismatch turn="+turns+" "+missing);
+    t.assertTrue(residents.size()==17,"Expected exactly 17 residents turn="+turns+" got="+residents.size());
+    var roles=java.util.EnumSet.noneOf(PosadPopulationPlan.Role.class);
+    int guards=0;
+    for(var npc:residents){
+     roles.add(npc.role());
+     if(npc.role().guard())guards++;
+     var feet=npc.blockPosition();
+     t.assertTrue(world.getBlockState(feet).getCollisionShape(world,feet).isEmpty(),"Resident spawned trapped at feet "+feet+" turn="+turns);
+     t.assertTrue(world.getBlockState(feet.above()).getCollisionShape(world,feet.above()).isEmpty(),"Resident spawned trapped at head "+feet+" turn="+turns);
+     var expectedMain=switch(npc.weapon()){
+      case SWORD,SWORD_SHIELD -> net.minecraft.world.item.Items.IRON_SWORD;
+      case SPEAR,SPEAR_SHIELD -> net.minecraft.world.item.Items.TRIDENT;
+      case BOW -> net.minecraft.world.item.Items.BOW;
+      case NONE -> net.minecraft.world.item.Items.AIR;
+     };
+     t.assertTrue((expectedMain==net.minecraft.world.item.Items.AIR&&npc.getMainHandItem().isEmpty())||npc.getMainHandItem().is(expectedMain),"Wrong main-hand equipment "+npc.role()+" "+npc.weapon());
+     boolean shield=npc.weapon()==PosadPopulationPlan.Weapon.SWORD_SHIELD||npc.weapon()==PosadPopulationPlan.Weapon.SPEAR_SHIELD;
+     t.assertTrue(shield==npc.getOffhandItem().is(net.minecraft.world.item.Items.SHIELD),"Wrong off-hand equipment "+npc.role()+" "+npc.weapon());
+     var saved=new net.minecraft.nbt.CompoundTag();
+     npc.saveWithoutId(saved);
+     var restored=org.slavicmyths.registry.ModEntities.POSAD_RESIDENT.get().create(world);
+     t.assertTrue(restored!=null,"Cannot create resident for persistence check");
+     restored.load(saved);
+     t.assertTrue(restored.role()==npc.role()&&restored.weapon()==npc.weapon()&&java.util.Objects.equals(restored.city(),npc.city()),"Resident NBT role/weapon/city lost "+npc.getUUID());
+     t.assertTrue(restored.getMainHandItem().getItem()==npc.getMainHandItem().getItem()&&restored.getOffhandItem().getItem()==npc.getOffhandItem().getItem(),"Resident equipment lost after NBT "+npc.getUUID());
+    }
+    t.assertTrue(roles.size()==12&&guards==6,"Profession/guard roster mismatch turn="+turns+" roles="+roles.size()+" guards="+guards);
+    System.out.println("POSAD_POPULATION_PASS turn="+turns+" residents="+residents.size()+" roles="+roles.size()+" guards="+guards);
+   }
+   t.succeed();
+  });
  }
 
 
