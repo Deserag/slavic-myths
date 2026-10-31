@@ -22,7 +22,7 @@ public final class MytarChainProjectileRenderer extends ThrownItemRenderer<Mytar
         Entity owner = projectile.getOwner();
         if (owner == null || owner.level() != projectile.level()) return;
         Vec3 start = projectile.getPosition(partialTick);
-        Vec3 target = owner.getEyePosition(partialTick).add(0D, -.42D, 0D);
+        Vec3 target = owner instanceof net.minecraft.world.entity.LivingEntity living ? MytarSickleProjectile.handAnchor(living, projectile.offhand(), partialTick) : owner.getPosition(partialTick);
         Vec3 span = target.subtract(start);
         double length = span.length();
         if (length < .04D || length > 18D) return;
