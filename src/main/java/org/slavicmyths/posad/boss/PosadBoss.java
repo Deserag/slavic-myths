@@ -130,7 +130,7 @@ public final class PosadBoss extends Monster {
         getLookControl().setLookAt(target, 30F, 30F);
         double distance = distanceToSqr(target);
         if (cooldown == 0 && getSensing().hasLineOfSight(target)) {
-            if (kind == Kind.MYTAR && distance >= 25D && distance <= 196D && chainCooldown == 0) { chainCooldown = phase() == 2 ? 120 : 160; begin(Move.WINDUP_CHAIN, 40, 25); return; }
+            if (kind == Kind.MYTAR && distance >= 25D && distance <= 196D && chainCooldown == 0) { chainCooldown = phase() == 2 ? 120 : 160; begin(Move.WINDUP_CHAIN, 50, 25); return; }
             if (kind == Kind.MYTAR && distance >= 16D && distance <= 144D && coinsCooldown == 0) { coinsCooldown = 220; begin(Move.WINDUP_COINS, 40, 25); return; }
             if (kind == Kind.BAUK && distance >= 25D && distance <= 169D && specialCooldown == 0 && canCharge(target)) { specialCooldown = enraged() ? 120 : 160; begin(Move.WINDUP_CHARGE, 44, 30); return; }
         }
@@ -162,7 +162,7 @@ public final class PosadBoss extends Monster {
             server.sendParticles(kind == Kind.MYTAR ? net.minecraft.core.particles.ParticleTypes.SOUL_FIRE_FLAME : net.minecraft.core.particles.ParticleTypes.CRIT, getX(), getY() + 1.5D, getZ(), 12, .7D, .8D, .7D, .02D);
         }
     }
-    private int impactTick(Move move) { return switch (move) { case WINDUP_BITE -> 18; case WINDUP_PAW -> 20; case WINDUP_SLAM -> 25; case WINDUP_ROAR -> 20; case WINDUP_SICKLE -> 14; case WINDUP_CHAIN -> 14; case WINDUP_GRAB -> 16; default -> -1; }; }
+    private int impactTick(Move move) { return switch (move) { case WINDUP_BITE -> 18; case WINDUP_PAW -> 20; case WINDUP_SLAM -> 25; case WINDUP_ROAR -> 20; case WINDUP_SICKLE -> 14; case WINDUP_CHAIN -> 26; case WINDUP_GRAB -> 16; default -> -1; }; }
     private boolean canCharge(LivingEntity target) {
         net.minecraft.world.phys.Vec3 direction = target.position().subtract(position()).multiply(1D, 0D, 1D).normalize();
         if (direction.lengthSqr() < .1D) return false;
@@ -183,6 +183,13 @@ public final class PosadBoss extends Monster {
             begin(Move.RECOVERY, 25, 45);
             break;
         }
+    }
+    /** A real projectile impact, not an instant ranged damage query, starts the chain pull. */
+    public void catchChain(ServerPlayer victim) {
+        if (kind != Kind.MYTAR || move() != Move.WINDUP_CHAIN || level().isClientSide || chainVictim != null || !victim.isAlive() || victim.isCreative() || victim.isSpectator() || victim.isBlocking() || distanceToSqr(victim) > 196D || !getSensing().hasLineOfSight(victim)) return;
+        if (!victim.hurt(damageSources().mobAttack(this), 6F)) return;
+        chainVictim = victim.getUUID();
+        chainPullTicks = Math.min(12, Math.max(1, actionTicks - 1));
     }
     private void pullChainedVictim() {
         if (!(level() instanceof net.minecraft.server.level.ServerLevel server) || chainVictim == null) return;
@@ -210,10 +217,12 @@ public final class PosadBoss extends Monster {
             LivingEntity distant = getTarget();
             if (!(distant instanceof Player p) || !p.isAlive() || p.isCreative() || p.isSpectator() || !getSensing().hasLineOfSight(distant) || distanceToSqr(distant) > (move() == Move.WINDUP_CHAIN ? 196D : 144D)) return;
             if (move() == Move.WINDUP_COINS) { distant.hurt(damageSources().mobAttack(this), 5F); return; }
-            if (distant instanceof ServerPlayer hooked && !hooked.isBlocking() && distant.hurt(damageSources().mobAttack(this), 6F)) {
-                chainVictim = hooked.getUUID();
-                chainPullTicks = 12;
-            }
+            if (!(level() instanceof net.minecraft.server.level.ServerLevel server)) return;
+            MytarSickleProjectile hook = new MytarSickleProjectile(server, this);
+            hook.setPos(getX(), getEyeY() - .25D, getZ());
+            net.minecraft.world.phys.Vec3 aim = distant.getBoundingBox().getCenter().subtract(hook.position());
+            hook.shoot(aim.x, aim.y, aim.z, 1.8F, 0F);
+            server.addFreshEntity(hook);
             return;
         }
         if (move() == Move.WINDUP_GRAB) {
