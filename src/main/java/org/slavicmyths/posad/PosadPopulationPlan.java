@@ -31,7 +31,7 @@ public final class PosadPopulationPlan {
         members.add(member("crafter", Role.CRAFTER, Weapon.NONE, 81, 82));
         members.add(member("farmer", Role.FARMER, Weapon.NONE, 82, 45));
         members.add(member("mushroom_grower", Role.MUSHROOM_GROWER, Weapon.NONE, 83, 53));
-        members.add(member("herbalist", Role.HERBALIST, Weapon.NONE, 86, 29));
+        members.add(member("herbalist", Role.HERBALIST, Weapon.NONE, 86, 53));
         members.add(member("cook", Role.COOK, Weapon.NONE, 22, 25));
         members.add(member("storekeeper", Role.STOREKEEPER, Weapon.NONE, 88, 90));
         members.add(member("civilian_1", Role.CIVILIAN, Weapon.NONE, 26, 20));
