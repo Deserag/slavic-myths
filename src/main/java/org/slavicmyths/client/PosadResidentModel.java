@@ -47,19 +47,24 @@ public final class PosadResidentModel extends HumanoidModel<PosadResidentEntity>
         head.addOrReplaceChild("horn_1", CubeListBuilder.create().texOffs(0, 48).addBox(1.95F, -10.0F, -.55F, 1.2F, 2.7F, 1.2F), PartPose.rotation(0, 0, .18F));
         head.addOrReplaceChild("horn_2", CubeListBuilder.create().texOffs(8, 48).addBox(-1.85F, -9.55F, .25F, 1.0F, 1.9F, 1.0F), PartPose.rotation(.12F, 0, -.08F));
         head.addOrReplaceChild("horn_3", CubeListBuilder.create().texOffs(8, 48).addBox(.85F, -9.1F, .25F, 1.0F, 1.35F, 1.0F), PartPose.rotation(.12F, 0, .08F));
-        // Compact bat wings preserve the Steve-sized silhouette and still read as
-        // demonic appendages. Variant 1 is small, 2 is full and 3 is visibly torn.
+        // Reference #2: dark ribbed bat wings with broad red membranes, not
+        // horizontal rectangular bars. Each wing has a shoulder, two tapered
+        // membrane panels and visible spars; all use the existing 64x64 atlas.
         for (int side = 0; side < 2; side++) {
             boolean left = side == 0;
+            float direction = left ? 1.0F : -1.0F;
             PartDefinition wing = body.addOrReplaceChild(left ? "wing_left" : "wing_right",
-                CubeListBuilder.create().texOffs(32, 32).addBox(left ? 0 : -2.8F, -.5F, -.35F, 2.8F, 6.2F, .7F),
-                PartPose.offset(left ? 3.35F : -3.35F, 1.2F, 2.25F));
-            wing.addOrReplaceChild("outer", CubeListBuilder.create().texOffs(0, 32)
-                .addBox(left ? 2.55F : -5.0F, .25F, -.3F, 2.45F, 6.8F, .6F), PartPose.ZERO);
+                CubeListBuilder.create().texOffs(24, 40).addBox(left ? 0.0F : -1.0F, -0.5F, -0.6F, 1.0F, 6.8F, 1.2F),
+                PartPose.offset(left ? 3.1F : -3.1F, 1.0F, 2.5F));
+            wing.addOrReplaceChild("outer", CubeListBuilder.create().texOffs(32, 32)
+                .addBox(left ? 0.8F : -5.6F, 0.0F, -0.2F, 4.8F, 6.5F, 0.4F),
+                PartPose.rotation(0, 0, direction * -0.22F));
             wing.addOrReplaceChild("tip", CubeListBuilder.create().texOffs(12, 32)
-                .addBox(left ? 4.7F : -6.7F, 2.1F, -.25F, 2.0F, 3.8F, .5F), PartPose.ZERO);
+                .addBox(left ? 5.0F : -8.2F, 1.8F, -0.18F, 3.2F, 4.9F, 0.36F),
+                PartPose.rotation(0, 0, direction * 0.18F));
             wing.addOrReplaceChild("vein", CubeListBuilder.create().texOffs(24, 40)
-                .addBox(left ? .9F : -4.9F, -.55F, -.55F, 4.0F, .9F, 1.1F), PartPose.ZERO);
+                .addBox(left ? 0.6F : -7.1F, -0.7F, -0.55F, 6.5F, 0.9F, 1.1F),
+                PartPose.rotation(0, 0, direction * -0.24F));
         }
         // Workers wear recognizable apron/belt details rather than full-body armor.
         body.addOrReplaceChild("apron", CubeListBuilder.create().texOffs(40, 20)
