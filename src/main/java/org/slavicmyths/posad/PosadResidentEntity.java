@@ -78,7 +78,7 @@ public final class PosadResidentEntity extends PathfinderMob {
         goalSelector.addGoal(0, new FloatGoal(this));
         goalSelector.addGoal(1, new OpenDoorGoal(this, true));
         goalSelector.addGoal(1, new PanicGoal(this, 1.25) { @Override public boolean canUse() { return !role().guard() && super.canUse(); } });
-        goalSelector.addGoal(2, new AvoidEntityGoal<>(this, Monster.class, 10, .85, 1.1, candidate -> !role().guard() && candidate.getTarget() instanceof PosadResidentEntity));
+        goalSelector.addGoal(2, new AvoidEntityGoal<>(this, Monster.class, 10, .85, 1.1, candidate -> !role().guard() && candidate instanceof Monster attacker && attacker.getTarget() instanceof PosadResidentEntity));
         goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0, true) {
             @Override public boolean canUse() { return role().guard() && weapon() != PosadPopulationPlan.Weapon.BOW && super.canUse(); }
             @Override public boolean canContinueToUse() { return role().guard() && weapon() != PosadPopulationPlan.Weapon.BOW && super.canContinueToUse(); }
@@ -104,7 +104,7 @@ public final class PosadResidentEntity extends PathfinderMob {
         return monster instanceof net.minecraft.world.entity.monster.Blaze
                 || monster instanceof net.minecraft.world.entity.monster.WitherSkeleton
                 || monster instanceof net.minecraft.world.entity.monster.Skeleton
-                || monster instanceof net.minecraft.world.entity.monster.MagmaCube;
+                ;
     }
     @Override public void setTarget(LivingEntity target) {
         if (target instanceof Player player && !canFightPlayer(player)) target = null;
