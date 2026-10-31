@@ -25,6 +25,10 @@ assert "Standalone stair faces wrong ascent" in command_tests
 assert 'id.equals("communal_house_2_2_3") || id.equals("druzhinny_dvor_2_2_4")' in commands
 assert "PosadArchitectureR4.voxel(x,y,z)" in commands
 assert "StairBlock.FACING,Direction.SOUTH" in overlay
+house_renovation = (source / "PosadHouseRenovation.java").read_text("utf-8")
+assert "for(int step=0;step<6;step++)" in house_renovation
+assert "for(int x:new int[]{7,8})" in house_renovation
+assert "StairBlock.FACING,Direction.NORTH" in house_renovation
 assert "PATCH.size()!=24" in overlay
 
 # The approved historical R1 files are left unchanged. Both flights rise as Z
@@ -39,8 +43,14 @@ for which, model, xs, local_start, offset in [
             y, z = step + 1, local_start - step
             mark = model["rows_y_z_x"][y][z][x]
             state = model["palette"][mark]
-            assert state.startswith("minecraft:polished_blackstone_brick_stairs[")
-            assert "facing=north" in state and "half=bottom" in state
+            if which == "communal":
+                # These 12 stairs are authored by schema-7 HouseRenovation,
+                # not the immutable R1 model. Its displaced chest remains
+                # a chest only in R1; the renovation moves its loot marker.
+                assert not state.startswith("minecraft:polished_blackstone_brick_stairs[")
+            else:
+                assert state.startswith("minecraft:polished_blackstone_brick_stairs[")
+                assert "facing=north" in state and "half=bottom" in state
             city = (offset[0] + x, y, offset[1] + z)
             assert city not in all_steps
             all_steps.add(city)
