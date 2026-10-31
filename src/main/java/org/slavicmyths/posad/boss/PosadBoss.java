@@ -249,7 +249,7 @@ public final class PosadBoss extends Monster {
     }
     @Override public boolean hurt(DamageSource source, float damage) { boolean accepted = super.hurt(source, damage); if (accepted && naturalEncounter && source.getEntity() instanceof ServerPlayer player && !player.isCreative() && !player.isSpectator()) participants.add(player.getUUID()); return accepted; }
     @Override public boolean fireImmune() { return true; }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
+    @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putInt("PosadAction", entityData.get(ACTION));
         tag.putInt("PosadPhase", phase());
@@ -271,7 +271,7 @@ public final class PosadBoss extends Monster {
         for (java.util.UUID id : participants) { CompoundTag row = new CompoundTag(); row.putUUID("Player", id); players.add(row); }
         tag.put("PosadParticipants", players);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
+    @Override public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         entityData.set(ACTION, Math.max(0, Math.min(Move.values().length - 1, tag.getInt("PosadAction"))));
         entityData.set(PHASE, kind == Kind.MYTAR && tag.getInt("PosadPhase") >= 2 ? 2 : 1);
