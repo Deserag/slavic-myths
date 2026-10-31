@@ -210,13 +210,14 @@ public final class PosadPiece extends StructurePiece {
                 if(state.isAir()&&!old.isAir() && !(schema>=17 && PosadHallR2.isOpening(local.x(),y,local.z())))continue;
                 try {
                     var placed=resolvedConnections(state,local.x(),y,local.z(),world,at);
-                    if (state.is(Blocks.CARVED_PUMPKIN) || shelf(state) || state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock) {
-                        // Carved pumpkins avoid vanilla multi-chunk golem probes. Wall
-                        // panes/shelves are deferred until masonry and doors exist.
-                        // Chunk-local writes preserve precisely resolved pane connections
-                        // and prevent later neighbor-shape churn across chunk boundaries.
+                    if (state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock) {
+                        // Notify the active worldgen level so the initial chunk packet
+                        // contains connected bars without depending on a client relog.
+                        world.setBlock(at,placed,3);
+                    } else if (state.is(Blocks.CARVED_PUMPKIN) || shelf(state)) {
+                        // Preserve chunk-local placement for special blocks only.
                         var changed=world.getChunk(wx>>4,wz>>4).setBlockState(at,placed,false);
-                        if (changed==null) throw new IllegalStateException("Chunk-local pumpkin write refused at "+at);
+                        if (changed==null) throw new IllegalStateException("Chunk-local special-block write refused at "+at);
                     } else {
                         world.setBlock(at,placed,2);
                     }
