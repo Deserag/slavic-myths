@@ -5,6 +5,11 @@ import org.slavicmyths.posad.*;
 import net.minecraft.world.level.block.Blocks;
 @GameTestHolder("slavicmyths_posad") @PrefixGameTestTemplate(false)
 public final class PosadShellGameTests {
+ private static boolean sameRoofRun(net.minecraft.world.level.block.state.BlockState stair,net.minecraft.world.level.block.state.BlockState neighbor) {
+  return neighbor!=null && neighbor.getBlock()==stair.getBlock() && neighbor.getBlock() instanceof net.minecraft.world.level.block.StairBlock
+   && neighbor.getValue(net.minecraft.world.level.block.StairBlock.FACING)==stair.getValue(net.minecraft.world.level.block.StairBlock.FACING)
+   && neighbor.getValue(net.minecraft.world.level.block.StairBlock.HALF)==stair.getValue(net.minecraft.world.level.block.StairBlock.HALF);
+ }
  @GameTest(template="empty",timeoutTicks=200)
  public static void openGate(GameTestHelper t) {
   for(int x=53;x<=59;x++)for(int z=108;z<=112;z++)for(int y=1;y<=6;y++)
@@ -106,7 +111,7 @@ public final class PosadShellGameTests {
     t.assertTrue(actual.getValue(net.minecraft.world.level.block.DoorBlock.HALF)==rotated.getValue(net.minecraft.world.level.block.DoorBlock.HALF),"Veche door half mismatch "+x+","+y+","+z+" rot="+turns);
    if(rotated.hasProperty(net.minecraft.world.level.block.DoorBlock.HINGE))
     t.assertTrue(actual.getValue(net.minecraft.world.level.block.DoorBlock.HINGE)==rotated.getValue(net.minecraft.world.level.block.DoorBlock.HINGE),"Veche door hinge mismatch "+x+","+y+","+z+" rot="+turns);
-   if(rotated.hasProperty(net.minecraft.world.level.block.StairBlock.HALF))
+   if(rotated.hasProperty(net.minecraft.world.level.block.StairBlock.HALF) && (y<5 || PosadGeometry.SCHEMA_VERSION<21))
     t.assertTrue(actual.getValue(net.minecraft.world.level.block.StairBlock.HALF)==rotated.getValue(net.minecraft.world.level.block.StairBlock.HALF),"Veche roof/stair half mismatch "+x+","+y+","+z+" rot="+turns);
   }
   for(int x=13;x<=35;x++)for(int z=15;z<=29;z++)for(int y=0;y<17;y++) {
@@ -125,7 +130,7 @@ public final class PosadShellGameTests {
     t.assertTrue(actual.getValue(net.minecraft.world.level.block.DoorBlock.HALF)==rotated.getValue(net.minecraft.world.level.block.DoorBlock.HALF),"Communal door half mismatch "+at);
    if(rotated.hasProperty(net.minecraft.world.level.block.DoorBlock.HINGE))
     t.assertTrue(actual.getValue(net.minecraft.world.level.block.DoorBlock.HINGE)==rotated.getValue(net.minecraft.world.level.block.DoorBlock.HINGE),"Communal door hinge mismatch "+at);
-   if(rotated.hasProperty(net.minecraft.world.level.block.StairBlock.HALF))
+   if(rotated.hasProperty(net.minecraft.world.level.block.StairBlock.HALF) && (y<5 || PosadGeometry.SCHEMA_VERSION<21))
     t.assertTrue(actual.getValue(net.minecraft.world.level.block.StairBlock.HALF)==rotated.getValue(net.minecraft.world.level.block.StairBlock.HALF),"Communal stair half mismatch "+at);
    if(expected.is(Blocks.CHEST)) {
     houseChests++;
@@ -158,7 +163,7 @@ public final class PosadShellGameTests {
      t.assertTrue(actual.getValue(net.minecraft.world.level.block.DoorBlock.HALF)==rotated.getValue(net.minecraft.world.level.block.DoorBlock.HALF),"Wrong door half "+slot+" "+at);
     if(rotated.hasProperty(net.minecraft.world.level.block.DoorBlock.HINGE))
      t.assertTrue(actual.getValue(net.minecraft.world.level.block.DoorBlock.HINGE)==rotated.getValue(net.minecraft.world.level.block.DoorBlock.HINGE),"Wrong door hinge "+slot+" "+at);
-    if(rotated.hasProperty(net.minecraft.world.level.block.StairBlock.HALF))
+    if(rotated.hasProperty(net.minecraft.world.level.block.StairBlock.HALF) && (y<5 || PosadGeometry.SCHEMA_VERSION<21))
      t.assertTrue(actual.getValue(net.minecraft.world.level.block.StairBlock.HALF)==rotated.getValue(net.minecraft.world.level.block.StairBlock.HALF),"Wrong stair half "+slot+" "+at);
     if(rotated.hasProperty(net.minecraft.world.level.block.ChestBlock.TYPE))
      t.assertTrue(actual.getValue(net.minecraft.world.level.block.ChestBlock.TYPE)==rotated.getValue(net.minecraft.world.level.block.ChestBlock.TYPE),"Wrong chest type "+slot+" "+at);
@@ -177,6 +182,26 @@ public final class PosadShellGameTests {
   }
   t.assertTrue(militaryBlocks==2440&&forgeBlocks==1901,"Wrong 2.2.4/2.2.5 block counts "+militaryBlocks+"/"+forgeBlocks);
   t.assertTrue(militaryChests==5&&forgeChests==5,"Wrong district chest counts "+militaryChests+"/"+forgeChests);
+  int continuousRoofHalfSteps=0;
+  for(int x=0;x<=112;x++)for(int z=0;z<=112;z++)for(int y=5;y<=17;y++) {
+   var planned=piece.voxel(x,y,z);
+   if(planned==null || !(planned.getBlock() instanceof net.minecraft.world.level.block.StairBlock)
+    || planned.getValue(net.minecraft.world.level.block.StairBlock.HALF)!=net.minecraft.world.level.block.state.properties.Half.BOTTOM)continue;
+   var facing=planned.getValue(net.minecraft.world.level.block.StairBlock.FACING);
+   var outward=piece.voxel(x+facing.getStepX(),y,z+facing.getStepZ());
+   var inward=piece.voxel(x-facing.getStepX(),y,z-facing.getStepZ());
+   var outward2=piece.voxel(x+2*facing.getStepX(),y,z+2*facing.getStepZ());
+   if(!sameRoofRun(planned,outward) || sameRoofRun(planned,inward) || sameRoofRun(planned,outward2))continue;
+   continuousRoofHalfSteps++;
+   var rotated=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+   var at=anchor.offset(rotated.x(),y,rotated.z());
+   var actual=world.getBlockState(at);
+   t.assertTrue(actual.getBlock()==planned.getBlock(),"Continuous roof stair block changed "+at+" planned="+planned+" actual="+actual);
+   t.assertTrue(actual.getValue(net.minecraft.world.level.block.StairBlock.HALF)==net.minecraft.world.level.block.state.properties.Half.TOP,
+    "Paired roof stair did not become inward TOP half-step "+at+" planned="+planned+" actual="+actual);
+  }
+  t.assertTrue(continuousRoofHalfSteps>0,"No paired roof half-steps found for schema "+PosadGeometry.SCHEMA_VERSION);
+  System.out.println("POSAD_CONTINUOUS_ROOF_PASS schema="+PosadGeometry.SCHEMA_VERSION+" rotation="+turns+" normalized="+continuousRoofHalfSteps);
   int emittedLights=0;
   for(int x=0;x<113;x++)for(int z=0;z<113;z++)for(int y:new int[]{1,7}) {
    var light=PosadLightingR3.voxel(x,y,z);
