@@ -9,5 +9,24 @@
     "straw": "minecraft:block/hay_block_side",
     "log": "slavicmyths:block/mor_oak_log_top",
     "particle": "slavicmyths:block/mor_oak_planks"
+  },
+  "display": {
+    "gui": {
+      "rotation": [
+        25,
+        145,
+        0
+      ],
+      "translation": [
+        0,
+        -2.25,
+        0
+      ],
+      "scale": [
+        0.32,
+        0.32,
+        0.32
+      ]
+    }
   }
 }
