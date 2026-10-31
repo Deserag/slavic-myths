@@ -1,11 +1,7 @@
 package org.slavicmyths.farming;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -22,7 +18,7 @@ public final class FoodCrop extends CropBlock {
     private final Supplier<Item> plantingItem;
     public FoodCrop(Properties properties) { this(properties, () -> net.minecraft.world.item.Items.WHEAT_SEEDS); }
     public FoodCrop(Properties properties, Supplier<Item> plantingItem) { super(properties); this.plantingItem = plantingItem; }
-    @Override protected MapCodec<? extends CropBlock> codec() { return CODEC; }
+    @Override public MapCodec<FoodCrop> codec() { return CODEC; }
     @Override protected IntegerProperty getAgeProperty() { return AGE; }
     @Override public int getMaxAge() { return 3; }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(AGE); }
