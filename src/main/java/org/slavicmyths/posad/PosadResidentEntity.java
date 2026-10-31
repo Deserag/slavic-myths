@@ -3,6 +3,8 @@ package org.slavicmyths.posad;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.network.syncher.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
@@ -48,6 +50,7 @@ public final class PosadResidentEntity extends PathfinderMob {
     public PosadPopulationPlan.Weapon weapon() { return PosadPopulationPlan.Weapon.values()[Math.floorMod(entityData.get(WEAPON), PosadPopulationPlan.Weapon.values().length)]; }
     public PosadResidentTraits traits() { return PosadResidentTraits.of(getUUID(), role()); }
     public UUID city() { return city; }
+    @Override public Component getName() { return hasCustomName() ? super.getName() : Component.translatable("entity.slavicmyths.posad_resident." + role().name().toLowerCase(Locale.ROOT)); }
     public void configure(PosadPopulationPlan.WorldMember member, UUID settlement, BlockPos spawn) {
         city = Objects.requireNonNull(settlement);
         memberKey = member.member().key();
@@ -74,6 +77,8 @@ public final class PosadResidentEntity extends PathfinderMob {
     @Override protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
         goalSelector.addGoal(1, new OpenDoorGoal(this, true));
+        goalSelector.addGoal(1, new PanicGoal(this, 1.25) { @Override public boolean canUse() { return !role().guard() && super.canUse(); } });
+        goalSelector.addGoal(2, new AvoidEntityGoal<>(this, Monster.class, 10, .85, 1.1, candidate -> !role().guard() && candidate.getTarget() instanceof PosadResidentEntity));
         goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0, true) {
             @Override public boolean canUse() { return role().guard() && weapon() != PosadPopulationPlan.Weapon.BOW && super.canUse(); }
             @Override public boolean canContinueToUse() { return role().guard() && weapon() != PosadPopulationPlan.Weapon.BOW && super.canContinueToUse(); }
@@ -127,6 +132,10 @@ public final class PosadResidentEntity extends PathfinderMob {
         super.tick();
         if (level().isClientSide || !role().guard() || city == null || !(level() instanceof ServerLevel server)) return;
         if (getTarget() instanceof Player player && !canFightPlayer(player)) setTarget(null);
+        boolean shield = weapon() == PosadPopulationPlan.Weapon.SWORD_SHIELD || weapon() == PosadPopulationPlan.Weapon.SPEAR_SHIELD;
+        boolean defend = shield && getTarget() != null && distanceToSqr(getTarget()) <= 25 && tickCount % 36 < 18;
+        if (defend && !isUsingItem()) startUsingItem(InteractionHand.OFF_HAND);
+        if (!defend && isUsingItem()) stopUsingItem();
         if (home != null && blockPosition().distSqr(home) > 48 * 48) {
             setTarget(null);
             getNavigation().moveTo(home.getX() + .5, home.getY(), home.getZ() + .5, .9);
