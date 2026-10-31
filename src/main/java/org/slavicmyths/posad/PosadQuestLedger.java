@@ -36,5 +36,18 @@ public final class PosadQuestLedger extends SavedData {
     public int slots(UUID city,UUID player){return new int[]{0,1,2,2,3,4}[tier(city,player)];}
     public boolean accept(UUID city,ServerPlayer player,Task task){State s=state(city,player.getUUID());if(task.tier()>tier(city,player.getUUID())||s.active.contains(task.id())||s.active.size()>=slots(city,player.getUUID()))return false;s.active.add(task.id());setDirty();return true;}
     public boolean deliver(UUID city,ServerPlayer player,Task task){State s=state(city,player.getUUID());if(!s.active.contains(task.id()))return false;int owned=0;for(ItemStack stack:player.getInventory().items)if(stack.is(task.item()))owned+=stack.getCount();if(owned<task.count())return false;int remaining=task.count();for(ItemStack stack:player.getInventory().items){if(stack.is(task.item())){int take=Math.min(remaining,stack.getCount());stack.shrink(take);remaining-=take;if(remaining==0)break;}}s.active.remove(task.id());s.completed.add(task.id());s.points+=task.points();player.getInventory().setChanged();setDirty();return true;}
+    public boolean acceptBoss(UUID city,ServerPlayer player,String id) {
+        if (!id.equals("hunt_cursed_mytar") && !id.equals("hunt_bauk")) return false;
+        State s=state(city,player.getUUID());
+        if (tier(city,player.getUUID())<3 || s.active.contains(id) || s.completed.contains(id) || s.active.size()>=slots(city,player.getUUID())) return false;
+        s.active.add(id);setDirty();return true;
+    }
+    /** Find only currently loaded and spawned entities, with no generated or guessed position. */
+    public static net.minecraft.core.BlockPos findLoadedBoss(ServerPlayer player,String id) {
+        if (!id.equals("hunt_cursed_mytar") && !id.equals("hunt_bauk")) return null;
+        if (player.serverLevel().dimension()!=net.minecraft.world.level.Level.NETHER) return null;
+        String entityId=id.equals("hunt_cursed_mytar")?"cursed_mytar":"bauk";
+        return player.serverLevel().getEntitiesOfClass(net.minecraft.world.entity.Mob.class,new net.minecraft.world.phys.AABB(player.blockPosition()).inflate(256D),mob->mob.isAlive()&&net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(mob.getType()).getPath().equals(entityId)).stream().min(java.util.Comparator.comparingDouble(mob->player.distanceToSqr(mob))).map(net.minecraft.world.entity.Entity::blockPosition).orElse(null);
+    }
     public void recordBossQuest(UUID city,ServerPlayer player,String id,int points){State s=state(city,player.getUUID());if(s.active.remove(id)&&s.completed.add(id)){s.points+=points;setDirty();}}
 }
