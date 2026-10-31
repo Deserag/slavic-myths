@@ -64,7 +64,7 @@ public final class PosadBoss extends Monster {
     public void interruptByBell() {
         if (kind != Kind.BAUK || level().isClientSide || level().getGameTime() < bellImmuneUntil) return;
         if (move() != Move.WINDUP_CHARGE && move() != Move.WINDUP_GRAB) return;
-        if (level().getMaxLocalRawBrightness(blockPosition()) < 11) return;
+        // Bell interrupts work in the dim Nether; light level is irrelevant to the sound.
         bellImmuneUntil = level().getGameTime() + 800L;
         begin(Move.RECOVERY, 30, 30);
     }
