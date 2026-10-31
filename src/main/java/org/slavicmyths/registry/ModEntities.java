@@ -47,7 +47,12 @@ public final class ModEntities {
     public static final DeferredHolder<EntityType<?>,EntityType<org.slavicmyths.wolf.GreyWolf>> GREY_WOLF=ENTITIES.register("grey_wolf",()->EntityType.Builder.of(org.slavicmyths.wolf.GreyWolf::new,MobCategory.CREATURE).sized(2.2F,3.5F).clientTrackingRange(16).build("slavicmyths:grey_wolf"));
 
     @SubscribeEvent
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.posad.boss.MytarSickleProjectile>> MYTAR_CHAIN_PROJECTILE = ENTITIES.register("mytar_chain_projectile", () -> EntityType.Builder.<org.slavicmyths.posad.boss.MytarSickleProjectile>of(org.slavicmyths.posad.boss.MytarSickleProjectile::new, MobCategory.MISC).sized(.45F, .45F).clientTrackingRange(16).updateInterval(1).build("slavicmyths:mytar_chain_projectile"));
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.posad.boss.PosadBoss>> CURSED_MYTAR = ENTITIES.register("cursed_mytar", () -> EntityType.Builder.<org.slavicmyths.posad.boss.PosadBoss>of((type, level) -> new org.slavicmyths.posad.boss.PosadBoss(type, level, org.slavicmyths.posad.boss.PosadBoss.Kind.MYTAR), MobCategory.MONSTER).sized(1.2F, 4F).clientTrackingRange(16).fireImmune().build("slavicmyths:cursed_mytar"));
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.posad.boss.PosadBoss>> BAUK = ENTITIES.register("bauk", () -> EntityType.Builder.<org.slavicmyths.posad.boss.PosadBoss>of((type, level) -> new org.slavicmyths.posad.boss.PosadBoss(type, level, org.slavicmyths.posad.boss.PosadBoss.Kind.BAUK), MobCategory.MONSTER).sized(3.5F, 3.5F).clientTrackingRange(16).fireImmune().build("slavicmyths:bauk"));
     public static void attributes(EntityAttributeCreationEvent event) {
+        event.put(CURSED_MYTAR.get(), org.slavicmyths.posad.boss.PosadBoss.attributes(org.slavicmyths.posad.boss.PosadBoss.Kind.MYTAR).build());
+        event.put(BAUK.get(), org.slavicmyths.posad.boss.PosadBoss.attributes(org.slavicmyths.posad.boss.PosadBoss.Kind.BAUK).build());
         event.put(GREY_WOLF.get(),org.slavicmyths.wolf.GreyWolf.attributes().build());
         event.put(NETHER_RETAINER.get(),net.minecraft.world.entity.monster.Zombie.createAttributes().build());
         event.put(MOROVA_DEVA.get(),org.slavicmyths.netherboss.NetherSummonBoss.attributes(true).build());
