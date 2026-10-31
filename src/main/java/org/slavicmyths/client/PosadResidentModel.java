@@ -43,8 +43,10 @@ public final class PosadResidentModel extends HumanoidModel<PosadResidentEntity>
         MeshDefinition mesh = HumanoidModel.createMesh(CubeDeformation.NONE, 0);
         PartDefinition root = mesh.getRoot(), head = root.getChild("head"), body = root.getChild("body");
         PartDefinition leftArm = root.getChild("left_arm"), rightArm = root.getChild("right_arm");
-        head.addOrReplaceChild("horn_0", CubeListBuilder.create().texOffs(0, 48).addBox(-3.15F, -10.0F, -.55F, 1.2F, 2.7F, 1.2F), PartPose.rotation(0, 0, -.18F));
-        head.addOrReplaceChild("horn_1", CubeListBuilder.create().texOffs(0, 48).addBox(1.95F, -10.0F, -.55F, 1.2F, 2.7F, 1.2F), PartPose.rotation(0, 0, .18F));
+        PartDefinition hornLeft = head.addOrReplaceChild("horn_0", CubeListBuilder.create().texOffs(0, 48).addBox(-3.15F, -10.0F, -.55F, 1.2F, 2.7F, 1.2F), PartPose.rotation(0, 0, -.18F));
+        hornLeft.addOrReplaceChild("tip", CubeListBuilder.create().texOffs(8, 48).addBox(-3.0F, -11.5F, -.4F, .8F, 1.8F, .8F), PartPose.rotation(0, 0, -.25F));
+        PartDefinition hornRight = head.addOrReplaceChild("horn_1", CubeListBuilder.create().texOffs(0, 48).addBox(1.95F, -10.0F, -.55F, 1.2F, 2.7F, 1.2F), PartPose.rotation(0, 0, .18F));
+        hornRight.addOrReplaceChild("tip", CubeListBuilder.create().texOffs(8, 48).addBox(2.2F, -11.5F, -.4F, .8F, 1.8F, .8F), PartPose.rotation(0, 0, .25F));
         head.addOrReplaceChild("horn_2", CubeListBuilder.create().texOffs(8, 48).addBox(-1.85F, -9.55F, .25F, 1.0F, 1.9F, 1.0F), PartPose.rotation(.12F, 0, -.08F));
         head.addOrReplaceChild("horn_3", CubeListBuilder.create().texOffs(8, 48).addBox(.85F, -9.1F, .25F, 1.0F, 1.35F, 1.0F), PartPose.rotation(.12F, 0, .08F));
         // Reference #2: dark ribbed bat wings with broad red membranes, not
