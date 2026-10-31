@@ -295,9 +295,20 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         earnedXpPending = PosadTradeCatalog.fixed(role()) ? 0 : offer.getXp();
         tradeUses.put(id, offer.getUses());
     }
+    public void openTradeFor(ServerPlayer player) {
+        if (!isAlive() || role() != PosadPopulationPlan.Role.POSADNIK || city == null || refuses(player) || distanceToSqr(player) > 64) return;
+        if (tradingPlayer != null && tradingPlayer != player) tradingPlayer.closeContainer();
+        if (getOffers().isEmpty()) return;
+        setTradingPlayer(player);
+        openTradingScreen(player,getName(),tradeTier());
+    }
     @Override protected net.minecraft.world.InteractionResult mobInteract(Player player, InteractionHand hand) {
         if (hand != InteractionHand.MAIN_HAND || !isAlive() || city == null || player.isSpectator() || refuses(player)) return super.mobInteract(player, hand);
         if (!level().isClientSide) {
+            if (role() == PosadPopulationPlan.Role.POSADNIK && player instanceof ServerPlayer server) {
+                server.openMenu(new net.minecraft.world.SimpleMenuProvider((id,inventory,p) -> new PosadDialogueMenu(id,inventory,this),getName()));
+                return net.minecraft.world.InteractionResult.SUCCESS;
+            }
             if (tradingPlayer != null && tradingPlayer != player) tradingPlayer.closeContainer();
             MerchantOffers available = getOffers();
             if (available.isEmpty()) return net.minecraft.world.InteractionResult.PASS;
