@@ -7,7 +7,7 @@ public record PosadResidentTraits(int horns, int wings, int face, int skin, int 
     public PosadResidentTraits {
         if (horns < 0 || horns > 4 || wings < 0 || wings > 3 || face < 0 || face > 3 || skin < 0 || skin > 4 || clothes < 0 || clothes > 3) throw new IllegalArgumentException("Invalid resident appearance");
     }
-    public static PosadResidentTraits of(PosadPopulationPlan.WorldMember member) { return of(member.identity(), member.member().role()); }
+    public int textureVariant() { return Math.floorMod(skin * 7 + face * 3 + clothes, 5); }\n    public static PosadResidentTraits of(PosadPopulationPlan.WorldMember member) { return of(member.identity(), member.member().role()); }
     public static PosadResidentTraits of(UUID id, PosadPopulationPlan.Role role) {
         long seed = mix(id.getMostSignificantBits() ^ Long.rotateLeft(id.getLeastSignificantBits(), 21));
         int horns = Math.floorMod(seed, 5);
