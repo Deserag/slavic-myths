@@ -1,6 +1,8 @@
 package org.slavicmyths.farming;
 
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CropBlock;
@@ -14,9 +16,8 @@ import java.util.function.Supplier;
 /** Four visible stages for the approved 2.2.9-C Overworld vegetables. */
 public final class FoodCrop extends CropBlock {
     public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 3);
-    private static final MapCodec<FoodCrop> CODEC = simpleCodec(FoodCrop::new);
+    private static final MapCodec<FoodCrop> CODEC = RecordCodecBuilder.mapCodec(i -> i.group(propertiesCodec(), BuiltInRegistries.ITEM.byNameCodec().fieldOf("seed").forGetter(c -> c.plantingItem.get())).apply(i, (p, s) -> new FoodCrop(p, () -> s)));
     private final Supplier<Item> plantingItem;
-    public FoodCrop(Properties properties) { this(properties, () -> net.minecraft.world.item.Items.WHEAT_SEEDS); }
     public FoodCrop(Properties properties, Supplier<Item> plantingItem) { super(properties); this.plantingItem = plantingItem; }
     @Override public MapCodec<FoodCrop> codec() { return CODEC; }
     @Override protected IntegerProperty getAgeProperty() { return AGE; }
