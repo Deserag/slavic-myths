@@ -18,8 +18,8 @@ public final class NetherBossItems {
  public static final Map<String,DeferredHolder<Item,Item>> ITEMS=new LinkedHashMap<>();
  public static final List<String> COMPONENTS=List.of("morova_thread","faded_rite_seal","ancestor_bone_charm","nameless_ashes","broken_watch_horn","darkened_waymark","mourning_circlet","charred_signal_ribbon");
  static {
-  register("morova_deva_spawn_egg",()->new net.neoforged.neoforge.common.DeferredSpawnEggItem(org.slavicmyths.registry.ModEntities.MOROVA_DEVA,0xe0dbc7,0x922533,new Item.Properties()));
-  register("trizna_prince_spawn_egg",()->new net.neoforged.neoforge.common.DeferredSpawnEggItem(org.slavicmyths.registry.ModEntities.TRIZNA_PRINCE,0x252329,0xee7132,new Item.Properties()));
+  register("morova_deva_spawn_egg",()->new net.neoforged.neoforge.common.DeferredSpawnEggItem(org.slavicmyths.registry.ModEntities.MOROVA_DEVA,0xC9E1D8,0x8F1C52,new Item.Properties()));
+  register("trizna_prince_spawn_egg",()->new net.neoforged.neoforge.common.DeferredSpawnEggItem(org.slavicmyths.registry.ModEntities.TRIZNA_PRINCE,0x1D202A,0xE6681E,new Item.Properties()));
   for(String id:COMPONENTS)register(id,()->new Item(new Item.Properties().rarity(Rarity.RARE)));
   for(String id:List.of("legendary_soul","scroll_of_waning","scroll_of_last_call","rune_morova_lingering","rune_trizna_ember_ward"))register(id,()->new Item(new Item.Properties().rarity(Rarity.EPIC)));
   register("amulet_of_the_faded",()->new Summoner(true));register("last_watch_horn",()->new Summoner(false));
