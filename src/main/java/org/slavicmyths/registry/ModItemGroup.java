@@ -14,7 +14,7 @@ import org.slavicmyths.rpg.RuneFoundation;
 public final class ModItemGroup {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, "slavicmyths");
     public static final String[] IDS = CreativeCatalog.TABS.toArray(String[]::new);
-    private static final int[] DISPLAY_ORDER = {0, 1, 2, 3, 9, 4, 5, 6, 7, 10, 8, 11};
+    private static final int[] DISPLAY_ORDER = {0, 1, 2, 3, 9, 4, 5, 6, 12, 7, 10, 8, 11};
     public static final List<DeferredHolder<CreativeModeTab, CreativeModeTab>> THEMATIC = new ArrayList<>();
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB;
     private static final Set<String> REPORTED_FALLBACKS = ConcurrentHashMap.newKeySet();
@@ -53,6 +53,7 @@ public final class ModItemGroup {
             case 9 -> ModItems.PERUNITE_SWORD.get();
             case 10 -> ModItems.LUNULA.get();
             case 11 -> org.slavicmyths.trophy.TrophyHeads.ITEMS.get(org.slavicmyths.trophy.TrophyHeads.Kind.POSTEN).get();
+            case 12 -> org.slavicmyths.furniture.Furniture.get("pine_chair").asItem();
             default -> throw new IllegalArgumentException("Unknown creative category " + category);
         };
     }

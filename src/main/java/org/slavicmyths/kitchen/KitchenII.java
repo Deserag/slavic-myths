@@ -13,7 +13,7 @@ import org.slavicmyths.furniture.Furniture;
 public final class KitchenII {
  public static final Map<String,DeferredHolder<Item,Item>> ITEMS=new LinkedHashMap<>();
  public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<KitchenTile>> TILE=ModTiles.TILES.register("kitchen_table",()->BlockEntityType.Builder.of(KitchenTile::new,ModBlocks.KITCHEN_TABLE.get()).build(null));
- public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<TableTile>> TABLE=ModTiles.TILES.register("table_display",()->BlockEntityType.Builder.of(TableTile::new,Furniture.get("pine_table"),Furniture.get("linden_table")).build(null));
+ public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<TableTile>> TABLE=ModTiles.TILES.register("table_display",()->BlockEntityType.Builder.of(TableTile::new,Furniture.BLOCKS.entrySet().stream().filter(entry->entry.getKey().endsWith("_table")).map(entry->entry.getValue().get()).toArray(net.minecraft.world.level.block.Block[]::new)).build(null));
  public static ResourceLocation id(String s){return ResourceLocation.fromNamespaceAndPath("slavicmyths",s);}
  public static TagKey<Item> tag(String s){return TagKey.create(Registries.ITEM,id(s));}
  public static Item item(String s){return BuiltInRegistries.ITEM.get(id(s));}
