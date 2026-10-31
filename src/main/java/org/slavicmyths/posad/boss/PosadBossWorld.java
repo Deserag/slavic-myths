@@ -77,6 +77,7 @@ public final class PosadBossWorld extends SavedData {
             if (!safe(level, pos)) continue;
             PosadBoss boss = (kind == PosadBoss.Kind.MYTAR ? ModEntities.CURSED_MYTAR : ModEntities.BAUK).get().create(level);
             if (boss == null) return;
+            boss.markNaturalEncounter();
             boss.moveTo(x + .5D, y, z + .5D, level.random.nextFloat() * 360F, 0F);
             if (!level.noCollision(boss) || !level.getEntitiesOfClass(ServerPlayer.class, boss.getBoundingBox().inflate(32D), p -> !p.isSpectator()).isEmpty()) return;
             if (level.addFreshEntity(boss)) { data.consumed.add(key); data.setDirty(); }
