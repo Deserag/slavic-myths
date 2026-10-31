@@ -15,7 +15,7 @@ public final class PosadResidentRenderer extends MobRenderer<PosadResidentEntity
     @Override public ResourceLocation getTextureLocation(PosadResidentEntity entity) {
         // Skin, face and clothing family are persistent identity traits. The five
         // authored atlases carry the approved fangs/scars/marks/heterochromia set.
-        int skin = Math.floorMod(entity.traits().skin() * 7 + entity.traits().face() * 3 + entity.traits().clothes(), 5);
+        int skin = entity.traits().textureVariant();
         return ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/posad_resident_" + skin + ".png");
     }
 }
