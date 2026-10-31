@@ -1,3 +1,13 @@
 {
-  "parent": "slavicmyths:block/pine_wardrobe_lower"
+  "parent": "slavicmyths:block/pine_wardrobe_inventory",
+  "textures": {
+    "wood": "slavicmyths:block/pine_planks",
+    "beam": "slavicmyths:block/pine_stripped_log",
+    "iron": "slavicmyths:block/furniture_metal",
+    "cloth": "slavicmyths:block/furniture_cloth",
+    "rope": "slavicmyths:block/furniture_rope",
+    "straw": "minecraft:block/hay_block_side",
+    "log": "slavicmyths:block/pine_log_top",
+    "particle": "slavicmyths:block/pine_planks"
+  }
 }
