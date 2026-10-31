@@ -1,6 +1,10 @@
 package org.slavicmyths.posad;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.*;
@@ -156,9 +160,43 @@ public final class PosadPiece extends StructurePiece {
         return (state.is(Blocks.LANTERN) || state.is(Blocks.SOUL_LANTERN))
             && state.getValue(net.minecraft.world.level.block.LanternBlock.HANGING);
     }
+    /**
+     * Minecraft normally derives stair inner/outer corners from the surrounding
+     * states at placement time. Worldgen places Posad voxels in arbitrary chunk
+     * order with flag 2, so roof corner states must come from the FINAL approved
+     * city-local geometry instead of whichever neighbor was placed first.
+     * Preserve the approved block, half and facing; change only its shape.
+     */
+    private static boolean sameStairHalf(BlockState stair, BlockState neighbor) {
+        return neighbor != null && neighbor.getBlock() instanceof StairBlock
+            && neighbor.getValue(StairBlock.HALF) == stair.getValue(StairBlock.HALF);
+    }
+    private boolean freeCornerSide(BlockState stair, int x, int y, int z, Direction side) {
+        BlockState neighbor=voxel(x+side.getStepX(),y,z+side.getStepZ());
+        return !sameStairHalf(stair,neighbor) || neighbor.getValue(StairBlock.FACING) != stair.getValue(StairBlock.FACING);
+    }
+    private BlockState resolvedRoofStair(BlockState stair, int x, int y, int z) {
+        // Earlier serialized schemas retain their original roof states. Do not
+        // reinterpret low indoor steps or the immutable approved building assets.
+        if(schema<20 || y<5 || !(stair.getBlock() instanceof StairBlock))return stair;
+        Direction facing=stair.getValue(StairBlock.FACING);
+        BlockState forward=voxel(x+facing.getStepX(),y,z+facing.getStepZ());
+        if(sameStairHalf(stair,forward)) {
+            Direction turn=forward.getValue(StairBlock.FACING);
+            if(turn.getAxis()!=facing.getAxis() && freeCornerSide(stair,x,y,z,turn.getOpposite()))
+                return stair.setValue(StairBlock.SHAPE,turn==facing.getCounterClockWise()?StairsShape.OUTER_LEFT:StairsShape.OUTER_RIGHT);
+        }
+        BlockState backward=voxel(x-facing.getStepX(),y,z-facing.getStepZ());
+        if(sameStairHalf(stair,backward)) {
+            Direction turn=backward.getValue(StairBlock.FACING);
+            if(turn.getAxis()!=facing.getAxis() && freeCornerSide(stair,x,y,z,turn))
+                return stair.setValue(StairBlock.SHAPE,turn==facing.getCounterClockWise()?StairsShape.INNER_LEFT:StairsShape.INNER_RIGHT);
+        }
+        return stair.setValue(StairBlock.SHAPE,StairsShape.STRAIGHT);
+    }
     /** Resolve iron bars/glass panes from final city-local voxels, not chunk placement order. */
     private net.minecraft.world.level.block.state.BlockState resolvedConnections(net.minecraft.world.level.block.state.BlockState local,int x,int y,int z,WorldGenLevel world,BlockPos worldPos) {
-        net.minecraft.world.level.block.state.BlockState state=local.rotate(Rotation.values()[turns]);
+        net.minecraft.world.level.block.state.BlockState state=resolvedRoofStair(local,x,y,z).rotate(Rotation.values()[turns]);
         if(!(state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock))return state;
         for(var direction:new net.minecraft.core.Direction[]{net.minecraft.core.Direction.NORTH,net.minecraft.core.Direction.EAST,net.minecraft.core.Direction.SOUTH,net.minecraft.core.Direction.WEST}) {
             // Direction is in the rotated WORLD frame. Map neighbor back to city coordinates.
