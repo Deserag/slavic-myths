@@ -34,6 +34,7 @@ public final class ModItems {
 
     public static final DeferredHolder<Item, Item> CURSED_MYTAR_SPAWN_EGG=egg("cursed_mytar_spawn_egg",ModEntities.CURSED_MYTAR,0x211D1B,0xFFB341);
     public static final DeferredHolder<Item, Item> BAUK_SPAWN_EGG=egg("bauk_spawn_egg",ModEntities.BAUK,0x211918,0xFF6A25);
+    public static final DeferredHolder<Item, Item> BAUK_HEAD_ITEM = ITEMS.register("bauk_head", () -> new BlockItem(ModBlocks.BAUK_HEAD.get(), properties().stacksTo(1).rarity(Rarity.EPIC)));
     public static final DeferredHolder<Item, Item> RYE_SEEDS = ITEMS.register("rye_seeds", () -> new ItemNameBlockItem(ModBlocks.RYE_CROP.get(), properties()));
     public static final DeferredHolder<Item, Item> BARLEY_SEEDS = ITEMS.register("barley_seeds", () -> new ItemNameBlockItem(ModBlocks.BARLEY_CROP.get(), properties()));
     public static final DeferredHolder<Item, Item> OAT_SEEDS = ITEMS.register("oat_seeds", () -> new ItemNameBlockItem(ModBlocks.OAT_CROP.get(), properties()));
