@@ -29,6 +29,7 @@ public final class PosadBoss extends Monster {
     private static final EntityDataAccessor<Integer> ACTION = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> PHASE = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> ENRAGED = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> CHAIN_AWAY = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.BOOLEAN);
     private final Kind kind;
     private final ServerBossEvent bar;
     private int actionTicks;
@@ -72,11 +73,14 @@ public final class PosadBoss extends Monster {
     public Move move() { return Move.values()[entityData.get(ACTION)]; }
     public boolean enraged() { return entityData.get(ENRAGED); }
     public int phase() { return entityData.get(PHASE); }
+    public boolean chainWeaponAway() { return entityData.get(CHAIN_AWAY); }
+    public void setChainWeaponAway(boolean away) { if (!level().isClientSide && kind == Kind.MYTAR) entityData.set(CHAIN_AWAY, away); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(ACTION, Move.IDLE.ordinal());
         builder.define(PHASE, 1);
         builder.define(ENRAGED, false);
+        builder.define(CHAIN_AWAY, false);
     }
     @Override protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
@@ -224,7 +228,7 @@ public final class PosadBoss extends Monster {
             hook.setPos(launch.x, launch.y, launch.z);
             net.minecraft.world.phys.Vec3 aim = distant.getBoundingBox().getCenter().subtract(hook.position());
             hook.shoot(aim.x, aim.y, aim.z, 1.2F, 0F);
-            server.addFreshEntity(hook);
+            if (server.addFreshEntity(hook)) setChainWeaponAway(true);
             return;
         }
         if (move() == Move.WINDUP_GRAB) {
@@ -291,6 +295,7 @@ public final class PosadBoss extends Monster {
         tag.putInt("PosadActionTicks", actionTicks);
         tag.putInt("PosadCooldown", cooldown);
         tag.putBoolean("PosadEnraged", enraged());
+        tag.putBoolean("PosadChainAway", chainWeaponAway());
         tag.putBoolean("PosadHitDone", connected);
         tag.putInt("PosadSpecialCooldown", specialCooldown);
         tag.putInt("PosadChainCooldown", chainCooldown);
@@ -330,6 +335,8 @@ public final class PosadBoss extends Monster {
         participants.clear();
         for (net.minecraft.nbt.Tag raw : tag.getList("PosadParticipants", 10)) { CompoundTag row = (CompoundTag) raw; if (row.hasUUID("Player")) participants.add(row.getUUID("Player")); }
         entityData.set(ENRAGED, kind == Kind.BAUK && tag.getBoolean("PosadEnraged"));
+        // A serialized projectile may have been unloaded: never leave the hand weapon permanently hidden.
+        entityData.set(CHAIN_AWAY, false);
         if (enraged()) getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(.27D);
     }
 }
