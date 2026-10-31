@@ -27,6 +27,7 @@ public final class PosadBoss extends Monster {
     public enum Kind { MYTAR, BAUK }
     public enum Move { IDLE, WINDUP_BITE, WINDUP_PAW, RECOVERY, RAGE_TRANSITION, WINDUP_SICKLE, WINDUP_SLAM, WINDUP_ROAR, WINDUP_CHARGE, WINDUP_CHAIN, WINDUP_COINS, WINDUP_GRAB }
     private static final EntityDataAccessor<Integer> ACTION = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> ACTION_REMAINING = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> PHASE = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> ENRAGED = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> CHAIN_AWAY = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.BOOLEAN);
@@ -73,11 +74,13 @@ public final class PosadBoss extends Monster {
     public Move move() { return Move.values()[entityData.get(ACTION)]; }
     public boolean enraged() { return entityData.get(ENRAGED); }
     public int phase() { return entityData.get(PHASE); }
+    public int actionRemaining() { return entityData.get(ACTION_REMAINING); }
     public boolean chainWeaponAway() { return entityData.get(CHAIN_AWAY); }
     public void setChainWeaponAway(boolean away) { if (!level().isClientSide && kind == Kind.MYTAR) entityData.set(CHAIN_AWAY, away); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(ACTION, Move.IDLE.ordinal());
+        builder.define(ACTION_REMAINING, 0);
         builder.define(PHASE, 1);
         builder.define(ENRAGED, false);
         builder.define(CHAIN_AWAY, false);
@@ -117,6 +120,7 @@ public final class PosadBoss extends Monster {
         if (grabCooldown > 0) grabCooldown--;
         if (actionTicks > 0) {
             actionTicks--;
+            entityData.set(ACTION_REMAINING, actionTicks);
             getNavigation().stop();
             if (move() == Move.WINDUP_CHARGE && actionTicks <= 14) chargeStep();
             if (move() == Move.WINDUP_CHAIN && chainPullTicks > 0) pullChainedVictim();
@@ -151,6 +155,7 @@ public final class PosadBoss extends Monster {
     private void begin(Move next, int ticks, int after) {
         entityData.set(ACTION, next.ordinal());
         actionTicks = ticks;
+        entityData.set(ACTION_REMAINING, ticks);
         cooldown = after;
         connected = false;
         if (next != Move.WINDUP_CHAIN) { chainVictim = null; chainPullTicks = 0; }
@@ -318,6 +323,7 @@ public final class PosadBoss extends Monster {
         entityData.set(ACTION, Math.max(0, Math.min(Move.values().length - 1, tag.getInt("PosadAction"))));
         entityData.set(PHASE, kind == Kind.MYTAR && tag.getInt("PosadPhase") >= 2 ? 2 : 1);
         actionTicks = Math.max(0, Math.min(80, tag.getInt("PosadActionTicks")));
+        entityData.set(ACTION_REMAINING, actionTicks);
         cooldown = Math.max(0, Math.min(600, tag.getInt("PosadCooldown")));
         connected = tag.getBoolean("PosadHitDone");
         specialCooldown = Math.max(0, Math.min(600, tag.getInt("PosadSpecialCooldown")));
