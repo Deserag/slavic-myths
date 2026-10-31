@@ -165,7 +165,22 @@ public final class PosadPiece extends StructurePiece {
             lx+=dx;lz+=dz;
             var neighbor=voxel(lx,y,lz);
             if(neighbor==null)neighbor=Blocks.AIR.defaultBlockState();
-            state=state.updateShape(direction,neighbor.rotate(Rotation.values()[turns]),world,worldPos,worldPos.relative(direction));
+            neighbor=neighbor.rotate(Rotation.values()[turns]);
+            if(neighbor.getBlock() instanceof net.minecraft.world.level.block.DoorBlock) {
+                // Door blockstates are two-high and their final support/shape
+                // differs while the opposite half has not yet been written.
+                // Never grow a pane arm into a hinged door leaf.
+                net.minecraft.world.level.block.state.properties.BooleanProperty connection=switch(direction){
+                    case NORTH -> net.minecraft.world.level.block.IronBarsBlock.NORTH;
+                    case EAST -> net.minecraft.world.level.block.IronBarsBlock.EAST;
+                    case SOUTH -> net.minecraft.world.level.block.IronBarsBlock.SOUTH;
+                    case WEST -> net.minecraft.world.level.block.IronBarsBlock.WEST;
+                    default -> throw new IllegalStateException("Non-horizontal pane direction");
+                };
+                state=state.setValue(connection,false);
+            } else {
+                state=state.updateShape(direction,neighbor,world,worldPos,worldPos.relative(direction));
+            }
         }
         return state;
     }
