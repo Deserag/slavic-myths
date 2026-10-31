@@ -14,6 +14,9 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
     private final ModelPart head = geometry.part(128, 128);
     private final ModelPart jaw = geometry.part(128, 128);
     private final ModelPart rightArm = geometry.part(128, 128);
+    private final ModelPart leftSickle = geometry.part(128, 128);
+    private final ModelPart chain = geometry.part(128, 128);
+    private final ModelPart chainSickle = geometry.part(128, 128);
     private final ModelPart leftArm = geometry.part(128, 128);
     private final ModelPart[] legs = {geometry.part(128, 128), geometry.part(128, 128), geometry.part(128, 128), geometry.part(128, 128)};
     private final boolean bauk;
@@ -31,6 +34,12 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
             cub(head, 64, 63, -6, -3, -17, 12, 7, 9); // Predatory snout
             cub(head, 102, 63, -7, -10, -3, 3, 7, 4); // Left bone growth
             cub(head, 112, 63, 4, -12, -2, 3, 8, 4); // Right asymmetric horn
+            cub(head, 102, 63, -8, -15, -3, 4, 6, 4); // Left horn thick root
+            cub(head, 102, 63, -10, -19, -4, 3, 6, 3); // Left horn sweeps outward
+            cub(head, 102, 63, -12, -22, -5, 2, 5, 2); // Left horn taper
+            cub(head, 112, 63, 5, -15, -3, 4, 6, 4); // Right horn thick root
+            cub(head, 112, 63, 8, -19, -4, 3, 6, 3); // Right horn sweeps outward
+            cub(head, 112, 63, 10, -21, -5, 2, 5, 2); // Right horn taper
             cub(head, 88, 81, -6, -1, -18, 2, 3, 3); // Fang
             cub(head, 97, 81, 4, -1, -18, 2, 3, 3);
             jaw.setPos(0, 3, -7);
@@ -58,7 +67,7 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
                 arm.setPos(i == 0 ? -6 : 6, -27, 0);
                 cub(arm, 30, 54, i == 0 ? -3 : 0, 0, -3, 3, 23, 6); // Skeletal long arms
                 cub(arm, 51, 54, i == 0 ? -3 : 0, 19, -3, 3, 4, 6);
-                cub(arm, 74, 54, i == 0 ? -5 : 1, 20, -10, 4, 2, 10); // Separate hooked weapon
+                // Weapons use separate articulated rigs instead of identical straight hooks.
             }
             for (int i = 0; i < 2; i++) {
                 ModelPart leg = legs[i];
@@ -69,7 +78,25 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
             cub(root, 40, 78, -5, -16, -5, 3, 6, 2); // Three separate coin purses
             cub(root, 50, 78, -1, -17, -5, 3, 6, 2);
             cub(root, 60, 78, 3, -16, -5, 3, 6, 2);
-            cub(root, 75, 78, 5, -25, -4, 2, 18, 2); // Chain length near hand
+            geometry.attach(leftArm, leftSickle);
+            leftSickle.setPos(2, 21, -5);
+            cub(leftSickle, 74, 54, -1, 0, 0, 2, 12, 2); // Short left-hand sickle grip
+            cub(leftSickle, 74, 54, -2, -2, -1, 4, 3, 4); // Guard
+            cub(leftSickle, 74, 54, -2, 10, -1, 6, 2, 2); // Sickle crescent base
+            cub(leftSickle, 74, 54, 2, 7, -1, 3, 4, 2);
+            cub(leftSickle, 74, 54, 4, 4, -1, 3, 4, 2);
+            cub(leftSickle, 74, 54, 5, 1, -1, 2, 4, 2); // Curved blade point
+            geometry.attach(rightArm, chain);
+            chain.setPos(-2, 22, -5);
+            cub(chain, 74, 54, -1, -4, 0, 2, 7, 2); // Right-hand chain grip
+            for (int i = 0; i < 9; i++) cub(chain, 74, 54, i % 2 == 0 ? -1.5F : -1F, 3 + i * 2.5F, -1, 3, 2.5F, 2); // Visible articulated chain links
+            geometry.attach(chain, chainSickle);
+            chainSickle.setPos(0, 25, -1);
+            cub(chainSickle, 74, 54, -1, 0, 0, 2, 9, 2); // Heavy hooked sickle shaft
+            cub(chainSickle, 74, 54, -3, 8, -1, 8, 2, 3);
+            cub(chainSickle, 74, 54, 3, 5, -1, 3, 4, 3);
+            cub(chainSickle, 74, 54, 5, 2, -1, 3, 4, 3);
+            cub(chainSickle, 74, 54, 6, -1, -1, 2, 4, 3); // Distinct sickle curve and sharpened tip
         }
         root.getAllParts().forEach(part -> part.setInitialPose(part.storePose()));
     }
@@ -90,8 +117,12 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
         } else {
             legs[0].xRot = gait * .6F;
             legs[1].xRot = -gait * .6F;
-            rightArm.xRot = entity.move() == PosadBoss.Move.WINDUP_SICKLE ? -1.4F : -.2F + Mth.sin(age * .08F) * .08F;
-            leftArm.xRot = entity.move() == PosadBoss.Move.WINDUP_SICKLE ? -.6F : .1F;
+            boolean throwingChain = entity.move() == PosadBoss.Move.WINDUP_CHAIN;
+            rightArm.xRot = throwingChain ? -1.8F : entity.move() == PosadBoss.Move.WINDUP_SICKLE ? -1.1F : -.2F + Mth.sin(age * .08F) * .08F;
+            leftArm.xRot = entity.move() == PosadBoss.Move.WINDUP_SICKLE ? -1.4F : .1F;
+            chain.xRot = throwingChain ? -.95F + .18F * Mth.sin(age * .22F) : .07F * Mth.sin(age * .12F);
+            chain.zRot = throwingChain ? -.12F : 0F;
+            chainSickle.xRot = throwingChain ? -.28F : 0F;
             if (entity.phase() == 2) { rightArm.zRot = -.2F; head.zRot = .04F * Mth.sin(age * .16F); }
         }
     }
