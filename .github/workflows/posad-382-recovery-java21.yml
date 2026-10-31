@@ -22,6 +22,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Prepare executable Gradle wrapper
+        run: chmod +x gradlew
       - name: Verify economy catalog
         run: python tools/posad-tests/verify_economy_catalog.py
       - name: Verify existing house and military door regressions
