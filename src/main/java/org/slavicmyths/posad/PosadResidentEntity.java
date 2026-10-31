@@ -75,7 +75,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         entityData.set(WEAPON, member.member().weapon().ordinal());
         setUUID(member.identity());
         home = spawn.immutable();
-        restrictTo(home, 32);
+        restrictTo(home, role() == PosadPopulationPlan.Role.POSADNIK ? 5 : 32);
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(role().health());
         setHealth(role().health());
         equip();
@@ -103,7 +103,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         });
         goalSelector.addGoal(2, new RangedDuty());
         goalSelector.addGoal(3, new MoveTowardsRestrictionGoal(this, .85));
-        goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, .70));
+        goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, .70) { @Override public boolean canUse() { return role() != PosadPopulationPlan.Role.POSADNIK && super.canUse(); } });
         goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 8));
         goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 8, true, false, target -> target instanceof Player p && canFightPlayer(p)));
@@ -158,6 +158,11 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         super.tick();
         if (!level().isClientSide && (eggSpawnPending || city == null)) initializeEggSpawn();
         if (!level().isClientSide) tickEconomy();
+        if (!level().isClientSide && role() == PosadPopulationPlan.Role.POSADNIK && home != null) {
+            setTarget(null);
+            if (blockPosition().distSqr(home) > 16) getNavigation().moveTo(home.getX() + .5D, home.getY(), home.getZ() + .5D, .85D);
+            else if (getNavigation().isInProgress()) getNavigation().stop();
+        }
         if (level().isClientSide || !role().guard() || city == null || !(level() instanceof ServerLevel server)) return;
         if (getTarget() instanceof Player player && !canFightPlayer(player)) setTarget(null);
         if (getTarget() instanceof Mob mob && !mayDefendAgainst(mob)) setTarget(null);
@@ -371,7 +376,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         eggSpawnPending = tag.getBoolean("PosadEgg");
         city = tag.hasUUID("PosadCity") ? tag.getUUID("PosadCity") : null;
         home = tag.contains("PosadHome") ? BlockPos.of(tag.getLong("PosadHome")) : null;
-        if (home != null) restrictTo(home, 32);
+        if (home != null) restrictTo(home, role() == PosadPopulationPlan.Role.POSADNIK ? 5 : 32);
         tradeXp = Math.max(0, tag.getInt("PosadTradeXp"));
         tradeRestockDay = tag.contains("PosadTradeDay") ? tag.getLong("PosadTradeDay") : -1;
         tradeRestocksToday = Math.max(0, Math.min(2, tag.getInt("PosadTradeRestocks")));
