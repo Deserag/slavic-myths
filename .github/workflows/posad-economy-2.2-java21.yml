@@ -1,0 +1,35 @@
+name: Posad Economy 2.2.12 Java21 (issue 373)
+on:
+  push:
+    branches:
+      - feature/2.2.12-posad-economy-20261031
+  pull_request:
+    branches:
+      - '2.2'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  economy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit approved economy offer matrix
+        run: python tools/posad-tests/verify_economy_catalog.py
+      - name: Build production mod without test fixture sources
+        run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: slavic-myths-2.2.12-posad-economy-jar
+          path: build/libs/slavicmyths-*.jar
+          if-no-files-found: error
+          retention-days: 14

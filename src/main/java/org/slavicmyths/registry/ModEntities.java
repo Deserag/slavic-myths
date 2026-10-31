@@ -15,6 +15,7 @@ import org.slavicmyths.entity.LeshyEntity;
 @EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public final class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE, SlavicMyths.MOD_ID);
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.posad.PosadResidentEntity>> POSAD_RESIDENT = ENTITIES.register("posad_resident", () -> EntityType.Builder.of(org.slavicmyths.posad.PosadResidentEntity::new, MobCategory.CREATURE).sized(.6F,1.95F).fireImmune().clientTrackingRange(10).build("slavicmyths:posad_resident"));
     public static final net.neoforged.neoforge.registries.DeferredHolder<net.minecraft.world.entity.EntityType<?>,net.minecraft.world.entity.EntityType<org.slavicmyths.finist.FinistArrow>> FINIST_ARROW = ENTITIES.register("finist_magic_arrow",()->net.minecraft.world.entity.EntityType.Builder.<org.slavicmyths.finist.FinistArrow>of(org.slavicmyths.finist.FinistArrow::new,net.minecraft.world.entity.MobCategory.MISC).sized(.5F,.5F).clientTrackingRange(4).updateInterval(1).build("finist_magic_arrow"));
     public static final DeferredHolder<EntityType<?>, EntityType<DomovoyEntity>> DOMOVOY = ENTITIES.register("domovoy",
             () -> EntityType.Builder.of(DomovoyEntity::new, MobCategory.CREATURE)
@@ -48,6 +49,7 @@ public final class ModEntities {
 
     @SubscribeEvent
     public static void attributes(EntityAttributeCreationEvent event) {
+        event.put(POSAD_RESIDENT.get(), org.slavicmyths.posad.PosadResidentEntity.attributes().build());
         event.put(GREY_WOLF.get(),org.slavicmyths.wolf.GreyWolf.attributes().build());
         event.put(NETHER_RETAINER.get(),net.minecraft.world.entity.monster.Zombie.createAttributes().build());
         event.put(MOROVA_DEVA.get(),org.slavicmyths.netherboss.NetherSummonBoss.attributes(true).build());

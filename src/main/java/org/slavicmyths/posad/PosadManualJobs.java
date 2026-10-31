@@ -204,7 +204,9 @@ public final class PosadManualJobs {
                 // If a save fails, NEVER publish COMPLETE or permit a retry.
                 if (!world.getServer().saveEverything(false, true, true)) throw new IllegalStateException("Не удалось надёжно сохранить построенные чанки");
                 ManualStructureRecords.get(world).replace(token, "nether_posad", 0, new BlockPos(ax, deckY, az), bounds);
+                PosadResidentSpawner.Result population = PosadResidentSpawner.populate(world, ax, deckY, az, turns);
                 world.getDataStorage().save();
+                source.sendSuccess(() -> Component.literal("Первичное заселение: " + population.added() + " добавлено, " + population.blocked() + " ожидают свободного места. Повтор: /slavicmyths dev posad populate <turns> <anchorX> <deckY> <anchorZ>."), false);
                 source.sendSuccess(() -> Component.literal("Пекельный посад построен: X=" + ax + " Y=" + deckY + " Z=" + az + ", поворот " + turns * 90 + "°. Награды — только одноразовые сундуки."), false);
                 preparation.close();
                 JOBS.remove(world);
