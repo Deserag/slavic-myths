@@ -25,6 +25,8 @@ public final class SlavicMyths {
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.earth.EarthConfig.SPEC,"slavicmyths-earth-spirit.toml");
         org.slavicmyths.item.ItemState.COMPONENTS.register(bus);
         org.slavicmyths.netherboss.NetherBossItems.init();
+        // Register both Nether bosses' 22 sound events before the deferred sound registry is bound to the mod bus.
+        org.slavicmyths.netherboss.NetherBossSounds.init();
         org.slavicmyths.rpg.Runes.init();
         org.slavicmyths.garden.Gardens.init();
         org.slavicmyths.husbandry.Husbandry.init(bus);
