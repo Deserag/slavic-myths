@@ -40,13 +40,13 @@ def furnish_urban(b,climate,family,kind,role,x0,x1,z0,z1,cx,floors,frame,beds):
  meal='slavicmyths:rye_bread' if kind in ['guard','forge','craft'] else 'slavicmyths:honey_bread' if kind=='rich' else 'slavicmyths:oat_porridge'
  # All meals on display belong to the real table-food tag.
  if meal=='slavicmyths:honey_bread':meal='slavicmyths:honey_bliny'
- table(b,(7 if kind=='trading' else x0+2,1,z0+2 if kind=='trading' else z0+4),[meal,'minecraft:apple'])
+ table(b,(x0+1,1,z0+2),[meal,'minecraft:apple'])
  shelf=(x0+1,2,z0+5)
  storage(b,shelf,'wall_shelf',[(item,1) for item in PROFILES[profile][:3]])
  put_empty(b,(x0+1,1,z0+5),'slavicmyths:pine_bench',facing='east')
  put_empty(b,(x0+1,1,z0+6),'slavicmyths:pine_bedside_cabinet',facing='east')
  # Keep the walkable centre clear: all movable furniture belongs against a wall.
- for dz in range(3):put_empty(b,(cx,1,z1-5+dz),'blue_carpet' if climate=='cold' else 'red_carpet')
+ # No decorative blocks in the centre aisle.
  if kind!='trading':
   p=(x0+1,1,z1-3)
   if empty(b,p):table(b,p,['slavicmyths:berry_bliny'])
@@ -67,9 +67,9 @@ def furnish_urban(b,climate,family,kind,role,x0,x1,z0,z1,cx,floors,frame,beds):
   if empty(b,p):storage(b,p,'wall_shelf',[('minecraft:book',1),('slavicmyths:linen_thread',2)])
   for x,y,z in beds:put_empty(b,(x,y,z1-1),'slavicmyths:pine_bedside_cabinet',facing='south')
   for zz in [z0+5,z1-4]:light(b,cx,9,zz,frame)
- # Four sources on the lower floor, with fixed beams above head clearance.
- for xx in [6 if kind=='trading' else x0+3,x1-3]:
-  for zz in [z0+5,z1-4]:light(b,xx,4,zz,frame)
+ # Wall-side lighting only; never place lanterns or support blocks in the walkable room centre.
+ for xx in [x0+1,x1-1]:
+  for zz in [z0+3,z1-3]:light(b,xx,4,zz,frame)
  # Entrance lantern is hung from its existing porch roof by a short crosspiece.
  light(b,cx+1,3,1,frame)
  if profile in ['cook','brewer']:
