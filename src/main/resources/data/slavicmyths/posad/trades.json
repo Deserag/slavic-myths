@@ -1732,7 +1732,7 @@
       "tier": 1,
       "type": "buy",
       "a": {
-        "id": "slavicmyths:barley",
+        "id": "slavicmyths:barley_grain",
         "count": 32
       },
       "out": {
@@ -2071,16 +2071,17 @@
       "type": "barter",
       "a": {
         "id": "slavicmyths:raw_boar_meat",
-        "count": 8
+        "count": 4
       },
       "out": {
         "id": "slavicmyths:meat_stew",
-        "count": 2
+        "count": 1
       },
       "b": {
         "id": "slavicmyths:barley_groats",
-        "count": 4
-      }
+        "count": 2
+      },
+      "note": "Repeat twice for approved 8 meat + 4 barley -> 2 unstackable stews"
     },
     {
       "id": "storekeeper_barter_1",
