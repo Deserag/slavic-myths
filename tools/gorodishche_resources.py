@@ -111,10 +111,11 @@ def urban_house(climate,family,name,w=13,d=15,kind='rich',role=None,job=None,var
   v.bed(b,x,upper,z,'white' if i%2 else 'blue' if cold else 'red');beds.append([x,upper,z])
  # Stair core stays on the right, away from the door, counter and bed aisles.
  if floors>1 and kind!='trading':stairs(b,x1-2,z0+3,1,5,frame,1 if w<11 else 2)
- if kind!='trading':furniture(b,x0+2,1,z0+4);furniture(b,x0+2,1,z0+5,'pine_stool')
- if floors>1:furniture(b,cx,6,z1-4);furniture(b,cx+1,6,z1-4,'pine_stool')
+ # Interior furniture is authored centrally in city_furnishing; do not seed duplicate furniture in room centres.
+ if floors>1:pass
  b.put(x0+1,1,z0+1,'furnace',facing='south',lit=False);b.box((x0+1,2,z0+1),(x0+1,roof_base+w//2+2,z0+1),'bricks' if variant%2 else 'stone_bricks');v.slab(b,x0+1,roof_base+w//2+3,z0+1,'brick' if variant%2 else 'stone_brick')
- v.be(b,cx,1,z1-1,'slavicmyths:household_chest',{'id':'slavicmyths:household_storage','Items':[]},facing='south',open=False);v.loot(b,x1-1,upper,z1-1,'home')
+ # Storage is placed against walls by city_furnishing; never block the central aisle.
+ v.loot(b,x1-1,upper,z1-1,'home')
  jobs=[];spawns=[]
  if role:
   pos=[x0+2,1,z0+7];jobs.append(workstation(b,pos,role,job));spawns.append(([cx,1,z0+2],role))
