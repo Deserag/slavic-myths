@@ -177,12 +177,13 @@ public final class PosadShellGameTests {
     t.assertTrue(actual.canSurvive(world,at),"Veche lamp unsupported "+at);
    }else{
     t.assertTrue(actual.is(Blocks.POLISHED_BASALT),"R3 lamppost foot missing "+at+" found "+actual);
-    int dx=x==52||x==40?1:x==60||x==72?-1:0;
+    int dx=x==52?2:x==60?-2:x==40?1:x==72?-1:0;
     int dz=z==39?1:z==75?-1:0;
     var hanging=PosadGeometry.rotate(new PosadGeometry.Cell(x+dx,z+dz),turns);
     var lampAt=anchor.offset(hanging.x(),3,hanging.z());
     t.assertTrue(world.getBlockState(lampAt).is(Blocks.LANTERN),"R3 hanging street lantern missing "+lampAt);
     t.assertTrue(world.getBlockState(lampAt).canSurvive(world,lampAt),"R3 hanging street lantern unsupported "+lampAt);
+    t.assertTrue(world.getBlockState(lampAt.above()).is(Blocks.CHAIN),"R3 street bracket chain missing "+lampAt);
    }
   }
   int connectedWindows=0;

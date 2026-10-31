@@ -76,9 +76,12 @@ public final class PosadArchitectureR3 {
         // street at height 3, leaving a two-block-high unobstructed passage.
         put(x,1,z,Blocks.POLISHED_BASALT.defaultBlockState());
         for(int y:new int[]{2,3})emptyAt(x,y,z,Blocks.POLISHED_BASALT.defaultBlockState());
-        emptyAt(x,4,z,Blocks.CHISELED_POLISHED_BLACKSTONE.defaultBlockState());
-        int armX=x+xOffset,armZ=z+zOffset;
-        emptyAt(armX,4,armZ,Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState());
+        emptyAt(x,4,z,Blocks.POLISHED_BASALT.defaultBlockState());
+        emptyAt(x,5,z,Blocks.CHISELED_POLISHED_BLACKSTONE.defaultBlockState());
+        int reach=(x==52||x==60)?2:1;
+        for(int n=1;n<=reach;n++)emptyAt(x+n*xOffset,5,z+n*zOffset,Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState());
+        int armX=x+reach*xOffset,armZ=z+reach*zOffset;
+        emptyAt(armX,4,armZ,Blocks.CHAIN.defaultBlockState());
         emptyAt(armX,3,armZ,Blocks.LANTERN.defaultBlockState().setValue(LanternBlock.HANGING,true));
     }
     static {

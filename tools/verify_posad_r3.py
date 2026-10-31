@@ -22,8 +22,8 @@ assert "POSAD_R3_PANES_CONNECTED" in tests
 assert "R3 hanging street lantern" in tests
 assert "R3 street light changed" in r3
 assert "old(x,1,z)" in r3 and "LanternBlock.HANGING,true" in r3
-posts=[(52,z,53,z) for z in range(37,98,12)]
-posts += [(60,z,59,z) for z in range(43,104,12)]
+posts=[(52,z,54,z) for z in range(37,98,12)]
+posts += [(60,z,58,z) for z in range(43,104,12)]
 posts += [(x,z,x,z+(1 if z==39 else -1)) for z in (39,75) for x in (43,69)]
 posts += [(40,56,41,56),(72,56,71,56)]
 assert len(posts)==18 and len({(p[0],p[1]) for p in posts})==18
