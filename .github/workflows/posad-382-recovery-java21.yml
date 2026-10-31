@@ -24,6 +24,11 @@ jobs:
           python-version: '3.12'
       - name: Verify economy catalog
         run: python tools/posad-tests/verify_economy_catalog.py
+      - name: Verify architecture, doors and four-rotation stair contract
+        run: |
+          python tools/verify_posad_house_renovation.py
+          python tools/verify_posad_druzhina_entrances.py
+          python tools/verify_posad_stairs_21.py
       - name: Compile mod and package resources
         run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain
       - name: Verify current resource inventory
