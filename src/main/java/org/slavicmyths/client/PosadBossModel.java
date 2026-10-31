@@ -71,7 +71,7 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
             cub(root, 60, 78, 3, -16, -5, 3, 6, 2);
             cub(root, 75, 78, 5, -25, -4, 2, 18, 2); // Chain length near hand
         }
-        root.getAllParts().forEach(ModelPart::storePose);
+        root.getAllParts().forEach(part -> part.setInitialPose(part.storePose()));
     }
     @Override public void setupAnim(PosadBoss entity, float swing, float amount, float age, float yaw, float pitch) {
         root.getAllParts().forEach(ModelPart::resetPose);
