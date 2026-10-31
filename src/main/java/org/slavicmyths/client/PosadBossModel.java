@@ -98,7 +98,8 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
             cub(chainSickle, 74, 54, 5, 2, -1, 3, 4, 3);
             cub(chainSickle, 74, 54, 6, -1, -1, 2, 4, 3); // Distinct sickle curve and sharpened tip
         }
-        // Minecraft living models rest their feet at model Y=24 (not Y=0).\n        // Both boss rigs were authored upwards from Y=0 and otherwise hover above ground.\n        root.setPos(0F, 24F, 0F);\n        root.getAllParts().forEach(part -> part.setInitialPose(part.storePose()));
+        // Root is measured from feet at y=0; Minecraft's ModelPart plane is y=24.
+        root.setPos(0F, 24F, 0F);\n        root.getAllParts().forEach(part -> part.setInitialPose(part.storePose()));
     }
     @Override public void setupAnim(PosadBoss entity, float swing, float amount, float age, float yaw, float pitch) {
         root.getAllParts().forEach(ModelPart::resetPose);
