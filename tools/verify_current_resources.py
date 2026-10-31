@@ -11,9 +11,20 @@ def main():
     assert jar.is_file() and len(list((R/'build/libs').glob('slavicmyths-*.jar')))==1
     count=0;json_count=0;png_count=0;model_count=0
     for p in RES.rglob('*.json'):json.loads(p.read_text(encoding='utf-8'));json_count+=1
-    for p in A.rglob('*.png'):
-        with Image.open(p) as im:im.verify()
-        png_count+=1
+    corrupt_pngs=[]
+    for p in sorted(A.rglob('*.png')):
+        try:
+            with Image.open(p) as im:
+                im.verify()
+            with Image.open(p) as im:
+                im.load()
+            png_count+=1
+        except Exception as exc:
+            relative=p.relative_to(R).as_posix()
+            print(f'CORRUPT PNG: {relative}: {type(exc).__name__}: {exc}',file=sys.stderr,flush=True)
+            corrupt_pngs.append(relative)
+    if corrupt_pngs:
+        raise RuntimeError(f'{len(corrupt_pngs)} corrupt PNG(s): '+', '.join(corrupt_pngs))
     def own_ref(reference,kind):
         if reference.startswith('slavicmyths:'):
             target=A/kind/(reference.split(':',1)[1]+('.json' if kind=='models' else '.png'))
