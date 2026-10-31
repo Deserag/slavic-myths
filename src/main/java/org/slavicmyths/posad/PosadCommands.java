@@ -357,6 +357,23 @@ public final class PosadCommands {
                     world.setBlock(at,finish,2);
                 }
         }
+        // Standalone templates receive the schema-21 northbound tread correction
+        // after their older NBT/renovation overlays. Existing worlds are never edited.
+        if(id.equals("communal_house_2_2_3") || id.equals("druzhinny_dvor_2_2_4")) {
+            boolean communal=id.equals("communal_house_2_2_3");
+            int ox=communal?13:12,oz=communal?15:75;
+            for(int step=0;step<6;step++)for(int x:communal?new int[]{20,21}:new int[]{23,24}) {
+                int y=step+1,z=(communal?26:84)-step;
+                var finish=PosadArchitectureR4.voxel(x,y,z);
+                var target=pos.offset(x-ox,y,z-oz);
+                var present=world.getBlockState(target);
+                if(finish==null || present.hasBlockEntity()
+                        || !present.is(net.minecraft.world.level.block.Blocks.POLISHED_BLACKSTONE_BRICK_STAIRS)
+                        || present.getValue(net.minecraft.world.level.block.StairBlock.FACING)!=net.minecraft.core.Direction.NORTH)
+                    throw new IllegalStateException("Standalone schema-21 stair source mismatch at "+target+": "+present);
+                if(!world.setBlock(target,finish,2))throw new IllegalStateException("Standalone stair correction refused at "+target);
+            }
+        }
         // Template barrels are authored empty: assign persistent single-use loot after placement.
         String table=id.startsWith("menovye_ryady")?"chests/posad_barrel_market":"chests/posad_barrel_supplies";
         for(var at:net.minecraft.core.BlockPos.betweenClosed(pos,end)) {
