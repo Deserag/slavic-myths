@@ -22,9 +22,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
-/** Initial server-side combat foundation for the two distinct 2.2 roaming bosses.
- * No coin theft, loot or teleports are performed until persistent reward ledgers exist.
- */
+/** Server-authoritative combat, persistent loot and coin escrow for both Nether bosses. */
 public final class PosadBoss extends Monster {
     public enum Kind { MYTAR, BAUK }
     public enum Move { IDLE, WINDUP_BITE, WINDUP_PAW, RECOVERY, RAGE_TRANSITION, WINDUP_SICKLE, WINDUP_SLAM, WINDUP_ROAR, WINDUP_CHARGE, WINDUP_CHAIN, WINDUP_COINS, WINDUP_GRAB }
@@ -45,6 +43,8 @@ public final class PosadBoss extends Monster {
     private net.minecraft.world.phys.Vec3 chargeDirection = net.minecraft.world.phys.Vec3.ZERO;
     private boolean naturalEncounter;
     private int healedFromCoins;
+    private java.util.UUID chainVictim;
+    private int chainPullTicks;
     private final java.util.Set<java.util.UUID> participants = new java.util.HashSet<>();
     private final java.util.Map<java.util.UUID, Long> stealReady = new java.util.HashMap<>();
     public PosadBoss(EntityType<? extends PosadBoss> type, Level level, Kind kind) {
@@ -115,6 +115,8 @@ public final class PosadBoss extends Monster {
             actionTicks--;
             getNavigation().stop();
             if (move() == Move.WINDUP_CHARGE && actionTicks <= 14) chargeStep();
+            if (move() == Move.WINDUP_CHAIN && chainPullTicks > 0) pullChainedVictim();
+            if (move() == Move.WINDUP_CHAIN && actionTicks == 1 && chainVictim != null) finishChainedVictim();
             if (move() == Move.WINDUP_COINS && (actionTicks == 16 || actionTicks == 8 || actionTicks == 1)) applyHit();
             if (!connected && actionTicks == impactTick(move())) {
                 connected = true;
@@ -147,6 +149,7 @@ public final class PosadBoss extends Monster {
         actionTicks = ticks;
         cooldown = after;
         connected = false;
+        if (next != Move.WINDUP_CHAIN) { chainVictim = null; chainPullTicks = 0; }
         if (next == Move.WINDUP_CHARGE && getTarget() != null) chargeDirection = getTarget().position().subtract(position()).multiply(1D, 0D, 1D).normalize();
         switch (next) {
             case WINDUP_CHAIN -> playSound(net.minecraft.sounds.SoundEvents.CHAIN_PLACE, 1.1F, .7F);
@@ -181,14 +184,35 @@ public final class PosadBoss extends Monster {
             break;
         }
     }
+    private void pullChainedVictim() {
+        if (!(level() instanceof net.minecraft.server.level.ServerLevel server) || chainVictim == null) return;
+        ServerPlayer victim = server.getServer().getPlayerList().getPlayer(chainVictim);
+        if (victim == null || !victim.isAlive() || victim.isBlocking() || victim.level() != level() || !getSensing().hasLineOfSight(victim)) { chainVictim = null; chainPullTicks = 0; return; }
+        net.minecraft.world.phys.Vec3 toBoss = position().subtract(victim.position()).multiply(1D, 0D, 1D);
+        if (toBoss.lengthSqr() > 4D) {
+            net.minecraft.world.phys.Vec3 step = toBoss.normalize().scale(Math.min(2D, toBoss.length()));
+            if (!level().noCollision(victim, victim.getBoundingBox().move(step))) { chainVictim = null; chainPullTicks = 0; return; }
+            victim.setDeltaMovement(step.x, victim.getDeltaMovement().y, step.z);
+            victim.hurtMarked = true;
+        }
+        chainPullTicks--;
+    }
+    private void finishChainedVictim() {
+        if (level() instanceof net.minecraft.server.level.ServerLevel server) {
+            ServerPlayer victim = server.getServer().getPlayerList().getPlayer(chainVictim);
+            if (victim != null && victim.isAlive() && !victim.isBlocking() && victim.level() == level() && distanceToSqr(victim) <= 16D && getSensing().hasLineOfSight(victim)) victim.hurt(damageSources().mobAttack(this), 14F);
+        }
+        chainVictim = null;
+        chainPullTicks = 0;
+    }
     private void applyHit() {
         if (move() == Move.WINDUP_CHAIN || move() == Move.WINDUP_COINS) {
             LivingEntity distant = getTarget();
             if (!(distant instanceof Player p) || !p.isAlive() || p.isCreative() || p.isSpectator() || !getSensing().hasLineOfSight(distant) || distanceToSqr(distant) > (move() == Move.WINDUP_CHAIN ? 196D : 144D)) return;
             if (move() == Move.WINDUP_COINS) { distant.hurt(damageSources().mobAttack(this), 5F); return; }
-            if (distant.hurt(damageSources().mobAttack(this), 6F)) {
-                net.minecraft.world.phys.Vec3 pull = position().subtract(distant.position()).multiply(1D, 0D, 1D).normalize().scale(.85D);
-                if (level().noCollision(distant, distant.getBoundingBox().move(pull))) distant.setDeltaMovement(distant.getDeltaMovement().add(pull));
+            if (distant instanceof ServerPlayer hooked && !hooked.isBlocking() && distant.hurt(damageSources().mobAttack(this), 6F)) {
+                chainVictim = hooked.getUUID();
+                chainPullTicks = 12;
             }
             return;
         }
@@ -267,6 +291,8 @@ public final class PosadBoss extends Monster {
         tag.putBoolean("PosadRewardDropped", rewardDropped);
         tag.putBoolean("PosadNatural", naturalEncounter);
         tag.putInt("PosadCoinHeal", healedFromCoins);
+        if (chainVictim != null) tag.putUUID("PosadChainVictim", chainVictim);
+        tag.putInt("PosadChainPull", chainPullTicks);
         net.minecraft.nbt.ListTag players = new net.minecraft.nbt.ListTag();
         for (java.util.UUID id : participants) { CompoundTag row = new CompoundTag(); row.putUUID("Player", id); players.add(row); }
         tag.put("PosadParticipants", players);
@@ -287,6 +313,9 @@ public final class PosadBoss extends Monster {
         rewardDropped = tag.getBoolean("PosadRewardDropped");
         naturalEncounter = tag.getBoolean("PosadNatural");
         healedFromCoins = Math.max(0, Math.min(240, tag.getInt("PosadCoinHeal")));
+        chainVictim = tag.hasUUID("PosadChainVictim") ? tag.getUUID("PosadChainVictim") : null;
+        chainPullTicks = Math.max(0, Math.min(12, tag.getInt("PosadChainPull")));
+        if (move() != Move.WINDUP_CHAIN) { chainVictim = null; chainPullTicks = 0; }
         participants.clear();
         for (net.minecraft.nbt.Tag raw : tag.getList("PosadParticipants", 10)) { CompoundTag row = (CompoundTag) raw; if (row.hasUUID("Player")) participants.add(row.getUUID("Player")); }
         entityData.set(ENRAGED, kind == Kind.BAUK && tag.getBoolean("PosadEnraged"));
