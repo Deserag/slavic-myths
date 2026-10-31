@@ -106,22 +106,27 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 8));
         goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 8, true, false, target -> target instanceof Player p && canFightPlayer(p)));
-        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Monster.class, 10, true, false, target -> target instanceof Monster m && mayDefendAgainst(m)));
+        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Mob.class, 10, true, false, target -> target instanceof Mob m && mayDefendAgainst(m)));
     }
     private boolean canFightPlayer(Player player) {
         return role().guard() && city != null && !player.isCreative() && !player.isSpectator()
                 && level() instanceof ServerLevel server && PosadGrievances.get(server).hostile(city, player.getUUID())
                 && (home == null || player.blockPosition().distSqr(home) <= 48 * 48);
     }
-    private boolean mayDefendAgainst(Monster monster) {
-        if (!role().guard() || city == null || !monster.isAlive()) return false;
+    private boolean mayDefendAgainst(Mob monster) {
+        if (!role().guard() || city == null || !monster.isAlive()
+                || !(monster instanceof net.minecraft.world.entity.monster.Enemy)) return false;
         if (home != null && monster.blockPosition().distSqr(home) > 40 * 40) return false;
         if (monster.getTarget() instanceof PosadResidentEntity resident) return Objects.equals(city, resident.city());
         if (monster.getTarget() instanceof Player) return true;
-        return monster instanceof net.minecraft.world.entity.monster.Blaze
-                || monster instanceof net.minecraft.world.entity.monster.WitherSkeleton
-                || monster instanceof net.minecraft.world.entity.monster.Skeleton
-                ;
+        // Neutral Nether inhabitants must not become hostile merely because
+        // a guard sees them; retaliate only after they actually threaten someone.
+        if (monster instanceof net.minecraft.world.entity.NeutralMob
+                || monster instanceof net.minecraft.world.entity.monster.piglin.AbstractPiglin
+                || monster instanceof net.minecraft.world.entity.monster.Spider) return false;
+        // Includes genuine hostile modded mobs, ghasts and magma cubes instead
+        // of the old three-class whitelist. All targets stay city-radius bounded.
+        return true;
     }
     @Override public void setTarget(LivingEntity target) {
         if (target instanceof Player player && !canFightPlayer(player)) target = null;
