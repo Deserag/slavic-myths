@@ -3,6 +3,11 @@ package org.slavicmyths.verify;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map;
+import com.google.gson.JsonObject;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.item.trading.MerchantOffer;
@@ -39,4 +44,48 @@ public final class PosadMerchantGameTests {
         t.assertTrue(offersChecked >= 120, "Too many unavailable trade offers: " + offersChecked);
         t.succeed();
     }
+    @GameTest(template = "empty", timeoutTicks = 200)
+    public static void validateAll142CatalogStacks(GameTestHelper t) {
+        int checked = 0;
+        for (JsonObject entry : PosadTradeCatalog.catalog()) {
+            JsonObject active = entry;
+            if (!registered(active) && entry.has("fallback")) active = entry.getAsJsonObject("fallback");
+            if (!registered(active)) {
+                t.assertTrue(entry.has("deferred") && entry.get("deferred").getAsBoolean(), "Missing non-deferred trade item: " + entry.get("id"));
+                checked++;
+                continue;
+            }
+            int repetitions = 1;
+            for (String slot : new String[]{"a", "b", "out"}) {
+                if (!active.has(slot)) continue;
+                JsonObject spec = active.getAsJsonObject(slot);
+                int count = spec.get("count").getAsInt();
+                int max = item(spec).getDefaultMaxStackSize();
+                t.assertTrue(count > 0, "Nonpositive stack: " + entry.get("id") + "/" + slot);
+                if (count > max) {
+                    t.assertTrue(max == 1, "Oversized stackable item: " + entry.get("id") + "/" + slot);
+                    t.assertTrue(repetitions == 1 || repetitions == count, "Incompatible nonstackable batch: " + entry.get("id"));
+                    repetitions = count;
+                }
+            }
+            for (String slot : new String[]{"a", "b", "out"}) {
+                if (!active.has(slot)) continue;
+                JsonObject spec = active.getAsJsonObject(slot);
+                int count = spec.get("count").getAsInt();
+                t.assertTrue(count % repetitions == 0 && count / repetitions >= 1 && count / repetitions <= item(spec).getDefaultMaxStackSize(), "Invalid normalized stack: " + entry.get("id") + "/" + slot);
+            }
+            checked++;
+        }
+        t.assertTrue(checked == 142, "Catalog validation did not cover all 142 offers: " + checked);
+        t.succeed();
+    }
+    private static Item item(JsonObject spec) {
+        ResourceLocation key = ResourceLocation.parse(spec.get("id").getAsString());
+        return BuiltInRegistries.ITEM.containsKey(key) ? BuiltInRegistries.ITEM.get(key) : Items.AIR;
+    }
+    private static boolean registered(JsonObject row) {
+        for (String slot : new String[]{"a", "b", "out"}) if (row.has(slot) && item(row.getAsJsonObject(slot)) == Items.AIR) return false;
+        return true;
+    }
+
 }
