@@ -158,10 +158,10 @@ public final class PosadBuildings {
             case 'T' -> Blocks.CRIMSON_TRAPDOOR.defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.NORTH).setValue(TrapDoorBlock.HALF, net.minecraft.world.level.block.state.properties.Half.TOP);
             case 'G' -> Blocks.IRON_BARS.defaultBlockState();
             case 'H' -> Blocks.CHEST.defaultBlockState().setValue(net.minecraft.world.level.block.ChestBlock.FACING, Direction.SOUTH);
-            case 'Q' -> door(DoorHingeSide.LEFT, DoubleBlockHalf.LOWER);
-            case 'q' -> door(DoorHingeSide.LEFT, DoubleBlockHalf.UPPER);
-            case 'J' -> door(DoorHingeSide.RIGHT, DoubleBlockHalf.LOWER);
-            case 'j' -> door(DoorHingeSide.RIGHT, DoubleBlockHalf.UPPER);
+            case 'Q' -> door(DoorHingeSide.RIGHT, DoubleBlockHalf.LOWER);
+            case 'q' -> door(DoorHingeSide.RIGHT, DoubleBlockHalf.UPPER);
+            case 'J' -> door(DoorHingeSide.LEFT, DoubleBlockHalf.LOWER);
+            case 'j' -> door(DoorHingeSide.LEFT, DoubleBlockHalf.UPPER);
             case 'U' -> Blocks.POLISHED_BLACKSTONE_BRICK_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.NORTH);
             case 'K' -> Blocks.CRIMSON_FENCE.defaultBlockState();
             case 'V' -> Blocks.LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, false);
