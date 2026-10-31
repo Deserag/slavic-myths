@@ -344,7 +344,8 @@ public final class PosadCommands {
             }
             if(!existing.equals(corrected)){world.setBlock(at,corrected,2);fixedPanes++;}
         }
-        if(fixedPanes>0)source.sendSuccess(()->Component.literal("Исправлено соединений оконных панелей: "+fixedPanes),false);
+        int fixedPanesCount=fixedPanes;
+        if(fixedPanesCount>0)source.sendSuccess(()->Component.literal("Исправлено соединений оконных панелей: "+fixedPanesCount),false);
         source.sendSuccess(()->Component.literal("Построено: "+id+" в "+pos.toShortString()),false);
         return 1;
     }
