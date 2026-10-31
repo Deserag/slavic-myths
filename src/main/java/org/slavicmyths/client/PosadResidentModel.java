@@ -54,7 +54,7 @@ public final class PosadResidentModel extends HumanoidModel<PosadResidentEntity>
             boolean left = side == 0;
             float direction = left ? 1.0F : -1.0F;
             PartDefinition wing = body.addOrReplaceChild(left ? "wing_left" : "wing_right",
-                CubeListBuilder.create().texOffs(24, 40).addBox(left ? 0.0F : -1.0F, -0.5F, -0.6F, 1.0F, 6.8F, 1.2F),
+                CubeListBuilder.create().texOffs(32, 32).addBox(left ? 0.0F : -3.2F, -0.4F, -0.35F, 3.2F, 5.8F, 0.7F),
                 PartPose.offset(left ? 3.1F : -3.1F, 1.0F, 2.5F));
             wing.addOrReplaceChild("outer", CubeListBuilder.create().texOffs(32, 32)
                 .addBox(left ? 0.8F : -5.6F, 0.0F, -0.2F, 4.8F, 6.5F, 0.4F),
