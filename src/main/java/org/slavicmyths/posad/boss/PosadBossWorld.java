@@ -47,8 +47,9 @@ public final class PosadBossWorld extends SavedData {
     private static boolean naturalGround(BlockState state) {
         return state.is(Blocks.NETHERRACK) || state.is(Blocks.BLACKSTONE) || state.is(Blocks.BASALT) || state.is(Blocks.SOUL_SAND) || state.is(Blocks.SOUL_SOIL) || state.is(Blocks.CRIMSON_NYLIUM) || state.is(Blocks.WARPED_NYLIUM);
     }
-    private static boolean safe(ServerLevel level, BlockPos pos) {
-        for (int x = -2; x <= 2; x++) for (int z = -2; z <= 2; z++) {
+    private static boolean safe(ServerLevel level, BlockPos pos, PosadBoss.Kind kind) {
+        int radius = kind == PosadBoss.Kind.BAUK ? 2 : 1;
+        for (int x = -radius; x <= radius; x++) for (int z = -radius; z <= radius; z++) {
             BlockPos ground = pos.offset(x, -1, z);
             if (!level.hasChunkAt(ground) || !naturalGround(level.getBlockState(ground))) return false;
             for (int y = 0; y < 5; y++) {
@@ -65,24 +66,30 @@ public final class PosadBossWorld extends SavedData {
         int rx = Math.floorDiv(player.getBlockX(), REGION);
         int rz = Math.floorDiv(player.getBlockZ(), REGION);
         long mixed = mix(level.getSeed() ^ (rx * 0x9e3779b97f4a7c15L) ^ (rz * 0xc2b2ae3d27d4eb4fL));
-        // Spawn in already explored, loaded terrain rather than requiring a player to pass a single invisible pixel.
-        int x = Math.max(rx * REGION + 40, Math.min((rx + 1) * REGION - 40, player.getBlockX() + ((mixed & 1L) == 0 ? 72 : -72)));
-        int z = Math.max(rz * REGION + 40, Math.min((rz + 1) * REGION - 40, player.getBlockZ() + ((mixed & 2L) == 0 ? 64 : -64)));
-        if (player.distanceToSqr(x + .5D, player.getY(), z + .5D) < 48D * 48D) return;
+        // Probe different loaded directions around the explorer; a failed spot must not prevent natural encounters.
         String key = rx + ":" + rz;
         PosadBossWorld data = get(level);
         if (data.consumed.contains(key)) return;
         PosadBoss.Kind kind = (mixed & 1) == 0 ? PosadBoss.Kind.MYTAR : PosadBoss.Kind.BAUK;
-        for (int y = Math.min(level.getMaxBuildHeight() - 8, player.getBlockY() + 16); y >= Math.max(level.getMinBuildHeight() + 5, player.getBlockY() - 16); y--) {
-            BlockPos pos = new BlockPos(x, y, z);
-            if (!safe(level, pos)) continue;
-            PosadBoss boss = (kind == PosadBoss.Kind.MYTAR ? ModEntities.CURSED_MYTAR : ModEntities.BAUK).get().create(level);
-            if (boss == null) return;
-            boss.markNaturalEncounter();
-            boss.moveTo(x + .5D, y, z + .5D, level.random.nextFloat() * 360F, 0F);
-            if (!level.noCollision(boss) || !level.getEntitiesOfClass(ServerPlayer.class, boss.getBoundingBox().inflate(32D), p -> !p.isSpectator()).isEmpty()) return;
-            if (level.addFreshEntity(boss)) { data.consumed.add(key); data.setDirty(); }
-            return;
+        for (int probe = 0; probe < 16; probe++) {
+            double angle = ((probe * 5 + (mixed & 7L)) % 16) * Math.PI / 8D;
+            int radius = 56 + (probe % 4) * 12;
+            int x = player.getBlockX() + (int) Math.round(Math.cos(angle) * radius);
+            int z = player.getBlockZ() + (int) Math.round(Math.sin(angle) * radius);
+            if (Math.floorDiv(x, REGION) != rx || Math.floorDiv(z, REGION) != rz) continue;
+            if (player.distanceToSqr(x + .5D, player.getY(), z + .5D) < 48D * 48D) continue;
+            BlockPos top = new BlockPos(x, player.getBlockY(), z);
+            if (!level.hasChunkAt(top)) continue;
+            for (int y = Math.min(level.getMaxBuildHeight() - 8, player.getBlockY() + 24); y >= Math.max(level.getMinBuildHeight() + 5, player.getBlockY() - 24); y--) {
+                BlockPos pos = new BlockPos(x, y, z);
+                if (!safe(level, pos, kind)) continue;
+                PosadBoss boss = (kind == PosadBoss.Kind.MYTAR ? ModEntities.CURSED_MYTAR : ModEntities.BAUK).get().create(level);
+                if (boss == null) return;
+                boss.markNaturalEncounter();
+                boss.moveTo(x + .5D, y, z + .5D, level.random.nextFloat() * 360F, 0F);
+                if (!level.noCollision(boss) || !level.getEntitiesOfClass(ServerPlayer.class, boss.getBoundingBox().inflate(32D), p -> !p.isSpectator()).isEmpty()) continue;
+                if (level.addFreshEntity(boss)) { data.consumed.add(key); data.setDirty(); return; }
+            }
         }
     }
 }
