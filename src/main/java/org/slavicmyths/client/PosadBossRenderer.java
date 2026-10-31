@@ -16,7 +16,7 @@ import org.slavicmyths.registry.ModEntities;
 public final class PosadBossRenderer extends MobRenderer<PosadBoss,PosadBossModel> {
     private static final ResourceLocation MYTAR_TEXTURE = ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/cursed_mytar.png");
     private static final ResourceLocation BAUK_TEXTURE = ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/bauk.png");
-    public PosadBossRenderer(EntityRendererProvider.Context context, boolean bauk) { super(context, new PosadBossModel(bauk), bauk ? 1.5F : .8F); }
+    public PosadBossRenderer(EntityRendererProvider.Context context, boolean bauk) { super(context, new PosadBossModel(bauk), bauk ? 2.25F : 1.15F); }
     @Override public ResourceLocation getTextureLocation(PosadBoss entity) { return entity.kind() == PosadBoss.Kind.BAUK ? BAUK_TEXTURE : MYTAR_TEXTURE; }
     @Override protected void scale(PosadBoss entity, PoseStack pose, float partialTick) { pose.scale(1F, 1F, 1F); }
     @SubscribeEvent public static void register(EntityRenderersEvent.RegisterRenderers event) {
