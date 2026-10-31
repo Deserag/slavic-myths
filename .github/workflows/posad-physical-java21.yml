@@ -15,6 +15,7 @@ on:
       - 'docs/concepts/nether-settlement-2.2/posadnik-terem/**'
       - 'build.gradle'
       - 'tools/verify_posadnik_integration.py'
+      - 'tools/posad-tests/**'
       - 'tools/posad-runtime-tests/**'
       - 'tools/posad-test-resources/**'
       - 'tools/posad-qa-runtime.gradle'
