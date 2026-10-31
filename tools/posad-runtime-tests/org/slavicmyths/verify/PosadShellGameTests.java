@@ -142,6 +142,34 @@ public final class PosadShellGameTests {
   t.assertTrue(r2Cells==160,"Wrong Veche R2 geometry count "+r2Cells);
   t.assertTrue(hallBlocks==3598,"Wrong immutable R1 hall count "+hallBlocks);
   t.assertTrue(houseBlocks==1992 && houseChests==4,"Wrong house voxel/chest count "+houseBlocks+"/"+houseChests);
+  // Design-only #376: two possible roof envelopes for a future Posadnik house.
+  // Check the *actual* native city, not just an SVG, in all four rotations.
+  // This does NOT authorize building the residence or reserving either plot.
+  int[][] candidates={{61,72,78,95},{41,51,78,95}};
+  for(int candidate=0;candidate<candidates.length;candidate++) {
+   int[] area=candidates[candidate];
+   for(int x=area[0];x<=area[1];x++)for(int z=area[2];z<=area[3];z++) {
+    for(var slot:PosadGeometry.Slot.values())
+     t.assertTrue(!slot.local().contains(x,z),"Posadnik candidate overlaps reserved "+slot+" at "+x+","+z);
+    for(int y=1;y<=17;y++) {
+     var local=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+     var at=anchor.offset(local.x(),y,local.z());
+     var planned=piece.voxel(x,y,z);
+     t.assertTrue(planned==null||planned.isAir(),"Posadnik candidate has source block turn="+turns+" option="+candidate+" at="+x+","+y+","+z+" state="+planned);
+     t.assertTrue(world.getBlockState(at).isAir(),"Posadnik candidate physically occupied turn="+turns+" option="+candidate+" at="+at+" found="+world.getBlockState(at));
+    }
+    var local=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+    t.assertTrue(!world.getBlockState(anchor.offset(local.x(),0,local.z())).isAir(),"Posadnik candidate has no platform at "+x+","+z);
+   }
+   int entryZ=candidate==0?84:83;
+   int from=candidate==0?59:50,to=candidate==0?61:53;
+   for(int x=from;x<=to;x++)for(int y=1;y<=2;y++) {
+    var local=PosadGeometry.rotate(new PosadGeometry.Cell(x,entryZ),turns);
+    var at=anchor.offset(local.x(),y,local.z());
+    t.assertTrue(world.getBlockState(at).isAir(),"Posadnik candidate street access blocked turn="+turns+" option="+candidate+" at="+x+","+y+","+entryZ);
+   }
+   System.out.println("POSAD_TEREM_SITE_SURVEY schema="+PosadGeometry.SCHEMA_VERSION+" turn="+turns+" option="+(candidate==0?"east":"west")+" roof="+area[0]+".."+area[1]+","+area[2]+".."+area[3]+" y=1..17 empty=true roadAccess=true DESIGN_ONLY");
+  }
   }
   // Observe actual BLOCK light AFTER Minecraft's light engine has processed the
   // placed chunks. This is a survey, not a fake PASS for 8/10 light targets.
