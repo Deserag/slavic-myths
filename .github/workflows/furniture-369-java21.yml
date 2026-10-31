@@ -21,6 +21,10 @@ jobs:
       - run: python -m pip install Pillow
       - name: Validate all 56 furniture variants, models, recipes and loot
         run: python tools/furniture-expansion/verify_furniture.py
+      - name: Ensure furniture generator reproduces committed resources
+        run: |
+          python tools/furniture-expansion/generate.py
+          git diff --exit-code -- src/main/resources/assets/slavicmyths/blockstates src/main/resources/assets/slavicmyths/models/block src/main/resources/assets/slavicmyths/models/item src/main/resources/data/slavicmyths/recipe src/main/resources/data/slavicmyths/loot_table/blocks
       - name: Validate creative category order (pure Java)
         run: |
           mkdir -p build/furniture369
