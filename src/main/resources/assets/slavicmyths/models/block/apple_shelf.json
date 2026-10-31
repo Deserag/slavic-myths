@@ -1,0 +1,13 @@
+{
+  "parent": "slavicmyths:block/pine_shelf",
+  "textures": {
+    "wood": "slavicmyths:block/apple_planks",
+    "beam": "slavicmyths:block/stripped_apple_log",
+    "iron": "slavicmyths:block/furniture_metal",
+    "cloth": "slavicmyths:block/furniture_cloth",
+    "rope": "slavicmyths:block/furniture_rope",
+    "straw": "minecraft:block/hay_block_side",
+    "log": "slavicmyths:block/apple_log_top",
+    "particle": "slavicmyths:block/apple_planks"
+  }
+}

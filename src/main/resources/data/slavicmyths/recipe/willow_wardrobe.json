@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "PLP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:willow_planks"
+    },
+    "L": {
+      "item": "slavicmyths:willow_log"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:willow_wardrobe"
+  }
+}

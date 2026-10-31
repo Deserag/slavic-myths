@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "PLP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:mor_oak_planks"
+    },
+    "L": {
+      "item": "slavicmyths:mor_oak_log"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:mor_oak_wardrobe"
+  }
+}
