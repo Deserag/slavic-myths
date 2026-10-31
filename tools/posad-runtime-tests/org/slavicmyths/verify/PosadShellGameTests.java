@@ -251,6 +251,37 @@ public final class PosadShellGameTests {
   }
   t.assertTrue(connectedWindows>=40,"R3 pane regression "+connectedWindows);
   System.out.println("POSAD_R3_PANES_CONNECTED turn="+turns+" panes="+connectedWindows);
+  int structuralDoors=0,stableStairs=0;
+  for(int x=0;x<=112;x++)for(int z=0;z<=112;z++)for(int y=1;y<=17;y++){
+   var planned=piece.voxel(x,y,z);
+   if(planned==null)continue;
+   var rotated=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+   var at=anchor.offset(rotated.x(),y,rotated.z());
+   var actual=world.getBlockState(at);
+   if(actual.getBlock() instanceof net.minecraft.world.level.block.DoorBlock){
+    structuralDoors++;
+    var half=actual.getValue(net.minecraft.world.level.block.DoorBlock.HALF);
+    var otherAt=half==net.minecraft.world.level.block.state.properties.DoubleBlockHalf.LOWER?at.above():at.below();
+    var other=world.getBlockState(otherAt);
+    t.assertTrue(other.getBlock()==actual.getBlock(),"Door half missing/mismatched "+at+" other="+other);
+    t.assertTrue(other.getValue(net.minecraft.world.level.block.DoorBlock.HALF)!=half,"Door halves duplicate "+at);
+    t.assertTrue(other.getValue(net.minecraft.world.level.block.DoorBlock.FACING)==actual.getValue(net.minecraft.world.level.block.DoorBlock.FACING),"Door facing split "+at);
+    t.assertTrue(other.getValue(net.minecraft.world.level.block.DoorBlock.HINGE)==actual.getValue(net.minecraft.world.level.block.DoorBlock.HINGE),"Door hinge split "+at);
+    t.assertTrue(other.getValue(net.minecraft.world.level.block.DoorBlock.OPEN)==actual.getValue(net.minecraft.world.level.block.DoorBlock.OPEN),"Door open-state split "+at);
+    t.assertTrue(actual.canSurvive(world,at),"Door half cannot survive "+at+" state="+actual);
+   }
+   if(actual.getBlock() instanceof net.minecraft.world.level.block.StairBlock){
+    for(var side:new net.minecraft.core.Direction[]{net.minecraft.core.Direction.NORTH,net.minecraft.core.Direction.EAST,net.minecraft.core.Direction.SOUTH,net.minecraft.core.Direction.WEST}){
+     var adjacent=at.relative(side);
+     var recomputed=actual.updateShape(side,world.getBlockState(adjacent),world,at,adjacent);
+     t.assertTrue(recomputed.equals(actual),"Stair shape not synchronized "+at+" side="+side+" actual="+actual+" expected="+recomputed);
+    }
+    stableStairs++;
+   }
+  }
+  t.assertTrue(structuralDoors>=20,"Too few structural door halves audited "+structuralDoors);
+  t.assertTrue(stableStairs>=100,"Too few structural stairs audited "+stableStairs);
+  System.out.println("POSAD_STRUCTURAL_BLOCKSTATES_PASS turn="+turns+" door_halves="+structuralDoors+" stairs="+stableStairs+" panes="+connectedWindows);
   t.assertTrue(emittedLights==28,"Wrong schema-18 physical lantern count "+emittedLights+" turn="+turns);
   int r2Cells=0;
   for(int x=42;x<=70;x++)for(int z=12;z<=34;z++)for(int y=0;y<=16;y++) {
