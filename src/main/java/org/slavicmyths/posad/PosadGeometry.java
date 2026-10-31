@@ -7,7 +7,7 @@ import java.util.List;
 public final class PosadGeometry {
     public static final int SIZE = 113;
     public static final int MAX = SIZE - 1;
-    public static final int SCHEMA_VERSION = 20;
+    public static final int SCHEMA_VERSION = 21;
     /** The A+ plot is an envelope, not a Slot: it contains two retained street lantern positions. */
     public static final Rect POSADNIK_TEREM_ENVELOPE = new Rect(60,72,78,95);
     public record Cell(int x, int z) {}
