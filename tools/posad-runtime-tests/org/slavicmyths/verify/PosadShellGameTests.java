@@ -518,10 +518,10 @@ public final class PosadShellGameTests {
    int accepted=0;long start=System.nanoTime();
    for(int cell=0;cell<8;cell++) {
     var cp=placement.getPotentialStructureChunk(seed,cell*80,0);
-    var start=structure.generate(registry,generator,generator.getBiomeSource(),random,world.getStructureManager(),seed,cp,0,world,structure.biomes()::contains);
-    if(start.isValid()){
+    var generated=structure.generate(registry,generator,generator.getBiomeSource(),random,world.getStructureManager(),seed,cp,0,world,structure.biomes()::contains);
+    if(generated.isValid()){
      accepted++;
-     t.assertTrue(start.getPieces().stream().anyMatch(piece->piece instanceof PosadPiece),"Native Posad start missing PosadPiece seed="+seed+" chunk="+cp);
+     t.assertTrue(generated.getPieces().stream().anyMatch(piece->piece instanceof PosadPiece),"Native Posad start missing PosadPiece seed="+seed+" chunk="+cp);
     }
    }
    total+=accepted;
