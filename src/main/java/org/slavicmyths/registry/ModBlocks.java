@@ -27,6 +27,12 @@ public final class ModBlocks {
     public static final DeferredHolder<Block, Block> PEA_CROP = BLOCKS.register("pea_crop", () -> new org.slavicmyths.farming.FarmingCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.PEA_SEEDS.get(), 1F));
     public static final DeferredHolder<Block, Block> FLAX_CROP = BLOCKS.register("flax_crop", () -> new org.slavicmyths.farming.FarmingCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.FLAX_SEEDS.get(), .9F));
 
+    public static final DeferredHolder<Block, Block> GARLIC_CROP = BLOCKS.register("garlic_crop", () -> new org.slavicmyths.farming.FoodCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.GARLIC_CLOVE.get()));
+    public static final DeferredHolder<Block, Block> HORSERADISH_CROP = BLOCKS.register("horseradish_crop", () -> new org.slavicmyths.farming.FoodCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.HORSERADISH_CUTTING.get()));
+    public static final DeferredHolder<Block, Block> BLACK_RADISH_CROP = BLOCKS.register("black_radish_crop", () -> new org.slavicmyths.farming.FoodCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.BLACK_RADISH_SEEDS.get()));
+    public static final DeferredHolder<Block, Block> MUSTARD_CROP = BLOCKS.register("mustard_crop", () -> new org.slavicmyths.farming.FoodCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.MUSTARD_SEEDS.get()));
+    public static final DeferredHolder<Block, Block> ONION_CROP = BLOCKS.register("onion_crop", () -> new org.slavicmyths.farming.FoodCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.ONION_SET.get()));
+
     // Wild plants: no growth state, random ticks, tile entities or scanning.
     public static final DeferredHolder<Block, Block> FLAX = BLOCKS.register("flax",
             () -> new WildPlantBlock(plantProperties()));
