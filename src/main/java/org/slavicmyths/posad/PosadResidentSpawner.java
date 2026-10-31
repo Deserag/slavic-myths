@@ -22,7 +22,12 @@ public final class PosadResidentSpawner {
         PosadGrievances records = PosadGrievances.get(world);
         int added = 0, existing = 0, blocked = 0;
         for (var member : PosadPopulationPlan.at(world.dimension().location().toString(), anchorX, deckY, anchorZ, turns)) {
-            if (records.spawned(settlement, member.member().key()) || world.getEntity(member.identity()) != null) {
+            if (records.spawned(settlement, member.member().key())) {
+                existing++;
+                continue;
+            }
+            if (world.getEntity(member.identity()) != null) {
+                records.markSpawned(settlement, member.member().key());
                 existing++;
                 continue;
             }
