@@ -197,6 +197,10 @@ public final class PosadShellGameTests {
   }
   t.assertTrue(militaryBlocks==2440&&forgeBlocks==1901,"Wrong 2.2.4/2.2.5 block counts "+militaryBlocks+"/"+forgeBlocks);
   t.assertTrue(militaryChests==5&&forgeChests==5,"Wrong district chest counts "+militaryChests+"/"+forgeChests);
+  var leftDoor=piece.voxel(23,1,28);
+  var rightDoor=piece.voxel(24,1,28);
+  t.assertTrue(leftDoor!=null&&leftDoor.is(Blocks.CRIMSON_DOOR)&&leftDoor.getValue(net.minecraft.world.level.block.DoorBlock.HINGE)==net.minecraft.world.level.block.state.properties.DoorHingeSide.RIGHT,"Communal double door left leaf hinge must be outer");
+  t.assertTrue(rightDoor!=null&&rightDoor.is(Blocks.CRIMSON_DOOR)&&rightDoor.getValue(net.minecraft.world.level.block.DoorBlock.HINGE)==net.minecraft.world.level.block.state.properties.DoorHingeSide.LEFT,"Communal double door right leaf hinge must be outer");
   int pitched=0;
   for(int x=0;x<=112;x++)for(int z=0;z<=112;z++)for(int y=5;y<=PosadRoofSlope.MAX_Y;y++){
    var roof=piece.voxel(x,y,z);
