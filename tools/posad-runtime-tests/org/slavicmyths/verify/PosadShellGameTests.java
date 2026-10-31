@@ -596,7 +596,7 @@ public final class PosadShellGameTests {
    var second=PosadResidentSpawner.populateNatural(world,piece);
    t.assertTrue(second.added()==0&&second.existing()==17&&second.blocked()==0,"Natural population duplicated turn="+turns+" result="+second);
   }
-  t.runAfterDelay(10,()->{
+  t.runAfterDelay(1,()->{
    for(int turns=0;turns<4;turns++){
     var anchor=anchors.get(turns);
     var cityId=PosadPopulationPlan.settlementId(world.dimension().location().toString(),anchor.getX(),anchor.getY(),anchor.getZ());
