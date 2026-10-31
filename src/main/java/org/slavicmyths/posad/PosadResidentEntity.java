@@ -156,7 +156,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
     }
     @Override public void tick() {
         super.tick();
-        if (!level().isClientSide && eggSpawnPending) initializeEggSpawn();
+        if (!level().isClientSide && (eggSpawnPending || city == null)) initializeEggSpawn();
         if (!level().isClientSide) tickEconomy();
         if (level().isClientSide || !role().guard() || city == null || !(level() instanceof ServerLevel server)) return;
         if (getTarget() instanceof Player player && !canFightPlayer(player)) setTarget(null);
@@ -180,6 +180,15 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
     }
     private void initializeEggSpawn() {
         if (!(level() instanceof ServerLevel server)) return;
+        // One universal egg: assign a real profession rather than exposing sixteen separate eggs.
+        // The appointed city Posadnik is never generated from the random resident egg.
+        if (!eggSpawnPending && city == null) {
+            PosadPopulationPlan.Role[] available = java.util.Arrays.stream(PosadPopulationPlan.Role.values()).filter(r -> r != PosadPopulationPlan.Role.POSADNIK).toArray(PosadPopulationPlan.Role[]::new);
+            PosadPopulationPlan.Role selected = available[random.nextInt(available.length)];
+            PosadPopulationPlan.Weapon chosen = selected.guard() ? PosadPopulationPlan.Weapon.values()[1 + random.nextInt(PosadPopulationPlan.Weapon.values().length - 1)] : PosadPopulationPlan.Weapon.NONE;
+            entityData.set(ROLE, selected.ordinal());
+            entityData.set(WEAPON, chosen.ordinal());
+        }
         int regionX = Math.floorDiv(blockPosition().getX(), 128);
         int regionZ = Math.floorDiv(blockPosition().getZ(), 128);
         city = UUID.nameUUIDFromBytes(("slavicmyths:posad_egg:" + server.dimension().location() + ":" + regionX + ":" + regionZ).getBytes(java.nio.charset.StandardCharsets.UTF_8));
