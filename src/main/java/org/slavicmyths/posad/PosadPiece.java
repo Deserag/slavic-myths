@@ -200,9 +200,10 @@ public final class PosadPiece extends StructurePiece {
         return !sameStairHalf(stair,neighbor) || neighbor.getValue(StairBlock.FACING) != stair.getValue(StairBlock.FACING);
     }
     private BlockState resolvedRoofStair(BlockState stair, int x, int y, int z) {
-        // Schema 20 keeps the corner-shape correction; schema 21 additionally
+        // Schema 20+ resolves stair corner shape from the final authored graph
+        // for every structural stair, not only roof rows. Schema 21 additionally
         // normalizes paired roof stairs into a continuous half-step pitch.
-        if(schema<20 || y<5 || !(stair.getBlock() instanceof StairBlock))return stair;
+        if(schema<20 || !(stair.getBlock() instanceof StairBlock))return stair;
         stair=resolvedRoofHalf(stair,x,y,z);
         Direction facing=stair.getValue(StairBlock.FACING);
         BlockState forward=resolvedRoofHalfAt(x+facing.getStepX(),y,z+facing.getStepZ());
@@ -219,9 +220,22 @@ public final class PosadPiece extends StructurePiece {
         }
         return stair.setValue(StairBlock.SHAPE,StairsShape.STRAIGHT);
     }
-    /** Resolve iron bars/glass panes from final city-local voxels, not chunk placement order. */
+    private BlockState resolvedDoorState(BlockState state,int x,int y,int z) {
+        if(schema<22 || !(state.getBlock() instanceof net.minecraft.world.level.block.DoorBlock))return state;
+        var half=state.getValue(net.minecraft.world.level.block.DoorBlock.HALF);
+        int lowerY=half==net.minecraft.world.level.block.state.properties.DoubleBlockHalf.LOWER?y:y-1;
+        BlockState lower=half==net.minecraft.world.level.block.state.properties.DoubleBlockHalf.LOWER?state:voxel(x,lowerY,z);
+        BlockState upper=voxel(x,lowerY+1,z);
+        if(lower==null || upper==null || lower.getBlock()!=state.getBlock() || upper.getBlock()!=state.getBlock())return state;
+        return state
+            .setValue(net.minecraft.world.level.block.DoorBlock.FACING,lower.getValue(net.minecraft.world.level.block.DoorBlock.FACING))
+            .setValue(net.minecraft.world.level.block.DoorBlock.HINGE,lower.getValue(net.minecraft.world.level.block.DoorBlock.HINGE))
+            .setValue(net.minecraft.world.level.block.DoorBlock.OPEN,lower.getValue(net.minecraft.world.level.block.DoorBlock.OPEN))
+            .setValue(net.minecraft.world.level.block.DoorBlock.POWERED,lower.getValue(net.minecraft.world.level.block.DoorBlock.POWERED));
+    }
+    /** Resolve structural states from the final city-local graph, never placement/chunk order. */
     private net.minecraft.world.level.block.state.BlockState resolvedConnections(net.minecraft.world.level.block.state.BlockState local,int x,int y,int z,WorldGenLevel world,BlockPos worldPos) {
-        net.minecraft.world.level.block.state.BlockState state=resolvedRoofStair(local,x,y,z).rotate(Rotation.values()[turns]);
+        net.minecraft.world.level.block.state.BlockState state=resolvedDoorState(resolvedRoofStair(local,x,y,z),x,y,z).rotate(Rotation.values()[turns]);
         if(!(state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock))return state;
         for(var direction:new net.minecraft.core.Direction[]{net.minecraft.core.Direction.NORTH,net.minecraft.core.Direction.EAST,net.minecraft.core.Direction.SOUTH,net.minecraft.core.Direction.WEST}) {
             // Direction is in the rotated WORLD frame. Map neighbor back to city coordinates.
@@ -289,9 +303,9 @@ public final class PosadPiece extends StructurePiece {
                 if(state.isAir()&&!old.isAir() && !authoredClearance(local.x(),y,local.z()))continue;
                 try {
                     var placed=resolvedConnections(state,local.x(),y,local.z(),world,at);
-                    if (state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock) {
-                        // Notify the active worldgen level so the initial chunk packet
-                        // contains connected bars without depending on a client relog.
+                    if (state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock || state.getBlock() instanceof net.minecraft.world.level.block.DoorBlock) {
+                        // Structural state must reach both neighbors and the initial chunk packet.
+                        // This keeps panes visible immediately and both door halves synchronized.
                         world.setBlock(at,placed,3);
                     } else if (state.is(Blocks.CARVED_PUMPKIN)) {
                         // Avoid vanilla snow/iron golem spawning while placing an authored pumpkin.
