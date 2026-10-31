@@ -436,6 +436,7 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
             leg1.xRot = -gait * .55F;
             cloth.yRot = .025F * Mth.sin(age * .09F);
             mane.xRot = .018F * breath;
+            chainSickle.visible = !entity.chainWeaponAway();
             rightArm.xRot = -.15F + .055F * breath;
             leftArm.xRot = .1F - .07F * breath;
             if (entity.move() == PosadBoss.Move.WINDUP_SICKLE) { leftArm.xRot = -1.45F; rightArm.xRot = -.75F; }
