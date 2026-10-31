@@ -41,10 +41,13 @@ public final class PosadBoss extends Monster {
         this.bar = new ServerBossEvent(Component.translatable(kind == Kind.MYTAR ? "entity.slavicmyths.cursed_mytar" : "entity.slavicmyths.bauk"), kind == Kind.MYTAR ? BossEvent.BossBarColor.PURPLE : BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.PROGRESS);
         this.xpReward = 250;
         setPersistenceRequired();
+        setHealth(getMaxHealth());
     }
     public static AttributeSupplier.Builder attributes(Kind kind) {
         return createMonsterAttributes().add(Attributes.MAX_HEALTH, kind == Kind.MYTAR ? 1350D : 1800D).add(Attributes.MOVEMENT_SPEED, kind == Kind.MYTAR ? .27D : .22D).add(Attributes.ATTACK_DAMAGE, kind == Kind.MYTAR ? 10D : 15D).add(Attributes.ARMOR, kind == Kind.MYTAR ? 10D : 8D).add(Attributes.ARMOR_TOUGHNESS, kind == Kind.MYTAR ? 4D : 2D).add(Attributes.KNOCKBACK_RESISTANCE, kind == Kind.MYTAR ? .65D : .85D).add(Attributes.FOLLOW_RANGE, kind == Kind.MYTAR ? 36D : 28D);
     }
+    @Override public float getMaxHealth() { return (float) org.slavicmyths.combat.CreatureHealthBalance.uncappedMaximum(getAttribute(Attributes.MAX_HEALTH)); }
+    @Override public void onRemovedFromLevel() { bar.removeAllPlayers(); super.onRemovedFromLevel(); }
     public Kind kind() { return kind; }
     public Move move() { return Move.values()[entityData.get(ACTION)]; }
     public boolean enraged() { return entityData.get(ENRAGED); }
@@ -102,7 +105,7 @@ public final class PosadBoss extends Monster {
     private void applyHit() {
         LivingEntity target = getTarget();
         if (!(target instanceof Player player) || !player.isAlive() || player.isCreative() || player.isSpectator()) return;
-        if (!getSensing().hasLineOfSight(target) || distanceToSqr(target) > (kind == Kind.BAUK ? 12.25D : 12.25D)) return;
+        if (!getSensing().hasLineOfSight(target) || distanceToSqr(target) > 12.25D) return;
         float damage = kind == Kind.MYTAR ? 10F : move() == Move.WINDUP_PAW ? 12F : 15F;
         if (target.hurt(damageSources().mobAttack(this), damage) && kind == Kind.BAUK && move() == Move.WINDUP_PAW) target.knockback(.8D, getX() - target.getX(), getZ() - target.getZ());
     }
