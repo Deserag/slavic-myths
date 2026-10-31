@@ -18,7 +18,7 @@ public final class PosadBossRenderer extends MobRenderer<PosadBoss,PosadBossMode
     private static final ResourceLocation BAUK_TEXTURE = ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/bauk.png");
     public PosadBossRenderer(EntityRendererProvider.Context context, boolean bauk) { super(context, new PosadBossModel(bauk), bauk ? 1.5F : .8F); }
     @Override public ResourceLocation getTextureLocation(PosadBoss entity) { return entity.kind() == PosadBoss.Kind.BAUK ? BAUK_TEXTURE : MYTAR_TEXTURE; }
-    @Override protected void scale(PosadBoss entity, PoseStack pose, float partialTick) { pose.scale(2F, 2F, 2F); }
+    @Override protected void scale(PosadBoss entity, PoseStack pose, float partialTick) { float scale = entity.kind() == PosadBoss.Kind.BAUK ? .8F : 1.5F; pose.scale(scale, scale, scale); }
     @SubscribeEvent public static void register(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.CURSED_MYTAR.get(), context -> new PosadBossRenderer(context, false));
         event.registerEntityRenderer(ModEntities.MYTAR_CHAIN_PROJECTILE.get(), MytarChainProjectileRenderer::new);
