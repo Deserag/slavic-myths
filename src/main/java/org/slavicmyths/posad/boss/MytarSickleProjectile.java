@@ -78,6 +78,7 @@ public final class MytarSickleProjectile extends ThrowableItemProjectile {
     private void startReturn() {
         linkedTicks = 0;
         returning = true;
+        noPhysics = true;
         setDeltaMovement(Vec3.ZERO);
     }
 
@@ -85,11 +86,11 @@ public final class MytarSickleProjectile extends ThrowableItemProjectile {
         super.onHitEntity(result);
         if (level().isClientSide) return;
         if (getOwner() instanceof PosadBoss boss && result.getEntity() instanceof ServerPlayer victim) {
-            if (boss.catchChain(victim)) { hookedEntityId = victim.getId(); linkedTicks = 12; setDeltaMovement(Vec3.ZERO); }
+            if (boss.catchChain(victim)) { hookedEntityId = victim.getId(); linkedTicks = 12; noPhysics = true; setDeltaMovement(Vec3.ZERO); }
         } else if (getOwner() instanceof Player player && result.getEntity() instanceof Monster victim && victim.isAlive() && !victim.isAlliedTo(player) && player.hasLineOfSight(victim)) {
             if (victim.hurt(player.damageSources().playerAttack(player), 4F)) {
                 if (victim instanceof PosadBoss || victim.getBbWidth() > 2.2F || victim.getBbHeight() > 3F) victim.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 30, 0));
-                else { hookedEntityId = victim.getId(); linkedTicks = 10; setDeltaMovement(Vec3.ZERO); }
+                else { hookedEntityId = victim.getId(); linkedTicks = 10; noPhysics = true; setDeltaMovement(Vec3.ZERO); }
             }
         }
     }
