@@ -39,6 +39,13 @@ public final class PosadCommands {
                         .executes(context -> templates(context.getSource(), IntegerArgumentType.getInteger(context, "anchorX"), IntegerArgumentType.getInteger(context, "deckY"), IntegerArgumentType.getInteger(context, "anchorZ")))))));
         posad.then(Commands.literal("status").requires(source -> source.hasPermission(2)).executes(context -> PosadManualJobs.status(context.getSource(), false)));
         posad.then(Commands.literal("cancel").requires(source -> source.hasPermission(2)).executes(context -> PosadManualJobs.status(context.getSource(), true)));
+        var populateCommand = Commands.literal("populate");
+        var populateZ = Commands.argument("anchorZ", IntegerArgumentType.integer()).executes(context -> populate(context.getSource(), IntegerArgumentType.getInteger(context,"turns"), IntegerArgumentType.getInteger(context,"anchorX"), IntegerArgumentType.getInteger(context,"deckY"), IntegerArgumentType.getInteger(context,"anchorZ")));
+        var populateY = Commands.argument("deckY", IntegerArgumentType.integer()).then(populateZ);
+        var populateX = Commands.argument("anchorX", IntegerArgumentType.integer()).then(populateY);
+        var populateTurns = Commands.argument("turns", IntegerArgumentType.integer(0,3)).then(populateX);
+        populateCommand.then(populateTurns);
+        posad.then(populateCommand);
         var createPosition=Commands.argument("origin",net.minecraft.commands.arguments.coordinates.BlockPosArgument.blockPos())
             .executes(c -> create(c));
         posad.then(Commands.literal("create").then(Commands.argument("turns",IntegerArgumentType.integer(0,3)).then(createPosition)));
@@ -50,13 +57,23 @@ public final class PosadCommands {
         tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").then(posad)));
     }
 
+    private static int populate(CommandSourceStack source, int turns, int x, int y, int z) {
+        try {
+            PosadResidentSpawner.Result result = PosadResidentSpawner.populate(source.getLevel(), x, y, z, turns);
+            source.sendSuccess(() -> Component.literal("Жители Пекельного посада: создано " + result.added() + ", ранее учтено " + result.existing() + ", не размещено " + result.blocked() + "."), false);
+            return result.added();
+        } catch (RuntimeException exception) {
+            source.sendFailure(Component.literal("Заселение остановлено: " + exception.getMessage()));
+            return 0;
+        }
+    }
     public static int start(CommandSourceStack source){
         var at=org.slavicmyths.worldgen.ManualTerrain.ground(source).offset(-56,-1,12);
         return PosadManualJobs.create(source,0,at.getX(),at.getY(),at.getZ());
     }
     private static int info(CommandSourceStack source) {
         source.sendSuccess(() -> Component.literal("Пекельный посад: фиксированный план 113x113, схема новых городов " + PosadGeometry.SCHEMA_VERSION + ", несколько зданий, мебель и башенный переход."), false);
-        source.sendSuccess(() -> Component.literal("Естественная генерация пока заблокирована до native QA, performance, save/reload и anti-dupe. Старые города никогда не перестраиваются."), false);
+        source.sendSuccess(() -> Component.literal("Естественная генерация в Аду включена. Новые города заселяются по мере готовности загруженных чанков; игровые проверки, relog и старые сохранения ещё требуют подтверждения. Старые постройки не перезаписываются."), false);
         source.sendSuccess(() -> Component.literal("Ручное создание с OP 2 в любом мире: /slavicmyths dev posad create <turns> <anchorX> <deckY> <anchorZ>. Чанки подготавливаются постепенно. status/cancel — для управления."), false);
         return 1;
     }
@@ -366,6 +383,9 @@ public final class PosadCommands {
         }
         int fixedPanesCount=fixedPanes;
         if(fixedPanesCount>0)source.sendSuccess(()->Component.literal("Исправлено соединений оконных панелей: "+fixedPanesCount),false);
+        var residents=PosadResidentSpawner.populateBuilding(world,id,pos,size.getX(),size.getZ());
+        world.getDataStorage().save();
+        source.sendSuccess(()->Component.literal("Заселение: "+residents.added()+" создано, "+residents.existing()+" ранее учтено, "+residents.blocked()+" требуют безопасного места."),false);
         source.sendSuccess(()->Component.literal("Построено: "+id+" в "+pos.toShortString()),false);
         return 1;
     }

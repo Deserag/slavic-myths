@@ -2,10 +2,11 @@
 """#369 offline checks. No Minecraft startup and no build claim."""
 from pathlib import Path
 import json
-from generate import WOODS, KINDS, MODELS, PATTERNS
+from generate import WOODS, KINDS, MODELS, PATTERNS, GUI
 R = Path(__file__).resolve().parents[2]
 A = R / "src/main/resources/assets/slavicmyths"
 D = R / "src/main/resources/data/slavicmyths"
+ALL_WOODS = ("pine", "linden", *WOODS)
 def read(path):
     assert path.is_file(), "Missing file: " + str(path)
     return json.loads(path.read_text(encoding="utf-8"))
@@ -13,9 +14,8 @@ def check():
     rows = [line.split("\t") for line in (A / "creative_catalog.tsv").read_text(encoding="utf-8").splitlines() if line and not line.startswith("#")]
     furniture = [row for row in rows if row[1] == "furniture"]
     assert len(furniture) == 72 and len({row[0] for row in furniture}) == 72
-    assert [r[0] for r in furniture] == [w + "_" + k for k in KINDS for w in ("pine", "linden", *WOODS)]
+    assert [r[0] for r in furniture] == [w + "_" + k for k in KINDS for w in ALL_WOODS]
     assert not any(r[1] == "decor" and r[0].endswith(tuple("_" + k for k in KINDS)) and r[0].startswith(("pine_", "linden_")) for r in rows)
-    # Owner decision 31.10.2026: no charred_blackwood planks or furniture variants.
     excluded = {"charred_blackwood_" + kind for kind in KINDS}
     assert "charred_blackwood" not in WOODS
     assert not any(row[0] in excluded for row in rows)
@@ -37,6 +37,8 @@ def check():
             for k in KINDS:
                 assert names["block.slavicmyths." + w + "_" + k]
     assert "furniture" in (R / "src/main/java/org/slavicmyths/registry/CreativeCatalog.java").read_text()
+    furniture_java = (R / "src/main/java/org/slavicmyths/furniture/Furniture.java").read_text()
+    assert 'endsWith("_weapon_rack")' in furniture_java and 'endsWith("_bedside_cabinet")' in furniture_java
     for suffix, file in (("_weapon_rack", "src/main/java/org/slavicmyths/furniture/Furniture.java"), ("_table", "src/main/java/org/slavicmyths/kitchen/KitchenII.java")):
         text = (R / file).read_text()
         assert "endsWith(\"" + suffix + "\")" in text and "toArray(" in text, file
@@ -56,7 +58,10 @@ def check():
                 model = val["model"].split(":", 1)[1].removeprefix("block/")
                 assert (A / "models/block" / (model + ".json")).is_file()
             model = read(A / "models/item" / (item + ".json"))
-            assert model["parent"] == "slavicmyths:block/" + item + ("_lower" if kind == "wardrobe" else "")
+            assert model["display"]["gui"] == GUI[kind]
+            assert model["parent"] == ("slavicmyths:block/pine_wardrobe_inventory" if kind == "wardrobe" else "slavicmyths:block/" + item)
+            if kind == "wardrobe":
+                assert model["textures"]["wood"] == "slavicmyths:block/" + w + "_planks"
             actual = read(D / "recipe" / (item + ".json"))
             baseline = read(D / "recipe" / ("pine_" + kind + ".json"))
             assert actual["type"] == baseline["type"] == "minecraft:crafting_shaped"
@@ -70,6 +75,10 @@ def check():
             assert entry["name"] == "slavicmyths:" + item
             if kind == "wardrobe":
                 assert entry["conditions"][0]["properties"]["half"] == "lower"
-    print("FURNITURE_369_OFFLINE_PASS variants=56 total_furniture=72 java_build=NOT_RUN game_starts=0")
+    for w in ALL_WOODS:
+        for kind in KINDS:
+            model = read(A / "models/item" / (w + "_" + kind + ".json"))
+            assert model["display"]["gui"] == GUI[kind], (w, kind)
+    print("FURNITURE_369_OFFLINE_PASS variants=72 gui_models=72 java_build=NOT_RUN game_starts=0")
 if __name__ == "__main__":
     check()

@@ -11,9 +11,20 @@ def main():
     assert jar.is_file() and len(list((R/'build/libs').glob('slavicmyths-*.jar')))==1
     count=0;json_count=0;png_count=0;model_count=0
     for p in RES.rglob('*.json'):json.loads(p.read_text(encoding='utf-8'));json_count+=1
-    for p in A.rglob('*.png'):
-        with Image.open(p) as im:im.verify()
-        png_count+=1
+    corrupt_pngs=[]
+    for p in sorted(A.rglob('*.png')):
+        try:
+            with Image.open(p) as im:
+                im.verify()
+            with Image.open(p) as im:
+                im.load()
+            png_count+=1
+        except Exception as exc:
+            relative=p.relative_to(R).as_posix()
+            print(f'CORRUPT PNG: {relative}: {type(exc).__name__}: {exc}',file=sys.stderr,flush=True)
+            corrupt_pngs.append(relative)
+    # Continue verifying independent model resources even when an artist PNG is damaged.
+    # The PNG error remains fatal after the unrelated assets have been checked.
     def own_ref(reference,kind):
         if reference.startswith('slavicmyths:'):
             target=A/kind/(reference.split(':',1)[1]+('.json' if kind=='models' else '.png'))
@@ -35,6 +46,9 @@ def main():
             elif isinstance(data,list):
                 for value in data:block_refs(value)
         block_refs(json.loads(p.read_text()))
+    print(f'MODEL CHECK: {model_count} JSON models and blockstate references validated',flush=True)
+    if corrupt_pngs:
+        raise RuntimeError(f'{len(corrupt_pngs)} corrupt PNG(s): '+', '.join(corrupt_pngs))
     for language in ['ru_ru','en_us']:
         lang=json.loads((A/'lang'/(language+'.json')).read_text(encoding='utf-8'))
         for line in (A/'creative_catalog.tsv').read_text(encoding='utf-8').splitlines():

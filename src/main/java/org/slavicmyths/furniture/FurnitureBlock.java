@@ -26,7 +26,7 @@ import net.minecraft.world.BossEvent;
 public class FurnitureBlock extends HorizontalDirectionalBlock {
  public final String kind;
  public static FurnitureBlock create(String kind){return create(kind,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2).noOcclusion());}
- private static FurnitureBlock create(String kind,Properties properties){return kind.equals("weapon_rack")||kind.equals("wooden_crate")?new Storage(kind,properties):new FurnitureBlock(kind,properties);}
+ private static FurnitureBlock create(String kind,Properties properties){return kind.equals("weapon_rack")||kind.equals("wooden_crate")||kind.equals("bedside_cabinet")?new Storage(kind,properties):new FurnitureBlock(kind,properties);}
  private static final class Storage extends FurnitureBlock implements EntityBlock {Storage(String kind,Properties properties){super(kind,properties);}}
  public FurnitureBlock(String kind){this(kind,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2).noOcclusion());}
  protected FurnitureBlock(String kind,Properties properties){super(properties);this.kind=kind;registerDefaultState(stateDefinition.any().setValue(FACING,Direction.NORTH));}
@@ -38,15 +38,18 @@ public class FurnitureBlock extends HorizontalDirectionalBlock {
  @Override public BlockState rotate(BlockState s,Rotation r){return s.setValue(FACING,r.rotate(s.getValue(FACING)));}
  @Override public BlockState mirror(BlockState s,Mirror m){return rotate(s,m.getRotation(s.getValue(FACING)));}
  public boolean seat(){return kind.equals("chair")||kind.equals("stool")||kind.equals("bench");}
+ private boolean crateLike(){return kind.equals("wooden_crate")||kind.equals("bedside_cabinet");}
  @Override public VoxelShape getShape(BlockState s,BlockGetter w,BlockPos p,CollisionContext c){
   VoxelShape shape;
   if(kind.equals("table"))shape=Shapes.or(box(0,12,0,16,16,16),box(1,0,1,4,12,4),box(12,0,1,15,12,4),box(1,0,12,4,12,15),box(12,0,12,15,12,15));
-  else if(kind.equals("chair"))shape=Shapes.or(box(2,0,2,14,9,14),box(2,9,12,14,16,15));
-  else if(seat())shape=box(kind.equals("bench")?0:2,0,2,kind.equals("bench")?16:14,9,14);
+  else if(kind.equals("chair"))shape=Shapes.or(box(2,7,2,14,10,14),box(3,0,3,5,7,5),box(11,0,3,13,7,5),box(3,0,11,5,7,13),box(11,0,11,13,7,13),box(2,9,12,14,16,14));
+  else if(kind.equals("stool"))shape=Shapes.or(box(2,7,2,14,10,14),box(3,0,3,5,7,5),box(11,0,3,13,7,5),box(3,0,11,5,7,13),box(11,0,11,13,7,13));
+  else if(kind.equals("bench"))shape=Shapes.or(box(0,7,2,16,10,14),box(1,0,3,3,7,5),box(13,0,3,15,7,5),box(1,0,11,3,7,13),box(13,0,11,15,7,13));
   else if(kind.equals("shelf"))shape=Shapes.or(box(0,6,10,16,9,16),box(2,2,13,4,6,16),box(12,2,13,14,6,16));
+  else if(kind.equals("bedside_cabinet"))shape=box(1,0,1,15,16,15);
   else if(kind.equals("firewood_bundle"))shape=box(1,0,2,15,7,14);
   else if(kind.equals("cloth_bag"))shape=Shapes.or(box(2,0,2,14,8,14),box(4,8,4,12,12,12),box(6,12,6,10,15,10));
-  else if(kind.equals("weapon_rack"))shape=Shapes.or(box(1,0,4,4,16,8),box(12,0,4,15,16,8),box(0,9,3,16,12,9));
+  else if(kind.equals("weapon_rack"))shape=Shapes.or(box(1,0,2,4,16,8),box(12,0,2,15,16,8),box(0,9,2,16,12,10),box(0,0,2,5,2,13),box(11,0,2,16,2,13));
   else if(kind.equals("signal_bell"))shape=Shapes.or(box(1,0,6,3,16,10),box(13,0,6,15,16,10),box(1,14,6,15,16,10),box(5,5,7,11,13,9));
   else if(kind.equals("training_dummy"))shape=Shapes.or(box(6,0,6,10,16,10),box(3,5,4,13,13,12),box(0,9,6,16,11,10));
   else shape=box(1,0,1,15,16,15);
@@ -55,17 +58,17 @@ public class FurnitureBlock extends HorizontalDirectionalBlock {
  }
  @Override public boolean canSurvive(BlockState s,LevelReader w,BlockPos p){if(!kind.equals("shelf"))return true;Direction facing=s.getValue(FACING);BlockPos back=p.relative(facing.getOpposite());return w.getBlockState(back).isFaceSturdy(w,back,facing);}
  @Override public BlockState updateShape(BlockState s,Direction d,BlockState other,LevelAccessor w,BlockPos p,BlockPos q){if(kind.equals("shelf")&&!canSurvive(s,w,p))return Blocks.AIR.defaultBlockState();return super.updateShape(s,d,other,w,p,q);}
- public boolean hasTileEntity(BlockState s){return kind.equals("weapon_rack");}
- public net.minecraft.world.level.block.entity.BlockEntity newBlockEntity(net.minecraft.core.BlockPos pos,net.minecraft.world.level.block.state.BlockState s){return kind.equals("wooden_crate")?new CrateTile(pos,s):hasTileEntity(s)?new RackTile(pos,s):null;}
+ public boolean hasTileEntity(BlockState s){return kind.equals("weapon_rack")||crateLike();}
+ public net.minecraft.world.level.block.entity.BlockEntity newBlockEntity(net.minecraft.core.BlockPos pos,net.minecraft.world.level.block.state.BlockState s){return crateLike()?new CrateTile(pos,s):kind.equals("weapon_rack")?new RackTile(pos,s):null;}
  @Override public InteractionResult useWithoutItem(BlockState s,Level w,BlockPos p,Player player,BlockHitResult hit){return useItemOn(player.getItemInHand(InteractionHand.MAIN_HAND),s,w,p,player,InteractionHand.MAIN_HAND,hit).result();}
-@Override public net.minecraft.world.ItemInteractionResult useItemOn(net.minecraft.world.item.ItemStack interactionStack,BlockState s,Level w,BlockPos p,Player player,InteractionHand hand,BlockHitResult hit){
-  if(kind.equals("wooden_crate")){if(!w.isClientSide&&w.getBlockEntity(p) instanceof CrateTile crate)player.openMenu(crate);return net.minecraft.world.ItemInteractionResult.sidedSuccess(w.isClientSide);}
+ @Override public net.minecraft.world.ItemInteractionResult useItemOn(net.minecraft.world.item.ItemStack interactionStack,BlockState s,Level w,BlockPos p,Player player,InteractionHand hand,BlockHitResult hit){
+  if(crateLike()){if(!w.isClientSide&&w.getBlockEntity(p) instanceof CrateTile crate)player.openMenu(crate);return net.minecraft.world.ItemInteractionResult.sidedSuccess(w.isClientSide);}
   if(seat()){if(!w.isClientSide)SeatEntity.sit(w,p,player);return net.minecraft.world.ItemInteractionResult.sidedSuccess(w.isClientSide);}
   if(kind.equals("signal_bell")){if(!w.isClientSide){net.minecraft.server.level.ServerLevel server=(net.minecraft.server.level.ServerLevel)w;org.slavicmyths.bandit.StrongholdRecords records=org.slavicmyths.bandit.StrongholdRecords.get(server);for(org.slavicmyths.bandit.BanditEntity b:w.getEntitiesOfClass(org.slavicmyths.bandit.BanditEntity.class,new AABB(p).inflate(24),e->e.campTotal==26&&e.camp!=null)){if(p.equals(records.record(b.camp).bells[b.zone])){records.ring(server,b.camp,b.zone);break;}}}return net.minecraft.world.ItemInteractionResult.sidedSuccess(w.isClientSide);}
   if(kind.equals("weapon_rack")){if(!w.isClientSide&&w.getBlockEntity(p)instanceof RackTile)((RackTile)w.getBlockEntity(p)).interact(player,hand);return net.minecraft.world.ItemInteractionResult.sidedSuccess(w.isClientSide);}
   return super.useItemOn(interactionStack,s,w,p,player,hand,hit);
  }
- @Override public void onRemove(BlockState s,Level w,BlockPos p,BlockState next,boolean moving){if(!s.is(next.getBlock())&&w.getBlockEntity(p)instanceof RackTile){RackTile rack=(RackTile)w.getBlockEntity(p);if(!w.isClientSide&&!rack.weapon.isEmpty()){popResource(w,p,rack.weapon);rack.weapon=ItemStack.EMPTY;}}if(!s.is(next.getBlock())&&w.getBlockEntity(p) instanceof CrateTile crate){if(!w.isClientSide)net.minecraft.world.Containers.dropContents(w,p,crate);}super.onRemove(s,w,p,next,moving);}
+ @Override public void onRemove(BlockState s,Level w,BlockPos p,BlockState next,boolean moving){if(!s.is(next.getBlock())&&w.getBlockEntity(p)instanceof RackTile){RackTile rack=(RackTile)w.getBlockEntity(p);if(!w.isClientSide&&!rack.weapon.isEmpty()){popResource(w,p,rack.weapon);rack.weapon=ItemStack.EMPTY;}}if(!s.is(next.getBlock())&&w.getBlockEntity(p) instanceof CrateTile crate){if(!w.isClientSide){net.minecraft.world.Containers.dropContents(w,p,crate);crate.clearContent();}}super.onRemove(s,w,p,next,moving);}
  @Override public int getFlammability(BlockState s,BlockGetter w,BlockPos p,Direction d){return kind.equals("signal_bell")?0:20;}
  @Override public int getFireSpreadSpeed(BlockState s,BlockGetter w,BlockPos p,Direction d){return kind.equals("signal_bell")?0:5;}
 }

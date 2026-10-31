@@ -5,7 +5,7 @@ import org.slavicmyths.posad.PosadPopulationPlan;
 public final class PosadPopulationPlanCheck {
     public static void main(String[] args) {
         var roster = PosadPopulationPlan.roster();
-        if (roster.size() != 17 || roster.stream().filter(m -> m.role() == PosadPopulationPlan.Role.POSADNIK).count() != 1 || roster.stream().filter(m -> m.role() == PosadPopulationPlan.Role.CIVILIAN).count() != 10 || roster.stream().filter(m -> m.role() == PosadPopulationPlan.Role.GUARD).count() != 6) throw new AssertionError("Roster mismatch");
+        if (roster.size() != 17 || roster.stream().filter(m -> m.role() == PosadPopulationPlan.Role.POSADNIK).count() != 1 || roster.stream().filter(m -> m.role() == PosadPopulationPlan.Role.CIVILIAN).count() != 2 || roster.stream().filter(m -> m.role().guard()).count() != 6 || roster.stream().map(PosadPopulationPlan.Member::role).distinct().count() != 12) throw new AssertionError("Roster mismatch");
         for (int turn = 0; turn < 4; turn++) {
             var members = PosadPopulationPlan.at("minecraft:the_nether", 100, 70, 200, turn);
             if (!members.equals(PosadPopulationPlan.at("minecraft:the_nether", 100, 70, 200, turn))) throw new AssertionError("Unstable assignment");
