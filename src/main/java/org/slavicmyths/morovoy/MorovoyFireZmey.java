@@ -41,8 +41,9 @@ public final class MorovoyFireZmey extends Monster {
  private static final EntityDataAccessor<Boolean> AIRBORNE=SynchedEntityData.defineId(MorovoyFireZmey.class,EntityDataSerializers.BOOLEAN);
  private final ServerBossEvent bar=new ServerBossEvent(Component.translatable("entity.slavicmyths.morovoy_fire_zmey"),BossEvent.BossBarColor.PURPLE,BossEvent.BossBarOverlay.NOTCHED_20);
  private Vec3 anchor;private int idleTicks=60,orbitTicks,grabTicks;private UUID grabbed;private int turn=0;
- public MorovoyFireZmey(EntityType<? extends MorovoyFireZmey> type,Level level){super(type,level);setPersistenceRequired();xpReward=0;}
+ public MorovoyFireZmey(EntityType<? extends MorovoyFireZmey> type,Level level){super(type,level);moveControl=new net.minecraft.world.entity.ai.control.FlyingMoveControl(this,20,true);setPersistenceRequired();xpReward=0;}
  @Override public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor world,net.minecraft.world.DifficultyInstance difficulty,net.minecraft.world.entity.MobSpawnType reason,net.minecraft.world.entity.SpawnGroupData data){var result=super.finalizeSpawn(world,difficulty,reason,data);if(reason==net.minecraft.world.entity.MobSpawnType.SPAWN_EGG){anchor=position();nextState(WAKING);}return result;}
+ @Override protected net.minecraft.world.entity.ai.navigation.PathNavigation createNavigation(Level level){net.minecraft.world.entity.ai.navigation.FlyingPathNavigation nav=new net.minecraft.world.entity.ai.navigation.FlyingPathNavigation(this,level);nav.setCanOpenDoors(false);nav.setCanFloat(true);return nav;}
  public static AttributeSupplier.Builder attributes(){return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,1024).add(Attributes.ARMOR,14).add(Attributes.ARMOR_TOUGHNESS,8).add(Attributes.MOVEMENT_SPEED,.30).add(Attributes.FLYING_SPEED,.32).add(Attributes.FOLLOW_RANGE,88).add(Attributes.KNOCKBACK_RESISTANCE,1);}
  @Override protected void defineSynchedData(SynchedEntityData.Builder builder){super.defineSynchedData(builder);builder.define(STATE,SLEEPING);builder.define(STATE_AGE,0);builder.define(ACTION,IDLE);builder.define(ACTION_AGE,0);builder.define(AIRBORNE,false);}
  public int state(){return entityData.get(STATE);}public int stateAge(){return entityData.get(STATE_AGE);}public int action(){return entityData.get(ACTION);}public int actionAge(){return entityData.get(ACTION_AGE);}public boolean flying(){return entityData.get(AIRBORNE);}
@@ -60,13 +61,14 @@ public final class MorovoyFireZmey extends Monster {
   if(state()==SLEEPING){setDeltaMovement(Vec3.ZERO);setNoGravity(false);if(tickCount%30==0){passiveMor();for(ServerPlayer p:((ServerLevel)level()).players())if(p.isAlive()&&!p.isCreative()&&!p.isSpectator()&&MorovoyZmeyRules.shouldWake(p.distanceToSqr(position().add(0,1,0)))){nextState(WAKING);break;}}return;}
   if(state()==WAKING){setDeltaMovement(Vec3.ZERO);if(age==10)particles(0,position().add(0,2,0),24);if(age==40)particles(1,position().add(0,3,0),32);if(age>=65){nextState(PHASE_I);idleTicks=45;}return;}
   if(state()==PHASE_I&&MorovoyZmeyRules.secondPhase(getHealth(),getMaxHealth())){nextState(PHASE_II);particles(1,position().add(0,2,0),90);idleTicks=55;return;}
-  if(tickCount%10==0){LivingEntity target=selectTarget();setTarget(target);if(target==null){act(IDLE);setDeltaMovement(Vec3.ZERO);setNoGravity(false);entityData.set(AIRBORNE,false);return;}}
-  LivingEntity target=getTarget();if(target==null||!canDamage(target)){setDeltaMovement(Vec3.ZERO);setNoGravity(false);entityData.set(AIRBORNE,false);return;}
+  if(tickCount%10==0){LivingEntity target=selectTarget();setTarget(target);if(target==null){act(IDLE);moveInAir(null,false);return;}}
+  LivingEntity target=getTarget();if(target==null||!canDamage(target)){moveInAir(null,false);return;}
   float desired=(float)Math.toDegrees(Math.atan2(target.getZ()-getZ(),target.getX()-getX()))-90;yBodyRot=Mth.rotLerp(.22f,yBodyRot,desired);setYRot(yBodyRot);
   int old=actionAge();entityData.set(ACTION_AGE,old+1);
   if(grabTicks>0)tickGrab();
-  if(action()==IDLE){if(--idleTicks<=0){chooseAttack(target);idleTicks=state()==PHASE_II?16:29;}else if(idleTicks%6==0&&state()==PHASE_II)moveInAir(target,false);return;}
+  if(action()==IDLE){if(--idleTicks<=0){chooseAttack(target);idleTicks=state()==PHASE_II?16:29;}else moveInAir(target,false);return;}
   int a=actionAge();
+  if(action()!=DIVE&&action()!=WING_STREAK)moveInAir(target,false);
   if(action()==MOR_BOLT&&a==18)projectile(target,0);
   if(action()==FIRE_BOLT&&a==18)projectile(target,1);
   if(action()==DOUBLE_BOLT){if(a==20)projectile(target,0);if(a==30)projectile(target,1);}
@@ -77,7 +79,7 @@ public final class MorovoyFireZmey extends Monster {
   if(action()==CLAW&&a==17)strike(target,1,false);
   if(action()==DIVE){if(a>=12&&a<=42)moveInAir(target,true);if(a==35)strike(target,1,false);}
   if(action()==WING_STREAK&&a>=12&&a<=70){moveInAir(target,false);if(a%10==0){MorovoyZmeyField.spawn((ServerLevel)level(),this,(a/10)%2,position().add(0,-Math.min(6,getY()-anchor.y),0),50);}}
-  if(a>=duration(action())){act(IDLE);entityData.set(AIRBORNE,false);setNoGravity(false);}
+  if(a>=duration(action()))act(IDLE);
  }
  private LivingEntity selectTarget(){List<ServerPlayer> list=((ServerLevel)level()).getPlayers(p->canDamage(p)&&p.distanceToSqr(anchor)<=90*90&&p.distanceToSqr(this)<=82*82);return list.stream().min(java.util.Comparator.comparingDouble(this::distanceToSqr)).orElse(null);}
  private int duration(int a){return switch(a){case MOR_BREATH,FIRE_BREATH->65;case WING_STREAK->80;case DIVE->55;case DOUBLE_BOLT->45;default->38;};}
