@@ -273,8 +273,9 @@ public final class MorovoyRaven extends PathfinderMob {
     private boolean safe(ServerLevel world, Vec3 step) {
         // Predicts the broad four-wing flight envelope, not just the body hitbox.
         if (!world.hasChunkAt(BlockPos.containing(position().add(step.scale(3)))) || !world.getWorldBorder().isWithinBounds(BlockPos.containing(position().add(step.scale(3))))) return false;
-        double reach = minion() ? 1.65 : pose() == LANDING ? 2.8 : 6.8;
-        AABB envelope = getBoundingBox().move(step.scale(3)).inflate(reach, minion() ? .15 : pose() == LANDING ? 0 : 1.2, reach);
+        boolean transitioning = pose() == LANDING || pose() == TAKEOFF;
+        double reach = minion() ? 1.65 : transitioning ? 2.8 : 6.8;
+        AABB envelope = getBoundingBox().move(step.scale(3)).inflate(reach, minion() ? .15 : transitioning ? .08 : 1.2, reach);
         if (!world.hasChunkAt(BlockPos.containing(envelope.minX, getY(), envelope.minZ)) || !world.hasChunkAt(BlockPos.containing(envelope.maxX, getY(), envelope.maxZ)) || !world.hasChunkAt(BlockPos.containing(envelope.maxX, getY(), envelope.minZ)) || !world.hasChunkAt(BlockPos.containing(envelope.minX, getY(), envelope.maxZ))) return false;
         return world.noCollision(this, envelope) && world.clip(new ClipContext(position(), position().add(step.scale(3)), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this)).getType() == HitResult.Type.MISS;
     }
