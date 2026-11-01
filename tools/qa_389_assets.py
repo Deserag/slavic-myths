@@ -115,7 +115,7 @@ def audit():
         assert len(section) == 2, "Unexpected two-rig Java layout"
         java_section = section[0] if name == "BAUK" else section[1].split("        // The actual Minecraft ground plane")[0]
         for part, cuboids in source["cuboids"].items():
-            assert len(re.findall(r"\\bcub\\(" + re.escape(part) + r",", java_section)) == len(cuboids), (name, part, len(cuboids))
+            assert len(re.findall(r"\bcub\(" + re.escape(part) + r",", java_section)) == len(cuboids), (name, part, len(cuboids))
             boxes = [tuple(c["box"]) for c in cuboids]
             assert len(boxes) == len(set(boxes)), (name, part, "duplicate geometry")
     print("PASS: hooked projectile phases, melee-only sickle, cleaned one-to-one boss rigs, scaled trophy, resource atlases, recipes, rune slots and language keys")
