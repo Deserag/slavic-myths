@@ -1,3 +1,5 @@
+> **MANDATORY STARTUP:** Read [the binding English owner contract](OWNER_EXECUTION_CONTRACT.md), [live branch policy](BRANCH_POLICY.md), [AGENTS](../AGENTS.md), and [applicable requirements](requirements/README.md). Each implementation requires a real Issue, directly accessible approved original references, a complete per-part specification, exact branch/commit/target and real evidence. Old branch directives in historical material have no authority.
+
 # Codex + ChatGPT — протокол работы с GitHub Project
 
 > **Приоритет владельца от 21.10.2026:** [#93](https://github.com/Deserag/slavic-myths/issues/93) «Лихо» — исполнительское ТЗ утверждено, статус «Ожидание», HP и художественный дизайн неизменны; не начинать кодирование без прямого поручения. Сразу после завершения и приёмки Лиха следующим поручением будет [#142](https://github.com/Deserag/slavic-myths/issues/142) — полный **аудит всех GitHub Issues и Project №9**; сейчас у #142 статус планирования «Ожидание». Codex обязан выяснить реальную готовность, owner acceptance и неактуальные задачи с доказательствами. Только готовить матрицу исправлений, без автоматических закрытий, метки `owner-accepted` или массовой смены статусов до отдельного решения владельца. Это решение новее прежней очереди художественных пакетов.
@@ -78,7 +80,7 @@
 ---
 ## ИГРОВАЯ ПРИЁМКА 25.10.2026 — обязательный шаблон handoff после реализации
 
-Этот раздел **дополняет и конкретизирует** уже существующие правила. Источник: игровой отзыв 24–25.10.2026 и #269. На этапе восстановления 2.0 работать в ветке `hell`, `main` не менять до прямого разрешения владельца. Добавление задач #270–#283 не запускает работу.
+Этот раздел **дополняет и конкретизирует** уже существующие правила. Источник: игровой отзыв 24–25.10.2026 и #269. Historical branch instructions are superseded: target only the latest owner-approved branch per docs/BRANCH_POLICY.md; never modify main without explicit owner permission. Добавление задач #270–#283 не запускает работу.
 
 ### 1. Acceptance contract ДО кодирования
 В явной таблице описать для каждой функции: `требование игрока → реальный entity/item/structure/advancement ID → условия → способ достижения БЕЗ читов → наблюдаемое действие → ожидаемый результат → ограничение старых сохранений → шаги QA`. Не считать существование ID или сборку успешной игрой. Для неопределённого дизайна (ветви достижений, редкость Сивки-Бурки, награды, эффекты украшений) представить на согласование визуальную схему/таблицу вероятностей и не заменять её личным выбором разработчика.
