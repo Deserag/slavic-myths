@@ -11,6 +11,15 @@ assets = root / "src/main/resources/assets/slavicmyths"
 model = (java / "client/MorovoyRavenModel.java").read_text()
 mob = (java / "morovoy/MorovoyRaven.java").read_text()
 content = (java / "morovoy/MorovoyRavenContent.java").read_text()
+arena = (java / "morovoy/MorovoyArenaPiece.java").read_text()
+# Source-contract checks only; all original-PNG comparisons require real game frames.
+assert 'PartPose.offset(side*15,-17,-8)' in model, 'lower main pair root changed'
+assert 'PartPose.offset(side*12,-32,3)' in model, 'upper mutant pair root changed'
+assert '"main_flight_"+i' in model and '"upper_flight_"+i' in model, 'feather rows missing'
+assert 'leftSecondary.zRot = .90F + second' in model, 'upper wings not held in V'
+assert 'MorovoyRaven.TAKEOFF' in model and 'MorovoyRaven.LANDING' in model and 'MorovoyRaven.GROUND_IDLE' in model
+assert 'pose(TAKEOFF)' in mob and 'pose(LANDING)' in mob and 'landingSpot(world)' in mob
+assert 'boss.setArenaAnchor(center)' in arena and 'MorovoyRavenContent.BOSS.get().create' in arena
 assert all(f'primary_{side}' in model and f'secondary_{side}' in model for side in ("left", "right"))
 assert all(f'{side}Primary.zRot' in model and f'{side}Secondary.zRot' in model for side in ("left", "right"))
 assert 'MorovoyRaven.DIVE' in model and 'MorovoyRaven.WING' in model
@@ -43,5 +52,5 @@ for path, wh in [
 for lang in ("en_us",):
     names = json.loads((assets / f"lang/{lang}.json").read_text())
     assert all(name in names for name in ("entity.slavicmyths.morovoy_raven","item.slavicmyths.mor_core","item.slavicmyths.morovoy_raven_feather"))
-print("PASS: four independently keyed wings, combat scope, item models, PNG checksums, English localization")
+print("PASS: source-only lower/upper 4-wing layout, landing/takeoff transitions, crater boss anchor, item models, PNG CRC, English localization")
 print("NOT RUN: Java compile, in-game visual QA, multiplayer, persistence and performance are separate gates.")
