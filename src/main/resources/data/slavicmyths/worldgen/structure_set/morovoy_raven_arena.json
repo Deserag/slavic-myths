@@ -3,6 +3,10 @@
     {
       "structure": "slavicmyths:morovoy_raven_arena",
       "weight": 1
+    },
+    {
+      "structure": "slavicmyths:morovoy_fire_zmey_arena",
+      "weight": 1
     }
   ],
   "placement": {

@@ -17,6 +17,8 @@ public final class MorovoyArenaWorldgen {
   SwampStructures.STRUCTURES.register("morovoy_raven_arena",()->()->MorovoyArenaStructure.CODEC);
  public static final DeferredHolder<StructurePieceType,StructurePieceType> PIECE=
   SwampStructures.PIECES.register("morovoy_raven_arena",()->(context,tag)->new MorovoyArenaPiece(tag));
+ public static final DeferredHolder<StructureType<?>,StructureType<MorovoyZmeyArenaStructure>> ZMEY_STRUCTURE=
+  SwampStructures.STRUCTURES.register("morovoy_fire_zmey_arena",()->()->MorovoyZmeyArenaStructure.CODEC);
  public static void init(){}
  private MorovoyArenaWorldgen(){}
 }

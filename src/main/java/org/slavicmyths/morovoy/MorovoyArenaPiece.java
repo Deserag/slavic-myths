@@ -18,17 +18,19 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 /** Saved single structure, but only the intersecting generation chunk is ever written. */
 public final class MorovoyArenaPiece extends StructurePiece {
  private final BlockPos center;
+ private final boolean zmey;
  private final int floorY,entrances;
  private final long seed;
  private final int[] entranceY;
- public MorovoyArenaPiece(MorovoyArenaTerrain.Plan plan){
+ public MorovoyArenaPiece(MorovoyArenaTerrain.Plan plan){this(plan,false);}
+ public MorovoyArenaPiece(MorovoyArenaTerrain.Plan plan,boolean zmey){
   super(MorovoyArenaWorldgen.PIECE.get(),0,bounds(plan.center()));
-  center=plan.center().immutable();floorY=plan.floorY();seed=plan.seed();
+  center=plan.center().immutable();floorY=plan.floorY();seed=plan.seed();this.zmey=zmey;
   entrances=plan.entranceMask();entranceY=plan.entranceY().clone();
  }
  public MorovoyArenaPiece(CompoundTag tag){
   super(MorovoyArenaWorldgen.PIECE.get(),tag);
-  center=BlockPos.of(tag.getLong("Center"));floorY=tag.getInt("FloorY");seed=tag.getLong("DesignSeed");
+  zmey=tag.getBoolean("Zmey");center=BlockPos.of(tag.getLong("Center"));floorY=tag.getInt("FloorY");seed=tag.getLong("DesignSeed");
   entrances=tag.getInt("EntranceMask");entranceY=tag.getIntArray("EntranceHeights");
   if(entranceY.length!=4)throw new IllegalArgumentException("Invalid arena entrance heights");
  }
@@ -38,7 +40,7 @@ public final class MorovoyArenaPiece extends StructurePiece {
    center.getX()+r,MorovoyArenaGeometry.CLEAR_TOP_Y,center.getZ()+r);
  }
  @Override protected void addAdditionalSaveData(StructurePieceSerializationContext context,CompoundTag tag){
-  tag.putLong("Center",center.asLong());tag.putInt("FloorY",floorY);tag.putLong("DesignSeed",seed);
+  tag.putBoolean("Zmey",zmey);tag.putLong("Center",center.asLong());tag.putInt("FloorY",floorY);tag.putLong("DesignSeed",seed);
   tag.putInt("EntranceMask",entrances);tag.putIntArray("EntranceHeights",entranceY);
  }
  /** Future boss may retrieve these through the persisted native structure start. */
@@ -92,6 +94,13 @@ public final class MorovoyArenaPiece extends StructurePiece {
     if(old.is(Blocks.BEDROCK)||old.hasBlockEntity()||!MorovoyArenaTerrain.editable(old)||old.equals(next))continue;
     world.setBlock(pos,next,2);
    }
+  }
+  // The center belongs to exactly one generation chunk, and an arena chooses
+  // one species via the shared structure set. Raven worlds are unaffected.
+  BlockPos spawn=center.above(2);
+  if(zmey&&clip.isInside(spawn)){
+   MorovoyFireZmey boss=MorovoyFireZmeyContent.BOSS.get().create(world.getLevel());
+   if(boss!=null){boss.moveTo(spawn.getX()+.5,spawn.getY(),spawn.getZ()+.5,0,0);world.addFreshEntity(boss);}
   }
  }
 }
