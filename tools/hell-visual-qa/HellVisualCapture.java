@@ -52,7 +52,7 @@ public final class HellVisualCapture {
         double x=index*16;
         for(int bx=(int)x-6;bx<=x+6;bx++)for(int bz=-6;bz<=6;bz++)w.setBlock(new BlockPos(bx,80,bz),Blocks.SMOOTH_STONE.defaultBlockState(),2);
         mob.moveTo(x,81,0,0,0);mob.setNoAi(true);mob.setPersistenceRequired();mob.setInvulnerable(true);mob.setYBodyRot(0);mob.setYHeadRot(0);w.addFreshEntity(mob);
-        ACTORS.put(label,mob);views(label,x,0,mob.getBbHeight(),Math.max(4,mob.getBbHeight()*1.6));
+        ACTORS.put(label,mob);views(label,x,0,mob.getBbHeight(),label.startsWith("morovoy-raven-")?20:Math.max(4,mob.getBbHeight()*1.6));
     }
     static void gear(String name,String held,String mode,String armor,boolean crouch){
         VIEWS.add(new View(name,0,81,120,0,82,110,held,mode,armor,crouch));
@@ -62,6 +62,28 @@ public final class HellVisualCapture {
         w.getGameRules().getRule(GameRules.RULE_DAYLIGHT).set(false,w.getServer());w.setDayTime(6000);
         BossClientFight.openLoopback(w.getServer());
         int i=0;
+        // Production JAR, actual framebuffer: frozen AI phases only for visual geometry QA.
+        // This does NOT simulate a fight, network behavior, or owner acceptance.
+        if(System.getProperty("hellvisual.scope","").equals("morovoy")){
+            int[] states={org.slavicmyths.morovoy.MorovoyRaven.GROUND_IDLE,org.slavicmyths.morovoy.MorovoyRaven.TAKEOFF,
+                org.slavicmyths.morovoy.MorovoyRaven.CIRCLE,org.slavicmyths.morovoy.MorovoyRaven.HOVER,
+                org.slavicmyths.morovoy.MorovoyRaven.DIVE,org.slavicmyths.morovoy.MorovoyRaven.BEAK,
+                org.slavicmyths.morovoy.MorovoyRaven.CLAWS,org.slavicmyths.morovoy.MorovoyRaven.WING,
+                org.slavicmyths.morovoy.MorovoyRaven.PROJECTILE,org.slavicmyths.morovoy.MorovoyRaven.SUMMON,
+                org.slavicmyths.morovoy.MorovoyRaven.PLAGUE,org.slavicmyths.morovoy.MorovoyRaven.LANDING};
+            String[] names={"ground-idle","takeoff","circle-flight","hover","dive","beak","claws","wing-sweep","projectile","summon","plague","landing"};
+            for(int n=0;n<states.length;n++){
+                var boss=org.slavicmyths.morovoy.MorovoyRavenContent.BOSS.get().create(w);
+                var tag=new net.minecraft.nbt.CompoundTag();boss.addAdditionalSaveData(tag);
+                tag.putInt("Pose",states[n]);tag.putInt("PhaseTicks",states[n]==org.slavicmyths.morovoy.MorovoyRaven.WING?21:15);
+                boss.readAdditionalSaveData(tag);
+                String label="morovoy-raven-"+names[n];
+                spawn(w,boss,i++,label);
+                double x=boss.getX(),y=81+boss.getBbHeight()*.5;
+                VIEWS.add(new View(label+"-top",x+.1,y+19,0,x,y,0,"","spectator","",false));
+            }
+            ready=true;return;
+        }
         if(System.getProperty("hellvisual.scope","").equals("bosses")){
             for(boolean bride:new boolean[]{true,false})for(int phase=1;phase<=3;phase++){
                 var boss=(bride?org.slavicmyths.registry.ModEntities.MOROVA_DEVA:org.slavicmyths.registry.ModEntities.TRIZNA_PRINCE).get().create(w);
