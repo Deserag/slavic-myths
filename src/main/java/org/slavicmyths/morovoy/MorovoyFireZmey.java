@@ -32,7 +32,7 @@ import org.joml.Vector3f;
 
 /** 2-head / 2-tail independent telegraph scheduler; all hits are server-authoritative. */
 public final class MorovoyFireZmey extends Monster {
- public static final float EFFECTIVE_HP=2200f;public static final int SLEEPING=0,WAKING=1,PHASE_I=2,PHASE_II=3,DYING=4;
+ public static final float EFFECTIVE_HP=MorovoyZmeyRules.EFFECTIVE_HP;public static final int SLEEPING=0,WAKING=1,PHASE_I=2,PHASE_II=3,DYING=4;
  public static final int IDLE=0,MOR_BOLT=1,FIRE_BOLT=2,MOR_BREATH=3,FIRE_BREATH=4,DOUBLE_BOLT=5,MOR_TAIL=6,FIRE_TAIL=7,BITE_MOR=8,BITE_FIRE=9,CLAW=10,DIVE=11,WING_STREAK=12;
  private static final EntityDataAccessor<Integer> STATE=SynchedEntityData.defineId(MorovoyFireZmey.class,EntityDataSerializers.INT);
  private static final EntityDataAccessor<Integer> STATE_AGE=SynchedEntityData.defineId(MorovoyFireZmey.class,EntityDataSerializers.INT);
@@ -56,9 +56,9 @@ public final class MorovoyFireZmey extends Monster {
   if(anchor==null)anchor=position();int age=stateAge()+1;entityData.set(STATE_AGE,age);
   bar.setProgress(Math.clamp(getHealth()/getMaxHealth(),0f,1f));
   if(state()==DYING){setDeltaMovement(Vec3.ZERO);if(age>=65)super.die(damageSources().genericKill());return;}
-  if(state()==SLEEPING){setDeltaMovement(Vec3.ZERO);setNoGravity(false);if(tickCount%30==0){passiveMor();for(ServerPlayer p:((ServerLevel)level()).players())if(p.isAlive()&&!p.isCreative()&&!p.isSpectator()&&p.distanceToSqr(position().add(0,1,0))<=9.25*9.25){nextState(WAKING);break;}}return;}
+  if(state()==SLEEPING){setDeltaMovement(Vec3.ZERO);setNoGravity(false);if(tickCount%30==0){passiveMor();for(ServerPlayer p:((ServerLevel)level()).players())if(p.isAlive()&&!p.isCreative()&&!p.isSpectator()&&MorovoyZmeyRules.shouldWake(p.distanceToSqr(position().add(0,1,0)))){nextState(WAKING);break;}}return;}
   if(state()==WAKING){setDeltaMovement(Vec3.ZERO);if(age==10)particles(0,position().add(0,2,0),24);if(age==40)particles(1,position().add(0,3,0),32);if(age>=65){nextState(PHASE_I);idleTicks=45;}return;}
-  if(state()==PHASE_I&&getHealth()<=getMaxHealth()*.5f){nextState(PHASE_II);particles(1,position().add(0,2,0),90);idleTicks=55;return;}
+  if(state()==PHASE_I&&MorovoyZmeyRules.secondPhase(getHealth(),getMaxHealth())){nextState(PHASE_II);particles(1,position().add(0,2,0),90);idleTicks=55;return;}
   if(tickCount%10==0){LivingEntity target=selectTarget();setTarget(target);if(target==null){act(IDLE);setDeltaMovement(Vec3.ZERO);setNoGravity(false);entityData.set(AIRBORNE,false);return;}}
   LivingEntity target=getTarget();if(target==null||!canDamage(target)){setDeltaMovement(Vec3.ZERO);setNoGravity(false);entityData.set(AIRBORNE,false);return;}
   float desired=(float)Math.toDegrees(Math.atan2(target.getZ()-getZ(),target.getX()-getX()))-90;yBodyRot=Mth.rotLerp(.22f,yBodyRot,desired);setYRot(yBodyRot);
