@@ -42,7 +42,7 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
     public static LayerDefinition layer() {
         MeshDefinition mesh = new MeshDefinition();
         PartDefinition base = mesh.getRoot();
-        PartDefinition bird = base.addOrReplaceChild("bird", CubeListBuilder.create().texOffs(0,0).addBox(-13,-28,-25,26,36,47).texOffs(0,90).addBox(-15,-22,-24,30,23,27).texOffs(60,90).addBox(-11,-15,10,22,23,23).texOffs(108,0).addBox(-12,-30,-18,24,7,19), PartPose.offset(0,-11,0));
+        PartDefinition bird = base.addOrReplaceChild("bird", CubeListBuilder.create().texOffs(0,0).addBox(-13,-28,-25,26,36,47).texOffs(0,90).addBox(-15,-22,-24,30,23,27).texOffs(60,90).addBox(-11,-15,10,22,23,23).texOffs(108,0).addBox(-12,-30,-18,24,7,19), PartPose.offset(0,-19,0));
         // Overlapping body volumes, shoulder armor of ragged feathers, and exposed Mor lesions.
         for (int side : new int[]{-1,1}) {
             float x = side < 0 ? -19 : 13;
@@ -170,7 +170,7 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         leftSecondary.xRot = -.08F + .08F*(float)Math.cos(age*.2F);
         rightSecondary.xRot = leftSecondary.xRot;
         bird.zRot = entity.bank();
-        bird.xRot = pose == MorovoyRaven.DIVE ? -.42F : pose == MorovoyRaven.HOVER ? .09F : .02F;
+        bird.xRot = pose == MorovoyRaven.DIVE ? .46F : pose == MorovoyRaven.HOVER ? .09F : .02F;
         if (pose == MorovoyRaven.GROUND_IDLE) bird.xRot = .025F + (float)Math.sin(age*.07F)*.015F;
         head.yRot = (float)Math.toRadians(Math.clamp(yaw,-28,28));
         head.xRot = (float)Math.toRadians(Math.clamp(pitch,-24,24))*.6F;
