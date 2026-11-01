@@ -26,6 +26,8 @@ import org.slavicmyths.registry.ModItems;
 /** Physical chain hook for the boss and the player; client renderer draws an unbroken tether. */
 public final class MytarSickleProjectile extends ThrowableItemProjectile {
     private static final EntityDataAccessor<Boolean> OFFHAND = SynchedEntityData.defineId(MytarSickleProjectile.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Integer> HOOK_PHASE = SynchedEntityData.defineId(MytarSickleProjectile.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> HOOK_TARGET = SynchedEntityData.defineId(MytarSickleProjectile.class, EntityDataSerializers.INT);
     private int hookedEntityId = -1;
     private int linkedTicks;
     private double pulledDistance;
@@ -36,6 +38,8 @@ public final class MytarSickleProjectile extends ThrowableItemProjectile {
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(OFFHAND, false);
+        builder.define(HOOK_PHASE, 0);
+        builder.define(HOOK_TARGET, -1);
     }
     public void setOffhand(boolean offhand) { entityData.set(OFFHAND, offhand); }
     public boolean offhand() { return entityData.get(OFFHAND); }
@@ -51,28 +55,41 @@ public final class MytarSickleProjectile extends ThrowableItemProjectile {
     }
     @Override protected Item getDefaultItem() { return ModItems.OKOVNY_SICKLE.get(); }
 
+    /** Phases: 0 flying, 1 latched, 2 returning; only flying projectiles perform hit detection. */
     @Override public void tick() {
-        super.tick();
-        if (level().isClientSide) return;
+        if (entityData.get(HOOK_PHASE) == 0) super.tick();
+        else baseTick();
         Entity owner = getOwner();
-        if (!(owner instanceof LivingEntity living) || !living.isAlive() || owner.level() != level()) { if (owner instanceof PosadBoss boss) boss.setChainWeaponAway(false); discard(); return; }
+        if (!(owner instanceof LivingEntity living) || !living.isAlive() || owner.level() != level()) { discard(); return; }
+        if (level().isClientSide) {
+            if (entityData.get(HOOK_PHASE) == 1) {
+                Entity target = level().getEntity(entityData.get(HOOK_TARGET));
+                if (target instanceof LivingEntity victim) setPos(victim.getX(), victim.getY() + victim.getBbHeight() * .6D, victim.getZ());
+            }
+            return;
+        }
         if (linkedTicks > 0) {
-            if (!(level() instanceof ServerLevel server)) { discard(); return; }
-            Entity entity = server.getEntity(hookedEntityId);
-            if (!(entity instanceof LivingEntity victim) || !victim.isAlive() || !victim.level().equals(level()) || owner.distanceToSqr(victim) > 196D || !level().hasChunkAt(victim.blockPosition())) { startReturn(); return; }
+            if (!(level() instanceof ServerLevel server)) { startReturn(); return; }
+            Entity target = server.getEntity(hookedEntityId);
+            if (!(target instanceof LivingEntity victim) || !victim.isAlive() || victim.level() != level() || !level().hasChunkAt(victim.blockPosition()) || owner.distanceToSqr(victim) > 196D) { startReturn(); return; }
             setDeltaMovement(Vec3.ZERO);
             setPos(victim.getX(), victim.getY() + victim.getBbHeight() * .6D, victim.getZ());
+            if (owner instanceof PosadBoss boss && (!(victim instanceof ServerPlayer player) || !boss.pullChainedVictim(player))) { startReturn(); return; }
             if (owner instanceof Player player) pullForPlayer(player, victim);
-            linkedTicks--;
-            if (linkedTicks == 0) startReturn();
+            if (returning) return;
+            if (--linkedTicks == 0) {
+                if (owner instanceof PosadBoss boss) boss.finishChainedVictim();
+                startReturn();
+            }
             return;
         }
         if (returning) {
-            Vec3 toOwner = handAnchor(living, offhand(), 1F).subtract(position());
-            if (toOwner.lengthSqr() <= .32D || tickCount > 65) { if (owner instanceof PosadBoss boss) boss.setChainWeaponAway(false); discard(); return; }
-            Vec3 step = toOwner.normalize().scale(Math.min(1.5D, toOwner.length()));
+            Vec3 toHand = handAnchor(living, offhand(), 1F).subtract(position());
+            if (toHand.lengthSqr() <= .32D || tickCount > 85) { discard(); return; }
+            Vec3 step = toHand.normalize().scale(Math.min(1.5D, toHand.length()));
             setPos(position().add(step));
             setDeltaMovement(Vec3.ZERO);
+            hasImpulse = true;
             return;
         }
         if (owner instanceof Player && (tickCount >= 10 || owner.distanceToSqr(this) > 100D)) startReturn();
@@ -80,7 +97,7 @@ public final class MytarSickleProjectile extends ThrowableItemProjectile {
     }
 
     private void pullForPlayer(Player player, LivingEntity victim) {
-        if (!(victim instanceof Monster) || victim instanceof PosadBoss || victim.getBbWidth() > 2.2F || victim.getBbHeight() > 3F) return;
+        if (!(victim instanceof Monster) || victim instanceof PosadBoss || victim.getBbWidth() > 2.2F || victim.getBbHeight() > 3F) { startReturn(); return; }
         if (!player.hasLineOfSight(victim) || pulledDistance >= 5D) { startReturn(); return; }
         Vec3 toward = player.position().subtract(victim.position()).multiply(1D, 0D, 1D);
         double distance = toward.length();
@@ -92,25 +109,46 @@ public final class MytarSickleProjectile extends ThrowableItemProjectile {
         if (!level().hasChunkAt(destination) || level().getFluidState(destination).is(FluidTags.LAVA) || level().getFluidState(destination.below()).is(FluidTags.LAVA) || !level().getBlockState(destination.below()).isSolid() || !level().noCollision(victim, victim.getBoundingBox().move(step))) { startReturn(); return; }
         victim.setDeltaMovement(step.x, victim.getDeltaMovement().y, step.z);
         victim.hurtMarked = true;
+        victim.hasImpulse = true;
         pulledDistance += amount;
     }
 
     private void startReturn() {
+        if (returning) return;
+        if (getOwner() instanceof PosadBoss boss) boss.releaseChainedVictim();
         linkedTicks = 0;
         returning = true;
+        entityData.set(HOOK_PHASE, 2);
+        entityData.set(HOOK_TARGET, -1);
         noPhysics = true;
         setDeltaMovement(Vec3.ZERO);
+        hasImpulse = true;
+    }
+
+    private void latch(LivingEntity victim, int duration) {
+        hookedEntityId = victim.getId();
+        linkedTicks = duration;
+        entityData.set(HOOK_TARGET, hookedEntityId);
+        entityData.set(HOOK_PHASE, 1);
+        noPhysics = true;
+        setDeltaMovement(Vec3.ZERO);
+        hasImpulse = true;
+    }
+    @Override protected boolean canHitEntity(Entity target) { return entityData.get(HOOK_PHASE) == 0 && target != getOwner() && super.canHitEntity(target); }
+    @Override public void remove(Entity.RemovalReason reason) {
+        if (!level().isClientSide && getOwner() instanceof PosadBoss boss) { boss.releaseChainedVictim(); boss.setChainWeaponAway(false); }
+        super.remove(reason);
     }
 
     @Override protected void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
         if (level().isClientSide || returning || linkedTicks > 0) return;
         if (getOwner() instanceof PosadBoss boss && result.getEntity() instanceof ServerPlayer victim) {
-            if (boss.catchChain(victim)) { hookedEntityId = victim.getId(); linkedTicks = 12; noPhysics = true; setDeltaMovement(Vec3.ZERO); }
+            if (boss.catchChain(victim)) { latch(victim, 14); }
         } else if (getOwner() instanceof Player player && result.getEntity() instanceof Monster victim && victim.isAlive() && !victim.isAlliedTo(player) && player.hasLineOfSight(victim)) {
             if (victim.hurt(player.damageSources().playerAttack(player), 4F)) {
                 if (victim instanceof PosadBoss || victim.getBbWidth() > 2.2F || victim.getBbHeight() > 3F) victim.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 30, 0));
-                else { hookedEntityId = victim.getId(); linkedTicks = 10; noPhysics = true; setDeltaMovement(Vec3.ZERO); }
+                else { latch(victim, 10); }
             }
         }
     }
