@@ -182,7 +182,7 @@ public final class SisterBoss extends Monster {
             case FEVER -> {
                 SisterBolt bolt=SistersContent.BOLT.get().create(world);
                 if (bolt==null)break;
-                Vec3 start=position().add(0,getBbHeight()*.68,0);
+                Vec3 start=lanternOrigin();
                 Vec3 end=target.getEyePosition().subtract(start).normalize();
                 bolt.setPos(start.x,start.y,start.z);
                 bolt.configure(this,7*power);
@@ -223,12 +223,19 @@ public final class SisterBoss extends Monster {
             world.addFreshEntity(part);
         }
     }
+    /** Corresponds to the swinging modeled lantern attached to the right hand. */
+    private Vec3 lanternOrigin() {
+        Vec3 right=Vec3.directionFromRotation(0,getYRot()+90).multiply(1,0,1).normalize();
+        Vec3 front=Vec3.directionFromRotation(0,getYRot()).multiply(1,0,1).normalize();
+        return position().add(right.scale(.75)).add(front.scale(.35)).add(0,1.35,0);
+    }
     private void summonSpirits(ServerLevel world,Player target) {
         int active=world.getEntitiesOfClass(FeverSpirit.class,getBoundingBox().inflate(36),e -> getUUID().equals(e.ownerId())).size();
         for(int i=0;i<Math.min(enraged()?3:2,6-active);i++) {
             FeverSpirit spirit=SistersContent.SPIRIT.get().create(world);
             if(spirit==null)break;
-            spirit.setPos(getX()+Math.cos(i*2.3)*1.3,getY()+.3,getZ()+Math.sin(i*2.3)*1.3);
+            Vec3 spawn=lanternOrigin().add(Math.cos(i*2.3)*.35,-.25,Math.sin(i*2.3)*.35);
+            spirit.setPos(spawn.x,spawn.y,spawn.z);
             if(!world.noCollision(spirit))continue;
             spirit.bind(this,i);spirit.setTarget(target);world.addFreshEntity(spirit);
         }
