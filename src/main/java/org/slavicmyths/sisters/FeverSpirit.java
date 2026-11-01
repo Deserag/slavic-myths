@@ -24,7 +24,7 @@ public final class FeverSpirit extends Monster {
     @Override protected void registerGoals() {
         goalSelector.addGoal(0,new FloatGoal(this));
         goalSelector.addGoal(3,new MeleeAttackGoal(this,1.1,false));
-        targetSelector.addGoal(1,new NearestAttackableTargetGoal<>(this,Player.class,true,p -> p.isAlive() && !p.isCreative() && !p.isSpectator()));
+        targetSelector.addGoal(1,new NearestAttackableTargetGoal<>(this,Player.class,true,p -> p instanceof Player player && player.isAlive() && !player.isCreative() && !player.isSpectator()));
     }
     @Override public boolean isAlliedTo(net.minecraft.world.entity.Entity entity) {
         if (entity instanceof SisterBoss || entity instanceof FeverSpirit) return true;
