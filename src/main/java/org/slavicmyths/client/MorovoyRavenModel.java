@@ -159,7 +159,7 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         root.getAllParts().forEach(ModelPart::resetPose);
         float t = entity.animationAge(age - (int)age);
         int pose = entity.pose();
-        float speed = pose == MorovoyRaven.DIVE ? .88F : pose == MorovoyRaven.HOVER || pose == MorovoyRaven.PROJECTILE ? .18F : .45F;
+        float speed = pose == MorovoyRaven.GROUND_IDLE ? .045F : pose == MorovoyRaven.LANDING ? .16F : pose == MorovoyRaven.TAKEOFF ? .65F : pose == MorovoyRaven.DIVE ? .88F : pose == MorovoyRaven.HOVER || pose == MorovoyRaven.PROJECTILE ? .18F : .45F;
         float flap = (float)Math.sin(age * speed) * (pose == MorovoyRaven.DIVE ? .16F : .40F);
         float second = (float)Math.sin(age * speed + .7F) * (pose == MorovoyRaven.DIVE ? .10F : .18F);
         // Negative X wing must rotate with positive Z to rise (voxel model Y points down).
@@ -171,6 +171,7 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         rightSecondary.xRot = leftSecondary.xRot;
         bird.zRot = entity.bank();
         bird.xRot = pose == MorovoyRaven.DIVE ? -.42F : pose == MorovoyRaven.HOVER ? .09F : .02F;
+        if (pose == MorovoyRaven.GROUND_IDLE) bird.xRot = .025F + (float)Math.sin(age*.07F)*.015F;
         head.yRot = (float)Math.toRadians(Math.clamp(yaw,-28,28));
         head.xRot = (float)Math.toRadians(Math.clamp(pitch,-24,24))*.6F;
         jaw.xRot = pose == MorovoyRaven.BEAK && t > 7 && t < 22 ? .47F : .12F;
@@ -187,6 +188,33 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         if (pose == MorovoyRaven.PROJECTILE) {
             head.xRot = -.21F; leftPrimary.zRot = .27F; rightPrimary.zRot = -.27F;
             leftSecondary.zRot = .98F; rightSecondary.zRot = -.98F;
+        }
+        if (pose == MorovoyRaven.GROUND_IDLE || pose == MorovoyRaven.LANDING || pose == MorovoyRaven.TAKEOFF) {
+            float fold = pose == MorovoyRaven.GROUND_IDLE ? 1F : pose == MorovoyRaven.LANDING ? Math.clamp(t / 36F, 0F, 1F) : 1F - Math.clamp(t / 34F, 0F, 1F);
+            leftPrimary.yRot = 1.10F * fold; rightPrimary.yRot = -1.10F * fold;
+            leftSecondary.yRot = .88F * fold; rightSecondary.yRot = -.88F * fold;
+            leftPrimary.zRot = leftPrimary.zRot * (1F-fold) + .25F*fold;
+            rightPrimary.zRot = -leftPrimary.zRot;
+            leftSecondary.zRot = leftSecondary.zRot * (1F-fold) + .55F*fold;
+            rightSecondary.zRot = -leftSecondary.zRot;
+            leftFoot.xRot = rightFoot.xRot = pose == MorovoyRaven.TAKEOFF ? -.24F : .16F;
+            head.xRot += pose == MorovoyRaven.GROUND_IDLE ? .04F*(float)Math.sin(age*.07F) : 0;
+        }
+        // Vanilla hurt/death lifecycle remains authoritative; these are visible recoil overlays,
+        // not a substitute for an approved death animation or in-game frame-by-frame testing.
+        if (entity.hurtTime > 0 && entity.deathTime == 0) {
+            head.xRot -= .12F;
+            leftPrimary.zRot += .13F; rightPrimary.zRot -= .13F;
+            leftSecondary.zRot += .08F; rightSecondary.zRot -= .08F;
+        }
+        if (entity.deathTime > 0) {
+            head.xRot = .48F;
+            jaw.xRot = .25F;
+            leftPrimary.yRot = 1.12F; rightPrimary.yRot = -1.12F;
+            leftSecondary.yRot = .94F; rightSecondary.yRot = -.94F;
+            leftPrimary.zRot = .2F; rightPrimary.zRot = -.2F;
+            leftSecondary.zRot = .45F; rightSecondary.zRot = -.45F;
+            leftFoot.xRot = rightFoot.xRot = .64F;
         }
     }
     @Override public void renderToBuffer(PoseStack matrices, VertexConsumer out, int light, int overlay, int tint) {
