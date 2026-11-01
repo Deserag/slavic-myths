@@ -26,6 +26,10 @@ assert '"main_hanging_fray_"+i,216,170' in model and '"upper_frayed_strand_"+i,2
 assert '"shin",20,160' in model and '"ankle",20,160' in model, 'leg segments must not sample acid-green UV'
 assert '"talon_base_"+toe,64,194' in model and '"upper_beak_base",64,194' in model, 'beak and talons must use ivory/bone UV'
 assert 'float tipWidth = i >= 6' in model and 'float sickWidth = i >= 4' in model, 'feather fans must taper towards outer tips'
+assert '\"tail_plum_tip_\"+i,216,170' in model, 'seven hanging tail feathers must preserve non-emissive purple tips'
+assert '\"hook_underbite\",64,194' in model and '\"downturned_tip\",64,194' in model, 'hooked ash-coloured raven bill must have a descending tip'
+assert 'double reach = minion() ? 2.4 : landing ? 5.5 : 9.0' in mob, 'actual 4-wing collision envelope regressed'
+
 
 bbmodel = json.loads((root / 'docs/implementation/2.3.1-morovoy-raven-391/MOROVOY_RAVEN_WIP.bbmodel').read_text())
 assert len({e['uuid'] for e in bbmodel['elements']}) == len(bbmodel['elements']), 'duplicate Blockbench cube UUIDs'
