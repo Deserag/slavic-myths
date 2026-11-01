@@ -6501,5 +6501,12 @@
   "block.slavicmyths.fire_serpent_head": "Голова Огненного змея",
   "item.slavicmyths.fire_serpent_head": "Голова Огненного змея",
   "block.slavicmyths.mor_serpent_head": "Голова Морового змея",
-  "item.slavicmyths.mor_serpent_head": "Голова Морового змея"
+  "item.slavicmyths.mor_serpent_head": "Голова Морового змея",
+  "item.slavicmyths.gneteya_spawn_egg": "Яйцо призыва Гнетеи",
+  "item.slavicmyths.tryaseya_spawn_egg": "Яйцо призыва Трясеи",
+  "item.slavic_myths.gneteya_spawn_egg": "Яйцо призыва Гнетеи",
+  "item.slavic_myths.tryaseya_spawn_egg": "Яйцо призыва Трясеи",
+  "entity.slavicmyths.gneteya": "Гнетея",
+  "entity.slavicmyths.tryaseya": "Трясея",
+  "entity.slavicmyths.tryaseya_fever_spirit": "Лихорадочный дух"
 }
