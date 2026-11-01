@@ -1,5 +1,29 @@
 # Issue #391 — Morovoy Raven 2.3.1 — implementation status
 
+## 3.3 remediation (Issue #391, 2026-11-01)
+
+**Current integration branch: `3.3`. Do not update `main` or `hell`.**
+The Java model in `MorovoyRavenModel.java` now has four independent shoulder pivots
+`main_left`, `main_right`, `upper_left`, `upper_right` and four articulated `outer` wrists.
+Design coordinates give 86/16 = 5.375 blocks from skull forehead to the tail base
+and about 256/16 = 16 blocks between extended main feather tips.
+The chest volume has been simplified, the bone-UV upper bill narrows into a hooked tip,
+and the hinged lower jaw rotates independently.
+
+The `MorovoyRavenRenderer.java` emissive pass loads only
+`textures/entity/morovoy_raven_emissive.png` (256x256 transparent UV overlay).
+No cuboid plague branches or procedural green glyphs remain in the new Java model.
+The legacy `morovoy_raven_glow.png` is no longer sampled by this renderer.
+
+**Art limitations:** The `MOROVOY_RAVEN_WIP.bbmodel` wing-group identifiers have been
+renamed to match Java, and the existing animation UUIDs are preserved, but its OLD
+cube mesh was not re-exported from the rewritten Java rig. Do **not** treat the WIP
+Blockbench geometry as 1:1 synchronized or export it back over the new Java model.
+The original approved PNG and real front/side/back/three-quarter Minecraft comparisons
+are still required. Current visual gate remains **ART_SOURCE_BLOCKED / NOT_ACCEPTED**.
+Do not mark Issue #391 closed on the strength of source edits or Java compilation.
+
+
 Integration target: `2.3`. Feature branch: `feat/2.3.1-morovoy-raven-boss-391-20261101`.
 Owner approval: **NOT GRANTED**. Do not close the issue, merge without review, or call this accepted.
 
