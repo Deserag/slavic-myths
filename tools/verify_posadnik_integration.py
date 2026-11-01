@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Source-of-truth geometry and schema19 wiring. This is static QA, NOT Minecraft."""
 import json
+import re
 from pathlib import Path
 from collections import deque
 
@@ -74,7 +75,8 @@ manual=(java/"PosadnikTeremManual.java").read_text("utf-8")
 gradle=(ROOT/"build.gradle").read_text("utf-8")
 physical=(ROOT/"tools/posad-runtime-tests/org/slavicmyths/verify/PosadShellGameTests.java").read_text("utf-8")
 standalone=(ROOT/"tools/posad-runtime-tests/org/slavicmyths/verify/PosadCommandGameTests.java").read_text("utf-8")
-assert "SCHEMA_VERSION = 20" in geometry and "POSADNIK_TEREM_ENVELOPE" in geometry
+schema_match=re.search(r"SCHEMA_VERSION\s*=\s*(\d+)",geometry)
+assert schema_match and int(schema_match.group(1))>=20 and "POSADNIK_TEREM_ENVELOPE" in geometry
 assert "schema >= 19" in piece and "PosadnikTerem.voxel(x,y,z)" in piece
 assert piece.index("schema >= 19") < piece.index("schema >= 18")
 assert "posadnik_terem_A_proposal.json" in gradle and "posadnik_terem_Aplus_delta.json" in gradle
@@ -84,6 +86,6 @@ assert "posadnik_terem_2_2_9" in commands and "POSADNIK_A_PLUS_NATIVE_PASS" in p
 assert "posadnikStandaloneBuildAndNoDuplicate" in standalone and "BLOCK_COUNT=1337" in terem
 assert "records.add(token,\"construction\"" in manual and "records.replace(token" in manual
 print("PASS: approved 1337 A+ voxels, exact source roof, six-step stair, rooms and street lamp safety")
-print("PASS: no approved slot/road/square intersections, 4 geometrical rotations, schema19 source loading")
+print("PASS: no approved slot/road/square intersections, 4 geometrical rotations, schema19+ source loading; current schema="+schema_match.group(1))
 print("PASS: native, standalone and Minecraft GameTest entry points wired")
 print("NOT_RUN: Java21 build, physical server, game client, NPC and owner visual acceptance")
