@@ -50,21 +50,7 @@ def boss():
   bottom=b['center'][1]-b['size'][1]/2
   if bottom<0:b['size'][1]+=bottom;b['center'][1]=b['size'][1]/2
  return r
-def raven():
- r=Rig();r.bone('bird',None,0,24,0);r.box('bird',0,20,0,5,5,8,'fur');r.bone('head','bird',0,25,-4);r.box('head',0,23,-4,4,4,4,'metal');r.box('head',0,23.5,-7,2.5,2,3,'metal');r.box('head',0,23,-9,1.5,1,2,'metal')
- for side,tag in [(-1,'right'),(1,'left')]:
-  r.box('head',side*2.05,25,-5.2,.3,.8,1.1,'glow');r.bone('wing_'+tag,'bird',side*2.5,24,0)
-  for i in range(6):
-   xx=side*(3.5+i*1.3);r.box('wing_'+tag,xx,22+i*.1,i*.25,2.4,1.2,5+i*.5,'metal');r.box('wing_'+tag,xx,21.8,i*.5+2.8,1.2,.7,3+i*.25,'fur');r.box('wing_'+tag,xx,21.6,i*.5+5,1,.5,1,'ice')
-  r.bone('claw_'+tag,'bird',side*1.4,21,1);r.box('claw_'+tag,side*1.4,17.5,1,.6,3,.6,'metal')
-  for i in range(3):r.box('claw_'+tag,side*1.4+(i-1)*.6,17.2,-.2,.4,.5,2,'bone')
- r.bone('tail','bird',0,22,4)
- for i in range(5):r.box('tail',-2+i,20.2,5+i%2,1,1,5,'fur')
- # Feet at entity origin: do not reuse the humanoid's y=24 pivot as a flying hitbox offset.
- for bone in r.bones.values():bone['pos'][1]-=17.2
- for b in r.boxes:b['center'][1]-=17.2
- return r
-def emit(r,name,cls,size=512):
+# Raven geometry source moved to art/models/karachun_raven.bbmodel; export with tools/export_karachun_raven.py.\ndef emit(r,name,cls,size=512):
  im=Image.new('RGBA',(size,size));x=y=2;row=0
  for i,b in enumerate(r.boxes):
   w,h,d=b['size'];rw=math.ceil(2*w+2*d);rh=math.ceil(h+d)
@@ -155,7 +141,7 @@ def resources():
  write(D/'advancement/endured_last_night.json',{'parent':'slavicmyths:root','display':{'icon':{'id':'slavicmyths:shard_of_last_night'},'title':{'translate':'advancement.slavicmyths.endured_last_night'},'description':{'translate':'advancement.slavicmyths.endured_last_night.desc'},'frame':'challenge','show_toast':True,'announce_to_chat':True,'hidden':False},'criteria':{'event':{'trigger':'minecraft:impossible'}}})
 NightSounds=['ambient_low_wind','enter_trial','voice_whisper','scythe_windup','scythe_hit','dark_frost','long_night_cast','touch_hunger','touch_frost','touch_death','last_hour_mark','last_hour_impact','fear_phantom_spawn','fear_phantom_dispel','yield','raven_call','raven_flap','raven_dive','raven_hit','life_eater','last_breath','black_harvest','wing_activate','waning_stage_up']
 def main():
- O.mkdir(parents=True,exist_ok=True);r=boss();emit(r,'karachun','KarachunMesh');held(r);bird=raven();emit(bird,'karachun_raven','NightRavenMesh',256);icons();resources();audio();__import__('weapon_patch_assets').main();print('KARACHUN_ASSETS',len(r.bones),len(r.boxes),len(bird.bones),len(bird.boxes))
+ O.mkdir(parents=True,exist_ok=True);r=boss();emit(r,'karachun','KarachunMesh');held(r);icons();resources();audio();__import__('weapon_patch_assets').main();print('KARACHUN_ASSETS',len(r.bones),len(r.boxes))
 if __name__=='__main__':
  import sys
  if sys.argv[1:]==['--audio-only']:audio()

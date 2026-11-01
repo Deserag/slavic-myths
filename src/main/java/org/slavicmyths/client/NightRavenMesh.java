@@ -1,6 +1,7 @@
 package org.slavicmyths.client;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
+// Generated from art/models/karachun_raven.bbmodel by tools/export_karachun_raven.py. Do not edit geometry here.
 public final class NightRavenMesh {public static ModelPart create(){var mesh=new MeshDefinition();var root=mesh.getRoot();
 var bird=root.addOrReplaceChild("bird",CubeListBuilder.create().texOffs(2,2).addBox(-2.5000F,-1.0000F,-4.0000F,5.0000F,5.0000F,8.0000F),PartPose.offset(0.0000F,17.2000F,0.0000F));
 var head=bird.addOrReplaceChild("head",CubeListBuilder.create().texOffs(31,2).addBox(-2.0000F,-2.0000F,-2.0000F,4.0000F,4.0000F,4.0000F).texOffs(50,2).addBox(-1.2500F,-0.5000F,-4.5000F,2.5000F,2.0000F,3.0000F).texOffs(64,2).addBox(-0.7500F,1.0000F,-6.0000F,1.5000F,1.0000F,2.0000F).texOffs(74,2).addBox(-2.2000F,-0.8000F,-1.7500F,0.3000F,0.8000F,1.1000F).texOffs(119,18).addBox(1.9000F,-0.8000F,-1.7500F,0.3000F,0.8000F,1.1000F),PartPose.offset(0.0000F,-1.0000F,-4.0000F));

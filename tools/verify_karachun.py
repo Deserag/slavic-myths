@@ -44,8 +44,8 @@ def main():
   for key,v in events.items():
    for lang in langs.values():need(v['subtitle'] in lang,'sound subtitle '+key)
    for e in v['sounds']:need(jar.read('assets/slavicmyths/sounds/'+e['name'].split(':')[1]+'.ogg').startswith(b'OggS'),'ogg '+key)
-  for name,minimum in [('karachun',250),('karachun_raven',50)]:
-   rig=json.loads((O/f'{name}-rig.json').read_text());need(len(rig['boxes'])>=minimum,'own geometry '+name);atlas=Image.open(A/f'textures/entity/{name}.png');need(atlas.size==(rig['atlas'],rig['atlas']),'atlas');need(all(b['uv'][0]+b['uv'][2]<=rig['atlas'] and b['uv'][1]+b['uv'][3]<=rig['atlas'] for b in rig['boxes']),'UV rectangle')
+  rig=json.loads((O/'karachun-rig.json').read_text());need(len(rig['boxes'])>=250,'own geometry karachun');atlas=Image.open(A/'textures/entity/karachun.png');need(atlas.size==(rig['atlas'],rig['atlas']),'atlas');need(all(b['uv'][0]+b['uv'][2]<=rig['atlas'] and b['uv'][1]+b['uv'][3]<=rig['atlas'] for b in rig['boxes']),'UV rectangle')
+  raven=json.loads((R/'art/models/karachun_raven.bbmodel').read_text(encoding='utf-8'));need(len(raven['elements'])==55,'editable raven geometry');need({g['name'] for g in raven['outliner']}=={'bird'},'raven root bone');need(Image.open(A/'textures/entity/karachun_raven.png').size==(256,256),'raven atlas');subprocess.run(['python',str(R/'tools/export_karachun_raven.py'),'--check'],check=True)
   held=json.loads((A/'models/item/karachun_scythe_held.json').read_text());rig=json.loads((O/'karachun-rig.json').read_text());need(len(held['elements'])==sum(b['bone']=='scythe' for b in rig['boxes']),'shared scythe mesh');need(all(e['to'][2]>e['from'][2] for e in held['elements']),'physical blade thickness');need(all(-16<=n<=32 for e in held['elements'] for k in ['from','to'] for n in e[k]),'vanilla JSON coordinate limits')
   poloz=(R/'src/main/java/org/slavicmyths/client/PolozRenderer.java').read_text();need(poloz.index('var buffer=b.getBuffer')>poloz.index('RenderType.eyes'),'Poloz buffer crash regression')
   nsub=subscribers(J);need(nsub>0,'event subscriber audit')
