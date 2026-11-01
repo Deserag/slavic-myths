@@ -83,6 +83,7 @@ public final class PosadManualJobs {
         final UUID token = UUID.randomUUID();
         final ToolLogOrigins protectedOrigins;
         final List<ChunkPos> chunks = new ArrayList<>();
+        final List<ChunkPos> cityChunks = new ArrayList<>();
         PosadPiece piece;
         BoundingBox bounds;
         int phase, chunk, layer, cell, supportX, supportZ, supportDepth=3;
@@ -98,9 +99,19 @@ public final class PosadManualJobs {
             this.deckY = deckY;
             this.az = az;
             this.protectedOrigins = ToolLogOrigins.get(world);
+            for(var patch:PosadGeometry.chunkPatches(ax,az))cityChunks.add(new ChunkPos(patch.chunkX(),patch.chunkZ()));
         }
 
         private void plan() {
+            // SiteChunks permits four in-flight region tickets. Pipeline the fixed city
+            // footprint instead of waiting for one support-sample chunk at a time.
+            int firstMissing=-1;
+            for(int i=0;i<cityChunks.size();i++){
+                var cp=cityChunks.get(i);
+                if(world.getChunkSource().getChunkNow(cp.x,cp.z)==null){firstMissing=i;break;}
+                preparation.ready(cp);
+            }
+            if(firstMissing>=0)preparation.prefetch(cityChunks,firstMissing);
             // Explicit construction adapts natural terrain, like bandit camps.
             // Native worldgen retains its independent strict terrain survey.
             int reads=0;
@@ -122,18 +133,22 @@ public final class PosadManualJobs {
             if (!world.getWorldBorder().isWithinBounds(new BlockPos(bounds.minX(), deckY, bounds.minZ())) || !world.getWorldBorder().isWithinBounds(new BlockPos(bounds.maxX(), deckY, bounds.maxZ()))) throw new IllegalStateException("Город или мост выходит за границу мира");
             if (!ManualStructureRecords.get(world).overlapping(bounds).isEmpty()) throw new IllegalStateException("Есть ранее созданная или зарезервированная структура");
             chunks.clear();
-            for (int cz = bounds.minZ() >> 4; cz <= bounds.maxZ() >> 4; cz++) {
-                for (int cx = bounds.minX() >> 4; cx <= bounds.maxX() >> 4; cx++) {
-                    if (!preparation.ready(new ChunkPos(cx,cz))) throw new WaitingChunk();
-                    chunks.add(new ChunkPos(cx, cz));
+            for (int cz = bounds.minZ() >> 4; cz <= bounds.maxZ() >> 4; cz++)
+                for (int cx = bounds.minX() >> 4; cx <= bounds.maxX() >> 4; cx++)chunks.add(new ChunkPos(cx,cz));
+            for(int i=0;i<chunks.size();i++) {
+                var cp=chunks.get(i);
+                if(world.getChunkSource().getChunkNow(cp.x,cp.z)==null){
+                    preparation.prefetch(chunks,i);
+                    throw new WaitingChunk();
                 }
+                preparation.ready(cp);
             }
             layer = bounds.minY();
             phase = 1;
         }
 
         private net.minecraft.world.level.block.state.BlockState intended(int x,int y,int z){
-            var state=piece.voxel(x,y,z);
+            var state=piece.placementVoxel(x,y,z);
             return state==null&&x>=0&&x<=112&&z>=0&&z<=112&&y>=1&&y<=17?Blocks.AIR.defaultBlockState():state;
         }
         private void preflight() {
