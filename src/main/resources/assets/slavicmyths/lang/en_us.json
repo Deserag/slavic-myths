@@ -6495,5 +6495,11 @@
   "item.slavicmyths.morovoy_raven_feather": "Morovoy Raven Feather",
   "item.slavicmyths.mor_core": "Mor Core",
   "item.slavicmyths.morovoy_raven_spawn_egg": "Morovoy Raven Spawn Egg",
-  "item.slavicmyths.morovoy_fire_zmey_spawn_egg": "Morovoy Fire Zmey Spawn Egg"
+  "item.slavicmyths.morovoy_fire_zmey_spawn_egg": "Morovoy Fire Zmey Spawn Egg",
+  "block.slavicmyths.morovoy_raven_head": "Morovoy Raven Head",
+  "item.slavicmyths.morovoy_raven_head": "Morovoy Raven Head",
+  "block.slavicmyths.fire_serpent_head": "Fire Serpent Head",
+  "item.slavicmyths.fire_serpent_head": "Fire Serpent Head",
+  "block.slavicmyths.mor_serpent_head": "Mor Serpent Head",
+  "item.slavicmyths.mor_serpent_head": "Mor Serpent Head"
 }

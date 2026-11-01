@@ -33,6 +33,8 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         rightFoot = bird.getChild("right_foot");
         tail = bird.getChild("tail");
     }
+    /** Reuses every original beak, eye, feather and jaw cube in the trophy renderer. */
+    public ModelPart trophyHead() { return head; }
     private static CubeListBuilder box(int u, int v, float x, float y, float z, float w, float h, float d) {
         return CubeListBuilder.create().texOffs(u,v).addBox(x,y,z,w,h,d);
     }

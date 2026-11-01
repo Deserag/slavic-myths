@@ -6495,5 +6495,11 @@
   "item.slavicmyths.morovoy_fire_zmey_bone": "Кость Морового огненного змея",
   "item.slavicmyths.morovoy_fire_zmey_core": "Ядро Морового огненного змея",
   "item.slavicmyths.morovoy_raven_spawn_egg": "Яйцо призыва Морового ворона",
-  "item.slavicmyths.morovoy_fire_zmey_spawn_egg": "Яйцо призыва Морового огненного змея"
+  "item.slavicmyths.morovoy_fire_zmey_spawn_egg": "Яйцо призыва Морового огненного змея",
+  "block.slavicmyths.morovoy_raven_head": "Голова Морового ворона",
+  "item.slavicmyths.morovoy_raven_head": "Голова Морового ворона",
+  "block.slavicmyths.fire_serpent_head": "Голова Огненного змея",
+  "item.slavicmyths.fire_serpent_head": "Голова Огненного змея",
+  "block.slavicmyths.mor_serpent_head": "Голова Морового змея",
+  "item.slavicmyths.mor_serpent_head": "Голова Морового змея"
 }
