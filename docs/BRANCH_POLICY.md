@@ -1,44 +1,30 @@
-<!-- OWNER_20261101_3_3_PAIRED_SISTERS -->
-## Актуальное решение владельца 01.11.2026: сёстры-боссы и 3.3
+# Slavic Myths — authoritative branch selection policy
 
-- **Единая интеграционная ветка: `3.3`**. Новые две пары сестёр создаются в **`feat/3.3-paired-sisters-bosses-20261101`**, основанной на `origin/3.3`; проверенный результат затем идёт PR в **`3.3`**, не в `2.3`, `main`, `hell`.
-- Две пары: **Гнетея + Трясея** (патч-концепт 2.3.3) и **Огнея + Ледея** (2.3.4), но реальный интеграционный релиз теперь **3.3**; не путать номера старых концепций и Git target.
-- Последние утверждённые Minecraft-ориентированные референсы **Гнетеи/Трясеи** — обязательный художественный эталон. Воплощать каждую мелкую форму в реальной воксельной геометрии, UV/текстуре и анимациях. Не подменять изображениями, generic humanoid, чужой стилевой интерпретацией, азиатскими мотивами, Warhammer или просто перекраской.
-- Гнетея: ~5–6 блоков, широкий тяжёлый силуэт, костяная броня/шипы, кости/позвонки/черепа/подвески, тяжёлое костяное оружие, удар по земле, притягивание, **с анимацией призываемая временная костяная стена позади игрока**, не запирающая игрока навсегда.
-- Трясея: ~3–4 блока, человеческая славянская верхняя часть, льняная/ритуальная рваная одежда, нижняя часть из анимированного дыма, **старый железный фонарь**, дальние проклятия/сгустки, вспышки фонаря, духи, зоны дрожи и ускользание. Никаких японских талисманов/иероглифов.
-- **Сёстры спавнятся только парой в естественной встрече**, но **у каждой отдельное яйцо призыва для Creative**, вызывающее именно её для отладки. HP у танка больше, у дальнобойной сестры меньше, общий бюджет пары ~2200–2400 HP (предварительные цифры). НЕТ личной фазы у каждой: после смерти одной **уцелевшая впадает в ярость**, заметно повышая активность и урон. Проверить баланс, мультиплеер, NBT/восстановление и связь пары.
-- **Огнея/Ледея:** утверждены как вторая пара с идеей огненной дальнобойной Огнеи и ледяной контролирующей Ледеи, но **их финальные внешние референсы и индивидуальные навыки ещё подлежат утверждению**; не выдавать произвольный арт за одобренный.
-- Награды/дроп/крафт до общего аудита экономики НЕ внедрять без утверждения. Полные требования `AGENTS.md`, `docs/requirements/`. Обязательно реальные анимации/звуки/эффекты, честный Java 21/NeoForge build и игровой QA (только изолированная среда без вмешательства в desktop владельца). `PASS` по сборке не равен визуальной/игровой приёмке. Предоставить реальные изображения в Minecraft рядом с утверждёнными, не fake preview; статусы `PASS/FAIL/BLOCKED/NOT_RUN`; только владелец принимает/закрывает Issue. Не делать force/reset чужих изменений.
-- Исторические инструкции ниже о `2.2` и `2.3` для этой новой задачи считаются устаревшими.
+**Owner decision, 2026-11-01. This is the ONLY active branch-selection rule for new work.** Earlier instructions embedded in archived reports, old prompts, screenshots, previous chats, project status history or an Issue's original version label MUST NOT choose a development branch.
 
----
+## Non-negotiable branch gates
 
-<!-- OWNER_20261101_2_3_NEW_BOSSES_BRANCH -->
-# Правило веток Slavic Myths — версия 2.3 New Bosses (01.11.2026)
+1. **One integration branch per release.** The exact branch is selected by the latest explicit owner decision for that release and task, then verified against GitHub current branch HEAD. No branch name is a permanent default for every future task.
+2. **For the current paired-sisters implementation: integration/PR target = `3.3`.** Existing implementation feature branch = `feat/3.3-paired-sisters-bosses-20261101`, and its source history must be checked against actual `3.3` HEAD and existing PRs before further changes. Both pairs — Gneteya/Tryaseya and Ogneya/Ledeya — belong to this release plan. Earlier concept-number labels do not override the current integration branch.
+3. Existing unfinished work of other releases stays governed by its **own newest owner-approved Issue and target**. An earlier cycle may have used `2.2` or `2.3`; neither is a default for a new task. Never move active or accepted fixes across release branches without approval, compare/diff review, tests and conflict reconciliation.
+4. `main` is protected: MUST NOT modify it without explicit separate owner permission. Never overwrite parallel work or change integration history via forced push, reset or unapproved rebase. Preserve all commits and external contributors' changes.
+5. **No automatic branch selection by AI.** Before writing a prompt or code, verify: `REPOSITORY | ISSUE | BASE/INTEGRATION BRANCH | BASE SHA | WORKING BRANCH | PR TARGET | IN/OUT SCOPE | REFERENCES`. Read actual remote HEAD, git status, related branches/PRs and open conflicts. If any branch dimension is unknown or contradictory: `BLOCKED_BRANCH`, no coding.
+6. Historic branch names, release candidates, old build folder names and deprecated instructions embedded in large status logs are **historical evidence only**. They are NOT instructions to check out, push to, merge from or select any branch.
+7. A PR must target the exact authorized integration branch and be reviewed before merge. Successful build or a code-only merge does not mean the owner accepted an asset or feature.
 
-> **Актуальное решение владельца, 01.11.2026. Приоритет над более ранними правилами ниже для новых работ версии 2.3.**
+## Paired-sisters scope reminder (not implementation authorization)
 
-- **Интеграционная ветка нового цикла: `2.3`. Название релиза: `Slavic Myths 2.3 — New Bosses` (план первых четырёх новых боссов).** Имя ветки строго `2.3`, без пробелов и альтернативной конкурирующей ветки `2.3-new-bosses`: она уже создана от `2.2`. Старый `2.2` остаётся интеграционной веткой **только для завершения задач 2.2**.
-- Все **новые** задачи серии 2.3 (начиная с Морового ворона [#391](https://github.com/Deserag/slavic-myths/issues/391) и Морового огненного змея [#396](https://github.com/Deserag/slavic-myths/issues/396)) выполняются в отдельных `feat/2.3-...` / `fix/2.3-...` ветках **от актуальной `origin/2.3`** с PR в `2.3`, а не `2.2`, `hell`, `main`.
-- **Работы, начатые до этого решения, НЕ перебазировать и не переписывать автоматически.** Уже существуют `feat/2.3.1-morovoy-raven-arena-391` (арена), `feat/2.3.1-morovoy-raven-boss-391-20261101` (модель/AI), `docs/2.3.1-morovoy-voron-reference-20261101` (референсы). Сохранить их коммиты; перед интеграцией проверить взаимные изменения, конфликты и игровой QA. Перенаправить их PR на `2.3` только после проверки реального списка коммитов и статуса; `force push` не применять.
-- Исправления Мытаря/Баука и Пекельного посада версии 2.2 (`fix/2.2-389-boss-rework-20261101`, `fix/2.2-382-full-recovery-20261031` и др.) **сначала проверяются и интегрируются в `2.2`**, затем **безопасно переносятся в `2.3`** с ревизией совместимости, тестами и предотвращением потери параллельных изменений. Текущий `2.3` основан на раннем состоянии `2.2` и не содержит автоматически последующие исправления.
-- Не изменять `main`, не работать в `hell`, не объявлять ветку или PR готовыми без фактических проверок. Квесты/общие награды отложены; питомцы/яйца и Посох Мора — отдельные будущие работы [#392](https://github.com/Deserag/slavic-myths/issues/392), [#394](https://github.com/Deserag/slavic-myths/issues/394).
-- Проверка локальной ветки: `git fetch origin && git switch 2.3 && git pull --ff-only origin 2.3`; если нет локальной `2.3`, выполнить `git switch --track origin/2.3`. При работе в feature-ветке переключаться после сохранения незакоммиченных изменений.
+- **Gneteya and Tryaseya:** the latest owner-approved detailed Minecraft visual reference originals are mandatory. Gneteya is a large heavy bone-armored tank (~5–6 blocks) with real bone structures and weapon; Tryaseya is a floating upper humanoid (~3–4 blocks), smoky lower half, ritual clothing, and an iron lantern. Only approved individual mechanics apply.
+- Natural encounters spawn the approved sisters as a **pair**; each has a separate **Creative diagnostic spawn egg**. When one dies, the other enters an enrage state; do not fabricate independent additional phases. Combat/stat numbers identified as provisional are NOT approved final balance.
+- **Ogneya and Ledeya:** fire/ice paired concept exists, but their exact approved appearance and individual skills still require reference confirmation before implementation.
+- Rewards, crafting, quest extras and unrelated systems are OUT OF SCOPE unless explicitly approved in a separate Issue. Minecraft visual acceptance requires real in-game captures beside approved reference originals, authorized isolated runtime tests, and owner review.
 
----
+## Mandatory linked authorities
 
-# Правило веток Slavic Myths — решение владельца от 31.10.2026
+- [Owner execution contract](OWNER_EXECUTION_CONTRACT.md)
+- [AGENTS.md](../AGENTS.md)
+- [Project workflow](PROJECT_WORKFLOW.md)
+- [Codex playbook](CODEX_PROJECT_PLAYBOOK.md)
+- [All relevant requirement documents](requirements/README.md)
 
-## Актуальное и обязательное
-
-- **Одна версия — одна интеграционная рабочая ветка**, названная по версии: `2.2` для версии 2.2; следующий цикл — новая ветка по версии.
-- **Текущая ветка для всех новых задач версии 2.2: `2.2`**. Ветки с префиксами `codex/` или `feat/` могут использоваться для отдельных задач, но их результат должен интегрироваться в `2.2` после проверки; они не заменяют интеграционную ветку.
-- **`hell` устарела**. Её сохраняют только как историческую ветку; не вести в ней новую разработку и не использовать её по умолчанию как основу для 2.2.
-- **`main` не изменять** без отдельного разрешения владельца.
-- При противоречии с историческими указаниями веток в AGENTS.md, Issue или других документах **это решение владельца от 31.10.2026 имеет приоритет**.
-- Новые работы 2.2 начинать от свежего `origin/2.2`, прежде чем интегрировать параллельные ветки — сравнить их коммиты/изменения и проверить конфликты, не делать слепые force-push или перезапись других веток.
-- В ответах с командами для VS Code использовать `git fetch origin`, `git switch 2.2`, `git pull --ff-only origin 2.2` (если ветка пока отсутствует локально — `git switch --track origin/2.2`).
-
-## Создание 31.10.2026
-
-Ветка `2.2` создана от `feat/furniture-wood-variants-issue-369-20261031`, которая основана на `codex/hell-posad-districts-227-228-20261030`. Таким образом, интегрированная архитектура посада и реализация древесной мебели присутствуют в одной ветке без сброса существующих коммитов. Иные параллельные ветки / незавершённые эксперименты не объявлять автоматически перенесёнными без ревизии. Не считать новые материалы принятыми владельцем до игровых тестов.
+**Fail-safe:** if instructions disagree, prioritize the newest task-specific explicit owner decision and request resolution rather than infer from old documents. Under no circumstances treat archival prose as an active work order.
