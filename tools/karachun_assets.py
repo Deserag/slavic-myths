@@ -50,7 +50,8 @@ def boss():
   bottom=b['center'][1]-b['size'][1]/2
   if bottom<0:b['size'][1]+=bottom;b['center'][1]=b['size'][1]/2
  return r
-# Raven geometry source moved to art/models/karachun_raven.bbmodel; export with tools/export_karachun_raven.py.\ndef emit(r,name,cls,size=512):
+# Raven geometry source moved to art/models/karachun_raven.bbmodel; export with tools/export_karachun_raven.py.
+def emit(r,name,cls,size=512):
  im=Image.new('RGBA',(size,size));x=y=2;row=0
  for i,b in enumerate(r.boxes):
   w,h,d=b['size'];rw=math.ceil(2*w+2*d);rh=math.ceil(h+d)
