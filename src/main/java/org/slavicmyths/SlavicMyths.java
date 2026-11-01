@@ -60,6 +60,7 @@ public final class SlavicMyths {
         org.slavicmyths.netherstructures.NetherWatchpostWorldgen.init();
         org.slavicmyths.netherstructures.NetherBridgeWorldgen.init();
         org.slavicmyths.posad.PosadWorldgen.init();
+        org.slavicmyths.morovoy.MorovoyArenaWorldgen.init();
         org.slavicmyths.netherstructures.WayfarerWorldgen.init();
         org.slavicmyths.netherstructures.ForgottenShrineWorldgen.init();
         org.slavicmyths.netherstructures.TriznaPyreWorldgen.init();
@@ -97,6 +98,7 @@ public final class SlavicMyths {
         org.slavicmyths.guardians.GuardianContent.init(bus);
         org.slavicmyths.serpenthill.HillContent.init();
         org.slavicmyths.gorynych.GorynychContent.init(bus);
+        org.slavicmyths.morovoy.MorovoyFireZmeyContent.init(bus);
         org.slavicmyths.winters.WintersContent.init(bus);
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.SERVER,org.slavicmyths.sanctuary.SanctuaryConfig.SPEC,"slavicmyths-sanctuaries.toml");
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.SERVER,org.slavicmyths.karachun.NightConfig.SPEC,"slavicmyths-karachun.toml");
