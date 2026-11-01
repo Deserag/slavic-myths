@@ -95,12 +95,21 @@ public final class MorovoyArenaPiece extends StructurePiece {
     world.setBlock(pos,next,2);
    }
   }
-  // The center belongs to exactly one generation chunk, and an arena chooses
-  // one species via the shared structure set. Raven worlds are unaffected.
+  // The center belongs to exactly one generation chunk. Spawn only the
+  // species selected by THIS native structure: one boss per newly generated arena.
   BlockPos spawn=center.above(2);
-  if(zmey&&clip.isInside(spawn)){
-   MorovoyFireZmey boss=MorovoyFireZmeyContent.BOSS.get().create(world.getLevel());
-   if(boss!=null){boss.moveTo(spawn.getX()+.5,spawn.getY(),spawn.getZ()+.5,0,0);world.addFreshEntity(boss);}
+  if(clip.isInside(spawn)){
+   if(zmey){
+    MorovoyFireZmey boss=MorovoyFireZmeyContent.BOSS.get().create(world.getLevel());
+    if(boss!=null){boss.moveTo(spawn.getX()+.5,spawn.getY(),spawn.getZ()+.5,0,0);world.addFreshEntity(boss);}
+   }else{
+    MorovoyRaven boss=MorovoyRavenContent.BOSS.get().create(world.getLevel());
+    if(boss!=null){
+     boss.moveTo(spawn.getX()+.5,spawn.getY(),spawn.getZ()+.5,0,0);
+     boss.setArenaAnchor(center);
+     world.addFreshEntity(boss);
+    }
+   }
   }
  }
 }
