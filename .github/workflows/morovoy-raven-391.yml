@@ -1,7 +1,5 @@
 name: Morovoy Raven 2.3.1 Java 21
 on:
-  push:
-    branches: [feat/2.3.1-morovoy-raven-boss-391-20261101]
   pull_request:
     branches: ['2.3']
   workflow_dispatch:
@@ -17,6 +15,8 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
+      - name: Install resource verifier dependency
+        run: python3 -m pip install Pillow
       - name: Clean NeoForge Java 21 build
         run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain
       - name: Raven asset and scope checks
