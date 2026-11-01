@@ -48,8 +48,8 @@ public final class SistersModel extends EntityModel<SisterBoss> {
             box(g,head,SKIN,-8,-10,-7,16,17,14);
             box(g,head,SKIN,-7,-1,-9,14,6,3);
             box(g,head,SKIN,-2,0,-11,4,5,3);
-            box(g,head,GLOW,-6,-3,-9,3,2,1);
-            box(g,head,GLOW,3,-3,-9,3,2,1);
+            box(g,head,GLOW,-6,-3,-9,3,2,1,128);
+            box(g,head,GLOW,3,-3,-9,3,2,1,128);
             // Asymmetric crown of cracked vertebrae; real protruding silhouettes.
             box(g,head,BONE,-9,-13,-7,18,3,14);
             for (int i=0;i<9;i++)box(g,head,BONE,-9+i*2.1F,-14-(i*5%8),-6+(i%3)*3,2,6+(i%3)*3,2.5F);
@@ -103,8 +103,8 @@ public final class SistersModel extends EntityModel<SisterBoss> {
             head=part(g,root,0,-27,0);
             box(g,head,SKIN,-7,-9,-6,14,14,12);
             box(g,head,SKIN,-5,-1,-7,10,4,3);
-            box(g,head,GLOW,-5,-3,-7,3,2,1);
-            box(g,head,GLOW,2,-3,-7,3,2,1);
+            box(g,head,GLOW,-5,-3,-7,3,2,1,128);
+            box(g,head,GLOW,2,-3,-7,3,2,1,128);
             box(g,head,BONE,-7,-10,-5,14,2,10);
             for (int i=0;i<7;i++)box(g,head,BONE,-7+i*2.2F,-13-i%3*2,-6,1.4F,5,2);
             for (int i=0;i<12;i++) {
