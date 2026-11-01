@@ -106,7 +106,7 @@ public final class SistersModel extends EntityModel<SisterBoss> {
             box(g,head,GLOW,-5,-3,-7,3,2,1,128);
             box(g,head,GLOW,2,-3,-7,3,2,1,128);
             box(g,head,BONE,-7,-10,-5,14,2,10);
-            for (int i=0;i<7;i++)box(g,head,BONE,-7+i*2.2F,-13-i%3*2,-6,1.4F,5,2);
+            for (int i=0;i<7;i++)box(g,head,BONE,-7+i*2.2F,-9-i%3*2,-6,1.4F,5,2);
             for (int i=0;i<12;i++) {
                 ModelPart strand=part(g,head,-8+(i%6)*3,-7,i<6?6:-6);
                 box(g,strand,DARK,-1,0,-1,2,13+(i*5%9),3);
