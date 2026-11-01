@@ -317,7 +317,7 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> TUGARIN_ZMEY_SPAWN_EGG=egg("tugarin_zmey_spawn_egg",ModEntities.TUGARIN_ZMEY,0x8F3D2F,0xC99B45);
     public static final DeferredHolder<Item, Item> MYTAR_SEAL = ITEMS.register("mytar_seal", () -> new Item(properties().rarity(Rarity.RARE).stacksTo(1)));
     public static final DeferredHolder<Item, Item> MYTAR_CHAIN = ITEMS.register("mytar_chain", () -> new Item(properties().rarity(Rarity.RARE)));
-    public static final DeferredHolder<Item, Item> MYTAR_SICKLE = ITEMS.register("mytar_sickle", () -> new Item(properties().rarity(Rarity.RARE)));
+    public static final DeferredHolder<Item, Item> MYTAR_SICKLE = ITEMS.register("mytar_sickle", () -> new SwordItem(ModGear.SILVER, properties().rarity(Rarity.RARE).durability(320).attributes(SwordItem.createAttributes(ModGear.SILVER, 4, -2.4F))));
     public static final DeferredHolder<Item, Item> MYTAR_PURSE = ITEMS.register("mytar_purse", () -> new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.RARE), "belt"));
     public static final DeferredHolder<Item, Item> BAUK_FANG = ITEMS.register("bauk_fang", () -> new Item(properties().rarity(Rarity.RARE).stacksTo(1)));
     public static final DeferredHolder<Item, Item> BAUK_HIDE = ITEMS.register("bauk_hide", () -> new Item(properties().rarity(Rarity.RARE)));
