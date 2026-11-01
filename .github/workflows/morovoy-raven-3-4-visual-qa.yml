@@ -1,0 +1,61 @@
+name: Morovoy Raven 3.4 real Minecraft render (WIP)
+on:
+  pull_request:
+    branches: ['3.3']
+    paths:
+      - 'src/main/java/org/slavicmyths/client/MorovoyRavenModel.java'
+      - 'src/main/java/org/slavicmyths/morovoy/MorovoyRaven.java'
+      - 'tools/hell-visual-qa/**'
+      - '.github/workflows/morovoy-raven-3-4-visual-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  raven-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      LIBGL_ALWAYS_SOFTWARE: 'true'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install isolated virtual display
+        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri mesa-utils libopenal1 ffmpeg
+      - name: Build packaged mod with Java21
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon clean build --console=plain
+          mkdir -p build/morovoy-visual-evidence
+          git rev-parse HEAD | tee build/morovoy-visual-evidence/source.sha
+          sha256sum build/libs/slavicmyths-*.jar | tee build/morovoy-visual-evidence/jar.sha256
+      - name: Capture actual 12 poses x 5 views in isolated Minecraft client
+        shell: bash
+        run: |
+          set -o pipefail
+          xvfb-run -a -s '-screen 0 1600x1000x24' sh -c 'glxinfo -B; timeout 20m ./gradlew --no-daemon -I tools/hell-visual-qa.gradle runHellVisualQa -PhellVisualScope=morovoy -PhellVisualModel=wide --console=plain' 2>&1 | tee build/morovoy-visual-evidence/client.log
+          test -f build/hell-visual-qa/frames/finished.json
+          python3 - <<'PY'
+          import json, pathlib
+          directory = pathlib.Path('build/hell-visual-qa/frames')
+          receipt = json.loads((directory/'finished.json').read_text())
+          frames = [f for f in receipt['frames'] if 'morovoy-raven-' in f['file']]
+          assert len(frames) >= 60, f'Expected >=60 actual Minecraft frames, got {len(frames)}'
+          assert all((directory/f['file']).is_file() for f in frames)
+          print('PASS_REAL_FRAMEBUFFER', len(frames), 'packaged JAR', receipt['jar_sha256'])
+          PY
+      - name: Preserve actual frames, logs and production JAR
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: morovoy-raven-real-client-${{ github.sha }}
+          path: |
+            build/morovoy-visual-evidence/
+            build/hell-visual-qa/frames/
+            build/libs/slavicmyths-*.jar
+            work/hell-visual-qa-isolated/logs/
+          if-no-files-found: warn
+          retention-days: 14

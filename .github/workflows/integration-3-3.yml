@@ -27,6 +27,11 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew --no-daemon clean build --console=plain
+      - name: Record source and production artifact SHA256
+        shell: bash
+        run: |
+          git rev-parse HEAD
+          sha256sum build/libs/slavicmyths-*.jar
       - name: Check both Creative spawn eggs
         run: python3 tools/qa/boss_spawn_eggs_2_3_check.py
       - name: Check Morovoy Raven assets and source

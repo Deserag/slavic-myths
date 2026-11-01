@@ -22,7 +22,7 @@ public final class RavenMiasma extends Entity {
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { builder.define(RADIUS, 3.4F); }
     public float radius() { return entityData.get(RADIUS); }
     public void configure(MorovoyRaven bird, float size, int lifespan) {
-        owner = bird.getUUID(); lifetime = Math.clamp(lifespan, 20, 200);
+        owner = bird.getUUID(); lifetime = Math.clamp(lifespan, 20, 300);
         entityData.set(RADIUS, Math.clamp(size, 1F, 6F));
     }
     @Override public void tick() {
@@ -49,7 +49,7 @@ public final class RavenMiasma extends Entity {
     }
     @Override protected void readAdditionalSaveData(CompoundTag tag) {
         elapsed = Math.clamp(tag.getInt("Age"), 0, 200);
-        lifetime = Math.clamp(tag.getInt("Life"), 1, 200);
+        lifetime = Math.clamp(tag.getInt("Life"), 1, 300);
         entityData.set(RADIUS, Math.clamp(tag.getFloat("Radius"), 1F, 6F));
         owner = tag.hasUUID("Owner") ? tag.getUUID("Owner") : null;
     }

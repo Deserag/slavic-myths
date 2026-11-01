@@ -22,6 +22,18 @@ public final class TrophyHeadDrops {
  @SubscribeEvent(priority=EventPriority.LOWEST) public static void drops(LivingDropsEvent e){
   var mob=e.getEntity();if(mob.level().isClientSide||mob.isAlive())return;
   var id=net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(mob.getType());if(!id.getNamespace().equals("slavicmyths"))return;
+  // Never invent a head-drop chance: normalize an already authorized Fire-Zmey head drop only.
+  // Future loot tables may supply either variant as the successful head-drop trigger.
+  if(mob instanceof org.slavicmyths.morovoy.MorovoyFireZmey){
+   var fire=TrophyHeads.ITEMS.get(TrophyHeads.Kind.FIRE_SERPENT).get();
+   var mor=TrophyHeads.ITEMS.get(TrophyHeads.Kind.MOR_SERPENT).get();
+   boolean triggered=e.getDrops().stream().anyMatch(drop->drop.getItem().is(fire)||drop.getItem().is(mor));
+   if(!triggered)return;
+   e.getDrops().removeIf(drop->drop.getItem().is(fire)||drop.getItem().is(mor));
+   var chosen=mob.getRandom().nextBoolean()?fire:mor;
+   e.getDrops().add(new ItemEntity(mob.level(),mob.getX(),mob.getY()+.5,mob.getZ(),new ItemStack(chosen)));
+   return;
+  }
   WorldBoss boss=mob instanceof WorldBoss b?b:null;
   var kind=kind(id.getPath(),boss!=null&&boss.morState()!=0,boss!=null&&boss.tugarinState()==WorldBoss.TugarinState.PHASE_TWO);
   if(kind==null)return;
