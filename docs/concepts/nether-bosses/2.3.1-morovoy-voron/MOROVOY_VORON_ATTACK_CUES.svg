@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1080" viewBox="0 0 1650 1080" role="img" aria-label="МОРОВОЙ ВОРОН — СХЕМЫ ВИЗУАЛЬНЫХ АТАК"><defs><style>text{font-family:DejaVu Sans,Arial,sans-serif;fill:#e8e7df} .h{font-size:30px;font-weight:bold} .sub{font-size:17px;fill:#bfc1bb} .small{font-size:14px;fill:#c6cabb} .lead{font-size:19px;font-weight:bold} .measure{fill:#b9eb63;font-size:17px;font-weight:bold} .line{stroke:#a5ea60;stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round} .dash{stroke-dasharray:8 9} .panel{fill:#24232b;stroke:#858489;stroke-width:3} .dark{fill:#15151b} .bone{fill:#b1ada4;stroke:#49464c;stroke-width:3} .feather{fill:#24212e;stroke:#484050;stroke-width:5;stroke-linejoin:round} .upper{fill:#3c2944;stroke:#62506a;stroke-width:5;stroke-linejoin:round} .plague{stroke:#9de62a;stroke-width:5;fill:none;stroke-linejoin:round;stroke-linecap:round} </style><filter id="g"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#b9eb63" stroke-width="1.6"/></marker></defs><rect width="1650" height="1080" fill="#17161d"/><path d="M0 66H1650" stroke="#72992c" stroke-width="4"/><text class="h" x="36" y="47">МОРОВОЙ ВОРОН — СХЕМЫ ВИЗУАЛЬНЫХ АТАК</text>
+<rect class="panel" x="25" y="85" width="790" height="435" rx="12"/><rect class="panel" x="835" y="85" width="790" height="435" rx="12"/>
+<rect class="panel" x="25" y="540" width="790" height="500" rx="12"/><rect class="panel" x="835" y="540" width="790" height="500" rx="12"/>
+<text class="lead" x="57" y="130">1. КОЛЬЦЕВОЙ ПОЛЁТ / ПЯТНА МОРА</text>
+<ellipse cx="420" cy="323" rx="302" ry="133" fill="#282d30" stroke="#7a7782" stroke-width="12"/>
+<ellipse cx="420" cy="323" rx="238" ry="91" fill="none" stroke="#8cdd3b" stroke-width="20" stroke-dasharray="30 18" opacity=".75"/>
+<path d="M165 332Q240 160 483 197Q685 215 690 322" class="line dash" stroke-width="8" marker-end="url(#arrow)"/>
+<g transform="translate(385,30) scale(.34)"><g>
+<path class="feather" d="M432 478 L396 585 L421 664 L463 689 L496 708 L535 688 L582 662 L595 573 L561 463 Z"/>
+<path class="feather" d="M460 620 L429 770 L460 741 L484 810 L504 771 L525 819 L549 734 L579 769 L545 624Z"/>
+<g><path class="feather" d="M436 399 Q328 330 245 340 L172 365 L95 383 L144 416 L86 445 L149 479 L109 512 L184 522 L167 556 L241 548 L293 570 L347 536 L399 516 L446 476 Z"/><path class="upper" d="M431 345 Q360 220 305 198 L262 173 L240 197 L207 179 L197 219 L150 211 L166 260 L127 271 L160 306 L141 337 L231 328 L309 368 L402 390 Z"/><path class="plague" d="M421 416 L351 407 L323 447 L281 433 L239 475 M341 408 L294 375 L230 384 M405 353 L350 316 L337 276 L291 263 M351 316 L276 305 L240 280"/><g stroke="#3f284d" stroke-width="7"><path d="M258 518L239 539"/><path d="M195 478L179 509"/><path d="M220 310L207 334"/></g></g><g transform="translate(1000 0) scale(-1 1)"><g><path class="feather" d="M436 399 Q328 330 245 340 L172 365 L95 383 L144 416 L86 445 L149 479 L109 512 L184 522 L167 556 L241 548 L293 570 L347 536 L399 516 L446 476 Z"/><path class="upper" d="M431 345 Q360 220 305 198 L262 173 L240 197 L207 179 L197 219 L150 211 L166 260 L127 271 L160 306 L141 337 L231 328 L309 368 L402 390 Z"/><path class="plague" d="M421 416 L351 407 L323 447 L281 433 L239 475 M341 408 L294 375 L230 384 M405 353 L350 316 L337 276 L291 263 M351 316 L276 305 L240 280"/><g stroke="#3f284d" stroke-width="7"><path d="M258 518L239 539"/><path d="M195 478L179 509"/><path d="M220 310L207 334"/></g></g></g>
+<path class="feather" d="M441 371L423 448L446 538L499 574L550 537L574 448L558 373L527 341L469 342Z"/>
+<path d="M455 393L486 424L470 474L490 507L507 469L529 491L544 446L531 394" class="plague" filter="url(#g)"/>
+<path class="feather" d="M454 348L443 299L469 268L490 272L512 270L538 288L552 342L541 383L458 382Z"/>
+<path class="bone" d="M458 315L497 332L543 315L529 355L502 379L470 351Z"/>
+<path d="M476 319L490 314" stroke="#9eee35" stroke-width="9" filter="url(#g)"/>
+<path d="M515 314L529 319" stroke="#9eee35" stroke-width="9" filter="url(#g)"/>
+<path d="M461 345 L491 352 L500 367 L515 355 L541 348" class="plague"/>
+<path d="M463 351 L446 321 L450 283 L466 275 L477 240 L489 265 L511 257 L530 241 L535 273 L557 293 L558 325" fill="#39343d" stroke="#56525a" stroke-width="5"/>
+<path d="M464 596L455 683L420 694L394 718L421 720L443 708L430 739L448 733L463 705L485 724L475 693L480 605Z" class="bone"/>
+<path d="M529 600L536 686L575 692L598 712L569 718L552 709L565 742L545 731L532 707L510 722L520 692L512 608Z" class="bone"/>
+</g></g>
+<text class="sub" x="72" y="485">Маршрут по дуге → заражение пола под полётом</text>
+<text class="lead" x="866" y="130">2. ПРИЗЫВ МАЛЫХ МОРОВЫХ ВОРОН</text>
+<g transform="translate(967,-3) scale(.47)"><g>
+<path class="feather" d="M432 478 L396 585 L421 664 L463 689 L496 708 L535 688 L582 662 L595 573 L561 463 Z"/>
+<path class="feather" d="M460 620 L429 770 L460 741 L484 810 L504 771 L525 819 L549 734 L579 769 L545 624Z"/>
+<g><path class="feather" d="M436 399 Q328 330 245 340 L172 365 L95 383 L144 416 L86 445 L149 479 L109 512 L184 522 L167 556 L241 548 L293 570 L347 536 L399 516 L446 476 Z"/><path class="upper" d="M431 345 Q360 220 305 198 L262 173 L240 197 L207 179 L197 219 L150 211 L166 260 L127 271 L160 306 L141 337 L231 328 L309 368 L402 390 Z"/><path class="plague" d="M421 416 L351 407 L323 447 L281 433 L239 475 M341 408 L294 375 L230 384 M405 353 L350 316 L337 276 L291 263 M351 316 L276 305 L240 280"/><g stroke="#3f284d" stroke-width="7"><path d="M258 518L239 539"/><path d="M195 478L179 509"/><path d="M220 310L207 334"/></g></g><g transform="translate(1000 0) scale(-1 1)"><g><path class="feather" d="M436 399 Q328 330 245 340 L172 365 L95 383 L144 416 L86 445 L149 479 L109 512 L184 522 L167 556 L241 548 L293 570 L347 536 L399 516 L446 476 Z"/><path class="upper" d="M431 345 Q360 220 305 198 L262 173 L240 197 L207 179 L197 219 L150 211 L166 260 L127 271 L160 306 L141 337 L231 328 L309 368 L402 390 Z"/><path class="plague" d="M421 416 L351 407 L323 447 L281 433 L239 475 M341 408 L294 375 L230 384 M405 353 L350 316 L337 276 L291 263 M351 316 L276 305 L240 280"/><g stroke="#3f284d" stroke-width="7"><path d="M258 518L239 539"/><path d="M195 478L179 509"/><path d="M220 310L207 334"/></g></g></g>
+<path class="feather" d="M441 371L423 448L446 538L499 574L550 537L574 448L558 373L527 341L469 342Z"/>
+<path d="M455 393L486 424L470 474L490 507L507 469L529 491L544 446L531 394" class="plague" filter="url(#g)"/>
+<path class="feather" d="M454 348L443 299L469 268L490 272L512 270L538 288L552 342L541 383L458 382Z"/>
+<path class="bone" d="M458 315L497 332L543 315L529 355L502 379L470 351Z"/>
+<path d="M476 319L490 314" stroke="#9eee35" stroke-width="9" filter="url(#g)"/>
+<path d="M515 314L529 319" stroke="#9eee35" stroke-width="9" filter="url(#g)"/>
+<path d="M461 345 L491 352 L500 367 L515 355 L541 348" class="plague"/>
+<path d="M463 351 L446 321 L450 283 L466 275 L477 240 L489 265 L511 257 L530 241 L535 273 L557 293 L558 325" fill="#39343d" stroke="#56525a" stroke-width="5"/>
+<path d="M464 596L455 683L420 694L394 718L421 720L443 708L430 739L448 733L463 705L485 724L475 693L480 605Z" class="bone"/>
+<path d="M529 600L536 686L575 692L598 712L569 718L552 709L565 742L545 731L532 707L510 722L520 692L512 608Z" class="bone"/>
+</g></g>
+<g transform="translate(913,224) scale(.18)"><g>
+<path class="feather" d="M432 478 L396 585 L421 664 L463 689 L496 708 L535 688 L582 662 L595 573 L561 463 Z"/>
+<path class="feather" d="M460 620 L429 770 L460 741 L484 810 L504 771 L525 819 L549 734 L579 769 L545 624Z"/>
+<g><path class="feather" d="M436 399 Q328 330 245 340 L172 365 L95 383 L144 416 L86 445 L149 479 L109 512 L184 522 L167 556 L241 548 L293 570 L347 536 L399 516 L446 476 Z"/><path class="upper" d="M431 345 Q360 220 305 198 L262 173 L240 197 L207 179 L197 219 L150 211 L166 260 L127 271 L160 306 L141 337 L231 328 L309 368 L402 390 Z"/><path class="plague" d="M421 416 L351 407 L323 447 L281 433 L239 475 M341 408 L294 375 L230 384 M405 353 L350 316 L337 276 L291 263 M351 316 L276 305 L240 280"/><g stroke="#3f284d" stroke-width="7"><path d="M258 518L239 539"/><path d="M195 478L179 509"/><path d="M220 310L207 334"/></g></g><g transform="translate(1000 0) scale(-1 1)"><g><path class="feather" d="M436 399 Q328 330 245 340 L172 365 L95 383 L144 416 L86 445 L149 479 L109 512 L184 522 L167 556 L241 548 L293 570 L347 536 L399 516 L446 476 Z"/><path class="upper" d="M431 345 Q360 220 305 198 L262 173 L240 197 L207 179 L197 219 L150 211 L166 260 L127 271 L160 306 L141 337 L231 328 L309 368 L402 390 Z"/><path class="plague" d="M421 416 L351 407 L323 447 L281 433 L239 475 M341 408 L294 375 L230 384 M405 353 L350 316 L337 276 L291 263 M351 316 L276 305 L240 280"/><g stroke="#3f284d" stroke-width="7"><path d="M258 518L239 539"/><path d="M195 478L179 509"/><path d="M220 310L207 334"/></g></g></g>
+<path class="feather" d="M441 371L423 448L446 538L499 574L550 537L574 448L558 373L527 341L469 342Z"/>
+<path d="M455 393L486 424L470 474L490 507L507 469L529 491L544 446L531 394" class="plague" filter="url(#g)"/>
+<path class="feather" d="M454 348L443 299L469 268L490 272L512 270L538 288L552 342L541 383L458 382Z"/>
+<path class="bone" d="M458 315L497 332L543 315L529 355L502 379L470 351Z"/>
+<path d="M476 319L490 314" stroke="#9eee35" stroke-width="9" filter="url(#g)"/>
+<path d="M515 314L529 319" stroke="#9eee35" stroke-width="9" filter="url(#g)"/>
+<path d="M461 345 L491 352 L500 367 L515 355 L541 348" class="plague"/>
+<path d="M463 351 L446 321 L450 283 L466 275 L477 240 L489 265 L511 257 L530 241 L535 273 L557 293 L558 325" fill="#39343d" stroke="#56525a" stroke-width="5"/>
+<path d="M464 596L455 683L420 694L394 718L421 720L443 708L430 739L448 733L463 705L485 724L475 693L480 605Z" class="bone"/>
+<path d="M529 600L536 686L575 692L598 712L569 718L552 709L565 742L545 731L532 707L510 722L520 692L512 608Z" class="bone"/>
+</g></g><g transform="translate(1148,236) scale(.15)"><g>
+<path class="feather" d="M432 478 L396 585 L421 664 L463 689 L496 708 L535 688 L582 662 L595 573 L561 463 Z"/>
+<path class="feather" d="M460 620 L429 770 L460 741 L484 810 L504 771 L525 819 L549 734 L579 769 L545 624Z"/>
+<g><path class="feather" d="M436 399 Q328 330 245 340 L172 365 L95 383 L144 416 L86 445 L149 479 L109 512 L184 522 L167 556 L241 548 L293 570 L347 536 L399 516 L446 476 Z"/><path class="upper" d="M431 345 Q360 220 305 198 L262 173 L240 197 L207 179 L197 219 L150 211 L166 260 L127 271 L160 306 L141 337 L231 328 L309 368 L402 390 Z"/><path class="plague" d="M421 416 L351 407 L323 447 L281 433 L239 475 M341 408 L294 375 L230 384 M405 353 L350 316 L337 276 L291 263 M351 316 L276 305 L240 280"/><g stroke="#3f284d" stroke-width="7"><path d="M258 518L239 539"/><path d="M195 478L179 509"/><path d="M220 310L207 334"/></g></g><g transform="translate(1000 0) scale(-1 1)"><g><path class="feather" d="M436 399 Q328 330 245 340 L172 365 L95 383 L144 416 L86 445 L149 479 L109 512 L184 522 L167 556 L241 548 L293 570 L347 536 L399 516 L446 476 Z"/><path class="upper" d="M431 345 Q360 220 305 198 L262 173 L240 197 L207 179 L197 219 L150 211 L166 260 L127 271 L160 306 L141 337 L231 328 L309 368 L402 390 Z"/><path class="plague" d="M421 416 L351 407 L323 447 L281 433 L239 475 M341 408 L294 375 L230 384 M405 353 L350 316 L337 276 L291 263 M351 316 L276 305 L240 280"/><g stroke="#3f284d" stroke-width="7"><path d="M258 518L239 539"/><path d="M195 478L179 509"/><path d="M220 310L207 334"/></g></g></g>
+<path class="feather" d="M441 371L423 448L446 538L499 574L550 537L574 448L558 373L527 341L469 342Z"/>
+<path d="M455 393L486 424L470 474L490 507L507 469L529 491L544 446L531 394" class="plague" filter="url(#g)"/>
+<path class="feather" d="M454 348L443 299L469 268L490 272L512 270L538 288L552 342L541 383L458 382Z"/>
+<path class="bone" d="M458 315L497 332L543 315L529 355L502 379L470 351Z"/>
+<path d="M476 319L490 314" stroke="#9eee35" stroke-width="9" filter="url(#g)"/>
+<path d="M515 314L529 319" stroke="#9eee35" stroke-width="9" filter="url(#g)"/>
+<path d="M461 345 L491 352 L500 367 L515 355 L541 348" class="plague"/>
+<path d="M463 351 L446 321 L450 283 L466 275 L477 240 L489 265 L511 257 L530 241 L535 273 L557 293 L558 325" fill="#39343d" stroke="#56525a" stroke-width="5"/>
+<path d="M464 596L455 683L420 694L394 718L421 720L443 708L430 739L448 733L463 705L485 724L475 693L480 605Z" class="bone"/>
+<path d="M529 600L536 686L575 692L598 712L569 718L552 709L565 742L545 731L532 707L510 722L520 692L512 608Z" class="bone"/>
+</g></g><g transform="translate(1274,230) scale(.16)"><g>
+<path class="feather" d="M432 478 L396 585 L421 664 L463 689 L496 708 L535 688 L582 662 L595 573 L561 463 Z"/>
+<path class="feather" d="M460 620 L429 770 L460 741 L484 810 L504 771 L525 819 L549 734 L579 769 L545 624Z"/>
+<g><path class="feather" d="M436 399 Q328 330 245 340 L172 365 L95 383 L144 416 L86 445 L149 479 L109 512 L184 522 L167 556 L241 548 L293 570 L347 536 L399 516 L446 476 Z"/><path class="upper" d="M431 345 Q360 220 305 198 L262 173 L240 197 L207 179 L197 219 L150 211 L166 260 L127 271 L160 306 L141 337 L231 328 L309 368 L402 390 Z"/><path class="plague" d="M421 416 L351 407 L323 447 L281 433 L239 475 M341 408 L294 375 L230 384 M405 353 L350 316 L337 276 L291 263 M351 316 L276 305 L240 280"/><g stroke="#3f284d" stroke-width="7"><path d="M258 518L239 539"/><path d="M195 478L179 509"/><path d="M220 310L207 334"/></g></g><g transform="translate(1000 0) scale(-1 1)"><g><path class="feather" d="M436 399 Q328 330 245 340 L172 365 L95 383 L144 416 L86 445 L149 479 L109 512 L184 522 L167 556 L241 548 L293 570 L347 536 L399 516 L446 476 Z"/><path class="upper" d="M431 345 Q360 220 305 198 L262 173 L240 197 L207 179 L197 219 L150 211 L166 260 L127 271 L160 306 L141 337 L231 328 L309 368 L402 390 Z"/><path class="plague" d="M421 416 L351 407 L323 447 L281 433 L239 475 M341 408 L294 375 L230 384 M405 353 L350 316 L337 276 L291 263 M351 316 L276 305 L240 280"/><g stroke="#3f284d" stroke-width="7"><path d="M258 518L239 539"/><path d="M195 478L179 509"/><path d="M220 310L207 334"/></g></g></g>
+<path class="feather" d="M441 371L423 448L446 538L499 574L550 537L574 448L558 373L527 341L469 342Z"/>
+<path d="M455 393L486 424L470 474L490 507L507 469L529 491L544 446L531 394" class="plague" filter="url(#g)"/>
+<path class="feather" d="M454 348L443 299L469 268L490 272L512 270L538 288L552 342L541 383L458 382Z"/>
+<path class="bone" d="M458 315L497 332L543 315L529 355L502 379L470 351Z"/>
+<path d="M476 319L490 314" stroke="#9eee35" stroke-width="9" filter="url(#g)"/>
+<path d="M515 314L529 319" stroke="#9eee35" stroke-width="9" filter="url(#g)"/>
+<path d="M461 345 L491 352 L500 367 L515 355 L541 348" class="plague"/>
+<path d="M463 351 L446 321 L450 283 L466 275 L477 240 L489 265 L511 257 L530 241 L535 273 L557 293 L558 325" fill="#39343d" stroke="#56525a" stroke-width="5"/>
+<path d="M464 596L455 683L420 694L394 718L421 720L443 708L430 739L448 733L463 705L485 724L475 693L480 605Z" class="bone"/>
+<path d="M529 600L536 686L575 692L598 712L569 718L552 709L565 742L545 731L532 707L510 722L520 692L512 608Z" class="bone"/>
+</g></g>
+<text class="sub" x="861" y="485">Уменьшенные мутировавшие копии, не обычные вороны</text>
+<text class="lead" x="57" y="590">3. ПИКИРОВАНИЕ / КЛЮВ / КОГТИ / ВЗМАХ</text>
+<g transform="translate(62,374) scale(.48) rotate(-24 500 400)"><g>
+<path class="feather" d="M432 478 L396 585 L421 664 L463 689 L496 708 L535 688 L582 662 L595 573 L561 463 Z"/>
+<path class="feather" d="M460 620 L429 770 L460 741 L484 810 L504 771 L525 819 L549 734 L579 769 L545 624Z"/>
+<g><path class="feather" d="M436 399 Q328 330 245 340 L172 365 L95 383 L144 416 L86 445 L149 479 L109 512 L184 522 L167 556 L241 548 L293 570 L347 536 L399 516 L446 476 Z"/><path class="upper" d="M431 345 Q360 220 305 198 L262 173 L240 197 L207 179 L197 219 L150 211 L166 260 L127 271 L160 306 L141 337 L231 328 L309 368 L402 390 Z"/><path class="plague" d="M421 416 L351 407 L323 447 L281 433 L239 475 M341 408 L294 375 L230 384 M405 353 L350 316 L337 276 L291 263 M351 316 L276 305 L240 280"/><g stroke="#3f284d" stroke-width="7"><path d="M258 518L239 539"/><path d="M195 478L179 509"/><path d="M220 310L207 334"/></g></g><g transform="translate(1000 0) scale(-1 1)"><g><path class="feather" d="M436 399 Q328 330 245 340 L172 365 L95 383 L144 416 L86 445 L149 479 L109 512 L184 522 L167 556 L241 548 L293 570 L347 536 L399 516 L446 476 Z"/><path class="upper" d="M431 345 Q360 220 305 198 L262 173 L240 197 L207 179 L197 219 L150 211 L166 260 L127 271 L160 306 L141 337 L231 328 L309 368 L402 390 Z"/><path class="plague" d="M421 416 L351 407 L323 447 L281 433 L239 475 M341 408 L294 375 L230 384 M405 353 L350 316 L337 276 L291 263 M351 316 L276 305 L240 280"/><g stroke="#3f284d" stroke-width="7"><path d="M258 518L239 539"/><path d="M195 478L179 509"/><path d="M220 310L207 334"/></g></g></g>
+<path class="feather" d="M441 371L423 448L446 538L499 574L550 537L574 448L558 373L527 341L469 342Z"/>
+<path d="M455 393L486 424L470 474L490 507L507 469L529 491L544 446L531 394" class="plague" filter="url(#g)"/>
+<path class="feather" d="M454 348L443 299L469 268L490 272L512 270L538 288L552 342L541 383L458 382Z"/>
+<path class="bone" d="M458 315L497 332L543 315L529 355L502 379L470 351Z"/>
+<path d="M476 319L490 314" stroke="#9eee35" stroke-width="9" filter="url(#g)"/>
+<path d="M515 314L529 319" stroke="#9eee35" stroke-width="9" filter="url(#g)"/>
+<path d="M461 345 L491 352 L500 367 L515 355 L541 348" class="plague"/>
+<path d="M463 351 L446 321 L450 283 L466 275 L477 240 L489 265 L511 257 L530 241 L535 273 L557 293 L558 325" fill="#39343d" stroke="#56525a" stroke-width="5"/>
+<path d="M464 596L455 683L420 694L394 718L421 720L443 708L430 739L448 733L463 705L485 724L475 693L480 605Z" class="bone"/>
+<path d="M529 600L536 686L575 692L598 712L569 718L552 709L565 742L545 731L532 707L510 722L520 692L512 608Z" class="bone"/>
+</g></g>
+<path d="M352 905L463 810L579 835" class="line" stroke-width="12" marker-end="url(#arrow)"/>
+<path d="M222 894L277 824L318 880" class="plague" filter="url(#g)"/>
+<text class="sub" x="68" y="989">Резкое снижение с упреждением и уходом на высоту</text>
+<text class="lead" x="865" y="590">4. ЗАЛП МОРА / ЗАРАЖЁННАЯ ЗЕМЛЯ</text>
+<g transform="translate(1045,374) scale(.34)"><g>
+<path class="feather" d="M432 478 L396 585 L421 664 L463 689 L496 708 L535 688 L582 662 L595 573 L561 463 Z"/>
+<path class="feather" d="M460 620 L429 770 L460 741 L484 810 L504 771 L525 819 L549 734 L579 769 L545 624Z"/>
+<g><path class="feather" d="M436 399 Q328 330 245 340 L172 365 L95 383 L144 416 L86 445 L149 479 L109 512 L184 522 L167 556 L241 548 L293 570 L347 536 L399 516 L446 476 Z"/><path class="upper" d="M431 345 Q360 220 305 198 L262 173 L240 197 L207 179 L197 219 L150 211 L166 260 L127 271 L160 306 L141 337 L231 328 L309 368 L402 390 Z"/><path class="plague" d="M421 416 L351 407 L323 447 L281 433 L239 475 M341 408 L294 375 L230 384 M405 353 L350 316 L337 276 L291 263 M351 316 L276 305 L240 280"/><g stroke="#3f284d" stroke-width="7"><path d="M258 518L239 539"/><path d="M195 478L179 509"/><path d="M220 310L207 334"/></g></g><g transform="translate(1000 0) scale(-1 1)"><g><path class="feather" d="M436 399 Q328 330 245 340 L172 365 L95 383 L144 416 L86 445 L149 479 L109 512 L184 522 L167 556 L241 548 L293 570 L347 536 L399 516 L446 476 Z"/><path class="upper" d="M431 345 Q360 220 305 198 L262 173 L240 197 L207 179 L197 219 L150 211 L166 260 L127 271 L160 306 L141 337 L231 328 L309 368 L402 390 Z"/><path class="plague" d="M421 416 L351 407 L323 447 L281 433 L239 475 M341 408 L294 375 L230 384 M405 353 L350 316 L337 276 L291 263 M351 316 L276 305 L240 280"/><g stroke="#3f284d" stroke-width="7"><path d="M258 518L239 539"/><path d="M195 478L179 509"/><path d="M220 310L207 334"/></g></g></g>
+<path class="feather" d="M441 371L423 448L446 538L499 574L550 537L574 448L558 373L527 341L469 342Z"/>
+<path d="M455 393L486 424L470 474L490 507L507 469L529 491L544 446L531 394" class="plague" filter="url(#g)"/>
+<path class="feather" d="M454 348L443 299L469 268L490 272L512 270L538 288L552 342L541 383L458 382Z"/>
+<path class="bone" d="M458 315L497 332L543 315L529 355L502 379L470 351Z"/>
+<path d="M476 319L490 314" stroke="#9eee35" stroke-width="9" filter="url(#g)"/>
+<path d="M515 314L529 319" stroke="#9eee35" stroke-width="9" filter="url(#g)"/>
+<path d="M461 345 L491 352 L500 367 L515 355 L541 348" class="plague"/>
+<path d="M463 351 L446 321 L450 283 L466 275 L477 240 L489 265 L511 257 L530 241 L535 273 L557 293 L558 325" fill="#39343d" stroke="#56525a" stroke-width="5"/>
+<path d="M464 596L455 683L420 694L394 718L421 720L443 708L430 739L448 733L463 705L485 724L475 693L480 605Z" class="bone"/>
+<path d="M529 600L536 686L575 692L598 712L569 718L552 709L565 742L545 731L532 707L510 722L520 692L512 608Z" class="bone"/>
+</g></g>
+<g fill="#a6e937" filter="url(#g)"><rect x="1090" y="834" width="30" height="30"/><rect x="1240" y="810" width="42" height="42"/><rect x="1457" y="846" width="38" height="38"/></g>
+<path d="M1167 766L1112 839M1251 729L1251 813M1347 747L1477 850" class="line dash" marker-end="url(#arrow)"/>
+<path d="M886 946Q1010 916 1112 941L1175 918L1224 946L1362 925L1511 947L1585 928" stroke="#a3e52d" stroke-width="18" fill="none" opacity=".65"/>
+<text class="sub" x="865" y="994">Снаряды → временные заражённые зоны (без грифа)</text>
+</svg>
