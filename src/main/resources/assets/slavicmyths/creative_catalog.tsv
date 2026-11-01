@@ -1126,3 +1126,6 @@ navya_weapon_rack	furniture	furniture_weapon_rack
 blackwood_weapon_rack	furniture	furniture_weapon_rack
 morovoy_raven_feather	resources	boss_material
 mor_core	resources	boss_material
+morovoy_raven_head	heads	boss_head
+fire_serpent_head	heads	boss_head
+mor_serpent_head	heads	boss_head
