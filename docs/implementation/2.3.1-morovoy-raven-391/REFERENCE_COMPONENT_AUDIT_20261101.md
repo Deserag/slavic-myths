@@ -9,11 +9,11 @@
 
 В PNG A читаются фронтальная, боковая и задняя схемы, ¾, крупный план головы, палитра и масштаб рядом со Steve; отдельного ортографического вида сверху **нет**. PNG B задаёт реальные концептуальные позиции и эффекты атак. Дополнительные SVG из docs — только вспомогательные. Исходная интеграционная база для этой ветки: `3.3` @ `251d97e5585224302e181a609d3ae31948261de7`.
 
-**Статусы таблицы:** `FAIL_SOURCE`/ `MISSING` — кодовая конструкция уже имеет документируемое несоответствие или отсутствие; `NOT_RUN` — нет runtime-кадра/доказательства; `NOT_IN_SOURCE` — художественный PNG не показывает отдельный ракурс. **Ни одна строка пока не получила статус «соответствует» на основании сборки кода.** После правки каждой детали и прямого сравнения игрового кадра поставить `ИСПРАВЛЕНА_И_ПРОВЕРЕНА` либо `НЕ_СООТВЕТСТВУЕТ`.
+**Статусы таблицы:** `FAIL_SOURCE`/ `MISSING` — кодовая конструкция уже имеет документируемое несоответствие или отсутствие; `NOT_RUN` — нет runtime-кадра/доказательства; `NOT_IN_SOURCE` — художественный PNG не показывает отдельный ракурс. **Ни одна строка пока не получила статус «соответствует» на основании сборки кода. Таблица ниже описывает исходное состояние 3.3 до текущих геометрических коммитов; матрица после патча приведена отдельно.** После правки каждой детали и прямого сравнения игрового кадра поставить `ИСПРАВЛЕНА_И_ПРОВЕРЕНА` либо `НЕ_СООТВЕТСТВУЕТ`.
 
-## Поэлементная шестиколоночная матрица + статус
+## Поэлементная матрица baseline 3.3: что обнаружено и каким должен стать результат
 
-| Элемент | Что конкретно видно в утверждённом PNG | Где и относительные пропорции | Как реализовано в текущем Minecraft source | Как именно исправить | Как проверить на реальной модели | Статус до игрового QA |
+| Элемент | Что конкретно видно в утверждённом PNG | Где и относительные пропорции | Как реализовано в 3.3 ДО текущих исправлений | Как именно исправить | Как проверить на реальной модели | Статус исходного 3.3 |
 |---|---|---|---|---|---|---|
 | Силуэт ¾ | Гигантский ворон с огромными нижними крыльями и меньшими V-образными верхними; удлинённый клюв, крупные лапы, узкий хвост | PNG A: крупная главная ¾-проекция; длина туловища ~5–6 блоков | Модель bird + пары primary/secondary; исходный Java даёт primary верхнюю крупнейшую пару | Перенести рисунок, включая разнесение пар и выраженную анатомию, не заменяя её драконом | Кадр ¾ рядом со Steve, сопоставить оба силуэта | FAIL_SOURCE |
 | Спереди | Меньшие верхние крылья подняты V, более длинные нижние широко раскрыты горизонтально; узкая голова и длинная грудная зелёная ветвь | PNG A, нижняя полоса слева; крылья разнесены по высоте | Верхняя primary пара крупнее нижней secondary, обе имеют похожую форму | Поменять геометрические роли крыльев; повторить выраженные V и горизонтальную пару | Скрин строго анфас, в точной позе, со сравнительной сеткой | FAIL_SOURCE |
@@ -85,3 +85,52 @@
 ## Приёмка и отчётность
 
 Обязательны source JAR SHA, Java21 clean build, actual front/side/back/top/flying screenshots в Minecraft, сравнение с **обоими** PNG, все анимации и звуки реально слышны, сервер+клиент, два игрока, 5 seed в Nether, relog и worldgen regression. `NOT_RUN` до выполнения, без автоматического закрытия #391, без слияния в `3.3`, без объявления версии 3.4 готовой. Награды не затрагивать.
+
+## Результат исправлений на отдельной ветке 3.4 (исходниковое состояние)
+
+**Технически изменённые файлы:**
+`src/main/java/org/slavicmyths/client/MorovoyRavenModel.java`,
+`src/main/java/org/slavicmyths/morovoy/MorovoyRaven.java`,
+`src/main/java/org/slavicmyths/morovoy/MorovoyRavenContent.java`,
+`src/main/java/org/slavicmyths/morovoy/MorovoyArenaPiece.java`,
+`src/main/java/org/slavicmyths/morovoy/RavenMiasma.java`,
+`tools/morovoy_raven_391_check.py`. **Текстура PNG и исходный Blockbench bbmodel пока не изменены**: новое расположение UV и маска светящихся прожилок **не проверены**; будущая ручная сверка художником обязательна.
+
+| Исправление из эталона / механики | Где реализовано | Текущее решение в исходнике | Итог по приёмке |
+|---|---|---|---|
+| Четыре крыла, нижние основная широкая пара | MorovoyRavenModel.java | primary корень (±15,-17,-8), 9 групп long main_flight | SOURCE_CHANGED; IN_GAME_NOT_RUN |
+| Дополнительные верхние V-крылья | MorovoyRavenModel.java | secondary корень (±12,-32,3), 6 рядов, V базовый zRot ±0.90 rad | SOURCE_CHANGED; IN_GAME_NOT_RUN |
+| Неповторяющиеся torn tips и моровые ветви | MorovoyRavenModel.java | отдельные main/upper torn-plumes, неодинаковые по сторонам ветви | SOURCE_CHANGED; UV_UNVERIFIED |
+| Характерные клюв и пасть | MorovoyRavenModel.java | расширенные слоистые beak/jaw, угловатый крючок, три drool | SOURCE_CHANGED; IN_GAME_NOT_RUN |
+| Спинные костяные выступы | MorovoyRavenModel.java | 7 разноразмерных bone_growth с верхушками | SOURCE_CHANGED; COLOR_UNVERIFIED |
+| Кроющие, шея, грудь и хвост | MorovoyRavenModel.java | несколько дополнительных рядов, более короткий ступенчатый хвост | SOURCE_CHANGED; IN_GAME_NOT_RUN |
+| Мощные лапы и загнутые когти | MorovoyRavenModel.java | knee/shin, 3 дугообразных составных talons и задний коготь | SOURCE_CHANGED; IN_GAME_NOT_RUN |
+| Размер, высота / hitbox | MorovoyRavenModel.java / MorovoyRavenContent.java | root y=-19, boss hitbox 2.7×4.95, minion .8×1.39; не подтверждено игрой | SOURCE_CHANGED; MEASURE_NOT_RUN |
+| Прямой пикирующий силуэт | MorovoyRavenModel.java | pitch +.46 rad, вместо запрокидывания клюва вверх | SOURCE_CHANGED; IN_GAME_NOT_RUN |
+| Хлопки четырёх крыльев | MorovoyRavenModel.java | главные ±flap, меньшая верхняя пара ±second, без подмены пары | SOURCE_CHANGED; CLIP_NOT_RUN |
+| Взлёт, посадка, дыхание и idle | MorovoyRaven.java + Model | LANDING, GROUND_IDLE, TAKEOFF synced pose + плавное складывание крыльев | SOURCE_CHANGED; IN_GAME_NOT_RUN |
+| Удар / смерть | MorovoyRavenModel.java | визуальные overlay на vanilla hurtTime и deathTime, не отдельные bespoke keyframes | PARTIAL; RUNTIME_NOT_RUN |
+| Повороты / банковка | MorovoyRaven.java | signed change of yaw, low-pass bank, затухание при торможении | SOURCE_CHANGED; IN_GAME_NOT_RUN |
+| Minion expiry / reload | MorovoyRaven.java | фикс TTL <=0 и phase animation offset on NBT load | SOURCE_CHANGED; MP_NOT_RUN |
+| Реальная встречаемость в кратере | MorovoyArenaPiece.java | естественный spawn ворона в центральном чанке Raven-арены + setArenaAnchor | SOURCE_CHANGED; 5_SEED_NOT_RUN |
+| Диаметр кратера | MorovoyArenaGeometry.java (без изменений) | OUTER_RADIUS=120 ⇒ ~240 блоков | SOURCE_PRESENT; 5_SEED_NOT_RUN |
+| Заражение широкой полосой | MorovoyRaven.java / RavenMiasma.java | radius orbit 38, step 5 ticks, zone radius 4.8, lifespan 265/300 max | SOURCE_CHANGED; IN_GAME_NOT_RUN |
+| Механическая озвучка | MorovoyRaven.java | vanilla PHANTOM_FLAP/SWOOP, IRON_GOLEM_STEP, WITHER_SHOOT, EVOKER_PREPARE_SUMMON; *лишь временный foley* | SOURCE_PRESENT; AUDIBILITY_NOT_RUN |
+| Собственные крики, hurt, смерть | Нет финальных авторизованных OGG и callsites | Никаких фиктивных синтетических голосов; нужны качественные оригинальные записи | BLOCKED_NEEDS_AUDIO_SOURCE |
+| Точное цветовое распределение и UV | morovoy_raven.png и _glow.png не изменены | Настоящий эталон PNG доступен, но перенести его на UV в исходном binary ещё не удалось | FAIL / NEEDS_TEXTURE_REBUILD |
+| Игровая визуальная сверка с двумя PNG | Фактические client screenshots | 0 скриншотов из Minecraft на этой ветке; художественные PNG не заменяют их | NOT_RUN |
+| Выделенный сервер, 2 игрока, 5 seed, релог | Изолированная NeoForge runtime QA | Не проводилась на этой ветке; Gradle build не доказывает бой | NOT_RUN |
+| Награды | MorovoyRaven.java | Умышленно не добавлены | PASS_SCOPE_SOURCE |
+
+## Временный журнал CI
+
+Состояние Java21 clean build проверять по PR #400, **отдельно для каждого SHA**. На момент создания этого раздела исходная проверка `41293602853` прошла сборку, checker и resource integrity; последующие коммиты требуют собственных проверок. Любая CI PASS — только `PASS_BUILD`, не `PASS_VISUAL` или `PASS_GAMEPLAY`.
+
+**Необязательный для принятия, но полезный доказательный список:**
+1. Пять скриншотов реальной модели — фронт, профиль, задний, верхний и ¾ / полёт, рядом Steve.
+2. Одно реальное side-by-side с original `MOROVOY_VORON_APPROVED_APPEARANCE.png` для каждой группы деталей.
+3. Реальный бой против двух игроков: idle/takeoff/land/hurt/death, крен, все удары, яд/отдельные зоны, minion cap+TTL, relog.
+4. Два набора логов — клиент/выделенный сервер; 5 seed и проверка кратера; арт и звук по отдельным источникам.
+5. Полный реестр sound event→OGG/vanilla→callsite, RU/EN subtitles, слышимость с центра/края арены.
+
+**Итог:** ещё `IN_PROGRESS / НЕ ПРИНИМАТЬ`. PR #400 draft; не сливать в 3.3 и не закрывать #391.
