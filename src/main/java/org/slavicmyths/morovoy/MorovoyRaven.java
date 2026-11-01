@@ -378,7 +378,7 @@ public final class MorovoyRaven extends PathfinderMob {
         home = tag.getBoolean("HasHome") ? new BlockPos(tag.getInt("HomeX"), tag.getInt("HomeY"), tag.getInt("HomeZ")) : null;
         parent = tag.hasUUID("Parent") ? tag.getUUID("Parent") : null;
         entityData.set(POSE, Math.clamp(tag.getInt("Pose"), CIRCLE, TAKEOFF));
-        phaseTicks = Math.clamp(tag.getInt("PhaseTicks"), 0, 200);
+        phaseTicks = Math.clamp(tag.getInt("PhaseTicks"), 0, 800);
         // Align visible action timing with the restored server phase after a reload.
         entityData.set(POSE_START, tickCount - phaseTicks);
         attackIndex = tag.getInt("AttackIndex"); minionLife = tag.getInt("MinionLife");
