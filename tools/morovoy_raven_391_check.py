@@ -24,6 +24,7 @@ for item in ("mor_core","morovoy_raven_feather"):
     assert (assets / f"textures/item/{item}.png").exists()
 for path, wh in [
     ("textures/entity/morovoy_raven.png", (256,256)),
+    ("textures/entity/morovoy_raven_glow.png", (256,256)),
     ("textures/entity/morovoy_blight.png", (16,16)),
     ("textures/item/morovoy_raven_feather.png", (16,16)),
     ("textures/item/mor_core.png", (16,16)),
