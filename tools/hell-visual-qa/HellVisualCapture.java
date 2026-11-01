@@ -83,8 +83,8 @@ public final class HellVisualCapture {
                 double x=boss.getX(),y=81+boss.getBbHeight()*.5;
                 VIEWS.add(new View(label+"-top",x+.1,y+19,0,x,y,0,"","spectator","",false));
                 if(n==0){
-                    VIEWS.add(new View(label+"-head-detail",x+6,84.2,-10,x,84.5,-3.5,"","spectator","",false));
-                    VIEWS.add(new View(label+"-talon-detail",x+2,82.0,7,x,82.0,-.6,"","spectator","",false));
+                    VIEWS.add(new View(label+"-head-detail",x+3,85.2,7.4,x,84.4,1,"","spectator","",false));
+                    VIEWS.add(new View(label+"-talon-detail",x+2,81.4,5.8,x,81.3,-.6,"","spectator","",false));
                 }
             }
             ready=true;return;
