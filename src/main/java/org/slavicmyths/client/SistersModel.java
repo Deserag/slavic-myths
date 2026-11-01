@@ -30,7 +30,7 @@ public final class SistersModel extends EntityModel<SisterBoss> {
         root=g.part(512,512);
         if (!spirit) {
             body=part(g,root,0,-25,0);
-            box(g,body,CLOTH,-12,-13,-7,24,27,14);
+            box(g,body,CLOTH,-9,-13,-7,18,27,14);
             box(g,body,HEM,-14,8,-8,28,6,16);
             box(g,body,BONE,-3,-14,-9,6,24,4);
             // Exposed, curved rib cage built from individually raised left/right ribs.
@@ -45,17 +45,16 @@ public final class SistersModel extends EntityModel<SisterBoss> {
                 for (int j=0;j<4;j++)box(g,shoulder,BONE,s<0?-10+j:7-j,-12-j*2,2+j,2.5F,7,2.5F);
             }
             head=part(g,root,0,-42,-1);
-            box(g,head,SKIN,-8,-10,-7,16,17,14);
+            box(g,head,SKIN,-6,-10,-6,12,14,12);
             box(g,head,SKIN,-7,-1,-9,14,6,3);
             box(g,head,SKIN,-2,0,-11,4,5,3);
             box(g,head,GLOW,-6,-3,-9,3,2,1,128);
             box(g,head,GLOW,3,-3,-9,3,2,1,128);
             // Asymmetric crown of cracked vertebrae; real protruding silhouettes.
             box(g,head,BONE,-9,-13,-7,18,3,14);
-            for (int i=0;i<9;i++)box(g,head,BONE,-9+i*2.1F,-14-(i*5%8),-6+(i%3)*3,2,6+(i%3)*3,2.5F);
-            for (int i=0;i<14;i++) {
-                ModelPart strand=part(g,head,-10+(i%7)*3,-7,i<7?7:-7);
-                box(g,strand,SKIN,-1,0,-1,2,19+(i*3%12),3);
+            for (int i=0;i<4;i++) {
+                ModelPart strand=part(g,head,-6+i*4,-6,7);
+                box(g,strand,DARK,-2,0,-1,4,18,2);
                 hair.add(strand);
             }
             ModelPart skirt=part(g,root,0,-12,0);
@@ -175,7 +174,11 @@ public final class SistersModel extends EntityModel<SisterBoss> {
         } else {
             lantern.xRot=.12F*Mth.sin(age*.14F);
             lantern.zRot=.19F*Mth.sin(age*.095F);
-            for (int i=0;i<smoke.size();i++) {
+            for (int ring=0;ring<3;ring++) {
+                ModelPart p=smoke.get(ring);
+                p.yRot=.45F*Mth.sin(age*0.1F-ring*0.4F);
+            }
+            for (int i=3;i<smoke.size();i++) {
                 ModelPart p=smoke.get(i);
                 p.yRot=.45F*Mth.sin(age*.07F+i*.51F);
                 p.zRot=.2F*Mth.sin(age*.1F+i*.73F);
