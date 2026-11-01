@@ -122,15 +122,19 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
                 float start = 20+i*9.5F;
                 float outer = side < 0 ? -start-12 : start;
                 float length = 29+i*2.2F+(i%3)*2+(side<0 ? 0 : (i%2)*3);
-                add(featherBone,"main_flight_"+i,(i%2==0)?0:98,40,outer-featherOffset,-2,-11-i*.23F,12,3.3F,length);
-                add(featherBone,"main_cover_"+i,130,40,outer+1-featherOffset,-3,-15-i*.13F,10,3,19+i*.8F);
+                // A feather must show its broad downward face from the FRONT, not a 3px-thin horizontal strip.
+                float fanDrop = 17 + i * 1.5F + (i % 3) * 3F + (side > 0 && i % 2 == 0 ? 2F : 0F);
+                add(featherBone,"main_flight_"+i,(i%2==0)?0:98,40,outer-featherOffset,-2,-11-i*.23F,12,fanDrop,7.4F);
+                // Split plum-coloured lower edges into overlapping ragged fingers.
+                add(featherBone,"main_plum_end_"+i,95,217,outer+1-featherOffset,fanDrop-7,-11-i*.23F,10,8+(i%3)*2,5.1F);
+                add(featherBone,"main_cover_"+i,130,40,outer+1-featherOffset,-4,-15-i*.13F,10,8+(i%3)*2,7.8F);
                 if(i>1 && i<8 && (i+side)%3!=0) {
                     float damage = 4 + (i%3)*4 + (side<0 ? 1 : 0);
-                    add(featherBone,"torn_plume_"+i,197,115,outer+3-featherOffset,1,-10+length-4,4,damage,3.6F);
+                    add(featherBone,"torn_plume_"+i,95,217,outer+3-featherOffset,fanDrop+1,-10,4,damage+3,3.6F);
                 }
                 if(i==1 || i==4 || (i==6 && side<0)) {
-                    add(featherBone,"mor_branch_core_"+i,174,111,outer+3-featherOffset,-3.8F,-3,2,1.6F,14);
-                    add(featherBone,"mor_branch_side_"+i,180,0,outer+8-featherOffset,-3.6F,2,2,1.2F,7);
+                    add(featherBone,"mor_branch_core_"+i,180,0,outer+3-featherOffset,4,-11,2,fanDrop*.53F,1.6F);
+                    add(featherBone,"mor_branch_side_"+i,180,8,outer+8-featherOffset,8,-11,2,fanDrop*.27F,1.4F);
                 }
             }
             PartDefinition secondary = bird.addOrReplaceChild("secondary_"+suffix, box(0,110,side < 0 ? -23 : 0,-4,-9,23,7,18),PartPose.offset(side*12,-32,3));
@@ -141,12 +145,14 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
                 float start = 15+i*7.1F;
                 float outer = side < 0 ? -start-10 : start;
                 float length = 24+i*1.7F+(i%3)*2+(side>0 ? 2:0);
-                add(featherBone,"upper_flight_"+i,50,125,outer-featherOffset,-2,-8-i*.37F,10,3.2F,length);
-                add(featherBone,"upper_cover_"+i,156,0,outer+1-featherOffset,-3,-12,8,3,16+i*.5F);
-                if(i==2 || i==4 || (side<0 && i==5)) add(featherBone,"upper_torn_"+i,197,115,outer+3-featherOffset,1,-8+length-3,3,5+i*2,3);
+                float sickDrop = 14 + i * 1.8F + (i % 3) * 3.5F;
+                add(featherBone,"upper_flight_"+i,50,125,outer-featherOffset,-2,-8-i*.37F,10,sickDrop,6.5F);
+                add(featherBone,"upper_plum_end_"+i,95,217,outer+1-featherOffset,sickDrop-7,-8-i*.37F,8,9+(i%3)*2,5.2F);
+                add(featherBone,"upper_cover_"+i,156,0,outer+1-featherOffset,-4,-12,8,7+(i%2)*2,7.7F);
+                if(i==2 || i==4 || (side<0 && i==5)) add(featherBone,"upper_torn_"+i,95,217,outer+3-featherOffset,sickDrop, -8,3,5+i*2,3);
                 if(i==1 || i==4) {
-                    add(featherBone,"upper_mor_branch_"+i,180,0,outer+3-featherOffset,-3.7F,-4,2,1.2F,12);
-                    add(featherBone,"upper_mor_branch_spur_"+i,180,8,outer+7-featherOffset,-3.5F,2,2,1.3F,5);
+                    add(featherBone,"upper_mor_branch_"+i,180,0,outer+3-featherOffset,2,-8,2,sickDrop*.52F,1.2F);
+                    add(featherBone,"upper_mor_branch_spur_"+i,180,8,outer+7-featherOffset,5,-8,2,sickDrop*.24F,1.3F);
                 }
             }
             // Chunky articulated-looking thighs, knee, shins, forward grip and hooked ivory tips.
@@ -158,12 +164,12 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
                 float x=-7+toe*5;
                 float z=-16-(toe==1 ? 3:0);
                 add(foot,"toe_"+toe,168,88,x,24,z,4.4F,3.8F,12);
-                add(foot,"talon_base_"+toe,192,89,x+.4F,25,z-6,3.8F,4.6F,7);
+                add(foot,"talon_base_"+toe,64,194,x+.4F,25,z-6,3.8F,4.6F,7);
                 add(foot,"talon_hook_"+toe,64,194,x+1,29,z-8,2.8F,6,4.5F);
-                add(foot,"talon_point_"+toe,100,194,x+1.5F,33,z-7,1.8F,2.5F,3.2F);
+                add(foot,"talon_point_"+toe,64,194,x+1.5F,33,z-7,1.8F,2.5F,3.2F);
             }
             add(foot,"rear_toe",168,88,-1,24,2,4,4,11);
-            add(foot,"rear_talon_hook",100,194,-.2F,28,9,2.5F,6,4);
+            add(foot,"rear_talon_hook",64,194,-.2F,28,9,2.5F,6,4);
         }
         PartDefinition tail = bird.addOrReplaceChild("tail",box(0,229,-9,-4,-1,18,6,19),PartPose.offset(0,-3,13));
         for(int i=0;i<7;i++) {
