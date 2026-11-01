@@ -84,12 +84,14 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
             add(bird,"neck_plume_left_"+i,156,0,-13-i*.6F,-29+i*3,-25-i,3,8,9+i);
             add(bird,"neck_plume_right_"+i,156,0,10+i*.6F,-29+i*3,-25-i,3,8,9+i);
         }
-        PartDefinition head = bird.addOrReplaceChild("head",CubeListBuilder.create().texOffs(0,150).addBox(-11,-11,-12,22,21,23).texOffs(94,151).addBox(-10,-13,-6,20,4,18).texOffs(166,42).addBox(-9,-14,2,18,6,11),PartPose.offset(0,-19,-17));
+        PartDefinition head = bird.addOrReplaceChild("head",CubeListBuilder.create().texOffs(0,150).addBox(-10,-10,-13,20,18,24).texOffs(94,151).addBox(-9,-12,-7,18,4,18).texOffs(166,42).addBox(-8,-13,2,16,5,12),PartPose.offset(0,-19,-17));
         // Wedge-like hooked upper beak and articulated lower mandible.
-        add(head,"upper_beak_base",64,194,-8,0,-25,16,9,16);
-        add(head,"upper_beak_bridge",64,194,-6.5F,2,-31,13,7,11);
-        add(head,"upper_beak_hook",64,194,-4.8F,5,-34,9.6F,6.5F,8);
-        add(head,"beak_tip",64,194,-2.6F,8,-35,5.2F,7.5F,5);
+        add(head,"upper_beak_base",64,194,-8,0,-25,16,8,16);
+        add(head,"upper_beak_bridge",64,194,-6.1F,1.8F,-31,12.2F,6.4F,11);
+        add(head,"upper_beak_hook",64,194,-4.1F,4.5F,-36,8.2F,6.8F,7);
+        add(head,"beak_tip",64,194,-2.3F,7.5F,-39,4.6F,9.6F,5);
+        add(head,"nostril_left",20,160,-6.3F,3.2F,-24.6F,1.2F,2.0F,3.1F);
+        add(head,"nostril_right",20,160,5.1F,3.2F,-24.6F,1.2F,2.0F,3.1F);
         PartDefinition jaw = head.addOrReplaceChild("jaw",box(130,193,-6,10,-25,12,4,17),PartPose.offset(0,0,0));
         add(jaw,"lower_mandible_tip",64,194,-3.7F,10,-32,7.4F,3.2F,8);
         add(jaw,"tongue",156,194,-3,11,-25,6,1.5F,13);
@@ -133,8 +135,8 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
                     add(featherBone,"torn_plume_"+i,216,170,outer+3-featherOffset,fanDrop+1,-10,4,damage+3,3.6F);
                 }
                 if(i==1 || i==4 || (i==6 && side<0)) {
-                    add(featherBone,"mor_branch_core_"+i,180,0,outer+3-featherOffset,4,-11,2,fanDrop*.53F,1.6F);
-                    add(featherBone,"mor_branch_side_"+i,180,8,outer+8-featherOffset,8,-11,2,fanDrop*.27F,1.4F);
+                    add(featherBone,"mor_branch_core_"+i,180,0,outer+3-featherOffset,4,-15.9F,2,fanDrop*.53F,1.6F);
+                    add(featherBone,"mor_branch_side_"+i,180,8,outer+8-featherOffset,8,-15.8F,2,fanDrop*.27F,1.4F);
                 }
             }
             PartDefinition secondary = bird.addOrReplaceChild("secondary_"+suffix, box(0,110,side < 0 ? -23 : 0,-4,-9,23,7,18),PartPose.offset(side*12,-32,3));
@@ -151,8 +153,8 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
                 add(featherBone,"upper_cover_"+i,156,0,outer+1-featherOffset,-4,-12,8,7+(i%2)*2,7.7F);
                 if(i==2 || i==4 || (side<0 && i==5)) add(featherBone,"upper_torn_"+i,216,170,outer+3-featherOffset,sickDrop, -8,3,5+i*2,3);
                 if(i==1 || i==4) {
-                    add(featherBone,"upper_mor_branch_"+i,180,0,outer+3-featherOffset,2,-8,2,sickDrop*.52F,1.2F);
-                    add(featherBone,"upper_mor_branch_spur_"+i,180,8,outer+7-featherOffset,5,-8,2,sickDrop*.24F,1.3F);
+                    add(featherBone,"upper_mor_branch_"+i,180,0,outer+3-featherOffset,2,-12.8F,2,sickDrop*.52F,1.2F);
+                    add(featherBone,"upper_mor_branch_spur_"+i,180,8,outer+7-featherOffset,5,-12.7F,2,sickDrop*.24F,1.3F);
                 }
             }
             // Chunky articulated-looking thighs, knee, shins, forward grip and hooked ivory tips.
