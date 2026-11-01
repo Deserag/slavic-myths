@@ -1,0 +1,46 @@
+name: Morovoy Raven 3.4 dedicated game server smoke (WIP)
+on:
+  pull_request:
+    branches: ['3.3']
+    paths:
+      - 'tools/hell-qa-runtime/MorovoyRavenQaTests.java'
+      - 'tools/hell-qa-runtime.gradle'
+      - '.github/workflows/morovoy-raven-3-4-server-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  dedicated:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Build real packaged Java21 NeoForge JAR
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon clean build --console=plain
+          mkdir -p build/morovoy-server-qa
+          git rev-parse HEAD | tee build/morovoy-server-qa/source.sha
+          sha256sum build/libs/slavicmyths-*.jar | tee build/morovoy-server-qa/jar.sha256
+      - name: Run isolated real gameTestServer boss lifecycle tests
+        shell: bash
+        run: |
+          set -o pipefail
+          ./gradlew --no-daemon -I tools/hell-qa-runtime.gradle runHellQa -PhellQaRavenOnly -PhellQaDir=work/morovoy-raven-server-qa -PhellQaSeed=20261024 --console=plain 2>&1 | tee build/morovoy-server-qa/game-test.log
+          grep -q 'RAVEN_GAME_TEST_PASS world_ticks=' build/morovoy-server-qa/game-test.log
+          grep -q 'RAVEN_GAME_TEST_PASS minion ownership' build/morovoy-server-qa/game-test.log
+      - name: Preserve headless dedicated server logs and JAR
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: morovoy-raven-real-dedicated-${{ github.sha }}
+          path: |
+            build/morovoy-server-qa/
+            build/libs/slavicmyths-*.jar
+            work/morovoy-raven-server-qa/logs/
+          if-no-files-found: warn
+          retention-days: 14
