@@ -423,7 +423,7 @@ public final class PosadShellGameTests {
   var restored=new PosadPiece(piece.createTag(context));
   t.assertTrue(restored.getBoundingBox().equals(piece.getBoundingBox()),"Bounds changed after NBT");
   for(int z=0;z<=136;z++)for(int x=0;x<113;x++)for(int y=-48;y<18;y++)
-   t.assertTrue(java.util.Objects.equals(piece.placementVoxel(x,y,z),restored.voxel(x,y,z)),"Lost terrain geometry after NBT");
+   t.assertTrue(java.util.Objects.equals(piece.voxel(x,y,z),restored.voxel(x,y,z)),"Lost terrain geometry after NBT");
   t.assertTrue(piece.voxel(0,-20,0).is(Blocks.POLISHED_BASALT),"Missing deep support");
   for(int z=113;z<=136;z++)for(int x=53;x<=59;x++) {
    t.assertTrue(piece.voxel(x,0,z).is(Blocks.POLISHED_BLACKSTONE_BRICKS),"Bridge deck hole");
