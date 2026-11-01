@@ -42,6 +42,10 @@ assert all(f'{side}Primary.zRot' in model and f'{side}Secondary.zRot' in model f
 assert 'MorovoyRaven.DIVE' in model and 'MorovoyRaven.WING' in model
 assert all(action in mob for action in ('PLACEHOLDER_NEVER' if False else 'PROJECTILE', 'SUMMON', 'DIVE', 'PLAGUE', 'WING', 'CLAWS', 'BEAK'))
 assert all(token in content for token in ('morovoy_raven_feather','mor_core'))
+assert 'orbitAngle = (orbitAngle + (pose() == PLAGUE ? .010 : .012))' in mob, 'orbit target outpaces actual raven'
+assert 'phaseTicks >= 720' in mob and 'tag.putDouble("OrbitAngle", orbitAngle)' in mob, 'complete plume ring or save persistence missing'
+assert 'phaseTicks = Math.clamp(tag.getInt("PhaseTicks"), 0, 800)' in mob, 'phase must resume after 200 ticks'
+assert 'wingTelegraph(world)' in mob and 'Vec3 lateral = new Vec3(horizontal.z, 0, -horizontal.x);' in mob, 'telegraphed fan-sector collision missing'
 assert 'noPhysics = true' not in mob and 'noClip' not in mob
 assert 'setBlock(' not in mob
 for item in ("mor_core","morovoy_raven_feather"):
@@ -69,5 +73,5 @@ for path, wh in [
 for lang in ("en_us",):
     names = json.loads((assets / f"lang/{lang}.json").read_text())
     assert all(name in names for name in ("entity.slavicmyths.morovoy_raven","item.slavicmyths.mor_core","item.slavicmyths.morovoy_raven_feather"))
-print("PASS: source-only lower/upper 4-wing layout, landing/takeoff transitions, crater boss anchor, item models, PNG CRC, English localization")
+print("PASS: source-only articulated 4-wing rig, editable Blockbench clips, full-lap plague path, telegraphed fan sector, crater anchor, PNG CRC, localization")
 print("NOT RUN: Java compile, in-game visual QA, multiplayer, persistence and performance are separate gates.")
