@@ -6484,5 +6484,16 @@
   "block.slavicmyths.blackwood_shelf": "Полка из чернодрева",
   "block.slavicmyths.blackwood_wardrobe": "Шкаф из чернодрева",
   "block.slavicmyths.blackwood_weapon_rack": "Оружейная стойка из чернодрева",
-  "itemGroup.slavicmyths.furniture": "Мебель"
+  "itemGroup.slavicmyths.furniture": "Мебель",
+  "entity.slavicmyths.morovoy_raven": "Моровой ворон",
+  "entity.slavicmyths.morovoy_raven_minion": "Заражённый ворон",
+  "entity.slavicmyths.morovoy_raven_blight": "Сгусток Мора",
+  "entity.slavicmyths.morovoy_raven_miasma": "Моровая чума",
+  "item.slavicmyths.morovoy_raven_feather": "Перо Морового ворона",
+  "item.slavicmyths.mor_core": "Моровое ядро",
+  "entity.slavicmyths.morovoy_fire_zmey": "Моровой огненный змей",
+  "item.slavicmyths.morovoy_fire_zmey_bone": "Кость Морового огненного змея",
+  "item.slavicmyths.morovoy_fire_zmey_core": "Ядро Морового огненного змея",
+  "item.slavicmyths.morovoy_raven_spawn_egg": "Яйцо призыва Морового ворона",
+  "item.slavicmyths.morovoy_fire_zmey_spawn_egg": "Яйцо призыва Морового огненного змея"
 }
