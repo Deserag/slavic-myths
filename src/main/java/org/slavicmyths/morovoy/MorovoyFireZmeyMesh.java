@@ -29,7 +29,7 @@ public final class MorovoyFireZmeyMesh {
    for(int horn=0;horn<2;horn++){head.addOrReplaceChild("horn_"+n+"_"+horn,box(145,32,-2,-13,-3,4,12-horn*3,5),PartPose.offset(horn==0?-5:5,0,horn*8));}
    for(int eye=0;eye<2;eye++){head.addOrReplaceChild("eye_"+n+"_"+eye,box(base+42,163,eye==0?-8:6,-3,-15,2,3,4),PartPose.ZERO);}
    if(side<0){head.addOrReplaceChild("mor_vein_left",box(120,180,-6,-8,-15,12,2,15),PartPose.ZERO);}
-   else{head.addOrReplaceChild("flame_right",box(195,180,-3,-13,-16,6,7,10).texOffs(219,180).addBox(-1,-17,-12,2,7,5),PartPose.ZERO);head.addOrReplaceChild("flame_core_right",box(245,202,-1,-18,-11,2,7,4),PartPose.ZERO);}
+   else{head.addOrReplaceChild("flame_right",box(195,180,-3,-13,-16,6,7,10).texOffs(219,180).addBox(-1,-17,-12,2,7,5),PartPose.ZERO);head.addOrReplaceChild("flame_core_right",box(230,202,-1,-18,-11,2,7,4),PartPose.ZERO);}
    // Four claws-bearing limbs (forelegs attached to chest; hindlegs to pelvis).
    for(int legIndex=0;legIndex<2;legIndex++){
     PartDefinition parent=legIndex==0?body:pelvis;
@@ -49,7 +49,7 @@ public final class MorovoyFireZmeyMesh {
     PartDefinition tail=parent.addOrReplaceChild(key,box(side<0?92:176,178+section*9,-width/2f,-width/2f,-1,width,width,length),section==0?PartPose.offset(side*6,1,25):PartPose.offset(0,0,17-(section-1)));
     if(side<0){tail.addOrReplaceChild("mor_spike_"+section,box(129,205,-2,-width/2f-7,2,4,8,7),PartPose.ZERO);}
     else if(section>=3){tail.addOrReplaceChild("fire_flare_"+section,box(213,205,-3,-width/2f-7,1,6,8,8),PartPose.ZERO);}
-    if(side>0&&section==5){tail.addOrReplaceChild("flame_tip_right",box(236,220,-5,-6,7,10,10,14),PartPose.ZERO);tail.addOrReplaceChild("flame_tip_core_right",box(247,235,-1,-3,11,2,5,9),PartPose.ZERO);}
+    if(side>0&&section==5){tail.addOrReplaceChild("flame_tip_right",box(200,220,-5,-6,7,10,10,14),PartPose.ZERO);tail.addOrReplaceChild("flame_tip_core_right",box(215,235,-1,-3,11,2,5,9),PartPose.ZERO);}
     parent=tail;
    }
   }
