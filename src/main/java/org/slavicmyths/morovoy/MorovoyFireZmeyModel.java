@@ -49,9 +49,9 @@ public final class MorovoyFireZmeyModel extends EntityModel<MorovoyFireZmey> {
    float open=mouth&&age>=8&&age<=58?(float)Math.sin(Mth.clamp((age-8)/12f,0,1)*Math.PI*.5f)*.62f:.05f;
    head.getChild("jaw_"+name).xRot=open*active;
    ModelPart wing=wings[side];
-   wing.zRot=sign*((1-wake)*1.48f+active*(air?flap*.59f:.18f));
-   wing.yRot=sign*((1-wake)*.60f+active*(air?.12f*(float)Math.sin(time*.11f):.15f));
-   wing.getChild("wing_tip_"+name).zRot=sign*((1-wake)*.62f+active*(air?flap*.29f:.08f));
+   wing.zRot=sign*((1-wake)*1.48f+active*(air>0.5f?flap*.59f:.18f));
+   wing.yRot=sign*((1-wake)*.60f+active*(air>0.5f?.12f*(float)Math.sin(time*.11f):.15f));
+   wing.getChild("wing_tip_"+name).zRot=sign*((1-wake)*.62f+active*(air>0.5f?flap*.29f:.08f));
    wing.getChild("wing_tip_"+name).xRot=active*air*(float)Math.sin(time*.15f+side)*.08f;
    for(int legIndex=0;legIndex<2;legIndex++){
     ModelPart leg=(legIndex==0?body:pelvis).getChild("leg_"+name+"_"+legIndex);
