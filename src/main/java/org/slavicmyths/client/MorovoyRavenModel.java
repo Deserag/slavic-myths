@@ -95,6 +95,11 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         add(head,"upper_beak_bridge",64,194,-6.1F,1.8F,-31,12.2F,6.4F,11);
         add(head,"upper_beak_hook",64,194,-4.1F,4.5F,-36,8.2F,6.8F,7);
         add(head,"beak_tip",64,194,-2.3F,7.5F,-39,4.6F,9.6F,5);
+        // The upper bill must curl below the dark lower mandible, not end as a square gray plank.
+        add(head,"hook_underbite",64,194,-2.45F,11.5F,-40.8F,4.9F,4.8F,4.0F);
+        add(head,"downturned_tip",64,194,-1.45F,15.5F,-41.0F,2.9F,4.5F,2.5F);
+        add(head,"left_brow",0,150,-11.1F,-7.8F,-12.5F,3.3F,4,10);
+        add(head,"right_brow",0,150,7.8F,-7.8F,-12.5F,3.3F,4,10);
         add(head,"nostril_left",20,160,-6.3F,3.2F,-24.6F,1.2F,2.0F,3.1F);
         add(head,"nostril_right",20,160,5.1F,3.2F,-24.6F,1.2F,2.0F,3.1F);
         PartDefinition jaw = head.addOrReplaceChild("jaw",box(130,193,-6,10,-25,12,4,17),PartPose.offset(0,0,0));
