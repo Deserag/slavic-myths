@@ -66,6 +66,11 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         add(bird,"sternum_crack_arm_right",180,8,4.2F,-22,-25.8F,2.6F,6,1.1F);
         add(bird,"sternum_crack_uneven_tip",180,0,-2.2F,-7,-25.6F,2.3F,5,1.1F);
         add(bird,"spine_feathers",130,40,-10,-32,6,20,4,24);
+        // Asymmetrical exposed bone spurs on either shoulder, distinct from the spine ridge.
+        add(bird,"left_shoulder_bone",64,194,-19,-40,-6,5,12,6);
+        add(bird,"right_shoulder_bone",64,194,13,-36,1,4.5F,9,5);
+        add(bird,"left_shoulder_bone_tip",64,194,-18,-46,-5,2.4F,7,3);
+        add(bird,"right_shoulder_bone_tip",64,194,14,-42,2,2.2F,7,3);
         // Pale, uneven shoulder/back plague growths seen clearly on rear and 3/4 PNG.
         for (int i = 0; i < 7; i++) {
             float x = -10 + i * 3.3F;
@@ -129,6 +134,8 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
                 add(featherBone,"main_flight_"+i,(i%2==0)?0:98,40,outer-featherOffset,-2,-11-i*.23F,12,fanDrop,7.4F);
                 // Split plum-coloured lower edges into overlapping ragged fingers.
                 add(featherBone,"main_plum_end_"+i,216,170,outer+1-featherOffset,fanDrop-7,-11-i*.23F,10,8+(i%3)*2,5.1F);
+                if(i%2==0 || i==7) add(featherBone,"main_hanging_fray_"+i,216,170,outer+((i%3)*2)-featherOffset,fanDrop+1,-11,2.3F,7+(i*7)%13,2.5F);
+                if(i%3==1) add(featherBone,"main_sheared_feather_"+i,130,40,outer+5-featherOffset,fanDrop-11,-11.6F,3,5.5F,4.1F);
                 add(featherBone,"main_cover_"+i,130,40,outer+1-featherOffset,-4,-15-i*.13F,10,8+(i%3)*2,7.8F);
                 if(i>1 && i<8 && (i+side)%3!=0) {
                     float damage = 4 + (i%3)*4 + (side<0 ? 1 : 0);
@@ -150,6 +157,7 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
                 float sickDrop = 14 + i * 1.8F + (i % 3) * 3.5F;
                 add(featherBone,"upper_flight_"+i,50,125,outer-featherOffset,-2,-8-i*.37F,10,sickDrop,6.5F);
                 add(featherBone,"upper_plum_end_"+i,216,170,outer+1-featherOffset,sickDrop-7,-8-i*.37F,8,9+(i%3)*2,5.2F);
+                if(i%2==0 || i==5) add(featherBone,"upper_frayed_strand_"+i,216,170,outer+((i%3)*2)-featherOffset,sickDrop+1,-8,2.1F,8+(i*5)%13,2.4F);
                 add(featherBone,"upper_cover_"+i,156,0,outer+1-featherOffset,-4,-12,8,7+(i%2)*2,7.7F);
                 if(i==2 || i==4 || (side<0 && i==5)) add(featherBone,"upper_torn_"+i,216,170,outer+3-featherOffset,sickDrop, -8,3,5+i*2,3);
                 if(i==1 || i==4) {
