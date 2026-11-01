@@ -6484,5 +6484,11 @@
   "block.slavicmyths.blackwood_shelf": "Blackwood Shelf",
   "block.slavicmyths.blackwood_wardrobe": "Blackwood Wardrobe",
   "block.slavicmyths.blackwood_weapon_rack": "Blackwood Weapon Rack",
-  "itemGroup.slavicmyths.furniture": "Furniture"
+  "itemGroup.slavicmyths.furniture": "Furniture",
+  "entity.slavicmyths.morovoy_raven": "Morovoy Raven",
+  "entity.slavicmyths.morovoy_raven_minion": "Corrupted Raven",
+  "entity.slavicmyths.morovoy_raven_blight": "Plague Bolt",
+  "entity.slavicmyths.morovoy_raven_miasma": "Raven Plague",
+  "item.slavicmyths.morovoy_raven_feather": "Morovoy Raven Feather",
+  "item.slavicmyths.mor_core": "Mor Core"
 }
