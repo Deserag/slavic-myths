@@ -199,7 +199,8 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
             float length=11+(3-Math.abs(i-3))*2.5F+(i%3);
             add(tail,"tail_plume_"+i,(i%2==0)?48:88,227,-19+i*5,-3,z,6,5+(i%3)*1.2F,length);
             // Trailing two-stage plumes create a fanned, hanging tail from both back and side.
-            add(tail,"tail_plum_tip_"+i,216,170,-18+i*5,1+(i%3),z+length*.53F,4,8+(i%3)*2,length*.55F);
+            add(tail,"tail_dark_keel_"+i,(i%2==0)?48:88,227,-18+i*5,1+(i%3),z+length*.53F,4,15+(i%3)*3,length*.55F);
+            add(tail,"tail_plum_tip_"+i,216,170,-18+i*5,12+(i%3)*3,z+length*.53F,4,14+(i%3)*2,length*.55F);
             if(i==1 || i==5) add(tail,"tail_torn_"+i,216,170,-18+i*5,8,z+length-1,3,8+i%2*2,3);
         }
         add(tail,"tail_mor_vein",180,8,-2,-5,12,4,1.4F,10);
