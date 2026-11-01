@@ -22,7 +22,7 @@ public final class MorovoyZmeyBolt extends ThrowableProjectile {
  public MorovoyZmeyBolt(EntityType<? extends MorovoyZmeyBolt> type,Level level){super(type,level);}
  public void configure(MorovoyFireZmey source,int element){setOwner(source);entityData.set(ELEMENT,element==0?0:1);setNoGravity(true);}
  public int element(){return entityData.get(ELEMENT);}
- @Override protected void defineSynchedData(SynchedEntityData.Builder builder){super.defineSynchedData(builder);builder.define(ELEMENT,0);}
+ @Override protected void defineSynchedData(SynchedEntityData.Builder builder){builder.define(ELEMENT,0);}
  @Override protected double getDefaultGravity(){return 0;}
  @Override protected boolean canHitEntity(Entity target){return target instanceof LivingEntity l&&l.isAlive()&&!(target instanceof MorovoyFireZmey)&&getOwner()!=target&&super.canHitEntity(target);}
  @Override protected void onHitEntity(EntityHitResult hit){if(!level().isClientSide&&hit.getEntity() instanceof LivingEntity target&&getOwner() instanceof MorovoyFireZmey boss&&boss.canDamage(target)){if(target.hurt(damageSources().mobProjectile(this,boss),element()==0?8:10)&&element()==0)target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,100,0));}}
