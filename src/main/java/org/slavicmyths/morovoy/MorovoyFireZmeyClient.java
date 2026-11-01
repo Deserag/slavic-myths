@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import com.mojang.math.Axis;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -24,11 +25,30 @@ public final class MorovoyFireZmeyClient {
   event.registerEntityRenderer(MorovoyFireZmeyContent.FIELD.get(),EffectsRenderer::new);
  }
  public static final class BossRenderer extends MobRenderer<MorovoyFireZmey,MorovoyFireZmeyModel>{
-  public BossRenderer(EntityRendererProvider.Context context){super(context,new MorovoyFireZmeyModel(),1.6f);addLayer(new RenderLayer<MorovoyFireZmey,MorovoyFireZmeyModel>(this){
-   @Override public void render(PoseStack pose,MultiBufferSource buffers,int light,MorovoyFireZmey boss,float limb,float amount,float partial,float age,float yaw,float pitch){getParentModel().renderToBuffer(pose,buffers.getBuffer(RenderType.eyes(MorovoyFireZmeyContent.id("textures/entity/morovoy_fire_zmey_emissive.png"))),15728880,OverlayTexture.NO_OVERLAY,0xFFFFFFFF);}
-  });}
-  @Override public ResourceLocation getTextureLocation(MorovoyFireZmey boss){return MorovoyFireZmeyContent.id("textures/entity/morovoy_fire_zmey_albedo.png");}
-  @Override public boolean shouldRender(MorovoyFireZmey boss,net.minecraft.client.renderer.culling.Frustum frustum,double x,double y,double z){return frustum.isVisible(boss.getBoundingBox().inflate(10,8,10));}
+  private static final ResourceLocation WHITE=ResourceLocation.withDefaultNamespace("textures/block/white_concrete.png");
+  private static final ResourceLocation ALBEDO=MorovoyFireZmeyContent.id("textures/entity/morovoy_fire_zmey_albedo.png");
+  public BossRenderer(EntityRendererProvider.Context context){
+   super(context,new MorovoyFireZmeyModel(),1.2f);
+   // Right-side bones use an exclusively white sampling surface, recolored by scoped passes.
+   // No original green UV data can enter the fire head, neck, or tail passes.
+   addLayer(new RenderLayer<MorovoyFireZmey,MorovoyFireZmeyModel>(this){
+    @Override public void render(PoseStack pose,MultiBufferSource buffers,int light,MorovoyFireZmey boss,float limb,float amount,float partial,float age,float yaw,float pitch){
+     MorovoyFireZmeyModel rig=getParentModel();
+     rig.renderFireSide(pose,buffers.getBuffer(RenderType.entityCutoutNoCull(WHITE)),light,OverlayTexture.NO_OVERLAY,0xFF682333);
+     rig.renderMorAccents(pose,buffers.getBuffer(RenderType.eyes(WHITE)),15728880,OverlayTexture.NO_OVERLAY,0xFF33F43D);
+     rig.renderFireAccents(pose,buffers.getBuffer(RenderType.eyes(WHITE)),15728880,OverlayTexture.NO_OVERLAY,0xFF963CFA,false);
+     rig.renderFireAccents(pose,buffers.getBuffer(RenderType.eyes(WHITE)),15728880,OverlayTexture.NO_OVERLAY,0xFFFFFFFF,true);
+    }
+   });
+  }
+  @Override public ResourceLocation getTextureLocation(MorovoyFireZmey boss){return ALBEDO;}
+  @Override protected void setupRotations(MorovoyFireZmey boss,PoseStack pose,float bob,float bodyYaw,float partial,float scale){
+   super.setupRotations(boss,pose,bob,bodyYaw,partial,scale);
+   if(boss.flying())pose.mulPose(Axis.ZP.rotationDegrees(boss.bank()));
+  }
+  @Override public boolean shouldRender(MorovoyFireZmey boss,net.minecraft.client.renderer.culling.Frustum frustum,double x,double y,double z){
+   return frustum.isVisible(boss.getBoundingBox().inflate(12,10,12));
+  }
  }
  /** Fields are rendered through bounded client particles; projectiles receive a visible cube core. */
  public static final class EffectsRenderer<T extends Entity> extends EntityRenderer<T>{
