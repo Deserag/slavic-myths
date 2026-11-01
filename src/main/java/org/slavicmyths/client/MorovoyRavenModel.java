@@ -151,7 +151,7 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
                     add(featherBone,"mor_branch_core_"+i,180,0,outer+3-featherOffset,4,-15.9F,2,fanDrop*.53F,1.6F);
                     add(featherBone,"mor_branch_side_"+i,180,8,outer+8-featherOffset,8,-15.8F,2,fanDrop*.27F,1.4F);
                     add(featherBone,"mor_branch_elbow_"+i,180,0,outer+4-featherOffset,10,-15.95F,5.3F,1.9F,1.5F);
-                    if(i==4 || i==7) add(featherBone,"mor_branch_broken_fork_"+i,180,8,outer+9-featherOffset,13,-15.9F,1.3F,6,1.3F);
+                    if(i==4 || (i==6 && side<0)) add(featherBone,"mor_branch_broken_fork_"+i,180,8,outer+9-featherOffset,13,-15.9F,1.3F,6,1.3F);
                 }
             }
             PartDefinition secondary = bird.addOrReplaceChild("secondary_"+suffix, box(0,110,side < 0 ? -23 : 0,-4,-9,23,7,18),PartPose.offset(side*12,-32,3));
