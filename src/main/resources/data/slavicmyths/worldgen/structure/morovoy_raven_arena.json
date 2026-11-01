@@ -1,0 +1,7 @@
+{
+  "type": "slavicmyths:morovoy_raven_arena",
+  "biomes": "#slavicmyths:morovoy_raven_arena_biomes",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}
