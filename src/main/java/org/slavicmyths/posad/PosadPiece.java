@@ -141,7 +141,13 @@ public final class PosadPiece extends StructurePiece {
                 var building=PosadBuildings.voxel(x,y,z);
                 if(building!=null)return building;
             }
-            return PosadShell.voxel(x,y,z);
+            var shell=PosadShell.voxel(x,y,z);
+            if(shell!=null)return shell;
+            // Schema 25+ owns the complete city air volume. Natural Nether terrain between
+            // authored walls/buildings must not survive as random interior obstructions.
+            // Older persisted pieces retain their recorded schema and legacy null/no-write behavior.
+            if(schema>=25 && y>=1 && y<PosadShell.HEIGHT)return Blocks.AIR.defaultBlockState();
+            return null;
         }
         if(z>112&&z<=112+terrain.bridgeLength()&&x>=52&&x<=60) {
             if(y>=-2&&y<=0)return Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState();
@@ -283,18 +289,22 @@ public final class PosadPiece extends StructurePiece {
                 if(!clip.isInside(at)||!world.ensureCanWrite(at))continue;
                 var old=world.getBlockState(at);
                 if(old.hasBlockEntity()||old.is(Blocks.BEDROCK)||!(old.isAir()||old.is(Blocks.LAVA)||NetherBridgeTerrain.natural(old)))continue;
-                if(state.isAir()&&!old.isAir() && !(schema>=17 && PosadHallR2.isOpening(local.x(),y,local.z())))continue;
+                if(state.isAir()&&!old.isAir() && !(schema>=25 || schema>=17 && PosadHallR2.isOpening(local.x(),y,local.z())))continue;
                 try {
                     var placed=resolvedConnections(state,local.x(),y,local.z(),world,at);
-                    if (state.is(Blocks.CARVED_PUMPKIN) || shelf(state) || state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock) {
-                        // Carved pumpkins avoid vanilla multi-chunk golem probes. Wall
-                        // panes/shelves are deferred until masonry and doors exist.
-                        // Chunk-local writes preserve precisely resolved pane connections
-                        // and prevent later neighbor-shape churn across chunk boundaries.
+                    if (state.is(Blocks.CARVED_PUMPKIN)) {
+                        // Avoid vanilla multi-chunk golem probes while retaining the exact chunk-local state.
+                        // When this path is invoked against an already loaded ServerLevel (QA/manual placement),
+                        // explicitly publish the block change so clients do not wait for a chunk reload to see it.
                         var changed=world.getChunk(wx>>4,wz>>4).setBlockState(at,placed,false);
-                        if (changed==null) throw new IllegalStateException("Chunk-local pumpkin write refused at "+at);
+                        if(changed==null && !world.getBlockState(at).equals(placed))throw new IllegalStateException("Chunk-local pumpkin write refused at "+at);
+                        if(world instanceof net.minecraft.server.level.ServerLevel server)server.getChunkSource().blockChanged(at);
                     } else {
-                        world.setBlock(at,placed,2);
+                        // Use the WorldGenLevel write path for panes/shelves as well. Flag 2 publishes the
+                        // final authored state without neighbor-shape churn; unlike direct LevelChunk mutation
+                        // it also participates in the normal loaded-world update/persistence path.
+                        if(!world.setBlock(at,placed,2) && !world.getBlockState(at).equals(placed))
+                            throw new IllegalStateException("World write refused at "+at);
                     }
                 } catch(RuntimeException e) {
                     throw new IllegalStateException("Posad placement failed: local "+local.x()+","+y+","+local.z()+" world "+at+" block "+state+" rotation "+turns+" schema "+schema, e);
