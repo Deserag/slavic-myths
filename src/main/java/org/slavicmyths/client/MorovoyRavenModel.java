@@ -63,10 +63,10 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         add(head,"eye_glow_left",185,38,10.5F,-2,-6,1,2,2);
         add(head,"eye_glow_right",185,38,-11.5F,-2,-6,1,2,2);
         for(int i=0;i<5;i++) add(head,"crown_"+i,176,62,-8+i*3.7F,-15-(i%3),-2,2.8F,6,12);
-        // Four independent articulated wing roots: upper primaries and lower sickly secondaries.
+        // Four articulated wing roots: the broad primary pair is LOWER and the smaller V-shaped secondary pair is UPPER.
         for(int side : new int[]{-1,1}) {
             String suffix = side < 0 ? "left" : "right";
-            PartDefinition primary = bird.addOrReplaceChild("primary_"+suffix, box(0,52,side < 0 ? -32 : 0,-4,-10,32,8,20),PartPose.offset(side*14,-24,-7));
+            PartDefinition primary = bird.addOrReplaceChild("primary_"+suffix, box(0,52,side < 0 ? -32 : 0,-4,-10,32,8,20),PartPose.offset(side*14,-13,15));
             for(int i=0;i<7;i++) {
                 float start = 19+i*10;
                 float outer = side < 0 ? -start-13 : start-3;
@@ -75,7 +75,7 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
                 if(i%2==0) add(primary,"lesion_"+i,174,111,outer+3,-3,-4,4,1.7F,12);
                 if(i%3==1) add(primary,"broken_tip_"+i,197,115,outer+side*2,-1,22,7,2,7);
             }
-            PartDefinition secondary = bird.addOrReplaceChild("secondary_"+suffix, box(0,110,side < 0 ? -22 : 0,-3,-9,22,6,20),PartPose.offset(side*12,-13,15));
+            PartDefinition secondary = bird.addOrReplaceChild("secondary_"+suffix, box(0,110,side < 0 ? -22 : 0,-3,-9,22,6,20),PartPose.offset(side*12,-24,-7));
             for(int i=0;i<6;i++) {
                 float start = 14+i*9;
                 float outer = side < 0 ? -start-10 : start;
