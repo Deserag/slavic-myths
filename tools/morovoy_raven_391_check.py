@@ -21,6 +21,12 @@ assert 'leftSecondary.zRot = .90F + second' in model, 'upper wings not held in V
 assert 'PartPose.offset(side*56,0,0)' in model and 'PartPose.offset(side*36,0,0)' in model, 'independent feather fan pivots missing'
 assert all(f'{side}{pair}Tip.zRot' in model for side in ('left','right') for pair in ('Primary','Secondary')), 'all four distal fans need animation'
 assert 'sternum_crack_trunk' in model and 'sternum_crack_arm_left' in model and 'sternum_crack_arm_right' in model, 'branched chest Mor lesion missing'
+assert '"main_plum_end_"+i,216,170' in model and '"upper_plum_end_"+i,216,170' in model, 'purple-ragged tips must use the non-emissive plum UV atlas'
+assert '"main_hanging_fray_"+i,216,170' in model and '"upper_frayed_strand_"+i,216,170' in model, 'both feather pairs need tattered hanging strips'
+assert '"shin",20,160' in model and '"ankle",20,160' in model, 'leg segments must not sample acid-green UV'
+assert '"talon_base_"+toe,64,194' in model and '"upper_beak_base",64,194' in model, 'beak and talons must use ivory/bone UV'
+assert 'float tipWidth = i >= 6' in model and 'float sickWidth = i >= 4' in model, 'feather fans must taper towards outer tips'
+
 bbmodel = json.loads((root / 'docs/implementation/2.3.1-morovoy-raven-391/MOROVOY_RAVEN_WIP.bbmodel').read_text())
 assert len({e['uuid'] for e in bbmodel['elements']}) == len(bbmodel['elements']), 'duplicate Blockbench cube UUIDs'
 wing_groups = {p['name']: p for p in bbmodel['outliner'][0]['children'] if isinstance(p, dict) and p['name'] in ('primary_left','primary_right','secondary_left','secondary_right')}
