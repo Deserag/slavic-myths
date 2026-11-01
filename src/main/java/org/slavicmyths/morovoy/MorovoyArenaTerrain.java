@@ -29,9 +29,9 @@ public final class MorovoyArenaTerrain {
   for(int floor=46;floor<=58;floor+=4){
    int[] entry={-1,-1,-1,-1};int mask=0;
    for(int side=0;side<4;side++){
-    int ox=x+(side==0?122:side==2?-122:0),oz=z+(side==1?122:side==3?-122:0);
+    int ox=x+(side==0?121:side==2?-121:0),oz=z+(side==1?121:side==3?-121:0);
     NoiseColumn col=c.chunkGenerator().getBaseColumn(ox,oz,c.heightAccessor(),c.randomState());
-    for(int y=floor+40;y<=floor+65;y++)if(editable(col.getBlock(y-1))&&!col.getBlock(y-1).isAir()&&
+    for(int y=floor+40;y<=floor+60;y++)if(editable(col.getBlock(y-1))&&!col.getBlock(y-1).isAir()&&
       col.getBlock(y).isAir()&&col.getBlock(y+1).isAir()&&col.getBlock(y+2).isAir()){
       entry[side]=y-1;mask|=1<<side;break;
     }

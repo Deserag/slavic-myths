@@ -20,6 +20,16 @@ public final class MorovoyArenaGeometrySmoke {
    check(MorovoyArenaGeometry.FLIGHT_TOP_Y-48-30>=70,"Flight volume too low");
    int center=8,r=MorovoyArenaGeometry.OUTER_RADIUS;
    check(Math.floorDiv(center-r,16)>=-8&&Math.floorDiv(center+r,16)<=8,"Structure reference limit");
+   for(int side=0;side<4;side++){
+    int last=Integer.MIN_VALUE;
+    for(int step=55;step<=120;step++){
+     int dx=side==0?step:side==2?-step:0,dz=side==1?step:side==3?-step:0;
+     int y=MorovoyArenaGeometry.surfaceY(dx,dz,48,seed,15,exits);
+     check(y!=Integer.MIN_VALUE,"Access path does not reach current chunk edge");
+     if(last!=Integer.MIN_VALUE)check(Math.abs(y-last)<=1,"Unwalkable access path rise");
+     last=y;
+    }
+   }
    System.out.println("Seed "+seed+" geometry-only PASS: footprint="+checked+" combat="+combat);
   }
  }

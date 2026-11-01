@@ -18,20 +18,22 @@ public final class MorovoyArenaGeometry {
  }
  public static boolean inside(int dx,int dz,long seed){return Math.hypot(dx,dz)<=119&&distance(dx,dz,seed)<=118;}
  public static int surfaceY(int dx,int dz,int floor,long seed,int mask,int[] exits){
+  // Approved entrances extend to the exact piece edge, adjacent to the preflighted exterior column.
+  int pathSide=-1,pathDistance=0;
+  if(exits!=null&&exits.length==4)for(int side=0;side<4;side++){
+   if((mask&(1<<side))==0||exits[side]<0)continue;
+   int radial=switch(side){case 0->dx;case 1->dz;case 2->-dx;default->-dz;};
+   int cross=(side%2==0)?dz:dx;
+   if(radial>=56&&radial<=120&&Math.abs(cross)<=5){pathSide=side;pathDistance=radial;break;}
+  }
+  if(pathSide>=0){
+   if(pathDistance<=64)return floor+2+(int)Math.floor((pathDistance-56)*3.0/8.0);
+   return floor+5+(int)Math.floor((pathDistance-64)*(exits[pathSide]-floor-5)/56.0);
+  }
   if(!inside(dx,dz,seed))return Integer.MIN_VALUE;
   double d=Math.max(0,distance(dx,dz,seed)),n=noise(seed^0x35b018L,dx,dz,12);
   double rise=d<=56?Math.max(0,1.5+n):d<=80?2+(d-56)*.42+n*1.6:d<=108?12.08+(d-80)*1.25+n*2.3:47.08+(d-108)*.68+n*2.3;
-  int h=floor+(int)Math.round(rise);
-  for(int side=0;side<4;side++){
-   if((mask&(1<<side))==0||exits==null||exits.length!=4||exits[side]<0)continue;
-   boolean aligned=switch(side){
-    case 0 -> dx>=0&&Math.abs(dz)<=5;
-    case 1 -> dz>=0&&Math.abs(dx)<=5;
-    case 2 -> dx<=0&&Math.abs(dz)<=5;
-    default -> dz<=0&&Math.abs(dx)<=5;};
-   if(aligned&&d>=64){double ramp=(d-64)/54.0;int path=floor+5+(int)Math.round(ramp*(exits[side]-(floor+5)));h=Math.min(h,path);}
-  }
-  return h;
+  return floor+(int)Math.round(rise);
  }
  public static boolean combatPoint(int x,int z){return x*x+z*z<=COMBAT_RADIUS*COMBAT_RADIUS;}
  public static boolean flightPoint(int x,int z,int y,int floor){return Math.hypot(x,z)<=FLIGHT_RADIUS&&y>=floor+30&&y<=FLIGHT_TOP_Y;}
