@@ -1,5 +1,13 @@
 name: Morovoy Raven 3.4 real Minecraft render (WIP)
 on:
+  push:
+    branches: ['3.3']
+    paths:
+      - 'src/main/java/org/slavicmyths/client/MorovoyRavenModel.java'
+      - 'src/main/java/org/slavicmyths/morovoy/MorovoyRaven.java'
+      - 'docs/implementation/2.3.1-morovoy-raven-391/**'
+      - 'tools/morovoy_raven_391_check.py'
+      - '.github/workflows/morovoy-raven-3-4-visual-qa.yml'
   pull_request:
     branches: ['3.3']
     paths:
@@ -32,6 +40,8 @@ jobs:
           mkdir -p build/morovoy-visual-evidence
           git rev-parse HEAD | tee build/morovoy-visual-evidence/source.sha
           sha256sum build/libs/slavicmyths-*.jar | tee build/morovoy-visual-evidence/jar.sha256
+      - name: Check four-wing source and editable Blockbench rig
+        run: python3 tools/morovoy_raven_391_check.py
       - name: Capture actual 12 poses x 5 views in isolated Minecraft client
         shell: bash
         run: |
