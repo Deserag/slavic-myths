@@ -251,7 +251,7 @@ public final class SisterBoss extends Monster {
         world.sendParticles(net.minecraft.core.particles.ParticleTypes.WITCH,getX(),getY()+1,getZ(),36,.6,1,.6,.09);
     }
     @Override public void die(DamageSource source) {
-        if(!deathRecorded && level() instanceof ServerLevel world && isAlive()) {deathRecorded=true;SistersLedger.get(world).recordDeath(encounter,isTryaseya());}
+        if(!deathRecorded && level() instanceof ServerLevel world) {deathRecorded=true;SistersLedger.get(world).recordDeath(encounter,isTryaseya());}
         super.die(source);
         bar.removeAllPlayers();
     }
