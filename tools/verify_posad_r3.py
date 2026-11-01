@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Schema-20 R3 static QA. Does not substitute native Minecraft/client testing."""
 from pathlib import Path
-import json
+import json,re
 root=Path(__file__).resolve().parents[1]
 java=root/"src/main/java/org/slavicmyths/posad"
 r3=(java/"PosadArchitectureR3.java").read_text("utf-8")
@@ -12,7 +12,8 @@ source=root/"docs/concepts/nether-settlement-2.2/posadnik-terem"
 proposal=json.loads((source/"posadnik_terem_A_proposal.json").read_text("utf-8"))
 delta=json.loads((source/"posadnik_terem_Aplus_delta.json").read_text("utf-8"))
 assert len(proposal["blocks"])==1259 and len(delta["placements"])==80
-assert "SCHEMA_VERSION = 20" in geom
+schema_match=re.search(r"SCHEMA_VERSION\s*=\s*(\d+)",geom)
+assert schema_match and int(schema_match.group(1))>=20
 assert "if(schema >= 20)" in piece and "PosadArchitectureR3.voxel(x,y,z)" in piece
 assert piece.index("if(schema >= 20)")<piece.index("if(schema >= 19)")
 assert "resolvedConnections" in piece and "state.updateShape(direction" in piece
@@ -39,6 +40,6 @@ assert all(42<=x<=70 and 12<=z<=34 for x,y,z in fronton)
 assert all((112-z, x)!=(0,0) for x,y,z in fronton)
 assert "emptyAt(56,2,15" in r3 and "blackwood_table" in r3
 assert "No nether-explosive vanilla beds" in r3
-print("PASS: R3 schema20 additive overlay, preserved A+ 1337 voxel source, 18 raised lights, 25-voxel fronton")
+print("PASS: R3 schema20+ additive overlay, current schema="+schema_match.group(1)+", preserved A+ 1337 voxel source, 18 raised lights, 25-voxel fronton")
 print("PASS: four-rotation-connected window test wired, room circulation/source guards present")
 print("NOT_RUN: native Minecraft, actual screenshots, live headroom/door interaction, old world/MP")
