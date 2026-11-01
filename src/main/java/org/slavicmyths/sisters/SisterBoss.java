@@ -87,7 +87,7 @@ public final class SisterBoss extends Monster {
         goalSelector.addGoal(6,new LookAtPlayerGoal(this,Player.class,24));
         goalSelector.addGoal(7,new RandomLookAroundGoal(this));
         targetSelector.addGoal(1,new HurtByTargetGoal(this));
-        targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,Player.class,true,p -> p.isAlive() && !p.isCreative() && !p.isSpectator()));
+        targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,Player.class,true,p -> p instanceof Player player && player.isAlive() && !player.isCreative() && !player.isSpectator()));
     }
     @Override public void startSeenByPlayer(ServerPlayer player) {super.startSeenByPlayer(player);bar.addPlayer(player);}
     @Override public void stopSeenByPlayer(ServerPlayer player) {super.stopSeenByPlayer(player);bar.removePlayer(player);}
