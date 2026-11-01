@@ -51,7 +51,8 @@ public final class SistersVisuals {
         @Override protected RenderType getRenderType(FeverSpirit e,boolean visible,boolean translucent,boolean glowing) {return RenderType.entityTranslucent(VIOLET);}
     }
     public static final class Wall extends EntityRenderer<BoneBarrier> {
-        public Wall(EntityRendererProvider.Context context) {super(context);}
+        private final net.minecraft.client.renderer.block.BlockRenderDispatcher blocks;
+        public Wall(EntityRendererProvider.Context context) {super(context);blocks=context.getBlockRenderDispatcher();}
         @Override public ResourceLocation getTextureLocation(BoneBarrier entity) {return TextureAtlas.LOCATION_BLOCKS;}
         @Override public void render(BoneBarrier entity,float yaw,float partial,PoseStack pose,MultiBufferSource buffers,int light) {
             pose.pushPose();
@@ -59,7 +60,7 @@ public final class SistersVisuals {
             for(int i=0;i<3;i++) {
                 pose.pushPose();
                 pose.translate(0,i*.91,0);
-                entityRenderDispatcher.getBlockRenderDispatcher().renderSingleBlock(net.minecraft.world.level.block.Blocks.BONE_BLOCK.defaultBlockState(),pose,buffers,light,OverlayTexture.NO_OVERLAY);
+                blocks.renderSingleBlock(net.minecraft.world.level.block.Blocks.BONE_BLOCK.defaultBlockState(),pose,buffers,light,OverlayTexture.NO_OVERLAY);
                 pose.popPose();
             }
             pose.popPose();
