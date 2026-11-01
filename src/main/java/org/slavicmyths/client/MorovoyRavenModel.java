@@ -57,7 +57,7 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         float y = upper ? -35F : -22F;
         float z = upper ? 5F : -6F;
         float shoulder = upper ? 10F : 13F;
-        PartDefinition wing = bird.addOrReplaceChild(name, CubeListBuilder.create(), PartPose.offset(side * shoulder, y, z));
+        PartDefinition wing = bird.addOrReplaceChild(name, CubeListBuilder.create(), PartPose.offset(upper ? side * 7.5F : side * shoulder, y, z));
 
         // A narrow leading-edge spar, a feather fan and one separately rotating wrist.
         add(wing, "leading_edge", upper ? 0 : 0, upper ? 110 : 52, fromRoot(side, 0, innerLength), -4, -10, innerLength, upper ? 4 : 6, upper ? 11 : 15);
@@ -94,7 +94,7 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
     public static LayerDefinition layer() {
         MeshDefinition mesh = new MeshDefinition();
         PartDefinition base = mesh.getRoot();
-        PartDefinition bird = base.addOrReplaceChild("bird", CubeListBuilder.create(), PartPose.offset(0, -19, 0));
+        PartDefinition bird = base.addOrReplaceChild("bird", CubeListBuilder.create(), PartPose.offset(0, -19, -6.0F));
 
         // A raven's single tapering breast, abdomen and neck: NO chest cube pile-up.
         add(bird, "breast", 0, 0, -13, -25, -25, 26, 29, 35);
@@ -108,13 +108,13 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
 
         // Skull forehead z=-44; beak consists of progressively narrowing, bone-UV steps.
         PartDefinition skull = bird.addOrReplaceChild("head", CubeListBuilder.create(), PartPose.offset(0, -31, -30));
-        add(skull, "cranium", 0, 150, -9, -10, -14, 18, 17, 24);
+        add(skull, "cranium", 0, 150, -11, -12, -15, 22, 20, 26);
         add(skull, "brow", 94, 151, -8, -12, -12, 16, 4, 12);
         add(skull, "nape", 166, 42, -7, -7, 8, 14, 10, 9);
-        add(skull, "upper_beak_root", 64, 194, -7.0F, -1.0F, -25.0F, 14.0F, 7.0F, 12.0F);
-        add(skull, "upper_beak_wedge", 64, 194, -5.0F, 0.0F, -34.0F, 10.0F, 6.0F, 9.0F);
-        add(skull, "upper_beak_hook", 64, 194, -3.0F, 2.5F, -41.0F, 6.0F, 8.0F, 7.0F);
-        add(skull, "hooked_tip", 64, 194, -1.8F, 7.0F, -45.0F, 3.6F, 6.0F, 4.0F);
+        add(skull, "upper_beak_root", 64, 194, -7.0F, -1.0F, -25.0F, 14.0F, 7.0F, 14.0F);
+        add(skull, "upper_beak_wedge", 64, 194, -5.0F, 0.0F, -36.0F, 10.0F, 6.0F, 11.0F);
+        add(skull, "upper_beak_hook", 64, 194, -3.0F, 2.5F, -43.0F, 6.0F, 8.0F, 9.0F);
+        add(skull, "hooked_tip", 64, 194, -1.8F, 7.0F, -47.0F, 3.6F, 6.0F, 6.0F);
         add(skull, "nostril_left", 20, 160, -6.9F, 1, -24, 1, 2, 2);
         add(skull, "nostril_right", 20, 160, 5.9F, 1, -24, 1, 2, 2);
         add(skull, "eye_left", 185, 38, -9.6F, -5, -8, 1, 3, 4);
@@ -172,8 +172,8 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         // Four shoulder pivots and four delayed wrists; no shared rectangle rotation.
         mainLeft.zRot = .06F + (float) Math.sin(age * speed) * strength;
         mainRight.zRot = -.06F - (float) Math.sin(age * speed + .14F) * strength;
-        upperLeft.zRot = .67F + (float) Math.sin(age * speed * .89F + .56F) * strength * .7F;
-        upperRight.zRot = -.61F - (float) Math.sin(age * speed * .92F + .91F) * strength * .72F;
+        upperLeft.zRot = .42F + (float) Math.sin(age * speed * .89F + .56F) * strength * .42F;
+        upperRight.zRot = -.42F - (float) Math.sin(age * speed * .92F + .91F) * strength * .42F;
         mainLeftOuter.zRot = .05F + (float) Math.sin(age * speed - .68F) * .15F;
         mainRightOuter.zRot = -.04F - (float) Math.sin(age * speed - .50F) * .14F;
         upperLeftOuter.zRot = .13F + (float) Math.sin(age * speed * .89F + .10F) * .13F;
@@ -194,7 +194,7 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
 
         if (pose == MorovoyRaven.SUMMON || pose == MorovoyRaven.WING) {
             mainLeft.zRot = .53F; mainRight.zRot = -.49F;
-            upperLeft.zRot = 1.03F; upperRight.zRot = -.95F;
+            upperLeft.zRot = .66F; upperRight.zRot = -.64F;
             mainLeftOuter.zRot = .19F; mainRightOuter.zRot = -.17F;
             upperLeftOuter.zRot = .24F; upperRightOuter.zRot = -.21F;
         }
