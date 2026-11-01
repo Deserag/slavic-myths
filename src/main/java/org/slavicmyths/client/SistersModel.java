@@ -14,12 +14,12 @@ import org.slavicmyths.sisters.SisterBoss;
  * blocks: model feet end at y=24; crowns reach y=-61 (Gneteya, 5.3 blocks)
  * and y=-39 (Tryaseya, 3.9 blocks). No flat costume or item quads.
  *
- * Atlas (256px): 0-47 woven cloth; 48-63 torn cloth; 64-127 bone;
- * 128-191 skin; 192-223 hair/iron/smoke; 224-255 reserved emissive UV.
+ * Atlas (512px): 0-127 woven/torn cloth; 128-255 bone;
+ * 256-383 skin; 384-479 hair/iron/smoke; 480-511 emissive UV.
  * The matching transparent emissive pass affects only eyes/lantern core.
  */
 public final class SistersModel extends EntityModel<SisterBoss> {
-    private static final int CLOTH=0, HEM=48, BONE=64, SKIN=128, DARK=192, GLOW=224;
+    private static final int CLOTH=0, HEM=16, BONE=128, SKIN=256, DARK=384, GLOW=480;
     private final boolean spirit;
     private final ModelPart root, body, head, leftArm, rightArm, leftLeg, rightLeg, weapon, lantern;
     private final List<ModelPart> hair=new ArrayList<>(), hems=new ArrayList<>(), smoke=new ArrayList<>();
@@ -27,7 +27,7 @@ public final class SistersModel extends EntityModel<SisterBoss> {
     public SistersModel(boolean tryaseya) {
         spirit=tryaseya;
         FolkModelGeometry g=new FolkModelGeometry();
-        root=g.part(256,256);
+        root=g.part(512,512);
         if (!spirit) {
             body=part(g,root,0,-25,0);
             box(g,body,CLOTH,-12,-13,-7,24,27,14);
@@ -152,7 +152,7 @@ public final class SistersModel extends EntityModel<SisterBoss> {
     }
 
     private static ModelPart part(FolkModelGeometry g,ModelPart parent,float x,float y,float z) {
-        ModelPart p=g.part(256,256);
+        ModelPart p=g.part(512,512);
         p.setPos(x,y,z);
         g.attach(parent,p);
         return p;
