@@ -504,4 +504,21 @@ public final class PosadShellGameTests {
  }
 
 
+ @GameTest(template="empty",timeoutTicks=200)
+ public static void nativePosadRegistryAndPlacement(GameTestHelper t) {
+  var world=t.getLevel();
+  var registry=world.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.STRUCTURE);
+  var id=net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","nether_posad");
+  var structure=registry.get(id);
+  t.assertTrue(structure instanceof PosadStructure,"Production nether_posad structure JSON is not loaded");
+  var holder=registry.wrapAsHolder(structure);
+  var placements=world.getChunkSource().getGeneratorState().getPlacementsForStructure(holder);
+  var placement=placements.stream().filter(net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement.class::isInstance)
+   .map(net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement.class::cast).findFirst().orElse(null);
+  t.assertTrue(placement!=null,"Production nether_posad StructureSet is not active");
+  t.assertTrue(placement.spacing()==80&&placement.separation()==32&&placement.salt()==22022026,"Approved Posad placement parameters drifted: "+placement);
+  System.out.println("POSAD_NATIVE_REGISTRY_PASS spacing=80 separation=32 salt=22022026; frequency is datapack-authored 0.75");
+  t.succeed();
+ }
+
 }

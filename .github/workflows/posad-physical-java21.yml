@@ -1,7 +1,7 @@
 name: Posad 2.2 physical GameTest (isolated Java 21)
 on:
   push:
-    branches: [hell, '2.2']
+    branches: [hell, '2.2', 'refactor/cleanup-audit-20261101']
     paths:
       - 'src/main/java/org/slavicmyths/posad/**'
       - 'src/main/resources/data/slavicmyths/posad/**'

@@ -55,6 +55,36 @@ public final class PosadTerrain {
             if(d<0)return new Decision(null,"NO_FOOTING",p.reads);
             baseSupports.add(new Support(x,z,d));
         }
+        return finishPlan(p,ax,deck,az,firstTurns,baseSupports);
+    }
+
+    /**
+     * Production-native preflight. New schema-25 pieces explicitly clear ordinary natural
+     * terrain from the owned city air volume, so native generation does not need to build
+     * 12,769 expensive noise columns merely to prove every air cell in advance.
+     *
+     * A 4-block safety grid still rejects protected material/headroom across the footprint;
+     * the support grid remains exact at SUPPORT_STEP. Manual/retrofit placement continues
+     * to use inspect(), which is deliberately dense because loaded worlds may contain
+     * player data that native chunk generation cannot contain.
+     */
+    public static Decision inspectWorldgen(Columns columns,int ax,int deck,int az,int firstTurns) {
+        var p=new Probe(columns);
+        for(int z=0;z<113;z+=4)for(int x=0;x<113;x+=4) {
+            if(!p.clear(ax+x,deck,az+z,17))return new Decision(null,"HEADROOM",p.reads);
+            for(int dy=0;dy>=-2;dy--)if(p.get(ax+x,deck+dy,az+z)==Material.PROTECTED)
+                return new Decision(null,"PROTECTED_PLATFORM",p.reads);
+        }
+        var baseSupports=new ArrayList<Support>();
+        for(int z=0;z<113;z+=SUPPORT_STEP)for(int x=0;x<113;x+=SUPPORT_STEP) {
+            int d=p.footing(ax+x,deck,az+z);
+            if(d<0)return new Decision(null,"NO_FOOTING",p.reads);
+            baseSupports.add(new Support(x,z,d));
+        }
+        return finishPlan(p,ax,deck,az,firstTurns,baseSupports);
+    }
+
+    private static Decision finishPlan(Probe p,int ax,int deck,int az,int firstTurns,List<Support> baseSupports) {
         // Choose the shortest verified bank, seeded orientation only breaks equal-length ties.
         for(int length=1;length<=MAX_BRIDGE;length++)for(int r=0;r<4;r++) {
             int turns=Math.floorMod(firstTurns+r,4);
