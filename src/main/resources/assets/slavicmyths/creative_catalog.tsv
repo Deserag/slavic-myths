@@ -588,6 +588,8 @@ kartaus_spawn_egg	mobs	boss
 kalin_war_horse_spawn_egg	mobs	boss
 kalin_tsar_spawn_egg	mobs	boss
 zmey_gorynych_spawn_egg	mobs	boss
+morovoy_raven_spawn_egg	mobs	boss
+morovoy_fire_zmey_spawn_egg	mobs	boss
 bear_cub_spawn_egg	hidden	family_variants
 doe_spawn_egg	hidden	family_variants
 cider_must	hidden	brewing_batches
@@ -1122,3 +1124,5 @@ darkened_weapon_rack	furniture	furniture_weapon_rack
 mor_oak_weapon_rack	furniture	furniture_weapon_rack
 navya_weapon_rack	furniture	furniture_weapon_rack
 blackwood_weapon_rack	furniture	furniture_weapon_rack
+morovoy_raven_feather	resources	boss_material
+mor_core	resources	boss_material
