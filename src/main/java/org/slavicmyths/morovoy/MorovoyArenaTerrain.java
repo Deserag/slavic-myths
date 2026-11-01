@@ -36,7 +36,8 @@ public final class MorovoyArenaTerrain {
       entry[side]=y-1;mask|=1<<side;break;
     }
    }
-   if(mask==0)continue;
+   // Every accepted arena has at least two safe exterior-to-rim approaches.
+   if(Integer.bitCount(mask)<2)continue;
    boolean safe=true;
    for(int dz=-112;dz<=112&&safe;dz+=28)for(int dx=-112;dx<=112;dx+=28){
     if(!MorovoyArenaGeometry.inside(dx,dz,seed))continue;
