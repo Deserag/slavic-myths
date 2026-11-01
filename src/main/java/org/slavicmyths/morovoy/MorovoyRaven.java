@@ -227,6 +227,7 @@ public final class MorovoyRaven extends PathfinderMob {
         if (!world.hasChunkAt(BlockPos.containing(position().add(step.scale(3)))) || !world.getWorldBorder().isWithinBounds(BlockPos.containing(position().add(step.scale(3))))) return false;
         double reach = minion() ? .25 : 3.3;
         AABB envelope = getBoundingBox().move(step.scale(3)).inflate(reach, minion() ? .15 : 1.2, reach);
+        if (!world.hasChunkAt(BlockPos.containing(envelope.minX, getY(), envelope.minZ)) || !world.hasChunkAt(BlockPos.containing(envelope.maxX, getY(), envelope.maxZ)) || !world.hasChunkAt(BlockPos.containing(envelope.maxX, getY(), envelope.minZ)) || !world.hasChunkAt(BlockPos.containing(envelope.minX, getY(), envelope.maxZ))) return false;
         return world.noCollision(this, envelope) && world.clip(new ClipContext(position(), position().add(step.scale(3)), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this)).getType() == HitResult.Type.MISS;
     }
     private void brake() { setDeltaMovement(getDeltaMovement().scale(.68)); }
@@ -276,11 +277,18 @@ public final class MorovoyRaven extends PathfinderMob {
     private void placeMiasma(ServerLevel world, Vec3 sample, float radius, int life) {
         BlockPos pos = BlockPos.containing(sample);
         if (!world.hasChunkAt(pos)) return;
-        BlockPos ground = world.getHeightmapPos(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pos);
+        // Nether heightmaps point to the BEDROCK ROOF, not the arena floor.
+        // Raycast downward inside the already-loaded arena instead.
+        Vec3 lower = sample.add(0, -22, 0);
+        if (!world.hasChunkAt(BlockPos.containing(lower))) return;
+        HitResult groundHit = world.clip(new ClipContext(sample, lower, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this));
+        if (groundHit.getType() != HitResult.Type.BLOCK) return;
+        BlockPos ground = BlockPos.containing(groundHit.getLocation().add(0, .2, 0));
         if (ground.distSqr(blockPosition()) > 45 * 45 || Math.abs(ground.getY() - getY()) > 32) return;
         RavenMiasma zone = MorovoyRavenContent.MIASMA.get().create(world);
         if (zone != null) { zone.setPos(ground.getX() + .5, ground.getY() + .05, ground.getZ() + .5); zone.configure(this, radius, life); world.addFreshEntity(zone); }
     }
+    @Override protected boolean removeWhenFarAway(double distance) { return minion(); }
     @Override public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
     @Override protected void dropAllDeathLoot(ServerLevel world, DamageSource source) { /* Two material items are registered; drop rates await owner balancing. */ }
     @Override public void die(DamageSource cause) { super.die(cause); bossBar.removeAllPlayers(); }
