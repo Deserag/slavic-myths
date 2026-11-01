@@ -55,7 +55,7 @@ public final class SistersModel extends EntityModel<SisterBoss> {
             for (int i=0;i<9;i++)box(g,head,BONE,-9+i*2.1F,-14-(i*5%8),-6+(i%3)*3,2,6+(i%3)*3,2.5F);
             for (int i=0;i<14;i++) {
                 ModelPart strand=part(g,head,-10+(i%7)*3,-7,i<7?7:-7);
-                box(g,strand,DARK,-1,0,-1,2,19+(i*3%12),3);
+                box(g,strand,SKIN,-1,0,-1,2,19+(i*3%12),3);
                 hair.add(strand);
             }
             ModelPart skirt=part(g,root,0,-12,0);
