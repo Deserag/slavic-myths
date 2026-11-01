@@ -14,19 +14,19 @@
 | Requirement | Status | Evidence |
 | --- | --- | --- |
 | Source pushed on isolated version feature branch | TO_VERIFY | Commit SHA is recorded by GitHub |
-| Java 21 pure rules smoke | NOT_RUN | `tools/qa/MorovoyZmeyRulesSmoke.java` |
-| Clean Gradle Java 21 build | NOT_RUN | GitHub Actions workflow added; results must be inspected |
+| Java 21 pure rules smoke | PASS | 19 assertions passed on Java 21 both in local isolated run and GitHub Actions |
+| Clean Gradle Java 21 build | PASS (source, not gameplay) | GitHub Actions runs `41286992735` and `41287099270`: Java 21 clean Gradle build and artifact upload after NBT signature fix |
 | GameTest and dedicated server | NOT_RUN | No runtime attached to this work session |
 | Two clients, PvP/targets, shields, relog | NOT_RUN | Must be tested in an actual server |
 | Five Nether seeds, natural access / loaded area | NOT_RUN | Draft arena #393 has only pure geometry QA |
-| Approved side-by-side PNG | ART_SOURCE_BLOCKED | `MOROVOY_FIRE_ZMEY_APPROVED_REFERENCE.png` not found in current branch |
+| Approved side-by-side PNG | REFERENCE_VERIFIED; SCREENSHOTS_NOT_RUN | Owner's prior 1448×1086 image found; SHA-256 matches issue #396, but real Minecraft visual comparison has not occurred |
 | In-game screenshots/videos / FPS/MSPT | NOT_RUN | No Minecraft client run or capture produced |
 | Precise head/tail colliders and grab/release | IN_PROGRESS | Current logic is a first-pass combat implementation; shield-blocked bites no longer apply grab |
 | Individual animation clips and complete editable art rig | IN_PROGRESS | Editable Blockbench source and native ModelPart rig exist; final UV/clip parity and approved PNG comparison remain |
 
 ## Outstanding critical work
 1. Correct Java compiler/NeoForge API errors from actual CI, if any.
-2. Supply and hash-check the approved reference pack; verify/edit the provisional Blockbench source against the approved source and finish proper 1:1 visual iteration.
+2. Approved 1448×1086 source is available in the owner's prior file library and its SHA-256 was independently matched to issue #396: `e3b534bda20c1c36a9eddf5f7575bd6816cd1f7ad0df30e12c5f7ab5fe3083f5`. Now verify/edit the provisional Blockbench source against this source and finish actual 1:1 visual iteration. The reference image is not included in the repository.
 3. Real 3D flight corridor and anti-wall clip tests with opened wings; verify collision windows for both moving tails, both bites and airflow.
 4. Multiplayer/dedicated-server test, shield/faction tests, two heads and all hit timings, expiration after unload/restart, safe arena traversal.
 5. Capture unedited **Minecraft** front/side/back/¾, sleeping/waking and attack screenshots beside the approved reference.
