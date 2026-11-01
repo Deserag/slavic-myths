@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " S ",
+    " C ",
+    " I "
+  ],
+  "key": {
+    "S": {
+      "item": "slavicmyths:mytar_sickle"
+    },
+    "C": {
+      "item": "slavicmyths:mytar_chain"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:okovny_sickle",
+    "count": 1
+  }
+}

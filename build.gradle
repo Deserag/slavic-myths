@@ -664,3 +664,25 @@ if (project.hasProperty('netherBossCheck')) {
   systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_netherboss'
  } }
 }
+
+ 
+// #389 opt-in GameTests compile separately; tests and fixture do not enter the shipped JAR.
+if (project.hasProperty('boss389Check')) {
+    sourceSets {
+        boss389Check {
+            java.srcDir 'tools/boss389-tests'
+            resources.srcDir 'tools/boss389-test-resources'
+        }
+    }
+    sourceSets.boss389Check.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.boss389Check.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileBoss389CheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.boss389Check)
+    neoForge.runs {
+        boss389Checks {
+            type = 'gameTestServer'
+            gameDirectory = file('run-boss389-isolated')
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_boss389'
+        }
+    }
+}

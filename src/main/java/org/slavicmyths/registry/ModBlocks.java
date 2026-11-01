@@ -95,4 +95,5 @@ public final class ModBlocks {
  public static final DeferredHolder<Block, Block> YAGA_DRIED_HERBS=BLOCKS.register("yaga_dried_herbs",()->new Block(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(-1,3600000).noCollission().noOcclusion().noLootTable()));
  public static final DeferredHolder<Block, Block> YAGA_BONE_CHARM=BLOCKS.register("yaga_bone_charm",()->new Block(BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(-1,3600000).noCollission().noOcclusion().noLootTable()));
  public static final DeferredHolder<Block, Block> YAGA_CHICKEN_LEG=BLOCKS.register("yaga_chicken_leg",org.slavicmyths.yaga.YagaLegBlock::new);
+    public static final DeferredHolder<Block, Block> BAUK_HEAD = BLOCKS.register("bauk_head", () -> new org.slavicmyths.posad.boss.BaukHeadBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(3F).sound(SoundType.BONE_BLOCK).noOcclusion()));
 }

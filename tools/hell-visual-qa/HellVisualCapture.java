@@ -62,6 +62,38 @@ public final class HellVisualCapture {
         w.getGameRules().getRule(GameRules.RULE_DAYLIGHT).set(false,w.getServer());w.setDayTime(6000);
         BossClientFight.openLoopback(w.getServer());
         int i=0;
+        if(System.getProperty("hellvisual.scope","").equals("boss389")){
+            var descriptions=new String[]{"mytar-idle","mytar-hook-windup","mytar-sickle-strike","bauk-idle","bauk-bite","bauk-rage"};
+            for(int sceneId=0;sceneId<descriptions.length;sceneId++){
+                boolean bau=sceneId>=3;
+                var boss=(bau?org.slavicmyths.registry.ModEntities.BAUK:org.slavicmyths.registry.ModEntities.CURSED_MYTAR).get().create(w);
+                var data=new net.minecraft.nbt.CompoundTag();
+                boss.addAdditionalSaveData(data);
+                int action=switch(sceneId){
+                    case 1->org.slavicmyths.posad.boss.PosadBoss.Move.WINDUP_CHAIN.ordinal();
+                    case 2->org.slavicmyths.posad.boss.PosadBoss.Move.WINDUP_SICKLE.ordinal();
+                    case 4->org.slavicmyths.posad.boss.PosadBoss.Move.WINDUP_BITE.ordinal();
+                    case 5->org.slavicmyths.posad.boss.PosadBoss.Move.RAGE_TRANSITION.ordinal();
+                    default->org.slavicmyths.posad.boss.PosadBoss.Move.IDLE.ordinal();
+                };
+                data.putInt("PosadAction",action);
+                data.putInt("PosadActionTicks",sceneId==1?30:sceneId==2?14:sceneId==4?19:sceneId==5?25:0);
+                data.putBoolean("PosadEnraged",sceneId==5);
+                boss.readAdditionalSaveData(data);
+                spawn(w,boss,i++,descriptions[sceneId]);
+                double x=boss.getX(),z=boss.getZ(),height=boss.getBbHeight(),distance=bau?9D:6.5D;
+                VIEWS.add(new View(descriptions[sceneId]+"-left",x-distance,81+height*.5-1.62,z,x,81+height*.5,z,"","spectator","",false));
+            }
+            for(String id:List.of("okovny_sickle","mytar_shackled_sickle","bauk_head")){
+                gear("issue389-item-"+id,id,"inventory","",false);
+                gear("issue389-held-"+id,id,"first","",false);
+            }
+            var mover=ACTORS.get("bauk-idle");
+            double y=81+mover.getBbHeight()*.5;
+            VIEWS.add(new View("bauk-idle-walk",mover.getX()+9,y-1.62,5,mover.getX()+2,y,0,"","mobwalk","",false));
+            ready=true;
+            return;
+        }
         if(System.getProperty("hellvisual.scope","").equals("bosses")){
             for(boolean bride:new boolean[]{true,false})for(int phase=1;phase<=3;phase++){
                 var boss=(bride?org.slavicmyths.registry.ModEntities.MOROVA_DEVA:org.slavicmyths.registry.ModEntities.TRIZNA_PRINCE).get().create(w);
