@@ -171,11 +171,13 @@ public final class MorovoyRaven extends PathfinderMob {
         if (pose() == CIRCLE || pose() == PLAGUE) {
             // Orbit is relative to the persisted arena anchor, not a moving player.
             Vec3 center = home == null ? position() : Vec3.atCenterOf(home);
-            double theta = (world.getGameTime() * .026) + (getUUID().getLeastSignificantBits() & 7);
-            double radius = pose() == PLAGUE ? 24 : 19;
+            // Plague orbit completes a full turn within its timed phase.
+            // Adjacent zones overlap to form the approved infected ring, not sparse dots.
+            double theta = (world.getGameTime() * (pose() == PLAGUE ? .045 : .026)) + (getUUID().getLeastSignificantBits() & 7);
+            double radius = pose() == PLAGUE ? 38 : 23;
             waypoint = center.add(Math.cos(theta) * radius, 17 + Math.sin(theta * .75) * 4, Math.sin(theta) * radius);
             steer(world, waypoint, .42);
-            if (pose() == PLAGUE && phaseTicks % 11 == 0) placeMiasma(world, position().add(0, -8, 0), 3.4F, 115);
+            if (pose() == PLAGUE && phaseTicks % 5 == 0) placeMiasma(world, position().add(0, -8, 0), 4.8F, 265);
             if (pose() == PLAGUE && phaseTicks >= 165) { pose(RECOVER); nextAttack = world.getGameTime() + 55; }
             else if (pose() == CIRCLE && world.getGameTime() >= nextAttack) pose(HOVER);
         } else if (pose() == HOVER) {
