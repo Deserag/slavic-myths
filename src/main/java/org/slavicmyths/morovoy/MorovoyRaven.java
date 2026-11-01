@@ -220,6 +220,7 @@ public final class MorovoyRaven extends PathfinderMob {
             if (phaseTicks >= 27) finishAttack(world, 70);
         } else if (pose() == WING) {
             brake();
+            if (phaseTicks >= 11 && phaseTicks <= 19 && phaseTicks % 2 == 1) wingTelegraph(world);
             if (phaseTicks == 19) { playSound(SoundEvents.PHANTOM_FLAP, 3.4F, .66F); wingSweep(world); }
             if (phaseTicks >= 36) finishAttack(world, 72);
         } else if (pose() == RECOVER) {
@@ -308,6 +309,18 @@ public final class MorovoyRaven extends PathfinderMob {
         Vec3 diff = target.getBoundingBox().getCenter().subtract(position());
         Vec3 facing = getLookAngle();
         if (!strikeDone && diff.lengthSqr() < reach * reach && diff.normalize().dot(facing) > dotMinimum) hit(target, damage, knockback);
+    }
+    private void wingTelegraph(ServerLevel world) {
+        Vec3 facing = getLookAngle();
+        Vec3 forward = new Vec3(facing.x, 0, facing.z);
+        if (forward.lengthSqr() < .0001) forward = new Vec3(0, 0, 1);
+        forward = forward.normalize();
+        Vec3 lateral = new Vec3(forward.z, 0, -forward.x);
+        // A visible warning follows the feather span; geometry and hit sector use the same lateral axis.
+        for (int side : new int[]{-1, 1}) for (int segment = 2; segment <= 8; segment += 2) {
+            Vec3 point = getBoundingBox().getCenter().add(lateral.scale(side * segment)).add(forward.scale(.35 + segment * .08));
+            world.sendParticles(org.slavicmyths.mor.MorContent.SPARK.get(), point.x, point.y, point.z, 2, .18, .12, .18, .01);
+        }
     }
     private void wingSweep(ServerLevel world) {
         strikeDone = true;
