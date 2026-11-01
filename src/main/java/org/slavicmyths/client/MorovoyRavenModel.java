@@ -131,12 +131,13 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
                 float length = 29+i*2.2F+(i%3)*2+(side<0 ? 0 : (i%2)*3);
                 // A feather must show its broad downward face from the FRONT, not a 3px-thin horizontal strip.
                 float fanDrop = 17 + i * 1.5F + (i % 3) * 3F + (side > 0 && i % 2 == 0 ? 2F : 0F);
-                add(featherBone,"main_flight_"+i,(i%2==0)?0:98,40,outer-featherOffset,-2,-11-i*.23F,12,fanDrop,7.4F);
+                float tipWidth = i >= 6 ? 12 - (i - 5) * 1.6F : 12;
+                add(featherBone,"main_flight_"+i,(i%2==0)?0:98,40,outer-featherOffset,-2,-11+i*.65F,tipWidth,fanDrop,7.4F);
                 // Split plum-coloured lower edges into overlapping ragged fingers.
                 add(featherBone,"main_plum_end_"+i,216,170,outer+1-featherOffset,fanDrop-7,-11-i*.23F,10,8+(i%3)*2,5.1F);
                 if(i%2==0 || i==7) add(featherBone,"main_hanging_fray_"+i,216,170,outer+((i%3)*2)-featherOffset,fanDrop+1,-11,2.3F,7+(i*7)%13,2.5F);
                 if(i%3==1) add(featherBone,"main_sheared_feather_"+i,130,40,outer+5-featherOffset,fanDrop-11,-11.6F,3,5.5F,4.1F);
-                add(featherBone,"main_cover_"+i,130,40,outer+1-featherOffset,-4,-15-i*.13F,10,8+(i%3)*2,7.8F);
+                add(featherBone,"main_cover_"+i,130,40,outer+1-featherOffset,-4,-15+i*.65F,Math.min(10,tipWidth),8+(i%3)*2,7.8F);
                 if(i>1 && i<8 && (i+side)%3!=0) {
                     float damage = 4 + (i%3)*4 + (side<0 ? 1 : 0);
                     add(featherBone,"torn_plume_"+i,216,170,outer+3-featherOffset,fanDrop+1,-10,4,damage+3,3.6F);
@@ -155,10 +156,11 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
                 float outer = side < 0 ? -start-10 : start;
                 float length = 24+i*1.7F+(i%3)*2+(side>0 ? 2:0);
                 float sickDrop = 14 + i * 1.8F + (i % 3) * 3.5F;
-                add(featherBone,"upper_flight_"+i,50,125,outer-featherOffset,-2,-8-i*.37F,10,sickDrop,6.5F);
+                float sickWidth = i >= 4 ? 10 - (i - 3) * 1.4F : 10;
+                add(featherBone,"upper_flight_"+i,50,125,outer-featherOffset,-2,-8+i*.75F,sickWidth,sickDrop,6.5F);
                 add(featherBone,"upper_plum_end_"+i,216,170,outer+1-featherOffset,sickDrop-7,-8-i*.37F,8,9+(i%3)*2,5.2F);
                 if(i%2==0 || i==5) add(featherBone,"upper_frayed_strand_"+i,216,170,outer+((i%3)*2)-featherOffset,sickDrop+1,-8,2.1F,8+(i*5)%13,2.4F);
-                add(featherBone,"upper_cover_"+i,156,0,outer+1-featherOffset,-4,-12,8,7+(i%2)*2,7.7F);
+                add(featherBone,"upper_cover_"+i,156,0,outer+1-featherOffset,-4,-12+i*.75F,Math.min(8,sickWidth),7+(i%2)*2,7.7F);
                 if(i==2 || i==4 || (side<0 && i==5)) add(featherBone,"upper_torn_"+i,216,170,outer+3-featherOffset,sickDrop, -8,3,5+i*2,3);
                 if(i==1 || i==4) {
                     add(featherBone,"upper_mor_branch_"+i,180,0,outer+3-featherOffset,2,-12.8F,2,sickDrop*.52F,1.2F);
@@ -168,8 +170,8 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
             // Chunky articulated-looking thighs, knee, shins, forward grip and hooked ivory tips.
             PartDefinition foot = bird.addOrReplaceChild(side<0?"left_foot":"right_foot",box(112,84,-5,-3,-5,10,14,11),PartPose.offset(side*8,7,11));
             add(foot,"knee",112,84,-5,9,-5,11,6,12);
-            add(foot,"shin",146,85,-3.5F,12,-8,7,12,8);
-            add(foot,"ankle",146,85,-5,22,-8,10,4,12);
+            add(foot,"shin",20,160,-3.5F,12,-8,7,12,8);
+            add(foot,"ankle",20,160,-5,22,-8,10,4,12);
             for(int toe=0;toe<3;toe++) {
                 float x=-7+toe*5;
                 float z=-16-(toe==1 ? 3:0);
