@@ -42,8 +42,9 @@ public final class HellVisualCapture {
     static ItemStack item(String id){return new ItemStack(BuiltInRegistries.ITEM.get(id.contains(":")?ResourceLocation.parse(id):ResourceLocation.fromNamespaceAndPath("slavicmyths",id)));}
     static void views(String name,double x,double z,double height,double distance){
         double y=81+height*.5;
+        int angleIndex=0;
         for(var d:new double[][]{{0,1},{.7,.7},{1,0},{0,-1}}){
-            String angle=new String[]{"front","quarter","side","back"}[VIEWS.size()%4];
+            String angle=new String[]{"front","quarter","side","back"}[angleIndex++];
             VIEWS.add(new View(name+"-"+angle,x+d[0]*distance,y-1.62,z+d[1]*distance,x,y,z,"","spectator","",false));
         }
     }
