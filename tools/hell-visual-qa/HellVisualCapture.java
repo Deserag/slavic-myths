@@ -49,7 +49,8 @@ public final class HellVisualCapture {
     }
     static void spawn(ServerLevel w,Mob mob,int index){spawn(w,mob,index,BuiltInRegistries.ENTITY_TYPE.getKey(mob.getType()).getPath());}
     static void spawn(ServerLevel w,Mob mob,int index,String label){
-        double x=index*16;
+        // Raven wings span over fourteen blocks: separate subjects so the side camera never films its neighbour.
+        double x=label.startsWith("morovoy-raven-") ? index*48.0 : index*16.0;
         for(int bx=(int)x-6;bx<=x+6;bx++)for(int bz=-6;bz<=6;bz++)w.setBlock(new BlockPos(bx,80,bz),Blocks.SMOOTH_STONE.defaultBlockState(),2);
         mob.moveTo(x,81,0,0,0);mob.setNoAi(true);mob.setPersistenceRequired();mob.setInvulnerable(true);mob.setYBodyRot(0);mob.setYHeadRot(0);w.addFreshEntity(mob);
         ACTORS.put(label,mob);views(label,x,0,mob.getBbHeight(),label.startsWith("morovoy-raven-")?20:Math.max(4,mob.getBbHeight()*1.6));
@@ -81,6 +82,10 @@ public final class HellVisualCapture {
                 spawn(w,boss,i++,label);
                 double x=boss.getX(),y=81+boss.getBbHeight()*.5;
                 VIEWS.add(new View(label+"-top",x+.1,y+19,0,x,y,0,"","spectator","",false));
+                if(n==0){
+                    VIEWS.add(new View(label+"-head-detail",x+6,84.2,-10,x,84.5,-3.5,"","spectator","",false));
+                    VIEWS.add(new View(label+"-talon-detail",x+2,82.0,7,x,82.0,-.6,"","spectator","",false));
+                }
             }
             ready=true;return;
         }
