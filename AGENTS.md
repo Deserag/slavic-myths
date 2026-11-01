@@ -1,42 +1,33 @@
-<!-- OWNER_MANDATORY_EXECUTION_CONTRACT_20261101_ISSUE_406 -->
-# ОБЯЗАТЕЛЬНЫЕ ПРАВИЛА ВЛАДЕЛЬЦА — 01.11.2026 (высший приоритет для новых задач)
+# MANDATORY OWNER EXECUTION RULES — 2026-11-01 (READ FIRST)
 
-**До любого промпта, реализации или вывода об отсутствии задачи ОБЯЗАТЕЛЬНО прочитать [docs/OWNER_EXECUTION_CONTRACT.md](docs/OWNER_EXECUTION_CONTRACT.md) и [docs/BRANCH_POLICY.md](docs/BRANCH_POLICY.md).** Одна работа — одна Issue; исходные утверждённые референсы должны быть реально доступны; полная детализация и игровой visual match; строгий scope; точная рабочая/целевая ветка; максимально короткие ответы и экономия контекста. **Не объявлять исправленной только геометрию, если внешний вид, UV, текстуры и анимации не соответствуют эталону.** Зафиксировано в [#406](https://github.com/Deserag/slavic-myths/issues/406).
+**Binding, strict and not optional.** Every ChatGPT/Codex/task author/reviewer MUST read [the full English execution contract](docs/OWNER_EXECUTION_CONTRACT.md), [current branch policy](docs/BRANCH_POLICY.md), [project workflow](docs/PROJECT_WORKFLOW.md), [Codex playbook](docs/CODEX_PROJECT_PLAYBOOK.md), and the entire applicable set from [docs/requirements/](docs/requirements/README.md) BEFORE any implementation or implementation prompt.
+
+**No Issue = no implementation. No reachable owner-approved original art embedded/linked within Issue = no visual implementation or acceptance. No per-detail blueprint = no discretionary invention. No verified branch/commit/target = no execution. No explicit IN/OUT scope = no extra changes. Build PASS and partial geometry alone are NOT completion. No real visual/gameplay tests = NOT_RUN. Owner acceptance is always required.**
+
+**Current paired-sisters integration target: `3.3`; feature branch must be verified against `3.3` HEAD before use. All outdated branch choices from historical reports/prompts are INVALID. `main` is protected.** Branch names and exact preflight fields are mandated in the contract and branch policy. Do not infer target from task number, filename or old docs.
+
+**User responses: short, factual, no bloated reporting; engineering specifications and proof in GitHub must remain exhaustive.** Track corrections in [#406](https://github.com/Deserag/slavic-myths/issues/406).
 
 ---
 
-# АКТУАЛЬНАЯ ПОЛИТИКА ВЕТОК — 31.10.2026
-
-**Решение владельца:** текущая интеграционная ветка версии 2.2 — `2.2`; `hell` устарела и не используется для новой разработки. Каждая новая версия получает собственную версионную ветку. `main` не изменять без отдельного разрешения. Это решение заменяет все устаревшие инструкции ниже о работе в `hell`. Полные правила: [docs/BRANCH_POLICY.md](docs/BRANCH_POLICY.md).
-
-# ИСТОРИЯ РЕШЕНИЯ 29.10.2026 — начать 2.1 (порядок веток отменён 31.10.2026)
-
-Владелец **после** запуска технического QA 2.0.10 явно разрешил перейти к разработке 2.1 (девять отдельных микропатчей сооружений Ада) **сейчас**, а собственные игровые проверки обеих версий проведёт позднее совместно. Старый запрет «не начинать 2.1 до финальной игровой приёмки 2.0» в дорожной карте и Issues #338/#339/#341/#344 **заменён только для очередности исполнения**. Не объявлять ни одну из версий принятой, не закрывать Issues, не добавлять новые предметы в 2.1 и не менять `main`. На 29.10 checkpoints постройки выполнялись в `hell` (ИСТОРИЯ). С 31.10 новая разработка версии 2.2 ведётся в `2.2` согласно `docs/BRANCH_POLICY.md`, `hell` не использовать. GUI тесты не могут захватывать активный desktop владельца. Точные чертежи/референсы/обязательные QA: `docs/concepts/nether-structures/` и `docs/requirements/`.
-
-# ОБЯЗАТЕЛЬНЫЙ ПОРЯДОК ПРИЁМКИ — 18.10.2026
-
-## СПЕЦИАЛЬНОЕ РАЗРЕШЕНИЕ ВЛАДЕЛЬЦА 29.10.2026 — изолированное игровое QA Ада ПОСЛЕ реализации
-
-**Владелец отдельно и прямо разрешил Codex запуск Minecraft, тестового клиента, сервера и тестовых миров после завершения реализации оставшихся задач Ада в ветке `hell`.** Обязательный исполнительский протокол: [docs/implementation/2026-10-29-hell-qa/CODEX_ISOLATED_RUNTIME_VISUAL_QA.md](docs/implementation/2026-10-29-hell-qa/CODEX_ISOLATED_RUNTIME_VISUAL_QA.md). Это адресное исключение из встречающихся ниже общих запретов «не запускать Minecraft/PolyMC/GameTest/сервер» **только для указанного QA**, а не новая общая политика для всех задач.
-
 **БЕЗУСЛОВНОЕ УСЛОВИЕ:** запуск и GUI-автоматизация исключительно в независимой изолированной виртуальной машине/отдельном дисплее и с отдельными устройствами ввода или другой **доказанно не влияющей на активный рабочий стол владельца** среде. Нельзя переключать/блокировать пользовательскую Windows-сессию, фокус окон, мышь, клавиатуру, основной PolyMC и исходные сохранения. Обычный фоновый/свернутый запуск игры НЕ доказывает отсутствие вмешательства. При отсутствии безопасной среды разрешены только невмешивающиеся headless/server/offline тесты, графический QA — `BLOCKED_ISOLATION`. Каждый реальный запуск фиксировать с хэшем JAR, seed, скриншотами/логами; owner acceptance остаётся исключительно за владельцем.
 
-После теста Codex **обязан исправлять доказанные баги и отклонения от утверждённых референсов** с последующим повторным тестом; спорные случаи собирать в `docs/implementation/2026-10-29-hell-qa/UNCERTAIN_FINDINGS.md`. Все ранее зарегистрированные замечания владельца в #327/#331/#332 и поиски четырёх новых Nether-биомов включены как обязательные регрессии.
+After authorized runtime tests the executor MUST fix verified failures within the approved Issue scope and rerun the same tests; never claim acceptance without real game/reference evidence.
 
 ## Обязательный реестр требований ко ВСЕМ новым функциям — 27.10.2026
 
-**Перед созданием или изменением** структуры, биома, оружия, инструмента, предмета, моба, босса, лута, GUI, блока, ремесла, транспорта или NPC исполнитель ОБЯЗАН прочитать [docs/requirements/README.md](docs/requirements/README.md), относящиеся к типу работ файлы этой папки, конкретную Issue и актуальный исходный код/ресурсы. **Каждое** применимое требование перенести в матрицу приёмки и проверить, включая негативный сценарий, получение без OP и сохранение/MP по необходимости. **Несоблюдённое или не проверенное правило = FAIL / NOT_RUN, не DONE.** Требования папки не разрешают запуск работ из Concept/Analysis/Waiting и не отменяют утверждённые параметры владельца. Исторически стабилизация 2.0 выполнялась в `hell`; для новых задач версии 2.2 это указание отменено, работать в `2.2`.
+**Перед созданием или изменением** структуры, биома, оружия, инструмента, предмета, моба, босса, лута, GUI, блока, ремесла, транспорта или NPC исполнитель ОБЯЗАН прочитать [docs/requirements/README.md](docs/requirements/README.md), относящиеся к типу работ файлы этой папки, конкретную Issue и актуальный исходный код/ресурсы. **Каждое** применимое требование перенести в матрицу приёмки и проверить, включая негативный сценарий, получение без OP и сохранение/MP по необходимости. **Несоблюдённое или не проверенное правило = FAIL / NOT_RUN, не DONE.** Требования папки не разрешают запуск работ из Concept/Analysis/Waiting и не отменяют утверждённые параметры владельца. Current working and target branch MUST be taken only from the latest approved task and docs/BRANCH_POLICY.md.
 
 
 **Приоритет этого блока выше старых Issue, комментариев о “PASS” и отчетов Codex. Владелец отверг синтетические голоса и неполную #49.**
 
 - Codex НЕ может объявлять Issue `DONE`, `COMPLETE`, `ACCEPTED`, `READY FOR RELEASE` или самостоятельно закрывать её, пока **ВСЕ обязательные результаты** не исполнены и владелец не принял их вручную. Отдельная построенная модель при отсутствующей песне = **НЕ ГОТОВО**. Отдельная clean build не доказывает runtime. Если хотя бы одно требование BLOCKED, FAIL, NOT_RUN — Issue должна остаться OPEN; явно указать недоделки.
-- Исторические допущения о частичных коммитах в `main` больше не определяют рабочую ветку. По решению 31.10.2026 `main` не изменять без отдельного разрешения владельца, новую разработку 2.2 вести в `2.2`. Частичный коммит — `IN_PROGRESS`, не DONE и не «отправлено на итоговую проверку». **Не переводить последующие задачи в готовые и не доставлять final PolyMC из незавершённой цепочки**.
+- Partial commits are IN_PROGRESS, never DONE. Only the latest explicit owner branch contract controls integration. Never modify main without owner authorization, and never deliver a supposedly final PolyMC JAR from an incomplete feature.
 - Владелец самостоятельно подтверждает итог в комментарии/явным решением; Codex не добавляет label `owner-accepted` за владельца, не подделывает согласование и не закрывает задачи. При попытке автоматически закрыть Issue GitHub Actions может переоткрыть её; даже если защита не сработала, закрытие без реальной приёмки недействительно.
 - Для звуков: **запрещено** выдавать синтетические гармонические/формантные гудки, вой от одного тона, шумовой filler или копию одного звука с pitch-shift за финальные голоса/песни. Старые отвергнутые события временно отключены в `sounds.json`. Оригинальные, законно полученные playable OGG; отличия на слух; карта event→actual file→callsite, subtitles RU/EN, динамика/громкость, доказанная упаковка в JAR, затем ручная приёмка владельцем — обязательны. Пока нет реально хорошего голосового источника, статус `BLOCKED_NEEDS_AUDIO_SOURCE`, а не DONE. Не регенерировать карантинное аудио из `tools/*audio*.py`.
 - Для моделей: предоставить исходный рендер фактических изменённых ModelPart/UV/Texture **до и после** в одинаковом масштабе и позы таймингов; концепт, статическая картинка без source и сборка НЕ принимаются как доказательство. Игровая визуальная/анимационная приёмка владельцем остаётся обязательной.
 - Для PolyMC: JAR собран ≠ JAR установлен. При сдаче требуются точные installed JAR path/version/SHA256 и source commit, backup, отсутствие двойных JAR. Если установка не состоялась — `POLYMC_NOT_INSTALLED`, никаких формулировок «обновлено». Minecraft/PolyMC/GameTest/сервер **не запускать**.
-- Для каждой исполнительной Issue обязательна матрица `REQUIREMENT | EVIDENCE | PASS/FAIL/BLOCKED/NOT_RUN`. Если где-либо нет файла/результата, не подменять его количеством assert-ов. Только один writer для интеграции `2.2`, `main` не изменять без отдельного разрешения; никаких force/reset/delete чужих изменений.
+- Для каждой исполнительной Issue обязательна матрица `REQUIREMENT | EVIDENCE | PASS/FAIL/BLOCKED/NOT_RUN`. Если где-либо нет файла/результата, не подменять его количеством assert-ов. Only one authorized integration writer for the verified target branch, `main` не изменять без отдельного разрешения; никаких force/reset/delete чужих изменений.
 - Текущий emergency-контекст: #59 (Русалка), #60 (массовое однообразие). До появления согласованного аудио **отключение синтетики НЕ значит починили звук**. Запреты действуют для #49–#60, #42/#47/#52 и новых задач.
 
 ---
@@ -99,7 +90,7 @@ Codex может менять «В работе»/«Тестирование» �
 ---
 ## ПРАВИЛА ИГРОВОЙ ДОСТУПНОСТИ И ПРИЁМКИ — 25.10.2026 (решение владельца, Issue #269)
 
-**ИСТОРИЯ: до 31.10.2026 для стабилизации 2.0 использовали `hell`. Это правило НЕ определяет рабочую ветку новых задач 2.2. Текущая интеграционная ветка — `2.2`; `hell` архивная, `main` не менять без отдельного разрешения владельца.** Ветка или собранный JAR сами по себе не являются принятым релизом. Актуальные правила — `docs/BRANCH_POLICY.md`.
+**CURRENT RULE:** Determine every branch exclusively from the latest owner-approved Issue and docs/BRANCH_POLICY.md. Historical status notes cannot select a branch. The integration target for the currently scoped paired-sisters release is `3.3`. Changes to `main` require explicit owner authorization.
 
 ### До реализации
 1. Прочитать текущую Issue, связанные задачи, решения владельца, фактические исходники/ресурсы, существующий `git status`, HEAD ветки и сведения об установленном PolyMC. Не перезаписывать незакоммиченную работу, сохранять стабильные registry IDs и сохранения.
