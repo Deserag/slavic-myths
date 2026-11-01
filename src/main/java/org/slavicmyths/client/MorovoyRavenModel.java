@@ -13,7 +13,7 @@ import org.slavicmyths.morovoy.MorovoyRaven;
 
 /**
  * Independent boss geometry, not a scaled NightRaven. 16 voxel units per block.
- * The beak-to-tail silhouette measures approximately 92 model units (5.75 blocks).
+ * The beak-to-tail silhouette measures approximately 96 model units (6 blocks).
  * Primary wings span roughly 230 model units (14.4 blocks), pose-dependent.
  */
 public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
@@ -51,7 +51,7 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         }
         add(bird,"throat_lesion",180,0,-2,-31,-23,4,1.7F,16);
         add(bird,"spine_feathers",130,40,-10,-32,10,20,4,24);
-        PartDefinition head = bird.addOrReplaceChild("head",CubeListBuilder.create().texOffs(0,150).addBox(-11,-11,-12,22,21,23).texOffs(94,151).addBox(-10,-13,-6,20,4,18).texOffs(166,42).addBox(-9,-14,2,18,6,11),PartPose.offset(0,-19,-26));
+        PartDefinition head = bird.addOrReplaceChild("head",CubeListBuilder.create().texOffs(0,150).addBox(-11,-11,-12,22,21,23).texOffs(94,151).addBox(-10,-13,-6,20,4,18).texOffs(166,42).addBox(-9,-14,2,18,6,11),PartPose.offset(0,-19,-20));
         // Wedge-like hooked upper beak and articulated lower mandible.
         add(head,"upper_beak_base",0,199,-8,0,-25,16,9,16);
         add(head,"upper_beak_hook",64,194,-6,3,-33,12,8,12);
@@ -89,8 +89,8 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
                 add(foot,"talon_"+toe,192,89,-5.8F+toe*4,20,-19,3,4.5F,7);
             }
         }
-        PartDefinition tail = bird.addOrReplaceChild("tail",box(0,229,-9,-4,-1,18,7,22),PartPose.offset(0,-3,23));
-        for(int i=0;i<7;i++) add(tail,"tail_plume_"+i,(i%2==0)?48:88,227,-19+i*5,-3,10+(i%2)*3,6,2.5F,19-(Math.abs(i-3)*2));
+        PartDefinition tail = bird.addOrReplaceChild("tail",box(0,229,-9,-4,-1,18,7,22),PartPose.offset(0,-3,17));
+        for(int i=0;i<7;i++) add(tail,"tail_plume_"+i,(i%2==0)?48:88,227,-19+i*5,-3,8+(i%2)*2,6,2.5F,14-(Math.abs(i-3)*2));
         add(tail,"tail_mor_vein",180,8,-2,-5,15,4,2,12);
         return LayerDefinition.create(mesh,256,256);
     }
