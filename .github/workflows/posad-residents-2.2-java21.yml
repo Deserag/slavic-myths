@@ -1,0 +1,58 @@
+name: Posad Residents 2.2 Java21 (issue 357)
+on:
+  push:
+    branches:
+      - codex/2.2.11-posad-residents-20261031
+    paths:
+      - 'src/main/java/org/slavicmyths/posad/**'
+      - 'src/main/java/org/slavicmyths/registry/ModEntities.java'
+      - 'src/main/java/org/slavicmyths/client/PosadResident*.java'
+      - 'src/main/java/org/slavicmyths/client/ClientSetup.java'
+      - 'src/main/resources/assets/slavicmyths/textures/entity/posad_resident_*.png'
+      - 'tools/posad-tests/**'
+      - '.github/workflows/posad-residents-2.2-java21.yml'
+  pull_request:
+    branches:
+      - '2.2'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile and run deterministic pure Java resident tests
+        run: |
+          mkdir -p build/posad-resident-check
+          javac -encoding UTF-8 -d build/posad-resident-check src/main/java/org/slavicmyths/posad/PosadPopulationPlan.java src/main/java/org/slavicmyths/posad/PosadResidentTraits.java tools/posad-tests/PosadPopulationPlanCheck.java tools/posad-tests/PosadResidentTraitsCheck.java
+          java -ea -cp build/posad-resident-check PosadPopulationPlanCheck
+          java -ea -cp build/posad-resident-check PosadResidentTraitsCheck
+      - name: Verify citizen PNG atlas signature and size
+        run: |
+          python - <<'PY'
+          import pathlib, struct
+          base = pathlib.Path('src/main/resources/assets/slavicmyths/textures/entity')
+          for i in range(5):
+              blob = (base / f'posad_resident_{i}.png').read_bytes()
+              assert blob.startswith(b'\x89PNG\r\n\x1a\n'), i
+              assert struct.unpack('>II', blob[16:24]) == (64, 64), i
+          print('5 PNG atlases: PASS')
+          PY
+      - name: Clean Gradle production build (NeoForge, Java 21)
+        run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: posad-residents-2.2-java21-jar
+          path: build/libs/slavicmyths-*.jar
+          if-no-files-found: error
+          retention-days: 14
