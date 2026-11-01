@@ -19181,7 +19181,7 @@
           "visibility": true
         },
         {
-          "name": "primary_left",
+          "name": "main_left",
           "origin": [
             -14,
             53,
@@ -19260,7 +19260,7 @@
           "visibility": true
         },
         {
-          "name": "secondary_left",
+          "name": "upper_left",
           "origin": [
             -12,
             41,
@@ -19358,7 +19358,7 @@
           "visibility": true
         },
         {
-          "name": "primary_right",
+          "name": "main_right",
           "origin": [
             14,
             53,
@@ -19434,7 +19434,7 @@
           "visibility": true
         },
         {
-          "name": "secondary_right",
+          "name": "upper_right",
           "origin": [
             12,
             41,
@@ -19593,7 +19593,7 @@
       "length": 1.5,
       "animators": {
         "73000000-0000-4000-8000-000000000019": {
-          "name": "primary_left",
+          "name": "main_left",
           "type": "bone",
           "keyframes": [
             {
@@ -19664,7 +19664,7 @@
           ]
         },
         "73000000-0000-4000-8000-000000000036": {
-          "name": "primary_right",
+          "name": "main_right",
           "type": "bone",
           "keyframes": [
             {
@@ -19735,7 +19735,7 @@
           ]
         },
         "73000000-0000-4000-8000-000000000026": {
-          "name": "secondary_left",
+          "name": "upper_left",
           "type": "bone",
           "keyframes": [
             {
@@ -19806,7 +19806,7 @@
           ]
         },
         "73000000-0000-4000-8000-000000000043": {
-          "name": "secondary_right",
+          "name": "upper_right",
           "type": "bone",
           "keyframes": [
             {
@@ -20214,7 +20214,7 @@
       "length": 2,
       "animators": {
         "73000000-0000-4000-8000-000000000019": {
-          "name": "primary_left",
+          "name": "main_left",
           "type": "bone",
           "keyframes": [
             {
@@ -20259,7 +20259,7 @@
           ]
         },
         "73000000-0000-4000-8000-000000000036": {
-          "name": "primary_right",
+          "name": "main_right",
           "type": "bone",
           "keyframes": [
             {
@@ -20304,7 +20304,7 @@
           ]
         },
         "73000000-0000-4000-8000-000000000026": {
-          "name": "secondary_left",
+          "name": "upper_left",
           "type": "bone",
           "keyframes": [
             {
@@ -20349,7 +20349,7 @@
           ]
         },
         "73000000-0000-4000-8000-000000000043": {
-          "name": "secondary_right",
+          "name": "upper_right",
           "type": "bone",
           "keyframes": [
             {
@@ -20582,7 +20582,7 @@
       "length": 1,
       "animators": {
         "73000000-0000-4000-8000-000000000019": {
-          "name": "primary_left",
+          "name": "main_left",
           "type": "bone",
           "keyframes": [
             {
@@ -20627,7 +20627,7 @@
           ]
         },
         "73000000-0000-4000-8000-000000000036": {
-          "name": "primary_right",
+          "name": "main_right",
           "type": "bone",
           "keyframes": [
             {
@@ -20672,7 +20672,7 @@
           ]
         },
         "73000000-0000-4000-8000-000000000026": {
-          "name": "secondary_left",
+          "name": "upper_left",
           "type": "bone",
           "keyframes": [
             {
@@ -20717,7 +20717,7 @@
           ]
         },
         "73000000-0000-4000-8000-000000000043": {
-          "name": "secondary_right",
+          "name": "upper_right",
           "type": "bone",
           "keyframes": [
             {
@@ -21053,7 +21053,7 @@
           ]
         },
         "73000000-0000-4000-8000-000000000019": {
-          "name": "primary_left",
+          "name": "main_left",
           "type": "bone",
           "keyframes": [
             {
@@ -21098,7 +21098,7 @@
           ]
         },
         "73000000-0000-4000-8000-000000000036": {
-          "name": "primary_right",
+          "name": "main_right",
           "type": "bone",
           "keyframes": [
             {
