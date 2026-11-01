@@ -284,7 +284,7 @@ public final class MorovoyRaven extends PathfinderMob {
         if (!world.hasChunkAt(BlockPos.containing(position().add(step.scale(3)))) || !world.getWorldBorder().isWithinBounds(BlockPos.containing(position().add(step.scale(3))))) return false;
         boolean landing = pose() == LANDING;
         // Expanded feather fans reach almost nine blocks horizontally. Takeoff also has opened wings.
-        double reach = minion() ? 1.65 : landing ? 5.5 : 9.0;
+        double reach = minion() ? 2.4 : landing ? 5.5 : 9.0;
         // A landing envelope must not dip into the legitimate floor by artificial vertical inflation.
         AABB envelope = getBoundingBox().move(step.scale(3)).inflate(reach, minion() ? .15 : landing ? 0 : .2, reach);
         if (!minion() && !landing) envelope = envelope.expandTowards(0, 2.7, 0);
