@@ -6,6 +6,7 @@ Owner approval: **NOT GRANTED**. Do not close the issue, merge without review, o
 ## Dependency and source audit
 
 - The arena branch `feat/2.3.1-morovoy-raven-arena-391` was compared with `2.3` on 2026-11-01: **identical, zero extra commits**, no arena PR. Therefore no worldgen or natural boss spawning is attempted in this feature. `setArenaAnchor(BlockPos)` is the explicit hook for the arena's future boss spawn.
+- The first-pass editable Blockbench source is provided as `MOROVOY_RAVEN_WIP.bbmodel` with 4 wing bones and 4 prototype clips. It has NOT been validated against the Minecraft runtime or approved PNGs.
 - The two owner-approved appearance/attacks PNGs named in #391 were **not** present in the GitHub reference branch; it contains only three supplemental SVGs. The custom runtime textures/voxel rig here are **first-pass original work, not verified matches**. Visual status: **ART_SOURCE_BLOCKED**.
 - Existing `NightRaven` serves as a movement/API reference only. The large model is not an upscaled copy.
 - The existing `MorZone` is tied to `LandSpiritEntity`; to avoid breaking it this feature uses bounded `RavenMiasma`. The plague DOT is vanilla Poison pending audit of the final Mor status effect.
@@ -15,9 +16,9 @@ Owner approval: **NOT GRANTED**. Do not close the issue, merge without review, o
 
 | Requirement | Real source | Art reference | Evidence / result | Status |
 |---|---|---|---|---|
-| Separate four-wing rig, beak, talons, tail | `MorovoyRavenModel.java` | Approved PNG A unavailable | Code and independent animation channels only; side-by-side in-game comparison absent | BLOCKED |
+| Separate four-wing rig, beak, talons, tail | `MorovoyRavenModel.java` | Approved PNG A unavailable | Java ModelPart + editable Blockbench source; side-by-side in-game comparison absent | BLOCKED |
 | 5–6-block torso length | `MorovoyRavenModel.java` | #391 | Source geometry approx 6 blocks; Minecraft measurement absent | NOT_RUN |
-| Real PNG texture and item sprites | `textures/entity/morovoy_raven.png`, `textures/item/*` | Approved PNG A unavailable | First-pass procedural pixel textures; not final approved art | BLOCKED |
+| Real PNG texture and item sprites | `textures/entity/morovoy_raven.png`, `textures/item/*` | Approved PNG A unavailable | First-pass procedural pixel textures and alpha-masked emissive glow; not final approved art | BLOCKED |
 | 3D flight and steering | `MorovoyRaven.java` | Approved PNG B unavailable | Collision-envelope steering and timed phase source; no test world | NOT_RUN |
 | Orbit, ranged, dive, claw, beak, wing sweep, summon | `MorovoyRaven.java`, `RavenBlightBolt.java` | #391 | Source implemented; frame timings, MP, obstacle QA not measured | NOT_RUN |
 | Non-destructive temporary ground plague | `RavenMiasma.java` | #391 | Timed owner-bound entity (no world block writes); 2-client QA absent | NOT_RUN |
