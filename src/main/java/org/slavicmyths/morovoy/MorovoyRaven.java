@@ -187,7 +187,7 @@ public final class MorovoyRaven extends PathfinderMob {
         }
     }
     private void tickMinion(ServerLevel world) {
-        if (parent == null || !(world.getEntity(parent) instanceof MorovoyRaven boss) || !boss.isAlive() || (minionLife > 0 && --minionLife == 0) || distanceToSqr(boss) > 90 * 90) { discard(); return; }
+        if (parent == null || !(world.getEntity(parent) instanceof MorovoyRaven boss) || !boss.isAlive() || (--minionLife <= 0) || distanceToSqr(boss) > 90 * 90) { discard(); return; }
         if (tickCount % 15 == 0) setTarget(valid(boss.getTarget()) ? boss.getTarget() : null);
         LivingEntity target = getTarget();
         if (valid(target)) {
@@ -217,10 +217,16 @@ public final class MorovoyRaven extends PathfinderMob {
         Vec3 movement = getDeltaMovement().scale(.52).add(chosen.scale(.48));
         if (safe(world, movement)) setDeltaMovement(movement);
         else setDeltaMovement(chosen.scale(.35));
-        float newYaw = (float)Math.toDegrees(Math.atan2(-chosen.x, chosen.z));
+        // Bank from the actual signed yaw change: chosen and difference are
+        // parallel when unobstructed, so their cross-product is always zero.
+        float desiredYaw = (float)Math.toDegrees(Math.atan2(-chosen.x, chosen.z));
+        float turn = Math.clamp(net.minecraft.util.Mth.wrapDegrees(desiredYaw - getYRot()), -9F, 9F);
+        float newYaw = getYRot() + turn;
         setYRot(newYaw);
         yBodyRot = yHeadRot = newYaw;
-        entityData.set(BANK, (float)Math.clamp((chosen.x * difference.z - chosen.z * difference.x) * .023, -.42, .42));
+        float oldBank = entityData.get(BANK);
+        float nextBank = oldBank * .72F + Math.clamp(turn * .038F, -.40F, .40F) * .28F;
+        if (Math.abs(nextBank - oldBank) > .002F) entityData.set(BANK, nextBank);
     }
     private boolean safe(ServerLevel world, Vec3 step) {
         // Predicts the broad four-wing flight envelope, not just the body hitbox.
@@ -230,7 +236,11 @@ public final class MorovoyRaven extends PathfinderMob {
         if (!world.hasChunkAt(BlockPos.containing(envelope.minX, getY(), envelope.minZ)) || !world.hasChunkAt(BlockPos.containing(envelope.maxX, getY(), envelope.maxZ)) || !world.hasChunkAt(BlockPos.containing(envelope.maxX, getY(), envelope.minZ)) || !world.hasChunkAt(BlockPos.containing(envelope.minX, getY(), envelope.maxZ))) return false;
         return world.noCollision(this, envelope) && world.clip(new ClipContext(position(), position().add(step.scale(3)), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this)).getType() == HitResult.Type.MISS;
     }
-    private void brake() { setDeltaMovement(getDeltaMovement().scale(.68)); }
+    private void brake() {
+        setDeltaMovement(getDeltaMovement().scale(.68));
+        float oldBank = entityData.get(BANK);
+        if (Math.abs(oldBank) > .002F) entityData.set(BANK, oldBank * .78F);
+    }
     private void finishAttack(ServerLevel world, int cooldown) { pose(RECOVER); nextAttack = world.getGameTime() + cooldown; }
     private void hit(LivingEntity victim, float damage, float knockback) {
         strikeDone = true;
@@ -304,8 +314,9 @@ public final class MorovoyRaven extends PathfinderMob {
         home = tag.getBoolean("HasHome") ? new BlockPos(tag.getInt("HomeX"), tag.getInt("HomeY"), tag.getInt("HomeZ")) : null;
         parent = tag.hasUUID("Parent") ? tag.getUUID("Parent") : null;
         entityData.set(POSE, Math.clamp(tag.getInt("Pose"), CIRCLE, PLAGUE));
-        entityData.set(POSE_START, tickCount);
         phaseTicks = Math.clamp(tag.getInt("PhaseTicks"), 0, 200);
+        // Align visible action timing with the restored server phase after a reload.
+        entityData.set(POSE_START, tickCount - phaseTicks);
         attackIndex = tag.getInt("AttackIndex"); minionLife = tag.getInt("MinionLife");
         nextAttack = tag.getLong("NextAttack");
         if (!minion() && home != null) waypoint = Vec3.atCenterOf(home).add(0, 15, 0);
