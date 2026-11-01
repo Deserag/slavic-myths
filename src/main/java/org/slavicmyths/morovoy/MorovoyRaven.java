@@ -4,6 +4,7 @@ import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -38,6 +39,7 @@ import net.minecraft.world.phys.Vec3;
  */
 public final class MorovoyRaven extends PathfinderMob {
     public static final int CIRCLE = 0, HOVER = 1, PROJECTILE = 2, SUMMON = 3, DIVE = 4, RECOVER = 5, BEAK = 6, CLAWS = 7, WING = 8, PLAGUE = 9;
+    public static final int LANDING = 10, GROUND_IDLE = 11, TAKEOFF = 12;
     private static final EntityDataAccessor<Integer> POSE = SynchedEntityData.defineId(MorovoyRaven.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> POSE_START = SynchedEntityData.defineId(MorovoyRaven.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Float> BANK = SynchedEntityData.defineId(MorovoyRaven.class, EntityDataSerializers.FLOAT);
@@ -115,6 +117,8 @@ public final class MorovoyRaven extends PathfinderMob {
         if (minion()) { tickMinion(world); return; }
         bossBar.setProgress(Math.max(0, Math.min(1, getHealth() / getMaxHealth())));
         activeTicks++;
+        // Stock Minecraft wing foley only; original boss calls/death audio remain unapproved.
+        if (pose() != LANDING && pose() != GROUND_IDLE && tickCount % 28 == 0) playSound(SoundEvents.PHANTOM_FLAP, 2.4F, .73F);
         if (tickCount % 20 == 0) {
             LivingEntity current = getTarget();
             if (!valid(current) || distanceToSqr(current) > 72 * 72) {
@@ -126,14 +130,44 @@ public final class MorovoyRaven extends PathfinderMob {
         if (!valid(target)) {
             setTarget(null);
             quietTicks++;
+            Vec3 landing = landingSpot(world);
+            if (pose() == GROUND_IDLE) {
+                setNoGravity(false);
+                brake();
+                return;
+            }
+            if (landing != null && (pose() == LANDING || quietTicks >= 120)) {
+                if (pose() != LANDING) pose(LANDING);
+                setNoGravity(false);
+                Vec3 approach = new Vec3(landing.x, Math.max(landing.y + .3, getY() - .65), landing.z);
+                steer(world, approach, .23);
+                double horizontal = (getX() - landing.x) * (getX() - landing.x) + (getZ() - landing.z) * (getZ() - landing.z);
+                if (horizontal < 4 && Math.abs(getY() - landing.y) < .65) {
+                    setDeltaMovement(Vec3.ZERO);
+                    pose(GROUND_IDLE);
+                }
+                return;
+            }
+            setNoGravity(true);
             pose(CIRCLE);
             if (home != null && quietTicks % 10 == 0) waypoint = Vec3.atCenterOf(home).add(0, 16, 0);
             steer(world, waypoint, .28);
             return;
         }
         quietTicks = 0;
+        if (pose() == LANDING || pose() == GROUND_IDLE) {
+            setNoGravity(true);
+            pose(TAKEOFF);
+        }
         phaseTicks++;
         getLookControl().setLookAt(target, 22, 22);
+        if (pose() == TAKEOFF) {
+            Vec3 lift = Vec3.atCenterOf(home == null ? blockPosition() : home).add(0, 17, 0);
+            steer(world, lift, .39);
+            if (phaseTicks >= 35 && getY() > lift.y - 7) pose(CIRCLE);
+            else if (phaseTicks >= 95) pose(CIRCLE); // bounded recovery if ceiling blocks ascent
+            return;
+        }
         if (pose() == CIRCLE || pose() == PLAGUE) {
             // Orbit is relative to the persisted arena anchor, not a moving player.
             Vec3 center = home == null ? position() : Vec3.atCenterOf(home);
@@ -149,7 +183,7 @@ public final class MorovoyRaven extends PathfinderMob {
             if (phaseTicks >= 26) {
                 int attack = attackIndex++ % 5;
                 pose(switch (attack) { case 0 -> PROJECTILE; case 1 -> SUMMON; case 2 -> DIVE; case 3 -> PLAGUE; default -> WING; });
-                if (pose() == DIVE) waypoint = target.position().add(0, 1.3, 0);
+                if (pose() == DIVE) { waypoint = target.position().add(0, 1.3, 0); playSound(SoundEvents.PHANTOM_SWOOP, 3F, .72F); }
             }
         } else if (pose() == PROJECTILE) {
             brake();
@@ -157,7 +191,7 @@ public final class MorovoyRaven extends PathfinderMob {
             if (phaseTicks >= 48) finishAttack(world, 65);
         } else if (pose() == SUMMON) {
             brake();
-            if (phaseTicks == 24) summon(world);
+            if (phaseTicks == 24) { playSound(SoundEvents.EVOKER_PREPARE_SUMMON, 2.6F, .8F); summon(world); }
             if (phaseTicks >= 55) finishAttack(world, 80);
         } else if (pose() == DIVE) {
             if (phaseTicks < 15) { brake(); waypoint = target.position().add(0, .9, 0); }
@@ -185,6 +219,14 @@ public final class MorovoyRaven extends PathfinderMob {
             steer(world, center, .35);
             if (phaseTicks >= 36) pose(CIRCLE);
         }
+    }
+    private Vec3 landingSpot(ServerLevel world) {
+        if (home == null || !world.hasChunkAt(home)) return null;
+        Vec3 center = Vec3.atCenterOf(home);
+        Vec3 top = center.add(0, 14, 0), bottom = center.add(0, -29, 0);
+        if (!world.hasChunkAt(BlockPos.containing(bottom))) return null;
+        net.minecraft.world.phys.BlockHitResult hit = world.clip(new ClipContext(top, bottom, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this));
+        return hit.getType() == HitResult.Type.BLOCK ? new Vec3(center.x, hit.getLocation().y + .05, center.z) : null;
     }
     private void tickMinion(ServerLevel world) {
         if (parent == null || !(world.getEntity(parent) instanceof MorovoyRaven boss) || !boss.isAlive() || (--minionLife <= 0) || distanceToSqr(boss) > 90 * 90) { discard(); return; }
@@ -231,8 +273,8 @@ public final class MorovoyRaven extends PathfinderMob {
     private boolean safe(ServerLevel world, Vec3 step) {
         // Predicts the broad four-wing flight envelope, not just the body hitbox.
         if (!world.hasChunkAt(BlockPos.containing(position().add(step.scale(3)))) || !world.getWorldBorder().isWithinBounds(BlockPos.containing(position().add(step.scale(3))))) return false;
-        double reach = minion() ? 1.65 : 6.8;
-        AABB envelope = getBoundingBox().move(step.scale(3)).inflate(reach, minion() ? .15 : 1.2, reach);
+        double reach = minion() ? 1.65 : pose() == LANDING ? 2.8 : 6.8;
+        AABB envelope = getBoundingBox().move(step.scale(3)).inflate(reach, minion() ? .15 : pose() == LANDING ? 0 : 1.2, reach);
         if (!world.hasChunkAt(BlockPos.containing(envelope.minX, getY(), envelope.minZ)) || !world.hasChunkAt(BlockPos.containing(envelope.maxX, getY(), envelope.maxZ)) || !world.hasChunkAt(BlockPos.containing(envelope.maxX, getY(), envelope.minZ)) || !world.hasChunkAt(BlockPos.containing(envelope.minX, getY(), envelope.maxZ))) return false;
         return world.noCollision(this, envelope) && world.clip(new ClipContext(position(), position().add(step.scale(3)), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this)).getType() == HitResult.Type.MISS;
     }
@@ -271,6 +313,7 @@ public final class MorovoyRaven extends PathfinderMob {
         Vec3 direction = target.getBoundingBox().getCenter().subtract(origin);
         bolt.shoot(direction.x, direction.y, direction.z, 1.25F, .8F);
         world.addFreshEntity(bolt);
+        playSound(SoundEvents.WITHER_SHOOT, 2.4F, .82F);
     }
     private void summon(ServerLevel world) {
         int existing = world.getEntitiesOfClass(MorovoyRaven.class, getBoundingBox().inflate(42), bird -> bird.minion() && getUUID().equals(bird.parent())).size();
@@ -313,12 +356,13 @@ public final class MorovoyRaven extends PathfinderMob {
         super.readAdditionalSaveData(tag);
         home = tag.getBoolean("HasHome") ? new BlockPos(tag.getInt("HomeX"), tag.getInt("HomeY"), tag.getInt("HomeZ")) : null;
         parent = tag.hasUUID("Parent") ? tag.getUUID("Parent") : null;
-        entityData.set(POSE, Math.clamp(tag.getInt("Pose"), CIRCLE, PLAGUE));
+        entityData.set(POSE, Math.clamp(tag.getInt("Pose"), CIRCLE, TAKEOFF));
         phaseTicks = Math.clamp(tag.getInt("PhaseTicks"), 0, 200);
         // Align visible action timing with the restored server phase after a reload.
         entityData.set(POSE_START, tickCount - phaseTicks);
         attackIndex = tag.getInt("AttackIndex"); minionLife = tag.getInt("MinionLife");
         nextAttack = tag.getLong("NextAttack");
         if (!minion() && home != null) waypoint = Vec3.atCenterOf(home).add(0, 15, 0);
+        if (!minion()) setNoGravity(pose() != GROUND_IDLE && pose() != LANDING);
     }
 }
