@@ -6,6 +6,8 @@ on:
       - 'src/main/java/org/slavicmyths/client/MorovoyRavenModel.java'
       - 'src/main/java/org/slavicmyths/morovoy/MorovoyRaven.java'
       - 'docs/implementation/2.3.1-morovoy-raven-391/**'
+      - 'src/main/resources/assets/slavicmyths/textures/entity/morovoy_raven.png'
+      - 'src/main/resources/assets/slavicmyths/textures/entity/morovoy_raven_glow.png'
       - 'tools/morovoy_raven_391_check.py'
       - '.github/workflows/morovoy-raven-3-4-visual-qa.yml'
   pull_request:
