@@ -65,12 +65,13 @@ public final class MorovoyFireZmey extends Monster {
   if(anchor==null)anchor=position();int age=stateAge()+1;entityData.set(STATE_AGE,age);
   bar.setProgress(Math.clamp(getHealth()/getMaxHealth(),0f,1f));
   if(state()==DYING){setDeltaMovement(Vec3.ZERO);if(age>=65)super.die(damageSources().genericKill());return;}
-  if(state()==SLEEPING){setDeltaMovement(Vec3.ZERO);setNoGravity(false);if(tickCount%30==0){passiveMor();for(ServerPlayer p:((ServerLevel)level()).players())if(p.isAlive()&&!p.isCreative()&&!p.isSpectator()&&MorovoyZmeyRules.shouldWake(p.distanceToSqr(position().add(0,1,0)))){nextState(WAKING);break;}}return;}
+  if(state()==SLEEPING){setDeltaMovement(Vec3.ZERO);setNoGravity(false);if(tickCount%30==0)passiveMor();if(tickCount%5==0)for(ServerPlayer p:((ServerLevel)level()).players())if(p.isAlive()&&!p.isCreative()&&!p.isSpectator()&&nearSleepingBody(p)){nextState(WAKING);break;}return;}
   if(state()==WAKING){setDeltaMovement(Vec3.ZERO);if(age==10)particles(0,position().add(0,2,0),24);if(age==40)particles(1,position().add(0,3,0),32);if(age>=65){nextState(PHASE_I);idleTicks=45;}return;}
   if(state()==PHASE_I&&MorovoyZmeyRules.secondPhase(getHealth(),getMaxHealth())){nextState(PHASE_II);particles(1,position().add(0,2,0),90);idleTicks=55;return;}
   if(tickCount%10==0)setTarget(selectTarget());
   LivingEntity target=getTarget();if(target!=null&&!canDamage(target))target=null;
   LivingEntity mor=sideTarget(0,target),fire=sideTarget(1,target);
+  if(mor!=null&&mor==fire){LivingEntity alternative=otherTarget(mor);if(alternative!=null)fire=alternative;}
   updateHeadAim(mor,fire);
   moveInAir(target,action()==DIVE&&actionAge()>=12&&actionAge()<=42);
   if(target==null){if(action()!=IDLE)act(IDLE);return;}
@@ -102,6 +103,17 @@ public final class MorovoyFireZmey extends Monster {
  private void tickGrab(){grabTicks--;if(!(level() instanceof ServerLevel world)||grabbed==null)return;net.minecraft.world.entity.Entity entity=world.getEntity(grabbed);if(!(entity instanceof LivingEntity victim)||!canDamage(victim)||!hasLineOfSight(victim)||distanceToSqr(victim)>36){grabTicks=0;grabbed=null;return;}if(grabTicks%5==0){Vec3 pull=mouth(action()==BITE_MOR?0:1).subtract(victim.position());victim.setDeltaMovement(victim.getDeltaMovement().add(pull.normalize().scale(.22)));victim.hurt(damageSources().mobAttack(this),2);}}
  private void passiveMor(){if(!(level() instanceof ServerLevel world))return;particles(0,position().add(0,.25,0),5);if(tickCount%90==0)MorovoyZmeyField.spawn(world,this,0,anchor,45);}
  private void particles(int element,Vec3 pos,int count){if(!(level() instanceof ServerLevel world))return;if(element!=0){PurpleFlameVisuals.burst(world,pos,count);return;}world.sendParticles(new DustParticleOptions(new Vector3f(.12f,.85f,.18f),1.1f),pos.x,pos.y,pos.z,count,.75,.45,.75,.04);}
+ private boolean nearSleepingBody(ServerPlayer player){
+  Vec3 relative=player.position().subtract(position());
+  double radians=Math.toRadians(getYRot()),fore=-(relative.x*Math.sin(radians)+relative.z*Math.cos(radians)),side=relative.x*Math.cos(radians)-relative.z*Math.sin(radians);
+  double longitudinal=fore-Mth.clamp(fore,-4.2,8.0),lateral=side-Mth.clamp(side,-1.15,1.15);
+  double vertical=Math.max(0,Math.abs(player.getY()-(getY()+.95))-.95);
+  return longitudinal*longitudinal+lateral*lateral+vertical*vertical<=49.0;
+ }
+ private LivingEntity otherTarget(LivingEntity avoid){
+  if(!(level() instanceof ServerLevel world)||anchor==null)return null;
+  return world.getPlayers(p->p!=avoid&&canDamage(p)&&p.distanceToSqr(anchor)<90*90&&p.distanceToSqr(this)<86*86).stream().min(java.util.Comparator.comparingDouble(this::distanceToSqr)).orElse(null);
+ }
  private LivingEntity sideTarget(int element,LivingEntity fallback){
   if(!(level() instanceof ServerLevel world)||anchor==null)return fallback;
   float radians=getYRot()*Mth.DEG_TO_RAD;double rightX=Math.cos(radians),rightZ=-Math.sin(radians);
