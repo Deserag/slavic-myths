@@ -238,9 +238,14 @@ public final class PosadPiece extends StructurePiece {
         }
         return stair.setValue(StairBlock.SHAPE,StairsShape.STRAIGHT);
     }
+    /** Final unrotated state written by postProcess after authored roof normalization. */
+    public net.minecraft.world.level.block.state.BlockState placementVoxel(int x,int y,int z) {
+        var state=voxel(x,y,z);
+        return state==null?null:resolvedRoofStair(state,x,y,z);
+    }
     /** Resolve iron bars/glass panes from final city-local voxels, not chunk placement order. */
     private net.minecraft.world.level.block.state.BlockState resolvedConnections(net.minecraft.world.level.block.state.BlockState local,int x,int y,int z,WorldGenLevel world,BlockPos worldPos) {
-        net.minecraft.world.level.block.state.BlockState state=resolvedRoofStair(local,x,y,z).rotate(Rotation.values()[turns]);
+        net.minecraft.world.level.block.state.BlockState state=local.rotate(Rotation.values()[turns]);
         if(!(state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock))return state;
         for(var direction:new net.minecraft.core.Direction[]{net.minecraft.core.Direction.NORTH,net.minecraft.core.Direction.EAST,net.minecraft.core.Direction.SOUTH,net.minecraft.core.Direction.WEST}) {
             // Direction is in the rotated WORLD frame. Map neighbor back to city coordinates.
@@ -283,7 +288,7 @@ public final class PosadPiece extends StructurePiece {
                 default -> new PosadGeometry.Cell(112-dz,dx);
             };
             for(int y=Math.max(boundingBox.minY(),clip.minY())-anchor.getY();y<=Math.min(anchor.getY()+17,clip.maxY())-anchor.getY();y++) {
-                var state=voxel(local.x(),y,local.z());
+                var state=placementVoxel(local.x(),y,local.z());
                 if(state==null || lateAttachment(state)!=(pass==1))continue;
                 BlockPos at=new BlockPos(wx,anchor.getY()+y,wz);
                 if(!clip.isInside(at)||!world.ensureCanWrite(at))continue;

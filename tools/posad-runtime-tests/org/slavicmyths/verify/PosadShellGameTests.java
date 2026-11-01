@@ -94,7 +94,7 @@ public final class PosadShellGameTests {
   for(int x=42;x<=70;x++)for(int z=12;z<=34;z++)for(int y=0;y<18;y++) {
    var source=PosadBuildings.voxel(x,y,z);
    if(source!=null)hallBlocks++;
-   var expected=piece.voxel(x,y,z);
+   var expected=piece.placementVoxel(x,y,z);
    if(expected==null)continue;
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    var actual=world.getBlockState(anchor.offset(p.x(),y,p.z()));
@@ -106,7 +106,7 @@ public final class PosadShellGameTests {
   for(int x=13;x<=35;x++)for(int z=15;z<=29;z++)for(int y=0;y<17;y++) {
    var source=PosadBuildings.voxel(x,y,z);
    if(source!=null)houseBlocks++;
-   var expected=piece.voxel(x,y,z);
+   var expected=piece.placementVoxel(x,y,z);
    if(expected==null)continue;
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    var at=anchor.offset(p.x(),y,p.z());
@@ -128,7 +128,7 @@ public final class PosadShellGameTests {
    for(int x=slot.local().minX();x<=slot.local().maxX();x++)for(int z=slot.local().minZ();z<=slot.local().maxZ();z++)for(int y=0;y<18;y++) {
     var source=PosadNextBuildings.voxel(x,y,z);
     if(source!=null){if(slot==PosadGeometry.Slot.DRUZHINNY_DVOR)militaryBlocks++;else forgeBlocks++;}
-    var expected=piece.voxel(x,y,z);
+    var expected=piece.placementVoxel(x,y,z);
     if(expected==null)continue;
     var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
     var at=anchor.offset(p.x(),y,p.z());
@@ -197,7 +197,7 @@ public final class PosadShellGameTests {
   System.out.println("POSAD_R3_TOWER_LAMPS_PASS rotation="+turns+" supported=12");
   int connectedWindows=0;
   for(int x=0;x<=112;x++)for(int z=0;z<=112;z++)for(int y=1;y<=17;y++){
-   var planned=piece.voxel(x,y,z);
+   var planned=piece.placementVoxel(x,y,z);
    if(planned==null||!(planned.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock))continue;
    var rotated=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    var at=anchor.offset(rotated.x(),y,rotated.z());
@@ -237,7 +237,7 @@ public final class PosadShellGameTests {
     for(int y=1;y<=17;y++) {
      var local=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
      var at=anchor.offset(local.x(),y,local.z());
-     var planned=piece.voxel(x,y,z);
+     var planned=piece.placementVoxel(x,y,z);
 
      if(candidate==0){
       var approved=PosadnikTerem.voxel(x,y,z);
@@ -423,7 +423,7 @@ public final class PosadShellGameTests {
   var restored=new PosadPiece(piece.createTag(context));
   t.assertTrue(restored.getBoundingBox().equals(piece.getBoundingBox()),"Bounds changed after NBT");
   for(int z=0;z<=136;z++)for(int x=0;x<113;x++)for(int y=-48;y<18;y++)
-   t.assertTrue(java.util.Objects.equals(piece.voxel(x,y,z),restored.voxel(x,y,z)),"Lost terrain geometry after NBT");
+   t.assertTrue(java.util.Objects.equals(piece.placementVoxel(x,y,z),restored.voxel(x,y,z)),"Lost terrain geometry after NBT");
   t.assertTrue(piece.voxel(0,-20,0).is(Blocks.POLISHED_BASALT),"Missing deep support");
   for(int z=113;z<=136;z++)for(int x=53;x<=59;x++) {
    t.assertTrue(piece.voxel(x,0,z).is(Blocks.POLISHED_BLACKSTONE_BRICKS),"Bridge deck hole");
