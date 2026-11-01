@@ -22,11 +22,11 @@
 | Approved side-by-side PNG | ART_SOURCE_BLOCKED | `MOROVOY_FIRE_ZMEY_APPROVED_REFERENCE.png` not found in current branch |
 | In-game screenshots/videos / FPS/MSPT | NOT_RUN | No Minecraft client run or capture produced |
 | Precise head/tail colliders and grab/release | IN_PROGRESS | Current logic is a first-pass combat implementation |
-| Individual animation clips and complete editable art rig | IN_PROGRESS | Native ModelPart rig exists; timeline clips and approved Blockbench comparison remain |
+| Individual animation clips and complete editable art rig | IN_PROGRESS | Editable Blockbench source and native ModelPart rig exist; final UV/clip parity and approved PNG comparison remain |
 
 ## Outstanding critical work
 1. Correct Java compiler/NeoForge API errors from actual CI, if any.
-2. Supply and hash-check the approved reference pack; finish a source-editable Blockbench model and proper 1:1 visual iteration.
+2. Supply and hash-check the approved reference pack; verify/edit the provisional Blockbench source against the approved source and finish proper 1:1 visual iteration.
 3. Real 3D flight corridor and anti-wall clip tests with opened wings; verify collision windows for both moving tails, both bites and airflow.
 4. Multiplayer/dedicated-server test, shield/faction tests, two heads and all hit timings, expiration after unload/restart, safe arena traversal.
 5. Capture unedited **Minecraft** front/side/back/¾, sleeping/waking and attack screenshots beside the approved reference.
