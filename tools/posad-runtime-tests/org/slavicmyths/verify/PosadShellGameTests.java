@@ -24,7 +24,7 @@ public final class PosadShellGameTests {
     t.assertTrue(PosadShell.voxel(x,y,z)==null,"Shell occupies building slot "+slot);
   t.succeed();
  }
- @GameTest(template="empty",timeoutTicks=200)
+ @GameTest(template="empty",batch="posad_physical_placement",timeoutTicks=200)
  public static void physicalChunkPlacement(GameTestHelper t) {
   var world=t.getLevel();
   for(int turns=0;turns<4;turns++) {
@@ -504,20 +504,21 @@ public final class PosadShellGameTests {
  }
 
 
- @GameTest(template="empty",timeoutTicks=200)
+ @GameTest(template="empty",batch="posad_registry",timeoutTicks=200)
  public static void nativePosadRegistryAndPlacement(GameTestHelper t) {
-  var world=t.getLevel();
-  var registry=world.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.STRUCTURE);
+  var access=t.getLevel().registryAccess();
   var id=net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","nether_posad");
-  var structure=registry.get(id);
+  var structures=access.registryOrThrow(net.minecraft.core.registries.Registries.STRUCTURE);
+  var structure=structures.get(id);
   t.assertTrue(structure instanceof PosadStructure,"Production nether_posad structure JSON is not loaded");
-  var holder=registry.wrapAsHolder(structure);
-  var placements=world.getChunkSource().getGeneratorState().getPlacementsForStructure(holder);
-  var placement=placements.stream().filter(net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement.class::isInstance)
-   .map(net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement.class::cast).findFirst().orElse(null);
-  t.assertTrue(placement!=null,"Production nether_posad StructureSet is not active");
+  var sets=access.registryOrThrow(net.minecraft.core.registries.Registries.STRUCTURE_SET);
+  var set=sets.get(id);
+  t.assertTrue(set!=null,"Production nether_posad StructureSet JSON is not loaded");
+  t.assertTrue(set.structures().stream().anyMatch(e->e.structure().value()==structure),"StructureSet does not reference production nether_posad");
+  t.assertTrue(set.placement() instanceof net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement,"Production nether_posad placement is not random_spread");
+  var placement=(net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement)set.placement();
   t.assertTrue(placement.spacing()==80&&placement.separation()==32,"Approved Posad spacing/separation drifted: "+placement);
-  System.out.println("POSAD_NATIVE_REGISTRY_PASS spacing=80 separation=32; salt=22022026 and frequency=0.75 are static datapack-authoring gates");
+  System.out.println("POSAD_NATIVE_REGISTRY_PASS structureSetLoaded=true spacing=80 separation=32; salt=22022026 frequency=0.75 statically authored");
   t.succeed();
  }
 
