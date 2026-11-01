@@ -145,6 +145,7 @@ public final class MorovoyRaven extends PathfinderMob {
                 if (horizontal < 4 && Math.abs(getY() - landing.y) < .65) {
                     setDeltaMovement(Vec3.ZERO);
                     pose(GROUND_IDLE);
+                    playSound(SoundEvents.IRON_GOLEM_STEP, 3F, .65F);
                 }
                 return;
             }
@@ -158,6 +159,7 @@ public final class MorovoyRaven extends PathfinderMob {
         if (pose() == LANDING || pose() == GROUND_IDLE) {
             setNoGravity(true);
             pose(TAKEOFF);
+            playSound(SoundEvents.PHANTOM_FLAP, 3.5F, .78F);
         }
         phaseTicks++;
         getLookControl().setLookAt(target, 22, 22);
@@ -214,7 +216,7 @@ public final class MorovoyRaven extends PathfinderMob {
             if (phaseTicks >= 27) finishAttack(world, 70);
         } else if (pose() == WING) {
             brake();
-            if (phaseTicks == 19) wingSweep(world);
+            if (phaseTicks == 19) { playSound(SoundEvents.PHANTOM_FLAP, 3.4F, .66F); wingSweep(world); }
             if (phaseTicks >= 36) finishAttack(world, 72);
         } else if (pose() == RECOVER) {
             Vec3 center = home == null ? position() : Vec3.atCenterOf(home).add(0, 14, 0);
