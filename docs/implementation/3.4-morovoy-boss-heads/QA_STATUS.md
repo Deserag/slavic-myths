@@ -13,12 +13,12 @@
 ## Blocked or incomplete — no false PASS
 1. Original approved `MOROVOY_FIRE_ZMEY_APPROVED_REFERENCE.png` and Raven reference archive must be reopened from the owner's prior uploads. Issue #396 records SHA-256 `e3b534bda20c1c36a9eddf5f7575bd6816cd1f7ad0df30e12c5f7ab5fe3083f5`; the source is not present in this GitHub checkout. No 1:1 visual acceptance can be claimed.
 2. The owner-file requires exact reference-to-model detail mapping, screenshot comparisons from all angles, independent boss animations and corrected fight behaviors. None of these is proven by this trophy-resource patch.
-3. **Boss head drops not connected yet.** The existing #396 QA ledger explicitly says the boss has no approved drop loot table and the owner has not chosen an overall head-drop probability. Do not silently invent a 100% drop, random chance or Raven-head drop rate. Once a successful head-drop event is authorized, select **one of the Fire/Mor trophies with equal weighting** and preserve existing Dragon Bone/Dragon Core rewards without changing crafting.
+3. **Overall boss-head drop chances are still unspecified.** The #396 QA ledger explicitly says no approved head loot table or overall probability. The existing drop event now normalizes any preexisting Fire/Mor head drop to exactly one randomly chosen 50/50 trophy, without creating a new drop chance. With no approved head-drop trigger, no serpent head drops. The Raven head's actual boss-drop trigger/chance is also pending approval. Preserve existing Dragon Bone/Dragon Core rewards and crafting.
 4. A Java 21 clean Gradle build, registry/resource validation, client startup, dedicated server, multiplayer, world reload, creative/inventory/hand/item-frame and break/placement screenshots are **NOT_RUN** for this branch. No runtime evidence was provided here.
 5. Fully authentic sound clips, model/texture correction and exact head appearance remain unresolved until original approved art and real runtime QA.
 
 ## Files touched
-- Java: `TrophyHeads.java`, `TrophyHeadBlock.java`, `TrophyHeadsClient.java`, `MorovoyRavenModel.java`.
+- Java: `TrophyHeads.java`, `TrophyHeadBlock.java`, `TrophyHeadDrops.java`, `TrophyHeadsClient.java`, `MorovoyRavenModel.java`.
 - Resources: 3 item models, 3 block models, 3 blockstates, 3 block-break loot tables, 2 localization JSON files, `creative_catalog.tsv`.
 
 ## Required next verification
