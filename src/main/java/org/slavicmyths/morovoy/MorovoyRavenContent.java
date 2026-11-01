@@ -19,6 +19,7 @@ public final class MorovoyRavenContent {
     public static final DeferredHolder<EntityType<?>, EntityType<RavenMiasma>> MIASMA = ModEntities.ENTITIES.register("morovoy_raven_miasma", () -> EntityType.Builder.<RavenMiasma>of(RavenMiasma::new, MobCategory.MISC).sized(.2F, .2F).clientTrackingRange(12).updateInterval(10).build("slavicmyths:morovoy_raven_miasma"));
     public static final DeferredHolder<Item, Item> FEATHER = ModItems.ITEMS.register("morovoy_raven_feather", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> CORE = ModItems.ITEMS.register("mor_core", () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+    public static final DeferredHolder<Item, Item> SPAWN_EGG = ModItems.ITEMS.register("morovoy_raven_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(BOSS, 0x24272A, 0x62B538, new Item.Properties()));
     public static void init(IEventBus bus) {
         bus.addListener((net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent event) -> {
             event.put(BOSS.get(), MorovoyRaven.attributes(false).build());

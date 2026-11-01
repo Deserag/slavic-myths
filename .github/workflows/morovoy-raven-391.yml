@@ -21,6 +21,8 @@ jobs:
         run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain
       - name: Raven asset and scope checks
         run: python3 tools/morovoy_raven_391_check.py
+      - name: Boss spawn egg registration and assets
+        run: python3 tools/qa/boss_spawn_eggs_2_3_check.py
       - name: Resource integrity
         run: python3 tools/verify_current_resources.py
       - name: Archive production jar
