@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Static P0 #389 audit. PASS here does NOT prove Minecraft runtime or visual compliance."""
 import json
+import re
 import struct
 import zlib
 from pathlib import Path
@@ -79,6 +80,11 @@ def audit():
     assert 'MAX_RUNE_SOCKETS = 3' in weapon and 'Runes.occupied(stack)' in weapon
     capacity = obj("src/main/resources/data/slavicmyths/tags/item/rune_capacity_3.json")["values"]
     assert "slavicmyths:okovny_sickle" in capacity and "slavicmyths:mytar_shackled_sickle" in capacity
+    assert re.search(r'MYTAR_SICKLE = ITEMS.register\("mytar_sickle", \(\) -> new SwordItem', items), "Short sickle must be melee-only"
+    assert 'HOOK_PHASE' in hook and 'HOOK_TARGET' in hook and 'latch(victim, 14)' in hook and 'latch(victim, 10)' in hook
+    assert 'boss.pullChainedVictim(player)' in hook and 'boss.finishChainedVictim()' in hook
+    assert 'public boolean pullChainedVictim(ServerPlayer victim)' in boss
+    assert 'actionTicks == 1 && chainVictim' not in boss, "Boss pull may not be linked to attack countdown"
     for slot, item in (("belt", "mytar_purse"), ("charm", "bauk_hide_charm")):
         assert f"slavicmyths:{item}" in obj(f"src/main/resources/data/curios/tags/item/{slot}.json")["values"]
     recipe = obj("src/main/resources/data/slavicmyths/recipe/mytar_shackled_sickle.json")
@@ -92,6 +98,10 @@ def audit():
     item = textured_model("src/main/resources/assets/slavicmyths/models/item/okovny_sickle.json", 30)
     assert sum(1 for e in item["elements"] if any(f["texture"] == "#rune" for f in e["faces"].values())) == 3
     assert len(obj("src/main/resources/assets/slavicmyths/blockstates/bauk_head.json")["variants"]) == 8
+    trophy_item = obj("src/main/resources/assets/slavicmyths/models/item/bauk_head.json")
+    assert max(trophy_item["display"]["firstperson_righthand"]["scale"]) <= 0.30
+    assert max(trophy_item["display"]["firstperson_lefthand"]["scale"]) <= 0.30
+    assert max(item["display"]["firstperson_righthand"]["scale"]) <= 0.60
     for locale in ("ru_ru", "en_us"):
         lang = obj(f"src/main/resources/assets/slavicmyths/lang/{locale}.json")
         for key in ("entity.slavicmyths.cursed_mytar", "entity.slavicmyths.bauk", "item.slavicmyths.okovny_sickle", "tooltip.slavicmyths.okovny_sickle.sockets"):
@@ -99,8 +109,16 @@ def audit():
     for name in ("BAUK", "MYTAR"):
         source = obj(f"docs/concepts/nether-settlement-2.2/bosses-2.2/sources/{name}_RIG_389.json")
         assert source["format"] == "slavic-myths-editable-voxel-rig-v1"
-        assert sum(map(len, source["cuboids"].values())) >= (180 if name == "BAUK" else 140)
-    print("PASS: 3 complete decompressed atlases, 3D block/item geometry, rig sources, registries, 3 rune slots, Curios, loot recipes and RU/EN keys")
+        assert sum(map(len, source["cuboids"].values())) >= (130 if name == "BAUK" else 130)
+        # Edited cuboids and Java bone geometry must remain one-to-one after a cleanup pass.
+        section = rig.split("        } else {\n        geometry.attach(root, head);")
+        assert len(section) == 2, "Unexpected two-rig Java layout"
+        java_section = section[0] if name == "BAUK" else section[1].split("        // The actual Minecraft ground plane")[0]
+        for part, cuboids in source["cuboids"].items():
+            assert len(re.findall(r"\\bcub\\(" + re.escape(part) + r",", java_section)) == len(cuboids), (name, part, len(cuboids))
+            boxes = [tuple(c["box"]) for c in cuboids]
+            assert len(boxes) == len(set(boxes)), (name, part, "duplicate geometry")
+    print("PASS: hooked projectile phases, melee-only sickle, cleaned one-to-one boss rigs, scaled trophy, resource atlases, recipes, rune slots and language keys")
     print("NOT_RUN: Java compilation, Forge GameTests, real Minecraft client render, dedicated multiplayer, PolyMC and owner acceptance")
 
 
