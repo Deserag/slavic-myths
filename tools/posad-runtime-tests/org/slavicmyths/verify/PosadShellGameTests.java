@@ -47,24 +47,32 @@ public final class PosadShellGameTests {
   }
   int hallBlocks=0,houseBlocks=0,houseChests=0;
   for(int x=42;x<=70;x++)for(int z=12;z<=34;z++)for(int y=0;y<18;y++) {
-   var expected=PosadBuildings.voxel(x,y,z);
+   var source=PosadBuildings.voxel(x,y,z);
+   if(source!=null)hallBlocks++;
+   var expected=piece.voxel(x,y,z);
    if(expected==null)continue;
-   hallBlocks++;
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    var actual=world.getBlockState(anchor.offset(p.x(),y,p.z()));
-   t.assertTrue(actual.is(expected.getBlock()),"Veche block missing at "+x+","+y+","+z+" rotation "+turns+": "+actual);
+   var rotated=expected.rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
+   t.assertTrue(actual.is(rotated.getBlock()),"Current Veche mismatch at "+x+","+y+","+z+" rot="+turns+" expected="+rotated+" found="+actual);
+   if(rotated.hasProperty(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING))
+    t.assertTrue(actual.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING)==rotated.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING),"Veche facing mismatch "+x+","+y+","+z+" rot="+turns);
   }
   for(int x=13;x<=35;x++)for(int z=15;z<=29;z++)for(int y=0;y<17;y++) {
-   var expected=PosadBuildings.voxel(x,y,z);
+   var source=PosadBuildings.voxel(x,y,z);
+   if(source!=null)houseBlocks++;
+   var expected=piece.voxel(x,y,z);
    if(expected==null)continue;
-   houseBlocks++;
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    var at=anchor.offset(p.x(),y,p.z());
    var actual=world.getBlockState(at);
-   t.assertTrue(actual.is(expected.getBlock()),"Communal block missing at "+x+","+y+","+z+" rotation "+turns+": "+actual);
+   var rotated=expected.rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
+   t.assertTrue(actual.is(rotated.getBlock()),"Current communal block mismatch "+x+","+y+","+z+" rot="+turns+" expected="+rotated+" actual="+actual);
    if(expected.is(Blocks.CHEST)) {
     houseChests++;
-    t.assertTrue(PosadBuildings.chestLoot(x,y,z)!=null,"Unregistered chest "+at);
+    String loot=PosadHouseRenovation.chestLoot(x,y,z);
+    if(loot==null)loot=PosadBuildings.chestLoot(x,y,z);
+    t.assertTrue(loot!=null,"Missing current-schema communal loot marker "+at);
     t.assertTrue(world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity,"Chest block entity missing "+at);
     var chest=(net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity)world.getBlockEntity(at);
     t.assertTrue(chest.getLootTable()!=null,"Chest lazy loot table missing "+at);
@@ -73,9 +81,10 @@ public final class PosadShellGameTests {
   int militaryBlocks=0,forgeBlocks=0,militaryChests=0,forgeChests=0;
   for(var slot:java.util.List.of(PosadGeometry.Slot.DRUZHINNY_DVOR,PosadGeometry.Slot.KUZNECHNY_DVOR)) {
    for(int x=slot.local().minX();x<=slot.local().maxX();x++)for(int z=slot.local().minZ();z<=slot.local().maxZ();z++)for(int y=0;y<18;y++) {
-    var expected=PosadNextBuildings.voxel(x,y,z);
+    var source=PosadNextBuildings.voxel(x,y,z);
+    if(source!=null){if(slot==PosadGeometry.Slot.DRUZHINNY_DVOR)militaryBlocks++;else forgeBlocks++;}
+    var expected=piece.voxel(x,y,z);
     if(expected==null)continue;
-    if(slot==PosadGeometry.Slot.DRUZHINNY_DVOR)militaryBlocks++;else forgeBlocks++;
     var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
     var at=anchor.offset(p.x(),y,p.z());
     var actual=world.getBlockState(at);
@@ -109,10 +118,139 @@ public final class PosadShellGameTests {
   }
   t.assertTrue(militaryBlocks==2440&&forgeBlocks==1901,"Wrong 2.2.4/2.2.5 block counts "+militaryBlocks+"/"+forgeBlocks);
   t.assertTrue(militaryChests==5&&forgeChests==5,"Wrong district chest counts "+militaryChests+"/"+forgeChests);
-  t.assertTrue(hallBlocks==3598,"Wrong hall voxel count "+hallBlocks);
-  t.assertTrue(houseBlocks==1992 && houseChests==4,"Wrong house voxel/chest count "+houseBlocks+"/"+houseChests);
+  int emittedLights=0;
+  for(int x=0;x<113;x++)for(int z=0;z<113;z++)for(int y:new int[]{1,7}) {
+   var light=PosadLightingR3.voxel(x,y,z);
+   if(light==null)continue;
+   emittedLights++;
+   var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+   var at=anchor.offset(p.x(),y,p.z());
+   var actual=world.getBlockState(at);
+   t.assertTrue(actual.is(Blocks.LANTERN),"Schema-18 lantern missing at "+x+","+y+","+z+" turn="+turns+" actual="+actual);
+   t.assertTrue(actual.canSurvive(world,at),"Schema-18 lantern unsupported at "+x+","+y+","+z+" turn="+turns);
   }
-  t.succeed();
+  t.assertTrue(emittedLights==28,"Wrong schema-18 physical lantern count "+emittedLights+" turn="+turns);
+  int r2Cells=0;
+  for(int x=42;x<=70;x++)for(int z=12;z<=34;z++)for(int y=0;y<=16;y++) {
+   var r2=PosadHallR2.voxel(x,y,z);
+   if(r2==null)continue;
+   r2Cells++;
+   var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+   var actual=world.getBlockState(anchor.offset(p.x(),y,p.z()));
+   t.assertTrue(actual.is(r2.getBlock()),"R2 physical mismatch "+x+","+y+","+z+" rot="+turns+" expected="+r2+" actual="+actual);
+  }
+  t.assertTrue(r2Cells==160,"Wrong Veche R2 geometry count "+r2Cells);
+  t.assertTrue(hallBlocks==3598,"Wrong immutable R1 hall count "+hallBlocks);
+  t.assertTrue(houseBlocks==1992 && houseChests==4,"Wrong house voxel/chest count "+houseBlocks+"/"+houseChests);
+  // Design-only #376: two possible roof envelopes for a future Posadnik house.
+  // Check the *actual* native city, not just an SVG, in all four rotations.
+  // This does NOT authorize building the residence or reserving either plot.
+  int[][] candidates={{61,72,78,95},{41,51,78,95}};
+  for(int candidate=0;candidate<candidates.length;candidate++) {
+   int[] area=candidates[candidate];
+   for(int x=area[0];x<=area[1];x++)for(int z=area[2];z<=area[3];z++) {
+    for(var slot:PosadGeometry.Slot.values())
+     t.assertTrue(!slot.local().contains(x,z),"Posadnik candidate overlaps reserved "+slot+" at "+x+","+z);
+    for(int y=1;y<=17;y++) {
+     var local=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+     var at=anchor.offset(local.x(),y,local.z());
+     var planned=piece.voxel(x,y,z);
+     t.assertTrue(planned==null||planned.isAir(),"Posadnik candidate has source block turn="+turns+" option="+candidate+" at="+x+","+y+","+z+" state="+planned);
+     t.assertTrue(world.getBlockState(at).isAir(),"Posadnik candidate physically occupied turn="+turns+" option="+candidate+" at="+at+" found="+world.getBlockState(at));
+    }
+    var local=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+    t.assertTrue(!world.getBlockState(anchor.offset(local.x(),0,local.z())).isAir(),"Posadnik candidate has no platform at "+x+","+z);
+   }
+   int entryZ=candidate==0?84:83;
+   int from=candidate==0?59:50,to=candidate==0?61:53;
+   for(int x=from;x<=to;x++)for(int y=1;y<=2;y++) {
+    var local=PosadGeometry.rotate(new PosadGeometry.Cell(x,entryZ),turns);
+    var at=anchor.offset(local.x(),y,local.z());
+    t.assertTrue(world.getBlockState(at).isAir(),"Posadnik candidate street access blocked turn="+turns+" option="+candidate+" at="+x+","+y+","+entryZ);
+   }
+   System.out.println("POSAD_TEREM_SITE_SURVEY schema="+PosadGeometry.SCHEMA_VERSION+" turn="+turns+" option="+(candidate==0?"east":"west")+" roof="+area[0]+".."+area[1]+","+area[2]+".."+area[3]+" y=1..17 empty=true roadAccess=true DESIGN_ONLY");
+  }
+  }
+  // Observe actual BLOCK light AFTER Minecraft's light engine has processed the
+  // placed chunks. This is a survey, not a fake PASS for 8/10 light targets.
+  // Samples include the entry, R2 nave, north room, stairs and upper floor,
+  // plus major public routes. Log blocked samples rather than hiding them.
+  t.runAfterDelay(60,()->{
+   String[] labels={"hall_entry","hall_south","hall_nave","hall_north","hall_elder","hall_upper_north","hall_upper_south","hall_west_stair","hall_upper_west","hall_upper_east","city_veche_square","city_veche_street","city_east_road","city_south_road"};
+   int[][] samples={{55,1,32},{55,1,30},{55,1,25},{55,1,21},{55,1,17},{55,7,17},{55,7,31},{46,1,26},{46,7,21},{65,7,24},{56,1,56},{56,1,38},{73,1,56},{56,1,76}};
+   for(int turns=0;turns<4;turns++){
+    var anchor=t.absolutePos(new net.minecraft.core.BlockPos(turns*160,140,0));
+    for(int i=0;i<samples.length;i++){
+     int[] p=samples[i];
+     var local=PosadGeometry.rotate(new PosadGeometry.Cell(p[0],p[2]),turns);
+     var at=anchor.offset(local.x(),p[1],local.z());
+     var feet=world.getBlockState(at);
+     var head=world.getBlockState(at.above());
+     var floor=world.getBlockState(at.below());
+     int blockLight=world.getBrightness(net.minecraft.world.level.LightLayer.BLOCK,at);
+     System.out.println("POSAD_LIGHT_SURVEY schema="+PosadGeometry.SCHEMA_VERSION+" turn="+turns+" room="+labels[i]+" local="+p[0]+","+p[1]+","+p[2]+" value="+blockLight+" feet="+feet.getBlock()+" head="+head.getBlock()+" floor="+floor.getBlock());
+     // Required public passages >=8 and work rooms >=10, measured after light propagation.
+     int minimum=(i==2||i==3||i==4||i==5||i==6)?10:8;
+     t.assertTrue(blockLight>=minimum,"Schema-18 dark place turn="+turns+" room="+labels[i]+" light="+blockLight+" required="+minimum+" at "+at);
+    }
+   }
+   // Walkable first-floor R2 central axis and the full eleven-block-wide
+   // passage between R05 nave and former R08 vestibule. Verify AIR at feet
+   // and head height in ACTUAL Minecraft blocks after all overlays/rotations.
+   for(int turns=0;turns<4;turns++){
+    var anchor=t.absolutePos(new net.minecraft.core.BlockPos(turns*160,140,0));
+    for(int z=20;z<=32;z++){
+     var p=PosadGeometry.rotate(new PosadGeometry.Cell(55,z),turns);
+     var at=anchor.offset(p.x(),1,p.z());
+     t.assertTrue(world.getBlockState(at).isAir() && world.getBlockState(at.above()).isAir(),"R2 central route blocked turn="+turns+" local=55,1,"+z);
+     t.assertTrue(!world.getBlockState(at.below()).isAir(),"R2 main route missing floor turn="+turns+" local=55,0,"+z);
+     t.assertTrue(world.getBrightness(net.minecraft.world.level.LightLayer.BLOCK,at)>=8,"R2 centerline below light 8 turn="+turns+" city=55,1,"+z);
+    }
+    // Entire public carriageway, not just selected snapshots, stays >=8.
+    for(int z=35;z<=106;z++){
+     var p=PosadGeometry.rotate(new PosadGeometry.Cell(56,z),turns);
+     var at=anchor.offset(p.x(),1,p.z());
+     t.assertTrue(world.getBlockState(at).isAir() && world.getBlockState(at.above()).isAir(),"Street path obstructed turn="+turns+" city=56,1,"+z);
+     int value=world.getBrightness(net.minecraft.world.level.LightLayer.BLOCK,at);
+     t.assertTrue(value>=8,"Dark public road turn="+turns+" city=56,1,"+z+" BLOCK="+value);
+    }
+    for(int x=51;x<=61;x++){
+     var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,28),turns);
+     var at=anchor.offset(p.x(),1,p.z());
+     t.assertTrue(world.getBlockState(at).isAir() && world.getBlockState(at.above()).isAir(),"R2 ceremonial arch blocked turn="+turns+" local="+x+",1,28");
+    }
+   }
+   // Grounded district survey: sample two-block-high navigable cells with a
+   // solid floor and an overhead structure. Exclude open courtyards, which
+   // intentionally have no roof and need different outdoor design targets.
+   // Do not assert the target yet: first expose all real dark sample positions.
+   for(int turns=0;turns<4;turns++) {
+    var anchor=t.absolutePos(new net.minecraft.core.BlockPos(turns*160,140,0));
+    for(var slot:PosadGeometry.Slot.values()) {
+     if(slot==PosadGeometry.Slot.VECHE_SQUARE||slot==PosadGeometry.Slot.VECHE_HALL)continue;
+     for(int y:new int[]{1,7}) {
+      int total=0,low8=0,low10=0,minimum=15;
+      var dark=new java.util.ArrayList<String>();
+      for(int x=slot.local().minX()+2;x<=slot.local().maxX()-2;x+=2)
+       for(int z=slot.local().minZ()+2;z<=slot.local().maxZ()-2;z+=2) {
+        var rotated=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
+        var at=anchor.offset(rotated.x(),y,rotated.z());
+        if(!world.getBlockState(at).isAir()||!world.getBlockState(at.above()).isAir()||world.getBlockState(at.below()).isAir())continue;
+        boolean roof=false;
+        for(int dy=3;dy<=10 && y+dy<=17;dy++)
+         if(!world.getBlockState(at.above(dy)).isAir()){roof=true;break;}
+        if(!roof)continue;
+        int value=world.getBrightness(net.minecraft.world.level.LightLayer.BLOCK,at);
+        total++;minimum=Math.min(minimum,value);
+        if(value<8){low8++;if(dark.size()<16)dark.add(x+","+y+","+z+"="+value);}
+        if(value<10)low10++;
+       }
+      System.out.println("POSAD_DISTRICT_LIGHT_SURVEY schema="+PosadGeometry.SCHEMA_VERSION+" turn="+turns+" district="+slot+" level="+y+" samples="+total+" min="+(total==0?"NA":minimum)+" below8="+low8+" below10="+low10+" dark="+dark);
+     }
+    }
+   }
+   t.succeed();
+  });
  }
  @GameTest(template="empty",timeoutTicks=200)
  public static void reservedAndCompletedCitiesSurviveDataRoundTrip(GameTestHelper t) {
@@ -232,8 +370,11 @@ public final class PosadShellGameTests {
   t.assertTrue(PosadShell.voxel(102,9,2).isAir(),"NE patrol link");
   t.assertTrue(PosadShell.voxel(10,9,110).isAir(),"SW patrol link");
   t.assertTrue(PosadShell.voxel(102,9,110).isAir(),"SE patrol link");
-  t.assertTrue(PosadShell.voxel(42,9,110).isAir(),"West gate patrol link");
-  t.assertTrue(PosadShell.voxel(70,9,110).isAir(),"East gate patrol link");
+  // Gate tower patrol doors open towards their connecting bridge, not outward.
+  t.assertTrue(PosadShell.voxel(50,9,110).isAir(),"West gate bridge access");
+  t.assertTrue(PosadShell.voxel(62,9,110).isAir(),"East gate bridge access");
+  t.assertTrue(!PosadShell.voxel(42,9,110).isAir(),"West gate exterior breach");
+  t.assertTrue(!PosadShell.voxel(70,9,110).isAir(),"East gate exterior breach");
   var roadMaterials=new java.util.HashSet<net.minecraft.world.level.block.Block>();
   var wallMaterials=new java.util.HashSet<net.minecraft.world.level.block.Block>();
   for(int z=12;z<=100;z++)roadMaterials.add(PosadShell.voxel(55,0,z).getBlock());

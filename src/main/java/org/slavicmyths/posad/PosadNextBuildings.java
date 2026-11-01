@@ -111,7 +111,7 @@ public final class PosadNextBuildings {
         return new District(ox, oz, width, height, depth, cells, loot);
     }
 
-    private static BlockState parseState(String input) {
+    static BlockState parseState(String input) {
         int begin = input.indexOf('[');
         String id = begin < 0 ? input : input.substring(0, begin);
         ResourceLocation key = ResourceLocation.parse(id);

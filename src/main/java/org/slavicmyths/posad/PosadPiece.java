@@ -61,6 +61,66 @@ public final class PosadPiece extends StructurePiece {
             return -y<depth?Blocks.POLISHED_BASALT.defaultBlockState():null;
         }
         if(PosadGeometry.CITY.contains(x,z)) {
+            if(schema >= 18) {
+                var light=PosadLightingR3.voxel(x,y,z);
+                if(light!=null)return light;
+            }
+            if(schema >= 17) {
+                var hallR2=PosadHallR2.voxel(x,y,z);
+                if(hallR2!=null)return hallR2;
+            }
+            if(schema >= 16) {
+                var easternRoof=PosadEasternRoofRepair.voxel(x,y,z);
+                if(easternRoof!=null)return easternRoof;
+            }
+            if(schema >= 15) {
+                var chimney=PosadForgeChimneyRoofRepair.voxel(x,y,z);
+                if(chimney!=null)return chimney;
+            }
+            if(schema >= 14) {
+                var districtRoof=PosadDistrictRoofRepair.voxel(x,y,z);
+                if(districtRoof!=null)return districtRoof;
+            }
+            if(schema >= 13) {
+                var roof=PosadHallRoofRepair.voxel(x,y,z);
+                if(roof!=null)return roof;
+            }
+            if(schema >= 12) {
+                var comfort=PosadHallComfort.voxel(x,y,z);
+                if(comfort!=null)return comfort;
+            }
+            if(schema >= 11) {
+                var entrance=PosadDruzhinaEntrances.voxel(x,y,z);
+                if(entrance!=null)return entrance;
+            }
+            if(schema >= 10) {
+                var courtyards=PosadCourtyardFinishes.voxel(x,y,z);
+                if(courtyards!=null)return courtyards;
+            }
+            if(schema >= 9) {
+                var marketInterior=PosadMarketRenovation.voxel(x,y,z);
+                if(marketInterior!=null)return marketInterior;
+            }
+            if(schema >= 8) {
+                var polishedHall=PosadHallRefinement.voxel(x,y,z);
+                if(polishedHall!=null)return polishedHall;
+            }
+            if(schema >= 7) {
+                var house=PosadHouseRenovation.voxel(x,y,z);
+                if(house!=null)return house;
+            }
+            if(schema >= 6) {
+                var finish=PosadFinishes.voxel(x,y,z);
+                if(finish!=null)return finish;
+            }
+            if(schema >= 5) {
+                var market=PosadMarketBuildings.voxel(x,y,z);
+                if(market!=null)return market;
+            }
+            if(schema >= 4) {
+                var district=PosadAdditionalBuildings.voxel(x,y,z);
+                if(district!=null)return district;
+            }
             if(schema >= 3) {
                 var district=PosadNextBuildings.voxel(x,y,z);
                 if(district!=null)return district;
@@ -78,10 +138,19 @@ public final class PosadPiece extends StructurePiece {
         }
         return null;
     }
+    private static boolean shelf(net.minecraft.world.level.block.state.BlockState state) {
+        return state.getBlock() instanceof org.slavicmyths.furniture.FurnitureBlock f && "shelf".equals(f.kind);
+    }
+    private static boolean lateAttachment(net.minecraft.world.level.block.state.BlockState state) {
+        if(shelf(state) || state.is(Blocks.WALL_TORCH) || state.is(Blocks.SOUL_WALL_TORCH))return true;
+        return (state.is(Blocks.LANTERN) || state.is(Blocks.SOUL_LANTERN))
+            && state.getValue(net.minecraft.world.level.block.LanternBlock.HANGING);
+    }
     @Override public void postProcess(WorldGenLevel world,StructureManager manager,ChunkGenerator generator,RandomSource random,BoundingBox clip,ChunkPos chunk,BlockPos pivot) {
-        // At most 16x16x66 voxel decisions per chunk; never scan the whole city per chunk.
+        // Two bounded 16x16x66 passes: masonry/support first, attached lights and shelves last.
         int x0=Math.max(clip.minX(),boundingBox.minX()),x1=Math.min(clip.maxX(),boundingBox.maxX());
         int z0=Math.max(clip.minZ(),boundingBox.minZ()),z1=Math.min(clip.maxZ(),boundingBox.maxZ());
+        for(int pass=0;pass<2;pass++) {
         for(int wz=z0;wz<=z1;wz++)for(int wx=x0;wx<=x1;wx++) {
             int dx=wx-anchor.getX(),dz=wz-anchor.getZ();
             var local=switch(turns){
@@ -92,20 +161,19 @@ public final class PosadPiece extends StructurePiece {
             };
             for(int y=Math.max(boundingBox.minY(),clip.minY())-anchor.getY();y<=Math.min(anchor.getY()+17,clip.maxY())-anchor.getY();y++) {
                 var state=voxel(local.x(),y,local.z());
-                if(state==null)continue;
+                if(state==null || lateAttachment(state)!=(pass==1))continue;
                 BlockPos at=new BlockPos(wx,anchor.getY()+y,wz);
                 if(!clip.isInside(at)||!world.ensureCanWrite(at))continue;
                 var old=world.getBlockState(at);
                 if(old.hasBlockEntity()||old.is(Blocks.BEDROCK)||!(old.isAir()||old.is(Blocks.LAVA)||NetherBridgeTerrain.natural(old)))continue;
-                if(state.isAir()&&!old.isAir())continue;
+                if(state.isAir()&&!old.isAir() && !(schema>=17 && PosadHallR2.isOpening(local.x(),y,local.z())))continue;
                 try {
                     var placed=state.rotate(Rotation.values()[turns]);
-                    if (state.is(Blocks.CARVED_PUMPKIN)) {
-                        // R1 military practice dummies use three original carved pumpkins.
-                        // Vanilla onPlace invokes a multi-chunk golem BlockPattern read even
-                        // in WorldGenRegion where neighbor states may be inaccessible.
-                        // Chunk-local write preserves the EXACT approved block/facing,
-                        // skips that unrelated entity-spawn probe and never loads neighbors.
+                    if (state.is(Blocks.CARVED_PUMPKIN) || shelf(state)) {
+                        // Carved pumpkins avoid vanilla multi-chunk golem probes. Wall
+                        // shelves are deferred until masonry is in place and written
+                        // without premature neighbor updates across chunk boundaries.
+                        // Neither block has an inventory nor emits light.
                         var changed=world.getChunk(wx>>4,wz>>4).setBlockState(at,placed,false);
                         if (changed==null) throw new IllegalStateException("Chunk-local pumpkin write refused at "+at);
                     } else {
@@ -114,14 +182,25 @@ public final class PosadPiece extends StructurePiece {
                 } catch(RuntimeException e) {
                     throw new IllegalStateException("Posad placement failed: local "+local.x()+","+y+","+local.z()+" world "+at+" block "+state+" rotation "+turns+" schema "+schema, e);
                 }
+                if(schema >= 6 && state.is(Blocks.BARREL) && world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity barrel) {
+                    String table=PosadFinishes.barrelLoot(local.x(),local.z());
+                    barrel.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",table)),at.asLong()^anchor.asLong());
+                    barrel.setChanged();
+                }
                 if(schema >= 2 && state.is(Blocks.CHEST) && world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity chest) {
-                    String loot=schema >= 3 ? PosadNextBuildings.chestLoot(local.x(),y,local.z()) : null;
+                    String loot=schema >= 9 ? PosadMarketRenovation.chestLoot(local.x(),y,local.z()) : null;
+                    if(loot==null && schema >= 7)loot=PosadHouseRenovation.chestLoot(local.x(),y,local.z());
+                    if(loot==null && schema >= 6)loot=PosadFinishes.chestLoot(local.x(),y,local.z());
+                    if(loot==null && schema >= 5)loot=PosadMarketBuildings.chestLoot(local.x(),y,local.z());
+                    if(loot==null && schema >= 4)loot=PosadAdditionalBuildings.chestLoot(local.x(),y,local.z());
+                    if(loot==null && schema >= 3)loot=PosadNextBuildings.chestLoot(local.x(),y,local.z());
                     if(loot==null)loot=PosadBuildings.chestLoot(local.x(),y,local.z());
                     if(loot==null)throw new IllegalStateException("Unexpected posad chest at "+local);
                     chest.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",loot)),at.asLong()^anchor.asLong());
                     chest.setChanged();
                 }
             }
+        }
         }
     }
 }
