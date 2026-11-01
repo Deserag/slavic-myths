@@ -139,19 +139,20 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
                 float tipWidth = i >= 6 ? 12 - (i - 5) * 1.6F : 12;
                 add(featherBone,"main_flight_"+i,(i%2==0)?0:98,40,outer-featherOffset,-2,-11+i*.65F,tipWidth,fanDrop,7.4F);
                 // Split plum-coloured lower edges into overlapping ragged fingers.
-                add(featherBone,"main_plum_end_"+i,216,170,outer+1-featherOffset,fanDrop-7,-11-i*.23F,10,8+(i%3)*2,5.1F);
-                if(i%2==0 || i==7) add(featherBone,"main_hanging_fray_"+i,216,170,outer+((i%3)*2)-featherOffset,fanDrop+1,-11,2.3F,7+(i*7)%13,2.5F);
-                if(i%3==1) add(featherBone,"main_sheared_feather_"+i,130,40,outer+5-featherOffset,fanDrop-11,-11.6F,3,5.5F,4.1F);
+                add(featherBone,"main_plum_end_"+i,216,170,outer+1-featherOffset,fanDrop-7,-11+i*.65F,10,8+(i%3)*2,5.1F);
+                if(i%2==0 || i==7) add(featherBone,"main_hanging_fray_"+i,216,170,outer+((i%3)*2)-featherOffset,fanDrop+1,-11+i*.65F,2.3F,7+(i*7)%13,2.5F);
+                if(i%3==1) add(featherBone,"main_sheared_feather_"+i,130,40,outer+5-featherOffset,fanDrop-11,-11.6F+i*.65F,3,5.5F,4.1F);
                 add(featherBone,"main_cover_"+i,130,40,outer+1-featherOffset,-4,-15+i*.65F,Math.min(10,tipWidth),8+(i%3)*2,7.8F);
+                add(featherBone,"main_layered_covert_"+i,130,40,outer+3-featherOffset,3+(i%3),-15.4F+i*.65F,Math.min(7,tipWidth),7+(i%3)*1.7F,2.2F);
                 if(i>1 && i<8 && (i+side)%3!=0) {
                     float damage = 4 + (i%3)*4 + (side<0 ? 1 : 0);
-                    add(featherBone,"torn_plume_"+i,216,170,outer+3-featherOffset,fanDrop+1,-10,4,damage+3,3.6F);
+                    add(featherBone,"torn_plume_"+i,216,170,outer+3-featherOffset,fanDrop+1,-10+i*.65F,4,damage+3,3.6F);
                 }
                 if(i==1 || i==4 || (i==6 && side<0)) {
-                    add(featherBone,"mor_branch_core_"+i,180,0,outer+3-featherOffset,4,-15.9F,2,fanDrop*.53F,1.6F);
-                    add(featherBone,"mor_branch_side_"+i,180,8,outer+8-featherOffset,8,-15.8F,2,fanDrop*.27F,1.4F);
-                    add(featherBone,"mor_branch_elbow_"+i,180,0,outer+4-featherOffset,10,-15.95F,5.3F,1.9F,1.5F);
-                    if(i==4 || (i==6 && side<0)) add(featherBone,"mor_branch_broken_fork_"+i,180,8,outer+9-featherOffset,13,-15.9F,1.3F,6,1.3F);
+                    add(featherBone,"mor_branch_core_"+i,180,0,outer+3-featherOffset,4,-15.9F+i*.65F,2,fanDrop*.53F,1.6F);
+                    add(featherBone,"mor_branch_side_"+i,180,8,outer+8-featherOffset,8,-15.8F+i*.65F,2,fanDrop*.27F,1.4F);
+                    add(featherBone,"mor_branch_elbow_"+i,180,0,outer+4-featherOffset,10,-15.95F+i*.65F,5.3F,1.9F,1.5F);
+                    if(i==4 || (i==6 && side<0)) add(featherBone,"mor_branch_broken_fork_"+i,180,8,outer+9-featherOffset,13,-15.9F+i*.65F,1.3F,6,1.3F);
                 }
             }
             PartDefinition secondary = bird.addOrReplaceChild("secondary_"+suffix, box(0,110,side < 0 ? -23 : 0,-4,-9,23,7,18),PartPose.offset(side*12,-32,3));
@@ -165,14 +166,15 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
                 float sickDrop = 14 + i * 1.8F + (i % 3) * 3.5F;
                 float sickWidth = i >= 4 ? 10 - (i - 3) * 1.4F : 10;
                 add(featherBone,"upper_flight_"+i,50,125,outer-featherOffset,-2,-8+i*.75F,sickWidth,sickDrop,6.5F);
-                add(featherBone,"upper_plum_end_"+i,216,170,outer+1-featherOffset,sickDrop-7,-8-i*.37F,8,9+(i%3)*2,5.2F);
-                if(i%2==0 || i==5) add(featherBone,"upper_frayed_strand_"+i,216,170,outer+((i%3)*2)-featherOffset,sickDrop+1,-8,2.1F,8+(i*5)%13,2.4F);
+                add(featherBone,"upper_plum_end_"+i,216,170,outer+1-featherOffset,sickDrop-7,-8+i*.75F,8,9+(i%3)*2,5.2F);
+                if(i%2==0 || i==5) add(featherBone,"upper_frayed_strand_"+i,216,170,outer+((i%3)*2)-featherOffset,sickDrop+1,-8+i*.75F,2.1F,8+(i*5)%13,2.4F);
                 add(featherBone,"upper_cover_"+i,156,0,outer+1-featherOffset,-4,-12+i*.75F,Math.min(8,sickWidth),7+(i%2)*2,7.7F);
-                if(i==2 || i==4 || (side<0 && i==5)) add(featherBone,"upper_torn_"+i,216,170,outer+3-featherOffset,sickDrop, -8,3,5+i*2,3);
+                add(featherBone,"upper_layered_covert_"+i,130,40,outer+2-featherOffset,2+(i%3),-12.3F+i*.75F,Math.min(6,sickWidth),5+(i%3)*1.3F,2.1F);
+                if(i==2 || i==4 || (side<0 && i==5)) add(featherBone,"upper_torn_"+i,216,170,outer+3-featherOffset,sickDrop, -8+i*.75F,3,5+i*2,3);
                 if(i==1 || i==4) {
-                    add(featherBone,"upper_mor_branch_"+i,180,0,outer+3-featherOffset,2,-12.8F,2,sickDrop*.52F,1.2F);
-                    add(featherBone,"upper_mor_branch_spur_"+i,180,8,outer+7-featherOffset,5,-12.7F,2,sickDrop*.24F,1.3F);
-                    add(featherBone,"upper_mor_angled_joint_"+i,180,0,outer+4-featherOffset,8,-12.9F,4,1.7F,1.5F);
+                    add(featherBone,"upper_mor_branch_"+i,180,0,outer+3-featherOffset,2,-12.8F+i*.75F,2,sickDrop*.52F,1.2F);
+                    add(featherBone,"upper_mor_branch_spur_"+i,180,8,outer+7-featherOffset,5,-12.7F+i*.75F,2,sickDrop*.24F,1.3F);
+                    add(featherBone,"upper_mor_angled_joint_"+i,180,0,outer+4-featherOffset,8,-12.9F+i*.75F,4,1.7F,1.5F);
                 }
             }
             // Chunky articulated-looking thighs, knee, shins, forward grip and hooked ivory tips.
