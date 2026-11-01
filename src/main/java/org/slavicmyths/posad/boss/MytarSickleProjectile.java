@@ -50,7 +50,7 @@ public final class MytarSickleProjectile extends ThrowableItemProjectile {
         Vec3 front = new Vec3(-Math.sin(yaw), 0D, Math.cos(yaw));
         Vec3 right = new Vec3(-front.z, 0D, front.x);
         double lateral = owner instanceof PosadBoss ? .6875D : .36D;
-        double height = owner instanceof PosadBoss ? 1.3125D : owner.getEyeHeight() - .46D;
+        double height = owner instanceof PosadBoss ? .6D : owner.getEyeHeight() - .46D;
         return base.add(right.scale(offhand ? -lateral : lateral)).add(front.scale(.22D)).add(0D, height, 0D);
     }
     @Override protected Item getDefaultItem() { return ModItems.OKOVNY_SICKLE.get(); }
