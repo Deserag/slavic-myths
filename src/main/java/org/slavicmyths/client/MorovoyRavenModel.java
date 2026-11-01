@@ -111,10 +111,10 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         add(skull, "cranium", 0, 150, -9, -10, -14, 18, 17, 24);
         add(skull, "brow", 94, 151, -8, -12, -12, 16, 4, 12);
         add(skull, "nape", 166, 42, -7, -7, 8, 14, 10, 9);
-        add(skull, "upper_beak_root", 64, 194, -7, -1, -25, 14, 7, 12);
-        add(skull, "upper_beak_wedge", 64, 194, -5, 0, -31, 10, 6, 9);
-        add(skull, "upper_beak_hook", 64, 194, -3, 3, -35, 6, 8, 7);
-        add(skull, "hooked_tip", 64, 194, -1.8F, 9, -36, 3.6F, 7, 3.5F);
+        add(skull, "upper_beak_root", 64, 194, -7.0F, -1.0F, -25.0F, 14.0F, 7.0F, 12.0F);
+        add(skull, "upper_beak_wedge", 64, 194, -5.0F, 0.0F, -34.0F, 10.0F, 6.0F, 9.0F);
+        add(skull, "upper_beak_hook", 64, 194, -3.0F, 2.5F, -41.0F, 6.0F, 8.0F, 7.0F);
+        add(skull, "hooked_tip", 64, 194, -1.8F, 7.0F, -45.0F, 3.6F, 6.0F, 4.0F);
         add(skull, "nostril_left", 20, 160, -6.9F, 1, -24, 1, 2, 2);
         add(skull, "nostril_right", 20, 160, 5.9F, 1, -24, 1, 2, 2);
         add(skull, "eye_left", 185, 38, -9.6F, -5, -8, 1, 3, 4);
