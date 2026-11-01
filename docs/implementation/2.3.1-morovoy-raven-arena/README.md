@@ -13,7 +13,7 @@ java -cp build/morovoy-geometry org.slavicmyths.morovoy.MorovoyArenaGeometrySmok
 ## Acceptance matrix
 | Requirement | Evidence | Status |
 | --- | --- | --- |
-| Pure geometry, five seeds | Java smoke harness | NOT_RUN |
+| Pure geometry, five seeds | Java 21 standalone smoke, 5/5 PASS; exact GitHub blobs verified | PASS |
 | Java21 clean build and NeoForge | Gradle/CI logs | NOT_RUN |
 | Five actual seed-generated Nether craters | Server logs, coords, chunks | NOT_RUN |
 | Appearance and four Minecraft screenshots | In-game visuals | NOT_RUN |
@@ -24,3 +24,14 @@ java -cp build/morovoy-geometry org.slavicmyths.morovoy.MorovoyArenaGeometrySmok
 | Generation timing and no chunk force-load | Profiler / logs | NOT_RUN |
 
 No gameplay test or owner acceptance is claimed. Remains IN_PROGRESS until runtime checks.
+
+## Local offline QA — 2026-11-01
+Java: OpenJDK 21.0.12.1; exact GitHub source/test blob hashes compared to local files.
+- Geometry: 78a9f93c9035e366fe7cf7b1f5ca8221ed25de74
+- Smoke: 039f5dfccba9607a37774fc36e1fa79549f97b62
+- Seeds: 0, 1, 12345, -1742048, 1521558346
+- Reported arena footprint columns: 42227, 42125, 42276, 42270, 42317.
+- Combat-area columns: 9477 for each seed.
+- Java compilation and smoke main: PASS (5/5).
+
+This verifies only pure crater-math invariants; Minecraft runtime checks remain NOT_RUN.
