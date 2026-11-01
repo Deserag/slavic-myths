@@ -86,12 +86,12 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         }
         PartDefinition head = bird.addOrReplaceChild("head",CubeListBuilder.create().texOffs(0,150).addBox(-11,-11,-12,22,21,23).texOffs(94,151).addBox(-10,-13,-6,20,4,18).texOffs(166,42).addBox(-9,-14,2,18,6,11),PartPose.offset(0,-19,-17));
         // Wedge-like hooked upper beak and articulated lower mandible.
-        add(head,"upper_beak_base",0,199,-8,0,-25,16,9,16);
+        add(head,"upper_beak_base",64,194,-8,0,-25,16,9,16);
         add(head,"upper_beak_bridge",64,194,-6.5F,2,-31,13,7,11);
         add(head,"upper_beak_hook",64,194,-4.8F,5,-34,9.6F,6.5F,8);
-        add(head,"beak_tip",100,194,-2.6F,8,-35,5.2F,7.5F,5);
+        add(head,"beak_tip",64,194,-2.6F,8,-35,5.2F,7.5F,5);
         PartDefinition jaw = head.addOrReplaceChild("jaw",box(130,193,-6,10,-25,12,4,17),PartPose.offset(0,0,0));
-        add(jaw,"lower_mandible_tip",100,194,-3.7F,10,-32,7.4F,3.2F,8);
+        add(jaw,"lower_mandible_tip",64,194,-3.7F,10,-32,7.4F,3.2F,8);
         add(jaw,"tongue",156,194,-3,11,-25,6,1.5F,13);
         // Visible long plague saliva strings dangling from the open beak.
         add(jaw,"mor_drool_left",180,0,-6.5F,13,-19,1.4F,15,1.4F);
@@ -102,12 +102,12 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         add(head,"eye_glow_left",185,38,10.5F,-2,-6,1,2,2);
         add(head,"eye_glow_right",185,38,-11.5F,-2,-6,1,2,2);
         for(int i=0;i<5;i++) {
-            add(head,"crown_"+i,176,62,-8+i*3.7F,-15-(i%3),-2,2.8F,6,12);
-            add(head,"crown_rear_"+i,176,62,-7.5F+i*3.6F,-11-(i%2)*2,8,2.5F,5.5F,9+(i%2)*4);
+            add(head,"crown_"+i,0,150,-8+i*3.7F,-15-(i%3),-2,2.8F,6,12);
+            add(head,"crown_rear_"+i,0,150,-7.5F+i*3.6F,-11-(i%2)*2,8,2.5F,5.5F,9+(i%2)*4);
         }
         for (int side : new int[]{-1,1}) for (int i=0;i<3;i++) {
             float x = side < 0 ? -12.4F : 10.1F;
-            add(head,"cheek_plume_"+side+"_"+i,176,62,x,-3+i*4,4+i*2,2.3F,5.2F,12-i*2);
+            add(head,"cheek_plume_"+side+"_"+i,0,150,x,-3+i*4,4+i*2,2.3F,5.2F,12-i*2);
         }
         // "primary" = main LOWER long pair. "secondary" = smaller mutated UPPER V.
         // Keep four distinct wing bones; do not mirror plume damage identically.
@@ -126,11 +126,11 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
                 float fanDrop = 17 + i * 1.5F + (i % 3) * 3F + (side > 0 && i % 2 == 0 ? 2F : 0F);
                 add(featherBone,"main_flight_"+i,(i%2==0)?0:98,40,outer-featherOffset,-2,-11-i*.23F,12,fanDrop,7.4F);
                 // Split plum-coloured lower edges into overlapping ragged fingers.
-                add(featherBone,"main_plum_end_"+i,95,217,outer+1-featherOffset,fanDrop-7,-11-i*.23F,10,8+(i%3)*2,5.1F);
+                add(featherBone,"main_plum_end_"+i,216,170,outer+1-featherOffset,fanDrop-7,-11-i*.23F,10,8+(i%3)*2,5.1F);
                 add(featherBone,"main_cover_"+i,130,40,outer+1-featherOffset,-4,-15-i*.13F,10,8+(i%3)*2,7.8F);
                 if(i>1 && i<8 && (i+side)%3!=0) {
                     float damage = 4 + (i%3)*4 + (side<0 ? 1 : 0);
-                    add(featherBone,"torn_plume_"+i,95,217,outer+3-featherOffset,fanDrop+1,-10,4,damage+3,3.6F);
+                    add(featherBone,"torn_plume_"+i,216,170,outer+3-featherOffset,fanDrop+1,-10,4,damage+3,3.6F);
                 }
                 if(i==1 || i==4 || (i==6 && side<0)) {
                     add(featherBone,"mor_branch_core_"+i,180,0,outer+3-featherOffset,4,-11,2,fanDrop*.53F,1.6F);
@@ -147,9 +147,9 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
                 float length = 24+i*1.7F+(i%3)*2+(side>0 ? 2:0);
                 float sickDrop = 14 + i * 1.8F + (i % 3) * 3.5F;
                 add(featherBone,"upper_flight_"+i,50,125,outer-featherOffset,-2,-8-i*.37F,10,sickDrop,6.5F);
-                add(featherBone,"upper_plum_end_"+i,95,217,outer+1-featherOffset,sickDrop-7,-8-i*.37F,8,9+(i%3)*2,5.2F);
+                add(featherBone,"upper_plum_end_"+i,216,170,outer+1-featherOffset,sickDrop-7,-8-i*.37F,8,9+(i%3)*2,5.2F);
                 add(featherBone,"upper_cover_"+i,156,0,outer+1-featherOffset,-4,-12,8,7+(i%2)*2,7.7F);
-                if(i==2 || i==4 || (side<0 && i==5)) add(featherBone,"upper_torn_"+i,95,217,outer+3-featherOffset,sickDrop, -8,3,5+i*2,3);
+                if(i==2 || i==4 || (side<0 && i==5)) add(featherBone,"upper_torn_"+i,216,170,outer+3-featherOffset,sickDrop, -8,3,5+i*2,3);
                 if(i==1 || i==4) {
                     add(featherBone,"upper_mor_branch_"+i,180,0,outer+3-featherOffset,2,-8,2,sickDrop*.52F,1.2F);
                     add(featherBone,"upper_mor_branch_spur_"+i,180,8,outer+7-featherOffset,5,-8,2,sickDrop*.24F,1.3F);
@@ -163,7 +163,7 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
             for(int toe=0;toe<3;toe++) {
                 float x=-7+toe*5;
                 float z=-16-(toe==1 ? 3:0);
-                add(foot,"toe_"+toe,168,88,x,24,z,4.4F,3.8F,12);
+                add(foot,"toe_"+toe,20,160,x,24,z,4.4F,3.8F,12);
                 add(foot,"talon_base_"+toe,64,194,x+.4F,25,z-6,3.8F,4.6F,7);
                 add(foot,"talon_hook_"+toe,64,194,x+1,29,z-8,2.8F,6,4.5F);
                 add(foot,"talon_point_"+toe,64,194,x+1.5F,33,z-7,1.8F,2.5F,3.2F);
