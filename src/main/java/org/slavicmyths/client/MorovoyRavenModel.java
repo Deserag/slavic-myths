@@ -19,7 +19,7 @@ import org.slavicmyths.morovoy.MorovoyRaven;
  * Runtime comparison with the approved PNG remains required; source edits are not approval.
  */
 public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
-    private final ModelPart root, bird, head, jaw, leftPrimary, rightPrimary, leftSecondary, rightSecondary, leftFoot, rightFoot, tail;
+    private final ModelPart root, bird, head, jaw, leftPrimary, rightPrimary, leftSecondary, rightSecondary, leftPrimaryTip, rightPrimaryTip, leftSecondaryTip, rightSecondaryTip, leftFoot, rightFoot, tail;
     public MorovoyRavenModel() {
         root = layer().bakeRoot();
         bird = root.getChild("bird");
@@ -29,6 +29,10 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         rightPrimary = bird.getChild("primary_right");
         leftSecondary = bird.getChild("secondary_left");
         rightSecondary = bird.getChild("secondary_right");
+        leftPrimaryTip = leftPrimary.getChild("outer");
+        rightPrimaryTip = rightPrimary.getChild("outer");
+        leftSecondaryTip = leftSecondary.getChild("outer");
+        rightSecondaryTip = rightSecondary.getChild("outer");
         leftFoot = bird.getChild("left_foot");
         rightFoot = bird.getChild("right_foot");
         tail = bird.getChild("tail");
@@ -54,6 +58,13 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
             add(bird,"hip_vein_"+side,180,8,side < 0 ? -11.8F : 10.6F,-9,17,1.2F,2,15);
         }
         add(bird,"throat_lesion",180,0,-2,-31,-23,4,1.7F,16);
+        // Unequal branching Y-shaped infection, raised from the actual chest surface.
+        add(bird,"sternum_crack_trunk",180,0,-1.4F,-19,-25.9F,2.8F,13,1.1F);
+        add(bird,"sternum_crack_split_left",180,8,-4.4F,-20,-25.9F,3.4F,3.2F,1.1F);
+        add(bird,"sternum_crack_arm_left",180,8,-7.2F,-23,-25.8F,2.9F,4,1.1F);
+        add(bird,"sternum_crack_split_right",180,8,1.1F,-17.4F,-25.9F,3.7F,2.4F,1.1F);
+        add(bird,"sternum_crack_arm_right",180,8,4.2F,-22,-25.8F,2.6F,6,1.1F);
+        add(bird,"sternum_crack_uneven_tip",180,0,-2.2F,-7,-25.6F,2.3F,5,1.1F);
         add(bird,"spine_feathers",130,40,-10,-32,6,20,4,24);
         // Pale, uneven shoulder/back plague growths seen clearly on rear and 3/4 PNG.
         for (int i = 0; i < 7; i++) {
@@ -103,32 +114,39 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         for(int side : new int[]{-1,1}) {
             String suffix = side < 0 ? "left" : "right";
             PartDefinition primary = bird.addOrReplaceChild("primary_"+suffix, box(0,52,side < 0 ? -34 : 0,-4,-12,34,7,24),PartPose.offset(side*15,-17,-8));
+            // Outer feather fan is articulated and lags behind the shoulder instead of rotating as a solid slab.
+            PartDefinition primaryTip = primary.addOrReplaceChild("outer", CubeListBuilder.create(), PartPose.offset(side*56,0,0));
             for(int i=0;i<9;i++) {
+                PartDefinition featherBone = i >= 4 ? primaryTip : primary;
+                float featherOffset = i >= 4 ? side*56 : 0;
                 float start = 20+i*9.5F;
                 float outer = side < 0 ? -start-12 : start;
                 float length = 29+i*2.2F+(i%3)*2+(side<0 ? 0 : (i%2)*3);
-                add(primary,"main_flight_"+i,(i%2==0)?0:98,40,outer,-2,-11-i*.23F,12,3.3F,length);
-                add(primary,"main_cover_"+i,130,40,outer+1,-3,-15-i*.13F,10,3,19+i*.8F);
+                add(featherBone,"main_flight_"+i,(i%2==0)?0:98,40,outer-featherOffset,-2,-11-i*.23F,12,3.3F,length);
+                add(featherBone,"main_cover_"+i,130,40,outer+1-featherOffset,-3,-15-i*.13F,10,3,19+i*.8F);
                 if(i>1 && i<8 && (i+side)%3!=0) {
                     float damage = 4 + (i%3)*4 + (side<0 ? 1 : 0);
-                    add(primary,"torn_plume_"+i,197,115,outer+3,1,-10+length-4,4,damage,3.6F);
+                    add(featherBone,"torn_plume_"+i,197,115,outer+3-featherOffset,1,-10+length-4,4,damage,3.6F);
                 }
                 if(i==1 || i==4 || (i==6 && side<0)) {
-                    add(primary,"mor_branch_core_"+i,174,111,outer+3,-3.8F,-3,2,1.6F,14);
-                    add(primary,"mor_branch_side_"+i,180,0,outer+8,-3.6F,2,2,1.2F,7);
+                    add(featherBone,"mor_branch_core_"+i,174,111,outer+3-featherOffset,-3.8F,-3,2,1.6F,14);
+                    add(featherBone,"mor_branch_side_"+i,180,0,outer+8-featherOffset,-3.6F,2,2,1.2F,7);
                 }
             }
             PartDefinition secondary = bird.addOrReplaceChild("secondary_"+suffix, box(0,110,side < 0 ? -23 : 0,-4,-9,23,7,18),PartPose.offset(side*12,-32,3));
+            PartDefinition secondaryTip = secondary.addOrReplaceChild("outer", CubeListBuilder.create(), PartPose.offset(side*36,0,0));
             for(int i=0;i<6;i++) {
+                PartDefinition featherBone = i >= 3 ? secondaryTip : secondary;
+                float featherOffset = i >= 3 ? side*36 : 0;
                 float start = 15+i*7.1F;
                 float outer = side < 0 ? -start-10 : start;
                 float length = 24+i*1.7F+(i%3)*2+(side>0 ? 2:0);
-                add(secondary,"upper_flight_"+i,50,125,outer,-2,-8-i*.37F,10,3.2F,length);
-                add(secondary,"upper_cover_"+i,156,0,outer+1,-3,-12,8,3,16+i*.5F);
-                if(i==2 || i==4 || (side<0 && i==5)) add(secondary,"upper_torn_"+i,197,115,outer+3,1,-8+length-3,3,5+i*2,3);
+                add(featherBone,"upper_flight_"+i,50,125,outer-featherOffset,-2,-8-i*.37F,10,3.2F,length);
+                add(featherBone,"upper_cover_"+i,156,0,outer+1-featherOffset,-3,-12,8,3,16+i*.5F);
+                if(i==2 || i==4 || (side<0 && i==5)) add(featherBone,"upper_torn_"+i,197,115,outer+3-featherOffset,1,-8+length-3,3,5+i*2,3);
                 if(i==1 || i==4) {
-                    add(secondary,"upper_mor_branch_"+i,180,0,outer+3,-3.7F,-4,2,1.2F,12);
-                    add(secondary,"upper_mor_branch_spur_"+i,180,8,outer+7,-3.5F,2,2,1.3F,5);
+                    add(featherBone,"upper_mor_branch_"+i,180,0,outer+3-featherOffset,-3.7F,-4,2,1.2F,12);
+                    add(featherBone,"upper_mor_branch_spur_"+i,180,8,outer+7-featherOffset,-3.5F,2,2,1.3F,5);
                 }
             }
             // Chunky articulated-looking thighs, knee, shins, forward grip and hooked ivory tips.
@@ -171,6 +189,11 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         rightPrimary.xRot = leftPrimary.xRot;
         leftSecondary.xRot = -.08F + .08F*(float)Math.cos(age*.2F);
         rightSecondary.xRot = leftSecondary.xRot;
+        // Independent delayed distal flexion on all four wings.
+        leftPrimaryTip.zRot = .055F + (float)Math.sin(age*speed-.60F)*.145F;
+        rightPrimaryTip.zRot = -leftPrimaryTip.zRot;
+        leftSecondaryTip.zRot = .085F + (float)Math.sin(age*speed+.10F)*.115F;
+        rightSecondaryTip.zRot = -leftSecondaryTip.zRot;
         bird.zRot = entity.bank();
         bird.xRot = pose == MorovoyRaven.DIVE ? .46F : pose == MorovoyRaven.HOVER ? .09F : .02F;
         if (pose == MorovoyRaven.GROUND_IDLE) bird.xRot = .025F + (float)Math.sin(age*.07F)*.015F;
@@ -182,10 +205,14 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         if (pose == MorovoyRaven.SUMMON || pose == MorovoyRaven.WING) {
             leftPrimary.zRot = .65F; rightPrimary.zRot = -.65F;
             leftSecondary.zRot = 1.02F; rightSecondary.zRot = -1.02F;
+            leftPrimaryTip.zRot = .20F; rightPrimaryTip.zRot = -.20F;
+            leftSecondaryTip.zRot = .12F; rightSecondaryTip.zRot = -.12F;
         }
         if (pose == MorovoyRaven.WING && t > 14) {
             leftPrimary.zRot = -.40F; rightPrimary.zRot = .40F;
             leftSecondary.zRot = .62F; rightSecondary.zRot = -.62F;
+            leftPrimaryTip.zRot = -.37F; rightPrimaryTip.zRot = .37F;
+            leftSecondaryTip.zRot = -.21F; rightSecondaryTip.zRot = .21F;
         }
         if (pose == MorovoyRaven.PROJECTILE) {
             head.xRot = -.21F; leftPrimary.zRot = .27F; rightPrimary.zRot = -.27F;
@@ -195,6 +222,8 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
             float fold = pose == MorovoyRaven.GROUND_IDLE ? 1F : pose == MorovoyRaven.LANDING ? Math.clamp(t / 36F, 0F, 1F) : 1F - Math.clamp(t / 34F, 0F, 1F);
             leftPrimary.yRot = 1.10F * fold; rightPrimary.yRot = -1.10F * fold;
             leftSecondary.yRot = .88F * fold; rightSecondary.yRot = -.88F * fold;
+            leftPrimaryTip.yRot = .24F * fold; rightPrimaryTip.yRot = -.24F * fold;
+            leftSecondaryTip.yRot = .18F * fold; rightSecondaryTip.yRot = -.18F * fold;
             leftPrimary.zRot = leftPrimary.zRot * (1F-fold) + .25F*fold;
             rightPrimary.zRot = -leftPrimary.zRot;
             leftSecondary.zRot = leftSecondary.zRot * (1F-fold) + .55F*fold;
@@ -216,6 +245,8 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
             leftSecondary.yRot = .94F; rightSecondary.yRot = -.94F;
             leftPrimary.zRot = .2F; rightPrimary.zRot = -.2F;
             leftSecondary.zRot = .45F; rightSecondary.zRot = -.45F;
+            leftPrimaryTip.zRot = .26F; rightPrimaryTip.zRot = -.26F;
+            leftSecondaryTip.zRot = .18F; rightSecondaryTip.zRot = -.18F;
             leftFoot.xRot = rightFoot.xRot = .64F;
         }
     }
