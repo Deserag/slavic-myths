@@ -23,6 +23,7 @@ public final class SistersModel extends EntityModel<SisterBoss> {
     private final boolean spirit;
     private final ModelPart root, body, head, leftArm, rightArm, leftLeg, rightLeg, weapon, lantern;
     private final List<ModelPart> hair=new ArrayList<>(), hems=new ArrayList<>(), smoke=new ArrayList<>();
+    private final List<Integer> smokeRings=new ArrayList<>();
 
     public SistersModel(boolean tryaseya) {
         spirit=tryaseya;
@@ -30,32 +31,35 @@ public final class SistersModel extends EntityModel<SisterBoss> {
         root=g.part(512,512);
         if (!spirit) {
             body=part(g,root,0,-25,0);
-            box(g,body,CLOTH,-12,-13,-7,24,27,14);
-            box(g,body,HEM,-14,8,-8,28,6,16);
+            box(g,body,CLOTH,-9,-13,-7,18,27,14);
+            box(g,body,HEM,-11,8,-8,22,6,16);
             box(g,body,BONE,-3,-14,-9,6,24,4);
             // Exposed, curved rib cage built from individually raised left/right ribs.
             for (int r=0;r<5;r++) for (int s:new int[]{-1,1}) {
-                box(g,body,BONE,s<0?-12:3,-10+r*4,-10,9,2.2F,4);
-                box(g,body,BONE,s<0?-13:10,-9+r*4,-8,3,3,10);
+                box(g,body,BONE,s<0?-9:2,-10+r*4,-9,7,2.2F,4);
+                box(g,body,BONE,s<0?-10:7,-9+r*4,-7,3,3,9);
             }
             for (int s:new int[]{-1,1}) {
-                ModelPart shoulder=part(g,body,s*14,-9,0);
-                box(g,shoulder,BONE,s<0?-9:0,-5,-9,9,8,18);
-                box(g,shoulder,BONE,s<0?-10:7,-10,-8,3,13,6);
-                for (int j=0;j<4;j++)box(g,shoulder,BONE,s<0?-10+j:7-j,-12-j*2,2+j,2.5F,7,2.5F);
+                ModelPart shoulder=part(g,body,s*10,-9,0);
+                box(g,shoulder,BONE,s<0?-5:0,-5,-6,5,7,12);
+                box(g,shoulder,BONE,s<0?-6:3,-9,-5,3,9,5);
+                for (int j=0;j<3;j++)box(g,shoulder,BONE,s<0?-6+j:3-j,-10-j*2,1+j,2,5,2);
             }
             head=part(g,root,0,-42,-1);
-            box(g,head,SKIN,-8,-10,-7,16,17,14);
-            box(g,head,SKIN,-7,-1,-9,14,6,3);
-            box(g,head,SKIN,-2,0,-11,4,5,3);
-            box(g,head,GLOW,-6,-3,-9,3,2,1,128);
-            box(g,head,GLOW,3,-3,-9,3,2,1,128);
+            box(g,head,SKIN,-6,-10,-6,12,17,12);
+            box(g,head,SKIN,-6,-8,-7,12,4,3);
+            box(g,head,SKIN,-7,-1,-7,3,5,4);
+            box(g,head,SKIN,4,-1,-7,3,5,4);
+            box(g,head,SKIN,-5,-1,-8,10,5,3);
+            box(g,head,SKIN,-2,-1,-10,4,5,3);
+            box(g,head,GLOW,-5,-3,-8,3,2,1,128);
+            box(g,head,GLOW,2,-3,-8,3,2,1,128);
             // Asymmetric crown of cracked vertebrae; real protruding silhouettes.
             box(g,head,BONE,-9,-13,-7,18,3,14);
-            for (int i=0;i<9;i++)box(g,head,BONE,-9+i*2.1F,-14-(i*5%8),-6+(i%3)*3,2,6+(i%3)*3,2.5F);
+            for (int i=0;i<9;i++)box(g,head,BONE,-9+i*2.1F,-18-(i*5%8),-6+(i%3)*3,2,10+(i%3),2.5F);
             for (int i=0;i<14;i++) {
-                ModelPart strand=part(g,head,-10+(i%7)*3,-7,i<7?7:-7);
-                box(g,strand,SKIN,-1,0,-1,2,19+(i*3%12),3);
+                ModelPart strand=part(g,head,i<7?-8:8,-7, -3+(i%7)*1.8F);
+                box(g,strand,DARK,-1,0,0,2,19+(i*3%12),3);
                 hair.add(strand);
             }
             ModelPart skirt=part(g,root,0,-12,0);
@@ -75,11 +79,11 @@ public final class SistersModel extends EntityModel<SisterBoss> {
                 box(g,leg,BONE,-6,14,-6,12,5,12);
                 box(g,leg,DARK,-6,22,-8,12,6,16);
             }
-            leftArm=part(g,root,17,-33,0);
-            rightArm=part(g,root,-17,-33,0);
+            leftArm=part(g,root,13,-33,0);
+            rightArm=part(g,root,-13,-33,0);
             for (ModelPart arm:new ModelPart[]{leftArm,rightArm}) {
                 box(g,arm,CLOTH,-5,0,-5,10,26,10);
-                box(g,arm,BONE,-8,0,-8,16,8,16);
+                box(g,arm,BONE,-6,0,-6,12,7,12);
                 box(g,arm,BONE,-7,14,-7,14,9,14);
                 box(g,arm,SKIN,-4,24,-4,8,7,8);
                 for (int j=0;j<4;j++)box(g,arm,SKIN,-4+j*2,29,-5,1.7F,6,2.5F);
@@ -101,15 +105,18 @@ public final class SistersModel extends EntityModel<SisterBoss> {
             box(g,body,HEM,-10,1,-7,20,13,14);
             for (int i=0;i<9;i++)box(g,body,i%3==0?BONE:HEM,-10+i*2.3F,4,-8,1.7F,14+(i*3%5),2);
             head=part(g,root,0,-27,0);
-            box(g,head,SKIN,-7,-9,-6,14,14,12);
+            box(g,head,SKIN,-6,-9,-6,12,14,12);
+            box(g,head,SKIN,-6,-7,-7,12,3,3);
+            box(g,head,SKIN,-7,-1,-7,3,4,4);
+            box(g,head,SKIN,4,-1,-7,3,4,4);
             box(g,head,SKIN,-5,-1,-7,10,4,3);
             box(g,head,GLOW,-5,-3,-7,3,2,1,128);
             box(g,head,GLOW,2,-3,-7,3,2,1,128);
             box(g,head,BONE,-7,-10,-5,14,2,10);
             for (int i=0;i<7;i++)box(g,head,BONE,-7+i*2.2F,-9-i%3*2,-6,1.4F,5,2);
             for (int i=0;i<12;i++) {
-                ModelPart strand=part(g,head,-8+(i%6)*3,-7,i<6?6:-6);
-                box(g,strand,DARK,-1,0,-1,2,13+(i*5%9),3);
+                ModelPart strand=part(g,head,i<6?-8:8,-7,-3+(i%6)*2F);
+                box(g,strand,DARK,-1,0,0,2,13+(i*5%9),3);
                 hair.add(strand);
             }
             leftArm=part(g,root,11,-20,0);
@@ -141,12 +148,14 @@ public final class SistersModel extends EntityModel<SisterBoss> {
                     ModelPart wisp=part(g,root,Mth.cos(a)*radius,-8+ring*5.5F,Mth.sin(a)*radius);
                     box(g,wisp,DARK,-2,0,-2,4.5F,6+(i%3)*2,4.5F);
                     smoke.add(wisp);
+                    smokeRings.add(ring);
                 }
             }
             for (int i=0;i<8;i++) {
                 ModelPart tendril=part(g,root,(i-4)*1.1F,3,i%2==0?3:-3);
                 box(g,tendril,DARK,-1,0,-1,2,18+(i%4),2);
                 smoke.add(tendril);
+                smokeRings.add(5+i/3);
             }
         }
     }
@@ -177,9 +186,11 @@ public final class SistersModel extends EntityModel<SisterBoss> {
             lantern.zRot=.19F*Mth.sin(age*.095F);
             for (int i=0;i<smoke.size();i++) {
                 ModelPart p=smoke.get(i);
-                p.yRot=.45F*Mth.sin(age*.07F+i*.51F);
-                p.zRot=.2F*Mth.sin(age*.1F+i*.73F);
-                p.xRot=.15F*Mth.sin(age*.085F+i*.47F);
+                int ring=smokeRings.get(i);
+                float phase=age*.1F-ring*.4F;
+                p.yRot=(.24F+ring*.055F)*Mth.sin(phase);
+                p.zRot=(.12F+ring*.035F)*Mth.sin(phase-.35F);
+                p.xRot=.15F*Mth.sin(age*.085F-ring*.4F);
             }
         }
         for (int i=0;i<hair.size();i++) {
