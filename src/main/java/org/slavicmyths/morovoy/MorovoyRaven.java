@@ -113,6 +113,7 @@ public final class MorovoyRaven extends PathfinderMob {
     @Override public void tick() {
         super.tick();
         if (level().isClientSide || !(level() instanceof ServerLevel world) || !isAlive()) return;
+        if (isNoAi()) { setDeltaMovement(Vec3.ZERO); return; } // Isolated true-model QA, no fake AI motion.
         if (home == null && !minion()) home = blockPosition().immutable();
         if (minion()) { tickMinion(world); return; }
         bossBar.setProgress(Math.max(0, Math.min(1, getHealth() / getMaxHealth())));
