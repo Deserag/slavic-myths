@@ -21,7 +21,7 @@
 | Five Nether seeds, natural access / loaded area | NOT_RUN | Draft arena #393 has only pure geometry QA |
 | Approved side-by-side PNG | ART_SOURCE_BLOCKED | `MOROVOY_FIRE_ZMEY_APPROVED_REFERENCE.png` not found in current branch |
 | In-game screenshots/videos / FPS/MSPT | NOT_RUN | No Minecraft client run or capture produced |
-| Precise head/tail colliders and grab/release | IN_PROGRESS | Current logic is a first-pass combat implementation |
+| Precise head/tail colliders and grab/release | IN_PROGRESS | Current logic is a first-pass combat implementation; shield-blocked bites no longer apply grab |
 | Individual animation clips and complete editable art rig | IN_PROGRESS | Editable Blockbench source and native ModelPart rig exist; final UV/clip parity and approved PNG comparison remain |
 
 ## Outstanding critical work

@@ -11292,7 +11292,7 @@
     {
       "name": "morovoy_fire_zmey_albedo.png",
       "id": "0",
-      "relative_path": "../../../../src/main/resources/assets/slavicmyths/textures/entity/morovoy_fire_zmey_albedo.png",
+      "relative_path": "../../../src/main/resources/assets/slavicmyths/textures/entity/morovoy_fire_zmey_albedo.png",
       "visible": true,
       "render_mode": "default",
       "saved": false
