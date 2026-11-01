@@ -288,7 +288,7 @@ public final class MorovoyRaven extends PathfinderMob {
         RavenMiasma zone = MorovoyRavenContent.MIASMA.get().create(world);
         if (zone != null) { zone.setPos(ground.getX() + .5, ground.getY() + .05, ground.getZ() + .5); zone.configure(this, radius, life); world.addFreshEntity(zone); }
     }
-    @Override protected boolean removeWhenFarAway(double distance) { return minion(); }
+    @Override public boolean removeWhenFarAway(double distance) { return minion(); }
     @Override public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
     @Override protected void dropAllDeathLoot(ServerLevel world, DamageSource source) { /* Two material items are registered; drop rates await owner balancing. */ }
     @Override public void die(DamageSource cause) { super.die(cause); bossBar.removeAllPlayers(); }
