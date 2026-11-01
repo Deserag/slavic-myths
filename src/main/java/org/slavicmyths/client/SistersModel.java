@@ -162,10 +162,10 @@ public final class SistersModel extends EntityModel<SisterBoss> {
     private static void box(FolkModelGeometry g,int u,float x,float y,float z,float w,float h,float d,ModelPart p) {g.box(p,u,0,x,y,z,w,h,d);}
     @Override public void setupAnim(SisterBoss entity,float walk,float stride,float age,float yaw,float pitch) {
         float swing=Mth.cos(walk*.6662F)*Mth.clamp(stride,0,1);
-        head.yRot=yaw*Mth.DEG_TO_RAD;
-        head.xRot=pitch*Mth.DEG_TO_RAD;
+        head.yRot=yaw*((float)Math.PI/180F);
+        head.xRot=pitch*((float)Math.PI/180F);
         body.xRot=.015F*Mth.sin(age*.09F);
-        body.zRot=0;
+        body.zRot=0;body.yRot=0;
         leftArm.xRot=swing*.36F;rightArm.xRot=-swing*.36F;
         leftArm.zRot=0;rightArm.zRot=0;
         if (!spirit) {
