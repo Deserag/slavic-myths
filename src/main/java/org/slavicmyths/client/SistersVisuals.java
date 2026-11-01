@@ -19,7 +19,7 @@ import org.slavicmyths.sisters.SistersZone;
 
 /** Separate original fever sprite rig, real bone-block-looking segments and magic effects. */
 public final class SistersVisuals {
-    private static final ResourceLocation VIOLET=ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/tryaseya.png");
+    private static final ResourceLocation VIOLET=ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/tryaseya_albedo.png");
     public static final class SpiritModel extends EntityModel<FeverSpirit> {
         private final ModelPart root,head,tail,arms;
         public SpiritModel() {
