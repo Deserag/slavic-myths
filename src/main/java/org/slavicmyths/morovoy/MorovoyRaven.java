@@ -48,6 +48,7 @@ public final class MorovoyRaven extends PathfinderMob {
     private UUID parent;
     private int phaseTicks, attackIndex, quietTicks, activeTicks, minionLife;
     private long nextAttack;
+    private double orbitAngle;
     private Vec3 waypoint = Vec3.ZERO;
     private boolean strikeDone;
 
@@ -174,14 +175,16 @@ public final class MorovoyRaven extends PathfinderMob {
         if (pose() == CIRCLE || pose() == PLAGUE) {
             // Orbit is relative to the persisted arena anchor, not a moving player.
             Vec3 center = home == null ? position() : Vec3.atCenterOf(home);
-            // Plague orbit completes a full turn within its timed phase.
-            // Adjacent zones overlap to form the approved infected ring, not sparse dots.
-            double theta = (world.getGameTime() * (pose() == PLAGUE ? .045 : .026)) + (getUUID().getLeastSignificantBits() & 7);
+            // A moving target must not outpace the actual bird: v = radius * angularSpeed.
+            // Keep the phase continuous through pose switches and save/reload.
+            orbitAngle = (orbitAngle + (pose() == PLAGUE ? .010 : .012)) % (Math.PI * 2);
+            double theta = orbitAngle + (getUUID().getLeastSignificantBits() & 7) * .13;
             double radius = pose() == PLAGUE ? 38 : 23;
             waypoint = center.add(Math.cos(theta) * radius, 17 + Math.sin(theta * .75) * 4, Math.sin(theta) * radius);
             steer(world, waypoint, .42);
-            if (pose() == PLAGUE && phaseTicks % 5 == 0) placeMiasma(world, position().add(0, -8, 0), 4.8F, 265);
-            if (pose() == PLAGUE && phaseTicks >= 165) { pose(RECOVER); nextAttack = world.getGameTime() + 55; }
+            if (pose() == PLAGUE && phaseTicks % 9 == 0) placeMiasma(world, position().add(0, -8, 0), 4.8F, 200);
+            // 720 ticks at .010 rad/tick is more than a full lap; 165 ticks was only a quarter circle.
+            if (pose() == PLAGUE && phaseTicks >= 720) { pose(RECOVER); nextAttack = world.getGameTime() + 55; }
             else if (pose() == CIRCLE && world.getGameTime() >= nextAttack) pose(HOVER);
         } else if (pose() == HOVER) {
             steer(world, target.position().add(0, 14, 0), .25);
@@ -308,8 +311,17 @@ public final class MorovoyRaven extends PathfinderMob {
     }
     private void wingSweep(ServerLevel world) {
         strikeDone = true;
-        for (ServerPlayer player : world.getEntitiesOfClass(ServerPlayer.class, getBoundingBox().inflate(5.5, 1.2, 4.0), this::valid)) {
-            if (Math.abs(player.getY() - getY()) < 3.2 && hasLineOfSight(player)) hit(player, 11, 1.5F);
+        Vec3 look = getLookAngle();
+        Vec3 horizontal = new Vec3(look.x, 0, look.z);
+        if (horizontal.lengthSqr() < .0001) horizontal = new Vec3(0, 0, 1);
+        horizontal = horizontal.normalize();
+        Vec3 lateral = new Vec3(horizontal.z, 0, -horizontal.x);
+        // The strike runs along the two feather fans, not an invisible 360-degree cube.
+        for (ServerPlayer player : world.getEntitiesOfClass(ServerPlayer.class, getBoundingBox().inflate(8.0, 3.2, 8.0), this::valid)) {
+            Vec3 relative = player.getBoundingBox().getCenter().subtract(getBoundingBox().getCenter());
+            double across = Math.abs(relative.dot(lateral));
+            double forward = relative.dot(horizontal);
+            if (across >= 1.0 && across <= 8.2 && Math.abs(forward) <= 3.5 && Math.abs(relative.y) <= 3.2 && hasLineOfSight(player)) hit(player, 11, 1.5F);
         }
     }
     private void shoot(ServerLevel world, LivingEntity target) {
@@ -359,7 +371,7 @@ public final class MorovoyRaven extends PathfinderMob {
         if (home != null) { tag.putInt("HomeX", home.getX()); tag.putInt("HomeY", home.getY()); tag.putInt("HomeZ", home.getZ()); tag.putBoolean("HasHome", true); }
         if (parent != null) tag.putUUID("Parent", parent);
         tag.putInt("Pose", pose()); tag.putInt("PhaseTicks", phaseTicks); tag.putInt("AttackIndex", attackIndex);
-        tag.putInt("MinionLife", minionLife); tag.putLong("NextAttack", nextAttack);
+        tag.putInt("MinionLife", minionLife); tag.putLong("NextAttack", nextAttack); tag.putDouble("OrbitAngle", orbitAngle);
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
@@ -371,6 +383,7 @@ public final class MorovoyRaven extends PathfinderMob {
         entityData.set(POSE_START, tickCount - phaseTicks);
         attackIndex = tag.getInt("AttackIndex"); minionLife = tag.getInt("MinionLife");
         nextAttack = tag.getLong("NextAttack");
+        orbitAngle = tag.contains("OrbitAngle") ? tag.getDouble("OrbitAngle") % (Math.PI * 2) : 0;
         if (!minion() && home != null) waypoint = Vec3.atCenterOf(home).add(0, 15, 0);
         if (!minion()) setNoGravity(pose() != GROUND_IDLE && pose() != LANDING);
     }
