@@ -17,6 +17,23 @@ assert 'PartPose.offset(side*15,-17,-8)' in model, 'lower main pair root changed
 assert 'PartPose.offset(side*12,-32,3)' in model, 'upper mutant pair root changed'
 assert '"main_flight_"+i' in model and '"upper_flight_"+i' in model, 'feather rows missing'
 assert 'leftSecondary.zRot = .90F + second' in model, 'upper wings not held in V'
+# Four shoulders and four additional distal bones: all feathers must retain a parent in Blockbench.
+assert 'PartPose.offset(side*56,0,0)' in model and 'PartPose.offset(side*36,0,0)' in model, 'independent feather fan pivots missing'
+assert all(f'{side}{pair}Tip.zRot' in model for side in ('left','right') for pair in ('Primary','Secondary')), 'all four distal fans need animation'
+assert 'sternum_crack_trunk' in model and 'sternum_crack_arm_left' in model and 'sternum_crack_arm_right' in model, 'branched chest Mor lesion missing'
+bbmodel = json.loads((root / 'docs/implementation/2.3.1-morovoy-raven-391/MOROVOY_RAVEN_WIP.bbmodel').read_text())
+assert len({e['uuid'] for e in bbmodel['elements']}) == len(bbmodel['elements']), 'duplicate Blockbench cube UUIDs'
+wing_groups = {p['name']: p for p in bbmodel['outliner'][0]['children'] if isinstance(p, dict) and p['name'] in ('primary_left','primary_right','secondary_left','secondary_right')}
+assert len(wing_groups) == 4, 'Blockbench main/upper wing roots must all exist'
+outer_bones = {}
+for wing_name, group in wing_groups.items():
+    outer = [child for child in group['children'] if isinstance(child, dict) and child.get('name') == 'outer']
+    assert len(outer) == 1 and len(outer[0]['children']) >= 3, f'wing distal feathers missing: {wing_name}'
+    outer_bones[wing_name] = outer[0]['uuid']
+for clip_name in ('flight_cycle','hover','summon_wing_spread'):
+    clip = next(a for a in bbmodel['animations'] if a['name'] == clip_name)
+    assert all(uid in clip['animators'] for uid in outer_bones.values()), f'distal bone animation missing: {clip_name}'
+
 assert 'MorovoyRaven.TAKEOFF' in model and 'MorovoyRaven.LANDING' in model and 'MorovoyRaven.GROUND_IDLE' in model
 assert 'pose(TAKEOFF)' in mob and 'pose(LANDING)' in mob and 'landingSpot(world)' in mob
 assert 'boss.setArenaAnchor(center)' in arena and 'MorovoyRavenContent.BOSS.get().create' in arena
