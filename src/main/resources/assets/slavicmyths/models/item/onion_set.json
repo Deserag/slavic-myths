@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "slavicmyths:item/onion_set"
+    "layer0": "minecraft:item/potato"
   }
 }
