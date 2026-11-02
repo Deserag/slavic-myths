@@ -96,6 +96,7 @@ public final class SlavicMyths {
         org.slavicmyths.serpenthill.HillContent.init();
         org.slavicmyths.gorynych.GorynychContent.init(bus);
         org.slavicmyths.winters.WintersContent.init(bus);
+        org.slavicmyths.winters.WintersContent.EFFECTS.register(bus);
 
 // ModEffects.EFFECTS was already registered before this point; avoid a second event-bus registration.
 bus.addListener(org.slavicmyths.netherboss.NetherTrophyNetwork::register);
