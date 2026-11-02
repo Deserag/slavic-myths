@@ -30,7 +30,7 @@ public final class MorovoyFireZmeyClient {
         private static final ResourceLocation FIRE_EMISSIVE = MorovoyFireZmeyContent.id("textures/entity/morovoy_fire_zmey_fire_emissive.png");
 
         public BossRenderer(EntityRendererProvider.Context context) {
-            super(context, new MorovoyFireZmeyGeoModel(), 1.6F);
+            super(context, new MorovoyFireZmeyModel(), 1.6F);
             addLayer(new RenderLayer<MorovoyFireZmey, MorovoyFireZmeyModel>(this) {
                 @Override
                 public void render(PoseStack pose, MultiBufferSource buffers, int packedLight, MorovoyFireZmey boss, float limbSwing, float limbSwingAmount, float partialTick, float age, float netHeadYaw, float headPitch) {
