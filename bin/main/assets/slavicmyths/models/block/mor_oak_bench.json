@@ -1,0 +1,13 @@
+{
+  "parent": "slavicmyths:block/pine_bench",
+  "textures": {
+    "wood": "slavicmyths:block/mor_oak_planks",
+    "beam": "slavicmyths:block/mor_oak_log",
+    "iron": "slavicmyths:block/furniture_metal",
+    "cloth": "slavicmyths:block/furniture_cloth",
+    "rope": "slavicmyths:block/furniture_rope",
+    "straw": "minecraft:block/hay_block_side",
+    "log": "slavicmyths:block/mor_oak_log_top",
+    "particle": "slavicmyths:block/mor_oak_planks"
+  }
+}
