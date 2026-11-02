@@ -30,6 +30,13 @@ public final class ModItems {
     public static final DeferredHolder<Item,Item> CURSED_VOLKOLAK_SKULL=ITEMS.register("cursed_volkolak_skull",()->new Item(properties().stacksTo(1).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item,Item> PLACH_TRAVA=ITEMS.register("plach_trava",()->new BlockItem(ModBlocks.PLACH_TRAVA.get(),properties()));
     public static final DeferredHolder<Item,Item> CURSED_SKULL_CACHE=ITEMS.register("cursed_skull_cache",()->new BlockItem(ModBlocks.CURSED_SKULL_CACHE.get(),properties()));
+    public static final DeferredHolder<Item, Item> POSAD_RESIDENT_SPAWN_EGG=egg("posad_resident_spawn_egg",ModEntities.POSAD_RESIDENT,0x37302e,0x9d5244);
+    public static final DeferredHolder<Item, Item> POSADNIK_SPAWN_EGG=ITEMS.register("posadnik_spawn_egg",()->{
+        var tag=new net.minecraft.nbt.CompoundTag();
+        tag.putString("id","slavicmyths:posad_resident");
+        tag.putInt("PosadRole",org.slavicmyths.posad.PosadPopulationPlan.Role.POSADNIK.ordinal());
+        return new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.POSAD_RESIDENT,0x30202c,0xd6ad64,properties().component(net.minecraft.core.component.DataComponents.ENTITY_DATA,net.minecraft.world.item.component.CustomData.of(tag)));
+    });
     public static final DeferredHolder<Item,Item> CURSED_VOLKOLAK_SPAWN_EGG=egg("cursed_volkolak_spawn_egg",ModEntities.CURSED_VOLKOLAK,0x28272B,0x64574D);
 
     public static final DeferredHolder<Item, Item> RYE_SEEDS = ITEMS.register("rye_seeds", () -> new ItemNameBlockItem(ModBlocks.RYE_CROP.get(), properties()));
