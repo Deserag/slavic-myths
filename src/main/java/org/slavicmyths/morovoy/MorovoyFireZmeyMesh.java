@@ -11,19 +11,20 @@ import net.minecraft.client.model.geom.builders.PartDefinition;
 public final class MorovoyFireZmeyMesh {
  private static CubeListBuilder box(int u,int v,float x,float y,float z,float w,float h,float d){return CubeListBuilder.create().texOffs(u,v).addBox(x,y,z,w,h,d);}
  public static ModelPart create(){MeshDefinition mesh=new MeshDefinition();PartDefinition root=mesh.getRoot();
-  PartDefinition body=root.addOrReplaceChild("body",box(0,0,-15,-11,-43,30,18,80).texOffs(2,63).addBox(-10,3,-38,20,5,66).texOffs(4,25).addBox(-10,-13,-31,20,3,52),PartPose.offset(0,12,0));
+  PartDefinition body=root.addOrReplaceChild("body",box(0,0,-16,-10,-47,32,17,88).texOffs(2,63).addBox(-10,3,-38,20,5,66).texOffs(4,25).addBox(-10,-13,-31,20,3,52),PartPose.offset(0,12,0));
   // Anatomical transitions modelled as named child bones, following Gorynych's Java voxel-mesh approach.
   // They bridge the long torso into hip roots and make the twin tail bases part of the body.
-  body.addOrReplaceChild("ribcage",box(0,0,-14,-12,-36,28,18,46),PartPose.ZERO);
-  body.addOrReplaceChild("abdomen",box(2,63,-12,-10,0,24,16,38),PartPose.ZERO);
-  body.addOrReplaceChild("pelvis",box(4,25,-10,-9,29,20,15,20),PartPose.ZERO);
+  body.addOrReplaceChild("ribcage",box(0,0,-14,-10,-36,28,15,43),PartPose.ZERO);
+  body.addOrReplaceChild("abdomen",box(2,63,-11,-9,0,22,14,38),PartPose.ZERO);
+  body.addOrReplaceChild("pelvis",box(4,25,-10,-8,29,20,13,19),PartPose.ZERO);
   for(int i=0;i<9;i++){int z=-34+i*8;body.addOrReplaceChild("spine_"+i,box(3,10,-2,-22-(i%3)*2,z,4,11+(i%3)*2,6),PartPose.ZERO);for(int side:new int[]{-1,1})body.addOrReplaceChild("rib_"+i+"_"+side,box(13,41,side<0?-15:11,-7,z,4,9,3),PartPose.ZERO);}
   for(int side:new int[]{-1,1}){
    String n=side<0?"left":"right";int hx=side<0?100:178;
    PartDefinition neck0=body.addOrReplaceChild("neck_"+n+"_base",box(hx,6,-5,-5,-22,10,10,26).texOffs(hx,36).addBox(-4,-8,-16,8,4,12),PartPose.offset(side*11,-10,-37));
    PartDefinition neck1=neck0.addOrReplaceChild("neck_"+n+"_mid",box(hx+12,8,-4,-5,-18,8,9,22).texOffs(hx,55).addBox(-3,-7,-13,6,3,10),PartPose.offset(side*2,-7,-20));
    // Both heads share the same compact bone plan but have different crests, brows and jaws.
-   PartDefinition head=neck1.addOrReplaceChild("head_"+n,box(hx,64,-6,-7,-17,12,12,19)
+   PartDefinition neck2=neck1.addOrReplaceChild("neck_"+n+"_tip",box(hx+18,35,-3,-4,-13,6,7,17),PartPose.offset(side*2,-5,-17));
+   PartDefinition head=neck2.addOrReplaceChild("head_"+n,box(hx,64,-6,-7,-17,12,12,19)
     .texOffs(hx+25,64).addBox(-4,-3,-25,8,6,12),PartPose.offset(side*3,-5,-19));
    head.addOrReplaceChild("brow_"+n,box(hx+12,70,-6,-9,-15,12,3,10),PartPose.ZERO);
    PartDefinition jaw=head.addOrReplaceChild("jaw_"+n,box(hx+4,90,-5,0,-23,10,3,21),PartPose.offset(0,4,0));
