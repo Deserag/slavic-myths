@@ -69,17 +69,27 @@ public final class MorovoyFireZmey extends Monster {
   if(action()==IDLE){if(--idleTicks<=0){chooseAttack(target);idleTicks=state()==PHASE_II?16:29;}else moveInAir(target,false);return;}
   int a=actionAge();
   if(action()!=DIVE&&action()!=WING_STREAK)moveInAir(target,false);
-  if(action()==MOR_BOLT&&a==18)projectile(target,0);
-  if(action()==FIRE_BOLT&&a==18)projectile(target,1);
-  if(action()==DOUBLE_BOLT){if(a==20)projectile(target,0);if(a==30)projectile(target,1);}
-  if(action()==MOR_BREATH||action()==FIRE_BREATH){int element=action()==MOR_BREATH?0:1;if(a>=18&&a<=55&&a%4==0)breath(target,element);}
-  if(action()==MOR_TAIL&&a==22)strike(target,0,true);
-  if(action()==FIRE_TAIL&&a==24)strike(target,1,true);
-  if((action()==BITE_MOR||action()==BITE_FIRE)&&a==20){int element=action()==BITE_MOR?0:1;boolean struck=strike(target,element,false);if(struck&&!target.isBlocking()&&target.distanceToSqr(this)<=18&&hasLineOfSight(target)&&canDamage(target)){grabbed=target.getUUID();grabTicks=14;}}
-  if(action()==CLAW&&a==17)strike(target,1,false);
-  if(action()==DIVE){if(a>=12&&a<=42)moveInAir(target,true);if(a==35)strike(target,1,false);}
-  if(action()==WING_STREAK&&a>=12&&a<=70){moveInAir(target,false);if(a%10==0){MorovoyZmeyField.spawn((ServerLevel)level(),this,(a/10)%2,position().add(0,-Math.min(6,getY()-anchor.y),0),50);}}
+  executeAttackWindow(target,a);
   if(a>=duration(action()))act(IDLE);
+ }
+ private void executeAttackWindow(LivingEntity target,int age) {
+  switch(action()) {
+   case MOR_BOLT -> {if(age==18)projectile(target,0);}
+   case FIRE_BOLT -> {if(age==18)projectile(target,1);}
+   case DOUBLE_BOLT -> {if(age==20)projectile(target,0);if(age==30)projectile(target,1);}
+   case MOR_BREATH,FIRE_BREATH -> {if(age>=18&&age<=55&&age%4==0)breath(target,action()==MOR_BREATH?0:1);}
+   case MOR_TAIL -> {if(age==22)strike(target,0,true);}
+   case FIRE_TAIL -> {if(age==24)strike(target,1,true);}
+   case BITE_MOR,BITE_FIRE -> {
+    if(age==20){int element=action()==BITE_MOR?0:1;boolean struck=strike(target,element,false);
+     if(struck&&!target.isBlocking()&&target.distanceToSqr(this)<=18&&hasLineOfSight(target)&&canDamage(target)){grabbed=target.getUUID();grabTicks=14;}
+    }
+   }
+   case CLAW -> {if(age==17)strike(target,1,false);}
+   case DIVE -> {if(age>=12&&age<=42)moveInAir(target,true);if(age==35)strike(target,1,false);}
+   case WING_STREAK -> {if(age>=12&&age<=70){moveInAir(target,false);if(age%10==0)MorovoyZmeyField.spawn((ServerLevel)level(),this,(age/10)%2,position().add(0,-Math.min(6,getY()-anchor.y),0),50);}}
+   default -> {}
+  }
  }
  private LivingEntity selectTarget(){List<ServerPlayer> list=((ServerLevel)level()).getPlayers(p->canDamage(p)&&p.distanceToSqr(anchor)<=90*90&&p.distanceToSqr(this)<=82*82);return list.stream().min(java.util.Comparator.comparingDouble(this::distanceToSqr)).orElse(null);}
  private int duration(int a){return switch(a){case MOR_BREATH,FIRE_BREATH->65;case WING_STREAK->80;case DIVE->55;case DOUBLE_BOLT->45;default->38;};}
