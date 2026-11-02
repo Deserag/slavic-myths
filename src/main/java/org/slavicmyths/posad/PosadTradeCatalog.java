@@ -30,7 +30,7 @@ public final class PosadTradeCatalog {
         if (fixed(role)) return 1;
         int tier = 1;
         for (int i = 1; i < XP_THRESHOLDS.length; i++) if (xp >= XP_THRESHOLDS[i]) tier = i + 1;
-        return tier;
+        return Math.min(5, tier);
     }
     public static boolean fixed(PosadPopulationPlan.Role role) {
         return role == PosadPopulationPlan.Role.POSADNIK || role == PosadPopulationPlan.Role.CIVILIAN;
@@ -98,6 +98,7 @@ public final class PosadTradeCatalog {
     }
     public static MerchantOffers create(PosadPopulationPlan.Role role, int tier, Map<String,Integer> used, IdentityHashMap<MerchantOffer,String> identities, RegistryAccess registries) {
         MerchantOffers offers = new MerchantOffers();
+        tier = Math.max(1, Math.min(5, tier));
         identities.clear();
         for (JsonObject original : catalog()) {
             if (!original.get("role").getAsString().equals(role.name()) || original.get("tier").getAsInt() > tier) continue;
