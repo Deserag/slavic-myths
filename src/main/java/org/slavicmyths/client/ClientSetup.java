@@ -60,6 +60,7 @@ public final class ClientSetup {
 
     @SubscribeEvent public static void morParticles(net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent event){event.registerSpriteSet(org.slavicmyths.mor.MorContent.SPARK.get(),s->MorParticle.provider(s,false));event.registerSpriteSet(org.slavicmyths.mor.MorContent.ASH.get(),s->MorParticle.provider(s,true));}
     @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers event){
+        event.registerEntityRenderer(ModEntities.POSAD_RESIDENT.get(), PosadResidentRenderer::new);
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.GNETEYA.get(),ctx->new SistersRenderer(ctx,false));
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.TRYASEYA.get(),ctx->new SistersRenderer(ctx,true));
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.SPIRIT.get(),SistersVisuals.Spirit::new);
