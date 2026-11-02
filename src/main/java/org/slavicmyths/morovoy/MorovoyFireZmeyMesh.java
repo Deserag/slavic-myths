@@ -14,9 +14,9 @@ public final class MorovoyFireZmeyMesh {
   PartDefinition body=root.addOrReplaceChild("body",box(0,0,-16,-12,-42,32,18,83).texOffs(2,63).addBox(-10,2,-39,20,7,68).texOffs(4,25).addBox(-11,-15,-33,22,4,57),PartPose.offset(0,12,0));
   // Anatomical transitions modelled as named child bones, following Gorynych's Java voxel-mesh approach.
   // They bridge the long torso into hip roots and make the twin tail bases part of the body.
-  body.addOrReplaceChild("ribcage",box(0,0,-19,-13,-36,38,23,46),PartPose.ZERO);
-  body.addOrReplaceChild("abdomen",box(2,63,-15,-11,0,30,19,38),PartPose.ZERO);
-  body.addOrReplaceChild("pelvis",box(4,25,-13,-10,29,26,17,20),PartPose.ZERO);
+  body.addOrReplaceChild("ribcage",box(0,0,-14,-12,-36,28,18,46),PartPose.ZERO);
+  body.addOrReplaceChild("abdomen",box(2,63,-12,-10,0,24,16,38),PartPose.ZERO);
+  body.addOrReplaceChild("pelvis",box(4,25,-10,-9,29,20,15,20),PartPose.ZERO);
   for(int i=0;i<9;i++){int z=-34+i*8;body.addOrReplaceChild("spine_"+i,box(3,10,-2,-22-(i%3)*2,z,4,11+(i%3)*2,6),PartPose.ZERO);for(int side:new int[]{-1,1})body.addOrReplaceChild("rib_"+i+"_"+side,box(13,41,side<0?-15:11,-7,z,4,9,3),PartPose.ZERO);}
   for(int side:new int[]{-1,1}){
    String n=side<0?"left":"right";int hx=side<0?100:178;
