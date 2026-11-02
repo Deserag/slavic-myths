@@ -1,4 +1,4 @@
-name: Posad Resident Integration Java21
+name: Posad and Boss Integration Java21
 on:
   push:
     branches:
@@ -6,6 +6,10 @@ on:
     paths:
       - 'src/main/java/org/slavicmyths/client/PosadResident*.java'
       - 'src/main/java/org/slavicmyths/posad/PosadResidentTraits.java'
+      - 'src/main/java/org/slavicmyths/client/PosadBoss*.java'
+      - 'src/main/resources/assets/slavicmyths/textures/entity/bauk.png'
+      - 'src/main/resources/assets/slavicmyths/textures/entity/cursed_mytar.png'
+      - 'src/main/resources/assets/slavicmyths/lang/ru_ru.json'
       - 'src/main/resources/assets/slavicmyths/textures/entity/posad_resident_*.png'
       - '.github/workflows/posad-resident-integration-java21.yml'
   workflow_dispatch:
@@ -37,3 +41,5 @@ jobs:
           PY
       - name: Compile NeoForge mod
         run: chmod +x gradlew && ./gradlew --no-daemon compileJava --console=plain
+      - name: Full mod build
+        run: ./gradlew --no-daemon build --console=plain
