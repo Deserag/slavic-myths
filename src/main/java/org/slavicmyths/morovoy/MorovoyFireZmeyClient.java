@@ -15,7 +15,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
-@EventBusSubscriber(modid = "slavicmyths", value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = "slavicmyths", value = Dist.CLIENT)
 public final class MorovoyFireZmeyClient {
     @SubscribeEvent
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
