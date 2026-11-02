@@ -14,11 +14,12 @@ import org.slavicmyths.rpg.RuneFoundation;
 public final class ModItemGroup {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, "slavicmyths");
     public static final String[] IDS = CreativeCatalog.TABS.toArray(String[]::new);
-    private static final int[] DISPLAY_ORDER = {0, 1, 2, 3, 9, 4, 5, 6, 12, 7, 10, 8, 11};
+    private static final int[] DISPLAY_ORDER = {0, 1, 2, 3, 9, 4, 5, 6, 7, 10, 8, 11};
     public static final List<DeferredHolder<CreativeModeTab, CreativeModeTab>> THEMATIC = new ArrayList<>();
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB;
     private static final Set<String> REPORTED_FALLBACKS = ConcurrentHashMap.newKeySet();
     static {
+        if (DISPLAY_ORDER.length != IDS.length || java.util.Arrays.stream(DISPLAY_ORDER).anyMatch(index -> index < 0 || index >= IDS.length) || java.util.Arrays.stream(DISPLAY_ORDER).distinct().count() != IDS.length) throw new IllegalStateException("Creative tab display order must be a permutation of catalog tabs");
         for (int index = 0; index < IDS.length; index++) {
             int category = index;
             int position = 0;
