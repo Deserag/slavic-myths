@@ -354,7 +354,7 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
         float stride = Math.min(1F, limbAmount);
         float gait = Mth.cos(limbSwing * .67F) * stride;
         float breath = Mth.sin(age * .13F);
-        float remaining = 0;
+        float remaining = entity.actionRemaining();
         head.yRot = yaw * Mth.DEG_TO_RAD * (bauk ? .32F : .55F);
         head.xRot = pitch * Mth.DEG_TO_RAD * .25F;
         if (bauk) {
@@ -382,7 +382,7 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
             leg1.xRot = -gait * .55F;
             cloth.yRot = .025F * Mth.sin(age * .09F);
             mane.xRot = .018F * breath;
-            chainSickle.visible = !false;
+            chainSickle.visible = true;
             rightArm.xRot = -.15F + .055F * breath;
             leftArm.xRot = .1F - .07F * breath;
             if (entity.move() == PosadBoss.Move.WINDUP_SICKLE) { leftArm.xRot = -1.45F * Mth.clamp((38F - remaining) / 24F, 0F, 1F); rightArm.xRot = -.75F; }
