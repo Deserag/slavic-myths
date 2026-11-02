@@ -55,7 +55,7 @@ public final class TrophyHeadsClient {
   }
   public void render(PoseStack pose,VertexConsumer out,int light,int overlay){render(pose,out,light,overlay,0xffffffff);}
   public void render(PoseStack pose,VertexConsumer out,int light,int overlay,int color){
-   pose.pushPose();pose.translate(.5,.04,.5);pose.scale(scale,-scale,-scale);
+   pose.pushPose();pose.translate(.5,.04,.5);pose.scale(scale*(kind==TrophyHeads.Kind.MOROVOY_RAVEN||kind==TrophyHeads.Kind.FIRE_SERPENT?1.6F:1F),-scale*(kind==TrophyHeads.Kind.MOROVOY_RAVEN||kind==TrophyHeads.Kind.FIRE_SERPENT?1.6F:1F),-scale*(kind==TrophyHeads.Kind.MOROVOY_RAVEN||kind==TrophyHeads.Kind.FIRE_SERPENT?1.6F:1F));
    pose.translate(-(bounds[0]+bounds[3])/2,-bounds[4],-(bounds[2]+bounds[5])/2);
    part.render(pose,out,light,overlay,color);pose.popPose();
   }
@@ -112,12 +112,12 @@ public final class TrophyHeadsClient {
     var branch=part.getChild(n);float side=n.endsWith("left")?-1:1;
     branch.zRot+=side*(float)Math.sin(time*.045)*( .025F+awake*.085F);
    }
-   var jaw=part.getChild("jaw");jaw.xRot=.13F*awake+(.025F+.035F*awake)*(float)Math.sin(time*.055);jaw.y-=.5F*awake;
+   var jaw=part.hasChild("jaw")?part.getChild("jaw"):null;if(jaw==null)return;jaw.xRot=.13F*awake+(.025F+.035F*awake)*(float)Math.sin(time*.055);jaw.y-=.5F*awake;
   }
   public void magmaPose(float time,float open){
    part.getAllParts().forEach(ModelPart::resetPose);part.setPos(0,0,0);part.xRot=part.yRot=part.zRot=0;
    if(detail!=null){detail.xRot=.28F*open;detail.y=detailBaseY-2F*open;}
-   for(int i=0;i<2;i++){var shard=part.getChild("shard_head"+i);shard.y=shard.getInitialPose().y+(float)Math.sin(time*.06+i)*.12F;shard.yRot=(float)Math.sin(time*.03+i)*.1F;}
+   for(int i=0;i<2;i++){if(!part.hasChild("shard_head"+i))continue;var shard=part.getChild("shard_head"+i);shard.y=shard.getInitialPose().y+(float)Math.sin(time*.06+i)*.12F;shard.yRot=(float)Math.sin(time*.03+i)*.1F;}
   }
   public void resetPose(){
    if(kind==TrophyHeads.Kind.GROVE_GUARDIAN||kind==TrophyHeads.Kind.ZHARENITSA||kind==TrophyHeads.Kind.POSTEN||kind==TrophyHeads.Kind.MAGMA_LORD||kind==TrophyHeads.Kind.MOROVOY_RAVEN||kind==TrophyHeads.Kind.FIRE_SERPENT||kind==TrophyHeads.Kind.MOR_SERPENT){part.getAllParts().forEach(ModelPart::resetPose);part.setPos(0,0,0);part.xRot=part.yRot=part.zRot=0;return;}
@@ -154,7 +154,12 @@ public final class TrophyHeadsClient {
  };}
  public static Head magmaHead(ModelPart head){return new Head(TrophyHeads.Kind.MAGMA_LORD,head,"textures/entity/burning_islands/magma_lord.png",null,null,null,head.getChild("jaw"),head.getChild("shard_head0"));}
  private static final Map<TrophyHeads.Kind,Head> HEADS=new EnumMap<>(TrophyHeads.Kind.class);
- private static Head head(TrophyHeads.Kind kind){return HEADS.computeIfAbsent(kind,TrophyHeadsClient::create);}
+ private static Head head(TrophyHeads.Kind kind){return HEADS.computeIfAbsent(kind,k->{try{Head result=create(k);if(result==null||result.part==null||!Float.isFinite(result.scale)||result.scale<=0)throw new IllegalStateException("Invalid trophy geometry");return result;}catch(RuntimeException ex){System.getLogger("slavicmyths.trophy").log(System.Logger.Level.ERROR,"Trophy head "+k+" failed to load; using placeholder",ex);return placeholder(k);}});}
+ private static Head placeholder(TrophyHeads.Kind kind){
+  var mesh=new net.minecraft.client.model.geom.builders.MeshDefinition();
+  mesh.getRoot().addOrReplaceChild("head",net.minecraft.client.model.geom.builders.CubeListBuilder.create().texOffs(0,0).addBox(-4,-8,-4,8,8,8),net.minecraft.client.model.geom.PartPose.ZERO);
+  return new Head(kind,net.minecraft.client.model.geom.builders.LayerDefinition.create(mesh,64,64).bakeRoot().getChild("head"),"textures/entity/tugarin_phase2.png");
+ }
  public static final class Capture implements VertexConsumer {
   public final List<float[]> vertices=new ArrayList<>();private float[] last;
   public VertexConsumer addVertex(float x,float y,float z){last=new float[]{x,y,z,0,0};vertices.add(last);return this;}
@@ -200,7 +205,7 @@ public final class TrophyHeadsClient {
       if(near&&!tile.magmaAwake&&block.kind==TrophyHeads.Kind.GROVE_GUARDIAN)tile.guardianBurst=6;tile.magmaAwake=near;tile.maskPrevious=tile.maskAngle;if(block.kind==TrophyHeads.Kind.POSTEN&&near){int phase=tile.maskCycle++%45;if(phase>=8&&phase<24){float a=(phase-8)/16F,b=(phase-7)/16F;tile.maskAngle+=(b*b*(3-2*b)-a*a*(3-2*a))*(float)Math.PI/2;}}
       tile.magmaOpenness=net.minecraft.util.Mth.clamp(tile.magmaOpenness+(near?.0625F:-.033333F),0,1);tile.magmaPoseTick=tick;
      }
-     if(block.kind==TrophyHeads.Kind.POSTEN){h.part.getChild("mask_ring").yRot=net.minecraft.util.Mth.lerp(partial,tile.maskPrevious,tile.maskAngle);h.part.yRot=net.minecraft.util.Mth.clamp(gazeX*.3F,-.35F,.35F);}else if(block.kind==TrophyHeads.Kind.GROVE_GUARDIAN)h.guardianPose(time,tile.magmaOpenness);else h.magmaPose(time,tile.magmaOpenness);
+     if(block.kind==TrophyHeads.Kind.POSTEN){if(h.part.hasChild("mask_ring"))h.part.getChild("mask_ring").yRot=net.minecraft.util.Mth.lerp(partial,tile.maskPrevious,tile.maskAngle);h.part.yRot=net.minecraft.util.Mth.clamp(gazeX*.3F,-.35F,.35F);}else if(block.kind==TrophyHeads.Kind.GROVE_GUARDIAN)h.guardianPose(time,tile.magmaOpenness);else h.magmaPose(time,tile.magmaOpenness);
     }
     h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);
     if(block.kind.ordinal()>=TrophyHeads.Kind.GROVE_GUARDIAN.ordinal()){
