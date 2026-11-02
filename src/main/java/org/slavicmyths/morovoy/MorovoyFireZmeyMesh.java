@@ -22,15 +22,22 @@ public final class MorovoyFireZmeyMesh {
    String n=side<0?"left":"right";int hx=side<0?100:178;
    PartDefinition neck0=body.addOrReplaceChild("neck_"+n+"_base",box(hx,6,-5,-5,-22,10,10,26).texOffs(hx,36).addBox(-4,-8,-16,8,4,12),PartPose.offset(side*11,-10,-37));
    PartDefinition neck1=neck0.addOrReplaceChild("neck_"+n+"_mid",box(hx+12,8,-4,-5,-18,8,9,22).texOffs(hx,55).addBox(-3,-7,-13,6,3,10),PartPose.offset(side*2,-7,-20));
-   PartDefinition head=neck1.addOrReplaceChild("head_"+n,box(hx,64,-7,-8,-18,14,13,20).texOffs(hx+25,64).addBox(-5,-3,-25,10,7,12).texOffs(hx+12,70).addBox(-6,-9,-9,12,4,12),PartPose.offset(side*2,-7,-19));
-   head.addOrReplaceChild("jaw_"+n,box(hx+4,90,-6,0,-23,12,4,22).texOffs(hx+19,94).addBox(-4,3,-21,2,7,3).texOffs(hx+23,94).addBox(3,3,-21,2,7,3),PartPose.offset(0,4,0));
-   // Separate Mor corruption crest and violet fire crown: small reusable voxels.
-   for(int crest=0;crest<4;crest++)head.addOrReplaceChild("crest_"+n+"_"+crest,box(side<0?13:202,side<0?40:162,-2,-12-crest*2,-8+crest*6,4,6+crest,4),PartPose.offset(side*(crest%2==0?4:-4),0,0));
-   head.addOrReplaceChild("fang_"+n+"_left",box(hx+19,94,-5,3,-22,2,6,3),PartPose.ZERO);
-   head.addOrReplaceChild("fang_"+n+"_right",box(hx+19,94,3,3,-22,2,6,3),PartPose.ZERO);
-   for(int i=0;i<2;i++){head.addOrReplaceChild("horn_"+n+"_"+i,box(2,165,-2,-16,-9+i*10,4,10-i*2,4),PartPose.offset(side*(i==0?5:-5),0,0));}
-   head.addOrReplaceChild("eye_"+n+"_a",box(side<0?123:204,60,-7,-5,-16,2,3,4),PartPose.ZERO);
-   head.addOrReplaceChild("eye_"+n+"_b",box(side<0?123:204,60,5,-5,-16,2,3,4),PartPose.ZERO);
+   // Both heads share the same compact bone plan but have different crests, brows and jaws.
+   PartDefinition head=neck1.addOrReplaceChild("head_"+n,box(hx,64,-6,-7,-17,12,12,19)
+    .texOffs(hx+25,64).addBox(-4,-3,-25,8,6,12),PartPose.offset(side*3,-5,-19));
+   head.addOrReplaceChild("brow_"+n,box(hx+12,70,-6,-9,-15,12,3,10),PartPose.ZERO);
+   PartDefinition jaw=head.addOrReplaceChild("jaw_"+n,box(hx+4,90,-5,0,-23,10,3,21),PartPose.offset(0,4,0));
+   for(int fangSide:new int[]{-1,1}){
+    jaw.addOrReplaceChild("tooth_"+fangSide,box(hx+19,94,fangSide*3-1,0,-20,2,5,3),PartPose.ZERO);
+    head.addOrReplaceChild("horn_"+n+"_"+(fangSide<0?0:1),box(2,165,-2,-12,-6,4,10,4),PartPose.offset(fangSide*5,0,0));
+   }
+   // Eyes are near the forward cheekbones rather than floating over the muzzle.
+   head.addOrReplaceChild("eye_"+n+"_a",box(side<0?123:204,60,-7,-4,-15,2,3,4),PartPose.ZERO);
+   head.addOrReplaceChild("eye_"+n+"_b",box(side<0?123:204,60,5,-4,-15,2,3,4),PartPose.ZERO);
+   for(int crest=0;crest<4;crest++){
+    int lift=side<0?5+crest:7+crest*2;
+    head.addOrReplaceChild("crest_"+n+"_"+crest,box(side<0?13:202,side<0?40:162,-2,-lift,-8+crest*5,4,lift-2,4),PartPose.offset(side*(crest%2==0?3:-3),0,0));
+   }
    for(int front=0;front<2;front++){
     PartDefinition leg=body.addOrReplaceChild("leg_"+n+"_"+front,box(19,75,-6,-3,-6,12,17,12).texOffs(44,80).addBox(-5,9,-7,10,11,10),PartPose.offset(side*15,3,front==0?-26:28));
     for(int c=-1;c<=1;c++)leg.addOrReplaceChild("claw_"+c,box(7,96,c*4-2,18,-14,3,4,10),PartPose.ZERO);
