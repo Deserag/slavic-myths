@@ -21,6 +21,7 @@ public final class ModEffects {
  public static final DeferredHolder<MobEffect,MobEffect> RARE_BLEED=EFFECTS.register("rare_bleeding",org.slavicmyths.combat.RareBleedEffect::new);
  public static final DeferredHolder<MobEffect,MobEffect> DISORIENTATION=EFFECTS.register("disorientation",org.slavicmyths.combat.DisorientationEffect::new);
  public static final DeferredHolder<MobEffect,MobEffect> CLASS_ROOT=EFFECTS.register("class_root",org.slavicmyths.rpg.classes.ClassControl.RootEffect::new);
+    public static final DeferredHolder<MobEffect, MobEffect> MOROVA_PLAGUE = EFFECTS.register("morova_plague", org.slavicmyths.netherboss.MorovaPlagueEffect::new);
  private static final class CurseEffect extends MobEffect {
   CurseEffect(){super(MobEffectCategory.HARMFUL,0x657780);
    addAttributeModifier(Attributes.MOVEMENT_SPEED,ResourceLocation.fromNamespaceAndPath("slavicmyths","4fe2072b-4d7e-4fe9-b8a6-3c925b5817da"),AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL,amplifier->amplifier>0?-.15:-.10);

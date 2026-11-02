@@ -1,0 +1,14 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_flightitem_1.title",
+  "icon": "slavicmyths:flying_mortar",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:flying_broom",
+    "item/slavicmyths:flying_mortar"
+  ],
+  "advancements": [],
+  "links": []
+}

@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:rye_seeds",
+    "slavicmyths:barley_seeds",
+    "slavicmyths:oat_seeds",
+    "slavicmyths:turnip_seeds",
+    "slavicmyths:cabbage_seeds",
+    "slavicmyths:pea_seeds",
+    "slavicmyths:flax_seeds"
+  ]
+}

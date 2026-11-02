@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:chain"
+    },
+    {
+      "item": "minecraft:chain"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:lantern"
+    },
+    {
+      "item": "slavicmyths:serpent_masonry"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:ancient_hanging_lamp",
+    "count": 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_sworditem_1.title",
+  "icon": "slavicmyths:bone_knife",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:bone_knife",
+    "item/slavicmyths:butchering_knife",
+    "item/slavicmyths:carved_staff",
+    "item/slavicmyths:noon_sickle",
+    "item/slavicmyths:perunite_sword",
+    "item/slavicmyths:ritual_knife",
+    "item/slavicmyths:silver_dagger",
+    "item/slavicmyths:silver_sword",
+    "item/slavicmyths:tugarin_sword"
+  ],
+  "advancements": [],
+  "links": []
+}

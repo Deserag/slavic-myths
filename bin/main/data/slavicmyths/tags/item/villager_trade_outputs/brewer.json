@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:kvass_mug",
+    "slavicmyths:berry_mors_mug",
+    "slavicmyths:light_beer_mug",
+    "slavicmyths:dark_beer_mug",
+    "slavicmyths:hopped_beer_mug",
+    "slavicmyths:honey_beer_mug",
+    "slavicmyths:apple_cider_bottle",
+    "slavicmyths:mead_bottle",
+    "slavicmyths:forest_beer_mug",
+    "slavicmyths:thunder_beer_mug",
+    "slavicmyths:veles_dark_beer_mug",
+    "slavicmyths:witch_berry_beer_mug"
+  ]
+}

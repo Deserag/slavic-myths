@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:rye_sheaf"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:rye_grain",
+    "count": 9
+  }
+}

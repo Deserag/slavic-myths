@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "event"
+    ]
+  ],
+  "rewards": {},
+  "parent": "slavicmyths:kitchen_meal",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:wooden_mug"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false,
+    "title": {
+      "translate": "advancements.slavicmyths.self_brewed_beer.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.self_brewed_beer.description"
+    }
+  }
+}

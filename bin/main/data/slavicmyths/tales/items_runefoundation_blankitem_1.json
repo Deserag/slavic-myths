@@ -1,0 +1,15 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_runefoundation_blankitem_1.title",
+  "icon": "slavicmyths:blank_rune_1",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:blank_rune_1",
+    "item/slavicmyths:blank_rune_2",
+    "item/slavicmyths:blank_rune_3"
+  ],
+  "advancements": [],
+  "links": []
+}

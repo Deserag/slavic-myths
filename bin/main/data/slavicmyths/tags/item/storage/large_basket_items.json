@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#slavicmyths:storage/basket_items",
+    "#slavicmyths:cereal_grains",
+    "slavicmyths:flax_stalk",
+    "slavicmyths:dried_berries",
+    "slavicmyths:dried_mushrooms"
+  ]
+}

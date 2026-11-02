@@ -1,0 +1,16 @@
+{
+  "part": "creatures",
+  "chapter": "water",
+  "section": "inhabitants",
+  "title": "tales.entry.vodyanoy.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:thrown_net",
+    "entity/slavicmyths:vodyanoy"
+  ],
+  "advancements": [
+    "slavicmyths:meet_vodyanoy"
+  ],
+  "links": []
+}

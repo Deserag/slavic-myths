@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:apple_bliny",
+    "slavicmyths:apple_pie",
+    "slavicmyths:barley_porridge",
+    "slavicmyths:berry_bliny",
+    "slavicmyths:berry_pie",
+    "slavicmyths:berry_porridge",
+    "slavicmyths:bliny",
+    "slavicmyths:cabbage_pie",
+    "slavicmyths:dough",
+    "slavicmyths:honey_bliny",
+    "slavicmyths:karavai",
+    "slavicmyths:meat_bliny",
+    "slavicmyths:meat_pie",
+    "slavicmyths:meat_stew",
+    "slavicmyths:mushroom_stew_slavic",
+    "slavicmyths:oat_porridge",
+    "slavicmyths:pea_soup",
+    "slavicmyths:rye_bread",
+    "slavicmyths:stewed_cabbage",
+    "slavicmyths:stewed_turnip",
+    "slavicmyths:ukha",
+    "slavicmyths:vegetable_stew"
+  ]
+}

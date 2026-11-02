@@ -1,0 +1,30 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_item_6.title",
+  "icon": "slavicmyths:rune_thunder",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:leshy_heart",
+    "item/slavicmyths:rune_blood",
+    "item/slavicmyths:rune_crushing",
+    "item/slavicmyths:rune_death",
+    "item/slavicmyths:rune_flight",
+    "item/slavicmyths:rune_floating_weapon",
+    "item/slavicmyths:rune_forest",
+    "item/slavicmyths:rune_fortitude",
+    "item/slavicmyths:rune_heat",
+    "item/slavicmyths:rune_life",
+    "item/slavicmyths:rune_midday",
+    "item/slavicmyths:rune_protection",
+    "item/slavicmyths:rune_rare_protection",
+    "item/slavicmyths:rune_resilience",
+    "item/slavicmyths:rune_sacrifice",
+    "item/slavicmyths:rune_shadow",
+    "item/slavicmyths:rune_strength",
+    "item/slavicmyths:rune_thunder"
+  ],
+  "advancements": [],
+  "links": []
+}

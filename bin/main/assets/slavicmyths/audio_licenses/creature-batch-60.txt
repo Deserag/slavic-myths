@@ -1,0 +1,3 @@
+StarNinjas — 16 Monster Growls, https://opengameart.org/content/16-monster-growls , CC0 1.0 https://creativecommons.org/publicdomain/zero/1.0/ . Own mouth-performed recordings, selected distinct takes, EQ/crop/gain/fades; giant uses pitch/formant shift.
+OwlishMedia — 202 More Sound Effects, https://opengameart.org/content/202-more-sound-effects , CC0 1.0. Recorded household cloth props used for wolf movement foley, not an animal vocal recording.
+Source/archive/member hashes and processing: art/audio/pack-a-60/voice-rework/sources.json and batch-selection.json. No original-author endorsement implied.

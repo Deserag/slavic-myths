@@ -1,0 +1,31 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "copy_components": true,
+  "ingredients": [
+    {
+      "item": "slavicmyths:seven_league_boots"
+    },
+    {
+      "item": "slavicmyths:mysterious_black_feather"
+    },
+    {
+      "item": "slavicmyths:mysterious_black_feather"
+    },
+    {
+      "item": "slavicmyths:mysterious_black_feather"
+    },
+    {
+      "item": "slavicmyths:mysterious_black_feather"
+    },
+    {
+      "item": "slavicmyths:goat_hide"
+    },
+    {
+      "item": "slavicmyths:goat_hide"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:wind_boots",
+    "count": 1
+  }
+}

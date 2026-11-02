@@ -1,0 +1,7 @@
+{
+  "type": "slavicmyths:kurgan_small",
+  "biomes": "#slavicmyths:structures/kurgan_small",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}

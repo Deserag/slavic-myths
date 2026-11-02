@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "slavicmyths:silver_ingot"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.earth_heart.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.earth_heart.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "slavicmyths:depth_champions",
+  "criteria": {
+    "victory": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

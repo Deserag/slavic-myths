@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "#slavicmyths:berries",
+    "minecraft:apple",
+    "minecraft:red_mushroom",
+    "minecraft:brown_mushroom",
+    "slavicmyths:turnip",
+    "slavicmyths:cabbage",
+    "slavicmyths:pea_pod",
+    "slavicmyths:flax_stalk",
+    "slavicmyths:baked_turnip",
+    "slavicmyths:dried_berries",
+    "slavicmyths:dried_mushrooms"
+  ]
+}

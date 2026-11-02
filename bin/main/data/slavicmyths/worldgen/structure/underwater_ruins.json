@@ -1,0 +1,7 @@
+{
+  "type": "slavicmyths:underwater_ruins",
+  "biomes": "#slavicmyths:structures/underwater_ruins",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}

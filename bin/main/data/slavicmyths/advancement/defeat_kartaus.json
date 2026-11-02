@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "victory": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "victory"
+    ]
+  ],
+  "rewards": {},
+  "parent": "slavicmyths:defeat_skim",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:iron_spear"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "title": {
+      "translate": "advancement.slavicmyths.defeat_kartaus.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.defeat_kartaus.description"
+    }
+  }
+}

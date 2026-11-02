@@ -1,0 +1,13 @@
+{
+  "part": "nature",
+  "chapter": "plants",
+  "section": "catalogue",
+  "title": "tales.entry.feature_old_barn.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "feature/slavicmyths:old_barn"
+  ],
+  "advancements": [],
+  "links": []
+}

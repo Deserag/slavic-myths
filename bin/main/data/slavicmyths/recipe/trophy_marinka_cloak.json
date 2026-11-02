@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MMM",
+    "RCR",
+    "DMD"
+  ],
+  "key": {
+    "M": {
+      "item": "slavicmyths:mat_mirror_shards"
+    },
+    "R": {
+      "item": "minecraft:red_dye"
+    },
+    "C": {
+      "item": "minecraft:leather_chestplate"
+    },
+    "D": {
+      "item": "minecraft:black_dye"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:trophy_marinka_cloak",
+    "count": 1
+  }
+}

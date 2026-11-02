@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "slavicmyths:block/kurgan_hanging_brazier",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "slavicmyths:block/kurgan_hanging_brazier",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "slavicmyths:block/kurgan_hanging_brazier",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "slavicmyths:block/kurgan_hanging_brazier",
+      "y": 270
+    }
+  }
+}

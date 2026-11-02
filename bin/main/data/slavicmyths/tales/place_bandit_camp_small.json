@@ -1,0 +1,15 @@
+{
+  "part": "places",
+  "chapter": "roads",
+  "section": "catalogue",
+  "title": "tales.entry.place_bandit_camp_small.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "structure/slavicmyths:bandit_camp_small"
+  ],
+  "advancements": [
+    "slavicmyths:find_small_camp"
+  ],
+  "links": []
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "fruit_stage=0": {
+      "model": "slavicmyths:block/apple_leaves"
+    },
+    "fruit_stage=1": {
+      "model": "slavicmyths:block/apple_leaves_stage1"
+    },
+    "fruit_stage=2": {
+      "model": "slavicmyths:block/apple_leaves_stage2"
+    },
+    "fruit_stage=3": {
+      "model": "slavicmyths:block/apple_leaves_stage3"
+    }
+  }
+}

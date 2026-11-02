@@ -1,0 +1,485 @@
+{
+  "atlas": 512,
+  "parts": [
+    {
+      "name": "body",
+      "parent": "root",
+      "pivot": [
+        0,
+        16,
+        0
+      ],
+      "size": [
+        12,
+        8,
+        23
+      ],
+      "offset": [
+        -6.0,
+        -4.0,
+        -11.5
+      ],
+      "hot": false,
+      "uv": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "body",
+      "pivot": [
+        0,
+        -1,
+        -15
+      ],
+      "size": [
+        12,
+        7,
+        10
+      ],
+      "offset": [
+        -6.0,
+        -3.5,
+        -5.0
+      ],
+      "hot": false,
+      "uv": [
+        72,
+        0
+      ]
+    },
+    {
+      "name": "jaw",
+      "parent": "head",
+      "pivot": [
+        0,
+        3,
+        -1
+      ],
+      "size": [
+        10,
+        3,
+        9
+      ],
+      "offset": [
+        -5.0,
+        -1.5,
+        -4.5
+      ],
+      "hot": false,
+      "uv": [
+        118,
+        0
+      ]
+    },
+    {
+      "name": "eye0",
+      "parent": "head",
+      "pivot": [
+        -5,
+        -2,
+        -5.1
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "offset": [
+        -1.0,
+        -1.0,
+        -0.5
+      ],
+      "hot": true,
+      "uv": [
+        158,
+        0
+      ]
+    },
+    {
+      "name": "eye1",
+      "parent": "head",
+      "pivot": [
+        5,
+        -2,
+        -5.1
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "offset": [
+        -1.0,
+        -1.0,
+        -0.5
+      ],
+      "hot": true,
+      "uv": [
+        166,
+        0
+      ]
+    },
+    {
+      "name": "tail",
+      "parent": "body",
+      "pivot": [
+        0,
+        0,
+        17
+      ],
+      "size": [
+        6,
+        5,
+        14
+      ],
+      "offset": [
+        -3.0,
+        -2.5,
+        -7.0
+      ],
+      "hot": false,
+      "uv": [
+        174,
+        0
+      ]
+    },
+    {
+      "name": "tail_tip",
+      "parent": "tail",
+      "pivot": [
+        0,
+        0,
+        10
+      ],
+      "size": [
+        3,
+        3,
+        8
+      ],
+      "offset": [
+        -1.5,
+        -1.5,
+        -4.0
+      ],
+      "hot": false,
+      "uv": [
+        216,
+        0
+      ]
+    },
+    {
+      "name": "leg0",
+      "parent": "body",
+      "pivot": [
+        -8,
+        3,
+        -7
+      ],
+      "size": [
+        5,
+        5,
+        5
+      ],
+      "offset": [
+        -2.5,
+        -2.5,
+        -2.5
+      ],
+      "hot": false,
+      "uv": [
+        240,
+        0
+      ]
+    },
+    {
+      "name": "foot0",
+      "parent": "leg0",
+      "pivot": [
+        -1.0,
+        3,
+        -1
+      ],
+      "size": [
+        6,
+        2,
+        7
+      ],
+      "offset": [
+        -3.0,
+        -1.0,
+        -3.5
+      ],
+      "hot": false,
+      "uv": [
+        262,
+        0
+      ]
+    },
+    {
+      "name": "leg1",
+      "parent": "body",
+      "pivot": [
+        8,
+        3,
+        -7
+      ],
+      "size": [
+        5,
+        5,
+        5
+      ],
+      "offset": [
+        -2.5,
+        -2.5,
+        -2.5
+      ],
+      "hot": false,
+      "uv": [
+        290,
+        0
+      ]
+    },
+    {
+      "name": "foot1",
+      "parent": "leg1",
+      "pivot": [
+        1.0,
+        3,
+        -1
+      ],
+      "size": [
+        6,
+        2,
+        7
+      ],
+      "offset": [
+        -3.0,
+        -1.0,
+        -3.5
+      ],
+      "hot": false,
+      "uv": [
+        312,
+        0
+      ]
+    },
+    {
+      "name": "leg2",
+      "parent": "body",
+      "pivot": [
+        -8,
+        3,
+        7
+      ],
+      "size": [
+        5,
+        5,
+        5
+      ],
+      "offset": [
+        -2.5,
+        -2.5,
+        -2.5
+      ],
+      "hot": false,
+      "uv": [
+        340,
+        0
+      ]
+    },
+    {
+      "name": "foot2",
+      "parent": "leg2",
+      "pivot": [
+        -1.0,
+        3,
+        -1
+      ],
+      "size": [
+        6,
+        2,
+        7
+      ],
+      "offset": [
+        -3.0,
+        -1.0,
+        -3.5
+      ],
+      "hot": false,
+      "uv": [
+        362,
+        0
+      ]
+    },
+    {
+      "name": "leg3",
+      "parent": "body",
+      "pivot": [
+        8,
+        3,
+        7
+      ],
+      "size": [
+        5,
+        5,
+        5
+      ],
+      "offset": [
+        -2.5,
+        -2.5,
+        -2.5
+      ],
+      "hot": false,
+      "uv": [
+        390,
+        0
+      ]
+    },
+    {
+      "name": "foot3",
+      "parent": "leg3",
+      "pivot": [
+        1.0,
+        3,
+        -1
+      ],
+      "size": [
+        6,
+        2,
+        7
+      ],
+      "offset": [
+        -3.0,
+        -1.0,
+        -3.5
+      ],
+      "hot": false,
+      "uv": [
+        412,
+        0
+      ]
+    },
+    {
+      "name": "ridge0",
+      "parent": "body",
+      "pivot": [
+        0,
+        -5,
+        -8
+      ],
+      "size": [
+        2,
+        3,
+        3
+      ],
+      "offset": [
+        -1.0,
+        -1.5,
+        -1.5
+      ],
+      "hot": true,
+      "uv": [
+        440,
+        0
+      ]
+    },
+    {
+      "name": "ridge1",
+      "parent": "body",
+      "pivot": [
+        0,
+        -5,
+        -4
+      ],
+      "size": [
+        2,
+        3,
+        3
+      ],
+      "offset": [
+        -1.0,
+        -1.5,
+        -1.5
+      ],
+      "hot": true,
+      "uv": [
+        452,
+        0
+      ]
+    },
+    {
+      "name": "ridge2",
+      "parent": "body",
+      "pivot": [
+        0,
+        -5,
+        0
+      ],
+      "size": [
+        2,
+        3,
+        3
+      ],
+      "offset": [
+        -1.0,
+        -1.5,
+        -1.5
+      ],
+      "hot": true,
+      "uv": [
+        464,
+        0
+      ]
+    },
+    {
+      "name": "ridge3",
+      "parent": "body",
+      "pivot": [
+        0,
+        -5,
+        4
+      ],
+      "size": [
+        2,
+        3,
+        3
+      ],
+      "offset": [
+        -1.0,
+        -1.5,
+        -1.5
+      ],
+      "hot": true,
+      "uv": [
+        476,
+        0
+      ]
+    },
+    {
+      "name": "ridge4",
+      "parent": "body",
+      "pivot": [
+        0,
+        -5,
+        8
+      ],
+      "size": [
+        2,
+        3,
+        3
+      ],
+      "offset": [
+        -1.0,
+        -1.5,
+        -1.5
+      ],
+      "hot": true,
+      "uv": [
+        488,
+        0
+      ]
+    }
+  ]
+}

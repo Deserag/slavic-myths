@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "mastery": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "mastery"
+    ]
+  ],
+  "rewards": {},
+  "parent": "slavicmyths:own_path",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:lore_book"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "title": {
+      "translate": "advancement.slavicmyths.class_iv.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.class_iv.description"
+    }
+  }
+}

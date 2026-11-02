@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:pustoy_ritualny_sosud"
+    },
+    {
+      "item": "slavicmyths:pylayuschaya_cheshuya"
+    },
+    {
+      "item": "slavicmyths:pylayuschaya_cheshuya"
+    },
+    {
+      "item": "slavicmyths:ognennoe_pero"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:sosud_ognennogo_dyhaniya"
+  }
+}

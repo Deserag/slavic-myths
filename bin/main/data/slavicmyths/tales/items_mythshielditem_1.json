@@ -1,0 +1,14 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_mythshielditem_1.title",
+  "icon": "slavicmyths:perunite_shield",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:perunite_shield",
+    "item/slavicmyths:retainer_shield"
+  ],
+  "advancements": [],
+  "links": []
+}

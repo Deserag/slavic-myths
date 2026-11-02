@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " N ",
+    "RLR",
+    " D "
+  ],
+  "key": {
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "L": {
+      "item": "minecraft:lantern"
+    },
+    "D": {
+      "item": "slavicmyths:mor_dust"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:tracker_sense",
+    "count": 1
+  }
+}

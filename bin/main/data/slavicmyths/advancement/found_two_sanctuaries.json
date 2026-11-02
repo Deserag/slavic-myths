@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:found_ancient_sanctuary",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:idol_fragment"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.found_two_sanctuaries"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.found_two_sanctuaries.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

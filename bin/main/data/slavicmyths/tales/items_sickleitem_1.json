@@ -1,0 +1,14 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_sickleitem_1.title",
+  "icon": "slavicmyths:sickle",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:sickle",
+    "recipe/slavicmyths:sickle"
+  ],
+  "advancements": [],
+  "links": []
+}

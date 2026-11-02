@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:adventure/root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:ilya_call_token"
+    },
+    "title": {
+      "translate": "ilya_intro.adv.title"
+    },
+    "description": {
+      "translate": "ilya_intro.adv.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "help": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "help"
+    ]
+  ]
+}

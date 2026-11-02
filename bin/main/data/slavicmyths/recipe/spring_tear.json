@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:pure_spring_drop"
+    },
+    {
+      "item": "slavicmyths:ancient_rune_fragment"
+    },
+    {
+      "item": "minecraft:gold_nugget"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:spring_tear",
+    "count": 1
+  }
+}

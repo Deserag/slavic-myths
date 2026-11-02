@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=north,open=false": {
+      "model": "slavicmyths:block/household_chest_false",
+      "y": 0
+    },
+    "facing=east,open=false": {
+      "model": "slavicmyths:block/household_chest_false",
+      "y": 90
+    },
+    "facing=south,open=false": {
+      "model": "slavicmyths:block/household_chest_false",
+      "y": 180
+    },
+    "facing=west,open=false": {
+      "model": "slavicmyths:block/household_chest_false",
+      "y": 270
+    },
+    "facing=north,open=true": {
+      "model": "slavicmyths:block/household_chest_true",
+      "y": 0
+    },
+    "facing=east,open=true": {
+      "model": "slavicmyths:block/household_chest_true",
+      "y": 90
+    },
+    "facing=south,open=true": {
+      "model": "slavicmyths:block/household_chest_true",
+      "y": 180
+    },
+    "facing=west,open=true": {
+      "model": "slavicmyths:block/household_chest_true",
+      "y": 270
+    }
+  }
+}

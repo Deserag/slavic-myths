@@ -1,0 +1,17 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/gold_sulitsa_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "slavicmyths:item/gold_sulitsa_icon"
+    },
+    "ground": {
+      "parent": "slavicmyths:item/gold_sulitsa_icon"
+    },
+    "fixed": {
+      "parent": "slavicmyths:item/gold_sulitsa_icon"
+    }
+  }
+}

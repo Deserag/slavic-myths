@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "slavicmyths:pale_blue_kurgan_stone_slab"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:carved_burial_stone",
+    "count": 1
+  }
+}

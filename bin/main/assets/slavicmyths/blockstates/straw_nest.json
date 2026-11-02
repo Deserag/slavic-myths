@@ -1,0 +1,84 @@
+{
+  "variants": {
+    "egg_count=0,facing=north": {
+      "model": "slavicmyths:block/straw_nest_0",
+      "y": 0,
+      "uvlock": true
+    },
+    "egg_count=0,facing=east": {
+      "model": "slavicmyths:block/straw_nest_0",
+      "y": 90,
+      "uvlock": true
+    },
+    "egg_count=0,facing=south": {
+      "model": "slavicmyths:block/straw_nest_0",
+      "y": 180,
+      "uvlock": true
+    },
+    "egg_count=0,facing=west": {
+      "model": "slavicmyths:block/straw_nest_0",
+      "y": 270,
+      "uvlock": true
+    },
+    "egg_count=1,facing=north": {
+      "model": "slavicmyths:block/straw_nest_1",
+      "y": 0,
+      "uvlock": true
+    },
+    "egg_count=1,facing=east": {
+      "model": "slavicmyths:block/straw_nest_1",
+      "y": 90,
+      "uvlock": true
+    },
+    "egg_count=1,facing=south": {
+      "model": "slavicmyths:block/straw_nest_1",
+      "y": 180,
+      "uvlock": true
+    },
+    "egg_count=1,facing=west": {
+      "model": "slavicmyths:block/straw_nest_1",
+      "y": 270,
+      "uvlock": true
+    },
+    "egg_count=2,facing=north": {
+      "model": "slavicmyths:block/straw_nest_2",
+      "y": 0,
+      "uvlock": true
+    },
+    "egg_count=2,facing=east": {
+      "model": "slavicmyths:block/straw_nest_2",
+      "y": 90,
+      "uvlock": true
+    },
+    "egg_count=2,facing=south": {
+      "model": "slavicmyths:block/straw_nest_2",
+      "y": 180,
+      "uvlock": true
+    },
+    "egg_count=2,facing=west": {
+      "model": "slavicmyths:block/straw_nest_2",
+      "y": 270,
+      "uvlock": true
+    },
+    "egg_count=3,facing=north": {
+      "model": "slavicmyths:block/straw_nest_3",
+      "y": 0,
+      "uvlock": true
+    },
+    "egg_count=3,facing=east": {
+      "model": "slavicmyths:block/straw_nest_3",
+      "y": 90,
+      "uvlock": true
+    },
+    "egg_count=3,facing=south": {
+      "model": "slavicmyths:block/straw_nest_3",
+      "y": 180,
+      "uvlock": true
+    },
+    "egg_count=3,facing=west": {
+      "model": "slavicmyths:block/straw_nest_3",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

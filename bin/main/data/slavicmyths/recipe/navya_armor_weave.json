@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LHL",
+    "BAB",
+    "ITI"
+  ],
+  "key": {
+    "L": {
+      "item": "slavicmyths:living_root"
+    },
+    "H": {
+      "item": "slavicmyths:grove_core"
+    },
+    "B": {
+      "item": "slavicmyths:guardian_branch"
+    },
+    "A": {
+      "item": "slavicmyths:alatyr_ingot"
+    },
+    "I": {
+      "item": "slavicmyths:roasted_livingstone"
+    },
+    "T": {
+      "item": "slavicmyths:bone_thorn"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:navya_armor_weave",
+    "count": 1
+  }
+}

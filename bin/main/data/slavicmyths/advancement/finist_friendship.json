@@ -1,0 +1,23 @@
+{
+  "parent": "minecraft:adventure/root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:finist_call_feather"
+    },
+    "title": {
+      "translate": "hero_intro.finist.title"
+    },
+    "description": {
+      "translate": "hero_intro.finist.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "help": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

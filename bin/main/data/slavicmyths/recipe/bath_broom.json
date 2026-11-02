@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:string"
+    },
+    {
+      "item": "minecraft:birch_leaves"
+    },
+    {
+      "item": "minecraft:birch_leaves"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "slavicmyths:bath_broom"
+  }
+}

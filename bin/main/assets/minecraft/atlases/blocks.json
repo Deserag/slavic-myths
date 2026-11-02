@@ -1,0 +1,44 @@
+{
+  "sources": [
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/karachun"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/morozko"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/morozko_crystal"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/great_poloz_head"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/cursed_volkolak"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/likho_one_eyed"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/mor/likho"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/skim_beast"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/tugarin_phase2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/underground/large_podzemnik"
+    }
+  ]
+}

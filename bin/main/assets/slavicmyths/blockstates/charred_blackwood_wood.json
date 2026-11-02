@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "slavicmyths:block/charred_blackwood_wood"
+    },
+    "axis=x": {
+      "model": "slavicmyths:block/charred_blackwood_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=z": {
+      "model": "slavicmyths:block/charred_blackwood_wood",
+      "x": 90
+    }
+  }
+}

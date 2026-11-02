@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LHL",
+    "TAT",
+    "QRQ"
+  ],
+  "key": {
+    "L": {
+      "item": "slavicmyths:lightvein_shard"
+    },
+    "H": {
+      "item": "slavicmyths:posten_heart"
+    },
+    "T": {
+      "item": "slavicmyths:lost_whisper_thread"
+    },
+    "A": {
+      "item": "slavicmyths:alatyr_ingot"
+    },
+    "Q": {
+      "item": "minecraft:quartz"
+    },
+    "R": {
+      "item": "slavicmyths:roasted_runnik"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:four_faces_crown_core",
+    "count": 1
+  }
+}

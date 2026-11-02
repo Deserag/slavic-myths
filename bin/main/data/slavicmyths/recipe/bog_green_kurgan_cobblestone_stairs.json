@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "slavicmyths:bog_green_kurgan_cobblestone"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:bog_green_kurgan_cobblestone_stairs",
+    "count": 4
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "textures": {
+    "wood": "slavicmyths:block/kitchen_wood",
+    "metal": "slavicmyths:block/kitchen_metal",
+    "dough": "slavicmyths:block/kitchen_dough",
+    "particle": "slavicmyths:block/kitchen_wood"
+  },
+  "elements": [
+    {
+      "from": [
+        3,
+        0,
+        4
+      ],
+      "to": [
+        13,
+        3,
+        12
+      ],
+      "faces": {
+        "north": {
+          "texture": "#dough",
+          "uv": [
+            0,
+            0,
+            10,
+            3
+          ]
+        },
+        "south": {
+          "texture": "#dough",
+          "uv": [
+            0,
+            0,
+            10,
+            3
+          ]
+        },
+        "east": {
+          "texture": "#dough",
+          "uv": [
+            0,
+            0,
+            8,
+            3
+          ]
+        },
+        "west": {
+          "texture": "#dough",
+          "uv": [
+            0,
+            0,
+            8,
+            3
+          ]
+        },
+        "up": {
+          "texture": "#dough",
+          "uv": [
+            0,
+            0,
+            10,
+            8
+          ]
+        },
+        "down": {
+          "texture": "#dough",
+          "uv": [
+            0,
+            0,
+            10,
+            8
+          ]
+        }
+      }
+    }
+  ],
+  "ambientocclusion": false
+}

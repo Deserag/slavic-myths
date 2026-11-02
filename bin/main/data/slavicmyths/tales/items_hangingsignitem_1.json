@@ -1,0 +1,16 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_hangingsignitem_1.title",
+  "icon": "slavicmyths:apple_hanging_sign",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:apple_hanging_sign",
+    "block/slavicmyths:apple_wall_hanging_sign",
+    "item/slavicmyths:apple_hanging_sign",
+    "recipe/slavicmyths:apple_hanging_sign"
+  ],
+  "advancements": [],
+  "links": []
+}

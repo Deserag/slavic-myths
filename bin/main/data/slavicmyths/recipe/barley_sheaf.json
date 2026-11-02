@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GGG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "slavicmyths:barley_grain"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:barley_sheaf",
+    "count": 1
+  }
+}

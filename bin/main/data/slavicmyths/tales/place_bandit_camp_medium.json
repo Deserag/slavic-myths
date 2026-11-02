@@ -1,0 +1,16 @@
+{
+  "part": "places",
+  "chapter": "roads",
+  "section": "catalogue",
+  "title": "tales.entry.place_bandit_camp_medium.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "structure/slavicmyths:bandit_camp_medium"
+  ],
+  "advancements": [
+    "slavicmyths:find_medium_camp",
+    "slavicmyths:without_ataman"
+  ],
+  "links": []
+}

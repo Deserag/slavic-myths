@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:abandoned_settlement",
+    "slavicmyths:abode_pure_spring",
+    "slavicmyths:bandit_camp_large",
+    "slavicmyths:bandit_camp_medium",
+    "slavicmyths:bandit_camp_small",
+    "slavicmyths:bog_causeway",
+    "slavicmyths:chud_abandoned",
+    "slavicmyths:chud_city",
+    "slavicmyths:fishing_camp",
+    "slavicmyths:flooded_shrine",
+    "slavicmyths:gorodishche",
+    "slavicmyths:kurgan_great",
+    "slavicmyths:kurgan_small",
+    "slavicmyths:kurgan_warrior",
+    "slavicmyths:sanctuary_unfading_fire",
+    "slavicmyths:serpent_hill",
+    "slavicmyths:swamp_hut",
+    "slavicmyths:swamp_remnants",
+    "slavicmyths:swamp_watchtower",
+    "slavicmyths:underwater_ruins"
+  ]
+}

@@ -15,6 +15,15 @@ import org.slavicmyths.SlavicMyths;
 public final class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(Registries.ITEM, SlavicMyths.MOD_ID);
+    public static final DeferredHolder<Item, Item> MYTAR_SEAL = ITEMS.register("mytar_seal", () -> new Item(properties().rarity(Rarity.RARE).stacksTo(1)));
+    public static final DeferredHolder<Item, Item> MYTAR_CHAIN = ITEMS.register("mytar_chain", () -> new Item(properties().rarity(Rarity.RARE)));
+    public static final DeferredHolder<Item, Item> MYTAR_SICKLE = ITEMS.register("mytar_sickle", () -> new Item(properties().rarity(Rarity.RARE)));
+    public static final DeferredHolder<Item, Item> MYTAR_PURSE = ITEMS.register("mytar_purse", () -> new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.RARE), "belt"));
+    public static final DeferredHolder<Item, Item> BAUK_FANG = ITEMS.register("bauk_fang", () -> new Item(properties().rarity(Rarity.RARE).stacksTo(1)));
+    public static final DeferredHolder<Item, Item> BAUK_HIDE = ITEMS.register("bauk_hide", () -> new Item(properties().rarity(Rarity.RARE)));
+    public static final DeferredHolder<Item, Item> BAUK_CLAW = ITEMS.register("bauk_claw", () -> new Item(properties().rarity(Rarity.RARE)));
+    public static final DeferredHolder<Item, Item> BAUK_HEAD_ITEM = ITEMS.register("bauk_head", () -> new BlockItem(ModBlocks.BAUK_HEAD.get(), properties().stacksTo(1).rarity(Rarity.EPIC)));
+    public static final DeferredHolder<Item, Item> BAUK_HIDE_CHARM_ITEM = ITEMS.register("bauk_hide_charm", () -> new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.EPIC), "charm"));
     public static final DeferredHolder<Item,Item> SILVER_BLOCK=ITEMS.register("silver_block",()->new BlockItem(ModBlocks.SILVER_BLOCK.get(),properties()));
     public static final DeferredHolder<Item,Item> MOR_FLASK=ITEMS.register("mor_flask",()->new org.slavicmyths.mor.MorFlaskItem(properties()));
     public static final DeferredHolder<Item,Item> ANCIENT_DEPTHS_MAP=ITEMS.register("ancient_depths_map",()->new org.slavicmyths.depths.DepthsMapItem(properties()));
@@ -145,11 +154,11 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> OVINNIK_CLAW = ITEMS.register("ovinnik_claw", () -> new Item(properties()));
     public static final DeferredHolder<Item, Item> EMBER_HEART = ITEMS.register("ember_heart", () -> new Item(properties()));
     public static final DeferredHolder<Item, Item> NOON_SICKLE = ITEMS.register("noon_sickle", () -> new SwordItem(ModGear.SILVER, properties().rarity(Rarity.UNCOMMON).attributes(SwordItem.createAttributes(ModGear.SILVER, 3, -2.5F))));
-    public static final DeferredHolder<Item, Item> KIKIMORA_SPAWN_EGG = ITEMS.register("kikimora_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.KIKIMORA, 0x494137, 0xbca981, properties()));
-    public static final DeferredHolder<Item, Item> POLUDNITSA_SPAWN_EGG = ITEMS.register("poludnitsa_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.POLUDNITSA, 0x494137, 0xbca981, properties()));
-    public static final DeferredHolder<Item, Item> POLEVIK_SPAWN_EGG = ITEMS.register("polevik_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.POLEVIK, 0x494137, 0xbca981, properties()));
-    public static final DeferredHolder<Item, Item> BANNIK_SPAWN_EGG = ITEMS.register("bannik_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.BANNIK, 0x494137, 0xbca981, properties()));
-    public static final DeferredHolder<Item, Item> IGOSHA_SPAWN_EGG = ITEMS.register("igosha_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.IGOSHA, 0x494137, 0xbca981, properties()));
+    public static final DeferredHolder<Item, Item> KIKIMORA_SPAWN_EGG = ITEMS.register("kikimora_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.KIKIMORA, 0x454A39, 0x81A36A, properties()));
+    public static final DeferredHolder<Item, Item> POLUDNITSA_SPAWN_EGG = ITEMS.register("poludnitsa_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.POLUDNITSA, 0xE9C879, 0xC55A25, properties()));
+    public static final DeferredHolder<Item, Item> POLEVIK_SPAWN_EGG = ITEMS.register("polevik_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.POLEVIK, 0x6B4429, 0xA7C06A, properties()));
+    public static final DeferredHolder<Item, Item> BANNIK_SPAWN_EGG = ITEMS.register("bannik_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.BANNIK, 0x333E4C, 0xB4D7E4, properties()));
+    public static final DeferredHolder<Item, Item> IGOSHA_SPAWN_EGG = ITEMS.register("igosha_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.IGOSHA, 0xCBC4AF, 0x5B1E35, properties()));
     public static final DeferredHolder<Item, Item> OVINNIK_SPAWN_EGG = ITEMS.register("ovinnik_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(ModEntities.OVINNIK, 0x2C2722, 0xE34A18, properties()));
     public static final DeferredHolder<Item, Item> BATH_STOVE = ITEMS.register("bath_stove", () -> new BlockItem(ModBlocks.BATH_STOVE.get(), properties()));
     public static final DeferredHolder<Item, Item> WOODEN_TUB = ITEMS.register("wooden_tub", () -> new BlockItem(ModBlocks.WOODEN_TUB.get(), properties()));

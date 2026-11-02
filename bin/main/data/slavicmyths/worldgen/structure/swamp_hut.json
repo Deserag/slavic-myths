@@ -1,0 +1,7 @@
+{
+  "type": "slavicmyths:swamp_hut",
+  "biomes": "#slavicmyths:structures/swamp_hut",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}

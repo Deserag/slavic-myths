@@ -1,0 +1,17 @@
+{
+  "part": "creatures",
+  "chapter": "legends",
+  "section": "inhabitants",
+  "title": "tales.entry.kot_bayun.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 1,
+  "subjects": [
+    "entity/slavicmyths:kot_bayun",
+    "feature/slavicmyths:bayun_nook"
+  ],
+  "advancements": [
+    "slavicmyths:friend_of_bayun",
+    "slavicmyths:meet_bayun"
+  ],
+  "links": []
+}

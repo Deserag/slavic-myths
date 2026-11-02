@@ -1,0 +1,39 @@
+{
+  "type": "slavicmyths:kitchen",
+  "mode": "POT",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:cabbage"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:animal_fat"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:water_bucket"
+      },
+      "count": 1
+    }
+  ],
+  "tool": {
+    "item": "slavicmyths:metal_pot"
+  },
+  "time": 160,
+  "result": {
+    "id": "slavicmyths:stewed_cabbage",
+    "count": 1
+  },
+  "servings": 2,
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    }
+  ]
+}

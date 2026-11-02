@@ -1,0 +1,7 @@
+{
+  "type": "slavicmyths:serpent_hill",
+  "biomes": "#slavicmyths:has_structure/serpent_hill",
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "spawn_overrides": {}
+}

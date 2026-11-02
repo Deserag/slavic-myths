@@ -1,0 +1,11 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/perunite_flail_ball_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "slavicmyths:item/perunite_flail_ball_icon"
+    }
+  }
+}

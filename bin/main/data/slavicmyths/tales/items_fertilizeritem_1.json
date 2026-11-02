@@ -1,0 +1,14 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_fertilizeritem_1.title",
+  "icon": "slavicmyths:organic_fertilizer",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:organic_fertilizer",
+    "recipe/slavicmyths:organic_fertilizer"
+  ],
+  "advancements": [],
+  "links": []
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "slavicmyths:sacred_ember"
+    },
+    {
+      "item": "slavicmyths:purifying_ash"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:flame_vial",
+    "count": 1
+  }
+}

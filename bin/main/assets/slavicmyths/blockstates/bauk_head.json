@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=north,jaw_open=false": {
+      "model": "slavicmyths:block/bauk_head_closed",
+      "y": 0
+    },
+    "facing=north,jaw_open=true": {
+      "model": "slavicmyths:block/bauk_head_open",
+      "y": 0
+    },
+    "facing=east,jaw_open=false": {
+      "model": "slavicmyths:block/bauk_head_closed",
+      "y": 90
+    },
+    "facing=east,jaw_open=true": {
+      "model": "slavicmyths:block/bauk_head_open",
+      "y": 90
+    },
+    "facing=south,jaw_open=false": {
+      "model": "slavicmyths:block/bauk_head_closed",
+      "y": 180
+    },
+    "facing=south,jaw_open=true": {
+      "model": "slavicmyths:block/bauk_head_open",
+      "y": 180
+    },
+    "facing=west,jaw_open=false": {
+      "model": "slavicmyths:block/bauk_head_closed",
+      "y": 270
+    },
+    "facing=west,jaw_open=true": {
+      "model": "slavicmyths:block/bauk_head_open",
+      "y": 270
+    }
+  }
+}

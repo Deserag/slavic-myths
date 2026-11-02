@@ -1,0 +1,13 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_depthsmapitem_1.title",
+  "icon": "slavicmyths:ancient_depths_map",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:ancient_depths_map"
+  ],
+  "advancements": [],
+  "links": []
+}

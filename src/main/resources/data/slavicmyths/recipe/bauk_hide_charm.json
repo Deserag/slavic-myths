@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "   ",
+    "CHC",
+    " L "
+  ],
+  "key": {
+    "C": {
+      "item": "slavicmyths:bauk_claw"
+    },
+    "H": {
+      "item": "slavicmyths:bauk_hide"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:bauk_hide_charm",
+    "count": 1
+  }
+}

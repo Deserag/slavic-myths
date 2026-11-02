@@ -1,0 +1,17 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/skim_head_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/skim_head"
+      }
+    }
+  },
+  "textures": {
+    "particle": "slavicmyths:item/skim_head"
+  }
+}

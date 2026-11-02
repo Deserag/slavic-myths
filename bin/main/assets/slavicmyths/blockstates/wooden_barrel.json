@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "slavicmyths:block/wooden_barrel",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "slavicmyths:block/wooden_barrel",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "slavicmyths:block/wooden_barrel",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "slavicmyths:block/wooden_barrel",
+      "y": 270
+    }
+  }
+}

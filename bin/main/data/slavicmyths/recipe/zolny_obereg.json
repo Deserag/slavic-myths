@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ISI",
+    "AKA",
+    " A "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_nugget"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "A": {
+      "item": "slavicmyths:ovinnaya_zola"
+    },
+    "K": {
+      "item": "slavicmyths:iskra_ovinnika"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:zolny_obereg"
+  }
+}

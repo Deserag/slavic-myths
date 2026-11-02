@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "slavicmyths:block/navya_soil",
+    "side": "slavicmyths:block/navya_soil_side",
+    "bottom": "slavicmyths:block/navya_soil"
+  }
+}

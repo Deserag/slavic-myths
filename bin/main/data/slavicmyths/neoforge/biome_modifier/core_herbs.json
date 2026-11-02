@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:feature_plains_forest_taiga",
+  "features": [
+    "slavicmyths:patch_wormwood",
+    "slavicmyths:patch_st_johns_wort",
+    "slavicmyths:patch_nettle",
+    "slavicmyths:patch_fireweed",
+    "slavicmyths:patch_juniper"
+  ],
+  "step": "vegetal_decoration"
+}

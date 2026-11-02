@@ -1,0 +1,84 @@
+{
+  "variants": {
+    "facing=north,visual=0": {
+      "model": "slavicmyths:block/fermentation_vat_0",
+      "y": 0
+    },
+    "facing=east,visual=0": {
+      "model": "slavicmyths:block/fermentation_vat_0",
+      "y": 90
+    },
+    "facing=south,visual=0": {
+      "model": "slavicmyths:block/fermentation_vat_0",
+      "y": 180
+    },
+    "facing=west,visual=0": {
+      "model": "slavicmyths:block/fermentation_vat_0",
+      "y": 270
+    },
+    "facing=north,visual=1": {
+      "model": "slavicmyths:block/fermentation_vat_1",
+      "y": 0
+    },
+    "facing=east,visual=1": {
+      "model": "slavicmyths:block/fermentation_vat_1",
+      "y": 90
+    },
+    "facing=south,visual=1": {
+      "model": "slavicmyths:block/fermentation_vat_1",
+      "y": 180
+    },
+    "facing=west,visual=1": {
+      "model": "slavicmyths:block/fermentation_vat_1",
+      "y": 270
+    },
+    "facing=north,visual=2": {
+      "model": "slavicmyths:block/fermentation_vat_2",
+      "y": 0
+    },
+    "facing=east,visual=2": {
+      "model": "slavicmyths:block/fermentation_vat_2",
+      "y": 90
+    },
+    "facing=south,visual=2": {
+      "model": "slavicmyths:block/fermentation_vat_2",
+      "y": 180
+    },
+    "facing=west,visual=2": {
+      "model": "slavicmyths:block/fermentation_vat_2",
+      "y": 270
+    },
+    "facing=north,visual=3": {
+      "model": "slavicmyths:block/fermentation_vat_3",
+      "y": 0
+    },
+    "facing=east,visual=3": {
+      "model": "slavicmyths:block/fermentation_vat_3",
+      "y": 90
+    },
+    "facing=south,visual=3": {
+      "model": "slavicmyths:block/fermentation_vat_3",
+      "y": 180
+    },
+    "facing=west,visual=3": {
+      "model": "slavicmyths:block/fermentation_vat_3",
+      "y": 270
+    },
+    "facing=north,visual=4": {
+      "model": "slavicmyths:block/fermentation_vat_4",
+      "y": 0
+    },
+    "facing=east,visual=4": {
+      "model": "slavicmyths:block/fermentation_vat_4",
+      "y": 90
+    },
+    "facing=south,visual=4": {
+      "model": "slavicmyths:block/fermentation_vat_4",
+      "y": 180
+    },
+    "facing=west,visual=4": {
+      "model": "slavicmyths:block/fermentation_vat_4",
+      "y": 270
+    }
+  }
+}

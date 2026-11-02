@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "PLP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:navya_planks"
+    },
+    "L": {
+      "item": "slavicmyths:navya_log"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:navya_wardrobe"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "part": "nature",
+  "chapter": "animals",
+  "section": "catalogue",
+  "title": "tales.entry.forest_wolf.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:forest_wolf"
+  ],
+  "advancements": [],
+  "links": []
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slavicmyths:block/willow_slab"
+    },
+    "type=double": {
+      "model": "slavicmyths:block/willow_planks"
+    },
+    "type=top": {
+      "model": "slavicmyths:block/willow_slab_top"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "slavicmyths:raw_crayfish"
+  },
+  "result": {
+    "id": "slavicmyths:cooked_crayfish"
+  },
+  "experience": 0.35,
+  "cookingtime": 200
+}

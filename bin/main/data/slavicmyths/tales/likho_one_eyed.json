@@ -1,0 +1,13 @@
+{
+  "part": "creatures",
+  "chapter": "field",
+  "section": "inhabitants",
+  "title": "tales.entry.likho_one_eyed.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:likho_one_eyed"
+  ],
+  "advancements": [],
+  "links": []
+}

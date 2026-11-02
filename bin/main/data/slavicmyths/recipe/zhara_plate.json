@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LIL",
+    "IAI",
+    " G "
+  ],
+  "key": {
+    "L": {
+      "item": "slavicmyths:roasted_livingstone"
+    },
+    "I": {
+      "item": "slavicmyths:roasted_infernal_shard"
+    },
+    "A": {
+      "item": "slavicmyths:alatyr_ingot"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:zhara_plate",
+    "count": 1
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_windknotitem_1.title",
+  "icon": "slavicmyths:vetrovoy_uzel",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:vetrovoy_uzel",
+    "recipe/slavicmyths:vetrovoy_uzel"
+  ],
+  "advancements": [],
+  "links": []
+}

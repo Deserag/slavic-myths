@@ -1,0 +1,13 @@
+{
+  "part": "nature",
+  "chapter": "animals",
+  "section": "catalogue",
+  "title": "tales.entry.boar.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:boar"
+  ],
+  "advancements": [],
+  "links": []
+}

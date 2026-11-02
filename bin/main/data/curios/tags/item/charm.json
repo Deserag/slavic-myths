@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:retribution_charm",
+    "slavicmyths:grave_ward",
+    "slavicmyths:bath_ward",
+    "slavicmyths:amber_charm",
+    "slavicmyths:perun_charm",
+    "slavicmyths:forest_charm",
+    "slavicmyths:traveler_charm"
+  ]
+}

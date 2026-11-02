@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:bliny",
+    "minecraft:apple",
+    "slavicmyths:rolling_pin",
+    "slavicmyths:dough",
+    "minecraft:sugar",
+    "slavicmyths:barley_groats",
+    "minecraft:water_bucket",
+    "#slavicmyths:cooking/milk",
+    "slavicmyths:metal_pot",
+    "#slavicmyths:berries",
+    "slavicmyths:oat_groats",
+    "slavicmyths:wheat_flour",
+    "#slavicmyths:cooking/eggs",
+    "slavicmyths:cabbage",
+    "minecraft:honey_bottle",
+    "#slavicmyths:cooking/cooked_meats",
+    "#slavicmyths:cooking/raw_meats",
+    "slavicmyths:turnip",
+    "#slavicmyths:cooking/mushrooms",
+    "slavicmyths:pea_pod",
+    "slavicmyths:rye_flour",
+    "slavicmyths:animal_fat",
+    "#slavicmyths:cooking/fish",
+    "minecraft:bowl"
+  ]
+}

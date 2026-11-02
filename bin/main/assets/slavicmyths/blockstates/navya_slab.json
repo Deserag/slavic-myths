@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slavicmyths:block/navya_slab"
+    },
+    "type=double": {
+      "model": "slavicmyths:block/navya_planks"
+    },
+    "type=top": {
+      "model": "slavicmyths:block/navya_slab_top"
+    }
+  }
+}

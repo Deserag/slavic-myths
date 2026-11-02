@@ -1,0 +1,84 @@
+{
+  "variants": {
+    "loaded=false,active=false,facing=north": {
+      "model": "slavicmyths:block/spinning_wheel_0_0",
+      "y": 0,
+      "uvlock": true
+    },
+    "loaded=false,active=false,facing=east": {
+      "model": "slavicmyths:block/spinning_wheel_0_0",
+      "y": 90,
+      "uvlock": true
+    },
+    "loaded=false,active=false,facing=south": {
+      "model": "slavicmyths:block/spinning_wheel_0_0",
+      "y": 180,
+      "uvlock": true
+    },
+    "loaded=false,active=false,facing=west": {
+      "model": "slavicmyths:block/spinning_wheel_0_0",
+      "y": 270,
+      "uvlock": true
+    },
+    "loaded=false,active=true,facing=north": {
+      "model": "slavicmyths:block/spinning_wheel_0_1",
+      "y": 0,
+      "uvlock": true
+    },
+    "loaded=false,active=true,facing=east": {
+      "model": "slavicmyths:block/spinning_wheel_0_1",
+      "y": 90,
+      "uvlock": true
+    },
+    "loaded=false,active=true,facing=south": {
+      "model": "slavicmyths:block/spinning_wheel_0_1",
+      "y": 180,
+      "uvlock": true
+    },
+    "loaded=false,active=true,facing=west": {
+      "model": "slavicmyths:block/spinning_wheel_0_1",
+      "y": 270,
+      "uvlock": true
+    },
+    "loaded=true,active=false,facing=north": {
+      "model": "slavicmyths:block/spinning_wheel_1_0",
+      "y": 0,
+      "uvlock": true
+    },
+    "loaded=true,active=false,facing=east": {
+      "model": "slavicmyths:block/spinning_wheel_1_0",
+      "y": 90,
+      "uvlock": true
+    },
+    "loaded=true,active=false,facing=south": {
+      "model": "slavicmyths:block/spinning_wheel_1_0",
+      "y": 180,
+      "uvlock": true
+    },
+    "loaded=true,active=false,facing=west": {
+      "model": "slavicmyths:block/spinning_wheel_1_0",
+      "y": 270,
+      "uvlock": true
+    },
+    "loaded=true,active=true,facing=north": {
+      "model": "slavicmyths:block/spinning_wheel_1_1",
+      "y": 0,
+      "uvlock": true
+    },
+    "loaded=true,active=true,facing=east": {
+      "model": "slavicmyths:block/spinning_wheel_1_1",
+      "y": 90,
+      "uvlock": true
+    },
+    "loaded=true,active=true,facing=south": {
+      "model": "slavicmyths:block/spinning_wheel_1_1",
+      "y": 180,
+      "uvlock": true
+    },
+    "loaded=true,active=true,facing=west": {
+      "model": "slavicmyths:block/spinning_wheel_1_1",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

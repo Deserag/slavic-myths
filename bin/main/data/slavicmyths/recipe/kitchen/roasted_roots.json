@@ -1,0 +1,40 @@
+{
+  "type": "slavicmyths:kitchen",
+  "mode": "POT",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:black_radish"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:turnip"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:onion"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:roasted_hot_pepper"
+      },
+      "count": 1
+    }
+  ],
+  "tool": {
+    "item": "slavicmyths:metal_pot"
+  },
+  "time": 160,
+  "result": {
+    "id": "slavicmyths:roasted_roots",
+    "count": 1
+  },
+  "servings": 2,
+  "remainders": []
+}

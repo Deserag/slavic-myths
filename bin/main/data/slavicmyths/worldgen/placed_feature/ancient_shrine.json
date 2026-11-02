@@ -1,0 +1,12 @@
+{
+  "feature": "slavicmyths:ancient_shrine",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 96
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

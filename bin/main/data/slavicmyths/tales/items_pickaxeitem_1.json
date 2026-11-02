@@ -1,0 +1,14 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_pickaxeitem_1.title",
+  "icon": "slavicmyths:perunite_pickaxe",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:perunite_pickaxe",
+    "recipe/slavicmyths:perunite_pickaxe"
+  ],
+  "advancements": [],
+  "links": []
+}

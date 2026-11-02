@@ -1,0 +1,20 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_spearitem_1.title",
+  "icon": "slavicmyths:diamond_spear",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:diamond_spear",
+    "item/slavicmyths:gold_spear",
+    "item/slavicmyths:iron_spear",
+    "item/slavicmyths:netherite_spear",
+    "item/slavicmyths:perunite_spear",
+    "item/slavicmyths:silver_spear",
+    "item/slavicmyths:spear",
+    "item/slavicmyths:victor_spear"
+  ],
+  "advancements": [],
+  "links": []
+}

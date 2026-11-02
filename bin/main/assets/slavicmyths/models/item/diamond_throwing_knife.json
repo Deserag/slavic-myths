@@ -1,0 +1,17 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/diamond_throwing_knife_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "slavicmyths:item/diamond_throwing_knife_icon"
+    },
+    "ground": {
+      "parent": "slavicmyths:item/diamond_throwing_knife_icon"
+    },
+    "fixed": {
+      "parent": "slavicmyths:item/diamond_throwing_knife_icon"
+    }
+  }
+}

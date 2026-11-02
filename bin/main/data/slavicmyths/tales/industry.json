@@ -1,0 +1,22 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.industry.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:bog_iron_ore",
+    "block/slavicmyths:chud_bloomery",
+    "block/slavicmyths:refining_hearth",
+    "item/slavicmyths:bog_iron_lump",
+    "item/slavicmyths:bog_iron_ore",
+    "item/slavicmyths:chud_bloomery",
+    "item/slavicmyths:purification_flux",
+    "item/slavicmyths:refining_hearth",
+    "recipe/slavicmyths:chud_bloomery",
+    "recipe/slavicmyths:refining_hearth"
+  ],
+  "advancements": [],
+  "links": []
+}

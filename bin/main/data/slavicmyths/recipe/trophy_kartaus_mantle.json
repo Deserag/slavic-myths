@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "BBB",
+    "OCR",
+    " B "
+  ],
+  "key": {
+    "B": {
+      "item": "slavicmyths:mat_banner_remnant"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "C": {
+      "item": "minecraft:leather_chestplate"
+    },
+    "R": {
+      "item": "minecraft:red_dye"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:trophy_kartaus_mantle",
+    "count": 1
+  }
+}

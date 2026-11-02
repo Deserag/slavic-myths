@@ -1,0 +1,7 @@
+{
+  "type": "slavicmyths:ancestor_shrine",
+  "biomes": "#slavicmyths:ancestor_shrine_biomes",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}

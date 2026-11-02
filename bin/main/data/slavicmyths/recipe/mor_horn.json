@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EGH",
+    "MRM",
+    "MMM"
+  ],
+  "key": {
+    "E": {
+      "item": "slavicmyths:eye_of_mor"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "H": {
+      "item": "slavicmyths:ashen_heart"
+    },
+    "M": {
+      "item": "slavicmyths:mor_dust"
+    },
+    "R": {
+      "item": "minecraft:goat_horn"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:mor_horn",
+    "count": 1
+  }
+}

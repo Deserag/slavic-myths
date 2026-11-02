@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slavicmyths:lost_hall_stone"
+  },
+  "result": {
+    "id": "slavicmyths:lost_hall_stone_wall",
+    "count": 1
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_uniqueequipment_wardshield_1.title",
+  "icon": "slavicmyths:ward_shield",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:ward_shield"
+  ],
+  "advancements": [],
+  "links": []
+}

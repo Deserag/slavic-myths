@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "victory": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "victory"
+    ]
+  ],
+  "rewards": {},
+  "parent": "slavicmyths:defeat_idolishche",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:warding_charm"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "title": {
+      "translate": "advancement.slavicmyths.defeat_marinka.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.defeat_marinka.description"
+    }
+  }
+}

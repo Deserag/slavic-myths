@@ -1,0 +1,26 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_clothingitem_1.title",
+  "icon": "slavicmyths:bast_shoes",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:bast_shoes",
+    "item/slavicmyths:folk_vest",
+    "item/slavicmyths:linen_apron",
+    "item/slavicmyths:linen_headscarf",
+    "item/slavicmyths:linen_ports",
+    "item/slavicmyths:linen_shirt",
+    "item/slavicmyths:sarafan",
+    "recipe/slavicmyths:bast_shoes",
+    "recipe/slavicmyths:folk_vest",
+    "recipe/slavicmyths:linen_apron",
+    "recipe/slavicmyths:linen_headscarf",
+    "recipe/slavicmyths:linen_ports",
+    "recipe/slavicmyths:linen_shirt",
+    "recipe/slavicmyths:sarafan"
+  ],
+  "advancements": [],
+  "links": []
+}

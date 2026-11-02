@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:spawn_water",
+  "features": [
+    "slavicmyths:deep_pool"
+  ],
+  "step": "surface_structures"
+}

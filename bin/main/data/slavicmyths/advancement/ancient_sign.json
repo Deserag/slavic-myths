@@ -1,0 +1,17 @@
+{
+  "parent": "slavicmyths:first_ritual",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:ancient_sign"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_beditem_1.title",
+  "icon": "slavicmyths:linen_bed",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:linen_bed",
+    "item/slavicmyths:linen_bed",
+    "recipe/slavicmyths:linen_bed"
+  ],
+  "advancements": [],
+  "links": []
+}

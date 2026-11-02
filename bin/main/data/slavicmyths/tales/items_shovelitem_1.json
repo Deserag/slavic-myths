@@ -1,0 +1,14 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_shovelitem_1.title",
+  "icon": "slavicmyths:perunite_shovel",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:perunite_shovel",
+    "recipe/slavicmyths:perunite_shovel"
+  ],
+  "advancements": [],
+  "links": []
+}

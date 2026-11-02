@@ -1,0 +1,4 @@
+{
+  "replace": false,
+  "values": ["#minecraft:is_nether", "#slavicmyths:nether_structure_biomes"]
+}

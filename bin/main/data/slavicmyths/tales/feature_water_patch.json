@@ -1,0 +1,15 @@
+{
+  "part": "nature",
+  "chapter": "plants",
+  "section": "catalogue",
+  "title": "tales.entry.feature_water_patch.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:white_lily",
+    "feature/slavicmyths:water_patch",
+    "item/slavicmyths:white_lily"
+  ],
+  "advancements": [],
+  "links": []
+}

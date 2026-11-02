@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "XXX",
+    " X "
+  ],
+  "key": {
+    "X": {
+      "item": "slavicmyths:perunite"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:perunite_flail_ball",
+    "count": 1
+  }
+}

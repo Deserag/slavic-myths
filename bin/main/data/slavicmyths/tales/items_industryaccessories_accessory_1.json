@@ -1,0 +1,20 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_industryaccessories_accessory_1.title",
+  "icon": "slavicmyths:prospectors_ring",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:miners_goggles",
+    "item/slavicmyths:prospectors_ring",
+    "item/slavicmyths:stone_path_amulet",
+    "item/slavicmyths:underground_guard_belt",
+    "recipe/slavicmyths:miners_goggles",
+    "recipe/slavicmyths:prospectors_ring",
+    "recipe/slavicmyths:stone_path_amulet",
+    "recipe/slavicmyths:underground_guard_belt"
+  ],
+  "advancements": [],
+  "links": []
+}

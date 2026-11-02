@@ -1,0 +1,13 @@
+{
+  "part": "nature",
+  "chapter": "water",
+  "section": "catalogue",
+  "title": "tales.entry.carp.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:carp"
+  ],
+  "advancements": [],
+  "links": []
+}

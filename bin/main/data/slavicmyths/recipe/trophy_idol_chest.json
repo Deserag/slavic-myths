@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "III",
+    "LDL",
+    "OIO"
+  ],
+  "key": {
+    "I": {
+      "item": "slavicmyths:mat_bone_plates"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "D": {
+      "item": "minecraft:diamond_chestplate"
+    },
+    "O": {
+      "item": "minecraft:bone_block"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:trophy_idol_chest",
+    "count": 1
+  }
+}

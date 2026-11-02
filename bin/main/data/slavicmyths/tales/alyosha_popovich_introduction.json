@@ -1,0 +1,13 @@
+{
+  "part": "quests",
+  "chapter": "home",
+  "section": "catalogue",
+  "title": "tales.entry.alyosha_popovich_introduction.title",
+  "icon": "slavicmyths:alyosha_call_whistle",
+  "initial": 0,
+  "subjects": [
+    "recipe/slavicmyths:alyosha_call_whistle"
+  ],
+  "advancements": [],
+  "links": []
+}

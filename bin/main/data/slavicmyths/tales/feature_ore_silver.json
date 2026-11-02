@@ -1,0 +1,15 @@
+{
+  "part": "nature",
+  "chapter": "plants",
+  "section": "catalogue",
+  "title": "tales.entry.feature_ore_silver.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:silver_ore",
+    "feature/slavicmyths:ore_silver",
+    "item/slavicmyths:silver_ore"
+  ],
+  "advancements": [],
+  "links": []
+}

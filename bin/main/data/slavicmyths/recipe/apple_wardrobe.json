@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "PLP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:apple_planks"
+    },
+    "L": {
+      "item": "slavicmyths:apple_log"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:apple_wardrobe"
+  }
+}

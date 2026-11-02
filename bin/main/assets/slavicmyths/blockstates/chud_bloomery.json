@@ -1,0 +1,44 @@
+{
+  "variants": {
+    "facing=north,lit=false": {
+      "model": "slavicmyths:block/chud_bloomery",
+      "y": 0,
+      "uvlock": true
+    },
+    "facing=north,lit=true": {
+      "model": "slavicmyths:block/chud_bloomery_lit",
+      "y": 0,
+      "uvlock": true
+    },
+    "facing=east,lit=false": {
+      "model": "slavicmyths:block/chud_bloomery",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=east,lit=true": {
+      "model": "slavicmyths:block/chud_bloomery_lit",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=south,lit=false": {
+      "model": "slavicmyths:block/chud_bloomery",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,lit=true": {
+      "model": "slavicmyths:block/chud_bloomery_lit",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=west,lit=false": {
+      "model": "slavicmyths:block/chud_bloomery",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=west,lit=true": {
+      "model": "slavicmyths:block/chud_bloomery_lit",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

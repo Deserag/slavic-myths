@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:without_ataman",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:mysterious_black_feather"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.defeat_nightingale.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.defeat_nightingale.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "victory": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

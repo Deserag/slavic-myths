@@ -96,6 +96,10 @@ public final class SlavicMyths {
         org.slavicmyths.serpenthill.HillContent.init();
         org.slavicmyths.gorynych.GorynychContent.init(bus);
         org.slavicmyths.winters.WintersContent.init(bus);
+
+org.slavicmyths.registry.ModEffects.EFFECTS.register(bus);
+bus.addListener(org.slavicmyths.netherboss.NetherTrophyNetwork::register);
+
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.SERVER,org.slavicmyths.sanctuary.SanctuaryConfig.SPEC,"slavicmyths-sanctuaries.toml");
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.SERVER,org.slavicmyths.karachun.NightConfig.SPEC,"slavicmyths-karachun.toml");
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.SERVER,org.slavicmyths.morozko.FrostConfig.SPEC,"slavicmyths-morozko.toml");

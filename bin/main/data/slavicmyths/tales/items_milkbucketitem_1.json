@@ -1,0 +1,13 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_milkbucketitem_1.title",
+  "icon": "slavicmyths:goat_milk_bucket",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:goat_milk_bucket"
+  ],
+  "advancements": [],
+  "links": []
+}

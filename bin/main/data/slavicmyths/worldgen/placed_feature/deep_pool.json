@@ -1,0 +1,12 @@
+{
+  "feature": "slavicmyths:deep_pool",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 240
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

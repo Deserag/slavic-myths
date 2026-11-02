@@ -1,0 +1,14 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_hoeitem_1.title",
+  "icon": "slavicmyths:perunite_hoe",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:perunite_hoe",
+    "recipe/slavicmyths:perunite_hoe"
+  ],
+  "advancements": [],
+  "links": []
+}

@@ -1,0 +1,24 @@
+{
+  "part": "nature",
+  "chapter": "plants",
+  "section": "catalogue",
+  "title": "tales.entry.feature_pine.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:pine_log",
+    "feature/slavicmyths:giant_pine_sapling",
+    "feature/slavicmyths:pine_12",
+    "feature/slavicmyths:pine_2",
+    "feature/slavicmyths:pine_24",
+    "feature/slavicmyths:pine_4",
+    "feature/slavicmyths:pine_6",
+    "feature/slavicmyths:pine_8",
+    "feature/slavicmyths:pine_sapling",
+    "feature/slavicmyths:pine_tree",
+    "feature/slavicmyths:swamp_pine",
+    "item/slavicmyths:pine_sapling"
+  ],
+  "advancements": [],
+  "links": []
+}

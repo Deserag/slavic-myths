@@ -1,0 +1,9 @@
+{
+  "type": "slavicmyths:zharenitsa_arena",
+  "biomes": [
+    "slavicmyths:black_cinder"
+  ],
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}

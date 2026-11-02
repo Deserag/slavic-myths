@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:blackwood_log",
+    "slavicmyths:charred_blackwood_log",
+    "slavicmyths:blackwood_wood",
+    "slavicmyths:charred_blackwood_wood",
+    "slavicmyths:blackwood_planks"
+  ]
+}

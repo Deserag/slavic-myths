@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "PLP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:rowan_planks"
+    },
+    "L": {
+      "item": "slavicmyths:rowan_log"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:rowan_wardrobe"
+  }
+}

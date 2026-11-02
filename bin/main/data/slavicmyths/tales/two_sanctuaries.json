@@ -1,0 +1,13 @@
+{
+  "part": "creatures",
+  "chapter": "legends",
+  "section": "inhabitants",
+  "title": "tales.entry.two_sanctuaries.title",
+  "icon": "slavicmyths:ancient_rune_fragment",
+  "initial": 0,
+  "subjects": [],
+  "advancements": [
+    "slavicmyths:found_two_sanctuaries"
+  ],
+  "links": []
+}

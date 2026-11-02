@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "slavicmyths:block/basket",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "slavicmyths:block/basket",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "slavicmyths:block/basket",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "slavicmyths:block/basket",
+      "y": 270
+    }
+  }
+}

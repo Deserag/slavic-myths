@@ -1,0 +1,13 @@
+{
+  "part": "creatures",
+  "chapter": "home",
+  "section": "inhabitants",
+  "title": "tales.entry.kikimora.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:kikimora"
+  ],
+  "advancements": [],
+  "links": []
+}

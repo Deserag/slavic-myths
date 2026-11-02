@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:linen_thread"
+    },
+    {
+      "item": "slavicmyths:linen_thread"
+    },
+    {
+      "item": "slavicmyths:linen_thread"
+    },
+    {
+      "tag": "c:dyes/red"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:woven_belt",
+    "count": 1
+  }
+}

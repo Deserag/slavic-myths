@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:first_book_entry",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:idol_fragment"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.first_ritual.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.first_ritual.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

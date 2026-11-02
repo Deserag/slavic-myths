@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "slavicmyths:raw_livingstone"
+  },
+  "result": {
+    "id": "slavicmyths:roasted_livingstone",
+    "count": 1
+  },
+  "experience": 0.1,
+  "cookingtime": 200
+}

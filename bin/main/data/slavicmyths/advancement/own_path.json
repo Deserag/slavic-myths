@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:meet_bandits",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:lore_book"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.own_path.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.own_path.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

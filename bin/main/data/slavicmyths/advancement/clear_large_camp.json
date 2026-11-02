@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:meet_bandits",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:iron_spear"
+    },
+    "title": {
+      "translate": "advancement.slavicmyths.clear_large_camp.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.clear_large_camp.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "clear": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

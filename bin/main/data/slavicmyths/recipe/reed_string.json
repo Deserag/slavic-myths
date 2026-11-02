@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:reed"
+    },
+    {
+      "item": "slavicmyths:reed"
+    },
+    {
+      "item": "slavicmyths:reed"
+    }
+  ],
+  "result": {
+    "id": "minecraft:string"
+  }
+}

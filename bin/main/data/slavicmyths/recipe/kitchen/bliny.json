@@ -1,0 +1,39 @@
+{
+  "type": "slavicmyths:kitchen",
+  "mode": "ROLLING",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:wheat_flour"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "tag": "slavicmyths:cooking/eggs"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "slavicmyths:cooking/milk"
+      },
+      "count": 1
+    }
+  ],
+  "tool": {
+    "item": "slavicmyths:rolling_pin"
+  },
+  "time": 80,
+  "result": {
+    "id": "slavicmyths:bliny",
+    "count": 2
+  },
+  "servings": 0,
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    }
+  ]
+}

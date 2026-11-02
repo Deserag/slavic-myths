@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "slavicmyths:block/charred_stone",
+        "y": 0
+      },
+      {
+        "model": "slavicmyths:block/charred_stone",
+        "y": 90
+      },
+      {
+        "model": "slavicmyths:block/charred_stone",
+        "y": 180
+      },
+      {
+        "model": "slavicmyths:block/charred_stone",
+        "y": 270
+      }
+    ]
+  }
+}

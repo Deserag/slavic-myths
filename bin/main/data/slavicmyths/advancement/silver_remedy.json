@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:extinguish_the_barn",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:silver_ingot"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.silver_remedy.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.silver_remedy.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

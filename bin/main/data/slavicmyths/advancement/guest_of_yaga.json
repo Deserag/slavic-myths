@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:find_the_hut",
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "slavicmyths:lore_book"
+    },
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false,
+    "title": {
+      "translate": "advancements.slavicmyths.guest_of_yaga.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.guest_of_yaga.description"
+    }
+  }
+}

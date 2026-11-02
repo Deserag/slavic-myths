@@ -1,0 +1,23 @@
+{
+  "part": "nature",
+  "chapter": "plants",
+  "section": "catalogue",
+  "title": "tales.entry.items_linden_2.title",
+  "icon": "slavicmyths:linden_chair",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:linden_bedside_cabinet",
+    "block/slavicmyths:linden_chair",
+    "block/slavicmyths:linden_stairs",
+    "block/slavicmyths:linden_stool",
+    "block/slavicmyths:linden_wardrobe",
+    "item/slavicmyths:linden_bedside_cabinet",
+    "item/slavicmyths:linden_chair",
+    "item/slavicmyths:linden_stairs",
+    "item/slavicmyths:linden_stool",
+    "item/slavicmyths:linden_wardrobe",
+    "recipe/slavicmyths:linden_stairs"
+  ],
+  "advancements": [],
+  "links": []
+}

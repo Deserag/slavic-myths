@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slavicmyths:charred_stone"
+  },
+  "result": {
+    "id": "slavicmyths:charred_stone_slab",
+    "count": 2
+  }
+}

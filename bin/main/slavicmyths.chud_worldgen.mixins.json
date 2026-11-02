@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.slavicmyths.chud.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": ["GeodeProtectionMixin", "MonsterRoomProtectionMixin", "SpringProtectionMixin"],
+  "injectors": {"defaultRequire": 1}
+}

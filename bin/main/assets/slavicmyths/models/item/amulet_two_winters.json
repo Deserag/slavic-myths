@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "slavicmyths:item/amulet_two_winters"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "slavicmyths:winter_mode": 1
+      },
+      "model": "slavicmyths:item/amulet_two_winters_morozko"
+    },
+    {
+      "predicate": {
+        "slavicmyths:winter_mode": 2
+      },
+      "model": "slavicmyths:item/amulet_two_winters_karachun"
+    }
+  ]
+}

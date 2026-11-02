@@ -1,0 +1,32 @@
+{
+  "part": "crafts",
+  "chapter": "food",
+  "section": "catalogue",
+  "title": "tales.entry.items_drinks_1.title",
+  "icon": "slavicmyths:veles_dark_beer_mug",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:apple_cider_bottle",
+    "item/slavicmyths:berry_mors_pitcher",
+    "item/slavicmyths:ceramic_pitcher",
+    "item/slavicmyths:dark_beer_mug",
+    "item/slavicmyths:dark_bottle",
+    "item/slavicmyths:filled_pitcher",
+    "item/slavicmyths:forest_beer_mug",
+    "item/slavicmyths:honey_beer_mug",
+    "item/slavicmyths:hopped_beer_mug",
+    "item/slavicmyths:light_beer_mug",
+    "item/slavicmyths:mead_bottle",
+    "item/slavicmyths:spoiled_brew",
+    "item/slavicmyths:thunder_beer_mug",
+    "item/slavicmyths:veles_dark_beer_mug",
+    "item/slavicmyths:witch_berry_beer_mug",
+    "item/slavicmyths:wooden_mug",
+    "recipe/slavicmyths:ceramic_pitcher",
+    "recipe/slavicmyths:dark_bottle",
+    "recipe/slavicmyths:vat/berry_mors",
+    "recipe/slavicmyths:wooden_mug"
+  ],
+  "advancements": [],
+  "links": []
+}

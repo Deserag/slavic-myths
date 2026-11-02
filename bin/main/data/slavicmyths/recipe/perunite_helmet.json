@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "P P"
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:perunite"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "slavicmyths:perunite_helmet"
+  }
+}

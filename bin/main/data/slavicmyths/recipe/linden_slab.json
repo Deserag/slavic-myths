@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_slab",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "slavicmyths:linden_planks"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "slavicmyths:linden_slab"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_nightingalewhistle_1.title",
+  "icon": "slavicmyths:bandit_horn",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:bandit_horn",
+    "item/slavicmyths:nightingale_whistle",
+    "recipe/slavicmyths:nightingale_whistle"
+  ],
+  "advancements": [],
+  "links": []
+}

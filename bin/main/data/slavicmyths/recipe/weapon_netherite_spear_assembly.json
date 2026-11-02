@@ -1,0 +1,15 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:spear_shaft"
+    },
+    {
+      "item": "slavicmyths:netherite_spearhead"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:netherite_spear",
+    "count": 1
+  }
+}

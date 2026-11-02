@@ -1,0 +1,15 @@
+{
+  "part": "creatures",
+  "chapter": "water",
+  "section": "inhabitants",
+  "title": "tales.entry.rusalka.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:rusalka"
+  ],
+  "advancements": [
+    "slavicmyths:meet_rusalka"
+  ],
+  "links": []
+}

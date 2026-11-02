@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CRC",
+    "CCC",
+    "C C"
+  ],
+  "key": {
+    "C": {
+      "item": "slavicmyths:linen_cloth"
+    },
+    "R": {
+      "tag": "c:dyes/red"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:sarafan",
+    "count": 1
+  }
+}

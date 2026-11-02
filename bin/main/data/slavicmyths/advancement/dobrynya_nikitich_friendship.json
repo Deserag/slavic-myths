@@ -1,0 +1,23 @@
+{
+  "parent": "minecraft:adventure/root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:dobrynya_call_emblem"
+    },
+    "title": {
+      "translate": "hero_intro.dobrynya_nikitich.title"
+    },
+    "description": {
+      "translate": "hero_intro.dobrynya_nikitich.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "help": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

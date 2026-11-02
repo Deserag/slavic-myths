@@ -1,0 +1,13 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_sivkawhistle_1.title",
+  "icon": "slavicmyths:sivka_whistle",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:sivka_whistle"
+  ],
+  "advancements": [],
+  "links": []
+}

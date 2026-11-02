@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:white_wool",
+    "slavicmyths:linen_shirt",
+    "slavicmyths:linen_ports",
+    "slavicmyths:linen_apron",
+    "slavicmyths:woven_belt",
+    "slavicmyths:sarafan",
+    "slavicmyths:linen_headscarf",
+    "slavicmyths:folk_vest",
+    "minecraft:red_carpet",
+    "slavicmyths:linen_bed"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:pine_table",
+    "slavicmyths:pine_chair",
+    "slavicmyths:pine_stool",
+    "slavicmyths:pine_bench",
+    "slavicmyths:pine_shelf",
+    "slavicmyths:pine_wardrobe",
+    "slavicmyths:pine_bedside_cabinet",
+    "slavicmyths:pine_weapon_rack",
+    "slavicmyths:linden_table",
+    "slavicmyths:linden_chair",
+    "slavicmyths:linden_stool",
+    "slavicmyths:linden_bench",
+    "slavicmyths:linden_shelf",
+    "slavicmyths:linden_wardrobe",
+    "slavicmyths:linden_bedside_cabinet",
+    "slavicmyths:linden_weapon_rack",
+    "slavicmyths:cloth_bag",
+    "slavicmyths:wooden_crate",
+    "slavicmyths:firewood_bundle",
+    "slavicmyths:training_dummy",
+    "slavicmyths:signal_bell"
+  ]
+}

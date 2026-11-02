@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "QNQ",
+    "PIP",
+    "PSP"
+  ],
+  "key": {
+    "Q": {
+      "item": "minecraft:quartz"
+    },
+    "N": {
+      "item": "minecraft:nether_brick"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "I": {
+      "item": "slavicmyths:roasted_infernal_shard"
+    },
+    "S": {
+      "item": "slavicmyths:sulfur"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:nether_hardening_template",
+    "count": 4
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:old_growth_pine_taiga",
+    "minecraft:old_growth_spruce_taiga",
+    "minecraft:plains",
+    "minecraft:savanna",
+    "minecraft:savanna_plateau",
+    "minecraft:snowy_taiga",
+    "minecraft:sunflower_plains",
+    "minecraft:taiga",
+    "minecraft:windswept_savanna"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "part": "nature",
+  "chapter": "plants",
+  "section": "catalogue",
+  "title": "tales.entry.items_pine_2.title",
+  "icon": "slavicmyths:pine_chair",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:pine_bedside_cabinet",
+    "block/slavicmyths:pine_chair",
+    "block/slavicmyths:pine_stairs",
+    "block/slavicmyths:pine_stool",
+    "block/slavicmyths:pine_wardrobe",
+    "item/slavicmyths:pine_bedside_cabinet",
+    "item/slavicmyths:pine_chair",
+    "item/slavicmyths:pine_stairs",
+    "item/slavicmyths:pine_stool",
+    "item/slavicmyths:pine_wardrobe",
+    "recipe/slavicmyths:pine_stairs"
+  ],
+  "advancements": [],
+  "links": []
+}

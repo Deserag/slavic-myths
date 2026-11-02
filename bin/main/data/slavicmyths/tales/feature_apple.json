@@ -1,0 +1,16 @@
+{
+  "part": "nature",
+  "chapter": "plants",
+  "section": "catalogue",
+  "title": "tales.entry.feature_apple.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:apple_log",
+    "feature/slavicmyths:apple_sapling",
+    "feature/slavicmyths:apple_tree",
+    "item/slavicmyths:apple_sapling"
+  ],
+  "advancements": [],
+  "links": []
+}

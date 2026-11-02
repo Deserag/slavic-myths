@@ -1,0 +1,730 @@
+{
+  "atlas": 512,
+  "parts": [
+    {
+      "name": "head",
+      "parent": "root",
+      "pivot": [
+        0,
+        -34,
+        0
+      ],
+      "size": [
+        9,
+        12,
+        8
+      ],
+      "material": "coal",
+      "uv": [
+        2,
+        32
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -4.5,
+        -6.0,
+        -4.0
+      ]
+    },
+    {
+      "name": "jaw",
+      "parent": "head",
+      "pivot": [
+        0,
+        4,
+        -1
+      ],
+      "size": [
+        7,
+        3,
+        6
+      ],
+      "material": "coal",
+      "uv": [
+        390,
+        32
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -3.5,
+        -1.5,
+        -3.0
+      ]
+    },
+    {
+      "name": "nose",
+      "parent": "head",
+      "pivot": [
+        0,
+        0,
+        -4
+      ],
+      "size": [
+        2,
+        4,
+        2
+      ],
+      "material": "coal",
+      "uv": [
+        418,
+        32
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -2.0,
+        -1.0
+      ]
+    },
+    {
+      "name": "cheek0",
+      "parent": "head",
+      "pivot": [
+        -4,
+        1,
+        -3
+      ],
+      "size": [
+        3,
+        5,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        0.15
+      ],
+      "uv": [
+        428,
+        32
+      ],
+      "offset": [
+        -1.5,
+        -2.5,
+        -1.5
+      ]
+    },
+    {
+      "name": "brow0",
+      "parent": "head",
+      "pivot": [
+        -2,
+        -2,
+        -4
+      ],
+      "size": [
+        4,
+        1,
+        2
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        0.18
+      ],
+      "uv": [
+        442,
+        32
+      ],
+      "offset": [
+        -2.0,
+        -0.5,
+        -1.0
+      ]
+    },
+    {
+      "name": "eye-2",
+      "parent": "head",
+      "pivot": [
+        -2,
+        -1,
+        -4.5
+      ],
+      "size": [
+        2,
+        1,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        456,
+        32
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -0.5,
+        -0.5
+      ]
+    },
+    {
+      "name": "crown_side0",
+      "parent": "head",
+      "pivot": [
+        -5,
+        -6,
+        1
+      ],
+      "size": [
+        3,
+        10,
+        4
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        -0.35
+      ],
+      "uv": [
+        464,
+        32
+      ],
+      "offset": [
+        -1.5,
+        -5.0,
+        -2.0
+      ]
+    },
+    {
+      "name": "cheek1",
+      "parent": "head",
+      "pivot": [
+        4,
+        1,
+        -3
+      ],
+      "size": [
+        3,
+        5,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        -0.15
+      ],
+      "uv": [
+        480,
+        32
+      ],
+      "offset": [
+        -1.5,
+        -2.5,
+        -1.5
+      ]
+    },
+    {
+      "name": "brow1",
+      "parent": "head",
+      "pivot": [
+        2,
+        -2,
+        -4
+      ],
+      "size": [
+        4,
+        1,
+        2
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        -0.18
+      ],
+      "uv": [
+        494,
+        32
+      ],
+      "offset": [
+        -2.0,
+        -0.5,
+        -1.0
+      ]
+    },
+    {
+      "name": "eye2",
+      "parent": "head",
+      "pivot": [
+        2,
+        -1,
+        -4.5
+      ],
+      "size": [
+        2,
+        1,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        2,
+        54
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -0.5,
+        -0.5
+      ]
+    },
+    {
+      "name": "crown_side1",
+      "parent": "head",
+      "pivot": [
+        5,
+        -6,
+        1
+      ],
+      "size": [
+        3,
+        10,
+        4
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        0.35
+      ],
+      "uv": [
+        10,
+        54
+      ],
+      "offset": [
+        -1.5,
+        -5.0,
+        -2.0
+      ]
+    },
+    {
+      "name": "crown_front",
+      "parent": "head",
+      "pivot": [
+        0,
+        -6,
+        -3
+      ],
+      "size": [
+        8,
+        3,
+        3
+      ],
+      "material": "coal",
+      "uv": [
+        26,
+        54
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -4.0,
+        -1.5,
+        -1.5
+      ]
+    },
+    {
+      "name": "crown_gem",
+      "parent": "head",
+      "pivot": [
+        0,
+        -8,
+        -4
+      ],
+      "size": [
+        2,
+        3,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        50,
+        54
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.0,
+        -1.5,
+        -0.5
+      ]
+    },
+    {
+      "name": "crown_spire",
+      "parent": "head",
+      "pivot": [
+        0,
+        -13,
+        1
+      ],
+      "size": [
+        3,
+        11,
+        3
+      ],
+      "material": "coal",
+      "rotation": [
+        0.12,
+        0,
+        0
+      ],
+      "uv": [
+        58,
+        54
+      ],
+      "offset": [
+        -1.5,
+        -5.5,
+        -1.5
+      ]
+    },
+    {
+      "name": "hair_back",
+      "parent": "head",
+      "pivot": [
+        0,
+        6,
+        5
+      ],
+      "size": [
+        10,
+        18,
+        5
+      ],
+      "material": "ash",
+      "rotation": [
+        0.12,
+        0,
+        0
+      ],
+      "uv": [
+        72,
+        54
+      ],
+      "offset": [
+        -5.0,
+        -9.0,
+        -2.5
+      ]
+    },
+    {
+      "name": "hair0",
+      "parent": "head",
+      "pivot": [
+        -5.0,
+        4,
+        4
+      ],
+      "size": [
+        3,
+        19,
+        4
+      ],
+      "material": "ash",
+      "rotation": [
+        0.1,
+        0,
+        -0.24
+      ],
+      "uv": [
+        104,
+        54
+      ],
+      "offset": [
+        -1.5,
+        -9.5,
+        -2.0
+      ]
+    },
+    {
+      "name": "hair1",
+      "parent": "head",
+      "pivot": [
+        -2.5,
+        4,
+        4
+      ],
+      "size": [
+        3,
+        25,
+        4
+      ],
+      "material": "ash",
+      "rotation": [
+        0.1,
+        0,
+        -0.12
+      ],
+      "uv": [
+        120,
+        54
+      ],
+      "offset": [
+        -1.5,
+        -12.5,
+        -2.0
+      ]
+    },
+    {
+      "name": "hair2",
+      "parent": "head",
+      "pivot": [
+        0.0,
+        4,
+        4
+      ],
+      "size": [
+        3,
+        19,
+        4
+      ],
+      "material": "ash",
+      "rotation": [
+        0.1,
+        0,
+        0.0
+      ],
+      "uv": [
+        136,
+        54
+      ],
+      "offset": [
+        -1.5,
+        -9.5,
+        -2.0
+      ]
+    },
+    {
+      "name": "hair3",
+      "parent": "head",
+      "pivot": [
+        2.5,
+        4,
+        4
+      ],
+      "size": [
+        3,
+        25,
+        4
+      ],
+      "material": "ash",
+      "rotation": [
+        0.1,
+        0,
+        0.12
+      ],
+      "uv": [
+        152,
+        54
+      ],
+      "offset": [
+        -1.5,
+        -12.5,
+        -2.0
+      ]
+    },
+    {
+      "name": "hair4",
+      "parent": "head",
+      "pivot": [
+        5.0,
+        4,
+        4
+      ],
+      "size": [
+        3,
+        19,
+        4
+      ],
+      "material": "ash",
+      "rotation": [
+        0.1,
+        0,
+        0.24
+      ],
+      "uv": [
+        168,
+        54
+      ],
+      "offset": [
+        -1.5,
+        -9.5,
+        -2.0
+      ]
+    },
+    {
+      "name": "ash_tress0",
+      "parent": "head",
+      "pivot": [
+        -6,
+        1,
+        1
+      ],
+      "size": [
+        4,
+        24,
+        5
+      ],
+      "material": "coal",
+      "rotation": [
+        0.08,
+        0,
+        -0.18
+      ],
+      "uv": [
+        184,
+        54
+      ],
+      "offset": [
+        -2.0,
+        -12.0,
+        -2.5
+      ]
+    },
+    {
+      "name": "ash_tress1",
+      "parent": "head",
+      "pivot": [
+        6,
+        1,
+        1
+      ],
+      "size": [
+        4,
+        24,
+        5
+      ],
+      "material": "coal",
+      "rotation": [
+        0.08,
+        0,
+        0.18
+      ],
+      "uv": [
+        204,
+        54
+      ],
+      "offset": [
+        -2.0,
+        -12.0,
+        -2.5
+      ]
+    },
+    {
+      "name": "lower_lip",
+      "parent": "jaw",
+      "pivot": [
+        0,
+        0,
+        -3
+      ],
+      "size": [
+        3,
+        1,
+        1
+      ],
+      "material": "ash",
+      "uv": [
+        256,
+        54
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.5,
+        -0.5,
+        -0.5
+      ]
+    },
+    {
+      "name": "crown_tip0",
+      "parent": "crown_side0",
+      "pivot": [
+        0,
+        -6,
+        0
+      ],
+      "size": [
+        2,
+        7,
+        2
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        -0.2
+      ],
+      "uv": [
+        266,
+        54
+      ],
+      "offset": [
+        -1.0,
+        -3.5,
+        -1.0
+      ]
+    },
+    {
+      "name": "crown_tip1",
+      "parent": "crown_side1",
+      "pivot": [
+        0,
+        -6,
+        0
+      ],
+      "size": [
+        2,
+        10,
+        2
+      ],
+      "material": "coal",
+      "rotation": [
+        0,
+        0,
+        0.2
+      ],
+      "uv": [
+        276,
+        54
+      ],
+      "offset": [
+        -1.0,
+        -5.0,
+        -1.0
+      ]
+    }
+  ]
+}

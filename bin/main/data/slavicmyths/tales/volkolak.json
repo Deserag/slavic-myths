@@ -1,0 +1,13 @@
+{
+  "part": "creatures",
+  "chapter": "field",
+  "section": "inhabitants",
+  "title": "tales.entry.volkolak.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:volkolak"
+  ],
+  "advancements": [],
+  "links": []
+}

@@ -1,0 +1,16 @@
+{
+  "type": "slavicmyths:rune_crafting",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:rune_rare_protection_fragment"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:rune_rare_protection",
+    "count": 1
+  },
+  "chisel": false
+}

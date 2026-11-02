@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:cooked_cod",
+    "minecraft:cooked_salmon",
+    "minecraft:cod_bucket",
+    "minecraft:campfire",
+    "minecraft:fishing_rod"
+  ]
+}

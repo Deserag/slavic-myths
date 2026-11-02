@@ -1,0 +1,13 @@
+{
+  "part": "nature",
+  "chapter": "animals",
+  "section": "catalogue",
+  "title": "tales.entry.bear_cub.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:bear_cub"
+  ],
+  "advancements": [],
+  "links": []
+}

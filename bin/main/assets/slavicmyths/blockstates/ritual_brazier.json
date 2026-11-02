@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=north,hanging=false": {
+      "model": "slavicmyths:block/ritual_brazier",
+      "y": 0
+    },
+    "facing=north,hanging=true": {
+      "model": "slavicmyths:block/ritual_brazier",
+      "y": 0
+    },
+    "facing=east,hanging=false": {
+      "model": "slavicmyths:block/ritual_brazier",
+      "y": 90
+    },
+    "facing=east,hanging=true": {
+      "model": "slavicmyths:block/ritual_brazier",
+      "y": 90
+    },
+    "facing=south,hanging=false": {
+      "model": "slavicmyths:block/ritual_brazier",
+      "y": 180
+    },
+    "facing=south,hanging=true": {
+      "model": "slavicmyths:block/ritual_brazier",
+      "y": 180
+    },
+    "facing=west,hanging=false": {
+      "model": "slavicmyths:block/ritual_brazier",
+      "y": 270
+    },
+    "facing=west,hanging=true": {
+      "model": "slavicmyths:block/ritual_brazier",
+      "y": 270
+    }
+  }
+}

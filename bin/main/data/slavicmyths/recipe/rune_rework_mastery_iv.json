@@ -1,0 +1,32 @@
+{
+  "type": "slavicmyths:rune_crafting",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:blank_rune_4"
+      },
+      "count": 1,
+      "base": {
+        "tier": 4,
+        "material": "perunite"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:netherite_ingot"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:diamond_dust"
+      },
+      "count": 8
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:rune_mastery_iv",
+    "count": 1
+  },
+  "chisel": false
+}

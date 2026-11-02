@@ -1,0 +1,13 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_ambercharmitem_1.title",
+  "icon": "slavicmyths:amber_charm",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:amber_charm"
+  ],
+  "advancements": [],
+  "links": []
+}

@@ -1,0 +1,124 @@
+{
+  "variants": {
+    "loaded=false,work_step=0,facing=north": {
+      "model": "slavicmyths:block/flax_breaker_0_0",
+      "y": 0,
+      "uvlock": true
+    },
+    "loaded=false,work_step=0,facing=east": {
+      "model": "slavicmyths:block/flax_breaker_0_0",
+      "y": 90,
+      "uvlock": true
+    },
+    "loaded=false,work_step=0,facing=south": {
+      "model": "slavicmyths:block/flax_breaker_0_0",
+      "y": 180,
+      "uvlock": true
+    },
+    "loaded=false,work_step=0,facing=west": {
+      "model": "slavicmyths:block/flax_breaker_0_0",
+      "y": 270,
+      "uvlock": true
+    },
+    "loaded=false,work_step=1,facing=north": {
+      "model": "slavicmyths:block/flax_breaker_0_1",
+      "y": 0,
+      "uvlock": true
+    },
+    "loaded=false,work_step=1,facing=east": {
+      "model": "slavicmyths:block/flax_breaker_0_1",
+      "y": 90,
+      "uvlock": true
+    },
+    "loaded=false,work_step=1,facing=south": {
+      "model": "slavicmyths:block/flax_breaker_0_1",
+      "y": 180,
+      "uvlock": true
+    },
+    "loaded=false,work_step=1,facing=west": {
+      "model": "slavicmyths:block/flax_breaker_0_1",
+      "y": 270,
+      "uvlock": true
+    },
+    "loaded=false,work_step=2,facing=north": {
+      "model": "slavicmyths:block/flax_breaker_0_2",
+      "y": 0,
+      "uvlock": true
+    },
+    "loaded=false,work_step=2,facing=east": {
+      "model": "slavicmyths:block/flax_breaker_0_2",
+      "y": 90,
+      "uvlock": true
+    },
+    "loaded=false,work_step=2,facing=south": {
+      "model": "slavicmyths:block/flax_breaker_0_2",
+      "y": 180,
+      "uvlock": true
+    },
+    "loaded=false,work_step=2,facing=west": {
+      "model": "slavicmyths:block/flax_breaker_0_2",
+      "y": 270,
+      "uvlock": true
+    },
+    "loaded=true,work_step=0,facing=north": {
+      "model": "slavicmyths:block/flax_breaker_1_0",
+      "y": 0,
+      "uvlock": true
+    },
+    "loaded=true,work_step=0,facing=east": {
+      "model": "slavicmyths:block/flax_breaker_1_0",
+      "y": 90,
+      "uvlock": true
+    },
+    "loaded=true,work_step=0,facing=south": {
+      "model": "slavicmyths:block/flax_breaker_1_0",
+      "y": 180,
+      "uvlock": true
+    },
+    "loaded=true,work_step=0,facing=west": {
+      "model": "slavicmyths:block/flax_breaker_1_0",
+      "y": 270,
+      "uvlock": true
+    },
+    "loaded=true,work_step=1,facing=north": {
+      "model": "slavicmyths:block/flax_breaker_1_1",
+      "y": 0,
+      "uvlock": true
+    },
+    "loaded=true,work_step=1,facing=east": {
+      "model": "slavicmyths:block/flax_breaker_1_1",
+      "y": 90,
+      "uvlock": true
+    },
+    "loaded=true,work_step=1,facing=south": {
+      "model": "slavicmyths:block/flax_breaker_1_1",
+      "y": 180,
+      "uvlock": true
+    },
+    "loaded=true,work_step=1,facing=west": {
+      "model": "slavicmyths:block/flax_breaker_1_1",
+      "y": 270,
+      "uvlock": true
+    },
+    "loaded=true,work_step=2,facing=north": {
+      "model": "slavicmyths:block/flax_breaker_1_2",
+      "y": 0,
+      "uvlock": true
+    },
+    "loaded=true,work_step=2,facing=east": {
+      "model": "slavicmyths:block/flax_breaker_1_2",
+      "y": 90,
+      "uvlock": true
+    },
+    "loaded=true,work_step=2,facing=south": {
+      "model": "slavicmyths:block/flax_breaker_1_2",
+      "y": 180,
+      "uvlock": true
+    },
+    "loaded=true,work_step=2,facing=west": {
+      "model": "slavicmyths:block/flax_breaker_1_2",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

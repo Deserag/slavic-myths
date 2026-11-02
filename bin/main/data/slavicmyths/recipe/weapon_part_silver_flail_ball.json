@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "XXX",
+    " X "
+  ],
+  "key": {
+    "X": {
+      "item": "slavicmyths:silver_ingot"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:silver_flail_ball",
+    "count": 1
+  }
+}

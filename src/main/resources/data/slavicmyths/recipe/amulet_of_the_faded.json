@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "1A2",
+    "B C",
+    "3D4"
+  ],
+  "key": {
+    "1": {
+      "item": "slavicmyths:morova_thread"
+    },
+    "2": {
+      "item": "slavicmyths:faded_rite_seal"
+    },
+    "3": {
+      "item": "slavicmyths:ancestor_bone_charm"
+    },
+    "4": {
+      "item": "slavicmyths:nameless_ashes"
+    },
+    "A": {
+      "item": "minecraft:spider_eye"
+    },
+    "B": {
+      "item": "minecraft:ghast_tear"
+    },
+    "C": {
+      "item": "minecraft:soul_sand"
+    },
+    "D": {
+      "item": "minecraft:bone"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:amulet_of_the_faded",
+    "count": 1
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:berry_mash",
+    "minecraft:water_bucket",
+    "minecraft:honey_bottle",
+    "slavicmyths:apple_juice_bottle",
+    "slavicmyths:malted_barley",
+    "slavicmyths:hops",
+    "slavicmyths:honey_infusion",
+    "slavicmyths:forest_herbal_infusion",
+    "minecraft:brown_mushroom",
+    "minecraft:red_mushroom",
+    "#slavicmyths:berries",
+    "slavicmyths:rye_bread",
+    "slavicmyths:rye_flour",
+    "slavicmyths:barley_grain"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "ingredient": {
+    "item": "slavicmyths:raw_duck"
+  },
+  "result": {
+    "id": "slavicmyths:cooked_duck"
+  },
+  "experience": 0.35,
+  "cookingtime": 100
+}

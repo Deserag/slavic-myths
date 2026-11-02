@@ -1,0 +1,15 @@
+{
+  "part": "nature",
+  "chapter": "plants",
+  "section": "catalogue",
+  "title": "tales.entry.feature_blueberry_garden_patch.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:blueberry_bush",
+    "feature/slavicmyths:blueberry_garden_patch",
+    "item/slavicmyths:blueberry_bush"
+  ],
+  "advancements": [],
+  "links": []
+}

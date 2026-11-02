@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "slavicmyths:raw_carp"
+  },
+  "result": {
+    "id": "slavicmyths:smoked_carp"
+  },
+  "experience": 0.4,
+  "cookingtime": 100
+}

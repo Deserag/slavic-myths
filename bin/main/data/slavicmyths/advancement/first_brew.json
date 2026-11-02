@@ -1,0 +1,8 @@
+{
+  "criteria": {
+    "brewed": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "slavicmyths:group_home"
+}

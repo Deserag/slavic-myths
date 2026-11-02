@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "event"
+    ]
+  ],
+  "rewards": {},
+  "parent": "slavicmyths:wolf_trial_passed",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:iron_spear"
+    },
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false,
+    "title": {
+      "translate": "advancements.slavicmyths.grey_wolf_bandits.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.grey_wolf_bandits.description"
+    }
+  }
+}

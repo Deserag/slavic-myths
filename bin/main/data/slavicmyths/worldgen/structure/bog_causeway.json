@@ -1,0 +1,7 @@
+{
+  "type": "slavicmyths:bog_causeway",
+  "biomes": "#slavicmyths:structures/bog_causeway",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}

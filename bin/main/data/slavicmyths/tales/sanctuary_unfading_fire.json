@@ -1,0 +1,15 @@
+{
+  "part": "creatures",
+  "chapter": "legends",
+  "section": "inhabitants",
+  "title": "tales.entry.sanctuary_unfading_fire.title",
+  "icon": "slavicmyths:sacred_ember",
+  "initial": 0,
+  "subjects": [
+    "structure/slavicmyths:sanctuary_unfading_fire"
+  ],
+  "advancements": [
+    "slavicmyths:found_ancient_sanctuary"
+  ],
+  "links": []
+}

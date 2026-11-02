@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:lost_whisper_thread"
+    },
+    {
+      "item": "slavicmyths:lightvein_shard"
+    },
+    {
+      "item": "minecraft:polished_blackstone"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:lost_halls_waymark",
+    "count": 1
+  }
+}

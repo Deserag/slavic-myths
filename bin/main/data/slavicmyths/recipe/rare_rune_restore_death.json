@@ -1,0 +1,16 @@
+{
+  "type": "slavicmyths:rune_crafting",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:rune_death_fragment"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:rune_death",
+    "count": 1
+  },
+  "chisel": false
+}

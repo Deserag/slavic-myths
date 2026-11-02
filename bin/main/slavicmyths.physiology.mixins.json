@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.slavicmyths.combat.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "PoisonPhysiologyMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

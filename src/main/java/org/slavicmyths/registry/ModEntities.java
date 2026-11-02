@@ -15,6 +15,9 @@ import org.slavicmyths.entity.LeshyEntity;
 @EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public final class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE, SlavicMyths.MOD_ID);
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.posad.PosadResidentEntity>> POSAD_RESIDENT = ENTITIES.register("posad_resident", () -> EntityType.Builder.of(org.slavicmyths.posad.PosadResidentEntity::new, MobCategory.CREATURE).sized(.6F, 1.95F).fireImmune().clientTrackingRange(10).build("slavicmyths:posad_resident"));
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.posad.boss.PosadBoss>> CURSED_MYTAR = ENTITIES.register("cursed_mytar", () -> EntityType.Builder.<org.slavicmyths.posad.boss.PosadBoss>of((type, level) -> new org.slavicmyths.posad.boss.PosadBoss(type, level, org.slavicmyths.posad.boss.PosadBoss.Kind.MYTAR), MobCategory.MONSTER).sized(1.2F, 4F).clientTrackingRange(16).fireImmune().build("slavicmyths:cursed_mytar"));
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.posad.boss.PosadBoss>> BAUK = ENTITIES.register("bauk", () -> EntityType.Builder.<org.slavicmyths.posad.boss.PosadBoss>of((type, level) -> new org.slavicmyths.posad.boss.PosadBoss(type, level, org.slavicmyths.posad.boss.PosadBoss.Kind.BAUK), MobCategory.MONSTER).sized(2.5F, 3F).clientTrackingRange(16).fireImmune().build("slavicmyths:bauk"));
     public static final net.neoforged.neoforge.registries.DeferredHolder<net.minecraft.world.entity.EntityType<?>,net.minecraft.world.entity.EntityType<org.slavicmyths.finist.FinistArrow>> FINIST_ARROW = ENTITIES.register("finist_magic_arrow",()->net.minecraft.world.entity.EntityType.Builder.<org.slavicmyths.finist.FinistArrow>of(org.slavicmyths.finist.FinistArrow::new,net.minecraft.world.entity.MobCategory.MISC).sized(.5F,.5F).clientTrackingRange(4).updateInterval(1).build("finist_magic_arrow"));
     public static final DeferredHolder<EntityType<?>, EntityType<DomovoyEntity>> DOMOVOY = ENTITIES.register("domovoy",
             () -> EntityType.Builder.of(DomovoyEntity::new, MobCategory.CREATURE)
@@ -48,7 +51,13 @@ public final class ModEntities {
 
     @SubscribeEvent
     public static void attributes(EntityAttributeCreationEvent event) {
+        event.put(POSAD_RESIDENT.get(), org.slavicmyths.posad.PosadResidentEntity.attributes().build());
+        event.put(CURSED_MYTAR.get(), org.slavicmyths.posad.boss.PosadBoss.attributes(org.slavicmyths.posad.boss.PosadBoss.Kind.MYTAR).build());
+        event.put(BAUK.get(), org.slavicmyths.posad.boss.PosadBoss.attributes(org.slavicmyths.posad.boss.PosadBoss.Kind.BAUK).build());
         event.put(GREY_WOLF.get(),org.slavicmyths.wolf.GreyWolf.attributes().build());
+        event.put(NETHER_RETAINER.get(),net.minecraft.world.entity.monster.Zombie.createAttributes().build());
+        event.put(MOROVA_DEVA.get(),org.slavicmyths.netherboss.NetherSummonBoss.attributes(true).build());
+        event.put(TRIZNA_PRINCE.get(),org.slavicmyths.netherboss.NetherSummonBoss.attributes(false).build());
         event.put(NIGHTINGALE.get(),org.slavicmyths.bandit.NightingaleEntity.attributes().build());
         event.put(BANDIT_FIGHTER.get(),org.slavicmyths.bandit.BanditEntity.attributes(0).build());
         event.put(BANDIT_ARCHER.get(),org.slavicmyths.bandit.BanditEntity.attributes(1).build());
@@ -120,6 +129,9 @@ public final class ModEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.hunt.WorldBoss>> LIKHO_ONE_EYED=ENTITIES.register("likho_one_eyed",()->EntityType.Builder.of(org.slavicmyths.hunt.WorldBoss::new,MobCategory.MONSTER).sized(.95F,3.25F).clientTrackingRange(12).build("slavicmyths:likho_one_eyed"));
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.hunt.WorldBoss>> TUGARIN_ZMEY=ENTITIES.register("tugarin_zmey",()->EntityType.Builder.of(org.slavicmyths.hunt.WorldBoss::new,MobCategory.MONSTER).sized(3.5F,4.85F).eyeHeight(4.15F).clientTrackingRange(12).build("slavicmyths:tugarin_zmey"));
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.hunt.BossStone>> TUGARIN_STONE=ENTITIES.register("tugarin_stone",()->EntityType.Builder.of(org.slavicmyths.hunt.BossStone::new,MobCategory.MISC).sized(.4F,.4F).clientTrackingRange(8).updateInterval(2).build("slavicmyths:tugarin_stone"));
+    public static final DeferredHolder<EntityType<?>,EntityType<org.slavicmyths.netherboss.NetherRetainer>> NETHER_RETAINER=ENTITIES.register("nether_retainer",()->EntityType.Builder.<org.slavicmyths.netherboss.NetherRetainer>of(org.slavicmyths.netherboss.NetherRetainer::new,MobCategory.MONSTER).sized(.6F,1.95F).fireImmune().clientTrackingRange(8).build("slavicmyths:nether_retainer"));
+    public static final DeferredHolder<EntityType<?>,EntityType<org.slavicmyths.netherboss.NetherSummonBoss>> MOROVA_DEVA=ENTITIES.register("morova_deva",()->EntityType.Builder.<org.slavicmyths.netherboss.NetherSummonBoss>of((t,w)->new org.slavicmyths.netherboss.NetherSummonBoss(t,w,org.slavicmyths.netherboss.NetherSummonBoss.MOROVA),MobCategory.MONSTER).sized(.88F,2.65F).clientTrackingRange(12).updateInterval(2).build("slavicmyths:morova_deva"));
+    public static final DeferredHolder<EntityType<?>,EntityType<org.slavicmyths.netherboss.NetherSummonBoss>> TRIZNA_PRINCE=ENTITIES.register("trizna_prince",()->EntityType.Builder.<org.slavicmyths.netherboss.NetherSummonBoss>of((t,w)->new org.slavicmyths.netherboss.NetherSummonBoss(t,w,org.slavicmyths.netherboss.NetherSummonBoss.TRIZNA),MobCategory.MONSTER).sized(1.18F,2.95F).fireImmune().clientTrackingRange(12).updateInterval(2).build("slavicmyths:trizna_prince"));
     private ModEntities() { }
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.flight.FlyingVessel>> FLYING_BROOM=ENTITIES.register("flying_broom",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,false),MobCategory.MISC).sized(1F,.45F).clientTrackingRange(10).updateInterval(3).build("slavicmyths:flying_broom"));
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.flight.FlyingVessel>> FLYING_MORTAR=ENTITIES.register("flying_mortar",()->EntityType.Builder.<org.slavicmyths.flight.FlyingVessel>of((t,w)->new org.slavicmyths.flight.FlyingVessel(t,w,true),MobCategory.MISC).sized(.95F,1.2F).clientTrackingRange(10).updateInterval(3).build("slavicmyths:flying_mortar"));
