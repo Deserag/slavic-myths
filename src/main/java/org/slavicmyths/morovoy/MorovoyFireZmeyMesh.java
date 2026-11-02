@@ -35,11 +35,16 @@ public final class MorovoyFireZmeyMesh {
     PartDefinition leg=body.addOrReplaceChild("leg_"+n+"_"+front,box(19,75,-6,-3,-6,12,17,12).texOffs(44,80).addBox(-5,9,-7,10,11,10),PartPose.offset(side*15,3,front==0?-26:28));
     for(int c=-1;c<=1;c++)leg.addOrReplaceChild("claw_"+c,box(7,96,c*4-2,18,-14,3,4,10),PartPose.ZERO);
    }
-   int wingRoot=side<0?-47:0;
-   PartDefinition wing=body.addOrReplaceChild("wing_"+n,box(1,142,wingRoot,-4,-12,47,6,18).texOffs(4,179).addBox(wingRoot,-1,2,47,2,19),PartPose.offset(side*16,-10,-5));
-   for(int j=0;j<5;j++)wing.addOrReplaceChild("membrane_"+j,box(2+(j%3)*14,180,side<0?-46+j*8:j*8,1,3+j*2,8,1,20-j*2),PartPose.ZERO);
-   PartDefinition tip=wing.addOrReplaceChild("wing_tip_"+n,box(15,160,side<0?-38:0,-3,-7,38,4,16).texOffs(40,184).addBox(side<0?-38:0,0,8,38,1,16),PartPose.offset(side*45,0,-4));
-   for(int j=0;j<4;j++)tip.addOrReplaceChild("tip_rib_"+j,box(57,165,side<0?-36+j*9:j*9,0,16+j*2,4,1,12-j),PartPose.ZERO);
+   // Single articulated pair. The leading bone stays thick, but the membranes are thin
+   // tapered strips instead of the old full-width rectangular glowing slabs.
+   PartDefinition wing=body.addOrReplaceChild("wing_"+n,box(8,140,side<0?-49:0,-3,-5,49,5,10),PartPose.offset(side*15,-11,-8));
+   for(int j=0;j<5;j++){
+    float x=side<0?-48+j*9:j*9;
+    wing.addOrReplaceChild("membrane_"+j,box(5+j*13,177,x,1,5+j*2,9,1,21-j*3),PartPose.ZERO);
+    wing.addOrReplaceChild("spar_"+j,box(70+j*12,151,x,0,3+j*2,3,3,20-j*3),PartPose.ZERO);
+   }
+   PartDefinition tip=wing.addOrReplaceChild("wing_tip_"+n,box(5,145,side<0?-39:0,-3,-4,39,4,8),PartPose.offset(side*49,0,-3));
+   for(int j=0;j<4;j++)tip.addOrReplaceChild("tip_rib_"+j,box(120+j*9,174,side<0?-37+j*9:j*9,0,4+j*2,3,2,15-j*3),PartPose.ZERO);
    PartDefinition previous=body;
    for(int t=0;t<6;t++){int width=Math.max(3,10-t),len=12-t/2;String key="tail_"+n+"_"+t;PartDefinition section=previous.addOrReplaceChild(key,box(side<0?140:193,140+t*14,-width/2f,-3,-1,width,7-t/2f,len).texOffs(side<0?158:217,140+t*14).addBox(-1,-7,-1,2,5,5),t==0?PartPose.offset(side*8,2,39):PartPose.offset(0,1,10));previous=section;}
   }
