@@ -14,10 +14,10 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 
-/** Temporary violet fire: never spreads; removed when no living Morovoy Fire Zmey is nearby. */
+/** Non-spreading fire with a fixed scheduled lifetime; no entity scans per block. */
 public final class VioletFireBlock extends BaseFireBlock {
     public static final MapCodec<VioletFireBlock> CODEC = simpleCodec(VioletFireBlock::new);
-    private static final int CHECK_TICKS = 100;
+    private static final int CHECK_TICKS = ZmeyConfig.VIOLET_FIRE_LIFETIME_TICKS;
     public VioletFireBlock(BlockBehaviour.Properties properties) { super(properties, 5.0F); }
     @Override protected MapCodec<? extends BaseFireBlock> codec() { return CODEC; }
     @Override protected boolean canBurn(BlockState state) { return false; }
