@@ -4,7 +4,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slavicmyths.poloz.PolozContent;
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class PolozClient {
  @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerBlockEntityRenderer(org.slavicmyths.poloz.PolozTrophy.TILE.get(),PolozTrophyRenderer::new);e.registerEntityRenderer(PolozContent.SPIKE.get(),PolozSpikeRenderer::new);e.registerEntityRenderer(PolozContent.BOSS.get(),PolozRenderer::new);e.registerEntityRenderer(PolozContent.GLOB.get(),PolozRenderer.GlobRenderer::new);}
  @SubscribeEvent public static void extensions(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent e){e.registerItem(new PolozArmor(),org.slavicmyths.poloz.PolozRewards.ARMOR.values().stream().map(h->h.get()).toArray(net.minecraft.world.item.Item[]::new));}
