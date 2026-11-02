@@ -30,9 +30,9 @@ public final class MorovoyFireZmeyModel extends EntityModel<MorovoyFireZmey> {
         float wake = Mth.clamp(boss.stateAge() / 65.0F, 0.0F, 1.0F);
         float awake = sleeping ? 0.0F : waking ? wake : dying ? 0.0F : 1.0F;
         float hover = Mth.sin(age * 0.1F) * 0.2F;
-        body.y = 12.0F + (sleeping ? 5.0F : waking ? Mth.lerp(wake, 5.0F, -8.0F) : dying ? Math.min(9.0F, boss.stateAge() * 0.12F) : -8.0F + hover);
+        body.y = 12.0F + (sleeping ? 5.0F : waking ? Mth.lerp(wake, 5.0F, 2.0F) : dying ? Math.min(9.0F, boss.stateAge() * 0.12F) : -8.0F + hover);
         body.xRot = sleeping ? 0.25F : dying ? 0.35F : -0.08F * awake + Mth.sin(age * 0.045F) * 0.025F * awake;
-        body.zRot = awake * Mth.sin(age * 0.065F) * 0.035F;
+        body.zRot = awake * (Mth.sin(age * 0.065F) * 0.035F + Mth.clamp((float)(boss.getDeltaMovement().x * Mth.cos(boss.getYRot() * Mth.DEG_TO_RAD) + boss.getDeltaMovement().z * Mth.sin(boss.getYRot() * Mth.DEG_TO_RAD)) * 0.7F, -.16F, .16F));
 
         // The two independent three-bone chains have distinct oscillators, frequencies and targets.
         animateMorNeck(boss, age, netHeadYaw, headPitch, sleeping, dying, awake);
