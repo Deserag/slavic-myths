@@ -15,7 +15,7 @@ import org.slavicmyths.posad.PosadResidentEntity;
 public final class PosadResidentModel extends HumanoidModel<PosadResidentEntity> {
     private final ModelPart[] horns;
     private final ModelPart[] wings;
-    private final ModelPart apron, armor, satchel, ceremonialSash;
+    private final ModelPart apron, armor, posadnikArmor, satchel, ceremonialSash;
     private final ModelPart farmerHat, mushroomHood, herbalistHood, cookCap, collar;
     private final ModelPart smithGauntletLeft, smithGauntletRight, bandolier, toolPouch, waistcoat, cape;
 
@@ -25,6 +25,7 @@ public final class PosadResidentModel extends HumanoidModel<PosadResidentEntity>
         wings = new ModelPart[] {body.getChild("wing_left"), body.getChild("wing_right")};
         apron = body.getChild("apron");
         armor = body.getChild("armor");
+        posadnikArmor = body.getChild("posadnik_armor");
         satchel = body.getChild("satchel");
         ceremonialSash = body.getChild("ceremonial_sash");
         farmerHat = head.getChild("farmer_hat");
@@ -79,6 +80,11 @@ public final class PosadResidentModel extends HumanoidModel<PosadResidentEntity>
             .addBox(-3.6F, .25F, -2.75F, 7.2F, 7.8F, .65F)
             .texOffs(0, 40).addBox(-4.6F, -.5F, -2.4F, 1.7F, 3.0F, 4.8F)
             .texOffs(0, 40).addBox(2.9F, -.5F, -2.4F, 1.7F, 3.0F, 4.8F), PartPose.ZERO);
+        // Distinct ceremonial chestplate with shoulder guards; the city ruler keeps his cloak.
+        body.addOrReplaceChild("posadnik_armor", CubeListBuilder.create().texOffs(20, 20)
+            .addBox(-3.9F, .2F, -2.82F, 7.8F, 9.0F, .9F)
+            .texOffs(0, 40).addBox(-4.7F, -.7F, -2.55F, 1.6F, 3.2F, 4.9F)
+            .texOffs(0, 40).addBox(3.1F, -.7F, -2.55F, 1.6F, 3.2F, 4.9F), PartPose.ZERO);
         body.addOrReplaceChild("ceremonial_sash", CubeListBuilder.create().texOffs(40, 32)
             .addBox(-3.1F, .4F, -2.86F, 1.7F, 10.5F, .4F), PartPose.ZERO);
         // Profession identifiers use recognisable silhouettes, not the same
@@ -141,6 +147,7 @@ public final class PosadResidentModel extends HumanoidModel<PosadResidentEntity>
         boolean leader = role == org.slavicmyths.posad.PosadPopulationPlan.Role.POSADNIK;
         apron.visible = !guard && !leader;
         armor.visible = guard;
+        posadnikArmor.visible = leader;
         satchel.visible = !guard && !leader;
         ceremonialSash.visible = leader;
         farmerHat.visible = false;
