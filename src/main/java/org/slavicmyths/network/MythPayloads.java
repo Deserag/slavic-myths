@@ -52,22 +52,6 @@ public final class MythPayloads {
         return new CustomPacketPayload.Type<>(ResourceLocation.fromNamespaceAndPath("slavicmyths", path));
     }
 
-public record NetherTrophy(boolean pendant) implements CustomPacketPayload {
-
-    public static final Type<NetherTrophy> TYPE = MythPayloads.type("nether_trophy_activate");
-
-    public static final StreamCodec<FriendlyByteBuf, NetherTrophy> CODEC = StreamCodec.of(
-        (buffer, value) -> buffer.writeBoolean(value.pendant()),
-        buffer -> new NetherTrophy(buffer.readBoolean())
-    );
-
-    @Override
-    public Type<NetherTrophy> type() {
-        return TYPE;
-    }
-}
-
-
 
     private MythPayloads() { }
 }
