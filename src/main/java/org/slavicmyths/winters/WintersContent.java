@@ -16,6 +16,6 @@ public final class WintersContent {
  private static final class Aura extends MobEffect {
   Aura(){super(MobEffectCategory.HARMFUL,0x9e1b28);addAttributeModifier(Attributes.ATTACK_DAMAGE,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","nether_aura"),-4,AttributeModifier.Operation.ADD_VALUE);}
  }
- public static void init(IEventBus bus){AMULET.getId();WintersRecipe.SERIALIZERS.register(bus);}
+ public static void init(IEventBus bus){AMULET.getId();}
  private WintersContent(){}
 }
