@@ -69,7 +69,6 @@ public final class SlavicMyths {
         org.slavicmyths.kurgan.DarkenedWood.init();
         org.slavicmyths.kurgan.KurganBlocks.init();
         org.slavicmyths.hunt.BossEffects.init();
-        org.slavicmyths.kurgan.KurganCurse.EFFECTS.register(bus);
         org.slavicmyths.kurgan.BurialCoffinMenu.register();
         org.slavicmyths.kurgan.KurganStructures.register();
         org.slavicmyths.earth.EarthContent.init();
