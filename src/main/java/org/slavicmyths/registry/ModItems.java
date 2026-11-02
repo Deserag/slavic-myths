@@ -15,6 +15,8 @@ import org.slavicmyths.SlavicMyths;
 public final class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(Registries.ITEM, SlavicMyths.MOD_ID);
+    public static final DeferredHolder<Item, Item> CURSED_MYTAR_SPAWN_EGG = egg("cursed_mytar_spawn_egg", ModEntities.CURSED_MYTAR, 0x45323B, 0xB69B6C);
+    public static final DeferredHolder<Item, Item> BAUK_SPAWN_EGG = egg("bauk_spawn_egg", ModEntities.BAUK, 0x242129, 0x8C413C);
     public static final DeferredHolder<Item, Item> MYTAR_SEAL = ITEMS.register("mytar_seal", () -> new Item(properties().rarity(Rarity.RARE).stacksTo(1)));
     public static final DeferredHolder<Item, Item> MYTAR_CHAIN = ITEMS.register("mytar_chain", () -> new Item(properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> MYTAR_SICKLE = ITEMS.register("mytar_sickle", () -> new Item(properties().rarity(Rarity.RARE)));
