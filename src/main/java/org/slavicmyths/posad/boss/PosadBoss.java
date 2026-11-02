@@ -84,7 +84,7 @@ public final class PosadBoss extends Monster {
         goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 20F));
         goalSelector.addGoal(7, new RandomLookAroundGoal(this));
         targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, player -> !player.isCreative() && !player.isSpectator()));
+        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, entity -> entity instanceof Player player && !player.isCreative() && !player.isSpectator()));
     }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
     @Override public void checkDespawn() {
