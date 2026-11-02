@@ -8,8 +8,8 @@ public final class IdolMinionGoal extends Goal {
     private final Zombie mob;
     public IdolMinionGoal(Zombie mob){this.mob=mob;setFlags(EnumSet.of(Flag.MOVE,Flag.TARGET));}
     private IdolishcheEntity owner(){var n=mob.getPersistentData();return mob.level() instanceof ServerLevel w&&n.hasUUID("IdolOwner")&&w.getEntity(n.getUUID("IdolOwner")) instanceof IdolishcheEntity b?b:null;}
-    @Override public boolean canUse(){var b=owner();return b!=null&&(!b.active||mob.position().distanceToSqr(b.origin)>26*26||mob.getTarget() instanceof IlyaEntity h&&h.recovering());}
+    @Override public boolean canUse(){if (!(mob.level() instanceof ServerLevel)) return false;var b=owner();return b!=null&&(!b.active||mob.position().distanceToSqr(b.origin)>26*26||mob.getTarget() instanceof IlyaEntity h&&h.recovering());}
     @Override public boolean canContinueToUse(){return canUse();}
     @Override public void start(){mob.setTarget(null);mob.getNavigation().stop();}
-    @Override public void tick(){var b=owner();if(b==null)return;mob.setTarget(null);if(!b.active){mob.discard();return;}if(mob.tickCount%10==0)mob.getNavigation().moveTo(b.origin.x,b.origin.y,b.origin.z,1);}
+    @Override public void tick(){var b=owner();if(b==null)return;mob.setTarget(null);if(!b.active){mob.discard();return;}if(mob.tickCount%20==0 && (mob.getNavigation().isDone() || mob.distanceToSqr(b.origin.x,b.origin.y,b.origin.z)>16))mob.getNavigation().moveTo(b.origin.x,b.origin.y,b.origin.z,1);}
 }

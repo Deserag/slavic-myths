@@ -35,6 +35,7 @@ public final class PosadBoss extends Monster {
     private final ServerBossEvent bar;
     private int actionTicks;
     private int cooldown;
+    private int nextPathTick;
     private boolean connected;
     private boolean rewardDropped;
     private int specialCooldown;
@@ -83,7 +84,7 @@ public final class PosadBoss extends Monster {
         goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 20F));
         goalSelector.addGoal(7, new RandomLookAroundGoal(this));
         targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, player -> !player.isCreative() && !player.isSpectator()));
     }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
     @Override public void checkDespawn() {
@@ -97,6 +98,7 @@ public final class PosadBoss extends Monster {
     @Override public void startSeenByPlayer(ServerPlayer player) { super.startSeenByPlayer(player); bar.addPlayer(player); }
     @Override public void stopSeenByPlayer(ServerPlayer player) { super.stopSeenByPlayer(player); bar.removePlayer(player); }
     @Override protected void customServerAiStep() {
+        if (!(level() instanceof net.minecraft.server.level.ServerLevel)) return;
         super.customServerAiStep();
         bar.setProgress(Math.max(0F, Math.min(1F, getHealth() / getMaxHealth())));
         if (kind == Kind.MYTAR && phase() == 1 && getHealth() <= 607.5F) { entityData.set(PHASE, 2); begin(Move.RECOVERY, 35, 35); return; }
@@ -132,7 +134,7 @@ public final class PosadBoss extends Monster {
             if (kind == Kind.MYTAR && distance >= 16D && distance <= 144D && coinsCooldown == 0) { coinsCooldown = 220; begin(Move.WINDUP_COINS, 40, 25); return; }
             if (kind == Kind.BAUK && distance >= 25D && distance <= 169D && specialCooldown == 0 && canCharge(target)) { specialCooldown = enraged() ? 120 : 160; begin(Move.WINDUP_CHARGE, 44, 30); return; }
         }
-        if (distance > 12.25D) { getNavigation().moveTo(target, kind == Kind.BAUK && enraged() ? 1.2D : 1D); return; }
+        if (distance > 12.25D) { if (tickCount >= nextPathTick || getNavigation().isDone()) { nextPathTick = tickCount + 10; getNavigation().moveTo(target, kind == Kind.BAUK && enraged() ? 1.2D : 1D); } return; }
         getNavigation().stop();
         if (cooldown > 0) return;
         if (kind == Kind.BAUK && grabCooldown == 0 && distance <= 7.84D && random.nextInt(4) == 0) { grabCooldown = 160; begin(Move.WINDUP_GRAB, 38, 45); }
