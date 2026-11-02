@@ -24,29 +24,7 @@ public final class SlavicMyths {
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,org.slavicmyths.earth.EarthVisualConfig.SPEC,"slavicmyths-earth-visuals.toml");
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.chud.AbandonedConfig.SPEC,"slavicmyths-chud-worldgen.toml");
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.earth.EarthConfig.SPEC,"slavicmyths-earth-spirit.toml");
-
         RegistryBootstrap.register(bus, org.slavicmyths.item.ItemState.COMPONENTS);
-        RegistryBootstrap.register(bus, org.slavicmyths.winters.WintersContent.EFFECTS);
-        RegistryBootstrap.register(bus, org.slavicmyths.registry.ModEffects.EFFECTS);
-        RegistryBootstrap.register(bus, ModBlocks.BLOCKS);
-        RegistryBootstrap.register(bus, org.slavicmyths.worldgen.ChudRegionPlacements.TYPES);
-        RegistryBootstrap.register(bus, org.slavicmyths.swamp.SwampStructures.STRUCTURES);
-        RegistryBootstrap.register(bus, org.slavicmyths.swamp.SwampStructures.PIECES);
-        RegistryBootstrap.register(bus, org.slavicmyths.item.ModGear.ARMOR_MATERIALS);
-        RegistryBootstrap.register(bus, org.slavicmyths.registry.ModItemGroup.TABS);
-        RegistryBootstrap.register(bus, org.slavicmyths.rpg.RuneCraftRecipe.TYPES);
-        RegistryBootstrap.register(bus, org.slavicmyths.rpg.RuneCraftRecipe.SERIALIZERS);
-        RegistryBootstrap.register(bus, org.slavicmyths.underground.UndergroundMobs.EFFECTS);
-        RegistryBootstrap.register(bus, ModItems.ITEMS);
-        RegistryBootstrap.register(bus, org.slavicmyths.armorer.ArmorerRecipe.TYPES);
-        RegistryBootstrap.register(bus, org.slavicmyths.armorer.ArmorerRecipe.SERIALIZERS);
-        RegistryBootstrap.register(bus, org.slavicmyths.farming.Farming.FUNCTIONS);
-        RegistryBootstrap.register(bus, ModLoot.SERIALIZERS);
-        RegistryBootstrap.register(bus, ModEntities.ENTITIES);
-        RegistryBootstrap.register(bus, ModSounds.SOUNDS);
-        RegistryBootstrap.register(bus, org.slavicmyths.registry.ModTiles.TILES);
-        RegistryBootstrap.register(bus, org.slavicmyths.registry.ModFeatures.FEATURES);
-        RegistryBootstrap.register(bus, org.slavicmyths.rpg.RpgMenu.MENUS);
         org.slavicmyths.rpg.Runes.init();
         org.slavicmyths.garden.Gardens.init();
         org.slavicmyths.husbandry.Husbandry.init(bus);
@@ -123,7 +101,9 @@ public final class SlavicMyths {
         org.slavicmyths.posad.PosadWorldgen.init();
         org.slavicmyths.morovoy.MorovoyArenaWorldgen.init();
         org.slavicmyths.winters.WintersContent.init(bus);
+        RegistryBootstrap.register(bus, org.slavicmyths.winters.WintersContent.EFFECTS);
 
+        RegistryBootstrap.register(bus, org.slavicmyths.registry.ModEffects.EFFECTS);
 bus.addListener(org.slavicmyths.netherboss.NetherTrophyNetwork::register);
 
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.SERVER,org.slavicmyths.sanctuary.SanctuaryConfig.SPEC,"slavicmyths-sanctuaries.toml");
@@ -136,16 +116,16 @@ bus.addListener(org.slavicmyths.netherboss.NetherTrophyNetwork::register);
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.pesigolovtsy.DogheadConfig.SPEC,"slavicmyths-pesigolovtsy.toml");
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.nochnitsa.NochnitsaConfig.SPEC,"slavicmyths-nochnitsa.toml");
         bus.addListener(org.slavicmyths.sivka.SivkaNetwork::register);
-
+        RegistryBootstrap.register(bus, ModBlocks.BLOCKS);
         org.slavicmyths.bandit.CampStructures.register();
         org.slavicmyths.gorodishche.GorodishcheStructures.init();
         org.slavicmyths.chud.ChudStructures.init();
-
-
-
+        RegistryBootstrap.register(bus, org.slavicmyths.worldgen.ChudRegionPlacements.TYPES);
+        RegistryBootstrap.register(bus, org.slavicmyths.swamp.SwampStructures.STRUCTURES);
+        RegistryBootstrap.register(bus, org.slavicmyths.swamp.SwampStructures.PIECES);
         org.slavicmyths.equipment.UniqueEquipment.init();
-
-
+        RegistryBootstrap.register(bus, org.slavicmyths.item.ModGear.ARMOR_MATERIALS);
+        RegistryBootstrap.register(bus, org.slavicmyths.registry.ModItemGroup.TABS);
         org.slavicmyths.combat.WeaponCatalog.register();
         org.slavicmyths.combat.RareWeapons.init();
         org.slavicmyths.rpg.RuneRepair.init();
@@ -153,22 +133,22 @@ bus.addListener(org.slavicmyths.netherboss.NetherTrophyNetwork::register);
         org.slavicmyths.rpg.RuneRework.init();
         org.slavicmyths.rpg.RareRunes.init();
         org.slavicmyths.rpg.RuneVisual.init();
-
-
+        RegistryBootstrap.register(bus, org.slavicmyths.rpg.RuneCraftRecipe.TYPES);
+        RegistryBootstrap.register(bus, org.slavicmyths.rpg.RuneCraftRecipe.SERIALIZERS);
         org.slavicmyths.industry.Industry.register(bus);
         org.slavicmyths.underground.UndergroundMobs.init(bus);
-
+        RegistryBootstrap.register(bus, org.slavicmyths.underground.UndergroundMobs.EFFECTS);
         org.slavicmyths.underground.UndergroundSounds.init();
-
-
-
+        RegistryBootstrap.register(bus, ModItems.ITEMS);
+        RegistryBootstrap.register(bus, org.slavicmyths.armorer.ArmorerRecipe.TYPES);
+        RegistryBootstrap.register(bus, org.slavicmyths.armorer.ArmorerRecipe.SERIALIZERS);
         org.slavicmyths.armorer.ArmorerMenu.register();
-
-
-
-
-
-
+        RegistryBootstrap.register(bus, org.slavicmyths.farming.Farming.FUNCTIONS);
+        RegistryBootstrap.register(bus, ModLoot.SERIALIZERS);
+        RegistryBootstrap.register(bus, ModEntities.ENTITIES);
+        RegistryBootstrap.register(bus, ModSounds.SOUNDS);
+        RegistryBootstrap.register(bus, org.slavicmyths.registry.ModTiles.TILES);
+        RegistryBootstrap.register(bus, org.slavicmyths.registry.ModFeatures.FEATURES);
         bus.addListener(org.slavicmyths.network.LoreNetwork::register);
         bus.addListener(org.slavicmyths.tales.TaleNetwork::register);
         bus.addListener(org.slavicmyths.bayun.BayunNetwork::register);
@@ -181,7 +161,7 @@ bus.addListener(org.slavicmyths.netherboss.NetherTrophyNetwork::register);
         bus.addListener(org.slavicmyths.flight.FlightNetwork::register);
         org.slavicmyths.kitchen.KitchenMenu.register();
         org.slavicmyths.yaga.YagaMenu.register();
-
+        RegistryBootstrap.register(bus, org.slavicmyths.rpg.RpgMenu.MENUS);
         bus.addListener(org.slavicmyths.hunt.HuntSpawns::placements);
         bus.addListener(org.slavicmyths.world.SpiritSpawns::registerPlacements);
         bus.addListener(org.slavicmyths.world.WildlifeSpawns::placements);
