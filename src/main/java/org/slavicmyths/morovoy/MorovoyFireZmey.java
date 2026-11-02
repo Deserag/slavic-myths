@@ -60,7 +60,7 @@ public final class MorovoyFireZmey extends Monster {
   bar.setProgress(Math.clamp(getHealth()/getMaxHealth(),0f,1f));
   if(state()==DYING){setDeltaMovement(Vec3.ZERO);if(age>=65)super.die(damageSources().genericKill());return;}
   if(state()==SLEEPING){setDeltaMovement(Vec3.ZERO);setNoGravity(false);if(tickCount%30==0){passiveMor();for(ServerPlayer p:((ServerLevel)level()).players())if(p.isAlive()&&!p.isCreative()&&!p.isSpectator()&&MorovoyZmeyRules.shouldWake(p.distanceToSqr(position().add(0,1,0)))){nextState(WAKING);break;}}return;}
-  if(state()==WAKING){setDeltaMovement(Vec3.ZERO);if(age==10)particles(0,position().add(0,2,0),24);if(age==40)particles(1,position().add(0,3,0),32);if(age>=65){nextState(PHASE_I);idleTicks=45;setDeltaMovement(0,.35,0);setNoGravity(true);entityData.set(AIRBORNE,true);}return;}
+  if(state()==WAKING){setDeltaMovement(Vec3.ZERO);if(age==10)particles(0,position().add(0,2,0),24);if(age==40)particles(1,position().add(0,3,0),32);if(age>=60){nextState(PHASE_I);idleTicks=45;setDeltaMovement(0,.35,0);setNoGravity(true);entityData.set(AIRBORNE,true);}return;}
   if(state()==PHASE_I&&MorovoyZmeyRules.secondPhase(getHealth(),getMaxHealth())){nextState(PHASE_II);particles(1,position().add(0,2,0),90);idleTicks=55;return;}
   if(tickCount%10==0){LivingEntity target=selectTarget();setTarget(target);if(target==null){act(IDLE);moveInAir(null,false);return;}}
   LivingEntity target=getTarget();if(target==null||!canDamage(target)){moveInAir(null,false);return;}
