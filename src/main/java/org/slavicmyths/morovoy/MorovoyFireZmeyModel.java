@@ -132,10 +132,10 @@ public final class MorovoyFireZmeyModel extends EntityModel<MorovoyFireZmey> {
         fireHead.translateAndRotate(pose);
         pose.scale(0.0625F, 0.0625F, 0.0625F);
         float pulse = Mth.sin(animationAge * 0.33F) * 1.7F;
-        float reach = (9.0F + 18.0F * flameIntensity) + pulse;
-        drawFlameRibbon(vertices, pose, 7.3F * flameIntensity, -25.0F, -25.0F - reach, 0xCC260A49);
-        drawFlameRibbon(vertices, pose, 4.8F * flameIntensity, -25.2F, -25.2F - reach * 0.79F, 0xEEAD21FF);
-        drawFlameRibbon(vertices, pose, 2.0F * flameIntensity, -25.4F, -25.4F - reach * 0.61F, 0xFFFFFFFF);
+        float reach = (5.0F + 10.0F * flameIntensity) + pulse * .4F;
+        drawFlameRibbon(vertices, pose, 3.6F * flameIntensity, -25.0F, -25.0F - reach, 0xCC260A49);
+        drawFlameRibbon(vertices, pose, 2.5F * flameIntensity, -25.2F, -25.2F - reach * 0.79F, 0xEEAD21FF);
+        drawFlameRibbon(vertices, pose, 1.1F * flameIntensity, -25.4F, -25.4F - reach * 0.61F, 0xFFFFFFFF);
         pose.popPose();
     }
 
