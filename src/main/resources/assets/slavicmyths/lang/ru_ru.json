@@ -6510,5 +6510,7 @@
   "entity.slavicmyths.tryaseya": "Трясея",
   "entity.slavicmyths.tryaseya_fever_spirit": "Лихорадочный дух",
   "item.slavicmyths.posad_resident_spawn_egg": "Яйцо призыва пекельного жителя",
-  "item.slavicmyths.posadnik_spawn_egg": "Яйцо призыва посадника"
+  "item.slavicmyths.posadnik_spawn_egg": "Яйцо призыва посадника",
+  "item.slavicmyths.cursed_mytar_spawn_egg": "Яйцо призыва Мытаря",
+  "item.slavicmyths.bauk_spawn_egg": "Яйцо призыва Баука"
 }
