@@ -105,16 +105,21 @@ public final class MorovoyFireZmeyModel extends EntityModel<MorovoyFireZmey> {
         fireHead.zRot = awake * Mth.sin(rightClock * 0.91F) * 0.08F;
     }
 
+    /** Only eyes and elemental crest emit light. The old full-neck/wing/tail emissive
+     * pass repainted entire body sections neon green and purple. */
     public void renderElementalSide(PoseStack pose, VertexConsumer vertices, int light, int overlay, boolean fire) {
-        ModelPart base = fire ? fireBase : morBase;
+        ModelPart neckBase = fire ? fireBase : morBase;
+        ModelPart neckMid = fire ? fireMid : morMid;
+        ModelPart head = fire ? fireHead : morHead;
         String side = fire ? "right" : "left";
-        ModelPart wing = body.getChild("wing_" + side);
-        ModelPart tail = body.getChild("tail_" + side + "_0");
         pose.pushPose();
         body.translateAndRotate(pose);
-        base.render(pose, vertices, light, overlay);
-        wing.render(pose, vertices, light, overlay);
-        tail.render(pose, vertices, light, overlay);
+        neckBase.translateAndRotate(pose);
+        neckMid.translateAndRotate(pose);
+        head.translateAndRotate(pose);
+        head.getChild("eye_" + side + "_a").render(pose, vertices, light, overlay);
+        head.getChild("eye_" + side + "_b").render(pose, vertices, light, overlay);
+        for (int i = 0; i < 4; i++) head.getChild("crest_" + side + "_" + i).render(pose, vertices, light, overlay);
         pose.popPose();
     }
 
