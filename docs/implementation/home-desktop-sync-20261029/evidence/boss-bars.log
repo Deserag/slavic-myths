@@ -1,0 +1,5 @@
+HELLQA_PASS magma bar attempt=0 one actor/one event membership; two actors/distinct IDs; Peaceful removes bodies+memberships; all3 neutral fauna retained; removed actor cannot re-add viewer
+HELLQA_PASS magma bar attempt=1 one actor/one event membership; two actors/distinct IDs; Peaceful removes bodies+memberships; all3 neutral fauna retained; removed actor cannot re-add viewer
+HELLQA_PASS magma bar attempt=2 one actor/one event membership; two actors/distinct IDs; Peaceful removes bodies+memberships; all3 neutral fauna retained; removed actor cannot re-add viewer
+[19:45:55] [Server thread/INFO] [minecraft/GameTestServer]: All 36 required tests passed :)
+BUILD SUCCESSFUL in 1m 9s

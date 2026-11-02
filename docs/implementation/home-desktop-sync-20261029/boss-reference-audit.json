@@ -1,0 +1,117 @@
+{
+  "roots": [
+    ".",
+    "C:\\Users\\pavel\\Downloads",
+    "C:\\Users\\pavel\\.codex\\attachments",
+    "C:\\Users\\pavel\\.codex\\worktrees"
+  ],
+  "results": {
+    "lost_halls/blocks.png": {
+      "status": "MISSING",
+      "expected_sha256": "ff3b278772fe276a464c6a5c0da7592552a1e921e016e6c075ffe20cce01e781",
+      "expected_dimensions": "1448x1086",
+      "issue": "#289/#290",
+      "matches": []
+    },
+    "lost_halls/scenes.png": {
+      "status": "MISSING",
+      "expected_sha256": "d0d95085857c930a24d6ed6fc67729ae927a5103d77b536a1387ff8db79fe4b2",
+      "expected_dimensions": "1448x1086",
+      "issue": "#291/#294",
+      "matches": []
+    },
+    "lost_halls/mobs.png": {
+      "status": "MISSING",
+      "expected_sha256": "a330f127e60c4055dd86aadb91f169e337f4e60c9c90ad8e7982b49cac4be042",
+      "expected_dimensions": "1672x941",
+      "issue": "#292",
+      "matches": []
+    },
+    "lost_halls/rewards.png": {
+      "status": "MISSING",
+      "expected_sha256": "0eb92eea714205ca75219af6aa9f9f1e586dae30494b6534ad28e412daff9856",
+      "expected_dimensions": "1536x1024",
+      "issue": "#301",
+      "matches": []
+    },
+    "lost_halls/posten.png": {
+      "status": "MISSING",
+      "expected_sha256": "34e30e8cde56dffa7ab8e2ff0bf917da3ebdd808675e02da5cfeb123502d65d0",
+      "expected_dimensions": "1536x1024",
+      "issue": "#293",
+      "matches": []
+    },
+    "black_cinder/landscape.png": {
+      "status": "MISSING",
+      "expected_sha256": "09a92d889d1dcabc2821d872e2287e6400f00bf01baf8674d32323d3bdb3bce8",
+      "expected_dimensions": "1672x941",
+      "issue": "#261",
+      "matches": []
+    },
+    "black_cinder/blocks_REVISED.png": {
+      "status": "MISSING",
+      "expected_sha256": "8697b9bd400c7790065bfa243db65d02d7468d19f873b9929a09ba54e47c5e0a",
+      "expected_dimensions": "1448x1086",
+      "issue": "#263",
+      "matches": []
+    },
+    "black_cinder/mobs.png": {
+      "status": "MISSING",
+      "expected_sha256": "0210bc96b2b4ff72b8ded59a5a0a2b1ba75f0e980974ec14a86f2ad090b29a81",
+      "expected_dimensions": "1448x1086",
+      "issue": "#265",
+      "matches": []
+    },
+    "black_cinder/zharenitsa.png": {
+      "status": "MISSING",
+      "expected_sha256": "ad805df5f2c2c3e2ee3e2ab0ff86c5103464a54c662d3c2f2e820ed96f4d874e",
+      "expected_dimensions": "1312x1199",
+      "issue": "#266",
+      "matches": []
+    },
+    "burning_islands/biome.png": {
+      "status": "MISSING",
+      "expected_sha256": "a770acc9cb8401baa8199994f73cf28ee1fb3d43eff25fe0fd5bdbff92fbf605",
+      "expected_dimensions": null,
+      "issue": "#313",
+      "matches": []
+    },
+    "burning_islands/creatures.png": {
+      "status": "MISSING",
+      "expected_sha256": "a06f8d7730e43f93003a0a9c465c806e6e28a41260e7a61640d1f336924651d1",
+      "expected_dimensions": null,
+      "issue": "#316",
+      "matches": []
+    },
+    "burning_islands/rune_materials.png": {
+      "status": "MISSING",
+      "expected_sha256": "47a9f11cd0e3c98e48983cf28c8b5ed7c6687689d9abb9cc5ee28edd7a47fdab",
+      "expected_dimensions": null,
+      "issue": "#316",
+      "matches": []
+    },
+    "burning_islands/magma_lord.png": {
+      "status": "MISSING",
+      "expected_sha256": "354c2c318c01ee67b21b60adc653a0a4747acc81786a433cb28e1c3fc26881a6",
+      "expected_dimensions": null,
+      "issue": "#318",
+      "matches": []
+    },
+    "burning_islands/magma_head.png": {
+      "status": "MISSING",
+      "expected_sha256": "287ce3f15e28b1a646cf31de1e51fab85519bb03dc935d83bb7aea920395bc93",
+      "expected_dimensions": null,
+      "issue": "#321",
+      "matches": []
+    },
+    "navya_grove/guardian_last_dark_recolor.png": {
+      "status": "UNVERIFIED_SOURCE",
+      "expected_sha256": null,
+      "issue": "#256",
+      "note": "Final approved dark recolor has no confirmed raw PNG or SHA",
+      "matches": []
+    }
+  },
+  "archives": {},
+  "errors": []
+}

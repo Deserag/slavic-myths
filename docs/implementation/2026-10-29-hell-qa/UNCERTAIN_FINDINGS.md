@@ -10,7 +10,7 @@
 - Ожидание: у **одного** легального босса — один принадлежащий ему bossbar; при двух вручную призванных экземплярах два бара сами по себе не доказательство бага. Не допустить orphan bossbar на Peaceful/death/relog.
 - Источник: [#327](https://github.com/Deserag/slavic-myths/issues/327), где это прямо обозначено как неподтверждённая проблема.
 - Воспроизведение: в отдельном тестовом мире сравнить количество реально загруженных `magma_lord`/UUID и bossbar при одном /summon, двух /summon, естественном энкаунтере, после /difficulty peaceful, смерти и перезахода.
-- Доказательства: PENDING (после теста: JAR SHA256, seed, XYZ, команды, real screenshots, latest.log).
+- Доказательства: `home-desktop-sync-20261029/evidence/boss-bars.log`: real server baseline36/36, три повтора по2boss actors; повторный startSeenByPlayer не удваивает membership; разные actors имеют разные event UUID; Peaceful очищает body/membership и сохраняет3neutral fauna. Это fixture membership test без client HUD/death/relog; исторический кадр по-прежнему NEED_REPRO.
 - Почему неоднозначно: одного кадра недостаточно для количества сущностей; баг и нормальный второй босс дают схожую картину.
 - Варианты решения: если один босс — искать двойную регистрацию/утечку event/bar; если два — корректно разделить UUID; не переписывать shared bossbar систему без воспроизведения.
 - Статус: `NEED_REPRO`.

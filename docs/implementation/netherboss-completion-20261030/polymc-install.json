@@ -1,0 +1,18 @@
+{
+  "version": "2.1.6.1-BOSSES-TEST",
+  "source_sha": "e81aea1c30398e284370e7089577a08847e6ed35",
+  "ci_run": "https://github.com/Deserag/slavic-myths/actions/runs/41016896761",
+  "jar_sha256": "f17d37abae3be4eca66eee419f9b77c3d08e1d01f30942d7908e02bbe3a853be",
+  "profile": "C:\\Users\\user\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-Bosses-2.1.6.1-Testing",
+  "source_profile": "C:\\Users\\user\\AppData\\Roaming\\PolyMC\\instances\\Slavic-Myths-2.0.8-HELL-Testing",
+  "previous_jar": "slavicmyths-2.1.6-HELL.jar",
+  "previous_sha256": "c584fb87057d2cb2079249e0c2b8bb5c2e01f3b0b81a9134d3bfdca0385db87e",
+  "old_profile_written": false,
+  "worlds_copied": false,
+  "worlds_overwritten": false,
+  "local_gui_launches": 0,
+  "runtime_evidence": "Actual isolated GitHub-hosted packaged-mod clients; local PolyMC profile launch NOT_RUN to preserve desktop isolation",
+  "owner_acceptance": "PENDING",
+  "audio": "BLOCKED_AUDIO original recordings unavailable",
+  "created_utc": "2026-10-30T09:50:27.4495444Z"
+}

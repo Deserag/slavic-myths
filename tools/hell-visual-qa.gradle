@@ -1,0 +1,24 @@
+allprojects { afterEvaluate {
+ sourceSets { hellVisualQa { java.srcDir 'tools/hell-visual-qa'; resources.srcDir 'tools/hell-visual-qa-resources' } }
+ sourceSets.hellVisualQa.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.hellVisualQa.runtimeClasspath += sourceSets.main.runtimeClasspath - sourceSets.main.output
+ def qa=neoForge.mods.create('slavicmyths_hellvisualqa'){sourceSet sourceSets.hellVisualQa}
+ neoForge.runs { hellVisualQa {
+  type='client';sourceSet=sourceSets.hellVisualQa;loadedMods.set([qa])
+  gameDirectory=file('work/hell-visual-qa-isolated')
+  programArguments.addAll('--width','1600','--height','1000')
+  def model=project.findProperty('hellVisualModel') ?: 'slim'
+  programArguments.addAll('--uuid',model=='wide'?'00000000-0000-0000-0000-00000000000f':'00000000-0000-0000-0000-000000000000')
+  systemProperty 'hellvisual.expectedModel',model.toString().toUpperCase()
+  systemProperty 'hellvisual.gearOnly',(project.findProperty('hellVisualGearOnly') ?: 'false').toString()
+  systemProperty 'hellvisual.scope',(project.findProperty('hellVisualScope') ?: 'all').toString()
+  jvmArgument '-Xmx3G';jvmArgument '-XX:ActiveProcessorCount=2'
+  systemProperty 'hellvisual.output',file('build/hell-visual-qa/frames').absolutePath
+ } }
+ tasks.named('runHellVisualQa'){dependsOn tasks.named('jar');doFirst {
+  if(System.getenv('GITHUB_ACTIONS')!='true'||System.getenv('RUNNER_ENVIRONMENT')!='github-hosted')
+   throw new GradleException('GUI QA is restricted to an isolated GitHub-hosted runner; never run on the owner desktop.')
+  def dir=neoForge.runs.hellVisualQa.gameDirectory.get().asFile
+  copy {from tasks.named('jar').get().archiveFile;into new File(dir,'mods')}
+ }}
+} }

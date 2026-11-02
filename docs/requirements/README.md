@@ -1,6 +1,8 @@
+> **Mandatory owner policy (2026-11-01):** [Full English execution contract](../OWNER_EXECUTION_CONTRACT.md) and [current branch policy](../BRANCH_POLICY.md) take precedence over all archived branch-specific notes in this historical requirements inventory. New work MUST use the verified owner-approved release branch, Issue, reference and task scope; never select a branch from this document's historical baseline.
+
 # Обязательные требования к контенту Slavic Myths
 
-**Дата исходного аудита:** 27.10.2026. **Ветка:** `hell`, baseline `8cad6c125da0fefecdbefef0243ffad4f521d91f`. Цель — не повторять дефекты при каждом следующем здании, биоме, предмете или мобе.
+**Original audit date:** 27.10.2026. **Historical baseline commit:** `8cad6c125da0fefecdbefef0243ffad4f521d91f`. Цель — не повторять дефекты при каждом следующем здании, биоме, предмете или мобе.
 
 Это **контрольные требования для новых и изменяемых функций**, а не сообщение о том, что перечисленные функции уже исправлены. Проверены полные индексы Java (1 263 записи дерева) и ресурсов (8 362 записи дерева), репозиторные нормы, предметные отчёты, связанные Issue и выборочные действующие Java/JSON. **Каждый из тысяч файлов не был построчно проаудирован; игровой runtime в рамках этого аудита не запускался.** Статусы вида `NOT_RUN` запрещено заменять на `PASS`.
 
@@ -25,7 +27,7 @@
 ## Приоритет и область
 - Прямое **последнее** решение владельца и узкое утверждённое ТЗ конкретного Issue имеют приоритет над неутверждёнными предложениями из этой папки. Утверждённые параметры нельзя самовольно менять.
 - `AGENTS.md`, `docs/PROJECT_WORKFLOW.md`, `docs/CODEX_PROJECT_PLAYBOOK.md`, конкретное Issue обязательны.
-- Для стабилизации версии 2.0 — **только `hell`**, `main` не менять и не сливать без отдельного решения.
+- **Branch choice is NOT defined here.** Verify the current owner's explicit branch decision in docs/BRANCH_POLICY.md; do not modify `main` without explicit authorization.
 - Новая спецификация — не разрешение Codex приступать к коду. `Готово`/owner-accepted/закрытие Issue — только после решения владельца.
 - Каждая задача должна ссылаться на соответствующие разделы этой папки; невыполненный критерий = работа не завершена.
 

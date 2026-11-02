@@ -1,3 +1,5 @@
+> Исторический checkpoint. Текущая проверка домашнего hell от29.10.2026: [матрица](../home-desktop-sync-20261029/ACCEPTANCE.md), [отчёт/квитанция](../home-desktop-sync-20261029/REPORT.md). Старые NOT_STARTED/нет wearable/запуск запрещён ниже не описывают актуальный HEAD; они сохранены как история. Текущий scope IN_PROGRESS, owner acceptance не получена.
+
 # Исполнение оставшегося scope — 29.10.2026
 
 Baseline hell410033ce. Direct owner authorization: all remaining tasks, independent engineering, checkpoint commits/push hell. Existing preceding installation notes preserved. No main/force/runtime/PolyMC replacement in this task.

@@ -1,0 +1,7 @@
+{
+  "old_installed_sha256": "1cf4a2d8b16a301f475ed6fdf093d827d5adb7c1d2ae7367531a665da6c09032",
+  "new_build_sha256": "0a60c6c8f6b83a6e6cc4516f25f79ca71e9d4490506e535e7fbceabf676c9cff",
+  "changed_entries": [
+    "assets/slavicmyths/lang/ru_ru.json"
+  ]
+}

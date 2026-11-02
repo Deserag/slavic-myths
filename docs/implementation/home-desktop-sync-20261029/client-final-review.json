@@ -1,0 +1,48 @@
+{
+  "run": "https://github.com/Deserag/slavic-myths/actions/runs/40918522746",
+  "qa_source_commit": "67179f8a182cc5c00d10dfaf182803918ca74092",
+  "production_source_commit": "5748bcf137f77d327cf07720e323a03d81238445",
+  "result": "Capture and bounded navigation PASS; selected actual frames visually inspected, not all97screens per model exhaustively accepted",
+  "models": [
+    {
+      "model": "wide",
+      "frames": 97,
+      "jar_sha256": "ddff94c619a24531158d60ed3fc74740f69c2101133a43b9ffaa9983838cccb6",
+      "finished_sha256": "0447409a5d53ee81f93e45219e5e969561081a846be675171db53b546281a860",
+      "movements": {
+        "bone_crawler": {
+          "distance_between_first_last_capture": 2.5711101104773166,
+          "max_actual_client_walk_speed": 0.431807,
+          "frames": 5,
+          "scope": "Artificial smooth_stone route using actual PathNavigation; not natural spawning/attack/full animation acceptance"
+        },
+        "coal_crawler": {
+          "distance_between_first_last_capture": 2.6019241977650176,
+          "max_actual_client_walk_speed": 0.26424563,
+          "frames": 5,
+          "scope": "Artificial smooth_stone route using actual PathNavigation; not natural spawning/attack/full animation acceptance"
+        }
+      }
+    },
+    {
+      "model": "slim",
+      "frames": 97,
+      "jar_sha256": "ddff94c619a24531158d60ed3fc74740f69c2101133a43b9ffaa9983838cccb6",
+      "finished_sha256": "8c824ddfa75ca21646cce9e8ee47de77dd1890aa2ddfe4df5fda43f6675f7200",
+      "movements": {
+        "bone_crawler": {
+          "distance_between_first_last_capture": 2.7438676281245455,
+          "max_actual_client_walk_speed": 0.35704198,
+          "frames": 5,
+          "scope": "Artificial smooth_stone route using actual PathNavigation; not natural spawning/attack/full animation acceptance"
+        },
+        "coal_crawler": {
+          "distance_between_first_last_capture": 2.6216080122087644,
+          "max_actual_client_walk_speed": 0.264337,
+          "frames": 5,
+          "scope": "Artificial smooth_stone route using actual PathNavigation; not natural spawning/attack/full animation acceptance"
+        }
+      }
+    }
+  ]
+}

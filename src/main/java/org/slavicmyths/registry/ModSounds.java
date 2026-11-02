@@ -264,5 +264,6 @@ public final class ModSounds {
  static {org.slavicmyths.wolf.WolfSounds.init();}
     static { org.slavicmyths.finist.FinistSounds.init(); }
     static { org.slavicmyths.volkolak.VolkolakSounds.init(); }
+    static { org.slavicmyths.netherboss.NetherBossSounds.init(); }
 
 }

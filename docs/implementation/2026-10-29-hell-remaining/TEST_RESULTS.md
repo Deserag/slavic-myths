@@ -1,3 +1,5 @@
+> Исторический checkpoint. Текущая проверка домашнего hell от29.10.2026: [матрица](../home-desktop-sync-20261029/ACCEPTANCE.md), [отчёт/квитанция](../home-desktop-sync-20261029/REPORT.md). Старые NOT_STARTED/нет wearable/запуск запрещён ниже не описывают актуальный HEAD; они сохранены как история. Текущий scope IN_PROGRESS, owner acceptance не получена.
+
 # Current task verification — 29.10.2026 (hell)
 
 This file supersedes the initial `No current implementation test yet` placeholder. **It is not owner acceptance, a five-seed natural-survival audit, or proof of GUI/audio/art identity.**

@@ -7,7 +7,7 @@ import java.util.*;
 /** Presentation metadata only; independent of Minecraft, item suppliers and client classes. */
 public final class CreativeCatalog {
     public static final List<String> TABS = List.of("slavicmyths", "resources", "farming", "food",
-            "tools", "armor", "decor", "magic", "mobs", "weapons", "accessories", "heads");
+            "tools", "armor", "decor", "magic", "mobs", "weapons", "accessories", "heads", "furniture");
     public record Entry(String tab, int order, String group) { }
     private static final Map<String, Entry> ENTRIES = load();
     private static Map<String, Entry> load() {

@@ -1,11 +1,11 @@
 {
   "roots": [
-    "C:\\Users\\user\\.codex\\worktrees\\lost-halls\\slavic-myths",
-    "C:\\Users\\user\\Downloads",
-    "C:\\Users\\user\\.codex\\attachments",
-    "C:\\Users\\user\\Documents"
+    "D:\\slavic-myths",
+    "C:\\Users\\pavel\\Downloads",
+    "C:\\Users\\pavel\\.codex\\attachments",
+    "C:\\Users\\pavel\\Documents"
   ],
-  "checked_png": 12665,
+  "checked_png": 8909,
   "matched": 0,
   "errors": [],
   "scope": "Local mounted roots and ZIPs<250MB; not remote ChatGPT library"

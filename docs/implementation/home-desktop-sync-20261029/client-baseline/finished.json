@@ -1,0 +1,823 @@
+{
+  "jar_sha256": "3794532ab11a8f0cf07687576b132d327b3ef66e7ce2455983d4ef36d0b1e044",
+  "seed": 3492026,
+  "scope": "Actual packaged-mod framebuffer; artificial creative poses, not survival/AI/audio/owner acceptance",
+  "frames": [
+    {
+      "file": "000-navka-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 176,
+      "mode": "spectator"
+    },
+    {
+      "file": "001-navka-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 242,
+      "mode": "spectator"
+    },
+    {
+      "file": "002-navka-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 308,
+      "mode": "spectator"
+    },
+    {
+      "file": "003-navka-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 374,
+      "mode": "spectator"
+    },
+    {
+      "file": "004-rootling-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 440,
+      "mode": "spectator"
+    },
+    {
+      "file": "005-rootling-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 506,
+      "mode": "spectator"
+    },
+    {
+      "file": "006-rootling-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 572,
+      "mode": "spectator"
+    },
+    {
+      "file": "007-rootling-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 638,
+      "mode": "spectator"
+    },
+    {
+      "file": "008-bone_crawler-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 704,
+      "mode": "spectator"
+    },
+    {
+      "file": "009-bone_crawler-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 770,
+      "mode": "spectator"
+    },
+    {
+      "file": "010-bone_crawler-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 836,
+      "mode": "spectator"
+    },
+    {
+      "file": "011-bone_crawler-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 902,
+      "mode": "spectator"
+    },
+    {
+      "file": "012-navya_wisp-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 968,
+      "mode": "spectator"
+    },
+    {
+      "file": "013-navya_wisp-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 1034,
+      "mode": "spectator"
+    },
+    {
+      "file": "014-navya_wisp-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 1100,
+      "mode": "spectator"
+    },
+    {
+      "file": "015-navya_wisp-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 1166,
+      "mode": "spectator"
+    },
+    {
+      "file": "016-grove_guardian-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 1232,
+      "mode": "spectator"
+    },
+    {
+      "file": "017-grove_guardian-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 1298,
+      "mode": "spectator"
+    },
+    {
+      "file": "018-grove_guardian-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 1364,
+      "mode": "spectator"
+    },
+    {
+      "file": "019-grove_guardian-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 1431,
+      "mode": "spectator"
+    },
+    {
+      "file": "020-coal_crawler-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 1496,
+      "mode": "spectator"
+    },
+    {
+      "file": "021-coal_crawler-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 1562,
+      "mode": "spectator"
+    },
+    {
+      "file": "022-coal_crawler-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 1628,
+      "mode": "spectator"
+    },
+    {
+      "file": "023-coal_crawler-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 1694,
+      "mode": "spectator"
+    },
+    {
+      "file": "024-ash_spirit-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 1760,
+      "mode": "spectator"
+    },
+    {
+      "file": "025-ash_spirit-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 1826,
+      "mode": "spectator"
+    },
+    {
+      "file": "026-ash_spirit-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 1892,
+      "mode": "spectator"
+    },
+    {
+      "file": "027-ash_spirit-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 1958,
+      "mode": "spectator"
+    },
+    {
+      "file": "028-pekelnik-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 2024,
+      "mode": "spectator"
+    },
+    {
+      "file": "029-pekelnik-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 2090,
+      "mode": "spectator"
+    },
+    {
+      "file": "030-pekelnik-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 2156,
+      "mode": "spectator"
+    },
+    {
+      "file": "031-pekelnik-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 2222,
+      "mode": "spectator"
+    },
+    {
+      "file": "032-sparkling-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 2288,
+      "mode": "spectator"
+    },
+    {
+      "file": "033-sparkling-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 2354,
+      "mode": "spectator"
+    },
+    {
+      "file": "034-sparkling-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 2420,
+      "mode": "spectator"
+    },
+    {
+      "file": "035-sparkling-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 2486,
+      "mode": "spectator"
+    },
+    {
+      "file": "036-zharenitsa-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 2552,
+      "mode": "spectator"
+    },
+    {
+      "file": "037-zharenitsa-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 2618,
+      "mode": "spectator"
+    },
+    {
+      "file": "038-zharenitsa-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 2684,
+      "mode": "spectator"
+    },
+    {
+      "file": "039-zharenitsa-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 2750,
+      "mode": "spectator"
+    },
+    {
+      "file": "040-sheptun-variant-0-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 2816,
+      "mode": "spectator"
+    },
+    {
+      "file": "041-sheptun-variant-0-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 2882,
+      "mode": "spectator"
+    },
+    {
+      "file": "042-sheptun-variant-0-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 2948,
+      "mode": "spectator"
+    },
+    {
+      "file": "043-sheptun-variant-0-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 3014,
+      "mode": "spectator"
+    },
+    {
+      "file": "044-sheptun-variant-1-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 3080,
+      "mode": "spectator"
+    },
+    {
+      "file": "045-sheptun-variant-1-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 3146,
+      "mode": "spectator"
+    },
+    {
+      "file": "046-sheptun-variant-1-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 3212,
+      "mode": "spectator"
+    },
+    {
+      "file": "047-sheptun-variant-1-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 3278,
+      "mode": "spectator"
+    },
+    {
+      "file": "048-sheptun-variant-2-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 3344,
+      "mode": "spectator"
+    },
+    {
+      "file": "049-sheptun-variant-2-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 3410,
+      "mode": "spectator"
+    },
+    {
+      "file": "050-sheptun-variant-2-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 3476,
+      "mode": "spectator"
+    },
+    {
+      "file": "051-sheptun-variant-2-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 3542,
+      "mode": "spectator"
+    },
+    {
+      "file": "052-sheptun-variant-3-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 3608,
+      "mode": "spectator"
+    },
+    {
+      "file": "053-sheptun-variant-3-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 3674,
+      "mode": "spectator"
+    },
+    {
+      "file": "054-sheptun-variant-3-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 3740,
+      "mode": "spectator"
+    },
+    {
+      "file": "055-sheptun-variant-3-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 3806,
+      "mode": "spectator"
+    },
+    {
+      "file": "056-oskolnik-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 3872,
+      "mode": "spectator"
+    },
+    {
+      "file": "057-oskolnik-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 3938,
+      "mode": "spectator"
+    },
+    {
+      "file": "058-oskolnik-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 4004,
+      "mode": "spectator"
+    },
+    {
+      "file": "059-oskolnik-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 4070,
+      "mode": "spectator"
+    },
+    {
+      "file": "060-gulokryl-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 4136,
+      "mode": "spectator"
+    },
+    {
+      "file": "061-gulokryl-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 4202,
+      "mode": "spectator"
+    },
+    {
+      "file": "062-gulokryl-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 4268,
+      "mode": "spectator"
+    },
+    {
+      "file": "063-gulokryl-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 4334,
+      "mode": "spectator"
+    },
+    {
+      "file": "064-ekhovik-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 4400,
+      "mode": "spectator"
+    },
+    {
+      "file": "065-ekhovik-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 4466,
+      "mode": "spectator"
+    },
+    {
+      "file": "066-ekhovik-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 4532,
+      "mode": "spectator"
+    },
+    {
+      "file": "067-ekhovik-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 4598,
+      "mode": "spectator"
+    },
+    {
+      "file": "068-griboshmyg-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 4664,
+      "mode": "spectator"
+    },
+    {
+      "file": "069-griboshmyg-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 4730,
+      "mode": "spectator"
+    },
+    {
+      "file": "070-griboshmyg-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 4796,
+      "mode": "spectator"
+    },
+    {
+      "file": "071-griboshmyg-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 4862,
+      "mode": "spectator"
+    },
+    {
+      "file": "072-posten-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 4928,
+      "mode": "spectator"
+    },
+    {
+      "file": "073-posten-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 4994,
+      "mode": "spectator"
+    },
+    {
+      "file": "074-posten-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 5060,
+      "mode": "spectator"
+    },
+    {
+      "file": "075-posten-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 5126,
+      "mode": "spectator"
+    },
+    {
+      "file": "076-heat_salamander-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 5192,
+      "mode": "spectator"
+    },
+    {
+      "file": "077-heat_salamander-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 5258,
+      "mode": "spectator"
+    },
+    {
+      "file": "078-heat_salamander-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 5324,
+      "mode": "spectator"
+    },
+    {
+      "file": "079-heat_salamander-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 5390,
+      "mode": "spectator"
+    },
+    {
+      "file": "080-slag_crab-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 5456,
+      "mode": "spectator"
+    },
+    {
+      "file": "081-slag_crab-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 5522,
+      "mode": "spectator"
+    },
+    {
+      "file": "082-slag_crab-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 5588,
+      "mode": "spectator"
+    },
+    {
+      "file": "083-slag_crab-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 5654,
+      "mode": "spectator"
+    },
+    {
+      "file": "084-vent_golem-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 5720,
+      "mode": "spectator"
+    },
+    {
+      "file": "085-vent_golem-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 5786,
+      "mode": "spectator"
+    },
+    {
+      "file": "086-vent_golem-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 5852,
+      "mode": "spectator"
+    },
+    {
+      "file": "087-vent_golem-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 5918,
+      "mode": "spectator"
+    },
+    {
+      "file": "088-magma_lord-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 5984,
+      "mode": "spectator"
+    },
+    {
+      "file": "089-magma_lord-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 6050,
+      "mode": "spectator"
+    },
+    {
+      "file": "090-magma_lord-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 6116,
+      "mode": "spectator"
+    },
+    {
+      "file": "091-magma_lord-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 6182,
+      "mode": "spectator"
+    },
+    {
+      "file": "092-grove_guardian_head-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 6248,
+      "mode": "spectator"
+    },
+    {
+      "file": "093-grove_guardian_head-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 6314,
+      "mode": "spectator"
+    },
+    {
+      "file": "094-grove_guardian_head-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 6380,
+      "mode": "spectator"
+    },
+    {
+      "file": "095-grove_guardian_head-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 6446,
+      "mode": "spectator"
+    },
+    {
+      "file": "096-zharenitsa_head-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 6512,
+      "mode": "spectator"
+    },
+    {
+      "file": "097-zharenitsa_head-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 6578,
+      "mode": "spectator"
+    },
+    {
+      "file": "098-zharenitsa_head-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 6644,
+      "mode": "spectator"
+    },
+    {
+      "file": "099-zharenitsa_head-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 6710,
+      "mode": "spectator"
+    },
+    {
+      "file": "100-posten_head-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 6776,
+      "mode": "spectator"
+    },
+    {
+      "file": "101-posten_head-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 6842,
+      "mode": "spectator"
+    },
+    {
+      "file": "102-posten_head-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 6908,
+      "mode": "spectator"
+    },
+    {
+      "file": "103-posten_head-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 6974,
+      "mode": "spectator"
+    },
+    {
+      "file": "104-magma_lord_head-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 7040,
+      "mode": "spectator"
+    },
+    {
+      "file": "105-magma_lord_head-quarter.png",
+      "skin_model": "SLIM",
+      "server_tick": 7106,
+      "mode": "spectator"
+    },
+    {
+      "file": "106-magma_lord_head-side.png",
+      "skin_model": "SLIM",
+      "server_tick": 7172,
+      "mode": "spectator"
+    },
+    {
+      "file": "107-magma_lord_head-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 7238,
+      "mode": "spectator"
+    },
+    {
+      "file": "108-king-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 7305,
+      "mode": "front"
+    },
+    {
+      "file": "109-king-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 7370,
+      "mode": "back"
+    },
+    {
+      "file": "110-king-crouch-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 7436,
+      "mode": "back"
+    },
+    {
+      "file": "111-king-inventory.png",
+      "skin_model": "SLIM",
+      "server_tick": 7503,
+      "mode": "inventory"
+    },
+    {
+      "file": "112-zhara-front.png",
+      "skin_model": "SLIM",
+      "server_tick": 7568,
+      "mode": "front"
+    },
+    {
+      "file": "113-zhara-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 7634,
+      "mode": "back"
+    },
+    {
+      "file": "114-zhara-crouch-back.png",
+      "skin_model": "SLIM",
+      "server_tick": 7700,
+      "mode": "back"
+    },
+    {
+      "file": "115-zhara-inventory.png",
+      "skin_model": "SLIM",
+      "server_tick": 7766,
+      "mode": "inventory"
+    },
+    {
+      "file": "116-short_bow-first.png",
+      "skin_model": "SLIM",
+      "server_tick": 7832,
+      "mode": "first"
+    },
+    {
+      "file": "117-short_bow-draw.png",
+      "skin_model": "SLIM",
+      "server_tick": 7898,
+      "mode": "draw"
+    },
+    {
+      "file": "118-short_bow-third.png",
+      "skin_model": "SLIM",
+      "server_tick": 7964,
+      "mode": "front"
+    },
+    {
+      "file": "119-short_bow-inventory.png",
+      "skin_model": "SLIM",
+      "server_tick": 8031,
+      "mode": "inventory"
+    },
+    {
+      "file": "120-heavy_bow-first.png",
+      "skin_model": "SLIM",
+      "server_tick": 8096,
+      "mode": "first"
+    },
+    {
+      "file": "121-heavy_bow-draw.png",
+      "skin_model": "SLIM",
+      "server_tick": 8162,
+      "mode": "draw"
+    },
+    {
+      "file": "122-heavy_bow-third.png",
+      "skin_model": "SLIM",
+      "server_tick": 8228,
+      "mode": "front"
+    },
+    {
+      "file": "123-heavy_bow-inventory.png",
+      "skin_model": "SLIM",
+      "server_tick": 8294,
+      "mode": "inventory"
+    },
+    {
+      "file": "124-infernal_bow-first.png",
+      "skin_model": "SLIM",
+      "server_tick": 8360,
+      "mode": "first"
+    },
+    {
+      "file": "125-infernal_bow-draw.png",
+      "skin_model": "SLIM",
+      "server_tick": 8426,
+      "mode": "draw"
+    },
+    {
+      "file": "126-infernal_bow-third.png",
+      "skin_model": "SLIM",
+      "server_tick": 8492,
+      "mode": "front"
+    },
+    {
+      "file": "127-infernal_bow-inventory.png",
+      "skin_model": "SLIM",
+      "server_tick": 8558,
+      "mode": "inventory"
+    },
+    {
+      "file": "128-chud_master_pickaxe-first.png",
+      "skin_model": "SLIM",
+      "server_tick": 8624,
+      "mode": "first"
+    },
+    {
+      "file": "129-chud_master_pickaxe-inventory.png",
+      "skin_model": "SLIM",
+      "server_tick": 8691,
+      "mode": "inventory"
+    },
+    {
+      "file": "130-chud_multitool_axe-first.png",
+      "skin_model": "SLIM",
+      "server_tick": 8756,
+      "mode": "first"
+    },
+    {
+      "file": "131-chud_multitool_axe-inventory.png",
+      "skin_model": "SLIM",
+      "server_tick": 8822,
+      "mode": "inventory"
+    },
+    {
+      "file": "132-chud_multitool_pickaxe-first.png",
+      "skin_model": "SLIM",
+      "server_tick": 8888,
+      "mode": "first"
+    },
+    {
+      "file": "133-chud_multitool_pickaxe-inventory.png",
+      "skin_model": "SLIM",
+      "server_tick": 8954,
+      "mode": "inventory"
+    },
+    {
+      "file": "134-chud_multitool_shovel-first.png",
+      "skin_model": "SLIM",
+      "server_tick": 9020,
+      "mode": "first"
+    },
+    {
+      "file": "135-chud_multitool_shovel-inventory.png",
+      "skin_model": "SLIM",
+      "server_tick": 9086,
+      "mode": "inventory"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="790" viewBox="0 0 1250 790"><defs><linearGradient id="panel" x2="0.7" y2="1"><stop stop-color="#221b20"/><stop offset="1" stop-color="#0d0d11"/></linearGradient><linearGradient id="cloth" x2=".8" y2="1"><stop stop-color="#4a3d3c"/><stop offset="1" stop-color="#1d191b"/></linearGradient><linearGradient id="fur" x2=".7" y2=".9"><stop stop-color="#634039"/><stop offset=".5" stop-color="#322122"/><stop offset="1" stop-color="#1b161a"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="5"/></filter></defs><rect width="1250" height="790" fill="#100e13"/><rect x="14" y="14" width="1222" height="762" rx="12" fill="url(#panel)" stroke="#80614c" stroke-width="2"/><text x="45" y="60" fill="#f0d7ac" font-family="serif" font-weight="bold" font-size="37">ПРОКЛЯТЫЙ МЫТАРЬ</text><text x="47" y="88" fill="#b7a091" font-family="sans-serif" font-size="16">2.2.13  •  1350 HP  •  2 фазы  •  рост 4 блока  •  технические силуэты — собственная модель, не Steve skin</text><rect x="33" y="106" width="735" height="510" rx="8" fill="#17151a" stroke="#74584a" stroke-width="1.5"/><rect x="781" y="106" width="433" height="510" rx="8" fill="#17151a" stroke="#74584a" stroke-width="1.5"/><rect x="33" y="629" width="1181" height="119" rx="8" fill="#17151a" stroke="#74584a" stroke-width="1.5"/><g transform="translate(178 499) scale(1.03)">
+ <path d="M-54 -265 L-79 -200 L-70 -78 L-112 89 L-54 100 L-36 74 L-15 98 L0 82 L27 105 L56 81 L92 96 L63 -97 L76 -194 L45 -273 Z" fill="url(#cloth)" stroke="#71625a" stroke-width="5"/>
+ <path d="M-48 -38 L-48 96 M-12 -37 L-9 93 M34 -30 L45 93 M70 -89 L56 88" fill="none" stroke="#8f5340" stroke-width="3" opacity=".6"/>
+ <rect x="-51" y="-184" width="102" height="72" rx="13" fill="#2e2729" stroke="#544943" stroke-width="4"/>
+ <path d="M-53 -182 L-84 -148 L-72 -15 L-48 -12 L-38 -145 Z" fill="#403330" stroke="#78625a" stroke-width="3"/>
+ <path d="M49 -183 L76 -154 L87 -18 L60 -9 L39 -146 Z" fill="#372d2d" stroke="#745e55" stroke-width="3"/>
+ <path d="M-46 -144 L-63 -16 L-44 0 L-29 -145Z M50 -142 L65 -15 L49 1 L29 -147Z" fill="#a18c7c" opacity=".65"/>
+ <path d="M-54 -289 Q-83 -286 -70 -250 L-58 -211 L58 -213 L72 -250 Q85 -285 47 -299 L19 -320 L-25 -317 Z" fill="#393237" stroke="#7a675d" stroke-width="6"/>
+ <path d="M-43 -260 Q0 -291 40 -264 L37 -222 Q0 -210 -42 -224 Z" fill="#0a0b10"/>
+ <ellipse cx="-17" cy="-245" rx="7" ry="5" fill="#ffbc5c"/><ellipse cx="18" cy="-245" rx="7" ry="5" fill="#ffbc5c"/>
+ <path d="M-36 -225 Q0 -204 36 -228" stroke="#75665a" stroke-width="3" fill="none"/>
+ <path d="M-50 -102 Q0 -91 52 -105" stroke="#b39355" stroke-width="9" fill="none"/>
+ <path d="M-50 -140 Q0 -110 52 -145" stroke="#8f765f" stroke-width="3" fill="none"/>
+ <rect x="-34" y="-91" width="34" height="57" rx="5" fill="#65432c" stroke="#bb8f56" stroke-width="3"/>
+ <rect x="28" y="-90" width="26" height="37" rx="3" fill="#68452c" stroke="#bb8f56" stroke-width="3"/>
+ <circle cx="-24" cy="-107" r="8" fill="#b99050" stroke="#f1c77e" stroke-width="2"/><circle cx="-7" cy="-99" r="8" fill="#b99050" stroke="#f1c77e" stroke-width="2"/><circle cx="32" cy="-107" r="8" fill="#b99050" stroke="#f1c77e" stroke-width="2"/><circle cx="48" cy="-99" r="8" fill="#b99050" stroke="#f1c77e" stroke-width="2"/>
+ <rect x="-61" y="-23" width="23" height="30" rx="3" fill="#665958"/>
+ <rect x="45" y="-25" width="25" height="32" rx="3" fill="#665958"/>
+ <path d="M-55 4 L-60 81 L-46 85 L-38 15 M56 3 L60 80 L45 84 L37 15" fill="none" stroke="#201d22" stroke-width="12"/>
+ 
+ 
+ </g><g transform="translate(412 486) scale(0.85)">
+ <path d="M-54 -265 L-79 -200 L-70 -78 L-112 89 L-54 100 L-36 74 L-15 98 L0 82 L27 105 L56 81 L92 96 L63 -97 L76 -194 L45 -273 Z" fill="url(#cloth)" stroke="#71625a" stroke-width="5"/>
+ <path d="M-48 -38 L-48 96 M-12 -37 L-9 93 M34 -30 L45 93 M70 -89 L56 88" fill="none" stroke="#8f5340" stroke-width="3" opacity=".6"/>
+ <rect x="-51" y="-184" width="102" height="72" rx="13" fill="#2e2729" stroke="#544943" stroke-width="4"/>
+ <path d="M-53 -182 L-84 -148 L-72 -15 L-48 -12 L-38 -145 Z" fill="#403330" stroke="#78625a" stroke-width="3"/>
+ <path d="M49 -183 L76 -154 L87 -18 L60 -9 L39 -146 Z" fill="#372d2d" stroke="#745e55" stroke-width="3"/>
+ <path d="M-46 -144 L-63 -16 L-44 0 L-29 -145Z M50 -142 L65 -15 L49 1 L29 -147Z" fill="#a18c7c" opacity=".65"/>
+ <path d="M-54 -289 Q-83 -286 -70 -250 L-58 -211 L58 -213 L72 -250 Q85 -285 47 -299 L19 -320 L-25 -317 Z" fill="#393237" stroke="#7a675d" stroke-width="6"/>
+ <path d="M-43 -260 Q0 -291 40 -264 L37 -222 Q0 -210 -42 -224 Z" fill="#0a0b10"/>
+ <ellipse cx="-17" cy="-245" rx="7" ry="5" fill="#ffbc5c"/><ellipse cx="18" cy="-245" rx="7" ry="5" fill="#ffbc5c"/>
+ <path d="M-36 -225 Q0 -204 36 -228" stroke="#75665a" stroke-width="3" fill="none"/>
+ <path d="M-50 -102 Q0 -91 52 -105" stroke="#b39355" stroke-width="9" fill="none"/>
+ <path d="M-50 -140 Q0 -110 52 -145" stroke="#8f765f" stroke-width="3" fill="none"/>
+ <rect x="-34" y="-91" width="34" height="57" rx="5" fill="#65432c" stroke="#bb8f56" stroke-width="3"/>
+ <rect x="28" y="-90" width="26" height="37" rx="3" fill="#68452c" stroke="#bb8f56" stroke-width="3"/>
+ <circle cx="-24" cy="-107" r="8" fill="#b99050" stroke="#f1c77e" stroke-width="2"/><circle cx="-7" cy="-99" r="8" fill="#b99050" stroke="#f1c77e" stroke-width="2"/><circle cx="32" cy="-107" r="8" fill="#b99050" stroke="#f1c77e" stroke-width="2"/><circle cx="48" cy="-99" r="8" fill="#b99050" stroke="#f1c77e" stroke-width="2"/>
+ <rect x="-61" y="-23" width="23" height="30" rx="3" fill="#665958"/>
+ <rect x="45" y="-25" width="25" height="32" rx="3" fill="#665958"/>
+ <path d="M-55 4 L-60 81 L-46 85 L-38 15 M56 3 L60 80 L45 84 L37 15" fill="none" stroke="#201d22" stroke-width="12"/>
+ <path d="M-55 -279 L-35 -310 L22 -307 L57 -280 Z" fill="#50403d"/>
+ 
+ </g><g transform="translate(651 486) scale(0.85)">
+ <path d="M-54 -265 L-79 -200 L-70 -78 L-112 89 L-54 100 L-36 74 L-15 98 L0 82 L27 105 L56 81 L92 96 L63 -97 L76 -194 L45 -273 Z" fill="url(#cloth)" stroke="#71625a" stroke-width="5"/>
+ <path d="M-48 -38 L-48 96 M-12 -37 L-9 93 M34 -30 L45 93 M70 -89 L56 88" fill="none" stroke="#8f5340" stroke-width="3" opacity=".6"/>
+ <rect x="-51" y="-184" width="102" height="72" rx="13" fill="#2e2729" stroke="#544943" stroke-width="4"/>
+ <path d="M-53 -182 L-84 -148 L-72 -15 L-48 -12 L-38 -145 Z" fill="#403330" stroke="#78625a" stroke-width="3"/>
+ <path d="M49 -183 L76 -154 L87 -18 L60 -9 L39 -146 Z" fill="#372d2d" stroke="#745e55" stroke-width="3"/>
+ <path d="M-46 -144 L-63 -16 L-44 0 L-29 -145Z M50 -142 L65 -15 L49 1 L29 -147Z" fill="#a18c7c" opacity=".65"/>
+ <path d="M-54 -289 Q-83 -286 -70 -250 L-58 -211 L58 -213 L72 -250 Q85 -285 47 -299 L19 -320 L-25 -317 Z" fill="#393237" stroke="#7a675d" stroke-width="6"/>
+ <path d="M-43 -260 Q0 -291 40 -264 L37 -222 Q0 -210 -42 -224 Z" fill="#0a0b10"/>
+ <ellipse cx="-17" cy="-245" rx="7" ry="5" fill="#ffbc5c"/><ellipse cx="18" cy="-245" rx="7" ry="5" fill="#ffbc5c"/>
+ <path d="M-36 -225 Q0 -204 36 -228" stroke="#75665a" stroke-width="3" fill="none"/>
+ <path d="M-50 -102 Q0 -91 52 -105" stroke="#b39355" stroke-width="9" fill="none"/>
+ <path d="M-50 -140 Q0 -110 52 -145" stroke="#8f765f" stroke-width="3" fill="none"/>
+ <rect x="-34" y="-91" width="34" height="57" rx="5" fill="#65432c" stroke="#bb8f56" stroke-width="3"/>
+ <rect x="28" y="-90" width="26" height="37" rx="3" fill="#68452c" stroke="#bb8f56" stroke-width="3"/>
+ <circle cx="-24" cy="-107" r="8" fill="#b99050" stroke="#f1c77e" stroke-width="2"/><circle cx="-7" cy="-99" r="8" fill="#b99050" stroke="#f1c77e" stroke-width="2"/><circle cx="32" cy="-107" r="8" fill="#b99050" stroke="#f1c77e" stroke-width="2"/><circle cx="48" cy="-99" r="8" fill="#b99050" stroke="#f1c77e" stroke-width="2"/>
+ <rect x="-61" y="-23" width="23" height="30" rx="3" fill="#665958"/>
+ <rect x="45" y="-25" width="25" height="32" rx="3" fill="#665958"/>
+ <path d="M-55 4 L-60 81 L-46 85 L-38 15 M56 3 L60 80 L45 84 L37 15" fill="none" stroke="#201d22" stroke-width="12"/>
+ 
+ 
+ </g><g transform="translate(132 481) rotate(-30) scale(0.41)"><rect x="-5" y="5" width="11" height="73" rx="2" fill="#61402a" stroke="#b1884f" stroke-width="2"/><path d="M-3 9 C-40 -29 -60 -95 -27 -123 Q-8 -133 19 -121 C-34 -106 -34 -64 10 -13 Z" fill="#918b85" stroke="#d5c7ad" stroke-width="3"/><path d="M-28 -115 C-48 -96 -37 -36 0 -10" fill="none" stroke="#f2d1aa" stroke-width="3"/></g><g transform="translate(225 459) rotate(34) scale(0.48)"><rect x="-5" y="5" width="11" height="73" rx="2" fill="#61402a" stroke="#b1884f" stroke-width="2"/><path d="M-3 9 C-40 -29 -60 -95 -27 -123 Q-8 -133 19 -121 C-34 -106 -34 -64 10 -13 Z" fill="#918b85" stroke="#d5c7ad" stroke-width="3"/><path d="M-28 -115 C-48 -96 -37 -36 0 -10" fill="none" stroke="#f2d1aa" stroke-width="3"/></g><g transform="translate(226 475) rotate(4)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="none" stroke="#51464a" stroke-width="4"/><ellipse cx="19" cy="3.115346738469204" rx="13" ry="7" fill="none" stroke="#9c775c" stroke-width="4"/><ellipse cx="38" cy="5.738848727196182" rx="13" ry="7" fill="none" stroke="#51464a" stroke-width="4"/><ellipse cx="57" cy="7.456312687737811" rx="13" ry="7" fill="none" stroke="#9c775c" stroke-width="4"/><ellipse cx="76" cy="7.996588824332041" rx="13" ry="7" fill="none" stroke="#51464a" stroke-width="4"/><ellipse cx="95" cy="7.274379414605454" rx="13" ry="7" fill="none" stroke="#9c775c" stroke-width="4"/><ellipse cx="114" cy="5.403705444409205" rx="13" ry="7" fill="none" stroke="#51464a" stroke-width="4"/><ellipse cx="133" cy="2.6799052012472373" rx="13" ry="7" fill="none" stroke="#9c775c" stroke-width="4"/></g><text x="91" y="589" font-family="sans-serif" font-size="18" fill="#dfc7ad">СПЕРЕДИ</text><text x="335" y="589" font-family="sans-serif" font-size="18" fill="#dfc7ad">СБОКУ</text><text x="564" y="589" font-family="sans-serif" font-size="18" fill="#dfc7ad">СЗАДИ</text><path d="M76 176 L76 548" stroke="#b99e75" stroke-width="2"/><path d="M70 176 L82 176 M70 548 L82 548" stroke="#b99e75" stroke-width="3"/><text x="43" y="169" font-family="sans-serif" font-size="14" fill="#dfc7ad">4 блока</text><g transform="translate(914 423) scale(0.6)">
+ <path d="M-54 -265 L-79 -200 L-70 -78 L-112 89 L-54 100 L-36 74 L-15 98 L0 82 L27 105 L56 81 L92 96 L63 -97 L76 -194 L45 -273 Z" fill="url(#cloth)" stroke="#71625a" stroke-width="5"/>
+ <path d="M-48 -38 L-48 96 M-12 -37 L-9 93 M34 -30 L45 93 M70 -89 L56 88" fill="none" stroke="#8f5340" stroke-width="3" opacity=".6"/>
+ <rect x="-51" y="-184" width="102" height="72" rx="13" fill="#2e2729" stroke="#544943" stroke-width="4"/>
+ <path d="M-53 -182 L-84 -148 L-72 -15 L-48 -12 L-38 -145 Z" fill="#403330" stroke="#78625a" stroke-width="3"/>
+ <path d="M49 -183 L76 -154 L87 -18 L60 -9 L39 -146 Z" fill="#372d2d" stroke="#745e55" stroke-width="3"/>
+ <path d="M-46 -144 L-63 -16 L-44 0 L-29 -145Z M50 -142 L65 -15 L49 1 L29 -147Z" fill="#a18c7c" opacity=".65"/>
+ <path d="M-54 -289 Q-83 -286 -70 -250 L-58 -211 L58 -213 L72 -250 Q85 -285 47 -299 L19 -320 L-25 -317 Z" fill="#393237" stroke="#7a675d" stroke-width="6"/>
+ <path d="M-43 -260 Q0 -291 40 -264 L37 -222 Q0 -210 -42 -224 Z" fill="#0a0b10"/>
+ <ellipse cx="-17" cy="-245" rx="7" ry="5" fill="#ffbc5c"/><ellipse cx="18" cy="-245" rx="7" ry="5" fill="#ffbc5c"/>
+ <path d="M-36 -225 Q0 -204 36 -228" stroke="#75665a" stroke-width="3" fill="none"/>
+ <path d="M-50 -102 Q0 -91 52 -105" stroke="#b39355" stroke-width="9" fill="none"/>
+ <path d="M-50 -140 Q0 -110 52 -145" stroke="#8f765f" stroke-width="3" fill="none"/>
+ <rect x="-34" y="-91" width="34" height="57" rx="5" fill="#65432c" stroke="#bb8f56" stroke-width="3"/>
+ <rect x="28" y="-90" width="26" height="37" rx="3" fill="#68452c" stroke="#bb8f56" stroke-width="3"/>
+ <circle cx="-24" cy="-107" r="8" fill="#b99050" stroke="#f1c77e" stroke-width="2"/><circle cx="-7" cy="-99" r="8" fill="#b99050" stroke="#f1c77e" stroke-width="2"/><circle cx="32" cy="-107" r="8" fill="#b99050" stroke="#f1c77e" stroke-width="2"/><circle cx="48" cy="-99" r="8" fill="#b99050" stroke="#f1c77e" stroke-width="2"/>
+ <rect x="-61" y="-23" width="23" height="30" rx="3" fill="#665958"/>
+ <rect x="45" y="-25" width="25" height="32" rx="3" fill="#665958"/>
+ <path d="M-55 4 L-60 81 L-46 85 L-38 15 M56 3 L60 80 L45 84 L37 15" fill="none" stroke="#201d22" stroke-width="12"/>
+ 
+ <ellipse cx="0" cy="-170" rx="86" ry="140" fill="#856397" opacity=".13"/><path d="M-100 -110 Q-121 -180 -92 -238 M98 -122 Q129 -191 87 -241" stroke="#b49bcf" stroke-width="7" opacity=".5" fill="none"/>
+ </g><g transform="translate(865 410) rotate(0) scale(0.3)"><rect x="-5" y="5" width="11" height="73" rx="2" fill="#61402a" stroke="#b1884f" stroke-width="2"/><path d="M-3 9 C-40 -29 -60 -95 -27 -123 Q-8 -133 19 -121 C-34 -106 -34 -64 10 -13 Z" fill="#918b85" stroke="#d5c7ad" stroke-width="3"/><path d="M-28 -115 C-48 -96 -37 -36 0 -10" fill="none" stroke="#f2d1aa" stroke-width="3"/></g><g transform="translate(936 405) rotate(-18)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="none" stroke="#51464a" stroke-width="4"/><ellipse cx="19" cy="3.115346738469204" rx="13" ry="7" fill="none" stroke="#9c775c" stroke-width="4"/><ellipse cx="38" cy="5.738848727196182" rx="13" ry="7" fill="none" stroke="#51464a" stroke-width="4"/><ellipse cx="57" cy="7.456312687737811" rx="13" ry="7" fill="none" stroke="#9c775c" stroke-width="4"/><ellipse cx="76" cy="7.996588824332041" rx="13" ry="7" fill="none" stroke="#51464a" stroke-width="4"/><ellipse cx="95" cy="7.274379414605454" rx="13" ry="7" fill="none" stroke="#9c775c" stroke-width="4"/><ellipse cx="114" cy="5.403705444409205" rx="13" ry="7" fill="none" stroke="#51464a" stroke-width="4"/><ellipse cx="133" cy="2.6799052012472373" rx="13" ry="7" fill="none" stroke="#9c775c" stroke-width="4"/></g><text x="805" y="155" font-family="sans-serif" font-size="20" fill="#f0c681">ФАЗА I: сбор дани</text><text x="805" y="183" font-family="sans-serif" font-size="15" fill="#dfc7ad">Удары серпом, кража монет, захват</text><text x="805" y="502" font-family="sans-serif" font-size="20" fill="#e1b5e5">ФАЗА II: взыскание долга</text><text x="805" y="529" font-family="sans-serif" font-size="15" fill="#dfc7ad">Призрачный проход + ложный кошель</text><text x="54" y="659" font-family="sans-serif" font-size="18" fill="#efc87c">ОБЯЗАТЕЛЬНЫЕ ЭЛЕМЕНТЫ</text><text x="54" y="690" font-family="sans-serif" font-size="16" fill="#dfc7ad">Глубокий капюшон • янтарные глаза • 3 кошеля • короткий серп + серп на непрерывной цепи</text><text x="54" y="719" font-family="sans-serif" font-size="15" fill="#dfc7ad">Палитра: уголь #211d1b, бронза #8c6040, золото #b28b40, металл #7a7370</text></svg>

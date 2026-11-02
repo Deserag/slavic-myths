@@ -23,6 +23,11 @@ public final class MythPayloads {
         @Override public CompoundTag data() { return data.copy(); }
         @Override public Type<RpgSync> type() { return TYPE; }
     }
+    public record NetherTrophy(boolean pendant) implements CustomPacketPayload {
+        public static final Type<NetherTrophy> TYPE=MythPayloads.type("nether_trophy_activate");
+        public static final StreamCodec<FriendlyByteBuf,NetherTrophy> CODEC=StreamCodec.of((b,v)->b.writeBoolean(v.pendant()),b->new NetherTrophy(b.readBoolean()));
+        @Override public Type<NetherTrophy> type(){return TYPE;}
+    }
     public record Activate() implements CustomPacketPayload {
         public static final Type<Activate> TYPE = MythPayloads.type("rpg_activate");
         public static final StreamCodec<FriendlyByteBuf, Activate> CODEC = StreamCodec.unit(new Activate());

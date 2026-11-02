@@ -11,17 +11,13 @@ public record PosadResidentTraits(int horns, int wings, int face, int skin, int 
     }
 
     public static PosadResidentTraits of(PosadPopulationPlan.WorldMember member) {
-        return of(member.identity(), member.member().role());
-    }
-
-    public static PosadResidentTraits of(UUID id, PosadPopulationPlan.Role role) {
-        
+        UUID id = member.identity();
         long seed = mix(id.getMostSignificantBits() ^ Long.rotateLeft(id.getLeastSignificantBits(), 21));
         int horns = Math.floorMod(seed, 4);
         int wings = Math.floorMod(seed >>> 8, 4);
         int face = Math.floorMod(seed >>> 16, 4);
         int skin = Math.floorMod(seed >>> 24, 5);
-        int clothes = switch (role) {
+        int clothes = switch (member.member().role()) {
             case POSADNIK -> 3;
             case GUARD -> 2;
             case CIVILIAN -> Math.floorMod(seed >>> 32, 2);

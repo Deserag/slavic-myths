@@ -1,0 +1,5 @@
+# Two Nether bosses 2.1.x — isolated engineering checkpoint
+
+**State: WIP, NOT BUILD-VERIFIED, NOT GAME-TESTED.** This is the restoration of an earlier discarded, explicitly untested 53/54-cuboid model/renderer and basic boss-AI prototype, now based on hell 5d6fc389. The code adds both registered entities and their model resources but not the completed #353/#354 gameplay contract. Missing: distinct multi-attack phases, minions, ritual/summoning, items, rune integration, loot, Curios, production-grade sounds, visual acceptance. The existing ru_ru.json was returned empty by the connector and deliberately not overwritten; RU entity translations require integration.
+
+This checkpoint is intentionally in codex/hell-bosses-runtime-20261029 only. **Do not merge into hell or install it in PolyMC.** Existing 2.1.6-HELL Testing JAR and user worlds were not touched. Full survival/MP and approved original-art/audio review remain owner-pending/blocked as described in docs/implementation/home-desktop-sync-20261029/CURRENT.md.

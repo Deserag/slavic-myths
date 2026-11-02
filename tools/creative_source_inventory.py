@@ -44,6 +44,9 @@ def inventory():
         'equipment/UniqueEquipment.java': ['armor'],
         'brewing/Brewing.java': ['drink','batch'],
         'serpenthill/HillContent.java': ['add'],
+        'navya/NavyaBlocks.java': ['add'],
+        'blackcinder/CinderBlocks.java': ['add'],
+        'losthalls/HallsBlocks.java': ['add'],
     }
     def put(id, file, evidence):
         result.setdefault(id, {'source': 'src/main/java/org/slavicmyths/' + file,
@@ -60,7 +63,7 @@ def inventory():
             # A literal followed by concatenation is handled as a compound family below.
             put(m[1], file, m[0])
         # A loop's literal collection counts only when its body registers that variable as an item.
-        for m in re.finditer(r'for\s*\(\s*String\s+(\w+)\s*:', code):
+        for m in re.finditer(r'for\s*\(\s*(?:String|var)\s+(\w+)\s*:', code):
             start = code.index('(', m.start()); end = matching(code, start)
             expression = code[m.end():end].strip()
             if not re.match(r'(?:new String\[\]\s*\{|List\.of\()', expression): continue
@@ -96,7 +99,32 @@ def inventory():
     family('industry/ChudPeople.java', ['name+"_spawn_egg"','egg("chud_resident"','egg("chud_artisan"','egg("chud_guard"'], [s+'_spawn_egg' for s in ['chud_resident','chud_artisan','chud_guard']])
     family('underground/UndergroundMobs.java', ['n+"_spawn_egg"','egg("podzemnik"','egg("large_podzemnik"','egg("kladovik"'], [s+'_spawn_egg' for s in ['podzemnik','large_podzemnik','kladovik']])
     family('pesigolovtsy/DogheadContent.java', ['"pesigolovets_"+role.id()+"_spawn_egg"'], ['pesigolovets_'+s+'_spawn_egg' for s in ['scout','hunter','leader']])
-    family('rpg/RuneFoundation.java', ['tier<=3','"blank_rune_"+t'], ['blank_rune_'+str(t) for t in range(1,4)])
+    family('rpg/RuneFoundation.java', ['tier<=4','"blank_rune_"+t'], ['blank_rune_'+str(t) for t in range(1,5)])
+    def string_list(file, name):
+        code = (JAVA/file).read_text(encoding='utf-8')
+        expr = re.search(r'\b'+re.escape(name)+r'\s*=\s*List.of\((.*?)\)', code, re.S)
+        assert expr, (file, name, 'literal List.of changed')
+        return re.findall(r'"([a-z0-9_]+)"', expr[1])
+
+    for file in ['blackcinder/CinderContent.java','losthalls/HallsContent.java','burningislands/IslandsContent.java']:
+        code = (JAVA/file).read_text(encoding='utf-8')
+        kinds = re.search(r'enum Kind\s*\{([^}]+)\}',code)[1]
+        family(file,['id(k)+"_spawn_egg"','k.name().toLowerCase(Locale.ROOT)'],[k.strip().lower()+'_spawn_egg' for k in kinds.split(',')])
+    code = (JAVA/'navya/NavyaContent.java').read_text(encoding='utf-8')
+    names = re.search(r'NAMES=Map.of\((.*?)\);',code,re.S)[1]
+    family('navya/NavyaContent.java',['String name=NAMES.get(kind)','name+"_spawn_egg"'],[n+'_spawn_egg' for n in re.findall(r'"([a-z_]+)"',names)])
+    for file, bases in [('blackcinder/CinderBlocks.java',['charred_stone','cracked_charred_stone']),('losthalls/HallsBlocks.java',['lost_hall_stone','polished_lost_hall_stone'])]:
+        variable = 'id' if 'CinderBlocks' in file else 'base'
+        family(file,[variable+'+"_stairs"',variable+'+"_slab"',variable+'+"_wall"'],[b+s for b in bases for s in ['_stairs','_slab','_wall']])
+    file='netherores/NetherOres.java'
+    family(file,['new ArrayList<>(ORES)','items.addAll(ROASTED)','ModItems.ITEMS.register(id'],sum([string_list(file,n) for n in ['ORES','RAW','ROASTED']],[])+['sulfur_deposit','sulfur','alatyr_ingot'])
+    file='nethersmithing/NetherSmithing.java'
+    family(file,['for(String id:MATERIALS)','"zhara_"+form'],string_list(file,'MATERIALS')+['zhara_'+f for f in string_list(file,'FORMS')])
+    family('nethersmithing/NetherArmor.java',['NetherArmorRules.id(king,type)','new Piece(king,type)'],string_list('nethersmithing/NetherArmorRules.java','IDS'))
+    family('burningislands/IslandsContent.java',['tier<=2','String id="rune_magma_"+tier','ModItems.ITEMS.register(id'],['rune_magma_1','rune_magma_2'])
+    family('rpg/RuneRework.java',['org.slavicmyths.rpg.tools.ToolRuneRules.IDS'],['rune_'+s for s in string_list('rpg/tools/ToolRuneRules.java','IDS')])
+    code=(JAVA/'trophy/TrophyHeads.java').read_text(encoding='utf-8')
+    family('trophy/TrophyHeads.java',['ModItems.ITEMS.register(k.id'],re.findall(r'\w+\("([a-z_]+)",\d\)',code.split('public enum Kind {')[1].split(';')[0]))
     family('rpg/RuneRework.java', ['AdvancedRuneRules.IDS','RuneBalance.DEFINITIONS','"rune_"+id'], ['rune_'+s for s in re.findall(r'"([a-z_]+)"',(JAVA/'rpg/AdvancedRuneRules.java').read_text().split('IDS=')[1].split(';')[0])] + ['rune_'+s for s in ['strength','speed','resilience','crushing','blood','fortitude']])
     rare = re.findall(r'"([a-z_]+)"',(JAVA/'rpg/RareRuneRules.java').read_text().split('IDS=')[1].split(';')[0])
     family('rpg/RareRunes.java', ['RareRuneRules.IDS','"rune_"+id','"rune_"+id+"_fragment"'], ['rune_'+s for s in rare]+['rune_'+s+'_fragment' for s in ['flight','rare_protection','death','berserker']])

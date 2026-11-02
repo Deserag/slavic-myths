@@ -73,11 +73,12 @@ def emit(r,name,cls,size=512):
   for yy in range(rh):
    for xx in range(rw):im.putpixel((x+xx,y+yy),colors[1 if xx%5==0 else 2 if (xx//2+yy//3+i)%9==0 else 0])
   x+=rw+3
+ boxes_by_bone={name:[] for name in r.bones}
+ for box in r.boxes:boxes_by_bone[box['bone']].append(box)
  f=lambda n:f'{float(n):.4f}F';lines=['package org.slavicmyths.client;','import net.minecraft.client.model.geom.*;','import net.minecraft.client.model.geom.builders.*;',f'public final class {cls} {{public static ModelPart create(){{var mesh=new MeshDefinition();var root=mesh.getRoot();']
  for n,bone in r.bones.items():
   parent=bone['parent'];pos=bone['pos'];pp=r.bones[parent]['pos'] if parent else [0,24,0];c='CubeListBuilder.create()'
-  for b in r.boxes:
-   if b['bone']!=n:continue
+  for b in boxes_by_bone[n]:
    cx,cy,cz=b['center'];w,h,d=b['size'];u,v,_,_=b['uv'];c+=f'.texOffs({u},{v}).addBox('+','.join(map(f,[cx-w/2-pos[0],pos[1]-cy-h/2,cz-d/2-pos[2],w,h,d]))+')'
   offset=[pos[0]-pp[0],pp[1]-pos[1],pos[2]-pp[2]];lines.append(f'var {n}={(parent or "root")}.addOrReplaceChild("{n}",{c},PartPose.offset('+','.join(map(f,offset))+'));')
  lines.append(f'return LayerDefinition.create(mesh,{size},{size}).bakeRoot();}}private {cls}(){{}}}}');(R/f'src/main/java/org/slavicmyths/client/{cls}.java').write_text('\n'.join(lines)+'\n',encoding='utf-8')

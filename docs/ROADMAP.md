@@ -1,3 +1,19 @@
+> **ARCHIVAL STATUS DATA — NOT AN EXECUTION OR BRANCH-SELECTION INSTRUCTION.** Any branch references, old instructions, version names or commands below are historic snapshots only. **MANDATORY for every NEW task:** use [the strict owner execution contract](OWNER_EXECUTION_CONTRACT.md), [active branch policy](BRANCH_POLICY.md), [AGENTS.md](../AGENTS.md) and the latest owner-approved GitHub Issue. The current paired-sisters integration target is `3.3`, subject to real HEAD verification; `main` is protected. Old notes must never override these requirements.
+
+> 30.10.2026 — существующий Testing обновлён до2.1.6.2-TEST: импортированы боссы из71ad5754, канонический `dev generate`, общая классификация грунта лагерей, подготовка снега/деревьев/неровностей. Настоящий default superflat Y=-61 проверен; targeted7/7 иboss17/17. [Актуальные SHA, исходники, ограничения и backup](implementation/terrain-and-boss-sync-20261030/REPORT.md). Общая owner-приёмка IN_PROGRESS.
+
+> 30.10.2026 — исправление ручных команд по жалобе владельца: сняты posad-qa/OP4/dimension gates; отдельные здания и6построек2.1 получили явные OP2-команды с preflight и сохранением исходного art/loot. [Матрица, фактические тесты и установка](implementation/manual-posad-commands-20261030/REPORT.md). Естественный worldgen/релиз не объявлены принятыми.
+
+> 30.10.2026 — 2.2 Пекельный посад, реализационный checkpoint: #347 Вечевая палата (3598 точных R1 блоков) + #348 Общинный корпус (1992 R1 блока, четыре lazy loot-сундука) подключены к PosadPiece в новых schema-2 городах; Schema 0/1 не ретрофитится. [Отчёт](implementation/posad-runtime-20261030/BUILDINGS_2_2_2_AND_2_2_3.md). Offline model CI PASS, Java21 production build PASS, физический NeoForge GameTest 6/6 PASS ([лог](https://github.com/Deserag/slavic-myths/actions/runs/41042304195)); визуальная приёмка и worldgen/performance gate не пройдены, StructureSet ещё не активирован. #347/#348/#358 IN_PROGRESS, main не менялась.
+
+> 30.10.2026 — Posad terrain/shore checkpoint: baseline утверждён, foundations/bridge NBT, 5/5 GameTest; реальный Nether noise planner принял5/40 на5seed. Performance gate НЕ ПРОЙДЕН; physical native starts/commands/retrofit не завершены, StructureSet не активирован. [Отчёт](implementation/posad-runtime-20261030/REPORT.md).
+
+> 30.10.2026 — частичный runtime checkpoint посада: native types и shell placement, Java21 build/resources PASS, 3/3 GameTest (физические блоки/4 поворота). Естественная генерация, lava/bridge, commands и retrofit ещё НЕ реализованы. [Отчёт](implementation/posad-runtime-20261030/REPORT.md).
+
+> Текущая техническая стабилизация 29.10.2026: [актуальный отчёт, SHA, матрица и ограничения](implementation/home-desktop-sync-20261029/CURRENT.md). Исправления плаща/луков,36/36 headless и изолированные SLIM/WIDE кадры; original art/audio отложены владельцем, общий IN_PROGRESS. Нижеследующие checkpoint записи исторические.
+
+> 29.10.2026 — домашняя стабилизация IN_PROGRESS: hell e760aabb, Java21 clean build/resources PASS; структуры105/105 на5seed, физические биомы20/20 на5seed, общий35/35 и CI35/35. Исправлены RU heads и устаревшие Creative QA; Xvfb GUI выполняется только в GitHub-hosted VM. Testing JAR установлен с квитанцией. Art/audio/owner acceptance не получены. [Матрица и доказательства](implementation/home-desktop-sync-20261029/REPORT.md).
+
 > Актуальный checkpoint 29.10.2026: 2.1.4/2.1.6 реализованы с разрешением всех девяти биомов Незера; редкость подобрана на пяти seed. Исправлена native generation 2.1.5. Итоговый 2.1.6-HELL установлен в тестовый PolyMC, GUI 0; headless 105/105 и 32/32, оба GitHub CI SUCCESS. [Код, SHA, отчёт, NOT_RUN и checklist](implementation/2.1.6-trizna-pyre/STATUS.md). Старые BLOCKED_TZ для 2.1.4/2.1.6 и FAIL natural 2.1.5 ниже — исторические. 2.1.7 без ТЗ; 2.1.8/2.1.9 исключены.
 
 > 29.10.2026: 2.1.5 native generation repaired; five-seed headless85/85, crafted floor protection from delta/basalt features, exact source designs retained. [Evidence and limitations](implementation/2.1.5-ancestor-shrine/STATUS.md). 2.1.4 implemented;2.1.6 authorized all9biomes;2.1.7 blocked specification;2.1.8/9 excluded.
@@ -2696,3 +2712,5 @@ hell, source f9beb28d: зарегистрированы три нейтраль�
 29.10 G3: техническая реализация печи/топлива выполнена, экономика ожидает владельца; реальные hopper/XP/restart/MP проверки не запускались.
 
 29.10: независимые программные долги руд/бюджетов боя/оберега реализованы; выполняются итоговые regression gates, арт/звук и owner runtime остаются отдельными незавершёнными результатами.
+
+29.10.2026 home desktop: hell a5def9a9 synchronized; Java21 clean build/resources PASS; native baseline32/32 seed20261024 PASS; Testing PolyMC2.1.6 installed. GUI BLOCKED_ISOLATION, survival/MP/relog NOT_RUN; master scope IN_PROGRESS. See implementation/home-desktop-sync-20261029/REPORT.md.

@@ -1,0 +1,14 @@
+{
+  "compared_to": "Initial a5def9a9 installed build",
+  "changed_entries": [
+    "assets/slavicmyths/lang/ru_ru.json",
+    "data/slavicmyths/loot_table/chests/posad_granary_east_grain.json",
+    "data/slavicmyths/loot_table/chests/posad_granary_east_supplies.json",
+    "data/slavicmyths/loot_table/chests/posad_granary_shed_tools.json",
+    "data/slavicmyths/loot_table/chests/posad_granary_west_grain.json",
+    "data/slavicmyths/loot_table/chests/posad_granary_west_supplies.json",
+    "data/slavicmyths/structure/posad/",
+    "data/slavicmyths/structure/posad/granary_2_2_8.nbt"
+  ],
+  "changed_class_entries": []
+}

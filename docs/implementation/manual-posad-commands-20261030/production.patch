@@ -1,0 +1,372 @@
+diff --git a/src/main/java/org/slavicmyths/commands/SlavicCommands.java b/src/main/java/org/slavicmyths/commands/SlavicCommands.java
+index b512585d..b69a10e6 100644
+--- a/src/main/java/org/slavicmyths/commands/SlavicCommands.java
++++ b/src/main/java/org/slavicmyths/commands/SlavicCommands.java
+@@ -50,6 +50,7 @@ public final class SlavicCommands {
+   org.slavicmyths.wood.WoodlandCommands.register(tree);
+   org.slavicmyths.navya.NavyaCommands.register(tree);
+   org.slavicmyths.posad.PosadCommands.register(tree);
++  org.slavicmyths.netherstructures.ManualNetherBuildings.register(tree);
+   org.slavicmyths.worldgen.ManualStructureCommands.register(tree);
+   org.slavicmyths.yaga.YagaCommands.register(tree);
+   return tree;
+diff --git a/src/main/java/org/slavicmyths/posad/PosadCommands.java b/src/main/java/org/slavicmyths/posad/PosadCommands.java
+index 1787c524..9f377f5b 100644
+--- a/src/main/java/org/slavicmyths/posad/PosadCommands.java
++++ b/src/main/java/org/slavicmyths/posad/PosadCommands.java
+@@ -4,12 +4,10 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
+ import net.minecraft.commands.CommandSourceStack;
+ import net.minecraft.commands.Commands;
+ import net.minecraft.network.chat.Component;
+-import net.minecraft.world.level.Level;
+ 
+ /**
+- * Admin-only template command planner for disposable Nether QA worlds.
+- * Never loads chunks, places blocks, grants rewards or upgrades an existing city.
+- * Actual isolated placement uses vanilla /place template with exact approved R1 NBT.
++ * OP placement and read-only layout. Manual commands are independent of natural
++ * biome/rarity gates; authored templates retain their original geometry and loot.
+  */
+ public final class PosadCommands {
+     private record Template(String name, String id, PosadGeometry.Slot slot, int x, int z) {}
+@@ -33,21 +31,23 @@ public final class PosadCommands {
+                 .then(Commands.argument("deckY", IntegerArgumentType.integer())
+                     .then(Commands.argument("anchorZ", IntegerArgumentType.integer())
+                         .executes(context -> templates(context.getSource(), IntegerArgumentType.getInteger(context, "anchorX"), IntegerArgumentType.getInteger(context, "deckY"), IntegerArgumentType.getInteger(context, "anchorZ")))))));
+-        posad.then(Commands.literal("status").requires(source -> source.hasPermission(4)).executes(context -> PosadManualJobs.status(context.getSource(), false)));
+-        posad.then(Commands.literal("cancel").requires(source -> source.hasPermission(4)).executes(context -> PosadManualJobs.status(context.getSource(), true)));
+-        var confirmation = Commands.literal("confirm_disposable_world").executes(context -> PosadManualJobs.create(context.getSource(), IntegerArgumentType.getInteger(context, "turns"), IntegerArgumentType.getInteger(context, "anchorX"), IntegerArgumentType.getInteger(context, "deckY"), IntegerArgumentType.getInteger(context, "anchorZ")));
+-        var createZ = Commands.argument("anchorZ", IntegerArgumentType.integer()).then(confirmation);
+-        var createY = Commands.argument("deckY", IntegerArgumentType.integer()).then(createZ);
+-        var createX = Commands.argument("anchorX", IntegerArgumentType.integer()).then(createY);
+-        var createTurns = Commands.argument("turns", IntegerArgumentType.integer(0, 3)).then(createX);
+-        posad.then(Commands.literal("create").requires(source -> source.hasPermission(4)).then(createTurns));
++        posad.then(Commands.literal("status").requires(source -> source.hasPermission(2)).executes(context -> PosadManualJobs.status(context.getSource(), false)));
++        posad.then(Commands.literal("cancel").requires(source -> source.hasPermission(2)).executes(context -> PosadManualJobs.status(context.getSource(), true)));
++        var createPosition=Commands.argument("origin",net.minecraft.commands.arguments.coordinates.BlockPosArgument.blockPos())
++            .executes(c -> create(c));
++        posad.then(Commands.literal("create").then(Commands.argument("turns",IntegerArgumentType.integer(0,3)).then(createPosition)));
++        for(String id : new String[]{"veche_hall_2_2_2","communal_house_2_2_3","druzhinny_dvor_2_2_4","kuznechny_dvor_2_2_5","zeleynaya_2_2_7","granary_2_2_8"}) {
++            var building=Commands.literal(id).executes(c -> building(c.getSource(),id,net.minecraft.core.BlockPos.containing(c.getSource().getPosition())));
++            building.then(Commands.argument("pos",net.minecraft.commands.arguments.coordinates.BlockPosArgument.blockPos()).executes(c -> building(c.getSource(),id,net.minecraft.commands.arguments.coordinates.BlockPosArgument.getLoadedBlockPos(c,"pos"))));
++            posad.then(Commands.literal("building").then(building));
++        }
+         tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").then(posad)));
+     }
+ 
+     private static int info(CommandSourceStack source) {
+         source.sendSuccess(() -> Component.literal("Пекельный посад: фиксированный план 113x113, схема новых городов " + PosadGeometry.SCHEMA_VERSION + ", четыре утверждённых шаблона (3598/1992/2440/1901 блоков)."), false);
+         source.sendSuccess(() -> Component.literal("Естественная генерация пока заблокирована до native QA, performance, save/reload и anti-dupe. Старые города никогда не перестраиваются."), false);
+-        source.sendSuccess(() -> Component.literal("Только мир posad-qa-* и OP 4: /slavicmyths dev posad create <turns> <anchorX> <deckY> <anchorZ> confirm_disposable_world. Чанки должны быть заранее загружены. status/cancel — для управления."), false);
++        source.sendSuccess(() -> Component.literal("Ручное создание с OP 2 в любом мире: /slavicmyths dev posad create <turns> <anchorX> <deckY> <anchorZ>. Чанки подготавливаются постепенно. status/cancel — для управления."), false);
+         return 1;
+     }
+ 
+@@ -56,10 +56,6 @@ public final class PosadCommands {
+      * or trigger chunk generation and works for planning before an isolated QA run.
+      */
+     private static int layout(CommandSourceStack source, int turns, int anchorX, int anchorZ) {
+-        if (!source.getLevel().dimension().equals(Level.NETHER)) {
+-            source.sendFailure(Component.literal("Пекельный посад: план доступен только в Незере; блоки не изменены."));
+-            return 0;
+-        }
+         source.sendSuccess(() -> Component.literal("Пекельный посад 113x113, поворот " + (turns * 90) + "°, anchor NW (" + anchorX + "," + anchorZ + "). Только схема, без генерации."), false);
+         for (Template template : TEMPLATES) {
+             PosadGeometry.Rect rect = template.slot().world(anchorX, anchorZ, turns);
+@@ -70,20 +66,52 @@ public final class PosadCommands {
+     }
+ 
+     private static int templates(CommandSourceStack source, int anchorX, int deckY, int anchorZ) {
+-        if (!source.getLevel().dimension().equals(Level.NETHER)) {
+-            source.sendFailure(Component.literal("Шаблоны Пекельного посада доступны только в Незере; мир не изменён."));
+-            return 0;
+-        }
+-        source.sendSuccess(() -> Component.literal("Только disposable QA-мир! Команды ниже НЕ проверяют чужие постройки и не предназначены для достройки старых городов."), false);
++        source.sendSuccess(() -> Component.literal("Ручные команды зданий с проверкой занятого места. Они не достраивают старые города."), false);
+         for (Template t : TEMPLATES) {
+             int x = Math.addExact(anchorX, t.x());
+             int z = Math.addExact(anchorZ, t.z());
+-            String command = "/place template slavicmyths:posad/" + t.id() + " " + x + " " + deckY + " " + z;
++            String command = "/slavicmyths dev posad building " + t.id() + " " + x + " " + deckY + " " + z;
+             source.sendSuccess(() -> Component.literal(t.name() + " [слот " + t.slot().local() + "]: " + command), false);
+         }
+         source.sendSuccess(() -> Component.literal("Городская ориентация для команд: только 0°; для 90/180/270 используйте native PosadPiece и тесты, не поворачивайте отдельные дома независимо."), false);
+         return TEMPLATES.length;
+     }
+ 
++    private static int create(com.mojang.brigadier.context.CommandContext<CommandSourceStack> c) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
++        var p=net.minecraft.commands.arguments.coordinates.BlockPosArgument.getBlockPos(c,"origin");
++        return PosadManualJobs.create(c.getSource(),IntegerArgumentType.getInteger(c,"turns"),p.getX(),p.getY(),p.getZ());
++    }
++    public static int building(CommandSourceStack source,String id,net.minecraft.core.BlockPos pos) {
++        if(!source.hasPermission(2))return 0;
++        var world=source.getLevel();
++        var key=net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","posad/"+id);
++        var template=world.getStructureManager().get(key);
++        if(template.isEmpty()){source.sendFailure(Component.literal("Шаблон не найден: "+key));return 0;}
++        var size=template.get().getSize();
++        if((long)size.getX()*size.getY()*size.getZ()>32768)throw new IllegalArgumentException("Template exceeds bounded placement size");
++        var end=pos.offset(size.getX()-1,size.getY()-1,size.getZ()-1);
++        if(pos.getY()<world.getMinBuildHeight()||end.getY()>=world.getMaxBuildHeight()||!world.getWorldBorder().isWithinBounds(pos)||!world.getWorldBorder().isWithinBounds(end)){source.sendFailure(Component.literal("Постройка выходит за высоту или границу мира: "+pos.toShortString()));return 0;}
++        for(int cx=pos.getX()>>4;cx<=end.getX()>>4;cx++)for(int cz=pos.getZ()>>4;cz<=end.getZ()>>4;cz++)
++            if(world.getChunkSource().getChunkNow(cx,cz)==null){source.sendFailure(Component.literal("Чанк не загружен: "+cx+","+cz+". Подойдите ближе к площадке."));return 0;}
++        var bounds=new net.minecraft.world.level.levelgen.structure.BoundingBox(pos.getX(),pos.getY(),pos.getZ(),end.getX(),end.getY(),end.getZ());
++        if(!org.slavicmyths.worldgen.ManualStructureRecords.get(world).overlapping(bounds).isEmpty()){source.sendFailure(Component.literal("Область уже занята постройкой."));return 0;}
++        for(var at:net.minecraft.core.BlockPos.betweenClosed(pos,end)) {
++            var old=world.getBlockState(at);
++            if(old.hasBlockEntity()||old.is(net.minecraft.world.level.block.Blocks.BEDROCK)||org.slavicmyths.rpg.tools.ToolLogOrigins.get(world).blocked(at)||!(old.isAir()||org.slavicmyths.netherstructures.NetherBridgeTerrain.natural(old)||old.is(net.minecraft.tags.BlockTags.BASE_STONE_OVERWORLD)||old.is(net.minecraft.tags.BlockTags.DIRT)||old.is(net.minecraft.tags.BlockTags.SAND))) {
++                source.sendFailure(Component.literal("Площадка занята: "+at.toShortString()+" "+old));return 0;
++            }
++        }
++        var record=org.slavicmyths.worldgen.ManualStructureRecords.get(world);
++        var token=java.util.UUID.randomUUID();
++        record.add(token,"posad_building/"+id,0,pos,bounds);
++        world.getDataStorage().save();
++        // NBT stores only non-air authored cells. Clear the fully checked envelope
++        // so natural cave stone cannot remain inside doors/rooms.
++        for(var at:net.minecraft.core.BlockPos.betweenClosed(pos,end))if(!world.getBlockState(at).isAir())world.setBlock(at,net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),2);
++        boolean placed=template.get().placeInWorld(world,pos,pos,new net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings(),world.random,2);
++        if(!placed){source.sendFailure(Component.literal("Шаблон не разместился: "+key+"; резерв сохранён."));return 0;}
++        source.sendSuccess(()->Component.literal("Построено: "+id+" в "+pos.toShortString()),false);
++        return 1;
++    }
+     private PosadCommands() {}
+ }
+diff --git a/src/main/java/org/slavicmyths/posad/PosadManualJobs.java b/src/main/java/org/slavicmyths/posad/PosadManualJobs.java
+index fc87bf07..da0e0a8e 100644
+--- a/src/main/java/org/slavicmyths/posad/PosadManualJobs.java
++++ b/src/main/java/org/slavicmyths/posad/PosadManualJobs.java
+@@ -11,7 +11,6 @@ import net.minecraft.core.BlockPos;
+ import net.minecraft.network.chat.Component;
+ import net.minecraft.server.level.ServerLevel;
+ import net.minecraft.world.level.ChunkPos;
+-import net.minecraft.world.level.Level;
+ import net.minecraft.world.level.block.Blocks;
+ import net.minecraft.world.level.levelgen.structure.BoundingBox;
+ import net.neoforged.bus.api.SubscribeEvent;
+@@ -24,25 +23,19 @@ import org.slavicmyths.rpg.tools.ToolLogOrigins;
+ import org.slavicmyths.worldgen.ManualStructureRecords;
+ 
+ /**
+- * Explicit construction for disposable QA worlds only. A fail-closed, server-thread
+- * job: all affected chunks must already be loaded; no tickets or chunk generation.
++ * Explicit OP construction in any world. A fail-closed server-thread job;
++ * affected chunks are prepared with bounded native tickets, released on every exit.
+  * Scans before writing, permanently reserves before the first block, and never
+  * retries a partially written city. Does NOT retrofit or upgrade existing cities.
+  */
+ @EventBusSubscriber(modid="slavicmyths")
+ public final class PosadManualJobs {
+     private static final Map<ServerLevel, Job> JOBS = new HashMap<>();
+-    private static final String QA_WORLD_PREFIX = "posad-qa-";
+ 
+     public static int create(CommandSourceStack source, int turns, int ax, int deckY, int az) {
+         ServerLevel world = source.getLevel();
+-        if (!source.hasPermission(4) || !world.dimension().equals(Level.NETHER)) {
+-            source.sendFailure(Component.literal("Пекельный посад: требуется OP 4 и Незер. Блоки не изменены."));
+-            return 0;
+-        }
+-        String worldName = world.getServer().getWorldData().getLevelName();
+-        if (!worldName.startsWith(QA_WORLD_PREFIX)) {
+-            source.sendFailure(Component.literal("ОТКАЗ: только отдельный тестовый мир с именем posad-qa-*. Обычные миры не изменены."));
++        if (!source.hasPermission(2)) {
++            source.sendFailure(Component.literal("Пекельный посад: требуется право команд OP 2."));
+             return 0;
+         }
+         if (JOBS.containsKey(world)) {
+@@ -56,7 +49,7 @@ public final class PosadManualJobs {
+             if (deckY - 48 < world.getMinBuildHeight() || deckY + 17 >= world.getMaxBuildHeight()) throw new IllegalArgumentException("Высота вне допустимых границ.");
+             Job job = new Job(source, turns, ax, deckY, az);
+             JOBS.put(world, job);
+-            source.sendSuccess(() -> Component.literal("Запущена проверка места. Постройка начнётся ТОЛЬКО после полного preflight. Нужные чанки должны быть уже загружены; статус: /slavicmyths dev posad status."), false);
++            source.sendSuccess(() -> Component.literal("Запущена проверка места. Постройка начнётся ТОЛЬКО после полного preflight. Чанки площадки подготавливаются постепенно; статус: /slavicmyths dev posad status."), false);
+             return 1;
+         } catch (RuntimeException ex) {
+             source.sendFailure(Component.literal("Пекельный посад: проверка аргументов отклонена: " + ex.getMessage()));
+@@ -72,6 +65,7 @@ public final class PosadManualJobs {
+         }
+         if (cancel) {
+             boolean partial = job.reserved;
++            job.preparation.close();
+             JOBS.remove(job.world);
+             source.sendSuccess(() -> Component.literal(partial ? "ОСТАНОВЛЕНО: область навсегда зарезервирована; возможна незавершённая постройка, автоматического повтора и выдачи наград нет." : "Отменено до записи блоков. Область не зарезервирована."), false);
+             return 1;
+@@ -80,9 +74,11 @@ public final class PosadManualJobs {
+         return 1;
+     }
+ 
++    private static final class WaitingChunk extends RuntimeException {}
+     private static final class Job {
+         final CommandSourceStack source;
+         final ServerLevel world;
++        final org.slavicmyths.worldgen.SiteChunks preparation;
+         final int turns, ax, deckY, az;
+         final UUID token = UUID.randomUUID();
+         final ToolLogOrigins protectedOrigins;
+@@ -96,6 +92,7 @@ public final class PosadManualJobs {
+         Job(CommandSourceStack source, int turns, int ax, int deckY, int az) {
+             this.source = source;
+             this.world = source.getLevel();
++            this.preparation = new org.slavicmyths.worldgen.SiteChunks(world);
+             this.turns = turns;
+             this.ax = ax;
+             this.deckY = deckY;
+@@ -106,11 +103,11 @@ public final class PosadManualJobs {
+ 
+         private PosadTerrain.Material material(int x, int y, int z) {
+             if (y < world.getMinBuildHeight() || y >= world.getMaxBuildHeight()) return PosadTerrain.Material.PROTECTED;
+-            if (world.getChunkSource().getChunkNow(x >> 4, z >> 4) == null) return PosadTerrain.Material.PROTECTED;
++            if (!preparation.ready(new ChunkPos(x >> 4,z >> 4))) throw new WaitingChunk();
+             var state = world.getBlockState(new BlockPos(x, y, z));
+             if (state.isAir()) return PosadTerrain.Material.AIR;
+             if (state.is(Blocks.LAVA)) return PosadTerrain.Material.LAVA;
+-            return NetherBridgeTerrain.natural(state) ? PosadTerrain.Material.NATURAL : PosadTerrain.Material.PROTECTED;
++            return natural(state) ? PosadTerrain.Material.NATURAL : PosadTerrain.Material.PROTECTED;
+         }
+ 
+         private void plan() {
+@@ -118,15 +115,16 @@ public final class PosadManualJobs {
+             // 4096 reads per server tick, with no chunk loads or world writes.
+             if (!survey.advance(4096)) return;
+             PosadTerrain.Decision check = survey.result();
+-            if (!check.accepted()) throw new IllegalStateException("terrain: " + check.reason() + "; заранее загрузите чанки города и берега");
++            if (!check.accepted()) throw new IllegalStateException("terrain: " + check.reason() + "; нужна свободная площадка с опорами и выходом к берегу");
+             if (check.plan().turns() != turns) throw new IllegalStateException("Подход к берегу недоступен для запрошенного поворота " + turns);
+             piece = new PosadPiece(check.plan());
+             bounds = piece.getBoundingBox();
+             if (!world.getWorldBorder().isWithinBounds(new BlockPos(bounds.minX(), deckY, bounds.minZ())) || !world.getWorldBorder().isWithinBounds(new BlockPos(bounds.maxX(), deckY, bounds.maxZ()))) throw new IllegalStateException("Город или мост выходит за границу мира");
+             if (!ManualStructureRecords.get(world).overlapping(bounds).isEmpty()) throw new IllegalStateException("Есть ранее созданная или зарезервированная структура");
++            chunks.clear();
+             for (int cz = bounds.minZ() >> 4; cz <= bounds.maxZ() >> 4; cz++) {
+                 for (int cx = bounds.minX() >> 4; cx <= bounds.maxX() >> 4; cx++) {
+-                    if (world.getChunkSource().getChunkNow(cx, cz) == null) throw new IllegalStateException("Не загружен чанк " + cx + "," + cz + " (загрузка автоматически запрещена)");
++                    if (!preparation.ready(new ChunkPos(cx,cz))) throw new WaitingChunk();
+                     chunks.add(new ChunkPos(cx, cz));
+                 }
+             }
+@@ -148,7 +146,7 @@ public final class PosadManualJobs {
+                     var intended = piece.voxel(lx, layer - deckY, lz);
+                     if (intended != null) {
+                         var old = world.getBlockState(at);
+-                        if (old.hasBlockEntity() || world.getBlockEntity(at) != null || old.is(Blocks.BEDROCK) || protectedOrigins.blocked(at) || !(old.isAir() || old.is(Blocks.LAVA) || NetherBridgeTerrain.natural(old))) throw new IllegalStateException("Защищённый/чужой блок: " + at.toShortString() + " " + old);
++                        if (old.hasBlockEntity() || world.getBlockEntity(at) != null || old.is(Blocks.BEDROCK) || protectedOrigins.blocked(at) || !(old.isAir() || old.is(Blocks.LAVA) || natural(old))) throw new IllegalStateException("Защищённый/чужой блок: " + at.toShortString() + " " + old);
+                     }
+                 }
+                 if (++cell == 256) {
+@@ -190,7 +188,7 @@ public final class PosadManualJobs {
+                         BlockPos at = new BlockPos(x, y, z);
+                         if (!bounds.isInside(at) || piece.voxel(lx, y - deckY, lz) == null) continue;
+                         var old = world.getBlockState(at);
+-                        if (old.hasBlockEntity() || world.getBlockEntity(at) != null || old.is(Blocks.BEDROCK) || protectedOrigins.blocked(at) || !(old.isAir() || old.is(Blocks.LAVA) || NetherBridgeTerrain.natural(old))) throw new IllegalStateException("Участок изменён после preflight: " + at.toShortString() + " " + old);
++                        if (old.hasBlockEntity() || world.getBlockEntity(at) != null || old.is(Blocks.BEDROCK) || protectedOrigins.blocked(at) || !(old.isAir() || old.is(Blocks.LAVA) || natural(old))) throw new IllegalStateException("Участок изменён после preflight: " + at.toShortString() + " " + old);
+                     }
+                 }
+             }
+@@ -203,7 +201,8 @@ public final class PosadManualJobs {
+                 if (!world.getServer().saveEverything(false, true, true)) throw new IllegalStateException("Не удалось надёжно сохранить построенные чанки");
+                 ManualStructureRecords.get(world).replace(token, "nether_posad", 0, new BlockPos(ax, deckY, az), bounds);
+                 world.getDataStorage().save();
+-                source.sendSuccess(() -> Component.literal("Пекельный посад построен в QA-мире: X=" + ax + " Y=" + deckY + " Z=" + az + ", поворот " + turns * 90 + "°. Награды — только одноразовые сундуки."), false);
++                source.sendSuccess(() -> Component.literal("Пекельный посад построен: X=" + ax + " Y=" + deckY + " Z=" + az + ", поворот " + turns * 90 + "°. Награды — только одноразовые сундуки."), false);
++                preparation.close();
+                 JOBS.remove(world);
+                 return;
+             }
+@@ -221,9 +220,12 @@ public final class PosadManualJobs {
+                 if (phase == 0) plan();
+                 else if (phase == 1) preflight();
+                 else place();
++            } catch (WaitingChunk wait) {
++                // Retry this survey cell next tick; SiteChunks owns bounded native tickets.
+             } catch (RuntimeException ex) {
+                 LogUtils.getLogger().error("Posad manual QA job failed (reserved={}, phase={}, chunk={})", reserved, phase, chunk, ex);
+                 source.sendFailure(Component.literal("Создание Пекельного посада остановлено: " + ex.getMessage() + (reserved ? "; резерв сохранён, повтор запрещён" : "; блоки не записывались")));
++                preparation.close();
+                 JOBS.remove(world);
+             }
+         }
+@@ -236,13 +238,18 @@ public final class PosadManualJobs {
+ 
+     @SubscribeEvent
+     public static void unload(LevelEvent.Unload event) {
+-        if (event.getLevel() instanceof ServerLevel world) JOBS.remove(world);
++        if (event.getLevel() instanceof ServerLevel world) {var job=JOBS.remove(world);if(job!=null)job.preparation.close();}
+     }
+ 
+     @SubscribeEvent
+     public static void stop(ServerStoppingEvent event) {
+-        JOBS.keySet().removeIf(world -> world.getServer() == event.getServer());
++        for(var job:List.copyOf(JOBS.values()))if(job.world.getServer()==event.getServer()){job.preparation.close();JOBS.remove(job.world);}
+     }
+ 
++    private static boolean natural(net.minecraft.world.level.block.state.BlockState state) {
++        return NetherBridgeTerrain.natural(state) || state.is(net.minecraft.tags.BlockTags.BASE_STONE_OVERWORLD)
++            || state.is(net.minecraft.tags.BlockTags.DIRT) || state.is(net.minecraft.tags.BlockTags.SAND)
++            || state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.CLAY);
++    }
+     private PosadManualJobs() {}
+ }
+diff --git a/src/main/java/org/slavicmyths/netherstructures/ManualNetherBuildings.java b/src/main/java/org/slavicmyths/netherstructures/ManualNetherBuildings.java
+new file mode 100644
+index 00000000..ea2a578c
+--- /dev/null
++++ b/src/main/java/org/slavicmyths/netherstructures/ManualNetherBuildings.java
+@@ -0,0 +1,58 @@
++package org.slavicmyths.netherstructures;
++import java.util.*;
++import net.minecraft.commands.*;
++import net.minecraft.core.*;
++import net.minecraft.core.registries.Registries;
++import net.minecraft.resources.*;
++import net.minecraft.network.chat.Component;
++import net.minecraft.world.level.block.*;
++import net.minecraft.world.level.block.state.BlockState;
++import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
++import net.minecraft.world.level.levelgen.structure.BoundingBox;
++import org.slavicmyths.worldgen.ManualStructureRecords;
++/** Explicit OP models from the SAME authored voxels as native generation. No biome/rarity search. */
++public final class ManualNetherBuildings {
++ public static final List<String> IDS=List.of("nether_watchpost","broken_nether_bridge","wayfarer_camp","forgotten_shrine","ancestor_shrine","trizna_pyre");
++ public static void register(org.slavicmyths.commands.CommandTree tree){
++  var root=Commands.literal("nether").requires(s->s.hasPermission(2));
++  for(String id:IDS){var node=Commands.literal(id).executes(c->place(c.getSource(),id,BlockPos.containing(c.getSource().getPosition())));
++   node.then(Commands.argument("pos",net.minecraft.commands.arguments.coordinates.BlockPosArgument.blockPos()).executes(c->place(c.getSource(),id,net.minecraft.commands.arguments.coordinates.BlockPosArgument.getLoadedBlockPos(c,"pos"))));
++   root.then(Commands.literal("create").then(node));}
++  tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").then(root)));
++ }
++ @FunctionalInterface interface Voxels {BlockState at(int x,int y,int z);}
++ public static int place(CommandSourceStack source,String id,BlockPos origin){
++  if(!source.hasPermission(2))return 0;
++  var world=source.getLevel();Voxels voxel;int minX=0,minY=0,minZ=0,maxX,maxY,maxZ;
++  switch(id){
++   case "nether_watchpost"->{var p=new NetherWatchpostPiece(origin,2,Rotation.NONE,true,0,0);voxel=p::state;minX=minZ=-5;minY=-4;maxX=maxZ=5;maxY=p.deck()+4;}
++   case "broken_nether_bridge"->{int[] supports=new int[34];Arrays.fill(supports,2);var p=new NetherBridgePiece(new NetherBridgeTerrain.Plan(origin,Rotation.NONE,17,1,7,9,supports,0,0,0));voxel=p::voxel;minX=-3;maxX=3;minY=-2;maxY=2;maxZ=16;}
++   case "wayfarer_camp"->{var p=new WayfarerPiece(new WayfarerTerrain.Plan(origin,Rotation.NONE,0,true,0));voxel=p::voxel;maxX=8;maxY=5;maxZ=6;}
++   case "forgotten_shrine"->{voxel=(x,y,z)->ForgottenShrinePiece.voxel(0,x,y,z);maxX=maxZ=14;minY=-5;maxY=8;}
++   case "ancestor_shrine"->{var p=new AncestorShrinePiece(new AncestorShrineTerrain.Plan(origin,Rotation.NONE,0,0));voxel=p::voxel;maxX=12;maxY=10;maxZ=14;}
++   case "trizna_pyre"->{voxel=(x,y,z)->TriznaPyrePiece.voxel(0,x,y,z);maxX=maxZ=14;maxY=8;}
++   default->{source.sendFailure(Component.literal("Неизвестная постройка: "+id));return 0;}
++  }
++  var a=origin.offset(minX,minY,minZ);var b=origin.offset(maxX,maxY,maxZ);var bounds=new BoundingBox(a.getX(),a.getY(),a.getZ(),b.getX(),b.getY(),b.getZ());
++  if(a.getY()<world.getMinBuildHeight()||b.getY()>=world.getMaxBuildHeight()||!world.getWorldBorder().isWithinBounds(a)||!world.getWorldBorder().isWithinBounds(b)){source.sendFailure(Component.literal("Постройка выходит за границы мира."));return 0;}
++  for(int cx=a.getX()>>4;cx<=b.getX()>>4;cx++)for(int cz=a.getZ()>>4;cz<=b.getZ()>>4;cz++)if(world.getChunkSource().getChunkNow(cx,cz)==null){source.sendFailure(Component.literal("Чанк не загружен: "+cx+","+cz+". Подойдите к площадке."));return 0;}
++  var records=ManualStructureRecords.get(world);
++  if(!records.overlapping(bounds).isEmpty()){source.sendFailure(Component.literal("Место уже занято зарегистрированной постройкой."));return 0;}
++  for(var at:BlockPos.betweenClosed(a,b)){
++   var old=world.getBlockState(at);
++   if(old.hasBlockEntity()||old.is(Blocks.BEDROCK)||org.slavicmyths.rpg.tools.ToolLogOrigins.get(world).blocked(at)||!(old.isAir()||NetherBridgeTerrain.natural(old)||old.is(net.minecraft.tags.BlockTags.BASE_STONE_OVERWORLD)||old.is(net.minecraft.tags.BlockTags.DIRT)||old.is(net.minecraft.tags.BlockTags.SAND))){source.sendFailure(Component.literal("Защищённый/чужой блок: "+at.toShortString()+" "+old));return 0;}
++  }
++  records.add(UUID.randomUUID(),id,0,origin,bounds);world.getDataStorage().save();int changed=0;
++  for(var at:BlockPos.betweenClosed(a,b))if(!world.getBlockState(at).isAir()){world.setBlock(at,Blocks.AIR.defaultBlockState(),2);changed++;}
++  for(int y=minY;y<=maxY;y++)for(int z=minZ;z<=maxZ;z++)for(int x=minX;x<=maxX;x++){
++   var next=voxel.at(x,y,z);if(next==null)continue;var at=origin.offset(x,y,z);
++   if(!world.getBlockState(at).equals(next)){world.setBlock(at,next,2);changed++;}
++   if(world.getBlockEntity(at) instanceof RandomizableContainerBlockEntity chest){
++    var loot=ResourceLocation.fromNamespaceAndPath("slavicmyths","chests/"+id);
++    chest.setLootTable(ResourceKey.create(Registries.LOOT_TABLE,loot),world.getSeed()^at.asLong());
++   }
++  }
++  final int count=changed;source.sendSuccess(()->Component.literal("Построено: "+id+" в "+origin.toShortString()+", изменено блоков: "+count),false);return changed>0?1:0;
++ }
++ private ManualNetherBuildings(){}
++}

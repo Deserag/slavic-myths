@@ -1,0 +1,142 @@
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1859, y=39, z=1990} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=39, z=1990} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1863, y=39, z=1992} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1864, y=39, z=1990} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=39, z=1988} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=39, z=1990} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1863, y=39, z=1992} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1864, y=39, z=1990} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=39, z=1988} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1859, y=39, z=1990} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1863, y=39, z=1992} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1864, y=39, z=1990} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1859, y=39, z=1987} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=40, z=1990} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1870, y=49, z=1996} old=Block{minecraft:air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1870, y=49, z=1994} old=Block{minecraft:air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=40, z=1988} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=40, z=1990} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1870, y=49, z=1997} old=Block{minecraft:air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1870, y=49, z=1994} old=Block{minecraft:air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=40, z=1988} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1859, y=40, z=1990} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1869, y=49, z=1997} old=Block{minecraft:air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1869, y=49, z=1996} old=Block{minecraft:air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1859, y=40, z=1987} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=38, z=1990} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1863, y=38, z=1992} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1867, y=51, z=1988} old=Block{minecraft:netherrack}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1860, y=38, z=1988} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1859, y=38, z=1990} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1863, y=38, z=1992} old=Block{minecraft:cave_air}
+HELLQA_SHRINE_REJECT_DETAIL terrain-envelope pos=BlockPos{x=-1867, y=51, z=1988} old=Block{minecraft:netherrack}
+HELLQA_SHRINE_REJECT chunk=[-117, 124] actual terrain unsafe; zero writes
+HELLQA_PASS 2.1.4 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-130, 153] biome=slavicmyths:lost_halls bottom=-5 variant=0 candidates=108 noiseProposals=2 lateRejected=1 bbox=BoundingBox{minX=-2080, minY=47, minZ=2448, maxX=-2066, maxY=60, maxZ=2462}
+HELLQA_PASS 2.1.6 10000 actual native loot rolls optional=[4501, 2993, 2210, 1497, 808, 188, 317] no reroll
+HELLQA_PASS 2.1.1 1000 native loot unpack operations: guaranteed food/arrow, rare cap, actual bone_arrow, diamond occurrences=26
+HELLQA_PASS 2.1.2 ACTUAL NATURAL NETHER BRIDGE seed=20261024 chunk=[13, -51] biome=minecraft:crimson_forest length=30 variant=2 roadSteps=25 width5Cells=125 bbox=BoundingBox{minX=207, minY=16, minZ=-808, maxX=213, maxY=44, maxZ=-779} sampledCandidates=14 acceptedPlans=1 no loot; chunk-clipped natural generation, not manual place
+HELLQA_PASS bridge late-fungus fixture: wart/stem removed; obsidian/lava/chest preserved
+HELLQA_PASS 2.1.6 16 geometry profiles solids=[264, 253, 242, 218] lit=[5, 5, 3, 0]
+HELLQA_PASS 2.1.2 64 geometry profiles / 4 variants / four rotations / 4 lengths, width5, no rewards, non-floating designed supports
+HELLQA_PASS real native BasaltColumnsFeature: natural columns present; crafted floor and mixed neighbouring roof protected
+HELLQA_PASS real vanilla DeltaFeature: natural control gets lava, crafted blackstone floors preserved; no natural basalt/blackstone tag protection
+HELLQA_PASS 2.1.1 ACTUAL NATURAL WATCHPOST seed=20261024 chunk=[-54, 7] biome=slavicmyths:lost_halls bounding=BoundingBox{minX=-861, minY=50, minZ=115, maxX=-851, maxY=75, maxZ=125} chest=1 ladder=18 candidateProbes=9 acceptedPlans=1 (no direct placement or player GUI)
+HELLQA_PASS 2.1.4 16 geometry profiles; 1/2 rooms, three-wide surface stair, two-wide second stair, clear lids and anchored lamps
+HELLQA_PASS 2.1.3 12 profiles; real cantilever, chain, hanging lamp, one fireproof campfire, chest headroom and bypass
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PYRE_REJECT chunk=[18750, 18750] actual preflight unsafe; no writes
+HELLQA_PASS 2.1.6 16 actual placements/replays; foreign chest/lava/obsidian/bedrock reject zero writes; lava below rejected; restart NOT_RUN
+HELLQA_PASS 2.1.5 12 native geometry profiles: A644/B604/C370, one chest, open entrance/lid, lamps and memory wall
+HELLQA_PASS 2.1.1 watchpost 96 geometry profiles: 4 heights,4 rotations,2 chest positions,3 ruin levels,1 chest/fire/lantern,continuous ladder and chunk bounds
+HELLQA_PASS 2.1.3 1000 real native chest loot generations, 100% two guarantee groups; six independent extras=[181, 301, 127, 255, 72, 40]; repeat-open no extra payout (save/restart still NOT_RUN)
+HELLQA_PASS 2.1.4 10000 real native chest rolls; 2 active I + third tiers=[8401, 1490, 109]; no blank runes, no reroll
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_SHRINE_REJECT chunk=[17500, 17500] actual terrain unsafe; zero writes
+HELLQA_PASS 2.1.4 16 actual placement/replay fixtures; foreign chest rejection zero floor writes, ordinary physical stairs, persisted Placed prevents loot refill; true restart NOT_RUN
+HELLQA_ANCESTOR_REJECT no safe full actual fit pos=BlockPos{x=183, y=60, z=470} block=Block{minecraft:blackstone} zero writes, invalid start
+HELLQA_ANCESTOR_LOCAL_FIT from=BlockPos{x=-217, y=46, z=1302} to=BlockPos{x=-216, y=46, z=1302} rotation=CLOCKWISE_90
+HELLQA_PASS 2.1.5 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-14, 81] biome=minecraft:basalt_deltas variant=0 chest=BlockPos{x=-214, y=48, z=1304} sampled=34 accepted=2 lateRejected=1 native start and physical blocks CONFIRMED
+HELLQA_PASS 2.1.3 ACTUAL NATURAL WAYFARER seed=20261024 chunk=[29, 7] biome=minecraft:nether_wastes Y=47 variant=1 bbox=BoundingBox{minX=468, minY=47, minZ=117, maxX=476, maxY=52, maxZ=123} sampledCandidates=7 acceptedPlans=1 lateRejectedStarts=0 physical chest/fire/table/chain/lantern each one
+HELLQA_PASS 2.1.5 1000 native loot rolls, guaranteed bones, no reroll, soul-torch-containing=549
+HELLQA_PASS 2.1.6 ACTUAL NATURAL SHRINE seed=20261024 chunk=[-87, 100] biome=minecraft:nether_wastes variant=1 candidates=25 noiseProposals=1 lateRejected=0 bbox=BoundingBox{minX=-1392, minY=53, minZ=1600, maxX=-1378, maxY=61, maxZ=1614}
+[18:16:35] [Server thread/INFO] [minecraft/GameTestServer]: All 21 required tests passed :)
+BUILD SUCCESSFUL in 1m 6s

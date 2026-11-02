@@ -34,6 +34,11 @@ dependencies {
 }
 tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
 processResources {
+    // The official A + A+ voxel authoring files are copied unchanged into the production JAR.
+    from('docs/concepts/nether-settlement-2.2/posadnik-terem') {
+        include 'posadnik_terem_A_proposal.json', 'posadnik_terem_Aplus_delta.json'
+        into 'data/slavicmyths/posad'
+    }
     inputs.properties([mod_version: mod_version, neo_version: neo_version])
     filesMatching('META-INF/neoforge.mods.toml') {
         expand mod_version: mod_version, neo_version: neo_version
@@ -631,4 +636,31 @@ if (project.hasProperty('tugarinModelOfflineCheck')) {
   mainClass = 'org.slavicmyths.verify.Grip58Offline'
   if(project.hasProperty('grip58Baseline')) systemProperty 'slavicmyths.grip58Baseline', 'true'
  }
+}
+
+// Disposable server-side shell checks; no fixtures in the production JAR.
+if (project.hasProperty('posadCheck')) {
+ sourceSets { posadCheck { java.srcDir 'tools/posad-runtime-tests'; resources.srcDir 'tools/posad-test-resources' } }
+ sourceSets.posadCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.posadCheck.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+ tasks.named('compilePosadCheckJava') { dependsOn 'classes' }
+ neoForge.mods.slavicmyths.sourceSet(sourceSets.posadCheck)
+ neoForge.runs { posadChecks {
+  type = 'gameTestServer'
+  gameDirectory = file('run-posad-isolated')
+  systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_posad'
+ } }
+}
+
+if (project.hasProperty('netherBossCheck')) {
+ sourceSets { netherBossCheck { java.srcDir 'tools/netherboss-tests'; resources.srcDir 'tools/netherboss-test-resources' } }
+ sourceSets.netherBossCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.netherBossCheck.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+ tasks.named('compileNetherBossCheckJava') { dependsOn 'classes' }
+ neoForge.mods.slavicmyths.sourceSet(sourceSets.netherBossCheck)
+ neoForge.runs { netherBossChecks {
+  type = 'gameTestServer'
+  gameDirectory = file('run-netherboss-isolated')
+  systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_netherboss'
+ } }
 }

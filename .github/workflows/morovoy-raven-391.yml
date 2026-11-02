@@ -1,0 +1,35 @@
+name: Morovoy Raven 2.3.1 Java 21
+on:
+  pull_request:
+    branches: ['2.3']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  raven-java21:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install resource verifier dependency
+        run: python3 -m pip install Pillow
+      - name: Clean NeoForge Java 21 build
+        run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain
+      - name: Raven asset and scope checks
+        run: python3 tools/morovoy_raven_391_check.py
+      - name: Boss spawn egg registration and assets
+        run: python3 tools/qa/boss_spawn_eggs_2_3_check.py
+      - name: Resource integrity
+        run: python3 tools/verify_current_resources.py
+      - name: Archive production jar
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: morovoy-raven-391-java21
+          path: build/libs/slavicmyths-*.jar
+          if-no-files-found: warn
+          retention-days: 14

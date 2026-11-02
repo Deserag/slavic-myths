@@ -9,6 +9,10 @@ public final class RpgNetwork {
  public static void register(RegisterPayloadHandlersEvent event) {
   org.slavicmyths.rpg.classes.ClassNetwork.register(event);
   var registrar=event.registrar("0.9.4");
+  registrar.playToServer(MythPayloads.NetherTrophy.TYPE,MythPayloads.NetherTrophy.CODEC,(payload,context)->{
+   if(!(context.player() instanceof ServerPlayer player)||!player.isAlive()||player.isSpectator())return;
+   if(PathData.ready(player,"nether_trophy_request",4))org.slavicmyths.netherboss.NetherTrophies.activateEquipped(player,payload.pendant());
+  });
   registrar.playToClient(MythPayloads.RpgSync.TYPE,MythPayloads.RpgSync.CODEC,
    (payload,context)->NeoForge.EVENT_BUS.post(new ClientPayloadEvents.RpgSynced(payload)));
   registrar.playToServer(MythPayloads.Activate.TYPE,MythPayloads.Activate.CODEC,(payload,context)->{

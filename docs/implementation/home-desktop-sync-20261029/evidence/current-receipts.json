@@ -1,0 +1,83 @@
+[
+  {
+    "file": "D:\\slavic-myths-backups\\home-sync-20261029\\final-clean-build.log",
+    "sha256": "6d8064c0529b0017ccf8b4b1d378ba39bb01345c0093d4d63c305eba2732461b",
+    "bytes": 2602,
+    "expected_fault_injection": false,
+    "actual_summary": [
+      "BUILD SUCCESSFUL in 55s"
+    ]
+  },
+  {
+    "file": "D:\\slavic-myths-backups\\home-sync-20261029\\boss-bars.log",
+    "sha256": "8154a5d1d4a906cad1136b44098535371f007ea0b05af10772d30e1eaf870835",
+    "bytes": 39599,
+    "expected_fault_injection": false,
+    "actual_summary": [
+      "[19:45:55] [Server thread/INFO] [minecraft/GameTestServer]: All 36 required tests passed :)",
+      "BUILD SUCCESSFUL in 1m 9s"
+    ]
+  },
+  {
+    "file": "D:\\slavic-myths-backups\\home-sync-20261029\\bow-viewport-native.log",
+    "sha256": "38190953ed992b9422640a478d315e15004a1e6fd3e7cd1a8dc1a3da0c1879e0",
+    "bytes": 1105,
+    "expected_fault_injection": false,
+    "actual_summary": [
+      "Native bow orientation PASS 96;48 actual model/hand matrices match vanilla shooting axis;48 reversed-axis negative controls; actual client before/after still required",
+      "BUILD SUCCESSFUL in 52s"
+    ]
+  },
+  {
+    "file": "D:\\slavic-myths-backups\\home-sync-20261029\\reward-crash-pin.log",
+    "sha256": "74bbeb5b10f1c5af90f0f1a4565b3ae94deb4b938e4f847dab80bd1c184ed53b",
+    "bytes": 7918,
+    "expected_fault_injection": true,
+    "actual_summary": [
+      "HELLQA_ACTUAL_PROCESS_HALT stage=after_authority_pin_before_player_delivery exit=61"
+    ]
+  },
+  {
+    "file": "D:\\slavic-myths-backups\\home-sync-20261029\\reward-crash-deliver.log",
+    "sha256": "ecaffc820655cd5f9941d0496e6fcdd603383bc5da528419bdbd05fedfc3170d",
+    "bytes": 9586,
+    "expected_fault_injection": true,
+    "actual_summary": [
+      "HELLQA_ACTUAL_PROCESS_HALT stage=after_actual_player_save_before_world_save exit=62"
+    ]
+  },
+  {
+    "file": "D:\\slavic-myths-backups\\home-sync-20261029\\reward-crash-verify.log",
+    "sha256": "a6711af2cd3f7aaf8cd5406fea418bd1d0684d1c76c2cf06b404adcdb4b92ec9",
+    "bytes": 9118,
+    "expected_fault_injection": false,
+    "actual_summary": [
+      "HELLQA_PASS ACTUAL_NEOFORGE_PROCESS_CRASH two halts + three JVMs; actual PlayerList/PlayerDataStorage A.dat; inventory+receipt survive; A one head/heart/4cores; B zero; no reroll 4->6; fixture authority not natural boss kill or real network MP/power loss",
+      "[19:14:28] [Server thread/INFO] [minecraft/GameTestServer]: All 4 required tests passed :)",
+      "BUILD SUCCESSFUL in 30s"
+    ]
+  },
+  {
+    "file": "D:\\slavic-myths-backups\\home-sync-20261029\\visual-motion-failed.log",
+    "sha256": "fc9c0dd535837698607a1f142385d49dc184a129e55a6cef3eaa2b90908491a5",
+    "bytes": 299135,
+    "expected_fault_injection": false,
+    "actual_summary": [
+      "visual (wide)\tCapture actual packaged mod in isolated Xvfb client\t2026-10-29T17:06:00.1941652Z java.lang.AssertionError: Actual crawler navigation refused fixture route: bone_crawler-walk",
+      "visual (wide)\tCapture actual packaged mod in isolated Xvfb client\t2026-10-29T17:06:00.4923514Z java.lang.AssertionError: Actual crawler navigation refused fixture route: bone_crawler-walk",
+      "visual (slim)\tCapture actual packaged mod in isolated Xvfb client\t2026-10-29T17:06:41.2194890Z java.lang.AssertionError: Actual crawler navigation refused fixture route: bone_crawler-walk",
+      "visual (slim)\tCapture actual packaged mod in isolated Xvfb client\t2026-10-29T17:06:41.5184846Z java.lang.AssertionError: Actual crawler navigation refused fixture route: bone_crawler-walk"
+    ]
+  },
+  {
+    "file": "D:\\slavic-myths-backups\\home-sync-20261029\\ci-latest-summary.log",
+    "sha256": "35ee4cb15b4d1115af8b4840a9f0045e18f52bc398507769b319f4794cd400e5",
+    "bytes": 402,
+    "expected_fault_injection": false,
+    "actual_summary": [
+      "headless\tClean production JAR and offline checks\t2026-10-29T17:01:45.8117609Z BUILD SUCCESSFUL in 1m 18s",
+      "headless\tHeadless GameTest against packaged production JAR\t2026-10-29T17:02:50.0804102Z [17:02:50] [Server thread/INFO] [minecraft/GameTestServer]: All 36 required tests passed :)",
+      "headless\tHeadless GameTest against packaged production JAR\t2026-10-29T17:02:53.4746699Z BUILD SUCCESSFUL in 1m 6s"
+    ]
+  }
+]

@@ -35,12 +35,31 @@ public final class HallsWorldgen {
    }return changed;
   }
  }
- @SubscribeEvent public static void loaded(ChunkEvent.Load e){if(!(e.getLevel() instanceof ServerLevel s)||!s.dimension().equals(Level.NETHER))return;int x=e.getChunk().getPos().getMiddleBlockX(),z=e.getChunk().getPos().getMiddleBlockZ();s.getServer().execute(()->publish(s,plan(s.getSeed(),x,z)));}
+ // ChunkEvent.Load can run inside FULL conversion. execute() is inline on the server
+ // thread, so reading that same chunk here can wait on its own unfinished future.
+ // Coalesce only load-event work and publish after the tick, never during conversion.
+ private static final java.util.concurrent.ConcurrentMap<ServerLevel,java.util.concurrent.ConcurrentMap<Long,ChunkPos>> PENDING=new java.util.concurrent.ConcurrentHashMap<>();
+ @SubscribeEvent public static void loaded(ChunkEvent.Load e){
+  if(!(e.getLevel() instanceof ServerLevel s)||!s.dimension().equals(Level.NETHER))return;
+  var cp=e.getChunk().getPos();int rx=Math.floorDiv(cp.getMiddleBlockX(),192),rz=Math.floorDiv(cp.getMiddleBlockZ(),192);
+  PENDING.computeIfAbsent(s,w->new java.util.concurrent.ConcurrentHashMap<>()).put(ChunkPos.asLong(rx,rz),cp);
+ }
+ @SubscribeEvent public static void afterLoads(net.neoforged.neoforge.event.tick.ServerTickEvent.Post e){
+  for(var entry:PENDING.entrySet())if(entry.getKey().getServer()==e.getServer()){
+   var world=entry.getKey();var queue=entry.getValue();int budget=8;
+   for(var pending:queue.entrySet()){
+    if(budget--<=0)break;if(!queue.remove(pending.getKey(),pending.getValue()))continue;
+    var cp=pending.getValue();publish(world,plan(world.getSeed(),cp.getMiddleBlockX(),cp.getMiddleBlockZ()));
+   }
+  }
+ }
+ @SubscribeEvent public static void unload(net.neoforged.neoforge.event.level.LevelEvent.Unload e){PENDING.remove(e.getLevel());}
+ @SubscribeEvent public static void stop(net.neoforged.neoforge.event.server.ServerStoppingEvent e){PENDING.keySet().removeIf(w->w.getServer()==e.getServer());}
  private static void publish(ServerLevel s,LostHallsRegionTopology.Plan p){if(!s.getServer().isSameThread())return;
   var index=LostHallsRooms.get(s);
   for(Node n:p.rooms()){
    if(index.node(n.id()).filter(n::equals).isPresent())continue;
-   if(!s.hasChunkAt(n.anchor())||!s.getBiome(n.anchor()).is(HallsContent.BIOME)||!floor(s.getBlockState(n.anchor().below())))continue;
+   if(s.getChunkSource().getChunkNow(n.anchor().getX()>>4,n.anchor().getZ()>>4)==null||!s.getBiome(n.anchor()).is(HallsContent.BIOME)||!floor(s.getBlockState(n.anchor().below())))continue;
    Set<BlockPos> feet=new HashSet<>();Map<BlockPos,BlockPos> projected=new HashMap<>();for(int x=-3;x<=3;x++)for(int z=-3;z<=3;z++){var q=n.anchor().offset(x,0,z);var col=HallsGeometry.column(p,q.getX(),q.getZ());if(col!=null&&!col.pillar()){var foot=new BlockPos(q.getX(),col.floor()+1,q.getZ());feet.add(foot);projected.put(q,foot);}}List<BlockPos> exits=new ArrayList<>();exits.add(n.anchor());for(BlockPos d:List.of(new BlockPos(2,0,0),new BlockPos(-2,0,0),new BlockPos(0,0,2),new BlockPos(0,0,-2)))if(exits.size()<n.exits()){BlockPos foot=projected.get(n.anchor().offset(d));if(foot!=null)exits.add(foot);}LostHallsRoomPublication.publish(s,n,exits,feet);
   }
   // Complete region proof is conservative: all six published nodes and resident arena.

@@ -1,0 +1,13 @@
+{
+  "scope": "CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted",
+  "version": "2.1.6.2-TEST",
+  "jar": "D:\\slavic-myths\\build\\libs\\slavicmyths-2.1.6.2-TEST.jar",
+  "sha256": "de95759f9b0f04f0ee974cd7cb5dabc04abb4b01161b45dc3594d99708fda00a",
+  "resources": 8810,
+  "json": 5023,
+  "png": 1622,
+  "models": 2142,
+  "java21_classes": 2246,
+  "runtime_launches": "NOT_TRACKED_BY_STATIC_CHECK",
+  "runtime": "NOT_ASSESSED_BY_RESOURCE_CHECK; see actual QA logs"
+}

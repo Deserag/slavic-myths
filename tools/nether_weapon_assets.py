@@ -1,6 +1,7 @@
 from pathlib import Path
 import json, math
 from PIL import Image,ImageDraw
+from hell_bow_orientation import orient
 R=Path(__file__).resolve().parents[1];A=R/'src/main/resources/assets/slavicmyths';D=R/'src/main/resources/data'
 IDS=['navya_ostroga','ashen_greatsword','shadow_throwing_knife','volcanic_heart_flail','infernal_bow']
 def write(p,j):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(j,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -51,7 +52,7 @@ for pull in range(4):
   for i in range(8):
    t=i/8;x=(11-pull)*(1-t)+(4-pull*2)*t;y=8+s*17*(1-t)
    e.append(b([x-.15,y-1.2,7.85],[x+.15,y+1.2,8.15],8))
- name=IDS[4]+('' if pull==0 else '_pulling_'+str(pull-1));models[name]=model(e)
+ name=IDS[4]+('' if pull==0 else '_pulling_'+str(pull-1));models[name]=orient(model(e),IDS[4])
 models[IDS[4]]['overrides']=[{'predicate':{'pulling':1},'model':'slavicmyths:item/infernal_bow_pulling_0'},{'predicate':{'pulling':1,'pull':.65},'model':'slavicmyths:item/infernal_bow_pulling_1'},{'predicate':{'pulling':1,'pull':.9},'model':'slavicmyths:item/infernal_bow_pulling_2'}]
 for n,m in models.items():write(A/'models/item'/f'{n}.json',m)
 # Independently authored readable pixel silhouettes, not scaled screenshots.

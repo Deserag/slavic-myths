@@ -1,0 +1,11 @@
+{
+  "structures": [{"structure": "slavicmyths:nether_posad", "weight": 1}],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 80,
+    "separation": 32,
+    "salt": 22022026,
+    "spread_type": "linear",
+    "frequency": 0.75
+  }
+}

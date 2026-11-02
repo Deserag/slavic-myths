@@ -1,0 +1,39 @@
+{
+  "site": [
+    27,
+    25
+  ],
+  "global_bounds": [
+    75,
+    101,
+    75,
+    99
+  ],
+  "max_y": 11,
+  "blocks": 2203,
+  "level0": 675,
+  "chests": 8,
+  "material_count": {
+    "minecraft:blackstone": 91,
+    "minecraft:chiseled_polished_blackstone": 40,
+    "minecraft:polished_blackstone": 376,
+    "minecraft:crimson_planks": 168,
+    "minecraft:polished_basalt": 104,
+    "minecraft:polished_blackstone_bricks": 450,
+    "minecraft:chest": 8,
+    "minecraft:crimson_slab": 66,
+    "minecraft:barrel": 8,
+    "minecraft:crimson_door": 12,
+    "minecraft:crafting_table": 2,
+    "minecraft:composter": 1,
+    "minecraft:cartography_table": 1,
+    "minecraft:iron_bars": 24,
+    "minecraft:lantern": 10,
+    "minecraft:chain": 26,
+    "minecraft:crimson_stairs": 340,
+    "minecraft:nether_bricks": 336,
+    "minecraft:nether_brick_stairs": 140
+  },
+  "geometric_model_reconstructed_from_original_compact_data": true,
+  "game_verified": false
+}

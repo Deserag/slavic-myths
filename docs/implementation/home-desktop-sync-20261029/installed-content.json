@@ -1,0 +1,146 @@
+{
+  "scope": "Installed JAR bytes; presence/recipe/translation, not survival gameplay",
+  "jar_sha256": "039da8ed774e44065bef750657d94f3791d689a04a8062d82b0396907867a4de",
+  "items": {
+    "zhara_helmet": {
+      "model": "assets/slavicmyths/models/item/zhara_helmet.json",
+      "translations": {
+        "ru_ru": "Жаровой алатырный шлем",
+        "en_us": "Zhara Alatyr Helmet"
+      },
+      "recipes": [
+        "data/slavicmyths/recipe/zhara_helmet.json"
+      ]
+    },
+    "zhara_chestplate": {
+      "model": "assets/slavicmyths/models/item/zhara_chestplate.json",
+      "translations": {
+        "ru_ru": "Жаровая алатырная кираса",
+        "en_us": "Zhara Alatyr Chestplate"
+      },
+      "recipes": [
+        "data/slavicmyths/recipe/zhara_chestplate.json"
+      ]
+    },
+    "zhara_leggings": {
+      "model": "assets/slavicmyths/models/item/zhara_leggings.json",
+      "translations": {
+        "ru_ru": "Жаровые алатырные поножи",
+        "en_us": "Zhara Alatyr Leggings"
+      },
+      "recipes": [
+        "data/slavicmyths/recipe/zhara_leggings.json"
+      ]
+    },
+    "zhara_boots": {
+      "model": "assets/slavicmyths/models/item/zhara_boots.json",
+      "translations": {
+        "ru_ru": "Жаровые алатырные сапоги",
+        "en_us": "Zhara Alatyr Boots"
+      },
+      "recipes": [
+        "data/slavicmyths/recipe/zhara_boots.json"
+      ]
+    },
+    "infernal_crown_helmet": {
+      "model": "assets/slavicmyths/models/item/infernal_crown_helmet.json",
+      "translations": {
+        "ru_ru": "Венец Пекельного царя",
+        "en_us": "Infernal King Crown"
+      },
+      "recipes": [
+        "data/slavicmyths/recipe/infernal_crown_helmet.json"
+      ]
+    },
+    "infernal_king_cuirass": {
+      "model": "assets/slavicmyths/models/item/infernal_king_cuirass.json",
+      "translations": {
+        "ru_ru": "Кираса Пекельного царя",
+        "en_us": "Infernal King Cuirass"
+      },
+      "recipes": [
+        "data/slavicmyths/recipe/infernal_king_cuirass.json"
+      ]
+    },
+    "infernal_king_leggings": {
+      "model": "assets/slavicmyths/models/item/infernal_king_leggings.json",
+      "translations": {
+        "ru_ru": "Поножи Пекельного царя",
+        "en_us": "Infernal King Leggings"
+      },
+      "recipes": [
+        "data/slavicmyths/recipe/infernal_king_leggings.json"
+      ]
+    },
+    "infernal_king_boots": {
+      "model": "assets/slavicmyths/models/item/infernal_king_boots.json",
+      "translations": {
+        "ru_ru": "Сапоги Пекельного царя",
+        "en_us": "Infernal King Boots"
+      },
+      "recipes": [
+        "data/slavicmyths/recipe/infernal_king_boots.json"
+      ]
+    },
+    "navya_ostroga": {
+      "model": "assets/slavicmyths/models/item/navya_ostroga.json",
+      "translations": {
+        "ru_ru": "Навья острога",
+        "en_us": "Navya Ostroga"
+      },
+      "recipes": [
+        "data/slavicmyths/recipe/navya_ostroga.json"
+      ]
+    },
+    "ashen_greatsword": {
+      "model": "assets/slavicmyths/models/item/ashen_greatsword.json",
+      "translations": {
+        "ru_ru": "Пепельный двуручный меч",
+        "en_us": "Ashen Greatsword"
+      },
+      "recipes": [
+        "data/slavicmyths/recipe/ashen_greatsword.json"
+      ]
+    },
+    "shadow_throwing_knife": {
+      "model": "assets/slavicmyths/models/item/shadow_throwing_knife.json",
+      "translations": {
+        "ru_ru": "Теневой метательный нож",
+        "en_us": "Shadow Throwing Knife"
+      },
+      "recipes": [
+        "data/slavicmyths/recipe/shadow_throwing_knife.json"
+      ]
+    },
+    "volcanic_heart_flail": {
+      "model": "assets/slavicmyths/models/item/volcanic_heart_flail.json",
+      "translations": {
+        "ru_ru": "Кистень вулканического сердца",
+        "en_us": "Volcanic Heart Flail"
+      },
+      "recipes": [
+        "data/slavicmyths/recipe/volcanic_heart_flail.json"
+      ]
+    },
+    "infernal_bow": {
+      "model": "assets/slavicmyths/models/item/infernal_bow.json",
+      "translations": {
+        "ru_ru": "Пекельный лук",
+        "en_us": "Infernal Bow"
+      },
+      "recipes": [
+        "data/slavicmyths/recipe/infernal_bow.json"
+      ]
+    },
+    "infernal_furnace": {
+      "model": "assets/slavicmyths/models/item/infernal_furnace.json",
+      "translations": {
+        "ru_ru": "Адская печь",
+        "en_us": "Infernal Furnace"
+      },
+      "recipes": [
+        "data/slavicmyths/recipe/infernal_furnace.json"
+      ]
+    }
+  }
+}

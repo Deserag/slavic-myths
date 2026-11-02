@@ -164,6 +164,26 @@
           "name": "slavicmyths:amber"
         }
       ]
+    },
+    {
+      "name": "slavicmyths:boss_components_21x_0",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:ancestor_bone_charm"
+        }
+      ]
+    },
+    {
+      "name": "slavicmyths:boss_components_21x_1",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:mourning_circlet"
+        }
+      ]
     }
   ]
 }
