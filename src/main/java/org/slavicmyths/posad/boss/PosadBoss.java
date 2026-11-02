@@ -69,7 +69,7 @@ public final class PosadBoss extends Monster {
         begin(Move.RECOVERY, 30, 30);
     }
     public Kind kind() { return kind; }
-    public Move move() { return Move.values()[entityData.get(ACTION)]; }
+    public Move move() { Move[] moves = Move.values(); int index = entityData.get(ACTION); return moves[index >= 0 && index < moves.length ? index : Move.IDLE.ordinal()]; }
     public boolean enraged() { return entityData.get(ENRAGED); }
     public int phase() { return entityData.get(PHASE); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
