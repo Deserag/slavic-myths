@@ -11,7 +11,7 @@ import net.minecraft.client.model.geom.builders.PartDefinition;
 public final class MorovoyFireZmeyMesh {
  private static CubeListBuilder box(int u,int v,float x,float y,float z,float w,float h,float d){return CubeListBuilder.create().texOffs(u,v).addBox(x,y,z,w,h,d);}
  public static ModelPart create(){MeshDefinition mesh=new MeshDefinition();PartDefinition root=mesh.getRoot();
-  PartDefinition body=root.addOrReplaceChild("body",box(0,0,-16,-12,-42,32,18,83).texOffs(2,63).addBox(-10,2,-39,20,7,68).texOffs(4,25).addBox(-11,-15,-33,22,4,57),PartPose.offset(0,12,0));
+  PartDefinition body=root.addOrReplaceChild("body",box(0,0,-15,-11,-43,30,18,80).texOffs(2,63).addBox(-10,3,-38,20,5,66).texOffs(4,25).addBox(-10,-13,-31,20,3,52),PartPose.offset(0,12,0));
   // Anatomical transitions modelled as named child bones, following Gorynych's Java voxel-mesh approach.
   // They bridge the long torso into hip roots and make the twin tail bases part of the body.
   body.addOrReplaceChild("ribcage",box(0,0,-14,-12,-36,28,18,46),PartPose.ZERO);
@@ -20,10 +20,14 @@ public final class MorovoyFireZmeyMesh {
   for(int i=0;i<9;i++){int z=-34+i*8;body.addOrReplaceChild("spine_"+i,box(3,10,-2,-22-(i%3)*2,z,4,11+(i%3)*2,6),PartPose.ZERO);for(int side:new int[]{-1,1})body.addOrReplaceChild("rib_"+i+"_"+side,box(13,41,side<0?-15:11,-7,z,4,9,3),PartPose.ZERO);}
   for(int side:new int[]{-1,1}){
    String n=side<0?"left":"right";int hx=side<0?100:178;
-   PartDefinition neck0=body.addOrReplaceChild("neck_"+n+"_base",box(hx,6,-5,-6,-19,10,11,23).texOffs(hx,36).addBox(-4,-8,-16,8,4,12),PartPose.offset(side*12,-6,-35));
-   PartDefinition neck1=neck0.addOrReplaceChild("neck_"+n+"_mid",box(hx+12,8,-4,-5,-18,8,9,22).texOffs(hx,55).addBox(-3,-7,-13,6,3,10),PartPose.offset(0,-2,-17));
-   PartDefinition head=neck1.addOrReplaceChild("head_"+n,box(hx,64,-7,-8,-18,14,13,20).texOffs(hx+25,64).addBox(-5,-3,-25,10,7,12).texOffs(hx+12,70).addBox(-6,-9,-9,12,4,12),PartPose.offset(0,-3,-16));
+   PartDefinition neck0=body.addOrReplaceChild("neck_"+n+"_base",box(hx,6,-5,-5,-22,10,10,26).texOffs(hx,36).addBox(-4,-8,-16,8,4,12),PartPose.offset(side*11,-10,-37));
+   PartDefinition neck1=neck0.addOrReplaceChild("neck_"+n+"_mid",box(hx+12,8,-4,-5,-18,8,9,22).texOffs(hx,55).addBox(-3,-7,-13,6,3,10),PartPose.offset(side*2,-7,-20));
+   PartDefinition head=neck1.addOrReplaceChild("head_"+n,box(hx,64,-7,-8,-18,14,13,20).texOffs(hx+25,64).addBox(-5,-3,-25,10,7,12).texOffs(hx+12,70).addBox(-6,-9,-9,12,4,12),PartPose.offset(side*2,-7,-19));
    head.addOrReplaceChild("jaw_"+n,box(hx+4,90,-6,0,-23,12,4,22).texOffs(hx+19,94).addBox(-4,3,-21,2,7,3).texOffs(hx+23,94).addBox(3,3,-21,2,7,3),PartPose.offset(0,4,0));
+   // Separate Mor corruption crest and violet fire crown: small reusable voxels.
+   for(int crest=0;crest<4;crest++)head.addOrReplaceChild("crest_"+n+"_"+crest,box(side<0?13:202,side<0?40:162,-2,-12-crest*2,-8+crest*6,4,6+crest,4),PartPose.offset(side*(crest%2==0?4:-4),0,0));
+   head.addOrReplaceChild("fang_"+n+"_left",box(hx+19,94,-5,3,-22,2,6,3),PartPose.ZERO);
+   head.addOrReplaceChild("fang_"+n+"_right",box(hx+19,94,3,3,-22,2,6,3),PartPose.ZERO);
    for(int i=0;i<2;i++){head.addOrReplaceChild("horn_"+n+"_"+i,box(2,165,-2,-16,-9+i*10,4,10-i*2,4),PartPose.offset(side*(i==0?5:-5),0,0));}
    head.addOrReplaceChild("eye_"+n+"_a",box(side<0?123:204,60,-7,-5,-16,2,3,4),PartPose.ZERO);
    head.addOrReplaceChild("eye_"+n+"_b",box(side<0?123:204,60,5,-5,-16,2,3,4),PartPose.ZERO);
