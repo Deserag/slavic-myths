@@ -13,12 +13,11 @@ import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.AABB;
 
 /** Temporary violet fire: never spreads; removed when no living Morovoy Fire Zmey is nearby. */
 public final class VioletFireBlock extends BaseFireBlock {
     public static final MapCodec<VioletFireBlock> CODEC = simpleCodec(VioletFireBlock::new);
-    private static final int CHECK_TICKS = 10;
+    private static final int CHECK_TICKS = 100;
     public VioletFireBlock(BlockBehaviour.Properties properties) { super(properties, 5.0F); }
     @Override protected MapCodec<? extends BaseFireBlock> codec() { return CODEC; }
     @Override protected boolean canBurn(BlockState state) { return false; }
@@ -27,9 +26,7 @@ public final class VioletFireBlock extends BaseFireBlock {
         if (!level.isClientSide && !oldState.is(this)) level.scheduleTick(pos, this, CHECK_TICKS);
     }
     @Override protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        boolean active = !level.getEntitiesOfClass(MorovoyFireZmey.class, new AABB(pos).inflate(64), boss -> boss.isAlive() && boss.state() != MorovoyFireZmey.DYING).isEmpty();
-        if (!active) { level.removeBlock(pos, false); return; }
-        level.scheduleTick(pos, this, CHECK_TICKS);
+        level.removeBlock(pos, false);
     }
     @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         if (!(level instanceof ServerLevel server) || !(entity instanceof LivingEntity living) || living instanceof MorovoyFireZmey || entity.tickCount % 4 != 0) return;
