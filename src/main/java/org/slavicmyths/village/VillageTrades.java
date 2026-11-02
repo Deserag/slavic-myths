@@ -2,6 +2,8 @@ package org.slavicmyths.village;
 
 import com.google.gson.*;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.nio.charset.StandardCharsets;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -23,15 +25,19 @@ public final class VillageTrades {
             if(stream==null)throw new IllegalStateException("Missing trade pool "+path);
             JsonObject levels=JsonParser.parseReader(new InputStreamReader(stream,StandardCharsets.UTF_8)).getAsJsonObject();
             for(int level=1;level<=5;level++){
-                for(JsonElement value:levels.getAsJsonArray(Integer.toString(level))){
+                JsonArray rows=levels.getAsJsonArray(Integer.toString(level));
+                if(rows==null)continue;
+                List<VillagerTrades.ItemListing> listings=new ArrayList<>();
+                for(JsonElement value:rows){
                     JsonObject row=value.getAsJsonObject();
                     Item input=item(row.get("input").getAsString()),output=item(row.get("output").getAsString());
                     int cost=row.get("cost").getAsInt(),count=row.get("count").getAsInt(),uses=row.get("max_uses").getAsInt(),xp=row.get("xp").getAsInt();
                     float multiplier=row.get("price_multiplier").getAsFloat();
                     if(cost<1||cost>input.getDefaultMaxStackSize()||count<1||count>output.getDefaultMaxStackSize()||uses<1||xp<1)
                         throw new IllegalStateException("Invalid trade "+path+":"+row);
-                    event.getTrades().get(level).add((entity,random)->new MerchantOffer(new ItemCost(input,cost),new ItemStack(output,count),uses,xp,multiplier));
+                    listings.add((entity,random)->new MerchantOffer(new ItemCost(input,cost),new ItemStack(output,count),uses,xp,multiplier));
                 }
+                event.getTrades().get(level).addAll(listings);
             }
         }catch(IOException e){throw new UncheckedIOException(e);}
     }
