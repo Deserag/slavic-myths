@@ -94,6 +94,8 @@ public final class SlavicMyths {
         org.slavicmyths.guardians.GuardianContent.init(bus);
         org.slavicmyths.serpenthill.HillContent.init();
         org.slavicmyths.gorynych.GorynychContent.init(bus);
+        // Force all Morovoy Fire Zmey deferred entries to exist before registry events.
+        org.slavicmyths.morovoy.MorovoyFireZmeyContent.init(bus);
         org.slavicmyths.winters.WintersContent.init(bus);
         org.slavicmyths.winters.WintersContent.EFFECTS.register(bus);
 
