@@ -21,7 +21,7 @@ import net.neoforged.neoforge.client.extensions.common.*;
 import org.slavicmyths.trophy.*;
 
 /** Independent instances of the actual mob heads, with unchanged native cubes and UV. */
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class TrophyHeadsClient {
  public static final class Head {
   public final ModelPart part;public final ResourceLocation texture;public final TrophyHeads.Kind kind;
