@@ -26,6 +26,23 @@ for file in JAVA.rglob("*.java"):
             if bad in source:
                 errors.append(f"{file.relative_to(ROOT)}: forbidden common-side dependency: {bad}")
 
+# Index-12 static review: warnings are candidates, not confirmed crash sites.
+# Match fixed-size declarations, inclusive bounds, and constant index reads.
+INDEX_12_PATTERNS = {
+    "fixed array length 12": re.compile(r"\bnew\s+[\w.$<>?,\s]+\[\s*12\s*\]|\b[\w$]+\s*\[\s*12\s*\]\s*(?:=|;)"),
+    "inclusive loop boundary 12": re.compile(r"\b(?:for|while)\s*\([^;{}]*;[^;{}]*<=\s*12\b|\b(?:for|while)\s*\([^;{}]*<=\s*12\b"),
+    "literal index 12": re.compile(r"\b[\w$]+\s*\[\s*12\s*\](?!\s*(?:=|;))"),
+}
+index12_hits = 0
+for file in JAVA.rglob("*.java"):
+    source = file.read_text(encoding="utf-8")
+    for label, regex in INDEX_12_PATTERNS.items():
+        for match in regex.finditer(source):
+            line = source.count("\n", 0, match.start()) + 1
+            print(f"REVIEW index12 ({label}): {file.relative_to(ROOT)}:{line}: {source.splitlines()[line - 1].strip()[:180]}")
+            index12_hits += 1
+print(f"Index-12 potential hazards: {index12_hits} (static heuristics; verify crash stacktrace)")
+
 for owner, sites in calls.items():
     # Name-based matches are a warning rather than a failure: same field names may
     # refer to distinct DeferredRegister instances in different classes.
