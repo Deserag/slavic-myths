@@ -11,10 +11,12 @@ public final class MorovoyFireZmeyModel extends EntityModel<MorovoyFireZmey> {
     private final ModelPart body = root.getChild("body");
     private final ModelPart morBase = body.getChild("neck_left_base");
     private final ModelPart morMid = morBase.getChild("neck_left_mid");
-    private final ModelPart morHead = morMid.getChild("head_left");
+    private final ModelPart morTip = morMid.getChild("neck_left_tip");
+    private final ModelPart morHead = morTip.getChild("head_left");
     private final ModelPart fireBase = body.getChild("neck_right_base");
     private final ModelPart fireMid = fireBase.getChild("neck_right_mid");
-    private final ModelPart fireHead = fireMid.getChild("head_right");
+    private final ModelPart fireTip = fireMid.getChild("neck_right_tip");
+    private final ModelPart fireHead = fireTip.getChild("head_right");
     private float animationAge;
     private float flameIntensity;
 
@@ -85,6 +87,7 @@ public final class MorovoyFireZmeyModel extends EntityModel<MorovoyFireZmey> {
         morMid.xRot = sleeping ? 0.55F : dying ? 0.5F : Mth.lerp(awake, 0.55F, -0.08F + leftTargetPitch * 0.45F + Mth.cos(leftClock * 0.73F) * 0.10F);
         morMid.yRot = awake * (leftTargetYaw * 0.35F + Mth.cos(leftClock * 0.92F) * 0.09F);
         morMid.zRot = awake * Mth.sin(leftClock * 0.63F) * 0.09F;
+        morTip.xRot = awake * Mth.sin(leftClock * 1.13F) * .06F;
         morHead.xRot = awake * (leftTargetPitch * 0.55F + Mth.cos(leftClock * 1.23F) * 0.065F);
         morHead.yRot = awake * (leftTargetYaw * 0.20F + Mth.sin(leftClock * 1.49F) * 0.07F);
         morHead.zRot = awake * Mth.cos(leftClock * 0.84F) * 0.065F;
@@ -100,6 +103,7 @@ public final class MorovoyFireZmeyModel extends EntityModel<MorovoyFireZmey> {
         fireMid.xRot = sleeping ? 0.48F : dying ? 0.52F : Mth.lerp(awake, 0.48F, -0.04F + rightTargetPitch * 0.43F + Mth.sin(rightClock * 0.79F) * 0.12F);
         fireMid.yRot = awake * (rightTargetYaw * 0.35F + Mth.sin(rightClock * 1.14F) * 0.10F);
         fireMid.zRot = awake * Mth.cos(rightClock * 1.06F) * 0.10F;
+        fireTip.xRot = awake * Mth.sin(rightClock * 1.14F) * .09F;
         fireHead.xRot = awake * (rightTargetPitch * 0.57F + Mth.sin(rightClock * 1.32F) * 0.07F);
         fireHead.yRot = awake * (rightTargetYaw * 0.22F + Mth.cos(rightClock * 1.31F) * 0.08F);
         fireHead.zRot = awake * Mth.sin(rightClock * 0.91F) * 0.08F;
@@ -110,12 +114,14 @@ public final class MorovoyFireZmeyModel extends EntityModel<MorovoyFireZmey> {
     public void renderElementalSide(PoseStack pose, VertexConsumer vertices, int light, int overlay, boolean fire) {
         ModelPart neckBase = fire ? fireBase : morBase;
         ModelPart neckMid = fire ? fireMid : morMid;
+        ModelPart tip = fire ? fireTip : morTip;
         ModelPart head = fire ? fireHead : morHead;
         String side = fire ? "right" : "left";
         pose.pushPose();
         body.translateAndRotate(pose);
         neckBase.translateAndRotate(pose);
         neckMid.translateAndRotate(pose);
+        tip.translateAndRotate(pose);
         head.translateAndRotate(pose);
         head.getChild("eye_" + side + "_a").render(pose, vertices, light, overlay);
         head.getChild("eye_" + side + "_b").render(pose, vertices, light, overlay);
@@ -129,6 +135,7 @@ public final class MorovoyFireZmeyModel extends EntityModel<MorovoyFireZmey> {
         body.translateAndRotate(pose);
         fireBase.translateAndRotate(pose);
         fireMid.translateAndRotate(pose);
+        fireTip.translateAndRotate(pose);
         fireHead.translateAndRotate(pose);
         pose.scale(0.0625F, 0.0625F, 0.0625F);
         float pulse = Mth.sin(animationAge * 0.33F) * 1.7F;
