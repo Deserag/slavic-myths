@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:black_radish"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:black_radish_seeds",
+    "count": 2
+  }
+}
