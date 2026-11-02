@@ -459,7 +459,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
 
     @Override
     public MerchantOffers getOffers() {
-        if (!tradesInitialized) {
+        if (!tradesInitialized && !level().isClientSide) {
             rebuildTrades();
         }
 
