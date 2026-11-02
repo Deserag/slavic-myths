@@ -27,7 +27,6 @@ for file in JAVA.rglob("*.java"):
                 errors.append(f"{file.relative_to(ROOT)}: forbidden common-side dependency: {bad}")
 
 # Index-12 static review: warnings are candidates, not confirmed crash sites.
-# Match fixed-size declarations, inclusive bounds, and constant index reads.
 INDEX_12_PATTERNS = {
     "fixed array length 12": re.compile(r"\bnew\s+[\w.$<>?,\s]+\[\s*12\s*\]|\b[\w$]+\s*\[\s*12\s*\]\s*(?:=|;)"),
     "inclusive loop boundary 12": re.compile(r"\b(?:for|while)\s*\([^;{}]*;[^;{}]*<=\s*12\b|\b(?:for|while)\s*\([^;{}]*<=\s*12\b"),
