@@ -27,8 +27,8 @@ public final class MorovoyZmeyField extends Entity {
  @Override public void tick(){super.tick();if(level().isClientSide){if(tickCount%2==0)for(int i=0;i<3;i++){double r=1.8*Math.sqrt(random.nextDouble()),a=random.nextDouble()*Math.PI*2;float f=random.nextFloat();Vec3 at=new Vec3(getX()+Math.cos(a)*r,getY()+random.nextFloat()*.65,getZ()+Math.sin(a)*r);if(element()==0)level().addParticle(new DustParticleOptions(new Vector3f(.05f,.55f+f*.45f,.1f),.7f+f*.5f),at.x,at.y,at.z,0,.015,0);else PurpleFlameVisuals.trail(level(),at,tickCount+i);}return;}
   if(--remaining<=0){discard();return;}
   if(!(level() instanceof ServerLevel world)||owner==null||!(world.getEntity(owner) instanceof MorovoyFireZmey boss)||!boss.isAlive()||boss.state()>=MorovoyFireZmey.DYING){discard();return;}
-  if(tickCount%10!=0)return;
-  for(LivingEntity victim:world.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(2.2,1.5,2.2),e->boss.canDamage(e)&&e.distanceToSqr(position())<=5.0)){if(element()==0)victim.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,45,0));else victim.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,30,0));if(boss.hasLineOfSight(victim))victim.hurt(world.damageSources().mobAttack(boss),element()==0?2:3);}
+  if(tickCount%4!=0)return;
+  for(LivingEntity victim:world.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(2.2,1.5,2.2),e->boss.canDamage(e)&&e.distanceToSqr(position())<=5.0)){if(element()==0)victim.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,45,0));else victim.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,30,0));if(boss.hasLineOfSight(victim))victim.hurt(world.damageSources().mobAttack(boss),element()==0?3.5f:5.5f);}
  }
  @Override protected void addAdditionalSaveData(CompoundTag tag){tag.putInt("Element",element());tag.putInt("Remaining",remaining);if(owner!=null)tag.putUUID("Owner",owner);}
  @Override protected void readAdditionalSaveData(CompoundTag tag){entityData.set(ELEMENT,tag.getInt("Element")==0?0:1);remaining=Math.clamp(tag.getInt("Remaining"),0,120);owner=tag.hasUUID("Owner")?tag.getUUID("Owner"):null;}
