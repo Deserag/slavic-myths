@@ -12,7 +12,7 @@ public final class TrophyHeads {
  public enum Kind {
   TUGARIN("tugarin_head",1),SKIM("skim_head",1),VOLKOLAK("cursed_volkolak_head",1),
   LIKHO("likho_head",2),MOR_LIKHO("mor_likho_head",2),PODZEMNIK("large_podzemnik_head",2),MAGMA_LORD("magma_lord_head",1),GROVE_GUARDIAN("grove_guardian_head",1),ZHARENITSA("zharenitsa_head",1),POSTEN("posten_head",1),
-  MOROVOY_RAVEN("morovoy_raven_head",1),FIRE_SERPENT("fire_serpent_head",1),MOR_SERPENT("mor_serpent_head",1);
+  MOROVOY_RAVEN("morovoy_raven_head",2),FIRE_SERPENT("fire_serpent_head",2),MOR_SERPENT("mor_serpent_head",1);
   public final String id;public final int height;Kind(String id,int height){this.id=id;this.height=height;}
   /** Native-renderer envelope, verified by Heads140Offline; keeps server collision client-free. */
   public float[] bounds(){return switch(this){
@@ -24,7 +24,8 @@ public final class TrophyHeads {
    case GROVE_GUARDIAN,ZHARENITSA,POSTEN->new float[]{.01F,.02F,.01F,.99F,.98F,.99F};
    case MAGMA_LORD->new float[]{.03F,.04F,.03F,.97F,.94F,.97F};
    case PODZEMNIK->new float[]{.03F,.04F,.0535F,.97F,1.058333F,.9465F};
-   case MOROVOY_RAVEN,FIRE_SERPENT,MOR_SERPENT->new float[]{.03F,.03F,.03F,.97F,.97F,.97F};
+   case MOROVOY_RAVEN,FIRE_SERPENT->new float[]{0F,.03F,0F,1F,1.56F,1F};
+   case MOR_SERPENT->new float[]{.03F,.03F,.03F,.97F,.97F,.97F};
   };}
  }
  public static final Map<Kind,DeferredHolder<Block,Block>> BLOCKS=new EnumMap<>(Kind.class);
