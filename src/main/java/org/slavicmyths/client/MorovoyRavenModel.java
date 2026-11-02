@@ -99,6 +99,11 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         // A raven's single tapering breast, abdomen and neck: NO chest cube pile-up.
         add(bird, "breast", 0, 0, -13, -25, -25, 26, 29, 35);
         add(bird, "neck", 0, 90, -9, -33, -29, 18, 18, 20);
+        // Continuous abdomen and hips bridge the breast, rear leg hinges and tail root.
+        // Previously the breast ended at z=10 while leg pivots started at z=23 and tail at z=42.
+        add(bird, "abdomen", 0, 0, -12, -18, 2, 24, 22, 40);
+        add(bird, "hips", 0, 90, -14, -12, 16, 28, 16, 22);
+        add(bird, "tail_bridge", 0, 90, -8, -11, 35, 16, 12, 14);
 
         // Skull forehead z=-44; beak consists of progressively narrowing, bone-UV steps.
         PartDefinition skull = bird.addOrReplaceChild("head", CubeListBuilder.create(), PartPose.offset(0, -31, -30));
