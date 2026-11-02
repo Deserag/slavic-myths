@@ -13,10 +13,10 @@ import org.slavicmyths.registry.ModItems;
 import org.slavicmyths.SlavicMyths;
 
 public final class ModBlocks {
-    public static final DeferredHolder<Block, org.slavicmyths.morovoy.VioletFireBlock> VIOLET_FIRE = BLOCKS.register("violet_fire", () -> new org.slavicmyths.morovoy.VioletFireBlock(BlockBehaviour.Properties.of().noCollission().noOcclusion().replaceable().noLootTable().lightLevel(state -> 13).strength(0F)));
 
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(Registries.BLOCK, SlavicMyths.MOD_ID);
+    public static final DeferredHolder<Block, org.slavicmyths.morovoy.VioletFireBlock> VIOLET_FIRE = BLOCKS.register("violet_fire", () -> new org.slavicmyths.morovoy.VioletFireBlock(BlockBehaviour.Properties.of().noCollission().noOcclusion().replaceable().noLootTable().lightLevel(state -> 13).strength(0F)));
     public static final DeferredHolder<Block, Block> BAUK_HEAD = BLOCKS.register("bauk_head", () -> new org.slavicmyths.posad.boss.BaukHeadBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(3F).sound(SoundType.BONE_BLOCK).noOcclusion()));
     public static final DeferredHolder<Block,Block> SILVER_BLOCK=BLOCKS.register("silver_block",()->new Block(BlockBehaviour.Properties.ofFullCopy(net.minecraft.world.level.block.Blocks.IRON_BLOCK)));
     public static final DeferredHolder<Block,Block> PLACH_TRAVA=BLOCKS.register("plach_trava",org.slavicmyths.volkolak.PlachTravaBlock::new);
