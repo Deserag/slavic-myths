@@ -14,7 +14,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.*;
 import org.slavicmyths.underground.*;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class UndergroundClient {
  @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(UndergroundMobs.PODZEMNIK.get(),c->new Renderer<>(c,0));e.registerEntityRenderer(UndergroundMobs.KLADOVIK.get(),c->new Renderer<>(c,2));e.registerEntityRenderer(UndergroundMobs.LARGE.get(),c->new Renderer<>(c,3));e.registerEntityRenderer(UndergroundMobs.STONE.get(),c->new ThrownItemRenderer<>(c,1.2F,false));e.registerEntityRenderer(UndergroundMobs.SPIKE.get(),SpikeRenderer::new);}
  public static final class Model<T extends EncounterMob> extends EntityModel<T> implements ArmedModel {
