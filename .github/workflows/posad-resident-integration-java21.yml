@@ -8,7 +8,7 @@ on:
       - 'src/main/java/org/slavicmyths/posad/PosadResidentTraits.java'
       - 'src/main/java/org/slavicmyths/client/PosadBoss*.java'
       - 'src/main/java/org/slavicmyths/client/MorovoyRavenModel.java'
-      - 'src/main/java/org/slavicmyths/morovoy/MorovoyFireZmeyMesh.java'
+      - 'src/main/java/org/slavicmyths/morovoy/MorovoyFireZmey*.java'
       - 'src/main/java/org/slavicmyths/registry/ModItems.java'
       - 'src/main/resources/assets/slavicmyths/models/item/*.json'
       - 'src/main/resources/data/slavicmyths/recipe/*.json'
