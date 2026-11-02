@@ -15,8 +15,8 @@ import net.minecraft.world.phys.Vec3;
 /** Server-authoritative breath windows, independent from navigation and melee attacks. */
 public final class ZmeyBreathAttackGoal extends Goal {
     private final MorovoyFireZmey boss;
-    public ZmeyBreathAttackGoal(MorovoyFireZmey boss) { this.boss=boss; }
-    @Override public boolean canUse() { return active() && boss.getTarget()!=null && boss.canDamage(boss.getTarget()); }
+    public ZmeyBreathAttackGoal(MorovoyFireZmey boss) { this.boss=java.util.Objects.requireNonNull(boss, "boss"); }
+    @Override public boolean canUse() { LivingEntity target=boss.getTarget(); return active() && target!=null && boss.canDamage(target); }
     @Override public boolean canContinueToUse() { return canUse(); }
     private boolean active() { return boss.action()==MorovoyFireZmey.MOR_BREATH || boss.action()==MorovoyFireZmey.FIRE_BREATH; }
     @Override public void tick() {
