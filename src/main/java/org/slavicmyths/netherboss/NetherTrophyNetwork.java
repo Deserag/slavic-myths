@@ -3,18 +3,22 @@ package org.slavicmyths.netherboss;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.slavicmyths.network.MythPayloads;
 
 public final class NetherTrophyNetwork {
 
     public static void register(RegisterPayloadHandlersEvent event) {
-        event.registrar("2.3").playToServer(
+        PayloadRegistrar registrar = event.registrar("2.3");
+        registrar.playToServer(
             MythPayloads.NetherTrophy.TYPE,
             MythPayloads.NetherTrophy.CODEC,
             (payload, context) -> {
-                if (context.player() instanceof ServerPlayer player) {
-                    NetherTrophies.activateEquipped(player, payload.pendant());
-                }
+                context.enqueueWork(() -> {
+                    if (context.player() instanceof ServerPlayer player) {
+                        NetherTrophies.activateEquipped(player, payload.pendant());
+                    }
+                });
             }
         );
     }
