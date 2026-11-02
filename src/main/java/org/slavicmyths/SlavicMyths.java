@@ -101,6 +101,7 @@ public final class SlavicMyths {
         org.slavicmyths.posad.PosadWorldgen.init();
         org.slavicmyths.morovoy.MorovoyArenaWorldgen.init();
         org.slavicmyths.winters.WintersContent.init(bus);
+        RegistryBootstrap.register(bus, org.slavicmyths.winters.WintersRecipe.SERIALIZERS);
         RegistryBootstrap.register(bus, org.slavicmyths.winters.WintersContent.EFFECTS);
 
         RegistryBootstrap.register(bus, org.slavicmyths.registry.ModEffects.EFFECTS);
@@ -136,6 +137,8 @@ bus.addListener(org.slavicmyths.netherboss.NetherTrophyNetwork::register);
         RegistryBootstrap.register(bus, org.slavicmyths.rpg.RuneCraftRecipe.TYPES);
         RegistryBootstrap.register(bus, org.slavicmyths.rpg.RuneCraftRecipe.SERIALIZERS);
         org.slavicmyths.industry.Industry.register(bus);
+        RegistryBootstrap.register(bus, org.slavicmyths.industry.MachineRecipe.TYPES);
+        RegistryBootstrap.register(bus, org.slavicmyths.industry.MachineRecipe.SERIALIZERS);
         org.slavicmyths.underground.UndergroundMobs.init(bus);
         RegistryBootstrap.register(bus, org.slavicmyths.underground.UndergroundMobs.EFFECTS);
         org.slavicmyths.underground.UndergroundSounds.init();
