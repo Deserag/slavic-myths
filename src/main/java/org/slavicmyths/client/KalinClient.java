@@ -1,6 +1,6 @@
 package org.slavicmyths.client;
 import net.minecraft.client.renderer.entity.*;import net.minecraft.resources.ResourceLocation;import net.minecraft.world.entity.Mob;import net.minecraft.client.model.geom.ModelPart;import net.neoforged.api.distmarker.Dist;import net.neoforged.bus.api.SubscribeEvent;import net.neoforged.fml.common.EventBusSubscriber;import net.neoforged.neoforge.client.event.*;import org.slavicmyths.kalin.*;
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class KalinClient {
  @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(KalinContent.KALIN.get(),c->new Renderer<>(c,KalinMesh.create(),"kalin_tsar",false));e.registerEntityRenderer(KalinContent.HORSE.get(),c->new Renderer<>(c,WarHorseMesh.create(),"kalin_war_horse",true));e.registerEntityRenderer(KalinContent.COMMON.get(),c->new Renderer<>(c,CommonSoldierMesh.create(),"kalin_common_soldier",false));e.registerEntityRenderer(KalinContent.ELITE.get(),c->new Renderer<>(c,EliteSoldierMesh.create(),"kalin_elite_soldier",false));}
 
