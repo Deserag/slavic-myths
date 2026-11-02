@@ -1,0 +1,39 @@
+name: Posad Resident Integration Java21
+on:
+  push:
+    branches:
+      - integration/3.3-into-working-20261102
+    paths:
+      - 'src/main/java/org/slavicmyths/client/PosadResident*.java'
+      - 'src/main/java/org/slavicmyths/posad/PosadResidentTraits.java'
+      - 'src/main/resources/assets/slavicmyths/textures/entity/posad_resident_*.png'
+      - '.github/workflows/posad-resident-integration-java21.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Validate resident PNG atlases
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from struct import unpack
+          base = Path("src/main/resources/assets/slavicmyths/textures/entity")
+          for i in range(5):
+              for suffix in ("", "_glow"):
+                  path = base / f"posad_resident_{i}{suffix}.png"
+                  data = path.read_bytes()
+                  assert data[:8] == b"\x89PNG\r\n\x1a\n", path
+                  assert unpack(">II", data[16:24]) == (64, 64), path
+          print("10 resident texture atlases verified")
+          PY
+      - name: Compile NeoForge mod
+        run: chmod +x gradlew && ./gradlew --no-daemon compileJava --console=plain
