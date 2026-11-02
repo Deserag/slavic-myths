@@ -93,7 +93,29 @@ public final class MorovoyFireZmey extends Monster {
  private void tickGrab(){grabTicks--;if(!(level() instanceof ServerLevel world)||grabbed==null)return;net.minecraft.world.entity.Entity entity=world.getEntity(grabbed);if(!(entity instanceof LivingEntity victim)||!canDamage(victim)||!hasLineOfSight(victim)||distanceToSqr(victim)>36){grabTicks=0;grabbed=null;return;}if(grabTicks%5==0){Vec3 pull=mouth(action()==BITE_MOR?0:1).subtract(victim.position());victim.setDeltaMovement(victim.getDeltaMovement().add(pull.normalize().scale(.22)));victim.hurt(damageSources().mobAttack(this),2);}}
  private void passiveMor(){if(!(level() instanceof ServerLevel world))return;particles(0,position().add(0,.25,0),5);if(tickCount%90==0)MorovoyZmeyField.spawn(world,this,0,anchor,45);}
  private void particles(int element,Vec3 pos,int count){if(!(level() instanceof ServerLevel world))return;if(element!=0){PurpleFlameVisuals.burst(world,pos,count);return;}world.sendParticles(new DustParticleOptions(new Vector3f(.12f,.85f,.18f),1.1f),pos.x,pos.y,pos.z,count,.75,.45,.75,.04);}
- private void moveInAir(LivingEntity target,boolean dive){if(!(level() instanceof ServerLevel world)||anchor==null)return;entityData.set(AIRBORNE,true);setNoGravity(true);orbitTicks++;double angle=orbitTicks*.036+(getId()%9),radius=dive?2.5:14;Vec3 focus=dive?target.position().add(0,2,0):anchor.add(Math.cos(angle)*radius,state()==PHASE_II?12:8,Math.sin(angle)*radius);Vec3 toward=focus.subtract(position());Vec3 velocity=toward.length()>1?toward.normalize().scale(dive?.65:.31):Vec3.ZERO;Vec3 next=position().add(velocity);if(next.distanceToSqr(anchor)>72*72||!world.hasChunkAt(BlockPos.containing(next))||!world.noCollision(this,getBoundingBox().move(velocity).inflate(2.8,1.4,2.8))){setDeltaMovement(Vec3.ZERO);return;}setDeltaMovement(velocity);hasImpulse=true;}
+ private void moveInAir(LivingEntity target, boolean dive) {
+  if (!(level() instanceof ServerLevel world)) return;
+  if (anchor == null) anchor = position();
+  entityData.set(AIRBORNE, true);
+  setNoGravity(true);
+  orbitTicks++;
+  double angle = orbitTicks * .036 + (getId() % 9);
+  double radius = dive && target != null ? 2.5 : 14;
+  Vec3 focus = dive && target != null ? target.position().add(0, 2, 0) : anchor.add(Math.cos(angle) * radius, state() == PHASE_II ? 12 : 8, Math.sin(angle) * radius);
+  Vec3 toward = focus.subtract(position());
+  Vec3 velocity = toward.length() > 1 ? toward.normalize().scale(dive ? .65 : .31) : Vec3.ZERO;
+  Vec3 next = position().add(velocity);
+  if (next.distanceToSqr(anchor) > 72 * 72 || !world.hasChunkAt(BlockPos.containing(next))) { setDeltaMovement(Vec3.ZERO); return; }
+  // The previous inflated AABB overlapped the ground even while the boss was trying
+  // to take off. Test the real collision bounds, and rise vertically if orbit is blocked.
+  if (!world.noCollision(this, getBoundingBox().move(velocity))) {
+   Vec3 lift = new Vec3(0, .28, 0);
+   velocity = world.noCollision(this, getBoundingBox().move(lift)) ? lift : Vec3.ZERO;
+  }
+  setDeltaMovement(velocity);
+  hasImpulse = true;
+ }
+
  @Override public void addAdditionalSaveData(CompoundTag tag){super.addAdditionalSaveData(tag);tag.putInt("BossState",state());tag.putInt("StateAge",stateAge());tag.putInt("Action",action());tag.putInt("ActionAge",actionAge());tag.putInt("Turn",turn);tag.putInt("Rest",idleTicks);tag.putInt("Orbit",orbitTicks);if(anchor!=null){tag.putDouble("AnchorX",anchor.x);tag.putDouble("AnchorY",anchor.y);tag.putDouble("AnchorZ",anchor.z);}}
  @Override public void readAdditionalSaveData(CompoundTag tag){super.readAdditionalSaveData(tag);entityData.set(STATE,Math.clamp(tag.getInt("BossState"),SLEEPING,DYING));entityData.set(STATE_AGE,Math.max(0,tag.getInt("StateAge")));entityData.set(ACTION,Math.clamp(tag.getInt("Action"),IDLE,WING_STREAK));entityData.set(ACTION_AGE,Math.max(0,tag.getInt("ActionAge")));turn=Math.max(0,tag.getInt("Turn"));idleTicks=Math.max(10,tag.getInt("Rest"));orbitTicks=Math.max(0,tag.getInt("Orbit"));if(tag.contains("AnchorX"))anchor=new Vec3(tag.getDouble("AnchorX"),tag.getDouble("AnchorY"),tag.getDouble("AnchorZ"));grabbed=null;grabTicks=0;entityData.set(AIRBORNE,false);setNoGravity(false);}
  @Override public boolean removeWhenFarAway(double distance){return false;}
