@@ -6,9 +6,9 @@ import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.util.Mth;
 
-public final class MorovoyFireZmeyModel extends EntityModel<MorovoyFireZmey> {
+public class MorovoyFireZmeyModel extends EntityModel<MorovoyFireZmey> {
     private final ModelPart root = MorovoyFireZmeyMesh.create();
-    private final ModelPart body = root.getChild("body");
+    protected final ModelPart body = root.getChild("body");
     private final ModelPart morBase = body.getChild("neck_left_base");
     private final ModelPart morMid = morBase.getChild("neck_left_mid");
     private final ModelPart morTip = morMid.getChild("neck_left_tip");
