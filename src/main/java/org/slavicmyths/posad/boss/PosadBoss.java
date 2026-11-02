@@ -31,6 +31,7 @@ public final class PosadBoss extends Monster {
     private static final EntityDataAccessor<Integer> ACTION = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> PHASE = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> ENRAGED = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Integer> ACTION_REMAINING = SynchedEntityData.defineId(PosadBoss.class, EntityDataSerializers.INT);
     private final Kind kind;
     private final ServerBossEvent bar;
     private int actionTicks;
@@ -73,11 +74,13 @@ public final class PosadBoss extends Monster {
     public Move move() { Move[] moves = Move.values(); int index = entityData.get(ACTION); return moves[index >= 0 && index < moves.length ? index : Move.IDLE.ordinal()]; }
     public boolean enraged() { return entityData.get(ENRAGED); }
     public int phase() { return entityData.get(PHASE); }
+    public int actionRemaining() { return entityData.get(ACTION_REMAINING); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(ACTION, Move.IDLE.ordinal());
         builder.define(PHASE, 1);
         builder.define(ENRAGED, false);
+        builder.define(ACTION_REMAINING, 0);
     }
     @Override protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
@@ -115,6 +118,7 @@ public final class PosadBoss extends Monster {
         if (grabCooldown > 0) grabCooldown--;
         if (actionTicks > 0) {
             actionTicks--;
+            entityData.set(ACTION_REMAINING, actionTicks);
             getNavigation().stop();
             if (move() == Move.WINDUP_CHARGE && actionTicks <= 14) chargeStep();
             if (move() == Move.WINDUP_COINS && (actionTicks == 16 || actionTicks == 8 || actionTicks == 1)) applyHit();
@@ -147,6 +151,7 @@ public final class PosadBoss extends Monster {
     private void begin(Move next, int ticks, int after) {
         entityData.set(ACTION, next.ordinal());
         actionTicks = ticks;
+        entityData.set(ACTION_REMAINING, ticks);
         cooldown = after;
         connected = false;
         if (next == Move.WINDUP_CHARGE && getTarget() != null) chargeDirection = getTarget().position().subtract(position()).multiply(1D, 0D, 1D).normalize();
