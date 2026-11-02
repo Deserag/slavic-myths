@@ -98,7 +98,7 @@ public final class SlavicMyths {
         org.slavicmyths.winters.WintersContent.init(bus);
         org.slavicmyths.winters.WintersContent.EFFECTS.register(bus);
 
-// ModEffects.EFFECTS was already registered before this point; avoid a second event-bus registration.
+        org.slavicmyths.registry.ModEffects.EFFECTS.register(bus);
 bus.addListener(org.slavicmyths.netherboss.NetherTrophyNetwork::register);
 
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.SERVER,org.slavicmyths.sanctuary.SanctuaryConfig.SPEC,"slavicmyths-sanctuaries.toml");
@@ -132,6 +132,7 @@ bus.addListener(org.slavicmyths.netherboss.NetherTrophyNetwork::register);
         org.slavicmyths.rpg.RuneCraftRecipe.SERIALIZERS.register(bus);
         org.slavicmyths.industry.Industry.register(bus);
         org.slavicmyths.underground.UndergroundMobs.init(bus);
+        org.slavicmyths.underground.UndergroundMobs.EFFECTS.register(bus);
         org.slavicmyths.underground.UndergroundSounds.init();
         ModItems.ITEMS.register(bus);
         org.slavicmyths.armorer.ArmorerRecipe.TYPES.register(bus);
