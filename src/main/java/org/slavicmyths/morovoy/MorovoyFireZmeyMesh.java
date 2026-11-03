@@ -181,7 +181,7 @@ public final class MorovoyFireZmeyMesh {
                     float maxZ = Math.max(Math.max(p00[2], p01[2]), Math.max(p10[2], p11[2]));
                     float centerY = (p00[1] + p01[1] + p10[1] + p11[1]) * .25F;
                     wrist.addOrReplaceChild("web_" + gap + "_" + across + "_" + radial,
-                        box(membrane, minX - .16F, centerY - .5F, minZ - .16F, maxX - minX + .32F, 1, maxZ - minZ + .32F),
+                        CubeListBuilder.create().texOffs(membrane.u + 3 + across, membrane.v + 3 + radial * 3).addBox(minX - .16F, centerY - .5F, minZ - .16F, maxX - minX + .32F, 1, maxZ - minZ + .32F),
                         PartPose.ZERO);
                 }
             }
