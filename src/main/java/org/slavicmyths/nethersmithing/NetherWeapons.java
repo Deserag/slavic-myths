@@ -1,7 +1,6 @@
 package org.slavicmyths.nethersmithing;
 import java.util.*;import net.minecraft.world.level.Level;import net.minecraft.world.*;import net.minecraft.world.entity.*;import net.minecraft.world.entity.player.Player;import net.minecraft.server.level.*;import net.minecraft.world.item.*;import net.minecraft.world.item.crafting.Ingredient;import net.minecraft.resources.ResourceLocation;import net.minecraft.core.component.DataComponents;
 import org.slavicmyths.combat.*;import org.slavicmyths.registry.ModItems;
-@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
 public final class NetherWeapons {
  public static final Map<String,net.neoforged.neoforge.registries.DeferredHolder<Item,Item>> ITEMS=new LinkedHashMap<>();
  public static final Tier TIER=new Tier(){public int getUses(){return 1800;}public float getSpeed(){return 8;}public float getAttackDamageBonus(){return 3;}public net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block> getIncorrectBlocksForDrops(){return net.minecraft.tags.BlockTags.INCORRECT_FOR_DIAMOND_TOOL;}public int getEnchantmentValue(){return 18;}public Ingredient getRepairIngredient(){return Ingredient.of(net.minecraft.core.registries.BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("slavicmyths","alatyr_ingot")));}};

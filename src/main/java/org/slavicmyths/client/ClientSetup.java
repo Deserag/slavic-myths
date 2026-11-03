@@ -13,6 +13,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 public final class ClientSetup {
     public static void registerModListeners(net.neoforged.bus.api.IEventBus bus) {
+        bus.addListener(org.slavicmyths.nethersmithing.client.NetherArmorGlow::layers);
         bus.addListener(KalinClient::renderers);
         bus.addListener(PolozClient::renderers);
         bus.addListener(PolozClient::extensions);

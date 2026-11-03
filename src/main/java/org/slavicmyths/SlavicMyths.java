@@ -162,6 +162,8 @@ public final class SlavicMyths {
         bus.addListener(org.slavicmyths.world.WildlifeSpawns::placements);
         bus.addListener(org.slavicmyths.water.WaterSpawns::placements);
         bus.addListener(org.slavicmyths.world.LandEncounters::placements);
+        bus.addListener(org.slavicmyths.nethersmithing.NetherSmithing::defaults);
+        bus.addListener(org.slavicmyths.nethersmithing.NetherWeapons::defaults);
         bus.addListener(org.slavicmyths.combat.WeaponDefaults::modify);
         bus.addListener(org.slavicmyths.earth.EarthConfig::load);
         bus.addListener(org.slavicmyths.earth.EarthContent::attributes);

@@ -15,7 +15,6 @@ import org.slavicmyths.registry.ModItems;
 import org.slavicmyths.combat.*;
 
 /** #326/#330 available material chain and six existing diamond-form upgrades only. */
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class NetherSmithing {
  public static final List<String> MATERIALS=List.of("zhara_plate","four_faces_crown_core","infernal_armor_heart","navya_armor_weave","blazing_step_seal","pekelnik_ember","navya_fork_core","ashen_blade_core","shadow_knife_core","volcanic_flail_core","infernal_bow_core");
  public static final List<String> FORMS=List.of("sword","axe","spear","sulitsa","throwing_knife","flail");

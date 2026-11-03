@@ -1,7 +1,6 @@
 package org.slavicmyths.nethersmithing.client;
 import net.minecraft.client.model.*;import net.minecraft.client.renderer.*;import net.minecraft.client.renderer.entity.*;import net.minecraft.client.renderer.entity.layers.RenderLayer;import net.minecraft.world.entity.*;import net.minecraft.world.item.*;import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;import net.neoforged.bus.api.SubscribeEvent;import net.neoforged.fml.common.EventBusSubscriber;import org.slavicmyths.nethersmithing.NetherArmor;
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
 public final class NetherArmorGlow {
  @SuppressWarnings({"rawtypes","unchecked"}) @SubscribeEvent public static void layers(net.neoforged.neoforge.client.event.EntityRenderersEvent.AddLayers e){for(var skin:e.getSkins()){var renderer=e.getSkin(skin);if(renderer instanceof LivingEntityRenderer living)living.addLayer(new Glow(living));}for(var type:e.getEntityTypes()){var renderer=e.getRenderer(type);if(renderer instanceof LivingEntityRenderer living&&living.getModel() instanceof HumanoidModel)living.addLayer(new Glow(living));}}
  public static ResourceLocation texture(NetherArmor.Piece piece,boolean glow){return ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/armor/nether/"+piece.id+(glow?"_glow":"")+".png");}
