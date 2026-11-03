@@ -61,7 +61,7 @@ public final class TrophyHeadsClient {
   public void pose(float time){pose(time,0,0);}
   private Head ears(ModelPart left,ModelPart right){earLeft=left;earRight=right;earLeftBaseZ=left.zRot;earRightBaseZ=right.zRot;return this;}
   public void pose(float time,float lookX,float lookY){
-   if(kind==TrophyHeads.Kind.MOROVOY_RAVEN||kind==TrophyHeads.Kind.FIRE_SERPENT||kind==TrophyHeads.Kind.MOR_SERPENT){
+   if(kind==TrophyHeads.Kind.MOROVOY_RAVEN||kind==TrophyHeads.Kind.FIRE_SERPENT||kind==TrophyHeads.Kind.MOR_SERPENT||kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY){
     part.xRot=(float)Math.sin(time*.043F)*.035F;part.yRot=(float)Math.sin(time*.034F)*.065F;
     if(detail!=null)detail.xRot=detailBaseXRot+.09F+(float)Math.sin(time*.075F)*.11F;
     return;
@@ -119,7 +119,7 @@ public final class TrophyHeadsClient {
    for(int i=0;i<2;i++){if(!part.hasChild("shard_head"+i))continue;var shard=part.getChild("shard_head"+i);shard.y=shard.getInitialPose().y+(float)Math.sin(time*.06+i)*.12F;shard.yRot=(float)Math.sin(time*.03+i)*.1F;}
   }
   public void resetPose(){
-   if(kind==TrophyHeads.Kind.GROVE_GUARDIAN||kind==TrophyHeads.Kind.ZHARENITSA||kind==TrophyHeads.Kind.POSTEN||kind==TrophyHeads.Kind.MAGMA_LORD||kind==TrophyHeads.Kind.MOROVOY_RAVEN||kind==TrophyHeads.Kind.FIRE_SERPENT||kind==TrophyHeads.Kind.MOR_SERPENT){part.getAllParts().forEach(ModelPart::resetPose);part.setPos(0,0,0);part.xRot=part.yRot=part.zRot=0;return;}
+   if(kind==TrophyHeads.Kind.GROVE_GUARDIAN||kind==TrophyHeads.Kind.ZHARENITSA||kind==TrophyHeads.Kind.POSTEN||kind==TrophyHeads.Kind.MAGMA_LORD||kind==TrophyHeads.Kind.MOROVOY_RAVEN||kind==TrophyHeads.Kind.FIRE_SERPENT||kind==TrophyHeads.Kind.MOR_SERPENT||kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY){part.getAllParts().forEach(ModelPart::resetPose);part.setPos(0,0,0);part.xRot=part.yRot=part.zRot=0;return;}
    if(lid!=null){lid.x=lidBaseX;lid.xScale=lidScaleX;lid.y=lidBaseY;lid.z=lidBaseZ;lid.yScale=lidScaleY;}
    if(earLeft!=null){earLeft.zRot=earLeftBaseZ;earRight.zRot=earRightBaseZ;}
    if(glow!=null){glow.x=glowBaseX;glow.y=glowBaseY;}
@@ -150,6 +150,7 @@ public final class TrophyHeadsClient {
   case PODZEMNIK->{var head=UndergroundClient.Model.mesh(3).getChild("body").getChild("head");yield new Head(kind,head,"textures/entity/underground/large_podzemnik.png",null,null,null,head.getChild("jaw"),head.getChild("brows"));}
   case MOROVOY_RAVEN->{var head=new MorovoyRavenModel().trophyHead();yield new Head(kind,head,"textures/entity/morovoy_raven.png",null,null,null,head.getChild("jaw"),null);}
   case FIRE_SERPENT,MOR_SERPENT->{String side=kind==TrophyHeads.Kind.FIRE_SERPENT?"right":"left";var head=org.slavicmyths.morovoy.MorovoyFireZmeyMesh.create().getChild("body").getChild("neck_" + side + "_base").getChild("neck_" + side + "_mid").getChild("neck_" + side + "_tip").getChild("head_" + side);yield new Head(kind,head,"textures/entity/morovoy_fire_zmey_albedo.png",null,null,null,head.getChild("jaw_"+side),null);}
+  case MOROVOY_FIRE_ZMEY->{var pair=org.slavicmyths.morovoy.MorovoyFireZmeyMesh.trophyHeadPair();yield new Head(kind,pair,"textures/entity/morovoy_fire_zmey_albedo.png");}
  };}
  public static Head magmaHead(ModelPart head){return new Head(TrophyHeads.Kind.MAGMA_LORD,head,"textures/entity/burning_islands/magma_lord.png",null,null,null,head.getChild("jaw"),head.getChild("shard_head0"));}
  private static final Map<TrophyHeads.Kind,Head> HEADS=new EnumMap<>(TrophyHeads.Kind.class);
@@ -208,7 +209,7 @@ public final class TrophyHeadsClient {
     }
     h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);
     if(block.kind.ordinal()>=TrophyHeads.Kind.GROVE_GUARDIAN.ordinal()){
-     ResourceLocation glowTexture=block.kind==TrophyHeads.Kind.FIRE_SERPENT||block.kind==TrophyHeads.Kind.MOR_SERPENT?ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/morovoy_fire_zmey_emissive.png"):ResourceLocation.fromNamespaceAndPath("slavicmyths",h.texture.getPath().replace(".png","_glow.png"));
+     ResourceLocation glowTexture=block.kind==TrophyHeads.Kind.FIRE_SERPENT||block.kind==TrophyHeads.Kind.MOR_SERPENT||kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY?ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/morovoy_fire_zmey_emissive.png"):ResourceLocation.fromNamespaceAndPath("slavicmyths",h.texture.getPath().replace(".png","_glow.png"));
      h.render(pose,buffer.getBuffer(RenderType.eyes(glowTexture)),15728880,overlay,((int)(175+45*Math.sin(time*.065))<<24)|0xffffff);
     }
     if(block.kind==TrophyHeads.Kind.MAGMA_LORD)h.render(pose,buffer.getBuffer(RenderType.eyes(org.slavicmyths.burningislands.client.IslandsClient.texture(org.slavicmyths.burningislands.IslandsContent.Kind.MAGMA_LORD,true))),15728880,overlay,((int)(120+80*tile.magmaOpenness+25*Math.sin(time*.065))<<24)|0xffffff);
@@ -235,7 +236,7 @@ public final class TrophyHeadsClient {
    if(particleBudget<=0)return;
    int period=switch(kind){
     case GROVE_GUARDIAN->20;case POSTEN,ZHARENITSA->60;case MAGMA_LORD->200;case TUGARIN->9;case SKIM->10;case VOLKOLAK->9;case PODZEMNIK->11;
-    case LIKHO->8;case MOR_LIKHO->7;case MOROVOY_RAVEN->16;case FIRE_SERPENT->9;case MOR_SERPENT->12;
+    case LIKHO->8;case MOR_LIKHO->7;case MOROVOY_RAVEN->16;case FIRE_SERPENT->9;case MOR_SERPENT,MOROVOY_FIRE_ZMEY->12;
    };
    if(!TrophyHeadFxRules.particleDue(now,tile.clientLastFxTick,period))return;
    tile.clientLastFxTick=now;
@@ -243,7 +244,7 @@ public final class TrophyHeadsClient {
    double dx=(world.getRandom().nextDouble()-.5)*.17,dz=(world.getRandom().nextDouble()-.5)*.17;
    double height=switch(kind){
     case POSTEN,GROVE_GUARDIAN,ZHARENITSA->.65;case MAGMA_LORD->.65;case TUGARIN->.37;case SKIM->.66;case VOLKOLAK->.77;case PODZEMNIK->.95;
-    case LIKHO,MOR_LIKHO->1.25;case MOROVOY_RAVEN,FIRE_SERPENT,MOR_SERPENT->.55;
+    case LIKHO,MOR_LIKHO->1.25;case MOROVOY_RAVEN,FIRE_SERPENT,MOR_SERPENT,MOROVOY_FIRE_ZMEY->.55;
    };
    var particle=switch(kind){
     case POSTEN->ParticleTypes.SOUL;case GROVE_GUARDIAN->ParticleTypes.ASH;case ZHARENITSA->ParticleTypes.SMALL_FLAME;case MAGMA_LORD->ParticleTypes.SMALL_FLAME;case TUGARIN->ParticleTypes.DRAGON_BREATH;
@@ -252,14 +253,14 @@ public final class TrophyHeadsClient {
     case PODZEMNIK->ParticleTypes.ASH;
     case LIKHO->ParticleTypes.SOUL;
     case MOR_LIKHO->ParticleTypes.CRIMSON_SPORE;
-    case MOROVOY_RAVEN,MOR_SERPENT->ParticleTypes.HAPPY_VILLAGER;
+    case MOROVOY_RAVEN,MOR_SERPENT,MOROVOY_FIRE_ZMEY->ParticleTypes.HAPPY_VILLAGER;
     case FIRE_SERPENT->ParticleTypes.DRAGON_BREATH;
    };
    int count=Math.min(particleBudget,kind==TrophyHeads.Kind.MAGMA_LORD||kind==TrophyHeads.Kind.POSTEN||kind==TrophyHeads.Kind.GROVE_GUARDIAN||kind==TrophyHeads.Kind.ZHARENITSA?1:5);particleBudget-=count;
    for(int i=0;i<count;i++){
     net.minecraft.core.particles.ParticleOptions elemental=particle;
     if(kind==TrophyHeads.Kind.FIRE_SERPENT){var color=i%3==0?new org.joml.Vector3f(.21F,.03F,.38F):i%3==1?new org.joml.Vector3f(.65F,.18F,1F):new org.joml.Vector3f(1F,1F,1F);elemental=new net.minecraft.core.particles.DustParticleOptions(color,.9F);}
-    if(kind==TrophyHeads.Kind.MOR_SERPENT||kind==TrophyHeads.Kind.MOROVOY_RAVEN)elemental=new net.minecraft.core.particles.DustParticleOptions(new org.joml.Vector3f(.12F,.77F,.20F),.85F);
+    if(kind==TrophyHeads.Kind.MOR_SERPENT||kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY||kind==TrophyHeads.Kind.MOROVOY_RAVEN)elemental=new net.minecraft.core.particles.DustParticleOptions(new org.joml.Vector3f(.12F,.77F,.20F),.85F);
     world.addParticle(elemental,pos.getX()+.5+facing.getStepX()*.28+dx+(world.getRandom().nextDouble()-.5)*.14,
     pos.getY()+height+world.getRandom().nextDouble()*.25,
     pos.getZ()+.5+facing.getStepZ()*.28+dz+(world.getRandom().nextDouble()-.5)*.14,0,.018,0);

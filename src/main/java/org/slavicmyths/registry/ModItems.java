@@ -15,7 +15,7 @@ import org.slavicmyths.SlavicMyths;
 public final class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(Registries.ITEM, SlavicMyths.MOD_ID);
-    public static final DeferredHolder<Item, Item> MOROVOY_FIRE_ZMEY_HEAD = ITEMS.register("morovoy_fire_zmey_head", () -> new org.slavicmyths.morovoy.MorovoyFireZmeyHeadItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
+    public static final DeferredHolder<Item, Item> MOROVOY_FIRE_ZMEY_HEAD = ITEMS.register("morovoy_fire_zmey_head", () -> new BlockItem(org.slavicmyths.trophy.TrophyHeads.BLOCKS.get(org.slavicmyths.trophy.TrophyHeads.Kind.MOROVOY_FIRE_ZMEY).get(),new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
     public static final DeferredHolder<Item, Item> CURSED_MYTAR_SPAWN_EGG = egg("cursed_mytar_spawn_egg", ModEntities.CURSED_MYTAR, 0x45323B, 0xB69B6C);
     public static final DeferredHolder<Item, Item> BAUK_SPAWN_EGG = egg("bauk_spawn_egg", ModEntities.BAUK, 0x242129, 0x8C413C);
     public static final DeferredHolder<Item, Item> GARLIC = ITEMS.register("garlic", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));

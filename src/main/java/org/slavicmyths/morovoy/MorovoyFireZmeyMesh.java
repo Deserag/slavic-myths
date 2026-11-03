@@ -73,6 +73,19 @@ public final class MorovoyFireZmeyMesh {
         return LayerDefinition.create(mesh, 512, 512).bakeRoot();
     }
 
+    /** Compact dual-skull trophy derived from the boss' real left and right heads. */
+    public static ModelPart trophyHeadPair() {
+        ModelPart base=create().getChild("body");
+        ModelPart mor=base.getChild("neck_left_base").getChild("neck_left_mid").getChild("neck_left_tip").getChild("head_left");
+        ModelPart fire=base.getChild("neck_right_base").getChild("neck_right_mid").getChild("neck_right_tip").getChild("head_right");
+        mor.setPos(-4F,0F,0F);fire.setPos(4F,0F,0F);
+        mor.xScale=mor.yScale=mor.zScale=.65F;
+        fire.xScale=fire.yScale=fire.zScale=.65F;
+        java.util.Map<String,ModelPart> skulls=new java.util.LinkedHashMap<>();
+        skulls.put("mor_head",mor);skulls.put("fire_head",fire);
+        return new ModelPart(new java.util.ArrayList<>(),skulls);
+    }
+
     private static void neck(PartDefinition body, String name, int side) {
         Skin hide = side < 0 ? Skin.CHARCOAL : Skin.OBSIDIAN;
         Skin shade = side < 0 ? Skin.SLATE : Skin.CHARCOAL;

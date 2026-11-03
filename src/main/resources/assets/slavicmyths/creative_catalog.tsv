@@ -1126,8 +1126,9 @@ blackwood_weapon_rack	furniture	furniture_weapon_rack
 morovoy_raven_feather	resources	boss_material
 mor_core	resources	boss_material
 morovoy_raven_head	heads	boss_head
-fire_serpent_head	heads	boss_head
-mor_serpent_head	heads	boss_head
+fire_serpent_head	hidden	legacy_zmey_trophy
+mor_serpent_head	hidden	legacy_zmey_trophy
+morovoy_fire_zmey_head	heads	boss_head
 posad_resident_spawn_egg	mobs	posad
 posadnik_spawn_egg	mobs	posad
 cursed_mytar_spawn_egg	mobs	bosses_22
