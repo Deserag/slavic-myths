@@ -38,18 +38,34 @@ public final class SistersModel extends EntityModel<SisterBoss> {
                 box(g,body,BONE,s<0?-12:3,-10+r*4,-10,9,2.2F,4);
                 box(g,body,BONE,s<0?-13:10,-9+r*4,-8,3,3,10);
             }
+            // Six projecting shoulder quills, three on each pauldron.
             for (int s:new int[]{-1,1}) {
                 ModelPart shoulder=part(g,body,s*14,-9,0);
                 box(g,shoulder,BONE,s<0?-9:0,-5,-9,9,8,18);
                 box(g,shoulder,BONE,s<0?-10:7,-10,-8,3,13,6);
-                for (int j=0;j<4;j++)box(g,shoulder,BONE,s<0?-10+j:7-j,-12-j*2,2+j,2.5F,7,2.5F);
+                for (int j=0;j<3;j++) {
+                    ModelPart quill=part(g,shoulder,s*(5+j*2),-9-j,2+j*2);
+                    box(g,quill,BONE,-1,-6,-1,2,4,2);
+                    box(g,quill,BONE,-1,-10,-1,2,4,2);
+                }
+            }
+            // Raised dorsal vertebrae are visible from behind, not on the chest.
+            for (int i=0;i<7;i++) {
+                box(g,body,BONE,-2,-11+i*3.4F,6,4,3,4+i%2);
+                box(g,body,BONE,-1,-13+i*3.4F,9,2,5,2);
             }
             head=part(g,root,0,-42,-1);
-            box(g,head,SKIN,-6,-10,-6,12,14,12);
-            box(g,head,SKIN,-7,-1,-9,14,6,3);
-            box(g,head,SKIN,-2,0,-11,4,5,3);
-            box(g,head,GLOW,-6,-3,-9,3,2,1,128);
-            box(g,head,GLOW,3,-3,-9,3,2,1,128);
+            box(g,head,DARK,-6,-10,-6,12,14,12);
+            // Rigid overlapping skull plates frame black recessed sockets.
+            box(g,head,BONE,-7,-11,-9,14,3,4);
+            box(g,head,BONE,-7,-8,-9,2,11,3);
+            box(g,head,BONE,5,-8,-9,2,11,3);
+            box(g,head,BONE,-5,1,-9,10,4,3);
+            box(g,head,BONE,-2,-6,-10,4,7,3);
+            box(g,head,DARK,-5,-7,-10,4,4,1);
+            box(g,head,DARK,1,-7,-10,4,4,1);
+            box(g,head,GLOW,-4,-6,-11,2,2,1,128);
+            box(g,head,GLOW,2,-6,-11,2,2,1,128);
             // Asymmetric crown of cracked vertebrae; real protruding silhouettes.
             // Jagged horn crown, several independent projecting bone spires.
             for (int i=0;i<7;i++) {
@@ -91,16 +107,14 @@ public final class SistersModel extends EntityModel<SisterBoss> {
                 box(g,arm,SKIN,-4,24,-4,8,7,8);
                 for (int j=0;j<4;j++)box(g,arm,SKIN,-4+j*2,29,-5,1.7F,6,2.5F);
             }
-            // Bone war-staff is fully modeled and follows the right-arm attack pivot.
+            // Obsidian scythe: 48-pixel continuous shaft and stepped bone hook.
             weapon=part(g,rightArm,-1,27,-7);
-            box(g,weapon,BONE,-2,-57,-2,4,76,4);
-            for (int i=0;i<11;i++)box(g,weapon,BONE,-3,-53+i*6,-3,6,2.5F,6);
-            box(g,weapon,BONE,-8,-65,-8,16,15,16);
-            box(g,weapon,BONE,-5,-71,-5,10,12,10);
-            for (int i=0;i<8;i++) {
-                float a=i*Mth.PI/4F;
-                box(g,weapon,BONE,Mth.cos(a)*8-2,-67-i%3*3,Mth.sin(a)*8-2,4,13,4);
+            box(g,weapon,DARK,-1.5F,-46,-1.5F,3,48,3);
+            box(g,weapon,BONE,-2.5F,-47,-2.5F,5,3,5);
+            for (int i=0;i<5;i++) {
+                box(g,weapon,BONE,1+i*4,-48+i*3,-2,9-i,3,4);
             }
+            box(g,weapon,BONE,17,-34,-2,2,6,3);
             lantern=part(g,root,0,0,0);
         } else {
             body=part(g,root,0,-19,0);
@@ -108,11 +122,16 @@ public final class SistersModel extends EntityModel<SisterBoss> {
             box(g,body,HEM,-5,1,-5,10,13,10);
             for (int i=0;i<9;i++)box(g,body,i%3==0?BONE:HEM,-5+i*1.1F,4,-5,1.7F,14+(i*3%5),2);
             head=part(g,root,0,-27,0);
-            box(g,head,SKIN,-5,-9,-5,10,14,10);
-            box(g,head,SKIN,-4,-1,-6,8,4,2);
-            box(g,head,GLOW,-5,-3,-7,3,2,1,128);
-            box(g,head,GLOW,2,-3,-7,3,2,1,128);
-            box(g,head,DARK,-6,-11,-6,12,3,12);
+            // Dark face cavity: only two cold-blue emissive eyes are visible.
+            box(g,head,DARK,-5,-9,-5,10,14,10);
+            box(g,head,DARK,-5,-5,-6,10,8,1);
+            box(g,head,GLOW,-3,-3,-7,2,1,1,128);
+            box(g,head,GLOW,1,-3,-7,2,1,1,128);
+            // Frayed indigo hood, with deep brow and cheek plates.
+            box(g,head,CLOTH,-6,-12,-6,12,3,12);
+            box(g,head,CLOTH,-7,-11,-7,2,14,12);
+            box(g,head,CLOTH,5,-11,-7,2,14,12);
+            box(g,head,HEM,-6,-11,-7,12,2,2);
             for (int i=0;i<7;i++)box(g,head,DARK,-5+i*1.5F,-10-i%3*2,-6,1,5,2);
             for (int i=0;i<12;i++) {
                 ModelPart strand=part(g,head,-5+(i%6)*2,-9,i<8?5:-6);
@@ -133,34 +152,32 @@ public final class SistersModel extends EntityModel<SisterBoss> {
                 box(g,arm,SKIN,-2,16,-2,4,6,4);
                 for (int j=0;j<4;j++)box(g,arm,SKIN,-2+j*1.1F,20,-3,1,4,2);
             }
-            // Separate iron cage with suspension, roof, bars, base and a glowing captive core.
-            lantern=part(g,rightArm,0,21,-5);
-            box(g,lantern,DARK,-5,-2,-5,10,3,10);
-            box(g,lantern,DARK,-6,0,-6,12,2,12);
-            box(g,lantern,DARK,-5,15,-5,10,3,10);
-            box(g,lantern,DARK,-1,-8,-1,2,7,2);
-            box(g,lantern,DARK,-3,-9,-1,6,2,2);
-            for (int x:new int[]{-5,3})for (int z:new int[]{-5,3})box(g,lantern,DARK,x,1,z,2,15,2);
-            box(g,lantern,GLOW,-3,4,-3,6,9,6,160);
-            box(g,lantern,GLOW,-1,2,-1,2,13,2,160);
+            // Floating 4x4x4 plague catalyst, three pixels over the raised right palm.
+            lantern=part(g,rightArm,0,17,-5);
+            box(g,lantern,GLOW,-2,-7,-2,4,4,4,128);
+            for (int s:new int[]{-1,1}) {
+                box(g,lantern,DARK,s<0?-3:2,-8,-3,1,6,6);
+                box(g,lantern,DARK,-3,-8,s<0?-3:2,6,6,1);
+            }
             weapon=part(g,root,0,0,0);
             leftLeg=part(g,root,0,0,0);
             rightLeg=part(g,root,0,0,0);
-            // NO leg cubes: tapered smoke rings, each wisp owns its own pivot/animation.
-            for (int ring=0;ring<5;ring++) {
-                float radius=8-ring*1.55F;
-                for (int i=0;i<8-ring;i++) {
-                    float a=i*Mth.TWO_PI/(8-ring)+ring*.42F;
-                    ModelPart wisp=part(g,root,Mth.cos(a)*radius,-8+ring*5.5F,Mth.sin(a)*radius);
-                    box(g,wisp,DARK,-2,0,-2,4.5F,6+(i%3)*2,4.5F);
-                    smoke.add(wisp);
-                }
+            // Hollow, shrinking 4-sided vapor shell, never any leg cuboids.
+            for (int ring=0;ring<6;ring++) {
+                float radius=7-ring*1.2F;
+                float side=radius*2;
+                float y=-7+ring*5F;
+                ModelPart shell=part(g,root,0,y,0);
+                box(g,shell,DARK,-radius,-radius/2, -radius,side,1.2F,1);
+                box(g,shell,DARK,-radius,-radius/2,radius-1,side,1.2F,1);
+                box(g,shell,DARK,-radius,-radius/2,-radius,1,1.2F,side);
+                box(g,shell,DARK,radius-1,-radius/2,-radius,1,1.2F,side);
+                smoke.add(shell);
             }
-            for (int i=0;i<8;i++) {
-                ModelPart tendril=part(g,root,(i-4)*1.1F,3,i%2==0?3:-3);
-                box(g,tendril,DARK,-1,0,-1,2,18+(i%4),2);
-                smoke.add(tendril);
-            }
+            // The final hollow lip terminates at a 2x2-pixel silhouette.
+            ModelPart tip=part(g,root,0,23,0);
+            box(g,tip,DARK,-1,0,-1,2,2,2);
+            smoke.add(tip);
         }
     }
 
@@ -177,6 +194,7 @@ public final class SistersModel extends EntityModel<SisterBoss> {
         float swing=Mth.cos(walk*.6662F)*Mth.clamp(stride,0,1);
         head.yRot=yaw*Mth.DEG_TO_RAD;
         head.xRot=pitch*Mth.DEG_TO_RAD;
+        root.setPos(0,spirit?-2.5F+(float)Math.sin(age*.08F)*2.5F:0,0);
         body.xRot=.018F*Mth.sin(age*.09F);
         body.zRot=0;body.yRot=0;
         leftArm.xRot=swing*.36F;rightArm.xRot=-swing*.36F;
@@ -184,19 +202,20 @@ public final class SistersModel extends EntityModel<SisterBoss> {
         weapon.xRot=0;weapon.zRot=0;lantern.xRot=0;lantern.zRot=0;
         if (!spirit) {
             leftLeg.xRot=-swing*.43F;rightLeg.xRot=swing*.43F;
-            weapon.zRot=.1F;
+            // Defensive two-handed grip converges both gauntlets on the scythe haft.
+            leftArm.xRot=-.95F-swing*.12F;
+            rightArm.xRot=-1.05F+swing*.12F;
+            leftArm.zRot=.48F;
+            rightArm.zRot=-.48F;
+            weapon.zRot=-.1F;
         } else {
             lantern.xRot=.12F*Mth.sin(age*.14F);
             lantern.zRot=.19F*Mth.sin(age*.095F);
-            for (int ring=0;ring<3;ring++) {
-                ModelPart p=smoke.get(ring);
-                p.yRot=.45F*Mth.sin(age*0.1F-ring*0.4F);
-            }
-            for (int i=3;i<smoke.size();i++) {
+            for (int i=0;i<smoke.size();i++) {
                 ModelPart p=smoke.get(i);
-                p.yRot=.45F*Mth.sin(age*.07F+i*.51F);
-                p.zRot=.2F*Mth.sin(age*.1F+i*.73F);
-                p.xRot=.15F*Mth.sin(age*.085F+i*.47F);
+                p.yRot=.09F*Mth.sin(age*.07F+i*.51F);
+                p.zRot=.06F*Mth.sin(age*.1F+i*.73F);
+                p.xRot=.06F*Mth.sin(age*.085F+i*.47F);
             }
         }
         for (int i=0;i<hair.size();i++) {
