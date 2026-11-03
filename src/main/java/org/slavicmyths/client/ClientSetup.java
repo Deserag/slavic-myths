@@ -13,6 +13,21 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 public final class ClientSetup {
     public static void registerModListeners(net.neoforged.bus.api.IEventBus bus) {
+        bus.addListener(WoodlandClient::setup);
+        bus.addListener(WoodlandClient::renderers);
+        bus.addListener(SanctuaryClient::renderers);
+        bus.addListener(FurnitureClient::setup);
+        bus.addListener(BayunClient::register);
+        bus.addListener(MarinkaClient::renderers);
+        bus.addListener(FlailClient::models);
+        bus.addListener(FlailClient::bake);
+        bus.addListener(FlailClient::extensions);
+        bus.addListener(WhipClient::additional);
+        bus.addListener(WhipClient::bake);
+        bus.addListener(BrightFalconClient::renderers);
+        bus.addListener(SivkaClient.Setup::keys);
+        bus.addListener(SivkaClient.Setup::renderers);
+        bus.addListener(GuardianClient.Registration::renderers);
         bus.addListener(IndustryClient::screens);
         bus.addListener(CuriosAccessories::setup);
         bus.addListener(MiningGogglesRenderer::setup);

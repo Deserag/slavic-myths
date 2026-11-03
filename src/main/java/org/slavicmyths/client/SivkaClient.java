@@ -26,8 +26,7 @@ public final class SivkaClient {
         if(mc.player.tickCount%2!=0)return;boolean enabled=mc.screen==null&&mc.isWindowActive();
         PacketDistributor.sendToServer(new SivkaNetwork.Input(h.getId(),++sequence,enabled?(mc.options.keyUp.isDown()?1:0)-(mc.options.keyDown.isDown()?1:0):0,enabled?(mc.options.keyLeft.isDown()?1:0)-(mc.options.keyRight.isDown()?1:0):0,mc.player.getYRot(),enabled&&mc.options.keySprint.isDown(),enabled&&mc.options.keyJump.isDown(),enabled&&DOWN.isDown()));
     }
-    @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
-    public static final class Setup {
+        public static final class Setup {
         @SubscribeEvent public static void keys(RegisterKeyMappingsEvent e){e.register(DOWN);}
         @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(SivkaContent.ENTITY.get(),Renderer::new);}
     }
