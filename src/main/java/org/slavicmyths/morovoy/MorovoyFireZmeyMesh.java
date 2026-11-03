@@ -19,10 +19,10 @@ public final class MorovoyFireZmeyMesh {
     }
     public static ModelPart create() {
         MeshDefinition mesh = new MeshDefinition();
-        PartDefinition body = mesh.getRoot().addOrReplaceChild("body", box(0, 0, -7, -6, -10, 14, 12, 20), PartPose.offset(0, 12, 0));
-        body.addOrReplaceChild("chest", box(0, 28, -8.5F, -7, -19, 17, 14, 18), PartPose.ZERO);
-        body.addOrReplaceChild("belly", box(80, 28, -6.5F, -5.5F, -1, 13, 11, 17), PartPose.ZERO);
-        body.addOrReplaceChild("pelvis", box(144, 28, -5.5F, -5, 13, 11, 10, 12), PartPose.ZERO);
+        PartDefinition body = mesh.getRoot().addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-7, -6, -10, 7, 12, 20).texOffs(192, 0).addBox(0, -6, -10, 7, 12, 20), PartPose.offset(0, 12, 0));
+        body.addOrReplaceChild("chest", CubeListBuilder.create().texOffs(0, 28).addBox(-8.5F, -7, -19, 8.5F, 14, 18).texOffs(192, 28).addBox(0, -7, -19, 8.5F, 14, 18), PartPose.ZERO);
+        body.addOrReplaceChild("belly", CubeListBuilder.create().texOffs(80, 28).addBox(-6.5F, -5.5F, -1, 6.5F, 11, 17).texOffs(272, 28).addBox(0, -5.5F, -1, 6.5F, 11, 17), PartPose.ZERO);
+        body.addOrReplaceChild("pelvis", CubeListBuilder.create().texOffs(144, 28).addBox(-5.5F, -5, 13, 5.5F, 10, 12).texOffs(336, 28).addBox(0, -5, 13, 5.5F, 10, 12), PartPose.ZERO);
         for (int i = 0; i < 11; i++) {
             float z = -18 + i * 3.8F;
             float height = 5.0F - 0.22F * i;
@@ -78,10 +78,10 @@ public final class MorovoyFireZmeyMesh {
         // One shoulder, one elbow and one wrist; finger origins are all wrist-local.
         final float upperLength = 29.0F;
         final float forearmLength = 32.0F;
-        PartDefinition upper = body.addOrReplaceChild("wing_" + side, box(0, 288, s < 0 ? -upperLength : 0, -2.5F, -2.5F, upperLength, 5, 5), pose(s * 7, -5, -14, radians(6), -s * radians(20), s * radians(12)));
-        PartDefinition elbow = upper.addOrReplaceChild("wing_elbow_" + side, box(0, 298, -3, -3, -3, 6, 6, 6), PartPose.offset(s * upperLength, 0, 0));
-        PartDefinition forearm = elbow.addOrReplaceChild("wing_forearm_" + side, box(0, 302, s < 0 ? -forearmLength : 0, -1.8F, -1.8F, forearmLength, 3.6F, 3.6F), pose(0, 0, 0, radians(3), -s * radians(21), -s * radians(10)));
-        PartDefinition tip = forearm.addOrReplaceChild("wing_tip_" + side, box(0, 314, -2.6F, -2.6F, -2.6F, 5.2F, 5.2F, 5.2F), PartPose.offset(s * forearmLength, 0, 0));
+        PartDefinition upper = body.addOrReplaceChild("wing_" + side, box(s < 0 ? 0 : 192, 288, s < 0 ? -upperLength : 0, -2.5F, -2.5F, upperLength, 5, 5), pose(s * 7, -5, -14, radians(6), -s * radians(20), s * radians(12)));
+        PartDefinition elbow = upper.addOrReplaceChild("wing_elbow_" + side, box(s < 0 ? 0 : 192, 298, -3, -3, -3, 6, 6, 6), PartPose.offset(s * upperLength, 0, 0));
+        PartDefinition forearm = elbow.addOrReplaceChild("wing_forearm_" + side, box(s < 0 ? 0 : 192, 302, s < 0 ? -forearmLength : 0, -1.8F, -1.8F, forearmLength, 3.6F, 3.6F), pose(0, 0, 0, radians(3), -s * radians(21), -s * radians(10)));
+        PartDefinition tip = forearm.addOrReplaceChild("wing_tip_" + side, box(s < 0 ? 0 : 192, 314, -2.6F, -2.6F, -2.6F, 5.2F, 5.2F, 5.2F), PartPose.offset(s * forearmLength, 0, 0));
 
         float[][] ends = new float[4][3];
         for (int finger = 0; finger < 4; finger++) {
@@ -97,7 +97,7 @@ public final class MorovoyFireZmeyMesh {
                 float x2 = ends[finger][0] * (t + 1.0F / 23);
                 float z2 = ends[finger][2] * (t + 1.0F / 23);
                 float r = 1.35F - .55F * t;
-                tip.addOrReplaceChild("digit_" + finger + "_" + k, box(0, 346, Math.min(nx, x2) - r / 2, 11 * t - r / 2, Math.min(nz, z2) - r / 2, Math.abs(x2 - nx) + r, r + 11.0F / 23, Math.abs(z2 - nz) + r), PartPose.ZERO);
+                tip.addOrReplaceChild("digit_" + finger + "_" + k, box(s < 0 ? 0 : 192, 346, Math.min(nx, x2) - r / 2, 11 * t - r / 2, Math.min(nz, z2) - r / 2, Math.abs(x2 - nx) + r, r + 11.0F / 23, Math.abs(z2 - nz) + r), PartPose.ZERO);
             }
         }
 
