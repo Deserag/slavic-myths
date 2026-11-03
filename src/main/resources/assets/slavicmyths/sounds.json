@@ -8493,7 +8493,7 @@
       {
         "name": "minecraft:particle.soul_escape",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8503,7 +8503,7 @@
       {
         "name": "minecraft:entity.allay.hurt",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8513,7 +8513,7 @@
       {
         "name": "minecraft:block.soul_sand.break",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8523,7 +8523,7 @@
       {
         "name": "minecraft:entity.evoker.prepare_attack",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8533,7 +8533,7 @@
       {
         "name": "minecraft:entity.evoker.cast_spell",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8543,7 +8543,7 @@
       {
         "name": "minecraft:block.nether_wood.place",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8553,7 +8553,7 @@
       {
         "name": "minecraft:block.cherry_wood.break",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8563,7 +8563,7 @@
       {
         "name": "minecraft:block.mangrove_roots.break",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8573,7 +8573,7 @@
       {
         "name": "minecraft:block.mangrove_roots.step",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8583,7 +8583,7 @@
       {
         "name": "minecraft:block.rooted_dirt.break",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8593,7 +8593,7 @@
       {
         "name": "minecraft:block.wood.break",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8603,7 +8603,7 @@
       {
         "name": "minecraft:entity.skeleton.ambient",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8613,7 +8613,7 @@
       {
         "name": "minecraft:entity.skeleton.hurt",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8623,7 +8623,7 @@
       {
         "name": "minecraft:entity.skeleton.death",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8633,7 +8633,7 @@
       {
         "name": "minecraft:entity.skeleton.step",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8643,7 +8643,7 @@
       {
         "name": "minecraft:item.crossbow.loading_middle",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8653,7 +8653,7 @@
       {
         "name": "minecraft:entity.skeleton.shoot",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8663,7 +8663,7 @@
       {
         "name": "minecraft:block.amethyst_block.chime",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8673,7 +8673,7 @@
       {
         "name": "minecraft:block.small_amethyst_bud.break",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8683,7 +8683,7 @@
       {
         "name": "minecraft:block.amethyst_cluster.break",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8693,7 +8693,7 @@
       {
         "name": "minecraft:block.mangrove_roots.place",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8703,7 +8703,7 @@
       {
         "name": "minecraft:block.bone_block.break",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8713,7 +8713,7 @@
       {
         "name": "minecraft:block.nether_wood.break",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8723,7 +8723,7 @@
       {
         "name": "minecraft:block.nether_wood.step",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8733,7 +8733,7 @@
       {
         "name": "minecraft:block.nether_wood.place",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8743,7 +8743,7 @@
       {
         "name": "minecraft:block.bone_block.fall",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8753,7 +8753,7 @@
       {
         "name": "minecraft:block.rooted_dirt.hit",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8763,7 +8763,7 @@
       {
         "name": "minecraft:block.mangrove_roots.break",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8773,7 +8773,7 @@
       {
         "name": "minecraft:block.rooted_dirt.break",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8783,7 +8783,7 @@
       {
         "name": "minecraft:block.amethyst_cluster.hit",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8793,7 +8793,7 @@
       {
         "name": "minecraft:block.nether_wood.place",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8803,7 +8803,7 @@
       {
         "name": "minecraft:entity.breeze.shoot",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8813,7 +8813,7 @@
       {
         "name": "minecraft:block.nether_wood.break",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8823,7 +8823,7 @@
       {
         "name": "minecraft:block.mangrove_roots.place",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -8833,7 +8833,7 @@
       {
         "name": "minecraft:block.bone_block.break",
         "type": "event",
-        "volume": 1.0
+        "volume": 1
       }
     ]
   },
@@ -9337,6 +9337,66 @@
       {
         "name": "minecraft:item.goat_horn.sound.0",
         "type": "event"
+      }
+    ]
+  },
+  "tryaseya_ambient": {
+    "subtitle": "subtitles.slavicmyths.tryaseya_ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.allay.ambient_without_item",
+        "type": "event",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "tryaseya_cast": {
+    "subtitle": "subtitles.slavicmyths.tryaseya_cast",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.prepare_summon",
+        "type": "event",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "tryaseya_impact": {
+    "subtitle": "subtitles.slavicmyths.tryaseya_impact",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.cast_spell",
+        "type": "event",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "tryaseya_hurt": {
+    "subtitle": "subtitles.slavicmyths.tryaseya_hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.allay.hurt",
+        "type": "event",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "tryaseya_death": {
+    "subtitle": "subtitles.slavicmyths.tryaseya_death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.allay.death",
+        "type": "event",
+        "attenuation_distance": 28
+      }
+    ]
+  },
+  "tryaseya_enrage": {
+    "subtitle": "subtitles.slavicmyths.tryaseya_enrage",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.roar",
+        "type": "event",
+        "attenuation_distance": 28
       }
     ]
   }

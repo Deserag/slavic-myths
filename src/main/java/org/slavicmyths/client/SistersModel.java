@@ -33,10 +33,12 @@ public final class SistersModel extends EntityModel<SisterBoss> {
     private static final String GNETEYA = "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";
     private final ModelPart root;
     private final boolean spirit;
+    private final TryaseyaModelV11 v11;
 
     public SistersModel(ModelPart baked, boolean spirit) {
         this.root = baked.getChild("root");
         this.spirit = spirit;
+        this.v11 = spirit ? new TryaseyaModelV11(baked) : null;
     }
 
     private static JsonArray decode(String packed) {
@@ -53,7 +55,7 @@ public final class SistersModel extends EntityModel<SisterBoss> {
 
     public static LayerDefinition create(boolean spirit) {
         // V10 geometry only for Tryaseya; preserve Gneteya model unchanged.
-        if (spirit) return TryaseyaModelV10.create();
+        if (spirit) return TryaseyaModelV11.create();
         JsonArray boxes = decode(spirit ? TRYASEYA : GNETEYA);
         CubeListBuilder geometry = CubeListBuilder.create();
         int expected = spirit ? 424 : 220;
@@ -80,6 +82,7 @@ public final class SistersModel extends EntityModel<SisterBoss> {
 
     @Override
     public void setupAnim(SisterBoss entity, float walk, float stride, float age, float yaw, float pitch) {
+        if (v11 != null) { v11.setupAnim(entity, walk, stride, age, yaw, pitch); return; }
         // Body origin is the entity's feet; never set root.y=24, which buried the model.
         root.y = spirit ? Mth.sin(age * .08F) * .7F : 0;
         root.yRot = yaw * Mth.DEG_TO_RAD * .12F;
@@ -87,6 +90,7 @@ public final class SistersModel extends EntityModel<SisterBoss> {
 
     @Override
     public void renderToBuffer(PoseStack pose, VertexConsumer buffer, int light, int overlay, int color) {
+        if (v11 != null) { v11.renderToBuffer(pose, buffer, light, overlay, color); return; }
         root.render(pose, buffer, light, overlay, color);
     }
 }

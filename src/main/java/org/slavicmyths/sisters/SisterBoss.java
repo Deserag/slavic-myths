@@ -5,6 +5,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -63,6 +65,9 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
         setPersistenceRequired();
         setHealth(getMaxHealth());
     }
+    @Override protected SoundEvent getAmbientSound() { return isTryaseya() ? TryaseyaSounds.AMBIENT.get() : super.getAmbientSound(); }
+    @Override protected SoundEvent getHurtSound(DamageSource damage) { return isTryaseya() ? TryaseyaSounds.HURT.get() : super.getHurtSound(damage); }
+    @Override protected SoundEvent getDeathSound() { return isTryaseya() ? TryaseyaSounds.DEATH.get() : super.getDeathSound(); }
     public boolean isTryaseya() { return getType()==SistersContent.TRYASEYA.get(); }
     public boolean enraged() { return entityData.get(RAGE); }
     public int action() { return entityData.get(ACTION); }
@@ -105,7 +110,7 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
     @Override protected void customServerAiStep() {
         super.customServerAiStep();
         if (!(level() instanceof ServerLevel world) || !isAlive()) return;
-        if (encounter!=null && !enraged() && SistersLedger.get(world).partnerDied(encounter,isTryaseya())) entityData.set(RAGE,true);
+        if (encounter!=null && !enraged() && SistersLedger.get(world).partnerDied(encounter,isTryaseya())) { entityData.set(RAGE,true); if (isTryaseya()) world.playSound(null,blockPosition(),TryaseyaSounds.ENRAGE.get(),SoundSource.HOSTILE,1.35F,.86F); }
         bar.setProgress(Math.clamp(getHealth()/Math.max(1,getMaxHealth()),0,1));
         SisterBoss ally=loadedPartner(world);
         Player victim=getTarget() instanceof Player p && p.isAlive() && !p.isCreative() && !p.isSpectator() ? p : null;
@@ -116,7 +121,7 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
             int frame=actionFrame()+1;
             entityData.set(FRAME,frame);
             telegraph(world,frame);
-            if (!impactDone && frame==impactFrame()) { impactDone=true;resolve(world,victim,ally); }
+            if (!impactDone && frame==impactFrame()) { impactDone=true;resolve(world,victim,ally); if (isTryaseya()) world.playSound(null,blockPosition(),TryaseyaSounds.IMPACT.get(),SoundSource.HOSTILE,1.3F,.94F); }
             if (frame>=actionLength) { resetAttack();cooldown=enraged()?34:55; }
             return;
         }
@@ -156,6 +161,7 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
     }
     private void begin(int next,Player victim) {
         entityData.set(ACTION,next);
+        if (isTryaseya() && !level().isClientSide()) level().playSound(null,blockPosition(),TryaseyaSounds.CAST.get(),SoundSource.HOSTILE,1.2F,.94F);
         entityData.set(FRAME,0);
         lockedTarget=victim.position();
         impactDone=false;

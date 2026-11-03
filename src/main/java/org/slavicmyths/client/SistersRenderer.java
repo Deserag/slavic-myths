@@ -13,7 +13,7 @@ import org.slavicmyths.sisters.SisterBoss;
 public class SistersRenderer extends MobRenderer<SisterBoss, SistersModel> {
     
     // Пути к текстурам для обеих сестер
-    private static final ResourceLocation TRYASEYA_TEXTURE = ResourceLocation.fromNamespaceAndPath("slavicmyths", "textures/entity/tryaseya_v10.png");
+    private static final ResourceLocation TRYASEYA_TEXTURE = ResourceLocation.fromNamespaceAndPath("slavicmyths", "textures/entity/tryaseya_v11.png");
     private static final ResourceLocation GNETEYA_TEXTURE = ResourceLocation.fromNamespaceAndPath("slavicmyths", "textures/entity/gneteya.png");
     private final boolean isTryaseya;
 

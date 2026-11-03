@@ -23,6 +23,7 @@ public final class SistersContent {
     public static final DeferredHolder<Item,Item> TRYASEYA_EGG = ModItems.ITEMS.register("tryaseya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(TRYASEYA,0x292336,0xA86AD8,new Item.Properties()));
 
     public static void init(IEventBus bus) {
+        TryaseyaSounds.init(bus);
         bus.addListener((net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent event) -> {
             event.put(GNETEYA.get(),SisterBoss.attributes(false).build());
             event.put(TRYASEYA.get(),SisterBoss.attributes(true).build());
