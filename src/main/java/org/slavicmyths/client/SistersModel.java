@@ -30,9 +30,9 @@ public final class SistersModel extends EntityModel<SisterBoss> {
         root=g.part(512,512);
         if (!spirit) {
             body=part(g,root,0,-25,0);
-            box(g,body,CLOTH,-9,-13,-7,18,27,14);
-            box(g,body,HEM,-14,8,-8,28,6,16);
-            box(g,body,BONE,-3,-14,-9,6,24,4);
+            box(g,body,CLOTH,-5,-13,-5,10,27,10);
+            box(g,body,HEM,-5,8,-6,10,6,12);
+            box(g,body,BONE,-2,-12,-7,4,19,2);
             // Exposed, curved rib cage built from individually raised left/right ribs.
             for (int r=0;r<5;r++) for (int s:new int[]{-1,1}) {
                 box(g,body,BONE,s<0?-12:3,-10+r*4,-10,9,2.2F,4);
@@ -51,6 +51,14 @@ public final class SistersModel extends EntityModel<SisterBoss> {
             box(g,head,GLOW,-6,-3,-9,3,2,1,128);
             box(g,head,GLOW,3,-3,-9,3,2,1,128);
             // Asymmetric crown of cracked vertebrae; real protruding silhouettes.
+            // Jagged horn crown, several independent projecting bone spires.
+            for (int i=0;i<7;i++) {
+                float hornX=-9+i*3;
+                ModelPart horn=part(g,head,hornX,-12,i%2==0?-3:4);
+                box(g,horn,BONE,-1.5F,-5,0,3,8,3);
+                box(g,horn,BONE,-1,-11,-.5F,2,7,2);
+                box(g,horn,BONE,-.5F,-15,-.5F,1,5,1);
+            }
             box(g,head,BONE,-9,-13,-7,18,3,14);
             for (int i=0;i<4;i++) {
                 ModelPart strand=part(g,head,-6+i*4,-6,7);
@@ -58,10 +66,10 @@ public final class SistersModel extends EntityModel<SisterBoss> {
                 hair.add(strand);
             }
             ModelPart skirt=part(g,root,0,-12,0);
-            box(g,skirt,CLOTH,-12,0,-8,24,26,16);
-            box(g,skirt,HEM,-15,9,-10,30,15,20);
+            box(g,skirt,CLOTH,-7,0,-7,14,26,14);
+            box(g,skirt,HEM,-9,9,-8,18,15,16);
             for (int i=0;i<12;i++) {
-                ModelPart panel=part(g,skirt,-18+i*3.2F,8,i%2==0?-11:9);
+                ModelPart panel=part(g,skirt,-9+i*1.6F,8,i%2==0?-11:9);
                 box(g,panel,i%3==0?HEM:CLOTH,0,0,0,3,18+(i*5%6),3);
                 hems.add(panel);
             }
@@ -69,7 +77,7 @@ public final class SistersModel extends EntityModel<SisterBoss> {
             leftLeg=part(g,root,8,-4,0);
             rightLeg=part(g,root,-8,-4,0);
             for (ModelPart leg:new ModelPart[]{leftLeg,rightLeg}) {
-                box(g,leg,CLOTH,-5,0,-5,10,22,10);
+                box(g,leg,CLOTH,-4,0,-4,8,22,8);
                 box(g,leg,BONE,-6,5,-6,12,7,12);
                 box(g,leg,BONE,-6,14,-6,12,5,12);
                 box(g,leg,DARK,-6,22,-8,12,6,16);
@@ -96,26 +104,32 @@ public final class SistersModel extends EntityModel<SisterBoss> {
             lantern=part(g,root,0,0,0);
         } else {
             body=part(g,root,0,-19,0);
-            box(g,body,CLOTH,-8,-11,-5,16,22,10);
-            box(g,body,HEM,-10,1,-7,20,13,14);
-            for (int i=0;i<9;i++)box(g,body,i%3==0?BONE:HEM,-10+i*2.3F,4,-8,1.7F,14+(i*3%5),2);
+            box(g,body,CLOTH,-3.25F,-11,-3.5F,6.5F,22,7);
+            box(g,body,HEM,-5,1,-5,10,13,10);
+            for (int i=0;i<9;i++)box(g,body,i%3==0?BONE:HEM,-5+i*1.1F,4,-5,1.7F,14+(i*3%5),2);
             head=part(g,root,0,-27,0);
-            box(g,head,SKIN,-7,-9,-6,14,14,12);
-            box(g,head,SKIN,-5,-1,-7,10,4,3);
+            box(g,head,SKIN,-5,-9,-5,10,14,10);
+            box(g,head,SKIN,-4,-1,-6,8,4,2);
             box(g,head,GLOW,-5,-3,-7,3,2,1,128);
             box(g,head,GLOW,2,-3,-7,3,2,1,128);
-            box(g,head,BONE,-7,-10,-5,14,2,10);
-            for (int i=0;i<7;i++)box(g,head,BONE,-7+i*2.2F,-9-i%3*2,-6,1.4F,5,2);
+            box(g,head,DARK,-6,-11,-6,12,3,12);
+            for (int i=0;i<7;i++)box(g,head,DARK,-5+i*1.5F,-10-i%3*2,-6,1,5,2);
             for (int i=0;i<12;i++) {
-                ModelPart strand=part(g,head,-8+(i%6)*3,-7,i<6?6:-6);
-                box(g,strand,DARK,-1,0,-1,2,13+(i*5%9),3);
+                ModelPart strand=part(g,head,-5+(i%6)*2,-9,i<8?5:-6);
+                box(g,strand,DARK,-.5F,0,-.5F,1,20+(i*7%15),1);
                 hair.add(strand);
+            }
+            // Face-crossing locks prevent the bald forehead silhouette.
+            for (int i=0;i<4;i++) {
+                ModelPart lock=part(g,head,-5+i*2.5F,-11,-6.2F);
+                box(g,lock,DARK,0,0,0,1,16+i%2*5,1);
+                hair.add(lock);
             }
             leftArm=part(g,root,11,-20,0);
             rightArm=part(g,root,-11,-20,0);
             for (ModelPart arm:new ModelPart[]{leftArm,rightArm}) {
-                box(g,arm,HEM,-3,0,-3,6,17,6);
-                box(g,arm,BONE,-4,7,-4,8,5,8);
+                box(g,arm,HEM,-2,0,-2,4,17,4);
+                box(g,arm,BONE,-2.5F,7,-2.5F,5,5,5);
                 box(g,arm,SKIN,-2,16,-2,4,6,4);
                 for (int j=0;j<4;j++)box(g,arm,SKIN,-2+j*1.1F,20,-3,1,4,2);
             }
