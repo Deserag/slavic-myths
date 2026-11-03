@@ -50,7 +50,7 @@ public class MorovoyFireZmeyModel extends EntityModel<MorovoyFireZmey> {
             float sign = side.equals("left") ? -1.0F : 1.0F;
             float phase = side.equals("left") ? 0.0F : 1.13F;
             ModelPart wing = body.getChild("wing_" + side);
-            ModelPart tip = wing.getChild("wing_tip_" + side);
+            ModelPart tip = wing.getChild("wing_elbow_" + side).getChild("wing_forearm_" + side).getChild("wing_tip_" + side);
             float flap = Mth.sin(age * (boss.state() == MorovoyFireZmey.PHASE_II ? 0.24F : 0.18F) + phase);
             wing.zRot = sign * (sleeping ? 1.35F : waking ? Mth.lerp(wake, 1.35F, 0.15F) : dying ? 1.6F : flap * 0.52F);
             wing.yRot = sign * (sleeping ? 0.7F : dying ? 0.3F : 0.13F + Mth.sin(age * 0.11F + phase) * 0.14F);
