@@ -9,7 +9,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 /** Owner-approved #158/#159 package A. TieredItem otherwise overwrites Properties.durability. */
-@EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD)
 public final class WeaponDefaults {
     public static final java.util.Set<String> REACH_ITEMS=java.util.Set.of("ancient_spear","restored_spear","thunder_spear");
     /** Explicit owner approval 22.10.2026: ordinary player reach 3 + 1.25. */

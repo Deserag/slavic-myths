@@ -162,6 +162,13 @@ public final class SlavicMyths {
         bus.addListener(org.slavicmyths.world.WildlifeSpawns::placements);
         bus.addListener(org.slavicmyths.water.WaterSpawns::placements);
         bus.addListener(org.slavicmyths.world.LandEncounters::placements);
+        bus.addListener(org.slavicmyths.combat.WeaponDefaults::modify);
+        bus.addListener(org.slavicmyths.earth.EarthConfig::load);
+        bus.addListener(org.slavicmyths.earth.EarthContent::attributes);
+        bus.addListener(org.slavicmyths.industry.ChudPeople::attributes);
+        bus.addListener(org.slavicmyths.poloz.PolozRegistration::attributes);
+        bus.addListener(org.slavicmyths.bayun.BayunContent::attributes);
+        if (net.neoforged.fml.loading.FMLEnvironment.dist == net.neoforged.api.distmarker.Dist.CLIENT) org.slavicmyths.client.ClientSetup.registerModListeners(bus);
         bus.addListener(this::setup);
     }
 

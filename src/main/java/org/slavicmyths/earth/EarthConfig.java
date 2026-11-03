@@ -8,7 +8,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 
 /** Encounter balance, loaded before attribute registration. Changes require a restart.
  * HP are half-hearts; ticks are server ticks (20 TPS); raw damage is not HP after iron. */
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class EarthConfig {
     public static final ModConfigSpec SPEC;
     private static final Map<String,ModConfigSpec.DoubleValue> D=new LinkedHashMap<>();

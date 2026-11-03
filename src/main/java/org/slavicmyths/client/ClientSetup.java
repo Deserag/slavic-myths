@@ -11,8 +11,25 @@ import org.slavicmyths.registry.ModBlocks;
 import org.slavicmyths.registry.ModEntities;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
-@net.neoforged.fml.common.EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = net.neoforged.fml.common.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public final class ClientSetup {
+    public static void registerModListeners(net.neoforged.bus.api.IEventBus bus) {
+        bus.addListener(SkimClient::renderers);
+        bus.addListener(ThirdPersonWeaponMotion::additional);
+        bus.addListener(ThirdPersonWeaponMotion::bake);
+        bus.addListener(UniqueArmorModels::register);
+        bus.addListener(ClientSetup::navigationKeys);
+        bus.addListener(ClientSetup::tugarinModels);
+        bus.addListener(ClientSetup::tugarinBake);
+        bus.addListener(ClientSetup::tugarinLayers);
+        bus.addListener(ClientSetup::setup);
+        bus.addListener(ClientSetup::morParticles);
+        bus.addListener(ClientSetup::renderers);
+        bus.addListener(ClientSetup::screens);
+        bus.addListener(ClientSetup::extensions);
+        bus.addListener(ClientSetup::keys);
+        bus.addListener(ClientSetup::layers);
+    }
+
     @SubscribeEvent
     public static void navigationKeys(net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent event) {
         org.slavicmyths.navigation.client.NavigationClient.keys(event);

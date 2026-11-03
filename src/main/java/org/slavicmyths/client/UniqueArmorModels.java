@@ -12,7 +12,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import org.slavicmyths.equipment.UniqueEquipment;
 
 /** Native armor bones and standard trim rendering; proportions follow the approved reference. */
-@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
 public final class UniqueArmorModels implements IClientItemExtensions {
     private final Map<EquipmentSlot,HumanoidModel<?>> models=new EnumMap<>(EquipmentSlot.class);
     private UniqueArmorModels(){for(var s:List.of(EquipmentSlot.HEAD,EquipmentSlot.CHEST,EquipmentSlot.LEGS,EquipmentSlot.FEET))models.put(s,create(s));}

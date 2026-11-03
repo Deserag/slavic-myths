@@ -26,7 +26,6 @@ import net.neoforged.neoforge.client.model.BakedModelWrapper;
 import org.slavicmyths.gorynych.SerpentCrossbow;
 
 /** Player-held 3P animation; vanilla arms keep their native movement and equipment renderer. */
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
 public final class ThirdPersonWeaponMotion {
     private enum Shape { BLADE, HEAVY, SPEAR, POLEAXE, SICKLE, STAFF, KNIFE, SULITSA, CROSSBOW, BOW }
     private static final Map<String,Shape> IDS=new HashMap<>();
