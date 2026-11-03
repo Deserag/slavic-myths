@@ -52,6 +52,8 @@ public final class SistersModel extends EntityModel<SisterBoss> {
     }
 
     public static LayerDefinition create(boolean spirit) {
+        // V10 geometry only for Tryaseya; preserve Gneteya model unchanged.
+        if (spirit) return TryaseyaModelV10.create();
         JsonArray boxes = decode(spirit ? TRYASEYA : GNETEYA);
         CubeListBuilder geometry = CubeListBuilder.create();
         int expected = spirit ? 424 : 220;
