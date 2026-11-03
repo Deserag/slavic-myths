@@ -13,6 +13,13 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 public final class ClientSetup {
     public static void registerModListeners(net.neoforged.bus.api.IEventBus bus) {
+        bus.addListener(KalinClient::renderers);
+        bus.addListener(PolozClient::renderers);
+        bus.addListener(PolozClient::extensions);
+        bus.addListener(PolozClient::setup);
+        bus.addListener(UndergroundClient::renderers);
+        bus.addListener(TrophyHeadsClient::renderers);
+        bus.addListener(TrophyHeadsClient::items);
         bus.addListener(NochnitsaClient::renderers);
         bus.addListener(DogheadClient::renderers);
         bus.addListener(EarthClient::renderers);
