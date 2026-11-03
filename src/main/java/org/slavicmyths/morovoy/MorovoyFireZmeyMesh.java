@@ -124,97 +124,100 @@ public final class MorovoyFireZmeyMesh {
     }
 
     /**
-     * Structural order: shoulder (wing) -> elbow -> forearm -> wrist (wing_tip)
-     * -> four curved digits. Every finger point is expressed in wrist-local space.
-     *
-     * The membrane is an approximately 1px-thick collection of small tiles in
-     * the wrist's XZ plane; the wrist's tilt gives the curtain its hanging pose.
-     * Scalloped outer edges use radius(u) = 1 - 0.43 sin(pi*u).
+     * Body -> shoulder -> elbow -> forearm -> wing_wrist -> four separate digits.
+     * Local +Y means down in Minecraft. Fingers increasingly fold toward -Z.
+     * The exact same rotated finger points drive both skeletal bones and webbing.
      */
     private static void wing(PartDefinition body, String name, int side) {
         Skin bone = side < 0 ? Skin.SLATE : Skin.OBSIDIAN;
         Skin membrane = side < 0 ? Skin.MOR_WEB : Skin.FIRE_WEB;
         Skin accent = side < 0 ? Skin.MOR_VEIN : Skin.FIRE_CRACK;
+        PartDefinition shoulder = body.addOrReplaceChild("wing_" + name, CubeListBuilder.create(), pose(side * 8, -5, -12, radians(4), -side * radians(9), side * radians(8)));
+        float[] elbowPoint = {side * 26, -3, -7};
+        beam(shoulder, "humerus_", bone, new float[]{0, 0, 0}, elbowPoint, 3.2F, 13);
+        PartDefinition elbow = shoulder.addOrReplaceChild("wing_elbow_" + name, box(Skin.NEAR_BLACK, -3, -3, -3, 6, 6, 6), PartPose.offset(elbowPoint[0], elbowPoint[1], elbowPoint[2]));
+        PartDefinition forearm = elbow.addOrReplaceChild("wing_forearm_" + name, CubeListBuilder.create(), pose(0, 0, 0, radians(-3), -side * radians(10), 0));
+        float[] wristPoint = {side * 27, -4, -13};
+        beam(forearm, "radius_", bone, new float[]{0, 0, 0}, wristPoint, 2.5F, 13);
+        PartDefinition wrist = forearm.addOrReplaceChild("wing_wrist_" + name, box(Skin.NEAR_BLACK, -3, -3, -3, 6, 6, 6), pose(wristPoint[0], wristPoint[1], wristPoint[2], radians(-4), -side * radians(4), side * radians(6)));
 
-        PartDefinition shoulder = body.addOrReplaceChild("wing_" + name, CubeListBuilder.create(),
-            pose(side * 8, -5, -12, radians(4), -side * radians(13), side * radians(9)));
-
-        float[] elbowP = {side * 28, -3, 9};
-        beam(shoulder, "humerus_", bone, new float[]{0, 0, 0}, elbowP, 3.5F, 15);
-        PartDefinition elbow = shoulder.addOrReplaceChild("wing_elbow_" + name,
-            box(Skin.NEAR_BLACK, -3, -3, -3, 6, 6, 6), PartPose.offset(elbowP[0], elbowP[1], elbowP[2]));
-
-        PartDefinition forearm = elbow.addOrReplaceChild("wing_forearm_" + name, CubeListBuilder.create(),
-            pose(0, 0, 0, radians(-6), -side * radians(15), 0));
-        float[] wristP = {side * 29, -5, 13};
-        beam(forearm, "radius_", bone, new float[]{0, 0, 0}, wristP, 2.6F, 16);
-
-        PartDefinition wrist = forearm.addOrReplaceChild("wing_tip_" + name,
-            box(Skin.NEAR_BLACK, -2.5F, -2.5F, -2.5F, 5, 5, 5),
-            pose(wristP[0], wristP[1], wristP[2], radians(-30), -side * radians(5), side * radians(7)));
-
-        // Four distinct wrist-originating fingers. Each contains curved,
-        // tapering phalanges and no independent floating anchor.
+        // Independent wrist children. Their nonzero yaw and roll create a true
+        // three-dimensional fan: 1 points slightly forward, 2-4 progressively
+        // backward (-Z) and downward (+Y). The path itself bends distally.
         for (int finger = 0; finger < 4; finger++) {
+            PartDefinition digit = wrist.addOrReplaceChild("wing_digit_" + name + "_" + finger, CubeListBuilder.create(), digitPose(side, finger));
             for (int k = 0; k < 24; k++) {
-                float t0 = k / 24.0F;
-                float t1 = (k + 1) / 24.0F;
-                float radius = 1.55F - 1.05F * t0;
-                beam(wrist, "finger_" + finger + "_" + k + "_", bone, fingerPoint(side, finger, t0), fingerPoint(side, finger, t1), radius, 1);
+                float t0 = k / 24.0F, t1 = (k + 1) / 24.0F;
+                beam(digit, "phalanx_" + k + "_", bone, fingerLocal(side, finger, t0), fingerLocal(side, finger, t1), 1.8F - 1.05F * t0, 1);
             }
         }
 
-        // Three separate webs. Tile bounds bridge four interpolated corners,
-        // preventing gaps without making a single planar triangle.
+        // Distinct curved curtain bays. Each short radial strip spans the area
+        // between adjacent rotated digits; vertical drops are sampled per tile.
+        // Outer edge = curved inward crescent; vertices at both finger tips
+        // remain sharp. Every membrane cuboid has exactly 1px Y thickness.
         for (int gap = 0; gap < 3; gap++) {
             for (int across = 0; across < 22; across++) {
                 float u0 = across / 22.0F, u1 = (across + 1) / 22.0F;
                 for (int radial = 0; radial < 21; radial++) {
                     float v0 = radial / 21.0F, v1 = (radial + 1) / 21.0F;
-                    float[] p00 = webPoint(side, gap, u0, v0);
-                    float[] p01 = webPoint(side, gap, u0, v1);
-                    float[] p10 = webPoint(side, gap, u1, v0);
-                    float[] p11 = webPoint(side, gap, u1, v1);
-                    float minX = Math.min(Math.min(p00[0], p01[0]), Math.min(p10[0], p11[0]));
-                    float maxX = Math.max(Math.max(p00[0], p01[0]), Math.max(p10[0], p11[0]));
-                    float minZ = Math.min(Math.min(p00[2], p01[2]), Math.min(p10[2], p11[2]));
-                    float maxZ = Math.max(Math.max(p00[2], p01[2]), Math.max(p10[2], p11[2]));
-                    float centerY = (p00[1] + p01[1] + p10[1] + p11[1]) * .25F;
+                    float[] a = webPoint(side, gap, u0, v0), b = webPoint(side, gap, u0, v1);
+                    float[] c = webPoint(side, gap, u1, v0), d = webPoint(side, gap, u1, v1);
+                    float minX = Math.min(Math.min(a[0], b[0]), Math.min(c[0], d[0]));
+                    float maxX = Math.max(Math.max(a[0], b[0]), Math.max(c[0], d[0]));
+                    float minZ = Math.min(Math.min(a[2], b[2]), Math.min(c[2], d[2]));
+                    float maxZ = Math.max(Math.max(a[2], b[2]), Math.max(c[2], d[2]));
+                    float midY = (a[1] + b[1] + c[1] + d[1]) * .25F;
                     wrist.addOrReplaceChild("web_" + gap + "_" + across + "_" + radial,
-                        CubeListBuilder.create().texOffs(membrane.u + 3 + across, membrane.v + 3 + radial * 3).addBox(minX - .16F, centerY - .5F, minZ - .16F, maxX - minX + .32F, 1, maxZ - minZ + .32F),
+                        CubeListBuilder.create().texOffs(membrane.u + 3 + across, membrane.v + 3 + radial * 3)
+                            .addBox(minX - .22F, midY - .5F, minZ - .22F, maxX - minX + .44F, 1, maxZ - minZ + .44F),
                         PartPose.ZERO);
                 }
             }
         }
 
-        // Only three understated veins per wing, aligned with digit roots.
-        for (int i = 0; i < 3; i++) {
+        // Three 1px-wide crack tracks; they follow the same digit transforms.
+        for (int finger = 0; finger < 3; finger++) {
             for (int k = 1; k < 12; k++) {
-                float t0 = k / 19.0F, t1 = (k + 1) / 19.0F;
-                float[] a = fingerPoint(side, i, t0), b = fingerPoint(side, i, t1);
-                float x = Math.min(a[0], b[0]) - .23F, z = Math.min(a[2], b[2]) - .23F;
-                wrist.addOrReplaceChild("vein_" + i + "_" + k,
-                    box(accent, x, -.85F, z, Math.abs(b[0] - a[0]) + .46F, .3F, Math.abs(b[2] - a[2]) + .46F),
-                    PartPose.ZERO);
+                float[] a = fingerPoint(side, finger, k / 19.0F);
+                float[] b = fingerPoint(side, finger, (k + 1) / 19.0F);
+                float minX = Math.min(a[0], b[0]), minZ = Math.min(a[2], b[2]);
+                wrist.addOrReplaceChild("vein_" + finger + "_" + k,
+                    box(accent, minX - .18F, (a[1] + b[1]) * .5F - .3F, minZ - .18F,
+                        Math.abs(a[0] - b[0]) + .36F, .35F, Math.abs(a[2] - b[2]) + .36F), PartPose.ZERO);
             }
         }
     }
 
+    private static float digitYaw(int side, int finger) { return side * radians(-8 + finger * 23); }
+    private static float digitRoll(int side, int finger) { return side * radians(10 + finger * 13); }
+    private static float digitPitch(int finger) { return radians(-3 - finger * 2); }
+    private static PartPose digitPose(int side, int finger) { return pose(0, 0, 0, digitPitch(finger), digitYaw(side, finger), digitRoll(side, finger)); }
+
+    private static float[] fingerLocal(int side, int finger, float t) {
+        float length = finger == 0 ? 66 : finger == 1 ? 77 : finger == 2 ? 83 : 79;
+        float bend = sin((float)Math.PI * t);
+        return new float[]{side * length * t, 2.4F * t * t + 2.0F * bend, -finger * 2.6F * t * t - 2.6F * bend};
+    }
+
+    /** Minecraft ModelPart pose applies Z, then Y, then X to a local point. */
     private static float[] fingerPoint(int side, int finger, float t) {
-        float angle = radians(-64 + finger * 43);
-        float length = (finger == 0 || finger == 3) ? 69 : 78;
-        float bend = sin((float) Math.PI * t);
-        float x = side * (length * cos(angle) * t + 5.5F * bend * t);
-        float y = -1.8F * bend;
-        float z = length * sin(angle) * t + (finger - 1.5F) * 3.4F * bend;
-        return new float[]{x, y, z};
+        float[] p = fingerLocal(side, finger, t);
+        float pitch = digitPitch(finger), yaw = digitYaw(side, finger), roll = digitRoll(side, finger);
+        float x = p[0], y = cos(pitch) * p[1] - sin(pitch) * p[2], z = sin(pitch) * p[1] + cos(pitch) * p[2];
+        float x1 = cos(yaw) * x + sin(yaw) * z, z1 = -sin(yaw) * x + cos(yaw) * z;
+        return new float[]{cos(roll) * x1 - sin(roll) * y, sin(roll) * x1 + cos(roll) * y, z1};
     }
 
     private static float[] webPoint(int side, int gap, float u, float radial) {
-        float reach = 1 - .43F * sin((float) Math.PI * u);
+        // Quadratic endpoint-preserving cutout: at the midpoint the edge pulls
+        // back 43%, creating a strongly concave crescent (no leaf-like fan).
+        float reach = 1 - 1.72F * u * (1 - u);
         float t = radial * reach;
         float[] a = fingerPoint(side, gap, t), b = fingerPoint(side, gap + 1, t);
-        float sag = 1.3F * sin((float) Math.PI * u) * sin((float) Math.PI * radial);
+        // Downward curtain sag is strongest between ribs; decays at the wrist
+        // and at each sharp outer finger tip.
+        float sag = 6.0F * (4 * u * (1 - u)) * sin((float)Math.PI * radial);
         return new float[]{lerp(a[0], b[0], u), lerp(a[1], b[1], u) + sag, lerp(a[2], b[2], u)};
     }
 
