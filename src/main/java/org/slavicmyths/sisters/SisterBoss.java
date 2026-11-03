@@ -21,6 +21,9 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.FlyingMoveControl;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
+import net.minecraft.world.entity.RangedAttackMob;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
@@ -38,7 +41,7 @@ import org.joml.Vector3f;
 import org.slavicmyths.combat.CreatureHealthBalance;
 
 /** First cooperative encounter. No ordinary health threshold phases; rage only on a recorded death. */
-public final class SisterBoss extends Monster {
+public final class SisterBoss extends Monster implements RangedAttackMob {
     public static final int IDLE=0,HEAVY=1,SLAM=2,WALL=3,PULL=4,SPIKES=5,FEVER=6,FLASH=7,SPIRITS=8,ZONE=9,EVADE=10;
     private static final EntityDataAccessor<Integer> ACTION=SynchedEntityData.defineId(SisterBoss.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> FRAME=SynchedEntityData.defineId(SisterBoss.class,EntityDataSerializers.INT);
@@ -84,6 +87,8 @@ public final class SisterBoss extends Monster {
     }
     @Override protected void registerGoals() {
         goalSelector.addGoal(0,new FloatGoal(this));
+        if (isTryaseya()) goalSelector.addGoal(2,new RangedAttackGoal(this,1.12,42,20F));
+        else goalSelector.addGoal(2,new MeleeAttackGoal(this,1.25,true));
         goalSelector.addGoal(6,new LookAtPlayerGoal(this,Player.class,24));
         goalSelector.addGoal(7,new RandomLookAroundGoal(this));
         targetSelector.addGoal(1,new HurtByTargetGoal(this));
@@ -117,12 +122,19 @@ public final class SisterBoss extends Monster {
         }
         double d=distanceToSqr(victim);
         if (isTryaseya()) {
-            if (d<36 && cooldown>10) evadeMovement(world,victim,ally);
-            else if(d>100 && d<750) getNavigation().moveTo(victim,1.12);
-            else getNavigation().stop();
+            // RangedAttackGoal owns approach/aiming; retreat at 12 blocks and
+            // keep a preferred annulus of 12-20 blocks without melee pursuit.
+            double horizontal=position().subtract(victim.position()).multiply(1,0,1).length();
+            if (horizontal<12) {
+                Vec3 away=position().subtract(victim.position()).multiply(1,0,1).normalize();
+                if (away.lengthSqr()>.001) {
+                    Vec3 retreat=position().add(away.scale(6));
+                    if (world.hasChunkAt(BlockPos.containing(retreat))) getNavigation().moveTo(retreat.x,Math.max(victim.getY()+1.5,getY()),retreat.z,1.4);
+                }
+            } else if (horizontal<=20) getNavigation().stop();
         } else {
-            if(d>12 && d<1200) getNavigation().moveTo(victim,enraged()?1.28:1.0);
-            else getNavigation().stop();
+            // MeleeAttackGoal handles charging and melee hits.
+            if (ally!=null && ally.isTryaseya() && ally.getTarget() instanceof Player threatened && valid(threatened) && distanceToSqr(threatened)<900) setTarget(threatened);
         }
         if (cooldown-->0 || d>900 || !getSensing().hasLineOfSight(victim)) return;
         int next = isTryaseya()?new int[]{FEVER,SPIRITS,FLASH,ZONE,EVADE}[attackNumber++%5]:new int[]{HEAVY,WALL,SLAM,PULL,SPIKES}[attackNumber++%5];
@@ -130,6 +142,17 @@ public final class SisterBoss extends Monster {
         if (!isTryaseya() && ally!=null && ally.action()==SPIRITS) next=HEAVY;
         if (!isTryaseya() && next==PULL && ally!=null && ally.action()==FLASH) next=PULL;
         begin(next,victim);
+    }
+    @Override public void performRangedAttack(LivingEntity target,float distanceFactor) {
+        if (!isTryaseya() || !(level() instanceof ServerLevel world) || !target.isAlive() || action()!=IDLE || !clearSight(target)) return;
+        SisterBolt bolt=SistersContent.BOLT.get().create(world);
+        if (bolt==null) return;
+        Vec3 start=lanternOrigin();
+        Vec3 direction=target.getEyePosition().subtract(start).normalize();
+        bolt.setPos(start.x,start.y,start.z);
+        bolt.configure(this,(enraged()?9F:7F));
+        bolt.shoot(direction.x,direction.y,direction.z,1.25F,1.2F);
+        world.addFreshEntity(bolt);
     }
     private void begin(int next,Player victim) {
         entityData.set(ACTION,next);
