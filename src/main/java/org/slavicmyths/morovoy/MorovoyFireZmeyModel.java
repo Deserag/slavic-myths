@@ -123,10 +123,48 @@ public class MorovoyFireZmeyModel extends EntityModel<MorovoyFireZmey> {
         neckMid.translateAndRotate(pose);
         tip.translateAndRotate(pose);
         head.translateAndRotate(pose);
+        // Both neck fissures and wrist-rooted wing veins share the side's emissive pass.
+        // Rendering only named narrow accent children prevents whole-body neon coloring.
+        pose.popPose();
+
+        pose.pushPose();
+        body.translateAndRotate(pose);
+        neckBase.translateAndRotate(pose);
+        renderRingVeins(neckBase, "base", 6, pose, vertices, light, overlay);
+        neckMid.translateAndRotate(pose);
+        renderRingVeins(neckMid, "mid", 6, pose, vertices, light, overlay);
+        tip.translateAndRotate(pose);
+        renderRingVeins(tip, "tip", 5, pose, vertices, light, overlay);
+        head.translateAndRotate(pose);
         head.getChild("eye_" + side + "_a").render(pose, vertices, light, overlay);
         head.getChild("eye_" + side + "_b").render(pose, vertices, light, overlay);
         for (int i = 0; i < 4; i++) head.getChild("crest_" + side + "_" + i).render(pose, vertices, light, overlay);
         pose.popPose();
+
+        pose.pushPose();
+        body.translateAndRotate(pose);
+        ModelPart wing = body.getChild("wing_" + side);
+        wing.translateAndRotate(pose);
+        ModelPart elbow = wing.getChild("wing_elbow_" + side);
+        elbow.translateAndRotate(pose);
+        ModelPart forearm = elbow.getChild("wing_forearm_" + side);
+        forearm.translateAndRotate(pose);
+        ModelPart wrist = forearm.getChild("wing_tip_" + side);
+        wrist.translateAndRotate(pose);
+        for (int finger = 0; finger < 3; finger++) {
+            for (int k = 1; k < 12; k++) wrist.getChild("vein_" + finger + "_" + k).render(pose, vertices, light, overlay);
+        }
+        pose.popPose();
+    }
+
+    private void renderRingVeins(ModelPart neck, String segment, int count, PoseStack pose, VertexConsumer vertices, int light, int overlay) {
+        for (int i = 0; i < count; i += 2) {
+            pose.pushPose();
+            ModelPart ring = neck.getChild(segment + "_ring_" + i);
+            ring.translateAndRotate(pose);
+            ring.getChild("vein").render(pose, vertices, light, overlay);
+            pose.popPose();
+        }
     }
 
     public void renderFireFlame(PoseStack pose, VertexConsumer vertices) {
