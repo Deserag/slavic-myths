@@ -18,7 +18,6 @@ import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 
 /** Local first-person phases only. The server's attack timing, range and damage stay vanilla. */
-@EventBusSubscriber(modid="slavicmyths", value=Dist.CLIENT, bus=EventBusSubscriber.Bus.MOD)
 public final class WeaponMotionClient {
     private enum Shape { BLADE, HEAVY, SPEAR, POLEAXE, SICKLE, STAFF }
     @SubscribeEvent public static void register(RegisterClientExtensionsEvent event) {

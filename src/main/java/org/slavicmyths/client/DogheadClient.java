@@ -15,7 +15,6 @@ import org.joml.*;
 import org.slavicmyths.pesigolovtsy.*;
 import org.slavicmyths.pesigolovtsy.DogheadRules.*;
 
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
 public final class DogheadClient {
  @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(DogheadContent.ENTITY.get(),Renderer::new);e.registerEntityRenderer(DogheadContent.ARROW.get(),ArrowView::new);}
  public static final class ArrowView extends ArrowRenderer<DogheadArrow>{public ArrowView(EntityRendererProvider.Context c){super(c);}public ResourceLocation getTextureLocation(DogheadArrow e){return ResourceLocation.withDefaultNamespace("textures/entity/projectiles/arrow.png");}}

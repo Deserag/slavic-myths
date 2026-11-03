@@ -32,8 +32,7 @@ public final class FrostClient {
 
  private static long seconds(long until,long now){return Math.max(0,(until-now+19)/20);}
  @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut e){view=new CompoundTag();received=0;streamed=false;}
- @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
- public static final class Registration {
+  public static final class Registration {
   @SubscribeEvent public static void keys(RegisterKeyMappingsEvent e){e.register(ICICLES);e.register(WAVE);e.register(MIRROR);}
   @SuppressWarnings("unchecked") @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(FrostContent.BOSS.get(),MorozkoRenderer::new);e.registerEntityRenderer(FrostContent.DOUBLE.get(),c->(EntityRenderer<IceDouble>)(Object)new MorozkoRenderer(c));e.registerEntityRenderer(FrostContent.MIRROR_ENTITY.get(),PlayerDoubleRenderer::new);e.registerEntityRenderer(FrostContent.SHARD.get(),FrostGeometryRenderer::new);e.registerEntityRenderer(FrostContent.HAZARD.get(),FrostGeometryRenderer::new);}
   @SubscribeEvent public static void models(ModelEvent.RegisterAdditional e){for(String name:new String[]{"morozko_staff","heart_of_eternal_cold"})for(String suffix:new String[]{"_icon","_held"})e.register(net.minecraft.client.resources.model.ModelResourceLocation.standalone(FrostContent.id("item/"+name+suffix)));}

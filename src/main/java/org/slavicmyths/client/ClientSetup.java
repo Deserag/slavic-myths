@@ -13,6 +13,28 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 public final class ClientSetup {
     public static void registerModListeners(net.neoforged.bus.api.IEventBus bus) {
+        bus.addListener(NochnitsaClient::renderers);
+        bus.addListener(DogheadClient::renderers);
+        bus.addListener(EarthClient::renderers);
+        bus.addListener(WeaponMotionClient::register);
+        bus.addListener(org.slavicmyths.client.runeglow.RuneGlowRenderTypes::shaders);
+        bus.addListener(org.slavicmyths.client.runeglow.RuneGlowRenderTypes::buffers);
+        bus.addListener(NightClient.Registration::keys);
+        bus.addListener(NightClient.Registration::renderers);
+        bus.addListener(NightClient.Registration::layers);
+        bus.addListener(NightClient.Registration::models);
+        bus.addListener(NightClient.Registration::extension);
+        bus.addListener(Quest185Client.Registration::particles);
+        bus.addListener(Quest185Client.Registration::models);
+        bus.addListener(Quest185Client.Registration::extensions);
+        bus.addListener(Quest185Client.Registration::renderers);
+        bus.addListener(BogatyrClient.Registration::keys);
+        bus.addListener(BogatyrClient.Registration::renderers);
+        bus.addListener(WintersClient.Setup::ready);
+        bus.addListener(FrostClient.Registration::keys);
+        bus.addListener(FrostClient.Registration::renderers);
+        bus.addListener(FrostClient.Registration::models);
+        bus.addListener(FrostClient.Registration::extension);
         bus.addListener(org.slavicmyths.wood.WoodlandClient::setup);
         bus.addListener(org.slavicmyths.wood.WoodlandClient::renderers);
         bus.addListener(SanctuaryClient::renderers);

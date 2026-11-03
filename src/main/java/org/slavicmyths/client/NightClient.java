@@ -55,8 +55,7 @@ public final class NightClient {
  private static void clear(){view=new CompoundTag();SWINGS.clear();PHANTOMS.clear();nextPhantom=0;received=lastPacket=0;}
  private static void saveOptions(){try{java.nio.file.Files.writeString(Minecraft.getInstance().gameDirectory.toPath().resolve("config/slavicmyths-night192-client.txt"),Boolean.toString(reduced));}catch(java.io.IOException ignored){}}
  @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut e){clear();world=null;}
- @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
- public static final class Registration {
+  public static final class Registration {
   @SubscribeEvent public static void keys(RegisterKeyMappingsEvent e){for(var k:List.of(BREATH,HARVEST,WING,REDUCED))e.register(k);try{var p=Minecraft.getInstance().gameDirectory.toPath().resolve("config/slavicmyths-night192-client.txt");if(java.nio.file.Files.exists(p))reduced=Boolean.parseBoolean(java.nio.file.Files.readString(p));}catch(java.io.IOException ignored){}}
   @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(NightContent.BOSS.get(),KarachunRenderer::new);e.registerEntityRenderer(NightContent.RAVEN.get(),NightRavenRenderer::new);e.registerEntityRenderer(NightContent.BLADE.get(),NightBladeRenderer::new);}
   @SubscribeEvent public static void layers(EntityRenderersEvent.AddLayers e){normal=new Reaper(e.getContext(),false);slim=new Reaper(e.getContext(),true);phantomRenderer=new NightPhantomRenderer(e.getContext());}

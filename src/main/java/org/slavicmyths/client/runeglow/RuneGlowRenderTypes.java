@@ -12,7 +12,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterRenderBuffersEvent;
 import net.neoforged.neoforge.client.event.RegisterShadersEvent;
 
-@EventBusSubscriber(modid="slavicmyths", value=Dist.CLIENT, bus=EventBusSubscriber.Bus.MOD)
 public final class RuneGlowRenderTypes extends RenderType {
     private static ShaderInstance shader;
     private static final ResourceLocation TEXTURE=ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/misc/rune_glint.png");

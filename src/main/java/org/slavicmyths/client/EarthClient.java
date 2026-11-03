@@ -19,7 +19,6 @@ import java.util.*;
 
 /** Native model units: 16 units/block, +Y down, front -Z, root at feet (y=24).
  * Independent local pivots and eased keyframes; all collision and hit cues remain server-side. */
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
 public final class EarthClient {
     @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(EarthContent.BOSS.get(),BossRenderer::new);e.registerEntityRenderer(EarthContent.SERVANT.get(),ServantRenderer::new);e.registerEntityRenderer(EarthContent.ACTOR.get(),ActorRenderer::new);}
     private static CubeListBuilder cube(int u,int v,float x,float y,float z,float w,float h,float d){return CubeListBuilder.create().texOffs(u,v).addBox(x,y,z,w,h,d);}
