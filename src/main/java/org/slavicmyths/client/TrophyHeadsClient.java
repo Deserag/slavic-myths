@@ -209,7 +209,7 @@ public final class TrophyHeadsClient {
     }
     h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);
     if(block.kind.ordinal()>=TrophyHeads.Kind.GROVE_GUARDIAN.ordinal()){
-     ResourceLocation glowTexture=block.kind==TrophyHeads.Kind.FIRE_SERPENT||block.kind==TrophyHeads.Kind.MOR_SERPENT||kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY?ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/morovoy_fire_zmey_emissive.png"):ResourceLocation.fromNamespaceAndPath("slavicmyths",h.texture.getPath().replace(".png","_glow.png"));
+     ResourceLocation glowTexture=block.kind==TrophyHeads.Kind.FIRE_SERPENT||block.kind==TrophyHeads.Kind.MOR_SERPENT||block.kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY?ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/morovoy_fire_zmey_emissive.png"):ResourceLocation.fromNamespaceAndPath("slavicmyths",h.texture.getPath().replace(".png","_glow.png"));
      h.render(pose,buffer.getBuffer(RenderType.eyes(glowTexture)),15728880,overlay,((int)(175+45*Math.sin(time*.065))<<24)|0xffffff);
     }
     if(block.kind==TrophyHeads.Kind.MAGMA_LORD)h.render(pose,buffer.getBuffer(RenderType.eyes(org.slavicmyths.burningislands.client.IslandsClient.texture(org.slavicmyths.burningislands.IslandsContent.Kind.MAGMA_LORD,true))),15728880,overlay,((int)(120+80*tile.magmaOpenness+25*Math.sin(time*.065))<<24)|0xffffff);
