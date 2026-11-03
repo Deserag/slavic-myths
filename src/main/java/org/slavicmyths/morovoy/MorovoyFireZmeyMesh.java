@@ -165,10 +165,11 @@ public final class MorovoyFireZmeyMesh {
             }
         }
 
-        // Distinct curved curtain bays. Each short radial strip spans the area
-        // between adjacent rotated digits; vertical drops are sampled per tile.
-        // Outer edge = curved inward crescent; vertices at both finger tips
-        // remain sharp. Every membrane cuboid has exactly 1px Y thickness.
+        // Bake membrane tiles as cuboids of ONE ModelPart instead of 1386
+        // separate ModelParts per wing. Geometry, UVs, and 1px thickness remain
+        // unchanged; render traversal and resource reload no longer create
+        // thousands of separate tree nodes.
+        CubeListBuilder webCubes = CubeListBuilder.create();
         for (int gap = 0; gap < 3; gap++) {
             for (int across = 0; across < 22; across++) {
                 float u0 = across / 22.0F, u1 = (across + 1) / 22.0F;
@@ -181,13 +182,11 @@ public final class MorovoyFireZmeyMesh {
                     float minZ = Math.min(Math.min(a[2], b[2]), Math.min(c[2], d[2]));
                     float maxZ = Math.max(Math.max(a[2], b[2]), Math.max(c[2], d[2]));
                     float midY = (a[1] + b[1] + c[1] + d[1]) * .25F;
-                    wrist.addOrReplaceChild("web_" + gap + "_" + across + "_" + radial,
-                        CubeListBuilder.create().texOffs(membrane.u + 3 + across, membrane.v + 3 + radial * 3)
-                            .addBox(minX - .22F, midY - .5F, minZ - .22F, maxX - minX + .44F, 1, maxZ - minZ + .44F),
-                        PartPose.ZERO);
+                    webCubes.texOffs(membrane.u + 3 + across, membrane.v + 3 + radial * 3).addBox(minX - .22F, midY - .5F, minZ - .22F, maxX - minX + .44F, 1, maxZ - minZ + .44F);
                 }
             }
         }
+        wrist.addOrReplaceChild("web_membrane_" + name, webCubes, PartPose.ZERO);
 
         // Three 1px-wide crack tracks; they follow the same digit transforms.
         for (int finger = 0; finger < 3; finger++) {
