@@ -2,7 +2,7 @@ package org.slavicmyths.nethersmithing.client;
 import java.util.*;import com.google.gson.*;import net.minecraft.client.model.*;import net.minecraft.client.model.geom.*;import net.minecraft.client.model.geom.builders.*;import net.minecraft.client.player.AbstractClientPlayer;import net.minecraft.client.resources.PlayerSkin;import net.minecraft.world.entity.*;import net.minecraft.world.item.*;import net.neoforged.api.distmarker.Dist;import net.neoforged.bus.api.SubscribeEvent;import net.neoforged.fml.common.EventBusSubscriber;import net.neoforged.neoforge.client.extensions.common.*;
 import org.slavicmyths.nethersmithing.*;
 /** Actual separate pieces on vanilla humanoid bones, no server references to this class. */
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+
 public final class NetherArmorClient {
  private static final Map<String,Model> MODELS=new HashMap<>();
  @SubscribeEvent public static void register(RegisterClientExtensionsEvent event){for(var entry:NetherArmor.ITEMS.entrySet())event.registerItem(new IClientItemExtensions(){@Override public HumanoidModel<?> getHumanoidArmorModel(LivingEntity entity,ItemStack stack,EquipmentSlot slot,HumanoidModel<?> original){if(!(stack.getItem() instanceof NetherArmor.Piece p)||!p.king)return original;var model=model(slot,slim(entity));model.animate(entity);return model;}},entry.getValue().get());}

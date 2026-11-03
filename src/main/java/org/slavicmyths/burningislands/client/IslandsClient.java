@@ -8,7 +8,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slavicmyths.burningislands.*;
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+
 public final class IslandsClient {
  public static final class Renderer extends MobRenderer<IslandsMob,IslandsModel>{
   public Renderer(EntityRendererProvider.Context c,IslandsContent.Kind k){super(c,new IslandsModel(k),k==IslandsContent.Kind.MAGMA_LORD?1:.6F);

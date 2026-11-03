@@ -193,8 +193,9 @@ public final class SlavicMyths {
         bus.addListener(org.slavicmyths.nochnitsa.NochnitsaContent::attributes);
         bus.addListener(org.slavicmyths.nochnitsa.NochnitsaContent::placements);
         bus.addListener(org.slavicmyths.registry.ModEntities::attributes);
-        bus.addListener(org.slavicmyths.industry.MachineTile::register);
+        bus.addListener(org.slavicmyths.industry.MachineTile.CapabilitiesRegistration::register);
         bus.addListener(org.slavicmyths.gorynych.CrossbowVolley.Registration::register);
+        bus.addListener(org.slavicmyths.infernalfurnace.InfernalFurnaceCapabilities::register);
         bus.addListener(this::setup);
     }
 

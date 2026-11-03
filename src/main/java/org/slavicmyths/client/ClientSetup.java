@@ -13,6 +13,15 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 public final class ClientSetup {
     public static void registerModListeners(net.neoforged.bus.api.IEventBus bus) {
+        bus.addListener(org.slavicmyths.burningislands.client.IslandsClient::register);
+        bus.addListener(GreatswordClient::extensions);
+        bus.addListener(InfernalFurnaceClient::screens);
+        bus.addListener(NetherTrophyKeys.Registration::register);
+        bus.addListener(PosadBossRenderer::register);
+        bus.addListener(org.slavicmyths.losthalls.client.HallsClient::register);
+        bus.addListener(org.slavicmyths.navya.NavyaClient::setup);
+        bus.addListener(org.slavicmyths.navya.NavyaClient::renderers);
+        bus.addListener(org.slavicmyths.nethersmithing.client.NetherArmorClient::register);
         bus.addListener(org.slavicmyths.nethersmithing.client.NetherArmorGlow::layers);
         bus.addListener(KalinClient::renderers);
         bus.addListener(PolozClient::renderers);

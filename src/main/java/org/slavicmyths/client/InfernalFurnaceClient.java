@@ -1,6 +1,6 @@
 package org.slavicmyths.client;
 import net.minecraft.client.gui.screens.inventory.AbstractFurnaceScreen;import net.minecraft.client.gui.screens.recipebook.SmeltingRecipeBookComponent;import net.minecraft.world.entity.player.Inventory;import net.minecraft.network.chat.Component;import net.minecraft.resources.ResourceLocation;import net.neoforged.api.distmarker.Dist;import net.neoforged.bus.api.SubscribeEvent;import net.neoforged.fml.common.EventBusSubscriber;import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;import org.slavicmyths.infernalfurnace.*;
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+
 public final class InfernalFurnaceClient {
  @SubscribeEvent public static void screens(RegisterMenuScreensEvent e){e.register(InfernalFurnace.MENU.get(),Screen::new);}
  public static final class Screen extends AbstractFurnaceScreen<InfernalFurnaceMenu>{

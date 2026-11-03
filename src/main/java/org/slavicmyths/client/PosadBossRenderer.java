@@ -12,7 +12,7 @@ import org.slavicmyths.posad.boss.PosadBoss;
 import org.slavicmyths.registry.ModEntities;
 
 /** Dedicated 3D rigs, textures and animation poses; does not modify wildlife rendering. */
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+
 public final class PosadBossRenderer extends MobRenderer<PosadBoss,PosadBossModel> {
     private static final ResourceLocation MYTAR_TEXTURE = ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/cursed_mytar.png");
     private static final ResourceLocation BAUK_TEXTURE = ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/bauk.png");

@@ -1,7 +1,7 @@
 package org.slavicmyths.client;
 import com.mojang.blaze3d.vertex.PoseStack;import com.mojang.math.Axis;import net.minecraft.client.Minecraft;import net.minecraft.client.player.LocalPlayer;import net.minecraft.client.renderer.entity.player.PlayerRenderer;import net.minecraft.world.entity.HumanoidArm;import net.minecraft.world.item.ItemStack;import net.neoforged.api.distmarker.Dist;import net.neoforged.fml.common.EventBusSubscriber;import net.neoforged.bus.api.SubscribeEvent;import net.neoforged.neoforge.client.extensions.common.*;
 /** Both actual player arms and sleeves follow the single held greatsword; no duplicate item draw. */
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+
 public final class GreatswordClient {
  @SubscribeEvent public static void extensions(RegisterClientExtensionsEvent e){e.registerItem(new IClientItemExtensions(){
   @Override public boolean applyForgeHandTransform(PoseStack pose,LocalPlayer player,HumanoidArm arm,ItemStack stack,float partial,float equip,float swing){

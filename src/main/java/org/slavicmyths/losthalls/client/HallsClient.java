@@ -10,7 +10,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slavicmyths.losthalls.*;
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+
 public final class HallsClient {
  public static ResourceLocation texture(String id){return ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/lost_halls/"+id+".png");}
  public static final class Model extends HierarchicalModel<HallsMob>{public final HallsMesh mesh;public Model(HallsContent.Kind k){mesh=new HallsMesh(HallsContent.id(k));}@Override public ModelPart root(){return mesh.root;}@Override public void setupAnim(HallsMob e,float walk,float amount,float age,float yaw,float pitch){mesh.poseMob(HallsContent.id(e.kind),walk,amount,age,e.feedPulse()>0?-e.feedPulse():e.cast()==0?0:e.castTime(age-e.tickCount),e.hurtTime,e.deathTime,e.isOrderedToSit(),!e.onGround()&&e.getDeltaMovement().horizontalDistanceSqr()>.025,e.variant());var head=mesh.parts.get("head");if(head!=null){head.yRot+=yaw*.0174533F;head.xRot+=pitch*.0174533F;}}}

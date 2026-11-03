@@ -15,7 +15,7 @@ import org.slavicmyths.network.MythPayloads;
 public final class NetherTrophyKeys {
  private static final KeyMapping PENDANT=new KeyMapping("key.slavicmyths.morova_pendant",InputConstants.UNKNOWN.getValue(),"key.categories.slavicmyths");
  private static final KeyMapping HORN=new KeyMapping("key.slavicmyths.trizna_horn",InputConstants.UNKNOWN.getValue(),"key.categories.slavicmyths");
- @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
+ 
  public static final class Registration {
   @SubscribeEvent public static void register(RegisterKeyMappingsEvent e){e.register(PENDANT);e.register(HORN);}
  }
