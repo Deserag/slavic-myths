@@ -149,7 +149,7 @@ public class MorovoyFireZmeyModel extends EntityModel<MorovoyFireZmey> {
         elbow.translateAndRotate(pose);
         ModelPart forearm = elbow.getChild("wing_forearm_" + side);
         forearm.translateAndRotate(pose);
-        ModelPart wrist = forearm.getChild("wing_tip_" + side);
+        ModelPart wrist = forearm.getChild("wing_wrist_" + side);
         wrist.translateAndRotate(pose);
         for (int finger = 0; finger < 3; finger++) {
             for (int k = 1; k < 12; k++) wrist.getChild("vein_" + finger + "_" + k).render(pose, vertices, light, overlay);
