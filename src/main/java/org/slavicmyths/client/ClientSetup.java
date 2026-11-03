@@ -13,10 +13,10 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 public final class ClientSetup {
     public static void registerModListeners(net.neoforged.bus.api.IEventBus bus) {
-        bus.addListener(WoodlandClient::setup);
-        bus.addListener(WoodlandClient::renderers);
+        bus.addListener(org.slavicmyths.wood.WoodlandClient::setup);
+        bus.addListener(org.slavicmyths.wood.WoodlandClient::renderers);
         bus.addListener(SanctuaryClient::renderers);
-        bus.addListener(FurnitureClient::setup);
+        bus.addListener(org.slavicmyths.furniture.FurnitureClient::setup);
         bus.addListener(BayunClient::register);
         bus.addListener(MarinkaClient::renderers);
         bus.addListener(FlailClient::models);
