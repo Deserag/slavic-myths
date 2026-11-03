@@ -12,7 +12,6 @@ import org.slavicmyths.SlavicMyths;
 import org.slavicmyths.entity.DomovoyEntity;
 import org.slavicmyths.entity.LeshyEntity;
 
-@EventBusSubscriber(modid = SlavicMyths.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public final class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE, SlavicMyths.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.posad.PosadResidentEntity>> POSAD_RESIDENT = ENTITIES.register("posad_resident", () -> EntityType.Builder.of(org.slavicmyths.posad.PosadResidentEntity::new, MobCategory.CREATURE).sized(.6F, 1.95F).fireImmune().clientTrackingRange(10).build("slavicmyths:posad_resident"));

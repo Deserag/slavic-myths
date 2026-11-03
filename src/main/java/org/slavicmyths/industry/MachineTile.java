@@ -60,8 +60,7 @@ public final class MachineTile extends BlockEntity implements WorldlyContainer,M
     public int[] getSlotsForFace(Direction d){return d==Direction.DOWN?new int[]{output(),fuel()}:d==Direction.UP?new int[]{0}:refining?new int[]{1,2}:new int[]{1};}
     public boolean canPlaceItemThroughFace(int i,ItemStack s,Direction d){return d!=Direction.DOWN&&canPlaceItem(i,s);}
     public boolean canTakeItemThroughFace(int i,ItemStack s,Direction d){return d==Direction.DOWN&&(i==output()||i==fuel()&&s.is(Items.BUCKET));}
-    @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
-    public static final class CapabilitiesRegistration {
+        public static final class CapabilitiesRegistration {
         @SubscribeEvent public static void register(RegisterCapabilitiesEvent e){e.registerBlockEntity(Capabilities.ItemHandler.BLOCK,Industry.BLOOMERY_TILE.get(),(t,side)->new SidedInvWrapper(t,side==null?Direction.UP:side));e.registerBlockEntity(Capabilities.ItemHandler.BLOCK,Industry.HEARTH_TILE.get(),(t,side)->new SidedInvWrapper(t,side==null?Direction.UP:side));}
     }
 }

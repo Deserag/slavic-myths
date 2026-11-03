@@ -18,7 +18,6 @@ import net.neoforged.neoforge.event.entity.*;
 import net.neoforged.neoforge.registries.*;
 import net.neoforged.neoforge.common.world.*;
 import org.slavicmyths.registry.*;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class NochnitsaContent {
     public static final DeferredHolder<EntityType<?>,EntityType<NochnitsaEntity>> ENTITY=ModEntities.ENTITIES.register("nochnitsa",()->EntityType.Builder.of(NochnitsaEntity::new,MobCategory.MONSTER).sized(.72F,2.15F).clientTrackingRange(12).updateInterval(1).build("slavicmyths:nochnitsa"));
     public static final DeferredHolder<Item,Item> EGG=ModItems.ITEMS.register("nochnitsa_spawn_egg",()->new net.neoforged.neoforge.common.DeferredSpawnEggItem(ENTITY,0x343b50,0xdce5f6,new Item.Properties()));

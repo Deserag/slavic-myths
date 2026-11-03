@@ -185,6 +185,14 @@ public final class SlavicMyths {
         bus.addListener(org.slavicmyths.kuzya.KuzyaContent::attributes);
         bus.addListener(org.slavicmyths.military.MilitaryNetwork::register);
         bus.addListener(org.slavicmyths.wolf.WolfStoryNetwork::register);
+        bus.addListener(org.slavicmyths.skim.SkimContent::attributes);
+        bus.addListener(org.slavicmyths.pesigolovtsy.DogheadContent::attributes);
+        bus.addListener(org.slavicmyths.pesigolovtsy.DogheadContent::placements);
+        bus.addListener(org.slavicmyths.nochnitsa.NochnitsaContent::attributes);
+        bus.addListener(org.slavicmyths.nochnitsa.NochnitsaContent::placements);
+        bus.addListener(org.slavicmyths.registry.ModEntities::attributes);
+        bus.addListener(org.slavicmyths.industry.MachineTile::register);
+        bus.addListener(org.slavicmyths.gorynych.CrossbowVolley::Registration::register);
         bus.addListener(this::setup);
     }
 

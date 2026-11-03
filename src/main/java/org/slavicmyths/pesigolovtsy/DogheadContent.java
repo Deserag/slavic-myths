@@ -22,7 +22,6 @@ import net.neoforged.neoforge.registries.*;
 import net.neoforged.neoforge.common.world.*;
 import org.slavicmyths.registry.*;
 import org.slavicmyths.pesigolovtsy.DogheadRules.Role;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class DogheadContent {
  public static ResourceLocation id(String path){return ResourceLocation.fromNamespaceAndPath("slavicmyths",path);}
  public static final DeferredHolder<EntityType<?>,EntityType<DogheadEntity>> ENTITY=ModEntities.ENTITIES.register("pesigolovets",()->EntityType.Builder.of(DogheadEntity::new,MobCategory.MONSTER).sized(.95F,2.3F).clientTrackingRange(12).updateInterval(1).build("slavicmyths:pesigolovets"));
