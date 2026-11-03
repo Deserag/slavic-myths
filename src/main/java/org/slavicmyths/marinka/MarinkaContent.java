@@ -9,7 +9,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.slavicmyths.registry.*;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class MarinkaContent {
  public static final DeferredHolder<EntityType<?>,EntityType<DobrynyaEntity>> DOBRYNYA=ModEntities.ENTITIES.register("dobrynya_nikitich",()->EntityType.Builder.of(DobrynyaEntity::new,MobCategory.CREATURE).sized(.8F,2.2F).clientTrackingRange(12).updateInterval(1).build("slavicmyths:dobrynya_nikitich"));
  public static final DeferredHolder<EntityType<?>,EntityType<MarinkaEntity>> MARINKA=ModEntities.ENTITIES.register("marinka",()->EntityType.Builder.of(MarinkaEntity::new,MobCategory.MONSTER).sized(.68F,1.96F).clientTrackingRange(12).updateInterval(1).build("slavicmyths:marinka"));

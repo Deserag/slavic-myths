@@ -3,7 +3,6 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.config.ModConfigEvent;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class DogheadConfig {
  public static final ModConfigSpec SPEC;private static final ModConfigSpec.IntValue WEIGHT,HUNT_GAP;private static final ModConfigSpec.DoubleValue LEADER,PREY;private static final ModConfigSpec.BooleanValue DEBUG;
  public static int weight=20,huntGap=2400;public static double leaderChance=.25,preyChance=.12;public static boolean debug;

@@ -13,7 +13,6 @@ import net.neoforged.neoforge.event.entity.*;
 import net.neoforged.neoforge.registries.*;
 import org.slavicmyths.registry.*;
 
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class SivkaContent {
     public static final DeferredHolder<EntityType<?>,EntityType<SivkaEntity>> ENTITY=ModEntities.ENTITIES.register("sivka_burka",()->EntityType.Builder.of(SivkaEntity::new,MobCategory.CREATURE).sized(SivkaRules.WIDTH,SivkaRules.HEIGHT).clientTrackingRange(12).updateInterval(1).build("slavicmyths:sivka_burka"));
     public static final DeferredHolder<Item,Item> WHISTLE=ModItems.ITEMS.register("sivka_whistle",SivkaWhistle::new);

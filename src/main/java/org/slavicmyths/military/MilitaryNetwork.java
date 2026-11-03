@@ -11,7 +11,6 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import org.slavicmyths.village.VillageRoles;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class MilitaryNetwork {
  public record Snapshot(CompoundTag data) implements CustomPacketPayload {public static final Type<Snapshot> TYPE=new Type<>(VillageRoles.id("military_snapshot"));public static final StreamCodec<FriendlyByteBuf,Snapshot> CODEC=StreamCodec.of((b,v)->b.writeNbt(v.data),b->new Snapshot(b.readNbt()));public Type<Snapshot> type(){return TYPE;}}
  public record Request(int menu,int action,String key) implements CustomPacketPayload {public static final Type<Request> TYPE=new Type<>(VillageRoles.id("military_action"));public static final StreamCodec<FriendlyByteBuf,Request> CODEC=StreamCodec.of((b,v)->{b.writeVarInt(v.menu);b.writeVarInt(v.action);b.writeUtf(v.key,192);},b->new Request(b.readVarInt(),b.readVarInt(),b.readUtf(192)));public Type<Request> type(){return TYPE;}}

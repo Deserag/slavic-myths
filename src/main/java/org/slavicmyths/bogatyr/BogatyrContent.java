@@ -11,7 +11,6 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.slavicmyths.registry.*;
 
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class BogatyrContent {
     public static final DeferredHolder<EntityType<?>,EntityType<IlyaEntity>> ILYA=ModEntities.ENTITIES.register("ilya_muromets",()->EntityType.Builder.of(IlyaEntity::new,MobCategory.CREATURE).sized(.93F,2.45F).clientTrackingRange(12).updateInterval(1).build("slavicmyths:ilya_muromets"));
     public static final DeferredHolder<EntityType<?>,EntityType<IdolishcheEntity>> IDOL=ModEntities.ENTITIES.register("idolishche_poganoe",()->EntityType.Builder.of(IdolishcheEntity::new,MobCategory.MONSTER).sized(4.2F,8.8F).clientTrackingRange(12).updateInterval(1).fireImmune().build("slavicmyths:idolishche_poganoe"));

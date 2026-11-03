@@ -169,6 +169,22 @@ public final class SlavicMyths {
         bus.addListener(org.slavicmyths.poloz.PolozRegistration::attributes);
         bus.addListener(org.slavicmyths.bayun.BayunContent::attributes);
         if (net.neoforged.fml.loading.FMLEnvironment.dist == net.neoforged.api.distmarker.Dist.CLIENT) org.slavicmyths.client.ClientSetup.registerModListeners(bus);
+        bus.addListener(org.slavicmyths.skim.HeroLifecycleNetwork::register);
+        bus.addListener(org.slavicmyths.nochnitsa.NochnitsaConfig::loading);
+        bus.addListener(org.slavicmyths.nochnitsa.NochnitsaConfig::reloading);
+        bus.addListener(org.slavicmyths.pesigolovtsy.DogheadConfig::loading);
+        bus.addListener(org.slavicmyths.pesigolovtsy.DogheadConfig::reloading);
+        bus.addListener(org.slavicmyths.sivka.SivkaContent::attributes);
+        bus.addListener(org.slavicmyths.sivka.SivkaContent::placements);
+        bus.addListener(org.slavicmyths.bogatyr.BogatyrContent::attributes);
+        bus.addListener(org.slavicmyths.kalin.KalinContent::attributes);
+        bus.addListener(org.slavicmyths.finist.FinistContent::attributes);
+        bus.addListener(org.slavicmyths.firebird.FirebirdContent::attributes);
+        bus.addListener(org.slavicmyths.marinka.MarinkaContent::attributes);
+        bus.addListener(org.slavicmyths.underground.UndergroundMobs::attributes);
+        bus.addListener(org.slavicmyths.kuzya.KuzyaContent::attributes);
+        bus.addListener(org.slavicmyths.military.MilitaryNetwork::register);
+        bus.addListener(org.slavicmyths.wolf.WolfStoryNetwork::register);
         bus.addListener(this::setup);
     }
 

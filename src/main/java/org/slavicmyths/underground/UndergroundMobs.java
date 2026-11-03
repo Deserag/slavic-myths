@@ -10,7 +10,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.registries.*;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import org.slavicmyths.registry.*;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class UndergroundMobs {
  public static final DeferredHolder<EntityType<?>,EntityType<Podzemnik>> PODZEMNIK=ModEntities.ENTITIES.register("podzemnik",()->EntityType.Builder.of(Podzemnik::new,MobCategory.MONSTER).sized(.68F,1.68F).clientTrackingRange(10).build("slavicmyths:podzemnik"));
  public static final DeferredHolder<EntityType<?>,EntityType<Kladovik>> KLADOVIK=ModEntities.ENTITIES.register("kladovik",()->EntityType.Builder.of(Kladovik::new,MobCategory.MONSTER).sized(.82F,1.4F).clientTrackingRange(12).build("slavicmyths:kladovik"));

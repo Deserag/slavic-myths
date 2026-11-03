@@ -12,7 +12,6 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.*;
 import org.slavicmyths.registry.*;
 
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class FirebirdContent {
     public static final DeferredHolder<EntityType<?>,EntityType<FirebirdEntity>> ENTITY=ModEntities.ENTITIES.register("firebird",()->EntityType.Builder.of(FirebirdEntity::new,MobCategory.CREATURE).sized(1.35F,2.6F).fireImmune().clientTrackingRange(16).updateInterval(2).build("slavicmyths:firebird"));
     public static final List<String> RESOURCES=List.of("firebird_feather","smoldering_feather","firebird_down");

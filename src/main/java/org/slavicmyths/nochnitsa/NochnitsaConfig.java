@@ -3,7 +3,6 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.config.ModConfigEvent;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class NochnitsaConfig {
     public static final ModConfigSpec SPEC;private static final ModConfigSpec.IntValue WEIGHT;private static final ModConfigSpec.BooleanValue DEBUG;
     public static int spawnWeight=6;public static boolean debug;
