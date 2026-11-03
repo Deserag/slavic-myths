@@ -93,6 +93,23 @@ def main() -> None:
         for row in range(4):
             for col in range(4):
                 assert check.getpixel((col * 128 + 4, row * 128 + 4)) == pigment(col * 128 + 4, row * 128 + 4)
+    # Emissive assets must be re-generated together with the albedo,
+    # otherwise the old eye/vein UV layout colors unrelated regions.
+    for side, allowed in (("mor", {8, 12}), ("fire", {9, 13})):
+        emissive = Image.new("RGBA", (SIZE, SIZE), (0, 0, 0, 0))
+        glow = emissive.load()
+        for index in allowed:
+            tile_x = (index % 4) * TILE
+            tile_y = (index // 4) * TILE
+            for iy in range(TILE):
+                for ix in range(TILE):
+                    r, g, b = pixels[tile_x + ix, tile_y + iy]
+                    glow[tile_x + ix, tile_y + iy] = (r, g, b, 255)
+        target = OUTPUT.with_name(f"morovoy_fire_zmey_{side}_emissive.png")
+        emissive.save(target, format="PNG", optimize=True)
+        with Image.open(target) as check:
+            assert check.format == "PNG" and check.mode == "RGBA" and check.size == (512, 512)
+        print(f"PASS: {side} emissive UV mask: {target}")
     print(f"PASS: dark 512x512 UV atlas, 16 materials: {OUTPUT}")
 
 if __name__ == "__main__":
