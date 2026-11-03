@@ -188,6 +188,8 @@ public final class ClientSetup {
 
         bus.addListener(ClientSetup::keys);
 
+        bus.addListener(ClientSetup::modelLayers);
+
         bus.addListener(ClientSetup::layers);
 
     }
@@ -473,6 +475,14 @@ public final class ClientSetup {
     private ClientSetup() { }
 
     @SubscribeEvent public static void keys(net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent e){e.register(WolfStoryClient.RING);RpgClient.keys(e);FlightClient.keys(e);}
+
+    @SubscribeEvent public static void modelLayers(net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterLayerDefinitions event) {
+
+        event.registerLayerDefinition(new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "gneteya"), "main"), () -> SistersModel.create(false));
+
+        event.registerLayerDefinition(new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "tryaseya"), "main"), () -> SistersModel.create(true));
+
+    }
 
     @SubscribeEvent public static void layers(net.neoforged.neoforge.client.event.EntityRenderersEvent.AddLayers e){FolkEquipmentLayer.layers(e);TextileClient.layers(e);FlightClient.renderers(e.getContext());GusliClient.renderers(e.getContext());}
 
