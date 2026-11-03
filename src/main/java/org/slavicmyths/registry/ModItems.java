@@ -341,7 +341,6 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> VETROVOY_UZEL=ITEMS.register("vetrovoy_uzel",()->new org.slavicmyths.hunt.WindKnotItem(properties().stacksTo(1).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> SOSUD_OGNENNOGO_DYHANIYA=ITEMS.register("sosud_ognennogo_dyhaniya",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(8).rarity(Rarity.RARE),org.slavicmyths.hunt.HuntItems.Role.VESSEL));
     public static final DeferredHolder<Item, Item> SOSUD_PODVEYA=ITEMS.register("sosud_podveya",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(8).rarity(Rarity.RARE),org.slavicmyths.hunt.HuntItems.Role.VESSEL));
-    public static final DeferredHolder<Item, Item> FIRE_SERPENT_SPAWN_EGG=egg("fire_serpent_spawn_egg",ModEntities.FIRE_SERPENT,0x29191A,0xF04B16);
     public static final DeferredHolder<Item, Item> PODVEY_SPAWN_EGG=egg("podvey_spawn_egg",ModEntities.PODVEY,0x56626F,0xC5E4F1);
     public static final DeferredHolder<Item, Item> VOLKOLAK_SPAWN_EGG=egg("volkolak_spawn_egg",ModEntities.VOLKOLAK,0x3D3A38,0x9A1F27);
     public static final DeferredHolder<Item, Item> OKO_LIKHA=ITEMS.register("oko_likha",()->new org.slavicmyths.hunt.HuntItems(properties().stacksTo(1).rarity(Rarity.EPIC),org.slavicmyths.hunt.HuntItems.Role.FANG));
