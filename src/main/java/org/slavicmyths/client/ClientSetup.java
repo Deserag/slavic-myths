@@ -47,7 +47,7 @@ public final class ClientSetup {
         bus.addListener(SanctuaryClient::renderers);
         bus.addListener(org.slavicmyths.furniture.FurnitureClient::setup);
         bus.addListener(BayunClient::register);
-        bus.addListener(MarinkaClient::renderers);
+        bus.addListener(MarinkaClient.Registration::renderers);
         bus.addListener(FlailClient::models);
         bus.addListener(FlailClient::bake);
         bus.addListener(FlailClient::extensions);
@@ -71,7 +71,7 @@ public final class ClientSetup {
         bus.addListener(ThrowingMotionClient::register);
         bus.addListener(FirebirdClient::renderers);
         bus.addListener(KuzyaClient::renderers);
-        bus.addListener(SkimClient::renderers);
+        bus.addListener(SkimClient.Registration::renderers);
         bus.addListener(ThirdPersonWeaponMotion::additional);
         bus.addListener(ThirdPersonWeaponMotion::bake);
         bus.addListener(UniqueArmorModels::register);
