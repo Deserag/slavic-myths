@@ -40,9 +40,9 @@ public final class SistersModel extends EntityModel<SisterBoss> {
             }
             // Six projecting shoulder quills, three on each pauldron.
             for (int s:new int[]{-1,1}) {
-                ModelPart shoulder=part(g,body,s*14,-9,0);
-                box(g,shoulder,BONE,s<0?-9:0,-5,-9,9,8,18);
-                box(g,shoulder,BONE,s<0?-10:7,-10,-8,3,13,6);
+                ModelPart shoulder=part(g,body,s*15.75F,-9,0);
+                box(g,shoulder,BONE,s<0?-10.5F:0,-5,-9,10.5F,8,18);
+                box(g,shoulder,BONE,s<0?-11:7,-10,-8,4,13,6);
                 for (int j=0;j<3;j++) {
                     ModelPart quill=part(g,shoulder,s*(5+j*2),-9-j,2+j*2);
                     box(g,quill,BONE,-1,-6,-1,2,4,2);
@@ -82,8 +82,8 @@ public final class SistersModel extends EntityModel<SisterBoss> {
                 hair.add(strand);
             }
             ModelPart skirt=part(g,root,0,-12,0);
-            box(g,skirt,CLOTH,-7,0,-7,14,26,14);
-            box(g,skirt,HEM,-9,9,-8,18,15,16);
+            box(g,skirt,CLOTH,-7.75F,0,-7,15.5F,26,14);
+            box(g,skirt,HEM,-9.75F,9,-8,19.5F,15,16);
             for (int i=0;i<12;i++) {
                 ModelPart panel=part(g,skirt,-9+i*1.6F,8,i%2==0?-11:9);
                 box(g,panel,i%3==0?HEM:CLOTH,0,0,0,3,18+(i*5%6),3);
@@ -98,11 +98,11 @@ public final class SistersModel extends EntityModel<SisterBoss> {
                 box(g,leg,BONE,-6,14,-6,12,5,12);
                 box(g,leg,DARK,-6,22,-8,12,6,16);
             }
-            leftArm=part(g,root,17,-33,0);
-            rightArm=part(g,root,-17,-33,0);
+            leftArm=part(g,root,18.5F,-33,0);
+            rightArm=part(g,root,-18.5F,-33,0);
             for (ModelPart arm:new ModelPart[]{leftArm,rightArm}) {
                 box(g,arm,CLOTH,-5,0,-5,10,26,10);
-                box(g,arm,BONE,-8,0,-8,16,8,16);
+                box(g,arm,BONE,-8.75F,0,-8,17.5F,8,16);
                 box(g,arm,BONE,-7,14,-7,14,9,14);
                 box(g,arm,SKIN,-4,24,-4,8,7,8);
                 for (int j=0;j<4;j++)box(g,arm,SKIN,-4+j*2,29,-5,1.7F,6,2.5F);
