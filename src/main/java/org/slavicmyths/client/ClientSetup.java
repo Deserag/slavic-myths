@@ -53,7 +53,7 @@ public final class ClientSetup {
         bus.addListener(FlailClient::extensions);
         bus.addListener(WhipClient::additional);
         bus.addListener(WhipClient::bake);
-        bus.addListener(BrightFalconClient::renderers);
+        bus.addListener(BrightFalconClient.Registration::renderers);
         bus.addListener(SivkaClient.Setup::keys);
         bus.addListener(SivkaClient.Setup::renderers);
         bus.addListener(GuardianClient.Registration::renderers);
