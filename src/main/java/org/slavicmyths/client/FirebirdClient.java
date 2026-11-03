@@ -15,7 +15,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slavicmyths.firebird.*;
 
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
 public final class FirebirdClient {
     @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(FirebirdContent.ENTITY.get(),Renderer::new);}
     public static final class Renderer extends MobRenderer<FirebirdEntity,Model>{

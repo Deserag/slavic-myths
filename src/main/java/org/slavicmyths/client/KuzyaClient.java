@@ -13,7 +13,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slavicmyths.kuzya.*;
 
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
 public final class KuzyaClient {
     @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(KuzyaContent.ENTITY.get(),Renderer::new);}
     public static final class Renderer extends MobRenderer<KuzyaEntity,Model>{

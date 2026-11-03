@@ -17,7 +17,6 @@ import org.slavicmyths.combat.WeaponCatalog;
 import org.slavicmyths.finist.FinistItems;
 
 /** Vanilla BOW pose, timed to these bows' existing draw durations. Rendering only. */
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
 public final class BowDrawClient {
     @SubscribeEvent public static void extensions(RegisterClientExtensionsEvent event) {
         event.registerItem(new IClientItemExtensions() {

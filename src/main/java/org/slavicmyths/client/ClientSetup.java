@@ -13,6 +13,20 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 public final class ClientSetup {
     public static void registerModListeners(net.neoforged.bus.api.IEventBus bus) {
+        bus.addListener(IndustryClient::screens);
+        bus.addListener(CuriosAccessories::setup);
+        bus.addListener(MiningGogglesRenderer::setup);
+        bus.addListener(BowDrawClient::extensions);
+        bus.addListener(GorynychClient::renderers);
+        bus.addListener(GorynychClient::extensions);
+        bus.addListener(GorynychClient::setup);
+        bus.addListener(ArmorStandClothingLayer::layers);
+        bus.addListener(BasicArmorModels::register);
+        bus.addListener(ChudPeopleClient::renderers);
+        bus.addListener(KitchenDisplay::models);
+        bus.addListener(ThrowingMotionClient::register);
+        bus.addListener(FirebirdClient::renderers);
+        bus.addListener(KuzyaClient::renderers);
         bus.addListener(SkimClient::renderers);
         bus.addListener(ThirdPersonWeaponMotion::additional);
         bus.addListener(ThirdPersonWeaponMotion::bake);

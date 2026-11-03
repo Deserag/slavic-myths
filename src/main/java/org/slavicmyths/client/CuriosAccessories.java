@@ -16,7 +16,6 @@ import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 import top.theillusivec4.curios.api.client.ICurioRenderer;
 
 /** Existing geometry stays in its renderers; common items do not load client classes. */
-@EventBusSubscriber(modid="slavicmyths", bus=EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
 public final class CuriosAccessories implements ICurioRenderer {
     @SubscribeEvent public static void setup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {

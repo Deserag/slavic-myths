@@ -10,7 +10,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slavicmyths.industry.*;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
 public final class ChudPeopleClient {
     @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(ChudPeople.RESIDENT.get(),Renderer::new);e.registerEntityRenderer(ChudPeople.ARTISAN.get(),Renderer::new);e.registerEntityRenderer(ChudPeople.GUARD.get(),Renderer::new);}
     static final class Model extends HumanoidModel<ChudPerson> {

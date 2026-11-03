@@ -16,7 +16,6 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slavicmyths.textile.*;
 
 /** The same seven garment meshes on armor stands; no equipment/gameplay changes. */
-@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
 public final class ArmorStandClothingLayer extends RenderLayer<ArmorStand,ArmorStandArmorModel> {
  private final Map<String,HumanoidModel<ArmorStand>> garments=new LinkedHashMap<>();
  private ArmorStandClothingLayer(ArmorStandRenderer r){super(r);for(String id:List.of("linen_headscarf","linen_shirt","linen_ports","bast_shoes","sarafan","linen_apron","folk_vest"))garments.put(id,TextileClothingLayer.mesh(id,false));}
