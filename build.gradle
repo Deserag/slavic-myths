@@ -664,3 +664,39 @@ if (project.hasProperty('netherBossCheck')) {
   systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_netherboss'
  } }
 }
+
+ 
+// Sisters 3.3 albedo micro-contrast: generated within the Gradle resource output.
+// Source PNGs stay untouched; the JAR receives seeded, repeatable +/-10% pixel grain.
+tasks.named('processResources') {
+    doLast {
+        def sisterPalettes = [
+            tryaseya: [[47,39,85], [68,47,103], [130,153,189], [35,29,65], [151,202,231]],
+            gneteya: [[43,39,48], [91,34,51], [130,119,130], [31,27,34], [193,51,74]]
+        ]
+        sisterPalettes.each { sister, palette ->
+            def file = new File(destinationDirectory.get().asFile, 'assets/slavicmyths/textures/entity/' + sister + '_albedo.png')
+            if (!file.isFile()) throw new GradleException('Missing Sisters atlas: ' + file)
+            def atlas = javax.imageio.ImageIO.read(file)
+            if (atlas == null || atlas.width != 512 || atlas.height != 512) throw new GradleException('Expected 512x512 Sisters atlas: ' + file)
+            def noise = new java.util.Random(sister == 'tryaseya' ? 33031L : 33032L)
+            for (int y = 0; y < atlas.height; y++) {
+                for (int x = 0; x < atlas.width; x++) {
+                    int argb = atlas.getRGB(x, y)
+                    int alpha = (argb >>> 24) & 255
+                    if (alpha == 0) continue
+                    int region = x < 128 ? 0 : x < 256 ? 1 : x < 384 ? 2 : x < 480 ? 3 : 4
+                    def base = palette[region]
+                    double sourceLuma = (((argb >>> 16) & 255) + ((argb >>> 8) & 255) + (argb & 255)) / 765.0d
+                    double detail = 0.83d + 0.34d * sourceLuma
+                    double variance = 0.90d + noise.nextDouble() * 0.20d
+                    int red = Math.max(0, Math.min(255, (int)Math.round(base[0] * detail * variance)))
+                    int green = Math.max(0, Math.min(255, (int)Math.round(base[1] * detail * variance)))
+                    int blue = Math.max(0, Math.min(255, (int)Math.round(base[2] * detail * variance)))
+                    atlas.setRGB(x, y, (alpha << 24) | (red << 16) | (green << 8) | blue)
+                }
+            }
+            if (!javax.imageio.ImageIO.write(atlas, 'png', file)) throw new GradleException('PNG encoder unavailable for ' + file)
+        }
+    }
+}
