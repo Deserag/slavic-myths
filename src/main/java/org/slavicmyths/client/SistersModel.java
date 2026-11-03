@@ -89,10 +89,10 @@ public final class SistersModel extends EntityModel<SisterBoss> {
         }
 
         // Limbs: parent pivots are deliberately at shoulders for animation.
-        cube(rightArm, SKIN, 0, -3.7F, -2, -1.8F, 1.1F, 14, 3.4F);
-        cube(leftArm, SKIN, 0, -.5F, -2, -1.8F, 1.1F, 14, 3.4F);
-        cube(rightArm, CLOTH, 128, -3.9F, -2, -2, 1.5F, 7, 4);
-        cube(leftArm, CLOTH, 128, -.7F, -2, -2, 1.5F, 7, 4);
+        cube(rightArm, SKIN, 0, -.3F, -12, -1.8F, 1.1F, 14, 3.4F);
+        cube(leftArm, SKIN, 0, -.5F, -12, -1.8F, 1.1F, 14, 3.4F);
+        cube(rightArm, CLOTH, 128, -.5F, -5, -2, 1.5F, 7, 4);
+        cube(leftArm, CLOTH, 128, -.7F, -5, -2, 1.5F, 7, 4);
 
         // Lantern: full shaft, two metal rims and glowing core. Static in root space,
         // so it cannot disappear when a shoulder rotates.
