@@ -26,7 +26,6 @@ jobs:
       - name: Java 21 clean NeoForge build
         run: |
           chmod +x gradlew
-          sed -i '/^org.gradle.java.home=/d' gradle.properties
           ./gradlew --no-daemon clean build --console=plain
       - name: Record source and production artifact SHA256
         shell: bash
