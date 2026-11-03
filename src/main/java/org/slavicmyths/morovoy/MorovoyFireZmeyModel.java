@@ -65,22 +65,22 @@ public class MorovoyFireZmeyModel extends EntityModel<MorovoyFireZmey> {
             }
 
             ModelPart tail = body.getChild("tail_" + side + "_0");
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 8; i++) {
                 float tailAge = side.equals("left") ? age * 0.071F - i * 0.51F : age * 0.093F + 1.8F - i * 0.43F;
                 tail.yRot = sign * (sleeping ? 0.3F : 0.06F) + Mth.sin(tailAge) * 0.12F;
                 tail.xRot = awake * Mth.cos(tailAge * 0.9F) * 0.065F;
                 tail.zRot = awake * Mth.sin(tailAge * 0.77F) * 0.05F;
                 boolean striking = side.equals("left") ? action == MorovoyFireZmey.MOR_TAIL : action == MorovoyFireZmey.FIRE_TAIL;
                 if (striking && actionAge >= 12 && actionAge <= 29) tail.yRot += sign * Mth.sin((actionAge - 12) / 17.0F * Mth.PI) * (0.3F + i * 0.08F);
-                if (i < 5) tail = tail.getChild("tail_" + side + "_" + (i + 1));
+                if (i < 7) tail = tail.getChild("tail_" + side + "_" + (i + 1));
             }
         }
     }
 
     private void animateMorNeck(MorovoyFireZmey boss, float age, float yaw, float pitch, boolean sleeping, boolean dying, float awake) {
         float leftClock = age * 0.071F + boss.getId() * 0.17F;
-        float leftTargetYaw = Mth.clamp(yaw * Mth.DEG_TO_RAD, -0.55F, 0.55F) - 0.17F + Mth.sin(leftClock * 0.69F) * 0.15F;
-        float leftTargetPitch = Mth.clamp(pitch * Mth.DEG_TO_RAD, -0.38F, 0.38F) + Mth.sin(leftClock * 0.81F) * 0.10F;
+        float leftTargetYaw = Mth.clamp(boss.lookYaw() * Mth.DEG_TO_RAD, -0.85F, 0.85F) - 0.17F + Mth.sin(leftClock * 0.69F) * 0.15F;
+        float leftTargetPitch = Mth.clamp(boss.lookPitch() * Mth.DEG_TO_RAD, -0.60F, 0.60F) + Mth.sin(leftClock * 0.81F) * 0.10F;
         morBase.xRot = sleeping ? 0.83F : dying ? 0.8F : Mth.lerp(awake, 0.83F, -0.11F + Mth.sin(leftClock) * 0.13F);
         morBase.yRot = sleeping ? -0.45F : Mth.lerp(awake, -0.45F, leftTargetYaw * 0.45F);
         morBase.zRot = awake * (-0.07F + Mth.sin(leftClock * 1.11F) * 0.10F);
@@ -95,8 +95,8 @@ public class MorovoyFireZmeyModel extends EntityModel<MorovoyFireZmey> {
 
     private void animateFireNeck(MorovoyFireZmey boss, float age, float yaw, float pitch, boolean sleeping, boolean dying, float awake) {
         float rightClock = age * 0.109F + boss.getId() * 0.31F + 1.83F;
-        float rightTargetYaw = Mth.clamp(yaw * Mth.DEG_TO_RAD, -0.55F, 0.55F) + 0.19F + Mth.cos(rightClock * 0.73F) * 0.16F;
-        float rightTargetPitch = Mth.clamp(pitch * Mth.DEG_TO_RAD, -0.38F, 0.38F) + Mth.sin(rightClock * 0.94F) * 0.13F;
+        float rightTargetYaw = Mth.clamp(boss.lookYaw() * Mth.DEG_TO_RAD, -0.85F, 0.85F) + 0.19F + Mth.cos(rightClock * 0.73F) * 0.16F;
+        float rightTargetPitch = Mth.clamp(boss.lookPitch() * Mth.DEG_TO_RAD, -0.60F, 0.60F) + Mth.sin(rightClock * 0.94F) * 0.13F;
         fireBase.xRot = sleeping ? 0.90F : dying ? 0.86F : Mth.lerp(awake, 0.90F, -0.05F + Mth.sin(rightClock) * 0.12F);
         fireBase.yRot = sleeping ? 0.45F : Mth.lerp(awake, 0.45F, rightTargetYaw * 0.43F);
         fireBase.zRot = awake * (0.07F + Mth.cos(rightClock * 0.87F) * 0.11F);
