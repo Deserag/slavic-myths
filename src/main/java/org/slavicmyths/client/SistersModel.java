@@ -10,153 +10,158 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.monster.Monster;
 import org.slavicmyths.sisters.SisterBoss;
 
-public class SistersModel extends EntityModel<SisterBoss> {
+/**
+ * Actual production voxel geometry for Tryaseya and Gneteya.
+ * Coordinates use Minecraft model pixels: height 0 at feet, increasing upwards.
+ * All visible parts are real CubeListBuilder cubes; no preview-only geometry.
+ */
+public final class SistersModel extends EntityModel<SisterBoss> {
     private static final int ATLAS = 1024;
-    private static int serial; // Вводим статический счетчик вместо тяжелых UUID
-
-    private final ModelPart root;
-    private final ModelPart head;
-    private final ModelPart leftArm;
-    private final ModelPart rightArm;
-    private final boolean isSpirit;
-
     private static final int SKIN = 0;
     private static final int CLOTH = 256;
     private static final int BONE = 512;
     private static final int HEM = 768;
     private static final int GLOW = 128;
+    private static int nextCube;
+    private final ModelPart root;
+    private final ModelPart head;
+    private final ModelPart rightArm;
+    private final ModelPart leftArm;
+    private final boolean spirit;
 
-    public SistersModel(ModelPart part, boolean spirit) {
-        this.root = part.getChild("root");
-        this.head = this.root.getChild("head");
-        this.leftArm = this.root.getChild("left_arm");
-        this.rightArm = this.root.getChild("right_arm");
-        this.isSpirit = spirit;
-    }
-    // БОЛЬШЕ НИКАКИХ UUID: Используем быстрый инкремент строк
-    private static void box(PartDefinition p, int u, int v, float x, float y, float z, float w, float h, float d) {
-        p.addOrReplaceChild("box_" + serial++, 
-            CubeListBuilder.create().texOffs(u, v).addBox(x, y, z, w, h, d), PartPose.ZERO);
+    public SistersModel(ModelPart baked, boolean spirit) {
+        this.root = baked.getChild("root");
+        this.head = root.getChild("head");
+        this.rightArm = root.getChild("right_arm");
+        this.leftArm = root.getChild("left_arm");
+        this.spirit = spirit;
     }
 
-    private static PartDefinition part(PartDefinition p, String name, float x, float y, float z) {
-        return p.addOrReplaceChild(name, CubeListBuilder.create(), PartPose.offset(x, y, z));
+    private static PartDefinition part(PartDefinition parent, String name, float x, float y, float z) {
+        return parent.addOrReplaceChild(name, CubeListBuilder.create(), PartPose.offset(x, y, z));
+    }
+
+    private static void cube(PartDefinition parent, int u, int v, float x, float height, float z, float width, float tall, float depth) {
+        if (width <= 0 || tall <= 0 || depth <= 0) throw new IllegalArgumentException("Invalid sister cube");
+        parent.addOrReplaceChild("voxel_" + nextCube++, CubeListBuilder.create().texOffs(u, v).addBox(x, -height - tall, z, width, tall, depth), PartPose.ZERO);
     }
 
     public static LayerDefinition create(boolean spirit) {
-        serial = 0; // Сбрасываем счетчик при каждом новом запекании слоя
+        nextCube = 0;
         MeshDefinition mesh = new MeshDefinition();
-        PartDefinition root = mesh.getRoot().addOrReplaceChild("root", CubeListBuilder.create(), PartPose.offset(0, 24, 0));
-        
-        PartDefinition head = part(root, "head", 0, -32, 0);
-        
-        if (spirit) {
-            buildTryaseya(root, head);
-        } else {
-            buildGneteya(root, head);
-        }
-
+        // Root must be at entity feet. offset(0,24,0) displaced the full model underground.
+        PartDefinition root = part(mesh.getRoot(), "root", 0, 0, 0);
+        PartDefinition head = part(root, "head", 0, -52, 0);
+        PartDefinition rightArm = part(root, "right_arm", -5, -43, 0);
+        PartDefinition leftArm = part(root, "left_arm", 5, -43, 0);
+        if (spirit) buildTryaseya(root, head, rightArm, leftArm);
+        else buildGneteya(root, head, rightArm, leftArm);
         return LayerDefinition.create(mesh, ATLAS, ATLAS);
     }
 
-    private static void buildTryaseya(PartDefinition root, PartDefinition head) {
-        PartDefinition body = part(root, "body", 0, -24, 0);
-        box(body, CLOTH, 0, -3.5F, -8, -3.5F, 7, 9, 7);
-        box(body, CLOTH, 32, -3.0F, -14, -3.0F, 6, 6, 6);
+    private static void buildTryaseya(PartDefinition root, PartDefinition head, PartDefinition rightArm, PartDefinition leftArm) {
+        // Spectral tapered gown, distinct stacked tier geometry (not one pillar).
+        for (int h = 3; h < 29; h += 3) {
+            float radius = .8F + (h / 29F) * 4.4F;
+            cube(root, HEM, h * 3, -radius, h, -radius / 2, radius * 2, 3, radius);
+        }
+        cube(root, CLOTH, 0, -3.3F, 32, -2.7F, 6.6F, 15, 5.4F);
+        cube(root, HEM, 32, -3.9F, 33.5F, -3, 7.8F, 2, 6);
+        cube(root, CLOTH, 48, -3.5F, 47, -2.5F, 7, 3, 5);
 
-        box(head, SKIN, 0, -3.5F, -7, -3.5F, 7, 7, 7);
-        box(head, CLOTH, 64, -4.0F, -8, -4.0F, 8, 8, 8);
-        box(head, GLOW, 0, -2.0F, -4, -3.6F, 1.5F, 1, 0.5F);
-        box(head, GLOW, 0, 0.5F, -4, -3.6F, 1.5F, 1, 0.5F);
-
-        for (int i = 0; i < 6; i++) {
-            box(head, CLOTH, 128, -4.1F, -7 + i * 2, -3.8F, 0.5F, 11, 1);
-            box(head, CLOTH, 128, 3.6F, -7 + i * 2, -3.8F, 0.5F, 11, 1);
+        // Face, cyan eyes, mouth, layered bangs and long strands are head-attached.
+        cube(head, SKIN, 0, -3.2F, 51 - 52, -2.8F, 6.4F, 7.5F, 5.5F);
+        for (float x : new float[]{-2.1F, 1.15F}) cube(head, GLOW, 16, x, 55 - 52, -3.05F, 1.25F, 1, .5F);
+        cube(head, SKIN, 32, -.65F, 52.8F - 52, -3.1F, 1.3F, .25F, .35F);
+        for (float x : new float[]{-5F, -3.7F, -2.1F, 2.1F, 3.7F, 5F}) {
+            for (int i = 0; i < 12; i++) {
+                float h = 43 + i * 1.5F;
+                cube(head, CLOTH, 128, x + .25F * Mth.sin(i * .9F + x), h - 52, .7F, .85F, 2, 1.05F);
+            }
+        }
+        for (float x : new float[]{-4.3F, 3.35F}) {
+            for (int i = 0; i < 12; i++) {
+                float h = 40 + i * 1.5F;
+                cube(head, CLOTH, 144, x + .25F * Mth.sin(i * .85F), h - 52, -2.6F, 1.05F, 2, 1.2F);
+            }
         }
 
-        for (int i = 0; i < 6; i++) {
-            float size = 8.0F - (i * 1.1F);
-            // Прописываем предсказуемые имена лимбов
-            PartDefinition ring = part(root, "tail_ring_" + i, 0, -15 + (i * 4), 0);
-            box(ring, HEM, i * 16, -size / 2, 0, -size / 2, size, 4, size);
-        }
+        // Limbs: parent pivots are deliberately at shoulders for animation.
+        cube(rightArm, SKIN, 0, -3.7F, -2, -1.8F, 1.1F, 14, 3.4F);
+        cube(leftArm, SKIN, 0, -.5F, -2, -1.8F, 1.1F, 14, 3.4F);
+        cube(rightArm, CLOTH, 128, -3.9F, -2, -2, 1.5F, 7, 4);
+        cube(leftArm, CLOTH, 128, -.7F, -2, -2, 1.5F, 7, 4);
 
-        PartDefinition rArm = part(root, "right_arm", -5, -31, 0);
-        box(rArm, SKIN, 0, -1.5F, 0, -1.5F, 3, 14, 3);
-        PartDefinition staff = part(rArm, "staff", 0, 10, -2);
-        box(staff, BONE, 0, -1.0F, -20, -1.0F, 2, 44, 2);
-        box(staff, GLOW, 32, -2.0F, -25, -2.0F, 4, 4, 4);
-
-        PartDefinition lArm = part(root, "left_arm", 5, -31, 0);
-        box(lArm, SKIN, 0, -1.5F, 0, -1.5F, 3, 14, 3);
+        // Lantern: full shaft, two metal rims and glowing core. Static in root space,
+        // so it cannot disappear when a shoulder rotates.
+        cube(root, BONE, 0, -8.7F, 4, -1.5F, .8F, 59, .8F);
+        cube(root, GLOW, 32, -10.1F, 60, -3, 3.6F, 4.5F, 3.6F);
+        cube(root, BONE, 48, -10.5F, 59.5F, -3.4F, 4.3F, .6F, 4.3F);
+        cube(root, BONE, 64, -10.5F, 64.5F, -3.4F, 4.3F, .6F, 4.3F);
     }
 
-    private static void buildGneteya(PartDefinition root, PartDefinition head) {
-        PartDefinition body = part(root, "body", 0, -24, 0);
-        box(body, CLOTH, 0, -5.0F, -9, -4.0F, 10, 9, 8);
-        box(body, HEM, 0, -3.5F, 0, -3.5F, 7, 6, 7);
-        box(body, CLOTH, 64, -4.5F, 6, -4.5F, 9, 5, 9);
-
-        for (int i = 0; i < 3; i++) {
-            box(body, BONE, i * 8, -5.2F, -7 + (i * 3), -4.2F, 10.4F, 1, 1);
-            box(body, BONE, 40, -1.0F, -9, 4.1F, 2, 9, 1);
+    private static void buildGneteya(PartDefinition root, PartDefinition head, PartDefinition rightArm, PartDefinition leftArm) {
+        // Layered dark hem and burgundy over-skirt.
+        for (int h = 0; h < 28; h += 3) {
+            float radius = h < 21 ? 4.2F : 5.5F;
+            cube(root, h < 21 ? CLOTH : HEM, h * 3, -radius, h, -2.65F, radius * 2, 3, 5.3F);
         }
+        cube(root, CLOTH, 0, -4.4F, 29, -3.1F, 8.8F, 13, 6.2F);
+        cube(root, HEM, 32, -3.9F, 42, -3, 7.8F, 10, 6);
+        for (int i = 0; i < 5; i++) cube(root, HEM, 96 + i * 12, -4.6F + i * 1.8F, 20 - i * .3F, -3.1F, 1.5F, 10, 6.2F);
 
-        box(head, SKIN, 0, -3.5F, -7, -3.5F, 7, 7, 7);
-        box(head, BONE, 0, -4.0F, -8, -4.2F, 8, 8, 1);
-        box(head, GLOW, 16, -2.2F, -4, -4.4F, 1.2F, 1, 0.4F);
-        box(head, GLOW, 16, 1.0F, -4, -4.4F, 1.2F, 1, 0.4F);
+        // Bone mask, separate recessed red eye lenses and nose.
+        cube(head, BONE, 0, -3.6F, 52 - 52, -2.9F, 7.2F, 8.8F, 5.8F);
+        cube(head, BONE, 48, -3.25F, 55 - 52, -3.2F, 6.5F, 4.5F, 1.2F);
+        for (float x : new float[]{-2.4F, 1F}) cube(head, GLOW, 16, x, 55.1F - 52, -3.6F, 1.6F, 1.15F, .6F);
+        cube(head, CLOTH, 80, -.8F, 53 - 52, -3.55F, 1.6F, 2, .8F);
 
-        PartDefinition rArm = part(root, "right_arm", -7, -31, 0);
-        box(rArm, CLOTH, 0, -2.0F, 0, -2.0F, 4, 15, 4);
-        box(rArm, BONE, 0, -3.0F, -3, -3.0F, 6, 4, 6);
-        box(rArm, BONE, 24, -4.5F, -1, -1.0F, 1, 3, 2);
-        box(rArm, BONE, 24, -6.0F, -1, 1.0F, 1, 4, 2);
-
-        PartDefinition lArm = part(root, "left_arm", 7, -31, 0);
-        box(lArm, CLOTH, 0, -2.0F, 0, -2.0F, 4, 15, 4);
-        box(lArm, BONE, 0, -3.0F, -3, -3.0F, 6, 4, 6);
-        box(lArm, BONE, 24, 3.5F, -1, -1.0F, 1, 3, 2);
-        box(lArm, BONE, 24, 5.0F, -1, 1.0F, 1, 4, 2);
-
-        PartDefinition scythe = part(rArm, "scythe", 0, 11, -3);
-        box(scythe, CLOTH, 128, -1.0F, -24, -1.0F, 2, 54, 2);
+        // 3D rib cage, sternum, rear spine and shoulder-bone sets.
         for (int i = 0; i < 5; i++) {
-            box(scythe, BONE, 160 + (i * 8), 1.0F + (i * 3), -25 + (i * 2), -1.5F, 4, 4, 3);
+            float h = 43.2F - i * 2.2F;
+            cube(root, BONE, i * 12, -4.25F, h, -3.75F, 8.5F, .75F, 1.3F);
+            cube(root, BONE, i * 12, -4.25F, h, 2.7F, 8.5F, .75F, 1);
+            cube(root, BONE, 96, -.65F, h, -4, 1.3F, 2.2F, 1);
         }
+        for (int i = 0; i < 10; i++) cube(root, BONE, 128, -.5F, 31 + i * 2, 3.1F, .95F, 1.6F, 1);
+        for (int side : new int[]{-1, 1}) {
+            for (int i = 0; i < 4; i++) {
+                float h = 47.5F + i * 1.4F;
+                float x = side * (4.5F + i * .55F);
+                cube(root, BONE, 160, x - 1, h, -3, 2, .85F, 5.2F);
+            }
+        }
+        cube(rightArm, CLOTH, 32, -1, -2, -1.2F, 2.5F, 9, 3.2F);
+        cube(leftArm, CLOTH, 32, -.5F, -2, -1.2F, 2.5F, 9, 3.2F);
+        cube(rightArm, BONE, 80, -1.2F, -8, -2.0F, 1.4F, 3, 4);
+        cube(leftArm, BONE, 80, .2F, -8, -2.0F, 1.4F, 3, 4);
 
-        PartDefinition rLeg = part(root, "right_leg", -2.5F, -11, 0);
-        box(rLeg, CLOTH, 0, -2.0F, 0, -2.0F, 4, 11, 4);
-        PartDefinition lLeg = part(root, "left_leg", 2.5F, -11, 0);
-        box(lLeg, CLOTH, 0, -2.0F, 0, -2.0F, 4, 11, 4);
+        // Tall staff and progressive curved segmented scythe blade.
+        cube(root, CLOTH, 192, 6.1F, 13, -1.5F, 1.05F, 55, 1.05F);
+        for (int i = 0; i < 22; i++) {
+            float t = i / 21F;
+            float x = 6.5F + 18F * t;
+            float h = 68F - 17F * (float)Math.pow(t, 1.75);
+            cube(root, BONE, 192 + (i % 4) * 8, x, h, -1.6F, 1.5F - t * .7F, 1.8F - t * .6F, 2.3F - t);
+        }
     }
 
     @Override
     public void setupAnim(SisterBoss entity, float walk, float stride, float age, float yaw, float pitch) {
-        if (this.isSpirit) {
-            this.root.y = -2.0F + Mth.sin(age * 0.08F) * 2.5F;
-            this.rightArm.xRot = -0.5F + Mth.sin(age * 0.05F) * 0.1F;
-        } else {
-            this.root.y = 0.0F;
-            this.rightArm.xRot = -0.9F;
-            this.rightArm.yRot = -0.3F;
-            this.leftArm.xRot = -0.7F;
-            this.leftArm.yRot = 0.4F;
-            
-            float legMove = Mth.cos(walk * 0.6662F) * 1.4F * stride;
-            this.root.getChild("right_leg").xRot = legMove;
-            this.root.getChild("left_leg").xRot = -legMove;
-        }
-
-        this.head.yRot = yaw * ((float)Math.PI / 180F);
-        this.head.xRot = pitch * ((float)Math.PI / 180F);
+        // Do not overwrite the rest position of the baked model with y=24.
+        root.y = spirit ? Mth.sin(age * .08F) * 1.5F - 1.0F : 0;
+        head.yRot = yaw * Mth.DEG_TO_RAD;
+        head.xRot = pitch * Mth.DEG_TO_RAD;
+        rightArm.xRot = spirit ? -.18F + Mth.sin(age * .05F) * .09F : -.55F;
+        rightArm.yRot = spirit ? 0 : -.15F;
+        leftArm.xRot = spirit ? Mth.sin(age * .05F + 1.4F) * .08F : -.4F;
+        leftArm.yRot = spirit ? 0 : .18F;
     }
 
     @Override
-    public void renderToBuffer(PoseStack pose, VertexConsumer buffer, int light, int overlay, int color) {
-        this.root.render(pose, buffer, light, overlay, color);
+    public void renderToBuffer(PoseStack stack, VertexConsumer consumer, int light, int overlay, int color) {
+        root.render(stack, consumer, light, overlay, color);
     }
 }
