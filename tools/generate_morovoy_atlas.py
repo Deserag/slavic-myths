@@ -7,7 +7,6 @@ Optional: pip install pillow
 from __future__ import annotations
 
 import math
-import random
 from pathlib import Path
 from PIL import Image
 
@@ -26,6 +25,13 @@ BONE = (161, 145, 113)
 BELLY = (112, 101, 84)
 MOR_MEM = (76, 118, 59)
 FIRE_MEM = (111, 44, 104)
+
+def pixel_noise(x: int, y: int) -> float:
+    seed = (x * 374761393 + y * 668265263 + SEED * 1442695041) & 0xFFFFFFFF
+    seed ^= seed >> 13
+    seed = (seed * 1274126177) & 0xFFFFFFFF
+    seed ^= seed >> 16
+    return (seed / 0xFFFFFFFF) * 0.24 - 0.12
 
 def pigment(x: int, y: int) -> tuple[int, int, int]:
     # Mesh: left (negative X) uses the 0..191 UV band;
@@ -65,13 +71,11 @@ def pigment(x: int, y: int) -> tuple[int, int, int]:
         gradient = .94 + .07 * math.sin(y * .085)
 
     # Micro-relief: fixed-seed +/- 12% brightness perturbation per pixel.
-    roughness = 1.0 + random.uniform(-.12, .12)
+    roughness = 1.0 + pixel_noise(x, y)
     factor = gradient * roughness
     return tuple(max(0, min(255, round(channel * factor))) for channel in base)
 
 def main() -> None:
-    global random
-    random.seed(SEED)
     image = Image.new("RGB", (SIZE, SIZE))
     pixels = image.load()
     for y in range(SIZE):
