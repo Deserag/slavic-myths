@@ -1,6 +1,7 @@
 package org.slavicmyths.client.runeglow;
 
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import net.minecraft.client.renderer.RenderType;
@@ -30,8 +31,12 @@ public final class RuneGlowRenderTypes extends RenderType {
         return create(armor?"slavicmyths_rune_glow_armor":itemTarget?"slavicmyths_rune_glow_item":"slavicmyths_rune_glow",
                 DefaultVertexFormat.POSITION_TEX_COLOR,VertexFormat.Mode.QUADS,1536,false,false,state.createCompositeState(false));
     }
-    @SubscribeEvent public static void shaders(RegisterShadersEvent event) throws IOException {
-        event.registerShader(new ShaderInstance(event.getResourceProvider(),ResourceLocation.fromNamespaceAndPath("slavicmyths","rune_glint"),DefaultVertexFormat.POSITION_TEX_COLOR),loaded->shader=loaded);
+    @SubscribeEvent public static void shaders(RegisterShadersEvent event) {
+        try {
+            event.registerShader(new ShaderInstance(event.getResourceProvider(),ResourceLocation.fromNamespaceAndPath("slavicmyths","rune_glint"),DefaultVertexFormat.POSITION_TEX_COLOR),loaded->shader=loaded);
+        } catch (IOException error) {
+            throw new UncheckedIOException("Failed to register rune glint shader",error);
+        }
     }
     @SubscribeEvent public static void buffers(RegisterRenderBuffersEvent event) {
         // Fixed buffers prevent switching between normal and overlay consumers from ending a live builder.
