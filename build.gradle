@@ -675,7 +675,7 @@ tasks.named('processResources') {
             gneteya: [[43,39,48], [91,34,51], [130,119,130], [31,27,34], [193,51,74]]
         ]
         sisterPalettes.each { sister, palette ->
-            def file = new File(destinationDirectory.get().asFile, 'assets/slavicmyths/textures/entity/' + sister + '_albedo.png')
+            def file = new File(destinationDir, 'assets/slavicmyths/textures/entity/' + sister + '_albedo.png')
             if (!file.isFile()) throw new GradleException('Missing Sisters atlas: ' + file)
             def atlas = javax.imageio.ImageIO.read(file)
             if (atlas == null || atlas.width != 512 || atlas.height != 512) throw new GradleException('Expected 512x512 Sisters atlas: ' + file)

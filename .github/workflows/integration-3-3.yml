@@ -2,7 +2,7 @@ name: Slavic Myths 3.3 integration Java 21
 
 on:
   push:
-    branches: ['3.3']
+    branches: ['3.3', 'integration/3.3-into-working-20261102']
   pull_request:
     branches: ['3.3']
   workflow_dispatch:
