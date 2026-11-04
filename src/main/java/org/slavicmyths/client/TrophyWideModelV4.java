@@ -24,6 +24,7 @@ public final class TrophyWideModelV4 {
             case "mor_vein" -> new int[]{4,260};
             case "fire_crack" -> new int[]{132,260};
             case "mor_crest", "fire_crest", "crest" -> new int[]{388,260};
+            case "near_black" -> new int[]{260,260};
             case "mor_eye" -> new int[]{4,388};
             case "fire_eye" -> new int[]{132,388};
             default -> throw new IllegalStateException("Unmapped trophy material: " + mat);
