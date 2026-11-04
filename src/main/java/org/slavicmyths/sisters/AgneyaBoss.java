@@ -1,6 +1,7 @@
 package org.slavicmyths.sisters;
 
 import java.util.EnumSet;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -66,6 +67,7 @@ public final class AgneyaBoss extends Monster {
     private void startMaceAttack() {
         if (swingTick >= 0 || cooldown > 0 || level().isClientSide) return;
         swingTick = 0;
+        playSound(SoundEvents.ARMOR_EQUIP_IRON.value(), .65F, .8F);
         entityData.set(ATTACK_STARTED, (int)level().getGameTime());
         getNavigation().stop();
     }
@@ -76,9 +78,12 @@ public final class AgneyaBoss extends Monster {
         if (cooldown > 0) --cooldown;
         if (swingTick >= 0) {
             if (swingTick == 14) {
+                playSound(SoundEvents.PLAYER_ATTACK_SWEEP, 1F, .7F);
                 LivingEntity target = getTarget();
-                if (target != null && target.isAlive() && distanceToSqr(target) <= reachSq(target))
-                    doHurtTarget(target);
+                if (target != null && target.isAlive() && distanceToSqr(target) <= reachSq(target)
+                    && getSensing().hasLineOfSight(target) && doHurtTarget(target)) {
+                    playSound(SoundEvents.PLAYER_ATTACK_STRONG, 1F, .8F);
+                }
             }
             if (++swingTick >= MACE_ATTACK_TICKS) {
                 swingTick = -1;
