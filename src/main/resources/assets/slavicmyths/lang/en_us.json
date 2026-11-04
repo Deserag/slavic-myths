@@ -6524,5 +6524,8 @@
   "item.slavicmyths.ground_black_pepper": "Ground Black Pepper",
   "item.slavicmyths.heat_berry_mash": "Heat Berry Mash",
   "item.slavicmyths.coal_plum_mash": "Coal Plum Mash",
-  "item.slavicmyths.morovoy_fire_zmey_head": "Morovoy Fire Zmey Trophy Head"
+  "item.slavicmyths.morovoy_fire_zmey_head": "Morovoy Fire Zmey Trophy Head",
+  "entity.slavicmyths.ledeya": "Ledeya",
+  "item.slavicmyths.ledeya_spawn_egg": "Ledeya Spawn Egg",
+  "entity.slavicmyths.ledeya_frost_bolt": "Frost Bolt"
 }

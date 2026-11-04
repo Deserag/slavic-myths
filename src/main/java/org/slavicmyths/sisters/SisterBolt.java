@@ -18,17 +18,17 @@ public final class SisterBolt extends ThrowableProjectile {
     public SisterBolt(EntityType<? extends SisterBolt> type,Level world) { super(type,world); }
     @Override protected void defineSynchedData(net.minecraft.network.syncher.SynchedEntityData.Builder builder) { }
     @Override protected double getDefaultGravity() { return 0; }
-    public void configure(SisterBoss boss,float hitDamage) { setOwner(boss);damage=hitDamage; }
+    public void configure(LivingEntity boss,float hitDamage) { setOwner(boss);damage=hitDamage; }
     @Override protected boolean canHitEntity(Entity entity) { return entity instanceof Player p && !p.isSpectator() && !p.isCreative() && super.canHitEntity(entity); }
     @Override protected void onHitEntity(EntityHitResult result) {
-        if (!level().isClientSide && result.getEntity() instanceof Player player && getOwner() instanceof SisterBoss boss && player.hurt(damageSources().mobProjectile(this,boss),damage)) {
+        if (!level().isClientSide && result.getEntity() instanceof Player player && getOwner() instanceof LivingEntity boss && (boss instanceof SisterBoss || boss instanceof LedeyaBoss) && player.hurt(damageSources().mobProjectile(this,boss),damage)) {
             player.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN,45,0));
         }
     }
     @Override protected void onHit(HitResult result) { super.onHit(result); if (!level().isClientSide) discard(); }
     @Override public void tick() {
         super.tick();
-        if (level().isClientSide && tickCount%2==0) level().addParticle(net.minecraft.core.particles.ParticleTypes.WITCH,getX(),getY(),getZ(),0,.015,0);
+        if (level().isClientSide && tickCount%2==0) level().addParticle(getType() == SistersContent.FROST_BOLT.get() ? net.minecraft.core.particles.ParticleTypes.SNOWFLAKE : net.minecraft.core.particles.ParticleTypes.WITCH,getX(),getY(),getZ(),0,.015,0);
         if (!level().isClientSide && tickCount>=70) discard();
     }
     @Override protected void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag);tag.putFloat("ImpactDamage",damage); }
