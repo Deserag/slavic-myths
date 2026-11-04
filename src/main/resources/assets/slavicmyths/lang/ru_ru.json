@@ -6538,5 +6538,7 @@
   "item.slavicmyths.heat_berry_mash": "Жар-ягодная мезга",
   "item.slavicmyths.coal_plum_mash": "Углесливовая мезга",
   "item.slavicmyths.morovoy_fire_zmey_head": "Голова Морового огненного змея",
-  "block.slavicmyths.morovoy_fire_zmey_head": "Голова Морового огненного змея"
+  "block.slavicmyths.morovoy_fire_zmey_head": "Голова Морового огненного змея",
+  "entity.slavicmyths.agneya": "Огнея",
+  "item.slavicmyths.agneya_spawn_egg": "Яйцо призыва Огнеи"
 }

@@ -13,7 +13,7 @@ import org.slavicmyths.registry.ModItems;
 
 /** Dedicated 3.3 content registration. No unapproved natural-spawn or worldgen rules. */
 public final class SistersContent {
-    public static final DeferredHolder<EntityType<?>,EntityType<AgneyaBoss>> AGNEYA = ModEntities.ENTITIES.register("agneya", () -> EntityType.Builder.of(AgneyaBoss::new, MobCategory.MONSTER).sized(1.4F,4.7F).clientTrackingRange(24).updateInterval(2).build("slavicmyths:agneya"));
+    public static final DeferredHolder<EntityType<?>,EntityType<AgneyaBoss>> AGNEYA = ModEntities.ENTITIES.register("agneya", () -> EntityType.Builder.of(AgneyaBoss::new, MobCategory.MONSTER).sized(1.75F,5.10F).clientTrackingRange(24).updateInterval(2).build("slavicmyths:agneya"));
     public static final DeferredHolder<EntityType<?>,EntityType<SisterBoss>> GNETEYA = ModEntities.ENTITIES.register("gneteya", () -> EntityType.Builder.of(SisterBoss::new, MobCategory.MONSTER).sized(2.2F,5.5F).clientTrackingRange(24).updateInterval(2).build("slavicmyths:gneteya"));
     public static final DeferredHolder<EntityType<?>,EntityType<SisterBoss>> TRYASEYA = ModEntities.ENTITIES.register("tryaseya", () -> EntityType.Builder.of(SisterBoss::new, MobCategory.MONSTER).sized(1.15F,3.5F).clientTrackingRange(24).updateInterval(2).build("slavicmyths:tryaseya"));
     public static final DeferredHolder<EntityType<?>,EntityType<FeverSpirit>> SPIRIT = ModEntities.ENTITIES.register("tryaseya_fever_spirit", () -> EntityType.Builder.of(FeverSpirit::new, MobCategory.MONSTER).sized(.7F,1.1F).clientTrackingRange(12).updateInterval(2).build("slavicmyths:tryaseya_fever_spirit"));
