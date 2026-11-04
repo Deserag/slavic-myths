@@ -116,7 +116,7 @@ def new_boxes(lines, step=0, draw=0, rain=False, ready=0, nocked=False):
             transforms.append(rotation(pivot, z_offset=2.2 * draw))
         if joint.startswith("STRING"):
             sign = -1 if joint == "STRING_UP" else 1
-            transforms.append(rotation(pivot, x=sign * .24 / 1.65 * draw, z_offset=2.2 * draw))
+            transforms.append(rotation(pivot, x=sign * .24 / (72.6 * .70 / 17.9) * draw, z_offset=2.2 * draw))
         if joint == "BOW" or joint.startswith(("STRING", "ARROW")):
             transforms.append(rotation((-7.25, 36.8, -2.1), x=bow))
         if joint == "LEFT_ARM" or joint == "BOW" or joint.startswith(("STRING", "ARROW")):
@@ -187,6 +187,13 @@ def main():
     if args.atlas:
         led_atlas()
     agneya, ledeya = geometry()
+    rows = [line.split() for line in ledeya]
+    bow = [row for row in rows if row[0] == "BOW"]
+    body = [row for row in rows if row[0] not in {"BOW", "STRING_UP", "STRING_DOWN", "ARROW_CENTER", "ARROW_LEFT", "ARROW_RIGHT"}]
+    span = max(float(row[3]) + float(row[6]) for row in bow) - min(float(row[3]) for row in bow)
+    height = max(float(row[3]) + float(row[6]) for row in body)
+    assert abs(span / height - .70) < .0001, (span, height)
+    print(f"Bow: {span:.2f} / {height:.2f} voxels = {span / height:.1%}")
     assert min(float(line.split()[3]) for line in ledeya) == 0
     assert max(float(row[3]) + float(row[6]) for row in map(str.split, ledeya)) <= 4.65 * 16
     fig, axes = plt.subplots(2, 4, figsize=(15, 10), subplot_kw={"projection": "3d"},

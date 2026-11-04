@@ -5,7 +5,7 @@ import java.util.List;
 import org.slavicmyths.client.AgneyaGeometryV7.Box;
 
 public final class LedeyaGeometry {
-    public static final double BOW_LENGTH_SCALE = 1.65;
+    public static final double BOW_LENGTH_SCALE = (72.6 * .70) / 17.9;
     private static final double STRING_HALF_LENGTH = 8.8 * BOW_LENGTH_SCALE;
 
     public enum Joint {
