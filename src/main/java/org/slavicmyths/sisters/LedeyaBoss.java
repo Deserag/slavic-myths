@@ -244,7 +244,7 @@ public final class LedeyaBoss extends Monster {
                     }
                     entityData.set(ATTACK_KIND, next.ordinal());
                     entityData.set(ATTACK_STARTED, (int)level().getGameTime());
-                    playSound(SoundEvents.CROSSBOW_LOADING_START, .65F, 1.2F);
+                    playSound(SoundEvents.CROSSBOW_LOADING_START.value(), .65F, 1.2F);
                 }
             } else if (tickCount % 10 == 0) {
                 getNavigation().moveTo(target, 1);

@@ -154,10 +154,35 @@ def plot(ax, boxes, azimuth, title, elevation=0):
     ax.set_zticks(range(0, 81, 16))
     ax.grid(True)
 
+def trajectories(ax, mode):
+    ax.set(xlim=(0, 24), ylim=(0, 12), xlabel="Дистанция, блоки", ylabel="Высота, блоки")
+    ax.axhline(0, color="#49576c")
+    ax.grid(alpha=.25)
+    ax.scatter([0, 16], [3.55, 1.62], c=["#2856a4", "#a94636"], s=34, zorder=5)
+    if mode == "rain":
+        ax.set_title("Дождь · зона зафиксирована перед залпом")
+        ax.axvspan(13.7, 18.3, color="#80d9ff", alpha=.26)
+        for x in (14.25, 15, 16, 17, 17.75):
+            ax.annotate("", (x, 1), (x, 8), arrowprops={"arrowstyle": "-|>", "color": "#487cc7"})
+        for x in (-1, 0, 1):
+            ax.annotate("", (1.3 + x*.4, 9), (.32 + x*.08, 3.55),
+                        arrowprops={"arrowstyle": "-|>", "color": "#91b8d0", "linestyle": "dashed"})
+        ax.text(16, 10, "до 9 стрел", ha="center")
+    else:
+        count = 1 if mode == "shot" else 5
+        ax.set_title("Одиночный выстрел" if count == 1 else "Серия · пять выпусков через 6 тиков")
+        for i in range(count):
+            ax.annotate("", (15.7, 1.7), (.4, 3.55 + i*.22),
+                        arrowprops={"arrowstyle": "-|>", "color": "#487cc7", "alpha": .8})
+        if count > 1:
+            ax.text(9, 5, "серия на 8–18 блоках", ha="center")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("output", type=Path)
     parser.add_argument("--atlas", action="store_true")
+    parser.add_argument("--trajectories", type=Path)
     args = parser.parse_args()
     if args.atlas:
         led_atlas()
@@ -178,6 +203,12 @@ def main():
          "Ледея · перезарядка серии", 8)
     fig.suptitle("Огнея и Ледея · игровые кубоиды Java · 16 единиц = 1 блок", fontsize=17)
     fig.savefig(args.output, dpi=150)
+    if args.trajectories:
+        paths, panels = plt.subplots(1, 3, figsize=(12, 3), layout="constrained")
+        for ax, mode in zip(panels, ("shot", "rain", "rapid")):
+            trajectories(ax, mode)
+        paths.suptitle("Ледея · схема выстрелов и зоны падения")
+        paths.savefig(args.trajectories, dpi=150)
 
 if __name__ == "__main__":
     main()
