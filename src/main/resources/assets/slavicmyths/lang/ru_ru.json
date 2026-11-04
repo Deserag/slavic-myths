@@ -6540,5 +6540,8 @@
   "item.slavicmyths.morovoy_fire_zmey_head": "Голова Морового огненного змея",
   "block.slavicmyths.morovoy_fire_zmey_head": "Голова Морового огненного змея",
   "entity.slavicmyths.agneya": "Огнея",
-  "item.slavicmyths.agneya_spawn_egg": "Яйцо призыва Огнеи"
+  "item.slavicmyths.agneya_spawn_egg": "Яйцо призыва Огнеи",
+  "commands.slavicmyths.posad.locate.nether_only": "Искать Пекельный посад нужно в Аду.",
+  "commands.slavicmyths.posad.locate.found": "Пекельный посад: X=%s Z=%s",
+  "commands.slavicmyths.posad.locate.unknown": "В этом мире пока не обнаружено ни одного Пекельного посада."
 }

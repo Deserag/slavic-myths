@@ -5,7 +5,7 @@ import java.util.List;
 
 /** Bounded, world-independent terrain contract shared by native and explicit placement. */
 public final class PosadTerrain {
-    public static final int MAX_SUPPORT_DEPTH=48, MAX_BRIDGE=48, SUPPORT_STEP=8;
+    public static final int MAX_SUPPORT_DEPTH=48, MAX_BRIDGE=48, SUPPORT_STEP=8, MAX_TERRAIN_CUT=3;
     public enum Material { AIR, NATURAL, LAVA, PROTECTED }
     public interface Columns { Material at(int worldX,int worldY,int worldZ); }
     public record Support(int x,int z,int depth) {}
@@ -43,7 +43,12 @@ public final class PosadTerrain {
     public static Decision inspect(Columns columns,int ax,int deck,int az,int firstTurns) {
         var p=new Probe(columns);
         for(int z=0;z<113;z++)for(int x=0;x<113;x++) {
-            if(!p.clear(ax+x,deck,az+z,17))return new Decision(null,"HEADROOM",p.reads);
+            for (int dy = 1; dy <= 17; dy++) {
+                var material = p.get(ax+x,deck+dy,az+z);
+                if (material != Material.AIR && !(dy <= MAX_TERRAIN_CUT && material == Material.NATURAL)) {
+                    return new Decision(null,"HEADROOM",p.reads);
+                }
+            }
             for(int dy=0;dy>=-2;dy--) {
                 var m=p.get(ax+x,deck+dy,az+z);
                 if(m==Material.PROTECTED)return new Decision(null,"PROTECTED_PLATFORM",p.reads);

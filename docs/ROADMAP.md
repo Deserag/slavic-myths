@@ -2714,3 +2714,8 @@ hell, source f9beb28d: зарегистрированы три нейтраль�
 29.10: независимые программные долги руд/бюджетов боя/оберега реализованы; выполняются итоговые regression gates, арт/звук и owner runtime остаются отдельными незавершёнными результатами.
 
 29.10.2026 home desktop: hell a5def9a9 synchronized; Java21 clean build/resources PASS; native baseline32/32 seed20261024 PASS; Testing PolyMC2.1.6 installed. GUI BLOCKED_ISOLATION, survival/MP/relog NOT_RUN; master scope IN_PROGRESS. See implementation/home-desktop-sync-20261029/REPORT.md.
+
+
+## 2026-11-04 — Nether Posad
+
+Posad #382 remains open. Remaining acceptance includes client visuals, natural discovery in survival, actual locate results, resident persistence and multiplayer.

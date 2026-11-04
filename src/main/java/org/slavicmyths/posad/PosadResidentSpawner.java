@@ -37,6 +37,10 @@ public final class PosadResidentSpawner {
                 existing++;
                 continue;
             }
+            if (world.getChunkSource().getChunkNow(member.worldX() >> 4, member.worldZ() >> 4) == null) {
+                blocked++;
+                continue;
+            }
             PosadResidentEntity npc = ModEntities.POSAD_RESIDENT.get().create(world);
             if (npc == null) { blocked++; continue; }
             BlockPos spot = safe(world, member.worldX(), deckY, member.worldZ(), npc);

@@ -206,6 +206,9 @@ public final class PosadManualJobs {
                 ManualStructureRecords.get(world).replace(token, "nether_posad", 0, new BlockPos(ax, deckY, az), bounds);
                 world.getDataStorage().save();
                 source.sendSuccess(() -> Component.literal("Пекельный посад построен: X=" + ax + " Y=" + deckY + " Z=" + az + ", поворот " + turns * 90 + "°. Награды — только одноразовые сундуки."), false);
+                var residents = PosadResidentSpawner.populate(world, ax, deckY, az, turns);
+                source.sendSuccess(() -> Component.literal("Жители: добавлено " + residents.added()
+                    + ", уже учтено " + residents.existing() + ", нет места или спавн отклонён " + residents.blocked()), false);
                 preparation.close();
                 JOBS.remove(world);
                 return;
