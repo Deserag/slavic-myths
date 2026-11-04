@@ -116,8 +116,10 @@ public final class MorovoyRavenModel extends EntityModel<MorovoyRaven> {
         add(skull, "hooked_tip", 64, 194, -1.8F, 7.0F, -47.0F, 3.6F, 6.0F, 6.0F);
         add(skull, "nostril_left", 20, 160, -6.9F, 1, -24, 1, 2, 2);
         add(skull, "nostril_right", 20, 160, 5.9F, 1, -24, 1, 2, 2);
-        add(skull, "eye_left", 185, 38, -9.6F, -5, -8, 1, 3, 4);
-        add(skull, "eye_right", 185, 38, 8.6F, -5, -8, 1, 3, 4);
+        // Both eyes protrude past the skull cheeks and use the bright-green source UV patch.
+        // The same skull part is rendered by the living boss and its placed trophy.
+        add(skull, "eye_left", 185, 38, -11.7F, -6.5F, -11.5F, 2.2F, 4.2F, 5.0F);
+        add(skull, "eye_right", 185, 38, 9.5F, -6.5F, -11.5F, 2.2F, 4.2F, 5.0F);
         for (int i = 0; i < 3; i++) {
             add(skull, "crown_feather_" + i, 0, 150, -6 + i * 4.5F, -15 - (i % 2) * 2, 0, 3, 6, 12);
         }
