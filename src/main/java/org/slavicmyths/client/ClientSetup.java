@@ -289,6 +289,7 @@ public final class ClientSetup {
         event.registerEntityRenderer(ModEntities.POSAD_RESIDENT.get(), PosadResidentRenderer::new);
 
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.GNETEYA.get(), ctx -> new SistersRenderer(ctx, false, new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "gneteya"), "main")));
+        event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.AGNEYA.get(), ctx -> new AgneyaRenderer(ctx, new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "agneya"), "main")));
 
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.TRYASEYA.get(), ctx -> new SistersRenderer(ctx, true, new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "tryaseya"), "main")));
 
@@ -479,6 +480,7 @@ public final class ClientSetup {
     @SubscribeEvent public static void modelLayers(net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterLayerDefinitions event) {
 
         event.registerLayerDefinition(new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "gneteya"), "main"), () -> SistersModel.create(false));
+        event.registerLayerDefinition(new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "agneya"), "main"), AgneyaModelV4::create);
 
         event.registerLayerDefinition(new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "tryaseya"), "main"), () -> SistersModel.create(true));
 
