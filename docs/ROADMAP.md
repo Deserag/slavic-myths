@@ -2719,3 +2719,5 @@ hell, source f9beb28d: зарегистрированы три нейтраль�
 ## 2026-11-04 — Nether Posad
 
 Posad #382 remains open. Remaining acceptance includes client visuals, natural discovery in survival, actual locate results, resident persistence and multiplayer.
+
+Schema 26 places functional crimson seating and tables in the Posad, with warped variants in the herbalist district. Schema 25 retains its previous block plan. Furniture resource links were checked offline. In-game placement and player interaction remain NOT_RUN.

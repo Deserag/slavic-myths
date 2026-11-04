@@ -3298,3 +3298,5 @@ hell, source f9beb28d: зарегистрированы три нейтраль�
 ## 2026-11-04 — Nether Posad
 
 Posad #382 on 2.4. New schema 25 repairs communal gable seams, relocates communal chests and seating, fits black panes, and adds a masonry arch to the Veche Hall. Manual creation invokes the existing resident roster. Visual acceptance is pending.
+
+Schema 26 places functional crimson seating and tables in the Posad, with warped variants in the herbalist district. Schema 25 retains its previous block plan. Furniture resource links were checked offline. In-game placement and player interaction remain NOT_RUN.

@@ -68,7 +68,8 @@ final class PosadBuildingRepairs {
     }
 
     private static final class WallFurniture {
-        static final Map<Long, BlockState> CELLS = build();
+        static final Map<Long, BlockState> LEGACY = build(false);
+        static final Map<Long, BlockState> NETHER_WOOD = build(true);
 
         private static BlockState authored(int x, int y, int z) {
             var state = PosadArchitectureR3.voxel(x,y,z);
@@ -85,7 +86,7 @@ final class PosadBuildingRepairs {
                 || state.is(Blocks.CRIMSON_PLANKS));
         }
 
-        private static Map<Long, BlockState> build() {
+        private static Map<Long, BlockState> build(boolean netherWood) {
             Map<Long, BlockState> cells = new HashMap<>();
             for (var slot : PosadGeometry.Slot.values()) {
                 if (slot == PosadGeometry.Slot.COMMUNAL_HOUSE || slot == PosadGeometry.Slot.VECHE_SQUARE) continue;
@@ -96,7 +97,8 @@ final class PosadBuildingRepairs {
                             var original = authored(x,y,z);
                             if (original == null || !(original.getBlock() instanceof org.slavicmyths.furniture.FurnitureBlock furniture)) continue;
                             if (!java.util.Set.of("table", "chair", "bench", "stool").contains(furniture.kind)) continue;
-                            move(cells,area,x,y,z,furniture.kind);
+                            String wood = slot == PosadGeometry.Slot.ZELEYNAYA_IZBA ? "warped" : "crimson";
+                            move(cells,area,x,y,z,furniture.kind,netherWood ? wood : null);
                         }
                     }
                 }
@@ -104,7 +106,7 @@ final class PosadBuildingRepairs {
             return Map.copyOf(cells);
         }
 
-        private static void move(Map<Long,BlockState> cells, PosadGeometry.Rect area, int x, int y, int z, String kind) {
+        private static void move(Map<Long,BlockState> cells, PosadGeometry.Rect area, int x, int y, int z, String kind, String wood) {
             for (int distance = 0; distance <= 4; distance++) {
                 for (Direction direction : Direction.Plane.HORIZONTAL) {
                     int tx = x + direction.getStepX()*distance;
@@ -117,7 +119,7 @@ final class PosadBuildingRepairs {
                     var floor = authored(tx,y-1,tz);
                     if (empty(floor) || floor.getBlock() instanceof StairBlock) continue;
                     if (distance != 0) cells.put(BlockPos.asLong(x,y,z), Blocks.AIR.defaultBlockState());
-                    var replacement = switch (kind) {
+                    var replacement = wood != null ? furniture(wood,kind,direction.getOpposite()) : switch (kind) {
                         case "chair", "bench" -> Blocks.CRIMSON_STAIRS.defaultBlockState()
                             .setValue(StairBlock.FACING,direction.getOpposite());
                         case "stool" -> Blocks.CRIMSON_SLAB.defaultBlockState();
@@ -130,7 +132,16 @@ final class PosadBuildingRepairs {
         }
     }
 
-    static BlockState voxel(int x, int y, int z) {
+    private static BlockState furniture(String wood, String kind, Direction facing) {
+        return org.slavicmyths.furniture.Furniture.get(wood + "_" + kind).defaultBlockState()
+            .setValue(org.slavicmyths.furniture.FurnitureBlock.FACING, facing);
+    }
+
+    static BlockState voxel(int x, int y, int z, boolean netherWood) {
+        if (netherWood && (y == 1 || y == 7) && (x == 15 || x == 33) && (z == 19 || z == 20 || z == 27 || z == 28)) {
+            return furniture("crimson", z == 19 || z == 27 ? "table" : "chair",
+                x == 15 ? Direction.EAST : Direction.WEST);
+        }
         var interior = INTERIOR.get(BlockPos.asLong(x,y,z));
         if (interior != null) return interior;
 
@@ -171,7 +182,7 @@ final class PosadBuildingRepairs {
                     : Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState();
             }
         }
-        return y == 1 || y == 7 ? WallFurniture.CELLS.get(BlockPos.asLong(x,y,z)) : null;
+        return y == 1 || y == 7 ? (netherWood ? WallFurniture.NETHER_WOOD : WallFurniture.LEGACY).get(BlockPos.asLong(x,y,z)) : null;
     }
 
     static String chestLoot(int x, int y, int z) {

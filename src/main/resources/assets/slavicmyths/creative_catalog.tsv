@@ -1060,6 +1060,8 @@ darkened_chair	furniture	furniture_chair
 mor_oak_chair	furniture	furniture_chair
 navya_chair	furniture	furniture_chair
 blackwood_chair	furniture	furniture_chair
+crimson_chair	furniture	furniture_chair
+warped_chair	furniture	furniture_chair
 pine_stool	furniture	furniture_stool
 linden_stool	furniture	furniture_stool
 apple_stool	furniture	furniture_stool
@@ -1069,6 +1071,8 @@ darkened_stool	furniture	furniture_stool
 mor_oak_stool	furniture	furniture_stool
 navya_stool	furniture	furniture_stool
 blackwood_stool	furniture	furniture_stool
+crimson_stool	furniture	furniture_stool
+warped_stool	furniture	furniture_stool
 pine_bench	furniture	furniture_bench
 linden_bench	furniture	furniture_bench
 apple_bench	furniture	furniture_bench
@@ -1078,6 +1082,8 @@ darkened_bench	furniture	furniture_bench
 mor_oak_bench	furniture	furniture_bench
 navya_bench	furniture	furniture_bench
 blackwood_bench	furniture	furniture_bench
+crimson_bench	furniture	furniture_bench
+warped_bench	furniture	furniture_bench
 pine_table	furniture	furniture_table
 linden_table	furniture	furniture_table
 apple_table	furniture	furniture_table
@@ -1087,6 +1093,8 @@ darkened_table	furniture	furniture_table
 mor_oak_table	furniture	furniture_table
 navya_table	furniture	furniture_table
 blackwood_table	furniture	furniture_table
+crimson_table	furniture	furniture_table
+warped_table	furniture	furniture_table
 pine_bedside_cabinet	furniture	furniture_bedside_cabinet
 linden_bedside_cabinet	furniture	furniture_bedside_cabinet
 apple_bedside_cabinet	furniture	furniture_bedside_cabinet

@@ -3619,3 +3619,5 @@ Remaining debts29.10: native-only new-chunk mineral heat sampling (bounded343, n
 ## 2026-11-04 — Nether Posad
 
 Posad schema 25 overlays the authored structure at placement time. Native terrain selection checks individual deck elevations and permits removal of up to three layers of natural terrain inside the city footprint. Manual placement retains its separate preflight. The locate command uses the native structure registry ID.
+
+Schema 26 places functional crimson seating and tables in the Posad, with warped variants in the herbalist district. Schema 25 retains its previous block plan. Furniture resource links were checked offline. In-game placement and player interaction remain NOT_RUN.

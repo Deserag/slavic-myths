@@ -91,7 +91,7 @@ public final class PosadPiece extends StructurePiece {
 
     private BlockState baseVoxel(int x,int y,int z) {
         if (schema >= 25 && y > 0 && PosadGeometry.CITY.contains(x,z)) {
-            var repair = PosadBuildingRepairs.voxel(x,y,z);
+            var repair = PosadBuildingRepairs.voxel(x,y,z,schema >= 26);
             if (repair != null) return repair;
         }
         if(y < -2) {
