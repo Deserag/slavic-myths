@@ -116,7 +116,7 @@ def new_boxes(lines, step=0, draw=0, rain=False, ready=0, nocked=False):
             transforms.append(rotation(pivot, z_offset=2.2 * draw))
         if joint.startswith("STRING"):
             sign = -1 if joint == "STRING_UP" else 1
-            transforms.append(rotation(pivot, x=sign * .24 * draw, z_offset=2.2 * draw))
+            transforms.append(rotation(pivot, x=sign * .24 / 1.65 * draw, z_offset=2.2 * draw))
         if joint == "BOW" or joint.startswith(("STRING", "ARROW")):
             transforms.append(rotation((-7.25, 36.8, -2.1), x=bow))
         if joint == "LEFT_ARM" or joint == "BOW" or joint.startswith(("STRING", "ARROW")):
@@ -142,9 +142,9 @@ def plot(ax, boxes, azimuth, title, elevation=0):
             colors.append(rgb * shade)
     ax.add_collection3d(Poly3DCollection(faces, facecolors=colors, linewidth=.15,
                                         edgecolors=(.07, .12, .19, .24)))
-    ax.set(xlim=(-23, 23), ylim=(-23, 23), zlim=(-2, 82),
+    ax.set(xlim=(-23, 23), ylim=(-23, 23), zlim=(-2, 92),
            xlabel="X", ylabel="Z", zlabel="Y", title=title)
-    ax.set_box_aspect((46, 46, 84), zoom=1.12)
+    ax.set_box_aspect((46, 46, 94), zoom=1.12)
     ax.set_proj_type("ortho")
     ax.view_init(elev=elevation, azim=azimuth)
     if elevation == 0:

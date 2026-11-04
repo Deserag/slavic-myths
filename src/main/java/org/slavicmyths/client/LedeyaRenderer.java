@@ -87,8 +87,8 @@ public final class LedeyaRenderer extends MobRenderer<LedeyaBoss, LedeyaRenderer
             ModelPart lower = bow.getChild(Joint.STRING_DOWN.name());
             upper.z += 2.2F * draw;
             lower.z += 2.2F * draw;
-            upper.xRot = .24F * draw;
-            lower.xRot = -.24F * draw;
+            upper.xRot = (.24F / (float)LedeyaGeometry.BOW_LENGTH_SCALE) * draw;
+            lower.xRot = -(.24F / (float)LedeyaGeometry.BOW_LENGTH_SCALE) * draw;
             boolean nocked = ticks >= 0 && switch (attack) {
                 case SHOT -> ticks < 16;
                 case RAIN -> ticks < 18;

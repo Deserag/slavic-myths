@@ -5,6 +5,9 @@ import java.util.List;
 import org.slavicmyths.client.AgneyaGeometryV7.Box;
 
 public final class LedeyaGeometry {
+    public static final double BOW_LENGTH_SCALE = 1.65;
+    private static final double STRING_HALF_LENGTH = 8.8 * BOW_LENGTH_SCALE;
+
     public enum Joint {
         BODY(0, 0, 0), HEAD(0, 63, 0),
         LEFT_ARM(-7.25, 58.5, -.2), RIGHT_ARM(7.25, 58.5, -.2),
@@ -123,15 +126,15 @@ public final class LedeyaGeometry {
         for (int side : new int[]{-1, 1}) {
             for (int segment = 0; segment < 5; segment++) {
                 double reach = segment * 1.7;
-                double y = 36.8 + side * reach - (side < 0 ? 2.1 : 0);
+                double y = Joint.BOW.y + (side * reach - (side < 0 ? 2.1 : 0)) * BOW_LENGTH_SCALE;
                 double z = -4.15 + segment * segment * .16;
                 panels.add(new Panel(Joint.BOW, segment == 4 ? Material.TRIM : Material.BOW_WOOD,
-                    -7.8, y, z, 1.1 - segment * .12, 2.2, 1.38));
+                    -7.8, y, z, 1.1 - segment * .12, 2.2 * BOW_LENGTH_SCALE, 1.38));
             }
         }
         panels.add(new Panel(Joint.BOW, Material.BOOT, -7.93, 35.25, -3.8, 1.36, 3.1, 2.1));
-        panels.add(new Panel(Joint.STRING_UP, Material.PALE, -7.39, 36.8, -1.17, .28, 8.8, .24));
-        panels.add(new Panel(Joint.STRING_DOWN, Material.PALE, -7.39, 28, -1.17, .28, 8.8, .24));
+        panels.add(new Panel(Joint.STRING_UP, Material.PALE, -7.39, Joint.BOW.y, -1.17, .28, STRING_HALF_LENGTH, .24));
+        panels.add(new Panel(Joint.STRING_DOWN, Material.PALE, -7.39, Joint.BOW.y - STRING_HALF_LENGTH, -1.17, .28, STRING_HALF_LENGTH, .24));
         Joint[] arrows = {Joint.ARROW_CENTER, Joint.ARROW_LEFT, Joint.ARROW_RIGHT};
         for (int i = 0; i < arrows.length; i++) {
             double x = -7.25 + (i == 0 ? 0 : i == 1 ? -.85 : .85);
