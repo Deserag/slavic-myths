@@ -38,6 +38,8 @@ public final class PosadBoss extends Monster {
     private int cooldown;
     private int nextPathTick;
     private boolean connected;
+    private ServerPlayer chainedPlayer;
+    private PosadBoss chainDestination;
     private boolean rewardDropped;
     private int specialCooldown;
     private int chainCooldown;
@@ -126,7 +128,12 @@ public final class PosadBoss extends Monster {
                 connected = true;
                 applyHit();
             }
-            if (actionTicks == 0) entityData.set(ACTION, Move.IDLE.ordinal());
+            if (move() == Move.WINDUP_CHAIN && chainedPlayer != null) pullChainedPlayer();
+            if (actionTicks == 0) {
+                chainedPlayer = null;
+                chainDestination = null;
+                entityData.set(ACTION, Move.IDLE.ordinal());
+            }
             return;
         }
         LivingEntity target = getTarget();
@@ -154,6 +161,8 @@ public final class PosadBoss extends Monster {
         entityData.set(ACTION_REMAINING, ticks);
         cooldown = after;
         connected = false;
+        chainedPlayer = null;
+        chainDestination = null;
         if (next == Move.WINDUP_CHARGE && getTarget() != null) chargeDirection = getTarget().position().subtract(position()).multiply(1D, 0D, 1D).normalize();
         switch (next) {
             case WINDUP_CHAIN -> playSound(net.minecraft.sounds.SoundEvents.CHAIN_PLACE, 1.1F, .7F);
@@ -188,14 +197,40 @@ public final class PosadBoss extends Monster {
             break;
         }
     }
+    private void pullChainedPlayer() {
+        ServerPlayer player = chainedPlayer;
+        if (!player.isAlive() || player.isRemoved() || player.level() != level() || player.isCreative()
+                || player.isSpectator() || distanceToSqr(player) > 196D || !getSensing().hasLineOfSight(player)
+                || chainDestination.isRemoved() || !chainDestination.isAlive()) {
+            chainedPlayer = null;
+            chainDestination = null;
+            return;
+        }
+        var offset = chainDestination.position().subtract(player.position()).multiply(1D, 0D, 1D);
+        double stopDistance = (chainDestination.getBbWidth() + player.getBbWidth()) / 2D + .5D;
+        double distance = offset.length();
+        if (distance <= stopDistance) return;
+        var pull = offset.scale(Math.min(.48D, distance - stopDistance) / distance);
+        if (level().noCollision(player, player.getBoundingBox().move(pull))) {
+            player.setDeltaMovement(pull.x, player.getDeltaMovement().y, pull.z);
+            player.hurtMarked = true;
+        }
+    }
+
     private void applyHit() {
         if (move() == Move.WINDUP_CHAIN || move() == Move.WINDUP_COINS) {
             LivingEntity distant = getTarget();
             if (!(distant instanceof Player p) || !p.isAlive() || p.isCreative() || p.isSpectator() || !getSensing().hasLineOfSight(distant) || distanceToSqr(distant) > (move() == Move.WINDUP_CHAIN ? 196D : 144D)) return;
             if (move() == Move.WINDUP_COINS) { distant.hurt(damageSources().mobAttack(this), 5F); return; }
-            if (distant.hurt(damageSources().mobAttack(this), 6F)) {
-                net.minecraft.world.phys.Vec3 pull = position().subtract(distant.position()).multiply(1D, 0D, 1D).normalize().scale(.85D);
-                if (level().noCollision(distant, distant.getBoundingBox().move(pull))) distant.setDeltaMovement(distant.getDeltaMovement().add(pull));
+            if (distant instanceof ServerPlayer player && distant.hurt(damageSources().mobAttack(this), 6F)) {
+                chainedPlayer = player;
+                chainDestination = this;
+                for (PosadBoss candidate : level().getEntitiesOfClass(PosadBoss.class, getBoundingBox().inflate(16D),
+                        boss -> boss.kind == Kind.BAUK && boss.isAlive() && boss.getTarget() == player)) {
+                    if (chainDestination == this || candidate.distanceToSqr(player) < chainDestination.distanceToSqr(player)) {
+                        chainDestination = candidate;
+                    }
+                }
             }
             return;
         }
