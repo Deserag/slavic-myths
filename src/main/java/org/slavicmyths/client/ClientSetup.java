@@ -480,7 +480,7 @@ public final class ClientSetup {
     @SubscribeEvent public static void modelLayers(net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterLayerDefinitions event) {
 
         event.registerLayerDefinition(new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "gneteya"), "main"), () -> SistersModel.create(false));
-        event.registerLayerDefinition(new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "agneya"), "main"), AgneyaModelV4::create);
+        event.registerLayerDefinition(new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "agneya"), "main"), AgneyaModelV6::create);
 
         event.registerLayerDefinition(new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "tryaseya"), "main"), () -> SistersModel.create(true));
 
