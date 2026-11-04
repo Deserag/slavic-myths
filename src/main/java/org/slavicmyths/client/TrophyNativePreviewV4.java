@@ -5,7 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 /** Offline bounding-volume reference preview, not registered in Minecraft.
- * Raven: source cube coordinates copied from MorovoyRavenModel.trophyHead() and uniformly scaled.
+ * Raven: native skull cuboids centered on one anchor cell; beak points into the next cell.
  * Zmey: source head, jaw and horn coordinates from MorovoyFireZmeyMesh, uniformly scaled;
  * the neck branches are new, built to join the two heads without overlap.
  * Coordinates are 1/16-block units, X / Z are horizontal, Y is up. */
@@ -16,10 +16,11 @@ public final class TrophyNativePreviewV4 {
    if(x<-.001||y<-.001||z<-.001||x+w>32.001||y+h>16.001||z+d>32.001||w<=0||h<=0||d<=0)throw new IllegalArgumentException("Outside 2x2x1: "+part+" "+x+","+y+","+z+" dims "+w+","+h+","+d);
    boxes.add(new Box(part,x,y,z,w,h,d,mat));
  }
- // Invert Minecraft model Y and apply the SAME uniform scale to x/y/z.
+ // Match TrophyHeadsClient: X=8px on the anchor; positive Z is the forward cell.
+ // Use native bounds Y[-17..13], Z[-47..17] at the same uniform .45 scale.
  private void ravenRaw(String part,double x,double my,double z,double w,double h,double d,String m){
    double s=.45;
-   add(part,16+s*x,8.30-s*(my+h),23+s*z,w*s,h*s,d*s,m);
+   add(part,8+s*x,.48+s*(13-my-h),16-s*(z+d+15),w*s,h*s,d*s,m);
  }
  private void raven(){
    // Original MorovoyRavenModel skull pieces, including hooked beak. Never squash height.
@@ -32,8 +33,8 @@ public final class TrophyNativePreviewV4 {
    ravenRaw("beak",-1.8,7,-47,3.6,6,6,"beak");
    ravenRaw("skull",-6.9,1,-24,1,2,2,"raven_black");
    ravenRaw("skull",5.9,1,-24,1,2,2,"raven_black");
-   ravenRaw("eyes",-9.6,-5,-8,1,3,4,"raven_eye");
-   ravenRaw("eyes",8.6,-5,-8,1,3,4,"raven_eye");
+   ravenRaw("eyes",-11.7,-6.5,-11.5,2.2,4.2,5,"raven_eye");
+   ravenRaw("eyes",9.5,-6.5,-11.5,2.2,4.2,5,"raven_eye");
    for(int i=0;i<3;i++)ravenRaw("feathers",-6+i*4.5,-15-(i%2)*2,0,3,6,12,"raven_slate");
    // Jaw from native skull child: PartPose.offset(0,4,-13)
    ravenRaw("jaw",-6,4,-25,12,3,12,"raven_slate");
