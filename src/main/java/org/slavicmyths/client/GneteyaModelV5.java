@@ -55,8 +55,8 @@ public final class GneteyaModelV5 extends EntityModel<SisterBoss> {
         for(GneteyaGeometryV5.Box box:GEOMETRY){
             if(!parts.contains(box.part()))continue;
             int id=material(box.material());
-            int u=id%8*128;
-            int v=id/8*128;
+            int u=id%8*64;
+            int v=id/8*64;
             builder.texOffs(u,v).addBox((float)(box.x()-px),(float)(-box.y()-box.h()+py),(float)(box.z()-pz),(float)box.w(),(float)box.h(),(float)box.d());
         }
         return builder;
@@ -79,7 +79,7 @@ public final class GneteyaModelV5 extends EntityModel<SisterBoss> {
         PartDefinition left=upper.addOrReplaceChild("left_arm",cubes(Set.of("left_arm","armor_left"),-5.10,47.9,0),offset(-5.10,47.9,0,0,34.4,0));
         upper.addOrReplaceChild("right_arm",cubes(Set.of("right_arm","armor_right"),5.10,47.9,0),offset(5.10,47.9,0,0,34.4,0));
         left.addOrReplaceChild("scythe",cubes(Set.of("scythe"),-7.5,39.10,-3.50),offset(-7.5,39.10,-3.50,-5.10,47.9,0));
-        return LayerDefinition.create(mesh,1024,512);
+        return LayerDefinition.create(mesh,512,256);
     }
     private static float sin(float f){return (float)Math.sin(f);}
     private static float clamp(float v,float lo,float hi){return Math.max(lo,Math.min(hi,v));}
