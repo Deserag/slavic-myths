@@ -54,8 +54,18 @@ public final class TrophyHeadsClient {
   }
   public void render(PoseStack pose,VertexConsumer out,int light,int overlay){render(pose,out,light,overlay,0xffffffff);}
   public void render(PoseStack pose,VertexConsumer out,int light,int overlay,int color){
-   pose.pushPose();pose.translate(.5,.04,.5);pose.scale(scale*(kind==TrophyHeads.Kind.MOROVOY_RAVEN||kind==TrophyHeads.Kind.FIRE_SERPENT?1.6F:1F),-scale*(kind==TrophyHeads.Kind.MOROVOY_RAVEN||kind==TrophyHeads.Kind.FIRE_SERPENT?1.6F:1F),-scale*(kind==TrophyHeads.Kind.MOROVOY_RAVEN||kind==TrophyHeads.Kind.FIRE_SERPENT?1.6F:1F));
-   pose.translate(-(bounds[0]+bounds[3])/2,-bounds[4],-(bounds[2]+bounds[5])/2);
+   pose.pushPose();
+   if(kind.wide()){
+    pose.translate(1,.03,1);
+    if(kind==TrophyHeads.Kind.MOROVOY_RAVEN){
+     pose.scale(.45F,-.45F,-.45F);
+     pose.translate(-(bounds[0]+bounds[3])/2,-bounds[4],-(bounds[2]+bounds[5])/2);
+    }else pose.scale(1,-1,-1);
+   }else{
+    float extra=kind==TrophyHeads.Kind.FIRE_SERPENT?1.6F:1F;
+    pose.translate(.5,.04,.5);pose.scale(scale*extra,-scale*extra,-scale*extra);
+    pose.translate(-(bounds[0]+bounds[3])/2,-bounds[4],-(bounds[2]+bounds[5])/2);
+   }
    part.render(pose,out,light,overlay,color);pose.popPose();
   }
   public void pose(float time){pose(time,0,0);}
@@ -150,7 +160,7 @@ public final class TrophyHeadsClient {
   case PODZEMNIK->{var head=UndergroundClient.Model.mesh(3).getChild("body").getChild("head");yield new Head(kind,head,"textures/entity/underground/large_podzemnik.png",null,null,null,head.getChild("jaw"),head.getChild("brows"));}
   case MOROVOY_RAVEN->{var head=new MorovoyRavenModel().trophyHead();yield new Head(kind,head,"textures/entity/morovoy_raven.png",null,null,null,head.getChild("jaw"),null);}
   case FIRE_SERPENT,MOR_SERPENT->{String side=kind==TrophyHeads.Kind.FIRE_SERPENT?"right":"left";var head=org.slavicmyths.morovoy.MorovoyFireZmeyMesh.create().getChild("body").getChild("neck_" + side + "_base").getChild("neck_" + side + "_mid").getChild("neck_" + side + "_tip").getChild("head_" + side);yield new Head(kind,head,"textures/entity/morovoy_fire_zmey_albedo.png",null,null,null,head.getChild("jaw_"+side),null);}
-  case MOROVOY_FIRE_ZMEY->{var pair=org.slavicmyths.morovoy.MorovoyFireZmeyMesh.trophyHeadPair();yield new Head(kind,pair,"textures/entity/morovoy_fire_zmey_albedo.png");}
+  case MOROVOY_FIRE_ZMEY->{var pair=TrophyWideModelV4.createTwin();yield new Head(kind,pair,"textures/entity/morovoy_fire_zmey_albedo.png");}
  };}
  public static Head magmaHead(ModelPart head){return new Head(TrophyHeads.Kind.MAGMA_LORD,head,"textures/entity/burning_islands/magma_lord.png",null,null,null,head.getChild("jaw"),head.getChild("shard_head0"));}
  private static final Map<TrophyHeads.Kind,Head> HEADS=new EnumMap<>(TrophyHeads.Kind.class);
@@ -180,9 +190,10 @@ public final class TrophyHeadsClient {
    float time=tile.getLevel()==null?0:tile.getLevel().getGameTime()+partial+Math.floorMod(tile.getBlockPos().asLong(),79);
    pose.pushPose();
    try{
-    pose.translate(.5,0,.5);
+    double pivot=block.kind.wide()?1.0:.5;
+    pose.translate(pivot,0,pivot);
     pose.mulPose(Axis.YP.rotationDegrees(-tile.getBlockState().getValue(TrophyHeadBlock.FACING).toYRot()));
-    pose.translate(-.5,0,-.5);
+    pose.translate(-pivot,0,-pivot);
     float gazeX=0,gazeY=0;
     if(animated){
      var player=Minecraft.getInstance().player;
@@ -253,7 +264,7 @@ public final class TrophyHeadsClient {
     case PODZEMNIK->ParticleTypes.ASH;
     case LIKHO->ParticleTypes.SOUL;
     case MOR_LIKHO->ParticleTypes.CRIMSON_SPORE;
-    case MOROVOY_RAVEN,MOR_SERPENT,MOROVOY_FIRE_ZMEY->ParticleTypes.HAPPY_VILLAGER;
+    case MOROVOY_RAVEN->ParticleTypes.ASH;case MOR_SERPENT->ParticleTypes.SOUL;case MOROVOY_FIRE_ZMEY->ParticleTypes.DRAGON_BREATH;
     case FIRE_SERPENT->ParticleTypes.DRAGON_BREATH;
    };
    int count=Math.min(particleBudget,kind==TrophyHeads.Kind.MAGMA_LORD||kind==TrophyHeads.Kind.POSTEN||kind==TrophyHeads.Kind.GROVE_GUARDIAN||kind==TrophyHeads.Kind.ZHARENITSA?1:5);particleBudget-=count;

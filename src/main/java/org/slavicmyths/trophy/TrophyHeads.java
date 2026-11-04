@@ -12,8 +12,9 @@ public final class TrophyHeads {
  public enum Kind {
   TUGARIN("tugarin_head",1),SKIM("skim_head",1),VOLKOLAK("cursed_volkolak_head",1),
   LIKHO("likho_head",2),MOR_LIKHO("mor_likho_head",2),PODZEMNIK("large_podzemnik_head",2),MAGMA_LORD("magma_lord_head",1),GROVE_GUARDIAN("grove_guardian_head",1),ZHARENITSA("zharenitsa_head",1),POSTEN("posten_head",1),
-  MOROVOY_RAVEN("morovoy_raven_head",2),FIRE_SERPENT("fire_serpent_head",1),MOR_SERPENT("mor_serpent_head",1),MOROVOY_FIRE_ZMEY("morovoy_fire_zmey_head",1);
+  MOROVOY_RAVEN("morovoy_raven_head",1),FIRE_SERPENT("fire_serpent_head",1),MOR_SERPENT("mor_serpent_head",1),MOROVOY_FIRE_ZMEY("morovoy_fire_zmey_head",1);
   public final String id;public final int height;Kind(String id,int height){this.id=id;this.height=height;}
+  public boolean wide(){return this==MOROVOY_RAVEN||this==MOROVOY_FIRE_ZMEY;}
   /** Native-renderer envelope, verified by Heads140Offline; keeps server collision client-free. */
   public float[] bounds(){return switch(this){
    case TUGARIN->new float[]{.225059F,.04F,.03F,.774941F,.447273F,.97F};
