@@ -34,11 +34,13 @@ public final class SistersModel extends EntityModel<SisterBoss> {
     private final ModelPart root;
     private final boolean spirit;
     private final TryaseyaModelV11 v11;
+    private final GneteyaModelV5 gneteyaV5;
 
     public SistersModel(ModelPart baked, boolean spirit) {
         this.root = baked.getChild("root");
         this.spirit = spirit;
         this.v11 = spirit ? new TryaseyaModelV11(baked) : null;
+        this.gneteyaV5 = spirit ? null : new GneteyaModelV5(baked);
     }
 
     private static JsonArray decode(String packed) {
@@ -54,35 +56,13 @@ public final class SistersModel extends EntityModel<SisterBoss> {
     }
 
     public static LayerDefinition create(boolean spirit) {
-        // V10 geometry only for Tryaseya; preserve Gneteya model unchanged.
-        if (spirit) return TryaseyaModelV11.create();
-        JsonArray boxes = decode(spirit ? TRYASEYA : GNETEYA);
-        CubeListBuilder geometry = CubeListBuilder.create();
-        int expected = spirit ? 424 : 220;
-        if (boxes.size() != expected) throw new IllegalStateException("Sister voxel count mismatch: " + boxes.size());
-        // One ModelPart with many real cubes avoids hundreds of costly PartDefinition nodes.
-        for (JsonElement element : boxes) {
-            JsonArray v = element.getAsJsonArray();
-            float x = v.get(0).getAsFloat();
-            float height = v.get(1).getAsFloat();
-            float z = v.get(2).getAsFloat();
-            float width = v.get(3).getAsFloat();
-            float tall = v.get(4).getAsFloat();
-            float depth = v.get(5).getAsFloat();
-            int paletteId = v.get(6).getAsInt();
-            if (!(width > 0 && tall > 0 && depth > 0) || paletteId < 0 || paletteId >= 23) throw new IllegalStateException("Malformed Sisters cuboid");
-            int u = (paletteId % 8) * 64;
-            int vTex = (paletteId / 8) * 64;
-            geometry.texOffs(u, vTex).addBox(x, -height - tall, z, width, tall, depth);
-        }
-        MeshDefinition mesh = new MeshDefinition();
-        mesh.getRoot().addOrReplaceChild("root", geometry, PartPose.ZERO);
-        return LayerDefinition.create(mesh, ATLAS, ATLAS);
+        return spirit ? TryaseyaModelV11.create() : GneteyaModelV5.create();
     }
 
     @Override
     public void setupAnim(SisterBoss entity, float walk, float stride, float age, float yaw, float pitch) {
         if (v11 != null) { v11.setupAnim(entity, walk, stride, age, yaw, pitch); return; }
+        if (gneteyaV5 != null) { gneteyaV5.setupAnim(entity, walk, stride, age, yaw, pitch); return; }
         // Body origin is the entity's feet; never set root.y=24, which buried the model.
         root.y = spirit ? Mth.sin(age * .08F) * .7F : 0;
         root.yRot = yaw * Mth.DEG_TO_RAD * .12F;
@@ -91,6 +71,7 @@ public final class SistersModel extends EntityModel<SisterBoss> {
     @Override
     public void renderToBuffer(PoseStack pose, VertexConsumer buffer, int light, int overlay, int color) {
         if (v11 != null) { v11.renderToBuffer(pose, buffer, light, overlay, color); return; }
+        if (gneteyaV5 != null) { gneteyaV5.renderToBuffer(pose, buffer, light, overlay, color); return; }
         root.render(pose, buffer, light, overlay, color);
     }
 }
