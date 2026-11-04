@@ -84,7 +84,7 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
     }
    }else{
     BlockPos anchor=wideAnchor(p,s);
-    if(w.getBlockState(anchor).is(this))w.destroyBlock(anchor,true);
+    if(w.getBlockState(anchor).is(this))w.destroyBlock(anchor,false);
    }
    return;
   }
