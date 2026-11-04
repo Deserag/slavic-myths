@@ -47,17 +47,17 @@ public final class TrophyNativePreviewV4 {
  }
  private void head(String name,double cx,boolean fire){
    // Each half uses the actual MorovoyFireZmeyMesh material family:
-   // infected = SLATE/CHARCOAL/MOR_WEB/MOR_VEIN, burning = OBSIDIAN/FIRE_WEB/FIRE_CRACK.
-   String hide=fire?"fire_obsidian":"mor_slate";
-   String brow=fire?"fire_charcoal":"mor_charcoal";
-   String snout=fire?"fire_web":"mor_web";
+   // Exact boss Skin mapping: SHADE/CHARCOAL cranium, HIDE muzzle/jaw, NEAR_BLACK brow.
+   String crown=fire?"fire_charcoal":"mor_slate";
+   String jaw=fire?"fire_obsidian":"mor_charcoal";
+   String brow="near_black";
    String markings=fire?"fire_crack":"mor_vein";
-   String crest=fire?"fire_crest":"mor_crest";
+   String crest="crest";
    String eye=fire?"fire_eye":"mor_eye";
-   String horns=fire?"scorched_bone":"bone";
-   zmeyRaw(name,cx,-4.6,-4.5,-10,9.2,7,11,hide);
-   zmeyRaw(name,cx,-3.5,-.5,-15,7,3,8,snout);
-   zmeyRaw(name,cx,-3.8,2,-14,7.6,2.5,13,brow);
+   String horns="bone";
+   zmeyRaw(name,cx,-4.6,-4.5,-10,9.2,7,11,crown);
+   zmeyRaw(name,cx,-3.5,-.5,-15,7,3,8,jaw);
+   zmeyRaw(name,cx,-3.8,2,-14,7.6,2.5,13,jaw);
    zmeyRaw(name,cx,-4.5,-5,-10,9,2,5,brow);
    for(int sign:new int[]{-1,1}){
       zmeyRaw(name,cx,sign<0?-4.7:3.4,-3,-8,1.3,1.8,2,eye);
