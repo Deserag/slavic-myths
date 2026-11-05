@@ -14,6 +14,12 @@ import org.slavicmyths.registry.ModEffects;
 @EventBusSubscriber(modid = "slavicmyths")
 public final class FractureHooks {
     public static final int DURATION = 600;
+    public static void apply(Player player) {
+        if (player.level().isClientSide || player.isCreative() || player.isSpectator()) return;
+        MobEffectInstance current = player.getEffect(ModEffects.FRACTURE);
+        int amplifier = current == null ? 0 : Math.min(2, current.getAmplifier() + 1);
+        player.addEffect(new MobEffectInstance(ModEffects.FRACTURE, DURATION, amplifier, false, true, true));
+    }
     public static int stage(Player player) {
         MobEffectInstance instance = player.getEffect(ModEffects.FRACTURE);
         return instance == null ? 0 : Math.min(3, instance.getAmplifier() + 1);
