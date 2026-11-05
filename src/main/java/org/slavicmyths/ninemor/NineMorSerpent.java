@@ -193,7 +193,16 @@ public final class NineMorSerpent extends Monster {
     private void trackNearbyPlayer(ServerLevel server, LivingEntity enemy) {
         // Creative players can inspect the creature's tracking without being attacked.
         LivingEntity focus = enemy;
-        if (focus == null) focus = server.getNearestPlayer(this, 56D);
+        if (focus == null) {
+            double nearest = 56D * 56D;
+            for (ServerPlayer observer : server.players()) {
+                double dist = observer.distanceToSqr(this);
+                if (observer.isAlive() && !observer.isSpectator() && dist < nearest) {
+                    nearest = dist;
+                    focus = observer;
+                }
+            }
+        }
         if (focus == null || focus.distanceToSqr(this) > 56D * 56D) {
             entityData.set(HAS_GAZE, false);
             return;
