@@ -75,7 +75,8 @@ public final class LomeyaBoss extends Monster {
     private boolean canHit(Player p) { return p.isAlive() && !p.isCreative() && !p.isSpectator(); }
     private void begin(int action,Player target) {
         fracturedThisAction.clear();
-        lockedPosition=target.position();
+        Vec3 forward=Vec3.directionFromRotation(0,getYRot()).multiply(1,0,1).normalize();
+        lockedPosition=position().add(forward.scale(3.2));
         entityData.set(MOVE,action);entityData.set(FRAME,0);
         getNavigation().stop();
     }
@@ -103,8 +104,11 @@ public final class LomeyaBoss extends Monster {
     private void updateMove(ServerLevel world,Player target) {
         int frame=actionFrame()+1,action=action();
         entityData.set(FRAME,frame);
-        if (frame%5==0 && frame<duration(action)-8)
+        if (frame%5==0 && frame<duration(action)-8) {
             world.sendParticles(ParticleTypes.CRIT,getX(),getY()+2.6,getZ(),4,.45,.25,.45,.02);
+            if (action==SLAM || action==GIANT_STRIKE)
+                world.sendParticles(ParticleTypes.CLOUD,lockedPosition.x,lockedPosition.y+.15,lockedPosition.z,8,1.5,.05,1.5,.01);
+        }
         switch(action) {
             case COMBO -> {
                 // Four timed hits, but only one Fracture increase per combo.
