@@ -56,6 +56,8 @@ public final class BossBarPalette {
         Map.entry("zharenitsa",7),
         Map.entry("posten",8),
         Map.entry("grove_guardian",7),
+        Map.entry("morovoy_raven",7),
+        Map.entry("morovoy_fire_zmey",8),
         Map.entry("brown_bear",5)
     );
 

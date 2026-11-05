@@ -20,8 +20,8 @@ The original audit lists 28 bosses and minibosses at IV–VIII; their assigned r
 | --- | --- |
 | V | brown_bear (mother bear encounter bar) |
 | VI | agneya, ledeya |
-| VII | tryaseya, cursed_mytar, morova_deva, magma_lord, zharenitsa, grove_guardian |
-| VIII | gneteya, bauk, trizna_prince, posten, lomeya, neveya, viy |
+| VII | tryaseya, cursed_mytar, morova_deva, magma_lord, zharenitsa, grove_guardian, morovoy_raven |
+| VIII | gneteya, bauk, trizna_prince, posten, lomeya, neveya, viy, morovoy_fire_zmey |
 
 These UI classifications are based on relative encounter scale / existing boss stats, not a change to damage or health. Confirm them against the next approved balance table. For an unknown boss entity, retain its original bossbar color rather than invent a level.
 
@@ -35,3 +35,5 @@ Keep bossbar names and entity custom names intact. Do not force \`setCustomNameV
 - Java 21 \`clean build\`; confirm classes/resources in JAR.
 - Runtime visual checks: all bossbar levels and Lomeya/Neveya/Viy head labels; verify visual accessibility and multiple nearby bosses.
 - This patch does not claim an in-game combat test.
+
+Agneya and Ledeya previously lacked native bossbars; they now use one standard bossbar each with proper start/stop tracking and HP progress.

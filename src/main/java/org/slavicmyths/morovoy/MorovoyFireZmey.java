@@ -41,7 +41,7 @@ public final class MorovoyFireZmey extends Monster {
  private static final EntityDataAccessor<Boolean> AIRBORNE=SynchedEntityData.defineId(MorovoyFireZmey.class,EntityDataSerializers.BOOLEAN);
  private static final EntityDataAccessor<Float> LOOK_YAW=SynchedEntityData.defineId(MorovoyFireZmey.class,EntityDataSerializers.FLOAT);
  private static final EntityDataAccessor<Float> LOOK_PITCH=SynchedEntityData.defineId(MorovoyFireZmey.class,EntityDataSerializers.FLOAT);
- private final ServerBossEvent bar=new ServerBossEvent(Component.translatable("entity.slavicmyths.morovoy_fire_zmey"),BossEvent.BossBarColor.PURPLE,BossEvent.BossBarOverlay.NOTCHED_20);
+ private final ServerBossEvent bar=new ServerBossEvent(Component.translatable("entity.slavicmyths.morovoy_fire_zmey"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.PURPLE),BossEvent.BossBarOverlay.NOTCHED_20);
  private Vec3 anchor;private int idleTicks=60,orbitTicks,grabTicks;private UUID grabbed;private int turn=0;
  public MorovoyFireZmey(EntityType<? extends MorovoyFireZmey> type,Level level){super(type,level);moveControl=new net.minecraft.world.entity.ai.control.FlyingMoveControl(this,20,true);setPersistenceRequired();xpReward=0;}
  @Override public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor world,net.minecraft.world.DifficultyInstance difficulty,net.minecraft.world.entity.MobSpawnType reason,net.minecraft.world.entity.SpawnGroupData data){var result=super.finalizeSpawn(world,difficulty,reason,data);if(reason==net.minecraft.world.entity.MobSpawnType.SPAWN_EGG){anchor=position();nextState(WAKING);}return result;}

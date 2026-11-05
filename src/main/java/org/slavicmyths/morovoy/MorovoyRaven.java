@@ -43,7 +43,7 @@ public final class MorovoyRaven extends PathfinderMob {
     private static final EntityDataAccessor<Integer> POSE = SynchedEntityData.defineId(MorovoyRaven.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> POSE_START = SynchedEntityData.defineId(MorovoyRaven.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Float> BANK = SynchedEntityData.defineId(MorovoyRaven.class, EntityDataSerializers.FLOAT);
-    private final ServerBossEvent bossBar = new ServerBossEvent(Component.translatable("entity.slavicmyths.morovoy_raven"), BossEvent.BossBarColor.GREEN, BossEvent.BossBarOverlay.PROGRESS);
+    private final ServerBossEvent bossBar = new ServerBossEvent(Component.translatable("entity.slavicmyths.morovoy_raven"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.GREEN), BossEvent.BossBarOverlay.PROGRESS);
     private BlockPos home;
     private UUID parent;
     private int phaseTicks, attackIndex, quietTicks, activeTicks, minionLife;
