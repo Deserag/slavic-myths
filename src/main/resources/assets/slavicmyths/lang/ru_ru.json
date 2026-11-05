@@ -6626,5 +6626,11 @@
   "effect.slavicmyths.fracture": "Перелом",
   "entity.slavicmyths.neveya": "Невея",
   "item.slavicmyths.neveya_spawn_egg": "Яйцо призыва Невеи",
-  "effect.slavicmyths.death_mark": "Метка смерти"
+  "effect.slavicmyths.death_mark": "Метка смерти",
+  "entity.slavicmyths.viy": "Вий",
+  "entity.slavicmyths.viy_grave_upyr": "Могильный упырь",
+  "entity.slavicmyths.viy_faceless_nav": "Безликая навь",
+  "entity.slavicmyths.viy_kornelap": "Корнелап",
+  "item.slavicmyths.viy_spawn_egg": "Яйцо призыва Вия",
+  "effect.slavicmyths.viy_gaze": "Проклятие взора"
 }

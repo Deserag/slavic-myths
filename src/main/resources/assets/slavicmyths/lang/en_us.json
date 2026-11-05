@@ -6610,5 +6610,11 @@
   "effect.slavicmyths.fracture": "Fracture",
   "entity.slavicmyths.neveya": "Neveya",
   "item.slavicmyths.neveya_spawn_egg": "Neveya Spawn Egg",
-  "effect.slavicmyths.death_mark": "Death Mark"
+  "effect.slavicmyths.death_mark": "Death Mark",
+  "entity.slavicmyths.viy": "Viy",
+  "entity.slavicmyths.viy_grave_upyr": "Grave Upyr",
+  "entity.slavicmyths.viy_faceless_nav": "Faceless Nav",
+  "entity.slavicmyths.viy_kornelap": "Root Crawler",
+  "item.slavicmyths.viy_spawn_egg": "Viy Spawn Egg",
+  "effect.slavicmyths.viy_gaze": "Viy's Gaze Curse"
 }
