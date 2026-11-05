@@ -1,3 +1,0 @@
-gradle.beforeProject { p -> p.afterEvaluate {
-    p.neoForge.runs { auditClient { client(); gameDirectory = p.file('.tools/runtime-audit/client') } }
-} }
