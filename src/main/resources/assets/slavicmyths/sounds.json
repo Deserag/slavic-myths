@@ -9399,5 +9399,14 @@
         "attenuation_distance": 28
       }
     ]
+  },
+  "nine_mor_serpent.summon": {
+    "subtitle": "subtitles.slavicmyths.nine_mor_serpent.summon",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/gorynych/transform_start_1",
+        "attenuation_distance": 48
+      }
+    ]
   }
 }
