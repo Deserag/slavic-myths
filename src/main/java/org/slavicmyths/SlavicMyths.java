@@ -135,6 +135,7 @@ public final class SlavicMyths {
         org.slavicmyths.underground.UndergroundMobs.init(bus);
         org.slavicmyths.underground.UndergroundSounds.init();
         ModItems.ITEMS.register(bus);
+        org.slavicmyths.registry.ModEffects.EFFECTS.register(bus);
         org.slavicmyths.armorer.ArmorerRecipe.TYPES.register(bus);
         org.slavicmyths.armorer.ArmorerRecipe.SERIALIZERS.register(bus);
         org.slavicmyths.armorer.ArmorerMenu.register();
