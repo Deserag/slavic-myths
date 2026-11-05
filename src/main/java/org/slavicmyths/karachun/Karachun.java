@@ -14,7 +14,7 @@ public final class Karachun extends PathfinderMob implements Enemy {
  private static final EntityDataAccessor<Integer> PHASE=SynchedEntityData.defineId(Karachun.class,EntityDataSerializers.INT),ACTION=SynchedEntityData.defineId(Karachun.class,EntityDataSerializers.INT),AGE=SynchedEntityData.defineId(Karachun.class,EntityDataSerializers.INT);
  private static final EntityDataAccessor<Float> MAX=SynchedEntityData.defineId(Karachun.class,EntityDataSerializers.FLOAT);
  public UUID session,owner;public Vec3 anchor=Vec3.ZERO;private int absent,stageAge,battleTicks,nightTicks;private final long[] ready=new long[10];private final Set<UUID> birds=new HashSet<>(),affected=new HashSet<>();private Vec3 marker;private int markerAge;private int combo;
- private final ServerBossEvent bar=new ServerBossEvent(NightContent.text("boss"),net.minecraft.world.BossEvent.BossBarColor.PURPLE,net.minecraft.world.BossEvent.BossBarOverlay.PROGRESS);
+ private final ServerBossEvent bar=new ServerBossEvent(NightContent.text("boss"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),net.minecraft.world.BossEvent.BossBarColor.PURPLE),net.minecraft.world.BossEvent.BossBarOverlay.PROGRESS);
  public Karachun(EntityType<? extends Karachun> t,net.minecraft.world.level.Level w){super(t,w);setPersistenceRequired();xpReward=0;}
  public static AttributeSupplier.Builder attributes(){return createMobAttributes().add(Attributes.MAX_HEALTH,1024).add(Attributes.MOVEMENT_SPEED,.2).add(Attributes.ARMOR,10).add(Attributes.ATTACK_DAMAGE,12).add(Attributes.FOLLOW_RANGE,40).add(Attributes.KNOCKBACK_RESISTANCE,.9);}
  @Override protected void registerGoals(){goalSelector.addGoal(0,new net.minecraft.world.entity.ai.goal.FloatGoal(this));}
