@@ -101,6 +101,7 @@ public final class SlavicMyths {
         org.slavicmyths.serpenthill.HillContent.init();
         org.slavicmyths.gorynych.GorynychContent.init(bus);
         org.slavicmyths.morovoy.MorovoyFireZmeyContent.init(bus);
+        org.slavicmyths.ninemor.NineMorContent.init(bus);
         org.slavicmyths.winters.WintersContent.init(bus);
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.SERVER,org.slavicmyths.sanctuary.SanctuaryConfig.SPEC,"slavicmyths-sanctuaries.toml");
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.SERVER,org.slavicmyths.karachun.NightConfig.SPEC,"slavicmyths-karachun.toml");
