@@ -6527,5 +6527,8 @@
   "item.slavicmyths.morovoy_fire_zmey_head": "Morovoy Fire Zmey Trophy Head",
   "entity.slavicmyths.lomeya": "Lomeya",
   "item.slavicmyths.lomeya_spawn_egg": "Lomeya Spawn Egg",
-  "effect.slavicmyths.fracture": "Fracture"
+  "effect.slavicmyths.fracture": "Fracture",
+  "entity.slavicmyths.neveya": "Neveya",
+  "item.slavicmyths.neveya_spawn_egg": "Neveya Spawn Egg",
+  "effect.slavicmyths.death_mark": "Death Mark"
 }

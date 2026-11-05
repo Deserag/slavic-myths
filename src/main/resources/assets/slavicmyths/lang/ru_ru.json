@@ -6543,5 +6543,8 @@
   "item.slavicmyths.agneya_spawn_egg": "Яйцо призыва Огнеи",
   "entity.slavicmyths.lomeya": "Ломея",
   "item.slavicmyths.lomeya_spawn_egg": "Яйцо призыва Ломеи",
-  "effect.slavicmyths.fracture": "Перелом"
+  "effect.slavicmyths.fracture": "Перелом",
+  "entity.slavicmyths.neveya": "Невея",
+  "item.slavicmyths.neveya_spawn_egg": "Яйцо призыва Невеи",
+  "effect.slavicmyths.death_mark": "Метка смерти"
 }
