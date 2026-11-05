@@ -563,6 +563,7 @@ pesigolovets_scout_spawn_egg	mobs	hostile
 pesigolovets_hunter_spawn_egg	mobs	hostile
 pesigolovets_leader_spawn_egg	mobs	hostile
 kurgan_druzhinnik_spawn_egg	mobs	hostile
+ledeya_spawn_egg	mobs	hostile
 large_podzemnik_spawn_egg	mobs	elite
 kladovik_spawn_egg	mobs	elite
 kurgan_voevoda_spawn_egg	mobs	elite
@@ -1060,6 +1061,8 @@ darkened_chair	furniture	furniture_chair
 mor_oak_chair	furniture	furniture_chair
 navya_chair	furniture	furniture_chair
 blackwood_chair	furniture	furniture_chair
+crimson_chair	furniture	furniture_chair
+warped_chair	furniture	furniture_chair
 pine_stool	furniture	furniture_stool
 linden_stool	furniture	furniture_stool
 apple_stool	furniture	furniture_stool
@@ -1069,6 +1072,8 @@ darkened_stool	furniture	furniture_stool
 mor_oak_stool	furniture	furniture_stool
 navya_stool	furniture	furniture_stool
 blackwood_stool	furniture	furniture_stool
+crimson_stool	furniture	furniture_stool
+warped_stool	furniture	furniture_stool
 pine_bench	furniture	furniture_bench
 linden_bench	furniture	furniture_bench
 apple_bench	furniture	furniture_bench
@@ -1078,6 +1083,8 @@ darkened_bench	furniture	furniture_bench
 mor_oak_bench	furniture	furniture_bench
 navya_bench	furniture	furniture_bench
 blackwood_bench	furniture	furniture_bench
+crimson_bench	furniture	furniture_bench
+warped_bench	furniture	furniture_bench
 pine_table	furniture	furniture_table
 linden_table	furniture	furniture_table
 apple_table	furniture	furniture_table
@@ -1087,6 +1094,8 @@ darkened_table	furniture	furniture_table
 mor_oak_table	furniture	furniture_table
 navya_table	furniture	furniture_table
 blackwood_table	furniture	furniture_table
+crimson_table	furniture	furniture_table
+warped_table	furniture	furniture_table
 pine_bedside_cabinet	furniture	furniture_bedside_cabinet
 linden_bedside_cabinet	furniture	furniture_bedside_cabinet
 apple_bedside_cabinet	furniture	furniture_bedside_cabinet
@@ -1156,3 +1165,15 @@ black_pepper	food	ingredients
 ground_black_pepper	food	ingredients
 heat_berry_mash	food	ingredients
 coal_plum_mash	food	ingredients
+posad_cot	decor	posad_resident_furniture
+posad_throne	furniture	furniture_chair
+crimson_bedside_cabinet	furniture	furniture_bedside_cabinet
+crimson_shelf	furniture	furniture_shelf
+crimson_wardrobe	furniture	furniture_wardrobe
+crimson_weapon_rack	furniture	furniture_weapon_rack
+warped_bedside_cabinet	furniture	furniture_bedside_cabinet
+warped_shelf	furniture	furniture_shelf
+warped_wardrobe	furniture	furniture_wardrobe
+warped_weapon_rack	furniture	furniture_weapon_rack
+posad_test_proof	resources	boss_material
+posad_test_receipt	resources	boss_material

@@ -27,12 +27,12 @@ public final class AgneyaGeometryV7 {
         // Both legs remain visible below the shortened battle skirt. Feet touch Y=0.
         for (int side : new int[]{-1,1}) {
             String bone=side<0?"left_leg":"right_leg";
-            double x=side<0?-4.45:.85;
-            add(bone,x,18,-2.65,3.60,22.5,5.25,"dark_cloth");
-            add(bone,x+.15,8.5,-2.95,3.3,12.1,5.55,"leather");
-            add(bone,x-.18,0,-4.20,4.3,10.0,7.5,"iron_dark");
-            add(bone,x+.05,1.10,-4.52,3.9,2.55,7.9,"iron");
-            add(bone,x+.28,9.5,-3.35,2.9,2.5,6.0,"leather_light");
+            double x = side < 0 ? -5.1 : .4;
+            add(bone,x,20,-3,4.7,20.5,5.9,"dark_cloth");
+            add(bone,x+.22,5,-2.85,4.25,16,5.65,"leather");
+            add(bone,x-.02,0,-4.7,4.75,2.9,8.0,"iron_dark");
+            add(bone,x+.08,1.3,-4.6,4.55,1.9,7.8,"iron");
+            add(bone,x+.24,2.7,-2.9,4.2,4.1,5.85,"leather_light");
         }
     }
     private void skirt() {

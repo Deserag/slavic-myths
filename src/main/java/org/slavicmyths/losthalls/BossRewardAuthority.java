@@ -19,11 +19,12 @@ public final class BossRewardAuthority {
    entries.values().forEach(this::index);
   }catch(IOException|RuntimeException invalid){readOnly=true;entries.clear();recipients.clear();}
  }
+ public synchronized Entry find(String key){return entries.get(key);}
  public boolean isReadOnly(){return readOnly;}
  private static void validate(Entry e){
   boolean extension=Set.of("morova_21x","trizna_21x").contains(e.kind());
-  boolean parameter=e.kind().equals("magma")?e.cores()>=4&&e.cores()<=6:extension?e.cores()>=1&&e.cores()<=3:e.cores()==0;
-  if(e.key()==null||e.key().isBlank()||e.key().length()>512||e.recipient()==null||!Set.of("magma","posten","guardian_head","zharenitsa_head","morova_21x","trizna_21x").contains(e.kind())||e.readyAt()<0||!parameter)throw new IllegalArgumentException("Invalid boss reward pin");
+  boolean parameter=e.kind().equals("magma")?e.cores()>=4&&e.cores()<=6:extension?e.cores()>=1&&e.cores()<=3:Set.of("posad_test_proof","posad_test_exchange").contains(e.kind())?e.cores()>=0&&e.cores()<6:e.kind().equals("posad_test_pair_half")?e.cores()>=0&&e.cores()<12:e.cores()==0;
+  if(e.key()==null||e.key().isBlank()||e.key().length()>512||e.recipient()==null||!Set.of("magma","posten","guardian_head","zharenitsa_head","morova_21x","trizna_21x","posad_test_proof","posad_test_exchange","posad_test_pair_half").contains(e.kind())||e.readyAt()<0||!parameter)throw new IllegalArgumentException("Invalid boss reward pin");
  }
  private void index(Entry e){recipients.computeIfAbsent(e.recipient(),ignored->new ArrayList<>()).add(e);}
  public List<Entry> forRecipient(UUID recipient){return List.copyOf(recipients.getOrDefault(recipient,List.of()));}

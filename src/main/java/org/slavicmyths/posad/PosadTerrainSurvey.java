@@ -118,7 +118,9 @@ public final class PosadTerrainSurvey {
     private void inspectOne() {
         switch (phase) {
             case CITY_AIR -> {
-                if (get(anchorX + x, deckY + delta, anchorZ + z) != PosadTerrain.Material.AIR) {
+                var material = get(anchorX + x, deckY + delta, anchorZ + z);
+                if (material != PosadTerrain.Material.AIR
+                        && !(delta <= PosadTerrain.MAX_TERRAIN_CUT && material == PosadTerrain.Material.NATURAL)) {
                     fail("HEADROOM");
                     return;
                 }

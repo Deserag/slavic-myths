@@ -10,6 +10,7 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.util.Mth;
 import org.slavicmyths.posad.PosadResidentEntity;
+import org.slavicmyths.posad.PosadPopulationPlan.Role;
 
 /** Steve-sized original humanoid with identity-persistent horns, folding wings and profession layers. */
 public final class PosadResidentModel extends HumanoidModel<PosadResidentEntity> {
@@ -142,22 +143,22 @@ public final class PosadResidentModel extends HumanoidModel<PosadResidentEntity>
         }
         var role = entity.role();
         body.zRot = 0;
-        // Render professions conservatively while this integration branch uses three persisted roles.
-        boolean guard = role == org.slavicmyths.posad.PosadPopulationPlan.Role.GUARD;
+        // Preserve the current rig/UV; expose the authored profession attachments.
+        boolean guard = role.guard();
         boolean leader = role == org.slavicmyths.posad.PosadPopulationPlan.Role.POSADNIK;
         apron.visible = !guard && !leader;
         armor.visible = guard;
         posadnikArmor.visible = leader;
         satchel.visible = !guard && !leader;
         ceremonialSash.visible = leader;
-        farmerHat.visible = false;
-        mushroomHood.visible = false;
-        herbalistHood.visible = false;
-        cookCap.visible = false;
+        farmerHat.visible = role==Role.FARMER;
+        mushroomHood.visible = role==Role.MUSHROOM_GROWER;
+        herbalistHood.visible = role==Role.HERBALIST;
+        cookCap.visible = role==Role.COOK;
         collar.visible = leader;
-        smithGauntletLeft.visible = false;
-        smithGauntletRight.visible = false;
-        bandolier.visible = false;
+        smithGauntletLeft.visible = role==Role.BLACKSMITH||role==Role.WEAPONSMITH;
+        smithGauntletRight.visible = smithGauntletLeft.visible;
+        bandolier.visible = role==Role.SOTNIK||role==Role.WEAPONSMITH;
         toolPouch.visible = !guard && !leader;
         waistcoat.visible = !guard && !leader;
         cape.visible = leader;

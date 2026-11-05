@@ -45,6 +45,23 @@ public final class PosadShellGameTests {
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    t.assertTrue(world.getBlockState(anchor.offset(p.x(),y,p.z())).isAir(),"Physical rotated gate blocked");
   }
+  // An opened double door must hug its outer jambs on both floors of each leaf.
+  for (int x : new int[]{23, 24}) {
+   var leaf = PosadGeometry.rotate(new PosadGeometry.Cell(x,28),turns);
+   var other = PosadGeometry.rotate(new PosadGeometry.Cell(47-x,28),turns);
+   var side = net.minecraft.core.Direction.fromDelta(other.x()-leaf.x(),0,other.z()-leaf.z());
+   for (int y : new int[]{1, 2}) {
+    var at = anchor.offset(leaf.x(),y,leaf.z());
+    var door = world.getBlockState(at);
+    t.assertTrue(door.is(Blocks.CRIMSON_DOOR),"Missing paired communal entrance leaf "+at);
+    var opened = door.setValue(net.minecraft.world.level.block.DoorBlock.OPEN,true);
+    var shape = opened.getCollisionShape(world,at);
+    var axis = side.getAxis();
+    boolean exterior = side.getAxisDirection() == net.minecraft.core.Direction.AxisDirection.POSITIVE
+     ? shape.max(axis) <= 0.25 : shape.min(axis) >= 0.75;
+    t.assertTrue(exterior,"Open door blocks the center of the passage "+at+" rotation="+turns);
+   }
+  }
   // Schema 19: compare the full approved 1337-voxel source with actual rotated Minecraft blocks.
   int teremCount=0;
   for(int y=0;y<18;y++)for(int z=78;z<=95;z++)for(int x=60;x<=72;x++){
@@ -54,7 +71,7 @@ public final class PosadShellGameTests {
    var cell=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    var at=anchor.offset(cell.x(),y,cell.z());
    var actual=world.getBlockState(at);
-   var expected=approved.rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
+   var expected=piece.voxel(x,y,z).rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
    t.assertTrue(actual.is(expected.getBlock()),"Posadnik A+ mismatch "+x+","+y+","+z+" rot="+turns+" expected="+expected+" actual="+actual);
    if(expected.hasProperty(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING))
     t.assertTrue(actual.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING)==expected.getValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING),"Posadnik facing "+at);
@@ -76,9 +93,12 @@ public final class PosadShellGameTests {
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,34),turns);
    var at=anchor.offset(p.x(),y,p.z());
    var actual=world.getBlockState(at);
-   t.assertTrue(actual.is(expected.getBlock()),"R3 portico mismatch "+at);
+   t.assertTrue(actual.is(piece.voxel(x,y,34).getBlock()),"Updated portico mismatch "+at);
   }
   t.assertTrue(fronton==36,"R3 fronton count "+fronton);
+  var crest = PosadGeometry.rotate(new PosadGeometry.Cell(56,34),turns);
+  t.assertTrue(world.getBlockState(anchor.offset(crest.x(),17,crest.z())).is(Blocks.CRYING_OBSIDIAN),
+   "Council hall crest is missing");
   for(int[] q:new int[][]{{56,2,15},{55,2,15},{57,2,15},{56,2,14},{56,3,14}}){
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(q[0],q[2]),turns);
    t.assertTrue(!world.getBlockState(anchor.offset(p.x(),q[1],p.z())).isAir(),"R3 throne missing");
@@ -115,9 +135,7 @@ public final class PosadShellGameTests {
    t.assertTrue(actual.is(rotated.getBlock()),"Current communal block mismatch "+x+","+y+","+z+" rot="+turns+" expected="+rotated+" actual="+actual);
    if(expected.is(Blocks.CHEST)) {
     houseChests++;
-    String loot=PosadHouseRenovation.chestLoot(x,y,z);
-    if(loot==null)loot=PosadBuildings.chestLoot(x,y,z);
-    t.assertTrue(loot!=null,"Missing current-schema communal loot marker "+at);
+    t.assertTrue(x==15||x==33,"Communal chest must sit against a side wall "+at);
     t.assertTrue(world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity,"Chest block entity missing "+at);
     var chest=(net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity)world.getBlockEntity(at);
     t.assertTrue(chest.getLootTable()!=null,"Chest lazy loot table missing "+at);
@@ -134,6 +152,9 @@ public final class PosadShellGameTests {
     var at=anchor.offset(p.x(),y,p.z());
     var actual=world.getBlockState(at);
     var rotated=expected.rotate(net.minecraft.world.level.block.Rotation.values()[turns]);
+    if(!actual.is(rotated.getBlock()))for(var dir:net.minecraft.core.Direction.Plane.HORIZONTAL){
+     var around=at.relative(dir);System.out.println("MISSING_ATTACHMENT_NEIGHBOR "+at+" side="+dir+" actual="+world.getBlockState(around));
+    }
     t.assertTrue(actual.is(rotated.getBlock()),"Physical district block mismatch "+slot+" "+x+","+y+","+z+" rot="+turns+" expected="+rotated+" found="+actual);
     // Minecraft recalculates neighboring fence/bars/wall connections and stair
     // shapes during chunk placement. Those are NOT fixed art properties.
@@ -220,7 +241,16 @@ public final class PosadShellGameTests {
    r2Cells++;
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
    var actual=world.getBlockState(anchor.offset(p.x(),y,p.z()));
-   t.assertTrue(actual.is(r2.getBlock()),"R2 physical mismatch "+x+","+y+","+z+" rot="+turns+" expected="+r2+" actual="+actual);
+   var expected = piece.voxel(x,y,z);
+   t.assertTrue(actual.is(expected.getBlock()),"Veche overlay mismatch "+x+","+y+","+z+" rot="+turns+" expected="+expected+" actual="+actual);
+   if (r2.is(Blocks.IRON_BARS)) {
+    if(!(piece.voxel(x,y,z)!=null&&piece.voxel(x,y,z).is(Blocks.BLACK_STAINED_GLASS_PANE)))continue;
+    t.assertTrue(actual.is(Blocks.BLACK_STAINED_GLASS_PANE),"Veche opening must contain a black pane");
+    t.assertTrue(actual.getValue(net.minecraft.world.level.block.IronBarsBlock.NORTH)
+     || actual.getValue(net.minecraft.world.level.block.IronBarsBlock.SOUTH)
+     || actual.getValue(net.minecraft.world.level.block.IronBarsBlock.EAST)
+     || actual.getValue(net.minecraft.world.level.block.IronBarsBlock.WEST), "Window pane must connect to the frame");
+   }
   }
   t.assertTrue(r2Cells==160,"Wrong Veche R2 geometry count "+r2Cells);
   t.assertTrue(hallBlocks==3598,"Wrong immutable R1 hall count "+hallBlocks);
@@ -245,8 +275,9 @@ public final class PosadShellGameTests {
        t.assertTrue(planned==null||planned.isAir(),"Unexpected block beside approved Posadnik "+x+","+y+","+z);
        t.assertTrue(world.getBlockState(at).isAir(),"Unexpected physical block beside Posadnik "+at);
       }else{
-       t.assertTrue(planned!=null&&planned.is(approved.getBlock()),"Approved Posadnik source missing "+x+","+y+","+z);
-       t.assertTrue(world.getBlockState(at).is(approved.getBlock()),"Approved Posadnik physical block missing "+at);
+       var expected=piece.placedState(x,y,z,world,at);
+       t.assertTrue(planned!=null&&expected!=null,"Posadnik source removed "+x+","+y+","+z);
+       t.assertTrue(world.getBlockState(at).equals(expected),"Final Posadnik physical state differs "+at+" expected="+expected+" actual="+world.getBlockState(at));
       }
      }else{
       t.assertTrue(planned==null||planned.isAir(),"West alternative must remain empty "+x+","+y+","+z);
@@ -395,7 +426,7 @@ public final class PosadShellGameTests {
  public static void chestRewardsAreNotRearmed(GameTestHelper t) {
   var world=t.getLevel();
   var anchor=t.absolutePos(new net.minecraft.core.BlockPos(0,140,0));
-  var at=anchor.offset(16,1,18);
+  var at=anchor.offset(15,1,18);
   var cp=new net.minecraft.world.level.ChunkPos(at);
   world.getChunk(cp.x,cp.z);
   var piece=new PosadPiece(anchor,0);
@@ -431,32 +462,6 @@ public final class PosadShellGameTests {
   }
   t.succeed();
  }
-
- @GameTest(template="empty",timeoutTicks=1200)
- public static void nativeTerrainSurveyFiveSeeds(GameTestHelper t) {
-  var world=t.getLevel();var registry=world.registryAccess();
-  var noise=registry.registryOrThrow(net.minecraft.core.registries.Registries.NOISE_SETTINGS).getHolderOrThrow(net.minecraft.world.level.levelgen.NoiseGeneratorSettings.NETHER);
-  var preset=registry.registryOrThrow(net.minecraft.core.registries.Registries.MULTI_NOISE_BIOME_SOURCE_PARAMETER_LIST).getHolderOrThrow(net.minecraft.world.level.biome.MultiNoiseBiomeSourceParameterLists.NETHER);
-  var generator=new net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator(net.minecraft.world.level.biome.MultiNoiseBiomeSource.createFromPreset(preset),noise);
-  var biome=registry.registryOrThrow(net.minecraft.core.registries.Registries.BIOME).getHolderOrThrow(net.minecraft.world.level.biome.Biomes.NETHER_WASTES);
-  var structure=new PosadStructure(new net.minecraft.world.level.levelgen.structure.Structure.StructureSettings(net.minecraft.core.HolderSet.direct(new java.util.ArrayList<>(generator.getBiomeSource().possibleBiomes()))));
-  var placement=new net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement(80,32,net.minecraft.world.level.levelgen.structure.placement.RandomSpreadType.LINEAR,22022026);
-  int total=0;
-  for(long seed:new long[]{11,29,101,2026,22022026}) {
-   var random=net.minecraft.world.level.levelgen.RandomState.create(noise.value(),registry.lookupOrThrow(net.minecraft.core.registries.Registries.NOISE),seed);
-   int accepted=0;long start=System.nanoTime();
-   for(int cell=0;cell<8;cell++) {
-    var cp=placement.getPotentialStructureChunk(seed,cell*80,0);
-    var context=new net.minecraft.world.level.levelgen.structure.Structure.GenerationContext(registry,generator,generator.getBiomeSource(),random,world.getStructureManager(),seed,cp,world,structure.biomes()::contains);
-    if(structure.findGenerationPoint(context).isPresent())accepted++;
-   }
-   total+=accepted;
-   System.out.println("POSAD_NATIVE_SURVEY seed="+seed+" candidates=8 accepted="+accepted+" nanos="+(System.nanoTime()-start));
-  }
-  System.out.println("POSAD_NATIVE_SURVEY totalAccepted="+total+" candidates=40; NO PHYSICAL NETHER STARTS/FREQUENCY CLAIM");
-  t.succeed();
- }
-
 
  @GameTest(template="empty",timeoutTicks=200)
  public static void towerLaddersEntrancesAndMasonry(GameTestHelper t) {

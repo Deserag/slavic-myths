@@ -63,9 +63,10 @@ def load(name):
     data = json.loads((LOOT / ("nether_communal_" + name + ".json")).read_text())
     assert data["type"] == "minecraft:chest"
     pools = data["pools"]
-    assert len(pools) == (2 if name == "elder" else 1), name
+    assert len(pools) == (3 if name == "elder" else 2), name
     low, high, entries = EXPECTED[name]
-    assert limits(pools[0]["rolls"]) == (low, high), name
+    assert limits(pools[0]["rolls"]) == (3, 5), name
+    low,high=3,5
     assert [entry_spec(entry) for entry in pools[0]["entries"]] == entries, name
     assert not pools[0].get("conditions"), name
     if name == "elder":
@@ -73,7 +74,10 @@ def load(name):
         assert limits(bonus["rolls"]) == (1, 1)
         assert bonus["conditions"] == [{"condition": "minecraft:random_chance", "chance": 0.2}]
         assert [entry_spec(entry) for entry in bonus["entries"]] == [("slavicmyths:ancient_coin", 1, 1, 2)]
-    return low, high, entries
+    extra=pools[-1]
+    assert limits(extra["rolls"]) == (1,1) and not extra.get("conditions"), name
+    for e in extra["entries"]: entry_spec(e)
+    return data
 
 
 tables = {name: load(name) for name in EXPECTED}
@@ -82,21 +86,22 @@ bonus_houses = 0
 for seed in range(10_000):
     rng = random.Random(seed)
     house = Counter()
-    for name, (min_rolls, max_rolls, entries) in tables.items():
-        rolls = rng.randint(min_rolls, max_rolls)
-        weight = sum(e[1] for e in entries)
-        assert weight > 0
-        for _ in range(rolls):
-            pick = rng.randrange(weight)
-            for item, w, lo, hi in entries:
-                if pick < w:
-                    house[item] += rng.randint(lo, hi)
-                    break
-                pick -= w
-            else:
-                raise AssertionError("Invalid weighted selection")
-        if name == "elder" and rng.random() < 0.2:
-            house["slavicmyths:ancient_coin"] += rng.randint(1, 2)
+    for name,data in tables.items():
+        for pool in data["pools"]:
+            conditions=pool.get("conditions",[])
+            if conditions:
+                assert conditions==[{"condition":"minecraft:random_chance","chance":0.2}] and name=="elder"
+                if rng.random()>=0.2:continue
+            min_rolls,max_rolls=limits(pool["rolls"])
+            entries=[entry_spec(e) for e in pool["entries"]]
+            weight=sum(e[1] for e in entries);assert weight>0
+            for _ in range(rng.randint(min_rolls,max_rolls)):
+                pick=rng.randrange(weight)
+                for item,w,lo,hi in entries:
+                    if pick<w:
+                        house[item]+=rng.randint(lo,hi);break
+                    pick-=w
+                else:raise AssertionError("Invalid weighted selection")
     coins = house["slavicmyths:ancient_coin"]
     assert 0 <= coins <= 2, ("Unexpected elder chest coins", seed)
     bonus_houses += coins > 0
@@ -105,4 +110,4 @@ assert 1800 <= bonus_houses <= 2200, bonus_houses
 assert 2600 <= total["slavicmyths:ancient_coin"] <= 3400, total["slavicmyths:ancient_coin"]
 print(f"PASS offline 10000 seeded houses: coin chest probability={bonus_houses / 10000:.2%}, "
       f"expected coin quantity={total['slavicmyths:ancient_coin'] / 10000:.4f}/house")
-print("PASS all four approved loot JSON pools: exact rolls, weights, item counts, bonus chance")
+print("PASS four current loot tables: preserved R1 entries, schema-18 rolls/extensions and original elder bonus; offline simulation only")

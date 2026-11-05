@@ -1,0 +1,9 @@
+{
+  "parent": "slavicmyths:block/pine_stool",
+  "textures": {
+    "wood": "minecraft:block/warped_planks",
+    "beam": "minecraft:block/stripped_warped_stem",
+    "log": "minecraft:block/warped_stem_top",
+    "particle": "minecraft:block/warped_planks"
+  }
+}

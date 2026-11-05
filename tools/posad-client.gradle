@@ -1,0 +1,21 @@
+allprojects { afterEvaluate {
+ sourceSets { posadClient { java.srcDir 'tools/posad-client';resources.srcDir 'tools/posad-client-resources' } }
+ sourceSets.posadClient.compileClasspath += sourceSets.main.output+sourceSets.main.compileClasspath
+ sourceSets.posadClient.runtimeClasspath += sourceSets.main.runtimeClasspath-sourceSets.main.output
+ def qa=neoForge.mods.create('slavicmyths_posadnative'){sourceSet sourceSets.posadClient}
+ neoForge.runs { posadClient {
+  type='client';sourceSet=sourceSets.posadClient;loadedMods.set([qa]);gameDirectory=file(project.findProperty('posadClientDir') ?: 'work/416-client-1')
+  programArguments.addAll('--username','Posad416QA','--width','1280','--height','800')
+  jvmArgument '-Xmx2304M';jvmArgument '-XX:ActiveProcessorCount=2'
+ } }
+ tasks.named('runPosadClient'){dependsOn tasks.named('jar');doFirst {
+  def dir=neoForge.runs.posadClient.gameDirectory.get().asFile;new File(dir,'config').mkdirs()
+  new File(dir,'config/fml.toml').text='earlyWindowControl=false\n'
+  new File(dir,'options.txt').text='version:3955\nsoundCategory_master:0.0\nfullscreen:false\npauseOnLostFocus:false\nmaxFps:30\nrenderDistance:5\nsimulationDistance:4\nguiScale:2\nonboardAccessibility:false\n'
+  def result=new File(dir,'posad-client-evidence/result.txt');result.parentFile.mkdirs();result.text='PENDING'
+  copy {from tasks.named('jar').get().archiveFile;into new File(dir,'mods')}
+ };doLast {
+  def result=new File(neoForge.runs.posadClient.gameDirectory.get().asFile,'posad-client-evidence/result.txt')
+  if(!result.isFile()||!result.text.startsWith('PASS:'))throw new GradleException('Isolated client probe failed: '+(result.isFile()?result.text:'missing result'))
+ }}
+} }

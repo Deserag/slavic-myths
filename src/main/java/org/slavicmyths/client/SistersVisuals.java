@@ -72,14 +72,19 @@ public final class SistersVisuals {
         @Override public ResourceLocation getTextureLocation(SistersZone entity) {return VIOLET;}
         @Override public void render(SistersZone entity,float yaw,float partial,PoseStack pose,MultiBufferSource out,int light) { }
     }
+    private static final ResourceLocation FROST = ResourceLocation.fromNamespaceAndPath(
+        "slavicmyths", "textures/entity/ledeya_frost_bolt.png");
+
     public static final class Bolt extends EntityRenderer<SisterBolt> {
         public Bolt(EntityRendererProvider.Context context) {super(context);}
-        @Override public ResourceLocation getTextureLocation(SisterBolt entity) {return VIOLET;}
+        @Override public ResourceLocation getTextureLocation(SisterBolt entity) {
+            return entity.getType() == org.slavicmyths.sisters.SistersContent.FROST_BOLT.get() ? FROST : VIOLET;
+        }
         @Override public void render(SisterBolt bolt,float yaw,float partial,PoseStack pose,MultiBufferSource out,int light) {
             pose.pushPose();
             pose.mulPose(entityRenderDispatcher.cameraOrientation());
             pose.scale(.45F,.45F,.45F);
-            VertexConsumer consumer=out.getBuffer(RenderType.entityCutoutNoCull(VIOLET));
+            VertexConsumer consumer=out.getBuffer(RenderType.entityCutoutNoCull(getTextureLocation(bolt)));
             PoseStack.Pose matrix=pose.last();
             vertex(consumer,matrix,-1,-1,.75F,.02F,light);
             vertex(consumer,matrix,1,-1,.98F,.02F,light);

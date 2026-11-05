@@ -235,11 +235,11 @@
       "type": "sale",
       "a": {
         "id": "slavicmyths:ancient_coin",
-        "count": 40
+        "count": 10
       },
       "out": {
         "id": "slavicmyths:iron_sulitsa",
-        "count": 4
+        "count": 1
       }
     },
     {
@@ -453,11 +453,11 @@
       "type": "sale",
       "a": {
         "id": "slavicmyths:ancient_coin",
-        "count": 26
+        "count": 13
       },
       "out": {
         "id": "slavicmyths:iron_sulitsa",
-        "count": 2
+        "count": 1
       }
     },
     {
@@ -537,11 +537,11 @@
       "type": "sale",
       "a": {
         "id": "slavicmyths:ancient_coin",
-        "count": 62
+        "count": 31
       },
       "out": {
         "id": "slavicmyths:silver_sulitsa",
-        "count": 2
+        "count": 1
       }
     },
     {

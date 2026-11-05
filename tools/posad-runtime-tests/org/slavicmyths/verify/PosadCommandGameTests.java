@@ -19,10 +19,11 @@ public final class PosadCommandGameTests {
   var source=world.getServer().createCommandSourceStack().withLevel(world).withPermission(2).withPosition(net.minecraft.world.phys.Vec3.atLowerCornerOf(at)).withSuppressedOutput();
   int success=PosadCommands.building(source,"posadnik_terem_2_2_9",at);
   t.assertTrue(success==1,"Standalone Posadnik command rejected");
+  var sharedTerem=new PosadPiece(at.offset(-60,0,-78),0);
   int found=0;
   for(int y=0;y<18;y++)for(int z=78;z<=95;z++)for(int x=60;x<=72;x++){
-   var expected=PosadnikTerem.voxel(x,y,z);
-   if(expected==null)continue;
+   if(PosadnikTerem.voxel(x,y,z)==null)continue;
+   var expected=sharedTerem.voxel(x,y,z);
    var actual=world.getBlockState(at.offset(x-60,y,z-78));
    t.assertTrue(actual.is(expected.getBlock()),"Standalone A+ source drift "+x+","+y+","+z);
    found++;
@@ -62,6 +63,21 @@ public final class PosadCommandGameTests {
     System.out.println("POSAD_R3_STANDALONE_PANES dimension="+dimension.location()+" id="+id+" count="+checkedPanes);
 
     t.assertTrue(count>100,"Command reported success without physical building: "+id+" blocks="+count);
+    if(id.equals("communal_house_2_2_3")) {
+     int[][] moves={{16,1,18,15,18},{32,1,18,33,18},{32,7,25,33,25}};
+     for(var move:moves){
+      var from=at.offset(move[0]-13,move[1],move[2]-15);var to=at.offset(move[3]-13,move[1],move[4]-15);
+      t.assertTrue(!w.getBlockState(from).is(Blocks.CHEST),"Old chest left behind "+from);
+      t.assertTrue(w.getBlockEntity(to) instanceof net.minecraft.world.level.block.entity.ChestBlockEntity,"Moved chest absent "+to);
+      var data=w.getBlockEntity(to).saveWithoutMetadata(w.registryAccess());
+      t.assertTrue(data.contains("LootTable"),"Moved chest lost unrolled loot table "+to);
+     }
+     var shared=new PosadPiece(at.offset(-13,0,-15),0);
+     for(int xx=13;xx<=35;xx++)for(int zz=15;zz<=29;zz++)for(int yy:new int[]{1,7}){
+      var expected=shared.voxel(xx,yy,zz);if(expected==null||!expected.is(PosadBeds.COT.get()))continue;
+      t.assertTrue(w.getBlockState(at.offset(xx-13,yy,zz-15)).equals(expected),"Standalone/native cot mismatch");
+     }
+    }
     if(id.equals("veche_hall_2_2_2")) {
      int expectedCount=0,editCount=0,lightCount=0;
      for(int y=0;y<18;y++)for(int z=12;z<=34;z++)for(int x=42;x<=70;x++) {
@@ -73,6 +89,7 @@ public final class PosadCommandGameTests {
       finish=PosadHallR2.voxel(x,y,z);if(finish!=null){expected=finish;editCount++;}
       finish=PosadLightingR3.hallVoxel(x,y,z);if(finish!=null){expected=finish;lightCount++;}
       finish=PosadArchitectureR3.voxel(x,y,z);if(finish!=null)expected=finish;
+      if(y>0)expected=new PosadPiece(at.offset(-42,0,-12),0).voxel(x,y,z);
       var actual=w.getBlockState(at.offset(x-42,y,z-12));
       t.assertTrue(!actual.is(Blocks.STONE),"Natural stone survived standalone Veche clear at "+x+","+y+","+z);
       if(expected!=null)t.assertTrue(actual.is(expected.getBlock()),"Standalone Veche schema mismatch "+x+","+y+","+z+" expected="+expected+" found="+actual);

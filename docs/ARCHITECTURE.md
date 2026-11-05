@@ -3614,3 +3614,10 @@ InfernalFurnace (29.10) расширяет AbstractFurnaceBlockEntity и Abstrac
 Remaining debts29.10: native-only new-chunk mineral heat sampling (bounded343, no chunk loads), read-only one-loaded-chunk ore diagnostic; Nether Aura Ward uses existing FolkAccessory/Curios active necklace slots and existing aura exclusion; no Two Winters replacement. NETHER_CURRENT_ACTION_BUDGETS source records do not alter mob HP/damage.
 
 29.10.2026 home desktop: hell a5def9a9 synchronized; Java21 clean build/resources PASS; native baseline32/32 seed20261024 PASS; Testing PolyMC2.1.6 installed. GUI BLOCKED_ISOLATION, survival/MP/relog NOT_RUN; master scope IN_PROGRESS. See implementation/home-desktop-sync-20261029/REPORT.md.
+
+
+## 2026-11-04 — Nether Posad
+
+Posad schema 25 overlays the authored structure at placement time. Native terrain selection checks individual deck elevations and permits removal of up to three layers of natural terrain inside the city footprint. Manual placement retains its separate preflight. The locate command uses the native structure registry ID.
+
+Schema 26 places functional crimson seating and tables in the Posad, with warped variants in the herbalist district. Schema 25 retains its previous block plan. Furniture resource links were checked offline. In-game placement and player interaction remain NOT_RUN.
