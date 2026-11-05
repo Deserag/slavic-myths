@@ -39,6 +39,10 @@ public final class FractureHooks {
     @SubscribeEvent public static void attack(AttackEntityEvent event) {
         if (disabled(event.getEntity(), InteractionHand.MAIN_HAND)) event.setCanceled(true);
     }
+    @SubscribeEvent public static void stopDisabledUse(net.neoforged.neoforge.event.tick.PlayerTickEvent.Post event) {
+        Player player=event.getEntity();
+        if (player.isUsingItem() && disabled(player,player.getUsedItemHand())) player.stopUsingItem();
+    }
     @SubscribeEvent public static void mine(PlayerInteractEvent.LeftClickBlock event) {
         if (disabled(event.getEntity(), InteractionHand.MAIN_HAND)) event.setCanceled(true);
     }
