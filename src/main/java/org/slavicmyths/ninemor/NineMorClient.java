@@ -38,6 +38,8 @@ public final class NineMorClient {
                     getParentModel().renderColoredParts(pose,
                         buffers.getBuffer(RenderType.entityCutoutNoCull(SKIN)),
                         packedLight, OverlayTexture.NO_OVERLAY);
+                    getParentModel().renderEmissiveEyes(pose,
+                        buffers.getBuffer(RenderType.eyes(SKIN)));
                 }
             });
         }

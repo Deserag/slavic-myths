@@ -43,6 +43,10 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
     private final ModelPart[] heads = new ModelPart[9];
     private final ModelPart[] jaws = new ModelPart[9];
     private final ModelPart[] accents = new ModelPart[9];
+    private final ModelPart[] eyeSockets = new ModelPart[9];
+    private final ModelPart[] eyeIrises = new ModelPart[9];
+    private final ModelPart[] eyePupils = new ModelPart[9];
+    private final ModelPart[] cheekPlates = new ModelPart[9];
     private final ModelPart[] wings = new ModelPart[6];
     private final ModelPart[] legs = new ModelPart[4];
     private final ModelPart[] tails = new ModelPart[3];
@@ -68,6 +72,10 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
             heads[i] = neckTips[i].getChild("head_" + i);
             jaws[i] = heads[i].getChild("jaw_" + i);
             accents[i] = heads[i].getChild("accent_" + i);
+            eyeSockets[i] = heads[i].getChild("eye_socket_" + i);
+            eyeIrises[i] = heads[i].getChild("eye_iris_" + i);
+            eyePupils[i] = heads[i].getChild("eye_pupil_" + i);
+            cheekPlates[i] = heads[i].getChild("cheek_plates_" + i);
         }
         for (int i = 0; i < 6; i++) wings[i] = body.getChild("wing_" + i);
         for (int i = 0; i < 4; i++) legs[i] = body.getChild("leg_" + i);
@@ -177,16 +185,19 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
                 PartPose.offset(pivotC[0] - pivotB[0], pivotC[1] - pivotB[1], pivotC[2] - pivotB[2]));
 
             CubeListBuilder skull = CubeListBuilder.create()
-                .texOffs(SLATE_U, SLATE_V).addBox(-1.78F, -2.2F, -1.55F, 3.55F, 3.15F, 3.1F)
-                .texOffs(STONE_U, STONE_V).addBox(-1.34F, -.60F, -4.0F, 2.68F, 1.60F, 3.0F)
-                .texOffs(BONES_U, BONES_V).addBox(-1.4F, -2.85F, -.5F, .65F, 1.35F, 1.3F)
-                .texOffs(BONES_U, BONES_V).addBox(.75F, -2.85F, -.5F, .65F, 1.35F, 1.3F);
+                .texOffs(SLATE_U, SLATE_V).addBox(-2.05F, -2.55F, -1.70F, 4.10F, 3.42F, 3.25F)
+                .texOffs(STONE_U, STONE_V).addBox(-1.50F, -.59F, -4.50F, 3.0F, 1.56F, 3.45F)
+                .texOffs(STONE_U, STONE_V).addBox(-1.29F, -1.36F, -4.2F, 2.58F, .83F, 2.15F)
+                .texOffs(BONES_U, BONES_V).addBox(-1.61F, -3.11F, -.56F, .72F, 1.36F, 1.25F)
+                .texOffs(BONES_U, BONES_V).addBox(.89F, -3.11F, -.56F, .72F, 1.36F, 1.25F);
             PartDefinition head = tip.addOrReplaceChild("head_" + i, skull,
                 PartPose.offset(hx - pivotC[0], -hz - pivotC[1], hy - pivotC[2]));
             CubeListBuilder jaw = CubeListBuilder.create()
-                .texOffs(STONE_U, STONE_V).addBox(-1.22F, -.22F, -4.05F, 2.44F, .7F, 3.3F)
-                .texOffs(BONES_U, BONES_V).addBox(-.95F, -.48F, -4.45F, .25F, .70F, .45F)
-                .texOffs(BONES_U, BONES_V).addBox(.7F, -.48F, -4.45F, .25F, .70F, .45F);
+                .texOffs(STONE_U, STONE_V).addBox(-1.46F, -.20F, -4.66F, 2.92F, .8F, 3.75F)
+                .texOffs(BONES_U, BONES_V).addBox(-1.08F, -.62F, -4.88F, .26F, .80F, .64F)
+                .texOffs(BONES_U, BONES_V).addBox(.82F, -.62F, -4.88F, .26F, .80F, .64F)
+                .texOffs(BONES_U, BONES_V).addBox(-1.0F, -.51F, -2.6F, .22F, .59F, .44F)
+                .texOffs(BONES_U, BONES_V).addBox(.78F, -.51F, -2.6F, .22F, .59F, .44F);
             head.addOrReplaceChild("jaw_" + i, jaw, PartPose.offset(0, .82F, 0));
             CubeListBuilder accent = CubeListBuilder.create()
                 .texOffs(4, 132).addBox(-1.50F, -2.3F, -2.7F, 3F, .6F, 2.2F)
@@ -194,6 +205,41 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
                 .texOffs(4, 132).addBox(-1.78F, -1.95F, -2.1F, .24F, .55F, .75F)
                 .texOffs(4, 132).addBox(1.54F, -1.95F, -2.1F, .24F, .55F, .75F);
             head.addOrReplaceChild("accent_" + i, accent, PartPose.ZERO);
+
+            // Every head has independently renderable black sockets, emissive irises
+            // and raised dark pupils. Forward and lateral planes stay readable while
+            // nine articulated necks turn around the player.
+            CubeListBuilder sockets = CubeListBuilder.create();
+            CubeListBuilder irises = CubeListBuilder.create();
+            CubeListBuilder pupils = CubeListBuilder.create();
+            CubeListBuilder cheeks = CubeListBuilder.create();
+            for (int side : new int[]{-1, 1}) {
+                float faceX = side < 0 ? -1.55F : .55F;
+                float irisX = side < 0 ? -1.30F : .80F;
+                float pupilX = side < 0 ? -1.07F : 1.03F;
+
+                sockets.texOffs(SLATE_U, SLATE_V).addBox(faceX, -2.15F, -1.94F, 1.0F, .96F, .28F);
+                irises.texOffs(SLATE_U, SLATE_V).addBox(irisX, -1.94F, -2.08F, .52F, .58F, .20F);
+                pupils.texOffs(SLATE_U, SLATE_V).addBox(pupilX, -1.76F, -2.19F, .17F, .27F, .11F);
+
+                float sideX = side < 0 ? -2.18F : 1.96F;
+                float sideIrisX = side < 0 ? -2.35F : 2.17F;
+                float sidePupilX = side < 0 ? -2.43F : 2.35F;
+                sockets.texOffs(SLATE_U, SLATE_V).addBox(sideX, -2.1F, -.97F, .22F, .89F, 1.0F);
+                irises.texOffs(SLATE_U, SLATE_V).addBox(sideIrisX, -1.90F, -.78F, .18F, .51F, .56F);
+                pupils.texOffs(SLATE_U, SLATE_V).addBox(sidePupilX, -1.72F, -.56F, .08F, .20F, .17F);
+                cheeks.texOffs(STONE_U, STONE_V).addBox(side < 0 ? -2.11F : 1.64F,
+                    -.84F, -2.44F, .47F, .77F, 2.15F);
+                cheeks.texOffs(BONES_U, BONES_V).addBox(faceX - .08F,
+                    -2.36F, -2.04F, 1.16F, .29F, .56F);
+                // Two dark nostril cuts, distinctly forward of the eye sockets.
+                pupils.texOffs(SLATE_U, SLATE_V).addBox(
+                    side < 0 ? -.88F : .51F, -.99F, -4.58F, .36F, .22F, .18F);
+            }
+            head.addOrReplaceChild("eye_socket_" + i, sockets, PartPose.ZERO);
+            head.addOrReplaceChild("eye_iris_" + i, irises, PartPose.ZERO);
+            head.addOrReplaceChild("eye_pupil_" + i, pupils, PartPose.ZERO);
+            head.addOrReplaceChild("cheek_plates_" + i, cheeks, PartPose.ZERO);
         }
     }
 
@@ -334,6 +380,10 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
                   * Mth.sin(Mth.PI * Mth.clamp(actionAge / 38F, 0F, 1F));
             heads[i].visible = false;
             accents[i].visible = false;
+            eyeSockets[i].visible = false;
+            eyeIrises[i].visible = false;
+            eyePupils[i].visible = false;
+            cheekPlates[i].visible = false;
         }
         for (int i = 0; i < 3; i++) {
             tails[i].xRot = Mth.sin(age * (.055F + i * .006F) + i) * .075F;
@@ -383,6 +433,15 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
             accents[i].visible = true;
             accents[i].render(stack, consumer, light, overlay, 0xFFC8B8AA);
             accents[i].visible = false;
+            eyeSockets[i].visible = true;
+            eyeSockets[i].render(stack, consumer, light, overlay, 0xFF18171F);
+            eyeSockets[i].visible = false;
+            eyePupils[i].visible = true;
+            eyePupils[i].render(stack, consumer, light, overlay, 0xFF141016);
+            eyePupils[i].visible = false;
+            cheekPlates[i].visible = true;
+            cheekPlates[i].render(stack, consumer, light, overlay, 0xFF98828B);
+            cheekPlates[i].visible = false;
             stack.popPose();
             heads[i].visible = false;
             stack.popPose();
@@ -397,6 +456,32 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
             stack.popPose();
         }
         stack.popPose();
+    }
+
+    public void renderEmissiveEyes(PoseStack stack, VertexConsumer consumer) {
+        stack.pushPose();
+        body.translateAndRotate(stack);
+        for (int i = 0; i < 9; i++) {
+            stack.pushPose();
+            necks[i].translateAndRotate(stack);
+            neckMids[i].translateAndRotate(stack);
+            neckTips[i].translateAndRotate(stack);
+            heads[i].translateAndRotate(stack);
+            eyeIrises[i].visible = true;
+            eyeIrises[i].render(stack, consumer, 0xF000F0,
+                net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY,
+                brighten(NineMorSerpent.COLORS[i], .38F));
+            eyeIrises[i].visible = false;
+            stack.popPose();
+        }
+        stack.popPose();
+    }
+
+    private static int brighten(int rgb, float whiteMix) {
+        int r = (int)(((rgb >> 16) & 255) * (1F - whiteMix) + 255F * whiteMix);
+        int g = (int)(((rgb >> 8) & 255) * (1F - whiteMix) + 255F * whiteMix);
+        int b = (int)((rgb & 255) * (1F - whiteMix) + 255F * whiteMix);
+        return 0xFF000000 | r << 16 | g << 8 | b;
     }
 
     private static float[] point(float[] wrist, float[] a, float[] b, float t, float u, float scallop) {
