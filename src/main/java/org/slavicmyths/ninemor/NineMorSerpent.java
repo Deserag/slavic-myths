@@ -69,7 +69,7 @@ public final class NineMorSerpent extends Monster {
         SynchedEntityData.defineId(NineMorSerpent.class, EntityDataSerializers.BOOLEAN);
 
     private final ServerBossEvent bar = new ServerBossEvent(
-        Component.translatableWithFallback("entity.slavicmyths.nine_mor_serpent", "Моровой Змей — Насылатель Мора"),
+        Component.literal("Моровой Змей — Насылатель Мора"),
         BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.NOTCHED_20);
     private final int[] cooldown = new int[9];
     private final int[] tailCooldown = {60, 95, 130};
@@ -124,7 +124,7 @@ public final class NineMorSerpent extends Monster {
     public float aimYaw() { return entityData.get(AIM_YAW); }
     public float aimPitch() { return entityData.get(AIM_PITCH); }
     @Override public Component getName() {
-        return Component.translatableWithFallback("entity.slavicmyths.nine_mor_serpent", "Моровой Змей — Насылатель Мора");
+        return Component.literal("Моровой Змей — Насылатель Мора");
     }
 
     public void beginRitual() {
