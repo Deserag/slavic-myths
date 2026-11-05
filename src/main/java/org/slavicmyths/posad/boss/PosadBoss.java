@@ -54,7 +54,7 @@ public final class PosadBoss extends Monster {
     public PosadBoss(EntityType<? extends PosadBoss> type, Level level, Kind kind) {
         super(type, level);
         this.kind = kind;
-        this.bar = new ServerBossEvent(Component.translatable(kind == Kind.MYTAR ? "entity.slavicmyths.cursed_mytar" : "entity.slavicmyths.bauk"), kind == Kind.MYTAR ? BossEvent.BossBarColor.PURPLE : BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.PROGRESS);
+        this.bar = new ServerBossEvent(Component.translatable(kind == Kind.MYTAR ? "entity.slavicmyths.cursed_mytar" : "entity.slavicmyths.bauk"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),kind == Kind.MYTAR ? BossEvent.BossBarColor.PURPLE : BossEvent.BossBarColor.RED), BossEvent.BossBarOverlay.PROGRESS);
         this.xpReward = 250;
         setPersistenceRequired();
         setHealth(getMaxHealth());

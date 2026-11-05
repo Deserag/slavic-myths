@@ -35,7 +35,7 @@ public final class NavyaMob extends PathfinderMob {
     private UUID summoner;
     private BlockPos home;
     private final Set<UUID> helpers=new HashSet<>();
-    private final ServerBossEvent bossbar=new ServerBossEvent(net.minecraft.network.chat.Component.translatable("entity.slavicmyths.grove_guardian"),BossEvent.BossBarColor.PURPLE,BossEvent.BossBarOverlay.PROGRESS);
+    private final ServerBossEvent bossbar=new ServerBossEvent(net.minecraft.network.chat.Component.translatable("entity.slavicmyths.grove_guardian"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.PURPLE),BossEvent.BossBarOverlay.PROGRESS);
     public NavyaMob(EntityType<? extends NavyaMob> type,Level world,Kind kind) {
         super(type,world);this.kind=kind;xpReward=kind==Kind.GUARDIAN?50:kind==Kind.WISP?0:12;
         if(flying()) { setNoGravity(true);moveControl=new FlyingMoveControl(this,20,true);navigation=new FlyingPathNavigation(this,world); }
