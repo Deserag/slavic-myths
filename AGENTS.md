@@ -4,7 +4,7 @@
 
 **No Issue = no implementation. No reachable owner-approved original art embedded/linked within Issue = no visual implementation or acceptance. No per-detail blueprint = no discretionary invention. No verified branch/commit/target = no execution. No explicit IN/OUT scope = no extra changes. Build PASS and partial geometry alone are NOT completion. No real visual/gameplay tests = NOT_RUN. Owner acceptance is always required.**
 
-**Current paired-sisters integration target: `3.3`; feature branch must be verified against `3.3` HEAD before use. All outdated branch choices from historical reports/prompts are INVALID. `main` is protected.** Branch names and exact preflight fields are mandated in the contract and branch policy. Do not infer target from task number, filename or old docs.
+**Active owner decision (2026-11-05): integration/PR target for NEW authorized work is `release-2.5`. Older paired-sisters branches originally targeting `3.3` require explicit migration review, not an automatic merge. Verify GitHub HEAD and branch policy for every task; historical branch choices are not defaults. `main` is protected.** Branch names and exact preflight fields are mandated in the contract and branch policy. Do not infer target from task number, filename or old docs.
 
 **User responses: short, factual, no bloated reporting; engineering specifications and proof in GitHub must remain exhaustive.** Track corrections in [#406](https://github.com/Deserag/slavic-myths/issues/406).
 
