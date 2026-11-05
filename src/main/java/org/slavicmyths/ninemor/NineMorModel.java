@@ -281,10 +281,13 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
         body.y = Mth.sin(age * .055F) * (flight == 2 ? .75F : .16F);
         body.xRot = flight == 2 ? -.13F : flight == 1 ? -.08F : 0F;
         float pace = Mth.clamp(amount, 0F, 1F);
+        float airBlend = flight == 1 ? Mth.clamp(entity.flightAge() / 25F, 0F, 1F)
+            : flight == 2 ? 1F
+            : flight == 3 ? 1F - Mth.clamp(entity.flightAge() / 55F, 0F, 1F) : 0F;
         for (int i = 0; i < 4; i++) {
             float phase = limb * .60F + ((i == 0 || i == 3) ? Mth.PI : 0F);
-            legs[i].xRot = flight == 0 ? Mth.cos(phase) * pace * .62F : .65F;
-            legs[i].zRot = flight == 0 ? Mth.sin(phase) * pace * .055F : 0F;
+            legs[i].xRot = Mth.lerp(airBlend, Mth.cos(phase) * pace * .62F, .65F);
+            legs[i].zRot = Mth.sin(phase) * pace * .055F * (1F - airBlend);
         }
         float focus = entity.hasGaze() ? 1F : 0F;
         float targetYaw = Mth.clamp(entity.aimYaw() * Mth.DEG_TO_RAD, -1.1F, 1.1F);
@@ -308,13 +311,23 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
                 - anticipate * (mode == NineMorSerpent.GRAB ? .15F : .055F);
             neckTips[i].xRot = pitchAim * .21F + idle2 * .04F
                 + attack * (mode == NineMorSerpent.GRAB ? -.22F : .09F);
-            heads[i].xRot = pitchAim * .24F
-                + (mode == NineMorSerpent.GRAB ? -.28F * attack : .10F * attack);
+            heads[i].xRot = pitchAim * .24F + (mode == NineMorSerpent.GRAB ? -.28F * attack
+                : mode == NineMorSerpent.AREA ? -.36F * attack
+                : mode == NineMorSerpent.BEAM ? -.18F * attack
+                : .15F * attack);
             heads[i].yRot = yawAim * .16F + idle1 * .025F;
-            // A bite is a visible lunge of the mouth and the two outer neck bones.
+            // Each attack class has a readable preparation and release silhouette.
             if (mode == NineMorSerpent.GRAB) {
-                heads[i].z -= attack * 2.1F;
-                neckTips[i].z -= attack * 1.35F;
+                heads[i].z -= attack * 2.5F;
+                neckTips[i].z -= attack * 1.5F;
+            } else if (mode == NineMorSerpent.AREA) {
+                neckTips[i].xRot -= attack * .22F;
+                heads[i].y += attack * .7F;
+            } else if (mode == NineMorSerpent.BEAM) {
+                heads[i].z -= attack * .75F;
+                neckTips[i].yRot += attack * .08F;
+            } else if (mode == NineMorSerpent.PROJECTILE) {
+                heads[i].z += attack * .65F;
             }
             jaws[i].xRot = mode == 0 ? .08F + .035F * Mth.sin(age * .04F + i)
                 : (mode == NineMorSerpent.GRAB ? 1.05F : .72F)
