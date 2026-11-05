@@ -45,7 +45,7 @@ public final class ViyBoss extends Monster {
     private static final EntityDataAccessor<Boolean> PHASE_TWO=SynchedEntityData.defineId(ViyBoss.class,EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> EYES_OPEN=SynchedEntityData.defineId(ViyBoss.class,EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Integer> EYE_PROGRESS=SynchedEntityData.defineId(ViyBoss.class,EntityDataSerializers.INT);
-    private final ServerBossEvent bossBar=new ServerBossEvent(Component.literal("Вий"),BossEvent.BossBarColor.PURPLE,BossEvent.BossBarOverlay.NOTCHED_10);
+    private final ServerBossEvent bossBar=new ServerBossEvent(Component.literal("Вий"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.PURPLE),BossEvent.BossBarOverlay.NOTCHED_10);
     private final Map<UUID,GazeMeter> meters=new HashMap<>();
     private UUID heldPlayer;
     private int cooldown=48,attackIndex,verdictCooldown=520,summonCooldown=120;
@@ -60,7 +60,7 @@ public final class ViyBoss extends Monster {
         super(type,level);
         setPersistenceRequired();
         setCustomName(Component.literal("Вий"));
-        setCustomNameVisible(true);
+        setCustomNameVisible(false);
         setHealth(getMaxHealth());
         xpReward=0;
     }

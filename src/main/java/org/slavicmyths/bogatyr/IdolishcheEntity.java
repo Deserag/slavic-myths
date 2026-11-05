@@ -25,7 +25,7 @@ public final class IdolishcheEntity extends CombatEntity {
     private static final EntityDataAccessor<Boolean> RAGE=SynchedEntityData.defineId(IdolishcheEntity.class,EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Float> HEADING=SynchedEntityData.defineId(IdolishcheEntity.class,EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<Integer> VICTIM=SynchedEntityData.defineId(IdolishcheEntity.class,EntityDataSerializers.INT);
-    private final ServerBossEvent bar=new ServerBossEvent(Component.translatable("entity.slavicmyths.idolishche_poganoe"),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
+    private final ServerBossEvent bar=new ServerBossEvent(Component.translatable("entity.slavicmyths.idolishche_poganoe"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.RED),BossEvent.BossBarOverlay.PROGRESS);
     public UUID encounter=UUID.randomUUID(),initiator;
     public Vec3 origin=Vec3.ZERO;
     public boolean active,debug=true,intro,recorded;
