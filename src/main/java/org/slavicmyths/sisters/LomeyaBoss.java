@@ -118,7 +118,6 @@ public final class LomeyaBoss extends Monster {
                 }
             }
             case SLAM -> { if(frame==27) area(world,18.2F,3.5); }
-            case GIANT_WINDUP -> { if(frame==25) sweep(world,26,4.2); }
             case GIANT_STRIKE -> { if(frame==36) { area(world,35.1F,5); world.sendParticles(ParticleTypes.POOF,lockedPosition.x,lockedPosition.y+.2,lockedPosition.z,30,2,.2,2,.15); } }
             default -> {}
         }
@@ -145,7 +144,7 @@ public final class LomeyaBoss extends Monster {
         if(cooldown>0) {cooldown--;return;}
         if(distanceToSqr(target)>50) {getNavigation().moveTo(target,phaseTwo()?1.02:1.1);return;}
         int choice=cycle++%3;
-        begin(phaseTwo()?(choice==0?GIANT_STRIKE:choice==1?GIANT_WINDUP:GRAB):(choice==0?COMBO:choice==1?GRAB:SLAM),target);
+        begin(phaseTwo()?(choice==2?GRAB:GIANT_STRIKE):(choice==0?COMBO:choice==1?GRAB:SLAM),target);
     }
     private final class HuntGoal extends Goal {
         HuntGoal(){setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}
