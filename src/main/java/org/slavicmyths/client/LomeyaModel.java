@@ -165,10 +165,11 @@ public final class LomeyaModel extends EntityModel<LomeyaBoss> {
                 else angle=3.02F*(1-Mth.clamp((f-36)/22F,0,1));
             }
             giant.xRot=angle;
-            wL=giantGrip(14,angle);wR=giantGrip(30,angle);
+            wL=giantGrip(-2,angle);wR=giantGrip(14,angle);
             eL=interpolate(SHOULDER_L,wL,.52F);eL[0]-=5;
             eR=interpolate(SHOULDER_R,wR,.52F);eR[0]+=5;
         }
+        if(!second) {wL[1]=eL[1];wR[1]=eR[1];}
         arm(true,eL,wL);arm(false,eR,wR);
     }
     @Override public void renderToBuffer(PoseStack stack,VertexConsumer out,int light,int overlay,int color) {
