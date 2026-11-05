@@ -23,4 +23,6 @@ public final class PosadBossRenderer extends MobRenderer<PosadBoss,PosadBossMode
         event.registerEntityRenderer(ModEntities.CURSED_MYTAR.get(), context -> new PosadBossRenderer(context, false));
         event.registerEntityRenderer(ModEntities.BAUK.get(), context -> new PosadBossRenderer(context, true));
     }
+    @Override protected boolean shouldShowName(PosadBoss boss) { return false; }
+
 }

@@ -13,4 +13,6 @@ public final class AgneyaRenderer extends MobRenderer<AgneyaBoss, AgneyaModelV7>
         super(ctx, new AgneyaModelV7(ctx.bakeLayer(layer)), 1.05F);
     }
     @Override public ResourceLocation getTextureLocation(AgneyaBoss entity) { return TEX; }
+    @Override protected boolean shouldShowName(AgneyaBoss boss) { return false; }
+
 }

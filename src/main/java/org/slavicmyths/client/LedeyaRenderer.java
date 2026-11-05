@@ -105,4 +105,6 @@ public final class LedeyaRenderer extends MobRenderer<LedeyaBoss, LedeyaRenderer
             root.render(pose, out, light, overlay, color);
         }
     }
+    @Override protected boolean shouldShowName(LedeyaBoss boss) { return false; }
+
 }

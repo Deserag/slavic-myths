@@ -39,5 +39,21 @@ for entry in ranked:
     rank=roman[entry["danger_level"]]
     assert f'Map.entry("{identifier}",{rank})' in SOURCE,(identifier,rank)
 assert len(ranked)==28,len(ranked)
+renderers={
+    "LomeyaRenderer.java":"LomeyaBoss",
+    "NeveyaRenderer.java":"NeveyaBoss",
+    "ViyRenderer.java":"ViyBoss",
+    "SistersRenderer.java":"SisterBoss",
+    "AgneyaRenderer.java":"AgneyaBoss",
+    "LedeyaRenderer.java":"LedeyaBoss",
+    "PosadBossRenderer.java":"PosadBoss",
+}
+for renderer,entity in renderers.items():
+    text=(SRC/"client"/renderer).read_text(encoding="utf-8")
+    assert f"shouldShowName({entity} boss)" in text,renderer
+    assert "return false;" in text,renderer
+for boss_file in ["LomeyaBoss.java","NeveyaBoss.java","ViyBoss.java"]:
+    text=(SRC/"sisters"/boss_file).read_text(encoding="utf-8")
+    assert "BossBarOverlay.PROGRESS" in text,boss_file
 assert len(checked)>=25,checked
 print(f"PASS: {len(checked)} bossbar owners use central tier palette; 3 white nameplates disabled")

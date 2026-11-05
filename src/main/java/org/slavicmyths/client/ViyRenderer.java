@@ -9,4 +9,6 @@ public final class ViyRenderer extends MobRenderer<ViyBoss,ViyModel>{
     private static final ResourceLocation TEXTURE=ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/viy.png");
     public ViyRenderer(EntityRendererProvider.Context ctx){super(ctx,new ViyModel(),1.45F);}
     @Override public ResourceLocation getTextureLocation(ViyBoss entity){return TEXTURE;}
+    @Override protected boolean shouldShowName(ViyBoss boss) { return false; }
+
 }
