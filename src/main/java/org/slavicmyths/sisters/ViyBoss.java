@@ -250,7 +250,7 @@ public final class ViyBoss extends Monster {
             case STOMP->{if(frame==21)warning(world,position(),7);if(frame==37)area(world,position(),7,24);}
             case RIFT->{
                 if(frame==15||frame==25)warning(world,lockedTarget.add(0,0,0),3.0);
-                if(frame==36||frame==45)area(world,lockedTarget,3.0,26);
+                if(frame==36||frame==45)area(world,lockedTarget,3.0F,26);
             }
             case IRON_HAND->{
                 if(frame==24)reachAndHold(world);
@@ -281,7 +281,7 @@ public final class ViyBoss extends Monster {
                     for(int i=0;i<6;i++){
                         double a=i*Math.PI/3+wave*.38;
                         Vec3 center=lockedTarget.add(Math.cos(a)*(3+wave*2),0,Math.sin(a)*(3+wave*2));
-                        area(world,center,2.7,29);
+                        area(world,center,2.7F,29);
                     }
                 }
                 if(frame==106)area(world,lockedTarget,5,43);

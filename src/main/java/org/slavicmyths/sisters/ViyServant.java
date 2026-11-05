@@ -59,12 +59,12 @@ public final class ViyServant extends Monster {
             if(getTarget() instanceof Player p&&(p.isCreative()||p.isSpectator()))setTarget(null);
         }
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag){
+    @Override public void addAdditionalSaveData(CompoundTag tag){
         super.addAdditionalSaveData(tag);
         if(owner!=null)tag.putUUID("ViyOwner",owner);
         tag.putInt("ViyServantLife",lifetime);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag){
+    @Override public void readAdditionalSaveData(CompoundTag tag){
         super.readAdditionalSaveData(tag);
         if(tag.hasUUID("ViyOwner"))owner=tag.getUUID("ViyOwner");
         if(tag.contains("ViyServantLife",3))lifetime=tag.getInt("ViyServantLife");
