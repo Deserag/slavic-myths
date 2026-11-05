@@ -221,6 +221,7 @@ public final class NineMorSerpent extends Monster {
             active++;
             age++;
             entityData.set(HEADS[i], (age << 4) | mode);
+            if (age == 17 && mode == AREA && target != null) circle((ServerLevel)level(), i, target.position(), 5.5D, 36);
             if (age == 17) sound(mode == GRAB ? "head_predator_grab" :
                 mode == AREA ? "ground_spikes_warn" :
                 mode == BEAM ? "head_fire_breath" : "head_mor_shot", .9F);
@@ -380,6 +381,14 @@ public final class NineMorSerpent extends Monster {
         var key = GorynychContent.SOUNDS.get(sound);
         if (key != null) level().playSound(null, blockPosition(),
             key.get(), SoundSource.HOSTILE, volume, .8F + random.nextFloat() * .22F);
+    }
+
+    @Override protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource source) {
+        return GorynychContent.SOUNDS.get("head_predator_grab").get();
+    }
+
+    @Override protected net.minecraft.sounds.SoundEvent getDeathSound() {
+        return GorynychContent.SOUNDS.get("purified_roar").get();
     }
 
     @Override protected void addAdditionalSaveData(CompoundTag tag) {

@@ -234,7 +234,6 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
 
     private static int beam(PartDefinition wing, int index, float[] a, float[] b, float[] root, float width) {
         float dx = b[0] - a[0], dy = b[1] - a[1], dz = b[2] - a[2];
-        float horizontal = Mth.sqrt(dx * dx + dz * dz);
         float length = Mth.sqrt(dx * dx + dy * dy + dz * dz);
         if (length <= .01F) return index;
         float pitch = (float)Math.atan2(dz, dy);
@@ -372,9 +371,11 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
         vertex(stack, consumer, a, root, color, light, overlay, nx, ny, nz, 0, 0);
         vertex(stack, consumer, b, root, color, light, overlay, nx, ny, nz, 0, 1);
         vertex(stack, consumer, c, root, color, light, overlay, nx, ny, nz, 1, 1);
+        vertex(stack, consumer, c, root, color, light, overlay, nx, ny, nz, 1, 1);
         // Facing both sides keeps the membranes visible while circling the boss.
         vertex(stack, consumer, c, root, color, light, overlay, -nx, -ny, -nz, 1, 1);
         vertex(stack, consumer, b, root, color, light, overlay, -nx, -ny, -nz, 0, 1);
+        vertex(stack, consumer, a, root, color, light, overlay, -nx, -ny, -nz, 0, 0);
         vertex(stack, consumer, a, root, color, light, overlay, -nx, -ny, -nz, 0, 0);
     }
 
