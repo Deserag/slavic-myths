@@ -83,7 +83,7 @@ public final class LomeyaBoss extends Monster {
         return switch(action) {case COMBO -> 46;case GRAB -> 38;case SLAM -> 46;case GIANT_WINDUP -> 40;case GIANT_STRIKE -> 58;default -> 0;};
     }
     private void damage(Player p,float amount,boolean fracture) {
-        if (!canHit(p) || !p.hurt(damageSources().mobAttack(this),amount)) return;
+        if (!canHit(p) || !getSensing().hasLineOfSight(p) || !p.hurt(damageSources().mobAttack(this),amount)) return;
         if (fracture && fracturedThisAction.add(p.getUUID())) FractureHooks.apply(p);
     }
     private boolean forward(Player p,double reach) {
