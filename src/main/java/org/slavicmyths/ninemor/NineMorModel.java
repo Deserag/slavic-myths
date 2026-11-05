@@ -37,6 +37,11 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
 
     private final ModelPart root;
     private final ModelPart body;
+    private final ModelPart dorsalPlates;
+    private final ModelPart spineSpurs;
+    private final ModelPart lateralScales;
+    private final ModelPart bellyScutes;
+    private final ModelPart chestGuard;
     private final ModelPart[] necks = new ModelPart[9];
     private final ModelPart[] neckMids = new ModelPart[9];
     private final ModelPart[] neckTips = new ModelPart[9];
@@ -59,12 +64,18 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
         PartDefinition base = mesh.getRoot();
         PartDefinition torso = base.addOrReplaceChild("body", CubeListBuilder.create(), PartPose.ZERO);
         buildTorso(torso);
+        buildArmor(torso);
         buildLegs(torso);
         buildHeads(torso);
         buildTails(torso);
         buildWings(torso);
         root = LayerDefinition.create(mesh, 512, 512).bakeRoot();
         body = root.getChild("body");
+        dorsalPlates = body.getChild("dorsal_plates");
+        spineSpurs = body.getChild("spine_spurs");
+        lateralScales = body.getChild("lateral_scales");
+        bellyScutes = body.getChild("belly_scutes");
+        chestGuard = body.getChild("chest_guard");
         for (int i = 0; i < 9; i++) {
             necks[i] = body.getChild("neck_" + i);
             neckMids[i] = necks[i].getChild("neck_mid_" + i);
@@ -121,6 +132,113 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
             }
         }
         body.addOrReplaceChild("shell", torso, PartPose.ZERO);
+    }
+
+    /**
+     * Standalone armor layers use the actual elliptical hull profile.
+     * Plates sit just OUTSIDE the shell rather than being buried in the
+     * uniform voxel mass; each layer has its own material color.
+     */
+    private static void buildArmor(PartDefinition body) {
+        CubeListBuilder dorsal = CubeListBuilder.create();
+        CubeListBuilder spurs = CubeListBuilder.create();
+        CubeListBuilder sides = CubeListBuilder.create();
+        CubeListBuilder belly = CubeListBuilder.create();
+        CubeListBuilder chest = CubeListBuilder.create();
+
+        // Nine staggered transverse carapace sections, with a stone ridge
+        // and subsidiary spikes that follow the arch of the animal's back.
+        for (int row = 0; row < 11; row++) {
+            float longitudinal = -10.8F + row * 2.43F;
+            float profile = Mth.sqrt(Math.max(.14F,
+                1F - Mth.square((longitudinal - 1.5F) / 17.8F)));
+            for (int lane = -1; lane <= 1; lane++) {
+                float x = lane * 4.55F * profile;
+                float cross = Math.max(.08F, 1F - Mth.square(x / (8F * profile)));
+                float surface = 14.1F + 7.15F * profile * Mth.sqrt(cross);
+                float segmentWidth = lane == 0 ? 2.55F : 2.20F * profile;
+                float rise = lane == 0 ? 1.2F : .67F;
+                dorsal.texOffs(STONE_U, STONE_V).addBox(
+                    x - segmentWidth / 2F, -surface - rise, longitudinal - 1.1F,
+                    segmentWidth, rise + .35F, 2.08F);
+                if (lane == 0) {
+                    float knob = 1.45F + (row % 3) * .35F;
+                    spurs.texOffs(BONES_U, BONES_V).addBox(
+                        x - .73F, -surface - rise - knob, longitudinal - .58F,
+                        1.46F, knob + .48F, 1.15F);
+                    spurs.texOffs(STONE_U, STONE_V).addBox(
+                        x - .38F, -surface - rise - knob - 1.25F, longitudinal - .27F,
+                        .76F, 1.4F, .57F);
+                } else if (row % 2 == 0) {
+                    spurs.texOffs(STONE_U, STONE_V).addBox(
+                        x - .42F, -surface - 1.75F, longitudinal - .42F,
+                        .84F, 1.5F, .84F);
+                }
+            }
+        }
+
+        // A row of clearly overlapping side scutes down each flank.
+        for (int segment = 0; segment < 14; segment++) {
+            float z = -11.15F + 1.94F * segment;
+            float profile = Mth.sqrt(Math.max(.12F,
+                1F - Mth.square((z - 1.5F) / 17.8F)));
+            float flank = 8F * profile;
+            float height = 14.1F + 1.20F * profile;
+            for (int side : new int[]{-1, 1}) {
+                float x = side * (flank - .45F);
+                sides.texOffs(STONE_U, STONE_V).addBox(
+                    x - .8F, -height - 2.1F, z - .83F,
+                    1.6F, 3.55F, 1.67F);
+                sides.texOffs(BONES_U, BONES_V).addBox(
+                    x - .55F, -height - 1.92F, z - .56F,
+                    1.1F, .45F, 1.14F);
+                if (segment % 3 != 1) {
+                    float tip = side * (flank + 1.35F);
+                    spurs.texOffs(STONE_U, STONE_V).addBox(
+                        tip - .45F, -height - .22F, z - .43F,
+                        .9F, 1.05F, .86F);
+                }
+            }
+        }
+
+        // Pale scutes on the underside and breast; breaking the silhouette
+        // into overlapping scales rather than a single rectangular column.
+        for (int n = 0; n < 12; n++) {
+            float z = -10.7F + n * 2.15F;
+            float profile = Mth.sqrt(Math.max(.16F,
+                1F - Mth.square((z - 1.5F) / 17.8F)));
+            float w = 4.6F * profile;
+            float underside = 14.1F - 7.15F * profile;
+            belly.texOffs(BELLY_U, BELLY_V).addBox(
+                -w, -underside - .18F, z - .96F,
+                2F * w, 1.25F, 1.92F);
+            belly.texOffs(BONES_U, BONES_V).addBox(
+                -w * .83F, -underside + .81F, z - .42F,
+                1.66F * w, .24F, .65F);
+        }
+
+        // Massive overlapping sternum / shoulder mantle where the nine
+        // neck roots attach. Jagged plates remain separate from the necks.
+        for (int side : new int[]{-1, 1}) {
+            for (int layer = 0; layer < 5; layer++) {
+                float x = side * (1.0F + layer * .72F);
+                float y = -18.9F + layer * .38F;
+                chest.texOffs(STONE_U, STONE_V).addBox(
+                    x - 1.0F, y - 2.05F, -12.3F + layer * .25F,
+                    2F, 2.85F - layer * .18F, 2.5F);
+            }
+            chest.texOffs(BONES_U, BONES_V).addBox(
+                side * 5.2F - 1.2F, -21.7F, -11.1F,
+                2.4F, 2.1F, 3.7F);
+        }
+        chest.texOffs(BONES_U, BONES_V).addBox(-.85F, -20.7F, -13.8F, 1.7F, 2.4F, 2.65F);
+        chest.texOffs(STONE_U, STONE_V).addBox(-1.4F, -17.9F, -14.15F, 2.8F, 1.45F, 1.35F);
+
+        body.addOrReplaceChild("dorsal_plates", dorsal, PartPose.ZERO);
+        body.addOrReplaceChild("spine_spurs", spurs, PartPose.ZERO);
+        body.addOrReplaceChild("lateral_scales", sides, PartPose.ZERO);
+        body.addOrReplaceChild("belly_scutes", belly, PartPose.ZERO);
+        body.addOrReplaceChild("chest_guard", chest, PartPose.ZERO);
     }
 
     private static void buildLegs(PartDefinition body) {
@@ -409,7 +527,7 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
         // without the previous almost-black texture multiplying away every detail.
         stack.pushPose();
         body.translateAndRotate(stack);
-        body.getChild("shell").render(stack, consumer, light, overlay, 0xFF555A63);
+        body.getChild("shell").render(stack, consumer, light, overlay, 0xFF474853);
         for (int i = 0; i < 4; i++) legs[i].render(stack, consumer, light, overlay, 0xFF484953);
         for (int i = 0; i < 9; i++) necks[i].render(stack, consumer, light, overlay, 0xFF575761);
         for (int i = 0; i < 3; i++) tails[i].render(stack, consumer, light, overlay, 0xFF4D4E59);
@@ -419,6 +537,11 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
     public void renderColoredParts(PoseStack stack, VertexConsumer consumer, int light, int overlay) {
         stack.pushPose();
         body.translateAndRotate(stack);
+        dorsalPlates.render(stack, consumer, light, overlay, 0xFF79727C);
+        spineSpurs.render(stack, consumer, light, overlay, 0xFF9A8985);
+        lateralScales.render(stack, consumer, light, overlay, 0xFF725762);
+        bellyScutes.render(stack, consumer, light, overlay, 0xFF817278);
+        chestGuard.render(stack, consumer, light, overlay, 0xFF76616B);
         for (int i = 0; i < 9; i++) {
             stack.pushPose();
             necks[i].translateAndRotate(stack);
