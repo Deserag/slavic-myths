@@ -67,6 +67,7 @@ public final class NineMorSerpent extends Monster {
         BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.NOTCHED_20);
     private final int[] cooldown = new int[9];
     private final int[] tailCooldown = {60, 95, 130};
+    private final int[] tailSwingAge = new int[3];
     private int nextHead;
     private int nextFlight = 450;
     private boolean ritual = true;
@@ -301,24 +302,31 @@ public final class NineMorSerpent extends Monster {
         double[] x = {-12.7D, 0, 12.7D, -14.7D, 0, 14.7D, -8.1D, 0, 8.1D};
         double[] h = {30.5D, 31.6D, 30.5D, 38.6D, 39.3D, 38.6D, 46.8D, 48.8D, 46.8D};
         double[] z = {-24.4D, -26.2D, -24.4D, -20.8D, -21.9D, -20.8D, -16.7D, -17.3D, -16.7D};
-        double yaw = -getYRot() * Math.PI / 180D;
+        // MobRenderer rotates the local model by 180 - bodyYaw. Match that
+        // transform so beam / projectile origin is in the actual animated mouth.
+        double yaw = getYRot() * Math.PI / 180D;
         double forward = z[head] / 16D;
         double side = x[head] / 16D;
-        return position().add(side * Math.cos(yaw) - forward * Math.sin(yaw),
-            h[head] / 16D, side * Math.sin(yaw) + forward * Math.cos(yaw));
+        return position().add(-side * Math.cos(yaw) + forward * Math.sin(yaw),
+            h[head] / 16D, -side * Math.sin(yaw) - forward * Math.cos(yaw));
     }
 
     private void tickTails(LivingEntity target) {
         int mask = 0;
         for (int i = 0; i < 3; i++) {
             if (tailCooldown[i] > 0) tailCooldown[i]--;
+            if (tailSwingAge[i] > 0) {
+                tailSwingAge[i]--;
+                mask |= 1 << i;
+            }
             if (target != null && tailCooldown[i] <= 0 && distanceToSqr(target) < 75D) {
                 tailCooldown[i] = 95 + i * 17 + random.nextInt(30);
+                tailSwingAge[i] = 22;
                 if (target.hurt(damageSources().mobAttack(this), 7.0F))
                     target.knockback(.8D, getX() - target.getX(), getZ() - target.getZ());
                 sound("tail_sweep", .8F);
+                mask |= 1 << i;
             }
-            if (tailCooldown[i] > 85 && tailCooldown[i] < 107) mask |= 1 << i;
         }
         entityData.set(TAIL_MASK, mask);
     }
