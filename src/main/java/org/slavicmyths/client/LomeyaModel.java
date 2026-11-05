@@ -139,10 +139,11 @@ public final class LomeyaModel extends EntityModel<LomeyaBoss> {
         if(!second) {
             int action=boss.action();
             if(action==LomeyaBoss.COMBO) {
-                boolean useLeft=f<24;
-                float time=useLeft?f/24F:(f-24F)/22F;
-                float t=time<.4F?time/.4F:1F-(time-.4F)/.6F;
-                t=Mth.clamp(t,0,1);
+                int swing=f<17?0:f<25?1:f<33?2:3;
+                boolean useLeft=(swing&1)==0;
+                float start=swing==0?0:swing==1?17:swing==2?25:33;
+                float length=swing==0?17:swing==3?13:8;
+                float t=Mth.sin(Mth.clamp((f-start)/length,0F,1F)*Mth.PI);
                 if(useLeft) {eL=interpolate(eL,new float[]{-12,73,-6},t);wL=interpolate(wL,new float[]{-13,68,-26},t);}
                 else {eR=interpolate(eR,new float[]{12,73,-6},t);wR=interpolate(wR,new float[]{13,68,-26},t);}
             }
