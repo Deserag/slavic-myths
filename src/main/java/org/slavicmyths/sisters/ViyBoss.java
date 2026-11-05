@@ -220,8 +220,8 @@ public final class ViyBoss extends Monster {
             s->s.isAlive()&&getUUID().equals(s.ownerId())).size();
         if(alive>=4)return;
         EntityType<? extends ViyServant>[] types=new EntityType[]{
-            SistersContent.VIY_UPYR.get(),SistersContent.VIY_NAV.get(),
-            SistersContent.VIY_KORNELAP.get(),SistersContent.VIY_KORNELAP.get()};
+            org.slavicmyths.viy.ViyContent.VIY_UPYR.get(),org.slavicmyths.viy.ViyContent.VIY_NAV.get(),
+            org.slavicmyths.viy.ViyContent.VIY_KORNELAP.get(),org.slavicmyths.viy.ViyContent.VIY_KORNELAP.get()};
         for(int i=0;i<Math.min(4-alive,types.length);i++){
             ViyServant servant=types[i].create(world);
             if(servant==null)continue;
