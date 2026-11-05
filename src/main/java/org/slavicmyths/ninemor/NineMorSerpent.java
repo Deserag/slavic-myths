@@ -22,7 +22,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
@@ -107,7 +106,6 @@ public final class NineMorSerpent extends Monster {
 
     @Override protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
-        goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, .65));
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 40F));
         targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true,
             candidate -> candidate instanceof Player player && !player.isCreative() && !player.isSpectator()));
@@ -180,8 +178,12 @@ public final class NineMorSerpent extends Monster {
         tickHeads(target);
         tickTails(target);
 
-        if (flightPhase() == 0 && target != null && tickCount % 20 == 0
-                && distanceToSqr(target) > 80D) getNavigation().moveTo(target, .85D);
+        // Move deliberately toward the opponent instead of random strolling,
+        // and stop before the oversized body collides with the player.
+        if (flightPhase() == 0 && target != null && tickCount % 12 == 0) {
+            if (distanceToSqr(target) > 225D) getNavigation().moveTo(target, .87D);
+            else getNavigation().stop();
+        }
         if (tickCount % 23 == 0 && getDeltaMovement().horizontalDistanceSqr() > .009D
                 && onGround()) sound("step_heavy", .7F);
         if (tickCount % 110 == 0 && random.nextFloat() < .7F) sound("ambient_low", .58F);
@@ -199,7 +201,7 @@ public final class NineMorSerpent extends Monster {
         getLookControl().setLookAt(focus, 40F, 40F);
         double dx = focus.getX() - getX(), dz = focus.getZ() - getZ();
         float worldYaw = (float)(Math.atan2(dz, dx) * 180D / Math.PI) - 90F;
-        float nextYaw = Mth.approachDegrees(getYRot(), worldYaw, 4.5F);
+        float nextYaw = Mth.approachDegrees(getYRot(), worldYaw, 1.8F);
         setYRot(nextYaw);
         setYBodyRot(nextYaw);
         float localYaw = Mth.wrapDegrees(worldYaw - nextYaw);
