@@ -153,8 +153,7 @@ public final class ViyModel extends EntityModel<ViyBoss> {
         armL.xRot=-step*.60F;armR.xRot=step*.60F;
         root.y-=Mth.abs(Mth.sin(walk*.62F))*stride*.6F;
         head.yRot=Mth.clamp(yaw,-35,35)*Mth.DEG_TO_RAD*.22F;
-        float openness=boss.eyesOpen()?1F:0F;
-        if(boss.action()==ViyBoss.OPEN_EYES)openness=Mth.clamp(boss.actionFrame()/22F,0,1);
+        float openness=boss.eyelidProgress();
         lidL.yScale=1-.87F*openness;lidR.yScale=1-.87F*openness;
         lidL.y=-15-6F*openness;lidR.y=-15-6F*openness;
         float f=boss.actionFrame();

@@ -44,6 +44,7 @@ public final class ViyBoss extends Monster {
     private static final EntityDataAccessor<Integer> FRAME=SynchedEntityData.defineId(ViyBoss.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> PHASE_TWO=SynchedEntityData.defineId(ViyBoss.class,EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> EYES_OPEN=SynchedEntityData.defineId(ViyBoss.class,EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Integer> EYE_PROGRESS=SynchedEntityData.defineId(ViyBoss.class,EntityDataSerializers.INT);
     private final ServerBossEvent bossBar=new ServerBossEvent(Component.literal("Вий"),BossEvent.BossBarColor.PURPLE,BossEvent.BossBarOverlay.NOTCHED_10);
     private final Map<UUID,GazeMeter> meters=new HashMap<>();
     private UUID heldPlayer;
@@ -71,12 +72,13 @@ public final class ViyBoss extends Monster {
     }
     @Override public float getMaxHealth(){return (float)CreatureHealthBalance.uncappedMaximum(getAttribute(Attributes.MAX_HEALTH));}
     @Override protected void defineSynchedData(SynchedEntityData.Builder b){
-        super.defineSynchedData(b);b.define(MOVE,IDLE);b.define(FRAME,0);b.define(PHASE_TWO,false);b.define(EYES_OPEN,false);
+        super.defineSynchedData(b);b.define(MOVE,IDLE);b.define(FRAME,0);b.define(PHASE_TWO,false);b.define(EYES_OPEN,false);b.define(EYE_PROGRESS,0);
     }
     public int action(){return entityData.get(MOVE);}
     public int actionFrame(){return entityData.get(FRAME);}
     public boolean phaseTwo(){return entityData.get(PHASE_TWO);}
-    public boolean eyesOpen(){return entityData.get(EYES_OPEN);}
+    public boolean eyesOpen(){return entityData.get(EYE_PROGRESS)>=22;}
+    public float eyelidProgress(){return entityData.get(EYE_PROGRESS)/24.0F;}
     @Override public boolean removeWhenFarAway(double distance){return false;}
     @Override public void startSeenByPlayer(ServerPlayer p){super.startSeenByPlayer(p);bossBar.addPlayer(p);}
     @Override public void stopSeenByPlayer(ServerPlayer p){super.stopSeenByPlayer(p);bossBar.removePlayer(p);}
@@ -298,6 +300,7 @@ public final class ViyBoss extends Monster {
         }
         boolean open=phaseTwo()||action()==IRON_HAND||(tickCount%500>=250&&tickCount%500<430);
         entityData.set(EYES_OPEN,open);
+        entityData.set(EYE_PROGRESS,Math.clamp(entityData.get(EYE_PROGRESS)+(open?1:-1),0,24));
         processLooks(world);
         if(verdictCooldown>0)verdictCooldown--;
         if(summonCooldown>0)summonCooldown--;
@@ -315,7 +318,7 @@ public final class ViyBoss extends Monster {
         int option=attackIndex++%(phaseTwo()?7:4);
         int attack=phaseTwo()?switch(option){
             case 0->FIST;case 1->STOMP;case 2->IRON_HAND;case 3->RIFT;
-            case 4->EYE_WAVE;case 5->FINGER;default->OPEN_EYES;
+            case 4->EYE_WAVE;case 5->FINGER;default->IRON_HAND;
         }:switch(option){case 0->FIST;case 1->STOMP;case 2->IRON_HAND;default->RIFT;};
         start(attack,target);
     }
