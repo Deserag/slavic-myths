@@ -1,11 +1,14 @@
+
 # Gradle outputs and local tooling caches (rebuildable).
 .gradle/
 build/
 .tools/
+
 # Isolated runtime directories; user saves are never cleanup candidates by rule alone.
 run/
 run-server/
 run-village-checks/
+
 # Editor and Python cache files.
 .idea/
 *.iml
@@ -24,6 +27,7 @@ run-village-buildings-checks/
 /out/
 /.cache/
 /.vscode/
+
 # Historical scratch restored locally from verified archives; maintained tools belong in tools/.
 /work/
 
@@ -50,3 +54,10 @@ Thumbs.db
 
 # Local agent input / export workspace, not canonical project sources.
 /.codex-input/
+
+# Generated documentation, QA snapshots and historic reports.
+/docs/implementation/
+/docs/qa-handoff/
+/docs/verification/
+/docs/maintenance/
+/docs/audit/
