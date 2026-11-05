@@ -51,6 +51,10 @@ public final class LomeyaBoss extends Monster {
     @Override public float getMaxHealth() {
         return (float)CreatureHealthBalance.uncappedMaximum(getAttribute(Attributes.MAX_HEALTH));
     }
+    @Override public void readAdditionalSaveData(net.minecraft.nbt.CompoundTag tag){
+        super.readAdditionalSaveData(tag);
+        setCustomNameVisible(false);
+    }
     public static AttributeSupplier.Builder attributes() {
         return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,2000)
             .add(Attributes.ATTACK_DAMAGE,26).add(Attributes.MOVEMENT_SPEED,.245)
