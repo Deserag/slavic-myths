@@ -17,7 +17,7 @@ public final class NineMorContent {
     public static final DeferredHolder<EntityType<?>, EntityType<NineMorSerpent>> BOSS =
         ModEntities.ENTITIES.register("nine_mor_serpent", () ->
             EntityType.Builder.of(NineMorSerpent::new, MobCategory.MONSTER)
-                .sized(4.5F, 4.1F).eyeHeight(3.4F).fireImmune()
+                .sized(18.0F, 13.8F).eyeHeight(11.8F).fireImmune()
                 .clientTrackingRange(32).updateInterval(2).build("slavicmyths:nine_mor_serpent"));
 
     public static final DeferredHolder<EntityType<?>, EntityType<NineMorShot>> SHOT =

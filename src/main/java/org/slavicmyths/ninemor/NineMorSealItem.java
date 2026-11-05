@@ -17,6 +17,12 @@ public final class NineMorSealItem extends Item {
     public NineMorSealItem(Properties properties) { super(properties); }
 
     @Override
+    public net.minecraft.network.chat.Component getName(net.minecraft.world.item.ItemStack stack) {
+        return net.minecraft.network.chat.Component.translatableWithFallback(
+            "item.slavicmyths.pechat_devyati_morov", "Печать Девяти Моров");
+    }
+
+    @Override
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         BlockPos pos = context.getClickedPos().relative(context.getClickedFace());

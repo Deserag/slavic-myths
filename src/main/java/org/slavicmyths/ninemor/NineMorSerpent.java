@@ -43,8 +43,8 @@ public final class NineMorSerpent extends Monster {
     private static final float INTERNAL_MAX_HEALTH = 1024F;
     public static final int GRAB = 1, PROJECTILE = 2, BEAM = 3, AREA = 4;
     public static final int[] COLORS = {
-        0xBDA58D, 0xA7CA59, 0x9B71B9, 0x76C9DB, 0xE57D45,
-        0xE8CF71, 0x648A60, 0xB89050, 0x7E80C5
+        0xD95B62, 0x9DD45D, 0xAC7AD2, 0x6DC7E6, 0xE8974A,
+        0xE2D16B, 0x62B79C, 0xC39761, 0x7B91DB
     };
 
     @SuppressWarnings("unchecked")
@@ -61,9 +61,15 @@ public final class NineMorSerpent extends Monster {
         SynchedEntityData.defineId(NineMorSerpent.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> TAIL_MASK =
         SynchedEntityData.defineId(NineMorSerpent.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Float> AIM_YAW =
+        SynchedEntityData.defineId(NineMorSerpent.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<Float> AIM_PITCH =
+        SynchedEntityData.defineId(NineMorSerpent.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<Boolean> HAS_GAZE =
+        SynchedEntityData.defineId(NineMorSerpent.class, EntityDataSerializers.BOOLEAN);
 
     private final ServerBossEvent bar = new ServerBossEvent(
-        Component.translatable("entity.slavicmyths.nine_mor_serpent"),
+        Component.translatableWithFallback("entity.slavicmyths.nine_mor_serpent", "Моровой Змей — Насылатель Мора"),
         BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.NOTCHED_20);
     private final int[] cooldown = new int[9];
     private final int[] tailCooldown = {60, 95, 130};
@@ -94,6 +100,9 @@ public final class NineMorSerpent extends Monster {
         builder.define(FLIGHT_AGE, 0);
         builder.define(RITUAL_AGE, 0);
         builder.define(TAIL_MASK, 0);
+        builder.define(AIM_YAW, 0F);
+        builder.define(AIM_PITCH, 0F);
+        builder.define(HAS_GAZE, false);
     }
 
     @Override protected void registerGoals() {
@@ -111,6 +120,12 @@ public final class NineMorSerpent extends Monster {
     public int ritualAge() { return entityData.get(RITUAL_AGE); }
     public boolean isRitual() { return ritualAge() < 60; }
     public int tailMask() { return entityData.get(TAIL_MASK); }
+    public boolean hasGaze() { return entityData.get(HAS_GAZE); }
+    public float aimYaw() { return entityData.get(AIM_YAW); }
+    public float aimPitch() { return entityData.get(AIM_PITCH); }
+    @Override public Component getName() {
+        return Component.translatableWithFallback("entity.slavicmyths.nine_mor_serpent", "Моровой Змей — Насылатель Мора");
+    }
 
     public void beginRitual() {
         entityData.set(RITUAL_AGE, 0);
@@ -160,6 +175,7 @@ public final class NineMorSerpent extends Monster {
         if (target == null || !target.isAlive()
                 || target instanceof Player player && (player.isCreative() || player.isSpectator())
                 || target.distanceToSqr(this) > 80 * 80) target = null;
+        trackNearbyPlayer(server, target);
         tickFlight(target);
         tickHeads(target);
         tickTails(target);
@@ -170,6 +186,28 @@ public final class NineMorSerpent extends Monster {
                 && onGround()) sound("step_heavy", .7F);
         if (tickCount % 110 == 0 && random.nextFloat() < .7F) sound("ambient_low", .58F);
         if (tickCount % 70 == 0) ambientMor(server);
+    }
+
+    private void trackNearbyPlayer(ServerLevel server, LivingEntity enemy) {
+        // Creative players can inspect the creature's tracking without being attacked.
+        LivingEntity focus = enemy;
+        if (focus == null) focus = server.getNearestPlayer(this, 56D);
+        if (focus == null || focus.distanceToSqr(this) > 56D * 56D) {
+            entityData.set(HAS_GAZE, false);
+            return;
+        }
+        getLookControl().setLookAt(focus, 40F, 40F);
+        double dx = focus.getX() - getX(), dz = focus.getZ() - getZ();
+        float worldYaw = (float)(Math.atan2(dz, dx) * 180D / Math.PI) - 90F;
+        float nextYaw = Mth.approachDegrees(getYRot(), worldYaw, 4.5F);
+        setYRot(nextYaw);
+        setYBodyRot(nextYaw);
+        float localYaw = Mth.wrapDegrees(worldYaw - nextYaw);
+        double distance = Math.sqrt(dx * dx + dz * dz);
+        float pitch = (float)(Math.atan2((getY() + 9.5D) - focus.getEyeY(), Math.max(2D, distance)) * 180D / Math.PI);
+        entityData.set(AIM_YAW, Mth.clamp(localYaw, -68F, 68F));
+        entityData.set(AIM_PITCH, Mth.clamp(pitch, -32F, 60F));
+        entityData.set(HAS_GAZE, true);
     }
 
     private void tickFlight(LivingEntity target) {
@@ -298,17 +336,17 @@ public final class NineMorSerpent extends Monster {
     }
 
     private Vec3 headMouth(int head) {
-        // Ordered to match the model's nine separate necks, model-scale pixels / 16.
+        // Ordered to match the model's nine separate necks, model-scale pixels, multiplied by the renderer's 4x scale.
         double[] x = {-12.7D, 0, 12.7D, -14.7D, 0, 14.7D, -8.1D, 0, 8.1D};
         double[] h = {30.5D, 31.6D, 30.5D, 38.6D, 39.3D, 38.6D, 46.8D, 48.8D, 46.8D};
         double[] z = {-24.4D, -26.2D, -24.4D, -20.8D, -21.9D, -20.8D, -16.7D, -17.3D, -16.7D};
         // MobRenderer rotates the local model by 180 - bodyYaw. Match that
         // transform so beam / projectile origin is in the actual animated mouth.
         double yaw = getYRot() * Math.PI / 180D;
-        double forward = z[head] / 16D;
-        double side = x[head] / 16D;
+        double forward = z[head] / 4D;
+        double side = x[head] / 4D;
         return position().add(-side * Math.cos(yaw) + forward * Math.sin(yaw),
-            h[head] / 16D, -side * Math.sin(yaw) - forward * Math.cos(yaw));
+            h[head] / 4D, -side * Math.sin(yaw) - forward * Math.cos(yaw));
     }
 
     private void tickTails(LivingEntity target) {
