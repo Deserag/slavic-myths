@@ -99,6 +99,7 @@ public final class LomeyaModel extends EntityModel<LomeyaBoss> {
         hammer(giant,true);
         giant.setPos(0,-58,-11);
         geo.attach(root,giant);
+        root.getAllParts().forEach(part -> part.setInitialPose(part.storePose()));
     }
     private static float[] interpolate(float[] start,float[] end,float t) {
         return new float[]{Mth.lerp(t,start[0],end[0]),Mth.lerp(t,start[1],end[1]),Mth.lerp(t,start[2],end[2])};
