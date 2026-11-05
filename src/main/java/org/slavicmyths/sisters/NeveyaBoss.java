@@ -175,9 +175,9 @@ public final class NeveyaBoss extends Monster {
             case DIVE->{if(f==43)circle(world,position(),5.0,35.1F,1);}
             case VERDICT->{
                 if(f==20)telegraph(world,markedCenter,16.0);
-                if(f>=26&&f<=74&&f%4==2){
-                    int wave=(f-26)/16;int index=((f-26)%16)/4;
-                    if(wave<3&&index<4)telegraph(world,minorCircle(wave,index+wave*2),2.25);
+                if(f==26||f==42||f==58){
+                    int wave=(f-26)/16;
+                    for(int i=0;i<9;i++)telegraph(world,minorCircle(wave,i),2.25);
                 }
                 if(f==50||f==66||f==82){
                     int wave=(f-50)/16;
