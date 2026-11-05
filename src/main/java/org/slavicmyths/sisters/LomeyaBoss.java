@@ -43,6 +43,8 @@ public final class LomeyaBoss extends Monster {
     public LomeyaBoss(EntityType<? extends LomeyaBoss> type,Level level) {
         super(type,level);
         setPersistenceRequired();
+        setCustomName(Component.literal("Ломея"));
+        setCustomNameVisible(true);
         xpReward=0;
         setHealth(getMaxHealth());
     }
