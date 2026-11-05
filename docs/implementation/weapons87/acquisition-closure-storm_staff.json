@@ -1,7 +1,0 @@
-{
-  "slavicmyths:storm_staff": {
-    "recipes": [],
-    "loot_tables": [],
-    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
-  }
-}
