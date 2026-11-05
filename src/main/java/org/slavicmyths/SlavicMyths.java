@@ -74,7 +74,8 @@ public final class SlavicMyths {
         org.slavicmyths.kurgan.DarkenedWood.init();
         org.slavicmyths.kurgan.KurganBlocks.init();
         org.slavicmyths.hunt.BossEffects.init();
-        org.slavicmyths.kurgan.KurganCurse.EFFECTS.register(bus);
+        // KurganCurse.EFFECTS aliases this same registry; attach it exactly once.
+        org.slavicmyths.registry.ModEffects.EFFECTS.register(bus);
         org.slavicmyths.kurgan.BurialCoffinMenu.register();
         org.slavicmyths.kurgan.KurganStructures.register();
         org.slavicmyths.earth.EarthContent.init();
@@ -137,7 +138,6 @@ public final class SlavicMyths {
         org.slavicmyths.underground.UndergroundMobs.init(bus);
         org.slavicmyths.underground.UndergroundSounds.init();
         ModItems.ITEMS.register(bus);
-        org.slavicmyths.registry.ModEffects.EFFECTS.register(bus);
         org.slavicmyths.armorer.ArmorerRecipe.TYPES.register(bus);
         org.slavicmyths.armorer.ArmorerRecipe.SERIALIZERS.register(bus);
         org.slavicmyths.armorer.ArmorerMenu.register();
