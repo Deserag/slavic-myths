@@ -26,10 +26,8 @@ public final class NineMorSealItem extends Item {
                 || !server.getBlockState(pos.above()).canBeReplaced()
                 || !server.getWorldBorder().isWithinBounds(pos)) return InteractionResult.FAIL;
         AABB clearance = new AABB(pos).inflate(3.0D, 3.0D, 3.0D);
-        if (!server.getEntitiesOfClass(NineMorSerpent.class, clearance.inflate(80D)).isEmpty()
-                || !server.getEntities(null, clearance, entity -> entity.isAlive()
-                    && entity.getType() != NineMorContent.BOSS.get()
-                    && entity.getBoundingBox().intersects(new AABB(pos).inflate(2.0D, 2.8D, 2.0D))).isEmpty()) {
+        // A player holding the seal must never block their own ritual.
+        if (!server.getEntitiesOfClass(NineMorSerpent.class, clearance.inflate(80D)).isEmpty()) {
             return InteractionResult.FAIL;
         }
 

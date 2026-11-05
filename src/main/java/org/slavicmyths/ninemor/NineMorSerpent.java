@@ -100,7 +100,7 @@ public final class NineMorSerpent extends Monster {
         goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, .65));
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 40F));
         targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true,
-            player -> !player.isCreative() && !player.isSpectator()));
+            candidate -> candidate instanceof Player player && !player.isCreative() && !player.isSpectator()));
     }
 
     public int headMode(int head) { return entityData.get(HEADS[head]) & 15; }
@@ -391,7 +391,7 @@ public final class NineMorSerpent extends Monster {
         return GorynychContent.SOUNDS.get("purified_roar").get();
     }
 
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
+    @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putInt("RitualAge", ritualAge());
         tag.putBoolean("Ritual", ritual);
@@ -404,7 +404,7 @@ public final class NineMorSerpent extends Monster {
         for (int i = 0; i < 3; i++) tag.putInt("TailCooldown"+i, tailCooldown[i]);
     }
 
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
+    @Override public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         entityData.set(RITUAL_AGE, tag.getInt("RitualAge"));
         ritual = tag.getBoolean("Ritual");
