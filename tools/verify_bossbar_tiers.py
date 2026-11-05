@@ -12,17 +12,20 @@ assert 'Map.entry("viy",8)' in SOURCE
 assert all(f"case {n}->BossEvent.BossBarColor.{color}" in SOURCE for n,color in
            [(4,"GREEN"),(5,"YELLOW"),(6,"BLUE"),(7,"RED"),(8,"PURPLE")])
 checked=[]
+missing=[]
 for path in SRC.rglob("*.java"):
     text=path.read_text(encoding="utf-8")
     if not BAR.search(text):
         continue
     count=len(BAR.findall(text))
     resolved=text.count("BossBarPalette.colorFor(getType(),")
-    assert count==resolved,(str(path),count,resolved)
+    if count!=resolved:
+        missing.append((str(path.relative_to(SRC)),count,resolved))
     checked.append(str(path.relative_to(SRC)))
 for name in ["LomeyaBoss.java","NeveyaBoss.java","ViyBoss.java"]:
     data=(SRC/"sisters"/name).read_text(encoding="utf-8")
     assert "setCustomNameVisible(true)" not in data,name
     assert "setCustomNameVisible(false)" in data,name
+assert not missing, f"Unconverted bossbars: {missing}"
 assert len(checked)>=25,checked
 print(f"PASS: {len(checked)} bossbar owners use central tier palette; 3 white nameplates disabled")
