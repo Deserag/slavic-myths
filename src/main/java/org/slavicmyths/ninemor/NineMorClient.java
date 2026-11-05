@@ -18,7 +18,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 @EventBusSubscriber(modid = "slavicmyths", value = Dist.CLIENT)
 public final class NineMorClient {
     private static final ResourceLocation SKIN =
-        NineMorContent.id("textures/entity/morovoy_fire_zmey_albedo.png");
+        NineMorContent.id("textures/entity/nine_mor_white.png");
 
     @SubscribeEvent
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
@@ -27,6 +27,7 @@ public final class NineMorClient {
     }
 
     private static final class BossRenderer extends MobRenderer<NineMorSerpent, NineMorModel> {
+        private static final float MODEL_SCALE = 4.0F;
         private BossRenderer(EntityRendererProvider.Context context) {
             super(context, new NineMorModel(), 2.7F);
             addLayer(new RenderLayer<NineMorSerpent, NineMorModel>(this) {
@@ -34,7 +35,7 @@ public final class NineMorClient {
                 public void render(PoseStack pose, MultiBufferSource buffers, int packedLight,
                                    NineMorSerpent boss, float limbSwing, float limbSwingAmount,
                                    float partialTick, float age, float netHeadYaw, float headPitch) {
-                    getParentModel().renderAccents(pose,
+                    getParentModel().renderColoredParts(pose,
                         buffers.getBuffer(RenderType.entityCutoutNoCull(SKIN)),
                         packedLight, OverlayTexture.NO_OVERLAY);
                 }
@@ -43,11 +44,15 @@ public final class NineMorClient {
 
         @Override public ResourceLocation getTextureLocation(NineMorSerpent boss) { return SKIN; }
 
+        @Override protected void scale(NineMorSerpent boss, PoseStack pose, float partialTick) {
+            pose.scale(MODEL_SCALE, MODEL_SCALE, MODEL_SCALE);
+        }
+
         @Override
         public boolean shouldRender(NineMorSerpent boss,
                                     net.minecraft.client.renderer.culling.Frustum frustum,
                                     double x, double y, double z) {
-            return frustum.isVisible(boss.getBoundingBox().inflate(11D, 9D, 11D));
+            return frustum.isVisible(boss.getBoundingBox().inflate(30D, 18D, 30D));
         }
     }
 
