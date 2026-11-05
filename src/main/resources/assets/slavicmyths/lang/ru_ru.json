@@ -6620,5 +6620,11 @@
   "posad.test.encounter.rejected": "Создание тестовой встречи отклонено. Добавленные этим вызовом сущности удалены.",
   "posad.test.encounter.created": "Создана тестовая встреча: %s, X=%s Y=%s Z=%s. Это OP-проверка механик, не правило естественного появления.",
   "posad.test.encounter.no_space": "Нет безопасного загруженного места рядом. Нужны свободное пространство и природное основание вне построек; блоки не менялись.",
-  "posad.test.encounter.cleared": "Удалено тестовых боссов в загруженной области радиусом 64 блока: %s"
+  "posad.test.encounter.cleared": "Удалено тестовых боссов в загруженной области радиусом 64 блока: %s",
+  "entity.slavicmyths.lomeya": "Ломея",
+  "item.slavicmyths.lomeya_spawn_egg": "Яйцо призыва Ломеи",
+  "effect.slavicmyths.fracture": "Перелом",
+  "entity.slavicmyths.neveya": "Невея",
+  "item.slavicmyths.neveya_spawn_egg": "Яйцо призыва Невеи",
+  "effect.slavicmyths.death_mark": "Метка смерти"
 }

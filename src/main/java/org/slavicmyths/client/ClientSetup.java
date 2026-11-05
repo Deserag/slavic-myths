@@ -291,6 +291,9 @@ public final class ClientSetup {
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.GNETEYA.get(), ctx -> new SistersRenderer(ctx, false, new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "gneteya"), "main")));
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.LEDEYA.get(), LedeyaRenderer::new);
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.FROST_BOLT.get(), SistersVisuals.Bolt::new);
+        event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.NEVEYA.get(), NeveyaRenderer::new);
+        event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.NEVEYA_BOLT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.LOMEYA.get(), LomeyaRenderer::new);
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.AGNEYA.get(), ctx -> new AgneyaRenderer(ctx, new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "agneya"), "main")));
 
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.TRYASEYA.get(), ctx -> new SistersRenderer(ctx, true, new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "tryaseya"), "main")));
