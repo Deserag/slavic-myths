@@ -1,6 +1,10 @@
 package org.slavicmyths.sisters;
 
 import java.util.EnumSet;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerBossEvent;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.BossEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -27,6 +31,12 @@ public final class AgneyaBoss extends Monster {
     private static final EntityDataAccessor<Integer> ATTACK_STARTED = SynchedEntityData.defineId(AgneyaBoss.class, EntityDataSerializers.INT);
     private int swingTick = -1;
     private int cooldown;
+    private final ServerBossEvent bossBar = new ServerBossEvent(Component.translatable("entity.slavicmyths.agneya"),
+        org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.BLUE),BossEvent.BossBarOverlay.PROGRESS);
+    @Override public void startSeenByPlayer(ServerPlayer player){super.startSeenByPlayer(player);bossBar.addPlayer(player);}
+    @Override public void stopSeenByPlayer(ServerPlayer player){super.stopSeenByPlayer(player);bossBar.removePlayer(player);}
+    @Override public void onRemovedFromLevel(){bossBar.removeAllPlayers();super.onRemovedFromLevel();}
+
 
     public AgneyaBoss(EntityType<? extends AgneyaBoss> type, Level level) {
         super(type, level);
@@ -74,6 +84,7 @@ public final class AgneyaBoss extends Monster {
 
     @Override public void aiStep() {
         super.aiStep();
+        if(!level().isClientSide)bossBar.setProgress(Math.clamp(getHealth()/Math.max(1F,getMaxHealth()),0F,1F));
         if (level().isClientSide) return;
         if (cooldown > 0) --cooldown;
         if (swingTick >= 0) {
