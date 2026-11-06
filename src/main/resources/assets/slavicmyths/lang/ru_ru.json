@@ -6646,5 +6646,8 @@
   "item.slavicmyths.lomeya_ingot": "Слиток Ломеи",
   "item.slavicmyths.nether_soul_iv": "Адская душа IV уровня",
   "item.slavicmyths.nether_soul_v": "Адская душа V уровня",
-  "netherweapons.tip.empowered_infernal_bow": "Огонь и Замедление I при попадании. Shift — пробивающий выстрел. 3 гнезда для рун."
+  "netherweapons.tip.empowered_infernal_bow": "Огонь и Замедление I при попадании. Shift — пробивающий выстрел. 3 гнезда для рун.",
+  "key.slavicmyths.morovoy_mode": "Посох Мора: сменить стихию",
+  "key.slavicmyths.morovoy_ravens": "Посох Мора: призвать воронов",
+  "key.slavicmyths.morovoy_blast": "Посох Мора: огненно-моровой удар"
 }
