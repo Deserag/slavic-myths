@@ -17,8 +17,8 @@ public record PosadResidentTraits(int horns, int wings, int face, int skin, int 
         int skin = Math.floorMod(seed >>> 24, 5);
         int clothes = switch (role) {
             case POSADNIK -> 3;
-            case GUARD -> 2;
-            case CIVILIAN -> Math.floorMod(seed >>> 32, 2);
+            case GUARD, SOTNIK -> 2;
+            default -> Math.floorMod(seed >>> 32, 2);
         };
         return new PosadResidentTraits(horns, wings, face, skin, clothes);
     }

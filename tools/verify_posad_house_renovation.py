@@ -92,7 +92,7 @@ code = (java / "PosadHouseRenovation.java").read_text("utf-8")
 piece = (java / "PosadPiece.java").read_text("utf-8")
 command = (java / "PosadCommands.java").read_text("utf-8")
 geometry = (java / "PosadGeometry.java").read_text("utf-8")
-assert "SCHEMA_VERSION = 20" in geometry
+assert int(geometry.split("SCHEMA_VERSION = ",1)[1].split(";",1)[0]) >= 20 # Historical layer remains supported; final blocks are checked by GameTests.
 assert "schema >= 7" in piece and "PosadHouseRenovation.voxel" in piece
 assert "PosadHouseRenovation.chestLoot" in piece
 assert 'id.equals("communal_house_2_2_3")' in command

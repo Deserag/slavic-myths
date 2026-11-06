@@ -82,7 +82,7 @@ for turns in range(4):
         rotated.add((rx,y,rz))
     assert len(rotated) == len(occupied)
 
-assert "SCHEMA_VERSION = 20" in geometry
+assert int(geometry.split("SCHEMA_VERSION = ",1)[1].split(";",1)[0]) >= 20 # Historical layer remains supported; final blocks are checked by GameTests.
 assert "schema >= 10" in piece and "PosadCourtyardFinishes.voxel" in piece
 assert 'id.equals("druzhinny_dvor_2_2_4")' in command
 assert 'id.equals("kuznechny_dvor_2_2_5")' in command

@@ -25,6 +25,8 @@ public final class SlavicMyths {
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.earth.EarthConfig.SPEC,"slavicmyths-earth-spirit.toml");
         org.slavicmyths.item.ItemState.COMPONENTS.register(bus);
         org.slavicmyths.netherboss.NetherBossItems.init();
+        org.slavicmyths.posad.PosadBeds.init();
+        org.slavicmyths.posad.PosadTestProofs.init();
         org.slavicmyths.rpg.Runes.init();
         org.slavicmyths.garden.Gardens.init();
         org.slavicmyths.husbandry.Husbandry.init(bus);
@@ -72,7 +74,8 @@ public final class SlavicMyths {
         org.slavicmyths.kurgan.DarkenedWood.init();
         org.slavicmyths.kurgan.KurganBlocks.init();
         org.slavicmyths.hunt.BossEffects.init();
-        org.slavicmyths.kurgan.KurganCurse.EFFECTS.register(bus);
+        // KurganCurse.EFFECTS aliases this same registry; attach it exactly once.
+        org.slavicmyths.registry.ModEffects.EFFECTS.register(bus);
         org.slavicmyths.kurgan.BurialCoffinMenu.register();
         org.slavicmyths.kurgan.KurganStructures.register();
         org.slavicmyths.earth.EarthContent.init();
@@ -96,6 +99,7 @@ public final class SlavicMyths {
         org.slavicmyths.karachun.NightContent.init(bus);
         org.slavicmyths.morovoy.MorovoyRavenContent.init(bus);
         org.slavicmyths.sisters.SistersContent.init(bus);
+        org.slavicmyths.viy.ViyContent.init(bus);
         org.slavicmyths.sanctuary.SanctuaryContent.init(bus);
         org.slavicmyths.guardians.GuardianContent.init(bus);
         org.slavicmyths.serpenthill.HillContent.init();

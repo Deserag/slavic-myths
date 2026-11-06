@@ -20,7 +20,9 @@ public final class PosadTerrainCheck {
    check(lava.plan().turns()==turns,"Wrong shoreline orientation");
    check(lava.plan().supports().size()>225,"Missing bridge supports");
   }
-  var ceiling=PosadTerrain.inspect((x,y,z)->y==65?PosadTerrain.Material.NATURAL:PosadTerrain.Material.AIR,0,64,0,0);
+  var lowRidge=PosadTerrain.inspect((x,y,z)->y<64||x>=0&&x<=112&&z>=0&&z<=112&&y<=67?PosadTerrain.Material.NATURAL:PosadTerrain.Material.AIR,0,64,0,0);
+  check(lowRidge.accepted(),"Approved three-block natural terrain cut rejected");
+  var ceiling=PosadTerrain.inspect((x,y,z)->y==68?PosadTerrain.Material.NATURAL:PosadTerrain.Material.AIR,0,64,0,0);
   check(ceiling.reason().equals("HEADROOM"),"Ceiling accepted");
   var deep=PosadTerrain.inspect((x,y,z)->PosadTerrain.Material.AIR,0,64,0,0);
   check(deep.reason().equals("NO_FOOTING"),"Floating city accepted");

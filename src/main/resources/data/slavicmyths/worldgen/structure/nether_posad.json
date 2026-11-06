@@ -1,6 +1,6 @@
 {
   "type": "slavicmyths:nether_posad",
-  "biomes": "#minecraft:is_nether",
+  "biomes": "#slavicmyths:has_structure/nether_posad",
   "step": "surface_structures",
   "spawn_overrides": {},
   "terrain_adaptation": "none"

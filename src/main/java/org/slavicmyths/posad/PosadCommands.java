@@ -20,12 +20,22 @@ public final class PosadCommands {
     };
 
     public static void register(org.slavicmyths.commands.CommandTree tree) {
+        PosadBossSearch.register(tree);
         var generate=Commands.literal("generate").requires(source->source.hasPermission(2));
         generate.then(Commands.literal("nether_posad").executes(c->start(c.getSource())));
         String[][] names={{"veche_hall","veche_hall_2_2_2"},{"communal_house","communal_house_2_2_3"},{"druzhinny_dvor","druzhinny_dvor_2_2_4"},{"kuznechny_dvor","kuznechny_dvor_2_2_5"},{"zeleynaya","zeleynaya_2_2_7"},{"granary","granary_2_2_8"},{"menovye_ryady","menovye_ryady_2_2_6"},{"posadnik_terem","posadnik_terem_2_2_9"}};
         for(var name:names)generate.then(Commands.literal(name[0]).executes(c->building(c.getSource(),name[1],org.slavicmyths.worldgen.ManualTerrain.ground(c.getSource()))));
         tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").then(generate)));
+        tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev")
+            .then(Commands.literal("site").then(Commands.literal("locate")
+                .then(Commands.literal("nether_posad").executes(context -> locate(context.getSource())))))));
         var posad = Commands.literal("posad").requires(source -> source.hasPermission(2));
+        var encounter=Commands.literal("encounter");
+        for(var kind:PosadTestProofs.Kind.values())encounter.then(Commands.literal(kind.name().toLowerCase(java.util.Locale.ROOT)).executes(c->PosadDiagnosticEncounters.create(c.getSource(),kind)));
+        posad.then(encounter);
+        posad.then(Commands.literal("clear_test_encounters").executes(c->PosadDiagnosticEncounters.clear(c.getSource())));
+        posad.then(Commands.literal("release_empty").then(Commands.argument("anchor",net.minecraft.commands.arguments.coordinates.BlockPosArgument.blockPos())
+            .executes(c -> PosadRecovery.releaseEmpty(c.getSource(),net.minecraft.commands.arguments.coordinates.BlockPosArgument.getBlockPos(c,"anchor")))));
         posad.then(Commands.literal("info").executes(context -> info(context.getSource())));
         posad.then(Commands.literal("layout")
             .then(Commands.argument("turns", IntegerArgumentType.integer(0, 3))
@@ -50,13 +60,30 @@ public final class PosadCommands {
         tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").then(posad)));
     }
 
+    private static int locate(CommandSourceStack source) {
+        var world = source.getLevel();
+        if (world.dimension() != net.minecraft.world.level.Level.NETHER) {
+            source.sendFailure(Component.translatable("commands.slavicmyths.posad.locate.nether_only"));
+            return 0;
+        }
+        var origin = net.minecraft.core.BlockPos.containing(source.getPosition());
+        var known = PosadKnownSites.nearest(world, origin);
+        if (known.isPresent()) {
+            var pos = known.get();
+            source.sendSuccess(() -> Component.translatable("commands.slavicmyths.posad.locate.found", pos.getX(), pos.getZ()), false);
+            return 1;
+        }
+        source.sendFailure(Component.translatable("commands.slavicmyths.posad.locate.unknown"));
+        return 0;
+    }
+
     public static int start(CommandSourceStack source){
         var at=org.slavicmyths.worldgen.ManualTerrain.ground(source).offset(-56,-1,12);
         return PosadManualJobs.create(source,0,at.getX(),at.getY(),at.getZ());
     }
     private static int info(CommandSourceStack source) {
         source.sendSuccess(() -> Component.literal("Пекельный посад: фиксированный план 113x113, схема новых городов " + PosadGeometry.SCHEMA_VERSION + ", несколько зданий, мебель и башенный переход."), false);
-        source.sendSuccess(() -> Component.literal("Естественная генерация пока заблокирована до native QA, performance, save/reload и anti-dupe. Старые города никогда не перестраиваются."), false);
+        source.sendSuccess(() -> Component.literal("Native-генерация подключена через StructureSet slavicmyths:nether_posad в биомах #slavicmyths:has_structure/nether_posad; неподходящие площадки отклоняются. Поиск: /locate structure slavicmyths:nether_posad. Старые города не перестраиваются."), false);
         source.sendSuccess(() -> Component.literal("Ручное создание с OP 2 в любом мире: /slavicmyths dev posad create <turns> <anchorX> <deckY> <anchorZ>. Чанки подготавливаются постепенно. status/cancel — для управления."), false);
         return 1;
     }
@@ -339,6 +366,39 @@ public final class PosadCommands {
                         throw new IllegalStateException("Standalone Veche R3/source mismatch at "+at+" old "+previous+" found "+present);
                     world.setBlock(at,finish,2);
                 }
+        }
+        if(id.equals("communal_house_2_2_3"))PosadBuildingRepairs.moveFreshHouseChests(world,pos);
+        // Final shared states: eliminate divergent standalone roof/door/pane resolution.
+        int ox=-1,oz=-1;
+        for(var candidate:TEMPLATES)if(candidate.id().equals(id)){ox=candidate.x();oz=candidate.z();}
+        if(id.equals("zeleynaya_2_2_7")){ox=76;oz=44;}
+        if(id.equals("granary_2_2_8")){ox=76;oz=12;}
+        if(ox>=0){
+            var shared=new PosadPiece(pos.offset(-ox,0,-oz),0);
+            // Preserve container NBT and authored loot; all non-container state comes from
+            // the native source, including the final orientation of paired door leaves.
+            for(int pass=0;pass<2;pass++)for(int y=1;y<size.getY();y++)for(int z=0;z<size.getZ();z++)for(int x=0;x<size.getX();x++){
+                var at=pos.offset(x,y,z);var existing=world.getBlockState(at);
+                var target=shared.placedState(ox+x,y,oz+z,world,at);
+                if(target==null)continue;
+                var tile=world.getBlockEntity(at);
+                // Newly placed template racks may contain authored equipment. Re-skin
+                // their block without scattering or replacing their saved inventory.
+                if(tile instanceof org.slavicmyths.furniture.RackTile
+                        &&existing.getBlock() instanceof org.slavicmyths.furniture.FurnitureBlock oldFurniture
+                        &&target.getBlock() instanceof org.slavicmyths.furniture.FurnitureBlock newFurniture
+                        &&oldFurniture.kind.equals(newFurniture.kind)&&!existing.is(target.getBlock())) {
+                    var saved=tile.saveWithoutMetadata(world.registryAccess());world.removeBlockEntity(at);
+                    world.setBlock(at,target,2);var replacement=world.getBlockEntity(at);
+                    if(!(replacement instanceof org.slavicmyths.furniture.RackTile))throw new IllegalStateException("Fresh rack conversion lost its block entity at "+at);
+                    replacement.loadWithComponents(saved,world.registryAccess());replacement.setChanged();continue;
+                }
+                if(tile!=null&&!(tile instanceof org.slavicmyths.kitchen.TableTile tableTile&&tableTile.food.stream().allMatch(net.minecraft.world.item.ItemStack::isEmpty)))continue;
+                if(target.hasBlockEntity()&&!(target.getBlock() instanceof PosadBeds.Cot)&&!(target.getBlock() instanceof org.slavicmyths.furniture.FurnitureBlock furniture&&!furniture.kind.equals("wooden_crate")&&!furniture.kind.equals("weapon_rack")))continue;
+                boolean attachment=target.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock||target.is(net.minecraft.world.level.block.Blocks.LANTERN)||target.is(net.minecraft.world.level.block.Blocks.SOUL_LANTERN);
+                if(attachment!=(pass==1))continue;
+                if(!existing.equals(target))world.setBlock(at,target,2);
+            }
         }
         // Template barrels are authored empty: assign persistent single-use loot after placement.
         String table=id.startsWith("menovye_ryady")?"chests/posad_barrel_market":"chests/posad_barrel_supplies";

@@ -41,7 +41,7 @@ public class FurnitureBlock extends HorizontalDirectionalBlock {
  @Override public VoxelShape getShape(BlockState s,BlockGetter w,BlockPos p,CollisionContext c){
   VoxelShape shape;
   if(kind.equals("table"))shape=Shapes.or(box(0,12,0,16,16,16),box(1,0,1,4,12,4),box(12,0,1,15,12,4),box(1,0,12,4,12,15),box(12,0,12,15,12,15));
-  else if(kind.equals("chair"))shape=Shapes.or(box(2,0,2,14,9,14),box(2,9,12,14,16,15));
+  else if(kind.equals("chair"))shape=Shapes.or(box(2,0,2,14,9,14),box(2,9,12,14,net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(this).getPath().equals("posad_throne")?26:16,15));
   else if(seat())shape=box(kind.equals("bench")?0:2,0,2,kind.equals("bench")?16:14,9,14);
   else if(kind.equals("shelf"))shape=Shapes.or(box(0,6,10,16,9,16),box(2,2,13,4,6,16),box(12,2,13,14,6,16));
   else if(kind.equals("firewood_bundle"))shape=box(1,0,2,15,7,14);
@@ -66,6 +66,10 @@ public class FurnitureBlock extends HorizontalDirectionalBlock {
   return super.useItemOn(interactionStack,s,w,p,player,hand,hit);
  }
  @Override public void onRemove(BlockState s,Level w,BlockPos p,BlockState next,boolean moving){if(!s.is(next.getBlock())&&w.getBlockEntity(p)instanceof RackTile){RackTile rack=(RackTile)w.getBlockEntity(p);if(!w.isClientSide&&!rack.weapon.isEmpty()){popResource(w,p,rack.weapon);rack.weapon=ItemStack.EMPTY;}}if(!s.is(next.getBlock())&&w.getBlockEntity(p) instanceof CrateTile crate){if(!w.isClientSide)net.minecraft.world.Containers.dropContents(w,p,crate);}super.onRemove(s,w,p,next,moving);}
- @Override public int getFlammability(BlockState s,BlockGetter w,BlockPos p,Direction d){return kind.equals("signal_bell")?0:20;}
- @Override public int getFireSpreadSpeed(BlockState s,BlockGetter w,BlockPos p,Direction d){return kind.equals("signal_bell")?0:5;}
+ private boolean fireproof(){
+  String id=net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(this).getPath();
+  return kind.equals("signal_bell")||id.equals("posad_throne")||id.startsWith("crimson_")||id.startsWith("warped_");
+ }
+ @Override public int getFlammability(BlockState s,BlockGetter w,BlockPos p,Direction d){return fireproof()?0:20;}
+ @Override public int getFireSpreadSpeed(BlockState s,BlockGetter w,BlockPos p,Direction d){return fireproof()?0:5;}
 }

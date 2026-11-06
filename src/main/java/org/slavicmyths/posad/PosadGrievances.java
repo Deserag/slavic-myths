@@ -40,6 +40,10 @@ public final class PosadGrievances extends SavedData {
         City record = cities.get(city);
         return record != null && record.spawned.contains(key);
     }
+    public synchronized boolean populated(UUID city) {
+        City record=cities.get(city);
+        return record!=null&&PosadPopulationPlan.roster().stream().allMatch(member->record.spawned.contains(member.key()));
+    }
     /** Call only after server successfully inserted a real NPC. Deceased residents are not free loot farms. */
     public synchronized void markSpawned(UUID city, String key) {
         if (city(city).spawned.add(key)) setDirty();

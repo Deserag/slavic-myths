@@ -15,12 +15,15 @@ public final class BossRewardInbox {
  private static final Map<MinecraftServer,BossRewardAuthority> AUTHORITIES=new WeakHashMap<>();
  private static final String RECEIPTS="slavicmyths_boss_reward_receipts",ACTIVE="slavicmyths_boss_inbox_active";
  private static BossRewardAuthority authority(MinecraftServer server){if(!server.isSameThread())throw new IllegalStateException("Boss rewards require the server thread");return AUTHORITIES.computeIfAbsent(server,s->new BossRewardAuthority(s.getWorldPath(net.minecraft.world.level.storage.LevelResource.ROOT).resolve("data/slavicmyths_boss_reward_authority.json")));}
+ public static BossRewardAuthority.Entry find(MinecraftServer server,String key){return authority(server).find(key);}
  public static BossRewardAuthority.Entry prepare(MinecraftServer server,String key,String kind,UUID recipient,int cores,long readyAt){try{var entry=authority(server).pin(new BossRewardAuthority.Entry(key,kind,recipient,cores,readyAt));var player=server.getPlayerList().getPlayer(entry.recipient());if(player!=null)player.getPersistentData().putBoolean(ACTIVE,true);return entry;}catch(java.io.IOException|IllegalArgumentException failure){System.getLogger("slavicmyths.rewards").log(System.Logger.Level.ERROR,"Boss reward preserved/blocked: "+failure.getMessage());return null;}}
  private static ItemStack head(TrophyHeads.Kind kind){return new ItemStack(TrophyHeads.ITEMS.get(kind).get());}
  private static List<ItemStack> batch(BossRewardAuthority.Entry e){return switch(e.kind()){
   case "guardian_head"->List.of(head(TrophyHeads.Kind.GROVE_GUARDIAN));case "zharenitsa_head"->List.of(head(TrophyHeads.Kind.ZHARENITSA));
   case "posten"->List.of(head(TrophyHeads.Kind.POSTEN),new ItemStack(HallsContent.item("posten_heart")),new ItemStack(ShadowFace.RUNE.get()),new ItemStack(org.slavicmyths.rpg.RuneFoundation.item("soul")));
   case "morova_21x","trizna_21x"->org.slavicmyths.netherboss.NetherBossRewards.batch(e.kind().equals("morova_21x"),e.cores());
+  case "posad_test_pair_half"->List.of();
+  case "posad_test_proof","posad_test_exchange"->List.of(org.slavicmyths.posad.PosadTestProofs.token(e,e.kind().equals("posad_test_exchange")));
   case "magma"->org.slavicmyths.burningislands.MagmaRewards.batch(e.cores());default->throw new IllegalArgumentException("Unknown reward kind");};}
  public static boolean hasReceipt(CompoundTag data,String key){return data.getCompound(RECEIPTS).getBoolean(key);}
  public static void receipt(CompoundTag data,String key){var tags=data.getCompound(RECEIPTS);tags.putBoolean(key,true);data.put(RECEIPTS,tags);}

@@ -45,7 +45,9 @@ public final class PosadTerrainSurveyCheck {
                 return shore || y < 40 ? PosadTerrain.Material.NATURAL : PosadTerrain.Material.LAVA;
             }, 0, 64, 0, rotation));
         }
-        scenarios.add(new Scenario("ceiling", (x, y, z) -> y == 65 ? PosadTerrain.Material.NATURAL : PosadTerrain.Material.AIR, 0, 64, 0, 0));
+        scenarios.add(new Scenario("low-natural-ridge", (x,y,z) -> y<64||x>=0&&x<=112&&z>=0&&z<=112&&y<=67 ? PosadTerrain.Material.NATURAL : PosadTerrain.Material.AIR,0,64,0,0));
+        scenarios.add(new Scenario("protected-low-ridge", (x,y,z) -> y==65 ? PosadTerrain.Material.PROTECTED : y<64 ? PosadTerrain.Material.NATURAL : PosadTerrain.Material.AIR,0,64,0,0));
+        scenarios.add(new Scenario("ceiling", (x, y, z) -> y == 68 ? PosadTerrain.Material.NATURAL : PosadTerrain.Material.AIR, 0, 64, 0, 0));
         scenarios.add(new Scenario("protected-platform", (x, y, z) -> x == 17 && y == 63 && z == 19 ? PosadTerrain.Material.PROTECTED : y < 64 ? PosadTerrain.Material.NATURAL : PosadTerrain.Material.AIR, 0, 64, 0, 0));
         scenarios.add(new Scenario("no-footing", (x, y, z) -> PosadTerrain.Material.AIR, 0, 64, 0, 0));
         scenarios.add(new Scenario("bank-blocked", (x, y, z) -> y > 64 ? PosadTerrain.Material.AIR : (x < 0 || x > 112 || z < 0 || z > 112) ? PosadTerrain.Material.LAVA : PosadTerrain.Material.NATURAL, 0, 64, 0, 0));

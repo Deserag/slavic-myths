@@ -1,0 +1,9 @@
+{
+  "parent": "slavicmyths:block/pine_table_pair_north",
+  "textures": {
+    "wood": "minecraft:block/crimson_planks",
+    "beam": "minecraft:block/stripped_crimson_stem",
+    "log": "minecraft:block/crimson_stem_top",
+    "particle": "minecraft:block/crimson_planks"
+  }
+}
