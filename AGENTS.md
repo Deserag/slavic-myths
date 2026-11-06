@@ -1,3 +1,16 @@
+# OWNER OVERRIDE — BOUNDED CONTEXT / NO BULK READING — 2026-11-06
+
+**Latest explicit owner rule. This section takes precedence over older blanket instructions to read the entire documentation before starting.** It limits information retrieval; it does NOT relax branch safety, owner approval, gameplay QA, or implementation acceptance requirements.
+
+1. **Default: no documentation scan.** Do not open `docs/**`, `README*`, `CHANGELOG*`, `STATUS_HANDOFF.md`, archived reports, QA evidence, crash logs, or generated artifacts merely to understand the project. Do not read `tools/**`, tests, or unrelated source folders as general preflight. Reading an individually specified file is allowed only when the owner explicitly authorizes it for this task. Mandatory instructions already provided by the environment (including `AGENTS.md`) must still be followed; do not re-fetch them needlessly.
+2. **No automatic preflight expansion.** Older requirements to read all of `ARCHITECTURE`, `PROJECT_STATUS`, `ROADMAP`, owner contracts, playbooks, requirements directories, etc. are NOT permission for bulk-reading. Where a required implementation contract would need an explicitly restricted file, report its exact path and ask the owner to authorize that narrow read before implementation; analysis and proposed tables can proceed without it.
+3. **Scope searches.** Start with known context and exact paths. Enumerate filenames first, then read only relevant methods or nearby lines of code/resources in `src/main/**`. Use path filters, bounded output, and stop after locating the needed implementation. Do not dump recursive trees, entire Git diffs/history, bulk logs, or thousands of results.
+4. **Per analysis step limits:** at most **10 new files**, default **100 lines per excerpt**, and at most **50 search hits**. Expand only for a specific justified need, in stages, retaining compact findings instead of rereading.
+5. **No scope creep.** Do not initiate unrelated audits, testing, code changes, balance changes, refactoring, or documentation maintenance unless explicitly requested. If asked for analysis or reward correspondence tables, produce those first and await owner approval before changing gameplay.
+6. **Context reporting.** If exceptional broad inspection is truly needed, explain what will be read and why before doing it. Summarize findings compactly. Never claim a file was checked when it was not.
+
+---
+
 # MANDATORY OWNER EXECUTION RULES — 2026-11-01 (READ FIRST)
 
 **Binding, strict and not optional.** Every ChatGPT/Codex/task author/reviewer MUST read [the full English execution contract](docs/OWNER_EXECUTION_CONTRACT.md), [current branch policy](docs/BRANCH_POLICY.md), [project workflow](docs/PROJECT_WORKFLOW.md), [Codex playbook](docs/CODEX_PROJECT_PLAYBOOK.md), and the entire applicable set from [docs/requirements/](docs/requirements/README.md) BEFORE any implementation or implementation prompt.
