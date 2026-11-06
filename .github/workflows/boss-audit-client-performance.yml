@@ -1,4 +1,4 @@
-name: Boss audit client frame timing
+name: Boss audit client frame timing by isolated group
 on:
   push:
     branches: ['codex/qa-bosses-release25-20261106']
@@ -7,25 +7,37 @@ on:
 permissions:
   contents: read
 jobs:
-  metadata:
+  visual:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        group: ["cursed_mytar,bauk,ovinnik,brown_bear,nightingale,grey_wolf", "elder_vodyanoy,kurgan_voevoda,buried_volkhv,unresting_prince,fire_serpent,podvey", "volkolak,cursed_volkolak,likho_one_eyed,tugarin_zmey,morova_deva,trizna_prince", "zharenitsa,magma_lord,posten,grove_guardian,earth_spirit,idolishche_poganoe", "marinka,skim_beast,kartaus,kalin_tsar,great_poloz,morozko", "karachun,morovoy_raven,ledeya,neveya,lomeya,agneya", "gneteya,tryaseya,viy,extinguished_flame_guardian,defiled_spring_keeper,zmey_gorynych", "morovoy_fire_zmey,nine_mor_serpent,kladovik,large_podzemnik,ataman"]
     env:
       LIBGL_ALWAYS_SOFTWARE: 'true'
       ALSOFT_DRIVERS: 'null'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
-        with: {distribution: temurin, java-version: '21'}
-      - uses: gradle/actions/setup-gradle@v4
-      - run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri mesa-utils libopenal1
-      - run: chmod +x gradlew && ./gradlew --no-daemon -I tools/boss-audit-visual.gradle clean build compileBossAuditVisualJava --console=plain
-      - run: xvfb-run -a -s '-screen 0 1280x800x24' timeout 20m ./gradlew --no-daemon -I tools/boss-audit-visual.gradle runBossAuditVisual -PbossAuditClientPerformance=true -PbossAuditIds=agneya,ataman,bauk,brown_bear,buried_volkhv,cursed_mytar,cursed_volkolak,defiled_spring_keeper,earth_spirit,elder_vodyanoy,extinguished_flame_guardian,fire_serpent,gneteya,great_poloz,grey_wolf,grove_guardian,idolishche_poganoe,kalin_tsar,karachun,kartaus,kladovik,kurgan_voevoda,large_podzemnik,ledeya,likho_one_eyed,lomeya,magma_lord,marinka,morova_deva,morovoy_fire_zmey,morovoy_raven,morozko,neveya,nightingale,nine_mor_serpent,ovinnik,podvey,posten,skim_beast,trizna_prince,tryaseya,tugarin_zmey,unresting_prince,viy,volkolak,zharenitsa,zmey_gorynych --console=plain
-      - uses: actions/upload-artifact@v4
-        if: always()
         with:
-          name: boss-audit-client-performance
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Install isolated virtual display
+        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri mesa-utils libopenal1
+      - name: Build unchanged production JAR and compile QA
+        run: chmod +x gradlew && ./gradlew --no-daemon -I tools/boss-audit-visual.gradle clean build compileBossAuditVisualJava --console=plain
+      - name: Capture actual framebuffer, no desktop execution
+        run: xvfb-run -a -s '-screen 0 1280x800x24' timeout 35m ./gradlew --no-daemon -I tools/boss-audit-visual.gradle runBossAuditVisual -PbossAuditClientPerformance=true -PbossAuditIds=${{ matrix.group }} --console=plain
+      - name: Preserve evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: boss-client-performance-${{ strategy.job-index }}
           path: |
             build/boss-audit-visual/
             work/boss-audit/hosted-client/logs/
+            build/current-resources.json
+          if-no-files-found: warn
           retention-days: 7
