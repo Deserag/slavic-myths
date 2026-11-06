@@ -1,0 +1,46 @@
+name: Boss audit existing server regressions
+on:
+  push:
+    branches: ['codex/qa-bosses-release25-20261106']
+    paths: ['.github/workflows/boss-audit-server-regressions.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  server:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [raven, viy, inventory]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain
+      - if: matrix.suite == 'raven'
+        run: ./gradlew --no-daemon -I tools/hell-qa-runtime.gradle runHellQa -PhellQaRavenOnly -PhellQaDir=work/boss-audit/raven-regression --console=plain
+      - if: matrix.suite == 'viy'
+        run: ./gradlew --no-daemon -I tools/posad-qa-runtime.gradle runPosadQa -PviyOnly=true -PposadQaDir=work/boss-audit/viy-regression --console=plain
+      - if: matrix.suite == 'inventory'
+        run: ./gradlew --no-daemon -I tools/boss-audit-runtime.gradle runBossAudit -PbossAuditDir=work/boss-audit/cloud-inventory --console=plain
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: boss-server-${{ matrix.suite }}
+          path: |
+            work/boss-audit/
+            build/reports/
+          retention-days: 14
+  rules:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - run: |
+          mkdir -p build/zmey396
+          javac -encoding UTF-8 -d build/zmey396 src/main/java/org/slavicmyths/morovoy/MorovoyZmeyRules.java tools/qa/MorovoyZmeyRulesSmoke.java
+          java -cp build/zmey396 org.slavicmyths.morovoy.MorovoyZmeyRulesSmoke
