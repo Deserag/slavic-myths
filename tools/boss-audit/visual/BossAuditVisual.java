@@ -70,7 +70,7 @@ public final class BossAuditVisual {
    int count=Integer.parseInt(shot.mode.substring(12));
    for(var old:w.getEntitiesOfClass(Mob.class,new net.minecraft.world.phys.AABB(36,60,36,164,160,164),m->m!=actor))old.discard();
    if(count==0)actor.discard();else sceneActors.add(actor);
-   for(int n=1;n<count;n++){var other=(Mob)actor.getType().create(w);other.setNoAi(true);double spacing=Math.max(4,actor.getBbWidth()*1.3);other.moveTo(100+(n%3-1)*spacing,70,100-(1+n/3)*spacing,0,0);configureVisualFixture(other,s.getPlayerList().getPlayers().getFirst());if(other instanceof org.slavicmyths.burningislands.IslandsMob m)m.bindArena(other.blockPosition().offset(index*16+n,0,0));w.addFreshEntity(other);sceneActors.add(other);}
+   for(int n=1;n<count;n++){var other=(Mob)actor.getType().create(w);other.setNoAi(true);double radius=Math.max(4,actor.getBbWidth()*.65+2),angle=2*Math.PI*(n-1)/Math.max(1,count-1);other.moveTo(100+Math.sin(angle)*radius,70,100+Math.cos(angle)*radius,0,0);configureVisualFixture(other,s.getPlayerList().getPlayers().getFirst());if(other instanceof org.slavicmyths.burningislands.IslandsMob m)m.bindArena(other.blockPosition().offset(index*16+n,0,0));w.addFreshEntity(other);sceneActors.add(other);}
   }
   if(shot.mode.equals("hurt"))actor.hurt(actor.damageSources().magic(),5);
   if(shot.mode.equals("death"))actor.setHealth(0);
