@@ -47,11 +47,11 @@ public final class MorovoyStaffKeys {
                 net.minecraft.world.item.component.CustomData.EMPTY).copyTag();
         boolean fire=tag.getInt("MorovoyStaffMode")==1;
         var g=e.getGuiGraphics();
-        int x=Math.max(5,g.guiWidth()-174),y=g.guiHeight()-102;
-        g.fill(x,y,x+167,y+30,0xB212121C);
-        g.drawString(mc.font,fire?"ПОСОХ МОРА · ОГОНЬ":"ПОСОХ МОРА · МОР",x+5,y+4,fire?0xFFB85A:0xC58EED,false);
-        g.drawString(mc.font,MODE.getTranslatedKeyMessage().getString()+" стихия   "+RAVENS.getTranslatedKeyMessage().getString()+" вороны   "+BLAST.getTranslatedKeyMessage().getString()+" буря",
-                x+5,y+17,0xC8C8D0,false);
+        int x=Math.max(5,g.guiWidth()-210),y=g.guiHeight()-112;
+        g.fill(x,y,x+205,y+43,0xB212121C);
+        g.drawString(mc.font,fire?"ПОСОХ МОРА · ОГОНЬ":"ПОСОХ МОРА · МОР",x+6,y+4,fire?0xFFB85A:0xC58EED,false);
+        g.drawString(mc.font,MODE.getTranslatedKeyMessage().getString()+" — стихия  •  ПКМ — выстрел",x+6,y+17,0xD0CED8,false);
+        g.drawString(mc.font,RAVENS.getTranslatedKeyMessage().getString()+" — вороны  •  "+BLAST.getTranslatedKeyMessage().getString()+" — буря",x+6,y+29,0xC8C8D0,false);
     }
 
     @SubscribeEvent public static void tooltip(ItemTooltipEvent e) {
