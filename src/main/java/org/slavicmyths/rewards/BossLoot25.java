@@ -70,6 +70,7 @@ public final class BossLoot25 {
         victim.getPersistentData().putBoolean(AWARDED, true);
         drop(victim, material, 2 + victim.getRandom().nextInt(2));
         if (victim.getRandom().nextFloat() < .70F) drop(victim, bonus != null ? bonus : material, 1);
+        if (victim instanceof SisterBoss sister && sister.isTryaseya() && victim.getRandom().nextFloat()<.30F)drop(victim,org.slavicmyths.sisters.TremorRune.ITEM.get(),1);
         if (victim.getRandom().nextFloat() < (tier == 5 ? .85F : .65F)) drop(victim, SistersContent.NETHER_SOUL_IV.get(), 1);
         if (tier == 5 && victim.getRandom().nextFloat() < .40F) drop(victim, SistersContent.NETHER_SOUL_V.get(), 1);
     }
