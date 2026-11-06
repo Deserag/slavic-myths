@@ -38,6 +38,22 @@ public final class MorovoyStaffKeys {
         while(BLAST.consumeClick()) if(staff) PacketDistributor.sendToServer(new MythPayloads.StaffAction(2));
     }
 
+    /** Persistent, low-profile mode reminder while the staff is held. */
+    @SubscribeEvent public static void hud(net.neoforged.neoforge.client.event.RenderGuiEvent.Post e) {
+        var mc=net.minecraft.client.Minecraft.getInstance();
+        if(mc.player==null||mc.screen!=null||mc.options.hideGui
+                ||!(mc.player.getMainHandItem().getItem() instanceof MorovoyStaff.Staff))return;
+        var tag=mc.player.getMainHandItem().getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,
+                net.minecraft.world.item.component.CustomData.EMPTY).copyTag();
+        boolean fire=tag.getInt("MorovoyStaffMode")==1;
+        var g=e.getGuiGraphics();
+        int x=Math.max(5,g.guiWidth()-174),y=g.guiHeight()-102;
+        g.fill(x,y,x+167,y+30,0xB212121C);
+        g.drawString(mc.font,fire?"ПОСОХ МОРА · ОГОНЬ":"ПОСОХ МОРА · МОР",x+5,y+4,fire?0xFFB85A:0xC58EED,false);
+        g.drawString(mc.font,MODE.getTranslatedKeyMessage().getString()+" стихия   "+RAVENS.getTranslatedKeyMessage().getString()+" вороны   "+BLAST.getTranslatedKeyMessage().getString()+" буря",
+                x+5,y+17,0xC8C8D0,false);
+    }
+
     @SubscribeEvent public static void tooltip(ItemTooltipEvent e) {
         if(!(e.getItemStack().getItem() instanceof MorovoyStaff.Staff))return;
         var text=e.getToolTip();
