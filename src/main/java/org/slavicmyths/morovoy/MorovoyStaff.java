@@ -112,12 +112,14 @@ public final class MorovoyStaff {
         }
 
         private void summon(ServerPlayer player,ItemStack held){
-            if(!cooldown(player,"flock",900))return;
+            if(player.isSpectator()||!player.isAlive())return;
             ServerLevel world=player.serverLevel();
             LivingEntity preferred=player.getLastHurtMob();
             if(preferred!=null&&(!legal(player,preferred)||preferred.distanceToSqr(player)>32*32))preferred=null;
             int existing=world.getEntitiesOfClass(MorovoyRaven.class,player.getBoundingBox().inflate(40),bird->bird.summonedBy(player)).size();
             int amount=Math.min(3,3-existing);
+            if(amount<=0){player.displayClientMessage(Component.literal("Моровая стая уже призвана"),true);return;}
+            if(!cooldown(player,"flock",900))return;
             for(int i=0;i<amount;i++){
                 MorovoyRaven bird=MorovoyRavenContent.MINION.get().create(world);
                 if(bird==null)continue;
