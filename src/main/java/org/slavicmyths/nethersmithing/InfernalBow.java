@@ -39,6 +39,7 @@ public class InfernalBow extends org.slavicmyths.combat.FieldBowItem {
     public boolean empowered() { return empowered; }
     private String skillId() { return empowered?"empowered_infernal_bow":"infernal_bow"; }
     @Override public int drawTicks() { return empowered?14:16; }
+    @Override public float drawPower(int ticks) { if(ticks<4)return 0; return Math.min(1F,.5F+.5F*(ticks-4F)/(drawTicks()-4F)); }
 
     @Override public void releaseUsing(ItemStack stack,Level level,LivingEntity user,int remaining) {
         if (!(user instanceof ServerPlayer player)) {super.releaseUsing(stack,level,user,remaining);return;}
@@ -68,7 +69,7 @@ public class InfernalBow extends org.slavicmyths.combat.FieldBowItem {
         arrow.getPersistentData().putBoolean("InfernalSkill",special);
         arrow.getPersistentData().putBoolean("InfernalEmpowered",empowered);
         arrow.setBaseDamage(NetherWeaponRules.bowBase(raw,arrow.getDeltaMovement().length()));
-        arrow.setRemainingFireTicks(Math.max(arrow.getRemainingFireTicks(),120));
+        arrow.igniteForSeconds(6);
         if(special&&!shot.committed){
             shot.special=true;shot.committed=true;
             NetherSkills.consume(shot.owner,shot.stack,skillId());
