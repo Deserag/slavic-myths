@@ -563,6 +563,7 @@ pesigolovets_scout_spawn_egg	mobs	hostile
 pesigolovets_hunter_spawn_egg	mobs	hostile
 pesigolovets_leader_spawn_egg	mobs	hostile
 kurgan_druzhinnik_spawn_egg	mobs	hostile
+ledeya_spawn_egg	mobs	hostile
 large_podzemnik_spawn_egg	mobs	elite
 kladovik_spawn_egg	mobs	elite
 kurgan_voevoda_spawn_egg	mobs	elite

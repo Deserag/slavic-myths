@@ -6540,5 +6540,8 @@
   "item.slavicmyths.morovoy_fire_zmey_head": "Голова Морового огненного змея",
   "block.slavicmyths.morovoy_fire_zmey_head": "Голова Морового огненного змея",
   "entity.slavicmyths.agneya": "Огнея",
-  "item.slavicmyths.agneya_spawn_egg": "Яйцо призыва Огнеи"
+  "item.slavicmyths.agneya_spawn_egg": "Яйцо призыва Огнеи",
+  "entity.slavicmyths.ledeya": "Ледея",
+  "item.slavicmyths.ledeya_spawn_egg": "Яйцо призыва Ледеи",
+  "entity.slavicmyths.ledeya_frost_bolt": "Ледяной снаряд"
 }

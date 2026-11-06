@@ -41,7 +41,7 @@ public final class AgneyaModelV7 extends EntityModel<AgneyaBoss> {
         {0F,43F,0F}, {0F,63F,0F}, {-7.25F,58.5F,-.2F},
         {-7.25F,47.2F,-.1F}, {-7.20F,39F,-.3F}, {-10.5F,43F,-4.5F},
         {7.25F,58.5F,-.2F}, {7.3F,47.2F,-.1F},
-        {7.8F,39F,-.3F}, {7.95F,39F,-1F}, {-2.75F,18F,0F}, {2.75F,18F,0F}
+        {7.8F,39F,-.3F}, {7.95F,39F,-1F}, {-2.75F,38F,0F}, {2.75F,38F,0F}
     };
     private final ModelPart root, torso, head, leftArm, leftForearm, leftHand, shield;
     private final ModelPart rightArm, rightForearm, rightHand, mace, leftLeg, rightLeg;
@@ -103,7 +103,7 @@ public final class AgneyaModelV7 extends EntityModel<AgneyaBoss> {
                 (float)b.w(), (float)b.h(), (float)b.d());
         }
         MeshDefinition mesh = new MeshDefinition();
-        PartDefinition root = mesh.getRoot().addOrReplaceChild("root", CubeListBuilder.create(), PartPose.ZERO);
+        PartDefinition root = mesh.getRoot().addOrReplaceChild("root", CubeListBuilder.create(), PartPose.offset(0, 24F, 0));
         PartDefinition torso = child(root, 0, cubes[0], -1);
         child(torso, 1, cubes[1], 0);
         PartDefinition leftArm = child(torso, 2, cubes[2], 0);
@@ -150,24 +150,24 @@ public final class AgneyaModelV7 extends EntityModel<AgneyaBoss> {
         if (attackTicks >= 0F && attackTicks < 26F) {
             if (attackTicks < 9F) {
                 float t = ease(attackTicks / 9F);
-                rightArm.xRot = .72F * t;
+                rightArm.xRot = -2.25F * t;
                 rightForearm.xRot = -.07F - .25F * t;
                 torso.yRot -= .10F * t;
             } else if (attackTicks < 15F) {
                 float t = ease((attackTicks - 9F) / 6F);
-                rightArm.xRot = .72F - 2.45F * t;
-                rightForearm.xRot = -.32F - .25F * t;
+                rightArm.xRot = -2.25F + 1.45F * t;
+                rightForearm.xRot = -.32F + .19F * t;
                 torso.yRot -= .10F + .14F * t;
             } else {
                 float t = ease((attackTicks - 15F) / 11F);
-                rightArm.xRot = -1.73F * (1F - t);
-                rightForearm.xRot = -.57F * (1F - t) - .07F * t;
+                rightArm.xRot = -.80F * (1F - t);
+                rightForearm.xRot = -.13F * (1F - t) - .07F * t;
                 torso.yRot -= .24F * (1F - t);
             }
         }
         mace.xRot = 1.20F; // weapon remains gripped throughout the complete swing
-        leftLeg.xRot = .65F * step;
-        rightLeg.xRot = -.65F * step;
+        leftLeg.xRot = .28F * step;
+        rightLeg.xRot = -.28F * step;
     }
     @Override public void renderToBuffer(PoseStack pose, VertexConsumer out, int light, int overlay, int color) {
         root.render(pose, out, light, overlay, color);
