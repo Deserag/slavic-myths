@@ -2,7 +2,7 @@ name: Boss audit release25 - isolated visual evidence
 on:
   push:
     branches: ['codex/qa-bosses-release25-20261106']
-    paths: ['tools/boss-audit/**','tools/boss-audit-visual.gradle','.github/workflows/boss-audit-release25.yml']
+    paths: ['tools/boss-audit/REQUEST_FULL_VISUAL_CAPTURE']
   workflow_dispatch:
 permissions:
   contents: read

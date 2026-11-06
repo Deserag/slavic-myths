@@ -32,14 +32,34 @@ public final class BossAuditVisual {
   for(int x=36;x<=164;x++)for(int z=36;z<=164;z++)w.setBlock(new BlockPos(x,69,z),Blocks.STONE.defaultBlockState(),2);
   target=AuditPlayers.create(w,"VisualPoseTarget");target.setGameMode(GameType.SURVIVAL);target.getAbilities().invulnerable=true;target.setNoGravity(true);target.setPos(100,72,106);w.addNewPlayer(target);
   for(String id:System.getProperty("bossaudit.ids").split(",")){
+   if(Boolean.getBoolean("bossaudit.metadataOnly")){SHOTS.add(new Shot(id,"front",8,"model_metadata"));continue;}
    for(String view:new String[]{"front","back","left","right","top","head","body"})SHOTS.add(new Shot(id,view,8,"idle"));
    for(int distance:new int[]{1,3,8,16})SHOTS.add(new Shot(id,"front",distance,"idle"));
    SHOTS.add(new Shot(id,"front",8,"hitboxes"));SHOTS.add(new Shot(id,"front",8,"walk"));SHOTS.add(new Shot(id,"front",8,"hurt"));SHOTS.add(new Shot(id,"front",8,"death"));
    if(Set.of("gneteya","tryaseya","agneya","ledeya","lomeya","neveya","viy").contains(id))SHOTS.add(new Shot(id,"front",8,"controlled_attack_pose"));
   }ready=true;
  }
+ static JsonObject modelInfo(Mob mob)throws Exception{
+  var result=new JsonObject();var renderer=Minecraft.getInstance().getEntityRenderDispatcher().getRenderer(mob);Object model=null;
+  if(renderer instanceof net.minecraft.client.renderer.entity.LivingEntityRenderer<?,?> living)model=living.getModel();
+  if(model==null){result.addProperty("status","NO_STANDARD_ENTITY_MODEL");return result;}
+  result.addProperty("model_class",model.getClass().getName());var roots=Collections.newSetFromMap(new IdentityHashMap<net.minecraft.client.model.geom.ModelPart,Boolean>());var parts=Collections.newSetFromMap(new IdentityHashMap<net.minecraft.client.model.geom.ModelPart,Boolean>());
+  var nodes=new JsonArray();
+  for(Class<?> c=model.getClass();c!=null;c=c.getSuperclass())for(var field:c.getDeclaredFields())if(net.minecraft.client.model.geom.ModelPart.class.isAssignableFrom(field.getType())){field.setAccessible(true);var part=(net.minecraft.client.model.geom.ModelPart)field.get(model);if(part!=null){roots.add(part);var node=new JsonObject();node.addProperty("field",c.getSimpleName()+"."+field.getName());node.addProperty("xScale",part.xScale);node.addProperty("yScale",part.yScale);node.addProperty("zScale",part.zScale);node.addProperty("x",part.x);node.addProperty("y",part.y);node.addProperty("z",part.z);nodes.add(node);}}
+  for(var part:roots)part.getAllParts().forEach(parts::add);var cubesField=net.minecraft.client.model.geom.ModelPart.class.getDeclaredField("cubes");cubesField.setAccessible(true);int cubes=0,flat=0;
+  for(var part:parts)for(Object o:(List<?>)cubesField.get(part)){var cube=(net.minecraft.client.model.geom.ModelPart.Cube)o;cubes++;if(cube.maxX-cube.minX<.01||cube.maxY-cube.minY<.01||cube.maxZ-cube.minZ<.01)flat++;}
+  result.addProperty("unique_model_parts",parts.size());result.addProperty("cuboids",cubes);result.addProperty("near_zero_dimension_cuboids",flat);result.add("named_part_transforms",nodes);result.addProperty("note","Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance");return result;
+ }
+ static void configureVisualFixture(Mob mob,ServerPlayer camera){
+  // Isolated pose fixtures only: these are not successful encounter-entry tests.
+  if(mob instanceof org.slavicmyths.karachun.Karachun k){k.session=UUID.randomUUID();k.owner=camera.getUUID();k.anchor=mob.position();}
+  if(mob instanceof org.slavicmyths.morozko.Morozko m){m.session=UUID.randomUUID();m.owner=camera.getUUID();m.anchor=mob.position();}
+  if(mob instanceof org.slavicmyths.marinka.MarinkaEntity m){m.owner=camera.getUUID();m.active=true;}
+  if(mob instanceof org.slavicmyths.burningislands.IslandsMob m)m.bindArena(mob.blockPosition().offset(index+1,0,0));
+ }
  static void prepare(Shot shot)throws Exception{
   var mc=Minecraft.getInstance();var s=mc.getSingleplayerServer();var w=s.overworld();if(actor!=null)actor.discard();actor=(Mob)BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.fromNamespaceAndPath("slavicmyths",shot.id)).create(w);check(actor!=null,"Unregistered mob "+shot.id);actor.setNoAi(true);actor.moveTo(100,70,100,0,0);w.addFreshEntity(actor);hpBefore=actor.getHealth();
+  configureVisualFixture(actor,s.getPlayerList().getPlayers().getFirst());
   if(shot.mode.equals("hurt"))actor.hurt(actor.damageSources().magic(),5);
   if(shot.mode.equals("death"))actor.setHealth(0);
   if(shot.mode.equals("controlled_attack_pose"))InterruptionAudit.enter(actor,target,shot.id.equals("tryaseya")?6:shot.id.equals("ledeya")?0:1,14);
@@ -60,6 +80,6 @@ public final class BossAuditVisual {
  }catch(Throwable ex){ex.printStackTrace();finish(ex.toString());}}
  static void next(){prepared=false;age=0;if(index==SHOTS.size()){finish(null);return;}var mc=Minecraft.getInstance();mc.getEntityRenderDispatcher().setRenderHitBoxes(SHOTS.get(index).mode.equals("hitboxes"));mc.getSingleplayerServer().execute(()->{try{prepare(SHOTS.get(index));}catch(Throwable ex){error=ex.toString();ex.printStackTrace();}});}
  @SubscribeEvent public static void render(RenderFrameEvent.Post e){if(finished||!ready||!prepared||index<0)return;try{var shot=SHOTS.get(index);int wait=shot.mode.equals("death")||shot.mode.equals("hurt")?5:25;if(age<wait)return;var mc=Minecraft.getInstance();String file=String.format("%04d-%s-%s-d%.0f-%s.png",index,shot.id,shot.view,shot.distance,shot.mode);try(var image=Screenshot.takeScreenshot(mc.getMainRenderTarget())){image.writeToFile(out().resolve(file));}
-  var row=new JsonObject();row.addProperty("file",file);row.addProperty("id",shot.id);row.addProperty("view",shot.view);row.addProperty("camera_distance_beyond_aabb_radius",shot.distance);row.addProperty("mode",shot.mode);row.addProperty("renderer",mc.getEntityRenderDispatcher().getRenderer(actor).getClass().getName());row.addProperty("hp_before",hpBefore);row.addProperty("hp_at_capture",actor.getHealth());row.addProperty("removed_at_capture",actor.isRemoved());row.addProperty("fps_sample_not_performance_acceptance",mc.getFps());row.addProperty("note","Controlled geometry/pose capture, not live combat or owner art acceptance; death pose is forced health0; frames need human review");RESULTS.add(row);System.out.println("BOSS_AUDIT_FRAME "+file);index++;next();
+  var row=new JsonObject();row.addProperty("file",file);row.addProperty("id",shot.id);row.addProperty("view",shot.view);row.addProperty("camera_distance_beyond_aabb_radius",shot.distance);row.addProperty("mode",shot.mode);row.addProperty("renderer",mc.getEntityRenderDispatcher().getRenderer(actor).getClass().getName());row.addProperty("hp_before",hpBefore);row.addProperty("hp_at_capture",actor.getHealth());row.addProperty("removed_at_capture",actor.isRemoved());row.addProperty("fps_sample_not_performance_acceptance",mc.getFps());row.addProperty("note","Controlled geometry/pose capture, not live combat or owner art acceptance; death pose is forced health0; frames need human review");row.add("model_metadata",modelInfo(actor));RESULTS.add(row);System.out.println("BOSS_AUDIT_FRAME "+file);index++;next();
  }catch(Throwable ex){ex.printStackTrace();finish(ex.toString());}}
 }

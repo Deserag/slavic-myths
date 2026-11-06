@@ -11,7 +11,7 @@ public final class RegistryAudit {
  @GameTest(template="empty",timeoutTicks=100)
  public static void exportBossRegistry(GameTestHelper t)throws Exception {
   var entries=new JsonArray();var errors=new JsonArray();
-  var explicit=new HashSet<String>(java.util.Arrays.asList(new String(RegistryAudit.class.getResourceAsStream("/boss-audit-candidates.txt").readAllBytes(),java.nio.charset.StandardCharsets.UTF_8).split("\\n")));
+  var explicit=new HashSet<String>(java.util.Arrays.stream(new String(RegistryAudit.class.getResourceAsStream("/boss-audit-candidates.txt").readAllBytes(),java.nio.charset.StandardCharsets.UTF_8).split("\\n")).map(String::strip).toList());
   for(var type:BuiltInRegistries.ENTITY_TYPE){var id=BuiltInRegistries.ENTITY_TYPE.getKey(type);if(!id.getNamespace().equals("slavicmyths"))continue;
    try{var e=type.create(t.getLevel());if(!(e instanceof Mob m))continue;
     boolean bar=false;for(Class<?> c=e.getClass();c!=null;c=c.getSuperclass())for(var f:c.getDeclaredFields())if(net.minecraft.world.BossEvent.class.isAssignableFrom(f.getType()))bar=true;
