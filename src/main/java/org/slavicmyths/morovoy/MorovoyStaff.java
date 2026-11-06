@@ -76,7 +76,9 @@ public final class MorovoyStaff {
         private void switchMode(ServerPlayer player,ItemStack held) {
             int next=1-mode(held);
             mode(held,next);
-            player.displayClientMessage(Component.literal(next==0?"§5Посох Мора §7| §dМОР §8— иссушение и слабость":"§6Посох Мора §7| §cОГОНЬ §8— урон и поджог"),true);
+            player.displayClientMessage(Component.literal("Посох Мора • ").withStyle(ChatFormatting.GRAY)
+                .append(Component.literal(next==0?"МОР — Иссушение и слабость":"ОГОНЬ — Урон и поджог")
+                .withStyle(next==0?ChatFormatting.DARK_PURPLE:ChatFormatting.GOLD)),true);
             player.serverLevel().sendParticles(next==0?ParticleTypes.SOUL_FIRE_FLAME:ParticleTypes.FLAME,
                 player.getX(),player.getEyeY()-.2,player.getZ(),10,.24,.22,.24,.015);
         }
