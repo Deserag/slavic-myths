@@ -6649,5 +6649,8 @@
   "netherweapons.tip.empowered_infernal_bow": "Огонь и Замедление I при попадании. Shift — пробивающий выстрел. 3 гнезда для рун.",
   "item.slavicmyths.bauk_wool": "Шерсть Баука",
   "item.slavicmyths.bauk_cloak": "Накидка Баука",
-  "item.slavicmyths.bauk_cloak.effect": "+3 сердца (+6 HP), +15% урона от атак, −15% получаемого урона"
+  "item.slavicmyths.bauk_cloak.effect": "+3 сердца (+6 HP), +15% урона от атак, −15% получаемого урона",
+  "key.slavicmyths.morovoy_mode": "Посох Мора: сменить стихию",
+  "key.slavicmyths.morovoy_ravens": "Посох Мора: призвать воронов",
+  "key.slavicmyths.morovoy_blast": "Посох Мора: огненно-моровой удар"
 }
