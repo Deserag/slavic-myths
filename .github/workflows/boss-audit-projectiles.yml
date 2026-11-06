@@ -2,7 +2,7 @@ name: Boss audit native projectile flights
 on:
   push:
     branches: ['codex/qa-bosses-release25-20261106']
-    paths: ['tools/boss-audit/runtime/ProjectileAudit.java','.github/workflows/boss-audit-projectiles.yml']
+    paths: ['tools/boss-audit/runtime/ProjectileAudit.java','tools/boss-audit/runtime/PartnerAudit.java','.github/workflows/boss-audit-projectiles.yml']
   workflow_dispatch:
 permissions:
   contents: read
