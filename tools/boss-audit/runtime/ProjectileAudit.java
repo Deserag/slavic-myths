@@ -2,6 +2,7 @@ package org.slavicmyths.bossaudit;
 import net.minecraft.gametest.framework.*;
 import net.neoforged.neoforge.gametest.*;
 import net.minecraft.core.*;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.*;
