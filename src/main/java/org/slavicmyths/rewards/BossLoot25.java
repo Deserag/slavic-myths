@@ -19,6 +19,7 @@ import org.slavicmyths.sisters.LomeyaBoss;
 import org.slavicmyths.sisters.NeveyaBoss;
 import org.slavicmyths.sisters.SisterBoss;
 import org.slavicmyths.sisters.SistersContent;
+import org.slavicmyths.sisters.ViyBoss;
 
 /** Additional 2.5 crafting rewards. Existing boss ledgers and quest tokens remain untouched. */
 @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
@@ -54,6 +55,11 @@ public final class BossLoot25 {
         } else if (victim instanceof MorovoyFireZmey) {
             material = MorovoyFireZmeyContent.BONE.get();
             bonus = MorovoyFireZmeyContent.CORE.get();
+        } else if (victim instanceof ViyBoss) {
+            victim.getPersistentData().putBoolean(AWARDED, true);
+            drop(victim, SistersContent.NETHER_SOUL_IV.get(), 2 + victim.getRandom().nextInt(2));
+            if (victim.getRandom().nextFloat() < .60F) drop(victim, SistersContent.NETHER_SOUL_V.get(), 1);
+            return;
         } else if (victim instanceof NineMorSerpent) {
             victim.getPersistentData().putBoolean(AWARDED, true);
             drop(victim, SistersContent.NETHER_SOUL_V.get(), 2 + victim.getRandom().nextInt(2));
