@@ -3293,3 +3293,10 @@ hell, source f9beb28d: зарегистрированы три нейтраль�
 29.10 remaining debts: source52 current combat actions for20 Nether entities (without HP/damage rebalance), sulfur heat bias/surface range, independent nether_aura necklace prototype, StormStaff offline norm48/42. Реальные worldgen/combat/Curios tests NOT_RUN. См. implementation/2026-10-29-hell-remaining/REMAINING_DEBTS_IMPLEMENTATION.md.
 
 29.10.2026 home desktop: hell a5def9a9 synchronized; Java21 clean build/resources PASS; native baseline32/32 seed20261024 PASS; Testing PolyMC2.1.6 installed. GUI BLOCKED_ISOLATION, survival/MP/relog NOT_RUN; master scope IN_PROGRESS. See implementation/home-desktop-sync-20261029/REPORT.md.
+
+
+## 2026-11-04 — Nether Posad
+
+Posad #382 on 2.4. New schema 25 repairs communal gable seams, relocates communal chests and seating, fits black panes, and adds a masonry arch to the Veche Hall. Manual creation invokes the existing resident roster. Visual acceptance is pending.
+
+Schema 26 places functional crimson seating and tables in the Posad, with warped variants in the herbalist district. Schema 25 retains its previous block plan. Furniture resource links were checked offline. In-game placement and player interaction remain NOT_RUN.

@@ -25,6 +25,9 @@ public final class PosadCommands {
         String[][] names={{"veche_hall","veche_hall_2_2_2"},{"communal_house","communal_house_2_2_3"},{"druzhinny_dvor","druzhinny_dvor_2_2_4"},{"kuznechny_dvor","kuznechny_dvor_2_2_5"},{"zeleynaya","zeleynaya_2_2_7"},{"granary","granary_2_2_8"},{"menovye_ryady","menovye_ryady_2_2_6"},{"posadnik_terem","posadnik_terem_2_2_9"}};
         for(var name:names)generate.then(Commands.literal(name[0]).executes(c->building(c.getSource(),name[1],org.slavicmyths.worldgen.ManualTerrain.ground(c.getSource()))));
         tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").then(generate)));
+        tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev")
+            .then(Commands.literal("site").then(Commands.literal("locate")
+                .then(Commands.literal("nether_posad").executes(context -> locate(context.getSource())))))));
         var posad = Commands.literal("posad").requires(source -> source.hasPermission(2));
         posad.then(Commands.literal("info").executes(context -> info(context.getSource())));
         posad.then(Commands.literal("layout")
@@ -48,6 +51,23 @@ public final class PosadCommands {
             posad.then(Commands.literal("building").then(building));
         }
         tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").then(posad)));
+    }
+
+    private static int locate(CommandSourceStack source) {
+        var world = source.getLevel();
+        if (world.dimension() != net.minecraft.world.level.Level.NETHER) {
+            source.sendFailure(Component.translatable("commands.slavicmyths.posad.locate.nether_only"));
+            return 0;
+        }
+        var origin = net.minecraft.core.BlockPos.containing(source.getPosition());
+        var known = PosadKnownSites.nearest(world, origin);
+        if (known.isPresent()) {
+            var pos = known.get();
+            source.sendSuccess(() -> Component.translatable("commands.slavicmyths.posad.locate.found", pos.getX(), pos.getZ()), false);
+            return 1;
+        }
+        source.sendFailure(Component.translatable("commands.slavicmyths.posad.locate.unknown"));
+        return 0;
     }
 
     public static int start(CommandSourceStack source){

@@ -30,12 +30,12 @@ public final class PosadStructure extends Structure {
             return PosadTerrain.Material.PROTECTED;
         };
         int first=Math.floorMod((int)(c.seed()^c.chunkPos().toLong()),4);
-        for(int y=64;y>=32;y-=4) {
+        for(int y=64;y>=32;y--) {
             boolean valid=true;
             // Cheap rejection before full-footprint inspection. All final checks remain dense.
             for(int z=0;z<113&&valid;z+=16)for(int x=0;x<113;x+=16) {
                 if(!biomes().contains(c.biomeSource().getNoiseBiome((ax+x)>>2,y>>2,(az+z)>>2,c.randomState().sampler()))) {valid=false;break;}
-                for(int dy=1;dy<18;dy++)if(terrain.at(ax+x,y+dy,az+z)!=PosadTerrain.Material.AIR){valid=false;break;}
+                for(int dy=PosadTerrain.MAX_TERRAIN_CUT+1;dy<18;dy++)if(terrain.at(ax+x,y+dy,az+z)!=PosadTerrain.Material.AIR){valid=false;break;}
                 if(!valid)break;
             }
             if(!valid)continue;

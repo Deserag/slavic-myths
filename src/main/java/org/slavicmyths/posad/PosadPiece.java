@@ -20,6 +20,8 @@ public final class PosadPiece extends StructurePiece {
     private final BlockPos anchor;
     private final int turns;
     private final int schema;
+    BlockPos anchor() { return anchor; }
+    int turns() { return turns; }
     private final PosadTerrain.Plan terrain;
     private final java.util.Map<Long,Integer> supports=new java.util.HashMap<>();
     private static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}
@@ -59,7 +61,39 @@ public final class PosadPiece extends StructurePiece {
         for(var support:terrain.supports()){raw[i++]=support.x();raw[i++]=support.z();raw[i++]=support.depth();}
         n.putIntArray("Supports",raw);
     }
-    public net.minecraft.world.level.block.state.BlockState voxel(int x,int y,int z) {
+    public BlockState voxel(int x,int y,int z) {
+        BlockState state = baseVoxel(x,y,z);
+        if (schema < 25 || state == null) return state;
+        if (state.is(Blocks.IRON_BARS)) return Blocks.BLACK_STAINED_GLASS_PANE.defaultBlockState();
+        if (state.getBlock() instanceof net.minecraft.world.level.block.DoorBlock) {
+            return pairedDoor(state,x,y,z);
+        }
+        return resolvedRoofSolid(state,x,y,z);
+    }
+
+    private BlockState pairedDoor(BlockState door,int x,int y,int z) {
+        var facing = door.getValue(net.minecraft.world.level.block.DoorBlock.FACING);
+        var right = facing.getClockWise();
+        var left = right.getOpposite();
+        boolean hasRight = matchingDoor(door,baseVoxel(x+right.getStepX(),y,z+right.getStepZ()));
+        boolean hasLeft = matchingDoor(door,baseVoxel(x+left.getStepX(),y,z+left.getStepZ()));
+        if (hasLeft == hasRight) return door;
+        return door.setValue(net.minecraft.world.level.block.DoorBlock.HINGE, hasRight
+            ? net.minecraft.world.level.block.state.properties.DoorHingeSide.LEFT
+            : net.minecraft.world.level.block.state.properties.DoorHingeSide.RIGHT);
+    }
+
+    private static boolean matchingDoor(BlockState door,BlockState neighbor) {
+        return neighbor != null && neighbor.is(door.getBlock())
+            && neighbor.getValue(net.minecraft.world.level.block.DoorBlock.FACING) == door.getValue(net.minecraft.world.level.block.DoorBlock.FACING)
+            && neighbor.getValue(net.minecraft.world.level.block.DoorBlock.HALF) == door.getValue(net.minecraft.world.level.block.DoorBlock.HALF);
+    }
+
+    private BlockState baseVoxel(int x,int y,int z) {
+        if (schema >= 25 && y > 0 && PosadGeometry.CITY.contains(x,z)) {
+            var repair = PosadBuildingRepairs.voxel(x,y,z,schema >= 26);
+            if (repair != null) return repair;
+        }
         if(y < -2) {
             int depth=supports.getOrDefault(key(x,z),0);
             return -y<depth?Blocks.POLISHED_BASALT.defaultBlockState():null;
@@ -177,9 +211,9 @@ public final class PosadPiece extends StructurePiece {
         if(schema<23 || y<5 || !(stair.getBlock() instanceof StairBlock)
             || stair.getValue(StairBlock.HALF)!=net.minecraft.world.level.block.state.properties.Half.BOTTOM)return stair;
         Direction facing=stair.getValue(StairBlock.FACING);
-        BlockState outward=voxel(x+facing.getStepX(),y,z+facing.getStepZ());
-        BlockState inward=voxel(x-facing.getStepX(),y,z-facing.getStepZ());
-        BlockState outward2=voxel(x+2*facing.getStepX(),y,z+2*facing.getStepZ());
+        BlockState outward=baseVoxel(x+facing.getStepX(),y,z+facing.getStepZ());
+        BlockState inward=baseVoxel(x-facing.getStepX(),y,z-facing.getStepZ());
+        BlockState outward2=baseVoxel(x+2*facing.getStepX(),y,z+2*facing.getStepZ());
         if(!sameRoofRun(stair,outward)||sameRoofRun(stair,inward)||sameRoofRun(stair,outward2))return stair;
         BlockState solid=roofSolidMaterial(stair);
         if(solid==null)throw new IllegalStateException("Unknown roof stair at "+x+","+y+","+z+": "+stair);
@@ -199,7 +233,7 @@ public final class PosadPiece extends StructurePiece {
     }
     private BlockState resolvedRoofHalfAt(int x,int y,int z) {
         BlockState neighbor=voxel(x,y,z);
-        return neighbor==null?null:(schema>=23?resolvedRoofSolid(neighbor,x,y,z):resolvedRoofHalf(neighbor,x,y,z));
+        return neighbor==null||schema>=25?neighbor:(schema>=23?resolvedRoofSolid(neighbor,x,y,z):resolvedRoofHalf(neighbor,x,y,z));
     }
     private static boolean sameStairHalf(BlockState stair, BlockState neighbor) {
         return neighbor != null && neighbor.getBlock() instanceof StairBlock
@@ -214,7 +248,7 @@ public final class PosadPiece extends StructurePiece {
         // for every structural stair, not only roof rows. Schema 21 additionally
         // normalizes paired roof stairs into a continuous half-step pitch.
         if(schema<20 || !(stair.getBlock() instanceof StairBlock))return stair;
-        stair=resolvedRoofSolid(stair,x,y,z);
+        if(schema<25)stair=resolvedRoofSolid(stair,x,y,z);
         if(!(stair.getBlock() instanceof StairBlock))return stair;
         stair=resolvedRoofHalf(stair,x,y,z);
         Direction facing=stair.getValue(StairBlock.FACING);
@@ -278,21 +312,28 @@ public final class PosadPiece extends StructurePiece {
             };
             for(int y=Math.max(boundingBox.minY(),clip.minY())-anchor.getY();y<=Math.min(anchor.getY()+17,clip.maxY())-anchor.getY();y++) {
                 var state=voxel(local.x(),y,local.z());
+                boolean cutTerrain = schema >= 25 && world instanceof net.minecraft.server.level.WorldGenRegion
+                    && y > 0 && y <= PosadTerrain.MAX_TERRAIN_CUT
+                    && PosadGeometry.CITY.contains(local.x(),local.z());
+                if (cutTerrain && state == null) state = Blocks.AIR.defaultBlockState();
                 if(state==null || lateAttachment(state)!=(pass==1))continue;
                 BlockPos at=new BlockPos(wx,anchor.getY()+y,wz);
                 if(!clip.isInside(at)||!world.ensureCanWrite(at))continue;
                 var old=world.getBlockState(at);
                 if(old.hasBlockEntity()||old.is(Blocks.BEDROCK)||!(old.isAir()||old.is(Blocks.LAVA)||NetherBridgeTerrain.natural(old)))continue;
-                if(state.isAir()&&!old.isAir() && !(schema>=17 && PosadHallR2.isOpening(local.x(),y,local.z())))continue;
+                if(state.isAir()&&!old.isAir() && !(cutTerrain && NetherBridgeTerrain.natural(old)) && !(schema>=17 && PosadHallR2.isOpening(local.x(),y,local.z())))continue;
                 try {
                     var placed=resolvedConnections(state,local.x(),y,local.z(),world,at);
-                    if (state.is(Blocks.CARVED_PUMPKIN) || shelf(state) || state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock) {
+                    if (schema < 25 && state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock) {
+                        world.setBlock(at,placed,3);
+                    } else if (state.is(Blocks.CARVED_PUMPKIN) || shelf(state)
+                        || state.getBlock() instanceof net.minecraft.world.level.block.IronBarsBlock) {
                         // Carved pumpkins avoid vanilla multi-chunk golem probes. Wall
                         // panes/shelves are deferred until masonry and doors exist.
                         // Chunk-local writes preserve precisely resolved pane connections
                         // and prevent later neighbor-shape churn across chunk boundaries.
                         var changed=world.getChunk(wx>>4,wz>>4).setBlockState(at,placed,false);
-                        if (changed==null) throw new IllegalStateException("Chunk-local pumpkin write refused at "+at);
+                        if (changed==null) throw new IllegalStateException("Chunk-local attachment write refused at "+at);
                     } else {
                         world.setBlock(at,placed,2);
                     }
@@ -305,7 +346,8 @@ public final class PosadPiece extends StructurePiece {
                     barrel.setChanged();
                 }
                 if(schema >= 2 && state.is(Blocks.CHEST) && world.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity chest) {
-                    String loot=schema >= 9 ? PosadMarketRenovation.chestLoot(local.x(),y,local.z()) : null;
+                    String loot = schema >= 25 ? PosadBuildingRepairs.chestLoot(local.x(),y,local.z()) : null;
+                    if(loot==null && schema >= 9)loot=PosadMarketRenovation.chestLoot(local.x(),y,local.z());
                     if(loot==null && schema >= 7)loot=PosadHouseRenovation.chestLoot(local.x(),y,local.z());
                     if(loot==null && schema >= 6)loot=PosadFinishes.chestLoot(local.x(),y,local.z());
                     if(loot==null && schema >= 5)loot=PosadMarketBuildings.chestLoot(local.x(),y,local.z());

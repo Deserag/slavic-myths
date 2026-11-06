@@ -6524,5 +6524,16 @@
   "item.slavicmyths.ground_black_pepper": "Ground Black Pepper",
   "item.slavicmyths.heat_berry_mash": "Heat Berry Mash",
   "item.slavicmyths.coal_plum_mash": "Coal Plum Mash",
-  "item.slavicmyths.morovoy_fire_zmey_head": "Morovoy Fire Zmey Trophy Head"
+  "item.slavicmyths.morovoy_fire_zmey_head": "Morovoy Fire Zmey Trophy Head",
+  "commands.slavicmyths.posad.locate.nether_only": "Search for the Nether Posad in the Nether.",
+  "commands.slavicmyths.posad.locate.found": "Nether Posad at X=%s Z=%s",
+  "commands.slavicmyths.posad.locate.unknown": "No Nether Posad has been discovered in this world yet.",
+  "block.slavicmyths.crimson_table": "Crimson Table",
+  "block.slavicmyths.crimson_chair": "Crimson Chair",
+  "block.slavicmyths.crimson_stool": "Crimson Stool",
+  "block.slavicmyths.crimson_bench": "Crimson Bench",
+  "block.slavicmyths.warped_table": "Warped Table",
+  "block.slavicmyths.warped_chair": "Warped Chair",
+  "block.slavicmyths.warped_stool": "Warped Stool",
+  "block.slavicmyths.warped_bench": "Warped Bench"
 }
