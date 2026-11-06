@@ -261,7 +261,7 @@ public final class MorovoyRaven extends PathfinderMob {
             if(target==null||!target.isAlive()||target.distanceToSqr(player)>32*32||player.isAlliedTo(target)
                     ||!org.slavicmyths.rpg.Abilities.canHit(player,target)) {
                 target=world.getEntitiesOfClass(net.minecraft.world.entity.monster.Monster.class,player.getBoundingBox().inflate(25),
-                    mob->mob.isAlive()&&mob!=this&&!player.isAlliedTo(mob)&&org.slavicmyths.rpg.Abilities.canHit(player,mob))
+                    mob->mob.isAlive()&&!player.isAlliedTo(mob)&&org.slavicmyths.rpg.Abilities.canHit(player,mob))
                     .stream().min(java.util.Comparator.comparingDouble(mob->mob.distanceToSqr(player))).orElse(null);
             }
             staffTarget=target==null?null:target.getUUID();
