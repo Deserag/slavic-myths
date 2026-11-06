@@ -2,7 +2,7 @@ name: Boss audit existing server regressions
 on:
   push:
     branches: ['codex/qa-bosses-release25-20261106']
-    paths: ['.github/workflows/boss-audit-server-regressions.yml']
+    paths: ['.github/workflows/boss-audit-server-regressions.yml','tools/hell-qa-runtime.gradle']
   workflow_dispatch:
 permissions:
   contents: read
