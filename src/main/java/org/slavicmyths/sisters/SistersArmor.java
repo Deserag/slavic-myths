@@ -92,7 +92,7 @@ public final class SistersArmor {
             lines.add(Component.literal("Комплект 4/4: +10 сердец • полёт • Скорость III").withStyle(ChatFormatting.LIGHT_PURPLE));
             if(getType()==Type.CHESTPLATE)
                 lines.add(Component.literal("Аура: Shift+ПКМ пустой рукой • 20 сек. / 60 сек.").withStyle(ChatFormatting.GRAY));
-        }}
+        }
     }
     private SistersArmor() {}
 }
