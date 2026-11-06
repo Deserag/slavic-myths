@@ -25,21 +25,27 @@ public final class SistersContent {
     public static final DeferredHolder<EntityType<?>,EntityType<SisterBolt>> FROST_BOLT = ModEntities.ENTITIES.register("ledeya_frost_bolt", () -> EntityType.Builder.<SisterBolt>of(SisterBolt::new, MobCategory.MISC).sized(.4F,.4F).clientTrackingRange(24).updateInterval(1).build("slavicmyths:ledeya_frost_bolt"));
     public static final DeferredHolder<EntityType<?>,EntityType<BoneBarrier>> BARRIER = ModEntities.ENTITIES.register("gneteya_bone_barrier", () -> EntityType.Builder.<BoneBarrier>of(BoneBarrier::new, MobCategory.MISC).sized(.95F,2.8F).clientTrackingRange(16).updateInterval(2).build("slavicmyths:gneteya_bone_barrier"));
     public static final DeferredHolder<EntityType<?>,EntityType<SistersZone>> ZONE = ModEntities.ENTITIES.register("tryaseya_trembling_zone", () -> EntityType.Builder.<SistersZone>of(SistersZone::new, MobCategory.MISC).sized(.2F,.2F).clientTrackingRange(12).updateInterval(10).build("slavicmyths:tryaseya_trembling_zone"));
-    public static final DeferredHolder<Item,Item> TRYASEYA_INGOT = ModItems.ITEMS.register("tryaseya_ingot", () -> new Item(new Item.Properties().rarity(net.minecraft.world.item.Rarity.RARE)));
-    public static final DeferredHolder<Item,Item> GNETEYA_INGOT = ModItems.ITEMS.register("gneteya_ingot", () -> new Item(new Item.Properties().rarity(net.minecraft.world.item.Rarity.RARE)));
-    public static final DeferredHolder<Item,Item> LEDEYA_INGOT = ModItems.ITEMS.register("ledeya_ingot", () -> new Item(new Item.Properties().rarity(net.minecraft.world.item.Rarity.RARE)));
-    public static final DeferredHolder<Item,Item> AGNEYA_INGOT = ModItems.ITEMS.register("agneya_ingot", () -> new Item(new Item.Properties().rarity(net.minecraft.world.item.Rarity.RARE)));
-    public static final DeferredHolder<Item,Item> NEVEYA_INGOT = ModItems.ITEMS.register("neveya_ingot", () -> new Item(new Item.Properties().rarity(net.minecraft.world.item.Rarity.EPIC)));
-    public static final DeferredHolder<Item,Item> LOMEYA_INGOT = ModItems.ITEMS.register("lomeya_ingot", () -> new Item(new Item.Properties().rarity(net.minecraft.world.item.Rarity.EPIC)));
-    public static final DeferredHolder<Item,Item> NETHER_SOUL_IV = ModItems.ITEMS.register("nether_soul_iv", () -> new Item(new Item.Properties().rarity(net.minecraft.world.item.Rarity.EPIC).stacksTo(16)));
-    public static final DeferredHolder<Item,Item> NETHER_SOUL_V = ModItems.ITEMS.register("nether_soul_v", () -> new Item(new Item.Properties().rarity(net.minecraft.world.item.Rarity.EPIC).stacksTo(16)));
-    public static final DeferredHolder<Item,Item> HUNTER_BOW_CORE = ModItems.ITEMS.register("hunter_bow_core", () -> new Item(new Item.Properties().rarity(net.minecraft.world.item.Rarity.EPIC)));
+    public static final DeferredHolder<Item,Item> TRYASEYA_INGOT = ModItems.ITEMS.register("tryaseya_ingot", () -> named("Слиток Трясеи",net.minecraft.world.item.Rarity.RARE,64));
+    public static final DeferredHolder<Item,Item> GNETEYA_INGOT = ModItems.ITEMS.register("gneteya_ingot", () -> named("Слиток Гнетеи",net.minecraft.world.item.Rarity.RARE,64));
+    public static final DeferredHolder<Item,Item> LEDEYA_INGOT = ModItems.ITEMS.register("ledeya_ingot", () -> named("Слиток Ледеи",net.minecraft.world.item.Rarity.RARE,64));
+    public static final DeferredHolder<Item,Item> AGNEYA_INGOT = ModItems.ITEMS.register("agneya_ingot", () -> named("Слиток Агнеи",net.minecraft.world.item.Rarity.RARE,64));
+    public static final DeferredHolder<Item,Item> NEVEYA_INGOT = ModItems.ITEMS.register("neveya_ingot", () -> named("Слиток Невеи",net.minecraft.world.item.Rarity.EPIC,64));
+    public static final DeferredHolder<Item,Item> LOMEYA_INGOT = ModItems.ITEMS.register("lomeya_ingot", () -> named("Слиток Ломеи",net.minecraft.world.item.Rarity.EPIC,64));
+    public static final DeferredHolder<Item,Item> NETHER_SOUL_IV = ModItems.ITEMS.register("nether_soul_iv", () -> named("Адская душа IV",net.minecraft.world.item.Rarity.EPIC,16));
+    public static final DeferredHolder<Item,Item> NETHER_SOUL_V = ModItems.ITEMS.register("nether_soul_v", () -> named("Адская душа V",net.minecraft.world.item.Rarity.EPIC,16));
+    public static final DeferredHolder<Item,Item> HUNTER_BOW_CORE = ModItems.ITEMS.register("hunter_bow_core", () -> named("Сердечник охотницы",net.minecraft.world.item.Rarity.EPIC,64));
     public static final DeferredHolder<Item,Item> LEDEYA_EGG = ModItems.ITEMS.register("ledeya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(LEDEYA,0xD7DFE8,0x2856A4,new Item.Properties()));
     public static final DeferredHolder<Item,Item> NEVEYA_EGG = ModItems.ITEMS.register("neveya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(NEVEYA,0x141824,0x698AC6,new Item.Properties()));
     public static final DeferredHolder<Item,Item> LOMEYA_EGG = ModItems.ITEMS.register("lomeya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(LOMEYA,0xCCC9C5,0x4C4251,new Item.Properties()));
     public static final DeferredHolder<Item,Item> AGNEYA_EGG = ModItems.ITEMS.register("agneya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(AGNEYA,0x5A2430,0xE6AE3B,new Item.Properties()));
     public static final DeferredHolder<Item,Item> GNETEYA_EGG = ModItems.ITEMS.register("gneteya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(GNETEYA,0x48232D,0xD4C7AA,new Item.Properties()));
     public static final DeferredHolder<Item,Item> TRYASEYA_EGG = ModItems.ITEMS.register("tryaseya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(TRYASEYA,0x292336,0xA86AD8,new Item.Properties()));
+
+    private static Item named(String name,net.minecraft.world.item.Rarity rarity,int stackSize){
+        return new Item(new Item.Properties().rarity(rarity).stacksTo(stackSize)){
+            @Override public net.minecraft.network.chat.Component getName(net.minecraft.world.item.ItemStack stack){return net.minecraft.network.chat.Component.literal(name);}
+        };
+    }
 
     public static void init(IEventBus bus) {
         TryaseyaSounds.init(bus);
