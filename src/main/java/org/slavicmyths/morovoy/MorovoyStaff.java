@@ -187,7 +187,7 @@ public final class MorovoyStaff {
             lines.add(Component.literal(fire?"✦ СТИХИЯ: ОГОНЬ":"✦ СТИХИЯ: МОР").withStyle(fire?ChatFormatting.GOLD:ChatFormatting.DARK_PURPLE));
             lines.add(Component.literal(fire?"11 урона • поджог на 5 секунд":"8 урона • Иссушение I (4 с) • Слабость I (5 с)").withStyle(ChatFormatting.GRAY));
             lines.add(Component.literal("Стая: до 3 воронов (45 с)   |   Буря: 12 урона в радиусе 5 (40 с)").withStyle(ChatFormatting.DARK_AQUA));
-        }}
+        }
     }
     private MorovoyStaff(){}
 }
