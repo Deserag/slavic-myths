@@ -40,7 +40,7 @@ public final class ThirdPersonWeaponMotion {
         register(Shape.KNIFE,"shadow_throwing_knife","stone_throwing_knife","gold_throwing_knife","iron_throwing_knife","silver_throwing_knife","diamond_throwing_knife","zhara_throwing_knife","perunite_throwing_knife","netherite_throwing_knife");
         register(Shape.SULITSA,"stone_sulitsa","gold_sulitsa","iron_sulitsa","silver_sulitsa","diamond_sulitsa","zhara_sulitsa","perunite_sulitsa","netherite_sulitsa");
         register(Shape.CROSSBOW,"serpent_crossbow","three_breath_crossbow");
-        register(Shape.BOW,"infernal_bow","short_bow","heavy_bow","finist_bow");
+        register(Shape.BOW,"infernal_bow","empowered_infernal_bow","short_bow","heavy_bow","finist_bow");
     }
     private static void register(Shape shape,String... ids){
         for(String name:ids)if(IDS.put(name,shape)!=null)throw new IllegalStateException("Duplicate 3P weapon ID: "+name);
@@ -49,10 +49,10 @@ public final class ThirdPersonWeaponMotion {
     @SubscribeEvent public static void additional(ModelEvent.RegisterAdditional event) {
         for(String n:org.slavicmyths.nethersmithing.NetherWeaponRules.IDS)if(!n.equals("volcanic_heart_flail"))event.register(ModelResourceLocation.standalone(id("item/"+n+"_icon")));
     }
-    private static final Map<Shape,BakedModel> ICONS=new java.util.EnumMap<>(Shape.class);
+    private static final Map<String,BakedModel> ICONS=new HashMap<>();
     @SubscribeEvent public static void bake(ModelEvent.ModifyBakingResult event) {
         ICONS.clear();
-        for(String n:org.slavicmyths.nethersmithing.NetherWeaponRules.IDS)if(!n.equals("volcanic_heart_flail"))ICONS.put(IDS.get(n),event.getModels().get(ModelResourceLocation.standalone(id("item/"+n+"_icon"))));
+        for(String n:org.slavicmyths.nethersmithing.NetherWeaponRules.IDS)if(!n.equals("volcanic_heart_flail")){BakedModel icon=event.getModels().get(ModelResourceLocation.standalone(id("item/"+n+"_icon")));if(icon!=null)ICONS.put(n,icon);}
         for(var entry:IDS.entrySet()){
             var item=BuiltInRegistries.ITEM.getOptional(id(entry.getKey()));
             if(item.isEmpty())continue;
@@ -79,7 +79,7 @@ public final class ThirdPersonWeaponMotion {
         @Override public java.util.List<BakedModel> getRenderPasses(ItemStack stack,boolean fabulous){return java.util.List.of(this);}
         @Override public BakedModel applyTransform(ItemDisplayContext context,PoseStack pose,boolean left) {
             if(context==ItemDisplayContext.GUI&&stack!=null&&org.slavicmyths.nethersmithing.NetherWeapons.owns(stack)){
-                BakedModel icon=ICONS.get(shape);if(icon!=null)return icon.applyTransform(context,pose,left);
+                BakedModel icon=ICONS.get(BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath());if(icon!=null)return icon.applyTransform(context,pose,left);
             }
             BakedModel selected=originalModel.applyTransform(context,pose,left);
             if(context!=ItemDisplayContext.THIRD_PERSON_LEFT_HAND&&context!=ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)return selected;
