@@ -68,7 +68,6 @@ public class InfernalBow extends org.slavicmyths.combat.FieldBowItem {
         arrow.getPersistentData().putBoolean("InfernalEmpowered",empowered);
         arrow.setBaseDamage(NetherWeaponRules.bowBase(raw,arrow.getDeltaMovement().length()));
         arrow.setRemainingFireTicks(Math.max(arrow.getRemainingFireTicks(),120));
-        if(empowered&&special)arrow.setPierceLevel((byte)1);
         if(special&&!shot.committed){
             shot.special=true;shot.committed=true;
             NetherSkills.consume(shot.owner,shot.stack,skillId());
