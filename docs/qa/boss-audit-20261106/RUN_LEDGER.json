@@ -1,0 +1,136 @@
+{
+  "production_base": "5738a4038f615dc292403cd6308d794cbc2915cc",
+  "hosted_clients": [
+    {
+      "run_id": 42166613024,
+      "processes": 8,
+      "scope": "initial views,56invalid removed-actor frames"
+    },
+    {
+      "run_id": 42167831835,
+      "processes": 1,
+      "scope": "actual model metadata"
+    },
+    {
+      "run_id": 42168005674,
+      "processes": 1,
+      "scope": "metadata repeat"
+    },
+    {
+      "run_id": 42168005667,
+      "processes": 1,
+      "scope": "first frame-time series"
+    },
+    {
+      "run_id": 42168523514,
+      "processes": 1,
+      "scope": "early poses,client identity not yet checked"
+    },
+    {
+      "run_id": 42169017630,
+      "processes": 1,
+      "scope": "synchronized poses"
+    },
+    {
+      "run_id": 42170168768,
+      "processes": 8,
+      "scope": "grouped frame-time repeat"
+    },
+    {
+      "run_id": 42171263836,
+      "processes": 1,
+      "scope": "valid Nine-Mor client cohorts"
+    }
+  ],
+  "hosted_dedicated_worlds": [
+    {
+      "run_id": 42168291389,
+      "processes": 2,
+      "scope": "inventory and Viy worlds; separate Raven startup failed before tests"
+    },
+    {
+      "run_id": 42168680626,
+      "processes": 2,
+      "scope": "Viy world and Raven health-contract failure; inventory compilation failed"
+    },
+    {
+      "run_id": 42168723880,
+      "processes": 1,
+      "scope": "initial insufficient arrow corridors"
+    },
+    {
+      "run_id": 42168723949,
+      "processes": 2,
+      "scope": "NoAI baseline restart pair"
+    },
+    {
+      "run_id": 42169159922,
+      "processes": 1,
+      "scope": "loaded arrow corridors"
+    },
+    {
+      "run_id": 42169195428,
+      "processes": 2,
+      "scope": "native phase restart pair"
+    },
+    {
+      "run_id": 42169742357,
+      "processes": 1,
+      "scope": "arrows and short partner controls"
+    },
+    {
+      "run_id": 42171080216,
+      "processes": 1,
+      "scope": "arrows and sufficiently ticked partner controls"
+    }
+  ],
+  "local_server_worlds": [
+    {
+      "fixture": "runtime1",
+      "log": "work/boss-audit/runtime1/logs/latest.log"
+    },
+    {
+      "fixture": "interruption1",
+      "log": "work/boss-audit/interruption1/logs/latest.log"
+    },
+    {
+      "fixture": "stress1",
+      "log": "work/boss-audit/stress1/logs/latest.log"
+    },
+    {
+      "fixture": "dedicated-stress1",
+      "log": "work/boss-audit/dedicated-stress1/logs/latest.log"
+    },
+    {
+      "fixture": "performance1",
+      "log": "work/boss-audit/performance1/logs/latest.log"
+    },
+    {
+      "fixture": "performance2",
+      "log": "work/boss-audit/performance2/logs/latest.log"
+    },
+    {
+      "fixture": "legal-pressure1",
+      "log": "work/boss-audit/legal-pressure1/logs/latest.log"
+    },
+    {
+      "fixture": "legal-pressure2",
+      "log": "work/boss-audit/legal-pressure2/logs/latest.log"
+    },
+    {
+      "fixture": "legal-pressure3",
+      "log": "work/boss-audit/legal-pressure3/logs/latest.log"
+    },
+    {
+      "fixture": "tryaseya-loaded1",
+      "log": "work/boss-audit/tryaseya-loaded1/logs/latest.log"
+    }
+  ],
+  "extra_failed_pre_world_startups": 1,
+  "totals": {
+    "hosted_client_worlds": 22,
+    "hosted_server_worlds": 12,
+    "local_server_worlds": 10
+  },
+  "warning": "Launch count is not a pass count. Includes aborted, accelerated, failed and invalid fixture runs; see report scope."
+}

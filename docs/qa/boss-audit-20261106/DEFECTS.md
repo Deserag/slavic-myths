@@ -26,14 +26,27 @@ Baseline: release-2.5 `5738a4038f615dc292403cd6308d794cbc2915cc`. Production fil
 
 **Evidence:** Same8 native startup logs and excerpt file. Proposed fix: decide whether this result is an intended unregistered item or an obsolete recipe, then align registration/resources/recipe without renaming saved IDs. This requires a production task and design decision. Risk: adding a new item affects assets/loot/crafting; deleting an obsolete recipe changes availability.
 
+## BQA-003 — P2 — Raven health differs from its declared attribute and regression contract
+
+**Status:** FAIL on real NeoForge GameTest server after correcting the fixture startup. Run42168680626, job127731132861: `realravenworldtickandpersistence ... Raven max health incorrect`. The independent registry export returns1024HP for `slavicmyths:morovoy_raven`.
+
+**Files/methods:** `src/main/java/org/slavicmyths/morovoy/MorovoyRaven.java:63`, `attributes(false)` requests1600; the class inherits the vanilla capped maximum. `tools/hell-qa-runtime/MorovoyRavenQaTests.java:33` asserts1600. Compare existing species-specific uncapped handling in `SisterBoss.getMaxHealth`; no production change was made here.
+
+**Reproduce:** Build baseline JAR and run `./gradlew --no-daemon -I tools/hell-qa-runtime.gradle runHellQa -PhellQaRavenOnly -PhellQaDir=work/boss-audit/raven-regression`. Expected by the checked-in contract:1600. Actual constructed maximum:1024. The minion ownership/28HP/NBT test passes; the main lifecycle test stops at this assertion, so its later movement/persistence assertions are NOT RUN.
+
+**Cause:** Consistent with Minecraft's1024 MAX_HEALTH attribute cap: the requested1600 is not exposed by this species as an uncapped maximum. Do not infer effective health for other species from this result; some implement their own health system.
+
+**Proposed fix/risk:** First confirm the existing1600 contract remains intended. Then use the established species-local health mechanism and test actual damage/death, bossbar fraction and saved legacy health, without changing registry IDs or unrelated balance. Alternatively, a deliberate1024 target requires explicitly revising the design/test contract. Risk: migration can heal/damage existing bosses or desynchronize bossbars; do not silently alter attributes during this audit.
+
 ## QA-only failures (not production defect claims)
 
 - Initial synchronous stress uses native `Player.attack` directly without a network reach gate; it does not establish legal-distance sword combat, and initially uses bare hands. Preserve scope limits.
 - Tryaseya left forced-chunk coverage during the30second dedicated scenario:396actual entity ticks,610server ticks. Repeat with a valid loaded arena before diagnosing drift or attack starvation.
 -56 initial captures have removed actors; session/owner/persistent-anchor setup was missing. Metadata retry captured all47 with no removed actors. Full views of those4 bosses still require retry.
 -7 initial controlled attack captures waited25client ticks after injecting frame14; short actions could already end. Those captures are not attack animation evidence. Early-frame follow-up is separate.
-- Raven-only existing test startup failed because the fixture source set excluded its required SeedMixin. QA Gradle inclusion corrected; recheck pending. This run did not reach the health assertion.
-- Native-arrow/restart QA compilation initially missed the ChunkPos import. Corrected in QA only; rechecks pending. Do not call these failed boss mechanics.
+- Raven-only initial startup failed because the fixture source set excluded its required SeedMixin. QA Gradle inclusion corrected; the subsequent run reached BQA-003. The initial run did not reach its health assertion.
+- Native-arrow/restart QA compilation initially missed the ChunkPos import. Corrected in QA only. Successful rechecks produced21actual arrow collisions and7saved/restored entities. Initial arrow corridor loading was insufficient; only the3×3-loaded-corridor retry establishes projectile collisions.
+- The188-case local performance collection wrote every sample, then Oracle21.0.12.1 crashed in native `jvm.dll` on `GC Thread#0` during shutdown. Run exit FAIL; collection completeness is separate. Cause is not established as a mod defect. Preserve `work/boss-audit/performance2/hs_err_pid4052.log` and reproduce before attribution.
 
 ## Fix sequence
 
