@@ -42,4 +42,5 @@ public record RuneDefinition(String id,Map<String,Double> parameters,Set<String>
  static {ALL.put("shadow_face",new RuneDefinition("shadow_face",Map.of(),Set.of("armor")));}
  static {ALL.put("ash_mantle",new RuneDefinition("ash_mantle",Map.of(),Set.of("armor")));}
  static {for(String id:List.of("magma_1","magma_2"))ALL.put(id,new RuneDefinition(id,Map.of(),Set.of("armor")));}
+ static {ALL.put("tremor_iii",new RuneDefinition("tremor_iii",Map.of(),Set.of("sword","dagger","spear","heavy","staff","bow","whip")));}
 }
