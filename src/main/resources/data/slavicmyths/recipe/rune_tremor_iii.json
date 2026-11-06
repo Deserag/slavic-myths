@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " R ",
+    "TBT",
+    " S "
+  ],
+  "key": {
+    "R": {
+      "item": "slavicmyths:roasted_runnik"
+    },
+    "T": {
+      "item": "slavicmyths:tryaseya_ingot"
+    },
+    "B": {
+      "item": "slavicmyths:blank_rune_3"
+    },
+    "S": {
+      "item": "slavicmyths:nether_soul_iv"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:rune_tremor_iii",
+    "count": 1
+  }
+}

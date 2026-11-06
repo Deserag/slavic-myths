@@ -1,0 +1,20 @@
+[
+  {
+    "scenario": "gneteya_killed",
+    "survivor_enraged": true,
+    "expected": true,
+    "entity_ticks": 40
+  },
+  {
+    "scenario": "tryaseya_killed",
+    "survivor_enraged": true,
+    "expected": true,
+    "entity_ticks": 40
+  },
+  {
+    "scenario": "gneteya_discarded_control",
+    "survivor_enraged": false,
+    "expected": false,
+    "entity_ticks": 29
+  }
+]

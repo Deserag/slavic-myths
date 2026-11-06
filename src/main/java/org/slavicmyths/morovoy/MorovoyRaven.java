@@ -46,6 +46,8 @@ public final class MorovoyRaven extends PathfinderMob {
     private final ServerBossEvent bossBar = new ServerBossEvent(Component.translatable("entity.slavicmyths.morovoy_raven"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.GREEN), BossEvent.BossBarOverlay.PROGRESS);
     private BlockPos home;
     private UUID parent;
+    private UUID staffOwner;
+    private UUID staffTarget;
     private int phaseTicks, attackIndex, quietTicks, activeTicks, minionLife;
     private long nextAttack;
     private double orbitAngle;
@@ -79,6 +81,17 @@ public final class MorovoyRaven extends PathfinderMob {
     public float bank() { return entityData.get(BANK); }
     public float animationAge(float partial) { return Math.max(0F, tickCount + partial - entityData.get(POSE_START)); }
     public UUID parent() { return parent; }
+    /** Player-aligned minion; boss minions keep their original independent AI. */
+    public void attachStaff(ServerPlayer player, LivingEntity preferred, int slot) {
+        staffOwner=player.getUUID();
+        staffTarget=preferred==null?null:preferred.getUUID();
+        parent=null;
+        minionLife=20*30;
+        nextAttack=player.serverLevel().getGameTime()+12+slot*6;
+        setNoGravity(true);
+        setHealth(getMaxHealth());
+    }
+    public boolean summonedBy(ServerPlayer player) {return staffOwner!=null&&staffOwner.equals(player.getUUID());}
     public void attach(MorovoyRaven boss, int slot) {
         parent = boss.getUUID();
         home = boss.home;
@@ -100,6 +113,7 @@ public final class MorovoyRaven extends PathfinderMob {
         return target instanceof Player p && p.isAlive() && !p.isSpectator() && !p.isCreative() && !isAlliedTo(p);
     }
     @Override public boolean isAlliedTo(Entity other) {
+        if(staffOwner!=null&&(staffOwner.equals(other.getUUID())||other instanceof MorovoyRaven bird&&staffOwner.equals(bird.staffOwner)))return true;
         if (other instanceof MorovoyRaven bird) return (minion() && parent != null && parent.equals(bird.getUUID())) || (!minion() && getUUID().equals(bird.parent)) || (parent != null && parent.equals(bird.parent));
         return super.isAlliedTo(other);
     }
@@ -116,7 +130,7 @@ public final class MorovoyRaven extends PathfinderMob {
         if (level().isClientSide || !(level() instanceof ServerLevel world) || !isAlive()) return;
         if (isNoAi()) { setDeltaMovement(Vec3.ZERO); return; } // Isolated true-model QA, no fake AI motion.
         if (home == null && !minion()) home = blockPosition().immutable();
-        if (minion()) { tickMinion(world); return; }
+        if (minion()) { if(staffOwner!=null)tickStaffMinion(world);else tickMinion(world); return; }
         bossBar.setProgress(Math.max(0, Math.min(1, getHealth() / getMaxHealth())));
         activeTicks++;
         // Stock Minecraft wing foley only; original boss calls/death audio remain unapproved.
@@ -236,6 +250,33 @@ public final class MorovoyRaven extends PathfinderMob {
         if (!world.hasChunkAt(BlockPos.containing(bottom))) return null;
         net.minecraft.world.phys.BlockHitResult hit = world.clip(new ClipContext(top, bottom, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this));
         return hit.getType() == HitResult.Type.BLOCK ? new Vec3(center.x, hit.getLocation().y + .05, center.z) : null;
+    }
+    private void tickStaffMinion(ServerLevel world) {
+        if(staffOwner==null||!(world.getEntity(staffOwner) instanceof ServerPlayer player)||!player.isAlive()
+                ||player.isSpectator()||--minionLife<=0||distanceToSqr(player)>48*48){discard();return;}
+        LivingEntity target=staffTarget==null?null:world.getEntity(staffTarget) instanceof LivingEntity mob?mob:null;
+        if(target==null||!target.isAlive()||target.distanceToSqr(player)>32*32||player.isAlliedTo(target)
+                ||!org.slavicmyths.rpg.Abilities.canHit(player,target)) {
+            target=player.getLastHurtMob();
+            if(target==null||!target.isAlive()||target.distanceToSqr(player)>32*32||player.isAlliedTo(target)
+                    ||!org.slavicmyths.rpg.Abilities.canHit(player,target)) {
+                target=world.getEntitiesOfClass(net.minecraft.world.entity.monster.Monster.class,player.getBoundingBox().inflate(25),
+                    mob->mob.isAlive()&&!player.isAlliedTo(mob)&&org.slavicmyths.rpg.Abilities.canHit(player,mob))
+                    .stream().min(java.util.Comparator.comparingDouble(mob->mob.distanceToSqr(player))).orElse(null);
+            }
+            staffTarget=target==null?null:target.getUUID();
+        }
+        LivingEntity chased=target;
+        double theta=world.getGameTime()*.1+(getUUID().getLeastSignificantBits()&15);
+        if(chased!=null) {
+            Vec3 at=chased.position().add(Math.sin(theta)*2.2,1.8+Math.sin(theta*.5)*.4,Math.cos(theta)*2.2);
+            steer(world,at,.58);
+            if(distanceToSqr(chased)<12.25&&world.getGameTime()>=nextAttack&&hasLineOfSight(chased)){
+                if(chased.hurt(player.damageSources().playerAttack(player),3.5F))
+                    chased.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,45,0),player);
+                nextAttack=world.getGameTime()+35;
+            }
+        }else steer(world,player.position().add(Math.sin(theta)*2.5,2.4,Math.cos(theta)*2.5),.48);
     }
     private void tickMinion(ServerLevel world) {
         if (parent == null || !(world.getEntity(parent) instanceof MorovoyRaven boss) || !boss.isAlive() || (--minionLife <= 0) || distanceToSqr(boss) > 90 * 90) { discard(); return; }
@@ -383,6 +424,8 @@ public final class MorovoyRaven extends PathfinderMob {
         super.addAdditionalSaveData(tag);
         if (home != null) { tag.putInt("HomeX", home.getX()); tag.putInt("HomeY", home.getY()); tag.putInt("HomeZ", home.getZ()); tag.putBoolean("HasHome", true); }
         if (parent != null) tag.putUUID("Parent", parent);
+        if(staffOwner!=null)tag.putUUID("StaffOwner",staffOwner);
+        if(staffTarget!=null)tag.putUUID("StaffTarget",staffTarget);
         tag.putInt("Pose", pose()); tag.putInt("PhaseTicks", phaseTicks); tag.putInt("AttackIndex", attackIndex);
         tag.putInt("MinionLife", minionLife); tag.putLong("NextAttack", nextAttack); tag.putDouble("OrbitAngle", orbitAngle);
     }
@@ -390,6 +433,8 @@ public final class MorovoyRaven extends PathfinderMob {
         super.readAdditionalSaveData(tag);
         home = tag.getBoolean("HasHome") ? new BlockPos(tag.getInt("HomeX"), tag.getInt("HomeY"), tag.getInt("HomeZ")) : null;
         parent = tag.hasUUID("Parent") ? tag.getUUID("Parent") : null;
+        staffOwner=tag.hasUUID("StaffOwner")?tag.getUUID("StaffOwner"):null;
+        staffTarget=tag.hasUUID("StaffTarget")?tag.getUUID("StaffTarget"):null;
         entityData.set(POSE, Math.clamp(tag.getInt("Pose"), CIRCLE, TAKEOFF));
         phaseTicks = Math.clamp(tag.getInt("PhaseTicks"), 0, 800);
         // Align visible action timing with the restored server phase after a reload.

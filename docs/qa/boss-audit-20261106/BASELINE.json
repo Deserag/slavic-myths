@@ -1,0 +1,9 @@
+{
+  "commit": "5738a4038f615dc292403cd6308d794cbc2915cc",
+  "qa_inventory_commit": "31badc2f",
+  "registry_candidates": 69,
+  "selected_ranked_encounters": 47,
+  "matrix_rows": 7680,
+  "construction_errors": [],
+  "coverage_warning": "Not complete attack coverage; generic inherited controllers and environmental eligibility require further runtime cases. All gameplay cells initially NOT_RUN."
+}

@@ -12,8 +12,44 @@ public final class NetherWeaponEffects {
  @SubscribeEvent public static void respawn(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerRespawnEvent e){hands(e.getEntity());}
  @SubscribeEvent public static void dimension(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerChangedDimensionEvent e){hands(e.getEntity());}
  @SubscribeEvent public static void tick(net.neoforged.neoforge.event.tick.EntityTickEvent.Post e){if(!(e.getEntity() instanceof LivingEntity living)||living.level().isClientSide||!living.getPersistentData().contains("NetherKnifeArmorUntil"))return;long now=((net.minecraft.server.level.ServerLevel)living.level()).getServer().overworld().getGameTime();armorDebuff(living,living.isAlive()&&living.getPersistentData().getLong("NetherKnifeArmorUntil")>now);}
- @SubscribeEvent public static void arrow(net.neoforged.neoforge.event.entity.ProjectileImpactEvent e){if(!(e.getProjectile() instanceof AbstractArrow arrow)||arrow.level().isClientSide||arrow.getPersistentData().getFloat("InfernalRaw")<=0)return;if(!(arrow.getOwner() instanceof ServerPlayer p)||!p.isAlive()||p.getServer().getPlayerList().getPlayer(p.getUUID())!=p){e.setCanceled(true);arrow.discard();return;}if(e.getRayTraceResult() instanceof EntityHitResult hit&&hit.getEntity() instanceof LivingEntity target&&!NetherSkills.legal(p,target)){e.setCanceled(true);arrow.discard();return;}arrow.setBaseDamage(NetherWeaponRules.bowBase(arrow.getPersistentData().getFloat("InfernalRaw"),arrow.getDeltaMovement().length()));}
- @SubscribeEvent public static void arrowHit(net.neoforged.neoforge.event.entity.living.LivingDamageEvent.Post e){if(e.getNewDamage()<=0||!(e.getSource().getDirectEntity() instanceof AbstractArrow arrow)||arrow.level().isClientSide||arrow.getPersistentData().getFloat("InfernalRaw")<=0||arrow.getPersistentData().getBoolean("InfernalHitDone")||!(arrow.getOwner() instanceof ServerPlayer p))return;arrow.getPersistentData().putBoolean("InfernalHitDone",true);var target=e.getEntity();if(!NetherSkills.legal(p,target)||target.fireImmune()||target.hasEffect(MobEffects.FIRE_RESISTANCE))return;boolean skill=arrow.getPersistentData().getBoolean("InfernalSkill");if(skill||p.getRandom().nextFloat()<.15F)target.setRemainingFireTicks(Math.max(target.getRemainingFireTicks(),skill?160:40));if(skill){p.serverLevel().sendParticles(net.minecraft.core.particles.ParticleTypes.SMALL_FLAME,target.getX(),target.getY()+.5,target.getZ(),6,.2,.2,.2,.01);org.slavicmyths.burningislands.TemporaryTerrain.fire(p,target);}}
+ private static boolean legalArrow(ServerPlayer owner,LivingEntity target){
+  return target!=owner&&target.isAlive()&&!target.isSpectator()&&!owner.isAlliedTo(target)&&org.slavicmyths.rpg.Abilities.canHit(owner,target);
+ }
+ @SubscribeEvent public static void arrow(net.neoforged.neoforge.event.entity.ProjectileImpactEvent event){
+  if(!(event.getProjectile() instanceof AbstractArrow arrow)||arrow.level().isClientSide||arrow.getPersistentData().getFloat("InfernalRaw")<=0)return;
+  if(!(event.getRayTraceResult() instanceof EntityHitResult hit)||!(hit.getEntity() instanceof LivingEntity target))return;
+  if(arrow.getOwner() instanceof ServerPlayer owner && (target==owner||owner.isAlliedTo(target)||target.isSpectator())){
+   event.setCanceled(true);arrow.discard();
+  }
+ }
+ @SubscribeEvent public static void arrowHit(net.neoforged.neoforge.event.entity.living.LivingDamageEvent.Post e){
+  if(e.getNewDamage()<=0||!(e.getSource().getDirectEntity() instanceof AbstractArrow arrow)||arrow.level().isClientSide||arrow.getPersistentData().getFloat("InfernalRaw")<=0||!(arrow.getOwner() instanceof ServerPlayer p))return;
+  boolean empowered=arrow.getPersistentData().getBoolean("InfernalEmpowered"),special=arrow.getPersistentData().getBoolean("InfernalSkill");
+  int count=arrow.getPersistentData().getInt("InfernalHitCount");
+  if(count>=(empowered&&special?2:1))return;
+  var target=e.getEntity();if(!legalArrow(p,target))return;
+  arrow.getPersistentData().putInt("InfernalHitCount",count+1);
+  if(!target.fireImmune()&&!target.hasEffect(MobEffects.FIRE_RESISTANCE)){
+   target.setRemainingFireTicks(Math.max(target.getRemainingFireTicks(),special?160:100));
+   if(special){p.serverLevel().sendParticles(net.minecraft.core.particles.ParticleTypes.SMALL_FLAME,target.getX(),target.getY()+.5,target.getZ(),6,.2,.2,.2,.01);org.slavicmyths.burningislands.TemporaryTerrain.fire(p,target);}
+  }
+  if(empowered&&special){
+   var nearby=p.serverLevel().getEntitiesOfClass(LivingEntity.class,target.getBoundingBox().inflate(2.5),
+      other->other!=target&&other.isAlive()&&legalArrow(p,other)&&p.hasLineOfSight(other));
+   nearby.sort(java.util.Comparator.comparingDouble(other->other.distanceToSqr(target)));
+   if(!nearby.isEmpty()){
+    LivingEntity other=nearby.getFirst();
+    if(other.hurt(p.damageSources().indirectMagic(p,p),Math.min(6F,e.getNewDamage()*.55F))){
+     if(!other.fireImmune()&&!other.hasEffect(MobEffects.FIRE_RESISTANCE))other.setRemainingFireTicks(Math.max(other.getRemainingFireTicks(),100));
+     other.addEffect(new net.minecraft.world.effect.MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,0),p);
+    }
+   }
+  }
+  if(empowered&&target.isAlive()){
+   target.addEffect(new net.minecraft.world.effect.MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,0),p);
+   p.serverLevel().sendParticles(net.minecraft.core.particles.ParticleTypes.SOUL_FIRE_FLAME,target.getX(),target.getY()+.6,target.getZ(),8,.2,.3,.2,.01);
+  }
+ }
  @SubscribeEvent public static void tooltip(net.neoforged.neoforge.event.entity.player.ItemTooltipEvent e){if(NetherWeapons.owns(e.getItemStack())){String id=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(e.getItemStack().getItem()).getPath();e.getToolTip().add(net.minecraft.network.chat.Component.translatable("netherweapons.tip."+id).withStyle(net.minecraft.ChatFormatting.GRAY));}}
  private NetherWeaponEffects(){}
 }
