@@ -13,6 +13,7 @@ public final class ModEffects {
  public static final DeferredRegister<MobEffect> EFFECTS=DeferredRegister.create(Registries.MOB_EFFECT,"slavicmyths");
  public static final DeferredHolder<MobEffect,MobEffect> CURSE=EFFECTS.register("kurgan_curse",CurseEffect::new);
  public static final DeferredHolder<MobEffect,MobEffect> ILL_FATE=EFFECTS.register("durnaya_dolya",()->new MobEffect(MobEffectCategory.HARMFUL,0x6C3233){});
+ public static final DeferredHolder<MobEffect,MobEffect> VIY_GAZE=EFFECTS.register("viy_gaze",org.slavicmyths.sisters.ViyGazeEffect::new);
  public static final DeferredHolder<MobEffect,MobEffect> DEATH_MARK=EFFECTS.register("death_mark",org.slavicmyths.sisters.NeveyaDeathMarkEffect::new);
  public static final DeferredHolder<MobEffect,MobEffect> FRACTURE=EFFECTS.register("fracture",org.slavicmyths.sisters.FractureEffect::new);
  public static final DeferredHolder<MobEffect,MobEffect> CUT=EFFECTS.register("cut",org.slavicmyths.combat.CutEffect::new);

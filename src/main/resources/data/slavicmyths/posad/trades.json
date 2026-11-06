@@ -1310,11 +1310,11 @@
       "type": "sale",
       "a": {
         "id": "slavicmyths:ancient_coin",
-        "count": 56
+        "count": 28
       },
       "out": {
         "id": "slavicmyths:infernal_shchi",
-        "count": 2
+        "count": 1
       },
       "fallback": {
         "a": {
@@ -2116,6 +2116,76 @@
       "out": {
         "id": "slavicmyths:rye_bread",
         "count": 1
+      }
+    },
+    {
+      "id": "farmer_seed_horseradish_cutting",
+      "role": "FARMER",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 48
+      },
+      "out": {
+        "id": "slavicmyths:horseradish_cutting",
+        "count": 4
+      }
+    },
+    {
+      "id": "farmer_seed_black_radish_seeds",
+      "role": "FARMER",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 48
+      },
+      "out": {
+        "id": "slavicmyths:black_radish_seeds",
+        "count": 4
+      }
+    },
+    {
+      "id": "farmer_seed_mustard_seeds",
+      "role": "FARMER",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 48
+      },
+      "out": {
+        "id": "slavicmyths:mustard_seeds",
+        "count": 4
+      }
+    },
+    {
+      "id": "farmer_seed_onion_set",
+      "role": "FARMER",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 48
+      },
+      "out": {
+        "id": "slavicmyths:onion_set",
+        "count": 4
+      }
+    },
+    {
+      "id": "farmer_seed_crimson_pepper",
+      "role": "FARMER",
+      "tier": 5,
+      "type": "sale",
+      "a": {
+        "id": "slavicmyths:ancient_coin",
+        "count": 48
+      },
+      "out": {
+        "id": "slavicmyths:crimson_pepper",
+        "count": 4
       }
     }
   ]

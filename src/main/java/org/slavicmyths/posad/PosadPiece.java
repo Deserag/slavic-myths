@@ -72,6 +72,12 @@ public final class PosadPiece extends StructurePiece {
             String wood=PosadGeometry.Slot.ZELEYNAYA_IZBA.local().contains(x,z)?"warped":"crimson";
             state=org.slavicmyths.furniture.Furniture.get(wood+"_"+furniture.kind).withPropertiesOf(state);
         }
+        if(schema>=28&&PosadGeometry.Slot.VECHE_HALL.local().contains(x,z)&&y<=11){
+            if(state.is(Blocks.POLISHED_BLACKSTONE_BRICKS))state=Blocks.QUARTZ_BRICKS.defaultBlockState();
+            else if(state.is(Blocks.CHISELED_POLISHED_BLACKSTONE))state=Blocks.CHISELED_QUARTZ_BLOCK.defaultBlockState();
+            else if(state.is(Blocks.POLISHED_BASALT))state=Blocks.QUARTZ_PILLAR.withPropertiesOf(state);
+            else if(y==0&&state.is(Blocks.BLACKSTONE))state=Blocks.SMOOTH_QUARTZ.defaultBlockState();
+        }
         if (state.is(Blocks.IRON_BARS)) return Blocks.BLACK_STAINED_GLASS_PANE.defaultBlockState();
         if (state.getBlock() instanceof net.minecraft.world.level.block.DoorBlock) {
             var door=pairedDoor(state,x,y,z);
@@ -104,12 +110,26 @@ public final class PosadPiece extends StructurePiece {
     }
 
     private BlockState baseVoxel(int x,int y,int z) {
+        if(schema>=28&&(x==85||x==91)&&((z>=77&&z<=83)||(z>=86&&z<=91))&&y>=1&&y<=5){
+            int doorZ=z<=83?80:88;
+            if(z==doorZ&&y<=2)return Blocks.CRIMSON_DOOR.defaultBlockState().setValue(net.minecraft.world.level.block.DoorBlock.FACING,x==85?Direction.EAST:Direction.WEST).setValue(net.minecraft.world.level.block.DoorBlock.HALF,y==1?net.minecraft.world.level.block.state.properties.DoubleBlockHalf.LOWER:net.minecraft.world.level.block.state.properties.DoubleBlockHalf.UPPER);
+            return Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState();
+        }
+        if(schema>=28&&(y==2||y==8)&&x>=16&&x<=32&&z>=17&&z<=27&&!(x>21&&x<27)&&z!=22){
+            var oldFurniture=PosadBuildings.voxel(x,y,z);
+            if(oldFurniture!=null&&(oldFurniture.is(Blocks.CRIMSON_PLANKS)||oldFurniture.is(Blocks.CRIMSON_SLAB)))return Blocks.AIR.defaultBlockState();
+        }
+        // Owner feedback 2026-11-05: replace the council's block-built throne.
+        if(schema>=28&&x>=55&&x<=57&&z>=14&&z<=15&&y>=2&&y<=3){
+            if(x==56&&z==14&&y==2)return org.slavicmyths.furniture.Furniture.get("posad_throne").defaultBlockState().setValue(org.slavicmyths.furniture.FurnitureBlock.FACING,Direction.SOUTH);
+            return Blocks.AIR.defaultBlockState();
+        }
         // Replace the reception chair with one coherent, fireproof throne model.
         // Historic pieces retain their original furniture and saved inventories.
         if(schema>=27&&x==69&&y==1&&z==82)return Blocks.AIR.defaultBlockState();
         if(schema>=27&&x==70&&y==1&&z==82)return org.slavicmyths.furniture.Furniture.get("posad_throne")
             .defaultBlockState().setValue(org.slavicmyths.furniture.FurnitureBlock.FACING,Direction.WEST);
-        if(schema>=27){var cot=PosadBeds.voxel(x,y,z);if(cot!=null)return cot;var hall=PosadHallDominant.voxel(x,y,z);if(hall!=null)return hall;}
+        if(schema>=27){var cot=PosadBeds.voxel(x,y,z,schema>=28);if(cot!=null)return cot;var hall=PosadHallDominant.voxel(x,y,z);if(hall!=null)return hall;}
         if (schema >= 25 && y > 0 && PosadGeometry.CITY.contains(x,z)) {
             var repair = PosadBuildingRepairs.voxel(x,y,z,schema >= 26);
             if (repair != null) return repair;

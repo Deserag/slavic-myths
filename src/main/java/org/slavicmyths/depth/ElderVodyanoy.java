@@ -23,7 +23,7 @@ import org.slavicmyths.registry.ModSounds;
 public final class ElderVodyanoy extends WaterSpirit {
  private static final EntityDataAccessor<Integer> PHASE=SynchedEntityData.defineId(ElderVodyanoy.class,EntityDataSerializers.INT);
  private static final EntityDataAccessor<Integer> START=SynchedEntityData.defineId(ElderVodyanoy.class,EntityDataSerializers.INT);
- private final ServerBossEvent bar=new ServerBossEvent(Component.translatable("entity.slavicmyths.elder_vodyanoy"),BossEvent.BossBarColor.BLUE,BossEvent.BossBarOverlay.PROGRESS);
+ private final ServerBossEvent bar=new ServerBossEvent(Component.translatable("entity.slavicmyths.elder_vodyanoy"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.BLUE),BossEvent.BossBarOverlay.PROGRESS);
  private int recovery,waveTicks,dashTicks;private final java.util.Set<java.util.UUID> waveHit=new java.util.HashSet<>();private Vec3 dash=Vec3.ZERO;private boolean resolved;
  public ElderVodyanoy(EntityType<? extends ElderVodyanoy> t,Level w){super(t,w);setPersistenceRequired();xpReward=35;}
  public static AttributeSupplier.Builder attributes(){return createMobAttributes().add(Attributes.MAX_HEALTH,150).add(Attributes.MOVEMENT_SPEED,.19).add(Attributes.ATTACK_DAMAGE,8).add(Attributes.KNOCKBACK_RESISTANCE,.8).add(Attributes.FOLLOW_RANGE,24);}

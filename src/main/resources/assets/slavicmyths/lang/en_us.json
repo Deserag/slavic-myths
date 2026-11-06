@@ -6610,5 +6610,17 @@
   "effect.slavicmyths.fracture": "Fracture",
   "entity.slavicmyths.neveya": "Neveya",
   "item.slavicmyths.neveya_spawn_egg": "Neveya Spawn Egg",
-  "effect.slavicmyths.death_mark": "Death Mark"
+  "effect.slavicmyths.death_mark": "Death Mark",
+  "item.slavicmyths.posad_resident_spawn_egg": "Posad Resident Spawn Egg",
+  "item.slavicmyths.crimson_pepper": "Crimson Pepper",
+  "block.slavicmyths.crimson_pepper_crop": "Crimson Pepper",
+  "item.slavicmyths.posadnik_spawn_egg": "Posadnik Spawn Egg",
+  "item.slavicmyths.cursed_mytar_spawn_egg": "Cursed Mytar Spawn Egg",
+  "item.slavicmyths.bauk_spawn_egg": "Bauk Spawn Egg",
+  "entity.slavicmyths.viy": "Viy",
+  "entity.slavicmyths.viy_grave_upyr": "Grave Upyr",
+  "entity.slavicmyths.viy_faceless_nav": "Faceless Nav",
+  "entity.slavicmyths.viy_kornelap": "Root Crawler",
+  "item.slavicmyths.viy_spawn_egg": "Viy Spawn Egg",
+  "effect.slavicmyths.viy_gaze": "Viy's Gaze Curse"
 }

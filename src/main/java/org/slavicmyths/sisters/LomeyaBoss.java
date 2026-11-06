@@ -35,7 +35,7 @@ public final class LomeyaBoss extends Monster {
     private static final EntityDataAccessor<Integer> MOVE=SynchedEntityData.defineId(LomeyaBoss.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> FRAME=SynchedEntityData.defineId(LomeyaBoss.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> PHASE_TWO=SynchedEntityData.defineId(LomeyaBoss.class,EntityDataSerializers.BOOLEAN);
-    private final ServerBossEvent bossBar=new ServerBossEvent(Component.literal("Ломея"),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.NOTCHED_10);
+    private final ServerBossEvent bossBar=new ServerBossEvent(Component.literal("Ломея"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.RED),BossEvent.BossBarOverlay.PROGRESS);
     private final Set<UUID> fracturedThisAction=new HashSet<>();
     private int cooldown=35, cycle;
     private Vec3 lockedPosition=Vec3.ZERO;
@@ -44,12 +44,16 @@ public final class LomeyaBoss extends Monster {
         super(type,level);
         setPersistenceRequired();
         setCustomName(Component.literal("Ломея"));
-        setCustomNameVisible(true);
+        setCustomNameVisible(false);
         xpReward=0;
         setHealth(getMaxHealth());
     }
     @Override public float getMaxHealth() {
         return (float)CreatureHealthBalance.uncappedMaximum(getAttribute(Attributes.MAX_HEALTH));
+    }
+    @Override public void readAdditionalSaveData(net.minecraft.nbt.CompoundTag tag){
+        super.readAdditionalSaveData(tag);
+        setCustomNameVisible(false);
     }
     public static AttributeSupplier.Builder attributes() {
         return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,2000)

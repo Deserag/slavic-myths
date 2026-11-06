@@ -95,7 +95,7 @@ def main():
                 relative=directory+"/"+identifier+".json"
                 assert archive.read(relative)==(RES/relative).read_bytes(),relative
     print("PASS scoped Posad resources: items="+str(len(IDS)+len(TEST_ITEMS))+", model closure="+str(len(visited))+", Java21 production JAR without QA classes; sha256="+hashlib.sha256(jar.read_bytes()).hexdigest())
-    print("Global kitchen resource gate is separate and remains BLOCKED by owner decision.")
+    print("Global resource gate is separate: run tools/verify_current_resources.py; see current owner authorization and runtime logs.")
 
 if __name__=="__main__":
     main()

@@ -24,7 +24,7 @@ public final class PosadShellGameTests {
     t.assertTrue(PosadShell.voxel(x,y,z)==null,"Shell occupies building slot "+slot);
   t.succeed();
  }
- @GameTest(template="empty",timeoutTicks=200)
+ @GameTest(template="empty",timeoutTicks=200,batch="physicalCity")
  public static void physicalChunkPlacement(GameTestHelper t) {
   var world=t.getLevel();
   for(int turns=0;turns<4;turns++) {
@@ -43,7 +43,7 @@ public final class PosadShellGameTests {
   }
   for(int x=53;x<=59;x++)for(int z=108;z<=112;z++)for(int y=1;y<=6;y++) {
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);
-   t.assertTrue(world.getBlockState(anchor.offset(p.x(),y,p.z())).isAir(),"Physical rotated gate blocked");
+   t.assertTrue(world.getBlockState(anchor.offset(p.x(),y,p.z())).isAir(),"Physical rotated gate blocked at "+anchor.offset(p.x(),y,p.z())+" rotation="+turns+" actual="+world.getBlockState(anchor.offset(p.x(),y,p.z())));
   }
   // An opened double door must hug its outer jambs on both floors of each leaf.
   for (int x : new int[]{23, 24}) {
@@ -99,10 +99,10 @@ public final class PosadShellGameTests {
   var crest = PosadGeometry.rotate(new PosadGeometry.Cell(56,34),turns);
   t.assertTrue(world.getBlockState(anchor.offset(crest.x(),17,crest.z())).is(Blocks.CRYING_OBSIDIAN),
    "Council hall crest is missing");
-  for(int[] q:new int[][]{{56,2,15},{55,2,15},{57,2,15},{56,2,14},{56,3,14}}){
-   var p=PosadGeometry.rotate(new PosadGeometry.Cell(q[0],q[2]),turns);
-   t.assertTrue(!world.getBlockState(anchor.offset(p.x(),q[1],p.z())).isAir(),"R3 throne missing");
-  }
+  var councilSeat=PosadGeometry.rotate(new PosadGeometry.Cell(56,14),turns);
+  t.assertTrue(world.getBlockState(anchor.offset(councilSeat.x(),2,councilSeat.z())).is(org.slavicmyths.furniture.Furniture.get("posad_throne")),"Council throne model missing");
+  var approach=PosadGeometry.rotate(new PosadGeometry.Cell(56,15),turns);
+  t.assertTrue(world.getBlockState(anchor.offset(approach.x(),2,approach.z())).isAir(),"Council throne approach blocked");
   for(int step=0;step<6;step++)for(int[] stair:new int[][]{{20,26-step},{21,26-step},{23,84-step},{24,84-step}}){
    var p=PosadGeometry.rotate(new PosadGeometry.Cell(stair[0],stair[1]),turns);
    var at=anchor.offset(p.x(),step+1,p.z());

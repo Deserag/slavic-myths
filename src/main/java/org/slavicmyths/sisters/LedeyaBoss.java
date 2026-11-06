@@ -1,6 +1,10 @@
 package org.slavicmyths.sisters;
 
 import java.util.EnumSet;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerBossEvent;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.BossEvent;
 import java.util.List;
 import java.util.Optional;
 import net.minecraft.core.BlockPos;
@@ -63,6 +67,12 @@ public final class LedeyaBoss extends Monster {
     private static final EntityDataAccessor<Integer> ATTACK_KIND =
         SynchedEntityData.defineId(LedeyaBoss.class, EntityDataSerializers.INT);
     private int cooldown, turns;
+    private final ServerBossEvent bossBar = new ServerBossEvent(Component.translatable("entity.slavicmyths.ledeya"),
+        org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.BLUE),BossEvent.BossBarOverlay.PROGRESS);
+    @Override public void startSeenByPlayer(ServerPlayer player){super.startSeenByPlayer(player);bossBar.addPlayer(player);}
+    @Override public void stopSeenByPlayer(ServerPlayer player){super.stopSeenByPlayer(player);bossBar.removePlayer(player);}
+    @Override public void onRemovedFromLevel(){bossBar.removeAllPlayers();super.onRemovedFromLevel();}
+
     private Vec3 rainCenter;
 
     public LedeyaBoss(EntityType<? extends LedeyaBoss> type, Level level) {
@@ -165,6 +175,7 @@ public final class LedeyaBoss extends Monster {
 
     @Override public void aiStep() {
         super.aiStep();
+        if(!level().isClientSide)bossBar.setProgress(Math.clamp(getHealth()/Math.max(1F,getMaxHealth()),0F,1F));
         if (!(level() instanceof ServerLevel world)) return;
         if (cooldown > 0) cooldown--;
         int tick = (int)attackTicks(0);

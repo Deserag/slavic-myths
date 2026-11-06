@@ -1179,3 +1179,6 @@ posad_test_proof	resources	boss_material
 posad_test_receipt	resources	boss_material
 lomeya_spawn_egg	mobs	bosses_25
 neveya_spawn_egg	mobs	bosses_25
+
+crimson_pepper	food	ingredients
+viy_spawn_egg	mobs	bosses_25

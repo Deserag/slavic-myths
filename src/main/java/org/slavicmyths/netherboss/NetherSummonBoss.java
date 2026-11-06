@@ -53,8 +53,7 @@ public final class NetherSummonBoss extends Monster {
     public void showCopies(){entityData.set(COPIES,120);}
     public NetherSummonBoss(EntityType<? extends NetherSummonBoss> type,Level level,int kind){
         super(type,level);this.kind=kind;
-        this.bossBar=new ServerBossEvent(Component.translatable(kind==MOROVA?"entity.slavicmyths.morova_deva":"entity.slavicmyths.trizna_prince"),
-                kind==MOROVA?BossEvent.BossBarColor.GREEN:BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
+        this.bossBar=new ServerBossEvent(Component.translatable(kind==MOROVA?"entity.slavicmyths.morova_deva":"entity.slavicmyths.trizna_prince"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),kind==MOROVA?BossEvent.BossBarColor.GREEN:BossEvent.BossBarColor.RED),BossEvent.BossBarOverlay.PROGRESS);
         this.xpReward=kind==MOROVA?200:300;setHealth(getMaxHealth());
     }
     @Override public float getMaxHealth(){return (float)org.slavicmyths.combat.CreatureHealthBalance.uncappedMaximum(getAttribute(Attributes.MAX_HEALTH));}

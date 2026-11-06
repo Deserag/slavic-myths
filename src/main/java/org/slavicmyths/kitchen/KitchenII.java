@@ -18,8 +18,20 @@ public final class KitchenII {
  public static TagKey<Item> tag(String s){return TagKey.create(Registries.ITEM,id(s));}
  public static Item item(String s){return BuiltInRegistries.ITEM.get(id(s));}
  private static void food(String s,int n,float sat,int count,boolean bowl){ITEMS.put(s,ModItems.ITEMS.register(s,()->{var b=new FoodProperties.Builder().nutrition(n).saturationModifier(sat);if(bowl)b.usingConvertsTo(Items.BOWL);return new Item(new Item.Properties().stacksTo(count).food(b.build()));}));}
+ private static void foodEffect(String s,int n,float sat,int count,boolean bowl,net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect> effect,int duration){ITEMS.put(s,ModItems.ITEMS.register(s,()->{var b=new FoodProperties.Builder().nutrition(n).saturationModifier(sat).effect(()->new net.minecraft.world.effect.MobEffectInstance(effect,duration),1F);if(bowl)b.usingConvertsTo(Items.BOWL);return new Item(new Item.Properties().stacksTo(count).food(b.build()));}));}
  public static void init(IEventBus bus){
   for(String s:List.of("wheat_flour","rye_flour","oat_groats","barley_groats","dough"))ITEMS.put(s,ModItems.ITEMS.register(s,()->new Item(new Item.Properties())));
+  // 2.2.9-C: standalone culinary ingredients (not crops and not edible dishes).
+  // Owner-approved 2.2.9-C meals: vanilla 32-tick eating, bowl returns and no custom eating animation.
+  foodEffect("infernal_shchi",8,.75F,1,true,net.minecraft.world.effect.MobEffects.FIRE_RESISTANCE,160);
+  foodEffect("druzhina_roast",10,.85F,1,true,net.minecraft.world.effect.MobEffects.DAMAGE_BOOST,160);
+  food("onion_pie",7,.75F,16,false);
+  food("garlic_flatbread",5,.60F,16,false);
+  foodEffect("infernal_mushroom_soup",7,.70F,1,true,net.minecraft.world.effect.MobEffects.NIGHT_VISION,400);
+  food("roasted_roots",6,.65F,1,true);
+  food("coal_plum_pie",8,.80F,16,false);
+  food("heat_berry_jam",4,.45F,1,true);
+  food("mushroom_onion_pie",8,.80F,16,false);
   food("rye_bread",6,.70F,64,false);food("baked_turnip",4,.50F,64,false);
   food("stewed_turnip",6,.65F,1,true);food("stewed_cabbage",6,.70F,1,true);food("oat_porridge",6,.65F,1,true);food("barley_porridge",6,.65F,1,true);food("berry_porridge",7,.75F,1,true);
   food("vegetable_stew",7,.70F,1,true);food("meat_stew",9,.85F,1,true);food("pea_soup",7,.75F,1,true);food("mushroom_stew_slavic",6,.70F,1,true);

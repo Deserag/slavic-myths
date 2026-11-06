@@ -21,7 +21,7 @@ import static org.slavicmyths.wolf.WolfTimeline.*;
 public class GreyWolf extends PathfinderMob {
  private static final EntityDataAccessor<Integer> STATE=SynchedEntityData.defineId(GreyWolf.class,EntityDataSerializers.INT),MOVE=SynchedEntityData.defineId(GreyWolf.class,EntityDataSerializers.INT);
  private static final EntityDataAccessor<Long> CLOCK=SynchedEntityData.defineId(GreyWolf.class,EntityDataSerializers.LONG);
- private final ServerBossEvent bar=new ServerBossEvent(Component.translatable("wolf.slavicmyths.bar"),BossEvent.BossBarColor.WHITE,BossEvent.BossBarOverlay.PROGRESS);
+ private final ServerBossEvent bar=new ServerBossEvent(Component.translatable("wolf.slavicmyths.bar"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.WHITE),BossEvent.BossBarOverlay.PROGRESS);
  private UUID encounter=UUID.randomUUID(),participant,pending,token;private BlockPos home;private boolean completedBefore,debug;
  private long trialStart,nextAttack,howlReady,dashReady,outsideSince=-1,lastAmbient;private int summons,stuckTicks;private Vec3 direction=Vec3.ZERO,lastMotion=Vec3.ZERO;
  private final List<UUID> pack=new ArrayList<>();private final Map<UUID,Long> packExpiry=new HashMap<>();private List<BlockPos> packSpots=List.of();

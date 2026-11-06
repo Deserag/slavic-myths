@@ -25,7 +25,7 @@ public final class PosadBedGameTests {
     var above=piece.voxel(x,y+1,z);t.assertTrue(above==null||above.isAir(),"Blocked cot at "+x+","+y+","+z+": "+above);
     if(foot)feet++;else heads++;
    }
-   t.assertTrue(feet==10&&heads==10,"Wrong bedroom bed count "+feet+"/"+heads);total+=feet;
+   t.assertTrue(feet==18&&heads==18,"Wrong bedroom bed count "+feet+"/"+heads);total+=feet;
   }
   System.out.println("POSAD_BEDS_PAIRED_ROTATIONS_PASS beds="+total);t.succeed();
  }

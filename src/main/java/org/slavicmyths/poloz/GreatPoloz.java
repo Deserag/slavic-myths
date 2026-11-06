@@ -35,7 +35,7 @@ public final class GreatPoloz extends PathfinderMob implements Enemy {
  private long ordinaryWindow;private float ordinaryDamage;
  private UUID rainVolley=UUID.randomUUID();public UUID rainVolley(){return rainVolley;}
  private UUID deferredTarget;private Vec3 aim=Vec3.ZERO,mark=Vec3.ZERO;private float heading;private boolean finished;private long trackReceived;
- public final ServerBossEvent bar=new ServerBossEvent(Component.translatable("entity.slavicmyths.great_poloz"),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
+ public final ServerBossEvent bar=new ServerBossEvent(Component.translatable("entity.slavicmyths.great_poloz"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.RED),BossEvent.BossBarOverlay.PROGRESS);
  public GreatPoloz(EntityType<? extends GreatPoloz> type,Level level){super(type,level);setPersistenceRequired();noPhysics=true;noCulling=true;
   for(int i=0;i<24;i++)parts[i]=new PolozPart(this,i,false,PolozRules.width(i),i<20?3:1.4f);
   for(int i=0;i<3;i++)parts[24+i]=new PolozPart(this,new int[]{5,12,18}[i],true,i==1?1.2f:1,i==1?.3f:.9f);

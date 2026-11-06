@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:crimson_pepper"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:ground_hot_pepper",
+    "count": 1
+  }
+}

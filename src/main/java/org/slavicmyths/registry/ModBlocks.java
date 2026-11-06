@@ -16,6 +16,12 @@ public final class ModBlocks {
 
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(Registries.BLOCK, SlavicMyths.MOD_ID);
+    public static final DeferredHolder<Block, Block> CRIMSON_PEPPER_CROP = BLOCKS.register("crimson_pepper_crop",()->new org.slavicmyths.farming.CrimsonPepperCrop(plantProperties().randomTicks().noOcclusion()));
+    public static final DeferredHolder<Block, Block> GARLIC_CROP = BLOCKS.register("garlic_crop", () -> new org.slavicmyths.farming.FoodCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.GARLIC_CLOVE.get()));
+    public static final DeferredHolder<Block, Block> HORSERADISH_CROP = BLOCKS.register("horseradish_crop", () -> new org.slavicmyths.farming.FoodCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.HORSERADISH_CUTTING.get()));
+    public static final DeferredHolder<Block, Block> BLACK_RADISH_CROP = BLOCKS.register("black_radish_crop", () -> new org.slavicmyths.farming.FoodCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.BLACK_RADISH_SEEDS.get()));
+    public static final DeferredHolder<Block, Block> MUSTARD_CROP = BLOCKS.register("mustard_crop", () -> new org.slavicmyths.farming.FoodCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.MUSTARD_SEEDS.get()));
+    public static final DeferredHolder<Block, Block> ONION_CROP = BLOCKS.register("onion_crop", () -> new org.slavicmyths.farming.FoodCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.ONION_SET.get()));
     public static final DeferredHolder<Block, org.slavicmyths.morovoy.VioletFireBlock> VIOLET_FIRE = BLOCKS.register("violet_fire", () -> new org.slavicmyths.morovoy.VioletFireBlock(BlockBehaviour.Properties.of().noCollission().noOcclusion().replaceable().noLootTable().lightLevel(state -> 13).strength(0F)));
     public static final DeferredHolder<Block, Block> BAUK_HEAD = BLOCKS.register("bauk_head", () -> new org.slavicmyths.posad.boss.BaukHeadBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(3F).sound(SoundType.BONE_BLOCK).noOcclusion()));
     public static final DeferredHolder<Block,Block> SILVER_BLOCK=BLOCKS.register("silver_block",()->new Block(BlockBehaviour.Properties.ofFullCopy(net.minecraft.world.level.block.Blocks.IRON_BLOCK)));

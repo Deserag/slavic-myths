@@ -126,6 +126,29 @@ public final class PosadNativeDedicated {
    verifiedBlocks=tested;
    if(Boolean.getBoolean("posadnative.population")){populationPhase=0;untilTick=ticks+400;System.out.println("POSAD_REAL_POPULATION_WAIT_UNLOAD ticks=400");return;}
    }
+   // Check the actual decorated exterior, rather than only authored city blocks.
+   // The last bridge voxel identifies its persisted length without changing production APIs.
+   int bridge=0;while(bridge<PosadTerrain.MAX_BRIDGE&&piece.voxel(56,0,113+bridge)!=null)bridge++;
+   int blocked=0;
+   for(int step=1;step<=8;step++){
+    var transform=new PosadTerrain.Plan(piece.anchor().getX(),piece.anchor().getY(),piece.anchor().getZ(),piece.turns(),bridge,List.of());
+    var cell=transform.world(56,112+bridge+step);
+    var at=new BlockPos(cell.x(),piece.anchor().getY()+1,cell.z());world.getChunk(at);
+    boolean floor=!world.getBlockState(at.below()).getCollisionShape(world,at.below()).isEmpty()
+     ||(world.getBlockState(at.below()).getCollisionShape(world,at.below()).isEmpty()&&!world.getBlockState(at.below(2)).getCollisionShape(world,at.below(2)).isEmpty()&&world.getFluidState(at.below()).isEmpty());
+    boolean free=world.getBlockState(at).getCollisionShape(world,at).isEmpty()&&world.getBlockState(at.above()).getCollisionShape(world,at.above()).isEmpty()&&world.getFluidState(at).isEmpty();
+    if(!floor||!free)blocked++;
+    System.out.println("POSAD_REAL_APPROACH step="+step+" at="+at+" floor="+floor+" free="+free+" block="+world.getBlockState(at));
+   }
+   System.out.println("POSAD_REAL_APPROACH_AUDIT blocked="+blocked+" bridge="+bridge+" (straight exterior probe; not a pathfinding proof)");
+   check(blocked==0,"Surveyed straight shore has blocked or unsupported cells: "+blocked);
+   int sealed=0;
+   var exitTransform=new PosadTerrain.Plan(piece.anchor().getX(),piece.anchor().getY(),piece.anchor().getZ(),piece.turns(),bridge,List.of());
+   for(int lane=53;lane<=59;lane++){
+    var cell=exitTransform.world(lane,113+bridge);var at=new BlockPos(cell.x(),piece.anchor().getY()+1,cell.z());world.getChunk(at);
+    if(!world.getBlockState(at).getCollisionShape(world,at).isEmpty()||!world.getBlockState(at.above()).getCollisionShape(world,at.above()).isEmpty())sealed++;
+   }
+   check(sealed<7,"All seven bridge exit lanes sealed by decorated terrain; exterior access FAIL");
    String biome=world.getBiome(piece.anchor().offset(56,8,56)).unwrapKey().orElseThrow().location().toString();
    String requiredBiome=System.getProperty("posadnative.biome","");check(requiredBiome.isEmpty()||requiredBiome.equals(biome),"Wrong actual fixture biome: "+biome);
    System.out.println("POSAD_REAL_NATIVE_BIOME seed="+world.getSeed()+" biome="+biome);

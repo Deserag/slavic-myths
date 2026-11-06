@@ -31,7 +31,7 @@ public final class PosadClientQa {
   if(error!=null)error.printStackTrace();System.out.println(error==null?"POSAD_REAL_CLIENT_CAPTURE_PASS":"POSAD_REAL_CLIENT_CAPTURE_FAIL "+error);Minecraft.getInstance().stop();
  }
  @SubscribeEvent public static void server(ServerTickEvent.Post event){
-  if(build<0||build>=4||failure!=null)return;var server=event.getServer();var world=server.overworld();int ax=build*300,deck=-61;
+  if(build<0||build>=4||failure!=null)return;var server=event.getServer();var world=server.overworld();int ax=4500+build*300,deck=-61;
   try{
    if(!building){
     building=true;buildTicks=0;var source=server.createCommandSourceStack().withLevel(world).withPermission(2);
@@ -57,6 +57,10 @@ public final class PosadClientQa {
   views.add(new View("veche-interior",false,56,-60,30,56,-57,18));
   views.add(new View("communal-upper-bedroom",false,20,-54,20,16,-53.5,18));
   views.add(new View("posadnik-throne",false,67,-60,84,70,-59.5,82));
+  views.add(new View("council-throne-new",false,56,-58,20,56,-57.5,14));
+  views.add(new View("market-closed-shops",false,88,-59,80,85,-58,80));
+  if(Boolean.getBoolean("posadclient.focusOnly"))views.removeIf(v->!java.util.Set.of("council-throne-new","market-closed-shops","communal-upper-bedroom").contains(v.name()));
+  views.replaceAll(v->v.nether()?v:new View(v.name(),false,v.x()+4500,v.y(),v.z(),v.tx()+4500,v.ty(),v.tz()));
   addNative("native-veche-front",56,4,48,56,9,23);
   addNative("native-house-window",9,3,22,15,4,22);
  }

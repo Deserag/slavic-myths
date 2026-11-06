@@ -15,18 +15,19 @@ import org.slavicmyths.SlavicMyths;
 public final class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(Registries.ITEM, SlavicMyths.MOD_ID);
+    public static final DeferredHolder<Item, Item> CRIMSON_PEPPER = ITEMS.register("crimson_pepper",()->new ItemNameBlockItem(ModBlocks.CRIMSON_PEPPER_CROP.get(),properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(1).saturationModifier(.1F).build())));
+    public static final DeferredHolder<Item, Item> GARLIC_CLOVE = ITEMS.register("garlic_clove", () -> new ItemNameBlockItem(ModBlocks.GARLIC_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> HORSERADISH_CUTTING = ITEMS.register("horseradish_cutting", () -> new ItemNameBlockItem(ModBlocks.HORSERADISH_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> BLACK_RADISH_SEEDS = ITEMS.register("black_radish_seeds", () -> new ItemNameBlockItem(ModBlocks.BLACK_RADISH_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> MUSTARD_SEEDS = ITEMS.register("mustard_seeds", () -> new ItemNameBlockItem(ModBlocks.MUSTARD_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> ONION_SET = ITEMS.register("onion_set", () -> new ItemNameBlockItem(ModBlocks.ONION_CROP.get(), properties()));
+    public static final DeferredHolder<Item, Item> GARLIC = ITEMS.register("garlic", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
+    public static final DeferredHolder<Item, Item> HORSERADISH = ITEMS.register("horseradish", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
+    public static final DeferredHolder<Item, Item> BLACK_RADISH = ITEMS.register("black_radish", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
+    public static final DeferredHolder<Item, Item> ONION = ITEMS.register("onion", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
     public static final DeferredHolder<Item, Item> MOROVOY_FIRE_ZMEY_HEAD = ITEMS.register("morovoy_fire_zmey_head", () -> new BlockItem(org.slavicmyths.trophy.TrophyHeads.BLOCKS.get(org.slavicmyths.trophy.TrophyHeads.Kind.MOROVOY_FIRE_ZMEY).get(),new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
     public static final DeferredHolder<Item, Item> CURSED_MYTAR_SPAWN_EGG = egg("cursed_mytar_spawn_egg", ModEntities.CURSED_MYTAR, 0x45323B, 0xB69B6C);
     public static final DeferredHolder<Item, Item> BAUK_SPAWN_EGG = egg("bauk_spawn_egg", ModEntities.BAUK, 0x242129, 0x8C413C);
-    public static final DeferredHolder<Item, Item> GARLIC = ITEMS.register("garlic", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
-    public static final DeferredHolder<Item, Item> GARLIC_CLOVE = ITEMS.register("garlic_clove", () -> new Item(properties()));
-    public static final DeferredHolder<Item, Item> HORSERADISH = ITEMS.register("horseradish", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
-    public static final DeferredHolder<Item, Item> HORSERADISH_CUTTING = ITEMS.register("horseradish_cutting", () -> new Item(properties()));
-    public static final DeferredHolder<Item, Item> BLACK_RADISH = ITEMS.register("black_radish", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
-    public static final DeferredHolder<Item, Item> BLACK_RADISH_SEEDS = ITEMS.register("black_radish_seeds", () -> new Item(properties()));
-    public static final DeferredHolder<Item, Item> MUSTARD_SEEDS = ITEMS.register("mustard_seeds", () -> new Item(properties()));
-    public static final DeferredHolder<Item, Item> ONION = ITEMS.register("onion", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
-    public static final DeferredHolder<Item, Item> ONION_SET = ITEMS.register("onion_set", () -> new Item(properties()));
     public static final DeferredHolder<Item, Item> HEAT_BERRIES = ITEMS.register("heat_berries", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
     public static final DeferredHolder<Item, Item> HEAT_BERRY_CUTTING = ITEMS.register("heat_berry_cutting", () -> new Item(properties()));
     public static final DeferredHolder<Item, Item> COAL_PLUM = ITEMS.register("coal_plum", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(3).saturationModifier(.3F).build())));

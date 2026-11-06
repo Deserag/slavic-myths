@@ -45,7 +45,7 @@ public final class WorldBoss extends HuntMob {
  public String encounter="";public UUID bossOwner;
  private final EnumMap<Move,Integer> cooldowns=new EnumMap<>(Move.class);
  private final Set<UUID> hits=new HashSet<>();private final List<Vec3> zones=new ArrayList<>();
- private final ServerBossEvent bossBar=new ServerBossEvent(Component.literal(""),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
+ private final ServerBossEvent bossBar=new ServerBossEvent(Component.literal(""),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.RED),BossEvent.BossBarOverlay.PROGRESS);
  private TugarinCombat tugarin;
  private TugarinCombat tugarin(){if(tugarin==null)tugarin=new TugarinCombat(this);return tugarin;}
  private UUID attackTarget;

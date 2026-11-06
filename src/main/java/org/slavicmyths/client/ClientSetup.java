@@ -291,6 +291,11 @@ public final class ClientSetup {
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.GNETEYA.get(), ctx -> new SistersRenderer(ctx, false, new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "gneteya"), "main")));
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.LEDEYA.get(), LedeyaRenderer::new);
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.FROST_BOLT.get(), SistersVisuals.Bolt::new);
+
+        event.registerEntityRenderer(org.slavicmyths.viy.ViyContent.VIY.get(), ViyRenderer::new);
+        event.registerEntityRenderer(org.slavicmyths.viy.ViyContent.VIY_UPYR.get(), ctx -> new ViyServantRenderer(ctx, org.slavicmyths.sisters.ViyServant.Kind.UPYR));
+        event.registerEntityRenderer(org.slavicmyths.viy.ViyContent.VIY_NAV.get(), ctx -> new ViyServantRenderer(ctx, org.slavicmyths.sisters.ViyServant.Kind.NAV));
+        event.registerEntityRenderer(org.slavicmyths.viy.ViyContent.VIY_KORNELAP.get(), ctx -> new ViyServantRenderer(ctx, org.slavicmyths.sisters.ViyServant.Kind.KORNELAP));
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.NEVEYA.get(), NeveyaRenderer::new);
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.NEVEYA_BOLT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.LOMEYA.get(), LomeyaRenderer::new);

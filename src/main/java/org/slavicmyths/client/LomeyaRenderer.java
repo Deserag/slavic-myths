@@ -10,4 +10,6 @@ public final class LomeyaRenderer extends MobRenderer<LomeyaBoss,LomeyaModel> {
     private static final ResourceLocation TEXTURE=ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/lomeya.png");
     public LomeyaRenderer(EntityRendererProvider.Context ctx) {super(ctx,new LomeyaModel(),1.1F);}
     @Override public ResourceLocation getTextureLocation(LomeyaBoss boss) {return TEXTURE;}
+    @Override protected boolean shouldShowName(LomeyaBoss boss) { return false; }
+
 }

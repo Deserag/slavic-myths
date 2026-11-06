@@ -40,7 +40,7 @@ public abstract class HuntMob extends LandSpiritEntity {
  private static final EntityDataAccessor<Integer> ACTION=SynchedEntityData.defineId(HuntMob.class,EntityDataSerializers.INT),START=SynchedEntityData.defineId(HuntMob.class,EntityDataSerializers.INT);
  private static final EntityDataAccessor<Boolean> RAGE=SynchedEntityData.defineId(HuntMob.class,EntityDataSerializers.BOOLEAN);
  public UUID owner;private final EnumMap<Move,Integer> timers=new EnumMap<>(Move.class);
- private final ServerBossEvent bar=new ServerBossEvent(Component.literal(""),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
+ private final ServerBossEvent bar=new ServerBossEvent(Component.literal(""),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.RED),BossEvent.BossBarOverlay.PROGRESS);
  private int actionTick,basicWait,memory,unreachable,alignWait,alignRecovery;private boolean dashHit;private BlockPos lastSeen;private Vec3 aim=Vec3.ZERO,sidePoint;
  private final Map<UUID,Long> prey=new HashMap<>(),trailHits=new HashMap<>();private final List<Trail> trail=new ArrayList<>();
  private static final class Trail{final Vec3 pos;final long until;Trail(Vec3 p,long until){pos=p;this.until=until;}}

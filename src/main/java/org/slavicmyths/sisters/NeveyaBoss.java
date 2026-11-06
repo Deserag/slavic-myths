@@ -39,7 +39,7 @@ public final class NeveyaBoss extends Monster {
     private static final EntityDataAccessor<Integer> FRAME=SynchedEntityData.defineId(NeveyaBoss.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> PHASE_TWO=SynchedEntityData.defineId(NeveyaBoss.class,EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> FLYING=SynchedEntityData.defineId(NeveyaBoss.class,EntityDataSerializers.BOOLEAN);
-    private final ServerBossEvent bar=new ServerBossEvent(Component.literal("Невея"),BossEvent.BossBarColor.BLUE,BossEvent.BossBarOverlay.NOTCHED_10);
+    private final ServerBossEvent bar=new ServerBossEvent(Component.literal("Невея"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.BLUE),BossEvent.BossBarOverlay.PROGRESS);
     private final Map<UUID,Integer> victims=new HashMap<>();
     private int cooldown=36,sequence,verdictCooldown=480;
     private Vec3 markedCenter=Vec3.ZERO;
@@ -48,9 +48,13 @@ public final class NeveyaBoss extends Monster {
         super(type,level);
         setPersistenceRequired();
         setCustomName(Component.literal("Невея"));
-        setCustomNameVisible(true);
+        setCustomNameVisible(false);
         setHealth(getMaxHealth());
         xpReward=0;
+    }
+    @Override public void readAdditionalSaveData(net.minecraft.nbt.CompoundTag tag){
+        super.readAdditionalSaveData(tag);
+        setCustomNameVisible(false);
     }
     public static AttributeSupplier.Builder attributes() {
         return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,2400)
