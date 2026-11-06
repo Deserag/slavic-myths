@@ -17,10 +17,8 @@ public final class NetherWeaponEffects {
  }
  @SubscribeEvent public static void arrow(net.neoforged.neoforge.event.entity.ProjectileImpactEvent event){
   if(!(event.getProjectile() instanceof AbstractArrow arrow)||arrow.level().isClientSide||arrow.getPersistentData().getFloat("InfernalRaw")<=0)return;
-  if(!(arrow.getOwner() instanceof ServerPlayer owner)||!owner.isAlive()){
-   event.setCanceled(true);arrow.discard();return;
-  }
-  if(event.getRayTraceResult() instanceof EntityHitResult hit&&hit.getEntity() instanceof LivingEntity target&&!legalArrow(owner,target)){
+  if(!(event.getRayTraceResult() instanceof EntityHitResult hit)||!(hit.getEntity() instanceof LivingEntity target))return;
+  if(arrow.getOwner() instanceof ServerPlayer owner && (target==owner||owner.isAlliedTo(target)||target.isSpectator())){
    event.setCanceled(true);arrow.discard();
   }
  }
