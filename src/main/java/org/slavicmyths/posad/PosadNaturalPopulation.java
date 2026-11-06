@@ -1,128 +1,86 @@
-
 package org.slavicmyths.posad;
 
 import java.util.HashSet;
-import java.util.Set;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 
 @EventBusSubscriber(modid = "slavicmyths")
 public final class PosadNaturalPopulation {
-    private static int ticks;
-    private static final int SEARCH_RADIUS = 128;
-    private static final int SAMPLE_STEP = 32;
-    private static final int[] STRUCTURE_SAMPLE_YS = {16, 64, 112, 160, 208};
-
     @SubscribeEvent
     public static void tick(ServerTickEvent.Post event) {
-        if (++ticks % 100 != 0) {
-            return;
+        var server = event.getServer();
+        if (server.getTickCount() % 100 != 0) return;
+        // Retry only indexed completed manual sites near real players; no world/chunk scan.
+        for(var level:server.getAllLevels()){
+            var seen=new java.util.HashSet<net.minecraft.core.BlockPos>();int budget=4;
+            for(var player:players(level,server.getTickCount()/100)){
+                if(budget<=0)break;
+                var area=new net.minecraft.world.level.levelgen.structure.BoundingBox(player.blockPosition()).inflatedBy(96);
+                for(var site:org.slavicmyths.worldgen.ManualStructureRecords.get(level).overlapping(area)){
+                    if(budget<=0)break;
+                    if(!site.family().equals("nether_posad")||!seen.add(site.arrival()))continue;
+                    var anchor=site.arrival();
+                    if(PosadResidentSpawner.populated(level,anchor))continue;
+                    PosadResidentSpawner.populate(level,anchor.getX(),anchor.getY(),anchor.getZ(),site.tier());budget--;
+                }
+            }
         }
+        var world = server.getLevel(Level.NETHER);
+        if (world == null || world.players().isEmpty()) return;
 
-        for (ServerLevel level : event.getServer().getAllLevels()) {
-            if (!level.dimension().equals(Level.NETHER)) {
-                continue;
+        var structure = world.registryAccess().registryOrThrow(Registries.STRUCTURE)
+            .get(ResourceLocation.fromNamespaceAndPath("slavicmyths", "nether_posad"));
+        if (structure == null) return;
+
+        var discovered=new HashSet<PosadKnownSites.Layout>();
+        int budget=4;
+        var players=players(world,server.getTickCount()/100);
+        for(var player:players){
+            for(var layout:PosadKnownSites.get(world).nearby(player.blockPosition())){
+                if(budget<=0)break;
+                if(!discovered.add(layout)||PosadResidentSpawner.populated(world,layout.anchor()))continue;
+                var anchor=layout.anchor();
+                PosadResidentSpawner.populateNatural(world,anchor.getX(),anchor.getY(),anchor.getZ(),layout.turns());budget--;
             }
-
-            var structure = level.registryAccess()
-                    .registryOrThrow(Registries.STRUCTURE)
-                    .get(ResourceLocation.fromNamespaceAndPath("slavicmyths", "nether_posad"));
-
-            if (structure == null) {
-                continue;
-            }
-
-            StructurePieceSerializationContext serializationContext = StructurePieceSerializationContext.fromLevel(level);
-            Set<Long> visited = new HashSet<>();
-
-            for (var player : level.players()) {
-                BlockPos playerPosition = player.blockPosition();
-                int baseX = Math.floorDiv(playerPosition.getX(), SAMPLE_STEP) * SAMPLE_STEP + SAMPLE_STEP / 2;
-                int baseZ = Math.floorDiv(playerPosition.getZ(), SAMPLE_STEP) * SAMPLE_STEP + SAMPLE_STEP / 2;
-
-                for (int offsetX = -SEARCH_RADIUS; offsetX <= SEARCH_RADIUS; offsetX += SAMPLE_STEP) {
-                    for (int offsetZ = -SEARCH_RADIUS; offsetZ <= SEARCH_RADIUS; offsetZ += SAMPLE_STEP) {
-                        int sampleX = baseX + offsetX;
-                        int sampleZ = baseZ + offsetZ;
-
-                        if (level.getChunkSource().getChunkNow(sampleX >> 4, sampleZ >> 4) == null) {
-                            continue;
-                        }
-
-                        for (int sampleY : STRUCTURE_SAMPLE_YS) {
-                            BlockPos samplePosition = new BlockPos(sampleX, sampleY, sampleZ);
-                            var structureStart = level.structureManager().getStructureAt(samplePosition, structure);
-
-                            if (!structureStart.isValid()) {
-                                continue;
-                            }
-
-                            for (var piece : structureStart.getPieces()) {
-                                if (!(piece instanceof PosadPiece posad)) {
-                                    continue;
-                                }
-
-                                CompoundTag pieceData = posad.createTag(serializationContext);
-
-                                if (!pieceData.contains("Anchor", 4) || !pieceData.contains("Turns", 3)) {
-                                    continue;
-                                }
-
-                                BlockPos anchor = BlockPos.of(pieceData.getLong("Anchor"));
-                                int turns = Math.floorMod(pieceData.getInt("Turns"), 4);
-
-                                if (!visited.add(anchor.asLong())) {
-                                    continue;
-                                }
-
-                                if (!posad.getBoundingBox().isInside(anchor)) {
-                                    continue;
-                                }
-
-                                if (!isCityLoaded(level, anchor)) {
-                                    continue;
-                                }
-
-                                PosadResidentSpawner.populateNatural(
-                                        level,
-                                        anchor.getX(),
-                                        anchor.getY(),
-                                        anchor.getZ(),
-                                        turns
-                                );
-                            }
-                        }
-                    }
+            if(budget<=0)break;
+        }
+        // Older saves may not have the persistent layout index yet. Inspect only
+        // references already present in loaded chunks, under the same four-city budget.
+        var visited = new HashSet<Long>();
+        var chunks = world.getChunkSource();
+        for (var player : players) {
+            if(budget<=0)break;
+            var pos = player.chunkPosition();
+            var chunk = chunks.getChunkNow(pos.x, pos.z);
+            if (chunk == null) continue;
+            for (long reference : chunk.getReferencesForStructure(structure)) {
+                if(budget<=0)break;
+                if (!visited.add(reference)) continue;
+                var owner = new ChunkPos(reference);
+                var startChunk = chunks.getChunkNow(owner.x, owner.z);
+                if (startChunk == null) continue;
+                var start = startChunk.getStartForStructure(structure);
+                if (start == null || !start.isValid()) continue;
+                for (var piece : start.getPieces()) {
+                    if(budget<=0)break;
+                    if (!(piece instanceof PosadPiece posad)) continue;
+                    var anchor = posad.anchor();
+                    if(!discovered.add(new PosadKnownSites.Layout(anchor,posad.turns()))||PosadResidentSpawner.populated(world,anchor))continue;
+                    PosadResidentSpawner.populateNatural(world,anchor.getX(),anchor.getY(),anchor.getZ(),posad.turns());budget--;
                 }
             }
         }
     }
-
-    private static boolean isCityLoaded(ServerLevel level, BlockPos anchor) {
-        int minChunkX = anchor.getX() >> 4;
-        int maxChunkX = (anchor.getX() + 112) >> 4;
-        int minChunkZ = anchor.getZ() >> 4;
-        int maxChunkZ = (anchor.getZ() + 112) >> 4;
-
-        for (int chunkX = minChunkX; chunkX <= maxChunkX; chunkX++) {
-            for (int chunkZ = minChunkZ; chunkZ <= maxChunkZ; chunkZ++) {
-                if (level.getChunkSource().getChunkNow(chunkX, chunkZ) == null) {
-                    return false;
-                }
-            }
-        }
-
-        return true;
+    private static java.util.List<net.minecraft.server.level.ServerPlayer> players(net.minecraft.server.level.ServerLevel world,int cycle){
+        var players=new java.util.ArrayList<>(world.players());
+        if(!players.isEmpty())java.util.Collections.rotate(players,-Math.floorMod(cycle,players.size()));
+        return players;
     }
 
-    private PosadNaturalPopulation() {
-    }
+    private PosadNaturalPopulation() {}
 }

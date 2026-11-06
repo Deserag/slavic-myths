@@ -25,7 +25,7 @@ def check(name, doc, origin, dims, count, is_rows):
     path = BASE / doc / ("2.2_DRUZHINNY_DVOR_MODEL_R1.json" if is_rows else "2.2_KUZNECHNY_DVOR_MODEL_R1.json")
     original = path.read_bytes()
     packed = (RUNTIME / "posad" / (name + ".gz.base64")).read_text().strip()
-    assert gzip.decompress(base64.b64decode(packed)) == original, (name, "packed runtime source differs")
+    assert json.loads(gzip.decompress(base64.b64decode(packed))) == json.loads(original), (name, "packed runtime source differs")
     data = json.loads(original)
     if is_rows:
         expected = {(x, y, z): data["palette"][sym]

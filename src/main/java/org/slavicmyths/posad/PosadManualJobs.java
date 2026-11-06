@@ -32,6 +32,8 @@ import org.slavicmyths.worldgen.ManualStructureRecords;
 public final class PosadManualJobs {
     private static final Map<ServerLevel, Job> JOBS = new HashMap<>();
 
+    static boolean active(ServerLevel world) { return JOBS.containsKey(world); }
+
     public static int create(CommandSourceStack source, int turns, int ax, int deckY, int az) {
         ServerLevel world = source.getLevel();
         if (!source.hasPermission(2)) {
@@ -67,7 +69,7 @@ public final class PosadManualJobs {
             boolean partial = job.reserved;
             job.preparation.close();
             JOBS.remove(job.world);
-            source.sendSuccess(() -> Component.literal(partial ? "ОСТАНОВЛЕНО: область навсегда зарезервирована; возможна незавершённая постройка, автоматического повтора и выдачи наград нет." : "Отменено до записи блоков. Область не зарезервирована."), false);
+            source.sendSuccess(() -> Component.literal(partial ? "ОСТАНОВЛЕНО: резерв сохранён; автоматического повтора нет. Для полностью пустой области без возможных наград: /slavicmyths dev posad release_empty <anchorX> <deckY> <anchorZ>." : "Отменено до записи блоков. Область не зарезервирована."), false);
             return 1;
         }
         source.sendSuccess(() -> Component.literal("Пекельный посад: " + (job.phase == 0 ? "ПОДГОТОВКА ОСНОВАНИЯ z=" + job.supportZ : job.phase == 1 ? "PREFLIGHT" : "BUILD") + ", чанки " + job.chunk + "/" + job.chunks.size() + ", резерв " + job.reserved), false);
@@ -87,7 +89,7 @@ public final class PosadManualJobs {
         BoundingBox bounds;
         int phase, chunk, layer, cell, supportX, supportZ, supportDepth=3;
         final List<PosadTerrain.Support> manualSupports=new ArrayList<>();
-        boolean reserved;
+        boolean reserved, rewardLocked;
 
         Job(CommandSourceStack source, int turns, int ax, int deckY, int az) {
             this.source = source;
@@ -165,7 +167,7 @@ public final class PosadManualJobs {
             if (!ManualStructureRecords.get(world).overlapping(bounds).isEmpty()) throw new IllegalStateException("Место занято другим заданием");
             // A durable reservation is written before touching any block. Never
             // remove it on cancellation/error; a partial job must not be replayed.
-            ManualStructureRecords.get(world).add(token, "construction", 0, new BlockPos(ax, deckY, az), bounds);
+            ManualStructureRecords.get(world).add(token, PosadRecovery.EMPTY_SAFE, 0, new BlockPos(ax, deckY, az), bounds);
             world.getDataStorage().save();
             reserved = true;
             phase = 2;
@@ -203,9 +205,12 @@ public final class PosadManualJobs {
                 // Persist modified chunks while the durable reservation still says construction.
                 // If a save fails, NEVER publish COMPLETE or permit a retry.
                 if (!world.getServer().saveEverything(false, true, true)) throw new IllegalStateException("Не удалось надёжно сохранить построенные чанки");
-                ManualStructureRecords.get(world).replace(token, "nether_posad", 0, new BlockPos(ax, deckY, az), bounds);
+                ManualStructureRecords.get(world).replace(token, "nether_posad", turns, new BlockPos(ax, deckY, az), bounds);
                 world.getDataStorage().save();
                 source.sendSuccess(() -> Component.literal("Пекельный посад построен: X=" + ax + " Y=" + deckY + " Z=" + az + ", поворот " + turns * 90 + "°. Награды — только одноразовые сундуки."), false);
+                var residents = PosadResidentSpawner.populate(world, ax, deckY, az, turns);
+                source.sendSuccess(() -> Component.literal("Жители: добавлено " + residents.added()
+                    + ", уже учтено " + residents.existing() + ", нет места или спавн отклонён " + residents.blocked()), false);
                 preparation.close();
                 JOBS.remove(world);
                 return;
@@ -213,6 +218,22 @@ public final class PosadManualJobs {
             ChunkPos cp = chunks.get(chunk);
             if (world.getChunkSource().getChunkNow(cp.x, cp.z) == null) throw new IllegalStateException("Чанк выгружен во время строительства: " + cp);
             verifyChunkImmediately(cp);
+            // Persist the irreversible reward boundary BEFORE the chunk can receive loot.
+            boolean canContainRewards=false;
+            if(!rewardLocked)for(int wx=Math.max(cp.getMinBlockX(),bounds.minX());wx<=Math.min(cp.getMaxBlockX(),bounds.maxX())&&!canContainRewards;wx++)
+                for(int wz=Math.max(cp.getMinBlockZ(),bounds.minZ());wz<=Math.min(cp.getMaxBlockZ(),bounds.maxZ())&&!canContainRewards;wz++) {
+                    var local=PosadGeometry.rotate(new PosadGeometry.Cell(wx-ax,wz-az),-turns);
+                    for(int y=0;y<=17;y++) {
+                        var target=piece.voxel(local.x(),y,local.z());
+                        if(target!=null&&target.hasBlockEntity()){canContainRewards=true;break;}
+                    }
+                }
+            if(canContainRewards) {
+                ManualStructureRecords.get(world).replace(token,PosadRecovery.REWARD_LOCKED,0,new BlockPos(ax,deckY,az),bounds);
+                world.getDataStorage().save();
+                rewardLocked=true;
+            }
+
             BoundingBox clip = new BoundingBox(cp.getMinBlockX(), bounds.minY(), cp.getMinBlockZ(), cp.getMaxBlockX(), bounds.maxY(), cp.getMaxBlockZ());
             for(int x=Math.max(cp.getMinBlockX(),bounds.minX());x<=Math.min(cp.getMaxBlockX(),bounds.maxX());x++)for(int z=Math.max(cp.getMinBlockZ(),bounds.minZ());z<=Math.min(cp.getMaxBlockZ(),bounds.maxZ());z++){
                 int dx=x-ax,dz=z-az;

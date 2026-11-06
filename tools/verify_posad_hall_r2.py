@@ -78,7 +78,7 @@ r2 = (JAVA/"PosadHallR2.java").read_text("utf-8")
 piece = (JAVA/"PosadPiece.java").read_text("utf-8")
 commands = (JAVA/"PosadCommands.java").read_text("utf-8")
 geometry = (JAVA/"PosadGeometry.java").read_text("utf-8")
-assert "SCHEMA_VERSION = 20" in geometry
+assert int(geometry.split("SCHEMA_VERSION = ",1)[1].split(";",1)[0]) >= 20 # Historical layer remains supported; final blocks are checked by GameTests.
 assert "PATCH.size()!=160" in r2 and "PosadBuildings.voxel(x,y,z)" in r2
 assert "isOpening(int x,int y,int z)" in r2
 assert "schema >= 17" in piece and "PosadHallR2.voxel(x,y,z)" in piece

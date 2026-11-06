@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "slavicmyths:block/crimson_pepper_stage1"
+  }
+}

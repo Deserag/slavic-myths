@@ -7,7 +7,7 @@ import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.world.BossEvent;
 import net.minecraft.sounds.*;
 public abstract class RoomBoss extends EncounterMob {
- private final ServerBossEvent bar=new ServerBossEvent(getDisplayName(),BossEvent.BossBarColor.YELLOW,BossEvent.BossBarOverlay.PROGRESS);
+ private final ServerBossEvent bar=new ServerBossEvent(getDisplayName(),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.YELLOW),BossEvent.BossBarOverlay.PROGRESS);
  public RoomBoss(EntityType<? extends Monster> t,Level l){super(t,l);}
  public void aiStep(){super.aiStep();if(!level().isClientSide){bar.setName(getDisplayName());bar.setProgress(getHealth()/getMaxHealth());bar.setVisible(isAlive()&&getTarget()!=null);}}
  public void startSeenByPlayer(ServerPlayer p){super.startSeenByPlayer(p);bar.addPlayer(p);}public void stopSeenByPlayer(ServerPlayer p){super.stopSeenByPlayer(p);bar.removePlayer(p);}

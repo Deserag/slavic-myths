@@ -50,7 +50,7 @@ public final class KurganCreature extends Monster {
     private int actionTick,basicWait,blocks,memory,cloneTime,alignWait;private boolean summoned,riposte,dashHit;
     private long nextImpactSoundTick;
     private Vec3 aim=Vec3.ZERO;private BlockPos lastSeen,sealTarget;
-    private final ServerBossEvent bar=new ServerBossEvent(Component.literal(""),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
+    private final ServerBossEvent bar=new ServerBossEvent(Component.literal(""),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.RED),BossEvent.BossBarOverlay.PROGRESS);
     public KurganCreature(EntityType<? extends KurganCreature> type,Level world,Kind kind){super(type,world);this.kind=kind;xpReward=kind.boss()?50:8;bar.setName(getDisplayName());}
     public static AttributeSupplier.Builder attributes(Kind k){return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,k.hp).add(Attributes.ATTACK_DAMAGE,k.damage).add(Attributes.MOVEMENT_SPEED,k.speed).add(Attributes.FOLLOW_RANGE,k.range).add(Attributes.ARMOR,k.armor).add(Attributes.KNOCKBACK_RESISTANCE,k.resistance);}
     @Override protected void defineSynchedData(net.minecraft.network.syncher.SynchedEntityData.Builder builder){super.defineSynchedData(builder);builder.define(ACTION,0);builder.define(START,0);builder.define(PHASE,0);builder.define(PHASE_START,-100);builder.define(GUARD,false);builder.define(CLONES,0);builder.define(DECOY1,Optional.empty());builder.define(DECOY2,Optional.empty());}

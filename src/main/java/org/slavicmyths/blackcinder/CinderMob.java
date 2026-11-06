@@ -35,7 +35,7 @@ public final class CinderMob extends PathfinderMob {
  private UUID provoker;
  private boolean journalRegistered;
  private final Set<UUID> struck=new HashSet<>();
- private final ServerBossEvent bar=new ServerBossEvent(net.minecraft.network.chat.Component.translatable("entity.slavicmyths.zharenitsa"),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
+ private final ServerBossEvent bar=new ServerBossEvent(net.minecraft.network.chat.Component.translatable("entity.slavicmyths.zharenitsa"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.RED),BossEvent.BossBarOverlay.PROGRESS);
  public CinderMob(EntityType<? extends CinderMob> type,Level level,Kind kind){
   super(type,level);this.kind=kind;xpReward=kind==Kind.SPARKLING?0:kind==Kind.ZHARENITSA?60:12;
   getAttribute(Attributes.MAX_HEALTH).setBaseValue(CinderConfig.health(kind));setHealth(getMaxHealth());

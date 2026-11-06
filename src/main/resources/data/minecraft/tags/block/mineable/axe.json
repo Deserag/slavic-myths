@@ -75,6 +75,22 @@
     "slavicmyths:blackwood_door",
     "slavicmyths:blackwood_trapdoor",
     "slavicmyths:blackwood_button",
-    "slavicmyths:blackwood_pressure_plate"
+    "slavicmyths:blackwood_pressure_plate",
+    "slavicmyths:crimson_chair",
+    "slavicmyths:crimson_stool",
+    "slavicmyths:crimson_bench",
+    "slavicmyths:crimson_table",
+    "slavicmyths:crimson_bedside_cabinet",
+    "slavicmyths:crimson_shelf",
+    "slavicmyths:crimson_wardrobe",
+    "slavicmyths:crimson_weapon_rack",
+    "slavicmyths:warped_chair",
+    "slavicmyths:warped_stool",
+    "slavicmyths:warped_bench",
+    "slavicmyths:warped_table",
+    "slavicmyths:warped_bedside_cabinet",
+    "slavicmyths:warped_shelf",
+    "slavicmyths:warped_wardrobe",
+    "slavicmyths:warped_weapon_rack"
   ]
 }

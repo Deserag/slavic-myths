@@ -1,0 +1,47 @@
+name: Viy 2.5 + Posad 416 integration build
+on:
+  push:
+    branches:
+      - 'integration/2.5-viy-416-20261105'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Java 21 build and package smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Compile and package NeoForge mod
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon --no-build-cache --rerun-tasks clean build processResources --console=plain
+      - name: Confirm Viy and all sisters packaged
+        shell: bash
+        run: |
+          set -euo pipefail
+          JAR=$(find build/libs -maxdepth 1 -type f -name 'slavicmyths-*.jar' ! -name '*sources*' | head -n 1)
+          test -n "$JAR"
+          for class in ViyBoss ViyServant LomeyaBoss NeveyaBoss AgneyaBoss LedeyaBoss; do
+            jar tf "$JAR" | grep -q "org/slavicmyths/sisters/${class}.class"
+          done
+          jar tf "$JAR" | grep -q 'org/slavicmyths/viy/ViyContent.class'
+          jar tf "$JAR" | grep -q 'assets/slavicmyths/textures/entity/viy.png'
+          jar tf "$JAR" | grep -q 'assets/slavicmyths/models/item/viy_spawn_egg.json'
+          sha256sum "$JAR"
+      - name: Upload tested JAR
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: slavic-myths-viy-2-5-posad-416
+          path: build/libs/slavicmyths-*.jar
+          if-no-files-found: error
+          retention-days: 7

@@ -30,4 +30,6 @@ public class SistersRenderer extends MobRenderer<SisterBoss, SistersModel> {
     public ResourceLocation getTextureLocation(SisterBoss entity) {
         return this.isTryaseya ? TRYASEYA_TEXTURE : GNETEYA_TEXTURE;
     }
+    @Override protected boolean shouldShowName(SisterBoss boss) { return false; }
+
 }

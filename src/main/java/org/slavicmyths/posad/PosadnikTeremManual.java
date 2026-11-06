@@ -60,14 +60,17 @@ public final class PosadnikTeremManual {
         foundation.forEach((at,state)->world.setBlock(at,state,2));
         for(var at:BlockPos.betweenClosed(origin,end))if(!world.getBlockState(at).isAir())world.setBlock(at,Blocks.AIR.defaultBlockState(),2);
         int placed=0;
+        var shared=new PosadPiece(origin.offset(-PosadnikTerem.MIN_X,0,-PosadnikTerem.MIN_Z),0);
         for(int pass=0;pass<2;pass++)for(int y=0;y<PosadnikTerem.HEIGHT;y++)
             for(int z=PosadnikTerem.MIN_Z;z<=PosadnikTerem.MAX_Z;z++)
                 for(int x=PosadnikTerem.MIN_X;x<=PosadnikTerem.MAX_X;x++){
-                    BlockState state=PosadnikTerem.voxel(x,y,z);
+                    if(PosadnikTerem.voxel(x,y,z)==null)continue;
+                    BlockState state=shared.voxel(x,y,z);
                     if(state==null||late(state)!=(pass==1))continue;
                     BlockPos at=origin.offset(x-PosadnikTerem.MIN_X,y,z-PosadnikTerem.MIN_Z);
+                    state=shared.placedState(x,y,z,world,at);
                     if(state.getBlock() instanceof FurnitureBlock f&&"shelf".equals(f.kind)){
-                        world.getChunk(at.getX()>>4,at.getZ()>>4).setBlockState(at,state,false);
+                        var old=world.getBlockState(at);world.getChunk(at.getX()>>4,at.getZ()>>4).setBlockState(at,state,false);world.sendBlockUpdated(at,old,state,2);
                     }else world.setBlock(at,state,2);
                     placed++;
                 }
@@ -75,7 +78,8 @@ public final class PosadnikTeremManual {
         if(!world.getServer().saveEverything(false,true,true))throw new IllegalStateException("Posadnik save failed; reservation kept");
         records.replace(token,"posad_building/posadnik_terem_2_2_9",0,origin,bounds);
         world.getDataStorage().save();
-        source.sendSuccess(()->Component.literal("Посадничий терем A+ поставлен: "+PosadnikTerem.BLOCK_COUNT+" блоков. NPC/квесты не создаются."),false);
+        var population=PosadResidentSpawner.populateBuilding(world,"posadnik_terem_2_2_9",origin,13,18);
+        source.sendSuccess(()->Component.literal("Посадничий терем A+ поставлен: "+PosadnikTerem.BLOCK_COUNT+" блоков; добавлено жителей: "+population.added()),false);
         return 1;
     }
     private PosadnikTeremManual(){}

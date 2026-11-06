@@ -13,6 +13,9 @@ import org.slavicmyths.worldgen.ManualStructureRecords;
 /** Bounded, restart-safe insertion into an already completed manual city. No chunk tickets. */
 public final class PosadResidentSpawner {
     public record Result(int added, int existing, int blocked) {}
+    public static boolean populated(ServerLevel world,BlockPos anchor) {
+        return PosadGrievances.get(world).populated(PosadPopulationPlan.settlementId(world.dimension().location().toString(),anchor.getX(),anchor.getY(),anchor.getZ()));
+    }
     public static Result populate(ServerLevel world, int anchorX, int deckY, int anchorZ, int turns) {
         return populateVerified(world, anchorX, deckY, anchorZ, turns, false);
     }
@@ -37,6 +40,10 @@ public final class PosadResidentSpawner {
                 existing++;
                 continue;
             }
+            if (world.getChunkSource().getChunkNow(member.worldX() >> 4, member.worldZ() >> 4) == null) {
+                blocked++;
+                continue;
+            }
             PosadResidentEntity npc = ModEntities.POSAD_RESIDENT.get().create(world);
             if (npc == null) { blocked++; continue; }
             BlockPos spot = safe(world, member.worldX(), deckY, member.worldZ(), npc);
@@ -54,13 +61,14 @@ public final class PosadResidentSpawner {
     public static Result populateBuilding(ServerLevel world, String template, BlockPos origin, int width, int depth) {
         int offsetX, offsetZ;
         switch (template) {
+            case "posadnik_terem_2_2_9" -> { offsetX = 60; offsetZ = 78; }
             case "veche_hall_2_2_2" -> { offsetX = 42; offsetZ = 12; }
             case "communal_house_2_2_3" -> { offsetX = 13; offsetZ = 15; }
             case "druzhinny_dvor_2_2_4" -> { offsetX = 12; offsetZ = 75; }
             case "kuznechny_dvor_2_2_5" -> { offsetX = 12; offsetZ = 44; }
             case "menovye_ryady_2_2_6" -> { offsetX = 75; offsetZ = 75; }
-            case "zeleynaya_2_2_7" -> { offsetX = 75; offsetZ = 12; }
-            case "granary_2_2_8" -> { offsetX = 75; offsetZ = 12; }
+            case "zeleynaya_2_2_7" -> { offsetX = 76; offsetZ = 44; }
+            case "granary_2_2_8" -> { offsetX = 76; offsetZ = 12; }
             default -> { return new Result(0, 0, 0); }
         }
         UUID settlement = PosadPopulationPlan.settlementId(world.dimension().location().toString(), origin.getX() - offsetX, origin.getY(), origin.getZ() - offsetZ);

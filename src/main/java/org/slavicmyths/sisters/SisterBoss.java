@@ -60,7 +60,7 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
             setNoGravity(true);
             moveControl = new FlyingMoveControl(this,20,true);
         }
-        bar = new ServerBossEvent(Component.literal(isTryaseya()?"Трясея":"Гнетея"),isTryaseya()?BossEvent.BossBarColor.PURPLE:BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
+        bar = new ServerBossEvent(Component.literal(isTryaseya()?"Трясея":"Гнетея"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),isTryaseya()?BossEvent.BossBarColor.PURPLE:BossEvent.BossBarColor.RED),BossEvent.BossBarOverlay.PROGRESS);
         xpReward=0; // Rewards intentionally deferred to a separate approved patch.
         setPersistenceRequired();
         setHealth(getMaxHealth());

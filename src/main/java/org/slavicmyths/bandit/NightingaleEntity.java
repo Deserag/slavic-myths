@@ -55,7 +55,7 @@ public final class NightingaleEntity extends PathfinderMob implements net.minecr
     private static final EntityDataAccessor<Boolean> DRAWN=SynchedEntityData.defineId(NightingaleEntity.class,EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Float> IMPACT=SynchedEntityData.defineId(NightingaleEntity.class,EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<Integer> START=SynchedEntityData.defineId(NightingaleEntity.class,EntityDataSerializers.INT);
-    private final ServerBossEvent bar=new ServerBossEvent(Component.translatable("entity.slavicmyths.nightingale"),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
+    private final ServerBossEvent bar=new ServerBossEvent(Component.translatable("entity.slavicmyths.nightingale"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.RED),BossEvent.BossBarOverlay.PROGRESS);
     private final Set<UUID> participants=new HashSet<>();
     public UUID camp;public BlockPos home;
     private int remaining,recovery,deathTicks;

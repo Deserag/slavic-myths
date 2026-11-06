@@ -28,7 +28,7 @@ public final class EarthSpirit extends Monster {
     private static final EntityDataAccessor<BlockPos> PILLAR_POS=SynchedEntityData.defineId(EarthSpirit.class,EntityDataSerializers.BLOCK_POS);
     private static final EntityDataAccessor<Integer> TOTAL=SynchedEntityData.defineId(EarthSpirit.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Long> START=SynchedEntityData.defineId(EarthSpirit.class,EntityDataSerializers.LONG);
-    private final ServerBossEvent bar=new ServerBossEvent(net.minecraft.network.chat.Component.translatable("entity.slavicmyths.earth_spirit"),BossEvent.BossBarColor.YELLOW,BossEvent.BossBarOverlay.PROGRESS);
+    private final ServerBossEvent bar=new ServerBossEvent(net.minecraft.network.chat.Component.translatable("entity.slavicmyths.earth_spirit"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.YELLOW),BossEvent.BossBarOverlay.PROGRESS);
     private UUID arena;private BlockPos home;private final EnumMap<Action,Integer> cooldowns=new EnumMap<>(Action.class);
     private int elapsed,duration,absent,summonIn=EarthRules.INTERVAL,attackId,ambientIn=300,walkTick,armorIn;private Action lastHeavy=Action.IDLE;
     private Vec3 aim=Vec3.ZERO;private final Map<UUID,Integer> pressure=new HashMap<>(),meleeLast=new HashMap<>();private final List<UUID> servants=new ArrayList<>();private List<BlockPos> spawnPoints=List.of();private boolean legitimate;private final Set<UUID> participants=new HashSet<>();

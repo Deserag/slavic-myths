@@ -23,7 +23,7 @@ public final class Gorynych extends PathfinderMob implements Enemy {
  private static final EntityDataAccessor<CompoundTag> HEADS=SynchedEntityData.defineId(Gorynych.class,EntityDataSerializers.COMPOUND_TAG);
  public final GorynychHead[] parts=new GorynychHead[3];public UUID instance;public int node;private CompoundTag layout=new CompoundTag();
  private final int[] headAge=new int[3],headAction=new int[3],headRest=new int[3];private final LivingEntity[] headTarget=new LivingEntity[3];private final float[] yaw=new float[3],pitch=new float[3];
- private final ServerBossEvent bar=new ServerBossEvent(GorynychContent.text("boss"),BossEvent.BossBarColor.PURPLE,BossEvent.BossBarOverlay.NOTCHED_20);
+ private final ServerBossEvent bar=new ServerBossEvent(GorynychContent.text("boss"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.PURPLE),BossEvent.BossBarOverlay.PROGRESS);
  private final Set<UUID> effects=new HashSet<>();private final List<Vec3> marks=new ArrayList<>();private float pendingDamage;private boolean damagePass;private int bodyAge,bodyRest=80,patrolAt,airAge;private Vec3 bodyAim=Vec3.ZERO;private List<LivingEntity> nearby=List.of();private int nearbyAt=-100;private ServerPlayer grabbed;private int grabAge,grabHits;
  public Gorynych(EntityType<? extends Gorynych> type,Level level){super(type,level);setPersistenceRequired();xpReward=0;for(int i=0;i<3;i++)parts[i]=new GorynychHead(this,i);setId(ENTITY_COUNTER.getAndAdd(4)+1);}
  public static AttributeSupplier.Builder attributes(){return createMobAttributes().add(Attributes.MAX_HEALTH,1024).add(Attributes.MOVEMENT_SPEED,.23).add(Attributes.FOLLOW_RANGE,24).add(Attributes.ARMOR,12).add(Attributes.ARMOR_TOUGHNESS,6).add(Attributes.KNOCKBACK_RESISTANCE,1);}

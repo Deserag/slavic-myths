@@ -81,16 +81,10 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
     }
 
     private boolean isGuard() {
-        return role() == PosadPopulationPlan.Role.GUARD;
+        return role().guard();
     }
 
-    private int roleHealth() {
-        return switch (role()) {
-            case POSADNIK -> 150;
-            case CIVILIAN -> 50;
-            case GUARD -> 70;
-        };
-    }
+    private int roleHealth() { return role().health(); }
 
     public PosadResidentTraits traits() {
         return PosadResidentTraits.of(getUUID(), role());
@@ -116,7 +110,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         entityData.set(WEAPON, member.member().weapon().ordinal());
         setUUID(member.identity());
         home = spawn.immutable();
-        restrictTo(home, 32);
+        restrictTo(home, role()==PosadPopulationPlan.Role.POSADNIK?5:32);
 
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(roleHealth());
         setHealth(roleHealth());
@@ -183,8 +177,13 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         });
 
         goalSelector.addGoal(2, new RangedDuty());
-        goalSelector.addGoal(3, new MoveTowardsRestrictionGoal(this, .85));
-        goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, .70));
+        goalSelector.addGoal(3, new MoveTowardsRestrictionGoal(this, .85) {
+            @Override public boolean canUse(){return tradingPlayer==null&&super.canUse();}
+        });
+        goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, .70) {
+            @Override public boolean canUse(){return role()!=PosadPopulationPlan.Role.POSADNIK&&tradingPlayer==null&&super.canUse();}
+            @Override public boolean canContinueToUse(){return role()!=PosadPopulationPlan.Role.POSADNIK&&tradingPlayer==null&&super.canContinueToUse();}
+        });
         goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 8));
         goalSelector.addGoal(6, new RandomLookAroundGoal(this));
 
@@ -502,6 +501,12 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
 
         if (tradeTier() != oldTier) {
             rebuildTrades();
+            // MerchantResultSlot has already updated its inputs before overrideXp.
+            // Replace any cached offer from the previous tier, whose stock identity
+            // is no longer part of the rebuilt catalog.
+            if(tradingPlayer instanceof ServerPlayer player && player.containerMenu instanceof MerchantMenu menu
+                    && menu.slots.get(0).container instanceof net.minecraft.world.inventory.MerchantContainer inputs)
+                inputs.updateSellItem();
         }
 
         if (tradingPlayer instanceof ServerPlayer player && player.containerMenu instanceof MerchantMenu menu) {
@@ -553,6 +558,11 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         offer.increaseUses();
         earnedXpPending = PosadTradeCatalog.fixed(role()) ? 0 : offer.getXp();
         tradeUses.put(id, offer.getUses());
+        if(level() instanceof ServerLevel world){
+            var coin=new ItemStack(org.slavicmyths.registry.ModItems.ANCIENT_COIN.get());
+            world.sendParticles(new net.minecraft.core.particles.ItemParticleOption(net.minecraft.core.particles.ParticleTypes.ITEM,coin),getX(),getY()+1.25,getZ(),3,.2,.15,.2,.025);
+            playSound(SoundEvents.VILLAGER_YES,.5F,1F);
+        }
     }
 
     @Override
@@ -566,12 +576,17 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         }
 
         if (!level().isClientSide) {
+            if(player instanceof ServerPlayer serverPlayer&&PosadTestProofs.exchange(serverPlayer,this))return net.minecraft.world.InteractionResult.CONSUME;
+            if(player instanceof ServerPlayer serverPlayer&&role()==PosadPopulationPlan.Role.POSADNIK&&player.isShiftKeyDown()){PosadBossSearch.dialogue(serverPlayer);return net.minecraft.world.InteractionResult.CONSUME;}
             if (tradingPlayer != null && tradingPlayer != player) {
-                tradingPlayer.closeContainer();
+                player.displayClientMessage(Component.translatable("posad.trade.busy"),true);
+                return net.minecraft.world.InteractionResult.CONSUME;
             }
 
             getOffers();
+            setTradingPlayer(player);
             openTradingScreen(player, getName(), tradeTier());
+            if(!(player.containerMenu instanceof MerchantMenu))setTradingPlayer(null);
         }
 
         return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
@@ -716,7 +731,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         home = tag.contains("PosadHome") ? BlockPos.of(tag.getLong("PosadHome")) : null;
 
         if (home != null) {
-            restrictTo(home, 32);
+            restrictTo(home, role()==PosadPopulationPlan.Role.POSADNIK?5:32);
         }
 
         tradeXp = Math.max(0, tag.getInt("PosadTradeXp"));

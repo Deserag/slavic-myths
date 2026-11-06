@@ -34,7 +34,7 @@ public final class WildlifeEntity extends PathfinderMob {
  private static final EntityDataAccessor<Integer> STYLE=SynchedEntityData.defineId(WildlifeEntity.class,EntityDataSerializers.INT);
  private static final EntityDataAccessor<Boolean> MOTHER=SynchedEntityData.defineId(WildlifeEntity.class,EntityDataSerializers.BOOLEAN);
  private static final EntityDataAccessor<Boolean> FAWN=SynchedEntityData.defineId(WildlifeEntity.class,EntityDataSerializers.BOOLEAN);
- private final net.minecraft.server.level.ServerBossEvent motherBar=new net.minecraft.server.level.ServerBossEvent(net.minecraft.network.chat.Component.translatable("entity.slavicmyths.mother_bear"),net.minecraft.world.BossEvent.BossBarColor.RED,net.minecraft.world.BossEvent.BossBarOverlay.PROGRESS);
+ private final net.minecraft.server.level.ServerBossEvent motherBar=new net.minecraft.server.level.ServerBossEvent(net.minecraft.network.chat.Component.translatable("entity.slavicmyths.mother_bear"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),net.minecraft.world.BossEvent.BossBarColor.RED),net.minecraft.world.BossEvent.BossBarOverlay.PROGRESS);
  private static final class HerdGroup implements SpawnGroupData {
   final UUID id;UUID babyParent;int babies;
   HerdGroup(UUID id){this.id=id;}

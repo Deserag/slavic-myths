@@ -56,11 +56,15 @@ public final class TrophyHeadsClient {
   public void render(PoseStack pose,VertexConsumer out,int light,int overlay,int color){
    pose.pushPose();
    if(kind.wide()){
-    pose.translate(1,.03,1);
     if(kind==TrophyHeads.Kind.MOROVOY_RAVEN){
+     // Center the skull over the anchor; only the beak enters the front cell.
+     pose.translate(.5,.03,1);
      pose.scale(.45F,-.45F,-.45F);
      pose.translate(-(bounds[0]+bounds[3])/2,-bounds[4],-(bounds[2]+bounds[5])/2);
-    }else pose.scale(1,-1,-1);
+    }else{
+     pose.translate(1,.03,1);
+     pose.scale(1,-1,-1);
+    }
    }else{
     float extra=kind==TrophyHeads.Kind.FIRE_SERPENT?1.6F:1F;
     pose.translate(.5,.04,.5);pose.scale(scale*extra,-scale*extra,-scale*extra);
@@ -72,8 +76,7 @@ public final class TrophyHeadsClient {
   private Head ears(ModelPart left,ModelPart right){earLeft=left;earRight=right;earLeftBaseZ=left.zRot;earRightBaseZ=right.zRot;return this;}
   public void pose(float time,float lookX,float lookY){
    if(kind==TrophyHeads.Kind.MOROVOY_RAVEN||kind==TrophyHeads.Kind.FIRE_SERPENT||kind==TrophyHeads.Kind.MOR_SERPENT||kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY){
-    part.xRot=(float)Math.sin(time*.043F)*.035F;part.yRot=(float)Math.sin(time*.034F)*.065F;
-    if(detail!=null)detail.xRot=detailBaseXRot+.09F+(float)Math.sin(time*.075F)*.11F;
+    // Placed Morovoy trophies use a stable neutral pose; no time-dependent UV shimmer.
     return;
    }
    if(kind==TrophyHeads.Kind.POSTEN){part.getAllParts().forEach(ModelPart::resetPose);part.setPos(0,0,0);return;}
@@ -190,7 +193,7 @@ public final class TrophyHeadsClient {
    float time=tile.getLevel()==null?0:tile.getLevel().getGameTime()+partial+Math.floorMod(tile.getBlockPos().asLong(),79);
    pose.pushPose();
    try{
-    double pivot=block.kind.wide()?1.0:.5;
+    double pivot=block.kind.wide()&&block.kind!=TrophyHeads.Kind.MOROVOY_RAVEN?1.0:.5;
     pose.translate(pivot,0,pivot);
     pose.mulPose(Axis.YP.rotationDegrees(-tile.getBlockState().getValue(TrophyHeadBlock.FACING).toYRot()));
     pose.translate(-pivot,0,-pivot);
@@ -220,8 +223,12 @@ public final class TrophyHeadsClient {
     }
     h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);
     if(block.kind.ordinal()>=TrophyHeads.Kind.GROVE_GUARDIAN.ordinal()){
-     ResourceLocation glowTexture=block.kind==TrophyHeads.Kind.FIRE_SERPENT||block.kind==TrophyHeads.Kind.MOR_SERPENT||block.kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY?ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/morovoy_fire_zmey_emissive.png"):ResourceLocation.fromNamespaceAndPath("slavicmyths",h.texture.getPath().replace(".png","_glow.png"));
-     h.render(pose,buffer.getBuffer(RenderType.eyes(glowTexture)),15728880,overlay,((int)(175+45*Math.sin(time*.065))<<24)|0xffffff);
+     boolean morovoy=block.kind==TrophyHeads.Kind.MOROVOY_RAVEN||block.kind==TrophyHeads.Kind.FIRE_SERPENT||block.kind==TrophyHeads.Kind.MOR_SERPENT||block.kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY;
+     ResourceLocation glowTexture=block.kind==TrophyHeads.Kind.MOROVOY_RAVEN?ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/morovoy_raven_emissive.png"):
+      block.kind==TrophyHeads.Kind.FIRE_SERPENT||block.kind==TrophyHeads.Kind.MOR_SERPENT||block.kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY?ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/morovoy_fire_zmey_emissive.png"):
+      ResourceLocation.fromNamespaceAndPath("slavicmyths",h.texture.getPath().replace(".png","_glow.png"));
+     int emissiveColor=morovoy?0xFFFFFFFF:((int)(175+45*Math.sin(time*.065))<<24)|0xffffff;
+     h.render(pose,buffer.getBuffer(RenderType.eyes(glowTexture)),15728880,overlay,emissiveColor);
     }
     if(block.kind==TrophyHeads.Kind.MAGMA_LORD)h.render(pose,buffer.getBuffer(RenderType.eyes(org.slavicmyths.burningislands.client.IslandsClient.texture(org.slavicmyths.burningislands.IslandsContent.Kind.MAGMA_LORD,true))),15728880,overlay,((int)(120+80*tile.magmaOpenness+25*Math.sin(time*.065))<<24)|0xffffff);
     if(animated&&(block.kind==TrophyHeads.Kind.MOR_LIKHO||TrophyHeadFxRules.likhoGlow(time)))
@@ -234,6 +241,8 @@ public final class TrophyHeadsClient {
   }
   private static long particleBudgetTick=Long.MIN_VALUE;private static int particleBudget;
   private static void particle(TrophyHeadBlock.Tile tile,TrophyHeads.Kind kind){
+   // Keep these two boss head palettes static even when players approach them.
+   if(kind==TrophyHeads.Kind.MOROVOY_RAVEN||kind==TrophyHeads.Kind.FIRE_SERPENT||kind==TrophyHeads.Kind.MOR_SERPENT||kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY)return;
    if(!(tile.getLevel() instanceof ClientLevel world)||Minecraft.getInstance().isPaused()||Minecraft.getInstance().player==null)return;
    BlockPos pos=tile.getBlockPos();
    if(Minecraft.getInstance().player.distanceToSqr(pos.getX()+.5,pos.getY()+1.2,pos.getZ()+.5)>24*24)return;

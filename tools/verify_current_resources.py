@@ -52,6 +52,13 @@ def main():
         for path in RES.rglob('*'):
             if not path.is_file():continue
             rel=path.relative_to(RES).as_posix();expected=R/'build/resources/main'/rel if rel=='META-INF/neoforge.mods.toml' else path
+            if rel in ['assets/slavicmyths/textures/entity/gneteya_albedo.png','assets/slavicmyths/textures/entity/tryaseya_albedo.png']:
+                expected=R/'build/resources/main'/rel
+                # build.gradle intentionally recolors these two output atlases.
+                # Check the actual processed output, not source byte parity.
+                with Image.open(path) as original, Image.open(expected) as generated:
+                    assert original.size==generated.size==(512,512)
+                    assert original.convert('RGBA').getchannel('A').tobytes()==generated.convert('RGBA').getchannel('A').tobytes()
             assert archive.read(rel)==expected.read_bytes(),('packaged source mismatch',rel);count+=1
         classes=[name for name in names if name.endswith('.class')]
         for name in classes:assert int.from_bytes(archive.read(name)[6:8],'big')==65,('not Java21',name)
