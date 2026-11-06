@@ -1,5 +1,6 @@
 allprojects { afterEvaluate {
  sourceSets { bossAudit { java.srcDir 'tools/boss-audit/runtime';resources.srcDir 'tools/boss-audit/resources' } }
+ if(project.findProperty('bossAuditProjectileOnly')=='true')sourceSets.bossAudit.java.include('BossAuditMod.java','AuditPlayers.java','ProjectileAudit.java')
  if(project.findProperty('bossAuditStressOnly')=='true')sourceSets.bossAudit.java.include('BossAuditMod.java','AuditPlayers.java','InterruptionAudit.java','AiStressAudit.java')
  sourceSets.bossAudit.compileClasspath += sourceSets.main.output+sourceSets.main.compileClasspath
  sourceSets.bossAudit.runtimeClasspath += sourceSets.main.runtimeClasspath-sourceSets.main.output

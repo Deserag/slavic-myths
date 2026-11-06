@@ -1,0 +1,30 @@
+name: Boss audit native projectile flights
+on:
+  push:
+    branches: ['codex/qa-bosses-release25-20261106']
+    paths: ['tools/boss-audit/runtime/ProjectileAudit.java','.github/workflows/boss-audit-projectiles.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      LIBGL_ALWAYS_SOFTWARE: 'true'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - run: chmod +x gradlew && ./gradlew --no-daemon -I tools/boss-audit-runtime.gradle clean build compileBossAuditJava --console=plain
+      - run: ./gradlew --no-daemon -I tools/boss-audit-runtime.gradle runBossAudit -PbossAuditProjectileOnly=true -PbossAuditDir=work/boss-audit/cloud-arrows --console=plain
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: boss-audit-native-arrows
+          path: |
+            work/boss-audit/evidence/
+            work/boss-audit/cloud-arrows/logs/
+          retention-days: 7
