@@ -44,11 +44,11 @@ public final class BaukHeadBlock extends HorizontalDirectionalBlock {
         level.scheduleTick(pos, this, 35 + random.nextInt(35));
     }
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        VoxelShape shape = Block.box(1, 0, -16, 15, 15, 15);
+        VoxelShape shape = Block.box(0, 0, -16, 16, 16, 16);
         return switch (state.getValue(FACING)) {
-            case SOUTH -> Block.box(1, 0, 1, 15, 15, 32);
-            case EAST -> Block.box(1, 0, 1, 32, 15, 15);
-            case WEST -> Block.box(-16, 0, 1, 15, 15, 15);
+            case SOUTH -> Block.box(0, 0, 0, 16, 16, 32);
+            case EAST -> Block.box(0, 0, 0, 32, 16, 16);
+            case WEST -> Block.box(-16, 0, 0, 16, 16, 16);
             default -> shape;
         };
     }
