@@ -6637,5 +6637,8 @@
   "item.slavicmyths.lomeya_ingot": "Lomeya Ingot",
   "item.slavicmyths.nether_soul_iv": "Nether Soul (Tier IV)",
   "item.slavicmyths.nether_soul_v": "Nether Soul (Tier V)",
-  "netherweapons.tip.empowered_infernal_bow": "Fire and Slowness I on hit. Sneak for a piercing shot. 3 rune sockets."
+  "netherweapons.tip.empowered_infernal_bow": "Fire and Slowness I on hit. Sneak for a piercing shot. 3 rune sockets.",
+  "key.slavicmyths.morovoy_mode": "Mor Staff: switch element",
+  "key.slavicmyths.morovoy_ravens": "Mor Staff: summon ravens",
+  "key.slavicmyths.morovoy_blast": "Mor Staff: fire-plague blast"
 }
