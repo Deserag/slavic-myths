@@ -6355,7 +6355,7 @@
   "netherweapons.tip.ashen_greatsword": "Empty offhand: 15 damage; occupied: 9. Sneak+RMB 0.8s: arc hitting up to 3. Recovery 18s.",
   "netherweapons.tip.shadow_throwing_knife": "RMB: throw; Sneak+RMB: weakness and armor debuff. Recovery 12s.",
   "netherweapons.tip.volcanic_heart_flail": "RMB: charged flail; Sneak+RMB 0.9s: circular pulse. Recovery 18s.",
-  "netherweapons.tip.infernal_bow": "Draw 1.2s. Sneak on release: igniting arrow. Recovery 10s; normal shots remain available.",
+  "netherweapons.tip.infernal_bow": "Fast draw and fiery arrows; sneak to charge a special shot. 2 rune sockets.",
   "block.slavicmyths.infernal_furnace": "Infernal Furnace",
   "item.slavicmyths.infernal_coal": "Infernal Coal",
   "infernal_furnace.fuel": "Infernal coal only",
@@ -6626,5 +6626,16 @@
   "entity.slavicmyths.viy_faceless_nav": "Faceless Nav",
   "entity.slavicmyths.viy_kornelap": "Root Crawler",
   "item.slavicmyths.viy_spawn_egg": "Viy Spawn Egg",
-  "effect.slavicmyths.viy_gaze": "Viy's Gaze Curse"
+  "effect.slavicmyths.viy_gaze": "Viy's Gaze Curse",
+  "item.slavicmyths.empowered_infernal_bow": "Empowered Infernal Bow",
+  "item.slavicmyths.hunter_bow_core": "Huntress Bow Core",
+  "item.slavicmyths.tryaseya_ingot": "Tryaseya Ingot",
+  "item.slavicmyths.gneteya_ingot": "Gneteya Bone Ingot",
+  "item.slavicmyths.ledeya_ingot": "Ledeya Hunter Ingot",
+  "item.slavicmyths.agneya_ingot": "Agneya Ember Ingot",
+  "item.slavicmyths.neveya_ingot": "Neveya Ingot",
+  "item.slavicmyths.lomeya_ingot": "Lomeya Ingot",
+  "item.slavicmyths.nether_soul_iv": "Nether Soul (Tier IV)",
+  "item.slavicmyths.nether_soul_v": "Nether Soul (Tier V)",
+  "netherweapons.tip.empowered_infernal_bow": "Fire and Slowness I on hit. Sneak for a piercing shot. 3 rune sockets."
 }
