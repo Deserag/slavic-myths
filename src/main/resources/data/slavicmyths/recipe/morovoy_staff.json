@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "RMC",
+    "FHF",
+    " B "
+  ],
+  "key": {
+    "R": {
+      "item": "slavicmyths:morovoy_raven_feather"
+    },
+    "M": {
+      "item": "slavicmyths:mor_core"
+    },
+    "C": {
+      "item": "slavicmyths:morovoy_fire_zmey_core"
+    },
+    "F": {
+      "item": "slavicmyths:morovoy_fire_zmey_bone"
+    },
+    "H": {
+      "item": "slavicmyths:morovoy_conductor"
+    },
+    "B": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:morovoy_staff",
+    "count": 1
+  }
+}
