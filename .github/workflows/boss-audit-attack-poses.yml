@@ -2,7 +2,7 @@ name: Boss audit controlled attack poses
 on:
   push:
     branches: ['codex/qa-bosses-release25-20261106']
-    paths: ['tools/boss-audit/REQUEST_ATTACK_POSES','.github/workflows/boss-audit-attack-poses.yml']
+    paths: ['tools/boss-audit/visual/BossAuditVisual.java','.github/workflows/boss-audit-attack-poses.yml']
   workflow_dispatch:
 permissions:
   contents: read

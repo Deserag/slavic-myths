@@ -1,0 +1,312 @@
+work\boss-audit\artifact-13478979436\work\boss-audit\hosted-client\logs\latest.log
+[06Nov2026 05:11:38.122] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:fire_serpent_head#facing=south,half=upper,quarter=nw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:38.123] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:mor_serpent_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:38.124] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=east,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:38.124] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:fire_serpent_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:38.124] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=south,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:38.124] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_raven_head#facing=west,half=lower,quarter=sw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_raven
+[06Nov2026 05:11:38.125] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=west,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:38.125] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_raven_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_raven
+[06Nov2026 05:11:38.125] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:mor_serpent_head#facing=east,half=lower,quarter=sw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:38.125] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=west,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:38.125] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_fire_zmey_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:38.126] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=north,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:38.126] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:38.126] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=north,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:38.126] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_fire_zmey_head#facing=west,half=lower,quarter=se:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:38.126] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:coal_plum_sapling#inventory:
+    minecraft:textures/atlas/blocks.png:minecraft:item/oak_sapling
+[06Nov2026 05:11:38.127] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=south,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:38.127] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=east,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:41.060] [Render thread/ERROR] [net.minecraft.world.item.crafting.RecipeManager/]: Parsing error loading recipe slavicmyths:mytar_shackled_sickle
+com.google.gson.JsonParseException: Unknown registry key in ResourceKey[minecraft:root / minecraft:item]: slavicmyths:mytar_shackled_sickle
+work\boss-audit\artifact-13479192644\work\boss-audit\hosted-client\logs\latest.log
+[06Nov2026 05:11:42.308] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:fire_serpent_head#facing=south,half=upper,quarter=nw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:42.310] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:mor_serpent_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:42.311] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=east,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:42.311] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:fire_serpent_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:42.312] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=south,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:42.312] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_raven_head#facing=west,half=lower,quarter=sw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_raven
+[06Nov2026 05:11:42.312] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=west,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:42.312] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_raven_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_raven
+[06Nov2026 05:11:42.313] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:mor_serpent_head#facing=east,half=lower,quarter=sw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:42.315] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=west,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:42.316] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_fire_zmey_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:42.316] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=north,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:42.316] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:42.316] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=north,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:42.317] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_fire_zmey_head#facing=west,half=lower,quarter=se:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:42.317] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:coal_plum_sapling#inventory:
+    minecraft:textures/atlas/blocks.png:minecraft:item/oak_sapling
+[06Nov2026 05:11:42.317] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=south,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:42.317] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=east,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:45.158] [Render thread/ERROR] [net.minecraft.world.item.crafting.RecipeManager/]: Parsing error loading recipe slavicmyths:mytar_shackled_sickle
+com.google.gson.JsonParseException: Unknown registry key in ResourceKey[minecraft:root / minecraft:item]: slavicmyths:mytar_shackled_sickle
+work\boss-audit\artifact-13479366173\work\boss-audit\hosted-client\logs\latest.log
+[06Nov2026 05:10:59.167] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:fire_serpent_head#facing=south,half=upper,quarter=nw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:10:59.168] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:mor_serpent_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:10:59.168] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=east,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:59.168] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:fire_serpent_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:10:59.168] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=south,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:59.169] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_raven_head#facing=west,half=lower,quarter=sw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_raven
+[06Nov2026 05:10:59.171] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=west,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:59.171] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_raven_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_raven
+[06Nov2026 05:10:59.171] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:mor_serpent_head#facing=east,half=lower,quarter=sw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:10:59.171] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=west,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:59.171] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_fire_zmey_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:10:59.172] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=north,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:59.172] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:59.172] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=north,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:59.172] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_fire_zmey_head#facing=west,half=lower,quarter=se:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:10:59.172] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:coal_plum_sapling#inventory:
+    minecraft:textures/atlas/blocks.png:minecraft:item/oak_sapling
+[06Nov2026 05:10:59.172] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=south,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:59.172] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=east,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:01.181] [Render thread/ERROR] [net.minecraft.world.item.crafting.RecipeManager/]: Parsing error loading recipe slavicmyths:mytar_shackled_sickle
+com.google.gson.JsonParseException: Unknown registry key in ResourceKey[minecraft:root / minecraft:item]: slavicmyths:mytar_shackled_sickle
+work\boss-audit\artifact-13479396929\work\boss-audit\hosted-client\logs\latest.log
+[06Nov2026 05:10:37.133] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:fire_serpent_head#facing=south,half=upper,quarter=nw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:10:37.133] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:mor_serpent_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:10:37.133] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=east,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:37.134] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:fire_serpent_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:10:37.134] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=south,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:37.134] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_raven_head#facing=west,half=lower,quarter=sw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_raven
+[06Nov2026 05:10:37.134] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=west,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:37.134] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_raven_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_raven
+[06Nov2026 05:10:37.134] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:mor_serpent_head#facing=east,half=lower,quarter=sw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:10:37.134] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=west,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:37.134] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_fire_zmey_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:10:37.136] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=north,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:37.136] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:37.136] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=north,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:37.136] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_fire_zmey_head#facing=west,half=lower,quarter=se:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:10:37.136] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:coal_plum_sapling#inventory:
+    minecraft:textures/atlas/blocks.png:minecraft:item/oak_sapling
+[06Nov2026 05:10:37.137] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=south,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:37.137] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=east,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:10:39.029] [Render thread/ERROR] [net.minecraft.world.item.crafting.RecipeManager/]: Parsing error loading recipe slavicmyths:mytar_shackled_sickle
+com.google.gson.JsonParseException: Unknown registry key in ResourceKey[minecraft:root / minecraft:item]: slavicmyths:mytar_shackled_sickle
+work\boss-audit\artifact-13479571775\work\boss-audit\hosted-client\logs\latest.log
+[06Nov2026 05:11:57.186] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:fire_serpent_head#facing=south,half=upper,quarter=nw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:57.186] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:mor_serpent_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:57.187] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=east,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:57.187] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:fire_serpent_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:57.187] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=south,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:57.187] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_raven_head#facing=west,half=lower,quarter=sw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_raven
+[06Nov2026 05:11:57.188] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=west,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:57.190] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_raven_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_raven
+[06Nov2026 05:11:57.191] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:mor_serpent_head#facing=east,half=lower,quarter=sw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:57.191] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=west,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:57.191] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_fire_zmey_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:57.191] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=north,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:57.191] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:57.191] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=north,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:57.192] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_fire_zmey_head#facing=west,half=lower,quarter=se:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:57.192] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:coal_plum_sapling#inventory:
+    minecraft:textures/atlas/blocks.png:minecraft:item/oak_sapling
+[06Nov2026 05:11:57.192] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=south,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:57.192] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=east,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:59.808] [Render thread/ERROR] [net.minecraft.world.item.crafting.RecipeManager/]: Parsing error loading recipe slavicmyths:mytar_shackled_sickle
+com.google.gson.JsonParseException: Unknown registry key in ResourceKey[minecraft:root / minecraft:item]: slavicmyths:mytar_shackled_sickle
+work\boss-audit\artifact-13479615871\work\boss-audit\hosted-client\logs\latest.log
+[06Nov2026 05:11:29.114] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:fire_serpent_head#facing=south,half=upper,quarter=nw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:29.115] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:mor_serpent_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:29.115] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=east,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:29.116] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:fire_serpent_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:29.116] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=south,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:29.116] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_raven_head#facing=west,half=lower,quarter=sw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_raven
+[06Nov2026 05:11:29.116] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=west,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:29.117] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_raven_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_raven
+[06Nov2026 05:11:29.117] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:mor_serpent_head#facing=east,half=lower,quarter=sw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:29.117] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=west,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:29.118] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_fire_zmey_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:29.118] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=north,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:29.118] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:29.118] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=north,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:29.119] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_fire_zmey_head#facing=west,half=lower,quarter=se:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:29.119] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:coal_plum_sapling#inventory:
+    minecraft:textures/atlas/blocks.png:minecraft:item/oak_sapling
+[06Nov2026 05:11:29.119] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=south,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:29.121] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=east,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:31.956] [Render thread/ERROR] [net.minecraft.world.item.crafting.RecipeManager/]: Parsing error loading recipe slavicmyths:mytar_shackled_sickle
+com.google.gson.JsonParseException: Unknown registry key in ResourceKey[minecraft:root / minecraft:item]: slavicmyths:mytar_shackled_sickle
+work\boss-audit\artifact-13479915142\work\boss-audit\hosted-client\logs\latest.log
+[06Nov2026 05:11:01.745] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:fire_serpent_head#facing=south,half=upper,quarter=nw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:01.746] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:mor_serpent_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:01.746] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=east,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:01.747] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:fire_serpent_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:01.747] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=south,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:01.747] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_raven_head#facing=west,half=lower,quarter=sw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_raven
+[06Nov2026 05:11:01.747] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=west,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:01.748] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_raven_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_raven
+[06Nov2026 05:11:01.748] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:mor_serpent_head#facing=east,half=lower,quarter=sw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:01.749] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=west,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:01.749] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_fire_zmey_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:01.749] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=north,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:01.749] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:01.749] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=north,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:01.749] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_fire_zmey_head#facing=west,half=lower,quarter=se:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:01.749] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:coal_plum_sapling#inventory:
+    minecraft:textures/atlas/blocks.png:minecraft:item/oak_sapling
+[06Nov2026 05:11:01.749] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=south,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:01.750] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=east,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:03.976] [Render thread/ERROR] [net.minecraft.world.item.crafting.RecipeManager/]: Parsing error loading recipe slavicmyths:mytar_shackled_sickle
+com.google.gson.JsonParseException: Unknown registry key in ResourceKey[minecraft:root / minecraft:item]: slavicmyths:mytar_shackled_sickle
+work\boss-audit\artifact-13479970330\work\boss-audit\hosted-client\logs\latest.log
+[06Nov2026 05:11:28.448] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:fire_serpent_head#facing=south,half=upper,quarter=nw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:28.448] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:mor_serpent_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:28.450] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=east,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:28.450] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:fire_serpent_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:28.451] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=south,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:28.454] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_raven_head#facing=west,half=lower,quarter=sw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_raven
+[06Nov2026 05:11:28.454] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=west,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:28.455] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_raven_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_raven
+[06Nov2026 05:11:28.455] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:mor_serpent_head#facing=east,half=lower,quarter=sw:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:28.455] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=west,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:28.455] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_fire_zmey_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:28.455] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=north,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:28.456] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#inventory:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:28.456] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=north,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:28.458] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:morovoy_fire_zmey_head#facing=west,half=lower,quarter=se:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/morovoy_fire_zmey_albedo
+[06Nov2026 05:11:28.458] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:coal_plum_sapling#inventory:
+    minecraft:textures/atlas/blocks.png:minecraft:item/oak_sapling
+[06Nov2026 05:11:28.459] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=south,jaw_open=true:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:28.459] [Worker-Main-1/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model slavicmyths:bauk_head#facing=east,jaw_open=false:
+    minecraft:textures/atlas/blocks.png:slavicmyths:entity/bauk
+[06Nov2026 05:11:31.114] [Render thread/ERROR] [net.minecraft.world.item.crafting.RecipeManager/]: Parsing error loading recipe slavicmyths:mytar_shackled_sickle
+com.google.gson.JsonParseException: Unknown registry key in ResourceKey[minecraft:root / minecraft:item]: slavicmyths:mytar_shackled_sickle
