@@ -6626,5 +6626,8 @@
   "entity.slavicmyths.viy_faceless_nav": "Faceless Nav",
   "entity.slavicmyths.viy_kornelap": "Root Crawler",
   "item.slavicmyths.viy_spawn_egg": "Viy Spawn Egg",
-  "effect.slavicmyths.viy_gaze": "Viy's Gaze Curse"
+  "effect.slavicmyths.viy_gaze": "Viy's Gaze Curse",
+  "item.slavicmyths.bauk_wool": "Bauk Wool",
+  "item.slavicmyths.bauk_cloak": "Bauk Cloak",
+  "item.slavicmyths.bauk_cloak.effect": "+3 hearts (+6 HP), +15% attack damage, -15% incoming damage"
 }

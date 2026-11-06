@@ -6635,5 +6635,8 @@
   "entity.slavicmyths.viy_kornelap": "Корнелап",
   "item.slavicmyths.viy_spawn_egg": "Яйцо призыва Вия",
   "effect.slavicmyths.viy_gaze": "Проклятие взора",
-  "item.slavicmyths.pechat_devyati_morov": "Печать девяти моров"
+  "item.slavicmyths.pechat_devyati_morov": "Печать девяти моров",
+  "item.slavicmyths.bauk_wool": "Шерсть Баука",
+  "item.slavicmyths.bauk_cloak": "Накидка Баука",
+  "item.slavicmyths.bauk_cloak.effect": "+3 сердца (+6 HP), +15% урона от атак, −15% получаемого урона"
 }
