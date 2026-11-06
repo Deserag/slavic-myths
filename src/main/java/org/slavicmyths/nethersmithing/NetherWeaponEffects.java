@@ -24,6 +24,18 @@ public final class NetherWeaponEffects {
    target.setRemainingFireTicks(Math.max(target.getRemainingFireTicks(),special?160:100));
    if(special){p.serverLevel().sendParticles(net.minecraft.core.particles.ParticleTypes.SMALL_FLAME,target.getX(),target.getY()+.5,target.getZ(),6,.2,.2,.2,.01);org.slavicmyths.burningislands.TemporaryTerrain.fire(p,target);}
   }
+  if(empowered&&special){
+   var nearby=p.serverLevel().getEntitiesOfClass(LivingEntity.class,target.getBoundingBox().inflate(2.5),
+      other->other!=target&&other.isAlive()&&NetherSkills.legal(p,other));
+   nearby.sort(java.util.Comparator.comparingDouble(other->other.distanceToSqr(target)));
+   if(!nearby.isEmpty()){
+    LivingEntity other=nearby.getFirst();
+    if(other.hurt(p.damageSources().indirectMagic(p,p),Math.min(6F,e.getNewDamage()*.55F))){
+     if(!other.fireImmune()&&!other.hasEffect(MobEffects.FIRE_RESISTANCE))other.setRemainingFireTicks(Math.max(other.getRemainingFireTicks(),100));
+     other.addEffect(new net.minecraft.world.effect.MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,0),p);
+    }
+   }
+  }
   if(empowered&&target.isAlive()){
    target.addEffect(new net.minecraft.world.effect.MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,0),p);
    p.serverLevel().sendParticles(net.minecraft.core.particles.ParticleTypes.SOUL_FIRE_FLAME,target.getX(),target.getY()+.6,target.getZ(),8,.2,.3,.2,.01);
