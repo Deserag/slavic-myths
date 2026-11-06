@@ -1,0 +1,43 @@
+name: Boss audit release25 - isolated visual evidence
+on:
+  push:
+    branches: ['codex/qa-bosses-release25-20261106']
+    paths: ['tools/boss-audit/**','tools/boss-audit-visual.gradle','.github/workflows/boss-audit-release25.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        group: ["cursed_mytar,bauk,ovinnik,brown_bear,nightingale,grey_wolf", "elder_vodyanoy,kurgan_voevoda,buried_volkhv,unresting_prince,fire_serpent,podvey", "volkolak,cursed_volkolak,likho_one_eyed,tugarin_zmey,morova_deva,trizna_prince", "zharenitsa,magma_lord,posten,grove_guardian,earth_spirit,idolishche_poganoe", "marinka,skim_beast,kartaus,kalin_tsar,great_poloz,morozko", "karachun,morovoy_raven,ledeya,neveya,lomeya,agneya", "gneteya,tryaseya,viy,extinguished_flame_guardian,defiled_spring_keeper,zmey_gorynych", "morovoy_fire_zmey,nine_mor_serpent,kladovik,large_podzemnik,ataman"]
+    env:
+      LIBGL_ALWAYS_SOFTWARE: 'true'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Install isolated virtual display
+        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri mesa-utils libopenal1
+      - name: Build unchanged production JAR and compile QA
+        run: chmod +x gradlew && ./gradlew --no-daemon -I tools/boss-audit-visual.gradle clean build compileBossAuditVisualJava --console=plain
+      - name: Capture actual framebuffer, no desktop execution
+        run: xvfb-run -a -s '-screen 0 1280x800x24' timeout 35m ./gradlew --no-daemon -I tools/boss-audit-visual.gradle runBossAuditVisual -PbossAuditIds=${{ matrix.group }} --console=plain
+      - name: Preserve evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: boss-audit-${{ strategy.job-index }}
+          path: |
+            build/boss-audit-visual/
+            work/boss-audit/hosted-client/logs/
+            build/current-resources.json
+          if-no-files-found: warn
+          retention-days: 7
