@@ -6637,5 +6637,8 @@
   "item.slavicmyths.lomeya_ingot": "Lomeya Ingot",
   "item.slavicmyths.nether_soul_iv": "Nether Soul (Tier IV)",
   "item.slavicmyths.nether_soul_v": "Nether Soul (Tier V)",
-  "netherweapons.tip.empowered_infernal_bow": "Fire and Slowness I on hit. Sneak for a piercing shot. 3 rune sockets."
+  "netherweapons.tip.empowered_infernal_bow": "Fire and Slowness I on hit. Sneak for a piercing shot. 3 rune sockets.",
+  "item.slavicmyths.bauk_wool": "Bauk Wool",
+  "item.slavicmyths.bauk_cloak": "Bauk Cloak",
+  "item.slavicmyths.bauk_cloak.effect": "+3 hearts (+6 HP), +15% attack damage, -15% incoming damage"
 }

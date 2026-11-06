@@ -48,6 +48,8 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> MYTAR_PURSE = ITEMS.register("mytar_purse", () -> new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.RARE), "belt"));
     public static final DeferredHolder<Item, Item> BAUK_FANG = ITEMS.register("bauk_fang", () -> new Item(properties().rarity(Rarity.RARE).stacksTo(1)));
     public static final DeferredHolder<Item, Item> BAUK_HIDE = ITEMS.register("bauk_hide", () -> new Item(properties().rarity(Rarity.RARE)));
+    public static final DeferredHolder<Item, Item> BAUK_WOOL = ITEMS.register("bauk_wool", () -> new Item(properties().rarity(Rarity.RARE)));
+    public static final DeferredHolder<Item, Item> BAUK_CLOAK = ITEMS.register("bauk_cloak", () -> new org.slavicmyths.posad.boss.BaukCloakItem(properties().rarity(Rarity.EPIC)));
     public static final DeferredHolder<Item, Item> BAUK_CLAW = ITEMS.register("bauk_claw", () -> new Item(properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> BAUK_HEAD_ITEM = ITEMS.register("bauk_head", () -> new BlockItem(ModBlocks.BAUK_HEAD.get(), properties().stacksTo(1).rarity(Rarity.EPIC)));
     public static final DeferredHolder<Item, Item> BAUK_HIDE_CHARM_ITEM = ITEMS.register("bauk_hide_charm", () -> new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.EPIC), "charm"));

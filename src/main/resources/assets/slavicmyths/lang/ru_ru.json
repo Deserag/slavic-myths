@@ -6646,5 +6646,8 @@
   "item.slavicmyths.lomeya_ingot": "Слиток Ломеи",
   "item.slavicmyths.nether_soul_iv": "Адская душа IV уровня",
   "item.slavicmyths.nether_soul_v": "Адская душа V уровня",
-  "netherweapons.tip.empowered_infernal_bow": "Огонь и Замедление I при попадании. Shift — пробивающий выстрел. 3 гнезда для рун."
+  "netherweapons.tip.empowered_infernal_bow": "Огонь и Замедление I при попадании. Shift — пробивающий выстрел. 3 гнезда для рун.",
+  "item.slavicmyths.bauk_wool": "Шерсть Баука",
+  "item.slavicmyths.bauk_cloak": "Накидка Баука",
+  "item.slavicmyths.bauk_cloak.effect": "+3 сердца (+6 HP), +15% урона от атак, −15% получаемого урона"
 }
