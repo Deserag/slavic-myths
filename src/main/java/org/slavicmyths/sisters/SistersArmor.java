@@ -84,13 +84,14 @@ public final class SistersArmor {
             lines.add(Component.literal("Дополнительное здоровье: +"+bonusHealth/2+" сердца").withStyle(ChatFormatting.RED));
             String effect=switch(id){
                 case "tryaseya_boots"->"Ускорение и усиленный прыжок Сапог ветра";
-                case "gneteya_chestplate"->"Негативные эффекты короче на 30%";
+                case "gneteya_chestplate"->"30% шанс полностью отразить негативный эффект";
                 case "ledeya_helmet"->"Шанс усиленного критического удара: 25%";
                 default->"Постепенно восполняет голод и насыщение";
             };
             lines.add(Component.literal(effect).withStyle(ChatFormatting.AQUA));
             lines.add(Component.literal("Рунные слоты: "+org.slavicmyths.rpg.Runes.slots(stack)+" / 3").withStyle(ChatFormatting.GRAY));
-            lines.add(Component.literal("Полный сет: полёт, Скорость III и Аура сестёр").withStyle(ChatFormatting.LIGHT_PURPLE));
+            lines.add(Component.literal("Комплект: +10 сердец, полёт, Скорость III–IV").withStyle(ChatFormatting.LIGHT_PURPLE));
+            lines.add(Component.literal("Аура: Shift + ПКМ по блоку с пустой рукой (+10% защита от дебаффов)").withStyle(ChatFormatting.GRAY));
         }
     }
     private SistersArmor() {}
