@@ -2,7 +2,7 @@ name: Boss audit actual model metadata
 on:
   push:
     branches: ['codex/qa-bosses-release25-20261106']
-    paths: ['tools/boss-audit/visual/**','.github/workflows/boss-audit-model-metadata.yml']
+    paths: ['tools/boss-audit/REQUEST_MODEL_METADATA','.github/workflows/boss-audit-model-metadata.yml']
   workflow_dispatch:
 permissions:
   contents: read
