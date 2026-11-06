@@ -1,0 +1,13 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="Test fixture only"
+[[mods]]
+modId="slavicmyths_bossaudit"
+version="1"
+displayName="Boss audit - QA only"
+[[dependencies.slavicmyths_bossaudit]]
+modId="slavicmyths"
+type="required"
+versionRange="[2.0,)"
+ordering="AFTER"
+side="SERVER"
