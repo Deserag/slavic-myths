@@ -47,11 +47,18 @@ public final class SistersArmorEvents {
             // A small supply of satiety is earned continuously while the leggings are worn.
             if(player.getFoodData().getFoodLevel()<20&&player.tickCount%35==0)player.getFoodData().eat(1,.35F);
         }
-        if(player.getItemBySlot(EquipmentSlot.CHEST).is(SistersArmor.GNETEYA_CHESTPLATE.get())) {
-            // 3 extra decrements per 7 ticks = 30% shorter debuffs; the full aura yields about 40%.
-            boolean shorten=full&&active(player)?player.tickCount%3<2:player.tickCount%7<3;
-            if(shorten)for(MobEffectInstance effect:player.getActiveEffects())if(!effect.getEffect().value().isBeneficial()&&effect.getDuration()>1)effect.tickDownDuration();
-        }
+
+    }
+
+    @SubscribeEvent(priority=net.neoforged.bus.api.EventPriority.LOWEST)
+    public static void resist(net.neoforged.neoforge.event.entity.living.MobEffectEvent.Applicable event) {
+        if(!(event.getEntity() instanceof ServerPlayer player)
+                ||event.getResult()==net.neoforged.neoforge.event.entity.living.MobEffectEvent.Applicable.Result.DO_NOT_APPLY
+                ||event.getEffectInstance().getEffect().value().isBeneficial()
+                ||!player.getItemBySlot(EquipmentSlot.CHEST).is(SistersArmor.GNETEYA_CHESTPLATE.get()))return;
+        float chance=active(player)?.40F:.30F;
+        if(player.getRandom().nextFloat()<chance)
+            event.setResult(net.neoforged.neoforge.event.entity.living.MobEffectEvent.Applicable.Result.DO_NOT_APPLY);
     }
 
     @SubscribeEvent public static void rightClick(PlayerInteractEvent.RightClickBlock event) {
