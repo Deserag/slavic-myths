@@ -92,7 +92,7 @@ public final class MorovoyStaff {
         }
 
         @Override public InteractionResult useOn(UseOnContext context) {
-            if(context.getHand()!=InteractionHand.MAIN_HAND||!context.getPlayer().isShiftKeyDown())return InteractionResult.PASS;
+            if(context.getHand()!=InteractionHand.MAIN_HAND||context.getPlayer()==null||!context.getPlayer().isShiftKeyDown())return InteractionResult.PASS;
             if(context.getPlayer() instanceof ServerPlayer player) switchMode(player,context.getItemInHand());
             return InteractionResult.SUCCESS;
         }
