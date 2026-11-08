@@ -55,15 +55,16 @@ public final class ShipyardUpgrades {
         ListTag modules = packed.getList("Raft2511Modules", Tag.TAG_COMPOUND);
         if (modules.size() > oldSize.width * oldSize.length) return ItemStack.EMPTY;
         boolean[] occupied = new boolean[next.width * next.length];
-        int offsetX = (next.width - oldSize.width) / 2;
-        int offsetZ = (next.length - oldSize.length) / 2;
         for (int i = 0; i < modules.size(); i++) {
             CompoundTag module = modules.getCompound(i);
-            int tile = module.getInt("Tile");
-            if (tile < 0 || tile >= oldSize.width * oldSize.length) return ItemStack.EMPTY;
-            int x = tile % oldSize.width + offsetX, z = tile / oldSize.width + offsetZ;
-            int destination = z * next.width + x;
-            if (destination < 0 || destination >= occupied.length || occupied[destination]) return ItemStack.EMPTY;
+            int destination;
+            try {
+                destination = ShipyardLayout.remap(module.getInt("Tile"),
+                        oldSize.width, oldSize.length, next.width, next.length);
+            } catch (IllegalArgumentException invalid) {
+                return ItemStack.EMPTY;
+            }
+            if (occupied[destination]) return ItemStack.EMPTY;
             occupied[destination] = true;
             module.putInt("Tile", destination);
         }
