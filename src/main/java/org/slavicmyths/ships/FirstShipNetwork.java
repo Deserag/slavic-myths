@@ -12,7 +12,7 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
  * requested attachment point or ship transform provided by the client.
  */
 public final class FirstShipNetwork {
-    public static final int BOARD = 1, HELM = 2;
+    public static final int BOARD = 1, HELM = 2, MODULE_MAIN = 3, MODULE_OFF = 4;
 
     public record Command(int shipId, int action) implements CustomPacketPayload {
         public static final Type<Command> TYPE = new Type<>(
@@ -30,12 +30,18 @@ public final class FirstShipNetwork {
         event.registrar("2.6.1").playToServer(Command.TYPE, Command.CODEC, (packet, context) -> {
             if (!(context.player() instanceof ServerPlayer player)
                     || !player.isAlive() || player.isSpectator()
-                    || player.isPassenger() || player.isShiftKeyDown()) return;
+                    || player.isPassenger()) return;
             if (!(player.level().getEntity(packet.shipId()) instanceof FirstShipEntity ship)
                     || ship.isRemoved() || ship.level() != player.level()) return;
             if (player.distanceToSqr(ship) > 130D) return;
-            if (packet.action() == HELM) ship.tryHelm(player);
-            else if (packet.action() == BOARD) ship.tryBoard(player);
+            if (packet.action() == HELM && !player.isShiftKeyDown()) ship.tryHelm(player);
+            else if (packet.action() == BOARD && !player.isShiftKeyDown()) ship.tryBoard(player);
+            else if ((packet.action() == MODULE_MAIN || packet.action() == MODULE_OFF)
+                    && player.isShiftKeyDown()) {
+                ship.interactFromDeck(player, packet.action() == MODULE_OFF
+                        ? net.minecraft.world.InteractionHand.OFF_HAND
+                        : net.minecraft.world.InteractionHand.MAIN_HAND);
+            }
         });
     }
     private FirstShipNetwork() {}
