@@ -22,7 +22,10 @@ public final class ModItemGroup {
             CreativeModeTab.builder()
                     .title(Component.translatableWithFallback("itemGroup.slavicmyths.shipbuilding", "Кораблестроение"))
                     .icon(() -> new ItemStack(org.slavicmyths.ships.RaftContent.RAFT_ITEM.get()))
-                    .displayItems((parameters, output) -> output.accept(org.slavicmyths.ships.RaftContent.RAFT_ITEM.get()))
+                    .displayItems((parameters, output) -> {
+                        output.accept(org.slavicmyths.ships.RaftContent.RAFT_ITEM.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.SHIPYARD_KEY.get());
+                    })
                     .withTabsAfter(ResourceLocation.fromNamespaceAndPath("slavicmyths", "furniture"))
                     .build());
     private static final Set<String> REPORTED_FALLBACKS = ConcurrentHashMap.newKeySet();
