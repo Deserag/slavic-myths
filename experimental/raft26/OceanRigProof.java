@@ -23,7 +23,7 @@ public final class OceanRigProof {
         for (long tick = 0; tick < totalTicks; tick++)
             if (tick + 1e-6D >= next) {
                 steps++;
-                next = Math.max(tick, next) + ship.exactCooldownTicks();
+                next = ship.nextAvailableTick(next, tick);
             }
         return steps;
     }
