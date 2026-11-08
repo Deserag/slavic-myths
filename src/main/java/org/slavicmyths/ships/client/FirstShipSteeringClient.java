@@ -35,7 +35,7 @@ public final class FirstShipSteeringClient {
             lastSent = -100L;
         }
         long now = mc.level.getGameTime();
-        if (now - lastSent < 10L) return;
+        if (now - lastSent < 5L) return;
         int action = 0;
         if (mc.options.keyUp.isDown()) action = FirstShipNetwork.FORWARD;
         else if (mc.options.keyDown.isDown()) action = FirstShipNetwork.BACKWARD;
