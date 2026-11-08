@@ -97,7 +97,8 @@ public final class RaftRenderer extends EntityRenderer<RaftBoatEntity> {
                     x + .2D, -.02D, 0D, .16F, .15F, length);
         }
         if (raft.hasRails()) {
-            // Strong log uprights and rails, rather than a flat decorative texture.
+            // Side rails, bow rail and an intentional central stern boarding gap.
+            // These are real upgrade visuals, not merely highlighted plank seams.
             for (int z = 0; z <= length; z += 2) for (int edge : new int[]{0, width}) {
                 piece(Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState(), pose, buffers, light,
                         edge == 0 ? 0D : width - .22D, .53D, Math.min(z, length - .22D), .22F, .92F, .22F);
@@ -112,6 +113,16 @@ public final class RaftRenderer extends EntityRenderer<RaftBoatEntity> {
             }
             piece(Blocks.SPRUCE_PLANKS.defaultBlockState(), pose, buffers, light,
                     .04D, 1.20D, .04D, width - .08F, .16F, .11F);
+            // Rear posts and rail segments leave a gap at centre for boarding.
+            piece(Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState(), pose, buffers, light,
+                    .04D, .53D, length - .20D, .22F, .92F, .20F);
+            piece(Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState(), pose, buffers, light,
+                    width - .25D, .53D, length - .20D, .22F, .92F, .20F);
+            float rearRail = Math.max(.12F, (width - 1F) / 2F);
+            piece(Blocks.SPRUCE_PLANKS.defaultBlockState(), pose, buffers, light,
+                    .04D, 1.20D, length - .20D, rearRail, .16F, .13F);
+            piece(Blocks.SPRUCE_PLANKS.defaultBlockState(), pose, buffers, light,
+                    width - rearRail - .04D, 1.20D, length - .20D, rearRail, .16F, .13F);
         }
         int sails = raft.sailCount();
         org.slavicmyths.ships.RaftWind.Sample wind = org.slavicmyths.ships.RaftWind.at(
@@ -121,11 +132,14 @@ public final class RaftRenderer extends EntityRenderer<RaftBoatEntity> {
         double crossWind = wind.east() * Math.cos(yawRadians) + wind.south() * Math.sin(yawRadians);
         double sailTurn = Math.toDegrees(Math.atan2(crossWind, 1.0D)) * .65D;
         for (int i = 0; i < sails; i++) {
-            double z = length * (i + 1.0D) / (sails + 1.0D);
+            // Shift masts forward to keep the stern helm and captain passage clear.
+            double z = sails == 1 ? length * .27D :
+                    length * (i == 0 ? .23D : .53D);
             double sway = Math.sin((raft.tickCount + tick) * .045D + i) * 3.5D * wind.strength();
             mast(pose, buffers, light, width / 2D, z, sway, sailTurn);
         }
         if (raft.hasHelm()) {
+            // Helm is forward of the rear captain seat; no torso/wheel clipping.
             double z = length - 1.16D;
             piece(Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState(), pose, buffers, light,
                     width / 2D - .18D, .58D, z, .36F, 1.2F, .36F);
