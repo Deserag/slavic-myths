@@ -77,7 +77,9 @@ public final class ShipyardUpgrades {
         }
         packed.put("Raft2511Modules", modules);
         root.put("Raft2511Pack", packed);
-        ItemStack upgraded = new ItemStack(RaftContent.raftItem(next));
+        // Keep all vanilla/custom components: names, lore, enchantments, etc.
+        // Only the registered raft item and vessel-specific payload change.
+        ItemStack upgraded = original.transmuteCopy(RaftContent.raftItem(next), 1);
         upgraded.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
         if (!player.getAbilities().instabuild) consume(player, RaftContent.DECK_SECTION.get(), sectionCost(oldSize));
         return upgraded;
@@ -120,6 +122,56 @@ public final class ShipyardUpgrades {
         result.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
         if (!player.getAbilities().instabuild) consume(player, part, 1);
         return result;
+    }
+
+    /**
+     * Remove one approved part and return it to the player. The source raft
+     * never disappears or loses cargo during reconfiguration.
+     * Actions: 7 rails, 8 one sail, 9 helm, 10 extra oars.
+     */
+    public static ItemStack dismantle(Player player, ItemStack original, int action) {
+        if (player.level().isClientSide || !(original.getItem() instanceof RaftItem)) return ItemStack.EMPTY;
+        RaftCharacteristics.Info info = RaftCharacteristics.fromItem(original);
+        if (info == null || info.invalid()) return ItemStack.EMPTY;
+        Item part = switch (action) {
+            case 7 -> RaftContent.RAIL_MODULE.get();
+            case 8 -> RaftContent.SAIL_MODULE.get();
+            case 9 -> RaftContent.HELM_MODULE.get();
+            case 10 -> RaftContent.OAR_MODULE.get();
+            default -> null;
+        };
+        if (part == null || (action == 7 && !info.rails()) ||
+                (action == 8 && info.sails() == 0) ||
+                (action == 9 && !info.helm()) ||
+                (action == 10 && !info.extraOars())) return ItemStack.EMPTY;
+        ItemStack refund = new ItemStack(part);
+        if (!canReceive(player, refund)) {
+            player.displayClientMessage(net.minecraft.network.chat.Component.literal(
+                    "Нужна свободная ячейка для снятой детали"), true);
+            return ItemStack.EMPTY;
+        }
+        CompoundTag root = original.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        CompoundTag packed = root.getCompound("Raft2511Pack").copy();
+        packed.putInt("RaftSails", info.sails() - (action == 8 ? 1 : 0));
+        int flags = (info.rails() ? 1 : 0) | (info.helm() ? 2 : 0) | (info.extraOars() ? 4 : 0);
+        flags &= ~switch (action) { case 7 -> 1; case 9 -> 2; case 10 -> 4; default -> 0; };
+        packed.putInt("RaftFlags", flags);
+        root.put("Raft2511Pack", packed);
+        ItemStack changed = original.copy();
+        changed.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
+        // All checks completed. Refund to the real player inventory, not the ship.
+        if (!player.getInventory().add(refund)) player.drop(refund, false);
+        return changed;
+    }
+
+    private static boolean canReceive(Player player, ItemStack part) {
+        int end = Math.min(36, player.getInventory().getContainerSize());
+        for (int i = 0; i < end; i++) {
+            ItemStack stack = player.getInventory().getItem(i);
+            if (stack.isEmpty() || (ItemStack.isSameItemSameComponents(stack, part) &&
+                    stack.getCount() < stack.getMaxStackSize())) return true;
+        }
+        return false;
     }
 
     private static void consume(Player player, Item item, int total) {
