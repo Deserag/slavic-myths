@@ -86,9 +86,27 @@ public final class FirstShipEntity extends Boat {
     public static int tileAt(double localX, double localZ, int floor) {
         int x = (int)Math.floor(localX + FirstShipHull.WIDTH / 2D);
         int z = (int)Math.floor(localZ + FirstShipHull.LENGTH / 2D);
-        if (!FirstShipHull.withinHull(localX, localZ, 0.46D)
-                || (floor == 1 && !FirstShipHull.mainDeckSupports(localX, localZ))) return -1;
+        if (floor < 0 || floor > 1 || !FirstShipHull.withinHull(localX, localZ, 0.46D)) return -1;
+        double centerX = x + .5D - FirstShipHull.WIDTH / 2D;
+        double centerZ = z + .5D - FirstShipHull.LENGTH / 2D;
+        // Cargo must be placed on a REAL rendered plank cell, never in a hatch,
+        // outside the tapered hold or on the missing end of the curved bow.
+        if (floor == 0 ? !FirstShipHull.holdSupports(localX, localZ)
+                || !FirstShipHull.holdSupports(centerX, centerZ)
+                : !FirstShipHull.mainDeckSupports(localX, localZ)
+                || !FirstShipHull.mainDeckSupports(centerX, centerZ)) return -1;
         return tileId(floor, x, z);
+    }
+
+    private static boolean structuralCell(int tile) {
+        int floor = tile / CELLS;
+        int x = tile % FirstShipHull.WIDTH;
+        int z = (tile % CELLS) / FirstShipHull.WIDTH;
+        double cx = x + .5D - FirstShipHull.WIDTH / 2D;
+        double cz = z + .5D - FirstShipHull.LENGTH / 2D;
+        if (floor == 0) return FirstShipHull.onLadder(cx, cz);
+        return (Math.abs(cx) < .80D && Math.abs(cz - FirstShipHull.MAST_Z) < .8D)
+                || (Math.abs(cx) < 1.0D && Math.abs(cz - FirstShipHull.HELM_Z) < 1.0D);
     }
 
     private void syncModules() {
@@ -304,11 +322,12 @@ public final class FirstShipEntity extends Boat {
                 player.getX(), player.getZ(), getX(), getZ(), getYRot());
         int floor = player.getY() > getY() + 1.8D ? 1 : 0;
         int tile = tileAt(local.x(), local.z(), floor);
-        if (tile < 0) return InteractionResult.FAIL;
+        if (tile < 0 || Math.abs(player.getY() - (floor == 1 ? deckY() : holdY())) > .72D)
+            return InteractionResult.FAIL;
         if (level().isClientSide) return InteractionResult.SUCCESS;
         if (held.is(Items.CHEST) || held.is(Items.BARREL)
                 || held.is(Items.CRAFTING_TABLE) || held.is(Items.FURNACE)) {
-            if (kind.containsKey(tile)) return InteractionResult.FAIL;
+            if (kind.containsKey(tile) || structuralCell(tile)) return InteractionResult.FAIL;
             int type = held.is(Items.CHEST) ? 1 : held.is(Items.BARREL) ? 2
                     : held.is(Items.CRAFTING_TABLE) ? 3 : 4;
             kind.put(tile, type);
