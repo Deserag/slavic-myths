@@ -21,7 +21,11 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
 
     @Override public void render(FirstShipEntity ship, float yaw, float partialTick,
             PoseStack pose, MultiBufferSource buffers, int light) {
-        // World blocks are rendered by Minecraft's normal chunk renderer.
+        // Native world blocks are drawn by Minecraft's normal chunk renderer.
+        // Legacy experimental entities have no world blocks. Only render their
+        // warning nametag so old saves can still be located and repacked.
+        if (!ship.isNativeHull())
+            super.render(ship, yaw, partialTick, pose, buffers, light);
     }
 
     @Override public ResourceLocation getTextureLocation(FirstShipEntity ship) {
