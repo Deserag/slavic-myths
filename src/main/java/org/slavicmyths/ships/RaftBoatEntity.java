@@ -3,6 +3,9 @@ package org.slavicmyths.ships;
 import java.util.HashMap;
 import java.util.Map;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.Item;
@@ -40,6 +43,7 @@ public final class RaftBoatEntity extends Boat {
     private static final double FLOATING_DRAFT = 0.14D;
     private final Map<Integer, SimpleContainer> inventories = new HashMap<>();
     private final Map<Integer, Integer> kinds = new HashMap<>();
+    private boolean packing;
 
     public RaftBoatEntity(EntityType<? extends RaftBoatEntity> type, Level level) {
         super(type, level);
@@ -67,6 +71,83 @@ public final class RaftBoatEntity extends Boat {
         if (Double.isFinite(surface) && surface > level().getMinBuildHeight() && surface < level().getMaxBuildHeight() + 1) {
             entityData.set(SURFACE_Y, (float)surface);
         }
+    }
+
+    /**
+     * Ordinary attacks, including Creative attacks, never dismantle an occupied raft.
+     * Only shipyard-key interaction can safely turn it into a packed inventory item.
+     */
+    @Override public boolean hurt(DamageSource source, float amount) { return false; }
+
+    private ListTag modulesForSaving() {
+        ListTag modules = new ListTag();
+        HolderLookup.Provider provider = registryAccess();
+        for (var entry : inventories.entrySet()) {
+            CompoundTag module = new CompoundTag();
+            module.putInt("Tile", entry.getKey());
+            module.putInt("Kind", kinds.getOrDefault(entry.getKey(), 0));
+            module.put("Items", entry.getValue().createTag(provider));
+            modules.add(module);
+        }
+        return modules;
+    }
+
+    private void unpackModules(CompoundTag tag) {
+        inventories.clear();
+        kinds.clear();
+        ListTag modules = tag.getList("Raft2511Modules", Tag.TAG_COMPOUND);
+        for (int i = 0; i < modules.size() && i < 9; i++) {
+            CompoundTag module = modules.getCompound(i);
+            int tile = module.getInt("Tile"), kind = module.getInt("Kind");
+            if (tile < 0 || tile >= 9 || (kind != 1 && kind != 2) || kinds.containsKey(tile)) continue;
+            SimpleContainer inventory = new SimpleContainer(27);
+            inventory.fromTag(module.getList("Items", Tag.TAG_COMPOUND), registryAccess());
+            kinds.put(tile, kind);
+            inventories.put(tile, inventory);
+        }
+        syncKinds();
+    }
+
+    /** Pack only local equipment state; do not clone a world-positioned entity. */
+    private ItemStack packedItem() {
+        ItemStack result = new ItemStack(RaftContent.RAFT_ITEM.get());
+        CompoundTag packed = new CompoundTag();
+        packed.putInt("Version", 1);
+        packed.putUUID("VesselId", getUUID());
+        packed.put("Raft2511Modules", modulesForSaving());
+        CompoundTag custom = new CompoundTag();
+        custom.put("Raft2511Pack", packed);
+        result.set(DataComponents.CUSTOM_DATA, CustomData.of(custom));
+        return result;
+    }
+
+    /** Called by RaftItem after validation; restores real ItemStack inventories. */
+    public boolean loadPackedItem(ItemStack stack) {
+        CustomData custom = stack.get(DataComponents.CUSTOM_DATA);
+        if (custom == null) return true;
+        CompoundTag root = custom.copyTag();
+        if (!root.contains("Raft2511Pack", Tag.TAG_COMPOUND)) return true;
+        CompoundTag packed = root.getCompound("Raft2511Pack");
+        if (packed.getInt("Version") != 1 || !packed.contains("Raft2511Modules", Tag.TAG_LIST)) return false;
+        unpackModules(packed);
+        return true;
+    }
+
+    /** Server-authoritative one-time transfer: vessel -> packed item -> inventory. */
+    private InteractionResult packWithKey(Player player) {
+        if (level().isClientSide) return InteractionResult.SUCCESS;
+        if (!(player instanceof ServerPlayer) || packing || isRemoved() || isVehicle()) return InteractionResult.FAIL;
+        if (getDeltaMovement().horizontalDistanceSqr() > .001D) {
+            player.displayClientMessage(Component.literal("Остановите плот перед упаковкой"), true);
+            return InteractionResult.FAIL;
+        }
+        ItemStack packed = packedItem();
+        packing = true;
+        // Discard before handing the complete item to avoid repeated interaction duplication.
+        discard();
+        if (!player.getInventory().add(packed)) player.drop(packed, false);
+        player.displayClientMessage(Component.literal("Плот упакован вместе со всем грузом"), true);
+        return InteractionResult.CONSUME;
     }
 
     /** The vanilla Boat pick and drop items are vanilla wooden boats unless overridden. */
@@ -131,8 +212,9 @@ public final class RaftBoatEntity extends Boat {
     }
 
     @Override public InteractionResult interact(Player player, InteractionHand hand) {
-        if (!player.isSecondaryUseActive()) return super.interact(player, hand);
         ItemStack held = player.getItemInHand(hand);
+        if (held.is(RaftContent.SHIPYARD_KEY.get())) return packWithKey(player);
+        if (!player.isSecondaryUseActive()) return super.interact(player, hand);
         int tile = localTile(player);
         if (tile < 0) return InteractionResult.FAIL;
         if (level().isClientSide) return InteractionResult.SUCCESS;
@@ -188,34 +270,13 @@ public final class RaftBoatEntity extends Boat {
 
     @Override protected void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
-        ListTag modules = new ListTag();
-        HolderLookup.Provider provider = registryAccess();
-        for (var entry : inventories.entrySet()) {
-            CompoundTag module = new CompoundTag();
-            module.putInt("Tile", entry.getKey());
-            module.putInt("Kind", kinds.getOrDefault(entry.getKey(), 0));
-            module.put("Items", entry.getValue().createTag(provider));
-            modules.add(module);
-        }
-        tag.put("Raft2511Modules", modules);
+        tag.put("Raft2511Modules", modulesForSaving());
         tag.putFloat("Raft2511SurfaceY", entityData.get(SURFACE_Y));
     }
 
     @Override protected void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
-        inventories.clear();
-        kinds.clear();
-        ListTag modules = tag.getList("Raft2511Modules", Tag.TAG_COMPOUND);
-        for (int i = 0; i < modules.size() && i < 9; i++) {
-            CompoundTag module = modules.getCompound(i);
-            int tile = module.getInt("Tile"), kind = module.getInt("Kind");
-            if (tile < 0 || tile >= 9 || (kind != 1 && kind != 2) || kinds.containsKey(tile)) continue;
-            SimpleContainer inventory = new SimpleContainer(27);
-            inventory.fromTag(module.getList("Items", Tag.TAG_COMPOUND), registryAccess());
-            kinds.put(tile, kind);
-            inventories.put(tile, inventory);
-        }
-        syncKinds();
+        unpackModules(tag);
         if (tag.contains("Raft2511SurfaceY", Tag.TAG_FLOAT)) setWaterSurface(tag.getFloat("Raft2511SurfaceY"));
     }
 }
