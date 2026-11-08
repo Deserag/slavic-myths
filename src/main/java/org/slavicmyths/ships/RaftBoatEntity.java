@@ -48,6 +48,13 @@ public final class RaftBoatEntity extends Boat {
 
     @Override protected int getMaxPassengers() { return 4; }
 
+    /** Four non-overlapping temporary test seats; not free movement on deck. */
+    @Override protected Vec3 getPassengerAttachmentPoint(net.minecraft.world.entity.Entity passenger,
+            net.minecraft.world.entity.EntityDimensions dimensions, float partialTick) {
+        int index = Math.max(0, getPassengers().indexOf(passenger));
+        return new Vec3((index % 2 == 0 ? -0.72D : 0.72D), 0.34D, (index < 2 ? -0.72D : 0.72D));
+    }
+
     public int moduleKind(int x, int z) {
         if (x < 0 || x >= 3 || z < 0 || z >= 3) return 0;
         return (entityData.get(MODULES) >>> ((z * 3 + x) * 2)) & 3;
