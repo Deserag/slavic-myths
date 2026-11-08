@@ -17,6 +17,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LadderBlock;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -98,6 +99,11 @@ public final class FirstShipBlockHull {
                         blocks.put(world(anchor, turns, x, y, z), side);
                     }
                 }
+                // Two-block standing headroom in the dry hold: air at y=1,2,
+                // ceiling at y=3. Keep the real ladder/hatch shaft clear.
+                if (!hatch(x, z) && !exposedEdge(x, z))
+                    blocks.put(world(anchor, turns, x, 3, z),
+                            Blocks.SPRUCE_PLANKS.defaultBlockState());
                 if (!hatch(x, z)) {
                     blocks.put(world(anchor, turns, x, 4, z),
                             ((z + x) & 3) == 0 ? Blocks.SPRUCE_PLANKS.defaultBlockState()
@@ -119,6 +125,8 @@ public final class FirstShipBlockHull {
                                 .setValue(FenceBlock.SOUTH, south)
                                 .setValue(FenceBlock.WEST, west)
                                 .setValue(FenceBlock.EAST, east);
+                        for (int rotation = 0; rotation < Math.floorMod(turns, 4); rotation++)
+                            rail = rail.rotate(Rotation.CLOCKWISE_90);
                         blocks.put(world(anchor, turns, x, 5, z), rail);
                     }
                 }
@@ -153,11 +161,20 @@ public final class FirstShipBlockHull {
             }
         }
 
-        // Full-block helm/pedestal with vanilla wooden parts, not fake spokes.
+        // Real full-sized 3x3 wooden ship's wheel, perpendicular to the
+        // centreline. Cross-spokes are slender fences, not a solid wall.
+        // The captain sits at z=-3, in front of this visible wheel at z=-4.
         blocks.put(world(anchor, turns, 0, 5, -4), Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState());
-        blocks.put(world(anchor, turns, 0, 6, -4), Blocks.DARK_OAK_FENCE.defaultBlockState());
-        for (int x : new int[]{-1, 1})
+        blocks.put(world(anchor, turns, 0, 7, -4), Blocks.STRIPPED_DARK_OAK_LOG.defaultBlockState()
+                .setValue(RotatedPillarBlock.AXIS,
+                        turns % 2 == 0 ? Direction.Axis.Z : Direction.Axis.X));
+        for (int x : new int[]{-1, 1}) {
+            blocks.put(world(anchor, turns, x, 7, -4), Blocks.DARK_OAK_FENCE.defaultBlockState());
             blocks.put(world(anchor, turns, x, 6, -4), Blocks.SPRUCE_FENCE.defaultBlockState());
+            blocks.put(world(anchor, turns, x, 8, -4), Blocks.SPRUCE_FENCE.defaultBlockState());
+        }
+        blocks.put(world(anchor, turns, 0, 6, -4), Blocks.DARK_OAK_FENCE.defaultBlockState());
+        blocks.put(world(anchor, turns, 0, 8, -4), Blocks.DARK_OAK_FENCE.defaultBlockState());
 
         return blocks;
     }
