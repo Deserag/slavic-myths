@@ -58,14 +58,20 @@ public final class RaftRenderer extends EntityRenderer<RaftBoatEntity> {
             piece(Blocks.SPRUCE_PLANKS.defaultBlockState(), pose, buffers, light,
                     .06D, .58D, z, 2.88F, .10F, .16F);
         }
-        // Two paired oars, one at each side; shaft and wide blade have distinct proportions.
-        for (int side : new int[]{-1, 1}) {
-            double shaftX = side < 0 ? -1.12D : 3.0D;
-            double bladeX = side < 0 ? -1.55D : 4.0D;
+        // Oars pivot at each side and stroke only when the vanilla paddles are active.
+        for (int paddle = 0; paddle < 2; paddle++) {
+            int side = paddle == 0 ? -1 : 1;
+            float rowing = raft.getPaddleState(paddle) ? raft.getRowingTime(paddle, tick) : 0F;
+            float sweep = (float)Math.sin(rowing) * (raft.getPaddleState(paddle) ? 17F : 0F);
+            pose.pushPose();
+            pose.translate(side < 0 ? -.05D : 3.05D, .37D, 1.50D);
+            pose.mulPose(Axis.YP.rotationDegrees(side * sweep));
+            pose.mulPose(Axis.ZP.rotationDegrees(side * 5F));
             piece(Blocks.OAK_PLANKS.defaultBlockState(), pose, buffers, light,
-                    shaftX, .34D, 1.43D, 1.16F, .10F, .14F);
+                    side < 0 ? -1.16D : 0D, -.06D, -.075D, 1.16F, .10F, .15F);
             piece(Blocks.SPRUCE_PLANKS.defaultBlockState(), pose, buffers, light,
-                    bladeX, .26D, 1.28D, .55F, .08F, .44F);
+                    side < 0 ? -1.7D : 1.08D, -.13D, -.24D, .62F, .08F, .48F);
+            pose.popPose();
         }
         pose.popPose();
         super.render(raft, yaw, tick, pose, buffers, light);
