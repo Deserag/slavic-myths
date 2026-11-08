@@ -15,6 +15,12 @@ public final class RaftContent {
     public static final DeferredHolder<EntityType<?>, EntityType<RaftBoatEntity>> RAFT = ModEntities.ENTITIES.register(
             "raft_2511_test", () -> EntityType.Builder.<RaftBoatEntity>of(RaftBoatEntity::new, MobCategory.MISC)
                     .sized(2.95F, 0.65F).clientTrackingRange(12).updateInterval(1).build("slavicmyths:raft_2511_test"));
+    /** Independent first ship ID; no raft item or legacy packed NBT is repurposed. */
+    public static final DeferredHolder<EntityType<?>, EntityType<FirstShipEntity>> FIRST_SHIP = ModEntities.ENTITIES.register(
+            "ship_wooden_7x11_entity", () -> EntityType.Builder.<FirstShipEntity>of(FirstShipEntity::new, MobCategory.MISC)
+                    .sized(2.95F, .65F).clientTrackingRange(16).updateInterval(1).build("slavicmyths:ship_wooden_7x11_entity"));
+    public static final DeferredHolder<Item, Item> FIRST_SHIP_ITEM = ModItems.ITEMS.register(
+            "ship_wooden_7x11", () -> new FirstShipItem(new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, Item> RAFT_ITEM = ModItems.ITEMS.register(
             "raft_2511_test", () -> new RaftItem(RaftSize.SMALL, new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, Item> RAFT_LONG = ModItems.ITEMS.register(
