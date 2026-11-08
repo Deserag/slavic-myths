@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " S ",
+    "SIS",
+    " S "
+  ],
+  "key": {
+    "S": "minecraft:oak_planks",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "slavicmyths:ship_helm_module",
+    "count": 1
+  }
+}
