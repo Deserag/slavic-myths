@@ -86,7 +86,8 @@ public final class FirstShipBlockHull {
                 // Water is replaced by a FULL solid spruce floor at y=0.
                 blocks.put(world(anchor, turns, x, 0, z),
                         x == 0 ? Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState()
-                                .setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z)
+                                .setValue(RotatedPillarBlock.AXIS,
+                                        turns % 2 == 0 ? Direction.Axis.Z : Direction.Axis.X)
                                 : Blocks.SPRUCE_PLANKS.defaultBlockState());
                 if (exposedEdge(x, z)) {
                     for (int y = 1; y <= 3; y++) {
@@ -114,7 +115,7 @@ public final class FirstShipBlockHull {
             blocks.put(world(anchor, turns, -2, y, 2), Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState());
         for (int y = 1; y <= 4; y++)
             blocks.put(world(anchor, turns, -1, y, 2), Blocks.LADDER.defaultBlockState()
-                    .setValue(LadderBlock.FACING, Direction.EAST));
+                    .setValue(LadderBlock.FACING, Direction.from2DDataValue((1 + turns) & 3)));
 
         // Solid, connected bow from a single stem block and carved high stempost.
         for (int y = 5; y <= 6; y++)
@@ -199,7 +200,8 @@ public final class FirstShipBlockHull {
         Map<BlockPos, BlockState> hull = layout(anchor, turns);
         for (var entry : hull.entrySet()) {
             if (!level.hasChunkAt(entry.getKey())
-                    || level.getBlockState(entry.getKey()) != entry.getValue()) return null;
+                    || level.getBlockState(entry.getKey()).getBlock() != entry.getValue().getBlock())
+                return null;
         }
         List<Cargo> cargo = new ArrayList<>();
         for (int z = MIN_Z; z <= MAX_Z; z++)
@@ -286,7 +288,14 @@ public final class FirstShipBlockHull {
                 state = state.rotate(net.minecraft.world.level.block.Rotation.CLOCKWISE_90);
             turned.add(new Cargo(entry.x(), entry.y(), entry.z(), entry.type(), state, entry.data()));
         }
-        // All relevant BlockEntities are serialized to memory BEFORE cleanup.
+        // Validate restoration of every container BEFORE changing the world.
+        for (Cargo entry : turned) {
+            if (entry.type() == 3) continue;
+            BlockPos targetPos = world(target, nextTurn, entry.x(), entry.y(), entry.z());
+            if (BlockEntity.loadStatic(targetPos, entry.state(), entry.data(), level.registryAccess()) == null)
+                return false;
+        }
+        // All BlockEntities are serialized before clearing any old block.
         clear(level, previous, oldTurn, snapshot);
         return build(level, target, nextTurn, turned);
     }
@@ -294,6 +303,12 @@ public final class FirstShipBlockHull {
     public static boolean place(ServerLevel level, BlockPos anchor, int turns, ListTag packed) {
         List<Cargo> cargo = decode(packed);
         if (cargo == null || !canWrite(level, anchor, turns, Set.of(), cargo)) return false;
+        for (Cargo entry : cargo) {
+            if (entry.type() == 3) continue;
+            BlockPos target = world(anchor, turns, entry.x(), entry.y(), entry.z());
+            if (BlockEntity.loadStatic(target, entry.state(), entry.data(), level.registryAccess()) == null)
+                return false;
+        }
         return build(level, anchor, turns, cargo);
     }
 
@@ -337,7 +352,7 @@ public final class FirstShipBlockHull {
         return true;
     }
 
-    public static int cargoKind(ServerLevel level, BlockPos anchor, int turns, int floor, int x, int z) {
+    public static int cargoKind(net.minecraft.world.level.Level level, BlockPos anchor, int turns, int floor, int x, int z) {
         int lx = x - 3, lz = z - 5, y = floor == 0 ? 1 : 5;
         if (!cargoCell(lx, y, lz)) return 0;
         return kind(level.getBlockState(world(anchor, turns, lx, y, lz)));
