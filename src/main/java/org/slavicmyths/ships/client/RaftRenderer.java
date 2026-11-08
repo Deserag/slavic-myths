@@ -123,6 +123,15 @@ public final class RaftRenderer extends EntityRenderer<RaftBoatEntity> {
                     side < 0 ? -1.7D : 1.08D, -.13D, -.24D, .62F, .08F, .48F);
             pose.popPose();
         }
+        if (raft.hasUpgrade(128)) for (int side : new int[]{-1, 1}) {
+            pose.pushPose();
+            pose.translate(side < 0 ? -.05D : width + .05D, .37D, length * .26D);
+            piece(Blocks.STRIPPED_OAK_LOG.defaultBlockState(), pose, buffers, light,
+                    side < 0 ? -1.12D : 0D, -.06D, -.08D, 1.12F, .11F, .16F);
+            piece(Blocks.SPRUCE_PLANKS.defaultBlockState(), pose, buffers, light,
+                    side < 0 ? -1.70D : 1.05D, -.13D, -.25D, .65F, .08F, .50F);
+            pose.popPose();
+        }
         pose.popPose();
         super.render(raft, yaw, tick, pose, buffers, light);
     }
