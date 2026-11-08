@@ -53,7 +53,7 @@ public final class FirstShipInventoryHud {
         g.drawString(mc.font, "ТРЮМ", x + 111, y + 25, 0xffe2c6a2, false);
         int[] count = new int[4];
         for (int floor = 0; floor < 2; floor++) {
-            int ox = x + (floor == 0 ? 103 : 9);
+            int ox = x + (floor == 0 ? 9 : 103);
             for (int z = 0; z < FirstShipHull.LENGTH; z++)
                 for (int ix = 0; ix < FirstShipHull.WIDTH; ix++) {
                     double cx = ix + .5D - FirstShipHull.WIDTH / 2D;
