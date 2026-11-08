@@ -98,6 +98,11 @@ public final class RaftBoatEntity extends Boat {
         return EntityDimensions.scalable(size.width - .05F, .75F);
     }
 
+    @Override public void onSyncedDataUpdated(EntityDataAccessor<?> key) {
+        super.onSyncedDataUpdated(key);
+        if (RAFT_SIZE.equals(key)) refreshDimensions();
+    }
+
     @Override protected int getMaxPassengers() { return raftSize().capacity; }
 
     /** Four non-overlapping temporary test seats; not free movement on deck. */
