@@ -82,6 +82,45 @@ public final class ShipyardUpgrades {
         return upgraded;
     }
 
+    /**
+     * Install one piece of equipment on the packed vessel at the workbench.
+     * action: 3 rails, 4 sail, 5 helm, 6 extra oars.
+     * The original stack is replaced in the same menu slot, never duplicated.
+     */
+    public static ItemStack equip(Player player, ItemStack original, int action) {
+        if (player.level().isClientSide || !(original.getItem() instanceof RaftItem raft)) return ItemStack.EMPTY;
+        RaftCharacteristics.Info info = RaftCharacteristics.fromItem(original);
+        if (info == null || info.invalid()) return ItemStack.EMPTY;
+        Item part = switch (action) {
+            case 3 -> RaftContent.RAIL_MODULE.get();
+            case 4 -> RaftContent.SAIL_MODULE.get();
+            case 5 -> RaftContent.HELM_MODULE.get();
+            case 6 -> RaftContent.OAR_MODULE.get();
+            default -> null;
+        };
+        if (part == null || (!player.getAbilities().instabuild &&
+                player.getInventory().countItem(part) < 1)) return ItemStack.EMPTY;
+        if ((action == 3 && info.rails()) || (action == 4 && info.sails() >= raft.size().maxSails()) ||
+                (action == 5 && info.helm()) || (action == 6 &&
+                (info.extraOars() || raft.size().length <= 3))) return ItemStack.EMPTY;
+        CompoundTag root = original.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        CompoundTag packed = root.contains("Raft2511Pack", Tag.TAG_COMPOUND)
+                ? root.getCompound("Raft2511Pack").copy() : new CompoundTag();
+        packed.putInt("Version", 2);
+        packed.putInt("RaftWidth", raft.size().width);
+        packed.putInt("RaftLength", raft.size().length);
+        packed.putInt("RaftSails", info.sails() + (action == 4 ? 1 : 0));
+        int flags = (info.rails() ? 1 : 0) | (info.helm() ? 2 : 0) | (info.extraOars() ? 4 : 0);
+        flags |= switch (action) { case 3 -> 1; case 5 -> 2; case 6 -> 4; default -> 0; };
+        packed.putInt("RaftFlags", flags);
+        if (!packed.contains("Raft2511Modules", Tag.TAG_LIST)) packed.put("Raft2511Modules", new ListTag());
+        root.put("Raft2511Pack", packed);
+        ItemStack result = original.copy();
+        result.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
+        if (!player.getAbilities().instabuild) consume(player, part, 1);
+        return result;
+    }
+
     private static void consume(Player player, Item item, int total) {
         int remaining = total;
         for (int i = 0; i < player.getInventory().getContainerSize() && remaining > 0; i++) {
