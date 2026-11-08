@@ -40,6 +40,16 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 .bounds(leftPos + 99, topPos + 106, 37, 20).build());
         addRenderableWidget(Button.builder(Component.literal("Вёсла"), button -> action(6))
                 .bounds(leftPos + 139, topPos + 106, 40, 20).build());
+        // Reconfiguration is distinct from installation; every removal refunds
+        // one real part on the server and fails safely if inventory is full.
+        addRenderableWidget(Button.builder(Component.literal("−Борт"), button -> action(7))
+                .bounds(leftPos + 10, topPos + 127, 41, 15).build());
+        addRenderableWidget(Button.builder(Component.literal("−Парус"), button -> action(8))
+                .bounds(leftPos + 54, topPos + 127, 42, 15).build());
+        addRenderableWidget(Button.builder(Component.literal("−Руль"), button -> action(9))
+                .bounds(leftPos + 99, topPos + 127, 37, 15).build());
+        addRenderableWidget(Button.builder(Component.literal("−Вёсла"), button -> action(10))
+                .bounds(leftPos + 139, topPos + 127, 40, 15).build());
     }
 
     private void action(int id) {
