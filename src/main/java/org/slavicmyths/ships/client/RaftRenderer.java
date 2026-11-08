@@ -74,6 +74,9 @@ public final class RaftRenderer extends EntityRenderer<RaftBoatEntity> {
             } else if (kind == 3) {
                 piece(Blocks.CRAFTING_TABLE.defaultBlockState(), pose, buffers, light,
                         x + .12D, .58D, z + .12D, .76F, .78F, .76F);
+            } else if (kind == 4) {
+                piece(Blocks.FURNACE.defaultBlockState(), pose, buffers, light,
+                        x + .12D, .58D, z + .12D, .76F, .78F, .76F);
             }
         }
         // Visible bindings around every seam: spruce reinforcement looks handcrafted.
