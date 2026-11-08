@@ -22,6 +22,8 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityDimensions;
+import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.inventory.ChestMenu;
@@ -38,6 +40,10 @@ import net.minecraft.world.phys.Vec3;
  */
 public final class RaftBoatEntity extends Boat {
     private static final EntityDataAccessor<Integer> MODULES = SynchedEntityData.defineId(RaftBoatEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> MODULES_2 = SynchedEntityData.defineId(RaftBoatEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> MODULES_3 = SynchedEntityData.defineId(RaftBoatEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> RAFT_SIZE = SynchedEntityData.defineId(RaftBoatEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> UPGRADES = SynchedEntityData.defineId(RaftBoatEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Float> SURFACE_Y = SynchedEntityData.defineId(RaftBoatEntity.class, EntityDataSerializers.FLOAT);
     private static final float UNKNOWN_SURFACE = -10000F;
     private static final double FLOATING_DRAFT = 0.14D;
@@ -54,16 +60,54 @@ public final class RaftBoatEntity extends Boat {
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(MODULES, 0);
+        builder.define(MODULES_2, 0);
+        builder.define(MODULES_3, 0);
+        builder.define(RAFT_SIZE, 0);
+        builder.define(UPGRADES, 0);
         builder.define(SURFACE_Y, UNKNOWN_SURFACE);
     }
 
-    @Override protected int getMaxPassengers() { return 4; }
+    public RaftSize raftSize() { return RaftSize.byIndex(entityData.get(RAFT_SIZE)); }
+    public int upgrades() { return entityData.get(UPGRADES); }
+    public boolean hasUpgrade(int bit) { return (upgrades() & bit) != 0; }
+    public int sailCount() { return (hasUpgrade(2) ? 1 : 0) + (hasUpgrade(4) ? 1 : 0); }
+
+    public void setRaftSize(RaftSize size) {
+        RaftSize previous = raftSize();
+        if (previous != size && !kinds.isEmpty()) {
+            Map<Integer,Integer> nextKinds = new HashMap<>();
+            Map<Integer,SimpleContainer> nextInventory = new HashMap<>();
+            for (var entry : kinds.entrySet()) {
+                int x = entry.getKey() % previous.width, z = entry.getKey() / previous.width;
+                int newTile = z * size.width + x;
+                if (x >= size.width || z >= size.length || nextKinds.putIfAbsent(newTile, entry.getValue()) != null)
+                    throw new IllegalStateException("Cannot resize raft with incompatible deck cargo");
+                if (inventories.containsKey(entry.getKey())) nextInventory.put(newTile, inventories.get(entry.getKey()));
+            }
+            kinds.clear(); kinds.putAll(nextKinds);
+            inventories.clear(); inventories.putAll(nextInventory);
+        }
+        entityData.set(RAFT_SIZE, size.ordinal());
+        refreshDimensions();
+        syncKinds();
+    }
+
+    @Override public EntityDimensions getDimensions(Pose pose) {
+        if (entityData == null) return super.getDimensions(pose);
+        RaftSize size = raftSize();
+        return EntityDimensions.scalable(size.width - .05F, .75F);
+    }
+
+    @Override protected int getMaxPassengers() { return raftSize().capacity; }
 
     /** Four non-overlapping temporary test seats; not free movement on deck. */
     @Override protected Vec3 getPassengerAttachmentPoint(net.minecraft.world.entity.Entity passenger,
             net.minecraft.world.entity.EntityDimensions dimensions, float partialTick) {
         int index = Math.max(0, getPassengers().indexOf(passenger));
-        return new Vec3((index % 2 == 0 ? -0.72D : 0.72D), 0.58D, (index < 2 ? -0.72D : 0.72D));
+        int columns = Math.max(2, raftSize().width - 1);
+        double x = (index % columns) - (columns - 1) / 2.0D;
+        double z = Math.min(raftSize().length - 2, index / columns) - (raftSize().length - 3) / 2.0D;
+        return new Vec3(x, .58D, z);
     }
 
     /** World water surface, not the block bottom. Set at placement and synced to clients. */
@@ -200,14 +244,22 @@ public final class RaftBoatEntity extends Boat {
     }
 
     public int moduleKind(int x, int z) {
-        if (x < 0 || x >= 3 || z < 0 || z >= 3) return 0;
-        return (entityData.get(MODULES) >>> ((z * 3 + x) * 2)) & 3;
+        if (x < 0 || x >= raftSize().width || z < 0 || z >= raftSize().length) return 0;
+        int shift = (z * raftSize().width + x) * 2;
+        int packed = shift < 32 ? entityData.get(MODULES) : shift < 64 ? entityData.get(MODULES_2) : entityData.get(MODULES_3);
+        return (packed >>> (shift % 32)) & 3;
     }
 
     private void syncKinds() {
-        int bits = 0;
-        for (var entry : kinds.entrySet()) bits |= (entry.getValue() & 3) << (entry.getKey() * 2);
-        entityData.set(MODULES, bits);
+        int[] bits = new int[3];
+        for (var entry : kinds.entrySet()) {
+            int shift = entry.getKey() * 2;
+            if (shift < 0 || shift >= 96) continue;
+            bits[shift / 32] |= (entry.getValue() & 3) << (shift % 32);
+        }
+        entityData.set(MODULES, bits[0]);
+        entityData.set(MODULES_2, bits[1]);
+        entityData.set(MODULES_3, bits[2]);
     }
 
     /** Ray to the deck surface, transformed into 3x3 raft-local tile coordinates. */
@@ -219,8 +271,9 @@ public final class RaftBoatEntity extends Boat {
         double dx = point.x - getX(), dz = point.z - getZ(), yaw = Math.toRadians(getYRot());
         double localX = dx * Math.cos(yaw) + dz * Math.sin(yaw);
         double localZ = -dx * Math.sin(yaw) + dz * Math.cos(yaw);
-        int x = (int)Math.floor(localX + 1.5), z = (int)Math.floor(localZ + 1.5);
-        return x >= 0 && x < 3 && z >= 0 && z < 3 ? z * 3 + x : -1;
+        int x = (int)Math.floor(localX + raftSize().width / 2.0D);
+        int z = (int)Math.floor(localZ + raftSize().length / 2.0D);
+        return x >= 0 && x < raftSize().width && z >= 0 && z < raftSize().length ? z * raftSize().width + x : -1;
     }
 
     @Override public InteractionResult interact(Player player, InteractionHand hand) {
