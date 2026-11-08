@@ -76,6 +76,6 @@ public final class RaftContent {
         return net.minecraft.util.Mth.clamp(root.getCompound("Raft2511Pack").getInt("RaftSails"), 0, 2);
     }
 
-    public static void init() { ShipyardMenu.register(); }
+    public static void init() { ShipyardMenu.register(); RaftOnboardMenu.register(); }
     private RaftContent() {}
 }
