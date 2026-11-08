@@ -11,7 +11,21 @@ public final class OceanRigProof {
         if (!test) throw new AssertionError("OceanRigProof: " + message + " #" + count);
     }
     private static void approx(double actual, double expected, String message) {
-        ok(Double.isFinite(actual) && Math.abs(actual - expected) < 1e-9, message);
+        approx(actual, expected, 1e-9, message);
+    }
+    private static void approx(double actual, double expected, double tolerance, String message) {
+        ok(Double.isFinite(actual) && Math.abs(actual - expected) < tolerance, message);
+    }
+    private static long simulatedSteps(int tier, int cloth, long totalTicks) {
+        ShipRigging ship = new ShipRigging(tier, cloth);
+        long steps = 0;
+        double next = -100D;
+        for (long tick = 0; tick < totalTicks; tick++)
+            if (tick + 1e-6D >= next) {
+                steps++;
+                next = Math.max(tick, next) + ship.exactCooldownTicks();
+            }
+        return steps;
     }
     public static void main(String[] args) {
         double[][] speeds = new double[5][4];
@@ -41,6 +55,17 @@ public final class OceanRigProof {
                     ok(!legal, "valid saved rig must load");
                 }
             }
+
+        // Simulate sustained W input: the exact fractional schedule must keep
+        // 15% and 30% fabric speed improvements even at the largest mast.
+        for (int tier = 1; tier <= 4; tier++) {
+            long base = simulatedSteps(tier, 1, 50000);
+            long linen = simulatedSteps(tier, 2, 50000);
+            long reinforced = simulatedSteps(tier, 3, 50000);
+            ok(base < linen && linen < reinforced, "all grades must differ at tier " + tier);
+            approx((double)linen / base, 1.15D, 0.01D, "linen multiplier");
+            approx((double)reinforced / base, 1.30D, 0.01D, "reinforced multiplier");
+        }
 
         // Rider, deck walker and hold passenger have independent ship-local positions.
         double[][] crew = {{0D, FirstShipHull.HELM_Z}, {1.1D, -1.8D}, {-1.25D, 1.5D}};
