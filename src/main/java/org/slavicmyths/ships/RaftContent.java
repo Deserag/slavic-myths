@@ -15,7 +15,7 @@ public final class RaftContent {
     public static final DeferredHolder<Item, Item> RAFT_ITEM = ModItems.ITEMS.register(
             "raft_2511_test", () -> new RaftItem(new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, Item> SHIPYARD_KEY = ModItems.ITEMS.register(
-            "shipyard_key", () -> new Item(new Item.Properties().stacksTo(1)));
+            "shipyard_key", () -> new ShipyardKeyItem(new Item.Properties().stacksTo(1)));
     public static void init() {}
     private RaftContent() {}
 }
