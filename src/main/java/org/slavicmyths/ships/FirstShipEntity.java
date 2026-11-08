@@ -420,6 +420,9 @@ public final class FirstShipEntity extends Boat {
     @Override public void tick() {
         boolean water = afloat();
         double surface = entityData.get(SURFACE);
+        double oldX = getX(), oldZ = getZ();
+        float oldYaw = getYRot();
+        boolean blocked = false;
         if (water) {
             Vec3 velocity = getDeltaMovement();
             setDeltaMovement(velocity.x, 0D, velocity.z);
@@ -427,9 +430,20 @@ public final class FirstShipEntity extends Boat {
         }
         super.tick();
         if (!level().isClientSide) tickShipFurnaces();
+        if (!level().isClientSide && water &&
+                ((getX() - oldX) * (getX() - oldX) + (getZ() - oldZ) * (getZ() - oldZ) > .000001D
+                        || Math.abs(net.minecraft.util.Mth.wrapDegrees(getYRot() - oldYaw)) > .05F) &&
+                !FirstShipNavigation.clear(level(), getX(), getZ(), surface, getYRot())) {
+            // Ship hull is much larger than native boat hitbox. Never allow a
+            // 7x11 visible bow or the lower hold to enter solid terrain.
+            setPos(oldX, surface - DRAFT, oldZ);
+            setYRot(oldYaw);
+            setDeltaMovement(Vec3.ZERO);
+            blocked = true;
+        }
         if (water && afloat()) {
             Vec3 velocity = getDeltaMovement();
-            if (isVehicle()) {
+            if (isVehicle() && !blocked) {
                 RaftWind.Sample wind = RaftWind.at(level().getGameTime(), getX(), getZ(),
                         level().isRaining(), level().isThundering());
                 double thrust = RaftWind.thrust(wind, getYRot(), 1) * .72D;
