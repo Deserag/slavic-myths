@@ -16,6 +16,10 @@ import net.minecraft.world.phys.HitResult;
 public final class RaftItem extends Item {
     public RaftItem(Properties properties) { super(properties); }
 
+    @Override public net.minecraft.network.chat.Component getName(ItemStack stack) {
+        return net.minecraft.network.chat.Component.translatableWithFallback("item.slavicmyths.raft_2511_test", "Плот — испытательный");
+    }
+
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack held = player.getItemInHand(hand);
