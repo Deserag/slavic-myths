@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WWW",
+    "WSW",
+    "TTT"
+  ],
+  "key": {
+    "W": "minecraft:white_wool",
+    "S": "minecraft:string",
+    "T": "minecraft:stick"
+  },
+  "result": {
+    "id": "slavicmyths:ship_sail_module",
+    "count": 1
+  }
+}
