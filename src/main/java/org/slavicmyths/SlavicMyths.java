@@ -157,6 +157,7 @@ public final class SlavicMyths {
         bus.addListener(org.slavicmyths.tales.TaleNetwork::register);
         bus.addListener(org.slavicmyths.bayun.BayunNetwork::register);
         bus.addListener(org.slavicmyths.navigation.NavigationNetwork::register);
+        bus.addListener(org.slavicmyths.ships.FirstShipNetwork::register);
         bus.addListener(org.slavicmyths.rpg.RpgNetwork::register);
         bus.addListener(org.slavicmyths.rpg.RareRuneNetwork::register);
         bus.addListener(org.slavicmyths.equipment.ClearSightNetwork::register);
