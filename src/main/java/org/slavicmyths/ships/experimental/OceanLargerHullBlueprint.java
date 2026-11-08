@@ -84,7 +84,9 @@ public final class OceanLargerHullBlueprint {
         for (int y = 1; y <= 3; y++) put(grid, -2, y, 2, Part.SIDE);
         for (int y = 1; y <= 4; y++) put(grid, -1, y, 2, Part.HATCH_LADDER);
 
-        int rear = size.stern() + 3;
+        // Leave at least one full voxel between the forward cabin door and
+        // the center mast on medium ships: otherwise mast overwrites door.
+        int rear = size.stern() + 1;
         int front = rear + size.cabinLength - 1;
         int width = size == Size.MEDIUM ? 2 : 4;
         for (int z = rear; z <= front; z++) {
