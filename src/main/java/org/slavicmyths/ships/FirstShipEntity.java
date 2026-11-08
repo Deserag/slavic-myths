@@ -1,0 +1,338 @@
+package org.slavicmyths.ships;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityDimensions;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.inventory.ChestMenu;
+import net.minecraft.world.inventory.FurnaceMenu;
+import net.minecraft.world.inventory.SimpleContainerData;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
+
+/**
+ * First independent two-deck ship. Does NOT change the four saved raft formats.
+ * A native-sized collision hull supplies boat motion; separate local geometry
+ * supplies the floor, below-deck walls and distinct helmsman's attachment.
+ *
+ * Runtime multiplayer acceptance is required before enabling this on a release.
+ */
+public final class FirstShipEntity extends Boat {
+    private static final EntityDataAccessor<Float> SURFACE = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<String> MODULES = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.STRING);
+    private static final float NO_SURFACE = -10000F;
+    private static final double DRAFT = 0.14D;
+    private static final int CELLS = FirstShipHull.WIDTH * FirstShipHull.LENGTH;
+    private final Map<Integer, SimpleContainer> inventory = new HashMap<>();
+    private final Map<Integer, Integer> kind = new HashMap<>();
+    private final Map<Integer, SimpleContainerData> furnaces = new HashMap<>();
+    private boolean packing;
+
+    public FirstShipEntity(EntityType<? extends FirstShipEntity> type, Level world) {
+        super(type, world);
+        setVariant(Type.SPRUCE);
+        setInvulnerable(true);
+    }
+
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(SURFACE, NO_SURFACE);
+        builder.define(MODULES, "0".repeat(CELLS * 2));
+    }
+
+    public double deckY() { return getY() + FirstShipHull.MAIN_DECK; }
+    public double holdY() { return getY() + FirstShipHull.HOLD_FLOOR; }
+    public int moduleKind(int floor, int x, int z) {
+        int tile = tileId(floor, x, z);
+        if (tile < 0) return 0;
+        String state = entityData.get(MODULES);
+        return tile < state.length() ? state.charAt(tile) - '0' : 0;
+    }
+
+    private static int tileId(int floor, int x, int z) {
+        return floor < 0 || floor > 1 || x < 0 || x >= FirstShipHull.WIDTH
+                || z < 0 || z >= FirstShipHull.LENGTH ? -1 : floor * CELLS + z * FirstShipHull.WIDTH + x;
+    }
+
+    public static int tileAt(double localX, double localZ, int floor) {
+        int x = (int)Math.floor(localX + FirstShipHull.WIDTH / 2D);
+        int z = (int)Math.floor(localZ + FirstShipHull.LENGTH / 2D);
+        if (!FirstShipHull.withinHull(localX, localZ, 0.46D)
+                || (floor == 1 && !FirstShipHull.mainDeckSupports(localX, localZ))) return -1;
+        return tileId(floor, x, z);
+    }
+
+    private void syncModules() {
+        char[] buffer = "0".repeat(CELLS * 2).toCharArray();
+        for (var entry : kind.entrySet()) if (entry.getKey() >= 0 && entry.getKey() < buffer.length) {
+            buffer[entry.getKey()] = (char)('0' + entry.getValue());
+        }
+        entityData.set(MODULES, new String(buffer));
+    }
+
+    public void setWaterSurface(double y) {
+        if (Double.isFinite(y) && y > level().getMinBuildHeight() && y < level().getMaxBuildHeight()) {
+            entityData.set(SURFACE, (float)y);
+        }
+    }
+
+    private boolean afloat() {
+        float surface = entityData.get(SURFACE);
+        if (surface == NO_SURFACE) return false;
+        BlockPos pos = BlockPos.containing(getX(), surface - DRAFT, getZ());
+        return level().hasChunkAt(pos) && level().getFluidState(pos).is(FluidTags.WATER);
+    }
+
+    @Override protected int getMaxPassengers() { return 1; }
+
+    /** The one genuine helm seat is on the STERN, not a fake free-walking passenger. */
+    @Override protected Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float partialTick) {
+        return new Vec3(0D, FirstShipHull.MAIN_DECK + 0.08D, FirstShipHull.HELM_Z);
+    }
+
+    @Override public boolean canCollideWith(Entity other) {
+        return !(other instanceof Player) && super.canCollideWith(other);
+    }
+
+    @Override public boolean hurt(DamageSource source, float damage) { return false; }
+    @Override public ItemStack getPickResult() { return new ItemStack(RaftContent.FIRST_SHIP_ITEM.get()); }
+    @Override public Item getDropItem() { return RaftContent.FIRST_SHIP_ITEM.get(); }
+    @Override protected Component getTypeName() { return Component.literal("Деревянный корабль 7×11"); }
+
+    private ListTag storeModules(HolderLookup.Provider registries) {
+        ListTag list = new ListTag();
+        for (var entry : kind.entrySet()) {
+            int tile = entry.getKey(), type = entry.getValue();
+            SimpleContainer slots = inventory.get(tile);
+            if (slots == null) continue;
+            CompoundTag data = new CompoundTag();
+            data.putInt("Cell", tile);
+            data.putInt("Kind", type);
+            data.put("Items", slots.createTag(registries));
+            SimpleContainerData heat = furnaces.get(tile);
+            if (heat != null) data.putIntArray("Heat", new int[]{heat.get(0), heat.get(1), heat.get(2), heat.get(3)});
+            list.add(data);
+        }
+        return list;
+    }
+
+    /** Validate the complete payload before changing a live entity or consuming an item. */
+    public boolean loadPacked(ItemStack item) {
+        CustomData custom = item.get(DataComponents.CUSTOM_DATA);
+        if (custom == null) return true;
+        CompoundTag root = custom.copyTag();
+        if (!root.contains("FirstShipPack", Tag.TAG_COMPOUND)) return true;
+        CompoundTag pack = root.getCompound("FirstShipPack");
+        if (pack.getInt("Version") != 1 || !pack.contains("Modules", Tag.TAG_LIST)) return false;
+        ListTag list = pack.getList("Modules", Tag.TAG_COMPOUND);
+        if (list.size() > CELLS * 2) return false;
+        Map<Integer, SimpleContainer> loaded = new HashMap<>();
+        Map<Integer, Integer> types = new HashMap<>();
+        Map<Integer, SimpleContainerData> heatMap = new HashMap<>();
+        Set<Integer> seen = new HashSet<>();
+        try {
+            for (int i = 0; i < list.size(); i++) {
+                CompoundTag value = list.getCompound(i);
+                int tile = value.getInt("Cell"), type = value.getInt("Kind");
+                if (tile < 0 || tile >= CELLS * 2 || type < 1 || type > 4 || !seen.add(tile)
+                        || !value.contains("Items", Tag.TAG_LIST)) return false;
+                int x = tile % FirstShipHull.WIDTH, z = (tile % CELLS) / FirstShipHull.WIDTH;
+                double localX = x + .5D - FirstShipHull.WIDTH / 2D;
+                double localZ = z + .5D - FirstShipHull.LENGTH / 2D;
+                if (tileAt(localX, localZ, tile / CELLS) != tile) return false;
+                ListTag stored = value.getList("Items", Tag.TAG_COMPOUND);
+                if (stored.size() > (type == 4 ? 3 : 27)) return false;
+                SimpleContainer slots = new SimpleContainer(type == 4 ? 3 : 27);
+                slots.fromTag(stored, registryAccess());
+                if (!stored.equals(slots.createTag(registryAccess()))) return false;
+                loaded.put(tile, slots);
+                types.put(tile, type);
+                if (type == 4) {
+                    SimpleContainerData heat = new SimpleContainerData(4);
+                    int[] ticks = value.getIntArray("Heat");
+                    for (int n = 0; n < Math.min(4, ticks.length); n++) heat.set(n, Math.max(0, ticks[n]));
+                    heatMap.put(tile, heat);
+                }
+            }
+        } catch (RuntimeException malformed) { return false; }
+        inventory.clear(); inventory.putAll(loaded);
+        kind.clear(); kind.putAll(types);
+        furnaces.clear(); furnaces.putAll(heatMap);
+        syncModules();
+        return true;
+    }
+
+    private ItemStack packed() {
+        ItemStack stack = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
+        CompoundTag pack = new CompoundTag();
+        pack.putInt("Version", 1);
+        pack.putUUID("VesselId", getUUID());
+        pack.put("Modules", storeModules(registryAccess()));
+        CompoundTag root = new CompoundTag();
+        root.put("FirstShipPack", pack);
+        stack.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
+        return stack;
+    }
+
+    /** No packing while anybody stands in the hold or on the deck. */
+    private boolean hasWalkers() {
+        AABB area = getBoundingBox().inflate(8D, 5D, 8D);
+        for (Player player : level().getEntitiesOfClass(Player.class, area)) {
+            if (player.isPassenger()) continue;
+            FirstShipHull.Point local = FirstShipHull.toLocal(
+                    player.getX(), player.getZ(), getX(), getZ(), getYRot());
+            if (FirstShipHull.withinHull(local.x(), local.z(), .0D)
+                    && player.getY() >= holdY() - 0.55D
+                    && player.getY() <= deckY() + 2.2D) return true;
+        }
+        return false;
+    }
+
+    private InteractionResult packWithKey(Player player) {
+        if (level().isClientSide) return InteractionResult.SUCCESS;
+        if (!(player instanceof ServerPlayer) || packing || isRemoved() || isVehicle()
+                || hasWalkers() || getDeltaMovement().horizontalDistanceSqr() > .0005D) {
+            player.displayClientMessage(Component.literal("Судно должно стоять без экипажа и пассажиров"), true);
+            return InteractionResult.FAIL;
+        }
+        ItemStack stack = packed();
+        packing = true;
+        discard(); // The vessel leaves the world before the returned item is granted.
+        if (!player.getInventory().add(stack)) player.drop(stack, false);
+        player.displayClientMessage(Component.literal("Корабль упакован вместе с грузом"), true);
+        return InteractionResult.CONSUME;
+    }
+
+    @Override public InteractionResult interact(Player player, InteractionHand hand) {
+        ItemStack held = player.getItemInHand(hand);
+        if (held.is(RaftContent.SHIPYARD_KEY.get())) return packWithKey(player);
+        FirstShipHull.Point local = FirstShipHull.toLocal(
+                player.getX(), player.getZ(), getX(), getZ(), getYRot());
+        // Helm can only be activated at the stern, on the MAIN deck.
+        if (!player.isSecondaryUseActive() && Math.abs(local.x()) < 1.35D
+                && Math.abs(local.z() - FirstShipHull.HELM_Z) < 1.65D
+                && Math.abs(player.getY() - deckY()) < 1.3D) {
+            if (!level().isClientSide) player.startRiding(this);
+            return InteractionResult.sidedSuccess(level().isClientSide);
+        }
+        if (!player.isSecondaryUseActive()) return InteractionResult.PASS;
+        int floor = player.getY() > getY() + 1.8D ? 1 : 0;
+        int tile = tileAt(local.x(), local.z(), floor);
+        if (tile < 0) return InteractionResult.FAIL;
+        if (level().isClientSide) return InteractionResult.SUCCESS;
+        if (held.is(Items.CHEST) || held.is(Items.BARREL)
+                || held.is(Items.CRAFTING_TABLE) || held.is(Items.FURNACE)) {
+            if (kind.containsKey(tile)) return InteractionResult.FAIL;
+            int type = held.is(Items.CHEST) ? 1 : held.is(Items.BARREL) ? 2
+                    : held.is(Items.CRAFTING_TABLE) ? 3 : 4;
+            kind.put(tile, type);
+            inventory.put(tile, new SimpleContainer(type == 4 ? 3 : 27));
+            if (type == 4) furnaces.put(tile, new SimpleContainerData(4));
+            syncModules();
+            if (!player.getAbilities().instabuild) held.shrink(1);
+            return InteractionResult.CONSUME;
+        }
+        SimpleContainer slots = inventory.get(tile);
+        if (slots == null || !(player instanceof ServerPlayer serverPlayer)) return InteractionResult.FAIL;
+        int type = kind.get(tile);
+        Component label = Component.literal(type == 1 ? "Корабельный сундук" :
+                type == 2 ? "Корабельная бочка" : type == 3 ? "Верстак" : "Корабельная печь");
+        if (type == 3) {
+            serverPlayer.openMenu(new SimpleMenuProvider((id, inv, p) ->
+                    new net.minecraft.world.inventory.CraftingMenu(id, inv,
+                            net.minecraft.world.inventory.ContainerLevelAccess.create(level(), blockPosition())) {
+                        @Override public boolean stillValid(Player viewer) {
+                            return !FirstShipEntity.this.isRemoved() && viewer.distanceToSqr(FirstShipEntity.this) < 100D;
+                        }
+                    }, label));
+        } else if (type == 4) {
+            serverPlayer.openMenu(new SimpleMenuProvider((id, inv, p) ->
+                    new FurnaceMenu(id, inv, slots, furnaces.get(tile)), label));
+        } else {
+            serverPlayer.openMenu(new SimpleMenuProvider((id, inv, p) ->
+                    ChestMenu.threeRows(id, inv, slots), label));
+        }
+        return InteractionResult.CONSUME;
+    }
+
+    @Override public void tick() {
+        boolean water = afloat();
+        double surface = entityData.get(SURFACE);
+        if (water) {
+            Vec3 velocity = getDeltaMovement();
+            setDeltaMovement(velocity.x, 0D, velocity.z);
+            setPos(getX(), surface - DRAFT, getZ());
+        }
+        super.tick();
+        if (water && afloat()) {
+            Vec3 velocity = getDeltaMovement();
+            if (isVehicle()) {
+                RaftWind.Sample wind = RaftWind.at(level().getGameTime(), getX(), getZ(),
+                        level().isRaining(), level().isThundering());
+                double thrust = RaftWind.thrust(wind, getYRot(), 1) * .72D;
+                double heading = Math.toRadians(getYRot());
+                double vx = velocity.x - Math.sin(heading) * thrust;
+                double vz = velocity.z + Math.cos(heading) * thrust;
+                double speed = Math.hypot(vx, vz);
+                if (speed > .37D) { vx *= .37D / speed; vz *= .37D / speed; }
+                velocity = new Vec3(vx, 0D, vz);
+            }
+            setDeltaMovement(velocity.x, 0D, velocity.z);
+            setPos(getX(), surface - DRAFT, getZ());
+            fallDistance = 0F;
+        } else if (!level().isClientSide && !isInWaterOrBubble()) {
+            Vec3 velocity = getDeltaMovement();
+            setDeltaMovement(0D, velocity.y, 0D);
+        }
+    }
+
+    @Override protected void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        tag.putFloat("FirstShipSurface", entityData.get(SURFACE));
+        tag.put("FirstShipModules", storeModules(registryAccess()));
+    }
+
+    @Override protected void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        if (tag.contains("FirstShipSurface", Tag.TAG_FLOAT)) setWaterSurface(tag.getFloat("FirstShipSurface"));
+        CompoundTag pack = new CompoundTag();
+        pack.putInt("Version", 1);
+        pack.put("Modules", tag.getList("FirstShipModules", Tag.TAG_COMPOUND));
+        CompoundTag root = new CompoundTag();
+        root.put("FirstShipPack", pack);
+        ItemStack temporary = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
+        temporary.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
+        if (!loadPacked(temporary)) {
+            // Keep a corrupted payload in the entity's persistent NBT rather
+            // than silently inventing empty cargo. The initial load is quarantined.
+            throw new IllegalStateException("Invalid FirstShipModules: refusing destructive partial restore");
+        }
+    }
+}
