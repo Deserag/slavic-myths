@@ -233,6 +233,54 @@ public final class FirstShipEntity extends Boat {
         return InteractionResult.CONSUME;
     }
 
+
+    /**
+     * The visible helm is ~3.6 blocks aft of the entity center; vanilla Boat
+     * interaction range targets only its ~3-block core. A validated action
+     * allows the actual painted helm to be used from its stern position.
+     */
+    public boolean tryHelm(ServerPlayer player) {
+        if (isVehicle() || player.isPassenger() || player.isSpectator()) return false;
+        FirstShipHull.Point local = FirstShipHull.toLocal(
+                player.getX(), player.getZ(), getX(), getZ(), getYRot());
+        if (Math.abs(local.x()) > 1.65D
+                || Math.abs(local.z() - FirstShipHull.HELM_Z) > 1.7D
+                || Math.abs(player.getY() - deckY()) > .9D) return false;
+        FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, FirstShipHull.HELM_Z,
+                getX(), getZ(), getYRot());
+        Vec3 aim = new Vec3(wheel.x(), deckY() + 1.50D, wheel.z()).subtract(player.getEyePosition());
+        if (aim.lengthSqr() < .09D || aim.lengthSqr() > 25D
+                || aim.normalize().dot(player.getLookAngle()) < .76D) return false;
+        return player.startRiding(this);
+    }
+
+    /**
+     * A single explicit boarding step from water to the open deck.
+     * Once on deck the player is NOT mounted or moved between fake seats.
+     */
+    public boolean tryBoard(ServerPlayer player) {
+        if (isVehicle() || player.isPassenger() || player.isSpectator()
+                || getDeltaMovement().horizontalDistanceSqr() > .0025D
+                || player.getY() >= deckY() - 1.1D) return false;
+        FirstShipHull.Point local = FirstShipHull.toLocal(
+                player.getX(), player.getZ(), getX(), getZ(), getYRot());
+        double z = FirstShipHull.clamp(local.z(), -4.7D, 4.7D);
+        double half = FirstShipHull.halfBeam(z);
+        if (Math.abs(local.z()) > 6.25D || Math.abs(local.x()) > half + 1.60D
+                || Math.abs(local.x()) < half - 1.1D && Math.abs(local.z()) < 4.9D) return false;
+        double landingX = FirstShipHull.clamp(local.x(), -half + .82D, half - .82D);
+        if (!FirstShipHull.mainDeckSupports(landingX, z)) return false;
+        FirstShipHull.Point target = FirstShipHull.toWorld(landingX, z,
+                getX(), getZ(), getYRot());
+        Vec3 delta = new Vec3(target.x() - player.getX(), deckY() - player.getY(),
+                target.z() - player.getZ());
+        if (!player.level().noCollision(player, player.getBoundingBox().move(delta))) return false;
+        player.teleportTo(target.x(), deckY() + .01D, target.z());
+        player.setDeltaMovement(Vec3.ZERO);
+        player.fallDistance = 0F;
+        return true;
+    }
+
     @Override public InteractionResult interact(Player player, InteractionHand hand) {
         ItemStack held = player.getItemInHand(hand);
         if (held.is(RaftContent.SHIPYARD_KEY.get())) return packWithKey(player);
