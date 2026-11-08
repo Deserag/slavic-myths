@@ -23,12 +23,10 @@ public final class RaftDeckEvents {
             if (raft.isRemoved()) continue;
             double deck = raft.deckTop();
             if (player.getY() < deck - .32D || player.getY() > deck + .25D) continue;
-            double dx = player.getX() - raft.getX(), dz = player.getZ() - raft.getZ();
-            double radians = Math.toRadians(raft.getYRot());
-            double localX = dx * Math.cos(radians) + dz * Math.sin(radians);
-            double localZ = -dx * Math.sin(radians) + dz * Math.cos(radians);
-            if (Math.abs(localX) > raft.deckWidth() / 2D ||
-                    Math.abs(localZ) > raft.deckLength() / 2D) continue;
+            RaftTransforms.Flat local = RaftTransforms.toLocal(
+                    player.getX() - raft.getX(), player.getZ() - raft.getZ(), raft.getYRot());
+            if (Math.abs(local.x()) > raft.deckWidth() / 2D ||
+                    Math.abs(local.z()) > raft.deckLength() / 2D) continue;
             Vec3 velocity = player.getDeltaMovement();
             if (velocity.y < 0D) player.setDeltaMovement(velocity.x, 0D, velocity.z);
             player.setOnGround(true);
