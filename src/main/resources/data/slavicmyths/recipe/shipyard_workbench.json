@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LIL",
+    "PCP",
+    "LIL"
+  ],
+  "key": {
+    "L": "minecraft:oak_log",
+    "I": "minecraft:iron_ingot",
+    "P": "minecraft:oak_planks",
+    "C": "minecraft:crafting_table"
+  },
+  "result": {
+    "id": "slavicmyths:shipyard_workbench",
+    "count": 1
+  }
+}
