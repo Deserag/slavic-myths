@@ -352,7 +352,9 @@ public final class RaftBoatEntity extends Boat {
             double power = (.012D + .010D * Math.max(-.35D, alignment)) * sailCount();
             Vec3 motion = getDeltaMovement();
             double nextX = motion.x + forwardX * power, nextZ = motion.z + forwardZ * power;
-            double max = sailCount() > 1 ? .35D : .26D;
+            // Pressing W still adds oar acceleration beyond the wind-only speed limit.
+            boolean rowing = getPaddleState(0) && getPaddleState(1);
+            double max = sailCount() > 1 ? (rowing ? .41D : .33D) : (rowing ? .32D : .24D);
             double horizontal = Math.sqrt(nextX * nextX + nextZ * nextZ);
             if (horizontal > max) { nextX *= max / horizontal; nextZ *= max / horizontal; }
             setDeltaMovement(nextX, motion.y, nextZ);
