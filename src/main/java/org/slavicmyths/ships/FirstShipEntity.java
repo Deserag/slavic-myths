@@ -54,6 +54,8 @@ public final class FirstShipEntity extends Boat {
     private final Map<Integer, Integer> kind = new HashMap<>();
     private final Map<Integer, SimpleContainerData> furnaces = new HashMap<>();
     private boolean packing;
+    /** Malformed saved inventories are retained byte-for-byte; packing is blocked. */
+    private ListTag quarantinedModules;
 
     public FirstShipEntity(EntityType<? extends FirstShipEntity> type, Level world) {
         super(type, world);
@@ -182,6 +184,7 @@ public final class FirstShipEntity extends Boat {
                 }
             }
         } catch (RuntimeException malformed) { return false; }
+        quarantinedModules = null;
         inventory.clear(); inventory.putAll(loaded);
         kind.clear(); kind.putAll(types);
         furnaces.clear(); furnaces.putAll(heatMap);
@@ -217,7 +220,7 @@ public final class FirstShipEntity extends Boat {
 
     private InteractionResult packWithKey(Player player) {
         if (level().isClientSide) return InteractionResult.SUCCESS;
-        if (!(player instanceof ServerPlayer) || packing || isRemoved() || isVehicle()
+        if (!(player instanceof ServerPlayer) || quarantinedModules != null || packing || isRemoved() || isVehicle()
                 || hasWalkers() || getDeltaMovement().horizontalDistanceSqr() > .0005D) {
             player.displayClientMessage(Component.literal("Судно должно стоять без экипажа и пассажиров"), true);
             return InteractionResult.FAIL;
@@ -316,7 +319,7 @@ public final class FirstShipEntity extends Boat {
     @Override protected void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putFloat("FirstShipSurface", entityData.get(SURFACE));
-        tag.put("FirstShipModules", storeModules(registryAccess()));
+        tag.put("FirstShipModules", quarantinedModules != null ? quarantinedModules.copy() : storeModules(registryAccess()));
     }
 
     @Override protected void readAdditionalSaveData(CompoundTag tag) {
@@ -330,9 +333,13 @@ public final class FirstShipEntity extends Boat {
         ItemStack temporary = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
         temporary.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
         if (!loadPacked(temporary)) {
-            // Keep a corrupted payload in the entity's persistent NBT rather
-            // than silently inventing empty cargo. The initial load is quarantined.
-            throw new IllegalStateException("Invalid FirstShipModules: refusing destructive partial restore");
+            // Preserve malformed raw ItemStack tags during autosave. The ship
+            // stays in-world but the key must never pack a partial empty copy.
+            quarantinedModules = tag.getList("FirstShipModules", Tag.TAG_COMPOUND).copy();
+            inventory.clear();
+            kind.clear();
+            furnaces.clear();
+            syncModules();
         }
     }
 }
