@@ -110,7 +110,7 @@ public final class ShipyardMenu extends AbstractContainerMenu {
             ItemStack created = ShipyardUpgrades.buildFirstShip(player);
             if (created.isEmpty()) {
                 player.displayClientMessage(Component.literal(
-                        "Корабль 7×11: брёвна 48, доски 96, железо 32, канаты 24, ткань 20, секции 32, борта 4, руль 1, парус 1"), true);
+                        "Корабль 7×11: брёвна 48, доски 96, железо 32, нити 24, секции 32, борта 4, руль 1. Паруса отдельно"), true);
                 return false;
             }
             input.setItem(0, created);
