@@ -305,6 +305,11 @@ public final class RaftBoatEntity extends Boat {
             if (!player.getAbilities().instabuild) held.shrink(1);
             return InteractionResult.CONSUME;
         }
+        if (kinds.getOrDefault(tile, 0) == 3 && player instanceof ServerPlayer serverPlayer) {
+            serverPlayer.openMenu(new SimpleMenuProvider((windowId, playerInventory, p) ->
+                    new RaftCraftingMenu(windowId, playerInventory, this), Component.literal("Судовой верстак")));
+            return InteractionResult.CONSUME;
+        }
         SimpleContainer inventory = inventories.get(tile);
         if (inventory != null && player instanceof ServerPlayer serverPlayer) {
             Component title = Component.literal(kinds.get(tile) == 1 ? "Судовой сундук" : "Судовая бочка");
