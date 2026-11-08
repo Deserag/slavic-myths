@@ -15,6 +15,7 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 public final class FirstShipNetwork {
     public static final int BOARD = 1, HELM = 2, MODULE_MAIN = 3, MODULE_OFF = 4;
     public static final int FORWARD = 5, BACKWARD = 6, LEFT = 7, RIGHT = 8, PACK = 9;
+    public static final int RIG_CONFIGURE = 10, RIG_REMOVE = 11;
 
     public record Command(int shipId, int action) implements CustomPacketPayload {
         public static final Type<Command> TYPE = new Type<>(
@@ -42,6 +43,10 @@ public final class FirstShipNetwork {
                 return;
             }
             if (player.isPassenger()) return;
+            if (action == RIG_CONFIGURE || action == RIG_REMOVE) {
+                ship.configureRigging(player, action);
+                return;
+            }
             if (action == HELM && !player.isShiftKeyDown()) ship.tryHelm(player);
             else if (action == BOARD && !player.isShiftKeyDown()) ship.tryBoard(player);
             else if (action == PACK && player.isShiftKeyDown()
