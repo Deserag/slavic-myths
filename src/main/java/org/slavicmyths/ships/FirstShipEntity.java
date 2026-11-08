@@ -50,6 +50,8 @@ public final class FirstShipEntity extends Boat {
     private static final EntityDataAccessor<String> MODULES = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.STRING);
     private static final EntityDataAccessor<Boolean> NATIVE = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Integer> TURNS = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> RIG = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> FABRIC = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
     private static final float NO_SURFACE = -10000F;
     private static final double DRAFT = 0.14D;
     private static final int CELLS = FirstShipHull.WIDTH * FirstShipHull.LENGTH;
@@ -63,6 +65,8 @@ public final class FirstShipEntity extends Boat {
     private BlockPos blockAnchor = BlockPos.ZERO;
     private int quarterTurns;
     private boolean nativeHull;
+    private int rigLevel;
+    private int fabricQuality;
     private long lastHelmAction = -100L;
     private boolean legacyConversionTried;
 
@@ -72,6 +76,15 @@ public final class FirstShipEntity extends Boat {
     }
     public int quarterTurns() { return entityData.get(TURNS); }
     public boolean isNativeHull() { return entityData.get(NATIVE); }
+    public int rigLevel() { return entityData.get(RIG); }
+    public int fabricQuality() { return entityData.get(FABRIC); }
+    private void setRigging(int level, int fabric) {
+        new ShipRigging(level, fabric); // validate before changing live state
+        rigLevel = level;
+        fabricQuality = fabric;
+        entityData.set(RIG, level);
+        entityData.set(FABRIC, fabric);
+    }
     public ListTag pendingBlockCargo() { return pendingBlockCargo.copy(); }
 
     public void initializeNativeHull(BlockPos anchor, int turns) {
@@ -97,6 +110,8 @@ public final class FirstShipEntity extends Boat {
         builder.define(MODULES, "0".repeat(CELLS * 2));
         builder.define(NATIVE, false);
         builder.define(TURNS, 0);
+        builder.define(RIG, 0);
+        builder.define(FABRIC, 0);
     }
 
     public double deckY() { return getY() + FirstShipHull.MAIN_DECK; }
@@ -254,7 +269,13 @@ public final class FirstShipEntity extends Boat {
         CompoundTag root = custom.copyTag();
         if (!root.contains("FirstShipPack", Tag.TAG_COMPOUND)) return true;
         CompoundTag pack = root.getCompound("FirstShipPack");
-        if (pack.getInt("Version") != 1 || !pack.contains("Modules", Tag.TAG_LIST)) return false;
+        int packVersion = pack.getInt("Version");
+        if ((packVersion != 1 && packVersion != 2)
+                || !pack.contains("Modules", Tag.TAG_LIST)) return false;
+        int loadedRig = packVersion == 1 ? 1 : pack.getInt("RigLevel");
+        int loadedFabric = packVersion == 1 ? 1 : pack.getInt("FabricQuality");
+        try { new ShipRigging(loadedRig, loadedFabric); }
+        catch (IllegalArgumentException invalid) { return false; }
         ListTag list = pack.getList("Modules", Tag.TAG_COMPOUND);
         if (list.size() > CELLS * 2) return false;
         Map<Integer, SimpleContainer> loaded = new HashMap<>();
@@ -291,6 +312,7 @@ public final class FirstShipEntity extends Boat {
             if (pendingBlockCargo.size() > CELLS * 2) return false;
         } else pendingBlockCargo = new ListTag();
         quarantinedModules = null;
+        setRigging(loadedRig, loadedFabric);
         inventory.clear(); inventory.putAll(loaded);
         kind.clear(); kind.putAll(types);
         furnaces.clear(); furnaces.putAll(heatMap);
@@ -301,11 +323,13 @@ public final class FirstShipEntity extends Boat {
     private ItemStack packed() {
         ItemStack stack = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
         CompoundTag pack = new CompoundTag();
-        pack.putInt("Version", 1);
+        pack.putInt("Version", 2);
+        pack.putInt("RigLevel", rigLevel);
+        pack.putInt("FabricQuality", fabricQuality);
         pack.putUUID("VesselId", getUUID());
         pack.put("Modules", storeModules(registryAccess()));
         if (nativeHull && level() instanceof net.minecraft.server.level.ServerLevel server) {
-            ListTag cargo = FirstShipBlockHull.pack(server, blockAnchor, quarterTurns);
+            ListTag cargo = FirstShipBlockHull.pack(server, blockAnchor, quarterTurns, rigLevel, fabricQuality);
             if (cargo == null) return ItemStack.EMPTY;
             pack.put("BlockCargo", cargo);
         }
@@ -350,7 +374,7 @@ public final class FirstShipEntity extends Boat {
         if (stack.isEmpty()) return InteractionResult.FAIL;
         if (nativeHull) {
             if (!(level() instanceof net.minecraft.server.level.ServerLevel server)
-                    || !FirstShipBlockHull.remove(server, blockAnchor, quarterTurns)) {
+                    || !FirstShipBlockHull.remove(server, blockAnchor, quarterTurns, rigLevel, fabricQuality)) {
                 player.displayClientMessage(Component.literal("Корпус изменён или груз повреждён: упаковка заблокирована"), true);
                 return InteractionResult.FAIL;
             }
@@ -546,8 +570,9 @@ public final class FirstShipEntity extends Boat {
                     && level() instanceof net.minecraft.server.level.ServerLevel server) {
                 BlockPos proposed = BlockPos.containing(getX(), getY(), getZ());
                 int turn = FirstShipBlockHull.rotationFromYaw(getYRot());
-                if (FirstShipBlockHull.place(server, proposed, turn, new ListTag())) {
+                if (FirstShipBlockHull.place(server, proposed, turn, new ListTag(), 1, 1)) {
                     initializeNativeHull(proposed, turn);
+                    setRigging(1, 1);
                     setCustomName(null);
                     setCustomNameVisible(false);
                 }
@@ -578,7 +603,8 @@ public final class FirstShipEntity extends Boat {
         if (!nativeHull || driver.getVehicle() != this || getFirstPassenger() != driver
                 || !(level() instanceof net.minecraft.server.level.ServerLevel server)
                 || action < FirstShipNetwork.FORWARD || action > FirstShipNetwork.RIGHT
-                || level().getGameTime() - lastHelmAction < 10L) return false;
+                || level().getGameTime() - lastHelmAction
+                        < new ShipRigging(rigLevel, fabricQuality).cooldownTicks()) return false;
         int nextTurn = quarterTurns;
         BlockPos nextAnchor = blockAnchor;
         if (action == FirstShipNetwork.LEFT) nextTurn = Math.floorMod(quarterTurns - 1, 4);
@@ -609,7 +635,8 @@ public final class FirstShipEntity extends Boat {
                     || (p.getY() >= deckY() - .25D && p.getY() <= deckY() + 2.3D));
             if (onShip) { walkers.add(p); localPositions.put(p, local); }
         }
-        if (!FirstShipBlockHull.move(server, oldAnchor, oldTurn, nextAnchor, nextTurn)) {
+        if (!FirstShipBlockHull.move(server, oldAnchor, oldTurn, nextAnchor, nextTurn,
+                rigLevel, fabricQuality, rigLevel, fabricQuality)) {
             driver.displayClientMessage(Component.literal(
                     "Ход заблокирован: мелководье, препятствие, изменённый корпус или груз"), true);
             lastHelmAction = level().getGameTime();
@@ -637,6 +664,8 @@ public final class FirstShipEntity extends Boat {
         if (nativeHull) {
             tag.putLong("FirstShipAnchor", blockAnchor.asLong());
             tag.putInt("FirstShipTurns", quarterTurns);
+            tag.putInt("FirstShipRigLevel", rigLevel);
+            tag.putInt("FirstShipFabricQuality", fabricQuality);
         }
         tag.put("FirstShipModules", quarantinedModules != null ? quarantinedModules.copy() : storeModules(registryAccess()));
     }
@@ -644,11 +673,22 @@ public final class FirstShipEntity extends Boat {
     @Override protected void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         nativeHull = tag.getBoolean("FirstShipNative");
-        if (nativeHull) initializeNativeHull(BlockPos.of(tag.getLong("FirstShipAnchor")),
-                tag.getInt("FirstShipTurns"));
+        if (nativeHull) {
+            initializeNativeHull(BlockPos.of(tag.getLong("FirstShipAnchor")),
+                    tag.getInt("FirstShipTurns"));
+            // Old pre-sail saves physically contain the original single wool sail.
+            int rig = tag.contains("FirstShipRigLevel", Tag.TAG_INT)
+                    ? tag.getInt("FirstShipRigLevel") : 1;
+            int fabric = tag.contains("FirstShipFabricQuality", Tag.TAG_INT)
+                    ? tag.getInt("FirstShipFabricQuality") : 1;
+            try { setRigging(rig, fabric); }
+            catch (IllegalArgumentException invalid) { setRigging(1, 1); }
+        }
         if (tag.contains("FirstShipSurface", Tag.TAG_FLOAT)) setWaterSurface(tag.getFloat("FirstShipSurface"));
         CompoundTag pack = new CompoundTag();
-        pack.putInt("Version", 1);
+        pack.putInt("Version", 2);
+        pack.putInt("RigLevel", rigLevel);
+        pack.putInt("FabricQuality", fabricQuality);
         pack.put("Modules", tag.getList("FirstShipModules", Tag.TAG_COMPOUND));
         CompoundTag root = new CompoundTag();
         root.put("FirstShipPack", pack);
