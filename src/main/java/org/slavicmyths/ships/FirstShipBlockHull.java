@@ -259,7 +259,11 @@ public final class FirstShipBlockHull {
     }
 
     private static Snapshot inspect(ServerLevel level, BlockPos anchor, int turns, int rig, int fabric) {
-        Map<BlockPos, BlockState> hull = layout(anchor, turns, rig, fabric);
+        return inspect(level, anchor, turns, layout(anchor, turns, rig, fabric));
+    }
+
+    private static Snapshot inspect(ServerLevel level, BlockPos anchor, int turns,
+            Map<BlockPos, BlockState> hull) {
         for (var entry : hull.entrySet()) {
             if (!level.hasChunkAt(entry.getKey())
                     || level.getBlockState(entry.getKey()).getBlock() != entry.getValue().getBlock())
@@ -282,7 +286,15 @@ public final class FirstShipBlockHull {
                     cargo.add(new Cargo(x, y, z, type, state, tag));
                 }
         // Do not bulldoze arbitrary additions inside the lower hold.
-        for (BlockPos pos : volume(anchor, turns, rig, fabric)) {
+        // Also examine every interior air cell: a legacy player's structure or
+        // unrecognized block is never silently overwritten as part of a step.
+        Set<BlockPos> occupied = new HashSet<>(hull.keySet());
+        for (int z = MIN_Z; z <= MAX_Z; z++)
+            for (int x = -halfWidth(z); x <= halfWidth(z); x++) {
+                for (int y = 1; y <= 3; y++) occupied.add(world(anchor, turns, x, y, z));
+                for (int y = 5; y <= 6; y++) occupied.add(world(anchor, turns, x, y, z));
+            }
+        for (BlockPos pos : occupied) {
             if (hull.containsKey(pos) || level.getBlockState(pos).isAir()) continue;
             boolean recognized = false;
             for (Cargo entry : cargo) if (world(anchor, turns, entry.x(), entry.y(), entry.z()).equals(pos)) {
@@ -331,6 +343,42 @@ public final class FirstShipBlockHull {
         ordered.sort(Comparator.comparingInt(e -> e.getKey().getY()));
         for (var entry : ordered) if (!level.setBlock(entry.getKey(), entry.getValue(), UPDATE)) return false;
         return restoreCargo(level, anchor, turns, cargo);
+    }
+
+    /**
+     * One-time upgrade for worlds saved by the original 52c8d72 native ship:
+     * the old wheel was short and the hold had three blocks of free headroom.
+     * Its original wool sail stays installed. The source remains unchanged on
+     * all validation failures; normal crates/BlockEntities are snapshotted.
+     */
+    private static Map<BlockPos, BlockState> legacyLayout(BlockPos anchor, int turns) {
+        Map<BlockPos, BlockState> legacy = layout(anchor, turns, 1, 1);
+        for (int z = MIN_Z; z <= MAX_Z; z++)
+            for (int x = -halfWidth(z); x <= halfWidth(z); x++)
+                if (!hatch(x, z) && !exposedEdge(x, z))
+                    legacy.remove(world(anchor, turns, x, 3, z));
+        for (int x = -1; x <= 1; x++) {
+            legacy.remove(world(anchor, turns, x, 7, -4));
+            legacy.remove(world(anchor, turns, x, 8, -4));
+        }
+        return legacy;
+    }
+
+    public static boolean migrateLegacy(ServerLevel level, BlockPos anchor, int turns) {
+        Snapshot original = inspect(level, anchor, turns, legacyLayout(anchor, turns));
+        if (original == null) return false;
+        Set<BlockPos> owned = new HashSet<>(original.blocks().keySet());
+        for (Cargo cargo : original.cargo())
+            owned.add(world(anchor, turns, cargo.x(), cargo.y(), cargo.z()));
+        if (!canWrite(level, anchor, turns, owned, original.cargo(), 1, 1)) return false;
+        for (Cargo cargo : original.cargo()) {
+            if (cargo.type() == 3) continue;
+            BlockPos target = world(anchor, turns, cargo.x(), cargo.y(), cargo.z());
+            if (BlockEntity.loadStatic(target, cargo.state(), cargo.data(), level.registryAccess()) == null)
+                return false;
+        }
+        clear(level, anchor, turns, original);
+        return build(level, anchor, turns, original.cargo(), 1, 1);
     }
 
     /** Transaction checks source intact, future footprint safe, then moves blocks once. */
