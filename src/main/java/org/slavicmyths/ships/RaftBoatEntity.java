@@ -104,6 +104,8 @@ public final class RaftBoatEntity extends Boat {
     @Override protected Vec3 getPassengerAttachmentPoint(net.minecraft.world.entity.Entity passenger,
             net.minecraft.world.entity.EntityDimensions dimensions, float partialTick) {
         int index = Math.max(0, getPassengers().indexOf(passenger));
+        // The pilot stands at the steering post when the helm is installed.
+        if (index == 0 && hasUpgrade(8)) return new Vec3(0D, .58D, raftSize().length / 2.0D - 1.27D);
         int columns = Math.max(2, raftSize().width - 1);
         double x = (index % columns) - (columns - 1) / 2.0D;
         double z = Math.min(raftSize().length - 2, index / columns) - (raftSize().length - 3) / 2.0D;
