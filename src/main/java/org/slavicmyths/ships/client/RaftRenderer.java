@@ -62,6 +62,52 @@ public final class RaftRenderer extends EntityRenderer<RaftBoatEntity> {
             piece(Blocks.SPRUCE_PLANKS.defaultBlockState(), pose, buffers, light,
                     .06D, .58D, z, width - .12F, .10F, .16F);
         }
+        // Modular guards and raised wooden rails. Rails surround each permitted hull size.
+        if (raft.hasUpgrade(1)) {
+            for (int z = 0; z < length; z += 2) for (int x : new int[]{0, width - 1}) {
+                piece(Blocks.OAK_FENCE.defaultBlockState(), pose, buffers, light,
+                        x + .31D, .58D, z + .31D, .38F, .75F, .38F);
+            }
+            for (int x = 0; x < width; x += 2) for (int z : new int[]{0, length - 1}) {
+                piece(Blocks.OAK_FENCE.defaultBlockState(), pose, buffers, light,
+                        x + .31D, .58D, z + .31D, .38F, .75F, .38F);
+            }
+            for (int x : new int[]{0, width - 1}) piece(Blocks.SPRUCE_PLANKS.defaultBlockState(), pose, buffers, light,
+                    x + .39D, 1.27D, .31D, .15F, .13F, length - .62F);
+            for (int z : new int[]{0, length - 1}) piece(Blocks.SPRUCE_PLANKS.defaultBlockState(), pose, buffers, light,
+                    .35D, 1.27D, z + .39D, width - .7F, .13F, .15F);
+        }
+        if (raft.hasUpgrade(64)) piece(Blocks.DARK_OAK_LOG.defaultBlockState(), pose, buffers, light,
+                .25D, -.13D, .25D, width - .5F, .18F, length - .5F);
+        if (raft.hasUpgrade(16)) piece(Blocks.STONE_BRICKS.defaultBlockState(), pose, buffers, light,
+                width / 2.0D - .5D, .58D, length / 2.0D - .5D, 1F, .25F, 1F);
+        if (raft.hasUpgrade(32)) for (int x : new int[]{0, width - 1})
+            piece(Blocks.LANTERN.defaultBlockState(), pose, buffers, light, x + .2D, 1.22D, .2D, .5F, .6F, .5F);
+        // Rudder post: ordinary wooden controls instead of modern machinery.
+        if (raft.hasUpgrade(8)) {
+            double cx = width / 2.0D, cz = length - .75D;
+            piece(Blocks.DARK_OAK_FENCE.defaultBlockState(), pose, buffers, light,
+                    cx - .16D, .58D, cz - .15D, .32F, 1.12F, .32F);
+            piece(Blocks.STRIPPED_OAK_LOG.defaultBlockState(), pose, buffers, light,
+                    cx - .39D, 1.44D, cz - .34D, .78F, .15F, .17F);
+            piece(Blocks.STRIPPED_OAK_LOG.defaultBlockState(), pose, buffers, light,
+                    cx - .07D, 1.18D, cz - .34D, .14F, .76F, .17F);
+        }
+        // One or two sturdy masts, with white wool and red Slavic cloth ornaments.
+        for (int i = 0; i < raft.sailCount(); i++) {
+            double cz = raft.sailCount() == 1 ? length * .48D : length * (i == 0 ? .32D : .68D);
+            double cx = width / 2.0D;
+            piece(Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState(), pose, buffers, light,
+                    cx - .12D, .58D, cz - .12D, .24F, 3.9F, .24F);
+            piece(Blocks.SPRUCE_PLANKS.defaultBlockState(), pose, buffers, light,
+                    cx - 1.2D, 3.99D, cz - .13D, 2.4F, .16F, .26F);
+            piece(Blocks.WHITE_WOOL.defaultBlockState(), pose, buffers, light,
+                    cx - 1.08D, 1.87D, cz - .07D, 2.16F, 2.08F, .13F);
+            piece(Blocks.RED_WOOL.defaultBlockState(), pose, buffers, light,
+                    cx - .09D, 2.40D, cz - .10D, .18F, 1.04F, .18F);
+            piece(Blocks.RED_WOOL.defaultBlockState(), pose, buffers, light,
+                    cx - .57D, 2.90D, cz - .10D, 1.14F, .16F, .18F);
+        }
         // Oars pivot at each side and stroke only when the vanilla paddles are active.
         for (int paddle = 0; paddle < 2; paddle++) {
             int side = paddle == 0 ? -1 : 1;
