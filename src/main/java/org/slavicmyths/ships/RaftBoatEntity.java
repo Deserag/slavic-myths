@@ -81,6 +81,20 @@ public final class RaftBoatEntity extends Boat {
         entityData.set(RAFT_WIDTH, size.width);
         entityData.set(RAFT_LENGTH, size.length);
         syncKinds();
+        refreshDimensions();
+    }
+
+    // Use a broad square collision envelope for the first large-raft test.
+    // A future dedicated physics hull will replace this with a rectangular ship-local deck.
+    @Override public net.minecraft.world.entity.EntityDimensions getDimensions(net.minecraft.world.entity.Pose pose) {
+        if (this.entityData == null) return super.getDimensions(pose);
+        return net.minecraft.world.entity.EntityDimensions.scalable(
+                Math.max(deckWidth(), deckLength()) - .05F, .65F);
+    }
+
+    @Override public void onSyncedDataUpdated(EntityDataAccessor<?> accessor) {
+        super.onSyncedDataUpdated(accessor);
+        if (accessor.equals(RAFT_WIDTH) || accessor.equals(RAFT_LENGTH)) refreshDimensions();
     }
 
     @Override protected int getMaxPassengers() { return 4; }
