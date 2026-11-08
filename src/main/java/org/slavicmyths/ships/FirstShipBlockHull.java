@@ -115,7 +115,7 @@ public final class FirstShipBlockHull {
             blocks.put(world(anchor, turns, -2, y, 2), Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState());
         for (int y = 1; y <= 4; y++)
             blocks.put(world(anchor, turns, -1, y, 2), Blocks.LADDER.defaultBlockState()
-                    .setValue(LadderBlock.FACING, Direction.from2DDataValue((1 + turns) & 3)));
+                    .setValue(LadderBlock.FACING, switch (Math.floorMod(turns, 4)) { case 0 -> Direction.EAST; case 1 -> Direction.SOUTH; case 2 -> Direction.WEST; default -> Direction.NORTH; }));
 
         // Solid, connected bow from a single stem block and carved high stempost.
         for (int y = 5; y <= 6; y++)
