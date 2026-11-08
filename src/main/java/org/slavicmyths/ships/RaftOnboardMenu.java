@@ -27,6 +27,10 @@ public final class RaftOnboardMenu extends AbstractContainerMenu {
                     () -> IMenuTypeExtension.create((id, inv, buf) ->
                             new RaftOnboardMenu(id, inv, buf.readVarInt())));
     private final RaftBoatEntity raft;
+    private final Player viewer;
+    // A client-side display mirror only, populated by vanilla menu slot packets.
+    // The server always reads and edits the original hull's live inventories.
+    private final SimpleContainer clientMirror = new SimpleContainer(27);
     private final SimpleContainerData view = new SimpleContainerData(2);
     private final Container cargo = new OnboardSlots();
 
@@ -41,6 +45,7 @@ public final class RaftOnboardMenu extends AbstractContainerMenu {
     public RaftOnboardMenu(int id, Inventory inventory, RaftBoatEntity vessel) {
         super(TYPE.get(), id);
         raft = vessel;
+        viewer = inventory.player;
         addDataSlots(view);
         for (int row = 0; row < 3; row++)
             for (int col = 0; col < 9; col++)
@@ -122,23 +127,34 @@ public final class RaftOnboardMenu extends AbstractContainerMenu {
             return true;
         }
         @Override public ItemStack getItem(int index) {
+            if (index < 0 || index >= 27) return ItemStack.EMPTY;
+            if (viewer.level().isClientSide) return clientMirror.getItem(index);
             Container active = actualCargo();
-            return active == null || index < 0 || index >= active.getContainerSize() ?
+            return active == null || index >= active.getContainerSize() ?
                     ItemStack.EMPTY : active.getItem(index);
         }
         @Override public ItemStack removeItem(int index, int amount) {
+            if (!editableCargo() || index < 0 || index >= 27) return ItemStack.EMPTY;
+            if (viewer.level().isClientSide) return clientMirror.removeItem(index, amount);
             Container active = actualCargo();
-            return active == null || !editableCargo() || index < 0 || index >= active.getContainerSize() ?
+            return active == null || index >= active.getContainerSize() ?
                     ItemStack.EMPTY : active.removeItem(index, amount);
         }
         @Override public ItemStack removeItemNoUpdate(int index) {
+            if (!editableCargo() || index < 0 || index >= 27) return ItemStack.EMPTY;
+            if (viewer.level().isClientSide) return clientMirror.removeItemNoUpdate(index);
             Container active = actualCargo();
-            return active == null || !editableCargo() || index < 0 || index >= active.getContainerSize() ?
+            return active == null || index >= active.getContainerSize() ?
                     ItemStack.EMPTY : active.removeItemNoUpdate(index);
         }
         @Override public void setItem(int index, ItemStack stack) {
+            if (index < 0 || index >= 27) return;
+            if (viewer.level().isClientSide) {
+                clientMirror.setItem(index, stack);
+                return;
+            }
             Container active = actualCargo();
-            if (active != null && editableCargo() && index >= 0 && index < active.getContainerSize())
+            if (active != null && editableCargo() && index < active.getContainerSize())
                 active.setItem(index, stack);
         }
         @Override public void setChanged() {
