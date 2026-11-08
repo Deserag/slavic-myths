@@ -11,6 +11,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import org.slavicmyths.ships.RaftBoatEntity;
+import org.slavicmyths.ships.RaftTransforms;
 
 /**
  * One movement writer: the LOCAL client's player, never both client and server.
@@ -43,17 +44,14 @@ public final class RaftDeckClient {
             boolean linked = prev != null && prev.entityId == raft.getId();
             if (feet < surface - (linked ? .33D : .28D) ||
                     feet > surface + (linked ? .40D : .30D)) continue;
-            double dx = player.getX() - raft.getX(), dz = player.getZ() - raft.getZ();
-            if (linked) {
-                // Player walk delta remains in the prior ship-local frame.
-                double px = player.getX() - prev.x, pz = player.getZ() - prev.z;
-                double turn = Math.toRadians(Mth.wrapDegrees(raft.getYRot() - prev.yaw));
-                dx = px * Math.cos(turn) - pz * Math.sin(turn);
-                dz = px * Math.sin(turn) + pz * Math.cos(turn);
-            }
-            double yaw = Math.toRadians(raft.getYRot());
-            double lx = dx * Math.cos(yaw) + dz * Math.sin(yaw);
-            double lz = -dx * Math.sin(yaw) + dz * Math.cos(yaw);
+            // Use exactly the same 180-yaw model transform as RaftRenderer.
+            // Ship motion/turn is applied ONCE, while walking input remains local.
+            RaftTransforms.Flat local = linked ?
+                    RaftTransforms.toLocal(player.getX() - prev.x,
+                            player.getZ() - prev.z, prev.yaw) :
+                    RaftTransforms.toLocal(player.getX() - raft.getX(),
+                            player.getZ() - raft.getZ(), raft.getYRot());
+            double lx = local.x(), lz = local.z();
             double halfW = raft.deckWidth() / 2D, halfL = raft.deckLength() / 2D;
             if (Math.abs(lx) > halfW + .08D || Math.abs(lz) > halfL + .08D) {
                 if (linked) LAST.remove(player);
@@ -62,10 +60,9 @@ public final class RaftDeckClient {
             if (raft.hasRails()) {
                 lx = Mth.clamp(lx, -halfW + .30D, halfW - .30D);
                 lz = Mth.clamp(lz, -halfL + .30D, halfL - .30D);
-                dx = lx * Math.cos(yaw) - lz * Math.sin(yaw);
-                dz = lx * Math.sin(yaw) + lz * Math.cos(yaw);
             }
-            double nextX = raft.getX() + dx, nextZ = raft.getZ() + dz;
+            RaftTransforms.Flat next = RaftTransforms.toWorld(lx, lz, raft.getYRot());
+            double nextX = raft.getX() + next.x(), nextZ = raft.getZ() + next.z();
             if (Math.abs(nextX - player.getX()) > .001D ||
                     Math.abs(nextZ - player.getZ()) > .001D ||
                     Math.abs(surface - feet) > .015D)
