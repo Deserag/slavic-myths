@@ -52,6 +52,10 @@ public final class RaftContent {
 
     /** Ready-made Creative rafts store their upgrades in the same payload as a safely packed vessel. */
     public static net.minecraft.world.item.ItemStack readyRaft(RaftSize size, int sails) {
+        return readyRaft(size, sails, false);
+    }
+
+    public static net.minecraft.world.item.ItemStack readyRaft(RaftSize size, int sails, boolean rails) {
         if (sails < 0 || sails > size.maxSails()) throw new IllegalArgumentException("Invalid sails");
         net.minecraft.world.item.ItemStack stack = new net.minecraft.world.item.ItemStack(raftItem(size));
         net.minecraft.nbt.CompoundTag packed = new net.minecraft.nbt.CompoundTag();
@@ -59,7 +63,7 @@ public final class RaftContent {
         packed.putInt("RaftWidth", size.width);
         packed.putInt("RaftLength", size.length);
         packed.putInt("RaftSails", sails);
-        packed.putInt("RaftFlags", sails == 0 ? 0 : 2); // ready to sail: helm installed
+        packed.putInt("RaftFlags", (sails == 0 ? 0 : 2) | (rails ? 1 : 0)); // ready to sail and/or fenced
         packed.put("Raft2511Modules", new net.minecraft.nbt.ListTag());
         net.minecraft.nbt.CompoundTag root = new net.minecraft.nbt.CompoundTag();
         root.put("Raft2511Pack", packed);
@@ -74,6 +78,16 @@ public final class RaftContent {
         net.minecraft.nbt.CompoundTag root = data.copyTag();
         if (!root.contains("Raft2511Pack", net.minecraft.nbt.Tag.TAG_COMPOUND)) return 0;
         return net.minecraft.util.Mth.clamp(root.getCompound("Raft2511Pack").getInt("RaftSails"), 0, 2);
+    }
+
+    /** Client-side item model predicate; the exact packed rail flag is authoritative. */
+    public static int railPreset(net.minecraft.world.item.ItemStack stack) {
+        net.minecraft.world.item.component.CustomData data =
+                stack.get(net.minecraft.core.component.DataComponents.CUSTOM_DATA);
+        if (data == null) return 0;
+        net.minecraft.nbt.CompoundTag root = data.copyTag();
+        if (!root.contains("Raft2511Pack", net.minecraft.nbt.Tag.TAG_COMPOUND)) return 0;
+        return (root.getCompound("Raft2511Pack").getInt("RaftFlags") & 1) == 0 ? 0 : 1;
     }
 
     public static void init() { ShipyardMenu.register(); RaftOnboardMenu.register(); }
