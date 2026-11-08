@@ -1,0 +1,177 @@
+package org.slavicmyths.verify;
+
+import com.mojang.authlib.GameProfile;
+import io.netty.channel.Channel;
+import io.netty.channel.embedded.EmbeddedChannel;
+import java.util.UUID;
+import net.minecraft.commands.arguments.EntityAnchorArgument;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.gametest.framework.GameTest;
+import net.minecraft.gametest.framework.GameTestHelper;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.network.Connection;
+import net.minecraft.network.PacketSendListener;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.PacketFlow;
+import net.minecraft.server.level.ClientInformation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.network.CommonListenerCookie;
+import net.minecraft.server.network.ServerGamePacketListenerImpl;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
+import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.gametest.GameTestHolder;
+import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
+import org.slavicmyths.ships.FirstShipBlockHull;
+import org.slavicmyths.ships.FirstShipEntity;
+import org.slavicmyths.ships.FirstShipHull;
+import org.slavicmyths.ships.FirstShipNetwork;
+import org.slavicmyths.ships.RaftContent;
+
+/**
+ * Opt-in dedicated server fixture: exercises real vanilla blocks, real BEs
+ * and two server players. Does not test network rendering or user key input.
+ * Does NOT claim to be a real-world save/restart or manual multiplayer test.
+ */
+@GameTestHolder("slavicmyths_ocean26")
+@PrefixGameTestTemplate(false)
+public final class Ocean26GameTests {
+    private static final class LocalConnection extends Connection {
+        private final EmbeddedChannel wire = new EmbeddedChannel();
+        LocalConnection() { super(PacketFlow.SERVERBOUND); }
+        @Override public Channel channel() { return wire; }
+    }
+    private static final class SilentListener extends ServerGamePacketListenerImpl {
+        SilentListener(ServerPlayer p) {
+            super(p.getServer(), new LocalConnection(), p,
+                    CommonListenerCookie.createInitial(p.getGameProfile(), false));
+        }
+        @Override public void send(Packet<?> packet) {}
+        @Override public void send(Packet<?> packet, PacketSendListener listener) {}
+    }
+
+    private static ServerPlayer player(ServerLevel level, String name, Vec3 position) {
+        ServerPlayer p = new ServerPlayer(level.getServer(), level,
+                new GameProfile(UUID.randomUUID(), name), ClientInformation.createDefault());
+        p.connection = new SilentListener(p);
+        p.setPos(position);
+        level.addNewPlayer(p);
+        return p;
+    }
+
+    private static ChestBlockEntity chest(ServerLevel level, BlockPos position, GameTestHelper t) {
+        t.assertTrue(level.getBlockEntity(position) instanceof ChestBlockEntity,
+                "Actual vanilla chest BlockEntity missing at " + position);
+        return (ChestBlockEntity) level.getBlockEntity(position);
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 230, batch = "ocean_native")
+    public static void captainCrewReboardRotateAndPackCargo(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(12, 4, 12));
+        // Prepare a disposable shallow ocean, leaving two water-source layers.
+        for (int x = -15; x <= 15; x++)
+            for (int z = -15; z <= 15; z++) {
+                BlockPos column = anchor.offset(x, 0, z);
+                level.setBlock(column.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(column, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 24; y++)
+                    level.setBlock(column.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+
+        t.assertTrue(FirstShipBlockHull.place(level, anchor, 0, new ListTag(), 0, 0),
+                "Empty native small hull could not be placed");
+        FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
+        t.assertTrue(ship != null, "Registered native ship entity missing");
+        ship.initializeNativeHull(anchor, 0);
+        t.assertTrue(level.addFreshEntity(ship), "Server refused ship entity");
+
+        BlockPos cargoLocal = FirstShipBlockHull.world(anchor, 0, 1, 5, 0);
+        t.assertTrue(level.setBlock(cargoLocal, Blocks.CHEST.defaultBlockState(), 2),
+                "Vanilla chest could not be placed on deck");
+        chest(level, cargoLocal, t).setItem(0, new ItemStack(Items.DIAMOND, 7));
+
+        ServerPlayer captain = player(level, "OceanCaptain",
+                new Vec3(anchor.getX() + .5D, anchor.getY() + 5.01D,
+                        anchor.getZ() - 2.5D));
+        ServerPlayer walker = player(level, "OceanWalker",
+                new Vec3(anchor.getX() + 2.0D, anchor.getY() + 5.01D,
+                        anchor.getZ() + 1.5D));
+        t.assertTrue(captain.startRiding(ship), "Captain cannot mount ship");
+        t.runAfterDelay(6, () -> {
+            t.assertTrue(ship.helmStep(captain, FirstShipNetwork.FORWARD), "Native voxel sail step rejected");
+            BlockPos movedAnchor = anchor.offset(0, 0, 1);
+            t.assertTrue(ship.blockAnchor().equals(movedAnchor), "Hull failed to advance one block");
+            t.assertTrue(captain.getVehicle() == ship, "Captain lost mount after motion");
+            FirstShipHull.Point captainLocal = FirstShipHull.toLocal(captain.getX(), captain.getZ(),
+                    ship.getX(), ship.getZ(), ship.getYRot());
+            t.assertTrue(Math.abs(captainLocal.z() - FirstShipHull.HELM_Z) < .15D,
+                    "Captain remained in world while ship moved");
+            FirstShipHull.Point walkerLocal = FirstShipHull.toLocal(walker.getX(), walker.getZ(),
+                    ship.getX(), ship.getZ(), ship.getYRot());
+            t.assertTrue(FirstShipHull.mainDeckSupports(walkerLocal.x(), walkerLocal.z()),
+                    "Second player left the deck on first step");
+            BlockPos cargoMoved = FirstShipBlockHull.world(movedAnchor, 0, 1, 5, 0);
+            t.assertTrue(chest(level, cargoMoved, t).getItem(0).getCount() == 7,
+                    "Chest cargo lost/duplicated on translation");
+
+            captain.stopRiding();
+            t.assertTrue(captain.getVehicle() == null, "Dismount failed");
+            t.assertTrue(captain.getY() >= ship.deckY() - .1D,
+                    "Captain dismounted INSIDE the solid hull");
+            FirstShipHull.Point landed = FirstShipHull.toLocal(captain.getX(), captain.getZ(),
+                    ship.getX(), ship.getZ(), ship.getYRot());
+            t.assertTrue(FirstShipHull.mainDeckSupports(landed.x(), landed.z()),
+                    "Dismount landed outside the solid upper deck");
+            FirstShipHull.Point helm = FirstShipHull.toWorld(0D, -4D,
+                    ship.getX(), ship.getZ(), ship.getYRot());
+            captain.lookAt(EntityAnchorArgument.Anchor.EYES,
+                    new Vec3(helm.x(), ship.deckY() + 2.5D, helm.z()));
+            t.assertTrue(ship.tryHelm(captain), "Second right-click failed after dismount");
+            t.assertTrue(ship.helmStep(captain, FirstShipNetwork.RIGHT),
+                    "Native 90 degree turn rejected after reboarding");
+            t.assertTrue(ship.quarterTurns() == 1, "Ship did not rotate");
+            FirstShipHull.Point walkerTurned = FirstShipHull.toLocal(walker.getX(), walker.getZ(),
+                    ship.getX(), ship.getZ(), ship.getYRot());
+            t.assertTrue(FirstShipHull.mainDeckSupports(walkerTurned.x(), walkerTurned.z()),
+                    "Second player fell outside deck after rotation");
+            BlockPos cargoRotated = FirstShipBlockHull.world(movedAnchor, 1, 1, 5, 0);
+            t.assertTrue(chest(level, cargoRotated, t).getItem(0).getCount() == 7,
+                    "Chest cargo lost/duplicated on quarter turn");
+
+            captain.stopRiding();
+            captain.setPos(ship.getX() + 12D, ship.deckY(), ship.getZ());
+            walker.setPos(ship.getX() + 12D, ship.deckY(), ship.getZ() + 2D);
+            t.assertTrue(ship.packWithKey(captain) == InteractionResult.CONSUME,
+                    "Stationary unoccupied ship cannot be safely packed");
+            ItemStack packed = ItemStack.EMPTY;
+            for (int i = 0; i < captain.getInventory().getContainerSize(); i++) {
+                ItemStack value = captain.getInventory().getItem(i);
+                if (value.is(RaftContent.FIRST_SHIP_ITEM.get())) { packed = value.copy(); break; }
+            }
+            t.assertTrue(!packed.isEmpty() && packed.has(DataComponents.CUSTOM_DATA),
+                    "Packed ship item lost cargo metadata");
+            FirstShipEntity restored = RaftContent.FIRST_SHIP.get().create(level);
+            t.assertTrue(restored != null, "Could not recreate packed ship entity");
+            restored.initializeNativeHull(movedAnchor, 1);
+            t.assertTrue(restored.loadPacked(packed), "Saved cargo/rig metadata was rejected");
+            t.assertTrue(FirstShipBlockHull.place(level, movedAnchor, 1,
+                    restored.pendingBlockCargo(), restored.rigLevel(), restored.fabricQuality()),
+                    "Unpacked ship placement rejected");
+            t.assertTrue(chest(level, cargoRotated, t).getItem(0).getCount() == 7,
+                    "Vanilla chest inventory did not survive pack/unpack");
+            t.assertTrue(FirstShipBlockHull.remove(level, movedAnchor, 1,
+                    restored.rigLevel(), restored.fabricQuality()), "Cleanup hull failed");
+            restored.discard();
+            captain.discard();
+            walker.discard();
+            t.succeed();
+        });
+    }
+}
