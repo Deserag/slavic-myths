@@ -28,5 +28,5 @@ public enum RaftSize {
         return ordinal() + 1 < values().length ? values()[ordinal() + 1] : null;
     }
 
-    public int maxSails() { return this == CARGO ? 2 : (ordinal() >= 1 ? 1 : 0); }
+    public int maxSails() { return this == CARGO ? 2 : 1; }
 }
