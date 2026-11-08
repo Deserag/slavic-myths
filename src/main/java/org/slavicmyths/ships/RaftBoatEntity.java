@@ -68,6 +68,8 @@ public final class RaftBoatEntity extends Boat {
         builder.define(MODULE_GRID, "0".repeat(35));
     }
 
+    /** Actual visual upper deck at entity height + 0.50 blocks, used for moving support. */
+    public double deckTop() { return getY() + 0.5D; }
     public int deckWidth() { return entityData.get(RAFT_WIDTH); }
     public int deckLength() { return entityData.get(RAFT_LENGTH); }
     public int sailCount() { return entityData.get(SAIL_COUNT); }
@@ -272,7 +274,35 @@ public final class RaftBoatEntity extends Boat {
     @Override public InteractionResult interact(Player player, InteractionHand hand) {
         ItemStack held = player.getItemInHand(hand);
         if (held.is(RaftContent.SHIPYARD_KEY.get())) return packWithKey(player);
-        if (!player.isSecondaryUseActive()) return super.interact(player, hand);
+        // Captain enters at the stern; ordinary visitors can walk on the physical deck.
+        if (!player.isSecondaryUseActive()) {
+            int targeted = localTile(player);
+            int x = targeted < 0 ? -1 : targeted % deckWidth();
+            int z = targeted < 0 ? -1 : targeted / deckWidth();
+            if (x == deckWidth() / 2 && z >= deckLength() - 2) return super.interact(player, hand);
+            return InteractionResult.PASS;
+        }
+        if (held.is(RaftContent.RAIL_MODULE.get()) || held.is(RaftContent.SAIL_MODULE.get())
+                || held.is(RaftContent.HELM_MODULE.get()) || held.is(RaftContent.OAR_MODULE.get())) {
+            if (level().isClientSide) return InteractionResult.SUCCESS;
+            int flags = entityData.get(MOD_FLAGS);
+            if (held.is(RaftContent.RAIL_MODULE.get())) {
+                if ((flags & RAILS) != 0) return InteractionResult.FAIL;
+                entityData.set(MOD_FLAGS, flags | RAILS);
+            } else if (held.is(RaftContent.HELM_MODULE.get())) {
+                if ((flags & HELM) != 0) return InteractionResult.FAIL;
+                entityData.set(MOD_FLAGS, flags | HELM);
+            } else if (held.is(RaftContent.OAR_MODULE.get())) {
+                if ((flags & OARS) != 0 || deckLength() <= 3) return InteractionResult.FAIL;
+                entityData.set(MOD_FLAGS, flags | OARS);
+            } else {
+                if (sailCount() >= raftSize().maxSails()) return InteractionResult.FAIL;
+                entityData.set(SAIL_COUNT, sailCount() + 1);
+            }
+            if (!player.getAbilities().instabuild) held.shrink(1);
+            player.displayClientMessage(Component.literal("Оснащение плота установлено"), true);
+            return InteractionResult.CONSUME;
+        }
         int tile = localTile(player);
         if (tile < 0) return InteractionResult.FAIL;
         if (level().isClientSide) return InteractionResult.SUCCESS;
@@ -317,6 +347,19 @@ public final class RaftBoatEntity extends Boat {
         super.tick();
         if (afloat && waterUnder(surface)) {
             Vec3 velocity = getDeltaMovement();
+            if (hasHelm() && sailCount() > 0 && isVehicle()) {
+                // Deterministic non-industrial breeze: stronger than rowing alone;
+                // paddling remains additive, and a cargo raft can carry two sails.
+                double gust = .78D + .22D * Math.sin(level().getGameTime() / 150.0D + getX() / 160.0D);
+                double thrust = (.011D + .004D * (sailCount() - 1)) * gust;
+                double yaw = Math.toRadians(getYRot());
+                double windX = -Math.sin(yaw), windZ = Math.cos(yaw);
+                double vx = velocity.x + windX * thrust, vz = velocity.z + windZ * thrust;
+                double max = .35D + .09D * (sailCount() - 1);
+                double horizontal = Math.sqrt(vx * vx + vz * vz);
+                if (horizontal > max) { vx *= max / horizontal; vz *= max / horizontal; }
+                velocity = new Vec3(vx, 0D, vz);
+            }
             setDeltaMovement(velocity.x, 0D, velocity.z);
             setPos(getX(), surface - FLOATING_DRAFT, getZ());
             fallDistance = 0F;
