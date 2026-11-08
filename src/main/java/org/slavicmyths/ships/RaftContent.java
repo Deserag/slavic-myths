@@ -14,6 +14,8 @@ public final class RaftContent {
                     .sized(2.95F, 0.65F).clientTrackingRange(12).updateInterval(1).build("slavicmyths:raft_2511_test"));
     public static final DeferredHolder<Item, Item> RAFT_ITEM = ModItems.ITEMS.register(
             "raft_2511_test", () -> new RaftItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredHolder<Item, Item> SHIPYARD_KEY = ModItems.ITEMS.register(
+            "shipyard_key", () -> new Item(new Item.Properties().stacksTo(1)));
     public static void init() {}
     private RaftContent() {}
 }
