@@ -24,6 +24,22 @@ public final class FirstShipHullProof {
         check(FirstShipHull.holdSupports(FirstShipHull.LADDER_X, FirstShipHull.LADDER_Z), "solid hold below hatch");
         check(FirstShipHull.mainDeckSupports(0D, FirstShipHull.HELM_Z), "helm stands on stern deck");
         check(FirstShipHull.mainDeckSupports(0D, FirstShipHull.MAST_Z), "mast anchored on deck");
+        check(FirstShipHull.halfBeam(5.0D) < FirstShipHull.halfBeam(-5.0D),
+                "bow must be sharper than stern");
+        check(FirstShipHull.mainDeckSupports(2.7D, 0D), "full-width weather deck");
+        check(!FirstShipHull.holdSupports(2.7D, 0D), "narrower physically sloped lower hold");
+        check(FirstShipHull.confineDeck(8D, 0D).x() >
+                FirstShipHull.confineHold(8D, 0D).x() + .30D,
+                "upper deck walking must not use lower-hold boundary");
+        for (int iz = -20; iz <= 20; iz++) {
+            double zz = iz * .25D;
+            FirstShipHull.Point top = FirstShipHull.confineDeck(9D, zz);
+            FirstShipHull.Point hold = FirstShipHull.confineHold(9D, zz);
+            check(FirstShipHull.mainDeckSupports(top.x(), top.z()) ||
+                    FirstShipHull.hatch(top.x(), top.z()), "deck clamp still on planks");
+            check(FirstShipHull.holdSupports(hold.x(), hold.z()),
+                    "hold clamp stays within inner clinker sides");
+        }
 
         // Inverse coordinate transforms at many ship positions and yaw angles.
         for (int yaw = -360; yaw <= 360; yaw += 3) {
