@@ -20,12 +20,11 @@ public final class RaftItem extends Item {
     public RaftSize size() { return size; }
 
     @Override public void appendHoverText(ItemStack stack, TooltipContext context,
-            java.util.List<net.minecraft.network.chat.Component> text, net.minecraft.world.item.TooltipFlag flag) {
-        text.add(net.minecraft.network.chat.Component.literal("Палуба " + size.width + "×" + size.length + " • до 4 игроков")
-                .withStyle(net.minecraft.ChatFormatting.GRAY));
-        text.add(net.minecraft.network.chat.Component.literal("Парус и борта устанавливаются: Shift + ПКМ").withStyle(net.minecraft.ChatFormatting.GRAY));
-        if (stack.has(net.minecraft.core.component.DataComponents.CUSTOM_DATA))
-            text.add(net.minecraft.network.chat.Component.literal("Возможно, содержит упакованный груз").withStyle(net.minecraft.ChatFormatting.GOLD));
+            java.util.List<net.minecraft.network.chat.Component> lines, net.minecraft.world.item.TooltipFlag flag) {
+        lines.addAll(RaftCharacteristics.tooltip(RaftCharacteristics.fromItem(stack)));
+        lines.add(net.minecraft.network.chat.Component.literal(
+                "Верфяной ключ: безопасная упаковка с сохранением груза")
+                .withStyle(net.minecraft.ChatFormatting.DARK_GRAY));
     }
 
     @Override public net.minecraft.network.chat.Component getName(ItemStack stack) {
