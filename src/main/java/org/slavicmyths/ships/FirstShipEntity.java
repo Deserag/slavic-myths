@@ -68,6 +68,7 @@ public final class FirstShipEntity extends Boat {
     private int rigLevel;
     private int fabricQuality;
     private int geometryVersion = 2;
+    private ShipDesign design = ShipDesign.defaults();
     private long lastHelmAction = -100L;
     private boolean legacyConversionTried;
 
@@ -79,6 +80,8 @@ public final class FirstShipEntity extends Boat {
     public boolean isNativeHull() { return entityData.get(NATIVE); }
     public int rigLevel() { return entityData.get(RIG); }
     public int fabricQuality() { return entityData.get(FABRIC); }
+    /** Future customizer fields stay stable across a voyage and item packing. */
+    public ShipDesign design() { return design; }
     private void setRigging(int level, int fabric) {
         new ShipRigging(level, fabric); // validate before changing live state
         rigLevel = level;
@@ -277,6 +280,14 @@ public final class FirstShipEntity extends Boat {
         int loadedFabric = packVersion == 1 ? 1 : pack.getInt("FabricQuality");
         try { new ShipRigging(loadedRig, loadedFabric); }
         catch (IllegalArgumentException invalid) { return false; }
+        ShipDesign loadedDesign;
+        try {
+            loadedDesign = pack.contains("Design", Tag.TAG_COMPOUND)
+                    ? ShipDesign.load(pack.getCompound("Design")) : ShipDesign.defaults();
+            // This entity implements a real small hull only. Never interpret a
+            // saved future medium/large vessel as a small one.
+            if (!loadedDesign.hullSize().equals("small")) return false;
+        } catch (IllegalArgumentException invalid) { return false; }
         ListTag list = pack.getList("Modules", Tag.TAG_COMPOUND);
         if (list.size() > CELLS * 2) return false;
         Map<Integer, SimpleContainer> loaded = new HashMap<>();
@@ -314,6 +325,7 @@ public final class FirstShipEntity extends Boat {
         } else pendingBlockCargo = new ListTag();
         quarantinedModules = null;
         setRigging(loadedRig, loadedFabric);
+        design = loadedDesign;
         inventory.clear(); inventory.putAll(loaded);
         kind.clear(); kind.putAll(types);
         furnaces.clear(); furnaces.putAll(heatMap);
@@ -327,6 +339,7 @@ public final class FirstShipEntity extends Boat {
         pack.putInt("Version", 2);
         pack.putInt("RigLevel", rigLevel);
         pack.putInt("FabricQuality", fabricQuality);
+        pack.put("Design", design.save());
         pack.putUUID("VesselId", getUUID());
         pack.put("Modules", storeModules(registryAccess()));
         if (nativeHull && level() instanceof net.minecraft.server.level.ServerLevel server) {
@@ -783,6 +796,7 @@ public final class FirstShipEntity extends Boat {
             tag.putInt("FirstShipFabricQuality", fabricQuality);
             tag.putInt("FirstShipGeometryVersion", geometryVersion);
         }
+        tag.put("FirstShipDesign", design.save());
         tag.put("FirstShipModules", quarantinedModules != null ? quarantinedModules.copy() : storeModules(registryAccess()));
     }
 
@@ -807,6 +821,8 @@ public final class FirstShipEntity extends Boat {
         pack.putInt("Version", 2);
         pack.putInt("RigLevel", rigLevel);
         pack.putInt("FabricQuality", fabricQuality);
+        if (tag.contains("FirstShipDesign", Tag.TAG_COMPOUND))
+            pack.put("Design", tag.getCompound("FirstShipDesign").copy());
         pack.put("Modules", tag.getList("FirstShipModules", Tag.TAG_COMPOUND));
         CompoundTag root = new CompoundTag();
         root.put("FirstShipPack", pack);
