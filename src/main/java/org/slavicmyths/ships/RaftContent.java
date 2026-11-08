@@ -50,6 +50,32 @@ public final class RaftContent {
         };
     }
 
+    /** Ready-made Creative rafts store their upgrades in the same payload as a safely packed vessel. */
+    public static net.minecraft.world.item.ItemStack readyRaft(RaftSize size, int sails) {
+        if (sails < 0 || sails > size.maxSails()) throw new IllegalArgumentException("Invalid sails");
+        net.minecraft.world.item.ItemStack stack = new net.minecraft.world.item.ItemStack(raftItem(size));
+        net.minecraft.nbt.CompoundTag packed = new net.minecraft.nbt.CompoundTag();
+        packed.putInt("Version", 2);
+        packed.putInt("RaftWidth", size.width);
+        packed.putInt("RaftLength", size.length);
+        packed.putInt("RaftSails", sails);
+        packed.putInt("RaftFlags", sails == 0 ? 0 : 2); // ready to sail: helm installed
+        packed.put("Raft2511Modules", new net.minecraft.nbt.ListTag());
+        net.minecraft.nbt.CompoundTag root = new net.minecraft.nbt.CompoundTag();
+        root.put("Raft2511Pack", packed);
+        stack.set(net.minecraft.core.component.DataComponents.CUSTOM_DATA,
+                net.minecraft.world.item.component.CustomData.of(root));
+        return stack;
+    }
+
+    public static int sailPreset(net.minecraft.world.item.ItemStack stack) {
+        net.minecraft.world.item.component.CustomData data = stack.get(net.minecraft.core.component.DataComponents.CUSTOM_DATA);
+        if (data == null) return 0;
+        net.minecraft.nbt.CompoundTag root = data.copyTag();
+        if (!root.contains("Raft2511Pack", net.minecraft.nbt.Tag.TAG_COMPOUND)) return 0;
+        return net.minecraft.util.Mth.clamp(root.getCompound("Raft2511Pack").getInt("RaftSails"), 0, 2);
+    }
+
     public static void init() {}
     private RaftContent() {}
 }
