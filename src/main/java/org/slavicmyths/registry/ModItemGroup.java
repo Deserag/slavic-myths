@@ -27,6 +27,11 @@ public final class ModItemGroup {
                         output.accept(org.slavicmyths.ships.RaftContent.RAFT_LONG.get());
                         output.accept(org.slavicmyths.ships.RaftContent.RAFT_WIDE.get());
                         output.accept(org.slavicmyths.ships.RaftContent.RAFT_CARGO.get());
+                        // Ready-fenced choices are real hull ItemStacks, not visual duplicates.
+                        for (org.slavicmyths.ships.RaftSize size : org.slavicmyths.ships.RaftSize.values())
+                            output.accept(org.slavicmyths.ships.RaftContent.readyRaft(size, 0, true));
+                        output.accept(org.slavicmyths.ships.RaftContent.readyRaft(
+                                org.slavicmyths.ships.RaftSize.CARGO, 2, true));
                         // Same item IDs; only installed sail/helm state differs.
                         output.accept(org.slavicmyths.ships.RaftContent.readyRaft(org.slavicmyths.ships.RaftSize.SMALL, 1));
                         output.accept(org.slavicmyths.ships.RaftContent.readyRaft(org.slavicmyths.ships.RaftSize.LONG, 1));
