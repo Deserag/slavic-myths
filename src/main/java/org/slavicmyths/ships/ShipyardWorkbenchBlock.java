@@ -2,139 +2,64 @@ package org.slavicmyths.ships;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CraftingTableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-/**
- * Real shipbuilding table: conventional crafting view, plus server-side upgrades
- * while a packed raft is in hand. The vessel identity and cargo stay intact.
- */
+/** Shipyard's main screen holds a real vessel stack; sneak + empty hand opens crafting. */
 public final class ShipyardWorkbenchBlock extends CraftingTableBlock {
     private static final MapCodec<ShipyardWorkbenchBlock> CODEC = simpleCodec(ShipyardWorkbenchBlock::new);
 
     public ShipyardWorkbenchBlock() { super(Properties.ofFullCopy(Blocks.CRAFTING_TABLE).strength(3F)); }
-    private ShipyardWorkbenchBlock(Properties props) { super(props); }
+    private ShipyardWorkbenchBlock(Properties properties) { super(properties); }
     @Override public MapCodec<? extends CraftingTableBlock> codec() { return CODEC; }
 
-    private static void consume(Player player, Item item, int required) {
-        int remaining = required;
-        for (int slot = 0; slot < player.getInventory().getContainerSize() && remaining > 0; slot++) {
-            ItemStack stack = player.getInventory().getItem(slot);
-            if (!stack.is(item)) continue;
-            int take = Math.min(remaining, stack.getCount());
-            stack.shrink(take);
-            remaining -= take;
+    private InteractionResult open(Level level, BlockPos pos, Player player) {
+        if (player instanceof ServerPlayer server) {
+            if (player.isSecondaryUseActive()) {
+                // Standard 3x3 crafting, but with the *shipyard* validity check.
+                server.openMenu(new SimpleMenuProvider((id, inventory, p) ->
+                        new net.minecraft.world.inventory.CraftingMenu(id, inventory,
+                                net.minecraft.world.inventory.ContainerLevelAccess.create(level, pos)) {
+                            @Override public boolean stillValid(Player viewer) {
+                                return viewer.isAlive() &&
+                                        viewer.level().getBlockState(pos).is(RaftContent.SHIPYARD_BENCH.get()) &&
+                                        viewer.distanceToSqr(pos.getCenter()) <= 64.0D;
+                            }
+                        }, Component.literal("Корабельная верфь: крафт")));
+            } else {
+                server.openMenu(new SimpleMenuProvider((id, inventory, p) ->
+                        new ShipyardMenu(id, inventory, pos),
+                        Component.literal("Корабельная верфь")),
+                        buffer -> buffer.writeBlockPos(pos));
+            }
         }
+        return InteractionResult.sidedSuccess(level.isClientSide);
     }
 
-    /**
-     * Vanilla CraftingMenu validates a vanilla crafting table; a distinct shipyard
-     * block therefore needs its own stillValid or the screen closes in one tick.
-     */
-    @Override protected net.minecraft.world.InteractionResult useWithoutItem(
-            BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
-        if (!level.isClientSide && player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
-            serverPlayer.openMenu(new net.minecraft.world.SimpleMenuProvider((id, inventory, guest) ->
-                    new net.minecraft.world.inventory.CraftingMenu(id, inventory,
-                            net.minecraft.world.inventory.ContainerLevelAccess.create(level, pos)) {
-                        @Override public boolean stillValid(Player viewer) {
-                            double dx = viewer.getX() - (pos.getX() + .5D);
-                            double dy = viewer.getY() - (pos.getY() + .5D);
-                            double dz = viewer.getZ() - (pos.getZ() + .5D);
-                            return level.getBlockState(pos).is(RaftContent.SHIPYARD_BENCH.get()) &&
-                                    dx * dx + dy * dy + dz * dz <= 64D;
-                        }
-                    }, Component.literal("Корабельный верстак")));
-        }
-        return net.minecraft.world.InteractionResult.sidedSuccess(level.isClientSide);
+    @Override protected InteractionResult useWithoutItem(BlockState state, Level level,
+            BlockPos pos, Player player, BlockHitResult hit) {
+        return open(level, pos, player);
     }
 
-    @Override protected ItemInteractionResult useItemOn(ItemStack held, BlockState state, Level level, BlockPos pos,
-            Player player, InteractionHand hand, BlockHitResult hit) {
-        if (held.is(RaftContent.DECK_SECTION.get())) {
-            if (level.isClientSide) return ItemInteractionResult.SUCCESS;
-            if (!player.getAbilities().instabuild &&
-                    (player.getInventory().countItem(RaftContent.DECK_SECTION.get()) < 9 ||
-                     player.getInventory().countItem(RaftContent.OAR_MODULE.get()) < 1)) {
-                player.displayClientMessage(Component.literal("Для малого плота нужно 9 секций и комплект вёсел"), true);
-                return ItemInteractionResult.FAIL;
-            }
-            if (!player.getAbilities().instabuild) {
-                consume(player, RaftContent.DECK_SECTION.get(), 9);
-                consume(player, RaftContent.OAR_MODULE.get(), 1);
-            }
-            ItemStack raft = new ItemStack(RaftContent.RAFT_ITEM.get());
-            if (!player.getInventory().add(raft)) player.drop(raft, false);
-            player.displayClientMessage(Component.literal("На стапеле собран плот 3×3"), true);
-            return ItemInteractionResult.CONSUME;
-        }
-        if (!(held.getItem() instanceof RaftItem item)) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-        RaftSize next = item.size().next();
-        if (next == null) {
-            if (!level.isClientSide) player.displayClientMessage(Component.literal("Большой плот уже достиг предела расширений"), true);
+    @Override protected ItemInteractionResult useItemOn(ItemStack held, BlockState state, Level level,
+            BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        if (held.getItem() instanceof RaftItem || held.is(RaftContent.DECK_SECTION.get())) {
+            // No silent inventory mutation when clicking the station with an expensive vessel.
+            // Put the raft into the real slot, inspect then explicitly press Upgrade.
+            open(level, pos, player);
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
-        int required = switch (next) {
-            case LONG -> 6;
-            case WIDE -> 10;
-            case CARGO -> 10;
-            default -> 0;
-        };
-        if (level.isClientSide) return ItemInteractionResult.SUCCESS;
-        if (!player.getAbilities().instabuild && player.getInventory().countItem(RaftContent.DECK_SECTION.get()) < required) {
-            player.displayClientMessage(Component.literal("Для улучшения нужно палубных секций: " + required), true);
-            return ItemInteractionResult.FAIL;
-        }
-        CompoundTag root = held.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
-        CompoundTag packed = root.contains("Raft2511Pack", Tag.TAG_COMPOUND)
-                ? root.getCompound("Raft2511Pack").copy() : new CompoundTag();
-        if (packed.contains("Raft2511Modules", Tag.TAG_LIST) && packed.getList("Raft2511Modules", Tag.TAG_COMPOUND).size() > 35)
-            return ItemInteractionResult.FAIL;
-        int oldWidth = item.size().width;
-        ListTag modules = packed.getList("Raft2511Modules", Tag.TAG_COMPOUND);
-        for (int i = 0; i < modules.size(); i++) {
-            CompoundTag module = modules.getCompound(i);
-            int tile = module.getInt("Tile");
-            int x = tile % oldWidth, z = tile / oldWidth;
-            if (x < 0 || x >= oldWidth || z < 0 || z >= item.size().length) return ItemInteractionResult.FAIL;
-            module.putInt("Tile", z * next.width + x);
-        }
-        packed.putInt("Version", 2);
-        packed.putInt("RaftWidth", next.width);
-        packed.putInt("RaftLength", next.length);
-        packed.put("Raft2511Modules", modules);
-        root.put("Raft2511Pack", packed);
-        ItemStack upgraded = new ItemStack(RaftContent.raftItem(next));
-        upgraded.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
-        // All validation happens before any inventory mutation. Never duplicate the source vessel.
-        if (!player.getAbilities().instabuild) {
-            int remaining = required;
-            for (int slot = 0; slot < player.getInventory().getContainerSize() && remaining > 0; slot++) {
-                ItemStack inSlot = player.getInventory().getItem(slot);
-                if (inSlot.is(RaftContent.DECK_SECTION.get())) {
-                    int amount = Math.min(remaining, inSlot.getCount());
-                    inSlot.shrink(amount);
-                    remaining -= amount;
-                }
-            }
-        }
-        player.setItemInHand(hand, upgraded);
-        player.displayClientMessage(Component.literal("Судно расширено: " + next.width + "×" + next.length + " — груз сохранён"), true);
-        return ItemInteractionResult.CONSUME;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 }
