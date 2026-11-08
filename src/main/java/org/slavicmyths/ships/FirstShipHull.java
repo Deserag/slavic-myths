@@ -1,8 +1,8 @@
 package org.slavicmyths.ships;
 
 /**
- * Source-of-truth footprint of the FIRST two-deck wooden ship.
- * Pure Java 21: both the renderer and the deck-contact adapter consume it.
+ * Pure-Java coordinate plan of the full-block two-deck ship.
+ * Actual collision belongs to vanilla world planks and ladders, NOT a tick adapter.
  *
  * Coordinates: +Z points to the bow, -Z to the stern, Y is measured
  * from the vessel's waterline. The hold floor remains above the water
@@ -11,37 +11,30 @@ package org.slavicmyths.ships;
 public final class FirstShipHull {
     public static final int WIDTH = 7;
     public static final int LENGTH = 11;
-    public static final double HOLD_FLOOR = 0.42D;
-    public static final double MAIN_DECK = 3.22D;
-    public static final double KEEL = -1.13D;
-    public static final double HELM_Z = -3.62D;
-    public static final double MAST_Z = -0.70D;
-    public static final double LADDER_X = 0.45D;
+    public static final double HOLD_FLOOR = 1.00D;
+    public static final double MAIN_DECK = 5.00D;
+    public static final double KEEL = 0.00D;
+    public static final double HELM_Z = -3.00D;
+    public static final double MAST_Z = -1.00D;
+    public static final double LADDER_X = -1.00D;
     public static final double LADDER_Z = 2.00D;
     public static final double RAIL_HEIGHT = 0.92D;
     private static final double HALF_LENGTH = 5.50D;
 
     /**
-     * Asymmetric traditional wooden hull: fine pointed bow (+Z), fuller stern
-     * (-Z) and widest beam amidships. Same curve is used for visual planking,
-     * walkable boundaries and water-placement checks.
+     * Actual whole-block row footprint of the ship; every row is built from
+     * full vanilla blocks in FirstShipBlockHull (not rendered fake cubes).
+     * +Z is the bow ending at exactly ONE block (z=5, x=0).
      */
     public static double halfBeam(double z) {
-        if (z < -HALF_LENGTH || z > HALF_LENGTH) return 0D;
-        if (z < -2.70D) {
-            double t = (-z - 2.70D) / 2.80D;
-            return 3.35D - 1.55D * Math.pow(t, 1.70D);
-        }
-        if (z > 2.20D) {
-            double t = (z - 2.20D) / 3.30D;
-            return 3.35D - 2.62D * Math.pow(t, 1.55D);
-        }
-        return 3.35D;
+        int row = (int)Math.round(z);
+        if (z < -5.5D || z > 5.5D) return 0D;
+        int[] widths = {1, 2, 3, 3, 3, 3, 3, 3, 2, 1, 0};
+        return widths[Math.max(0, Math.min(10, row + 5))] + .49D;
     }
 
-    /** The lower hold is genuinely narrower where the clinker planks slope in. */
     public static double holdBeam(double z) {
-        return 0.78D * halfBeam(z);
+        return Math.max(.45D, halfBeam(z) - .98D);
     }
 
     public static boolean withinHull(double x, double z, double margin) {
@@ -51,7 +44,7 @@ public final class FirstShipHull {
 
     /** Two-block hatch in the deck; the hold floor remains solid below it. */
     public static boolean hatch(double x, double z) {
-        return x > -0.94D && x < 1.06D && z > 1.06D && z < 2.98D;
+        return x > -1.49D && x < .49D && z > .50D && z < 2.50D;
     }
 
     public static boolean mainDeckSupports(double x, double z) {
@@ -63,7 +56,7 @@ public final class FirstShipHull {
     }
 
     public static boolean onLadder(double x, double z) {
-        return Math.abs(x - LADDER_X) <= 0.52D && Math.abs(z - LADDER_Z) <= 0.52D;
+        return Math.abs(x - LADDER_X) <= 0.49D && Math.abs(z - LADDER_Z) <= 0.49D;
     }
 
     /** Only the lower cabin needs virtual wall constraints; the upper deck is open. */
