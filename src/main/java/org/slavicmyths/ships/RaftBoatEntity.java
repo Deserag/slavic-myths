@@ -102,11 +102,22 @@ public final class RaftBoatEntity extends Boat {
 
     @Override protected int getMaxPassengers() { return 4; }
 
-    /** Four non-overlapping temporary test seats; not free movement on deck. */
+    /**
+     * Captain is at the centre of the stern, BEHIND the helm. The first passenger
+     * is the sole vanilla Boat controller, so this is a functional seat location,
+     * not decorative geometry or a sideways offset.
+     */
     @Override protected Vec3 getPassengerAttachmentPoint(net.minecraft.world.entity.Entity passenger,
             net.minecraft.world.entity.EntityDimensions dimensions, float partialTick) {
         int index = Math.max(0, getPassengers().indexOf(passenger));
-        return new Vec3((index % 2 == 0 ? -0.72D : 0.72D), 0.58D, (index < 2 ? -0.72D : 0.72D));
+        double side = Math.min(1.15D, deckWidth() / 2D - .58D);
+        double stern = deckLength() / 2D - .36D;
+        return switch (index) {
+            case 0 -> new Vec3(0D, .67D, stern);
+            case 1 -> new Vec3(-side, .67D, -.22D);
+            case 2 -> new Vec3(side, .67D, -.22D);
+            default -> new Vec3(-side, .67D, stern - .74D);
+        };
     }
 
     /** World water surface, not the block bottom. Set at placement and synced to clients. */
