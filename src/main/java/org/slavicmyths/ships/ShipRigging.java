@@ -37,6 +37,16 @@ public record ShipRigging(int level, int fabric) {
     public double exactCooldownTicks() {
         return Math.max(3D, 10D / (clothMultiplier() * rigMultiplier()));
     }
+    /**
+     * Preserve fractional tick debt while the helm receives continuous input.
+     * Long idle gaps reset the schedule so one fresh press cannot burst
+     * dozens of queued steps into an unprotected world.
+     */
+    public double nextAvailableTick(double previousAllowed, long currentTick) {
+        double baseline = previousAllowed < currentTick - 1D ? currentTick : previousAllowed;
+        return baseline + exactCooldownTicks();
+    }
+
     /** Integer display ceiling; actual server travel uses exactCooldownTicks. */
     public int cooldownTicks() {
         return (int)Math.ceil(exactCooldownTicks());
