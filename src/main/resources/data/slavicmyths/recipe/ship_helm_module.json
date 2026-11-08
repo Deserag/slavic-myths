@@ -7,8 +7,12 @@
     " S "
   ],
   "key": {
-    "S": "minecraft:oak_planks",
-    "I": "minecraft:iron_ingot"
+    "S": {
+      "item": "minecraft:oak_planks"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
   },
   "result": {
     "id": "slavicmyths:ship_helm_module",

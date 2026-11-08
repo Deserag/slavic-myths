@@ -7,10 +7,18 @@
     "TTT"
   ],
   "key": {
-    "R": "slavicmyths:reinforced_sailcloth",
-    "W": "#minecraft:wool",
-    "S": "minecraft:string",
-    "T": "minecraft:stick"
+    "R": {
+      "item": "slavicmyths:reinforced_sailcloth"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "T": {
+      "item": "minecraft:stick"
+    }
   },
   "result": {
     "id": "slavicmyths:ship_sail_reinforced_module",
