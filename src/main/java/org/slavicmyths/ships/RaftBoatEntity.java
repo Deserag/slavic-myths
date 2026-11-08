@@ -88,20 +88,16 @@ public final class RaftBoatEntity extends Boat {
         entityData.set(RAFT_WIDTH, size.width);
         entityData.set(RAFT_LENGTH, size.length);
         syncKinds();
-        refreshDimensions();
     }
 
-    // Use a broad square collision envelope for the first large-raft test.
-    // A future dedicated physics hull will replace this with a rectangular ship-local deck.
-    @Override public net.minecraft.world.entity.EntityDimensions getDimensions(net.minecraft.world.entity.Pose pose) {
-        if (this.entityData == null) return super.getDimensions(pose);
-        return net.minecraft.world.entity.EntityDimensions.scalable(
-                Math.max(deckWidth(), deckLength()) - .05F, .65F);
-    }
-
-    @Override public void onSyncedDataUpdated(EntityDataAccessor<?> accessor) {
-        super.onSyncedDataUpdated(accessor);
-        if (accessor.equals(RAFT_WIDTH) || accessor.equals(RAFT_LENGTH)) refreshDimensions();
+    /*
+     * IMPORTANT: Boat collision dimensions do not equal our visible raft.
+     * Expanding the boat's collision square to 7x7 made water checks and player
+     * push response fight the deck carrier each tick, causing violent jitter.
+     * Keep native hull dimensions; deck walking uses a separate rectangle.
+     */
+    @Override public boolean canCollideWith(net.minecraft.world.entity.Entity other) {
+        return !(other instanceof Player) && super.canCollideWith(other);
     }
 
     @Override protected int getMaxPassengers() { return 4; }
@@ -306,14 +302,10 @@ public final class RaftBoatEntity extends Boat {
     @Override public InteractionResult interact(Player player, InteractionHand hand) {
         ItemStack held = player.getItemInHand(hand);
         if (held.is(RaftContent.SHIPYARD_KEY.get())) return packWithKey(player);
-        // Captain enters at the stern; ordinary visitors can walk on the physical deck.
-        if (!player.isSecondaryUseActive()) {
-            int targeted = localTile(player);
-            int x = targeted < 0 ? -1 : targeted % deckWidth();
-            int z = targeted < 0 ? -1 : targeted / deckWidth();
-            if (x == deckWidth() / 2 && z >= deckLength() - 2) return super.interact(player, hand);
-            return InteractionResult.PASS;
-        }
+        // Normal click ALWAYS boards for reliable steering on every raft size.
+        // To walk without boarding, jump onto the deck directly; shift-click
+        // is reserved for ship modules and inventory.
+        if (!player.isSecondaryUseActive()) return super.interact(player, hand);
         if (held.is(RaftContent.RAIL_MODULE.get()) || held.is(RaftContent.SAIL_MODULE.get())
                 || held.is(RaftContent.HELM_MODULE.get()) || held.is(RaftContent.OAR_MODULE.get())) {
             if (level().isClientSide) return InteractionResult.SUCCESS;
