@@ -455,7 +455,7 @@ public final class RaftBoatEntity extends Boat {
                 double windX = -Math.sin(yaw), windZ = Math.cos(yaw);
                 double vx = velocity.x + windX * thrust, vz = velocity.z + windZ * thrust;
                 boolean rowing = getPaddleState(0) || getPaddleState(1);
-                double max = .50D + .15D * (sailCount() - 1) + (rowing ? .12D : 0D);
+                double max = RaftCharacteristics.ONE_SAIL_LIMIT + RaftCharacteristics.SECOND_SAIL_BONUS * (sailCount() - 1) + (rowing ? RaftCharacteristics.ROWING_BONUS : 0D);
                 double horizontal = Math.sqrt(vx * vx + vz * vz);
                 if (horizontal > max) { vx *= max / horizontal; vz *= max / horizontal; }
                 velocity = new Vec3(vx, 0D, vz);
