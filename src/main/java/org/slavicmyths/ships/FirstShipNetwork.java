@@ -5,14 +5,16 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 
 /**
- * Client clicks the DRAWN helm or ship side; the server never trusts the
- * requested attachment point or ship transform provided by the client.
+ * All helm actions are server-authoritative. A malicious client cannot steer
+ * an unmounted ship, relocate an unrelated ship, or pack without a real key.
  */
 public final class FirstShipNetwork {
     public static final int BOARD = 1, HELM = 2, MODULE_MAIN = 3, MODULE_OFF = 4;
+    public static final int FORWARD = 5, BACKWARD = 6, LEFT = 7, RIGHT = 8, PACK = 9;
 
     public record Command(int shipId, int action) implements CustomPacketPayload {
         public static final Type<Command> TYPE = new Type<>(
@@ -27,22 +29,29 @@ public final class FirstShipNetwork {
     }
 
     public static void register(RegisterPayloadHandlersEvent event) {
-        event.registrar("2.6.1").playToServer(Command.TYPE, Command.CODEC, (packet, context) -> {
+        event.registrar("2.6.2").playToServer(Command.TYPE, Command.CODEC, (packet, context) -> {
             if (!(context.player() instanceof ServerPlayer player)
-                    || !player.isAlive() || player.isSpectator()
-                    || player.isPassenger()) return;
+                    || !player.isAlive() || player.isSpectator()) return;
             if (!(player.level().getEntity(packet.shipId()) instanceof FirstShipEntity ship)
                     || ship.isRemoved() || ship.level() != player.level()) return;
-            if (player.distanceToSqr(ship) > 130D) return;
-            if (packet.action() == HELM && !player.isShiftKeyDown()) ship.tryHelm(player);
-            else if (packet.action() == BOARD && !player.isShiftKeyDown()) ship.tryBoard(player);
-            else if ((packet.action() == MODULE_MAIN || packet.action() == MODULE_OFF)
-                    && player.isShiftKeyDown()) {
-                ship.interactFromDeck(player, packet.action() == MODULE_OFF
-                        ? net.minecraft.world.InteractionHand.OFF_HAND
-                        : net.minecraft.world.InteractionHand.MAIN_HAND);
+            // Native hull center is 5.5 blocks away from its sharpest extremity.
+            if (player.distanceToSqr(ship) > 196D) return;
+            int action = packet.action();
+            if (action >= FORWARD && action <= RIGHT) {
+                ship.helmStep(player, action);
+                return;
             }
+            if (player.isPassenger()) return;
+            if (action == HELM && !player.isShiftKeyDown()) ship.tryHelm(player);
+            else if (action == BOARD && !player.isShiftKeyDown()) ship.tryBoard(player);
+            else if (action == PACK && player.isShiftKeyDown()
+                    && (player.getItemInHand(InteractionHand.MAIN_HAND).is(RaftContent.SHIPYARD_KEY.get())
+                        || player.getItemInHand(InteractionHand.OFF_HAND).is(RaftContent.SHIPYARD_KEY.get())))
+                ship.packWithKey(player);
+            // MODULE_* retained as historical protocol ids, but real chests
+            // now use normal vanilla right-click and physical BlockEntities.
         });
     }
+
     private FirstShipNetwork() {}
 }
