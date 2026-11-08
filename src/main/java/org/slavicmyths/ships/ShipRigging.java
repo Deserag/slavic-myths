@@ -33,7 +33,12 @@ public record ShipRigging(int level, int fabric) {
         };
     }
 
+    /** Fractional server-tick schedule makes every fabric grade measurable. */
+    public double exactCooldownTicks() {
+        return Math.max(3D, 10D / (clothMultiplier() * rigMultiplier()));
+    }
+    /** Integer display ceiling; actual server travel uses exactCooldownTicks. */
     public int cooldownTicks() {
-        return Math.max(5, (int)Math.ceil(10D / (clothMultiplier() * rigMultiplier())));
+        return (int)Math.ceil(exactCooldownTicks());
     }
 }
