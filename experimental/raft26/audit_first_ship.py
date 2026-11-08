@@ -63,7 +63,7 @@ verify("new FirstShipItem(new Item.Properties().stacksTo(1))" in reg,
 verify('"raft_2511_test"' in reg, "Legacy raft registry ID removed")
 
 # This is the exact half-width per full-block row in NativeBlockHull.
-match = re.search(r"WIDTHS = \\{([^}]+)\\}", hull)
+match = re.search(r"WIDTHS = \{([^}]+)\}", hull)
 verify(match is not None, "Block hull row widths not found")
 widths = [int(v.strip()) for v in match.group(1).split(",")]
 verify(widths == [1, 2, 3, 3, 3, 3, 3, 3, 2, 1, 0],
