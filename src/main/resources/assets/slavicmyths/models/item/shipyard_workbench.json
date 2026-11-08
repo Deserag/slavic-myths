@@ -1,0 +1,17 @@
+{
+  "parent": "slavicmyths:block/shipyard_workbench",
+  "display": {
+    "gui": {
+      "rotation": [
+        30,
+        225,
+        0
+      ],
+      "scale": [
+        0.79,
+        0.79,
+        0.79
+      ]
+    }
+  }
+}
