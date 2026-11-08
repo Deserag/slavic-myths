@@ -52,6 +52,7 @@ public final class RaftCharacteristics {
         int sails = version == 2 ? packed.getInt("RaftSails") : 0;
         if (sails < 0 || sails > size.maxSails()) invalid = true;
         int flags = version == 2 ? packed.getInt("RaftFlags") : 0;
+        if ((flags & ~7) != 0) invalid = true;
         ListTag modules = packed.getList("Raft2511Modules", Tag.TAG_COMPOUND);
         if (modules.size() > size.width * size.length) invalid = true;
         boolean[] taken = new boolean[size.width * size.length];
@@ -66,6 +67,12 @@ public final class RaftCharacteristics {
             }
             taken[tile] = true;
             counts[kind]++;
+            // Placement rejects absent/non-list Items. The inspection menu must
+            // reject the same payload *before* it can spend any upgrade materials.
+            if (!module.contains("Items", Tag.TAG_LIST)) {
+                invalid = true;
+                continue;
+            }
             ListTag stacks = module.getList("Items", Tag.TAG_COMPOUND);
             if (stacks.size() > (kind == 4 ? 3 : 27)) invalid = true;
             items += stacks.size();
