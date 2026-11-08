@@ -30,7 +30,11 @@ public final class RaftContent {
     public static final DeferredHolder<Block, Block> SHIPYARD = ModBlocks.BLOCKS.register(
             "shipyard_workbench", RaftShipyardBlock::new);
     public static final DeferredHolder<Item, Item> SHIPYARD_ITEM = ModItems.ITEMS.register(
-            "shipyard_workbench", () -> new BlockItem(SHIPYARD.get(), new Item.Properties()));
+            "shipyard_workbench", () -> new BlockItem(SHIPYARD.get(), new Item.Properties()) {
+                @Override public net.minecraft.network.chat.Component getName(net.minecraft.world.item.ItemStack stack) {
+                    return net.minecraft.network.chat.Component.literal("Корабельный верстак");
+                }
+            });
     public static final DeferredHolder<Item, Item> DECK_SECTION = ModItems.ITEMS.register(
             "raft_deck_section", () -> new ShipPartItem(new Item.Properties(), "Палубная секция"));
     public static final DeferredHolder<Item, Item> OARS = ModItems.ITEMS.register(
