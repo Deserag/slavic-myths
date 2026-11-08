@@ -29,6 +29,8 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
 
     @Override protected void init() {
         super.init();
+        addRenderableWidget(Button.builder(Component.literal("Корабль 7×11"), button -> action(11))
+                .bounds(leftPos + 79, topPos + 51, 98, 21).build());
         addRenderableWidget(Button.builder(Component.literal("Создать 3×3"), button -> action(2))
                 .bounds(leftPos + 12, topPos + 78, 91, 20).build());
         addRenderableWidget(Button.builder(Component.literal("Улучшить"), button -> action(1))
@@ -86,11 +88,30 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         graphics.drawString(font, "Судно", 23, 26, 0xfff4e2be, false);
         graphics.drawString(font, "Осмотр и улучшения", 192, 29, 0xff493322, false);
         java.util.List<net.minecraft.util.FormattedCharSequence> wrapped = new java.util.ArrayList<>();
-        if (!(menu.inspected().getItem() instanceof RaftItem)) {
+        if (menu.inspected().getItem() instanceof org.slavicmyths.ships.FirstShipItem) {
+            for (String line : new String[]{
+                    "Деревянный корабль 7×11",
+                    "2 доступных этажа",
+                    "Палуба + нижний трюм",
+                    "Люк, лестница, мачта",
+                    "Кормовой рулевой пост",
+                    "Корабельный ветер",
+                    "Груз: палуба и трюм",
+                    "Сундуки, бочки, верстак, печи",
+                    "Верфяной ключ — упаковка",
+                    "НЕ улучшать как плот.",
+                    "Игра: нужна проверка ходьбы."
+            }) wrapped.addAll(font.split(Component.literal(line), 158));
+        } else if (!(menu.inspected().getItem() instanceof RaftItem)) {
             for (String line : new String[]{"Поместите плот в", "судовую ячейку слева.",
                     "Сборка: 9 секций + вёсла.", "Улучшение: палубные секции.",
                     "Модификации: детали", "из личного инвентаря.",
                     "Кнопки − снимают части", "и возвращают их игроку.",
+                    "Корабль 7×11:",
+                    "48 брёвен, 96 досок",
+                    "32 железа, 24 нити",
+                    "20 шерсти, 32 секции",
+                    "4 борта, 1 руль, 1 парус",
                     "Shift + ПКМ: крафт."})
                 wrapped.addAll(font.split(Component.literal(line), 158));
         } else {
