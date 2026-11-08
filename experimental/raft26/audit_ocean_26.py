@@ -33,6 +33,19 @@ for fragment in ("positionRider(driver)", "getDismountLocationForPassenger",
     check(fragment in entity, "missing captain/save safety: " + fragment)
 check("p == driver ||" in entity, "rider/walkers must remain distinct")
 check("positionRider(driver)" in entity, "rider must be repositioned after movement")
+check("exactCooldownTicks()" in entity and "exactCooldownTicks()" in source("ShipRigging.java"),
+      "full cloth bonus cannot be lost to integer rounding")
+for required in ("FirstShipDesign", 'pack.put("Design", design.save())',
+                 "ShipDesign.load", 'loadedDesign.hullSize().equals("small")'):
+    check(required in entity, "future design metadata not saved/validated: " + required)
+design = source("ShipDesign.java")
+for required in ('"HullSize"', '"HullWood"', '"MastWood"', '"SailColor"',
+                 '"FlagPattern"', '"FlagSymbol"', '"CabinStyle"', "VERSION = 1"):
+    check(required in design, "future customization schema missing " + required)
+check("additionalSailCost = sailModule(fabricQuality)" in entity,
+      "every tier upgrade must consume real extra sailcloth")
+check("additionalSailRefund = sailModule(fabricQuality)" in entity,
+      "every removed tier must return its sailcloth")
 check("player.setPos(" not in source("FirstShipDeckEvents.java"),
       "no teleport-player-per-tick adapter")
 for fragment in ("clear(level", "BlockEntity.loadStatic", "saveWithFullMetadata",
