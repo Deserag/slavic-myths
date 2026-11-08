@@ -36,7 +36,8 @@ public final class ShipyardMenu extends AbstractContainerMenu {
         owner = inventory.player;
         addSlot(new Slot(input, 0, 31, 45) {
             @Override public boolean mayPlace(ItemStack stack) {
-                return stack.getItem() instanceof RaftItem && !RaftCharacteristics.fromItem(stack).invalid();
+                return stack.getItem() instanceof FirstShipItem ||
+                        (stack.getItem() instanceof RaftItem && !RaftCharacteristics.fromItem(stack).invalid());
             }
             @Override public int getMaxStackSize() { return 1; }
         });
@@ -66,7 +67,8 @@ public final class ShipyardMenu extends AbstractContainerMenu {
         if (index == 0) {
             if (!moveItemStackTo(held, 1, slots.size(), true)) return ItemStack.EMPTY;
         } else {
-            if (!(held.getItem() instanceof RaftItem) || !moveItemStackTo(held, 0, 1, false))
+            if (!(held.getItem() instanceof RaftItem) && !(held.getItem() instanceof FirstShipItem) ||
+                    !moveItemStackTo(held, 0, 1, false))
                 return ItemStack.EMPTY;
         }
         if (held.isEmpty()) source.set(ItemStack.EMPTY);
@@ -100,6 +102,19 @@ public final class ShipyardMenu extends AbstractContainerMenu {
             }
             input.setItem(0, created);
             player.displayClientMessage(Component.literal("Малый плот 3×3 готов"), true);
+        } else if (action == 11) {
+            if (!input.isEmpty()) {
+                player.displayClientMessage(Component.literal("Заберите судно из ячейки перед постройкой"), true);
+                return false;
+            }
+            ItemStack created = ShipyardUpgrades.buildFirstShip(player);
+            if (created.isEmpty()) {
+                player.displayClientMessage(Component.literal(
+                        "Корабль 7×11: брёвна 48, доски 96, железо 32, канаты 24, ткань 20, секции 32, борта 4, руль 1, парус 1"), true);
+                return false;
+            }
+            input.setItem(0, created);
+            player.displayClientMessage(Component.literal("Деревянный двухпалубный корабль построен"), true);
         } else if (action >= 3 && action <= 6) {
             ItemStack current = input.getItem(0);
             ItemStack updated = ShipyardUpgrades.equip(player, current, action);
