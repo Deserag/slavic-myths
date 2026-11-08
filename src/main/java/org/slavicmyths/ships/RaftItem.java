@@ -29,7 +29,9 @@ public final class RaftItem extends Item {
     }
 
     @Override public net.minecraft.network.chat.Component getName(ItemStack stack) {
-        return net.minecraft.network.chat.Component.literal(size.title);
+        int sails = RaftContent.sailPreset(stack);
+        return net.minecraft.network.chat.Component.literal(size.title +
+                (sails == 2 ? " — два паруса" : sails == 1 ? " — парус и руль" : ""));
     }
 
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
