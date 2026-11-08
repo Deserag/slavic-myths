@@ -32,7 +32,8 @@ public final class RaftItem extends Item {
         int sails = info == null ? 0 : info.sails();
         return net.minecraft.network.chat.Component.literal(size.title +
                 (sails == 2 ? " — два паруса" : sails == 1 ? " — один парус" : "") +
-                (sails > 0 && info != null && info.helm() ? " и руль" : ""));
+                (sails > 0 && info != null && info.helm() ? " и руль" : "") +
+                (info != null && info.rails() ? " • с ограждением" : ""));
     }
 
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
