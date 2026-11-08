@@ -310,12 +310,10 @@ public final class RaftBoatEntity extends Boat {
         double t = (deckTop() - eye.y) / dir.y;
         if (t <= 0.05D || t > 6.0D) return -1;
         Vec3 point = eye.add(dir.scale(t));
-        double dx = point.x - getX(), dz = point.z - getZ();
-        double angle = Math.toRadians(getYRot());
-        double localX = dx * Math.cos(angle) + dz * Math.sin(angle);
-        double localZ = -dx * Math.sin(angle) + dz * Math.cos(angle);
-        int x = (int)Math.floor(localX + deckWidth() / 2D);
-        int z = (int)Math.floor(localZ + deckLength() / 2D);
+        RaftTransforms.Flat local = RaftTransforms.toLocal(
+                point.x - getX(), point.z - getZ(), getYRot());
+        int x = (int)Math.floor(local.x() + deckWidth() / 2D);
+        int z = (int)Math.floor(local.z() + deckLength() / 2D);
         return x >= 0 && x < deckWidth() && z >= 0 && z < deckLength() ?
                 z * deckWidth() + x : -1;
     }
