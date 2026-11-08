@@ -17,6 +17,14 @@ public final class ModItemGroup {
     private static final int[] DISPLAY_ORDER = {0, 1, 2, 3, 9, 4, 5, 6, 12, 7, 10, 8, 11};
     public static final List<DeferredHolder<CreativeModeTab, CreativeModeTab>> THEMATIC = new ArrayList<>();
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB;
+    /** Dedicated creative inventory tab for vessels, shipyard tools and future ship upgrades. */
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SHIPBUILDING = TABS.register("shipbuilding", () ->
+            CreativeModeTab.builder()
+                    .title(Component.translatableWithFallback("itemGroup.slavicmyths.shipbuilding", "Кораблестроение"))
+                    .icon(() -> new ItemStack(org.slavicmyths.ships.RaftContent.RAFT_ITEM.get()))
+                    .displayItems((parameters, output) -> output.accept(org.slavicmyths.ships.RaftContent.RAFT_ITEM.get()))
+                    .withTabsAfter(ResourceLocation.fromNamespaceAndPath("slavicmyths", "furniture"))
+                    .build());
     private static final Set<String> REPORTED_FALLBACKS = ConcurrentHashMap.newKeySet();
     static {
         if (DISPLAY_ORDER.length != IDS.length || java.util.Arrays.stream(DISPLAY_ORDER).anyMatch(index -> index < 0 || index >= IDS.length) || java.util.Arrays.stream(DISPLAY_ORDER).distinct().count() != IDS.length) throw new IllegalStateException("Creative tab display order must be a permutation of catalog tabs");
@@ -64,6 +72,7 @@ public final class ModItemGroup {
         if (!key.getNamespace().equals("slavicmyths")) return -1;
         String path = key.getPath();
         if (path.equals("wooden_barrel")) return -1; // Registered only for old saves.
+        if (path.equals("raft_2511_test")) return -1; // Listed exclusively in shipbuilding.
         if (CreativeCatalog.entry(path) != null) return CreativeCatalog.category(path);
         if (REPORTED_FALLBACKS.add(path))
             System.getLogger("slavicmyths.creative").log(System.Logger.Level.WARNING,
