@@ -12,6 +12,7 @@ import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
@@ -30,8 +31,36 @@ public final class ShipyardWorkbenchBlock extends CraftingTableBlock {
     private ShipyardWorkbenchBlock(Properties props) { super(props); }
     @Override protected MapCodec<? extends CraftingTableBlock> codec() { return CODEC; }
 
+    private static void consume(Player player, Item item, int required) {
+        int remaining = required;
+        for (int slot = 0; slot < player.getInventory().getContainerSize() && remaining > 0; slot++) {
+            ItemStack stack = player.getInventory().getItem(slot);
+            if (!stack.is(item)) continue;
+            int take = Math.min(remaining, stack.getCount());
+            stack.shrink(take);
+            remaining -= take;
+        }
+    }
+
     @Override protected ItemInteractionResult useItemOn(ItemStack held, BlockState state, Level level, BlockPos pos,
             Player player, InteractionHand hand, BlockHitResult hit) {
+        if (held.is(RaftContent.DECK_SECTION.get())) {
+            if (level.isClientSide) return ItemInteractionResult.SUCCESS;
+            if (!player.getAbilities().instabuild &&
+                    (player.getInventory().countItem(RaftContent.DECK_SECTION.get()) < 9 ||
+                     player.getInventory().countItem(RaftContent.OAR_MODULE.get()) < 1)) {
+                player.displayClientMessage(Component.literal("Для малого плота нужно 9 секций и комплект вёсел"), true);
+                return ItemInteractionResult.FAIL;
+            }
+            if (!player.getAbilities().instabuild) {
+                consume(player, RaftContent.DECK_SECTION.get(), 9);
+                consume(player, RaftContent.OAR_MODULE.get(), 1);
+            }
+            ItemStack raft = new ItemStack(RaftContent.RAFT_ITEM.get());
+            if (!player.getInventory().add(raft)) player.drop(raft, false);
+            player.displayClientMessage(Component.literal("На стапеле собран плот 3×3"), true);
+            return ItemInteractionResult.CONSUME;
+        }
         if (!(held.getItem() instanceof RaftItem item)) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         RaftSize next = item.size().next();
         if (next == null) {
