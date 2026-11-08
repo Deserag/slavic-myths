@@ -52,6 +52,14 @@ public final class RaftDeckWalk {
             double dx = player.getX() - old.x(), dz = player.getZ() - old.z();
             double localX = dx * Math.cos(prevAngle) + dz * Math.sin(prevAngle);
             double localZ = -dx * Math.sin(prevAngle) + dz * Math.cos(prevAngle);
+            // A fitted railing is a real gameplay boundary, not merely a visual prop.
+            // Players may still jump over it: only walking height is constrained.
+            if (chosen.hasUpgrade(1) && player.getY() < deck + .72D) {
+                double boundX = chosen.raftSize().width / 2D - .45D;
+                double boundZ = chosen.raftSize().length / 2D - .45D;
+                localX = Math.clamp(localX, -boundX, boundX);
+                localZ = Math.clamp(localZ, -boundZ, boundZ);
+            }
             double nowAngle = Math.toRadians(chosen.getYRot());
             double x = chosen.getX() + localX * Math.cos(nowAngle) - localZ * Math.sin(nowAngle);
             double z = chosen.getZ() + localX * Math.sin(nowAngle) + localZ * Math.cos(nowAngle);
