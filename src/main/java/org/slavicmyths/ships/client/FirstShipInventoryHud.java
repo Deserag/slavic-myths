@@ -10,12 +10,13 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ScreenEvent;
 import org.slavicmyths.ships.FirstShipEntity;
+import org.slavicmyths.ships.FirstShipBlockHull;
 import org.slavicmyths.ships.FirstShipHull;
 
 /**
  * E opens the NORMAL player inventory plus a read-only ship overview.
  * Never swaps the inventory menu (which would break slots and recipes).
- * Data is limited to synchronized module types; cargo ItemStacks remain server-only.
+ * The client reads actual vanilla container block TYPES; inventories stay on server.
  */
 @EventBusSubscriber(modid = "slavicmyths", value = Dist.CLIENT)
 public final class FirstShipInventoryHud {
@@ -62,7 +63,10 @@ public final class FirstShipInventoryHud {
                     boolean deck = floor == 0
                             ? FirstShipHull.mainDeckSupports(cx, cz)
                             : FirstShipHull.holdSupports(cx, cz);
-                    int type = ship.moduleKind(floor == 0 ? 1 : 0, ix, z);
+                    int type = ship.isNativeHull()
+                            ? FirstShipBlockHull.cargoKind(mc.level, ship.blockAnchor(),
+                                    ship.quarterTurns(), floor == 0 ? 1 : 0, ix, z)
+                            : ship.moduleKind(floor == 0 ? 1 : 0, ix, z);
                     if (type >= 1 && type <= 4) count[type - 1]++;
                     int color = !within ? 0xff29231d : !deck ? 0xff090b0c : switch (type) {
                         case 1 -> 0xffe0b45e;
@@ -79,7 +83,7 @@ public final class FirstShipInventoryHud {
                 x + 9, y + 155, 0xffe9d6b8, false);
         g.drawString(mc.font, "Верстаки " + count[2] + "  Печи " + count[3],
                 x + 9, y + 167, 0xffe9d6b8, false);
-        g.drawString(mc.font, Component.literal("Груз: Shift+ПКМ по судну"),
+        g.drawString(mc.font, Component.literal("Груз: обычные сундуки/бочки"),
                 x + 9, y + 181, 0xffc1bdab, false);
     }
 
