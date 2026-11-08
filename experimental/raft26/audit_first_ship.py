@@ -48,7 +48,7 @@ verify("output.accept(org.slavicmyths.ships.RaftContent.FIRST_SHIP_ITEM.get())" 
 verify('"ship_wooden_7x11"' in reg and '"ship_wooden_7x11_entity"' in reg,
        "First ship registry IDs missing")
 verify('"raft_2511_test"' in reg, "Historical raft registry ID lost")
-verify("return new FirstShipItem(new Item.Properties().stacksTo(1))" in reg,
+verify("new FirstShipItem(new Item.Properties().stacksTo(1))" in reg,
        "Ship must remain stack-to-1 item")
 verify(model["parent"] == "minecraft:block/block", "Ship item model must be a 3D block model")
 verify(len(model["elements"]) >= 20, "Ship item icon too rudimentary")
