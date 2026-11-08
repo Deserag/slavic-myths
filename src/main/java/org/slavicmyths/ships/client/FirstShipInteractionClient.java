@@ -27,7 +27,6 @@ public final class FirstShipInteractionClient {
         boolean key = mc.player.getMainHandItem().is(RaftContent.SHIPYARD_KEY.get())
                 || mc.player.getOffhandItem().is(RaftContent.SHIPYARD_KEY.get());
         if (mc.player.isShiftKeyDown() && !key) return;
-        if (!mc.player.isShiftKeyDown() && !mc.player.getMainHandItem().isEmpty()) return;
 
         Vec3 eye = mc.player.getEyePosition(), direction = mc.player.getLookAngle();
         FirstShipEntity selected = null;
@@ -58,7 +57,7 @@ public final class FirstShipInteractionClient {
                     && Math.abs(at.z() - FirstShipHull.HELM_Z) < 1.8D) {
                 FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, -4D,
                         ship.getX(), ship.getZ(), ship.getYRot());
-                Vec3 aim = new Vec3(wheel.x(), ship.deckY() + 1.25D, wheel.z()).subtract(eye);
+                Vec3 aim = new Vec3(wheel.x(), ship.deckY() + 2.5D, wheel.z()).subtract(eye);
                 if (aim.lengthSqr() > .1D && aim.lengthSqr() < 25D
                         && aim.normalize().dot(direction) > .68D && aim.lengthSqr() < nearest) {
                     selected = ship; action = FirstShipNetwork.HELM; nearest = aim.lengthSqr();
