@@ -27,6 +27,12 @@ public final class ModItemGroup {
                         output.accept(org.slavicmyths.ships.RaftContent.RAFT_LONG.get());
                         output.accept(org.slavicmyths.ships.RaftContent.RAFT_WIDE.get());
                         output.accept(org.slavicmyths.ships.RaftContent.RAFT_CARGO.get());
+                        // Same item IDs; only installed sail/helm state differs.
+                        output.accept(org.slavicmyths.ships.RaftContent.readyRaft(org.slavicmyths.ships.RaftSize.SMALL, 1));
+                        output.accept(org.slavicmyths.ships.RaftContent.readyRaft(org.slavicmyths.ships.RaftSize.LONG, 1));
+                        output.accept(org.slavicmyths.ships.RaftContent.readyRaft(org.slavicmyths.ships.RaftSize.WIDE, 1));
+                        output.accept(org.slavicmyths.ships.RaftContent.readyRaft(org.slavicmyths.ships.RaftSize.CARGO, 1));
+                        output.accept(org.slavicmyths.ships.RaftContent.readyRaft(org.slavicmyths.ships.RaftSize.CARGO, 2));
                         output.accept(org.slavicmyths.ships.RaftContent.SHIPYARD_BENCH_ITEM.get());
                         output.accept(org.slavicmyths.ships.RaftContent.DECK_SECTION.get());
                         output.accept(org.slavicmyths.ships.RaftContent.RAIL_MODULE.get());
