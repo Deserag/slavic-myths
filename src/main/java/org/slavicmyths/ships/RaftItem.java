@@ -25,7 +25,16 @@ public final class RaftItem extends Item {
         if (!level.getFluidState(pos).is(FluidTags.WATER)) return InteractionResultHolder.fail(held);
         RaftBoatEntity raft = RaftContent.RAFT.get().create(level);
         if (raft == null) return InteractionResultHolder.fail(held);
-        raft.setPos(pos.getX() + 0.5D, pos.getY() + 0.15D, pos.getZ() + 0.5D);
+        // IMPORTANT: boats are positioned at the fluid SURFACE, not near the bottom of a water block.
+        // The former +0.15 spawned the entire 0.65-high raft underwater and triggered boat sinking.
+        for (int dx = -1; dx <= 1; dx++) for (int dz = -1; dz <= 1; dz++) {
+            BlockPos support = pos.offset(dx, 0, dz);
+            if (!level.hasChunkAt(support) || !level.getFluidState(support).is(FluidTags.WATER)) {
+                if (!level.isClientSide) player.displayClientMessage(net.minecraft.network.chat.Component.literal("Для плота требуется свободная вода 3×3"), true);
+                return InteractionResultHolder.fail(held);
+            }
+        }
+        raft.setPos(pos.getX() + 0.5D, hit.getLocation().y, pos.getZ() + 0.5D);
         raft.setYRot(player.getYRot());
         if (!level.noCollision(raft, raft.getBoundingBox())) return InteractionResultHolder.fail(held);
         if (!level.isClientSide) {
