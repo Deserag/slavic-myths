@@ -47,8 +47,11 @@ public final class FirstShipItem extends Item {
                 FirstShipHull.Point point = FirstShipHull.toWorld(lx, lz, x, z, yaw);
                 BlockPos water = BlockPos.containing(point.x(), y - .14D, point.z());
                 if (!level.hasChunkAt(water) || !level.getFluidState(water).is(FluidTags.WATER)
-                        || !level.getFluidState(water).isSource()) return failure(player, held, level);
-                for (int dy = 1; dy <= 4; dy++) {
+                        || !level.getFluidState(water).isSource()
+                        || !level.hasChunkAt(water.below())
+                        || !level.getFluidState(water.below()).is(FluidTags.WATER))
+                    return failure(player, held, level);
+                for (int dy = 1; dy <= 10; dy++) {
                     BlockPos above = water.above(dy);
                     if (!level.hasChunkAt(above) ||
                             !level.getBlockState(above).getCollisionShape(level, above).isEmpty())
