@@ -46,6 +46,12 @@ public final class FirstShipItem extends Item {
         if (!(level instanceof ServerLevel server)) return InteractionResultHolder.fail(held);
 
         BlockPos anchor = ray.getBlockPos();
+        if (!server.getEntitiesOfClass(FirstShipEntity.class,
+                new net.minecraft.world.phys.AABB(anchor).inflate(9D, 8D, 9D)).isEmpty()) {
+            player.displayClientMessage(Component.literal(
+                    "Слишком близко к другому кораблю; старый упакуйте ключом верфи"), true);
+            return InteractionResultHolder.fail(held);
+        }
         int turns = FirstShipBlockHull.rotationFromYaw(player.getYRot());
         FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
         if (ship == null) return InteractionResultHolder.fail(held);
