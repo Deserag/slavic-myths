@@ -25,6 +25,12 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.inventory.ChestMenu;
+import net.minecraft.world.inventory.FurnaceMenu;
+import net.minecraft.world.inventory.SimpleContainerData;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.item.crafting.SmeltingRecipe;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -49,6 +55,7 @@ public final class RaftBoatEntity extends Boat {
     private static final int RAILS = 1, HELM = 2, OARS = 4;
     private final Map<Integer, SimpleContainer> inventories = new HashMap<>();
     private final Map<Integer, Integer> kinds = new HashMap<>();
+    private final Map<Integer, SimpleContainerData> smelting = new HashMap<>();
     private boolean packing;
 
     public RaftBoatEntity(EntityType<? extends RaftBoatEntity> type, Level level) {
@@ -127,6 +134,10 @@ public final class RaftBoatEntity extends Boat {
             module.putInt("Tile", entry.getKey());
             module.putInt("Kind", kinds.getOrDefault(entry.getKey(), 0));
             module.put("Items", entry.getValue().createTag(provider));
+            if (smelting.containsKey(entry.getKey())) {
+                SimpleContainerData data = smelting.get(entry.getKey());
+                module.putIntArray("FurnaceTicks", new int[]{data.get(0), data.get(1), data.get(2), data.get(3)});
+            }
             modules.add(module);
         }
         return modules;
@@ -135,15 +146,22 @@ public final class RaftBoatEntity extends Boat {
     private void unpackModules(CompoundTag tag) {
         inventories.clear();
         kinds.clear();
+        smelting.clear();
         ListTag modules = tag.getList("Raft2511Modules", Tag.TAG_COMPOUND);
         for (int i = 0; i < modules.size() && i < deckWidth() * deckLength(); i++) {
             CompoundTag module = modules.getCompound(i);
             int tile = module.getInt("Tile"), kind = module.getInt("Kind");
-            if (tile < 0 || tile >= deckWidth() * deckLength() || (kind != 1 && kind != 2 && kind != 3) || kinds.containsKey(tile)) continue;
-            SimpleContainer inventory = new SimpleContainer(27);
+            if (tile < 0 || tile >= deckWidth() * deckLength() || (kind < 1 || kind > 4) || kinds.containsKey(tile)) continue;
+            SimpleContainer inventory = new SimpleContainer(kind == 4 ? 3 : 27);
             inventory.fromTag(module.getList("Items", Tag.TAG_COMPOUND), registryAccess());
             kinds.put(tile, kind);
             inventories.put(tile, inventory);
+            if (kind == 4) {
+                SimpleContainerData data = new SimpleContainerData(4);
+                int[] ticks = module.getIntArray("FurnaceTicks");
+                for (int j = 0; j < Math.min(4, ticks.length); j++) data.set(j, Math.max(0, ticks[j]));
+                smelting.put(tile, data);
+            }
         }
         syncKinds();
     }
@@ -181,9 +199,9 @@ public final class RaftBoatEntity extends Boat {
         for (int i = 0; i < modules.size(); i++) {
             CompoundTag module = modules.getCompound(i);
             int tile = module.getInt("Tile"), kind = module.getInt("Kind");
-            if (tile < 0 || tile >= deckWidth() * deckLength() || (kind != 1 && kind != 2 && kind != 3) || !seen.add(tile) ||
+            if (tile < 0 || tile >= deckWidth() * deckLength() || (kind < 1 || kind > 4) || !seen.add(tile) ||
                     !module.contains("Items", Tag.TAG_LIST) ||
-                    module.getList("Items", Tag.TAG_COMPOUND).size() > 27) return false;
+                    module.getList("Items", Tag.TAG_COMPOUND).size() > (kind == 4 ? 3 : 27)) return false;
         }
         // Only transfer once the whole payload passed structural validation.
         try { unpackModules(packed); }
@@ -320,11 +338,12 @@ public final class RaftBoatEntity extends Boat {
         int tile = localTile(player);
         if (tile < 0) return InteractionResult.FAIL;
         if (level().isClientSide) return InteractionResult.SUCCESS;
-        if (held.is(Items.CHEST) || held.is(Items.BARREL) || held.is(Items.CRAFTING_TABLE)) {
+        if (held.is(Items.CHEST) || held.is(Items.BARREL) || held.is(Items.CRAFTING_TABLE) || held.is(Items.FURNACE)) {
             if (kinds.containsKey(tile)) return InteractionResult.FAIL;
-            int kind = held.is(Items.CHEST) ? 1 : held.is(Items.BARREL) ? 2 : 3;
+            int kind = held.is(Items.CHEST) ? 1 : held.is(Items.BARREL) ? 2 : held.is(Items.CRAFTING_TABLE) ? 3 : 4;
             kinds.put(tile, kind);
-            inventories.put(tile, new SimpleContainer(27));
+            inventories.put(tile, new SimpleContainer(kind == 4 ? 3 : 27));
+            if (kind == 4) smelting.put(tile, new SimpleContainerData(4));
             syncKinds();
             if (!player.getAbilities().instabuild) held.shrink(1);
             return InteractionResult.CONSUME;
@@ -332,7 +351,12 @@ public final class RaftBoatEntity extends Boat {
         SimpleContainer inventory = inventories.get(tile);
         if (inventory != null && player instanceof ServerPlayer serverPlayer) {
             int kind = kinds.get(tile);
-            Component title = Component.literal(kind == 1 ? "Судовой сундук" : kind == 2 ? "Судовая бочка" : "Судовой верстак");
+            Component title = Component.literal(switch (kind) {
+                case 1 -> "Судовой сундук";
+                case 2 -> "Судовая бочка";
+                case 3 -> "Судовой верстак";
+                default -> "Судовая печь";
+            });
             if (kind == 3) {
                 serverPlayer.openMenu(new SimpleMenuProvider((windowId, playerInventory, p) ->
                         new net.minecraft.world.inventory.CraftingMenu(windowId, playerInventory,
@@ -341,6 +365,9 @@ public final class RaftBoatEntity extends Boat {
                                 return !RaftBoatEntity.this.isRemoved() && guest.distanceToSqr(RaftBoatEntity.this) < 64.0D;
                             }
                         }, title));
+            } else if (kind == 4) {
+                serverPlayer.openMenu(new SimpleMenuProvider((windowId, playerInventory, p) ->
+                        new FurnaceMenu(windowId, playerInventory, inventory, smelting.get(tile)), title));
             } else {
                 serverPlayer.openMenu(new SimpleMenuProvider((windowId, playerInventory, p) ->
                         ChestMenu.threeRows(windowId, playerInventory, inventory), title));
@@ -348,6 +375,60 @@ public final class RaftBoatEntity extends Boat {
             return InteractionResult.CONSUME;
         }
         return InteractionResult.FAIL;
+    }
+
+    private static int fuelTicks(ItemStack item) {
+        if (item.is(Items.COAL) || item.is(Items.CHARCOAL)) return 1600;
+        if (item.is(Items.BLAZE_ROD)) return 2400;
+        if (item.is(ItemTags.LOGS)) return 300;
+        if (item.is(ItemTags.PLANKS)) return 300;
+        if (item.is(Items.STICK)) return 100;
+        return 0; // Only tested non-container fuels; no lava-bucket loss.
+    }
+
+    /** Fixed-slot vanilla SMELTING recipe logic; recipes and ItemStack data stay with vessel. */
+    private void tickShipFurnaces() {
+        for (var entry : smelting.entrySet()) {
+            SimpleContainer slots = inventories.get(entry.getKey());
+            if (slots == null || slots.getContainerSize() != 3) continue;
+            SimpleContainerData state = entry.getValue();
+            int lit = Math.max(0, state.get(0) - 1);
+            if (lit > 0) state.set(0, lit);
+            else state.set(0, 0);
+            ItemStack source = slots.getItem(0), fuel = slots.getItem(1), output = slots.getItem(2);
+            if (source.isEmpty()) { state.set(2, 0); continue; }
+            var found = level().getRecipeManager().getRecipeFor(
+                    RecipeType.SMELTING, new SingleRecipeInput(source), level());
+            if (found.isEmpty()) { state.set(2, 0); continue; }
+            SmeltingRecipe recipe = found.get().value();
+            ItemStack result = recipe.assemble(new SingleRecipeInput(source), registryAccess());
+            if (result.isEmpty() || (!output.isEmpty() && (!ItemStack.isSameItemSameComponents(output, result) ||
+                    output.getCount() + result.getCount() > output.getMaxStackSize()))) {
+                state.set(2, 0);
+                continue;
+            }
+            if (lit == 0 && !fuel.isEmpty()) {
+                int burn = fuelTicks(fuel);
+                if (burn > 0) {
+                    fuel.shrink(1);
+                    state.set(0, burn);
+                    state.set(1, burn);
+                    lit = burn;
+                }
+            }
+            if (lit > 0) {
+                int progress = state.get(2) + 1;
+                int total = Math.max(1, recipe.getCookingTime());
+                state.set(3, total);
+                if (progress >= total) {
+                    source.shrink(1);
+                    if (output.isEmpty()) slots.setItem(2, result.copy());
+                    else output.grow(result.getCount());
+                    state.set(2, 0);
+                    slots.setChanged();
+                } else state.set(2, progress);
+            } else state.set(2, 0);
+        }
     }
 
     @Override public void tick() {
@@ -370,6 +451,7 @@ public final class RaftBoatEntity extends Boat {
             setDeltaMovement(0D, velocity.y, 0D);
         }
         super.tick();
+        if (!level().isClientSide) tickShipFurnaces();
         if (afloat && waterUnder(surface)) {
             Vec3 velocity = getDeltaMovement();
             if (hasHelm() && sailCount() > 0 && isVehicle()) {
