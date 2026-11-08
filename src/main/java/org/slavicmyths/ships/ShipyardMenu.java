@@ -172,6 +172,9 @@ public final class ShipyardMenu extends AbstractContainerMenu {
         CompoundTag packed = root.contains("Raft2511Pack") ? root.getCompound("Raft2511Pack") : new CompoundTag();
         int flags = packed.getInt("RaftUpgrades");
         if ((flags & bit) != 0) return false;
+        if ((button == 11 || button == 12) && (flags & 8) == 0) {
+            message(player, "Перед установкой паруса нужен рулевой пост"); return false;
+        }
         if (button == 12 && (flags & 2) == 0) {
             message(player, "Сначала установите первый парус"); return false;
         }
