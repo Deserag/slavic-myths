@@ -33,13 +33,14 @@ public final class RaftRenderer extends EntityRenderer<RaftBoatEntity> {
     }
     @Override
     public void render(RaftBoatEntity raft, float yaw, float tick, PoseStack pose, MultiBufferSource buffers, int light) {
+        int width = raft.raftSize().width, length = raft.raftSize().length;
         pose.pushPose();
         pose.mulPose(Axis.YP.rotationDegrees(180F - yaw));
         // Real visible thickness: log underside is near the waterline, top remains above it.
         // Do not derive the deck height from the floor of the fluid block.
-        pose.translate(-1.5D, -0.08D, -1.5D);
+        pose.translate(-width / 2.0D, -0.08D, -length / 2.0D);
         BlockState log = Blocks.STRIPPED_OAK_LOG.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z);
-        for (int z = 0; z < 3; z++) for (int x = 0; x < 3; x++) {
+        for (int z = 0; z < length; z++) for (int x = 0; x < width; x++) {
             piece(log, pose, buffers, light, x + .03D, 0, z, .94F, .58F, 1F);
             int kind = raft.moduleKind(x, z);
             if (kind == 1) {
@@ -48,15 +49,18 @@ public final class RaftRenderer extends EntityRenderer<RaftBoatEntity> {
                         x + .14D, .58D, z + .14D, .72F, .66F, .72F);
                 piece(Blocks.DARK_OAK_PLANKS.defaultBlockState(), pose, buffers, light,
                         x + .11D, 1.23D, z + .11D, .78F, .10F, .78F);
+            } else if (kind == 3) {
+                piece(Blocks.CRAFTING_TABLE.defaultBlockState(), pose, buffers, light,
+                        x + .12D, .58D, z + .12D, .76F, .78F, .76F);
             } else if (kind == 2) {
                 piece(Blocks.BARREL.defaultBlockState(), pose, buffers, light,
                         x + .15D, .58D, z + .15D, .7F, .68F, .7F);
             }
         }
         // Cross lashings make separate log sections read as a single raft.
-        for (double z : new double[]{.3D, 2.52D}) {
+        for (double z : new double[]{.3D, length - .48D}) {
             piece(Blocks.SPRUCE_PLANKS.defaultBlockState(), pose, buffers, light,
-                    .06D, .58D, z, 2.88F, .10F, .16F);
+                    .06D, .58D, z, width - .12F, .10F, .16F);
         }
         // Oars pivot at each side and stroke only when the vanilla paddles are active.
         for (int paddle = 0; paddle < 2; paddle++) {
@@ -64,7 +68,7 @@ public final class RaftRenderer extends EntityRenderer<RaftBoatEntity> {
             float rowing = raft.getPaddleState(paddle) ? raft.getRowingTime(paddle, tick) : 0F;
             float sweep = (float)Math.sin(rowing) * (raft.getPaddleState(paddle) ? 17F : 0F);
             pose.pushPose();
-            pose.translate(side < 0 ? -.05D : 3.05D, .37D, 1.50D);
+            pose.translate(side < 0 ? -.05D : width + .05D, .37D, length / 2.0D);
             pose.mulPose(Axis.YP.rotationDegrees(side * sweep));
             pose.mulPose(Axis.ZP.rotationDegrees(side * 5F));
             piece(Blocks.OAK_PLANKS.defaultBlockState(), pose, buffers, light,
