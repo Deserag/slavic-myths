@@ -6,6 +6,7 @@ import org.slavicmyths.ships.RaftContent;
 public final class RaftClient {
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(RaftContent.RAFT.get(), RaftRenderer::new);
+        event.registerEntityRenderer(RaftContent.FIRST_SHIP.get(), FirstShipRenderer::new);
     }
     /** Sail level is a real item component; one base item can render several equipped variants. */
     public static void itemProperties() {
