@@ -280,6 +280,16 @@ public final class FirstShipEntity extends Boat {
             player.displayClientMessage(Component.literal("Судно должно стоять без экипажа и пассажиров"), true);
             return InteractionResult.FAIL;
         }
+        if (level() instanceof net.minecraft.server.level.ServerLevel server) {
+            for (ServerPlayer nearby : server.getEntitiesOfClass(ServerPlayer.class,
+                    getBoundingBox().inflate(10D, 8D, 10D))) {
+                if (nearby.containerMenu != nearby.inventoryMenu) {
+                    player.displayClientMessage(Component.literal(
+                            "Перед упаковкой все грузовые окна должны быть закрыты"), true);
+                    return InteractionResult.FAIL;
+                }
+            }
+        }
         ItemStack stack = packed();
         if (stack.isEmpty()) return InteractionResult.FAIL;
         if (nativeHull) {
@@ -322,7 +332,7 @@ public final class FirstShipEntity extends Boat {
      * Once on deck the player is NOT mounted or moved between fake seats.
      */
     public boolean tryBoard(ServerPlayer player) {
-        if (isVehicle() || player.isPassenger() || player.isSpectator()
+        if (player.isPassenger() || player.isSpectator()
                 || getDeltaMovement().horizontalDistanceSqr() > .0025D
                 || player.getY() >= deckY() - 1.1D) return false;
         FirstShipHull.Point local = FirstShipHull.toLocal(
@@ -507,6 +517,11 @@ public final class FirstShipEntity extends Boat {
         java.util.Map<ServerPlayer, FirstShipHull.Point> localPositions = new java.util.HashMap<>();
         AABB nearby = new AABB(oldAnchor).inflate(9D, 9D, 9D);
         for (ServerPlayer p : server.getEntitiesOfClass(ServerPlayer.class, nearby)) {
+            if (p.containerMenu != p.inventoryMenu) {
+                driver.displayClientMessage(Component.literal(
+                        "Закройте все окна сундуков/печей перед перемещением корабля"), true);
+                return false;
+            }
             if (p == driver || p.isPassenger() || p.isSpectator() || p.getAbilities().flying) continue;
             FirstShipHull.Point local = FirstShipHull.toLocal(p.getX(), p.getZ(),
                     getX(), getZ(), getYRot());
