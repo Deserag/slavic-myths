@@ -186,5 +186,62 @@ public final class ShipyardUpgrades {
         if (remaining != 0) throw new IllegalStateException("Shipyard resources changed during validated operation");
     }
 
+
+    /**
+     * A full ship is deliberately NOT a raft upgrade. Shipwright's bill:
+     * 48 logs, 96 planks, 32 iron fasteners, 24 rope (string),
+     * 20 canvas (wool), 32 deck sections, four bulwark kits,
+     * a helm and a sail. All checks run before any item is taken.
+     */
+    public static boolean canBuildFirstShip(Player player) {
+        return player.getAbilities().instabuild ||
+                (countTag(player, net.minecraft.tags.ItemTags.LOGS) >= 48 &&
+                 countTag(player, net.minecraft.tags.ItemTags.PLANKS) >= 96 &&
+                 player.getInventory().countItem(net.minecraft.world.item.Items.IRON_INGOT) >= 32 &&
+                 player.getInventory().countItem(net.minecraft.world.item.Items.STRING) >= 24 &&
+                 countTag(player, net.minecraft.tags.ItemTags.WOOL) >= 20 &&
+                 player.getInventory().countItem(RaftContent.DECK_SECTION.get()) >= 32 &&
+                 player.getInventory().countItem(RaftContent.RAIL_MODULE.get()) >= 4 &&
+                 player.getInventory().countItem(RaftContent.HELM_MODULE.get()) >= 1 &&
+                 player.getInventory().countItem(RaftContent.SAIL_MODULE.get()) >= 1);
+    }
+
+    public static ItemStack buildFirstShip(Player player) {
+        if (player.level().isClientSide || !canBuildFirstShip(player)) return ItemStack.EMPTY;
+        if (!player.getAbilities().instabuild) {
+            consumeTag(player, net.minecraft.tags.ItemTags.LOGS, 48);
+            consumeTag(player, net.minecraft.tags.ItemTags.PLANKS, 96);
+            consume(player, net.minecraft.world.item.Items.IRON_INGOT, 32);
+            consume(player, net.minecraft.world.item.Items.STRING, 24);
+            consumeTag(player, net.minecraft.tags.ItemTags.WOOL, 20);
+            consume(player, RaftContent.DECK_SECTION.get(), 32);
+            consume(player, RaftContent.RAIL_MODULE.get(), 4);
+            consume(player, RaftContent.HELM_MODULE.get(), 1);
+            consume(player, RaftContent.SAIL_MODULE.get(), 1);
+        }
+        return new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
+    }
+
+    private static int countTag(Player player, net.minecraft.tags.TagKey<net.minecraft.world.item.Item> tag) {
+        int sum = 0;
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+            ItemStack stack = player.getInventory().getItem(i);
+            if (stack.is(tag)) sum += stack.getCount();
+        }
+        return sum;
+    }
+
+    private static void consumeTag(Player player, net.minecraft.tags.TagKey<net.minecraft.world.item.Item> tag, int total) {
+        int left = total;
+        for (int i = 0; i < player.getInventory().getContainerSize() && left > 0; i++) {
+            ItemStack stack = player.getInventory().getItem(i);
+            if (!stack.is(tag)) continue;
+            int take = Math.min(left, stack.getCount());
+            stack.shrink(take);
+            left -= take;
+        }
+        if (left != 0) throw new IllegalStateException("Shipyard tag ingredients changed during validated build");
+    }
+
     private ShipyardUpgrades() {}
 }
