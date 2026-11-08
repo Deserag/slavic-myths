@@ -90,17 +90,19 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         java.util.List<net.minecraft.util.FormattedCharSequence> wrapped = new java.util.ArrayList<>();
         if (menu.inspected().getItem() instanceof org.slavicmyths.ships.FirstShipItem) {
             for (String line : new String[]{
-                    "Деревянный корабль 7×11",
-                    "2 доступных этажа",
-                    "Палуба + нижний трюм",
-                    "Люк, лестница, мачта",
-                    "Кормовой рулевой пост",
-                    "Корабельный ветер",
-                    "Груз: палуба и трюм",
-                    "Сундуки, бочки, верстак, печи",
-                    "Верфяной ключ — упаковка",
-                    "НЕ улучшать как плот.",
-                    "Игра: нужна проверка ходьбы."
+                    "Корабль 7×11 из ванильных блоков",
+                    "Палуба: реальные доски Y+4",
+                    "Сухой трюм: настил Y+0",
+                    "Люк 2×2, настоящая лестница",
+                    "Нос — один цельный блок",
+                    "Руль: ПКМ, затем W/S ход",
+                    "A/D: поворот на 90 градусов",
+                    "Shift: сойти со штурвала",
+                    "Сундуки/бочки/печи: обычные",
+                    "E: схема реальных контейнеров",
+                    "Ключ + Shift+ПКМ: упаковка",
+                    "Плавная навигация не готова.",
+                    "Нужны проверки прямо в игре."
             }) wrapped.addAll(font.split(Component.literal(line), 158));
         } else if (!(menu.inspected().getItem() instanceof RaftItem)) {
             for (String line : new String[]{"Поместите плот в", "судовую ячейку слева.",
