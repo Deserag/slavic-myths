@@ -447,13 +447,15 @@ public final class RaftBoatEntity extends Boat {
         if (afloat && waterUnder(surface)) {
             Vec3 velocity = getDeltaMovement();
             if (hasHelm() && sailCount() > 0 && isVehicle()) {
-                // Deterministic non-industrial breeze: stronger than rowing alone;
-                // paddling remains additive, and a cargo raft can carry two sails.
-                double gust = .78D + .22D * Math.sin(level().getGameTime() / 150.0D + getX() / 160.0D);
-                double thrust = (.042D + .014D * (sailCount() - 1)) * gust;
+                // The sail catches a deterministic, weather-dependent WORLD wind.
+                // Turning straight into a headwind now removes sail propulsion;
+                // rowing still works and may combine with a favorable breeze.
+                RaftWind.Sample breeze = RaftWind.at(level().getGameTime(), getX(), getZ(),
+                        level().isRaining(), level().isThundering());
+                double thrust = RaftWind.thrust(breeze, getYRot(), sailCount());
                 double yaw = Math.toRadians(getYRot());
-                double windX = -Math.sin(yaw), windZ = Math.cos(yaw);
-                double vx = velocity.x + windX * thrust, vz = velocity.z + windZ * thrust;
+                double headingX = -Math.sin(yaw), headingZ = Math.cos(yaw);
+                double vx = velocity.x + headingX * thrust, vz = velocity.z + headingZ * thrust;
                 boolean rowing = getPaddleState(0) || getPaddleState(1);
                 double max = RaftCharacteristics.ONE_SAIL_LIMIT + RaftCharacteristics.SECOND_SAIL_BONUS * (sailCount() - 1) + (rowing ? RaftCharacteristics.ROWING_BONUS : 0D);
                 double horizontal = Math.sqrt(vx * vx + vz * vz);
