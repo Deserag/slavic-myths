@@ -92,15 +92,18 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             for (String line : new String[]{
                     "Корабль 7×11 из ванильных блоков",
                     "Палуба: реальные доски Y+4",
-                    "Сухой трюм: настил Y+0",
+                    "Сухой трюм: 2 блока высоты",
                     "Люк 2×2, настоящая лестница",
                     "Нос — один цельный блок",
-                    "Руль: ПКМ, затем W/S ход",
+                    "Штурвал: ПКМ, затем W/S ход",
                     "A/D: поворот на 90 градусов",
-                    "Shift: сойти со штурвала",
+                    "Shift: выйти на открытую палубу",
                     "Сундуки/бочки/печи: обычные",
                     "E: схема реальных контейнеров",
                     "Ключ + Shift+ПКМ: упаковка",
+                    "4 уровня парусов, 3 ткани.",
+                    "ПКМ по мачте для монтажа.",
+                    "Shift+ПКМ без вещи: снятие.",
                     "Плавная навигация не готова.",
                     "Нужны проверки прямо в игре."
             }) wrapped.addAll(font.split(Component.literal(line), 158));
@@ -112,9 +115,10 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     "Корабль 7×11:",
                     "48 брёвен, 96 досок",
                     "32 железа, 24 нити",
-                    "20 шерсти, 32 секции",
-                    "4 борта, 1 руль, 1 парус",
-                    "Shift + ПКМ: крафт."})
+                    "32 палубные секции",
+                    "4 борта, 1 штурвал",
+                    "Паруса и ткань отдельно",
+                    "Кнопка Корабль: сборка."})
                 wrapped.addAll(font.split(Component.literal(line), 158));
         } else {
             RaftCharacteristics.Info info = RaftCharacteristics.fromItem(menu.inspected());
