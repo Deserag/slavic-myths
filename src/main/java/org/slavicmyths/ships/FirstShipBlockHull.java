@@ -282,7 +282,7 @@ public final class FirstShipBlockHull {
                     cargo.add(new Cargo(x, y, z, type, state, tag));
                 }
         // Do not bulldoze arbitrary additions inside the lower hold.
-        for (BlockPos pos : volume(anchor, turns)) {
+        for (BlockPos pos : volume(anchor, turns, rig, fabric)) {
             if (hull.containsKey(pos) || level.getBlockState(pos).isAir()) continue;
             boolean recognized = false;
             for (Cargo entry : cargo) if (world(anchor, turns, entry.x(), entry.y(), entry.z()).equals(pos)) {
