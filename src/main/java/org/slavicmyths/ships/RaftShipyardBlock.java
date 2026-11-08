@@ -19,8 +19,6 @@ public final class RaftShipyardBlock extends Block {
         super(Properties.of().mapColor(MapColor.WOOD).strength(3.5F).sound(SoundType.WOOD).noOcclusion());
     }
 
-    @Override public Component getName() { return Component.literal("Корабельный верстак"); }
-
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (player instanceof ServerPlayer server) server.openMenu(
                 new SimpleMenuProvider((id, inventory, owner) -> new ShipyardMenu(id, inventory, pos), Component.literal("Корабельный верстак")),
