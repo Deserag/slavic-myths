@@ -41,12 +41,22 @@ public final class RaftItem extends Item {
         if (!level.getFluidState(pos).is(FluidTags.WATER)) return InteractionResultHolder.fail(held);
         RaftBoatEntity raft = RaftContent.RAFT.get().create(level);
         if (raft == null) return InteractionResultHolder.fail(held);
-        for (int dx = -(size.width / 2); dx <= size.width / 2; dx++)
-            for (int dz = -(size.length / 2); dz <= size.length / 2; dz++) {
-                BlockPos support = pos.offset(dx, 0, dz);
-                if (!level.hasChunkAt(support) || !level.getFluidState(support).is(FluidTags.WATER)) {
+        // Cover every quarter-cell of the ROTATED deck. Previous world-axis-aligned
+        // checks incorrectly allowed long rafts to overlap shores and solid blocks.
+        for (int sx = 0; sx < size.width * 2; sx++)
+            for (int sz = 0; sz < size.length * 2; sz++) {
+                RaftFootprint.Point offset = RaftFootprint.sample(size.width, size.length, sx, sz, player.getYRot());
+                BlockPos support = BlockPos.containing(pos.getX() + .5D + offset.x(),
+                        pos.getY(), pos.getZ() + .5D + offset.z());
+                BlockPos upper = support.above();
+                if (!level.hasChunkAt(support) || !level.hasChunkAt(upper) ||
+                        !level.getFluidState(support).is(FluidTags.WATER) ||
+                        !level.getFluidState(support).isSource() ||
+                        !level.getBlockState(upper).getCollisionShape(level, upper).isEmpty()) {
                     if (!level.isClientSide) player.displayClientMessage(
-                            net.minecraft.network.chat.Component.literal("Необходима свободная вода " + size.width + "×" + size.length), true);
+                            net.minecraft.network.chat.Component.literal(
+                                    "Для этого плота нужна ровная свободная вода " +
+                                            size.width + "×" + size.length), true);
                     return InteractionResultHolder.fail(held);
                 }
             }
