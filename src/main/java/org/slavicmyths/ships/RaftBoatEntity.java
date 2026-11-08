@@ -3,6 +3,9 @@ package org.slavicmyths.ships;
 import java.util.HashMap;
 import java.util.Map;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.BlockPos;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
@@ -32,6 +35,9 @@ import net.minecraft.world.phys.Vec3;
  */
 public final class RaftBoatEntity extends Boat {
     private static final EntityDataAccessor<Integer> MODULES = SynchedEntityData.defineId(RaftBoatEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Float> SURFACE_Y = SynchedEntityData.defineId(RaftBoatEntity.class, EntityDataSerializers.FLOAT);
+    private static final float UNKNOWN_SURFACE = -10000F;
+    private static final double FLOATING_DRAFT = 0.14D;
     private final Map<Integer, SimpleContainer> inventories = new HashMap<>();
     private final Map<Integer, Integer> kinds = new HashMap<>();
 
@@ -44,6 +50,7 @@ public final class RaftBoatEntity extends Boat {
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(MODULES, 0);
+        builder.define(SURFACE_Y, UNKNOWN_SURFACE);
     }
 
     @Override protected int getMaxPassengers() { return 4; }
@@ -52,7 +59,51 @@ public final class RaftBoatEntity extends Boat {
     @Override protected Vec3 getPassengerAttachmentPoint(net.minecraft.world.entity.Entity passenger,
             net.minecraft.world.entity.EntityDimensions dimensions, float partialTick) {
         int index = Math.max(0, getPassengers().indexOf(passenger));
-        return new Vec3((index % 2 == 0 ? -0.72D : 0.72D), 0.34D, (index < 2 ? -0.72D : 0.72D));
+        return new Vec3((index % 2 == 0 ? -0.72D : 0.72D), 0.58D, (index < 2 ? -0.72D : 0.72D));
+    }
+
+    /** World water surface, not the block bottom. Set at placement and synced to clients. */
+    public void setWaterSurface(double surface) {
+        if (Double.isFinite(surface) && surface > level().getMinBuildHeight() && surface < level().getMaxBuildHeight() + 1) {
+            entityData.set(SURFACE_Y, (float)surface);
+        }
+    }
+
+    /** The vanilla Boat pick and drop items are vanilla wooden boats unless overridden. */
+    @Override public ItemStack getPickResult() { return new ItemStack(RaftContent.RAFT_ITEM.get()); }
+    @Override public Item getDropItem() { return RaftContent.RAFT_ITEM.get(); }
+    @Override protected Component getTypeName() {
+        return Component.translatableWithFallback("entity.slavicmyths.raft_2511_test", "Плот");
+    }
+
+    private boolean waterUnder(double surface) {
+        BlockPos below = BlockPos.containing(getX(), surface - FLOATING_DRAFT, getZ());
+        return level().hasChunkAt(below) && level().getFluidState(below).is(FluidTags.WATER);
+    }
+
+    /**
+     * One-time waterline recovery for old submerged prototype entities.
+     * Never load chunks; only ascend a continuous column of water.
+     */
+    private double recoverWaterSurface() {
+        BlockPos origin = blockPosition();
+        int start = Math.max(level().getMinBuildHeight(), origin.getY() - 1);
+        int stop = Math.min(level().getMaxBuildHeight() - 1, start + 96);
+        boolean foundWater = false;
+        double waterline = Double.NaN;
+        for (int y = start; y <= stop; y++) {
+            BlockPos pos = new BlockPos(origin.getX(), y, origin.getZ());
+            if (!level().hasChunkAt(pos)) return Double.NaN;
+            var fluid = level().getFluidState(pos);
+            if (!fluid.is(FluidTags.WATER)) {
+                if (foundWater) return waterline;
+                if (y > start + 1) return Double.NaN;
+                continue;
+            }
+            foundWater = true;
+            waterline = y + fluid.getHeight(level(), pos);
+        }
+        return Double.NaN;
     }
 
     public int moduleKind(int x, int z) {
@@ -105,14 +156,33 @@ public final class RaftBoatEntity extends Boat {
     }
 
     @Override public void tick() {
-        if (!level().isClientSide && !isInWaterOrBubble()) {
+        // Boat's private buoyancy/status algorithm is calibrated to a narrow vanilla boat.
+        // A 2.95-wide custom boat can fall to UNDER_WATER and never resurface by itself.
+        // Lock only vertical position while directly over water, keeping vanilla paddle
+        // steering, inertia, collision and server/client horizontal movement.
+        if (!level().isClientSide && entityData.get(SURFACE_Y) == UNKNOWN_SURFACE) {
+            double recovered = recoverWaterSurface();
+            if (Double.isFinite(recovered)) setWaterSurface(recovered);
+        }
+        double surface = entityData.get(SURFACE_Y);
+        boolean afloat = surface != UNKNOWN_SURFACE && waterUnder(surface);
+        if (afloat) {
             Vec3 velocity = getDeltaMovement();
-            setDeltaMovement(0, velocity.y, 0);
+            setDeltaMovement(velocity.x, 0D, velocity.z);
+            setPos(getX(), surface - FLOATING_DRAFT, getZ());
+        } else if (!level().isClientSide && !isInWaterOrBubble()) {
+            Vec3 velocity = getDeltaMovement();
+            setDeltaMovement(0D, velocity.y, 0D);
         }
         super.tick();
-        if (!level().isClientSide && !isInWaterOrBubble()) {
+        if (afloat && waterUnder(surface)) {
             Vec3 velocity = getDeltaMovement();
-            setDeltaMovement(0, velocity.y, 0);
+            setDeltaMovement(velocity.x, 0D, velocity.z);
+            setPos(getX(), surface - FLOATING_DRAFT, getZ());
+            fallDistance = 0F;
+        } else if (!level().isClientSide && !isInWaterOrBubble()) {
+            Vec3 velocity = getDeltaMovement();
+            setDeltaMovement(0D, velocity.y, 0D);
         }
     }
 
@@ -128,6 +198,7 @@ public final class RaftBoatEntity extends Boat {
             modules.add(module);
         }
         tag.put("Raft2511Modules", modules);
+        tag.putFloat("Raft2511SurfaceY", entityData.get(SURFACE_Y));
     }
 
     @Override protected void readAdditionalSaveData(CompoundTag tag) {
@@ -145,5 +216,6 @@ public final class RaftBoatEntity extends Boat {
             inventories.put(tile, inventory);
         }
         syncKinds();
+        if (tag.contains("Raft2511SurfaceY", Tag.TAG_FLOAT)) setWaterSurface(tag.getFloat("Raft2511SurfaceY"));
     }
 }
