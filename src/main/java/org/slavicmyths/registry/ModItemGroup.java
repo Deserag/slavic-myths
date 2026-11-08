@@ -24,7 +24,20 @@ public final class ModItemGroup {
                     .icon(() -> new ItemStack(org.slavicmyths.ships.RaftContent.RAFT_ITEM.get()))
                     .displayItems((parameters, output) -> {
                         output.accept(org.slavicmyths.ships.RaftContent.RAFT_ITEM.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.LONG_RAFT.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.WIDE_RAFT.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.LARGE_RAFT.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.SHIPYARD_ITEM.get());
                         output.accept(org.slavicmyths.ships.RaftContent.SHIPYARD_KEY.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.DECK_SECTION.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.OARS.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.ROPE.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.RAILING.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.SMALL_SAIL.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.HELM.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.BALLAST.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.LANTERN.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.REINFORCEMENT.get());
                     })
                     .withTabsAfter(ResourceLocation.fromNamespaceAndPath("slavicmyths", "furniture"))
                     .build());
@@ -75,7 +88,7 @@ public final class ModItemGroup {
         if (!key.getNamespace().equals("slavicmyths")) return -1;
         String path = key.getPath();
         if (path.equals("wooden_barrel")) return -1; // Registered only for old saves.
-        if (path.equals("raft_2511_test")) return -1; // Listed exclusively in shipbuilding.
+        if (path.startsWith("raft_") || path.startsWith("ship_") || path.startsWith("shipyard_")) return -1; // Shipbuilding only.
         if (CreativeCatalog.entry(path) != null) return CreativeCatalog.category(path);
         if (REPORTED_FALLBACKS.add(path))
             System.getLogger("slavicmyths.creative").log(System.Logger.Level.WARNING,
