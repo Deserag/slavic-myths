@@ -36,7 +36,9 @@ public final class RaftDeckEvents {
         Contact previous = LAST.get(player);
         AABB search = player.getBoundingBox().inflate(8D, 1.35D, 8D);
         for (RaftBoatEntity raft : player.level().getEntitiesOfClass(RaftBoatEntity.class, search)) {
-            if (raft.isRemoved() || raft.isUnderWater()) continue;
+            // Native Boat status can remain UNDER_WATER with our custom locked waterline;
+            // it must not prevent landing on the visibly dry raft deck.
+            if (raft.isRemoved()) continue;
             double deckY = raft.deckTop();
             double feet = player.getY();
             // A player must land on TOP of the deck, not be swept upward from water underneath.
