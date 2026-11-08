@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "PLP",
+    "SSS"
+  ],
+  "key": {
+    "S": "minecraft:string",
+    "P": "minecraft:oak_planks",
+    "L": "minecraft:oak_log"
+  },
+  "result": {
+    "id": "slavicmyths:ship_deck_section",
+    "count": 2
+  }
+}
