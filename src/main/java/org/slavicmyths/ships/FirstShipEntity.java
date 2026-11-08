@@ -63,6 +63,7 @@ public final class FirstShipEntity extends Boat {
     private int quarterTurns;
     private boolean nativeHull;
     private long lastHelmAction = -100L;
+    private boolean legacyConversionTried;
 
     public BlockPos blockAnchor() {
         return level().isClientSide
@@ -478,6 +479,27 @@ public final class FirstShipEntity extends Boat {
      * dragging people off the fake floors. Vanilla blocks provide real collision.
      */
     @Override public void tick() {
+        // Worlds created with the rejected fake-entity ship contain no world
+        // blocks. Try a one-time safe upgrade if the former module grid is
+        // empty and the 7x11 water site is still unobstructed. Never overwrite
+        // land, delete NBT cargo, or silently claim an unsafe conversion.
+        if (!isNativeHull() && !level().isClientSide && !legacyConversionTried) {
+            legacyConversionTried = true;
+            if (!isVehicle() && kind.isEmpty() && quarantinedModules == null
+                    && level() instanceof net.minecraft.server.level.ServerLevel server) {
+                BlockPos proposed = BlockPos.containing(getX(), getY(), getZ());
+                int turn = FirstShipBlockHull.rotationFromYaw(getYRot());
+                if (FirstShipBlockHull.place(server, proposed, turn, new ListTag())) {
+                    initializeNativeHull(proposed, turn);
+                    setCustomName(null);
+                    setCustomNameVisible(false);
+                }
+            }
+            if (!isNativeHull()) {
+                setCustomName(Component.literal("СТАРЫЙ КОРАБЛЬ — УПАКУЙТЕ КЛЮЧОМ И ПОСТАВЬТЕ ЗАНОВО"));
+                setCustomNameVisible(true);
+            }
+        }
         if (isNativeHull()) {
             baseTick();
             setDeltaMovement(Vec3.ZERO);
