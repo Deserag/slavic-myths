@@ -41,6 +41,12 @@ public final class RaftBoatEntity extends Boat {
     private static final EntityDataAccessor<Float> SURFACE_Y = SynchedEntityData.defineId(RaftBoatEntity.class, EntityDataSerializers.FLOAT);
     private static final float UNKNOWN_SURFACE = -10000F;
     private static final double FLOATING_DRAFT = 0.14D;
+    private static final EntityDataAccessor<Integer> RAFT_WIDTH = SynchedEntityData.defineId(RaftBoatEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> RAFT_LENGTH = SynchedEntityData.defineId(RaftBoatEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> SAIL_COUNT = SynchedEntityData.defineId(RaftBoatEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> MOD_FLAGS = SynchedEntityData.defineId(RaftBoatEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<String> MODULE_GRID = SynchedEntityData.defineId(RaftBoatEntity.class, EntityDataSerializers.STRING);
+    private static final int RAILS = 1, HELM = 2, OARS = 4;
     private final Map<Integer, SimpleContainer> inventories = new HashMap<>();
     private final Map<Integer, Integer> kinds = new HashMap<>();
     private boolean packing;
@@ -55,6 +61,24 @@ public final class RaftBoatEntity extends Boat {
         super.defineSynchedData(builder);
         builder.define(MODULES, 0);
         builder.define(SURFACE_Y, UNKNOWN_SURFACE);
+        builder.define(RAFT_WIDTH, 3);
+        builder.define(RAFT_LENGTH, 3);
+        builder.define(SAIL_COUNT, 0);
+        builder.define(MOD_FLAGS, 0);
+        builder.define(MODULE_GRID, "0".repeat(35));
+    }
+
+    public int deckWidth() { return entityData.get(RAFT_WIDTH); }
+    public int deckLength() { return entityData.get(RAFT_LENGTH); }
+    public int sailCount() { return entityData.get(SAIL_COUNT); }
+    public boolean hasRails() { return (entityData.get(MOD_FLAGS) & RAILS) != 0; }
+    public boolean hasHelm() { return (entityData.get(MOD_FLAGS) & HELM) != 0; }
+    public boolean hasExtraOars() { return (entityData.get(MOD_FLAGS) & OARS) != 0; }
+    public RaftSize raftSize() { return RaftSize.of(deckWidth(), deckLength()); }
+    public void configure(RaftSize size) {
+        entityData.set(RAFT_WIDTH, size.width);
+        entityData.set(RAFT_LENGTH, size.length);
+        syncKinds();
     }
 
     @Override protected int getMaxPassengers() { return 4; }
@@ -96,10 +120,10 @@ public final class RaftBoatEntity extends Boat {
         inventories.clear();
         kinds.clear();
         ListTag modules = tag.getList("Raft2511Modules", Tag.TAG_COMPOUND);
-        for (int i = 0; i < modules.size() && i < 9; i++) {
+        for (int i = 0; i < modules.size() && i < deckWidth() * deckLength(); i++) {
             CompoundTag module = modules.getCompound(i);
             int tile = module.getInt("Tile"), kind = module.getInt("Kind");
-            if (tile < 0 || tile >= 9 || (kind != 1 && kind != 2) || kinds.containsKey(tile)) continue;
+            if (tile < 0 || tile >= deckWidth() * deckLength() || (kind != 1 && kind != 2 && kind != 3) || kinds.containsKey(tile)) continue;
             SimpleContainer inventory = new SimpleContainer(27);
             inventory.fromTag(module.getList("Items", Tag.TAG_COMPOUND), registryAccess());
             kinds.put(tile, kind);
@@ -110,9 +134,13 @@ public final class RaftBoatEntity extends Boat {
 
     /** Pack only local equipment state; do not clone a world-positioned entity. */
     private ItemStack packedItem() {
-        ItemStack result = new ItemStack(RaftContent.RAFT_ITEM.get());
+        ItemStack result = new ItemStack(RaftContent.raftItem(raftSize()));
         CompoundTag packed = new CompoundTag();
-        packed.putInt("Version", 1);
+        packed.putInt("Version", 2);
+        packed.putInt("RaftWidth", deckWidth());
+        packed.putInt("RaftLength", deckLength());
+        packed.putInt("RaftSails", sailCount());
+        packed.putInt("RaftFlags", entityData.get(MOD_FLAGS));
         packed.putUUID("VesselId", getUUID());
         packed.put("Raft2511Modules", modulesForSaving());
         CompoundTag custom = new CompoundTag();
@@ -128,20 +156,28 @@ public final class RaftBoatEntity extends Boat {
         CompoundTag root = custom.copyTag();
         if (!root.contains("Raft2511Pack", Tag.TAG_COMPOUND)) return true;
         CompoundTag packed = root.getCompound("Raft2511Pack");
-        if (packed.getInt("Version") != 1 || !packed.contains("Raft2511Modules", Tag.TAG_LIST)) return false;
+        int version = packed.getInt("Version");
+        if ((version != 1 && version != 2) || !packed.contains("Raft2511Modules", Tag.TAG_LIST)) return false;
+        if (version == 2 && (packed.getInt("RaftWidth") != deckWidth() || packed.getInt("RaftLength") != deckLength())) return false;
         ListTag modules = packed.getList("Raft2511Modules", Tag.TAG_COMPOUND);
-        if (modules.size() > 9) return false;
+        if (modules.size() > deckWidth() * deckLength()) return false;
         java.util.Set<Integer> seen = new java.util.HashSet<>();
         for (int i = 0; i < modules.size(); i++) {
             CompoundTag module = modules.getCompound(i);
             int tile = module.getInt("Tile"), kind = module.getInt("Kind");
-            if (tile < 0 || tile >= 9 || (kind != 1 && kind != 2) || !seen.add(tile) ||
+            if (tile < 0 || tile >= deckWidth() * deckLength() || (kind != 1 && kind != 2 && kind != 3) || !seen.add(tile) ||
                     !module.contains("Items", Tag.TAG_LIST) ||
                     module.getList("Items", Tag.TAG_COMPOUND).size() > 27) return false;
         }
         // Only transfer once the whole payload passed structural validation.
         try { unpackModules(packed); }
         catch (RuntimeException invalid) { return false; }
+        if (version == 2) {
+            int sails = packed.getInt("RaftSails");
+            if (sails < 0 || sails > raftSize().maxSails()) return false;
+            entityData.set(SAIL_COUNT, sails);
+            entityData.set(MOD_FLAGS, packed.getInt("RaftFlags") & (RAILS | HELM | OARS));
+        }
         return true;
     }
 
@@ -163,8 +199,8 @@ public final class RaftBoatEntity extends Boat {
     }
 
     /** The vanilla Boat pick and drop items are vanilla wooden boats unless overridden. */
-    @Override public ItemStack getPickResult() { return new ItemStack(RaftContent.RAFT_ITEM.get()); }
-    @Override public Item getDropItem() { return RaftContent.RAFT_ITEM.get(); }
+    @Override public ItemStack getPickResult() { return new ItemStack(RaftContent.raftItem(raftSize())); }
+    @Override public Item getDropItem() { return RaftContent.raftItem(raftSize()); }
     @Override protected Component getTypeName() {
         return Component.translatableWithFallback("entity.slavicmyths.raft_2511_test", "Плот");
     }
@@ -200,13 +236,23 @@ public final class RaftBoatEntity extends Boat {
     }
 
     public int moduleKind(int x, int z) {
-        if (x < 0 || x >= 3 || z < 0 || z >= 3) return 0;
-        return (entityData.get(MODULES) >>> ((z * 3 + x) * 2)) & 3;
+        if (x < 0 || x >= deckWidth() || z < 0 || z >= deckLength()) return 0;
+        int index = z * deckWidth() + x;
+        String grid = entityData.get(MODULE_GRID);
+        return index < grid.length() ? Math.max(0, grid.charAt(index) - '0') : 0;
     }
 
     private void syncKinds() {
+        char[] grid = "0".repeat(35).toCharArray();
         int bits = 0;
-        for (var entry : kinds.entrySet()) bits |= (entry.getValue() & 3) << (entry.getKey() * 2);
+        for (var entry : kinds.entrySet()) {
+            int tile = entry.getKey(), kind = entry.getValue();
+            if (tile >= 0 && tile < deckWidth() * deckLength()) {
+                grid[tile] = (char)('0' + kind);
+                if (deckWidth() == 3 && deckLength() == 3) bits |= (kind & 3) << (tile * 2);
+            }
+        }
+        entityData.set(MODULE_GRID, new String(grid));
         entityData.set(MODULES, bits);
     }
 
@@ -219,8 +265,8 @@ public final class RaftBoatEntity extends Boat {
         double dx = point.x - getX(), dz = point.z - getZ(), yaw = Math.toRadians(getYRot());
         double localX = dx * Math.cos(yaw) + dz * Math.sin(yaw);
         double localZ = -dx * Math.sin(yaw) + dz * Math.cos(yaw);
-        int x = (int)Math.floor(localX + 1.5), z = (int)Math.floor(localZ + 1.5);
-        return x >= 0 && x < 3 && z >= 0 && z < 3 ? z * 3 + x : -1;
+        int x = (int)Math.floor(localX + deckWidth() / 2.0), z = (int)Math.floor(localZ + deckLength() / 2.0);
+        return x >= 0 && x < deckWidth() && z >= 0 && z < deckLength() ? z * deckWidth() + x : -1;
     }
 
     @Override public InteractionResult interact(Player player, InteractionHand hand) {
@@ -284,11 +330,21 @@ public final class RaftBoatEntity extends Boat {
         super.addAdditionalSaveData(tag);
         tag.put("Raft2511Modules", modulesForSaving());
         tag.putFloat("Raft2511SurfaceY", entityData.get(SURFACE_Y));
+        tag.putInt("RaftWidth", deckWidth());
+        tag.putInt("RaftLength", deckLength());
+        tag.putInt("RaftSails", sailCount());
+        tag.putInt("RaftFlags", entityData.get(MOD_FLAGS));
     }
 
     @Override protected void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
+        if (tag.contains("RaftWidth", Tag.TAG_INT) && tag.contains("RaftLength", Tag.TAG_INT)) {
+            try { configure(RaftSize.of(tag.getInt("RaftWidth"), tag.getInt("RaftLength"))); }
+            catch (IllegalArgumentException invalid) { configure(RaftSize.SMALL); }
+        }
         unpackModules(tag);
+        entityData.set(SAIL_COUNT, Math.min(raftSize().maxSails(), Math.max(0, tag.getInt("RaftSails"))));
+        entityData.set(MOD_FLAGS, tag.getInt("RaftFlags") & (RAILS | HELM | OARS));
         if (tag.contains("Raft2511SurfaceY", Tag.TAG_FLOAT)) setWaterSurface(tag.getFloat("Raft2511SurfaceY"));
     }
 }
