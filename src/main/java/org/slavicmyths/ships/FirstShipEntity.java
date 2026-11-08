@@ -410,6 +410,109 @@ public final class FirstShipEntity extends Boat {
     }
 
     /**
+     * Install or replace sail material with a genuine crafted kit, extend the
+     * mast by one tier with a rigging kit, or remove one tier with Shift+ПКМ.
+     * BlockHull verifies the whole replacement footprint before mutation.
+     * Inventory only changes after that transaction succeeds.
+     */
+    public boolean configureRigging(ServerPlayer player, int action) {
+        if (!nativeHull || isVehicle() || player.isPassenger() || player.isSpectator()
+                || !(level() instanceof net.minecraft.server.level.ServerLevel server)
+                || player.containerMenu != player.inventoryMenu) return false;
+        FirstShipHull.Point local = FirstShipHull.toLocal(player.getX(), player.getZ(),
+                getX(), getZ(), getYRot());
+        if (Math.abs(local.x()) > 2.5D
+                || Math.abs(local.z() - FirstShipHull.MAST_Z) > 2.5D
+                || Math.abs(player.getY() - deckY()) > 1.0D) return false;
+        FirstShipHull.Point mast = FirstShipHull.toWorld(0D, FirstShipHull.MAST_Z,
+                getX(), getZ(), getYRot());
+        Vec3 aim = new Vec3(mast.x(), deckY() + 2.5D, mast.z()).subtract(player.getEyePosition());
+        if (aim.lengthSqr() < .25D || aim.lengthSqr() > 36D
+                || aim.normalize().dot(player.getLookAngle()) < .62D) return false;
+
+        int nextLevel = rigLevel, nextFabric = fabricQuality, cost = 0;
+        ItemStack hand = player.getMainHandItem();
+        Item consumed = null, refunded = null;
+        int refundCount = 0;
+        if (action == FirstShipNetwork.RIG_REMOVE) {
+            if (rigLevel == 0 || !hand.isEmpty() || !player.isShiftKeyDown()) return false;
+            if (rigLevel == 1) {
+                nextLevel = 0;
+                nextFabric = 0;
+                refunded = sailModule(fabricQuality);
+            } else {
+                nextLevel--;
+                refunded = RaftContent.SAIL_RIGGING_KIT.get();
+            }
+            refundCount = 1;
+        } else if (action == FirstShipNetwork.RIG_CONFIGURE) {
+            if (hand.is(RaftContent.SAIL_RIGGING_KIT.get())) {
+                if (rigLevel == 0 || rigLevel >= 4) return false;
+                nextLevel++;
+                consumed = RaftContent.SAIL_RIGGING_KIT.get();
+                cost = 1;
+            } else {
+                int requested = hand.is(RaftContent.SAIL_MODULE.get()) ? 1
+                        : hand.is(RaftContent.SAIL_LINEN_MODULE.get()) ? 2
+                        : hand.is(RaftContent.SAIL_REINFORCED_MODULE.get()) ? 3 : 0;
+                if (requested == 0 || requested == fabricQuality) return false;
+                nextLevel = Math.max(1, rigLevel);
+                nextFabric = requested;
+                consumed = sailModule(requested);
+                cost = nextLevel; // Larger canvas consumes proportional fabric.
+                if (rigLevel > 0) {
+                    refunded = sailModule(fabricQuality);
+                    refundCount = rigLevel;
+                }
+            }
+        } else return false;
+        if (consumed != null && !player.getAbilities().instabuild
+                && player.getInventory().countItem(consumed) < cost) {
+            player.displayClientMessage(Component.literal("Нужно больше комплектов ткани для парусов"), true);
+            return false;
+        }
+        // Changing real blocks while another player accesses a chest is unsafe.
+        for (ServerPlayer other : server.getEntitiesOfClass(ServerPlayer.class,
+                new AABB(blockAnchor).inflate(11D, 24D, 11D))) {
+            if (other.containerMenu != other.inventoryMenu) return false;
+        }
+        if (!FirstShipBlockHull.move(server, blockAnchor, quarterTurns,
+                blockAnchor, quarterTurns, rigLevel, fabricQuality, nextLevel, nextFabric)) {
+            player.displayClientMessage(Component.literal("Оснащение не установлено: мачта повреждена или нет свободного места"), true);
+            return false;
+        }
+        setRigging(nextLevel, nextFabric);
+        if (consumed != null && !player.getAbilities().instabuild) {
+            int remaining = cost;
+            for (int i = 0; i < player.getInventory().getContainerSize() && remaining > 0; i++) {
+                ItemStack stack = player.getInventory().getItem(i);
+                if (!stack.is(consumed)) continue;
+                int taken = Math.min(stack.getCount(), remaining);
+                stack.shrink(taken);
+                remaining -= taken;
+            }
+        }
+        if (refunded != null && !player.getAbilities().instabuild) {
+            for (int i = 0; i < refundCount; i++)
+                if (!player.getInventory().add(new ItemStack(refunded)))
+                    player.drop(new ItemStack(refunded), false);
+        }
+        player.displayClientMessage(Component.literal("Паруса: уровень " + nextLevel
+                + "/4, ткань " + nextFabric + "/3, интервал "
+                + new ShipRigging(nextLevel, nextFabric).cooldownTicks() + " тиков"), true);
+        return true;
+    }
+
+    private static Item sailModule(int fabric) {
+        return switch (fabric) {
+            case 1 -> RaftContent.SAIL_MODULE.get();
+            case 2 -> RaftContent.SAIL_LINEN_MODULE.get();
+            case 3 -> RaftContent.SAIL_REINFORCED_MODULE.get();
+            default -> throw new IllegalArgumentException("No sail fabric");
+        };
+    }
+
+    /**
      * A single explicit boarding step from water to the open deck.
      * Once on deck the player is NOT mounted or moved between fake seats.
      */
