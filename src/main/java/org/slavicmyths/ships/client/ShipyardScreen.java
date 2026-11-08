@@ -17,6 +17,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     private static final int WOOD = 0xff38291d;
     private static final int RIM = 0xffbd985c;
     private static final int PAPER = 0xffe8d5a8;
+    private int detailsScroll;
 
     public ShipyardScreen(ShipyardMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -84,35 +85,46 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         graphics.drawString(font, "КОРАБЕЛЬНАЯ ВЕРФЬ", 13, 8, 0xfff5d49d, false);
         graphics.drawString(font, "Судно", 23, 26, 0xfff4e2be, false);
         graphics.drawString(font, "Осмотр и улучшения", 192, 29, 0xff493322, false);
+        java.util.List<net.minecraft.util.FormattedCharSequence> wrapped = new java.util.ArrayList<>();
         if (!(menu.inspected().getItem() instanceof RaftItem)) {
-            graphics.drawString(font, "Поместите плот", 192, 48, 0xff5c4836, false);
-            graphics.drawString(font, "в судовую ячейку", 192, 59, 0xff5c4836, false);
-            graphics.drawString(font, "слева.", 192, 70, 0xff5c4836, false);
-            graphics.drawString(font, "Ячейка возвращает", 192, 98, 0xff5c4836, false);
-            graphics.drawString(font, "судно при закрытии.", 192, 109, 0xff5c4836, false);
-            graphics.drawString(font, "Кнопки слева:", 192, 140, 0xff5c4836, false);
-            graphics.drawString(font, "сборка, расширение", 192, 151, 0xff5c4836, false);
-            graphics.drawString(font, "и установка деталей.", 192, 162, 0xff5c4836, false);
-            graphics.drawString(font, "Shift + ПКМ:", 192, 188, 0xff5c4836, false);
-            graphics.drawString(font, "сетка крафта.", 192, 199, 0xff5c4836, false);
-            return;
+            for (String line : new String[]{"Поместите плот в", "судовую ячейку слева.",
+                    "Сборка: 9 секций + вёсла.", "Улучшение: палубные секции.",
+                    "Модификации: детали", "из личного инвентаря.",
+                    "Кнопки − снимают части", "и возвращают их игроку.",
+                    "Shift + ПКМ: крафт."})
+                wrapped.addAll(font.split(Component.literal(line), 158));
+        } else {
+            RaftCharacteristics.Info info = RaftCharacteristics.fromItem(menu.inspected());
+            if (info == null) return;
+            for (Component line : RaftCharacteristics.tooltip(info))
+                wrapped.addAll(font.split(line, 158));
+            if (info.size().next() != null)
+                wrapped.addAll(font.split(Component.literal(
+                        "Для расширения: " + ShipyardUpgrades.sectionCost(info.size()) + " палубных секций"), 158));
+            wrapped.addAll(font.split(Component.literal(
+                    "Парус: по ветру. Встречный ветер не ускоряет."), 158));
+            wrapped.addAll(font.split(Component.literal(
+                    "Кнопки со знаком − снимают оснащение и возвращают детали."), 158));
         }
-        RaftCharacteristics.Info info = RaftCharacteristics.fromItem(menu.inspected());
-        if (info == null) return;
-        List<Component> lines = RaftCharacteristics.tooltip(info);
-        int y = 44;
-        for (Component line : lines) {
-            for (var wrapped : font.split(line, 158)) {
-                if (y > 207) return;
-                graphics.drawString(font, wrapped, 191, y, 0xff493322, false);
-                y += 10;
-            }
-            y += 2;
+        final int shown = 17;
+        detailsScroll = Math.max(0, Math.min(detailsScroll, Math.max(0, wrapped.size() - shown)));
+        graphics.enableScissor(leftPos + 189, topPos + 43, leftPos + 358, topPos + 214);
+        for (int i = detailsScroll; i < Math.min(wrapped.size(), detailsScroll + shown); i++) {
+            graphics.drawString(font, wrapped.get(i), 191, 44 + (i - detailsScroll) * 10,
+                    0xff493322, false);
         }
-        if (info.size().next() != null && y < 214) {
-            graphics.drawString(font, "Секций для роста: " + ShipyardUpgrades.sectionCost(info.size()),
-                    191, y + 3, 0xff60401e, false);
+        graphics.disableScissor();
+        if (wrapped.size() > shown) graphics.drawString(font, "Колёсико: ещё сведения",
+                191, 216, 0xff614526, false);
+    }
+
+    @Override public boolean mouseScrolled(double mouseX, double mouseY, double horizontal, double vertical) {
+        if (mouseX >= leftPos + 188 && mouseX < leftPos + 363 &&
+                mouseY >= topPos + 40 && mouseY < topPos + 234) {
+            detailsScroll = Math.max(0, detailsScroll - (int)Math.signum(vertical) * 2);
+            return true;
         }
+        return super.mouseScrolled(mouseX, mouseY, horizontal, vertical);
     }
 
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partial) {
