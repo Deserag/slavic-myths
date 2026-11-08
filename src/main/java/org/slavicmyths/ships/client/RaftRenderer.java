@@ -61,8 +61,13 @@ public final class RaftRenderer extends EntityRenderer<RaftBoatEntity> {
             piece(log, pose, buffers, light, x + .03D, 0, z, .94F, .58F, 1F);
             int kind = raft.moduleKind(x, z);
             if (kind == 1) {
-                piece(Blocks.CHEST.defaultBlockState(), pose, buffers, light,
-                        x + .12D, .58D, z + .12D, .76F, .82F, .76F);
+                // A hand-crafted oak ship chest: actual inventory state lives on the raft.
+                piece(Blocks.OAK_PLANKS.defaultBlockState(), pose, buffers, light,
+                        x + .12D, .58D, z + .12D, .76F, .69F, .76F);
+                piece(Blocks.SPRUCE_PLANKS.defaultBlockState(), pose, buffers, light,
+                        x + .09D, 1.25D, z + .09D, .82F, .12F, .82F);
+                piece(Blocks.IRON_BLOCK.defaultBlockState(), pose, buffers, light,
+                        x + .46D, 1.00D, z + .045D, .09F, .21F, .09F);
             } else if (kind == 2) {
                 piece(Blocks.BARREL.defaultBlockState(), pose, buffers, light,
                         x + .15D, .58D, z + .15D, .7F, .72F, .7F);
@@ -106,10 +111,21 @@ public final class RaftRenderer extends EntityRenderer<RaftBoatEntity> {
             double z = length - 1.16D;
             piece(Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState(), pose, buffers, light,
                     width / 2D - .18D, .58D, z, .36F, 1.2F, .36F);
-            piece(Blocks.DARK_OAK_PLANKS.defaultBlockState(), pose, buffers, light,
-                    width / 2D - .52D, 1.65D, z - .04D, 1.04F, .15F, .20F);
-            piece(Blocks.OAK_PLANKS.defaultBlockState(), pose, buffers, light,
-                    width / 2D - .12D, 1.32D, z - .04D, .24F, .72F, .20F);
+            // An upright eight-spoke carved steering wheel, not an industrial mechanism.
+            pose.pushPose();
+            pose.translate(width / 2D, 1.78D, z - .08D);
+            for (int spoke = 0; spoke < 8; spoke++) {
+                pose.pushPose();
+                pose.mulPose(Axis.ZP.rotationDegrees(spoke * 45F));
+                piece(Blocks.DARK_OAK_PLANKS.defaultBlockState(), pose, buffers, light,
+                        -.07D, .10D, -.08D, .14F, .54F, .16F);
+                piece(Blocks.OAK_PLANKS.defaultBlockState(), pose, buffers, light,
+                        -.14D, .52D, -.11D, .28F, .15F, .22F);
+                pose.popPose();
+            }
+            piece(Blocks.IRON_BLOCK.defaultBlockState(), pose, buffers, light,
+                    -.15D, -.15D, -.12D, .30F, .30F, .24F);
+            pose.popPose();
         }
         // Native paddle state drives the shaft and broad wooden blades.
         for (int paddle = 0; paddle < 2; paddle++) {
