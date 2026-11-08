@@ -27,6 +27,7 @@ public final class RaftHud {
         } else if (mc.player.getVehicle() instanceof RaftBoatEntity riding) {
             raft = riding;
         }
+        if (raft == null) raft = aimedAtDeck(mc);
         if (raft == null || raft.isRemoved()) return;
         RaftCharacteristics.Info info = RaftCharacteristics.fromEntity(raft);
         List<Component> rows = RaftCharacteristics.tooltip(info);
@@ -49,5 +50,37 @@ public final class RaftHud {
                     "Ход: %.1f блок/с", speed), x, y + 2, 0xffbadcaa, false);
         }
     }
+    /**
+     * Bigger hulls have deliberately retained the vanilla boat's small collision box.
+     * Intersect the visual deck rectangle so looking at a 5x7 deck edge still reveals
+     * its properties without making an invisible 7x7 collision obstacle.
+     */
+    private static RaftBoatEntity aimedAtDeck(Minecraft mc) {
+        var player = mc.player;
+        if (player == null) return null;
+        net.minecraft.world.phys.Vec3 eye = player.getEyePosition();
+        net.minecraft.world.phys.Vec3 direction = player.getLookAngle();
+        if (Math.abs(direction.y) < 0.015D) return null;
+        RaftBoatEntity closest = null;
+        double nearest = 6D;
+        for (RaftBoatEntity raft : player.level().getEntitiesOfClass(
+                RaftBoatEntity.class, player.getBoundingBox().inflate(8.0D))) {
+            if (raft.isRemoved()) continue;
+            double t = (raft.deckTop() - eye.y) / direction.y;
+            if (t <= 0D || t >= nearest) continue;
+            net.minecraft.world.phys.Vec3 point = eye.add(direction.scale(t));
+            double dx = point.x - raft.getX(), dz = point.z - raft.getZ();
+            double radians = Math.toRadians(raft.getYRot());
+            double lx = dx * Math.cos(radians) + dz * Math.sin(radians);
+            double lz = -dx * Math.sin(radians) + dz * Math.cos(radians);
+            if (Math.abs(lx) <= raft.deckWidth() / 2.0D &&
+                    Math.abs(lz) <= raft.deckLength() / 2.0D) {
+                closest = raft;
+                nearest = t;
+            }
+        }
+        return closest;
+    }
+
     private RaftHud() {}
 }
