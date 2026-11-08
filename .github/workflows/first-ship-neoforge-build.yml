@@ -6,6 +6,9 @@ on:
     branches: ["fix/2.6-raft-safety-audit-20261108", "feature/2.6-first-two-deck-ship-20261108", "rewrite/2.6-native-block-ship-20261108"]
 permissions:
   contents: read
+concurrency:
+  group: ocean-neoforge-${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
 jobs:
   neoforge-build:
     runs-on: ubuntu-latest
