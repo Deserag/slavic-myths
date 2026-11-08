@@ -795,8 +795,8 @@ public final class FirstShipEntity extends Boat {
         positionRider(driver);
         // Fractional tick scheduling produces 10/8.70/7.69 tick steps
         // (tier I fabrics). Do not round every step or the bonuses vanish.
-        nextHelmAllowedTick = Math.max(level().getGameTime(), nextHelmAllowedTick)
-                + new ShipRigging(rigLevel, fabricQuality).exactCooldownTicks();
+        nextHelmAllowedTick = new ShipRigging(rigLevel, fabricQuality)
+                .nextAvailableTick(nextHelmAllowedTick, level().getGameTime());
         for (ServerPlayer p : walkers) {
             FirstShipHull.Point oldLocal = localPositions.get(p);
             FirstShipHull.Point target = FirstShipHull.toWorld(
