@@ -37,7 +37,7 @@ import net.minecraft.core.Direction;
 public final class FirstShipBlockHull {
     public static final int LENGTH = 11, WIDTH = 7;
     private static final int MIN_Z = -5, MAX_Z = 5;
-    private static final int MAX_Y = 21;
+    private static final int MAX_Y = 22;
     private static final int[] WIDTHS = {1, 2, 3, 3, 3, 3, 3, 3, 2, 1, 0};
     private static final int UPDATE = Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE;
 
@@ -154,7 +154,7 @@ public final class FirstShipBlockHull {
             case 1 -> 12;
             case 2 -> 16;
             case 3 -> 17;
-            default -> 21;
+            default -> 22;
         };
         for (int y = 5; y <= mastTop; y++)
             blocks.put(world(anchor, turns, 0, y, -1), Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState());
@@ -166,8 +166,8 @@ public final class FirstShipBlockHull {
             }
             case 3 -> addSail(blocks, anchor, turns, fabric, 8, 15);
             case 4 -> {
-                addSail(blocks, anchor, turns, fabric, 7, 14);
-                addSail(blocks, anchor, turns, fabric, 17, 19);
+                addSail(blocks, anchor, turns, fabric, 8, 15);
+                addSail(blocks, anchor, turns, fabric, 18, 20);
             }
             default -> {}
         }
