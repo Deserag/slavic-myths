@@ -475,6 +475,7 @@ public final class ClientSetup {
             event.register(org.slavicmyths.kurgan.BurialCoffinMenu.TYPE.get(),BurialCoffinScreen::new);
 
             event.register(org.slavicmyths.armorer.ArmorerMenu.TYPE.get(),ArmorerScreen::new);
+            event.register(org.slavicmyths.ships.ShipyardMenu.TYPE.get(),org.slavicmyths.ships.client.ShipyardScreen::new);
 
             event.register(org.slavicmyths.kitchen.KitchenMenu.TYPE.get(),KitchenScreen::new);
 
