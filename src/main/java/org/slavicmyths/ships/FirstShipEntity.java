@@ -67,6 +67,7 @@ public final class FirstShipEntity extends Boat {
     private boolean nativeHull;
     private int rigLevel;
     private int fabricQuality;
+    private int geometryVersion = 2;
     private long lastHelmAction = -100L;
     private boolean legacyConversionTried;
 
@@ -685,6 +686,17 @@ public final class FirstShipEntity extends Boat {
                 setCustomNameVisible(true);
             }
         }
+        // Existing 52c8d72 worlds have an older physical layout. Upgrade
+        // in place exactly once if its saved structure and cargo are intact.
+        if (nativeHull && geometryVersion == 1
+                && level() instanceof net.minecraft.server.level.ServerLevel server && !isVehicle()) {
+            boolean busy = false;
+            for (ServerPlayer nearby : server.getEntitiesOfClass(ServerPlayer.class,
+                    new AABB(blockAnchor).inflate(10D, 9D, 10D)))
+                if (nearby.containerMenu != nearby.inventoryMenu) { busy = true; break; }
+            if (!busy && FirstShipBlockHull.migrateLegacy(server, blockAnchor, quarterTurns))
+                geometryVersion = 2;
+        }
         if (isNativeHull()) {
             baseTick();
             setDeltaMovement(Vec3.ZERO);
@@ -769,6 +781,7 @@ public final class FirstShipEntity extends Boat {
             tag.putInt("FirstShipTurns", quarterTurns);
             tag.putInt("FirstShipRigLevel", rigLevel);
             tag.putInt("FirstShipFabricQuality", fabricQuality);
+            tag.putInt("FirstShipGeometryVersion", geometryVersion);
         }
         tag.put("FirstShipModules", quarantinedModules != null ? quarantinedModules.copy() : storeModules(registryAccess()));
     }
@@ -786,6 +799,8 @@ public final class FirstShipEntity extends Boat {
                     ? tag.getInt("FirstShipFabricQuality") : 1;
             try { setRigging(rig, fabric); }
             catch (IllegalArgumentException invalid) { setRigging(1, 1); }
+            geometryVersion = tag.contains("FirstShipGeometryVersion", Tag.TAG_INT)
+                    ? tag.getInt("FirstShipGeometryVersion") : 1;
         }
         if (tag.contains("FirstShipSurface", Tag.TAG_FLOAT)) setWaterSurface(tag.getFloat("FirstShipSurface"));
         CompoundTag pack = new CompoundTag();
