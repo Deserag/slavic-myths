@@ -20,7 +20,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
 
     public ShipyardScreen(ShipyardMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
-        imageWidth = 320;
+        imageWidth = 372;
         imageHeight = 249;
         inventoryLabelY = 143;
         inventoryLabelX = 12;
@@ -55,9 +55,9 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         graphics.fill(leftPos + 7, topPos + 19, leftPos + 179, topPos + 139, 0xff5b4028);
         graphics.fill(leftPos + 18, topPos + 35, leftPos + 63, topPos + 74, 0xff967447);
         graphics.fill(leftPos + 29, topPos + 43, leftPos + 49, topPos + 64, 0xff171c20);
-        graphics.fill(leftPos + 183, topPos + 20, leftPos + 312, topPos + 235, PAPER);
-        graphics.fill(leftPos + 185, topPos + 22, leftPos + 310, topPos + 233, 0xffd0b987);
-        graphics.fill(leftPos + 187, topPos + 24, leftPos + 308, topPos + 231, PAPER);
+        graphics.fill(leftPos + 183, topPos + 20, leftPos + 364, topPos + 235, PAPER);
+        graphics.fill(leftPos + 185, topPos + 22, leftPos + 362, topPos + 233, 0xffd0b987);
+        graphics.fill(leftPos + 187, topPos + 24, leftPos + 360, topPos + 231, PAPER);
         graphics.fill(leftPos + 7, topPos + 140, leftPos + 179, topPos + 242, 0xff74543a);
         graphics.fill(leftPos + 9, topPos + 146, leftPos + 176, topPos + 237, 0xff4a3022);
         // Recessed inventory slots.
@@ -92,7 +92,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         List<Component> lines = RaftCharacteristics.tooltip(info);
         int y = 44;
         for (Component line : lines) {
-            for (var wrapped : font.split(line, 114)) {
+            for (var wrapped : font.split(line, 158)) {
                 if (y > 207) return;
                 graphics.drawString(font, wrapped, 191, y, 0xff493322, false);
                 y += 10;
