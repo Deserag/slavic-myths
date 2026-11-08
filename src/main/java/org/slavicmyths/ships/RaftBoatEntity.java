@@ -366,6 +366,14 @@ public final class RaftBoatEntity extends Boat {
             if (horizontal > max) { nextX *= max / horizontal; nextZ *= max / horizontal; }
             setDeltaMovement(nextX, motion.y, nextZ);
         }
+        if (afloat && hasUpgrade(128) && getPassengers().size() >= 2 &&
+                getPaddleState(0) && getPaddleState(1)) {
+            double boost = .006D * Math.min(2, getPassengers().size() - 1);
+            double yaw = Math.toRadians(getYRot());
+            Vec3 velocity = getDeltaMovement();
+            setDeltaMovement(velocity.x - Math.sin(yaw) * boost, velocity.y,
+                    velocity.z + Math.cos(yaw) * boost);
+        }
         if (afloat && waterUnder(surface)) {
             Vec3 velocity = getDeltaMovement();
             setDeltaMovement(velocity.x, 0D, velocity.z);
