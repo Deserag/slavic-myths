@@ -26,8 +26,10 @@ public final class OceanLargerHullProof {
                 check(row > 0, "missing hull row");
             }
             for (int x : new int[]{-1,0}) for (int z : new int[]{1,2}) {
-                check(plan.blocks().get(new OceanLargerHullBlueprint.Cell(x,4,z)) == null,
-                        "2x2 deck hatch filled");
+                var hatchCell = plan.blocks().get(new OceanLargerHullBlueprint.Cell(x,4,z));
+                check(x == -1 && z == 2
+                        ? hatchCell == OceanLargerHullBlueprint.Part.HATCH_LADDER
+                        : hatchCell == null, "2x2 deck hatch blocked");
                 check(OceanLargerHullBlueprint.inside(size,x,z), "hatch not in hull");
             }
             check(plan.blocks().get(new OceanLargerHullBlueprint.Cell(-1,2,2))
