@@ -276,7 +276,7 @@ public final class RaftBoatEntity extends Boat {
     private int localTile(Player player) {
         Vec3 eye = player.getEyePosition();
         Vec3 view = player.getLookAngle();
-        double t = view.y < -0.025 ? (getY() + 0.28 - eye.y) / view.y : -1;
+        double t = view.y < -0.025 ? (getY() + 0.50 - eye.y) / view.y : -1;
         Vec3 point = t > 0 && t < 6 ? eye.add(view.scale(t)) : player.position();
         double dx = point.x - getX(), dz = point.z - getZ(), yaw = Math.toRadians(getYRot());
         double localX = dx * Math.cos(yaw) + dz * Math.sin(yaw);
@@ -320,9 +320,9 @@ public final class RaftBoatEntity extends Boat {
         int tile = localTile(player);
         if (tile < 0) return InteractionResult.FAIL;
         if (level().isClientSide) return InteractionResult.SUCCESS;
-        if (held.is(Items.CHEST) || held.is(Items.BARREL)) {
+        if (held.is(Items.CHEST) || held.is(Items.BARREL) || held.is(Items.CRAFTING_TABLE)) {
             if (kinds.containsKey(tile)) return InteractionResult.FAIL;
-            int kind = held.is(Items.CHEST) ? 1 : 2;
+            int kind = held.is(Items.CHEST) ? 1 : held.is(Items.BARREL) ? 2 : 3;
             kinds.put(tile, kind);
             inventories.put(tile, new SimpleContainer(27));
             syncKinds();
@@ -331,9 +331,20 @@ public final class RaftBoatEntity extends Boat {
         }
         SimpleContainer inventory = inventories.get(tile);
         if (inventory != null && player instanceof ServerPlayer serverPlayer) {
-            Component title = Component.literal(kinds.get(tile) == 1 ? "Судовой сундук" : "Судовая бочка");
-            serverPlayer.openMenu(new SimpleMenuProvider((windowId, playerInventory, p) ->
-                    ChestMenu.threeRows(windowId, playerInventory, inventory), title));
+            int kind = kinds.get(tile);
+            Component title = Component.literal(kind == 1 ? "Судовой сундук" : kind == 2 ? "Судовая бочка" : "Судовой верстак");
+            if (kind == 3) {
+                serverPlayer.openMenu(new SimpleMenuProvider((windowId, playerInventory, p) ->
+                        new net.minecraft.world.inventory.CraftingMenu(windowId, playerInventory,
+                                net.minecraft.world.inventory.ContainerLevelAccess.create(level(), blockPosition())) {
+                            @Override public boolean stillValid(Player guest) {
+                                return !RaftBoatEntity.this.isRemoved() && guest.distanceToSqr(RaftBoatEntity.this) < 64.0D;
+                            }
+                        }, title));
+            } else {
+                serverPlayer.openMenu(new SimpleMenuProvider((windowId, playerInventory, p) ->
+                        ChestMenu.threeRows(windowId, playerInventory, inventory), title));
+            }
             return InteractionResult.CONSUME;
         }
         return InteractionResult.FAIL;
