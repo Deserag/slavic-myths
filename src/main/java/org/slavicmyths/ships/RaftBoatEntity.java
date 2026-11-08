@@ -188,7 +188,13 @@ public final class RaftBoatEntity extends Boat {
         CompoundTag packed = root.getCompound("Raft2511Pack");
         int version = packed.getInt("Version");
         if ((version != 1 && version != 2) || !packed.contains("Raft2511Modules", Tag.TAG_LIST)) return false;
+        // Version 1 was used only by the original 3×3 raft. Do not quietly
+        // reinterpret an old nine-cell cargo layout as a large hull.
+        if (version == 1 && raftSize() != RaftSize.SMALL) return false;
         if (version == 2 && (packed.getInt("RaftWidth") != deckWidth() || packed.getInt("RaftLength") != deckLength())) return false;
+        int packedSails = version == 2 ? packed.getInt("RaftSails") : 0;
+        int packedFlags = version == 2 ? packed.getInt("RaftFlags") : 0;
+        if (packedSails < 0 || packedSails > raftSize().maxSails() || (packedFlags & ~7) != 0) return false;
         ListTag modules = packed.getList("Raft2511Modules", Tag.TAG_COMPOUND);
         if (modules.size() > deckWidth() * deckLength()) return false;
         java.util.Set<Integer> seen = new java.util.HashSet<>();
@@ -200,13 +206,12 @@ public final class RaftBoatEntity extends Boat {
                     module.getList("Items", Tag.TAG_COMPOUND).size() > (kind == 4 ? 3 : 27)) return false;
         }
         // Only transfer once the whole payload passed structural validation.
+        // Validate rigging before loading any inventory, never after a partial transfer.
         try { unpackModules(packed); }
         catch (RuntimeException invalid) { return false; }
         if (version == 2) {
-            int sails = packed.getInt("RaftSails");
-            if (sails < 0 || sails > raftSize().maxSails()) return false;
-            entityData.set(SAIL_COUNT, sails);
-            entityData.set(MOD_FLAGS, packed.getInt("RaftFlags") & (RAILS | HELM | OARS));
+            entityData.set(SAIL_COUNT, packedSails);
+            entityData.set(MOD_FLAGS, packedFlags);
         }
         return true;
     }
