@@ -179,6 +179,61 @@ public final class Ocean26GameTests {
                     "Unpacked ship placement rejected");
             t.assertTrue(chest(level, cargoRotated, t).getItem(0).getCount() == 7,
                     "Vanilla chest inventory did not survive pack/unpack");
+            t.assertTrue(level.addFreshEntity(restored), "Could not spawn restored ship");
+
+            // Four tiers + three cloth qualities. This checks the REAL server
+            // inventory transaction and real rebuilt chest BlockEntity at each
+            // stage; at end dismantling returns exactly all consumed materials.
+            FirstShipHull.Point mastWalk = FirstShipHull.toWorld(
+                    1D, FirstShipHull.MAST_Z - 1D, restored.getX(),
+                    restored.getZ(), restored.getYRot());
+            FirstShipHull.Point mastAim = FirstShipHull.toWorld(
+                    0D, FirstShipHull.MAST_Z, restored.getX(),
+                    restored.getZ(), restored.getYRot());
+            captain.setPos(mastWalk.x(), restored.deckY() + .01D, mastWalk.z());
+            captain.lookAt(EntityAnchorArgument.Anchor.EYES,
+                    new Vec3(mastAim.x(), restored.deckY() + 2.5D, mastAim.z()));
+            captain.getInventory().setItem(0, new ItemStack(RaftContent.SAIL_MODULE.get(), 5));
+            captain.getInventory().setItem(1, new ItemStack(RaftContent.SAIL_RIGGING_KIT.get(), 3));
+            captain.getInventory().setItem(2, new ItemStack(RaftContent.SAIL_LINEN_MODULE.get(), 4));
+            captain.getInventory().setItem(3, new ItemStack(RaftContent.SAIL_REINFORCED_MODULE.get(), 4));
+            captain.getInventory().selected = 0;
+            t.assertTrue(restored.configureRigging(captain, FirstShipNetwork.RIG_CONFIGURE)
+                    && restored.rigLevel() == 1 && restored.fabricQuality() == 1,
+                    "First standalone wool sail could not be installed");
+            captain.getInventory().selected = 1;
+            for (int tier = 2; tier <= 4; tier++) {
+                t.assertTrue(restored.configureRigging(captain, FirstShipNetwork.RIG_CONFIGURE)
+                        && restored.rigLevel() == tier, "Failed to craft tier " + tier);
+                t.assertTrue(chest(level, cargoRotated, t).getItem(0).getCount() == 7,
+                        "Chest contents changed during mast tier expansion");
+            }
+            t.assertTrue(captain.getInventory().countItem(RaftContent.SAIL_MODULE.get()) == 1,
+                    "Tier upgrades failed to charge proportional wool canvas");
+            captain.getInventory().selected = 2;
+            t.assertTrue(restored.configureRigging(captain, FirstShipNetwork.RIG_CONFIGURE)
+                    && restored.fabricQuality() == 2, "Linen sail replacement failed");
+            captain.getInventory().selected = 3;
+            t.assertTrue(restored.configureRigging(captain, FirstShipNetwork.RIG_CONFIGURE)
+                    && restored.fabricQuality() == 3, "Reinforced sail replacement failed");
+            t.assertTrue(chest(level, cargoRotated, t).getItem(0).getCount() == 7,
+                    "Real chest changed during four-tier fabric replacement");
+            captain.getInventory().selected = 8;
+            captain.setShiftKeyDown(true);
+            for (int tier = 3; tier >= 0; tier--) {
+                t.assertTrue(captain.getMainHandItem().isEmpty(), "Removal requires empty hand");
+                t.assertTrue(restored.configureRigging(captain, FirstShipNetwork.RIG_REMOVE)
+                        && restored.rigLevel() == tier, "Safe sail dismantling failed at tier " + tier);
+            }
+            captain.setShiftKeyDown(false);
+            t.assertTrue(captain.getInventory().countItem(RaftContent.SAIL_MODULE.get()) == 5
+                    && captain.getInventory().countItem(RaftContent.SAIL_RIGGING_KIT.get()) == 3
+                    && captain.getInventory().countItem(RaftContent.SAIL_LINEN_MODULE.get()) == 4
+                    && captain.getInventory().countItem(RaftContent.SAIL_REINFORCED_MODULE.get()) == 4,
+                    "Sail/mast craft-refund conservation violated: item duplication or loss");
+            t.assertTrue(chest(level, cargoRotated, t).getItem(0).getCount() == 7,
+                    "Native container contents changed after all sail operations");
+            captain.setPos(restored.getX() + 12D, restored.deckY(), restored.getZ());
             t.assertTrue(FirstShipBlockHull.remove(level, movedAnchor, 1,
                     restored.rigLevel(), restored.fabricQuality()), "Cleanup hull failed");
             restored.discard();
