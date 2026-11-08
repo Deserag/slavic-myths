@@ -19,7 +19,11 @@ import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 @EventBusSubscriber(modid = "slavicmyths")
 public final class RaftDeckEvents {
     private record Contact(int raftId, double x, double z, float yaw) {}
-    private static final Map<Player, Contact> LAST = new WeakHashMap<>();
+    // Integrated single-player uses separate render and server threads.
+    // A weak-key map avoids retaining disconnected Player instances and is synchronized
+    // so the two sides cannot corrupt the shared map.
+    private static final Map<Player, Contact> LAST =
+            java.util.Collections.synchronizedMap(new WeakHashMap<>());
 
     @SubscribeEvent
     public static void walk(PlayerTickEvent.Post event) {
