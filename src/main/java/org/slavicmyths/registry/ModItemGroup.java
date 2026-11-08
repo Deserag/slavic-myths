@@ -27,6 +27,7 @@ public final class ModItemGroup {
                         output.accept(org.slavicmyths.ships.RaftContent.RAFT_LONG.get());
                         output.accept(org.slavicmyths.ships.RaftContent.RAFT_WIDE.get());
                         output.accept(org.slavicmyths.ships.RaftContent.RAFT_CARGO.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.FIRST_SHIP_ITEM.get());
                         // Same item IDs; only installed sail/helm state differs.
                         output.accept(org.slavicmyths.ships.RaftContent.readyRaft(org.slavicmyths.ships.RaftSize.SMALL, 1));
                         output.accept(org.slavicmyths.ships.RaftContent.readyRaft(org.slavicmyths.ships.RaftSize.LONG, 1));
