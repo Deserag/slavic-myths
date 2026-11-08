@@ -43,8 +43,21 @@ public final class RaftItem extends Item {
         raft.setYRot(player.getYRot());
         if (!level.noCollision(raft, raft.getBoundingBox())) return InteractionResultHolder.fail(held);
         if (!level.isClientSide) {
-            level.addFreshEntity(raft);
-            if (!player.getAbilities().instabuild) held.shrink(1);
+            if (!raft.loadPackedItem(held)) {
+                player.displayClientMessage(net.minecraft.network.chat.Component.literal("Повреждённые данные плота: установка отменена"), true);
+                return InteractionResultHolder.fail(held);
+            }
+            // Never consume a full ship item if the server refused to spawn the vessel.
+            if (!level.addFreshEntity(raft)) return InteractionResultHolder.fail(held);
+            if (!player.getAbilities().instabuild) {
+                held.shrink(1);
+            } else {
+                // A packed item is unique inventory state, not an endlessly reusable Creative template.
+                // Clear its cargo after successful deployment to avoid Creative duplication.
+                if (held.has(net.minecraft.core.component.DataComponents.CUSTOM_DATA)) {
+                    held.remove(net.minecraft.core.component.DataComponents.CUSTOM_DATA);
+                }
+            }
         }
         return InteractionResultHolder.sidedSuccess(held, level.isClientSide);
     }
