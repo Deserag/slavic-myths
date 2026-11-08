@@ -47,6 +47,7 @@ public final class RaftCharacteristics {
         int version = packed.getInt("Version");
         boolean invalid = (version != 1 && version != 2) ||
                 !packed.contains("Raft2511Modules", Tag.TAG_LIST);
+        if (version == 1 && size != RaftSize.SMALL) invalid = true;
         if (version == 2 && (packed.getInt("RaftWidth") != size.width ||
                 packed.getInt("RaftLength") != size.length)) invalid = true;
         int sails = version == 2 ? packed.getInt("RaftSails") : 0;
