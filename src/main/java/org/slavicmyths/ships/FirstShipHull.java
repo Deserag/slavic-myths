@@ -72,6 +72,12 @@ public final class FirstShipHull {
         return new Point(clamp(x, -holdBeam(zz) + 0.44D, holdBeam(zz) - 0.44D), zz);
     }
 
+    /** The weather deck is wider than the lower hold; never use hold bounds on it. */
+    public static Point confineDeck(double x, double z) {
+        double zz = clamp(z, -HALF_LENGTH + .46D, HALF_LENGTH - .46D);
+        return new Point(clamp(x, -halfBeam(zz) + .46D, halfBeam(zz) - .46D), zz);
+    }
+
     /** World-space change of basis; NEVER reapply the absolute ship pose to a walking player. */
     public static Point toWorld(double x, double z, double cx, double cz, double yawDegrees) {
         double a = Math.toRadians(yawDegrees);
