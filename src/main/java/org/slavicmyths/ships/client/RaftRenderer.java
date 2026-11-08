@@ -35,9 +35,10 @@ public final class RaftRenderer extends EntityRenderer<RaftBoatEntity> {
     }
 
     private void mast(PoseStack pose, MultiBufferSource buffers, int light, double cx, double cz,
-                      double sway) {
+                      double sway, double sailTurn) {
         pose.pushPose();
         pose.translate(cx, .58D, cz);
+        pose.mulPose(Axis.YP.rotationDegrees((float)sailTurn));
         pose.mulPose(Axis.ZP.rotationDegrees((float)sway));
         piece(Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState(), pose, buffers, light, -.16D, 0, -.16D, .32F, 4.45F, .32F);
         piece(Blocks.SPRUCE_PLANKS.defaultBlockState(), pose, buffers, light, -1.18D, 3.95D, -.13D, 2.36F, .16F, .26F);
@@ -113,9 +114,16 @@ public final class RaftRenderer extends EntityRenderer<RaftBoatEntity> {
                     .04D, 1.20D, .04D, width - .08F, .16F, .11F);
         }
         int sails = raft.sailCount();
+        org.slavicmyths.ships.RaftWind.Sample wind = org.slavicmyths.ships.RaftWind.at(
+                raft.level().getGameTime(), raft.getX(), raft.getZ(),
+                raft.level().isRaining(), raft.level().isThundering());
+        double yawRadians = Math.toRadians(raft.getYRot());
+        double crossWind = wind.east() * Math.cos(yawRadians) + wind.south() * Math.sin(yawRadians);
+        double sailTurn = Math.toDegrees(Math.atan2(crossWind, 1.0D)) * .65D;
         for (int i = 0; i < sails; i++) {
             double z = length * (i + 1.0D) / (sails + 1.0D);
-            mast(pose, buffers, light, width / 2D, z, Math.sin((raft.tickCount + tick) * .045D + i) * 3.5D);
+            double sway = Math.sin((raft.tickCount + tick) * .045D + i) * 3.5D * wind.strength();
+            mast(pose, buffers, light, width / 2D, z, sway, sailTurn);
         }
         if (raft.hasHelm()) {
             double z = length - 1.16D;
