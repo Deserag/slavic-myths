@@ -42,11 +42,11 @@ public final class ShipyardMenu extends AbstractContainerMenu {
         });
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 9; col++) {
-                addSlot(new Slot(inventory, 9 + row * 9 + col, 12 + col * 18, 119 + row * 18));
+                addSlot(new Slot(inventory, 9 + row * 9 + col, 12 + col * 18, 155 + row * 18));
             }
         }
         for (int col = 0; col < 9; col++) {
-            addSlot(new Slot(inventory, col, 12 + col * 18, 177));
+            addSlot(new Slot(inventory, col, 12 + col * 18, 213));
         }
     }
 
@@ -100,6 +100,16 @@ public final class ShipyardMenu extends AbstractContainerMenu {
             }
             input.setItem(0, created);
             player.displayClientMessage(Component.literal("Малый плот 3×3 готов"), true);
+        } else if (action >= 3 && action <= 6) {
+            ItemStack current = input.getItem(0);
+            ItemStack updated = ShipyardUpgrades.equip(player, current, action);
+            if (updated.isEmpty()) {
+                player.displayClientMessage(Component.literal(
+                        "Улучшение недоступно: проверьте детали, размер или оснащение"), true);
+                return false;
+            }
+            input.setItem(0, updated);
+            player.displayClientMessage(Component.literal("Модификация установлена; оборудование и груз не изменены"), true);
         } else return false;
         broadcastChanges();
         return true;
