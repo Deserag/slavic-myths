@@ -35,7 +35,7 @@ public final class FirstShipInteractionClient {
         double nearest = Double.POSITIVE_INFINITY;
         for (FirstShipEntity ship : mc.level.getEntitiesOfClass(
                 FirstShipEntity.class, mc.player.getBoundingBox().inflate(12D, 9D, 12D))) {
-            if (ship.isRemoved() || !ship.isNativeHull()) continue;
+            if (ship.isRemoved() || (!ship.isNativeHull() && !(mc.player.isShiftKeyDown() && key))) continue;
             FirstShipHull.Point at = FirstShipHull.toLocal(mc.player.getX(), mc.player.getZ(),
                     ship.getX(), ship.getZ(), ship.getYRot());
             if (mc.player.isShiftKeyDown() && key) {
