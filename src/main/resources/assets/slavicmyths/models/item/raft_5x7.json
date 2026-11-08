@@ -656,6 +656,26 @@
         "slavicmyths:sails": 2
       },
       "model": "slavicmyths:item/raft_5x7_double_sail"
+    },
+    {
+      "predicate": {
+        "slavicmyths:rails": 1
+      },
+      "model": "slavicmyths:item/raft_5x7_rails"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sails": 1,
+        "slavicmyths:rails": 1
+      },
+      "model": "slavicmyths:item/raft_5x7_sail_rails"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sails": 2,
+        "slavicmyths:rails": 1
+      },
+      "model": "slavicmyths:item/raft_5x7_double_sail_rails"
     }
   ],
   "gui_light": "front"
