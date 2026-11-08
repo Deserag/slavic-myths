@@ -45,7 +45,8 @@ public final class RaftCharacteristics {
         if (!root.contains("Raft2511Pack", Tag.TAG_COMPOUND)) return empty(size);
         CompoundTag packed = root.getCompound("Raft2511Pack");
         int version = packed.getInt("Version");
-        boolean invalid = version != 1 && version != 2;
+        boolean invalid = (version != 1 && version != 2) ||
+                !packed.contains("Raft2511Modules", Tag.TAG_LIST);
         if (version == 2 && (packed.getInt("RaftWidth") != size.width ||
                 packed.getInt("RaftLength") != size.length)) invalid = true;
         int sails = version == 2 ? packed.getInt("RaftSails") : 0;
