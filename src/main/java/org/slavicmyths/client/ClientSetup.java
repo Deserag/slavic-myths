@@ -222,6 +222,7 @@ public final class ClientSetup {
             MorJadeCompat.install();
 
             FieldBowClient.properties();FinistClient.properties();
+            org.slavicmyths.ships.client.RaftClient.itemProperties();
 
             net.minecraft.client.renderer.Sheets.addWoodType(org.slavicmyths.garden.Gardens.APPLE_TYPE);
 
