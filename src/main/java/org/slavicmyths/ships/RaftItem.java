@@ -17,7 +17,7 @@ public final class RaftItem extends Item {
     public RaftItem(Properties properties) { super(properties); }
 
     @Override public net.minecraft.network.chat.Component getName(ItemStack stack) {
-        return net.minecraft.network.chat.Component.translatableWithFallback("item.slavicmyths.raft_2511_test", "Плот — испытательный");
+        return net.minecraft.network.chat.Component.translatableWithFallback("item.slavicmyths.raft_2511_test", "Плот");
     }
 
     @Override
@@ -39,6 +39,7 @@ public final class RaftItem extends Item {
             }
         }
         raft.setPos(pos.getX() + 0.5D, hit.getLocation().y, pos.getZ() + 0.5D);
+        raft.setWaterSurface(hit.getLocation().y);
         raft.setYRot(player.getYRot());
         if (!level.noCollision(raft, raft.getBoundingBox())) return InteractionResultHolder.fail(held);
         if (!level.isClientSide) {
