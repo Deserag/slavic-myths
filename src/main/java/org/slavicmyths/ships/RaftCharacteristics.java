@@ -100,6 +100,9 @@ public final class RaftCharacteristics {
                 " • доп. вёсла: " + (info.extraOars ? "есть" : "нет")).withStyle(ChatFormatting.GRAY));
         lines.add(Component.literal("Оборудование: " + info.usedCells() + "/" + info.cells() +
                 " клеток • хранение " + info.inventorySlots() + " слотов").withStyle(ChatFormatting.GRAY));
+        lines.add(Component.literal("Сундуки " + info.chests() + " • бочки " + info.barrels() +
+                " • печи " + info.furnaces() + " • верстаки " + info.craftingTables())
+                .withStyle(ChatFormatting.GRAY));
         if (info.sailLimit() > 0) {
             lines.add(Component.literal("Лимит парусной тяги: ≈" +
                     String.format(java.util.Locale.ROOT, "%.1f", info.sailLimit() * 20D) + " блок/с")
