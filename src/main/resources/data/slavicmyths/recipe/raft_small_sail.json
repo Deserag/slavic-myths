@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WWW",
+    "WWW",
+    "SRS"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:white_wool"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "R": {
+      "item": "slavicmyths:ship_rope"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:raft_small_sail",
+    "count": 1
+  }
+}
