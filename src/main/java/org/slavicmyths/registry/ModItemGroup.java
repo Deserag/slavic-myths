@@ -38,6 +38,10 @@ public final class ModItemGroup {
                         output.accept(org.slavicmyths.ships.RaftContent.DECK_SECTION.get());
                         output.accept(org.slavicmyths.ships.RaftContent.RAIL_MODULE.get());
                         output.accept(org.slavicmyths.ships.RaftContent.SAIL_MODULE.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.REINFORCED_SAILCLOTH.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.SAIL_LINEN_MODULE.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.SAIL_REINFORCED_MODULE.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.SAIL_RIGGING_KIT.get());
                         output.accept(org.slavicmyths.ships.RaftContent.HELM_MODULE.get());
                         output.accept(org.slavicmyths.ships.RaftContent.OAR_MODULE.get());
                         output.accept(org.slavicmyths.ships.RaftContent.SHIPYARD_KEY.get());
@@ -92,7 +96,7 @@ public final class ModItemGroup {
         String path = key.getPath();
         if (path.equals("wooden_barrel")) return -1; // Registered only for old saves.
         if (path.equals("raft_2511_test") || path.startsWith("raft_") || path.startsWith("ship_") ||
-                path.equals("shipyard_key") || path.equals("shipyard_workbench")) return -1; // Shipbuilding only.
+                path.equals("shipyard_key") || path.equals("reinforced_sailcloth") || path.equals("shipyard_workbench")) return -1; // Shipbuilding only.
         if (CreativeCatalog.entry(path) != null) return CreativeCatalog.category(path);
         if (REPORTED_FALLBACKS.add(path))
             System.getLogger("slavicmyths.creative").log(System.Logger.Level.WARNING,

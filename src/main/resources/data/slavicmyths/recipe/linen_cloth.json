@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "TT",
+    "TT"
+  ],
+  "key": {
+    "T": "slavicmyths:linen_thread"
+  },
+  "result": {
+    "id": "slavicmyths:linen_cloth",
+    "count": 2
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " R ",
+    "WSW",
+    "TTT"
+  ],
+  "key": {
+    "R": "slavicmyths:reinforced_sailcloth",
+    "W": "#minecraft:wool",
+    "S": "minecraft:string",
+    "T": "minecraft:stick"
+  },
+  "result": {
+    "id": "slavicmyths:ship_sail_reinforced_module",
+    "count": 1
+  }
+}
