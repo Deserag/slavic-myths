@@ -24,6 +24,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.inventory.ChestMenu;
@@ -164,6 +165,60 @@ public final class FirstShipEntity extends Boat {
     /** The one genuine helm seat is on the STERN, not a fake free-walking passenger. */
     @Override protected Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float partialTick) {
         return new Vec3(0D, FirstShipHull.MAIN_DECK + 0.08D, FirstShipHull.HELM_Z);
+    }
+
+    /**
+     * Boat has a special rider offset of its own. Native ships must instead use
+     * the real helm position in WORLD space, rotating around the block anchor.
+     * Repositioning happens when mounting and after an accepted voxel step,
+     * never as a forced player teleport on every tick.
+     */
+    @Override protected void positionRider(Entity passenger, Entity.MoveFunction move) {
+        if (!nativeHull) {
+            super.positionRider(passenger, move);
+            return;
+        }
+        if (!hasPassenger(passenger)) return;
+        FirstShipHull.Point seat = FirstShipHull.toWorld(0D, FirstShipHull.HELM_Z,
+                getX(), getZ(), getYRot());
+        move.accept(passenger, seat.x(), deckY() + 0.08D, seat.z());
+    }
+
+    /**
+     * Vanilla boats dismount next to their little waterline hitbox: on a ship
+     * that is INSIDE the hold. Select a clear supported deck cell instead.
+     */
+    @Override public Vec3 getDismountLocationForPassenger(LivingEntity passenger) {
+        if (!nativeHull) return super.getDismountLocationForPassenger(passenger);
+        double[][] safeCells = {{0D, -2D}, {1D, -2D}, {-1D, -2D},
+                {1D, -3D}, {-1D, -3D}, {0D, -3D},
+                {2D, -2D}, {-2D, -2D}, {0D, 0D}, {1D, 0D}, {-1D, 0D}};
+        for (double[] cell : safeCells) {
+            if (!FirstShipHull.mainDeckSupports(cell[0], cell[1])) continue;
+            FirstShipHull.Point point = FirstShipHull.toWorld(cell[0], cell[1],
+                    getX(), getZ(), getYRot());
+            Vec3 target = new Vec3(point.x(), deckY() + 0.05D, point.z());
+            BlockPos floor = BlockPos.containing(point.x(), deckY() - .15D, point.z());
+            if (!level().hasChunkAt(floor) || level().getBlockState(floor).isAir()) continue;
+            AABB area = passenger.getBoundingBox().move(target.subtract(passenger.position()));
+            if (level().noCollision(passenger, area)) return target;
+        }
+        // Never return the entity's waterline centre inside solid hold blocks.
+        // A high, unobstructed point above the deck is safer than suffocation.
+        FirstShipHull.Point stern = FirstShipHull.toWorld(0D, -2D,
+                getX(), getZ(), getYRot());
+        for (int above = 1; above <= 8; above++) {
+            Vec3 fallback = new Vec3(stern.x(), deckY() + above + .05D, stern.z());
+            if (level().noCollision(passenger,
+                    passenger.getBoundingBox().move(fallback.subtract(passenger.position()))))
+                return fallback;
+        }
+        return new Vec3(stern.x(), deckY() + 16D, stern.z());
+    }
+
+    @Override protected void removePassenger(Entity passenger) {
+        super.removePassenger(passenger);
+        if (nativeHull) lastHelmAction = -100L;
     }
 
     @Override public boolean canCollideWith(Entity other) {
@@ -325,7 +380,9 @@ public final class FirstShipEntity extends Boat {
         Vec3 aim = new Vec3(wheel.x(), deckY() + 1.25D, wheel.z()).subtract(player.getEyePosition());
         if (aim.lengthSqr() < .09D || aim.lengthSqr() > 25D
                 || aim.normalize().dot(player.getLookAngle()) < .76D) return false;
-        return player.startRiding(this);
+        boolean mounted = player.startRiding(this);
+        if (mounted) positionRider(player);
+        return mounted;
     }
 
     /**
@@ -364,7 +421,7 @@ public final class FirstShipEntity extends Boat {
         if (!player.isSecondaryUseActive() && Math.abs(local.x()) < 1.35D
                 && Math.abs(local.z() - FirstShipHull.HELM_Z) < 1.65D
                 && Math.abs(player.getY() - deckY()) < 1.3D) {
-            if (!level().isClientSide) player.startRiding(this);
+            if (!level().isClientSide && player.startRiding(this)) positionRider(player);
             return InteractionResult.sidedSuccess(level().isClientSide);
         }
         if (!player.isSecondaryUseActive()) return InteractionResult.PASS;
@@ -559,6 +616,9 @@ public final class FirstShipEntity extends Boat {
             return false;
         }
         initializeNativeHull(nextAnchor, nextTurn);
+        // The captain was intentionally excluded from free-walker transfers;
+        // update the MOUNTED seat explicitly to keep the captain on deck.
+        positionRider(driver);
         lastHelmAction = level().getGameTime();
         for (ServerPlayer p : walkers) {
             FirstShipHull.Point oldLocal = localPositions.get(p);
