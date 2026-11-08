@@ -204,6 +204,16 @@ public final class RaftBoatEntity extends Boat {
             if (tile < 0 || tile >= deckWidth() * deckLength() || (kind < 1 || kind > 4) || !seen.add(tile) ||
                     !module.contains("Items", Tag.TAG_LIST) ||
                     module.getList("Items", Tag.TAG_COMPOUND).size() > (kind == 4 ? 3 : 27)) return false;
+            // Never silently convert corrupted or unsupported ItemStack data to EMPTY
+            // during placement. Round-trip each container before we spawn the vessel.
+            try {
+                ListTag stored = module.getList("Items", Tag.TAG_COMPOUND);
+                SimpleContainer check = new SimpleContainer(kind == 4 ? 3 : 27);
+                check.fromTag(stored, registryAccess());
+                if (!stored.equals(check.createTag(registryAccess()))) return false;
+            } catch (RuntimeException invalidCargo) {
+                return false;
+            }
         }
         // Only transfer once the whole payload passed structural validation.
         // Validate rigging before loading any inventory, never after a partial transfer.
