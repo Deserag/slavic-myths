@@ -11,10 +11,15 @@ public final class RaftClient {
     public static void itemProperties() {
         net.minecraft.resources.ResourceLocation sails =
                 net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "sails");
+        net.minecraft.resources.ResourceLocation rails =
+                net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "rails");
         for (org.slavicmyths.ships.RaftSize size : org.slavicmyths.ships.RaftSize.values()) {
             net.minecraft.client.renderer.item.ItemProperties.register(
                     RaftContent.raftItem(size), sails,
                     (stack, level, living, seed) -> RaftContent.sailPreset(stack));
+            net.minecraft.client.renderer.item.ItemProperties.register(
+                    RaftContent.raftItem(size), rails,
+                    (stack, level, living, seed) -> RaftContent.railPreset(stack));
         }
     }
     private RaftClient() {}
