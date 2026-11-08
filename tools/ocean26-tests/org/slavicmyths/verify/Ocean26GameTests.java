@@ -25,6 +25,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.gametest.GameTestHolder;
@@ -100,6 +101,14 @@ public final class Ocean26GameTests {
 
         t.assertTrue(FirstShipBlockHull.place(level, anchor, 0, new ListTag(), 0, 0),
                 "Empty native small hull could not be placed");
+        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor, 0, 0, 1, 0)).isAir()
+                && level.getBlockState(FirstShipBlockHull.world(anchor, 0, 0, 2, 0)).isAir()
+                && level.getBlockState(FirstShipBlockHull.world(anchor, 0, 0, 3, 0))
+                        .is(Blocks.SPRUCE_PLANKS),
+                "Dry cargo hold does not have two-block headroom and solid ceiling");
+        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor, 0, 0, 4, 2)).isAir()
+                && level.getBlockState(FirstShipBlockHull.world(anchor, 0, -1, 3, 2))
+                        .is(Blocks.LADDER), "Actual open hatch and ladder are obstructed");
         FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
         t.assertTrue(ship != null, "Registered native ship entity missing");
         ship.initializeNativeHull(anchor, 0);
@@ -150,6 +159,10 @@ public final class Ocean26GameTests {
             t.assertTrue(ship.helmStep(captain, FirstShipNetwork.RIGHT),
                     "Native 90 degree turn rejected after reboarding");
             t.assertTrue(ship.quarterTurns() == 1, "Ship did not rotate");
+            var fence = level.getBlockState(FirstShipBlockHull.world(movedAnchor, 1, 3, 5, 0));
+            t.assertTrue(fence.is(Blocks.SPRUCE_FENCE)
+                    && fence.getValue(FenceBlock.EAST) && fence.getValue(FenceBlock.WEST),
+                    "Physical vanilla fence edge connections did not rotate with hull");
             FirstShipHull.Point walkerTurned = FirstShipHull.toLocal(walker.getX(), walker.getZ(),
                     ship.getX(), ship.getZ(), ship.getYRot());
             t.assertTrue(FirstShipHull.mainDeckSupports(walkerTurned.x(), walkerTurned.z()),
