@@ -1,0 +1,27 @@
+name: Ocean 2.6 - first two-deck ship geometry
+on:
+  push:
+    paths:
+      - "src/main/java/org/slavicmyths/ships/FirstShipHull.java"
+      - "experimental/raft26/FirstShipHullProof.java"
+      - ".github/workflows/first-ship-geometry-proof.yml"
+  pull_request:
+    paths:
+      - "src/main/java/org/slavicmyths/ships/FirstShipHull.java"
+      - "experimental/raft26/FirstShipHullProof.java"
+      - ".github/workflows/first-ship-geometry-proof.yml"
+jobs:
+  prove-hull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Compile ship geometry
+        run: |
+          mkdir -p build/first-ship-proof
+          javac -encoding UTF-8 -d build/first-ship-proof src/main/java/org/slavicmyths/ships/FirstShipHull.java experimental/raft26/FirstShipHullProof.java
+      - name: Test both floors, helm, ladder and reversible motion
+        run: java -ea -cp build/first-ship-proof FirstShipHullProof
