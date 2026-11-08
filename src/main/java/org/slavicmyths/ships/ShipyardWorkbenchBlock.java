@@ -29,7 +29,7 @@ public final class ShipyardWorkbenchBlock extends CraftingTableBlock {
 
     public ShipyardWorkbenchBlock() { super(Properties.ofFullCopy(Blocks.CRAFTING_TABLE).strength(3F)); }
     private ShipyardWorkbenchBlock(Properties props) { super(props); }
-    @Override protected MapCodec<? extends CraftingTableBlock> codec() { return CODEC; }
+    @Override public MapCodec<? extends CraftingTableBlock> codec() { return CODEC; }
 
     private static void consume(Player player, Item item, int required) {
         int remaining = required;
