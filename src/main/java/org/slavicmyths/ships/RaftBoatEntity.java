@@ -203,6 +203,7 @@ public final class RaftBoatEntity extends Boat {
         try {
             setRaftSize(expected);
             entityData.set(UPGRADES, packed.getInt("RaftUpgrades") & 255);
+            if (packed.hasUUID("VesselId")) setUUID(packed.getUUID("VesselId"));
             unpackModules(packed);
         }
         catch (RuntimeException invalid) { return false; }
