@@ -28,7 +28,7 @@ public final class RaftDeckClient {
         Minecraft mc = Minecraft.getInstance();
         Player player = event.getEntity();
         if (mc.player != player || player.isPassenger() || !player.isAlive() ||
-                player.isSpectator() || player.isFallFlying() || mc.screen != null) {
+                player.isSpectator() || player.isFallFlying()) {
             LAST.remove(player);
             return;
         }
