@@ -56,6 +56,25 @@ public final class FirstShipEntity extends Boat {
     private boolean packing;
     /** Malformed saved inventories are retained byte-for-byte; packing is blocked. */
     private ListTag quarantinedModules;
+    private ListTag pendingBlockCargo = new ListTag();
+    private BlockPos blockAnchor = BlockPos.ZERO;
+    private int quarterTurns;
+    private boolean nativeHull;
+    private long lastHelmAction = -100L;
+
+    public BlockPos blockAnchor() { return blockAnchor; }
+    public int quarterTurns() { return quarterTurns; }
+    public boolean isNativeHull() { return nativeHull; }
+    public ListTag pendingBlockCargo() { return pendingBlockCargo.copy(); }
+
+    public void initializeNativeHull(BlockPos anchor, int turns) {
+        blockAnchor = anchor.immutable();
+        quarterTurns = Math.floorMod(turns, 4);
+        nativeHull = true;
+        setYRot(quarterTurns * 90F);
+        setPos(anchor.getX() + .5D, anchor.getY(), anchor.getZ() + .5D);
+        setDeltaMovement(Vec3.ZERO);
+    }
 
     public FirstShipEntity(EntityType<? extends FirstShipEntity> type, Level world) {
         super(type, world);
@@ -202,6 +221,10 @@ public final class FirstShipEntity extends Boat {
                 }
             }
         } catch (RuntimeException malformed) { return false; }
+        if (pack.contains("BlockCargo", Tag.TAG_LIST)) {
+            pendingBlockCargo = pack.getList("BlockCargo", Tag.TAG_COMPOUND).copy();
+            if (pendingBlockCargo.size() > CELLS * 2) return false;
+        } else pendingBlockCargo = new ListTag();
         quarantinedModules = null;
         inventory.clear(); inventory.putAll(loaded);
         kind.clear(); kind.putAll(types);
@@ -216,6 +239,11 @@ public final class FirstShipEntity extends Boat {
         pack.putInt("Version", 1);
         pack.putUUID("VesselId", getUUID());
         pack.put("Modules", storeModules(registryAccess()));
+        if (nativeHull && level() instanceof net.minecraft.server.level.ServerLevel server) {
+            ListTag cargo = FirstShipBlockHull.pack(server, blockAnchor, quarterTurns);
+            if (cargo == null) return ItemStack.EMPTY;
+            pack.put("BlockCargo", cargo);
+        }
         CompoundTag root = new CompoundTag();
         root.put("FirstShipPack", pack);
         stack.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
@@ -236,7 +264,7 @@ public final class FirstShipEntity extends Boat {
         return false;
     }
 
-    private InteractionResult packWithKey(Player player) {
+    public InteractionResult packWithKey(Player player) {
         if (level().isClientSide) return InteractionResult.SUCCESS;
         if (!(player instanceof ServerPlayer) || quarantinedModules != null || packing || isRemoved() || isVehicle()
                 || hasWalkers() || getDeltaMovement().horizontalDistanceSqr() > .0005D) {
@@ -244,8 +272,16 @@ public final class FirstShipEntity extends Boat {
             return InteractionResult.FAIL;
         }
         ItemStack stack = packed();
+        if (stack.isEmpty()) return InteractionResult.FAIL;
+        if (nativeHull) {
+            if (!(level() instanceof net.minecraft.server.level.ServerLevel server)
+                    || !FirstShipBlockHull.remove(server, blockAnchor, quarterTurns)) {
+                player.displayClientMessage(Component.literal("Корпус изменён или груз повреждён: упаковка заблокирована"), true);
+                return InteractionResult.FAIL;
+            }
+        }
         packing = true;
-        discard(); // The vessel leaves the world before the returned item is granted.
+        discard(); // Remove real blocks and ship before granting an inventory item.
         if (!player.getInventory().add(stack)) player.drop(stack, false);
         player.displayClientMessage(Component.literal("Корабль упакован вместе с грузом"), true);
         return InteractionResult.CONSUME;
@@ -264,9 +300,9 @@ public final class FirstShipEntity extends Boat {
         if (Math.abs(local.x()) > 1.65D
                 || Math.abs(local.z() - FirstShipHull.HELM_Z) > 1.7D
                 || Math.abs(player.getY() - deckY()) > .9D) return false;
-        FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, FirstShipHull.HELM_Z,
+        FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, -4D,
                 getX(), getZ(), getYRot());
-        Vec3 aim = new Vec3(wheel.x(), deckY() + 1.50D, wheel.z()).subtract(player.getEyePosition());
+        Vec3 aim = new Vec3(wheel.x(), deckY() + 1.25D, wheel.z()).subtract(player.getEyePosition());
         if (aim.lengthSqr() < .09D || aim.lengthSqr() > 25D
                 || aim.normalize().dot(player.getLookAngle()) < .76D) return false;
         return player.startRiding(this);
@@ -417,60 +453,93 @@ public final class FirstShipEntity extends Boat {
         }
     }
 
+    /**
+     * Native ship is a STATIC world-block structure between helm commands.
+     * Never invoke Boat.tick() movement/float code: it was responsible for
+     * dragging people off the fake floors. Vanilla blocks provide real collision.
+     */
     @Override public void tick() {
-        boolean water = afloat();
-        double surface = entityData.get(SURFACE);
-        double oldX = getX(), oldZ = getZ();
-        float oldYaw = getYRot();
-        boolean blocked = false;
-        if (water) {
-            Vec3 velocity = getDeltaMovement();
-            setDeltaMovement(velocity.x, 0D, velocity.z);
-            setPos(getX(), surface - DRAFT, getZ());
-        }
-        super.tick();
-        if (!level().isClientSide) tickShipFurnaces();
-        if (!level().isClientSide && water &&
-                ((getX() - oldX) * (getX() - oldX) + (getZ() - oldZ) * (getZ() - oldZ) > .000001D
-                        || Math.abs(net.minecraft.util.Mth.wrapDegrees(getYRot() - oldYaw)) > .05F) &&
-                !FirstShipNavigation.clear(level(), getX(), getZ(), surface, getYRot())) {
-            // Ship hull is much larger than native boat hitbox. Never allow a
-            // 7x11 visible bow or the lower hold to enter solid terrain.
-            setPos(oldX, surface - DRAFT, oldZ);
-            setYRot(oldYaw);
+        if (nativeHull) {
+            baseTick();
             setDeltaMovement(Vec3.ZERO);
-            blocked = true;
+            if (!level().isClientSide)
+                setPos(blockAnchor.getX() + .5D, blockAnchor.getY(), blockAnchor.getZ() + .5D);
+        } else {
+            // Legacy experimental entities remain identifiable for safe packing;
+            // they are deliberately not silently converted mid-save.
+            super.tick();
         }
-        if (water && afloat()) {
-            Vec3 velocity = getDeltaMovement();
-            if (isVehicle() && !blocked) {
-                RaftWind.Sample wind = RaftWind.at(level().getGameTime(), getX(), getZ(),
-                        level().isRaining(), level().isThundering());
-                double thrust = RaftWind.thrust(wind, getYRot(), 1) * .72D;
-                double heading = Math.toRadians(getYRot());
-                double vx = velocity.x - Math.sin(heading) * thrust;
-                double vz = velocity.z + Math.cos(heading) * thrust;
-                double speed = Math.hypot(vx, vz);
-                if (speed > .37D) { vx *= .37D / speed; vz *= .37D / speed; }
-                velocity = new Vec3(vx, 0D, vz);
-            }
-            setDeltaMovement(velocity.x, 0D, velocity.z);
-            setPos(getX(), surface - DRAFT, getZ());
-            fallDistance = 0F;
-        } else if (!level().isClientSide && !isInWaterOrBubble()) {
-            Vec3 velocity = getDeltaMovement();
-            setDeltaMovement(0D, velocity.y, 0D);
+        if (!level().isClientSide) tickShipFurnaces();
+    }
+
+    /**
+     * One step per helm command. Validates an actual rider, cooldown, source
+     * integrity and destination BEFORE moving any vanilla block.
+     */
+    public boolean helmStep(ServerPlayer driver, int action) {
+        if (!nativeHull || driver.getVehicle() != this || getFirstPassenger() != driver
+                || !(level() instanceof net.minecraft.server.level.ServerLevel server)
+                || action < FirstShipNetwork.FORWARD || action > FirstShipNetwork.RIGHT
+                || level().getGameTime() - lastHelmAction < 10L) return false;
+        int nextTurn = quarterTurns;
+        BlockPos nextAnchor = blockAnchor;
+        if (action == FirstShipNetwork.LEFT) nextTurn = Math.floorMod(quarterTurns - 1, 4);
+        else if (action == FirstShipNetwork.RIGHT) nextTurn = (quarterTurns + 1) % 4;
+        else {
+            int signed = action == FirstShipNetwork.FORWARD ? 1 : -1;
+            int dx = quarterTurns == 1 ? -signed : quarterTurns == 3 ? signed : 0;
+            int dz = quarterTurns == 0 ? signed : quarterTurns == 2 ? -signed : 0;
+            nextAnchor = blockAnchor.offset(dx, 0, dz);
         }
+        if (nextTurn == quarterTurns && nextAnchor.equals(blockAnchor)) return false;
+        BlockPos oldAnchor = blockAnchor;
+        int oldTurn = quarterTurns;
+        java.util.List<ServerPlayer> walkers = new java.util.ArrayList<>();
+        java.util.Map<ServerPlayer, FirstShipHull.Point> localPositions = new java.util.HashMap<>();
+        AABB nearby = new AABB(oldAnchor).inflate(9D, 9D, 9D);
+        for (ServerPlayer p : server.getEntitiesOfClass(ServerPlayer.class, nearby)) {
+            if (p == driver || p.isPassenger() || p.isSpectator() || p.getAbilities().flying) continue;
+            FirstShipHull.Point local = FirstShipHull.toLocal(p.getX(), p.getZ(),
+                    getX(), getZ(), getYRot());
+            boolean onShip = FirstShipHull.withinHull(local.x(), local.z(), .1D)
+                    && ((p.getY() >= holdY() - .25D && p.getY() <= holdY() + 2.9D)
+                    || (p.getY() >= deckY() - .25D && p.getY() <= deckY() + 2.3D));
+            if (onShip) { walkers.add(p); localPositions.put(p, local); }
+        }
+        if (!FirstShipBlockHull.move(server, oldAnchor, oldTurn, nextAnchor, nextTurn)) {
+            driver.displayClientMessage(Component.literal(
+                    "Ход заблокирован: мелководье, препятствие, изменённый корпус или груз"), true);
+            lastHelmAction = level().getGameTime();
+            return false;
+        }
+        initializeNativeHull(nextAnchor, nextTurn);
+        lastHelmAction = level().getGameTime();
+        for (ServerPlayer p : walkers) {
+            FirstShipHull.Point oldLocal = localPositions.get(p);
+            FirstShipHull.Point target = FirstShipHull.toWorld(
+                    oldLocal.x(), oldLocal.z(), getX(), getZ(), getYRot());
+            p.teleportTo(target.x(), p.getY(), target.z());
+            p.fallDistance = 0F;
+        }
+        return true;
     }
 
     @Override protected void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putFloat("FirstShipSurface", entityData.get(SURFACE));
+        tag.putBoolean("FirstShipNative", nativeHull);
+        if (nativeHull) {
+            tag.putLong("FirstShipAnchor", blockAnchor.asLong());
+            tag.putInt("FirstShipTurns", quarterTurns);
+        }
         tag.put("FirstShipModules", quarantinedModules != null ? quarantinedModules.copy() : storeModules(registryAccess()));
     }
 
     @Override protected void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
+        nativeHull = tag.getBoolean("FirstShipNative");
+        if (nativeHull) initializeNativeHull(BlockPos.of(tag.getLong("FirstShipAnchor")),
+                tag.getInt("FirstShipTurns"));
         if (tag.contains("FirstShipSurface", Tag.TAG_FLOAT)) setWaterSurface(tag.getFloat("FirstShipSurface"));
         CompoundTag pack = new CompoundTag();
         pack.putInt("Version", 1);
