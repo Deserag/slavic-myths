@@ -15,7 +15,7 @@ public final class FirstShipHullProof {
         check(FirstShipHull.WIDTH == 7 && FirstShipHull.LENGTH == 11, "ship dimensions");
         check(FirstShipHull.MAIN_DECK - FirstShipHull.HOLD_FLOOR >= 2.7D, "two accessible levels");
         check(FirstShipHull.HOLD_FLOOR > 0D, "hold floor out of water");
-        check(FirstShipHull.KEEL < 0D, "hull extends below waterline");
+        check(FirstShipHull.KEEL == 0D, "real planked hull replaces water-source floor");
         check(FirstShipHull.halfBeam(0D) > FirstShipHull.halfBeam(5D), "pinched bow");
         check(FirstShipHull.halfBeam(0D) > FirstShipHull.halfBeam(-5D), "pinched stern");
         check(FirstShipHull.hatch(FirstShipHull.LADDER_X, FirstShipHull.LADDER_Z), "ladder inside hatch");
@@ -27,6 +27,9 @@ public final class FirstShipHullProof {
         check(FirstShipHull.halfBeam(5.0D) < FirstShipHull.halfBeam(-5.0D),
                 "bow must be sharper than stern");
         check(FirstShipHull.mainDeckSupports(2.7D, 0D), "full-width weather deck");
+        check(FirstShipHull.MAIN_DECK == 5.0D, "real upper deck top");
+        check(FirstShipHull.HOLD_FLOOR == 1.0D, "dry hold floor top");
+        check(FirstShipHull.halfBeam(5D) < 0.51D, "bow ends in one real block");
         check(!FirstShipHull.holdSupports(2.7D, 0D), "narrower physically sloped lower hold");
         check(FirstShipHull.confineDeck(8D, 0D).x() >
                 FirstShipHull.confineHold(8D, 0D).x() + .30D,
