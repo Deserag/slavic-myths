@@ -7,10 +7,18 @@
     "LIL"
   ],
   "key": {
-    "L": "minecraft:oak_log",
-    "I": "minecraft:iron_ingot",
-    "P": "minecraft:oak_planks",
-    "C": "minecraft:crafting_table"
+    "L": {
+      "item": "minecraft:oak_log"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "P": {
+      "item": "minecraft:oak_planks"
+    },
+    "C": {
+      "item": "minecraft:crafting_table"
+    }
   },
   "result": {
     "id": "slavicmyths:shipyard_workbench",

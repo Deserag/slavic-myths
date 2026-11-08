@@ -7,8 +7,12 @@
     " L "
   ],
   "key": {
-    "L": "slavicmyths:linen_cloth",
-    "W": "#minecraft:wool"
+    "L": {
+      "item": "slavicmyths:linen_cloth"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
   },
   "result": {
     "id": "slavicmyths:reinforced_sailcloth",

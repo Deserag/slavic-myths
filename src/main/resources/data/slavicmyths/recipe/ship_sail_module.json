@@ -7,9 +7,15 @@
     "TTT"
   ],
   "key": {
-    "W": "minecraft:white_wool",
-    "S": "minecraft:string",
-    "T": "minecraft:stick"
+    "W": {
+      "item": "minecraft:white_wool"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "T": {
+      "item": "minecraft:stick"
+    }
   },
   "result": {
     "id": "slavicmyths:ship_sail_module",

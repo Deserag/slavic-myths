@@ -6,7 +6,9 @@
     "TT"
   ],
   "key": {
-    "T": "slavicmyths:linen_thread"
+    "T": {
+      "item": "slavicmyths:linen_thread"
+    }
   },
   "result": {
     "id": "slavicmyths:linen_cloth",

@@ -7,8 +7,12 @@
     "L L"
   ],
   "key": {
-    "L": "minecraft:spruce_log",
-    "S": "minecraft:string"
+    "L": {
+      "item": "minecraft:spruce_log"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
   },
   "result": {
     "id": "slavicmyths:ship_rigging_upgrade",

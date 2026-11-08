@@ -7,8 +7,12 @@
     "P P"
   ],
   "key": {
-    "F": "minecraft:oak_fence",
-    "P": "minecraft:oak_planks"
+    "F": {
+      "item": "minecraft:oak_fence"
+    },
+    "P": {
+      "item": "minecraft:oak_planks"
+    }
   },
   "result": {
     "id": "slavicmyths:ship_rail_module",

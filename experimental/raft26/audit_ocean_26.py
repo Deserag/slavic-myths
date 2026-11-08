@@ -79,12 +79,24 @@ for ident, register in ids.items():
     recipe = json.loads((resources / f"data/slavicmyths/recipe/{ident}.json").read_text(encoding="utf-8"))
     check(recipe["type"] == "minecraft:crafting_shaped", "not vanilla shaped recipe")
     check(recipe["result"]["id"] == "slavicmyths:" + ident, "wrong output")
+    check(all(isinstance(ingredient, dict) and len(ingredient) == 1
+              and ("item" in ingredient or "tag" in ingredient)
+              for ingredient in recipe["key"].values()), "invalid 1.21.1 item/tag ingredient")
     check(all(all(c == ' ' or c in recipe["key"] for c in row) for row in recipe["pattern"]),
           "unknown crafting ingredient in " + ident)
 check(json.loads((resources / "data/slavicmyths/recipe/linen_cloth.json").read_text(encoding="utf-8"))
       ["result"]["count"] == 2, "linen fabric craft balance")
 strong = json.loads((resources / "data/slavicmyths/recipe/reinforced_sailcloth.json").read_text(encoding="utf-8"))
 check(strong["pattern"] == [" L ", "LWL", " L "], "reinforced four-linen wool recipe")
-check(strong["key"]["L"] == "slavicmyths:linen_cloth", "reinforced linen ingredient")
+check(strong["key"]["L"] == {"item": "slavicmyths:linen_cloth"}, "reinforced linen ingredient")
+for recipe_path in (resources / "data/slavicmyths/recipe").glob("*.json"):
+    if recipe_path.name not in {"linen_cloth.json", "reinforced_sailcloth.json"} \
+       and not recipe_path.stem.startswith(("ship_", "shipyard_")):
+        continue
+    recipe = json.loads(recipe_path.read_text(encoding="utf-8"))
+    check(all(isinstance(ingredient, dict) and len(ingredient) == 1
+              and ("item" in ingredient or "tag" in ingredient)
+              for ingredient in recipe["key"].values()),
+          "Minecraft 1.21.1 will silently reject recipe " + recipe_path.name)
 print("PASS Ocean 2.6 audit:", checks,
       "static registration, cargo, recipe, geometry and save checks; runtime NOT tested")
