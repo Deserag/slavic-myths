@@ -12,16 +12,18 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 
-/** Places exactly one raft on water. No Creative/Survival recipe is granted yet. */
+/** Four sizes of the same native, cargo-carrying raft entity. */
 public final class RaftItem extends Item {
-    public RaftItem(Properties properties) { super(properties); }
+    private final RaftSize size;
+
+    public RaftItem(RaftSize size, Properties properties) { super(properties); this.size = size; }
+    public RaftSize size() { return size; }
 
     @Override public net.minecraft.network.chat.Component getName(ItemStack stack) {
-        return net.minecraft.network.chat.Component.translatableWithFallback("item.slavicmyths.raft_2511_test", "Плот");
+        return net.minecraft.network.chat.Component.literal(size.title);
     }
 
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack held = player.getItemInHand(hand);
         BlockHitResult hit = getPlayerPOVHitResult(level, player, ClipContext.Fluid.SOURCE_ONLY);
         if (hit.getType() != HitResult.Type.BLOCK) return InteractionResultHolder.pass(held);
@@ -29,35 +31,29 @@ public final class RaftItem extends Item {
         if (!level.getFluidState(pos).is(FluidTags.WATER)) return InteractionResultHolder.fail(held);
         RaftBoatEntity raft = RaftContent.RAFT.get().create(level);
         if (raft == null) return InteractionResultHolder.fail(held);
-        // IMPORTANT: boats are positioned at the fluid SURFACE, not near the bottom of a water block.
-        // The former +0.15 spawned the entire 0.65-high raft underwater and triggered boat sinking.
-        for (int dx = -1; dx <= 1; dx++) for (int dz = -1; dz <= 1; dz++) {
-            BlockPos support = pos.offset(dx, 0, dz);
-            if (!level.hasChunkAt(support) || !level.getFluidState(support).is(FluidTags.WATER)) {
-                if (!level.isClientSide) player.displayClientMessage(net.minecraft.network.chat.Component.literal("Для плота требуется свободная вода 3×3"), true);
-                return InteractionResultHolder.fail(held);
+        for (int dx = -(size.width / 2); dx <= size.width / 2; dx++)
+            for (int dz = -(size.length / 2); dz <= size.length / 2; dz++) {
+                BlockPos support = pos.offset(dx, 0, dz);
+                if (!level.hasChunkAt(support) || !level.getFluidState(support).is(FluidTags.WATER)) {
+                    if (!level.isClientSide) player.displayClientMessage(
+                            net.minecraft.network.chat.Component.literal("Необходима свободная вода " + size.width + "×" + size.length), true);
+                    return InteractionResultHolder.fail(held);
+                }
             }
-        }
-        raft.setPos(pos.getX() + 0.5D, hit.getLocation().y, pos.getZ() + 0.5D);
+        raft.configure(size);
+        raft.setPos(pos.getX() + .5D, hit.getLocation().y, pos.getZ() + .5D);
         raft.setWaterSurface(hit.getLocation().y);
         raft.setYRot(player.getYRot());
         if (!level.noCollision(raft, raft.getBoundingBox())) return InteractionResultHolder.fail(held);
         if (!level.isClientSide) {
             if (!raft.loadPackedItem(held)) {
-                player.displayClientMessage(net.minecraft.network.chat.Component.literal("Повреждённые данные плота: установка отменена"), true);
+                player.displayClientMessage(net.minecraft.network.chat.Component.literal("Некорректные данные груза: установка отменена"), true);
                 return InteractionResultHolder.fail(held);
             }
-            // Never consume a full ship item if the server refused to spawn the vessel.
             if (!level.addFreshEntity(raft)) return InteractionResultHolder.fail(held);
-            if (!player.getAbilities().instabuild) {
-                held.shrink(1);
-            } else {
-                // A packed item is unique inventory state, not an endlessly reusable Creative template.
-                // Clear its cargo after successful deployment to avoid Creative duplication.
-                if (held.has(net.minecraft.core.component.DataComponents.CUSTOM_DATA)) {
-                    held.remove(net.minecraft.core.component.DataComponents.CUSTOM_DATA);
-                }
-            }
+            if (!player.getAbilities().instabuild) held.shrink(1);
+            else if (held.has(net.minecraft.core.component.DataComponents.CUSTOM_DATA))
+                held.remove(net.minecraft.core.component.DataComponents.CUSTOM_DATA);
         }
         return InteractionResultHolder.sidedSuccess(held, level.isClientSide);
     }
