@@ -255,7 +255,7 @@ public final class FirstShipBlockHull {
             level.removeBlockEntity(pos);
             locations.add(pos);
         }
-        locations.sort(Comparator.comparingInt(BlockPos::getY).reversed());
+        locations.sort(Comparator.comparingInt((BlockPos p) -> p.getY()).reversed());
         for (BlockPos pos : locations) {
             BlockState replacement = pos.getY() == anchor.getY()
                     ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState();
