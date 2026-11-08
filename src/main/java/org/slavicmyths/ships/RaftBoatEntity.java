@@ -129,7 +129,19 @@ public final class RaftBoatEntity extends Boat {
         if (!root.contains("Raft2511Pack", Tag.TAG_COMPOUND)) return true;
         CompoundTag packed = root.getCompound("Raft2511Pack");
         if (packed.getInt("Version") != 1 || !packed.contains("Raft2511Modules", Tag.TAG_LIST)) return false;
-        unpackModules(packed);
+        ListTag modules = packed.getList("Raft2511Modules", Tag.TAG_COMPOUND);
+        if (modules.size() > 9) return false;
+        java.util.Set<Integer> seen = new java.util.HashSet<>();
+        for (int i = 0; i < modules.size(); i++) {
+            CompoundTag module = modules.getCompound(i);
+            int tile = module.getInt("Tile"), kind = module.getInt("Kind");
+            if (tile < 0 || tile >= 9 || (kind != 1 && kind != 2) || !seen.add(tile) ||
+                    !module.contains("Items", Tag.TAG_LIST) ||
+                    module.getList("Items", Tag.TAG_COMPOUND).size() > 27) return false;
+        }
+        // Only transfer once the whole payload passed structural validation.
+        try { unpackModules(packed); }
+        catch (RuntimeException invalid) { return false; }
         return true;
     }
 
