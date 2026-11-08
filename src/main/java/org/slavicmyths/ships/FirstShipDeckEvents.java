@@ -48,10 +48,14 @@ public final class FirstShipDeckEvents {
             FirstShipHull.Point local = FirstShipHull.toLocal(px, pz,
                     ship.getX(), ship.getZ(), ship.getYRot());
             double x = local.x(), z = local.z();
-            boolean within = FirstShipHull.withinHull(x, z, continuing ? 0D : .24D);
-            if (!within && !(continuing && last.floor() == 0)) continue;
-
             double upper = ship.deckY(), lower = ship.holdY();
+            boolean within = FirstShipHull.withinHull(x, z, continuing ? 0D : .24D);
+            // Crossing the bulwark by walking must be clamped BEFORE the player
+            // detaches from ship contact. Intentional jumps above the rail can exit.
+            boolean deckEdge = continuing && last.floor() == 1 &&
+                    py >= upper - .65D && py <= upper + .26D;
+            if (!within && !deckEdge && !(continuing && last.floor() == 0)) continue;
+
             int floor = continuing ? last.floor() : -1;
             if (!continuing) {
                 if (FirstShipHull.mainDeckSupports(x, z) && py >= upper - .22D && py <= upper + .28D) floor = 1;
@@ -92,7 +96,7 @@ public final class FirstShipDeckEvents {
             // The player is free to jump or leap OVER the upper gunwale.
             // Merely walking cannot cross its reinforced wooden side.
             if (floor == 1 && !hatch && py <= upper + .26D) {
-                FirstShipHull.Point confined = FirstShipHull.confineHold(x, z);
+                FirstShipHull.Point confined = FirstShipHull.confineDeck(x, z);
                 x = confined.x(); z = confined.z();
             }
 
