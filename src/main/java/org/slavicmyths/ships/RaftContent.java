@@ -37,6 +37,14 @@ public final class RaftContent {
             "ship_rail_module", () -> new NamedShipPart("Бортовое ограждение", new Item.Properties()));
     public static final DeferredHolder<Item, Item> SAIL_MODULE = ModItems.ITEMS.register(
             "ship_sail_module", () -> new NamedShipPart("Малый парус", new Item.Properties()));
+    public static final DeferredHolder<Item, Item> REINFORCED_SAILCLOTH = ModItems.ITEMS.register(
+            "reinforced_sailcloth", () -> new NamedShipPart("Прочная парусная ткань", new Item.Properties()));
+    public static final DeferredHolder<Item, Item> SAIL_LINEN_MODULE = ModItems.ITEMS.register(
+            "ship_sail_linen_module", () -> new NamedShipPart("Льняной комплект паруса", new Item.Properties()));
+    public static final DeferredHolder<Item, Item> SAIL_REINFORCED_MODULE = ModItems.ITEMS.register(
+            "ship_sail_reinforced_module", () -> new NamedShipPart("Прочный комплект паруса", new Item.Properties()));
+    public static final DeferredHolder<Item, Item> SAIL_RIGGING_KIT = ModItems.ITEMS.register(
+            "ship_rigging_upgrade", () -> new NamedShipPart("Комплект усиления мачты и рей", new Item.Properties()));
     public static final DeferredHolder<Item, Item> HELM_MODULE = ModItems.ITEMS.register(
             "ship_helm_module", () -> new NamedShipPart("Судовой руль", new Item.Properties()));
     public static final DeferredHolder<Item, Item> OAR_MODULE = ModItems.ITEMS.register(
