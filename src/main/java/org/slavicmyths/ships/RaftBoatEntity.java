@@ -335,6 +335,23 @@ public final class RaftBoatEntity extends Boat {
             setDeltaMovement(0D, velocity.y, 0D);
         }
         super.tick();
+        // Wind-driven propulsion: no W input needed once a sail and steering post are fitted.
+        // The helm uses the boat's synchronized A/D paddle-control yaw, while wind supplies
+        // forward thrust. Combining W (rowing) + wind is faster than either alone.
+        if (afloat && hasUpgrade(8) && sailCount() > 0 && getControllingPassenger() != null) {
+            double windAngle = Math.sin(level().getGameTime() / 9000.0D) * .65D + .8D;
+            double heading = Math.toRadians(getYRot());
+            double forwardX = -Math.sin(heading), forwardZ = Math.cos(heading);
+            double windX = Math.cos(windAngle), windZ = Math.sin(windAngle);
+            double alignment = forwardX * windX + forwardZ * windZ;
+            double power = (.012D + .010D * Math.max(-.35D, alignment)) * sailCount();
+            Vec3 motion = getDeltaMovement();
+            double nextX = motion.x + forwardX * power, nextZ = motion.z + forwardZ * power;
+            double max = sailCount() > 1 ? .35D : .26D;
+            double horizontal = Math.sqrt(nextX * nextX + nextZ * nextZ);
+            if (horizontal > max) { nextX *= max / horizontal; nextZ *= max / horizontal; }
+            setDeltaMovement(nextX, motion.y, nextZ);
+        }
         if (afloat && waterUnder(surface)) {
             Vec3 velocity = getDeltaMovement();
             setDeltaMovement(velocity.x, 0D, velocity.z);
