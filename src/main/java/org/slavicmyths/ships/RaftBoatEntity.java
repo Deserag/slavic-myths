@@ -291,6 +291,62 @@ public final class RaftBoatEntity extends Boat {
         return Double.NaN;
     }
 
+    /** Sorted public deck positions for network menus; cargo ItemStacks remain server-owned. */
+    public java.util.List<Integer> equippedTiles() {
+        java.util.List<Integer> cells = new java.util.ArrayList<>();
+        for (int z = 0; z < deckLength(); z++)
+            for (int x = 0; x < deckWidth(); x++)
+                if (moduleKind(x, z) != 0) cells.add(z * deckWidth() + x);
+        return cells;
+    }
+
+    /** Internal live container; do not clone or serialize it for GUI interactions. */
+    public SimpleContainer onboardInventory(int tile) { return inventories.get(tile); }
+
+    /** One location on the visible deck, not the small native boat collision box. */
+    public int targetTile(Player player) {
+        Vec3 eye = player.getEyePosition(), dir = player.getLookAngle();
+        if (dir.y >= -0.035D) return -1;
+        double t = (deckTop() - eye.y) / dir.y;
+        if (t <= 0.05D || t > 6.0D) return -1;
+        Vec3 point = eye.add(dir.scale(t));
+        double dx = point.x - getX(), dz = point.z - getZ();
+        double angle = Math.toRadians(getYRot());
+        double localX = dx * Math.cos(angle) + dz * Math.sin(angle);
+        double localZ = -dx * Math.sin(angle) + dz * Math.cos(angle);
+        int x = (int)Math.floor(localX + deckWidth() / 2D);
+        int z = (int)Math.floor(localZ + deckLength() / 2D);
+        return x >= 0 && x < deckWidth() && z >= 0 && z < deckLength() ?
+                z * deckWidth() + x : -1;
+    }
+
+    public boolean supportsEquipment(ItemStack item) {
+        return item.is(Items.CHEST) || item.is(Items.BARREL) ||
+                item.is(Items.FURNACE) || item.is(Items.CRAFTING_TABLE);
+    }
+
+    public boolean placeEquipment(Player player, InteractionHand hand, int tile) {
+        if (level().isClientSide || !player.isShiftKeyDown() || isRemoved() ||
+                player.distanceToSqr(this) > 64D || tile != targetTile(player) ||
+                tile < 0 || tile >= deckWidth() * deckLength() || kinds.containsKey(tile))
+            return false;
+        ItemStack held = player.getItemInHand(hand);
+        if (!supportsEquipment(held)) return false;
+        int kind = held.is(Items.CHEST) ? 1 : held.is(Items.BARREL) ? 2 :
+                held.is(Items.CRAFTING_TABLE) ? 3 : 4;
+        int x = tile % deckWidth(), z = tile / deckWidth();
+        // Respect the standing pilot position and the forward mast footprint.
+        if (x == deckWidth() / 2 &&
+                (z == deckLength() - 1 || (sailCount() > 0 && z == Math.round(deckLength() * .27F))))
+            return false;
+        kinds.put(tile, kind);
+        inventories.put(tile, new SimpleContainer(kind == 4 ? 3 : 27));
+        if (kind == 4) smelting.put(tile, new SimpleContainerData(4));
+        syncKinds();
+        if (!player.getAbilities().instabuild) held.shrink(1);
+        return true;
+    }
+
     public int moduleKind(int x, int z) {
         if (x < 0 || x >= deckWidth() || z < 0 || z >= deckLength()) return 0;
         int index = z * deckWidth() + x;
@@ -310,19 +366,6 @@ public final class RaftBoatEntity extends Boat {
         }
         entityData.set(MODULE_GRID, new String(grid));
         entityData.set(MODULES, bits);
-    }
-
-    /** Ray to the deck surface, transformed into 3x3 raft-local tile coordinates. */
-    private int localTile(Player player) {
-        Vec3 eye = player.getEyePosition();
-        Vec3 view = player.getLookAngle();
-        double t = view.y < -0.025 ? (getY() + 0.50 - eye.y) / view.y : -1;
-        Vec3 point = t > 0 && t < 6 ? eye.add(view.scale(t)) : player.position();
-        double dx = point.x - getX(), dz = point.z - getZ(), yaw = Math.toRadians(getYRot());
-        double localX = dx * Math.cos(yaw) + dz * Math.sin(yaw);
-        double localZ = -dx * Math.sin(yaw) + dz * Math.cos(yaw);
-        int x = (int)Math.floor(localX + deckWidth() / 2.0), z = (int)Math.floor(localZ + deckLength() / 2.0);
-        return x >= 0 && x < deckWidth() && z >= 0 && z < deckLength() ? z * deckWidth() + x : -1;
     }
 
     @Override public InteractionResult interact(Player player, InteractionHand hand) {
@@ -353,19 +396,11 @@ public final class RaftBoatEntity extends Boat {
             player.displayClientMessage(Component.literal("Оснащение плота установлено"), true);
             return InteractionResult.CONSUME;
         }
-        int tile = localTile(player);
+        int tile = targetTile(player);
         if (tile < 0) return InteractionResult.FAIL;
         if (level().isClientSide) return InteractionResult.SUCCESS;
-        if (held.is(Items.CHEST) || held.is(Items.BARREL) || held.is(Items.CRAFTING_TABLE) || held.is(Items.FURNACE)) {
-            if (kinds.containsKey(tile)) return InteractionResult.FAIL;
-            int kind = held.is(Items.CHEST) ? 1 : held.is(Items.BARREL) ? 2 : held.is(Items.CRAFTING_TABLE) ? 3 : 4;
-            kinds.put(tile, kind);
-            inventories.put(tile, new SimpleContainer(kind == 4 ? 3 : 27));
-            if (kind == 4) smelting.put(tile, new SimpleContainerData(4));
-            syncKinds();
-            if (!player.getAbilities().instabuild) held.shrink(1);
-            return InteractionResult.CONSUME;
-        }
+        if (supportsEquipment(held))
+            return placeEquipment(player, hand, tile) ? InteractionResult.CONSUME : InteractionResult.FAIL;
         SimpleContainer inventory = inventories.get(tile);
         if (inventory != null && player instanceof ServerPlayer serverPlayer) {
             int kind = kinds.get(tile);
