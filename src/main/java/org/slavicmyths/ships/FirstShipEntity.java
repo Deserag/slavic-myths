@@ -47,6 +47,8 @@ import net.minecraft.world.phys.Vec3;
 public final class FirstShipEntity extends Boat {
     private static final EntityDataAccessor<Float> SURFACE = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<String> MODULES = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.STRING);
+    private static final EntityDataAccessor<Boolean> NATIVE = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Integer> TURNS = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
     private static final float NO_SURFACE = -10000F;
     private static final double DRAFT = 0.14D;
     private static final int CELLS = FirstShipHull.WIDTH * FirstShipHull.LENGTH;
@@ -62,15 +64,20 @@ public final class FirstShipEntity extends Boat {
     private boolean nativeHull;
     private long lastHelmAction = -100L;
 
-    public BlockPos blockAnchor() { return blockAnchor; }
-    public int quarterTurns() { return quarterTurns; }
-    public boolean isNativeHull() { return nativeHull; }
+    public BlockPos blockAnchor() {
+        return level().isClientSide
+                ? BlockPos.containing(getX(), getY(), getZ()) : blockAnchor;
+    }
+    public int quarterTurns() { return entityData.get(TURNS); }
+    public boolean isNativeHull() { return entityData.get(NATIVE); }
     public ListTag pendingBlockCargo() { return pendingBlockCargo.copy(); }
 
     public void initializeNativeHull(BlockPos anchor, int turns) {
         blockAnchor = anchor.immutable();
         quarterTurns = Math.floorMod(turns, 4);
         nativeHull = true;
+        entityData.set(NATIVE, true);
+        entityData.set(TURNS, quarterTurns);
         setYRot(quarterTurns * 90F);
         setPos(anchor.getX() + .5D, anchor.getY(), anchor.getZ() + .5D);
         setDeltaMovement(Vec3.ZERO);
@@ -86,6 +93,8 @@ public final class FirstShipEntity extends Boat {
         super.defineSynchedData(builder);
         builder.define(SURFACE, NO_SURFACE);
         builder.define(MODULES, "0".repeat(CELLS * 2));
+        builder.define(NATIVE, false);
+        builder.define(TURNS, 0);
     }
 
     public double deckY() { return getY() + FirstShipHull.MAIN_DECK; }
@@ -459,7 +468,7 @@ public final class FirstShipEntity extends Boat {
      * dragging people off the fake floors. Vanilla blocks provide real collision.
      */
     @Override public void tick() {
-        if (nativeHull) {
+        if (isNativeHull()) {
             baseTick();
             setDeltaMovement(Vec3.ZERO);
             if (!level().isClientSide)
