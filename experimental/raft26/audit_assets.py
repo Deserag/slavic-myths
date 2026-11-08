@@ -8,7 +8,11 @@ assets = root / "src/main/resources/assets/slavicmyths/models/item"
 recipes = root / "src/main/resources/data/slavicmyths/recipe"
 
 rafts = ["raft_2511_test", "raft_3x5", "raft_5x5", "raft_5x7"]
-variants = [f"{id}_sail" for id in rafts] + ["raft_5x7_double_sail"]
+variants = ([f"{id}_sail" for id in rafts] +
+            ["raft_5x7_double_sail"] +
+            [f"{id}_rails" for id in rafts] +
+            [f"{id}_sail_rails" for id in rafts] +
+            ["raft_5x7_double_sail_rails"])
 parts = ["ship_deck_section", "ship_rail_module", "ship_sail_module",
          "ship_helm_module", "ship_oar_module", "shipyard_key", "shipyard_workbench"]
 names = rafts + variants + parts
