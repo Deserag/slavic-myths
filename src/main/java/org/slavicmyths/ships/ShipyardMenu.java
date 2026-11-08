@@ -124,7 +124,18 @@ public final class ShipyardMenu extends AbstractContainerMenu {
             CustomData old = held.get(DataComponents.CUSTOM_DATA);
             if (old != null) {
                 CompoundTag data = old.copyTag();
-                if (data.contains("Raft2511Pack")) data.getCompound("Raft2511Pack").putInt("RaftSize", target.ordinal());
+                if (data.contains("Raft2511Pack")) {
+                    CompoundTag packed = data.getCompound("Raft2511Pack");
+                    // Cargo positions are local x/z; stride changes when the hull grows.
+                    ListTag modules = packed.getList("Raft2511Modules", net.minecraft.nbt.Tag.TAG_COMPOUND);
+                    for (int i = 0; i < modules.size(); i++) {
+                        CompoundTag module = modules.getCompound(i);
+                        int tile = module.getInt("Tile");
+                        int x = tile % current.width, z = tile / current.width;
+                        module.putInt("Tile", z * target.width + x);
+                    }
+                    packed.putInt("RaftSize", target.ordinal());
+                }
                 next.set(DataComponents.CUSTOM_DATA, CustomData.of(data));
             }
             input.setItem(0, next);
