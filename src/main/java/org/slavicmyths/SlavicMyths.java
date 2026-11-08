@@ -79,6 +79,7 @@ public final class SlavicMyths {
         org.slavicmyths.kurgan.BurialCoffinMenu.register();
         org.slavicmyths.kurgan.KurganStructures.register();
         org.slavicmyths.earth.EarthContent.init();
+        org.slavicmyths.ships.RaftContent.init();
         org.slavicmyths.sivka.SivkaContent.init();
         org.slavicmyths.firebird.FirebirdContent.init();
         org.slavicmyths.nochnitsa.NochnitsaContent.init(bus);
