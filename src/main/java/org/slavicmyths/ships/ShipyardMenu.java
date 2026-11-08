@@ -110,6 +110,16 @@ public final class ShipyardMenu extends AbstractContainerMenu {
             }
             input.setItem(0, updated);
             player.displayClientMessage(Component.literal("Модификация установлена; оборудование и груз не изменены"), true);
+        } else if (action >= 7 && action <= 10) {
+            ItemStack current = input.getItem(0);
+            ItemStack changed = ShipyardUpgrades.dismantle(player, current, action);
+            if (changed.isEmpty()) {
+                player.displayClientMessage(Component.literal(
+                        "Снять деталь нельзя: проверьте оснащение и место в инвентаре"), true);
+                return false;
+            }
+            input.setItem(0, changed);
+            player.displayClientMessage(Component.literal("Деталь снята и возвращена в инвентарь"), true);
         } else return false;
         broadcastChanges();
         return true;
