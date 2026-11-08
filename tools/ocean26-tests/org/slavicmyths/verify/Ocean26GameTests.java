@@ -11,6 +11,7 @@ import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.Connection;
 import net.minecraft.network.PacketSendListener;
 import net.minecraft.network.protocol.Packet;
@@ -74,6 +75,18 @@ public final class Ocean26GameTests {
     @GameTest(template = "empty", timeoutTicks = 230, batch = "ocean_native")
     public static void captainCrewReboardRotateAndPackCargo(GameTestHelper t) {
         ServerLevel level = t.getLevel();
+        // Resource validity must be checked IN the loader, not via JSON alone.
+        // Previously the GameTest itself passed while all ship recipes failed
+        // to load due to 1.21.1 requiring objects for shaped ingredients.
+        for (String recipe : new String[]{
+                "ship_deck_section", "ship_helm_module", "ship_oar_module",
+                "ship_rail_module", "ship_sail_module", "ship_sail_linen_module",
+                "ship_sail_reinforced_module", "ship_rigging_upgrade",
+                "shipyard_key", "shipyard_workbench", "reinforced_sailcloth",
+                "linen_cloth"}) {
+            t.assertTrue(level.getRecipeManager().byKey(ResourceLocation.fromNamespaceAndPath(
+                    "slavicmyths", recipe)).isPresent(), "Ship crafting recipe rejected: " + recipe);
+        }
         BlockPos anchor = t.absolutePos(new BlockPos(12, 4, 12));
         // Prepare a disposable shallow ocean, leaving two water-source layers.
         for (int x = -15; x <= 15; x++)
