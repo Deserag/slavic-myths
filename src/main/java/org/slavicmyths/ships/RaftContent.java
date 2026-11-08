@@ -39,7 +39,7 @@ public final class RaftContent {
     public static final DeferredHolder<Block, ShipyardWorkbenchBlock> SHIPYARD_BENCH = ModBlocks.BLOCKS.register(
             "shipyard_workbench", ShipyardWorkbenchBlock::new);
     public static final DeferredHolder<Item, Item> SHIPYARD_BENCH_ITEM = ModItems.ITEMS.register(
-            "shipyard_workbench", () -> new BlockItem(SHIPYARD_BENCH.get(), new Item.Properties()));
+            "shipyard_workbench", () -> new ShipyardBenchItem(SHIPYARD_BENCH.get(), new Item.Properties()));
 
     public static Item raftItem(RaftSize size) {
         return switch (size) {
