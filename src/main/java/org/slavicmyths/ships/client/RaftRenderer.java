@@ -53,6 +53,13 @@ public final class RaftRenderer extends EntityRenderer<RaftBoatEntity> {
 
     @Override
     public void render(RaftBoatEntity raft, float yaw, float tick, PoseStack pose, MultiBufferSource buffers, int light) {
+        // Light must be sampled ABOVE the waterline: vanilla Boat feet are partially
+        // submerged, otherwise its entity light can flash as it moves through water.
+        net.minecraft.core.BlockPos daylight = net.minecraft.core.BlockPos.containing(
+                raft.getX(), raft.deckTop() + .8D, raft.getZ());
+        light = net.minecraft.client.renderer.LightTexture.pack(
+                raft.level().getBrightness(net.minecraft.world.level.LightLayer.BLOCK, daylight),
+                raft.level().getBrightness(net.minecraft.world.level.LightLayer.SKY, daylight));
         pose.pushPose();
         pose.mulPose(Axis.YP.rotationDegrees(180F - yaw));
         int width = raft.deckWidth(), length = raft.deckLength();
@@ -63,9 +70,9 @@ public final class RaftRenderer extends EntityRenderer<RaftBoatEntity> {
             if (kind == 1) {
                 // A hand-crafted oak ship chest: actual inventory state lives on the raft.
                 piece(Blocks.OAK_PLANKS.defaultBlockState(), pose, buffers, light,
-                        x + .12D, .58D, z + .12D, .76F, .69F, .76F);
+                        x + .12D, .58D, z + .12D, .76F, .68F, .76F);
                 piece(Blocks.SPRUCE_PLANKS.defaultBlockState(), pose, buffers, light,
-                        x + .09D, 1.25D, z + .09D, .82F, .12F, .82F);
+                        x + .09D, 1.28D, z + .09D, .82F, .12F, .82F);
                 piece(Blocks.IRON_BLOCK.defaultBlockState(), pose, buffers, light,
                         x + .46D, 1.00D, z + .045D, .09F, .21F, .09F);
             } else if (kind == 2) {
