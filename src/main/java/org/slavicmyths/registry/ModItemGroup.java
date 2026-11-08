@@ -24,6 +24,15 @@ public final class ModItemGroup {
                     .icon(() -> new ItemStack(org.slavicmyths.ships.RaftContent.RAFT_ITEM.get()))
                     .displayItems((parameters, output) -> {
                         output.accept(org.slavicmyths.ships.RaftContent.RAFT_ITEM.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.RAFT_LONG.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.RAFT_WIDE.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.RAFT_CARGO.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.SHIPYARD_BENCH_ITEM.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.DECK_SECTION.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.RAIL_MODULE.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.SAIL_MODULE.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.HELM_MODULE.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.OAR_MODULE.get());
                         output.accept(org.slavicmyths.ships.RaftContent.SHIPYARD_KEY.get());
                     })
                     .withTabsAfter(ResourceLocation.fromNamespaceAndPath("slavicmyths", "furniture"))
@@ -75,7 +84,8 @@ public final class ModItemGroup {
         if (!key.getNamespace().equals("slavicmyths")) return -1;
         String path = key.getPath();
         if (path.equals("wooden_barrel")) return -1; // Registered only for old saves.
-        if (path.equals("raft_2511_test")) return -1; // Listed exclusively in shipbuilding.
+        if (path.equals("raft_2511_test") || path.startsWith("raft_") || path.startsWith("ship_") ||
+                path.equals("shipyard_key") || path.equals("shipyard_workbench")) return -1; // Shipbuilding only.
         if (CreativeCatalog.entry(path) != null) return CreativeCatalog.category(path);
         if (REPORTED_FALLBACKS.add(path))
             System.getLogger("slavicmyths.creative").log(System.Logger.Level.WARNING,
