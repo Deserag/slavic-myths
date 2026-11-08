@@ -24,6 +24,7 @@ public final class ClientSetup {
 
     public static void registerModListeners(net.neoforged.bus.api.IEventBus bus) {
 
+        bus.addListener(org.slavicmyths.ships.client.RaftClient::renderers);
         bus.addListener(org.slavicmyths.burningislands.client.IslandsClient::register);
 
         bus.addListener(GreatswordClient::extensions);
