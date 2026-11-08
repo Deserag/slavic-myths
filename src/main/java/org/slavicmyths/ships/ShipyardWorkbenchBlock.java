@@ -42,6 +42,28 @@ public final class ShipyardWorkbenchBlock extends CraftingTableBlock {
         }
     }
 
+    /**
+     * Vanilla CraftingMenu validates a vanilla crafting table; a distinct shipyard
+     * block therefore needs its own stillValid or the screen closes in one tick.
+     */
+    @Override protected net.minecraft.world.InteractionResult useWithoutItem(
+            BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+        if (!level.isClientSide && player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+            serverPlayer.openMenu(new net.minecraft.world.SimpleMenuProvider((id, inventory, guest) ->
+                    new net.minecraft.world.inventory.CraftingMenu(id, inventory,
+                            net.minecraft.world.inventory.ContainerLevelAccess.create(level, pos)) {
+                        @Override public boolean stillValid(Player viewer) {
+                            double dx = viewer.getX() - (pos.getX() + .5D);
+                            double dy = viewer.getY() - (pos.getY() + .5D);
+                            double dz = viewer.getZ() - (pos.getZ() + .5D);
+                            return level.getBlockState(pos).is(RaftContent.SHIPYARD_BENCH.get()) &&
+                                    dx * dx + dy * dy + dz * dz <= 64D;
+                        }
+                    }, Component.literal("Корабельный верстак")));
+        }
+        return net.minecraft.world.InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
     @Override protected ItemInteractionResult useItemOn(ItemStack held, BlockState state, Level level, BlockPos pos,
             Player player, InteractionHand hand, BlockHitResult hit) {
         if (held.is(RaftContent.DECK_SECTION.get())) {
