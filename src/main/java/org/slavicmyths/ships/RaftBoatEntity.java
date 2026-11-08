@@ -458,11 +458,12 @@ public final class RaftBoatEntity extends Boat {
                 // Deterministic non-industrial breeze: stronger than rowing alone;
                 // paddling remains additive, and a cargo raft can carry two sails.
                 double gust = .78D + .22D * Math.sin(level().getGameTime() / 150.0D + getX() / 160.0D);
-                double thrust = (.011D + .004D * (sailCount() - 1)) * gust;
+                double thrust = (.042D + .014D * (sailCount() - 1)) * gust;
                 double yaw = Math.toRadians(getYRot());
                 double windX = -Math.sin(yaw), windZ = Math.cos(yaw);
                 double vx = velocity.x + windX * thrust, vz = velocity.z + windZ * thrust;
-                double max = .35D + .09D * (sailCount() - 1);
+                boolean rowing = getPaddleState(0) || getPaddleState(1);
+                double max = .50D + .15D * (sailCount() - 1) + (rowing ? .12D : 0D);
                 double horizontal = Math.sqrt(vx * vx + vz * vz);
                 if (horizontal > max) { vx *= max / horizontal; vz *= max / horizontal; }
                 velocity = new Vec3(vx, 0D, vz);
