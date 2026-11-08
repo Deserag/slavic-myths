@@ -26,7 +26,12 @@ public final class FirstShipInteractionClient {
         if (mc.player == null || mc.level == null || mc.screen != null || mc.player.isPassenger()) return;
         boolean key = mc.player.getMainHandItem().is(RaftContent.SHIPYARD_KEY.get())
                 || mc.player.getOffhandItem().is(RaftContent.SHIPYARD_KEY.get());
-        if (mc.player.isShiftKeyDown() && !key) return;
+        boolean sail = mc.player.getMainHandItem().is(RaftContent.SAIL_MODULE.get())
+                || mc.player.getMainHandItem().is(RaftContent.SAIL_LINEN_MODULE.get())
+                || mc.player.getMainHandItem().is(RaftContent.SAIL_REINFORCED_MODULE.get())
+                || mc.player.getMainHandItem().is(RaftContent.SAIL_RIGGING_KIT.get());
+        boolean removeSail = mc.player.isShiftKeyDown() && mc.player.getMainHandItem().isEmpty();
+        if (mc.player.isShiftKeyDown() && !key && !removeSail) return;
 
         Vec3 eye = mc.player.getEyePosition(), direction = mc.player.getLookAngle();
         FirstShipEntity selected = null;
@@ -48,6 +53,25 @@ public final class FirstShipInteractionClient {
                             && step * step < nearest) {
                         selected = ship; action = FirstShipNetwork.PACK; nearest = step * step;
                         break;
+                    }
+                }
+                continue;
+            }
+            // Aim at the physical mast from the open deck to fit/re-fit sails.
+            if (sail || removeSail) {
+                if (Math.abs(mc.player.getY() - ship.deckY()) < 1D
+                        && Math.abs(at.x()) <= 2.5D
+                        && Math.abs(at.z() - FirstShipHull.MAST_Z) <= 2.5D) {
+                    FirstShipHull.Point mast = FirstShipHull.toWorld(0D, FirstShipHull.MAST_Z,
+                            ship.getX(), ship.getZ(), ship.getYRot());
+                    Vec3 target = new Vec3(mast.x(), ship.deckY() + 2.5D, mast.z()).subtract(eye);
+                    if (target.lengthSqr() >= .25D && target.lengthSqr() < 36D
+                            && target.normalize().dot(direction) > .62D
+                            && target.lengthSqr() < nearest) {
+                        selected = ship;
+                        action = removeSail ? FirstShipNetwork.RIG_REMOVE
+                                : FirstShipNetwork.RIG_CONFIGURE;
+                        nearest = target.lengthSqr();
                     }
                 }
                 continue;
