@@ -106,7 +106,7 @@ public final class FirstShipBlockHull {
                 if (exposedEdge(x, z)) {
                     // Fore and aft narrowing requires FULL blocks: fence corners
                     // do not connect diagonally and would leave fall-through gaps.
-                    if (z >= 3 || z <= -4) {
+                    if (z >= 2 || z <= -3) {
                         blocks.put(world(anchor, turns, x, 5, z),
                                 Blocks.SPRUCE_PLANKS.defaultBlockState());
                     } else {
