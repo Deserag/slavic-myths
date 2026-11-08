@@ -466,6 +466,7 @@ public final class ClientSetup {
         event.register(org.slavicmyths.village.SettlementMenu.TYPE.get(),SettlementScreen::new);
 
         event.register(org.slavicmyths.storage.SackMenu.TYPE.get(),SackScreen::new);
+        event.register(org.slavicmyths.ships.ShipyardMenu.TYPE.get(),org.slavicmyths.ships.client.ShipyardScreen::new);
 
             event.<org.slavicmyths.rpg.RpgMenu,net.minecraft.client.gui.screens.inventory.AbstractContainerScreen<org.slavicmyths.rpg.RpgMenu>>register(org.slavicmyths.rpg.RpgMenu.TYPE.get(),(menu,inventory,title)->menu.anvil?new RuneAnvilScreen(menu,inventory,title):new RpgScreen(menu,inventory,title));
 
