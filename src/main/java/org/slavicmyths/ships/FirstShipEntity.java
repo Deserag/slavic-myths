@@ -285,6 +285,63 @@ public final class FirstShipEntity extends Boat {
         return InteractionResult.CONSUME;
     }
 
+
+    /** Same conservative, three-slot smelting semantics as the existing rafts. */
+    private static int fuelTicks(ItemStack fuel) {
+        if (fuel.is(Items.COAL) || fuel.is(Items.CHARCOAL)) return 1600;
+        if (fuel.is(Items.BLAZE_ROD)) return 2400;
+        if (fuel.is(net.minecraft.tags.ItemTags.LOGS)
+                || fuel.is(net.minecraft.tags.ItemTags.PLANKS)) return 300;
+        if (fuel.is(Items.STICK)) return 100;
+        return 0; // no untested container fuel, no disappearing buckets
+    }
+
+    private void tickShipFurnaces() {
+        for (var entry : furnaces.entrySet()) {
+            SimpleContainer slots = inventory.get(entry.getKey());
+            if (slots == null || slots.getContainerSize() != 3) continue;
+            SimpleContainerData heat = entry.getValue();
+            int lit = Math.max(0, heat.get(0) - 1);
+            heat.set(0, lit);
+            ItemStack source = slots.getItem(0), fuel = slots.getItem(1), output = slots.getItem(2);
+            if (source.isEmpty()) { heat.set(2, 0); continue; }
+            var match = level().getRecipeManager().getRecipeFor(
+                    net.minecraft.world.item.crafting.RecipeType.SMELTING,
+                    new net.minecraft.world.item.crafting.SingleRecipeInput(source), level());
+            if (match.isEmpty()) { heat.set(2, 0); continue; }
+            net.minecraft.world.item.crafting.SmeltingRecipe recipe = match.get().value();
+            ItemStack result = recipe.assemble(
+                    new net.minecraft.world.item.crafting.SingleRecipeInput(source), registryAccess());
+            if (result.isEmpty() || (!output.isEmpty()
+                    && (!ItemStack.isSameItemSameComponents(output, result)
+                    || output.getCount() + result.getCount() > output.getMaxStackSize()))) {
+                heat.set(2, 0);
+                continue;
+            }
+            if (lit == 0 && !fuel.isEmpty()) {
+                int burn = fuelTicks(fuel);
+                if (burn > 0) {
+                    fuel.shrink(1);
+                    heat.set(0, burn);
+                    heat.set(1, burn);
+                    lit = burn;
+                }
+            }
+            if (lit > 0) {
+                int progress = heat.get(2) + 1;
+                int required = Math.max(1, recipe.getCookingTime());
+                heat.set(3, required);
+                if (progress >= required) {
+                    source.shrink(1);
+                    if (output.isEmpty()) slots.setItem(2, result.copy());
+                    else output.grow(result.getCount());
+                    heat.set(2, 0);
+                    slots.setChanged();
+                } else heat.set(2, progress);
+            } else heat.set(2, 0);
+        }
+    }
+
     @Override public void tick() {
         boolean water = afloat();
         double surface = entityData.get(SURFACE);
@@ -294,6 +351,7 @@ public final class FirstShipEntity extends Boat {
             setPos(getX(), surface - DRAFT, getZ());
         }
         super.tick();
+        if (!level().isClientSide) tickShipFurnaces();
         if (water && afloat()) {
             Vec3 velocity = getDeltaMovement();
             if (isVehicle()) {
