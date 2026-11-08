@@ -17,6 +17,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LadderBlock;
+import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -103,9 +104,23 @@ public final class FirstShipBlockHull {
                                     : Blocks.OAK_PLANKS.defaultBlockState());
                 }
                 if (exposedEdge(x, z)) {
-                    // Genuine vanilla fence collision, 1 m high, no invisible rails.
-                    blocks.put(world(anchor, turns, x, 5, z),
-                            Blocks.SPRUCE_FENCE.defaultBlockState());
+                    // Fore and aft narrowing requires FULL blocks: fence corners
+                    // do not connect diagonally and would leave fall-through gaps.
+                    if (z >= 3 || z <= -4) {
+                        blocks.put(world(anchor, turns, x, 5, z),
+                                Blocks.SPRUCE_PLANKS.defaultBlockState());
+                    } else {
+                        BlockState rail = Blocks.SPRUCE_FENCE.defaultBlockState();
+                        boolean north = exposedEdge(x, z - 1) && inside(x, z - 1);
+                        boolean south = exposedEdge(x, z + 1) && inside(x, z + 1);
+                        boolean west = exposedEdge(x - 1, z) && inside(x - 1, z);
+                        boolean east = exposedEdge(x + 1, z) && inside(x + 1, z);
+                        rail = rail.setValue(FenceBlock.NORTH, north)
+                                .setValue(FenceBlock.SOUTH, south)
+                                .setValue(FenceBlock.WEST, west)
+                                .setValue(FenceBlock.EAST, east);
+                        blocks.put(world(anchor, turns, x, 5, z), rail);
+                    }
                 }
             }
         }
