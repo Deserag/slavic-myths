@@ -246,6 +246,14 @@ public final class FirstShipEntity extends Boat {
             return InteractionResult.sidedSuccess(level().isClientSide);
         }
         if (!player.isSecondaryUseActive()) return InteractionResult.PASS;
+        return interactFromDeck(player, hand);
+    }
+
+    /** Also called by air-right-click while standing on any part of this large ship. */
+    public InteractionResult interactFromDeck(Player player, InteractionHand hand) {
+        ItemStack held = player.getItemInHand(hand);
+        FirstShipHull.Point local = FirstShipHull.toLocal(
+                player.getX(), player.getZ(), getX(), getZ(), getYRot());
         int floor = player.getY() > getY() + 1.8D ? 1 : 0;
         int tile = tileAt(local.x(), local.z(), floor);
         if (tile < 0) return InteractionResult.FAIL;
