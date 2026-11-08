@@ -34,7 +34,7 @@ public final class RaftHud {
         var graphics = event.getGuiGraphics();
         int x = Math.max(5, graphics.guiWidth() - 210);
         int y = Math.max(5, graphics.guiHeight() / 2 - 42);
-        int height = 24 + rows.size() * 10;
+        int height = 43 + rows.size() * 10;
         graphics.fill(x - 5, y - 7, x + 201, y + height, 0xc4221a12);
         graphics.fill(x - 3, y - 5, x + 199, y - 3, 0xffb99463);
         graphics.drawString(mc.font, "ОСНАЩЕНИЕ СУДНА", x, y, 0xffffdd94, false);
@@ -44,11 +44,18 @@ public final class RaftHud {
             graphics.drawString(mc.font, text, x, y, 0xfff2e4cb, false);
             y += 10;
         }
-        if (mc.player.getVehicle() == raft) {
-            double speed = raft.getDeltaMovement().horizontalDistance() * 20.0D;
-            graphics.drawString(mc.font, String.format(java.util.Locale.ROOT,
-                    "Ход: %.1f блок/с", speed), x, y + 2, 0xffbadcaa, false);
-        }
+        org.slavicmyths.ships.RaftWind.Sample breeze = org.slavicmyths.ships.RaftWind.at(
+                mc.level.getGameTime(), raft.getX(), raft.getZ(),
+                mc.level.isRaining(), mc.level.isThundering());
+        String wind = String.format(java.util.Locale.ROOT,
+                "Ветер к %s • сила %.0f%% • парус %.0f%%",
+                breeze.direction(), breeze.strength() * 100D,
+                breeze.sailFactor(raft.getYRot()) * 100D);
+        graphics.drawString(mc.font, mc.font.plainSubstrByWidth(wind, 192),
+                x, y + 2, 0xff9ec9dd, false);
+        double speed = raft.getDeltaMovement().horizontalDistance() * 20.0D;
+        graphics.drawString(mc.font, String.format(java.util.Locale.ROOT,
+                "Ход: %.1f блок/с", speed), x, y + 13, 0xffbadcaa, false);
     }
     /**
      * Bigger hulls have deliberately retained the vanilla boat's small collision box.
