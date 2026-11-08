@@ -69,7 +69,7 @@ public final class FirstShipEntity extends Boat {
     private int fabricQuality;
     private int geometryVersion = 2;
     private ShipDesign design = ShipDesign.defaults();
-    private long lastHelmAction = -100L;
+    private double nextHelmAllowedTick = -100D;
     private boolean legacyConversionTried;
 
     public BlockPos blockAnchor() {
@@ -237,7 +237,7 @@ public final class FirstShipEntity extends Boat {
 
     @Override protected void removePassenger(Entity passenger) {
         super.removePassenger(passenger);
-        if (nativeHull) lastHelmAction = -100L;
+        if (nativeHull) nextHelmAllowedTick = -100D;
     }
 
     @Override public boolean canCollideWith(Entity other) {
@@ -531,7 +531,9 @@ public final class FirstShipEntity extends Boat {
             player.drop(new ItemStack(additionalSailRefund), false);
         player.displayClientMessage(Component.literal("Паруса: уровень " + nextLevel
                 + "/4, ткань " + nextFabric + "/3, интервал "
-                + new ShipRigging(nextLevel, nextFabric).cooldownTicks() + " тиков"), true);
+                + String.format(java.util.Locale.ROOT, "%.2f",
+                        new ShipRigging(nextLevel, nextFabric).exactCooldownTicks())
+                + " тиков"), true);
         return true;
     }
 
@@ -749,8 +751,7 @@ public final class FirstShipEntity extends Boat {
         if (!nativeHull || driver.getVehicle() != this || getFirstPassenger() != driver
                 || !(level() instanceof net.minecraft.server.level.ServerLevel server)
                 || action < FirstShipNetwork.FORWARD || action > FirstShipNetwork.RIGHT
-                || level().getGameTime() - lastHelmAction
-                        < new ShipRigging(rigLevel, fabricQuality).cooldownTicks()) return false;
+                || level().getGameTime() + 1e-6D < nextHelmAllowedTick) return false;
         int nextTurn = quarterTurns;
         BlockPos nextAnchor = blockAnchor;
         if (action == FirstShipNetwork.LEFT) nextTurn = Math.floorMod(quarterTurns - 1, 4);
@@ -785,14 +786,17 @@ public final class FirstShipEntity extends Boat {
                 rigLevel, fabricQuality, rigLevel, fabricQuality)) {
             driver.displayClientMessage(Component.literal(
                     "Ход заблокирован: мелководье, препятствие, изменённый корпус или груз"), true);
-            lastHelmAction = level().getGameTime();
+            nextHelmAllowedTick = level().getGameTime() + 3D;
             return false;
         }
         initializeNativeHull(nextAnchor, nextTurn);
         // The captain was intentionally excluded from free-walker transfers;
         // update the MOUNTED seat explicitly to keep the captain on deck.
         positionRider(driver);
-        lastHelmAction = level().getGameTime();
+        // Fractional tick scheduling produces 10/8.70/7.69 tick steps
+        // (tier I fabrics). Do not round every step or the bonuses vanish.
+        nextHelmAllowedTick = Math.max(level().getGameTime(), nextHelmAllowedTick)
+                + new ShipRigging(rigLevel, fabricQuality).exactCooldownTicks();
         for (ServerPlayer p : walkers) {
             FirstShipHull.Point oldLocal = localPositions.get(p);
             FirstShipHull.Point target = FirstShipHull.toWorld(
