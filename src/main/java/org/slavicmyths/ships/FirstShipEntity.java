@@ -447,6 +447,7 @@ public final class FirstShipEntity extends Boat {
         int nextLevel = rigLevel, nextFabric = fabricQuality, cost = 0;
         ItemStack hand = player.getMainHandItem();
         Item consumed = null, refunded = null;
+        Item additionalSailCost = null, additionalSailRefund = null;
         int refundCount = 0;
         if (action == FirstShipNetwork.RIG_REMOVE) {
             if (rigLevel == 0 || !hand.isEmpty() || !player.isShiftKeyDown()) return false;
@@ -457,6 +458,7 @@ public final class FirstShipEntity extends Boat {
             } else {
                 nextLevel--;
                 refunded = RaftContent.SAIL_RIGGING_KIT.get();
+                additionalSailRefund = sailModule(fabricQuality);
             }
             refundCount = 1;
         } else if (action == FirstShipNetwork.RIG_CONFIGURE) {
@@ -464,6 +466,7 @@ public final class FirstShipEntity extends Boat {
                 if (rigLevel == 0 || rigLevel >= 4) return false;
                 nextLevel++;
                 consumed = RaftContent.SAIL_RIGGING_KIT.get();
+                additionalSailCost = sailModule(fabricQuality);
                 cost = 1;
             } else {
                 int requested = hand.is(RaftContent.SAIL_MODULE.get()) ? 1
@@ -483,6 +486,12 @@ public final class FirstShipEntity extends Boat {
         if (consumed != null && !player.getAbilities().instabuild
                 && player.getInventory().countItem(consumed) < cost) {
             player.displayClientMessage(Component.literal("Нужно больше комплектов ткани для парусов"), true);
+            return false;
+        }
+        if (additionalSailCost != null && !player.getAbilities().instabuild
+                && player.getInventory().countItem(additionalSailCost) < 1) {
+            player.displayClientMessage(Component.literal(
+                    "Для дополнительного яруса нужен также комплект парусной ткани"), true);
             return false;
         }
         // Changing real blocks while another player accesses a chest is unsafe.
@@ -506,11 +515,20 @@ public final class FirstShipEntity extends Boat {
                 remaining -= taken;
             }
         }
+        if (additionalSailCost != null && !player.getAbilities().instabuild) {
+            for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+                ItemStack stack = player.getInventory().getItem(i);
+                if (stack.is(additionalSailCost)) { stack.shrink(1); break; }
+            }
+        }
         if (refunded != null && !player.getAbilities().instabuild) {
             for (int i = 0; i < refundCount; i++)
                 if (!player.getInventory().add(new ItemStack(refunded)))
                     player.drop(new ItemStack(refunded), false);
         }
+        if (additionalSailRefund != null && !player.getAbilities().instabuild
+                && !player.getInventory().add(new ItemStack(additionalSailRefund)))
+            player.drop(new ItemStack(additionalSailRefund), false);
         player.displayClientMessage(Component.literal("Паруса: уровень " + nextLevel
                 + "/4, ткань " + nextFabric + "/3, интервал "
                 + new ShipRigging(nextLevel, nextFabric).cooldownTicks() + " тиков"), true);
