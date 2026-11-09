@@ -6650,5 +6650,15 @@
   "item.slavicmyths.lomeya_hammer": "Lomeya's Hammer",
   "item.slavicmyths.lomeya_hammer_offhand": "Lomeya's Second Hammer",
   "item.slavicmyths.lomeya_hammer.effect": "Left-click: heavy strike and slow. Right-click: area slam (7.5s cooldown).",
-  "key.slavicmyths.viy_summon": "Summon Viy's minions"
+  "key.slavicmyths.viy_summon": "Summon Viy's minions",
+  "item.slavicmyths.tryaseya_shard": "Tryaseya Shard",
+  "item.slavicmyths.gneteya_shard": "Gneteya Shard",
+  "item.slavicmyths.ledeya_shard": "Ledeya Shard",
+  "item.slavicmyths.agneya_shard": "Agneya Shard",
+  "item.slavicmyths.neveya_shard": "Neveya Shard",
+  "item.slavicmyths.lomeya_shard": "Lomeya Shard",
+  "item.slavicmyths.viy_shard": "Viy Shard",
+  "item.slavicmyths.sisters_ritual_core": "Heart of Six Sisters",
+  "item.slavicmyths.mytar_shackled_sickle": "Shackled Sickle",
+  "item.slavicmyths.mytar_sickle": "Mytar's Sickle"
 }
