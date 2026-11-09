@@ -44,7 +44,8 @@ public final class FirstShipNetwork {
             }
             if (player.isPassenger()) return;
             if (action == RIG_CONFIGURE || action == RIG_REMOVE) {
-                ship.configureRigging(player, action);
+                player.displayClientMessage(net.minecraft.network.chat.Component.literal(
+                        "Оснащение меняется в корабельном верстаке: вкладка «Оснащение»"), true);
                 return;
             }
             if (action == HELM && !player.isShiftKeyDown()) ship.tryHelm(player);
