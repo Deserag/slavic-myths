@@ -740,6 +740,74 @@ public final class FirstShipBlockHull {
         return remove(level, anchor, turns, rig, fabric, 5);
     }
 
+    /**
+     * Validated source for the future moving-contraption handoff.
+     *
+     * The physical world block hull can be detached only after its exact
+     * expected hull, all installed containers and their NBT have been checked.
+     * A snapshot contains the complete cargo payload, geometry, rigging and
+     * original bearing. This is NOT enabled by a helm command yet: the moving
+     * entity must first have crash-safe persistence and an interactive floor.
+     */
+    public record MotionSnapshot(ListTag cargo, int geometry, int rig, int fabric, int turn) {
+        public MotionSnapshot {
+            if (cargo == null || cargo.size() > WIDTH * LENGTH * 2
+                    || geometry < 2 || geometry > 5
+                    || turn < 0 || turn > 3
+                    || decode(cargo) == null)
+                throw new IllegalArgumentException("Unsafe moving ship snapshot");
+            new ShipRigging(rig, fabric);
+            cargo = cargo.copy();
+        }
+        @Override public ListTag cargo() { return cargo.copy(); }
+    }
+
+    public static MotionSnapshot captureForMotion(ServerLevel level, BlockPos anchor,
+            int turns, int rig, int fabric, int geometry) {
+        if (geometry < 2 || geometry > 5 || turns < 0 || turns > 3) return null;
+        ListTag cargo = pack(level, anchor, turns, rig, fabric, geometry);
+        return cargo == null ? null : new MotionSnapshot(cargo, geometry, rig, fabric, turns);
+    }
+
+    /**
+     * Immovable-to-moving phase: validates the entire source AGAIN just before
+     * removing it. The snapshot must be durably attached to the moving ship
+     * entity BEFORE calling this method; otherwise a crash can lose cargo.
+     */
+    public static boolean detachForMotion(ServerLevel level, BlockPos anchor,
+            MotionSnapshot snapshot) {
+        if (snapshot == null) return false;
+        ListTag cargo = pack(level, anchor, snapshot.turn(), snapshot.rig(),
+                snapshot.fabric(), snapshot.geometry());
+        if (cargo == null || !cargo.equals(snapshot.cargo())) return false;
+        return remove(level, anchor, snapshot.turn(), snapshot.rig(),
+                snapshot.fabric(), snapshot.geometry());
+    }
+
+    /**
+     * Moving-to-immovable phase: when the continuous hull has stopped at a
+     * safe integer anchor / cardinal parking angle, rebuild ordinary blocks
+     * and BlockEntities from the validated cargo payload.
+     */
+    public static boolean restoreFromMotion(ServerLevel level, BlockPos target,
+            int parkingTurn, MotionSnapshot snapshot) {
+        if (snapshot == null || parkingTurn < 0 || parkingTurn > 3) return false;
+        return place(level, target, parkingTurn, snapshot.cargo(),
+                snapshot.rig(), snapshot.fabric(), snapshot.geometry());
+    }
+
+    /** Deterministic local block palette. The moving renderer transforms these
+     * blocks by continuous pose rather than placing them in chunk sections. */
+    public static Map<BlockPos, BlockState> localMotionPalette(MotionSnapshot snapshot) {
+        if (snapshot == null) return Map.of();
+        Map<BlockPos, BlockState> result = new LinkedHashMap<>(
+                layout(BlockPos.ZERO, 0, snapshot.rig(), snapshot.fabric(), snapshot.geometry()));
+        List<Cargo> cargo = decode(snapshot.cargo());
+        if (cargo == null) return Map.of();
+        for (Cargo c : cargo) result.put(new BlockPos(c.x(), c.y(), c.z()), c.state());
+        return java.util.Collections.unmodifiableMap(result);
+    }
+
     public static int cargoKind(net.minecraft.world.level.Level level, BlockPos anchor, int turns, int floor, int x, int z) {
         int lx = x - 3, lz = z - 5, y = floor == 0 ? 1 : 5;
         if (!cargoCell(lx, y, lz)) return 0;
