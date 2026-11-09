@@ -16,6 +16,8 @@ public final class FirstShipNetwork {
     public static final int BOARD = 1, HELM = 2, MODULE_MAIN = 3, MODULE_OFF = 4;
     public static final int FORWARD = 5, BACKWARD = 6, LEFT = 7, RIGHT = 8, PACK = 9;
     public static final int RIG_CONFIGURE = 10, RIG_REMOVE = 11;
+    public static final int FORWARD_LEFT = 12, FORWARD_RIGHT = 13;
+    public static final int BACKWARD_LEFT = 14, BACKWARD_RIGHT = 15, HELM_IDLE = 16;
 
     public record Command(int shipId, int action) implements CustomPacketPayload {
         public static final Type<Command> TYPE = new Type<>(
@@ -38,7 +40,8 @@ public final class FirstShipNetwork {
             // Native hull center is 5.5 blocks away from its sharpest extremity.
             if (player.distanceToSqr(ship) > 196D) return;
             int action = packet.action();
-            if (action >= FORWARD && action <= RIGHT) {
+            if ((action >= FORWARD && action <= RIGHT)
+                    || (action >= FORWARD_LEFT && action <= HELM_IDLE)) {
                 ship.helmStep(player, action);
                 return;
             }
