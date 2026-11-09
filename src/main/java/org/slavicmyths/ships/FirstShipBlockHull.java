@@ -266,6 +266,42 @@ public final class FirstShipBlockHull {
         return blocks;
     }
 
+    /**
+     * V4: a recognizable five-block diameter ship wheel, not the old row of
+     * upright fences, plus an independent stern rudder blade below the tiller.
+     * The wooden rim is made of short slabs; the center and four spokes are
+     * visible through its empty middle when viewed from the helm side.
+     */
+    private static Map<BlockPos, BlockState> layoutV4(BlockPos anchor, int turns, int rig, int fabric) {
+        Map<BlockPos, BlockState> blocks = layoutV3(anchor, turns, rig, fabric);
+        for (int x = -2; x <= 2; x++)
+            for (int y = 6; y <= 10; y++)
+                blocks.remove(world(anchor, turns, x, y, -4));
+        for (int y = 6; y <= 10; y++) {
+            for (int x = -2; x <= 2; x++) {
+                boolean outerSides = Math.abs(x) == 2 && y >= 7 && y <= 9;
+                boolean roundedEnds = Math.abs(x) <= 1 && (y == 6 || y == 10);
+                if (outerSides || roundedEnds)
+                    blocks.put(world(anchor, turns, x, y, -4),
+                            Blocks.DARK_OAK_SLAB.defaultBlockState());
+            }
+        }
+        for (int x : new int[]{-1, 1})
+            blocks.put(world(anchor, turns, x, 8, -4), Blocks.SPRUCE_FENCE.defaultBlockState());
+        for (int y : new int[]{7, 9})
+            blocks.put(world(anchor, turns, 0, y, -4), Blocks.SPRUCE_FENCE.defaultBlockState());
+        blocks.put(world(anchor, turns, 0, 8, -4),
+                Blocks.STRIPPED_DARK_OAK_LOG.defaultBlockState().setValue(
+                        RotatedPillarBlock.AXIS, turns % 2 == 0
+                                ? Direction.Axis.Z : Direction.Axis.X));
+        // A genuine stern rudder protrudes aft, rather than pretending that
+        // the wheel itself is the hydrodynamic rudder.
+        for (int y = 0; y <= 2; y++)
+            blocks.put(world(anchor, turns, 0, y, -6), Blocks.DARK_OAK_PLANKS.defaultBlockState());
+        blocks.put(world(anchor, turns, 0, 3, -6), Blocks.DARK_OAK_FENCE.defaultBlockState());
+        return blocks;
+    }
+
     private static void addYardV3(Map<BlockPos, BlockState> blocks, BlockPos anchor,
             int turns, int y, int span) {
         BlockState beam = Blocks.DARK_OAK_LOG.defaultBlockState().setValue(
@@ -296,7 +332,8 @@ public final class FirstShipBlockHull {
 
     private static Map<BlockPos, BlockState> layout(BlockPos anchor, int turns,
             int rig, int fabric, int geometry) {
-        return geometry >= 3 ? layoutV3(anchor, turns, rig, fabric)
+        return geometry >= 4 ? layoutV4(anchor, turns, rig, fabric)
+                : geometry == 3 ? layoutV3(anchor, turns, rig, fabric)
                 : layout(anchor, turns, rig, fabric);
     }
 
@@ -539,25 +576,36 @@ public final class FirstShipBlockHull {
         return build(level, anchor, turns, original.cargo(), 1, 1, 2);
     }
 
-    /** Upgrade only with no people aboard, with all cargo inspected and new cells safe. */
-    public static boolean migrateGeometryV2(ServerLevel level, BlockPos anchor, int turns,
-            int rig, int fabric) {
-        Snapshot old = inspect(level, anchor, turns, rig, fabric, 2);
+    private static boolean migrateGeometry(ServerLevel level, BlockPos anchor, int turns,
+            int rig, int fabric, int from, int to) {
+        Snapshot old = inspect(level, anchor, turns, rig, fabric, from);
         if (old == null) return false;
         Set<BlockPos> owned = new HashSet<>(old.blocks().keySet());
         for (Cargo c : old.cargo()) owned.add(world(anchor, turns, c.x(), c.y(), c.z()));
-        if (!canWrite(level, anchor, turns, owned, old.cargo(), rig, fabric, 3)) return false;
+        if (!canWrite(level, anchor, turns, owned, old.cargo(), rig, fabric, to)) return false;
         for (Cargo c : old.cargo()) {
             if (c.type() == 3) continue;
             BlockPos p = world(anchor, turns, c.x(), c.y(), c.z());
             if (BlockEntity.loadStatic(p, c.state(), c.data(), level.registryAccess()) == null)
                 return false;
         }
-        Set<BlockPos> removable = clearableFootprint(level, anchor, turns, owned, rig, fabric, 3);
+        Set<BlockPos> removable = clearableFootprint(level, anchor, turns, owned, rig, fabric, to);
         if (removable == null) return false;
         clear(level, anchor, turns, old);
         clearObstacles(level, anchor, removable);
-        return build(level, anchor, turns, old.cargo(), rig, fabric, 3);
+        return build(level, anchor, turns, old.cargo(), rig, fabric, to);
+    }
+
+    /** Migrate V2 saves without reinterpreting the existing physical layout. */
+    public static boolean migrateGeometryV2(ServerLevel level, BlockPos anchor, int turns,
+            int rig, int fabric) {
+        return migrateGeometry(level, anchor, turns, rig, fabric, 2, 3);
+    }
+
+    /** Migrate occupied-world V3 ships only after all people disembark safely. */
+    public static boolean migrateGeometryV3(ServerLevel level, BlockPos anchor, int turns,
+            int rig, int fabric) {
+        return migrateGeometry(level, anchor, turns, rig, fabric, 3, 4);
     }
 
     /** Transaction checks source intact, future footprint safe, then moves blocks once. */
@@ -596,7 +644,7 @@ public final class FirstShipBlockHull {
 
     public static boolean move(ServerLevel level, BlockPos previous, int oldTurn,
             BlockPos target, int nextTurn, int oldRig, int oldFabric, int nextRig, int nextFabric) {
-        return move(level, previous, oldTurn, target, nextTurn, oldRig, oldFabric, nextRig, nextFabric, 3);
+        return move(level, previous, oldTurn, target, nextTurn, oldRig, oldFabric, nextRig, nextFabric, 4);
     }
 
     public static boolean place(ServerLevel level, BlockPos anchor, int turns,
@@ -617,7 +665,7 @@ public final class FirstShipBlockHull {
 
     public static boolean place(ServerLevel level, BlockPos anchor, int turns,
             ListTag packed, int rig, int fabric) {
-        return place(level, anchor, turns, packed, rig, fabric, 3);
+        return place(level, anchor, turns, packed, rig, fabric, 4);
     }
 
     public static ListTag pack(ServerLevel level, BlockPos anchor, int turns,
@@ -636,7 +684,7 @@ public final class FirstShipBlockHull {
     }
 
     public static ListTag pack(ServerLevel level, BlockPos anchor, int turns, int rig, int fabric) {
-        return pack(level, anchor, turns, rig, fabric, 3);
+        return pack(level, anchor, turns, rig, fabric, 4);
     }
 
     /** Only 4 vanilla blocks may be attached; malformed saves are rejected. */
@@ -667,7 +715,7 @@ public final class FirstShipBlockHull {
     }
 
     public static boolean remove(ServerLevel level, BlockPos anchor, int turns, int rig, int fabric) {
-        return remove(level, anchor, turns, rig, fabric, 3);
+        return remove(level, anchor, turns, rig, fabric, 4);
     }
 
     public static int cargoKind(net.minecraft.world.level.Level level, BlockPos anchor, int turns, int floor, int x, int z) {
