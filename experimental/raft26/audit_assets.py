@@ -32,7 +32,7 @@ for name in names:
         art = root / f"src/main/resources/assets/slavicmyths/textures/item/{name}.png"
         check(art.is_file(), f"{name}: missing pixel icon")
         data = art.read_bytes()
-        check(data[:8] == b"\\x89PNG\\r\\n\\x1a\\n", f"{name}: invalid PNG header")
+        check(data[:8] == b"\x89PNG\r\n\x1a\n", f"{name}: invalid PNG header")
         check(int.from_bytes(data[16:20], "big") == 16
               and int.from_bytes(data[20:24], "big") == 16, f"{name}: icon not 16x16")
         continue
@@ -84,7 +84,7 @@ for name in ("ship_sail_module", "ship_sail_linen_module", "ship_sail_reinforced
           f"{name}: wrong icon binding")
     icon = root / f"src/main/resources/assets/slavicmyths/textures/item/{name}.png"
     data = icon.read_bytes()
-    check(data[:8] == b"\\x89PNG\\r\\n\\x1a\\n"
+    check(data[:8] == b"\x89PNG\r\n\x1a\n"
           and int.from_bytes(data[16:20], "big") == 16
           and int.from_bytes(data[20:24], "big") == 16,
           f"{name}: corrupted 16x16 texture")
