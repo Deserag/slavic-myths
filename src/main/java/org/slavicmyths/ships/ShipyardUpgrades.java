@@ -248,12 +248,14 @@ public final class ShipyardUpgrades {
      * sail/mast installation is packed-item only and server-authoritative. */
     public static int shipRigLevel(ItemStack stack) {
         CompoundTag pack = shipPack(stack);
-        return pack == null ? -1 : pack.isEmpty() ? 0 : pack.getInt("RigLevel");
+        return pack == null ? -1 : pack.isEmpty() ? 0
+                : pack.getInt("Version") == 1 ? 1 : pack.getInt("RigLevel");
     }
 
     public static int shipFabric(ItemStack stack) {
         CompoundTag pack = shipPack(stack);
-        return pack == null ? -1 : pack.isEmpty() ? 0 : pack.getInt("FabricQuality");
+        return pack == null ? -1 : pack.isEmpty() ? 0
+                : pack.getInt("Version") == 1 ? 1 : pack.getInt("FabricQuality");
     }
 
     private static CompoundTag shipPack(ItemStack stack) {
@@ -298,6 +300,10 @@ public final class ShipyardUpgrades {
             return ItemStack.EMPTY;
         CompoundTag pack = shipPack(original);
         if (pack == null) return ItemStack.EMPTY;
+        // The real ship loader validates legacy cargo, module positions,
+        // packed geometry and design before a single material is consumed.
+        FirstShipEntity verifier = RaftContent.FIRST_SHIP.get().create(player.level());
+        if (verifier == null || !verifier.loadPacked(original)) return ItemStack.EMPTY;
         int level = pack.isEmpty() ? 0 : pack.getInt("RigLevel");
         int fabric = pack.isEmpty() ? 0 : pack.getInt("FabricQuality");
         if (!pack.isEmpty() && pack.getInt("Version") == 1) { level = 1; fabric = 1; }
@@ -353,6 +359,7 @@ public final class ShipyardUpgrades {
         root.put("FirstShipPack", out);
         ItemStack modified = original.copy();
         modified.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
+        if (!verifier.loadPacked(modified)) return ItemStack.EMPTY;
         if (!player.getAbilities().instabuild) {
             if (paid1 != null) consume(player, paid1, amount1);
             if (paid2 != null) consume(player, paid2, amount2);
