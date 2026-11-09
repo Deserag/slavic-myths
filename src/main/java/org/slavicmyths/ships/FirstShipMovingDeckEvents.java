@@ -74,8 +74,13 @@ public final class FirstShipMovingDeckEvents {
                         feet.z - last.previousFeet().z);
                 alreadyMoved = distExpected < .055D && distExpected < distOld;
             }
-            double targetX = alreadyMoved ? feet.x : moved.x();
-            double targetZ = alreadyMoved ? feet.z : moved.z();
+            // The server already carries walking crew in FirstShipEntity.tick.
+            // The client predicts that same transform for its LOCAL player.
+            // Applying both server carriers would double a movement step when
+            // entity and PlayerTick order differs between integrated/dedicated.
+            boolean clientPrediction = player.level().isClientSide;
+            double targetX = !clientPrediction || alreadyMoved ? feet.x : moved.x();
+            double targetZ = !clientPrediction || alreadyMoved ? feet.z : moved.z();
             boolean grounded = feet.y <= surface + .19D
                     && player.getDeltaMovement().y <= .09D;
             double targetY = grounded ? surface + .02D : feet.y;
