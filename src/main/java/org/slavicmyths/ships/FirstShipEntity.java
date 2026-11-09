@@ -791,7 +791,10 @@ public final class FirstShipEntity extends Boat {
             setDeltaMovement(Vec3.ZERO);
             BlockPos anchor = blockAnchor();
             double x = anchor.getX() + .5D, y = anchor.getY(), z = anchor.getZ() + .5D;
-            if (position().distanceToSqr(x, y, z) > 1.0E-6D) setPos(x, y, z);
+            // Keep the proven server-side Boat entity tracking refresh each
+            // tick. The CLIENT additionally snaps from the synced anchor.
+            if (!level().isClientSide || position().distanceToSqr(x, y, z) > 1.0E-6D)
+                setPos(x, y, z);
             if (level().isClientSide) {
                 // Entity tracking may arrive AFTER chunk block updates. The
                 // synced anchor, not the delayed boat interpolation, owns pose.
