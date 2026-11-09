@@ -90,8 +90,8 @@ public final class BossRewardWeapons {
         }
     }
     @SubscribeEvent public static void dualHammer(LivingDamageEvent.Post event) {
+        LivingEntity target=event.getEntity();
         if(!(event.getSource().getEntity() instanceof ServerPlayer owner)
-            ||!(event.getEntity() instanceof LivingEntity target)
             ||!event.getSource().is(DamageTypes.PLAYER_ATTACK)
             ||!owner.getMainHandItem().is(SistersContent.LOMEYA_HAMMER.get())
             ||!owner.getOffhandItem().is(SistersContent.LOMEYA_HAMMER_OFFHAND.get())
