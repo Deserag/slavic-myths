@@ -78,21 +78,24 @@ public final class NeveyaModel extends EntityModel<NeveyaBoss>{
             }
             // Puffy mourning sleeve with decorative thin lace.
             float sx=side*7.4F;
-            b(root,1,sx-2.1F,84F,-3.4F,4.2F,6.2F,6.2F);
-            b(root,0,sx-2.25F,78F,-3.2F,4.5F,9.6F,5.3F);
-            b(root,11,sx-2.3F,75F,-3.5F,4.6F,3.8F,5.6F);
+            // Keep the right sleeve on the rotating shoulder, not as static root cubes.
+            ModelPart sleeve=side<0?root:rightArm;
+            float px=side<0?0F:7F,py=side<0?0F:87F,pz=side<0?0F:-2F;
+            b(sleeve,1,sx-2.1F-px,84F-py,-3.4F-pz,4.2F,6.2F,6.2F);
+            b(sleeve,0,sx-2.25F-px,78F-py,-3.2F-pz,4.5F,9.6F,5.3F);
+            b(sleeve,11,sx-2.3F-px,75F-py,-3.5F-pz,4.6F,3.8F,5.6F);
         }
         // Exposed neck and arms, with the left palm actually touching the staff grip.
         b(root,4,-1.45F,91,-2.1F,2.9F,5.0F,4.0F);
         line(root,0,-7,87,-2,-12.2F,79,-5.5F,3.65F);
         line(root,4,-12.2F,79,-5.5F,-18,75,-8,2.65F);
         b(root,4,-19.2F,73.7F,-9,2.5F,3.3F,2.5F);
-        line(root,0,7,87,-2,10,75,-3.8F,3.8F);
-        line(root,4,10,75,-3.8F,9.0F,63,-6.5F,2.75F);
-        b(root,4,7.8F,61,-7.3F,2.8F,3.0F,2.8F);
-        // Right forearm moves independently during attacks (without disconnecting at the shoulder).
-        rightArm.setPos(7F,-87,-2F);
-        b(rightArm,0,-2F,-12F,-2.0F,4,12.5F,4.0F);
+        // Reparent existing right-arm segments with exactly the same world-space idle coordinates.
+        // No unmoving root copy remains when the shoulder reacts to an attack.
+        line(rightArm,0,0F,0F,0F,3F,-12F,-1.8F,3.8F);
+        line(rightArm,4,3F,-12F,-1.8F,2F,-24F,-4.5F,2.75F);
+        b(rightArm,4,.8F,-26F,-5.3F,2.8F,3.0F,2.8F);
+        rightArm.setPos(7F,-87F,-2F);
         geo.attach(root,rightArm);
         // Small oval face: narrow chin, wider midface, gentle cheek contour.
         head.setPos(0,-94,0);
