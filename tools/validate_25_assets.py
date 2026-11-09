@@ -58,13 +58,27 @@ def validate():
     check(len(ru) >= 6500, f"ru_ru.json unexpectedly shrunk: {len(ru)} keys")
     missing = [key for key in en if key not in ru]
     if missing:
-        print(f"Translation parity: {len(missing)} untranslated keys (first 15: {missing[:15]})")
+        check(False, f"Translation parity: {len(missing)} untranslated keys (first 15: {missing[:15]})")
     for name in ARMOR:
         validate_model(name)
         armor_texture = ASSETS / "textures/armor/sisters" / (name + ".png")
         check(armor_texture.is_file(), f"{name}: missing equipped armor texture")
         if armor_texture.is_file():
             check(armor_texture.read_bytes()[:8] == b"\x89PNG\r\n\x1a\n", f"{name}: invalid equipped-armor PNG")
+    for name in ("viy_eye", "viy_ring"):
+        validate_model(name)
+    recipes = ROOT / "src/main/resources/data/slavicmyths/recipe"
+    for name in ARMOR + BOWS + ("pechat_devyati_morov",):
+        recipe = load(recipes / (name + ".json"))
+        check(recipe.get("type") in ("minecraft:smithing_transform", "minecraft:crafting_shaped"),
+              f"{name}: missing or invalid upgrade recipe")
+        check(recipe.get("result", {}).get("id") == "slavicmyths:" + name,
+              f"{name}: output is not the expected item")
+    seal_recipe = load(recipes / "pechat_devyati_morov.json")
+    seal_inputs = {ingredient.get("item") for ingredient in seal_recipe.get("key", {}).values()}
+    check("slavicmyths:viy_eye" in seal_inputs, "Viy eye is not used in Nine Mors seal recipe")
+    check({"slavicmyths:morovoy_fire_zmey_core", "slavicmyths:mor_core"} <= seal_inputs,
+          "Nine Mors seal lacks both Morovoy boss cores")
     for bow in BOWS:
         base = validate_model(bow)
         mapping = base.get("overrides", [])
