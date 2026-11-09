@@ -34,7 +34,7 @@ public final class ShipyardMenu extends AbstractContainerMenu {
         super(TYPE.get(), id);
         pos = position.immutable();
         owner = inventory.player;
-        addSlot(new Slot(input, 0, 31, 45) {
+        addSlot(new Slot(input, 0, 153, 65) {
             @Override public boolean mayPlace(ItemStack stack) {
                 return stack.getItem() instanceof FirstShipItem ||
                         (stack.getItem() instanceof RaftItem && !RaftCharacteristics.fromItem(stack).invalid());
@@ -43,11 +43,11 @@ public final class ShipyardMenu extends AbstractContainerMenu {
         });
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 9; col++) {
-                addSlot(new Slot(inventory, 9 + row * 9 + col, 12 + col * 18, 155 + row * 18));
+                addSlot(new Slot(inventory, 9 + row * 9 + col, 198 + col * 18, 211 + row * 18));
             }
         }
         for (int col = 0; col < 9; col++) {
-            addSlot(new Slot(inventory, col, 12 + col * 18, 213));
+            addSlot(new Slot(inventory, col, 198 + col * 18, 268));
         }
     }
 
@@ -102,6 +102,30 @@ public final class ShipyardMenu extends AbstractContainerMenu {
             }
             input.setItem(0, created);
             player.displayClientMessage(Component.literal("Малый плот 3×3 готов"), true);
+        } else if (action >= 30 && action <= 32) {
+            if (!input.isEmpty()) {
+                player.displayClientMessage(Component.literal("Сначала заберите готовое судно"), true);
+                return false;
+            }
+            RaftSize size = switch (action) {
+                case 30 -> RaftSize.LONG;
+                case 31 -> RaftSize.WIDE;
+                default -> RaftSize.CARGO;
+            };
+            ItemStack created = ShipyardUpgrades.buildRaft(player, size);
+            if (created.isEmpty()) {
+                player.displayClientMessage(Component.literal("Не хватает палубных секций или комплекта вёсел"), true);
+                return false;
+            }
+            input.setItem(0, created);
+        } else if (action >= 20 && action <= 25) {
+            ItemStack updated = ShipyardUpgrades.outfitFirstShip(player, input.getItem(0), action);
+            if (updated.isEmpty()) {
+                player.displayClientMessage(Component.literal("Оснащение не выполнено: проверьте судно, детали и текущий уровень"), true);
+                return false;
+            }
+            input.setItem(0, updated);
+            player.displayClientMessage(Component.literal("Оснащение подготовлено — заберите и установите корабль"), true);
         } else if (action == 11) {
             if (!input.isEmpty()) {
                 player.displayClientMessage(Component.literal("Заберите судно из ячейки перед постройкой"), true);
