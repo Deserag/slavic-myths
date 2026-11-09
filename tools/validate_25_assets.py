@@ -68,17 +68,22 @@ def validate():
     for name in ("viy_eye", "viy_ring"):
         validate_model(name)
     recipes = ROOT / "src/main/resources/data/slavicmyths/recipe"
-    for name in ARMOR + BOWS + ("pechat_devyati_morov",):
+    for name in ARMOR + BOWS + ("pechat_devyati_morov", "sisters_ritual_core"):
         recipe = load(recipes / (name + ".json"))
-        check(recipe.get("type") in ("minecraft:smithing_transform", "minecraft:crafting_shaped"),
+        check(recipe.get("type") in ("minecraft:smithing_transform", "minecraft:crafting_shaped", "minecraft:crafting_shapeless"),
               f"{name}: missing or invalid upgrade recipe")
         check(recipe.get("result", {}).get("id") == "slavicmyths:" + name,
               f"{name}: output is not the expected item")
     seal_recipe = load(recipes / "pechat_devyati_morov.json")
     seal_inputs = {ingredient.get("item") for ingredient in seal_recipe.get("key", {}).values()}
-    check("slavicmyths:viy_eye" in seal_inputs, "Viy eye is not used in Nine Mors seal recipe")
+    check("slavicmyths:viy_shard" in seal_inputs, "Viy shard is not used in Nine Mors seal recipe")
+    check("slavicmyths:sisters_ritual_core" in seal_inputs, "Six Sisters core is not used in Nine Mors seal recipe")
     check({"slavicmyths:morovoy_fire_zmey_core", "slavicmyths:mor_core"} <= seal_inputs,
           "Nine Mors seal lacks both Morovoy boss cores")
+    ritual = load(recipes / "sisters_ritual_core.json")
+    ritual_inputs = {ingredient.get("item") for ingredient in ritual.get("ingredients", [])}
+    check({"slavicmyths:" + sister + "_shard" for sister in ("tryaseya","gneteya","ledeya","agneya","neveya","lomeya")} <= ritual_inputs,
+          "Six Sisters ritual core must consume all six distinct shards")
     for bow in BOWS:
         base = validate_model(bow)
         mapping = base.get("overrides", [])
