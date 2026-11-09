@@ -134,6 +134,10 @@ public final class Ocean26GameTests {
                         anchor.getZ() + 1.5D));
         t.assertTrue(captain.startRiding(ship), "Captain cannot mount ship");
         t.runAfterDelay(6, () -> {
+            t.assertTrue(captain.getVehicle()==ship && ship.getFirstPassenger()==captain,
+                    "Captain lost mounted helm before the first move");
+            t.assertTrue(FirstShipBlockHull.pack(level,ship.blockAnchor(),ship.quarterTurns(),0,0,4)!=null,
+                    "V4 hull invalid before mounted helm action");
             t.assertTrue(ship.helmStep(captain, FirstShipNetwork.FORWARD), "Native voxel sail step rejected");
             BlockPos movedAnchor = anchor.offset(0, 0, 1);
             t.assertTrue(ship.blockAnchor().equals(movedAnchor), "Hull failed to advance one block");
@@ -388,6 +392,10 @@ public final class Ocean26GameTests {
                         deckWalker.getX(),deckWalker.getZ(),ship.getX(),ship.getZ(),ship.shipYaw());
                 FirstShipHull.Point beforeHold = FirstShipHull.toLocal(
                         holdWalker.getX(),holdWalker.getZ(),ship.getX(),ship.getZ(),ship.shipYaw());
+                t.assertTrue(captain.getVehicle()==ship && ship.getFirstPassenger()==captain,
+                        "Captain not riding immediately before helm step "+step);
+                t.assertTrue(FirstShipBlockHull.pack(level,ship.blockAnchor(),ship.quarterTurns(),0,0,4)!=null,
+                        "Physical hull failed source inspection before helm step "+step);
                 t.assertTrue(ship.helmStep(captain,steps[step]),
                         "Helm step "+step+" rejected");
                 FirstShipHull.Point afterDeck = FirstShipHull.toLocal(
