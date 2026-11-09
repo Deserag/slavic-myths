@@ -79,8 +79,11 @@ public final class ShipMovingContraption {
         if (Math.abs(ShipRigidMotion.wrapDegrees(pose.yaw() - turn * 90D)) > 1.25D)
             return false;
         BlockPos target = BlockPos.containing(pose.x(), waterlineY, pose.z());
-        if (Math.abs(pose.x() - (target.getX() + .5D)) > .20D
-                || Math.abs(pose.z() - (target.getZ() + .5D)) > .20D) return false;
+        // Only while STOPPED: align at most half a block to Minecraft's
+        // grid when reconstructing actual vanilla blocks. No block-snapping
+        // is ever applied to an underway ship.
+        if (Math.abs(pose.x() - (target.getX() + .5D)) > .495D
+                || Math.abs(pose.z() - (target.getZ() + .5D)) > .495D) return false;
         if (!FirstShipBlockHull.restoreFromMotion(world, target, turn, snapshot)) return false;
         parked = true;
         detached = false;
