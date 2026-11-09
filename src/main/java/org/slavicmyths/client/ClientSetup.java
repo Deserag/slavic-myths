@@ -302,7 +302,7 @@ public final class ClientSetup {
         event.registerEntityRenderer(org.slavicmyths.viy.ViyContent.VIY_UPYR.get(), ctx -> new ViyServantRenderer(ctx, org.slavicmyths.sisters.ViyServant.Kind.UPYR));
         event.registerEntityRenderer(org.slavicmyths.viy.ViyContent.VIY_NAV.get(), ctx -> new ViyServantRenderer(ctx, org.slavicmyths.sisters.ViyServant.Kind.NAV));
         event.registerEntityRenderer(org.slavicmyths.viy.ViyContent.VIY_KORNELAP.get(), ctx -> new ViyServantRenderer(ctx, org.slavicmyths.sisters.ViyServant.Kind.KORNELAP));
-        event.registerEntityRenderer(org.slavicmyths.posad.boss.ShackledSickleContent.PROJECTILE.get(), c -> new net.minecraft.client.renderer.entity.ThrownItemRenderer<>(c));
+        event.registerEntityRenderer(org.slavicmyths.posad.boss.ShackledSickleContent.PROJECTILE.get(), ShackledSickleRenderer::new);
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.NEVEYA.get(), NeveyaRenderer::new);
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.NEVEYA_BOLT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.LOMEYA.get(), LomeyaRenderer::new);
