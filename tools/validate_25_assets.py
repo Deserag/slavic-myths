@@ -87,6 +87,28 @@ def validate():
             state = f"{bow}_pulling_{index}"
             validate_model(state)
             check(any(item.get("model") == "slavicmyths:item/" + state for item in mapping), f"{bow}: missing predicate for {state}")
+    for bow in BOWS:
+        stages = [load(ASSETS / "models/item" / f"{bow}_pulling_{index}.json") for index in range(3)]
+        shafts = []
+        for index, model in enumerate(stages):
+            arrow = [part for part in model.get("elements", [])
+                     if abs(part["from"][1] - 7.8) < .001 and abs(part["to"][1] - 8.2) < .001
+                     and abs(part["from"][2] - 7.8) < .001 and abs(part["to"][2] - 8.2) < .001]
+            check(len(arrow) >= 20, f"{bow} pulling_{index}: missing visible arrow shaft")
+            if len(arrow) < 20:
+                continue
+            shafts.append((min(part["from"][0] for part in arrow), max(part["to"][0] for part in arrow)))
+        if len(shafts) == 3:
+            check(shafts[0][0] > shafts[1][0] > shafts[2][0], f"{bow}: arrow does not move backward during draw")
+            check(shafts[0][1] > shafts[1][1] > shafts[2][1], f"{bow}: arrowhead does not move backward during draw")
+            check(shafts[0][0] - shafts[2][0] > 8, f"{bow}: full draw barely changes arrow position")
+            check(all(abs((hi - lo) - 21) < 1 for lo, hi in shafts), f"{bow}: arrow length changes between stages")
+        base = load(ASSETS / "models/item" / (bow + ".json"))
+        for hand in ("firstperson_righthand", "firstperson_lefthand", "thirdperson_righthand", "thirdperson_lefthand"):
+            original = base.get("display", {}).get(hand)
+            check(original is not None, f"{bow}: missing {hand} transform")
+            check(all(model.get("display", {}).get(hand) == original for model in stages),
+                  f"{bow}: {hand} transform jumps between pulling stages")
     properties = (JAVA / "client/FieldBowClient.java").read_text(encoding="utf-8")
     check(all('"' + bow + '"' in properties for bow in BOWS), "A bow is missing pull/pulling registration")
     draw = (JAVA / "client/BowDrawClient.java").read_text(encoding="utf-8")
