@@ -4,6 +4,9 @@ on:
   push:
     branches: ["fix/2.6-ocean-crew-sails-20261108", "fix/2.6-small-ship-gameplay-visuals-20261109"]
     paths:
+      - "src/main/java/org/slavicmyths/ships/**"
+      - "gradle/wrapper/**"
+      - "src/main/resources/assets/slavicmyths/models/item/ship_*.json"
       - "tools/ocean26-tests/**"
       - "tools/ocean26-test-resources/**"
       - "build.gradle"
