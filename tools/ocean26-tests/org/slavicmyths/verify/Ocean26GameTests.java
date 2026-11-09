@@ -481,4 +481,61 @@ public final class Ocean26GameTests {
         System.out.println("OCEAN26_SHIPYARD_PASS sails=true mast=true linenSwap=true refunds=true blueprint=true");
         t.succeed();
     }
+
+    /**
+     * Transactional rehearsal for Create-style assemble/detach/park. This uses
+     * genuine chest BlockEntities and actual vanilla world blocks; it does NOT
+     * start the moving-renderer mode or rely on a fake hull.
+     */
+    @GameTest(template = "empty", timeoutTicks = 160, batch = "ocean_motion")
+    public static void reversibleContraptionHandoffPreservesCargo(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos from = t.absolutePos(new BlockPos(12, 4, 12));
+        for (int x = -10; x <= 10; x++)
+            for (int z = -15; z <= 15; z++) {
+                BlockPos column = from.offset(x, 0, z);
+                level.setBlock(column.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(column, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 24; y++)
+                    level.setBlock(column.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        t.assertTrue(FirstShipBlockHull.place(level, from, 0, new ListTag(), 0, 0, 5),
+                "Moving-snapshot test source ship could not be placed");
+        BlockPos cargo = FirstShipBlockHull.world(from, 0, 1, 5, 0);
+        level.setBlock(cargo, Blocks.CHEST.defaultBlockState(), 2);
+        chest(level, cargo, t).setItem(0, new ItemStack(Items.DIAMOND, 17));
+
+        FirstShipBlockHull.MotionSnapshot snapshot =
+                FirstShipBlockHull.captureForMotion(level, from, 0, 0, 0, 5);
+        t.assertTrue(snapshot != null && snapshot.cargo().size() == 1
+                && !FirstShipBlockHull.localMotionPalette(snapshot).isEmpty(),
+                "Failed to capture local palette or chest NBT");
+        chest(level, cargo, t).setItem(0, new ItemStack(Items.DIAMOND, 18));
+        t.assertTrue(!FirstShipBlockHull.detachForMotion(level, from, snapshot)
+                && chest(level, cargo, t).getItem(0).getCount() == 18,
+                "Stale snapshot was able to remove changed cargo");
+        chest(level, cargo, t).setItem(0, new ItemStack(Items.DIAMOND, 17));
+        t.assertTrue(FirstShipBlockHull.detachForMotion(level, from, snapshot),
+                "Validated intact source ship failed to detach");
+        t.assertTrue(level.getBlockState(cargo).isAir()
+                && level.getBlockState(FirstShipBlockHull.world(from, 0, 0, 8, -1)).isAir(),
+                "Detached vessel left world-collision blocks behind");
+
+        BlockPos dest = from.offset(0, 0, 2);
+        BlockPos obstacle = FirstShipBlockHull.world(dest, 0, 0, 2, 5);
+        level.setBlock(obstacle, Blocks.STONE.defaultBlockState(), 2);
+        t.assertTrue(!FirstShipBlockHull.restoreFromMotion(level, dest, 0, snapshot)
+                && level.getBlockState(obstacle).is(Blocks.STONE),
+                "Blocked parking incorrectly destroyed a solid player block");
+        level.setBlock(obstacle, Blocks.AIR.defaultBlockState(), 2);
+        t.assertTrue(FirstShipBlockHull.restoreFromMotion(level, dest, 0, snapshot),
+                "Clear destination rejected a moving-ship parked snapshot");
+        t.assertTrue(chest(level, FirstShipBlockHull.world(dest, 0, 1, 5, 0), t)
+                .getItem(0).getCount() == 17,
+                "Moving-contraption park lost or duplicated chest diamonds");
+        t.assertTrue(FirstShipBlockHull.remove(level, dest, 0, 0, 0, 5),
+                "Failed to clean up parked ship");
+        System.out.println("OCEAN26_CONTRAPTION_HANDOFF_PASS snapshot=true staleCargoGuard=true detach=true blockedParkGuard=true restore=true inventory=17");
+        t.succeed();
+    }
 }
