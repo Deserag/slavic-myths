@@ -121,6 +121,7 @@ public final class SlavicMyths {
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.pesigolovtsy.DogheadConfig.SPEC,"slavicmyths-pesigolovtsy.toml");
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.nochnitsa.NochnitsaConfig.SPEC,"slavicmyths-nochnitsa.toml");
         bus.addListener(org.slavicmyths.sivka.SivkaNetwork::register);
+        bus.addListener(org.slavicmyths.viy.ViyRewardNetwork::register);
         ModBlocks.BLOCKS.register(bus);
         org.slavicmyths.bandit.CampStructures.register();
         org.slavicmyths.gorodishche.GorodishcheStructures.init();
