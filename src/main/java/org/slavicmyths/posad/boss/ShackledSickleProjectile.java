@@ -25,7 +25,7 @@ public final class ShackledSickleProjectile extends ThrowableItemProjectile {
     @Override protected Item getDefaultItem(){return ModItems.MYTAR_SHACKLED_SICKLE.get();}
     @Override protected double getDefaultGravity(){return 0.012;}
     @Override protected boolean canHitEntity(Entity target){
-        return target instanceof LivingEntity living && getOwner()!=target && (getOwner()==null||!getOwner().isAlliedTo(target)) && super.canHitEntity(target);
+        return targetId==null && !returning && target instanceof LivingEntity living && getOwner()!=target && (getOwner()==null||!getOwner().isAlliedTo(target)) && super.canHitEntity(target);
     }
     @Override protected void onHitEntity(EntityHitResult hit){
         if(level().isClientSide||!(getOwner() instanceof ServerPlayer owner) || !(hit.getEntity() instanceof LivingEntity target)){returning=true;return;}
