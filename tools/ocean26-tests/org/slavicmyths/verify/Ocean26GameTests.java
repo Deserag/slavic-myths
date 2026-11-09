@@ -101,6 +101,13 @@ public final class Ocean26GameTests {
 
         t.assertTrue(FirstShipBlockHull.place(level, anchor, 0, new ListTag(), 0, 0),
                 "Empty native small hull could not be placed");
+        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor, 0, 0, 8, -4))
+                    .is(Blocks.STRIPPED_DARK_OAK_LOG)
+                && level.getBlockState(FirstShipBlockHull.world(anchor, 0, 2, 8, -4))
+                    .is(Blocks.DARK_OAK_SLAB)
+                && level.getBlockState(FirstShipBlockHull.world(anchor, 0, 0, 1, -6))
+                    .is(Blocks.DARK_OAK_PLANKS),
+                "V4 wheel hub/rim or separate stern rudder is missing");
         t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor, 0, 0, 1, 0)).isAir()
                 && level.getBlockState(FirstShipBlockHull.world(anchor, 0, 0, 2, 0)).isAir()
                 && level.getBlockState(FirstShipBlockHull.world(anchor, 0, 0, 3, 0))
@@ -274,10 +281,10 @@ public final class Ocean26GameTests {
                     level.setBlock(column.above(y), Blocks.AIR.defaultBlockState(), 2);
             }
         t.assertTrue(FirstShipBlockHull.place(level, origin, 0, new ListTag(), 0, 0),
-                "V3 bare hull failed to place on two water source layers");
+                "V4 bare hull failed to place on two water source layers");
         t.assertTrue(level.getBlockState(FirstShipBlockHull.world(origin, 0, 0, 11, -1))
                 .is(Blocks.STRIPPED_SPRUCE_LOG),
-                "V3 naked ship has no full-height mast");
+                "V4 naked ship has no full-height mast");
         BlockPos cargo = FirstShipBlockHull.world(origin, 0, 1, 5, 0);
         level.setBlock(cargo, Blocks.CHEST.defaultBlockState(), 2);
         chest(level, cargo, t).setItem(0, new ItemStack(Items.DIAMOND, 13));
@@ -335,5 +342,83 @@ public final class Ocean26GameTests {
         t.assertTrue(FirstShipBlockHull.remove(level, origin, 0, 0, 0, 3),
                 "Cleanup failed after obstacle and rotation checks");
         t.succeed();
+    }
+
+    /**
+     * Regression for the user-reported "ship moves, people stay behind" bug.
+     * Repeated server-authoritative voxel steps must preserve each crew member's
+     * own local coordinates; this still cannot replace a real CLIENT visual test.
+     */
+    @GameTest(template = "empty", timeoutTicks = 270, batch = "ocean_native")
+    public static void walkingCrewAndCaptainFollowRepeatedHelmCommands(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos origin = t.absolutePos(new BlockPos(12, 4, 12));
+        for (int x = -15; x <= 15; x++)
+            for (int z = -15; z <= 15; z++) {
+                BlockPos pos = origin.offset(x, 0, z);
+                level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 24; y++)
+                    level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        t.assertTrue(FirstShipBlockHull.place(level, origin, 0, new ListTag(), 0, 0, 4),
+                "V4 hull could not be placed in crew regression world");
+        FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
+        t.assertTrue(ship != null,"Ship entity missing");
+        ship.initializeNativeHull(origin,0);
+        t.assertTrue(level.addFreshEntity(ship),"Ship entity spawn rejected");
+
+        ServerPlayer captain = player(level,"LongVoyageCaptain",
+                new Vec3(ship.getX(),ship.deckY()+.08D,ship.getZ()-3D));
+        ServerPlayer deckWalker = player(level,"LongVoyageDeck",
+                new Vec3(ship.getX()+2D,ship.deckY()+.02D,ship.getZ()+1D));
+        ServerPlayer holdWalker = player(level,"LongVoyageHold",
+                new Vec3(ship.getX(),ship.holdY()+.02D,ship.getZ()));
+        ServerPlayer outsider = player(level,"LongVoyageOutsider",
+                new Vec3(ship.getX()+8D,ship.deckY()+.02D,ship.getZ()));
+        t.assertTrue(captain.startRiding(ship),"Captain failed to mount wheel");
+        final Vec3 outsiderStart = outsider.position();
+        int[] steps = {FirstShipNetwork.FORWARD,FirstShipNetwork.FORWARD,
+                FirstShipNetwork.RIGHT,FirstShipNetwork.FORWARD,
+                FirstShipNetwork.LEFT,FirstShipNetwork.BACKWARD};
+        t.runAfterDelay(5,new Runnable() {
+            int step = 0;
+            @Override public void run() {
+                FirstShipHull.Point beforeDeck = FirstShipHull.toLocal(
+                        deckWalker.getX(),deckWalker.getZ(),ship.getX(),ship.getZ(),ship.shipYaw());
+                FirstShipHull.Point beforeHold = FirstShipHull.toLocal(
+                        holdWalker.getX(),holdWalker.getZ(),ship.getX(),ship.getZ(),ship.shipYaw());
+                t.assertTrue(ship.helmStep(captain,steps[step]),
+                        "Helm step "+step+" rejected");
+                FirstShipHull.Point afterDeck = FirstShipHull.toLocal(
+                        deckWalker.getX(),deckWalker.getZ(),ship.getX(),ship.getZ(),ship.shipYaw());
+                FirstShipHull.Point afterHold = FirstShipHull.toLocal(
+                        holdWalker.getX(),holdWalker.getZ(),ship.getX(),ship.getZ(),ship.shipYaw());
+                FirstShipHull.Point helm = FirstShipHull.toLocal(
+                        captain.getX(),captain.getZ(),ship.getX(),ship.getZ(),ship.shipYaw());
+                t.assertTrue(Math.hypot(afterDeck.x()-beforeDeck.x(),afterDeck.z()-beforeDeck.z())<.03D,
+                        "Deck walker LEFT BEHIND on step "+step);
+                t.assertTrue(Math.hypot(afterHold.x()-beforeHold.x(),afterHold.z()-beforeHold.z())<.03D,
+                        "Hold walker LEFT BEHIND on step "+step);
+                t.assertTrue(captain.getVehicle()==ship
+                        && Math.abs(helm.z()-FirstShipHull.HELM_Z)<.12D,
+                        "Mounted captain LEFT BEHIND on step "+step);
+                t.assertTrue(Math.hypot(outsider.getX()-outsiderStart.x,outsider.getZ()-outsiderStart.z)<.02D,
+                        "Unrelated player was wrongly carried on step "+step);
+                step++;
+                if(step<steps.length)t.runAfterDelay(24,this);
+                else {
+                    t.assertTrue(FirstShipBlockHull.remove(level,ship.blockAnchor(),
+                            ship.quarterTurns(),0,0,4),"V4 hull teardown failed");
+                    ship.discard();
+                    captain.discard();
+                    deckWalker.discard();
+                    holdWalker.discard();
+                    outsider.discard();
+                    System.out.println("OCEAN26_MULTISTEP_CREW_PASS steps=6 captain=true deckWalker=true holdWalker=true outsiderStable=true");
+                    t.succeed();
+                }
+            }
+        });
     }
 }
