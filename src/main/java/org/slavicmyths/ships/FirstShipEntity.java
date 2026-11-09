@@ -440,8 +440,13 @@ public final class FirstShipEntity extends Boat {
             }
         }
         packing = true;
-        discard(); // Remove real blocks and ship before granting an inventory item.
+        // The journal remains available until the complete packed ItemStack
+        // has been issued; an interrupted hand-off must never erase the
+        // only remaining copy of ship cargo NBT.
+        discard();
         if (!player.getInventory().add(stack)) player.drop(stack, false);
+        if (isMoving() && level() instanceof net.minecraft.server.level.ServerLevel server)
+            ShipMotionJournal.get(server).end(server, getUUID());
         player.displayClientMessage(Component.literal("Корабль упакован вместе с грузом"), true);
         return InteractionResult.CONSUME;
     }
@@ -843,6 +848,8 @@ public final class FirstShipEntity extends Boat {
                 setPos(next.x(), movingBody.waterlineY(), next.z());
                 setYRot((float)next.yaw());
                 setYHeadRot((float)next.yaw());
+                if (level().getGameTime() % 40L == 0L)
+                    ShipMotionJournal.get(server).checkpoint(getUUID(), movingBody);
             }
             if (getFirstPassenger() != null) positionRider(getFirstPassenger());
         } else if (isNativeHull()) {
@@ -893,10 +900,24 @@ public final class FirstShipEntity extends Boat {
             if (player.containerMenu != player.inventoryMenu) return false;
         ShipMovingContraption prepared = ShipMovingContraption.prepare(server, blockAnchor,
                 quarterTurns, rigLevel, fabricQuality, geometryVersion);
-        if (prepared == null || !prepared.detach(server, blockAnchor)) return false;
+        if (prepared == null) return false;
+        try {
+            // Persist the cargo/structure snapshot to a separate world data
+            // file BEFORE destructive chunk mutations.
+            ShipMotionJournal.get(server).begin(server, getUUID(), blockAnchor, prepared);
+        } catch (RuntimeException persistenceFailure) {
+            server.getServer().getLogger().error("Moving ship journal creation failed", persistenceFailure);
+            return false;
+        }
+        if (!prepared.detach(server, blockAnchor)) {
+            // Keep the recovery journal: a partial chunk mutation cannot be
+            // ruled out after a failed block-set operation.
+            return false;
+        }
         movingBody = prepared;
         entityData.set(MOVING, true);
         syncMovingCargo();
+        ShipMotionJournal.get(server).checkpoint(getUUID(), prepared);
         helmControlTick = -100L;
         return true;
     }
