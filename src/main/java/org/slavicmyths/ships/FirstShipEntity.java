@@ -67,7 +67,7 @@ public final class FirstShipEntity extends Boat {
     private boolean nativeHull;
     private int rigLevel;
     private int fabricQuality;
-    private int geometryVersion = 2;
+    private int geometryVersion = 3;
     private ShipDesign design = ShipDesign.defaults();
     private double nextHelmAllowedTick = -100D;
     private boolean legacyConversionTried;
@@ -82,6 +82,7 @@ public final class FirstShipEntity extends Boat {
     public boolean isNativeHull() { return entityData.get(NATIVE); }
     public int rigLevel() { return entityData.get(RIG); }
     public int fabricQuality() { return entityData.get(FABRIC); }
+    public int geometryVersion() { return geometryVersion; }
     /** Future customizer fields stay stable across a voyage and item packing. */
     public ShipDesign design() { return design; }
     private void setRigging(int level, int fabric) {
@@ -281,6 +282,9 @@ public final class FirstShipEntity extends Boat {
         int packVersion = pack.getInt("Version");
         if ((packVersion != 1 && packVersion != 2)
                 || !pack.contains("Modules", Tag.TAG_LIST)) return false;
+        int loadedGeometry = pack.contains("GeometryVersion", Tag.TAG_INT)
+                ? pack.getInt("GeometryVersion") : 2;
+        if (loadedGeometry != 2 && loadedGeometry != 3) return false;
         int loadedRig = packVersion == 1 ? 1 : pack.getInt("RigLevel");
         int loadedFabric = packVersion == 1 ? 1 : pack.getInt("FabricQuality");
         try { new ShipRigging(loadedRig, loadedFabric); }
@@ -330,6 +334,7 @@ public final class FirstShipEntity extends Boat {
         } else pendingBlockCargo = new ListTag();
         quarantinedModules = null;
         setRigging(loadedRig, loadedFabric);
+        geometryVersion = loadedGeometry;
         design = loadedDesign;
         inventory.clear(); inventory.putAll(loaded);
         kind.clear(); kind.putAll(types);
@@ -344,11 +349,12 @@ public final class FirstShipEntity extends Boat {
         pack.putInt("Version", 2);
         pack.putInt("RigLevel", rigLevel);
         pack.putInt("FabricQuality", fabricQuality);
+        pack.putInt("GeometryVersion", geometryVersion);
         pack.put("Design", design.save());
         pack.putUUID("VesselId", getUUID());
         pack.put("Modules", storeModules(registryAccess()));
         if (nativeHull && level() instanceof net.minecraft.server.level.ServerLevel server) {
-            ListTag cargo = FirstShipBlockHull.pack(server, blockAnchor, quarterTurns, rigLevel, fabricQuality);
+            ListTag cargo = FirstShipBlockHull.pack(server, blockAnchor, quarterTurns, rigLevel, fabricQuality, geometryVersion);
             if (cargo == null) return ItemStack.EMPTY;
             pack.put("BlockCargo", cargo);
         }
@@ -393,7 +399,7 @@ public final class FirstShipEntity extends Boat {
         if (stack.isEmpty()) return InteractionResult.FAIL;
         if (nativeHull) {
             if (!(level() instanceof net.minecraft.server.level.ServerLevel server)
-                    || !FirstShipBlockHull.remove(server, blockAnchor, quarterTurns, rigLevel, fabricQuality)) {
+                    || !FirstShipBlockHull.remove(server, blockAnchor, quarterTurns, rigLevel, fabricQuality, geometryVersion)) {
                 player.displayClientMessage(Component.literal("Корпус изменён или груз повреждён: упаковка заблокирована"), true);
                 return InteractionResult.FAIL;
             }
@@ -505,7 +511,7 @@ public final class FirstShipEntity extends Boat {
             if (other.containerMenu != other.inventoryMenu) return false;
         }
         if (!FirstShipBlockHull.move(server, blockAnchor, quarterTurns,
-                blockAnchor, quarterTurns, rigLevel, fabricQuality, nextLevel, nextFabric)) {
+                blockAnchor, quarterTurns, rigLevel, fabricQuality, nextLevel, nextFabric, geometryVersion)) {
             player.displayClientMessage(Component.literal("Оснащение не установлено: мачта повреждена или нет свободного места"), true);
             return false;
         }
@@ -735,6 +741,26 @@ public final class FirstShipEntity extends Boat {
             if (!busy && FirstShipBlockHull.migrateLegacy(server, blockAnchor, quarterTurns))
                 geometryVersion = 2;
         }
+        if (nativeHull && geometryVersion == 2
+                && level() instanceof net.minecraft.server.level.ServerLevel server
+                && !isVehicle() && !hasWalkers()) {
+            boolean busy = false;
+            for (ServerPlayer nearby : server.getEntitiesOfClass(ServerPlayer.class,
+                    new AABB(blockAnchor).inflate(11D, 24D, 11D)))
+                if (nearby.containerMenu != nearby.inventoryMenu) { busy = true; break; }
+            if (!busy) {
+                if (FirstShipBlockHull.migrateGeometryV2(server, blockAnchor,
+                        quarterTurns, rigLevel, fabricQuality)) {
+                    geometryVersion = 3;
+                    setCustomName(null);
+                    setCustomNameVisible(false);
+                } else {
+                    setCustomName(Component.literal(
+                            "КОРПУС V2: переход отложен — мешают блоки или повреждена конструкция"));
+                    setCustomNameVisible(true);
+                }
+            }
+        }
         if (isNativeHull()) {
             baseTick();
             setDeltaMovement(Vec3.ZERO);
@@ -788,7 +814,7 @@ public final class FirstShipEntity extends Boat {
             if (onShip) { walkers.add(p); localPositions.put(p, local); }
         }
         if (!FirstShipBlockHull.move(server, oldAnchor, oldTurn, nextAnchor, nextTurn,
-                rigLevel, fabricQuality, rigLevel, fabricQuality)) {
+                rigLevel, fabricQuality, rigLevel, fabricQuality, geometryVersion)) {
             driver.displayClientMessage(Component.literal(
                     "Ход заблокирован: мелководье, препятствие, изменённый корпус или груз"), true);
             nextHelmAllowedTick = level().getGameTime() + 3D;
@@ -850,6 +876,7 @@ public final class FirstShipEntity extends Boat {
         pack.putInt("Version", 2);
         pack.putInt("RigLevel", rigLevel);
         pack.putInt("FabricQuality", fabricQuality);
+        pack.putInt("GeometryVersion", geometryVersion);
         if (tag.contains("FirstShipDesign", Tag.TAG_COMPOUND))
             pack.put("Design", tag.getCompound("FirstShipDesign").copy());
         pack.put("Modules", tag.getList("FirstShipModules", Tag.TAG_COMPOUND));
