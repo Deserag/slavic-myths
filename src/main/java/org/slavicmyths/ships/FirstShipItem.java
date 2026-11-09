@@ -30,7 +30,7 @@ public final class FirstShipItem extends Item {
             java.util.List<Component> lines, net.minecraft.world.item.TooltipFlag flag) {
         lines.add(Component.literal("Два этажа: обычные деревянные блоки и сухой трюм"));
         lines.add(Component.literal("Руль: ПКМ по штурвалу на корме; Shift — выход на палубу"));
-        lines.add(Component.literal("Паруса устанавливаются отдельно. 4 уровня мачт, 3 ткани."));
+        lines.add(Component.literal("Паруса и мачты: корабельный верстак → «Оснащение»."));
         lines.add(Component.literal("W/S: ход по блокам; A/D: безопасный дискретный разворот на 90°"));
         lines.add(Component.literal("Обычные сундуки, бочки, печи и верстаки размещаются вручную"));
         lines.add(Component.literal("Ключ верфи: упаковка остановленного пустого судна"));
