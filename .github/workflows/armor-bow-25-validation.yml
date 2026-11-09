@@ -31,6 +31,7 @@ jobs:
       - run: python tools/preview_25_equipped.py
       - run: python tools/generate_sister_artifacts_2d.py --preview
       - run: python tools/generate_sister_artifacts_2d.py --check
+      - run: python tools/verify_sister_artifacts_2d.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
