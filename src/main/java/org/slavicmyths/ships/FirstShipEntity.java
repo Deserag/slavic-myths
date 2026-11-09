@@ -918,18 +918,24 @@ public final class FirstShipEntity extends Boat {
         ShipMovingContraption prepared = ShipMovingContraption.prepare(server, blockAnchor,
                 quarterTurns, rigLevel, fabricQuality, geometryVersion);
         if (prepared == null || !prepared.detach(server, blockAnchor)) return false;
-        // The helm may be beside a shore or building. Reject an invalid
-        // moving pose and put the exact original blocks back immediately.
-        if (!ShipMovingClearance.clearPose(server, prepared.pose(),
-                prepared.waterlineY(), prepared.palette())) {
-            if (!prepared.park(server))
-                throw new IllegalStateException("Moving ship could not restore its original hull");
-            return false;
-        }
+        // Install the durable moving state before any attempt at restoration:
+        // even an unexpected blocked restore must NEVER orphan the cargo.
         movingBody = prepared;
         entityData.set(MOVING, true);
         syncMovingCargo();
         helmControlTick = -100L;
+        if (!ShipMovingClearance.clearPose(server, prepared.pose(),
+                prepared.waterlineY(), prepared.palette())) {
+            if (prepared.park(server)) {
+                movingBody = null;
+                entityData.set(MOVING, false);
+                syncMovingCargo();
+                return false;
+            }
+            // A failed restore is recoverable: retain its saved palette/NBT
+            // rather than abandoning the detached structure.
+            helmControl = ShipRigidMotion.Control.IDLE;
+        }
         return true;
     }
 
