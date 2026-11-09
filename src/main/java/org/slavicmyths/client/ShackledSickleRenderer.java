@@ -4,6 +4,8 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
@@ -16,10 +18,12 @@ import net.minecraft.world.phys.Vec3;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 import org.slavicmyths.posad.boss.ShackledSickleProjectile;
+import org.slavicmyths.registry.ModItems;
 
 public final class ShackledSickleRenderer extends ThrownItemRenderer<ShackledSickleProjectile> {
     private static final double LINK_SPACING=0.20;
     private static final ItemStack CHAIN=new ItemStack(Items.CHAIN);
+    private static final ItemStack SICKLE=new ItemStack(ModItems.MYTAR_SHACKLED_SICKLE.get());
     public ShackledSickleRenderer(EntityRendererProvider.Context context){super(context);}
     @Override public void render(ShackledSickleProjectile sickle,float yaw,float partial,PoseStack pose,MultiBufferSource buffers,int light){
         Entity owner=sickle.getOwner();
@@ -47,6 +51,16 @@ public final class ShackledSickleRenderer extends ThrownItemRenderer<ShackledSic
                 }
             }
         }
-        super.render(sickle,yaw,partial,pose,buffers,light);
+        var mc=Minecraft.getInstance();
+        Vec3 velocity=sickle.getDeltaMovement();
+        pose.pushPose();
+        pose.translate(0,.15,0);
+        if(velocity.horizontalDistanceSqr()>.0001)
+            pose.mulPose(Axis.YP.rotationDegrees((float)Math.toDegrees(Math.atan2(-velocity.x,velocity.z))));
+        pose.mulPose(Axis.XP.rotationDegrees(115));
+        pose.scale(.72F,.72F,.72F);
+        mc.getItemRenderer().render(SICKLE,ItemDisplayContext.NONE,false,pose,buffers,light,OverlayTexture.NO_OVERLAY,
+            mc.getModelManager().getModel(ModelResourceLocation.inventory(ResourceLocation.fromNamespaceAndPath("slavicmyths","mytar_shackled_sickle"))));
+        pose.popPose();
     }
 }
