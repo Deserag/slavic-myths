@@ -299,7 +299,7 @@ public final class Ocean26GameTests {
         level.setBlock(kelp, Blocks.KELP.defaultBlockState(), 2);
         level.setBlock(coral, Blocks.TUBE_CORAL_BLOCK.defaultBlockState(), 2);
         BlockPos forward = origin.offset(0, 0, 1);
-        t.assertTrue(FirstShipBlockHull.move(level, origin, 0, forward, 0, 0, 0, 0, 0, 3),
+        t.assertTrue(FirstShipBlockHull.move(level, origin, 0, forward, 0, 0, 0, 0, 0, 4),
                 "Lily pad, seagrass, kelp or coral incorrectly blocked the first move");
         for (BlockPos pos : new BlockPos[]{lily, grass, kelp, coral})
             t.assertTrue(!level.getBlockState(pos).is(Blocks.LILY_PAD)
@@ -315,7 +315,7 @@ public final class Ocean26GameTests {
         BlockPos survivingLily = FirstShipBlockHull.world(forward, 1, 0, 1, 4);
         level.setBlock(stone, Blocks.STONE.defaultBlockState(), 2);
         level.setBlock(survivingLily, Blocks.LILY_PAD.defaultBlockState(), 2);
-        t.assertTrue(!FirstShipBlockHull.move(level, forward, 0, forward, 1, 0, 0, 0, 0, 3),
+        t.assertTrue(!FirstShipBlockHull.move(level, forward, 0, forward, 1, 0, 0, 0, 0, 4),
                 "Stone wall did not block a 90 degree turn");
         t.assertTrue(level.getBlockState(stone).is(Blocks.STONE)
                 && level.getBlockState(survivingLily).is(Blocks.LILY_PAD),
@@ -329,17 +329,17 @@ public final class Ocean26GameTests {
         // retaining the same real chest BE and its 13 diamonds at each step.
         for (int turn = 1; turn <= 4; turn++) {
             int from = (turn - 1) % 4, to = turn % 4;
-            t.assertTrue(FirstShipBlockHull.move(level, forward, from, forward, to, 0, 0, 0, 0, 3),
+            t.assertTrue(FirstShipBlockHull.move(level, forward, from, forward, to, 0, 0, 0, 0, 4),
                     "Turn " + turn + " rejected with otherwise open water");
             t.assertTrue(chest(level, FirstShipBlockHull.world(forward, to, 1, 5, 0), t)
                     .getItem(0).getCount() == 13,
                     "Cargo damaged by turn " + turn);
         }
-        t.assertTrue(FirstShipBlockHull.move(level, forward, 0, origin, 0, 0, 0, 0, 0, 3),
+        t.assertTrue(FirstShipBlockHull.move(level, forward, 0, origin, 0, 0, 0, 0, 0, 4),
                 "Backward movement after four turns was rejected");
         t.assertTrue(chest(level, cargo, t).getItem(0).getCount() == 13,
                 "Backward movement damaged or duplicated chest cargo");
-        t.assertTrue(FirstShipBlockHull.remove(level, origin, 0, 0, 0, 3),
+        t.assertTrue(FirstShipBlockHull.remove(level, origin, 0, 0, 0, 4),
                 "Cleanup failed after obstacle and rotation checks");
         t.succeed();
     }
@@ -406,7 +406,7 @@ public final class Ocean26GameTests {
                 t.assertTrue(Math.hypot(outsider.getX()-outsiderStart.x,outsider.getZ()-outsiderStart.z)<.02D,
                         "Unrelated player was wrongly carried on step "+step);
                 step++;
-                if(step<steps.length)t.runAfterDelay(24,this);
+                if(step<steps.length)t.runAfterDelay(5+step*24,this);
                 else {
                     t.assertTrue(FirstShipBlockHull.remove(level,ship.blockAnchor(),
                             ship.quarterTurns(),0,0,4),"V4 hull teardown failed");
