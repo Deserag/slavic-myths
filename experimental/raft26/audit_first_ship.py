@@ -48,14 +48,18 @@ contains("client/FirstShipSteeringClient.java", "ClientTickEvent.Post",
          "options.keyLeft.isDown()", "options.keyRight.isDown()")
 contains("client/FirstShipInventoryHud.java", "FirstShipBlockHull.cargoKind",
          "InventoryScreen")
-contains("client/FirstShipRenderer.java", "normal chunk renderer")
+contains("client/FirstShipRenderer.java", "RaftContent.HELM_MODULE.get()", "items.renderStatic(", "ship.geometryVersion() < 5")
+contains("FirstShipBlockHull.java", "layoutV5(", "migrateGeometryV4(", "blocks.remove(world(anchor, turns, x, y, -4))")
+helm_model = json.loads((ASSETS / "models/item/ship_helm_module.json").read_text(encoding="utf-8"))
+verify(helm_model["parent"] == "minecraft:block/block" and len(helm_model["elements"]) >= 8,
+       "Existing three-dimensional helm model missing")
 contains("ShipyardUpgrades.java", "canBuildFirstShip", "buildFirstShip")
 contains("ShipyardMenu.java", "action == 11")
 contains("client/RaftClient.java", "RaftContent.FIRST_SHIP.get()", "FirstShipRenderer::new")
 verify("player.setPos(" not in deck_events and "PlayerTickEvent" not in deck_events,
        "Old player-teleport physics must not be active")
-verify("blocks.renderSingleBlock(" not in render and "pose.scale(" not in render,
-       "Hull must not use scaled nonphysical BlockRenderDispatcher pieces")
+verify("blocks.renderSingleBlock(" not in render,
+       "Hull must remain physical vanilla blocks; only existing helm model is rendered")
 verify("output.accept(org.slavicmyths.ships.RaftContent.FIRST_SHIP_ITEM.get())" in creative,
        "Missing first ship in Creative")
 verify("new FirstShipItem(new Item.Properties().stacksTo(1))" in reg,
