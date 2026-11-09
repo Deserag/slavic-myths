@@ -14,7 +14,11 @@ public final class NeveyaModel extends EntityModel<NeveyaBoss>{
     private final ModelPart legL=geo.part(512,512),legR=geo.part(512,512),rightArm=geo.part(512,512);
     private final ModelPart hair=geo.part(512,512),veil=geo.part(512,512),veilCap=geo.part(512,512);
     private void b(ModelPart p,int mat,float x,float y,float z,float w,float h,float d){
-        geo.box(p,(mat%4)*128+5,(mat/4)*128+5,x,-y-h,z,w,h,d);
+        // Head-mounted hair and veil-cap cubes were authored in world-height units.
+        // Rebase the vertex positions into the real head pivot instead of putting the
+        // pivot 94 units below the head (the old 94-unit offset caused pendulum motion).
+        float headLocalY=(p==hair||p==veilCap)?94F:0F;
+        geo.box(p,(mat%4)*128+5,(mat/4)*128+5,x,-y-h+headLocalY,z,w,h,d);
     }
     private void line(ModelPart p,int mat,float ax,float ay,float az,float bx,float by,float bz,float thickness){
         float len=(float)Math.sqrt((ax-bx)*(ax-bx)+(ay-by)*(ay-by)+(az-bz)*(az-bz));
@@ -83,7 +87,9 @@ public final class NeveyaModel extends EntityModel<NeveyaBoss>{
             float px=side<0?0F:7F,py=side<0?0F:87F,pz=side<0?0F:-2F;
             b(sleeve,1,sx-2.1F-px,84F-py,-3.4F-pz,4.2F,6.2F,6.2F);
             b(sleeve,0,sx-2.25F-px,78F-py,-3.2F-pz,4.5F,9.6F,5.3F);
-            b(sleeve,11,sx-2.3F-px,75F-py,-3.5F-pz,4.6F,3.8F,5.6F);
+            // A thin dark cuff instead of the boxy gray 4.6x3.8x5.6 underarm block.
+            b(sleeve,0,sx-1.95F-px,75F-py,-3.15F-pz,3.9F,2F,4.9F);
+            b(sleeve,11,sx-1.75F-px,75.3F-py,-3.3F-pz,3.5F,.55F,5F);
         }
         // Exposed neck and arms, with the left palm actually touching the staff grip.
         b(root,4,-1.45F,91,-2.1F,2.9F,5.0F,4.0F);
@@ -141,10 +147,9 @@ public final class NeveyaModel extends EntityModel<NeveyaBoss>{
                     4.0F+2.2F*t,2,4.4F,2.0F);
             }
         }
-        // Hair cubes are authored in root coordinates. Move their pivot into the
-        // head's frame without shifting a single cube in the neutral pose.
-        // World: head(-94) + hair(+94) + authored mesh = original root-space mesh.
-        hair.setPos(0F,94F,0F);
+        // Vertices have already been rebased into the head's local coordinate system.
+        // The child pivot is the skull origin; the neutral silhouette stays unchanged.
+        hair.setPos(0F,0F,0F);
         geo.attach(head,hair);
         // Veil: thin, low-polygon drapes behind the head, no opaque panel over the face.
         for(int j=0;j<7;j++){
@@ -159,7 +164,7 @@ public final class NeveyaModel extends EntityModel<NeveyaBoss>{
             if(j%3==0)b(veilCap,10,x-.52F,112.9F,-1.05F,1.05F,1.1F,.6F);
         }
         geo.attach(root,veil);
-        veilCap.setPos(0F,94F,0F);
+        veilCap.setPos(0F,0F,0F);
         geo.attach(head,veilCap);
         // Straight dark staff: pivot exactly in the grasping left palm (local 0,0,0).
         scythe.setPos(-18,-75,-8);
@@ -195,8 +200,12 @@ public final class NeveyaModel extends EntityModel<NeveyaBoss>{
         if(boss.flying())root.y-=1.7F+.9F*sway;
         head.yRot=yaw*Mth.DEG_TO_RAD*.16F;
         head.xRot=pitch*Mth.DEG_TO_RAD*.17F;
-        hair.zRot=sway*.018F;
-        veil.zRot=-sway*.024F;
+        // Subtle hair movement relative to the skull, not a long lever around the torso.
+        hair.zRot=sway*.006F;
+        veil.zRot=-sway*.014F;
+        // The torso was almost motionless while the hair swung independently.
+        root.zRot=.009F*Mth.sin(age*.065F)+.012F*Mth.sin(walk*.67F)*Mth.clamp(stride,0F,1F);
+        root.xRot=.006F*Mth.sin(age*.08F);
         float f=boss.actionFrame(),t=boss.action()==NeveyaBoss.IDLE?0:Mth.clamp(f/18F,0,1);
         int action=boss.action();
         if(action==NeveyaBoss.COMBO||action==NeveyaBoss.SWEEP||action==NeveyaBoss.HARVEST){
