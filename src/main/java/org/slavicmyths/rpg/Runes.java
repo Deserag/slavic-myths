@@ -35,6 +35,7 @@ public final class Runes {
  }
  public static int capacity(ItemStack s){
   if(s.getItem() instanceof org.slavicmyths.posad.boss.ShackledSickleItem)return 3;
+  if(s.getItem() instanceof org.slavicmyths.sisters.BossRewardWeapons.Weapon)return 3;
   if(s.getItem() instanceof org.slavicmyths.nethersmithing.InfernalBow.Empowered)return 3;
  if(s.getItem() instanceof org.slavicmyths.morovoy.MorovoyStaff.Staff)return 3;
  if(s.getItem() instanceof org.slavicmyths.sisters.SistersArmor.Piece)return 3;
