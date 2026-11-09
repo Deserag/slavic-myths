@@ -6583,7 +6583,7 @@
   "item.slavicmyths.lomeya_spawn_egg": "Яйцо призыва Ломеи",
   "item.slavicmyths.neveya_spawn_egg": "Яйцо призыва Невеи",
   "item.slavicmyths.viy_spawn_egg": "Яйцо призыва Вия",
-  "item.slavicmyths.viy_ring.effect": "Трофей Вия. Носится в слоте кольца.",
+  "item.slavicmyths.viy_ring.effect": "Клавиша O: призывает 2 зомби, 2 скелетов и Ночницу на 30 секунд. Перезарядка 120 секунд.",
   "entity.slavicmyths.nine_mor_serpent": "Моровой Змей — вестник мора",
   "entity.slavicmyths.nine_mor_shot": "Снаряд Девяти Моров",
   "item.slavicmyths.pechat_devyati_morov": "Печать Девяти Моров",
@@ -6673,5 +6673,12 @@
   "effect.slavicmyths.viy_gaze": "Проклятие взгляда Вия",
   "netherweapons.tip.empowered_infernal_bow": "Огонь и Замедление I при попадании. Приседание — пробивающий выстрел. 3 рунных слота.",
   "item.slavicmyths.bauk_cloak": "Накидка Баука",
-  "item.slavicmyths.bauk_cloak.effect": "+3 сердца (+6 здоровья), +15% урона атаки, −15% получаемого урона"
+  "item.slavicmyths.bauk_cloak.effect": "+3 сердца (+6 здоровья), +15% урона атаки, −15% получаемого урона",
+  "item.slavicmyths.viy_eye.effect": "Взгляд замедляет и ослепляет врагов; окаменение на 2 секунды раз в 120 секунд.",
+  "item.slavicmyths.neveya_scythe": "Двулезвийная коса Невеи",
+  "item.slavicmyths.neveya_scythe.effect": "ЛКМ: Иссушение и Слабость. ПКМ: круговой удар по области (9 секунд).",
+  "item.slavicmyths.lomeya_hammer": "Молот Ломеи",
+  "item.slavicmyths.lomeya_hammer_offhand": "Второй молот Ломеи",
+  "item.slavicmyths.lomeya_hammer.effect": "ЛКМ: тяжёлый удар и замедление. ПКМ: удар по области (7,5 секунды).",
+  "key.slavicmyths.viy_summon": "Призвать нечисть Вия"
 }
