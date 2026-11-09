@@ -376,6 +376,7 @@ public final class FirstShipEntity extends Boat {
     }
 
     private ItemStack packed() {
+        if (isMoving() && movingBody != null) movingBody.synchronizeCargo(registryAccess());
         ItemStack stack = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
         CompoundTag pack = new CompoundTag();
         pack.putInt("Version", 2);
@@ -841,6 +842,7 @@ public final class FirstShipEntity extends Boat {
             setDeltaMovement(Vec3.ZERO);
             if (!level().isClientSide && movingBody != null
                     && level() instanceof net.minecraft.server.level.ServerLevel server) {
+                movingBody.synchronizeCargo(registryAccess());
                 ShipRigidMotion.Control control = level().getGameTime() - helmControlTick <= 2L
                         ? helmControl : ShipRigidMotion.Control.IDLE;
                 movingBody.tick(server, control);
@@ -889,6 +891,50 @@ public final class FirstShipEntity extends Boat {
                     .append(c.getInt("Z")).append(',').append(c.getInt("Kind"));
         }
         entityData.set(MOTION_CARGO_VIEW, view.toString());
+    }
+
+    /**
+     * A detached moving ship has no world BlockEntity to right-click.
+     * Ray-select its real local cargo coordinates and open a virtual inventory.
+     * Contents are written back to the original cargo NBT every server tick.
+     */
+    public boolean tryMovingCargo(ServerPlayer player) {
+        if (!isMoving() || movingBody == null || player.isPassenger()
+                || player.isSpectator() || player.distanceToSqr(this) > 196D)
+            return false;
+        FirstShipHull.Point feet = FirstShipHull.toLocal(player.getX(), player.getZ(),
+                getX(), getZ(), getYRot());
+        if (!FirstShipHull.withinHull(feet.x(), feet.z(), .0D)
+                || player.getY() < holdY() - .4D || player.getY() > deckY() + 2.4D)
+            return false;
+        net.minecraft.nbt.ListTag list = movingBody.snapshot().cargo();
+        CompoundTag selected = null;
+        double nearest = 36D;
+        for (int n = 0; n < list.size(); n++) {
+            CompoundTag entry = list.getCompound(n);
+            int type = entry.getInt("Kind");
+            if (type != 1 && type != 2) continue;
+            FirstShipHull.Point point = FirstShipHull.toWorld(entry.getInt("X"),
+                    entry.getInt("Z"), getX(), getZ(), getYRot());
+            Vec3 aim = new Vec3(point.x(), getY() + entry.getInt("Y") + .5D,
+                    point.z()).subtract(player.getEyePosition());
+            double squared = aim.lengthSqr();
+            if (squared <= .1D || squared >= nearest
+                    || aim.normalize().dot(player.getLookAngle()) < .89D)
+                continue;
+            selected = entry;
+            nearest = squared;
+        }
+        if (selected == null) return false;
+        net.minecraft.world.SimpleContainer slots = movingBody.cargoInventory(
+                selected.getInt("X"), selected.getInt("Y"), selected.getInt("Z"), registryAccess());
+        if (slots == null) return false;
+        int type = selected.getInt("Kind");
+        Component label = Component.literal(type == 1
+                ? "Сундук движущегося корабля" : "Бочка движущегося корабля");
+        player.openMenu(new SimpleMenuProvider((id, inv, p) ->
+                ChestMenu.threeRows(id, inv, slots), label));
+        return true;
     }
 
     /** Stage new bodies only after validating the real hull and all cargo. */
@@ -1022,7 +1068,10 @@ public final class FirstShipEntity extends Boat {
         tag.putFloat("FirstShipSurface", entityData.get(SURFACE));
         tag.putBoolean("FirstShipNative", nativeHull);
         tag.putBoolean("FirstShipSmoothEnabled", smoothEnabled);
-        if (movingBody != null) tag.put("FirstShipMovingBody", movingBody.save());
+        if (movingBody != null) {
+            movingBody.synchronizeCargo(registryAccess());
+            tag.put("FirstShipMovingBody", movingBody.save());
+        }
         if (nativeHull) {
             tag.putLong("FirstShipAnchor", blockAnchor.asLong());
             tag.putInt("FirstShipTurns", quarterTurns);
