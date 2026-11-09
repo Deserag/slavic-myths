@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "minecraft:block/yellow_wool"
+    "layer0": "slavicmyths:item/reinforced_sailcloth"
   }
 }
