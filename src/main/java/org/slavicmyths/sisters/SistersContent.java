@@ -43,6 +43,7 @@ public final class SistersContent {
     public static final DeferredHolder<Item,Item> AGNEYA_SHARD = ModItems.ITEMS.register("agneya_shard", () -> named("Осколок Агнеи",net.minecraft.world.item.Rarity.EPIC,64));
     public static final DeferredHolder<Item,Item> NEVEYA_SHARD = ModItems.ITEMS.register("neveya_shard", () -> named("Осколок Невеи",net.minecraft.world.item.Rarity.EPIC,64));
     public static final DeferredHolder<Item,Item> LOMEYA_SHARD = ModItems.ITEMS.register("lomeya_shard", () -> named("Осколок Ломеи",net.minecraft.world.item.Rarity.EPIC,64));
+    public static final DeferredHolder<Item,Item> SISTERS_RITUAL_CORE = ModItems.ITEMS.register("sisters_ritual_core", () -> named("Сердце шести сестёр",net.minecraft.world.item.Rarity.EPIC,16));
     public static final DeferredHolder<Item,Item> LEDEYA_EGG = ModItems.ITEMS.register("ledeya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(LEDEYA,0xD7DFE8,0x2856A4,new Item.Properties()));
     public static final DeferredHolder<Item,Item> NEVEYA_EGG = ModItems.ITEMS.register("neveya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(NEVEYA,0x141824,0x698AC6,new Item.Properties()));
     public static final DeferredHolder<Item,Item> LOMEYA_EGG = ModItems.ITEMS.register("lomeya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(LOMEYA,0xCCC9C5,0x4C4251,new Item.Properties()));
