@@ -843,11 +843,14 @@ public final class FirstShipEntity extends Boat {
             if (!level().isClientSide && movingBody != null
                     && level() instanceof net.minecraft.server.level.ServerLevel server) {
                 movingBody.synchronizeCargo(registryAccess());
+                ShipRigidMotion.Pose previousPose = movingBody.pose();
+                var crew = movingCrewBefore(previousPose);
                 ShipRigidMotion.Control control = level().getGameTime() - helmControlTick <= 2L
                         ? helmControl : ShipRigidMotion.Control.IDLE;
                 movingBody.tick(server, control);
                 ShipRigidMotion.Pose next = movingBody.pose();
                 setPos(next.x(), movingBody.waterlineY(), next.z());
+                carryMovingCrew(crew, next);
                 setYRot((float)next.yaw());
                 setYHeadRot((float)next.yaw());
                 if (level().getGameTime() % 40L == 0L)
@@ -891,6 +894,44 @@ public final class FirstShipEntity extends Boat {
                     .append(c.getInt("Z")).append(',').append(c.getInt("Kind"));
         }
         entityData.set(MOTION_CARGO_VIEW, view.toString());
+    }
+
+    /**
+     * Server-authoritative rigid transform of FREE-WALKING passengers.
+     * Capture each player's real local coordinates BEFORE physics and apply
+     * only this tick's change of basis. Do not bind the player to a fixed seat
+     * and do not send a 20Hz teleport; local clients apply the same transform
+     * for smooth prediction in FirstShipMovingDeckEvents.
+     */
+    private java.util.Map<ServerPlayer, FirstShipHull.Point> movingCrewBefore(ShipRigidMotion.Pose pose) {
+        java.util.Map<ServerPlayer, FirstShipHull.Point> result = new java.util.HashMap<>();
+        if (!(level() instanceof net.minecraft.server.level.ServerLevel server)) return result;
+        for (ServerPlayer p : server.getEntitiesOfClass(ServerPlayer.class,
+                getBoundingBox().inflate(12D, 9D, 12D))) {
+            if (p.isPassenger() || p.isSpectator() || !p.isAlive()
+                    || p.getAbilities().flying || p.isFallFlying()) continue;
+            FirstShipHull.Point local = FirstShipHull.toLocal(p.getX(), p.getZ(),
+                    pose.x(), pose.z(), pose.yaw());
+            boolean deck = FirstShipHull.mainDeckSupports(local.x(), local.z())
+                    && p.getY() >= deckY() - .55D && p.getY() <= deckY() + 2.5D;
+            boolean hold = FirstShipHull.holdSupports(local.x(), local.z())
+                    && p.getY() >= holdY() - .55D && p.getY() <= holdY() + 2.5D;
+            if (deck || hold) result.put(p, local);
+        }
+        return result;
+    }
+
+    private void carryMovingCrew(java.util.Map<ServerPlayer, FirstShipHull.Point> crew,
+            ShipRigidMotion.Pose after) {
+        for (var entry : crew.entrySet()) {
+            ServerPlayer p = entry.getKey();
+            if (p.isRemoved() || p.isPassenger() || p.isSpectator()) continue;
+            FirstShipHull.Point local = entry.getValue();
+            FirstShipHull.Point world = FirstShipHull.toWorld(
+                    local.x(), local.z(), after.x(), after.z(), after.yaw());
+            p.setPos(world.x(), p.getY(), world.z());
+            p.fallDistance = 0F;
+        }
     }
 
     /**
