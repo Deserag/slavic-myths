@@ -61,7 +61,7 @@ public final class ViyRewardAbilities {
         LivingEntity target=choice(p);
         int spawned=0;
         for(int i=0;i<5;i++) {
-            Mob mob=i<2?new Zombie(level):i<4?new Skeleton(level):NochnitsaContent.ENTITY.get().create(level);
+            Mob mob=i<2?net.minecraft.world.entity.EntityType.ZOMBIE.create(level):i<4?net.minecraft.world.entity.EntityType.SKELETON.create(level):NochnitsaContent.ENTITY.get().create(level);
             if(mob==null)continue;
             double angle=(i*Math.PI*2)/5;
             mob.moveTo(p.getX()+Math.cos(angle)*2.2,p.getY(),p.getZ()+Math.sin(angle)*2.2,p.getYRot(),0);
