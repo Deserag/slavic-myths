@@ -46,6 +46,10 @@ public final class FirstShipNetwork {
                 return;
             }
             if (player.isPassenger()) return;
+            if (action == MODULE_MAIN && ship.isMoving()) {
+                ship.tryMovingCargo(player);
+                return;
+            }
             if (action == RIG_CONFIGURE || action == RIG_REMOVE) {
                 player.displayClientMessage(net.minecraft.network.chat.Component.literal(
                         "Оснащение меняется в корабельном верстаке: вкладка «Оснащение»"), true);
@@ -57,8 +61,9 @@ public final class FirstShipNetwork {
                     && (player.getItemInHand(InteractionHand.MAIN_HAND).is(RaftContent.SHIPYARD_KEY.get())
                         || player.getItemInHand(InteractionHand.OFF_HAND).is(RaftContent.SHIPYARD_KEY.get())))
                 ship.packWithKey(player);
-            // MODULE_* retained as historical protocol ids, but real chests
-            // now use normal vanilla right-click and physical BlockEntities.
+            // MODULE_MAIN is now a verified detached-cargo interaction.
+            // MODULE_OFF remains reserved; stationary world chests still
+            // use ordinary vanilla BlockEntity right-click.
         });
     }
 
