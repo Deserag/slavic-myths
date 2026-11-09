@@ -1,7 +1,7 @@
 name: Ocean 2.6 - first ship Java21 NeoForge build
 on:
   push:
-    branches: ["feature/2.6-first-two-deck-ship-20261108", "rewrite/2.6-native-block-ship-20261108", "fix/2.6-ocean-crew-sails-20261108", "fix/2.6-small-ship-gameplay-visuals-20261109"]
+    branches: ["feature/2.6-first-two-deck-ship-20261108", "rewrite/2.6-native-block-ship-20261108", "fix/2.6-ocean-crew-sails-20261108", "fix/2.6-small-ship-gameplay-visuals-20261109", "wip/2.6-continuous-contraption-20261109"]
   pull_request:
     branches: ["fix/2.6-raft-safety-audit-20261108", "feature/2.6-first-two-deck-ship-20261108", "rewrite/2.6-native-block-ship-20261108"]
 permissions:
