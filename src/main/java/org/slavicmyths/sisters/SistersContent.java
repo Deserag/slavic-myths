@@ -37,6 +37,12 @@ public final class SistersContent {
     public static final DeferredHolder<Item,Item> LOMEYA_HAMMER = ModItems.ITEMS.register("lomeya_hammer", () -> new BossRewardWeapons.Weapon(false));
     public static final DeferredHolder<Item,Item> LOMEYA_HAMMER_OFFHAND = ModItems.ITEMS.register("lomeya_hammer_offhand", () -> new BossRewardWeapons.Weapon(false));
     public static final DeferredHolder<Item,Item> HUNTER_BOW_CORE = ModItems.ITEMS.register("hunter_bow_core", () -> named("Сердечник охотницы",net.minecraft.world.item.Rarity.EPIC,64));
+    public static final DeferredHolder<Item,Item> TRYASEYA_SHARD = ModItems.ITEMS.register("tryaseya_shard", () -> named("Осколок Трясеи",net.minecraft.world.item.Rarity.EPIC,64));
+    public static final DeferredHolder<Item,Item> GNETEYA_SHARD = ModItems.ITEMS.register("gneteya_shard", () -> named("Осколок Гнетеи",net.minecraft.world.item.Rarity.EPIC,64));
+    public static final DeferredHolder<Item,Item> LEDEYA_SHARD = ModItems.ITEMS.register("ledeya_shard", () -> named("Осколок Ледеи",net.minecraft.world.item.Rarity.EPIC,64));
+    public static final DeferredHolder<Item,Item> AGNEYA_SHARD = ModItems.ITEMS.register("agneya_shard", () -> named("Осколок Агнеи",net.minecraft.world.item.Rarity.EPIC,64));
+    public static final DeferredHolder<Item,Item> NEVEYA_SHARD = ModItems.ITEMS.register("neveya_shard", () -> named("Осколок Невеи",net.minecraft.world.item.Rarity.EPIC,64));
+    public static final DeferredHolder<Item,Item> LOMEYA_SHARD = ModItems.ITEMS.register("lomeya_shard", () -> named("Осколок Ломеи",net.minecraft.world.item.Rarity.EPIC,64));
     public static final DeferredHolder<Item,Item> LEDEYA_EGG = ModItems.ITEMS.register("ledeya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(LEDEYA,0xD7DFE8,0x2856A4,new Item.Properties()));
     public static final DeferredHolder<Item,Item> NEVEYA_EGG = ModItems.ITEMS.register("neveya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(NEVEYA,0x141824,0x698AC6,new Item.Properties()));
     public static final DeferredHolder<Item,Item> LOMEYA_EGG = ModItems.ITEMS.register("lomeya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(LOMEYA,0xCCC9C5,0x4C4251,new Item.Properties()));
