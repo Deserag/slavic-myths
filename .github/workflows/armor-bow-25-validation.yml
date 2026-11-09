@@ -21,6 +21,7 @@ jobs:
       - run: python -m pip install matplotlib pillow
       - run: python tools/validate_25_assets.py --preview
       - run: python tools/preview_25_bows.py
+      - run: python tools/preview_25_equipped.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -28,5 +29,6 @@ jobs:
           path: |
             build/armor-25-previews/
             build/bow-25-previews/
+            build/equipped-25-previews/
           if-no-files-found: warn
       - run: chmod +x ./gradlew && ./gradlew clean build --no-daemon --stacktrace
