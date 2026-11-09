@@ -54,6 +54,7 @@ public final class FirstShipEntity extends Boat {
     private static final EntityDataAccessor<Integer> TURNS = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> RIG = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> FABRIC = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> GEOMETRY = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
     private static final float NO_SURFACE = -10000F;
     private static final double DRAFT = 0.14D;
     private static final int CELLS = FirstShipHull.WIDTH * FirstShipHull.LENGTH;
@@ -69,7 +70,7 @@ public final class FirstShipEntity extends Boat {
     private boolean nativeHull;
     private int rigLevel;
     private int fabricQuality;
-    private int geometryVersion = 4;
+    private int geometryVersion = 5;
     private ShipDesign design = ShipDesign.defaults();
     private double nextHelmAllowedTick = -100D;
     private boolean legacyConversionTried;
@@ -85,7 +86,11 @@ public final class FirstShipEntity extends Boat {
     public boolean isNativeHull() { return entityData.get(NATIVE); }
     public int rigLevel() { return entityData.get(RIG); }
     public int fabricQuality() { return entityData.get(FABRIC); }
-    public int geometryVersion() { return geometryVersion; }
+    public int geometryVersion() { return level().isClientSide ? entityData.get(GEOMETRY) : geometryVersion; }
+    private void setGeometryVersion(int value) {
+        geometryVersion = value;
+        entityData.set(GEOMETRY, value);
+    }
     /** Future customizer fields stay stable across a voyage and item packing. */
     public ShipDesign design() { return design; }
     private void setRigging(int level, int fabric) {
@@ -125,6 +130,7 @@ public final class FirstShipEntity extends Boat {
         builder.define(TURNS, 0);
         builder.define(RIG, 0);
         builder.define(FABRIC, 0);
+        builder.define(GEOMETRY, 5);
     }
 
     public double deckY() { return getY() + FirstShipHull.MAIN_DECK; }
@@ -290,7 +296,7 @@ public final class FirstShipEntity extends Boat {
                 || !pack.contains("Modules", Tag.TAG_LIST)) return false;
         int loadedGeometry = pack.contains("GeometryVersion", Tag.TAG_INT)
                 ? pack.getInt("GeometryVersion") : 2;
-        if (loadedGeometry != 2 && loadedGeometry != 3 && loadedGeometry != 4) return false;
+        if (loadedGeometry != 2 && loadedGeometry != 3 && loadedGeometry != 4 && loadedGeometry != 5) return false;
         int loadedRig = packVersion == 1 ? 1 : pack.getInt("RigLevel");
         int loadedFabric = packVersion == 1 ? 1 : pack.getInt("FabricQuality");
         try { new ShipRigging(loadedRig, loadedFabric); }
@@ -340,7 +346,7 @@ public final class FirstShipEntity extends Boat {
         } else pendingBlockCargo = new ListTag();
         quarantinedModules = null;
         setRigging(loadedRig, loadedFabric);
-        geometryVersion = loadedGeometry;
+        setGeometryVersion(loadedGeometry);
         design = loadedDesign;
         inventory.clear(); inventory.putAll(loaded);
         kind.clear(); kind.putAll(types);
@@ -745,7 +751,23 @@ public final class FirstShipEntity extends Boat {
                     new AABB(blockAnchor).inflate(10D, 9D, 10D)))
                 if (nearby.containerMenu != nearby.inventoryMenu) { busy = true; break; }
             if (!busy && FirstShipBlockHull.migrateLegacy(server, blockAnchor, quarterTurns))
-                geometryVersion = 2;
+                setGeometryVersion(2);
+        }
+        // V5 uses the existing registered helm item's 3D mesh instead
+        // of constructing a wheel from vanilla fences and slabs.
+        if (nativeHull && geometryVersion == 4
+                && level() instanceof net.minecraft.server.level.ServerLevel server
+                && !isVehicle() && !hasWalkers()) {
+            boolean busy = false;
+            for (ServerPlayer nearby : server.getEntitiesOfClass(ServerPlayer.class,
+                    new AABB(blockAnchor).inflate(11D, 24D, 11D)))
+                if (nearby.containerMenu != nearby.inventoryMenu) { busy = true; break; }
+            if (!busy && FirstShipBlockHull.migrateGeometryV4(server, blockAnchor,
+                    quarterTurns, rigLevel, fabricQuality)) {
+                setGeometryVersion(5);
+                setCustomName(null);
+                setCustomNameVisible(false);
+            }
         }
         // V4 replaces the former fence cluster with an actual wheel silhouette.
         // Do not reinterpret V3 block worlds as V4 until the old source has
@@ -759,7 +781,7 @@ public final class FirstShipEntity extends Boat {
                 if (nearby.containerMenu != nearby.inventoryMenu) { busy = true; break; }
             if (!busy && FirstShipBlockHull.migrateGeometryV3(server, blockAnchor,
                     quarterTurns, rigLevel, fabricQuality)) {
-                geometryVersion = 4;
+                setGeometryVersion(4);
                 setCustomName(null);
                 setCustomNameVisible(false);
             }
@@ -774,7 +796,7 @@ public final class FirstShipEntity extends Boat {
             if (!busy) {
                 if (FirstShipBlockHull.migrateGeometryV2(server, blockAnchor,
                         quarterTurns, rigLevel, fabricQuality)) {
-                    geometryVersion = 3;
+                    setGeometryVersion(3);
                     setCustomName(null);
                     setCustomNameVisible(false);
                 } else {
@@ -904,8 +926,8 @@ public final class FirstShipEntity extends Boat {
                     ? tag.getInt("FirstShipFabricQuality") : 1;
             try { setRigging(rig, fabric); }
             catch (IllegalArgumentException invalid) { setRigging(1, 1); }
-            geometryVersion = tag.contains("FirstShipGeometryVersion", Tag.TAG_INT)
-                    ? tag.getInt("FirstShipGeometryVersion") : 1;
+            setGeometryVersion(tag.contains("FirstShipGeometryVersion", Tag.TAG_INT)
+                    ? tag.getInt("FirstShipGeometryVersion") : 1);
         }
         if (tag.contains("FirstShipSurface", Tag.TAG_FLOAT)) setWaterSurface(tag.getFloat("FirstShipSurface"));
         CompoundTag pack = new CompoundTag();
