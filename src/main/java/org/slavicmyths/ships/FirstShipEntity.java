@@ -461,9 +461,9 @@ public final class FirstShipEntity extends Boat {
                 || Math.abs(player.getY() - deckY()) > .9D) return false;
         FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, -4D,
                 getX(), getZ(), getYRot());
-        Vec3 aim = new Vec3(wheel.x(), deckY() + 2.5D, wheel.z()).subtract(player.getEyePosition());
+        Vec3 aim = new Vec3(wheel.x(), deckY() + 1.78D, wheel.z()).subtract(player.getEyePosition());
         if (aim.lengthSqr() < .09D || aim.lengthSqr() > 25D
-                || aim.normalize().dot(player.getLookAngle()) < .76D) return false;
+                || aim.normalize().dot(player.getLookAngle()) < .30D) return false;
         boolean mounted = player.startRiding(this);
         if (mounted) positionRider(player);
         return mounted;
