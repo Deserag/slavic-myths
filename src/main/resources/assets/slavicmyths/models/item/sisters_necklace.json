@@ -1,1062 +1,254 @@
 {
-  "ambientocclusion": false,
+  "parent": "minecraft:item/generated",
   "textures": {
-    "metal": "slavicmyths:item/sisters/gneteya_metal",
-    "trim": "slavicmyths:item/sisters/ledeya_metal",
-    "socket": "minecraft:block/white_concrete",
-    "particle": "slavicmyths:item/sisters/gneteya_metal"
+    "layer0": "slavicmyths:item/sisters_artifacts/sisters_necklace_00"
   },
-  "elements": [
+  "overrides": [
     {
-      "from": [
-        5.3,
-        12.5,
-        7.2
-      ],
-      "to": [
-        10.7,
-        13.8,
-        9
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#trim"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#trim"
-        },
-        "east": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#trim"
-        },
-        "west": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#trim"
-        },
-        "up": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#trim"
-        },
-        "down": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#trim"
-        }
-      }
+      "predicate": {
+        "slavicmyths:sisters_visual": 1.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_01"
     },
     {
-      "from": [
-        4.4,
-        10.8,
-        7.2
-      ],
-      "to": [
-        5.8,
-        12.9,
-        9
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "east": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "west": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "up": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "down": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        }
-      }
+      "predicate": {
+        "slavicmyths:sisters_visual": 2.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_02"
     },
     {
-      "from": [
-        10.2,
-        10.8,
-        7.2
-      ],
-      "to": [
-        11.6,
-        12.9,
-        9
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "east": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "west": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "up": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "down": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        }
-      }
+      "predicate": {
+        "slavicmyths:sisters_visual": 3.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_03"
     },
     {
-      "from": [
-        5.4,
-        9.2,
-        7.2
-      ],
-      "to": [
-        6.8,
-        11.1,
-        9
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "east": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "west": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "up": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "down": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        }
-      }
+      "predicate": {
+        "slavicmyths:sisters_visual": 4.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_04"
     },
     {
-      "from": [
-        9.2,
-        9.2,
-        7.2
-      ],
-      "to": [
-        10.6,
-        11.1,
-        9
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "east": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "west": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "up": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "down": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        }
-      }
+      "predicate": {
+        "slavicmyths:sisters_visual": 5.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_05"
     },
     {
-      "from": [
-        6.4,
-        8.2,
-        7
-      ],
-      "to": [
-        9.6,
-        10,
-        9.8
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "east": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "west": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "up": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "down": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        }
-      }
+      "predicate": {
+        "slavicmyths:sisters_visual": 6.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_06"
     },
     {
-      "from": [
-        7,
-        5,
-        7
-      ],
-      "to": [
-        9,
-        8.5,
-        9.8
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "east": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "west": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "up": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "down": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        }
-      }
+      "predicate": {
+        "slavicmyths:sisters_visual": 7.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_07"
     },
     {
-      "from": [
-        6.4,
-        6,
-        7
-      ],
-      "to": [
-        7.2,
-        8,
-        9
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "east": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "west": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "up": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "down": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        }
-      }
+      "predicate": {
+        "slavicmyths:sisters_visual": 8.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_08"
     },
     {
-      "from": [
-        8.8,
-        6,
-        7
-      ],
-      "to": [
-        9.6,
-        8,
-        9
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "east": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "west": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "up": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "down": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        }
-      }
+      "predicate": {
+        "slavicmyths:sisters_visual": 9.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_09"
     },
     {
-      "from": [
-        7.5,
-        3.7,
-        7.2
-      ],
-      "to": [
-        8.5,
-        5.2,
-        9.4
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "east": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "west": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "up": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        },
-        "down": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#metal"
-        }
-      }
+      "predicate": {
+        "slavicmyths:sisters_visual": 10.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_0a"
     },
     {
-      "from": [
-        6.25,
-        8.45,
-        6
-      ],
-      "to": [
-        7.45,
-        9.55,
-        7.3
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 0,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 0,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        },
-        "east": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 0,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        },
-        "west": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 0,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        },
-        "up": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 0,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        },
-        "down": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 0,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        }
-      }
+      "predicate": {
+        "slavicmyths:sisters_visual": 11.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_0b"
     },
     {
-      "from": [
-        7.4,
-        5.8,
-        5.8
-      ],
-      "to": [
-        8.6,
-        7,
-        7.3
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 1,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 1,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        },
-        "east": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 1,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        },
-        "west": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 1,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        },
-        "up": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 1,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        },
-        "down": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 1,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        }
-      }
+      "predicate": {
+        "slavicmyths:sisters_visual": 12.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_0c"
     },
     {
-      "from": [
-        8.55,
-        8.45,
-        6
-      ],
-      "to": [
-        9.75,
-        9.55,
-        7.3
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 2,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 2,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        },
-        "east": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 2,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        },
-        "west": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 2,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        },
-        "up": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 2,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        },
-        "down": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#socket",
-          "tintindex": 2,
-          "neoforge_data": {
-            "block_light": 12,
-            "sky_light": 12
-          }
-        }
-      }
+      "predicate": {
+        "slavicmyths:sisters_visual": 13.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_0d"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 14.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_0e"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 16.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_10"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 17.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_11"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 18.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_12"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 19.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_13"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 20.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_14"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 21.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_15"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 22.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_16"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 24.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_18"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 25.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_19"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 26.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_1a"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 28.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_1c"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 32.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_20"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 33.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_21"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 34.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_22"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 35.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_23"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 36.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_24"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 37.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_25"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 38.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_26"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 40.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_28"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 41.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_29"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 42.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_2a"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 44.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_2c"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 48.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_30"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 49.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_31"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 50.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_32"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 52.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_34"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 56.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_necklace_38"
     }
-  ],
-  "display": {
-    "gui": {
-      "rotation": [
-        20,
-        145,
-        0
-      ],
-      "translation": [
-        0,
-        0,
-        0
-      ],
-      "scale": [
-        0.78,
-        0.78,
-        0.78
-      ]
-    },
-    "ground": {
-      "translation": [
-        0,
-        2,
-        0
-      ],
-      "scale": [
-        0.42,
-        0.42,
-        0.42
-      ]
-    },
-    "fixed": {
-      "rotation": [
-        0,
-        150,
-        0
-      ],
-      "scale": [
-        0.7,
-        0.7,
-        0.7
-      ]
-    },
-    "firstperson_righthand": {
-      "rotation": [
-        0,
-        -90,
-        0
-      ],
-      "translation": [
-        1,
-        2,
-        0
-      ],
-      "scale": [
-        0.65,
-        0.65,
-        0.65
-      ]
-    },
-    "thirdperson_righthand": {
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "translation": [
-        0,
-        2,
-        0
-      ],
-      "scale": [
-        0.65,
-        0.65,
-        0.65
-      ]
-    }
-  }
+  ]
 }
