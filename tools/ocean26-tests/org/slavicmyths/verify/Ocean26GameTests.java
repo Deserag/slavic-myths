@@ -602,17 +602,27 @@ public final class Ocean26GameTests {
                 && Math.abs(reloaded.pose().yaw()-body.pose().yaw()) < 1E-9D
                 && reloaded.snapshot().cargo().equals(body.snapshot().cargo()),
                 "Fractional pose or chest contents corrupted by NBT save/reload");
+        var movingChest = reloaded.cargoInventory(1,5,0,level.registryAccess());
+        t.assertTrue(movingChest != null && movingChest.getItem(0).is(Items.EMERALD)
+                && movingChest.getItem(0).getCount()==23,
+                "Moving chest failed to expose original BlockEntity inventory");
+        movingChest.setItem(0,new ItemStack(Items.EMERALD,18));
+        reloaded.synchronizeCargo(level.registryAccess());
+        reloaded = org.slavicmyths.ships.ShipMovingContraption.load(reloaded.save());
+        t.assertTrue(reloaded != null && reloaded.snapshot().cargo().getCompound(0)
+                .getCompound("BlockEntity").getList("Items",net.minecraft.nbt.Tag.TAG_COMPOUND).size()==1,
+                "Moving chest edit did not persist through ship NBT serialization");
         t.assertTrue(!reloaded.park(level),
                 "Ship parked mid-turn without approaching a safe cardinal bearing");
         reloaded.motion().restore(new org.slavicmyths.ships.ShipRigidMotion.Pose(
                 anchor.getX()+.5D,anchor.getZ()+.5D,0D),0D,0D);
         t.assertTrue(reloaded.park(level),
                 "Aligned stationary ship failed to restore physical world blocks");
-        t.assertTrue(chest(level,storage,t).getItem(0).getCount()==23,
-                "Moving ship's 23 emeralds lost or duplicated on reload and park");
+        t.assertTrue(chest(level,storage,t).getItem(0).getCount()==18,
+                "Moving ship's edited 18 emeralds lost or duplicated on reload and park");
         t.assertTrue(FirstShipBlockHull.remove(level,anchor,0,0,0,5),
                 "Moving ship post-park cleanup failed");
-        System.out.println("OCEAN26_CONTINUOUS_BODY_PASS fractional=true steering=true collision=true nbtReload=true cargo=23 park=true");
+        System.out.println("OCEAN26_CONTINUOUS_BODY_PASS fractional=true steering=true collision=true nbtReload=true cargoEdited=18 park=true");
         t.succeed();
     }
 
