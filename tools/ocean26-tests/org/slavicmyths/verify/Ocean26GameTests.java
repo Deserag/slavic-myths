@@ -615,4 +615,67 @@ public final class Ocean26GameTests {
         System.out.println("OCEAN26_CONTINUOUS_BODY_PASS fractional=true steering=true collision=true nbtReload=true cargo=23 park=true");
         t.succeed();
     }
+
+    /**
+     * First LIVE-ENTITY regression for the new Create-style moving palette.
+     * A new ship opts in; a previously loaded V5 ship keeps the old mode.
+     * This is a real integrated server-world voyage, not a GPU/client proof.
+     */
+    @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_live_motion")
+    public static void liveFirstShipDetachesAndSailsFractionally(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(12, 4, 12));
+        for(int x=-10;x<=10;x++)
+            for(int z=-15;z<=15;z++) {
+                BlockPos p = anchor.offset(x,0,z);
+                level.setBlock(p.below(),Blocks.WATER.defaultBlockState(),2);
+                level.setBlock(p,Blocks.WATER.defaultBlockState(),2);
+                for(int y=1;y<=24;y++)level.setBlock(p.above(y),Blocks.AIR.defaultBlockState(),2);
+            }
+        t.assertTrue(FirstShipBlockHull.place(level,anchor,0,new ListTag(),0,0,5),
+                "Live moving ship source hull failed to place");
+        BlockPos cargo=FirstShipBlockHull.world(anchor,0,1,5,0);
+        level.setBlock(cargo,Blocks.CHEST.defaultBlockState(),2);
+        chest(level,cargo,t).setItem(0,new ItemStack(Items.DIAMOND,11));
+        FirstShipEntity ship=RaftContent.FIRST_SHIP.get().create(level);
+        t.assertTrue(ship!=null,"Live moving ship entity failed to create");
+        ship.initializeNativeHull(anchor,0);
+        ship.enableSmoothMotion();
+        t.assertTrue(level.addFreshEntity(ship),"Live moving ship entity could not spawn");
+        ServerPlayer captain=player(level,"MotionCaptain",new Vec3(ship.getX(),ship.deckY(),ship.getZ()-3D));
+        t.assertTrue(captain.startRiding(ship),"Motion captain could not board");
+        final double startingZ=ship.getZ();
+        t.runAtTickTime(5L,()->{
+            t.assertTrue(ship.helmStep(captain,FirstShipNetwork.FORWARD),
+                    "New ship failed to assemble into moving palette");
+            t.assertTrue(ship.isMoving() && level.getBlockState(cargo).isAir(),
+                    "Moving ship left real chest blocks behind");
+        });
+        for(int tick=6;tick<=45;tick++)
+            t.runAtTickTime(tick,()->{
+                if(!ship.isMoving()||ship.isRemoved())return;
+                t.assertTrue(ship.helmStep(captain,FirstShipNetwork.FORWARD_RIGHT),
+                        "Moving helm rejected combined WASD");
+            });
+        t.runAtTickTime(50L,()->{
+            t.assertTrue(ship.isMoving()&&ship.getZ()>startingZ+.12D
+                    && Math.abs(ship.getYRot())>2D && Math.abs(ship.getYRot())<90D,
+                    "Live ship still moves in cardinal integer jumps");
+            t.assertTrue(captain.getVehicle()==ship,"Captain fell off continuously moving ship");
+            FirstShipHull.Point helm=FirstShipHull.toLocal(captain.getX(),captain.getZ(),
+                    ship.getX(),ship.getZ(),ship.getYRot());
+            t.assertTrue(Math.abs(helm.z()-FirstShipHull.HELM_Z)<.25D,
+                    "Captain seat failed to follow noncardinal ship heading");
+            CompoundTag saved=new CompoundTag();
+            ship.saveWithoutId(saved);
+            t.assertTrue(saved.contains("FirstShipMovingBody",net.minecraft.nbt.Tag.TAG_COMPOUND)
+                    && org.slavicmyths.ships.ShipMovingContraption.load(
+                        saved.getCompound("FirstShipMovingBody")).snapshot().cargo().size()==1,
+                    "Moving ship save lacks the 11-diamond chest payload");
+            captain.discard();
+            ship.discard();
+            System.out.println("OCEAN26_LIVE_SMOOTH_SHIP_PASS detached=true fractional=true combinedWASD=true captain=true cargoNBT=true");
+            t.succeed();
+        });
+    }
 }
