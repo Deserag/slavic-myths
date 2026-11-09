@@ -118,6 +118,12 @@ public final class ShipMovingContraption {
      * and barrels are live in this first phase; furnaces are parked-only.
      */
     public SimpleContainer cargoInventory(int x, int y, int z, HolderLookup.Provider registries) {
+        return cargoInventory(x, y, z, registries, player -> true);
+    }
+
+    /** A live menu is invalidated when its ship is gone or the viewer leaves. */
+    public SimpleContainer cargoInventory(int x, int y, int z, HolderLookup.Provider registries,
+            java.util.function.Predicate<net.minecraft.world.entity.player.Player> valid) {
         if (!detached || parked) return null;
         ListTag entries = snapshot.cargo();
         for (int n = 0; n < entries.size(); n++) {
@@ -132,7 +138,11 @@ public final class ShipMovingContraption {
             // Loot-table containers require vanilla block-entity generation
             // on landing; refusing a live menu avoids destroying pending loot.
             if (contents.contains("LootTable", Tag.TAG_STRING)) return null;
-            SimpleContainer created = new SimpleContainer(27);
+            SimpleContainer created = new SimpleContainer(27) {
+                @Override public boolean stillValid(net.minecraft.world.entity.player.Player player) {
+                    return valid.test(player);
+                }
+            };
             created.fromTag(contents.getList("Items", Tag.TAG_COMPOUND), registries);
             openCargo.put(key, created);
             return created;
