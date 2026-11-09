@@ -32,7 +32,7 @@ public final class FolkAccessoryItem extends Item implements ICurioItem {
  }
  @Override public boolean canEquip(SlotContext context,ItemStack stack){return slot.equals(context.identifier());}
  @Override public void appendHoverText(ItemStack stack,Item.TooltipContext context,List<Component> lines,TooltipFlag flag){
-  if(this==org.slavicmyths.viy.ViyContent.VIY_RING.get())lines.add(Component.literal("Ночное зрение при ношении").withStyle(net.minecraft.ChatFormatting.AQUA));
+  if(this==org.slavicmyths.viy.ViyContent.VIY_RING.get())lines.add(Component.translatable("item.slavicmyths.viy_ring.effect").withStyle(net.minecraft.ChatFormatting.AQUA));
   else lines.add(Component.translatable(getDescriptionId()+".effect").withStyle(net.minecraft.ChatFormatting.GRAY));
  }
  @Override public void curioTick(SlotContext context,ItemStack stack){
@@ -51,7 +51,7 @@ public final class FolkAccessoryItem extends Item implements ICurioItem {
    if(!entity.level().isClientSide&&fade==20)player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY,5,0,false,false));
   }
   if(entity.level().isClientSide)return;
-  if(this==org.slavicmyths.viy.ViyContent.VIY_RING.get()&&player.tickCount%80==0)player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION,240,0,true,false,true));
+  if(this==org.slavicmyths.viy.ViyContent.VIY_EYE.get() && player instanceof ServerPlayer p)org.slavicmyths.viy.ViyRewardAbilities.eyeTick(p);
   if(this==org.slavicmyths.registry.ModItems.DEPTH_AMULET.get()&&player.isInWater()&&player.tickCount%4==0&&player.getAirSupply()>0)player.setAirSupply(Math.min(player.getMaxAirSupply(),player.getAirSupply()+1));
   if(this==org.slavicmyths.registry.ModItems.RESIN_RING.get()&&player.tickCount%100==0&&player.getFoodData().getFoodLevel()>=18&&player.getHealth()<player.getMaxHealth()){
    player.heal(1);player.causeFoodExhaustion(2);
