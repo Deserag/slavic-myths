@@ -22,7 +22,7 @@ public final class BossLootV25 {
 
     @SubscribeEvent
     public static void drops(LivingDropsEvent event) {
-        if (!(event.getEntity().level() instanceof ServerLevel world) || event.getEntity().isBaby()) return;
+        if (!(event.getEntity().level() instanceof ServerLevel world)) return;
         EntityType<?> type = event.getEntity().getType();
         int ingots = 2 + world.random.nextInt(2);
         if (type == SistersContent.TRYASEYA.get()) {
