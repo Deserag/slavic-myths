@@ -37,6 +37,13 @@ public final class PosadShellGameTests {
    piece.postProcess(world,world.structureManager(),world.getChunkSource().getGenerator(),world.random,clip,
     new net.minecraft.world.level.ChunkPos(patch.chunkX(),patch.chunkZ()),anchor);
   }
+  for(var crest:new int[][]{{24,16,21,0},{24,16,23,1},{25,17,80,0},{25,17,82,1},{83,10,19,2},{84,10,19,3}}){
+   var state=piece.voxel(crest[0],crest[1],crest[2]);var direction=switch(crest[3]){case 0->net.minecraft.core.Direction.SOUTH;case 1->net.minecraft.core.Direction.NORTH;case 2->net.minecraft.core.Direction.EAST;default->net.minecraft.core.Direction.WEST;};
+   t.assertTrue(state!=null&&state.getBlock() instanceof net.minecraft.world.level.block.StairBlock&&state.getValue(net.minecraft.world.level.block.StairBlock.FACING)==direction,"Roof crest faces away from center "+java.util.Arrays.toString(crest)+" actual="+state);
+  }
+  int bedParts=0;
+  for(int x=0;x<113;x++)for(int z=0;z<113;z++)for(int y:new int[]{1,7}){var planned=piece.voxel(x,y,z);if(planned!=null&&planned.is(PosadBeds.COT.get())){var cell=PosadGeometry.rotate(new PosadGeometry.Cell(x,z),turns);var actual=world.getBlockState(anchor.offset(cell.x(),y,cell.z()));t.assertTrue(actual.is(PosadBeds.COT.get()),"Missing physical cot "+x+","+y+","+z+" rotation="+turns+" actual="+actual);bedParts++;}}
+  t.assertTrue(bedParts==68,"Physical bed part count "+bedParts);
   for(int x=0;x<113;x++)for(int z=0;z<113;z++) {
    var at=anchor.offset(x,0,z);
    t.assertTrue(!world.getBlockState(at).isAir(),"Physical platform hole "+at);
@@ -100,7 +107,7 @@ public final class PosadShellGameTests {
   t.assertTrue(world.getBlockState(anchor.offset(crest.x(),17,crest.z())).is(Blocks.CRYING_OBSIDIAN),
    "Council hall crest is missing");
   var councilSeat=PosadGeometry.rotate(new PosadGeometry.Cell(56,14),turns);
-  t.assertTrue(world.getBlockState(anchor.offset(councilSeat.x(),2,councilSeat.z())).is(org.slavicmyths.furniture.Furniture.get("posad_throne")),"Council throne model missing");
+  t.assertTrue(world.getBlockState(anchor.offset(councilSeat.x(),1,councilSeat.z())).is(org.slavicmyths.furniture.Furniture.get("posad_throne")),"Council throne model missing");
   var approach=PosadGeometry.rotate(new PosadGeometry.Cell(56,15),turns);
   t.assertTrue(world.getBlockState(anchor.offset(approach.x(),2,approach.z())).isAir(),"Council throne approach blocked");
   for(int step=0;step<6;step++)for(int[] stair:new int[][]{{20,26-step},{21,26-step},{23,84-step},{24,84-step}}){
@@ -271,7 +278,8 @@ public final class PosadShellGameTests {
 
      if(candidate==0){
       var approved=PosadnikTerem.voxel(x,y,z);
-      if(approved==null){
+      if(approved==null&&planned!=null&&(planned.is(PosadBeds.COT.get())||planned.is(Blocks.LANTERN)||planned.is(Blocks.CHAIN)||planned.getBlock() instanceof org.slavicmyths.furniture.FurnitureBlock)){t.assertTrue(world.getBlockState(at).equals(piece.placedState(x,y,z,world,at)),"Missing new bedroom furnishing "+at);}
+      else if(approved==null){
        t.assertTrue(planned==null||planned.isAir(),"Unexpected block beside approved Posadnik "+x+","+y+","+z);
        t.assertTrue(world.getBlockState(at).isAir(),"Unexpected physical block beside Posadnik "+at);
       }else{
@@ -373,7 +381,7 @@ public final class PosadShellGameTests {
    // Grounded district survey: sample two-block-high navigable cells with a
    // solid floor and an overhead structure. Exclude open courtyards, which
    // intentionally have no roof and need different outdoor design targets.
-   // Do not assert the target yet: first expose all real dark sample positions.
+   // Owner lighting gate: no covered walkable sample may remain below block light 8.
    for(int turns=0;turns<4;turns++) {
     var anchor=t.absolutePos(new net.minecraft.core.BlockPos(turns*160,140,0));
     for(var slot:PosadGeometry.Slot.values()) {
@@ -395,6 +403,7 @@ public final class PosadShellGameTests {
         if(value<8){low8++;if(dark.size()<16)dark.add(x+","+y+","+z+"="+value);}
         if(value<10)low10++;
        }
+      t.assertTrue(low8==0,"Dark interior samples in "+slot+" floor "+y+": "+dark);
       System.out.println("POSAD_DISTRICT_LIGHT_SURVEY schema="+PosadGeometry.SCHEMA_VERSION+" turn="+turns+" district="+slot+" level="+y+" samples="+total+" min="+(total==0?"NA":minimum)+" below8="+low8+" below10="+low10+" dark="+dark);
      }
     }

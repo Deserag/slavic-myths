@@ -282,6 +282,7 @@ public final class PosadBoss extends Monster {
                 } else {
                     spawnAtLocation(ledger.mint(org.slavicmyths.registry.ModItems.BAUK_FANG.get(), getUUID(), playerId));
                     spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.BAUK_HIDE.get()));
+                    spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.BAUK_WOOL.get()));
                     spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.BAUK_CLAW.get(), 2));
                     spawnAtLocation(new net.minecraft.world.item.ItemStack(org.slavicmyths.registry.ModItems.BAUK_HEAD_ITEM.get()));
                 }

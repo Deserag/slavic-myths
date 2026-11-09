@@ -1,7 +1,7 @@
 allprojects { afterEvaluate {
  sourceSets { hellQa { java.srcDir 'tools/hell-qa-runtime';resources.srcDir 'tools/hell-qa-runtime-resources' } }
  if (project.hasProperty('hellQaRavenOnly')) {
-  sourceSets.hellQa.java.include 'HellQaMod.java','MorovoyRavenQaTests.java'
+  sourceSets.hellQa.java.include 'HellQaMod.java','MorovoyRavenQaTests.java','org/slavicmyths/hellqa/mixin/SeedMixin.java'
  }
  if (project.hasProperty('hellQaBossComponentsOnly')) {
   sourceSets.hellQa.java.include 'HellQaMod.java','HellQaTests.java','BossComponentsNaturalQaTests.java','WatchpostWorldgenQaTests.java','WayfarerQaTests.java','ForgottenShrineQaTests.java','AncestorShrineQaTests.java','TriznaPyreQaTests.java','org/slavicmyths/hellqa/mixin/SeedMixin.java'

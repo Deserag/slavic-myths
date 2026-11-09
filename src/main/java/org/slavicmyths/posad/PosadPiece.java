@@ -19,6 +19,12 @@ import org.slavicmyths.netherstructures.NetherBridgeTerrain;
 public final class PosadPiece extends StructurePiece {
     private static final java.util.Set<String> NETHER_FURNITURE_KINDS=java.util.Set.of("table","chair","stool","bench","shelf","wardrobe","bedside_cabinet","weapon_rack");
 
+    private static final Object[][] INTERIOR_FURNITURE=new Object[][]{
+            {47,1,19,"crimson_bedside_cabinet"},{47,1,24,"crimson_table"},{47,1,25,"crimson_chair"},
+            {67,1,25,"crimson_table"},{67,1,26,"crimson_chair"},{68,1,26,"crimson_wardrobe"},
+            {63,7,89,"crimson_bedside_cabinet"},{68,7,90,"crimson_bedside_cabinet"},
+            {80,1,56,"warped_table"},{81,1,56,"warped_chair"},
+            {20,1,79,"crimson_weapon_rack"},{20,7,79,"crimson_weapon_rack"}};
     private final BlockPos anchor;
     private final int turns;
     private final int schema;
@@ -27,9 +33,11 @@ public final class PosadPiece extends StructurePiece {
     private final PosadTerrain.Plan terrain;
     private final java.util.Map<Long,Integer> supports=new java.util.HashMap<>();
     private static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}
-    public PosadPiece(BlockPos anchor,int turns) {
+    public PosadPiece(BlockPos anchor,int turns) { this(anchor,turns,PosadGeometry.SCHEMA_VERSION); }
+    static PosadPiece previousPlan(BlockPos anchor,int turns){return new PosadPiece(anchor,turns,28);}
+    private PosadPiece(BlockPos anchor,int turns,int version) {
         super(PosadWorldgen.PIECE.get(),0,new BoundingBox(anchor.getX(),anchor.getY()-2,anchor.getZ(),anchor.getX()+112,anchor.getY()+17,anchor.getZ()+112));
-        this.anchor=anchor.immutable(); this.turns=Math.floorMod(turns,4); this.schema=PosadGeometry.SCHEMA_VERSION;
+        this.anchor=anchor.immutable(); this.turns=Math.floorMod(turns,4); this.schema=version;
         terrain=new PosadTerrain.Plan(anchor.getX(),anchor.getY(),anchor.getZ(),this.turns,0,java.util.List.of());
     }
     public PosadPiece(PosadTerrain.Plan plan) {
@@ -66,6 +74,23 @@ public final class PosadPiece extends StructurePiece {
     public BlockState voxel(int x,int y,int z) {
         BlockState state = baseVoxel(x,y,z);
         if (schema < 25 || state == null) return state;
+        if(schema>=30&&(y==1||y==2||y==7||y==8)&&(state.is(Blocks.CRIMSON_PLANKS)||state.is(Blocks.CRIMSON_SLAB)||state.is(Blocks.WARPED_PLANKS)||state.is(Blocks.WARPED_SLAB))){
+            var above=baseVoxel(x,y+1,z);var upper=baseVoxel(x,y+2,z);
+            if((above==null||above.isAir())||(upper==null||upper.isAir()))return Blocks.AIR.defaultBlockState();
+        }
+        if(schema>=30&&state.getBlock() instanceof org.slavicmyths.furniture.FurnitureBlock f&&"shelf".equals(f.kind)){
+            var back=state.getValue(org.slavicmyths.furniture.FurnitureBlock.FACING).getOpposite();
+            var support=baseVoxel(x+back.getStepX(),y,z+back.getStepZ());
+            if(support!=null&&(support.is(Blocks.CRIMSON_PLANKS)||support.is(Blocks.WARPED_PLANKS))){
+                var top=baseVoxel(x+back.getStepX(),y+1,z+back.getStepZ());var upper=baseVoxel(x+back.getStepX(),y+2,z+back.getStepZ());
+                if(top==null||top.isAir()||upper==null||upper.isAir())return Blocks.AIR.defaultBlockState();
+            }
+        }
+        // Floors are Y0/Y6. R1 planks/slabs above them are obsolete block furniture,
+        // not floorboards. Preserve exterior walls, room partitions and actual furniture.
+        if(schema>=29&&(y==1||y==2||y==7||y==8)&&x>=15&&x<=33&&z>=17&&z<=27
+                &&x!=22&&x!=26&&z!=22&&(state.is(Blocks.CRIMSON_PLANKS)||state.is(Blocks.CRIMSON_SLAB)))
+            return Blocks.AIR.defaultBlockState();
         if(schema>=27&&state.getBlock() instanceof org.slavicmyths.furniture.FurnitureBlock furniture
                 && !state.is(org.slavicmyths.furniture.Furniture.get("posad_throne"))
                 && NETHER_FURNITURE_KINDS.contains(furniture.kind)) {
@@ -110,6 +135,57 @@ public final class PosadPiece extends StructurePiece {
     }
 
     private BlockState baseVoxel(int x,int y,int z) {
+        if(schema>=31){
+            var bed=PosadBeds.extraVoxel(x,y,z);if(bed!=null)return bed;
+            var furnishing=interiorVoxel(x,y,z);if(furnishing!=null)return furnishing;
+        }
+        return unfurnishedVoxel(x,y,z);
+    }
+    private BlockState interiorVoxel(int x,int y,int z){
+        if(y<1||y>16)return null;
+        // Only the fixed authored interior is inspected, never live chunks or inventories.
+        var old=unfurnishedVoxel(x,y,z);if(old!=null&&!old.isAir())return null;
+        if(((x==17||x==25||x==33)&&z==85&&(y==1||y==2||y==7||y==8))||(x==25&&z==77&&(y==7||y==8))){
+            if(y==2||y==8)return Blocks.LANTERN.defaultBlockState();
+            return org.slavicmyths.furniture.Furniture.get("crimson_bedside_cabinet").defaultBlockState();
+        }
+        if(((x%4==0&&z%4==0)||(x==90&&z==24)||(x==26&&z==48)||(x==28&&z==46)||(x==34&&z==84)||(x==24&&z==78))&&x>=12&&x<=101&&z>=12&&z<=99){
+            for(int floor:new int[]{0,6})if(y>=floor+4){
+                var ground=unfurnishedVoxel(x,floor,z);var feet=unfurnishedVoxel(x,floor+1,z);
+                if(feet!=null&&!feet.isAir()&&!(feet.getBlock() instanceof org.slavicmyths.furniture.FurnitureBlock)&&!feet.is(PosadBeds.COT.get()))continue;
+                if(ground==null||ground.getCollisionShape(net.minecraft.world.level.EmptyBlockGetter.INSTANCE,BlockPos.ZERO).isEmpty())continue;
+                int ceiling=-1;
+                for(int h=floor+4;h<=17;h++){
+                    var roof=unfurnishedVoxel(x,h,z);
+                    if(roof!=null&&!roof.isAir()){
+                        if(roof.isFaceSturdy(net.minecraft.world.level.EmptyBlockGetter.INSTANCE,BlockPos.ZERO,Direction.DOWN))ceiling=h;
+                        break;
+                    }
+                }
+                if(ceiling>floor+4&&y<ceiling){
+                    if(y==floor+4)return Blocks.LANTERN.defaultBlockState().setValue(net.minecraft.world.level.block.LanternBlock.HANGING,true);
+                    return Blocks.CHAIN.defaultBlockState();
+                }
+            }
+        }
+        for(var item:INTERIOR_FURNITURE){
+            if(x==(int)item[0]&&y==(int)item[1]&&z==(int)item[2]){
+                var ground=unfurnishedVoxel(x,y-1,z);var above=unfurnishedVoxel(x,y+1,z);
+                if(ground!=null&&ground.isCollisionShapeFullBlock(net.minecraft.world.level.EmptyBlockGetter.INSTANCE,BlockPos.ZERO)&&(above==null||above.isAir()))
+                    return org.slavicmyths.furniture.Furniture.get((String)item[3]).defaultBlockState();
+            }
+        }
+        return null;
+    }
+    private BlockState unfurnishedVoxel(int x,int y,int z) {
+        if(schema>=30){var bed=PosadBeds.additionalVoxel(x,y,z);if(bed!=null)return bed;}
+        if(schema>=29&&x>=54&&x<=58&&z>=13&&z<=17&&y>=1&&y<=3){
+            if(x==56&&z==14&&y==1)return org.slavicmyths.furniture.Furniture.get("posad_throne").defaultBlockState().setValue(org.slavicmyths.furniture.FurnitureBlock.FACING,Direction.SOUTH);
+            if(x>=55&&x<=57&&z>=14&&z<=15)return Blocks.AIR.defaultBlockState();
+            var original=PosadArchitectureR3.voxel(x,y,z);if(original==null)original=PosadBuildings.voxel(x,y,z);
+            if(original!=null&&!original.is(Blocks.CRIMSON_PLANKS)&&!original.is(Blocks.CRIMSON_SLAB)&&!(original.getBlock() instanceof StairBlock))return original;
+            return Blocks.AIR.defaultBlockState();
+        }
         if(schema>=28&&(x==85||x==91)&&((z>=77&&z<=83)||(z>=86&&z<=91))&&y>=1&&y<=5){
             int doorZ=z<=83?80:88;
             if(z==doorZ&&y<=2)return Blocks.CRIMSON_DOOR.defaultBlockState().setValue(net.minecraft.world.level.block.DoorBlock.FACING,x==85?Direction.EAST:Direction.WEST).setValue(net.minecraft.world.level.block.DoorBlock.HALF,y==1?net.minecraft.world.level.block.state.properties.DoubleBlockHalf.LOWER:net.minecraft.world.level.block.state.properties.DoubleBlockHalf.UPPER);
@@ -127,6 +203,7 @@ public final class PosadPiece extends StructurePiece {
         // Replace the reception chair with one coherent, fireproof throne model.
         // Historic pieces retain their original furniture and saved inventories.
         if(schema>=27&&x==69&&y==1&&z==82)return Blocks.AIR.defaultBlockState();
+        if(schema>=31&&x==70&&y==1&&z==82)return org.slavicmyths.furniture.Furniture.get("crimson_chair").defaultBlockState().setValue(org.slavicmyths.furniture.FurnitureBlock.FACING,Direction.WEST);
         if(schema>=27&&x==70&&y==1&&z==82)return org.slavicmyths.furniture.Furniture.get("posad_throne")
             .defaultBlockState().setValue(org.slavicmyths.furniture.FurnitureBlock.FACING,Direction.WEST);
         if(schema>=27){var cot=PosadBeds.voxel(x,y,z,schema>=28);if(cot!=null)return cot;var hall=PosadHallDominant.voxel(x,y,z);if(hall!=null)return hall;}
@@ -247,7 +324,40 @@ public final class PosadPiece extends StructurePiece {
     }
     /** New cities: the inner member of a two-cell stair row must be solid,
      * not the upside-down TOP stair introduced by schema 21. */
+    private boolean roofLevel(int x,int y,int z){
+        if(x>=13&&x<=35&&z>=15&&z<=29)return y>=11;
+        if(x>=12&&x<=39&&z>=75&&z<=88)return y>=11;
+        if(PosadGeometry.Slot.VECHE_HALL.local().contains(x,z))return y>=12;
+        if(PosadGeometry.POSADNIK_TEREM_ENVELOPE.contains(x,z))return y>=12;
+        return y>=4;
+    }
     private BlockState resolvedRoofSolid(BlockState stair,int x,int y,int z) {
+        if(schema>=30&&stair.getBlock() instanceof StairBlock&&roofLevel(x,y,z)){
+            var axis=stair.getValue(StairBlock.FACING).getAxis();Direction uphill=stair.getValue(StairBlock.FACING);
+            int best=0;
+            for(var direction:Direction.Plane.HORIZONTAL){if(direction.getAxis()!=axis)continue;
+                for(int distance=1;distance<=4;distance++)for(int rise=1;rise<=3;rise++){
+                    var n=baseVoxel(x+direction.getStepX()*distance,y+rise,z+direction.getStepZ()*distance);
+                    if(n!=null&&(n.is(Blocks.NETHER_BRICKS)||n.is(Blocks.NETHER_BRICK_STAIRS)||n.is(Blocks.POLISHED_BLACKSTONE_BRICKS)||n.is(Blocks.POLISHED_BLACKSTONE_BRICK_STAIRS)||n.is(Blocks.CRIMSON_STAIRS)||n.is(Blocks.CRIMSON_PLANKS))){int score=20-distance*4+rise;if(score>best){best=score;uphill=direction;}}
+                }
+            }
+            // At the crest no higher course exists: its solid ridge (or the
+            // supported opposite half of a two-stair ridge) still defines inward.
+            if(best==0)for(var direction:Direction.Plane.HORIZONTAL){if(direction.getAxis()!=axis)continue;
+                for(int distance=1;distance<=3;distance++){
+                    int nx=x+direction.getStepX()*distance,nz=z+direction.getStepZ()*distance;var n=baseVoxel(nx,y,nz);var support=baseVoxel(nx,y-1,nz);
+                    boolean solid=n!=null&&(n.is(Blocks.NETHER_BRICKS)||n.is(Blocks.POLISHED_BLACKSTONE_BRICKS)||n.is(Blocks.CHISELED_POLISHED_BLACKSTONE)||n.is(Blocks.CRIMSON_PLANKS));
+                    boolean ridge=n!=null&&n.getBlock() instanceof StairBlock&&support!=null&&(support.is(Blocks.NETHER_BRICKS)||support.is(Blocks.POLISHED_BLACKSTONE_BRICKS));
+                    int score=(solid?10:ridge?5:0)-distance;if(score>best){best=score;uphill=direction;}
+                }
+            }
+            var toward=baseVoxel(x+uphill.getStepX(),y,z+uphill.getStepZ());
+            var away=baseVoxel(x-uphill.getStepX(),y,z-uphill.getStepZ());
+            boolean inner=toward!=null&&toward.getBlock() instanceof StairBlock&&toward.getValue(StairBlock.FACING).getAxis()==axis;
+            boolean outer=away!=null&&away.getBlock() instanceof StairBlock&&away.getValue(StairBlock.FACING).getAxis()==axis;
+            if(outer&&!inner){var solid=roofSolidMaterial(stair);if(solid!=null)return solid;}
+            return stair.setValue(StairBlock.FACING,uphill).setValue(StairBlock.HALF,net.minecraft.world.level.block.state.properties.Half.BOTTOM).setValue(StairBlock.SHAPE,StairsShape.STRAIGHT);
+        }
         if(schema>=27&&PosadGeometry.Slot.VECHE_HALL.local().contains(x,z))return stair;
         if(schema<23 || y<5 || !(stair.getBlock() instanceof StairBlock)
             || stair.getValue(StairBlock.HALF)!=net.minecraft.world.level.block.state.properties.Half.BOTTOM)return stair;
@@ -285,6 +395,7 @@ public final class PosadPiece extends StructurePiece {
         return !sameStairHalf(stair,neighbor) || neighbor.getValue(StairBlock.FACING) != stair.getValue(StairBlock.FACING);
     }
     private BlockState resolvedRoofStair(BlockState stair, int x, int y, int z) {
+        if(schema>=30&&roofLevel(x,y,z))return stair;
         // Schema 20+ resolves stair corner shape from the final authored graph
         // for every structural stair, not only roof rows. Schema 21 additionally
         // normalizes paired roof stairs into a continuous half-step pitch.

@@ -4,6 +4,7 @@ allprojects { afterEvaluate {
  sourceSets.posadClient.runtimeClasspath += sourceSets.main.runtimeClasspath-sourceSets.main.output
  def qa=neoForge.mods.create('slavicmyths_posadnative'){sourceSet sourceSets.posadClient}
  neoForge.runs { posadClient {
+  systemProperty 'posadclient.single',project.findProperty('posadClientSingle') ?: 'false'
   systemProperty 'posadclient.focusOnly',project.findProperty('posadClientFocusOnly') ?: 'false'
   type='client';sourceSet=sourceSets.posadClient;loadedMods.set([qa]);gameDirectory=file(project.findProperty('posadClientDir') ?: 'work/416-client-1')
   programArguments.addAll('--username','Posad416QA','--width','1280','--height','800')

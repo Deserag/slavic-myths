@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import org.slavicmyths.posad.PosadResidentEntity;
 
-/** Own atlas and geometry; not a recolored vanilla villager or piglin. */
+/** Player-proportioned resident with role-aware 64x64 skins. */
 public final class PosadResidentRenderer extends MobRenderer<PosadResidentEntity,PosadResidentModel> {
     public PosadResidentRenderer(EntityRendererProvider.Context context) {
         super(context, new PosadResidentModel(), .45F);
@@ -24,6 +24,8 @@ public final class PosadResidentRenderer extends MobRenderer<PosadResidentEntity
         });
     }
     @Override public ResourceLocation getTextureLocation(PosadResidentEntity entity) {
+        if (entity.role() == org.slavicmyths.posad.PosadPopulationPlan.Role.POSADNIK)
+            return ResourceLocation.fromNamespaceAndPath("slavicmyths", "textures/entity/posad_resident_posadnik.png");
         int skin = entity.traits().textureVariant();
         return ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/posad_resident_" + skin + ".png");
     }

@@ -36,6 +36,7 @@ public final class PosadCommands {
         posad.then(Commands.literal("clear_test_encounters").executes(c->PosadDiagnosticEncounters.clear(c.getSource())));
         posad.then(Commands.literal("release_empty").then(Commands.argument("anchor",net.minecraft.commands.arguments.coordinates.BlockPosArgument.blockPos())
             .executes(c -> PosadRecovery.releaseEmpty(c.getSource(),net.minecraft.commands.arguments.coordinates.BlockPosArgument.getBlockPos(c,"anchor")))));
+        posad.then(Commands.literal("repair").executes(c->PosadOwnerRepair.repair(c.getSource())));
         posad.then(Commands.literal("info").executes(context -> info(context.getSource())));
         posad.then(Commands.literal("layout")
             .then(Commands.argument("turns", IntegerArgumentType.integer(0, 3))

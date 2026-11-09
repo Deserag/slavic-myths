@@ -171,7 +171,8 @@ public final class LomeyaModel extends EntityModel<LomeyaBoss> {
             eL=interpolate(SHOULDER_L,wL,.52F);eL[0]-=5;
             eR=interpolate(SHOULDER_R,wR,.52F);eR[0]+=5;
         }
-        if(!second) {wL[1]=eL[1];wR[1]=eR[1];}
+        // Preserve each authored wrist height, including SLAM and GRAB poses.
+        // Forcing the wrists to elbow height flattened both forearms and undid the animation targets.
         arm(true,eL,wL);arm(false,eR,wR);
     }
     @Override public void renderToBuffer(PoseStack stack,VertexConsumer out,int light,int overlay,int color) {

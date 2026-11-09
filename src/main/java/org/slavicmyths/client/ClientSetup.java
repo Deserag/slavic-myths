@@ -24,6 +24,7 @@ public final class ClientSetup {
 
     public static void registerModListeners(net.neoforged.bus.api.IEventBus bus) {
 
+        bus.addListener(org.slavicmyths.ships.client.RaftClient::renderers);
         bus.addListener(org.slavicmyths.burningislands.client.IslandsClient::register);
 
         bus.addListener(GreatswordClient::extensions);
@@ -31,6 +32,8 @@ public final class ClientSetup {
         bus.addListener(InfernalFurnaceClient::screens);
 
         bus.addListener(NetherTrophyKeys.Registration::register);
+
+        bus.addListener(MorovoyStaffKeys.Registration::register);
 
         bus.addListener(PosadBossRenderer::register);
 
@@ -221,6 +224,7 @@ public final class ClientSetup {
             MorJadeCompat.install();
 
             FieldBowClient.properties();FinistClient.properties();
+            org.slavicmyths.ships.client.RaftClient.itemProperties();
 
             net.minecraft.client.renderer.Sheets.addWoodType(org.slavicmyths.garden.Gardens.APPLE_TYPE);
 
@@ -464,6 +468,7 @@ public final class ClientSetup {
         event.register(org.slavicmyths.village.SettlementMenu.TYPE.get(),SettlementScreen::new);
 
         event.register(org.slavicmyths.storage.SackMenu.TYPE.get(),SackScreen::new);
+        event.register(org.slavicmyths.ships.ShipyardMenu.TYPE.get(),org.slavicmyths.ships.client.ShipyardScreen::new);
 
             event.<org.slavicmyths.rpg.RpgMenu,net.minecraft.client.gui.screens.inventory.AbstractContainerScreen<org.slavicmyths.rpg.RpgMenu>>register(org.slavicmyths.rpg.RpgMenu.TYPE.get(),(menu,inventory,title)->menu.anvil?new RuneAnvilScreen(menu,inventory,title):new RpgScreen(menu,inventory,title));
 

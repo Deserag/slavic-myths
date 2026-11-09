@@ -10,6 +10,7 @@ atlas=Image.open(source/'approved_16x_atlas_lossless.webp').convert('RGBA')
 for row in (source/'ATLAS_MANIFEST.tsv').read_text(encoding='utf-8').splitlines():
  if not row or row.startswith('#'):continue
  name,x,y,w,h=row.split('\t');x,y,w,h=map(int,[x,y,w,h]);folder='block' if '_stage' in name else 'item';p=A/'textures'/folder/(name+'.png');p.parent.mkdir(parents=True,exist_ok=True);atlas.crop((x,y,x+w,y+h)).save(p)
+ if folder=='item':write(A/'models/item'/(name+'.json'),{'parent':'minecraft:item/generated','textures':{'layer0':'slavicmyths:item/'+name}})
 # Four silhouettes: short sprout, leafy stem, flowering bush, ripe hanging pods.
 for age in range(4):
  im=Image.new('RGBA',(16,16));px=im.load();top=12-age*3

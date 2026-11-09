@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " L ",
+    "WSW",
+    "TTT"
+  ],
+  "key": {
+    "L": {
+      "item": "slavicmyths:linen_cloth"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "T": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:ship_sail_linen_module",
+    "count": 1
+  }
+}

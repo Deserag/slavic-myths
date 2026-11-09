@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import org.slavicmyths.registry.ModItems;
 import org.slavicmyths.progression.Knowledge;
 public final class Runes {
- public static final String[] IDS={"thunder","heat","forest","midday","shadow","protection","life","wind","strength","speed","resilience","crushing","blood","fortitude","floating_weapon","flight","rare_protection","death","berserker","sacrifice","mining_1","mining_2","fortune_1","ominous_aura","earth_heart_iii","stomp","dispelling","pursuit","suppression","battle_line","earth_lord_iv","frost_resistance","frost","waning","mor_breath","dragon_flame","storm_strike","counterstrike_iii","hunter_iii","last_stand_iii","depths_iii","veles_oath_iv","unbreakable_iv","perun_rage_iv","forest_spirit_iv","mastery_iv","miner_iii","excavator_iii","farmer_iii","lumberjack_iii","miner_iv","excavator_iv","farmer_iv","lumberjack_iv","ash_mantle","magma_1","magma_2","shadow_face","morova_lingering","trizna_ember_ward"};
+ public static final String[] IDS={"thunder","heat","forest","midday","shadow","protection","life","wind","strength","speed","resilience","crushing","blood","fortitude","floating_weapon","flight","rare_protection","death","berserker","sacrifice","mining_1","mining_2","fortune_1","ominous_aura","earth_heart_iii","stomp","dispelling","pursuit","suppression","battle_line","earth_lord_iv","frost_resistance","frost","waning","mor_breath","dragon_flame","storm_strike","counterstrike_iii","hunter_iii","last_stand_iii","depths_iii","veles_oath_iv","unbreakable_iv","perun_rage_iv","forest_spirit_iv","mastery_iv","miner_iii","excavator_iii","farmer_iii","lumberjack_iii","miner_iv","excavator_iv","farmer_iv","lumberjack_iv","ash_mantle","magma_1","magma_2","shadow_face","morova_lingering","trizna_ember_ward","tremor_iii"};
  private static final java.util.Map<String,net.minecraft.tags.TagKey<Item>> TAGS=new java.util.HashMap<>();
  static {for(String key:new String[]{"rune_staff","rune_dagger","rune_spear","rune_heavy","rune_capacity_1","rune_capacity_3","no_reforging"})TAGS.put(key,ItemTags.create(ResourceLocation.fromNamespaceAndPath("slavicmyths",key)));}
  public static boolean tagged(ItemStack s,String tag){return s.is(TAGS.get(tag));}
@@ -27,12 +27,16 @@ public final class Runes {
   if(s.getItem() instanceof org.slavicmyths.combat.ThrowingWeaponItem item)return item.knife?"dagger":"spear";
   if(s.getItem() instanceof org.slavicmyths.item.SpearItem)return "spear";
   if(s.getItem() instanceof org.slavicmyths.bandit.NightingaleDagger)return "dagger";
-  if(s.getItem() instanceof org.slavicmyths.artifact.VelesStaffItem)return "staff";
+  if(s.getItem() instanceof org.slavicmyths.morovoy.MorovoyStaff.Staff)return "staff";
+ if(s.getItem() instanceof org.slavicmyths.artifact.VelesStaffItem)return "staff";
   if(s.is(org.slavicmyths.registry.ModItems.POOL_SPEAR.get())||s.is(org.slavicmyths.registry.ModItems.ANCIENT_SPEAR.get())||s.is(org.slavicmyths.registry.ModItems.RESTORED_SPEAR.get()))return "spear";
   for(String c:new String[]{"staff","dagger","spear","heavy"})if(tagged(s,"rune_"+c))return c;
   Item i=s.getItem();if(i instanceof BowItem||i instanceof CrossbowItem)return "bow";if(i instanceof ShieldItem)return "shield";if(i instanceof AxeItem||i instanceof net.minecraft.world.item.MaceItem||i instanceof org.slavicmyths.combat.MaceItem)return "heavy";if(i instanceof TridentItem)return "spear";if(i instanceof SwordItem)return "sword";return "";
  }
  public static int capacity(ItemStack s){
+  if(s.getItem() instanceof org.slavicmyths.nethersmithing.InfernalBow.Empowered)return 3;
+ if(s.getItem() instanceof org.slavicmyths.morovoy.MorovoyStaff.Staff)return 3;
+ if(s.getItem() instanceof org.slavicmyths.sisters.SistersArmor.Piece)return 3;
   if(org.slavicmyths.nethersmithing.NetherWeapons.owns(s))return 2;
   if(s.getItem() instanceof org.slavicmyths.nethersmithing.NetherArmor.Piece p)return org.slavicmyths.nethersmithing.NetherArmorRules.sockets(p.king,p.getType());
   if(org.slavicmyths.industry.ChudTools.multi(s)||s.is(org.slavicmyths.industry.ChudTools.PICKAXE.get()))return 2;
@@ -73,9 +77,9 @@ public final class Runes {
  public static void write(ItemStack s,int slots,List<String> runes){org.slavicmyths.item.ItemState.runes(s,slots,runes);}
  public static int cost(net.minecraft.world.entity.player.Player p,int base){return p.isCreative()?0:PathData.data(p).getCompound("Skills").getInt("rune_knowledge")>0?Math.max(1,(int)Math.ceil(base*.85)):base;}
  public static String rune(ItemStack stack){var key=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem());if(!key.getNamespace().equals("slavicmyths"))return "";for(String id:org.slavicmyths.industry.MiningRunes.IDS)if(key.getPath().equals(org.slavicmyths.industry.MiningRunes.itemId(id)))return id;if(key.getPath().equals("frost_resistance_rune"))return "frost_resistance";if(key.getPath().equals("frost_rune"))return "frost";if(key.getPath().equals("rune_of_waning"))return "waning";String id=key.getPath().startsWith("rune_")?key.getPath().substring(5):"";return Arrays.asList(IDS).contains(id)?id:"";}
- public static Item forgeMaterial(ItemStack weapon){return slots(weapon)==0?Items.IRON_INGOT:slots(weapon)==1?ModItems.SILVER_INGOT.get():ModItems.PERUNITE.get();}
+ public static Item forgeMaterial(ItemStack weapon){if(weapon.getItem() instanceof org.slavicmyths.morovoy.MorovoyStaff.Staff&&slots(weapon)==2)return net.minecraft.core.registries.BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("slavicmyths","roasted_runnik"));if(weapon.getItem() instanceof org.slavicmyths.sisters.SistersArmor.Piece&&slots(weapon)==2)return net.minecraft.core.registries.BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("slavicmyths","roasted_runnik"));if(weapon.getItem() instanceof org.slavicmyths.nethersmithing.InfernalBow.Empowered&&slots(weapon)==2)return net.minecraft.core.registries.BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("slavicmyths","roasted_runnik"));return slots(weapon)==0?Items.IRON_INGOT:slots(weapon)==1?ModItems.SILVER_INGOT.get():ModItems.PERUNITE.get();}
  public static int forgeCount(ItemStack weapon){return slots(weapon)==1?2:3;}
- public static Item extra(ItemStack weapon){return slots(weapon)==0?null:slots(weapon)==1?ModItems.ANCIENT_SIGN.get():ModItems.OVINNIK_CLAW.get();}
+ public static Item extra(ItemStack weapon){if(weapon.getItem() instanceof org.slavicmyths.morovoy.MorovoyStaff.Staff&&slots(weapon)==2)return org.slavicmyths.sisters.SistersContent.NETHER_SOUL_IV.get();if(weapon.getItem() instanceof org.slavicmyths.sisters.SistersArmor.Piece&&slots(weapon)==2)return org.slavicmyths.sisters.SistersContent.NETHER_SOUL_IV.get();if(weapon.getItem() instanceof org.slavicmyths.nethersmithing.InfernalBow.Empowered&&slots(weapon)==2)return org.slavicmyths.sisters.SistersContent.NETHER_SOUL_IV.get();return slots(weapon)==0?null:slots(weapon)==1?ModItems.ANCIENT_SIGN.get():ModItems.OVINNIK_CLAW.get();}
  public static int inventoryCount(net.minecraft.world.entity.player.Player p,Item item){int n=0;for(int i=0;i<p.getInventory().getContainerSize();i++)if(p.getInventory().getItem(i).is(item))n+=p.getInventory().getItem(i).getCount();return n;}
  public static int operationCost(net.minecraft.world.entity.player.Player p,ItemStack weapon,int action){return cost(p,action==0?new int[]{6,15,28}[Math.min(2,slots(weapon))]:action==1?7:2);}
  public static net.minecraft.network.chat.Component blocker(net.minecraft.world.entity.player.Player p,Container inv,int action){

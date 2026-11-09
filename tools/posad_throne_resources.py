@@ -8,7 +8,7 @@ def write(p,data):
 def cube(a,b,texture):
  return {"from":a,"to":b,"faces":{face:{"texture":"#"+texture} for face in ("north","south","east","west","up","down")}}
 model={"parent":"minecraft:block/block","textures":{"stone":"minecraft:block/polished_blackstone","basalt":"minecraft:block/polished_basalt_side","gold":"minecraft:block/gold_block","cushion":"slavicmyths:block/furniture_cloth","particle":"minecraft:block/polished_blackstone"},"elements":[]}
-parts=[([2,0,2],[5,7,5],"basalt"),([11,0,2],[14,7,5],"basalt"),([2,0,11],[5,7,15],"basalt"),([11,0,11],[14,7,15],"basalt"),([2,6,2],[14,8,15],"stone"),([4,8,3],[12,9,12],"cushion"),([2,8,3],[4,11,14],"stone"),([12,8,3],[14,11,14],"stone"),([2,9,12],[14,24,15],"stone"),([5,11,11.8],[11,22,12],"cushion"),([2,23,12],[5,26,15],"gold"),([11,23,12],[14,26,15],"gold"),([6,24,12],[10,26,15],"gold")]
+parts=[([2,0,2],[5,6,5],"basalt"),([11,0,2],[14,6,5],"basalt"),([2,0,11],[5,6,15],"basalt"),([11,0,11],[14,6,15],"basalt"),([2,6,2],[14,8,15],"stone"),([4,8,3],[12,9,12],"cushion"),([2,8,3],[4,11,12],"stone"),([12,8,3],[14,11,12],"stone"),([2,9,12],[14,23,15],"stone"),([5,11,11.8],[11,22,12],"cushion"),([2,23,12],[5,26,15],"gold"),([11,23,12],[14,26,15],"gold"),([6,24,12],[10,26,15],"gold")]
 model["elements"]=[cube(*part) for part in parts]
 write(A/"models/block/posad_throne.json",model)
 write(A/"models/item/posad_throne.json",{"parent":"slavicmyths:block/posad_throne"})

@@ -1,0 +1,27 @@
+name: Shipbuilding 2.6 - static inventory and recipes audit
+
+on:
+  push:
+    paths:
+      - "src/main/resources/assets/slavicmyths/models/item/raft_*.json"
+      - "src/main/resources/assets/slavicmyths/models/item/ship_*.json"
+      - "src/main/resources/assets/slavicmyths/models/item/shipyard_*.json"
+      - "src/main/resources/data/slavicmyths/recipe/ship*.json"
+      - "experimental/raft26/audit_assets.py"
+      - ".github/workflows/shipbuilding-assets-audit.yml"
+  pull_request:
+    paths:
+      - "src/main/resources/assets/slavicmyths/models/item/raft_*.json"
+      - "src/main/resources/assets/slavicmyths/models/item/ship_*.json"
+      - "src/main/resources/assets/slavicmyths/models/item/shipyard_*.json"
+      - "src/main/resources/data/slavicmyths/recipe/ship*.json"
+      - "experimental/raft26/audit_assets.py"
+      - ".github/workflows/shipbuilding-assets-audit.yml"
+
+jobs:
+  resource-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit original shipbuilding resources
+        run: python3 experimental/raft26/audit_assets.py

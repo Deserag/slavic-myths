@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ARA",
+    "NSN",
+    "ARA"
+  ],
+  "key": {
+    "A": {
+      "item": "slavicmyths:alatyr_ingot"
+    },
+    "R": {
+      "item": "slavicmyths:roasted_runnik"
+    },
+    "N": {
+      "item": "slavicmyths:nether_soul_iv"
+    },
+    "S": {
+      "item": "slavicmyths:roasted_infernal_shard"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:morovoy_conductor",
+    "count": 1
+  }
+}

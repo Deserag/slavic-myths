@@ -8,6 +8,22 @@ import org.slavicmyths.posad.*;
 @GameTestHolder("slavicmyths_posad") @PrefixGameTestTemplate(false)
 public final class PosadBedGameTests {
  @GameTest(template="empty",timeoutTicks=100)
+ public static void singleThroneAndLitRooms(GameTestHelper t){
+  var piece=new PosadPiece(t.absolutePos(BlockPos.ZERO),0);int thrones=0,lamps=0;
+  for(int x=0;x<=112;x++)for(int z=0;z<=112;z++)for(int y=1;y<=16;y++){
+   var state=piece.voxel(x,y,z);if(state==null)continue;
+   if(state.is(org.slavicmyths.furniture.Furniture.get("posad_throne")))thrones++;
+   if(state.is(Blocks.LANTERN)&&state.getValue(LanternBlock.HANGING)){
+    lamps++;var roof=piece.voxel(x,y+1,z);t.assertTrue(roof!=null&&!roof.isAir(),"Floating lantern");
+   }
+  }
+  var crownSpace=piece.voxel(56,3,16);t.assertTrue(crownSpace==null||crownSpace.isAir(),"Ruler crown intersects a hanging fixture");
+  t.assertTrue(thrones==1,"Expected exactly one throne, found "+thrones);
+  t.assertTrue(lamps>=20,"Not enough interior lighting: "+lamps);
+  for(var p:new int[][]{{45,1,19},{47,1,24},{67,1,25},{69,1,26}}){var state=piece.voxel(p[0],p[1],p[2]);System.out.println("POSAD_INTERIOR_FURNITURE "+java.util.Arrays.toString(p)+" "+state);}
+  System.out.println("POSAD_SINGLE_THRONE_LIGHTS_PASS lamps="+lamps);t.succeed();
+ }
+ @GameTest(template="empty",timeoutTicks=100)
  public static void completeBedsEveryRotation(GameTestHelper t){
   int total=0;
   for(int turns=0;turns<4;turns++){
@@ -25,7 +41,7 @@ public final class PosadBedGameTests {
     var above=piece.voxel(x,y+1,z);t.assertTrue(above==null||above.isAir(),"Blocked cot at "+x+","+y+","+z+": "+above);
     if(foot)feet++;else heads++;
    }
-   t.assertTrue(feet==18&&heads==18,"Wrong bedroom bed count "+feet+"/"+heads);total+=feet;
+   t.assertTrue(feet==34&&heads==34,"Wrong bedroom bed count "+feet+"/"+heads);total+=feet;
   }
   System.out.println("POSAD_BEDS_PAIRED_ROTATIONS_PASS beds="+total);t.succeed();
  }
@@ -72,6 +88,19 @@ public final class PosadBedGameTests {
    seats.add(player.getVehicle());player.stopRiding();
   }
   t.runAfterDelay(20,()->{for(var seat:seats)t.assertTrue(!seat.isAlive(),"Throne seat leaked after dismount");t.succeed();});
+ }
+
+ @GameTest(template="empty",timeoutTicks=100)
+ public static void bedroomSites(GameTestHelper t){
+  var piece=new PosadPiece(t.absolutePos(BlockPos.ZERO),0);
+  for(var room:new int[][]{{14,34,17,27},{14,36,77,86},{61,71,79,94},{78,88,46,58}}){int count=0;
+   for(int y=(room[0]==61?7:1);y<=7;y++)for(int x=room[0];x<=room[1];x++)for(int z=room[2];z<room[3];z++){
+    boolean safe=true;for(int dz=0;dz<2;dz++){var floor=piece.voxel(x,y-1,z+dz);if(floor==null||!floor.isCollisionShapeFullBlock(net.minecraft.world.level.EmptyBlockGetter.INSTANCE,BlockPos.ZERO))safe=false;for(int dy=0;dy<=2;dy++){var state=piece.voxel(x,y+dy,z+dz);if(state!=null&&!state.isAir())safe=false;}}
+    boolean roof=false;for(int dy=3;dy<=10;dy++){var r=piece.voxel(x,y+dy,z);if(r!=null&&!r.isAir())roof=true;}safe &= roof;
+    if(safe&&count++<28)System.out.println("BEDROOM_SITE "+room[0]+" "+x+","+y+","+z);
+   }
+   t.assertTrue(count>0,"No room for bed "+room[0]);
+  }t.succeed();
  }
 
 }

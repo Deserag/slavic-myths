@@ -41,6 +41,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
     private final IdentityHashMap<MerchantOffer, String> offerIdentities = new IdentityHashMap<>();
     private MerchantOffers trades = new MerchantOffers();
     private Player tradingPlayer;
+    private BlockPos pursuitOrigin;
     private boolean tradesInitialized;
     private int tradeXp;
     private int earnedXpPending;
@@ -61,7 +62,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
                 .add(Attributes.MAX_HEALTH, 70)
                 .add(Attributes.MOVEMENT_SPEED, .26)
                 .add(Attributes.ATTACK_DAMAGE, 5)
-                .add(Attributes.FOLLOW_RANGE, 24)
+                .add(Attributes.FOLLOW_RANGE, 32)
                 .add(Attributes.KNOCKBACK_RESISTANCE, .12);
     }
 
@@ -110,7 +111,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         entityData.set(WEAPON, member.member().weapon().ordinal());
         setUUID(member.identity());
         home = spawn.immutable();
-        restrictTo(home, role()==PosadPopulationPlan.Role.POSADNIK?5:32);
+        restrictTo(home, role()==PosadPopulationPlan.Role.POSADNIK?5:isGuard()?64:32);
 
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(roleHealth());
         setHealth(roleHealth());
@@ -151,7 +152,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
 
         goalSelector.addGoal(2, new AvoidEntityGoal<>(
                 this,
-                Monster.class,
+                Mob.class,
                 10,
                 .85,
                 1.1,
@@ -198,11 +199,11 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
 
         targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(
                 this,
-                Monster.class,
+                Mob.class,
                 10,
                 true,
                 false,
-                target -> target instanceof Monster m && mayDefendAgainst(m)
+                target -> target instanceof Mob m && mayDefendAgainst(m)
         ));
     }
 
@@ -216,24 +217,21 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
                 && (home == null || player.blockPosition().distSqr(home) <= 48 * 48);
     }
 
-    private boolean mayDefendAgainst(Monster monster) {
-        if (!isGuard() || city == null || !monster.isAlive()) return false;
-
-        if (home != null && monster.blockPosition().distSqr(home) > 40 * 40) {
+    private boolean mayDefendAgainst(Mob monster) {
+        if (!isGuard() || !monster.isAlive() || !(monster instanceof net.minecraft.world.entity.monster.Enemy)) return false;
+        if (monster.distanceToSqr(this) > 32 * 32) {
             return false;
         }
 
         if (monster.getTarget() instanceof PosadResidentEntity resident) {
-            return Objects.equals(city, resident.city());
+            return city != null && Objects.equals(city, resident.city());
         }
 
         if (monster.getTarget() instanceof Player) {
             return true;
         }
 
-        return monster instanceof net.minecraft.world.entity.monster.Blaze
-                || monster instanceof net.minecraft.world.entity.monster.WitherSkeleton
-                || monster instanceof net.minecraft.world.entity.monster.Skeleton;
+        return true;
     }
 
     @Override
@@ -246,6 +244,8 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
             target = null;
         }
 
+        if (target != null && target != getTarget()) pursuitOrigin = blockPosition().immutable();
+        if (target == null) pursuitOrigin = null;
         super.setTarget(target);
     }
 
@@ -307,7 +307,6 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
 
         if (level().isClientSide
                 || !isGuard()
-                || city == null
                 || !(level() instanceof ServerLevel server)) {
             return;
         }
@@ -327,9 +326,27 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
             stopUsingItem();
         }
 
-        if (home != null && blockPosition().distSqr(home) > 48 * 48) {
+        if (pursuitOrigin != null && blockPosition().distSqr(pursuitOrigin) > 32 * 32) {
+            setTarget(null);
+        }
+        if (home != null && blockPosition().distSqr(home) > 48 * 48 && getTarget() == null) {
             setTarget(null);
             getNavigation().moveTo(home.getX() + .5, home.getY(), home.getZ() + .5, .9);
+        }
+
+        // A local, bounded scan also covers hostile mobs just outside the
+        // settlement; vanilla nearest-target goals may reject them there.
+        if (tickCount % 20 == 0 && getTarget() == null) {
+            Mob closest = null;
+            double closestDistance = 32 * 32;
+            for (Mob candidate : server.getEntitiesOfClass(Mob.class, getBoundingBox().inflate(32), this::mayDefendAgainst)) {
+                double distance = distanceToSqr(candidate);
+                if (distance < closestDistance && canAttack(candidate)) {
+                    closest = candidate;
+                    closestDistance = distance;
+                }
+            }
+            if (closest != null) setTarget(closest);
         }
 
         if (tickCount % 40 == 0 && getTarget() == null) {
@@ -731,7 +748,7 @@ public final class PosadResidentEntity extends PathfinderMob implements Merchant
         home = tag.contains("PosadHome") ? BlockPos.of(tag.getLong("PosadHome")) : null;
 
         if (home != null) {
-            restrictTo(home, role()==PosadPopulationPlan.Role.POSADNIK?5:32);
+            restrictTo(home, role()==PosadPopulationPlan.Role.POSADNIK?5:isGuard()?64:32);
         }
 
         tradeXp = Math.max(0, tag.getInt("PosadTradeXp"));

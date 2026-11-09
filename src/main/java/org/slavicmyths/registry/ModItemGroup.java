@@ -17,6 +17,37 @@ public final class ModItemGroup {
     private static final int[] DISPLAY_ORDER = {0, 1, 2, 3, 9, 4, 5, 6, 12, 7, 10, 8, 11};
     public static final List<DeferredHolder<CreativeModeTab, CreativeModeTab>> THEMATIC = new ArrayList<>();
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB;
+    /** Dedicated creative inventory tab for vessels, shipyard tools and future ship upgrades. */
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SHIPBUILDING = TABS.register("shipbuilding", () ->
+            CreativeModeTab.builder()
+                    .title(Component.translatableWithFallback("itemGroup.slavicmyths.shipbuilding", "Кораблестроение"))
+                    .icon(() -> new ItemStack(org.slavicmyths.ships.RaftContent.RAFT_ITEM.get()))
+                    .displayItems((parameters, output) -> {
+                        output.accept(org.slavicmyths.ships.RaftContent.RAFT_ITEM.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.RAFT_LONG.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.RAFT_WIDE.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.RAFT_CARGO.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.FIRST_SHIP_ITEM.get());
+                        // Same item IDs; only installed sail/helm state differs.
+                        output.accept(org.slavicmyths.ships.RaftContent.readyRaft(org.slavicmyths.ships.RaftSize.SMALL, 1));
+                        output.accept(org.slavicmyths.ships.RaftContent.readyRaft(org.slavicmyths.ships.RaftSize.LONG, 1));
+                        output.accept(org.slavicmyths.ships.RaftContent.readyRaft(org.slavicmyths.ships.RaftSize.WIDE, 1));
+                        output.accept(org.slavicmyths.ships.RaftContent.readyRaft(org.slavicmyths.ships.RaftSize.CARGO, 1));
+                        output.accept(org.slavicmyths.ships.RaftContent.readyRaft(org.slavicmyths.ships.RaftSize.CARGO, 2));
+                        output.accept(org.slavicmyths.ships.RaftContent.SHIPYARD_BENCH_ITEM.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.DECK_SECTION.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.RAIL_MODULE.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.SAIL_MODULE.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.REINFORCED_SAILCLOTH.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.SAIL_LINEN_MODULE.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.SAIL_REINFORCED_MODULE.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.SAIL_RIGGING_KIT.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.HELM_MODULE.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.OAR_MODULE.get());
+                        output.accept(org.slavicmyths.ships.RaftContent.SHIPYARD_KEY.get());
+                    })
+                    .withTabsAfter(ResourceLocation.fromNamespaceAndPath("slavicmyths", "furniture"))
+                    .build());
     private static final Set<String> REPORTED_FALLBACKS = ConcurrentHashMap.newKeySet();
     static {
         if (DISPLAY_ORDER.length != IDS.length || java.util.Arrays.stream(DISPLAY_ORDER).anyMatch(index -> index < 0 || index >= IDS.length) || java.util.Arrays.stream(DISPLAY_ORDER).distinct().count() != IDS.length) throw new IllegalStateException("Creative tab display order must be a permutation of catalog tabs");
@@ -64,6 +95,8 @@ public final class ModItemGroup {
         if (!key.getNamespace().equals("slavicmyths")) return -1;
         String path = key.getPath();
         if (path.equals("wooden_barrel")) return -1; // Registered only for old saves.
+        if (path.equals("raft_2511_test") || path.startsWith("raft_") || path.startsWith("ship_") ||
+                path.equals("shipyard_key") || path.equals("reinforced_sailcloth") || path.equals("shipyard_workbench")) return -1; // Shipbuilding only.
         if (CreativeCatalog.entry(path) != null) return CreativeCatalog.category(path);
         if (REPORTED_FALLBACKS.add(path))
             System.getLogger("slavicmyths.creative").log(System.Logger.Level.WARNING,

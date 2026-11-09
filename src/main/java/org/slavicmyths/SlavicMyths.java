@@ -79,6 +79,7 @@ public final class SlavicMyths {
         org.slavicmyths.kurgan.BurialCoffinMenu.register();
         org.slavicmyths.kurgan.KurganStructures.register();
         org.slavicmyths.earth.EarthContent.init();
+        org.slavicmyths.ships.RaftContent.init();
         org.slavicmyths.sivka.SivkaContent.init();
         org.slavicmyths.firebird.FirebirdContent.init();
         org.slavicmyths.nochnitsa.NochnitsaContent.init(bus);
@@ -97,7 +98,10 @@ public final class SlavicMyths {
         org.slavicmyths.quest185.Quest185Content.init(bus);
         org.slavicmyths.morozko.FrostContent.init(bus);
         org.slavicmyths.karachun.NightContent.init(bus);
+        org.slavicmyths.morovoy.MorovoyStaff.init();
         org.slavicmyths.morovoy.MorovoyRavenContent.init(bus);
+        org.slavicmyths.sisters.SistersArmor.init();
+        org.slavicmyths.sisters.TremorRune.init();
         org.slavicmyths.sisters.SistersContent.init(bus);
         org.slavicmyths.viy.ViyContent.init(bus);
         org.slavicmyths.sanctuary.SanctuaryContent.init(bus);
@@ -153,6 +157,7 @@ public final class SlavicMyths {
         bus.addListener(org.slavicmyths.tales.TaleNetwork::register);
         bus.addListener(org.slavicmyths.bayun.BayunNetwork::register);
         bus.addListener(org.slavicmyths.navigation.NavigationNetwork::register);
+        bus.addListener(org.slavicmyths.ships.FirstShipNetwork::register);
         bus.addListener(org.slavicmyths.rpg.RpgNetwork::register);
         bus.addListener(org.slavicmyths.rpg.RareRuneNetwork::register);
         bus.addListener(org.slavicmyths.equipment.ClearSightNetwork::register);

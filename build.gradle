@@ -700,3 +700,26 @@ tasks.named('processResources') {
         }
     }
 }
+
+
+// Optional Ocean 2.6 native-world GameTests; never packaged into the release JAR.
+// A dedicated isolated test world is required. This is NOT a default client run.
+if (project.hasProperty('ocean26Check')) {
+    sourceSets {
+        ocean26Check {
+            java.srcDir 'tools/ocean26-tests'
+            resources.srcDir 'tools/ocean26-test-resources'
+        }
+    }
+    sourceSets.ocean26Check.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.ocean26Check.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileOcean26CheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.ocean26Check)
+    neoForge.runs {
+        ocean26Checks {
+            type = 'gameTestServer'
+            gameDirectory = file('run-ocean26-20261108')
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_ocean26'
+        }
+    }
+}

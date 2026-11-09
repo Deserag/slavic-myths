@@ -209,6 +209,8 @@ public final class PosadManualJobs {
                 world.getDataStorage().save();
                 source.sendSuccess(() -> Component.literal("Пекельный посад построен: X=" + ax + " Y=" + deckY + " Z=" + az + ", поворот " + turns * 90 + "°. Награды — только одноразовые сундуки."), false);
                 var residents = PosadResidentSpawner.populate(world, ax, deckY, az, turns);
+                // Save the newly inserted residents before releasing construction tickets.
+                if(!world.getServer().saveEverything(false,true,true))throw new IllegalStateException("Resident persistence failed");
                 source.sendSuccess(() -> Component.literal("Жители: добавлено " + residents.added()
                     + ", уже учтено " + residents.existing() + ", нет места или спавн отклонён " + residents.blocked()), false);
                 preparation.close();

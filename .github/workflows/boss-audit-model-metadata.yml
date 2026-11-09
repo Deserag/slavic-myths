@@ -1,0 +1,31 @@
+name: Boss audit actual model metadata
+on:
+  push:
+    branches: ['codex/qa-bosses-release25-20261106']
+    paths: ['tools/boss-audit/REQUEST_MODEL_METADATA','.github/workflows/boss-audit-model-metadata.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      LIBGL_ALWAYS_SOFTWARE: 'true'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri mesa-utils libopenal1
+      - run: chmod +x gradlew && ./gradlew --no-daemon -I tools/boss-audit-visual.gradle clean build compileBossAuditVisualJava --console=plain
+      - run: xvfb-run -a -s '-screen 0 1280x800x24' timeout 20m ./gradlew --no-daemon -I tools/boss-audit-visual.gradle runBossAuditVisual -PbossAuditMetadataOnly=true -PbossAuditIds=agneya,ataman,bauk,brown_bear,buried_volkhv,cursed_mytar,cursed_volkolak,defiled_spring_keeper,earth_spirit,elder_vodyanoy,extinguished_flame_guardian,fire_serpent,gneteya,great_poloz,grey_wolf,grove_guardian,idolishche_poganoe,kalin_tsar,karachun,kartaus,kladovik,kurgan_voevoda,large_podzemnik,ledeya,likho_one_eyed,lomeya,magma_lord,marinka,morova_deva,morovoy_fire_zmey,morovoy_raven,morozko,neveya,nightingale,nine_mor_serpent,ovinnik,podvey,posten,skim_beast,trizna_prince,tryaseya,tugarin_zmey,unresting_prince,viy,volkolak,zharenitsa,zmey_gorynych --console=plain
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: boss-audit-model-metadata
+          path: |
+            build/boss-audit-visual/
+            work/boss-audit/hosted-client/logs/
+          retention-days: 7

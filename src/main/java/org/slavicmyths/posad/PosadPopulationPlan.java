@@ -25,7 +25,7 @@ public final class PosadPopulationPlan {
     private static final List<Member> ROSTER = createRoster();
     private static List<Member> createRoster() {
         List<Member> members = new ArrayList<>();
-        members.add(member("posadnik", Role.POSADNIK, Weapon.NONE, 66, 85));
+        members.add(member("posadnik", Role.POSADNIK, Weapon.NONE, 56, 16));
         members.add(member("civilian_1", Role.BLACKSMITH, Weapon.NONE, 20, 52));
         members.add(member("civilian_2", Role.WEAPONSMITH, Weapon.NONE, 29, 54));
         members.add(member("civilian_3", Role.CRAFTER, Weapon.NONE, 81, 82));
@@ -36,8 +36,8 @@ public final class PosadPopulationPlan {
         members.add(member("civilian_8", Role.STOREKEEPER, Weapon.NONE, 88, 29));
         members.add(member("civilian_9", Role.CIVILIAN, Weapon.NONE, 26, 20));
         members.add(member("civilian_10", Role.CIVILIAN, Weapon.NONE, 27, 36));
-        members.add(member("guard_1", Role.GUARD, Weapon.SWORD, 53, 7));
-        members.add(member("guard_2", Role.GUARD, Weapon.SPEAR, 59, 7));
+        members.add(member("guard_1", Role.GUARD, Weapon.SWORD, 53, 103));
+        members.add(member("guard_2", Role.GUARD, Weapon.SPEAR, 59, 103));
         members.add(member("guard_3", Role.GUARD, Weapon.SWORD_SHIELD, 12, 83));
         members.add(member("guard_4", Role.GUARD, Weapon.SPEAR_SHIELD, 24, 83));
         members.add(member("guard_5", Role.GUARD, Weapon.BOW, 34, 74));
