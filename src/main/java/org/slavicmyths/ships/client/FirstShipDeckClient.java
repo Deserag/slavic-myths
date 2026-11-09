@@ -55,7 +55,7 @@ public final class FirstShipDeckClient {
         double nearest = Double.POSITIVE_INFINITY;
         for (FirstShipEntity candidate : minecraft.level.getEntitiesOfClass(
                 FirstShipEntity.class, minecraft.player.getBoundingBox().inflate(12D, 9D, 12D))) {
-            if (candidate.isRemoved() || !candidate.isNativeHull()) continue;
+            if (candidate.isRemoved() || !candidate.isNativeHull() || candidate.isVoyaging()) continue;
             BlockPos anchor = candidate.blockAnchor();
             boolean same = lastShipId == candidate.getId() && lastAnchor != null
                     && lastFeet != null && aboard(lastFeet, lastAnchor, lastTurns);
