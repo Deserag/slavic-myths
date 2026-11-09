@@ -32,30 +32,38 @@ public final class BossLootV25 {
         if (data.getBoolean("SlavicMythsV25BossLootAwarded")) return;
         data.putBoolean("SlavicMythsV25BossLootAwarded", true);
         int ingots = 2 + world.random.nextInt(2);
+        int shards = Math.min(4,1+world.random.nextInt(3)+(event.getLootingLevel()>0?1:0));
         if (type == SistersContent.TRYASEYA.get()) {
             add(event, world, SistersContent.TRYASEYA_INGOT.get(), ingots);
+            add(event, world, SistersContent.TRYASEYA_SHARD.get(), shards);
             add(event, world, SistersContent.NETHER_SOUL_IV.get(), 1);
         } else if (type == SistersContent.GNETEYA.get()) {
             add(event, world, SistersContent.GNETEYA_INGOT.get(), ingots);
+            add(event, world, SistersContent.GNETEYA_SHARD.get(), shards);
             add(event, world, SistersContent.NETHER_SOUL_IV.get(), 1);
         } else if (type == SistersContent.LEDEYA.get()) {
             add(event, world, SistersContent.LEDEYA_INGOT.get(), ingots);
+            add(event, world, SistersContent.LEDEYA_SHARD.get(), shards);
             add(event, world, SistersContent.NETHER_SOUL_IV.get(), 1);
         } else if (type == SistersContent.AGNEYA.get()) {
             add(event, world, SistersContent.AGNEYA_INGOT.get(), ingots);
+            add(event, world, SistersContent.AGNEYA_SHARD.get(), shards);
             add(event, world, SistersContent.NETHER_SOUL_IV.get(), 1);
         } else if (type == SistersContent.NEVEYA.get()) {
             add(event, world, SistersContent.NEVEYA_INGOT.get(), ingots);
+            add(event, world, SistersContent.NEVEYA_SHARD.get(), shards);
             add(event, world, SistersContent.NEVEYA_SCYTHE.get(), 1);
             add(event, world, SistersContent.NETHER_SOUL_V.get(), 1);
         } else if (type == SistersContent.LOMEYA.get()) {
             add(event, world, SistersContent.LOMEYA_INGOT.get(), ingots);
+            add(event, world, SistersContent.LOMEYA_SHARD.get(), shards);
             add(event, world, SistersContent.LOMEYA_HAMMER.get(), 1);
             add(event, world, SistersContent.LOMEYA_HAMMER_OFFHAND.get(), 1);
             add(event, world, SistersContent.NETHER_SOUL_V.get(), 1);
             add(event, world, SistersContent.HUNTER_BOW_CORE.get(), 1);
         } else if (type == ViyContent.VIY.get()) {
             add(event, world, ViyContent.VIY_EYE.get(), 1);
+            add(event, world, ViyContent.VIY_SHARD.get(), 1);
             add(event, world, ViyContent.VIY_RING.get(), 1);
         } else if (type == MorovoyFireZmeyContent.BOSS.get()) {
             add(event, world, MorovoyFireZmeyContent.BONE.get(), 2 + world.random.nextInt(2));
