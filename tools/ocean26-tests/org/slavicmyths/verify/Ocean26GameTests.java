@@ -255,4 +255,84 @@ public final class Ocean26GameTests {
             t.succeed();
         });
     }
+
+    /**
+     * Regression for the real-world lily-pad stop: assert that blocked moves
+     * leave BOTH the hard obstacle and another soft obstacle untouched.
+     * These are real ServerLevel blocks, not a mocked canWrite boolean.
+     */
+    @GameTest(template = "empty", timeoutTicks = 260, batch = "ocean_native")
+    public static void clearSoftWaterObstaclesButPreserveHardBlocksAndCargo(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos origin = t.absolutePos(new BlockPos(12, 4, 12));
+        for (int x = -15; x <= 15; x++)
+            for (int z = -15; z <= 15; z++) {
+                BlockPos column = origin.offset(x, 0, z);
+                level.setBlock(column.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(column, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 24; y++)
+                    level.setBlock(column.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        t.assertTrue(FirstShipBlockHull.place(level, origin, 0, new ListTag(), 0, 0),
+                "V3 bare hull failed to place on two water source layers");
+        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(origin, 0, 0, 11, -1))
+                .is(Blocks.STRIPPED_SPRUCE_LOG),
+                "V3 naked ship has no full-height mast");
+        BlockPos cargo = FirstShipBlockHull.world(origin, 0, 1, 5, 0);
+        level.setBlock(cargo, Blocks.CHEST.defaultBlockState(), 2);
+        chest(level, cargo, t).setItem(0, new ItemStack(Items.DIAMOND, 13));
+
+        // Only positions swept by the NEXT footprint, not its current blocks.
+        BlockPos lily = origin.offset(0, 1, 6);
+        BlockPos grass = origin.offset(0, 0, 6);
+        BlockPos kelp = origin.offset(-1, 0, 5);
+        BlockPos coral = origin.offset(1, 0, 5);
+        level.setBlock(grass, Blocks.SEAGRASS.defaultBlockState(), 2);
+        level.setBlock(lily, Blocks.LILY_PAD.defaultBlockState(), 2);
+        level.setBlock(kelp, Blocks.KELP.defaultBlockState(), 2);
+        level.setBlock(coral, Blocks.TUBE_CORAL_BLOCK.defaultBlockState(), 2);
+        BlockPos forward = origin.offset(0, 0, 1);
+        t.assertTrue(FirstShipBlockHull.move(level, origin, 0, forward, 0, 0, 0, 0, 0, 3),
+                "Lily pad, seagrass, kelp or coral incorrectly blocked the first move");
+        for (BlockPos pos : new BlockPos[]{lily, grass, kelp, coral})
+            t.assertTrue(!level.getBlockState(pos).is(Blocks.LILY_PAD)
+                    && !level.getBlockState(pos).is(Blocks.SEAGRASS)
+                    && !level.getBlockState(pos).is(Blocks.KELP)
+                    && !level.getBlockState(pos).is(Blocks.TUBE_CORAL_BLOCK),
+                    "Soft obstacle remained after successful passage: " + pos);
+        t.assertTrue(chest(level, FirstShipBlockHull.world(forward, 0, 1, 5, 0), t)
+                .getItem(0).getCount() == 13, "Cargo lost on forward clearance");
+
+        // The turn would cross these cells outside the current narrow hull.
+        BlockPos stone = FirstShipBlockHull.world(forward, 1, 0, 1, 5);
+        BlockPos survivingLily = FirstShipBlockHull.world(forward, 1, 0, 1, 4);
+        level.setBlock(stone, Blocks.STONE.defaultBlockState(), 2);
+        level.setBlock(survivingLily, Blocks.LILY_PAD.defaultBlockState(), 2);
+        t.assertTrue(!FirstShipBlockHull.move(level, forward, 0, forward, 1, 0, 0, 0, 0, 3),
+                "Stone wall did not block a 90 degree turn");
+        t.assertTrue(level.getBlockState(stone).is(Blocks.STONE)
+                && level.getBlockState(survivingLily).is(Blocks.LILY_PAD),
+                "Rejected turn partially destroyed the world");
+        t.assertTrue(chest(level, FirstShipBlockHull.world(forward, 0, 1, 5, 0), t)
+                .getItem(0).getCount() == 13, "Rejected turn damaged cargo");
+        level.setBlock(stone, Blocks.WATER.defaultBlockState(), 2);
+
+        // Four consecutive turns must return to the exact initial heading,
+        // retaining the same real chest BE and its 13 diamonds at each step.
+        for (int turn = 1; turn <= 4; turn++) {
+            int from = (turn - 1) % 4, to = turn % 4;
+            t.assertTrue(FirstShipBlockHull.move(level, forward, from, forward, to, 0, 0, 0, 0, 3),
+                    "Turn " + turn + " rejected with otherwise open water");
+            t.assertTrue(chest(level, FirstShipBlockHull.world(forward, to, 1, 5, 0), t)
+                    .getItem(0).getCount() == 13,
+                    "Cargo damaged by turn " + turn);
+        }
+        t.assertTrue(FirstShipBlockHull.move(level, forward, 0, origin, 0, 0, 0, 0, 0, 3),
+                "Backward movement after four turns was rejected");
+        t.assertTrue(chest(level, cargo, t).getItem(0).getCount() == 13,
+                "Backward movement damaged or duplicated chest cargo");
+        t.assertTrue(FirstShipBlockHull.remove(level, origin, 0, 0, 0, 3),
+                "Cleanup failed after obstacle and rotation checks");
+        t.succeed();
+    }
 }
