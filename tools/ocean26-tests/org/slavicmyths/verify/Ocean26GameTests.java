@@ -673,6 +673,17 @@ public final class Ocean26GameTests {
                             new CompoundTag(),level.registryAccess()),level.registryAccess());
             t.assertTrue(restoredJournal.lookup(ship.getUUID()) != null,
                     "Written ship journal cannot be deserialized");
+            // The chest no longer exists as a world block: test its actual
+            // server menu, modify a slot, then save/restore the live ship.
+            FirstShipHull.Point chestPos = FirstShipHull.toWorld(1D,0D,
+                    ship.getX(),ship.getZ(),ship.getYRot());
+            deckCrew.lookAt(EntityAnchorArgument.Anchor.EYES,
+                    new Vec3(chestPos.x(),ship.deckY()+.5D,chestPos.z()));
+            t.assertTrue(ship.tryMovingCargo(deckCrew)
+                    && deckCrew.containerMenu instanceof net.minecraft.world.inventory.ChestMenu,
+                    "Cannot open detached chest through real server cargo interaction");
+            deckCrew.containerMenu.getSlot(0).set(new ItemStack(Items.DIAMOND,9));
+            deckCrew.closeContainer();
         });
         for(int tick=6;tick<=45;tick++)
             t.runAtTickTime(tick,()->{
@@ -704,7 +715,11 @@ public final class Ocean26GameTests {
             t.assertTrue(saved.contains("FirstShipMovingBody",net.minecraft.nbt.Tag.TAG_COMPOUND)
                     && org.slavicmyths.ships.ShipMovingContraption.load(
                         saved.getCompound("FirstShipMovingBody")).snapshot().cargo().size()==1,
-                    "Moving ship save lacks the 11-diamond chest payload");
+                    "Moving ship save lost the detached chest NBT");
+            var savedBody = org.slavicmyths.ships.ShipMovingContraption.load(
+                    saved.getCompound("FirstShipMovingBody"));
+            t.assertTrue(savedBody.cargoInventory(1,5,0,level.registryAccess()).getItem(0)
+                    .getCount()==9,"Live detached chest menu edit was lost on ship save");
             captain.discard();
             deckCrew.discard();
             holdCrew.discard();
@@ -712,7 +727,7 @@ public final class Ocean26GameTests {
             org.slavicmyths.ships.ShipMotionJournal.get(level).end(level, ship.getUUID());
             t.assertTrue(org.slavicmyths.ships.ShipMotionJournal.get(level).lookup(ship.getUUID())==null,
                     "Finished test left an orphan recovery checkpoint");
-            System.out.println("OCEAN26_LIVE_SMOOTH_SHIP_PASS detached=true fractional=true combinedWASD=true captain=true deckWalker=true holdWalker=true cargoNBT=true");
+            System.out.println("OCEAN26_LIVE_SMOOTH_SHIP_PASS detached=true fractional=true combinedWASD=true captain=true deckWalker=true holdWalker=true cargoNBT=true cargoMenu=true");
             t.succeed();
         });
     }
