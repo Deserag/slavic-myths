@@ -302,6 +302,21 @@ public final class FirstShipBlockHull {
         return blocks;
     }
 
+    /**
+     * V5 removes the unsuccessful wheel made from vanilla fences/slabs. The
+     * registered 3D model of the existing HELM_MODULE item is rendered by
+     * FirstShipRenderer at this exact wheel position. The genuine stern rudder
+     * and every load-bearing deck block remain physical vanilla blocks.
+     */
+    private static Map<BlockPos, BlockState> layoutV5(BlockPos anchor, int turns, int rig, int fabric) {
+        Map<BlockPos, BlockState> blocks = layoutV4(anchor, turns, rig, fabric);
+        for (int x = -2; x <= 2; x++)
+            for (int y = 6; y <= 10; y++)
+                blocks.remove(world(anchor, turns, x, y, -4));
+        blocks.remove(world(anchor, turns, 0, 5, -4));
+        return blocks;
+    }
+
     private static void addYardV3(Map<BlockPos, BlockState> blocks, BlockPos anchor,
             int turns, int y, int span) {
         BlockState beam = Blocks.DARK_OAK_LOG.defaultBlockState().setValue(
@@ -332,7 +347,8 @@ public final class FirstShipBlockHull {
 
     private static Map<BlockPos, BlockState> layout(BlockPos anchor, int turns,
             int rig, int fabric, int geometry) {
-        return geometry >= 4 ? layoutV4(anchor, turns, rig, fabric)
+        return geometry >= 5 ? layoutV5(anchor, turns, rig, fabric)
+                : geometry == 4 ? layoutV4(anchor, turns, rig, fabric)
                 : geometry == 3 ? layoutV3(anchor, turns, rig, fabric)
                 : layout(anchor, turns, rig, fabric);
     }
@@ -608,6 +624,12 @@ public final class FirstShipBlockHull {
         return migrateGeometry(level, anchor, turns, rig, fabric, 3, 4);
     }
 
+    /** Replaces the physical V4 wheel with the existing helm item's 3D model. */
+    public static boolean migrateGeometryV4(ServerLevel level, BlockPos anchor, int turns,
+            int rig, int fabric) {
+        return migrateGeometry(level, anchor, turns, rig, fabric, 4, 5);
+    }
+
     /** Transaction checks source intact, future footprint safe, then moves blocks once. */
     public static boolean move(ServerLevel level, BlockPos previous, int oldTurn,
             BlockPos target, int nextTurn, int oldRig, int oldFabric,
@@ -644,7 +666,7 @@ public final class FirstShipBlockHull {
 
     public static boolean move(ServerLevel level, BlockPos previous, int oldTurn,
             BlockPos target, int nextTurn, int oldRig, int oldFabric, int nextRig, int nextFabric) {
-        return move(level, previous, oldTurn, target, nextTurn, oldRig, oldFabric, nextRig, nextFabric, 4);
+        return move(level, previous, oldTurn, target, nextTurn, oldRig, oldFabric, nextRig, nextFabric, 5);
     }
 
     public static boolean place(ServerLevel level, BlockPos anchor, int turns,
@@ -665,7 +687,7 @@ public final class FirstShipBlockHull {
 
     public static boolean place(ServerLevel level, BlockPos anchor, int turns,
             ListTag packed, int rig, int fabric) {
-        return place(level, anchor, turns, packed, rig, fabric, 4);
+        return place(level, anchor, turns, packed, rig, fabric, 5);
     }
 
     public static ListTag pack(ServerLevel level, BlockPos anchor, int turns,
@@ -684,7 +706,7 @@ public final class FirstShipBlockHull {
     }
 
     public static ListTag pack(ServerLevel level, BlockPos anchor, int turns, int rig, int fabric) {
-        return pack(level, anchor, turns, rig, fabric, 4);
+        return pack(level, anchor, turns, rig, fabric, 5);
     }
 
     /** Only 4 vanilla blocks may be attached; malformed saves are rejected. */
@@ -715,7 +737,7 @@ public final class FirstShipBlockHull {
     }
 
     public static boolean remove(ServerLevel level, BlockPos anchor, int turns, int rig, int fabric) {
-        return remove(level, anchor, turns, rig, fabric, 4);
+        return remove(level, anchor, turns, rig, fabric, 5);
     }
 
     public static int cargoKind(net.minecraft.world.level.Level level, BlockPos anchor, int turns, int floor, int x, int z) {
