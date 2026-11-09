@@ -101,6 +101,7 @@ public final class SlavicMyths {
         org.slavicmyths.karachun.NightContent.init(bus);
         org.slavicmyths.morovoy.MorovoyStaff.init();
         org.slavicmyths.morovoy.MorovoyRavenContent.init(bus);
+        org.slavicmyths.sisters.SisterArtifacts.init(bus);
         org.slavicmyths.sisters.SistersArmor.init();
         org.slavicmyths.sisters.TremorRune.init();
         org.slavicmyths.sisters.SistersContent.init(bus);
