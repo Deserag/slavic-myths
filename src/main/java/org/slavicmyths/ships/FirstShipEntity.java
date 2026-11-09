@@ -84,7 +84,7 @@ public final class FirstShipEntity extends Boat {
     public boolean isMoving() { return entityData.get(MOVING); }
     public String movingCargoView() { return entityData.get(MOTION_CARGO_VIEW); }
     public void enableSmoothMotion() { smoothEnabled = true; }
-    public void equipStarterSail() { setRigging(1, 1); }
+    public void equipStarterSail() { setRigging(1, 1); setGeometryVersion(6); }
 
 
     public BlockPos blockAnchor() {
@@ -317,7 +317,7 @@ public final class FirstShipEntity extends Boat {
                 || !pack.contains("Modules", Tag.TAG_LIST)) return false;
         int loadedGeometry = pack.contains("GeometryVersion", Tag.TAG_INT)
                 ? pack.getInt("GeometryVersion") : 2;
-        if (loadedGeometry != 2 && loadedGeometry != 3 && loadedGeometry != 4 && loadedGeometry != 5) return false;
+        if (loadedGeometry != 2 && loadedGeometry != 3 && loadedGeometry != 4 && loadedGeometry != 5 && loadedGeometry != 6) return false;
         int loadedRig = packVersion == 1 ? 1 : pack.getInt("RigLevel");
         int loadedFabric = packVersion == 1 ? 1 : pack.getInt("FabricQuality");
         try { new ShipRigging(loadedRig, loadedFabric); }
@@ -907,7 +907,7 @@ public final class FirstShipEntity extends Boat {
 
     /** Stage new bodies only after validating the real hull and all cargo. */
     private boolean beginContinuousMotion(net.minecraft.server.level.ServerLevel server) {
-        if (!smoothEnabled || geometryVersion != 5 || quarantinedModules != null
+        if (!smoothEnabled || geometryVersion < 5 || quarantinedModules != null
                 || movingBody != null) return false;
         for (ServerPlayer player : server.getEntitiesOfClass(ServerPlayer.class,
                 new AABB(blockAnchor).inflate(10D, 24D, 10D)))
