@@ -2,7 +2,7 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ "integration/3.3-into-working-20261102", "release-2.5" ]
+    branches: [ "integration/3.3-into-working-20261102", "release-2.5", "2.5-armor-bow-loot-polish-20261109" ]
   pull_request:
     branches: [ "integration/3.3-into-working-20261102", "release-2.5" ]
 
