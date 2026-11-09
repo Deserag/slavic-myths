@@ -84,6 +84,12 @@ public final class ShipRigidMotion {
         double yawRadians = Math.toRadians(from.yaw() + deltaYaw * .5D);
         double dx = -Math.sin(yawRadians) * speed;
         double dz = Math.cos(yawRadians) * speed;
+        // Do not sweep hundreds of hull cells every tick while fully stopped.
+        // This only skips a mathematically unchanged pose; every actual
+        // translation or rotation still receives the complete collision sweep.
+        if (Math.abs(dx) <= EPS && Math.abs(dz) <= EPS
+                && Math.abs(deltaYaw) <= EPS)
+            return new Frame(from, pose, speed, angularVelocity, false);
 
         // Substeps protect against tunneling of bow/corners on rotation.
         // Even low speeds can sweep a distant bow through a solid obstacle.
