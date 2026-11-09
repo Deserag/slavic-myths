@@ -16,6 +16,7 @@ public final class FirstShipNetwork {
     public static final int BOARD = 1, HELM = 2, MODULE_MAIN = 3, MODULE_OFF = 4;
     public static final int FORWARD = 5, BACKWARD = 6, LEFT = 7, RIGHT = 8, PACK = 9;
     public static final int RIG_CONFIGURE = 10, RIG_REMOVE = 11;
+    public static final int CONTINUOUS_INPUT = 128; // high bit + four key bits
 
     public record Command(int shipId, int action) implements CustomPacketPayload {
         public static final Type<Command> TYPE = new Type<>(
@@ -38,7 +39,13 @@ public final class FirstShipNetwork {
             // Native hull center is 5.5 blocks away from its sharpest extremity.
             if (player.distanceToSqr(ship) > 196D) return;
             int action = packet.action();
+            if ((action & ~15) == CONTINUOUS_INPUT) {
+                ship.setVoyageControl(player, action & 15);
+                return;
+            }
             if (action >= FORWARD && action <= RIGHT) {
+                // Deprecated discrete actions are only used by old fixtures
+                // and intentionally no longer sent by the current client.
                 ship.helmStep(player, action);
                 return;
             }
