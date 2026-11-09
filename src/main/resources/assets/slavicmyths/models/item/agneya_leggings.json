@@ -1,9 +1,9 @@
 {
   "ambientocclusion": true,
   "textures": {
-    "metal": "minecraft:block/red_nether_bricks",
-    "magma": "minecraft:block/magma_block",
-    "particle": "minecraft:block/red_nether_bricks"
+    "metal": "slavicmyths:item/sisters/agneya_metal",
+    "magma": "slavicmyths:item/sisters/agneya_magma",
+    "particle": "slavicmyths:item/sisters/agneya_metal"
   },
   "elements": [
     {
