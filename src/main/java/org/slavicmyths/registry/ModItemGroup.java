@@ -11,12 +11,7 @@ import org.slavicmyths.garden.Gardens;
 import org.slavicmyths.rpg.RuneFoundation;
 
 /** Standard NeoForge tabs. Existing tab IDs and category indices remain compatible. */
-@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
 public final class ModItemGroup {
-    @net.neoforged.bus.api.SubscribeEvent public static void searchBow(net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent event){
-        if(event.getTabKey().equals(net.minecraft.world.item.CreativeModeTabs.SEARCH))
-            event.accept(org.slavicmyths.nethersmithing.NetherWeapons.ITEMS.get("infernal_bow").get());
-    }
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, "slavicmyths");
     public static final String[] IDS = CreativeCatalog.TABS.toArray(String[]::new);
     private static final int[] DISPLAY_ORDER = {0, 1, 2, 3, 9, 4, 5, 6, 12, 7, 10, 8, 11};
