@@ -654,6 +654,12 @@ public final class Ocean26GameTests {
                     "New ship failed to assemble into moving palette");
             t.assertTrue(ship.isMoving() && level.getBlockState(cargo).isAir(),
                     "Moving ship left real chest blocks behind");
+            // Prove actual vanilla collision resolution, not a Post-tick
+            // teleport: a descending crew member must hit the moving deck.
+            deckCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                    new Vec3(0D, -.35D, 0D));
+            t.assertTrue(deckCrew.getY() >= ship.deckY() - .06D,
+                    "Moving deck has no physical player collision after detachment");
         });
         for(int tick=6;tick<=45;tick++)
             t.runAtTickTime(tick,()->{
