@@ -1,0 +1,22 @@
+name: Slavic Myths 2.5 armor and bows validation
+on:
+  push:
+    branches:
+      - 2.5-armor-bow-loot-polish-20261109
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/validate_25_assets.py
+      - run: chmod +x ./gradlew && ./gradlew clean build --no-daemon --stacktrace
