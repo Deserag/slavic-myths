@@ -28,14 +28,26 @@ public final class ShackledSickleProjectile extends ThrowableItemProjectile {
         return targetId==null && !returning && target instanceof LivingEntity living && getOwner()!=target && (getOwner()==null||!getOwner().isAlliedTo(target)) && super.canHitEntity(target);
     }
     @Override protected void onHitEntity(EntityHitResult hit){
-        if(level().isClientSide||!(getOwner() instanceof ServerPlayer owner) || !(hit.getEntity() instanceof LivingEntity target)){returning=true;return;}
-        target.hurt(level().damageSources().thrown(this,owner),4F);
-        if(target.getBbHeight()<=4F && target.getBbWidth()<=2.5F && !target.isAlliedTo(owner)
-            && !(target instanceof Player p&&(p.isCreative()||p.isSpectator()||!owner.canHarmPlayer(p)))) {
+        if(level().isClientSide)return;
+        if(!(getOwner() instanceof ServerPlayer owner)||!(hit.getEntity() instanceof LivingEntity target)){
+            returning=true;
+            return;
+        }
+        if(!target.isAlive()||target.isAlliedTo(owner)||owner.isAlliedTo(target)
+            ||target.getPersistentData().getBoolean("SlavicViySummoned")
+            ||target instanceof Player p&&(p.isCreative()||p.isSpectator()||!owner.canHarmPlayer(p))){
+            returning=true;
+            return;
+        }
+        if(!target.hurt(level().damageSources().thrown(this,owner),4F)){
+            returning=true;
+            return;
+        }
+        if(target.getBbHeight()<=4F&&target.getBbWidth()<=2.5F&&target.distanceToSqr(owner)<=22*22){
             targetId=target.getUUID();
             pullTicks=26;
             setDeltaMovement(Vec3.ZERO);
-        } else returning=true;
+        }else returning=true;
     }
     @Override protected void onHitBlock(BlockHitResult hit){returning=true;}
     @Override public void tick(){
@@ -43,7 +55,7 @@ public final class ShackledSickleProjectile extends ThrowableItemProjectile {
         if(!(getOwner() instanceof ServerPlayer owner)||!owner.isAlive()||owner.level()!=level()){discard();return;}
         if(targetId!=null){
             Entity found=world.getEntity(targetId);
-            if(!(found instanceof LivingEntity target)||!target.isAlive()||pullTicks--<=0){targetId=null;returning=true;}
+            if(!(found instanceof LivingEntity target)||!target.isAlive()||pullTicks--<=0||target.distanceToSqr(owner)>22*22||target.isAlliedTo(owner)||owner.isAlliedTo(target)){targetId=null;returning=true;}
             else {
                 setPos(target.getX(),target.getY()+target.getBbHeight()*.58,target.getZ());
                 Vec3 delta=owner.position().subtract(target.position()).multiply(1,0,1);
