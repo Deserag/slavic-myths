@@ -21,6 +21,8 @@ public final class ShackledSickleProjectile extends ThrowableItemProjectile {
     private UUID targetId;
     private boolean returning;
     private int pullTicks;
+    private boolean rupture;
+    public void setRupture(boolean value){rupture=value;}
     public ShackledSickleProjectile(EntityType<? extends ShackledSickleProjectile> type,Level level){super(type,level);}
     @Override protected Item getDefaultItem(){return ModItems.MYTAR_SHACKLED_SICKLE.get();}
     @Override protected double getDefaultGravity(){return 0.012;}
@@ -39,17 +41,30 @@ public final class ShackledSickleProjectile extends ThrowableItemProjectile {
             returning=true;
             return;
         }
-        if(!target.hurt(level().damageSources().thrown(this,owner),4F)){
+        if(!target.hurt(level().damageSources().thrown(this,owner),rupture?36F:24F)){
             returning=true;
             return;
         }
+        if(rupture)burst(owner,target.position());
         if(target.getBbHeight()<=4F&&target.getBbWidth()<=2.5F&&target.distanceToSqr(owner)<=22*22){
             targetId=target.getUUID();
-            pullTicks=26;
+            pullTicks=32;
             setDeltaMovement(Vec3.ZERO);
         }else returning=true;
     }
-    @Override protected void onHitBlock(BlockHitResult hit){returning=true;}
+    @Override protected void onHitBlock(BlockHitResult hit){
+        if(!level().isClientSide&&rupture&&getOwner() instanceof ServerPlayer owner)burst(owner,hit.getLocation());
+        returning=true;
+    }
+    private void burst(ServerPlayer owner,Vec3 center){
+        if(!(level() instanceof ServerLevel world)||!rupture)return;
+        rupture=false;
+        world.sendParticles(ParticleTypes.SOUL_FIRE_FLAME,center.x,center.y+.3,center.z,65,1.4,.5,1.4,.04);
+        for(LivingEntity target:world.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(3.3),e->e!=owner&&e.isAlive()&&e.distanceToSqr(center)<3.3*3.3
+            &&!owner.isAlliedTo(e)&&!e.isAlliedTo(owner)&&!e.getPersistentData().getBoolean("SlavicViySummoned")
+            &&!(e instanceof Player p&&(p.isCreative()||p.isSpectator()||!owner.canHarmPlayer(p)))))
+            target.hurt(world.damageSources().thrown(this,owner),14F);
+    }
     @Override public void tick(){
         if(!(level() instanceof ServerLevel world)){super.tick();return;}
         if(!(getOwner() instanceof ServerPlayer owner)||!owner.isAlive()||owner.level()!=level()){discard();return;}
@@ -60,7 +75,7 @@ public final class ShackledSickleProjectile extends ThrowableItemProjectile {
                 setPos(target.getX(),target.getY()+target.getBbHeight()*.58,target.getZ());
                 Vec3 delta=owner.position().subtract(target.position()).multiply(1,0,1);
                 if(delta.lengthSqr()>2.5 && target.getBbHeight()<=4F){
-                    Vec3 step=delta.normalize().scale(.19);
+                    Vec3 step=delta.normalize().scale(.32);
                     if(world.noCollision(target,target.getBoundingBox().move(step)))target.setDeltaMovement(target.getDeltaMovement().add(step));
                 }else {targetId=null;returning=true;}
             }
@@ -84,12 +99,14 @@ public final class ShackledSickleProjectile extends ThrowableItemProjectile {
         super.addAdditionalSaveData(tag);
         if(targetId!=null)tag.putUUID("ChainTarget",targetId);
         tag.putBoolean("ChainReturning",returning);
+        tag.putBoolean("ChainRupture",rupture);
         tag.putInt("ChainPullTicks",pullTicks);
     }
     @Override public void readAdditionalSaveData(CompoundTag tag){
         super.readAdditionalSaveData(tag);
         targetId=tag.hasUUID("ChainTarget")?tag.getUUID("ChainTarget"):null;
         returning=tag.getBoolean("ChainReturning");
+        rupture=tag.getBoolean("ChainRupture");
         pullTicks=tag.getInt("ChainPullTicks");
     }
 }
