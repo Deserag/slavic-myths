@@ -46,9 +46,12 @@ public final class ShipRigidMotionProof {
         // headings, full-hull collision is queried for intermediate poses.
         ShipRigidMotion turning=new ShipRigidMotion(new ShipRigidMotion.Pose(0,0,0));
         int[] queried={0};
+        // At high angular speed, even one tick can sweep the bow far enough
+        // to demand several intermediate tests, not one endpoint.
+        turning.restore(new ShipRigidMotion.Pose(0,0,0),.15D,2.2D);
         ShipRigidMotion.Frame blocked=turning.advance(
                 new ShipRigidMotion.Control(1,1),pose->{queried[0]++;return queried[0]<2;});
-        ok(blocked.blocked()&&turning.pose().equals(blocked.before()),
+        ok(queried[0]>=2&&blocked.blocked()&&turning.pose().equals(blocked.before()),
                 "Collision moved vessel through a barrier");
         close(turning.speed(),0,0,"Collision did not stop longitudinal motion");
         close(turning.angularVelocity(),0,0,"Collision did not stop turn");
