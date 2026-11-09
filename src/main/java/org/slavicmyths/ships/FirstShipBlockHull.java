@@ -331,6 +331,18 @@ public final class FirstShipBlockHull {
         return blocks;
     }
 
+    /** V7 keeps the mast and yards physical; the cloth is a thin rendered mesh. */
+    private static Map<BlockPos, BlockState> layoutV7(BlockPos anchor, int turns, int rig, int fabric) {
+        Map<BlockPos, BlockState> blocks = layoutV6(anchor, turns, rig, fabric);
+        blocks.entrySet().removeIf(entry -> entry.getValue().is(Blocks.WHITE_WOOL)
+                || entry.getValue().is(Blocks.LIGHT_GRAY_WOOL)
+                || entry.getValue().is(Blocks.YELLOW_WOOL)
+                || entry.getValue().is(Blocks.RED_WOOL)
+                || entry.getValue().is(Blocks.BLUE_WOOL)
+                || entry.getValue().is(Blocks.BROWN_WOOL));
+        return blocks;
+    }
+
     private static void addYardV3(Map<BlockPos, BlockState> blocks, BlockPos anchor,
             int turns, int y, int span) {
         BlockState beam = Blocks.DARK_OAK_LOG.defaultBlockState().setValue(
@@ -361,7 +373,8 @@ public final class FirstShipBlockHull {
 
     private static Map<BlockPos, BlockState> layout(BlockPos anchor, int turns,
             int rig, int fabric, int geometry) {
-        return geometry >= 6 ? layoutV6(anchor, turns, rig, fabric)
+        return geometry >= 7 ? layoutV7(anchor, turns, rig, fabric)
+                : geometry == 6 ? layoutV6(anchor, turns, rig, fabric)
                 : geometry == 5 ? layoutV5(anchor, turns, rig, fabric)
                 : geometry == 4 ? layoutV4(anchor, turns, rig, fabric)
                 : geometry == 3 ? layoutV3(anchor, turns, rig, fabric)
@@ -650,6 +663,11 @@ public final class FirstShipBlockHull {
         return build(level, anchor, turns, old.cargo(), 1, 1, 6);
     }
 
+    public static boolean migrateVisualSailV7(ServerLevel level, BlockPos anchor,
+            int turns, int rig, int fabric) {
+        return rig > 0 && migrateGeometry(level, anchor, turns, rig, fabric, 6, 7);
+    }
+
     /** Migrate V2 saves without reinterpreting the existing physical layout. */
     public static boolean migrateGeometryV2(ServerLevel level, BlockPos anchor, int turns,
             int rig, int fabric) {
@@ -790,7 +808,7 @@ public final class FirstShipBlockHull {
     public record MotionSnapshot(ListTag cargo, int geometry, int rig, int fabric, int turn) {
         public MotionSnapshot {
             if (cargo == null || cargo.size() > WIDTH * LENGTH * 2
-                    || geometry < 2 || geometry > 6
+                    || geometry < 2 || geometry > 7
                     || turn < 0 || turn > 3
                     || decode(cargo) == null)
                 throw new IllegalArgumentException("Unsafe moving ship snapshot");
@@ -802,7 +820,7 @@ public final class FirstShipBlockHull {
 
     public static MotionSnapshot captureForMotion(ServerLevel level, BlockPos anchor,
             int turns, int rig, int fabric, int geometry) {
-        if (geometry < 2 || geometry > 6 || turns < 0 || turns > 3) return null;
+        if (geometry < 2 || geometry > 7 || turns < 0 || turns > 3) return null;
         ListTag cargo = pack(level, anchor, turns, rig, fabric, geometry);
         return cargo == null ? null : new MotionSnapshot(cargo, geometry, rig, fabric, turns);
     }

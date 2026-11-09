@@ -1,11 +1,13 @@
 package org.slavicmyths.ships.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
@@ -36,6 +38,8 @@ import org.slavicmyths.ships.RaftContent;
  * renderer: per-block calls can be expensive on larger ships.
  */
 public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
+    private static final ResourceLocation SAIL_TEXTURE = ResourceLocation.fromNamespaceAndPath(
+            "slavicmyths", "textures/block/linen_cover.png");
     private final ItemRenderer items;
     private final ItemStack helm;
     private String paletteKey = "";
@@ -47,6 +51,7 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         helm = new ItemStack(RaftContent.HELM_MODULE.get());
         shadowRadius = 0F;
     }
+
 
     private Map<BlockPos, BlockState> movingPalette(FirstShipEntity ship) {
         String key = ship.geometryVersion() + ":" + ship.rigLevel() + ":"
@@ -135,6 +140,74 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 -.15D, -.15D, -.12D, .30F, .30F, .24F);
         pose.popPose();
         pose.popPose();
+        if (ship.geometryVersion() >= 7 && ship.rigLevel() > 0)
+            renderFabricSail(ship, yaw, partialTick, pose, buffers, deckLight);
+    }
+
+    /** Thin, bowed cloth panels. The V7 layout retains physical mast and yards. */
+    private void renderFabricSail(FirstShipEntity ship, float yaw, float partialTick,
+            PoseStack pose, MultiBufferSource buffers, int light) {
+        BlockState seam = (ship.fabricQuality() == 2 ? Blocks.BLUE_WOOL
+                : ship.fabricQuality() == 3 ? Blocks.BROWN_WOOL
+                : Blocks.RED_WOOL).defaultBlockState();
+        pose.pushPose();
+        pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
+        int rig = ship.rigLevel();
+        if (rig == 1) sailPanel(ship, partialTick, pose, buffers, light, seam, 7D, 12D, 3);
+        else if (rig == 2) {
+            sailPanel(ship, partialTick, pose, buffers, light, seam, 8D, 10D, 3);
+            sailPanel(ship, partialTick, pose, buffers, light, seam, 13D, 15D, 2);
+        } else {
+            sailPanel(ship, partialTick, pose, buffers, light, seam, 8D, 15D, 3);
+            if (rig >= 4) sailPanel(ship, partialTick, pose, buffers, light,
+                    seam, 18D, 20D, 2);
+        }
+        pose.popPose();
+    }
+
+    private void sailPanel(FirstShipEntity ship, float partialTick, PoseStack pose,
+            MultiBufferSource buffers, int light, BlockState seam,
+            double bottom, double top, int span) {
+        double height = top - bottom + 1D;
+        VertexConsumer fabric = buffers.getBuffer(RenderType.entityCutoutNoCull(SAIL_TEXTURE));
+        float tintR = ship.fabricQuality() == 2 ? .82F : 1F;
+        float tintG = ship.fabricQuality() == 3 ? .86F : 1F;
+        float tintB = ship.fabricQuality() == 3 ? .58F : 1F;
+        for (int row = 0; row < 3; row++) {
+            for (int column = 0; column < 5; column++) {
+                sailVertex(fabric, pose, ship, partialTick, light, tintR, tintG, tintB,
+                        column, row, bottom, height, span);
+                sailVertex(fabric, pose, ship, partialTick, light, tintR, tintG, tintB,
+                        column + 1, row, bottom, height, span);
+                sailVertex(fabric, pose, ship, partialTick, light, tintR, tintG, tintB,
+                        column + 1, row + 1, bottom, height, span);
+                sailVertex(fabric, pose, ship, partialTick, light, tintR, tintG, tintB,
+                        column, row + 1, bottom, height, span);
+            }
+        }
+        // Boltrope and lashing points remain visible from either side.
+        for (double x : new double[]{-span, span})
+            piece(Blocks.OAK_PLANKS.defaultBlockState(), pose, buffers, light,
+                    x, bottom, .16D, .055F, (float)height, .055F);
+        for (double y : new double[]{bottom, bottom + height - .08D})
+            piece(seam, pose, buffers, light, -span, y, .17D,
+                    (float)(span * 2D), .08F, .025F);
+    }
+
+    private void sailVertex(VertexConsumer out, PoseStack pose, FirstShipEntity ship,
+            float partialTick, int light, float red, float green, float blue,
+            int column, int row, double bottom, double height, int span) {
+        float u = column / 5F, v = row / 3F;
+        double x = span * (2D * u - 1D);
+        double y = bottom + height * v;
+        double belly = .15D + .4D * (1D - (x * x) / (span * span))
+                * (1D - Math.pow(2D * v - 1D, 2D));
+        double wind = Math.sin((ship.tickCount + partialTick) * .075D + x * .6D) * .045D
+                * Math.sin(Math.PI * v);
+        out.addVertex(pose.last().pose(), (float)x, (float)y, (float)(belly + wind))
+                .setColor(red, green, blue, 1F).setUv(u, v)
+                .setOverlay(OverlayTexture.NO_OVERLAY).setLight(light)
+                .setNormal(pose.last(), 0F, 0F, 1F);
     }
 
     private void piece(BlockState state, PoseStack pose, MultiBufferSource buffers, int light,
@@ -152,7 +225,9 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             double cameraX, double cameraY, double cameraZ) {
         // Entity's vanilla boat AABB is much smaller than the 7x11 ship and
         // can be outside the camera while its stern wheel remains visible.
-        return frustum.isVisible(ship.getBoundingBox().inflate(9D, 14D, 9D));
+        return ship.isNativeHull()
+                ? frustum.isVisible(ship.getBoundingBox().inflate(9D, 16D, 9D))
+                : super.shouldRender(ship, frustum, cameraX, cameraY, cameraZ);
     }
 
     @Override public ResourceLocation getTextureLocation(FirstShipEntity ship) {

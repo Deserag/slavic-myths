@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
  */
 public final class ShipMovingContraption {
     private final FirstShipBlockHull.MotionSnapshot snapshot;
+    private final ListTag cargo;
     private final Map<BlockPos, BlockState> palette;
     private final int waterlineY;
     private final ShipRigidMotion motion;
@@ -28,6 +29,7 @@ public final class ShipMovingContraption {
     private ShipMovingContraption(FirstShipBlockHull.MotionSnapshot snapshot,
             int surfaceY, ShipRigidMotion motion, boolean detached) {
         this.snapshot = snapshot;
+        this.cargo = snapshot.cargo();
         this.waterlineY = surfaceY;
         this.motion = motion;
         this.palette = FirstShipBlockHull.localMotionPalette(snapshot);
@@ -57,8 +59,11 @@ public final class ShipMovingContraption {
 
     public ShipRigidMotion.Frame tick(ServerLevel world, ShipRigidMotion.Control helm) {
         if (!detached || parked) throw new IllegalStateException("Cannot move an attached hull");
-        return motion.advance(helm,
+        ShipRigidMotion.Frame frame = motion.advance(helm,
                 pose -> ShipMovingClearance.clearPose(world, pose, waterlineY, palette));
+        if (!frame.blocked() && !frame.before().equals(frame.after()))
+            ShipMovingClearance.clearSoftObstacles(world, frame.after(), waterlineY, palette);
+        return frame;
     }
 
     /**
@@ -76,7 +81,7 @@ public final class ShipMovingContraption {
         BlockPos target = BlockPos.containing(pose.x(), waterlineY, pose.z());
         if (Math.abs(pose.x() - (target.getX() + .5D)) > .20D
                 || Math.abs(pose.z() - (target.getZ() + .5D)) > .20D) return false;
-        if (!FirstShipBlockHull.restoreFromMotion(world, target, turn, snapshot)) return false;
+        if (!FirstShipBlockHull.restoreFromMotion(world, target, turn, snapshot())) return false;
         parked = true;
         detached = false;
         return true;
@@ -84,7 +89,22 @@ public final class ShipMovingContraption {
 
     public ShipRigidMotion.Pose pose() { return motion.pose(); }
     public ShipRigidMotion motion() { return motion; }
-    public FirstShipBlockHull.MotionSnapshot snapshot() { return snapshot; }
+    public FirstShipBlockHull.MotionSnapshot snapshot() {
+        return new FirstShipBlockHull.MotionSnapshot(cargo, snapshot.geometry(),
+                snapshot.rig(), snapshot.fabric(), snapshot.turn());
+    }
+    public int cargoCount() { return cargo.size(); }
+    public CompoundTag cargoEntry(int index) {
+        return index < 0 || index >= cargo.size() ? null : cargo.getCompound(index).copy();
+    }
+    public boolean updateCargoEntry(int index, CompoundTag blockEntity) {
+        if (index < 0 || index >= cargo.size() || blockEntity == null) return false;
+        CompoundTag entry = cargo.getCompound(index).copy();
+        if (!entry.contains("BlockEntity", Tag.TAG_COMPOUND)) return false;
+        entry.put("BlockEntity", blockEntity.copy());
+        cargo.set(index, entry);
+        return true;
+    }
     public Map<BlockPos, BlockState> palette() { return palette; }
     public int waterlineY() { return waterlineY; }
     public boolean detached() { return detached; }
@@ -103,7 +123,7 @@ public final class ShipMovingContraption {
         tag.putInt("Rig", snapshot.rig());
         tag.putInt("Fabric", snapshot.fabric());
         tag.putInt("OriginalTurn", snapshot.turn());
-        tag.put("Cargo", snapshot.cargo());
+        tag.put("Cargo", cargo.copy());
         tag.putDouble("X", motion.pose().x());
         tag.putDouble("Z", motion.pose().z());
         tag.putDouble("Yaw", motion.pose().yaw());

@@ -4,7 +4,8 @@
   "package": "org.slavicmyths.ships.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "MovingShipCollisionMixin"
+    "MovingShipCollisionMixin",
+    "MovingShipLadderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

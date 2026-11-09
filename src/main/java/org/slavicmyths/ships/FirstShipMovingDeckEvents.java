@@ -74,8 +74,10 @@ public final class FirstShipMovingDeckEvents {
                         feet.z - last.previousFeet().z);
                 alreadyMoved = distExpected < .055D && distExpected < distOld;
             }
-            double targetX = alreadyMoved ? feet.x : moved.x();
-            double targetZ = alreadyMoved ? feet.z : moved.z();
+            // On the server the ship tick is the sole owner of horizontal
+            // transport. PlayerTick may run on either side of that tick.
+            double targetX = !player.level().isClientSide || alreadyMoved ? feet.x : moved.x();
+            double targetZ = !player.level().isClientSide || alreadyMoved ? feet.z : moved.z();
             boolean grounded = feet.y <= surface + .19D
                     && player.getDeltaMovement().y <= .09D;
             double targetY = grounded ? surface + .02D : feet.y;

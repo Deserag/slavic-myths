@@ -44,7 +44,7 @@ public final class FirstShipSteeringClient {
         boolean forward = mc.options.keyUp.isDown(), reverse = mc.options.keyDown.isDown();
         // A/D must not be silently ignored while W/S is held (vanilla boat
         // control commonly combines keys). Opposite keys neutralize an axis.
-        if (ship.isMoving()) {
+        if (ship.isMoving() || ship.geometryVersion() >= 5) {
             int throttle = forward == reverse ? 0 : forward ? 1 : -1;
             int turn = left == right ? 0 : left ? -1 : 1;
             if (throttle > 0 && turn < 0) action = FirstShipNetwork.FORWARD_LEFT;
@@ -56,6 +56,7 @@ public final class FirstShipSteeringClient {
             else if (turn < 0) action = FirstShipNetwork.LEFT;
             else if (turn > 0) action = FirstShipNetwork.RIGHT;
             else action = FirstShipNetwork.HELM_IDLE;
+            if (action == FirstShipNetwork.HELM_IDLE && !ship.isMoving()) return;
         } else {
             if (left != right) action = left ? FirstShipNetwork.LEFT : FirstShipNetwork.RIGHT;
             else if (forward != reverse)

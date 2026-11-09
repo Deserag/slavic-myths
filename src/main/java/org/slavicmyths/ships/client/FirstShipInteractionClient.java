@@ -52,6 +52,37 @@ public final class FirstShipInteractionClient {
                 }
                 continue;
             }
+            if (ship.isMoving() && !ship.movingCargoView().isBlank()) {
+                FirstShipHull.Point start = FirstShipHull.toLocal(eye.x, eye.z,
+                        ship.getX(), ship.getZ(), ship.getYRot());
+                Vec3 endWorld = eye.add(direction.scale(5D));
+                FirstShipHull.Point end = FirstShipHull.toLocal(endWorld.x, endWorld.z,
+                        ship.getX(), ship.getZ(), ship.getYRot());
+                Vec3 localEye = new Vec3(start.x(), eye.y - ship.getY(), start.z());
+                Vec3 localEnd = new Vec3(end.x(), endWorld.y - ship.getY(), end.z());
+                String[] cargo = ship.movingCargoView().split(";");
+                for (int i = 0; i < cargo.length; i++) {
+                    String[] fields = cargo[i].split(",");
+                    if (fields.length != 4) continue;
+                    try {
+                        int x = Integer.parseInt(fields[0]);
+                        int y = Integer.parseInt(fields[1]);
+                        int z = Integer.parseInt(fields[2]);
+                        var hit = new net.minecraft.world.phys.AABB(x - .5D, y, z - .5D,
+                                x + .5D, y + 1D, z + .5D).clip(localEye, localEnd);
+                        if (hit.isPresent()) {
+                            double distance = hit.get().distanceToSqr(localEye);
+                            if (distance < nearest) {
+                                nearest = distance;
+                                selected = ship;
+                                action = FirstShipNetwork.CARGO_BASE + i;
+                            }
+                        }
+                    } catch (NumberFormatException invalid) {
+                        // Malformed cosmetic sync data cannot create an action.
+                    }
+                }
+            }
             if (Math.abs(mc.player.getY() - ship.deckY()) < .95D
                     && Math.abs(at.x()) < 1.8D
                     && Math.abs(at.z() - FirstShipHull.HELM_Z) < 1.8D) {

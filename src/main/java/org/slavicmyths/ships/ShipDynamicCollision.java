@@ -1,6 +1,6 @@
 package org.slavicmyths.ships;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -22,14 +22,27 @@ import net.minecraft.world.phys.shapes.VoxelShape;
  * Create-style contraptions need moving collision geometry in the entity
  * collision pipeline, not a visual block palette plus post-tick teleports.
  * The voxel boxes here are transformed with the same rigid hull pose.
- * Rotated boxes use conservative world-axis envelopes, so this is a first
- * collision layer, not a complete oriented-box continuous solver.
+ * Local block shapes are indexed by cell. A player queries only nearby cells;
+ * rotated boxes are subdivided before conversion to vanilla axis-aligned
+ * shapes, reducing the invisible corners of a whole-block envelope.
  */
 public final class ShipDynamicCollision {
-    private record Volume(AABB bounds, VoxelShape shape) {}
-    private record Cache(double x, double y, double z, float yaw, String key,
-                         List<Volume> volumes) {}
-    private static final Map<FirstShipEntity, Cache> CACHED = new WeakHashMap<>();
+    private record Geometry(String key, Map<BlockPos, List<AABB>> cells) {}
+    private static final Map<FirstShipEntity, Geometry> GEOMETRY = new WeakHashMap<>();
+
+    public static boolean onMovingLadder(Player player) {
+        if (!player.isAlive() || player.isPassenger() || player.isSpectator()) return false;
+        for (FirstShipEntity ship : player.level().getEntitiesOfClass(FirstShipEntity.class,
+                player.getBoundingBox().inflate(8D, 6D, 8D))) {
+            if (ship.isRemoved() || !ship.isMoving()) continue;
+            FirstShipHull.Point local = FirstShipHull.toLocal(player.getX(), player.getZ(),
+                    ship.getX(), ship.getZ(), ship.getYRot());
+            double y = player.getY() - ship.getY();
+            if (FirstShipHull.onLadder(local.x(), local.z()) && y >= .9D && y <= 4.9D)
+                return true;
+        }
+        return false;
+    }
 
     public static void collect(Entity entity, Level level, AABB region,
                                List<VoxelShape> collisions) {
@@ -38,20 +51,79 @@ public final class ShipDynamicCollision {
         for (FirstShipEntity ship : level.getEntitiesOfClass(FirstShipEntity.class,
                 region.inflate(12D, 15D, 12D))) {
             if (ship.isRemoved() || !ship.isMoving()) continue;
-            Cache cache = cache(ship, level);
-            for (Volume volume : cache.volumes())
-                if (volume.bounds().intersects(region)) collisions.add(volume.shape());
+            Geometry geometry = geometry(ship, level);
+            AABB local = localBounds(region, ship);
+            double angle = Math.toRadians(ship.getYRot());
+            double cos = Math.cos(angle), sin = Math.sin(angle);
+            double remainder = Math.abs(ship.getYRot()) % 90D;
+            int subdivisions = remainder < .01D || remainder > 89.99D ? 1 : 4;
+            for (int y = (int)Math.floor(local.minY) - 1;
+                    y <= (int)Math.ceil(local.maxY) + 1; y++)
+                for (int x = (int)Math.floor(local.minX) - 1;
+                        x <= (int)Math.ceil(local.maxX) + 1; x++)
+                    for (int z = (int)Math.floor(local.minZ) - 1;
+                            z <= (int)Math.ceil(local.maxZ) + 1; z++) {
+                        List<AABB> shapes = geometry.cells().get(new BlockPos(x, y, z));
+                        if (shapes == null) continue;
+                        for (AABB shape : shapes) {
+                            double x0 = x + shape.minX - .5D, x1 = x + shape.maxX - .5D;
+                            double z0 = z + shape.minZ - .5D, z1 = z + shape.maxZ - .5D;
+                            double y0 = ship.getY() + y + shape.minY;
+                            double y1 = ship.getY() + y + shape.maxY;
+                            if (x1 < local.minX || x0 > local.maxX
+                                    || z1 < local.minZ || z0 > local.maxZ
+                                    || y1 < region.minY || y0 > region.maxY) continue;
+                            for (int sx = 0; sx < subdivisions; sx++)
+                                for (int sz = 0; sz < subdivisions; sz++) {
+                                    double ax = x0 + (x1 - x0) * sx / subdivisions;
+                                    double bx = x0 + (x1 - x0) * (sx + 1) / subdivisions;
+                                    double az = z0 + (z1 - z0) * sz / subdivisions;
+                                    double bz = z0 + (z1 - z0) * (sz + 1) / subdivisions;
+                                    AABB box = transformed(ship, ax, bx, az, bz,
+                                            y0, y1, cos, sin);
+                                    if (box.intersects(region)) collisions.add(Shapes.create(box));
+                                }
+                        }
+                    }
         }
     }
 
-    private static Cache cache(FirstShipEntity ship, Level level) {
+
+
+    private static AABB localBounds(AABB world, FirstShipEntity ship) {
+        double minX = Double.POSITIVE_INFINITY, minZ = Double.POSITIVE_INFINITY;
+        double maxX = Double.NEGATIVE_INFINITY, maxZ = Double.NEGATIVE_INFINITY;
+        for (double x : new double[]{world.minX, world.maxX})
+            for (double z : new double[]{world.minZ, world.maxZ}) {
+                FirstShipHull.Point p = FirstShipHull.toLocal(x, z,
+                        ship.getX(), ship.getZ(), ship.getYRot());
+                minX = Math.min(minX, p.x()); maxX = Math.max(maxX, p.x());
+                minZ = Math.min(minZ, p.z()); maxZ = Math.max(maxZ, p.z());
+            }
+        return new AABB(minX, world.minY - ship.getY(), minZ,
+                maxX, world.maxY - ship.getY(), maxZ);
+    }
+
+    private static AABB transformed(FirstShipEntity ship, double x0, double x1,
+            double z0, double z1, double y0, double y1, double cos, double sin) {
+        double minX = Double.POSITIVE_INFINITY, minZ = Double.POSITIVE_INFINITY;
+        double maxX = Double.NEGATIVE_INFINITY, maxZ = Double.NEGATIVE_INFINITY;
+        for (double x : new double[]{x0, x1})
+            for (double z : new double[]{z0, z1}) {
+                double wx = ship.getX() + x * cos - z * sin;
+                double wz = ship.getZ() + x * sin + z * cos;
+                minX = Math.min(minX, wx); maxX = Math.max(maxX, wx);
+                minZ = Math.min(minZ, wz); maxZ = Math.max(maxZ, wz);
+            }
+        return new AABB(minX, y0, minZ, maxX, y1, maxZ);
+    }
+
+    private static Geometry geometry(FirstShipEntity ship, Level level) {
         String key = ship.geometryVersion() + ":" + ship.rigLevel() + ":"
                 + ship.fabricQuality() + ":" + ship.movingCargoView();
-        synchronized (CACHED) {
-            Cache current = CACHED.get(ship);
-            if (current != null && current.x() == ship.getX() && current.y() == ship.getY()
-                    && current.z() == ship.getZ() && current.yaw() == ship.getYRot()
-                    && current.key().equals(key)) return current;
+        synchronized (GEOMETRY) {
+            Geometry existing = GEOMETRY.get(ship);
+            if (existing != null && existing.key().equals(key)) return existing;
             Map<BlockPos, BlockState> palette = ship.serverMovingPalette();
             if (palette == null) {
                 ListTag cargo = new ListTag();
@@ -68,7 +140,7 @@ public final class ShipDynamicCollision {
                         entry.put("BlockEntity", new CompoundTag());
                         cargo.add(entry);
                     } catch (NumberFormatException invalid) {
-                        // Ignore invalid cosmetic tokens, never invent cargo.
+                        // Ignore malformed cosmetic tokens.
                     }
                 }
                 try {
@@ -80,36 +152,17 @@ public final class ShipDynamicCollision {
                     palette = Map.of();
                 }
             }
-            List<Volume> volumes = new ArrayList<>();
+            Map<BlockPos, List<AABB>> cells = new HashMap<>();
             BlockPos sample = ship.blockPosition();
-            double cos = Math.cos(Math.toRadians(ship.getYRot()));
-            double sin = Math.sin(Math.toRadians(ship.getYRot()));
             for (var entry : palette.entrySet()) {
                 BlockState state = entry.getValue();
                 if (state.isAir()) continue;
-                VoxelShape shape = state.getCollisionShape(level, sample, CollisionContext.empty());
-                if (shape.isEmpty()) continue;
-                BlockPos p = entry.getKey();
-                for (AABB local : shape.toAabbs()) {
-                    double minX = Double.POSITIVE_INFINITY, minZ = Double.POSITIVE_INFINITY;
-                    double maxX = Double.NEGATIVE_INFINITY, maxZ = Double.NEGATIVE_INFINITY;
-                    for (double x : new double[]{p.getX() + local.minX - .5D,
-                            p.getX() + local.maxX - .5D})
-                        for (double z : new double[]{p.getZ() + local.minZ - .5D,
-                                p.getZ() + local.maxZ - .5D}) {
-                            double wx = ship.getX() + x * cos - z * sin;
-                            double wz = ship.getZ() + x * sin + z * cos;
-                            minX = Math.min(minX, wx); maxX = Math.max(maxX, wx);
-                            minZ = Math.min(minZ, wz); maxZ = Math.max(maxZ, wz);
-                        }
-                    AABB worldBox = new AABB(minX, ship.getY() + p.getY() + local.minY,
-                            minZ, maxX, ship.getY() + p.getY() + local.maxY, maxZ);
-                    volumes.add(new Volume(worldBox, Shapes.create(worldBox)));
-                }
+                List<AABB> boxes = state.getCollisionShape(level, sample,
+                        CollisionContext.empty()).toAabbs();
+                if (!boxes.isEmpty()) cells.put(entry.getKey(), List.copyOf(boxes));
             }
-            Cache updated = new Cache(ship.getX(), ship.getY(), ship.getZ(),
-                    ship.getYRot(), key, List.copyOf(volumes));
-            CACHED.put(ship, updated);
+            Geometry updated = new Geometry(key, Map.copyOf(cells));
+            GEOMETRY.put(ship, updated);
             return updated;
         }
     }

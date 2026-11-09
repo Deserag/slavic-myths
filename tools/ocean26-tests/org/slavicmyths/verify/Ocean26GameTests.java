@@ -6,6 +6,8 @@ import io.netty.channel.embedded.EmbeddedChannel;
 import java.util.UUID;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.TicketType;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
@@ -26,6 +28,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.gametest.GameTestHolder;
@@ -44,6 +47,8 @@ import org.slavicmyths.ships.RaftContent;
 @GameTestHolder("slavicmyths_ocean26")
 @PrefixGameTestTemplate(false)
 public final class Ocean26GameTests {
+    private static final TicketType<Long> VOYAGE_TICKET = TicketType.create(
+            "slavicmyths_ocean26_voyage", Long::compare);
     private static final class LocalConnection extends Connection {
         private final EmbeddedChannel wire = new EmbeddedChannel();
         LocalConnection() { super(PacketFlow.SERVERBOUND); }
@@ -585,11 +590,26 @@ public final class Ocean26GameTests {
                 "Contraption failed to detach after complete NBT checkpoint");
         t.assertTrue(level.getBlockState(storage).isAir(),
                 "Moving chest incorrectly remained in world");
+        BlockPos waterloggedWall = anchor.offset(0, 0, 4);
+        level.setBlock(waterloggedWall, Blocks.OAK_SLAB.defaultBlockState()
+                .setValue(SlabBlock.WATERLOGGED, true), 2);
+        t.assertTrue(!org.slavicmyths.ships.ShipMovingClearance.clearPose(level,
+                body.pose(), body.waterlineY(), body.palette()),
+                "Waterlogged solid construction was treated as open water");
+        level.setBlock(waterloggedWall, Blocks.TUBE_CORAL_BLOCK.defaultBlockState(), 2);
+        t.assertTrue(!org.slavicmyths.ships.ShipMovingClearance.clearPose(level,
+                body.pose(), body.waterlineY(), body.palette()),
+                "Solid coral block was treated as a harmless plant");
+        level.setBlock(waterloggedWall, Blocks.WATER.defaultBlockState(), 2);
+        BlockPos lily = anchor.offset(0, 0, 3);
+        level.setBlock(lily, Blocks.LILY_PAD.defaultBlockState(), 2);
         var throttle = new org.slavicmyths.ships.ShipRigidMotion.Control(.7D,.4D);
         for (int tick = 0; tick < 25; tick++) {
             var frame = body.tick(level, throttle);
             t.assertTrue(!frame.blocked(),"Real world collision denied open-water fractional motion");
         }
+        t.assertTrue(!level.getBlockState(lily).is(Blocks.LILY_PAD),
+                "Moving lower hull failed to clear a crossed lily pad");
         t.assertTrue(body.pose().z() > anchor.getZ() + .8D
                 && Math.abs(body.pose().yaw()) > 1D
                 && Math.abs(body.pose().yaw()) < 75D,
@@ -625,8 +645,10 @@ public final class Ocean26GameTests {
     public static void liveFirstShipDetachesAndSailsFractionally(GameTestHelper t) {
         ServerLevel level = t.getLevel();
         BlockPos anchor = t.absolutePos(new BlockPos(12, 4, 12));
-        for(int x=-10;x<=10;x++)
-            for(int z=-15;z<=15;z++) {
+        level.getChunkSource().addRegionTicket(VOYAGE_TICKET,
+                new ChunkPos(anchor), 3, anchor.asLong());
+        for(int x=-25;x<=25;x++)
+            for(int z=-25;z<=25;z++) {
                 BlockPos p = anchor.offset(x,0,z);
                 level.setBlock(p.below(),Blocks.WATER.defaultBlockState(),2);
                 level.setBlock(p,Blocks.WATER.defaultBlockState(),2);
@@ -647,6 +669,8 @@ public final class Ocean26GameTests {
                 new Vec3(ship.getX()+1D,ship.deckY()+.02D,ship.getZ()));
         ServerPlayer holdCrew=player(level,"SmoothHoldCrew",
                 new Vec3(ship.getX(),ship.holdY()+.02D,ship.getZ()));
+        ServerPlayer climber=player(level,"SmoothLadderCrew",
+                new Vec3(ship.getX()-1D,ship.holdY()+1D,ship.getZ()+2D));
         t.assertTrue(captain.startRiding(ship),"Motion captain could not board");
         final double startingZ=ship.getZ();
         t.runAtTickTime(5L,()->{
@@ -654,12 +678,35 @@ public final class Ocean26GameTests {
                     "New ship failed to assemble into moving palette");
             t.assertTrue(ship.isMoving() && level.getBlockState(cargo).isAir(),
                     "Moving ship left real chest blocks behind");
+            java.util.List<net.minecraft.world.phys.shapes.VoxelShape> initialDeckShapes =
+                    new java.util.ArrayList<>();
+            org.slavicmyths.ships.ShipDynamicCollision.collect(deckCrew, level,
+                    deckCrew.getBoundingBox().expandTowards(0D, -.35D, 0D), initialDeckShapes);
+            t.assertTrue(!initialDeckShapes.isEmpty(),
+                    "Moving deck collision query returned no local shapes: ship="
+                            + ship.position() + " crew=" + deckCrew.position()
+                            + " nearby=" + level.getEntitiesOfClass(FirstShipEntity.class,
+                                    deckCrew.getBoundingBox().inflate(12D, 15D, 12D)).size());
+            t.assertTrue(climber.onClimbable(),
+                    "Detached moving ladder no longer supports vanilla climbing");
+            climber.discard();
+            t.assertTrue(ship.openMovingCargo(deckCrew, 0),
+                    "Detached chest cannot be opened by deck crew");
+            deckCrew.containerMenu.getSlot(0).set(new ItemStack(Items.DIAMOND, 13));
+            deckCrew.closeContainer();
+            ServerPlayer outsider = player(level, "CargoOutsider",
+                    new Vec3(ship.getX() + 8D, ship.deckY(), ship.getZ()));
+            t.assertTrue(!ship.openMovingCargo(outsider, 0),
+                    "Outsider opened detached cargo from beyond the hull");
+            outsider.discard();
             // Prove actual vanilla collision resolution, not a Post-tick
             // teleport: a descending crew member must hit the moving deck.
             deckCrew.move(net.minecraft.world.entity.MoverType.SELF,
                     new Vec3(0D, -.35D, 0D));
             t.assertTrue(deckCrew.getY() >= ship.deckY() - .06D,
-                    "Moving deck has no physical player collision after detachment");
+                    "Moving deck has no physical player collision after detachment: y="
+                            + deckCrew.getY() + " deck=" + ship.deckY()
+                            + " ship=" + ship.position());
         });
         for(int tick=6;tick<=45;tick++)
             t.runAtTickTime(tick,()->{
@@ -667,6 +714,7 @@ public final class Ocean26GameTests {
                 t.assertTrue(ship.helmStep(captain,FirstShipNetwork.FORWARD_RIGHT),
                         "Moving helm rejected combined WASD");
             });
+        final double[] releasedPose = new double[2];
         t.runAtTickTime(50L,()->{
             t.assertTrue(ship.isMoving()&&ship.getZ()>startingZ+.12D
                     && Math.abs(ship.getYRot())>2D && Math.abs(ship.getYRot())<90D,
@@ -682,21 +730,88 @@ public final class Ocean26GameTests {
                     holdCrew.getX(),holdCrew.getZ(),ship.getX(),ship.getZ(),ship.getYRot());
             t.assertTrue(Math.hypot(deckLocal.x()-1D,deckLocal.z())<.42D
                     && Math.abs(deckCrew.getY()-ship.deckY())<.30D,
-                    "Free-walking deck crew stayed behind the smooth ship");
+                    "Free-walking deck crew stayed behind: local=" + deckLocal
+                            + " y=" + deckCrew.getY() + " deck=" + ship.deckY()
+                            + " ship=" + ship.position());
             t.assertTrue(Math.hypot(holdLocal.x(),holdLocal.z())<.42D
                     && Math.abs(holdCrew.getY()-ship.holdY())<.30D,
                     "Free-walking hold crew stayed behind the smooth ship");
+            java.util.List<net.minecraft.world.phys.shapes.VoxelShape> deckShapes =
+                    new java.util.ArrayList<>();
+            org.slavicmyths.ships.ShipDynamicCollision.collect(deckCrew, level,
+                    deckCrew.getBoundingBox().inflate(.2D), deckShapes);
+            t.assertTrue(!deckShapes.isEmpty() && deckShapes.size() < 800,
+                    "Rotated moving deck collision missing or unbounded: " + deckShapes.size());
+            FirstShipHull.Point wallStep = FirstShipHull.toWorld(3D, 0D,
+                    0D, 0D, ship.getYRot());
+            holdCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                    new Vec3(wallStep.x(), 0D, wallStep.z()));
+            FirstShipHull.Point stoppedAtWall = FirstShipHull.toLocal(
+                    holdCrew.getX(), holdCrew.getZ(), ship.getX(), ship.getZ(), ship.getYRot());
+            t.assertTrue(Math.abs(stoppedAtWall.x()) <=
+                    FirstShipHull.holdBeam(stoppedAtWall.z()) + .35D,
+                    "Hold crew crossed rotated moving hull wall: " + stoppedAtWall);
+            double deckBeforeJump = deckCrew.getY();
+            deckCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                    new Vec3(0D, .42D, 0D));
+            t.assertTrue(deckCrew.getY() > deckBeforeJump + .35D,
+                    "Moving deck prevented a normal upward jump");
+            deckCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                    new Vec3(0D, -.65D, 0D));
+            t.assertTrue(deckCrew.getY() >= ship.deckY() - .06D,
+                    "Jumping player fell through moving deck on landing");
             CompoundTag saved=new CompoundTag();
             ship.saveWithoutId(saved);
             t.assertTrue(saved.contains("FirstShipMovingBody",net.minecraft.nbt.Tag.TAG_COMPOUND)
                     && org.slavicmyths.ships.ShipMovingContraption.load(
                         saved.getCompound("FirstShipMovingBody")).snapshot().cargo().size()==1,
-                    "Moving ship save lacks the 11-diamond chest payload");
+                    "Moving ship save lacks the chest payload");
+            var savedBody = org.slavicmyths.ships.ShipMovingContraption.load(
+                    saved.getCompound("FirstShipMovingBody"));
+            var savedChest = net.minecraft.core.NonNullList.withSize(27, ItemStack.EMPTY);
+            net.minecraft.world.ContainerHelper.loadAllItems(
+                    savedBody.cargoEntry(0).getCompound("BlockEntity"),
+                    savedChest, level.registryAccess());
+            t.assertTrue(savedChest.get(0).is(Items.DIAMOND)
+                    && savedChest.get(0).getCount() == 13,
+                    "Edited moving chest contents were not persisted in ship NBT");
+            t.assertTrue(ship.serverMovingSpeed() > .03D,
+                    "Ship reached the dismount check without forward velocity: "
+                            + ship.serverMovingSpeed());
+            captain.stopRiding();
+            t.assertTrue(captain.getVehicle() == null && captain.getY() >= ship.deckY() - .1D,
+                    "Captain failed to dismount onto the moving deck");
+            releasedPose[0] = ship.getX();
+            releasedPose[1] = ship.getZ();
+        });
+        t.runAtTickTime(52L, () -> {
+            t.assertTrue(ship.isMoving() && Math.hypot(ship.getX() - releasedPose[0],
+                    ship.getZ() - releasedPose[1]) > .005D,
+                    "Ship lost inertia after dismount: moving=" + ship.isMoving()
+                            + " dx=" + (ship.getX() - releasedPose[0])
+                            + " dz=" + (ship.getZ() - releasedPose[1])
+                            + " speed=" + ship.serverMovingSpeed()
+                            + " originZ=" + startingZ + " currentZ=" + ship.getZ());
+            FirstShipHull.Point onDeck = FirstShipHull.toLocal(captain.getX(), captain.getZ(),
+                    ship.getX(), ship.getZ(), ship.getYRot());
+            t.assertTrue(FirstShipHull.mainDeckSupports(onDeck.x(), onDeck.z())
+                    && captain.getY() >= ship.deckY() - .1D,
+                    "Dismounted captain fell through or detached from moving deck");
+            captain.setPos(ship.getX() + 12D, ship.deckY() + 1D, ship.getZ());
+            releasedPose[0] = captain.getX();
+            releasedPose[1] = captain.getZ();
+        });
+        t.runAtTickTime(60L, () -> {
+            t.assertTrue(Math.hypot(captain.getX() - releasedPose[0],
+                    captain.getZ() - releasedPose[1]) < .25D,
+                    "Ship continued to carry a captain who left the hull");
             captain.discard();
             deckCrew.discard();
             holdCrew.discard();
             ship.discard();
-            System.out.println("OCEAN26_LIVE_SMOOTH_SHIP_PASS detached=true fractional=true combinedWASD=true captain=true deckWalker=true holdWalker=true cargoNBT=true");
+            level.getChunkSource().removeRegionTicket(VOYAGE_TICKET,
+                    new ChunkPos(anchor), 3, anchor.asLong());
+            System.out.println("OCEAN26_LIVE_SMOOTH_SHIP_PASS fractional=true dismount=true inertia=true deck=true leaveHull=true cargoNBT=true");
             t.succeed();
         });
     }
@@ -742,7 +857,118 @@ public final class Ocean26GameTests {
                 "V6 sail could not restore its full physical hull");
         t.assertTrue(chest(level, cargo, t).getItem(0).getCount() == 17,
                 "V6 sail transition modified chest contents");
-        System.out.println("OCEAN26_V6_SAIL_PASS fullCloth=true physicalBlocks=true cargo=17 restored=true");
+        t.assertTrue(FirstShipBlockHull.migrateVisualSailV7(level, anchor, 0, 1, 1),
+                "V6 to visual-sail V7 migration failed");
+        t.assertTrue(FirstShipBlockHull.pack(level, anchor, 0, 1, 1, 7) != null
+                && chest(level, cargo, t).getItem(0).getCount() == 17,
+                "V7 migration changed the hull or chest contents");
+        System.out.println("OCEAN26_V6_SAIL_PASS fullCloth=true cargo=17 restored=true migratedV7=true");
         t.succeed();
+    }
+    @GameTest(template = "empty", timeoutTicks = 270, batch = "ocean_v7_sail")
+    public static void visualSailKeepsCargoAndMoves(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(12, 4, 12));
+        level.getChunkSource().addRegionTicket(VOYAGE_TICKET,
+                new ChunkPos(anchor), 3, anchor.asLong());
+        for (int x = -25; x <= 25; x++) for (int z = -25; z <= 25; z++) {
+            BlockPos p = anchor.offset(x, 0, z);
+            level.setBlock(p.below(), Blocks.WATER.defaultBlockState(), 2);
+            level.setBlock(p, Blocks.WATER.defaultBlockState(), 2);
+            for (int y = 1; y <= 24; y++) level.setBlock(p.above(y), Blocks.AIR.defaultBlockState(), 2);
+        }
+        t.assertTrue(FirstShipBlockHull.place(level, anchor, 0, new ListTag(), 1, 1, 7),
+                "V7 ship could not be placed");
+        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor, 0, 1, 9, 0)).isAir()
+                && level.getBlockState(FirstShipBlockHull.world(anchor, 0, 1, 13, -1))
+                        .is(Blocks.DARK_OAK_LOG),
+                "V7 must keep yards but no solid wool sail wall");
+        BlockPos cargo = FirstShipBlockHull.world(anchor, 0, 1, 5, 0);
+        level.setBlock(cargo, Blocks.CHEST.defaultBlockState(), 2);
+        chest(level, cargo, t).setItem(0, new ItemStack(Items.EMERALD, 19));
+        BlockPos furnace = FirstShipBlockHull.world(anchor, 0, -1, 5, 0);
+        level.setBlock(furnace, Blocks.FURNACE.defaultBlockState(), 2);
+        t.assertTrue(level.getBlockEntity(furnace) instanceof
+                net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity,
+                "V7 moving furnace BlockEntity missing");
+        var furnaceBe = (net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity)
+                level.getBlockEntity(furnace);
+        furnaceBe.setItem(0, new ItemStack(Items.IRON_ORE));
+        furnaceBe.setItem(1, new ItemStack(Items.COAL));
+        FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
+        t.assertTrue(ship != null, "V7 ship entity missing");
+        ship.initializeNativeHull(anchor, 0);
+        ship.equipStarterSail();
+        ship.enableSmoothMotion();
+        t.assertTrue(level.addFreshEntity(ship), "V7 ship entity refused");
+        ServerPlayer captain = player(level, "V7Captain",
+                new Vec3(ship.getX(), ship.deckY(), ship.getZ() - 3D));
+        t.assertTrue(captain.startRiding(ship), "V7 captain cannot board");
+        t.runAtTickTime(5L, () -> {
+            t.assertTrue(ship.helmStep(captain, FirstShipNetwork.FORWARD_LEFT),
+                    "V7 combined first command rejected");
+            t.assertTrue(ship.isMoving() && level.getBlockState(cargo).isAir()
+                    && level.getBlockState(furnace).isAir(),
+                    "V7 did not detach physical hull and cargo");
+        });
+        for (int tick = 6; tick < 20; tick++)
+            t.runAtTickTime(tick, () -> t.assertTrue(
+                    ship.helmStep(captain, FirstShipNetwork.FORWARD_LEFT),
+                    "V7 held W+A command rejected"));
+        t.runAtTickTime(20L, () -> {
+            t.assertTrue(ship.isMoving() && ship.getZ() > anchor.getZ() + .5D,
+                    "V7 vessel did not sail fractionally");
+            t.assertTrue(ship.serverMovingPalette() != null
+                    && ship.serverMovingPalette().values().stream().noneMatch(s -> s.is(Blocks.WHITE_WOOL)),
+                    "Moving V7 palette recreated the solid wool sail");
+            t.assertTrue(ship.helmStep(captain, FirstShipNetwork.HELM_IDLE),
+                    "V7 helm did not accept release of held keys");
+        });
+        t.runAtTickTime(235L, () -> {
+            t.assertTrue(ship.isMoving(), "V7 ship parked before furnace test completed");
+            CompoundTag saved = new CompoundTag();
+            ship.saveWithoutId(saved);
+            var body = org.slavicmyths.ships.ShipMovingContraption.load(
+                    saved.getCompound("FirstShipMovingBody"));
+            t.assertTrue(body != null, "Moving furnace body failed NBT reload");
+            boolean cooked = false, chestSafe = false;
+            String furnaceState = "missing";
+            for (int i = 0; i < body.cargoCount(); i++) {
+                CompoundTag entry = body.cargoEntry(i);
+                int kind = entry.getInt("Kind");
+                var items = net.minecraft.core.NonNullList.withSize(
+                        kind == 4 ? 3 : 27, ItemStack.EMPTY);
+                net.minecraft.world.ContainerHelper.loadAllItems(
+                        entry.getCompound("BlockEntity"), items, level.registryAccess());
+                if (kind == 4) {
+                    cooked = items.get(2).is(Items.IRON_INGOT);
+                    furnaceState = items.get(0) + "/" + items.get(1) + "/"
+                            + items.get(2) + " heat=" + entry.getCompound("BlockEntity")
+                                    .getIntArray("FirstShipHeat").length;
+                }
+                if (kind == 1) chestSafe = items.get(0).is(Items.EMERALD)
+                        && items.get(0).getCount() == 19;
+            }
+            t.assertTrue(cooked && chestSafe,
+                    "Moving furnace failed: cooked=" + cooked + " furnace=" + furnaceState
+                            + " chestSafe=" + chestSafe
+                            + " speed=" + ship.serverMovingSpeed());
+            ship.discard();
+            captain.discard();
+            body.motion().restore(new org.slavicmyths.ships.ShipRigidMotion.Pose(
+                    anchor.getX() + .5D, anchor.getZ() + .5D, 0D), 0D, 0D);
+            t.assertTrue(body.park(level), "Saved V7 cargo failed physical restoration");
+            t.assertTrue(level.getBlockEntity(furnace) instanceof
+                    net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity restoredFurnace
+                    && restoredFurnace.getItem(2).is(Items.IRON_INGOT),
+                    "Restored furnace lost cooked output");
+            t.assertTrue(chest(level, cargo, t).getItem(0).getCount() == 19,
+                    "Restored chest lost preserved emeralds");
+            t.assertTrue(FirstShipBlockHull.remove(level, anchor, 0, 1, 1, 7),
+                    "V7 post-restoration hull cleanup failed");
+            level.getChunkSource().removeRegionTicket(VOYAGE_TICKET,
+                    new ChunkPos(anchor), 3, anchor.asLong());
+            t.succeed();
+        });
     }
 }
