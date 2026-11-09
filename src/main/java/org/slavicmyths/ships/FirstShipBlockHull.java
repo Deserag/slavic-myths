@@ -372,6 +372,16 @@ public final class FirstShipBlockHull {
         }
     }
 
+    /**
+     * Movable contraption palette in ship-local block coordinates.
+     * This is structural geometry only: container payloads are separately
+     * snapshotted with full vanilla BlockEntity NBT before launch.
+     * Returned snapshots are immutable; client renderers cache by rig+geometry.
+     */
+    public static Map<BlockPos, BlockState> movingPalette(int rig, int fabric, int geometry) {
+        return Map.copyOf(layout(BlockPos.ZERO, 0, rig, fabric, geometry));
+    }
+
     private static Set<BlockPos> volume(BlockPos anchor, int turns, int rig, int fabric, int geometry) {
         Set<BlockPos> volume = new HashSet<>(layout(anchor, turns, rig, fabric, geometry).keySet());
         for (int z = MIN_Z; z <= MAX_Z; z++)
