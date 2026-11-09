@@ -894,6 +894,47 @@ public final class FirstShipEntity extends Boat {
     }
 
     /**
+     * Explicit dock: the vessel must be fully stopped and facing a cardinal
+     * bearing. The physical hull is restored only after the whole 7x11+mast
+     * destination passes vanilla world/cargo validation.
+     *
+     * Docking itself can align by less than half a block; that is a deliberate
+     * one-time anchor placement, not movement snapped every sailing tick.
+     */
+    public boolean dockAtRest(ServerPlayer player) {
+        if (!isMoving() || movingBody == null || isVehicle()
+                || !(level() instanceof net.minecraft.server.level.ServerLevel server)
+                || player.isPassenger() || player.isSpectator()
+                || player.distanceToSqr(this) > 196D) return false;
+        FirstShipHull.Point local = FirstShipHull.toLocal(player.getX(), player.getZ(),
+                getX(), getZ(), getYRot());
+        if (!FirstShipHull.withinHull(local.x(), local.z(), .0D)
+                || player.getY() < holdY() - .5D || player.getY() > deckY() + 2.5D)
+            return false;
+        if (Math.abs(movingBody.motion().speed()) > .006D
+                || Math.abs(movingBody.motion().angularVelocity()) > .12D) {
+            player.displayClientMessage(Component.literal("Остановите судно перед швартовкой"), true);
+            return false;
+        }
+        movingBody.synchronizeCargo(registryAccess());
+        ShipRigidMotion.Pose pose = movingBody.pose();
+        int turn = Math.floorMod((int)Math.round(pose.yaw() / 90D), 4);
+        if (!movingBody.park(server)) {
+            player.displayClientMessage(Component.literal(
+                    "Для швартовки выровняйте курс по сторонам света и найдите свободную воду"), true);
+            return false;
+        }
+        BlockPos dock = BlockPos.containing(pose.x(), movingBody.waterlineY(), pose.z());
+        movingBody = null;
+        entityData.set(MOVING, false);
+        syncMovingCargo();
+        initializeNativeHull(dock, turn);
+        ShipMotionJournal.get(server).end(server, getUUID());
+        player.displayClientMessage(Component.literal("Судно пришвартовано: блоки и сундуки снова обычные"), true);
+        return true;
+    }
+
+    /**
      * A detached moving ship has no world BlockEntity to right-click.
      * Ray-select its real local cargo coordinates and open a virtual inventory.
      * Contents are written back to the original cargo NBT every server tick.
