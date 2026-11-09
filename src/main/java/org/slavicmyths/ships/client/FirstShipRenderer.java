@@ -93,9 +93,12 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             super.render(ship, yaw, partialTick, pose, buffers, light);
             return;
         }
+        float heading = ship.isVoyaging()
+                ? net.minecraft.util.Mth.rotLerp(partialTick, ship.yRotO, ship.getYRot())
+                : ship.shipYaw();
         if (ship.isVoyaging()) {
             pose.pushPose();
-            pose.mulPose(Axis.YP.rotationDegrees(-ship.shipYaw()));
+            pose.mulPose(Axis.YP.rotationDegrees(-heading));
             pose.translate(-.5D, 0D, -.5D);
             for (Map.Entry<BlockPos, BlockState> part : palette(ship).entrySet()) {
                 BlockPos cell = part.getKey();
@@ -110,7 +113,7 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         }
         if (ship.geometryVersion() >= 5) {
             pose.pushPose();
-            pose.mulPose(Axis.YP.rotationDegrees(-ship.shipYaw()));
+            pose.mulPose(Axis.YP.rotationDegrees(-heading));
             pose.translate(0D, FirstShipHull.MAIN_DECK + .75D, -4D);
             pose.scale(1.9F, 1.9F, 1.9F);
             items.renderStatic(helm, ItemDisplayContext.NONE, light,
