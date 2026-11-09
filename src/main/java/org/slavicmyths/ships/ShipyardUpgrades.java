@@ -35,6 +35,31 @@ public final class ShipyardUpgrades {
         return new ItemStack(RaftContent.RAFT_ITEM.get());
     }
 
+
+    /** All four raft blueprints use the same materials as progressive expansion. */
+    public static int raftDeckCost(RaftSize size) {
+        return switch (size) {
+            case SMALL -> 9;
+            case LONG -> 15;
+            case WIDE -> 25;
+            case CARGO -> 35;
+        };
+    }
+
+    public static ItemStack buildRaft(Player player, RaftSize size) {
+        if (player.level().isClientSide) return ItemStack.EMPTY;
+        int sections = raftDeckCost(size);
+        if (!player.getAbilities().instabuild
+                && (player.getInventory().countItem(RaftContent.DECK_SECTION.get()) < sections
+                    || player.getInventory().countItem(RaftContent.OAR_MODULE.get()) < 1))
+            return ItemStack.EMPTY;
+        if (!player.getAbilities().instabuild) {
+            consume(player, RaftContent.DECK_SECTION.get(), sections);
+            consume(player, RaftContent.OAR_MODULE.get(), 1);
+        }
+        return new ItemStack(RaftContent.raftItem(size));
+    }
+
     public static boolean canUpgrade(ItemStack stack, Player player) {
         if (!(stack.getItem() instanceof RaftItem raft) || raft.size().next() == null) return false;
         RaftCharacteristics.Info info = RaftCharacteristics.fromItem(stack);
@@ -216,6 +241,124 @@ public final class ShipyardUpgrades {
             consume(player, RaftContent.HELM_MODULE.get(), 1);
         }
         return new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
+    }
+
+
+    /** Reuse the existing three-dimensional ship_helm_module model. All new
+     * sail/mast installation is packed-item only and server-authoritative. */
+    public static int shipRigLevel(ItemStack stack) {
+        CompoundTag pack = shipPack(stack);
+        return pack == null ? -1 : pack.isEmpty() ? 0 : pack.getInt("RigLevel");
+    }
+
+    public static int shipFabric(ItemStack stack) {
+        CompoundTag pack = shipPack(stack);
+        return pack == null ? -1 : pack.isEmpty() ? 0 : pack.getInt("FabricQuality");
+    }
+
+    private static CompoundTag shipPack(ItemStack stack) {
+        if (!(stack.getItem() instanceof FirstShipItem)) return null;
+        CompoundTag root = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        if (!root.contains("FirstShipPack", Tag.TAG_COMPOUND)) return new CompoundTag();
+        CompoundTag pack = root.getCompound("FirstShipPack");
+        if ((pack.getInt("Version") != 1 && pack.getInt("Version") != 2)
+                || !pack.contains("Modules", Tag.TAG_LIST)) return null;
+        int rig = pack.getInt("RigLevel");
+        int fabric = pack.getInt("FabricQuality");
+        if (pack.getInt("Version") == 1) { rig = 1; fabric = 1; }
+        try { new ShipRigging(rig, fabric); }
+        catch (IllegalArgumentException invalid) { return null; }
+        return pack;
+    }
+
+    private static Item fabricModule(int quality) {
+        return switch (quality) {
+            case 1 -> RaftContent.SAIL_MODULE.get();
+            case 2 -> RaftContent.SAIL_LINEN_MODULE.get();
+            case 3 -> RaftContent.SAIL_REINFORCED_MODULE.get();
+            default -> throw new IllegalArgumentException("Bad sail quality");
+        };
+    }
+
+    private static void refund(Player player, Item item, int amount) {
+        if (player.getAbilities().instabuild || amount <= 0) return;
+        ItemStack left = new ItemStack(item, amount);
+        if (!player.getInventory().add(left) && !left.isEmpty()) player.drop(left, false);
+    }
+
+    /**
+     * Workshop-only rig transactions:
+     * 20/21/22 = install/swap fabric, 23 = mast/yard +1,
+     * 24 = mast/yard -1, 25 = completely remove rig.
+     * Preserve every other data component, old saved geometry and block cargo.
+     */
+    public static ItemStack outfitFirstShip(Player player, ItemStack original, int action) {
+        if (player.level().isClientSide || !(original.getItem() instanceof FirstShipItem))
+            return ItemStack.EMPTY;
+        CompoundTag pack = shipPack(original);
+        if (pack == null) return ItemStack.EMPTY;
+        int level = pack.isEmpty() ? 0 : pack.getInt("RigLevel");
+        int fabric = pack.isEmpty() ? 0 : pack.getInt("FabricQuality");
+        if (!pack.isEmpty() && pack.getInt("Version") == 1) { level = 1; fabric = 1; }
+        try { new ShipRigging(level, fabric); }
+        catch (IllegalArgumentException invalid) { return ItemStack.EMPTY; }
+        int newLevel = level, newFabric = fabric;
+        Item paid1 = null, paid2 = null, returned1 = null, returned2 = null;
+        int amount1 = 0, amount2 = 0, back1 = 0, back2 = 0;
+        if (action >= 20 && action <= 22) {
+            newFabric = action - 19;
+            if (fabric == newFabric) return ItemStack.EMPTY;
+            newLevel = Math.max(1, level);
+            paid1 = fabricModule(newFabric);
+            amount1 = newLevel;
+            if (level > 0) { returned1 = fabricModule(fabric); back1 = level; }
+        } else if (action == 23) {
+            if (level < 1 || level >= 4) return ItemStack.EMPTY;
+            newLevel = level + 1;
+            paid1 = RaftContent.SAIL_RIGGING_KIT.get();
+            paid2 = fabricModule(fabric);
+            amount1 = amount2 = 1;
+        } else if (action == 24) {
+            if (level < 2) return ItemStack.EMPTY;
+            newLevel = level - 1;
+            returned1 = RaftContent.SAIL_RIGGING_KIT.get();
+            returned2 = fabricModule(fabric);
+            back1 = back2 = 1;
+        } else if (action == 25) {
+            if (level < 1) return ItemStack.EMPTY;
+            newLevel = newFabric = 0;
+            returned1 = fabricModule(fabric);
+            returned2 = RaftContent.SAIL_RIGGING_KIT.get();
+            back1 = level;
+            back2 = level - 1;
+        } else return ItemStack.EMPTY;
+        try { new ShipRigging(newLevel, newFabric); }
+        catch (IllegalArgumentException invalid) { return ItemStack.EMPTY; }
+
+        if (!player.getAbilities().instabuild) {
+            if (paid1 != null && player.getInventory().countItem(paid1) < amount1)
+                return ItemStack.EMPTY;
+            if (paid2 != null && player.getInventory().countItem(paid2) < amount2)
+                return ItemStack.EMPTY;
+        }
+        // No inventory writes until all validation has succeeded.
+        CompoundTag root = original.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        CompoundTag out = pack.copy();
+        out.putInt("Version", 2);
+        out.putInt("RigLevel", newLevel);
+        out.putInt("FabricQuality", newFabric);
+        if (!out.contains("Modules", Tag.TAG_LIST)) out.put("Modules", new ListTag());
+        if (!out.contains("GeometryVersion", Tag.TAG_INT)) out.putInt("GeometryVersion", 5);
+        root.put("FirstShipPack", out);
+        ItemStack modified = original.copy();
+        modified.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
+        if (!player.getAbilities().instabuild) {
+            if (paid1 != null) consume(player, paid1, amount1);
+            if (paid2 != null) consume(player, paid2, amount2);
+        }
+        if (returned1 != null) refund(player, returned1, back1);
+        if (returned2 != null) refund(player, returned2, back2);
+        return modified;
     }
 
     private static int countTag(Player player, net.minecraft.tags.TagKey<net.minecraft.world.item.Item> tag) {
