@@ -283,7 +283,8 @@ public final class ShipyardUpgrades {
     private static void refund(Player player, Item item, int amount) {
         if (player.getAbilities().instabuild || amount <= 0) return;
         ItemStack left = new ItemStack(item, amount);
-        if (!player.getInventory().add(left) && !left.isEmpty()) player.drop(left, false);
+        player.getInventory().add(left);
+        if (!left.isEmpty()) player.drop(left, false);
     }
 
     /**
