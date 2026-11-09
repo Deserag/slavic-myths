@@ -84,6 +84,7 @@ public final class FirstShipEntity extends Boat {
     public boolean isMoving() { return entityData.get(MOVING); }
     public String movingCargoView() { return entityData.get(MOTION_CARGO_VIEW); }
     public void enableSmoothMotion() { smoothEnabled = true; }
+    public void equipStarterSail() { setRigging(1, 1); }
 
 
     public BlockPos blockAnchor() {
