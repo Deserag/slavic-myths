@@ -26,7 +26,7 @@ public final class NineMorContent {
                 .sized(.42F, .42F).clientTrackingRange(18).updateInterval(1)
                 .build("slavicmyths:nine_mor_shot"));
 
-    /** No spawn egg and no crafting recipe until the ritual ingredients are designed. */
+    /** No spawn egg; the late-game seal is crafted using Viy and Morovoy boss rewards. */
     public static final DeferredHolder<Item, Item> SEAL =
         ModItems.ITEMS.register("pechat_devyati_morov", () ->
             new NineMorSealItem(new Item.Properties().rarity(Rarity.EPIC).stacksTo(1).fireResistant()));
