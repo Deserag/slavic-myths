@@ -431,6 +431,11 @@ public final class FirstShipEntity extends Boat {
                 }
             }
         }
+        if (movingBody != null && level() instanceof net.minecraft.server.level.ServerLevel server
+                && movingBody.hasOpenCargoMenus(server)) {
+            player.displayClientMessage(Component.literal("Закройте все окна движущихся сундуков перед упаковкой"), true);
+            return InteractionResult.FAIL;
+        }
         ItemStack stack = packed();
         if (stack.isEmpty()) return InteractionResult.FAIL;
         if (nativeHull && !isMoving()) {
@@ -957,6 +962,10 @@ public final class FirstShipEntity extends Boat {
             player.displayClientMessage(Component.literal("Остановите судно перед швартовкой"), true);
             return false;
         }
+        if (movingBody.hasOpenCargoMenus(server)) {
+            player.displayClientMessage(Component.literal("Закройте сундуки и бочки перед швартовкой"), true);
+            return false;
+        }
         movingBody.synchronizeCargo(registryAccess());
         ShipRigidMotion.Pose pose = movingBody.pose();
         int turn = Math.floorMod((int)Math.round(pose.yaw() / 90D), 4);
@@ -1016,6 +1025,7 @@ public final class FirstShipEntity extends Boat {
                 ? "Сундук движущегося корабля" : "Бочка движущегося корабля");
         player.openMenu(new SimpleMenuProvider((id, inv, p) ->
                 ChestMenu.threeRows(id, inv, slots), label));
+        movingBody.registerCargoViewer(player);
         return true;
     }
 
