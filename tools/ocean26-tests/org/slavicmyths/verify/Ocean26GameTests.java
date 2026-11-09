@@ -643,6 +643,10 @@ public final class Ocean26GameTests {
         ship.enableSmoothMotion();
         t.assertTrue(level.addFreshEntity(ship),"Live moving ship entity could not spawn");
         ServerPlayer captain=player(level,"MotionCaptain",new Vec3(ship.getX(),ship.deckY(),ship.getZ()-3D));
+        ServerPlayer deckCrew=player(level,"SmoothDeckCrew",
+                new Vec3(ship.getX()+1D,ship.deckY()+.02D,ship.getZ()));
+        ServerPlayer holdCrew=player(level,"SmoothHoldCrew",
+                new Vec3(ship.getX(),ship.holdY()+.02D,ship.getZ()));
         t.assertTrue(captain.startRiding(ship),"Motion captain could not board");
         final double startingZ=ship.getZ();
         t.runAtTickTime(5L,()->{
@@ -666,6 +670,16 @@ public final class Ocean26GameTests {
                     ship.getX(),ship.getZ(),ship.getYRot());
             t.assertTrue(Math.abs(helm.z()-FirstShipHull.HELM_Z)<.25D,
                     "Captain seat failed to follow noncardinal ship heading");
+            FirstShipHull.Point deckLocal=FirstShipHull.toLocal(
+                    deckCrew.getX(),deckCrew.getZ(),ship.getX(),ship.getZ(),ship.getYRot());
+            FirstShipHull.Point holdLocal=FirstShipHull.toLocal(
+                    holdCrew.getX(),holdCrew.getZ(),ship.getX(),ship.getZ(),ship.getYRot());
+            t.assertTrue(Math.hypot(deckLocal.x()-1D,deckLocal.z())<.42D
+                    && Math.abs(deckCrew.getY()-ship.deckY())<.30D,
+                    "Free-walking deck crew stayed behind the smooth ship");
+            t.assertTrue(Math.hypot(holdLocal.x(),holdLocal.z())<.42D
+                    && Math.abs(holdCrew.getY()-ship.holdY())<.30D,
+                    "Free-walking hold crew stayed behind the smooth ship");
             CompoundTag saved=new CompoundTag();
             ship.saveWithoutId(saved);
             t.assertTrue(saved.contains("FirstShipMovingBody",net.minecraft.nbt.Tag.TAG_COMPOUND)
@@ -673,8 +687,10 @@ public final class Ocean26GameTests {
                         saved.getCompound("FirstShipMovingBody")).snapshot().cargo().size()==1,
                     "Moving ship save lacks the 11-diamond chest payload");
             captain.discard();
+            deckCrew.discard();
+            holdCrew.discard();
             ship.discard();
-            System.out.println("OCEAN26_LIVE_SMOOTH_SHIP_PASS detached=true fractional=true combinedWASD=true captain=true cargoNBT=true");
+            System.out.println("OCEAN26_LIVE_SMOOTH_SHIP_PASS detached=true fractional=true combinedWASD=true captain=true deckWalker=true holdWalker=true cargoNBT=true");
             t.succeed();
         });
     }
