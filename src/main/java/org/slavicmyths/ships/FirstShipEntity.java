@@ -75,7 +75,9 @@ public final class FirstShipEntity extends Boat {
     private boolean legacyConversionTried;
 
     public BlockPos blockAnchor() {
-        return level().isClientSide && isNativeHull() ? entityData.get(ANCHOR) : blockAnchor;
+        // Both logical sides read the same replicated anchor. The saved field
+        // is only the server-side transactional source for hull relocation.
+        return isNativeHull() ? entityData.get(ANCHOR) : blockAnchor;
     }
     public int quarterTurns() { return entityData.get(TURNS); }
     /** Synced cardinal heading: client yaw interpolation must not move the wheel seat. */
