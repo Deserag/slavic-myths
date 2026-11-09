@@ -1,7 +1,7 @@
 name: Ocean 2.6 - deterministic rig, crew and resource proof
 on:
   push:
-    branches: ["fix/2.6-ocean-crew-sails-20261108"]
+    branches: ["fix/2.6-ocean-crew-sails-20261108", "fix/2.6-small-ship-gameplay-visuals-20261109"]
     paths:
       - "src/main/java/org/slavicmyths/ships/**"
       - "src/main/java/org/slavicmyths/registry/ModItemGroup.java"
