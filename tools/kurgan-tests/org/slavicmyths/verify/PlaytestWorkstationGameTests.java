@@ -3,7 +3,14 @@ package org.slavicmyths.verify;
 import java.util.*;
 import net.minecraft.gametest.framework.*;
 import net.neoforged.neoforge.gametest.*;
-import net.neoforged.neoforge.common.util.FakePlayerFactory;
+import io.netty.channel.Channel;
+import io.netty.channel.embedded.EmbeddedChannel;
+import net.minecraft.network.Connection;
+import net.minecraft.network.PacketSendListener;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.PacketFlow;
+import net.minecraft.server.network.CommonListenerCookie;
+import net.minecraft.server.network.ServerGamePacketListenerImpl;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.*;
@@ -22,9 +29,27 @@ import org.slavicmyths.navigation.*;
 /** Real server interactions and inventories, isolated fixtures; no client/window bootstrap. */
 @GameTestHolder("slavicmyths_hotfix") @PrefixGameTestTemplate(false)
 public final class PlaytestWorkstationGameTests {
+ // A FakePlayerFactory connection has no Netty channel. Real menu opening
+ // touches Connection.channel().attr(...) and must not use that stub.
+ private static final class LocalConnection extends Connection {
+  private final EmbeddedChannel wire=new EmbeddedChannel();
+  LocalConnection(){super(PacketFlow.SERVERBOUND);}
+  @Override public Channel channel(){return wire;}
+ }
+ private static final class SilentListener extends ServerGamePacketListenerImpl {
+  SilentListener(ServerPlayer p){
+   super(p.getServer(),new LocalConnection(),p,CommonListenerCookie.createInitial(p.getGameProfile(),false));
+  }
+  @Override public void send(Packet<?> packet){}
+  @Override public void send(Packet<?> packet,PacketSendListener listener){}
+ }
  private static ServerPlayer player(GameTestHelper t,String name){
   var w=t.getLevel();var p=new ServerPlayer(w.getServer(),w,new com.mojang.authlib.GameProfile(UUID.randomUUID(),name),net.minecraft.server.level.ClientInformation.createDefault());
-  p.connection=FakePlayerFactory.get(w,p.getGameProfile()).connection;p.setGameMode(GameType.SURVIVAL);p.setNoGravity(true);p.moveTo(Vec3.atBottomCenterOf(t.absolutePos(new BlockPos(2,2,2))));return p;
+  p.connection=new SilentListener(p);
+  p.setGameMode(GameType.SURVIVAL);p.setNoGravity(true);
+  p.moveTo(Vec3.atBottomCenterOf(t.absolutePos(new BlockPos(2,2,2))));
+  w.addNewPlayer(p);
+  return p;
  }
  private static void open(GameTestHelper t,ServerPlayer p,net.minecraft.world.level.block.Block block){
   var pos=t.absolutePos(new BlockPos(2,1,2));t.getLevel().setBlock(pos,block.defaultBlockState(),3);
