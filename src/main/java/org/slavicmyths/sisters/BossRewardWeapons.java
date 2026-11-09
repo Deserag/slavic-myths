@@ -4,6 +4,11 @@ import java.util.List;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.damagesource.DamageTypes;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -20,7 +25,9 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
+@EventBusSubscriber(modid="slavicmyths")
 public final class BossRewardWeapons {
+    private static final String AOE="SlavicLomeyaAreaStrike",DUAL="SlavicLomeyaDualStrike";
     public static final class Weapon extends SwordItem {
         private final boolean scythe;
         public Weapon(boolean scythe) {
@@ -55,13 +62,18 @@ public final class BossRewardWeapons {
             double radius=scythe?4.25:3.5;
             Vec3 center=user.position().add(0,.65,0);
             int hits=0;
-            for(LivingEntity target:world.getEntitiesOfClass(LivingEntity.class,user.getBoundingBox().inflate(radius,2.1,radius),
-                target->valid(user,target))) {
-                if(target.position().distanceToSqr(user.position())>radius*radius || !user.hasLineOfSight(target))continue;
-                if(target.hurt(world.damageSources().playerAttack(user),scythe?10F:9F)) {
-                    effect(target);
-                    hits++;
+            if(!scythe)user.getPersistentData().putBoolean(AOE,true);
+            try {
+                for(LivingEntity target:world.getEntitiesOfClass(LivingEntity.class,user.getBoundingBox().inflate(radius,2.1,radius),
+                    target->valid(user,target))) {
+                    if(target.position().distanceToSqr(user.position())>radius*radius || !user.hasLineOfSight(target))continue;
+                    if(target.hurt(world.damageSources().playerAttack(user),scythe?10F:9F)) {
+                        effect(target);
+                        hits++;
+                    }
                 }
+            }finally {
+                if(!scythe)user.getPersistentData().remove(AOE);
             }
             for(int i=0;i<32;i++){
                 double a=i*Math.PI/16;
@@ -76,6 +88,28 @@ public final class BossRewardWeapons {
             super.appendHoverText(stack,context,lines,flag);
             lines.add(Component.translatable(scythe?"item.slavicmyths.neveya_scythe.effect":"item.slavicmyths.lomeya_hammer.effect"));
         }
+    }
+    @SubscribeEvent public static void dualHammer(LivingDamageEvent.Post event) {
+        if(!(event.getSource().getEntity() instanceof ServerPlayer owner)
+            ||!(event.getEntity() instanceof LivingEntity target)
+            ||!event.getSource().is(DamageTypes.PLAYER_ATTACK)
+            ||!owner.getMainHandItem().is(SistersContent.LOMEYA_HAMMER.get())
+            ||!owner.getOffhandItem().is(SistersContent.LOMEYA_HAMMER_OFFHAND.get())
+            ||owner.getPersistentData().getBoolean(AOE)
+            ||owner.getPersistentData().getBoolean(DUAL)
+            ||owner.getAttackStrengthScale(.5F)<.9F
+            ||!target.isAlive()||target==owner||owner.isAlliedTo(target)||target.isAlliedTo(owner)
+            ||target.getPersistentData().getBoolean("SlavicViySummoned")
+            ||target instanceof Player p&&(p.isCreative()||p.isSpectator()||!owner.canHarmPlayer(p)))return;
+        owner.getPersistentData().putBoolean(DUAL,true);
+        try {
+            owner.swing(InteractionHand.OFF_HAND,true);
+            if(target.hurt(owner.damageSources().playerAttack(owner),3.5F)){
+                target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,70,1));
+                if(target instanceof Player player)FractureHooks.apply(player);
+                owner.getOffhandItem().hurtAndBreak(1,owner,net.minecraft.world.entity.EquipmentSlot.OFFHAND);
+            }
+        }finally {owner.getPersistentData().remove(DUAL);}
     }
     private BossRewardWeapons(){}
 }
