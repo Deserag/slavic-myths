@@ -38,20 +38,6 @@ public final class LomeyaModel extends EntityModel<LomeyaBoss> {
         }
         box(part,14,-headW/2-.8F,headY-headH/2-.8F,-3F,headW+1.6F,headH+1.6F,6F);
     }
-    private void sickle(ModelPart part,boolean left) {
-        float sign=left?-1F:1F;
-        box(part,2,-.90F,-15F,-.90F,1.8F,20F,1.8F);
-        for(int i=0;i<4;i++)box(part,10,-1.04F,-2F+i*3.5F,-1.04F,2.08F,1.15F,2.08F);
-        box(part,14,-1.62F,-18.4F,-1.30F,3.24F,3.6F,2.6F);
-        for(int i=0;i<=16;i++) {
-            float t=i/16F;
-            float x=sign*(1.4F+10.8F*t);
-            float y=-18.3F-8.8F*Mth.sin(t*Mth.PI*.86F)+4.5F*t;
-            float w=2.0F*(1F-.73F*t);
-            box(part,i%5==0?9:8,x-w*.5F,y-w*.48F,-1.32F,w,w,2.64F-1.15F*t);
-            if(i<13)box(part,13,x-w*.43F,y-w*.48F,-1.46F,w*.86F,.48F,2.74F-1.1F*t);
-        }
-    }
     public LomeyaModel() {
         root.setPos(0,24,0);
         // Separate walking legs with folded cloth panels and grounded boots.
@@ -77,28 +63,60 @@ public final class LomeyaModel extends EntityModel<LomeyaBoss> {
         box(root,4,-5.7F,-77,-6F,11.4F,4,2.5F);
         box(root,1,-2,-87,-2,4,5,4);
         box(root,13,-5,-61,-4.1F,10,1,1F);
-        // A sculpted split face: left side exposed bone, right side flesh.
         head.setPos(0,-87,0);
-        for(int row=0;row<7;row++) {
-            float width=new float[]{2.9F,3.9F,4.6F,4.9F,4.7F,4F,3.2F}[row];
-            box(head,2,-width,-2-row*2.25F,-3.7F,width,2.35F,7.4F);
-            box(head,0,0,-2-row*2.25F,-3.7F,width,2.35F,7.4F);
+        float[] jaw={2.55F,3.35F,4.25F,4.65F,4.60F,4.20F,3.72F};
+        float[] front={-3.52F,-3.65F,-3.72F,-3.66F,-3.54F,-3.35F,-3.14F};
+        for(int row=0;row<jaw.length;row++) {
+            float width=jaw[row],y=-1.8F-row*2.22F;
+            box(head,2,-width,y,front[row],width,2.29F,7.0F-(row>4?(row-4)*.45F:0F));
+            box(head,0,0,y,front[row],width,2.29F,7.0F-(row>4?(row-4)*.45F:0F));
         }
-        box(head,11,-3.8F,-10.5F,-4.1F,3.3F,2.5F,.55F);
-        box(head,1,-3F,-9.8F,-4.7F,1.6F,1.0F,.36F);
-        box(head,10,1.1F,-10.2F,-4.5F,2.65F,1.5F,.25F);
-        box(head,1,1.5F,-9.9F,-4.75F,1.3F,1.0F,.35F);
-        for(int j=0;j<4;j++) box(head,1,-3.6F+j*.8F,-3.5F,-4.2F,.57F,1.6F,.6F);
-        // Hair deliberately covers the entire fleshed half and reaches below waist; not the skull half.
-        for(int j=0;j<8;j++) {
-            float x=.05F+j*.64F,tail=37+j%3*3;
-            box(head,j%3==0?7:6,x,-18F,2.9F, .65F,18+tail,2.3F);
+        float[] crownWidth={3.30F,2.47F,1.40F};
+        for(int row=0;row<crownWidth.length;row++) {
+            float w=crownWidth[row],y=-17.3F-row*1.15F;
+            box(head,2,-w,y,-2.70F+row*.37F,w,1.35F,5.88F-row*.65F);
+            box(head,0,0,y,-2.70F+row*.37F,w,1.35F,5.88F-row*.65F);
         }
-        for(int j=0;j<6;j++) {
-            float x=3.5F+j*.3F;
-            box(head,j%2==0?6:12,x,-17F,-2.8F,.65F,51-j*3,2F);
+        for(int side:new int[]{-1,1}) {
+            float x=side*3.08F;
+            box(head,side<0?2:0,x-.60F,-9.8F,-3.91F,1.20F,4.40F,1.36F);
+            box(head,side<0?2:0,x-.42F,-14.4F,-3.66F,.84F,3.25F,1.24F);
         }
-        for(int j=0;j<5;j++) box(head,6,j*.93F,-19F,-4.0F,.95F,4+j%2,1.5F);
+        box(head,11,-3.20F,-10.5F,-4.13F,2.65F,2.25F,.55F);
+        box(head,1,-2.92F,-9.8F,-4.70F,1.56F,1.0F,.36F);
+        box(head,10,1.06F,-10.2F,-4.53F,2.58F,1.5F,.25F);
+        box(head,1,1.46F,-9.9F,-4.81F,1.30F,1.0F,.35F);
+        for(int j=0;j<4;j++)box(head,1,-3.27F+j*.75F,-3.5F,-4.10F,.53F,1.53F,.59F);
+        for(int layer=0;layer<4;layer++) {
+            float y=-18.9F-layer*1.18F;
+            float half=4.55F-layer*.78F;
+            for(int strand=-5;strand<=5;strand++) {
+                float x=strand*half/5F,z=-2.95F+.28F*Mth.sin(strand*.9F+layer);
+                box(head,strand%3==0?7:6,x-.55F,y-.12F*Mth.cos(strand*.76F),z,1.12F,1.56F,5.92F-layer*.45F);
+            }
+        }
+        for(int lane=-5;lane<=5;lane++) {
+            float x=lane*.78F;
+            for(int section=0;section<5;section++) {
+                float z=-3.08F+section*1.35F;
+                float crownY=-21.6F-1.80F*Mth.sin((section+.5F)*Mth.PI/5F)+.12F*Math.abs(lane);
+                box(head,(lane+section)%4==0?7:6,x-.48F,crownY,z,.96F,1.48F,1.55F);
+            }
+        }
+        for(int side:new int[]{-1,1})for(int lock=0;lock<5;lock++) {
+            float anchor=side*(2.70F+lock*.36F);
+            int length=lock%2==0?49:40;
+            for(int j=0;j<length;j+=3) {
+                float t=j/(float)length;
+                float x=anchor+side*(.65F*Mth.sin(t*4.4F+lock*.55F)+t*.54F);
+                float z=lock<2?-3.0F+lock*.72F:2.45F+(lock-2)*.67F;
+                box(head,lock%3==0?7:6,x-.48F,-18.25F+j,z-.55F,1.02F,3.35F,1.20F);
+            }
+        }
+        for(int j=-3;j<=3;j++) {
+            float x=j*.91F;
+            box(head,j%3==0?7:6,x-.50F,-20.45F+.20F*Math.abs(j),-3.65F,1.06F,3.35F,.95F);
+        }
         geo.attach(root,head);
         // Arms are independent, re-aimed every frame from shoulders to elbows to wrists.
         for(ModelPart upper:new ModelPart[]{leftUpper,rightUpper})box(upper,0,-2.2F,0,-2.1F,4.4F,10,4.2F);
@@ -107,7 +125,7 @@ public final class LomeyaModel extends EntityModel<LomeyaBoss> {
         box(rightLower,1,-2.05F,0,-1.9F,4.1F,10,3.8F);
         box(leftHand,2,-1.55F,-1.5F,-1.45F,3.1F,3F,2.9F);
         box(rightHand,1,-1.9F,-1.65F,-1.8F,3.8F,3.3F,3.6F);
-        sickle(smallL,true);sickle(smallR,false);
+        hammer(smallL,false);hammer(smallR,false);
         geo.attach(leftHand,smallL);geo.attach(rightHand,smallR);
         for(ModelPart limb:new ModelPart[]{leftUpper,leftLower,leftHand,rightUpper,rightLower,rightHand})geo.attach(root,limb);
         hammer(giant,true);
