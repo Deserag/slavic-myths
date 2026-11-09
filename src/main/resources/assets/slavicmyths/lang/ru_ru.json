@@ -6680,5 +6680,15 @@
   "item.slavicmyths.lomeya_hammer": "Молот Ломеи",
   "item.slavicmyths.lomeya_hammer_offhand": "Второй молот Ломеи",
   "item.slavicmyths.lomeya_hammer.effect": "ЛКМ: тяжёлый удар и замедление. ПКМ: удар по области (7,5 секунды).",
-  "key.slavicmyths.viy_summon": "Призвать нечисть Вия"
+  "key.slavicmyths.viy_summon": "Призвать нечисть Вия",
+  "item.slavicmyths.tryaseya_shard": "Осколок Трясеи",
+  "item.slavicmyths.gneteya_shard": "Осколок Гнетеи",
+  "item.slavicmyths.ledeya_shard": "Осколок Ледеи",
+  "item.slavicmyths.agneya_shard": "Осколок Агнеи",
+  "item.slavicmyths.neveya_shard": "Осколок Невеи",
+  "item.slavicmyths.lomeya_shard": "Осколок Ломеи",
+  "item.slavicmyths.viy_shard": "Осколок Вия",
+  "item.slavicmyths.sisters_ritual_core": "Сердце шести сестёр",
+  "item.slavicmyths.mytar_shackled_sickle": "Оковный серп",
+  "item.slavicmyths.mytar_sickle": "Серп Мытаря"
 }
