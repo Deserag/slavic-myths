@@ -2,6 +2,10 @@ package org.slavicmyths.ships;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.core.BlockPos;
@@ -24,6 +28,7 @@ public final class ShipMovingContraption {
     private FirstShipBlockHull.MotionSnapshot snapshot;
     /** Item inventories are materialized only for a chest/barrel actually opened. */
     private final Map<String, SimpleContainer> openCargo = new HashMap<>();
+    private final Set<UUID> cargoViewers = new HashSet<>();
     private final Map<BlockPos, BlockState> palette;
     private final int waterlineY;
     private final ShipRigidMotion motion;
@@ -88,6 +93,19 @@ public final class ShipMovingContraption {
         parked = true;
         detached = false;
         return true;
+    }
+
+    public void registerCargoViewer(ServerPlayer player) {
+        cargoViewers.add(player.getUUID());
+    }
+
+    /** Prevent packing/parking while any remote player still has one of this
+     * ship's detached inventories open. Distance-only checks can be evaded. */
+    public boolean hasOpenCargoMenus(ServerLevel world) {
+        for (ServerPlayer player : world.players())
+            if (cargoViewers.contains(player.getUUID())
+                    && player.containerMenu != player.inventoryMenu) return true;
+        return false;
     }
 
     private static String cargoKey(CompoundTag entry) {
