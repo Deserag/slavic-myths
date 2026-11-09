@@ -414,7 +414,9 @@ public final class FirstShipEntity extends Boat {
     public InteractionResult packWithKey(Player player) {
         if (level().isClientSide) return InteractionResult.SUCCESS;
         if (!(player instanceof ServerPlayer) || quarantinedModules != null || packing || isRemoved() || isVehicle()
-                || hasWalkers() || getDeltaMovement().horizontalDistanceSqr() > .0005D) {
+                || hasWalkers() || getDeltaMovement().horizontalDistanceSqr() > .0005D
+                || (movingBody != null && (Math.abs(movingBody.motion().speed()) > .008D
+                    || Math.abs(movingBody.motion().angularVelocity()) > .15D))) {
             player.displayClientMessage(Component.literal("Судно должно стоять без экипажа и пассажиров"), true);
             return InteractionResult.FAIL;
         }
@@ -929,8 +931,12 @@ public final class FirstShipEntity extends Boat {
                 || action < FirstShipNetwork.FORWARD || action > FirstShipNetwork.HELM_IDLE)
             return false;
         if (isMoving()) return continuousHelm(driver, action);
-        if (smoothEnabled && beginContinuousMotion(server))
-            return continuousHelm(driver, action);
+        if (smoothEnabled) {
+            if (beginContinuousMotion(server)) return continuousHelm(driver, action);
+            driver.displayClientMessage(Component.literal(
+                    "Сборка движущегося корпуса не прошла проверку: движение запрещено для сохранности груза"), true);
+            return false;
+        }
         if (action > FirstShipNetwork.RIGHT
                 || level().getGameTime() + 1e-6D < nextHelmAllowedTick) return false;
         int nextTurn = quarterTurns;
