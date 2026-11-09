@@ -52,6 +52,9 @@ public final class SistersArmorClient {
             box(head, "left_cheek", 24, 9, 3.7F, -6.65F, -4.6F, 1.3F, 5.5F, 2.7F);
             box(head, "right_cheek", 24, 9, -5.0F, -6.65F, -4.6F, 1.3F, 5.5F, 2.7F);
             box(head, "front_crystal", 40, 0, -0.8F, -11.3F, -5.7F, 1.6F, 3.0F, 1.5F);
+            box(head, "crown_front_lower_rim", 25, 0, -3.75F, -7.15F, -5.05F, 7.5F, .75F, .8F);
+            box(head, "crystal_crown_spire", 40, 0, -.6F, -13.5F, -5.15F, 1.2F, 2.8F, 1.2F);
+            box(head, "rear_crown_band", 25, 0, -4.65F, -8.65F, 3.85F, 9.3F, 2.0F, .9F);
             for (int side : new int[]{-1, 1}) {
                 float sx = side > 0 ? 4.75F : -6.75F;
                 box(head, "wing_base_" + side, 35, 10, sx, -9.4F, -1.7F, 2.0F, 4.3F, 3.1F);
@@ -71,6 +74,9 @@ public final class SistersArmorClient {
                 box(body, "back_spine_" + side, 21, 13, side < 0 ? -2.45F : .5F, 2.6F, 2.45F, 1.95F, 6.9F, 1.0F);
             }
             box(body, "heart_rune", 47, 0, -.85F, 3.2F, -4.15F, 1.7F, 2.0F, .75F);
+            box(body, "upper_sternum_ridge", 20, 13, -.65F, .5F, -4.15F, 1.3F, 2.8F, .7F);
+            box(body, "lower_sternum_point", 20, 13, -.55F, 5.2F, -4.05F, 1.1F, 3.4F, .8F);
+            box(body, "backbone_plate", 20, 13, -1.25F, 1.0F, 2.5F, 2.5F, 8.4F, 1.15F);
             box(body, "belt", 17, 20, -4.8F, 9.25F, -3.15F, 9.6F, 2.05F, 6.3F);
             for (int side : new int[]{-1,1}) {
                 PartDefinition arm = side < 0 ? rightArm : leftArm;
@@ -92,6 +98,9 @@ public final class SistersArmorClient {
                 box(body, "fauld_bottom_" + side, 28, 12, x + (side < 0 ? -.65F : .65F), 13.65F, -4.0F, 4.2F, 2.7F, 1.15F);
             }
             box(body, "front_tabard", 43, 15, -1.65F, 10.7F, -4.25F, 3.3F, 6.65F, 1.05F);
+            box(body, "waist_emblem", 47, 0, -.95F, 9.5F, -4.55F, 1.9F, 2.0F, .55F);
+            box(body, "front_tabard_center", 47, 0, -.4F, 12.1F, -4.8F, .8F, 4.1F, .65F);
+            box(body, "back_waist_plate", 28, 12, -3.3F, 9.4F, 2.7F, 6.6F, 3.4F, 1.0F);
             for (int side : new int[]{-1, 1}) {
                 PartDefinition leg = side < 0 ? rightLeg : leftLeg;
                 box(leg, "thigh_core_" + side, 0, 16, -2.35F, -.5F, -2.5F, 4.7F, 8.5F, 5.0F);
@@ -108,6 +117,9 @@ public final class SistersArmorClient {
                 box(leg, "boot_cuff_" + side, 17, 20, -2.85F, 4.45F, -3.1F, 5.7F, 2.5F, 6.2F);
                 box(leg, "toe_" + side, 31, 8, -2.5F, 9.75F, -4.25F, 5.0F, 2.2F, 2.15F);
                 box(leg, "rune_" + side, 43, 0, -.8F, 7.15F, -3.4F, 1.6F, 2.7F, .55F);
+                box(leg, "rune_upper_" + side, 43, 0, -.4F, 6.55F, -3.5F, .8F, .7F, .65F);
+                box(leg, "rune_lower_" + side, 43, 0, -.4F, 9.85F, -3.5F, .8F, .7F, .65F);
+                box(leg, "heel_guard_" + side, 17, 20, -2.1F, 8.0F, 2.85F, 4.2F, 3.65F, .95F);
                 box(leg, "sole_" + side, 17, 20, -2.65F, 11.0F, -4.15F, 5.3F, 1.25F, 7.25F);
                 box(leg, "side_guard_" + side, 34, 8, side < 0 ? -3.3F : 2.35F, 6.8F, -.6F, .95F, 3.8F, 2.7F);
             }
