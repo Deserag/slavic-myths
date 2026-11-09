@@ -38,6 +38,20 @@ public final class LomeyaModel extends EntityModel<LomeyaBoss> {
         }
         box(part,14,-headW/2-.8F,headY-headH/2-.8F,-3F,headW+1.6F,headH+1.6F,6F);
     }
+    private void sickle(ModelPart part,boolean left) {
+        float sign=left?-1F:1F;
+        box(part,2,-.90F,-15F,-.90F,1.8F,20F,1.8F);
+        for(int i=0;i<4;i++)box(part,10,-1.04F,-2F+i*3.5F,-1.04F,2.08F,1.15F,2.08F);
+        box(part,14,-1.62F,-18.4F,-1.30F,3.24F,3.6F,2.6F);
+        for(int i=0;i<=16;i++) {
+            float t=i/16F;
+            float x=sign*(1.4F+10.8F*t);
+            float y=-18.3F-8.8F*Mth.sin(t*Mth.PI*.86F)+4.5F*t;
+            float w=2.0F*(1F-.73F*t);
+            box(part,i%5==0?9:8,x-w*.5F,y-w*.48F,-1.32F,w,w,2.64F-1.15F*t);
+            if(i<13)box(part,13,x-w*.43F,y-w*.48F,-1.46F,w*.86F,.48F,2.74F-1.1F*t);
+        }
+    }
     public LomeyaModel() {
         root.setPos(0,24,0);
         // Separate walking legs with folded cloth panels and grounded boots.
@@ -93,7 +107,7 @@ public final class LomeyaModel extends EntityModel<LomeyaBoss> {
         box(rightLower,1,-2.05F,0,-1.9F,4.1F,10,3.8F);
         box(leftHand,2,-1.55F,-1.5F,-1.45F,3.1F,3F,2.9F);
         box(rightHand,1,-1.9F,-1.65F,-1.8F,3.8F,3.3F,3.6F);
-        hammer(smallL,false);hammer(smallR,false);
+        sickle(smallL,true);sickle(smallR,false);
         geo.attach(leftHand,smallL);geo.attach(rightHand,smallR);
         for(ModelPart limb:new ModelPart[]{leftUpper,leftLower,leftHand,rightUpper,rightLower,rightHand})geo.attach(root,limb);
         hammer(giant,true);
@@ -171,7 +185,6 @@ public final class LomeyaModel extends EntityModel<LomeyaBoss> {
             eL=interpolate(SHOULDER_L,wL,.52F);eL[0]-=5;
             eR=interpolate(SHOULDER_R,wR,.52F);eR[0]+=5;
         }
-        if(!second) {wL[1]=eL[1];wR[1]=eR[1];}
         arm(true,eL,wL);arm(false,eR,wR);
     }
     @Override public void renderToBuffer(PoseStack stack,VertexConsumer out,int light,int overlay,int color) {
