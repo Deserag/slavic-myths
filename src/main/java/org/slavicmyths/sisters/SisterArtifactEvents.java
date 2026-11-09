@@ -18,6 +18,7 @@ import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 public final class SisterArtifactEvents {
     private static final ResourceLocation HEALTH=ResourceLocation.fromNamespaceAndPath("slavicmyths","sisters_necklace_health");
     private static final ResourceLocation SPEED=ResourceLocation.fromNamespaceAndPath("slavicmyths","sisters_brooch_speed");
+    private static final ResourceLocation WIND=ResourceLocation.fromNamespaceAndPath("slavicmyths","sisters_tryaseya_wind");
     private static final ResourceLocation KNOCK=ResourceLocation.fromNamespaceAndPath("slavicmyths","sisters_lomeya_knockback");
     private static boolean power(ServerPlayer p,String id){return p.isAlive()&&!p.isSpectator()&&SisterArtifacts.activePowers(p).contains(id);}
     private static boolean base(ServerPlayer p,String id){return p.isAlive()&&!p.isSpectator()&&SisterArtifacts.hasBase(p,id);}
@@ -37,6 +38,7 @@ public final class SisterArtifactEvents {
         if(!(event.getEntity() instanceof ServerPlayer p))return;
         attribute(p,Attributes.MAX_HEALTH,HEALTH,4,base(p,"sisters_necklace"));
         attribute(p,Attributes.MOVEMENT_SPEED,SPEED,.01,base(p,"sisters_brooch"));
+        attribute(p,Attributes.MOVEMENT_SPEED,WIND,.035,power(p,"tryaseya")&&now(p)<p.getPersistentData().getLong("SistersTryaseyaBoostUntil"));
         attribute(p,Attributes.KNOCKBACK_RESISTANCE,KNOCK,.25,power(p,"lomeya"));
         if(p.getHealth()>p.getMaxHealth())p.setHealth(p.getMaxHealth());
         if(p.tickCount%20==0&&power(p,"ledeya"))p.setTicksFrozen(0);
@@ -54,7 +56,7 @@ public final class SisterArtifactEvents {
         if(power(p,"agneya")&&fire)damage*=.50F;
         if(power(p,"tryaseya")&&physical&&p.getRandom().nextFloat()<.20F&&trigger(p,"tryaseya",240)){
             damage*=.60F;
-            p.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,60,1,false,true,true));
+            p.getPersistentData().putLong("SistersTryaseyaBoostUntil",now(p)+60);
         }
         if(SisterArtifacts.complete(p)&&damage>=8&&trigger(p,"complete",3600))damage*=.40F;
         event.setNewDamage(Math.max(0,damage));

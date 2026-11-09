@@ -53,6 +53,7 @@ public final class SisterArtifacts {
     /** A stable first-two selection protects against invalid externally injected Curios stacks. */
     public static List<ItemStack> equipped(LivingEntity entity){
         return CuriosApi.getCuriosInventory(entity).map(inv->inv.findCurios(SisterArtifacts::isArtifact).stream()
+            .filter(r->r.stack().getItem() instanceof Artifact artifact && artifact.slot.equals(r.slotContext().identifier()))
             .sorted(Comparator.comparing(r->r.slotContext().identifier()+":"+r.slotContext().index()))
             .limit(2).map(r->r.stack()).toList()).orElse(List.of());
     }
