@@ -989,6 +989,59 @@ public final class FirstShipEntity extends Boat {
         return true;
     }
 
+    /**
+     * Server-side counterpart to the client's smooth deck carrier.
+     * Synthetic players (GameTest) and real multiplayer clients need the
+     * authoritative hull delta even when no PlayerTick event fires.
+     */
+    private Map<ServerPlayer, FirstShipHull.Point> walkingCrew(
+            net.minecraft.server.level.ServerLevel server, double yaw) {
+        Map<ServerPlayer, FirstShipHull.Point> result = new HashMap<>();
+        AABB search = new AABB(getX() - 8D, getY() - .5D, getZ() - 8D,
+                getX() + 8D, getY() + 8D, getZ() + 8D);
+        for (ServerPlayer player : server.getEntitiesOfClass(ServerPlayer.class, search)) {
+            if (!player.isAlive() || player.isPassenger() || player.isSpectator()
+                    || player.getAbilities().flying || player.isFallFlying()) continue;
+            FirstShipHull.Point local = FirstShipHull.toLocal(
+                    player.getX(), player.getZ(), getX(), getZ(), yaw);
+            if (FirstShipHull.withinHull(local.x(), local.z(), .0D)
+                    && ((player.getY() >= holdY() - .5D && player.getY() <= holdY() + 2.9D)
+                    || (player.getY() >= deckY() - .5D && player.getY() <= deckY() + 2.4D)))
+                result.put(player, local);
+        }
+        return result;
+    }
+
+    private void carryCrew(net.minecraft.server.level.ServerLevel server,
+            Map<ServerPlayer, FirstShipHull.Point> walkers, double yaw) {
+        for (var pair : walkers.entrySet()) {
+            ServerPlayer player = pair.getKey();
+            if (player.isRemoved() || player.isPassenger() || player.getAbilities().flying) continue;
+            FirstShipHull.Point local = pair.getValue();
+            FirstShipHull.Point next = FirstShipHull.toWorld(local.x(), local.z(),
+                    getX(), getZ(), yaw);
+            double feet = player.getY();
+            boolean inHold = feet < getY() + 3D;
+            double floor = inHold ? holdY() : deckY();
+            boolean support = inHold
+                    ? FirstShipHull.holdSupports(local.x(), local.z())
+                    : FirstShipHull.mainDeckSupports(local.x(), local.z());
+            if (support && feet < floor && feet > floor - .6D
+                    && player.getDeltaMovement().y <= .09D) feet = floor + .015D;
+            player.setPos(next.x(), feet, next.z());
+            if (support && Math.abs(feet - floor) < .04D) {
+                Vec3 motion = player.getDeltaMovement();
+                if (motion.y < 0D) player.setDeltaMovement(motion.x, 0D, motion.z);
+                player.setOnGround(true);
+                player.fallDistance = 0F;
+            }
+            // A sparse authoritative correction prevents slow multiplayer
+            // drift; client-side motion is handled every tick by its carrier.
+            if (server.getGameTime() % 8L == 0L)
+                player.teleportTo(next.x(), feet, next.z());
+        }
+    }
+
     private void tickVoyage(net.minecraft.server.level.ServerLevel server) {
         FirstShipMotion.Control controls = server.getGameTime() - voyageLastInputTick <= 3
                 ? voyageInput : new FirstShipMotion.Control(0, 0);
@@ -1003,6 +1056,7 @@ public final class FirstShipEntity extends Boat {
             setDeltaMovement(Vec3.ZERO);
             return;
         }
+        Map<ServerPlayer, FirstShipHull.Point> crew = walkingCrew(server, previous.yaw());
         voyageSpeed = next.speed();
         voyageYawSpeed = next.yawSpeed();
         entityData.set(VOYAGE_HEADING, (float)next.yaw());
@@ -1011,6 +1065,7 @@ public final class FirstShipEntity extends Boat {
         setPos(next.x(), getY(), next.z());
         setDeltaMovement(new Vec3(next.x() - previous.x(), 0D, next.z() - previous.z()));
         if (getFirstPassenger() != null) positionRider(getFirstPassenger());
+        carryCrew(server, crew, next.yaw());
         // Dock only after the helm is idle; never snap a moving ship to
         // cardinal blocks mid-turn. Off-cardinal hull remains a safe entity.
         if (controls.throttle() == 0 && controls.rudder() == 0
