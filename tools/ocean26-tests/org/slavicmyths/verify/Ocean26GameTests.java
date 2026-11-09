@@ -315,7 +315,8 @@ public final class Ocean26GameTests {
                 "Rejected turn partially destroyed the world");
         t.assertTrue(chest(level, FirstShipBlockHull.world(forward, 0, 1, 5, 0), t)
                 .getItem(0).getCount() == 13, "Rejected turn damaged cargo");
-        level.setBlock(stone, Blocks.WATER.defaultBlockState(), 2);
+        // Stone sits one block ABOVE the waterline; restore air, not water.
+        level.setBlock(stone, Blocks.AIR.defaultBlockState(), 2);
 
         // Four consecutive turns must return to the exact initial heading,
         // retaining the same real chest BE and its 13 diamonds at each step.
