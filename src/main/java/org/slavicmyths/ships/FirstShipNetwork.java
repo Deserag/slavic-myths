@@ -17,7 +17,7 @@ public final class FirstShipNetwork {
     public static final int FORWARD = 5, BACKWARD = 6, LEFT = 7, RIGHT = 8, PACK = 9;
     public static final int RIG_CONFIGURE = 10, RIG_REMOVE = 11;
     public static final int FORWARD_LEFT = 12, FORWARD_RIGHT = 13;
-    public static final int BACKWARD_LEFT = 14, BACKWARD_RIGHT = 15, HELM_IDLE = 16;
+    public static final int BACKWARD_LEFT = 14, BACKWARD_RIGHT = 15, HELM_IDLE = 16, DOCK = 17;
 
     public record Command(int shipId, int action) implements CustomPacketPayload {
         public static final Type<Command> TYPE = new Type<>(
@@ -50,6 +50,10 @@ public final class FirstShipNetwork {
                 ship.tryMovingCargo(player);
                 return;
             }
+            if (action == DOCK && ship.isMoving()
+                    && (player.getMainHandItem().is(RaftContent.SHIPYARD_KEY.get())
+                        || player.getOffhandItem().is(RaftContent.SHIPYARD_KEY.get())))
+                ship.dockAtRest(player);
             if (action == RIG_CONFIGURE || action == RIG_REMOVE) {
                 player.displayClientMessage(net.minecraft.network.chat.Component.literal(
                         "Оснащение меняется в корабельном верстаке: вкладка «Оснащение»"), true);
