@@ -556,4 +556,64 @@ public final class Ocean26GameTests {
             captain.discard();deck.discard();outsider.discard();ship.discard();t.succeed();
         });
     }
+
+    /**
+     * Sail on fractional coordinates, break a soft lily pad, stop without
+     * snapping, disembark and restore the exact vanilla chest with contents.
+     */
+    @GameTest(template = "empty", timeoutTicks = 260, batch = "ocean_docking")
+    public static void smoothVoyageDockRestoresVanillaChest(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos origin = t.absolutePos(new BlockPos(12,4,12));
+        for(int x=-10;x<=10;x++)
+            for(int z=-15;z<=15;z++) {
+                BlockPos p=origin.offset(x,0,z);
+                level.setBlock(p.below(),Blocks.WATER.defaultBlockState(),2);
+                level.setBlock(p,Blocks.WATER.defaultBlockState(),2);
+                for(int dy=1;dy<=24;dy++) level.setBlock(p.above(dy),Blocks.AIR.defaultBlockState(),2);
+            }
+        t.assertTrue(FirstShipBlockHull.place(level,origin,0,new ListTag(),0,0,5),
+                "Dock fixture hull missing");
+        BlockPos cargo=FirstShipBlockHull.world(origin,0,1,5,0);
+        level.setBlock(cargo,Blocks.CHEST.defaultBlockState(),2);
+        chest(level,cargo,t).setItem(0,new ItemStack(Items.DIAMOND,13));
+        BlockPos lily=origin.offset(0,1,7);
+        level.setBlock(lily,Blocks.LILY_PAD.defaultBlockState(),2);
+        FirstShipEntity ship=RaftContent.FIRST_SHIP.get().create(level);
+        t.assertTrue(ship!=null,"Dock fixture ship missing");
+        ship.initializeNativeHull(origin,0);
+        t.assertTrue(level.addFreshEntity(ship),"Dock fixture spawn failed");
+        ServerPlayer driver=player(level,"SmoothDockCaptain",
+                new Vec3(ship.getX(),ship.deckY()+.08D,ship.getZ()-3D));
+        t.assertTrue(driver.startRiding(ship),"Dock captain could not mount");
+        for(int step=0;step<24;step++) {
+            final int index=step;
+            t.runAtTickTime(6L+step,()->t.assertTrue(
+                    ship.setVoyageControl(driver,1),"Forward input refused at "+index));
+        }
+        t.runAtTickTime(32L,()->{
+            t.assertTrue(ship.setVoyageControl(driver,0),"Throttle release refused");
+        });
+        t.runAtTickTime(138L,()->{
+            t.assertTrue(ship.isVoyaging(),"Ship left moving mode before docking test");
+            t.assertTrue(!level.getBlockState(lily).is(Blocks.LILY_PAD),
+                    "Continuous movement did not clear the soft lily pad");
+            t.assertTrue(Math.abs(ship.voyageSpeed())<.001D,
+                    "Throttle release did not stop the floating hull");
+            driver.stopRiding();
+            driver.discard();
+            t.assertTrue(ship.tryDock(level),
+                    "Stationary ship refused a verified water anchoring location");
+            t.assertTrue(!ship.isVoyaging(),"Docking did not restore native block mode");
+            BlockPos docked=ship.blockAnchor();
+            BlockPos newCargo=FirstShipBlockHull.world(docked,ship.quarterTurns(),1,5,0);
+            t.assertTrue(chest(level,newCargo,t).getItem(0).getCount()==13,
+                    "Vanilla BlockEntity chest lost its diamond cargo on docking");
+            t.assertTrue(FirstShipBlockHull.remove(level,docked,ship.quarterTurns(),0,0,5),
+                    "Failed to pack correctly restored world-block ship");
+            ship.discard();
+            System.out.println("OCEAN26_SMOOTH_DOCK_PASS lily=true floating=true settled=true vanillaChest13=true");
+            t.succeed();
+        });
+    }
 }
