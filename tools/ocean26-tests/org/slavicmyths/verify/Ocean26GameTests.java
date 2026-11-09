@@ -601,6 +601,12 @@ public final class Ocean26GameTests {
                 body.pose(), body.waterlineY(), body.palette()),
                 "Solid coral block was treated as a harmless plant");
         level.setBlock(waterloggedWall, Blocks.WATER.defaultBlockState(), 2);
+        BlockPos shoal = anchor.below();
+        level.setBlock(shoal, Blocks.STONE.defaultBlockState(), 2);
+        t.assertTrue(!org.slavicmyths.ships.ShipMovingClearance.clearPose(level,
+                body.pose(), body.waterlineY(), body.palette()),
+                "Moving hull accepted a stone shoal below the waterline");
+        level.setBlock(shoal, Blocks.WATER.defaultBlockState(), 2);
         BlockPos lily = anchor.offset(0, 0, 3);
         level.setBlock(lily, Blocks.LILY_PAD.defaultBlockState(), 2);
         var throttle = new org.slavicmyths.ships.ShipRigidMotion.Control(.7D,.4D);
@@ -678,8 +684,15 @@ public final class Ocean26GameTests {
                     "New ship failed to assemble into moving palette");
             t.assertTrue(ship.isMoving() && level.getBlockState(cargo).isAir(),
                     "Moving ship left real chest blocks behind");
+            t.assertTrue(!deckCrew.startRiding(ship) && ship.getFirstPassenger() == captain,
+                    "A second player took the occupied moving helm");
             java.util.List<net.minecraft.world.phys.shapes.VoxelShape> initialDeckShapes =
                     new java.util.ArrayList<>();
+            t.assertTrue(org.slavicmyths.ships.ShipDynamicCollision.hasNearbyMovingShip(
+                    deckCrew, level, deckCrew.getBoundingBox())
+                    && !org.slavicmyths.ships.ShipDynamicCollision.hasNearbyMovingShip(
+                            ship, level, ship.getBoundingBox()),
+                    "Moving collision fast path skipped a walker or included the ship itself");
             org.slavicmyths.ships.ShipDynamicCollision.collect(deckCrew, level,
                     deckCrew.getBoundingBox().expandTowards(0D, -.35D, 0D), initialDeckShapes);
             t.assertTrue(!initialDeckShapes.isEmpty(),
@@ -797,6 +810,9 @@ public final class Ocean26GameTests {
             t.assertTrue(FirstShipHull.mainDeckSupports(onDeck.x(), onDeck.z())
                     && captain.getY() >= ship.deckY() - .1D,
                     "Dismounted captain fell through or detached from moving deck");
+            t.assertTrue(!ship.helmStep(captain, FirstShipNetwork.FORWARD)
+                    && captain.getVehicle() == null,
+                    "Exited captain retained helm authority");
             captain.setPos(ship.getX() + 12D, ship.deckY() + 1D, ship.getZ());
             releasedPose[0] = captain.getX();
             releasedPose[1] = captain.getZ();
@@ -805,13 +821,18 @@ public final class Ocean26GameTests {
             t.assertTrue(Math.hypot(captain.getX() - releasedPose[0],
                     captain.getZ() - releasedPose[1]) < .25D,
                     "Ship continued to carry a captain who left the hull");
+            t.assertTrue(deckCrew.startRiding(ship),
+                    "Deck crew could not take over the released moving helm");
+            t.assertTrue(ship.helmStep(deckCrew, FirstShipNetwork.FORWARD_RIGHT),
+                    "New captain could not resume smooth steering");
+            deckCrew.stopRiding();
             captain.discard();
             deckCrew.discard();
             holdCrew.discard();
             ship.discard();
             level.getChunkSource().removeRegionTicket(VOYAGE_TICKET,
                     new ChunkPos(anchor), 3, anchor.asLong());
-            System.out.println("OCEAN26_LIVE_SMOOTH_SHIP_PASS fractional=true dismount=true inertia=true deck=true leaveHull=true cargoNBT=true");
+            System.out.println("OCEAN26_LIVE_SMOOTH_SHIP_PASS fractional=true dismount=true inertia=true deck=true releasedHelm=true leaveHull=true helmHandoff=true cargoNBT=true");
             t.succeed();
         });
     }

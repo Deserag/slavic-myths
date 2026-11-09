@@ -52,10 +52,11 @@ public final class ShipMovingClearance {
                         pose.x(), pose.z(), pose.yaw());
                 BlockPos target = BlockPos.containing(point.x(),
                         surfaceY + relativeY + 0.5D, point.z());
-                if (!visited.add(target.asLong())) continue;
-                if (!level.hasChunkAt(target)) return false;
-                BlockState obstacle = level.getBlockState(target);
-                if (!harmless(obstacle) || level.getBlockEntity(target) != null) return false;
+                if (visited.add(target.asLong())) {
+                    if (!level.hasChunkAt(target)) return false;
+                    BlockState obstacle = level.getBlockState(target);
+                    if (!harmless(obstacle) || level.getBlockEntity(target) != null) return false;
+                }
                 if (waterline) {
                     BlockPos below = target.below();
                     if (!level.hasChunkAt(below)

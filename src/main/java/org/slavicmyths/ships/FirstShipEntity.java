@@ -309,6 +309,13 @@ public final class FirstShipEntity extends Boat {
         }
     }
 
+    @Override protected boolean canAddPassenger(Entity passenger) {
+        // Boat rejects boarding when its water-state check sees the ship's
+        // waterline inside water. This hull has a dry wheel above the deck.
+        return isNativeHull() ? passenger instanceof Player && !isVehicle()
+                && !isRemoved() : super.canAddPassenger(passenger);
+    }
+
     @Override public boolean canCollideWith(Entity other) {
         return !(other instanceof Player) && super.canCollideWith(other);
     }

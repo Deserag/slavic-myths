@@ -19,7 +19,8 @@ public abstract class MovingShipCollisionMixin {
     private static void slavicmyths$movingHullCollision(Entity entity, Level level,
             List<VoxelShape> collisions, AABB query,
             CallbackInfoReturnable<List<VoxelShape>> callback) {
-        if (entity == null) return;
+        if (entity == null || !ShipDynamicCollision.hasNearbyMovingShip(entity, level, query))
+            return;
         List<VoxelShape> combined = new ArrayList<>(callback.getReturnValue());
         int previous = combined.size();
         ShipDynamicCollision.collect(entity, level, query, combined);

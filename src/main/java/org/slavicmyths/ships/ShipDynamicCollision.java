@@ -30,6 +30,17 @@ public final class ShipDynamicCollision {
     private record Geometry(String key, Map<BlockPos, List<AABB>> cells) {}
     private static final Map<FirstShipEntity, Geometry> GEOMETRY = new WeakHashMap<>();
 
+    /** Avoid allocating a copied vanilla collision list on unrelated entity moves. */
+    public static boolean hasNearbyMovingShip(Entity entity, Level level, AABB region) {
+        if (!(entity instanceof Player player) || !player.isAlive() || player.isSpectator()
+                || player.getAbilities().flying || player.isFallFlying() || player.isPassenger())
+            return false;
+        for (FirstShipEntity ship : level.getEntitiesOfClass(FirstShipEntity.class,
+                region.inflate(12D, 15D, 12D)))
+            if (!ship.isRemoved() && ship.isMoving()) return true;
+        return false;
+    }
+
     public static boolean onMovingLadder(Player player) {
         if (!player.isAlive() || player.isPassenger() || player.isSpectator()) return false;
         for (FirstShipEntity ship : player.level().getEntitiesOfClass(FirstShipEntity.class,
