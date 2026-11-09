@@ -43,6 +43,8 @@ public final class ClientSetup {
 
         bus.addListener(org.slavicmyths.nethersmithing.client.NetherArmorClient::register);
 
+        bus.addListener(org.slavicmyths.sisters.client.SistersArmorClient::register);
+
         bus.addListener(org.slavicmyths.nethersmithing.client.NetherArmorGlow::layers);
 
         bus.addListener(KalinClient::renderers);
