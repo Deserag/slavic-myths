@@ -100,6 +100,8 @@ public final class GneteyaModelV8 extends EntityModel<SisterBoss> {
     private static float sin(float f){return (float)Math.sin(f);}
     private static float clamp(float v,float lo,float hi){return Math.max(lo,Math.min(hi,v));}
     @Override public void setupAnim(SisterBoss boss,float walk,float stride,float age,float yaw,float pitch){
+        // Restore the baked pose, including hidden rotation/scale axes after combat.
+        root.getAllParts().forEach(ModelPart::resetPose);
         // Absolute poses every frame: no cumulative drifting bones.
         float moving=clamp(stride,0,1);
         float step=sin(walk*.73F);
