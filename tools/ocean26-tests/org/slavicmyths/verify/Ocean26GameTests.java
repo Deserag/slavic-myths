@@ -385,9 +385,12 @@ public final class Ocean26GameTests {
         int[] steps = {FirstShipNetwork.FORWARD,FirstShipNetwork.FORWARD,
                 FirstShipNetwork.RIGHT,FirstShipNetwork.FORWARD,
                 FirstShipNetwork.LEFT,FirstShipNetwork.BACKWARD};
-        t.runAfterDelay(5,new Runnable() {
-            int step = 0;
-            @Override public void run() {
+        // All events are registered up-front at absolute GameTest tick times.
+        // Recursive delayed callbacks were not reliably scheduled by the runner.
+        for(int i=0;i<steps.length;i++){
+            final int step=i;
+            t.runAtTickTime(5L+24L*step,()->{
+                System.out.println("OCEAN26_MULTISTEP_CREW_BEGIN step="+step);
                 FirstShipHull.Point beforeDeck = FirstShipHull.toLocal(
                         deckWalker.getX(),deckWalker.getZ(),ship.getX(),ship.getZ(),ship.shipYaw());
                 FirstShipHull.Point beforeHold = FirstShipHull.toLocal(
@@ -413,9 +416,7 @@ public final class Ocean26GameTests {
                         "Mounted captain LEFT BEHIND on step "+step);
                 t.assertTrue(Math.hypot(outsider.getX()-outsiderStart.x,outsider.getZ()-outsiderStart.z)<.02D,
                         "Unrelated player was wrongly carried on step "+step);
-                step++;
-                if(step<steps.length)t.runAfterDelay(24,this);
-                else {
+                if(step==steps.length-1) {
                     t.assertTrue(FirstShipBlockHull.remove(level,ship.blockAnchor(),
                             ship.quarterTurns(),0,0,4),"V4 hull teardown failed");
                     ship.discard();
@@ -426,7 +427,7 @@ public final class Ocean26GameTests {
                     System.out.println("OCEAN26_MULTISTEP_CREW_PASS steps=6 captain=true deckWalker=true holdWalker=true outsiderStable=true");
                     t.succeed();
                 }
-            }
-        });
+            });
+        }
     }
 }
