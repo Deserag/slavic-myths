@@ -56,8 +56,20 @@ for fragment in ("clear(level", "BlockEntity.loadStatic", "saveWithFullMetadata"
 for level in (1, 2, 3, 4):
     check(f"case {level} ->" in hull, "missing rig tier geometry")
 check('for (int y = 1; y <= 3; y++)' in hull, "dry hold/cabin not accounted for")
-for fragment in ("RIG_CONFIGURE", "RIG_REMOVE", "configureRigging"):
-    check(fragment in network and fragment in (entity + client), "rig packet missing: " + fragment)
+# The workshop now owns all player-facing rig transactions. The old native
+# configureRigging function is retained for legacy save/test compatibility,
+# but the client must no longer fire direct mast mounting packets.
+for fragment in ("RIG_CONFIGURE", "RIG_REMOVE"):
+    check(fragment in network, "legacy rig packet id missing: " + fragment)
+check("configureRigging" in entity, "legacy ship migration/test API was removed")
+check("outfitFirstShip" in shipyard and "SAIL_RIGGING_KIT" in shipyard,
+      "workshop no longer handles ship rig transactions")
+check("configureRigging(player" not in network,
+      "forbidden direct in-world rigging remains reachable through network")
+check("FirstShipNetwork.RIG_CONFIGURE" not in client,
+      "client still sends old mast install packets")
+check("action >= 20 && action <= 25" in source("ShipyardMenu.java"),
+      "workshop UI buttons cannot reach server rig transactions")
 check("countItem(RaftContent.SAIL_MODULE.get()) >= 1" not in shipyard.split("public static boolean canBuildFirstShip")[1],
       "bare hull cannot require automatic sail")
 check("countTag(player, net.minecraft.tags.ItemTags.WOOL) >= 20" not in shipyard,
