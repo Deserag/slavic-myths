@@ -225,6 +225,7 @@ public final class FirstShipBlockHull {
             blocks.put(world(anchor, turns, x, 7, -4), Blocks.DARK_OAK_FENCE.defaultBlockState());
         for (int x : new int[]{-1, 1}) {
             blocks.put(world(anchor, turns, x, 6, -4), Blocks.DARK_OAK_FENCE.defaultBlockState());
+            blocks.put(world(anchor, turns, x, 7, -4), Blocks.DARK_OAK_FENCE.defaultBlockState());
             blocks.put(world(anchor, turns, x, 8, -4), Blocks.DARK_OAK_FENCE.defaultBlockState());
         }
         for (int y = 6; y <= 9; y++)
