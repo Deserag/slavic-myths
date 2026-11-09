@@ -1016,7 +1016,11 @@ public final class FirstShipEntity extends Boat {
     @Override protected void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         nativeHull = tag.getBoolean("FirstShipNative");
-        smoothEnabled = tag.getBoolean("FirstShipSmoothEnabled");
+        // Existing V5 worlds predate the continuous engine and never wrote
+        // FirstShipSmoothEnabled. Opt those intact ships in at their first
+        // helm command, but leave V1-V4 hulls on the migration path.
+        smoothEnabled = tag.contains("FirstShipSmoothEnabled", Tag.TAG_BYTE)
+                ? tag.getBoolean("FirstShipSmoothEnabled") : false;
         if (nativeHull) {
             initializeNativeHull(BlockPos.of(tag.getLong("FirstShipAnchor")),
                     tag.getInt("FirstShipTurns"));
@@ -1029,6 +1033,8 @@ public final class FirstShipEntity extends Boat {
             catch (IllegalArgumentException invalid) { setRigging(1, 1); }
             setGeometryVersion(tag.contains("FirstShipGeometryVersion", Tag.TAG_INT)
                     ? tag.getInt("FirstShipGeometryVersion") : 1);
+            if (!tag.contains("FirstShipSmoothEnabled", Tag.TAG_BYTE)
+                    && geometryVersion >= 5) smoothEnabled = true;
         }
         if (tag.contains("FirstShipMovingBody", Tag.TAG_COMPOUND)) {
             movingBody = ShipMovingContraption.load(tag.getCompound("FirstShipMovingBody"));
