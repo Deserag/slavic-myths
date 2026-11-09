@@ -26,6 +26,16 @@ for name in names:
     file = assets / f"{name}.json"
     check(file.is_file(), f"Missing inventory model: {name}")
     model = json.loads(file.read_text(encoding="utf-8"))
+    if model.get("parent") == "minecraft:item/generated":
+        texture = model.get("textures", {}).get("layer0")
+        check(texture == f"slavicmyths:item/{name}", f"{name}: incorrect 2D icon texture")
+        art = root / f"src/main/resources/assets/slavicmyths/textures/item/{name}.png"
+        check(art.is_file(), f"{name}: missing pixel icon")
+        data = art.read_bytes()
+        check(data[:8] == b"\\x89PNG\\r\\n\\x1a\\n", f"{name}: invalid PNG header")
+        check(int.from_bytes(data[16:20], "big") == 16
+              and int.from_bytes(data[20:24], "big") == 16, f"{name}: icon not 16x16")
+        continue
     check(model.get("gui_light") == "front", f"{name}: unstable GUI lighting")
     check(model.get("ambientocclusion") is False, f"{name}: ambient occlusion mismatch")
     display = model.get("display", {})
@@ -62,6 +72,22 @@ for name in ["shipyard_workbench", "ship_deck_section", "ship_rail_module",
           f"{name}: recipe key mapping mismatch")
     check(recipe["result"]["id"] == f"slavicmyths:{name}",
           f"{name}: unexpected recipe output")
+
+
+# The small ship's six dedicated pixel-art items use the same readable flat
+# model in Creative Inventory, hotbar and first/third-person item views.
+for name in ("ship_sail_module", "ship_sail_linen_module", "ship_sail_reinforced_module",
+             "ship_rigging_upgrade", "linen_cloth", "reinforced_sailcloth"):
+    model = json.loads((assets / f"{name}.json").read_text(encoding="utf-8"))
+    check(model.get("parent") == "minecraft:item/generated", f"{name}: expected a flat 16px icon")
+    check(model.get("textures", {}).get("layer0") == f"slavicmyths:item/{name}",
+          f"{name}: wrong icon binding")
+    icon = root / f"src/main/resources/assets/slavicmyths/textures/item/{name}.png"
+    data = icon.read_bytes()
+    check(data[:8] == b"\\x89PNG\\r\\n\\x1a\\n"
+          and int.from_bytes(data[16:20], "big") == 16
+          and int.from_bytes(data[20:24], "big") == 16,
+          f"{name}: corrupted 16x16 texture")
 
 check((root / "src/main/resources/assets/slavicmyths/blockstates/shipyard_workbench.json").is_file(),
       "Shipyard bench blockstate missing")
