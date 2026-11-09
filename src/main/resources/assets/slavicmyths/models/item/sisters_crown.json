@@ -3,7 +3,7 @@
   "textures": {
     "metal": "slavicmyths:item/sisters/gneteya_metal",
     "trim": "slavicmyths:item/sisters/ledeya_metal",
-    "socket": "minecraft:block/polished_blackstone",
+    "socket": "minecraft:block/white_concrete",
     "particle": "slavicmyths:item/sisters/gneteya_metal"
   },
   "elements": [
@@ -434,7 +434,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 0
         },
         "south": {
           "uv": [
@@ -443,7 +444,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 0
         },
         "up": {
           "uv": [
@@ -452,7 +454,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 0
         },
         "down": {
           "uv": [
@@ -461,7 +464,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 0
         },
         "east": {
           "uv": [
@@ -470,7 +474,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 0
         },
         "west": {
           "uv": [
@@ -479,7 +484,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 0
         }
       }
     },
@@ -502,7 +508,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 1
         },
         "south": {
           "uv": [
@@ -511,7 +518,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 1
         },
         "up": {
           "uv": [
@@ -520,7 +528,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 1
         },
         "down": {
           "uv": [
@@ -529,7 +538,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 1
         },
         "east": {
           "uv": [
@@ -538,7 +548,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 1
         },
         "west": {
           "uv": [
@@ -547,7 +558,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 1
         }
       }
     },
@@ -570,7 +582,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 2
         },
         "south": {
           "uv": [
@@ -579,7 +592,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 2
         },
         "up": {
           "uv": [
@@ -588,7 +602,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 2
         },
         "down": {
           "uv": [
@@ -597,7 +612,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 2
         },
         "east": {
           "uv": [
@@ -606,7 +622,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 2
         },
         "west": {
           "uv": [
@@ -615,7 +632,8 @@
             16,
             16
           ],
-          "texture": "#socket"
+          "texture": "#socket",
+          "tintindex": 2
         }
       }
     }
