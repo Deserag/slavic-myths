@@ -1,157 +1,305 @@
 package org.slavicmyths.ships.client;
 
+import java.util.ArrayList;
 import java.util.List;
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import org.slavicmyths.ships.FirstShipItem;
 import org.slavicmyths.ships.RaftCharacteristics;
+import org.slavicmyths.ships.RaftContent;
 import org.slavicmyths.ships.RaftItem;
+import org.slavicmyths.ships.RaftSize;
 import org.slavicmyths.ships.ShipyardMenu;
 import org.slavicmyths.ships.ShipyardUpgrades;
 
-/** Shipwright-style inspection panel. One real inventory slot; no fake visual item. */
+/**
+ * Unified three-tab workshop:
+ *  0 Суда      — choose a blueprint on the left, preview exact inventory costs;
+ *  1 Оснащение — put one actual vessel in its slot and select a module;
+ *  2 Облик     — visible placeholder until cosmetic data is implemented.
+ * Only the server authorizes craft/install transactions; the GUI never consumes
+ * materials or invents vessels on the client.
+ */
 public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> {
-    private static final int WOOD = 0xff38291d;
-    private static final int RIM = 0xffbd985c;
-    private static final int PAPER = 0xffe8d5a8;
-    private int detailsScroll;
+    private static final int FRAME = 0xffae824a, WOOD = 0xff302419;
+    private static final int PAPER = 0xffe5d3aa, DARK = 0xff493323;
+    private static final String[] VESSELS =
+            {"Плот 3×3", "Плот 3×5", "Плот 5×5", "Плот 5×7", "Корабль 7×11"};
+    private static final int[] CRAFT_ACTIONS = {2, 30, 31, 32, 11};
+    private static final String[] SHIP_OPTIONS =
+            {"Парус", "Льняной", "Усиленный", "Мачта +", "Мачта −", "Снять всё"};
+    private static final int[] SHIP_ACTIONS = {20, 21, 22, 23, 24, 25};
+    private static final String[] RAFT_OPTIONS =
+            {"Борта +", "Парус +", "Руль +", "Вёсла +", "Борта −",
+             "Парус −", "Руль −", "Вёсла −", "Размер +"};
+    private static final int[] RAFT_ACTIONS = {3, 4, 5, 6, 7, 8, 9, 10, 1};
+    private record Cost(String title, ItemStack icon, int need, int have) {}
+
+    private int tab;
+    private int chosen;
+    private int lastKind = -1;
+    private Button primary;
 
     public ShipyardScreen(ShipyardMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
-        imageWidth = 372;
-        imageHeight = 249;
-        inventoryLabelY = 143;
-        inventoryLabelX = 12;
+        imageWidth = 476;
+        imageHeight = 299;
+        inventoryLabelX = 198;
+        inventoryLabelY = 195;
+    }
+
+    private int vesselKind() {
+        ItemStack stack = menu.inspected();
+        return stack.getItem() instanceof FirstShipItem ? 2
+                : stack.getItem() instanceof RaftItem ? 1 : 0;
     }
 
     @Override protected void init() {
         super.init();
-        addRenderableWidget(Button.builder(Component.literal("Корабль 7×11"), button -> action(11))
-                .bounds(leftPos + 79, topPos + 51, 98, 21).build());
-        addRenderableWidget(Button.builder(Component.literal("Создать 3×3"), button -> action(2))
-                .bounds(leftPos + 12, topPos + 78, 91, 20).build());
-        addRenderableWidget(Button.builder(Component.literal("Улучшить"), button -> action(1))
-                .bounds(leftPos + 108, topPos + 78, 69, 20).build());
-        addRenderableWidget(Button.builder(Component.literal("Борта"), button -> action(3))
-                .bounds(leftPos + 10, topPos + 106, 41, 20).build());
-        addRenderableWidget(Button.builder(Component.literal("Парус"), button -> action(4))
-                .bounds(leftPos + 54, topPos + 106, 42, 20).build());
-        addRenderableWidget(Button.builder(Component.literal("Руль"), button -> action(5))
-                .bounds(leftPos + 99, topPos + 106, 37, 20).build());
-        addRenderableWidget(Button.builder(Component.literal("Вёсла"), button -> action(6))
-                .bounds(leftPos + 139, topPos + 106, 40, 20).build());
-        // Reconfiguration is distinct from installation; every removal refunds
-        // one real part on the server and fails safely if inventory is full.
-        addRenderableWidget(Button.builder(Component.literal("−Борт"), button -> action(7))
-                .bounds(leftPos + 10, topPos + 127, 41, 15).build());
-        addRenderableWidget(Button.builder(Component.literal("−Парус"), button -> action(8))
-                .bounds(leftPos + 54, topPos + 127, 42, 15).build());
-        addRenderableWidget(Button.builder(Component.literal("−Руль"), button -> action(9))
-                .bounds(leftPos + 99, topPos + 127, 37, 15).build());
-        addRenderableWidget(Button.builder(Component.literal("−Вёсла"), button -> action(10))
-                .bounds(leftPos + 139, topPos + 127, 40, 15).build());
+        lastKind = vesselKind();
+        rebuild();
     }
 
-    private void action(int id) {
-        if (minecraft != null && minecraft.gameMode != null) {
-            minecraft.gameMode.handleInventoryButtonClick(menu.containerId, id);
+    private void switchTab(int id) {
+        tab = id;
+        chosen = 0;
+        rebuild();
+    }
+
+    private void rebuild() {
+        clearWidgets();
+        String[] tabs = {"Суда", "Оснащение", "Облик"};
+        for (int i = 0; i < tabs.length; i++) {
+            final int value = i;
+            Button b = Button.builder(Component.literal(tabs[i]), button -> switchTab(value))
+                    .bounds(leftPos + 12 + 153 * i, topPos + 12, 145, 22).build();
+            b.active = tab != i;
+            addRenderableWidget(b);
         }
+        if (tab == 2) { primary = null; return; }
+        String[] options = tab == 0 ? VESSELS
+                : vesselKind() == 2 ? SHIP_OPTIONS
+                : vesselKind() == 1 ? RAFT_OPTIONS : new String[0];
+        chosen = Math.max(0, Math.min(chosen, Math.max(0, options.length - 1)));
+        for (int i = 0; i < options.length; i++) {
+            final int index = i;
+            final int x = tab == 0 ? 18 : 16 + (i % 2) * 77;
+            final int y = tab == 0 ? 64 + 23 * i : 99 + (i / 2) * 19;
+            final int width = tab == 0 ? 155 : 73;
+            Button b = Button.builder(Component.literal(options[i]),
+                    button -> { chosen = index; rebuild(); })
+                    .bounds(leftPos + x, topPos + y, width, tab == 0 ? 20 : 17).build();
+            b.active = chosen != i;
+            addRenderableWidget(b);
+        }
+        primary = Button.builder(Component.literal(tab == 0 ? "Создать" : "Применить"),
+                button -> execute())
+                .bounds(leftPos + 347, topPos + 162, 105, 23).build();
+        addRenderableWidget(primary);
+        updateButton();
+    }
+
+    private void execute() {
+        if (minecraft == null || minecraft.gameMode == null || !allowed()) return;
+        int kind = vesselKind();
+        int action = tab == 0 ? CRAFT_ACTIONS[chosen]
+                : kind == 2 ? SHIP_ACTIONS[chosen] : RAFT_ACTIONS[chosen];
+        minecraft.gameMode.handleInventoryButtonClick(menu.containerId, action);
+    }
+
+    private int count(Item item) {
+        return minecraft == null || minecraft.player == null ? 0
+                : minecraft.player.getInventory().countItem(item);
+    }
+
+    private int countTag(TagKey<Item> tag) {
+        if (minecraft == null || minecraft.player == null) return 0;
+        int sum = 0;
+        Inventory inv = minecraft.player.getInventory();
+        for (int i = 0; i < inv.getContainerSize(); i++)
+            if (inv.getItem(i).is(tag)) sum += inv.getItem(i).getCount();
+        return sum;
+    }
+
+    private Cost itemCost(String label, Item item, int need) {
+        return new Cost(label, new ItemStack(item), need, count(item));
+    }
+
+    private List<Cost> costs() {
+        List<Cost> list = new ArrayList<>();
+        if (tab == 0 && chosen < 4) {
+            RaftSize size = switch (chosen) {
+                case 0 -> RaftSize.SMALL;
+                case 1 -> RaftSize.LONG;
+                case 2 -> RaftSize.WIDE;
+                default -> RaftSize.CARGO;
+            };
+            list.add(itemCost("Палубные секции", RaftContent.DECK_SECTION.get(),
+                    ShipyardUpgrades.raftDeckCost(size)));
+            list.add(itemCost("Вёсла", RaftContent.OAR_MODULE.get(), 1));
+        } else if (tab == 0) {
+            list.add(new Cost("Брёвна", new ItemStack(Items.OAK_LOG), 48, countTag(ItemTags.LOGS)));
+            list.add(new Cost("Доски", new ItemStack(Items.OAK_PLANKS), 96, countTag(ItemTags.PLANKS)));
+            list.add(itemCost("Железо", Items.IRON_INGOT, 32));
+            list.add(itemCost("Нити", Items.STRING, 24));
+            list.add(itemCost("Секции", RaftContent.DECK_SECTION.get(), 32));
+            list.add(itemCost("Борта", RaftContent.RAIL_MODULE.get(), 4));
+            list.add(itemCost("Руль", RaftContent.HELM_MODULE.get(), 1));
+        } else if (tab == 1 && vesselKind() == 2) {
+            int level = ShipyardUpgrades.shipRigLevel(menu.inspected());
+            int fabric = ShipyardUpgrades.shipFabric(menu.inspected());
+            if (chosen <= 2) {
+                Item module = chosen == 0 ? RaftContent.SAIL_MODULE.get()
+                        : chosen == 1 ? RaftContent.SAIL_LINEN_MODULE.get()
+                        : RaftContent.SAIL_REINFORCED_MODULE.get();
+                list.add(itemCost("Парусная ткань", module, Math.max(1, level)));
+            } else if (chosen == 3) {
+                list.add(itemCost("Оснастка", RaftContent.SAIL_RIGGING_KIT.get(), 1));
+                if (fabric > 0)
+                    list.add(itemCost("Парус", fabricItem(fabric), 1));
+            }
+        } else if (tab == 1 && vesselKind() == 1) {
+            int action = RAFT_ACTIONS[chosen];
+            if (action >= 3 && action <= 6) {
+                Item required = switch (action) {
+                    case 3 -> RaftContent.RAIL_MODULE.get();
+                    case 4 -> RaftContent.SAIL_MODULE.get();
+                    case 5 -> RaftContent.HELM_MODULE.get();
+                    default -> RaftContent.OAR_MODULE.get();
+                };
+                list.add(itemCost("Деталь", required, 1));
+            } else if (action == 1 && menu.inspected().getItem() instanceof RaftItem raft
+                    && raft.size().next() != null)
+                list.add(itemCost("Палубные секции", RaftContent.DECK_SECTION.get(),
+                        ShipyardUpgrades.sectionCost(raft.size())));
+        }
+        return list;
+    }
+
+    private Item fabricItem(int quality) {
+        return switch (quality) {
+            case 1 -> RaftContent.SAIL_MODULE.get();
+            case 2 -> RaftContent.SAIL_LINEN_MODULE.get();
+            default -> RaftContent.SAIL_REINFORCED_MODULE.get();
+        };
+    }
+
+    private boolean allowed() {
+        if (tab == 2 || minecraft == null || minecraft.player == null) return false;
+        if (tab == 0 && !menu.inspected().isEmpty()) return false;
+        if (tab == 1 && vesselKind() == 0) return false;
+        if (!minecraft.player.getAbilities().instabuild)
+            for (Cost cost : costs()) if (cost.have() < cost.need()) return false;
+
+        if (tab == 0) return true;
+        ItemStack stack = menu.inspected();
+        if (vesselKind() == 2) {
+            int level = ShipyardUpgrades.shipRigLevel(stack);
+            int fabric = ShipyardUpgrades.shipFabric(stack);
+            if (level < 0 || fabric < 0) return false;
+            int action = SHIP_ACTIONS[chosen];
+            if (action >= 20 && action <= 22) return fabric != action - 19;
+            if (action == 23) return level >= 1 && level < 4;
+            if (action == 24) return level >= 2;
+            return level >= 1;
+        }
+        RaftCharacteristics.Info info = RaftCharacteristics.fromItem(stack);
+        if (info == null || info.invalid()) return false;
+        RaftItem raft = (RaftItem)stack.getItem();
+        return switch (RAFT_ACTIONS[chosen]) {
+            case 3 -> !info.rails();
+            case 4 -> info.sails() < raft.size().maxSails();
+            case 5 -> !info.helm();
+            case 6 -> !info.extraOars() && raft.size().length > 3;
+            case 7 -> info.rails();
+            case 8 -> info.sails() > 0;
+            case 9 -> info.helm();
+            case 10 -> info.extraOars();
+            case 1 -> raft.size().next() != null;
+            default -> false;
+        };
+    }
+
+    private void updateButton() {
+        if (primary != null) primary.active = allowed();
+    }
+
+    @Override protected void containerTick() {
+        super.containerTick();
+        int kind = vesselKind();
+        if (lastKind != kind) { lastKind = kind; chosen = 0; rebuild(); }
+        updateButton();
     }
 
     @Override protected void renderBg(GuiGraphics graphics, float partial, int mouseX, int mouseY) {
-        graphics.fill(leftPos, topPos, leftPos + imageWidth, topPos + imageHeight, RIM);
+        graphics.fill(leftPos, topPos, leftPos + imageWidth, topPos + imageHeight, FRAME);
         graphics.fill(leftPos + 3, topPos + 3, leftPos + imageWidth - 3,
                 topPos + imageHeight - 3, WOOD);
-        graphics.fill(leftPos + 7, topPos + 19, leftPos + 179, topPos + 139, 0xff5b4028);
-        graphics.fill(leftPos + 18, topPos + 35, leftPos + 63, topPos + 74, 0xff967447);
-        graphics.fill(leftPos + 29, topPos + 43, leftPos + 49, topPos + 64, 0xff171c20);
-        graphics.fill(leftPos + 183, topPos + 20, leftPos + 364, topPos + 235, PAPER);
-        graphics.fill(leftPos + 185, topPos + 22, leftPos + 362, topPos + 233, 0xffd0b987);
-        graphics.fill(leftPos + 187, topPos + 24, leftPos + 360, topPos + 231, PAPER);
-        graphics.fill(leftPos + 7, topPos + 140, leftPos + 179, topPos + 242, 0xff74543a);
-        graphics.fill(leftPos + 9, topPos + 146, leftPos + 176, topPos + 237, 0xff4a3022);
-        // Recessed inventory slots.
+        graphics.fill(leftPos + 10, topPos + 42, leftPos + 183, topPos + 192, 0xff694e36);
+        graphics.fill(leftPos + 189, topPos + 42, leftPos + 466, topPos + 192, PAPER);
+        graphics.fill(leftPos + 191, topPos + 44, leftPos + 464, topPos + 190, 0xfff0e4c4);
+        graphics.fill(leftPos + 190, topPos + 197, leftPos + 464, topPos + 292, 0xff745335);
         for (int row = 0; row < 3; row++)
             for (int col = 0; col < 9; col++)
-                graphics.fill(leftPos + 11 + col * 18, topPos + 154 + row * 18,
-                        leftPos + 29 + col * 18, topPos + 172 + row * 18, 0xff2a2420);
+                graphics.fill(leftPos + 197 + col * 18, topPos + 210 + row * 18,
+                        leftPos + 215 + col * 18, topPos + 228 + row * 18, 0xff231b14);
         for (int col = 0; col < 9; col++)
-            graphics.fill(leftPos + 11 + col * 18, topPos + 212,
-                    leftPos + 29 + col * 18, topPos + 230, 0xff2a2420);
+            graphics.fill(leftPos + 197 + col * 18, topPos + 267,
+                    leftPos + 215 + col * 18, topPos + 285, 0xff231b14);
+        graphics.fill(leftPos + 152, topPos + 64, leftPos + 171, topPos + 83, 0xff241a13);
     }
 
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
-        graphics.drawString(font, "КОРАБЕЛЬНАЯ ВЕРФЬ", 13, 8, 0xfff5d49d, false);
-        graphics.drawString(font, "Судно", 23, 26, 0xfff4e2be, false);
-        graphics.drawString(font, "Осмотр и улучшения", 192, 29, 0xff493322, false);
-        java.util.List<net.minecraft.util.FormattedCharSequence> wrapped = new java.util.ArrayList<>();
-        if (menu.inspected().getItem() instanceof org.slavicmyths.ships.FirstShipItem) {
-            for (String line : new String[]{
-                    "Корабль 7×11 из ванильных блоков",
-                    "Палуба: реальные доски Y+4",
-                    "Сухой трюм: 2 блока высоты",
-                    "Люк 2×2, настоящая лестница",
-                    "Нос — один цельный блок",
-                    "Штурвал: ПКМ, затем W/S ход",
-                    "A/D: поворот на 90 градусов",
-                    "Shift: выйти на открытую палубу",
-                    "Сундуки/бочки/печи: обычные",
-                    "E: схема реальных контейнеров",
-                    "Ключ + Shift+ПКМ: упаковка",
-                    "4 уровня парусов, 3 ткани.",
-                    "ПКМ по мачте для монтажа.",
-                    "Shift+ПКМ без вещи: снятие.",
-                    "Плавная навигация не готова.",
-                    "Нужны проверки прямо в игре."
-            }) wrapped.addAll(font.split(Component.literal(line), 158));
-        } else if (!(menu.inspected().getItem() instanceof RaftItem)) {
-            for (String line : new String[]{"Поместите плот в", "судовую ячейку слева.",
-                    "Сборка: 9 секций + вёсла.", "Улучшение: палубные секции.",
-                    "Модификации: детали", "из личного инвентаря.",
-                    "Кнопки − снимают части", "и возвращают их игроку.",
-                    "Корабль 7×11:",
-                    "48 брёвен, 96 досок",
-                    "32 железа, 24 нити",
-                    "32 палубные секции",
-                    "4 борта, 1 штурвал",
-                    "Паруса и ткань отдельно",
-                    "Кнопка Корабль: сборка."})
-                wrapped.addAll(font.split(Component.literal(line), 158));
+        graphics.drawString(font, "Корабельная верфь", 14, 43, 0xfff8e1b5, false);
+        if (tab == 2) {
+            graphics.drawCenteredString(font, "ОБЛИК СУДНА", 327, 80, DARK);
+            graphics.drawCenteredString(font, "Скоро появятся изменения", 327, 106, DARK);
+            graphics.drawCenteredString(font, "Окраска, декор и внешний вид", 327, 122, DARK);
         } else {
-            RaftCharacteristics.Info info = RaftCharacteristics.fromItem(menu.inspected());
-            if (info == null) return;
-            for (Component line : RaftCharacteristics.tooltip(info))
-                wrapped.addAll(font.split(line, 158));
-            if (info.size().next() != null)
-                wrapped.addAll(font.split(Component.literal(
-                        "Для расширения: " + ShipyardUpgrades.sectionCost(info.size()) + " палубных секций"), 158));
-            wrapped.addAll(font.split(Component.literal(
-                    "Парус: по ветру. Встречный ветер не ускоряет."), 158));
-            wrapped.addAll(font.split(Component.literal(
-                    "Кнопки со знаком − снимают оснащение и возвращают детали."), 158));
+            graphics.drawString(font, tab == 0 ? "Чертежи судов" : "Установите судно", 18, 54,
+                    0xfff2dfbd, false);
+            graphics.drawString(font, tab == 0 ? VESSELS[chosen]
+                    : vesselKind() == 0 ? "Сначала положите судно в ячейку"
+                    : vesselKind() == 2 ? SHIP_OPTIONS[chosen] : RAFT_OPTIONS[chosen],
+                    202, 52, DARK, false);
+            if (tab == 1 && vesselKind() == 2) {
+                int level = ShipyardUpgrades.shipRigLevel(menu.inspected());
+                int fabric = ShipyardUpgrades.shipFabric(menu.inspected());
+                graphics.drawString(font, "Мачта: " + level + "/4     Ткань: " + fabric + "/3",
+                        202, 67, DARK, false);
+            }
+            if (tab == 1 && vesselKind() == 0)
+                graphics.drawString(font, "Выберите плот или корабль слева.", 202, 85, DARK, false);
+            else if (costs().isEmpty()) {
+                graphics.drawString(font, tab == 1 ? "Материалы не требуются" :
+                        "Выберите чертёж", 202, 93, DARK, false);
+                if (tab == 1 && vesselKind() == 2 && chosen == 4)
+                    graphics.drawString(font, "Возврат деталей при снижении мачты", 202, 110, DARK, false);
+                if (tab == 1 && vesselKind() == 2 && chosen == 5)
+                    graphics.drawString(font, "Детали паруса вернутся в инвентарь", 202, 110, DARK, false);
+            } else {
+                List<Cost> req = costs();
+                for (int i = 0; i < req.size(); i++) {
+                    Cost cost = req.get(i);
+                    int col = i % 2, row = i / 2, x = 201 + col * 132, y = 82 + row * 19;
+                    graphics.renderItem(cost.icon(), x, y);
+                    graphics.drawString(font, cost.title(), x + 20, y, DARK, false);
+                    graphics.drawString(font, cost.have() + "/" + cost.need(), x + 20, y + 9,
+                            cost.have() >= cost.need() ? 0xff22612b : 0xffa13726, false);
+                }
+            }
         }
-        final int shown = 17;
-        detailsScroll = Math.max(0, Math.min(detailsScroll, Math.max(0, wrapped.size() - shown)));
-        graphics.enableScissor(leftPos + 189, topPos + 43, leftPos + 358, topPos + 214);
-        for (int i = detailsScroll; i < Math.min(wrapped.size(), detailsScroll + shown); i++) {
-            graphics.drawString(font, wrapped.get(i), 191, 44 + (i - detailsScroll) * 10,
-                    0xff493322, false);
-        }
-        graphics.disableScissor();
-        if (wrapped.size() > shown) graphics.drawString(font, "Колёсико: ещё сведения",
-                191, 216, 0xff614526, false);
-    }
-
-    @Override public boolean mouseScrolled(double mouseX, double mouseY, double horizontal, double vertical) {
-        if (mouseX >= leftPos + 188 && mouseX < leftPos + 363 &&
-                mouseY >= topPos + 40 && mouseY < topPos + 234) {
-            detailsScroll = Math.max(0, detailsScroll - (int)Math.signum(vertical) * 2);
-            return true;
-        }
-        return super.mouseScrolled(mouseX, mouseY, horizontal, vertical);
+        if (tab == 0 && !menu.inspected().isEmpty())
+            graphics.drawString(font, "Заберите готовое судно из ячейки", 194, 176, 0xff942b25, false);
+        graphics.drawString(font, "Инвентарь", 198, 199, 0xfff2d9aa, false);
     }
 
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partial) {
