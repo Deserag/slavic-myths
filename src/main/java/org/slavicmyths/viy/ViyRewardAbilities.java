@@ -132,6 +132,9 @@ public final class ViyRewardAbilities {
             &&type!=org.slavicmyths.sisters.SistersContent.AGNEYA.get()
             &&type!=org.slavicmyths.sisters.SistersContent.NEVEYA.get()
             &&type!=org.slavicmyths.sisters.SistersContent.LOMEYA.get()
+            &&type!=org.slavicmyths.morovoy.MorovoyRavenContent.BOSS.get()
+            &&type!=org.slavicmyths.morovoy.MorovoyFireZmeyContent.BOSS.get()
+            &&type!=org.slavicmyths.ninemor.NineMorContent.BOSS.get()
             &&target.getMaxHealth()<250;
     }
     @SubscribeEvent public static void petrifiedActions(PlayerInteractEvent.RightClickItem event){
