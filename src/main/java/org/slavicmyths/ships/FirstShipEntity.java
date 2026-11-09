@@ -77,6 +77,8 @@ public final class FirstShipEntity extends Boat {
                 ? BlockPos.containing(getX(), getY(), getZ()) : blockAnchor;
     }
     public int quarterTurns() { return entityData.get(TURNS); }
+    /** Synced cardinal heading: client yaw interpolation must not move the wheel seat. */
+    public float shipYaw() { return quarterTurns() * 90F; }
     public boolean isNativeHull() { return entityData.get(NATIVE); }
     public int rigLevel() { return entityData.get(RIG); }
     public int fabricQuality() { return entityData.get(FABRIC); }
@@ -98,6 +100,7 @@ public final class FirstShipEntity extends Boat {
         entityData.set(NATIVE, true);
         entityData.set(TURNS, quarterTurns);
         setYRot(quarterTurns * 90F);
+        setYHeadRot(quarterTurns * 90F);
         setPos(anchor.getX() + .5D, anchor.getY(), anchor.getZ() + .5D);
         setDeltaMovement(Vec3.ZERO);
     }
@@ -189,17 +192,19 @@ public final class FirstShipEntity extends Boat {
     /**
      * Boat has a special rider offset of its own. Native ships must instead use
      * the real helm position in WORLD space, rotating around the block anchor.
-     * Repositioning happens when mounting and after an accepted voxel step,
-     * never as a forced player teleport on every tick.
+     * Both logical sides MUST use the SynchedEntityData flag. The local
+     * nativeHull field is deserialized only on the server and is false on
+     * freshly spawned clients; using it applied vanilla Boat seating there.
+     * Vanilla's passenger update invokes this every client tick as well.
      */
     @Override protected void positionRider(Entity passenger, Entity.MoveFunction move) {
-        if (!nativeHull) {
+        if (!isNativeHull()) {
             super.positionRider(passenger, move);
             return;
         }
         if (!hasPassenger(passenger)) return;
         FirstShipHull.Point seat = FirstShipHull.toWorld(0D, FirstShipHull.HELM_Z,
-                getX(), getZ(), getYRot());
+                getX(), getZ(), shipYaw());
         move.accept(passenger, seat.x(), deckY() + 0.08D, seat.z());
     }
 
@@ -208,7 +213,7 @@ public final class FirstShipEntity extends Boat {
      * that is INSIDE the hold. Select a clear supported deck cell instead.
      */
     @Override public Vec3 getDismountLocationForPassenger(LivingEntity passenger) {
-        if (!nativeHull) return super.getDismountLocationForPassenger(passenger);
+        if (!isNativeHull()) return super.getDismountLocationForPassenger(passenger);
         double[][] safeCells = {{0D, -2D}, {1D, -2D}, {-1D, -2D},
                 {1D, -3D}, {-1D, -3D}, {0D, -3D},
                 {2D, -2D}, {-2D, -2D}, {0D, 0D}, {1D, 0D}, {-1D, 0D}};
@@ -237,7 +242,7 @@ public final class FirstShipEntity extends Boat {
 
     @Override protected void removePassenger(Entity passenger) {
         super.removePassenger(passenger);
-        if (nativeHull) nextHelmAllowedTick = -100D;
+        if (isNativeHull()) nextHelmAllowedTick = -100D;
     }
 
     @Override public boolean canCollideWith(Entity other) {
@@ -748,7 +753,7 @@ public final class FirstShipEntity extends Boat {
      * integrity and destination BEFORE moving any vanilla block.
      */
     public boolean helmStep(ServerPlayer driver, int action) {
-        if (!nativeHull || driver.getVehicle() != this || getFirstPassenger() != driver
+        if (!isNativeHull() || driver.getVehicle() != this || getFirstPassenger() != driver
                 || !(level() instanceof net.minecraft.server.level.ServerLevel server)
                 || action < FirstShipNetwork.FORWARD || action > FirstShipNetwork.RIGHT
                 || level().getGameTime() + 1e-6D < nextHelmAllowedTick) return false;
@@ -801,6 +806,8 @@ public final class FirstShipEntity extends Boat {
             FirstShipHull.Point oldLocal = localPositions.get(p);
             FirstShipHull.Point target = FirstShipHull.toWorld(
                     oldLocal.x(), oldLocal.z(), getX(), getZ(), getYRot());
+            // A server-player teleport emits an authoritative position packet;
+            // Entity.setPos alone only moves the server and rubber-bands clients.
             p.teleportTo(target.x(), p.getY(), target.z());
             p.fallDistance = 0F;
         }
