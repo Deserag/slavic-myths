@@ -55,6 +55,8 @@ public final class FirstShipEntity extends Boat {
     private static final EntityDataAccessor<Integer> RIG = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> FABRIC = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> GEOMETRY = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Boolean> MOVING = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<String> MOTION_CARGO_VIEW = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.STRING);
     private static final float NO_SURFACE = -10000F;
     private static final double DRAFT = 0.14D;
     private static final int CELLS = FirstShipHull.WIDTH * FirstShipHull.LENGTH;
@@ -74,15 +76,25 @@ public final class FirstShipEntity extends Boat {
     private ShipDesign design = ShipDesign.defaults();
     private double nextHelmAllowedTick = -100D;
     private boolean legacyConversionTried;
+    /** New ships opt into the new body; older worlds stay in their proven mode. */
+    private boolean smoothEnabled;
+    private ShipMovingContraption movingBody;
+    private ShipRigidMotion.Control helmControl = ShipRigidMotion.Control.IDLE;
+    private long helmControlTick = -100L;
+    public boolean isMoving() { return entityData.get(MOVING); }
+    public String movingCargoView() { return entityData.get(MOTION_CARGO_VIEW); }
+    public void enableSmoothMotion() { smoothEnabled = true; }
+
 
     public BlockPos blockAnchor() {
         // Both logical sides read the same replicated anchor. The saved field
         // is only the server-side transactional source for hull relocation.
-        return isNativeHull() ? entityData.get(ANCHOR) : blockAnchor;
+        return isMoving() ? BlockPos.containing(getX(), getY(), getZ())
+                : isNativeHull() ? entityData.get(ANCHOR) : blockAnchor;
     }
     public int quarterTurns() { return entityData.get(TURNS); }
     /** Synced cardinal heading: client yaw interpolation must not move the wheel seat. */
-    public float shipYaw() { return quarterTurns() * 90F; }
+    public float shipYaw() { return isMoving() ? getYRot() : quarterTurns() * 90F; }
     public boolean isNativeHull() { return entityData.get(NATIVE); }
     public int rigLevel() { return entityData.get(RIG); }
     public int fabricQuality() { return entityData.get(FABRIC); }
@@ -131,6 +143,8 @@ public final class FirstShipEntity extends Boat {
         builder.define(RIG, 0);
         builder.define(FABRIC, 0);
         builder.define(GEOMETRY, 5);
+        builder.define(MOVING, false);
+        builder.define(MOTION_CARGO_VIEW, "");
     }
 
     public double deckY() { return getY() + FirstShipHull.MAIN_DECK; }
@@ -215,10 +229,16 @@ public final class FirstShipEntity extends Boat {
             return;
         }
         if (!hasPassenger(passenger)) return;
-        BlockPos anchor = blockAnchor();
-        FirstShipHull.Point seat = FirstShipHull.toWorld(0D, FirstShipHull.HELM_Z,
-                anchor.getX() + .5D, anchor.getZ() + .5D, shipYaw());
-        move.accept(passenger, seat.x(), anchor.getY() + FirstShipHull.MAIN_DECK + .08D, seat.z());
+        if (isMoving()) {
+            FirstShipHull.Point seat = FirstShipHull.toWorld(0D, FirstShipHull.HELM_Z,
+                    getX(), getZ(), getYRot());
+            move.accept(passenger, seat.x(), deckY() + .08D, seat.z());
+        } else {
+            BlockPos anchor = blockAnchor();
+            FirstShipHull.Point seat = FirstShipHull.toWorld(0D, FirstShipHull.HELM_Z,
+                    anchor.getX() + .5D, anchor.getZ() + .5D, shipYaw());
+            move.accept(passenger, seat.x(), anchor.getY() + FirstShipHull.MAIN_DECK + .08D, seat.z());
+        }
     }
 
     /**
@@ -236,7 +256,7 @@ public final class FirstShipEntity extends Boat {
                     getX(), getZ(), getYRot());
             Vec3 target = new Vec3(point.x(), deckY() + 0.05D, point.z());
             BlockPos floor = BlockPos.containing(point.x(), deckY() - .15D, point.z());
-            if (!level().hasChunkAt(floor) || level().getBlockState(floor).isAir()) continue;
+            if (!level().hasChunkAt(floor) || (!isMoving() && level().getBlockState(floor).isAir())) continue;
             AABB area = passenger.getBoundingBox().move(target.subtract(passenger.position()));
             if (level().noCollision(passenger, area)) return target;
         }
@@ -365,7 +385,8 @@ public final class FirstShipEntity extends Boat {
         pack.put("Design", design.save());
         pack.putUUID("VesselId", getUUID());
         pack.put("Modules", storeModules(registryAccess()));
-        if (nativeHull && level() instanceof net.minecraft.server.level.ServerLevel server) {
+        if (isMoving() && movingBody != null) pack.put("BlockCargo", movingBody.snapshot().cargo());
+        else if (nativeHull && level() instanceof net.minecraft.server.level.ServerLevel server) {
             ListTag cargo = FirstShipBlockHull.pack(server, blockAnchor, quarterTurns, rigLevel, fabricQuality, geometryVersion);
             if (cargo == null) return ItemStack.EMPTY;
             pack.put("BlockCargo", cargo);
@@ -409,7 +430,7 @@ public final class FirstShipEntity extends Boat {
         }
         ItemStack stack = packed();
         if (stack.isEmpty()) return InteractionResult.FAIL;
-        if (nativeHull) {
+        if (nativeHull && !isMoving()) {
             if (!(level() instanceof net.minecraft.server.level.ServerLevel server)
                     || !FirstShipBlockHull.remove(server, blockAnchor, quarterTurns, rigLevel, fabricQuality, geometryVersion)) {
                 player.displayClientMessage(Component.literal("Корпус изменён или груз повреждён: упаковка заблокирована"), true);
@@ -806,7 +827,23 @@ public final class FirstShipEntity extends Boat {
                 }
             }
         }
-        if (isNativeHull()) {
+        if (isMoving()) {
+            // The body is a rigid palette entity; do not spawn any chunk blocks
+            // during travel. Only the authoritative server advances physics.
+            baseTick();
+            setDeltaMovement(Vec3.ZERO);
+            if (!level().isClientSide && movingBody != null
+                    && level() instanceof net.minecraft.server.level.ServerLevel server) {
+                ShipRigidMotion.Control control = level().getGameTime() - helmControlTick <= 2L
+                        ? helmControl : ShipRigidMotion.Control.IDLE;
+                movingBody.tick(server, control);
+                ShipRigidMotion.Pose next = movingBody.pose();
+                setPos(next.x(), movingBody.waterlineY(), next.z());
+                setYRot((float)next.yaw());
+                setYHeadRot((float)next.yaw());
+            }
+            if (getFirstPassenger() != null) positionRider(getFirstPassenger());
+        } else if (isNativeHull()) {
             // Boat.tick is incompatible with actual in-world hull blocks, but
             // baseTick alone does not deliver normal Boat client movement.
             baseTick();
@@ -832,6 +869,56 @@ public final class FirstShipEntity extends Boat {
         if (!level().isClientSide) tickShipFurnaces();
     }
 
+    /** Encodes only installed cargo TYPES to clients; contents stay server-side. */
+    private void syncMovingCargo() {
+        if (movingBody == null) { entityData.set(MOTION_CARGO_VIEW, ""); return; }
+        StringBuilder view = new StringBuilder();
+        for (int n = 0; n < movingBody.snapshot().cargo().size(); n++) {
+            CompoundTag c = movingBody.snapshot().cargo().getCompound(n);
+            if (view.length() > 0) view.append(';');
+            view.append(c.getInt("X")).append(',').append(c.getInt("Y")).append(',')
+                    .append(c.getInt("Z")).append(',').append(c.getInt("Kind"));
+        }
+        entityData.set(MOTION_CARGO_VIEW, view.toString());
+    }
+
+    /** Stage new bodies only after validating the real hull and all cargo. */
+    private boolean beginContinuousMotion(net.minecraft.server.level.ServerLevel server) {
+        if (!smoothEnabled || geometryVersion != 5 || quarantinedModules != null
+                || movingBody != null) return false;
+        for (ServerPlayer player : server.getEntitiesOfClass(ServerPlayer.class,
+                new AABB(blockAnchor).inflate(10D, 24D, 10D)))
+            if (player.containerMenu != player.inventoryMenu) return false;
+        ShipMovingContraption prepared = ShipMovingContraption.prepare(server, blockAnchor,
+                quarterTurns, rigLevel, fabricQuality, geometryVersion);
+        if (prepared == null || !prepared.detach(server, blockAnchor)) return false;
+        movingBody = prepared;
+        entityData.set(MOVING, true);
+        syncMovingCargo();
+        helmControlTick = -100L;
+        return true;
+    }
+
+    private boolean continuousHelm(ServerPlayer driver, int action) {
+        if (movingBody == null) return false;
+        int throttle = 0, rudder = 0;
+        switch (action) {
+            case FirstShipNetwork.FORWARD -> throttle = 1;
+            case FirstShipNetwork.BACKWARD -> throttle = -1;
+            case FirstShipNetwork.LEFT -> rudder = -1;
+            case FirstShipNetwork.RIGHT -> rudder = 1;
+            case FirstShipNetwork.FORWARD_LEFT -> { throttle = 1; rudder = -1; }
+            case FirstShipNetwork.FORWARD_RIGHT -> { throttle = 1; rudder = 1; }
+            case FirstShipNetwork.BACKWARD_LEFT -> { throttle = -1; rudder = -1; }
+            case FirstShipNetwork.BACKWARD_RIGHT -> { throttle = -1; rudder = 1; }
+            case FirstShipNetwork.HELM_IDLE -> {}
+            default -> { return false; }
+        }
+        helmControl = new ShipRigidMotion.Control(throttle, rudder);
+        helmControlTick = level().getGameTime();
+        return true;
+    }
+
     /**
      * One step per helm command. Validates an actual rider, cooldown, source
      * integrity and destination BEFORE moving any vanilla block.
@@ -839,7 +926,12 @@ public final class FirstShipEntity extends Boat {
     public boolean helmStep(ServerPlayer driver, int action) {
         if (!isNativeHull() || driver.getVehicle() != this || getFirstPassenger() != driver
                 || !(level() instanceof net.minecraft.server.level.ServerLevel server)
-                || action < FirstShipNetwork.FORWARD || action > FirstShipNetwork.RIGHT
+                || action < FirstShipNetwork.FORWARD || action > FirstShipNetwork.HELM_IDLE)
+            return false;
+        if (isMoving()) return continuousHelm(driver, action);
+        if (smoothEnabled && beginContinuousMotion(server))
+            return continuousHelm(driver, action);
+        if (action > FirstShipNetwork.RIGHT
                 || level().getGameTime() + 1e-6D < nextHelmAllowedTick) return false;
         int nextTurn = quarterTurns;
         BlockPos nextAnchor = blockAnchor;
@@ -902,6 +994,8 @@ public final class FirstShipEntity extends Boat {
         super.addAdditionalSaveData(tag);
         tag.putFloat("FirstShipSurface", entityData.get(SURFACE));
         tag.putBoolean("FirstShipNative", nativeHull);
+        tag.putBoolean("FirstShipSmoothEnabled", smoothEnabled);
+        if (movingBody != null) tag.put("FirstShipMovingBody", movingBody.save());
         if (nativeHull) {
             tag.putLong("FirstShipAnchor", blockAnchor.asLong());
             tag.putInt("FirstShipTurns", quarterTurns);
@@ -916,6 +1010,7 @@ public final class FirstShipEntity extends Boat {
     @Override protected void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         nativeHull = tag.getBoolean("FirstShipNative");
+        smoothEnabled = tag.getBoolean("FirstShipSmoothEnabled");
         if (nativeHull) {
             initializeNativeHull(BlockPos.of(tag.getLong("FirstShipAnchor")),
                     tag.getInt("FirstShipTurns"));
@@ -928,6 +1023,18 @@ public final class FirstShipEntity extends Boat {
             catch (IllegalArgumentException invalid) { setRigging(1, 1); }
             setGeometryVersion(tag.contains("FirstShipGeometryVersion", Tag.TAG_INT)
                     ? tag.getInt("FirstShipGeometryVersion") : 1);
+        }
+        if (tag.contains("FirstShipMovingBody", Tag.TAG_COMPOUND)) {
+            movingBody = ShipMovingContraption.load(tag.getCompound("FirstShipMovingBody"));
+            if (movingBody != null && movingBody.detached()) {
+                entityData.set(MOVING, true);
+                syncMovingCargo();
+                ShipRigidMotion.Pose p = movingBody.pose();
+                setPos(p.x(), movingBody.waterlineY(), p.z());
+                setYRot((float)p.yaw());
+                setYHeadRot((float)p.yaw());
+                smoothEnabled = true;
+            } else movingBody = null;
         }
         if (tag.contains("FirstShipSurface", Tag.TAG_FLOAT)) setWaterSurface(tag.getFloat("FirstShipSurface"));
         CompoundTag pack = new CompoundTag();
