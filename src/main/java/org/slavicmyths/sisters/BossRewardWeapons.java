@@ -9,6 +9,7 @@ import net.minecraft.world.damagesource.DamageTypes;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -27,7 +28,7 @@ import net.minecraft.world.phys.Vec3;
 
 @EventBusSubscriber(modid="slavicmyths")
 public final class BossRewardWeapons {
-    private static final String AOE="SlavicLomeyaAreaStrike",DUAL="SlavicLomeyaDualStrike";
+    private static final String AOE="SlavicLomeyaAreaStrike",DUAL="SlavicLomeyaDualStrike",READY="SlavicLomeyaDualReady",READY_TICK="SlavicLomeyaDualReadyTick";
     public static final class Weapon extends SwordItem {
         private final boolean scythe;
         public Weapon(boolean scythe) {
@@ -36,7 +37,8 @@ public final class BossRewardWeapons {
             this.scythe=scythe;
         }
         private boolean valid(Player owner,LivingEntity target) {
-            if(target==owner||!target.isAlive()||owner.isAlliedTo(target)||target.isAlliedTo(owner))return false;
+            if(target==owner||!target.isAlive()||owner.isAlliedTo(target)||target.isAlliedTo(owner)
+                ||target.getPersistentData().getBoolean("SlavicViySummoned"))return false;
             if(target instanceof Player p&&(p.isCreative()||p.isSpectator()||!owner.canHarmPlayer(p)))return false;
             return true;
         }
@@ -89,6 +91,20 @@ public final class BossRewardWeapons {
             lines.add(Component.translatable(scythe?"item.slavicmyths.neveya_scythe.effect":"item.slavicmyths.lomeya_hammer.effect"));
         }
     }
+    @SubscribeEvent public static void prepareDualHammer(AttackEntityEvent event) {
+        if(!(event.getEntity() instanceof ServerPlayer owner))return;
+        owner.getPersistentData().remove(READY);
+        owner.getPersistentData().remove(READY_TICK);
+        if(!(event.getTarget() instanceof LivingEntity target)
+            ||!owner.getMainHandItem().is(SistersContent.LOMEYA_HAMMER.get())
+            ||!owner.getOffhandItem().is(SistersContent.LOMEYA_HAMMER_OFFHAND.get())
+            ||owner.getAttackStrengthScale(.5F)<.9F
+            ||!target.isAlive()||target==owner||owner.isAlliedTo(target)||target.isAlliedTo(owner)
+            ||target.getPersistentData().getBoolean("SlavicViySummoned")
+            ||target instanceof Player p&&(p.isCreative()||p.isSpectator()||!owner.canHarmPlayer(p)))return;
+        owner.getPersistentData().putUUID(READY,target.getUUID());
+        owner.getPersistentData().putLong(READY_TICK,owner.serverLevel().getGameTime());
+    }
     @SubscribeEvent public static void dualHammer(LivingDamageEvent.Post event) {
         LivingEntity target=event.getEntity();
         if(!(event.getSource().getEntity() instanceof ServerPlayer owner)
@@ -97,7 +113,9 @@ public final class BossRewardWeapons {
             ||!owner.getOffhandItem().is(SistersContent.LOMEYA_HAMMER_OFFHAND.get())
             ||owner.getPersistentData().getBoolean(AOE)
             ||owner.getPersistentData().getBoolean(DUAL)
-            ||owner.getAttackStrengthScale(.5F)<.9F
+            ||!owner.getPersistentData().hasUUID(READY)
+            ||!owner.getPersistentData().getUUID(READY).equals(target.getUUID())
+            ||owner.getPersistentData().getLong(READY_TICK)!=owner.serverLevel().getGameTime()
             ||!target.isAlive()||target==owner||owner.isAlliedTo(target)||target.isAlliedTo(owner)
             ||target.getPersistentData().getBoolean("SlavicViySummoned")
             ||target instanceof Player p&&(p.isCreative()||p.isSpectator()||!owner.canHarmPlayer(p)))return;
@@ -109,7 +127,11 @@ public final class BossRewardWeapons {
                 if(target instanceof Player player)FractureHooks.apply(player);
                 owner.getOffhandItem().hurtAndBreak(1,owner,net.minecraft.world.entity.EquipmentSlot.OFFHAND);
             }
-        }finally {owner.getPersistentData().remove(DUAL);}
+        }finally {
+            owner.getPersistentData().remove(DUAL);
+            owner.getPersistentData().remove(READY);
+            owner.getPersistentData().remove(READY_TICK);
+        }
     }
     private BossRewardWeapons(){}
 }
