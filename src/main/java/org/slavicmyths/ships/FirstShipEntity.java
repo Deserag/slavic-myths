@@ -906,7 +906,7 @@ public final class FirstShipEntity extends Boat {
             // file BEFORE destructive chunk mutations.
             ShipMotionJournal.get(server).begin(server, getUUID(), blockAnchor, prepared);
         } catch (RuntimeException persistenceFailure) {
-            server.getServer().getLogger().error("Moving ship journal creation failed", persistenceFailure);
+            org.slf4j.LoggerFactory.getLogger(FirstShipEntity.class).error("Moving ship journal creation failed", persistenceFailure);
             return false;
         }
         if (!prepared.detach(server, blockAnchor)) {
