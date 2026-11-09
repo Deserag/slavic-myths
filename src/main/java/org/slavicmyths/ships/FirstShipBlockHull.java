@@ -317,6 +317,20 @@ public final class FirstShipBlockHull {
         return blocks;
     }
 
+    /** Full-size basic sail on NEW V6 hulls; V5 layouts remain byte-for-byte stable. */
+    private static Map<BlockPos, BlockState> layoutV6(BlockPos anchor, int turns, int rig, int fabric) {
+        Map<BlockPos, BlockState> blocks = layoutV5(anchor, turns, rig, fabric);
+        if (rig != 1) return blocks;
+        for (int y = 8; y <= 10; y++)
+            for (int x = -2; x <= 2; x++)
+                blocks.remove(world(anchor, turns, x, y, 0));
+        for (int y : new int[]{7, 11})
+            for (int x = -2; x <= 2; x++)
+                if (x != 0) blocks.remove(world(anchor, turns, x, y, -1));
+        addSailV3(blocks, anchor, turns, fabric, 7, 12, 3);
+        return blocks;
+    }
+
     private static void addYardV3(Map<BlockPos, BlockState> blocks, BlockPos anchor,
             int turns, int y, int span) {
         BlockState beam = Blocks.DARK_OAK_LOG.defaultBlockState().setValue(
@@ -347,7 +361,8 @@ public final class FirstShipBlockHull {
 
     private static Map<BlockPos, BlockState> layout(BlockPos anchor, int turns,
             int rig, int fabric, int geometry) {
-        return geometry >= 5 ? layoutV5(anchor, turns, rig, fabric)
+        return geometry >= 6 ? layoutV6(anchor, turns, rig, fabric)
+                : geometry == 5 ? layoutV5(anchor, turns, rig, fabric)
                 : geometry == 4 ? layoutV4(anchor, turns, rig, fabric)
                 : geometry == 3 ? layoutV3(anchor, turns, rig, fabric)
                 : layout(anchor, turns, rig, fabric);
@@ -752,7 +767,7 @@ public final class FirstShipBlockHull {
     public record MotionSnapshot(ListTag cargo, int geometry, int rig, int fabric, int turn) {
         public MotionSnapshot {
             if (cargo == null || cargo.size() > WIDTH * LENGTH * 2
-                    || geometry < 2 || geometry > 5
+                    || geometry < 2 || geometry > 6
                     || turn < 0 || turn > 3
                     || decode(cargo) == null)
                 throw new IllegalArgumentException("Unsafe moving ship snapshot");
