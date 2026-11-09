@@ -191,6 +191,114 @@ public final class FirstShipBlockHull {
         return blocks;
     }
 
+
+    /**
+     * Geometry V3 is additive in ID, NOT an in-place reinterpretation of V2
+     * saves. Existing world blocks are inspected with their saved geometry
+     * until an unoccupied, cargo-safe migration can complete.
+     */
+    private static Map<BlockPos, BlockState> layoutV3(BlockPos anchor, int turns, int rig, int fabric) {
+        Map<BlockPos, BlockState> blocks = layout(anchor, turns, rig, fabric);
+        for (int z = MIN_Z; z <= MAX_Z; z++) {
+            for (int x = -halfWidth(z); x <= halfWidth(z); x++) {
+                if (exposedEdge(x, z)) {
+                    // Continuous dark strake with pronounced stem and transom.
+                    blocks.put(world(anchor, turns, x, 2, z),
+                            (x == 0 && (z == -5 || z == 5))
+                                    ? Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState()
+                                    : Blocks.DARK_OAK_PLANKS.defaultBlockState());
+                    if (z >= 2 || z <= -3)
+                        blocks.put(world(anchor, turns, x, 5, z),
+                                Blocks.DARK_OAK_PLANKS.defaultBlockState());
+                } else if (!hatch(x, z) && (Math.abs(x) >= 2 || z >= 3 || z <= -4)) {
+                    blocks.put(world(anchor, turns, x, 4, z), Blocks.SPRUCE_PLANKS.defaultBlockState());
+                }
+            }
+        }
+        // Delete the old squared-off 3x3 wheel before laying out a rim, hub
+        // and spokes. All spokes sit aft of the captain, not in the seat cell.
+        for (int x = -2; x <= 2; x++)
+            for (int y = 6; y <= 9; y++)
+                blocks.remove(world(anchor, turns, x, y, -4));
+        blocks.put(world(anchor, turns, 0, 5, -4), Blocks.STRIPPED_DARK_OAK_LOG.defaultBlockState());
+        for (int x : new int[]{-2, 2})
+            blocks.put(world(anchor, turns, x, 7, -4), Blocks.DARK_OAK_FENCE.defaultBlockState());
+        for (int x : new int[]{-1, 1}) {
+            blocks.put(world(anchor, turns, x, 6, -4), Blocks.DARK_OAK_FENCE.defaultBlockState());
+            blocks.put(world(anchor, turns, x, 8, -4), Blocks.DARK_OAK_FENCE.defaultBlockState());
+        }
+        for (int y = 6; y <= 9; y++)
+            blocks.put(world(anchor, turns, 0, y, -4),
+                    y == 7 ? Blocks.STRIPPED_DARK_OAK_LOG.defaultBlockState()
+                            .setValue(RotatedPillarBlock.AXIS,
+                                    turns % 2 == 0 ? Direction.Axis.Z : Direction.Axis.X)
+                            : Blocks.DARK_OAK_FENCE.defaultBlockState());
+
+        // The naked hull still has a TALL MAST, gaff/yard and fittings but
+        // deliberately receives NO free sailcloth when rig == 0.
+        for (int x = -2; x <= 2; x++) {
+            for (int y = 7; y <= 22; y++) {
+                blocks.remove(world(anchor, turns, x, y, 0));
+                if (x != 0) blocks.remove(world(anchor, turns, x, y, -1));
+            }
+        }
+        int top = switch (rig) {
+            case 0, 1 -> 12;
+            case 2 -> 16;
+            case 3 -> 17;
+            default -> 22;
+        };
+        for (int y = 5; y <= top; y++)
+            blocks.put(world(anchor, turns, 0, y, -1), Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState());
+        if (rig == 0) addYardV3(blocks, anchor, turns, 10, 2);
+        else if (rig == 1) addSailV3(blocks, anchor, turns, fabric, 8, 10, 2);
+        else if (rig == 2) {
+            addSailV3(blocks, anchor, turns, fabric, 8, 10, 3);
+            addSailV3(blocks, anchor, turns, fabric, 13, 14, 2);
+        } else if (rig == 3) addSailV3(blocks, anchor, turns, fabric, 8, 15, 3);
+        else {
+            addSailV3(blocks, anchor, turns, fabric, 8, 15, 3);
+            addSailV3(blocks, anchor, turns, fabric, 18, 20, 2);
+        }
+        // Dark wooden bow stem: higher than the gunwale but inside 7x11.
+        blocks.put(world(anchor, turns, 0, 7, 5), Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState());
+        return blocks;
+    }
+
+    private static void addYardV3(Map<BlockPos, BlockState> blocks, BlockPos anchor,
+            int turns, int y, int span) {
+        BlockState beam = Blocks.DARK_OAK_LOG.defaultBlockState().setValue(
+                RotatedPillarBlock.AXIS,
+                turns % 2 == 0 ? Direction.Axis.X : Direction.Axis.Z);
+        for (int x = -span; x <= span; x++)
+            blocks.put(world(anchor, turns, x, y, -1), beam);
+    }
+
+    private static void addSailV3(Map<BlockPos, BlockState> blocks, BlockPos anchor,
+            int turns, int fabric, int bottom, int top, int span) {
+        BlockState cloth = (fabric == 1 ? Blocks.WHITE_WOOL
+                : fabric == 2 ? Blocks.LIGHT_GRAY_WOOL : Blocks.YELLOW_WOOL).defaultBlockState();
+        BlockState edge = (fabric == 1 ? Blocks.RED_WOOL
+                : fabric == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
+        addYardV3(blocks, anchor, turns, top + 1, span);
+        addYardV3(blocks, anchor, turns, bottom - 1, Math.max(1, span - 1));
+        for (int y = bottom; y <= top; y++) {
+            int rowSpan = span - (y == bottom || y == top ? 1 : 0);
+            for (int x = -rowSpan; x <= rowSpan; x++) {
+                // A taper/belly and contrasting boltrope, rather than a box.
+                BlockState color = Math.abs(x) == rowSpan ? edge : cloth;
+                if (fabric == 3 && x == 0) color = edge;
+                blocks.put(world(anchor, turns, x, y, 0), color);
+            }
+        }
+    }
+
+    private static Map<BlockPos, BlockState> layout(BlockPos anchor, int turns,
+            int rig, int fabric, int geometry) {
+        return geometry >= 3 ? layoutV3(anchor, turns, rig, fabric)
+                : layout(anchor, turns, rig, fabric);
+    }
+
     private static void addSail(Map<BlockPos, BlockState> blocks, BlockPos anchor,
             int turns, int fabric, int bottom, int top) {
         BlockState base = (fabric == 1 ? Blocks.WHITE_WOOL
@@ -210,8 +318,8 @@ public final class FirstShipBlockHull {
         }
     }
 
-    private static Set<BlockPos> volume(BlockPos anchor, int turns, int rig, int fabric) {
-        Set<BlockPos> volume = new HashSet<>(layout(anchor, turns, rig, fabric).keySet());
+    private static Set<BlockPos> volume(BlockPos anchor, int turns, int rig, int fabric, int geometry) {
+        Set<BlockPos> volume = new HashSet<>(layout(anchor, turns, rig, fabric, geometry).keySet());
         for (int z = MIN_Z; z <= MAX_Z; z++)
             for (int x = -halfWidth(z); x <= halfWidth(z); x++) {
                 for (int y = 1; y <= 3; y++) volume.add(world(anchor, turns, x, y, z));
@@ -260,9 +368,9 @@ public final class FirstShipBlockHull {
 
     /** Collect allowed obstruction positions during preflight, without mutating the world. */
     private static Set<BlockPos> clearableFootprint(ServerLevel level, BlockPos anchor, int turns,
-            Set<BlockPos> owned, int rig, int fabric) {
+            Set<BlockPos> owned, int rig, int fabric, int geometry) {
         Set<BlockPos> removable = new HashSet<>();
-        for (BlockPos pos : volume(anchor, turns, rig, fabric)) {
+        for (BlockPos pos : volume(anchor, turns, rig, fabric, geometry)) {
             if (!level.hasChunkAt(pos) || !level.hasChunkAt(pos.below())) return null;
             if (owned.contains(pos)) continue;
             BlockState state = level.getBlockState(pos);
@@ -293,17 +401,18 @@ public final class FirstShipBlockHull {
 
     /** Exact block positions are checked before anything is overwritten. */
     private static boolean canWrite(ServerLevel level, BlockPos anchor, int turns, Set<BlockPos> owned,
-            List<Cargo> cargo, int rig, int fabric) {
-        Set<BlockPos> target = volume(anchor, turns, rig, fabric);
+            List<Cargo> cargo, int rig, int fabric, int geometry) {
+        Set<BlockPos> target = volume(anchor, turns, rig, fabric, geometry);
         for (Cargo entry : cargo) {
             BlockPos point = world(anchor, turns, entry.x(), entry.y(), entry.z());
             if (!cargoCell(entry.x(), entry.y(), entry.z()) || !target.contains(point)) return false;
         }
-        return clearableFootprint(level, anchor, turns, owned, rig, fabric) != null;
+        return clearableFootprint(level, anchor, turns, owned, rig, fabric, geometry) != null;
     }
 
-    private static Snapshot inspect(ServerLevel level, BlockPos anchor, int turns, int rig, int fabric) {
-        return inspect(level, anchor, turns, layout(anchor, turns, rig, fabric));
+    private static Snapshot inspect(ServerLevel level, BlockPos anchor, int turns,
+            int rig, int fabric, int geometry) {
+        return inspect(level, anchor, turns, layout(anchor, turns, rig, fabric, geometry));
     }
 
     private static Snapshot inspect(ServerLevel level, BlockPos anchor, int turns,
@@ -381,8 +490,9 @@ public final class FirstShipBlockHull {
         }
     }
 
-    private static boolean build(ServerLevel level, BlockPos anchor, int turns, List<Cargo> cargo, int rig, int fabric) {
-        Map<BlockPos, BlockState> blocks = layout(anchor, turns, rig, fabric);
+    private static boolean build(ServerLevel level, BlockPos anchor, int turns,
+            List<Cargo> cargo, int rig, int fabric, int geometry) {
+        Map<BlockPos, BlockState> blocks = layout(anchor, turns, rig, fabric, geometry);
         List<Map.Entry<BlockPos, BlockState>> ordered = new ArrayList<>(blocks.entrySet());
         ordered.sort(Comparator.comparingInt(e -> e.getKey().getY()));
         for (var entry : ordered) if (!level.setBlock(entry.getKey(), entry.getValue(), UPDATE)) return false;
@@ -414,29 +524,51 @@ public final class FirstShipBlockHull {
         Set<BlockPos> owned = new HashSet<>(original.blocks().keySet());
         for (Cargo cargo : original.cargo())
             owned.add(world(anchor, turns, cargo.x(), cargo.y(), cargo.z()));
-        if (!canWrite(level, anchor, turns, owned, original.cargo(), 1, 1)) return false;
+        if (!canWrite(level, anchor, turns, owned, original.cargo(), 1, 1, 2)) return false;
         for (Cargo cargo : original.cargo()) {
             if (cargo.type() == 3) continue;
             BlockPos target = world(anchor, turns, cargo.x(), cargo.y(), cargo.z());
             if (BlockEntity.loadStatic(target, cargo.state(), cargo.data(), level.registryAccess()) == null)
                 return false;
         }
-        Set<BlockPos> removable = clearableFootprint(level, anchor, turns, owned, 1, 1);
+        Set<BlockPos> removable = clearableFootprint(level, anchor, turns, owned, 1, 1, 2);
         if (removable == null) return false;
         clear(level, anchor, turns, original);
         clearObstacles(level, anchor, removable);
-        return build(level, anchor, turns, original.cargo(), 1, 1);
+        return build(level, anchor, turns, original.cargo(), 1, 1, 2);
+    }
+
+    /** Upgrade only with no people aboard, with all cargo inspected and new cells safe. */
+    public static boolean migrateGeometryV2(ServerLevel level, BlockPos anchor, int turns,
+            int rig, int fabric) {
+        Snapshot old = inspect(level, anchor, turns, rig, fabric, 2);
+        if (old == null) return false;
+        Set<BlockPos> owned = new HashSet<>(old.blocks().keySet());
+        for (Cargo c : old.cargo()) owned.add(world(anchor, turns, c.x(), c.y(), c.z()));
+        if (!canWrite(level, anchor, turns, owned, old.cargo(), rig, fabric, 3)) return false;
+        for (Cargo c : old.cargo()) {
+            if (c.type() == 3) continue;
+            BlockPos p = world(anchor, turns, c.x(), c.y(), c.z());
+            if (BlockEntity.loadStatic(p, c.state(), c.data(), level.registryAccess()) == null)
+                return false;
+        }
+        Set<BlockPos> removable = clearableFootprint(level, anchor, turns, owned, rig, fabric, 3);
+        if (removable == null) return false;
+        clear(level, anchor, turns, old);
+        clearObstacles(level, anchor, removable);
+        return build(level, anchor, turns, old.cargo(), rig, fabric, 3);
     }
 
     /** Transaction checks source intact, future footprint safe, then moves blocks once. */
     public static boolean move(ServerLevel level, BlockPos previous, int oldTurn,
-            BlockPos target, int nextTurn, int oldRig, int oldFabric, int nextRig, int nextFabric) {
-        Snapshot snapshot = inspect(level, previous, oldTurn, oldRig, oldFabric);
+            BlockPos target, int nextTurn, int oldRig, int oldFabric,
+            int nextRig, int nextFabric, int geometry) {
+        Snapshot snapshot = inspect(level, previous, oldTurn, oldRig, oldFabric, geometry);
         if (snapshot == null) return false;
         Set<BlockPos> owned = new HashSet<>(snapshot.blocks().keySet());
         for (Cargo entry : snapshot.cargo())
             owned.add(world(previous, oldTurn, entry.x(), entry.y(), entry.z()));
-        if (!canWrite(level, target, nextTurn, owned, snapshot.cargo(), nextRig, nextFabric)) return false;
+        if (!canWrite(level, target, nextTurn, owned, snapshot.cargo(), nextRig, nextFabric, geometry)) return false;
         List<Cargo> turned = new ArrayList<>();
         int delta = Math.floorMod(nextTurn - oldTurn, 4);
         for (Cargo entry : snapshot.cargo()) {
@@ -453,31 +585,43 @@ public final class FirstShipBlockHull {
                 return false;
         }
         // Recheck the full clearance plan before touching the source or terrain.
-        Set<BlockPos> removable = clearableFootprint(level, target, nextTurn, owned, nextRig, nextFabric);
+        Set<BlockPos> removable = clearableFootprint(level, target, nextTurn, owned, nextRig, nextFabric, geometry);
         if (removable == null) return false;
         // All BlockEntities are serialized before clearing any old block.
         clear(level, previous, oldTurn, snapshot);
         clearObstacles(level, target, removable);
-        return build(level, target, nextTurn, turned, nextRig, nextFabric);
+        return build(level, target, nextTurn, turned, nextRig, nextFabric, geometry);
     }
 
-    public static boolean place(ServerLevel level, BlockPos anchor, int turns, ListTag packed, int rig, int fabric) {
+    public static boolean move(ServerLevel level, BlockPos previous, int oldTurn,
+            BlockPos target, int nextTurn, int oldRig, int oldFabric, int nextRig, int nextFabric) {
+        return move(level, previous, oldTurn, target, nextTurn, oldRig, oldFabric, nextRig, nextFabric, 3);
+    }
+
+    public static boolean place(ServerLevel level, BlockPos anchor, int turns,
+            ListTag packed, int rig, int fabric, int geometry) {
         List<Cargo> cargo = decode(packed);
-        if (cargo == null || !canWrite(level, anchor, turns, Set.of(), cargo, rig, fabric)) return false;
+        if (cargo == null || !canWrite(level, anchor, turns, Set.of(), cargo, rig, fabric, geometry)) return false;
         for (Cargo entry : cargo) {
             if (entry.type() == 3) continue;
             BlockPos target = world(anchor, turns, entry.x(), entry.y(), entry.z());
             if (BlockEntity.loadStatic(target, entry.state(), entry.data(), level.registryAccess()) == null)
                 return false;
         }
-        Set<BlockPos> removable = clearableFootprint(level, anchor, turns, Set.of(), rig, fabric);
+        Set<BlockPos> removable = clearableFootprint(level, anchor, turns, Set.of(), rig, fabric, geometry);
         if (removable == null) return false;
         clearObstacles(level, anchor, removable);
-        return build(level, anchor, turns, cargo, rig, fabric);
+        return build(level, anchor, turns, cargo, rig, fabric, geometry);
     }
 
-    public static ListTag pack(ServerLevel level, BlockPos anchor, int turns, int rig, int fabric) {
-        Snapshot snapshot = inspect(level, anchor, turns, rig, fabric);
+    public static boolean place(ServerLevel level, BlockPos anchor, int turns,
+            ListTag packed, int rig, int fabric) {
+        return place(level, anchor, turns, packed, rig, fabric, 3);
+    }
+
+    public static ListTag pack(ServerLevel level, BlockPos anchor, int turns,
+            int rig, int fabric, int geometry) {
+        Snapshot snapshot = inspect(level, anchor, turns, rig, fabric, geometry);
         if (snapshot == null) return null;
         ListTag list = new ListTag();
         for (Cargo c : snapshot.cargo()) {
@@ -488,6 +632,10 @@ public final class FirstShipBlockHull {
             list.add(data);
         }
         return list;
+    }
+
+    public static ListTag pack(ServerLevel level, BlockPos anchor, int turns, int rig, int fabric) {
+        return pack(level, anchor, turns, rig, fabric, 3);
     }
 
     /** Only 4 vanilla blocks may be attached; malformed saves are rejected. */
@@ -509,11 +657,16 @@ public final class FirstShipBlockHull {
     }
 
     /** Packing refuses a changed hull; no silent conversion of damaged structures. */
-    public static boolean remove(ServerLevel level, BlockPos anchor, int turns, int rig, int fabric) {
-        Snapshot snapshot = inspect(level, anchor, turns, rig, fabric);
+    public static boolean remove(ServerLevel level, BlockPos anchor, int turns,
+            int rig, int fabric, int geometry) {
+        Snapshot snapshot = inspect(level, anchor, turns, rig, fabric, geometry);
         if (snapshot == null) return false;
         clear(level, anchor, turns, snapshot);
         return true;
+    }
+
+    public static boolean remove(ServerLevel level, BlockPos anchor, int turns, int rig, int fabric) {
+        return remove(level, anchor, turns, rig, fabric, 3);
     }
 
     public static int cargoKind(net.minecraft.world.level.Level level, BlockPos anchor, int turns, int floor, int x, int z) {
