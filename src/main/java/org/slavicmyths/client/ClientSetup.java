@@ -93,6 +93,8 @@ public final class ClientSetup {
 
         bus.addListener(BogatyrClient.Registration::keys);
 
+        bus.addListener(ViyRewardClient.Registration::keys);
+
         bus.addListener(BogatyrClient.Registration::renderers);
 
         bus.addListener(WintersClient.Setup::ready);
