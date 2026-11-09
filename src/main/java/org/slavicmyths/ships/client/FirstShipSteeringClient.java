@@ -12,8 +12,9 @@ import org.slavicmyths.ships.FirstShipNetwork;
 /**
  * Dedicated helm controls: ONLY while riding the real stern wheel.
  *
- * W/S advances/reverses the whole real-block ship one voxel.
- * A/D rotates the same footprint by ninety degrees. Leave helm with Shift.
+ * Newly assembled smooth ships combine W/S throttle and A/D continuous rudder
+ * simultaneously. Older world-block ships keep the original safe cardinal
+ * fallback until repacked. Leave the helm with Shift.
  * The server rate-limits each request and rejects unsafe destinations.
  */
 @EventBusSubscriber(modid = "slavicmyths", value = Dist.CLIENT)
@@ -43,10 +44,24 @@ public final class FirstShipSteeringClient {
         boolean forward = mc.options.keyUp.isDown(), reverse = mc.options.keyDown.isDown();
         // A/D must not be silently ignored while W/S is held (vanilla boat
         // control commonly combines keys). Opposite keys neutralize an axis.
-        if (left != right) action = left ? FirstShipNetwork.LEFT : FirstShipNetwork.RIGHT;
-        else if (forward != reverse)
-            action = forward ? FirstShipNetwork.FORWARD : FirstShipNetwork.BACKWARD;
-        if (action == 0) return;
+        if (ship.isMoving()) {
+            int throttle = forward == reverse ? 0 : forward ? 1 : -1;
+            int turn = left == right ? 0 : left ? -1 : 1;
+            if (throttle > 0 && turn < 0) action = FirstShipNetwork.FORWARD_LEFT;
+            else if (throttle > 0 && turn > 0) action = FirstShipNetwork.FORWARD_RIGHT;
+            else if (throttle < 0 && turn < 0) action = FirstShipNetwork.BACKWARD_LEFT;
+            else if (throttle < 0 && turn > 0) action = FirstShipNetwork.BACKWARD_RIGHT;
+            else if (throttle > 0) action = FirstShipNetwork.FORWARD;
+            else if (throttle < 0) action = FirstShipNetwork.BACKWARD;
+            else if (turn < 0) action = FirstShipNetwork.LEFT;
+            else if (turn > 0) action = FirstShipNetwork.RIGHT;
+            else action = FirstShipNetwork.HELM_IDLE;
+        } else {
+            if (left != right) action = left ? FirstShipNetwork.LEFT : FirstShipNetwork.RIGHT;
+            else if (forward != reverse)
+                action = forward ? FirstShipNetwork.FORWARD : FirstShipNetwork.BACKWARD;
+            if (action == 0) return;
+        }
         PacketDistributor.sendToServer(new FirstShipNetwork.Command(ship.getId(), action));
         lastSent = now;
     }
