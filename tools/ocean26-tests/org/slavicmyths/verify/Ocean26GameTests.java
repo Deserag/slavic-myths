@@ -719,9 +719,16 @@ public final class Ocean26GameTests {
         BlockPos cargo = FirstShipBlockHull.world(anchor, 0, 1, 5, 0);
         level.setBlock(cargo, Blocks.CHEST.defaultBlockState(), 2);
         chest(level, cargo, t).setItem(0, new ItemStack(Items.EMERALD, 17));
+        ListTag beforeMove = FirstShipBlockHull.pack(level, anchor, 0, 1, 1, 6);
+        t.assertTrue(beforeMove != null,
+                "V6 source layout failed physical block/cargo inspection");
+        t.assertTrue(beforeMove.size() == 1,
+                "V6 source layout captured " + beforeMove.size() + " cargo entries, expected 1");
         var moving = org.slavicmyths.ships.ShipMovingContraption.prepare(
                 level, anchor, 0, 1, 1, 6);
-        t.assertTrue(moving != null && moving.snapshot().cargo().size() == 1,
+        t.assertTrue(moving != null,
+                "V6 moving body preparation rejected intact layout");
+        t.assertTrue(moving.snapshot().cargo().size() == 1,
                 "V6 moving body did not capture physical chest cargo");
         t.assertTrue(moving.detach(level, anchor),
                 "V6 sail could not detach without cargo loss");
