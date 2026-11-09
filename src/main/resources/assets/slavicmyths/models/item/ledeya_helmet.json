@@ -1,10 +1,10 @@
 {
   "ambientocclusion": true,
   "textures": {
-    "metal": "minecraft:block/iron_block",
-    "ice": "minecraft:block/packed_ice",
-    "glow": "minecraft:block/blue_ice",
-    "particle": "minecraft:block/iron_block"
+    "metal": "slavicmyths:item/sisters/ledeya_metal",
+    "ice": "slavicmyths:item/sisters/ledeya_ice",
+    "glow": "slavicmyths:item/sisters/ledeya_glow",
+    "particle": "slavicmyths:item/sisters/ledeya_metal"
   },
   "elements": [
     {
