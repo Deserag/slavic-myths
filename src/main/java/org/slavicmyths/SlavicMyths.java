@@ -26,6 +26,7 @@ public final class SlavicMyths {
         org.slavicmyths.item.ItemState.COMPONENTS.register(bus);
         org.slavicmyths.netherboss.NetherBossItems.init();
         org.slavicmyths.posad.PosadBeds.init();
+         org.slavicmyths.posad.boss.ShackledSickleContent.init();
         org.slavicmyths.posad.PosadTestProofs.init();
         org.slavicmyths.rpg.Runes.init();
         org.slavicmyths.garden.Gardens.init();
