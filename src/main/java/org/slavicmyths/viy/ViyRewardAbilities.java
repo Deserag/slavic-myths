@@ -23,6 +23,7 @@ import net.neoforged.neoforge.event.entity.living.LivingExperienceDropEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import org.slavicmyths.item.PassiveCharm;
 import org.slavicmyths.nochnitsa.NochnitsaContent;
 
@@ -30,6 +31,7 @@ import org.slavicmyths.nochnitsa.NochnitsaContent;
 public final class ViyRewardAbilities {
     public static final String OWNER="SlavicViySummonOwner",UNTIL="SlavicViySummonUntil";
     private static final String READY="SlavicViyRingReady",EYE_READY="SlavicViyEyeReady",LAST_TARGET="SlavicViyLastTarget";
+    private static final String PETRIFIED="SlavicViyPetrifiedUntil",PREVIOUS_AI="SlavicViyPetrifiedPreviousNoAi",APPLIED_AI="SlavicViyPetrifiedAppliedAi";
     public static final int COOLDOWN=2400;
     private static boolean valid(ServerPlayer owner,LivingEntity target) {
         if(target==owner||!target.isAlive()||target.level()!=owner.level()||owner.isAlliedTo(target)||target.isAlliedTo(owner))return false;
@@ -38,6 +40,7 @@ public final class ViyRewardAbilities {
         return true;
     }
     @SubscribeEvent public static void attacked(AttackEntityEvent event) {
+        if(frozen(event.getEntity())){event.setCanceled(true);return;}
         if(event.getEntity() instanceof ServerPlayer p && event.getTarget() instanceof LivingEntity t && valid(p,t))
             p.getPersistentData().putUUID(LAST_TARGET,t.getUUID());
     }
@@ -94,16 +97,76 @@ public final class ViyRewardAbilities {
         if(p.tickCount%10!=0)return;
         LivingEntity target=gaze(p);
         if(target==null)target=lastTarget(p);
-        if(target==null||target.distanceToSqr(p)>256)return;
+        if(target==null||target.distanceToSqr(p)>256||!p.hasLineOfSight(target))return;
         target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,35,1,true,true));
         if(p.tickCount%120==0)target.addEffect(new MobEffectInstance(MobEffects.BLINDNESS,30,0,true,true));
         long now=p.serverLevel().getGameTime();
-        if(p.getPersistentData().getLong(EYE_READY)>now)return;
+        if(p.getPersistentData().getLong(EYE_READY)>now||!petrifiable(target)||target.getPersistentData().getLong(PETRIFIED)>now)return;
         target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,40,254,true,true));
         target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,40,254,true,true));
-        target.getPersistentData().putLong("SlavicViyPetrifiedUntil",now+40);
+        CompoundTag state=target.getPersistentData();
+        state.putLong(PETRIFIED,now+40);
+        state.putDouble("SlavicViyPetrifiedX",target.getX());
+        state.putDouble("SlavicViyPetrifiedY",target.getY());
+        state.putDouble("SlavicViyPetrifiedZ",target.getZ());
+        if(target instanceof Mob mob){
+            state.putBoolean(PREVIOUS_AI,mob.isNoAi());
+            state.putBoolean(APPLIED_AI,true);
+            mob.setNoAi(true);
+            mob.getNavigation().stop();
+        }
         p.getPersistentData().putLong(EYE_READY,now+COOLDOWN);
         p.serverLevel().sendParticles(ParticleTypes.ASH,target.getX(),target.getY()+target.getBbHeight()*.6,target.getZ(),24,.35,.6,.35,.01);
+    }
+    private static boolean frozen(LivingEntity target){
+        return target.level() instanceof ServerLevel world&&target.getPersistentData().getLong(PETRIFIED)>world.getGameTime();
+    }
+    private static boolean petrifiable(LivingEntity target){
+        if(target instanceof net.minecraft.world.entity.boss.enderdragon.EnderDragon
+            ||target instanceof net.minecraft.world.entity.boss.wither.WitherBoss)return false;
+        var type=target.getType();
+        return type!=ViyContent.VIY.get()
+            &&type!=org.slavicmyths.sisters.SistersContent.TRYASEYA.get()
+            &&type!=org.slavicmyths.sisters.SistersContent.GNETEYA.get()
+            &&type!=org.slavicmyths.sisters.SistersContent.LEDEYA.get()
+            &&type!=org.slavicmyths.sisters.SistersContent.AGNEYA.get()
+            &&type!=org.slavicmyths.sisters.SistersContent.NEVEYA.get()
+            &&type!=org.slavicmyths.sisters.SistersContent.LOMEYA.get()
+            &&target.getMaxHealth()<250;
+    }
+    @SubscribeEvent public static void petrifiedActions(PlayerInteractEvent.RightClickItem event){
+        if(frozen(event.getEntity()))event.setCanceled(true);
+    }
+    @SubscribeEvent public static void petrifiedBlock(PlayerInteractEvent.RightClickBlock event){
+        if(frozen(event.getEntity()))event.setCanceled(true);
+    }
+    @SubscribeEvent public static void petrifiedEntity(PlayerInteractEvent.EntityInteract event){
+        if(frozen(event.getEntity()))event.setCanceled(true);
+    }
+    @SubscribeEvent public static void petrifiedMining(PlayerInteractEvent.LeftClickBlock event){
+        if(frozen(event.getEntity()))event.setCanceled(true);
+    }
+    @SubscribeEvent public static void petrifiedTick(EntityTickEvent.Post event){
+        if(!(event.getEntity() instanceof LivingEntity target)||!(target.level() instanceof ServerLevel world))return;
+        CompoundTag state=target.getPersistentData();
+        if(!state.contains(PETRIFIED))return;
+        if(world.getGameTime()>=state.getLong(PETRIFIED)){
+            if(target instanceof Mob mob&&state.getBoolean(APPLIED_AI))mob.setNoAi(state.getBoolean(PREVIOUS_AI));
+            state.remove(PETRIFIED);
+            state.remove(PREVIOUS_AI);
+            state.remove(APPLIED_AI);
+            state.remove("SlavicViyPetrifiedX");
+            state.remove("SlavicViyPetrifiedY");
+            state.remove("SlavicViyPetrifiedZ");
+            return;
+        }
+        target.setDeltaMovement(Vec3.ZERO);
+        if(target instanceof Mob mob){mob.setNoAi(true);mob.getNavigation().stop();}
+        if(target instanceof ServerPlayer player){
+            player.stopUsingItem();
+            double x=state.getDouble("SlavicViyPetrifiedX"),y=state.getDouble("SlavicViyPetrifiedY"),z=state.getDouble("SlavicViyPetrifiedZ");
+            if(player.distanceToSqr(x,y,z)>.0025)player.teleportTo(x,y,z);
+        }
     }
     @SubscribeEvent public static void summonedTick(EntityTickEvent.Post event) {
         if(!(event.getEntity() instanceof Mob mob)||!(mob.level() instanceof ServerLevel world)
@@ -125,6 +188,7 @@ public final class ViyRewardAbilities {
     }
     @SubscribeEvent public static void protectSummons(LivingIncomingDamageEvent event) {
         Entity attacker=event.getSource().getEntity();
+        if(attacker instanceof LivingEntity living&&frozen(living)){event.setCanceled(true);return;}
         if(!(attacker instanceof Mob mob)||!mob.getPersistentData().getBoolean("SlavicViySummoned")
             ||!mob.getPersistentData().hasUUID(OWNER)||!(mob.level() instanceof ServerLevel world))return;
         ServerPlayer owner=world.getServer().getPlayerList().getPlayer(mob.getPersistentData().getUUID(OWNER));
