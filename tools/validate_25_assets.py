@@ -37,7 +37,7 @@ def validate_model(name):
             check(texture_file.is_file(), f"{name}: missing texture {key}: {texture_file}")
             if texture_file.is_file():
                 header = texture_file.read_bytes()[:24]
-                check(len(header) == 24 and header[:8] == b"\\x89PNG\\r\\n\\x1a\\n", f"{name}: invalid PNG {texture_file}")
+                check(len(header) == 24 and header[:8] == b"\x89PNG\r\n\x1a\n", f"{name}: invalid PNG {texture_file}")
     for index, part in enumerate(elements):
         lo, hi = part.get("from"), part.get("to")
         check(isinstance(lo, list) and isinstance(hi, list) and len(lo) == len(hi) == 3, f"{name}:{index}: invalid cuboid")
@@ -64,7 +64,7 @@ def validate():
         armor_texture = ASSETS / "textures/armor/sisters" / (name + ".png")
         check(armor_texture.is_file(), f"{name}: missing equipped armor texture")
         if armor_texture.is_file():
-            check(armor_texture.read_bytes()[:8] == b"\\x89PNG\\r\\n\\x1a\\n", f"{name}: invalid equipped-armor PNG")
+            check(armor_texture.read_bytes()[:8] == b"\x89PNG\r\n\x1a\n", f"{name}: invalid equipped-armor PNG")
     for bow in BOWS:
         base = validate_model(bow)
         mapping = base.get("overrides", [])
