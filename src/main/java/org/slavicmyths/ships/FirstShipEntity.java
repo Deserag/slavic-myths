@@ -1085,7 +1085,19 @@ public final class FirstShipEntity extends Boat {
         root.put("FirstShipPack", pack);
         ItemStack temporary = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
         temporary.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
+        boolean valid = loadPacked(temporary);
+        if (!valid) {
+            // Preserve malformed raw ItemStack tags during autosave. The ship
+            // stays in-world but the key must never pack a partial empty copy.
+            quarantinedModules = tag.getList("FirstShipModules", Tag.TAG_COMPOUND).copy();
+            inventory.clear();
+            kind.clear();
+            furnaces.clear();
+            syncModules();
+        }
         if (tag.getBoolean("FirstShipVoyaging") && nativeHull) {
+            // Do this AFTER loadPacked: the legacy loader resets the temporary
+            // cargo cache, and restoring it before validation loses all chests.
             pendingBlockCargo = tag.getList("FirstShipVoyageCargo", Tag.TAG_COMPOUND).copy();
             entityData.set(VOYAGE_CARGO, encodeCargo(pendingBlockCargo));
             entityData.set(VOYAGE_HEADING, tag.getFloat("FirstShipVoyageHeading"));
@@ -1096,15 +1108,6 @@ public final class FirstShipEntity extends Boat {
                     tag.getDouble("FirstShipVoyageZ"));
             voyageSpeed = tag.getDouble("FirstShipVoyageSpeed");
             voyageYawSpeed = 0D;
-        }
-        if (!loadPacked(temporary)) {
-            // Preserve malformed raw ItemStack tags during autosave. The ship
-            // stays in-world but the key must never pack a partial empty copy.
-            quarantinedModules = tag.getList("FirstShipModules", Tag.TAG_COMPOUND).copy();
-            inventory.clear();
-            kind.clear();
-            furnaces.clear();
-            syncModules();
         }
     }
 }
