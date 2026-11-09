@@ -26,6 +26,12 @@ public final class FirstShipMovingDeckEvents {
     @SubscribeEvent
     public static void onPlayerTick(PlayerTickEvent.Post event) {
         Player player = event.getEntity();
+        // Server motion is applied directly by FirstShipEntity.tickVoyage;
+        // running both carriers on the server would double the movement.
+        if (!player.level().isClientSide) {
+            PREVIOUS.remove(player);
+            return;
+        }
         if (!player.isAlive() || player.isSpectator() || player.isPassenger()
                 || player.getAbilities().flying || player.isFallFlying()) {
             PREVIOUS.remove(player);
