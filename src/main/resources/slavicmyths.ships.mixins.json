@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.slavicmyths.ships.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "MovingShipCollisionMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
