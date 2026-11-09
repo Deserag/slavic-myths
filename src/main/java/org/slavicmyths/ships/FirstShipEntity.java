@@ -1018,7 +1018,9 @@ public final class FirstShipEntity extends Boat {
         }
         if (selected == null) return false;
         net.minecraft.world.SimpleContainer slots = movingBody.cargoInventory(
-                selected.getInt("X"), selected.getInt("Y"), selected.getInt("Z"), registryAccess());
+                selected.getInt("X"), selected.getInt("Y"), selected.getInt("Z"), registryAccess(),
+                viewer -> !isRemoved() && isMoving() && viewer.level() == level()
+                        && viewer.distanceToSqr(this) <= 196D);
         if (slots == null) return false;
         int type = selected.getInt("Kind");
         Component label = Component.literal(type == 1
