@@ -52,6 +52,24 @@ public final class FirstShipInteractionClient {
                 }
                 continue;
             }
+            // The existing shipyard key can safely dock a stopped moving
+            // contraption. Shift+key still packs it into an item instead.
+            if (key && !mc.player.isShiftKeyDown() && ship.isMoving()) {
+                for (double step=.4D; step<=5D; step+=.2D) {
+                    Vec3 probe=eye.add(direction.scale(step));
+                    FirstShipHull.Point hit=FirstShipHull.toLocal(probe.x,probe.z,
+                            ship.getX(),ship.getZ(),ship.getYRot());
+                    if (FirstShipHull.withinHull(hit.x(),hit.z(),.05D)
+                            && probe.y>=ship.holdY()-.3D
+                            && probe.y<=ship.deckY()+2D && step*step<nearest) {
+                        selected=ship;
+                        action=FirstShipNetwork.DOCK;
+                        nearest=step*step;
+                        break;
+                    }
+                }
+                continue;
+            }
             // Real chest/barrel blocks are detached from the world while
             // travelling. Aim at their moving rendered positions and let the
             // SERVER independently verify the ray before opening inventory.
