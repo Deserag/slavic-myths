@@ -838,11 +838,14 @@ public final class FirstShipEntity extends Boat {
                     && level() instanceof net.minecraft.server.level.ServerLevel server) {
                 ShipRigidMotion.Control control = level().getGameTime() - helmControlTick <= 2L
                         ? helmControl : ShipRigidMotion.Control.IDLE;
+                double oldX = getX(), oldZ = getZ();
+                float oldYaw = getYRot();
                 movingBody.tick(server, control);
                 ShipRigidMotion.Pose next = movingBody.pose();
                 setPos(next.x(), movingBody.waterlineY(), next.z());
                 setYRot((float)next.yaw());
                 setYHeadRot((float)next.yaw());
+                FirstShipMovingDeckEvents.carryServerCrew(this, oldX, oldZ, oldYaw);
             }
             if (getFirstPassenger() != null) positionRider(getFirstPassenger());
         } else if (isNativeHull()) {
