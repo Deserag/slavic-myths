@@ -41,13 +41,25 @@ public final class NochnitsaEntity extends Monster {
         if(name.equals("hurt"))hurtVoiceAfter=now+18;
         playSound(NochnitsaContent.sound(name),volume,pitch);
     }
-    public boolean valid(LivingEntity target){if(clock.state==State.DAWN||clock.state==State.DEATH||target==null||!target.isAlive()||target.level()!=level()||isAlliedTo(target))return false;
+    public boolean valid(LivingEntity target){
+        if(target==null||!target.isAlive()||target.level()!=level()||isAlliedTo(target))return false;
+        if(getPersistentData().getBoolean("SlavicViySummoned")){
+            if(!(level() instanceof ServerLevel world)||!getPersistentData().hasUUID("SlavicViySummonOwner"))return false;
+            var owner=world.getServer().getPlayerList().getPlayer(getPersistentData().getUUID("SlavicViySummonOwner"));
+            if(owner==null||owner.level()!=level()||target==owner||owner.isAlliedTo(target)||target.isAlliedTo(owner)
+                ||target.getPersistentData().getBoolean("SlavicViySummoned"))return false;
+            if(target instanceof Player p)return !p.isCreative()&&!p.isSpectator()&&owner.canHarmPlayer(p)
+                &&owner.getPersistentData().hasUUID("SlavicViyLastTarget")
+                &&owner.getPersistentData().getUUID("SlavicViyLastTarget").equals(p.getUUID());
+            return target instanceof Monster;
+        }
+        if(clock.state==State.DAWN||clock.state==State.DEATH)return false;
         if(target instanceof Player p)return !p.isCreative()&&!p.isSpectator()&&!OminousAura.ignores(this,p);
         return target instanceof Villager||target==getLastHurtByMob()&&target instanceof net.minecraft.world.entity.animal.IronGolem;
     }
     public boolean mayScreamAt(LivingEntity target){return valid(target)&&(target instanceof Player||target instanceof Villager)&&!(target instanceof Player p&&OminousAura.active(p)>=2)&&hasLineOfSight(target)&&distanceToSqr(target)<=24*24;}
     @Override public boolean canAttack(LivingEntity target){return valid(target)&&super.canAttack(target);}
-    @Override protected void registerGoals(){goalSelector.addGoal(0,new Goal(){ {setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}public boolean canUse(){return isAlive()&&(valid(getTarget())||state()!=State.WANDER);}public boolean requiresUpdateEveryTick(){return true;}public void tick(){var t=getTarget();if(valid(t))getLookControl().setLookAt(t,25,15);if(state()==State.PURSUE&&valid(t)){if(tickCount%12==0)getNavigation().moveTo(t,1.2);}else getNavigation().stop();}});
+    @Override protected void registerGoals(){goalSelector.addGoal(0,new Goal(){ {setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}public boolean canUse(){return isAlive()&&(valid(getTarget())||state()!=State.WANDER);}public boolean requiresUpdateEveryTick(){return true;}public void tick(){var t=getTarget();if(valid(t))getLookControl().setLookAt(t,25,15);if((state()==State.PURSUE||getPersistentData().getBoolean("SlavicViySummoned"))&&valid(t)){if(tickCount%12==0)getNavigation().moveTo(t,1.2);}else getNavigation().stop();}});
         goalSelector.addGoal(1,new FloatGoal(this));goalSelector.addGoal(4,new RandomStrollGoal(this,.55));goalSelector.addGoal(5,new LookAtPlayerGoal(this,Player.class,8));goalSelector.addGoal(6,new RandomLookAroundGoal(this));
         targetSelector.addGoal(0,new HurtByTargetGoal(this));targetSelector.addGoal(1,new NearestAttackableTargetGoal<>(this,Player.class,10,true,false,this::valid));targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,Villager.class,10,true,false,t->valid(t)&&distanceToSqr(t)<=400));
     }
