@@ -654,6 +654,15 @@ public final class Ocean26GameTests {
                     "New ship failed to assemble into moving palette");
             t.assertTrue(ship.isMoving() && level.getBlockState(cargo).isAir(),
                     "Moving ship left real chest blocks behind");
+            CompoundTag safety = org.slavicmyths.ships.ShipMotionJournal.get(level).lookup(ship.getUUID());
+            t.assertTrue(safety != null && "MOVING".equals(safety.getString("Phase"))
+                    && safety.getCompound("Motion").getList("Cargo",net.minecraft.nbt.Tag.TAG_COMPOUND).size()==1,
+                    "No durable recovery checkpoint for detached chest");
+            var restoredJournal = org.slavicmyths.ships.ShipMotionJournal.load(
+                    org.slavicmyths.ships.ShipMotionJournal.get(level).save(
+                            new CompoundTag(),level.registryAccess()),level.registryAccess());
+            t.assertTrue(restoredJournal.lookup(ship.getUUID()) != null,
+                    "Written ship journal cannot be deserialized");
         });
         for(int tick=6;tick<=45;tick++)
             t.runAtTickTime(tick,()->{
@@ -690,6 +699,9 @@ public final class Ocean26GameTests {
             deckCrew.discard();
             holdCrew.discard();
             ship.discard();
+            org.slavicmyths.ships.ShipMotionJournal.get(level).end(level, ship.getUUID());
+            t.assertTrue(org.slavicmyths.ships.ShipMotionJournal.get(level).lookup(ship.getUUID())==null,
+                    "Finished test left an orphan recovery checkpoint");
             System.out.println("OCEAN26_LIVE_SMOOTH_SHIP_PASS detached=true fractional=true combinedWASD=true captain=true deckWalker=true holdWalker=true cargoNBT=true");
             t.succeed();
         });
