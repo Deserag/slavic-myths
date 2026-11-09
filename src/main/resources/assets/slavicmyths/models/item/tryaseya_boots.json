@@ -1,10 +1,10 @@
 {
   "ambientocclusion": true,
   "textures": {
-    "metal": "minecraft:block/purpur_block",
-    "ice": "minecraft:block/blue_ice",
-    "glow": "minecraft:block/amethyst_block",
-    "particle": "minecraft:block/purpur_block"
+    "metal": "slavicmyths:item/sisters/tryaseya_metal",
+    "ice": "slavicmyths:item/sisters/tryaseya_ice",
+    "glow": "slavicmyths:item/sisters/tryaseya_glow",
+    "particle": "slavicmyths:item/sisters/tryaseya_metal"
   },
   "elements": [
     {
