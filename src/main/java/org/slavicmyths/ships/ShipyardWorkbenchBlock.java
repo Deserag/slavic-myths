@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.CraftingTableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-/** Shipyard's main screen holds a real vessel stack; sneak + empty hand opens crafting. */
+/** One unified shipyard station: vessel blueprints, equipment and future appearance. */
 public final class ShipyardWorkbenchBlock extends CraftingTableBlock {
     private static final MapCodec<ShipyardWorkbenchBlock> CODEC = simpleCodec(ShipyardWorkbenchBlock::new);
 
