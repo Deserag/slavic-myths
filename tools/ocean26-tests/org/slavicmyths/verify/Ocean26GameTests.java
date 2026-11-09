@@ -89,8 +89,8 @@ public final class Ocean26GameTests {
                     "slavicmyths", recipe)).isPresent(), "Ship crafting recipe rejected: " + recipe);
         }
         BlockPos anchor = t.absolutePos(new BlockPos(12, 4, 12));
-        // Prepare a disposable shallow ocean, leaving two water-source layers.
-        for (int x = -15; x <= 15; x++)
+        // Narrow X fixture: NeoForge schedules GameTests 17 blocks apart; a ±15\n        // area would overwrite the next live ship. Keep X within ±10.\n        // Prepare a disposable shallow ocean, leaving two water-source layers.
+        for (int x = -10; x <= 10; x++)
             for (int z = -15; z <= 15; z++) {
                 BlockPos column = anchor.offset(x, 0, z);
                 level.setBlock(column.below(), Blocks.WATER.defaultBlockState(), 2);
@@ -276,7 +276,7 @@ public final class Ocean26GameTests {
     public static void clearSoftWaterObstaclesButPreserveHardBlocksAndCargo(GameTestHelper t) {
         ServerLevel level = t.getLevel();
         BlockPos origin = t.absolutePos(new BlockPos(12, 4, 12));
-        for (int x = -15; x <= 15; x++)
+        for (int x = -10; x <= 10; x++)
             for (int z = -15; z <= 15; z++) {
                 BlockPos column = origin.offset(x, 0, z);
                 level.setBlock(column.below(), Blocks.WATER.defaultBlockState(), 2);
@@ -357,7 +357,7 @@ public final class Ocean26GameTests {
     public static void walkingCrewAndCaptainFollowRepeatedHelmCommands(GameTestHelper t) {
         ServerLevel level = t.getLevel();
         BlockPos origin = t.absolutePos(new BlockPos(12, 4, 12));
-        for (int x = -15; x <= 15; x++)
+        for (int x = -10; x <= 10; x++)
             for (int z = -15; z <= 15; z++) {
                 BlockPos pos = origin.offset(x, 0, z);
                 level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
