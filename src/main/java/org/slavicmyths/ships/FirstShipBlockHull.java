@@ -627,6 +627,29 @@ public final class FirstShipBlockHull {
         return build(level, anchor, turns, old.cargo(), rig, fabric, to);
     }
 
+    /** Atomic V5 starter-sail upgrade; preserves real inventory BlockEntities. */
+    public static boolean upgradeStarterSailV6(ServerLevel level, BlockPos anchor,
+            int turns, int oldRig, int oldFabric) {
+        if (oldRig < 0 || oldRig > 1) return false;
+        Snapshot old = inspect(level, anchor, turns, oldRig, oldFabric, 5);
+        if (old == null) return false;
+        Set<BlockPos> owned = new HashSet<>(old.blocks().keySet());
+        for (Cargo entry : old.cargo())
+            owned.add(world(anchor, turns, entry.x(), entry.y(), entry.z()));
+        if (!canWrite(level, anchor, turns, owned, old.cargo(), 1, 1, 6)) return false;
+        for (Cargo entry : old.cargo()) {
+            if (entry.type() == 3) continue;
+            BlockPos p = world(anchor, turns, entry.x(), entry.y(), entry.z());
+            if (BlockEntity.loadStatic(p, entry.state(), entry.data(), level.registryAccess()) == null)
+                return false;
+        }
+        Set<BlockPos> removable = clearableFootprint(level, anchor, turns, owned, 1, 1, 6);
+        if (removable == null) return false;
+        clear(level, anchor, turns, old);
+        clearObstacles(level, anchor, removable);
+        return build(level, anchor, turns, old.cargo(), 1, 1, 6);
+    }
+
     /** Migrate V2 saves without reinterpreting the existing physical layout. */
     public static boolean migrateGeometryV2(ServerLevel level, BlockPos anchor, int turns,
             int rig, int fabric) {
