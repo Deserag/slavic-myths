@@ -554,4 +554,65 @@ public final class Ocean26GameTests {
         System.out.println("OCEAN26_CONTRAPTION_HANDOFF_PASS snapshot=true staleCargoGuard=true detach=true angle37=true rotatedCollision=true blockedParkGuard=true restore=true inventory=17");
         t.succeed();
     }
+
+    /**
+     * Headless proof of the NEW continuous rigid-contraption lifecycle. Save
+     * and reload with a real chest BlockEntity detached from normal chunks.
+     * Rendering and local player physics still require runClient acceptance.
+     */
+    @GameTest(template = "empty", timeoutTicks = 160, batch = "ocean_motion_state")
+    public static void continuousMotionNbtAndParking(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(12, 4, 12));
+        for (int x = -9; x <= 9; x++)
+            for (int z = -13; z <= 13; z++) {
+                BlockPos col = anchor.offset(x, 0, z);
+                level.setBlock(col.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(col, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 24; y++)
+                    level.setBlock(col.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        t.assertTrue(FirstShipBlockHull.place(level, anchor, 0,
+                new ListTag(), 0, 0, 5), "Cannot place continuous-mode source");
+        BlockPos storage = FirstShipBlockHull.world(anchor, 0, 1, 5, 0);
+        level.setBlock(storage, Blocks.CHEST.defaultBlockState(), 2);
+        chest(level, storage, t).setItem(0, new ItemStack(Items.EMERALD, 23));
+        var body = org.slavicmyths.ships.ShipMovingContraption.prepare(
+                level, anchor, 0, 0, 0, 5);
+        t.assertTrue(body != null && body.snapshot().cargo().size() == 1,
+                "Contraption preparation dropped physical cargo");
+        t.assertTrue(body.detach(level, anchor),
+                "Contraption failed to detach after complete NBT checkpoint");
+        t.assertTrue(level.getBlockState(storage).isAir(),
+                "Moving chest incorrectly remained in world");
+        var throttle = new org.slavicmyths.ships.ShipRigidMotion.Control(.7D,.4D);
+        for (int tick = 0; tick < 25; tick++) {
+            var frame = body.tick(level, throttle);
+            t.assertTrue(!frame.blocked(),"Real world collision denied open-water fractional motion");
+        }
+        t.assertTrue(body.pose().z() > anchor.getZ() + .8D
+                && Math.abs(body.pose().yaw()) > 1D
+                && Math.abs(body.pose().yaw()) < 75D,
+                "Continuous ship still snaps to integer blocks or 90-degree turns");
+        CompoundTag saved = body.save();
+        var reloaded = org.slavicmyths.ships.ShipMovingContraption.load(saved);
+        t.assertTrue(reloaded != null && reloaded.detached()
+                && Math.abs(reloaded.pose().x()-body.pose().x()) < 1E-9D
+                && Math.abs(reloaded.pose().z()-body.pose().z()) < 1E-9D
+                && Math.abs(reloaded.pose().yaw()-body.pose().yaw()) < 1E-9D
+                && reloaded.snapshot().cargo().equals(body.snapshot().cargo()),
+                "Fractional pose or chest contents corrupted by NBT save/reload");
+        t.assertTrue(!reloaded.park(level),
+                "Ship parked mid-turn without approaching a safe cardinal bearing");
+        reloaded.motion().restore(new org.slavicmyths.ships.ShipRigidMotion.Pose(
+                anchor.getX()+.5D,anchor.getZ()+.5D,0D),0D,0D);
+        t.assertTrue(reloaded.park(level),
+                "Aligned stationary ship failed to restore physical world blocks");
+        t.assertTrue(chest(level,storage,t).getItem(0).getCount()==23,
+                "Moving ship's 23 emeralds lost or duplicated on reload and park");
+        t.assertTrue(FirstShipBlockHull.remove(level,anchor,0,0,0,5),
+                "Moving ship post-park cleanup failed");
+        System.out.println("OCEAN26_CONTINUOUS_BODY_PASS fractional=true steering=true collision=true nbtReload=true cargo=23 park=true");
+        t.succeed();
+    }
 }
