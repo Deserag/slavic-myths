@@ -904,7 +904,7 @@ public final class FirstShipEntity extends Boat {
                 rigLevel, fabricQuality, geometryVersion)) return false;
         // Sanity-check after departure. Roll back atomically to the exact
         // original layout and cargo if the water path is not viable.
-        if (!FirstShipNavigation.clear(server, getX(), getZ(), getY(), shipYaw())) {
+        if (!FirstShipNavigation.clear(server, getX(), getZ(), getY() + .5D, shipYaw())) {
             if (!FirstShipBlockHull.place(server, blockAnchor, quarterTurns,
                     cargo, rigLevel, fabricQuality, geometryVersion))
                 throw new IllegalStateException("Cannot restore ship after failed departure");
@@ -998,7 +998,7 @@ public final class FirstShipEntity extends Boat {
         FirstShipMotion.State previous = new FirstShipMotion.State(getX(), getZ(),
                 shipYaw(), voyageSpeed, voyageYawSpeed);
         FirstShipMotion.State next = FirstShipMotion.advance(previous, controls, propulsion);
-        if (!FirstShipNavigation.clear(server, next.x(), next.z(), getY(), next.yaw())) {
+        if (!FirstShipNavigation.clear(server, next.x(), next.z(), getY() + .5D, next.yaw())) {
             voyageSpeed = voyageYawSpeed = 0D;
             setDeltaMovement(Vec3.ZERO);
             return;
