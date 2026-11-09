@@ -64,13 +64,13 @@ public final class FirstShipItem extends Item {
         // Build checks every water/source/floor/mast cell before modifying land.
         // A failed placement never consumes the item or overwrites the terrain.
         if (!FirstShipBlockHull.place(server, anchor, turns, ship.pendingBlockCargo(),
-                ship.rigLevel(), ship.fabricQuality())) {
+                ship.rigLevel(), ship.fabricQuality(), ship.geometryVersion())) {
             player.displayClientMessage(Component.literal(
                     "Нужно открытое водное место 7×11, 2 блока глубины и высота под мачту"), true);
             return InteractionResultHolder.fail(held);
         }
         if (!server.addFreshEntity(ship)) {
-            FirstShipBlockHull.remove(server, anchor, turns, ship.rigLevel(), ship.fabricQuality());
+            FirstShipBlockHull.remove(server, anchor, turns, ship.rigLevel(), ship.fabricQuality(), ship.geometryVersion());
             return InteractionResultHolder.fail(held);
         }
         if (!player.getAbilities().instabuild) held.shrink(1);
