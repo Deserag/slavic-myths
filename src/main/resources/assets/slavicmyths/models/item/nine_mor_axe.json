@@ -1,0 +1,17 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/nine_mor_axe_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/nine_mor_axe"
+      }
+    }
+  },
+  "textures": {
+    "particle": "slavicmyths:item/nine_mor_axe"
+  }
+}
