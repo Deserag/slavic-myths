@@ -10,16 +10,14 @@ import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.FirstShipNetwork;
 
 /**
- * Dedicated helm controls: ONLY while riding the real stern wheel.
- *
- * W/S advances/reverses the whole real-block ship one voxel.
- * A/D rotates the same footprint by ninety degrees. Leave helm with Shift.
- * The server rate-limits each request and rejects unsafe destinations.
+ * Create-like helm controls: send four simultaneous key bits, including a
+ * RELEASE packet on key-up. The server integrates speed and yaw each tick.
  */
 @EventBusSubscriber(modid = "slavicmyths", value = Dist.CLIENT)
 public final class FirstShipSteeringClient {
     private static long lastSent = -100L;
     private static int lastShip = -1;
+    private static int lastMask = -1;
 
     @SubscribeEvent
     public static void onTick(ClientTickEvent.Post event) {
@@ -28,26 +26,26 @@ public final class FirstShipSteeringClient {
                 || !(mc.player.getVehicle() instanceof FirstShipEntity ship)
                 || !ship.isNativeHull()) {
             lastShip = -1;
+            lastMask = -1;
             return;
         }
         if (ship.getId() != lastShip) {
             lastShip = ship.getId();
             lastSent = -100L;
+            lastMask = -1;
         }
         long now = mc.level.getGameTime();
-        // Send one input while held per client tick; only the server decides
-        // which steps are permitted. This preserves 10/9/8-tick fabric differences.
-        if (now - lastSent < 1L) return;
-        int action = 0;
-        boolean left = mc.options.keyLeft.isDown(), right = mc.options.keyRight.isDown();
-        boolean forward = mc.options.keyUp.isDown(), reverse = mc.options.keyDown.isDown();
-        // A/D must not be silently ignored while W/S is held (vanilla boat
-        // control commonly combines keys). Opposite keys neutralize an axis.
-        if (left != right) action = left ? FirstShipNetwork.LEFT : FirstShipNetwork.RIGHT;
-        else if (forward != reverse)
-            action = forward ? FirstShipNetwork.FORWARD : FirstShipNetwork.BACKWARD;
-        if (action == 0) return;
-        PacketDistributor.sendToServer(new FirstShipNetwork.Command(ship.getId(), action));
+        int mask = (mc.options.keyUp.isDown() ? 1 : 0)
+                | (mc.options.keyDown.isDown() ? 2 : 0)
+                | (mc.options.keyLeft.isDown() ? 4 : 0)
+                | (mc.options.keyRight.isDown() ? 8 : 0);
+        // Both opposite keys neutralize their axis, not the remaining axis.
+        if ((mask & 3) == 3) mask &= ~3;
+        if ((mask & 12) == 12) mask &= ~12;
+        if (mask == lastMask && now - lastSent < 2L) return;
+        PacketDistributor.sendToServer(new FirstShipNetwork.Command(ship.getId(),
+                FirstShipNetwork.CONTINUOUS_INPUT | mask));
+        lastMask = mask;
         lastSent = now;
     }
 
