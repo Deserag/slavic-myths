@@ -694,4 +694,42 @@ public final class Ocean26GameTests {
             t.succeed();
         });
     }
+
+    @GameTest(template = "empty", timeoutTicks = 140, batch = "ocean_v6_sail")
+    public static void fullSizeStarterSailAndCargoRemainPhysical(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(12, 4, 12));
+        for (int x = -10; x <= 10; x++)
+            for (int z = -15; z <= 15; z++) {
+                BlockPos p = anchor.offset(x, 0, z);
+                level.setBlock(p.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(p, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 25; y++)
+                    level.setBlock(p.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        t.assertTrue(FirstShipBlockHull.place(level, anchor, 0, new ListTag(), 1, 1, 6),
+                "New V6 ship failed to place its full cloth sail");
+        int clothCount = 0;
+        for (int x = -3; x <= 3; x++)
+            for (int y = 7; y <= 12; y++)
+                if (level.getBlockState(FirstShipBlockHull.world(anchor, 0, x, y, 0))
+                        .is(Blocks.WHITE_WOOL)) clothCount++;
+        t.assertTrue(clothCount >= 12,
+                "Starter sail still contains too little real fabric: " + clothCount);
+        BlockPos cargo = FirstShipBlockHull.world(anchor, 0, 1, 5, 0);
+        level.setBlock(cargo, Blocks.CHEST.defaultBlockState(), 2);
+        chest(level, cargo, t).setItem(0, new ItemStack(Items.EMERALD, 17));
+        var moving = org.slavicmyths.ships.ShipMovingContraption.prepare(
+                level, anchor, 0, 1, 1, 6);
+        t.assertTrue(moving != null && moving.snapshot().cargo().size() == 1,
+                "V6 moving body did not capture physical chest cargo");
+        t.assertTrue(moving.detach(level, anchor),
+                "V6 sail could not detach without cargo loss");
+        t.assertTrue(moving.park(level),
+                "V6 sail could not restore its full physical hull");
+        t.assertTrue(chest(level, cargo, t).getItem(0).getCount() == 17,
+                "V6 sail transition modified chest contents");
+        System.out.println("OCEAN26_V6_SAIL_PASS fullCloth=true physicalBlocks=true cargo=17 restored=true");
+        t.succeed();
+    }
 }
