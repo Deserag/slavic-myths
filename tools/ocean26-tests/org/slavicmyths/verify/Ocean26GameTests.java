@@ -101,13 +101,13 @@ public final class Ocean26GameTests {
 
         t.assertTrue(FirstShipBlockHull.place(level, anchor, 0, new ListTag(), 0, 0),
                 "Empty native small hull could not be placed");
-        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor, 0, 0, 8, -4))
-                    .is(Blocks.STRIPPED_DARK_OAK_LOG)
-                && level.getBlockState(FirstShipBlockHull.world(anchor, 0, 2, 8, -4))
-                    .is(Blocks.DARK_OAK_SLAB)
+        // Geometry V5 uses the existing real 3D helm item model, NOT
+        // fake slabs and fences; the stern rudder remains real world blocks.
+        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor, 0, 0, 8, -4)).isAir()
+                && level.getBlockState(FirstShipBlockHull.world(anchor, 0, 2, 8, -4)).isAir()
                 && level.getBlockState(FirstShipBlockHull.world(anchor, 0, 0, 1, -6))
                     .is(Blocks.DARK_OAK_PLANKS),
-                "V4 wheel hub/rim or separate stern rudder is missing");
+                "V5 fake wheel blocks remained or stern rudder disappeared");
         t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor, 0, 0, 1, 0)).isAir()
                 && level.getBlockState(FirstShipBlockHull.world(anchor, 0, 0, 2, 0)).isAir()
                 && level.getBlockState(FirstShipBlockHull.world(anchor, 0, 0, 3, 0))
@@ -136,8 +136,8 @@ public final class Ocean26GameTests {
         t.runAfterDelay(6, () -> {
             t.assertTrue(captain.getVehicle()==ship && ship.getFirstPassenger()==captain,
                     "Captain lost mounted helm before the first move");
-            t.assertTrue(FirstShipBlockHull.pack(level,ship.blockAnchor(),ship.quarterTurns(),0,0,4)!=null,
-                    "V4 hull invalid before mounted helm action");
+            t.assertTrue(FirstShipBlockHull.pack(level,ship.blockAnchor(),ship.quarterTurns(),0,0,5)!=null,
+                    "V5 hull invalid before mounted helm action");
             t.assertTrue(ship.helmStep(captain, FirstShipNetwork.FORWARD), "Native voxel sail step rejected");
             BlockPos movedAnchor = anchor.offset(0, 0, 1);
             t.assertTrue(ship.blockAnchor().equals(movedAnchor), "Hull failed to advance one block");
@@ -285,10 +285,10 @@ public final class Ocean26GameTests {
                     level.setBlock(column.above(y), Blocks.AIR.defaultBlockState(), 2);
             }
         t.assertTrue(FirstShipBlockHull.place(level, origin, 0, new ListTag(), 0, 0),
-                "V4 bare hull failed to place on two water source layers");
+                "V5 bare hull failed to place on two water source layers");
         t.assertTrue(level.getBlockState(FirstShipBlockHull.world(origin, 0, 0, 11, -1))
                 .is(Blocks.STRIPPED_SPRUCE_LOG),
-                "V4 naked ship has no full-height mast");
+                "V5 naked ship has no full-height mast");
         BlockPos cargo = FirstShipBlockHull.world(origin, 0, 1, 5, 0);
         level.setBlock(cargo, Blocks.CHEST.defaultBlockState(), 2);
         chest(level, cargo, t).setItem(0, new ItemStack(Items.DIAMOND, 13));
@@ -303,7 +303,7 @@ public final class Ocean26GameTests {
         level.setBlock(kelp, Blocks.KELP.defaultBlockState(), 2);
         level.setBlock(coral, Blocks.TUBE_CORAL_BLOCK.defaultBlockState(), 2);
         BlockPos forward = origin.offset(0, 0, 1);
-        t.assertTrue(FirstShipBlockHull.move(level, origin, 0, forward, 0, 0, 0, 0, 0, 4),
+        t.assertTrue(FirstShipBlockHull.move(level, origin, 0, forward, 0, 0, 0, 0, 0, 5),
                 "Lily pad, seagrass, kelp or coral incorrectly blocked the first move");
         for (BlockPos pos : new BlockPos[]{lily, grass, kelp, coral})
             t.assertTrue(!level.getBlockState(pos).is(Blocks.LILY_PAD)
@@ -319,7 +319,7 @@ public final class Ocean26GameTests {
         BlockPos survivingLily = FirstShipBlockHull.world(forward, 1, 0, 1, 4);
         level.setBlock(stone, Blocks.STONE.defaultBlockState(), 2);
         level.setBlock(survivingLily, Blocks.LILY_PAD.defaultBlockState(), 2);
-        t.assertTrue(!FirstShipBlockHull.move(level, forward, 0, forward, 1, 0, 0, 0, 0, 4),
+        t.assertTrue(!FirstShipBlockHull.move(level, forward, 0, forward, 1, 0, 0, 0, 0, 5),
                 "Stone wall did not block a 90 degree turn");
         t.assertTrue(level.getBlockState(stone).is(Blocks.STONE)
                 && level.getBlockState(survivingLily).is(Blocks.LILY_PAD),
@@ -333,17 +333,17 @@ public final class Ocean26GameTests {
         // retaining the same real chest BE and its 13 diamonds at each step.
         for (int turn = 1; turn <= 4; turn++) {
             int from = (turn - 1) % 4, to = turn % 4;
-            t.assertTrue(FirstShipBlockHull.move(level, forward, from, forward, to, 0, 0, 0, 0, 4),
+            t.assertTrue(FirstShipBlockHull.move(level, forward, from, forward, to, 0, 0, 0, 0, 5),
                     "Turn " + turn + " rejected with otherwise open water");
             t.assertTrue(chest(level, FirstShipBlockHull.world(forward, to, 1, 5, 0), t)
                     .getItem(0).getCount() == 13,
                     "Cargo damaged by turn " + turn);
         }
-        t.assertTrue(FirstShipBlockHull.move(level, forward, 0, origin, 0, 0, 0, 0, 0, 4),
+        t.assertTrue(FirstShipBlockHull.move(level, forward, 0, origin, 0, 0, 0, 0, 0, 5),
                 "Backward movement after four turns was rejected");
         t.assertTrue(chest(level, cargo, t).getItem(0).getCount() == 13,
                 "Backward movement damaged or duplicated chest cargo");
-        t.assertTrue(FirstShipBlockHull.remove(level, origin, 0, 0, 0, 4),
+        t.assertTrue(FirstShipBlockHull.remove(level, origin, 0, 0, 0, 5),
                 "Cleanup failed after obstacle and rotation checks");
         t.succeed();
     }
@@ -365,8 +365,8 @@ public final class Ocean26GameTests {
                 for (int y = 1; y <= 24; y++)
                     level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
             }
-        t.assertTrue(FirstShipBlockHull.place(level, origin, 0, new ListTag(), 0, 0, 4),
-                "V4 hull could not be placed in crew regression world");
+        t.assertTrue(FirstShipBlockHull.place(level, origin, 0, new ListTag(), 0, 0, 5),
+                "V5 hull could not be placed in crew regression world");
         FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
         t.assertTrue(ship != null,"Ship entity missing");
         ship.initializeNativeHull(origin,0);
@@ -397,7 +397,7 @@ public final class Ocean26GameTests {
                         holdWalker.getX(),holdWalker.getZ(),ship.getX(),ship.getZ(),ship.shipYaw());
                 t.assertTrue(captain.getVehicle()==ship && ship.getFirstPassenger()==captain,
                         "Captain not riding immediately before helm step "+step);
-                t.assertTrue(FirstShipBlockHull.pack(level,ship.blockAnchor(),ship.quarterTurns(),0,0,4)!=null,
+                t.assertTrue(FirstShipBlockHull.pack(level,ship.blockAnchor(),ship.quarterTurns(),0,0,5)!=null,
                         "Physical hull failed source inspection before helm step "+step);
                 t.assertTrue(ship.helmStep(captain,steps[step]),
                         "Helm step "+step+" rejected");
@@ -418,7 +418,7 @@ public final class Ocean26GameTests {
                         "Unrelated player was wrongly carried on step "+step);
                 if(step==steps.length-1) {
                     t.assertTrue(FirstShipBlockHull.remove(level,ship.blockAnchor(),
-                            ship.quarterTurns(),0,0,4),"V4 hull teardown failed");
+                            ship.quarterTurns(),0,0,5),"V5 hull teardown failed");
                     ship.discard();
                     captain.discard();
                     deckWalker.discard();
@@ -429,5 +429,56 @@ public final class Ocean26GameTests {
                 }
             });
         }
+    }
+
+    /** Workshop transactions are real item/NTB operations, not UI simulation. */
+    @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_workshop")
+    public static void shipyardSailsAndRaftBlueprints(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        ServerPlayer p = player(level, "OceanShipwright",
+                Vec3.atCenterOf(t.absolutePos(new BlockPos(2, 2, 2))));
+        p.getInventory().setItem(0, new ItemStack(RaftContent.SAIL_MODULE.get(), 10));
+        p.getInventory().setItem(1, new ItemStack(RaftContent.SAIL_LINEN_MODULE.get(), 10));
+        p.getInventory().setItem(2, new ItemStack(RaftContent.SAIL_RIGGING_KIT.get(), 3));
+        p.getInventory().setItem(3, new ItemStack(RaftContent.DECK_SECTION.get(), 40));
+        p.getInventory().setItem(4, new ItemStack(RaftContent.OAR_MODULE.get(), 2));
+        ItemStack ship = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
+        ship = org.slavicmyths.ships.ShipyardUpgrades.outfitFirstShip(p, ship, 20);
+        t.assertTrue(!ship.isEmpty()
+                && org.slavicmyths.ships.ShipyardUpgrades.shipRigLevel(ship) == 1
+                && org.slavicmyths.ships.ShipyardUpgrades.shipFabric(ship) == 1,
+                "Workshop failed to install real wool sail module");
+        ship = org.slavicmyths.ships.ShipyardUpgrades.outfitFirstShip(p, ship, 23);
+        t.assertTrue(!ship.isEmpty()
+                && org.slavicmyths.ships.ShipyardUpgrades.shipRigLevel(ship) == 2,
+                "Workshop mast upgrade failed");
+        ship = org.slavicmyths.ships.ShipyardUpgrades.outfitFirstShip(p, ship, 21);
+        t.assertTrue(!ship.isEmpty()
+                && org.slavicmyths.ships.ShipyardUpgrades.shipFabric(ship) == 2,
+                "Workshop fabric replacement failed");
+        FirstShipEntity testShip = RaftContent.FIRST_SHIP.get().create(level);
+        t.assertTrue(testShip != null && testShip.loadPacked(ship)
+                && testShip.rigLevel() == 2 && testShip.fabricQuality() == 2
+                && testShip.geometryVersion() == 5,
+                "Workshop packed sails were rejected by the actual ship entity");
+        ItemStack removed = org.slavicmyths.ships.ShipyardUpgrades.outfitFirstShip(p, ship, 25);
+        t.assertTrue(!removed.isEmpty()
+                && org.slavicmyths.ships.ShipyardUpgrades.shipRigLevel(removed) == 0
+                && org.slavicmyths.ships.ShipyardUpgrades.shipFabric(removed) == 0
+                && p.getInventory().countItem(RaftContent.SAIL_MODULE.get()) == 10
+                && p.getInventory().countItem(RaftContent.SAIL_LINEN_MODULE.get()) == 10
+                && p.getInventory().countItem(RaftContent.SAIL_RIGGING_KIT.get()) == 3,
+                "Sail/rig conservation failed through complete workshop cycle");
+
+        ItemStack raft = org.slavicmyths.ships.ShipyardUpgrades.buildRaft(p,
+                org.slavicmyths.ships.RaftSize.CARGO);
+        t.assertTrue(raft.is(RaftContent.RAFT_CARGO.get())
+                && p.getInventory().countItem(RaftContent.DECK_SECTION.get()) == 5
+                && p.getInventory().countItem(RaftContent.OAR_MODULE.get()) == 1,
+                "Large raft blueprint failed to consume exactly 35 sections and 1 oars");
+        testShip.discard();
+        p.discard();
+        System.out.println("OCEAN26_SHIPYARD_PASS sails=true mast=true linenSwap=true refunds=true blueprint=true");
+        t.succeed();
     }
 }
