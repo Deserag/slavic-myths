@@ -8,9 +8,9 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.monster.Zombie;
@@ -20,8 +20,9 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import net.neoforged.neoforge.event.entity.living.LivingExperienceDropEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
-import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import org.slavicmyths.item.PassiveCharm;
 import org.slavicmyths.nochnitsa.NochnitsaContent;
 
@@ -69,7 +70,6 @@ public final class ViyRewardAbilities {
             mob.getPersistentData().putBoolean("SlavicViySummoned",true);
             mob.getPersistentData().putUUID(OWNER,p.getUUID());
             mob.getPersistentData().putLong(UNTIL,now+600);
-            mob.setNoAi(true);
             mob.setPersistenceRequired();
             if(level.addFreshEntity(mob))spawned++;
         }
@@ -105,24 +105,34 @@ public final class ViyRewardAbilities {
         p.getPersistentData().putLong(EYE_READY,now+COOLDOWN);
         p.serverLevel().sendParticles(ParticleTypes.ASH,target.getX(),target.getY()+target.getBbHeight()*.6,target.getZ(),24,.35,.6,.35,.01);
     }
-    @SubscribeEvent public static void tick(PlayerTickEvent.Post event) {
-        if(!(event.getEntity() instanceof ServerPlayer p)||p.tickCount%2!=0)return;
-        ServerLevel w=p.serverLevel();long now=w.getGameTime();
-        for(Mob mob:w.getEntitiesOfClass(Mob.class,p.getBoundingBox().inflate(36,12,36),
-            m->m.getPersistentData().getBoolean("SlavicViySummoned")&&m.getPersistentData().hasUUID(OWNER)
-                &&m.getPersistentData().getUUID(OWNER).equals(p.getUUID()))) {
-            if(mob.getPersistentData().getLong(UNTIL)<=now){mob.discard();continue;}
-            LivingEntity target=choice(p);
-            Vec3 destination=target==null?p.position():target.position();
-            Vec3 direction=destination.subtract(mob.position()).multiply(1,0,1);
-            if(direction.lengthSqr()>3.0) {
-                Vec3 step=direction.normalize().scale(.15);
-                mob.move(MoverType.SELF,step);
-                mob.setYRot((float)(Math.atan2(-step.x,step.z)*180/Math.PI));
-            }
-            if(target!=null&&valid(p,target)&&mob.distanceToSqr(target)<6.25&&mob.tickCount%20==0)
-                target.hurt(w.damageSources().mobAttack(mob),(float)mob.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE));
+    @SubscribeEvent public static void summonedTick(EntityTickEvent.Post event) {
+        if(!(event.getEntity() instanceof Mob mob)||!(mob.level() instanceof ServerLevel world)
+            ||!mob.getPersistentData().getBoolean("SlavicViySummoned"))return;
+        CompoundTag data=mob.getPersistentData();
+        if(!data.hasUUID(OWNER)||world.getGameTime()>=data.getLong(UNTIL)){mob.discard();return;}
+        ServerPlayer owner=world.getServer().getPlayerList().getPlayer(data.getUUID(OWNER));
+        if(owner==null||owner.level()!=world||!owner.isAlive()){mob.discard();return;}
+        if(mob.tickCount%5!=0)return;
+        LivingEntity target=choice(owner);
+        if(target!=null&&mob.distanceToSqr(target)<=32*32){
+            if(mob.getTarget()!=target)mob.setTarget(target);
+            if(mob instanceof org.slavicmyths.nochnitsa.NochnitsaEntity)mob.getNavigation().moveTo(target,1.2);
+        }else{
+            mob.setTarget(null);
+            if(mob.distanceToSqr(owner)>16)mob.getNavigation().moveTo(owner,1.15);
+            else mob.getNavigation().stop();
         }
+    }
+    @SubscribeEvent public static void protectSummons(LivingIncomingDamageEvent event) {
+        Entity attacker=event.getSource().getEntity();
+        if(!(attacker instanceof Mob mob)||!mob.getPersistentData().getBoolean("SlavicViySummoned")
+            ||!mob.getPersistentData().hasUUID(OWNER)||!(mob.level() instanceof ServerLevel world))return;
+        ServerPlayer owner=world.getServer().getPlayerList().getPlayer(mob.getPersistentData().getUUID(OWNER));
+        LivingEntity victim=event.getEntity();
+        if(owner==null||owner.level()!=world||victim==owner||victim.getPersistentData().getBoolean("SlavicViySummoned")
+            ||owner.isAlliedTo(victim)||victim.isAlliedTo(owner)
+            ||victim instanceof Player p&&(p.isCreative()||p.isSpectator()||!owner.canHarmPlayer(p)))
+            event.setCanceled(true);
     }
     @SubscribeEvent public static void noSummonedLoot(LivingDropsEvent e) {
         if(e.getEntity().getPersistentData().getBoolean("SlavicViySummoned"))e.getDrops().clear();
