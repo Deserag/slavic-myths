@@ -34,6 +34,7 @@ public final class Runes {
   Item i=s.getItem();if(i instanceof BowItem||i instanceof CrossbowItem)return "bow";if(i instanceof ShieldItem)return "shield";if(i instanceof AxeItem||i instanceof net.minecraft.world.item.MaceItem||i instanceof org.slavicmyths.combat.MaceItem)return "heavy";if(i instanceof TridentItem)return "spear";if(i instanceof SwordItem)return "sword";return "";
  }
  public static int capacity(ItemStack s){
+  if(s.getItem() instanceof org.slavicmyths.posad.boss.ShackledSickleItem)return 3;
   if(s.getItem() instanceof org.slavicmyths.nethersmithing.InfernalBow.Empowered)return 3;
  if(s.getItem() instanceof org.slavicmyths.morovoy.MorovoyStaff.Staff)return 3;
  if(s.getItem() instanceof org.slavicmyths.sisters.SistersArmor.Piece)return 3;
