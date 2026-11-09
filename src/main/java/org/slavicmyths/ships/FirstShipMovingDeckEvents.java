@@ -97,5 +97,51 @@ public final class FirstShipMovingDeckEvents {
         LAST.remove(player);
     }
 
+
+    /**
+     * The ship owns the authoritative transform of crew at every physics step.
+     * PlayerTick.Post alone is insufficient: server players (including test
+     * connections) may tick before the hull, or not tick in the expected order.
+     * Re-evaluate each player's own current position in the OLD ship frame,
+     * so normal walking input remains part of the resulting local position.
+     */
+    public static void carryServerCrew(FirstShipEntity ship, double oldX, double oldZ,
+                                       float oldYaw) {
+        if (!(ship.level() instanceof net.minecraft.server.level.ServerLevel server)) return;
+        for (Player player : server.getEntitiesOfClass(Player.class,
+                new net.minecraft.world.phys.AABB(oldX - 9D, ship.getY() - 1D, oldZ - 11D,
+                        oldX + 9D, ship.getY() + 9D, oldZ + 11D))) {
+            if (!player.isAlive() || player.isPassenger() || player.isSpectator()
+                    || player.getAbilities().flying || player.isFallFlying()) continue;
+            Vec3 feet = player.position();
+            FirstShipHull.Point local = FirstShipHull.toLocal(feet.x, feet.z,
+                    oldX, oldZ, oldYaw);
+            boolean deck = FirstShipHull.mainDeckSupports(local.x(), local.z());
+            boolean hold = FirstShipHull.holdSupports(local.x(), local.z());
+            double deckY = ship.deckY(), holdY = ship.holdY();
+            int floor = deck && feet.y >= deckY - .56D && feet.y <= deckY + 2.6D ? 1
+                    : hold && feet.y >= holdY - .56D && feet.y <= holdY + 2.6D ? 0 : -1;
+            if (floor < 0) continue;
+            FirstShipHull.Point moved = FirstShipHull.toWorld(local.x(), local.z(),
+                    ship.getX(), ship.getZ(), ship.getYRot());
+            double surface = floor == 1 ? deckY : holdY;
+            boolean grounded = feet.y <= surface + .19D
+                    && player.getDeltaMovement().y <= .09D;
+            double targetY = grounded ? surface + .02D : feet.y;
+            if (Math.abs(moved.x() - feet.x) > 1E-4D
+                    || Math.abs(moved.z() - feet.z) > 1E-4D
+                    || Math.abs(targetY - feet.y) > 1E-4D)
+                player.setPos(moved.x(), targetY, moved.z());
+            if (grounded) {
+                Vec3 velocity = player.getDeltaMovement();
+                if (velocity.y < 0D) player.setDeltaMovement(velocity.x, 0D, velocity.z);
+                player.setOnGround(true);
+                player.fallDistance = 0F;
+            }
+            LAST.put(player, new Contact(ship.getId(), ship.getX(), ship.getZ(),
+                    ship.getYRot(), floor, player.position()));
+        }
+    }
+
     private FirstShipMovingDeckEvents() {}
 }
