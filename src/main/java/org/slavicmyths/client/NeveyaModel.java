@@ -141,7 +141,11 @@ public final class NeveyaModel extends EntityModel<NeveyaBoss>{
                     4.0F+2.2F*t,2,4.4F,2.0F);
             }
         }
-        geo.attach(root,hair);
+        // Hair cubes are authored in root coordinates. Move their pivot into the
+        // head's frame without shifting a single cube in the neutral pose.
+        // World: head(-94) + hair(+94) + authored mesh = original root-space mesh.
+        hair.setPos(0F,94F,0F);
+        geo.attach(head,hair);
         // Veil: thin, low-polygon drapes behind the head, no opaque panel over the face.
         for(int j=0;j<7;j++){
             float x=-6.2F+j*2.0F;
