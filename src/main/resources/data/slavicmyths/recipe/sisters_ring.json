@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " A ",
+    "ISI",
+    " B "
+  ],
+  "key": {
+    "A": {
+      "item": "slavicmyths:tryaseya_ingot"
+    },
+    "B": {
+      "item": "slavicmyths:agneya_ingot"
+    },
+    "I": {
+      "item": "minecraft:gold_nugget"
+    },
+    "S": {
+      "item": "slavicmyths:nether_soul_iv"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:sisters_ring",
+    "count": 1
+  }
+}
