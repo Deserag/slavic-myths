@@ -7,6 +7,10 @@ on:
   pull_request:
     branches:
       - 2.5-armor-bow-loot-approved
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate:
     runs-on: ubuntu-latest
