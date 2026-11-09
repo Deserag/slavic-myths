@@ -83,6 +83,9 @@ public final class FirstShipEntity extends Boat {
     private long helmControlTick = -100L;
     public boolean isMoving() { return entityData.get(MOVING); }
     public String movingCargoView() { return entityData.get(MOTION_CARGO_VIEW); }
+    public Map<BlockPos, net.minecraft.world.level.block.state.BlockState> serverMovingPalette() {
+        return movingBody == null ? null : movingBody.palette();
+    }
     public void enableSmoothMotion() { smoothEnabled = true; }
     public void equipStarterSail() { setRigging(1, 1); setGeometryVersion(6); }
 
