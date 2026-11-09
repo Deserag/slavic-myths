@@ -52,6 +52,33 @@ public final class FirstShipInteractionClient {
                 }
                 continue;
             }
+            // Real chest/barrel blocks are detached from the world while
+            // travelling. Aim at their moving rendered positions and let the
+            // SERVER independently verify the ray before opening inventory.
+            if (ship.isMoving() && !key && !ship.movingCargoView().isBlank()) {
+                for (String cargo : ship.movingCargoView().split(";")) {
+                    try {
+                        String[] p = cargo.split(",");
+                        if (p.length != 4) continue;
+                        int x = Integer.parseInt(p[0]), y = Integer.parseInt(p[1]);
+                        int z = Integer.parseInt(p[2]), type = Integer.parseInt(p[3]);
+                        if (type != 1 && type != 2) continue;
+                        FirstShipHull.Point world = FirstShipHull.toWorld(x, z,
+                                ship.getX(), ship.getZ(), ship.getYRot());
+                        Vec3 aim = new Vec3(world.x(), ship.getY() + y + .5D,
+                                world.z()).subtract(eye);
+                        double dist = aim.lengthSqr();
+                        if (dist > .1D && dist < Math.min(nearest, 36D)
+                                && aim.normalize().dot(direction) > .89D) {
+                            selected = ship;
+                            action = FirstShipNetwork.MODULE_MAIN;
+                            nearest = dist;
+                        }
+                    } catch (NumberFormatException badCosmeticData) {
+                        // Ignore malformed renderer metadata.
+                    }
+                }
+            }
             if (Math.abs(mc.player.getY() - ship.deckY()) < .95D
                     && Math.abs(at.x()) < 1.8D
                     && Math.abs(at.z() - FirstShipHull.HELM_Z) < 1.8D) {
@@ -63,7 +90,8 @@ public final class FirstShipInteractionClient {
                     selected = ship; action = FirstShipNetwork.HELM; nearest = aim.lengthSqr();
                 }
             }
-            if (action == FirstShipNetwork.HELM) continue;
+            if (action == FirstShipNetwork.HELM
+                    || action == FirstShipNetwork.MODULE_MAIN) continue;
             if (mc.player.getY() >= ship.deckY() - 1.1D) continue;
             double z = FirstShipHull.clamp(at.z(), -4.7D, 4.7D);
             double half = FirstShipHull.halfBeam(z);
