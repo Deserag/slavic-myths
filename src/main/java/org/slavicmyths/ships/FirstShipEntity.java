@@ -904,12 +904,16 @@ public final class FirstShipEntity extends Boat {
                 rigLevel, fabricQuality, geometryVersion)) return false;
         // Sanity-check after departure. Roll back atomically to the exact
         // original layout and cargo if the water path is not viable.
-        if (!FirstShipNavigation.clear(server, getX(), getZ(), getY() + .5D, shipYaw())) {
+        Set<BlockPos> departureObstacles = FirstShipContinuousNavigation.preflight(
+                server, getX(), getY(), getZ(), shipYaw(),
+                rigLevel, fabricQuality, geometryVersion);
+        if (departureObstacles == null) {
             if (!FirstShipBlockHull.place(server, blockAnchor, quarterTurns,
                     cargo, rigLevel, fabricQuality, geometryVersion))
                 throw new IllegalStateException("Cannot restore ship after failed departure");
             return false;
         }
+        FirstShipContinuousNavigation.clearAllowed(server, departureObstacles, (int)Math.floor(getY()));
         pendingBlockCargo = cargo.copy();
         openMovingCargo();
         entityData.set(VOYAGE_CARGO, encodeCargo(cargo));
@@ -1051,11 +1055,15 @@ public final class FirstShipEntity extends Boat {
         FirstShipMotion.State previous = new FirstShipMotion.State(getX(), getZ(),
                 shipYaw(), voyageSpeed, voyageYawSpeed);
         FirstShipMotion.State next = FirstShipMotion.advance(previous, controls, propulsion);
-        if (!FirstShipNavigation.clear(server, next.x(), next.z(), getY() + .5D, next.yaw())) {
+        Set<BlockPos> obstacles = FirstShipContinuousNavigation.preflight(
+                server, next.x(), getY(), next.z(), next.yaw(),
+                rigLevel, fabricQuality, geometryVersion);
+        if (obstacles == null) {
             voyageSpeed = voyageYawSpeed = 0D;
             setDeltaMovement(Vec3.ZERO);
             return;
         }
+        FirstShipContinuousNavigation.clearAllowed(server, obstacles, (int)Math.floor(getY()));
         Map<ServerPlayer, FirstShipHull.Point> crew = walkingCrew(server, previous.yaw());
         voyageSpeed = next.speed();
         voyageYawSpeed = next.yawSpeed();
