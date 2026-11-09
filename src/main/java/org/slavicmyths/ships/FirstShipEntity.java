@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
+import net.minecraft.world.ContainerHelper;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
@@ -68,6 +70,8 @@ public final class FirstShipEntity extends Boat {
     /** Malformed saved inventories are retained byte-for-byte; packing is blocked. */
     private ListTag quarantinedModules;
     private ListTag pendingBlockCargo = new ListTag();
+    private final Map<Integer, SimpleContainer> movingCargoInventory = new HashMap<>();
+    private final Map<Integer, Integer> movingCargoKinds = new HashMap<>();
     private BlockPos blockAnchor = BlockPos.ZERO;
     private int quarterTurns;
     private boolean nativeHull;
@@ -382,6 +386,7 @@ public final class FirstShipEntity extends Boat {
         pack.putUUID("VesselId", getUUID());
         pack.put("Modules", storeModules(registryAccess()));
         if (nativeHull && level() instanceof net.minecraft.server.level.ServerLevel server) {
+            if (isVoyaging()) flushMovingCargo();
             ListTag cargo = isVoyaging() ? pendingBlockCargo.copy()
                     : FirstShipBlockHull.pack(server, blockAnchor, quarterTurns,
                             rigLevel, fabricQuality, geometryVersion);
@@ -642,7 +647,8 @@ public final class FirstShipEntity extends Boat {
         if (level().isClientSide) return InteractionResult.SUCCESS;
         if (held.is(Items.CHEST) || held.is(Items.BARREL)
                 || held.is(Items.CRAFTING_TABLE) || held.is(Items.FURNACE)) {
-            if (kind.containsKey(tile) || structuralCell(tile)) return InteractionResult.FAIL;
+            if (kind.containsKey(tile) || movingCargoKinds.containsKey(tile)
+                    || structuralCell(tile)) return InteractionResult.FAIL;
             int type = held.is(Items.CHEST) ? 1 : held.is(Items.BARREL) ? 2
                     : held.is(Items.CRAFTING_TABLE) ? 3 : 4;
             kind.put(tile, type);
@@ -650,6 +656,31 @@ public final class FirstShipEntity extends Boat {
             if (type == 4) furnaces.put(tile, new SimpleContainerData(4));
             syncModules();
             if (!player.getAbilities().instabuild) held.shrink(1);
+            return InteractionResult.CONSUME;
+        }
+        if (isVoyaging() && movingCargoKinds.containsKey(tile)
+                && player instanceof ServerPlayer serverPlayer) {
+            int type = movingCargoKinds.get(tile);
+            Component name = Component.literal(type == 1 ? "Судовой сундук"
+                    : type == 2 ? "Судовая бочка"
+                    : type == 3 ? "Судовой верстак" : "Судовая печь");
+            if (type == 3) {
+                serverPlayer.openMenu(new SimpleMenuProvider((id, inv, p) ->
+                        new net.minecraft.world.inventory.CraftingMenu(id, inv,
+                                net.minecraft.world.inventory.ContainerLevelAccess.create(level(), blockPosition())) {
+                            @Override public boolean stillValid(Player viewer) {
+                                return isVoyaging() && !isRemoved() && viewer.distanceToSqr(FirstShipEntity.this) < 225D;
+                            }
+                        }, name));
+            } else {
+                SimpleContainer storage = movingCargoInventory.get(tile);
+                if (storage == null) return InteractionResult.FAIL;
+                if (type == 4)
+                    serverPlayer.openMenu(new SimpleMenuProvider((id, inv, p) ->
+                            new FurnaceMenu(id, inv, storage, new SimpleContainerData(4)), name));
+                else serverPlayer.openMenu(new SimpleMenuProvider((id, inv, p) ->
+                        ChestMenu.threeRows(id, inv, storage), name));
+            }
             return InteractionResult.CONSUME;
         }
         SimpleContainer slots = inventory.get(tile);
@@ -880,6 +911,7 @@ public final class FirstShipEntity extends Boat {
             return false;
         }
         pendingBlockCargo = cargo.copy();
+        openMovingCargo();
         entityData.set(VOYAGE_CARGO, encodeCargo(cargo));
         entityData.set(VOYAGE_HEADING, quarterTurns * 90F);
         entityData.set(VOYAGING, true);
@@ -887,6 +919,45 @@ public final class FirstShipEntity extends Boat {
         voyageLastInputTick = server.getGameTime();
         setDeltaMovement(Vec3.ZERO);
         return true;
+    }
+
+    private void openMovingCargo() {
+        movingCargoInventory.clear();
+        movingCargoKinds.clear();
+        for (int n = 0; n < pendingBlockCargo.size(); n++) {
+            CompoundTag cargo = pendingBlockCargo.getCompound(n);
+            int type = cargo.getInt("Kind");
+            if (type < 1 || type > 4) continue;
+            int floor = cargo.getInt("Y") == 5 ? 1 : 0;
+            int tile = tileId(floor, cargo.getInt("X") + 3, cargo.getInt("Z") + 5);
+            if (tile < 0 || movingCargoKinds.containsKey(tile)) continue;
+            movingCargoKinds.put(tile, type);
+            if (type == 3) continue; // Crafting table has no persistent storage.
+            int size = type == 4 ? 3 : 27;
+            NonNullList<ItemStack> items = NonNullList.withSize(size, ItemStack.EMPTY);
+            ContainerHelper.loadAllItems(cargo.getCompound("BlockEntity"), items, registryAccess());
+            SimpleContainer inventory = new SimpleContainer(size);
+            for (int i = 0; i < size; i++) inventory.setItem(i, items.get(i));
+            movingCargoInventory.put(tile, inventory);
+        }
+    }
+
+    private void flushMovingCargo() {
+        for (int n = 0; n < pendingBlockCargo.size(); n++) {
+            CompoundTag cargo = pendingBlockCargo.getCompound(n);
+            int floor = cargo.getInt("Y") == 5 ? 1 : 0;
+            int tile = tileId(floor, cargo.getInt("X") + 3, cargo.getInt("Z") + 5);
+            SimpleContainer inventory = movingCargoInventory.get(tile);
+            if (inventory == null) continue;
+            NonNullList<ItemStack> items = NonNullList.withSize(
+                    inventory.getContainerSize(), ItemStack.EMPTY);
+            for (int i = 0; i < items.size(); i++)
+                items.set(i, inventory.getItem(i).copy());
+            CompoundTag payload = cargo.getCompound("BlockEntity");
+            payload.remove("Items");
+            ContainerHelper.saveAllItems(payload, items, registryAccess());
+            cargo.put("BlockEntity", payload);
+        }
     }
 
     private static String encodeCargo(ListTag cargo) {
@@ -955,12 +1026,15 @@ public final class FirstShipEntity extends Boat {
         if (Math.abs(net.minecraft.util.Mth.wrapDegrees(shipYaw() - targetYaw)) > 7F)
             return false;
         BlockPos anchor = BlockPos.containing(getX(), getY(), getZ());
+        flushMovingCargo();
         if (!FirstShipBlockHull.place(server, anchor, heading,
                 pendingBlockCargo, rigLevel, fabricQuality, geometryVersion)) return false;
         entityData.set(VOYAGING, false);
         entityData.set(VOYAGE_CARGO, "");
         initializeNativeHull(anchor, heading);
         pendingBlockCargo = new ListTag();
+        movingCargoInventory.clear();
+        movingCargoKinds.clear();
         voyageInput = new FirstShipMotion.Control(0, 0);
         voyageSpeed = voyageYawSpeed = 0D;
         return true;
@@ -1043,6 +1117,7 @@ public final class FirstShipEntity extends Boat {
             tag.putDouble("FirstShipVoyageZ", getZ());
             tag.putFloat("FirstShipVoyageHeading", shipYaw());
             tag.putDouble("FirstShipVoyageSpeed", voyageSpeed);
+            flushMovingCargo();
             tag.put("FirstShipVoyageCargo", pendingBlockCargo.copy());
         }
         if (nativeHull) {
@@ -1099,6 +1174,7 @@ public final class FirstShipEntity extends Boat {
             // Do this AFTER loadPacked: the legacy loader resets the temporary
             // cargo cache, and restoring it before validation loses all chests.
             pendingBlockCargo = tag.getList("FirstShipVoyageCargo", Tag.TAG_COMPOUND).copy();
+            openMovingCargo();
             entityData.set(VOYAGE_CARGO, encodeCargo(pendingBlockCargo));
             entityData.set(VOYAGE_HEADING, tag.getFloat("FirstShipVoyageHeading"));
             entityData.set(VOYAGING, true);
