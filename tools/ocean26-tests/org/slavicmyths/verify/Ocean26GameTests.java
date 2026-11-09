@@ -414,7 +414,7 @@ public final class Ocean26GameTests {
                 t.assertTrue(Math.hypot(outsider.getX()-outsiderStart.x,outsider.getZ()-outsiderStart.z)<.02D,
                         "Unrelated player was wrongly carried on step "+step);
                 step++;
-                if(step<steps.length)t.runAfterDelay(5+step*24,this);
+                if(step<steps.length)t.runAfterDelay(24,this);
                 else {
                     t.assertTrue(FirstShipBlockHull.remove(level,ship.blockAnchor(),
                             ship.quarterTurns(),0,0,4),"V4 hull teardown failed");
