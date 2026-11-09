@@ -92,12 +92,12 @@ def preview(destination):
             for cube in data.get("elements", []):
                 x, y, z = cube["from"]
                 X, Y, Z = cube["to"]
-                vertices = [(x,y,z),(X,y,z),(X,Y,z),(x,Y,z),(x,y,Z),(X,y,Z),(X,Y,Z),(x,Y,Z)]
+                vertices = [(x,z,y),(X,z,y),(X,z,Y),(x,z,Y),(x,Z,y),(X,Z,y),(X,Z,Y),(x,Z,Y)]
                 faces = [[vertices[i] for i in face] for face in ((0,1,2,3),(4,5,6,7),(0,1,5,4),(2,3,7,6),(1,2,6,5),(0,3,7,4))]
                 material = next(iter(cube.get("faces", {}).values()), {}).get("texture", "#metal").lstrip("#")
                 ax.add_collection3d(Poly3DCollection(faces, facecolors=color.get(material, "#777777"), edgecolors="#19191c", linewidths=.22, alpha=1))
-            ax.set(xlim=(-1,18), ylim=(-1,20), zlim=(-2,16))
-            ax.set_box_aspect((19,21,18))
+            ax.set(xlim=(-1,18), ylim=(-2,16), zlim=(-1,20))
+            ax.set_box_aspect((19,18,21))
             ax.view_init(elev=el, azim=az)
             ax.set_title(("Front", "Back", "Side")[view-1])
             ax.set_axis_off()
