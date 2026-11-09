@@ -39,10 +39,13 @@ public final class FirstShipSteeringClient {
         // which steps are permitted. This preserves 10/9/8-tick fabric differences.
         if (now - lastSent < 1L) return;
         int action = 0;
-        if (mc.options.keyUp.isDown()) action = FirstShipNetwork.FORWARD;
-        else if (mc.options.keyDown.isDown()) action = FirstShipNetwork.BACKWARD;
-        else if (mc.options.keyLeft.isDown()) action = FirstShipNetwork.LEFT;
-        else if (mc.options.keyRight.isDown()) action = FirstShipNetwork.RIGHT;
+        boolean left = mc.options.keyLeft.isDown(), right = mc.options.keyRight.isDown();
+        boolean forward = mc.options.keyUp.isDown(), reverse = mc.options.keyDown.isDown();
+        // A/D must not be silently ignored while W/S is held (vanilla boat
+        // control commonly combines keys). Opposite keys neutralize an axis.
+        if (left != right) action = left ? FirstShipNetwork.LEFT : FirstShipNetwork.RIGHT;
+        else if (forward != reverse)
+            action = forward ? FirstShipNetwork.FORWARD : FirstShipNetwork.BACKWARD;
         if (action == 0) return;
         PacketDistributor.sendToServer(new FirstShipNetwork.Command(ship.getId(), action));
         lastSent = now;
