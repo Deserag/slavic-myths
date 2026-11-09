@@ -481,4 +481,79 @@ public final class Ocean26GameTests {
         System.out.println("OCEAN26_SHIPYARD_PASS sails=true mast=true linenSwap=true refunds=true blueprint=true");
         t.succeed();
     }
+
+    /**
+     * Headless acceptance for the first Create-style moving-contraption mode:
+     * detached world blocks, fractional motion, sub-90° yaw, passengers
+     * carried and a container preserved as full NBT until anchoring.
+     */
+    @GameTest(template = "empty", timeoutTicks = 260, batch = "ocean_smooth")
+    public static void fractionalContraptionVoyageKeepsCargoAndCrew(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos origin = t.absolutePos(new BlockPos(12, 4, 12));
+        for (int x = -10; x <= 10; x++)
+            for (int z = -15; z <= 15; z++) {
+                BlockPos column = origin.offset(x, 0, z);
+                level.setBlock(column.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(column, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 25; y++)
+                    level.setBlock(column.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        t.assertTrue(FirstShipBlockHull.place(level, origin, 0, new ListTag(), 0, 0, 5),
+                "Smooth test hull could not be placed");
+        BlockPos chestPos = FirstShipBlockHull.world(origin,0,1,5,0);
+        level.setBlock(chestPos,Blocks.CHEST.defaultBlockState(),2);
+        chest(level,chestPos,t).setItem(0,new ItemStack(Items.DIAMOND,13));
+        FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
+        t.assertTrue(ship != null, "Smooth ship entity missing");
+        ship.initializeNativeHull(origin,0);
+        t.assertTrue(level.addFreshEntity(ship),"Smooth hull marker failed to spawn");
+        ServerPlayer captain=player(level,"SmoothCaptain",
+                new Vec3(ship.getX(),ship.deckY()+.08D,ship.getZ()-3D));
+        ServerPlayer deck=player(level,"SmoothDeck",
+                new Vec3(ship.getX()+1D,ship.deckY()+.015D,ship.getZ()));
+        ServerPlayer outsider=player(level,"SmoothOutsider",
+                new Vec3(ship.getX()+8D,ship.deckY()+.015D,ship.getZ()));
+        double outsiderX=outsider.getX(),outsiderZ=outsider.getZ();
+        t.assertTrue(captain.startRiding(ship),"Smooth captain could not board");
+        for(int tick=0;tick<60;tick++) {
+            final int step=tick;
+            t.runAtTickTime(6L+step,()->{
+                int keys=step<30 ? 1|8 : step<55 ? 1 : 0;
+                t.assertTrue(ship.setVoyageControl(captain,keys),
+                        "Moving hull rejected input at tick "+step);
+                if(step==0) {
+                    t.assertTrue(ship.isVoyaging(),"First input did not assemble moving contraption");
+                    t.assertTrue(level.getBlockState(chestPos).isAir(),
+                            "Detached cargo left world duplicate behind");
+                    t.assertTrue(ship.pendingBlockCargo().size()==1,
+                            "Container NBT not captured on launch");
+                }
+            });
+        }
+        t.runAtTickTime(92L,()->{
+            t.assertTrue(ship.isVoyaging(),"Moving ship unexpectedly returned to voxel stepping");
+            t.assertTrue(Math.hypot(ship.getX()-origin.getX()-.5D,
+                            ship.getZ()-origin.getZ()-.5D)>1.5D,
+                    "Throttle failed to produce continuous vessel translation");
+            t.assertTrue(Math.abs(net.minecraft.util.Mth.wrapDegrees(ship.shipYaw()))>2D
+                            && Math.abs(net.minecraft.util.Mth.wrapDegrees(ship.shipYaw()))<85D,
+                    "Turning still snaps 90 degrees instead of interpolating");
+            t.assertTrue(captain.getVehicle()==ship
+                            && Math.abs(captain.getY()-ship.deckY())<.25D,
+                    "Captain no longer follows dynamic helm");
+            FirstShipHull.Point rider=FirstShipHull.toLocal(deck.getX(),deck.getZ(),
+                    ship.getX(),ship.getZ(),ship.shipYaw());
+            t.assertTrue(FirstShipHull.withinHull(rider.x(),rider.z(),-.35D),
+                    "Free walker fell behind fractional moving hull");
+            t.assertTrue(Math.hypot(outsider.getX()-outsiderX,outsider.getZ()-outsiderZ)<.05D,
+                    "Unaffiliated player moved with ship");
+            t.assertTrue(ship.pendingBlockCargo().size()==1
+                            && ship.pendingBlockCargo().getCompound(0).getCompound("BlockEntity")
+                                .contains("Items"),
+                    "In-flight container payload disappeared");
+            System.out.println("OCEAN26_SMOOTH_VOYAGE_PASS fractional=true yaw=true captain=true deck=true cargo=true");
+            captain.discard();deck.discard();outsider.discard();ship.discard();t.succeed();
+        });
+    }
 }
