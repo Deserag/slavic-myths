@@ -15,7 +15,7 @@ import org.slavicmyths.viy.ViyContent;
 @EventBusSubscriber(modid = "slavicmyths")
 public final class BossLootV25 {
     private static void add(LivingDropsEvent event, ServerLevel level, Item item, int amount) {
-        if (amount < 1) return;
+        if (amount < 1 || event.getDrops().stream().anyMatch(drop -> drop.getItem().is(item))) return;
         var entity = event.getEntity();
         event.getDrops().add(new ItemEntity(level, entity.getX(), entity.getY() + .45, entity.getZ(), new ItemStack(item, amount)));
     }
