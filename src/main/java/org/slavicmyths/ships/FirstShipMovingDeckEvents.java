@@ -82,9 +82,11 @@ public final class FirstShipMovingDeckEvents {
                     && player.getDeltaMovement().y <= .09D;
             double targetY = grounded ? surface + .02D : feet.y;
             if (Math.abs(targetX - feet.x) > 1E-4D
-                    || Math.abs(targetZ - feet.z) > 1E-4D
-                    || Math.abs(targetY - feet.y) > 1E-4D)
-                player.setPos(targetX, targetY, targetZ);
+                    || Math.abs(targetZ - feet.z) > 1E-4D)
+                ShipDynamicCollision.carryWithWorldCollision(player, ship,
+                        new Vec3(targetX - feet.x, 0D, targetZ - feet.z));
+            if (Math.abs(targetY - player.getY()) > 1E-4D)
+                player.setPos(player.getX(), targetY, player.getZ());
             if (grounded) {
                 Vec3 velocity = player.getDeltaMovement();
                 if (velocity.y < 0D)
@@ -130,10 +132,12 @@ public final class FirstShipMovingDeckEvents {
             boolean grounded = feet.y <= surface + .19D
                     && player.getDeltaMovement().y <= .09D;
             double targetY = grounded ? surface + .02D : feet.y;
-            if (Math.abs(moved.x() - feet.x) > 1E-4D
-                    || Math.abs(moved.z() - feet.z) > 1E-4D
-                    || Math.abs(targetY - feet.y) > 1E-4D)
-                player.setPos(moved.x(), targetY, moved.z());
+            double dx = moved.x() - feet.x, dz = moved.z() - feet.z;
+            if (Math.abs(dx) > 1E-4D || Math.abs(dz) > 1E-4D)
+                ShipDynamicCollision.carryWithWorldCollision(player, ship,
+                        new Vec3(dx, 0D, dz));
+            if (Math.abs(targetY - player.getY()) > 1E-4D)
+                player.setPos(player.getX(), targetY, player.getZ());
             if (grounded) {
                 Vec3 velocity = player.getDeltaMovement();
                 if (velocity.y < 0D) player.setDeltaMovement(velocity.x, 0D, velocity.z);

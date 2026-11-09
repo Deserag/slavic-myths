@@ -8,10 +8,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -29,15 +31,30 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public final class ShipDynamicCollision {
     private record Geometry(String key, Map<BlockPos, List<AABB>> cells) {}
     private static final Map<FirstShipEntity, Geometry> GEOMETRY = new WeakHashMap<>();
+    private record Carry(Player player, FirstShipEntity ship) {}
+    private static final ThreadLocal<Carry> CARRY = new ThreadLocal<>();
+
+    /** World collision still applies while the hull carries its own walker. */
+    public static void carryWithWorldCollision(Player player, FirstShipEntity ship, Vec3 delta) {
+        CARRY.set(new Carry(player, ship));
+        try {
+            player.move(MoverType.SELF, delta);
+        } finally {
+            CARRY.remove();
+        }
+    }
 
     /** Avoid allocating a copied vanilla collision list on unrelated entity moves. */
     public static boolean hasNearbyMovingShip(Entity entity, Level level, AABB region) {
         if (!(entity instanceof Player player) || !player.isAlive() || player.isSpectator()
                 || player.getAbilities().flying || player.isFallFlying() || player.isPassenger())
             return false;
+        Carry carry = CARRY.get();
         for (FirstShipEntity ship : level.getEntitiesOfClass(FirstShipEntity.class,
                 region.inflate(12D, 15D, 12D)))
-            if (!ship.isRemoved() && ship.isMoving()) return true;
+            if (!ship.isRemoved() && ship.isMoving()
+                    && (carry == null || carry.player() != player || carry.ship() != ship))
+                return true;
         return false;
     }
 
@@ -59,9 +76,12 @@ public final class ShipDynamicCollision {
                                List<VoxelShape> collisions) {
         if (!(entity instanceof Player player) || !player.isAlive() || player.isSpectator()
                 || player.getAbilities().flying || player.isFallFlying() || player.isPassenger()) return;
+        Carry carry = CARRY.get();
         for (FirstShipEntity ship : level.getEntitiesOfClass(FirstShipEntity.class,
                 region.inflate(12D, 15D, 12D))) {
-            if (ship.isRemoved() || !ship.isMoving()) continue;
+            if (ship.isRemoved() || !ship.isMoving()
+                    || carry != null && carry.player() == player && carry.ship() == ship)
+                continue;
             Geometry geometry = geometry(ship, level);
             AABB local = localBounds(region, ship);
             double angle = Math.toRadians(ship.getYRot());

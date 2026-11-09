@@ -711,6 +711,14 @@ public final class Ocean26GameTests {
                     new Vec3(ship.getX() + 8D, ship.deckY(), ship.getZ()));
             t.assertTrue(!ship.openMovingCargo(outsider, 0),
                     "Outsider opened detached cargo from beyond the hull");
+            BlockPos barrier = BlockPos.containing(outsider.getX() + 1D,
+                    outsider.getY(), outsider.getZ());
+            level.setBlock(barrier, Blocks.STONE.defaultBlockState(), 2);
+            org.slavicmyths.ships.ShipDynamicCollision.carryWithWorldCollision(
+                    outsider, ship, new Vec3(2D, 0D, 0D));
+            t.assertTrue(outsider.getX() < barrier.getX() - .1D,
+                    "Hull carry ignored a real world wall");
+            level.setBlock(barrier, Blocks.AIR.defaultBlockState(), 2);
             outsider.discard();
             // Prove actual vanilla collision resolution, not a Post-tick
             // teleport: a descending crew member must hit the moving deck.
