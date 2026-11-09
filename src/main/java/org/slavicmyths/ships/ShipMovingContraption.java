@@ -1,6 +1,9 @@
 package org.slavicmyths.ships;
 
+import java.util.HashMap;
 import java.util.Map;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -18,7 +21,9 @@ import net.minecraft.world.level.block.state.BlockState;
  * sailing. Unloaded chunks are treated as solid, not teleported through.
  */
 public final class ShipMovingContraption {
-    private final FirstShipBlockHull.MotionSnapshot snapshot;
+    private FirstShipBlockHull.MotionSnapshot snapshot;
+    /** Item inventories are materialized only for a chest/barrel actually opened. */
+    private final Map<String, SimpleContainer> openCargo = new HashMap<>();
     private final Map<BlockPos, BlockState> palette;
     private final int waterlineY;
     private final ShipRigidMotion motion;
@@ -80,6 +85,58 @@ public final class ShipMovingContraption {
         parked = true;
         detached = false;
         return true;
+    }
+
+    private static String cargoKey(CompoundTag entry) {
+        return entry.getInt("X") + ":" + entry.getInt("Y") + ":" + entry.getInt("Z");
+    }
+
+    /**
+     * A moving chest has no chunk BlockEntity; deserialize the original
+     * inventory from the untouched BlockEntity NBT instead. Only chests
+     * and barrels are live in this first phase; furnaces are parked-only.
+     */
+    public SimpleContainer cargoInventory(int x, int y, int z, HolderLookup.Provider registries) {
+        if (!detached || parked) return null;
+        ListTag entries = snapshot.cargo();
+        for (int n = 0; n < entries.size(); n++) {
+            CompoundTag entry = entries.getCompound(n);
+            if (entry.getInt("X") != x || entry.getInt("Y") != y
+                    || entry.getInt("Z") != z) continue;
+            if (entry.getInt("Kind") != 1 && entry.getInt("Kind") != 2) return null;
+            String key = cargoKey(entry);
+            SimpleContainer existing = openCargo.get(key);
+            if (existing != null) return existing;
+            CompoundTag contents = entry.getCompound("BlockEntity");
+            // Loot-table containers require vanilla block-entity generation
+            // on landing; refusing a live menu avoids destroying pending loot.
+            if (contents.contains("LootTable", Tag.TAG_STRING)) return null;
+            SimpleContainer created = new SimpleContainer(27);
+            created.fromTag(contents.getList("Items", Tag.TAG_COMPOUND), registries);
+            openCargo.put(key, created);
+            return created;
+        }
+        return null;
+    }
+
+    /**
+     * Transfer live moving-chest changes back to the immutable NBT snapshot
+     * before ship save, journal checkpoint, or conversion to an item.
+     * Never replace unrelated data: custom names, locks and mod metadata stay.
+     */
+    public void synchronizeCargo(HolderLookup.Provider registries) {
+        if (openCargo.isEmpty()) return;
+        ListTag entries = snapshot.cargo();
+        for (int n = 0; n < entries.size(); n++) {
+            CompoundTag entry = entries.getCompound(n);
+            SimpleContainer inventory = openCargo.get(cargoKey(entry));
+            if (inventory == null) continue;
+            CompoundTag contents = entry.getCompound("BlockEntity").copy();
+            contents.put("Items", inventory.createTag(registries));
+            entry.put("BlockEntity", contents);
+        }
+        snapshot = new FirstShipBlockHull.MotionSnapshot(entries,
+                snapshot.geometry(), snapshot.rig(), snapshot.fabric(), snapshot.turn());
     }
 
     public ShipRigidMotion.Pose pose() { return motion.pose(); }
