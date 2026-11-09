@@ -49,6 +49,8 @@ public final class FirstShipEntity extends Boat {
     private static final EntityDataAccessor<Float> SURFACE = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<String> MODULES = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.STRING);
     private static final EntityDataAccessor<Boolean> NATIVE = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.BOOLEAN);
+    /** Authoritative world-block anchor; unlike Boat.setPos, synced on EVERY voxel step. */
+    private static final EntityDataAccessor<BlockPos> ANCHOR = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.BLOCK_POS);
     private static final EntityDataAccessor<Integer> TURNS = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> RIG = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> FABRIC = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
@@ -67,14 +69,13 @@ public final class FirstShipEntity extends Boat {
     private boolean nativeHull;
     private int rigLevel;
     private int fabricQuality;
-    private int geometryVersion = 3;
+    private int geometryVersion = 4;
     private ShipDesign design = ShipDesign.defaults();
     private double nextHelmAllowedTick = -100D;
     private boolean legacyConversionTried;
 
     public BlockPos blockAnchor() {
-        return level().isClientSide
-                ? BlockPos.containing(getX(), getY(), getZ()) : blockAnchor;
+        return level().isClientSide && isNativeHull() ? entityData.get(ANCHOR) : blockAnchor;
     }
     public int quarterTurns() { return entityData.get(TURNS); }
     /** Synced cardinal heading: client yaw interpolation must not move the wheel seat. */
@@ -99,6 +100,7 @@ public final class FirstShipEntity extends Boat {
         quarterTurns = Math.floorMod(turns, 4);
         nativeHull = true;
         entityData.set(NATIVE, true);
+        entityData.set(ANCHOR, blockAnchor);
         entityData.set(TURNS, quarterTurns);
         setYRot(quarterTurns * 90F);
         setYHeadRot(quarterTurns * 90F);
@@ -117,6 +119,7 @@ public final class FirstShipEntity extends Boat {
         builder.define(SURFACE, NO_SURFACE);
         builder.define(MODULES, "0".repeat(CELLS * 2));
         builder.define(NATIVE, false);
+        builder.define(ANCHOR, BlockPos.ZERO);
         builder.define(TURNS, 0);
         builder.define(RIG, 0);
         builder.define(FABRIC, 0);
@@ -204,9 +207,10 @@ public final class FirstShipEntity extends Boat {
             return;
         }
         if (!hasPassenger(passenger)) return;
+        BlockPos anchor = blockAnchor();
         FirstShipHull.Point seat = FirstShipHull.toWorld(0D, FirstShipHull.HELM_Z,
-                getX(), getZ(), shipYaw());
-        move.accept(passenger, seat.x(), deckY() + 0.08D, seat.z());
+                anchor.getX() + .5D, anchor.getZ() + .5D, shipYaw());
+        move.accept(passenger, seat.x(), anchor.getY() + FirstShipHull.MAIN_DECK + .08D, seat.z());
     }
 
     /**
@@ -284,7 +288,7 @@ public final class FirstShipEntity extends Boat {
                 || !pack.contains("Modules", Tag.TAG_LIST)) return false;
         int loadedGeometry = pack.contains("GeometryVersion", Tag.TAG_INT)
                 ? pack.getInt("GeometryVersion") : 2;
-        if (loadedGeometry != 2 && loadedGeometry != 3) return false;
+        if (loadedGeometry != 2 && loadedGeometry != 3 && loadedGeometry != 4) return false;
         int loadedRig = packVersion == 1 ? 1 : pack.getInt("RigLevel");
         int loadedFabric = packVersion == 1 ? 1 : pack.getInt("FabricQuality");
         try { new ShipRigging(loadedRig, loadedFabric); }
@@ -741,6 +745,23 @@ public final class FirstShipEntity extends Boat {
             if (!busy && FirstShipBlockHull.migrateLegacy(server, blockAnchor, quarterTurns))
                 geometryVersion = 2;
         }
+        // V4 replaces the former fence cluster with an actual wheel silhouette.
+        // Do not reinterpret V3 block worlds as V4 until the old source has
+        // been verified and the ship is empty: full cargo preservation is required.
+        if (nativeHull && geometryVersion == 3
+                && level() instanceof net.minecraft.server.level.ServerLevel server
+                && !isVehicle() && !hasWalkers()) {
+            boolean busy = false;
+            for (ServerPlayer nearby : server.getEntitiesOfClass(ServerPlayer.class,
+                    new AABB(blockAnchor).inflate(11D, 24D, 11D)))
+                if (nearby.containerMenu != nearby.inventoryMenu) { busy = true; break; }
+            if (!busy && FirstShipBlockHull.migrateGeometryV3(server, blockAnchor,
+                    quarterTurns, rigLevel, fabricQuality)) {
+                geometryVersion = 4;
+                setCustomName(null);
+                setCustomNameVisible(false);
+            }
+        }
         if (nativeHull && geometryVersion == 2
                 && level() instanceof net.minecraft.server.level.ServerLevel server
                 && !isVehicle() && !hasWalkers()) {
@@ -762,10 +783,20 @@ public final class FirstShipEntity extends Boat {
             }
         }
         if (isNativeHull()) {
+            // Boat.tick is incompatible with actual in-world hull blocks, but
+            // baseTick alone does not deliver normal Boat client movement.
             baseTick();
             setDeltaMovement(Vec3.ZERO);
-            if (!level().isClientSide)
-                setPos(blockAnchor.getX() + .5D, blockAnchor.getY(), blockAnchor.getZ() + .5D);
+            BlockPos anchor = blockAnchor();
+            double x = anchor.getX() + .5D, y = anchor.getY(), z = anchor.getZ() + .5D;
+            if (position().distanceToSqr(x, y, z) > 1.0E-6D) setPos(x, y, z);
+            if (level().isClientSide) {
+                // Entity tracking may arrive AFTER chunk block updates. The
+                // synced anchor, not the delayed boat interpolation, owns pose.
+                setYRot(shipYaw());
+                setYHeadRot(shipYaw());
+                if (getFirstPassenger() != null) positionRider(getFirstPassenger());
+            }
         } else {
             // Legacy experimental entities remain identifiable for safe packing;
             // they are deliberately not silently converted mid-save.
