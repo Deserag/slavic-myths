@@ -6643,5 +6643,12 @@
   "item.slavicmyths.bauk_cloak.effect": "+3 hearts (+6 HP), +15% attack damage, -15% incoming damage",
   "item.slavicmyths.viy_eye": "Eye of Viy",
   "item.slavicmyths.viy_ring": "Ring of Viy",
-  "item.slavicmyths.viy_ring.effect": "A trophy of Viy. Equip it in the ring slot."
+  "item.slavicmyths.viy_ring.effect": "Press O to summon 2 zombies, 2 skeletons and a Nochnitsa for 30 seconds. Cooldown: 120 seconds.",
+  "item.slavicmyths.viy_eye.effect": "Gaze slows and blinds enemies; petrify for 2 seconds once every 120 seconds.",
+  "item.slavicmyths.neveya_scythe": "Neveya's Double-Edged Scythe",
+  "item.slavicmyths.neveya_scythe.effect": "Left-click: Wither and Weakness. Right-click: area sweep (9s cooldown).",
+  "item.slavicmyths.lomeya_hammer": "Lomeya's Hammer",
+  "item.slavicmyths.lomeya_hammer_offhand": "Lomeya's Second Hammer",
+  "item.slavicmyths.lomeya_hammer.effect": "Left-click: heavy strike and slow. Right-click: area slam (7.5s cooldown).",
+  "key.slavicmyths.viy_summon": "Summon Viy's minions"
 }
