@@ -802,7 +802,7 @@ public final class FirstShipBlockHull {
 
     public static MotionSnapshot captureForMotion(ServerLevel level, BlockPos anchor,
             int turns, int rig, int fabric, int geometry) {
-        if (geometry < 2 || geometry > 5 || turns < 0 || turns > 3) return null;
+        if (geometry < 2 || geometry > 6 || turns < 0 || turns > 3) return null;
         ListTag cargo = pack(level, anchor, turns, rig, fabric, geometry);
         return cargo == null ? null : new MotionSnapshot(cargo, geometry, rig, fabric, turns);
     }
