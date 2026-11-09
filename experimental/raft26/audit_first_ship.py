@@ -48,7 +48,10 @@ contains("client/FirstShipSteeringClient.java", "ClientTickEvent.Post",
          "options.keyLeft.isDown()", "options.keyRight.isDown()")
 contains("client/FirstShipInventoryHud.java", "FirstShipBlockHull.cargoKind",
          "InventoryScreen")
-contains("client/FirstShipRenderer.java", "RaftContent.HELM_MODULE.get()", "items.renderStatic(", "ship.geometryVersion() < 5")
+contains("client/FirstShipRenderer.java", "RaftContent.HELM_MODULE.get()", "items.renderStatic(", "if (ship.isVoyaging())", "FirstShipBlockHull.movingPalette", "renderSingleBlock")
+verify("if (ship.isVoyaging())" in render
+       and "if (!ship.isNativeHull())" in render,
+       "Physical chunk hulls must not be double-rendered; only detached hull renders as contraption")
 contains("FirstShipBlockHull.java", "layoutV5(", "migrateGeometryV4(", "blocks.remove(world(anchor, turns, x, y, -4))")
 helm_model = json.loads((ASSETS / "models/item/ship_helm_module.json").read_text(encoding="utf-8"))
 verify(helm_model["parent"] == "minecraft:block/block" and len(helm_model["elements"]) >= 8,
