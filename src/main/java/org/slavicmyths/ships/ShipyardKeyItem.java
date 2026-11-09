@@ -13,8 +13,9 @@ public final class ShipyardKeyItem extends Item {
 
     @Override public void appendHoverText(ItemStack stack, TooltipContext context,
             java.util.List<Component> text, net.minecraft.world.item.TooltipFlag flag) {
-        text.add(Component.literal("ПКМ по остановленному плоту без пассажиров").withStyle(net.minecraft.ChatFormatting.GRAY));
-        text.add(Component.literal("Упаковывает судно, сундуки и содержимое").withStyle(net.minecraft.ChatFormatting.GRAY));
+        text.add(Component.literal("ПКМ по остановленному кораблю — швартовка в блоки мира").withStyle(net.minecraft.ChatFormatting.GRAY));
+        text.add(Component.literal("Shift + ПКМ по пустому судну — упаковка вместе с грузом").withStyle(net.minecraft.ChatFormatting.GRAY));
+        text.add(Component.literal("Для плотов действуют прежние правила упаковки").withStyle(net.minecraft.ChatFormatting.GRAY));
         text.add(Component.literal("Средняя кнопка мыши не сохраняет груз!").withStyle(net.minecraft.ChatFormatting.YELLOW));
     }
 
