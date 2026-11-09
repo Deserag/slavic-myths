@@ -32,7 +32,7 @@ public final class BossLootV25 {
         if (data.getBoolean("SlavicMythsV25BossLootAwarded")) return;
         data.putBoolean("SlavicMythsV25BossLootAwarded", true);
         int ingots = 2 + world.random.nextInt(2);
-        int shards = Math.min(4,1+world.random.nextInt(3)+(event.getLootingLevel()>0?1:0));
+        int shards = 1 + world.random.nextInt(3);
         if (type == SistersContent.TRYASEYA.get()) {
             add(event, world, SistersContent.TRYASEYA_INGOT.get(), ingots);
             add(event, world, SistersContent.TRYASEYA_SHARD.get(), shards);
