@@ -27,7 +27,7 @@ public final class ViyContent {
         ModEntities.ENTITIES.register("viy_kornelap",()->EntityType.Builder.<ViyServant>of(
             (t,w)->new ViyServant(t,w,ViyServant.Kind.KORNELAP),MobCategory.MONSTER)
             .sized(ViyServant.Kind.KORNELAP.width,ViyServant.Kind.KORNELAP.height).clientTrackingRange(16).build("slavicmyths:viy_kornelap"));
-    public static final DeferredHolder<Item,Item> VIY_EYE = ModItems.ITEMS.register("viy_eye", () -> new Item(new Item.Properties().rarity(net.minecraft.world.item.Rarity.EPIC).stacksTo(16)));
+    public static final DeferredHolder<Item,Item> VIY_EYE = ModItems.ITEMS.register("viy_eye", () -> new org.slavicmyths.item.FolkAccessoryItem(new Item.Properties().rarity(net.minecraft.world.item.Rarity.EPIC).stacksTo(1), "head"));
     public static final DeferredHolder<Item,Item> VIY_RING = ModItems.ITEMS.register("viy_ring", () -> new org.slavicmyths.item.FolkAccessoryItem(new Item.Properties().rarity(net.minecraft.world.item.Rarity.EPIC).stacksTo(1), "ring"));
     public static final DeferredHolder<Item,Item> VIY_EGG=
         ModItems.ITEMS.register("viy_spawn_egg",()->new net.neoforged.neoforge.common.DeferredSpawnEggItem(
