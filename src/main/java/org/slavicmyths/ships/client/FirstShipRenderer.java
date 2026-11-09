@@ -109,13 +109,50 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             pose.popPose();
         }
         if (ship.geometryVersion() < 5) return;
+        BlockPos daylight = BlockPos.containing(ship.getX(), ship.deckY() + 2D, ship.getZ());
+        int deckLight = net.minecraft.client.renderer.LightTexture.pack(
+                ship.level().getBrightness(net.minecraft.world.level.LightLayer.BLOCK, daylight),
+                ship.level().getBrightness(net.minecraft.world.level.LightLayer.SKY, daylight));
         pose.pushPose();
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
-        pose.translate(0D, FirstShipHull.MAIN_DECK + 0.75D, -4D);
-        pose.scale(1.9F, 1.9F, 1.9F);
-        items.renderStatic(helm, ItemDisplayContext.NONE, light,
-                OverlayTexture.NO_OVERLAY, pose, buffers, ship.level(), ship.getId());
+        pose.translate(0D, FirstShipHull.MAIN_DECK, -4D);
+        // The same eight-spoke wooden steering wheel already used by rafts.
+        // Render as real block-textured geometry, not the dark item inventory mesh.
+        piece(Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState(), pose, buffers, deckLight,
+                -.18D, .12D, .08D, .36F, 1.35F, .36F);
+        pose.pushPose();
+        pose.translate(0D, 1.78D, 0D);
+        for (int spoke = 0; spoke < 8; spoke++) {
+            pose.pushPose();
+            pose.mulPose(Axis.ZP.rotationDegrees(spoke * 45F));
+            piece(Blocks.DARK_OAK_PLANKS.defaultBlockState(), pose, buffers, deckLight,
+                    -.07D, .10D, -.08D, .14F, .54F, .16F);
+            piece(Blocks.OAK_PLANKS.defaultBlockState(), pose, buffers, deckLight,
+                    -.14D, .52D, -.11D, .28F, .15F, .22F);
+            pose.popPose();
+        }
+        piece(Blocks.IRON_BLOCK.defaultBlockState(), pose, buffers, deckLight,
+                -.15D, -.15D, -.12D, .30F, .30F, .24F);
         pose.popPose();
+        pose.popPose();
+    }
+
+    private void piece(BlockState state, PoseStack pose, MultiBufferSource buffers, int light,
+                       double x, double y, double z, float sx, float sy, float sz) {
+        pose.pushPose();
+        pose.translate(x, y, z);
+        pose.scale(sx, sy, sz);
+        Minecraft.getInstance().getBlockRenderer().renderSingleBlock(
+                state, pose, buffers, light, OverlayTexture.NO_OVERLAY);
+        pose.popPose();
+    }
+
+    @Override public boolean shouldRender(FirstShipEntity ship,
+            net.minecraft.client.renderer.culling.Frustum frustum,
+            double cameraX, double cameraY, double cameraZ) {
+        // Entity's vanilla boat AABB is much smaller than the 7x11 ship and
+        // can be outside the camera while its stern wheel remains visible.
+        return frustum.isVisible(ship.getBoundingBox().inflate(9D, 14D, 9D));
     }
 
     @Override public ResourceLocation getTextureLocation(FirstShipEntity ship) {
