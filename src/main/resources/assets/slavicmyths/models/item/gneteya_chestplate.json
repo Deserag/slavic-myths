@@ -1,10 +1,10 @@
 {
   "ambientocclusion": true,
   "textures": {
-    "metal": "minecraft:block/polished_blackstone",
-    "bone": "minecraft:block/bone_block",
-    "glow": "minecraft:block/amethyst_block",
-    "particle": "minecraft:block/polished_blackstone"
+    "metal": "slavicmyths:item/sisters/gneteya_metal",
+    "bone": "slavicmyths:item/sisters/gneteya_bone",
+    "glow": "slavicmyths:item/sisters/gneteya_glow",
+    "particle": "slavicmyths:item/sisters/gneteya_metal"
   },
   "elements": [
     {
