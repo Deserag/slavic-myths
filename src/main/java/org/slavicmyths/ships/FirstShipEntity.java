@@ -840,12 +840,29 @@ public final class FirstShipEntity extends Boat {
                         ? helmControl : ShipRigidMotion.Control.IDLE;
                 double oldX = getX(), oldZ = getZ();
                 float oldYaw = getYRot();
-                movingBody.tick(server, control);
+                ShipRigidMotion.Frame frame = movingBody.tick(server, control);
                 ShipRigidMotion.Pose next = movingBody.pose();
-                setPos(next.x(), movingBody.waterlineY(), next.z());
-                setYRot((float)next.yaw());
-                setYHeadRot((float)next.yaw());
-                FirstShipMovingDeckEvents.carryServerCrew(this, oldX, oldZ, oldYaw);
+                if (frame.blocked() && movingBody.park(server)) {
+                    BlockPos restored = BlockPos.containing(next.x(), movingBody.waterlineY(), next.z());
+                    int restoredTurns = Math.floorMod((int)Math.round(next.yaw() / 90D), 4);
+                    initializeNativeHull(restored, restoredTurns);
+                    movingBody = null;
+                    entityData.set(MOVING, false);
+                    syncMovingCargo();
+                    helmControl = ShipRigidMotion.Control.IDLE;
+                    if (getFirstPassenger() instanceof ServerPlayer driver)
+                        driver.displayClientMessage(Component.literal(
+                                "Корабль остановлен и восстановлен: впереди препятствие или мелководье"), true);
+                } else {
+                    setPos(next.x(), movingBody.waterlineY(), next.z());
+                    setYRot((float)next.yaw());
+                    setYHeadRot((float)next.yaw());
+                    FirstShipMovingDeckEvents.carryServerCrew(this, oldX, oldZ, oldYaw);
+                    if (frame.blocked() && getFirstPassenger() instanceof ServerPlayer driver
+                            && level().getGameTime() % 40L == 0L)
+                        driver.displayClientMessage(Component.literal(
+                                "Движение заблокировано берегом, мелководьем или сооружением"), true);
+                }
             }
             if (getFirstPassenger() != null) positionRider(getFirstPassenger());
         } else if (isNativeHull()) {
@@ -897,6 +914,14 @@ public final class FirstShipEntity extends Boat {
         ShipMovingContraption prepared = ShipMovingContraption.prepare(server, blockAnchor,
                 quarterTurns, rigLevel, fabricQuality, geometryVersion);
         if (prepared == null || !prepared.detach(server, blockAnchor)) return false;
+        // The helm may be beside a shore or building. Reject an invalid
+        // moving pose and put the exact original blocks back immediately.
+        if (!ShipMovingClearance.clearPose(server, prepared.pose(),
+                prepared.waterlineY(), prepared.palette())) {
+            if (!prepared.park(server))
+                throw new IllegalStateException("Moving ship could not restore its original hull");
+            return false;
+        }
         movingBody = prepared;
         entityData.set(MOVING, true);
         syncMovingCargo();
