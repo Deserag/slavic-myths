@@ -76,6 +76,7 @@ public final class FirstShipEntity extends Boat {
     private ShipDesign design = ShipDesign.defaults();
     private double nextHelmAllowedTick = -100D;
     private boolean legacyConversionTried;
+    private boolean legacySailUpgradePending;
     /** New ships opt into the new body; older worlds stay in their proven mode. */
     private boolean smoothEnabled;
     private ShipMovingContraption movingBody;
@@ -833,6 +834,22 @@ public final class FirstShipEntity extends Boat {
                 }
             }
         }
+        if (legacySailUpgradePending && nativeHull && geometryVersion == 5
+                && rigLevel <= 1 && !isMoving() && !isVehicle() && !hasWalkers()
+                && level() instanceof net.minecraft.server.level.ServerLevel server) {
+            boolean busy = false;
+            for (ServerPlayer nearby : server.getEntitiesOfClass(ServerPlayer.class,
+                    new AABB(blockAnchor).inflate(11D, 24D, 11D)))
+                if (nearby.containerMenu != nearby.inventoryMenu) { busy = true; break; }
+            if (!busy) {
+                legacySailUpgradePending = false;
+                if (FirstShipBlockHull.upgradeStarterSailV6(server, blockAnchor,
+                        quarterTurns, rigLevel, fabricQuality)) {
+                    setRigging(1, 1);
+                    setGeometryVersion(6);
+                }
+            }
+        }
         if (isMoving()) {
             // The body is a rigid palette entity; do not spawn any chunk blocks
             // during travel. Only the authoritative server advances physics.
@@ -1039,6 +1056,7 @@ public final class FirstShipEntity extends Boat {
         tag.putFloat("FirstShipSurface", entityData.get(SURFACE));
         tag.putBoolean("FirstShipNative", nativeHull);
         tag.putBoolean("FirstShipSmoothEnabled", smoothEnabled);
+        tag.putBoolean("FirstShipSailUpgradeChecked", !legacySailUpgradePending);
         if (movingBody != null) tag.put("FirstShipMovingBody", movingBody.save());
         if (nativeHull) {
             tag.putLong("FirstShipAnchor", blockAnchor.asLong());
@@ -1080,6 +1098,8 @@ public final class FirstShipEntity extends Boat {
                 smoothEnabled = true;
             } else movingBody = null;
         }
+        legacySailUpgradePending = nativeHull && geometryVersion == 5 && rigLevel <= 1
+                && !tag.getBoolean("FirstShipSailUpgradeChecked") && movingBody == null;
         if (tag.contains("FirstShipSurface", Tag.TAG_FLOAT)) setWaterSurface(tag.getFloat("FirstShipSurface"));
         CompoundTag pack = new CompoundTag();
         pack.putInt("Version", 2);
