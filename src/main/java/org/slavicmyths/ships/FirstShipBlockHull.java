@@ -430,6 +430,12 @@ public final class FirstShipBlockHull {
         return false;
     }
 
+    /** Movement checks may break only the SAME vanilla aquatic decorations
+     * accepted by stationary hull moves, never arbitrary mod blocks. */
+    public static boolean isSoftWaterObstacle(ServerLevel level, BlockPos pos) {
+        return softWaterObstacle(level, pos, level.getBlockState(pos));
+    }
+
     /** Collect allowed obstruction positions during preflight, without mutating the world. */
     private static Set<BlockPos> clearableFootprint(ServerLevel level, BlockPos anchor, int turns,
             Set<BlockPos> owned, int rig, int fabric, int geometry) {
