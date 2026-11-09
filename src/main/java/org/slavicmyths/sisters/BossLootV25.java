@@ -24,6 +24,13 @@ public final class BossLootV25 {
     public static void drops(LivingDropsEvent event) {
         if (!(event.getEntity().level() instanceof ServerLevel world)) return;
         EntityType<?> type = event.getEntity().getType();
+        if (type != SistersContent.TRYASEYA.get() && type != SistersContent.GNETEYA.get() &&
+            type != SistersContent.LEDEYA.get() && type != SistersContent.AGNEYA.get() &&
+            type != SistersContent.NEVEYA.get() && type != SistersContent.LOMEYA.get() &&
+            type != ViyContent.VIY.get() && type != MorovoyFireZmeyContent.BOSS.get()) return;
+        var data = event.getEntity().getPersistentData();
+        if (data.getBoolean("SlavicMythsV25BossLootAwarded")) return;
+        data.putBoolean("SlavicMythsV25BossLootAwarded", true);
         int ingots = 2 + world.random.nextInt(2);
         if (type == SistersContent.TRYASEYA.get()) {
             add(event, world, SistersContent.TRYASEYA_INGOT.get(), ingots);
