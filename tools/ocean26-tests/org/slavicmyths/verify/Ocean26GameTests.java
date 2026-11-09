@@ -521,6 +521,22 @@ public final class Ocean26GameTests {
                 && level.getBlockState(FirstShipBlockHull.world(from, 0, 0, 8, -1)).isAir(),
                 "Detached vessel left world-collision blocks behind");
 
+        var palette = FirstShipBlockHull.localMotionPalette(snapshot);
+        var sailingPose = new org.slavicmyths.ships.ShipRigidMotion.Pose(
+                from.getX() + .5D, from.getZ() + .5D, 37.125D);
+        t.assertTrue(org.slavicmyths.ships.ShipMovingClearance.clearPose(
+                level, sailingPose, from.getY(), palette),
+                "Continuous rotated hull reports false collision on clear water");
+        FirstShipHull.Point obstruction = FirstShipHull.toWorld(
+                0D, 4D, sailingPose.x(), sailingPose.z(), sailingPose.yaw());
+        BlockPos bowStone = BlockPos.containing(obstruction.x(), from.getY() + 2D,
+                obstruction.z());
+        level.setBlock(bowStone, Blocks.STONE.defaultBlockState(), 2);
+        t.assertTrue(!org.slavicmyths.ships.ShipMovingClearance.clearPose(
+                level, sailingPose, from.getY(), palette),
+                "Swept angled hull incorrectly passed through a solid obstruction");
+        level.setBlock(bowStone, Blocks.AIR.defaultBlockState(), 2);
+
         BlockPos dest = from.offset(0, 0, 2);
         BlockPos obstacle = FirstShipBlockHull.world(dest, 0, 0, 2, 5);
         level.setBlock(obstacle, Blocks.STONE.defaultBlockState(), 2);
@@ -535,7 +551,7 @@ public final class Ocean26GameTests {
                 "Moving-contraption park lost or duplicated chest diamonds");
         t.assertTrue(FirstShipBlockHull.remove(level, dest, 0, 0, 0, 5),
                 "Failed to clean up parked ship");
-        System.out.println("OCEAN26_CONTRAPTION_HANDOFF_PASS snapshot=true staleCargoGuard=true detach=true blockedParkGuard=true restore=true inventory=17");
+        System.out.println("OCEAN26_CONTRAPTION_HANDOFF_PASS snapshot=true staleCargoGuard=true detach=true angle37=true rotatedCollision=true blockedParkGuard=true restore=true inventory=17");
         t.succeed();
     }
 }
