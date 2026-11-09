@@ -24,26 +24,14 @@ public final class ShipyardWorkbenchBlock extends CraftingTableBlock {
     private ShipyardWorkbenchBlock(Properties properties) { super(properties); }
     @Override public MapCodec<? extends CraftingTableBlock> codec() { return CODEC; }
 
+    /** The workshop always opens its dedicated three-tab shipwright interface.
+     * Sneaking is not a hidden alternate vanilla crafting table anymore. */
     private InteractionResult open(Level level, BlockPos pos, Player player) {
-        if (player instanceof ServerPlayer server) {
-            if (player.isSecondaryUseActive()) {
-                // Standard 3x3 crafting, but with the *shipyard* validity check.
-                server.openMenu(new SimpleMenuProvider((id, inventory, p) ->
-                        new net.minecraft.world.inventory.CraftingMenu(id, inventory,
-                                net.minecraft.world.inventory.ContainerLevelAccess.create(level, pos)) {
-                            @Override public boolean stillValid(Player viewer) {
-                                return viewer.isAlive() &&
-                                        viewer.level().getBlockState(pos).is(RaftContent.SHIPYARD_BENCH.get()) &&
-                                        viewer.distanceToSqr(pos.getCenter()) <= 64.0D;
-                            }
-                        }, Component.literal("Корабельная верфь: крафт")));
-            } else {
-                server.openMenu(new SimpleMenuProvider((id, inventory, p) ->
-                        new ShipyardMenu(id, inventory, pos),
-                        Component.literal("Корабельная верфь")),
-                        buffer -> buffer.writeBlockPos(pos));
-            }
-        }
+        if (player instanceof ServerPlayer server)
+            server.openMenu(new SimpleMenuProvider((id, inventory, p) ->
+                    new ShipyardMenu(id, inventory, pos),
+                    Component.literal("Корабельная верфь")),
+                    buffer -> buffer.writeBlockPos(pos));
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
 
@@ -54,7 +42,8 @@ public final class ShipyardWorkbenchBlock extends CraftingTableBlock {
 
     @Override protected ItemInteractionResult useItemOn(ItemStack held, BlockState state, Level level,
             BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if (held.getItem() instanceof RaftItem || held.is(RaftContent.DECK_SECTION.get())) {
+        if (held.getItem() instanceof RaftItem || held.getItem() instanceof FirstShipItem
+                || held.is(RaftContent.DECK_SECTION.get())) {
             // No silent inventory mutation when clicking the station with an expensive vessel.
             // Put the raft into the real slot, inspect then explicitly press Upgrade.
             open(level, pos, player);
