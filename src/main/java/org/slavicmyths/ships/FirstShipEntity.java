@@ -55,6 +55,9 @@ public final class FirstShipEntity extends Boat {
     private static final EntityDataAccessor<Integer> RIG = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> FABRIC = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> GEOMETRY = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Boolean> VOYAGING = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Float> VOYAGE_HEADING = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<String> VOYAGE_CARGO = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.STRING);
     private static final float NO_SURFACE = -10000F;
     private static final double DRAFT = 0.14D;
     private static final int CELLS = FirstShipHull.WIDTH * FirstShipHull.LENGTH;
@@ -74,16 +77,26 @@ public final class FirstShipEntity extends Boat {
     private ShipDesign design = ShipDesign.defaults();
     private double nextHelmAllowedTick = -100D;
     private boolean legacyConversionTried;
+    private FirstShipMotion.Control voyageInput = new FirstShipMotion.Control(0, 0);
+    private double voyageSpeed;
+    private double voyageYawSpeed;
+    private long voyageLastInputTick = -100L;
 
     public BlockPos blockAnchor() {
-        // Both logical sides read the same replicated anchor. The saved field
-        // is only the server-side transactional source for hull relocation.
-        return isNativeHull() ? entityData.get(ANCHOR) : blockAnchor;
+        // Underway the fractional entity pose owns navigation; a BlockPos is
+        // merely a storage/docking anchor and must NOT snap the moving ship.
+        return isVoyaging() ? BlockPos.containing(position())
+                : isNativeHull() ? entityData.get(ANCHOR) : blockAnchor;
     }
     public int quarterTurns() { return entityData.get(TURNS); }
     /** Synced cardinal heading: client yaw interpolation must not move the wheel seat. */
-    public float shipYaw() { return quarterTurns() * 90F; }
+    public float shipYaw() {
+        return isVoyaging() ? entityData.get(VOYAGE_HEADING) : quarterTurns() * 90F;
+    }
     public boolean isNativeHull() { return entityData.get(NATIVE); }
+    public boolean isVoyaging() { return entityData.get(VOYAGING); }
+    public String voyageCargoVisual() { return entityData.get(VOYAGE_CARGO); }
+    public double voyageSpeed() { return voyageSpeed; }
     public int rigLevel() { return entityData.get(RIG); }
     public int fabricQuality() { return entityData.get(FABRIC); }
     public int geometryVersion() { return level().isClientSide ? entityData.get(GEOMETRY) : geometryVersion; }
@@ -131,6 +144,9 @@ public final class FirstShipEntity extends Boat {
         builder.define(RIG, 0);
         builder.define(FABRIC, 0);
         builder.define(GEOMETRY, 5);
+        builder.define(VOYAGING, false);
+        builder.define(VOYAGE_HEADING, 0F);
+        builder.define(VOYAGE_CARGO, "");
     }
 
     public double deckY() { return getY() + FirstShipHull.MAIN_DECK; }
@@ -215,10 +231,9 @@ public final class FirstShipEntity extends Boat {
             return;
         }
         if (!hasPassenger(passenger)) return;
-        BlockPos anchor = blockAnchor();
         FirstShipHull.Point seat = FirstShipHull.toWorld(0D, FirstShipHull.HELM_Z,
-                anchor.getX() + .5D, anchor.getZ() + .5D, shipYaw());
-        move.accept(passenger, seat.x(), anchor.getY() + FirstShipHull.MAIN_DECK + .08D, seat.z());
+                getX(), getZ(), shipYaw());
+        move.accept(passenger, seat.x(), deckY() + .08D, seat.z());
     }
 
     /**
@@ -236,7 +251,8 @@ public final class FirstShipEntity extends Boat {
                     getX(), getZ(), getYRot());
             Vec3 target = new Vec3(point.x(), deckY() + 0.05D, point.z());
             BlockPos floor = BlockPos.containing(point.x(), deckY() - .15D, point.z());
-            if (!level().hasChunkAt(floor) || level().getBlockState(floor).isAir()) continue;
+            if (!isVoyaging()
+                    && (!level().hasChunkAt(floor) || level().getBlockState(floor).isAir())) continue;
             AABB area = passenger.getBoundingBox().move(target.subtract(passenger.position()));
             if (level().noCollision(passenger, area)) return target;
         }
@@ -366,7 +382,9 @@ public final class FirstShipEntity extends Boat {
         pack.putUUID("VesselId", getUUID());
         pack.put("Modules", storeModules(registryAccess()));
         if (nativeHull && level() instanceof net.minecraft.server.level.ServerLevel server) {
-            ListTag cargo = FirstShipBlockHull.pack(server, blockAnchor, quarterTurns, rigLevel, fabricQuality, geometryVersion);
+            ListTag cargo = isVoyaging() ? pendingBlockCargo.copy()
+                    : FirstShipBlockHull.pack(server, blockAnchor, quarterTurns,
+                            rigLevel, fabricQuality, geometryVersion);
             if (cargo == null) return ItemStack.EMPTY;
             pack.put("BlockCargo", cargo);
         }
@@ -409,7 +427,7 @@ public final class FirstShipEntity extends Boat {
         }
         ItemStack stack = packed();
         if (stack.isEmpty()) return InteractionResult.FAIL;
-        if (nativeHull) {
+        if (nativeHull && !isVoyaging()) {
             if (!(level() instanceof net.minecraft.server.level.ServerLevel server)
                     || !FirstShipBlockHull.remove(server, blockAnchor, quarterTurns, rigLevel, fabricQuality, geometryVersion)) {
                 player.displayClientMessage(Component.literal("Корпус изменён или груз повреждён: упаковка заблокирована"), true);
@@ -807,22 +825,26 @@ public final class FirstShipEntity extends Boat {
             }
         }
         if (isNativeHull()) {
-            // Boat.tick is incompatible with actual in-world hull blocks, but
-            // baseTick alone does not deliver normal Boat client movement.
             baseTick();
-            setDeltaMovement(Vec3.ZERO);
-            BlockPos anchor = blockAnchor();
-            double x = anchor.getX() + .5D, y = anchor.getY(), z = anchor.getZ() + .5D;
-            // Keep the proven server-side Boat entity tracking refresh each
-            // tick. The CLIENT additionally snaps from the synced anchor.
-            if (!level().isClientSide || position().distanceToSqr(x, y, z) > 1.0E-6D)
-                setPos(x, y, z);
-            if (level().isClientSide) {
-                // Entity tracking may arrive AFTER chunk block updates. The
-                // synced anchor, not the delayed boat interpolation, owns pose.
-                setYRot(shipYaw());
-                setYHeadRot(shipYaw());
-                if (getFirstPassenger() != null) positionRider(getFirstPassenger());
+            if (isVoyaging()) {
+                if (level() instanceof net.minecraft.server.level.ServerLevel server)
+                    tickVoyage(server);
+                else {
+                    setYRot(shipYaw());
+                    setYHeadRot(shipYaw());
+                    if (getFirstPassenger() != null) positionRider(getFirstPassenger());
+                }
+            } else {
+                setDeltaMovement(Vec3.ZERO);
+                BlockPos anchor = blockAnchor();
+                double x = anchor.getX() + .5D, y = anchor.getY(), z = anchor.getZ() + .5D;
+                if (!level().isClientSide || position().distanceToSqr(x, y, z) > 1.0E-6D)
+                    setPos(x, y, z);
+                if (level().isClientSide) {
+                    setYRot(shipYaw());
+                    setYHeadRot(shipYaw());
+                    if (getFirstPassenger() != null) positionRider(getFirstPassenger());
+                }
             }
         } else {
             // Legacy experimental entities remain identifiable for safe packing;
@@ -833,11 +855,123 @@ public final class FirstShipEntity extends Boat {
     }
 
     /**
+     * Create-compatible assembly boundary: retain all vanilla block NBT,
+     * remove the stationary world structure, and use a fractional moving
+     * entity for the remainder of the voyage. The prior hull is left intact
+     * if validation fails, and the snapshot persists through chunk reloads.
+     */
+    private boolean launchVoyage(net.minecraft.server.level.ServerLevel server) {
+        if (isVoyaging() || !nativeHull || geometryVersion < 3
+                || quarantinedModules != null) return false;
+        for (ServerPlayer player : server.getEntitiesOfClass(ServerPlayer.class,
+                new AABB(blockAnchor).inflate(11D, 24D, 11D)))
+            if (player.containerMenu != player.inventoryMenu) return false;
+        ListTag cargo = FirstShipBlockHull.pack(server, blockAnchor, quarterTurns,
+                rigLevel, fabricQuality, geometryVersion);
+        if (cargo == null) return false;
+        if (!FirstShipBlockHull.remove(server, blockAnchor, quarterTurns,
+                rigLevel, fabricQuality, geometryVersion)) return false;
+        // Sanity-check after departure. Roll back atomically to the exact
+        // original layout and cargo if the water path is not viable.
+        if (!FirstShipNavigation.clear(server, getX(), getZ(), getY(), shipYaw())) {
+            if (!FirstShipBlockHull.place(server, blockAnchor, quarterTurns,
+                    cargo, rigLevel, fabricQuality, geometryVersion))
+                throw new IllegalStateException("Cannot restore ship after failed departure");
+            return false;
+        }
+        pendingBlockCargo = cargo.copy();
+        entityData.set(VOYAGE_CARGO, encodeCargo(cargo));
+        entityData.set(VOYAGE_HEADING, quarterTurns * 90F);
+        entityData.set(VOYAGING, true);
+        voyageSpeed = voyageYawSpeed = 0D;
+        voyageLastInputTick = server.getGameTime();
+        setDeltaMovement(Vec3.ZERO);
+        return true;
+    }
+
+    private static String encodeCargo(ListTag cargo) {
+        StringBuilder text = new StringBuilder();
+        for (int n = 0; n < cargo.size(); n++) {
+            CompoundTag entry = cargo.getCompound(n);
+            text.append(entry.getInt("X")).append(',')
+                    .append(entry.getInt("Y")).append(',')
+                    .append(entry.getInt("Z")).append(',')
+                    .append(entry.getInt("Kind")).append(';');
+        }
+        return text.toString();
+    }
+
+    /** Input mask bits 1/2: ahead/astern; 4/8: port/starboard. */
+    public boolean setVoyageControl(ServerPlayer driver, int mask) {
+        if (!isNativeHull() || driver.getVehicle() != this
+                || getFirstPassenger() != driver || driver.isSpectator()
+                || !(level() instanceof net.minecraft.server.level.ServerLevel server)
+                || (mask & ~15) != 0) return false;
+        if (!isVoyaging() && mask != 0 && !launchVoyage(server)) {
+            driver.displayClientMessage(Component.literal(
+                    "Нельзя поднять корабль: проверьте целостность корпуса, груз и воду"), true);
+            return false;
+        }
+        if (!isVoyaging()) return true;
+        voyageInput = FirstShipMotion.fromMask(mask);
+        voyageLastInputTick = server.getGameTime();
+        return true;
+    }
+
+    private void tickVoyage(net.minecraft.server.level.ServerLevel server) {
+        FirstShipMotion.Control controls = server.getGameTime() - voyageLastInputTick <= 3
+                ? voyageInput : new FirstShipMotion.Control(0, 0);
+        double propulsion = new ShipRigging(rigLevel, fabricQuality)
+                .rigMultiplier() * (fabricQuality == 0 ? 1D
+                : new ShipRigging(rigLevel, fabricQuality).clothMultiplier());
+        FirstShipMotion.State previous = new FirstShipMotion.State(getX(), getZ(),
+                shipYaw(), voyageSpeed, voyageYawSpeed);
+        FirstShipMotion.State next = FirstShipMotion.advance(previous, controls, propulsion);
+        if (!FirstShipNavigation.clear(server, next.x(), next.z(), getY(), next.yaw())) {
+            voyageSpeed = voyageYawSpeed = 0D;
+            setDeltaMovement(Vec3.ZERO);
+            return;
+        }
+        voyageSpeed = next.speed();
+        voyageYawSpeed = next.yawSpeed();
+        entityData.set(VOYAGE_HEADING, (float)next.yaw());
+        setYRot((float)next.yaw());
+        setYHeadRot((float)next.yaw());
+        setPos(next.x(), getY(), next.z());
+        setDeltaMovement(new Vec3(next.x() - previous.x(), 0D, next.z() - previous.z()));
+        if (getFirstPassenger() != null) positionRider(getFirstPassenger());
+        // Dock only after the helm is idle; never snap a moving ship to
+        // cardinal blocks mid-turn. Off-cardinal hull remains a safe entity.
+        if (controls.throttle() == 0 && controls.rudder() == 0
+                && server.getGameTime() - voyageLastInputTick > 45
+                && voyageSpeed == 0D && voyageYawSpeed == 0D) tryDock(server);
+    }
+
+    public boolean tryDock(net.minecraft.server.level.ServerLevel server) {
+        if (!isVoyaging() || Math.abs(voyageSpeed) > .001D
+                || Math.abs(voyageYawSpeed) > .01D || isVehicle() || hasWalkers()) return false;
+        int heading = Math.floorMod(Math.round(shipYaw() / 90F), 4);
+        float targetYaw = heading * 90F;
+        if (Math.abs(net.minecraft.util.Mth.wrapDegrees(shipYaw() - targetYaw)) > 7F)
+            return false;
+        BlockPos anchor = BlockPos.containing(getX(), getY(), getZ());
+        if (!FirstShipBlockHull.place(server, anchor, heading,
+                pendingBlockCargo, rigLevel, fabricQuality, geometryVersion)) return false;
+        entityData.set(VOYAGING, false);
+        entityData.set(VOYAGE_CARGO, "");
+        initializeNativeHull(anchor, heading);
+        pendingBlockCargo = new ListTag();
+        voyageInput = new FirstShipMotion.Control(0, 0);
+        voyageSpeed = voyageYawSpeed = 0D;
+        return true;
+    }
+
+    /**
      * One step per helm command. Validates an actual rider, cooldown, source
      * integrity and destination BEFORE moving any vanilla block.
      */
     public boolean helmStep(ServerPlayer driver, int action) {
-        if (!isNativeHull() || driver.getVehicle() != this || getFirstPassenger() != driver
+        if (!isNativeHull() || isVoyaging() || driver.getVehicle() != this || getFirstPassenger() != driver
                 || !(level() instanceof net.minecraft.server.level.ServerLevel server)
                 || action < FirstShipNetwork.FORWARD || action > FirstShipNetwork.RIGHT
                 || level().getGameTime() + 1e-6D < nextHelmAllowedTick) return false;
@@ -902,6 +1036,15 @@ public final class FirstShipEntity extends Boat {
         super.addAdditionalSaveData(tag);
         tag.putFloat("FirstShipSurface", entityData.get(SURFACE));
         tag.putBoolean("FirstShipNative", nativeHull);
+        tag.putBoolean("FirstShipVoyaging", isVoyaging());
+        if (isVoyaging()) {
+            tag.putDouble("FirstShipVoyageX", getX());
+            tag.putDouble("FirstShipVoyageY", getY());
+            tag.putDouble("FirstShipVoyageZ", getZ());
+            tag.putFloat("FirstShipVoyageHeading", shipYaw());
+            tag.putDouble("FirstShipVoyageSpeed", voyageSpeed);
+            tag.put("FirstShipVoyageCargo", pendingBlockCargo.copy());
+        }
         if (nativeHull) {
             tag.putLong("FirstShipAnchor", blockAnchor.asLong());
             tag.putInt("FirstShipTurns", quarterTurns);
@@ -942,6 +1085,18 @@ public final class FirstShipEntity extends Boat {
         root.put("FirstShipPack", pack);
         ItemStack temporary = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
         temporary.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
+        if (tag.getBoolean("FirstShipVoyaging") && nativeHull) {
+            pendingBlockCargo = tag.getList("FirstShipVoyageCargo", Tag.TAG_COMPOUND).copy();
+            entityData.set(VOYAGE_CARGO, encodeCargo(pendingBlockCargo));
+            entityData.set(VOYAGE_HEADING, tag.getFloat("FirstShipVoyageHeading"));
+            entityData.set(VOYAGING, true);
+            setYRot(shipYaw());
+            setYHeadRot(shipYaw());
+            setPos(tag.getDouble("FirstShipVoyageX"), tag.getDouble("FirstShipVoyageY"),
+                    tag.getDouble("FirstShipVoyageZ"));
+            voyageSpeed = tag.getDouble("FirstShipVoyageSpeed");
+            voyageYawSpeed = 0D;
+        }
         if (!loadPacked(temporary)) {
             // Preserve malformed raw ItemStack tags during autosave. The ship
             // stays in-world but the key must never pack a partial empty copy.
