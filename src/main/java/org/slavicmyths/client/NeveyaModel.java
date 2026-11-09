@@ -12,7 +12,7 @@ public final class NeveyaModel extends EntityModel<NeveyaBoss>{
     private final FolkModelGeometry geo=new FolkModelGeometry();
     private final ModelPart root=geo.part(512,512),head=geo.part(512,512),scythe=geo.part(512,512);
     private final ModelPart legL=geo.part(512,512),legR=geo.part(512,512),rightArm=geo.part(512,512);
-    private final ModelPart hair=geo.part(512,512),veil=geo.part(512,512);
+    private final ModelPart hair=geo.part(512,512),veil=geo.part(512,512),veilCap=geo.part(512,512);
     private void b(ModelPart p,int mat,float x,float y,float z,float w,float h,float d){
         geo.box(p,(mat%4)*128+5,(mat/4)*128+5,x,-y-h,z,w,h,d);
     }
@@ -152,12 +152,15 @@ public final class NeveyaModel extends EntityModel<NeveyaBoss>{
             b(veil,7,x,74,8.4F,2.0F,37.5F,.6F);
             b(veil,7,x,111.0F,3.6F,2.0F,1.35F,1.0F);
         }
+        // The upper veil trim is headwear; long back drapes stay anchored to the body.
         for(int j=0;j<11;j++){
             float x=-5.3F+j*1.05F;
-            b(veil,8,x-.48F,112F,-.7F,.96F,1.8F,1.15F);
-            if(j%3==0)b(veil,10,x-.52F,112.9F,-1.05F,1.05F,1.1F,.6F);
+            b(veilCap,8,x-.48F,112F,-.7F,.96F,1.8F,1.15F);
+            if(j%3==0)b(veilCap,10,x-.52F,112.9F,-1.05F,1.05F,1.1F,.6F);
         }
         geo.attach(root,veil);
+        veilCap.setPos(0F,94F,0F);
+        geo.attach(head,veilCap);
         // Straight dark staff: pivot exactly in the grasping left palm (local 0,0,0).
         scythe.setPos(-18,-75,-8);
         b(scythe,8,-.9F,-37,-.85F,1.8F,84F,1.7F);
