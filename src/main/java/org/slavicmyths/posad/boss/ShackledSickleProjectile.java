@@ -68,13 +68,13 @@ public final class ShackledSickleProjectile extends ThrowableItemProjectile {
             world.sendParticles(ParticleTypes.ASH,spot.x,spot.y,spot.z,1,0,0,0,0);
         }
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag){
+    @Override public void addAdditionalSaveData(CompoundTag tag){
         super.addAdditionalSaveData(tag);
         if(targetId!=null)tag.putUUID("ChainTarget",targetId);
         tag.putBoolean("ChainReturning",returning);
         tag.putInt("ChainPullTicks",pullTicks);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag){
+    @Override public void readAdditionalSaveData(CompoundTag tag){
         super.readAdditionalSaveData(tag);
         targetId=tag.hasUUID("ChainTarget")?tag.getUUID("ChainTarget"):null;
         returning=tag.getBoolean("ChainReturning");
