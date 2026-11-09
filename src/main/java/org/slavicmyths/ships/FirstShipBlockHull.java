@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
@@ -237,6 +238,59 @@ public final class FirstShipBlockHull {
         };
     }
 
+    /**
+     * Exact vanilla water obstacles only. Never classify player blocks, non-vanilla
+     * blocks or any BlockEntity as disposable. Coral BLOCKS are intentionally
+     * included, but ordinary stone, wood and containers are not.
+     */
+    private static boolean softWaterObstacle(ServerLevel level, BlockPos pos, BlockState state) {
+        if (level.getBlockEntity(pos) != null) return false;
+        Block block = state.getBlock();
+        if (block == Blocks.LILY_PAD || block == Blocks.SEAGRASS || block == Blocks.TALL_SEAGRASS
+                || block == Blocks.KELP || block == Blocks.KELP_PLANT
+                || block == Blocks.SEA_PICKLE || block == Blocks.SMALL_DRIPLEAF) return true;
+        var id = BuiltInRegistries.BLOCK.getKey(block);
+        if (!"minecraft".equals(id.getNamespace())) return false;
+        String name = id.getPath();
+        for (String kind : new String[]{"tube", "brain", "bubble", "fire", "horn"})
+            if (name.startsWith(kind + "_coral") || name.startsWith("dead_" + kind + "_coral"))
+                return true;
+        return false;
+    }
+
+    /** Collect allowed obstruction positions during preflight, without mutating the world. */
+    private static Set<BlockPos> clearableFootprint(ServerLevel level, BlockPos anchor, int turns,
+            Set<BlockPos> owned, int rig, int fabric) {
+        Set<BlockPos> removable = new HashSet<>();
+        for (BlockPos pos : volume(anchor, turns, rig, fabric)) {
+            if (!level.hasChunkAt(pos) || !level.hasChunkAt(pos.below())) return null;
+            if (owned.contains(pos)) continue;
+            BlockState state = level.getBlockState(pos);
+            boolean removableState = softWaterObstacle(level, pos, state);
+            int relativeY = pos.getY() - anchor.getY();
+            if (relativeY == 0) {
+                if (!level.getFluidState(pos.below()).is(FluidTags.WATER)) return null;
+                if (!removableState && (!level.getFluidState(pos).is(FluidTags.WATER)
+                        || !level.getFluidState(pos).isSource())) return null;
+            } else if (!state.isAir() && !removableState) return null;
+            if (removableState) removable.add(pos.immutable());
+        }
+        return removable;
+    }
+
+    /**
+     * Perform clearance only AFTER validating the full destination, source,
+     * and every cargo BlockEntity. setBlock does not spawn item drops.
+     * Below the waterline it restores water, above it clears the hold to air.
+     */
+    private static void clearObstacles(ServerLevel level, BlockPos anchor, Set<BlockPos> removable) {
+        for (BlockPos pos : removable) {
+            BlockState replacement = pos.getY() == anchor.getY()
+                    ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState();
+            level.setBlock(pos, replacement, UPDATE);
+        }
+    }
+
     /** Exact block positions are checked before anything is overwritten. */
     private static boolean canWrite(ServerLevel level, BlockPos anchor, int turns, Set<BlockPos> owned,
             List<Cargo> cargo, int rig, int fabric) {
@@ -245,17 +299,7 @@ public final class FirstShipBlockHull {
             BlockPos point = world(anchor, turns, entry.x(), entry.y(), entry.z());
             if (!cargoCell(entry.x(), entry.y(), entry.z()) || !target.contains(point)) return false;
         }
-        for (BlockPos pos : target) {
-            if (!level.hasChunkAt(pos) || !level.hasChunkAt(pos.below())) return false;
-            if (owned.contains(pos)) continue;
-            int relativeY = pos.getY() - anchor.getY();
-            if (relativeY == 0) {
-                if (!level.getFluidState(pos).is(FluidTags.WATER)
-                        || !level.getFluidState(pos).isSource()
-                        || !level.getFluidState(pos.below()).is(FluidTags.WATER)) return false;
-            } else if (!level.getBlockState(pos).isAir()) return false;
-        }
-        return true;
+        return clearableFootprint(level, anchor, turns, owned, rig, fabric) != null;
     }
 
     private static Snapshot inspect(ServerLevel level, BlockPos anchor, int turns, int rig, int fabric) {
@@ -377,7 +421,10 @@ public final class FirstShipBlockHull {
             if (BlockEntity.loadStatic(target, cargo.state(), cargo.data(), level.registryAccess()) == null)
                 return false;
         }
+        Set<BlockPos> removable = clearableFootprint(level, anchor, turns, owned, 1, 1);
+        if (removable == null) return false;
         clear(level, anchor, turns, original);
+        clearObstacles(level, anchor, removable);
         return build(level, anchor, turns, original.cargo(), 1, 1);
     }
 
@@ -405,8 +452,12 @@ public final class FirstShipBlockHull {
             if (BlockEntity.loadStatic(targetPos, entry.state(), entry.data(), level.registryAccess()) == null)
                 return false;
         }
+        // Recheck the full clearance plan before touching the source or terrain.
+        Set<BlockPos> removable = clearableFootprint(level, target, nextTurn, owned, nextRig, nextFabric);
+        if (removable == null) return false;
         // All BlockEntities are serialized before clearing any old block.
         clear(level, previous, oldTurn, snapshot);
+        clearObstacles(level, target, removable);
         return build(level, target, nextTurn, turned, nextRig, nextFabric);
     }
 
@@ -419,6 +470,9 @@ public final class FirstShipBlockHull {
             if (BlockEntity.loadStatic(target, entry.state(), entry.data(), level.registryAccess()) == null)
                 return false;
         }
+        Set<BlockPos> removable = clearableFootprint(level, anchor, turns, Set.of(), rig, fabric);
+        if (removable == null) return false;
+        clearObstacles(level, anchor, removable);
         return build(level, anchor, turns, cargo, rig, fabric);
     }
 
