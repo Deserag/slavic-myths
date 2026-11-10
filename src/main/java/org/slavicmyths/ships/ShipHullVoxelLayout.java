@@ -27,7 +27,7 @@ public final class ShipHullVoxelLayout {
         int halfWidth = width / 2, halfLength = length / 2;
         if (Math.abs(z) > halfLength) return -1;
         int taper = Math.max(0, Math.abs(z) - (halfLength - 4));
-        int reduction = (int)Math.ceil(taper * halfWidth / 5D);
+        int reduction = (int)Math.ceil(taper * halfWidth / 4D);
         int tip = z == halfLength ? 0 : z == -halfLength ? 1 : 0;
         return Math.max(tip, halfWidth - reduction);
     }
