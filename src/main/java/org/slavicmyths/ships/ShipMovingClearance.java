@@ -74,13 +74,24 @@ public final class ShipMovingClearance {
         for (BlockPos p : palette.keySet())
             if (!check(level, pose, waterlineY, p.getX(), p.getY(), p.getZ(),
                     visited, p.getY() == 0)) return false;
-        // Unoccupied air within the cabin is part of the ship's swept
-        // collision volume too; never phase a person through a cliff.
-        for (int z = -5; z <= 5; z++)
-            for (int x = -FirstShipBlockHull.halfWidth(z);
-                 x <= FirstShipBlockHull.halfWidth(z); x++)
+        // The occupied interior air must be swept as well as physical blocks.
+        // V9 footprints are derived from their actual keel, never a fixed 7x11 loop.
+        boolean v9 = palette.keySet().stream().anyMatch(p ->
+                p.getY() == 0 && (Math.abs(p.getX()) > 3 || Math.abs(p.getZ()) > 5));
+        if (v9) {
+            for (BlockPos pos : palette.keySet()) {
+                if (pos.getY() != 0) continue;
                 for (int y = 1; y <= 6; y++)
-                    if (!check(level, pose, waterlineY, x, y, z, visited, false)) return false;
+                    if (!check(level, pose, waterlineY,
+                            pos.getX(), y, pos.getZ(), visited, false)) return false;
+            }
+        } else {
+            for (int z = -5; z <= 5; z++)
+                for (int x = -FirstShipBlockHull.halfWidth(z);
+                     x <= FirstShipBlockHull.halfWidth(z); x++)
+                    for (int y = 1; y <= 6; y++)
+                        if (!check(level, pose, waterlineY, x, y, z, visited, false)) return false;
+        }
         return true;
     }
 
