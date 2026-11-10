@@ -82,6 +82,16 @@ public final class LomeyaModel extends EntityModel<LomeyaBoss> {
             box(head,2,-w,y,-2.70F+row*.37F,w,1.35F,5.88F-row*.65F);
             box(head,0,0,y,-2.70F+row*.37F,w,1.35F,5.88F-row*.65F);
         }
+        // Scalp bridge: fill the previously transparent band between the high hair cap
+        // and the forehead/crown. All dimensions remain in the head ModelPart's local
+        // coordinates so yaw/pitch animation moves skull and hair as a single rig.
+        box(head,2,-3.80F,-21.95F,-3.18F,7.60F,5.95F,6.45F);
+        box(head,2,-3.25F,-23.10F,-2.62F,6.50F,2.05F,5.30F);
+        box(head,0,-3.90F,-18.0F,-3.18F,7.80F,3.60F,6.30F);
+        // A layered hair under-cap conceals the scalp join; independent locks remain
+        // visible below this cap and the face/eye positions are unchanged.
+        box(head,6,-4.10F,-23.25F,-3.44F,8.20F,2.70F,6.90F);
+        box(head,7,-3.85F,-20.65F,-3.56F,7.70F,2.35F,1.05F);
         for(int side:new int[]{-1,1}) {
             float x=side*3.08F;
             box(head,side<0?2:0,x-.60F,-9.8F,-3.91F,1.20F,4.40F,1.36F);
