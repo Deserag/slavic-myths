@@ -306,6 +306,17 @@ public final class Ocean26GameTests {
         t.assertTrue(level.setBlock(chestPos, Blocks.CHEST.defaultBlockState(), 2),
                 "Modular deck could not accept cargo chest");
         chest(level, chestPos, t).setItem(0, new ItemStack(Items.DIAMOND, 19));
+        BlockPos barrelPos = org.slavicmyths.ships.FirstShipBlockHull.world(anchor, 0, 1, 5, 0);
+        BlockPos furnacePos = org.slavicmyths.ships.FirstShipBlockHull.world(anchor, 0, 3, 5, 0);
+        BlockPos tablePos = org.slavicmyths.ships.FirstShipBlockHull.world(anchor, 0, -1, 5, 0);
+        t.assertTrue(level.setBlock(barrelPos, Blocks.BARREL.defaultBlockState(), 2)
+                && level.setBlock(furnacePos, Blocks.FURNACE.defaultBlockState(), 2)
+                && level.setBlock(tablePos, Blocks.CRAFTING_TABLE.defaultBlockState(), 2),
+                "Modular deck could not accept barrel, furnace and workbench");
+        ((net.minecraft.world.Container)level.getBlockEntity(barrelPos)).setItem(0,
+                new ItemStack(Items.EMERALD, 11));
+        ((net.minecraft.world.Container)level.getBlockEntity(furnacePos)).setItem(1,
+                new ItemStack(Items.COAL, 8));
         var next = original.resize(1, 1).withSail(1, 2)
                 .withDecks(2).withCabin(true).withBridge(true);
         t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.rebuild(level,
@@ -321,12 +332,35 @@ public final class Ocean26GameTests {
                 "Raised captain's bridge absent");
         t.assertTrue(chest(level, chestPos, t).getItem(0).getCount() == 19,
                 "Chest cargo lost after modular rebuilding");
-        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.pack(level,
-                anchor, 0, next) != null, "Expanded medium hull failed inspection");
+        t.assertTrue(((net.minecraft.world.Container)level.getBlockEntity(barrelPos))
+                .getItem(0).getCount() == 11
+                && ((net.minecraft.world.Container)level.getBlockEntity(furnacePos))
+                .getItem(1).getCount() == 8
+                && level.getBlockState(tablePos).is(Blocks.CRAFTING_TABLE),
+                "Barrel, furnace fuel or workbench lost after modular rebuilding");
+        ListTag packed = org.slavicmyths.ships.ShipModularBlockHull.pack(level,
+                anchor, 0, next);
+        t.assertTrue(packed != null && packed.size() == 4,
+                "Expanded medium hull failed to pack all four cargo blocks");
+        ListTag turnedCargo = org.slavicmyths.ships.ShipModularBlockHull.rotateCargo(
+                next, packed, 0, 1);
+        t.assertTrue(turnedCargo != null && turnedCargo.size() == packed.size(),
+                "Moving cargo could not rotate with the modular hull");
         t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
                 level, anchor, 0, next), "Expanded modular hull failed packing cleanup");
         t.assertTrue(level.getBlockState(chestPos).isAir(),
                 "Cargo block was left in world after packing");
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
+                anchor, 0, next, packed), "Packed modular hull failed to restore");
+        t.assertTrue(chest(level, chestPos, t).getItem(0).getCount() == 19
+                && ((net.minecraft.world.Container)level.getBlockEntity(barrelPos))
+                .getItem(0).getCount() == 11
+                && ((net.minecraft.world.Container)level.getBlockEntity(furnacePos))
+                .getItem(1).getCount() == 8
+                && level.getBlockState(tablePos).is(Blocks.CRAFTING_TABLE),
+                "Cargo was not preserved after packing and replacement");
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
+                anchor, 0, next), "Restored modular hull failed cleanup");
         t.succeed();
     }
 

@@ -119,7 +119,11 @@ public final class ShipMovingContraption {
         if (Math.abs(pose.x() - (target.getX() + .5D)) > .20D
                 || Math.abs(pose.z() - (target.getZ() + .5D)) > .20D) return false;
         if (modular != null) {
-            if (!ShipModularBlockHull.place(world, target, turn, modular, cargo)) return false;
+            ListTag rotated = ShipModularBlockHull.rotateCargo(modular, cargo, firstTurn, turn);
+            if (rotated == null || !ShipModularBlockHull.place(world, target, turn, modular, rotated))
+                return false;
+            cargo.clear();
+            cargo.addAll(rotated);
         } else if (!FirstShipBlockHull.restoreFromMotion(world, target, turn, snapshot())) return false;
         parked = true;
         detached = false;

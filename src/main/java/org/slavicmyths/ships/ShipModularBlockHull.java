@@ -228,6 +228,22 @@ public final class ShipModularBlockHull {
         return result;
     }
 
+    /** Rotate saved cargo states when a moving hull parks on a new heading. */
+    public static ListTag rotateCargo(ShipBuildConfiguration config, ListTag entries,
+            int oldTurn, int newTurn) {
+        List<Cargo> source = decode(config, entries);
+        if (source == null) return null;
+        int steps = Math.floorMod(newTurn - oldTurn, 4);
+        List<Cargo> rotated = new ArrayList<>(source.size());
+        for (Cargo entry : source) {
+            BlockState state = entry.state();
+            for (int n = 0; n < steps; n++) state = state.rotate(Rotation.CLOCKWISE_90);
+            rotated.add(new Cargo(entry.x(), entry.y(), entry.z(),
+                    entry.kind(), state, entry.data()));
+        }
+        return encode(rotated);
+    }
+
     private static boolean validateRestore(ServerLevel level, BlockPos anchor, int turns,
             List<Cargo> cargo, Map<BlockPos, BlockState> target) {
         for (Cargo entry : cargo) {
