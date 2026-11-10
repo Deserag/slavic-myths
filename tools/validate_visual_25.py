@@ -67,6 +67,8 @@ def model(name: str, kind: str) -> dict:
         check(all(isinstance(a, (int, float)) and isinstance(b, (int, float)) and a <= b
                   for a, b in zip(*bounds)),
               f"{kind}/{name} element {index}: invalid cuboid")
+        check(all(-16 <= v <= 32 for arr in bounds for v in arr),
+              f"{kind}/{name} element {index}: out-of-range cuboid coordinates (Minecraft -16..32)")
         for face in element.get("faces", {}).values():
             tex = face.get("texture", "")
             if tex.startswith("#"):
@@ -143,7 +145,12 @@ def validate() -> dict[str, dict]:
                           "firstperson_lefthand", "thirdperson_righthand", "thirdperson_lefthand"):
             check(transform in data.get("display", {}), f"{name}: missing {transform} transform")
         results[name] = data
-    blocking = model("nine_mor_shield_blocking", "item")
+    poloz_item = model("poloz_head", "item")
+    check(poloz_item.get("parent") == "minecraft:builtin/entity",
+          "Poloz trophy item must activate the registered 3D item renderer")
+    with Image.open(TEXTURES / "mob_effect" / "fracture.png") as fracture:
+        check(fracture.size == (18, 18), "Fracture status effect icon must be 18 x 18 pixels")
+        blocking = model("nine_mor_shield_blocking", "item")
     check(blocking.get("parent") == "slavicmyths:item/nine_mor_shield_held",
           "Nine Mor blocking shield is not linked to its normal geometry")
     for name in ("morovoy_staff", "nine_mor_amulet_held"):
