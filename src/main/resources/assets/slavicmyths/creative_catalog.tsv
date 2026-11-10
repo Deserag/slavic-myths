@@ -1199,7 +1199,7 @@ nether_soul_iv	resources	boss_material
 nether_soul_v	resources	boss_material
 hunter_bow_core	resources	boss_material
 empowered_infernal_bow	weapons	nether_special
-viy_eye	resources	boss_material
+viy_eye	accessories	boss_loot
 viy_ring	accessories	boss_loot
 morovoy_fire_zmey_bone	resources	boss_material
 morovoy_fire_zmey_core	resources	boss_material
@@ -1210,3 +1210,10 @@ sisters_necklace	accessories	sisters_artifacts
 sisters_belt	accessories	sisters_artifacts
 sisters_crown	accessories	sisters_artifacts
 sisters_brooch	accessories	sisters_artifacts
+nine_mor_spear	weapons	boss_loot
+nine_mor_axe	weapons	boss_loot
+nine_mor_shield	weapons	boss_loot
+nine_mor_amulet	accessories	boss_loot
+nine_mor_heart	resources	boss_material
+nine_mor_scale	resources	boss_material
+nine_mor_fang	resources	boss_material
