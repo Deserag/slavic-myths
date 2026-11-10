@@ -835,17 +835,28 @@ public final class FirstShipBlockHull {
      * original bearing. This is NOT enabled by a helm command yet: the moving
      * entity must first have crash-safe persistence and an interactive floor.
      */
-    public record MotionSnapshot(ListTag cargo, int geometry, int rig, int fabric, int turn) {
+    public record MotionSnapshot(ListTag cargo, int geometry, int rig, int fabric,
+                                 int turn, CompoundTag superstructure) {
+        public MotionSnapshot(ListTag cargo, int geometry, int rig, int fabric, int turn) {
+            this(cargo, geometry, rig, fabric, turn, new CompoundTag());
+        }
         public MotionSnapshot {
-            if (cargo == null || cargo.size() > WIDTH * LENGTH * 2
-                    || geometry < 2 || geometry > 8
-                    || turn < 0 || turn > 3
-                    || decode(cargo) == null)
+            if (cargo == null || turn < 0 || turn > 3
+                    || geometry < 2 || geometry > 9)
                 throw new IllegalArgumentException("Unsafe moving ship snapshot");
             new ShipRigging(rig, fabric);
+            if (geometry == 9) {
+                ShipSuperstructurePlan plan = ShipSuperstructureData.validateBounds(
+                        ShipSuperstructureData.load(superstructure));
+                if (!ShipHullV9.validCargo(plan, cargo))
+                    throw new IllegalArgumentException("Unsafe V9 cargo");
+            } else if (cargo.size() > WIDTH * LENGTH * 2 || decode(cargo) == null)
+                throw new IllegalArgumentException("Unsafe legacy cargo");
             cargo = cargo.copy();
+            superstructure = superstructure.copy();
         }
         @Override public ListTag cargo() { return cargo.copy(); }
+        @Override public CompoundTag superstructure() { return superstructure.copy(); }
     }
 
     public static MotionSnapshot captureForMotion(ServerLevel level, BlockPos anchor,
@@ -863,6 +874,12 @@ public final class FirstShipBlockHull {
     public static boolean detachForMotion(ServerLevel level, BlockPos anchor,
             MotionSnapshot snapshot) {
         if (snapshot == null) return false;
+        if (snapshot.geometry() == 9) {
+            ShipSuperstructurePlan plan = ShipSuperstructureData.load(snapshot.superstructure());
+            ListTag cargo = ShipHullV9.pack(level, anchor, snapshot.turn(), plan);
+            return cargo != null && cargo.equals(snapshot.cargo())
+                    && ShipHullV9.remove(level, anchor, snapshot.turn(), plan);
+        }
         ListTag cargo = pack(level, anchor, snapshot.turn(), snapshot.rig(),
                 snapshot.fabric(), snapshot.geometry());
         if (cargo == null || !cargo.equals(snapshot.cargo())) return false;
@@ -878,6 +895,9 @@ public final class FirstShipBlockHull {
     public static boolean restoreFromMotion(ServerLevel level, BlockPos target,
             int parkingTurn, MotionSnapshot snapshot) {
         if (snapshot == null || parkingTurn < 0 || parkingTurn > 3) return false;
+        if (snapshot.geometry() == 9)
+            return ShipHullV9.place(level, target, parkingTurn,
+                    ShipSuperstructureData.load(snapshot.superstructure()), snapshot.cargo());
         return place(level, target, parkingTurn, snapshot.cargo(),
                 snapshot.rig(), snapshot.fabric(), snapshot.geometry());
     }
@@ -886,6 +906,9 @@ public final class FirstShipBlockHull {
      * blocks by continuous pose rather than placing them in chunk sections. */
     public static Map<BlockPos, BlockState> localMotionPalette(MotionSnapshot snapshot) {
         if (snapshot == null) return Map.of();
+        if (snapshot.geometry() == 9)
+            return ShipHullV9.movingPalette(
+                    ShipSuperstructureData.load(snapshot.superstructure()), snapshot.cargo());
         Map<BlockPos, BlockState> result = new LinkedHashMap<>(
                 layout(BlockPos.ZERO, 0, snapshot.rig(), snapshot.fabric(), snapshot.geometry()));
         List<Cargo> cargo = decode(snapshot.cargo());
