@@ -47,6 +47,18 @@ public final class ShipMovingContraption {
         return new ShipMovingContraption(source, anchor.getY(), motion, false);
     }
 
+    /** Stage a validated V9 construction; still does not change world blocks. */
+    public static ShipMovingContraption prepare(ServerLevel level, BlockPos anchor,
+            int turns, ShipSuperstructurePlan design) {
+        ListTag cargo = ShipHullV9.pack(level, anchor, turns, design);
+        if (cargo == null) return null;
+        FirstShipBlockHull.MotionSnapshot source = new FirstShipBlockHull.MotionSnapshot(
+                cargo, 9, 1, 1, turns, ShipSuperstructureData.save(design));
+        ShipRigidMotion motion = new ShipRigidMotion(new ShipRigidMotion.Pose(
+                anchor.getX() + .5D, anchor.getZ() + .5D, turns * 90D));
+        return new ShipMovingContraption(source, anchor.getY(), motion, false);
+    }
+
     /** Stage 2 of assemble: the caller must already own a durable checkpoint. */
     public boolean detach(ServerLevel level, BlockPos original) {
         if (detached || parked) return false;
@@ -91,7 +103,7 @@ public final class ShipMovingContraption {
     public ShipRigidMotion motion() { return motion; }
     public FirstShipBlockHull.MotionSnapshot snapshot() {
         return new FirstShipBlockHull.MotionSnapshot(cargo, snapshot.geometry(),
-                snapshot.rig(), snapshot.fabric(), snapshot.turn());
+                snapshot.rig(), snapshot.fabric(), snapshot.turn(), snapshot.superstructure());
     }
     public int cargoCount() { return cargo.size(); }
     public CompoundTag cargoEntry(int index) {
@@ -117,12 +129,13 @@ public final class ShipMovingContraption {
      */
     public CompoundTag save() {
         CompoundTag tag = new CompoundTag();
-        tag.putInt("Version", 1);
+        tag.putInt("Version", snapshot.geometry() == 9 ? 2 : 1);
         tag.putInt("Waterline", waterlineY);
         tag.putInt("Geometry", snapshot.geometry());
         tag.putInt("Rig", snapshot.rig());
         tag.putInt("Fabric", snapshot.fabric());
         tag.putInt("OriginalTurn", snapshot.turn());
+        if (snapshot.geometry() == 9) tag.put("Superstructure", snapshot.superstructure());
         tag.put("Cargo", cargo.copy());
         tag.putDouble("X", motion.pose().x());
         tag.putDouble("Z", motion.pose().z());
@@ -135,7 +148,7 @@ public final class ShipMovingContraption {
     }
 
     public static ShipMovingContraption load(CompoundTag tag) {
-        if (tag == null || tag.getInt("Version") != 1
+        if (tag == null || (tag.getInt("Version") != 1 && tag.getInt("Version") != 2)
                 || !tag.contains("Cargo", Tag.TAG_LIST)
                 || !tag.contains("X", Tag.TAG_DOUBLE)
                 || !tag.contains("Z", Tag.TAG_DOUBLE)
@@ -143,7 +156,8 @@ public final class ShipMovingContraption {
         try {
             FirstShipBlockHull.MotionSnapshot snapshot = new FirstShipBlockHull.MotionSnapshot(
                     tag.getList("Cargo", Tag.TAG_COMPOUND), tag.getInt("Geometry"),
-                    tag.getInt("Rig"), tag.getInt("Fabric"), tag.getInt("OriginalTurn"));
+                    tag.getInt("Rig"), tag.getInt("Fabric"), tag.getInt("OriginalTurn"),
+                    tag.getCompound("Superstructure"));
             ShipRigidMotion motion = new ShipRigidMotion(new ShipRigidMotion.Pose(
                     tag.getDouble("X"), tag.getDouble("Z"), tag.getDouble("Yaw")));
             motion.restore(motion.pose(), tag.getDouble("Speed"), tag.getDouble("TurnSpeed"));
