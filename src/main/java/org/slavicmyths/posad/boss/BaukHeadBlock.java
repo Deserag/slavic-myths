@@ -32,7 +32,9 @@ public final class BaukHeadBlock extends HorizontalDirectionalBlock {
     @Override public BlockState getStateForPlacement(BlockPlaceContext context) {
         Direction facing = context.getHorizontalDirection().getOpposite();
         BlockPos front = context.getClickedPos().relative(facing);
-        if (!context.getLevel().hasChunkAt(front) || !context.getLevel().getBlockState(front).isAir()) return null;
+        if (!context.getLevel().hasChunkAt(front) || !context.getLevel().getBlockState(front).canBeReplaced()) return null;
+        BlockPos rear = context.getClickedPos().relative(facing.getOpposite());
+        if (!context.getLevel().hasChunkAt(rear) || !context.getLevel().getBlockState(rear).canBeReplaced()) return null;
         return defaultBlockState().setValue(FACING, facing);
     }
     @Override protected void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean moved) {
