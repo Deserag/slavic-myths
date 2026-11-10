@@ -52,8 +52,8 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
  @Override public BlockState getStateForPlacement(BlockPlaceContext c){
   if(nineMor()){
    var world=c.getLevel();BlockPos anchor=c.getClickedPos();
-   for(Cell cell:Cell.values()){BlockPos at=anchor.offset(cell.dx,0,cell.dz);
-    if(!world.hasChunkAt(at)||at.getY()+5>=world.getMaxBuildHeight()||!world.getWorldBorder().isWithinBounds(at)||!world.getBlockState(at).canBeReplaced(c)||c.getPlayer()!=null&&!c.getPlayer().mayUseItemAt(at,c.getClickedFace(),c.getItemInHand()))return null;
+   for(Cell cell:Cell.values())for(int y=0;y<6;y++){BlockPos at=anchor.offset(cell.dx,y,cell.dz);
+    if(!world.hasChunkAt(at)||at.getY()>=world.getMaxBuildHeight()||!world.getWorldBorder().isWithinBounds(at)||!world.getBlockState(at).canBeReplaced(c)||c.getPlayer()!=null&&!c.getPlayer().mayUseItemAt(at,c.getClickedFace(),c.getItemInHand()))return null;
    }
    return defaultBlockState().setValue(FACING,c.getHorizontalDirection().getOpposite());
   }
