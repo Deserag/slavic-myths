@@ -556,6 +556,28 @@ public final class FirstShipEntity extends Boat {
         return stack;
     }
 
+    /**
+     * Apply an already-server-validated shipyard change to a stationary ship.
+     * Materials are debited only after the complete geometry transaction
+     * succeeds. The entity's synchronized configuration updates last.
+     */
+    public boolean upgradeModularInWorld(ServerPlayer customer,
+            ShipBuildConfiguration next) {
+        if (customer == null || !(level() instanceof net.minecraft.server.level.ServerLevel server)
+                || modularConfiguration == null || next == null
+                || !ShipyardModular.compatibleUpgrade(modularConfiguration, next)
+                || next.equals(modularConfiguration) || isRemoved() || !isNativeHull()
+                || isMoving() || isVehicle() || packing || hasWalkers()
+                || quarantinedModules != null || movingBody != null) return false;
+        ShipyardModular.Materials bill = ShipyardModular.costs(modularConfiguration, next);
+        if (!ShipyardModular.canPay(customer, bill)) return false;
+        if (!ShipModularBlockHull.rebuild(server, blockAnchor, quarterTurns,
+                modularConfiguration, blockAnchor, quarterTurns, next)) return false;
+        setModularConfiguration(next);
+        ShipyardModular.pay(customer, bill);
+        return true;
+    }
+
     /** No packing while anybody stands in the hold or on the deck. */
     private boolean hasWalkers() {
         ShipBuildConfiguration config = modularConfiguration();
