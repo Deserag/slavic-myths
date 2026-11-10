@@ -79,6 +79,12 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
             neckMids[i].translateAndRotate(stack);
             neckTips[i].translateAndRotate(stack);
             heads[i].render(stack, consumer, light, overlay, 0xFF000000 | NineMorSerpent.COLORS[i]);
+            stack.pushPose();
+            heads[i].translateAndRotate(stack);
+            accents[i].render(stack, consumer, light, overlay, 0xFFC8B8AA);
+            eyeSockets[i].render(stack, consumer, light, overlay, 0xFF18171F);
+            cheekPlates[i].render(stack, consumer, light, overlay, 0xFF98828B);
+            stack.popPose();
             stack.popPose();
         }
         stack.popPose();
