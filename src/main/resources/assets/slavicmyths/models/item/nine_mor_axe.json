@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "slavicmyths:item/nine_mor_axe"
-  }
+  "parent": "slavicmyths:item/nine_mor_axe_held"
 }
