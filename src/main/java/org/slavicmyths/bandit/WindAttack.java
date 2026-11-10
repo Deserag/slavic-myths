@@ -48,7 +48,7 @@ public final class WindAttack {
         ServerLevel w=(ServerLevel)source.level();int processed=0;
         for(LivingEntity victim:w.getEntitiesOfClass(LivingEntity.class,source.getBoundingBox().inflate(range))) {
             if(processed++>=64)break;
-            if(victim==source||!victim.isAlive()||source.isAlliedTo(victim))continue;
+            if(victim==source||!victim.isAlive()||source.isAlliedTo(victim)||source instanceof Player p&&!org.slavicmyths.rpg.Abilities.canHit(p,victim))continue;
             if(victim instanceof Player&&(((Player)victim).isCreative()||victim.isSpectator()))continue;
             if(source instanceof NightingaleEntity && victim instanceof BanditEntity)continue;
             if(victim.getType().is(WindImpulse.IMMUNE))continue;
@@ -66,7 +66,7 @@ public final class WindAttack {
         int processed=0;
         for (LivingEntity victim:w.getEntitiesOfClass(LivingEntity.class,source.getBoundingBox().inflate(8))) {
             if(processed++>=64) break;
-            if(victim==source||!victim.isAlive()||source.isAlliedTo(victim)||victim.getType().is(WindImpulse.IMMUNE)) continue;
+            if(victim==source||!victim.isAlive()||!org.slavicmyths.rpg.Abilities.canHit(source,victim)||victim.getType().is(WindImpulse.IMMUNE)) continue;
             if(victim instanceof Player p&&(p.isCreative()||p.isSpectator())) continue;
             Vec3 delta=victim.position().subtract(source.position());
             double along=delta.dot(direction), across=delta.x*direction.z-delta.z*direction.x;
