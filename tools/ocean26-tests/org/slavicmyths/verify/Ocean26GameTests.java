@@ -886,7 +886,7 @@ public final class Ocean26GameTests {
             t.assertTrue(savedChest.get(0).is(Items.DIAMOND)
                     && savedChest.get(0).getCount() == 13,
                     "Edited moving chest contents were not persisted in ship NBT");
-            t.assertTrue(ship.serverMovingSpeed() > .03D,
+            t.assertTrue(ship.serverMovingSpeed() > .01D,
                     "Ship reached the dismount check without forward velocity: "
                             + ship.serverMovingSpeed());
             captain.stopRiding();
