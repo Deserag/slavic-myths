@@ -128,6 +128,60 @@ public final class Ocean26GameTests {
      * physical world structure, symmetric widening, a second deck, two masts,
      * a bridge/cabin and chest NBT preservation through reconstruction.
      */
+    @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular_workbench")
+    public static void shipyardModifiesPlacedModularShipWithoutPacking(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(14, 4, 14));
+        for (int x = -17; x <= 19; x++)
+            for (int z = -18; z <= 18; z++) {
+                BlockPos p = anchor.offset(x, 0, z);
+                level.setBlock(p.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(p, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 25; y++)
+                    level.setBlock(p.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        BlockPos bench = anchor.offset(18, 6, 0);
+        level.setBlock(bench, RaftContent.SHIPYARD_BENCH.get().defaultBlockState(), 2);
+        ServerPlayer builder = player(level, "PlacedShipwright",
+                new Vec3(bench.getX() + .5D, bench.getY() + 1D, bench.getZ() + .5D));
+        builder.getAbilities().instabuild = true;
+        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM);
+        ItemStack item = org.slavicmyths.ships.ShipyardModular.build(builder, config);
+        FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
+        t.assertTrue(ship != null && !item.isEmpty(), "Ship item creation failed");
+        ship.initializeNativeHull(anchor, 0);
+        t.assertTrue(ship.loadPacked(item), "New modular ship cannot load");
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
+                level, anchor, 0, config, new ListTag()), "New modular ship placement failed");
+        t.assertTrue(level.addFreshEntity(ship), "Placed modular ship entity failed to spawn");
+        BlockPos chestPos = org.slavicmyths.ships.FirstShipBlockHull.world(
+                anchor, 0, 2, 5, 0);
+        level.setBlock(chestPos, Blocks.CHEST.defaultBlockState(), 2);
+        chest(level, chestPos, t).setItem(0, new ItemStack(Items.EMERALD, 23));
+        var menu = new org.slavicmyths.ships.ShipyardMenu(15, builder.getInventory(), bench);
+        for (int action : new int[]{200, 201, 203, 204, 205, 206}) {
+            t.assertTrue(menu.clickMenuButton(builder, action),
+                    "Placed shipyard rejected action " + action);
+        }
+        var actual = ship.modularConfiguration();
+        t.assertTrue(actual != null && actual.extraLength() == 1 && actual.extraWidth() == 1
+                && actual.sailTiers().size() == 2 && actual.decks() == 2
+                && actual.bridge() && actual.cabin(),
+                "Shipyard did not apply all six physical modifications");
+        t.assertTrue(chest(level, chestPos, t).getItem(0).getCount() == 23,
+                "Placed shipyard updates lost or copied cargo");
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.pack(
+                level, anchor, 0, actual) != null,
+                "Placed shipyard changes left inconsistent world blocks");
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
+                level, anchor, 0, actual), "Placed shipyard packing failed");
+        menu.removed(builder);
+        builder.discard();
+        ship.discard();
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 150, batch = "ocean_modular_motion")
     public static void modularShipItemMovesAndSurvivesSnapshotReload(GameTestHelper t) {
         ServerLevel level = t.getLevel();
