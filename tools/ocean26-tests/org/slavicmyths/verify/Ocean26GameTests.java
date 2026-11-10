@@ -249,6 +249,50 @@ public final class Ocean26GameTests {
         });
     }
 
+    @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular_remote_menu")
+    public static void largeShipCannotDetachWithRemoteCargoMenuOpen(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(23, 4, 23));
+        for (int x = -17; x <= 17; x++)
+            for (int z = -23; z <= 23; z++) {
+                BlockPos pos = anchor.offset(x, 0, z);
+                level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 24; y++)
+                    level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE);
+        FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
+        t.assertTrue(ship != null, "Large ship entity missing");
+        ship.initializeNativeHull(anchor, 0);
+        ship.enableSmoothMotion();
+        // Load the same validated blueprint path used by a crafted ship item.
+        ServerPlayer builder = player(level, "LargeShipBuilder",
+                new Vec3(anchor.getX() + 21D, anchor.getY() + 6D, anchor.getZ()));
+        builder.getAbilities().instabuild = true;
+        ItemStack item = org.slavicmyths.ships.ShipyardModular.build(builder, config);
+        t.assertTrue(ship.loadPacked(item), "Large ship blueprint could not load");
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
+                anchor, 0, config, new ListTag()), "Large ship hull placement failed");
+        t.assertTrue(level.addFreshEntity(ship), "Large ship entity could not spawn");
+        ServerPlayer captain = player(level, "LargeShipCaptain",
+                new Vec3(ship.getX(), ship.deckY(), ship.getZ() + ship.helmSeatZ()));
+        ServerPlayer remote = player(level, "LargeShipCargoUser",
+                new Vec3(ship.getX(), ship.deckY(), ship.getZ() + 14D));
+        remote.containerMenu = new org.slavicmyths.ships.ShipyardMenu(
+                17, remote.getInventory(), anchor);
+        t.assertTrue(captain.startRiding(ship), "Large ship captain could not board");
+        t.assertTrue(!ship.helmStep(captain, FirstShipNetwork.FORWARD) && !ship.isMoving(),
+                "Large ship detached while remote cargo menu was open");
+        remote.containerMenu = remote.inventoryMenu;
+        captain.stopRiding();
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
+                anchor, 0, config), "Large ship cleanup failed");
+        remote.discard(); captain.discard(); builder.discard(); ship.discard();
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 350, batch = "ocean_modular_classes")
     public static void allFourModularClassesPlacePackAndRestore(GameTestHelper t) {
         ServerLevel level = t.getLevel();
