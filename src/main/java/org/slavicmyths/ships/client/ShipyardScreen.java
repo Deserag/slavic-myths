@@ -441,40 +441,88 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
      * distinct physical block column of the current buildable blueprint.
      */
     private void drawBlueprint(GuiGraphics graphics) {
+        final int blue = 0xff368fbd, added = 0xff3caa68, red = 0xffab3232;
+        ShipBuildConfiguration previous = tab == 1
+                ? ShipyardModular.configuration(menu.inspected()) : null;
+        ShipBuildConfiguration next = tab == 0
+                ? creationConfig() : nextConfig();
+        if (next == null && previous != null) next = previous;
+        if (next != null) {
+            boolean unavailable = tab == 1 && next.equals(previous);
+            int width = next.width(), length = next.length();
+            int halfLength = length / 2;
+            graphics.drawString(font, "СВЕРХУ", 202, 67, DARK, false);
+            graphics.drawString(font, "СБОКУ", 296, 67, DARK, false);
+            graphics.drawString(font, "СПЕРЕДИ", 400, 67, DARK, false);
+            for (int z = -halfLength; z <= halfLength; z++) {
+                int half = ShipHullVoxelLayout.halfBeam(next.structure(), z);
+                int oldHalf = previous != null && Math.abs(z) <= previous.length() / 2
+                        ? ShipHullVoxelLayout.halfBeam(previous.structure(), z) : -1;
+                for (int x = -half; x <= half; x++) {
+                    int sx = 243 + x * 72 / Math.max(width, 1);
+                    int sy = 76 + (z + halfLength) * 29 / Math.max(length, 1);
+                    graphics.fill(sx, sy, sx + Math.max(1, 72 / width),
+                            sy + Math.max(1, 29 / length),
+                            unavailable ? red : Math.abs(x) <= oldHalf ? blue : added);
+                }
+                int sideX = 299 + (z + halfLength) * 90 / Math.max(length, 1);
+                graphics.fill(sideX, 97, sideX + 1, 105, blue);
+                for (int floor = 2; floor <= next.decks(); floor++) {
+                    int sy = 97 - (floor - 1) * 7;
+                    graphics.fill(sideX, sy, sideX + 1, sy + 1,
+                            previous != null && previous.decks() >= floor ? blue : added);
+                }
+            }
+            for (int x = -width / 2; x <= width / 2; x++) {
+                int fx = 402 + (x + width / 2) * 49 / Math.max(width, 1);
+                graphics.fill(fx, 97, fx + 1, 105,
+                        previous != null && Math.abs(x) <= previous.width() / 2
+                                ? blue : added);
+            }
+            for (int mast = 0; mast < next.sailTiers().size(); mast++) {
+                int z = next.structure().mastPositions().get(mast);
+                int mx = 299 + (z + halfLength) * 90 / Math.max(length, 1);
+                int top = next.sailTiers().get(mast) == 1 ? 12
+                        : next.sailTiers().get(mast) == 2 ? 15 : 19;
+                graphics.fill(mx, 97 - top, mx + 2, 100,
+                        previous != null && mast < previous.sailTiers().size()
+                                && previous.sailTiers().get(mast).equals(next.sailTiers().get(mast))
+                                ? blue : added);
+            }
+            if (next.bridge()) graphics.fill(307, 88, 330, 90,
+                    previous != null && previous.bridge() ? blue : added);
+            if (next.cabin()) graphics.fill(307, 91, 330, 98,
+                    previous != null && previous.cabin() ? blue : added);
+            graphics.drawString(font, "Размер " + width + "×" + length
+                    + " | Мачты " + next.sailTiers().size()
+                    + " | Палубы " + next.decks(), 202, 112, DARK, false);
+            if (unavailable) graphics.drawString(font,
+                    "Модификация пока недоступна", 202, 122, red, false);
+            return;
+        }
+
         int width = chosen == 4 ? FirstShipHull.WIDTH :
                 chosen == 0 || chosen == 1 ? 3 : 5;
         int length = chosen == 4 ? FirstShipHull.LENGTH :
                 chosen == 0 || chosen == 2 ? 3 : chosen == 1 ? 5 : 7;
-        final int blue = 0xff368fbd;
-        final int edge = 0xff255572;
-        final int grid = 0xffb6a57e;
         graphics.drawString(font, "СВЕРХУ", 204, 66, DARK, false);
         graphics.drawString(font, "СБОКУ", 296, 66, DARK, false);
         graphics.drawString(font, "СПЕРЕДИ", 394, 66, DARK, false);
-        int cell = 4;
-        int originX = 226 - width * cell / 2;
-        int originY = 75;
         for (int z = 0; z < length; z++) {
-            int halfBeam = chosen == 4 ? (int)Math.floor(FirstShipHull.halfBeam(z - length / 2)) : width / 2;
+            int beam = chosen == 4
+                    ? (int)Math.floor(FirstShipHull.halfBeam(z - length / 2)) : width / 2;
             for (int x = 0; x < width; x++) {
-                if (chosen == 4 && Math.abs(x - width / 2) > halfBeam) continue;
-                int bx = originX + x * cell, by = originY + z * cell;
+                if (chosen == 4 && Math.abs(x - width / 2) > beam) continue;
+                int bx = 226 - width * 2 + x * 4, by = 75 + z * 4;
                 graphics.fill(bx, by, bx + 3, by + 3, blue);
             }
+            graphics.fill(297 + z * 4, 85, 300 + z * 4,
+                    chosen == 4 ? 105 : 89, blue);
         }
-        for (int z = 0; z < length; z++) {
-            int bx = 297 + z * 4, by = 85;
-            int height = chosen == 4 ? 5 : 1;
-            graphics.fill(bx, by, bx + 3, by + height * 4, edge);
-        }
-        for (int x = 0; x < width; x++) {
-            int bx = 405 + x * 4, by = 85;
-            int height = chosen == 4 ? 5 : 1;
-            graphics.fill(bx, by, bx + 3, by + height * 4, blue);
-        }
-        graphics.fill(194, 118, 461, 119, grid);
-        graphics.drawString(font, "Корпус: " + width + " × " + length + " блоков",
-                203, 110, DARK, false);
+        for (int x = 0; x < width; x++)
+            graphics.fill(405 + x * 4, 85, 408 + x * 4,
+                    chosen == 4 ? 105 : 89, blue);
+        graphics.drawString(font, "Корпус: " + width + "×" + length, 203, 110, DARK, false);
     }
 
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partial) {
