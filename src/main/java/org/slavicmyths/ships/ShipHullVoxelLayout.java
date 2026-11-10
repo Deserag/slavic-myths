@@ -98,7 +98,8 @@ public final class ShipHullVoxelLayout {
             }
             for (int y = 8; y <= top; y++)
                 for (int x = -span; x <= span; x++)
-                    if (x != 0) put(blocks, x, y, z + 1, Part.SAIL);
+                    if (x != 0 && !blocks.containsKey(new Cell(x, y, z + 1)))
+                        put(blocks, x, y, z + 1, Part.SAIL);
         }
 
         // Closed stern cabin, with a two-block door aperture and real windows.
