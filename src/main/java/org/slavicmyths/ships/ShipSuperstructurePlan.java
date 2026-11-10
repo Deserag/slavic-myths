@@ -14,7 +14,7 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
         int decks, boolean bridge, boolean cabin) {
 
     public static final int MAST_CLEARANCE = 4;
-    public static final double[] SAIL_THRUST = {0D, 1D, 1.7D, 2.5D};
+    private static final double[] SAIL_THRUST = {0D, 1D, 1.7D, 2.5D};
 
     public ShipSuperstructurePlan {
         if (shipClass == null || sailTiers == null || hullWidth < 7 || hullLength < 11
@@ -45,7 +45,7 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
 
         // The aft cabin occupies a seven-block deep protected stern region.
         // Reject any mast whose center or its one-block support touches it.
-        for (int z : mastPositionsFor(sailTiers.size(), hullLength, cabin)) {
+        for (int z : mastPositionsFor(sailTiers.size(), hullLength, cabin, bridge)) {
             if (z - 1 <= -hullLength / 2 + 8 && cabin)
                 throw new IllegalArgumentException("Mast would intersect captain's cabin");
             if (z + 1 >= hullLength / 2)
@@ -54,12 +54,13 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
     }
 
     /** Centered mast stations; the same result follows after hull enlargement. */
-    private static List<Integer> mastPositionsFor(int count, int hullLength, boolean cabin) {
+    private static List<Integer> mastPositionsFor(int count, int hullLength, boolean cabin, boolean bridge) {
         List<Integer> positions = new ArrayList<>();
         for (int i = 0; i < count; i++)
             positions.add((2 * i - (count - 1)) * 2);
-        if (cabin && !positions.isEmpty()) {
-            int minMastZ = -hullLength / 2 + 10;
+        if (!positions.isEmpty()) {
+            int minMastZ = cabin ? -hullLength / 2 + 10
+                    : bridge ? -hullLength / 2 + 8 : Integer.MIN_VALUE;
             int shift = Math.max(0, minMastZ - positions.get(0));
             for (int i = 0; i < positions.size(); i++)
                 positions.set(i, positions.get(i) + shift);
@@ -69,7 +70,7 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
 
     /** Coordinates in local ship space, stern negative, bow positive. */
     public List<Integer> mastPositions() {
-        return mastPositionsFor(sailTiers.size(), hullLength, cabin);
+        return mastPositionsFor(sailTiers.size(), hullLength, cabin, bridge);
     }
 
     public double rawThrust() {
