@@ -57,6 +57,7 @@ public final class FirstShipEntity extends Boat {
     private static final EntityDataAccessor<Integer> GEOMETRY = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> MOVING = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<String> MOTION_CARGO_VIEW = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.STRING);
+    private static final EntityDataAccessor<String> STRUCTURE_VIEW = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.STRING);
     private static final float NO_SURFACE = -10000F;
     private static final double DRAFT = 0.14D;
     private static final int CELLS = FirstShipHull.WIDTH * FirstShipHull.LENGTH;
@@ -77,6 +78,7 @@ public final class FirstShipEntity extends Boat {
     private int fabricQuality;
     private int geometryVersion = 5;
     private ShipDesign design = ShipDesign.defaults();
+    private ShipSuperstructurePlan superstructure;
     private double nextHelmAllowedTick = -100D;
     private boolean legacyConversionTried;
     private boolean legacySailUpgradePending;
@@ -154,6 +156,19 @@ public final class FirstShipEntity extends Boat {
     }
     /** Future customizer fields stay stable across a voyage and item packing. */
     public ShipDesign design() { return design; }
+    /** A null structure means the old, preserved V2–V8 7x11 layout. */
+    public ShipSuperstructurePlan superstructure() {
+        if (!level().isClientSide) return superstructure;
+        String view = entityData.get(STRUCTURE_VIEW);
+        if (view.isEmpty()) return null;
+        try { return ShipSuperstructureData.fromSync(view); }
+        catch (RuntimeException invalid) { return null; }
+    }
+    private void setSuperstructure(ShipSuperstructurePlan plan) {
+        superstructure = ShipSuperstructureData.validateBounds(plan);
+        entityData.set(STRUCTURE_VIEW, ShipSuperstructureData.sync(superstructure));
+    }
+    public boolean isVoxelShip() { return geometryVersion() == 9 && superstructure() != null; }
     private void setRigging(int level, int fabric) {
         new ShipRigging(level, fabric); // validate before changing live state
         rigLevel = level;
@@ -194,6 +209,7 @@ public final class FirstShipEntity extends Boat {
         builder.define(GEOMETRY, 5);
         builder.define(MOVING, false);
         builder.define(MOTION_CARGO_VIEW, "");
+        builder.define(STRUCTURE_VIEW, "");
     }
 
     public double deckY() { return getY() + FirstShipHull.MAIN_DECK; }
@@ -406,7 +422,14 @@ public final class FirstShipEntity extends Boat {
                 || !pack.contains("Modules", Tag.TAG_LIST)) return false;
         int loadedGeometry = pack.contains("GeometryVersion", Tag.TAG_INT)
                 ? pack.getInt("GeometryVersion") : 2;
-        if (loadedGeometry < 2 || loadedGeometry > 8) return false;
+        if (loadedGeometry < 2 || loadedGeometry > 9) return false;
+        ShipSuperstructurePlan loadedStructure = null;
+        if (loadedGeometry == 9) {
+            if (!pack.contains("Superstructure", Tag.TAG_COMPOUND)) return false;
+            try { loadedStructure = ShipSuperstructureData.validateBounds(
+                    ShipSuperstructureData.load(pack.getCompound("Superstructure"))); }
+            catch (RuntimeException invalid) { return false; }
+        } else if (pack.contains("Superstructure")) return false;
         int loadedRig = packVersion == 1 ? 1 : pack.getInt("RigLevel");
         int loadedFabric = packVersion == 1 ? 1 : pack.getInt("FabricQuality");
         try { new ShipRigging(loadedRig, loadedFabric); }
@@ -417,7 +440,9 @@ public final class FirstShipEntity extends Boat {
                     ? ShipDesign.load(pack.getCompound("Design")) : ShipDesign.defaults();
             // This entity implements a real small hull only. Never interpret a
             // saved future medium/large vessel as a small one.
-            if (!loadedDesign.hullSize().equals("small")) return false;
+            if (loadedGeometry != 9 && !loadedDesign.hullSize().equals("small")) return false;
+            if (loadedGeometry == 9 && !loadedDesign.hullSize().equals(
+                    loadedStructure.shipClass().name().toLowerCase(java.util.Locale.ROOT))) return false;
         } catch (IllegalArgumentException invalid) { return false; }
         ListTag list = pack.getList("Modules", Tag.TAG_COMPOUND);
         if (list.size() > CELLS * 2) return false;
@@ -452,11 +477,15 @@ public final class FirstShipEntity extends Boat {
         } catch (RuntimeException malformed) { return false; }
         if (pack.contains("BlockCargo", Tag.TAG_LIST)) {
             pendingBlockCargo = pack.getList("BlockCargo", Tag.TAG_COMPOUND).copy();
-            if (pendingBlockCargo.size() > CELLS * 2) return false;
+            if (loadedGeometry == 9) {
+                if (!ShipHullV9.validCargo(loadedStructure, pendingBlockCargo)) return false;
+            } else if (pendingBlockCargo.size() > CELLS * 2) return false;
         } else pendingBlockCargo = new ListTag();
         quarantinedModules = null;
         setRigging(loadedRig, loadedFabric);
         setGeometryVersion(loadedGeometry);
+        if (loadedStructure != null) setSuperstructure(loadedStructure);
+        else { superstructure = null; entityData.set(STRUCTURE_VIEW, ""); }
         design = loadedDesign;
         inventory.clear(); inventory.putAll(loaded);
         kind.clear(); kind.putAll(types);
@@ -472,12 +501,17 @@ public final class FirstShipEntity extends Boat {
         pack.putInt("RigLevel", rigLevel);
         pack.putInt("FabricQuality", fabricQuality);
         pack.putInt("GeometryVersion", geometryVersion);
+        if (geometryVersion == 9 && superstructure != null)
+            pack.put("Superstructure", ShipSuperstructureData.save(superstructure));
         pack.put("Design", design.save());
         pack.putUUID("VesselId", getUUID());
         pack.put("Modules", storeModules(registryAccess()));
         if (isMoving() && movingBody != null) pack.put("BlockCargo", movingBody.snapshot().cargo());
         else if (nativeHull && level() instanceof net.minecraft.server.level.ServerLevel server) {
-            ListTag cargo = FirstShipBlockHull.pack(server, blockAnchor, quarterTurns, rigLevel, fabricQuality, geometryVersion);
+            ListTag cargo = geometryVersion == 9 && superstructure != null
+                    ? ShipHullV9.pack(server, blockAnchor, quarterTurns, superstructure)
+                    : FirstShipBlockHull.pack(server, blockAnchor, quarterTurns,
+                            rigLevel, fabricQuality, geometryVersion);
             if (cargo == null) return ItemStack.EMPTY;
             pack.put("BlockCargo", cargo);
         }
@@ -524,7 +558,10 @@ public final class FirstShipEntity extends Boat {
         if (stack.isEmpty()) return InteractionResult.FAIL;
         if (nativeHull && !isMoving()) {
             if (!(level() instanceof net.minecraft.server.level.ServerLevel server)
-                    || !FirstShipBlockHull.remove(server, blockAnchor, quarterTurns, rigLevel, fabricQuality, geometryVersion)) {
+                    || !(geometryVersion == 9 && superstructure != null
+                            ? ShipHullV9.remove(server, blockAnchor, quarterTurns, superstructure)
+                            : FirstShipBlockHull.remove(server, blockAnchor, quarterTurns,
+                                    rigLevel, fabricQuality, geometryVersion))) {
                 player.displayClientMessage(Component.literal("Корпус изменён или груз повреждён: упаковка заблокирована"), true);
                 return InteractionResult.FAIL;
             }
@@ -1189,8 +1226,10 @@ public final class FirstShipEntity extends Boat {
         for (ServerPlayer player : server.getEntitiesOfClass(ServerPlayer.class,
                 new AABB(blockAnchor).inflate(10D, 24D, 10D)))
             if (player.containerMenu != player.inventoryMenu) return false;
-        ShipMovingContraption prepared = ShipMovingContraption.prepare(server, blockAnchor,
-                quarterTurns, rigLevel, fabricQuality, geometryVersion);
+        ShipMovingContraption prepared = geometryVersion == 9 && superstructure != null
+                ? ShipMovingContraption.prepare(server, blockAnchor, quarterTurns, superstructure)
+                : ShipMovingContraption.prepare(server, blockAnchor,
+                        quarterTurns, rigLevel, fabricQuality, geometryVersion);
         if (prepared == null || !prepared.detach(server, blockAnchor)) return false;
         // Install the durable moving state before any attempt at restoration:
         // even an unexpected blocked restore must NEVER orphan the cargo.
@@ -1325,6 +1364,8 @@ public final class FirstShipEntity extends Boat {
             tag.putInt("FirstShipGeometryVersion", geometryVersion);
         }
         tag.put("FirstShipDesign", design.save());
+        if (geometryVersion == 9 && superstructure != null)
+            tag.put("FirstShipSuperstructure", ShipSuperstructureData.save(superstructure));
         tag.put("FirstShipModules", quarantinedModules != null ? quarantinedModules.copy() : storeModules(registryAccess()));
     }
 
@@ -1371,6 +1412,8 @@ public final class FirstShipEntity extends Boat {
         pack.putInt("GeometryVersion", geometryVersion);
         if (tag.contains("FirstShipDesign", Tag.TAG_COMPOUND))
             pack.put("Design", tag.getCompound("FirstShipDesign").copy());
+        if (geometryVersion == 9 && tag.contains("FirstShipSuperstructure", Tag.TAG_COMPOUND))
+            pack.put("Superstructure", tag.getCompound("FirstShipSuperstructure").copy());
         pack.put("Modules", tag.getList("FirstShipModules", Tag.TAG_COMPOUND));
         CompoundTag root = new CompoundTag();
         root.put("FirstShipPack", pack);
