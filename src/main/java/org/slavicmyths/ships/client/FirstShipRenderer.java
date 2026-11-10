@@ -173,8 +173,8 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         float tintR = ship.fabricQuality() == 2 ? .82F : 1F;
         float tintG = ship.fabricQuality() == 3 ? .86F : 1F;
         float tintB = ship.fabricQuality() == 3 ? .58F : 1F;
-        for (int row = 0; row < 3; row++) {
-            for (int column = 0; column < 5; column++) {
+        for (int row = 0; row < 5; row++) {
+            for (int column = 0; column < 8; column++) {
                 sailVertex(fabric, pose, ship, partialTick, light, tintR, tintG, tintB,
                         column, row, bottom, height, span);
                 sailVertex(fabric, pose, ship, partialTick, light, tintR, tintG, tintB,
@@ -197,17 +197,21 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
     private void sailVertex(VertexConsumer out, PoseStack pose, FirstShipEntity ship,
             float partialTick, int light, float red, float green, float blue,
             int column, int row, double bottom, double height, int span) {
-        float u = column / 5F, v = row / 3F;
+        float u = column / 8F, v = row / 5F;
         double x = span * (2D * u - 1D);
         double y = bottom + height * v;
-        double belly = .15D + .4D * (1D - (x * x) / (span * span))
-                * (1D - Math.pow(2D * v - 1D, 2D));
+        double widthShape = 1D - (x * x) / (span * span);
+        double heightShape = Math.sin(Math.PI * v);
+        double belly = .12D + .95D * widthShape * heightShape;
         double wind = Math.sin((ship.tickCount + partialTick) * .075D + x * .6D) * .045D
-                * Math.sin(Math.PI * v);
+                * heightShape;
+        float slopeX = (float)(-.95D * 2D * x / (span * span) * heightShape);
+        float slopeY = (float)(.95D * widthShape * Math.PI * Math.cos(Math.PI * v)
+                / height);
         out.addVertex(pose.last().pose(), (float)x, (float)y, (float)(belly + wind))
                 .setColor(red, green, blue, 1F).setUv(u, v)
                 .setOverlay(OverlayTexture.NO_OVERLAY).setLight(light)
-                .setNormal(pose.last(), 0F, 0F, 1F);
+                .setNormal(pose.last(), -slopeX, -slopeY, 1F);
     }
 
     private void piece(BlockState state, PoseStack pose, MultiBufferSource buffers, int light,

@@ -86,20 +86,42 @@ public final class FirstShipEntity extends Boat {
     private ShipMovingContraption movingBody;
     private ShipRigidMotion.Control helmControl = ShipRigidMotion.Control.IDLE;
     private long helmControlTick = -100L;
+    private record PendingDismount(double localX, double localZ,
+                                   double deckOffsetY, long expires) {}
+    private final java.util.Map<java.util.UUID, PendingDismount> pendingDismounts =
+            new java.util.HashMap<>();
     private int clientMotionSteps;
     private double clientMotionX, clientMotionY, clientMotionZ;
     private float clientMotionYaw;
+    private long clientPoseFrame;
+    private double clientPreviousX, clientPreviousZ;
+    private float clientPreviousYaw;
+
+    public long clientPoseFrame() { return clientPoseFrame; }
+    public double clientPreviousX() { return clientPreviousX; }
+    public double clientPreviousZ() { return clientPreviousZ; }
+    public float clientPreviousYaw() { return clientPreviousYaw; }
+
+    /** Nearby clients receive an explicit pose even around a rider dismount. */
+    public void acceptCaptainMotionPose(double x, double y, double z, float yaw) {
+        if (!level().isClientSide || !isMoving() || !Double.isFinite(x)
+                || !Double.isFinite(y) || !Double.isFinite(z) || !Float.isFinite(yaw)) return;
+        clientMotionX = x;
+        clientMotionY = y;
+        clientMotionZ = z;
+        clientMotionYaw = yaw;
+        // Network packets can arrive in alternating client ticks. Ease toward
+        // each authoritative pose instead of jumping the full missed distance.
+        clientMotionSteps = 3;
+    }
 
     @Override public void lerpTo(double x, double y, double z, float yaw, float pitch, int steps) {
         if (!level().isClientSide || !isMoving()) {
             super.lerpTo(x, y, z, yaw, pitch, steps);
             return;
         }
-        clientMotionX = x;
-        clientMotionY = y;
-        clientMotionZ = z;
-        clientMotionYaw = yaw;
-        clientMotionSteps = Math.max(1, Math.min(10, steps));
+        // Continuous ships use MotionPose as their sole client pose stream.
+        // Vanilla Boat tracking can arrive late and must not reverse it.
     }
     public boolean isMoving() { return entityData.get(MOVING); }
     public String movingCargoView() { return entityData.get(MOTION_CARGO_VIEW); }
@@ -237,6 +259,11 @@ public final class FirstShipEntity extends Boat {
 
     @Override protected int getMaxPassengers() { return 1; }
 
+    /** The captain operates the wheel upright; rafts keep their normal seats. */
+    @Override public boolean shouldRiderSit() {
+        return !isNativeHull();
+    }
+
     /** The one genuine helm seat is on the STERN, not a fake free-walking passenger. */
     @Override protected Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float partialTick) {
         return new Vec3(0D, FirstShipHull.MAIN_DECK + 0.08D, FirstShipHull.HELM_Z);
@@ -274,7 +301,7 @@ public final class FirstShipEntity extends Boat {
      */
     @Override public Vec3 getDismountLocationForPassenger(LivingEntity passenger) {
         if (!isNativeHull()) return super.getDismountLocationForPassenger(passenger);
-        double[][] safeCells = {{0D, -2D}, {1D, -2D}, {-1D, -2D},
+        double[][] safeCells = {{1D, -2D}, {-1D, -2D}, {0D, -2D},
                 {1D, -3D}, {-1D, -3D}, {0D, -3D},
                 {2D, -2D}, {-2D, -2D}, {0D, 0D}, {1D, 0D}, {-1D, 0D}};
         for (double[] cell : safeCells) {
@@ -289,7 +316,7 @@ public final class FirstShipEntity extends Boat {
         }
         // Never return the entity's waterline centre inside solid hold blocks.
         // A high, unobstructed point above the deck is safer than suffocation.
-        FirstShipHull.Point stern = FirstShipHull.toWorld(0D, -2D,
+        FirstShipHull.Point stern = FirstShipHull.toWorld(1D, -2D,
                 getX(), getZ(), getYRot());
         for (int above = 1; above <= 8; above++) {
             Vec3 fallback = new Vec3(stern.x(), deckY() + above + .05D, stern.z());
@@ -306,7 +333,32 @@ public final class FirstShipEntity extends Boat {
             nextHelmAllowedTick = -100D;
             helmControl = ShipRigidMotion.Control.IDLE;
             helmControlTick = -100L;
+            if (isMoving() && passenger instanceof ServerPlayer player) {
+                Vec3 target = getDismountLocationForPassenger(player);
+                FirstShipHull.Point local = FirstShipHull.toLocal(target.x, target.z,
+                        getX(), getZ(), getYRot());
+                if (FirstShipHull.mainDeckSupports(local.x(), local.z()))
+                    pendingDismounts.put(player.getUUID(), new PendingDismount(
+                            local.x(), local.z(), target.y - deckY(),
+                            level().getGameTime() + 40L));
+            }
         }
+    }
+
+    /** Resolve the one-time Shift handoff after the client has left the vehicle. */
+    public boolean confirmDismount(ServerPlayer player) {
+        PendingDismount landing = pendingDismounts.remove(player.getUUID());
+        if (landing == null || !isMoving() || player.isPassenger()
+                || level().getGameTime() > landing.expires()) return false;
+        FirstShipHull.Point world = FirstShipHull.toWorld(landing.localX(), landing.localZ(),
+                getX(), getZ(), getYRot());
+        Vec3 target = new Vec3(world.x(), deckY() + landing.deckOffsetY(), world.z());
+        AABB area = player.getBoundingBox().move(target.subtract(player.position()));
+        if (!level().noCollision(player, area))
+            target = getDismountLocationForPassenger(player);
+        player.connection.teleport(target.x, target.y, target.z,
+                player.getYRot(), player.getXRot());
+        return true;
     }
 
     @Override protected boolean canAddPassenger(Entity passenger) {
@@ -1012,16 +1064,37 @@ public final class FirstShipEntity extends Boat {
             baseTick();
             setDeltaMovement(Vec3.ZERO);
             if (level().isClientSide && clientMotionSteps > 0) {
-                setPos(getX() + (clientMotionX - getX()) / clientMotionSteps,
-                        getY() + (clientMotionY - getY()) / clientMotionSteps,
-                        getZ() + (clientMotionZ - getZ()) / clientMotionSteps);
-                setYRot(getYRot() + (float)ShipRigidMotion.wrapDegrees(
-                        clientMotionYaw - getYRot()) / clientMotionSteps);
+                clientPreviousX = getX();
+                clientPreviousZ = getZ();
+                clientPreviousYaw = getYRot();
+                double dx = (clientMotionX - getX()) / clientMotionSteps;
+                double dz = (clientMotionZ - getZ()) / clientMotionSteps;
+                double distance = Math.hypot(dx, dz);
+                // Bound a delayed packet's visual catch-up by the server's
+                // maximum physical speed. The rider follows this same pose.
+                if (distance > ShipRigidMotion.MAX_FORWARD + .01D) {
+                    double factor = (ShipRigidMotion.MAX_FORWARD + .01D) / distance;
+                    dx *= factor;
+                    dz *= factor;
+                }
+                double yawStep = ShipRigidMotion.wrapDegrees(clientMotionYaw - getYRot())
+                        / clientMotionSteps;
+                yawStep = Math.max(-ShipRigidMotion.MAX_ANGULAR - .1D,
+                        Math.min(ShipRigidMotion.MAX_ANGULAR + .1D, yawStep));
+                setPos(getX() + dx, clientMotionY, getZ() + dz);
+                setYRot(getYRot() + (float)yawStep);
                 setYHeadRot(getYRot());
                 clientMotionSteps--;
+                if (Math.abs(getX() - clientPreviousX) > 1E-6D
+                        || Math.abs(getZ() - clientPreviousZ) > 1E-6D
+                        || Math.abs(ShipRigidMotion.wrapDegrees(getYRot() - clientPreviousYaw)) > 1E-5D)
+                    clientPoseFrame++;
             }
             if (!level().isClientSide && movingBody != null
                     && level() instanceof net.minecraft.server.level.ServerLevel server) {
+                if (level().getGameTime() % 40L == 0L)
+                    pendingDismounts.values().removeIf(
+                            landing -> level().getGameTime() > landing.expires());
                 ShipRigidMotion.Control control = level().getGameTime() - helmControlTick <= 2L
                         ? helmControl : ShipRigidMotion.Control.IDLE;
                 double oldX = getX(), oldZ = getZ();
@@ -1044,7 +1117,12 @@ public final class FirstShipEntity extends Boat {
                     setPos(next.x(), movingBody.waterlineY(), next.z());
                     setYRot((float)next.yaw());
                     setYHeadRot((float)next.yaw());
-                    FirstShipMovingDeckEvents.carryServerCrew(this, oldX, oldZ, oldYaw);
+                    if (Math.abs(getX() - oldX) > 1E-6D
+                            || Math.abs(getZ() - oldZ) > 1E-6D
+                            || Math.abs(ShipRigidMotion.wrapDegrees(getYRot() - oldYaw)) > 1E-5D) {
+                        FirstShipMovingDeckEvents.carryServerCrew(this, oldX, oldZ, oldYaw);
+                    }
+                    FirstShipNetwork.sendMotionPose(this);
                     if (frame.blocked() && getFirstPassenger() instanceof ServerPlayer driver
                             && level().getGameTime() % 40L == 0L)
                         driver.displayClientMessage(Component.literal(

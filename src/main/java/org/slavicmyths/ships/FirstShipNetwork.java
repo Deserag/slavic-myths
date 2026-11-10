@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 /**
  * All helm actions are server-authoritative. A malicious client cannot steer
@@ -18,6 +19,7 @@ public final class FirstShipNetwork {
     public static final int RIG_CONFIGURE = 10, RIG_REMOVE = 11;
     public static final int FORWARD_LEFT = 12, FORWARD_RIGHT = 13;
     public static final int BACKWARD_LEFT = 14, BACKWARD_RIGHT = 15, HELM_IDLE = 16;
+    public static final int DISMOUNT_ACK = 17;
     public static final int CARGO_BASE = 1000;
 
     public record Command(int shipId, int action) implements CustomPacketPayload {
@@ -32,8 +34,39 @@ public final class FirstShipNetwork {
         @Override public Type<Command> type() { return TYPE; }
     }
 
+    /** Boat tracking does not reliably stream continuous ship pose around dismount. */
+    public record MotionPose(int shipId, double x, double y, double z, float yaw)
+            implements CustomPacketPayload {
+        public static final Type<MotionPose> TYPE = new Type<>(
+                ResourceLocation.fromNamespaceAndPath("slavicmyths", "first_ship_motion_pose"));
+        public static final StreamCodec<FriendlyByteBuf, MotionPose> CODEC = StreamCodec.of(
+                (buffer, pose) -> {
+                    buffer.writeVarInt(pose.shipId);
+                    buffer.writeDouble(pose.x);
+                    buffer.writeDouble(pose.y);
+                    buffer.writeDouble(pose.z);
+                    buffer.writeFloat(pose.yaw);
+                }, buffer -> new MotionPose(buffer.readVarInt(), buffer.readDouble(),
+                        buffer.readDouble(), buffer.readDouble(), buffer.readFloat()));
+        @Override public Type<MotionPose> type() { return TYPE; }
+    }
+
+
+    public static void sendMotionPose(FirstShipEntity ship) {
+        PacketDistributor.sendToPlayersTrackingEntityAndSelf(ship, new MotionPose(ship.getId(),
+                ship.getX(), ship.getY(), ship.getZ(), ship.getYRot()));
+    }
+
+
     public static void register(RegisterPayloadHandlersEvent event) {
-        event.registrar("2.6.2").playToServer(Command.TYPE, Command.CODEC, (packet, context) -> {
+        var registrar = event.registrar("2.6.3");
+        registrar.playToClient(MotionPose.TYPE, MotionPose.CODEC, (pose, context) -> {
+            context.enqueueWork(() -> {
+                if (context.player().level().getEntity(pose.shipId()) instanceof FirstShipEntity ship)
+                    ship.acceptCaptainMotionPose(pose.x(), pose.y(), pose.z(), pose.yaw());
+            });
+        });
+        registrar.playToServer(Command.TYPE, Command.CODEC, (packet, context) -> {
             if (!(context.player() instanceof ServerPlayer player)
                     || !player.isAlive() || player.isSpectator()) return;
             if (!(player.level().getEntity(packet.shipId()) instanceof FirstShipEntity ship)
@@ -41,6 +74,10 @@ public final class FirstShipNetwork {
             // Native hull center is 5.5 blocks away from its sharpest extremity.
             if (player.distanceToSqr(ship) > 196D) return;
             int action = packet.action();
+            if (action == DISMOUNT_ACK) {
+                ship.confirmDismount(player);
+                return;
+            }
             if ((action >= FORWARD && action <= RIGHT)
                     || (action >= FORWARD_LEFT && action <= HELM_IDLE)) {
                 ship.helmStep(player, action);

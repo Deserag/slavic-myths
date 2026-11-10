@@ -481,6 +481,32 @@ public final class Ocean26GameTests {
                 && p.getInventory().countItem(RaftContent.DECK_SECTION.get()) == 5
                 && p.getInventory().countItem(RaftContent.OAR_MODULE.get()) == 1,
                 "Large raft blueprint failed to consume exactly 35 sections and 1 oars");
+        org.slavicmyths.ships.RaftBoatEntity raftEntity = RaftContent.RAFT.get().create(level);
+        t.assertTrue(raftEntity != null, "Existing raft entity registration broke");
+        raftEntity.configure(org.slavicmyths.ships.RaftSize.CARGO);
+        BlockPos raftWater = t.absolutePos(new BlockPos(8, 2, 8));
+        for (int dx = -3; dx <= 3; dx++)
+            for (int dz = -3; dz <= 3; dz++)
+                level.setBlock(raftWater.offset(dx, 0, dz), Blocks.WATER.defaultBlockState(), 2);
+        raftEntity.setPos(raftWater.getX() + .5D, raftWater.getY() + .86D,
+                raftWater.getZ() + .5D);
+        raftEntity.setWaterSurface(raftWater.getY() + 1D);
+        t.assertTrue(level.addFreshEntity(raftEntity), "Existing raft placement broke");
+        double raftStartX = raftEntity.getX();
+        raftEntity.setDeltaMovement(.12D, 0D, 0D);
+        for (int i = 0; i < 5; i++) raftEntity.tick();
+        t.assertTrue(raftEntity.getX() > raftStartX + .02D,
+                "Existing raft no longer moves across water");
+        CompoundTag raftData = new CompoundTag();
+        raftEntity.saveWithoutId(raftData);
+        org.slavicmyths.ships.RaftBoatEntity loadedRaft = RaftContent.RAFT.get().create(level);
+        t.assertTrue(loadedRaft != null, "Existing raft entity reload failed to create");
+        loadedRaft.load(raftData);
+        t.assertTrue(loadedRaft.deckWidth() == raftEntity.deckWidth()
+                && loadedRaft.deckLength() == raftEntity.deckLength(),
+                "Existing raft dimensions changed through save/load");
+        raftEntity.discard();
+        loadedRaft.discard();
         testShip.discard();
         p.discard();
         System.out.println("OCEAN26_SHIPYARD_PASS sails=true mast=true linenSwap=true refunds=true blueprint=true");
@@ -702,6 +728,25 @@ public final class Ocean26GameTests {
                                     deckCrew.getBoundingBox().inflate(12D, 15D, 12D)).size());
             t.assertTrue(climber.onClimbable(),
                     "Detached moving ladder no longer supports vanilla climbing");
+            float originalYaw = ship.getYRot();
+            ship.setYRot(107F);
+            FirstShipHull.Point ladder = FirstShipHull.toWorld(-1D, 2D,
+                    ship.getX(), ship.getZ(), ship.getYRot());
+            climber.setPos(ladder.x(), ship.holdY() + .02D, ladder.z());
+            double ladderStartY = climber.getY();
+            climber.move(net.minecraft.world.entity.MoverType.SELF,
+                    new Vec3(0D, 1D, 0D));
+            t.assertTrue(climber.getY() > ladderStartY + .8D,
+                    "Rotated moving hatch blocks climbing from the ladder centre");
+            FirstShipHull.Point intoBacking = FirstShipHull.toWorld(-1D, 0D,
+                    0D, 0D, ship.getYRot());
+            climber.move(net.minecraft.world.entity.MoverType.SELF,
+                    new Vec3(intoBacking.x(), 0D, intoBacking.z()));
+            FirstShipHull.Point againstBacking = FirstShipHull.toLocal(
+                    climber.getX(), climber.getZ(), ship.getX(), ship.getZ(), ship.getYRot());
+            t.assertTrue(againstBacking.x() > -1.7D,
+                    "Ladder shaft clearance removed the supporting wall collision");
+            ship.setYRot(originalYaw);
             climber.discard();
             t.assertTrue(ship.openMovingCargo(deckCrew, 0),
                     "Detached chest cannot be opened by deck crew");

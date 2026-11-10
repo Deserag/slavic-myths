@@ -84,6 +84,11 @@ public final class ShipDynamicCollision {
                 continue;
             Geometry geometry = geometry(ship, level);
             AABB local = localBounds(region, ship);
+            FirstShipHull.Point feet = FirstShipHull.toLocal(player.getX(), player.getZ(),
+                    ship.getX(), ship.getZ(), ship.getYRot());
+            boolean inLadderShaft = FirstShipHull.onLadder(feet.x(), feet.z())
+                    && player.getY() - ship.getY() >= .9D
+                    && player.getY() - ship.getY() <= 5.3D;
             double angle = Math.toRadians(ship.getYRot());
             double cos = Math.cos(angle), sin = Math.sin(angle);
             double remainder = Math.abs(ship.getYRot()) % 90D;
@@ -94,6 +99,11 @@ public final class ShipDynamicCollision {
                         x <= (int)Math.ceil(local.maxX) + 1; x++)
                     for (int z = (int)Math.floor(local.minZ) - 1;
                             z <= (int)Math.ceil(local.maxZ) + 1; z++) {
+                        // The physical hatch is open at these levels. Axis-aligned
+                        // approximations of adjacent rotated roof blocks otherwise
+                        // intrude into its one-block-wide climbing shaft.
+                        if (inLadderShaft && (y == 3 || y == 4)
+                                && x >= -2 && x <= 1 && z >= 0 && z <= 3) continue;
                         List<AABB> shapes = geometry.cells().get(new BlockPos(x, y, z));
                         if (shapes == null) continue;
                         for (AABB shape : shapes) {

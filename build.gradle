@@ -723,3 +723,38 @@ if (project.hasProperty('ocean26Check')) {
         }
     }
 }
+
+// Client input/network probe lives outside the production JAR. It auto-opens
+// a copied disposable world and drives only Minecraft's own test key mappings.
+if (project.hasProperty('ocean26ClientProbe')) {
+    sourceSets { ocean26ClientProbe { java.srcDir 'tools/ocean26-client-tests' } }
+    sourceSets.ocean26ClientProbe.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.ocean26ClientProbe.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileOcean26ClientProbeJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.ocean26ClientProbe)
+    neoForge.runs {
+        ocean26ClientProbe {
+            client()
+            gameDirectory = file('run-ocean26-client')
+            systemProperty 'ocean26.reverse', project.hasProperty('ocean26ReverseProbe') ? 'true' : 'false'
+            systemProperty 'ocean26.reload', project.hasProperty('ocean26ReloadProbe') ? 'true' : 'false'
+            systemProperty 'ocean26.rail', project.hasProperty('ocean26RailProbe') ? 'true' : 'false'
+            systemProperty 'ocean26.hold', project.hasProperty('ocean26HoldProbe') ? 'true' : 'false'
+            systemProperty 'ocean26.visual', project.hasProperty('ocean26VisualProbe') ? 'true' : 'false'
+            programArgument '--quickPlaySingleplayer'
+            programArgument (project.findProperty('ocean26ProbeWorld') ?: 'OCEAN26_WORLD_REQUIRED')
+        }
+    }
+    tasks.named('runOcean26ClientProbe') {
+        def marker = file('run-ocean26-client/ocean26-probe-result.txt')
+        doFirst {
+            if (!project.hasProperty('ocean26ProbeWorld'))
+                throw new GradleException('Pass -Pocean26ProbeWorld=<name of a disposable copied save>')
+            marker.delete()
+        }
+        doLast {
+            if (!marker.isFile() || !marker.text.startsWith('PASS '))
+                throw new GradleException('Ocean 2.6 client probe failed; inspect its log and result marker')
+        }
+    }
+}

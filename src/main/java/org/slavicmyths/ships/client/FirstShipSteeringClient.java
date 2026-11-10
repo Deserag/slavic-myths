@@ -25,12 +25,19 @@ public final class FirstShipSteeringClient {
     @SubscribeEvent
     public static void onTick(ClientTickEvent.Post event) {
         Minecraft mc = Minecraft.getInstance();
-        if (mc.player == null || mc.level == null || mc.screen != null
-                || !(mc.player.getVehicle() instanceof FirstShipEntity ship)
-                || !ship.isNativeHull()) {
+        if (mc.player == null || mc.level == null) {
             lastShip = -1;
             return;
         }
+        if (!(mc.player.getVehicle() instanceof FirstShipEntity ship)
+                || !ship.isNativeHull()) {
+            if (lastShip != -1)
+                PacketDistributor.sendToServer(new FirstShipNetwork.Command(
+                        lastShip, FirstShipNetwork.DISMOUNT_ACK));
+            lastShip = -1;
+            return;
+        }
+        if (mc.screen != null) return;
         if (ship.getId() != lastShip) {
             lastShip = ship.getId();
             lastSent = -100L;
