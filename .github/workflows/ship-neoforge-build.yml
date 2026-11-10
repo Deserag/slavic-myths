@@ -9,6 +9,7 @@ on:
       - 'fix/2.6-shipyard-helm-ui-20261110'
     paths:
       - 'src/main/java/org/slavicmyths/ships/**'
+      - 'tools/ocean26-tests/**'
       - 'build.gradle'
       - '.github/workflows/ship-neoforge-build.yml'
   pull_request:
