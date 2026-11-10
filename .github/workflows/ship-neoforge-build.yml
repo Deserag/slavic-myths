@@ -8,6 +8,9 @@ on:
       - 'src/main/java/org/slavicmyths/ships/**'
       - 'build.gradle'
       - '.github/workflows/ship-neoforge-build.yml'
+  pull_request:
+    branches:
+      - 'feature/2.6-shipyard-hull-modifications-20261110'
   workflow_dispatch:
 
 jobs:
