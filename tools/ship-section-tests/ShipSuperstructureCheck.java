@@ -43,6 +43,11 @@ public final class ShipSuperstructureCheck {
         invalid(() -> plan(ShipSectionPlan.ShipClass.MEDIUM, 9, 13,
                 List.of(1), 2, true, true), "bridge cabin minimum footprint");
 
+        var shortBridge = plan(ShipSectionPlan.ShipClass.MEDIUM, 9, 13,
+                List.of(1), 1, true, false);
+        yes(shortBridge.mastPositions().equals(List.of(2)), "short bridge clears the mast");
+        invalid(() -> plan(ShipSectionPlan.ShipClass.MEDIUM, 9, 13,
+                List.of(1, 2), 1, true, false), "short bridge cannot fit two masts");
         var large = plan(ShipSectionPlan.ShipClass.LARGE, 21, 33,
                 List.of(1, 2, 3), 3, true, true);
         yes(large.mastPositions().equals(List.of(-4, 0, 4)), "three masts");
