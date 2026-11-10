@@ -142,6 +142,10 @@ public final class Ocean26GameTests {
             }
         var original = org.slavicmyths.ships.ShipBuildConfiguration.initial(
                 org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM);
+        t.assertTrue(org.slavicmyths.ships.ShipBuildConfiguration.load(original.save())
+                .equals(original)
+                && org.slavicmyths.ships.ShipBuildConfiguration.fromWire(original.wire())
+                .equals(original), "Modular ship configuration serialization is inconsistent");
         t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
                 anchor, 0, original, new ListTag()), "Medium-class modular hull placement failed");
         t.assertTrue(level.getBlockState(org.slavicmyths.ships.FirstShipBlockHull.world(
