@@ -505,7 +505,11 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     ? "Положите судно в ячейку"
                     : "Улучшение старого судна", 17, 65, 0xfff2dfbd, false);
         }
-        graphics.drawString(font, "Слот судна", 18, 214, 0xfff2dfbd, false);
+        graphics.drawString(font, tab == 1 ? "Судно для улучшения  →" : "Готовое судно  →",
+                18, 213, 0xfff2dfbd, false);
+        if (tab == 1 && current == null && menu.inspected().isEmpty())
+            graphics.drawString(font, "Положите предмет в ячейку", 18, 228,
+                    0xffeacfa2, false);
 
         String heading = tab == 0
                 ? createRafts ? VESSELS[chosen] : "Проект: " + CLASS_NAMES[chosen]
@@ -537,16 +541,24 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 Cost cost = requirements.get(i);
                 int column = i % 3, row = i / 3, x = 200 + column * 89, y = 123 + row * 17;
                 graphics.renderItem(cost.icon(), x, y);
-                graphics.drawString(font, font.plainSubstrByWidth(cost.title(), 69),
+                String shortName = switch (cost.title()) {
+                    case "Палубные секции" -> "Секции";
+                    case "Парусная ткань" -> "Ткань";
+                    case "Ограждения" -> "Борта";
+                    default -> cost.title();
+                };
+                graphics.drawString(font, font.plainSubstrByWidth(shortName, 69),
                         x + 18, y, DARK, false);
                 boolean enough = cost.have() >= cost.need()
                         || minecraft != null && minecraft.player != null
                         && minecraft.player.getAbilities().instabuild;
-                graphics.drawString(font, cost.have() + "/" + cost.need(),
+                graphics.drawString(font, minecraft != null && minecraft.player != null
+                                && minecraft.player.getAbilities().instabuild
+                                ? "Бесплатно" : cost.have() + "/" + cost.need(),
                         x + 18, y + 8, enough ? 0xff22612b : 0xffa13726, false);
             }
         }
-        graphics.drawString(font, "Инвентарь", 198, 182, 0xfff2d9aa, false);
+        graphics.drawString(font, "Инвентарь", 198, 195, 0xfff2d9aa, false);
         if (tab == 0 && !menu.inspected().isEmpty())
             graphics.drawString(font, "Заберите готовое судно", 17, 226, 0xffffb18c, false);
     }
