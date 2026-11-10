@@ -5,7 +5,6 @@ on:
     paths:
       - 'src/main/java/org/slavicmyths/ships/ShipSectionPlan.java'
       - 'src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java'
-      - 'src/main/java/org/slavicmyths/ships/ShipStructureBlueprint.java'
       - 'src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java'
       - 'src/main/java/org/slavicmyths/ships/ShipRigging.java'
       - 'src/main/java/org/slavicmyths/ships/ShipRigidMotion.java'
@@ -16,7 +15,6 @@ on:
     paths:
       - 'src/main/java/org/slavicmyths/ships/ShipSectionPlan.java'
       - 'src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java'
-      - 'src/main/java/org/slavicmyths/ships/ShipStructureBlueprint.java'
       - 'src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java'
       - 'src/main/java/org/slavicmyths/ships/ShipRigging.java'
       - 'src/main/java/org/slavicmyths/ships/ShipRigidMotion.java'
@@ -40,14 +38,12 @@ jobs:
           javac -encoding UTF-8 -d build/ship-checks \
             src/main/java/org/slavicmyths/ships/ShipSectionPlan.java \
             src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java \
-            src/main/java/org/slavicmyths/ships/ShipStructureBlueprint.java \
             src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java \
             src/main/java/org/slavicmyths/ships/ShipRigging.java \
             src/main/java/org/slavicmyths/ships/ShipRigidMotion.java \
             src/main/java/org/slavicmyths/ships/ShipSailMotion.java \
             tools/ship-section-tests/ShipSectionPlanCheck.java \
             tools/ship-section-tests/ShipSuperstructureCheck.java \
-            tools/ship-section-tests/ShipStructureBlueprintCheck.java \
             tools/ship-section-tests/ShipSailMotionCheck.java \
             tools/ship-section-tests/ShipHullVoxelLayoutCheck.java
       - name: Validate sections, superstructures and sail physics
@@ -55,6 +51,5 @@ jobs:
         run: |
           java -cp build/ship-checks ShipSectionPlanCheck
           java -cp build/ship-checks ShipSuperstructureCheck
-          java -cp build/ship-checks ShipStructureBlueprintCheck
           java -cp build/ship-checks ShipSailMotionCheck
           java -cp build/ship-checks ShipHullVoxelLayoutCheck
