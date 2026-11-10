@@ -41,6 +41,13 @@ public final class PosadKnownSites extends SavedData {
                 var value=new Layout(piece.anchor(),piece.turns());
                 if(!value.equals(data.layouts.put(owner,value)))data.setDirty();
                 if(data.layouts.size()>LIMIT)data.layouts.remove(data.layouts.keySet().iterator().next());
+                // A naturally generated city must be visible to the same persisted boss
+                // encounter index as an explicitly built settlement, including after relog.
+                // The deterministic UUID makes repeated chunk loads idempotent.
+                var records=org.slavicmyths.worldgen.ManualStructureRecords.get(world);
+                var nativeId=java.util.UUID.nameUUIDFromBytes(("native-nether-posad:"+owner).getBytes(java.nio.charset.StandardCharsets.UTF_8));
+                if(records.entries().stream().noneMatch(entry->entry.id().equals(nativeId)))
+                    records.add(nativeId,"nether_posad",piece.turns(),piece.anchor(),piece.getBoundingBox());
             }
         }
     }
