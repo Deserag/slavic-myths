@@ -653,10 +653,15 @@ public final class FirstShipEntity extends Boat {
                 || Math.abs(player.getY() - (getY() + helmSeatHeight())) > .9D) return false;
         FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, helmWheelZ(),
                 getX(), getZ(), getYRot());
-        Vec3 aim = new Vec3(wheel.x(), getY() + helmSeatHeight() + 1.78D, wheel.z())
+        Vec3 ring = new Vec3(wheel.x(), getY() + helmSeatHeight() + 1.78D, wheel.z())
                 .subtract(player.getEyePosition());
-        if (aim.lengthSqr() < .09D || aim.lengthSqr() > 25D
-                || aim.normalize().dot(player.getLookAngle()) < .30D) return false;
+        Vec3 post = new Vec3(wheel.x(), getY() + helmSeatHeight() + .58D, wheel.z())
+                .subtract(player.getEyePosition());
+        boolean aimsRing = ring.lengthSqr() >= .09D && ring.lengthSqr() <= 25D
+                && ring.normalize().dot(player.getLookAngle()) >= .30D;
+        boolean aimsPost = post.lengthSqr() >= .09D && post.lengthSqr() <= 25D
+                && post.normalize().dot(player.getLookAngle()) >= .30D;
+        if (!aimsRing && !aimsPost) return false;
         boolean mounted = player.startRiding(this);
         if (mounted) positionRider(player);
         return mounted;
