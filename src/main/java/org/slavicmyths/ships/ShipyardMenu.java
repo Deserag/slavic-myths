@@ -52,6 +52,17 @@ public final class ShipyardMenu extends AbstractContainerMenu {
     }
 
     public ItemStack inspected() { return input.getItem(0); }
+    public BlockPos shipyardPosition() { return pos; }
+
+    /** Never pick a random second vessel when two ships share a dock. */
+    private FirstShipEntity nearbyModular(Player player) {
+        if (player.level().isClientSide) return null;
+        var matches = player.level().getEntitiesOfClass(FirstShipEntity.class,
+                new net.minecraft.world.phys.AABB(pos).inflate(30D, 18D, 30D),
+                ship -> ship.isNativeHull() && !ship.isRemoved() && !ship.isMoving()
+                        && !ship.isVehicle() && ship.modularConfiguration() != null);
+        return matches.size() == 1 ? matches.get(0) : null;
+    }
 
     @Override public boolean stillValid(Player player) {
         return player.isAlive() && !player.isSpectator() &&
@@ -112,10 +123,12 @@ public final class ShipyardMenu extends AbstractContainerMenu {
         }
         if (action >= 200 && action <= 206) {
             ItemStack current = input.getItem(0);
-            ShipBuildConfiguration config = ShipyardModular.configuration(current);
+            FirstShipEntity placed = current.isEmpty() ? nearbyModular(player) : null;
+            ShipBuildConfiguration config = placed != null ? placed.modularConfiguration()
+                    : ShipyardModular.configuration(current);
             if (config == null) {
                 player.displayClientMessage(Component.literal(
-                        "Для изменения корпуса нужен модульный корабль в ячейке"), true);
+                        "Поместите модульный корабль в ячейку или оставьте одно неподвижное судно у верфи"), true);
                 return false;
             }
             try {
@@ -130,15 +143,26 @@ public final class ShipyardMenu extends AbstractContainerMenu {
                     default -> config.withCabin(true);
                 };
                 if (next.equals(config)) return false;
-                ItemStack upgraded = ShipyardModular.modify(player, current, next);
-                if (upgraded.isEmpty()) {
+                if (placed != null) {
+                    if (!(player instanceof ServerPlayer customer)
+                            || !placed.upgradeModularInWorld(customer, next)) {
+                        player.displayClientMessage(Component.literal(
+                                "Модификация в мире отклонена: проверьте свободное пространство, экипаж и материалы"), true);
+                        return false;
+                    }
                     player.displayClientMessage(Component.literal(
-                            "Модификация недоступна: проверьте материалы, груз и конструкцию"), true);
-                    return false;
+                            "Размещённый корабль перестроен; груз и оснащение сохранены"), true);
+                } else {
+                    ItemStack upgraded = ShipyardModular.modify(player, current, next);
+                    if (upgraded.isEmpty()) {
+                        player.displayClientMessage(Component.literal(
+                                "Модификация недоступна: проверьте материалы, груз и конструкцию"), true);
+                        return false;
+                    }
+                    input.setItem(0, upgraded);
+                    player.displayClientMessage(Component.literal(
+                            "Конфигурация обновлена; все данные и оборудование сохранены"), true);
                 }
-                input.setItem(0, upgraded);
-                player.displayClientMessage(Component.literal(
-                        "Конфигурация обновлена; все данные и оборудование сохранены"), true);
             } catch (IllegalArgumentException invalid) {
                 player.displayClientMessage(Component.literal(
                         "Недопустимое изменение для класса или размера корабля: "
