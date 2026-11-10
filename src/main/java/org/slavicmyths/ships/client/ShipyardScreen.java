@@ -529,7 +529,6 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     ? "Положите судно в ячейку"
                     : "Улучшение старого судна", 17, 65, 0xfff2dfbd, false);
         }
-        graphics.drawString(font, "Слот", 123, 50, 0xfff2dfbd, false);
         graphics.drawString(font, tab == 0 ? "Созданное судно — в слот сверху"
                 : "Судно — в слот сверху", 18, 214, 0xffeacfa2, false);
         if (tab == 1) graphics.drawString(font,
