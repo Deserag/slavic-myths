@@ -22,9 +22,9 @@ public final class NetherEncounterSpawns {
     private static final int REGION=2048, ACTIVATE=112, MIN_DISTANCE=800;
     private record Definition(String key,String[] ids,Set<String> biomes) {}
     private static final List<Definition> WILDERNESS=List.of(
-        new Definition("morovoy_raven",new String[]{"slavicmyths:morovoy_raven"},Set.of("minecraft:crimson_forest","minecraft:warped_forest")),
-        new Definition("morovoy_fire_zmey",new String[]{"slavicmyths:morovoy_fire_zmey"},Set.of("minecraft:nether_wastes","minecraft:basalt_deltas")),
-        new Definition("mor_serpent",new String[]{"slavicmyths:mor_serpent"},Set.of("minecraft:soul_sand_valley","minecraft:nether_wastes"))
+        new Definition("bauk",new String[]{"slavicmyths:bauk"},Set.of("minecraft:crimson_forest","minecraft:warped_forest")),
+        new Definition("cursed_mytar",new String[]{"slavicmyths:cursed_mytar"},Set.of("minecraft:nether_wastes","minecraft:basalt_deltas")),
+        new Definition("bauk",new String[]{"slavicmyths:bauk"},Set.of("minecraft:soul_sand_valley","minecraft:nether_wastes"))
     );
     private static long hash(long seed,long x,long z,long salt){long n=seed^x*0x9E3779B97F4A7C15L^z*0xC2B2AE3D27D4EB4FL^salt;n^=n>>>30;n*=0xBF58476D1CE4E5B9L;n^=n>>>27;n*=0x94D049BB133111EBL;return n^(n>>>31);}
     private static String biome(ServerLevel w,BlockPos pos){return w.getBiome(pos).unwrapKey().map(k->k.location().toString()).orElse("");}
