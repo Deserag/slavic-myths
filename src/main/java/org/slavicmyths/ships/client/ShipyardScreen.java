@@ -450,14 +450,14 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         graphics.fill(leftPos + 10, topPos + 39, leftPos + 184, topPos + 274, 0xff694e36);
         graphics.fill(leftPos + 190, topPos + 39, leftPos + 466, topPos + 191, PAPER);
         graphics.fill(leftPos + 192, topPos + 41, leftPos + 464, topPos + 189, 0xfff0e4c4);
-        graphics.fill(leftPos + 190, topPos + 193, leftPos + 466, topPos + 274, 0xff745335);
-        graphics.fill(leftPos + 14, topPos + 238, leftPos + 174, topPos + 271, 0xff38281d);
+        graphics.fill(leftPos + 190, topPos + 193, leftPos + 466, topPos + 280, 0xff745335);
+        graphics.fill(leftPos + 14, topPos + 238, leftPos + 174, topPos + 278, 0xff38281d);
         for (int row = 0; row < 3; row++)
             for (int col = 0; col < 9; col++)
-                graphics.fill(leftPos + 197 + col * 18, topPos + 196 + row * 18,
-                        leftPos + 215 + col * 18, topPos + 214 + row * 18, 0xff231b14);
+                graphics.fill(leftPos + 197 + col * 18, topPos + 206 + row * 18,
+                        leftPos + 215 + col * 18, topPos + 224 + row * 18, 0xff231b14);
         for (int col = 0; col < 9; col++)
-            graphics.fill(leftPos + 197 + col * 18, topPos + 253,
+            graphics.fill(leftPos + 197 + col * 18, topPos + 260,
                     leftPos + 215 + col * 18, topPos + 271, 0xff231b14);
         graphics.fill(leftPos + 152, topPos + 209, leftPos + 171, topPos + 228, 0xff241a13);
         graphics.fill(leftPos + 15, topPos + 233, leftPos + 173, topPos + 234, 0xffa77f4b);
