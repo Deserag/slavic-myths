@@ -630,8 +630,58 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         }
     }
 
-    @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partial) {
-        super.render(graphics, mouseX, mouseY, partial);
-        renderTooltip(graphics, mouseX, mouseY);
+    /**
+     * GUI Scale 4 on 1080p and 900p windows is smaller than this screen's
+     * logical footprint. Scale THE WHOLE container, including menu slot hit
+     * tests, instead of clipping the inventory and the primary action.
+     */
+    private float fittedScale() {
+        float byWidth = Math.max(.35F, (width - 12F) / imageWidth);
+        float byHeight = Math.max(.35F, (height - 12F) / imageHeight);
+        return Math.min(1F, Math.min(byWidth, byHeight));
     }
+
+    private double shiftX() {
+        float factor = fittedScale();
+        return (width - imageWidth * factor) / 2D - leftPos * factor;
+    }
+
+    private double shiftY() {
+        float factor = fittedScale();
+        return (height - imageHeight * factor) / 2D - topPos * factor;
+    }
+
+    private double localX(double x) { return (x - shiftX()) / fittedScale(); }
+    private double localY(double y) { return (y - shiftY()) / fittedScale(); }
+
+    @Override public boolean mouseClicked(double x, double y, int button) {
+        return super.mouseClicked(localX(x), localY(y), button);
+    }
+
+    @Override public boolean mouseReleased(double x, double y, int button) {
+        return super.mouseReleased(localX(x), localY(y), button);
+    }
+
+    @Override public boolean mouseDragged(double x, double y, int button, double dx, double dy) {
+        return super.mouseDragged(localX(x), localY(y), button, dx / fittedScale(), dy / fittedScale());
+    }
+
+    @Override public boolean mouseScrolled(double x, double y, double horizontal, double vertical) {
+        return super.mouseScrolled(localX(x), localY(y), horizontal, vertical);
+    }
+
+    @Override public void mouseMoved(double x, double y) {
+        super.mouseMoved(localX(x), localY(y));
+    }
+
+    @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partial) {
+        float factor = fittedScale();
+        graphics.pose().pushPose();
+        graphics.pose().translate(shiftX(), shiftY(), 0D);
+        graphics.pose().scale(factor, factor, 1F);
+        super.render(graphics, (int)Math.floor(localX(mouseX)),
+                (int)Math.floor(localY(mouseY)), partial);
+        graphics.pose().popPose();
+    }
+
 }
