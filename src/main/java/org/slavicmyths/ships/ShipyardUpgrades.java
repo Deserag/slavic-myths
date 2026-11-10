@@ -299,7 +299,7 @@ public final class ShipyardUpgrades {
         if (player.level().isClientSide || !(original.getItem() instanceof FirstShipItem))
             return ItemStack.EMPTY;
         CompoundTag pack = shipPack(original);
-        if (pack == null) return ItemStack.EMPTY;
+        if (pack == null || pack.getInt("GeometryVersion") == 9) return ItemStack.EMPTY;
         // The real ship loader validates legacy cargo, module positions,
         // packed geometry and design before a single material is consumed.
         FirstShipEntity verifier = RaftContent.FIRST_SHIP.get().create(player.level());
@@ -370,6 +370,177 @@ public final class ShipyardUpgrades {
         if (returned1 != null) refund(player, returned1, back1);
         if (returned2 != null) refund(player, returned2, back2);
         return modified;
+    }
+
+    /** The new classes are constructed from physical voxel quantities. */
+    public record ShipBill(int logs, int planks, int glass, int strings,
+                           int sections, int rails, int rigging,
+                           int sailsI, int sailsII, int sailsIII) {}
+
+    public static ShipSuperstructurePlan readShipPlan(ItemStack stack) {
+        if (!(stack.getItem() instanceof FirstShipItem)) return null;
+        CompoundTag root = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        if (!root.contains("FirstShipPack", Tag.TAG_COMPOUND)) return null;
+        CompoundTag pack = root.getCompound("FirstShipPack");
+        if (pack.getInt("Version") != 2 || pack.getInt("GeometryVersion") != 9
+                || !pack.contains("Superstructure", Tag.TAG_COMPOUND)) return null;
+        try { return ShipSuperstructureData.validateBounds(
+                ShipSuperstructureData.load(pack.getCompound("Superstructure"))); }
+        catch (RuntimeException invalid) { return null; }
+    }
+
+    public static ShipSuperstructurePlan nextShipPlan(ShipSuperstructurePlan current, int action) {
+        if (current == null) return null;
+        try {
+            java.util.List<Integer> sails = new java.util.ArrayList<>(current.sailTiers());
+            int width = current.hullWidth(), length = current.hullLength();
+            int decks = current.decks();
+            boolean bridge = current.bridge(), cabin = current.cabin();
+            if (action == 40) length += 2;
+            else if (action == 41) width += 2;
+            else if (action == 42) sails.add(1);
+            else if (action == 43) decks = 2;
+            else if (action == 44) decks = 3;
+            else if (action == 45) bridge = true;
+            else if (action == 46) cabin = true;
+            else if (action == 47) cabin = false;
+            else if (action == 48) bridge = false;
+            else if (action == 49) decks = Math.max(1, decks - 1);
+            else if (action == 50) {
+                if (sails.isEmpty()) return null;
+                sails.remove(sails.size() - 1);
+            } else if (action >= 51 && action <= 54) {
+                int mast = action - 51;
+                if (mast >= sails.size()) return null;
+                sails.set(mast, sails.get(mast) + 1);
+            } else if (action >= 55 && action <= 58) {
+                int mast = action - 55;
+                if (mast >= sails.size()) return null;
+                sails.set(mast, sails.get(mast) - 1);
+            } else return null;
+            ShipSuperstructurePlan updated = ShipSuperstructureData.validateBounds(
+                    new ShipSuperstructurePlan(current.shipClass(), width, length,
+                            sails, decks, bridge, cabin));
+            return current.equals(updated) ? null : updated;
+        } catch (RuntimeException invalid) { return null; }
+    }
+
+    /** Charges only for changed/added physical parts; no full-build duplicate charge. */
+    public static ShipBill shipBill(ShipSuperstructurePlan old, ShipSuperstructurePlan next) {
+        var after = ShipHullVoxelLayout.generate(next);
+        var before = old == null
+                ? java.util.Map.<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part>of()
+                : ShipHullVoxelLayout.generate(old);
+        var delta = ShipHullVoxelLayout.additions(before, after);
+        int wood = 0, planks = 0, glass = 0, strings = 0, deck = 0, rails = 0;
+        for (var entry : delta.entrySet()) {
+            int quantity = entry.getValue();
+            switch (entry.getKey()) {
+                case KEEL, FRAME, MAST, YARD, HELM -> wood += quantity;
+                case HULL, CABIN_WALL, BRIDGE, DOOR -> planks += quantity;
+                case DECK -> deck += quantity;
+                case RAIL -> rails += quantity;
+                case WINDOW -> glass += quantity;
+                case SAIL -> strings += quantity;
+                default -> {}
+            }
+        }
+        int rigging = 0, sail1 = 0, sail2 = 0, sail3 = 0;
+        for (int i = 0; i < next.sailTiers().size(); i++) {
+            int tier = next.sailTiers().get(i);
+            int original = old != null && old.sailTiers().size() > i
+                    ? old.sailTiers().get(i) : 0;
+            if (original == tier) continue;
+            if (original == 0) rigging++;
+            if (tier == 1) sail1++;
+            else if (tier == 2) sail2 += 2;
+            else sail3 += 3;
+        }
+        return new ShipBill((wood + 1) / 2, (planks + 1) / 2,
+                (glass + 1) / 2, (strings + 3) / 4,
+                (deck + 3) / 4, (rails + 7) / 8,
+                rigging, sail1, sail2, sail3);
+    }
+
+    private static boolean hasShipBill(Player player, ShipBill bill) {
+        return player.getAbilities().instabuild || (
+                countTag(player, net.minecraft.tags.ItemTags.LOGS) >= bill.logs()
+                && countTag(player, net.minecraft.tags.ItemTags.PLANKS) >= bill.planks()
+                && player.getInventory().countItem(net.minecraft.world.item.Items.GLASS) >= bill.glass()
+                && player.getInventory().countItem(net.minecraft.world.item.Items.STRING) >= bill.strings()
+                && player.getInventory().countItem(RaftContent.DECK_SECTION.get()) >= bill.sections()
+                && player.getInventory().countItem(RaftContent.RAIL_MODULE.get()) >= bill.rails()
+                && player.getInventory().countItem(RaftContent.SAIL_RIGGING_KIT.get()) >= bill.rigging()
+                && player.getInventory().countItem(RaftContent.SAIL_MODULE.get()) >= bill.sailsI()
+                && player.getInventory().countItem(RaftContent.SAIL_LINEN_MODULE.get()) >= bill.sailsII()
+                && player.getInventory().countItem(RaftContent.SAIL_REINFORCED_MODULE.get()) >= bill.sailsIII());
+    }
+
+    private static void takeShipBill(Player player, ShipBill bill) {
+        if (player.getAbilities().instabuild) return;
+        consumeTag(player, net.minecraft.tags.ItemTags.LOGS, bill.logs());
+        consumeTag(player, net.minecraft.tags.ItemTags.PLANKS, bill.planks());
+        consume(player, net.minecraft.world.item.Items.GLASS, bill.glass());
+        consume(player, net.minecraft.world.item.Items.STRING, bill.strings());
+        consume(player, RaftContent.DECK_SECTION.get(), bill.sections());
+        consume(player, RaftContent.RAIL_MODULE.get(), bill.rails());
+        consume(player, RaftContent.SAIL_RIGGING_KIT.get(), bill.rigging());
+        consume(player, RaftContent.SAIL_MODULE.get(), bill.sailsI());
+        consume(player, RaftContent.SAIL_LINEN_MODULE.get(), bill.sailsII());
+        consume(player, RaftContent.SAIL_REINFORCED_MODULE.get(), bill.sailsIII());
+    }
+
+    public static ItemStack buildVoxelShip(Player player, ShipSectionPlan.ShipClass type) {
+        if (player.level().isClientSide || type == null) return ItemStack.EMPTY;
+        ShipSuperstructurePlan plan = ShipSuperstructureData.defaults(type);
+        ShipBill bill = shipBill(null, plan);
+        if (!hasShipBill(player, bill)) return ItemStack.EMPTY;
+        ItemStack result = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
+        CompoundTag pack = new CompoundTag();
+        pack.putInt("Version", 2);
+        pack.putInt("GeometryVersion", 9);
+        pack.putInt("RigLevel", 1);
+        pack.putInt("FabricQuality", 1);
+        pack.put("Superstructure", ShipSuperstructureData.save(plan));
+        ShipDesign base = ShipDesign.defaults();
+        ShipDesign design = new ShipDesign(type.name().toLowerCase(java.util.Locale.ROOT),
+                base.hullWood(), base.mastWood(), base.sailColor(), base.flagPattern(),
+                base.flagSymbol(), base.cabinStyle());
+        pack.put("Design", design.save());
+        pack.put("Modules", new ListTag());
+        pack.put("BlockCargo", new ListTag());
+        CompoundTag root = new CompoundTag();
+        root.put("FirstShipPack", pack);
+        result.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
+        FirstShipEntity verifier = RaftContent.FIRST_SHIP.get().create(player.level());
+        if (verifier == null || !verifier.loadPacked(result)) return ItemStack.EMPTY;
+        takeShipBill(player, bill);
+        return result;
+    }
+
+    public static ItemStack modifyVoxelShip(Player player, ItemStack original, int action) {
+        if (player.level().isClientSide) return ItemStack.EMPTY;
+        ShipSuperstructurePlan before = readShipPlan(original);
+        ShipSuperstructurePlan next = nextShipPlan(before, action);
+        if (next == null) return ItemStack.EMPTY;
+        CompoundTag root = original.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        CompoundTag pack = root.getCompound("FirstShipPack").copy();
+        if (!pack.contains("BlockCargo", Tag.TAG_LIST) && !pack.contains("Modules", Tag.TAG_LIST))
+            return ItemStack.EMPTY;
+        // The current V9 constructor validates that all attached cargo survives the new footprint.
+        ListTag cargo = pack.getList("BlockCargo", Tag.TAG_COMPOUND);
+        if (!ShipHullV9.validCargo(before, cargo) || !ShipHullV9.validCargo(next, cargo))
+            return ItemStack.EMPTY;
+        ShipBill bill = shipBill(before, next);
+        if (!hasShipBill(player, bill)) return ItemStack.EMPTY;
+        pack.put("Superstructure", ShipSuperstructureData.save(next));
+        root.put("FirstShipPack", pack);
+        ItemStack changed = original.copy();
+        changed.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
+        FirstShipEntity verifier = RaftContent.FIRST_SHIP.get().create(player.level());
+        if (verifier == null || !verifier.loadPacked(changed)) return ItemStack.EMPTY;
+        takeShipBill(player, bill);
+        return changed;
     }
 
     private static int countTag(Player player, net.minecraft.tags.TagKey<net.minecraft.world.item.Item> tag) {
