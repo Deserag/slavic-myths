@@ -18,6 +18,7 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import top.theillusivec4.curios.api.CuriosApi;
 import net.neoforged.neoforge.event.entity.living.LivingShieldBlockEvent;
 import net.neoforged.neoforge.event.entity.player.CriticalHitEvent;
 import org.joml.Vector3f;
@@ -27,6 +28,7 @@ public final class NineMorRewardAbilities {
  private static final String LAST="SlavicNineMorLastVictim";
  private static final String BARRIER="SlavicNineMorBarrierReady";
  private static final String DOME="SlavicNineMorDomeReady";
+ private static final String NINTH_LIFE="SlavicNineMorNinthLifeReady";
  private static final DustParticleOptions MOR=new DustParticleOptions(new Vector3f(.44F,.13F,.72F),1.25F);
 
  @SubscribeEvent public static void critical(CriticalHitEvent event){
@@ -148,6 +150,24 @@ public final class NineMorRewardAbilities {
   }
   server.playSound(SoundEvents.SHIELD_BLOCK,1.1F,.85F);
   return InteractionResultHolder.consume(stack);
+ }
+
+ @SubscribeEvent public static void ninthLife(LivingDamageEvent.Pre event){
+  if(!(event.getEntity() instanceof ServerPlayer player)||player.isCreative()||player.isSpectator()||event.getNewDamage()<=0)return;
+  if(event.getNewDamage()<player.getHealth()+player.getAbsorptionAmount())return;
+  long now=player.server.getLevel(net.minecraft.world.level.Level.OVERWORLD).getGameTime();
+  if(now<player.getPersistentData().getLong(NINTH_LIFE))return;
+  boolean equipped=CuriosApi.getCuriosInventory(player)
+      .map(inv->inv.findCurios(stack->stack.is(NineMorContent.AMULET.get())).stream()
+          .anyMatch(curio->"necklace".equals(curio.slotContext().identifier()))).orElse(false);
+  if(!equipped)return;
+  player.getPersistentData().putLong(NINTH_LIFE,now+6000L);
+  event.setNewDamage(0F);
+  player.setHealth(Math.max(1F,player.getHealth()));
+  player.addEffect(new MobEffectInstance(MobEffects.REGENERATION,100,1));
+  player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION,120,1));
+  player.serverLevel().sendParticles(MOR,player.getX(),player.getEyeY(),player.getZ(),65,.7D,1.2D,.7D,.05D);
+  player.playSound(SoundEvents.TOTEM_USE,1F,.7F);
  }
 
  @SubscribeEvent public static void barrier(LivingShieldBlockEvent event){
