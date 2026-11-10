@@ -155,8 +155,15 @@ public final class NetherEncounterSpawns {
                 for(var other:records.encounters.values())
                     if(other.spawned&&other.anchor.distSqr(found)<MIN_DISTANCE*MIN_DISTANCE){nearby=true;break;}
                 if(nearby)continue;
-                var encounter=records.reserve(key,d.key,found);
-                if(spawn(w,d,found,records,encounter))return;
+                // Never persist a failed reservation: later candidates and boss types must
+                // remain eligible. Save the actual anchor only after both pair members spawn.
+                var attempted=previous!=null?previous:new NetherEncounterRecords.Encounter(key,d.key,found,false);
+                if(spawn(w,d,found,records,attempted)){
+                    var saved=records.reserve(key,d.key,found);
+                    records.relocate(saved,found);
+                    records.markSpawned(saved);
+                    return;
+                }
             }
         }
     }
