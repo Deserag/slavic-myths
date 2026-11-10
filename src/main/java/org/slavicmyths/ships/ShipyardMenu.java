@@ -118,6 +118,29 @@ public final class ShipyardMenu extends AbstractContainerMenu {
                 return false;
             }
             input.setItem(0, created);
+        } else if (action >= 34 && action <= 37) {
+            if (!input.isEmpty()) return false;
+            ShipSectionPlan.ShipClass type =
+                    ShipSectionPlan.ShipClass.values()[action - 34];
+            ItemStack created = ShipyardUpgrades.buildVoxelShip(player, type);
+            if (created.isEmpty()) {
+                player.displayClientMessage(Component.literal(
+                        "Не хватает ресурсов для выбранного корпуса или чертёж недоступен"), true);
+                return false;
+            }
+            input.setItem(0, created);
+            player.displayClientMessage(Component.literal(
+                    "Собран корпус " + type.name() + "; установите его на открытой воде"), true);
+        } else if (action >= 40 && action <= 58) {
+            ItemStack updated = ShipyardUpgrades.modifyVoxelShip(player, input.getItem(0), action);
+            if (updated.isEmpty()) {
+                player.displayClientMessage(Component.literal(
+                        "Модификация недоступна: класс, габариты, груз или материалы"), true);
+                return false;
+            }
+            input.setItem(0, updated);
+            player.displayClientMessage(Component.literal(
+                    "Чертёж изменён. Постройка появится после установки упакованного корабля"), true);
         } else if (action >= 20 && action <= 25) {
             ItemStack updated = ShipyardUpgrades.outfitFirstShip(player, input.getItem(0), action);
             if (updated.isEmpty()) {
