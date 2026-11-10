@@ -214,7 +214,7 @@ public final class FirstShipEntity extends Boat {
 
     public int helmLocalZ() {
         ShipSuperstructurePlan plan = superstructure();
-        return geometryVersion() == 9 && plan != null ? -plan.hullLength() / 2
+        return geometryVersion() == 9 && plan != null ? -(int)(plan.hullLength() / 2)
                 + (plan.bridge() ? 4 : plan.cabin() ? 9 : 3) : FirstShipHull.HELM_Z;
     }
     public int helmStandingHeight() {
