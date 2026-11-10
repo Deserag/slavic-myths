@@ -102,6 +102,7 @@ public final class SlavicMyths {
         org.slavicmyths.morovoy.MorovoyStaff.init();
         org.slavicmyths.morovoy.MorovoyRavenContent.init(bus);
         org.slavicmyths.sisters.SisterArtifacts.init(bus);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(org.slavicmyths.sisters.SisterArtifactCommands::register);
         org.slavicmyths.sisters.SistersArmor.init();
         org.slavicmyths.sisters.TremorRune.init();
         org.slavicmyths.sisters.SistersContent.init(bus);
