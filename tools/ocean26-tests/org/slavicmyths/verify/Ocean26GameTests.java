@@ -78,6 +78,44 @@ public final class Ocean26GameTests {
         return (ChestBlockEntity) level.getBlockEntity(position);
     }
 
+    /**
+     * V8 is opt-in for new ships. Verify distinct actual mast/yard blocks for
+     * each cloth tier, cargo-safe packing and complete teardown. Legacy V7
+     * layout remains validated separately by the existing fixtures.
+     */
+    @GameTest(template = "empty", timeoutTicks = 200, batch = "ocean_native")
+    public static void v8SailTiersBuildAndPackWithoutLeavingBlocks(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(12, 4, 12));
+        for (int x = -10; x <= 10; x++)
+            for (int z = -15; z <= 15; z++) {
+                BlockPos water = anchor.offset(x, 0, z);
+                level.setBlock(water.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(water, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 24; y++)
+                    level.setBlock(water.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        for (int tier = 1; tier <= 3; tier++) {
+            t.assertTrue(FirstShipBlockHull.place(level, anchor, 0,
+                    new ListTag(), 1, tier, 8), "V8 tier " + tier + " build failed");
+            int mastTop = tier == 1 ? 13 : tier == 2 ? 14 : 15;
+            BlockPos tip = FirstShipBlockHull.world(anchor, 0, 0, mastTop, -1);
+            t.assertTrue(!level.getBlockState(tip).isAir(),
+                    "V8 tier " + tier + " mast/yard tip absent");
+            if (tier == 3)
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                        anchor, 0, 4, 15, -1)).is(Blocks.DARK_OAK_LOG),
+                        "Tier III broad wooden upper yard missing");
+            t.assertTrue(FirstShipBlockHull.pack(level, anchor, 0, 1, tier, 8) != null,
+                    "V8 tier " + tier + " source geometry changed unexpectedly");
+            t.assertTrue(FirstShipBlockHull.remove(level, anchor, 0, 1, tier, 8),
+                    "V8 tier " + tier + " cannot be packed");
+            t.assertTrue(level.getBlockState(tip).isAir(),
+                    "V8 tier " + tier + " left orphaned mast blocks after packing");
+        }
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 230, batch = "ocean_native")
     public static void captainCrewReboardRotateAndPackCargo(GameTestHelper t) {
         ServerLevel level = t.getLevel();
