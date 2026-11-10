@@ -25,7 +25,7 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
  }
  public static final EnumProperty<Quarter> QUARTER=EnumProperty.create("quarter",Quarter.class);
  public enum Cell implements net.minecraft.util.StringRepresentable {
-  A("a",0,0),B("b",1,0),C("c",2,0),D("d",0,1),E("e",1,1),F("f",2,1),G("g",0,2),H("h",1,2),I("i",2,2);
+  A("a",0,0),B("b",1,0),C("c",2,0),D("d",3,0),E("e",4,0),F("f",0,1),G("g",1,1),H("h",2,1),I("i",3,1),J("j",4,1),K("k",0,2),L("l",1,2),M("m",2,2),N("n",3,2),O("o",4,2),P("p",0,3),Q("q",1,3),R("r",2,3),S("s",3,3),T("t",4,3),U("u",0,4),V("v",1,4),W("w",2,4),X("x",3,4),Y("y",4,4);
   public final String name;public final int dx,dz;Cell(String n,int x,int z){name=n;dx=x;dz=z;}
   @Override public String getSerializedName(){return name;}
  }
@@ -53,7 +53,7 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
   if(nineMor()){
    var world=c.getLevel();BlockPos anchor=c.getClickedPos();
    for(Cell cell:Cell.values()){BlockPos at=anchor.offset(cell.dx,0,cell.dz);
-    if(!world.hasChunkAt(at)||at.getY()>=world.getMaxBuildHeight()||!world.getWorldBorder().isWithinBounds(at)||!world.getBlockState(at).canBeReplaced(c)||c.getPlayer()!=null&&!c.getPlayer().mayUseItemAt(at,c.getClickedFace(),c.getItemInHand()))return null;
+    if(!world.hasChunkAt(at)||at.getY()+5>=world.getMaxBuildHeight()||!world.getWorldBorder().isWithinBounds(at)||!world.getBlockState(at).canBeReplaced(c)||c.getPlayer()!=null&&!c.getPlayer().mayUseItemAt(at,c.getClickedFace(),c.getItemInHand()))return null;
    }
    return defaultBlockState().setValue(FACING,c.getHorizontalDirection().getOpposite());
   }
@@ -161,7 +161,7 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
   if(!(world instanceof net.minecraft.server.level.ServerLevel server))return;
   var particle=switch(kind){case GROVE_GUARDIAN->net.minecraft.core.particles.ParticleTypes.ASH;case ZHARENITSA->net.minecraft.core.particles.ParticleTypes.SMALL_FLAME;case POSTEN->net.minecraft.core.particles.ParticleTypes.SOUL;case MAGMA_LORD->net.minecraft.core.particles.ParticleTypes.SMALL_FLAME;case TUGARIN->net.minecraft.core.particles.ParticleTypes.DRAGON_BREATH;case SKIM->net.minecraft.core.particles.ParticleTypes.CLOUD;case VOLKOLAK->net.minecraft.core.particles.ParticleTypes.SMOKE;case PODZEMNIK->net.minecraft.core.particles.ParticleTypes.ASH;case LIKHO->net.minecraft.core.particles.ParticleTypes.SOUL;case MOR_LIKHO->net.minecraft.core.particles.ParticleTypes.CRIMSON_SPORE;case MOROVOY_RAVEN->net.minecraft.core.particles.ParticleTypes.ASH;case MOR_SERPENT->net.minecraft.core.particles.ParticleTypes.SOUL;case MOROVOY_FIRE_ZMEY->net.minecraft.core.particles.ParticleTypes.DRAGON_BREATH;case FIRE_SERPENT->net.minecraft.core.particles.ParticleTypes.DRAGON_BREATH;case NINE_MOR_SERPENT->net.minecraft.core.particles.ParticleTypes.SOUL;};
   double height=Math.min(kind.height,1.8);
-  double cx=anchor.getX()+(ravenLong()?.5:nineMor()?1.5:kind.wide()?1:.5),cz=anchor.getZ()+(ravenLong()?.5:nineMor()?1.5:kind.wide()?1:.5);
+  double cx=anchor.getX()+(ravenLong()?.5:nineMor()?2.5:kind.wide()?1:.5),cz=anchor.getZ()+(ravenLong()?.5:nineMor()?1.5:kind.wide()?1:.5);
   server.sendParticles(particle,cx,anchor.getY()+height*.5,cz,kind.wide()?45:24,kind.wide()?.62:.325,height*.35,kind.wide()?.62:.325,.06);
   if(kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY)server.sendParticles(net.minecraft.core.particles.ParticleTypes.SMALL_FLAME,cx+.40,anchor.getY()+.45,cz-.20,18,.24,.17,.3,.035);
  }
@@ -170,7 +170,7 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
  @Override public net.minecraft.nbt.CompoundTag getUpdateTag(net.minecraft.core.HolderLookup.Provider lookup){return saveWithoutMetadata(lookup);}
 public net.minecraft.world.phys.AABB getRenderBoundingBox(){
  TrophyHeadBlock block=(TrophyHeadBlock)getBlockState().getBlock();
- if(block.kind==TrophyHeads.Kind.NINE_MOR_SERPENT)return new net.minecraft.world.phys.AABB(worldPosition).expandTowards(2,1,2);
+ if(block.kind==TrophyHeads.Kind.NINE_MOR_SERPENT)return new net.minecraft.world.phys.AABB(worldPosition).expandTowards(5,6,5);
  if(block.kind==TrophyHeads.Kind.MOROVOY_RAVEN){Direction face=getBlockState().getValue(FACING);return new net.minecraft.world.phys.AABB(worldPosition).expandTowards(face.getStepX(),0,face.getStepZ()).inflate(.125);}
  return new net.minecraft.world.phys.AABB(worldPosition).expandTowards(block.kind.wide()?1:0,block.kind.height-1,block.kind.wide()?1:0);
 }}
