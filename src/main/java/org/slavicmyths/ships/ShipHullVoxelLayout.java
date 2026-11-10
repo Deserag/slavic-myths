@@ -119,12 +119,14 @@ public final class ShipHullVoxelLayout {
                 }
             // Outward opening door on the forward wall.
             put(blocks, 0, 5, front, Part.DOOR);
+            put(blocks, 0, 6, front, Part.DOOR);
         }
 
         // The bridge is elevated over the stern; it uses the SAME HELM as the
         // rest of the vessel. Only one helm control position is generated.
         if (plan.bridge()) {
-            int rear = -halfLength + 2, front = rear + 6;
+            // A shorter quarterdeck keeps the forward mast on medium ships clear.
+            int rear = -halfLength + 2, front = rear + 4;
             int side = Math.min(3, plan.hullWidth() / 2 - 2);
             for (int z = rear; z <= front; z++)
                 for (int x = -side; x <= side; x++) {
