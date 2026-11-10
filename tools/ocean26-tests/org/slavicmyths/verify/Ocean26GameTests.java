@@ -365,10 +365,14 @@ public final class Ocean26GameTests {
                 t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
                         0, 2, 12, 0)).is(Blocks.SPRUCE_PLANKS),
                         type + " third deck floor is absent");
+            BlockPos movedAnchor = anchor.offset(0, 0, 1);
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.rebuild(level,
+                    anchor, 0, maximum, movedAnchor, 0, maximum),
+                    type + " maximum hull could not advance with real blocks");
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.pack(level,
-                    anchor, 0, maximum) != null, type + " maximum hull packing failed");
+                    movedAnchor, 0, maximum) != null, type + " maximum hull packing failed");
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
-                    anchor, 0, maximum), type + " maximum hull removal failed");
+                    movedAnchor, 0, maximum), type + " maximum hull removal failed");
         }
         menu.removed(builder);
         builder.discard();
