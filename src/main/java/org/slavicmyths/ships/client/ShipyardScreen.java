@@ -386,6 +386,11 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
      * distinct physical block column of the current buildable blueprint.
      */
     private void drawBlueprint(GuiGraphics graphics) {
+        if (chosen >= 5) {
+            drawPlanView(graphics, ShipSuperstructureData.defaults(
+                    ShipSectionPlan.ShipClass.values()[chosen - 5]), null);
+            return;
+        }
         int width = chosen == 4 ? FirstShipHull.WIDTH :
                 chosen == 0 || chosen == 1 ? 3 : 5;
         int length = chosen == 4 ? FirstShipHull.LENGTH :
@@ -426,8 +431,13 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         ShipSuperstructurePlan old = ShipyardUpgrades.readShipPlan(menu.inspected());
         if (old == null) return;
         ShipSuperstructurePlan next = ShipyardUpgrades.nextShipPlan(old, V9_ACTIONS[chosen]);
+        drawPlanView(graphics, old, next);
+    }
+
+    private void drawPlanView(GuiGraphics graphics, ShipSuperstructurePlan old,
+                              ShipSuperstructurePlan next) {
         ShipSuperstructurePlan shown = next == null ? old : next;
-        int cell = shown.hullLength() > 33 ? 1 : 2;
+        int cell = shown.hullLength() > 25 ? 1 : 2;
         int originX = 214 - shown.hullWidth() * cell / 2;
         int originY = 78;
         graphics.drawString(font, "СВЕРХУ", 200, 70, DARK, false);
