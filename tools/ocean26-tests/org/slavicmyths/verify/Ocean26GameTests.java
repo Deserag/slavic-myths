@@ -197,7 +197,8 @@ public final class Ocean26GameTests {
                     level.setBlock(at.above(y), Blocks.AIR.defaultBlockState(), 2);
             }
         var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(
-                org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM);
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM)
+                .resize(1, 1).withDecks(2).withBridge(true);
         ServerPlayer builder = player(level, "OceanModularBuilder",
                 new Vec3(anchor.getX() + 15D, anchor.getY() + 10D, anchor.getZ()));
         builder.getAbilities().instabuild = true;
@@ -215,6 +216,11 @@ public final class Ocean26GameTests {
         ServerPlayer captain = player(level, "ModularCaptain",
                 new Vec3(ship.getX(), ship.deckY(), ship.getZ() + ship.helmSeatZ()));
         t.assertTrue(captain.startRiding(ship), "Modular captain could not operate wheel");
+        ServerPlayer upperWalker = player(level, "ModularUpperWalker",
+                new Vec3(ship.getX() + 2D, ship.getY() + 9.02D, ship.getZ()));
+        ServerPlayer bridgeWalker = player(level, "ModularBridgeWalker",
+                new Vec3(ship.getX() + 1D, ship.getY() + 10.02D,
+                        ship.getZ() - config.length() / 2D + 4D));
         double startZ = ship.getZ();
         t.runAtTickTime(5L, () -> {
             t.assertTrue(ship.helmStep(captain, FirstShipNetwork.FORWARD),
@@ -232,6 +238,16 @@ public final class Ocean26GameTests {
             t.assertTrue(ship.isMoving() && ship.getZ() > startZ + .10D,
                     "Modular ship has no genuine forward motion");
             t.assertTrue(captain.getVehicle() == ship, "Modular captain was detached");
+            FirstShipHull.Point upperLocal = FirstShipHull.toLocal(upperWalker.getX(),
+                    upperWalker.getZ(), ship.getX(), ship.getZ(), ship.getYRot());
+            FirstShipHull.Point bridgeLocal = FirstShipHull.toLocal(bridgeWalker.getX(),
+                    bridgeWalker.getZ(), ship.getX(), ship.getZ(), ship.getYRot());
+            t.assertTrue(Math.abs(upperLocal.x() - 2D) < .12D
+                    && Math.abs(upperLocal.z()) < .12D,
+                    "Second-deck walker was left behind by modular ship");
+            t.assertTrue(Math.abs(bridgeLocal.x() - 1D) < .12D
+                    && Math.abs(bridgeLocal.z() - (-config.length() / 2D + 4D)) < .12D,
+                    "Bridge walker was left behind by modular ship");
             CompoundTag saved = new CompoundTag();
             ship.saveWithoutId(saved);
             var restored = org.slavicmyths.ships.ShipMovingContraption.load(
@@ -241,6 +257,8 @@ public final class Ocean26GameTests {
                     "Modular ship NBT snapshot or hull palette lost on save");
             captain.stopRiding();
             captain.discard();
+            upperWalker.discard();
+            bridgeWalker.discard();
             builder.discard();
             ship.discard();
             level.getChunkSource().removeRegionTicket(VOYAGE_TICKET,
