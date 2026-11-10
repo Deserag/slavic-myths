@@ -379,18 +379,35 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         graphics.drawString(font, "Корабельная верфь", 14, 43, 0xfff8e1b5, false);
         graphics.drawString(font, tab == 0 ? "Чертежи судов" : "Установите судно", 18, 54,
                 0xfff2dfbd, false);
-        graphics.drawString(font, tab == 0 ? VESSELS[chosen]
+        ShipBuildConfiguration current = ShipyardModular.configuration(menu.inspected());
+        graphics.drawString(font, tab == 0
+                ? createRafts ? VESSELS[chosen] : CLASS_NAMES[chosen]
                 : vesselKind() == 0 ? "Сначала положите судно в ячейку"
+                : current != null ? MODULAR_OPTIONS[chosen]
                 : vesselKind() == 2 ? SHIP_OPTIONS[chosen] : RAFT_OPTIONS[chosen],
                 202, 52, DARK, false);
-        if (tab == 0) drawBlueprint(graphics);
-        if (tab == 1 && vesselKind() == 2) {
+        if (tab == 0 || current != null) drawBlueprint(graphics);
+        if (tab == 0 && !createRafts) {
+            graphics.drawString(font, "Длина: +" + selectedLength, 18, 164,
+                    0xfff2dfbd, false);
+            graphics.drawString(font, "Ширина: +" + selectedWidth, 18, 185,
+                    0xfff2dfbd, false);
+        }
+        if (tab == 1 && current != null) {
+            graphics.drawString(font, "Размер: " + current.width() + "×" + current.length()
+                    + "  Палуб: " + current.decks(), 202, 66, DARK, false);
+            graphics.drawString(font, "Мачт: " + current.sailTiers().size()
+                    + "  Мостик: " + (current.bridge() ? "да" : "нет")
+                    + "  Каюта: " + (current.cabin() ? "да" : "нет"),
+                    202, 78, DARK, false);
+        }
+        if (tab == 1 && current == null && vesselKind() == 2) {
             int level = ShipyardUpgrades.shipRigLevel(menu.inspected());
             int fabric = ShipyardUpgrades.shipFabric(menu.inspected());
             graphics.drawString(font, "Оснастка: " + level + "/4     Парус: " + fabric + "/3",
                     202, 67, DARK, false);
         }
-        if (tab == 1 && vesselKind() == 2) {
+        if (tab == 1 && current == null && vesselKind() == 2) {
             int tier = ShipyardUpgrades.shipFabric(menu.inspected());
             double power = tier == 0 ? 0.16D : tier == 1 ? 0.40D : tier == 2 ? 0.68D : 1D;
             graphics.drawString(font, "Тяга текущего паруса: " + (int)Math.round(power * 100D) + "% (базовая оснастка)",
