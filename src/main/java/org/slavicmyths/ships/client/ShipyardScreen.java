@@ -561,78 +561,117 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
      * These are intentionally not decorative models: each colored cell is a
      * distinct physical block column of the current buildable blueprint.
      */
+    /**
+     * Compact schematic with ONE consistent scale per view.
+     *
+     * Never stretch the 25x45 deck into a 68x29 rectangle: the previous
+     * independent X/Z scales turned every keel into a barcode. Existing blocks
+     * use wooden colors; changed sections are outlined green.
+     */
     private void drawBlueprint(GuiGraphics graphics) {
-        final int blue = 0xff337b9f, added = 0xff338c59;
         ShipBuildConfiguration original = tab == 1 ? currentConfig() : null;
         ShipBuildConfiguration candidate = tab == 0 ? creationConfig() : nextConfig();
         ShipBuildConfiguration design = candidate != null ? candidate : original;
-        graphics.drawString(font, "СВЕРХУ", 204, 58, DARK, false);
-        graphics.drawString(font, "СБОКУ", 300, 58, DARK, false);
-        graphics.drawString(font, "СПЕРЕДИ", 393, 58, DARK, false);
+        final int timber = 0xff98653d, deck = 0xffc79861;
+        final int rail = 0xff68452b, highlight = 0xff2c9957;
+        final int sail = 0xffded2b6, ink = 0xff40301e;
+        graphics.drawString(font, "ПЛАН", 221, 58, ink, false);
+        graphics.drawString(font, "ПРОФИЛЬ", 304, 58, ink, false);
+        graphics.drawString(font, "НОС", 416, 58, ink, false);
 
-        if (design != null) {
-            int width = design.width(), length = design.length(), halfLength = length / 2;
-            for (int z = -halfLength; z <= halfLength; z++) {
-                int half = ShipHullVoxelLayout.halfBeam(design.structure(), z);
-                int previous = original == null || Math.abs(z) > original.length() / 2
-                        ? -1 : ShipHullVoxelLayout.halfBeam(original.structure(), z);
-                for (int x = -half; x <= half; x++) {
-                    int bx = 246 + x * 68 / Math.max(width, 1);
-                    int by = 69 + (z + halfLength) * 29 / Math.max(length, 1);
-                    int color = original != null && Math.abs(x) > previous ? added : blue;
-                    graphics.fill(bx, by, bx + Math.max(1, 68 / width),
-                            by + Math.max(1, 29 / length), color);
-                }
-                int sx = 300 + (z + halfLength) * 83 / Math.max(length, 1);
-                graphics.fill(sx, 93, sx + 1, 100, blue);
-                for (int floor = 2; floor <= design.decks(); floor++)
-                    graphics.fill(sx, 93 - (floor - 1) * 5,
-                            sx + 1, 94 - (floor - 1) * 5,
-                            original != null && original.decks() >= floor ? blue : added);
-            }
-            for (int x = -width / 2; x <= width / 2; x++) {
-                int px = 425 + x * 56 / Math.max(width, 1);
-                graphics.fill(px, 93, px + Math.max(1, 56 / width), 100,
-                        original != null && Math.abs(x) > original.width() / 2 ? added : blue);
-            }
-            for (int mast = 0; mast < design.sailTiers().size(); mast++) {
-                int z = design.structure().mastPositions().get(mast);
-                int mx = 300 + (z + halfLength) * 83 / Math.max(length, 1);
-                int top = switch (design.sailTiers().get(mast)) {
-                    case 1 -> 12; case 2 -> 15; default -> 19;
-                };
-                int color = original != null && (mast >= original.sailTiers().size()
-                        || !original.sailTiers().get(mast).equals(design.sailTiers().get(mast)))
-                        ? added : blue;
-                graphics.fill(mx, 100 - Math.min(25, top + 3), mx + 2, 96, color);
-                graphics.fill(mx - 3, 83, mx + 5, 84, color);
-            }
-            if (design.cabin()) graphics.fill(304, 86, 318, 94,
-                    original != null && original.cabin() ? blue : added);
-            if (design.bridge()) graphics.fill(304, 79, 322, 81,
-                    original != null && original.bridge() ? blue : added);
-            graphics.drawString(font, "Размер " + width + "×" + length
-                    + "  |  мачты " + design.sailTiers().size()
-                    + "  |  палубы " + design.decks(), 201, 104, DARK, false);
-        } else {
+        if (design == null) {
             int width = chosen == 4 ? FirstShipHull.WIDTH
                     : chosen == 0 || chosen == 1 ? 3 : 5;
             int length = chosen == 4 ? FirstShipHull.LENGTH
                     : chosen == 0 || chosen == 2 ? 3 : chosen == 1 ? 5 : 7;
-            for (int z = 0; z < length; z++) {
-                int half = chosen == 4
-                        ? (int)Math.floor(FirstShipHull.halfBeam(z - length / 2)) : width / 2;
-                for (int x = -half; x <= half; x++) {
-                    int px = 246 + x * 55 / Math.max(width, 1);
-                    int py = 69 + z * 29 / Math.max(length, 1);
-                    graphics.fill(px, py, px + 2, py + 2, blue);
-                }
-                int sx = 300 + z * 83 / Math.max(length, 1);
-                graphics.fill(sx, 93, sx + 2, chosen == 4 ? 100 : 96, blue);
-            }
-            graphics.fill(407, 93, 443, chosen == 4 ? 100 : 96, blue);
-            graphics.drawString(font, "Размер " + width + "×" + length, 201, 104, DARK, false);
+            int x = 246 - width * 2, y = 83 - length * 2;
+            graphics.fill(x, y, x + width * 4, y + length * 4, deck);
+            graphics.fill(x, y, x + width * 4, y + 1, rail);
+            graphics.fill(304, 91, 350, 99, timber);
+            graphics.fill(414, 92, 444, 101, timber);
+            graphics.drawString(font, width + "×" + length, 204, 104, ink, false);
+            return;
         }
+
+        int width = design.width(), length = design.length(), halfLength = length / 2;
+        double topScale = Math.min(43D / width, 38D / length);
+        int cx = 246, topY = 67;
+        for (int z = -halfLength; z <= halfLength; z++) {
+            int beam = ShipHullVoxelLayout.halfBeam(design.structure(), z);
+            int oldBeam = original == null || Math.abs(z) > original.length() / 2
+                    ? -1 : ShipHullVoxelLayout.halfBeam(original.structure(), z);
+            int top = topY + (int)Math.floor((z + halfLength) * topScale);
+            int bottom = topY + (int)Math.ceil((z + halfLength + 1) * topScale);
+            int left = cx - (int)Math.ceil((beam + .5D) * topScale);
+            int right = cx + (int)Math.ceil((beam + .5D) * topScale);
+            graphics.fill(left, top, right + 1, Math.max(top + 1, bottom), deck);
+            graphics.fill(left, top, left + 1, Math.max(top + 1, bottom), rail);
+            graphics.fill(right, top, right + 1, Math.max(top + 1, bottom), rail);
+            if (original != null && (oldBeam < 0 || beam > oldBeam)) {
+                graphics.fill(left, top, left + 1, Math.max(top + 1, bottom), highlight);
+                graphics.fill(right, top, right + 1, Math.max(top + 1, bottom), highlight);
+            }
+        }
+        for (int mast = 0; mast < design.sailTiers().size(); mast++) {
+            int z = design.structure().mastPositions().get(mast);
+            int y = topY + (int)Math.round((z + halfLength + .5D) * topScale);
+            int color = original == null || mast < original.sailTiers().size()
+                    && original.sailTiers().get(mast).equals(design.sailTiers().get(mast))
+                    ? ink : highlight;
+            graphics.fill(cx - 3, y, cx + 4, y + 2, color);
+        }
+
+        // Profile: a shaped timber hull with elevated bow/stern and
+        // independently sized masts; not a repeated column barcode.
+        int sideX = 300, bottomY = 101;
+        for (int z = -halfLength; z <= halfLength; z++) {
+            int x = sideX + (int)Math.floor((z + halfLength) * 85D / length);
+            int nextX = sideX + (int)Math.ceil((z + halfLength + 1) * 85D / length);
+            int end = Math.abs(z) - (halfLength - 4);
+            int lift = end > 0 ? Math.min(4, end) : 0;
+            int top = 94 - lift, bottom = bottomY - lift / 2;
+            graphics.fill(x, top, Math.max(x + 1, nextX), bottom, timber);
+            graphics.fill(x, top, Math.max(x + 1, nextX), top + 1, rail);
+            if (original != null && Math.abs(z) > original.length() / 2)
+                graphics.fill(x, top, Math.max(x + 1, nextX), top + 1, highlight);
+            for (int floor = 2; floor <= design.decks(); floor++) {
+                int level = top - 4 * (floor - 1);
+                graphics.fill(x, level, Math.max(x + 1, nextX), level + 1,
+                        original != null && original.decks() >= floor ? rail : highlight);
+            }
+        }
+        for (int mast = 0; mast < design.sailTiers().size(); mast++) {
+            int z = design.structure().mastPositions().get(mast);
+            int x = sideX + (int)Math.round((z + halfLength) * 85D / length);
+            int tier = design.sailTiers().get(mast);
+            int top = tier == 1 ? 79 : tier == 2 ? 74 : 69;
+            boolean changed = original != null
+                    && (mast >= original.sailTiers().size()
+                        || !original.sailTiers().get(mast).equals(tier));
+            int tone = changed ? highlight : rail;
+            graphics.fill(x, top - 2, x + 2, 94, tone);
+            graphics.fill(x - 5, top, x + 7, top + 2, tone);
+            for (int y = top + 2; y < 89; y++)
+                graphics.fill(x + 2, y, x + 5, y + 1, sail);
+        }
+        if (design.cabin()) graphics.fill(307, 82, 326, 94,
+                original != null && original.cabin() ? timber : highlight);
+        if (design.bridge()) graphics.fill(306, 79, 327, 81,
+                original != null && original.bridge() ? rail : highlight);
+
+        // Head-on bow shape, centered, with real width proportion.
+        int frontCenter = 428, frontHalf = (int)Math.round(Math.min(23D, width * 23D / 29D));
+        graphics.fill(frontCenter - frontHalf, 94, frontCenter + frontHalf + 1, 97, timber);
+        graphics.fill(frontCenter - frontHalf + 3, 97, frontCenter + frontHalf - 2, 100, timber);
+        graphics.fill(frontCenter - Math.max(2, frontHalf / 2), 100,
+                frontCenter + Math.max(2, frontHalf / 2) + 1, 102, rail);
+        graphics.fill(frontCenter - frontHalf, 91,
+                frontCenter - frontHalf + 2, 95, rail);
+        graphics.fill(frontCenter + frontHalf - 1, 91,
+                frontCenter + frontHalf + 1, 95, rail);
+        graphics.drawString(font, width + "×" + length + " | "
+                + design.sailTiers().size() + " мачт. | "
+                + design.decks() + " пал.", 202, 105, ink, false);
     }
 
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partial) {
