@@ -74,7 +74,10 @@ public final class ShipHullVoxelLayout {
         // The closed full-width floor stays at Y=0 to preserve the dry hold.
         for (int z = -halfLength; z <= halfLength; z++) {
             int half = halfBeam(plan, z, version);
-            int deckHalf = version == 2 ? Math.max(0, half - 1) : half;
+            // A 7-block beam must retain its original deck cargo positions:
+            // x=±2 cannot become decorative railing on the smallest class.
+            int deckInset = version == 2 && plan.hullWidth() > 7 ? 1 : 0;
+            int deckHalf = Math.max(0, half - deckInset);
             int previous = halfBeam(plan, z - 1, version);
             int next = halfBeam(plan, z + 1, version);
             for (int x = -half; x <= half; x++) {
@@ -94,8 +97,8 @@ public final class ShipHullVoxelLayout {
                     if (edge) for (int y = 1; y <= 2; y++)
                         put(blocks, x, y, z, Part.HULL);
                     boolean upperEdge = Math.abs(x) == deckHalf
-                            || Math.abs(x) > Math.max(0, previous - 1)
-                            || Math.abs(x) > Math.max(0, next - 1);
+                            || Math.abs(x) > Math.max(0, previous - deckInset)
+                            || Math.abs(x) > Math.max(0, next - deckInset);
                     if (Math.abs(x) <= deckHalf) {
                         if (upperEdge) put(blocks, x, 3, z, Part.HULL);
                         else if (Math.floorMod(z, 4) == 0)
