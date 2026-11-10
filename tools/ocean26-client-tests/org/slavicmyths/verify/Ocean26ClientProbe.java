@@ -3,6 +3,9 @@ package org.slavicmyths.verify;
 import java.util.UUID;
 import java.nio.file.Files;
 import java.io.IOException;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Screenshot;
 import net.minecraft.client.CameraType;
@@ -19,6 +22,11 @@ import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.FirstShipHull;
 import org.slavicmyths.ships.ShipRigidMotion;
+import org.slavicmyths.ships.ShipBuildConfiguration;
+import org.slavicmyths.ships.ShipModularBlockHull;
+import org.slavicmyths.ships.ShipSectionPlan;
+import org.slavicmyths.ships.ShipyardModular;
+import org.slavicmyths.ships.RaftContent;
 
 /** Disposable real-client input/network probe; excluded from production JAR. */
 @EventBusSubscriber(modid = "slavicmyths", value = Dist.CLIENT)
@@ -28,6 +36,8 @@ public final class Ocean26ClientProbe {
     private static final boolean RAIL = Boolean.getBoolean("ocean26.rail");
     private static final boolean HOLD = Boolean.getBoolean("ocean26.hold");
     private static final boolean VISUAL = Boolean.getBoolean("ocean26.visual");
+    private static final boolean MODULAR_VISUAL = Boolean.getBoolean("ocean26.modularVisual");
+    private static volatile boolean modularSetupRequested, modularReady;
     private static int phase;
     private static volatile int elapsed;
     private static UUID shipId;
@@ -67,9 +77,49 @@ public final class Ocean26ClientProbe {
         MinecraftServer server = mc.getSingleplayerServer();
         if (mc.player == null || mc.level == null || server == null) return;
         if (phase == 0) {
+            if (MODULAR_VISUAL && !modularSetupRequested) {
+                modularSetupRequested = true;
+                UUID playerId = mc.player.getUUID();
+                server.execute(() -> {
+                    ServerPlayer player = server.getPlayerList().getPlayer(playerId);
+                    var level = server.getLevel(Level.OVERWORLD);
+                    if (player == null || level == null) return;
+                    BlockPos anchor = player.blockPosition().offset(64,
+                            Math.max(70, player.getBlockY() + 30) - player.getBlockY(), 0);
+                    for (int x = -12; x <= 12; x++)
+                        for (int z = -18; z <= 18; z++) {
+                            BlockPos pos = anchor.offset(x, 0, z);
+                            level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
+                            level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
+                            for (int y = 1; y <= 25; y++)
+                                level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
+                        }
+                    var config = ShipBuildConfiguration.initial(ShipSectionPlan.ShipClass.MEDIUM)
+                            .resize(1, 1).withSail(1, 2).withDecks(2)
+                            .withBridge(true).withCabin(true);
+                    boolean oldCreative = player.getAbilities().instabuild;
+                    player.getAbilities().instabuild = true;
+                    var item = ShipyardModular.build(player, config);
+                    player.getAbilities().instabuild = oldCreative;
+                    FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
+                    if (ship == null || item.isEmpty()) return;
+                    ship.initializeNativeHull(anchor, 0);
+                    if (!ship.loadPacked(item) || !ShipModularBlockHull.place(level,
+                            anchor, 0, config, new ListTag()) || !level.addFreshEntity(ship)) return;
+                    shipId = ship.getUUID();
+                    player.teleportTo(ship.getX(), ship.deckY() + 2D, ship.getZ() - 6D);
+                    modularReady = true;
+                });
+                return;
+            }
+            if (MODULAR_VISUAL && !modularReady) {
+                if (++elapsed > 400) fail(mc, "modular visual fixture could not be created");
+                return;
+            }
             for (FirstShipEntity ship : mc.level.getEntitiesOfClass(FirstShipEntity.class,
                     new AABB(mc.player.blockPosition()).inflate(128D, 32D, 128D))) {
                 if (!ship.isNativeHull()) continue;
+                if (MODULAR_VISUAL && !ship.getUUID().equals(shipId)) continue;
                 if (RELOAD) {
                     boolean passed = ship.isMoving() && ship.rigLevel() > 0;
                     System.out.println("OCEAN26_RELOAD_RESULT ship=" + ship.getUUID()

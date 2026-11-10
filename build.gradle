@@ -741,6 +741,7 @@ if (project.hasProperty('ocean26ClientProbe')) {
             systemProperty 'ocean26.rail', project.hasProperty('ocean26RailProbe') ? 'true' : 'false'
             systemProperty 'ocean26.hold', project.hasProperty('ocean26HoldProbe') ? 'true' : 'false'
             systemProperty 'ocean26.visual', project.hasProperty('ocean26VisualProbe') ? 'true' : 'false'
+            systemProperty 'ocean26.modularVisual', project.hasProperty('ocean26ModularVisualProbe') ? 'true' : 'false'
             programArgument '--quickPlaySingleplayer'
             programArgument (project.findProperty('ocean26ProbeWorld') ?: 'OCEAN26_WORLD_REQUIRED')
         }
