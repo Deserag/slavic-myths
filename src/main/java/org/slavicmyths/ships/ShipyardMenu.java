@@ -79,6 +79,75 @@ public final class ShipyardMenu extends AbstractContainerMenu {
 
     @Override public boolean clickMenuButton(Player player, int action) {
         if (!(player instanceof ServerPlayer) || !stillValid(player)) return false;
+        if (action >= 100 && action < 164) {
+            if (!input.isEmpty()) {
+                player.displayClientMessage(Component.literal("Сначала заберите готовое судно"), true);
+                return false;
+            }
+            int value = action - 100;
+            int classId = value / 16, extraLength = (value % 16) / 4;
+            int extraWidth = value % 4;
+            if (classId < 0 || classId >= ShipSectionPlan.ShipClass.values().length) return false;
+            try {
+                ShipBuildConfiguration config = ShipBuildConfiguration.initial(
+                        ShipSectionPlan.ShipClass.values()[classId])
+                        .resize(extraLength, extraWidth);
+                ItemStack created = ShipyardModular.build(player, config);
+                if (created.isEmpty()) {
+                    player.displayClientMessage(Component.literal(
+                            "Недостаточно материалов для этого размера или повреждён чертёж"), true);
+                    return false;
+                }
+                input.setItem(0, created);
+                player.displayClientMessage(Component.literal(
+                        "Корабль " + config.width() + "×" + config.length()
+                                + " готов. Заберите предмет и разместите на воде."), true);
+            } catch (IllegalArgumentException invalid) {
+                player.displayClientMessage(Component.literal(
+                        "Недопустимый класс, длина или ширина корпуса"), true);
+                return false;
+            }
+            broadcastChanges();
+            return true;
+        }
+        if (action >= 200 && action <= 206) {
+            ItemStack current = input.getItem(0);
+            ShipBuildConfiguration config = ShipyardModular.configuration(current);
+            if (config == null) {
+                player.displayClientMessage(Component.literal(
+                        "Для изменения корпуса нужен модульный корабль в ячейке"), true);
+                return false;
+            }
+            try {
+                ShipBuildConfiguration next = switch (action) {
+                    case 200 -> config.resize(config.extraLength() + 1, config.extraWidth());
+                    case 201 -> config.resize(config.extraLength(), config.extraWidth() + 1);
+                    case 202 -> config.withSail(config.sailTiers().size() - 1,
+                            config.sailTiers().get(config.sailTiers().size() - 1) + 1);
+                    case 203 -> config.withSail(config.sailTiers().size(), 1);
+                    case 204 -> config.withDecks(config.decks() + 1);
+                    case 205 -> config.withBridge(true);
+                    default -> config.withCabin(true);
+                };
+                if (next.equals(config)) return false;
+                ItemStack upgraded = ShipyardModular.modify(player, current, next);
+                if (upgraded.isEmpty()) {
+                    player.displayClientMessage(Component.literal(
+                            "Модификация недоступна: проверьте материалы, груз и конструкцию"), true);
+                    return false;
+                }
+                input.setItem(0, upgraded);
+                player.displayClientMessage(Component.literal(
+                        "Конфигурация обновлена; все данные и оборудование сохранены"), true);
+            } catch (IllegalArgumentException invalid) {
+                player.displayClientMessage(Component.literal(
+                        "Недопустимое изменение для класса или размера корабля: "
+                                + invalid.getMessage()), true);
+                return false;
+            }
+            broadcastChanges();
+            return true;
+        }
         if (action == 1) {
             ItemStack current = input.getItem(0);
             ItemStack upgraded = ShipyardUpgrades.upgrade(player, current);
