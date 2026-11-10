@@ -58,8 +58,10 @@ public final class ShipHullVoxelLayout {
             }
         }
         // Access shaft and actual ladders, aligned through every built deck.
-        for (int y = 1; y <= 4 + (plan.decks() - 1) * 4; y++)
+        for (int y = 1; y <= 4 + (plan.decks() - 1) * 4; y++) {
+            put(blocks, -3, y, 1, Part.FRAME);
             put(blocks, -2, y, 1, Part.LADDER);
+        }
         for (int y = 1; y <= 4; y++)
             blocks.remove(new Cell(-2, y, 0));
 
