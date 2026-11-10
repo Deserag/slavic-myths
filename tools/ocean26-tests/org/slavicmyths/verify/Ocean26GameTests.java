@@ -984,6 +984,57 @@ public final class Ocean26GameTests {
         System.out.println("OCEAN26_V6_SAIL_PASS fullCloth=true cargo=17 restored=true migratedV7=true");
         t.succeed();
     }
+    @GameTest(template = "empty", timeoutTicks = 250, batch = "ocean_v9_voxels")
+    public static void multiClassHullPreservesCargoAndPark(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(24, 4, 24));
+        level.getChunkSource().addRegionTicket(VOYAGE_TICKET,
+                new ChunkPos(anchor), 4, anchor.asLong());
+        for (int x = -25; x <= 25; x++) for (int z = -30; z <= 30; z++) {
+            BlockPos p = anchor.offset(x, 0, z);
+            level.setBlock(p.below(), Blocks.WATER.defaultBlockState(), 2);
+            level.setBlock(p, Blocks.WATER.defaultBlockState(), 2);
+            for (int y = 1; y <= 26; y++)
+                level.setBlock(p.above(y), Blocks.AIR.defaultBlockState(), 2);
+        }
+        var plan = new org.slavicmyths.ships.ShipSuperstructurePlan(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
+                java.util.List.of(1, 2), 2, true, true);
+        t.assertTrue(org.slavicmyths.ships.ShipHullV9.place(
+                level, anchor, 0, plan, new ListTag()), "V9 medium construction failed");
+        BlockPos door = org.slavicmyths.ships.ShipHullV9.world(
+                anchor, 0, 0, 5, -plan.hullLength() / 2 + 8);
+        t.assertTrue(level.getBlockState(door).is(Blocks.SPRUCE_DOOR),
+                "V9 captain cabin has no physical door");
+        int masts = 0;
+        for (int z : plan.mastPositions()) if (level.getBlockState(
+                org.slavicmyths.ships.ShipHullV9.world(anchor, 0, 0, 6, z))
+                .is(Blocks.STRIPPED_SPRUCE_LOG)) masts++;
+        t.assertTrue(masts == 2, "V9 physical masts missing");
+        BlockPos cargo = org.slavicmyths.ships.ShipHullV9.world(anchor, 0, 1, 5, 1);
+        level.setBlock(cargo, Blocks.CHEST.defaultBlockState(), 2);
+        chest(level, cargo, t).setItem(0, new ItemStack(Items.EMERALD, 23));
+        ListTag before = org.slavicmyths.ships.ShipHullV9.pack(level, anchor, 0, plan);
+        t.assertTrue(before != null && before.size() == 1,
+                "V9 cargo inspection lost chest");
+        var moving = org.slavicmyths.ships.ShipMovingContraption.prepare(
+                level, anchor, 0, plan);
+        t.assertTrue(moving != null && moving.snapshot().geometry() == 9,
+                "V9 moving payload does not retain geometry version");
+        t.assertTrue(moving.detach(level, anchor), "V9 cannot detach");
+        var loaded = org.slavicmyths.ships.ShipMovingContraption.load(moving.save());
+        t.assertTrue(loaded != null && loaded.snapshot().cargo().size() == 1,
+                "V9 moving persistence lost cargo");
+        t.assertTrue(moving.park(level), "V9 could not park");
+        t.assertTrue(chest(level, cargo, t).getItem(0).getCount() == 23,
+                "V9 cargo count changed after moving transaction");
+        t.assertTrue(org.slavicmyths.ships.ShipHullV9.remove(level, anchor, 0, plan),
+                "V9 cleanup refused restored hull");
+        level.getChunkSource().removeRegionTicket(VOYAGE_TICKET,
+                new ChunkPos(anchor), 4, anchor.asLong());
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 150, batch = "ocean_v8_sails")
     public static void sailTiersKeepPhysicalMastsAndCargo(GameTestHelper t) {
         ServerLevel level = t.getLevel();
