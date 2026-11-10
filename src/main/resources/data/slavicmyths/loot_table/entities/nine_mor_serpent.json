@@ -22,11 +22,6 @@
           "type": "minecraft:item",
           "name": "slavicmyths:nine_mor_axe",
           "weight": 1
-        },
-        {
-          "type": "minecraft:item",
-          "name": "slavicmyths:nine_mor_shield",
-          "weight": 1
         }
       ]
     },
@@ -83,6 +78,21 @@
         {
           "type": "minecraft:item",
           "name": "slavicmyths:nine_mor_amulet"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.33333334
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:nine_mor_shield"
         }
       ]
     }
