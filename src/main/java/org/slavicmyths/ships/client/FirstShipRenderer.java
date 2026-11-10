@@ -286,9 +286,11 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             double cameraX, double cameraY, double cameraZ) {
         // Entity's vanilla boat AABB is much smaller than the 7x11 ship and
         // can be outside the camera while its stern wheel remains visible.
-        return ship.isNativeHull()
-                ? frustum.isVisible(ship.getBoundingBox().inflate(9D, 16D, 9D))
-                : super.shouldRender(ship, frustum, cameraX, cameraY, cameraZ);
+        if (!ship.isNativeHull())
+            return super.shouldRender(ship, frustum, cameraX, cameraY, cameraZ);
+        ShipSuperstructurePlan plan = ship.superstructure();
+        double horizontal = plan == null ? 9D : Math.hypot(plan.hullWidth(), plan.hullLength()) / 2D + 3D;
+        return frustum.isVisible(ship.getBoundingBox().inflate(horizontal, 26D, horizontal));
     }
 
     @Override public ResourceLocation getTextureLocation(FirstShipEntity ship) {
