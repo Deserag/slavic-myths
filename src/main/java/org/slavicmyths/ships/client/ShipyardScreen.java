@@ -48,6 +48,8 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             "Мостик", "Каюта"
     };
     private static final int[] MODULAR_ACTIONS = {200, 201, 207, 208, 209, 210, 203, 204, 205, 206};
+    private static final String[] MODULAR_CATEGORIES = {"Корпус", "Паруса и мачты", "Палубы", "Капитанские помещения"};
+    private static final int[][] MODULAR_GROUPS = {{0, 1}, {6, 2, 3, 4, 5}, {7}, {8, 9}};
     private static final String[] CLASS_NAMES = {
             "Малый", "Средний", "Большой", "Крупнейший"
     };
@@ -59,6 +61,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
 
     private int tab;
     private int chosen;
+    private int modCategory;
     private boolean createRafts;
     private int selectedLength;
     private int selectedWidth;
@@ -69,9 +72,9 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     public ShipyardScreen(ShipyardMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
         imageWidth = 476;
-        imageHeight = 299;
+        imageHeight = 282;
         inventoryLabelX = 198;
-        inventoryLabelY = 195;
+        inventoryLabelY = 180;
     }
 
     private int vesselKind() {
@@ -131,6 +134,24 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     private void switchTab(int id) {
         tab = id;
         chosen = 0;
+        modCategory = 0;
+        rebuild();
+    }
+
+    private void selectClass(int value) {
+        int maximum = createRafts ? VESSELS.length - 1 : CLASS_NAMES.length - 1;
+        chosen = Math.max(0, Math.min(maximum, value));
+        if (!createRafts) {
+            ShipSectionPlan.ShipClass kind = ShipSectionPlan.ShipClass.values()[chosen];
+            selectedLength = Math.min(selectedLength, kind.maxLength);
+            selectedWidth = Math.min(selectedWidth, kind.maxWidth);
+        }
+        rebuild();
+    }
+
+    private void selectModificationCategory(int category) {
+        modCategory = category;
+        chosen = MODULAR_GROUPS[category][0];
         rebuild();
     }
 
@@ -138,66 +159,104 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         clearWidgets();
         String[] tabs = {"Создание корабля", "Модификации"};
         for (int i = 0; i < tabs.length; i++) {
-            final int value = i;
+            final int selectedTab = i;
             Button button = Button.builder(Component.literal(tabs[i]),
-                    clicked -> switchTab(value))
-                    .bounds(leftPos + 12 + 229 * i, topPos + 12, 222, 22).build();
+                    clicked -> switchTab(selectedTab))
+                    .bounds(leftPos + 12 + i * 230, topPos + 9, 222, 22).build();
             button.active = tab != i;
             addRenderableWidget(button);
         }
+
         if (tab == 0) {
             addRenderableWidget(Button.builder(
-                    Component.literal(createRafts ? "Тип: плоты" : "Тип: корабли"),
-                    clicked -> { createRafts = !createRafts; chosen = 0; rebuild(); })
-                    .bounds(leftPos + 18, topPos + 64, 135, 18).build());
+                    Component.literal(createRafts ? "Тип: плоты и старый корабль" : "Тип: корабли"),
+                    clicked -> { createRafts = !createRafts; chosen = 0;
+                        selectedLength = 0; selectedWidth = 0; rebuild(); })
+                    .bounds(leftPos + 16, topPos + 63, 154, 19).build());
+            int maximum = createRafts ? VESSELS.length - 1 : CLASS_NAMES.length - 1;
+            Button previous = Button.builder(Component.literal("◀"),
+                    clicked -> selectClass(chosen - 1))
+                    .bounds(leftPos + 17, topPos + 92, 28, 19).build();
+            previous.active = chosen > 0;
+            addRenderableWidget(previous);
+            Button next = Button.builder(Component.literal("▶"),
+                    clicked -> selectClass(chosen + 1))
+                    .bounds(leftPos + 142, topPos + 92, 28, 19).build();
+            next.active = chosen < maximum;
+            addRenderableWidget(next);
+            if (!createRafts) {
+                ShipSectionPlan.ShipClass kind = ShipSectionPlan.ShipClass.values()[chosen];
+                Button lengthMinus = Button.builder(Component.literal("−"),
+                        clicked -> { selectedLength--; rebuild(); })
+                        .bounds(leftPos + 110, topPos + 121, 27, 18).build();
+                lengthMinus.active = selectedLength > 0;
+                addRenderableWidget(lengthMinus);
+                Button lengthPlus = Button.builder(Component.literal("+"),
+                        clicked -> { selectedLength++; rebuild(); })
+                        .bounds(leftPos + 143, topPos + 121, 27, 18).build();
+                lengthPlus.active = selectedLength < kind.maxLength;
+                addRenderableWidget(lengthPlus);
+                Button widthMinus = Button.builder(Component.literal("−"),
+                        clicked -> { selectedWidth--; rebuild(); })
+                        .bounds(leftPos + 110, topPos + 147, 27, 18).build();
+                widthMinus.active = selectedWidth > 0;
+                addRenderableWidget(widthMinus);
+                Button widthPlus = Button.builder(Component.literal("+"),
+                        clicked -> { selectedWidth++; rebuild(); })
+                        .bounds(leftPos + 143, topPos + 147, 27, 18).build();
+                widthPlus.active = selectedWidth < kind.maxWidth;
+                addRenderableWidget(widthPlus);
+            }
+        } else {
+            ShipBuildConfiguration current = currentConfig();
+            if (current != null) {
+                modCategory = Math.max(0, Math.min(modCategory, MODULAR_CATEGORIES.length - 1));
+                for (int i = 0; i < MODULAR_CATEGORIES.length; i++) {
+                    final int category = i;
+                    int x = 16 + (i % 2) * 80, y = 63 + (i / 2) * 24;
+                    String title = switch (i) {
+                        case 0 -> "Корпус";
+                        case 1 -> "Мачты";
+                        case 2 -> "Палубы";
+                        default -> "Помещения";
+                    };
+                    Button button = Button.builder(Component.literal(title),
+                            clicked -> selectModificationCategory(category))
+                            .bounds(leftPos + x, topPos + y, 75, 20).build();
+                    button.active = modCategory != i;
+                    addRenderableWidget(button);
+                }
+                int[] options = MODULAR_GROUPS[modCategory];
+                boolean found = false;
+                for (int option : options) if (option == chosen) found = true;
+                if (!found) chosen = options[0];
+                for (int index = 0; index < options.length; index++) {
+                    final int option = options[index];
+                    int x = 16 + (index % 2) * 80, y = 118 + (index / 2) * 23;
+                    Button button = Button.builder(Component.literal(MODULAR_OPTIONS[option]),
+                            clicked -> { chosen = option; rebuild(); })
+                            .bounds(leftPos + x, topPos + y, 75, 20).build();
+                    button.active = chosen != option;
+                    addRenderableWidget(button);
+                }
+            } else {
+                String[] options = vesselKind() == 2 ? SHIP_OPTIONS
+                        : vesselKind() == 1 ? RAFT_OPTIONS : new String[0];
+                chosen = Math.max(0, Math.min(chosen, Math.max(0, options.length - 1)));
+                for (int i = 0; i < options.length; i++) {
+                    final int selected = i;
+                    int x = 16 + (i % 2) * 80, y = 93 + (i / 2) * 22;
+                    Button button = Button.builder(Component.literal(options[i]),
+                            clicked -> { chosen = selected; rebuild(); })
+                            .bounds(leftPos + x, topPos + y, 75, 19).build();
+                    button.active = chosen != i;
+                    addRenderableWidget(button);
+                }
+            }
         }
-
-        ShipBuildConfiguration current = currentConfig();
-        String[] options = tab == 0
-                ? createRafts ? VESSELS : CLASS_NAMES
-                : current != null ? MODULAR_OPTIONS
-                : vesselKind() == 2 ? SHIP_OPTIONS
-                : vesselKind() == 1 ? RAFT_OPTIONS : new String[0];
-
-        chosen = Math.max(0, Math.min(chosen, Math.max(0, options.length - 1)));
-        for (int i = 0; i < options.length; i++) {
-            final int value = i;
-            final int x = tab == 0 ? 18 : 16 + (i % 2) * 77;
-            final int y = tab == 0 ? 85 + 18 * i : 99 + (i / 2) * 19;
-            int width = tab == 0 ? 135 : 73;
-            Button button = Button.builder(Component.literal(options[i]),
-                    clicked -> {
-                        chosen = value;
-                        selectedLength = Math.min(selectedLength, ShipSectionPlan.ShipClass.values()[
-                                Math.min(chosen, 3)].maxLength);
-                        selectedWidth = Math.min(selectedWidth, ShipSectionPlan.ShipClass.values()[
-                                Math.min(chosen, 3)].maxWidth);
-                        rebuild();
-                    }).bounds(leftPos + x, topPos + y, width, 17).build();
-            button.active = chosen != i;
-            addRenderableWidget(button);
-        }
-
-        if (tab == 0 && !createRafts) {
-            addRenderableWidget(Button.builder(Component.literal("-"),
-                    clicked -> { selectedLength = Math.max(0, selectedLength - 1); rebuild(); })
-                    .bounds(leftPos + 94, topPos + 159, 24, 17).build());
-            addRenderableWidget(Button.builder(Component.literal("+"),
-                    clicked -> { selectedLength = Math.min(
-                            ShipSectionPlan.ShipClass.values()[chosen].maxLength,
-                            selectedLength + 1); rebuild(); })
-                    .bounds(leftPos + 129, topPos + 159, 24, 17).build());
-            addRenderableWidget(Button.builder(Component.literal("-"),
-                    clicked -> { selectedWidth = Math.max(0, selectedWidth - 1); rebuild(); })
-                    .bounds(leftPos + 94, topPos + 180, 24, 17).build());
-            addRenderableWidget(Button.builder(Component.literal("+"),
-                    clicked -> { selectedWidth = Math.min(
-                            ShipSectionPlan.ShipClass.values()[chosen].maxWidth,
-                            selectedWidth + 1); rebuild(); })
-                    .bounds(leftPos + 129, topPos + 180, 24, 17).build());
-        }
-        primary = Button.builder(Component.literal(tab == 0 ? "Создать" : "Применить"),
-                clicked -> execute()).bounds(leftPos + 18, topPos + 204, 135, 19).build();
+        primary = Button.builder(Component.literal(tab == 0 ? "Создать корабль" : "Применить улучшение"),
+                clicked -> execute())
+                .bounds(leftPos + 17, topPos + 245, 153, 22).build();
         addRenderableWidget(primary);
         updateButton();
     }
