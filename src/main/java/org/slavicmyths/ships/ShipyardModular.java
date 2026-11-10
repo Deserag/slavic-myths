@@ -127,7 +127,7 @@ public final class ShipyardModular {
                 && player.getInventory().countItem(RaftContent.SAIL_REINFORCED_MODULE.get()) >= cost.reinforcedSails();
     }
 
-    private static void pay(Player player, Materials cost) {
+    static void pay(Player player, Materials cost) {
         if (player.getAbilities().instabuild) return;
         if (!canPay(player, cost)) throw new IllegalStateException("Shipyard insufficient inventory");
         take(player, ItemTags.LOGS, cost.logs());
@@ -173,20 +173,26 @@ public final class ShipyardModular {
         return item;
     }
 
+    public static boolean compatibleUpgrade(ShipBuildConfiguration old,
+            ShipBuildConfiguration next) {
+        if (old == null || next == null || old.shipClass() != next.shipClass()
+                || next.extraLength() < old.extraLength()
+                || next.extraWidth() < old.extraWidth()
+                || next.decks() < old.decks()
+                || old.bridge() && !next.bridge()
+                || old.cabin() && !next.cabin()
+                || next.sailTiers().size() < old.sailTiers().size()) return false;
+        for (int i = 0; i < old.sailTiers().size(); i++)
+            if (next.sailTiers().get(i) < old.sailTiers().get(i)) return false;
+        return true;
+    }
+
     public static ItemStack modify(Player player, ItemStack original,
             ShipBuildConfiguration next) {
         if (player.level().isClientSide || original.isEmpty() || next == null)
             return ItemStack.EMPTY;
         ShipBuildConfiguration old = configuration(original);
-        if (old == null || old.shipClass() != next.shipClass()
-                || next.extraLength() < old.extraLength()
-                || next.extraWidth() < old.extraWidth()
-                || next.decks() < old.decks()
-                || old.bridge() && !next.bridge()
-                || old.cabin() && !next.cabin()) return ItemStack.EMPTY;
-        if (next.sailTiers().size() < old.sailTiers().size()) return ItemStack.EMPTY;
-        for (int i = 0; i < old.sailTiers().size(); i++)
-            if (next.sailTiers().get(i) < old.sailTiers().get(i)) return ItemStack.EMPTY;
+        if (!compatibleUpgrade(old, next)) return ItemStack.EMPTY;
         CompoundTag root = original.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
         CompoundTag packed = root.getCompound("FirstShipPack").copy();
         packed.put(ShipBuildConfiguration.NBT_KEY, next.save());
