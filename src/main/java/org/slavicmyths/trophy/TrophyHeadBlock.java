@@ -82,7 +82,14 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
  }
  @Override public void setPlacedBy(Level w,BlockPos p,BlockState s,LivingEntity e,ItemStack stack){
   if(w.isClientSide)return;
-  if(nineMor()){for(Cell cell:Cell.values())if(cell!=Cell.A)w.setBlock(p.offset(cell.dx,0,cell.dz),s.setValue(CELL,cell),3);return;}
+  if(nineMor()){
+   for(Cell cell:Cell.values())if(cell!=Cell.A)w.setBlock(p.offset(cell.dx,0,cell.dz),s.setValue(CELL,cell),3);
+   BlockState reserve=TrophyHeads.NINE_RESERVE.get().defaultBlockState();
+   for(int y=1;y<6;y++)for(Cell cell:Cell.values()){
+    w.setBlock(p.offset(cell.dx,y,cell.dz),reserve.setValue(TrophyHeadReserveBlock.CELL,cell).setValue(TrophyHeadReserveBlock.Y_OFFSET,y),3);
+   }
+   return;
+  }
   if(ravenLong()){w.setBlock(p.relative(s.getValue(FACING)),s.setValue(QUARTER,Quarter.NE),3);return;}
   if(kind.wide()){
    for(Quarter q:Quarter.values())if(q!=Quarter.NW)w.setBlock(widePos(p,s.getValue(FACING),q),s.setValue(QUARTER,q),3);
@@ -120,7 +127,19 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
   super.onRemove(s,w,p,next,moving);
   if(w.isClientSide||s.is(next.getBlock()))return;
   if(nineMor()){
-   if(s.getValue(CELL)==Cell.A){breakBurst(w,p);for(Cell cell:Cell.values())if(cell!=Cell.A){BlockPos at=p.offset(cell.dx,0,cell.dz);if(w.getBlockState(at).is(this))w.removeBlock(at,false);}}
+   if(s.getValue(CELL)==Cell.A){
+    breakBurst(w,p);
+    for(Cell cell:Cell.values())if(cell!=Cell.A){
+     BlockPos at=p.offset(cell.dx,0,cell.dz);
+     BlockState other=w.getBlockState(at);
+     if(other.is(this)&&other.getValue(CELL)==cell)w.removeBlock(at,false);
+    }
+    for(int y=1;y<6;y++)for(Cell cell:Cell.values()){
+     BlockPos at=p.offset(cell.dx,y,cell.dz);
+     BlockState other=w.getBlockState(at);
+     if(other.is(TrophyHeads.NINE_RESERVE.get())&&other.getValue(TrophyHeadReserveBlock.CELL)==cell&&other.getValue(TrophyHeadReserveBlock.Y_OFFSET)==y)w.removeBlock(at,false);
+    }
+   }
    else{BlockPos at=nineAnchor(p,s);if(w.getBlockState(at).is(this))w.destroyBlock(at,true);}
    return;
   }

@@ -31,6 +31,7 @@ public final class TrophyHeads {
    case NINE_MOR_SERPENT->new float[]{0F,0F,0F,3F,1F,3F};
   };}
  }
+ public static final DeferredHolder<Block,Block> NINE_RESERVE=ModBlocks.BLOCKS.register("nine_mor_reserve",()->new TrophyHeadReserveBlock(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of().strength(3F).noOcclusion().noLootTable().pushReaction(net.minecraft.world.level.material.PushReaction.BLOCK)));
  public static final Map<Kind,DeferredHolder<Block,Block>> BLOCKS=new EnumMap<>(Kind.class);
  public static final Map<Kind,DeferredHolder<Item,Item>> ITEMS=new EnumMap<>(Kind.class);
  static {for(Kind k:Kind.values()){
