@@ -51,7 +51,7 @@ public final class ShipDynamicCollision {
             return false;
         Carry carry = CARRY.get();
         for (FirstShipEntity ship : level.getEntitiesOfClass(FirstShipEntity.class,
-                region.inflate(12D, 15D, 12D)))
+                region.inflate(38D, 30D, 38D)))
             if (!ship.isRemoved() && ship.isMoving()
                     && (carry == null || carry.player() != player || carry.ship() != ship))
                 return true;
@@ -61,12 +61,13 @@ public final class ShipDynamicCollision {
     public static boolean onMovingLadder(Player player) {
         if (!player.isAlive() || player.isPassenger() || player.isSpectator()) return false;
         for (FirstShipEntity ship : player.level().getEntitiesOfClass(FirstShipEntity.class,
-                player.getBoundingBox().inflate(8D, 6D, 8D))) {
+                player.getBoundingBox().inflate(38D, 26D, 38D))) {
             if (ship.isRemoved() || !ship.isMoving()) continue;
             FirstShipHull.Point local = FirstShipHull.toLocal(player.getX(), player.getZ(),
                     ship.getX(), ship.getZ(), ship.getYRot());
             double y = player.getY() - ship.getY();
-            if (FirstShipHull.onLadder(local.x(), local.z()) && y >= .9D && y <= 4.9D)
+            if (ship.isVoxelShip() ? ship.voxelLadderAt(local.x(), y, local.z())
+                    : FirstShipHull.onLadder(local.x(), local.z()) && y >= .9D && y <= 4.9D)
                 return true;
         }
         return false;
@@ -78,7 +79,7 @@ public final class ShipDynamicCollision {
                 || player.getAbilities().flying || player.isFallFlying() || player.isPassenger()) return;
         Carry carry = CARRY.get();
         for (FirstShipEntity ship : level.getEntitiesOfClass(FirstShipEntity.class,
-                region.inflate(12D, 15D, 12D))) {
+                region.inflate(38D, 30D, 38D))) {
             if (ship.isRemoved() || !ship.isMoving()
                     || carry != null && carry.player() == player && carry.ship() == ship)
                 continue;
@@ -86,9 +87,11 @@ public final class ShipDynamicCollision {
             AABB local = localBounds(region, ship);
             FirstShipHull.Point feet = FirstShipHull.toLocal(player.getX(), player.getZ(),
                     ship.getX(), ship.getZ(), ship.getYRot());
-            boolean inLadderShaft = FirstShipHull.onLadder(feet.x(), feet.z())
-                    && player.getY() - ship.getY() >= .9D
-                    && player.getY() - ship.getY() <= 5.3D;
+            boolean inLadderShaft = ship.isVoxelShip()
+                    ? ship.voxelLadderAt(feet.x(), player.getY() - ship.getY(), feet.z())
+                    : FirstShipHull.onLadder(feet.x(), feet.z())
+                            && player.getY() - ship.getY() >= .9D
+                            && player.getY() - ship.getY() <= 5.3D;
             double angle = Math.toRadians(ship.getYRot());
             double cos = Math.cos(angle), sin = Math.sin(angle);
             double remainder = Math.abs(ship.getYRot()) % 90D;
@@ -161,7 +164,9 @@ public final class ShipDynamicCollision {
 
     private static Geometry geometry(FirstShipEntity ship, Level level) {
         String key = ship.geometryVersion() + ":" + ship.rigLevel() + ":"
-                + ship.fabricQuality() + ":" + ship.movingCargoView();
+                + ship.fabricQuality() + ":" + ship.movingCargoView()
+                + ":" + (ship.superstructure() == null ? ""
+                        : ShipSuperstructureData.sync(ship.superstructure()));
         synchronized (GEOMETRY) {
             Geometry existing = GEOMETRY.get(ship);
             if (existing != null && existing.key().equals(key)) return existing;
@@ -188,7 +193,9 @@ public final class ShipDynamicCollision {
                     palette = FirstShipBlockHull.localMotionPalette(
                             new FirstShipBlockHull.MotionSnapshot(cargo,
                                     ship.geometryVersion(), ship.rigLevel(),
-                                    ship.fabricQuality(), 0));
+                                    ship.fabricQuality(), 0, ship.superstructure() == null
+                                            ? new CompoundTag()
+                                            : ShipSuperstructureData.save(ship.superstructure())));
                 } catch (RuntimeException invalid) {
                     palette = Map.of();
                 }
