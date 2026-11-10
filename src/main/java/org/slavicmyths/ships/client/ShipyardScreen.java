@@ -284,7 +284,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     "Выберите чертёж", 202, 133, DARK, false);
         } else {
             List<Cost> req = costs();
-            int baseY = tab == 0 ? 126 : 82;
+            int baseY = tab == 0 ? 126 : 94;
             for (int i = 0; i < req.size(); i++) {
                 Cost cost = req.get(i);
                 int col = i % 2, row = i / 2, x = 201 + col * 132, y = baseY + row * 16;
