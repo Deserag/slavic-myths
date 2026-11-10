@@ -431,6 +431,15 @@ public final class Ocean26GameTests {
         t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
                 0, 3, 6, cabinRear + 3)).is(Blocks.GLASS_PANE),
                 "Captain's cabin window is absent");
+        var cabinDoor = (net.minecraft.world.level.block.DoorBlock)
+                level.getBlockState(lowerDoor).getBlock();
+        cabinDoor.setOpen(null, level, level.getBlockState(lowerDoor), lowerDoor, true);
+        t.assertTrue(level.getBlockState(lowerDoor).getValue(
+                net.minecraft.world.level.block.DoorBlock.OPEN)
+                && level.getBlockState(upperDoor).getValue(
+                net.minecraft.world.level.block.DoorBlock.OPEN),
+                "Captain's cabin door cannot open as a paired block");
+        cabinDoor.setOpen(null, level, level.getBlockState(lowerDoor), lowerDoor, false);
         t.assertTrue(chest(level, chestPos, t).getItem(0).getCount() == 19,
                 "Chest cargo lost after modular rebuilding");
         t.assertTrue(((net.minecraft.world.Container)level.getBlockEntity(barrelPos))
