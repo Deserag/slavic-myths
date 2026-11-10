@@ -261,8 +261,19 @@ public final class Ocean26GameTests {
                 for (int y = 1; y <= 25; y++)
                     level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
             }
+        BlockPos bench = anchor.offset(25, 6, 0);
+        level.setBlock(bench, RaftContent.SHIPYARD_BENCH.get().defaultBlockState(), 2);
+        ServerPlayer builder = player(level, "FourClassShipwright",
+                new Vec3(bench.getX() + .5D, bench.getY() + 1D, bench.getZ() + .5D));
+        builder.getAbilities().instabuild = true;
+        var menu = new org.slavicmyths.ships.ShipyardMenu(16, builder.getInventory(), bench);
         for (var type : org.slavicmyths.ships.ShipSectionPlan.ShipClass.values()) {
             var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type);
+            t.assertTrue(menu.clickMenuButton(builder, 100 + type.ordinal() * 16),
+                    type + " could not be crafted in the shipyard menu");
+            t.assertTrue(config.equals(org.slavicmyths.ships.ShipyardModular.configuration(
+                    menu.inspected())), type + " shipyard item has wrong blueprint");
+            menu.slots.get(0).set(ItemStack.EMPTY);
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
                     anchor, 0, config, new ListTag()), type + " placement failed");
             BlockPos outsideBow = FirstShipBlockHull.world(anchor, 0,
@@ -281,6 +292,8 @@ public final class Ocean26GameTests {
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
                     anchor, 0, config), type + " second removal failed");
         }
+        menu.removed(builder);
+        builder.discard();
         t.succeed();
     }
 
