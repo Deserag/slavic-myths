@@ -216,9 +216,39 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         return new Cost(label, new ItemStack(item), need, count(item));
     }
 
+    private void addModularCosts(List<Cost> list, ShipyardModular.Materials price) {
+        if (price.logs() > 0)
+            list.add(new Cost("Брёвна", new ItemStack(Items.OAK_LOG),
+                    price.logs(), countTag(ItemTags.LOGS)));
+        if (price.planks() > 0)
+            list.add(new Cost("Доски", new ItemStack(Items.OAK_PLANKS),
+                    price.planks(), countTag(ItemTags.PLANKS)));
+        if (price.iron() > 0) list.add(itemCost("Железо", Items.IRON_INGOT, price.iron()));
+        if (price.string() > 0) list.add(itemCost("Нити", Items.STRING, price.string()));
+        if (price.deckSections() > 0)
+            list.add(itemCost("Секции", RaftContent.DECK_SECTION.get(), price.deckSections()));
+        if (price.railKits() > 0)
+            list.add(itemCost("Ограждения", RaftContent.RAIL_MODULE.get(), price.railKits()));
+        if (price.helms() > 0)
+            list.add(itemCost("Штурвал", RaftContent.HELM_MODULE.get(), price.helms()));
+        if (price.basicSails() > 0)
+            list.add(itemCost("Парус I", RaftContent.SAIL_MODULE.get(), price.basicSails()));
+        if (price.linenSails() > 0)
+            list.add(itemCost("Парус II", RaftContent.SAIL_LINEN_MODULE.get(), price.linenSails()));
+        if (price.reinforcedSails() > 0)
+            list.add(itemCost("Парус III", RaftContent.SAIL_REINFORCED_MODULE.get(), price.reinforcedSails()));
+    }
+
     private List<Cost> costs() {
         List<Cost> list = new ArrayList<>();
-        if (tab == 0 && chosen < 4) {
+        ShipBuildConfiguration built = ShipyardModular.configuration(menu.inspected());
+        if (tab == 0 && !createRafts) {
+            ShipBuildConfiguration selected = creationConfig();
+            if (selected != null) addModularCosts(list, ShipyardModular.costs(null, selected));
+        } else if (tab == 1 && built != null) {
+            ShipBuildConfiguration next = nextConfig();
+            if (next != null) addModularCosts(list, ShipyardModular.costs(built, next));
+        } else if (tab == 0 && chosen < 4) {
             RaftSize size = switch (chosen) {
                 case 0 -> RaftSize.SMALL;
                 case 1 -> RaftSize.LONG;
@@ -282,7 +312,12 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         if (!minecraft.player.getAbilities().instabuild)
             for (Cost cost : costs()) if (cost.have() < cost.need()) return false;
 
-        if (tab == 0) return true;
+        if (tab == 0) return createRafts || creationConfig() != null;
+        ShipBuildConfiguration modular = ShipyardModular.configuration(menu.inspected());
+        if (modular != null) {
+            ShipBuildConfiguration next = nextConfig();
+            return next != null && !next.equals(modular);
+        }
         ItemStack stack = menu.inspected();
         if (vesselKind() == 2) {
             int level = ShipyardUpgrades.shipRigLevel(stack);
