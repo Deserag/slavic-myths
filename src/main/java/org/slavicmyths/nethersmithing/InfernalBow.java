@@ -37,6 +37,11 @@ public class InfernalBow extends org.slavicmyths.combat.FieldBowItem {
     }
 
     public boolean empowered() { return empowered; }
+    @Override public net.minecraft.network.chat.Component getName(ItemStack stack) {
+        return net.minecraft.network.chat.Component.translatableWithFallback(
+            empowered?"item.slavicmyths.empowered_infernal_bow":"item.slavicmyths.infernal_bow",
+            empowered?"Усиленный адский лук":"Адский лук");
+    }
     private String skillId() { return empowered?"empowered_infernal_bow":"infernal_bow"; }
     @Override public int drawTicks() { return empowered?14:16; }
     @Override public float drawPower(int ticks) { if(ticks<4)return 0; return Math.min(1F,.5F+.5F*(ticks-4F)/(drawTicks()-4F)); }
@@ -84,7 +89,6 @@ public class InfernalBow extends org.slavicmyths.combat.FieldBowItem {
         lines.add(net.minecraft.network.chat.Component.literal(empowered?"Воспламенение + Замедление I (3 с)":"Воспламенение: стрелы поджигают цели").withStyle(net.minecraft.ChatFormatting.RED));
         lines.add(net.minecraft.network.chat.Component.literal(empowered?"Shift+выстрел: 17 урона + вторая цель (13 с)":"Shift+выстрел: 14 урона (10 с)").withStyle(net.minecraft.ChatFormatting.YELLOW));
     }
-
 
     @Override public boolean isValidRepairItem(ItemStack stack,ItemStack addition) {
         return NetherWeapons.TIER.getRepairIngredient().test(addition);

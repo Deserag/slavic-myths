@@ -418,7 +418,7 @@ public final class MorovoyRaven extends PathfinderMob {
     }
     @Override public boolean removeWhenFarAway(double distance) { return minion(); }
     @Override public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
-    @Override protected void dropAllDeathLoot(ServerLevel world, DamageSource source) { /* Two material items are registered; drop rates await owner balancing. */ }
+    @Override protected void dropAllDeathLoot(ServerLevel world, DamageSource source) { if (!minion() && staffOwner == null && parent == null) { spawnAtLocation(new net.minecraft.world.item.ItemStack(MorovoyRavenContent.FEATHER.get(), 2 + random.nextInt(2))); spawnAtLocation(new net.minecraft.world.item.ItemStack(MorovoyRavenContent.CORE.get())); } }
     @Override public void die(DamageSource cause) { super.die(cause); bossBar.removeAllPlayers(); }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);

@@ -13,7 +13,7 @@ import net.minecraft.stats.Stats;
 public class FieldBowItem extends BowItem {
     public final boolean heavy;
     public FieldBowItem(boolean heavy,Properties properties){super(properties);this.heavy=heavy;}
-    public int drawTicks(){return heavy?30:12;}
+    public int drawTicks(){return heavy?26:12;}
     public float drawPower(int ticks){float f=Math.max(0,ticks)/(float)drawTicks();return Math.min(1,(f*f+2*f)/3);}
     @Override public void releaseUsing(ItemStack stack,Level level,LivingEntity user,int remaining) {
         if(!(user instanceof Player player))return;
@@ -30,7 +30,7 @@ public class FieldBowItem extends BowItem {
         player.awardStat(Stats.ITEM_USED.get(this));
     }
     @Override protected void shootProjectile(LivingEntity shooter,Projectile projectile,int index,float velocity,float inaccuracy,float angle,LivingEntity target) {
-        if(projectile instanceof AbstractArrow arrow)arrow.setBaseDamage(arrow.getBaseDamage()*(heavy?1.15:.8));
+        if(projectile instanceof AbstractArrow arrow)arrow.setBaseDamage(arrow.getBaseDamage()*(heavy?1.55:.8));
         super.shootProjectile(shooter,projectile,index,velocity,inaccuracy,angle,target);
     }
     @Override public int getDefaultProjectileRange(){return heavy?24:10;}

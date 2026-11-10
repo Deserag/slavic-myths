@@ -24,6 +24,15 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
   @Override public String getSerializedName(){return name;}
  }
  public static final EnumProperty<Quarter> QUARTER=EnumProperty.create("quarter",Quarter.class);
+ public enum Cell implements net.minecraft.util.StringRepresentable {
+  A("a",0,0),B("b",1,0),C("c",2,0),D("d",3,0),E("e",4,0),F("f",0,1),G("g",1,1),H("h",2,1),I("i",3,1),J("j",4,1),K("k",0,2),L("l",1,2),M("m",2,2),N("n",3,2),O("o",4,2),P("p",0,3),Q("q",1,3),R("r",2,3),S("s",3,3),T("t",4,3),U("u",0,4),V("v",1,4),W("w",2,4),X("x",3,4),Y("y",4,4);
+  public final String name;public final int dx,dz;Cell(String n,int x,int z){name=n;dx=x;dz=z;}
+  @Override public String getSerializedName(){return name;}
+ }
+ public static final EnumProperty<Cell> CELL=EnumProperty.create("cell",Cell.class);
+ private boolean nineMor(){return kind==TrophyHeads.Kind.NINE_MOR_SERPENT;}
+ private static BlockPos nineAnchor(BlockPos pos,BlockState state){Cell cell=state.getValue(CELL);return pos.offset(-cell.dx,0,-cell.dz);}
+
  private static BlockPos widePos(BlockPos anchor,Direction face,Quarter quarter){
   return anchor.relative(face.getClockWise(),quarter.dx).relative(face.getOpposite(),quarter.dz);
  }
@@ -34,13 +43,20 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
  public final TrophyHeads.Kind kind;
  private boolean ravenLong(){return kind==TrophyHeads.Kind.MOROVOY_RAVEN;}
  public TrophyHeadBlock(TrophyHeads.Kind k){this(k,Properties.ofFullCopy(Blocks.DRAGON_HEAD).strength(3).noOcclusion().pushReaction(PushReaction.BLOCK));}
- private TrophyHeadBlock(TrophyHeads.Kind k,Properties p){super(p);kind=k;registerDefaultState(stateDefinition.any().setValue(FACING,Direction.NORTH).setValue(HALF,DoubleBlockHalf.LOWER).setValue(QUARTER,Quarter.NW));}
+ private TrophyHeadBlock(TrophyHeads.Kind k,Properties p){super(p);kind=k;registerDefaultState(stateDefinition.any().setValue(FACING,Direction.NORTH).setValue(HALF,DoubleBlockHalf.LOWER).setValue(QUARTER,Quarter.NW).setValue(CELL,Cell.A));}
  private static final MapCodec<TrophyHeadBlock> CODEC=com.mojang.serialization.codecs.RecordCodecBuilder.mapCodec(i->i.group(Codec.STRING.xmap(TrophyHeads.Kind::valueOf,Enum::name).fieldOf("kind").forGetter(b->b.kind),propertiesCodec()).apply(i,TrophyHeadBlock::new));
  @Override protected MapCodec<TrophyHeadBlock> codec(){return CODEC;}
- @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block,BlockState>b){b.add(FACING,HALF,QUARTER);}
+ @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block,BlockState>b){b.add(FACING,HALF,QUARTER,CELL);}
  @Override public BlockState rotate(BlockState s,Rotation r){return s.setValue(FACING,r.rotate(s.getValue(FACING)));}
  @Override public BlockState mirror(BlockState s,Mirror m){return rotate(s,m.getRotation(s.getValue(FACING)));}
  @Override public BlockState getStateForPlacement(BlockPlaceContext c){
+  if(nineMor()){
+   var world=c.getLevel();BlockPos anchor=c.getClickedPos();
+   for(Cell cell:Cell.values())for(int y=0;y<6;y++){BlockPos at=anchor.offset(cell.dx,y,cell.dz);
+    if(!world.hasChunkAt(at)||at.getY()>=world.getMaxBuildHeight()||!world.getWorldBorder().isWithinBounds(at)||!world.getBlockState(at).canBeReplaced(c)||c.getPlayer()!=null&&!c.getPlayer().mayUseItemAt(at,c.getClickedFace(),c.getItemInHand()))return null;
+   }
+   return defaultBlockState().setValue(FACING,c.getHorizontalDirection().getOpposite());
+  }
   if(ravenLong()){
    var world=c.getLevel();BlockPos anchor=c.getClickedPos();Direction face=c.getHorizontalDirection().getOpposite();
    for(BlockPos at:new BlockPos[]{anchor,anchor.relative(face)}){
@@ -66,6 +82,14 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
  }
  @Override public void setPlacedBy(Level w,BlockPos p,BlockState s,LivingEntity e,ItemStack stack){
   if(w.isClientSide)return;
+  if(nineMor()){
+   for(Cell cell:Cell.values())if(cell!=Cell.A)w.setBlock(p.offset(cell.dx,0,cell.dz),s.setValue(CELL,cell),3);
+   BlockState reserve=TrophyHeads.NINE_RESERVE.get().defaultBlockState();
+   for(int y=1;y<6;y++)for(Cell cell:Cell.values()){
+    w.setBlock(p.offset(cell.dx,y,cell.dz),reserve.setValue(TrophyHeadReserveBlock.CELL,cell).setValue(TrophyHeadReserveBlock.Y_OFFSET,y),3);
+   }
+   return;
+  }
   if(ravenLong()){w.setBlock(p.relative(s.getValue(FACING)),s.setValue(QUARTER,Quarter.NE),3);return;}
   if(kind.wide()){
    for(Quarter q:Quarter.values())if(q!=Quarter.NW)w.setBlock(widePos(p,s.getValue(FACING),q),s.setValue(QUARTER,q),3);
@@ -88,11 +112,12 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
    default->Shapes.empty();
   };
  }
- @Override public VoxelShape getShape(BlockState s,BlockGetter w,BlockPos p,CollisionContext c){if(ravenLong())return ravenShape(s);if(kind.wide())return Block.box(0,0,0,16,12,16);if(singleZmeyHead())return ZMEY_SHAPE;var b=kind.bounds();int offset=s.getValue(HALF)==DoubleBlockHalf.UPPER?1:0;double bottom=Math.max(0,b[1]-offset),top=Math.min(1,b[4]-offset);if(top<=bottom)return Shapes.empty();if(s.getValue(FACING).getAxis()==Direction.Axis.X)return Shapes.box(b[2],bottom,b[0],b[5],top,b[3]);return Shapes.box(b[0],bottom,b[2],b[3],top,b[5]);}
+ @Override public VoxelShape getShape(BlockState s,BlockGetter w,BlockPos p,CollisionContext c){if(nineMor())return Block.box(0,0,0,16,16,16);if(ravenLong())return ravenShape(s);if(kind.wide())return Block.box(0,0,0,16,12,16);if(singleZmeyHead())return ZMEY_SHAPE;var b=kind.bounds();int offset=s.getValue(HALF)==DoubleBlockHalf.UPPER?1:0;double bottom=Math.max(0,b[1]-offset),top=Math.min(1,b[4]-offset);if(top<=bottom)return Shapes.empty();if(s.getValue(FACING).getAxis()==Direction.Axis.X)return Shapes.box(b[2],bottom,b[0],b[5],top,b[3]);return Shapes.box(b[0],bottom,b[2],b[3],top,b[5]);}
  @Override public VoxelShape getCollisionShape(BlockState s,BlockGetter w,BlockPos p,CollisionContext c){if(ravenLong())return ravenShape(s);if(kind.wide())return Block.box(0,0,0,16,12,16);return singleZmeyHead()?ZMEY_SHAPE:super.getCollisionShape(s,w,p,c);}
- @Override public BlockEntity newBlockEntity(BlockPos p,BlockState s){return s.getValue(HALF)==DoubleBlockHalf.LOWER&&(!kind.wide()||s.getValue(QUARTER)==Quarter.NW)?new Tile(p,s):null;}
+ @Override public BlockEntity newBlockEntity(BlockPos p,BlockState s){return s.getValue(HALF)==DoubleBlockHalf.LOWER&&(!kind.wide()||s.getValue(QUARTER)==Quarter.NW)&&(!nineMor()||s.getValue(CELL)==Cell.A)?new Tile(p,s):null;}
  private BlockPos anchor(BlockPos p,BlockState s){return s.getValue(HALF)==DoubleBlockHalf.UPPER?p.below():p;}
  @Override public BlockState playerWillDestroy(Level w,BlockPos p,BlockState s,Player player){
+  if(nineMor()&&!w.isClientSide&&player.isCreative()&&s.getValue(CELL)!=Cell.A){BlockPos at=nineAnchor(p,s);if(w.getBlockState(at).is(this))w.destroyBlock(at,false);}
   if(ravenLong()&&!w.isClientSide&&player.isCreative()&&s.getValue(QUARTER)==Quarter.NE){
    BlockPos anchor=p.relative(s.getValue(FACING).getOpposite());
    if(w.getBlockState(anchor).is(this))w.destroyBlock(anchor,false);
@@ -101,6 +126,23 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
  @Override protected void onRemove(BlockState s,Level w,BlockPos p,BlockState next,boolean moving){
   super.onRemove(s,w,p,next,moving);
   if(w.isClientSide||s.is(next.getBlock()))return;
+  if(nineMor()){
+   if(s.getValue(CELL)==Cell.A){
+    breakBurst(w,p);
+    for(Cell cell:Cell.values())if(cell!=Cell.A){
+     BlockPos at=p.offset(cell.dx,0,cell.dz);
+     BlockState other=w.getBlockState(at);
+     if(other.is(this)&&other.getValue(CELL)==cell)w.removeBlock(at,false);
+    }
+    for(int y=1;y<6;y++)for(Cell cell:Cell.values()){
+     BlockPos at=p.offset(cell.dx,y,cell.dz);
+     BlockState other=w.getBlockState(at);
+     if(other.is(TrophyHeads.NINE_RESERVE.get())&&other.getValue(TrophyHeadReserveBlock.CELL)==cell&&other.getValue(TrophyHeadReserveBlock.Y_OFFSET)==y)w.removeBlock(at,false);
+    }
+   }
+   else{BlockPos at=nineAnchor(p,s);if(w.getBlockState(at).is(this))w.destroyBlock(at,true);}
+   return;
+  }
   if(ravenLong()){
    Direction face=s.getValue(FACING);
    if(s.getValue(QUARTER)==Quarter.NW){
@@ -136,9 +178,9 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
  }
  private void breakBurst(Level world,BlockPos anchor){
   if(!(world instanceof net.minecraft.server.level.ServerLevel server))return;
-  var particle=switch(kind){case GROVE_GUARDIAN->net.minecraft.core.particles.ParticleTypes.ASH;case ZHARENITSA->net.minecraft.core.particles.ParticleTypes.SMALL_FLAME;case POSTEN->net.minecraft.core.particles.ParticleTypes.SOUL;case MAGMA_LORD->net.minecraft.core.particles.ParticleTypes.SMALL_FLAME;case TUGARIN->net.minecraft.core.particles.ParticleTypes.DRAGON_BREATH;case SKIM->net.minecraft.core.particles.ParticleTypes.CLOUD;case VOLKOLAK->net.minecraft.core.particles.ParticleTypes.SMOKE;case PODZEMNIK->net.minecraft.core.particles.ParticleTypes.ASH;case LIKHO->net.minecraft.core.particles.ParticleTypes.SOUL;case MOR_LIKHO->net.minecraft.core.particles.ParticleTypes.CRIMSON_SPORE;case MOROVOY_RAVEN->net.minecraft.core.particles.ParticleTypes.ASH;case MOR_SERPENT->net.minecraft.core.particles.ParticleTypes.SOUL;case MOROVOY_FIRE_ZMEY->net.minecraft.core.particles.ParticleTypes.DRAGON_BREATH;case FIRE_SERPENT->net.minecraft.core.particles.ParticleTypes.DRAGON_BREATH;};
+  var particle=switch(kind){case GROVE_GUARDIAN->net.minecraft.core.particles.ParticleTypes.ASH;case ZHARENITSA->net.minecraft.core.particles.ParticleTypes.SMALL_FLAME;case POSTEN->net.minecraft.core.particles.ParticleTypes.SOUL;case MAGMA_LORD->net.minecraft.core.particles.ParticleTypes.SMALL_FLAME;case TUGARIN->net.minecraft.core.particles.ParticleTypes.DRAGON_BREATH;case SKIM->net.minecraft.core.particles.ParticleTypes.CLOUD;case VOLKOLAK->net.minecraft.core.particles.ParticleTypes.SMOKE;case PODZEMNIK->net.minecraft.core.particles.ParticleTypes.ASH;case LIKHO->net.minecraft.core.particles.ParticleTypes.SOUL;case MOR_LIKHO->net.minecraft.core.particles.ParticleTypes.CRIMSON_SPORE;case MOROVOY_RAVEN->net.minecraft.core.particles.ParticleTypes.ASH;case MOR_SERPENT->net.minecraft.core.particles.ParticleTypes.SOUL;case MOROVOY_FIRE_ZMEY->net.minecraft.core.particles.ParticleTypes.DRAGON_BREATH;case FIRE_SERPENT->net.minecraft.core.particles.ParticleTypes.DRAGON_BREATH;case NINE_MOR_SERPENT->net.minecraft.core.particles.ParticleTypes.SOUL;};
   double height=Math.min(kind.height,1.8);
-  double cx=anchor.getX()+(ravenLong()?.5:kind.wide()?1:.5),cz=anchor.getZ()+(ravenLong()?.5:kind.wide()?1:.5);
+  double cx=anchor.getX()+(ravenLong()?.5:nineMor()?2.5:kind.wide()?1:.5),cz=anchor.getZ()+(ravenLong()?.5:nineMor()?1.5:kind.wide()?1:.5);
   server.sendParticles(particle,cx,anchor.getY()+height*.5,cz,kind.wide()?45:24,kind.wide()?.62:.325,height*.35,kind.wide()?.62:.325,.06);
   if(kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY)server.sendParticles(net.minecraft.core.particles.ParticleTypes.SMALL_FLAME,cx+.40,anchor.getY()+.45,cz-.20,18,.24,.17,.3,.035);
  }
@@ -147,6 +189,7 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
  @Override public net.minecraft.nbt.CompoundTag getUpdateTag(net.minecraft.core.HolderLookup.Provider lookup){return saveWithoutMetadata(lookup);}
 public net.minecraft.world.phys.AABB getRenderBoundingBox(){
  TrophyHeadBlock block=(TrophyHeadBlock)getBlockState().getBlock();
+ if(block.kind==TrophyHeads.Kind.NINE_MOR_SERPENT)return new net.minecraft.world.phys.AABB(worldPosition).expandTowards(5,6,5);
  if(block.kind==TrophyHeads.Kind.MOROVOY_RAVEN){Direction face=getBlockState().getValue(FACING);return new net.minecraft.world.phys.AABB(worldPosition).expandTowards(face.getStepX(),0,face.getStepZ()).inflate(.125);}
  return new net.minecraft.world.phys.AABB(worldPosition).expandTowards(block.kind.wide()?1:0,block.kind.height-1,block.kind.wide()?1:0);
 }}

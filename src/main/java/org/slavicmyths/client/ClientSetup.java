@@ -44,6 +44,8 @@ public final class ClientSetup {
 
         bus.addListener(org.slavicmyths.nethersmithing.client.NetherArmorClient::register);
 
+        bus.addListener(org.slavicmyths.sisters.client.SistersArmorClient::register);
+
         bus.addListener(org.slavicmyths.nethersmithing.client.NetherArmorGlow::layers);
 
         bus.addListener(KalinClient::renderers);
@@ -91,6 +93,8 @@ public final class ClientSetup {
         bus.addListener(Quest185Client.Registration::renderers);
 
         bus.addListener(BogatyrClient.Registration::keys);
+
+        bus.addListener(ViyRewardClient.Registration::keys);
 
         bus.addListener(BogatyrClient.Registration::renderers);
 
@@ -298,6 +302,7 @@ public final class ClientSetup {
         event.registerEntityRenderer(org.slavicmyths.viy.ViyContent.VIY_UPYR.get(), ctx -> new ViyServantRenderer(ctx, org.slavicmyths.sisters.ViyServant.Kind.UPYR));
         event.registerEntityRenderer(org.slavicmyths.viy.ViyContent.VIY_NAV.get(), ctx -> new ViyServantRenderer(ctx, org.slavicmyths.sisters.ViyServant.Kind.NAV));
         event.registerEntityRenderer(org.slavicmyths.viy.ViyContent.VIY_KORNELAP.get(), ctx -> new ViyServantRenderer(ctx, org.slavicmyths.sisters.ViyServant.Kind.KORNELAP));
+        event.registerEntityRenderer(org.slavicmyths.posad.boss.ShackledSickleContent.PROJECTILE.get(), ShackledSickleRenderer::new);
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.NEVEYA.get(), NeveyaRenderer::new);
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.NEVEYA_BOLT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.LOMEYA.get(), LomeyaRenderer::new);

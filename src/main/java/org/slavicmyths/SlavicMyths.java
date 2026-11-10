@@ -26,6 +26,7 @@ public final class SlavicMyths {
         org.slavicmyths.item.ItemState.COMPONENTS.register(bus);
         org.slavicmyths.netherboss.NetherBossItems.init();
         org.slavicmyths.posad.PosadBeds.init();
+         org.slavicmyths.posad.boss.ShackledSickleContent.init();
         org.slavicmyths.posad.PosadTestProofs.init();
         org.slavicmyths.rpg.Runes.init();
         org.slavicmyths.garden.Gardens.init();
@@ -99,6 +100,8 @@ public final class SlavicMyths {
         org.slavicmyths.karachun.NightContent.init(bus);
         org.slavicmyths.morovoy.MorovoyStaff.init();
         org.slavicmyths.morovoy.MorovoyRavenContent.init(bus);
+        org.slavicmyths.sisters.SisterArtifacts.init(bus);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(org.slavicmyths.sisters.SisterArtifactCommands::register);
         org.slavicmyths.sisters.SistersArmor.init();
         org.slavicmyths.sisters.TremorRune.init();
         org.slavicmyths.sisters.SistersContent.init(bus);
@@ -120,6 +123,7 @@ public final class SlavicMyths {
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.pesigolovtsy.DogheadConfig.SPEC,"slavicmyths-pesigolovtsy.toml");
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON,org.slavicmyths.nochnitsa.NochnitsaConfig.SPEC,"slavicmyths-nochnitsa.toml");
         bus.addListener(org.slavicmyths.sivka.SivkaNetwork::register);
+        bus.addListener(org.slavicmyths.viy.ViyRewardNetwork::register);
         ModBlocks.BLOCKS.register(bus);
         org.slavicmyths.bandit.CampStructures.register();
         org.slavicmyths.gorodishche.GorodishcheStructures.init();

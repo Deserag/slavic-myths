@@ -54,37 +54,84 @@ public final class LomeyaModel extends EntityModel<LomeyaBoss> {
             box(root,3,-wide/2,y,depth/2-1.1F,wide,7,1.1F);
             box(root,4,-wide/2,y,-depth/2,wide/2-.6F,7,1.0F);
             box(root,4,.6F,y,-depth/2,wide/2-.6F,7,1.0F);
+            // Close the former open stripe on the front of every skirt tier.
+            box(root,4,-.68F,y,-depth/2-.01F,1.36F,7,1.03F);
             box(root,3,-wide/2,y,-depth/2,1.1F,7,depth);
             box(root,3,wide/2-1.1F,y,-depth/2,1.1F,7,depth);
         }
+        // Cloth volume behind the articulated skirt: the external side strips
+        // alone exposed a hollow, sky-visible body in side/low camera views.
+        box(root,3,-3.85F,-54.75F,-3.45F,7.70F,19.75F,6.9F);
         box(root,3,-6.6F,-78,-4.1F,13.2F,10,8.2F);
         box(root,4,-5.8F,-70,-4.5F,11.6F,8,9F);
         box(root,5,-4.85F,-62,-3.7F,9.7F,10,7.4F);
         box(root,4,-5.7F,-77,-6F,11.4F,4,2.5F);
         box(root,1,-2,-87,-2,4,5,4);
         box(root,13,-5,-61,-4.1F,10,1,1F);
-        // A sculpted split face: left side exposed bone, right side flesh.
         head.setPos(0,-87,0);
-        for(int row=0;row<7;row++) {
-            float width=new float[]{2.9F,3.9F,4.6F,4.9F,4.7F,4F,3.2F}[row];
-            box(head,2,-width,-2-row*2.25F,-3.7F,width,2.35F,7.4F);
-            box(head,0,0,-2-row*2.25F,-3.7F,width,2.35F,7.4F);
+        float[] jaw={2.55F,3.35F,4.25F,4.65F,4.60F,4.20F,3.72F};
+        float[] front={-3.52F,-3.65F,-3.72F,-3.66F,-3.54F,-3.35F,-3.14F};
+        for(int row=0;row<jaw.length;row++) {
+            float width=jaw[row],y=-1.8F-row*2.22F;
+            box(head,2,-width,y,front[row],width,2.29F,7.0F-(row>4?(row-4)*.45F:0F));
+            box(head,0,0,y,front[row],width,2.29F,7.0F-(row>4?(row-4)*.45F:0F));
         }
-        box(head,11,-3.8F,-10.5F,-4.1F,3.3F,2.5F,.55F);
-        box(head,1,-3F,-9.8F,-4.7F,1.6F,1.0F,.36F);
-        box(head,10,1.1F,-10.2F,-4.5F,2.65F,1.5F,.25F);
-        box(head,1,1.5F,-9.9F,-4.75F,1.3F,1.0F,.35F);
-        for(int j=0;j<4;j++) box(head,1,-3.6F+j*.8F,-3.5F,-4.2F,.57F,1.6F,.6F);
-        // Hair deliberately covers the entire fleshed half and reaches below waist; not the skull half.
-        for(int j=0;j<8;j++) {
-            float x=.05F+j*.64F,tail=37+j%3*3;
-            box(head,j%3==0?7:6,x,-18F,2.9F, .65F,18+tail,2.3F);
+        float[] crownWidth={3.30F,2.47F,1.40F};
+        for(int row=0;row<crownWidth.length;row++) {
+            float w=crownWidth[row],y=-17.3F-row*1.15F;
+            box(head,2,-w,y,-2.70F+row*.37F,w,1.35F,5.88F-row*.65F);
+            box(head,0,0,y,-2.70F+row*.37F,w,1.35F,5.88F-row*.65F);
         }
-        for(int j=0;j<6;j++) {
-            float x=3.5F+j*.3F;
-            box(head,j%2==0?6:12,x,-17F,-2.8F,.65F,51-j*3,2F);
+        // Scalp bridge: fill the previously transparent band between the high hair cap
+        // and the forehead/crown. All dimensions remain in the head ModelPart's local
+        // coordinates so yaw/pitch animation moves skull and hair as a single rig.
+        box(head,2,-3.80F,-21.95F,-3.18F,7.60F,5.95F,6.45F);
+        box(head,2,-3.25F,-23.10F,-2.62F,6.50F,2.05F,5.30F);
+        box(head,0,-3.90F,-18.0F,-3.18F,7.80F,3.60F,6.30F);
+        // A layered hair under-cap conceals the scalp join; independent locks remain
+        // visible below this cap and the face/eye positions are unchanged.
+        box(head,6,-4.10F,-23.25F,-3.44F,8.20F,2.70F,6.90F);
+        box(head,7,-3.85F,-20.65F,-3.56F,7.70F,2.35F,1.05F);
+        for(int side:new int[]{-1,1}) {
+            float x=side*3.08F;
+            box(head,side<0?2:0,x-.60F,-9.8F,-3.91F,1.20F,4.40F,1.36F);
+            box(head,side<0?2:0,x-.42F,-14.4F,-3.66F,.84F,3.25F,1.24F);
         }
-        for(int j=0;j<5;j++) box(head,6,j*.93F,-19F,-4.0F,.95F,4+j%2,1.5F);
+        box(head,11,-3.20F,-10.5F,-4.13F,2.65F,2.25F,.55F);
+        box(head,1,-2.92F,-9.8F,-4.70F,1.56F,1.0F,.36F);
+        box(head,10,1.06F,-10.2F,-4.53F,2.58F,1.5F,.25F);
+        box(head,1,1.46F,-9.9F,-4.81F,1.30F,1.0F,.35F);
+        for(int j=0;j<4;j++)box(head,1,-3.27F+j*.75F,-3.5F,-4.10F,.53F,1.53F,.59F);
+        for(int layer=0;layer<4;layer++) {
+            float y=-18.9F-layer*1.18F;
+            float half=4.55F-layer*.78F;
+            for(int strand=-5;strand<=5;strand++) {
+                float x=strand*half/5F,z=-2.95F+.28F*Mth.sin(strand*.9F+layer);
+                box(head,strand%3==0?7:6,x-.55F,y-.12F*Mth.cos(strand*.76F),z,1.12F,1.56F,5.92F-layer*.45F);
+            }
+        }
+        for(int lane=-5;lane<=5;lane++) {
+            float x=lane*.78F;
+            for(int section=0;section<5;section++) {
+                float z=-3.08F+section*1.35F;
+                float crownY=-21.6F-1.80F*Mth.sin((section+.5F)*Mth.PI/5F)+.12F*Math.abs(lane);
+                box(head,(lane+section)%4==0?7:6,x-.48F,crownY,z,.96F,1.48F,1.55F);
+            }
+        }
+        for(int side:new int[]{-1,1})for(int lock=0;lock<5;lock++) {
+            float anchor=side*(2.70F+lock*.36F);
+            int length=lock%2==0?49:40;
+            for(int j=0;j<length;j+=3) {
+                float t=j/(float)length;
+                float x=anchor+side*(.65F*Mth.sin(t*4.4F+lock*.55F)+t*.54F);
+                float z=lock<2?-3.0F+lock*.72F:2.45F+(lock-2)*.67F;
+                box(head,lock%3==0?7:6,x-.48F,-18.25F+j,z-.55F,1.02F,3.35F,1.20F);
+            }
+        }
+        for(int j=-3;j<=3;j++) {
+            float x=j*.91F;
+            box(head,j%3==0?7:6,x-.50F,-20.45F+.20F*Math.abs(j),-3.65F,1.06F,3.35F,.95F);
+        }
         geo.attach(root,head);
         // Arms are independent, re-aimed every frame from shoulders to elbows to wrists.
         for(ModelPart upper:new ModelPart[]{leftUpper,rightUpper})box(upper,0,-2.2F,0,-2.1F,4.4F,10,4.2F);
@@ -171,8 +218,6 @@ public final class LomeyaModel extends EntityModel<LomeyaBoss> {
             eL=interpolate(SHOULDER_L,wL,.52F);eL[0]-=5;
             eR=interpolate(SHOULDER_R,wR,.52F);eR[0]+=5;
         }
-        // Preserve each authored wrist height, including SLAM and GRAB poses.
-        // Forcing the wrists to elbow height flattened both forearms and undid the animation targets.
         arm(true,eL,wL);arm(false,eR,wR);
     }
     @Override public void renderToBuffer(PoseStack stack,VertexConsumer out,int light,int overlay,int color) {

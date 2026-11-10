@@ -1,0 +1,254 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "slavicmyths:item/sisters_artifacts/sisters_ring_00"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 1.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_01"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 2.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_02"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 3.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_03"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 4.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_04"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 5.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_05"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 6.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_06"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 7.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_07"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 8.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_08"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 9.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_09"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 10.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_0a"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 11.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_0b"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 12.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_0c"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 13.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_0d"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 14.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_0e"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 16.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_10"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 17.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_11"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 18.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_12"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 19.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_13"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 20.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_14"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 21.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_15"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 22.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_16"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 24.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_18"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 25.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_19"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 26.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_1a"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 28.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_1c"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 32.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_20"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 33.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_21"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 34.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_22"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 35.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_23"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 36.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_24"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 37.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_25"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 38.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_26"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 40.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_28"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 41.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_29"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 42.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_2a"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 44.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_2c"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 48.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_30"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 49.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_31"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 50.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_32"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 52.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_34"
+    },
+    {
+      "predicate": {
+        "slavicmyths:sisters_visual": 56.0
+      },
+      "model": "slavicmyths:item/sisters_artifacts/sisters_ring_38"
+    }
+  ]
+}

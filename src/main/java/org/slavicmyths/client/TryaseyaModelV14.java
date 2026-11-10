@@ -114,7 +114,7 @@ public final class TryaseyaModelV14 extends EntityModel<SisterBoss> {
     private static float idleWave(float age,float factor) { return sin(age*factor); }
 
     @Override public void setupAnim(SisterBoss boss,float limbSwing,float limbSwingAmount,float age,float yaw,float pitch) {
-        // Restore the baked rest pose before action/hurt animation to avoid stale joints.
+        // Restore the complete baked rest pose before applying this frame's motion.
         root.getAllParts().forEach(ModelPart::resetPose);
         // Restore every animated axis every frame; no accumulating rotation from attacks.
         float breath=idleWave(age,.07F);
@@ -129,10 +129,11 @@ public final class TryaseyaModelV14 extends EntityModel<SisterBoss> {
         eyes.visible=((int)age%113)>2;
         mouthOpen.visible=false;
         mouthClosed.visible=true;
-        hairBack.xRot=idleWave(age-.9F,.07F)*.026F;
-        hairLeft.zRot=idleWave(age,.085F)*.038F;
-        hairRight.zRot=-idleWave(age+1.2F,.076F)*.041F;
-        bangs.xRot=idleWave(age,.08F)*.012F;
+        // Hair follows the animated head; only fine secondary motion remains.
+        hairBack.xRot=idleWave(age-.9F,.07F)*.011F;
+        hairLeft.zRot=idleWave(age,.085F)*.014F;
+        hairRight.zRot=-idleWave(age+1.2F,.076F)*.014F;
+        bangs.xRot=idleWave(age,.08F)*.006F;
         leftArm.xRot=idleWave(age,.077F)*.026F;
         leftArm.zRot=idleWave(age,.06F)*.018F;
         rightArm.xRot=-idleWave(age+1.0F,.065F)*.038F;
@@ -178,7 +179,7 @@ public final class TryaseyaModelV14 extends EntityModel<SisterBoss> {
             tail.xRot-=.07F*pose;
         }
         if(boss.hurtTime>0) head.zRot+=.095F*sin(age*.83F);
-        if(boss.enraged()) { root.y+=breath*.12F;hairLeft.zRot*=1.5F;hairRight.zRot*=1.5F; }
+        if(boss.enraged()) { root.y+=breath*.12F;hairLeft.zRot*=1.2F;hairRight.zRot*=1.2F; }
     }
     @Override public void renderToBuffer(PoseStack pose,VertexConsumer out,int light,int overlay,int color) { root.render(pose,out,light,overlay,color); }
 }

@@ -59,6 +59,8 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
         if (isTryaseya()) {
             setNoGravity(true);
             moveControl = new FlyingMoveControl(this,20,true);
+        } else {
+            setNoGravity(false);
         }
         bar = new ServerBossEvent(Component.literal(isTryaseya()?"Трясея":"Гнетея"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),isTryaseya()?BossEvent.BossBarColor.PURPLE:BossEvent.BossBarColor.RED),BossEvent.BossBarOverlay.PROGRESS);
         xpReward=0; // Rewards intentionally deferred to a separate approved patch.
@@ -110,6 +112,7 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
     @Override protected void customServerAiStep() {
         super.customServerAiStep();
         if (!(level() instanceof ServerLevel world) || !isAlive()) return;
+        if (!isTryaseya() && isNoGravity()) setNoGravity(false);
         if (encounter!=null && !enraged() && SistersLedger.get(world).partnerDied(encounter,isTryaseya())) { entityData.set(RAGE,true); if (isTryaseya()) world.playSound(null,blockPosition(),TryaseyaSounds.ENRAGE.get(),SoundSource.HOSTILE,1.35F,.86F); }
         bar.setProgress(Math.clamp(getHealth()/Math.max(1,getMaxHealth()),0,1));
         SisterBoss ally=loadedPartner(world);
@@ -303,6 +306,7 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
+        setNoGravity(isTryaseya());
         encounter=tag.hasUUID("SistersEncounter")?tag.getUUID("SistersEncounter"):null;
         partner=tag.hasUUID("SistersPartner")?tag.getUUID("SistersPartner"):null;
         entityData.set(RAGE,tag.getBoolean("SistersRage"));

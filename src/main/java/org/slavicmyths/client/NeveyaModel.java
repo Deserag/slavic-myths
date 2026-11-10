@@ -201,7 +201,7 @@ public final class NeveyaModel extends EntityModel<NeveyaBoss>{
         head.yRot=yaw*Mth.DEG_TO_RAD*.16F;
         head.xRot=pitch*Mth.DEG_TO_RAD*.17F;
         // Subtle hair movement relative to the skull, not a long lever around the torso.
-        hair.zRot=sway*.006F;
+        hair.zRot=sway*.003F;
         veil.zRot=-sway*.014F;
         // The torso was almost motionless while the hair swung independently.
         root.zRot=.009F*Mth.sin(age*.065F)+.012F*Mth.sin(walk*.67F)*Mth.clamp(stride,0F,1F);

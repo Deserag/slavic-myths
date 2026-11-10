@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "FBF",
+    "VMC",
+    "FSF"
+  ],
+  "key": {
+    "F": {
+      "item": "slavicmyths:morovoy_raven_feather"
+    },
+    "B": {
+      "item": "slavicmyths:morovoy_fire_zmey_bone"
+    },
+    "V": {
+      "item": "slavicmyths:viy_shard"
+    },
+    "M": {
+      "item": "slavicmyths:mor_core"
+    },
+    "C": {
+      "item": "slavicmyths:morovoy_fire_zmey_core"
+    },
+    "S": {
+      "item": "slavicmyths:sisters_ritual_core"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:pechat_devyati_morov",
+    "count": 1
+  }
+}

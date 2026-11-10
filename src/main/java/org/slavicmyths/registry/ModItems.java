@@ -44,14 +44,15 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> COAL_PLUM_MASH = ITEMS.register("coal_plum_mash", () -> new Item(properties()));
     public static final DeferredHolder<Item, Item> MYTAR_SEAL = ITEMS.register("mytar_seal", () -> new Item(properties().rarity(Rarity.RARE).stacksTo(1)));
     public static final DeferredHolder<Item, Item> MYTAR_CHAIN = ITEMS.register("mytar_chain", () -> new Item(properties().rarity(Rarity.RARE)));
-    public static final DeferredHolder<Item, Item> MYTAR_SICKLE = ITEMS.register("mytar_sickle", () -> new Item(properties().rarity(Rarity.RARE)));
+    public static final DeferredHolder<Item, Item> MYTAR_SICKLE = ITEMS.register("mytar_sickle", () -> new SwordItem(net.minecraft.world.item.Tiers.NETHERITE, properties().durability(1150).rarity(Rarity.RARE).attributes(SwordItem.createAttributes(net.minecraft.world.item.Tiers.NETHERITE,4,-2.4F))));
+    public static final DeferredHolder<Item, Item> MYTAR_SHACKLED_SICKLE = ITEMS.register("mytar_shackled_sickle", () -> new org.slavicmyths.posad.boss.ShackledSickleItem(net.minecraft.world.item.Tiers.NETHERITE,properties().durability(1500).rarity(Rarity.EPIC).attributes(SwordItem.createAttributes(net.minecraft.world.item.Tiers.NETHERITE,16,-2.7F))));
     public static final DeferredHolder<Item, Item> MYTAR_PURSE = ITEMS.register("mytar_purse", () -> new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.RARE), "belt"));
     public static final DeferredHolder<Item, Item> BAUK_FANG = ITEMS.register("bauk_fang", () -> new Item(properties().rarity(Rarity.RARE).stacksTo(1)));
     public static final DeferredHolder<Item, Item> BAUK_HIDE = ITEMS.register("bauk_hide", () -> new Item(properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> BAUK_WOOL = ITEMS.register("bauk_wool", () -> new Item(properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> BAUK_CLOAK = ITEMS.register("bauk_cloak", () -> new org.slavicmyths.posad.boss.BaukCloakItem(properties().rarity(Rarity.EPIC)));
     public static final DeferredHolder<Item, Item> BAUK_CLAW = ITEMS.register("bauk_claw", () -> new Item(properties().rarity(Rarity.RARE)));
-    public static final DeferredHolder<Item, Item> BAUK_HEAD_ITEM = ITEMS.register("bauk_head", () -> new BlockItem(ModBlocks.BAUK_HEAD.get(), properties().stacksTo(1).rarity(Rarity.EPIC)));
+    public static final DeferredHolder<Item, Item> BAUK_HEAD_ITEM = ITEMS.register("bauk_head", () -> new BlockItem(ModBlocks.BAUK_HEAD.get(), properties().stacksTo(1).rarity(Rarity.EPIC)) { @Override public net.minecraft.network.chat.Component getName(ItemStack stack) { return net.minecraft.network.chat.Component.translatableWithFallback("block.slavicmyths.bauk_head", "Голова Баука"); } });
     public static final DeferredHolder<Item, Item> BAUK_HIDE_CHARM_ITEM = ITEMS.register("bauk_hide_charm", () -> new org.slavicmyths.item.FolkAccessoryItem(properties().rarity(Rarity.EPIC), "charm"));
     public static final DeferredHolder<Item,Item> SILVER_BLOCK=ITEMS.register("silver_block",()->new BlockItem(ModBlocks.SILVER_BLOCK.get(),properties()));
     public static final DeferredHolder<Item,Item> MOR_FLASK=ITEMS.register("mor_flask",()->new org.slavicmyths.mor.MorFlaskItem(properties()));

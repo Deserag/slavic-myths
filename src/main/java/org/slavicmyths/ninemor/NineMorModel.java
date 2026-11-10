@@ -46,6 +46,50 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
     private final ModelPart[] neckMids = new ModelPart[9];
     private final ModelPart[] neckTips = new ModelPart[9];
     private final ModelPart[] heads = new ModelPart[9];
+    public ModelPart trophyHead(int index) { return heads[index]; }
+    public ModelPart trophyNeck(int index) { return necks[index]; }
+    public ModelPart trophyBody() { return body; }
+    public void poseTrophy(float time) {
+        root.getAllParts().forEach(ModelPart::resetPose);
+        for (int i = 0; i < 9; i++) {
+            float phase = time * (.037F + i * .002F) + i * .93F;
+            necks[i].yRot = Mth.sin(phase) * .10F;
+            necks[i].xRot = Mth.cos(phase * .79F) * .035F;
+            neckMids[i].yRot = Mth.cos(phase * .83F) * .13F;
+            neckMids[i].xRot = Mth.sin(phase * .71F) * .045F;
+            neckTips[i].yRot = Mth.sin(phase * 1.13F) * .11F;
+            heads[i].yRot = Mth.sin(phase * .77F) * .15F;
+            heads[i].xRot = Mth.cos(phase * .91F) * .055F;
+            jaws[i].xRot = .05F + Math.max(0F, Mth.sin(time * .085F + i * 1.37F)) * .38F;
+        }
+    }
+    public void renderTrophy(PoseStack stack, VertexConsumer consumer, int light, int overlay) {
+        stack.pushPose();
+        body.translateAndRotate(stack);
+        body.getChild("shell").render(stack, consumer, light, overlay, 0xFF474853);
+        dorsalPlates.render(stack, consumer, light, overlay, 0xFF79727C);
+        spineSpurs.render(stack, consumer, light, overlay, 0xFF9A8985);
+        chestGuard.render(stack, consumer, light, overlay, 0xFF76616B);
+        for (int i = 0; i < 9; i++) {
+            stack.pushPose();
+            heads[i].visible = false;
+            necks[i].render(stack, consumer, light, overlay, 0xFF575761);
+            heads[i].visible = true;
+            necks[i].translateAndRotate(stack);
+            neckMids[i].translateAndRotate(stack);
+            neckTips[i].translateAndRotate(stack);
+            heads[i].render(stack, consumer, light, overlay, 0xFF000000 | NineMorSerpent.COLORS[i]);
+            stack.pushPose();
+            heads[i].translateAndRotate(stack);
+            accents[i].render(stack, consumer, light, overlay, 0xFFC8B8AA);
+            eyeSockets[i].render(stack, consumer, light, overlay, 0xFF18171F);
+            cheekPlates[i].render(stack, consumer, light, overlay, 0xFF98828B);
+            stack.popPose();
+            stack.popPose();
+        }
+        stack.popPose();
+    }
+
     private final ModelPart[] jaws = new ModelPart[9];
     private final ModelPart[] accents = new ModelPart[9];
     private final ModelPart[] eyeSockets = new ModelPart[9];

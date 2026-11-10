@@ -121,7 +121,19 @@ public final class PosadBoss extends Monster {
         if (actionTicks > 0) {
             actionTicks--;
             entityData.set(ACTION_REMAINING, actionTicks);
-            getNavigation().stop();
+            LivingEntity windupTarget=getTarget();
+            if(windupTarget instanceof Player victim && victim.isAlive() && !victim.isCreative() && !victim.isSpectator() && move()!=Move.WINDUP_CHARGE){
+                getLookControl().setLookAt(victim,75F,60F);
+                double dx=victim.getX()-getX(),dz=victim.getZ()-getZ();
+                float targetYaw=(float)(Math.atan2(dz,dx)*180D/Math.PI)-90F;
+                setYRot(net.minecraft.util.Mth.rotLerp(.32F,getYRot(),targetYaw));
+                yBodyRot=net.minecraft.util.Mth.rotLerp(.36F,yBodyRot,getYRot());
+                yHeadRot=net.minecraft.util.Mth.rotLerp(.45F,yHeadRot,getYRot());
+                boolean closeIn=(move()==Move.WINDUP_PAW||move()==Move.WINDUP_BITE||move()==Move.WINDUP_SICKLE||move()==Move.WINDUP_GRAB)
+                    && distanceToSqr(victim)>8D && distanceToSqr(victim)<49D && actionTicks>impactTick(move())+4;
+                if(closeIn){if(tickCount%5==0||getNavigation().isDone())getNavigation().moveTo(victim,kind==Kind.BAUK?1.12D:1.04D);}
+                else getNavigation().stop();
+            }else getNavigation().stop();
             if (move() == Move.WINDUP_CHARGE && actionTicks <= 14) chargeStep();
             if (move() == Move.WINDUP_COINS && (actionTicks == 16 || actionTicks == 8 || actionTicks == 1)) applyHit();
             if (!connected && actionTicks == impactTick(move())) {
@@ -129,6 +141,14 @@ public final class PosadBoss extends Monster {
                 applyHit();
             }
             if (move() == Move.WINDUP_CHAIN && chainedPlayer != null) pullChainedPlayer();
+            if (move() == Move.WINDUP_GRAB && chainedPlayer != null) pullGrabbedPlayer();
+            if (move() == Move.WINDUP_CHAIN && actionTicks <= 24 && actionTicks >= 2 && tickCount%3==0 && getTarget() instanceof Player victim && level() instanceof net.minecraft.server.level.ServerLevel server && distanceToSqr(victim)<=196D){
+                net.minecraft.world.phys.Vec3 start=getEyePosition().add(getLookAngle().scale(.3D)),end=victim.getEyePosition();
+                for(int i=1;i<=7;i++){
+                    net.minecraft.world.phys.Vec3 at=start.lerp(end,i/8D);
+                    server.sendParticles(net.minecraft.core.particles.ParticleTypes.SOUL_FIRE_FLAME,at.x,at.y,at.z,1,0,0,0,0);
+                }
+            }
             if (actionTicks == 0) {
                 chainedPlayer = null;
                 chainDestination = null;
@@ -141,19 +161,19 @@ public final class PosadBoss extends Monster {
         getLookControl().setLookAt(target, 30F, 30F);
         double distance = distanceToSqr(target);
         if (cooldown == 0 && getSensing().hasLineOfSight(target)) {
-            if (kind == Kind.MYTAR && distance >= 25D && distance <= 196D && chainCooldown == 0) { chainCooldown = phase() == 2 ? 120 : 160; begin(Move.WINDUP_CHAIN, 40, 25); return; }
-            if (kind == Kind.MYTAR && distance >= 16D && distance <= 144D && coinsCooldown == 0) { coinsCooldown = 220; begin(Move.WINDUP_COINS, 40, 25); return; }
-            if (kind == Kind.BAUK && distance >= 25D && distance <= 169D && specialCooldown == 0 && canCharge(target)) { specialCooldown = enraged() ? 120 : 160; begin(Move.WINDUP_CHARGE, 44, 30); return; }
+            if (kind == Kind.MYTAR && distance >= 25D && distance <= 196D && chainCooldown == 0) { chainCooldown = phase() == 2 ? 100 : 130; begin(Move.WINDUP_CHAIN, 40, 25); return; }
+            if (kind == Kind.MYTAR && distance >= 16D && distance <= 144D && coinsCooldown == 0) { coinsCooldown = 170; begin(Move.WINDUP_COINS, 40, 25); return; }
+            if (kind == Kind.BAUK && distance >= 25D && distance <= 169D && specialCooldown == 0 && canCharge(target)) { specialCooldown = enraged() ? 100 : 135; begin(Move.WINDUP_CHARGE, 44, 30); return; }
         }
         if (distance > 12.25D) { if (tickCount >= nextPathTick || getNavigation().isDone()) { nextPathTick = tickCount + 10; getNavigation().moveTo(target, kind == Kind.BAUK && enraged() ? 1.2D : 1D); } return; }
         getNavigation().stop();
         if (cooldown > 0) return;
-        if (kind == Kind.BAUK && grabCooldown == 0 && distance <= 7.84D && random.nextInt(4) == 0) { grabCooldown = 160; begin(Move.WINDUP_GRAB, 38, 45); }
-        else if (kind == Kind.BAUK && specialCooldown == 0 && random.nextInt(5) == 0) { specialCooldown = 220; begin(Move.WINDUP_SLAM, 55, 50); }
-        else if (kind == Kind.BAUK && specialCooldown == 0 && random.nextInt(4) == 0) { specialCooldown = 260; begin(Move.WINDUP_ROAR, 48, 45); }
-        else if (kind == Kind.BAUK && random.nextBoolean()) begin(Move.WINDUP_PAW, 38, 70);
-        else if (kind == Kind.BAUK) begin(Move.WINDUP_BITE, 32, 42);
-        else begin(Move.WINDUP_SICKLE, 38, 36);
+        if (kind == Kind.BAUK && grabCooldown == 0 && distance <= 7.84D && random.nextInt(4) == 0) { grabCooldown = 115; begin(Move.WINDUP_GRAB, 38, 28); }
+        else if (kind == Kind.BAUK && specialCooldown == 0 && random.nextInt(5) == 0) { specialCooldown = 165; begin(Move.WINDUP_SLAM, 55, 30); }
+        else if (kind == Kind.BAUK && specialCooldown == 0 && random.nextInt(4) == 0) { specialCooldown = 180; begin(Move.WINDUP_ROAR, 48, 34); }
+        else if (kind == Kind.BAUK && random.nextBoolean()) begin(Move.WINDUP_PAW, 38, 22);
+        else if (kind == Kind.BAUK) begin(Move.WINDUP_BITE, 32, 18);
+        else begin(Move.WINDUP_SICKLE, 38, 20);
     }
     private void begin(Move next, int ticks, int after) {
         entityData.set(ACTION, next.ordinal());
@@ -217,6 +237,29 @@ public final class PosadBoss extends Monster {
         }
     }
 
+    private boolean facingTarget(LivingEntity target) {
+        net.minecraft.world.phys.Vec3 to=target.position().subtract(position()).multiply(1D,0D,1D);
+        return to.lengthSqr()<.01D||net.minecraft.world.phys.Vec3.directionFromRotation(0F,getYRot()).dot(to.normalize())>0D;
+    }
+
+    private void pullGrabbedPlayer() {
+        ServerPlayer player=chainedPlayer;
+        if(player==null)return;
+        if(!player.isAlive()||player.isRemoved()||player.level()!=level()||player.isCreative()||player.isSpectator()
+                ||player.isBlocking()||distanceToSqr(player)>16D||getTarget()!=player||!getSensing().hasLineOfSight(player)){
+            chainedPlayer=null;
+            return;
+        }
+        net.minecraft.world.phys.Vec3 offset=position().subtract(player.position()).multiply(1D,0D,1D);
+        double distance=offset.length(),stopDistance=(getBbWidth()+player.getBbWidth())/2D+.35D;
+        if(distance<=stopDistance)return;
+        net.minecraft.world.phys.Vec3 pull=offset.scale(Math.min(.38D,distance-stopDistance)/distance);
+        if(level().noCollision(player,player.getBoundingBox().move(pull))){
+            player.setDeltaMovement(pull.x,player.getDeltaMovement().y,pull.z);
+            player.hurtMarked=true;
+        }
+    }
+
     private void applyHit() {
         if (move() == Move.WINDUP_CHAIN || move() == Move.WINDUP_COINS) {
             LivingEntity distant = getTarget();
@@ -234,10 +277,26 @@ public final class PosadBoss extends Monster {
             }
             return;
         }
+        if (kind==Kind.BAUK && move()==Move.WINDUP_PAW) {
+            net.minecraft.world.phys.Vec3 forward=net.minecraft.world.phys.Vec3.directionFromRotation(0F,getYRot()).multiply(1D,0D,1D);
+            double minDot=Math.cos(Math.toRadians(55D));
+            for(Player victim:level().getEntitiesOfClass(Player.class,getBoundingBox().inflate(3.5D),
+                    player->player.isAlive()&&!player.isCreative()&&!player.isSpectator())){
+                net.minecraft.world.phys.Vec3 offset=victim.position().subtract(position()).multiply(1D,0D,1D);
+                double squared=offset.lengthSqr();
+                if(squared>12.25D||Math.abs(victim.getY()-getY())>getBbHeight()||!getSensing().hasLineOfSight(victim)
+                        ||squared>.01D&&forward.dot(offset.normalize())<minDot)continue;
+                if(victim.hurt(damageSources().mobAttack(this),12F))victim.knockback(.8D,getX()-victim.getX(),getZ()-victim.getZ());
+            }
+            return;
+        }
         if (move() == Move.WINDUP_GRAB) {
             LivingEntity victim = getTarget();
-            if (!(victim instanceof Player p) || p.isCreative() || p.isSpectator() || distanceToSqr(p) > 7.84D || !getSensing().hasLineOfSight(p)) return;
-            if (victim.hurt(damageSources().mobAttack(this), 14F)) victim.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 16, 1));
+            if (!(victim instanceof Player p) || p.isCreative() || p.isSpectator() || distanceToSqr(p) > 7.84D || !getSensing().hasLineOfSight(p) || !facingTarget(p)) return;
+            if (victim.hurt(damageSources().mobAttack(this), 14F)) {
+                victim.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 16, 1));
+                if(victim instanceof ServerPlayer grabbed)chainedPlayer=grabbed;
+            }
             return;
         }
         if (move() == Move.WINDUP_SLAM || move() == Move.WINDUP_ROAR) {
@@ -251,11 +310,10 @@ public final class PosadBoss extends Monster {
         }
         LivingEntity target = getTarget();
         if (!(target instanceof Player player) || !player.isAlive() || player.isCreative() || player.isSpectator()) return;
-        if (!getSensing().hasLineOfSight(target) || distanceToSqr(target) > 12.25D) return;
+        if (!getSensing().hasLineOfSight(target) || distanceToSqr(target) > 12.25D || !facingTarget(target)) return;
         float damage = kind == Kind.MYTAR ? 10F : move() == Move.WINDUP_PAW ? 12F : 15F;
         float before = target.getHealth();
         boolean hit = target.hurt(damageSources().mobAttack(this), damage);
-        if (hit && target.getHealth() < before && kind == Kind.BAUK && move() == Move.WINDUP_PAW) target.knockback(.8D, getX() - target.getX(), getZ() - target.getZ());
         if (hit && target.getHealth() < before && kind == Kind.MYTAR && target instanceof ServerPlayer playerTarget && level() instanceof net.minecraft.server.level.ServerLevel server) {
             long now = server.getGameTime();
             if (now >= stealReady.getOrDefault(playerTarget.getUUID(), 0L)) {

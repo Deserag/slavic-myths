@@ -27,10 +27,11 @@ public final class BowDrawClient {
                 if(usingArm!=arm)return false;
                 float ticks=stack.getUseDuration(player)-(player.getUseItemRemainingTicks()-partialTick+1.0F);
                 int duration=stack.getItem() instanceof FieldBowItem bow?bow.drawTicks():30; // FinistBow.power uses30.
-                drawPose(pose,arm==HumanoidArm.LEFT,equip,ticks,duration);
+                float power=stack.getItem() instanceof org.slavicmyths.nethersmithing.InfernalBow infernal?infernal.drawPower(Math.max(0,(int)ticks)):visualPower(ticks,duration);
+                drawPose(pose,arm==HumanoidArm.LEFT,equip,ticks,power);
                 return true;
             }
-        },WeaponCatalog.item("short_bow"),WeaponCatalog.item("heavy_bow"),FinistItems.BOW.get(),org.slavicmyths.nethersmithing.NetherWeapons.ITEMS.get("infernal_bow").get());
+        },WeaponCatalog.item("short_bow"),WeaponCatalog.item("heavy_bow"),FinistItems.BOW.get(),org.slavicmyths.nethersmithing.NetherWeapons.ITEMS.get("infernal_bow").get(), org.slavicmyths.nethersmithing.NetherWeapons.ITEMS.get("empowered_infernal_bow").get());
     }
 
     public static float visualPower(float ticks,int duration) {
@@ -40,13 +41,15 @@ public final class BowDrawClient {
 
     /** Installed ItemInHandRenderer BOW branch, with its20-tick divisor parameterized. */
     public static void drawPose(PoseStack pose,boolean left,float equip,float ticks,int duration) {
+        drawPose(pose,left,equip,ticks,visualPower(ticks,duration));
+    }
+    public static void drawPose(PoseStack pose,boolean left,float equip,float ticks,float power) {
         int sign=left?-1:1;
         pose.translate(sign*.56F,-.52F+equip*-.6F,-.72F);
         pose.translate(sign*-.2785682F,.18344387F,.15731531F);
         pose.mulPose(Axis.XP.rotationDegrees(-13.935F));
         pose.mulPose(Axis.YP.rotationDegrees(sign*35.3F));
         pose.mulPose(Axis.ZP.rotationDegrees(sign*-9.785F));
-        float power=visualPower(ticks,duration);
         if(power>.1F)pose.translate(0,Mth.sin((ticks-.1F)*1.3F)*(power-.1F)*.004F,0);
         pose.translate(0,0,power*.04F);
         pose.scale(1,1,1+power*.2F);
