@@ -21,6 +21,11 @@ public final class NineMorNamedItems {
         public Shield(Properties properties) { super(properties); }
         @Override public Component getName(ItemStack stack) { return Component.translatableWithFallback("item.slavicmyths.nine_mor_shield", "Щит Девяти Чешуй"); }
     }
+    public static final class Amulet extends Item implements top.theillusivec4.curios.api.type.capability.ICurioItem {
+        public Amulet(Properties properties) { super(properties); }
+        @Override public Component getName(ItemStack stack) { return Component.translatableWithFallback(getDescriptionId(), "Оберег Девятой Жизни"); }
+        @Override public boolean canEquip(top.theillusivec4.curios.api.SlotContext context, ItemStack stack) { return "necklace".equals(context.identifier()); }
+    }
     public static final class Reward extends Item {
         private final String fallback;
         public Reward(Properties properties, String fallback) { super(properties); this.fallback = fallback; }
