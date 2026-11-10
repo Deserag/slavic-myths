@@ -76,11 +76,12 @@ public final class ShipMovingClearance {
                     visited, p.getY() == 0)) return false;
         // Unoccupied air within the cabin is part of the ship's swept
         // collision volume too; never phase a person through a cliff.
-        for (int z = -5; z <= 5; z++)
-            for (int x = -FirstShipBlockHull.halfWidth(z);
-                 x <= FirstShipBlockHull.halfWidth(z); x++)
-                for (int y = 1; y <= 6; y++)
-                    if (!check(level, pose, waterlineY, x, y, z, visited, false)) return false;
+        for (BlockPos floor : palette.keySet()) {
+            if (floor.getY() != 0) continue;
+            for (int y = 1; y <= 6; y++)
+                if (!check(level, pose, waterlineY, floor.getX(), y,
+                        floor.getZ(), visited, false)) return false;
+        }
         return true;
     }
 
