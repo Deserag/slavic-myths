@@ -42,7 +42,7 @@ try {
         throw 'Specify a valid -ModsDirectory for the Korabliki profile.'
     }
     $existing = @(Get-ChildItem -LiteralPath $ModsDirectory -Filter 'slavicmyths*.jar' -File)
-    $backup = Join-Path $ModsDirectory ('_backup_slavicmyths_' + (Get-Date -Format 'yyyyMMdd_HHmmss'))
+    $backup = Join-Path (Split-Path -Parent (Resolve-Path -LiteralPath $ModsDirectory).Path) ('_backup_slavicmyths_' + (Get-Date -Format 'yyyyMMdd_HHmmss'))
     if ($existing.Count -gt 0) {
         New-Item -ItemType Directory -Path $backup -ErrorAction Stop | Out-Null
         foreach ($old in $existing) {
