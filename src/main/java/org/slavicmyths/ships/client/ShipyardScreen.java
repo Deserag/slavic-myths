@@ -547,7 +547,9 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 boolean enough = cost.have() >= cost.need()
                         || minecraft != null && minecraft.player != null
                         && minecraft.player.getAbilities().instabuild;
-                graphics.drawString(font, cost.have() + "/" + cost.need(),
+                graphics.drawString(font, minecraft != null && minecraft.player != null
+                        && minecraft.player.getAbilities().instabuild
+                        ? "Бесплатно" : cost.have() + "/" + cost.need(),
                         x + 18, y + 8, enough ? 0xff22612b : 0xffa13726, false);
             }
         }
