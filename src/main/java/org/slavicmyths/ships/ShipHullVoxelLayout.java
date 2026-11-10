@@ -23,17 +23,29 @@ public final class ShipHullVoxelLayout {
         CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM
     }
 
-    private static int beam(int width, int length, int z) {
+    private static int beam(int width, int length, int z, int hullRevision) {
         int halfWidth = width / 2, halfLength = length / 2;
         if (Math.abs(z) > halfLength) return -1;
-        int taper = Math.max(0, Math.abs(z) - (halfLength - 4));
-        int reduction = (int)Math.ceil(taper * halfWidth / 4D);
-        int tip = z == halfLength ? 0 : z == -halfLength ? 1 : 0;
-        return Math.max(tip, halfWidth - reduction);
+        if (hullRevision == 1) {
+            // Identical to the original V9 footprint for saved-world compatibility.
+            int taper = Math.max(0, Math.abs(z) - (halfLength - 4));
+            int reduction = (int)Math.ceil(taper * halfWidth / 4D);
+            int tip = z == halfLength ? 0 : z == -halfLength ? 1 : 0;
+            return Math.max(tip, halfWidth - reduction);
+        }
+        // V2: broad beam amidships, long curved pointed bow, and a narrower
+        // but still usable transom. No more abrupt four-block-only taper.
+        double fraction = Math.abs(z) / (double)Math.max(1, halfLength);
+        double reduction = z >= 0
+                ? .98D * Math.pow(fraction, 1.50D)
+                : .42D * Math.pow(fraction, 2.20D);
+        if (z == halfLength) return 0;
+        return Math.max(1, Math.min(halfWidth,
+                (int)Math.round(halfWidth * (1D - reduction))));
     }
 
     public static int halfBeam(ShipSuperstructurePlan plan, int z) {
-        return beam(plan.hullWidth(), plan.hullLength(), z);
+        return beam(plan.hullWidth(), plan.hullLength(), z, plan.hullRevision());
     }
 
     public static Map<Cell, Part> generate(ShipSuperstructurePlan plan) {
@@ -49,12 +61,26 @@ public final class ShipHullVoxelLayout {
                 boolean edge = Math.abs(x) == half
                         || Math.abs(x) > halfBeam(plan, z - 1)
                         || Math.abs(x) > halfBeam(plan, z + 1);
-                if (edge) for (int y = 1; y <= 3; y++)
-                    put(blocks, x, y, z, Part.HULL);
-                else if (Math.floorMod(z, 3) == 0)
+                if (edge) {
+                    for (int y = 1; y <= 3; y++) put(blocks, x, y, z, Part.HULL);
+                    if (plan.hullRevision() == 2 && Math.floorMod(z, 4) == 0)
+                        put(blocks, x, 2, z, Part.FRAME);
+                } else if (Math.floorMod(z, 3) == 0)
                     put(blocks, x, 3, z, Part.FRAME);
                 if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
-                if (edge) put(blocks, x, 5, z, Part.RAIL);
+                if (edge) {
+                    put(blocks, x, 5, z, Part.RAIL);
+                    if (plan.hullRevision() == 2
+                            && (z >= halfLength - 5 || z <= -halfLength + 4))
+                        put(blocks, x, 6, z, Part.RAIL);
+                }
+            }
+        }
+        if (plan.hullRevision() == 2) {
+            // Taller stems read as a bow and stern even without a cabin.
+            for (int y = 5; y <= 7; y++) {
+                put(blocks, 0, y, halfLength - 1, Part.FRAME);
+                put(blocks, 0, y, -halfLength, Part.FRAME);
             }
         }
         // Access shaft and actual ladders, aligned through every built deck.
@@ -70,6 +96,12 @@ public final class ShipHullVoxelLayout {
             int y = 4 + (floor - 1) * 4;
             int front = halfLength - 3 * (floor - 1);
             int rear = -halfLength + 2;
+            if (plan.hullRevision() == 2) {
+                // Real usable quarterdecks, not another full-length rectangle.
+                front = floor == 2 ? (int)Math.round(halfLength * .32D)
+                        : -(int)Math.round(halfLength * .30D);
+                front = Math.max(rear + 3, front);
+            }
             for (int z = rear; z <= front; z++) {
                 int half = Math.max(0, halfBeam(plan, z) - 1);
                 for (int x = -half; x <= half; x++) {
