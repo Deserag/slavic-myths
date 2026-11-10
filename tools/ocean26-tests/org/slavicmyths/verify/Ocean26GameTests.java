@@ -335,6 +335,22 @@ public final class Ocean26GameTests {
                     anchor, 0, config, cargo), type + " restoration failed");
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
                     anchor, 0, config), type + " second removal failed");
+            var maximum = config.resize(type.maxLength, type.maxWidth);
+            for (int mast = 1; mast < type.maxMasts; mast++)
+                maximum = maximum.withSail(mast, Math.min(3, type.maxSailTier));
+            maximum = maximum.withDecks(type.maxDecks);
+            if (type != org.slavicmyths.ships.ShipSectionPlan.ShipClass.SMALL)
+                maximum = maximum.withBridge(true).withCabin(true);
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
+                    anchor, 0, maximum, new ListTag()), type + " maximum hull placement failed");
+            if (type.maxDecks >= 3)
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
+                        0, 2, 12, 0)).is(Blocks.SPRUCE_PLANKS),
+                        type + " third deck floor is absent");
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.pack(level,
+                    anchor, 0, maximum) != null, type + " maximum hull packing failed");
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
+                    anchor, 0, maximum), type + " maximum hull removal failed");
         }
         menu.removed(builder);
         builder.discard();
@@ -400,6 +416,21 @@ public final class Ocean26GameTests {
         t.assertTrue(level.getBlockState(org.slavicmyths.ships.FirstShipBlockHull.world(
                 anchor, 0, 0, 9, -next.length() / 2 + 3)).is(Blocks.DARK_OAK_PLANKS),
                 "Raised captain's bridge absent");
+        int cabinRear = -next.length() / 2 + 2, cabinFront = cabinRear + 6;
+        BlockPos lowerDoor = FirstShipBlockHull.world(anchor, 0, 0, 5, cabinFront);
+        BlockPos upperDoor = FirstShipBlockHull.world(anchor, 0, 0, 6, cabinFront);
+        t.assertTrue(level.getBlockState(lowerDoor).is(Blocks.OAK_DOOR)
+                && level.getBlockState(lowerDoor).getValue(
+                        net.minecraft.world.level.block.DoorBlock.HALF)
+                        == net.minecraft.world.level.block.state.properties.DoubleBlockHalf.LOWER
+                && level.getBlockState(upperDoor).is(Blocks.OAK_DOOR)
+                && level.getBlockState(upperDoor).getValue(
+                        net.minecraft.world.level.block.DoorBlock.HALF)
+                        == net.minecraft.world.level.block.state.properties.DoubleBlockHalf.UPPER,
+                "Captain's cabin door halves are invalid");
+        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
+                0, 3, 6, cabinRear + 3)).is(Blocks.GLASS_PANE),
+                "Captain's cabin window is absent");
         t.assertTrue(chest(level, chestPos, t).getItem(0).getCount() == 19,
                 "Chest cargo lost after modular rebuilding");
         t.assertTrue(((net.minecraft.world.Container)level.getBlockEntity(barrelPos))
