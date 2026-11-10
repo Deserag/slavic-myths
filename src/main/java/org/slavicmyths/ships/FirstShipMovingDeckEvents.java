@@ -35,7 +35,7 @@ public final class FirstShipMovingDeckEvents {
         }
         Contact last = LAST.get(player);
         for (FirstShipEntity ship : player.level().getEntitiesOfClass(
-                FirstShipEntity.class, player.getBoundingBox().inflate(12D, 9D, 12D))) {
+                FirstShipEntity.class, player.getBoundingBox().inflate(38D, 26D, 38D))) {
             if (ship.isRemoved() || !ship.isMoving()) continue;
             boolean continuing = last != null && last.shipId() == ship.getId();
             boolean newClientFrame = player.level().isClientSide
@@ -46,6 +46,32 @@ public final class FirstShipMovingDeckEvents {
             Vec3 feet = player.position();
             FirstShipHull.Point relative = FirstShipHull.toLocal(
                     feet.x, feet.z, oldX, oldZ, oldYaw);
+            if (ship.isVoxelShip()) {
+                int floor = ship.supportedVoxelFloor(relative.x(), relative.z(),
+                        feet.y - ship.getY(), continuing ? last.floor() : -1);
+                if (floor < 0) continue;
+                double surface = ship.getY() + floor;
+                FirstShipHull.Point moved = FirstShipHull.transfer(feet.x, feet.z,
+                        oldX, oldZ, oldYaw, ship.getX(), ship.getZ(), ship.getYRot());
+                double targetX = newClientFrame ? moved.x() : feet.x;
+                double targetZ = newClientFrame ? moved.z() : feet.z;
+                boolean grounded = feet.y <= surface + .19D
+                        && player.getDeltaMovement().y <= .09D;
+                if (Math.abs(targetX - feet.x) > 1E-4D
+                        || Math.abs(targetZ - feet.z) > 1E-4D)
+                    ShipDynamicCollision.carryWithWorldCollision(player, ship,
+                            new Vec3(targetX - feet.x, 0D, targetZ - feet.z));
+                if (grounded) {
+                    player.setPos(player.getX(), surface + .02D, player.getZ());
+                    Vec3 velocity = player.getDeltaMovement();
+                    if (velocity.y < 0D)
+                        player.setDeltaMovement(velocity.x, 0D, velocity.z);
+                    player.setOnGround(true);
+                    player.fallDistance = 0F;
+                }
+                LAST.put(player, new Contact(ship.getId(), floor, ship.clientPoseFrame()));
+                return;
+            }
             boolean deck = FirstShipHull.mainDeckSupports(relative.x(), relative.z());
             boolean hold = FirstShipHull.holdSupports(relative.x(), relative.z());
             if (!deck && !hold) continue;
@@ -100,13 +126,37 @@ public final class FirstShipMovingDeckEvents {
                                        float oldYaw) {
         if (!(ship.level() instanceof net.minecraft.server.level.ServerLevel server)) return;
         for (Player player : server.getEntitiesOfClass(Player.class,
-                new net.minecraft.world.phys.AABB(oldX - 9D, ship.getY() - 1D, oldZ - 11D,
-                        oldX + 9D, ship.getY() + 9D, oldZ + 11D))) {
+                new net.minecraft.world.phys.AABB(oldX - 38D, ship.getY() - 1D, oldZ - 38D,
+                        oldX + 38D, ship.getY() + 26D, oldZ + 38D))) {
             if (!player.isAlive() || player.isPassenger() || player.isSpectator()
                     || player.getAbilities().flying || player.isFallFlying()) continue;
             Vec3 feet = player.position();
             FirstShipHull.Point local = FirstShipHull.toLocal(feet.x, feet.z,
                     oldX, oldZ, oldYaw);
+            if (ship.isVoxelShip()) {
+                int floor = ship.supportedVoxelFloor(local.x(), local.z(),
+                        feet.y - ship.getY(), -1);
+                if (floor < 0) continue;
+                FirstShipHull.Point moved = FirstShipHull.toWorld(local.x(), local.z(),
+                        ship.getX(), ship.getZ(), ship.getYRot());
+                double surface = ship.getY() + floor;
+                boolean grounded = feet.y <= surface + .19D
+                        && player.getDeltaMovement().y <= .09D;
+                double dx = moved.x() - feet.x, dz = moved.z() - feet.z;
+                if (Math.abs(dx) > 1E-4D || Math.abs(dz) > 1E-4D)
+                    ShipDynamicCollision.carryWithWorldCollision(player, ship,
+                            new Vec3(dx, 0D, dz));
+                if (grounded) {
+                    player.setPos(player.getX(), surface + .02D, player.getZ());
+                    Vec3 velocity = player.getDeltaMovement();
+                    if (velocity.y < 0D)
+                        player.setDeltaMovement(velocity.x, 0D, velocity.z);
+                    player.setOnGround(true);
+                    player.fallDistance = 0F;
+                }
+                LAST.put(player, new Contact(ship.getId(), floor, ship.clientPoseFrame()));
+                continue;
+            }
             boolean deck = FirstShipHull.mainDeckSupports(local.x(), local.z());
             boolean hold = FirstShipHull.holdSupports(local.x(), local.z());
             double deckY = ship.deckY(), holdY = ship.holdY();
