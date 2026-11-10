@@ -43,11 +43,11 @@ public final class ShipyardMenu extends AbstractContainerMenu {
         });
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 9; col++) {
-                addSlot(new Slot(inventory, 9 + row * 9 + col, 198 + col * 18, 197 + row * 18));
+                addSlot(new Slot(inventory, 9 + row * 9 + col, 198 + col * 18, 207 + row * 18));
             }
         }
         for (int col = 0; col < 9; col++) {
-            addSlot(new Slot(inventory, col, 198 + col * 18, 254));
+            addSlot(new Slot(inventory, col, 198 + col * 18, 261));
         }
     }
 
