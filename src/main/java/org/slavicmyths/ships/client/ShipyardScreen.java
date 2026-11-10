@@ -13,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.slavicmyths.ships.FirstShipItem;
+import org.slavicmyths.ships.FirstShipHull;
 import org.slavicmyths.ships.RaftCharacteristics;
 import org.slavicmyths.ships.RaftContent;
 import org.slavicmyths.ships.RaftItem;
@@ -21,10 +22,9 @@ import org.slavicmyths.ships.ShipyardMenu;
 import org.slavicmyths.ships.ShipyardUpgrades;
 
 /**
- * Unified three-tab workshop:
- *  0 Суда      — choose a blueprint on the left, preview exact inventory costs;
- *  1 Оснащение — put one actual vessel in its slot and select a module;
- *  2 Облик     — visible placeholder until cosmetic data is implemented.
+ * Two-tab workshop:
+ *  0 Создание корабля — choose a blueprint and preview exact inventory costs;
+ *  1 Модификации — place a vessel in its slot and select an upgrade.
  * Only the server authorizes craft/install transactions; the GUI never consumes
  * materials or invents vessels on the client.
  */
@@ -76,15 +76,14 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
 
     private void rebuild() {
         clearWidgets();
-        String[] tabs = {"Суда", "Оснащение", "Облик"};
+        String[] tabs = {"Создание корабля", "Модификации"};
         for (int i = 0; i < tabs.length; i++) {
             final int value = i;
             Button b = Button.builder(Component.literal(tabs[i]), button -> switchTab(value))
-                    .bounds(leftPos + 12 + 153 * i, topPos + 12, 145, 22).build();
+                    .bounds(leftPos + 12 + 229 * i, topPos + 12, 222, 22).build();
             b.active = tab != i;
             addRenderableWidget(b);
         }
-        if (tab == 2) { primary = null; return; }
         String[] options = tab == 0 ? VESSELS
                 : vesselKind() == 2 ? SHIP_OPTIONS
                 : vesselKind() == 1 ? RAFT_OPTIONS : new String[0];
@@ -193,7 +192,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     }
 
     private boolean allowed() {
-        if (tab == 2 || minecraft == null || minecraft.player == null) return false;
+        if (minecraft == null || minecraft.player == null) return false;
         if (tab == 0 && !menu.inspected().isEmpty()) return false;
         if (tab == 1 && vesselKind() == 0) return false;
         if (!minecraft.player.getAbilities().instabuild)
@@ -259,47 +258,81 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
 
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
         graphics.drawString(font, "Корабельная верфь", 14, 43, 0xfff8e1b5, false);
-        if (tab == 2) {
-            graphics.drawCenteredString(font, "ОБЛИК СУДНА", 327, 80, DARK);
-            graphics.drawCenteredString(font, "Скоро появятся изменения", 327, 106, DARK);
-            graphics.drawCenteredString(font, "Окраска, декор и внешний вид", 327, 122, DARK);
+        graphics.drawString(font, tab == 0 ? "Чертежи судов" : "Установите судно", 18, 54,
+                0xfff2dfbd, false);
+        graphics.drawString(font, tab == 0 ? VESSELS[chosen]
+                : vesselKind() == 0 ? "Сначала положите судно в ячейку"
+                : vesselKind() == 2 ? SHIP_OPTIONS[chosen] : RAFT_OPTIONS[chosen],
+                202, 52, DARK, false);
+        if (tab == 0) drawBlueprint(graphics);
+        if (tab == 1 && vesselKind() == 2) {
+            int level = ShipyardUpgrades.shipRigLevel(menu.inspected());
+            int fabric = ShipyardUpgrades.shipFabric(menu.inspected());
+            graphics.drawString(font, "Мачта: " + level + "/4     Ткань: " + fabric + "/3",
+                    202, 67, DARK, false);
+        }
+        if (tab == 1 && vesselKind() == 0)
+            graphics.drawString(font, "Выберите плот или корабль слева.", 202, 85, DARK, false);
+        else if (costs().isEmpty()) {
+            graphics.drawString(font, tab == 1 ? "Материалы не требуются" :
+                    "Выберите чертёж", 202, 133, DARK, false);
         } else {
-            graphics.drawString(font, tab == 0 ? "Чертежи судов" : "Установите судно", 18, 54,
-                    0xfff2dfbd, false);
-            graphics.drawString(font, tab == 0 ? VESSELS[chosen]
-                    : vesselKind() == 0 ? "Сначала положите судно в ячейку"
-                    : vesselKind() == 2 ? SHIP_OPTIONS[chosen] : RAFT_OPTIONS[chosen],
-                    202, 52, DARK, false);
-            if (tab == 1 && vesselKind() == 2) {
-                int level = ShipyardUpgrades.shipRigLevel(menu.inspected());
-                int fabric = ShipyardUpgrades.shipFabric(menu.inspected());
-                graphics.drawString(font, "Мачта: " + level + "/4     Ткань: " + fabric + "/3",
-                        202, 67, DARK, false);
-            }
-            if (tab == 1 && vesselKind() == 0)
-                graphics.drawString(font, "Выберите плот или корабль слева.", 202, 85, DARK, false);
-            else if (costs().isEmpty()) {
-                graphics.drawString(font, tab == 1 ? "Материалы не требуются" :
-                        "Выберите чертёж", 202, 93, DARK, false);
-                if (tab == 1 && vesselKind() == 2 && chosen == 4)
-                    graphics.drawString(font, "Возврат деталей при снижении мачты", 202, 110, DARK, false);
-                if (tab == 1 && vesselKind() == 2 && chosen == 5)
-                    graphics.drawString(font, "Детали паруса вернутся в инвентарь", 202, 110, DARK, false);
-            } else {
-                List<Cost> req = costs();
-                for (int i = 0; i < req.size(); i++) {
-                    Cost cost = req.get(i);
-                    int col = i % 2, row = i / 2, x = 201 + col * 132, y = 82 + row * 19;
-                    graphics.renderItem(cost.icon(), x, y);
-                    graphics.drawString(font, cost.title(), x + 20, y, DARK, false);
-                    graphics.drawString(font, cost.have() + "/" + cost.need(), x + 20, y + 9,
-                            cost.have() >= cost.need() ? 0xff22612b : 0xffa13726, false);
-                }
+            List<Cost> req = costs();
+            int baseY = tab == 0 ? 126 : 82;
+            for (int i = 0; i < req.size(); i++) {
+                Cost cost = req.get(i);
+                int col = i % 2, row = i / 2, x = 201 + col * 132, y = baseY + row * 16;
+                graphics.renderItem(cost.icon(), x, y);
+                graphics.drawString(font, cost.title(), x + 19, y, DARK, false);
+                graphics.drawString(font, cost.have() + "/" + cost.need(), x + 19, y + 8,
+                        cost.have() >= cost.need() ? 0xff22612b : 0xffa13726, false);
             }
         }
         if (tab == 0 && !menu.inspected().isEmpty())
             graphics.drawString(font, "Заберите готовое судно из ячейки", 194, 176, 0xff942b25, false);
         graphics.drawString(font, "Инвентарь", 198, 199, 0xfff2d9aa, false);
+    }
+
+    /**
+     * Orthographic technical views of the existing real voxel footprint.
+     * These are intentionally not decorative models: each colored cell is a
+     * distinct physical block column of the current buildable blueprint.
+     */
+    private void drawBlueprint(GuiGraphics graphics) {
+        int width = chosen == 4 ? FirstShipHull.WIDTH :
+                chosen == 0 || chosen == 1 ? 3 : 5;
+        int length = chosen == 4 ? FirstShipHull.LENGTH :
+                chosen == 0 || chosen == 2 ? 3 : chosen == 1 ? 5 : 7;
+        final int blue = 0xff368fbd;
+        final int edge = 0xff255572;
+        final int grid = 0xffb6a57e;
+        graphics.drawString(font, "СВЕРХУ", 204, 66, DARK, false);
+        graphics.drawString(font, "СБОКУ", 296, 66, DARK, false);
+        graphics.drawString(font, "СПЕРЕДИ", 394, 66, DARK, false);
+        int cell = 4;
+        int originX = 226 - width * cell / 2;
+        int originY = 75;
+        for (int z = 0; z < length; z++) {
+            int halfBeam = chosen == 4 ? (int)Math.floor(FirstShipHull.halfBeam(z - length / 2)) : width / 2;
+            for (int x = 0; x < width; x++) {
+                if (chosen == 4 && Math.abs(x - width / 2) > halfBeam) continue;
+                int bx = originX + x * cell, by = originY + z * cell;
+                graphics.fill(bx, by, bx + 3, by + 3, blue);
+            }
+        }
+        for (int z = 0; z < length; z++) {
+            int bx = 297 + z * 4, by = 85;
+            int height = chosen == 4 ? 5 : 1;
+            graphics.fill(bx, by, bx + 3, by + height * 4, edge);
+        }
+        for (int x = 0; x < width; x++) {
+            int bx = 405 + x * 4, by = 85;
+            int height = chosen == 4 ? 5 : 1;
+            graphics.fill(bx, by, bx + 3, by + height * 4, blue);
+        }
+        graphics.fill(194, 118, 461, 119, grid);
+        graphics.drawString(font, "Корпус: " + width + " × " + length + " блоков",
+                203, 110, DARK, false);
     }
 
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partial) {
