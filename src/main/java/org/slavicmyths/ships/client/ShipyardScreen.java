@@ -676,11 +676,63 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 + design.decks() + " пал.", 202, 105, ink, false);
     }
 
+    /** Preserve all 476x282 slot coordinates, but fit the workbench to the
+     * actual viewport even at the player's maximum Minecraft GUI scale.
+     * Every pointer event uses the inverse of the render transform.
+     */
+    private float screenScale() {
+        return Math.min(1F, Math.max(.1F,
+                Math.min((width - 12F) / imageWidth, (height - 12F) / imageHeight)));
+    }
+
+    private float renderShiftX() {
+        float scale = screenScale();
+        return (width - imageWidth * scale) * .5F - leftPos * scale;
+    }
+
+    private float renderShiftY() {
+        float scale = screenScale();
+        return (height - imageHeight * scale) * .5F - topPos * scale;
+    }
+
+    private double logicalX(double screenX) {
+        return (screenX - renderShiftX()) / screenScale();
+    }
+
+    private double logicalY(double screenY) {
+        return (screenY - renderShiftY()) / screenScale();
+    }
+
+    @Override public boolean mouseClicked(double x, double y, int button) {
+        return super.mouseClicked(logicalX(x), logicalY(y), button);
+    }
+
+    @Override public boolean mouseReleased(double x, double y, int button) {
+        return super.mouseReleased(logicalX(x), logicalY(y), button);
+    }
+
+    @Override public boolean mouseDragged(double x, double y, int button, double dx, double dy) {
+        float scale = screenScale();
+        return super.mouseDragged(logicalX(x), logicalY(y), button, dx / scale, dy / scale);
+    }
+
+    @Override public boolean mouseScrolled(double x, double y, double horizontal, double vertical) {
+        return super.mouseScrolled(logicalX(x), logicalY(y), horizontal, vertical);
+    }
+
+    @Override public void mouseMoved(double x, double y) {
+        super.mouseMoved(logicalX(x), logicalY(y));
+    }
+
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partial) {
-        super.render(graphics, mouseX, mouseY, partial);
-        // Extended ship item tooltips obscure the entire upgrade menu.
-        // Hold Shift to display the full description on demand.
+        float scale = screenScale();
+        graphics.pose().pushPose();
+        graphics.pose().translate(renderShiftX(), renderShiftY(), 0F);
+        graphics.pose().scale(scale, scale, 1F);
+        int x = (int)Math.round(logicalX(mouseX)), y = (int)Math.round(logicalY(mouseY));
+        super.render(graphics, x, y, partial);
         if (hoveredSlot == null || hoveredSlot.index != 0 || hasShiftDown())
-            renderTooltip(graphics, mouseX, mouseY);
+            renderTooltip(graphics, x, y);
+        graphics.pose().popPose();
     }
 }
