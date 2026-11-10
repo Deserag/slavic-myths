@@ -2,10 +2,10 @@
   "parent": "minecraft:block/block",
   "ambientocclusion": false,
   "textures": {
-    "m": "minecraft:block/polished_blackstone",
-    "bone": "minecraft:block/bone_block_side",
-    "accent": "minecraft:block/crying_obsidian",
-    "particle": "minecraft:block/polished_blackstone"
+    "m": "slavicmyths:block/nine_mor_graphite",
+    "bone": "slavicmyths:block/nine_mor_bone",
+    "accent": "slavicmyths:block/nine_mor_violet",
+    "particle": "slavicmyths:block/nine_mor_graphite"
   },
   "elements": [
     {
@@ -2145,13 +2145,13 @@
       ],
       "translation": [
         0,
-        0,
+        -1,
         0
       ],
       "scale": [
-        0.52,
-        0.52,
-        0.52
+        0.32,
+        0.32,
+        0.32
       ]
     }
   }
