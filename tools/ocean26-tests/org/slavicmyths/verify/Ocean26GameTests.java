@@ -359,6 +359,60 @@ public final class Ocean26GameTests {
         t.succeed();
     }
 
+    @GameTest(template = "empty", timeoutTicks = 150, batch = "ocean_modular_third_deck")
+    public static void thirdDeckWalkerFollowsLargeMovingShip(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(22, 4, 22));
+        level.getChunkSource().addRegionTicket(VOYAGE_TICKET,
+                new ChunkPos(anchor), 3, anchor.asLong());
+        for (int x = -19; x <= 19; x++)
+            for (int z = -27; z <= 27; z++) {
+                BlockPos pos = anchor.offset(x, 0, z);
+                level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 24; y++)
+                    level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE)
+                .resize(1, 1).withDecks(3).withBridge(true).withCabin(true);
+        ServerPlayer builder = player(level, "ThirdDeckBuilder",
+                new Vec3(anchor.getX() + 18D, anchor.getY() + 8D, anchor.getZ()));
+        builder.getAbilities().instabuild = true;
+        ItemStack item = org.slavicmyths.ships.ShipyardModular.build(builder, config);
+        FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
+        t.assertTrue(ship != null && !item.isEmpty(), "Large third-deck ship creation failed");
+        ship.initializeNativeHull(anchor, 0);
+        ship.enableSmoothMotion();
+        t.assertTrue(ship.loadPacked(item) && org.slavicmyths.ships.ShipModularBlockHull.place(
+                level, anchor, 0, config, new ListTag()), "Large third-deck placement failed");
+        t.assertTrue(level.addFreshEntity(ship), "Large third-deck entity did not spawn");
+        ServerPlayer captain = player(level, "ThirdDeckCaptain",
+                new Vec3(ship.getX(), ship.deckY(), ship.getZ() + ship.helmSeatZ()));
+        ServerPlayer walker = player(level, "ThirdDeckWalker",
+                new Vec3(ship.getX() + 2D, ship.getY() + 13.02D, ship.getZ()));
+        t.assertTrue(captain.startRiding(ship), "Third-deck captain could not board");
+        double startZ = ship.getZ();
+        t.runAtTickTime(5L, () -> t.assertTrue(
+                ship.helmStep(captain, FirstShipNetwork.FORWARD),
+                "Large third-deck hull could not begin moving"));
+        for (int tick = 6; tick <= 48; tick++)
+            t.runAtTickTime(tick, () -> ship.helmStep(captain, FirstShipNetwork.FORWARD));
+        t.runAtTickTime(51L, () -> {
+            FirstShipHull.Point local = FirstShipHull.toLocal(walker.getX(), walker.getZ(),
+                    ship.getX(), ship.getZ(), ship.getYRot());
+            t.assertTrue(ship.isMoving() && ship.getZ() > startZ + .10D,
+                    "Large third-deck ship did not advance");
+            t.assertTrue(Math.abs(local.x() - 2D) < .12D && Math.abs(local.z()) < .12D
+                    && walker.getY() >= ship.getY() + 12.8D,
+                    "Third-deck walker was left behind or fell through floor");
+            walker.discard(); captain.discard(); builder.discard(); ship.discard();
+            level.getChunkSource().removeRegionTicket(VOYAGE_TICKET,
+                    new ChunkPos(anchor), 3, anchor.asLong());
+            t.succeed();
+        });
+    }
+
     @GameTest(template = "empty", timeoutTicks = 350, batch = "ocean_modular_classes")
     public static void allFourModularClassesPlacePackAndRestore(GameTestHelper t) {
         ServerLevel level = t.getLevel();
