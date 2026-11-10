@@ -150,7 +150,7 @@ def validate() -> dict[str, dict]:
           "Poloz trophy item must activate the registered 3D item renderer")
     with Image.open(TEXTURES / "mob_effect" / "fracture.png") as fracture:
         check(fracture.size == (18, 18), "Fracture status effect icon must be 18 x 18 pixels")
-        blocking = model("nine_mor_shield_blocking", "item")
+    blocking = model("nine_mor_shield_blocking", "item")
     check(blocking.get("parent") == "slavicmyths:item/nine_mor_shield_held",
           "Nine Mor blocking shield is not linked to its normal geometry")
     for name in ("morovoy_staff", "nine_mor_amulet_held"):
