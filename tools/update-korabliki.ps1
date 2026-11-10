@@ -28,7 +28,7 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Gradle build failed; installed mods were not modified.' }
 
     $candidate = @(Get-ChildItem (Join-Path $Repo 'build/libs') -Filter 'slavicmyths*.jar' |
-        Where-Object { $_.Name -notmatch '(sources|javadoc|dev|all)\.jar } |
+        Where-Object { $_.Name -notmatch '(sources|javadoc|dev|all)\.jar
         Sort-Object LastWriteTime -Descending)
     if ($candidate.Count -ne 1) {
         throw "Expected exactly one release candidate, found $($candidate.Count). Nothing installed."
@@ -83,6 +83,7 @@ try {
     Write-Host "SHA256: $hash"
 
     if (-not $BuildOnly) {
+        if ([string]::IsNullOrWhiteSpace($ModsDirectory)) { throw 'Pass -ModsDirectory for installation or use -BuildOnly.' }
         if (-not (Test-Path -LiteralPath $ModsDirectory -PathType Container)) {
             throw "Mods folder does not exist: $ModsDirectory"
         }
@@ -94,11 +95,18 @@ try {
                 Copy-Item -LiteralPath $old.FullName -Destination $backup -ErrorAction Stop
             }
         }
-        Copy-Item -LiteralPath $jar.FullName -Destination (Join-Path $ModsDirectory $jar.Name) -Force
-        $newHash = (Get-FileHash -LiteralPath (Join-Path $ModsDirectory $jar.Name) -Algorithm SHA256).Hash
-        if ($newHash -ne $hash) {
-            Remove-Item -LiteralPath (Join-Path $ModsDirectory $jar.Name) -Force
-            throw 'Installed JAR SHA256 differs. Previous versions remain unchanged.'
+        $staged = Join-Path $ModsDirectory ($jar.Name + '.staging')
+        Copy-Item -LiteralPath $jar.FullName -Destination $staged -Force
+        $stagedHash = (Get-FileHash -LiteralPath $staged -Algorithm SHA256).Hash
+        if ($stagedHash -ne $hash) {
+            Remove-Item -LiteralPath $staged -Force
+            throw 'Staged JAR SHA256 differs. Previous versions remain unchanged.'
+        }
+        Copy-Item -LiteralPath $staged -Destination (Join-Path $ModsDirectory $jar.Name) -Force
+        Remove-Item -LiteralPath $staged -Force
+        $installedHash = (Get-FileHash -LiteralPath (Join-Path $ModsDirectory $jar.Name) -Algorithm SHA256).Hash
+        if ($installedHash -ne $hash) {
+            throw 'Installed JAR verification failed. Restore the previous file from backup.'
         }
         foreach ($old in $existing) {
             if ($old.Name -ne $jar.Name) { Remove-Item -LiteralPath $old.FullName -Force }
