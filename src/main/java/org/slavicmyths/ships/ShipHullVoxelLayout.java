@@ -138,7 +138,7 @@ public final class ShipHullVoxelLayout {
                 put(blocks, -side + 1, y, front, Part.LADDER);
             put(blocks, 0, 10, rear + 2, Part.HELM);
         } else {
-            put(blocks, 0, 5, -halfLength + 3, Part.HELM);
+            put(blocks, 0, 5, -halfLength + (plan.cabin() ? 9 : 3), Part.HELM);
         }
 
         return Collections.unmodifiableMap(blocks);
