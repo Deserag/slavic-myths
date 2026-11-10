@@ -1302,8 +1302,11 @@ public final class FirstShipEntity extends Boat {
     }
 
     private boolean hasOpenShipMenus(net.minecraft.server.level.ServerLevel server) {
+        double radius = modularConfiguration == null ? 10D
+                : Math.hypot(modularConfiguration.width() / 2D,
+                        modularConfiguration.length() / 2D) + 5D;
         for (ServerPlayer player : server.getEntitiesOfClass(ServerPlayer.class,
-                getBoundingBox().inflate(10D, 15D, 10D)))
+                getBoundingBox().inflate(radius, 18D, radius)))
             if (player.containerMenu != player.inventoryMenu) return true;
         return false;
     }
@@ -1318,9 +1321,7 @@ public final class FirstShipEntity extends Boat {
     private boolean beginContinuousMotion(net.minecraft.server.level.ServerLevel server) {
         if (!smoothEnabled || geometryVersion < 5 || quarantinedModules != null
                 || movingBody != null) return false;
-        for (ServerPlayer player : server.getEntitiesOfClass(ServerPlayer.class,
-                new AABB(blockAnchor).inflate(10D, 24D, 10D)))
-            if (player.containerMenu != player.inventoryMenu) return false;
+        if (hasOpenShipMenus(server)) return false;
         ShipMovingContraption prepared = modularConfiguration == null
                 ? ShipMovingContraption.prepare(server, blockAnchor,
                         quarterTurns, rigLevel, fabricQuality, geometryVersion)
