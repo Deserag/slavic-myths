@@ -94,10 +94,15 @@ public final class FirstShipInteractionClient {
                     && Math.abs(at.z() - helmZ) < 1.8D) {
                 FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, ship.helmWheelZ(),
                         ship.getX(), ship.getZ(), ship.getYRot());
-                Vec3 aim = new Vec3(wheel.x(), helmY + 1.78D, wheel.z()).subtract(eye);
-                if (aim.lengthSqr() > .09D && aim.lengthSqr() < 25D
-                        && aim.normalize().dot(direction) > .30D && aim.lengthSqr() < nearest) {
-                    selected = ship; action = FirstShipNetwork.HELM; nearest = aim.lengthSqr();
+                Vec3 ring = new Vec3(wheel.x(), helmY + 1.78D, wheel.z()).subtract(eye);
+                Vec3 post = new Vec3(wheel.x(), helmY + .58D, wheel.z()).subtract(eye);
+                boolean aimsRing = ring.lengthSqr() > .09D && ring.lengthSqr() < 25D
+                        && ring.normalize().dot(direction) > .30D;
+                boolean aimsPost = post.lengthSqr() > .09D && post.lengthSqr() < 25D
+                        && post.normalize().dot(direction) > .30D;
+                double distance = Math.min(ring.lengthSqr(), post.lengthSqr());
+                if ((aimsRing || aimsPost) && distance < nearest) {
+                    selected = ship; action = FirstShipNetwork.HELM; nearest = distance;
                 }
             }
             if (action == FirstShipNetwork.HELM) continue;
