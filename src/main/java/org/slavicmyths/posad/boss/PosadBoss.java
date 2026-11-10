@@ -121,7 +121,19 @@ public final class PosadBoss extends Monster {
         if (actionTicks > 0) {
             actionTicks--;
             entityData.set(ACTION_REMAINING, actionTicks);
-            getNavigation().stop();
+            LivingEntity windupTarget=getTarget();
+            if(windupTarget instanceof Player victim && victim.isAlive() && !victim.isCreative() && !victim.isSpectator() && move()!=Move.WINDUP_CHARGE){
+                getLookControl().setLookAt(victim,75F,60F);
+                double dx=victim.getX()-getX(),dz=victim.getZ()-getZ();
+                float targetYaw=(float)(Math.atan2(dz,dx)*180D/Math.PI)-90F;
+                setYRot(net.minecraft.util.Mth.rotLerp(.32F,getYRot(),targetYaw));
+                yBodyRot=net.minecraft.util.Mth.rotLerp(.36F,yBodyRot,getYRot());
+                yHeadRot=net.minecraft.util.Mth.rotLerp(.45F,yHeadRot,getYRot());
+                boolean closeIn=(move()==Move.WINDUP_PAW||move()==Move.WINDUP_BITE||move()==Move.WINDUP_SICKLE||move()==Move.WINDUP_GRAB)
+                    && distanceToSqr(victim)>8D && distanceToSqr(victim)<49D && actionTicks>impactTick(move())+4;
+                if(closeIn){if(tickCount%5==0||getNavigation().isDone())getNavigation().moveTo(victim,kind==Kind.BAUK?1.12D:1.04D);}
+                else getNavigation().stop();
+            }else getNavigation().stop();
             if (move() == Move.WINDUP_CHARGE && actionTicks <= 14) chargeStep();
             if (move() == Move.WINDUP_COINS && (actionTicks == 16 || actionTicks == 8 || actionTicks == 1)) applyHit();
             if (!connected && actionTicks == impactTick(move())) {
@@ -129,6 +141,13 @@ public final class PosadBoss extends Monster {
                 applyHit();
             }
             if (move() == Move.WINDUP_CHAIN && chainedPlayer != null) pullChainedPlayer();
+            if (move() == Move.WINDUP_CHAIN && actionTicks <= 24 && actionTicks >= 2 && tickCount%3==0 && getTarget() instanceof Player victim && level() instanceof net.minecraft.server.level.ServerLevel server && distanceToSqr(victim)<=196D){
+                net.minecraft.world.phys.Vec3 start=getEyePosition().add(getLookAngle().scale(.3D)),end=victim.getEyePosition();
+                for(int i=1;i<=7;i++){
+                    net.minecraft.world.phys.Vec3 at=start.lerp(end,i/8D);
+                    server.sendParticles(net.minecraft.core.particles.ParticleTypes.SOUL_FIRE_FLAME,at.x,at.y,at.z,1,0,0,0,0);
+                }
+            }
             if (actionTicks == 0) {
                 chainedPlayer = null;
                 chainDestination = null;
@@ -141,19 +160,19 @@ public final class PosadBoss extends Monster {
         getLookControl().setLookAt(target, 30F, 30F);
         double distance = distanceToSqr(target);
         if (cooldown == 0 && getSensing().hasLineOfSight(target)) {
-            if (kind == Kind.MYTAR && distance >= 25D && distance <= 196D && chainCooldown == 0) { chainCooldown = phase() == 2 ? 120 : 160; begin(Move.WINDUP_CHAIN, 40, 25); return; }
-            if (kind == Kind.MYTAR && distance >= 16D && distance <= 144D && coinsCooldown == 0) { coinsCooldown = 220; begin(Move.WINDUP_COINS, 40, 25); return; }
-            if (kind == Kind.BAUK && distance >= 25D && distance <= 169D && specialCooldown == 0 && canCharge(target)) { specialCooldown = enraged() ? 120 : 160; begin(Move.WINDUP_CHARGE, 44, 30); return; }
+            if (kind == Kind.MYTAR && distance >= 25D && distance <= 196D && chainCooldown == 0) { chainCooldown = phase() == 2 ? 100 : 130; begin(Move.WINDUP_CHAIN, 40, 25); return; }
+            if (kind == Kind.MYTAR && distance >= 16D && distance <= 144D && coinsCooldown == 0) { coinsCooldown = 170; begin(Move.WINDUP_COINS, 40, 25); return; }
+            if (kind == Kind.BAUK && distance >= 25D && distance <= 169D && specialCooldown == 0 && canCharge(target)) { specialCooldown = enraged() ? 100 : 135; begin(Move.WINDUP_CHARGE, 44, 30); return; }
         }
         if (distance > 12.25D) { if (tickCount >= nextPathTick || getNavigation().isDone()) { nextPathTick = tickCount + 10; getNavigation().moveTo(target, kind == Kind.BAUK && enraged() ? 1.2D : 1D); } return; }
         getNavigation().stop();
         if (cooldown > 0) return;
-        if (kind == Kind.BAUK && grabCooldown == 0 && distance <= 7.84D && random.nextInt(4) == 0) { grabCooldown = 160; begin(Move.WINDUP_GRAB, 38, 45); }
-        else if (kind == Kind.BAUK && specialCooldown == 0 && random.nextInt(5) == 0) { specialCooldown = 220; begin(Move.WINDUP_SLAM, 55, 50); }
-        else if (kind == Kind.BAUK && specialCooldown == 0 && random.nextInt(4) == 0) { specialCooldown = 260; begin(Move.WINDUP_ROAR, 48, 45); }
-        else if (kind == Kind.BAUK && random.nextBoolean()) begin(Move.WINDUP_PAW, 38, 70);
-        else if (kind == Kind.BAUK) begin(Move.WINDUP_BITE, 32, 42);
-        else begin(Move.WINDUP_SICKLE, 38, 36);
+        if (kind == Kind.BAUK && grabCooldown == 0 && distance <= 7.84D && random.nextInt(4) == 0) { grabCooldown = 115; begin(Move.WINDUP_GRAB, 38, 28); }
+        else if (kind == Kind.BAUK && specialCooldown == 0 && random.nextInt(5) == 0) { specialCooldown = 165; begin(Move.WINDUP_SLAM, 55, 30); }
+        else if (kind == Kind.BAUK && specialCooldown == 0 && random.nextInt(4) == 0) { specialCooldown = 180; begin(Move.WINDUP_ROAR, 48, 34); }
+        else if (kind == Kind.BAUK && random.nextBoolean()) begin(Move.WINDUP_PAW, 38, 22);
+        else if (kind == Kind.BAUK) begin(Move.WINDUP_BITE, 32, 18);
+        else begin(Move.WINDUP_SICKLE, 38, 20);
     }
     private void begin(Move next, int ticks, int after) {
         entityData.set(ACTION, next.ordinal());
