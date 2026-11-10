@@ -78,6 +78,37 @@ public final class Ocean26GameTests {
         return (ChestBlockEntity) level.getBlockEntity(position);
     }
 
+    @GameTest(template = "empty", timeoutTicks = 100, batch = "ocean_modular_materials")
+    public static void modularShipyardConsumesExactMaterials(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        ServerPlayer builder = player(level, "ModularMaterialBuilder",
+                Vec3.atCenterOf(t.absolutePos(new BlockPos(2, 3, 2))));
+        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.SMALL);
+        var price = org.slavicmyths.ships.ShipyardModular.costs(null, config);
+        net.minecraft.world.item.Item[] items = {Items.OAK_LOG, Items.OAK_PLANKS,
+                Items.IRON_INGOT, Items.STRING, RaftContent.DECK_SECTION.get(),
+                RaftContent.RAIL_MODULE.get(), RaftContent.HELM_MODULE.get(),
+                RaftContent.SAIL_MODULE.get()};
+        int[] amounts = {price.logs(), price.planks(), price.iron(), price.string(),
+                price.deckSections(), price.railKits(), price.helms(), price.basicSails()};
+        for (int i = 0; i < items.length; i++)
+            for (int left = amounts[i]; left > 0; left -= 64)
+                t.assertTrue(builder.getInventory().add(new ItemStack(items[i],
+                        Math.min(64, left))), "Could not stage exact ship materials");
+        t.assertTrue(org.slavicmyths.ships.ShipyardModular.canPay(builder, price),
+                "Exact modular ship materials were rejected");
+        t.assertTrue(!org.slavicmyths.ships.ShipyardModular.build(builder, config).isEmpty(),
+                "Small modular ship could not be crafted with exact materials");
+        for (net.minecraft.world.item.Item item : items)
+            t.assertTrue(builder.getInventory().countItem(item) == 0,
+                    "Shipyard left or duplicated exact materials: " + item);
+        t.assertTrue(org.slavicmyths.ships.ShipyardModular.build(builder, config).isEmpty(),
+                "Shipyard crafted a second ship without materials");
+        builder.discard();
+        t.succeed();
+    }
+
     /**
      * V8 is opt-in for new ships. Verify distinct actual mast/yard blocks for
      * each cloth tier, cargo-safe packing and complete teardown. Legacy V7
