@@ -21,10 +21,10 @@ import org.slavicmyths.worldgen.ManualStructureRecords;
 public final class NetherEncounterSpawns {
     private static final int REGION=2048, ACTIVATE=112, MIN_DISTANCE=800;
     private record Definition(String key,String[] ids,Set<String> biomes) {}
-    private static final List<Definition> WILDERNESS=List.of(
-        new Definition("bauk",new String[]{"slavicmyths:bauk"},Set.of("minecraft:crimson_forest","minecraft:warped_forest")),
-        new Definition("cursed_mytar",new String[]{"slavicmyths:cursed_mytar"},Set.of("minecraft:nether_wastes","minecraft:basalt_deltas")),
-        new Definition("bauk",new String[]{"slavicmyths:bauk"},Set.of("minecraft:soul_sand_valley","minecraft:nether_wastes"))
+    private static final List<Definition> WILDERNESS=List.of();
+    private static final List<Definition> POSAD_BOSSES=List.of(
+        new Definition("bauk",new String[]{"slavicmyths:bauk"},Set.of("minecraft:crimson_forest","minecraft:warped_forest","minecraft:nether_wastes")),
+        new Definition("cursed_mytar",new String[]{"slavicmyths:cursed_mytar"},Set.of("minecraft:nether_wastes","minecraft:soul_sand_valley","minecraft:basalt_deltas"))
     );
     private static long hash(long seed,long x,long z,long salt){long n=seed^x*0x9E3779B97F4A7C15L^z*0xC2B2AE3D27D4EB4FL^salt;n^=n>>>30;n*=0xBF58476D1CE4E5B9L;n^=n>>>27;n*=0x94D049BB133111EBL;return n^(n>>>31);}
     private static String biome(ServerLevel w,BlockPos pos){return w.getBiome(pos).unwrapKey().map(k->k.location().toString()).orElse("");}
@@ -64,8 +64,38 @@ public final class NetherEncounterSpawns {
         ServerLevel w=player.serverLevel();
         if(w.dimension()!=Level.NETHER||w.getDifficulty()==Difficulty.PEACEFUL||player.isSpectator())return;
         NetherEncounterRecords records=NetherEncounterRecords.get(w);
+        for(var site:ManualStructureRecords.get(w).entries()){
+            if(!site.family().equals("nether_posad")||site.arrival().distSqr(player.blockPosition())>2400D*2400D)continue;
+            for(int index=0;index<POSAD_BOSSES.size();index++){
+                Definition d=POSAD_BOSSES.get(index);
+                if(!supported(d))continue;
+                String key="posad:"+site.id()+":"+d.key;
+                long seed=hash(w.getSeed(),site.id().getMostSignificantBits(),site.id().getLeastSignificantBits(),index);
+                int radius=500+(int)Math.floorMod(seed,1501);
+                double angle=Math.floorMod(seed>>>19,1000000)/1000000D*Math.PI*2D;
+                BlockPos candidate=site.arrival().offset((int)(Math.cos(angle)*radius),0,(int)(Math.sin(angle)*radius));
+                var encounter=records.reserve(key,d.key,candidate);
+                if(encounter.spawned||player.blockPosition().distSqr(candidate)>256D*256D)continue;
+                for(int attempt=0;attempt<64;attempt++){
+                    long h=hash(seed,attempt,0,313);
+                    BlockPos xz=candidate.offset((int)Math.floorMod(h,193)-96,0,(int)Math.floorMod(h>>>24,193)-96);
+                    BlockPos location=safe(w,xz,d);
+                    if(location==null||location.distSqr(player.blockPosition())>ACTIVATE*ACTIVATE||location.distSqr(player.blockPosition())<32*32)continue;
+                    double fromCity=Math.sqrt(Math.pow(location.getX()-site.arrival().getX(),2)+Math.pow(location.getZ()-site.arrival().getZ(),2));
+                    if(fromCity<500||fromCity>2000)continue;
+                    boolean tooClose=false;
+                    for(var other:records.encounters.values())if(other!=encounter&&other.anchor.distSqr(location)<500D*500D){tooClose=true;break;}
+                    if(tooClose)continue;
+                    records.relocate(encounter,location);
+                    spawn(w,d,location,records,encounter);
+                    break;
+                }
+            }
+        }
+
         int rx=Math.floorDiv(player.getBlockX(),REGION),rz=Math.floorDiv(player.getBlockZ(),REGION);
         for(int x=rx-1;x<=rx+1;x++)for(int z=rz-1;z<=rz+1;z++){
+            if(WILDERNESS.isEmpty())continue;
             long roll=hash(w.getSeed(),x,z,101);
             if(Math.floorMod(roll,3)!=0)continue;
             Definition d=WILDERNESS.get((int)Math.floorMod(roll>>>8,WILDERNESS.size()));
