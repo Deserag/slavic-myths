@@ -171,6 +171,23 @@ public final class Ocean26GameTests {
                 "Shipyard did not apply all six physical modifications");
         t.assertTrue(chest(level, chestPos, t).getItem(0).getCount() == 23,
                 "Placed shipyard updates lost or copied cargo");
+        CompoundTag packedRoot = item.get(DataComponents.CUSTOM_DATA).copyTag();
+        CompoundTag packedPayload = packedRoot.getCompound("FirstShipPack");
+        packedPayload.put(org.slavicmyths.ships.ShipBuildConfiguration.NBT_KEY, actual.save());
+        packedPayload.put("BlockCargo", org.slavicmyths.ships.ShipModularBlockHull.pack(
+                level, anchor, 0, actual));
+        packedRoot.put("FirstShipPack", packedPayload);
+        ItemStack packedShip = item.copy();
+        packedShip.set(DataComponents.CUSTOM_DATA,
+                net.minecraft.world.item.component.CustomData.of(packedRoot));
+        ItemStack modifiedPacked = org.slavicmyths.ships.ShipyardModular.modify(
+                builder, packedShip, actual.resize(2, 1));
+        FirstShipEntity packedInspector = RaftContent.FIRST_SHIP.get().create(level);
+        t.assertTrue(packedInspector != null && !modifiedPacked.isEmpty()
+                && packedInspector.loadPacked(modifiedPacked)
+                && packedInspector.pendingBlockCargo().size() == 1
+                && packedInspector.modularConfiguration().extraLength() == 2,
+                "Packed modular resize lost cargo or blueprint");
         t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.pack(
                 level, anchor, 0, actual) != null,
                 "Placed shipyard changes left inconsistent world blocks");
