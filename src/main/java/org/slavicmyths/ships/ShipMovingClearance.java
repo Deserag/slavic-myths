@@ -25,19 +25,9 @@ import net.minecraft.world.level.block.state.BlockState;
 public final class ShipMovingClearance {
     private static final double[] SAMPLES = {-0.42D, 0.42D};
 
-    private static boolean harmless(BlockState state) {
-        Block block = state.getBlock();
-        // A waterlogged solid block still has water fluid state. Treating it
-        // as open water lets the ship pass through player-built structures.
-        return state.isAir() || block == Blocks.WATER || block == Blocks.BUBBLE_COLUMN
-                || block == Blocks.LILY_PAD || block == Blocks.SEAGRASS
-                || block == Blocks.TALL_SEAGRASS || block == Blocks.KELP
-                || block == Blocks.KELP_PLANT || block == Blocks.SEA_PICKLE
-                || block == Blocks.TUBE_CORAL || block == Blocks.BRAIN_CORAL
-                || block == Blocks.BUBBLE_CORAL || block == Blocks.FIRE_CORAL
-                || block == Blocks.HORN_CORAL || block == Blocks.TUBE_CORAL_FAN
-                || block == Blocks.BRAIN_CORAL_FAN || block == Blocks.BUBBLE_CORAL_FAN
-                || block == Blocks.FIRE_CORAL_FAN || block == Blocks.HORN_CORAL_FAN;
+    private static boolean harmless(ServerLevel level, BlockPos pos, BlockState state) {
+        return state.isAir() || state.is(Blocks.WATER) || state.is(Blocks.BUBBLE_COLUMN)
+                || FirstShipBlockHull.softWaterObstacle(level, pos, state);
     }
 
     private static boolean check(ServerLevel level, ShipRigidMotion.Pose pose,
@@ -55,7 +45,7 @@ public final class ShipMovingClearance {
                 if (visited.add(target.asLong())) {
                     if (!level.hasChunkAt(target)) return false;
                     BlockState obstacle = level.getBlockState(target);
-                    if (!harmless(obstacle) || level.getBlockEntity(target) != null) return false;
+                    if (!harmless(level, target, obstacle) || level.getBlockEntity(target) != null) return false;
                 }
                 if (waterline) {
                     BlockPos below = target.below();
@@ -85,29 +75,40 @@ public final class ShipMovingClearance {
         return true;
     }
 
-    /** Remove only soft water plants actually swept by the lower hull. */
+    /**
+     * Clear the same water plants and coral types as the stationary hull.
+     * All actual voxel cells and the swept interior are covered, including
+     * lily pads one block above the waterline. No normal solid block or
+     * BlockEntity can be removed. Only called AFTER the full pose is accepted.
+     */
+    private static void clearCell(ServerLevel level, ShipRigidMotion.Pose pose,
+            int waterlineY, int localX, int relativeY, int localZ, LongSet visited) {
+        for (double sx : SAMPLES) for (double sz : SAMPLES) {
+            FirstShipHull.Point point = FirstShipHull.toWorld(
+                    localX + sx, localZ + sz, pose.x(), pose.z(), pose.yaw());
+            BlockPos target = BlockPos.containing(point.x(),
+                    waterlineY + relativeY + .5D, point.z());
+            if (!visited.add(target.asLong()) || !level.hasChunkAt(target)) continue;
+            BlockState state = level.getBlockState(target);
+            if (!FirstShipBlockHull.softWaterObstacle(level, target, state)) continue;
+            BlockState replacement = target.getY() <= waterlineY
+                    || state.getFluidState().is(FluidTags.WATER)
+                    ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState();
+            level.setBlock(target, replacement, 3);
+        }
+    }
+
     public static void clearSoftObstacles(ServerLevel level, ShipRigidMotion.Pose pose,
             int waterlineY, Map<BlockPos, BlockState> palette) {
+        if (palette == null || palette.isEmpty()) return;
         LongSet visited = new LongOpenHashSet();
         for (BlockPos cell : palette.keySet()) {
-            if (cell.getY() != 0) continue;
-            for (double sx : SAMPLES) for (double sz : SAMPLES) {
-                FirstShipHull.Point p = FirstShipHull.toWorld(cell.getX() + sx,
-                        cell.getZ() + sz, pose.x(), pose.z(), pose.yaw());
-                BlockPos target = BlockPos.containing(p.x(), waterlineY + .5D, p.z());
-                if (!visited.add(target.asLong()) || !level.hasChunkAt(target)
-                        || level.getBlockEntity(target) != null) continue;
-                Block block = level.getBlockState(target).getBlock();
-                if (block == Blocks.LILY_PAD || block == Blocks.SEAGRASS
-                        || block == Blocks.TALL_SEAGRASS || block == Blocks.KELP
-                        || block == Blocks.KELP_PLANT || block == Blocks.SEA_PICKLE
-                        || block == Blocks.TUBE_CORAL || block == Blocks.BRAIN_CORAL
-                        || block == Blocks.BUBBLE_CORAL || block == Blocks.FIRE_CORAL
-                        || block == Blocks.HORN_CORAL || block == Blocks.TUBE_CORAL_FAN
-                        || block == Blocks.BRAIN_CORAL_FAN || block == Blocks.BUBBLE_CORAL_FAN
-                        || block == Blocks.FIRE_CORAL_FAN || block == Blocks.HORN_CORAL_FAN)
-                    level.setBlock(target, Blocks.WATER.defaultBlockState(), 3);
-            }
+            clearCell(level, pose, waterlineY, cell.getX(), cell.getY(),
+                    cell.getZ(), visited);
+            if (cell.getY() == 0)
+                for (int y = 1; y <= 6; y++)
+                    clearCell(level, pose, waterlineY, cell.getX(), y,
+                            cell.getZ(), visited);
         }
     }
 
