@@ -380,6 +380,13 @@ public final class Ocean26GameTests {
                 new ItemStack(Items.EMERALD, 11));
         ((net.minecraft.world.Container)level.getBlockEntity(furnacePos)).setItem(1,
                 new ItemStack(Items.COAL, 8));
+        CompoundTag furnaceData = level.getBlockEntity(furnacePos)
+                .saveWithFullMetadata(level.registryAccess());
+        furnaceData.putInt("BurnTime", 80);
+        furnaceData.putInt("CookTime", 40);
+        furnaceData.putInt("CookTimeTotal", 200);
+        level.setBlockEntity(net.minecraft.world.level.block.entity.BlockEntity.loadStatic(
+                furnacePos, level.getBlockState(furnacePos), furnaceData, level.registryAccess()));
         var next = original.resize(1, 1).withSail(1, 2)
                 .withDecks(2).withCabin(true).withBridge(true);
         t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.rebuild(level,
@@ -399,6 +406,8 @@ public final class Ocean26GameTests {
                 .getItem(0).getCount() == 11
                 && ((net.minecraft.world.Container)level.getBlockEntity(furnacePos))
                 .getItem(1).getCount() == 8
+                && level.getBlockEntity(furnacePos).saveWithFullMetadata(level.registryAccess())
+                .getInt("CookTime") == 40
                 && level.getBlockState(tablePos).is(Blocks.CRAFTING_TABLE),
                 "Barrel, furnace fuel or workbench lost after modular rebuilding");
         ListTag packed = org.slavicmyths.ships.ShipModularBlockHull.pack(level,
@@ -420,6 +429,10 @@ public final class Ocean26GameTests {
                 .getItem(0).getCount() == 11
                 && ((net.minecraft.world.Container)level.getBlockEntity(furnacePos))
                 .getItem(1).getCount() == 8
+                && level.getBlockEntity(furnacePos).saveWithFullMetadata(level.registryAccess())
+                .getInt("BurnTime") == 80
+                && level.getBlockEntity(furnacePos).saveWithFullMetadata(level.registryAccess())
+                .getInt("CookTime") == 40
                 && level.getBlockState(tablePos).is(Blocks.CRAFTING_TABLE),
                 "Cargo was not preserved after packing and replacement");
         t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
