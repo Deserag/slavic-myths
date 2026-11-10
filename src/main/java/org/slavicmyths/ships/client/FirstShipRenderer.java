@@ -149,8 +149,30 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 -.15D, -.15D, -.12D, .30F, .30F, .24F);
         pose.popPose();
         pose.popPose();
-        if (ship.modularConfiguration() == null && ship.geometryVersion() >= 7 && ship.rigLevel() > 0)
+        if (ship.modularConfiguration() != null)
+            renderModularSails(ship, yaw, partialTick, pose, buffers, deckLight);
+        else if (ship.geometryVersion() >= 7 && ship.rigLevel() > 0)
             renderFabricSail(ship, yaw, partialTick, pose, buffers, deckLight);
+    }
+
+    /** Separate thin wind-shaped sailcloth per mast; tier controls real size. */
+    private void renderModularSails(FirstShipEntity ship, float yaw, float partialTick,
+            PoseStack pose, MultiBufferSource buffers, int light) {
+        var plan = ship.modularConfiguration().structure();
+        pose.pushPose();
+        pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
+        for (int i = 0; i < plan.sailTiers().size(); i++) {
+            int tier = plan.sailTiers().get(i);
+            int top = tier == 1 ? 12 : tier == 2 ? 15 : 19;
+            int span = tier == 1 ? 2 : tier == 2 ? 3 : 4;
+            BlockState edging = (tier == 1 ? Blocks.RED_WOOL
+                    : tier == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
+            pose.pushPose();
+            pose.translate(0D, 0D, plan.mastPositions().get(i));
+            sailPanel(ship, partialTick, pose, buffers, light, edging, 8D, top, span);
+            pose.popPose();
+        }
+        pose.popPose();
     }
 
     /** Thin, bowed cloth panels. The V7 layout retains physical mast and yards. */
