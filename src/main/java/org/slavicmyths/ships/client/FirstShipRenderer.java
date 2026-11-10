@@ -153,7 +153,12 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         pose.pushPose();
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
         int rig = ship.rigLevel();
-        if (rig == 1) sailPanel(ship, partialTick, pose, buffers, light, seam, 7D, 12D, 3);
+        if (rig == 1) {
+            int top = ship.geometryVersion() >= 8 && ship.fabricQuality() > 1
+                    ? (ship.fabricQuality() == 2 ? 13 : 14) : 12;
+            int span = ship.geometryVersion() >= 8 && ship.fabricQuality() == 3 ? 4 : 3;
+            sailPanel(ship, partialTick, pose, buffers, light, seam, 7D, top, span);
+        }
         else if (rig == 2) {
             sailPanel(ship, partialTick, pose, buffers, light, seam, 8D, 10D, 3);
             sailPanel(ship, partialTick, pose, buffers, light, seam, 13D, 15D, 2);
