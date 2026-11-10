@@ -57,8 +57,10 @@ public final class ShipMovingContraption {
             int turns, ShipBuildConfiguration configuration) {
         ListTag cargo = ShipModularBlockHull.pack(level, anchor, turns, configuration);
         if (cargo == null) return null;
+        double radius = Math.hypot(configuration.width() / 2D + 1D,
+                configuration.length() / 2D + 1D);
         ShipRigidMotion motion = new ShipRigidMotion(new ShipRigidMotion.Pose(
-                anchor.getX() + .5D, anchor.getZ() + .5D, turns * 90D));
+                anchor.getX() + .5D, anchor.getZ() + .5D, turns * 90D), radius);
         return new ShipMovingContraption(configuration, cargo, turns,
                 anchor.getY(), motion, false);
     }
@@ -180,16 +182,21 @@ public final class ShipMovingContraption {
                 || !tag.contains("Z", Tag.TAG_DOUBLE)
                 || !tag.contains("Yaw", Tag.TAG_DOUBLE)) return null;
         try {
-            ShipRigidMotion motion = new ShipRigidMotion(new ShipRigidMotion.Pose(
-                    tag.getDouble("X"), tag.getDouble("Z"), tag.getDouble("Yaw")));
-            motion.restore(motion.pose(), tag.getDouble("Speed"), tag.getDouble("TurnSpeed"));
+            ShipRigidMotion.Pose pose = new ShipRigidMotion.Pose(
+                    tag.getDouble("X"), tag.getDouble("Z"), tag.getDouble("Yaw"));
             boolean detached = tag.getBoolean("Detached") && !tag.getBoolean("Parked");
             if (tag.contains(ShipBuildConfiguration.NBT_KEY, Tag.TAG_COMPOUND)) {
                 ShipBuildConfiguration config = ShipBuildConfiguration.load(
                         tag.getCompound(ShipBuildConfiguration.NBT_KEY));
+                double radius = Math.hypot(config.width() / 2D + 1D,
+                        config.length() / 2D + 1D);
+                ShipRigidMotion modularMotion = new ShipRigidMotion(pose, radius);
+                modularMotion.restore(pose, tag.getDouble("Speed"), tag.getDouble("TurnSpeed"));
                 return new ShipMovingContraption(config, tag.getList("Cargo", Tag.TAG_COMPOUND),
-                        tag.getInt("OriginalTurn"), tag.getInt("Waterline"), motion, detached);
+                        tag.getInt("OriginalTurn"), tag.getInt("Waterline"), modularMotion, detached);
             }
+            ShipRigidMotion motion = new ShipRigidMotion(pose);
+            motion.restore(pose, tag.getDouble("Speed"), tag.getDouble("TurnSpeed"));
             FirstShipBlockHull.MotionSnapshot snapshot = new FirstShipBlockHull.MotionSnapshot(
                     tag.getList("Cargo", Tag.TAG_COMPOUND), tag.getInt("Geometry"),
                     tag.getInt("Rig"), tag.getInt("Fabric"), tag.getInt("OriginalTurn"));
