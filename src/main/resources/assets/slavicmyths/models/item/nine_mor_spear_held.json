@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/block",
-  "ambientocclusion": true,
+  "ambientocclusion": false,
   "textures": {
-    "m": "slavicmyths:item/nine_mor_materials",
-    "particle": "slavicmyths:item/nine_mor_materials"
+    "m": "minecraft:block/crying_obsidian",
+    "particle": "minecraft:block/crying_obsidian"
   },
   "elements": [
     {
