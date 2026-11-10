@@ -132,7 +132,7 @@ public final class FirstShipEntity extends Boat {
         return movingBody == null ? 0D : movingBody.motion().speed();
     }
     public void enableSmoothMotion() { smoothEnabled = true; }
-    public void equipStarterSail() { setRigging(1, 1); setGeometryVersion(7); }
+    public void equipStarterSail() { setRigging(1, 1); setGeometryVersion(8); }
 
 
     public BlockPos blockAnchor() {
@@ -406,7 +406,7 @@ public final class FirstShipEntity extends Boat {
                 || !pack.contains("Modules", Tag.TAG_LIST)) return false;
         int loadedGeometry = pack.contains("GeometryVersion", Tag.TAG_INT)
                 ? pack.getInt("GeometryVersion") : 2;
-        if (loadedGeometry < 2 || loadedGeometry > 7) return false;
+        if (loadedGeometry < 2 || loadedGeometry > 8) return false;
         int loadedRig = packVersion == 1 ? 1 : pack.getInt("RigLevel");
         int loadedFabric = packVersion == 1 ? 1 : pack.getInt("FabricQuality");
         try { new ShipRigging(loadedRig, loadedFabric); }
