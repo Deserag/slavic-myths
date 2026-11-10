@@ -79,6 +79,18 @@ public final class ShipModularBlockHull {
         return java.util.Collections.unmodifiableMap(blocks);
     }
 
+    /** Complete local collision/renderer palette, including attached containers. */
+    public static Map<BlockPos, BlockState> localMotionPalette(
+            ShipBuildConfiguration config, ListTag cargo) {
+        if (config == null) return Map.of();
+        List<Cargo> unpacked = decode(config, cargo);
+        if (unpacked == null) return Map.of();
+        Map<BlockPos, BlockState> result = new LinkedHashMap<>(localPalette(config));
+        for (Cargo entry : unpacked)
+            result.put(new BlockPos(entry.x(), entry.y(), entry.z()), entry.state());
+        return java.util.Collections.unmodifiableMap(result);
+    }
+
     private static Map<BlockPos, BlockState> worldPalette(ShipBuildConfiguration config,
             BlockPos anchor, int turns) {
         Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
@@ -162,7 +174,7 @@ public final class ShipModularBlockHull {
             int kind = entry.getInt("Kind");
             if (kind < 1 || kind > 4 || !cargoCell(config, x, y, z)
                     || !occupied.add(x + ":" + y + ":" + z)
-                    || (kind != 3 && !entry.contains("Data", Tag.TAG_COMPOUND)))
+                    || (kind != 3 && !(entry.contains("BlockEntity", Tag.TAG_COMPOUND) || entry.contains("Data", Tag.TAG_COMPOUND))))
                 return null;
             BlockState state = kindState(kind);
             if (entry.contains("State", Tag.TAG_COMPOUND)) {
@@ -175,7 +187,7 @@ public final class ShipModularBlockHull {
                 }
             }
             result.add(new Cargo(x, y, z, kind, state,
-                    entry.getCompound("Data").copy()));
+                    entry.getCompound(entry.contains("BlockEntity", Tag.TAG_COMPOUND) ? "BlockEntity" : "Data").copy()));
         }
         return result;
     }
@@ -204,7 +216,7 @@ public final class ShipModularBlockHull {
             for (Property<?> property : entry.state().getProperties())
                 properties.putString(property.getName(), stateProperty(entry.state(), property));
             row.put("State", properties);
-            row.put("Data", entry.data().copy());
+            row.put("BlockEntity", entry.data().copy());
             result.add(row);
         }
         return result;
