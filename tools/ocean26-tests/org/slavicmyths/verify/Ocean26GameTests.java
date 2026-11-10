@@ -502,7 +502,7 @@ public final class Ocean26GameTests {
         FirstShipEntity testShip = RaftContent.FIRST_SHIP.get().create(level);
         t.assertTrue(testShip != null && testShip.loadPacked(ship)
                 && testShip.rigLevel() == 2 && testShip.fabricQuality() == 2
-                && testShip.geometryVersion() == 5,
+                && testShip.geometryVersion() == 8,
                 "Workshop packed sails were rejected by the actual ship entity");
         ItemStack removed = org.slavicmyths.ships.ShipyardUpgrades.outfitFirstShip(p, ship, 25);
         t.assertTrue(!removed.isEmpty()
