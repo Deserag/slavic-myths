@@ -1,5 +1,4 @@
 param(
-    [Parameter(Mandatory = $true)]
     [string]$ModsDirectory,
     [switch]$BuildOnly
 )
@@ -40,6 +39,7 @@ try {
     Write-Host "SHA256: $hash"
 
     if (-not $BuildOnly) {
+        if ([string]::IsNullOrWhiteSpace($ModsDirectory)) { throw 'Pass -ModsDirectory for installation or use -BuildOnly.' }
         if (-not (Test-Path -LiteralPath $ModsDirectory -PathType Container)) {
             throw "Mods folder does not exist: $ModsDirectory"
         }
