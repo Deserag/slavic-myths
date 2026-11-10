@@ -472,7 +472,7 @@ public final class FirstShipEntity extends Boat {
         } catch (RuntimeException malformed) { return false; }
         if (pack.contains("BlockCargo", Tag.TAG_LIST)) {
             pendingBlockCargo = pack.getList("BlockCargo", Tag.TAG_COMPOUND).copy();
-            if (pendingBlockCargo.size() > CELLS * 2) return false;
+            if (pendingBlockCargo.size() > (loadedModular == null ? CELLS * 2 : loadedModular.width() * loadedModular.length() * loadedModular.decks())) return false;
         } else pendingBlockCargo = new ListTag();
         quarantinedModules = null;
         setRigging(loadedRig, loadedFabric);
