@@ -384,6 +384,29 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         };
     }
 
+    /** Give a concrete explanation for an unavailable modular upgrade. */
+    private String unavailableReason(ShipBuildConfiguration current) {
+        if (current == null) return "Судно не выбрано";
+        int action = MODULAR_ACTIONS[chosen];
+        ShipSectionPlan.ShipClass kind = current.shipClass();
+        if (action == 200 && current.extraLength() >= kind.maxLength) return "Предел длины корпуса";
+        if (action == 201 && current.extraWidth() >= kind.maxWidth) return "Предел ширины корпуса";
+        if (action == 203 && current.sailTiers().size() >= kind.maxMasts)
+            return "Все мачты этого класса установлены";
+        if (action >= 207 && action <= 210) {
+            int number = action - 207;
+            if (number >= current.sailTiers().size())
+                return "Сначала установите мачту №" + (number + 1);
+            if (current.sailTiers().get(number) >= kind.maxSailTier)
+                return "Парус достиг максимального уровня";
+        }
+        if (action == 204 && current.decks() >= kind.maxDecks)
+            return "Достигнут предел палуб этого класса";
+        if (action == 205 && current.bridge()) return "Капитанский мостик уже установлен";
+        if (action == 206 && current.cabin()) return "Капитанская каюта уже установлена";
+        return "Увеличьте корпус или проверьте ограничения";
+    }
+
     private boolean allowed() {
         if (minecraft == null || minecraft.player == null) return false;
         if (tab == 0 && !menu.inspected().isEmpty()) return false;
@@ -496,8 +519,8 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     + " | мачт " + current.sailTiers().size(), 17, 200, 0xfff2dfbd, false);
             ShipBuildConfiguration next = nextConfig();
             if (next == null || next.equals(current))
-                graphics.drawString(font, "Недоступно: предел класса", 17, 188,
-                        0xffffb18c, false);
+                graphics.drawString(font, font.plainSubstrByWidth(
+                        unavailableReason(current), 159), 17, 188, 0xffffb18c, false);
             else
                 graphics.drawString(font, font.plainSubstrByWidth(
                                 "Раздел: " + MODULAR_CATEGORIES[modCategory], 160),
@@ -533,7 +556,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         List<Cost> requirements = costs();
         if (requirements.isEmpty()) {
             graphics.drawString(font, tab == 0 ? "Выберите чертёж" :
-                    current != null && nextConfig() == null ? "Изменение недоступно" :
+                    current != null && nextConfig() == null ? unavailableReason(current) :
                     "Дополнительные ресурсы не нужны", 201, 133,
                     tab == 1 && current != null && nextConfig() == null
                             ? 0xffad3838 : DARK, false);
