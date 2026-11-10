@@ -32,6 +32,10 @@ public final class ShipMovingContraption {
         this.cargo = snapshot.cargo();
         this.waterlineY = surfaceY;
         this.motion = motion;
+        if (snapshot.geometry() == 9) {
+            ShipSuperstructurePlan plan = ShipSuperstructureData.load(snapshot.superstructure());
+            motion.setCollisionRadius(.5D * Math.hypot(plan.hullWidth(), plan.hullLength()) + 1D);
+        }
         this.palette = FirstShipBlockHull.localMotionPalette(snapshot);
         this.detached = detached;
     }
