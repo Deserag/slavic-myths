@@ -6,6 +6,9 @@ import java.io.IOException;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Screenshot;
 import net.minecraft.client.CameraType;
@@ -33,6 +36,7 @@ import org.slavicmyths.ships.RaftContent;
 public final class Ocean26ClientProbe {
     private static final boolean REVERSE = Boolean.getBoolean("ocean26.reverse");
     private static final boolean RELOAD = Boolean.getBoolean("ocean26.reload");
+    private static final boolean SAVE_MOVING = Boolean.getBoolean("ocean26.saveMoving");
     private static final boolean RAIL = Boolean.getBoolean("ocean26.rail");
     private static final boolean HOLD = Boolean.getBoolean("ocean26.hold");
     private static final boolean VISUAL = Boolean.getBoolean("ocean26.visual");
@@ -106,6 +110,13 @@ public final class Ocean26ClientProbe {
                     ship.initializeNativeHull(anchor, 0);
                     if (!ship.loadPacked(item) || !ShipModularBlockHull.place(level,
                             anchor, 0, config, new ListTag()) || !level.addFreshEntity(ship)) return;
+                    if (SAVE_MOVING) {
+                        BlockPos chestPos = org.slavicmyths.ships.FirstShipBlockHull.world(
+                                anchor, 0, 2, 5, 0);
+                        if (!level.setBlock(chestPos, Blocks.CHEST.defaultBlockState(), 2)
+                                || !(level.getBlockEntity(chestPos) instanceof ChestBlockEntity chest)) return;
+                        chest.setItem(0, new ItemStack(Items.DIAMOND, 7));
+                    }
                     shipId = ship.getUUID();
                     player.teleportTo(ship.getX(), ship.deckY() + 2D, ship.getZ() - 6D);
                     modularReady = true;
@@ -125,18 +136,47 @@ public final class Ocean26ClientProbe {
                     return;
                 }
                 if (RELOAD) {
-                    boolean passed = ship.isMoving() && ship.rigLevel() > 0;
-                    System.out.println("OCEAN26_RELOAD_RESULT ship=" + ship.getUUID()
-                            + " x=" + ship.getX() + " z=" + ship.getZ()
-                            + " yaw=" + ship.getYRot() + " rig=" + ship.rigLevel()
-                            + " moving=" + ship.isMoving() + " pass=" + passed);
-                    if (!passed) { fail(mc, "moving ship did not survive save and reload"); return; }
-                    finish(mc, true, "reload");
+                    phase = 5;
+                    UUID reloadedId = ship.getUUID();
+                    server.execute(() -> {
+                        FirstShipEntity body = (FirstShipEntity)server.getLevel(Level.OVERWORLD)
+                                .getEntity(reloadedId);
+                        net.minecraft.nbt.CompoundTag saved = new net.minecraft.nbt.CompoundTag();
+                        if (body != null) body.saveWithoutId(saved);
+                        var motion = org.slavicmyths.ships.ShipMovingContraption.load(
+                                saved.getCompound("FirstShipMovingBody"));
+                        boolean passed = body != null && body.isMoving() && body.rigLevel() > 0
+                                && motion != null && motion.cargo().size() == 1;
+                        System.out.println("OCEAN26_RELOAD_RESULT ship=" + reloadedId
+                                + " moving=" + (body != null && body.isMoving())
+                                + " cargo=" + (motion == null ? -1 : motion.cargo().size())
+                                + " pass=" + passed);
+                        mc.execute(() -> {
+                            if (passed) finish(mc, true, "reload");
+                            else fail(mc, "moving ship or cargo did not survive world reload");
+                        });
+                    });
                     return;
                 }
                 shipId = ship.getUUID();
                 startX = ship.getX();
                 startZ = ship.getZ();
+                if (SAVE_MOVING) {
+                    phase = 4;
+                    elapsed = 0;
+                    UUID playerId = mc.player.getUUID();
+                    server.execute(() -> {
+                        ServerPlayer player = server.getPlayerList().getPlayer(playerId);
+                        FirstShipEntity body = (FirstShipEntity)server.getLevel(Level.OVERWORLD)
+                                .getEntity(shipId);
+                        if (player != null && body != null) {
+                            player.teleportTo(body.getX(), body.deckY(),
+                                    body.getZ() + body.helmSeatZ());
+                            player.startRiding(body);
+                        }
+                    });
+                    return;
+                }
                 if (VISUAL) {
                     phase = 3;
                     elapsed = 0;
@@ -172,6 +212,28 @@ public final class Ocean26ClientProbe {
         }
         if (phase == 3) {
             visualTick(mc, server);
+            return;
+        }
+        if (phase == 4) {
+            elapsed++;
+            UUID playerId = mc.player.getUUID();
+            server.execute(() -> {
+                ServerPlayer player = server.getPlayerList().getPlayer(playerId);
+                FirstShipEntity body = (FirstShipEntity)server.getLevel(Level.OVERWORLD)
+                        .getEntity(shipId);
+                if (player != null && body != null && player.getVehicle() == body)
+                    body.helmStep(player, org.slavicmyths.ships.FirstShipNetwork.FORWARD);
+            });
+            if (elapsed == 60) {
+                FirstShipEntity body = mc.level.getEntitiesOfClass(FirstShipEntity.class,
+                        new AABB(mc.player.blockPosition()).inflate(128D, 32D, 128D))
+                        .stream().filter(s -> s.getUUID().equals(shipId)).findFirst().orElse(null);
+                boolean passed = body != null && body.isMoving()
+                        && Math.hypot(body.getX() - startX, body.getZ() - startZ) > .1D;
+                System.out.println("OCEAN26_SAVE_MOVING_RESULT pass=" + passed);
+                if (passed) finish(mc, true, "saveMoving");
+                else fail(mc, "moving fixture did not sail before world save");
+            }
             return;
         }
         if (phase != 2) return;
