@@ -46,6 +46,7 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
     private final ModelPart[] neckMids = new ModelPart[9];
     private final ModelPart[] neckTips = new ModelPart[9];
     private final ModelPart[] heads = new ModelPart[9];
+    public ModelPart trophyHead(int index) { return heads[index]; }
     private final ModelPart[] jaws = new ModelPart[9];
     private final ModelPart[] accents = new ModelPart[9];
     private final ModelPart[] eyeSockets = new ModelPart[9];
