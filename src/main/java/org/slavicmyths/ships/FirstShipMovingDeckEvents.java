@@ -35,7 +35,7 @@ public final class FirstShipMovingDeckEvents {
         }
         Contact last = LAST.get(player);
         for (FirstShipEntity ship : player.level().getEntitiesOfClass(
-                FirstShipEntity.class, player.getBoundingBox().inflate(12D, 9D, 12D))) {
+                FirstShipEntity.class, player.getBoundingBox().inflate(36D, 20D, 36D))) {
             if (ship.isRemoved() || !ship.isMoving()) continue;
             boolean continuing = last != null && last.shipId() == ship.getId();
             boolean newClientFrame = player.level().isClientSide
@@ -46,19 +46,12 @@ public final class FirstShipMovingDeckEvents {
             Vec3 feet = player.position();
             FirstShipHull.Point relative = FirstShipHull.toLocal(
                     feet.x, feet.z, oldX, oldZ, oldYaw);
-            boolean deck = FirstShipHull.mainDeckSupports(relative.x(), relative.z());
-            boolean hold = FirstShipHull.holdSupports(relative.x(), relative.z());
-            if (!deck && !hold) continue;
-
-            double deckY = ship.deckY(), holdY = ship.holdY();
-            int floor;
-            if (continuing) floor = last.floor();
-            else if (deck && feet.y >= deckY - .25D && feet.y <= deckY + .42D) floor = 1;
-            else if (hold && feet.y >= holdY - .25D && feet.y <= holdY + .42D) floor = 0;
-            else continue;
-            double surface = floor == 1 ? deckY : holdY;
-            if ((floor == 1 && !deck) || (floor == 0 && !hold)
-                    || feet.y < surface - .56D || feet.y > surface + 2.6D) continue;
+            int floor = continuing ? last.floor()
+                    : ShipDeckContact.contactFloor(ship, relative.x(), relative.z(), feet.y);
+            if (floor < 0 || !ShipDeckContact.supports(ship,
+                    relative.x(), relative.z(), floor)) continue;
+            double surface = ship.getY() + ShipDeckContact.height(floor);
+            if (feet.y < surface - .56D || feet.y > surface + 2.6D) continue;
 
             FirstShipHull.Point moved = FirstShipHull.transfer(feet.x, feet.z,
                     oldX, oldZ, oldYaw, ship.getX(), ship.getZ(), ship.getYRot());
@@ -100,22 +93,32 @@ public final class FirstShipMovingDeckEvents {
                                        float oldYaw) {
         if (!(ship.level() instanceof net.minecraft.server.level.ServerLevel server)) return;
         for (Player player : server.getEntitiesOfClass(Player.class,
-                new net.minecraft.world.phys.AABB(oldX - 9D, ship.getY() - 1D, oldZ - 11D,
-                        oldX + 9D, ship.getY() + 9D, oldZ + 11D))) {
+                new net.minecraft.world.phys.AABB(oldX - 30D, ship.getY() - 1D, oldZ - 30D,
+                        oldX + 30D, ship.getY() + 18D, oldZ + 30D))) {
             if (!player.isAlive() || player.isPassenger() || player.isSpectator()
                     || player.getAbilities().flying || player.isFallFlying()) continue;
             Vec3 feet = player.position();
             FirstShipHull.Point local = FirstShipHull.toLocal(feet.x, feet.z,
                     oldX, oldZ, oldYaw);
-            boolean deck = FirstShipHull.mainDeckSupports(local.x(), local.z());
-            boolean hold = FirstShipHull.holdSupports(local.x(), local.z());
-            double deckY = ship.deckY(), holdY = ship.holdY();
-            int floor = deck && feet.y >= deckY - .56D && feet.y <= deckY + 2.6D ? 1
-                    : hold && feet.y >= holdY - .56D && feet.y <= holdY + 2.6D ? 0 : -1;
+            int floor = -1;
+            Contact contact = LAST.get(player);
+            if (contact != null && contact.shipId() == ship.getId()
+                    && ShipDeckContact.supports(ship, local.x(), local.z(), contact.floor()))
+                floor = contact.floor();
+            if (floor < 0) {
+                for (int candidate = 4; candidate >= 0; candidate--) {
+                    double candidateY = ship.getY() + ShipDeckContact.height(candidate);
+                    if (feet.y >= candidateY - .56D && feet.y <= candidateY + 2.6D
+                            && ShipDeckContact.supports(ship, local.x(), local.z(), candidate)) {
+                        floor = candidate;
+                        break;
+                    }
+                }
+            }
             if (floor < 0) continue;
             FirstShipHull.Point moved = FirstShipHull.toWorld(local.x(), local.z(),
                     ship.getX(), ship.getZ(), ship.getYRot());
-            double surface = floor == 1 ? deckY : holdY;
+            double surface = ship.getY() + ShipDeckContact.height(floor);
             boolean grounded = feet.y <= surface + .19D
                     && player.getDeltaMovement().y <= .09D;
             double targetY = grounded ? surface + .02D : feet.y;
