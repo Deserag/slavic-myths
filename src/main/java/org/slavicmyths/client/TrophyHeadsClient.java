@@ -80,6 +80,11 @@ public final class TrophyHeadsClient {
    }
    part.render(pose,out,light,overlay,color);pose.popPose();
   }
+  public void renderNineEyes(PoseStack pose,VertexConsumer out){
+   if(nineTrophy==null)return;
+   pose.pushPose();pose.translate(2.5F,.12F,2.5F);pose.scale(1.62F,-1.62F,-1.62F);pose.translate(0,-.4F,-1.95F);
+   nineTrophy.renderEmissiveEyes(pose,out);pose.popPose();
+  }
   public void pose(float time){pose(time,0,0);}
   private Head ears(ModelPart left,ModelPart right){earLeft=left;earRight=right;earLeftBaseZ=left.zRot;earRightBaseZ=right.zRot;return this;}
   public void pose(float time,float lookX,float lookY){
@@ -232,7 +237,8 @@ public final class TrophyHeadsClient {
      if(block.kind==TrophyHeads.Kind.POSTEN){if(h.part.hasChild("mask_ring"))h.part.getChild("mask_ring").yRot=net.minecraft.util.Mth.lerp(partial,tile.maskPrevious,tile.maskAngle);h.part.yRot=net.minecraft.util.Mth.clamp(gazeX*.3F,-.35F,.35F);}else if(block.kind==TrophyHeads.Kind.GROVE_GUARDIAN)h.guardianPose(time,tile.magmaOpenness);else h.magmaPose(time,tile.magmaOpenness);
     }
     h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);
-    if(block.kind.ordinal()>=TrophyHeads.Kind.GROVE_GUARDIAN.ordinal()){
+    if(block.kind==TrophyHeads.Kind.NINE_MOR_SERPENT)h.renderNineEyes(pose,buffer.getBuffer(RenderType.eyes(h.texture)));
+    if(block.kind.ordinal()>=TrophyHeads.Kind.GROVE_GUARDIAN.ordinal()&&block.kind!=TrophyHeads.Kind.NINE_MOR_SERPENT){
      boolean morovoy=block.kind==TrophyHeads.Kind.MOROVOY_RAVEN||block.kind==TrophyHeads.Kind.FIRE_SERPENT||block.kind==TrophyHeads.Kind.MOR_SERPENT||block.kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY;
      ResourceLocation glowTexture=block.kind==TrophyHeads.Kind.MOROVOY_RAVEN?ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/morovoy_raven_emissive.png"):
       block.kind==TrophyHeads.Kind.FIRE_SERPENT||block.kind==TrophyHeads.Kind.MOR_SERPENT||block.kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY?ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/morovoy_fire_zmey_emissive.png"):
