@@ -157,6 +157,27 @@ public final class FirstShipEntity extends Boat {
         try { return ShipBuildConfiguration.fromWire(encoded); }
         catch (RuntimeException invalid) { return null; }
     }
+    public double helmSeatZ() {
+        ShipBuildConfiguration config = modularConfiguration();
+        if (config == null) return FirstShipHull.HELM_Z;
+        return -config.length() / 2D + (config.bridge() ? 5D : config.cabin() ? 10D : 4D);
+    }
+
+    public double helmWheelZ() { return helmSeatZ() - 1D; }
+
+    public double helmSeatHeight() {
+        ShipBuildConfiguration config = modularConfiguration();
+        return config != null && config.bridge() ? 10D : FirstShipHull.MAIN_DECK;
+    }
+
+    public boolean withinShip(double x, double z) {
+        ShipBuildConfiguration config = modularConfiguration();
+        if (config == null) return FirstShipHull.withinHull(x, z, .1D);
+        if (Math.abs(z) > config.length() / 2D + .49D) return false;
+        int half = ShipHullVoxelLayout.halfBeam(config.structure(), (int)Math.round(z));
+        return half >= 0 && Math.abs(x) <= half + .49D;
+    }
+
     private void setModularConfiguration(ShipBuildConfiguration configuration) {
         modularConfiguration = configuration;
         entityData.set(MODULAR_BLUEPRINT, configuration == null ? "" : configuration.wire());
@@ -280,7 +301,7 @@ public final class FirstShipEntity extends Boat {
 
     /** The one genuine helm seat is on the STERN, not a fake free-walking passenger. */
     @Override protected Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float partialTick) {
-        return new Vec3(0D, FirstShipHull.MAIN_DECK + 0.08D, FirstShipHull.HELM_Z);
+        return new Vec3(0D, helmSeatHeight() + .08D, helmSeatZ());
     }
 
     /**
@@ -298,14 +319,14 @@ public final class FirstShipEntity extends Boat {
         }
         if (!hasPassenger(passenger)) return;
         if (isMoving()) {
-            FirstShipHull.Point seat = FirstShipHull.toWorld(0D, FirstShipHull.HELM_Z,
+            FirstShipHull.Point seat = FirstShipHull.toWorld(0D, helmSeatZ(),
                     getX(), getZ(), getYRot());
-            move.accept(passenger, seat.x(), deckY() + .08D, seat.z());
+            move.accept(passenger, seat.x(), getY() + helmSeatHeight() + .08D, seat.z());
         } else {
             BlockPos anchor = blockAnchor();
-            FirstShipHull.Point seat = FirstShipHull.toWorld(0D, FirstShipHull.HELM_Z,
+            FirstShipHull.Point seat = FirstShipHull.toWorld(0D, helmSeatZ(),
                     anchor.getX() + .5D, anchor.getZ() + .5D, shipYaw());
-            move.accept(passenger, seat.x(), anchor.getY() + FirstShipHull.MAIN_DECK + .08D, seat.z());
+            move.accept(passenger, seat.x(), anchor.getY() + helmSeatHeight() + .08D, seat.z());
         }
     }
 
@@ -578,11 +599,12 @@ public final class FirstShipEntity extends Boat {
         FirstShipHull.Point local = FirstShipHull.toLocal(
                 player.getX(), player.getZ(), getX(), getZ(), getYRot());
         if (Math.abs(local.x()) > 1.65D
-                || Math.abs(local.z() - FirstShipHull.HELM_Z) > 1.7D
-                || Math.abs(player.getY() - deckY()) > .9D) return false;
-        FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, -4D,
+                || Math.abs(local.z() - helmSeatZ()) > 1.7D
+                || Math.abs(player.getY() - (getY() + helmSeatHeight())) > .9D) return false;
+        FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, helmWheelZ(),
                 getX(), getZ(), getYRot());
-        Vec3 aim = new Vec3(wheel.x(), deckY() + 1.78D, wheel.z()).subtract(player.getEyePosition());
+        Vec3 aim = new Vec3(wheel.x(), getY() + helmSeatHeight() + 1.78D, wheel.z())
+                .subtract(player.getEyePosition());
         if (aim.lengthSqr() < .09D || aim.lengthSqr() > 25D
                 || aim.normalize().dot(player.getLookAngle()) < .30D) return false;
         boolean mounted = player.startRiding(this);
@@ -747,8 +769,8 @@ public final class FirstShipEntity extends Boat {
                 player.getX(), player.getZ(), getX(), getZ(), getYRot());
         // Helm can only be activated at the stern, on the MAIN deck.
         if (!player.isSecondaryUseActive() && Math.abs(local.x()) < 1.35D
-                && Math.abs(local.z() - FirstShipHull.HELM_Z) < 1.65D
-                && Math.abs(player.getY() - deckY()) < 1.3D) {
+                && Math.abs(local.z() - helmSeatZ()) < 1.65D
+                && Math.abs(player.getY() - (getY() + helmSeatHeight())) < 1.3D) {
             if (!level().isClientSide && player.startRiding(this)) positionRider(player);
             return InteractionResult.sidedSuccess(level().isClientSide);
         }
