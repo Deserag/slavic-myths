@@ -1,10 +1,10 @@
 param(
     [string]$ModsDirectory,
-    [switch]$BuildOnly
+    [switch]$BuildOnly,
+    [string]$Branch = 'feature/2.6-full-modular-ships-20261110'
 )
 
 $ErrorActionPreference = 'Stop'
-$Branch = 'feature/2.6-ship-superstructures-20261110'
 $Repo = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 Push-Location $Repo
 try {
