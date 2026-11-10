@@ -113,6 +113,13 @@ public final class Ocean26GameTests {
             t.assertTrue(level.getBlockState(tip).isAir(),
                     "V8 tier " + tier + " left orphaned mast blocks after packing");
         }
+        // Historical V7 is NOT reinterpreted as V8 when reloaded.
+        t.assertTrue(FirstShipBlockHull.place(level, anchor, 0,
+                new ListTag(), 1, 1, 7), "Legacy V7 geometry refused placement");
+        t.assertTrue(FirstShipBlockHull.pack(level, anchor, 0, 1, 1, 7) != null,
+                "Legacy V7 hull was not preserved");
+        t.assertTrue(FirstShipBlockHull.remove(level, anchor, 0, 1, 1, 7),
+                "Legacy V7 packing failed");
         t.succeed();
     }
 
