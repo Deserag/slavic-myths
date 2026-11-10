@@ -48,6 +48,23 @@ public final class ShipHullVoxelLayout {
         return beam(plan.hullWidth(), plan.hullLength(), z, plan.hullRevision());
     }
 
+    /** Hull-class-aware masts: a 25-wide ship cannot use a five-block-wide cloth. */
+    public static int mastTop(ShipSuperstructurePlan plan, int tier) {
+        int base = switch (tier) { case 1 -> 12; case 2 -> 15; case 3 -> 19;
+            default -> throw new IllegalArgumentException("Unknown sail tier"); };
+        int bonus = plan.hullRevision() == 2
+                ? Math.min(7, Math.max(0, (plan.hullWidth() - 7) / 3)) : 0;
+        return base + bonus;
+    }
+
+    public static int yardSpan(ShipSuperstructurePlan plan, int tier) {
+        int base = switch (tier) { case 1 -> 2; case 2 -> 3; case 3 -> 4;
+            default -> throw new IllegalArgumentException("Unknown sail tier"); };
+        int bonus = plan.hullRevision() == 2
+                ? Math.min(5, Math.max(0, (plan.hullWidth() - 7) / 4)) : 0;
+        return base + bonus;
+    }
+
     public static Map<Cell, Part> generate(ShipSuperstructurePlan plan) {
         if (plan == null) throw new IllegalArgumentException("Missing ship plan");
         Map<Cell, Part> blocks = new LinkedHashMap<>();
@@ -121,8 +138,8 @@ public final class ShipHullVoxelLayout {
         List<Integer> masts = plan.mastPositions();
         for (int i = 0; i < masts.size(); i++) {
             int z = masts.get(i), tier = plan.sailTiers().get(i);
-            int top = tier == 1 ? 12 : tier == 2 ? 15 : 19;
-            int span = tier == 1 ? 2 : tier == 2 ? 3 : 4;
+            int top = mastTop(plan, tier);
+            int span = yardSpan(plan, tier);
             for (int y = 5; y <= top + 1; y++) put(blocks, 0, y, z, Part.MAST);
             for (int x = -span; x <= span; x++) {
                 put(blocks, x, top + 1, z, Part.YARD);
