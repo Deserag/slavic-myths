@@ -558,14 +558,19 @@ public final class FirstShipEntity extends Boat {
 
     /** No packing while anybody stands in the hold or on the deck. */
     private boolean hasWalkers() {
-        AABB area = getBoundingBox().inflate(8D, 5D, 8D);
+        ShipBuildConfiguration config = modularConfiguration();
+        double beam = config == null ? 8D : config.width() / 2D + 3D;
+        double length = config == null ? 8D : config.length() / 2D + 3D;
+        AABB area = getBoundingBox().inflate(Math.max(beam, length), 18D,
+                Math.max(beam, length));
         for (Player player : level().getEntitiesOfClass(Player.class, area)) {
             if (player.isPassenger()) continue;
             FirstShipHull.Point local = FirstShipHull.toLocal(
                     player.getX(), player.getZ(), getX(), getZ(), getYRot());
-            if (FirstShipHull.withinHull(local.x(), local.z(), .0D)
-                    && player.getY() >= holdY() - 0.55D
-                    && player.getY() <= deckY() + 2.2D) return true;
+            if (withinShip(local.x(), local.z())
+                    && player.getY() >= holdY() - .55D
+                    && player.getY() <= getY() + (config == null ? 7.2D : 16.2D))
+                return true;
         }
         return false;
     }
@@ -581,7 +586,9 @@ public final class FirstShipEntity extends Boat {
         }
         if (level() instanceof net.minecraft.server.level.ServerLevel server) {
             for (ServerPlayer nearby : server.getEntitiesOfClass(ServerPlayer.class,
-                    getBoundingBox().inflate(10D, 8D, 10D))) {
+                    getBoundingBox().inflate(
+                            modularConfiguration == null ? 10D : modularConfiguration.length() / 2D + 6D,
+                            18D, modularConfiguration == null ? 10D : modularConfiguration.length() / 2D + 6D))) {
                 if (nearby.containerMenu != nearby.inventoryMenu) {
                     player.displayClientMessage(Component.literal(
                             "Перед упаковкой все грузовые окна должны быть закрыты"), true);
@@ -640,7 +647,8 @@ public final class FirstShipEntity extends Boat {
      * Inventory only changes after that transaction succeeds.
      */
     public boolean configureRigging(ServerPlayer player, int action) {
-        if (!nativeHull || isVehicle() || player.isPassenger() || player.isSpectator()
+        if (modularConfiguration != null || !nativeHull || isVehicle()
+                || player.isPassenger() || player.isSpectator()
                 || !(level() instanceof net.minecraft.server.level.ServerLevel server)
                 || player.containerMenu != player.inventoryMenu) return false;
         FirstShipHull.Point local = FirstShipHull.toLocal(player.getX(), player.getZ(),
@@ -801,6 +809,7 @@ public final class FirstShipEntity extends Boat {
 
     /** Also called by air-right-click while standing on any part of this large ship. */
     public InteractionResult interactFromDeck(Player player, InteractionHand hand) {
+        if (modularConfiguration() != null) return InteractionResult.PASS;
         ItemStack held = player.getItemInHand(hand);
         FirstShipHull.Point local = FirstShipHull.toLocal(
                 player.getX(), player.getZ(), getX(), getZ(), getYRot());
