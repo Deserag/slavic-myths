@@ -457,7 +457,7 @@ public final class FirstShipBlockHull {
      * blocks or any BlockEntity as disposable. Coral BLOCKS are intentionally
      * included, but ordinary stone, wood and containers are not.
      */
-    private static boolean softWaterObstacle(ServerLevel level, BlockPos pos, BlockState state) {
+    static boolean softWaterObstacle(ServerLevel level, BlockPos pos, BlockState state) {
         if (level.getBlockEntity(pos) != null) return false;
         Block block = state.getBlock();
         if (block == Blocks.LILY_PAD || block == Blocks.SEAGRASS || block == Blocks.TALL_SEAGRASS
