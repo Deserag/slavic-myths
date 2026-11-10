@@ -124,7 +124,7 @@ public final class NetherEncounterSpawns {
         var previous=records.encounters.get(key);
         if(previous!=null&&previous.spawned)return;
         BlockPos origin=player.blockPosition();
-        int top=Math.min(112,origin.getY()+16),bottom=Math.min(112,Math.max(34,origin.getY()-32));
+        int top=112,bottom=34;
         for(int choice=0;choice<WILDERNESS.size();choice++){
             Definition d=WILDERNESS.get((int)Math.floorMod(seed+choice,WILDERNESS.size()));
             if(previous!=null&&!previous.type.equals(d.key))continue;
@@ -132,12 +132,12 @@ public final class NetherEncounterSpawns {
             for(int attempt=0;attempt<8;attempt++){
                 long roll=hash(seed,origin.getX()>>4,origin.getZ()>>4,
                     (player.tickCount/80L)*19+choice*73L+attempt);
-                int radius=40+(int)Math.floorMod(roll,68);
+                int radius=(requiredBiome==null?40:18)+(int)Math.floorMod(roll,requiredBiome==null?68:76);
                 double angle=Math.floorMod(roll>>>17,65536)/65536.0D*Math.PI*2D;
                 BlockPos xz=origin.offset((int)(Math.cos(angle)*radius),0,(int)(Math.sin(angle)*radius));
                 if(Math.floorDiv(xz.getX(),REGION)!=rx||Math.floorDiv(xz.getZ(),REGION)!=rz)continue;
                 BlockPos found=safe(w,xz,d,top,bottom);
-                if(found==null||found.distSqr(origin)>ACTIVATE*ACTIVATE||found.distSqr(origin)<32*32)continue;
+                if(found==null||found.distSqr(origin)>ACTIVATE*ACTIVATE||found.distSqr(origin)<(requiredBiome==null?32*32:14*14))continue;
                 if(requiredBiome!=null&&!requiredBiome.equals(biome(w,found)))continue;
                 boolean nearby=false;
                 for(var other:records.encounters.values())
