@@ -26,6 +26,7 @@ public final class TrophyHeadsClient {
   public final ModelPart part;public final ResourceLocation texture;public final TrophyHeads.Kind kind;
   private final org.slavicmyths.ninemor.NineMorModel nineTrophy;
   private float nineTime;
+  private final float nineRenderScale,nineBottomShift,nineCenterX,nineCenterY,nineCenterZ;
   public final float[] bounds;public final float scale;
   private final ModelPart lid,morEye,glow,detail,accent,pupilLeft,pupilRight;
   private ModelPart earLeft,earRight;
@@ -38,6 +39,15 @@ public final class TrophyHeadsClient {
   Head(TrophyHeads.Kind kind,ModelPart part,String texture,ModelPart lid,ModelPart morEye,ModelPart glow,ModelPart detail,ModelPart accent,ModelPart pupilLeft,ModelPart pupilRight){
    this.kind=kind;this.part=part;this.texture=ResourceLocation.fromNamespaceAndPath("slavicmyths",texture);
    this.nineTrophy=kind==TrophyHeads.Kind.NINE_MOR_SERPENT?new org.slavicmyths.ninemor.NineMorModel():null;
+   if(nineTrophy!=null){
+    nineTrophy.poseTrophy(0);
+    Capture trophyCapture=new Capture();nineTrophy.renderTrophy(new PoseStack(),trophyCapture,15728880,0);
+    float[] trophyBounds=trophyCapture.bounds();
+    if(trophyCapture.vertices.isEmpty()||!Float.isFinite(trophyBounds[0])||trophyBounds[3]<=trophyBounds[0]||trophyBounds[4]<=trophyBounds[1]||trophyBounds[5]<=trophyBounds[2])throw new IllegalStateException("Empty nine-Mor trophy geometry");
+    nineRenderScale=Math.min(1.62F,Math.min(4.38F/Math.max(trophyBounds[3]-trophyBounds[0],trophyBounds[5]-trophyBounds[2]),5.18F/(trophyBounds[4]-trophyBounds[1])));
+    nineCenterX=(trophyBounds[0]+trophyBounds[3])*.5F;nineCenterY=(trophyBounds[1]+trophyBounds[4])*.5F;nineCenterZ=(trophyBounds[2]+trophyBounds[5])*.5F;
+    nineBottomShift=.15F+nineRenderScale*(trophyBounds[4]-nineCenterY);
+   }else{nineRenderScale=1;nineBottomShift=0;nineCenterX=nineCenterY=nineCenterZ=0;}
    this.lid=lid;this.morEye=morEye;this.glow=glow;this.detail=detail;this.accent=accent;this.pupilLeft=pupilLeft;this.pupilRight=pupilRight;
    pupilLeftBaseX=pupilLeft==null?0:pupilLeft.x;pupilLeftBaseY=pupilLeft==null?0:pupilLeft.y;
    pupilRightBaseX=pupilRight==null?0:pupilRight.x;pupilRightBaseY=pupilRight==null?0:pupilRight.y;
@@ -59,7 +69,7 @@ public final class TrophyHeadsClient {
   public void render(PoseStack pose,VertexConsumer out,int light,int overlay,int color){
    pose.pushPose();
    if(kind==TrophyHeads.Kind.NINE_MOR_SERPENT){
-    pose.translate(2.5F,-1.20F,2.5F);pose.scale(1.62F,-1.62F,-1.62F);pose.translate(0,-.4F,0);
+    pose.translate(2.5F,nineBottomShift,2.5F);pose.scale(nineRenderScale,-nineRenderScale,-nineRenderScale);pose.translate(-nineCenterX,-nineCenterY,-nineCenterZ);
     nineTrophy.poseTrophy(nineTime);
     nineTrophy.renderTrophy(pose,out,light,overlay);
     pose.popPose();return;
@@ -82,7 +92,7 @@ public final class TrophyHeadsClient {
   }
   public void renderNineEyes(PoseStack pose,VertexConsumer out){
    if(nineTrophy==null)return;
-   pose.pushPose();pose.translate(2.5F,-1.20F,2.5F);pose.scale(1.62F,-1.62F,-1.62F);pose.translate(0,-.4F,0);
+   pose.pushPose();pose.translate(2.5F,nineBottomShift,2.5F);pose.scale(nineRenderScale,-nineRenderScale,-nineRenderScale);pose.translate(-nineCenterX,-nineCenterY,-nineCenterZ);
    nineTrophy.renderEmissiveEyes(pose,out);pose.popPose();
   }
   public void pose(float time){pose(time,0,0);}
@@ -311,8 +321,14 @@ public final class TrophyHeadsClient {
  }
  public static final class ItemRenderer extends BlockEntityWithoutLevelRenderer {
   public ItemRenderer(){super(Minecraft.getInstance().getBlockEntityRenderDispatcher(),Minecraft.getInstance().getEntityModels());}
-  @Override public void renderByItem(ItemStack stack,ItemDisplayContext context,PoseStack pose,MultiBufferSource buffer,int light,int overlay){if(stack.getItem() instanceof BlockItem item&&item.getBlock() instanceof TrophyHeadBlock block){var h=head(block.kind);pose.pushPose();if(context==ItemDisplayContext.GUI){if(block.kind==TrophyHeads.Kind.NINE_MOR_SERPENT){pose.translate(.5F,.49F,.5F);pose.scale(.17F,.17F,.17F);pose.translate(-2.5F,1.20F,-2.5F);}else{float fit=block.kind.wide()?.40F:.72F;pose.translate(.5F,.5F,.5F);pose.scale(fit,fit,fit);pose.translate(block.kind.wide()?-1F:-.5F,-.5F,block.kind.wide()?-1F:-.5F);}}h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);pose.popPose();}}
+  @Override public void renderByItem(ItemStack stack,ItemDisplayContext context,PoseStack pose,MultiBufferSource buffer,int light,int overlay){if(stack.getItem() instanceof BlockItem item&&item.getBlock() instanceof TrophyHeadBlock block){var h=head(block.kind);pose.pushPose();if(context==ItemDisplayContext.GUI){if(block.kind==TrophyHeads.Kind.NINE_MOR_SERPENT){pose.translate(.5F,.48F,.5F);pose.scale(.15F,.15F,.15F);pose.translate(-2.5F,-2.55F,-2.5F);}else{float fit=block.kind.wide()?.40F:.72F;pose.translate(.5F,.5F,.5F);pose.scale(fit,fit,fit);pose.translate(block.kind.wide()?-1F:-.5F,-.5F,block.kind.wide()?-1F:-.5F);}}h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);pose.popPose();}}
  }
  @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerBlockEntityRenderer(TrophyHeads.TILE.get(),Renderer::new);}
- @SubscribeEvent public static void items(RegisterClientExtensionsEvent e){for(var item:TrophyHeads.ITEMS.values())e.registerItem(new IClientItemExtensions(){private ItemRenderer renderer;@Override public BlockEntityWithoutLevelRenderer getCustomRenderer(){if(renderer==null)renderer=new ItemRenderer();return renderer;}},item.get());}
+ @SubscribeEvent public static void items(RegisterClientExtensionsEvent e){
+  for(var item:TrophyHeads.ITEMS.values())e.registerItem(new IClientItemExtensions(){private ItemRenderer renderer;@Override public BlockEntityWithoutLevelRenderer getCustomRenderer(){if(renderer==null)renderer=new ItemRenderer();return renderer;}},item.get());
+  e.registerItem(new IClientItemExtensions(){
+   private PolozTrophyRenderer.ItemRenderer renderer;
+   @Override public BlockEntityWithoutLevelRenderer getCustomRenderer(){if(renderer==null)renderer=new PolozTrophyRenderer.ItemRenderer();return renderer;}
+  },org.slavicmyths.poloz.PolozTrophy.ITEM.get());
+ }
 }
