@@ -23,6 +23,19 @@ public final class FirstShipItem extends Item {
     public FirstShipItem(Properties properties) { super(properties); }
 
     @Override public Component getName(ItemStack stack) {
+        net.minecraft.world.item.component.CustomData custom = stack.get(
+                net.minecraft.core.component.DataComponents.CUSTOM_DATA);
+        if (custom != null && custom.copyTag().contains("FirstShipPack", net.minecraft.nbt.Tag.TAG_COMPOUND)) {
+            net.minecraft.nbt.CompoundTag pack = custom.copyTag().getCompound("FirstShipPack");
+            if (pack.contains(ShipBuildConfiguration.NBT_KEY, net.minecraft.nbt.Tag.TAG_COMPOUND)) {
+                try {
+                    ShipBuildConfiguration blueprint = ShipBuildConfiguration.load(
+                            pack.getCompound(ShipBuildConfiguration.NBT_KEY));
+                    return Component.literal("Деревянный корабль " + blueprint.width()
+                            + "×" + blueprint.length() + " (" + blueprint.shipClass() + ")");
+                } catch (RuntimeException ignored) {}
+            }
+        }
         return Component.literal("Деревянный корабль 7×11 (настоящие блоки)");
     }
 
@@ -47,38 +60,41 @@ public final class FirstShipItem extends Item {
         if (!(level instanceof ServerLevel server)) return InteractionResultHolder.fail(held);
 
         BlockPos anchor = ray.getBlockPos();
+        FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
+        if (ship == null) return InteractionResultHolder.fail(held);
+        ship.initializeNativeHull(anchor, FirstShipBlockHull.rotationFromYaw(player.getYRot()));
+        ship.enableSmoothMotion();
+        if (!held.has(net.minecraft.core.component.DataComponents.CUSTOM_DATA))
+            ship.equipStarterSail();
+        if (!ship.loadPacked(held)) {
+            player.displayClientMessage(Component.literal("Корабль не установлен: повреждены сохранённые данные"), true);
+            return InteractionResultHolder.fail(held);
+        }
+        ShipBuildConfiguration blueprint = ship.modularConfiguration();
+        double distance = blueprint == null ? 9D : Math.max(blueprint.width(), blueprint.length()) / 2D + 5D;
         if (!server.getEntitiesOfClass(FirstShipEntity.class,
-                new net.minecraft.world.phys.AABB(anchor).inflate(9D, 8D, 9D)).isEmpty()) {
+                new net.minecraft.world.phys.AABB(anchor).inflate(distance, 12D, distance)).isEmpty()) {
             player.displayClientMessage(Component.literal(
                     "Слишком близко к другому кораблю; старый упакуйте ключом верфи"), true);
             return InteractionResultHolder.fail(held);
         }
-        int turns = FirstShipBlockHull.rotationFromYaw(player.getYRot());
-        FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
-        if (ship == null) return InteractionResultHolder.fail(held);
-        ship.initializeNativeHull(anchor, turns);
-        // Newly placed ships can transition to the continuous moving
-        // contraption on their first helm command. Existing in-world saves are
-        // not silently converted; they retain the old safe world-block mode.
-        ship.enableSmoothMotion();
-        // A newly crafted ship includes a functional basic sail; packed ships
-        // retain their exact saved rig, including intentional sail removal.
-        if (!held.has(net.minecraft.core.component.DataComponents.CUSTOM_DATA))
-            ship.equipStarterSail();
-        if (!ship.loadPacked(held)) {
-            player.displayClientMessage(Component.literal("Корабль не установлен: повреждён сохранённый груз"), true);
-            return InteractionResultHolder.fail(held);
-        }
+        int turns = ship.quarterTurns();
         // Build checks every water/source/floor/mast cell before modifying land.
         // A failed placement never consumes the item or overwrites the terrain.
-        if (!FirstShipBlockHull.place(server, anchor, turns, ship.pendingBlockCargo(),
-                ship.rigLevel(), ship.fabricQuality(), ship.geometryVersion())) {
+        if (!(blueprint == null
+                ? FirstShipBlockHull.place(server, anchor, turns, ship.pendingBlockCargo(),
+                        ship.rigLevel(), ship.fabricQuality(), ship.geometryVersion())
+                : ShipModularBlockHull.place(server, anchor, turns, blueprint,
+                        ship.pendingBlockCargo()))) {
             player.displayClientMessage(Component.literal(
-                    "Нужно открытое водное место 7×11, 2 блока глубины и высота под мачту"), true);
+                    "Нужно свободное водное место под весь корпус и высота под мачты"), true);
             return InteractionResultHolder.fail(held);
         }
         if (!server.addFreshEntity(ship)) {
-            FirstShipBlockHull.remove(server, anchor, turns, ship.rigLevel(), ship.fabricQuality(), ship.geometryVersion());
+            if (blueprint == null)
+                FirstShipBlockHull.remove(server, anchor, turns, ship.rigLevel(),
+                        ship.fabricQuality(), ship.geometryVersion());
+            else ShipModularBlockHull.remove(server, anchor, turns, blueprint);
             return InteractionResultHolder.fail(held);
         }
         if (!player.getAbilities().instabuild) held.shrink(1);
