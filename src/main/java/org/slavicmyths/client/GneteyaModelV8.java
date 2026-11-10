@@ -126,8 +126,8 @@ public final class GneteyaModelV8 extends EntityModel<SisterBoss> {
         head.xRot=clamp(pitch*.0174532925F,-.32F,.32F)*.32F;
         head.yRot=clamp(yaw*.0174532925F,-.42F,.42F)*.39F;
         head.zRot=sin(age*.06F)*.013F;
-        braid.xRot=sin(age*.085F)*.055F+step*moving*.06F;
-        braid.zRot=sin(age*.09F)*.045F;
+        braid.xRot=sin(age*.085F)*.025F+step*moving*.035F;
+        braid.zRot=sin(age*.09F)*.020F;
         panelLeft.xRot=-step*.32F*moving;
         panelLeft.yScale=1.0F+.13F*moving*Math.max(0F,step);
         panelRight.xRot=step*.32F*moving;
@@ -198,7 +198,7 @@ public final class GneteyaModelV8 extends EntityModel<SisterBoss> {
             braid.zRot+=.06F*power;
         }
         if(boss.hurtTime>0){head.zRot+=sin(age*.7F)*.09F;upper.zRot+=.06F;}
-        if(boss.enraged()){braid.xRot*=1.5F;panelLeft.zRot*=1.8F;panelRight.zRot*=1.8F;}
+        if(boss.enraged()){braid.xRot*=1.25F;panelLeft.zRot*=1.5F;panelRight.zRot*=1.5F;}
     }
     @Override public void renderToBuffer(PoseStack pose,VertexConsumer out,int light,int overlay,int color){root.render(pose,out,light,overlay,color);}
 }

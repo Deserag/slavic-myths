@@ -162,13 +162,17 @@ public final class TryaseyaGeometryV14 {
     }
 
     private void staff() {
-        // Shaft visibly passes through palm. Cap/core exact 6x6x1 / 4x4x4.
+        // Slim lantern: compact cyan core framed by thin rails, avoiding a heavy cube.
         box("staff",-8.08,3.6,-.62,.60,65.8,.60,"staff");
         box("staff",-7.99,19.5,-.53,.41,19.0,.41,"staff_dark");
-        box("staff",-9.75,64.25,-2.07,4.0,4.0,4.0,"lantern");
-        box("staff",-10.75,63.25,-3.07,6.0,1.0,6.0,"frame");
-        box("staff",-10.75,68.25,-3.07,6.0,1.0,6.0,"frame");
-        box("staff",-9.36,69.25,-1.68,3.22,.28,3.22,"silver");
+        box("staff",-9.38,64.65,-1.70,3.25,3.20,3.25,"lantern");
+        box("staff",-9.82,64.28,-2.14,4.13,.44,4.13,"frame");
+        box("staff",-9.82,67.82,-2.14,4.13,.44,4.13,"frame");
+        for(int side:new int[]{-1,1})for(int depth:new int[]{-1,1}) {
+            double x=-7.76+side*1.84,z=-.075+depth*1.84;
+            box("staff",x-.18,64.72,z-.18,.36,3.11,.36,"frame");
+        }
+        box("staff",-8.70,68.26,-1.02,1.90,.24,1.90,"silver");
     }
 
     private void hair() {

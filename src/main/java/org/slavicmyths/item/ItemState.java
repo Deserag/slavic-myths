@@ -40,13 +40,13 @@ public final class ItemState {
         public static List<String> retainedProvenance(List<String> installed,List<String> prior){return prior.stream().filter(installed::contains).toList();}
         public RuneState {
             runes = List.copyOf(runes);
-            if (slots < 0 || slots > 3 || runes.size() > slots)
+            if (slots < 0 || slots > 4 || runes.size() > slots)
                 throw new IllegalArgumentException("Invalid sockets");
         }
         private record Stored(int slots,List<String> runes) { }
         public static final Codec<RuneState> CODEC = RecordCodecBuilder.<Stored>create(instance -> instance.group(
-                Codec.intRange(0,3).fieldOf("slots").forGetter(Stored::slots),
-                Codec.STRING.sizeLimitedListOf(3).fieldOf("runes").forGetter(Stored::runes)
+                Codec.intRange(0,4).fieldOf("slots").forGetter(Stored::slots),
+                Codec.STRING.sizeLimitedListOf(4).fieldOf("runes").forGetter(Stored::runes)
         ).apply(instance,Stored::new)).comapFlatMap(value -> {
             try { return DataResult.success(new RuneState(value.slots,value.runes)); }
             catch(IllegalArgumentException error) { return DataResult.error(error::getMessage); }
@@ -94,7 +94,7 @@ public final class ItemState {
     public static RuneState runes(ItemStack stack) {
         RuneState current = stack.get(RUNES.get()); if (current != null) return current;
         CompoundTag old = legacy(stack).getCompound("SlavicRunes");
-        int slots = Math.clamp(old.getInt("Slots"),0,3);
+        int slots = Math.clamp(old.getInt("Slots"),0,4);
         List<String> ids = new ArrayList<>(); ListTag list = old.getList("Runes",Tag.TAG_STRING);
         for (int i=0;i<list.size() && ids.size()<slots;i++) if (java.util.Arrays.asList(org.slavicmyths.rpg.Runes.IDS).contains(list.getString(i))) ids.add(list.getString(i));
         return new RuneState(slots,ids);

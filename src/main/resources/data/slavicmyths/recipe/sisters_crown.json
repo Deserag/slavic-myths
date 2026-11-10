@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " A ",
+    "ISI",
+    " B "
+  ],
+  "key": {
+    "A": {
+      "item": "slavicmyths:gneteya_ingot"
+    },
+    "B": {
+      "item": "slavicmyths:ledeya_ingot"
+    },
+    "I": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "slavicmyths:nether_soul_iv"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:sisters_crown",
+    "count": 1
+  }
+}

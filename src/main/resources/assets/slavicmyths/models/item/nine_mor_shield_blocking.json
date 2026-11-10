@@ -1,0 +1,39 @@
+{
+  "parent": "slavicmyths:item/nine_mor_shield_held",
+  "display": {
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        180,
+        -20
+      ],
+      "translation": [
+        -1,
+        2,
+        -2
+      ],
+      "scale": [
+        1.15,
+        1.15,
+        1.15
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        180,
+        20
+      ],
+      "translation": [
+        1,
+        2,
+        -2
+      ],
+      "scale": [
+        1.15,
+        1.15,
+        1.15
+      ]
+    }
+  }
+}

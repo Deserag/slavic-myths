@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:tryaseya_shard"
+    },
+    {
+      "item": "slavicmyths:gneteya_shard"
+    },
+    {
+      "item": "slavicmyths:ledeya_shard"
+    },
+    {
+      "item": "slavicmyths:agneya_shard"
+    },
+    {
+      "item": "slavicmyths:neveya_shard"
+    },
+    {
+      "item": "slavicmyths:lomeya_shard"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:sisters_ritual_core",
+    "count": 1
+  }
+}

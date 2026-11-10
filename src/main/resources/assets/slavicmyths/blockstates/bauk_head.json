@@ -1,34 +1,66 @@
 {
   "variants": {
-    "facing=north,jaw_open=false": {
+    "facing=north,front=false,jaw_open=false": {
       "model": "slavicmyths:block/bauk_head_closed",
       "y": 0
     },
-    "facing=north,jaw_open=true": {
+    "facing=north,front=true,jaw_open=false": {
+      "model": "slavicmyths:block/bauk_head_closed",
+      "y": 0
+    },
+    "facing=north,front=false,jaw_open=true": {
       "model": "slavicmyths:block/bauk_head_open",
       "y": 0
     },
-    "facing=east,jaw_open=false": {
+    "facing=north,front=true,jaw_open=true": {
+      "model": "slavicmyths:block/bauk_head_open",
+      "y": 0
+    },
+    "facing=east,front=false,jaw_open=false": {
       "model": "slavicmyths:block/bauk_head_closed",
       "y": 90
     },
-    "facing=east,jaw_open=true": {
+    "facing=east,front=true,jaw_open=false": {
+      "model": "slavicmyths:block/bauk_head_closed",
+      "y": 90
+    },
+    "facing=east,front=false,jaw_open=true": {
       "model": "slavicmyths:block/bauk_head_open",
       "y": 90
     },
-    "facing=south,jaw_open=false": {
+    "facing=east,front=true,jaw_open=true": {
+      "model": "slavicmyths:block/bauk_head_open",
+      "y": 90
+    },
+    "facing=south,front=false,jaw_open=false": {
       "model": "slavicmyths:block/bauk_head_closed",
       "y": 180
     },
-    "facing=south,jaw_open=true": {
+    "facing=south,front=true,jaw_open=false": {
+      "model": "slavicmyths:block/bauk_head_closed",
+      "y": 180
+    },
+    "facing=south,front=false,jaw_open=true": {
       "model": "slavicmyths:block/bauk_head_open",
       "y": 180
     },
-    "facing=west,jaw_open=false": {
+    "facing=south,front=true,jaw_open=true": {
+      "model": "slavicmyths:block/bauk_head_open",
+      "y": 180
+    },
+    "facing=west,front=false,jaw_open=false": {
       "model": "slavicmyths:block/bauk_head_closed",
       "y": 270
     },
-    "facing=west,jaw_open=true": {
+    "facing=west,front=true,jaw_open=false": {
+      "model": "slavicmyths:block/bauk_head_closed",
+      "y": 270
+    },
+    "facing=west,front=false,jaw_open=true": {
+      "model": "slavicmyths:block/bauk_head_open",
+      "y": 270
+    },
+    "facing=west,front=true,jaw_open=true": {
       "model": "slavicmyths:block/bauk_head_open",
       "y": 270
     }
