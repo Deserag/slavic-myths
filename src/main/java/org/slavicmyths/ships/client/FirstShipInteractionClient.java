@@ -32,8 +32,11 @@ public final class FirstShipInteractionClient {
         FirstShipEntity selected = null;
         int action = 0;
         double nearest = Double.POSITIVE_INFINITY;
+        // The old 12-block scan never reached the helm of a 25x45 hull.
+        // Candidate ships are still independently validated by helm reach and
+        // the authoritative server before a command can mount the player.
         for (FirstShipEntity ship : mc.level.getEntitiesOfClass(
-                FirstShipEntity.class, mc.player.getBoundingBox().inflate(12D, 9D, 12D))) {
+                FirstShipEntity.class, mc.player.getBoundingBox().inflate(42D, 26D, 42D))) {
             if (ship.isRemoved() || (!ship.isNativeHull() && !(mc.player.isShiftKeyDown() && key))) continue;
             FirstShipHull.Point at = FirstShipHull.toLocal(mc.player.getX(), mc.player.getZ(),
                     ship.getX(), ship.getZ(), ship.getYRot());
@@ -83,14 +86,17 @@ public final class FirstShipInteractionClient {
                     }
                 }
             }
-            if (Math.abs(mc.player.getY() - ship.deckY()) < .95D
+            // Use the same live helm geometry as the server: never infer a
+            // modular captain station from the legacy 7x11 hard-coded wheel.
+            double helmZ = ship.helmSeatZ(), helmY = ship.getY() + ship.helmSeatHeight();
+            if (Math.abs(mc.player.getY() - helmY) < 1.3D
                     && Math.abs(at.x()) < 1.8D
-                    && Math.abs(at.z() - FirstShipHull.HELM_Z) < 1.8D) {
-                FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, -4D,
+                    && Math.abs(at.z() - helmZ) < 1.8D) {
+                FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, ship.helmWheelZ(),
                         ship.getX(), ship.getZ(), ship.getYRot());
-                Vec3 aim = new Vec3(wheel.x(), ship.deckY() + 1.78D, wheel.z()).subtract(eye);
-                if (aim.lengthSqr() > .1D && aim.lengthSqr() < 25D
-                        && aim.normalize().dot(direction) > .35D && aim.lengthSqr() < nearest) {
+                Vec3 aim = new Vec3(wheel.x(), helmY + 1.78D, wheel.z()).subtract(eye);
+                if (aim.lengthSqr() > .09D && aim.lengthSqr() < 25D
+                        && aim.normalize().dot(direction) > .30D && aim.lengthSqr() < nearest) {
                     selected = ship; action = FirstShipNetwork.HELM; nearest = aim.lengthSqr();
                 }
             }
