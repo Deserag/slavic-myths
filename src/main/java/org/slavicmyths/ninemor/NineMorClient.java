@@ -29,7 +29,7 @@ public final class NineMorClient {
     private static final class BossRenderer extends MobRenderer<NineMorSerpent, NineMorModel> {
         private static final float MODEL_SCALE = 4.0F;
         private BossRenderer(EntityRendererProvider.Context context) {
-            super(context, new NineMorModel(), 2.7F);
+            super(context, new NineMorModel(), 0.9F);
             addLayer(new RenderLayer<NineMorSerpent, NineMorModel>(this) {
                 @Override
                 public void render(PoseStack pose, MultiBufferSource buffers, int packedLight,
