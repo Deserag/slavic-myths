@@ -644,6 +644,29 @@ public final class FirstShipEntity extends Boat {
      * interaction range targets only its ~3-block core. A validated action
      * allows the actual painted helm to be used from its stern position.
      */
+    /**
+     * The REAL wheel is a world block, not a hitbox on the distant ship entity.
+     * A successful block-use packet already proves that the player clicked
+     * that wheel; the server independently checks reach and exact ownership.
+     */
+    public boolean tryHelmFromBlock(ServerPlayer player, BlockPos clicked) {
+        if (player == null || clicked == null || !isNativeHull() || isMoving()
+                || modularConfiguration() == null || isVehicle()
+                || player.isPassenger() || player.isSpectator()) return false;
+        BlockPos expected = FirstShipBlockHull.world(blockAnchor(), quarterTurns(),
+                0, (int)helmSeatHeight(), (int)helmWheelZ());
+        if (!expected.equals(clicked)
+                || player.distanceToSqr(clicked.getX() + .5D,
+                        clicked.getY() + .5D, clicked.getZ() + .5D) > 36D
+                || Math.abs(player.getY() - (getY() + helmSeatHeight())) > 2.4D)
+            return false;
+        if (!player.startRiding(this)) return false;
+        positionRider(player);
+        player.displayClientMessage(Component.literal(
+                "Штурвал захвачен. W/S — ход, A/D — поворот, Shift — выйти"), true);
+        return true;
+    }
+
     public boolean tryHelm(ServerPlayer player) {
         if (isVehicle() || player.isPassenger() || player.isSpectator()) return false;
         FirstShipHull.Point local = FirstShipHull.toLocal(
