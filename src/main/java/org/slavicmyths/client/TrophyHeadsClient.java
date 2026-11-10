@@ -59,7 +59,7 @@ public final class TrophyHeadsClient {
   public void render(PoseStack pose,VertexConsumer out,int light,int overlay,int color){
    pose.pushPose();
    if(kind==TrophyHeads.Kind.NINE_MOR_SERPENT){
-    pose.translate(2.5F,-1.20F,2.5F);pose.scale(1.62F,-1.62F,-1.62F);pose.translate(0,-.4F,-1.95F);
+    pose.translate(2.5F,-1.20F,2.5F);pose.scale(1.62F,-1.62F,-1.62F);pose.translate(0,-.4F,0);
     nineTrophy.poseTrophy(nineTime);
     nineTrophy.renderTrophy(pose,out,light,overlay);
     pose.popPose();return;
@@ -82,7 +82,7 @@ public final class TrophyHeadsClient {
   }
   public void renderNineEyes(PoseStack pose,VertexConsumer out){
    if(nineTrophy==null)return;
-   pose.pushPose();pose.translate(2.5F,-1.20F,2.5F);pose.scale(1.62F,-1.62F,-1.62F);pose.translate(0,-.4F,-1.95F);
+   pose.pushPose();pose.translate(2.5F,-1.20F,2.5F);pose.scale(1.62F,-1.62F,-1.62F);pose.translate(0,-.4F,0);
    nineTrophy.renderEmissiveEyes(pose,out);pose.popPose();
   }
   public void pose(float time){pose(time,0,0);}
