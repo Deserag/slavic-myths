@@ -35,7 +35,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             {"Плот 3×3", "Плот 3×5", "Плот 5×5", "Плот 5×7", "Корабль 7×11"};
     private static final int[] CRAFT_ACTIONS = {2, 30, 31, 32, 11};
     private static final String[] SHIP_OPTIONS =
-            {"Парус", "Льняной", "Усиленный", "Мачта +", "Мачта −", "Снять всё"};
+            {"Парус I", "Парус II", "Парус III", "Оснастка +", "Оснастка −", "Снять всё"};
     private static final int[] SHIP_ACTIONS = {20, 21, 22, 23, 24, 25};
     private static final String[] RAFT_OPTIONS =
             {"Борта +", "Парус +", "Руль +", "Вёсла +", "Борта −",
@@ -268,8 +268,14 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         if (tab == 1 && vesselKind() == 2) {
             int level = ShipyardUpgrades.shipRigLevel(menu.inspected());
             int fabric = ShipyardUpgrades.shipFabric(menu.inspected());
-            graphics.drawString(font, "Мачта: " + level + "/4     Ткань: " + fabric + "/3",
+            graphics.drawString(font, "Оснастка: " + level + "/4     Парус: " + fabric + "/3",
                     202, 67, DARK, false);
+        }
+        if (tab == 1 && vesselKind() == 2) {
+            int tier = ShipyardUpgrades.shipFabric(menu.inspected());
+            double power = tier == 0 ? 0.16D : tier == 1 ? 0.40D : tier == 2 ? 0.68D : 1D;
+            graphics.drawString(font, "Тяга текущего паруса: " + (int)Math.round(power * 100D) + "% (базовая оснастка)",
+                    202, 77, DARK, false);
         }
         if (tab == 1 && vesselKind() == 0)
             graphics.drawString(font, "Выберите плот или корабль слева.", 202, 85, DARK, false);
