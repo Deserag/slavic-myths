@@ -5,6 +5,7 @@ on:
     branches:
       - 'feature/2.6-ship-superstructures-20261110'
       - 'feature/2.6-full-modular-ships-20261110'
+      - 'feature/2.6-shipyard-ui-rework-20261110'
     paths:
       - 'src/main/java/org/slavicmyths/ships/**'
       - 'build.gradle'
