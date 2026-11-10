@@ -287,7 +287,7 @@ public final class ShipModularBlockHull {
         return true;
     }
 
-    private static void clearBlocks(ServerLevel level, BlockPos anchor,
+    private static boolean clearBlocks(ServerLevel level, BlockPos anchor,
             Map<BlockPos, BlockState> owned, List<Cargo> cargo, int turns) {
         Set<BlockPos> positions = new HashSet<>(owned.keySet());
         for (Cargo entry : cargo) {
@@ -298,10 +298,13 @@ public final class ShipModularBlockHull {
         }
         List<BlockPos> ordered = new ArrayList<>(positions);
         ordered.sort(Comparator.comparingInt((BlockPos p) -> p.getY()).reversed());
-        for (BlockPos pos : ordered)
-            level.setBlock(pos, pos.getY() == anchor.getY()
+        boolean success = true;
+        for (BlockPos pos : ordered) {
+            if (!level.setBlock(pos, pos.getY() == anchor.getY()
                     ? Blocks.WATER.defaultBlockState()
-                    : Blocks.AIR.defaultBlockState(), UPDATE);
+                    : Blocks.AIR.defaultBlockState(), UPDATE)) success = false;
+        }
+        return success;
     }
 
     public static boolean place(ServerLevel level, BlockPos anchor,
@@ -318,7 +321,10 @@ public final class ShipModularBlockHull {
             if (!level.getBlockState(pos).isAir() || level.getBlockEntity(pos) != null)
                 return false;
         }
-        return placeBlocks(level, blocks, cargo, anchor, turns);
+        if (placeBlocks(level, blocks, cargo, anchor, turns)) return true;
+        // All target positions were water/air before this operation.
+        clearBlocks(level, anchor, blocks, cargo, turns);
+        return false;
     }
 
     /** Capture the entire validated cargo payload, returning null on tampering. */
@@ -332,8 +338,11 @@ public final class ShipModularBlockHull {
             int turns, ShipBuildConfiguration config) {
         Snapshot source = inspect(level, anchor, turns, config);
         if (source == null) return false;
-        clearBlocks(level, anchor, source.hull(), source.cargo(), turns);
-        return true;
+        if (clearBlocks(level, anchor, source.hull(), source.cargo(), turns))
+            return true;
+        if (!placeBlocks(level, source.hull(), source.cargo(), anchor, turns))
+            throw new IllegalStateException("Failed to restore modular hull after incomplete removal");
+        return false;
     }
 
     /**
@@ -367,8 +376,16 @@ public final class ShipModularBlockHull {
                     entry.x(), entry.y(), entry.z());
             if (!owned.contains(p) && !level.getBlockState(p).isAir()) return false;
         }
-        clearBlocks(level, oldAnchor, source.hull(), source.cargo(), oldTurn);
-        return placeBlocks(level, targetHull, transported, target, nextTurn);
+        if (!clearBlocks(level, oldAnchor, source.hull(), source.cargo(), oldTurn)) {
+            if (!placeBlocks(level, source.hull(), source.cargo(), oldAnchor, oldTurn))
+                throw new IllegalStateException("Failed to restore modular hull after failed clear");
+            return false;
+        }
+        if (placeBlocks(level, targetHull, transported, target, nextTurn)) return true;
+        clearBlocks(level, target, targetHull, transported, nextTurn);
+        if (!placeBlocks(level, source.hull(), source.cargo(), oldAnchor, oldTurn))
+            throw new IllegalStateException("Failed to restore original modular hull after rebuild failure");
+        return false;
     }
 
     private ShipModularBlockHull() {}
