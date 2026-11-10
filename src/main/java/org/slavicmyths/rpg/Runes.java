@@ -20,6 +20,9 @@ public final class Runes {
  public static String category(ItemStack s){
   // Armor stores runes, but is never classified as a combat weapon.
   if(s.isEmpty()||s.getItem() instanceof ArmorItem)return "";
+  if(s.is(org.slavicmyths.ninemor.NineMorContent.SPEAR.get()))return "spear";
+  if(s.is(org.slavicmyths.ninemor.NineMorContent.AXE.get()))return "heavy";
+  if(s.is(org.slavicmyths.ninemor.NineMorContent.SHIELD.get()))return "shield";
   if(s.getItem() instanceof org.slavicmyths.karachun.NightScythe)return "heavy";
   if(s.getItem() instanceof org.slavicmyths.morozko.FrostStaff)return "staff";
   if(s.getItem() instanceof org.slavicmyths.poloz.PolozWhip)return "whip";
