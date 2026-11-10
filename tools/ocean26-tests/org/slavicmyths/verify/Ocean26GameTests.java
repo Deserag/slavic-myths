@@ -262,8 +262,12 @@ public final class Ocean26GameTests {
                 config, ship.pendingBlockCargo()), "Modular world block placement failed");
         t.assertTrue(level.addFreshEntity(ship), "Modular ship entity registration failed");
         ServerPlayer captain = player(level, "ModularCaptain",
-                new Vec3(ship.getX(), ship.deckY(), ship.getZ() + ship.helmSeatZ()));
-        t.assertTrue(captain.startRiding(ship), "Modular captain could not operate wheel");
+                new Vec3(ship.getX(), ship.getY() + ship.helmSeatHeight(),
+                        ship.getZ() + ship.helmSeatZ() + 1.25D));
+        captain.setYRot(180F);
+        captain.setXRot(-5F);
+        t.assertTrue(ship.tryHelm(captain) && captain.getVehicle() == ship,
+                "Modular captain failed to capture real bridge helm from correct deck");
         ServerPlayer upperWalker = player(level, "ModularUpperWalker",
                 new Vec3(ship.getX() + 2D, ship.getY() + 9.02D, ship.getZ()));
         ServerPlayer bridgeWalker = player(level, "ModularBridgeWalker",
