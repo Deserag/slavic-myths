@@ -7,19 +7,26 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 
 public final class NineMorNamedItems {
     public static final class Spear extends SwordItem {
         public Spear(Tier tier, Properties properties) { super(tier, properties); }
         @Override public Component getName(ItemStack stack) { return Component.translatableWithFallback("item.slavicmyths.nine_mor_spear", "Копьё Девяти Пастей"); }
+        @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {return NineMorRewardAbilities.spear(level,player,hand);}
     }
     public static final class Axe extends AxeItem {
         public Axe(Tier tier, Properties properties) { super(tier, properties); }
         @Override public Component getName(ItemStack stack) { return Component.translatableWithFallback("item.slavicmyths.nine_mor_axe", "Секира Погибели"); }
+        @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {return NineMorRewardAbilities.axe(level,player,hand);}
     }
     public static final class Shield extends ShieldItem {
         public Shield(Properties properties) { super(properties); }
         @Override public Component getName(ItemStack stack) { return Component.translatableWithFallback("item.slavicmyths.nine_mor_shield", "Щит Девяти Чешуй"); }
+        @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {InteractionResultHolder<ItemStack> dome=NineMorRewardAbilities.shield(level,player,hand);return dome==null?super.use(level,player,hand):dome;}
     }
     public static final class Amulet extends Item implements top.theillusivec4.curios.api.type.capability.ICurioItem {
         public Amulet(Properties properties) { super(properties); }
