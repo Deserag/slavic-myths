@@ -25,6 +25,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.slavicmyths.ships.FirstShipBlockHull;
 import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.FirstShipHull;
+import org.slavicmyths.ships.ShipSuperstructurePlan;
+import org.slavicmyths.ships.ShipSuperstructureData;
 import org.slavicmyths.ships.RaftContent;
 
 /**
@@ -55,7 +57,8 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
 
     private Map<BlockPos, BlockState> movingPalette(FirstShipEntity ship) {
         String key = ship.geometryVersion() + ":" + ship.rigLevel() + ":"
-                + ship.fabricQuality() + ":" + ship.movingCargoView();
+                + ship.fabricQuality() + ":" + ship.movingCargoView()
+                + ":" + (ship.superstructure() == null ? "" : ShipSuperstructureData.sync(ship.superstructure()));
         if (key.equals(paletteKey)) return cachedPalette;
         ListTag cargo = new ListTag();
         String types = ship.movingCargoView();
@@ -78,7 +81,9 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         }
         try {
             var snapshot = new FirstShipBlockHull.MotionSnapshot(cargo,
-                    ship.geometryVersion(), ship.rigLevel(), ship.fabricQuality(), 0);
+                    ship.geometryVersion(), ship.rigLevel(), ship.fabricQuality(), 0,
+                    ship.superstructure() == null ? new CompoundTag()
+                            : ShipSuperstructureData.save(ship.superstructure()));
             cachedPalette = FirstShipBlockHull.localMotionPalette(snapshot);
         } catch (RuntimeException invalid) {
             cachedPalette = Map.of();
@@ -120,7 +125,11 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 ship.level().getBrightness(net.minecraft.world.level.LightLayer.SKY, daylight));
         pose.pushPose();
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
-        pose.translate(0D, FirstShipHull.MAIN_DECK, -4D);
+        ShipSuperstructurePlan structure = ship.superstructure();
+        int helmY = ship.isVoxelShip() && structure.bridge() ? 10 : 5;
+        int helmZ = ship.isVoxelShip() ? -structure.hullLength() / 2
+                + (structure.bridge() ? 4 : structure.cabin() ? 9 : 3) : -4;
+        pose.translate(0D, helmY, helmZ);
         // The same eight-spoke wooden steering wheel already used by rafts.
         // Render as real block-textured geometry, not the dark item inventory mesh.
         piece(Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState(), pose, buffers, deckLight,
@@ -140,8 +149,31 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 -.15D, -.15D, -.12D, .30F, .30F, .24F);
         pose.popPose();
         pose.popPose();
-        if (ship.geometryVersion() >= 7 && ship.rigLevel() > 0)
+        if (ship.isVoxelShip())
+            renderVoxelFabricSails(ship, yaw, partialTick, pose, buffers, deckLight);
+        else if (ship.geometryVersion() >= 7 && ship.rigLevel() > 0)
             renderFabricSail(ship, yaw, partialTick, pose, buffers, deckLight);
+    }
+
+    private void renderVoxelFabricSails(FirstShipEntity ship, float yaw, float partialTick,
+            PoseStack pose, MultiBufferSource buffers, int light) {
+        ShipSuperstructurePlan design = ship.superstructure();
+        if (design == null) return;
+        pose.pushPose();
+        pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
+        for (int i = 0; i < design.sailTiers().size(); i++) {
+            int tier = design.sailTiers().get(i);
+            int top = tier == 1 ? 12 : tier == 2 ? 15 : 19;
+            int span = tier == 1 ? 2 : tier == 2 ? 3 : 4;
+            BlockState seam = tier == 1 ? Blocks.RED_WOOL.defaultBlockState()
+                    : tier == 2 ? Blocks.BLUE_WOOL.defaultBlockState()
+                    : Blocks.BROWN_WOOL.defaultBlockState();
+            pose.pushPose();
+            pose.translate(0D, 0D, design.mastPositions().get(i) + 1D);
+            sailPanel(ship, partialTick, pose, buffers, light, seam, 8D, top, span, tier);
+            pose.popPose();
+        }
+        pose.popPose();
     }
 
     /** Thin, bowed cloth panels. The V7 layout retains physical mast and yards. */
@@ -186,11 +218,18 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
     private void sailPanel(FirstShipEntity ship, float partialTick, PoseStack pose,
             MultiBufferSource buffers, int light, BlockState seam,
             double bottom, double top, int span) {
+        sailPanel(ship, partialTick, pose, buffers, light, seam,
+                bottom, top, span, ship.fabricQuality());
+    }
+
+    private void sailPanel(FirstShipEntity ship, float partialTick, PoseStack pose,
+            MultiBufferSource buffers, int light, BlockState seam,
+            double bottom, double top, int span, int quality) {
         double height = top - bottom + 1D;
         VertexConsumer fabric = buffers.getBuffer(RenderType.entityCutoutNoCull(SAIL_TEXTURE));
-        float tintR = ship.fabricQuality() == 2 ? .82F : 1F;
-        float tintG = ship.fabricQuality() == 3 ? .86F : 1F;
-        float tintB = ship.fabricQuality() == 3 ? .58F : 1F;
+        float tintR = quality == 2 ? .82F : 1F;
+        float tintG = quality == 3 ? .86F : 1F;
+        float tintB = quality == 3 ? .58F : 1F;
         for (int row = 0; row < 5; row++) {
             for (int column = 0; column < 8; column++) {
                 sailVertex(fabric, pose, ship, partialTick, light, tintR, tintG, tintB,
