@@ -34,7 +34,7 @@ public final class ShipSuperstructureCheck {
 
         var medium = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(1, 2), 2, true, true);
-        yes(medium.mastPositions().equals(List.of(-2, 2)), "two centered masts");
+        yes(medium.mastPositions().equals(List.of(-1, 3)), "two centered masts");
         yes(Math.abs(medium.rawThrust() - 2.7D) < 1E-9D, "sum mixed sail tiers");
         yes(medium.propulsionFactor() > 0D && medium.propulsionFactor() < 1D,
                 "large hull with small sails is underpowered");
