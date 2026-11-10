@@ -556,80 +556,121 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
      * These are intentionally not decorative models: each colored cell is a
      * distinct physical block column of the current buildable blueprint.
      */
+    /**
+     * Compact, human-readable ship preview. Deck = timber, sides = darker
+     * hull, cream = sailcloth and green = newly added structure. Rendering
+     * every block column as a blue vertical tick made all vessels look like
+     * a barcode, especially the 25x45 class.
+     */
     private void drawBlueprint(GuiGraphics graphics) {
-        final int blue = 0xff337b9f, added = 0xff338c59;
-        ShipBuildConfiguration original = tab == 1 ? currentConfig() : null;
-        ShipBuildConfiguration candidate = tab == 0 ? creationConfig() : nextConfig();
-        ShipBuildConfiguration design = candidate != null ? candidate : original;
-        graphics.drawString(font, "СВЕРХУ", 204, 58, DARK, false);
-        graphics.drawString(font, "СБОКУ", 300, 58, DARK, false);
-        graphics.drawString(font, "СПЕРЕДИ", 393, 58, DARK, false);
-
-        if (design != null) {
-            int width = design.width(), length = design.length(), halfLength = length / 2;
-            for (int z = -halfLength; z <= halfLength; z++) {
-                int half = ShipHullVoxelLayout.halfBeam(design.structure(), z);
-                int previous = original == null || Math.abs(z) > original.length() / 2
-                        ? -1 : ShipHullVoxelLayout.halfBeam(original.structure(), z);
-                for (int x = -half; x <= half; x++) {
-                    int bx = 246 + x * 68 / Math.max(width, 1);
-                    int by = 69 + (z + halfLength) * 29 / Math.max(length, 1);
-                    int color = original != null && Math.abs(x) > previous ? added : blue;
-                    graphics.fill(bx, by, bx + Math.max(1, 68 / width),
-                            by + Math.max(1, 29 / length), color);
-                }
-                int sx = 300 + (z + halfLength) * 83 / Math.max(length, 1);
-                graphics.fill(sx, 93, sx + 1, 100, blue);
-                for (int floor = 2; floor <= design.decks(); floor++)
-                    graphics.fill(sx, 93 - (floor - 1) * 5,
-                            sx + 1, 94 - (floor - 1) * 5,
-                            original != null && original.decks() >= floor ? blue : added);
-            }
-            for (int x = -width / 2; x <= width / 2; x++) {
-                int px = 425 + x * 56 / Math.max(width, 1);
-                graphics.fill(px, 93, px + Math.max(1, 56 / width), 100,
-                        original != null && Math.abs(x) > original.width() / 2 ? added : blue);
-            }
-            for (int mast = 0; mast < design.sailTiers().size(); mast++) {
-                int z = design.structure().mastPositions().get(mast);
-                int mx = 300 + (z + halfLength) * 83 / Math.max(length, 1);
-                int top = switch (design.sailTiers().get(mast)) {
-                    case 1 -> 12; case 2 -> 15; default -> 19;
-                };
-                int color = original != null && (mast >= original.sailTiers().size()
-                        || !original.sailTiers().get(mast).equals(design.sailTiers().get(mast)))
-                        ? added : blue;
-                graphics.fill(mx, 100 - Math.min(25, top + 3), mx + 2, 96, color);
-                graphics.fill(mx - 3, 83, mx + 5, 84, color);
-            }
-            if (design.cabin()) graphics.fill(304, 86, 318, 94,
-                    original != null && original.cabin() ? blue : added);
-            if (design.bridge()) graphics.fill(304, 79, 322, 81,
-                    original != null && original.bridge() ? blue : added);
-            graphics.drawString(font, "Размер " + width + "×" + length
-                    + "  |  мачты " + design.sailTiers().size()
-                    + "  |  палубы " + design.decks(), 201, 104, DARK, false);
+        ShipBuildConfiguration old = tab == 1 ? currentConfig() : null;
+        ShipBuildConfiguration proposed = tab == 0 ? creationConfig() : nextConfig();
+        ShipBuildConfiguration shown = proposed == null ? old : proposed;
+        graphics.drawString(font, "СВЕРХУ", 205, 58, DARK, false);
+        graphics.drawString(font, "СБОКУ", 305, 58, DARK, false);
+        graphics.drawString(font, "СПЕРЕДИ", 397, 58, DARK, false);
+        if (shown != null) {
+            drawDeckPreview(graphics, shown, old);
+            drawSidePreview(graphics, shown, old);
+            drawBowPreview(graphics, shown);
+            graphics.drawString(font, "Корпус " + shown.width() + "×" + shown.length()
+                    + "   Мачты: " + shown.sailTiers().size()
+                    + "   Палубы: " + shown.decks(), 201, 103, DARK, false);
         } else {
             int width = chosen == 4 ? FirstShipHull.WIDTH
                     : chosen == 0 || chosen == 1 ? 3 : 5;
             int length = chosen == 4 ? FirstShipHull.LENGTH
                     : chosen == 0 || chosen == 2 ? 3 : chosen == 1 ? 5 : 7;
-            for (int z = 0; z < length; z++) {
-                int half = chosen == 4
-                        ? (int)Math.floor(FirstShipHull.halfBeam(z - length / 2)) : width / 2;
-                for (int x = -half; x <= half; x++) {
-                    int px = 246 + x * 55 / Math.max(width, 1);
-                    int py = 69 + z * 29 / Math.max(length, 1);
-                    graphics.fill(px, py, px + 2, py + 2, blue);
-                }
-                int sx = 300 + z * 83 / Math.max(length, 1);
-                graphics.fill(sx, 93, sx + 2, chosen == 4 ? 100 : 96, blue);
-            }
-            graphics.fill(407, 93, 443, chosen == 4 ? 100 : 96, blue);
-            graphics.drawString(font, "Размер " + width + "×" + length, 201, 104, DARK, false);
+            graphics.fill(214, 73, 278, 94, 0xffaf8852);
+            graphics.fill(214, 91, 278, 95, 0xff77502e);
+            graphics.fill(304, 86, 386, 96, 0xffad8450);
+            graphics.fill(401, 86, 456, 96, 0xff9a6e3c);
+            graphics.drawString(font, "Судно " + width + "×" + length, 201, 103, DARK, false);
         }
     }
 
+    private void drawDeckPreview(GuiGraphics graphics, ShipBuildConfiguration shown,
+                                 ShipBuildConfiguration previous) {
+        int halfLength = shown.length() / 2, halfWidth = Math.max(1, shown.width() / 2);
+        int x0 = 246, y0 = 66, rows = 35, maxSpan = 34;
+        for (int row = 0; row < rows; row++) {
+            int z = Math.min(halfLength, -halfLength
+                    + (int)Math.round(row * shown.length() / (double)(rows - 1)));
+            int width = Math.max(1, ShipHullVoxelLayout.halfBeam(shown.structure(), z));
+            int span = Math.max(2, (int)Math.round(maxSpan * width / (double)halfWidth));
+            int oldWidth = previous != null && Math.abs(z) <= previous.length() / 2
+                    ? ShipHullVoxelLayout.halfBeam(previous.structure(), z) : -1;
+            int oldSpan = oldWidth < 0 ? -1
+                    : Math.max(2, (int)Math.round(maxSpan * oldWidth / (double)halfWidth));
+            graphics.fill(x0 - span, y0 + row, x0 + span + 1, y0 + row + 1, 0xffbc9762);
+            graphics.fill(x0 - span, y0 + row, x0 - span + 1, y0 + row + 1, 0xff684326);
+            graphics.fill(x0 + span, y0 + row, x0 + span + 1, y0 + row + 1, 0xff684326);
+            if (previous != null && oldSpan < span) {
+                graphics.fill(x0 - span + 1, y0 + row, x0 - Math.max(0, oldSpan),
+                        y0 + row + 1, 0xff428b59);
+                graphics.fill(x0 + Math.max(0, oldSpan) + 1, y0 + row,
+                        x0 + span, y0 + row + 1, 0xff428b59);
+            }
+        }
+        for (int dx = -20; dx <= 20; dx += 8)
+            graphics.fill(x0 + dx, y0 + 5, x0 + dx + 1, y0 + rows - 5, 0xff9f794c);
+        for (int i = 0; i < shown.sailTiers().size(); i++) {
+            int z = shown.structure().mastPositions().get(i);
+            int y = y0 + (z + halfLength) * (rows - 1) / shown.length();
+            graphics.fill(x0 - 2, y - 2, x0 + 3, y + 3, 0xff48311c);
+            graphics.fill(x0 - 8, y, x0 + 9, y + 1, 0xffefe4c9);
+        }
+        if (shown.cabin()) graphics.fill(x0 - 9, y0 + 3, x0 + 10, y0 + 10, 0xff755133);
+        if (shown.bridge()) graphics.fill(x0 - 13, y0 + 2, x0 + 14, y0 + 4, 0xff402a1c);
+    }
+
+    private void drawSidePreview(GuiGraphics graphics, ShipBuildConfiguration shown,
+                                 ShipBuildConfiguration previous) {
+        int length = shown.length(), halfLength = length / 2, x0 = 302, yDeck = 84;
+        for (int pixel = 0; pixel <= 80; pixel++) {
+            int z = -halfLength + (int)Math.round(pixel * length / 80D);
+            int beam = Math.max(0, ShipHullVoxelLayout.halfBeam(shown.structure(), z));
+            int depth = 5 + (int)Math.round(6D * beam / Math.max(1, shown.width() / 2));
+            int x = x0 + pixel;
+            int shade = previous != null && Math.abs(z) > previous.length() / 2
+                    ? 0xff428b59 : 0xff936136;
+            graphics.fill(x, yDeck, x + 1, yDeck + depth, shade);
+            graphics.fill(x, yDeck, x + 1, yDeck + 1, 0xff54361f);
+            graphics.fill(x, yDeck + depth - 1, x + 1, yDeck + depth, 0xff61452d);
+        }
+        for (int i = 0; i < shown.sailTiers().size(); i++) {
+            int z = shown.structure().mastPositions().get(i);
+            int x = x0 + (z + halfLength) * 80 / length;
+            int tier = shown.sailTiers().get(i);
+            int top = tier == 1 ? 67 : tier == 2 ? 64 : 61;
+            graphics.fill(x, top, x + 2, yDeck + 1, 0xff49301e);
+            graphics.fill(x - 7, top + 2, x + 9, top + 4, 0xff694628);
+            graphics.fill(x - 6, top + 4, x + 8, yDeck - 2, 0xffeee1bc);
+            graphics.fill(x - 6, top + 4, x - 5, yDeck - 2, 0xffb79f79);
+        }
+        if (shown.cabin()) {
+            graphics.fill(x0 + 7, yDeck - 9, x0 + 22, yDeck, 0xff81562f);
+            graphics.fill(x0 + 12, yDeck - 7, x0 + 16, yDeck - 4, 0xffb9d1cc);
+        }
+        if (shown.bridge()) graphics.fill(x0 + 4, yDeck - 13, x0 + 27, yDeck - 10, 0xff533820);
+    }
+
+    private void drawBowPreview(GuiGraphics graphics, ShipBuildConfiguration shown) {
+        int center = 428, halfWidth = shown.width() / 2;
+        for (int row = 0; row < 12; row++) {
+            int span = Math.max(3, (int)Math.round(24D * (1D - row * .065D)));
+            int y = 84 + row;
+            graphics.fill(center - span, y, center + span + 1, y + 1,
+                    row % 3 == 0 ? 0xff875a35 : 0xffa47642);
+            graphics.fill(center - span, y, center - span + 2, y + 1, 0xff573820);
+            graphics.fill(center + span - 1, y, center + span + 1, y + 1, 0xff573820);
+        }
+        graphics.fill(center - 24, 83, center + 25, 85, 0xff4a311e);
+        for (int x = center - 18; x <= center + 18; x += 9)
+            graphics.fill(x, 81, x + 2, 84, 0xff68492b);
+        if (!shown.sailTiers().isEmpty())
+            graphics.fill(center - 1, 70, center + 2, 84, 0xff4a321f);
+    }
     /**
      * GUI Scale 4 on 1080p and 900p windows is smaller than this screen's
      * logical footprint. Scale THE WHOLE container, including menu slot hit
