@@ -315,6 +315,73 @@ public final class Ocean26GameTests {
         });
     }
 
+    @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_modular_small_voyage")
+    public static void smallModularVoyage(GameTestHelper t) {
+        modularClassVoyage(t, org.slavicmyths.ships.ShipSectionPlan.ShipClass.SMALL);
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_modular_medium_voyage")
+    public static void mediumModularVoyage(GameTestHelper t) {
+        modularClassVoyage(t, org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM);
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_modular_large_voyage")
+    public static void largeModularVoyage(GameTestHelper t) {
+        modularClassVoyage(t, org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE);
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_modular_largest_voyage")
+    public static void largestModularVoyage(GameTestHelper t) {
+        modularClassVoyage(t, org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST);
+    }
+
+    private static void modularClassVoyage(GameTestHelper t,
+            org.slavicmyths.ships.ShipSectionPlan.ShipClass type) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(22, 4, 22));
+        level.getChunkSource().addRegionTicket(VOYAGE_TICKET,
+                new ChunkPos(anchor), 3, anchor.asLong());
+        for (int x = -20; x <= 20; x++)
+            for (int z = -27; z <= 27; z++) {
+                BlockPos pos = anchor.offset(x, 0, z);
+                level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 24; y++)
+                    level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type);
+        ServerPlayer builder = player(level, type + "VoyageBuilder",
+                new Vec3(anchor.getX() + 18D, anchor.getY() + 8D, anchor.getZ()));
+        builder.getAbilities().instabuild = true;
+        ItemStack item = org.slavicmyths.ships.ShipyardModular.build(builder, config);
+        FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
+        t.assertTrue(ship != null && !item.isEmpty(), type + " item creation failed");
+        ship.initializeNativeHull(anchor, 0);
+        ship.enableSmoothMotion();
+        t.assertTrue(ship.loadPacked(item) && org.slavicmyths.ships.ShipModularBlockHull.place(
+                level, anchor, 0, config, new ListTag()), type + " placement failed");
+        t.assertTrue(level.addFreshEntity(ship), type + " entity did not spawn");
+        ServerPlayer captain = player(level, type + "VoyageCaptain",
+                new Vec3(ship.getX(), ship.deckY(), ship.getZ() + ship.helmSeatZ()));
+        t.assertTrue(captain.startRiding(ship), type + " captain could not board");
+        double startZ = ship.getZ();
+        t.runAtTickTime(5L, () -> t.assertTrue(
+                ship.helmStep(captain, FirstShipNetwork.FORWARD),
+                type + " helm did not start motion"));
+        for (int tick = 6; tick <= 48; tick++)
+            t.runAtTickTime(tick, () -> ship.helmStep(captain, FirstShipNetwork.FORWARD));
+        t.runAtTickTime(51L, () -> {
+            t.assertTrue(ship.isMoving() && ship.getZ() > startZ + .10D
+                    && captain.getVehicle() == ship
+                    && ship.serverMovingPalette() != null,
+                    type + " captain or real hull did not travel");
+            captain.discard(); builder.discard(); ship.discard();
+            level.getChunkSource().removeRegionTicket(VOYAGE_TICKET,
+                    new ChunkPos(anchor), 3, anchor.asLong());
+            t.succeed();
+        });
+    }
+
     @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular_remote_menu")
     public static void largeShipCannotDetachWithRemoteCargoMenuOpen(GameTestHelper t) {
         ServerLevel level = t.getLevel();
