@@ -160,13 +160,13 @@ public final class Ocean26GameTests {
         level.setBlock(chestPos, Blocks.CHEST.defaultBlockState(), 2);
         chest(level, chestPos, t).setItem(0, new ItemStack(Items.EMERALD, 23));
         var menu = new org.slavicmyths.ships.ShipyardMenu(15, builder.getInventory(), bench);
-        for (int action : new int[]{200, 201, 203, 204, 205, 206}) {
+        for (int action : new int[]{200, 201, 203, 204, 205, 206, 207, 208}) {
             t.assertTrue(menu.clickMenuButton(builder, action),
                     "Placed shipyard rejected action " + action);
         }
         var actual = ship.modularConfiguration();
         t.assertTrue(actual != null && actual.extraLength() == 1 && actual.extraWidth() == 1
-                && actual.sailTiers().size() == 2 && actual.decks() == 2
+                && actual.sailTiers().equals(java.util.List.of(2, 2)) && actual.decks() == 2
                 && actual.bridge() && actual.cabin(),
                 "Shipyard did not apply all six physical modifications");
         t.assertTrue(chest(level, chestPos, t).getItem(0).getCount() == 23,

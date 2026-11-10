@@ -43,10 +43,11 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             {"Парус I", "Парус II", "Парус III", "Оснастка +", "Оснастка −", "Снять всё"};
     private static final int[] SHIP_ACTIONS = {20, 21, 22, 23, 24, 25};
     private static final String[] MODULAR_OPTIONS = {
-            "Длина +", "Ширина +", "Парус +", "Мачта +",
-            "Палуба +", "Мостик", "Каюта"
+            "Длина +", "Ширина +", "Парус 1 +", "Парус 2 +",
+            "Парус 3 +", "Парус 4 +", "Мачта +", "Палуба +",
+            "Мостик", "Каюта"
     };
-    private static final int[] MODULAR_ACTIONS = {200, 201, 202, 203, 204, 205, 206};
+    private static final int[] MODULAR_ACTIONS = {200, 201, 207, 208, 209, 210, 203, 204, 205, 206};
     private static final String[] CLASS_NAMES = {
             "Малый", "Средний", "Большой", "Крупнейший"
     };
@@ -109,6 +110,9 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 case 201 -> current.resize(current.extraLength(), current.extraWidth() + 1);
                 case 202 -> current.withSail(current.sailTiers().size() - 1,
                         current.sailTiers().get(current.sailTiers().size() - 1) + 1);
+                case 207, 208, 209, 210 -> current.withSail(
+                        MODULAR_ACTIONS[chosen] - 207,
+                        current.sailTiers().get(MODULAR_ACTIONS[chosen] - 207) + 1);
                 case 203 -> current.withSail(current.sailTiers().size(), 1);
                 case 204 -> current.withDecks(current.decks() + 1);
                 case 205 -> current.withBridge(true);

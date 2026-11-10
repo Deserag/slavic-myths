@@ -1403,7 +1403,10 @@ public final class FirstShipEntity extends Boat {
         int oldTurn = quarterTurns;
         java.util.List<ServerPlayer> walkers = new java.util.ArrayList<>();
         java.util.Map<ServerPlayer, FirstShipHull.Point> localPositions = new java.util.HashMap<>();
-        AABB nearby = new AABB(oldAnchor).inflate(9D, 9D, 9D);
+        double reach = modularConfiguration == null ? 9D
+                : Math.hypot(modularConfiguration.width() / 2D,
+                        modularConfiguration.length() / 2D) + 3D;
+        AABB nearby = new AABB(oldAnchor).inflate(reach, 20D, reach);
         for (ServerPlayer p : server.getEntitiesOfClass(ServerPlayer.class, nearby)) {
             if (p.containerMenu != p.inventoryMenu) {
                 driver.displayClientMessage(Component.literal(
@@ -1413,9 +1416,11 @@ public final class FirstShipEntity extends Boat {
             if (p == driver || p.isPassenger() || p.isSpectator() || p.getAbilities().flying) continue;
             FirstShipHull.Point local = FirstShipHull.toLocal(p.getX(), p.getZ(),
                     getX(), getZ(), getYRot());
-            boolean onShip = FirstShipHull.withinHull(local.x(), local.z(), .1D)
-                    && ((p.getY() >= holdY() - .25D && p.getY() <= holdY() + 2.9D)
-                    || (p.getY() >= deckY() - .25D && p.getY() <= deckY() + 2.3D));
+            boolean onShip = modularConfiguration == null
+                    ? FirstShipHull.withinHull(local.x(), local.z(), .1D)
+                        && ((p.getY() >= holdY() - .25D && p.getY() <= holdY() + 2.9D)
+                        || (p.getY() >= deckY() - .25D && p.getY() <= deckY() + 2.3D))
+                    : ShipDeckContact.contactFloor(this, local.x(), local.z(), p.getY()) >= 0;
             if (onShip) { walkers.add(p); localPositions.put(p, local); }
         }
         boolean moved = modularConfiguration == null
