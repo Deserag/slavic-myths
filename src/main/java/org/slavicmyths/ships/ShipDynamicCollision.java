@@ -51,22 +51,37 @@ public final class ShipDynamicCollision {
             return false;
         Carry carry = CARRY.get();
         for (FirstShipEntity ship : level.getEntitiesOfClass(FirstShipEntity.class,
-                region.inflate(12D, 15D, 12D)))
+                region.inflate(36D, 25D, 36D)))
             if (!ship.isRemoved() && ship.isMoving()
                     && (carry == null || carry.player() != player || carry.ship() != ship))
                 return true;
         return false;
     }
 
+    private static boolean shipLadder(FirstShipEntity ship, double x, double z, double y) {
+        var config = ship.modularConfiguration();
+        if (config == null) return FirstShipHull.onLadder(x, z)
+                && y >= .9D && y <= 5.3D;
+        if (Math.abs(x + 2D) < .49D && Math.abs(z - 1D) < .49D
+                && y >= .9D && y <= 4D + (config.decks() - 1) * 4D + .9D) return true;
+        if (config.bridge()) {
+            int side = Math.min(3, config.width() / 2 - 2);
+            double ladderX = -side + 1D, ladderZ = -config.length() / 2D + 6D;
+            return Math.abs(x - ladderX) < .49D
+                    && Math.abs(z - ladderZ) < .49D && y >= 4.9D && y <= 9.9D;
+        }
+        return false;
+    }
+
     public static boolean onMovingLadder(Player player) {
         if (!player.isAlive() || player.isPassenger() || player.isSpectator()) return false;
         for (FirstShipEntity ship : player.level().getEntitiesOfClass(FirstShipEntity.class,
-                player.getBoundingBox().inflate(8D, 6D, 8D))) {
+                player.getBoundingBox().inflate(36D, 25D, 36D))) {
             if (ship.isRemoved() || !ship.isMoving()) continue;
             FirstShipHull.Point local = FirstShipHull.toLocal(player.getX(), player.getZ(),
                     ship.getX(), ship.getZ(), ship.getYRot());
             double y = player.getY() - ship.getY();
-            if (FirstShipHull.onLadder(local.x(), local.z()) && y >= .9D && y <= 4.9D)
+            if (shipLadder(ship, local.x(), local.z(), y))
                 return true;
         }
         return false;
@@ -78,7 +93,7 @@ public final class ShipDynamicCollision {
                 || player.getAbilities().flying || player.isFallFlying() || player.isPassenger()) return;
         Carry carry = CARRY.get();
         for (FirstShipEntity ship : level.getEntitiesOfClass(FirstShipEntity.class,
-                region.inflate(12D, 15D, 12D))) {
+                region.inflate(36D, 25D, 36D))) {
             if (ship.isRemoved() || !ship.isMoving()
                     || carry != null && carry.player() == player && carry.ship() == ship)
                 continue;
@@ -86,9 +101,8 @@ public final class ShipDynamicCollision {
             AABB local = localBounds(region, ship);
             FirstShipHull.Point feet = FirstShipHull.toLocal(player.getX(), player.getZ(),
                     ship.getX(), ship.getZ(), ship.getYRot());
-            boolean inLadderShaft = FirstShipHull.onLadder(feet.x(), feet.z())
-                    && player.getY() - ship.getY() >= .9D
-                    && player.getY() - ship.getY() <= 5.3D;
+            boolean inLadderShaft = shipLadder(ship, feet.x(), feet.z(),
+                    player.getY() - ship.getY());
             double angle = Math.toRadians(ship.getYRot());
             double cos = Math.cos(angle), sin = Math.sin(angle);
             double remainder = Math.abs(ship.getYRot()) % 90D;
@@ -160,8 +174,10 @@ public final class ShipDynamicCollision {
     }
 
     private static Geometry geometry(FirstShipEntity ship, Level level) {
+        var configuration = ship.modularConfiguration();
         String key = ship.geometryVersion() + ":" + ship.rigLevel() + ":"
-                + ship.fabricQuality() + ":" + ship.movingCargoView();
+                + ship.fabricQuality() + ":" + ship.movingCargoView()
+                + ":" + (configuration == null ? "" : configuration.wire());
         synchronized (GEOMETRY) {
             Geometry existing = GEOMETRY.get(ship);
             if (existing != null && existing.key().equals(key)) return existing;
@@ -185,10 +201,12 @@ public final class ShipDynamicCollision {
                     }
                 }
                 try {
-                    palette = FirstShipBlockHull.localMotionPalette(
-                            new FirstShipBlockHull.MotionSnapshot(cargo,
-                                    ship.geometryVersion(), ship.rigLevel(),
-                                    ship.fabricQuality(), 0));
+                    palette = configuration == null
+                            ? FirstShipBlockHull.localMotionPalette(
+                                new FirstShipBlockHull.MotionSnapshot(cargo,
+                                        ship.geometryVersion(), ship.rigLevel(),
+                                        ship.fabricQuality(), 0))
+                            : ShipModularBlockHull.localMotionPalette(configuration, cargo);
                 } catch (RuntimeException invalid) {
                     palette = Map.of();
                 }
