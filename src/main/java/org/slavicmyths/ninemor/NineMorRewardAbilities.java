@@ -157,12 +157,16 @@ public final class NineMorRewardAbilities {
   if(!(event.getEntity() instanceof ServerPlayer player)||player.isCreative()||player.isSpectator()||event.getNewDamage()<=0)return;
   if(event.getNewDamage()<player.getHealth()+player.getAbsorptionAmount())return;
   long now=player.serverLevel().getServer().overworld().getGameTime();
-  if(now<player.getPersistentData().getLong(NINTH_LIFE))return;
+  var saved=org.slavicmyths.rpg.PathData.data(player);
+  long previous=player.getPersistentData().getLong(NINTH_LIFE);
+  if(previous>saved.getLong(NINTH_LIFE))saved.putLong(NINTH_LIFE,previous);
+  player.getPersistentData().remove(NINTH_LIFE);
+  if(now<saved.getLong(NINTH_LIFE))return;
   boolean equipped=CuriosApi.getCuriosInventory(player)
       .map(inv->inv.findCurios(stack->stack.is(NineMorContent.AMULET.get())).stream()
           .anyMatch(curio->"necklace".equals(curio.slotContext().identifier()))).orElse(false);
   if(!equipped)return;
-  player.getPersistentData().putLong(NINTH_LIFE,now+6000L);
+  saved.putLong(NINTH_LIFE,now+6000L);
   event.setNewDamage(0F);
   player.setHealth(Math.max(1F,player.getHealth()));
   player.addEffect(new MobEffectInstance(MobEffects.REGENERATION,100,1));

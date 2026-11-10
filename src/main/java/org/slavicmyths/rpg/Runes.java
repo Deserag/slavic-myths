@@ -93,7 +93,7 @@ public final class Runes {
   if(weapon.getCount()!=1||max(weapon)==0)return text("unsupported");
   if(action==0){if(sockets>=max(weapon))return text("capacity");if(!material.is(forgeMaterial(weapon))||material.getCount()<forgeCount(weapon))return text("missing_material",forgeMaterial(weapon).getDescription(),forgeCount(weapon));if(extra(weapon)!=null&&inventoryCount(p,extra(weapon))<1)return text("missing_material",extra(weapon).getDescription(),1);}
   else if(action==1){var reason=installationBlocker(weapon,material);if(reason!=null)return reason;}
-  else if(action<2||action>4||action-2>=installed.size())return text("no_rune");
+  else if(action<2||action>5||action-2>=installed.size())return text("no_rune");
   int xp=operationCost(p,weapon,action);if(!p.isCreative()&&p.experienceLevel<xp)return text("need_xp",xp);return null;
  }
  private static net.minecraft.network.chat.Component text(String key,Object... args){return net.minecraft.network.chat.Component.translatable("rpg.slavicmyths."+key,args);}
@@ -101,7 +101,7 @@ public final class Runes {
  public static ItemStack preview(Container inv,int action){ItemStack result=inv.getItem(0).copy();if(result.getCount()!=1||max(result)==0)return ItemStack.EMPTY;int sockets=slots(result);var installed=list(result);
   if(action==0){if(sockets>=max(result))return ItemStack.EMPTY;sockets++;}
   else if(action==1){if(installationBlocker(result,inv.getItem(1))!=null)return ItemStack.EMPTY;String added=rune(inv.getItem(1));installed.add(added);if(inv.getItem(1).getOrDefault(org.slavicmyths.item.ItemState.LEGACY_RUNE_SPECIALS.get(),List.of()).contains(added)){var provenance=new ArrayList<>(org.slavicmyths.item.ItemState.legacyRuneSpecials(result));if(!provenance.contains(added))provenance.add(added);result.set(org.slavicmyths.item.ItemState.LEGACY_RUNE_SPECIALS.get(),List.copyOf(provenance));}}
-  else {int i=action-2;if(action>4||i<0||i>=installed.size())return ItemStack.EMPTY;String removed=installed.get(i);boolean first=installed.subList(0,i).stream().noneMatch(removed::equals);if(first&&org.slavicmyths.item.ItemState.legacyRuneSpecials(result).contains(removed))result.set(org.slavicmyths.item.ItemState.LEGACY_RUNE_SPECIALS.get(),org.slavicmyths.item.ItemState.legacyRuneSpecials(result).stream().filter(id->!id.equals(removed)).toList());installed.remove(i);}
+  else {int i=action-2;if(action>5||i<0||i>=installed.size())return ItemStack.EMPTY;String removed=installed.get(i);boolean first=installed.subList(0,i).stream().noneMatch(removed::equals);if(first&&org.slavicmyths.item.ItemState.legacyRuneSpecials(result).contains(removed))result.set(org.slavicmyths.item.ItemState.LEGACY_RUNE_SPECIALS.get(),org.slavicmyths.item.ItemState.legacyRuneSpecials(result).stream().filter(id->!id.equals(removed)).toList());installed.remove(i);}
   write(result,sockets,installed);return result;
  }
  public static void operation(ServerPlayer p,Container inv,int action){
