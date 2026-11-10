@@ -343,6 +343,29 @@ public final class FirstShipBlockHull {
         return blocks;
     }
 
+    /**
+     * V8 only: preserve V7 hull ownership while introducing cloth-tier-specific
+     * mastheads and genuine wooden yards. Old saved geometry stays untouched.
+     * Tier I keeps the historical rig, II receives a taller head yard,
+     * III a wider top yard and longer mast.
+     */
+    private static Map<BlockPos, BlockState> layoutV8(BlockPos anchor, int turns, int rig, int fabric) {
+        Map<BlockPos, BlockState> blocks = layoutV7(anchor, turns, rig, fabric);
+        if (rig == 0 || fabric <= 1) return blocks;
+        if (rig == 1) {
+            int top = fabric == 2 ? 13 : 14;
+            int span = fabric == 2 ? 3 : 4;
+            for (int y = 13; y <= top + 1; y++)
+                blocks.put(world(anchor, turns, 0, y, -1),
+                        Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState());
+            addYardV3(blocks, anchor, turns, top + 1, span);
+        } else {
+            int top = rig == 2 ? 16 : rig == 3 ? 17 : 22;
+            if (fabric == 3) addYardV3(blocks, anchor, turns, Math.min(22, top), 4);
+        }
+        return blocks;
+    }
+
     private static void addYardV3(Map<BlockPos, BlockState> blocks, BlockPos anchor,
             int turns, int y, int span) {
         BlockState beam = Blocks.DARK_OAK_LOG.defaultBlockState().setValue(
@@ -373,7 +396,8 @@ public final class FirstShipBlockHull {
 
     private static Map<BlockPos, BlockState> layout(BlockPos anchor, int turns,
             int rig, int fabric, int geometry) {
-        return geometry >= 7 ? layoutV7(anchor, turns, rig, fabric)
+        return geometry >= 8 ? layoutV8(anchor, turns, rig, fabric)
+                : geometry == 7 ? layoutV7(anchor, turns, rig, fabric)
                 : geometry == 6 ? layoutV6(anchor, turns, rig, fabric)
                 : geometry == 5 ? layoutV5(anchor, turns, rig, fabric)
                 : geometry == 4 ? layoutV4(anchor, turns, rig, fabric)
@@ -808,7 +832,7 @@ public final class FirstShipBlockHull {
     public record MotionSnapshot(ListTag cargo, int geometry, int rig, int fabric, int turn) {
         public MotionSnapshot {
             if (cargo == null || cargo.size() > WIDTH * LENGTH * 2
-                    || geometry < 2 || geometry > 7
+                    || geometry < 2 || geometry > 8
                     || turn < 0 || turn > 3
                     || decode(cargo) == null)
                 throw new IllegalArgumentException("Unsafe moving ship snapshot");
@@ -820,7 +844,7 @@ public final class FirstShipBlockHull {
 
     public static MotionSnapshot captureForMotion(ServerLevel level, BlockPos anchor,
             int turns, int rig, int fabric, int geometry) {
-        if (geometry < 2 || geometry > 7 || turns < 0 || turns > 3) return null;
+        if (geometry < 2 || geometry > 8 || turns < 0 || turns > 3) return null;
         ListTag cargo = pack(level, anchor, turns, rig, fabric, geometry);
         return cargo == null ? null : new MotionSnapshot(cargo, geometry, rig, fabric, turns);
     }
