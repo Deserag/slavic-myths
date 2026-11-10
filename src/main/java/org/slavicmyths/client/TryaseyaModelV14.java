@@ -114,6 +114,8 @@ public final class TryaseyaModelV14 extends EntityModel<SisterBoss> {
     private static float idleWave(float age,float factor) { return sin(age*factor); }
 
     @Override public void setupAnim(SisterBoss boss,float limbSwing,float limbSwingAmount,float age,float yaw,float pitch) {
+        // Restore the baked rest pose before action/hurt animation to avoid stale joints.
+        root.getAllParts().forEach(ModelPart::resetPose);
         // Restore every animated axis every frame; no accumulating rotation from attacks.
         float breath=idleWave(age,.07F);
         float hover=idleWave(age,.095F);
