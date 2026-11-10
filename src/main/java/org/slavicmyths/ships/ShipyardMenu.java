@@ -34,7 +34,7 @@ public final class ShipyardMenu extends AbstractContainerMenu {
         super(TYPE.get(), id);
         pos = position.immutable();
         owner = inventory.player;
-        addSlot(new Slot(input, 0, 153, 210) {
+        addSlot(new Slot(input, 0, 153, 42) {
             @Override public boolean mayPlace(ItemStack stack) {
                 return stack.getItem() instanceof FirstShipItem ||
                         (stack.getItem() instanceof RaftItem && !RaftCharacteristics.fromItem(stack).invalid());
