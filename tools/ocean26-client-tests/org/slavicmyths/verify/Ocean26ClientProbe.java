@@ -131,6 +131,7 @@ public final class Ocean26ClientProbe {
                     new AABB(mc.player.blockPosition()).inflate(128D, 32D, 128D))) {
                 if (!ship.isNativeHull()) continue;
                 if (MODULAR_VISUAL && !ship.getUUID().equals(shipId)) continue;
+                if (RELOAD && !ship.isMoving()) continue;
                 if (MODULAR_VISUAL && ship.modularConfiguration() == null) {
                     fail(mc, "modular blueprint did not synchronize to client");
                     return;
