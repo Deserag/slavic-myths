@@ -360,8 +360,14 @@ public final class FirstShipBlockHull {
                         Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState());
             addYardV3(blocks, anchor, turns, top + 1, span);
         } else {
-            int top = rig == 2 ? 16 : rig == 3 ? 17 : 22;
-            if (fabric == 3) addYardV3(blocks, anchor, turns, Math.min(22, top), 4);
+            int newTop = rig == 2 ? (fabric == 2 ? 17 : 20)
+                    : rig == 3 ? (fabric == 2 ? 18 : 20) : 22;
+            int span = fabric == 2 ? 3 : 4;
+            int originalTop = rig == 2 ? 16 : rig == 3 ? 17 : 22;
+            for (int y = originalTop + 1; y <= newTop; y++)
+                blocks.put(world(anchor, turns, 0, y, -1),
+                        Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState());
+            addYardV3(blocks, anchor, turns, newTop, span);
         }
         return blocks;
     }
