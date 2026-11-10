@@ -161,11 +161,24 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         }
         else if (rig == 2) {
             sailPanel(ship, partialTick, pose, buffers, light, seam, 8D, 10D, 3);
-            sailPanel(ship, partialTick, pose, buffers, light, seam, 13D, 15D, 2);
+            int top = ship.geometryVersion() >= 8
+                    ? ship.fabricQuality() == 3 ? 19 : ship.fabricQuality() == 2 ? 16 : 15
+                    : 15;
+            int span = ship.geometryVersion() >= 8 && ship.fabricQuality() == 3 ? 4
+                    : ship.geometryVersion() >= 8 && ship.fabricQuality() == 2 ? 3 : 2;
+            sailPanel(ship, partialTick, pose, buffers, light, seam, 13D, top, span);
         } else {
-            sailPanel(ship, partialTick, pose, buffers, light, seam, 8D, 15D, 3);
-            if (rig >= 4) sailPanel(ship, partialTick, pose, buffers, light,
-                    seam, 18D, 20D, 2);
+            int top = ship.geometryVersion() >= 8 && rig == 3
+                    ? ship.fabricQuality() == 3 ? 19 : ship.fabricQuality() == 2 ? 17 : 15
+                    : 15;
+            int span = ship.geometryVersion() >= 8 && rig == 3 && ship.fabricQuality() == 3 ? 4 : 3;
+            sailPanel(ship, partialTick, pose, buffers, light, seam, 8D, top, span);
+            if (rig >= 4) {
+                int upperSpan = ship.geometryVersion() >= 8 ? ship.fabricQuality() == 3 ? 4
+                        : ship.fabricQuality() == 2 ? 3 : 2 : 2;
+                int upperTop = ship.geometryVersion() >= 8 && ship.fabricQuality() >= 2 ? 21 : 20;
+                sailPanel(ship, partialTick, pose, buffers, light, seam, 18D, upperTop, upperSpan);
+            }
         }
         pose.popPose();
     }
