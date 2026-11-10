@@ -123,6 +123,59 @@ public final class Ocean26GameTests {
         t.succeed();
     }
 
+    /**
+     * New modular block hull is an opt-in path. Validate a REAL medium-class
+     * physical world structure, symmetric widening, a second deck, two masts,
+     * a bridge/cabin and chest NBT preservation through reconstruction.
+     */
+    @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular")
+    public static void modularMediumShipRebuildsWithCargo(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(12, 4, 12));
+        for (int x = -12; x <= 12; x++)
+            for (int z = -17; z <= 17; z++) {
+                BlockPos pos = anchor.offset(x, 0, z);
+                level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 26; y++)
+                    level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        var original = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM);
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
+                anchor, 0, original, new ListTag()), "Medium-class modular hull placement failed");
+        t.assertTrue(level.getBlockState(org.slavicmyths.ships.FirstShipBlockHull.world(
+                anchor, 0, 0, 0, original.length() / 2)).is(Blocks.STRIPPED_SPRUCE_LOG),
+                "Medium bow keel absent");
+        BlockPos chestPos = org.slavicmyths.ships.FirstShipBlockHull.world(
+                anchor, 0, 2, 5, 0);
+        t.assertTrue(level.setBlock(chestPos, Blocks.CHEST.defaultBlockState(), 2),
+                "Modular deck could not accept cargo chest");
+        chest(level, chestPos, t).setItem(0, new ItemStack(Items.DIAMOND, 19));
+        var next = original.resize(1, 1).withSail(1, 2)
+                .withDecks(2).withCabin(true).withBridge(true);
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.rebuild(level,
+                anchor, 0, original, anchor, 0, next),
+                "Medium extension/width/second deck/rooms transaction failed");
+        t.assertTrue(level.getBlockState(org.slavicmyths.ships.FirstShipBlockHull.world(
+                anchor, 0, -next.width() / 2, 0, 0)).is(Blocks.SPRUCE_PLANKS)
+                && level.getBlockState(org.slavicmyths.ships.FirstShipBlockHull.world(
+                anchor, 0, next.width() / 2, 0, 0)).is(Blocks.SPRUCE_PLANKS),
+                "Widened hull is not symmetric");
+        t.assertTrue(level.getBlockState(org.slavicmyths.ships.FirstShipBlockHull.world(
+                anchor, 0, 0, 9, -next.length() / 2 + 3)).is(Blocks.DARK_OAK_PLANKS),
+                "Raised captain's bridge absent");
+        t.assertTrue(chest(level, chestPos, t).getItem(0).getCount() == 19,
+                "Chest cargo lost after modular rebuilding");
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.pack(level,
+                anchor, 0, next) != null, "Expanded medium hull failed inspection");
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
+                level, anchor, 0, next), "Expanded modular hull failed packing cleanup");
+        t.assertTrue(level.getBlockState(chestPos).isAir(),
+                "Cargo block was left in world after packing");
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 230, batch = "ocean_native")
     public static void captainCrewReboardRotateAndPackCargo(GameTestHelper t) {
         ServerLevel level = t.getLevel();
