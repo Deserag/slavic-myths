@@ -34,7 +34,7 @@ public final class ShipyardMenu extends AbstractContainerMenu {
         super(TYPE.get(), id);
         pos = position.immutable();
         owner = inventory.player;
-        addSlot(new Slot(input, 0, 153, 210) {
+        addSlot(new Slot(input, 0, 153, 42) {
             @Override public boolean mayPlace(ItemStack stack) {
                 return stack.getItem() instanceof FirstShipItem ||
                         (stack.getItem() instanceof RaftItem && !RaftCharacteristics.fromItem(stack).invalid());
@@ -43,11 +43,11 @@ public final class ShipyardMenu extends AbstractContainerMenu {
         });
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 9; col++) {
-                addSlot(new Slot(inventory, 9 + row * 9 + col, 198 + col * 18, 207 + row * 18));
+                addSlot(new Slot(inventory, 9 + row * 9 + col, 198 + col * 18, 197 + row * 18));
             }
         }
         for (int col = 0; col < 9; col++) {
-            addSlot(new Slot(inventory, col, 198 + col * 18, 261));
+            addSlot(new Slot(inventory, col, 198 + col * 18, 254));
         }
     }
 

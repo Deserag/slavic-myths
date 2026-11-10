@@ -220,10 +220,10 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                         case 2 -> "Палубы";
                         default -> "Помещения";
                     };
-                    Button button = Button.builder(Component.literal(title),
+                    Button button = Button.builder(Component.literal(modCategory == i ? "» " + title : title),
                             clicked -> selectModificationCategory(category))
                             .bounds(leftPos + x, topPos + y, 75, 20).build();
-                    button.active = modCategory != i;
+                    button.active = true;
                     addRenderableWidget(button);
                 }
                 int[] options = MODULAR_GROUPS[modCategory];
@@ -233,10 +233,10 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 for (int index = 0; index < options.length; index++) {
                     final int option = options[index];
                     int x = 16 + (index % 2) * 80, y = 118 + (index / 2) * 23;
-                    Button button = Button.builder(Component.literal(MODULAR_OPTIONS[option]),
+                    Button button = Button.builder(Component.literal(chosen == option ? "» " + MODULAR_OPTIONS[option] : MODULAR_OPTIONS[option]),
                             clicked -> { chosen = option; rebuild(); })
                             .bounds(leftPos + x, topPos + y, 75, 20).build();
-                    button.active = chosen != option;
+                    button.active = true;
                     addRenderableWidget(button);
                 }
             } else {
@@ -384,6 +384,29 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         };
     }
 
+    /** Give a concrete explanation for an unavailable modular upgrade. */
+    private String unavailableReason(ShipBuildConfiguration current) {
+        if (current == null) return "Судно не выбрано";
+        int action = MODULAR_ACTIONS[chosen];
+        ShipSectionPlan.ShipClass kind = current.shipClass();
+        if (action == 200 && current.extraLength() >= kind.maxLength) return "Предел длины корпуса";
+        if (action == 201 && current.extraWidth() >= kind.maxWidth) return "Предел ширины корпуса";
+        if (action == 203 && current.sailTiers().size() >= kind.maxMasts)
+            return "Все мачты этого класса установлены";
+        if (action >= 207 && action <= 210) {
+            int number = action - 207;
+            if (number >= current.sailTiers().size())
+                return "Сначала установите мачту №" + (number + 1);
+            if (current.sailTiers().get(number) >= kind.maxSailTier)
+                return "Парус достиг максимального уровня";
+        }
+        if (action == 204 && current.decks() >= kind.maxDecks)
+            return "Достигнут предел палуб этого класса";
+        if (action == 205 && current.bridge()) return "Капитанский мостик уже установлен";
+        if (action == 206 && current.cabin()) return "Капитанская каюта уже установлена";
+        return "Увеличьте корпус или проверьте ограничения";
+    }
+
     private boolean allowed() {
         if (minecraft == null || minecraft.player == null) return false;
         if (tab == 0 && !menu.inspected().isEmpty()) return false;
@@ -450,16 +473,17 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         graphics.fill(leftPos + 10, topPos + 39, leftPos + 184, topPos + 274, 0xff694e36);
         graphics.fill(leftPos + 190, topPos + 39, leftPos + 466, topPos + 191, PAPER);
         graphics.fill(leftPos + 192, topPos + 41, leftPos + 464, topPos + 189, 0xfff0e4c4);
-        graphics.fill(leftPos + 190, topPos + 193, leftPos + 466, topPos + 280, 0xff745335);
-        graphics.fill(leftPos + 14, topPos + 238, leftPos + 174, topPos + 278, 0xff38281d);
+        graphics.fill(leftPos + 190, topPos + 193, leftPos + 466, topPos + 274, 0xff745335);
+        graphics.fill(leftPos + 14, topPos + 238, leftPos + 174, topPos + 271, 0xff38281d);
         for (int row = 0; row < 3; row++)
             for (int col = 0; col < 9; col++)
-                graphics.fill(leftPos + 197 + col * 18, topPos + 206 + row * 18,
-                        leftPos + 215 + col * 18, topPos + 224 + row * 18, 0xff231b14);
+                graphics.fill(leftPos + 197 + col * 18, topPos + 196 + row * 18,
+                        leftPos + 215 + col * 18, topPos + 214 + row * 18, 0xff231b14);
         for (int col = 0; col < 9; col++)
-            graphics.fill(leftPos + 197 + col * 18, topPos + 260,
+            graphics.fill(leftPos + 197 + col * 18, topPos + 253,
                     leftPos + 215 + col * 18, topPos + 271, 0xff231b14);
-        graphics.fill(leftPos + 152, topPos + 209, leftPos + 171, topPos + 228, 0xff241a13);
+        graphics.fill(leftPos + 150, topPos + 39, leftPos + 174, topPos + 62, 0xffc9a36c);
+        graphics.fill(leftPos + 152, topPos + 41, leftPos + 172, topPos + 61, 0xff241a13);
         graphics.fill(leftPos + 15, topPos + 233, leftPos + 173, topPos + 234, 0xffa77f4b);
     }
 
@@ -494,8 +518,8 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     + " | мачт " + current.sailTiers().size(), 17, 200, 0xfff2dfbd, false);
             ShipBuildConfiguration next = nextConfig();
             if (next == null || next.equals(current))
-                graphics.drawString(font, "Недоступно: предел класса", 17, 188,
-                        0xffffb18c, false);
+                graphics.drawString(font, font.plainSubstrByWidth(
+                        unavailableReason(current), 159), 17, 188, 0xffffb18c, false);
             else
                 graphics.drawString(font, font.plainSubstrByWidth(
                                 "Раздел: " + MODULAR_CATEGORIES[modCategory], 160),
@@ -505,11 +529,10 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     ? "Положите судно в ячейку"
                     : "Улучшение старого судна", 17, 65, 0xfff2dfbd, false);
         }
-        graphics.drawString(font, tab == 1 ? "Судно для улучшения  →" : "Готовое судно  →",
-                18, 213, 0xfff2dfbd, false);
-        if (tab == 1 && current == null && menu.inspected().isEmpty())
-            graphics.drawString(font, "Положите предмет в ячейку", 18, 228,
-                    0xffeacfa2, false);
+        graphics.drawString(font, tab == 0 ? "Созданное судно — в слот сверху"
+                : "Судно — в слот сверху", 18, 214, 0xffeacfa2, false);
+        if (tab == 1) graphics.drawString(font,
+                "Детали — из инвентаря", 18, 226, 0xffeacfa2, false);
 
         String heading = tab == 0
                 ? createRafts ? VESSELS[chosen] : "Проект: " + CLASS_NAMES[chosen]
@@ -518,12 +541,12 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 : vesselKind() == 2 ? SHIP_OPTIONS[chosen] : RAFT_OPTIONS[chosen];
         graphics.drawString(font, font.plainSubstrByWidth(heading, 254),
                 200, 46, DARK, false);
-        if (tab == 0 || current != null) drawBlueprint(graphics);
+        if (tab == 0 || current != null || vesselKind() != 0) drawBlueprint(graphics);
         if (tab == 1 && current == null && vesselKind() == 2) {
             int rig = ShipyardUpgrades.shipRigLevel(menu.inspected());
             int cloth = ShipyardUpgrades.shipFabric(menu.inspected());
             graphics.drawString(font, "Оснастка: " + rig + "/4   Ткань: " + cloth + "/3",
-                    201, 88, DARK, false);
+                    201, 103, DARK, false);
         }
         graphics.drawString(font, "Материалы", 200, 114, DARK, false);
         if (minecraft != null && minecraft.player != null
@@ -532,7 +555,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         List<Cost> requirements = costs();
         if (requirements.isEmpty()) {
             graphics.drawString(font, tab == 0 ? "Выберите чертёж" :
-                    current != null && nextConfig() == null ? "Изменение недоступно" :
+                    current != null && nextConfig() == null ? unavailableReason(current) :
                     "Дополнительные ресурсы не нужны", 201, 133,
                     tab == 1 && current != null && nextConfig() == null
                             ? 0xffad3838 : DARK, false);
@@ -541,24 +564,18 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 Cost cost = requirements.get(i);
                 int column = i % 3, row = i / 3, x = 200 + column * 89, y = 123 + row * 17;
                 graphics.renderItem(cost.icon(), x, y);
-                String shortName = switch (cost.title()) {
-                    case "Палубные секции" -> "Секции";
-                    case "Парусная ткань" -> "Ткань";
-                    case "Ограждения" -> "Борта";
-                    default -> cost.title();
-                };
-                graphics.drawString(font, font.plainSubstrByWidth(shortName, 69),
+                graphics.drawString(font, font.plainSubstrByWidth(cost.title(), 69),
                         x + 18, y, DARK, false);
                 boolean enough = cost.have() >= cost.need()
                         || minecraft != null && minecraft.player != null
                         && minecraft.player.getAbilities().instabuild;
                 graphics.drawString(font, minecraft != null && minecraft.player != null
-                                && minecraft.player.getAbilities().instabuild
-                                ? "Бесплатно" : cost.have() + "/" + cost.need(),
+                        && minecraft.player.getAbilities().instabuild
+                        ? "×" + cost.need() : cost.have() + "/" + cost.need(),
                         x + 18, y + 8, enough ? 0xff22612b : 0xffa13726, false);
             }
         }
-        graphics.drawString(font, "Инвентарь", 198, 195, 0xfff2d9aa, false);
+        graphics.drawString(font, "Инвентарь", 198, 182, 0xfff2d9aa, false);
         if (tab == 0 && !menu.inspected().isEmpty())
             graphics.drawString(font, "Заберите готовое судно", 17, 226, 0xffffb18c, false);
     }
@@ -569,172 +586,181 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
      * distinct physical block column of the current buildable blueprint.
      */
     /**
-     * Compact, human-readable ship preview. Deck = timber, sides = darker
-     * hull, cream = sailcloth and green = newly added structure. Rendering
-     * every block column as a blue vertical tick made all vessels look like
-     * a barcode, especially the 25x45 class.
+     * Compact schematic with ONE consistent scale per view.
+     *
+     * Never stretch the 25x45 deck into a 68x29 rectangle: the previous
+     * independent X/Z scales turned every keel into a barcode. Existing blocks
+     * use wooden colors; changed sections are outlined green.
      */
     private void drawBlueprint(GuiGraphics graphics) {
-        ShipBuildConfiguration old = tab == 1 ? currentConfig() : null;
-        ShipBuildConfiguration proposed = tab == 0 ? creationConfig() : nextConfig();
-        ShipBuildConfiguration shown = proposed == null ? old : proposed;
-        graphics.drawString(font, "СВЕРХУ", 205, 58, DARK, false);
-        graphics.drawString(font, "СБОКУ", 305, 58, DARK, false);
-        graphics.drawString(font, "СПЕРЕДИ", 397, 58, DARK, false);
-        if (shown != null) {
-            drawDeckPreview(graphics, shown, old);
-            drawSidePreview(graphics, shown, old);
-            drawBowPreview(graphics, shown);
-            graphics.drawString(font, "Корпус " + shown.width() + "×" + shown.length()
-                    + "   Мачты: " + shown.sailTiers().size()
-                    + "   Палубы: " + shown.decks(), 201, 103, DARK, false);
-        } else {
-            int width = chosen == 4 ? FirstShipHull.WIDTH
-                    : chosen == 0 || chosen == 1 ? 3 : 5;
-            int length = chosen == 4 ? FirstShipHull.LENGTH
-                    : chosen == 0 || chosen == 2 ? 3 : chosen == 1 ? 5 : 7;
-            graphics.fill(214, 73, 278, 94, 0xffaf8852);
-            graphics.fill(214, 91, 278, 95, 0xff77502e);
-            graphics.fill(304, 86, 386, 96, 0xffad8450);
-            graphics.fill(401, 86, 456, 96, 0xff9a6e3c);
-            graphics.drawString(font, "Судно " + width + "×" + length, 201, 103, DARK, false);
-        }
-    }
+        ShipBuildConfiguration original = tab == 1 ? currentConfig() : null;
+        ShipBuildConfiguration candidate = tab == 0 ? creationConfig() : nextConfig();
+        ShipBuildConfiguration design = candidate != null ? candidate : original;
+        final int timber = 0xff98653d, deck = 0xffc79861;
+        final int rail = 0xff68452b, highlight = 0xff2c9957;
+        final int sail = 0xffded2b6, ink = 0xff40301e;
+        graphics.drawString(font, "ПЛАН", 221, 58, ink, false);
+        graphics.drawString(font, "ПРОФИЛЬ", 304, 58, ink, false);
+        graphics.drawString(font, "НОС", 416, 58, ink, false);
 
-    private void drawDeckPreview(GuiGraphics graphics, ShipBuildConfiguration shown,
-                                 ShipBuildConfiguration previous) {
-        int halfLength = shown.length() / 2, halfWidth = Math.max(1, shown.width() / 2);
-        int x0 = 246, y0 = 66, rows = 35, maxSpan = 34;
-        for (int row = 0; row < rows; row++) {
-            int z = Math.min(halfLength, -halfLength
-                    + (int)Math.round(row * shown.length() / (double)(rows - 1)));
-            int width = Math.max(1, ShipHullVoxelLayout.halfBeam(shown.structure(), z));
-            int span = Math.max(2, (int)Math.round(maxSpan * width / (double)halfWidth));
-            int oldWidth = previous != null && Math.abs(z) <= previous.length() / 2
-                    ? ShipHullVoxelLayout.halfBeam(previous.structure(), z) : -1;
-            int oldSpan = oldWidth < 0 ? -1
-                    : Math.max(2, (int)Math.round(maxSpan * oldWidth / (double)halfWidth));
-            graphics.fill(x0 - span, y0 + row, x0 + span + 1, y0 + row + 1, 0xffbc9762);
-            graphics.fill(x0 - span, y0 + row, x0 - span + 1, y0 + row + 1, 0xff684326);
-            graphics.fill(x0 + span, y0 + row, x0 + span + 1, y0 + row + 1, 0xff684326);
-            if (previous != null && oldSpan < span) {
-                graphics.fill(x0 - span + 1, y0 + row, x0 - Math.max(0, oldSpan),
-                        y0 + row + 1, 0xff428b59);
-                graphics.fill(x0 + Math.max(0, oldSpan) + 1, y0 + row,
-                        x0 + span, y0 + row + 1, 0xff428b59);
+        if (design == null) {
+            boolean legacyShip = tab == 1 && vesselKind() == 2;
+            RaftItem inspectedRaft = tab == 1 && menu.inspected().getItem() instanceof RaftItem raft
+                    ? raft : null;
+            int width = legacyShip || tab == 0 && chosen == 4 ? FirstShipHull.WIDTH
+                    : inspectedRaft != null ? inspectedRaft.size().width
+                    : chosen == 0 || chosen == 1 ? 3 : 5;
+            int length = legacyShip || tab == 0 && chosen == 4 ? FirstShipHull.LENGTH
+                    : inspectedRaft != null ? inspectedRaft.size().length
+                    : chosen == 0 || chosen == 2 ? 3 : chosen == 1 ? 5 : 7;
+            int x = 246 - width * 2, y = 83 - length * 2;
+            graphics.fill(x, y, x + width * 4, y + length * 4, deck);
+            graphics.fill(x, y, x + width * 4, y + 1, rail);
+            graphics.fill(304, 91, 350, 99, timber);
+            graphics.fill(414, 92, 444, 101, timber);
+            if (tab == 0)
+                graphics.drawString(font, width + "×" + length, 204, 104, ink, false);
+            return;
+        }
+
+        int width = design.width(), length = design.length(), halfLength = length / 2;
+        double topScale = Math.min(43D / width, 38D / length);
+        int cx = 246, topY = 67;
+        for (int z = -halfLength; z <= halfLength; z++) {
+            int beam = ShipHullVoxelLayout.halfBeam(design.structure(), z);
+            int oldBeam = original == null || Math.abs(z) > original.length() / 2
+                    ? -1 : ShipHullVoxelLayout.halfBeam(original.structure(), z);
+            int top = topY + (int)Math.floor((z + halfLength) * topScale);
+            int bottom = topY + (int)Math.ceil((z + halfLength + 1) * topScale);
+            int left = cx - (int)Math.ceil((beam + .5D) * topScale);
+            int right = cx + (int)Math.ceil((beam + .5D) * topScale);
+            graphics.fill(left, top, right + 1, Math.max(top + 1, bottom), deck);
+            graphics.fill(left, top, left + 1, Math.max(top + 1, bottom), rail);
+            graphics.fill(right, top, right + 1, Math.max(top + 1, bottom), rail);
+            if (original != null && (oldBeam < 0 || beam > oldBeam)) {
+                graphics.fill(left, top, left + 1, Math.max(top + 1, bottom), highlight);
+                graphics.fill(right, top, right + 1, Math.max(top + 1, bottom), highlight);
             }
         }
-        for (int dx = -20; dx <= 20; dx += 8)
-            graphics.fill(x0 + dx, y0 + 5, x0 + dx + 1, y0 + rows - 5, 0xff9f794c);
-        for (int i = 0; i < shown.sailTiers().size(); i++) {
-            int z = shown.structure().mastPositions().get(i);
-            int y = y0 + (z + halfLength) * (rows - 1) / shown.length();
-            graphics.fill(x0 - 2, y - 2, x0 + 3, y + 3, 0xff48311c);
-            graphics.fill(x0 - 8, y, x0 + 9, y + 1, 0xffefe4c9);
+        for (int mast = 0; mast < design.sailTiers().size(); mast++) {
+            int z = design.structure().mastPositions().get(mast);
+            int y = topY + (int)Math.round((z + halfLength + .5D) * topScale);
+            int color = original == null || mast < original.sailTiers().size()
+                    && original.sailTiers().get(mast).equals(design.sailTiers().get(mast))
+                    ? ink : highlight;
+            graphics.fill(cx - 3, y, cx + 4, y + 2, color);
         }
-        if (shown.cabin()) graphics.fill(x0 - 9, y0 + 3, x0 + 10, y0 + 10, 0xff755133);
-        if (shown.bridge()) graphics.fill(x0 - 13, y0 + 2, x0 + 14, y0 + 4, 0xff402a1c);
+
+        // Profile: a shaped timber hull with elevated bow/stern and
+        // independently sized masts; not a repeated column barcode.
+        int sideX = 300, bottomY = 101;
+        for (int z = -halfLength; z <= halfLength; z++) {
+            int x = sideX + (int)Math.floor((z + halfLength) * 85D / length);
+            int nextX = sideX + (int)Math.ceil((z + halfLength + 1) * 85D / length);
+            int end = Math.abs(z) - (halfLength - 4);
+            int lift = end > 0 ? Math.min(4, end) : 0;
+            int top = 94 - lift, bottom = bottomY - lift / 2;
+            graphics.fill(x, top, Math.max(x + 1, nextX), bottom, timber);
+            graphics.fill(x, top, Math.max(x + 1, nextX), top + 1, rail);
+            if (original != null && Math.abs(z) > original.length() / 2)
+                graphics.fill(x, top, Math.max(x + 1, nextX), top + 1, highlight);
+            for (int floor = 2; floor <= design.decks(); floor++) {
+                int level = top - 4 * (floor - 1);
+                graphics.fill(x, level, Math.max(x + 1, nextX), level + 1,
+                        original != null && original.decks() >= floor ? rail : highlight);
+            }
+        }
+        for (int mast = 0; mast < design.sailTiers().size(); mast++) {
+            int z = design.structure().mastPositions().get(mast);
+            int x = sideX + (int)Math.round((z + halfLength) * 85D / length);
+            int tier = design.sailTiers().get(mast);
+            int top = tier == 1 ? 79 : tier == 2 ? 74 : 69;
+            boolean changed = original != null
+                    && (mast >= original.sailTiers().size()
+                        || !original.sailTiers().get(mast).equals(tier));
+            int tone = changed ? highlight : rail;
+            graphics.fill(x, top - 2, x + 2, 94, tone);
+            graphics.fill(x - 5, top, x + 7, top + 2, tone);
+            for (int y = top + 2; y < 89; y++)
+                graphics.fill(x + 2, y, x + 5, y + 1, sail);
+        }
+        if (design.cabin()) graphics.fill(307, 82, 326, 94,
+                original != null && original.cabin() ? timber : highlight);
+        if (design.bridge()) graphics.fill(306, 79, 327, 81,
+                original != null && original.bridge() ? rail : highlight);
+
+        // Head-on bow shape, centered, with real width proportion.
+        int frontCenter = 428, frontHalf = (int)Math.round(Math.min(23D, width * 23D / 29D));
+        graphics.fill(frontCenter - frontHalf, 94, frontCenter + frontHalf + 1, 97, timber);
+        graphics.fill(frontCenter - frontHalf + 3, 97, frontCenter + frontHalf - 2, 100, timber);
+        graphics.fill(frontCenter - Math.max(2, frontHalf / 2), 100,
+                frontCenter + Math.max(2, frontHalf / 2) + 1, 102, rail);
+        graphics.fill(frontCenter - frontHalf, 91,
+                frontCenter - frontHalf + 2, 95, rail);
+        graphics.fill(frontCenter + frontHalf - 1, 91,
+                frontCenter + frontHalf + 1, 95, rail);
+        graphics.drawString(font, width + "×" + length + " | "
+                + design.sailTiers().size() + " мачт. | "
+                + design.decks() + " пал.", 202, 105, ink, false);
     }
 
-    private void drawSidePreview(GuiGraphics graphics, ShipBuildConfiguration shown,
-                                 ShipBuildConfiguration previous) {
-        int length = shown.length(), halfLength = length / 2, x0 = 302, yDeck = 84;
-        for (int pixel = 0; pixel <= 80; pixel++) {
-            int z = -halfLength + (int)Math.round(pixel * length / 80D);
-            int beam = Math.max(0, ShipHullVoxelLayout.halfBeam(shown.structure(), z));
-            int depth = 5 + (int)Math.round(6D * beam / Math.max(1, shown.width() / 2));
-            int x = x0 + pixel;
-            int shade = previous != null && Math.abs(z) > previous.length() / 2
-                    ? 0xff428b59 : 0xff936136;
-            graphics.fill(x, yDeck, x + 1, yDeck + depth, shade);
-            graphics.fill(x, yDeck, x + 1, yDeck + 1, 0xff54361f);
-            graphics.fill(x, yDeck + depth - 1, x + 1, yDeck + depth, 0xff61452d);
-        }
-        for (int i = 0; i < shown.sailTiers().size(); i++) {
-            int z = shown.structure().mastPositions().get(i);
-            int x = x0 + (z + halfLength) * 80 / length;
-            int tier = shown.sailTiers().get(i);
-            int top = tier == 1 ? 67 : tier == 2 ? 64 : 61;
-            graphics.fill(x, top, x + 2, yDeck + 1, 0xff49301e);
-            graphics.fill(x - 7, top + 2, x + 9, top + 4, 0xff694628);
-            graphics.fill(x - 6, top + 4, x + 8, yDeck - 2, 0xffeee1bc);
-            graphics.fill(x - 6, top + 4, x - 5, yDeck - 2, 0xffb79f79);
-        }
-        if (shown.cabin()) {
-            graphics.fill(x0 + 7, yDeck - 9, x0 + 22, yDeck, 0xff81562f);
-            graphics.fill(x0 + 12, yDeck - 7, x0 + 16, yDeck - 4, 0xffb9d1cc);
-        }
-        if (shown.bridge()) graphics.fill(x0 + 4, yDeck - 13, x0 + 27, yDeck - 10, 0xff533820);
-    }
-
-    private void drawBowPreview(GuiGraphics graphics, ShipBuildConfiguration shown) {
-        int center = 428, halfWidth = shown.width() / 2;
-        for (int row = 0; row < 12; row++) {
-            int span = Math.max(3, (int)Math.round(24D * (1D - row * .065D)));
-            int y = 84 + row;
-            graphics.fill(center - span, y, center + span + 1, y + 1,
-                    row % 3 == 0 ? 0xff875a35 : 0xffa47642);
-            graphics.fill(center - span, y, center - span + 2, y + 1, 0xff573820);
-            graphics.fill(center + span - 1, y, center + span + 1, y + 1, 0xff573820);
-        }
-        graphics.fill(center - 24, 83, center + 25, 85, 0xff4a311e);
-        for (int x = center - 18; x <= center + 18; x += 9)
-            graphics.fill(x, 81, x + 2, 84, 0xff68492b);
-        if (!shown.sailTiers().isEmpty())
-            graphics.fill(center - 1, 70, center + 2, 84, 0xff4a321f);
-    }
-    /**
-     * GUI Scale 4 on 1080p and 900p windows is smaller than this screen's
-     * logical footprint. Scale THE WHOLE container, including menu slot hit
-     * tests, instead of clipping the inventory and the primary action.
+    /** Preserve all 476x282 slot coordinates, but fit the workbench to the
+     * actual viewport even at the player's maximum Minecraft GUI scale.
+     * Every pointer event uses the inverse of the render transform.
      */
-    private float fittedScale() {
-        float byWidth = Math.max(.35F, (width - 12F) / imageWidth);
-        float byHeight = Math.max(.35F, (height - 12F) / imageHeight);
-        return Math.min(1F, Math.min(byWidth, byHeight));
+    private float screenScale() {
+        return Math.min(1F, Math.max(.1F,
+                Math.min((width - 12F) / imageWidth, (height - 12F) / imageHeight)));
     }
 
-    private double shiftX() {
-        float factor = fittedScale();
-        return (width - imageWidth * factor) / 2D - leftPos * factor;
+    private float renderShiftX() {
+        float scale = screenScale();
+        return (width - imageWidth * scale) * .5F - leftPos * scale;
     }
 
-    private double shiftY() {
-        float factor = fittedScale();
-        return (height - imageHeight * factor) / 2D - topPos * factor;
+    private float renderShiftY() {
+        float scale = screenScale();
+        return (height - imageHeight * scale) * .5F - topPos * scale;
     }
 
-    private double localX(double x) { return (x - shiftX()) / fittedScale(); }
-    private double localY(double y) { return (y - shiftY()) / fittedScale(); }
+    private double logicalX(double screenX) {
+        return (screenX - renderShiftX()) / screenScale();
+    }
+
+    private double logicalY(double screenY) {
+        return (screenY - renderShiftY()) / screenScale();
+    }
 
     @Override public boolean mouseClicked(double x, double y, int button) {
-        return super.mouseClicked(localX(x), localY(y), button);
+        return super.mouseClicked(logicalX(x), logicalY(y), button);
     }
 
     @Override public boolean mouseReleased(double x, double y, int button) {
-        return super.mouseReleased(localX(x), localY(y), button);
+        return super.mouseReleased(logicalX(x), logicalY(y), button);
     }
 
     @Override public boolean mouseDragged(double x, double y, int button, double dx, double dy) {
-        return super.mouseDragged(localX(x), localY(y), button, dx / fittedScale(), dy / fittedScale());
+        float scale = screenScale();
+        return super.mouseDragged(logicalX(x), logicalY(y), button, dx / scale, dy / scale);
     }
 
     @Override public boolean mouseScrolled(double x, double y, double horizontal, double vertical) {
-        return super.mouseScrolled(localX(x), localY(y), horizontal, vertical);
+        return super.mouseScrolled(logicalX(x), logicalY(y), horizontal, vertical);
     }
 
     @Override public void mouseMoved(double x, double y) {
-        super.mouseMoved(localX(x), localY(y));
+        super.mouseMoved(logicalX(x), logicalY(y));
     }
 
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partial) {
-        float factor = fittedScale();
+        float scale = screenScale();
         graphics.pose().pushPose();
-        graphics.pose().translate(shiftX(), shiftY(), 0D);
-        graphics.pose().scale(factor, factor, 1F);
-        super.render(graphics, (int)Math.floor(localX(mouseX)),
-                (int)Math.floor(localY(mouseY)), partial);
+        graphics.pose().translate(renderShiftX(), renderShiftY(), 0F);
+        graphics.pose().scale(scale, scale, 1F);
+        int x = (int)Math.round(logicalX(mouseX)), y = (int)Math.round(logicalY(mouseY));
+        super.render(graphics, x, y, partial);
+        if (hoveredSlot != menu.slots.get(0) || hasShiftDown())
+            renderTooltip(graphics, x, y);
         graphics.pose().popPose();
     }
-
 }
