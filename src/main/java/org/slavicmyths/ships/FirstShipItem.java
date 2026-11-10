@@ -101,7 +101,7 @@ public final class FirstShipItem extends Item {
         else if (held.has(net.minecraft.core.component.DataComponents.CUSTOM_DATA))
             held.remove(net.minecraft.core.component.DataComponents.CUSTOM_DATA);
         player.displayClientMessage(Component.literal(
-                "Корабль установлен. Блоки настоящие: палуба и трюм имеют обычную физику."), true);
+                "Корабль установлен. ПКМ по штурвалу на корме — управление W/S и A/D; Shift — выход."), true);
         return InteractionResultHolder.sidedSuccess(held, false);
     }
 }
