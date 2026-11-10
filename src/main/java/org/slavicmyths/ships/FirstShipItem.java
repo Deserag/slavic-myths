@@ -31,8 +31,14 @@ public final class FirstShipItem extends Item {
                 try {
                     ShipBuildConfiguration blueprint = ShipBuildConfiguration.load(
                             pack.getCompound(ShipBuildConfiguration.NBT_KEY));
-                    return Component.literal("Деревянный корабль " + blueprint.width()
-                            + "×" + blueprint.length() + " (" + blueprint.shipClass() + ")");
+                    String kind = switch (blueprint.shipClass()) {
+                        case SMALL -> "малый";
+                        case MEDIUM -> "средний";
+                        case LARGE -> "большой";
+                        case LARGEST -> "крупнейший";
+                    };
+                    return Component.literal("Корабль " + blueprint.width()
+                            + "×" + blueprint.length() + " — " + kind);
                 } catch (RuntimeException ignored) {}
             }
         }
@@ -41,12 +47,10 @@ public final class FirstShipItem extends Item {
 
     @Override public void appendHoverText(ItemStack stack, TooltipContext context,
             java.util.List<Component> lines, net.minecraft.world.item.TooltipFlag flag) {
-        lines.add(Component.literal("Два этажа: обычные деревянные блоки и сухой трюм"));
-        lines.add(Component.literal("Руль: ПКМ по штурвалу на корме; Shift — выход на палубу"));
-        lines.add(Component.literal("Базовый парус установлен; улучшения: корабельный верстак → «Модификации»."));
-        lines.add(Component.literal("W/S: плавное движение; A/D: руль с инерцией (новые корабли)"));
-        lines.add(Component.literal("Обычные сундуки, бочки, печи и верстаки размещаются вручную"));
-        lines.add(Component.literal("Ключ верфи: упаковка остановленного пустого судна"));
+        lines.add(Component.literal("Штурвал: ПКМ — управление; W/S — ход, A/D — поворот"));
+        lines.add(Component.literal("Shift — выйти на палубу"));
+        lines.add(Component.literal("Верстак: вкладка «Модификации»"));
+        lines.add(Component.literal("Ключ верфи: упаковка корабля с сохранением груза"));
     }
 
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
