@@ -197,7 +197,7 @@ public final class TrophyHeadsClient {
    float time=tile.getLevel()==null?0:tile.getLevel().getGameTime()+partial+Math.floorMod(tile.getBlockPos().asLong(),79);
    pose.pushPose();
    try{
-    double pivot=block.kind.wide()&&block.kind!=TrophyHeads.Kind.MOROVOY_RAVEN?1.0:.5;
+    double pivot=block.kind==TrophyHeads.Kind.NINE_MOR_SERPENT?1.5:block.kind.wide()&&block.kind!=TrophyHeads.Kind.MOROVOY_RAVEN?1.0:.5;
     pose.translate(pivot,0,pivot);
     pose.mulPose(Axis.YP.rotationDegrees(-tile.getBlockState().getValue(TrophyHeadBlock.FACING).toYRot()));
     pose.translate(-pivot,0,-pivot);
