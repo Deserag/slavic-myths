@@ -40,7 +40,7 @@ public final class NetherEncounterSpawns {
     private static String biome(ServerLevel w,BlockPos pos){return w.getBiome(pos).unwrapKey().map(k->k.location().toString()).orElse("");}
     private static BlockPos safe(ServerLevel w,BlockPos xz,Definition d,int maxY,int minY){
         if(!w.hasChunkAt(xz))return null;
-        for(int y=Math.min(maxY,w.getMaxBuildHeight()-10);y>=Math.max(34,minY);y--){
+        for(int y=Math.min(maxY,w.getMaxBuildHeight()-10);y>=Math.max(w.getMinBuildHeight()+8,minY);y--){
             BlockPos p=new BlockPos(xz.getX(),y,xz.getZ());
             if(!d.biomes.contains(biome(w,p))||!w.getFluidState(p.below()).isEmpty()||!w.getBlockState(p.below()).isFaceSturdy(w,p.below(),Direction.UP))continue;
             boolean open=true;
@@ -124,7 +124,7 @@ public final class NetherEncounterSpawns {
         var previous=records.encounters.get(key);
         if(previous!=null&&previous.spawned)return;
         BlockPos origin=player.blockPosition();
-        int top=112,bottom=34;
+        int top=w.getMaxBuildHeight()-10,bottom=Math.max(16,w.getMinBuildHeight()+8);
         for(int choice=0;choice<WILDERNESS.size();choice++){
             Definition d=WILDERNESS.get((int)Math.floorMod(seed+choice,WILDERNESS.size()));
             if(previous!=null&&!previous.type.equals(d.key))continue;
