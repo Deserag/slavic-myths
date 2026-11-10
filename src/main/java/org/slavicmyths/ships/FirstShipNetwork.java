@@ -71,8 +71,16 @@ public final class FirstShipNetwork {
                     || !player.isAlive() || player.isSpectator()) return;
             if (!(player.level().getEntity(packet.shipId()) instanceof FirstShipEntity ship)
                     || ship.isRemoved() || ship.level() != player.level()) return;
-            // Native hull center is 5.5 blocks away from its sharpest extremity.
-            if (player.distanceToSqr(ship) > 196D) return;
+            // Validate reach against the ACTUAL hull. A long ship's stern is
+            // farther from its entity marker than a 7x11 boat's entire length.
+            if (ship.isVoxelShip()) {
+                ShipSuperstructurePlan plan = ship.superstructure();
+                FirstShipHull.Point local = FirstShipHull.toLocal(
+                        player.getX(), player.getZ(), ship.getX(), ship.getZ(), ship.getYRot());
+                if (plan == null || Math.abs(local.x()) > plan.hullWidth() / 2D + 3D
+                        || Math.abs(local.z()) > plan.hullLength() / 2D + 3D
+                        || Math.abs(player.getY() - ship.getY()) > 26D) return;
+            } else if (player.distanceToSqr(ship) > 196D) return;
             int action = packet.action();
             if (action == DISMOUNT_ACK) {
                 ship.confirmDismount(player);
