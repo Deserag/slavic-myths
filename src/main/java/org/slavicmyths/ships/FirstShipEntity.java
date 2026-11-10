@@ -1099,7 +1099,7 @@ public final class FirstShipEntity extends Boat {
                         ? helmControl : ShipRigidMotion.Control.IDLE;
                 double oldX = getX(), oldZ = getZ();
                 float oldYaw = getYRot();
-                ShipRigidMotion.Frame frame = movingBody.tick(server, control);
+                ShipRigidMotion.Frame frame = movingBody.tick(server, ShipSailMotion.apply(control, rigLevel, fabricQuality));
                 ShipRigidMotion.Pose next = movingBody.pose();
                 if (frame.blocked() && !hasOpenShipMenus(server) && movingBody.park(server)) {
                     BlockPos restored = BlockPos.containing(next.x(), movingBody.waterlineY(), next.z());
