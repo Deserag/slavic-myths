@@ -91,17 +91,17 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         for (int i = 0; i < options.length; i++) {
             final int index = i;
             final int x = tab == 0 ? 18 : 16 + (i % 2) * 77;
-            final int y = tab == 0 ? 64 + 23 * i : 99 + (i / 2) * 19;
+            final int y = tab == 0 ? 64 + 21 * i : 99 + (i / 2) * 19;
             final int width = tab == 0 ? 155 : 73;
             Button b = Button.builder(Component.literal(options[i]),
                     button -> { chosen = index; rebuild(); })
-                    .bounds(leftPos + x, topPos + y, width, tab == 0 ? 20 : 17).build();
+                    .bounds(leftPos + x, topPos + y, width, tab == 0 ? 19 : 17).build();
             b.active = chosen != i;
             addRenderableWidget(b);
         }
         primary = Button.builder(Component.literal(tab == 0 ? "Создать" : "Применить"),
                 button -> execute())
-                .bounds(leftPos + 347, topPos + 162, 105, 23).build();
+                .bounds(leftPos + 18, topPos + 170, 155, 19).build();
         addRenderableWidget(primary);
         updateButton();
     }
