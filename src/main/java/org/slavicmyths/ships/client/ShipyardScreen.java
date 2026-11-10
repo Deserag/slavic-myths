@@ -169,7 +169,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
 
         if (tab == 0) {
             addRenderableWidget(Button.builder(
-                    Component.literal(createRafts ? "Тип: плоты и старый корабль" : "Тип: корабли"),
+                    Component.literal(createRafts ? "Тип: плоты и 7×11" : "Тип: корабли"),
                     clicked -> { createRafts = !createRafts; chosen = 0;
                         selectedLength = 0; selectedWidth = 0; rebuild(); })
                     .bounds(leftPos + 16, topPos + 63, 154, 19).build());
@@ -254,7 +254,9 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 }
             }
         }
-        primary = Button.builder(Component.literal(tab == 0 ? "Создать корабль" : "Применить улучшение"),
+        primary = Button.builder(Component.literal(tab == 0
+                ? createRafts && chosen < 4 ? "Создать плот" : "Создать корабль"
+                : "Применить улучшение"),
                 clicked -> execute())
                 .bounds(leftPos + 17, topPos + 245, 153, 22).build();
         addRenderableWidget(primary);
@@ -495,7 +497,8 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 graphics.drawString(font, "Недоступно: предел класса", 17, 184,
                         0xffffb18c, false);
             else
-                graphics.drawString(font, "Выбрано: " + MODULAR_CATEGORIES[modCategory],
+                graphics.drawString(font, font.plainSubstrByWidth(
+                                "Раздел: " + MODULAR_CATEGORIES[modCategory], 160),
                         17, 184, 0xffeacfa2, false);
         } else {
             graphics.drawString(font, vesselKind() == 0
