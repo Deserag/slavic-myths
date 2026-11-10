@@ -17,20 +17,36 @@ public final class NineMorNamedItems {
         public Spear(Tier tier, Properties properties) { super(tier, properties); }
         @Override public Component getName(ItemStack stack) { return Component.translatableWithFallback("item.slavicmyths.nine_mor_spear", "Копьё Девяти Пастей"); }
         @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {return NineMorRewardAbilities.spear(level,player,hand);}
+        @Override public void appendHoverText(ItemStack stack, TooltipContext context, java.util.List<Component> lines, net.minecraft.world.item.TooltipFlag flag) {
+            lines.add(Component.literal("Постоянный крит ×1.5 (не суммируется с обычным)"));
+            lines.add(Component.literal("ПКМ: 4 моровых копья по последней поражённой цели"));
+            lines.add(Component.literal("Shift + ПКМ: круговой удар по врагам"));
+        }
     }
     public static final class Axe extends AxeItem {
         public Axe(Tier tier, Properties properties) { super(tier, properties); }
         @Override public Component getName(ItemStack stack) { return Component.translatableWithFallback("item.slavicmyths.nine_mor_axe", "Секира Погибели"); }
         @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {return NineMorRewardAbilities.axe(level,player,hand);}
+        @Override public void appendHoverText(ItemStack stack, TooltipContext context, java.util.List<Component> lines, net.minecraft.world.item.TooltipFlag flag) {
+            lines.add(Component.literal("ПКМ: Разлом Мора — удар по линии"));
+            lines.add(Component.literal("Shift + ПКМ: Последний приговор (цель ≤35% здоровья)"));
+        }
     }
     public static final class Shield extends ShieldItem {
         public Shield(Properties properties) { super(properties); }
         @Override public Component getName(ItemStack stack) { return Component.translatableWithFallback("item.slavicmyths.nine_mor_shield", "Щит Девяти Чешуй"); }
         @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {InteractionResultHolder<ItemStack> dome=NineMorRewardAbilities.shield(level,player,hand);return dome==null?super.use(level,player,hand):dome;}
+        @Override public void appendHoverText(ItemStack stack, TooltipContext context, java.util.List<Component> lines, net.minecraft.world.item.TooltipFlag flag) {
+            lines.add(Component.literal("Девятый заслон — временное поглощение при блокировании"));
+            lines.add(Component.literal("Shift + ПКМ: Змеиный купол — защита на 6 секунд"));
+        }
     }
     public static final class Amulet extends Item implements top.theillusivec4.curios.api.type.capability.ICurioItem {
         public Amulet(Properties properties) { super(properties); }
         @Override public Component getName(ItemStack stack) { return Component.translatableWithFallback(getDescriptionId(), "Оберег Девятой Жизни"); }
+        @Override public void appendHoverText(ItemStack stack, TooltipContext context, java.util.List<Component> lines, net.minecraft.world.item.TooltipFlag flag) {
+            lines.add(Component.literal("Curios: ожерелье. Спасение от смертельного удара раз в 5 минут."));
+        }
         @Override public boolean canEquip(top.theillusivec4.curios.api.SlotContext context, ItemStack stack) { return "necklace".equals(context.identifier()); }
     }
     public static final class Reward extends Item {
