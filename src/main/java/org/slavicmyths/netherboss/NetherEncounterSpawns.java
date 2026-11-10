@@ -28,10 +28,15 @@ public final class NetherEncounterSpawns {
         "slavicmyths:lost_halls","slavicmyths:burning_islands");
     private static final Definition SISTERS=new Definition("gneteya_tryaseya",
         new String[]{"slavicmyths:gneteya","slavicmyths:tryaseya"},NETHER_BIOMES);
+    private static final Definition ELEMENT_SISTERS=new Definition("agneya_ledeya",
+        new String[]{"slavicmyths:agneya","slavicmyths:ledeya"},NETHER_BIOMES);
+    private static final Definition VIY=new Definition("viy",new String[]{"slavicmyths:viy"},NETHER_BIOMES);
     private static final List<Definition> WILDERNESS=List.of(
         new Definition("bauk",new String[]{"slavicmyths:bauk"},NETHER_BIOMES),
         new Definition("cursed_mytar",new String[]{"slavicmyths:cursed_mytar"},NETHER_BIOMES),
-        SISTERS);
+        SISTERS,ELEMENT_SISTERS,
+        new Definition("neveya",new String[]{"slavicmyths:neveya"},NETHER_BIOMES),
+        new Definition("lomeya",new String[]{"slavicmyths:lomeya"},NETHER_BIOMES));
     private static final List<Definition> POSAD_BOSSES=List.of(
         new Definition("bauk",new String[]{"slavicmyths:bauk"},Set.of("minecraft:crimson_forest","minecraft:warped_forest","minecraft:nether_wastes")),
         new Definition("cursed_mytar",new String[]{"slavicmyths:cursed_mytar"},Set.of("minecraft:nether_wastes","minecraft:soul_sand_valley","minecraft:basalt_deltas"))
@@ -40,11 +45,13 @@ public final class NetherEncounterSpawns {
     private static String biome(ServerLevel w,BlockPos pos){return w.getBiome(pos).unwrapKey().map(k->k.location().toString()).orElse("");}
     private static BlockPos safe(ServerLevel w,BlockPos xz,Definition d,int maxY,int minY){
         if(!w.hasChunkAt(xz))return null;
-        for(int y=Math.min(maxY,w.getMaxBuildHeight()-10);y>=Math.max(w.getMinBuildHeight()+8,minY);y--){
+        int height=d.key.equals("neveya")||d.key.equals("lomeya")?9:7;
+        int width=(d==SISTERS||d==ELEMENT_SISTERS)?5:2;
+        for(int y=Math.min(maxY,w.getMaxBuildHeight()-height);y>=Math.max(w.getMinBuildHeight()+8,minY);y--){
             BlockPos p=new BlockPos(xz.getX(),y,xz.getZ());
             if(!d.biomes.contains(biome(w,p))||!w.getFluidState(p.below()).isEmpty()||!w.getBlockState(p.below()).isFaceSturdy(w,p.below(),Direction.UP))continue;
             boolean open=true;
-            for(int dx=-2;dx<=2&&open;dx++)for(int dz=-2;dz<=2&&open;dz++)for(int dy=0;dy<6;dy++){
+            for(int dx=-2;dx<=width&&open;dx++)for(int dz=-2;dz<=2&&open;dz++)for(int dy=0;dy<height;dy++){
                 BlockPos q=p.offset(dx,dy,dz);
                 if(!w.hasChunkAt(q)||!w.getFluidState(q).isEmpty()||!w.getBlockState(q).getCollisionShape(w,q).isEmpty()){open=false;break;}
             }
@@ -60,6 +67,7 @@ public final class NetherEncounterSpawns {
             return true;
         }
         List<Entity> created=new ArrayList<>();
+        UUID pairId=d==ELEMENT_SISTERS?UUID.nameUUIDFromBytes(("slavicmyths:"+encounter.key).getBytes(java.nio.charset.StandardCharsets.UTF_8)):null;
         for(int i=0;i<d.ids.length;i++){
             EntityType<?> type=BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.parse(d.ids[i]));
             Entity entity=type.create(w);
@@ -68,6 +76,7 @@ public final class NetherEncounterSpawns {
             if(!w.noCollision(entity)){created.forEach(Entity::discard);return false;}
             ((Mob)entity).setPersistenceRequired();
             entity.getPersistentData().putString("SlavicNetherEncounter",encounter.key);
+            if(pairId!=null)entity.getPersistentData().putUUID("PosadTestEncounter",pairId);
             if(!w.addFreshEntity(entity)){created.forEach(Entity::discard);return false;}
             created.add(entity);
         }
@@ -125,8 +134,11 @@ public final class NetherEncounterSpawns {
         if(previous!=null&&previous.spawned)return;
         BlockPos origin=player.blockPosition();
         int top=w.getMaxBuildHeight()-10,bottom=Math.max(16,w.getMinBuildHeight()+8);
-        for(int choice=0;choice<WILDERNESS.size();choice++){
-            Definition d=WILDERNESS.get((int)Math.floorMod(seed+choice,WILDERNESS.size()));
+        // Viy is a tier-8 encounter: at most one selected region in twelve,
+        // with common encounters as a fallback when safe Viy terrain is unavailable.
+        boolean rareViy=requiredBiome==null&&Math.floorMod(hash(w.getSeed(),rx,rz,808),12)==0;
+        for(int choice=0;choice<WILDERNESS.size()+(rareViy?1:0);choice++){
+            Definition d=rareViy&&choice==0?VIY:WILDERNESS.get((int)Math.floorMod(seed+choice-(rareViy?1:0),WILDERNESS.size()));
             if(previous!=null&&!previous.type.equals(d.key))continue;
             if(!supported(d)||requiredBiome!=null&&!d.biomes.contains(requiredBiome))continue;
             for(int attempt=0;attempt<8;attempt++){
