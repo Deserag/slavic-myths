@@ -78,6 +78,49 @@ public final class Ocean26GameTests {
         return (ChestBlockEntity) level.getBlockEntity(position);
     }
 
+    @GameTest(template = "empty", timeoutTicks = 100, batch = "ocean_modular_soft_obstacles")
+    public static void movingHullClearsLilyAndFullCoralBlocks(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(5, 4, 5));
+        for (int x = -3; x <= 3; x++)
+            for (int z = -3; z <= 3; z++) {
+                BlockPos p = anchor.offset(x, 0, z);
+                level.setBlock(p.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(p, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 7; y++)
+                    level.setBlock(p.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        BlockPos lily = anchor.above();
+        BlockPos liveCoral = anchor.east();
+        BlockPos deadCoral = anchor.west();
+        level.setBlock(lily, Blocks.LILY_PAD.defaultBlockState(), 2);
+        level.setBlock(liveCoral, Blocks.TUBE_CORAL_BLOCK.defaultBlockState(), 2);
+        level.setBlock(deadCoral, Blocks.DEAD_BRAIN_CORAL_BLOCK.defaultBlockState(), 2);
+
+        java.util.Map<BlockPos, net.minecraft.world.level.block.state.BlockState> palette =
+                new java.util.HashMap<>();
+        palette.put(BlockPos.ZERO, Blocks.SPRUCE_PLANKS.defaultBlockState());
+        palette.put(new BlockPos(1, 0, 0), Blocks.SPRUCE_PLANKS.defaultBlockState());
+        palette.put(new BlockPos(-1, 0, 0), Blocks.SPRUCE_PLANKS.defaultBlockState());
+        var pose = new org.slavicmyths.ships.ShipRigidMotion.Pose(
+                anchor.getX() + .5D, anchor.getZ() + .5D, 0D);
+        t.assertTrue(org.slavicmyths.ships.ShipMovingClearance.clearPose(
+                level, pose, anchor.getY(), palette),
+                "Soft lily pad or full coral block incorrectly stops modular ship");
+        org.slavicmyths.ships.ShipMovingClearance.clearSoftObstacles(
+                level, pose, anchor.getY(), palette);
+        t.assertTrue(level.getBlockState(lily).isAir()
+                && level.getBlockState(liveCoral).is(Blocks.WATER)
+                && level.getBlockState(deadCoral).is(Blocks.WATER),
+                "Modular ship failed to clear above-water lily or live/dead coral blocks");
+
+        level.setBlock(liveCoral, Blocks.STONE.defaultBlockState(), 2);
+        t.assertTrue(!org.slavicmyths.ships.ShipMovingClearance.clearPose(
+                level, pose, anchor.getY(), palette),
+                "Solid stone must always block a moving modular hull");
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 100, batch = "ocean_modular_materials")
     public static void modularShipyardConsumesExactMaterials(GameTestHelper t) {
         ServerLevel level = t.getLevel();
