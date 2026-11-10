@@ -35,13 +35,13 @@ public final class NineMorContent {
         ModItems.ITEMS.register("pechat_devyati_morov", () ->
             new NineMorSealItem(new Item.Properties().rarity(Rarity.EPIC).stacksTo(1).fireResistant()));
 
-    public static final DeferredHolder<Item, Item> SPEAR = ModItems.ITEMS.register("nine_mor_spear", () -> new SwordItem(Tiers.NETHERITE, new Item.Properties().rarity(Rarity.EPIC).fireResistant().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 6, -2.8F))));
-    public static final DeferredHolder<Item, Item> AXE = ModItems.ITEMS.register("nine_mor_axe", () -> new AxeItem(Tiers.NETHERITE, new Item.Properties().rarity(Rarity.EPIC).fireResistant().attributes(AxeItem.createAttributes(Tiers.NETHERITE, 8.0F, -3.2F))));
-    public static final DeferredHolder<Item, Item> SHIELD = ModItems.ITEMS.register("nine_mor_shield", () -> new ShieldItem(new Item.Properties().durability(2048).rarity(Rarity.EPIC).fireResistant()));
-    public static final DeferredHolder<Item, Item> AMULET = ModItems.ITEMS.register("nine_mor_amulet", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
-    public static final DeferredHolder<Item, Item> HEART = ModItems.ITEMS.register("nine_mor_heart", () -> new Item(new Item.Properties().rarity(Rarity.EPIC).fireResistant()));
-    public static final DeferredHolder<Item, Item> SCALE = ModItems.ITEMS.register("nine_mor_scale", () -> new Item(new Item.Properties().rarity(Rarity.EPIC).fireResistant()));
-    public static final DeferredHolder<Item, Item> FANG = ModItems.ITEMS.register("nine_mor_fang", () -> new Item(new Item.Properties().rarity(Rarity.EPIC).fireResistant()));
+    public static final DeferredHolder<Item, Item> SPEAR = ModItems.ITEMS.register("nine_mor_spear", () -> new NineMorNamedItems.Spear(Tiers.NETHERITE, new Item.Properties().rarity(Rarity.EPIC).fireResistant().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 6, -2.8F))));
+    public static final DeferredHolder<Item, Item> AXE = ModItems.ITEMS.register("nine_mor_axe", () -> new NineMorNamedItems.Axe(Tiers.NETHERITE, new Item.Properties().rarity(Rarity.EPIC).fireResistant().attributes(AxeItem.createAttributes(Tiers.NETHERITE, 8.0F, -3.2F))));
+    public static final DeferredHolder<Item, Item> SHIELD = ModItems.ITEMS.register("nine_mor_shield", () -> new NineMorNamedItems.Shield(new Item.Properties().durability(2048).rarity(Rarity.EPIC).fireResistant()));
+    public static final DeferredHolder<Item, Item> AMULET = ModItems.ITEMS.register("nine_mor_amulet", () -> new NineMorNamedItems.Reward(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).fireResistant(), "Оберег Девятой Жизни"));
+    public static final DeferredHolder<Item, Item> HEART = ModItems.ITEMS.register("nine_mor_heart", () -> new NineMorNamedItems.Reward(new Item.Properties().rarity(Rarity.EPIC).fireResistant(), "Сердце Девяти Моров"));
+    public static final DeferredHolder<Item, Item> SCALE = ModItems.ITEMS.register("nine_mor_scale", () -> new NineMorNamedItems.Reward(new Item.Properties().rarity(Rarity.EPIC).fireResistant(), "Чешуя Девяти Моров"));
+    public static final DeferredHolder<Item, Item> FANG = ModItems.ITEMS.register("nine_mor_fang", () -> new NineMorNamedItems.Reward(new Item.Properties().rarity(Rarity.EPIC).fireResistant(), "Клык Девяти Моров"));
 
     public static final DeferredHolder<SoundEvent, SoundEvent> SUMMON_SOUND =
         ModSounds.SOUNDS.register("nine_mor_serpent.summon", () ->
