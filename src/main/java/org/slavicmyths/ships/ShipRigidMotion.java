@@ -15,7 +15,7 @@ package org.slavicmyths.ships;
  */
 public final class ShipRigidMotion {
     public static final double MAX_FORWARD = 0.18D, MAX_REVERSE = 0.065D;
-    public static final double ACCELERATION = 0.012D, LINEAR_DRAG = 0.985D;
+    public static final double ACCELERATION = 0.012D, COAST_DECELERATION = 0.002D, LINEAR_DRAG = 0.985D;
     public static final double MAX_ANGULAR = 2.2D, ANGULAR_ACCELERATION = 0.20D;
     public static final double ANGULAR_DRAG = 0.80D;
     private static final double EPS = 1E-8D;
@@ -71,7 +71,11 @@ public final class ShipRigidMotion {
         previous = from;
         double desiredSpeed = control.throttle >= 0
                 ? control.throttle * MAX_FORWARD : control.throttle * MAX_REVERSE;
-        speed = approach(speed, desiredSpeed, ACCELERATION);
+        // Unrigged rowing hulls still retain some momentum after helm release.
+        // Acceleration is distinct from passive coasting drag, so small low-
+        // power ships do not stop dead the moment a captain dismounts.
+        speed = approach(speed, desiredSpeed,
+                control.throttle() == 0D ? COAST_DECELERATION : ACCELERATION);
         speed *= LINEAR_DRAG;
         if (Math.abs(speed) < 1E-5D) speed = 0D;
         // A ship may rotate nearly on the spot, but does so with rudder inertia.
