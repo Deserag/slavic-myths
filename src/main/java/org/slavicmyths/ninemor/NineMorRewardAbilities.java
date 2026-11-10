@@ -85,7 +85,7 @@ public final class NineMorRewardAbilities {
    server.serverLevel().sendParticles(MOR,from.x,from.y,from.z,4,.2,.2,.2,.01);
   }
   server.getCooldowns().addCooldown(stack.getItem(),185);
-  server.playSound(SoundEvents.TRIDENT_THROW,1.2F,.7F);
+  server.playSound(SoundEvents.TRIDENT_THROW.value(),1.2F,.7F);
   return InteractionResultHolder.consume(stack);
  }
 
