@@ -26,6 +26,7 @@ import org.slavicmyths.ships.FirstShipBlockHull;
 import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.FirstShipHull;
 import org.slavicmyths.ships.ShipModularBlockHull;
+import org.slavicmyths.ships.ShipHullVoxelLayout;
 import org.slavicmyths.ships.RaftContent;
 
 /**
@@ -181,8 +182,8 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
         for (int i = 0; i < plan.sailTiers().size(); i++) {
             int tier = plan.sailTiers().get(i);
-            int top = tier == 1 ? 12 : tier == 2 ? 15 : 19;
-            int span = tier == 1 ? 2 : tier == 2 ? 3 : 4;
+            int top = ShipHullVoxelLayout.mastTop(plan, tier);
+            int span = ShipHullVoxelLayout.yardSpan(plan, tier);
             BlockState edging = (tier == 1 ? Blocks.RED_WOOL
                     : tier == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
             pose.pushPose();
