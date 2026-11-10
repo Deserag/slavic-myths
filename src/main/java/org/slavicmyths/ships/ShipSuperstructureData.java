@@ -82,5 +82,37 @@ public final class ShipSuperstructureData {
         return plan;
     }
 
+    /** Compact validated entity-sync format; no client-owned NBT authority. */
+    public static String sync(ShipSuperstructurePlan plan) {
+        StringBuilder text = new StringBuilder(plan.shipClass().name())
+                .append(':').append(plan.hullWidth())
+                .append(':').append(plan.hullLength())
+                .append(':').append(plan.decks())
+                .append(':').append(plan.bridge() ? 1 : 0)
+                .append(':').append(plan.cabin() ? 1 : 0)
+                .append(':');
+        for (int i = 0; i < plan.sailTiers().size(); i++) {
+            if (i > 0) text.append(',');
+            text.append(plan.sailTiers().get(i));
+        }
+        return text.toString();
+    }
+
+    public static ShipSuperstructurePlan fromSync(String encoded) {
+        if (encoded == null || encoded.length() > 96) throw new IllegalArgumentException("Invalid sync");
+        String[] fields = encoded.split(":", -1);
+        if (fields.length != 7) throw new IllegalArgumentException("Invalid sync fields");
+        ShipSectionPlan.ShipClass kind = ShipSectionPlan.ShipClass.valueOf(fields[0]);
+        List<Integer> sails = new ArrayList<>();
+        if (!fields[6].isEmpty()) for (String tier : fields[6].split(","))
+            sails.add(Integer.parseInt(tier));
+        if (!fields[4].equals("0") && !fields[4].equals("1")
+                || !fields[5].equals("0") && !fields[5].equals("1"))
+            throw new IllegalArgumentException("Invalid sync flags");
+        return validateBounds(new ShipSuperstructurePlan(kind, Integer.parseInt(fields[1]),
+                Integer.parseInt(fields[2]), sails, Integer.parseInt(fields[3]),
+                fields[4].equals("1"), fields[5].equals("1")));
+    }
+
     private ShipSuperstructureData() {}
 }
