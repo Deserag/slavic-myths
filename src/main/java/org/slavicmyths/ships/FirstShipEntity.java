@@ -668,12 +668,12 @@ public final class FirstShipEntity extends Boat {
     public boolean tryHelm(ServerPlayer player) {
         if (isVehicle() || player.isPassenger() || player.isSpectator()) return false;
         FirstShipHull.Point local = FirstShipHull.toLocal(
-                player.getX(), player.getZ(), getX(), getZ(), getYRot());
+                player.getX(), player.getZ(), getX(), getZ(), shipYaw());
         if (Math.abs(local.x()) > 1.65D
                 || Math.abs(local.z() - helmSeatZ()) > 1.7D
                 || Math.abs(player.getY() - (getY() + helmSeatHeight())) > .9D) return false;
         FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, helmWheelZ(),
-                getX(), getZ(), getYRot());
+                getX(), getZ(), shipYaw());
         Vec3 ring = new Vec3(wheel.x(), getY() + helmSeatHeight() + 1.78D, wheel.z())
                 .subtract(player.getEyePosition());
         Vec3 post = new Vec3(wheel.x(), getY() + helmSeatHeight() + .58D, wheel.z())
