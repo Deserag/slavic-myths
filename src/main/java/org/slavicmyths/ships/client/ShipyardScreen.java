@@ -491,15 +491,15 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             }
         } else if (current != null) {
             graphics.drawString(font, "Размер " + current.width() + "×" + current.length()
-                    + " | мачт " + current.sailTiers().size(), 17, 196, 0xfff2dfbd, false);
+                    + " | мачт " + current.sailTiers().size(), 17, 200, 0xfff2dfbd, false);
             ShipBuildConfiguration next = nextConfig();
             if (next == null || next.equals(current))
-                graphics.drawString(font, "Недоступно: предел класса", 17, 184,
+                graphics.drawString(font, "Недоступно: предел класса", 17, 188,
                         0xffffb18c, false);
             else
                 graphics.drawString(font, font.plainSubstrByWidth(
                                 "Раздел: " + MODULAR_CATEGORIES[modCategory], 160),
-                        17, 184, 0xffeacfa2, false);
+                        17, 188, 0xffeacfa2, false);
         } else {
             graphics.drawString(font, vesselKind() == 0
                     ? "Положите судно в ячейку"
