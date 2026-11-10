@@ -44,7 +44,7 @@ public final class NineMorRewardAbilities {
   if(event.getEntity().isAlive())player.getPersistentData().putUUID(LAST,event.getEntity().getUUID());
  }
 
- private static boolean eligible(ServerPlayer player,LivingEntity victim){
+ static boolean eligible(ServerPlayer player,LivingEntity victim){
   return victim!=player&&victim.isAlive()&&!victim.isAlliedTo(player)&&!player.isAlliedTo(victim)
       &&!victim.getPersistentData().getBoolean("SlavicViySummoned")
       &&!(victim instanceof Player p&&(p.isCreative()||p.isSpectator()||!player.canHarmPlayer(p)));
@@ -73,16 +73,15 @@ public final class NineMorRewardAbilities {
   if(!server.getPersistentData().hasUUID(LAST))return InteractionResultHolder.fail(stack);
   UUID id=server.getPersistentData().getUUID(LAST);
   if(!(server.serverLevel().getEntity(id) instanceof LivingEntity target)||!eligible(server,target)||target.distanceToSqr(server)>36D*36D||!server.hasLineOfSight(target))return InteractionResultHolder.fail(stack);
-  Vec3 look=server.getLookAngle(),right=new Vec3(-look.z,0,look.x).normalize();
-  if(right.lengthSqr()<.01D)right=new Vec3(1,0,0);
+  Vec3 look=server.getLookAngle().multiply(1D,0D,1D).normalize();
+  if(look.lengthSqr()<.01D)look=new Vec3(0D,0D,1D);
+  Vec3 right=new Vec3(-look.z,0,look.x);
   for(int i=0;i<4;i++){
-   Vec3 from=server.position().add(0,2D,0).subtract(look.scale(1.8D)).add(right.scale((i-1.5D)*.75D));
-   Vec3 aim=target.getEyePosition().subtract(from);
+   Vec3 from=server.position().add(0,2.65D+(i%2)*.33D,0).subtract(look.scale(2.3D)).add(right.scale((i-1.5D)*1.05D));
    NineMorShot shot=new NineMorShot(server.level(),server,9);
    shot.setPos(from.x,from.y,from.z);
-   shot.shoot(aim.x,aim.y,aim.z,1.7F,.08F);
+   shot.summonBehind(target,i);
    server.serverLevel().addFreshEntity(shot);
-   server.serverLevel().sendParticles(MOR,from.x,from.y,from.z,4,.2,.2,.2,.01);
   }
   server.getCooldowns().addCooldown(stack.getItem(),185);
   server.playSound(SoundEvents.TRIDENT_THROW.value(),1.2F,.7F);

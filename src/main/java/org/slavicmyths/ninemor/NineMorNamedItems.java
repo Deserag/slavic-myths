@@ -19,7 +19,7 @@ public final class NineMorNamedItems {
         @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {return NineMorRewardAbilities.spear(level,player,hand);}
         @Override public void appendHoverText(ItemStack stack, TooltipContext context, java.util.List<Component> lines, net.minecraft.world.item.TooltipFlag flag) {
             lines.add(Component.literal("Постоянный крит ×1.5 (не суммируется с обычным)"));
-            lines.add(Component.literal("ПКМ: 4 моровых копья по последней поражённой цели"));
+            lines.add(Component.literal("ПКМ: 4 призрачных копья зависают за спиной и по очереди поражают цель"));
             lines.add(Component.literal("Shift + ПКМ: круговой удар по врагам"));
         }
     }
