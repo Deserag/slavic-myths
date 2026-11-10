@@ -119,6 +119,11 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
  @Override protected void onRemove(BlockState s,Level w,BlockPos p,BlockState next,boolean moving){
   super.onRemove(s,w,p,next,moving);
   if(w.isClientSide||s.is(next.getBlock()))return;
+  if(nineMor()){
+   if(s.getValue(CELL)==Cell.A){breakBurst(w,p);for(Cell cell:Cell.values())if(cell!=Cell.A){BlockPos at=p.offset(cell.dx,0,cell.dz);if(w.getBlockState(at).is(this))w.removeBlock(at,false);}}
+   else{BlockPos at=nineAnchor(p,s);if(w.getBlockState(at).is(this))w.destroyBlock(at,true);}
+   return;
+  }
   if(ravenLong()){
    Direction face=s.getValue(FACING);
    if(s.getValue(QUARTER)==Quarter.NW){
@@ -156,7 +161,7 @@ public final class TrophyHeadBlock extends HorizontalDirectionalBlock implements
   if(!(world instanceof net.minecraft.server.level.ServerLevel server))return;
   var particle=switch(kind){case GROVE_GUARDIAN->net.minecraft.core.particles.ParticleTypes.ASH;case ZHARENITSA->net.minecraft.core.particles.ParticleTypes.SMALL_FLAME;case POSTEN->net.minecraft.core.particles.ParticleTypes.SOUL;case MAGMA_LORD->net.minecraft.core.particles.ParticleTypes.SMALL_FLAME;case TUGARIN->net.minecraft.core.particles.ParticleTypes.DRAGON_BREATH;case SKIM->net.minecraft.core.particles.ParticleTypes.CLOUD;case VOLKOLAK->net.minecraft.core.particles.ParticleTypes.SMOKE;case PODZEMNIK->net.minecraft.core.particles.ParticleTypes.ASH;case LIKHO->net.minecraft.core.particles.ParticleTypes.SOUL;case MOR_LIKHO->net.minecraft.core.particles.ParticleTypes.CRIMSON_SPORE;case MOROVOY_RAVEN->net.minecraft.core.particles.ParticleTypes.ASH;case MOR_SERPENT->net.minecraft.core.particles.ParticleTypes.SOUL;case MOROVOY_FIRE_ZMEY->net.minecraft.core.particles.ParticleTypes.DRAGON_BREATH;case FIRE_SERPENT->net.minecraft.core.particles.ParticleTypes.DRAGON_BREATH;case NINE_MOR_SERPENT->net.minecraft.core.particles.ParticleTypes.SOUL;};
   double height=Math.min(kind.height,1.8);
-  double cx=anchor.getX()+(ravenLong()?.5:nineMor()?1.5:kind.wide()?1:.5),cz=anchor.getZ()+(ravenLong()?.5:kind.wide()?1:.5);
+  double cx=anchor.getX()+(ravenLong()?.5:nineMor()?1.5:kind.wide()?1:.5),cz=anchor.getZ()+(ravenLong()?.5:nineMor()?1.5:kind.wide()?1:.5);
   server.sendParticles(particle,cx,anchor.getY()+height*.5,cz,kind.wide()?45:24,kind.wide()?.62:.325,height*.35,kind.wide()?.62:.325,.06);
   if(kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY)server.sendParticles(net.minecraft.core.particles.ParticleTypes.SMALL_FLAME,cx+.40,anchor.getY()+.45,cz-.20,18,.24,.17,.3,.035);
  }
