@@ -297,6 +297,12 @@ public final class TrophyHeadsClient {
     net.minecraft.core.particles.ParticleOptions elemental=particle;
     if(kind==TrophyHeads.Kind.FIRE_SERPENT){var color=i%3==0?new org.joml.Vector3f(.21F,.03F,.38F):i%3==1?new org.joml.Vector3f(.65F,.18F,1F):new org.joml.Vector3f(1F,1F,1F);elemental=new net.minecraft.core.particles.DustParticleOptions(color,.9F);}
     if(kind==TrophyHeads.Kind.MOR_SERPENT||kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY||kind==TrophyHeads.Kind.MOROVOY_RAVEN)elemental=new net.minecraft.core.particles.DustParticleOptions(new org.joml.Vector3f(.12F,.77F,.20F),.85F);
+    if(kind==TrophyHeads.Kind.NINE_MOR_SERPENT){
+     int rgb=org.slavicmyths.ninemor.NineMorSerpent.COLORS[world.random.nextInt(9)];
+     elemental=new net.minecraft.core.particles.DustParticleOptions(new org.joml.Vector3f(((rgb>>16)&255)/255F,((rgb>>8)&255)/255F,(rgb&255)/255F),.95F);
+     world.addParticle(elemental,pos.getX()+.3+world.random.nextDouble()*4.4,pos.getY()+.5+world.random.nextDouble()*4.7,pos.getZ()+.3+world.random.nextDouble()*4.4,0,.013,0);
+     continue;
+    }
     world.addParticle(elemental,pos.getX()+.5+facing.getStepX()*.28+dx+(world.getRandom().nextDouble()-.5)*.14,
     pos.getY()+height+world.getRandom().nextDouble()*.25,
     pos.getZ()+.5+facing.getStepZ()*.28+dz+(world.getRandom().nextDouble()-.5)*.14,0,.018,0);
