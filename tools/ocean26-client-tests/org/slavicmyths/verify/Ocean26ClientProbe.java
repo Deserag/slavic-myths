@@ -146,11 +146,23 @@ public final class Ocean26ClientProbe {
                         if (body != null) body.saveWithoutId(saved);
                         var motion = org.slavicmyths.ships.ShipMovingContraption.load(
                                 saved.getCompound("FirstShipMovingBody"));
+                        boolean cargoIntact = false;
+                        if (motion != null && motion.cargo().size() == 1) {
+                            var stored = motion.cargo().getCompound(0)
+                                    .getCompound("BlockEntity")
+                                    .getList("Items", net.minecraft.nbt.Tag.TAG_COMPOUND);
+                            if (stored.size() == 1) {
+                                ItemStack diamonds = ItemStack.parseOptional(
+                                        server.registryAccess(), stored.getCompound(0));
+                                cargoIntact = diamonds.is(Items.DIAMOND)
+                                        && diamonds.getCount() == 7;
+                            }
+                        }
                         boolean passed = body != null && body.isMoving() && body.rigLevel() > 0
-                                && motion != null && motion.cargo().size() == 1;
+                                && cargoIntact;
                         System.out.println("OCEAN26_RELOAD_RESULT ship=" + reloadedId
                                 + " moving=" + (body != null && body.isMoving())
-                                + " cargo=" + (motion == null ? -1 : motion.cargo().size())
+                                + " cargoIntact=" + cargoIntact
                                 + " pass=" + passed);
                         mc.execute(() -> {
                             if (passed) finish(mc, true, "reload");
