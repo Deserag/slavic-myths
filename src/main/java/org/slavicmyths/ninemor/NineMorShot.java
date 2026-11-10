@@ -4,6 +4,7 @@ import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
@@ -34,12 +35,14 @@ public final class NineMorShot extends ThrowableItemProjectile {
             case 6 -> Items.GREEN_DYE;
             case 7 -> Items.BROWN_DYE;
             case 8 -> Items.BLUE_DYE;
+            case 9 -> NineMorContent.SPEAR.get();
             default -> Items.RED_DYE;
         };
     }
 
     private int type() {
         Item stackItem = getItem().getItem();
+        if(stackItem==NineMorContent.SPEAR.get())return 2;
         for (int i = 1; i <= 8; i++) if (stackItem == visualItem(i)) return i;
         return 0;
     }
@@ -50,9 +53,10 @@ public final class NineMorShot extends ThrowableItemProjectile {
     protected void onHitEntity(EntityHitResult hit) {
         super.onHitEntity(hit);
         if (!level().isClientSide && hit.getEntity() instanceof LivingEntity living
-                && hit.getEntity() != getOwner() && !(living instanceof NineMorSerpent)) {
+                && hit.getEntity() != getOwner() && !(living instanceof NineMorSerpent)
+                && !(getOwner() instanceof Player p&&(p.isAlliedTo(living)||living instanceof Player other&&(other.isCreative()||other.isSpectator()||!p.canHarmPlayer(other))))) {
             LivingEntity attacker = getOwner() instanceof LivingEntity other ? other : null;
-            living.hurt(attacker != null ? damageSources().mobAttack(attacker) : damageSources().magic(), 8F);
+            living.hurt(attacker instanceof Player player?damageSources().playerAttack(player):attacker != null?damageSources().mobAttack(attacker):damageSources().magic(), 8F);
             NineMorSerpent.applyElement(living, type());
         }
         impact();
