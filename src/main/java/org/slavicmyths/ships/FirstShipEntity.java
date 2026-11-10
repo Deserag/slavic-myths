@@ -663,7 +663,11 @@ public final class FirstShipEntity extends Boat {
                 && post.normalize().dot(player.getLookAngle()) >= .30D;
         if (!aimsRing && !aimsPost) return false;
         boolean mounted = player.startRiding(this);
-        if (mounted) positionRider(player);
+        if (mounted) {
+            positionRider(player);
+            player.displayClientMessage(Component.literal(
+                    "Штурвал захвачен: W/S — ход, A/D — поворот, Shift — сойти"), true);
+        }
         return mounted;
     }
 
