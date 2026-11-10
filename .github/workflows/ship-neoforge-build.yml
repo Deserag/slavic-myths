@@ -7,6 +7,7 @@ on:
       - 'feature/2.6-full-modular-ships-20261110'
       - 'feature/2.6-shipyard-ui-rework-20261110'
       - 'fix/2.6-shipyard-helm-ui-20261110'
+      - 'integration/2.6-modular-ships-20261110'
     paths:
       - 'src/main/java/org/slavicmyths/ships/**'
       - 'tools/ocean26-tests/**'
