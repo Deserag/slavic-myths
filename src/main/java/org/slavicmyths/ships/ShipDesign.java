@@ -12,7 +12,7 @@ import net.minecraft.nbt.Tag;
 public record ShipDesign(String hullSize, String hullWood, String mastWood,
         int sailColor, String flagPattern, String flagSymbol, String cabinStyle) {
     public static final int VERSION = 1;
-    private static final Set<String> SIZES = Set.of("small", "medium", "large");
+    private static final Set<String> SIZES = Set.of("small", "medium", "large", "largest");
     public ShipDesign {
         if (!SIZES.contains(hullSize) || !validResource(hullWood)
                 || !validResource(mastWood) || sailColor < 0 || sailColor > 16
@@ -58,9 +58,9 @@ public record ShipDesign(String hullSize, String hullWood, String mastWood,
 
     /** Size definitions are proposals only; oversized hulls cannot yet sail. */
     public int proposedWidth() {
-        return switch (hullSize) { case "small" -> 7; case "medium" -> 13; default -> 21; };
+        return switch (hullSize) { case "small" -> 7; case "medium" -> 13; case "large" -> 21; default -> 27; };
     }
     public int proposedLength() {
-        return switch (hullSize) { case "small" -> 11; case "medium" -> 21; default -> 33; };
+        return switch (hullSize) { case "small" -> 11; case "medium" -> 21; case "large" -> 33; default -> 41; };
     }
 }
