@@ -285,7 +285,7 @@ public final class ShipModularBlockHull {
             positions.add(pos);
         }
         List<BlockPos> ordered = new ArrayList<>(positions);
-        ordered.sort(Comparator.comparingInt(BlockPos::getY).reversed());
+        ordered.sort(Comparator.comparingInt((BlockPos p) -> p.getY()).reversed());
         for (BlockPos pos : ordered)
             level.setBlock(pos, pos.getY() == anchor.getY()
                     ? Blocks.WATER.defaultBlockState()
