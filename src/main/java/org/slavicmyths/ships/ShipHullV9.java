@@ -120,7 +120,8 @@ public final class ShipHullV9 {
             ShipSuperstructurePlan design, Map<BlockPos, BlockState> hull) {
         ListTag list = new ListTag();
         int hw = design.hullWidth() / 2, hl = design.hullLength() / 2;
-        for (int z = -hl; z <= hl; z++) for (int x = -hw; x <= hw; x++)
+        for (int z = -hl; z <= hl; z++) for (int x = -hw; x <= hw; x++) {
+            if (Math.abs(x) > ShipHullVoxelLayout.halfBeam(design, z)) continue;
             for (int y : new int[]{1, 5, 9, 13}) {
                 BlockPos pos = world(anchor, turns, x, y, z);
                 if (hull.containsKey(pos)) continue;
@@ -138,6 +139,7 @@ public final class ShipHullV9 {
                         : be.saveWithFullMetadata(level.registryAccess()));
                 list.add(item);
             }
+        }
         return list;
     }
 
@@ -169,6 +171,23 @@ public final class ShipHullV9 {
         }
         ListTag cargo = inspectCargo(level, anchor, turns, design, expected);
         if (cargo == null || !validCargo(design, cargo)) return null;
+        Set<BlockPos> owned = new HashSet<>(expected.keySet());
+        for (int i = 0; i < cargo.size(); i++) {
+            CompoundTag item = cargo.getCompound(i);
+            owned.add(world(anchor, turns, item.getInt("X"), item.getInt("Y"), item.getInt("Z")));
+        }
+        // Refuse to detach any untracked player blocks within enclosed hull air.
+        // This is intentionally stricter than dropping an unknown block on the floor.
+        int hw = design.hullWidth() / 2, hl = design.hullLength() / 2;
+        int maxY = 5 + design.decks() * 4;
+        for (int z = -hl; z <= hl; z++) for (int x = -hw; x <= hw; x++) {
+            if (Math.abs(x) > ShipHullVoxelLayout.halfBeam(design, z)) continue;
+            for (int y = 1; y <= maxY; y++) {
+                BlockPos pos = world(anchor, turns, x, y, z);
+                if (!level.hasChunkAt(pos)) return null;
+                if (!owned.contains(pos) && !level.getBlockState(pos).isAir()) return null;
+            }
+        }
         return new Snapshot(expected, cargo);
     }
 
