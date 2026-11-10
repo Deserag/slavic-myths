@@ -20,6 +20,10 @@ import org.slavicmyths.ships.RaftItem;
 import org.slavicmyths.ships.RaftSize;
 import org.slavicmyths.ships.ShipyardMenu;
 import org.slavicmyths.ships.ShipyardUpgrades;
+import org.slavicmyths.ships.ShipyardModular;
+import org.slavicmyths.ships.ShipBuildConfiguration;
+import org.slavicmyths.ships.ShipSectionPlan;
+import org.slavicmyths.ships.ShipHullVoxelLayout;
 
 /**
  * Two-tab workshop:
@@ -37,6 +41,14 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     private static final String[] SHIP_OPTIONS =
             {"Парус I", "Парус II", "Парус III", "Оснастка +", "Оснастка −", "Снять всё"};
     private static final int[] SHIP_ACTIONS = {20, 21, 22, 23, 24, 25};
+    private static final String[] MODULAR_OPTIONS = {
+            "Длина +", "Ширина +", "Парус +", "Мачта +",
+            "Палуба +", "Мостик", "Каюта"
+    };
+    private static final int[] MODULAR_ACTIONS = {200, 201, 202, 203, 204, 205, 206};
+    private static final String[] CLASS_NAMES = {
+            "Малый", "Средний", "Большой", "Крупнейший"
+    };
     private static final String[] RAFT_OPTIONS =
             {"Борта +", "Парус +", "Руль +", "Вёсла +", "Борта −",
              "Парус −", "Руль −", "Вёсла −", "Размер +"};
@@ -45,6 +57,9 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
 
     private int tab;
     private int chosen;
+    private boolean createRafts;
+    private int selectedLength;
+    private int selectedWidth;
     private int lastKind = -1;
     private Button primary;
 
@@ -60,6 +75,33 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         ItemStack stack = menu.inspected();
         return stack.getItem() instanceof FirstShipItem ? 2
                 : stack.getItem() instanceof RaftItem ? 1 : 0;
+    }
+
+    private ShipBuildConfiguration creationConfig() {
+        if (createRafts || chosen < 0 || chosen >= 4) return null;
+        try {
+            return ShipBuildConfiguration.initial(
+                    ShipSectionPlan.ShipClass.values()[chosen])
+                    .resize(selectedLength, selectedWidth);
+        } catch (RuntimeException invalid) { return null; }
+    }
+
+    private ShipBuildConfiguration nextConfig() {
+        ShipBuildConfiguration current = ShipyardModular.configuration(menu.inspected());
+        if (current == null || chosen < 0 || chosen >= MODULAR_ACTIONS.length) return null;
+        try {
+            return switch (MODULAR_ACTIONS[chosen]) {
+                case 200 -> current.resize(current.extraLength() + 1, current.extraWidth());
+                case 201 -> current.resize(current.extraLength(), current.extraWidth() + 1);
+                case 202 -> current.withSail(current.sailTiers().size() - 1,
+                        current.sailTiers().get(current.sailTiers().size() - 1) + 1);
+                case 203 -> current.withSail(current.sailTiers().size(), 1);
+                case 204 -> current.withDecks(current.decks() + 1);
+                case 205 -> current.withBridge(true);
+                case 206 -> current.withCabin(true);
+                default -> null;
+            };
+        } catch (RuntimeException invalid) { return null; }
     }
 
     @Override protected void init() {
@@ -79,38 +121,80 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         String[] tabs = {"Создание корабля", "Модификации"};
         for (int i = 0; i < tabs.length; i++) {
             final int value = i;
-            Button b = Button.builder(Component.literal(tabs[i]), button -> switchTab(value))
+            Button button = Button.builder(Component.literal(tabs[i]),
+                    clicked -> switchTab(value))
                     .bounds(leftPos + 12 + 229 * i, topPos + 12, 222, 22).build();
-            b.active = tab != i;
-            addRenderableWidget(b);
+            button.active = tab != i;
+            addRenderableWidget(button);
         }
-        String[] options = tab == 0 ? VESSELS
+        if (tab == 0) {
+            addRenderableWidget(Button.builder(
+                    Component.literal(createRafts ? "Тип: плоты" : "Тип: корабли"),
+                    clicked -> { createRafts = !createRafts; chosen = 0; rebuild(); })
+                    .bounds(leftPos + 18, topPos + 64, 135, 18).build());
+        }
+
+        ShipBuildConfiguration current = ShipyardModular.configuration(menu.inspected());
+        String[] options = tab == 0
+                ? createRafts ? VESSELS : CLASS_NAMES
+                : current != null ? MODULAR_OPTIONS
                 : vesselKind() == 2 ? SHIP_OPTIONS
                 : vesselKind() == 1 ? RAFT_OPTIONS : new String[0];
+
         chosen = Math.max(0, Math.min(chosen, Math.max(0, options.length - 1)));
         for (int i = 0; i < options.length; i++) {
-            final int index = i;
+            final int value = i;
             final int x = tab == 0 ? 18 : 16 + (i % 2) * 77;
-            final int y = tab == 0 ? 64 + 21 * i : 99 + (i / 2) * 19;
-            final int width = tab == 0 ? 155 : 73;
-            Button b = Button.builder(Component.literal(options[i]),
-                    button -> { chosen = index; rebuild(); })
-                    .bounds(leftPos + x, topPos + y, width, tab == 0 ? 19 : 17).build();
-            b.active = chosen != i;
-            addRenderableWidget(b);
+            final int y = tab == 0 ? 85 + 18 * i : 99 + (i / 2) * 19;
+            int width = tab == 0 ? 135 : 73;
+            Button button = Button.builder(Component.literal(options[i]),
+                    clicked -> {
+                        chosen = value;
+                        selectedLength = Math.min(selectedLength, ShipSectionPlan.ShipClass.values()[
+                                Math.min(chosen, 3)].maxLength);
+                        selectedWidth = Math.min(selectedWidth, ShipSectionPlan.ShipClass.values()[
+                                Math.min(chosen, 3)].maxWidth);
+                        rebuild();
+                    }).bounds(leftPos + x, topPos + y, width, 17).build();
+            button.active = chosen != i;
+            addRenderableWidget(button);
+        }
+
+        if (tab == 0 && !createRafts) {
+            addRenderableWidget(Button.builder(Component.literal("-"),
+                    clicked -> { selectedLength = Math.max(0, selectedLength - 1); rebuild(); })
+                    .bounds(leftPos + 94, topPos + 159, 24, 17).build());
+            addRenderableWidget(Button.builder(Component.literal("+"),
+                    clicked -> { selectedLength = Math.min(
+                            ShipSectionPlan.ShipClass.values()[chosen].maxLength,
+                            selectedLength + 1); rebuild(); })
+                    .bounds(leftPos + 129, topPos + 159, 24, 17).build());
+            addRenderableWidget(Button.builder(Component.literal("-"),
+                    clicked -> { selectedWidth = Math.max(0, selectedWidth - 1); rebuild(); })
+                    .bounds(leftPos + 94, topPos + 180, 24, 17).build());
+            addRenderableWidget(Button.builder(Component.literal("+"),
+                    clicked -> { selectedWidth = Math.min(
+                            ShipSectionPlan.ShipClass.values()[chosen].maxWidth,
+                            selectedWidth + 1); rebuild(); })
+                    .bounds(leftPos + 129, topPos + 180, 24, 17).build());
         }
         primary = Button.builder(Component.literal(tab == 0 ? "Создать" : "Применить"),
-                button -> execute())
-                .bounds(leftPos + 18, topPos + 170, 155, 19).build();
+                clicked -> execute()).bounds(leftPos + 18, topPos + 204, 135, 19).build();
         addRenderableWidget(primary);
         updateButton();
     }
 
     private void execute() {
         if (minecraft == null || minecraft.gameMode == null || !allowed()) return;
-        int kind = vesselKind();
-        int action = tab == 0 ? CRAFT_ACTIONS[chosen]
-                : kind == 2 ? SHIP_ACTIONS[chosen] : RAFT_ACTIONS[chosen];
+        int action;
+        if (tab == 0) {
+            if (createRafts) action = CRAFT_ACTIONS[chosen];
+            else action = 100 + chosen * 16 + selectedLength * 4 + selectedWidth;
+        } else {
+            action = ShipyardModular.configuration(menu.inspected()) != null
+                    ? MODULAR_ACTIONS[chosen]
+                    : vesselKind() == 2 ? SHIP_ACTIONS[chosen] : RAFT_ACTIONS[chosen];
+        }
         minecraft.gameMode.handleInventoryButtonClick(menu.containerId, action);
     }
 
