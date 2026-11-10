@@ -262,7 +262,7 @@ public final class ShipHullV9 {
             level.removeBlockEntity(pos);
             positions.add(pos);
         }
-        positions.sort(Comparator.comparingInt(BlockPos::getY).reversed());
+        positions.sort(Comparator.comparingInt((BlockPos pos) -> pos.getY()).reversed());
         for (BlockPos pos : positions)
             level.setBlock(pos, pos.getY() == anchor.getY()
                     ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), UPDATE);
