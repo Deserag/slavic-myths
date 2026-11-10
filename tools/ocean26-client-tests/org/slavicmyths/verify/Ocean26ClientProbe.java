@@ -488,10 +488,12 @@ public final class Ocean26ClientProbe {
         int frame = tick % 25;
         double[][] stations = MODULAR_VISUAL
                 ? new double[][]{{0D, 21D, 6D}, {16D, 0D, 6D},
-                        {0D, -21D, 6D}, {-16D, 0D, 6D}, {0D, 30D, 10D}}
+                        {0D, -21D, 6D}, {-16D, 0D, 6D}, {0D, 30D, 10D},
+                        {0D, -7D, 0D}, {0D, -11D, 5D}}
                 : new double[][]{{0D, 11D, 3D}, {11D, 0D, 3D},
                         {0D, -11D, 3D}, {-11D, 0D, 3D}, {0D, 20D, 6D}};
-        String[] names = {"bow", "starboard", "stern", "port", "distance"};
+        String[] names = {"bow", "starboard", "stern", "port", "distance",
+                "cabin", "bridge"};
         if (view >= stations.length) {
             finish(mc, true, "visual");
             return;
