@@ -21,7 +21,7 @@ import net.minecraft.world.level.block.LadderBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
@@ -164,10 +164,32 @@ public final class ShipModularBlockHull {
                     || !occupied.add(x + ":" + y + ":" + z)
                     || (kind != 3 && !entry.contains("Data", Tag.TAG_COMPOUND)))
                 return null;
-            result.add(new Cargo(x, y, z, kind, kindState(kind),
+            BlockState state = kindState(kind);
+            if (entry.contains("State", Tag.TAG_COMPOUND)) {
+                CompoundTag properties = entry.getCompound("State");
+                for (Property<?> property : state.getProperties()) {
+                    if (!properties.contains(property.getName(), Tag.TAG_STRING)) return null;
+                    try {
+                        state = withProperty(state, property, properties.getString(property.getName()));
+                    } catch (RuntimeException invalid) { return null; }
+                }
+            }
+            result.add(new Cargo(x, y, z, kind, state,
                     entry.getCompound("Data").copy()));
         }
         return result;
+    }
+
+    private static <T extends Comparable<T>> String stateProperty(
+            BlockState state, Property<T> property) {
+        return property.getName(state.getValue(property));
+    }
+
+    private static <T extends Comparable<T>> BlockState withProperty(
+            BlockState state, Property<T> property, String encoded) {
+        T value = property.getValue(encoded).orElseThrow(
+                () -> new IllegalArgumentException("Invalid cargo block state"));
+        return state.setValue(property, value);
     }
 
     private static ListTag encode(List<Cargo> cargo) {
@@ -178,6 +200,10 @@ public final class ShipModularBlockHull {
             row.putInt("Y", entry.y());
             row.putInt("Z", entry.z());
             row.putInt("Kind", entry.kind());
+            CompoundTag properties = new CompoundTag();
+            for (Property<?> property : entry.state().getProperties())
+                properties.putString(property.getName(), stateProperty(entry.state(), property));
+            row.put("State", properties);
             row.put("Data", entry.data().copy());
             result.add(row);
         }
