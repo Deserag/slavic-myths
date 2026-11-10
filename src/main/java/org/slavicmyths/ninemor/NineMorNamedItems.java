@@ -20,7 +20,7 @@ public final class NineMorNamedItems {
         @Override public void appendHoverText(ItemStack stack, TooltipContext context, java.util.List<Component> lines, net.minecraft.world.item.TooltipFlag flag) {
             lines.add(Component.literal("Постоянный крит ×1.5 (не суммируется с обычным)"));
             lines.add(Component.literal("ПКМ: 4 призрачных копья зависают за спиной и по очереди поражают цель"));
-            lines.add(Component.literal("Shift + ПКМ: круговой удар по врагам"));
+            lines.add(Component.literal("Shift + ПКМ: вращающиеся копья наносят круговой удар"));
         }
     }
     public static final class Axe extends AxeItem {
@@ -28,8 +28,8 @@ public final class NineMorNamedItems {
         @Override public Component getName(ItemStack stack) { return Component.translatableWithFallback("item.slavicmyths.nine_mor_axe", "Секира Погибели"); }
         @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {return NineMorRewardAbilities.axe(level,player,hand);}
         @Override public void appendHoverText(ItemStack stack, TooltipContext context, java.util.List<Component> lines, net.minecraft.world.item.TooltipFlag flag) {
-            lines.add(Component.literal("ПКМ: Разлом Мора — удар по линии"));
-            lines.add(Component.literal("Shift + ПКМ: Последний приговор (цель ≤35% здоровья)"));
+            lines.add(Component.literal("ПКМ: Разлом Мора — движущаяся ударная волна с иссушением"));
+            lines.add(Component.literal("Shift + ПКМ: Последний приговор — падение призрачной секиры (цель ≤35% здоровья)"));
         }
     }
     public static final class Shield extends ShieldItem {
@@ -38,7 +38,7 @@ public final class NineMorNamedItems {
         @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {InteractionResultHolder<ItemStack> dome=NineMorRewardAbilities.shield(level,player,hand);return dome==null?super.use(level,player,hand):dome;}
         @Override public void appendHoverText(ItemStack stack, TooltipContext context, java.util.List<Component> lines, net.minecraft.world.item.TooltipFlag flag) {
             lines.add(Component.literal("Девятый заслон — временное поглощение при блокировании"));
-            lines.add(Component.literal("Shift + ПКМ: Змеиный купол — защита на 6 секунд"));
+            lines.add(Component.literal("Shift + ПКМ: Змеиный купол — 3D-щитовой барьер на 6 секунд"));
         }
     }
     public static final class Amulet extends Item implements top.theillusivec4.curios.api.type.capability.ICurioItem {

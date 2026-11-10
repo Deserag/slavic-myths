@@ -30,6 +30,12 @@ public final class NineMorContent {
                 .sized(.42F, .42F).clientTrackingRange(18).updateInterval(1)
                 .build("slavicmyths:nine_mor_shot"));
 
+    /** Short-lived tracked skill choreography; each attack uses the actual 3D weapon model. */
+    public static final DeferredHolder<EntityType<?>, EntityType<NineMorSkillEffect>> SKILL =
+        ModEntities.ENTITIES.register("nine_mor_skill_effect", () ->
+            EntityType.Builder.<NineMorSkillEffect>of(NineMorSkillEffect::new,MobCategory.MISC)
+                .sized(.3F,.3F).clientTrackingRange(18).updateInterval(1).build("slavicmyths:nine_mor_skill_effect"));
+
     /** No spawn egg; the late-game seal is crafted using Viy and Morovoy boss rewards. */
     public static final DeferredHolder<Item, Item> SEAL =
         ModItems.ITEMS.register("pechat_devyati_morov", () ->

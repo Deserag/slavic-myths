@@ -55,18 +55,11 @@ public final class NineMorRewardAbilities {
   if(!(player instanceof ServerPlayer server))return InteractionResultHolder.consume(stack);
   if(server.getCooldowns().isOnCooldown(stack.getItem()))return InteractionResultHolder.fail(stack);
   if(server.isShiftKeyDown()){
-   int hit=0;
-   for(LivingEntity target:server.serverLevel().getEntitiesOfClass(LivingEntity.class,server.getBoundingBox().inflate(4.3D),e->eligible(server,e)&&e.distanceToSqr(server)<=20D)){
-    if(target.hurt(server.damageSources().playerAttack(server),10F)){
-     NineMorSerpent.applyElement(target,(hit++%9));
-     Vec3 delta=target.position().subtract(server.position());
-     if(delta.horizontalDistanceSqr()>.01D)target.knockback(.55D,-delta.x,-delta.z);
-    }
-    if(hit>=12)break;
-   }
-   if(hit==0)return InteractionResultHolder.fail(stack);
+   boolean nearby=!server.serverLevel().getEntitiesOfClass(LivingEntity.class,server.getBoundingBox().inflate(4.3D),
+       e->eligible(server,e)&&e.distanceToSqr(server)<=20D).isEmpty();
+   if(!nearby)return InteractionResultHolder.fail(stack);
+   NineMorSkillEffect.spawn(server,NineMorSkillEffect.SWEEP,null);
    server.getCooldowns().addCooldown(stack.getItem(),125);
-   server.serverLevel().sendParticles(MOR,server.getX(),server.getY()+1D,server.getZ(),32,2D,.55D,2D,.025D);
    server.playSound(SoundEvents.PLAYER_ATTACK_SWEEP,1.2F,.65F);
    return InteractionResultHolder.consume(stack);
   }
@@ -104,28 +97,12 @@ public final class NineMorRewardAbilities {
     best=target;bestDistance=forward;
    }
    if(best==null||best.getHealth()>best.getMaxHealth()*.35F)return InteractionResultHolder.fail(stack);
-   best.hurt(server.damageSources().playerAttack(server),Math.min(55F,best.getMaxHealth()*.28F));
-   best.addEffect(new MobEffectInstance(MobEffects.WITHER,90,1));
-   server.serverLevel().sendParticles(MOR,best.getX(),best.getY()+1,best.getZ(),36,.9D,1D,.9D,.055D);
+   NineMorSkillEffect.spawn(server,NineMorSkillEffect.EXECUTION,best);
    server.getCooldowns().addCooldown(stack.getItem(),300);
    server.playSound(SoundEvents.WITHER_BREAK_BLOCK,1.0F,.65F);
    return InteractionResultHolder.consume(stack);
   }
-  int hit=0;
-  for(LivingEntity target:server.serverLevel().getEntitiesOfClass(LivingEntity.class,server.getBoundingBox().inflate(12D),e->eligible(server,e))){
-   Vec3 delta=target.position().subtract(server.position());
-   double forward=delta.x*look.x+delta.z*look.z,side=Math.abs(delta.x*look.z-delta.z*look.x);
-   if(forward<1D||forward>11D||side>1.8D||!server.hasLineOfSight(target))continue;
-   if(target.hurt(server.damageSources().playerAttack(server),14F)){
-    target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,80,1));
-    if(++hit>=12)break;
-   }
-  }
-  Vec3 start=server.position().add(0,.15D,0);
-  for(int k=1;k<=11;k++){
-   Vec3 point=start.add(look.scale(k));
-   server.serverLevel().sendParticles(MOR,point.x,point.y,point.z,4,.9D,.15D,.9D,.02D);
-  }
+  NineMorSkillEffect.spawn(server,NineMorSkillEffect.RIFT,null);
   server.getCooldowns().addCooldown(stack.getItem(),175);
   server.playSound(SoundEvents.WITHER_SHOOT,1F,.7F);
   return InteractionResultHolder.consume(stack);
@@ -144,10 +121,7 @@ public final class NineMorRewardAbilities {
   }
   server.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,120,1));
   server.addEffect(new MobEffectInstance(MobEffects.ABSORPTION,120,1));
-  for(int i=0;i<28;i++){
-   double angle=i*Math.PI*2/28D;
-   server.serverLevel().sendParticles(MOR,server.getX()+Math.cos(angle)*4D,server.getY()+.9D,server.getZ()+Math.sin(angle)*4D,2,0,.7D,0,.008D);
-  }
+  NineMorSkillEffect.spawn(server,NineMorSkillEffect.DOME,null);
   server.playSound(SoundEvents.SHIELD_BLOCK,1.1F,.85F);
   return InteractionResultHolder.consume(stack);
  }
