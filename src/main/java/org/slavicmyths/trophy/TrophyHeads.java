@@ -37,7 +37,9 @@ public final class TrophyHeads {
   DeferredHolder<Block,Block> b=k==Kind.ZHARENITSA?org.slavicmyths.blackcinder.CinderBlocks.ALL.get(k.id):ModBlocks.BLOCKS.register(k.id,()->new TrophyHeadBlock(k));BLOCKS.put(k,b);
   if(k==Kind.ZHARENITSA){ITEMS.put(k,org.slavicmyths.blackcinder.CinderBlocks.ITEMS.get(k.id));continue;}
   if(k==Kind.MOROVOY_FIRE_ZMEY){ITEMS.put(k,ModItems.MOROVOY_FIRE_ZMEY_HEAD);continue;}
-  ITEMS.put(k,ModItems.ITEMS.register(k.id,()->new BlockItem(b.get(),k==Kind.MAGMA_LORD?new Item.Properties().rarity(Rarity.EPIC).fireResistant():new Item.Properties().rarity(Rarity.EPIC))));
+  ITEMS.put(k,ModItems.ITEMS.register(k.id,()->new BlockItem(b.get(),k==Kind.MAGMA_LORD?new Item.Properties().rarity(Rarity.EPIC).fireResistant():new Item.Properties().rarity(Rarity.EPIC)){
+   @Override public net.minecraft.network.chat.Component getName(ItemStack stack){return k==Kind.NINE_MOR_SERPENT?net.minecraft.network.chat.Component.translatableWithFallback(getDescriptionId(),"Голова Высшего Морового Змея"):super.getName(stack);}
+  }));
  }}
  public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<TrophyHeadBlock.Tile>> TILE=ModTiles.TILES.register("trophy_head",()->BlockEntityType.Builder.of(TrophyHeadBlock.Tile::new,BLOCKS.values().stream().map(DeferredHolder::get).toArray(Block[]::new)).build(null));
  public static void init(){}
