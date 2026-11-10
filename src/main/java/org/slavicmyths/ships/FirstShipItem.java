@@ -31,8 +31,14 @@ public final class FirstShipItem extends Item {
                 try {
                     ShipBuildConfiguration blueprint = ShipBuildConfiguration.load(
                             pack.getCompound(ShipBuildConfiguration.NBT_KEY));
-                    return Component.literal("Деревянный корабль " + blueprint.width()
-                            + "×" + blueprint.length() + " (" + blueprint.shipClass() + ")");
+                    String className = switch (blueprint.shipClass()) {
+                        case SMALL -> "малый";
+                        case MEDIUM -> "средний";
+                        case LARGE -> "большой";
+                        case LARGEST -> "крупнейший";
+                    };
+                    return Component.literal("Корабль " + blueprint.width()
+                            + "×" + blueprint.length() + " — " + className);
                 } catch (RuntimeException ignored) {}
             }
         }
@@ -41,6 +47,15 @@ public final class FirstShipItem extends Item {
 
     @Override public void appendHoverText(ItemStack stack, TooltipContext context,
             java.util.List<Component> lines, net.minecraft.world.item.TooltipFlag flag) {
+        ShipBuildConfiguration modular = ShipyardModular.configuration(stack);
+        if (modular != null) {
+            lines.add(Component.literal("Палубы: " + modular.decks()
+                    + " | Мачты: " + modular.sailTiers().size()
+                    + " | Паруса: " + modular.sailTiers()));
+            lines.add(Component.literal("ПКМ по штурвалу на корме: W/S — ход, A/D — руль"));
+            lines.add(Component.literal("Shift — выйти; улучшения — в корабельной верфи"));
+            return;
+        }
         lines.add(Component.literal("Два этажа: обычные деревянные блоки и сухой трюм"));
         lines.add(Component.literal("Руль: ПКМ по штурвалу на корме; Shift — выход на палубу"));
         lines.add(Component.literal("Базовый парус установлен; улучшения: корабельный верстак → «Модификации»."));
@@ -101,7 +116,7 @@ public final class FirstShipItem extends Item {
         else if (held.has(net.minecraft.core.component.DataComponents.CUSTOM_DATA))
             held.remove(net.minecraft.core.component.DataComponents.CUSTOM_DATA);
         player.displayClientMessage(Component.literal(
-                "Корабль установлен. Блоки настоящие: палуба и трюм имеют обычную физику."), true);
+                "Корабль установлен. ПКМ по штурвалу на корме — управление W/S и A/D; Shift — выход."), true);
         return InteractionResultHolder.sidedSuccess(held, false);
     }
 }

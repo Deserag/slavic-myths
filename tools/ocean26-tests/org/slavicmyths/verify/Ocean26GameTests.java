@@ -262,8 +262,24 @@ public final class Ocean26GameTests {
                 config, ship.pendingBlockCargo()), "Modular world block placement failed");
         t.assertTrue(level.addFreshEntity(ship), "Modular ship entity registration failed");
         ServerPlayer captain = player(level, "ModularCaptain",
-                new Vec3(ship.getX(), ship.deckY(), ship.getZ() + ship.helmSeatZ()));
-        t.assertTrue(captain.startRiding(ship), "Modular captain could not operate wheel");
+                new Vec3(ship.getX(), ship.getY() + ship.helmSeatHeight(),
+                        ship.getZ() + ship.helmSeatZ() + 1.25D));
+
+        BlockPos physicalWheel = FirstShipBlockHull.world(ship.blockAnchor(),
+                ship.quarterTurns(), 0, (int)ship.helmSeatHeight(), (int)ship.helmWheelZ());
+        t.assertTrue(level.getBlockState(physicalWheel).is(Blocks.DARK_OAK_FENCE),
+                "Modular wheel is not at the expected block position");
+        t.assertTrue(!ship.tryHelmFromBlock(captain, physicalWheel.offset(2, 0, 0)),
+                "Arbitrary railing must not activate the helm");
+        var helmClick = new net.neoforged.neoforge.event.entity.player
+                .PlayerInteractEvent.RightClickBlock(captain,
+                        net.minecraft.world.InteractionHand.MAIN_HAND, physicalWheel,
+                        new net.minecraft.world.phys.BlockHitResult(
+                                Vec3.atCenterOf(physicalWheel), net.minecraft.core.Direction.UP,
+                                physicalWheel, false));
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.post(helmClick);
+        t.assertTrue(helmClick.isCanceled() && captain.getVehicle() == ship,
+                "Real NeoForge right-click on the wheel failed to board the captain");
         ServerPlayer upperWalker = player(level, "ModularUpperWalker",
                 new Vec3(ship.getX() + 2D, ship.getY() + 9.02D, ship.getZ()));
         ServerPlayer bridgeWalker = player(level, "ModularBridgeWalker",
@@ -362,8 +378,20 @@ public final class Ocean26GameTests {
                 level, anchor, 0, config, new ListTag()), type + " placement failed");
         t.assertTrue(level.addFreshEntity(ship), type + " entity did not spawn");
         ServerPlayer captain = player(level, type + "VoyageCaptain",
-                new Vec3(ship.getX(), ship.deckY(), ship.getZ() + ship.helmSeatZ()));
-        t.assertTrue(captain.startRiding(ship), type + " captain could not board");
+                new Vec3(ship.getX(), ship.getY() + ship.helmSeatHeight(),
+                        ship.getZ() + ship.helmSeatZ() + 1.25D));
+        BlockPos helm = FirstShipBlockHull.world(ship.blockAnchor(),
+                ship.quarterTurns(), 0, (int)ship.helmSeatHeight(), (int)ship.helmWheelZ());
+        t.assertTrue(level.getBlockState(helm).is(Blocks.DARK_OAK_FENCE),
+                type + " expected physical helm block not found");
+        var wheelClick = new net.neoforged.neoforge.event.entity.player
+                .PlayerInteractEvent.RightClickBlock(captain,
+                        net.minecraft.world.InteractionHand.MAIN_HAND, helm,
+                        new net.minecraft.world.phys.BlockHitResult(
+                                Vec3.atCenterOf(helm), net.minecraft.core.Direction.UP, helm, false));
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.post(wheelClick);
+        t.assertTrue(wheelClick.isCanceled() && captain.getVehicle() == ship,
+                type + " physical helm interaction failed to board captain");
         double startZ = ship.getZ();
         t.runAtTickTime(5L, () -> t.assertTrue(
                 ship.helmStep(captain, FirstShipNetwork.FORWARD),

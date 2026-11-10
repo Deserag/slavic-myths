@@ -35,6 +35,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
@@ -644,21 +645,50 @@ public final class FirstShipEntity extends Boat {
      * interaction range targets only its ~3-block core. A validated action
      * allows the actual painted helm to be used from its stern position.
      */
+    /** Exact physical modular helm block click, validated on the server. */
+    public boolean tryHelmFromBlock(ServerPlayer player, BlockPos clicked) {
+        if (player == null || clicked == null || player.level() != level()
+                || !isNativeHull() || isMoving() || isRemoved()
+                || modularConfiguration() == null || isVehicle()
+                || player.isPassenger() || player.isSpectator()
+                || player.isSecondaryUseActive()) return false;
+        BlockPos expected = FirstShipBlockHull.world(blockAnchor(), quarterTurns(),
+                0, (int)helmSeatHeight(), (int)helmWheelZ());
+        if (!expected.equals(clicked)
+                || !level().getBlockState(expected).is(Blocks.DARK_OAK_FENCE)
+                || player.distanceToSqr(Vec3.atCenterOf(expected)) > 36D
+                || Math.abs(player.getY() - (getY() + helmSeatHeight())) > 2.4D) return false;
+        if (!player.startRiding(this)) return false;
+        positionRider(player);
+        player.displayClientMessage(Component.literal(
+                "Штурвал захвачен: W/S — ход, A/D — поворот, Shift — сойти"), true);
+        return true;
+    }
+
     public boolean tryHelm(ServerPlayer player) {
         if (isVehicle() || player.isPassenger() || player.isSpectator()) return false;
         FirstShipHull.Point local = FirstShipHull.toLocal(
-                player.getX(), player.getZ(), getX(), getZ(), getYRot());
+                player.getX(), player.getZ(), getX(), getZ(), shipYaw());
         if (Math.abs(local.x()) > 1.65D
                 || Math.abs(local.z() - helmSeatZ()) > 1.7D
                 || Math.abs(player.getY() - (getY() + helmSeatHeight())) > .9D) return false;
         FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, helmWheelZ(),
-                getX(), getZ(), getYRot());
-        Vec3 aim = new Vec3(wheel.x(), getY() + helmSeatHeight() + 1.78D, wheel.z())
+                getX(), getZ(), shipYaw());
+        Vec3 ring = new Vec3(wheel.x(), getY() + helmSeatHeight() + 1.78D, wheel.z())
                 .subtract(player.getEyePosition());
-        if (aim.lengthSqr() < .09D || aim.lengthSqr() > 25D
-                || aim.normalize().dot(player.getLookAngle()) < .30D) return false;
+        Vec3 post = new Vec3(wheel.x(), getY() + helmSeatHeight() + .58D, wheel.z())
+                .subtract(player.getEyePosition());
+        boolean aimsRing = ring.lengthSqr() >= .09D && ring.lengthSqr() <= 25D
+                && ring.normalize().dot(player.getLookAngle()) >= .30D;
+        boolean aimsPost = post.lengthSqr() >= .09D && post.lengthSqr() <= 25D
+                && post.normalize().dot(player.getLookAngle()) >= .30D;
+        if (!aimsRing && !aimsPost) return false;
         boolean mounted = player.startRiding(this);
-        if (mounted) positionRider(player);
+        if (mounted) {
+            positionRider(player);
+            player.displayClientMessage(Component.literal(
+                    "Штурвал захвачен: W/S — ход, A/D — поворот, Shift — сойти"), true);
+        }
         return mounted;
     }
 

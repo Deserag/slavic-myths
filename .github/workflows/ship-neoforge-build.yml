@@ -5,12 +5,17 @@ on:
     branches:
       - 'feature/2.6-ship-superstructures-20261110'
       - 'feature/2.6-full-modular-ships-20261110'
+      - 'feature/2.6-shipyard-ui-rework-20261110'
+      - 'fix/2.6-shipyard-helm-ui-20261110'
     paths:
       - 'src/main/java/org/slavicmyths/ships/**'
+      - 'tools/ocean26-tests/**'
       - 'build.gradle'
       - '.github/workflows/ship-neoforge-build.yml'
   pull_request:
     branches:
+      - 'integration/2.6-modular-ships-20261110'
+      - 'feature/2.6-shipyard-ui-rework-20261110'
       - 'feature/2.6-shipyard-hull-modifications-20261110'
       - 'feature/2.6-ship-superstructures-20261110'
   workflow_dispatch:

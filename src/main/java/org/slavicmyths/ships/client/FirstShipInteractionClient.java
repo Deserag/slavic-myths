@@ -32,17 +32,20 @@ public final class FirstShipInteractionClient {
         FirstShipEntity selected = null;
         int action = 0;
         double nearest = Double.POSITIVE_INFINITY;
+        // The old 12-block scan never reached the helm of a 25x45 hull.
+        // Candidate ships are still independently validated by helm reach and
+        // the authoritative server before a command can mount the player.
         for (FirstShipEntity ship : mc.level.getEntitiesOfClass(
-                FirstShipEntity.class, mc.player.getBoundingBox().inflate(12D, 9D, 12D))) {
+                FirstShipEntity.class, mc.player.getBoundingBox().inflate(42D, 26D, 42D))) {
             if (ship.isRemoved() || (!ship.isNativeHull() && !(mc.player.isShiftKeyDown() && key))) continue;
             FirstShipHull.Point at = FirstShipHull.toLocal(mc.player.getX(), mc.player.getZ(),
-                    ship.getX(), ship.getZ(), ship.getYRot());
+                    ship.getX(), ship.getZ(), ship.shipYaw());
             if (mc.player.isShiftKeyDown() && key) {
                 if (mc.player.distanceToSqr(ship) > 160D) continue;
                 for (double step = .2D; step <= 5D; step += .2D) {
                     Vec3 probe = eye.add(direction.scale(step));
                     FirstShipHull.Point hit = FirstShipHull.toLocal(
-                            probe.x, probe.z, ship.getX(), ship.getZ(), ship.getYRot());
+                            probe.x, probe.z, ship.getX(), ship.getZ(), ship.shipYaw());
                     if (FirstShipHull.withinHull(hit.x(), hit.z(), .05D)
                             && probe.y >= ship.holdY() - .3D && probe.y <= ship.deckY() + 2D
                             && step * step < nearest) {
@@ -54,10 +57,10 @@ public final class FirstShipInteractionClient {
             }
             if (ship.isMoving() && !ship.movingCargoView().isBlank()) {
                 FirstShipHull.Point start = FirstShipHull.toLocal(eye.x, eye.z,
-                        ship.getX(), ship.getZ(), ship.getYRot());
+                        ship.getX(), ship.getZ(), ship.shipYaw());
                 Vec3 endWorld = eye.add(direction.scale(5D));
                 FirstShipHull.Point end = FirstShipHull.toLocal(endWorld.x, endWorld.z,
-                        ship.getX(), ship.getZ(), ship.getYRot());
+                        ship.getX(), ship.getZ(), ship.shipYaw());
                 Vec3 localEye = new Vec3(start.x(), eye.y - ship.getY(), start.z());
                 Vec3 localEnd = new Vec3(end.x(), endWorld.y - ship.getY(), end.z());
                 String[] cargo = ship.movingCargoView().split(";");
@@ -83,15 +86,23 @@ public final class FirstShipInteractionClient {
                     }
                 }
             }
-            if (Math.abs(mc.player.getY() - ship.deckY()) < .95D
+            // Use the same live helm geometry as the server: never infer a
+            // modular captain station from the legacy 7x11 hard-coded wheel.
+            double helmZ = ship.helmSeatZ(), helmY = ship.getY() + ship.helmSeatHeight();
+            if (Math.abs(mc.player.getY() - helmY) < 1.3D
                     && Math.abs(at.x()) < 1.8D
-                    && Math.abs(at.z() - FirstShipHull.HELM_Z) < 1.8D) {
-                FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, -4D,
-                        ship.getX(), ship.getZ(), ship.getYRot());
-                Vec3 aim = new Vec3(wheel.x(), ship.deckY() + 1.78D, wheel.z()).subtract(eye);
-                if (aim.lengthSqr() > .1D && aim.lengthSqr() < 25D
-                        && aim.normalize().dot(direction) > .35D && aim.lengthSqr() < nearest) {
-                    selected = ship; action = FirstShipNetwork.HELM; nearest = aim.lengthSqr();
+                    && Math.abs(at.z() - helmZ) < 1.8D) {
+                FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, ship.helmWheelZ(),
+                        ship.getX(), ship.getZ(), ship.shipYaw());
+                Vec3 ring = new Vec3(wheel.x(), helmY + 1.78D, wheel.z()).subtract(eye);
+                Vec3 post = new Vec3(wheel.x(), helmY + .58D, wheel.z()).subtract(eye);
+                boolean aimsRing = ring.lengthSqr() > .09D && ring.lengthSqr() < 25D
+                        && ring.normalize().dot(direction) > .30D;
+                boolean aimsPost = post.lengthSqr() > .09D && post.lengthSqr() < 25D
+                        && post.normalize().dot(direction) > .30D;
+                double distance = Math.min(ring.lengthSqr(), post.lengthSqr());
+                if ((aimsRing || aimsPost) && distance < nearest) {
+                    selected = ship; action = FirstShipNetwork.HELM; nearest = distance;
                 }
             }
             if (action == FirstShipNetwork.HELM) continue;
@@ -104,7 +115,7 @@ public final class FirstShipInteractionClient {
                 Vec3 probe = eye.add(direction.scale(step));
                 if (probe.y < ship.getY() || probe.y > ship.deckY() + .2D) continue;
                 FirstShipHull.Point hit = FirstShipHull.toLocal(
-                        probe.x, probe.z, ship.getX(), ship.getZ(), ship.getYRot());
+                        probe.x, probe.z, ship.getX(), ship.getZ(), ship.shipYaw());
                 if (FirstShipHull.withinHull(hit.x(), hit.z(), .1D) && step * step < nearest) {
                     selected = ship; action = FirstShipNetwork.BOARD; nearest = step * step;
                     break;
