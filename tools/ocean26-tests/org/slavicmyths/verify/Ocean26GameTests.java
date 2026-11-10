@@ -417,8 +417,8 @@ public final class Ocean26GameTests {
     public static void allFourModularClassesPlacePackAndRestore(GameTestHelper t) {
         ServerLevel level = t.getLevel();
         BlockPos anchor = t.absolutePos(new BlockPos(24, 4, 24));
-        for (int x = -18; x <= 18; x++)
-            for (int z = -24; z <= 24; z++) {
+        for (int x = -25; x <= 25; x++)
+            for (int z = -25; z <= 25; z++) {
                 BlockPos pos = anchor.offset(x, 0, z);
                 level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
                 level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
@@ -471,10 +471,13 @@ public final class Ocean26GameTests {
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.rebuild(level,
                     anchor, 0, maximum, movedAnchor, 0, maximum),
                     type + " maximum hull could not advance with real blocks");
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.rebuild(level,
+                    movedAnchor, 0, maximum, movedAnchor, 1, maximum),
+                    type + " maximum hull could not turn with real blocks");
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.pack(level,
-                    movedAnchor, 0, maximum) != null, type + " maximum hull packing failed");
+                    movedAnchor, 1, maximum) != null, type + " maximum hull packing failed");
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
-                    movedAnchor, 0, maximum), type + " maximum hull removal failed");
+                    movedAnchor, 1, maximum), type + " maximum hull removal failed");
         }
         menu.removed(builder);
         builder.discard();
