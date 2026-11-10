@@ -27,6 +27,7 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install matplotlib pillow
       - run: python tools/validate_25_assets.py --preview
+      - run: python tools/validate_visual_25.py --preview
       - run: python tools/preview_25_bows.py
       - run: python tools/preview_25_equipped.py
       - run: python tools/generate_sister_artifacts_2d.py --preview
@@ -41,5 +42,6 @@ jobs:
             build/bow-25-previews/
             build/equipped-25-previews/
             build/sisters-artifact-25-previews/
+            build/visual-25-previews/
           if-no-files-found: warn
       - run: chmod +x ./gradlew && ./gradlew clean build --no-daemon --stacktrace
