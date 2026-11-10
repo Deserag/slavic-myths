@@ -265,11 +265,17 @@ public final class Ocean26GameTests {
             var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type);
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
                     anchor, 0, config, new ListTag()), type + " placement failed");
+            BlockPos outsideBow = FirstShipBlockHull.world(anchor, 0,
+                    config.width() / 2, 5, config.length() / 2);
+            level.setBlock(outsideBow, Blocks.STONE.defaultBlockState(), 2);
             ListTag cargo = org.slavicmyths.ships.ShipModularBlockHull.pack(level,
                     anchor, 0, config);
             t.assertTrue(cargo != null && cargo.isEmpty(), type + " packing failed");
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
                     anchor, 0, config), type + " removal failed");
+            t.assertTrue(level.getBlockState(outsideBow).is(Blocks.STONE),
+                    type + " removal touched an unrelated bow-side block");
+            level.setBlock(outsideBow, Blocks.AIR.defaultBlockState(), 2);
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
                     anchor, 0, config, cargo), type + " restoration failed");
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,

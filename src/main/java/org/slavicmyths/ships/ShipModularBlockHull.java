@@ -143,13 +143,16 @@ public final class ShipModularBlockHull {
                 return null;
         }
         List<Cargo> cargo = new ArrayList<>();
+        ShipSuperstructurePlan structure = config.structure();
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cargoPlan =
-                ShipHullVoxelLayout.generate(config.structure());
+                ShipHullVoxelLayout.generate(structure);
         int halfWidth = config.width() / 2, halfLength = config.length() / 2;
         int maxY = Math.max(24, 4 + config.decks() * 4);
         for (int z = -halfLength; z <= halfLength; z++)
             for (int x = -halfWidth; x <= halfWidth; x++)
                 for (int y = 1; y <= maxY; y++) {
+                    if (Math.abs(x) > ShipHullVoxelLayout.halfBeam(structure, z))
+                        continue;
                     BlockPos world = FirstShipBlockHull.world(anchor, turns, x, y, z);
                     if (!level.hasChunkAt(world)) return null;
                     if (source.containsKey(world)) continue;
