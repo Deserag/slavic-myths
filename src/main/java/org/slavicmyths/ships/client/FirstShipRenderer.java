@@ -80,7 +80,25 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             }
         }
         try {
-            if (config != null) cachedPalette = ShipModularBlockHull.localMotionPalette(config, cargo);
+            if (config != null) {
+                Map<BlockPos, BlockState> visual = new java.util.LinkedHashMap<>(
+                        ShipModularBlockHull.localPalette(config));
+                for (int i = 0; i < cargo.size(); i++) {
+                    CompoundTag entry = cargo.getCompound(i);
+                    int x = entry.getInt("X"), y = entry.getInt("Y"), z = entry.getInt("Z");
+                    if (Math.abs(x) > config.width() / 2 || y < 1 || y > 24
+                            || Math.abs(z) > config.length() / 2) continue;
+                    BlockState state = switch (entry.getInt("Kind")) {
+                        case 1 -> Blocks.CHEST.defaultBlockState();
+                        case 2 -> Blocks.BARREL.defaultBlockState();
+                        case 3 -> Blocks.CRAFTING_TABLE.defaultBlockState();
+                        case 4 -> Blocks.FURNACE.defaultBlockState();
+                        default -> Blocks.AIR.defaultBlockState();
+                    };
+                    if (!state.isAir()) visual.putIfAbsent(new BlockPos(x, y, z), state);
+                }
+                cachedPalette = java.util.Collections.unmodifiableMap(visual);
+            }
             else {
                 var snapshot = new FirstShipBlockHull.MotionSnapshot(cargo,
                         ship.geometryVersion(), ship.rigLevel(), ship.fabricQuality(), 0);
