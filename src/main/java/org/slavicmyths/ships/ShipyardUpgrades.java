@@ -355,7 +355,10 @@ public final class ShipyardUpgrades {
         out.putInt("RigLevel", newLevel);
         out.putInt("FabricQuality", newFabric);
         if (!out.contains("Modules", Tag.TAG_LIST)) out.put("Modules", new ListTag());
-        if (!out.contains("GeometryVersion", Tag.TAG_INT)) out.putInt("GeometryVersion", 5);
+        if (!out.contains("GeometryVersion", Tag.TAG_INT))
+            out.putInt("GeometryVersion", 8);
+        else if (out.getInt("GeometryVersion") == 7 && action >= 20 && action <= 22)
+            out.putInt("GeometryVersion", 8);
         root.put("FirstShipPack", out);
         ItemStack modified = original.copy();
         modified.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
