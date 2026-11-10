@@ -9,7 +9,7 @@ $Repo = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 Push-Location $Repo
 try {
     if (-not $BuildOnly) {
-    $changes = @(git status --porcelain)
+    $changes = @(git status --porcelain --untracked-files=no)
     if ($LASTEXITCODE -ne 0) { throw 'Git repository cannot be inspected.' }
     if ($changes.Count -gt 0 -and ($changes -join '').Trim()) {
         throw 'Uncommitted changes found. Commit or stash them before switching branches.'
