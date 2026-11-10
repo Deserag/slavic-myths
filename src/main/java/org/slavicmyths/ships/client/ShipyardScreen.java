@@ -13,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.slavicmyths.ships.FirstShipItem;
+import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.FirstShipHull;
 import org.slavicmyths.ships.RaftCharacteristics;
 import org.slavicmyths.ships.RaftContent;
@@ -61,6 +62,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     private int selectedLength;
     private int selectedWidth;
     private int lastKind = -1;
+    private String lastSelectedShip = "";
     private Button primary;
 
     public ShipyardScreen(ShipyardMenu menu, Inventory inventory, Component title) {
@@ -77,6 +79,18 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 : stack.getItem() instanceof RaftItem ? 1 : 0;
     }
 
+    private ShipBuildConfiguration currentConfig() {
+        ShipBuildConfiguration packed = ShipyardModular.configuration(menu.inspected());
+        if (packed != null || !menu.inspected().isEmpty()
+                || minecraft == null || minecraft.player == null) return packed;
+        var candidates = minecraft.player.level().getEntitiesOfClass(
+                FirstShipEntity.class,
+                new net.minecraft.world.phys.AABB(menu.shipyardPosition()).inflate(30D, 18D, 30D),
+                ship -> ship.isNativeHull() && !ship.isRemoved() && !ship.isMoving()
+                        && !ship.isVehicle() && ship.modularConfiguration() != null);
+        return candidates.size() == 1 ? candidates.get(0).modularConfiguration() : null;
+    }
+
     private ShipBuildConfiguration creationConfig() {
         if (createRafts || chosen < 0 || chosen >= 4) return null;
         try {
@@ -87,7 +101,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     }
 
     private ShipBuildConfiguration nextConfig() {
-        ShipBuildConfiguration current = ShipyardModular.configuration(menu.inspected());
+        ShipBuildConfiguration current = currentConfig();
         if (current == null || chosen < 0 || chosen >= MODULAR_ACTIONS.length) return null;
         try {
             return switch (MODULAR_ACTIONS[chosen]) {
@@ -134,7 +148,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     .bounds(leftPos + 18, topPos + 64, 135, 18).build());
         }
 
-        ShipBuildConfiguration current = ShipyardModular.configuration(menu.inspected());
+        ShipBuildConfiguration current = currentConfig();
         String[] options = tab == 0
                 ? createRafts ? VESSELS : CLASS_NAMES
                 : current != null ? MODULAR_OPTIONS
@@ -191,7 +205,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             if (createRafts) action = CRAFT_ACTIONS[chosen];
             else action = 100 + chosen * 16 + selectedLength * 4 + selectedWidth;
         } else {
-            action = ShipyardModular.configuration(menu.inspected()) != null
+            action = currentConfig() != null
                     ? MODULAR_ACTIONS[chosen]
                     : vesselKind() == 2 ? SHIP_ACTIONS[chosen] : RAFT_ACTIONS[chosen];
         }
@@ -241,7 +255,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
 
     private List<Cost> costs() {
         List<Cost> list = new ArrayList<>();
-        ShipBuildConfiguration built = ShipyardModular.configuration(menu.inspected());
+        ShipBuildConfiguration built = currentConfig();
         if (tab == 0 && !createRafts) {
             ShipBuildConfiguration selected = creationConfig();
             if (selected != null) addModularCosts(list, ShipyardModular.costs(null, selected));
@@ -308,12 +322,12 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     private boolean allowed() {
         if (minecraft == null || minecraft.player == null) return false;
         if (tab == 0 && !menu.inspected().isEmpty()) return false;
-        if (tab == 1 && vesselKind() == 0) return false;
+        if (tab == 1 && vesselKind() == 0 && currentConfig() == null) return false;
         if (!minecraft.player.getAbilities().instabuild)
             for (Cost cost : costs()) if (cost.have() < cost.need()) return false;
 
         if (tab == 0) return createRafts || creationConfig() != null;
-        ShipBuildConfiguration modular = ShipyardModular.configuration(menu.inspected());
+        ShipBuildConfiguration modular = currentConfig();
         if (modular != null) {
             ShipBuildConfiguration next = nextConfig();
             return next != null && !next.equals(modular);
@@ -353,7 +367,14 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     @Override protected void containerTick() {
         super.containerTick();
         int kind = vesselKind();
-        if (lastKind != kind) { lastKind = kind; chosen = 0; rebuild(); }
+        ShipBuildConfiguration shown = currentConfig();
+        String key = shown == null ? "" : shown.wire();
+        if (lastKind != kind || !key.equals(lastSelectedShip)) {
+            lastKind = kind;
+            lastSelectedShip = key;
+            chosen = 0;
+            rebuild();
+        }
         updateButton();
     }
 
@@ -379,11 +400,11 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         graphics.drawString(font, "Корабельная верфь", 14, 43, 0xfff8e1b5, false);
         graphics.drawString(font, tab == 0 ? "Чертежи судов" : "Установите судно", 18, 54,
                 0xfff2dfbd, false);
-        ShipBuildConfiguration current = ShipyardModular.configuration(menu.inspected());
+        ShipBuildConfiguration current = currentConfig();
         graphics.drawString(font, tab == 0
                 ? createRafts ? VESSELS[chosen] : CLASS_NAMES[chosen]
-                : vesselKind() == 0 ? "Сначала положите судно в ячейку"
                 : current != null ? MODULAR_OPTIONS[chosen]
+                : vesselKind() == 0 ? "Сначала положите судно в ячейку"
                 : vesselKind() == 2 ? SHIP_OPTIONS[chosen] : RAFT_OPTIONS[chosen],
                 202, 52, DARK, false);
         if (tab == 0 || current != null) drawBlueprint(graphics);
@@ -413,7 +434,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             graphics.drawString(font, "Тяга текущего паруса: " + (int)Math.round(power * 100D) + "% (базовая оснастка)",
                     202, 77, DARK, false);
         }
-        if (tab == 1 && vesselKind() == 0)
+        if (tab == 1 && vesselKind() == 0 && current == null)
             graphics.drawString(font, "Выберите плот или корабль слева.", 202, 85, DARK, false);
         else if (costs().isEmpty()) {
             graphics.drawString(font, tab == 1 ? "Материалы не требуются" :
@@ -443,7 +464,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     private void drawBlueprint(GuiGraphics graphics) {
         final int blue = 0xff368fbd, added = 0xff3caa68, red = 0xffab3232;
         ShipBuildConfiguration previous = tab == 1
-                ? ShipyardModular.configuration(menu.inspected()) : null;
+                ? currentConfig() : null;
         ShipBuildConfiguration next = tab == 0
                 ? creationConfig() : nextConfig();
         if (next == null && previous != null) next = previous;
