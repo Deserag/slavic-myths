@@ -199,7 +199,8 @@ public final class ShipModularBlockHull {
     }
 
     private static boolean clearSpace(ServerLevel level, BlockPos anchor,
-            Map<BlockPos, BlockState> planned, Set<BlockPos> owned) {
+            Map<BlockPos, BlockState> planned, Set<BlockPos> owned,
+            ShipBuildConfiguration config, int turns) {
         for (BlockPos pos : planned.keySet()) {
             if (!level.hasChunkAt(pos) || !level.hasChunkAt(pos.below())) return false;
             if (owned.contains(pos)) continue;
@@ -210,6 +211,19 @@ public final class ShipModularBlockHull {
                         || !level.getFluidState(pos.below()).is(FluidTags.WATER)) return false;
             } else if (!level.getBlockState(pos).isAir()) return false;
         }
+        // Check interior AIR too. A hollow ship must never engulf terrain,
+        // existing buildings or unloaded chunks between its timber supports.
+        int half = config.length() / 2;
+        int maxY = Math.max(24, 4 + config.decks() * 4);
+        for (int z = -half; z <= half; z++)
+            for (int x = -ShipHullVoxelLayout.halfBeam(config.structure(), z);
+                 x <= ShipHullVoxelLayout.halfBeam(config.structure(), z); x++)
+                for (int y = 1; y <= maxY; y++) {
+                    BlockPos p = FirstShipBlockHull.world(anchor, turns, x, y, z);
+                    if (!level.hasChunkAt(p)) return false;
+                    if (!planned.containsKey(p) && !owned.contains(p)
+                            && !level.getBlockState(p).isAir()) return false;
+                }
         return true;
     }
 
@@ -259,7 +273,7 @@ public final class ShipModularBlockHull {
         if (cargo == null) return false;
         Map<BlockPos, BlockState> blocks = worldPalette(config, anchor, turns);
         if (!validateRestore(level, anchor, turns, cargo, blocks)
-                || !clearSpace(level, anchor, blocks, Set.of())) return false;
+                || !clearSpace(level, anchor, blocks, Set.of(), config, turns)) return false;
         for (Cargo entry : cargo) {
             BlockPos pos = FirstShipBlockHull.world(anchor, turns,
                     entry.x(), entry.y(), entry.z());
@@ -299,15 +313,24 @@ public final class ShipModularBlockHull {
         Set<BlockPos> owned = new HashSet<>(source.hull().keySet());
         for (Cargo entry : source.cargo()) owned.add(FirstShipBlockHull.world(
                 oldAnchor, oldTurn, entry.x(), entry.y(), entry.z()));
-        if (!validateRestore(level, target, nextTurn, source.cargo(), targetHull)
-                || !clearSpace(level, target, targetHull, owned)) return false;
+        int rotation = Math.floorMod(nextTurn - oldTurn, 4);
+        List<Cargo> transported = new ArrayList<>();
         for (Cargo entry : source.cargo()) {
+            if (!cargoCell(next, entry.x(), entry.y(), entry.z())) return false;
+            BlockState state = entry.state();
+            for (int n = 0; n < rotation; n++) state = state.rotate(Rotation.CLOCKWISE_90);
+            transported.add(new Cargo(entry.x(), entry.y(), entry.z(),
+                    entry.kind(), state, entry.data()));
+        }
+        if (!validateRestore(level, target, nextTurn, transported, targetHull)
+                || !clearSpace(level, target, targetHull, owned, next, nextTurn)) return false;
+        for (Cargo entry : transported) {
             BlockPos p = FirstShipBlockHull.world(target, nextTurn,
                     entry.x(), entry.y(), entry.z());
             if (!owned.contains(p) && !level.getBlockState(p).isAir()) return false;
         }
         clearBlocks(level, oldAnchor, source.hull(), source.cargo(), oldTurn);
-        return placeBlocks(level, targetHull, source.cargo(), target, nextTurn);
+        return placeBlocks(level, targetHull, transported, target, nextTurn);
     }
 
     private ShipModularBlockHull() {}
