@@ -134,7 +134,8 @@ public final class NineMorRewardAbilities {
 
  public static InteractionResultHolder<ItemStack> shield(Level world,Player player,InteractionHand hand){
   ItemStack stack=player.getItemInHand(hand);
-  if(!(player instanceof ServerPlayer server)||!server.isShiftKeyDown())return null;
+  if(!player.isShiftKeyDown())return null;
+  if(!(player instanceof ServerPlayer server))return InteractionResultHolder.consume(stack);
   long now=server.serverLevel().getGameTime();
   if(now<server.getPersistentData().getLong(DOME))return InteractionResultHolder.fail(stack);
   server.getPersistentData().putLong(DOME,now+300L);
@@ -155,7 +156,7 @@ public final class NineMorRewardAbilities {
  @SubscribeEvent public static void ninthLife(LivingDamageEvent.Pre event){
   if(!(event.getEntity() instanceof ServerPlayer player)||player.isCreative()||player.isSpectator()||event.getNewDamage()<=0)return;
   if(event.getNewDamage()<player.getHealth()+player.getAbsorptionAmount())return;
-  long now=player.server.getLevel(net.minecraft.world.level.Level.OVERWORLD).getGameTime();
+  long now=player.serverLevel().getServer().overworld().getGameTime();
   if(now<player.getPersistentData().getLong(NINTH_LIFE))return;
   boolean equipped=CuriosApi.getCuriosInventory(player)
       .map(inv->inv.findCurios(stack->stack.is(NineMorContent.AMULET.get())).stream()
