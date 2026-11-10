@@ -445,78 +445,107 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         graphics.fill(leftPos, topPos, leftPos + imageWidth, topPos + imageHeight, FRAME);
         graphics.fill(leftPos + 3, topPos + 3, leftPos + imageWidth - 3,
                 topPos + imageHeight - 3, WOOD);
-        graphics.fill(leftPos + 10, topPos + 42, leftPos + 183, topPos + 192, 0xff694e36);
-        graphics.fill(leftPos + 189, topPos + 42, leftPos + 466, topPos + 192, PAPER);
-        graphics.fill(leftPos + 191, topPos + 44, leftPos + 464, topPos + 190, 0xfff0e4c4);
-        graphics.fill(leftPos + 190, topPos + 197, leftPos + 464, topPos + 292, 0xff745335);
+        graphics.fill(leftPos + 10, topPos + 39, leftPos + 184, topPos + 274, 0xff694e36);
+        graphics.fill(leftPos + 190, topPos + 39, leftPos + 466, topPos + 191, PAPER);
+        graphics.fill(leftPos + 192, topPos + 41, leftPos + 464, topPos + 189, 0xfff0e4c4);
+        graphics.fill(leftPos + 190, topPos + 193, leftPos + 466, topPos + 274, 0xff745335);
+        graphics.fill(leftPos + 14, topPos + 238, leftPos + 174, topPos + 271, 0xff38281d);
         for (int row = 0; row < 3; row++)
             for (int col = 0; col < 9; col++)
-                graphics.fill(leftPos + 197 + col * 18, topPos + 210 + row * 18,
-                        leftPos + 215 + col * 18, topPos + 228 + row * 18, 0xff231b14);
+                graphics.fill(leftPos + 197 + col * 18, topPos + 196 + row * 18,
+                        leftPos + 215 + col * 18, topPos + 214 + row * 18, 0xff231b14);
         for (int col = 0; col < 9; col++)
-            graphics.fill(leftPos + 197 + col * 18, topPos + 267,
-                    leftPos + 215 + col * 18, topPos + 285, 0xff231b14);
-        graphics.fill(leftPos + 152, topPos + 64, leftPos + 171, topPos + 83, 0xff241a13);
+            graphics.fill(leftPos + 197 + col * 18, topPos + 253,
+                    leftPos + 215 + col * 18, topPos + 271, 0xff231b14);
+        graphics.fill(leftPos + 152, topPos + 209, leftPos + 171, topPos + 228, 0xff241a13);
+        graphics.fill(leftPos + 15, topPos + 233, leftPos + 173, topPos + 234, 0xffa77f4b);
     }
 
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
-        graphics.drawString(font, "Корабельная верфь", 14, 43, 0xfff8e1b5, false);
-        graphics.drawString(font, tab == 0 ? "Чертежи судов" : "Установите судно", 18, 54,
-                0xfff2dfbd, false);
+        graphics.drawString(font, "Корабельная верфь", 17, 45, 0xfff8e1b5, false);
         ShipBuildConfiguration current = currentConfig();
-        graphics.drawString(font, tab == 0
-                ? createRafts ? VESSELS[chosen] : CLASS_NAMES[chosen]
-                : current != null ? MODULAR_OPTIONS[chosen]
-                : vesselKind() == 0 ? "Сначала положите судно в ячейку"
-                : vesselKind() == 2 ? SHIP_OPTIONS[chosen] : RAFT_OPTIONS[chosen],
-                202, 52, DARK, false);
-        if (tab == 0 || current != null) drawBlueprint(graphics);
-        if (tab == 0 && !createRafts) {
-            graphics.drawString(font, "Длина: +" + selectedLength, 18, 164,
-                    0xfff2dfbd, false);
-            graphics.drawString(font, "Ширина: +" + selectedWidth, 18, 185,
-                    0xfff2dfbd, false);
-        }
-        if (tab == 1 && current != null) {
-            graphics.drawString(font, "Размер: " + current.width() + "×" + current.length()
-                    + "  Палуб: " + current.decks(), 202, 66, DARK, false);
-            graphics.drawString(font, "Мачт: " + current.sailTiers().size()
-                    + "  Мостик: " + (current.bridge() ? "да" : "нет")
-                    + "  Каюта: " + (current.cabin() ? "да" : "нет"),
-                    202, 78, DARK, false);
-        }
-        if (tab == 1 && current == null && vesselKind() == 2) {
-            int level = ShipyardUpgrades.shipRigLevel(menu.inspected());
-            int fabric = ShipyardUpgrades.shipFabric(menu.inspected());
-            graphics.drawString(font, "Оснастка: " + level + "/4     Парус: " + fabric + "/3",
-                    202, 67, DARK, false);
-        }
-        if (tab == 1 && current == null && vesselKind() == 2) {
-            int tier = ShipyardUpgrades.shipFabric(menu.inspected());
-            double power = tier == 0 ? 0.16D : tier == 1 ? 0.40D : tier == 2 ? 0.68D : 1D;
-            graphics.drawString(font, "Тяга текущего паруса: " + (int)Math.round(power * 100D) + "% (базовая оснастка)",
-                    202, 77, DARK, false);
-        }
-        if (tab == 1 && vesselKind() == 0 && current == null)
-            graphics.drawString(font, "Выберите плот или корабль слева.", 202, 85, DARK, false);
-        else if (costs().isEmpty()) {
-            graphics.drawString(font, tab == 1 ? "Материалы не требуются" :
-                    "Выберите чертёж", 202, 133, DARK, false);
+        ShipBuildConfiguration shown = tab == 0 && !createRafts ? creationConfig() : current;
+        if (tab == 0) {
+            String name = createRafts ? VESSELS[chosen] : CLASS_NAMES[chosen];
+            graphics.drawString(font, font.plainSubstrByWidth(name, 89),
+                    94 - font.width(font.plainSubstrByWidth(name, 89)) / 2, 98,
+                    0xfff8e1b5, false);
+            if (!createRafts && shown != null) {
+                ShipSectionPlan.ShipClass type = shown.shipClass();
+                int maximumLength = ShipBuildConfiguration.hullLength(type, type.maxLength);
+                int maximumWidth = ShipBuildConfiguration.hullWidth(type, type.maxWidth);
+                graphics.drawString(font, "Длина", 18, 126, 0xfff2dfbd, false);
+                graphics.drawString(font, shown.length() + "/" + maximumLength,
+                        61, 126, 0xfff2dfbd, false);
+                graphics.drawString(font, "Ширина", 18, 152, 0xfff2dfbd, false);
+                graphics.drawString(font, shown.width() + "/" + maximumWidth,
+                        61, 152, 0xfff2dfbd, false);
+                graphics.drawString(font, "Мачты: 1/" + type.maxMasts
+                        + "  Палубы: 1/" + type.maxDecks, 18, 177, 0xffeacfa2, false);
+                graphics.drawString(font, "Шаг: длина +4, ширина +2", 18, 190, 0xffeacfa2, false);
+            } else if (createRafts) {
+                graphics.drawString(font, "Готовый корпус плота или", 18, 131, 0xfff2dfbd, false);
+                graphics.drawString(font, "старого корабля 7×11", 18, 143, 0xfff2dfbd, false);
+            }
+        } else if (current != null) {
+            graphics.drawString(font, "Размер " + current.width() + "×" + current.length()
+                    + " | мачт " + current.sailTiers().size(), 17, 196, 0xfff2dfbd, false);
+            ShipBuildConfiguration next = nextConfig();
+            if (next == null || next.equals(current))
+                graphics.drawString(font, "Недоступно: предел класса", 17, 184,
+                        0xffffb18c, false);
+            else
+                graphics.drawString(font, "Выбрано: " + MODULAR_CATEGORIES[modCategory],
+                        17, 184, 0xffeacfa2, false);
         } else {
-            List<Cost> req = costs();
-            int baseY = tab == 0 ? 126 : 94;
-            for (int i = 0; i < req.size(); i++) {
-                Cost cost = req.get(i);
-                int col = i % 2, row = i / 2, x = 201 + col * 132, y = baseY + row * 16;
+            graphics.drawString(font, vesselKind() == 0
+                    ? "Положите судно в ячейку"
+                    : "Улучшение старого судна", 17, 65, 0xfff2dfbd, false);
+        }
+        graphics.drawString(font, "Слот судна", 18, 214, 0xfff2dfbd, false);
+
+        String heading = tab == 0
+                ? createRafts ? VESSELS[chosen] : "Проект: " + CLASS_NAMES[chosen]
+                : current != null ? "Изменение: " + MODULAR_OPTIONS[chosen]
+                : vesselKind() == 0 ? "Нет судна для модификации"
+                : vesselKind() == 2 ? SHIP_OPTIONS[chosen] : RAFT_OPTIONS[chosen];
+        graphics.drawString(font, font.plainSubstrByWidth(heading, 254),
+                200, 46, DARK, false);
+        if (tab == 0 || current != null) drawBlueprint(graphics);
+        if (tab == 1 && current == null && vesselKind() == 2) {
+            int rig = ShipyardUpgrades.shipRigLevel(menu.inspected());
+            int cloth = ShipyardUpgrades.shipFabric(menu.inspected());
+            graphics.drawString(font, "Оснастка: " + rig + "/4   Ткань: " + cloth + "/3",
+                    201, 88, DARK, false);
+        }
+        graphics.drawString(font, "Материалы", 200, 114, DARK, false);
+        if (minecraft != null && minecraft.player != null
+                && minecraft.player.getAbilities().instabuild)
+            graphics.drawString(font, "Креатив: бесплатно", 351, 114, 0xff27663c, false);
+        List<Cost> requirements = costs();
+        if (requirements.isEmpty()) {
+            graphics.drawString(font, tab == 0 ? "Выберите чертёж" :
+                    current != null && nextConfig() == null ? "Изменение недоступно" :
+                    "Дополнительные ресурсы не нужны", 201, 133,
+                    tab == 1 && current != null && nextConfig() == null
+                            ? 0xffad3838 : DARK, false);
+        } else {
+            for (int i = 0; i < Math.min(12, requirements.size()); i++) {
+                Cost cost = requirements.get(i);
+                int column = i % 3, row = i / 3, x = 200 + column * 89, y = 123 + row * 17;
                 graphics.renderItem(cost.icon(), x, y);
-                graphics.drawString(font, cost.title(), x + 19, y, DARK, false);
-                graphics.drawString(font, cost.have() + "/" + cost.need(), x + 19, y + 8,
-                        cost.have() >= cost.need() ? 0xff22612b : 0xffa13726, false);
+                graphics.drawString(font, font.plainSubstrByWidth(cost.title(), 69),
+                        x + 18, y, DARK, false);
+                boolean enough = cost.have() >= cost.need()
+                        || minecraft != null && minecraft.player != null
+                        && minecraft.player.getAbilities().instabuild;
+                graphics.drawString(font, cost.have() + "/" + cost.need(),
+                        x + 18, y + 8, enough ? 0xff22612b : 0xffa13726, false);
             }
         }
+        graphics.drawString(font, "Инвентарь", 198, 182, 0xfff2d9aa, false);
         if (tab == 0 && !menu.inspected().isEmpty())
-            graphics.drawString(font, "Заберите готовое судно из ячейки", 194, 176, 0xff942b25, false);
-        graphics.drawString(font, "Инвентарь", 198, 199, 0xfff2d9aa, false);
+            graphics.drawString(font, "Заберите готовое судно", 17, 226, 0xffffb18c, false);
     }
 
     /**
