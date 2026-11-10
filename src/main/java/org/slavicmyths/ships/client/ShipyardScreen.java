@@ -541,12 +541,12 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 : vesselKind() == 2 ? SHIP_OPTIONS[chosen] : RAFT_OPTIONS[chosen];
         graphics.drawString(font, font.plainSubstrByWidth(heading, 254),
                 200, 46, DARK, false);
-        if (tab == 0 || current != null) drawBlueprint(graphics);
+        if (tab == 0 || current != null || vesselKind() != 0) drawBlueprint(graphics);
         if (tab == 1 && current == null && vesselKind() == 2) {
             int rig = ShipyardUpgrades.shipRigLevel(menu.inspected());
             int cloth = ShipyardUpgrades.shipFabric(menu.inspected());
             graphics.drawString(font, "Оснастка: " + rig + "/4   Ткань: " + cloth + "/3",
-                    201, 88, DARK, false);
+                    201, 103, DARK, false);
         }
         graphics.drawString(font, "Материалы", 200, 114, DARK, false);
         if (minecraft != null && minecraft.player != null
@@ -604,16 +604,22 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         graphics.drawString(font, "НОС", 416, 58, ink, false);
 
         if (design == null) {
-            int width = chosen == 4 ? FirstShipHull.WIDTH
+            boolean legacyShip = tab == 1 && vesselKind() == 2;
+            RaftItem inspectedRaft = tab == 1 && menu.inspected().getItem() instanceof RaftItem raft
+                    ? raft : null;
+            int width = legacyShip || tab == 0 && chosen == 4 ? FirstShipHull.WIDTH
+                    : inspectedRaft != null ? inspectedRaft.size().width
                     : chosen == 0 || chosen == 1 ? 3 : 5;
-            int length = chosen == 4 ? FirstShipHull.LENGTH
+            int length = legacyShip || tab == 0 && chosen == 4 ? FirstShipHull.LENGTH
+                    : inspectedRaft != null ? inspectedRaft.size().length
                     : chosen == 0 || chosen == 2 ? 3 : chosen == 1 ? 5 : 7;
             int x = 246 - width * 2, y = 83 - length * 2;
             graphics.fill(x, y, x + width * 4, y + length * 4, deck);
             graphics.fill(x, y, x + width * 4, y + 1, rail);
             graphics.fill(304, 91, 350, 99, timber);
             graphics.fill(414, 92, 444, 101, timber);
-            graphics.drawString(font, width + "×" + length, 204, 104, ink, false);
+            if (tab == 0)
+                graphics.drawString(font, width + "×" + length, 204, 104, ink, false);
             return;
         }
 
