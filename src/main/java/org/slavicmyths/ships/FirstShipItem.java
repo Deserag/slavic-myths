@@ -23,6 +23,15 @@ public final class FirstShipItem extends Item {
     public FirstShipItem(Properties properties) { super(properties); }
 
     @Override public Component getName(ItemStack stack) {
+        net.minecraft.world.item.component.CustomData data = stack.get(net.minecraft.core.component.DataComponents.CUSTOM_DATA);
+        if (data != null && data.copyTag().contains("FirstShipPack", net.minecraft.nbt.Tag.TAG_COMPOUND)) {
+            net.minecraft.nbt.CompoundTag pack = data.copyTag().getCompound("FirstShipPack");
+            if (pack.getInt("GeometryVersion") == 9) try {
+                ShipSuperstructurePlan plan = ShipSuperstructureData.load(pack.getCompound("Superstructure"));
+                return Component.literal("Корабль " + plan.shipClass().name()
+                        + " " + plan.hullWidth() + "×" + plan.hullLength());
+            } catch (RuntimeException ignored) { return Component.literal("Повреждённый чертёж корабля"); }
+        }
         return Component.literal("Деревянный корабль 7×11 (настоящие блоки)");
     }
 
@@ -48,7 +57,7 @@ public final class FirstShipItem extends Item {
 
         BlockPos anchor = ray.getBlockPos();
         if (!server.getEntitiesOfClass(FirstShipEntity.class,
-                new net.minecraft.world.phys.AABB(anchor).inflate(9D, 8D, 9D)).isEmpty()) {
+                new net.minecraft.world.phys.AABB(anchor).inflate(40D, 26D, 40D)).isEmpty()) {
             player.displayClientMessage(Component.literal(
                     "Слишком близко к другому кораблю; старый упакуйте ключом верфи"), true);
             return InteractionResultHolder.fail(held);
@@ -71,14 +80,21 @@ public final class FirstShipItem extends Item {
         }
         // Build checks every water/source/floor/mast cell before modifying land.
         // A failed placement never consumes the item or overwrites the terrain.
-        if (!FirstShipBlockHull.place(server, anchor, turns, ship.pendingBlockCargo(),
-                ship.rigLevel(), ship.fabricQuality(), ship.geometryVersion())) {
+        ShipSuperstructurePlan plan = ship.superstructure();
+        boolean built = ship.geometryVersion() == 9 && plan != null
+                ? ShipHullV9.place(server, anchor, turns, plan, ship.pendingBlockCargo())
+                : FirstShipBlockHull.place(server, anchor, turns, ship.pendingBlockCargo(),
+                        ship.rigLevel(), ship.fabricQuality(), ship.geometryVersion());
+        if (!built) {
             player.displayClientMessage(Component.literal(
-                    "Нужно открытое водное место 7×11, 2 блока глубины и высота под мачту"), true);
+                    "Нужны свободная вода, место для всех палуб и мачт, и достаточная глубина"), true);
             return InteractionResultHolder.fail(held);
         }
         if (!server.addFreshEntity(ship)) {
-            FirstShipBlockHull.remove(server, anchor, turns, ship.rigLevel(), ship.fabricQuality(), ship.geometryVersion());
+            if (ship.geometryVersion() == 9 && plan != null)
+                ShipHullV9.remove(server, anchor, turns, plan);
+            else FirstShipBlockHull.remove(server, anchor, turns,
+                    ship.rigLevel(), ship.fabricQuality(), ship.geometryVersion());
             return InteractionResultHolder.fail(held);
         }
         if (!player.getAbilities().instabuild) held.shrink(1);
