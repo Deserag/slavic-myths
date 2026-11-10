@@ -59,7 +59,7 @@ public final class TrophyHeadsClient {
   public void render(PoseStack pose,VertexConsumer out,int light,int overlay,int color){
    pose.pushPose();
    if(kind==TrophyHeads.Kind.NINE_MOR_SERPENT){
-    pose.translate(2.5F,.12F,2.5F);pose.scale(1.62F,-1.62F,-1.62F);pose.translate(0,-.4F,-1.95F);
+    pose.translate(2.5F,-1.20F,2.5F);pose.scale(1.62F,-1.62F,-1.62F);pose.translate(0,-.4F,-1.95F);
     nineTrophy.poseTrophy(nineTime);
     nineTrophy.renderTrophy(pose,out,light,overlay);
     pose.popPose();return;
@@ -82,7 +82,7 @@ public final class TrophyHeadsClient {
   }
   public void renderNineEyes(PoseStack pose,VertexConsumer out){
    if(nineTrophy==null)return;
-   pose.pushPose();pose.translate(2.5F,.12F,2.5F);pose.scale(1.62F,-1.62F,-1.62F);pose.translate(0,-.4F,-1.95F);
+   pose.pushPose();pose.translate(2.5F,-1.20F,2.5F);pose.scale(1.62F,-1.62F,-1.62F);pose.translate(0,-.4F,-1.95F);
    nineTrophy.renderEmissiveEyes(pose,out);pose.popPose();
   }
   public void pose(float time){pose(time,0,0);}
@@ -311,7 +311,7 @@ public final class TrophyHeadsClient {
  }
  public static final class ItemRenderer extends BlockEntityWithoutLevelRenderer {
   public ItemRenderer(){super(Minecraft.getInstance().getBlockEntityRenderDispatcher(),Minecraft.getInstance().getEntityModels());}
-  @Override public void renderByItem(ItemStack stack,ItemDisplayContext context,PoseStack pose,MultiBufferSource buffer,int light,int overlay){if(stack.getItem() instanceof BlockItem item&&item.getBlock() instanceof TrophyHeadBlock block){var h=head(block.kind);pose.pushPose();if(context==ItemDisplayContext.GUI){float fit=block.kind==TrophyHeads.Kind.NINE_MOR_SERPENT?.14F:block.kind.wide()?.40F:.72F;pose.translate(.5F,.5F,.5F);pose.scale(fit,fit,fit);pose.translate(block.kind==TrophyHeads.Kind.NINE_MOR_SERPENT?-2.5F:block.kind.wide()?-1F:-.5F,-.5F,block.kind.wide()?-1F:-.5F);}h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);pose.popPose();}}
+  @Override public void renderByItem(ItemStack stack,ItemDisplayContext context,PoseStack pose,MultiBufferSource buffer,int light,int overlay){if(stack.getItem() instanceof BlockItem item&&item.getBlock() instanceof TrophyHeadBlock block){var h=head(block.kind);pose.pushPose();if(context==ItemDisplayContext.GUI){if(block.kind==TrophyHeads.Kind.NINE_MOR_SERPENT){pose.translate(.5F,.49F,.5F);pose.scale(.17F,.17F,.17F);pose.translate(-2.5F,1.20F,-2.5F);}else{float fit=block.kind.wide()?.40F:.72F;pose.translate(.5F,.5F,.5F);pose.scale(fit,fit,fit);pose.translate(block.kind.wide()?-1F:-.5F,-.5F,block.kind.wide()?-1F:-.5F);}}h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);pose.popPose();}}
  }
  @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerBlockEntityRenderer(TrophyHeads.TILE.get(),Renderer::new);}
  @SubscribeEvent public static void items(RegisterClientExtensionsEvent e){for(var item:TrophyHeads.ITEMS.values())e.registerItem(new IClientItemExtensions(){private ItemRenderer renderer;@Override public BlockEntityWithoutLevelRenderer getCustomRenderer(){if(renderer==null)renderer=new ItemRenderer();return renderer;}},item.get());}
