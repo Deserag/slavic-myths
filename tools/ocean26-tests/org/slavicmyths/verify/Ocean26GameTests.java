@@ -128,6 +128,73 @@ public final class Ocean26GameTests {
      * physical world structure, symmetric widening, a second deck, two masts,
      * a bridge/cabin and chest NBT preservation through reconstruction.
      */
+    @GameTest(template = "empty", timeoutTicks = 150, batch = "ocean_modular_motion")
+    public static void modularShipItemMovesAndSurvivesSnapshotReload(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(14, 4, 14));
+        level.getChunkSource().addRegionTicket(VOYAGE_TICKET,
+                new ChunkPos(anchor), 3, anchor.asLong());
+        for (int x = -20; x <= 20; x++)
+            for (int z = -27; z <= 27; z++) {
+                BlockPos at = anchor.offset(x, 0, z);
+                level.setBlock(at.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(at, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 24; y++)
+                    level.setBlock(at.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM);
+        ServerPlayer builder = player(level, "OceanModularBuilder",
+                new Vec3(anchor.getX() + 15D, anchor.getY() + 10D, anchor.getZ()));
+        builder.getAbilities().instabuild = true;
+        ItemStack item = org.slavicmyths.ships.ShipyardModular.build(builder, config);
+        t.assertTrue(!item.isEmpty(), "Modular medium-class ship item build failed");
+        FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
+        t.assertTrue(ship != null, "Modular ship entity creation failed");
+        ship.initializeNativeHull(anchor, 0);
+        ship.enableSmoothMotion();
+        t.assertTrue(ship.loadPacked(item) && ship.modularConfiguration() != null,
+                "Modular item configuration not loaded");
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level, anchor, 0,
+                config, ship.pendingBlockCargo()), "Modular world block placement failed");
+        t.assertTrue(level.addFreshEntity(ship), "Modular ship entity registration failed");
+        ServerPlayer captain = player(level, "ModularCaptain",
+                new Vec3(ship.getX(), ship.deckY(), ship.getZ() + ship.helmSeatZ()));
+        t.assertTrue(captain.startRiding(ship), "Modular captain could not operate wheel");
+        double startZ = ship.getZ();
+        t.runAtTickTime(5L, () -> {
+            t.assertTrue(ship.helmStep(captain, FirstShipNetwork.FORWARD),
+                    "Modular ship failed to detach into moving contraption");
+            t.assertTrue(ship.isMoving() && ship.serverMovingPalette() != null,
+                    "Detached modular ship lost its renderable voxel palette");
+        });
+        for (int tick = 6; tick <= 48; tick++)
+            t.runAtTickTime(tick, () -> {
+                if (ship.isMoving()) t.assertTrue(
+                        ship.helmStep(captain, FirstShipNetwork.FORWARD),
+                        "Modular helm denied continuous input");
+            });
+        t.runAtTickTime(51L, () -> {
+            t.assertTrue(ship.isMoving() && ship.getZ() > startZ + .10D,
+                    "Modular ship has no genuine forward motion");
+            t.assertTrue(captain.getVehicle() == ship, "Modular captain was detached");
+            CompoundTag saved = new CompoundTag();
+            ship.saveWithoutId(saved);
+            var restored = org.slavicmyths.ships.ShipMovingContraption.load(
+                    saved.getCompound("FirstShipMovingBody"));
+            t.assertTrue(restored != null && config.equals(restored.modularConfiguration())
+                    && restored.palette().size() > config.width() * config.length(),
+                    "Modular ship NBT snapshot or hull palette lost on save");
+            captain.stopRiding();
+            captain.discard();
+            builder.discard();
+            ship.discard();
+            level.getChunkSource().removeRegionTicket(VOYAGE_TICKET,
+                    new ChunkPos(anchor), 3, anchor.asLong());
+            t.succeed();
+        });
+    }
+
     @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular")
     public static void modularMediumShipRebuildsWithCargo(GameTestHelper t) {
         ServerLevel level = t.getLevel();
