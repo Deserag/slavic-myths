@@ -270,9 +270,15 @@ public final class Ocean26GameTests {
                 "Modular wheel block is not at the server's expected coordinates");
         t.assertTrue(!ship.tryHelmFromBlock(captain, physicalWheel.offset(2, 0, 0)),
                 "Arbitrary railing must not activate the modular helm");
-        t.assertTrue(ship.tryHelmFromBlock(captain, physicalWheel)
-                && captain.getVehicle() == ship,
-                "Captain could not board by clicking the actual modular wheel");
+        var helmClick = new net.neoforged.neoforge.event.entity.player
+                .PlayerInteractEvent.RightClickBlock(captain,
+                        net.minecraft.world.InteractionHand.MAIN_HAND, physicalWheel,
+                        new net.minecraft.world.phys.BlockHitResult(
+                                Vec3.atCenterOf(physicalWheel), net.minecraft.core.Direction.UP,
+                                physicalWheel, false));
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.post(helmClick);
+        t.assertTrue(helmClick.isCanceled() && captain.getVehicle() == ship,
+                "Actual NeoForge right-click event did not activate physical helm");
         ServerPlayer upperWalker = player(level, "ModularUpperWalker",
                 new Vec3(ship.getX() + 2D, ship.getY() + 9.02D, ship.getZ()));
         ServerPlayer bridgeWalker = player(level, "ModularBridgeWalker",
