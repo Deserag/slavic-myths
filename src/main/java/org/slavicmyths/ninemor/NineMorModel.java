@@ -72,8 +72,10 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
         chestGuard.render(stack, consumer, light, overlay, 0xFF76616B);
         for (int i = 0; i < 9; i++) {
             stack.pushPose();
-            necks[i].translateAndRotate(stack);
+            heads[i].visible = false;
             necks[i].render(stack, consumer, light, overlay, 0xFF575761);
+            heads[i].visible = true;
+            necks[i].translateAndRotate(stack);
             neckMids[i].translateAndRotate(stack);
             neckTips[i].translateAndRotate(stack);
             heads[i].render(stack, consumer, light, overlay, 0xFF000000 | NineMorSerpent.COLORS[i]);
