@@ -54,9 +54,14 @@ public final class LomeyaModel extends EntityModel<LomeyaBoss> {
             box(root,3,-wide/2,y,depth/2-1.1F,wide,7,1.1F);
             box(root,4,-wide/2,y,-depth/2,wide/2-.6F,7,1.0F);
             box(root,4,.6F,y,-depth/2,wide/2-.6F,7,1.0F);
+            // Close the former open stripe on the front of every skirt tier.
+            box(root,4,-.68F,y,-depth/2-.01F,1.36F,7,1.03F);
             box(root,3,-wide/2,y,-depth/2,1.1F,7,depth);
             box(root,3,wide/2-1.1F,y,-depth/2,1.1F,7,depth);
         }
+        // Cloth volume behind the articulated skirt: the external side strips
+        // alone exposed a hollow, sky-visible body in side/low camera views.
+        box(root,3,-3.85F,-54.75F,-3.45F,7.70F,19.75F,6.9F);
         box(root,3,-6.6F,-78,-4.1F,13.2F,10,8.2F);
         box(root,4,-5.8F,-70,-4.5F,11.6F,8,9F);
         box(root,5,-4.85F,-62,-3.7F,9.7F,10,7.4F);
