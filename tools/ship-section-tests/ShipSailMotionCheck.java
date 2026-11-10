@@ -48,6 +48,16 @@ public final class ShipSailMotionCheck {
         check(fast.pose().z() > slow.pose().z(), "higher tier travels farther");
         check(fast.speed() <= ShipRigidMotion.MAX_FORWARD, "physics forward cap remains");
         check(slow.speed() <= ShipRigidMotion.MAX_FORWARD, "slow physics cap remains");
+        var rowingHull = new ShipRigidMotion(new ShipRigidMotion.Pose(0, 0, 0));
+        for (int i = 0; i < 40; i++)
+            rowingHull.advance(ShipSailMotion.apply(
+                    new ShipRigidMotion.Control(1, 0), 0, 0), pose -> true);
+        double rowingSpeed = rowingHull.speed();
+        check(rowingSpeed > 0D, "rowing hull must move with low thrust");
+        for (int i = 0; i < 3; i++)
+            rowingHull.advance(new ShipRigidMotion.Control(0, 0), pose -> true);
+        check(rowingHull.speed() > 0D && rowingHull.speed() < rowingSpeed,
+                "low-power hull must coast after throttle release");
         System.out.println("PASS ShipSailMotionCheck assertions=" + checked);
     }
 }
