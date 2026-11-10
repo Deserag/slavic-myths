@@ -109,32 +109,43 @@ public final class NetherEncounterSpawns {
         }
 
         int rx=Math.floorDiv(player.getBlockX(),REGION),rz=Math.floorDiv(player.getBlockZ(),REGION);
-        for(int x=rx-1;x<=rx+1;x++)for(int z=rz-1;z<=rz+1;z++){
-            if(WILDERNESS.isEmpty())continue;
-            long roll=hash(w.getSeed(),x,z,101);
-            if(Math.floorMod(roll,3)!=0)continue;
-            Definition d=WILDERNESS.get((int)Math.floorMod(roll>>>8,WILDERNESS.size()));
-            if(!supported(d))continue;
-            String key="wild:"+x+":"+z;
-            int cx=x*REGION+256+(int)Math.floorMod(roll>>>16,REGION-512);
-            int cz=z*REGION+256+(int)Math.floorMod(roll>>>36,REGION-512);
-            BlockPos candidate=new BlockPos(cx,64,cz);
-            if(player.blockPosition().distSqr(candidate)>256*256)continue;
-            var encounter=records.reserve(key,d.key,candidate);
-            if(encounter.spawned)continue;
-            if(player.blockPosition().distSqr(encounter.anchor)>256*256)continue;
-            BlockPos location=null;
-            for(int attempt=0;attempt<48;attempt++){
-                long h=hash(roll,attempt,0,117);
-                BlockPos xz=encounter.anchor.offset((int)Math.floorMod(h,193)-96,0,(int)Math.floorMod(h>>>24,193)-96);
-                if(!w.hasChunkAt(xz))continue;
-                BlockPos found=safe(w,xz,d,112,34);
-                if(found==null||found.distSqr(player.blockPosition())>ACTIVATE*ACTIVATE||found.distSqr(player.blockPosition())<32*32)continue;
-                boolean close=false;
-                for(var other:records.encounters.values())if(other!=encounter&&other.spawned&&other.anchor.distSqr(found)<MIN_DISTANCE*MIN_DISTANCE){close=true;break;}
-                if(!close){location=found;break;}
+        tryEncounter(w,player,records,"wild:"+rx+":"+rz,rx,rz,hash(w.getSeed(),rx,rz,101),null);
+        String currentBiome=biome(w,player.blockPosition());
+        if(NEW_BIOMES.contains(currentBiome))
+            tryEncounter(w,player,records,"biome:"+rx+":"+rz+":"+currentBiome,rx,rz,
+                hash(w.getSeed(),rx,rz,currentBiome.hashCode()),currentBiome);
+    }
+
+    /** Every explored 2000x2000 region has one persistent encounter opportunity.
+     * Each new Nether biome has an additional 100%-selected encounter per region.
+     * Unsafe terrain delays placement; only already loaded chunks are inspected. */
+    private static void tryEncounter(ServerLevel w,ServerPlayer player,NetherEncounterRecords records,
+                                     String key,int rx,int rz,long seed,String requiredBiome){
+        var previous=records.encounters.get(key);
+        if(previous!=null&&previous.spawned)return;
+        BlockPos origin=player.blockPosition();
+        int top=Math.min(112,origin.getY()+16),bottom=Math.min(112,Math.max(34,origin.getY()-32));
+        for(int choice=0;choice<WILDERNESS.size();choice++){
+            Definition d=WILDERNESS.get((int)Math.floorMod(seed+choice,WILDERNESS.size()));
+            if(previous!=null&&!previous.type.equals(d.key))continue;
+            if(!supported(d)||requiredBiome!=null&&!d.biomes.contains(requiredBiome))continue;
+            for(int attempt=0;attempt<8;attempt++){
+                long roll=hash(seed,origin.getX()>>4,origin.getZ()>>4,
+                    (player.tickCount/80L)*19+choice*73L+attempt);
+                int radius=40+(int)Math.floorMod(roll,68);
+                double angle=Math.floorMod(roll>>>17,65536)/65536.0D*Math.PI*2D;
+                BlockPos xz=origin.offset((int)(Math.cos(angle)*radius),0,(int)(Math.sin(angle)*radius));
+                if(Math.floorDiv(xz.getX(),REGION)!=rx||Math.floorDiv(xz.getZ(),REGION)!=rz)continue;
+                BlockPos found=safe(w,xz,d,top,bottom);
+                if(found==null||found.distSqr(origin)>ACTIVATE*ACTIVATE||found.distSqr(origin)<32*32)continue;
+                if(requiredBiome!=null&&!requiredBiome.equals(biome(w,found)))continue;
+                boolean nearby=false;
+                for(var other:records.encounters.values())
+                    if(other.spawned&&other.anchor.distSqr(found)<MIN_DISTANCE*MIN_DISTANCE){nearby=true;break;}
+                if(nearby)continue;
+                var encounter=records.reserve(key,d.key,found);
+                if(spawn(w,d,found,records,encounter))return;
             }
-            if(location!=null){records.relocate(encounter,location);spawn(w,d,location,records,encounter);}
         }
     }
     private NetherEncounterSpawns(){}
