@@ -774,6 +774,28 @@ public final class FirstShipEntity extends Boat {
                 || player.getY() >= deckY() - 1.1D) return false;
         FirstShipHull.Point local = FirstShipHull.toLocal(
                 player.getX(), player.getZ(), getX(), getZ(), getYRot());
+        ShipBuildConfiguration configuration = modularConfiguration();
+        if (configuration != null) {
+            double zValue = FirstShipHull.clamp(local.z(),
+                    -configuration.length() / 2D + 1D,
+                    configuration.length() / 2D - 1D);
+            int beam = ShipHullVoxelLayout.halfBeam(
+                    configuration.structure(), (int)Math.round(zValue));
+            if (beam < 1 || Math.abs(local.x()) > beam + 1.7D
+                    || Math.abs(local.x()) < beam - 1D) return false;
+            double xValue = FirstShipHull.clamp(local.x(), -beam + 1D, beam - 1D);
+            if (!ShipDeckContact.supports(this, xValue, zValue, 1)) return false;
+            FirstShipHull.Point point = FirstShipHull.toWorld(xValue, zValue,
+                    getX(), getZ(), getYRot());
+            Vec3 target = new Vec3(point.x(), deckY() + .02D, point.z());
+            if (!level().noCollision(player,
+                    player.getBoundingBox().move(target.subtract(player.position()))))
+                return false;
+            player.teleportTo(target.x(), target.y(), target.z());
+            player.setDeltaMovement(Vec3.ZERO);
+            player.fallDistance = 0F;
+            return true;
+        }
         double z = FirstShipHull.clamp(local.z(), -4.7D, 4.7D);
         double half = FirstShipHull.halfBeam(z);
         if (Math.abs(local.z()) > 6.25D || Math.abs(local.x()) > half + 1.60D
