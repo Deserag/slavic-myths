@@ -70,6 +70,13 @@ public final class ShipHullVoxelLayoutCheck {
             yes(!ShipHullVoxelLayout.count(voxels).isEmpty(), "material bill");
         }
 
+        var cabinWithoutBridge = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
+                List.of(1), 1, false, true);
+        var cabinBlocks = ShipHullVoxelLayout.generate(cabinWithoutBridge);
+        int helmZ = -cabinWithoutBridge.hullLength() / 2 + 9;
+        yes(cabinBlocks.get(new ShipHullVoxelLayout.Cell(0, 5, helmZ))
+                == ShipHullVoxelLayout.Part.HELM,
+                "lower helm must remain outside an aft cabin");
         var bare = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(), 1, false, false);
         var withMast = bare.withSail(1);
