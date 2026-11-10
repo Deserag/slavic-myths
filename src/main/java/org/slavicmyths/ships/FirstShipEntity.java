@@ -336,6 +336,25 @@ public final class FirstShipEntity extends Boat {
      */
     @Override public Vec3 getDismountLocationForPassenger(LivingEntity passenger) {
         if (!isNativeHull()) return super.getDismountLocationForPassenger(passenger);
+        if (modularConfiguration() != null) {
+            int floorIndex = modularConfiguration().bridge() ? 4 : 1;
+            double baseZ = helmSeatZ();
+            for (double z : new double[]{baseZ + 1D, baseZ + 2D, baseZ - 1D, baseZ}) {
+                for (double x : new double[]{1D, -1D, 2D, -2D, 0D}) {
+                    if (!ShipDeckContact.supports(this, x, z, floorIndex)) continue;
+                    FirstShipHull.Point point = FirstShipHull.toWorld(
+                            x, z, getX(), getZ(), getYRot());
+                    Vec3 target = new Vec3(point.x(), getY() + helmSeatHeight() + .05D,
+                            point.z());
+                    AABB bounds = passenger.getBoundingBox().move(
+                            target.subtract(passenger.position()));
+                    if (level().noCollision(passenger, bounds)) return target;
+                }
+            }
+            FirstShipHull.Point fallback = FirstShipHull.toWorld(0D,
+                    baseZ + 2D, getX(), getZ(), getYRot());
+            return new Vec3(fallback.x(), getY() + helmSeatHeight() + 3D, fallback.z());
+        }
         double[][] safeCells = {{1D, -2D}, {-1D, -2D}, {0D, -2D},
                 {1D, -3D}, {-1D, -3D}, {0D, -3D},
                 {2D, -2D}, {-2D, -2D}, {0D, 0D}, {1D, 0D}, {-1D, 0D}};
@@ -372,9 +391,10 @@ public final class FirstShipEntity extends Boat {
                 Vec3 target = getDismountLocationForPassenger(player);
                 FirstShipHull.Point local = FirstShipHull.toLocal(target.x, target.z,
                         getX(), getZ(), getYRot());
-                if (FirstShipHull.mainDeckSupports(local.x(), local.z()))
+                if (ShipDeckContact.supports(this, local.x(), local.z(),
+                        modularConfiguration() != null && modularConfiguration().bridge() ? 4 : 1))
                     pendingDismounts.put(player.getUUID(), new PendingDismount(
-                            local.x(), local.z(), target.y - deckY(),
+                            local.x(), local.z(), target.y - (getY() + helmSeatHeight()),
                             level().getGameTime() + 40L));
             }
         }
@@ -387,7 +407,8 @@ public final class FirstShipEntity extends Boat {
                 || level().getGameTime() > landing.expires()) return false;
         FirstShipHull.Point world = FirstShipHull.toWorld(landing.localX(), landing.localZ(),
                 getX(), getZ(), getYRot());
-        Vec3 target = new Vec3(world.x(), deckY() + landing.deckOffsetY(), world.z());
+        Vec3 target = new Vec3(world.x(), getY() + helmSeatHeight()
+                + landing.deckOffsetY(), world.z());
         AABB area = player.getBoundingBox().move(target.subtract(player.position()));
         if (!level().noCollision(player, area))
             target = getDismountLocationForPassenger(player);
