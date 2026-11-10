@@ -52,12 +52,18 @@ public final class ShipRigidMotion {
 
     private Pose pose;
     private Pose previous;
+    private final double hullRadius;
     private double speed;
     private double angularVelocity;
 
-    public ShipRigidMotion(Pose start) {
+    public ShipRigidMotion(Pose start) { this(start, 6.5D); }
+
+    public ShipRigidMotion(Pose start, double hullRadius) {
+        if (!Double.isFinite(hullRadius) || hullRadius < 1D || hullRadius > 100D)
+            throw new IllegalArgumentException("Invalid ship collision radius");
         pose = start;
         previous = start;
+        this.hullRadius = hullRadius;
     }
 
     public Pose pose() { return pose; }
@@ -97,7 +103,7 @@ public final class ShipRigidMotion {
 
         // Substeps protect against tunneling of bow/corners on rotation.
         // Even low speeds can sweep a distant bow through a solid obstacle.
-        double bowArc = Math.toRadians(Math.abs(deltaYaw)) * 6.5D;
+        double bowArc = Math.toRadians(Math.abs(deltaYaw)) * hullRadius;
         int steps = Math.max(1, (int)Math.ceil((Math.hypot(dx, dz) + bowArc) / .20D));
         Pose candidate = from;
         for (int n = 1; n <= steps; n++) {
