@@ -40,11 +40,23 @@ public final class TrophyHeadsClient {
    this.kind=kind;this.part=part;this.texture=ResourceLocation.fromNamespaceAndPath("slavicmyths",texture);
    this.nineTrophy=kind==TrophyHeads.Kind.NINE_MOR_SERPENT?new org.slavicmyths.ninemor.NineMorModel():null;
    if(nineTrophy!=null){
+    float[] trophyBounds={Float.POSITIVE_INFINITY,Float.POSITIVE_INFINITY,Float.POSITIVE_INFINITY,Float.NEGATIVE_INFINITY,Float.NEGATIVE_INFINITY,Float.NEGATIVE_INFINITY};
+    boolean captured=false;
+    for(int sample=0;sample<48;sample++){
+     nineTrophy.poseTrophy(sample*26F);
+     Capture poseCapture=new Capture();
+     nineTrophy.renderTrophy(new PoseStack(),poseCapture,15728880,0);
+     if(poseCapture.vertices.isEmpty())continue;
+     float[] next=poseCapture.bounds();
+     for(int axis=0;axis<3;axis++){
+      trophyBounds[axis]=Math.min(trophyBounds[axis],next[axis]);
+      trophyBounds[axis+3]=Math.max(trophyBounds[axis+3],next[axis+3]);
+     }
+     captured=true;
+    }
     nineTrophy.poseTrophy(0);
-    Capture trophyCapture=new Capture();nineTrophy.renderTrophy(new PoseStack(),trophyCapture,15728880,0);
-    float[] trophyBounds=trophyCapture.bounds();
-    if(trophyCapture.vertices.isEmpty()||!Float.isFinite(trophyBounds[0])||trophyBounds[3]<=trophyBounds[0]||trophyBounds[4]<=trophyBounds[1]||trophyBounds[5]<=trophyBounds[2])throw new IllegalStateException("Empty nine-Mor trophy geometry");
-    nineRenderScale=Math.min(1.62F,Math.min(4.38F/Math.max(trophyBounds[3]-trophyBounds[0],trophyBounds[5]-trophyBounds[2]),5.18F/(trophyBounds[4]-trophyBounds[1])));
+    if(!captured||!Float.isFinite(trophyBounds[0])||trophyBounds[3]<=trophyBounds[0]||trophyBounds[4]<=trophyBounds[1]||trophyBounds[5]<=trophyBounds[2])throw new IllegalStateException("Empty nine-Mor trophy geometry");
+    nineRenderScale=Math.min(1.62F,Math.min(4.05F/Math.max(trophyBounds[3]-trophyBounds[0],trophyBounds[5]-trophyBounds[2]),4.85F/(trophyBounds[4]-trophyBounds[1])));
     nineCenterX=(trophyBounds[0]+trophyBounds[3])*.5F;nineCenterY=(trophyBounds[1]+trophyBounds[4])*.5F;nineCenterZ=(trophyBounds[2]+trophyBounds[5])*.5F;
     nineBottomShift=.15F+nineRenderScale*(trophyBounds[4]-nineCenterY);
    }else{nineRenderScale=1;nineBottomShift=0;nineCenterX=nineCenterY=nineCenterZ=0;}
