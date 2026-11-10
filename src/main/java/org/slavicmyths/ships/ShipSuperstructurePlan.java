@@ -45,22 +45,32 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
 
         // The aft cabin occupies a seven-block deep protected stern region.
         // Reject any mast whose center or its one-block support touches it.
-        if (cabin)
-            for (int z : mastPositionsFor(sailTiers.size()))
-                if (z - 1 <= -hullLength / 2 + 6)
-                    throw new IllegalArgumentException("Mast would intersect captain's cabin");
+        for (int z : mastPositionsFor(sailTiers.size(), hullLength, cabin)) {
+            if (z - 1 <= -hullLength / 2 + 8 && cabin)
+                throw new IllegalArgumentException("Mast would intersect captain's cabin");
+            if (z + 1 >= hullLength / 2)
+                throw new IllegalArgumentException("Mast would intersect the bow");
+        }
     }
 
     /** Centered mast stations; the same result follows after hull enlargement. */
-    private static List<Integer> mastPositionsFor(int count) {
+    private static List<Integer> mastPositionsFor(int count, int hullLength, boolean cabin) {
         List<Integer> positions = new ArrayList<>();
         for (int i = 0; i < count; i++)
             positions.add((2 * i - (count - 1)) * 2);
+        if (cabin && !positions.isEmpty()) {
+            int minMastZ = -hullLength / 2 + 10;
+            int shift = Math.max(0, minMastZ - positions.get(0));
+            for (int i = 0; i < positions.size(); i++)
+                positions.set(i, positions.get(i) + shift);
+        }
         return List.copyOf(positions);
     }
 
     /** Coordinates in local ship space, stern negative, bow positive. */
-    public List<Integer> mastPositions() { return mastPositionsFor(sailTiers.size()); }
+    public List<Integer> mastPositions() {
+        return mastPositionsFor(sailTiers.size(), hullLength, cabin);
+    }
 
     public double rawThrust() {
         double result = 0D;
