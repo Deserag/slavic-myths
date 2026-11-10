@@ -554,88 +554,80 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
      * distinct physical block column of the current buildable blueprint.
      */
     private void drawBlueprint(GuiGraphics graphics) {
-        final int blue = 0xff368fbd, added = 0xff3caa68, red = 0xffab3232;
-        ShipBuildConfiguration previous = tab == 1
-                ? currentConfig() : null;
-        ShipBuildConfiguration next = tab == 0
-                ? creationConfig() : nextConfig();
-        if (next == null && previous != null) next = previous;
-        if (next != null) {
-            boolean unavailable = tab == 1 && next.equals(previous);
-            int width = next.width(), length = next.length();
-            int halfLength = length / 2;
-            graphics.drawString(font, "СВЕРХУ", 202, 67, DARK, false);
-            graphics.drawString(font, "СБОКУ", 296, 67, DARK, false);
-            graphics.drawString(font, "СПЕРЕДИ", 400, 67, DARK, false);
+        final int blue = 0xff337b9f, added = 0xff338c59, red = 0xffab3232;
+        ShipBuildConfiguration original = tab == 1 ? currentConfig() : null;
+        ShipBuildConfiguration candidate = tab == 0 ? creationConfig() : nextConfig();
+        boolean invalid = tab == 1 && original != null && candidate == null;
+        ShipBuildConfiguration design = candidate != null ? candidate : original;
+        graphics.drawString(font, "СВЕРХУ", 204, 58, DARK, false);
+        graphics.drawString(font, "СБОКУ", 300, 58, DARK, false);
+        graphics.drawString(font, "СПЕРЕДИ", 393, 58, DARK, false);
+
+        if (design != null) {
+            int width = design.width(), length = design.length(), halfLength = length / 2;
             for (int z = -halfLength; z <= halfLength; z++) {
-                int half = ShipHullVoxelLayout.halfBeam(next.structure(), z);
-                int oldHalf = previous != null && Math.abs(z) <= previous.length() / 2
-                        ? ShipHullVoxelLayout.halfBeam(previous.structure(), z) : -1;
+                int half = ShipHullVoxelLayout.halfBeam(design.structure(), z);
+                int previous = original == null || Math.abs(z) > original.length() / 2
+                        ? -1 : ShipHullVoxelLayout.halfBeam(original.structure(), z);
                 for (int x = -half; x <= half; x++) {
-                    int sx = 243 + x * 72 / Math.max(width, 1);
-                    int sy = 76 + (z + halfLength) * 29 / Math.max(length, 1);
-                    graphics.fill(sx, sy, sx + Math.max(1, 72 / width),
-                            sy + Math.max(1, 29 / length),
-                            unavailable ? red : Math.abs(x) <= oldHalf ? blue : added);
+                    int bx = 246 + x * 68 / Math.max(width, 1);
+                    int by = 69 + (z + halfLength) * 29 / Math.max(length, 1);
+                    int color = original != null && Math.abs(x) > previous ? added : blue;
+                    graphics.fill(bx, by, bx + Math.max(1, 68 / width),
+                            by + Math.max(1, 29 / length), color);
                 }
-                int sideX = 299 + (z + halfLength) * 90 / Math.max(length, 1);
-                graphics.fill(sideX, 97, sideX + 1, 105, blue);
-                for (int floor = 2; floor <= next.decks(); floor++) {
-                    int sy = 97 - (floor - 1) * 7;
-                    graphics.fill(sideX, sy, sideX + 1, sy + 1,
-                            previous != null && previous.decks() >= floor ? blue : added);
-                }
+                int sx = 300 + (z + halfLength) * 83 / Math.max(length, 1);
+                graphics.fill(sx, 93, sx + 1, 100, blue);
+                for (int floor = 2; floor <= design.decks(); floor++)
+                    graphics.fill(sx, 93 - (floor - 1) * 5,
+                            sx + 1, 94 - (floor - 1) * 5,
+                            original != null && original.decks() >= floor ? blue : added);
             }
             for (int x = -width / 2; x <= width / 2; x++) {
-                int fx = 402 + (x + width / 2) * 49 / Math.max(width, 1);
-                graphics.fill(fx, 97, fx + 1, 105,
-                        previous != null && Math.abs(x) <= previous.width() / 2
-                                ? blue : added);
+                int px = 425 + x * 56 / Math.max(width, 1);
+                graphics.fill(px, 93, px + Math.max(1, 56 / width), 100,
+                        original != null && Math.abs(x) > original.width() / 2 ? added : blue);
             }
-            for (int mast = 0; mast < next.sailTiers().size(); mast++) {
-                int z = next.structure().mastPositions().get(mast);
-                int mx = 299 + (z + halfLength) * 90 / Math.max(length, 1);
-                int top = next.sailTiers().get(mast) == 1 ? 12
-                        : next.sailTiers().get(mast) == 2 ? 15 : 19;
-                graphics.fill(mx, 97 - top, mx + 2, 100,
-                        previous != null && mast < previous.sailTiers().size()
-                                && previous.sailTiers().get(mast).equals(next.sailTiers().get(mast))
-                                ? blue : added);
+            for (int mast = 0; mast < design.sailTiers().size(); mast++) {
+                int z = design.structure().mastPositions().get(mast);
+                int mx = 300 + (z + halfLength) * 83 / Math.max(length, 1);
+                int top = switch (design.sailTiers().get(mast)) {
+                    case 1 -> 12; case 2 -> 15; default -> 19;
+                };
+                int color = original != null && (mast >= original.sailTiers().size()
+                        || !original.sailTiers().get(mast).equals(design.sailTiers().get(mast)))
+                        ? added : blue;
+                graphics.fill(mx, 100 - Math.min(25, top + 3), mx + 2, 96, color);
+                graphics.fill(mx - 3, 83, mx + 5, 84, color);
             }
-            if (next.bridge()) graphics.fill(307, 88, 330, 90,
-                    previous != null && previous.bridge() ? blue : added);
-            if (next.cabin()) graphics.fill(307, 91, 330, 98,
-                    previous != null && previous.cabin() ? blue : added);
+            if (design.cabin()) graphics.fill(304, 86, 318, 94,
+                    original != null && original.cabin() ? blue : added);
+            if (design.bridge()) graphics.fill(304, 79, 322, 81,
+                    original != null && original.bridge() ? blue : added);
             graphics.drawString(font, "Размер " + width + "×" + length
-                    + " | Мачты " + next.sailTiers().size()
-                    + " | Палубы " + next.decks(), 202, 112, DARK, false);
-            if (unavailable) graphics.drawString(font,
-                    "Модификация пока недоступна", 202, 122, red, false);
-            return;
-        }
-
-        int width = chosen == 4 ? FirstShipHull.WIDTH :
-                chosen == 0 || chosen == 1 ? 3 : 5;
-        int length = chosen == 4 ? FirstShipHull.LENGTH :
-                chosen == 0 || chosen == 2 ? 3 : chosen == 1 ? 5 : 7;
-        graphics.drawString(font, "СВЕРХУ", 204, 66, DARK, false);
-        graphics.drawString(font, "СБОКУ", 296, 66, DARK, false);
-        graphics.drawString(font, "СПЕРЕДИ", 394, 66, DARK, false);
-        for (int z = 0; z < length; z++) {
-            int beam = chosen == 4
-                    ? (int)Math.floor(FirstShipHull.halfBeam(z - length / 2)) : width / 2;
-            for (int x = 0; x < width; x++) {
-                if (chosen == 4 && Math.abs(x - width / 2) > beam) continue;
-                int bx = 226 - width * 2 + x * 4, by = 75 + z * 4;
-                graphics.fill(bx, by, bx + 3, by + 3, blue);
+                    + "  |  мачты " + design.sailTiers().size()
+                    + "  |  палубы " + design.decks(), 201, 104, DARK, false);
+        } else {
+            int width = chosen == 4 ? FirstShipHull.WIDTH
+                    : chosen == 0 || chosen == 1 ? 3 : 5;
+            int length = chosen == 4 ? FirstShipHull.LENGTH
+                    : chosen == 0 || chosen == 2 ? 3 : chosen == 1 ? 5 : 7;
+            for (int z = 0; z < length; z++) {
+                int half = chosen == 4
+                        ? (int)Math.floor(FirstShipHull.halfBeam(z - length / 2)) : width / 2;
+                for (int x = -half; x <= half; x++) {
+                    int px = 246 + x * 55 / Math.max(width, 1);
+                    int py = 69 + z * 29 / Math.max(length, 1);
+                    graphics.fill(px, py, px + 2, py + 2, blue);
+                }
+                int sx = 300 + z * 83 / Math.max(length, 1);
+                graphics.fill(sx, 93, sx + 2, chosen == 4 ? 100 : 96, blue);
             }
-            graphics.fill(297 + z * 4, 85, 300 + z * 4,
-                    chosen == 4 ? 105 : 89, blue);
+            graphics.fill(407, 93, 443, chosen == 4 ? 100 : 96, blue);
+            graphics.drawString(font, "Размер " + width + "×" + length, 201, 104, DARK, false);
         }
-        for (int x = 0; x < width; x++)
-            graphics.fill(405 + x * 4, 85, 408 + x * 4,
-                    chosen == 4 ? 105 : 89, blue);
-        graphics.drawString(font, "Корпус: " + width + "×" + length, 203, 110, DARK, false);
+        if (invalid)
+            graphics.drawString(font, "Изменение недоступно", 346, 104, red, false);
     }
 
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partial) {
