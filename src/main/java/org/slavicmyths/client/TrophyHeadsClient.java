@@ -55,7 +55,10 @@ public final class TrophyHeadsClient {
   public void render(PoseStack pose,VertexConsumer out,int light,int overlay){render(pose,out,light,overlay,0xffffffff);}
   public void render(PoseStack pose,VertexConsumer out,int light,int overlay,int color){
    pose.pushPose();
-   if(kind.wide()){
+   if(kind==TrophyHeads.Kind.NINE_MOR_SERPENT){
+    pose.translate(1.5,.08,1.5);pose.scale(scale*2.8F,-scale*2.8F,-scale*2.8F);
+    pose.translate(-(bounds[0]+bounds[3])/2,-bounds[4],-(bounds[2]+bounds[5])/2);
+   }else if(kind.wide()){
     if(kind==TrophyHeads.Kind.MOROVOY_RAVEN){
      // Center the skull over the anchor; only the beak enters the front cell.
      pose.translate(.5,.03,1);
@@ -164,6 +167,7 @@ public final class TrophyHeadsClient {
   case MOROVOY_RAVEN->{var head=new MorovoyRavenModel().trophyHead();yield new Head(kind,head,"textures/entity/morovoy_raven.png",null,null,null,head.getChild("jaw"),null);}
   case FIRE_SERPENT,MOR_SERPENT->{String side=kind==TrophyHeads.Kind.FIRE_SERPENT?"right":"left";var head=org.slavicmyths.morovoy.MorovoyFireZmeyMesh.create().getChild("body").getChild("neck_" + side + "_base").getChild("neck_" + side + "_mid").getChild("neck_" + side + "_tip").getChild("head_" + side);yield new Head(kind,head,"textures/entity/morovoy_fire_zmey_albedo.png",null,null,null,head.getChild("jaw_"+side),null);}
   case MOROVOY_FIRE_ZMEY->{var pair=TrophyWideModelV4.createTwin();yield new Head(kind,pair,"textures/entity/morovoy_fire_zmey_albedo.png");}
+  case NINE_MOR_SERPENT->{var model=new org.slavicmyths.ninemor.NineMorModel();var parts=new java.util.LinkedHashMap<String,ModelPart>();for(int i=0;i<9;i++){var skull=model.trophyHead(i);skull.setPos((i%3-1)*12F,0F,(i/3-1)*12F);skull.xRot=skull.yRot=skull.zRot=0F;parts.put("skull_"+i,skull);}yield new Head(kind,new ModelPart(java.util.List.of(),parts),"textures/entity/nine_mor_white.png");}
  };}
  public static Head magmaHead(ModelPart head){return new Head(TrophyHeads.Kind.MAGMA_LORD,head,"textures/entity/burning_islands/magma_lord.png",null,null,null,head.getChild("jaw"),head.getChild("shard_head0"));}
  private static final Map<TrophyHeads.Kind,Head> HEADS=new EnumMap<>(TrophyHeads.Kind.class);
@@ -256,7 +260,7 @@ public final class TrophyHeadsClient {
    if(particleBudget<=0)return;
    int period=switch(kind){
     case GROVE_GUARDIAN->20;case POSTEN,ZHARENITSA->60;case MAGMA_LORD->200;case TUGARIN->9;case SKIM->10;case VOLKOLAK->9;case PODZEMNIK->11;
-    case LIKHO->8;case MOR_LIKHO->7;case MOROVOY_RAVEN->16;case FIRE_SERPENT->9;case MOR_SERPENT,MOROVOY_FIRE_ZMEY->12;
+    case LIKHO->8;case MOR_LIKHO->7;case MOROVOY_RAVEN->16;case FIRE_SERPENT->9;case MOR_SERPENT,MOROVOY_FIRE_ZMEY->12;case NINE_MOR_SERPENT->18;
    };
    if(!TrophyHeadFxRules.particleDue(now,tile.clientLastFxTick,period))return;
    tile.clientLastFxTick=now;
@@ -264,7 +268,7 @@ public final class TrophyHeadsClient {
    double dx=(world.getRandom().nextDouble()-.5)*.17,dz=(world.getRandom().nextDouble()-.5)*.17;
    double height=switch(kind){
     case POSTEN,GROVE_GUARDIAN,ZHARENITSA->.65;case MAGMA_LORD->.65;case TUGARIN->.37;case SKIM->.66;case VOLKOLAK->.77;case PODZEMNIK->.95;
-    case LIKHO,MOR_LIKHO->1.25;case MOROVOY_RAVEN,FIRE_SERPENT,MOR_SERPENT,MOROVOY_FIRE_ZMEY->.55;
+    case LIKHO,MOR_LIKHO->1.25;case MOROVOY_RAVEN,FIRE_SERPENT,MOR_SERPENT,MOROVOY_FIRE_ZMEY,NINE_MOR_SERPENT->.55;
    };
    var particle=switch(kind){
     case POSTEN->ParticleTypes.SOUL;case GROVE_GUARDIAN->ParticleTypes.ASH;case ZHARENITSA->ParticleTypes.SMALL_FLAME;case MAGMA_LORD->ParticleTypes.SMALL_FLAME;case TUGARIN->ParticleTypes.DRAGON_BREATH;
@@ -273,7 +277,7 @@ public final class TrophyHeadsClient {
     case PODZEMNIK->ParticleTypes.ASH;
     case LIKHO->ParticleTypes.SOUL;
     case MOR_LIKHO->ParticleTypes.CRIMSON_SPORE;
-    case MOROVOY_RAVEN->ParticleTypes.ASH;case MOR_SERPENT->ParticleTypes.SOUL;case MOROVOY_FIRE_ZMEY->ParticleTypes.DRAGON_BREATH;
+    case MOROVOY_RAVEN->ParticleTypes.ASH;case MOR_SERPENT->ParticleTypes.SOUL;case MOROVOY_FIRE_ZMEY->ParticleTypes.DRAGON_BREATH;case NINE_MOR_SERPENT->ParticleTypes.SOUL;
     case FIRE_SERPENT->ParticleTypes.DRAGON_BREATH;
    };
    int count=Math.min(particleBudget,kind==TrophyHeads.Kind.MAGMA_LORD||kind==TrophyHeads.Kind.POSTEN||kind==TrophyHeads.Kind.GROVE_GUARDIAN||kind==TrophyHeads.Kind.ZHARENITSA?1:5);particleBudget-=count;
@@ -289,7 +293,7 @@ public final class TrophyHeadsClient {
  }
  public static final class ItemRenderer extends BlockEntityWithoutLevelRenderer {
   public ItemRenderer(){super(Minecraft.getInstance().getBlockEntityRenderDispatcher(),Minecraft.getInstance().getEntityModels());}
-  @Override public void renderByItem(ItemStack stack,ItemDisplayContext context,PoseStack pose,MultiBufferSource buffer,int light,int overlay){if(stack.getItem() instanceof BlockItem item&&item.getBlock() instanceof TrophyHeadBlock block){var h=head(block.kind);pose.pushPose();if(context==ItemDisplayContext.GUI){float fit=block.kind.wide()?.40F:.72F;pose.translate(.5F,.5F,.5F);pose.scale(fit,fit,fit);pose.translate(block.kind.wide()?-1F:-.5F,-.5F,block.kind.wide()?-1F:-.5F);}h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);pose.popPose();}}
+  @Override public void renderByItem(ItemStack stack,ItemDisplayContext context,PoseStack pose,MultiBufferSource buffer,int light,int overlay){if(stack.getItem() instanceof BlockItem item&&item.getBlock() instanceof TrophyHeadBlock block){var h=head(block.kind);pose.pushPose();if(context==ItemDisplayContext.GUI){float fit=block.kind==TrophyHeads.Kind.NINE_MOR_SERPENT?.23F:block.kind.wide()?.40F:.72F;pose.translate(.5F,.5F,.5F);pose.scale(fit,fit,fit);pose.translate(block.kind==TrophyHeads.Kind.NINE_MOR_SERPENT?-1.5F:block.kind.wide()?-1F:-.5F,-.5F,block.kind.wide()?-1F:-.5F);}h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);pose.popPose();}}
  }
  @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerBlockEntityRenderer(TrophyHeads.TILE.get(),Renderer::new);}
  @SubscribeEvent public static void items(RegisterClientExtensionsEvent e){for(var item:TrophyHeads.ITEMS.values())e.registerItem(new IClientItemExtensions(){private ItemRenderer renderer;@Override public BlockEntityWithoutLevelRenderer getCustomRenderer(){if(renderer==null)renderer=new ItemRenderer();return renderer;}},item.get());}
