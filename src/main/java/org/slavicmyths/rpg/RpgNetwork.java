@@ -13,6 +13,11 @@ public final class RpgNetwork {
    if(!(context.player() instanceof ServerPlayer player)||!player.isAlive()||player.isSpectator())return;
    if(PathData.ready(player,"nether_trophy_request",4))org.slavicmyths.netherboss.NetherTrophies.activateEquipped(player,payload.pendant());
   });
+  registrar.playToServer(MythPayloads.StaffAction.TYPE,MythPayloads.StaffAction.CODEC,(payload,context)->{
+   if(!(context.player() instanceof ServerPlayer player)||!player.isAlive()||player.isSpectator())return;
+   if(payload.action()<0||payload.action()>2||!PathData.ready(player,"morovoy_staff_action",2))return;
+   org.slavicmyths.morovoy.MorovoyStaff.handleAction(player,payload.action());
+  });
   registrar.playToClient(MythPayloads.RpgSync.TYPE,MythPayloads.RpgSync.CODEC,
    (payload,context)->NeoForge.EVENT_BUS.post(new ClientPayloadEvents.RpgSynced(payload)));
   registrar.playToServer(MythPayloads.Activate.TYPE,MythPayloads.Activate.CODEC,(payload,context)->{

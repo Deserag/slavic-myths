@@ -79,13 +79,12 @@ public class InfernalBow extends org.slavicmyths.combat.FieldBowItem {
 
     @Override public void appendHoverText(ItemStack stack,Item.TooltipContext context,List<net.minecraft.network.chat.Component> lines,TooltipFlag flag) {
         super.appendHoverText(stack,context,lines,flag);
-        lines.add(net.minecraft.network.chat.Component.literal("Урон полностью натянутой стрелы: "+(empowered?"14":"11.5")).withStyle(net.minecraft.ChatFormatting.GOLD));
-        lines.add(net.minecraft.network.chat.Component.literal("Полное натяжение: "+drawTicks()+" тиков").withStyle(net.minecraft.ChatFormatting.AQUA));
-        lines.add(net.minecraft.network.chat.Component.literal("Каждая стрела поджигает цель").withStyle(net.minecraft.ChatFormatting.RED));
-        if(empowered)lines.add(net.minecraft.network.chat.Component.literal("При попадании: Замедление I (3 сек.)").withStyle(net.minecraft.ChatFormatting.DARK_AQUA));
-        lines.add(net.minecraft.network.chat.Component.literal(empowered?"Shift + выстрел: огненный пробой и удар по второй цели":"Shift + выстрел: усиленная огненная стрела").withStyle(net.minecraft.ChatFormatting.YELLOW));
-        lines.add(net.minecraft.network.chat.Component.literal("Рунные слоты: "+org.slavicmyths.rpg.Runes.slots(stack)+" / "+(empowered?3:2)+" (открываются улучшением)").withStyle(net.minecraft.ChatFormatting.GRAY));
+        lines.add(net.minecraft.network.chat.Component.literal(empowered?"✦ АДСКИЙ ЛУК • УСИЛЕННЫЙ":"✦ АДСКИЙ ЛУК").withStyle(net.minecraft.ChatFormatting.GOLD));
+        lines.add(net.minecraft.network.chat.Component.literal((empowered?"14":"11,5")+" базового урона • натяжение "+drawTicks()+" тиков").withStyle(net.minecraft.ChatFormatting.GRAY));
+        lines.add(net.minecraft.network.chat.Component.literal(empowered?"Воспламенение + Замедление I (3 с)":"Воспламенение: стрелы поджигают цели").withStyle(net.minecraft.ChatFormatting.RED));
+        lines.add(net.minecraft.network.chat.Component.literal(empowered?"Shift+выстрел: 17 урона + вторая цель (13 с)":"Shift+выстрел: 14 урона (10 с)").withStyle(net.minecraft.ChatFormatting.YELLOW));
     }
+
 
     @Override public boolean isValidRepairItem(ItemStack stack,ItemStack addition) {
         return NetherWeapons.TIER.getRepairIngredient().test(addition);

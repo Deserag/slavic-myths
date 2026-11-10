@@ -6640,5 +6640,8 @@
   "netherweapons.tip.empowered_infernal_bow": "Fire and Slowness I on hit. Sneak for a piercing shot. 3 rune sockets.",
   "item.slavicmyths.bauk_wool": "Bauk Wool",
   "item.slavicmyths.bauk_cloak": "Bauk Cloak",
-  "item.slavicmyths.bauk_cloak.effect": "+3 hearts (+6 HP), +15% attack damage, -15% incoming damage"
+  "item.slavicmyths.bauk_cloak.effect": "+3 hearts (+6 HP), +15% attack damage, -15% incoming damage",
+  "key.slavicmyths.morovoy_mode": "Mor Staff: switch element",
+  "key.slavicmyths.morovoy_ravens": "Mor Staff: summon ravens",
+  "key.slavicmyths.morovoy_blast": "Mor Staff: fire-plague blast"
 }
