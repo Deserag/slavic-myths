@@ -20,6 +20,7 @@ import org.slavicmyths.ships.RaftItem;
 import org.slavicmyths.ships.RaftSize;
 import org.slavicmyths.ships.ShipyardMenu;
 import org.slavicmyths.ships.ShipyardUpgrades;
+import org.slavicmyths.ships.ShipSailMotion;
 
 /**
  * Two-tab workshop:
@@ -272,10 +273,13 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     202, 67, DARK, false);
         }
         if (tab == 1 && vesselKind() == 2) {
+            int rig = ShipyardUpgrades.shipRigLevel(menu.inspected());
             int tier = ShipyardUpgrades.shipFabric(menu.inspected());
-            double power = tier == 0 ? 0.16D : tier == 1 ? 0.40D : tier == 2 ? 0.68D : 1D;
-            graphics.drawString(font, "Тяга текущего паруса: " + (int)Math.round(power * 100D) + "% (базовая оснастка)",
-                    202, 77, DARK, false);
+            if (rig >= 0 && tier >= 0) {
+                double power = ShipSailMotion.power(rig, tier);
+                graphics.drawString(font, "Тяга: " + (int)Math.round(power * 100D) + "%  (с учётом оснастки)",
+                        202, 77, DARK, false);
+            }
         }
         if (tab == 1 && vesselKind() == 0)
             graphics.drawString(font, "Выберите плот или корабль слева.", 202, 85, DARK, false);
