@@ -759,8 +759,11 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         graphics.pose().scale(scale, scale, 1F);
         int x = (int)Math.round(logicalX(mouseX)), y = (int)Math.round(logicalY(mouseY));
         super.render(graphics, x, y, partial);
-        if (hoveredSlot != menu.slots.get(0) || hasShiftDown())
-            renderTooltip(graphics, x, y);
         graphics.pose().popPose();
+    }
+
+    @Override protected void renderTooltip(GuiGraphics graphics, int mouseX, int mouseY) {
+        if (hoveredSlot == menu.slots.get(0) && !hasShiftDown()) return;
+        super.renderTooltip(graphics, mouseX, mouseY);
     }
 }
