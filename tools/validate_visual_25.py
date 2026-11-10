@@ -108,6 +108,10 @@ def validate() -> dict[str, dict]:
     baukkit = model("bauk_head", "item")
     check(baukkit.get("parent") == "slavicmyths:block/bauk_head_closed",
           "Bauk item no longer inherits actual skull geometry")
+    for transform in ("gui", "ground", "fixed", "firstperson_righthand",
+                      "firstperson_lefthand", "thirdperson_righthand", "thirdperson_lefthand"):
+        check(transform in baukkit.get("display", {}),
+              f"Bauk head: missing {transform} transform")
     bauk_drop = read(DATA / "loot_table/blocks/bauk_head.json")
     pools = bauk_drop.get("pools", [])
     check(any(condition.get("condition") == "minecraft:block_state_property"
@@ -142,6 +146,15 @@ def validate() -> dict[str, dict]:
     blocking = model("nine_mor_shield_blocking", "item")
     check(blocking.get("parent") == "slavicmyths:item/nine_mor_shield_held",
           "Nine Mor blocking shield is not linked to its normal geometry")
+    for name in ("morovoy_staff", "nine_mor_amulet_held"):
+        data = model(name, "item")
+        check(len(data.get("elements", [])) >= 10, f"{name}: missing held geometry")
+        check(not INVALID_VANILLA.intersection(data.get("textures", {}).values()),
+              f"{name}: unrelated vanilla material")
+        for transform in ("gui", "ground", "fixed", "firstperson_righthand",
+                          "firstperson_lefthand", "thirdperson_righthand", "thirdperson_lefthand"):
+            check(transform in data.get("display", {}), f"{name}: missing {transform} view")
+        results[name] = data
 
     poloz = (ROOT / "src/main/java/org/slavicmyths/poloz/GreatPoloz.java").read_text(encoding="utf-8")
     for name in ("windupFx", "ringFx", "fxNearby", "tailSweep", "summon"):
