@@ -212,6 +212,48 @@ public final class FirstShipEntity extends Boat {
         builder.define(STRUCTURE_VIEW, "");
     }
 
+    public int helmLocalZ() {
+        ShipSuperstructurePlan plan = superstructure();
+        return geometryVersion() == 9 && plan != null ? -plan.hullLength() / 2
+                + (plan.bridge() ? 4 : plan.cabin() ? 9 : 3) : FirstShipHull.HELM_Z;
+    }
+    public int helmStandingHeight() {
+        ShipSuperstructurePlan plan = superstructure();
+        return geometryVersion() == 9 && plan != null && plan.bridge() ? 10 : 5;
+    }
+    private transient ShipSuperstructurePlan voxelCachePlan;
+    private transient java.util.Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> voxelCache =
+            java.util.Map.of();
+    private java.util.Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> voxelParts() {
+        ShipSuperstructurePlan plan = superstructure();
+        if (plan == null) return java.util.Map.of();
+        if (!plan.equals(voxelCachePlan)) {
+            voxelCache = ShipHullVoxelLayout.generate(plan);
+            voxelCachePlan = plan;
+        }
+        return voxelCache;
+    }
+    public boolean voxelLadderAt(double x, double y, double z) {
+        if (!isVoxelShip()) return false;
+        int xx = (int)Math.floor(x + .5D), zz = (int)Math.floor(z + .5D);
+        int yy = (int)Math.floor(y);
+        return voxelParts().get(new ShipHullVoxelLayout.Cell(xx, yy, zz))
+                == ShipHullVoxelLayout.Part.LADDER;
+    }
+    public int supportedVoxelFloor(double x, double z, double localY, int preferred) {
+        if (!isVoxelShip()) return -1;
+        int xx = (int)Math.floor(x + .5D), zz = (int)Math.floor(z + .5D);
+        for (int surface : new int[]{13, 10, 9, 5, 1}) {
+            if (preferred >= 0 && preferred != surface) continue;
+            var part = voxelParts().get(new ShipHullVoxelLayout.Cell(xx, surface - 1, zz));
+            if (part != ShipHullVoxelLayout.Part.DECK
+                    && part != ShipHullVoxelLayout.Part.BRIDGE
+                    && part != ShipHullVoxelLayout.Part.HULL
+                    && part != ShipHullVoxelLayout.Part.KEEL) continue;
+            if (localY >= surface - .56D && localY <= surface + 2.6D) return surface;
+        }
+        return -1;
+    }
     public double deckY() { return getY() + FirstShipHull.MAIN_DECK; }
     public double holdY() { return getY() + FirstShipHull.HOLD_FLOOR; }
     public int moduleKind(int floor, int x, int z) {
@@ -300,14 +342,14 @@ public final class FirstShipEntity extends Boat {
         }
         if (!hasPassenger(passenger)) return;
         if (isMoving()) {
-            FirstShipHull.Point seat = FirstShipHull.toWorld(0D, FirstShipHull.HELM_Z,
+            FirstShipHull.Point seat = FirstShipHull.toWorld(0D, helmLocalZ(),
                     getX(), getZ(), getYRot());
-            move.accept(passenger, seat.x(), deckY() + .08D, seat.z());
+            move.accept(passenger, seat.x(), getY() + helmStandingHeight() + .08D, seat.z());
         } else {
             BlockPos anchor = blockAnchor();
-            FirstShipHull.Point seat = FirstShipHull.toWorld(0D, FirstShipHull.HELM_Z,
+            FirstShipHull.Point seat = FirstShipHull.toWorld(0D, helmLocalZ(),
                     anchor.getX() + .5D, anchor.getZ() + .5D, shipYaw());
-            move.accept(passenger, seat.x(), anchor.getY() + FirstShipHull.MAIN_DECK + .08D, seat.z());
+            move.accept(passenger, seat.x(), anchor.getY() + helmStandingHeight() + .08D, seat.z());
         }
     }
 
@@ -523,12 +565,16 @@ public final class FirstShipEntity extends Boat {
 
     /** No packing while anybody stands in the hold or on the deck. */
     private boolean hasWalkers() {
-        AABB area = getBoundingBox().inflate(8D, 5D, 8D);
+        AABB area = getBoundingBox().inflate(isVoxelShip() ? 35D : 8D,
+                isVoxelShip() ? 24D : 5D, isVoxelShip() ? 35D : 8D);
         for (Player player : level().getEntitiesOfClass(Player.class, area)) {
             if (player.isPassenger()) continue;
             FirstShipHull.Point local = FirstShipHull.toLocal(
                     player.getX(), player.getZ(), getX(), getZ(), getYRot());
-            if (FirstShipHull.withinHull(local.x(), local.z(), .0D)
+            if (isVoxelShip()) {
+                if (supportedVoxelFloor(local.x(), local.z(), player.getY() - getY(), -1) >= 0)
+                    return true;
+            } else if (FirstShipHull.withinHull(local.x(), local.z(), .0D)
                     && player.getY() >= holdY() - 0.55D
                     && player.getY() <= deckY() + 2.2D) return true;
         }
@@ -584,11 +630,11 @@ public final class FirstShipEntity extends Boat {
         FirstShipHull.Point local = FirstShipHull.toLocal(
                 player.getX(), player.getZ(), getX(), getZ(), getYRot());
         if (Math.abs(local.x()) > 1.65D
-                || Math.abs(local.z() - FirstShipHull.HELM_Z) > 1.7D
-                || Math.abs(player.getY() - deckY()) > .9D) return false;
-        FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, -4D,
+                || Math.abs(local.z() - helmLocalZ()) > 1.7D
+                || Math.abs(player.getY() - (getY() + helmStandingHeight())) > .9D) return false;
+        FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, helmLocalZ(),
                 getX(), getZ(), getYRot());
-        Vec3 aim = new Vec3(wheel.x(), deckY() + 1.78D, wheel.z()).subtract(player.getEyePosition());
+        Vec3 aim = new Vec3(wheel.x(), getY() + helmStandingHeight() + 1.78D, wheel.z()).subtract(player.getEyePosition());
         if (aim.lengthSqr() < .09D || aim.lengthSqr() > 25D
                 || aim.normalize().dot(player.getLookAngle()) < .30D) return false;
         boolean mounted = player.startRiding(this);
@@ -603,7 +649,7 @@ public final class FirstShipEntity extends Boat {
      * Inventory only changes after that transaction succeeds.
      */
     public boolean configureRigging(ServerPlayer player, int action) {
-        if (!nativeHull || isVehicle() || player.isPassenger() || player.isSpectator()
+        if (!nativeHull || isVoxelShip() || isVehicle() || player.isPassenger() || player.isSpectator()
                 || !(level() instanceof net.minecraft.server.level.ServerLevel server)
                 || player.containerMenu != player.inventoryMenu) return false;
         FirstShipHull.Point local = FirstShipHull.toLocal(player.getX(), player.getZ(),
@@ -724,6 +770,7 @@ public final class FirstShipEntity extends Boat {
      * Once on deck the player is NOT mounted or moved between fake seats.
      */
     public boolean tryBoard(ServerPlayer player) {
+        if (isVoxelShip()) return false; // V9 uses its full-sized physical deck access.
         if (player.isPassenger() || player.isSpectator()
                 || getDeltaMovement().horizontalDistanceSqr() > .0025D
                 || player.getY() >= deckY() - 1.1D) return false;
@@ -753,8 +800,8 @@ public final class FirstShipEntity extends Boat {
                 player.getX(), player.getZ(), getX(), getZ(), getYRot());
         // Helm can only be activated at the stern, on the MAIN deck.
         if (!player.isSecondaryUseActive() && Math.abs(local.x()) < 1.35D
-                && Math.abs(local.z() - FirstShipHull.HELM_Z) < 1.65D
-                && Math.abs(player.getY() - deckY()) < 1.3D) {
+                && Math.abs(local.z() - helmLocalZ()) < 1.65D
+                && Math.abs(player.getY() - (getY() + helmStandingHeight())) < 1.3D) {
             if (!level().isClientSide && player.startRiding(this)) positionRider(player);
             return InteractionResult.sidedSuccess(level().isClientSide);
         }
@@ -1136,7 +1183,12 @@ public final class FirstShipEntity extends Boat {
                         ? helmControl : ShipRigidMotion.Control.IDLE;
                 double oldX = getX(), oldZ = getZ();
                 float oldYaw = getYRot();
-                ShipRigidMotion.Frame frame = movingBody.tick(server, ShipSailMotion.apply(control, rigLevel, fabricQuality));
+                ShipRigidMotion.Control powered = isVoxelShip()
+                ? new ShipRigidMotion.Control(control.throttle()
+                        * (superstructure.sailTiers().isEmpty() ? .16D
+                                : superstructure.propulsionFactor()), control.rudder())
+                : ShipSailMotion.apply(control, rigLevel, fabricQuality);
+        ShipRigidMotion.Frame frame = movingBody.tick(server, powered);
                 ShipRigidMotion.Pose next = movingBody.pose();
                 if (frame.blocked() && !hasOpenShipMenus(server) && movingBody.park(server)) {
                     BlockPos restored = BlockPos.containing(next.x(), movingBody.waterlineY(), next.z());
@@ -1224,7 +1276,8 @@ public final class FirstShipEntity extends Boat {
         if (!smoothEnabled || geometryVersion < 5 || quarantinedModules != null
                 || movingBody != null) return false;
         for (ServerPlayer player : server.getEntitiesOfClass(ServerPlayer.class,
-                new AABB(blockAnchor).inflate(10D, 24D, 10D)))
+                new AABB(blockAnchor).inflate(isVoxelShip() ? 38D : 10D, 28D,
+                        isVoxelShip() ? 38D : 10D)))
             if (player.containerMenu != player.inventoryMenu) return false;
         ShipMovingContraption prepared = geometryVersion == 9 && superstructure != null
                 ? ShipMovingContraption.prepare(server, blockAnchor, quarterTurns, superstructure)
