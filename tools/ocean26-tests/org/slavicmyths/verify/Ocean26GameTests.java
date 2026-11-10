@@ -467,6 +467,10 @@ public final class Ocean26GameTests {
                 t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
                         0, 2, 12, 0)).is(Blocks.SPRUCE_PLANKS),
                         type + " third deck floor is absent");
+            BlockPos maxChest = FirstShipBlockHull.world(anchor, 0, 2, 5, 0);
+            t.assertTrue(level.setBlock(maxChest, Blocks.CHEST.defaultBlockState(), 2),
+                    type + " maximum deck could not accept chest");
+            chest(level, maxChest, t).setItem(0, new ItemStack(Items.DIAMOND, 7));
             BlockPos movedAnchor = anchor.offset(0, 0, 1);
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.rebuild(level,
                     anchor, 0, maximum, movedAnchor, 0, maximum),
@@ -474,10 +478,17 @@ public final class Ocean26GameTests {
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.rebuild(level,
                     movedAnchor, 0, maximum, movedAnchor, 1, maximum),
                     type + " maximum hull could not turn with real blocks");
-            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.pack(level,
-                    movedAnchor, 1, maximum) != null, type + " maximum hull packing failed");
+            BlockPos turnedChest = FirstShipBlockHull.world(movedAnchor, 1, 2, 5, 0);
+            t.assertTrue(chest(level, turnedChest, t).getItem(0).getCount() == 7,
+                    type + " chest contents changed during advance and turn");
+            ListTag maxCargo = org.slavicmyths.ships.ShipModularBlockHull.pack(level,
+                    movedAnchor, 1, maximum);
+            t.assertTrue(maxCargo != null && maxCargo.size() == 1,
+                    type + " maximum hull packing lost cargo");
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
                     movedAnchor, 1, maximum), type + " maximum hull removal failed");
+            t.assertTrue(level.getBlockState(turnedChest).isAir(),
+                    type + " cargo remained in world after packing");
         }
         menu.removed(builder);
         builder.discard();
