@@ -427,11 +427,18 @@ public final class ShipyardUpgrades {
 
     /** Charges only for changed/added physical parts; no full-build duplicate charge. */
     public static ShipBill shipBill(ShipSuperstructurePlan old, ShipSuperstructurePlan next) {
-        var after = ShipHullVoxelLayout.generate(next);
-        var before = old == null
+        var futureBlocks = ShipHullVoxelLayout.generate(next);
+        var priorBlocks = old == null
                 ? java.util.Map.<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part>of()
                 : ShipHullVoxelLayout.generate(old);
-        var delta = ShipHullVoxelLayout.additions(before, after);
+        var after = ShipHullVoxelLayout.count(futureBlocks);
+        var before = ShipHullVoxelLayout.count(priorBlocks);
+        java.util.Map<ShipHullVoxelLayout.Part, Integer> delta =
+                new java.util.EnumMap<>(ShipHullVoxelLayout.Part.class);
+        for (ShipHullVoxelLayout.Part part : ShipHullVoxelLayout.Part.values()) {
+            int newQuantity = after.getOrDefault(part, 0) - before.getOrDefault(part, 0);
+            if (newQuantity > 0) delta.put(part, newQuantity);
+        }
         int wood = 0, planks = 0, glass = 0, strings = 0, deck = 0, rails = 0;
         for (var entry : delta.entrySet()) {
             int quantity = entry.getValue();
