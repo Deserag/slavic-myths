@@ -359,6 +359,23 @@ public final class FirstShipEntity extends Boat {
      */
     @Override public Vec3 getDismountLocationForPassenger(LivingEntity passenger) {
         if (!isNativeHull()) return super.getDismountLocationForPassenger(passenger);
+        if (isVoxelShip()) {
+            double y = getY() + helmStandingHeight();
+            int station = helmLocalZ();
+            for (int x : new int[]{1, -1, 2, -2, 0})
+                for (int dz : new int[]{1, 2, -1}) {
+                    int z = station + dz;
+                    if (supportedVoxelFloor(x, z, helmStandingHeight(), -1) != helmStandingHeight())
+                        continue;
+                    FirstShipHull.Point point = FirstShipHull.toWorld(x, z,
+                            getX(), getZ(), getYRot());
+                    Vec3 target = new Vec3(point.x(), y + .05D, point.z());
+                    if (level().noCollision(passenger,
+                            passenger.getBoundingBox().move(target.subtract(passenger.position()))))
+                        return target;
+                }
+            return new Vec3(getX(), y + 5D, getZ());
+        }
         double[][] safeCells = {{1D, -2D}, {-1D, -2D}, {0D, -2D},
                 {1D, -3D}, {-1D, -3D}, {0D, -3D},
                 {2D, -2D}, {-2D, -2D}, {0D, 0D}, {1D, 0D}, {-1D, 0D}};
@@ -395,7 +412,10 @@ public final class FirstShipEntity extends Boat {
                 Vec3 target = getDismountLocationForPassenger(player);
                 FirstShipHull.Point local = FirstShipHull.toLocal(target.x, target.z,
                         getX(), getZ(), getYRot());
-                if (FirstShipHull.mainDeckSupports(local.x(), local.z()))
+                if (isVoxelShip()
+                        ? supportedVoxelFloor(local.x(), local.z(),
+                                target.y - getY(), -1) >= 0
+                        : FirstShipHull.mainDeckSupports(local.x(), local.z()))
                     pendingDismounts.put(player.getUUID(), new PendingDismount(
                             local.x(), local.z(), target.y - deckY(),
                             level().getGameTime() + 40L));
@@ -433,7 +453,12 @@ public final class FirstShipEntity extends Boat {
     @Override public boolean hurt(DamageSource source, float damage) { return false; }
     @Override public ItemStack getPickResult() { return new ItemStack(RaftContent.FIRST_SHIP_ITEM.get()); }
     @Override public Item getDropItem() { return RaftContent.FIRST_SHIP_ITEM.get(); }
-    @Override protected Component getTypeName() { return Component.literal("Деревянный корабль 7×11"); }
+    @Override protected Component getTypeName() {
+        ShipSuperstructurePlan plan = superstructure();
+        return plan == null ? Component.literal("Деревянный корабль 7×11")
+                : Component.literal("Корабль " + plan.shipClass() + " "
+                        + plan.hullWidth() + "×" + plan.hullLength());
+    }
 
     private ListTag storeModules(HolderLookup.Provider registries) {
         ListTag list = new ListTag();
@@ -811,6 +836,19 @@ public final class FirstShipEntity extends Boat {
 
     /** Also called by air-right-click while standing on any part of this large ship. */
     public InteractionResult interactFromDeck(Player player, InteractionHand hand) {
+        if (isVoxelShip()) {
+            if (!isMoving() || !(player instanceof ServerPlayer serverPlayer))
+                return InteractionResult.PASS;
+            for (int i = 0; movingBody != null && i < movingBody.cargoCount(); i++) {
+                CompoundTag cargo = movingBody.cargoEntry(i);
+                FirstShipHull.Point at = FirstShipHull.toWorld(
+                        cargo.getInt("X"), cargo.getInt("Z"), getX(), getZ(), getYRot());
+                if (player.distanceToSqr(at.x(), getY() + cargo.getInt("Y"), at.z()) <= 25D
+                        && openMovingCargo(serverPlayer, i))
+                    return InteractionResult.CONSUME;
+            }
+            return InteractionResult.PASS;
+        }
         ItemStack held = player.getItemInHand(hand);
         FirstShipHull.Point local = FirstShipHull.toLocal(
                 player.getX(), player.getZ(), getX(), getZ(), getYRot());
@@ -864,7 +902,10 @@ public final class FirstShipEntity extends Boat {
         if (type < 1 || type > 4) return false;
         FirstShipHull.Point aboard = FirstShipHull.toLocal(player.getX(), player.getZ(),
                 getX(), getZ(), getYRot());
-        if (!FirstShipHull.withinHull(aboard.x(), aboard.z(), .1D)
+        if (isVoxelShip()) {
+            if (supportedVoxelFloor(aboard.x(), aboard.z(),
+                    player.getY() - getY(), -1) < 0) return false;
+        } else if (!FirstShipHull.withinHull(aboard.x(), aboard.z(), .1D)
                 || player.getY() < holdY() - .4D || player.getY() > deckY() + 2.2D)
             return false;
         int x = entry.getInt("X"), y = entry.getInt("Y"), z = entry.getInt("Z");
