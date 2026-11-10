@@ -123,11 +123,10 @@ public final class ShipModularBlockHull {
         };
     }
 
-    private static boolean cargoCell(ShipBuildConfiguration config, int x, int y, int z) {
+    private static boolean cargoCell(Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> plan,
+            int x, int y, int z) {
         // A freestanding container may occupy any clear part of a deck, not a
         // mast, rail, hatch or cabin wall.
-        Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> plan =
-                ShipHullVoxelLayout.generate(config.structure());
         var cell = new ShipHullVoxelLayout.Cell(x, y, z);
         if (plan.containsKey(cell)) return false;
         var below = plan.get(new ShipHullVoxelLayout.Cell(x, y - 1, z));
@@ -144,6 +143,8 @@ public final class ShipModularBlockHull {
                 return null;
         }
         List<Cargo> cargo = new ArrayList<>();
+        Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cargoPlan =
+                ShipHullVoxelLayout.generate(config.structure());
         int halfWidth = config.width() / 2, halfLength = config.length() / 2;
         int maxY = Math.max(24, 4 + config.decks() * 4);
         for (int z = -halfLength; z <= halfLength; z++)
@@ -155,7 +156,7 @@ public final class ShipModularBlockHull {
                     BlockState state = level.getBlockState(world);
                     if (state.isAir()) continue;
                     int type = kind(state);
-                    if (type == 0 || !cargoCell(config, x, y, z)) return null;
+                    if (type == 0 || !cargoCell(cargoPlan, x, y, z)) return null;
                     BlockEntity blockEntity = level.getBlockEntity(world);
                     if (type != 3 && blockEntity == null) return null;
                     CompoundTag data = blockEntity == null ? new CompoundTag()
@@ -169,13 +170,16 @@ public final class ShipModularBlockHull {
         if (entries == null || entries.size() > config.width() * config.length() * config.decks())
             return null;
         List<Cargo> result = new ArrayList<>();
+        Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cargoPlan =
+                ShipHullVoxelLayout.generate(config.structure());
         Set<String> occupied = new HashSet<>();
         for (int i = 0; i < entries.size(); i++) {
             CompoundTag entry = entries.getCompound(i);
             int x = entry.getInt("X"), y = entry.getInt("Y"), z = entry.getInt("Z");
             int kind = entry.getInt("Kind");
-            if (kind < 1 || kind > 4 || !cargoCell(config, x, y, z)
+            if (kind < 1 || kind > 4 || !cargoCell(cargoPlan, x, y, z)
                     || !occupied.add(x + ":" + y + ":" + z)
+                    || !entry.contains("State", Tag.TAG_COMPOUND)
                     || (kind != 3 && !(entry.contains("BlockEntity", Tag.TAG_COMPOUND) || entry.contains("Data", Tag.TAG_COMPOUND))))
                 return null;
             BlockState state = kindState(kind);
@@ -364,8 +368,10 @@ public final class ShipModularBlockHull {
                 oldAnchor, oldTurn, entry.x(), entry.y(), entry.z()));
         int rotation = Math.floorMod(nextTurn - oldTurn, 4);
         List<Cargo> transported = new ArrayList<>();
+        Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cargoPlan =
+                ShipHullVoxelLayout.generate(next.structure());
         for (Cargo entry : source.cargo()) {
-            if (!cargoCell(next, entry.x(), entry.y(), entry.z())) return false;
+            if (!cargoCell(cargoPlan, entry.x(), entry.y(), entry.z())) return false;
             BlockState state = entry.state();
             for (int n = 0; n < rotation; n++) state = state.rotate(Rotation.CLOCKWISE_90);
             transported.add(new Cargo(entry.x(), entry.y(), entry.z(),

@@ -102,7 +102,11 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         if (tag == null || tag.getInt("Version") != VERSION
                 || !tag.contains("Class", Tag.TAG_STRING)
                 || !tag.contains("Sails", Tag.TAG_INT_ARRAY)
-                || !tag.contains("Decks", Tag.TAG_INT))
+                || !tag.contains("Decks", Tag.TAG_INT)
+                || !tag.contains("ExtraLength", Tag.TAG_INT)
+                || !tag.contains("ExtraWidth", Tag.TAG_INT)
+                || !tag.contains("Bridge", Tag.TAG_BYTE)
+                || !tag.contains("Cabin", Tag.TAG_BYTE))
             throw new IllegalArgumentException("Invalid ship blueprint format");
         ShipSectionPlan.ShipClass type = ShipSectionPlan.ShipClass.valueOf(tag.getString("Class"));
         List<Integer> sails = new ArrayList<>();
@@ -133,6 +137,9 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         List<Integer> sails = new ArrayList<>();
         if (!parts[6].isEmpty()) for (String tier : parts[6].split(","))
             sails.add(Integer.parseInt(tier));
+        if (!parts[4].equals("0") && !parts[4].equals("1")
+                || !parts[5].equals("0") && !parts[5].equals("1"))
+            throw new IllegalArgumentException("Invalid blueprint flags");
         return new ShipBuildConfiguration(
                 ShipSectionPlan.ShipClass.valueOf(parts[0]),
                 Integer.parseInt(parts[1]), Integer.parseInt(parts[2]),

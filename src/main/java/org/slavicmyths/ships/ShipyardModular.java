@@ -32,16 +32,12 @@ public final class ShipyardModular {
     public static Materials costs(ShipBuildConfiguration original,
             ShipBuildConfiguration next) {
         if (next == null) throw new IllegalArgumentException("Missing destination ship");
-        Map<ShipHullVoxelLayout.Part, Integer> before = original == null
-                ? Map.of() : ShipHullVoxelLayout.count(
-                        ShipHullVoxelLayout.generate(original.structure()));
-        Map<ShipHullVoxelLayout.Part, Integer> after = ShipHullVoxelLayout.count(
-                ShipHullVoxelLayout.generate(next.structure()));
+        Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> before = original == null
+                ? Map.of() : ShipHullVoxelLayout.generate(original.structure());
+        Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> after =
+                ShipHullVoxelLayout.generate(next.structure());
         Map<ShipHullVoxelLayout.Part, Integer> delta =
-                new java.util.EnumMap<>(ShipHullVoxelLayout.Part.class);
-        for (ShipHullVoxelLayout.Part part : ShipHullVoxelLayout.Part.values())
-            delta.put(part, Math.max(0,
-                    after.getOrDefault(part, 0) - before.getOrDefault(part, 0)));
+                ShipHullVoxelLayout.additions(before, after);
         int keel = delta.getOrDefault(ShipHullVoxelLayout.Part.KEEL, 0);
         int frame = delta.getOrDefault(ShipHullVoxelLayout.Part.FRAME, 0);
         int mast = delta.getOrDefault(ShipHullVoxelLayout.Part.MAST, 0);
