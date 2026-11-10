@@ -1130,7 +1130,12 @@ public final class FirstShipEntity extends Boat {
                         ? helmControl : ShipRigidMotion.Control.IDLE;
                 double oldX = getX(), oldZ = getZ();
                 float oldYaw = getYRot();
-                ShipRigidMotion.Frame frame = movingBody.tick(server, ShipSailMotion.apply(control, rigLevel, fabricQuality));
+                ShipRigidMotion.Control propulsion = modularConfiguration == null
+                        ? ShipSailMotion.apply(control, rigLevel, fabricQuality)
+                        : new ShipRigidMotion.Control(control.throttle() *
+                                Math.max(.16D, modularConfiguration.structure().propulsionFactor()),
+                                control.rudder());
+                ShipRigidMotion.Frame frame = movingBody.tick(server, propulsion);
                 ShipRigidMotion.Pose next = movingBody.pose();
                 if (frame.blocked() && !hasOpenShipMenus(server) && movingBody.park(server)) {
                     BlockPos restored = BlockPos.containing(next.x(), movingBody.waterlineY(), next.z());
@@ -1220,8 +1225,11 @@ public final class FirstShipEntity extends Boat {
         for (ServerPlayer player : server.getEntitiesOfClass(ServerPlayer.class,
                 new AABB(blockAnchor).inflate(10D, 24D, 10D)))
             if (player.containerMenu != player.inventoryMenu) return false;
-        ShipMovingContraption prepared = ShipMovingContraption.prepare(server, blockAnchor,
-                quarterTurns, rigLevel, fabricQuality, geometryVersion);
+        ShipMovingContraption prepared = modularConfiguration == null
+                ? ShipMovingContraption.prepare(server, blockAnchor,
+                        quarterTurns, rigLevel, fabricQuality, geometryVersion)
+                : ShipMovingContraption.prepare(server, blockAnchor,
+                        quarterTurns, modularConfiguration);
         if (prepared == null || !prepared.detach(server, blockAnchor)) return false;
         // Install the durable moving state before any attempt at restoration:
         // even an unexpected blocked restore must NEVER orphan the cargo.
@@ -1314,8 +1322,12 @@ public final class FirstShipEntity extends Boat {
                     || (p.getY() >= deckY() - .25D && p.getY() <= deckY() + 2.3D));
             if (onShip) { walkers.add(p); localPositions.put(p, local); }
         }
-        if (!FirstShipBlockHull.move(server, oldAnchor, oldTurn, nextAnchor, nextTurn,
-                rigLevel, fabricQuality, rigLevel, fabricQuality, geometryVersion)) {
+        boolean moved = modularConfiguration == null
+                ? FirstShipBlockHull.move(server, oldAnchor, oldTurn, nextAnchor, nextTurn,
+                        rigLevel, fabricQuality, rigLevel, fabricQuality, geometryVersion)
+                : ShipModularBlockHull.rebuild(server, oldAnchor, oldTurn,
+                        modularConfiguration, nextAnchor, nextTurn, modularConfiguration);
+        if (!moved) {
             driver.displayClientMessage(Component.literal(
                     "Ход заблокирован: мелководье, препятствие, изменённый корпус или груз"), true);
             nextHelmAllowedTick = level().getGameTime() + 3D;
