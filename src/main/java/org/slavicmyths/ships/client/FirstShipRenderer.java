@@ -145,8 +145,8 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         pose.pushPose();
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
         var config = ship.modularConfiguration();
-        double helmZ = config == null ? -4D : -config.length() / 2D + (config.bridge() ? 4D : config.cabin() ? 10D : 4D);
-        double helmHeight = config != null && config.bridge() ? 9D : FirstShipHull.MAIN_DECK;
+        double helmZ = config == null ? -4D : ship.helmWheelZ();
+        double helmHeight = config == null ? FirstShipHull.MAIN_DECK : ship.helmSeatHeight();
         pose.translate(0D, helmHeight, helmZ);
         // The same eight-spoke wooden steering wheel already used by rafts.
         // Render as real block-textured geometry, not the dark item inventory mesh.
