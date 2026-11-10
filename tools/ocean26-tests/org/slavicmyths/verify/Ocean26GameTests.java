@@ -480,6 +480,13 @@ public final class Ocean26GameTests {
                 next, packed, 0, 1);
         t.assertTrue(turnedCargo != null && turnedCargo.size() == packed.size(),
                 "Moving cargo could not rotate with the modular hull");
+        boolean chestFacingEast = false;
+        for (int i = 0; i < turnedCargo.size(); i++) {
+            CompoundTag entry = turnedCargo.getCompound(i);
+            if (entry.getInt("Kind") == 1)
+                chestFacingEast = entry.getCompound("State").getString("facing").equals("east");
+        }
+        t.assertTrue(chestFacingEast, "Packed chest did not rotate with the modular hull");
         t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
                 level, anchor, 0, next), "Expanded modular hull failed packing cleanup");
         t.assertTrue(level.getBlockState(chestPos).isAir(),
