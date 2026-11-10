@@ -12,6 +12,7 @@ on:
       - '.github/workflows/ship-neoforge-build.yml'
   pull_request:
     branches:
+      - 'integration/2.6-modular-ships-20261110'
       - 'feature/2.6-shipyard-hull-modifications-20261110'
       - 'feature/2.6-ship-superstructures-20261110'
   workflow_dispatch:
