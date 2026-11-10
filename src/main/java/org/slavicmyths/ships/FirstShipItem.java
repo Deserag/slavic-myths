@@ -112,9 +112,9 @@ public final class FirstShipItem extends Item {
             else ShipModularBlockHull.remove(server, anchor, turns, blueprint);
             return InteractionResultHolder.fail(held);
         }
+        // Creative placement must leave the exact blueprint (and its custom data)
+        // intact: removing CUSTOM_DATA changes the next modular placement to 7x11.
         if (!player.getAbilities().instabuild) held.shrink(1);
-        else if (held.has(net.minecraft.core.component.DataComponents.CUSTOM_DATA))
-            held.remove(net.minecraft.core.component.DataComponents.CUSTOM_DATA);
         player.displayClientMessage(Component.literal(
                 "Корабль установлен. ПКМ по штурвалу на корме — управление W/S и A/D; Shift — выход."), true);
         return InteractionResultHolder.sidedSuccess(held, false);
