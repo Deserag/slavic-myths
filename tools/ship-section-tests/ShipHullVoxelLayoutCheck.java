@@ -70,6 +70,14 @@ public final class ShipHullVoxelLayoutCheck {
             yes(!ShipHullVoxelLayout.count(voxels).isEmpty(), "material bill");
         }
 
+        var shortBridge = plan(ShipSectionPlan.ShipClass.MEDIUM, 9, 13,
+                List.of(1), 1, true, false);
+        var bridgeVoxels = ShipHullVoxelLayout.generate(shortBridge);
+        int shortMastZ = shortBridge.mastPositions().get(0);
+        yes(bridgeVoxels.get(new ShipHullVoxelLayout.Cell(0, 9, shortMastZ))
+                == ShipHullVoxelLayout.Part.MAST, "short bridge must not overwrite mast");
+        yes(bridgeVoxels.values().stream().filter(p -> p == ShipHullVoxelLayout.Part.HELM)
+                .count() == 1, "short bridge keeps exactly one helm");
         var cabinWithoutBridge = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(1), 1, false, true);
         var cabinBlocks = ShipHullVoxelLayout.generate(cabinWithoutBridge);
