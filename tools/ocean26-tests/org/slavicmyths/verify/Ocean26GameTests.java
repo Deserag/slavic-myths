@@ -984,6 +984,43 @@ public final class Ocean26GameTests {
         System.out.println("OCEAN26_V6_SAIL_PASS fullCloth=true cargo=17 restored=true migratedV7=true");
         t.succeed();
     }
+    @GameTest(template = "empty", timeoutTicks = 150, batch = "ocean_v8_sails")
+    public static void sailTiersKeepPhysicalMastsAndCargo(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos base = t.absolutePos(new BlockPos(24, 4, 24));
+        for (int x = -24; x <= 24; x++) for (int z = -14; z <= 14; z++) {
+            BlockPos p = base.offset(x, 0, z);
+            level.setBlock(p.below(), Blocks.WATER.defaultBlockState(), 2);
+            level.setBlock(p, Blocks.WATER.defaultBlockState(), 2);
+            for (int y = 1; y <= 25; y++)
+                level.setBlock(p.above(y), Blocks.AIR.defaultBlockState(), 2);
+        }
+        for (int tier = 1; tier <= 3; tier++) {
+            BlockPos anchor = base.offset((tier - 2) * 13, 0, 0);
+            t.assertTrue(FirstShipBlockHull.place(level, anchor, 0, new ListTag(), 1, tier, 8),
+                    "V8 tier " + tier + " ship failed placement");
+            int span = tier == 3 ? 4 : 3;
+            int yardY = tier == 1 ? 13 : tier == 2 ? 14 : 15;
+            t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor, 0, span, yardY, -1))
+                            .is(Blocks.DARK_OAK_LOG),
+                    "V8 tier " + tier + " must physically extend its top yard");
+            BlockPos cargo = FirstShipBlockHull.world(anchor, 0, 1, 5, 0);
+            level.setBlock(cargo, Blocks.CHEST.defaultBlockState(), 2);
+            chest(level, cargo, t).setItem(0, new ItemStack(Items.EMERALD, 10 + tier));
+            var moving = org.slavicmyths.ships.ShipMovingContraption.prepare(
+                    level, anchor, 0, 1, tier, 8);
+            t.assertTrue(moving != null && moving.snapshot().cargo().size() == 1,
+                    "V8 tier " + tier + " cargo snapshot rejected");
+            t.assertTrue(moving.detach(level, anchor) && moving.park(level),
+                    "V8 tier " + tier + " cannot detach and restore");
+            t.assertTrue(chest(level, cargo, t).getItem(0).getCount() == 10 + tier,
+                    "V8 tier " + tier + " lost cargo");
+            t.assertTrue(FirstShipBlockHull.remove(level, anchor, 0, 1, tier, 8),
+                    "V8 tier " + tier + " cleanup failed");
+        }
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 270, batch = "ocean_v7_sail")
     public static void visualSailKeepsCargoAndMoves(GameTestHelper t) {
         ServerLevel level = t.getLevel();
