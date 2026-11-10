@@ -249,6 +249,35 @@ public final class Ocean26GameTests {
         });
     }
 
+    @GameTest(template = "empty", timeoutTicks = 350, batch = "ocean_modular_classes")
+    public static void allFourModularClassesPlacePackAndRestore(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(24, 4, 24));
+        for (int x = -18; x <= 18; x++)
+            for (int z = -24; z <= 24; z++) {
+                BlockPos pos = anchor.offset(x, 0, z);
+                level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 25; y++)
+                    level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        for (var type : org.slavicmyths.ships.ShipSectionPlan.ShipClass.values()) {
+            var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type);
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
+                    anchor, 0, config, new ListTag()), type + " placement failed");
+            ListTag cargo = org.slavicmyths.ships.ShipModularBlockHull.pack(level,
+                    anchor, 0, config);
+            t.assertTrue(cargo != null && cargo.isEmpty(), type + " packing failed");
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
+                    anchor, 0, config), type + " removal failed");
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
+                    anchor, 0, config, cargo), type + " restoration failed");
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
+                    anchor, 0, config), type + " second removal failed");
+        }
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular")
     public static void modularMediumShipRebuildsWithCargo(GameTestHelper t) {
         ServerLevel level = t.getLevel();
