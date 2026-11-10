@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.slavicmyths.ships.FirstShipBlockHull;
 import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.FirstShipHull;
+import org.slavicmyths.ships.ShipModularBlockHull;
 import org.slavicmyths.ships.RaftContent;
 
 /**
@@ -54,8 +55,10 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
 
 
     private Map<BlockPos, BlockState> movingPalette(FirstShipEntity ship) {
+        var config = ship.modularConfiguration();
         String key = ship.geometryVersion() + ":" + ship.rigLevel() + ":"
-                + ship.fabricQuality() + ":" + ship.movingCargoView();
+                + ship.fabricQuality() + ":" + ship.movingCargoView()
+                + ":" + (config == null ? "" : config.wire());
         if (key.equals(paletteKey)) return cachedPalette;
         ListTag cargo = new ListTag();
         String types = ship.movingCargoView();
@@ -77,9 +80,12 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             }
         }
         try {
-            var snapshot = new FirstShipBlockHull.MotionSnapshot(cargo,
-                    ship.geometryVersion(), ship.rigLevel(), ship.fabricQuality(), 0);
-            cachedPalette = FirstShipBlockHull.localMotionPalette(snapshot);
+            if (config != null) cachedPalette = ShipModularBlockHull.localMotionPalette(config, cargo);
+            else {
+                var snapshot = new FirstShipBlockHull.MotionSnapshot(cargo,
+                        ship.geometryVersion(), ship.rigLevel(), ship.fabricQuality(), 0);
+                cachedPalette = FirstShipBlockHull.localMotionPalette(snapshot);
+            }
         } catch (RuntimeException invalid) {
             cachedPalette = Map.of();
         }
@@ -120,7 +126,10 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 ship.level().getBrightness(net.minecraft.world.level.LightLayer.SKY, daylight));
         pose.pushPose();
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
-        pose.translate(0D, FirstShipHull.MAIN_DECK, -4D);
+        var config = ship.modularConfiguration();
+        double helmZ = config == null ? -4D : -config.length() / 2D + (config.bridge() ? 4D : config.cabin() ? 10D : 4D);
+        double helmHeight = config != null && config.bridge() ? 9D : FirstShipHull.MAIN_DECK;
+        pose.translate(0D, helmHeight, helmZ);
         // The same eight-spoke wooden steering wheel already used by rafts.
         // Render as real block-textured geometry, not the dark item inventory mesh.
         piece(Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState(), pose, buffers, deckLight,
@@ -140,7 +149,7 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 -.15D, -.15D, -.12D, .30F, .30F, .24F);
         pose.popPose();
         pose.popPose();
-        if (ship.geometryVersion() >= 7 && ship.rigLevel() > 0)
+        if (ship.modularConfiguration() == null && ship.geometryVersion() >= 7 && ship.rigLevel() > 0)
             renderFabricSail(ship, yaw, partialTick, pose, buffers, deckLight);
     }
 
