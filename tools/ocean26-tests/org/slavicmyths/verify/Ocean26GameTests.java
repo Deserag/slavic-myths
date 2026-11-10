@@ -1308,9 +1308,9 @@ public final class Ocean26GameTests {
                 body.pose(), body.waterlineY(), body.palette()),
                 "Waterlogged solid construction was treated as open water");
         level.setBlock(waterloggedWall, Blocks.TUBE_CORAL_BLOCK.defaultBlockState(), 2);
-        t.assertTrue(!org.slavicmyths.ships.ShipMovingClearance.clearPose(level,
+        t.assertTrue(org.slavicmyths.ships.ShipMovingClearance.clearPose(level,
                 body.pose(), body.waterlineY(), body.palette()),
-                "Solid coral block was treated as a harmless plant");
+                "Full coral block must be clearable, unlike waterlogged construction");
         level.setBlock(waterloggedWall, Blocks.WATER.defaultBlockState(), 2);
         BlockPos shoal = anchor.below();
         level.setBlock(shoal, Blocks.STONE.defaultBlockState(), 2);
