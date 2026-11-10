@@ -35,6 +35,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
@@ -644,6 +645,26 @@ public final class FirstShipEntity extends Boat {
      * interaction range targets only its ~3-block core. A validated action
      * allows the actual painted helm to be used from its stern position.
      */
+    /** Exact physical modular helm block click, validated on the server. */
+    public boolean tryHelmFromBlock(ServerPlayer player, BlockPos clicked) {
+        if (player == null || clicked == null || player.level() != level()
+                || !isNativeHull() || isMoving() || isRemoved()
+                || modularConfiguration() == null || isVehicle()
+                || player.isPassenger() || player.isSpectator()
+                || player.isSecondaryUseActive()) return false;
+        BlockPos expected = FirstShipBlockHull.world(blockAnchor(), quarterTurns(),
+                0, (int)helmSeatHeight(), (int)helmWheelZ());
+        if (!expected.equals(clicked)
+                || !level().getBlockState(expected).is(Blocks.DARK_OAK_FENCE)
+                || player.distanceToSqr(Vec3.atCenterOf(expected)) > 36D
+                || Math.abs(player.getY() - (getY() + helmSeatHeight())) > 2.4D) return false;
+        if (!player.startRiding(this)) return false;
+        positionRider(player);
+        player.displayClientMessage(Component.literal(
+                "Штурвал захвачен: W/S — ход, A/D — поворот, Shift — сойти"), true);
+        return true;
+    }
+
     public boolean tryHelm(ServerPlayer player) {
         if (isVehicle() || player.isPassenger() || player.isSpectator()) return false;
         FirstShipHull.Point local = FirstShipHull.toLocal(

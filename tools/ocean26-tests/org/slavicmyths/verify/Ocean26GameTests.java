@@ -264,10 +264,22 @@ public final class Ocean26GameTests {
         ServerPlayer captain = player(level, "ModularCaptain",
                 new Vec3(ship.getX(), ship.getY() + ship.helmSeatHeight(),
                         ship.getZ() + ship.helmSeatZ() + 1.25D));
-        captain.setYRot(180F);
-        captain.setXRot(-5F);
-        t.assertTrue(ship.tryHelm(captain) && captain.getVehicle() == ship,
-                "Modular captain failed to capture real bridge helm from correct deck");
+
+        BlockPos physicalWheel = FirstShipBlockHull.world(ship.blockAnchor(),
+                ship.quarterTurns(), 0, (int)ship.helmSeatHeight(), (int)ship.helmWheelZ());
+        t.assertTrue(level.getBlockState(physicalWheel).is(Blocks.DARK_OAK_FENCE),
+                "Modular wheel is not at the expected block position");
+        t.assertTrue(!ship.tryHelmFromBlock(captain, physicalWheel.offset(2, 0, 0)),
+                "Arbitrary railing must not activate the helm");
+        var helmClick = new net.neoforged.neoforge.event.entity.player
+                .PlayerInteractEvent.RightClickBlock(captain,
+                        net.minecraft.world.InteractionHand.MAIN_HAND, physicalWheel,
+                        new net.minecraft.world.phys.BlockHitResult(
+                                Vec3.atCenterOf(physicalWheel), net.minecraft.core.Direction.UP,
+                                physicalWheel, false));
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.post(helmClick);
+        t.assertTrue(helmClick.isCanceled() && captain.getVehicle() == ship,
+                "Real NeoForge right-click on the wheel failed to board the captain");
         ServerPlayer upperWalker = player(level, "ModularUpperWalker",
                 new Vec3(ship.getX() + 2D, ship.getY() + 9.02D, ship.getZ()));
         ServerPlayer bridgeWalker = player(level, "ModularBridgeWalker",

@@ -38,7 +38,7 @@ public final class ShipHelmBlockEvents {
             BlockPos helm = FirstShipBlockHull.world(
                     ship.blockAnchor(), ship.quarterTurns(), 0, y, z);
             if (!hit.equals(helm)) continue;
-            if (ship.tryHelm(player)) {
+            if (ship.tryHelmFromBlock(player, hit)) {
                 event.setCancellationResult(InteractionResult.CONSUME);
                 event.setCanceled(true);
             }
