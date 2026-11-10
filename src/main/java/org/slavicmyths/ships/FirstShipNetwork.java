@@ -72,7 +72,9 @@ public final class FirstShipNetwork {
             if (!(player.level().getEntity(packet.shipId()) instanceof FirstShipEntity ship)
                     || ship.isRemoved() || ship.level() != player.level()) return;
             // Native hull center is 5.5 blocks away from its sharpest extremity.
-            if (player.distanceToSqr(ship) > 196D) return;
+            ShipBuildConfiguration configuration = ship.modularConfiguration();
+            double reach = configuration == null ? 14D : configuration.length() / 2D + 7D;
+            if (player.distanceToSqr(ship) > reach * reach) return;
             int action = packet.action();
             if (action == DISMOUNT_ACK) {
                 ship.confirmDismount(player);
