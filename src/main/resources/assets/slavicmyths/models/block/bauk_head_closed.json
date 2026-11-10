@@ -2,9 +2,9 @@
   "credit": "Slavic Myths Bauk trophy: 2-block-long cuboid head, alternating jaw pose",
   "ambientocclusion": false,
   "textures": {
-    "particle": "slavicmyths:entity/bauk",
-    "fur": "slavicmyths:entity/bauk",
-    "jaw": "slavicmyths:entity/bauk",
+    "particle": "minecraft:block/blackstone",
+    "fur": "minecraft:block/polished_blackstone",
+    "jaw": "minecraft:block/blackstone",
     "horn": "minecraft:block/bone_block_side",
     "eye": "minecraft:block/redstone_block"
   },
