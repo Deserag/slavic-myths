@@ -557,10 +557,9 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
      * distinct physical block column of the current buildable blueprint.
      */
     private void drawBlueprint(GuiGraphics graphics) {
-        final int blue = 0xff337b9f, added = 0xff338c59, red = 0xffab3232;
+        final int blue = 0xff337b9f, added = 0xff338c59;
         ShipBuildConfiguration original = tab == 1 ? currentConfig() : null;
         ShipBuildConfiguration candidate = tab == 0 ? creationConfig() : nextConfig();
-        boolean invalid = tab == 1 && original != null && candidate == null;
         ShipBuildConfiguration design = candidate != null ? candidate : original;
         graphics.drawString(font, "СВЕРХУ", 204, 58, DARK, false);
         graphics.drawString(font, "СБОКУ", 300, 58, DARK, false);
@@ -629,8 +628,6 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             graphics.fill(407, 93, 443, chosen == 4 ? 100 : 96, blue);
             graphics.drawString(font, "Размер " + width + "×" + length, 201, 104, DARK, false);
         }
-        if (invalid)
-            graphics.drawString(font, "Изменение недоступно", 346, 104, red, false);
     }
 
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partial) {
