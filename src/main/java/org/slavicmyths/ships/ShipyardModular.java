@@ -33,9 +33,9 @@ public final class ShipyardModular {
             ShipBuildConfiguration next) {
         if (next == null) throw new IllegalArgumentException("Missing destination ship");
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> before = original == null
-                ? Map.of() : ShipHullVoxelLayout.generate(original.structure());
+                ? Map.of() : ShipHullVoxelLayout.generate(original.structure(), original.hullVersion());
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> after =
-                ShipHullVoxelLayout.generate(next.structure());
+                ShipHullVoxelLayout.generate(next.structure(), next.hullVersion());
         Map<ShipHullVoxelLayout.Part, Integer> delta =
                 ShipHullVoxelLayout.additions(before, after);
         int keel = delta.getOrDefault(ShipHullVoxelLayout.Part.KEEL, 0);

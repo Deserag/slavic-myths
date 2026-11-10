@@ -72,7 +72,7 @@ public final class ShipModularBlockHull {
 
     public static Map<BlockPos, BlockState> localPalette(ShipBuildConfiguration config) {
         Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
-        for (var entry : ShipHullVoxelLayout.generate(config.structure()).entrySet()) {
+        for (var entry : ShipHullVoxelLayout.generate(config.structure(), config.hullVersion()).entrySet()) {
             if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL) continue;
             var c = entry.getKey();
             blocks.put(new BlockPos(c.x(), c.y(), c.z()), state(entry.getValue(), 0, c.y()));
@@ -95,7 +95,7 @@ public final class ShipModularBlockHull {
     private static Map<BlockPos, BlockState> worldPalette(ShipBuildConfiguration config,
             BlockPos anchor, int turns) {
         Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
-        for (var entry : ShipHullVoxelLayout.generate(config.structure()).entrySet()) {
+        for (var entry : ShipHullVoxelLayout.generate(config.structure(), config.hullVersion()).entrySet()) {
             if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL) continue;
             var c = entry.getKey();
             blocks.put(FirstShipBlockHull.world(anchor, turns, c.x(), c.y(), c.z()),
@@ -145,13 +145,13 @@ public final class ShipModularBlockHull {
         List<Cargo> cargo = new ArrayList<>();
         ShipSuperstructurePlan structure = config.structure();
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cargoPlan =
-                ShipHullVoxelLayout.generate(structure);
+                ShipHullVoxelLayout.generate(structure, config.hullVersion());
         int halfWidth = config.width() / 2, halfLength = config.length() / 2;
         int maxY = Math.max(24, 4 + config.decks() * 4);
         for (int z = -halfLength; z <= halfLength; z++)
             for (int x = -halfWidth; x <= halfWidth; x++)
                 for (int y = 1; y <= maxY; y++) {
-                    if (Math.abs(x) > ShipHullVoxelLayout.halfBeam(structure, z))
+                    if (Math.abs(x) > ShipHullVoxelLayout.halfBeam(structure, z, config.hullVersion()))
                         continue;
                     BlockPos world = FirstShipBlockHull.world(anchor, turns, x, y, z);
                     if (!level.hasChunkAt(world)) return null;
@@ -174,7 +174,7 @@ public final class ShipModularBlockHull {
             return null;
         List<Cargo> result = new ArrayList<>();
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cargoPlan =
-                ShipHullVoxelLayout.generate(config.structure());
+                ShipHullVoxelLayout.generate(config.structure(), config.hullVersion());
         Set<String> occupied = new HashSet<>();
         for (int i = 0; i < entries.size(); i++) {
             CompoundTag entry = entries.getCompound(i);
@@ -279,8 +279,8 @@ public final class ShipModularBlockHull {
         int half = config.length() / 2;
         int maxY = Math.max(24, 4 + config.decks() * 4);
         for (int z = -half; z <= half; z++)
-            for (int x = -ShipHullVoxelLayout.halfBeam(config.structure(), z);
-                 x <= ShipHullVoxelLayout.halfBeam(config.structure(), z); x++)
+            for (int x = -ShipHullVoxelLayout.halfBeam(config.structure(), z, config.hullVersion());
+                 x <= ShipHullVoxelLayout.halfBeam(config.structure(), z, config.hullVersion()); x++)
                 for (int y = 1; y <= maxY; y++) {
                     BlockPos p = FirstShipBlockHull.world(anchor, turns, x, y, z);
                     if (!level.hasChunkAt(p)) return false;
@@ -388,7 +388,7 @@ public final class ShipModularBlockHull {
         int rotation = Math.floorMod(nextTurn - oldTurn, 4);
         List<Cargo> transported = new ArrayList<>();
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cargoPlan =
-                ShipHullVoxelLayout.generate(next.structure());
+                ShipHullVoxelLayout.generate(next.structure(), next.hullVersion());
         for (Cargo entry : source.cargo()) {
             if (!cargoCell(cargoPlan, entry.x(), entry.y(), entry.z())) return false;
             BlockState state = entry.state();

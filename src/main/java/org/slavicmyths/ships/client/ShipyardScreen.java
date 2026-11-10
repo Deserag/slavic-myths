@@ -627,9 +627,9 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         double topScale = Math.min(43D / width, 38D / length);
         int cx = 246, topY = 67;
         for (int z = -halfLength; z <= halfLength; z++) {
-            int beam = ShipHullVoxelLayout.halfBeam(design.structure(), z);
+            int beam = ShipHullVoxelLayout.halfBeam(design.structure(), z, design.hullVersion());
             int oldBeam = original == null || Math.abs(z) > original.length() / 2
-                    ? -1 : ShipHullVoxelLayout.halfBeam(original.structure(), z);
+                    ? -1 : ShipHullVoxelLayout.halfBeam(original.structure(), z, original.hullVersion());
             int top = topY + (int)Math.floor((z + halfLength) * topScale);
             int bottom = topY + (int)Math.ceil((z + halfLength + 1) * topScale);
             int left = cx - (int)Math.ceil((beam + .5D) * topScale);
