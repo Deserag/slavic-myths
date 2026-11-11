@@ -35,8 +35,8 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
         if (bridge && (shipClass == ShipSectionPlan.ShipClass.SMALL
                 || hullWidth < 9 || hullLength < 13))
             throw new IllegalArgumentException("Captain's bridge requires medium-sized hull");
-        if (cabin && (shipClass == ShipSectionPlan.ShipClass.SMALL
-                || hullWidth < 9 || hullLength < 15))
+        if (cabin && shipClass != ShipSectionPlan.ShipClass.SMALL
+                && (hullWidth < 9 || hullLength < 15))
             throw new IllegalArgumentException("Captain's cabin needs stern clearance");
         if (bridge && cabin && (hullWidth < 11 || hullLength < 19))
             throw new IllegalArgumentException("Combined bridge and cabin need 11x19");
@@ -46,7 +46,7 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
         // The aft cabin occupies a seven-block deep protected stern region.
         // Reject any mast whose center or its one-block support touches it.
         for (int z : mastPositionsFor(sailTiers.size(), hullLength, cabin)) {
-            if (z - 1 <= -hullLength / 2 + 8 && cabin)
+            if (cabin && z <= -hullLength / 2 + (hullLength <= 15 ? 4 : 9))
                 throw new IllegalArgumentException("Mast would intersect captain's cabin");
             if (z + 1 >= hullLength / 2)
                 throw new IllegalArgumentException("Mast would intersect the bow");
@@ -59,7 +59,7 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
         for (int i = 0; i < count; i++)
             positions.add((2 * i - (count - 1)) * 2);
         if (cabin && !positions.isEmpty()) {
-            int minMastZ = -hullLength / 2 + 10;
+            int minMastZ = -hullLength / 2 + (hullLength <= 15 ? 5 : 10);
             int shift = Math.max(0, minMastZ - positions.get(0));
             for (int i = 0; i < positions.size(); i++)
                 positions.set(i, positions.get(i) + shift);
