@@ -283,11 +283,17 @@ public final class ShipHullVoxelLayout {
         // Lamps below upper floor slabs are attached to actual deck blocks.
         for (int floor = 2; floor <= plan.decks(); floor++) {
             int y = 4 + (floor - 1) * 4;
-            int z = Math.min(3, halfLength - 4);
-            for (int x : new int[] {-2, 2}) {
-                if (blocks.get(new Cell(x, y, z)) == Part.DECK
-                        && !blocks.containsKey(new Cell(x, y - 1, z)))
-                    put(blocks, x, y - 1, z, Part.LIGHT);
+            // Pick an unobstructed pair after the sail geometry is complete;
+            // a four-mast sail can otherwise replace the expected ceiling.
+            for (int z : new int[] {3, 1, -1, -3, 5, -5, 7, -7}) {
+                if (Math.abs(z) >= halfLength - 2) continue;
+                if (blocks.get(new Cell(-2, y, z)) != Part.DECK
+                        || blocks.get(new Cell(2, y, z)) != Part.DECK
+                        || blocks.containsKey(new Cell(-2, y - 1, z))
+                        || blocks.containsKey(new Cell(2, y - 1, z))) continue;
+                put(blocks, -2, y - 1, z, Part.LIGHT);
+                put(blocks, 2, y - 1, z, Part.LIGHT);
+                break;
             }
         }
 
