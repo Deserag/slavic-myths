@@ -366,15 +366,32 @@ public final class FirstShipBlockHull {
         return blocks;
     }
 
-    /** V9 belongs to modular blueprints. V10 shortens the native stern blade
-     * and removes the dangling center post without changing the sealed hold. */
+    /**
+     * V10 native 7x11 hull: retain the proven V8 deck, steering and rig, but
+     * give the lower wooden shell a stepped, symmetric inward taper.
+     * The keel is continuous and the hold floor stays dry. No blocks protrude
+     * past the stern station z=-5 (the old -6 rudder was outside 7x11).
+     */
     private static Map<BlockPos, BlockState> layoutV10(BlockPos anchor, int turns, int rig, int fabric) {
         Map<BlockPos, BlockState> blocks = layoutV8(anchor, turns, rig, fabric);
         for (int y = 0; y <= 3; y++)
             blocks.remove(world(anchor, turns, 0, y, -6));
+        for (int z = MIN_Z; z <= MAX_Z; z++)
+            for (int x = -halfWidth(z); x <= halfWidth(z); x++)
+                for (int y = 0; y <= 2; y++) {
+                    // Preserve the existing physical ladder and its backing.
+                    if (y > 0 && z == 2 && (x == -2 || x == -1)) continue;
+                    BlockPos pos = world(anchor, turns, x, y, z);
+                    FirstShipV10Shape.Part shape = FirstShipV10Shape.partAt(x, y, z);
+                    if (shape == null) {
+                        blocks.remove(pos);
+                    } else if (!blocks.containsKey(pos)) {
+                        blocks.put(pos, (y == 2 ? Blocks.DARK_OAK_PLANKS
+                                : Blocks.SPRUCE_PLANKS).defaultBlockState());
+                    }
+                }
         for (int y = 1; y <= 3; y++)
             blocks.put(world(anchor, turns, 0, y, -5), Blocks.SPRUCE_PLANKS.defaultBlockState());
-        blocks.put(world(anchor, turns, 0, 0, -6), Blocks.DARK_OAK_SLAB.defaultBlockState());
         return blocks;
     }
 
