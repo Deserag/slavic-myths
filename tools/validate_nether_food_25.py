@@ -345,10 +345,10 @@ def check_food_plantability_and_bonemeal():
         raise AssertionError("Non-plantable food supplier type changed, update the source audit")
     if "new Item(new Item.Properties()" not in kitchen or "new BeverageItem(" not in brewing:
         raise AssertionError("Kitchen/beer item supplier changed; verify all food items again")
-    if re.search(r"\\b(?:ItemInteractionResult|InteractionResult)\\s+useOn\\(", drink_class):
+    if re.search(r"\b(?:ItemInteractionResult|InteractionResult)\s+useOn\(", drink_class):
         raise AssertionError("BeverageItem unexpectedly overrides block interaction")
 
-    beers = re.search(r"\\bBEERS\\s*=\\s*\\{([^}]*)}", brewing)
+    beers = re.search(r"\bBEERS\s*=\s*\{([^}]*)}", brewing)
     if beers is None:
         raise AssertionError("Brewing beer list missing")
     derived_drinks = {name + "_mug" for name in re.findall(r'"([a-z0-9_]+)"', beers.group(1))}
