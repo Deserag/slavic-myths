@@ -49,7 +49,12 @@ public final class ShipHullVoxelLayout {
         for (int z = -halfLength; z <= halfLength; z++) {
             int half = halfBeam(plan, z);
             for (int x = -half; x <= half; x++) {
-                put(blocks, x, 0, z, x == 0 ? Part.KEEL : Part.HULL);
+                // Narrow submerged keel, wider dry hold floor one block above it.
+                // The full floor at y=1 leaves two clear interior blocks at y=2,3.
+                int keelBeam = Math.max(0, half / 3);
+                if (Math.abs(x) <= keelBeam)
+                    put(blocks, x, 0, z, x == 0 ? Part.KEEL : Part.HULL);
+                put(blocks, x, 1, z, Part.HULL);
                 boolean edge = Math.abs(x) == half
                         || Math.abs(x) > halfBeam(plan, z - 1)
                         || Math.abs(x) > halfBeam(plan, z + 1);
