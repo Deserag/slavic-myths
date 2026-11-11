@@ -64,11 +64,11 @@ public final class NetherBerryBush extends BushBlock implements BonemealableBloc
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
 
-    @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+    @Override public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         return harvest(state, level, pos, player, hit);
     }
 
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    @Override public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (stack.is(Items.BONE_MEAL)) return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
         if (state.getValue(AGE) != 3) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         return harvest(state, level, pos, player, hit) == InteractionResult.PASS
