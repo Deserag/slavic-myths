@@ -1,0 +1,46 @@
+name: Ship V2 source voxel preview proof
+
+on:
+  push:
+    paths:
+      - 'src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java'
+      - 'src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java'
+      - 'src/main/java/org/slavicmyths/ships/ShipSectionPlan.java'
+      - 'tools/ship-section-tests/ShipVoxelPreview.java'
+      - '.github/workflows/ship-v2-visual-proof.yml'
+  pull_request:
+    paths:
+      - 'src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java'
+      - 'src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java'
+      - 'src/main/java/org/slavicmyths/ships/ShipSectionPlan.java'
+      - 'tools/ship-section-tests/ShipVoxelPreview.java'
+      - '.github/workflows/ship-v2-visual-proof.yml'
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Compile actual ship V2 generator and Java2D renderer
+        run: |
+          mkdir -p build/ship-preview-classes
+          javac -encoding UTF-8 -d build/ship-preview-classes \
+            src/main/java/org/slavicmyths/ships/ShipSectionPlan.java \
+            src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java \
+            src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java \
+            tools/ship-section-tests/ShipVoxelPreview.java
+      - name: Produce 24 images from exact ship voxel data
+        run: |
+          java -Djava.awt.headless=true -cp build/ship-preview-classes \
+            ShipVoxelPreview build/ship-v2-previews
+          test "$(find build/ship-v2-previews -name '*.png' | wc -l)" -eq 24
+      - uses: actions/upload-artifact@v4
+        with:
+          name: slavic-myths-26-v2-voxel-proofs
+          path: build/ship-v2-previews/*.png
+          if-no-files-found: error
+          retention-days: 30
