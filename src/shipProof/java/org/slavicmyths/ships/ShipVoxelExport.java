@@ -27,7 +27,7 @@ public final class ShipVoxelExport {
         append(csv, "LARGEST", new ShipSuperstructurePlan(
                 ShipSectionPlan.ShipClass.LARGEST, 21, 33, List.of(3, 3, 3, 3), 3, true, true));
         Files.writeString(Path.of(args[0]), csv);
-        System.out.println("Exported " + csv.lines().count() + " rows");
+        System.out.println("Exported " + csv.toString().lines().count() + " rows");
     }
     private ShipVoxelExport() {}
 }
