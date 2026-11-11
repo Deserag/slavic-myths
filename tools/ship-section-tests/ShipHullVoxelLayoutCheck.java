@@ -194,6 +194,39 @@ public final class ShipHullVoxelLayoutCheck {
                     "V2 captain cabin retains windows");
         }
 
+        for (var extended : List.of(
+                plan(ShipSectionPlan.ShipClass.MEDIUM, 15, 25,
+                        List.of(1, 2), 2, true, true),
+                plan(ShipSectionPlan.ShipClass.LARGE, 25, 37,
+                        List.of(1, 2, 3), 3, true, true))) {
+            var enlarged = ShipHullVoxelLayout.generate(extended, 2);
+            int end = extended.hullLength() / 2;
+            yes(enlarged.equals(ShipHullVoxelLayout.generate(extended, 2)),
+                    "extended V2 footprint deterministic");
+            yes(ShipHullVoxelLayout.halfBeam(extended, 0, 2)
+                    == extended.hullWidth() / 2, "extension preserves widest midship");
+            yes(ShipHullVoxelLayout.halfBeam(extended, end, 2) == 0,
+                    "extension keeps sharp bow");
+            yes(ShipHullVoxelLayout.halfBeam(extended, -end, 2) == 1,
+                    "extension keeps tapered stern");
+            yes(enlarged.values().contains(ShipHullVoxelLayout.Part.STANDING_LANTERN),
+                    "extended V2 still carries deck lanterns");
+            for (int floor = 1; floor <= extended.decks(); floor++) {
+                int y = floor == 1 ? 2 : 4 + (floor - 1) * 4 - 1;
+                boolean lit = enlarged.entrySet().stream().anyMatch(e ->
+                        e.getValue() == ShipHullVoxelLayout.Part.LIGHT
+                        && e.getKey().y() == y);
+                yes(lit, "extended V2 interior level " + floor + " is lit");
+            }
+            for (int y = 2; y <= 4 + (extended.decks() - 1) * 4; y++)
+                yes(enlarged.get(new ShipHullVoxelLayout.Cell(-2, y, 1))
+                        == ShipHullVoxelLayout.Part.LADDER,
+                        "extended V2 still has uninterrupted stairs");
+            for (int z : extended.mastPositionsV2())
+                yes(enlarged.get(new ShipHullVoxelLayout.Cell(0, 6, z))
+                        == ShipHullVoxelLayout.Part.MAST,
+                        "extended V2 actual mast fits planned station");
+        }
         System.out.println("PASS ShipHullVoxelLayoutCheck assertions=" + checks);
     }
 }
