@@ -62,6 +62,7 @@ public final class ShipModularBlockHull {
                     turns % 2 == 0 ? Direction.Axis.Z : Direction.Axis.X);
             case CABIN_WALL -> Blocks.STRIPPED_DARK_OAK_LOG.defaultBlockState();
             case WINDOW -> Blocks.GLASS_PANE.defaultBlockState();
+            case WINDOW_AMBER -> Blocks.ORANGE_STAINED_GLASS_PANE.defaultBlockState();
             case DOOR -> Blocks.OAK_DOOR.defaultBlockState()
                     .setValue(DoorBlock.HALF,
                             y == 6 ? DoubleBlockHalf.UPPER : DoubleBlockHalf.LOWER)
