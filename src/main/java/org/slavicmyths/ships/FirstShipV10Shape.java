@@ -7,14 +7,14 @@ import java.util.Map;
 /**
  * V10 native 7x11 hull section. +Z is the one-block bow; -Z is the stern.
  * This is the physical block section, not a renderer-only approximation.
- * Keeping the weather-deck footprint preserves the helm, ladder and deck
- * walking bounds; lower rows taper inward to the continuous wooden keel.
+ * Shaped bow and stern reduce the weather-deck footprint while preserving
+ * the fixed helm and ladder stations; the submerged floor tapers to the keel.
  */
 public final class FirstShipV10Shape {
     public static final int MIN_Z = -5;
     public static final int MAX_Z = 5;
-    private static final int[] DECK_BEAMS = {1, 2, 3, 3, 3, 3, 3, 3, 2, 1, 0};
-    private static final int[] FLOOR_BEAMS = {0, 1, 2, 2, 2, 2, 2, 2, 1, 0, 0};
+    private static final int[] DECK_BEAMS = {1, 2, 2, 3, 3, 3, 3, 2, 2, 1, 0};
+    private static final int[] FLOOR_BEAMS = {0, 1, 1, 2, 2, 2, 2, 1, 1, 0, 0};
 
     public record Cell(int x, int y, int z) {}
     public enum Part { KEEL, FLOOR, SIDE, UPPER_HULL, DECK, RAIL }
