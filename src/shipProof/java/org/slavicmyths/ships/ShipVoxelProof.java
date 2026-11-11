@@ -60,6 +60,14 @@ public final class ShipVoxelProof {
 
     public static void main(String[] args) {
         inspect(plan(ShipSectionPlan.ShipClass.SMALL, 7, 11, List.of(1), 1, false, false));
+        var smallCabin = plan(ShipSectionPlan.ShipClass.SMALL, 7, 11, List.of(1), 1, false, true);
+        var cabinBlocks = ShipHullVoxelLayout.generate(smallCabin);
+        check(cabinBlocks.get(new ShipHullVoxelLayout.Cell(0, 5, -1)) ==
+                ShipHullVoxelLayout.Part.DOOR, "Small cabin door missing");
+        check(cabinBlocks.get(new ShipHullVoxelLayout.Cell(0, 7, -2)) ==
+                ShipHullVoxelLayout.Part.LIGHT, "Small cabin lighting missing");
+        check(cabinBlocks.get(new ShipHullVoxelLayout.Cell(0, 6, 0)) ==
+                ShipHullVoxelLayout.Part.MAST, "Small cabin intersects mast");
         inspect(plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21, List.of(2, 2), 2, true, true));
         inspect(plan(ShipSectionPlan.ShipClass.LARGE, 21, 33, List.of(3, 3, 3), 3, true, true));
         inspect(plan(ShipSectionPlan.ShipClass.LARGEST, 21, 33, List.of(3, 3, 3, 3), 3, true, true));
