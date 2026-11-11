@@ -58,6 +58,7 @@ public final class ShipModularBlockHull {
             case SAIL_TRIM -> Blocks.RED_WOOL.defaultBlockState();
             case CABIN_WALL -> Blocks.STRIPPED_DARK_OAK_LOG.defaultBlockState();
             case WINDOW -> Blocks.GLASS_PANE.defaultBlockState();
+            case HULL_WINDOW -> Blocks.GLASS.defaultBlockState();
             case DOOR -> Blocks.OAK_DOOR.defaultBlockState()
                     .setValue(DoorBlock.HALF,
                             y == 6 ? DoubleBlockHalf.UPPER : DoubleBlockHalf.LOWER)
