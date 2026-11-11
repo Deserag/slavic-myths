@@ -53,7 +53,7 @@ public final class ShipHullVoxelLayout {
                     put(blocks, x, y, z, Part.HULL);
                 else if (Math.floorMod(z, 3) == 0)
                     put(blocks, x, 3, z, Part.FRAME);
-                if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
+                if (!mainHatch(x, z)) put(blocks, x, 4 + sheer, z, Part.DECK);
                 if (edge) put(blocks, x, 5, z, Part.RAIL);
             }
         }
@@ -195,6 +195,9 @@ public final class ShipHullVoxelLayout {
 
         for (int z = -halfLength; z <= halfLength; z++) {
             int half = halfBeamV2(plan, z);
+            int approach = halfLength - Math.abs(z);
+            int sheer = z >= 0 ? approach <= 1 ? 2 : approach <= 3 ? 1 : 0
+                    : approach <= 1 ? 1 : 0;
             for (int x = -half; x <= half; x++) {
                 // Underwater keel is narrower than the sealed, dry hold floor.
                 // Solid y=1 across the footprint prevents water entering the hold.
@@ -205,8 +208,9 @@ public final class ShipHullVoxelLayout {
                         || Math.abs(x) > halfBeamV2(plan, z - 1)
                         || Math.abs(x) > halfBeamV2(plan, z + 1);
                 if (side) {
-                    for (int y = 2; y <= 3; y++) put(blocks, x, y, z, Part.HULL);
-                    put(blocks, x, 5, z, Part.RAIL);
+                    for (int y = 2; y <= 3 + sheer; y++)
+                        put(blocks, x, y, z, Part.HULL);
+                    put(blocks, x, 5 + sheer, z, Part.RAIL);
                 } else {
                     if (Math.floorMod(z, 4) == 0) put(blocks, x, 3, z, Part.FRAME);
                 }
@@ -354,8 +358,8 @@ public final class ShipHullVoxelLayout {
 
         // A narrow, forward-pointing block-built bowsprit, including its
         // overhang in the moving collision palette.
-        for (int z = halfLength; z <= halfLength + 2; z++)
-            put(blocks, 0, 6, z, Part.BOWSPRIT);
+        for (int z = halfLength; z <= halfLength + 3; z++)
+            put(blocks, 0, 7, z, Part.BOWSPRIT);
 
         // Each covered upper level receives actual hanging lantern blocks,
         // attached to the deck above, rather than painted yellow windows.
