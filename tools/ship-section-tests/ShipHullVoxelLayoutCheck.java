@@ -128,6 +128,10 @@ public final class ShipHullVoxelLayoutCheck {
             }
             yes(v2.values().stream().filter(p -> p == ShipHullVoxelLayout.Part.HELM)
                     .count() == 1, "V2 has exactly one helm");
+            for (int y = 2; y <= 4 + (config.decks() - 1) * 4; y++)
+                yes(v2.get(new ShipHullVoxelLayout.Cell(-2, y, 1))
+                        == ShipHullVoxelLayout.Part.LADDER,
+                        "V2 unobstructed ladder at y=" + y);
             yes(v2.values().contains(ShipHullVoxelLayout.Part.BOWSPRIT),
                     "V2 timber bowsprit");
             yes(v2.values().contains(ShipHullVoxelLayout.Part.SAIL),
