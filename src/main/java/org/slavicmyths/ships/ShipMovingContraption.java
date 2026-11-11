@@ -62,7 +62,7 @@ public final class ShipMovingContraption {
         ListTag cargo = ShipModularBlockHull.pack(level, anchor, turns, configuration);
         if (cargo == null) return null;
         double radius = Math.hypot(configuration.width() / 2D + 1D,
-                configuration.length() / 2D + 1D);
+                configuration.length() / 2D + (configuration.layoutVersion() == 2 ? 4D : 1D));
         ShipRigidMotion motion = new ShipRigidMotion(new ShipRigidMotion.Pose(
                 anchor.getX() + .5D, anchor.getZ() + .5D, turns * 90D), radius);
         return new ShipMovingContraption(configuration, cargo, turns,
@@ -208,7 +208,7 @@ public final class ShipMovingContraption {
                 ShipBuildConfiguration config = ShipBuildConfiguration.load(
                         tag.getCompound(ShipBuildConfiguration.NBT_KEY));
                 double radius = Math.hypot(config.width() / 2D + 1D,
-                        config.length() / 2D + 1D);
+                        config.length() / 2D + (config.layoutVersion() == 2 ? 4D : 1D));
                 ShipRigidMotion modularMotion = new ShipRigidMotion(pose, radius);
                 modularMotion.restore(pose, tag.getDouble("Speed"), tag.getDouble("TurnSpeed"));
                 return new ShipMovingContraption(config, tag.getList("Cargo", Tag.TAG_COMPOUND),
