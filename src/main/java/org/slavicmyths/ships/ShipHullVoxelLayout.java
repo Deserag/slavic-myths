@@ -53,7 +53,7 @@ public final class ShipHullVoxelLayout {
                     put(blocks, x, y, z, Part.HULL);
                 else if (Math.floorMod(z, 3) == 0)
                     put(blocks, x, 3, z, Part.FRAME);
-                if (!mainHatch(x, z)) put(blocks, x, 4 + sheer, z, Part.DECK);
+                if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
                 if (edge) put(blocks, x, 5, z, Part.RAIL);
             }
         }
@@ -214,7 +214,7 @@ public final class ShipHullVoxelLayout {
                 } else {
                     if (Math.floorMod(z, 4) == 0) put(blocks, x, 3, z, Part.FRAME);
                 }
-                if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
+                if (!mainHatch(x, z)) put(blocks, x, 4 + sheer, z, Part.DECK);
             }
         }
 
