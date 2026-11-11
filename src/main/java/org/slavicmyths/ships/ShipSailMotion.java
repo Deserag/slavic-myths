@@ -5,7 +5,8 @@ package org.slavicmyths.ships;
  * authority. Physical top speed remains limited by ShipRigidMotion.
  */
 public final class ShipSailMotion {
-    private static final double TIER_III_THRUST = 2.5D;
+    private static final double MAX_LEGACY_THRUST = 4.5D;
+    private static final double MIN_SAIL_POWER = 0.80D;
     private static final double ROWING_FACTOR = 0.16D;
 
     public static double power(int rigLevel, int fabricQuality) {
@@ -17,7 +18,9 @@ public final class ShipSailMotion {
             case 3 -> 2.5D;
             default -> throw new IllegalArgumentException("Unsupported sail quality");
         };
-        return Math.min(1D, thrust * rig.rigMultiplier() / TIER_III_THRUST);
+        double effectiveThrust = thrust * rig.rigMultiplier();
+        return MIN_SAIL_POWER + (1D - MIN_SAIL_POWER)
+                * Math.min(1D, (effectiveThrust - 1D) / (MAX_LEGACY_THRUST - 1D));
     }
 
     /** Steering continues to operate even while the sails are furled. */
