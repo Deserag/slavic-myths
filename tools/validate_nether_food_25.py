@@ -324,6 +324,70 @@ def check_survival_sources():
             if feature.startswith("patch_") and ("slavicmyths:" + feature[len("patch_"):]) not in json.dumps(config):
                 raise AssertionError(f"Natural crop block not configured: {feature}")
 
+
+def check_food_plantability_and_bonemeal():
+    """Source contract for every food-tab entry; never equate a food tab with a plant item."""
+    catalog = [line.split("\t") for line in require(ASSET / "creative_catalog.tsv").read_text(encoding="utf-8").splitlines()
+               if line and not line.startswith("#")]
+    foods = [name for name, tab, group in catalog if tab == "food"]
+    expected_plantable = set(PLANTING_MATERIALS)
+    if not expected_plantable.issubset(foods) or len(foods) != len(set(foods)):
+        raise AssertionError("Food tab lost one of the approved planting items or contains duplicates")
+
+    main = require(ROOT / "src/main/java/org/slavicmyths/registry/ModItems.java").read_text(encoding="utf-8")
+    kitchen = require(ROOT / "src/main/java/org/slavicmyths/kitchen/KitchenII.java").read_text(encoding="utf-8")
+    brewing = require(ROOT / "src/main/java/org/slavicmyths/brewing/Brewing.java").read_text(encoding="utf-8")
+    husbandry = require(ROOT / "src/main/java/org/slavicmyths/husbandry/Husbandry.java").read_text(encoding="utf-8")
+    household = require(ROOT / "src/main/java/org/slavicmyths/storage/Household.java").read_text(encoding="utf-8")
+    drink_class = require(ROOT / "src/main/java/org/slavicmyths/brewing/BeverageItem.java").read_text(encoding="utf-8")
+
+    if not all("new Item(" in src for src in (kitchen, brewing, husbandry, household)) or "extends Item" not in drink_class:
+        raise AssertionError("Non-plantable food supplier type changed, update the source audit")
+    if "new Item(new Item.Properties()" not in kitchen or "new BeverageItem(" not in brewing:
+        raise AssertionError("Kitchen/beer item supplier changed; verify all food items again")
+    if re.search(r"\\b(?:ItemInteractionResult|InteractionResult)\\s+useOn\\(", drink_class):
+        raise AssertionError("BeverageItem unexpectedly overrides block interaction")
+
+    beers = re.search(r"\\bBEERS\\s*=\\s*\\{([^}]*)}", brewing)
+    if beers is None:
+        raise AssertionError("Brewing beer list missing")
+    derived_drinks = {name + "_mug" for name in re.findall(r'"([a-z0-9_]+)"', beers.group(1))}
+    classes = (main, kitchen, brewing, husbandry, household)
+    plantable_found = set()
+    for name in foods:
+        explicit = next((line for line in main.splitlines() if f'ITEMS.register("{name}"' in line), None)
+        if name in expected_plantable:
+            block = PLANTING_MATERIALS[name]
+            if explicit is None or not any(f"new {type_name}(ModBlocks.{block}.get()," in explicit
+                                           for type_name in ("ItemNameBlockItem", "SoilHintPlantItem")):
+                raise AssertionError(f"Food planting unit has wrong BlockItem type: {name}")
+            plantable_found.add(name)
+        else:
+            if explicit is not None and any(t in explicit for t in
+                                            ("new ItemNameBlockItem(", "new SoilHintPlantItem(", "new BlockItem(", "new FolkBerryItem(")):
+                raise AssertionError(f"Non-plantable food turned into BlockItem: {name}")
+            if name not in derived_drinks and not any(f'"{name}"' in src for src in classes):
+                raise AssertionError(f"Unreviewed food registration: {name}")
+    if plantable_found != expected_plantable:
+        raise AssertionError(f"Food planting allowlist mismatch: {plantable_found ^ expected_plantable}")
+
+    # All mature crops receive the vanilla bone-meal action through CropBlock,
+    # but we explicitly guard max age, survival and the server-side +1 transition.
+    for name in ("FoodCrop", "NetherFoodCrop", "CrimsonPepperCrop"):
+        code = require(ROOT / "src/main/java/org/slavicmyths/farming" / (name + ".java")).read_text(encoding="utf-8")
+        requirements = ("extends CropBlock", "isValidBonemealTarget(", "getAge(state) < getMaxAge()",
+                        "canSurvive(state, level, pos)", "isBonemealSuccess(", "performBonemeal(",
+                        "getStateForAge(getAge(state) + 1)", "level.setBlock(pos,", ", 3)")
+        if not all(fragment in code for fragment in requirements):
+            raise AssertionError(f"Incomplete vanilla bone-meal source contract: {name}")
+    for name in ("NetherBerryBush", "CoalPlumLeaves", "CoalPlumSapling"):
+        code = require(ROOT / "src/main/java/org/slavicmyths/farming" / (name + ".java")).read_text(encoding="utf-8")
+        if "implements BonemealableBlock" not in code or "isValidBonemealTarget(" not in code or "performBonemeal(" not in code:
+            raise AssertionError(f"Missing vanilla bone-meal hooks for {name}")
+    print(f"FOOD PLANTABILITY SOURCE PASS: {len(foods)} food-tab items, {len(plantable_found)} approved planting units, {len(foods)-len(plantable_found)} non-plantable")
+    print("BONE-MEAL SOURCE PASS: 3 explicit crop overrides + 3 bush/tree handlers; gameplay NOT_RUN")
+
+
 def check_source():
     blocks = require(ROOT / "src/main/java/org/slavicmyths/registry/ModBlocks.java").read_text()
     items = require(ROOT / "src/main/java/org/slavicmyths/registry/ModItems.java").read_text()
@@ -373,6 +437,7 @@ def check_source():
     crop("sernica")
     check_growth_and_loot()
     check_survival_sources()
+    check_food_plantability_and_bonemeal()
     for id in OWN_INGREDIENT_MODELS:
         model(id, f"slavicmyths:item/{id}")
     for id in NONPLANTABLE_FOODS:
