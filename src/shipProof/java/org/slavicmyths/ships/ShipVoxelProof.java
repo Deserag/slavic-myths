@@ -64,6 +64,10 @@ public final class ShipVoxelProof {
                 check(blocks.get(new ShipHullVoxelLayout.Cell(0, y, z)) ==
                         ShipHullVoxelLayout.Part.MAST, "Interrupted mast");
         }
+        if (plan.hullWidth() >= 9)
+            check(blocks.values().stream().filter(p -> p == ShipHullVoxelLayout.Part.RIGGING)
+                    .count() >= 2 * plan.mastPositions().size(),
+                    "No chain stays flanking multiple masts");
         long sails = blocks.values().stream().filter(p -> p == ShipHullVoxelLayout.Part.SAIL).count();
         check(sails > 0, "No visible sails");
         check(sails >= plan.sailTiers().size() * 12, "Missing rigging panels");
