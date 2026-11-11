@@ -81,7 +81,7 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
         int count = sailTiers.size();
         if (count == 0) return List.of();
         int half = hullLength / 2;
-        int first = cabin ? -half + 10 : -half + 4;
+        int first = (cabin || bridge) ? -half + 10 : -half + 4;
         int last = half - 4;
         if (count == 1) {
             int z = Math.max(first, Math.min(last, 0));
