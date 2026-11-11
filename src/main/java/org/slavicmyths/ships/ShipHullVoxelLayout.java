@@ -172,6 +172,18 @@ public final class ShipHullVoxelLayout {
             int rear = -halfLength + 2;
             put(blocks, 0, 7, rear + 3, Part.LIGHT);
         }
+        // Two warm hanging lights under each elevated deck; only install
+        // where a complete overhead block supports the vanilla lantern.
+        for (int floor = 2; floor <= plan.decks(); floor++) {
+            int ceiling = 4 + (floor - 1) * 4;
+            int station = Math.max(2, halfLength / 3);
+            for (int z : new int[] {-station, station}) {
+                Cell roof = new Cell(1, ceiling, z);
+                Cell lamp = new Cell(1, ceiling - 1, z);
+                if (blocks.get(roof) == Part.DECK && !blocks.containsKey(lamp))
+                    blocks.put(lamp, Part.LIGHT);
+            }
+        }
         for (int z : new int[] {-halfLength + 4, halfLength - 3}) {
             int half = halfBeam(plan, z);
             if (half >= 2 && blocks.get(new Cell(half, 5, z)) == Part.RAIL)
