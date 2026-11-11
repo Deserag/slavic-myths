@@ -201,7 +201,14 @@ public final class ShipHullVoxelLayout {
                         || Math.abs(x) > halfBeamV2(plan, z - 1)
                         || Math.abs(x) > halfBeamV2(plan, z + 1);
                 if (side) {
-                    for (int y = 1; y <= 3; y++) put(blocks, x, y, z, Part.HULL);
+                    // Broad weatherdeck, narrowing bilge and solid floor:
+                    // the lowest plank row is inset one block, not a vertical
+                    // wooden wall all the way down to the waterline.
+                    if (half < 2 || Math.abs(x) < half)
+                        put(blocks, x, 1, z, Part.HULL);
+                    else
+                        put(blocks, x - Integer.signum(x), 1, z, Part.HULL);
+                    for (int y = 2; y <= 3; y++) put(blocks, x, y, z, Part.HULL);
                     put(blocks, x, 5, z, Part.RAIL);
                 } else {
                     if (Math.floorMod(z, 4) == 0) put(blocks, x, 3, z, Part.FRAME);
