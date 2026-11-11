@@ -20,7 +20,7 @@ public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
         KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, SAIL,
-        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LIGHT, SAIL_TRIM, RIGGING, BOWSPRIT
+        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LIGHT, SAIL_TRIM, RIGGING, BOWSPRIT, WINDOW_AMBER
     }
 
     private static int beam(int width, int length, int z) {
@@ -377,6 +377,10 @@ public final class ShipHullVoxelLayout {
             }
         }
 
+        // Warm glass above an actual interior lantern reads as an illuminated
+        // cabin at night, while old blue V1 windows remain byte-identical.
+        blocks.replaceAll((cell, part) -> part == Part.WINDOW
+                ? Part.WINDOW_AMBER : part);
         return Collections.unmodifiableMap(blocks);
     }
 
