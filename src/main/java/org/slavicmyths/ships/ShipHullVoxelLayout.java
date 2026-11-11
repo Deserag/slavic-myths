@@ -20,7 +20,7 @@ public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
         KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, SAIL,
-        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM
+        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LIGHT
     }
 
     private static int beam(int width, int length, int z) {
@@ -154,6 +154,95 @@ public final class ShipHullVoxelLayout {
     private static void put(Map<Cell, Part> blocks, int x, int y, int z, Part part) {
         if (y < 0 || y > 32) throw new IllegalArgumentException("Ship part outside vertical bounds");
         blocks.put(new Cell(x, y, z), part);
+    }
+
+
+    /**
+     * New 2.6 cross-section profile. Unlike the legacy four-row taper, the
+     * narrowing occupies a substantial part of the length on every class.
+     * Existing saved version-1 blueprints keep the original generator.
+     */
+    public static int halfBeamV2(ShipSuperstructurePlan plan, int z) {
+        int halfLength = plan.hullLength() / 2;
+        if (Math.abs(z) > halfLength) return -1;
+        int full = plan.hullWidth() / 2;
+        double longitudinal = (double)Math.abs(z) / halfLength;
+        double start = z >= 0 ? 0.32D : 0.47D;
+        double progress = Math.max(0D, (longitudinal - start) / (1D - start));
+        double remaining = 1D - Math.pow(progress, z >= 0 ? 1.15D : 1.35D);
+        int minimum = z >= 0 ? 0 : 1;
+        return Math.max(minimum, (int)Math.round(full * remaining));
+    }
+
+    /**
+     * Versioned geometry entrypoint. Old saves MUST use the exact previous
+     * palette or their world block snapshots can no longer be inspected.
+     */
+    public static Map<Cell, Part> generate(ShipSuperstructurePlan plan, int layoutVersion) {
+        if (layoutVersion == 1) return generate(plan);
+        if (layoutVersion != 2) throw new IllegalArgumentException("Unsupported hull layout version");
+        Map<Cell, Part> blocks = new LinkedHashMap<>(generate(plan));
+        int halfLength = plan.hullLength() / 2;
+        for (int z = -halfLength; z <= halfLength; z++)
+            for (int x = -plan.hullWidth() / 2; x <= plan.hullWidth() / 2; x++)
+                for (int y = 0; y <= 5; y++) {
+                    Cell cell = new Cell(x, y, z);
+                    Part old = blocks.get(cell);
+                    if (old == Part.KEEL || old == Part.HULL || old == Part.FRAME
+                            || old == Part.DECK || old == Part.RAIL)
+                        blocks.remove(cell);
+                }
+
+        for (int z = -halfLength; z <= halfLength; z++) {
+            int half = halfBeamV2(plan, z);
+            for (int x = -half; x <= half; x++) {
+                put(blocks, x, 0, z, x == 0 ? Part.KEEL : Part.HULL);
+                boolean side = Math.abs(x) == half
+                        || Math.abs(x) > halfBeamV2(plan, z - 1)
+                        || Math.abs(x) > halfBeamV2(plan, z + 1);
+                if (side) {
+                    for (int y = 1; y <= 3; y++) put(blocks, x, y, z, Part.HULL);
+                    put(blocks, x, 5, z, Part.RAIL);
+                } else {
+                    if (Math.floorMod(z, 4) == 0) put(blocks, x, 3, z, Part.FRAME);
+                }
+                if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
+            }
+        }
+
+        // Restore the through-deck stairwell and its backing after remodeling.
+        for (int y = 1; y <= 4; y++) {
+            put(blocks, -3, y, 1, Part.FRAME);
+            put(blocks, -2, y, 1, Part.LADDER);
+            blocks.remove(new Cell(-2, y, 0));
+        }
+
+        // An unobstructed, genuinely emitting lantern hangs below the deck.
+        // Placing a timber ceiling above it works both with world blocks and
+        // the palette-based moving renderer; moving dynamic block light still
+        // requires a separate in-game verification.
+        for (int z = -halfLength + 3; z <= halfLength - 3; z += 5) {
+            if (halfBeamV2(plan, z) < 2 || Math.abs(z) <= 2) continue;
+            Cell lamp = new Cell(0, 2, z);
+            if (!blocks.containsKey(lamp)) {
+                put(blocks, 0, 3, z, Part.DECK);
+                put(blocks, 0, 2, z, Part.LIGHT);
+            }
+        }
+        if (plan.cabin()) {
+            int rear = -halfLength + 2;
+            for (int z = rear + 2; z <= rear + 4; z += 2)
+                if (!blocks.containsKey(new Cell(0, 7, z)))
+                    put(blocks, 0, 7, z, Part.LIGHT);
+        }
+
+        return Collections.unmodifiableMap(blocks);
+    }
+
+    public static int halfBeam(ShipSuperstructurePlan plan, int z, int layoutVersion) {
+        return layoutVersion == 1 ? halfBeam(plan, z)
+                : layoutVersion == 2 ? halfBeamV2(plan, z)
+                : -1;
     }
 
     /** Count actual placed blocks, not arbitrary costs per button press. */
