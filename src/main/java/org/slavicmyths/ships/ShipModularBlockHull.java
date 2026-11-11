@@ -165,7 +165,7 @@ public final class ShipModularBlockHull {
         List<Cargo> cargo = new ArrayList<>();
         ShipSuperstructurePlan structure = config.structure();
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cargoPlan =
-                ShipHullVoxelLayout.generate(structure);
+                config.layout();
         int halfWidth = config.width() / 2, halfLength = config.length() / 2;
         int maxY = Math.max(24, 4 + config.decks() * 4);
         for (int z = -halfLength; z <= halfLength; z++)
