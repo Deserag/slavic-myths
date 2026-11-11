@@ -63,12 +63,25 @@ public final class ShipHullVoxelLayoutCheck {
             }
             if (config.bridge()) yes(voxels.values().contains(ShipHullVoxelLayout.Part.BRIDGE),
                     "raised quarterdeck installed");
-            if (config.decks() >= 2)
-                yes(voxels.containsKey(new ShipHullVoxelLayout.Cell(0, 8, 3)),
-                        "upper deck floor");
-            if (config.decks() >= 3)
-                yes(voxels.containsKey(new ShipHullVoxelLayout.Cell(1, 12, 3)),
-                        "third deck floor");
+            if (config.decks() >= 2) {
+                int rear = -config.hullLength() / 2 + 2;
+                yes(voxels.containsKey(new ShipHullVoxelLayout.Cell(0, 8, rear + 1)),
+                        "short upper stern deck floor");
+                yes(voxels.get(new ShipHullVoxelLayout.Cell(0, 8, config.hullLength() / 2 - 4))
+                        != ShipHullVoxelLayout.Part.DECK,
+                        "upper decks must not stretch across the bow");
+                yes(voxels.get(new ShipHullVoxelLayout.Cell(-2, 8, rear + 5))
+                        == ShipHullVoxelLayout.Part.LADDER,
+                        "protected stern ladder through upper deck");
+            }
+            if (config.decks() >= 3) {
+                int rear = -config.hullLength() / 2 + 2;
+                yes(voxels.containsKey(new ShipHullVoxelLayout.Cell(1, 12, rear + 3)),
+                        "stepped third stern deck");
+                yes(voxels.get(new ShipHullVoxelLayout.Cell(-2, 12, rear + 5))
+                        == ShipHullVoxelLayout.Part.LADDER,
+                        "third deck vertical access");
+            }
             yes(!ShipHullVoxelLayout.count(voxels).isEmpty(), "material bill");
         }
 
