@@ -20,7 +20,7 @@ public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
         KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, SAIL, SAIL_TRIM,
-        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LIGHT
+        CABIN_WALL, WINDOW, HULL_WINDOW, DOOR, BRIDGE, HELM, LIGHT
     }
 
     private static int beam(int width, int length, int z) {
@@ -193,6 +193,25 @@ public final class ShipHullVoxelLayout {
                 put(blocks, -2, y, accessZ, Part.LADDER);
             }
         }
+
+        // Full glass blocks in the above-water hull keep the dry hold sealed.
+        // Internal hanging lanterns make these regularly spaced windows warm
+        // instead of painting fictitious yellow pixels on a solid wall.
+        if (plan.hullWidth() >= 9)
+            for (int z = -halfLength + 4; z <= halfLength - 4; z++) {
+                if (Math.floorMod(z, 5) != 0) continue;
+                int half = halfBeam(plan, z);
+                if (half < 3) continue;
+                for (int side : new int[] {-1, 1}) {
+                    Cell glass = new Cell(side * half, 2, z);
+                    Cell lamp = new Cell(side * (half - 1), 3, z);
+                    if (blocks.get(glass) == Part.HULL)
+                        put(blocks, glass.x(), glass.y(), glass.z(), Part.HULL_WINDOW);
+                    if (!blocks.containsKey(lamp) &&
+                            blocks.get(new Cell(lamp.x(), 4, z)) == Part.DECK)
+                        put(blocks, lamp.x(), lamp.y(), lamp.z(), Part.LIGHT);
+                }
+            }
 
         // Real vanilla light sources: the hold, cabin and exterior approach.
         // Dynamic illumination while the palette is carried as an entity
