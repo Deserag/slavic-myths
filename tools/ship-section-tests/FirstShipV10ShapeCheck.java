@@ -35,7 +35,7 @@ public final class FirstShipV10ShapeCheck {
             check(hull.get(new FirstShipV10Shape.Cell(0, 0, z)) == FirstShipV10Shape.Part.KEEL,
                     "continuous spruce keel " + z);
             for (int x = -beam; x <= beam; x++) {
-                for (int y = 0; y <= 2; y++)
+                for (int y = 0; y <= 5; y++)
                     check(FirstShipV10Shape.partAt(x, y, z)
                             == FirstShipV10Shape.partAt(-x, y, z),
                             "symmetric lower shell " + x + "," + y + "," + z);
@@ -51,7 +51,7 @@ public final class FirstShipV10ShapeCheck {
         check(FirstShipV10Shape.deckHalfBeam(5) == 0
                 && FirstShipV10Shape.deckHalfBeam(4) == 1
                 && FirstShipV10Shape.deckHalfBeam(3) == 2
-                && FirstShipV10Shape.deckHalfBeam(2) == 3, "bow sharpens toward centerline");
+                && FirstShipV10Shape.deckHalfBeam(2) == 2, "bow sharpens toward centerline");
         check(FirstShipV10Shape.floorHalfBeam(-5) == 0
                 && FirstShipV10Shape.deckHalfBeam(-5) == 1
                 && FirstShipV10Shape.deckHalfBeam(-4) == 2, "stern lower than quarterdeck");
