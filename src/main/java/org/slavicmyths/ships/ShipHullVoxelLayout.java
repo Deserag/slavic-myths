@@ -20,7 +20,7 @@ public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
         KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, SAIL,
-        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LIGHT, SAIL_TRIM, RIGGING, BOWSPRIT, STANDING_LANTERN
+        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LIGHT, SAIL_TRIM, RIGGING, BOWSPRIT, STANDING_LANTERN, PENNANT
     }
 
     private static int beam(int width, int length, int z) {
@@ -333,12 +333,23 @@ public final class ShipHullVoxelLayout {
                     }
                 }
             }
-            // Vertical stays alongside the lower sail; do not run rigging
-            // through walkable hatch, helm, or the protected aft cabin.
-            if (broad + 1 < plan.hullWidth() / 2)
-                for (int x : new int[]{-broad - 1, broad + 1})
-                    for (int y = 9; y <= 12; y++)
-                        put(blocks, x, y, z, Part.RIGGING);
+            // Diagonal voxel shrouds descend from the masthead to the
+            // rail, and are offset aft from the billowing forward canvas.
+            // They occupy native collision cells, not a nonphysical overlay.
+            int shroudSpan = Math.max(1, Math.min(
+                    plan.hullWidth() / 2 - 1, halfBeamV2(plan, z) - 1));
+            int shroudBottom = Math.min(mastTop - 4, Math.max(7, 5 + (plan.decks() - 1) * 4));
+            for (int y = shroudBottom; y < mastTop - 1; y++) {
+                double rise = (double)(y - shroudBottom) / (mastTop - 1 - shroudBottom);
+                int outer = Math.max(1, (int)Math.round(shroudSpan * (1D - rise)));
+                for (int x : new int[]{-outer, outer}) {
+                    Cell point = new Cell(x, y, z - 1);
+                    if (!blocks.containsKey(point)) put(blocks, x, y, z - 1, Part.RIGGING);
+                }
+            }
+            // Short scarlet pixel pennants finish every mast visually.
+            put(blocks, 0, mastTop + 2, z + 1, Part.PENNANT);
+            put(blocks, 0, mastTop + 2, z + 2, Part.PENNANT);
         }
 
         // A narrow, forward-pointing block-built bowsprit, including its
