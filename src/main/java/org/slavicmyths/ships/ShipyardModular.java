@@ -50,7 +50,8 @@ public final class ShipyardModular {
         int sail = delta.getOrDefault(ShipHullVoxelLayout.Part.SAIL, 0)
                 + delta.getOrDefault(ShipHullVoxelLayout.Part.SAIL_TRIM, 0);
         int ladders = delta.getOrDefault(ShipHullVoxelLayout.Part.LADDER, 0);
-        int windows = delta.getOrDefault(ShipHullVoxelLayout.Part.WINDOW, 0);
+        int windows = delta.getOrDefault(ShipHullVoxelLayout.Part.WINDOW, 0)
+                + delta.getOrDefault(ShipHullVoxelLayout.Part.HULL_WINDOW, 0);
         int lanterns = delta.getOrDefault(ShipHullVoxelLayout.Part.LIGHT, 0);
         int helm = delta.getOrDefault(ShipHullVoxelLayout.Part.HELM, 0);
         int basic = 0, linen = 0, reinforced = 0;
