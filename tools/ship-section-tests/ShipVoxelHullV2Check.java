@@ -45,6 +45,14 @@ public final class ShipVoxelHullV2Check {
         }
         check(voxels.values().contains(ShipHullVoxelLayout.Part.LIGHT),
                 "real lantern placement required " + type);
+        if (cabin) {
+            check(voxels.values().contains(ShipHullVoxelLayout.Part.WINDOW_AMBER),
+                    "new cabins use warm amber glass");
+            check(!voxels.values().contains(ShipHullVoxelLayout.Part.WINDOW),
+                    "V1 window is not accidentally installed on a V2 ship");
+            check(v1.values().contains(ShipHullVoxelLayout.Part.WINDOW),
+                    "legacy glass remains unchanged");
+        }
         check(voxels.values().stream().filter(p -> p == ShipHullVoxelLayout.Part.HELM)
                 .count() == 1, "single helm");
         check(voxels.values().contains(ShipHullVoxelLayout.Part.MAST), "mast placed");
