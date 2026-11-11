@@ -53,8 +53,21 @@ public final class ShipVoxelHullV2Check {
         int outer = ShipHullVoxelLayout.halfBeamV2(plan, 0);
         check(ShipHullVoxelLayout.halfBeamV2(plan, half - 2) < outer,
                 "bow narrows well before the tip");
-        if (decks >= 2) check(voxels.get(new ShipHullVoxelLayout.Cell(2, 7, 3))
-                == ShipHullVoxelLayout.Part.LIGHT, "lit lower upper-deck ceiling " + type + " actual=" + voxels.get(new ShipHullVoxelLayout.Cell(2, 7, 3)) + " roof=" + voxels.get(new ShipHullVoxelLayout.Cell(2, 8, 3)));
+        for (int floor = 2; floor <= decks; floor++) {
+            int underside = 4 + (floor - 1) * 4 - 1;
+            long lamps = voxels.entrySet().stream()
+                    .filter(e -> e.getKey().y() == underside
+                            && e.getValue() == ShipHullVoxelLayout.Part.LIGHT)
+                    .count();
+            check(lamps >= 2, "at least two lower ceiling lights " + type + " floor=" + floor);
+            for (var entry : voxels.entrySet())
+                if (entry.getKey().y() == underside
+                        && entry.getValue() == ShipHullVoxelLayout.Part.LIGHT)
+                    check(voxels.get(new ShipHullVoxelLayout.Cell(
+                            entry.getKey().x(), underside + 1, entry.getKey().z()))
+                            == ShipHullVoxelLayout.Part.DECK,
+                            "hanging lantern supported by real deck");
+        }
         check(!ShipHullVoxelLayout.count(voxels).isEmpty(), "count materials");
     }
 
