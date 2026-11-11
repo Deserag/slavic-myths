@@ -53,6 +53,7 @@ public final class ShipyardModular {
         int windows = delta.getOrDefault(ShipHullVoxelLayout.Part.WINDOW, 0)
                 + delta.getOrDefault(ShipHullVoxelLayout.Part.HULL_WINDOW, 0);
         int lanterns = delta.getOrDefault(ShipHullVoxelLayout.Part.LIGHT, 0);
+        int rigging = delta.getOrDefault(ShipHullVoxelLayout.Part.RIGGING, 0);
         int helm = delta.getOrDefault(ShipHullVoxelLayout.Part.HELM, 0);
         int basic = 0, linen = 0, reinforced = 0;
         for (int i = 0; i < next.sailTiers().size(); i++) {
@@ -67,7 +68,8 @@ public final class ShipyardModular {
         }
         return new Materials(divRoundUp(keel + frame + mast + yard + walls, 4),
                 divRoundUp(hull + deck, 3),
-                divRoundUp(keel + frame + mast + yard + windows + ladders, 15) + lanterns,
+                divRoundUp(keel + frame + mast + yard + windows + ladders, 15) + lanterns
+                        + divRoundUp(rigging, 4),
                 divRoundUp(sail, 4),
                 divRoundUp(deck, 24),
                 divRoundUp(railing, 16),
