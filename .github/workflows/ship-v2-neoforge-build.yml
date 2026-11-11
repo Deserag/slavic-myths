@@ -1,0 +1,27 @@
+name: Ship V2 full NeoForge build
+on:
+  push:
+    branches:
+      - 'feat/2.6-ship-voxel-hulls-rigging-light-20261111-v2'
+  pull_request:
+    paths:
+      - 'src/main/java/org/slavicmyths/ships/**'
+      - 'tools/ship-section-tests/**'
+      - '.github/workflows/ship-v2-neoforge-build.yml'
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Build Minecraft 1.21.1 NeoForge Java 21 mod
+        run: chmod +x gradlew && ./gradlew --no-daemon build --console=plain
+      - name: Run Ocean 2.6 checks
+        run: ./gradlew --no-daemon -Pocean26Check runOcean26Checks --console=plain
