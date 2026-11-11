@@ -107,18 +107,30 @@ public final class ShipHullVoxelLayout {
                     tier == 1 ? 2 : tier == 2 ? 3 : 4);
             for (int y = 5; y <= mastTop + 1; y++)
                 put(blocks, 0, y, z, Part.MAST);
-            int lowerTop = tier == 1 ? mastTop + 1 : 13;
-            for (int x = -span; x <= span; x++) {
-                if (x == 0) continue;
-                put(blocks, x, 7, z, Part.YARD);
-                put(blocks, x, lowerTop, z, Part.YARD);
-            }
-            sailPanel(blocks, z, 8, lowerTop - 1, span);
-            if (tier >= 2) {
-                int upperSpan = Math.max(1, span - 1);
-                for (int x = -upperSpan; x <= upperSpan; x++)
-                    if (x != 0) put(blocks, x, mastTop + 1, z, Part.YARD);
-                sailPanel(blocks, z, 14, mastTop, upperSpan);
+            if (plan.shipClass() == ShipSectionPlan.ShipClass.SMALL) {
+                // A single fore-and-aft lateen-style Minecraft sail on a
+                // diagonal wooden spar, rather than a miniature square wall.
+                int reach = Math.min(4, halfLength - z - 1);
+                for (int dz = 1; dz <= reach; dz++) {
+                    int sparY = mastTop + 1 - dz;
+                    put(blocks, 0, sparY, z + dz, Part.YARD);
+                    for (int y = 7; y < sparY; y++)
+                        blocks.putIfAbsent(new Cell(0, y, z + dz), Part.SAIL);
+                }
+            } else {
+                int lowerTop = tier == 1 ? mastTop + 1 : 13;
+                for (int x = -span; x <= span; x++) {
+                    if (x == 0) continue;
+                    put(blocks, x, 7, z, Part.YARD);
+                    put(blocks, x, lowerTop, z, Part.YARD);
+                }
+                sailPanel(blocks, z, 8, lowerTop - 1, span);
+                if (tier >= 2) {
+                    int upperSpan = Math.max(1, span - 1);
+                    for (int x = -upperSpan; x <= upperSpan; x++)
+                        if (x != 0) put(blocks, x, mastTop + 1, z, Part.YARD);
+                    sailPanel(blocks, z, 14, mastTop, upperSpan);
+                }
             }
         }
 
