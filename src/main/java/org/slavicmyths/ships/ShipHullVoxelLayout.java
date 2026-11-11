@@ -218,8 +218,10 @@ public final class ShipHullVoxelLayout {
         for (int y = 1; y <= 4; y++) {
             put(blocks, -3, y, 1, Part.FRAME);
             put(blocks, -2, y, 1, Part.LADDER);
-            blocks.remove(new Cell(-2, y, 0));
+            if (y >= 2) blocks.remove(new Cell(-2, y, 0));
         }
+        // The ladder shaft must have a waterproof support under its first rung.
+        put(blocks, -2, 0, 1, Part.HULL);
 
         // An unobstructed, genuinely emitting lantern hangs below the deck.
         // Placing a timber ceiling above it works both with world blocks and
