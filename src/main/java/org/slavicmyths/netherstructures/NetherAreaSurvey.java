@@ -94,7 +94,7 @@ public final class NetherAreaSurvey {
         var live=new TreeMap<String,Integer>();
         AABB box=new AABB(center.getX()-HALF,world.getMinBuildHeight(),center.getZ()-HALF,
             center.getX()+HALF+1,world.getMaxBuildHeight(),center.getZ()+HALF+1);
-        for(var entity:world.getEntities(null,box,e->e.isAlive())){
+        for(var entity:world.getEntities((net.minecraft.world.entity.Entity)null,box,e->e.isAlive())){
             var id=BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType());
             if(id!=null&&id.getNamespace().equals("slavicmyths")&&BOSSES.contains(id.getPath()))live.merge(id.getPath(),1,Integer::sum);
         }
