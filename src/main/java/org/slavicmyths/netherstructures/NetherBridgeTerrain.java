@@ -63,7 +63,7 @@ public final class NetherBridgeTerrain {
     for(int deck=maxY;deck>=minY;deck--){
      BlockPos origin=new BlockPos(bx,deck,bz);int[] depths=new int[len*2];
      int variant=(int)Math.floorMod(salt^(len*37L)^(deck*103L),4);
-     boolean valid=true;int lava=0,total=0,wetStreak=0,maxWet=0;
+     boolean valid=true;int lava=0,chasm=0,total=0,openStreak=0,maxOpen=0;
      for(int t=0;t<len;t++){
       BlockPos cp=origin.offset(new BlockPos(0,0,t).rotate(rotation));
       NoiseColumn mid=cols.get(cp.getX(),cp.getZ());
@@ -76,12 +76,17 @@ public final class NetherBridgeTerrain {
         if(!open(bank,deck)||!stone(bank,deck-1)){valid=false;break;}
        }if(!valid)break;
       }else{
-       boolean wet=false;
+       boolean wet=false;int airBelow=0;
        for(int dy=1;dy<=Math.min(18,deck-c.heightAccessor().getMinBuildHeight());dy++){
         if(mid.getBlock(deck-dy).is(Blocks.LAVA)){wet=true;break;}
         if(stone(mid,deck-dy))break;
+        if(mid.getBlock(deck-dy).isAir())airBelow++;
        }
-       if(wet){lava++;wetStreak++;maxWet=Math.max(maxWet,wetStreak);}else wetStreak=0;total++;
+       boolean deepGap=!wet&&airBelow>=12;
+       if(wet)lava++;
+       if(deepGap)chasm++;
+       if(wet||deepGap){openStreak++;maxOpen=Math.max(maxOpen,openStreak);}else openStreak=0;
+       total++;
       }
       if(pier(t,len)){
        for(int side=0;side<2;side++){
@@ -93,7 +98,7 @@ public final class NetherBridgeTerrain {
        }if(!valid)break;
       }
      }
-     if(!valid||total<6||lava<Math.max(3,total/3)||maxWet<3)continue;
+     if(!valid||total<6||(lava<Math.max(2,total/5)&&chasm<Math.max(3,total/3))||maxOpen<3)continue;
      int gap=variant==2?Math.min(5,Math.max(2,len/6)):variant==3?Math.min(5,Math.max(3,len/7)):0;
      int from=(len-gap)/2;
      return new Plan(origin,rotation,len,variant,from,from+gap,depths,

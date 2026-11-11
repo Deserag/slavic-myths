@@ -4,10 +4,13 @@ allprojects { afterEvaluate {
   sourceSets.hellQa.java.include 'HellQaMod.java','MorovoyRavenQaTests.java','org/slavicmyths/hellqa/mixin/SeedMixin.java'
  }
  if (project.hasProperty('hellQaBossComponentsOnly')) {
-  sourceSets.hellQa.java.include 'HellQaMod.java','HellQaTests.java','BossComponentsNaturalQaTests.java','WatchpostWorldgenQaTests.java','WayfarerQaTests.java','ForgottenShrineQaTests.java','AncestorShrineQaTests.java','TriznaPyreQaTests.java','org/slavicmyths/hellqa/mixin/SeedMixin.java'
+  sourceSets.hellQa.java.include 'HellQaMod.java','BossComponentsNaturalQaTests.java','WatchpostWorldgenQaTests.java','WayfarerQaTests.java','ForgottenShrineQaTests.java','AncestorShrineQaTests.java','TriznaPyreQaTests.java','org/slavicmyths/hellqa/mixin/SeedMixin.java'
  }
  if (project.hasProperty('hellQaBiomeOnly')) {
-  sourceSets.hellQa.java.include 'HellQaMod.java','HellQaTests.java','NetherBiomeQaTests.java','org/slavicmyths/hellqa/mixin/SeedMixin.java'
+  sourceSets.hellQa.java.include 'HellQaMod.java','NetherBiomeQaTests.java','org/slavicmyths/hellqa/mixin/SeedMixin.java'
+ }
+ if (project.hasProperty('hellQaShrineOnly')) {
+  sourceSets.hellQa.java.include 'HellQaMod.java','ForgottenShrineQaTests.java','org/slavicmyths/hellqa/mixin/SeedMixin.java'
  }
  if (project.hasProperty('hellQaRewardCrash')) {
   sourceSets.hellQa.java.srcDir 'tools/hell-reward-crash'

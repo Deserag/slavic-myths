@@ -19,22 +19,39 @@ import org.slavicmyths.worldgen.ManualStructureRecords;
 /** Sparse, deterministic Nether encounters; only loaded terrain is inspected or modified. */
 @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class NetherEncounterSpawns {
-    private static final int REGION=2048, ACTIVATE=112, MIN_DISTANCE=800;
+    private static final int REGION=512, ACTIVATE=128, MIN_DISTANCE=112;
     private record Definition(String key,String[] ids,Set<String> biomes) {}
-    private static final List<Definition> WILDERNESS=List.of();
+    private static final Set<String> NETHER_BIOMES=Set.of("minecraft:nether_wastes","minecraft:soul_sand_valley",
+        "minecraft:crimson_forest","minecraft:warped_forest","minecraft:basalt_deltas",
+        "slavicmyths:navya_grove","slavicmyths:black_cinder","slavicmyths:lost_halls","slavicmyths:burning_islands");
+    private static final Set<String> NEW_BIOMES=Set.of("slavicmyths:navya_grove","slavicmyths:black_cinder",
+        "slavicmyths:lost_halls","slavicmyths:burning_islands");
+    private static final Definition SISTERS=new Definition("gneteya_tryaseya",
+        new String[]{"slavicmyths:gneteya","slavicmyths:tryaseya"},NETHER_BIOMES);
+    private static final Definition ELEMENT_SISTERS=new Definition("agneya_ledeya",
+        new String[]{"slavicmyths:agneya","slavicmyths:ledeya"},NETHER_BIOMES);
+    private static final Definition VIY=new Definition("viy",new String[]{"slavicmyths:viy"},NETHER_BIOMES);
+    private static final List<Definition> WILDERNESS=List.of(
+        new Definition("bauk",new String[]{"slavicmyths:bauk"},NETHER_BIOMES),
+        new Definition("cursed_mytar",new String[]{"slavicmyths:cursed_mytar"},NETHER_BIOMES),
+        SISTERS,ELEMENT_SISTERS,
+        new Definition("neveya",new String[]{"slavicmyths:neveya"},NETHER_BIOMES),
+        new Definition("lomeya",new String[]{"slavicmyths:lomeya"},NETHER_BIOMES));
     private static final List<Definition> POSAD_BOSSES=List.of(
         new Definition("bauk",new String[]{"slavicmyths:bauk"},Set.of("minecraft:crimson_forest","minecraft:warped_forest","minecraft:nether_wastes")),
         new Definition("cursed_mytar",new String[]{"slavicmyths:cursed_mytar"},Set.of("minecraft:nether_wastes","minecraft:soul_sand_valley","minecraft:basalt_deltas"))
     );
     private static long hash(long seed,long x,long z,long salt){long n=seed^x*0x9E3779B97F4A7C15L^z*0xC2B2AE3D27D4EB4FL^salt;n^=n>>>30;n*=0xBF58476D1CE4E5B9L;n^=n>>>27;n*=0x94D049BB133111EBL;return n^(n>>>31);}
     private static String biome(ServerLevel w,BlockPos pos){return w.getBiome(pos).unwrapKey().map(k->k.location().toString()).orElse("");}
-    private static BlockPos safe(ServerLevel w,BlockPos xz,Definition d){
+    private static BlockPos safe(ServerLevel w,BlockPos xz,Definition d,int maxY,int minY){
         if(!w.hasChunkAt(xz))return null;
-        for(int y=Math.min(112,w.getMaxBuildHeight()-10);y>=34;y--){
+        int height=d.key.equals("neveya")||d.key.equals("lomeya")?9:7;
+        int width=(d==SISTERS||d==ELEMENT_SISTERS)?5:2;
+        for(int y=Math.min(maxY,w.getMaxBuildHeight()-height);y>=Math.max(w.getMinBuildHeight()+8,minY);y--){
             BlockPos p=new BlockPos(xz.getX(),y,xz.getZ());
             if(!d.biomes.contains(biome(w,p))||!w.getFluidState(p.below()).isEmpty()||!w.getBlockState(p.below()).isFaceSturdy(w,p.below(),Direction.UP))continue;
             boolean open=true;
-            for(int dx=-2;dx<=2&&open;dx++)for(int dz=-2;dz<=2&&open;dz++)for(int dy=0;dy<6;dy++){
+            for(int dx=-2;dx<=width&&open;dx++)for(int dz=-2;dz<=2&&open;dz++)for(int dy=0;dy<height;dy++){
                 BlockPos q=p.offset(dx,dy,dz);
                 if(!w.hasChunkAt(q)||!w.getFluidState(q).isEmpty()||!w.getBlockState(q).getCollisionShape(w,q).isEmpty()){open=false;break;}
             }
@@ -44,7 +61,13 @@ public final class NetherEncounterSpawns {
     }
     private static boolean supported(Definition d){for(String id:d.ids){ResourceLocation name=ResourceLocation.tryParse(id);if(name==null||!BuiltInRegistries.ENTITY_TYPE.containsKey(name))return false;}return true;}
     private static boolean spawn(ServerLevel w,Definition d,BlockPos at,NetherEncounterRecords records,NetherEncounterRecords.Encounter encounter){
+        if(d==SISTERS){
+            if(!org.slavicmyths.sisters.SistersContent.spawnPair(w,at))return false;
+            records.markSpawned(encounter);
+            return true;
+        }
         List<Entity> created=new ArrayList<>();
+        UUID pairId=d==ELEMENT_SISTERS?UUID.nameUUIDFromBytes(("slavicmyths:"+encounter.key).getBytes(java.nio.charset.StandardCharsets.UTF_8)):null;
         for(int i=0;i<d.ids.length;i++){
             EntityType<?> type=BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.parse(d.ids[i]));
             Entity entity=type.create(w);
@@ -53,6 +76,7 @@ public final class NetherEncounterSpawns {
             if(!w.noCollision(entity)){created.forEach(Entity::discard);return false;}
             ((Mob)entity).setPersistenceRequired();
             entity.getPersistentData().putString("SlavicNetherEncounter",encounter.key);
+            if(pairId!=null)entity.getPersistentData().putUUID("PosadTestEncounter",pairId);
             if(!w.addFreshEntity(entity)){created.forEach(Entity::discard);return false;}
             created.add(entity);
         }
@@ -79,7 +103,7 @@ public final class NetherEncounterSpawns {
                 for(int attempt=0;attempt<64;attempt++){
                     long h=hash(seed,attempt,0,313);
                     BlockPos xz=candidate.offset((int)Math.floorMod(h,193)-96,0,(int)Math.floorMod(h>>>24,193)-96);
-                    BlockPos location=safe(w,xz,d);
+                    BlockPos location=safe(w,xz,d,112,34);
                     if(location==null||location.distSqr(player.blockPosition())>ACTIVATE*ACTIVATE||location.distSqr(player.blockPosition())<32*32)continue;
                     double fromCity=Math.sqrt(Math.pow(location.getX()-site.arrival().getX(),2)+Math.pow(location.getZ()-site.arrival().getZ(),2));
                     if(fromCity<500||fromCity>2000)continue;
@@ -94,32 +118,53 @@ public final class NetherEncounterSpawns {
         }
 
         int rx=Math.floorDiv(player.getBlockX(),REGION),rz=Math.floorDiv(player.getBlockZ(),REGION);
-        for(int x=rx-1;x<=rx+1;x++)for(int z=rz-1;z<=rz+1;z++){
-            if(WILDERNESS.isEmpty())continue;
-            long roll=hash(w.getSeed(),x,z,101);
-            if(Math.floorMod(roll,3)!=0)continue;
-            Definition d=WILDERNESS.get((int)Math.floorMod(roll>>>8,WILDERNESS.size()));
-            if(!supported(d))continue;
-            String key="wild:"+x+":"+z;
-            int cx=x*REGION+256+(int)Math.floorMod(roll>>>16,REGION-512);
-            int cz=z*REGION+256+(int)Math.floorMod(roll>>>36,REGION-512);
-            BlockPos candidate=new BlockPos(cx,64,cz);
-            if(player.blockPosition().distSqr(candidate)>256*256)continue;
-            var encounter=records.reserve(key,d.key,candidate);
-            if(encounter.spawned)continue;
-            if(player.blockPosition().distSqr(encounter.anchor)>256*256)continue;
-            BlockPos location=null;
-            for(int attempt=0;attempt<48;attempt++){
-                long h=hash(roll,attempt,0,117);
-                BlockPos xz=encounter.anchor.offset((int)Math.floorMod(h,193)-96,0,(int)Math.floorMod(h>>>24,193)-96);
-                if(!w.hasChunkAt(xz))continue;
-                BlockPos found=safe(w,xz,d);
-                if(found==null||found.distSqr(player.blockPosition())>ACTIVATE*ACTIVATE||found.distSqr(player.blockPosition())<32*32)continue;
-                boolean close=false;
-                for(var other:records.encounters.values())if(other!=encounter&&other.spawned&&other.anchor.distSqr(found)<MIN_DISTANCE*MIN_DISTANCE){close=true;break;}
-                if(!close){location=found;break;}
+        tryEncounter(w,player,records,"wild:"+rx+":"+rz,rx,rz,hash(w.getSeed(),rx,rz,101),null);
+        String currentBiome=biome(w,player.blockPosition());
+        if(NEW_BIOMES.contains(currentBiome))
+            tryEncounter(w,player,records,"biome:"+rx+":"+rz+":"+currentBiome,rx,rz,
+                hash(w.getSeed(),rx,rz,currentBiome.hashCode()),currentBiome);
+    }
+
+    /** Every explored 512x512 region has one persistent encounter opportunity.
+     * Each new Nether biome has an additional 100%-selected encounter per region.
+     * Unsafe terrain delays placement; only already loaded chunks are inspected. */
+    private static void tryEncounter(ServerLevel w,ServerPlayer player,NetherEncounterRecords records,
+                                     String key,int rx,int rz,long seed,String requiredBiome){
+        var previous=records.encounters.get(key);
+        if(previous!=null&&previous.spawned)return;
+        BlockPos origin=player.blockPosition();
+        int top=w.getMaxBuildHeight()-10,bottom=Math.max(16,w.getMinBuildHeight()+8);
+        // Viy is a tier-8 encounter: at most one selected region in twelve,
+        // with common encounters as a fallback when safe Viy terrain is unavailable.
+        boolean rareViy=requiredBiome==null&&Math.floorMod(hash(w.getSeed(),rx,rz,808),12)==0;
+        for(int choice=0;choice<WILDERNESS.size()+(rareViy?1:0);choice++){
+            Definition d=rareViy&&choice==0?VIY:WILDERNESS.get((int)Math.floorMod(seed+choice-(rareViy?1:0),WILDERNESS.size()));
+            if(previous!=null&&!previous.type.equals(d.key))continue;
+            if(!supported(d)||requiredBiome!=null&&!d.biomes.contains(requiredBiome))continue;
+            for(int attempt=0;attempt<8;attempt++){
+                long roll=hash(seed,origin.getX()>>4,origin.getZ()>>4,
+                    (player.tickCount/80L)*19+choice*73L+attempt);
+                int radius=(requiredBiome==null?40:18)+(int)Math.floorMod(roll,requiredBiome==null?68:76);
+                double angle=Math.floorMod(roll>>>17,65536)/65536.0D*Math.PI*2D;
+                BlockPos xz=origin.offset((int)(Math.cos(angle)*radius),0,(int)(Math.sin(angle)*radius));
+                if(Math.floorDiv(xz.getX(),REGION)!=rx||Math.floorDiv(xz.getZ(),REGION)!=rz)continue;
+                BlockPos found=safe(w,xz,d,top,bottom);
+                if(found==null||found.distSqr(origin)>ACTIVATE*ACTIVATE||found.distSqr(origin)<(requiredBiome==null?32*32:14*14))continue;
+                if(requiredBiome!=null&&!requiredBiome.equals(biome(w,found)))continue;
+                boolean nearby=false;
+                for(var other:records.encounters.values())
+                    if(other.spawned&&other.anchor.distSqr(found)<MIN_DISTANCE*MIN_DISTANCE){nearby=true;break;}
+                if(nearby)continue;
+                // Never persist a failed reservation: later candidates and boss types must
+                // remain eligible. Save the actual anchor only after both pair members spawn.
+                var attempted=previous!=null?previous:new NetherEncounterRecords.Encounter(key,d.key,found,false);
+                if(spawn(w,d,found,records,attempted)){
+                    var saved=records.reserve(key,d.key,found);
+                    records.relocate(saved,found);
+                    records.markSpawned(saved);
+                    return;
+                }
             }
-            if(location!=null){records.relocate(encounter,location);spawn(w,d,location,records,encounter);}
         }
     }
     private NetherEncounterSpawns(){}

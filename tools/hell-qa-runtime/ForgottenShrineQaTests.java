@@ -126,7 +126,7 @@ public final class ForgottenShrineQaTests {
         var structure=(ForgottenShrineStructure)w.registryAccess().registryOrThrow(Registries.STRUCTURE).get(ForgottenShrineWorldgen.id("forgotten_shrine"));
         var placement=StructureCandidates.placement(w,structure);check(placement!=null,"Missing shrine set");
         int candidates=0,noise=0,rejected=0;
-        for(int ring=0;ring<=8;ring++)for(int gx=-ring;gx<=ring;gx++)for(int gz=-ring;gz<=ring;gz++) {
+        for(int ring=0;ring<=16;ring++)for(int gx=-ring;gx<=ring;gx++)for(int gz=-ring;gz<=ring;gz++) {
             if(Math.max(Math.abs(gx),Math.abs(gz))!=ring)continue;
             var cp=placement.getPotentialStructureChunk(w.getSeed(),gx*placement.spacing(),gz*placement.spacing());
             if(!placement.applyAdditionalChunkRestrictions(cp.x,cp.z,w.getSeed()))continue;candidates++;

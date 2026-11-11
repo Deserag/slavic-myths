@@ -21,6 +21,7 @@ public final class ManualNetherBuildings {
   for(String id:IDS){var node=Commands.literal(id).executes(c->place(c.getSource(),id,BlockPos.containing(c.getSource().getPosition())));
    node.then(Commands.argument("pos",net.minecraft.commands.arguments.coordinates.BlockPosArgument.blockPos()).executes(c->place(c.getSource(),id,net.minecraft.commands.arguments.coordinates.BlockPosArgument.getLoadedBlockPos(c,"pos"))));
    root.then(Commands.literal("create").then(node));}
+  root.then(Commands.literal("survey").executes(c->NetherAreaSurvey.run(c.getSource())));
   tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").then(root)));
  }
  @FunctionalInterface interface Voxels {BlockState at(int x,int y,int z);}
