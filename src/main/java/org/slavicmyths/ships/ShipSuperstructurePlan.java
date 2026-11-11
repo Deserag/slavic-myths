@@ -56,14 +56,16 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
     /** Centered mast stations; the same result follows after hull enlargement. */
     private static List<Integer> mastPositionsFor(int count, int hullLength, boolean cabin) {
         List<Integer> positions = new ArrayList<>();
+        if (count == 0) return List.of();
+        if (count == 1) return List.of(0);
+        // Spread the masts over the usable full hull length instead of bunching
+        // four masts inside the same eight-block middle section.
+        int rear = cabin ? -hullLength / 2 + 10 : -hullLength / 2 + 5;
+        int fore = hullLength / 2 - 5;
+        if (fore - rear < (count - 1) * MAST_CLEARANCE)
+            throw new IllegalArgumentException("Not enough clear hull for separated masts");
         for (int i = 0; i < count; i++)
-            positions.add((2 * i - (count - 1)) * 2);
-        if (cabin && !positions.isEmpty()) {
-            int minMastZ = -hullLength / 2 + (hullLength <= 15 ? 5 : 10);
-            int shift = Math.max(0, minMastZ - positions.get(0));
-            for (int i = 0; i < positions.size(); i++)
-                positions.set(i, positions.get(i) + shift);
-        }
+            positions.add(rear + (int)Math.round((double)i * (fore - rear) / (count - 1)));
         return List.copyOf(positions);
     }
 
