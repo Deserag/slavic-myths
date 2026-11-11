@@ -198,7 +198,8 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         if (ship.modularConfiguration() != null
                 && ship.modularConfiguration().layoutVersion() == 1)
             renderModularSails(ship, yaw, partialTick, pose, buffers, deckLight);
-        else if (ship.geometryVersion() >= 7 && ship.rigLevel() > 0)
+        else if (ship.modularConfiguration() == null
+                && ship.geometryVersion() >= 7 && ship.rigLevel() > 0)
             renderFabricSail(ship, yaw, partialTick, pose, buffers, deckLight);
     }
 
