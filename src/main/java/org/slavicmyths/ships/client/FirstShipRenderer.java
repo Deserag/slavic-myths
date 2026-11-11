@@ -3,6 +3,7 @@ package org.slavicmyths.ships.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import net.minecraft.client.Minecraft;
@@ -45,6 +46,7 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
     private final ItemStack helm;
     private String paletteKey = "";
     private Map<BlockPos, BlockState> cachedPalette = Map.of();
+    private Map<BlockPos, Integer> cachedShipLight = Map.of();
 
     public FirstShipRenderer(EntityRendererProvider.Context context) {
         super(context);
@@ -107,6 +109,26 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         } catch (RuntimeException invalid) {
             cachedPalette = Map.of();
         }
+        // V2 lamps are real world light sources while parked. Detached palettes
+        // have no chunk lighting; calculate a bounded VISUAL light contribution
+        // for the moving renderer, without claiming it lights the world itself.
+        Map<BlockPos, Integer> lamps = new LinkedHashMap<>();
+        if (config != null && config.layoutVersion() == 2) {
+            var emitters = new ArrayList<BlockPos>();
+            for (var entry : cachedPalette.entrySet())
+                if (entry.getValue().is(Blocks.LANTERN)) emitters.add(entry.getKey());
+            for (BlockPos cell : cachedPalette.keySet()) {
+                int best = 0;
+                for (BlockPos lamp : emitters) {
+                    int distance = Math.abs(lamp.getX() - cell.getX())
+                            + Math.abs(lamp.getY() - cell.getY())
+                            + Math.abs(lamp.getZ() - cell.getZ());
+                    best = Math.max(best, Math.max(0, 15 - distance * 2));
+                }
+                if (best > 0) lamps.put(cell, best);
+            }
+        }
+        cachedShipLight = java.util.Collections.unmodifiableMap(lamps);
         paletteKey = key;
         return cachedPalette;
     }
@@ -125,14 +147,17 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 BlockState state = entry.getValue();
                 if (state.isAir()) continue;
                 BlockPos p = entry.getKey();
+                int localGlow = cachedShipLight.getOrDefault(p, 0);
+                int localLight = net.minecraft.client.renderer.LightTexture.pack(
+                        Math.max((light >> 4) & 15, localGlow), (light >> 20) & 15);
                 pose.pushPose();
                 pose.translate(p.getX() - .5D, p.getY(), p.getZ() - .5D);
                 if (state.is(Blocks.CHEST)) {
                     items.renderStatic(new ItemStack(Items.CHEST),
-                            ItemDisplayContext.FIXED, light, OverlayTexture.NO_OVERLAY,
+                            ItemDisplayContext.FIXED, localLight, OverlayTexture.NO_OVERLAY,
                             pose, buffers, ship.level(), ship.getId());
                 } else Minecraft.getInstance().getBlockRenderer().renderSingleBlock(
-                        state, pose, buffers, light, OverlayTexture.NO_OVERLAY);
+                        state, pose, buffers, localLight, OverlayTexture.NO_OVERLAY);
                 pose.popPose();
             }
             pose.popPose();
@@ -170,7 +195,8 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 -.15D, -.15D, -.12D, .30F, .30F, .24F);
         pose.popPose();
         pose.popPose();
-        if (ship.modularConfiguration() != null)
+        if (ship.modularConfiguration() != null
+                && ship.modularConfiguration().layoutVersion() == 1)
             renderModularSails(ship, yaw, partialTick, pose, buffers, deckLight);
         else if (ship.geometryVersion() >= 7 && ship.rigLevel() > 0)
             renderFabricSail(ship, yaw, partialTick, pose, buffers, deckLight);
