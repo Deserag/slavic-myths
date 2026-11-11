@@ -70,6 +70,14 @@ public final class ShipHullVoxelLayoutCheck {
             yes(!ShipHullVoxelLayout.count(voxels).isEmpty(), "material bill");
         }
 
+        var bridgeWithoutCabin = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
+                List.of(1, 2), 2, true, false);
+        yes(bridgeWithoutCabin.mastPositionsV2().get(0) >= 0,
+                "V2 standalone aft bridge keeps both masts forward of its roof");
+        var bridgeBlocksV2 = ShipHullVoxelLayout.generate(bridgeWithoutCabin, 2);
+        yes(bridgeBlocksV2.values().stream()
+                .filter(p -> p == ShipHullVoxelLayout.Part.HELM).count() == 1,
+                "V2 bridge without cabin keeps a single helm");
         var cabinWithoutBridge = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(1), 1, false, true);
         var cabinBlocks = ShipHullVoxelLayout.generate(cabinWithoutBridge);
