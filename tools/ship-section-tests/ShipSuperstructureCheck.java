@@ -25,7 +25,7 @@ public final class ShipSuperstructureCheck {
         var small = plan(ShipSectionPlan.ShipClass.SMALL, 7, 11, List.of(1), 1, false, false);
         yes(small.mastPositions().equals(List.of(0)), "small center mast");
         yes(small.rawThrust() == 1D, "basic sail thrust");
-        yes(small.propulsionFactor() == 1D, "baseline thrust cap");
+        yes(Math.abs(small.propulsionFactor() - .80D) < 1E-9D, "small starter propulsion baseline");
         invalid(() -> small.withSail(1), "small second mast");
         invalid(() -> small.withSail(2), "small tier II");
         invalid(() -> small.withDecks(2), "small second deck");
