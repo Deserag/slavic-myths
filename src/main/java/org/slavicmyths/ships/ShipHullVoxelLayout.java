@@ -243,13 +243,15 @@ public final class ShipHullVoxelLayout {
         List<Integer> stations = plan.mastPositions();
         for (int index = 0; index < stations.size(); index++) {
             int z = stations.get(index), tier = plan.sailTiers().get(index);
-            int top = Math.min(29, 13 + tier * 4 - (index == 0 && stations.size() >= 3 ? 2 : 0));
+            int sailBase = 8 + (plan.decks() - 1) * 3;
+            int top = Math.min(31, sailBase + 8 + (tier - 1) * 6
+                    - (index == 0 && stations.size() >= 3 ? 1 : 0));
             int span = Math.min(halfBeamV2(plan, z) - 1, tier == 1 ? 2 : tier == 2 ? 3 : 4);
             span = Math.max(1, span);
             for (int y = 5; y <= top + 1; y++) put(blocks, 0, y, z, Part.MAST);
             int layers = tier;
             for (int layer = 0; layer < layers; layer++) {
-                int lower = 8 + layer * 7;
+                int lower = sailBase + layer * 7;
                 int upper = Math.min(top, lower + (layer == 0 ? 6 : 4));
                 if (lower > upper) continue;
                 int width = Math.max(1, span - (layer == 2 ? 1 : 0));
@@ -271,8 +273,9 @@ public final class ShipHullVoxelLayout {
             }
             // Side stays are separated from the actual sail by the mast plane.
             int outer = Math.min(halfBeamV2(plan, z) - 1, 4);
-            for (int y = 8; y <= Math.min(13, top); y++) {
-                int x = Math.max(1, (int)Math.round(outer * (13D - y) / 5D));
+            int stayBottom = 6 + (plan.decks() - 1) * 4;
+            for (int y = stayBottom; y <= Math.min(stayBottom + 5, top); y++) {
+                int x = Math.max(1, (int)Math.round(outer * (stayBottom + 5D - y) / 5D));
                 if (x < outer && !blocks.containsKey(new Cell(x, y, z - 1)))
                     put(blocks, x, y, z - 1, Part.RIGGING);
                 if (x < outer && !blocks.containsKey(new Cell(-x, y, z - 1)))
