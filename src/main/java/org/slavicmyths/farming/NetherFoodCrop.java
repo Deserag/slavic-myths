@@ -51,4 +51,17 @@ public final class NetherFoodCrop extends CropBlock {
         if (getAge(state) < getMaxAge() && random.nextInt(12) == 0) level.setBlock(pos, getStateForAge(getAge(state) + 1), 2);
     }
     @Override protected int getBonemealAgeIncrease(Level level) { return 1; }
+
+    // Explicit vanilla bone meal contract: only living immature crops accept a charge.
+    // The server changes exactly one age and sends the new state to clients (flag 3).
+    @Override public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+        return state.is(this) && getAge(state) < getMaxAge() && canSurvive(state, level, pos);
+    }
+    @Override public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+        return true;
+    }
+    @Override public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+        if (isValidBonemealTarget(level, pos, state))
+            level.setBlock(pos, getStateForAge(getAge(state) + 1), 3);
+    }
 }
