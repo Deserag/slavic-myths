@@ -44,9 +44,9 @@ public final class PosadStructure extends Structure {
             long key=((long)x<<32)^(z&0xffffffffL);
             var column=columns.get(key);
             var sampled=windows.get(key);
-            if(column==null&&sampled==null&&dense[0]&&y>=32-PosadTerrain.MAX_SUPPORT_DEPTH&&y<=64+17
+            if(column==null&&sampled==null&&dense[0]&&y>=32-PosadTerrain.MAX_SUPPORT_DEPTH&&y<=96+17
                     &&c.chunkGenerator() instanceof net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator noise
-                    &&PosadNoiseBatch.fillWindow(noise,c.randomState(),c.heightAccessor(),x,z,32-PosadTerrain.MAX_SUPPORT_DEPTH,64+17,windows))sampled=windows.get(key);
+                    &&PosadNoiseBatch.fillWindow(noise,c.randomState(),c.heightAccessor(),x,z,32-PosadTerrain.MAX_SUPPORT_DEPTH,96+17,windows))sampled=windows.get(key);
             net.minecraft.world.level.block.state.BlockState state;
             if(column==null&&sampled!=null&&sampled.contains(y))state=sampled.state(y);
             else {if(column==null){column=c.chunkGenerator().getBaseColumn(x,z,c.heightAccessor(),c.randomState());columns.put(key,column);}state=column.getBlock(y);}
@@ -56,7 +56,9 @@ public final class PosadStructure extends Structure {
             return PosadTerrain.Material.PROTECTED;
         };
         int first=Math.floorMod((int)(c.seed()^c.chunkPos().toLong()),4);
-        for(int y=64;y>=32;y--) {
+        // Elevated Nether plateaus were excluded by the former hard Y=64 ceiling.
+        // Every added height still goes through the full safety, shore and collision checks.
+        for(int y=Math.min(96,c.heightAccessor().getMaxBuildHeight()-18);y>=32;y--) {
             boolean valid=true;
             // Cheap rejection before full-footprint inspection. All final checks remain dense.
             for(int z=0;z<113&&valid;z+=16)for(int x=0;x<113;x+=16) {
