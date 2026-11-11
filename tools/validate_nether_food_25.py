@@ -151,6 +151,13 @@ def check_source():
                 raise AssertionError(f"Missing localization {id}/{locale}")
     json_file(DATA / "neoforge/biome_modifier/nether_food_crops.json")
     json_file(DATA / "neoforge/biome_modifier/coal_plum_tree.json")
+    json_file(DATA / "neoforge/biome_modifier/crimson_pepper_crop.json")
+    for category in ("configured_feature", "placed_feature"):
+        json_file(DATA / "worldgen" / category / "patch_crimson_pepper_crop.json")
+    for cooking in ("smelting", "smoking", "campfire_cooking"):
+        obj = json_file(DATA / "recipe" / ("roasted_hot_pepper_" + cooking + ".json"))
+        if obj.get("result", {}).get("id") != "slavicmyths:roasted_hot_pepper":
+            raise AssertionError("Missing survivor-accessible pepper roasting")
     for id in SISTER_INGOTS + SISTER_SHARDS + SISTER_OTHER + BOSS_MATERIALS:
         audit_material(id)
     print('ART_REFERENCE_BLOCKED: lomeya_shard refers to agneya_magma; neveya_shard uses vanilla block textures. No owner-approved replacements supplied.')
