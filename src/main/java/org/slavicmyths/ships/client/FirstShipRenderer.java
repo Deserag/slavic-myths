@@ -45,6 +45,7 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
     private final ItemStack helm;
     private String paletteKey = "";
     private Map<BlockPos, BlockState> cachedPalette = Map.of();
+    private Map<BlockPos, Integer> cachedLampLight = Map.of();
 
     public FirstShipRenderer(EntityRendererProvider.Context context) {
         super(context);
@@ -107,8 +108,31 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         } catch (RuntimeException invalid) {
             cachedPalette = Map.of();
         }
+        cachedLampLight = lampIllumination(cachedPalette);
         paletteKey = key;
         return cachedPalette;
+    }
+
+    // Moving block palettes are not chunk light sources. This is a conservative
+    // renderer-only approximation for blocks near native lanterns; it does not
+    // claim to illuminate players or the surrounding world light engine.
+    private static Map<BlockPos, Integer> lampIllumination(Map<BlockPos, BlockState> palette) {
+        java.util.List<BlockPos> sources = new java.util.ArrayList<>();
+        for (var entry : palette.entrySet())
+            if (entry.getValue().is(Blocks.LANTERN)) sources.add(entry.getKey());
+        if (sources.isEmpty()) return Map.of();
+        Map<BlockPos, Integer> result = new java.util.HashMap<>();
+        for (BlockPos block : palette.keySet()) {
+            int best = 0;
+            for (BlockPos lamp : sources) {
+                int distance = Math.abs(block.getX() - lamp.getX())
+                        + Math.abs(block.getY() - lamp.getY())
+                        + Math.abs(block.getZ() - lamp.getZ());
+                best = Math.max(best, 15 - distance);
+            }
+            if (best > 0) result.put(block, best);
+        }
+        return java.util.Collections.unmodifiableMap(result);
     }
 
     @Override public void render(FirstShipEntity ship, float yaw, float partialTick,
@@ -127,12 +151,15 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 BlockPos p = entry.getKey();
                 pose.pushPose();
                 pose.translate(p.getX() - .5D, p.getY(), p.getZ() - .5D);
+                int localLight = net.minecraft.client.renderer.LightTexture.pack(
+                        Math.max((light >> 4) & 15, cachedLampLight.getOrDefault(p, 0)),
+                        (light >> 20) & 15);
                 if (state.is(Blocks.CHEST)) {
                     items.renderStatic(new ItemStack(Items.CHEST),
-                            ItemDisplayContext.FIXED, light, OverlayTexture.NO_OVERLAY,
+                            ItemDisplayContext.FIXED, localLight, OverlayTexture.NO_OVERLAY,
                             pose, buffers, ship.level(), ship.getId());
                 } else Minecraft.getInstance().getBlockRenderer().renderSingleBlock(
-                        state, pose, buffers, light, OverlayTexture.NO_OVERLAY);
+                        state, pose, buffers, localLight, OverlayTexture.NO_OVERLAY);
                 pose.popPose();
             }
             pose.popPose();
@@ -170,7 +197,8 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 -.15D, -.15D, -.12D, .30F, .30F, .24F);
         pose.popPose();
         pose.popPose();
-        if (ship.modularConfiguration() != null)
+        if (ship.modularConfiguration() != null
+                && ship.modularConfiguration().layoutVersion() == 1)
             renderModularSails(ship, yaw, partialTick, pose, buffers, deckLight);
         else if (ship.geometryVersion() >= 7 && ship.rigLevel() > 0)
             renderFabricSail(ship, yaw, partialTick, pose, buffers, deckLight);
@@ -292,8 +320,10 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             double cameraX, double cameraY, double cameraZ) {
         // Entity's vanilla boat AABB is much smaller than the 7x11 ship and
         // can be outside the camera while its stern wheel remains visible.
+        var config = ship.modularConfiguration();
+        double radius = config == null ? 9D : Math.max(config.width(), config.length()) / 2D + 3D;
         return ship.isNativeHull()
-                ? frustum.isVisible(ship.getBoundingBox().inflate(9D, 16D, 9D))
+                ? frustum.isVisible(ship.getBoundingBox().inflate(radius, 26D, radius))
                 : super.shouldRender(ship, frustum, cameraX, cameraY, cameraZ);
     }
 
