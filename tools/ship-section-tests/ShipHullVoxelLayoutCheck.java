@@ -115,10 +115,13 @@ public final class ShipHullVoxelLayoutCheck {
                 yes(v2.get(new ShipHullVoxelLayout.Cell(0, 0, z))
                         == ShipHullVoxelLayout.Part.KEEL, "V2 continuous keel " + z);
                 for (int x = -beam; x <= beam; x++) {
-                    yes(v2.get(new ShipHullVoxelLayout.Cell(x, 1, z))
-                            == ShipHullVoxelLayout.Part.HULL,
+                    var floorBlock = v2.get(new ShipHullVoxelLayout.Cell(x, 1, z));
+                    var expectedFloor = z == 1 && x == -2 ? ShipHullVoxelLayout.Part.LADDER
+                            : z == 1 && x == -3 ? ShipHullVoxelLayout.Part.FRAME
+                            : ShipHullVoxelLayout.Part.HULL;
+                    yes(floorBlock == expectedFloor,
                             "V2 sealed dry hold floor " + x + ":" + z);
-                    if (Math.abs(x) > Math.max(0, beam - 2))
+                    if (Math.abs(x) > Math.max(0, beam - 2) && !(z == 1 && x == -2))
                         yes(!v2.containsKey(new ShipHullVoxelLayout.Cell(x, 0, z)),
                                 "V2 narrowed underwater hull " + x + ":" + z);
                 }
