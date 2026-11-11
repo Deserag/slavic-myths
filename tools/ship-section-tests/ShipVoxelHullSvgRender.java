@@ -32,6 +32,7 @@ public final class ShipVoxelHullSvgRender {
             case SAIL -> 0xece8d7;
             case SAIL_TRIM -> 0xa83b35;
             case RIGGING -> 0x52412d;
+            case BOWSPRIT -> 0x6e4e31;
             case CABIN_WALL -> 0x6e4632;
             case WINDOW -> 0x9ccbd1;
             case DOOR -> 0x6b4728;
