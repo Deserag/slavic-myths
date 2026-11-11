@@ -18,6 +18,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.LadderBlock;
+import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
@@ -67,7 +68,8 @@ public final class ShipModularBlockHull {
                     });
             case BRIDGE -> Blocks.DARK_OAK_PLANKS.defaultBlockState();
             case HELM -> Blocks.DARK_OAK_FENCE.defaultBlockState();
-            case LIGHT -> Blocks.LANTERN.defaultBlockState();
+            case LIGHT -> Blocks.LANTERN.defaultBlockState()
+                    .setValue(LanternBlock.HANGING, y != 6);
         };
     }
 
