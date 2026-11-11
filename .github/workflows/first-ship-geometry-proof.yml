@@ -4,11 +4,13 @@ on:
     paths:
       - "src/main/java/org/slavicmyths/ships/FirstShipHull.java"
       - "experimental/raft26/FirstShipHullProof.java"
+      - "experimental/raft26/FirstShipHullV11Proof.java"
       - ".github/workflows/first-ship-geometry-proof.yml"
   pull_request:
     paths:
       - "src/main/java/org/slavicmyths/ships/FirstShipHull.java"
       - "experimental/raft26/FirstShipHullProof.java"
+      - "experimental/raft26/FirstShipHullV11Proof.java"
       - ".github/workflows/first-ship-geometry-proof.yml"
 jobs:
   prove-hull:
@@ -22,6 +24,7 @@ jobs:
       - name: Compile ship geometry
         run: |
           mkdir -p build/first-ship-proof
-          javac -encoding UTF-8 -d build/first-ship-proof src/main/java/org/slavicmyths/ships/FirstShipHull.java experimental/raft26/FirstShipHullProof.java
+          javac -encoding UTF-8 -d build/first-ship-proof src/main/java/org/slavicmyths/ships/FirstShipHull.java experimental/raft26/FirstShipHullProof.java experimental/raft26/FirstShipHullV11Proof.java
       - name: Test both floors, helm, ladder and reversible motion
         run: java -ea -cp build/first-ship-proof FirstShipHullProof
+          java -ea -cp build/first-ship-proof FirstShipHullV11Proof

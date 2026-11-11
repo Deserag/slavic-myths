@@ -33,6 +33,18 @@ public final class FirstShipHull {
         return widths[Math.max(0, Math.min(10, row + 5))] + .49D;
     }
 
+    /**
+     * V11 only. The chine widens over two real voxel layers while the
+     * unchanged 7x11 waterline/deck outline remains the upper boundary.
+     * Earlier geometries continue using halfBeam/halfWidth unchanged.
+     */
+    public static int halfWidthV11(int z, int y) {
+        if (z < -5 || z > 5) return -1;
+        int deckBeam = (int)Math.floor(halfBeam(z));
+        int inset = y <= 0 ? 2 : y == 1 ? 1 : 0;
+        return Math.max(0, deckBeam - inset);
+    }
+
     public static double holdBeam(double z) {
         return Math.max(.45D, halfBeam(z) - .98D);
     }

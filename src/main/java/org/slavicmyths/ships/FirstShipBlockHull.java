@@ -378,6 +378,32 @@ public final class FirstShipBlockHull {
         return blocks;
     }
 
+    /**
+     * V11 is a separate physical hull; do not reassign V10's layout.
+     * At a seven-block-wide station: Y0=3 blocks, Y1=5, Y2+=7.
+     * The Y1 shoulder is a SOLID stepped hold floor: every lower-hold
+     * air cell still has wooden support beneath it, with no water path.
+     * Deck, rail, hatch, ladder, helm, mast and all rigging stay V10.
+     */
+    private static Map<BlockPos, BlockState> layoutV11(BlockPos anchor, int turns, int rig, int fabric) {
+        Map<BlockPos, BlockState> blocks = layoutV10(anchor, turns, rig, fabric);
+        for (int z = MIN_Z; z <= MAX_Z; z++) {
+            int keelBeam = FirstShipHull.halfWidthV11(z, 0);
+            int chineBeam = FirstShipHull.halfWidthV11(z, 1);
+            for (int x = -halfWidth(z); x <= halfWidth(z); x++) {
+                if (Math.abs(x) > keelBeam)
+                    blocks.remove(world(anchor, turns, x, 0, z));
+                BlockPos shoulder = world(anchor, turns, x, 1, z);
+                if (Math.abs(x) > chineBeam)
+                    blocks.remove(shoulder);
+                else if (Math.abs(x) > keelBeam && !(x == -2 && z == 2))
+                    // Preserve the existing stripped-log ladder backing at (-2,2).
+                    blocks.put(shoulder, Blocks.DARK_OAK_PLANKS.defaultBlockState());
+            }
+        }
+        return blocks;
+    }
+
     private static void addYardV3(Map<BlockPos, BlockState> blocks, BlockPos anchor,
             int turns, int y, int span) {
         BlockState beam = Blocks.DARK_OAK_LOG.defaultBlockState().setValue(
@@ -408,7 +434,8 @@ public final class FirstShipBlockHull {
 
     private static Map<BlockPos, BlockState> layout(BlockPos anchor, int turns,
             int rig, int fabric, int geometry) {
-        return geometry >= 10 ? layoutV10(anchor, turns, rig, fabric)
+        return geometry >= 11 ? layoutV11(anchor, turns, rig, fabric)
+                : geometry >= 10 ? layoutV10(anchor, turns, rig, fabric)
                 : geometry >= 8 ? layoutV8(anchor, turns, rig, fabric)
                 : geometry == 7 ? layoutV7(anchor, turns, rig, fabric)
                 : geometry == 6 ? layoutV6(anchor, turns, rig, fabric)
@@ -525,6 +552,10 @@ public final class FirstShipBlockHull {
         for (Cargo entry : cargo) {
             BlockPos point = world(anchor, turns, entry.x(), entry.y(), entry.z());
             if (!cargoCell(entry.x(), entry.y(), entry.z()) || !target.contains(point)) return false;
+            // A V11 shoulder is real planking, never a legal cargo slot.
+            if (geometry >= 11 && entry.y() == 1
+                    && Math.abs(entry.x()) > FirstShipHull.halfWidthV11(entry.z(), 0))
+                return false;
         }
         return clearableFootprint(level, anchor, turns, owned, rig, fabric, geometry) != null;
     }
@@ -851,11 +882,15 @@ public final class FirstShipBlockHull {
     public record MotionSnapshot(ListTag cargo, int geometry, int rig, int fabric, int turn) {
         public MotionSnapshot {
             if (cargo == null || cargo.size() > WIDTH * LENGTH * 2
-                    || geometry < 2 || geometry > 10 || geometry == 9
+                    || geometry < 2 || geometry > 11 || geometry == 9
                     || turn < 0 || turn > 3
                     || decode(cargo) == null)
                 throw new IllegalArgumentException("Unsafe moving ship snapshot");
             new ShipRigging(rig, fabric);
+            if (geometry >= 11)
+                for (Cargo entry : decode(cargo))
+                    if (entry.y() == 1 && Math.abs(entry.x()) > FirstShipHull.halfWidthV11(entry.z(), 0))
+                        throw new IllegalArgumentException("Cargo overlaps V11 stepped floor");
             cargo = cargo.copy();
         }
         @Override public ListTag cargo() { return cargo.copy(); }
@@ -863,7 +898,7 @@ public final class FirstShipBlockHull {
 
     public static MotionSnapshot captureForMotion(ServerLevel level, BlockPos anchor,
             int turns, int rig, int fabric, int geometry) {
-        if (geometry < 2 || geometry > 10 || geometry == 9 || turns < 0 || turns > 3) return null;
+        if (geometry < 2 || geometry > 11 || geometry == 9 || turns < 0 || turns > 3) return null;
         ListTag cargo = pack(level, anchor, turns, rig, fabric, geometry);
         if (cargo == null) {
             for (var entry : layout(anchor, turns, rig, fabric, geometry).entrySet()) {

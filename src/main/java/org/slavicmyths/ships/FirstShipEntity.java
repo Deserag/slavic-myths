@@ -148,7 +148,7 @@ public final class FirstShipEntity extends Boat {
     }
     public void enableSmoothMotion() { smoothEnabled = true; }
     public void equipStarterSail() { setRigging(1, 1); setGeometryVersion(8); }
-    public void equipUpdatedStarterSail() { setRigging(1, 1); setGeometryVersion(10); }
+    public void equipUpdatedStarterSail() { setRigging(1, 1); setGeometryVersion(11); }
 
 
     public BlockPos blockAnchor() {
@@ -488,7 +488,7 @@ public final class FirstShipEntity extends Boat {
                 || !pack.contains("Modules", Tag.TAG_LIST)) return false;
         int loadedGeometry = pack.contains("GeometryVersion", Tag.TAG_INT)
                 ? pack.getInt("GeometryVersion") : 2;
-        if (loadedGeometry < 2 || loadedGeometry > 10) return false;
+        if (loadedGeometry < 2 || loadedGeometry > 11) return false;
         ShipBuildConfiguration loadedModular = null;
         if (pack.contains(ShipBuildConfiguration.NBT_KEY, Tag.TAG_COMPOUND)) {
             try { loadedModular = ShipBuildConfiguration.load(pack.getCompound(ShipBuildConfiguration.NBT_KEY)); }
