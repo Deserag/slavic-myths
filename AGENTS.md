@@ -1,5 +1,7 @@
 # OWNER OVERRIDE — BOUNDED CONTEXT / NO BULK READING — 2026-11-06
 
+**Корабли 2.6 — доработка скорости 11.11.2026.** Отдельная ветка `feat/2.6-ship-speed-sails-20261111` от принятого `d965d5c84`; расчёты парусов, размеров и статусы проверки записаны в `docs/SHIP_SPEED_BALANCE_20261111.md`. Это НЕ новая игровая приёмка: принятый алгоритм плавного движения из `docs/SHIP_MOTION_RELEASE_20261111.md` не переписывать, перед выпуском обязательно перепроверить повороты, игрока и столкновения.
+
 **Корабли 2.6 — принятый выпуск 11.11.2026.** Перед любым изменением движения, штурвала, пассажиров, палубы или синхронизации кораблей прочитать точечный контракт `docs/SHIP_MOTION_RELEASE_20261111.md`. Владелец прямо поручил сохранить устройство принятого движения для следующих чатов. Особенно сохранить общий предыдущий кадр `xo/yo/zo/yRotO` корабля и капитана; GameTest и прямой ход не заменяют покадровую проверку поворота в Minecraft.
 
 **Latest explicit owner rule. This section takes precedence over older blanket instructions to read the entire documentation before starting.** It limits information retrieval; it does NOT relax branch safety, owner approval, gameplay QA, or implementation acceptance requirements.
