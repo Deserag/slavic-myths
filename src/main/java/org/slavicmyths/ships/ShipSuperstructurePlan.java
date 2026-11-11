@@ -83,13 +83,30 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
         int half = hullLength / 2;
         int first = cabin ? -half + 10 : -half + 4;
         int last = half - 4;
-        if (count == 1)
-            return List.of(Math.max(first, Math.min(last, 0)));
+        if (count == 1) {
+            int z = Math.max(first, Math.min(last, 0));
+            return List.of(decks > 1 && Math.abs(z) <= 1 && last >= 2 ? 2 : z);
+        }
         if (last - first < (count - 1) * MAST_CLEARANCE)
             throw new IllegalArgumentException("V2 masts cannot fit cabin and bow clearance");
         List<Integer> positions = new ArrayList<>();
         for (int i = 0; i < count; i++)
             positions.add(first + (int)Math.round((last - first) * (double)i / (count - 1)));
+        // The stairwell is two blocks wide at z=0/1. Physical yards or
+        // canvas at those coordinates must never replace a player's ladder.
+        if (decks > 1) {
+            for (int i = 0; i < positions.size(); i++) {
+                int z = positions.get(i);
+                if (Math.abs(z) > 1) continue;
+                int fore = i + 1 < positions.size() ? positions.get(i + 1) : last + MAST_CLEARANCE;
+                int aft = i > 0 ? positions.get(i - 1) : first - MAST_CLEARANCE;
+                if (z <= 1 && fore - 2 >= MAST_CLEARANCE && 2 <= last)
+                    positions.set(i, 2);
+                else if (-2 - aft >= MAST_CLEARANCE && -2 >= first)
+                    positions.set(i, -2);
+                else throw new IllegalArgumentException("V2 masts would block ladder shaft");
+            }
+        }
         return List.copyOf(positions);
     }
 
