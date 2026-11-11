@@ -233,7 +233,11 @@ public final class ShipHullVoxelLayout {
             int rear = -halfLength + 3;
             int front = floor == 2 ? Math.max(2, halfLength / 4) : 1;
             for (int z = rear; z <= front; z++) {
-                int half = Math.max(2, halfBeamV2(plan, z) - floor * 2);
+                int available = halfBeamV2(plan, z);
+                if (available < 4) continue;
+                // Preserve x=+/-3 main-deck cargo and a free passage even
+                // after adding rooms and another floor to an existing ship.
+                int half = Math.min(available, Math.max(4, available - floor * 2));
                 for (int x = -half; x <= half; x++) {
                     boolean hatch = x == -2 && (z == 0 || z == 1);
                     if (!hatch) put(blocks, x, level, z, Part.DECK);
