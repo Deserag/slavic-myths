@@ -66,6 +66,52 @@ def crop(id):
     model(id, f"slavicmyths:item/{id}")
 
 
+# Issue #468: all named new boss/sister materials, without changing their approved designs.
+SISTER_INGOTS = ("tryaseya_ingot", "gneteya_ingot", "ledeya_ingot", "agneya_ingot", "neveya_ingot", "lomeya_ingot")
+SISTER_SHARDS = ("tryaseya_shard", "gneteya_shard", "ledeya_shard", "agneya_shard", "neveya_shard", "lomeya_shard")
+SISTER_OTHER = ("nether_soul_iv", "nether_soul_v", "hunter_bow_core", "sisters_ritual_core")
+BOSS_MATERIALS = (
+    "morova_thread", "faded_rite_seal", "ancestor_bone_charm", "nameless_ashes",
+    "broken_watch_horn", "darkened_waymark", "mourning_circlet", "charred_signal_ribbon",
+    "legendary_soul", "scroll_of_waning", "scroll_of_last_call",
+    "rune_morova_lingering", "rune_trizna_ember_ward",
+    "amulet_of_the_faded", "last_watch_horn", "morova_silence_pendant",
+    "fallen_druzhina_horn", "mytar_chain", "bauk_wool", "bauk_hide",
+    "nine_mor_heart", "nine_mor_scale", "nine_mor_fang", "pechat_devyati_morov",
+)
+
+
+def audit_material(id):
+    obj = json_file(ASSET / "models/item" / (id + ".json"))
+    textures = obj.get("textures", {})
+    if not textures or not (obj.get("parent") or obj.get("elements")):
+        raise AssertionError(f"Unbound ingredient model: {id}")
+    if id in SISTER_INGOTS and (obj.get("parent") != "minecraft:item/generated" or textures.get("layer0") != "slavicmyths:item/" + id):
+        raise AssertionError(f"Wrong sister ingot texture reference: {id}")
+    for slot, target in textures.items():
+        if not isinstance(target, str):
+            raise AssertionError(f"Invalid texture target {id}/{slot}")
+        if target.startswith("slavicmyths:item/"):
+            path = ASSET / "textures/item" / (target[len("slavicmyths:item/"):] + ".png")
+            raw = require(path).read_bytes()
+            if raw[:8] != PNG_SIGNATURE or raw[12:16] != b"IHDR":
+                raise AssertionError(f"Invalid material PNG: {id} -> {path}")
+        elif not target.startswith("minecraft:"):
+            raise AssertionError(f"Unresolved material texture namespace: {id}/{slot}: {target}")
+    for element in obj.get("elements", []):
+        for prop in ("from", "to"):
+            coords = element[prop]
+            if len(coords) != 3 or not all(isinstance(v, (int, float)) and 0 <= v <= 16 for v in coords):
+                raise AssertionError(f"Invalid 3D bounds for {id}/{prop}")
+        for face in element.get("faces", {}).values():
+            ref = face.get("texture", "")
+            if ref.startswith("#") and ref[1:] not in textures:
+                raise AssertionError(f"Missing texture slot {ref} in {id}")
+            uv = face.get("uv")
+            if uv is not None and (len(uv) != 4 or not all(isinstance(v, (int, float)) and 0 <= v <= 16 for v in uv)):
+                raise AssertionError(f"Out-of-range item UV {id}/{uv}")
+
+
 def check_source():
     blocks = require(ROOT / "src/main/java/org/slavicmyths/registry/ModBlocks.java").read_text()
     items = require(ROOT / "src/main/java/org/slavicmyths/registry/ModItems.java").read_text()
@@ -105,6 +151,9 @@ def check_source():
                 raise AssertionError(f"Missing localization {id}/{locale}")
     json_file(DATA / "neoforge/biome_modifier/nether_food_crops.json")
     json_file(DATA / "neoforge/biome_modifier/coal_plum_tree.json")
+    for id in SISTER_INGOTS + SISTER_SHARDS + SISTER_OTHER + BOSS_MATERIALS:
+        audit_material(id)
+    print('ART_REFERENCE_BLOCKED: lomeya_shard refers to agneya_magma; neveya_shard uses vanilla block textures. No owner-approved replacements supplied.')
     return len(evidence)
 
 
