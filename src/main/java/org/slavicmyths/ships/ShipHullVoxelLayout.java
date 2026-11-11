@@ -266,8 +266,8 @@ public final class ShipHullVoxelLayout {
         // identical and the new version has no duplicate rectangular sails.
         blocks.entrySet().removeIf(entry -> entry.getValue() == Part.SAIL
                 || entry.getValue() == Part.MAST || entry.getValue() == Part.YARD);
-        for (int mast = 0; mast < plan.mastPositions().size(); mast++) {
-            int z = plan.mastPositions().get(mast);
+        for (int mast = 0; mast < plan.mastPositionsV2().size(); mast++) {
+            int z = plan.mastPositionsV2().get(mast);
             int tier = plan.sailTiers().get(mast);
             int broad = Math.min(plan.hullWidth() / 2 - 1,
                     1 + tier + (plan.hullWidth() >= 13 ? 1 : 0));
