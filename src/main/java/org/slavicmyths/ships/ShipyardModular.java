@@ -33,9 +33,9 @@ public final class ShipyardModular {
             ShipBuildConfiguration next) {
         if (next == null) throw new IllegalArgumentException("Missing destination ship");
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> before = original == null
-                ? Map.of() : ShipHullVoxelLayout.generate(original.structure());
+                ? Map.of() : original.layout();
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> after =
-                ShipHullVoxelLayout.generate(next.structure());
+                next.layout();
         Map<ShipHullVoxelLayout.Part, Integer> delta =
                 ShipHullVoxelLayout.additions(before, after);
         int keel = delta.getOrDefault(ShipHullVoxelLayout.Part.KEEL, 0);
@@ -50,6 +50,7 @@ public final class ShipyardModular {
         int sail = delta.getOrDefault(ShipHullVoxelLayout.Part.SAIL, 0);
         int ladders = delta.getOrDefault(ShipHullVoxelLayout.Part.LADDER, 0);
         int windows = delta.getOrDefault(ShipHullVoxelLayout.Part.WINDOW, 0);
+        int lanterns = delta.getOrDefault(ShipHullVoxelLayout.Part.LIGHT, 0);
         int helm = delta.getOrDefault(ShipHullVoxelLayout.Part.HELM, 0);
         int basic = 0, linen = 0, reinforced = 0;
         for (int i = 0; i < next.sailTiers().size(); i++) {
@@ -64,7 +65,7 @@ public final class ShipyardModular {
         }
         return new Materials(divRoundUp(keel + frame + mast + yard + walls, 4),
                 divRoundUp(hull + deck, 3),
-                divRoundUp(keel + frame + mast + yard + windows + ladders, 15),
+                divRoundUp(keel + frame + mast + yard + windows + ladders, 15) + lanterns,
                 divRoundUp(sail, 4),
                 divRoundUp(deck, 24),
                 divRoundUp(railing, 16),
