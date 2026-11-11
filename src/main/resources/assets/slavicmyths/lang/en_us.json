@@ -6683,5 +6683,14 @@
   "key.slavicmyths.morovoy_ravens": "Mor Staff: summon ravens",
   "key.slavicmyths.morovoy_blast": "Mor Staff: fire-plague blast",
   "block.slavicmyths.sernica_crop": "Sernica",
-  "block.slavicmyths.heat_berry_bush": "Heat Berry Bush"
+  "block.slavicmyths.heat_berry_bush": "Heat Berry Bush",
+  "item.slavicmyths.spicy_sbiten_mug": "Spicy Sbiten",
+  "item.slavicmyths.heat_berry_mors_mug": "Heat Berry Mors",
+  "item.slavicmyths.spiced_honey_drink_mug": "Spiced Honey Drink",
+  "item.slavicmyths.spicy_beer_mug": "Spicy Beer",
+  "item.slavicmyths.spicy_beer_wort": "Spicy Beer Wort",
+  "item.slavicmyths.heat_berry_beer_mug": "Heat Berry Beer",
+  "item.slavicmyths.heat_berry_beer_wort": "Heat Berry Beer Wort",
+  "item.slavicmyths.coal_plum_beer_mug": "Coal Plum Beer",
+  "item.slavicmyths.coal_plum_beer_wort": "Coal Plum Beer Wort"
 }

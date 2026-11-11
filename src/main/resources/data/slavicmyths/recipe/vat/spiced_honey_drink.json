@@ -1,0 +1,57 @@
+{
+  "type": "slavicmyths:vat",
+  "mode": "INFUSION",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:honey_bottle"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:juniper_berries"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:ground_mustard"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:water_bucket"
+      },
+      "count": 1
+    }
+  ],
+  "time": 600,
+  "result": {
+    "id": "slavicmyths:filled_pitcher",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "Beverage": "spiced_honey_drink",
+        "Quality": "ready",
+        "Container": "ceramic_pitcher",
+        "Servings": 4
+      }
+    }
+  },
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    },
+    {
+      "id": "minecraft:glass_bottle",
+      "count": 1
+    }
+  ],
+  "catalyst": {
+    "item": "slavicmyths:ceramic_pitcher"
+  },
+  "retain_catalyst": false
+}

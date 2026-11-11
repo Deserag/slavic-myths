@@ -6707,5 +6707,14 @@
   "key.slavicmyths.morovoy_ravens": "Посох Мора: призвать воронов",
   "key.slavicmyths.morovoy_blast": "Посох Мора: огненно-моровой удар",
   "block.slavicmyths.sernica_crop": "Серница",
-  "block.slavicmyths.heat_berry_bush": "Жар-ягодный куст"
+  "block.slavicmyths.heat_berry_bush": "Жар-ягодный куст",
+  "item.slavicmyths.spicy_sbiten_mug": "Жгучий сбитень",
+  "item.slavicmyths.heat_berry_mors_mug": "Жар-ягодный морс",
+  "item.slavicmyths.spiced_honey_drink_mug": "Пряный медовый напиток",
+  "item.slavicmyths.spicy_beer_mug": "Жгучее пиво",
+  "item.slavicmyths.spicy_beer_wort": "Жгучее пиво — сусло",
+  "item.slavicmyths.heat_berry_beer_mug": "Жар-ягодное пиво",
+  "item.slavicmyths.heat_berry_beer_wort": "Жар-ягодное пиво — сусло",
+  "item.slavicmyths.coal_plum_beer_mug": "Углесливовое пиво",
+  "item.slavicmyths.coal_plum_beer_wort": "Углесливовое пиво — сусло"
 }
