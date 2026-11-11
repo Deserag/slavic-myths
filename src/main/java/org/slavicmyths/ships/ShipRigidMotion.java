@@ -14,7 +14,7 @@ package org.slavicmyths.ships;
  * or cargo: conversion to a moving palette is a separate atomic transaction.
  */
 public final class ShipRigidMotion {
-    public static final double MAX_FORWARD = 0.18D, MAX_REVERSE = 0.065D;
+    public static final double MAX_FORWARD = 0.54D, MAX_REVERSE = 0.065D;
     public static final double ACCELERATION = 0.012D, COAST_DECELERATION = 0.002D, LINEAR_DRAG = 0.985D;
     public static final double MAX_ANGULAR = 2.2D, ANGULAR_ACCELERATION = 0.20D;
     public static final double ANGULAR_DRAG = 0.80D;
