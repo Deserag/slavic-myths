@@ -4,12 +4,14 @@ on:
     paths:
       - "src/main/java/org/slavicmyths/ships/ShipRigidMotion.java"
       - "src/main/java/org/slavicmyths/ships/FirstShipHull.java"
+      - "src/main/java/org/slavicmyths/ships/FirstShipV10Shape.java"
       - "experimental/raft26/ShipRigidMotionProof.java"
       - ".github/workflows/ship-rigid-motion-proof.yml"
   pull_request:
     paths:
       - "src/main/java/org/slavicmyths/ships/ShipRigidMotion.java"
       - "src/main/java/org/slavicmyths/ships/FirstShipHull.java"
+      - "src/main/java/org/slavicmyths/ships/FirstShipV10Shape.java"
       - "experimental/raft26/ShipRigidMotionProof.java"
       - ".github/workflows/ship-rigid-motion-proof.yml"
 permissions:
@@ -26,7 +28,8 @@ jobs:
       - name: Compile and run real fractional-motion proof without Minecraft
         run: |
           mkdir -p build/ship-rigid-motion-proof
-          javac -encoding UTF-8 -d build/ship-rigid-motion-proof \
+          javac --release 21 -encoding UTF-8 -d build/ship-rigid-motion-proof \
+            src/main/java/org/slavicmyths/ships/FirstShipV10Shape.java \
             src/main/java/org/slavicmyths/ships/FirstShipHull.java \
             src/main/java/org/slavicmyths/ships/ShipRigidMotion.java \
             experimental/raft26/ShipRigidMotionProof.java
