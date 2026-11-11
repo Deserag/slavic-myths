@@ -43,9 +43,20 @@ public final class ShipVoxelProof {
                 ShipHullVoxelLayout.Part.LIGHT, "Aft hold light missing");
         check(blocks.get(new ShipHullVoxelLayout.Cell(0, 3, 2)) ==
                 ShipHullVoxelLayout.Part.LIGHT, "Fore hold light missing");
-        if (plan.cabin())
+        if (plan.cabin() && plan.hullWidth() >= 9)
             check(blocks.get(new ShipHullVoxelLayout.Cell(0, 7, -half + 5)) ==
                     ShipHullVoxelLayout.Part.LIGHT, "Cabin light missing");
+        if (plan.hullWidth() >= 9) {
+            long windows = blocks.values().stream()
+                    .filter(p -> p == ShipHullVoxelLayout.Part.HULL_WINDOW).count();
+            check(windows >= 2, "No watertight illuminated hull windows");
+        }
+        for (int floor = 2; floor <= plan.decks(); floor++) {
+            int lampY = 3 + (floor - 1) * 4;
+            check(blocks.entrySet().stream().anyMatch(e -> e.getKey().y() == lampY
+                    && e.getValue() == ShipHullVoxelLayout.Part.LIGHT),
+                    "Missing light beneath elevated deck " + floor);
+        }
         for (int z : plan.mastPositions()) {
             check(blocks.get(new ShipHullVoxelLayout.Cell(0, 7, z)) ==
                     ShipHullVoxelLayout.Part.MAST, "Mast core was overwritten");
