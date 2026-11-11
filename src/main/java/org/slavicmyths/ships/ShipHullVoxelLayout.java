@@ -358,6 +358,31 @@ public final class ShipHullVoxelLayout {
             }
         }
 
+        // Later tiered sails can consume a preselected ceiling position.
+        // Enforce one real unobstructed lantern for EVERY accessible upper level.
+        for (int floor = 2; floor <= plan.decks(); floor++) {
+            int ceiling = 4 + (floor - 1) * 4;
+            boolean hasLight = false;
+            for (var e : blocks.entrySet())
+                if (e.getKey().y() == ceiling - 1
+                        && e.getValue() == Part.LIGHT) {
+                    hasLight = true;
+                    break;
+                }
+            if (hasLight) continue;
+            boolean placed = false;
+            for (int z = -halfLength + 5; z <= halfLength - 5 && !placed; z++)
+                for (int x = 1; x < plan.hullWidth() / 2 - 1 && !placed; x++) {
+                    Cell support = new Cell(x, ceiling, z);
+                    Cell lamp = new Cell(x, ceiling - 1, z);
+                    if (blocks.get(support) == Part.DECK && !blocks.containsKey(lamp)) {
+                        put(blocks, x, ceiling - 1, z, Part.LIGHT);
+                        placed = true;
+                    }
+                }
+            if (!placed)
+                throw new IllegalArgumentException("Missing lantern mounting point for deck " + floor);
+        }
         return Collections.unmodifiableMap(blocks);
     }
 
