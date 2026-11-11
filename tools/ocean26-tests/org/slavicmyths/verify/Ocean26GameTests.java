@@ -551,6 +551,34 @@ public final class Ocean26GameTests {
         });
     }
 
+    @GameTest(template = "empty", timeoutTicks = 80, batch = "ocean_modular_lighting")
+    public static void modularShipsUseActualLanternLightBlocks(GameTestHelper t) {
+        for (var type : org.slavicmyths.ships.ShipSectionPlan.ShipClass.values()) {
+            var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type);
+            var geometry = org.slavicmyths.ships.ShipHullVoxelLayout.generate(
+                    config.structure(), config.layoutVersion());
+            var palette = org.slavicmyths.ships.ShipModularBlockHull.localPalette(config);
+            var motion = org.slavicmyths.ships.ShipModularBlockHull.localMotionPalette(
+                    config, new ListTag());
+            long lights = 0L;
+            for (var cell : geometry.entrySet()) {
+                if (cell.getValue() != org.slavicmyths.ships.ShipHullVoxelLayout.Part.LIGHT)
+                    continue;
+                lights++;
+                BlockPos pos = new BlockPos(cell.getKey().x(), cell.getKey().y(),
+                        cell.getKey().z());
+                t.assertTrue(palette.containsKey(pos)
+                        && palette.get(pos).is(Blocks.LANTERN)
+                        && palette.get(pos).getLightEmission() > 0,
+                        type + " contains a decorative but non-emitting light");
+                t.assertTrue(motion.containsKey(pos) && motion.get(pos).is(Blocks.LANTERN),
+                        type + " moving palette loses its lanterns");
+            }
+            t.assertTrue(lights > 0, type + " has no physical light sources");
+        }
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 350, batch = "ocean_modular_classes")
     public static void allFourModularClassesPlacePackAndRestore(GameTestHelper t) {
         ServerLevel level = t.getLevel();
