@@ -55,6 +55,7 @@ public final class ShipModularBlockHull {
                     RotatedPillarBlock.AXIS,
                     turns % 2 == 0 ? Direction.Axis.X : Direction.Axis.Z);
             case SAIL -> Blocks.WHITE_WOOL.defaultBlockState();
+            case SAIL_TRIM -> Blocks.RED_WOOL.defaultBlockState();
             case CABIN_WALL -> Blocks.STRIPPED_DARK_OAK_LOG.defaultBlockState();
             case WINDOW -> Blocks.GLASS_PANE.defaultBlockState();
             case DOOR -> Blocks.OAK_DOOR.defaultBlockState()
@@ -76,7 +77,8 @@ public final class ShipModularBlockHull {
     public static Map<BlockPos, BlockState> localPalette(ShipBuildConfiguration config) {
         Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
         for (var entry : config.layout().entrySet()) {
-            if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL && config.layoutVersion() == 1) continue;
+            if ((entry.getValue() == ShipHullVoxelLayout.Part.SAIL
+                    || entry.getValue() == ShipHullVoxelLayout.Part.SAIL_TRIM) && config.layoutVersion() == 1) continue;
             var c = entry.getKey();
             blocks.put(new BlockPos(c.x(), c.y(), c.z()), state(entry.getValue(), 0, c.y()));
         }
@@ -100,7 +102,8 @@ public final class ShipModularBlockHull {
             BlockPos anchor, int turns) {
         Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
         for (var entry : config.layout().entrySet()) {
-            if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL && config.layoutVersion() == 1) continue;
+            if ((entry.getValue() == ShipHullVoxelLayout.Part.SAIL
+                    || entry.getValue() == ShipHullVoxelLayout.Part.SAIL_TRIM) && config.layoutVersion() == 1) continue;
             var c = entry.getKey();
             blocks.put(FirstShipBlockHull.world(anchor, turns, c.x(), c.y(), c.z()),
                     state(entry.getValue(), turns, c.y()));
