@@ -2,6 +2,7 @@
 """Strict SOURCE + production-JAR gate for issue #480. Not a Minecraft runtime test."""
 import hashlib
 import json
+import re
 from pathlib import Path
 import struct
 import sys
@@ -155,6 +156,124 @@ def check_creative_catalog():
     for id, category in expected.items():
         if catalog.get(id) != category:
             raise AssertionError(f"Creative inventory category mismatch for {id}: {catalog.get(id)} != {category}")
+    food = [line.split("\t")[0] for line in require(ASSET / "creative_catalog.tsv").read_text(encoding="utf-8").splitlines()
+            if "\tfood\t" in line]
+    groups = [
+        ("garlic", "garlic_clove", "horseradish", "horseradish_cutting", "black_radish",
+         "black_radish_seeds", "mustard_seeds", "onion", "onion_set"),
+        ("heatroot", "ash_mushroom", "crimson_pepper", "ash_horseradish", "coal_garlic",
+         "sernica", "sernica_seeds", "heat_berries", "heat_berry_cutting", "coal_plum", "coal_plum_sapling"),
+        ("roasted_hot_pepper", "ground_hot_pepper", "ground_mustard", "grated_horseradish",
+         "black_pepper", "ground_black_pepper", "heat_berry_mash", "coal_plum_mash"),
+    ]
+    for group in groups:
+        indices = [food.index(item) for item in group]
+        if indices != list(range(indices[0], indices[0] + len(indices))):
+            raise AssertionError(f"Creative crops/ingredients must be adjacent and ordered: {group}")
+    if not max(food.index(item) for group in groups for item in group) < food.index("infernal_shchi"):
+        raise AssertionError("Crops/ingredients must precede cooked meals")
+    if not food.index("infernal_shchi") < food.index("spicy_sbiten_mug"):
+        raise AssertionError("Ready meals must precede drinks")
+
+
+
+
+# Contract for each renewable crop: actual planted block, maturity-gated produce,
+# seed return, capped Fortune for produce only, and each rendered growth state.
+GROWTH_CONTRACT = {
+    "garlic_crop": ("garlic_clove", "garlic", "garlic"),
+    "horseradish_crop": ("horseradish_cutting", "horseradish", "horseradish"),
+    "black_radish_crop": ("black_radish_seeds", "black_radish", "radish"),
+    "mustard_crop": ("mustard_seeds", "mustard_seeds", "mustard"),
+    "onion_crop": ("onion_set", "onion", "onion"),
+    "heatroot_crop": ("heatroot", "heatroot", "heatroot"),
+    "ash_mushroom_crop": ("ash_mushroom", "ash_mushroom", "ash_mushroom"),
+    "crimson_pepper_crop": ("crimson_pepper", "crimson_pepper", "crimson_pepper"),
+    "ash_horseradish_crop": ("ash_horseradish", "ash_horseradish", "ash_horseradish"),
+    "coal_garlic_crop": ("coal_garlic", "coal_garlic", "coal_garlic"),
+    "sernica_crop": ("sernica_seeds", "sernica", "sernica"),
+    "heat_berry_bush": ("heat_berry_cutting", "heat_berries", "berries"),
+    "coal_plum_leaves": (None, "coal_plum", "plum"),
+}
+
+
+def age_three(conditions, block):
+    return any(c.get("condition") == "minecraft:block_state_property"
+               and c.get("block") == "slavicmyths:" + block
+               and c.get("properties", {}).get("age") == "3"
+               for c in (conditions or []))
+
+
+def check_growth_and_loot():
+    for block, (seed, produce, texture) in GROWTH_CONTRACT.items():
+        variants = json_file(ASSET / "blockstates" / (block + ".json"))["variants"]
+        fruit_leaves = block == "coal_plum_leaves"
+        expected_keys = ({f"age={age},fruiting={value}" for age in range(4) for value in ("true", "false")}
+                         if fruit_leaves else {f"age={age}" for age in range(4)})
+        if set(variants) != expected_keys:
+            raise AssertionError(f"Incomplete blockstate stages: {block}: {set(variants) ^ expected_keys}")
+        for age in range(4):
+            name = f"{block}_stage{age}"
+            if variants["age=" + str(age) + (",fruiting=true" if fruit_leaves else "")].get("model") != "slavicmyths:block/" + name:
+                raise AssertionError(f"Wrong model stage for {block}/{age}")
+            obj = json_file(ASSET / "models/block" / (name + ".json"))
+            if obj.get("parent") != "minecraft:block/cross" or obj.get("textures", {}).get("cross") != f"slavicmyths:block/{texture}_stage{age}":
+                raise AssertionError(f"Wrong texture for {block}/{age}")
+            png(ASSET / "textures/block" / f"{texture}_stage{age}.png")
+            if fruit_leaves and variants[f"age={age},fruiting=false"].get("model") != "slavicmyths:block/coal_plum_leaves_stage0":
+                raise AssertionError("Non-fruiting coal plum leaves must not show berries")
+        table = json_file(DATA / "loot_table/blocks" / (block + ".json"))
+        if table.get("type") != "minecraft:block":
+            raise AssertionError(f"Wrong loot type for {block}")
+        entries = [entry for pool in table.get("pools", []) for entry in pool.get("entries", [])]
+        if any(entry.get("type") != "minecraft:item" or entry.get("name") not in
+               {"slavicmyths:" + produce, "slavicmyths:" + seed if seed else "slavicmyths:" + produce}
+               for entry in entries):
+            raise AssertionError(f"Unexpected crop drop for {block}")
+        ripe = [entry for entry in entries if entry.get("name") == "slavicmyths:" + produce
+                and (age_three(entry.get("conditions"), block) or
+                     any(age_three(fn.get("conditions"), block) for fn in entry.get("functions", [])))]
+        if len(ripe) != 1:
+            raise AssertionError(f"Need one mature produce entry for {block}, got {len(ripe)}")
+        mature = ripe[0]
+        counts = [fn for fn in mature.get("functions", []) if fn.get("function") == "minecraft:set_count"]
+        if len(counts) != 1:
+            raise AssertionError(f"Need bounded mature yield for {block}")
+        count = counts[0]["count"]
+        if isinstance(count, dict) and (count.get("type") != "minecraft:uniform" or
+                                        count.get("min", 0) < 1 or count.get("max", 999) > 4):
+            raise AssertionError(f"Unbounded yield for {block}: {count}")
+        if block != "mustard_crop":
+            fortune = [fn for fn in mature.get("functions", []) if fn.get("function") == "slavicmyths:capped_crop_fortune"]
+            if len(fortune) != 1 or (not age_three(mature.get("conditions"), block)
+                                    and not age_three(fortune[0].get("conditions"), block)):
+                raise AssertionError(f"Missing maturity-guarded Fortune for {block}")
+        if seed and seed != produce:
+            seedlings = [entry for entry in entries if entry.get("name") == "slavicmyths:" + seed]
+            if len(seedlings) != 1 or seedlings[0].get("conditions"):
+                raise AssertionError(f"No guaranteed immature/replant drop for {block}")
+            if any(fn.get("function") == "slavicmyths:capped_crop_fortune"
+                   for fn in seedlings[0].get("functions", [])):
+                raise AssertionError(f"Fortune must not multiply planting items: {block}")
+        elif seed == produce and block != "mustard_crop":
+            if len(entries) != 1 or not age_three(counts[0].get("conditions"), block):
+                raise AssertionError(f"Edible planting unit must return once when immature: {block}")
+
+    blocks = require(ROOT / "src/main/java/org/slavicmyths/registry/ModBlocks.java").read_text()
+    items = require(ROOT / "src/main/java/org/slavicmyths/registry/ModItems.java").read_text()
+    for name, source, registrar in (("block", blocks, "BLOCKS"), ("item", items, "ITEMS")):
+        ids = re.findall(r'\b' + registrar + r'\.register\("([a-z0-9_]+)"', source)
+        if len(ids) != len(set(ids)):
+            raise AssertionError(f"Duplicate {name} registry IDs")
+    for cls, soil in (("CrimsonPepperCrop", "CRIMSON_NYLIUM"),
+                      ("NetherBerryBush", "CRIMSON_NYLIUM"),
+                      ("CoalPlumSapling", "CRIMSON_NYLIUM")):
+        code = require(ROOT / "src/main/java/org/slavicmyths/farming" / (cls + ".java")).read_text()
+        if f"Blocks.{soil}" not in code or "Blocks.FARMLAND" in code or "canSurvive" not in code:
+            raise AssertionError(f"Incorrect Nether placement and survival logic: {cls}")
+    nether = require(ROOT / "src/main/java/org/slavicmyths/farming/NetherFoodCrop.java").read_text()
+    if "state.is(substrate)" not in nether or "is(substrate)" not in nether or "Blocks.FARMLAND" in nether:
+        raise AssertionError("Nether crops must honor the configured substrate, not farmland")
 
 
 def check_source():
@@ -182,7 +301,7 @@ def check_source():
         model(model_id, f"slavicmyths:item/{item_id}")
     stage_names = ("garlic", "horseradish", "radish", "mustard", "onion", "hot_pepper",
                    "heatroot", "ash_mushroom", "ash_horseradish", "coal_garlic",
-                   "sernica", "berries", "plum")
+                   "sernica", "berries", "plum", "crimson_pepper")
     for plant_id in stage_names:
         digests = []
         for age in range(4):
@@ -204,6 +323,7 @@ def check_source():
         if blocks.count(f'BLOCKS.register("{id}_crop"') != 1 or items.count(f'ITEMS.register("{id}"') != 1:
             raise AssertionError(f"Missing or duplicated item/block registration: {id}")
     crop("sernica")
+    check_growth_and_loot()
     for id in OWN_INGREDIENT_MODELS:
         model(id, f"slavicmyths:item/{id}")
     for id in NONPLANTABLE_FOODS:
