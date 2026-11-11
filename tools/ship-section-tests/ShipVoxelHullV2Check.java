@@ -54,7 +54,7 @@ public final class ShipVoxelHullV2Check {
         check(ShipHullVoxelLayout.halfBeamV2(plan, half - 2) < outer,
                 "bow narrows well before the tip");
         if (decks >= 2) check(voxels.get(new ShipHullVoxelLayout.Cell(2, 7, 3))
-                == ShipHullVoxelLayout.Part.LIGHT, "lit lower upper-deck ceiling");
+                == ShipHullVoxelLayout.Part.LIGHT, "lit lower upper-deck ceiling " + type + " actual=" + voxels.get(new ShipHullVoxelLayout.Cell(2, 7, 3)) + " roof=" + voxels.get(new ShipHullVoxelLayout.Cell(2, 8, 3)));
         check(!ShipHullVoxelLayout.count(voxels).isEmpty(), "count materials");
     }
 
