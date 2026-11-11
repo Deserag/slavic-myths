@@ -66,8 +66,9 @@ public final class ShipHullVoxelLayout {
                 if (edge) put(blocks, x, 5, z, Part.RAIL);
             }
         }
-        // Access shaft and actual ladders, aligned through every built deck.
-        for (int y = 2; y <= 4 + (plan.decks() - 1) * 4; y++) {
+        // The main hatch reaches the dry hold. Upper floors have a separate
+        // protected aft ladder so they never require an exposed floating shaft.
+        for (int y = 2; y <= 4; y++) {
             put(blocks, -3, y, 1, Part.FRAME);
             put(blocks, -2, y, 1, Part.LADDER);
         }
@@ -77,12 +78,13 @@ public final class ShipHullVoxelLayout {
         // Elevated deck floors are stepped, not full-height rectangular towers.
         for (int floor = 2; floor <= plan.decks(); floor++) {
             int y = 4 + (floor - 1) * 4;
-            int front = halfLength - 3 * (floor - 1);
             int rear = -halfLength + 2;
+            int front = Math.min(halfLength - 3,
+                    rear + Math.max(4, plan.hullLength() / (floor + 1)));
             for (int z = rear; z <= front; z++) {
-                int half = Math.max(0, halfBeam(plan, z) - 1);
+                int half = Math.max(0, halfBeam(plan, z) - (floor - 1));
                 for (int x = -half; x <= half; x++) {
-                    boolean hatch = x == -2 && (z == 0 || z == 1);
+                    boolean hatch = x == -2 && z == rear + 5;
                     if (!hatch) put(blocks, x, y, z, Part.DECK);
                     if (Math.abs(x) == half && !hatch)
                         put(blocks, x, y + 1, z, Part.RAIL);
@@ -163,6 +165,16 @@ public final class ShipHullVoxelLayout {
                     ? 2 : -halfLength + (plan.cabin() ? 9 : 3), Part.HELM);
         }
 
+        // Vertical access to the shorter quarterdeck / upper cabin decks.
+        // Keep a solid backing post and a matching hatch in every floor.
+        if (plan.decks() >= 2) {
+            int accessZ = -halfLength + 7;
+            for (int y = 5; y <= 4 + (plan.decks() - 1) * 4; y++) {
+                put(blocks, -3, y, accessZ, Part.FRAME);
+                put(blocks, -2, y, accessZ, Part.LADDER);
+            }
+        }
+
         // Real vanilla light sources: the hold, cabin and exterior approach.
         // Dynamic illumination while the palette is carried as an entity
         // requires a separate client lighting implementation.
@@ -177,8 +189,10 @@ public final class ShipHullVoxelLayout {
         // where a complete overhead block supports the vanilla lantern.
         for (int floor = 2; floor <= plan.decks(); floor++) {
             int ceiling = 4 + (floor - 1) * 4;
-            int station = Math.max(2, halfLength / 3);
-            for (int z : new int[] {-station, station}) {
+            int rear = -halfLength + 2;
+            int front = Math.min(halfLength - 3,
+                    rear + Math.max(4, plan.hullLength() / (floor + 1)));
+            for (int z : new int[] {rear + 2, front - 2}) {
                 Cell roof = new Cell(1, ceiling, z);
                 Cell lamp = new Cell(1, ceiling - 1, z);
                 if (blocks.get(roof) == Part.DECK && !blocks.containsKey(lamp))
