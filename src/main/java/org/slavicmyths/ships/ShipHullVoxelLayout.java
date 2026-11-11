@@ -122,7 +122,7 @@ public final class ShipHullVoxelLayout {
 
         // Closed stern cabin, with a two-block door aperture and real windows.
         if (plan.cabin()) {
-            int rear = -halfLength + 2, front = rear + 6;
+            int rear = -halfLength + 2, front = rear + (plan.hullWidth() == 7 ? 2 : 6);
             int side = Math.min(3, plan.hullWidth() / 2 - 2);
             for (int z = rear; z <= front; z++)
                 for (int x = -side; x <= side; x++) {
@@ -131,7 +131,7 @@ public final class ShipHullVoxelLayout {
                         if (z == front && x == 0 && y <= 6) {
                             blocks.remove(new Cell(x, y, z));
                         } else if (wall) {
-                            Part part = (Math.abs(x) == side && z == rear + 3 && y == 6)
+                            Part part = (Math.abs(x) == side && z == rear + (plan.hullWidth() == 7 ? 1 : 3) && y == 6)
                                     ? Part.WINDOW : Part.CABIN_WALL;
                             put(blocks, x, y, z, part);
                         }
@@ -159,7 +159,8 @@ public final class ShipHullVoxelLayout {
                 put(blocks, -side + 1, y, front, Part.LADDER);
             put(blocks, 0, 10, rear + 2, Part.HELM);
         } else {
-            put(blocks, 0, 5, -halfLength + (plan.cabin() ? 9 : 3), Part.HELM);
+            put(blocks, 0, 5, plan.cabin() && plan.hullWidth() == 7
+                    ? 2 : -halfLength + (plan.cabin() ? 9 : 3), Part.HELM);
         }
 
         // Real vanilla light sources: the hold, cabin and exterior approach.
@@ -170,7 +171,7 @@ public final class ShipHullVoxelLayout {
                 put(blocks, 0, 3, z, Part.LIGHT);
         if (plan.cabin()) {
             int rear = -halfLength + 2;
-            put(blocks, 0, 7, rear + 3, Part.LIGHT);
+            put(blocks, 0, 7, rear + (plan.hullWidth() == 7 ? 1 : 3), Part.LIGHT);
         }
         // Two warm hanging lights under each elevated deck; only install
         // where a complete overhead block supports the vanilla lantern.
