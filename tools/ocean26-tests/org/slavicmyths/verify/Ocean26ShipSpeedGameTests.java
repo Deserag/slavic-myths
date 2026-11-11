@@ -48,6 +48,8 @@ public final class Ocean26ShipSpeedGameTests {
                         && medium.width() == 13 && medium.length() == 21
                         && large.width() == 21 && large.length() == 33,
                 "Wrong actual hull footprint");
+        t.assertTrue(Math.abs(small.structure().propulsionFactor() - ShipSailMotion.power(1, 1)) < 1E-9D,
+                "Same 7x11 single tier-I sail must match native starter propulsion");
         t.assertTrue(small.structure().propulsionFactor() > medium.structure().propulsionFactor()
                         && medium.structure().propulsionFactor() > large.structure().propulsionFactor(),
                 "One sail must propel a smaller, lighter hull more efficiently");
