@@ -6716,5 +6716,7 @@
   "item.slavicmyths.heat_berry_beer_mug": "Жар-ягодное пиво",
   "item.slavicmyths.heat_berry_beer_wort": "Жар-ягодное пиво — сусло",
   "item.slavicmyths.coal_plum_beer_mug": "Углесливовое пиво",
-  "item.slavicmyths.coal_plum_beer_wort": "Углесливовое пиво — сусло"
+  "item.slavicmyths.coal_plum_beer_wort": "Углесливовое пиво — сусло",
+  "block.slavicmyths.coal_plum_sapling": "Саженец углисливы",
+  "block.slavicmyths.coal_plum_leaves": "Листва углисливы"
 }

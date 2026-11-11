@@ -31,7 +31,7 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> HEAT_BERRIES = ITEMS.register("heat_berries", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
     public static final DeferredHolder<Item, Item> HEAT_BERRY_CUTTING = ITEMS.register("heat_berry_cutting", () -> new ItemNameBlockItem(ModBlocks.HEAT_BERRY_BUSH.get(), properties()));
     public static final DeferredHolder<Item, Item> COAL_PLUM = ITEMS.register("coal_plum", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(3).saturationModifier(.3F).build())));
-    public static final DeferredHolder<Item, Item> COAL_PLUM_SAPLING = ITEMS.register("coal_plum_sapling", () -> new Item(properties()));
+    public static final DeferredHolder<Item, Item> COAL_PLUM_SAPLING = ITEMS.register("coal_plum_sapling", () -> new ItemNameBlockItem(ModBlocks.COAL_PLUM_SAPLING.get(), properties()));
     public static final DeferredHolder<Item, Item> SERNICA = ITEMS.register("sernica", () -> new Item(properties()));
     public static final DeferredHolder<Item, Item> SERNICA_SEEDS = ITEMS.register("sernica_seeds", () -> new ItemNameBlockItem(ModBlocks.SERNICA_CROP.get(), properties()));
     public static final DeferredHolder<Item, Item> ROASTED_HOT_PEPPER = ITEMS.register("roasted_hot_pepper", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(1).saturationModifier(.3F).build())));

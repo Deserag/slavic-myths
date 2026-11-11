@@ -6692,5 +6692,7 @@
   "item.slavicmyths.heat_berry_beer_mug": "Heat Berry Beer",
   "item.slavicmyths.heat_berry_beer_wort": "Heat Berry Beer Wort",
   "item.slavicmyths.coal_plum_beer_mug": "Coal Plum Beer",
-  "item.slavicmyths.coal_plum_beer_wort": "Coal Plum Beer Wort"
+  "item.slavicmyths.coal_plum_beer_wort": "Coal Plum Beer Wort",
+  "block.slavicmyths.coal_plum_sapling": "Coal Plum Sapling",
+  "block.slavicmyths.coal_plum_leaves": "Coal Plum Leaves"
 }
