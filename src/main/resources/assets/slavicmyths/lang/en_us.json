@@ -6694,5 +6694,13 @@
   "item.slavicmyths.coal_plum_beer_mug": "Coal Plum Beer",
   "item.slavicmyths.coal_plum_beer_wort": "Coal Plum Beer Wort",
   "block.slavicmyths.coal_plum_sapling": "Coal Plum Sapling",
-  "block.slavicmyths.coal_plum_leaves": "Coal Plum Leaves"
+  "block.slavicmyths.coal_plum_leaves": "Coal Plum Leaves",
+  "item.slavicmyths.heatroot": "Heatroot",
+  "block.slavicmyths.heatroot_crop": "Heatroot",
+  "item.slavicmyths.ash_mushroom": "Ash Mushroom",
+  "block.slavicmyths.ash_mushroom_crop": "Ash Mushroom",
+  "item.slavicmyths.ash_horseradish": "Ash Horseradish",
+  "block.slavicmyths.ash_horseradish_crop": "Ash Horseradish",
+  "item.slavicmyths.coal_garlic": "Coal Garlic",
+  "block.slavicmyths.coal_garlic_crop": "Coal Garlic"
 }

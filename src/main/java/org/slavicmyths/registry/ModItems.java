@@ -16,6 +16,10 @@ public final class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(Registries.ITEM, SlavicMyths.MOD_ID);
     public static final DeferredHolder<Item, Item> CRIMSON_PEPPER = ITEMS.register("crimson_pepper",()->new ItemNameBlockItem(ModBlocks.CRIMSON_PEPPER_CROP.get(),properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(1).saturationModifier(.1F).build())));
+    public static final DeferredHolder<Item, Item> HEATROOT = ITEMS.register("heatroot", () -> new ItemNameBlockItem(ModBlocks.HEATROOT_CROP.get(), properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.2F).build())));
+    public static final DeferredHolder<Item, Item> ASH_MUSHROOM = ITEMS.register("ash_mushroom", () -> new ItemNameBlockItem(ModBlocks.ASH_MUSHROOM_CROP.get(), properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.2F).build())));
+    public static final DeferredHolder<Item, Item> ASH_HORSERADISH = ITEMS.register("ash_horseradish", () -> new ItemNameBlockItem(ModBlocks.ASH_HORSERADISH_CROP.get(), properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(1).saturationModifier(.1F).build())));
+    public static final DeferredHolder<Item, Item> COAL_GARLIC = ITEMS.register("coal_garlic", () -> new ItemNameBlockItem(ModBlocks.COAL_GARLIC_CROP.get(), properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(1).saturationModifier(.1F).build())));
     public static final DeferredHolder<Item, Item> GARLIC_CLOVE = ITEMS.register("garlic_clove", () -> new ItemNameBlockItem(ModBlocks.GARLIC_CROP.get(), properties()));
     public static final DeferredHolder<Item, Item> HORSERADISH_CUTTING = ITEMS.register("horseradish_cutting", () -> new ItemNameBlockItem(ModBlocks.HORSERADISH_CROP.get(), properties()));
     public static final DeferredHolder<Item, Item> BLACK_RADISH_SEEDS = ITEMS.register("black_radish_seeds", () -> new ItemNameBlockItem(ModBlocks.BLACK_RADISH_CROP.get(), properties()));

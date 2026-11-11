@@ -6718,5 +6718,13 @@
   "item.slavicmyths.coal_plum_beer_mug": "Углесливовое пиво",
   "item.slavicmyths.coal_plum_beer_wort": "Углесливовое пиво — сусло",
   "block.slavicmyths.coal_plum_sapling": "Саженец углисливы",
-  "block.slavicmyths.coal_plum_leaves": "Листва углисливы"
+  "block.slavicmyths.coal_plum_leaves": "Листва углисливы",
+  "item.slavicmyths.heatroot": "Жар-корень",
+  "block.slavicmyths.heatroot_crop": "Жар-корень",
+  "item.slavicmyths.ash_mushroom": "Пепельный гриб",
+  "block.slavicmyths.ash_mushroom_crop": "Пепельный гриб",
+  "item.slavicmyths.ash_horseradish": "Пепельный хрен",
+  "block.slavicmyths.ash_horseradish_crop": "Пепельный хрен",
+  "item.slavicmyths.coal_garlic": "Угольный чеснок",
+  "block.slavicmyths.coal_garlic_crop": "Угольный чеснок"
 }
