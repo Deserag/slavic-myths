@@ -18,6 +18,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.LadderBlock;
+import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
@@ -67,12 +68,13 @@ public final class ShipModularBlockHull {
                     });
             case BRIDGE -> Blocks.DARK_OAK_PLANKS.defaultBlockState();
             case HELM -> Blocks.DARK_OAK_FENCE.defaultBlockState();
+            case LIGHT -> Blocks.LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true);
         };
     }
 
     public static Map<BlockPos, BlockState> localPalette(ShipBuildConfiguration config) {
         Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
-        for (var entry : ShipHullVoxelLayout.generate(config.structure()).entrySet()) {
+        for (var entry : ShipHullVoxelLayout.generate(config.structure(), config.layoutVersion()).entrySet()) {
             if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL) continue;
             var c = entry.getKey();
             blocks.put(new BlockPos(c.x(), c.y(), c.z()), state(entry.getValue(), 0, c.y()));
@@ -96,7 +98,7 @@ public final class ShipModularBlockHull {
     private static Map<BlockPos, BlockState> worldPalette(ShipBuildConfiguration config,
             BlockPos anchor, int turns) {
         Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
-        for (var entry : ShipHullVoxelLayout.generate(config.structure()).entrySet()) {
+        for (var entry : ShipHullVoxelLayout.generate(config.structure(), config.layoutVersion()).entrySet()) {
             if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL) continue;
             var c = entry.getKey();
             blocks.put(FirstShipBlockHull.world(anchor, turns, c.x(), c.y(), c.z()),
@@ -164,7 +166,7 @@ public final class ShipModularBlockHull {
         List<Cargo> cargo = new ArrayList<>();
         ShipSuperstructurePlan structure = config.structure();
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cargoPlan =
-                ShipHullVoxelLayout.generate(structure);
+                ShipHullVoxelLayout.generate(structure, config.layoutVersion());
         int halfWidth = config.width() / 2, halfLength = config.length() / 2;
         int maxY = Math.max(24, 4 + config.decks() * 4);
         for (int z = -halfLength; z <= halfLength; z++)
@@ -193,7 +195,7 @@ public final class ShipModularBlockHull {
             return null;
         List<Cargo> result = new ArrayList<>();
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cargoPlan =
-                ShipHullVoxelLayout.generate(config.structure());
+                ShipHullVoxelLayout.generate(config.structure(), config.layoutVersion());
         Set<String> occupied = new HashSet<>();
         for (int i = 0; i < entries.size(); i++) {
             CompoundTag entry = entries.getCompound(i);
@@ -298,8 +300,8 @@ public final class ShipModularBlockHull {
         int half = config.length() / 2;
         int maxY = Math.max(24, 4 + config.decks() * 4);
         for (int z = -half; z <= half; z++)
-            for (int x = -ShipHullVoxelLayout.halfBeam(config.structure(), z);
-                 x <= ShipHullVoxelLayout.halfBeam(config.structure(), z); x++)
+            for (int x = -ShipHullVoxelLayout.halfBeam(config.structure(), z, config.layoutVersion());
+                 x <= ShipHullVoxelLayout.halfBeam(config.structure(), z, config.layoutVersion()); x++)
                 for (int y = 1; y <= maxY; y++) {
                     BlockPos p = FirstShipBlockHull.world(anchor, turns, x, y, z);
                     if (!level.hasChunkAt(p)) return false;
@@ -407,7 +409,7 @@ public final class ShipModularBlockHull {
         int rotation = Math.floorMod(nextTurn - oldTurn, 4);
         List<Cargo> transported = new ArrayList<>();
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cargoPlan =
-                ShipHullVoxelLayout.generate(next.structure());
+                ShipHullVoxelLayout.generate(next.structure(), next.layoutVersion());
         for (Cargo entry : source.cargo()) {
             if (!cargoCell(cargoPlan, entry.x(), entry.y(), entry.z())) return false;
             BlockState state = entry.state();
