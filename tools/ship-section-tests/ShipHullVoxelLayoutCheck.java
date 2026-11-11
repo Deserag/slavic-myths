@@ -227,6 +227,25 @@ public final class ShipHullVoxelLayoutCheck {
                         == ShipHullVoxelLayout.Part.MAST,
                         "extended V2 actual mast fits planned station");
         }
+        for (var shipClass : List.of(ShipSectionPlan.ShipClass.MEDIUM,
+                ShipSectionPlan.ShipClass.LARGE,
+                ShipSectionPlan.ShipClass.LARGEST)) {
+            int beam = shipClass == ShipSectionPlan.ShipClass.MEDIUM ? 13 : 21;
+            int length = shipClass == ShipSectionPlan.ShipClass.MEDIUM ? 21 : 33;
+            int maxTier = shipClass.maxSailTier;
+            var lesser = ShipHullVoxelLayout.generate(
+                    plan(shipClass, beam, length, List.of(1), 1, false, false), 2);
+            var greater = ShipHullVoxelLayout.generate(
+                    plan(shipClass, beam, length, List.of(maxTier), 1, false, false), 2);
+            long smallCloth = lesser.values().stream().filter(p ->
+                    p == ShipHullVoxelLayout.Part.SAIL
+                            || p == ShipHullVoxelLayout.Part.SAIL_TRIM).count();
+            long bigCloth = greater.values().stream().filter(p ->
+                    p == ShipHullVoxelLayout.Part.SAIL
+                            || p == ShipHullVoxelLayout.Part.SAIL_TRIM).count();
+            yes(bigCloth > smallCloth * 2,
+                    "V2 reinforced sails visibly grow in actual block area");
+        }
         System.out.println("PASS ShipHullVoxelLayoutCheck assertions=" + checks);
     }
 }
