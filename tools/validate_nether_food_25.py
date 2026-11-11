@@ -22,11 +22,23 @@ OWN_INGREDIENT_MODELS = (
     "ground_mustard", "grated_horseradish", "ground_hot_pepper",
     "ground_black_pepper", "black_pepper", "roasted_hot_pepper",
 )
-DIRECT_PLANTABLE_FOODS = {
-    "garlic": "GARLIC_CROP", "horseradish": "HORSERADISH_CROP",
-    "black_radish": "BLACK_RADISH_CROP", "onion": "ONION_CROP",
-    "heat_berries": "HEAT_BERRY_BUSH", "coal_plum": "COAL_PLUM_SAPLING",
-    "sernica": "SERNICA_CROP",
+# Products with a separate planting unit must not duplicate its function.
+NONPLANTABLE_FOODS = ("garlic", "horseradish", "black_radish", "onion",
+                      "heat_berries", "coal_plum", "sernica")
+PLANTING_MATERIALS = {
+    "garlic_clove": "GARLIC_CROP", "horseradish_cutting": "HORSERADISH_CROP",
+    "black_radish_seeds": "BLACK_RADISH_CROP", "mustard_seeds": "MUSTARD_CROP",
+    "onion_set": "ONION_CROP", "heat_berry_cutting": "HEAT_BERRY_BUSH",
+    "coal_plum_sapling": "COAL_PLUM_SAPLING", "sernica_seeds": "SERNICA_CROP",
+    # The original five Nether crops intentionally use the edible unit as seed.
+    "heatroot": "HEATROOT_CROP", "ash_mushroom": "ASH_MUSHROOM_CROP",
+    "ash_horseradish": "ASH_HORSERADISH_CROP",
+    "coal_garlic": "COAL_GARLIC_CROP", "crimson_pepper": "CRIMSON_PEPPER_CROP",
+}
+NETHER_SUBSTRATES = {
+    "heatroot": "SOUL_SAND", "ash_mushroom": "SOUL_SOIL",
+    "ash_horseradish": "SOUL_SAND", "coal_garlic": "SOUL_SOIL",
+    "sernica": "SOUL_SOIL",
 }
 PNG_SIGNATURE = bytes((137, 80, 78, 71, 13, 10, 26, 10))
 evidence = set()
@@ -194,10 +206,18 @@ def check_source():
     crop("sernica")
     for id in OWN_INGREDIENT_MODELS:
         model(id, f"slavicmyths:item/{id}")
-    for id, block in DIRECT_PLANTABLE_FOODS.items():
-        expected = f'ITEMS.register("{id}", () -> new ItemNameBlockItem(ModBlocks.{block}.get(),'
-        if expected not in items:
-            raise AssertionError(f"Edible raw plant is not directly plantable: {id} -> {block}")
+    for id in NONPLANTABLE_FOODS:
+        line = next((line for line in items.splitlines() if f'ITEMS.register("{id}"' in line), "")
+        if "new Item(properties()" not in line or "ItemNameBlockItem" in line:
+            raise AssertionError(f"Raw food must not be directly plantable: {id}")
+    for id, block in PLANTING_MATERIALS.items():
+        line = next((line for line in items.splitlines() if f'ITEMS.register("{id}"' in line), "")
+        if f"ItemNameBlockItem(ModBlocks.{block}.get()," not in line:
+            raise AssertionError(f"Missing planting link: {id} -> {block}")
+    for id, soil in NETHER_SUBSTRATES.items():
+        line = next((line for line in blocks.splitlines() if f'BLOCKS.register("{id}_crop"' in line), "")
+        if f"Blocks.{soil}" not in line:
+            raise AssertionError(f"Wrong Nether growing soil: {id} should use {soil}")
     for id in ("heat_berries", "heat_berry_cutting", "coal_plum", "coal_plum_sapling", "sernica", "sernica_seeds", "heat_berry_mash", "coal_plum_mash"):
         model(id, f"slavicmyths:item/{id}")
     for id in ("heat_berry_bush", "coal_plum_sapling", "coal_plum_leaves"):
