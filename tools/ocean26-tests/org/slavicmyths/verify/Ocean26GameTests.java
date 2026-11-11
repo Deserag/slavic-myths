@@ -555,6 +555,12 @@ public final class Ocean26GameTests {
     public static void modularShipsUseActualLanternLightBlocks(GameTestHelper t) {
         for (var type : org.slavicmyths.ships.ShipSectionPlan.ShipClass.values()) {
             var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type);
+            var legacy = new org.slavicmyths.ships.ShipBuildConfiguration(type,
+                    0, 0, java.util.List.of(1), 1, false, false, 1);
+            t.assertTrue(org.slavicmyths.ships.ShipBuildConfiguration.load(legacy.save())
+                    .equals(legacy)
+                    && org.slavicmyths.ships.ShipBuildConfiguration.fromWire(legacy.wire())
+                    .equals(legacy), type + " legacy V1 save/wire migration failed");
             var geometry = org.slavicmyths.ships.ShipHullVoxelLayout.generate(
                     config.structure(), config.layoutVersion());
             var palette = org.slavicmyths.ships.ShipModularBlockHull.localPalette(config);
