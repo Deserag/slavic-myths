@@ -92,7 +92,8 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
      */
     public double propulsionFactor() {
         if (sailTiers.isEmpty()) return 0D;
-        return Math.min(1D, rawThrust() / loadFactor());
+        double efficiency = Math.min(1D, rawThrust() / loadFactor());
+        return 0.60D + 0.40D * efficiency;
     }
 
     public ShipSuperstructurePlan withSail(int tier) {
