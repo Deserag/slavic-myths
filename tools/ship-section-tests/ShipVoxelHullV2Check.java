@@ -35,6 +35,12 @@ public final class ShipVoxelHullV2Check {
                 check(floor == ShipHullVoxelLayout.Part.HULL
                         || floor == ShipHullVoxelLayout.Part.KEEL, "watertight hold floor");
             }
+            if (beam >= 2 && Math.abs(z) < half - 2) {
+                check(voxels.get(new ShipHullVoxelLayout.Cell(beam, 2, z))
+                        == ShipHullVoxelLayout.Part.HULL, "upper outer plank present");
+                check(voxels.get(new ShipHullVoxelLayout.Cell(beam - 1, 1, z))
+                        == ShipHullVoxelLayout.Part.HULL, "bilge slopes inward");
+            }
             check(beam == ShipHullVoxelLayout.halfBeam(plan, z, 2), "versioned beam");
         }
         check(voxels.values().contains(ShipHullVoxelLayout.Part.LIGHT),
