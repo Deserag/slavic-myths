@@ -138,6 +138,11 @@ public final class ShipHullVoxelLayoutCheck {
                     "V2 physical sailcloth");
             yes(v2.values().contains(ShipHullVoxelLayout.Part.SAIL_TRIM),
                     "V2 red woven ornament");
+            yes(v2.values().contains(ShipHullVoxelLayout.Part.PENNANT),
+                    "V2 mast pennants are physical wool blocks");
+            if (config.shipClass() != ShipSectionPlan.ShipClass.SMALL)
+                yes(v2.values().contains(ShipHullVoxelLayout.Part.RIGGING),
+                        "V2 shrouds tie mast to hull");
             yes(v2.values().contains(ShipHullVoxelLayout.Part.STANDING_LANTERN),
                     "V2 illuminated outdoor deck");
             yes(v2.containsValue(ShipHullVoxelLayout.Part.LIGHT),
