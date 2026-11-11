@@ -33,9 +33,9 @@ public final class ShipyardModular {
             ShipBuildConfiguration next) {
         if (next == null) throw new IllegalArgumentException("Missing destination ship");
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> before = original == null
-                ? Map.of() : ShipHullVoxelLayout.generate(original.structure());
+                ? Map.of() : ShipHullVoxelLayout.generate(original.structure(), original.layoutVersion());
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> after =
-                ShipHullVoxelLayout.generate(next.structure());
+                ShipHullVoxelLayout.generate(next.structure(), next.layoutVersion());
         Map<ShipHullVoxelLayout.Part, Integer> delta =
                 ShipHullVoxelLayout.additions(before, after);
         int keel = delta.getOrDefault(ShipHullVoxelLayout.Part.KEEL, 0);
@@ -47,7 +47,11 @@ public final class ShipyardModular {
         int deck = delta.getOrDefault(ShipHullVoxelLayout.Part.DECK, 0)
                 + delta.getOrDefault(ShipHullVoxelLayout.Part.BRIDGE, 0);
         int railing = delta.getOrDefault(ShipHullVoxelLayout.Part.RAIL, 0);
-        int sail = delta.getOrDefault(ShipHullVoxelLayout.Part.SAIL, 0);
+        int sail = delta.getOrDefault(ShipHullVoxelLayout.Part.SAIL, 0)
+                + delta.getOrDefault(ShipHullVoxelLayout.Part.SAIL_TRIM, 0);
+        int rigging = delta.getOrDefault(ShipHullVoxelLayout.Part.RIGGING, 0);
+        int bowsprit = delta.getOrDefault(ShipHullVoxelLayout.Part.BOWSPRIT, 0);
+        int light = delta.getOrDefault(ShipHullVoxelLayout.Part.LIGHT, 0);
         int ladders = delta.getOrDefault(ShipHullVoxelLayout.Part.LADDER, 0);
         int windows = delta.getOrDefault(ShipHullVoxelLayout.Part.WINDOW, 0);
         int helm = delta.getOrDefault(ShipHullVoxelLayout.Part.HELM, 0);
@@ -62,10 +66,10 @@ public final class ShipyardModular {
                 if (tier == 3) reinforced++;
             }
         }
-        return new Materials(divRoundUp(keel + frame + mast + yard + walls, 4),
+        return new Materials(divRoundUp(keel + frame + mast + yard + bowsprit + walls, 4),
                 divRoundUp(hull + deck, 3),
-                divRoundUp(keel + frame + mast + yard + windows + ladders, 15),
-                divRoundUp(sail, 4),
+                divRoundUp(keel + frame + mast + yard + windows + ladders, 15) + light * 2,
+                divRoundUp(sail, 4) + divRoundUp(rigging, 3),
                 divRoundUp(deck, 24),
                 divRoundUp(railing, 16),
                 helm > 0 ? 1 : 0,
@@ -172,6 +176,7 @@ public final class ShipyardModular {
     public static boolean compatibleUpgrade(ShipBuildConfiguration old,
             ShipBuildConfiguration next) {
         if (old == null || next == null || old.shipClass() != next.shipClass()
+                || old.layoutVersion() != next.layoutVersion()
                 || next.extraLength() < old.extraLength()
                 || next.extraWidth() < old.extraWidth()
                 || next.decks() < old.decks()
