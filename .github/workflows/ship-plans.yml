@@ -46,7 +46,8 @@ jobs:
             tools/ship-section-tests/ShipSuperstructureCheck.java \
             tools/ship-section-tests/ShipSailMotionCheck.java \
             tools/ship-section-tests/ShipHullVoxelLayoutCheck.java \
-            tools/ship-section-tests/ShipVoxelHullV2Check.java
+            tools/ship-section-tests/ShipVoxelHullV2Check.java \
+            tools/ship-section-tests/ShipVoxelHullSvgRender.java
       - name: Validate sections, superstructures and sail physics
         shell: bash
         run: |
@@ -55,3 +56,12 @@ jobs:
           java -cp build/ship-checks ShipSailMotionCheck
           java -cp build/ship-checks ShipHullVoxelLayoutCheck
           java -cp build/ship-checks ShipVoxelHullV2Check
+      - name: Render actual V2 ship voxel projections
+        shell: bash
+        run: java -cp build/ship-checks ShipVoxelHullSvgRender build/ship-visuals
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: ship-v2-voxel-views
+          path: build/ship-visuals/*.svg
+          if-no-files-found: error
