@@ -175,6 +175,135 @@ public final class ShipHullVoxelLayout {
         return Collections.unmodifiableMap(blocks);
     }
 
+
+    // Persisted V1 voxel palette. Never change this method: saved ships must
+    // keep exactly the blocks originally generated before the V2 redesign.
+    private static int beamLegacy(int width, int length, int z) {
+        int halfWidth = width / 2, halfLength = length / 2;
+        if (Math.abs(z) > halfLength) return -1;
+        int taper = Math.max(0, Math.abs(z) - (halfLength - 4));
+        int reduction = (int)Math.ceil(taper * halfWidth / 4D);
+        int tip = z == halfLength ? 0 : z == -halfLength ? 1 : 0;
+        return Math.max(tip, halfWidth - reduction);
+    }
+
+
+    private static int halfBeamLegacy(ShipSuperstructurePlan plan, int z) {
+        return beamLegacy(plan.hullWidth(), plan.hullLength(), z);
+    }
+
+    public static Map<Cell, Part> generateLegacy(ShipSuperstructurePlan plan) {
+        if (plan == null) throw new IllegalArgumentException("Missing ship plan");
+        Map<Cell, Part> blocks = new LinkedHashMap<>();
+        int halfLength = plan.hullLength() / 2;
+
+        // Full-block keel, dry hold and weather deck with shaped ends.
+        for (int z = -halfLength; z <= halfLength; z++) {
+            int half = halfBeamLegacy(plan, z);
+            for (int x = -half; x <= half; x++) {
+                put(blocks, x, 0, z, x == 0 ? Part.KEEL : Part.HULL);
+                boolean edge = Math.abs(x) == half
+                        || Math.abs(x) > halfBeamLegacy(plan, z - 1)
+                        || Math.abs(x) > halfBeamLegacy(plan, z + 1);
+                if (edge) for (int y = 1; y <= 3; y++)
+                    put(blocks, x, y, z, Part.HULL);
+                else if (Math.floorMod(z, 3) == 0)
+                    put(blocks, x, 3, z, Part.FRAME);
+                if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
+                if (edge) put(blocks, x, 5, z, Part.RAIL);
+            }
+        }
+        // Access shaft and actual ladders, aligned through every built deck.
+        for (int y = 1; y <= 4 + (plan.decks() - 1) * 4; y++) {
+            put(blocks, -3, y, 1, Part.FRAME);
+            put(blocks, -2, y, 1, Part.LADDER);
+        }
+        for (int y = 1; y <= 4; y++)
+            blocks.remove(new Cell(-2, y, 0));
+
+        // Elevated deck floors are stepped, not full-height rectangular towers.
+        for (int floor = 2; floor <= plan.decks(); floor++) {
+            int y = 4 + (floor - 1) * 4;
+            int front = halfLength - 3 * (floor - 1);
+            int rear = -halfLength + 2;
+            for (int z = rear; z <= front; z++) {
+                int half = Math.max(0, halfBeamLegacy(plan, z) - 1);
+                for (int x = -half; x <= half; x++) {
+                    boolean hatch = x == -2 && (z == 0 || z == 1);
+                    if (!hatch) put(blocks, x, y, z, Part.DECK);
+                    if (Math.abs(x) == half && !hatch)
+                        put(blocks, x, y + 1, z, Part.RAIL);
+                    if ((z - rear) % 4 == 0 && Math.abs(x) == half)
+                        for (int sy = y - 3; sy < y; sy++)
+                            put(blocks, x, sy, z, Part.FRAME);
+                }
+            }
+        }
+
+        // Real per-mast stations. A mast at one coordinate never overwrites
+        // another because spacing is checked by ShipSuperstructurePlan.
+        List<Integer> masts = plan.mastPositions();
+        for (int i = 0; i < masts.size(); i++) {
+            int z = masts.get(i), tier = plan.sailTiers().get(i);
+            int top = tier == 1 ? 12 : tier == 2 ? 15 : 19;
+            int span = tier == 1 ? 2 : tier == 2 ? 3 : 4;
+            for (int y = 5; y <= top + 1; y++) put(blocks, 0, y, z, Part.MAST);
+            for (int x = -span; x <= span; x++) {
+                put(blocks, x, top + 1, z, Part.YARD);
+                put(blocks, x, 7, z, Part.YARD);
+            }
+            for (int y = 8; y <= top; y++)
+                for (int x = -span; x <= span; x++)
+                    if (x != 0 && !blocks.containsKey(new Cell(x, y, z + 1)))
+                        put(blocks, x, y, z + 1, Part.SAIL);
+        }
+
+        // Closed stern cabin, with a two-block door aperture and real windows.
+        if (plan.cabin()) {
+            int rear = -halfLength + 2, front = rear + 6;
+            int side = Math.min(3, plan.hullWidth() / 2 - 2);
+            for (int z = rear; z <= front; z++)
+                for (int x = -side; x <= side; x++) {
+                    boolean wall = Math.abs(x) == side || z == rear || z == front;
+                    for (int y = 5; y <= 7; y++) {
+                        if (z == front && x == 0 && y <= 6) {
+                            blocks.remove(new Cell(x, y, z));
+                        } else if (wall) {
+                            Part part = (Math.abs(x) == side && z == rear + 3 && y == 6)
+                                    ? Part.WINDOW : Part.CABIN_WALL;
+                            put(blocks, x, y, z, part);
+                        }
+                    }
+                    put(blocks, x, 8, z, Part.DECK);
+                }
+            // Outward opening door on the forward wall.
+            put(blocks, 0, 5, front, Part.DOOR);
+            put(blocks, 0, 6, front, Part.DOOR);
+        }
+
+        // The bridge is elevated over the stern; it uses the SAME HELM as the
+        // rest of the vessel. Only one helm control position is generated.
+        if (plan.bridge()) {
+            // A shorter quarterdeck keeps the forward mast on medium ships clear.
+            int rear = -halfLength + 2, front = rear + 4;
+            int side = Math.min(3, plan.hullWidth() / 2 - 2);
+            for (int z = rear; z <= front; z++)
+                for (int x = -side; x <= side; x++) {
+                    put(blocks, x, 9, z, Part.BRIDGE);
+                    if (Math.abs(x) == side || z == rear || z == front)
+                        put(blocks, x, 10, z, Part.RAIL);
+                }
+            for (int y = 5; y <= 9; y++)
+                put(blocks, -side + 1, y, front, Part.LADDER);
+            put(blocks, 0, 10, rear + 2, Part.HELM);
+        } else {
+            put(blocks, 0, 5, -halfLength + (plan.cabin() ? 9 : 3), Part.HELM);
+        }
+
+        return Collections.unmodifiableMap(blocks);
+    }
+
+
     private static void sailPanel(Map<Cell, Part> blocks, int mastZ,
                                   int bottom, int top, int halfSpan) {
         for (int y = bottom; y <= top; y++) {
