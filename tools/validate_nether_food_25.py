@@ -284,6 +284,46 @@ def check_growth_and_loot():
         raise AssertionError("Nether crops must honor the configured substrate, not farmland")
 
 
+
+def check_survival_sources():
+    # Source and data-pack linkage only: this does not establish actual worldgen success.
+    modifiers = json_file(ROOT / "src/main/resources/data/neoforge/loot_modifiers/global_loot_modifiers.json")
+    sources = ("short_grass_farming_seeds", "tall_grass_farming_seeds")
+    for source in sources:
+        if "slavicmyths:" + source not in modifiers.get("entries", []):
+            raise AssertionError(f"Missing Survival seed source: {source}")
+        entry = json_file(DATA / "loot_modifiers" / (source + ".json"))
+        if entry.get("type") != "slavicmyths:grass_farming_seeds":
+            raise AssertionError(f"Wrong grass-seed loot modifier: {source}")
+    farming = require(ROOT / "src/main/java/org/slavicmyths/farming/Farming.java").read_text()
+    for name in ("GARLIC_CLOVE", "HORSERADISH_CUTTING", "BLACK_RADISH_SEEDS",
+                 "MUSTARD_SEEDS", "ONION_SET"):
+        if f"ModItems.{name}.get()" not in farming:
+            raise AssertionError(f"Overworld planting material missing from grass-seed pool: {name}")
+
+    expected = {
+        "nether_food_crops": ("patch_heatroot_crop", "patch_ash_mushroom_crop",
+                              "patch_ash_horseradish_crop", "patch_coal_garlic_crop"),
+        "nether_food_plants": ("patch_sernica_crop", "patch_heat_berry_bush"),
+        "crimson_pepper_crop": ("patch_crimson_pepper_crop",),
+        "coal_plum_tree": ("coal_plum_tree",),
+    }
+    for modifier, features in expected.items():
+        data = json_file(DATA / "neoforge/biome_modifier" / (modifier + ".json"))
+        if data.get("type") != "neoforge:add_features" or data.get("step") != "vegetal_decoration":
+            raise AssertionError(f"Not an active vegetation biome modifier: {modifier}")
+        if set(data.get("features", [])) != {"slavicmyths:" + feature for feature in features}:
+            raise AssertionError(f"Wrong/duplicated worldgen feature linkage: {modifier}")
+        for feature in features:
+            placed = json_file(DATA / "worldgen/placed_feature" / (feature + ".json"))
+            if placed.get("feature") != "slavicmyths:" + feature:
+                raise AssertionError(f"Placed feature not linked: {feature}")
+            if not any(p.get("type") == "minecraft:biome" for p in placed.get("placement", [])):
+                raise AssertionError(f"Missing biome placement guard: {feature}")
+            config = json_file(DATA / "worldgen/configured_feature" / (feature + ".json"))
+            if feature.startswith("patch_") and ("slavicmyths:" + feature[len("patch_"):]) not in json.dumps(config):
+                raise AssertionError(f"Natural crop block not configured: {feature}")
+
 def check_source():
     blocks = require(ROOT / "src/main/java/org/slavicmyths/registry/ModBlocks.java").read_text()
     items = require(ROOT / "src/main/java/org/slavicmyths/registry/ModItems.java").read_text()
@@ -332,6 +372,7 @@ def check_source():
             raise AssertionError(f"Missing or duplicated item/block registration: {id}")
     crop("sernica")
     check_growth_and_loot()
+    check_survival_sources()
     for id in OWN_INGREDIENT_MODELS:
         model(id, f"slavicmyths:item/{id}")
     for id in NONPLANTABLE_FOODS:
