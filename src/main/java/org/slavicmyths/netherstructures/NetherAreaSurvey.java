@@ -80,7 +80,7 @@ public final class NetherAreaSurvey {
             }
             var foundBiomes=new HashSet<String>();
             for(int y:new int[]{48,80,112}){
-                var id=chunk.getNoiseBiome((cx*16+8)&15>>2,y>>2,(cz*16+8)&15>>2).unwrapKey().map(k->k.location()).orElse(null);
+                var id=chunk.getNoiseBiome(2,y>>2,2).unwrapKey().map(k->k.location()).orElse(null);
                 if(id!=null&&id.getNamespace().equals("slavicmyths")&&BIOMES.contains(id.getPath()))foundBiomes.add(id.getPath());
             }
             for(String id:foundBiomes)biomeChunks.merge(id,1,Integer::sum);
