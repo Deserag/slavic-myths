@@ -242,6 +242,47 @@ public final class ShipHullVoxelLayout {
                     put(blocks, 0, 7, z, Part.LIGHT);
         }
 
+        // Older versions used rectangular roofs across nearly the WHOLE
+        // ship. Retain their exact geometry in V1 but build shorter stepped,
+        // enclosed, windowed decks on V2 instead of a timber bath-tub.
+        if (plan.decks() >= 2) {
+            blocks.entrySet().removeIf(entry -> entry.getKey().y() >= 8
+                    && (entry.getValue() == Part.DECK
+                    || entry.getValue() == Part.RAIL
+                    || entry.getValue() == Part.FRAME));
+            for (int floor = 2; floor <= plan.decks(); floor++) {
+                int top = 4 + (floor - 1) * 4;
+                int rear = -halfLength + (floor == 2 ? 2 : 7);
+                int front = floor == 2 ? halfLength - Math.max(6, halfLength / 2)
+                        : Math.min(4, halfLength / 4);
+                for (int z = rear; z <= front; z++) {
+                    int span = Math.max(1, Math.min(
+                            plan.hullWidth() / 2 - floor,
+                            halfBeamV2(plan, z) - 1));
+                    // Captain's cabin roof remains connected to its walls.
+                    if (floor == 2 && plan.cabin() && z <= -halfLength + 8)
+                        span = Math.max(span, Math.min(3, plan.hullWidth() / 2 - 2));
+                    for (int x = -span; x <= span; x++) {
+                        boolean shaft = x == -2 && (z == 0 || z == 1);
+                        if (!shaft) put(blocks, x, top, z, Part.DECK);
+                        if (Math.abs(x) != span) continue;
+                        put(blocks, x, top + 1, z, Part.RAIL);
+                        for (int sy = top - 3; sy < top; sy++) {
+                            Part material = sy == top - 2
+                                    && Math.floorMod(z - rear, 5) == 2
+                                    ? Part.WINDOW : Part.CABIN_WALL;
+                            put(blocks, x, sy, z, material);
+                        }
+                    }
+                }
+            }
+            // Vertical access remains clear through the redesigned roofs.
+            for (int y = 5; y <= 4 + (plan.decks() - 1) * 4; y++) {
+                put(blocks, -3, y, 1, Part.FRAME);
+                put(blocks, -2, y, 1, Part.LADDER);
+            }
+        }
+
         // Guaranteed lighting in the little single-deck vessel's hold.
         if (plan.shipClass() == ShipSectionPlan.ShipClass.SMALL) {
             put(blocks, 0, 3, -2, Part.DECK);
