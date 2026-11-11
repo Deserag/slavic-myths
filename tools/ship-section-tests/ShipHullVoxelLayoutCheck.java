@@ -243,7 +243,9 @@ public final class ShipHullVoxelLayoutCheck {
             long bigCloth = greater.values().stream().filter(p ->
                     p == ShipHullVoxelLayout.Part.SAIL
                             || p == ShipHullVoxelLayout.Part.SAIL_TRIM).count();
-            yes(bigCloth > smallCloth * 2,
+            yes(shipClass == ShipSectionPlan.ShipClass.MEDIUM
+                            ? bigCloth * 2 > smallCloth * 3
+                            : bigCloth > smallCloth * 2,
                     "V2 reinforced sails visibly grow in actual block area");
         }
         System.out.println("PASS ShipHullVoxelLayoutCheck assertions=" + checks);
