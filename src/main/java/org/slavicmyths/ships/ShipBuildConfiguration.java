@@ -94,7 +94,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
 
     public CompoundTag save() {
         CompoundTag tag = new CompoundTag();
-        tag.putInt("Version", VERSION);
+        tag.putInt("Version", layoutVersion);
         tag.putString("Class", shipClass.name());
         tag.putInt("ExtraLength", extraLength);
         tag.putInt("ExtraWidth", extraWidth);
