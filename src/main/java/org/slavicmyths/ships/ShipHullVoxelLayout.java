@@ -19,7 +19,7 @@ import java.util.Map;
 public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
-        KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, SAIL,
+        KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, SAIL, SAIL_TRIM,
         CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LIGHT
     }
 
@@ -126,10 +126,17 @@ public final class ShipHullVoxelLayout {
                 }
                 sailPanel(blocks, z, 8, lowerTop - 1, span);
                 if (tier >= 2) {
-                    int upperSpan = Math.max(1, span - 1);
-                    for (int x = -upperSpan; x <= upperSpan; x++)
-                        if (x != 0) put(blocks, x, mastTop + 1, z, Part.YARD);
-                    sailPanel(blocks, z, 14, mastTop, upperSpan);
+                    int midSpan = Math.max(1, span - 1);
+                    int middleTop = tier == 3 ? 18 : mastTop + 1;
+                    for (int x = -midSpan; x <= midSpan; x++)
+                        if (x != 0) put(blocks, x, middleTop, z, Part.YARD);
+                    sailPanel(blocks, z, 14, middleTop - 1, midSpan);
+                    if (tier == 3) {
+                        int upperSpan = Math.max(1, span - 2);
+                        for (int x = -upperSpan; x <= upperSpan; x++)
+                            if (x != 0) put(blocks, x, mastTop + 1, z, Part.YARD);
+                        sailPanel(blocks, z, 19, mastTop, upperSpan);
+                    }
                 }
             }
         }
@@ -358,7 +365,10 @@ public final class ShipHullVoxelLayout {
                 if (x == 0) continue;
                 int bulge = Math.abs(x) < width && y > bottom && y < top ? 2 : 1;
                 Cell cell = new Cell(x, y, mastZ + bulge);
-                blocks.putIfAbsent(cell, Part.SAIL);
+                // Restrained red Slavic-style border, still genuine wool blocks.
+                Part cloth = y == bottom + 1 && Math.abs(x) % 2 == 0
+                        ? Part.SAIL_TRIM : Part.SAIL;
+                blocks.putIfAbsent(cell, cloth);
             }
         }
     }
