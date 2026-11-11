@@ -5,7 +5,7 @@ import java.util.List;
 
 /** Bounded, world-independent terrain contract shared by native and explicit placement. */
 public final class PosadTerrain {
-    public static final int MAX_SUPPORT_DEPTH=48, MAX_BRIDGE=48, SUPPORT_STEP=8, MAX_TERRAIN_CUT=3;
+    public static final int MAX_SUPPORT_DEPTH=48, MAX_BRIDGE=48, SUPPORT_STEP=8, MAX_TERRAIN_CUT=6;
     public enum Material { AIR, NATURAL, LAVA, PROTECTED }
     public interface Columns { Material at(int worldX,int worldY,int worldZ); }
     public record Support(int x,int z,int depth) {}
