@@ -29,12 +29,12 @@ public final class FirstShipHull {
     public static double halfBeam(double z) {
         int row = (int)Math.round(z);
         if (z < -5.5D || z > 5.5D) return 0D;
-        int[] widths = {1, 2, 3, 3, 3, 3, 3, 3, 2, 1, 0};
-        return widths[Math.max(0, Math.min(10, row + 5))] + .49D;
+        return FirstShipV10Shape.deckHalfBeam(Math.max(-5, Math.min(5, row))) + .49D;
     }
 
     public static double holdBeam(double z) {
-        return Math.max(.45D, halfBeam(z) - .98D);
+        int row = Math.max(-5, Math.min(5, (int)Math.round(z)));
+        return Math.max(.45D, FirstShipV10Shape.floorHalfBeam(row) + .49D);
     }
 
     public static boolean withinHull(double x, double z, double margin) {
