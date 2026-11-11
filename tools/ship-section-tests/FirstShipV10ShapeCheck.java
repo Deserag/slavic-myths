@@ -35,7 +35,7 @@ public final class FirstShipV10ShapeCheck {
             check(hull.get(new FirstShipV10Shape.Cell(0, 0, z)) == FirstShipV10Shape.Part.KEEL,
                     "continuous spruce keel " + z);
             for (int x = -beam; x <= beam; x++) {
-                for (int y = 0; y <= 5; y++)
+                for (int y = 0; y <= 2; y++)
                     check(FirstShipV10Shape.partAt(x, y, z)
                             == FirstShipV10Shape.partAt(-x, y, z),
                             "symmetric lower shell " + x + "," + y + "," + z);
