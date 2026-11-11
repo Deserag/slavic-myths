@@ -54,6 +54,7 @@ public final class ShipModularBlockHull {
             case YARD -> Blocks.DARK_OAK_LOG.defaultBlockState().setValue(
                     RotatedPillarBlock.AXIS,
                     turns % 2 == 0 ? Direction.Axis.X : Direction.Axis.Z);
+            case RIGGING -> Blocks.CHAIN.defaultBlockState();
             case SAIL -> Blocks.WHITE_WOOL.defaultBlockState();
             case SAIL_TRIM -> Blocks.RED_WOOL.defaultBlockState();
             case CABIN_WALL -> Blocks.STRIPPED_DARK_OAK_LOG.defaultBlockState();
