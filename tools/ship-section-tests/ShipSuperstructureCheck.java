@@ -29,7 +29,8 @@ public final class ShipSuperstructureCheck {
         invalid(() -> small.withSail(1), "small second mast");
         invalid(() -> small.withSail(2), "small tier II");
         invalid(() -> small.withDecks(2), "small second deck");
-        invalid(() -> small.withCabin(true), "small cabin");
+        yes(small.withCabin(true).mastPositions().equals(List.of(0)),
+                "compact small stern cabin preserves clear mast station");
         invalid(() -> small.withBridge(true), "small bridge");
 
         var medium = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
