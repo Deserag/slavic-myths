@@ -96,7 +96,7 @@ public final class ForgottenShrinePiece extends StructurePiece {
         for(int x=0;x<15;x++)for(int z=0;z<15;z++)for(int y=bottom();y<=8;y++) {
             var next=voxel(x,y,z);if(next==null)continue;
             var p=at(x,y,z);
-            if(!clip.isInside(p)||!w.ensureCanWrite(p))return false;
+            if(!clip.isInside(p)||!w.ensureCanWrite(p))return rejected(w,p,w.getBlockState(p),"outside-clip-or-unwritable");
             var old=w.getBlockState(p);
             if(old.hasBlockEntity()||!old.getFluidState().isEmpty()||old.is(Blocks.BEDROCK))return rejected(w,p,old,"protected-fluid");
             if(y<=2 ? !(ForgottenShrineTerrain.natural(old)||y>=0&&(old.isAir()||NetherBridgePiece.harmlessFlora(old)||old.canBeReplaced())) :
@@ -107,14 +107,14 @@ public final class ForgottenShrinePiece extends StructurePiece {
             if(base!=null&&!base.isAir()&&!ForgottenShrineTerrain.stable(w.getBlockState(at(x,bottom()-1,z))))return rejected(w,at(x,bottom()-1,z),w.getBlockState(at(x,bottom()-1,z)),"deep-support");
             var floor=voxel(x,0,z);
             if((x<2||x>12||z<2||z>12)&&floor!=null&&!floor.isAir()&&
-                !ForgottenShrineTerrain.stable(w.getBlockState(at(x,-1,z))))return false;
+                !ForgottenShrineTerrain.stable(w.getBlockState(at(x,-1,z))))return rejected(w,at(x,-1,z),w.getBlockState(at(x,-1,z)),"edge-support");
         }
         return true;
     }
     private static final java.util.concurrent.atomic.AtomicInteger REJECTIONS=new java.util.concurrent.atomic.AtomicInteger();
     private static boolean rejected(WorldGenLevel w,BlockPos p,BlockState old,String reason) {
-        if(w instanceof net.minecraft.server.level.WorldGenRegion&&System.getProperty("hellqa.seed")!=null&&REJECTIONS.getAndIncrement()<32)
-            System.out.println("HELLQA_SHRINE_REJECT_DETAIL "+reason+" pos="+p+" old="+old);
+        if(w instanceof net.minecraft.server.level.WorldGenRegion&&System.getProperty("hellqa.seed")!=null&&REJECTIONS.getAndIncrement()<1000)
+            System.out.println("HELLQA_SHRINE_REJECT_DETAIL "+reason+" chunk="+new ChunkPos(p)+" pos="+p+" old="+old);
         return false;
     }
     /** Same late-neighbour vegetation race as bridge headroom; never carve rock,
