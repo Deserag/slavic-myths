@@ -37,9 +37,11 @@ public final class ShipHullVoxelLayoutCheck {
             for (int z = -config.hullLength() / 2; z <= config.hullLength() / 2; z++) {
                 int beam = ShipHullVoxelLayout.halfBeam(config, z);
                 for (int x = -beam; x <= beam; x++) {
-                    var keel = voxels.get(new ShipHullVoxelLayout.Cell(x, 0, z));
-                    yes(keel == ShipHullVoxelLayout.Part.HULL
-                            || keel == ShipHullVoxelLayout.Part.KEEL, "solid dry hull floor");
+                    var floor = voxels.get(new ShipHullVoxelLayout.Cell(x, 1, z));
+                    yes(floor == ShipHullVoxelLayout.Part.HULL
+                            || floor == ShipHullVoxelLayout.Part.FRAME
+                            || floor == ShipHullVoxelLayout.Part.LADDER,
+                            "solid raised dry hold floor");
                 }
             }
             yes(voxels.values().stream().filter(p -> p == ShipHullVoxelLayout.Part.HELM)
