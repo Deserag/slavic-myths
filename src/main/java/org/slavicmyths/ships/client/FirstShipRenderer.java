@@ -45,6 +45,7 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
     private final ItemStack helm;
     private String paletteKey = "";
     private Map<BlockPos, BlockState> cachedPalette = Map.of();
+    private Map<BlockPos, Integer> cachedLampLight = Map.of();
 
     public FirstShipRenderer(EntityRendererProvider.Context context) {
         super(context);
@@ -107,8 +108,35 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         } catch (RuntimeException invalid) {
             cachedPalette = Map.of();
         }
+        cachedLampLight = config != null && config.layoutVersion() == 2
+                ? lampLight(cachedPalette) : Map.of();
         paletteKey = key;
         return cachedPalette;
+    }
+
+    /**
+     * Visual-only client lighting for detached vessels. While stationary,
+     * lanterns emit real vanilla block light. During transit there are no
+     * placed world blocks, so render nearby palette blocks with local light
+     * rather than claiming a dynamic chunk-light source.
+     */
+    private static Map<BlockPos, Integer> lampLight(Map<BlockPos, BlockState> palette) {
+        java.util.List<BlockPos> sources = new java.util.ArrayList<>();
+        for (var entry : palette.entrySet())
+            if (entry.getValue().is(Blocks.LANTERN)) sources.add(entry.getKey());
+        if (sources.isEmpty()) return Map.of();
+        Map<BlockPos, Integer> light = new java.util.HashMap<>();
+        for (BlockPos cell : palette.keySet()) {
+            int brightness = 0;
+            for (BlockPos source : sources) {
+                int distance = Math.abs(source.getX() - cell.getX())
+                        + Math.abs(source.getY() - cell.getY())
+                        + Math.abs(source.getZ() - cell.getZ());
+                brightness = Math.max(brightness, 15 - distance * 2);
+            }
+            if (brightness > 0) light.put(cell, brightness);
+        }
+        return java.util.Collections.unmodifiableMap(light);
     }
 
     @Override public void render(FirstShipEntity ship, float yaw, float partialTick,
@@ -125,14 +153,19 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 BlockState state = entry.getValue();
                 if (state.isAir()) continue;
                 BlockPos p = entry.getKey();
+                int localLamp = cachedLampLight.getOrDefault(p, 0);
+                int renderedLight = localLamp <= 0 ? light
+                        : net.minecraft.client.renderer.LightTexture.pack(
+                                Math.max((light >>> 4) & 15, localLamp),
+                                (light >>> 20) & 15);
                 pose.pushPose();
                 pose.translate(p.getX() - .5D, p.getY(), p.getZ() - .5D);
                 if (state.is(Blocks.CHEST)) {
                     items.renderStatic(new ItemStack(Items.CHEST),
-                            ItemDisplayContext.FIXED, light, OverlayTexture.NO_OVERLAY,
+                            ItemDisplayContext.FIXED, renderedLight, OverlayTexture.NO_OVERLAY,
                             pose, buffers, ship.level(), ship.getId());
                 } else Minecraft.getInstance().getBlockRenderer().renderSingleBlock(
-                        state, pose, buffers, light, OverlayTexture.NO_OVERLAY);
+                        state, pose, buffers, renderedLight, OverlayTexture.NO_OVERLAY);
                 pose.popPose();
             }
             pose.popPose();
@@ -170,7 +203,8 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 -.15D, -.15D, -.12D, .30F, .30F, .24F);
         pose.popPose();
         pose.popPose();
-        if (ship.modularConfiguration() != null)
+        if (ship.modularConfiguration() != null
+                && ship.modularConfiguration().layoutVersion() == 1)
             renderModularSails(ship, yaw, partialTick, pose, buffers, deckLight);
         else if (ship.geometryVersion() >= 7 && ship.rigLevel() > 0)
             renderFabricSail(ship, yaw, partialTick, pose, buffers, deckLight);
