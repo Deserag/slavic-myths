@@ -14,6 +14,20 @@ CROPS = ("heatroot", "ash_mushroom", "ash_horseradish", "coal_garlic")
 GROWING = CROPS + ("sernica",)
 DISHES = ("infernal_shchi", "druzhina_roast", "onion_pie", "garlic_flatbread", "infernal_mushroom_soup", "roasted_roots", "coal_plum_pie", "heat_berry_jam", "mushroom_onion_pie")
 DRINKS = ("spicy_sbiten", "heat_berry_mors", "spiced_honey_drink", "spicy_beer", "heat_berry_beer", "coal_plum_beer")
+# No vanilla texture aliases are permitted for newly approved food ingredients.
+# Missing art is a release-blocking error, not an excuse to pass CI with a placeholder.
+OWN_INGREDIENT_MODELS = (
+    "garlic", "garlic_clove", "horseradish", "horseradish_cutting",
+    "black_radish", "black_radish_seeds", "mustard_seeds", "onion", "onion_set",
+    "ground_mustard", "grated_horseradish", "ground_hot_pepper",
+    "ground_black_pepper", "black_pepper", "roasted_hot_pepper",
+)
+DIRECT_PLANTABLE_FOODS = {
+    "garlic": "GARLIC_CROP", "horseradish": "HORSERADISH_CROP",
+    "black_radish": "BLACK_RADISH_CROP", "onion": "ONION_CROP",
+    "heat_berries": "HEAT_BERRY_BUSH", "coal_plum": "COAL_PLUM_SAPLING",
+    "sernica": "SERNICA_CROP",
+}
 PNG_SIGNATURE = bytes((137, 80, 78, 71, 13, 10, 26, 10))
 evidence = set()
 
@@ -137,6 +151,12 @@ def check_source():
         if blocks.count(f'BLOCKS.register("{id}_crop"') != 1 or items.count(f'ITEMS.register("{id}"') != 1:
             raise AssertionError(f"Missing or duplicated item/block registration: {id}")
     crop("sernica")
+    for id in OWN_INGREDIENT_MODELS:
+        model(id, f"slavicmyths:item/{id}")
+    for id, block in DIRECT_PLANTABLE_FOODS.items():
+        expected = f'ITEMS.register("{id}", () -> new ItemNameBlockItem(ModBlocks.{block}.get(),'
+        if expected not in items:
+            raise AssertionError(f"Edible raw plant is not directly plantable: {id} -> {block}")
     for id in ("heat_berries", "heat_berry_cutting", "coal_plum", "coal_plum_sapling", "sernica", "sernica_seeds", "heat_berry_mash", "coal_plum_mash"):
         model(id, f"slavicmyths:item/{id}")
     for id in ("heat_berry_bush", "coal_plum_sapling", "coal_plum_leaves"):
