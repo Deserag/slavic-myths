@@ -190,7 +190,7 @@ public final class FirstShipEntity extends Boat {
         ShipBuildConfiguration config = modularConfiguration();
         if (config == null) return FirstShipHull.withinHull(x, z, .1D);
         if (Math.abs(z) > config.length() / 2D + .49D) return false;
-        int half = ShipHullVoxelLayout.halfBeam(config.structure(), (int)Math.round(z));
+        int half = ShipHullVoxelLayout.halfBeam(config.structure(), (int)Math.round(z), config.layoutVersion());
         return half >= 0 && Math.abs(x) <= half + .49D;
     }
 
