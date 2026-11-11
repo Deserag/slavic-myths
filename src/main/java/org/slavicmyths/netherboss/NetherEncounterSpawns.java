@@ -19,7 +19,7 @@ import org.slavicmyths.worldgen.ManualStructureRecords;
 /** Sparse, deterministic Nether encounters; only loaded terrain is inspected or modified. */
 @net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class NetherEncounterSpawns {
-    private static final int REGION=2000, ACTIVATE=128, MIN_DISTANCE=112;
+    private static final int REGION=512, ACTIVATE=128, MIN_DISTANCE=112;
     private record Definition(String key,String[] ids,Set<String> biomes) {}
     private static final Set<String> NETHER_BIOMES=Set.of("minecraft:nether_wastes","minecraft:soul_sand_valley",
         "minecraft:crimson_forest","minecraft:warped_forest","minecraft:basalt_deltas",
@@ -125,7 +125,7 @@ public final class NetherEncounterSpawns {
                 hash(w.getSeed(),rx,rz,currentBiome.hashCode()),currentBiome);
     }
 
-    /** Every explored 2000x2000 region has one persistent encounter opportunity.
+    /** Every explored 512x512 region has one persistent encounter opportunity.
      * Each new Nether biome has an additional 100%-selected encounter per region.
      * Unsafe terrain delays placement; only already loaded chunks are inspected. */
     private static void tryEncounter(ServerLevel w,ServerPlayer player,NetherEncounterRecords records,
