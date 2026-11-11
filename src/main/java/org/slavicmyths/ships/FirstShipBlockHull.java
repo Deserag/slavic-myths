@@ -570,9 +570,12 @@ public final class FirstShipBlockHull {
     private static boolean canWrite(ServerLevel level, BlockPos anchor, int turns, Set<BlockPos> owned,
             List<Cargo> cargo, int rig, int fabric, int geometry) {
         Set<BlockPos> target = volume(anchor, turns, rig, fabric, geometry);
+        Map<BlockPos, BlockState> solidHull = geometry == 10
+                ? layout(anchor, turns, rig, fabric, geometry) : Map.of();
         for (Cargo entry : cargo) {
             BlockPos point = world(anchor, turns, entry.x(), entry.y(), entry.z());
-            if (!cargoCell(entry.x(), entry.y(), entry.z()) || !target.contains(point)) return false;
+            if (!cargoCell(entry.x(), entry.y(), entry.z()) || !target.contains(point)
+                    || solidHull.containsKey(point)) return false;
         }
         return clearableFootprint(level, anchor, turns, owned, rig, fabric, geometry) != null;
     }
@@ -849,6 +852,17 @@ public final class FirstShipBlockHull {
             int rig, int fabric, int geometry) {
         Snapshot snapshot = inspect(level, anchor, turns, rig, fabric, geometry);
         if (snapshot == null) return null;
+        if (geometry == 10) {
+            Map<BlockPos, BlockState> targetHull = layout(anchor, turns, rig, fabric, geometry);
+            for (Cargo entry : snapshot.cargo()) {
+                if (targetHull.containsKey(world(anchor, turns, entry.x(), entry.y(), entry.z()))) {
+                    org.slf4j.LoggerFactory.getLogger(FirstShipBlockHull.class).warn(
+                            "Cannot reshape occupied V10 ship: cargo at {},{},{} intersects new hull",
+                            entry.x(), entry.y(), entry.z());
+                    return null;
+                }
+            }
+        }
         ListTag list = new ListTag();
         for (Cargo c : snapshot.cargo()) {
             CompoundTag data = new CompoundTag();
