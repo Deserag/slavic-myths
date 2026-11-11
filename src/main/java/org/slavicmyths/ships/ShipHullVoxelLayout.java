@@ -221,7 +221,7 @@ public final class ShipHullVoxelLayout {
         // Placing a timber ceiling above it works both with world blocks and
         // the palette-based moving renderer; moving dynamic block light still
         // requires a separate in-game verification.
-        for (int z = -halfLength + 3; z <= halfLength - 3; z += 5) {
+        for (int z = -halfLength + 2; z <= halfLength - 2; z += 5) {
             if (halfBeamV2(plan, z) < 2 || Math.abs(z) <= 2) continue;
             Cell lamp = new Cell(0, 2, z);
             if (!blocks.containsKey(lamp)) {
