@@ -25,11 +25,14 @@ public final class ShipVoxelProof {
         for (int z = -half; z <= half; z++) {
             int beam = ShipHullVoxelLayout.halfBeam(plan, z);
             for (int x = -beam; x <= beam; x++) {
-                check(blocks.containsKey(new ShipHullVoxelLayout.Cell(x, 0, z)),
-                        "Leaky bottom at " + x + "," + z);
-                check(blocks.get(new ShipHullVoxelLayout.Cell(-x, 0, z)) ==
-                        blocks.get(new ShipHullVoxelLayout.Cell(x, 0, z)),
-                        "Asymmetric keel at " + x + "," + z);
+                check(blocks.containsKey(new ShipHullVoxelLayout.Cell(x, 1, z)),
+                        "Leaky dry floor at " + x + "," + z);
+                check(blocks.get(new ShipHullVoxelLayout.Cell(-x, 1, z)) ==
+                        blocks.get(new ShipHullVoxelLayout.Cell(x, 1, z)),
+                        "Asymmetric dry floor at " + x + "," + z);
+                if (Math.abs(x) > Math.max(0, beam / 3))
+                    check(!blocks.containsKey(new ShipHullVoxelLayout.Cell(x, 0, z)),
+                            "Keel is too wide at " + x + "," + z);
             }
             for (int y = 1; y <= 3; y++)
                 for (int x : new int[] {-beam, beam})
