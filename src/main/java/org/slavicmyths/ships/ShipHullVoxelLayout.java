@@ -20,7 +20,7 @@ public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
         KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, SAIL,
-        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LIGHT, SAIL_TRIM, RIGGING
+        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LIGHT, SAIL_TRIM, RIGGING, BOWSPRIT
     }
 
     private static int beam(int width, int length, int z) {
@@ -208,6 +208,72 @@ public final class ShipHullVoxelLayout {
                 }
                 if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
             }
+        }
+
+        // V1 made every upper deck an almost full-length flat rectangle.
+        // Replace those decks with successively narrower aft decks and
+        // skylit side corridors, retaining the original captain's cabin roof.
+        blocks.entrySet().removeIf(entry -> {
+            Cell c = entry.getKey();
+            Part p = entry.getValue();
+            if (p == Part.FRAME && c.y() >= 5 && c.y() <= 11)
+                return !(c.x() == -3 && c.z() == 1);
+            if (p == Part.RAIL && (c.y() == 9 || c.y() == 13)) return true;
+            if (p != Part.DECK || (c.y() != 8 && c.y() != 12)) return false;
+            if (plan.cabin() && c.y() == 8) {
+                int rear = -halfLength + 2;
+                int side = Math.min(3, plan.hullWidth() / 2 - 2);
+                if (c.z() >= rear && c.z() <= rear + 6
+                        && Math.abs(c.x()) <= side) return false;
+            }
+            return true;
+        });
+        for (int floor = 2; floor <= plan.decks(); floor++) {
+            int level = 4 + (floor - 1) * 4;
+            int rear = -halfLength + 3;
+            int front = floor == 2 ? Math.max(2, halfLength / 4) : 1;
+            for (int z = rear; z <= front; z++) {
+                int half = Math.max(2, halfBeamV2(plan, z) - floor * 2);
+                for (int x = -half; x <= half; x++) {
+                    boolean hatch = x == -2 && (z == 0 || z == 1);
+                    if (!hatch) put(blocks, x, level, z, Part.DECK);
+                    if (Math.abs(x) == half && !hatch)
+                        put(blocks, x, level + 1, z, Part.RAIL);
+                }
+                // A solid weatherproof outer wall, spaced timber posts and
+                // genuine side windows give every internal floor its own hull.
+                for (int side : new int[]{-half, half}) {
+                    for (int y = level - 3; y < level; y++) {
+                        boolean window = y == level - 2 && Math.floorMod(z, 5) == 0;
+                        put(blocks, side, y, z,
+                                window ? Part.WINDOW : Part.CABIN_WALL);
+                    }
+                }
+            }
+        }
+
+        // A rising prow and a discrete water-safe bowsprit; the centerline
+        // remains closed and the hull footprint still ends at its versioned tip.
+        for (int z = halfLength - 4; z <= halfLength; z++) {
+            int half = halfBeamV2(plan, z);
+            int crest = z >= halfLength - 1 ? 7 : z >= halfLength - 3 ? 6 : 5;
+            for (int x = -half; x <= half; x++) {
+                for (int y = 5; y < crest; y++)
+                    if (!blocks.containsKey(new Cell(x, y, z)))
+                        put(blocks, x, y, z, Part.HULL);
+                if (Math.abs(x) == half) put(blocks, x, crest, z, Part.RAIL);
+            }
+        }
+        for (int z = halfLength + 1; z <= halfLength + 3; z++)
+            put(blocks, 0, 8 + (z - halfLength) / 2, z, Part.BOWSPRIT);
+
+        // Distinct curved stern transom, with visible lantern-lit rear trim.
+        for (int z = -halfLength; z <= -halfLength + 1; z++) {
+            int half = halfBeamV2(plan, z);
+            for (int x = -half; x <= half; x++)
+                if (Math.abs(x) >= half - 1)
+                    for (int y = 5; y <= (z == -halfLength ? 7 : 6); y++)
+                        put(blocks, x, y, z, Part.HULL);
         }
 
         // Restore the through-deck stairwell and its backing after remodeling.
