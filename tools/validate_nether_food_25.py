@@ -110,6 +110,8 @@ def audit_material(id):
             raw = require(path).read_bytes()
             if raw[:8] != PNG_SIGNATURE or raw[12:16] != b"IHDR":
                 raise AssertionError(f"Invalid material PNG: {id} -> {path}")
+        elif id in ("lomeya_shard", "neveya_shard") and target.startswith("minecraft:"):
+            raise AssertionError(f"Vanilla placeholder in approved new shard {id}/{slot}: {target}")
         elif not target.startswith("minecraft:"):
             raise AssertionError(f"Unresolved material texture namespace: {id}/{slot}: {target}")
     for element in obj.get("elements", []):
@@ -146,6 +148,45 @@ def check_creative_catalog():
 def check_source():
     blocks = require(ROOT / "src/main/java/org/slavicmyths/registry/ModBlocks.java").read_text()
     items = require(ROOT / "src/main/java/org/slavicmyths/registry/ModItems.java").read_text()
+    # Approved 2.5 food reference: check every PNG and its actual item model.
+    reference_items = (
+        "garlic", "garlic_clove", "horseradish", "horseradish_cutting", "black_radish",
+        "black_radish_seeds", "mustard_seeds", "onion", "onion_set", "heatroot",
+        "ash_mushroom", "crimson_pepper", "ash_horseradish", "coal_garlic",
+        "heat_berries", "heat_berry_cutting", "coal_plum", "coal_plum_sapling",
+        "sernica", "sernica_seeds", "infernal_shchi", "druzhina_roast",
+        "onion_pie", "garlic_flatbread", "infernal_mushroom_soup", "roasted_roots",
+        "coal_plum_pie", "heat_berry_jam", "mushroom_onion_pie", "spicy_sbiten",
+        "heat_berry_mors", "spiced_honey_drink", "spicy_beer", "heat_berry_beer",
+        "coal_plum_beer", "spicy_beer_wort", "heat_berry_beer_wort",
+        "coal_plum_beer_wort", "heat_berry_mash", "coal_plum_mash",
+        "black_pepper", "ground_black_pepper", "ground_hot_pepper",
+        "ground_mustard", "grated_horseradish", "roasted_hot_pepper",
+        "lomeya_shard", "neveya_shard",
+    )
+    drinks = {"spicy_sbiten", "heat_berry_mors", "spiced_honey_drink", "spicy_beer", "heat_berry_beer", "coal_plum_beer"}
+    for item_id in reference_items:
+        model_id = item_id + "_mug" if item_id in drinks else item_id
+        model(model_id, f"slavicmyths:item/{item_id}")
+    stage_names = ("garlic", "horseradish", "radish", "mustard", "onion", "hot_pepper",
+                   "heatroot", "ash_mushroom", "ash_horseradish", "coal_garlic",
+                   "sernica", "berries", "plum")
+    for plant_id in stage_names:
+        digests = []
+        for age in range(4):
+            p = ASSET / "textures/block" / f"{plant_id}_stage{age}.png"
+            png(p)
+            digests.append(hashlib.sha256(p.read_bytes()).digest())
+        if len(set(digests)) != 4:
+            raise AssertionError(f"Indistinguishable / duplicated crop frames: {plant_id}")
+    distinct = (("onion", "onion_set"), ("black_pepper", "ground_black_pepper"),
+                ("garlic", "garlic_clove"), ("horseradish", "horseradish_cutting"),
+                ("lomeya_shard", "neveya_shard"))
+    for left, right in distinct:
+        l = require(ASSET / "textures/item" / (left + ".png")).read_bytes()
+        r = require(ASSET / "textures/item" / (right + ".png")).read_bytes()
+        if l == r:
+            raise AssertionError(f"Different ingredients share a placeholder sprite: {left}/{right}")
     for id in CROPS:
         crop(id)
         if blocks.count(f'BLOCKS.register("{id}_crop"') != 1 or items.count(f'ITEMS.register("{id}"') != 1:
@@ -180,7 +221,7 @@ def check_source():
             raise AssertionError(f"Invalid vat recipe {id}")
         model(id + "_mug", f"slavicmyths:item/{id}")
         if alcohol:
-            model(id + "_wort", f"slavicmyths:item/{id}")
+            model(id + "_wort", f"slavicmyths:item/{id}_wort")
     check_creative_catalog()
     for locale in ("ru_ru", "en_us"):
         lang = json_file(ASSET / "lang" / (locale + ".json"))
@@ -198,7 +239,7 @@ def check_source():
             raise AssertionError("Missing survivor-accessible pepper roasting")
     for id in SISTER_INGOTS + SISTER_SHARDS + SISTER_OTHER + BOSS_MATERIALS:
         audit_material(id)
-    print('ART_REFERENCE_BLOCKED: lomeya_shard refers to agneya_magma; neveya_shard uses vanilla block textures. No owner-approved replacements supplied.')
+    print('ART_PENDING_OWNER: original food/plant pixel resources present; Minecraft GUI screenshots and owner reference review NOT_RUN.')
     return len(evidence)
 
 

@@ -28,7 +28,7 @@ function bulb(a,t){let p=t==="coal"?PAL.coal:t==="onion"?PAL.gold:t==="black"?PA
  if(t==="coal")for(const [x,y] of [[4,11],[6,8],[8,13],[10,7],[11,11]])px(a,x,y,PAL.red[(x+y)%3+2]);
 }
 function root(a,t="horseradish"){let p=t==="ash_horseradish"?PAL.cream:PAL.root;pg(a,[[6,4],[10,5],[11,9],[9,12],[6,15],[5,11]],p);ln(a,7,7,7,13,p[4]);ln(a,9,8,9,11,p[1]);leaf(a,7,4,.9,t==="ash_horseradish"?PAL.ashgreen:PAL.green);}
-function peppers(a,t="crimson_pepper"){let p=t==="roasted_hot_pepper"?PAL.coal:PAL.red;ln(a,7,4,9,2,PAL.green[1]);pg(a,[[6,4],[10,4],[12,6],[12,10],[9,14],[8,12],[9,8]],p);ln(a,9,5,10,10,p[4]);pg(a,[[3,5],[6,5],[8,7],[7,10],[4,13],[5,9]],p);pg(a,[[11,6],[13,7],[14,10],[12,13],[10,12],[12,9]],p);}
+function peppers(a,t="crimson_pepper"){if(t==="hot_pepper"){ln(a,7,4,9,2,PAL.green[2]);pg(a,[[6,4],[9,4],[11,7],[10,11],[7,15],[6,11],[7,7]],PAL.red);ln(a,8,5,9,10,PAL.red[4]);return;}let p=t==="roasted_hot_pepper"?PAL.coal:PAL.red;ln(a,7,4,9,2,PAL.green[1]);pg(a,[[6,4],[10,4],[12,6],[12,10],[9,14],[8,12],[9,8]],p);ln(a,9,5,10,10,p[4]);pg(a,[[3,5],[6,5],[8,7],[7,10],[4,13],[5,9]],p);pg(a,[[11,6],[13,7],[14,10],[12,13],[10,12],[12,9]],p);}
 function mushroom(a){ln(a,6,8,6,14,PAL.ash[3],2);ln(a,11,7,11,13,PAL.ash[2],2);el(a,6,7,4.5,2.5,PAL.ash);el(a,11,6,3.6,2.5,PAL.ash);ln(a,4,8,8,8,PAL.ash[1]);px(a,5,6,PAL.ash[4]);px(a,11,5,PAL.ash[4]);}
 function berries(a){ln(a,8,2,8,13,PAL.green[2]);for(const [x,y] of [[4,5],[11,4],[3,9],[10,8],[5,12],[12,12]]){ln(a,8,y,x,y-1,PAL.green[1]);el(a,x,y,2,2,PAL.berry);px(a,x-1,y-1,PAL.berry[4]);}leaf(a,8,4,.75);}
 function plum(a){ln(a,8,4,8,2,PAL.green[2]);leaf(a,8,4,.8);el(a,5.5,10,4,4.7,PAL.plum);el(a,11,10.5,3.3,4.3,PAL.plum);px(a,4,8,PAL.plum[4]);px(a,10,9,PAL.plum[4]);}
