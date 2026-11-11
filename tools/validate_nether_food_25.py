@@ -170,9 +170,9 @@ def check_creative_catalog():
         indices = [food.index(item) for item in group]
         if indices != list(range(indices[0], indices[0] + len(indices))):
             raise AssertionError(f"Creative crops/ingredients must be adjacent and ordered: {group}")
-    if not max(food.index(item) for group in groups for item in group) < food.index("infernal_shchi"):
+    if not max(food.index(item) for group in groups for item in group) < food.index("pea_soup"):
         raise AssertionError("Crops/ingredients must precede cooked meals")
-    if not food.index("infernal_shchi") < food.index("spicy_sbiten_mug"):
+    if not food.index("pea_soup") < food.index("spicy_sbiten_mug"):
         raise AssertionError("Ready meals must precede drinks")
 
 
