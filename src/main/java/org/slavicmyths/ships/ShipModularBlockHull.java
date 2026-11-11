@@ -67,6 +67,7 @@ public final class ShipModularBlockHull {
                     });
             case BRIDGE -> Blocks.DARK_OAK_PLANKS.defaultBlockState();
             case HELM -> Blocks.DARK_OAK_FENCE.defaultBlockState();
+            case LIGHT -> Blocks.LANTERN.defaultBlockState();
         };
     }
 
