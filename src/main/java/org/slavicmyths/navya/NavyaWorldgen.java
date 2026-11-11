@@ -29,7 +29,15 @@ public final class NavyaWorldgen {
         var registries=event.getServer().registryAccess();
         var biome=registries.registryOrThrow(Registries.BIOME).getHolder(BIOME);
         var preset=registries.registryOrThrow(Registries.MULTI_NOISE_BIOME_SOURCE_PARAMETER_LIST).get(net.minecraft.world.level.biome.MultiNoiseBiomeSourceParameterLists.NETHER);
-        if(biome.isPresent()&&preset!=null)((NavyaPresetAccess)(Object)preset).slavicmyths$append(biome.get());
+        var holders=new java.util.ArrayList<net.minecraft.core.Holder<Biome>>();
+        for(var key:java.util.List.of(BIOME,org.slavicmyths.blackcinder.CinderWorldgen.BIOME,org.slavicmyths.losthalls.HallsContent.BIOME,org.slavicmyths.burningislands.IslandsContent.BIOME)){
+            var found=registries.registryOrThrow(Registries.BIOME).getHolder(key);
+            if(found.isPresent()){
+                holders.add(found.get());
+                if(preset!=null)((NavyaPresetAccess)(Object)preset).slavicmyths$append(found.get());
+            }
+        }
+        NetherBiomeRuntime.install(holders);
     }
     public static void init(){ }
     private NavyaWorldgen(){ }
