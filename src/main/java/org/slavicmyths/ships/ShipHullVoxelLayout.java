@@ -95,6 +95,31 @@ public final class ShipHullVoxelLayout {
             }
         }
 
+        // Raised, tapered forecastle. A real enclosed two-block-high space
+        // remains below its deck and a side ladder reaches the upper walk.
+        if (plan.hullLength() >= 21) {
+            int foreRear = halfLength - 7, foreFront = halfLength - 2;
+            for (int z = foreRear; z <= foreFront; z++) {
+                int side = Math.max(1, halfBeam(plan, z) - 1);
+                for (int x = -side; x <= side; x++) {
+                    boolean edge = Math.abs(x) == side || z == foreFront || z == foreRear;
+                    if (edge && !(z == foreRear && x == 0)) {
+                        for (int y = 5; y <= 6; y++)
+                            put(blocks, x, y, z, Part.CABIN_WALL);
+                        if (Math.abs(x) == side && z == foreRear + 2)
+                            put(blocks, x, 6, z, Part.HULL_WINDOW);
+                    }
+                    put(blocks, x, 7, z, Part.DECK);
+                    if (edge) put(blocks, x, 8, z, Part.RAIL);
+                }
+            }
+            for (int y = 5; y <= 7; y++) {
+                put(blocks, -3, y, foreRear - 1, Part.FRAME);
+                put(blocks, -2, y, foreRear - 1, Part.LADDER);
+            }
+            put(blocks, 0, 6, foreRear + 2, Part.LIGHT);
+        }
+
         // Separate square-rigged panels, stepped edges and staggered mast heights.
         // The sails remain a blueprint preview until the sail palette is enabled
         // in the moving-ship renderer.
