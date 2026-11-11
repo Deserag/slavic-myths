@@ -14,7 +14,7 @@ CROPS = ("heatroot", "ash_mushroom", "ash_horseradish", "coal_garlic")
 GROWING = CROPS + ("sernica",)
 DISHES = ("infernal_shchi", "druzhina_roast", "onion_pie", "garlic_flatbread", "infernal_mushroom_soup", "roasted_roots", "coal_plum_pie", "heat_berry_jam", "mushroom_onion_pie")
 DRINKS = ("spicy_sbiten", "heat_berry_mors", "spiced_honey_drink", "spicy_beer", "heat_berry_beer", "coal_plum_beer")
-PNG_SIGNATURE = b"\\x89PNG\\r\\n\\x1a\\n"
+PNG_SIGNATURE = bytes((137, 80, 78, 71, 13, 10, 26, 10))
 evidence = set()
 
 
