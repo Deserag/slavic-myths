@@ -1,0 +1,42 @@
+name: Ship 2.6 V2 Java21 NeoForge build (no game launch)
+
+on:
+  push:
+    branches:
+      - 'feat/2.6-ship-rigging-light-regressions-20261111'
+    paths:
+      - 'src/main/java/org/slavicmyths/ships/**'
+      - 'tools/ship-section-tests/**'
+      - '.github/workflows/ship-v2-neoforge-build.yml'
+  pull_request:
+    paths:
+      - 'src/main/java/org/slavicmyths/ships/**'
+      - '.github/workflows/ship-v2-neoforge-build.yml'
+
+jobs:
+  compile-mod:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Compile and assemble production mod (no Minecraft client or server)
+        shell: bash
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon build
+      - name: Check packed production jar
+        shell: bash
+        run: |
+          find build/libs -maxdepth 1 -type f -name '*.jar' -print -exec sha256sum {} \;
+          test "$(find build/libs -maxdepth 1 -type f -name '*.jar' | wc -l)" -ge 1
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: slavic-myths-ship-v2-jar
+          path: build/libs/*.jar
+          if-no-files-found: error
