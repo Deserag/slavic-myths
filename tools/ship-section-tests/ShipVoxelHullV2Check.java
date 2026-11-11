@@ -68,6 +68,12 @@ public final class ShipVoxelHullV2Check {
                             == ShipHullVoxelLayout.Part.DECK,
                             "hanging lantern supported by real deck");
         }
+        // Legacy cargo is on the main deck at x=+/-1..3, y=5.
+        // Structural upgrades must not bury player inventories in a side wall.
+        if (decks >= 2)
+            for (int x : new int[]{-1, 1, 2, 3})
+                check(!voxels.containsKey(new ShipHullVoxelLayout.Cell(x, 5, 0)),
+                        "clear main-deck cargo station " + type + " x=" + x);
         if (decks >= 3)
             check(voxels.get(new ShipHullVoxelLayout.Cell(2, 12, 0))
                     == ShipHullVoxelLayout.Part.DECK,
