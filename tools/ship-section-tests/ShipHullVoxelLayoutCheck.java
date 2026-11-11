@@ -104,6 +104,10 @@ public final class ShipHullVoxelLayoutCheck {
             yes(ShipHullVoxelLayout.halfBeam(config, halfLength, 2) == 0, "V2 pointed bow");
             yes(ShipHullVoxelLayout.halfBeam(config, -halfLength, 2) == 1, "V2 tapered stern");
             yes(ShipHullVoxelLayout.halfBeam(config, 0, 2) > 1, "V2 broad midship");
+            yes(v2.get(new ShipHullVoxelLayout.Cell(0, 6, halfLength))
+                    == ShipHullVoxelLayout.Part.DECK, "V2 raised bow weatherdeck");
+            yes(v2.get(new ShipHullVoxelLayout.Cell(0, 5, -halfLength))
+                    == ShipHullVoxelLayout.Part.DECK, "V2 raised stern weatherdeck");
             yes(ShipHullVoxelLayout.halfBeam(config, 0, 2)
                     > ShipHullVoxelLayout.halfBeam(config, halfLength - 2, 2),
                     "V2 bow tapers gradually");
