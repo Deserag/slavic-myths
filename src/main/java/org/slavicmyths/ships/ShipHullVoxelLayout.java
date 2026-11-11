@@ -103,8 +103,9 @@ public final class ShipHullVoxelLayout {
             int z = masts.get(i), tier = plan.sailTiers().get(i);
             int mastTop = (tier == 1 ? 12 : tier == 2 ? 16 : 20)
                     + (masts.size() > 1 && i == masts.size() / 2 ? 2 : 0);
-            int span = Math.min(plan.hullWidth() / 2 - 1,
-                    tier == 1 ? 2 : tier == 2 ? 3 : 4);
+            int span = Math.min(plan.hullWidth() / 2 - 2,
+                    tier == 1 ? 3 : tier == 2 ? Math.max(4, plan.hullWidth() / 3)
+                            : Math.max(5, plan.hullWidth() / 3));
             for (int y = 5; y <= mastTop + 1; y++)
                 put(blocks, 0, y, z, Part.MAST);
             if (plan.shipClass() == ShipSectionPlan.ShipClass.SMALL) {
