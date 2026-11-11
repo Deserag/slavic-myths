@@ -151,6 +151,7 @@ def check_creative_catalog():
             raise AssertionError(f"Invalid or duplicate creative catalog row: {line}")
         catalog[fields[0]] = (fields[1], fields[2])
     expected = {id: ("food", "ingredients") for id in CROPS}
+    expected.update({id: ("food", "meals") for id in DISHES})
     expected.update({id + "_mug": ("food", "drinks") for id in DRINKS})
     expected.update({id + "_wort": ("hidden", "brewing_batches") for id in DRINKS if id.endswith("_beer")})
     for id, category in expected.items():
@@ -170,9 +171,11 @@ def check_creative_catalog():
         indices = [food.index(item) for item in group]
         if indices != list(range(indices[0], indices[0] + len(indices))):
             raise AssertionError(f"Creative crops/ingredients must be adjacent and ordered: {group}")
-    if not max(food.index(item) for group in groups for item in group) < food.index("pea_soup"):
+    if not max(food.index(item) for group in groups for item in group) < food.index("infernal_shchi"):
         raise AssertionError("Crops/ingredients must precede cooked meals")
-    if not food.index("pea_soup") < food.index("spicy_sbiten_mug"):
+    if [food.index(id) for id in DISHES] != list(range(food.index(DISHES[0]), food.index(DISHES[0]) + len(DISHES))):
+        raise AssertionError("New kitchen dishes must appear together before drinks")
+    if not food.index("infernal_shchi") < food.index("spicy_sbiten_mug"):
         raise AssertionError("Ready meals must precede drinks")
 
 
