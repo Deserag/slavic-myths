@@ -633,6 +633,47 @@ public final class Ocean26GameTests {
         t.succeed();
     }
 
+    @GameTest(template = "empty", timeoutTicks = 60, batch = "ocean_shaped_hull_compat")
+    public static void shapedHullV2PreservesLegacyBlueprintGeometry(GameTestHelper t) {
+        var type = org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE;
+        var legacy = new org.slavicmyths.ships.ShipBuildConfiguration(
+                type, 0, 0, java.util.List.of(1), 1, false, false);
+        var fresh = org.slavicmyths.ships.ShipBuildConfiguration.initial(type);
+        t.assertTrue(legacy.hullVersion() == 1 && fresh.hullVersion() == 2,
+                "Old and newly crafted hulls need distinct geometry versions");
+        t.assertTrue(org.slavicmyths.ships.ShipBuildConfiguration.load(legacy.save())
+                        .equals(legacy)
+                && org.slavicmyths.ships.ShipBuildConfiguration.fromWire(legacy.wire())
+                        .equals(legacy)
+                && org.slavicmyths.ships.ShipBuildConfiguration.load(fresh.save())
+                        .equals(fresh)
+                && org.slavicmyths.ships.ShipBuildConfiguration.fromWire(fresh.wire())
+                        .equals(fresh),
+                "Both legacy and V2 hull blueprints must round-trip without loss");
+        var oldCells = org.slavicmyths.ships.ShipHullVoxelLayout.generate(legacy.structure());
+        var keptOld = org.slavicmyths.ships.ShipHullVoxelLayout.generate(
+                legacy.structure(), legacy.hullVersion());
+        var shaped = org.slavicmyths.ships.ShipHullVoxelLayout.generate(
+                fresh.structure(), fresh.hullVersion());
+        t.assertTrue(oldCells.equals(keptOld), "Previously saved V1 hull was reshaped");
+        t.assertTrue(!oldCells.equals(shaped), "V2 geometry must not repeat the tray-shaped V1 hull");
+        int bow = fresh.length() / 2 - 4;
+        t.assertTrue(org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
+                    fresh.structure(), bow, fresh.hullVersion())
+                    < org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
+                            legacy.structure(), bow, legacy.hullVersion()),
+                "V2 bow should taper along more than the last four rows");
+        for (int z = -fresh.length() / 2; z <= fresh.length() / 2; z++) {
+            int beam = org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
+                    fresh.structure(), z, fresh.hullVersion());
+            for (int x = -beam; x <= beam; x++)
+                t.assertTrue(shaped.containsKey(new org.slavicmyths.ships.ShipHullVoxelLayout.Cell(
+                            x, 0, z)),
+                        "V2 bilge floor must remain closed at x=" + x + ", z=" + z);
+        }
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular")
     public static void modularMediumShipRebuildsWithCargo(GameTestHelper t) {
         ServerLevel level = t.getLevel();

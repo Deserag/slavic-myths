@@ -32,29 +32,93 @@ public final class ShipHullVoxelLayout {
         return Math.max(tip, halfWidth - reduction);
     }
 
-    public static int halfBeam(ShipSuperstructurePlan plan, int z) {
-        return beam(plan.hullWidth(), plan.hullLength(), z);
+    /** V2 has a long rounded bow and a broad transom instead of a rectangular barge. */
+    private static int shapedBeam(int width, int length, int z) {
+        int halfWidth = width / 2, halfLength = length / 2;
+        if (Math.abs(z) > halfLength) return -1;
+        if (z == halfLength) return 0;
+        int bowDistance = halfLength - z, sternDistance = halfLength + z;
+        double bowRun = Math.max(5D, Math.round(length * .28D));
+        double sternRun = Math.max(4D, Math.round(length * .21D));
+        int bow = Math.max(1, (int)Math.ceil(halfWidth
+                * Math.sqrt(Math.min(1D, bowDistance / bowRun))));
+        int stern = Math.max(1, (int)Math.ceil(halfWidth
+                * Math.sqrt(Math.min(1D, (sternDistance + 1D) / sternRun))));
+        return Math.min(halfWidth, Math.min(bow, stern));
     }
 
+    public static int halfBeam(ShipSuperstructurePlan plan, int z) {
+        return halfBeam(plan, z, 1);
+    }
+
+    public static int halfBeam(ShipSuperstructurePlan plan, int z, int version) {
+        if (version == 1) return beam(plan.hullWidth(), plan.hullLength(), z);
+        if (version == 2) return shapedBeam(plan.hullWidth(), plan.hullLength(), z);
+        throw new IllegalArgumentException("Unsupported ship hull layout");
+    }
+
+    /** Legacy callers keep the exact V1 geometry. */
     public static Map<Cell, Part> generate(ShipSuperstructurePlan plan) {
+        return generate(plan, 1);
+    }
+
+    public static Map<Cell, Part> generate(ShipSuperstructurePlan plan, int version) {
         if (plan == null) throw new IllegalArgumentException("Missing ship plan");
+        if (version != 1 && version != 2)
+            throw new IllegalArgumentException("Unsupported ship hull layout");
         Map<Cell, Part> blocks = new LinkedHashMap<>();
         int halfLength = plan.hullLength() / 2;
 
-        // Full-block keel, dry hold and weather deck with shaped ends.
+        // V1 is byte-for-byte the existing hull. V2 adds a long curved sheer,
+        // broad immersed chine, narrowed upper deck and timber bulwarks.
+        // The closed full-width floor stays at Y=0 to preserve the dry hold.
         for (int z = -halfLength; z <= halfLength; z++) {
-            int half = halfBeam(plan, z);
+            int half = halfBeam(plan, z, version);
+            // A 7-block beam must retain its original deck cargo positions:
+            // x=±2 cannot become decorative railing on the smallest class.
+            int deckInset = version == 2 && plan.hullWidth() > 7 ? 1 : 0;
+            int deckHalf = Math.max(0, half - deckInset);
+            int previous = halfBeam(plan, z - 1, version);
+            int next = halfBeam(plan, z + 1, version);
             for (int x = -half; x <= half; x++) {
                 put(blocks, x, 0, z, x == 0 ? Part.KEEL : Part.HULL);
                 boolean edge = Math.abs(x) == half
-                        || Math.abs(x) > halfBeam(plan, z - 1)
-                        || Math.abs(x) > halfBeam(plan, z + 1);
-                if (edge) for (int y = 1; y <= 3; y++)
-                    put(blocks, x, y, z, Part.HULL);
-                else if (Math.floorMod(z, 3) == 0)
-                    put(blocks, x, 3, z, Part.FRAME);
-                if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
-                if (edge) put(blocks, x, 5, z, Part.RAIL);
+                        || Math.abs(x) > previous || Math.abs(x) > next;
+                if (version == 1) {
+                    if (edge) for (int y = 1; y <= 3; y++)
+                        put(blocks, x, y, z, Part.HULL);
+                    else if (Math.floorMod(z, 3) == 0)
+                        put(blocks, x, 3, z, Part.FRAME);
+                    if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
+                    if (edge) put(blocks, x, 5, z, Part.RAIL);
+                } else {
+                    // Stepped outer chine makes the upper deck visibly narrower
+                    // while the continuous keel and bilge keep water out.
+                    if (edge) for (int y = 1; y <= 2; y++)
+                        put(blocks, x, y, z, Part.HULL);
+                    boolean upperEdge = Math.abs(x) == deckHalf
+                            || Math.abs(x) > Math.max(0, previous - deckInset)
+                            || Math.abs(x) > Math.max(0, next - deckInset);
+                    if (Math.abs(x) <= deckHalf) {
+                        if (upperEdge) put(blocks, x, 3, z, Part.HULL);
+                        else if (Math.floorMod(z, 4) == 0)
+                            put(blocks, x, 3, z, Part.FRAME);
+                        if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
+                        if (upperEdge && !mainHatch(x, z)) {
+                            boolean highBulwark = z <= -halfLength + 4
+                                    || z >= halfLength - 5;
+                            Part rim = highBulwark ? Part.HULL
+                                    : Math.floorMod(z, 6) == 0 ? Part.FRAME : Part.RAIL;
+                            put(blocks, x, 5, z, rim);
+                            if (z == -halfLength && Math.abs(x) == deckHalf)
+                                put(blocks, x, 6, z, Part.FRAME);
+                        }
+                    }
+                    if (x == 0 && z >= halfLength - 1) {
+                        put(blocks, x, 5, z, Part.HULL);
+                        if (z == halfLength) put(blocks, x, 6, z, Part.HULL);
+                    }
+                }
             }
         }
         // Access shaft and actual ladders, aligned through every built deck.
@@ -71,7 +135,8 @@ public final class ShipHullVoxelLayout {
             int front = halfLength - 3 * (floor - 1);
             int rear = -halfLength + 2;
             for (int z = rear; z <= front; z++) {
-                int half = Math.max(0, halfBeam(plan, z) - 1);
+                int half = Math.max(0, halfBeam(plan, z, version)
+                        - (version == 2 ? 2 : 1));
                 for (int x = -half; x <= half; x++) {
                     boolean hatch = x == -2 && (z == 0 || z == 1);
                     if (!hatch) put(blocks, x, y, z, Part.DECK);
