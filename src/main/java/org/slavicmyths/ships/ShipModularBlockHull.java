@@ -172,7 +172,7 @@ public final class ShipModularBlockHull {
         for (int z = -halfLength; z <= halfLength; z++)
             for (int x = -halfWidth; x <= halfWidth; x++)
                 for (int y = 1; y <= maxY; y++) {
-                    if (Math.abs(x) > ShipHullVoxelLayout.halfBeam(structure, z))
+                    if (Math.abs(x) > ShipHullVoxelLayout.halfBeam(structure, z, config.layoutVersion()))
                         continue;
                     BlockPos world = FirstShipBlockHull.world(anchor, turns, x, y, z);
                     if (!level.hasChunkAt(world)) return null;
