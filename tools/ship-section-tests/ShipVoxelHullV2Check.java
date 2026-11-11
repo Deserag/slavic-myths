@@ -68,6 +68,14 @@ public final class ShipVoxelHullV2Check {
                             == ShipHullVoxelLayout.Part.DECK,
                             "hanging lantern supported by real deck");
         }
+        if (decks >= 3)
+            check(voxels.get(new ShipHullVoxelLayout.Cell(2, 12, 0))
+                    == ShipHullVoxelLayout.Part.DECK,
+                    "third deck must not be replaced by a sail " + type);
+        if (decks >= 2)
+            check(voxels.get(new ShipHullVoxelLayout.Cell(2, 8, 0))
+                    == ShipHullVoxelLayout.Part.DECK,
+                    "second deck must not be replaced by a sail " + type);
         check(!ShipHullVoxelLayout.count(voxels).isEmpty(), "count materials");
     }
 
