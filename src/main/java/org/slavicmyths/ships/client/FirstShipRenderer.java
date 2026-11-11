@@ -138,14 +138,17 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             pose.popPose();
         }
         if (ship.geometryVersion() < 5) return;
-        BlockPos daylight = BlockPos.containing(ship.getX(), ship.deckY() + 2D, ship.getZ());
+        FirstShipHull.Point wheelWorld = FirstShipHull.toWorld(0D, ship.helmWheelZ(),
+                ship.getX(), ship.getZ(), ship.isMoving() ? yaw : ship.shipYaw());
+        BlockPos daylight = BlockPos.containing(wheelWorld.x(),
+                ship.getY() + ship.helmSeatHeight() + 2D, wheelWorld.z());
         int deckLight = net.minecraft.client.renderer.LightTexture.pack(
                 ship.level().getBrightness(net.minecraft.world.level.LightLayer.BLOCK, daylight),
                 ship.level().getBrightness(net.minecraft.world.level.LightLayer.SKY, daylight));
         pose.pushPose();
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
         var config = ship.modularConfiguration();
-        double helmZ = config == null ? -4D : ship.helmWheelZ();
+        double helmZ = ship.helmWheelZ();
         double helmHeight = config == null ? FirstShipHull.MAIN_DECK : ship.helmSeatHeight();
         pose.translate(0D, helmHeight, helmZ);
         // The same eight-spoke wooden steering wheel already used by rafts.
@@ -240,23 +243,29 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             }
         }
         // Boltrope and lashing points remain visible from either side.
-        for (double x : new double[]{-span, span})
-            piece(Blocks.OAK_PLANKS.defaultBlockState(), pose, buffers, light,
-                    x, bottom, .16D, .055F, (float)height, .055F);
+        for (int row = 0; row < 5; row++) {
+            double v = (row + .5D) / 5D;
+            double edge = span * (.78D + .22D * Math.sin(Math.PI * v));
+            for (double x : new double[]{-edge, edge})
+                piece(Blocks.OAK_PLANKS.defaultBlockState(), pose, buffers, light,
+                        x, bottom + row * height / 5D, .16D,
+                        .055F, (float)(height / 5D), .055F);
+        }
         for (double y : new double[]{bottom, bottom + height - .08D})
-            piece(seam, pose, buffers, light, -span, y, .17D,
-                    (float)(span * 2D), .08F, .025F);
+            piece(seam, pose, buffers, light, -span * .78D, y, .17D,
+                    (float)(span * 1.56D), .08F, .025F);
     }
 
     private void sailVertex(VertexConsumer out, PoseStack pose, FirstShipEntity ship,
             float partialTick, int light, float red, float green, float blue,
             int column, int row, double bottom, double height, int span) {
         float u = column / 8F, v = row / 5F;
-        double x = span * (2D * u - 1D);
+        double shoulder = .78D + .22D * Math.sin(Math.PI * v);
+        double x = span * shoulder * (2D * u - 1D);
         double y = bottom + height * v;
         double widthShape = 1D - (x * x) / (span * span);
         double heightShape = Math.sin(Math.PI * v);
-        double belly = .12D + .95D * widthShape * heightShape;
+        double belly = .10D + .70D * widthShape * heightShape;
         double wind = Math.sin((ship.tickCount + partialTick) * .075D + x * .6D) * .045D
                 * heightShape;
         float slopeX = (float)(-.95D * 2D * x / (span * span) * heightShape);

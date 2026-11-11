@@ -743,6 +743,8 @@ if (project.hasProperty('ocean26ClientProbe')) {
             systemProperty 'ocean26.hold', project.hasProperty('ocean26HoldProbe') ? 'true' : 'false'
             systemProperty 'ocean26.visual', project.hasProperty('ocean26VisualProbe') ? 'true' : 'false'
             systemProperty 'ocean26.modularVisual', project.hasProperty('ocean26ModularVisualProbe') ? 'true' : 'false'
+            systemProperty 'ocean26.shipClass', project.findProperty('ocean26ShipClass') ?: 'MEDIUM'
+            systemProperty 'ocean26.longForward', project.hasProperty('ocean26LongForwardProbe') ? 'true' : 'false'
             programArgument '--quickPlaySingleplayer'
             programArgument (project.findProperty('ocean26ProbeWorld') ?: 'OCEAN26_WORLD_REQUIRED')
         }

@@ -38,8 +38,11 @@ public final class FirstShipMovingDeckEvents {
                 FirstShipEntity.class, player.getBoundingBox().inflate(36D, 20D, 36D))) {
             if (ship.isRemoved() || !ship.isMoving()) continue;
             boolean continuing = last != null && last.shipId() == ship.getId();
-            boolean newClientFrame = player.level().isClientSide
-                    && ship.clientPoseFrame() != (continuing ? last.poseFrame() : 0L);
+            // A newly dismounted player has already been placed at the
+            // CURRENT hull pose by vanilla. Reapplying the previous hull
+            // transform on that first free tick caused a visible snap.
+            boolean newClientFrame = player.level().isClientSide && continuing
+                    && ship.clientPoseFrame() != last.poseFrame();
             double oldX = newClientFrame ? ship.clientPreviousX() : ship.getX();
             double oldZ = newClientFrame ? ship.clientPreviousZ() : ship.getZ();
             double oldYaw = newClientFrame ? ship.clientPreviousYaw() : ship.getYRot();

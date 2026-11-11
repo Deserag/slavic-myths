@@ -18,12 +18,14 @@ import net.minecraft.world.level.block.state.BlockState;
  * sailing. Unloaded chunks are treated as solid, not teleported through.
  */
 public final class ShipMovingContraption {
+    public enum TravelMode { WATER, AIR }
     private final FirstShipBlockHull.MotionSnapshot snapshot;
     private final ShipBuildConfiguration modular;
     private final int firstTurn;
     private final ListTag cargo;
     private final Map<BlockPos, BlockState> palette;
     private final int waterlineY;
+    private final TravelMode mode;
     private final ShipRigidMotion motion;
     private boolean detached;
     private boolean parked;
@@ -35,6 +37,7 @@ public final class ShipMovingContraption {
         this.firstTurn = snapshot.turn();
         this.cargo = snapshot.cargo();
         this.waterlineY = surfaceY;
+        this.mode = TravelMode.WATER;
         this.motion = motion;
         this.palette = FirstShipBlockHull.localMotionPalette(snapshot);
         this.detached = detached;
@@ -47,6 +50,7 @@ public final class ShipMovingContraption {
         this.firstTurn = Math.floorMod(turns, 4);
         this.cargo = cargo.copy();
         this.waterlineY = surfaceY;
+        this.mode = TravelMode.WATER;
         this.motion = motion;
         this.palette = ShipModularBlockHull.localMotionPalette(modular, cargo);
         if (this.palette.isEmpty()) throw new IllegalArgumentException("Invalid modular palette");
@@ -96,6 +100,8 @@ public final class ShipMovingContraption {
 
     public ShipRigidMotion.Frame tick(ServerLevel world, ShipRigidMotion.Control helm) {
         if (!detached || parked) throw new IllegalStateException("Cannot move an attached hull");
+        if (mode != TravelMode.WATER)
+            throw new IllegalStateException("Air travel requires a three-dimensional controller");
         ShipRigidMotion.Frame frame = motion.advance(helm,
                 pose -> ShipMovingClearance.clearPose(world, pose, waterlineY, palette));
         if (!frame.blocked() && !frame.before().equals(frame.after()))
@@ -131,6 +137,12 @@ public final class ShipMovingContraption {
     }
 
     public ShipRigidMotion.Pose pose() { return motion.pose(); }
+    public TravelMode mode() { return mode; }
+    public ShipRigidMotion.SpatialPose spatialPose() {
+        ShipRigidMotion.Pose current = motion.pose();
+        return new ShipRigidMotion.SpatialPose(current.x(), waterlineY,
+                current.z(), current.yaw(), 0D, 0D);
+    }
     public ShipRigidMotion motion() { return motion; }
     public FirstShipBlockHull.MotionSnapshot snapshot() {
         if (snapshot == null) return null;
@@ -162,6 +174,7 @@ public final class ShipMovingContraption {
     public CompoundTag save() {
         CompoundTag tag = new CompoundTag();
         tag.putInt("Version", 1);
+        tag.putString("TravelMode", mode().name());
         tag.putInt("Waterline", waterlineY);
         tag.putInt("Geometry", snapshot == null ? 9 : snapshot.geometry());
         tag.putInt("Rig", snapshot == null ? 0 : snapshot.rig());
@@ -181,6 +194,8 @@ public final class ShipMovingContraption {
 
     public static ShipMovingContraption load(CompoundTag tag) {
         if (tag == null || tag.getInt("Version") != 1
+                || tag.contains("TravelMode", Tag.TAG_STRING)
+                    && !TravelMode.WATER.name().equals(tag.getString("TravelMode"))
                 || !tag.contains("Cargo", Tag.TAG_LIST)
                 || !tag.contains("X", Tag.TAG_DOUBLE)
                 || !tag.contains("Z", Tag.TAG_DOUBLE)

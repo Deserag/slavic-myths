@@ -96,6 +96,8 @@ public final class FirstShipEntity extends Boat {
     private int clientMotionSteps;
     private double clientMotionX, clientMotionY, clientMotionZ;
     private float clientMotionYaw;
+    private double clientMotionSpeed, clientMotionTurn;
+    private int clientThrottleDirection;
     private long clientPoseFrame;
     private double clientPreviousX, clientPreviousZ;
     private float clientPreviousYaw;
@@ -106,16 +108,20 @@ public final class FirstShipEntity extends Boat {
     public float clientPreviousYaw() { return clientPreviousYaw; }
 
     /** Nearby clients receive an explicit pose even around a rider dismount. */
-    public void acceptCaptainMotionPose(double x, double y, double z, float yaw) {
+    public void acceptCaptainMotionPose(double x, double y, double z, float yaw,
+                                        double speed, double turn) {
         if (!level().isClientSide || !isMoving() || !Double.isFinite(x)
-                || !Double.isFinite(y) || !Double.isFinite(z) || !Float.isFinite(yaw)) return;
+                || !Double.isFinite(y) || !Double.isFinite(z) || !Float.isFinite(yaw)
+                || !Double.isFinite(speed) || !Double.isFinite(turn)) return;
         clientMotionX = x;
         clientMotionY = y;
         clientMotionZ = z;
         clientMotionYaw = yaw;
-        // Network packets can arrive in alternating client ticks. Ease toward
-        // each authoritative pose instead of jumping the full missed distance.
-        clientMotionSteps = 3;
+        clientMotionSpeed = Math.max(-ShipRigidMotion.MAX_REVERSE,
+                Math.min(ShipRigidMotion.MAX_FORWARD, speed));
+        clientMotionTurn = Math.max(-ShipRigidMotion.MAX_ANGULAR,
+                Math.min(ShipRigidMotion.MAX_ANGULAR, turn));
+        clientMotionSteps = 1;
     }
 
     @Override public void lerpTo(double x, double y, double z, float yaw, float pitch, int steps) {
@@ -127,6 +133,9 @@ public final class FirstShipEntity extends Boat {
         // Vanilla Boat tracking can arrive late and must not reverse it.
     }
     public boolean isMoving() { return entityData.get(MOVING); }
+    public void setClientThrottleDirection(int direction) {
+        if (level().isClientSide) clientThrottleDirection = Integer.compare(direction, 0);
+    }
     public String movingCargoView() { return entityData.get(MOTION_CARGO_VIEW); }
     public Map<BlockPos, net.minecraft.world.level.block.state.BlockState> serverMovingPalette() {
         return movingBody == null ? null : movingBody.palette();
@@ -134,8 +143,12 @@ public final class FirstShipEntity extends Boat {
     public double serverMovingSpeed() {
         return movingBody == null ? 0D : movingBody.motion().speed();
     }
+    public double serverMovingTurn() {
+        return movingBody == null ? 0D : movingBody.motion().angularVelocity();
+    }
     public void enableSmoothMotion() { smoothEnabled = true; }
     public void equipStarterSail() { setRigging(1, 1); setGeometryVersion(8); }
+    public void equipUpdatedStarterSail() { setRigging(1, 1); setGeometryVersion(10); }
 
 
     public BlockPos blockAnchor() {
@@ -160,11 +173,13 @@ public final class FirstShipEntity extends Boat {
     }
     public double helmSeatZ() {
         ShipBuildConfiguration config = modularConfiguration();
-        if (config == null) return FirstShipHull.HELM_Z;
-        return -config.length() / 2D + (config.bridge() ? 5D : config.cabin() ? 10D : 4D);
+        if (config == null) return FirstShipHull.HELM_Z - 1D;
+        return -config.length() / 2 + (config.bridge() ? 3D : config.cabin() ? 8D : 2D);
     }
 
-    public double helmWheelZ() { return helmSeatZ() - 1D; }
+    public double helmWheelZ() {
+        return helmSeatZ() + (modularConfiguration() == null ? .75D : 1D);
+    }
 
     public double helmSeatHeight() {
         ShipBuildConfiguration config = modularConfiguration();
@@ -329,6 +344,11 @@ public final class FirstShipEntity extends Boat {
                     anchor.getX() + .5D, anchor.getZ() + .5D, shipYaw());
             move.accept(passenger, seat.x(), anchor.getY() + helmSeatHeight() + .08D, seat.z());
         }
+        // The rider is carried by the hull transform. Retaining vanilla
+        // player/Boat velocity makes the camera drift between passenger
+        // updates and snap back to this seat every tick.
+        passenger.setDeltaMovement(Vec3.ZERO);
+        passenger.fallDistance = 0F;
     }
 
     /**
@@ -339,7 +359,9 @@ public final class FirstShipEntity extends Boat {
         if (!isNativeHull()) return super.getDismountLocationForPassenger(passenger);
         if (modularConfiguration() != null) {
             int floorIndex = modularConfiguration().bridge() ? 4 : 1;
-            double baseZ = helmSeatZ();
+            // Helm seats may sit on half coordinates for odd-length hulls;
+            // support cells are integer local block positions.
+            double baseZ = Math.round(helmSeatZ());
             for (double z : new double[]{baseZ + 1D, baseZ + 2D, baseZ - 1D, baseZ}) {
                 for (double x : new double[]{1D, -1D, 2D, -2D, 0D}) {
                     if (!ShipDeckContact.supports(this, x, z, floorIndex)) continue;
@@ -354,6 +376,9 @@ public final class FirstShipEntity extends Boat {
             }
             FirstShipHull.Point fallback = FirstShipHull.toWorld(0D,
                     baseZ + 2D, getX(), getZ(), getYRot());
+            org.slf4j.LoggerFactory.getLogger(FirstShipEntity.class).warn(
+                    "Modular ship dismount used elevated fallback: ship={} bridge={} baseZ={} pos={}",
+                    getUUID(), modularConfiguration().bridge(), baseZ, position());
             return new Vec3(fallback.x(), getY() + helmSeatHeight() + 3D, fallback.z());
         }
         double[][] safeCells = {{1D, -2D}, {-1D, -2D}, {0D, -2D},
@@ -463,7 +488,7 @@ public final class FirstShipEntity extends Boat {
                 || !pack.contains("Modules", Tag.TAG_LIST)) return false;
         int loadedGeometry = pack.contains("GeometryVersion", Tag.TAG_INT)
                 ? pack.getInt("GeometryVersion") : 2;
-        if (loadedGeometry < 2 || loadedGeometry > 9) return false;
+        if (loadedGeometry < 2 || loadedGeometry > 10) return false;
         ShipBuildConfiguration loadedModular = null;
         if (pack.contains(ShipBuildConfiguration.NBT_KEY, Tag.TAG_COMPOUND)) {
             try { loadedModular = ShipBuildConfiguration.load(pack.getCompound(ShipBuildConfiguration.NBT_KEY)); }
@@ -670,7 +695,7 @@ public final class FirstShipEntity extends Boat {
         FirstShipHull.Point local = FirstShipHull.toLocal(
                 player.getX(), player.getZ(), getX(), getZ(), shipYaw());
         if (Math.abs(local.x()) > 1.65D
-                || Math.abs(local.z() - helmSeatZ()) > 1.7D
+                || Math.abs(local.z() - helmSeatZ()) > 2.5D
                 || Math.abs(player.getY() - (getY() + helmSeatHeight())) > .9D) return false;
         FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, helmWheelZ(),
                 getX(), getZ(), shipYaw());
@@ -1215,33 +1240,60 @@ public final class FirstShipEntity extends Boat {
                         quarterTurns, rigLevel, fabricQuality)) setGeometryVersion(7);
             }
         }
+        if (!level().isClientSide && nativeHull && modularConfiguration == null
+                && (geometryVersion == 7 || geometryVersion == 8)
+                && !isMoving() && !isVehicle() && !hasWalkers()
+                && level() instanceof net.minecraft.server.level.ServerLevel server
+                && !hasOpenShipMenus(server)
+                && FirstShipBlockHull.migrateGeometryToV10(server, blockAnchor,
+                        quarterTurns, rigLevel, fabricQuality, geometryVersion))
+            setGeometryVersion(10);
         if (isMoving()) {
             // The body is a rigid palette entity; do not spawn any chunk blocks
             // during travel. Only the authoritative server advances physics.
+            // Unlike Boat.tick(), baseTick() does not preserve the previous
+            // render pose. Both the palette and the captain must interpolate
+            // from this same previous transform, especially during turns.
+            xo = getX();
+            yo = getY();
+            zo = getZ();
+            yRotO = getYRot();
             baseTick();
             setDeltaMovement(Vec3.ZERO);
             if (level().isClientSide && clientMotionSteps > 0) {
                 clientPreviousX = getX();
                 clientPreviousZ = getZ();
                 clientPreviousYaw = getYRot();
-                double dx = (clientMotionX - getX()) / clientMotionSteps;
-                double dz = (clientMotionZ - getZ()) / clientMotionSteps;
-                double distance = Math.hypot(dx, dz);
-                // Bound a delayed packet's visual catch-up by the server's
-                // maximum physical speed. The rider follows this same pose.
-                if (distance > ShipRigidMotion.MAX_FORWARD + .01D) {
-                    double factor = (ShipRigidMotion.MAX_FORWARD + .01D) / distance;
-                    dx *= factor;
-                    dz *= factor;
-                }
-                double yawStep = ShipRigidMotion.wrapDegrees(clientMotionYaw - getYRot())
-                        / clientMotionSteps;
-                yawStep = Math.max(-ShipRigidMotion.MAX_ANGULAR - .1D,
-                        Math.min(ShipRigidMotion.MAX_ANGULAR + .1D, yawStep));
+                // Integrate the server's velocity every client tick. Repeated
+                // three-step chasing of delayed positions made the camera
+                // alternately accelerate and brake under steady W input.
+                double yawStep = clientMotionTurn;
+                double heading = Math.toRadians(getYRot() + yawStep * .5D);
+                double forwardX = -Math.sin(heading), forwardZ = Math.cos(heading);
+                double errorX = clientMotionX - getX();
+                double errorZ = clientMotionZ - getZ();
+                double longitudinal = errorX * forwardX + errorZ * forwardZ;
+                double lateralX = errorX - longitudinal * forwardX;
+                double lateralZ = errorZ - longitudinal * forwardZ;
+                // Server pose packets describe a past tick. Chasing each one
+                // while the ship turns alternately speeds up and slows down
+                // the camera at the stern. Integrate the authoritative speed
+                // and turn; reconcile only a genuinely large drift.
+                double correction = Math.abs(longitudinal) > .45D
+                        ? Math.max(-.01D, Math.min(.01D, longitudinal * .02D)) : 0D;
+                if (clientThrottleDirection > 0) correction = Math.max(0D, correction);
+                double dx = forwardX * (clientMotionSpeed + correction)
+                        + (Math.abs(lateralX) > .45D
+                            ? Math.max(-.01D, Math.min(.01D, lateralX * .02D)) : 0D);
+                double dz = forwardZ * (clientMotionSpeed + correction)
+                        + (Math.abs(lateralZ) > .45D
+                            ? Math.max(-.01D, Math.min(.01D, lateralZ * .02D)) : 0D);
+                double yawError = ShipRigidMotion.wrapDegrees(clientMotionYaw - getYRot());
+                if (Math.abs(yawError) > 4D)
+                    yawStep += Math.max(-.05D, Math.min(.05D, yawError * .02D));
                 setPos(getX() + dx, clientMotionY, getZ() + dz);
                 setYRot(getYRot() + (float)yawStep);
                 setYHeadRot(getYRot());
-                clientMotionSteps--;
                 if (Math.abs(getX() - clientPreviousX) > 1E-6D
                         || Math.abs(getZ() - clientPreviousZ) > 1E-6D
                         || Math.abs(ShipRigidMotion.wrapDegrees(getYRot() - clientPreviousYaw)) > 1E-5D)
@@ -1252,7 +1304,7 @@ public final class FirstShipEntity extends Boat {
                 if (level().getGameTime() % 40L == 0L)
                     pendingDismounts.values().removeIf(
                             landing -> level().getGameTime() > landing.expires());
-                ShipRigidMotion.Control control = level().getGameTime() - helmControlTick <= 2L
+                ShipRigidMotion.Control control = level().getGameTime() - helmControlTick <= 10L
                         ? helmControl : ShipRigidMotion.Control.IDLE;
                 double oldX = getX(), oldZ = getZ();
                 float oldYaw = getYRot();
@@ -1357,7 +1409,18 @@ public final class FirstShipEntity extends Boat {
                         quarterTurns, rigLevel, fabricQuality, geometryVersion)
                 : ShipMovingContraption.prepare(server, blockAnchor,
                         quarterTurns, modularConfiguration);
-        if (prepared == null || !prepared.detach(server, blockAnchor)) return false;
+        if (prepared == null) {
+            org.slf4j.LoggerFactory.getLogger(FirstShipEntity.class).warn(
+                    "Ship motion assembly rejected: source inspection failed at {} geometry={} rig={} fabric={} modular={}",
+                    blockAnchor, geometryVersion, rigLevel, fabricQuality, modularConfiguration != null);
+            return false;
+        }
+        if (!prepared.detach(server, blockAnchor)) {
+            org.slf4j.LoggerFactory.getLogger(FirstShipEntity.class).warn(
+                    "Ship motion assembly rejected: detach failed at {} geometry={} modular={}",
+                    blockAnchor, geometryVersion, modularConfiguration != null);
+            return false;
+        }
         // Install the durable moving state before any attempt at restoration:
         // even an unexpected blocked restore must NEVER orphan the cargo.
         movingBody = prepared;

@@ -834,7 +834,7 @@ public final class Ocean26GameTests {
             t.assertTrue(captain.getVehicle() == ship, "Captain lost mount after motion");
             FirstShipHull.Point captainLocal = FirstShipHull.toLocal(captain.getX(), captain.getZ(),
                     ship.getX(), ship.getZ(), ship.getYRot());
-            t.assertTrue(Math.abs(captainLocal.z() - FirstShipHull.HELM_Z) < .15D,
+            t.assertTrue(Math.abs(captainLocal.z() - ship.helmSeatZ()) < .15D,
                     "Captain remained in world while ship moved");
             FirstShipHull.Point walkerLocal = FirstShipHull.toLocal(walker.getX(), walker.getZ(),
                     ship.getX(), ship.getZ(), ship.getYRot());
@@ -1102,7 +1102,7 @@ public final class Ocean26GameTests {
                 t.assertTrue(Math.hypot(afterHold.x()-beforeHold.x(),afterHold.z()-beforeHold.z())<.03D,
                         "Hold walker LEFT BEHIND on step "+step);
                 t.assertTrue(captain.getVehicle()==ship
-                        && Math.abs(helm.z()-FirstShipHull.HELM_Z)<.12D,
+                        && Math.abs(helm.z()-ship.helmSeatZ())<.12D,
                         "Mounted captain LEFT BEHIND on step "+step);
                 t.assertTrue(Math.hypot(outsider.getX()-outsiderStart.x,outsider.getZ()-outsiderStart.z)<.02D,
                         "Unrelated player was wrongly carried on step "+step);
@@ -1473,7 +1473,9 @@ public final class Ocean26GameTests {
             t.assertTrue(captain.getVehicle()==ship,"Captain fell off continuously moving ship");
             FirstShipHull.Point helm=FirstShipHull.toLocal(captain.getX(),captain.getZ(),
                     ship.getX(),ship.getZ(),ship.getYRot());
-            t.assertTrue(Math.abs(helm.z()-FirstShipHull.HELM_Z)<.25D,
+            t.assertTrue(Math.abs(helm.z()-ship.helmSeatZ())<.25D
+                    && ship.helmWheelZ()-ship.helmSeatZ()>=.7D
+                    && ship.helmWheelZ()-ship.helmSeatZ()<=.8D,
                     "Captain seat failed to follow noncardinal ship heading");
             FirstShipHull.Point deckLocal=FirstShipHull.toLocal(
                     deckCrew.getX(),deckCrew.getZ(),ship.getX(),ship.getZ(),ship.getYRot());

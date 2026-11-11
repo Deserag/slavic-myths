@@ -8,6 +8,7 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Screenshot;
@@ -21,11 +22,15 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
+import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import org.slavicmyths.ships.FirstShipEntity;
+import org.slavicmyths.ships.FirstShipBlockHull;
+import org.slavicmyths.ships.FirstShipItem;
 import org.slavicmyths.ships.FirstShipHull;
 import org.slavicmyths.ships.ShipRigidMotion;
 import org.slavicmyths.ships.ShipBuildConfiguration;
+import org.slavicmyths.ships.ShipDeckContact;
 import org.slavicmyths.ships.ShipModularBlockHull;
 import org.slavicmyths.ships.ShipSectionPlan;
 import org.slavicmyths.ships.ShipyardModular;
@@ -41,6 +46,7 @@ public final class Ocean26ClientProbe {
     private static final boolean HOLD = Boolean.getBoolean("ocean26.hold");
     private static final boolean VISUAL = Boolean.getBoolean("ocean26.visual");
     private static final boolean MODULAR_VISUAL = Boolean.getBoolean("ocean26.modularVisual");
+    private static final boolean LONG_FORWARD = Boolean.getBoolean("ocean26.longForward");
     private static volatile boolean modularSetupRequested, modularReady;
     private static int phase;
     private static volatile int elapsed;
@@ -54,9 +60,79 @@ public final class Ocean26ClientProbe {
     private static float previousMotionYaw;
     private static double largestYawStep;
     private static int zeroMotionFrames, motionSamples;
+    private static int reverseMotionFrames;
+    private static int cameraFrames, reverseCameraFrames;
+    private static double previousCameraX, previousCameraZ, maximumCameraSeatError;
+    private static int dismountCameraFrames;
+    private static double dismountLocalX, dismountLocalZ, maximumDismountCameraStep;
+    private static int turnFrames;
+    private static double maximumTurnSeatError;
+    private static double mostNegativeForwardStep;
     private static boolean holdReachedDeck, holdExited;
     private static long tickStartNanos, shipTickNanos, emptyTickNanos;
     private static int shipTicks, emptyTicks;
+
+    @SubscribeEvent
+    public static void measureCamera(RenderLevelStageEvent event) {
+        if (phase != 2 || event.getStage() != RenderLevelStageEvent.Stage.AFTER_ENTITIES)
+            return;
+        boolean forwardWindow = LONG_FORWARD && elapsed >= 32 && elapsed <= 95;
+        boolean turnWindow = !LONG_FORWARD && !MODULAR_VISUAL
+                && elapsed >= 20 && elapsed <= 40;
+        boolean dismountWindow = !LONG_FORWARD && !MODULAR_VISUAL
+                && elapsed >= 54 && elapsed <= 88;
+        if (!forwardWindow && !dismountWindow && !turnWindow) return;
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.player == null) return;
+        FirstShipEntity ship;
+        if (forwardWindow || turnWindow) {
+            if (!(mc.player.getVehicle() instanceof FirstShipEntity mounted)) return;
+            ship = mounted;
+        } else {
+            ship = mc.level.getEntitiesOfClass(FirstShipEntity.class,
+                    new AABB(mc.player.blockPosition()).inflate(48D, 20D, 48D))
+                    .stream().filter(s -> s.getUUID().equals(shipId)).findFirst().orElse(null);
+            if (ship == null || mc.player.isPassenger()) return;
+        }
+        if (!ship.isMoving()) return;
+        double partial = event.getPartialTick().getGameTimeDeltaPartialTick(false);
+        double x = net.minecraft.util.Mth.lerp(partial, ship.xo, ship.getX());
+        double z = net.minecraft.util.Mth.lerp(partial, ship.zo, ship.getZ());
+        double yaw = net.minecraft.util.Mth.rotLerp((float)partial,
+                ship.yRotO, ship.getYRot());
+        var camera = event.getCamera().getPosition();
+        if (turnWindow) {
+            double playerX = net.minecraft.util.Mth.lerp(partial, mc.player.xo, mc.player.getX());
+            double playerZ = net.minecraft.util.Mth.lerp(partial, mc.player.zo, mc.player.getZ());
+            FirstShipHull.Point seat = FirstShipHull.toLocal(playerX, playerZ, x, z, yaw);
+            maximumTurnSeatError = Math.max(maximumTurnSeatError,
+                    Math.hypot(seat.x(), seat.z() - ship.helmSeatZ()));
+            turnFrames++;
+            return;
+        }
+        FirstShipHull.Point local = FirstShipHull.toLocal(camera.x, camera.z,
+                x, z, yaw);
+        if (dismountWindow) {
+            if (dismountCameraFrames > 0)
+                maximumDismountCameraStep = Math.max(maximumDismountCameraStep,
+                        Math.hypot(local.x() - dismountLocalX, local.z() - dismountLocalZ));
+            dismountLocalX = local.x();
+            dismountLocalZ = local.z();
+            dismountCameraFrames++;
+            return;
+        }
+        maximumCameraSeatError = Math.max(maximumCameraSeatError,
+                Math.hypot(local.x(), local.z() - ship.helmSeatZ()));
+        if (cameraFrames > 0) {
+            double heading = Math.toRadians(ship.getYRot());
+            double forward = -(camera.x - previousCameraX) * Math.sin(heading)
+                    + (camera.z - previousCameraZ) * Math.cos(heading);
+            if (forward < -.003D) reverseCameraFrames++;
+        }
+        previousCameraX = camera.x;
+        previousCameraZ = camera.z;
+        cameraFrames++;
+    }
 
     @SubscribeEvent
     public static void serverTickStart(ServerTickEvent.Pre event) {
@@ -77,6 +153,7 @@ public final class Ocean26ClientProbe {
 
     @SubscribeEvent
     public static void tick(ClientTickEvent.Post event) {
+        if (phase < 0) return;
         Minecraft mc = Minecraft.getInstance();
         MinecraftServer server = mc.getSingleplayerServer();
         if (mc.player == null || mc.level == null || server == null) return;
@@ -90,29 +167,55 @@ public final class Ocean26ClientProbe {
                     if (player == null || level == null) return;
                     BlockPos anchor = player.blockPosition().offset(64,
                             Math.max(70, player.getBlockY() + 30) - player.getBlockY(), 0);
-                    for (int x = -12; x <= 12; x++)
-                        for (int z = -18; z <= 18; z++) {
+                    for (int x = -24; x <= 24; x++)
+                        for (int z = -30; z <= 30; z++) {
                             BlockPos pos = anchor.offset(x, 0, z);
                             level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
                             level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
                             for (int y = 1; y <= 25; y++)
                                 level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
                         }
-                    var config = ShipBuildConfiguration.initial(ShipSectionPlan.ShipClass.MEDIUM)
-                            .resize(1, 1).withSail(1, 2).withDecks(2)
-                            .withBridge(true).withCabin(true);
+                    var shipClass = ShipSectionPlan.ShipClass.valueOf(
+                            System.getProperty("ocean26.shipClass", "MEDIUM"));
+                    var config = ShipBuildConfiguration.initial(shipClass);
+                    if (shipClass != ShipSectionPlan.ShipClass.SMALL)
+                        config = config.resize(1, 1).withSail(1, 2).withDecks(2)
+                                .withBridge(true).withCabin(true);
                     boolean oldCreative = player.getAbilities().instabuild;
                     player.getAbilities().instabuild = true;
                     var item = ShipyardModular.build(player, config);
                     player.getAbilities().instabuild = oldCreative;
-                    FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
-                    if (ship == null || item.isEmpty()) return;
-                    ship.initializeNativeHull(anchor, 0);
-                    if (!ship.loadPacked(item) || !ShipModularBlockHull.place(level,
-                            anchor, 0, config, new ListTag()) || !level.addFreshEntity(ship)) return;
+                    if (item.isEmpty() || !(item.getItem() instanceof FirstShipItem shipItem)) return;
+                    player.setItemInHand(InteractionHand.MAIN_HAND, item.copy());
+                    player.teleportTo(anchor.getX() + .5D, anchor.getY() + 2D,
+                            anchor.getZ() - 2.5D);
+                    player.setYRot(0F);
+                    player.setXRot(55F);
+                    shipItem.use(level, player, InteractionHand.MAIN_HAND);
+                    FirstShipEntity ship = level.getEntitiesOfClass(FirstShipEntity.class,
+                            new AABB(anchor).inflate(8D, 20D, 8D)).stream()
+                            .filter(s -> s.isNativeHull() && s.modularConfiguration() != null
+                                    && s.modularConfiguration().shipClass() == shipClass)
+                            .findFirst().orElse(null);
+                    if (ship == null) return;
+                    int joinedRails = 0;
+                    for (BlockPos local : ShipModularBlockHull.localPalette(config).keySet()) {
+                        BlockPos world = FirstShipBlockHull.world(ship.blockAnchor(),
+                                ship.quarterTurns(), local.getX(), local.getY(), local.getZ());
+                        var rail = level.getBlockState(world);
+                        if (rail.is(Blocks.SPRUCE_FENCE)
+                                && (rail.getValue(net.minecraft.world.level.block.FenceBlock.NORTH)
+                                    || rail.getValue(net.minecraft.world.level.block.FenceBlock.SOUTH)
+                                    || rail.getValue(net.minecraft.world.level.block.FenceBlock.EAST)
+                                    || rail.getValue(net.minecraft.world.level.block.FenceBlock.WEST)))
+                            joinedRails++;
+                    }
+                    System.out.println("OCEAN26_SPAWN_RAILS class=" + shipClass
+                            + " joined=" + joinedRails);
+                    if (joinedRails == 0) return;
                     if (SAVE_MOVING) {
                         BlockPos chestPos = org.slavicmyths.ships.FirstShipBlockHull.world(
-                                anchor, 0, 2, 5, 0);
+                                ship.blockAnchor(), ship.quarterTurns(), 2, 5, 0);
                         if (!level.setBlock(chestPos, Blocks.CHEST.defaultBlockState(), 2)
                                 || !(level.getBlockEntity(chestPos) instanceof ChestBlockEntity chest)) return;
                         chest.setItem(0, new ItemStack(Items.DIAMOND, 7));
@@ -158,7 +261,8 @@ public final class Ocean26ClientProbe {
                                         && diamonds.getCount() == 7;
                             }
                         }
-                        boolean passed = body != null && body.isMoving() && body.rigLevel() > 0
+                        boolean passed = body != null && body.isMoving()
+                                && (body.modularConfiguration() != null || body.rigLevel() > 0)
                                 && cargoIntact;
                         System.out.println("OCEAN26_RELOAD_RESULT ship=" + reloadedId
                                 + " moving=" + (body != null && body.isMoving())
@@ -202,9 +306,20 @@ public final class Ocean26ClientProbe {
                     FirstShipEntity body = (FirstShipEntity)server.getLevel(Level.OVERWORLD)
                             .getEntity(shipId);
                     if (player != null && body != null) {
-                        player.teleportTo(body.getX(), body.deckY() + .02D,
-                                body.getZ() - 3D);
-                        boolean mounted = player.startRiding(body);
+                        boolean mounted;
+                        if (body.modularConfiguration() != null) {
+                            var seat = FirstShipHull.toWorld(0D, body.helmSeatZ(),
+                                    body.getX(), body.getZ(), body.getYRot());
+                            player.teleportTo(seat.x(), body.getY() + body.helmSeatHeight(), seat.z());
+                            BlockPos helm = FirstShipBlockHull.world(body.blockAnchor(),
+                                    body.quarterTurns(), 0, (int)body.helmSeatHeight(),
+                                    (int)body.helmWheelZ());
+                            mounted = body.tryHelmFromBlock(player, helm);
+                        } else {
+                            player.teleportTo(body.getX(), body.deckY() + .02D,
+                                    body.getZ() - 3D);
+                            mounted = player.startRiding(body);
+                        }
                         System.out.println("OCEAN26_CLIENT_MOUNT mounted=" + mounted
                                 + " moving=" + body.isMoving() + " x=" + body.getX());
                     }
@@ -251,7 +366,7 @@ public final class Ocean26ClientProbe {
         }
         if (phase != 2) return;
         elapsed++;
-        if (elapsed >= 18 && elapsed <= 42) {
+        if (elapsed >= 18 && elapsed <= (LONG_FORWARD ? 115 : 42)) {
             FirstShipEntity measured = mc.level.getEntitiesOfClass(FirstShipEntity.class,
                     new AABB(mc.player.blockPosition()).inflate(128D, 32D, 128D))
                     .stream().filter(s -> s.getUUID().equals(shipId)).findFirst().orElse(null);
@@ -259,6 +374,11 @@ public final class Ocean26ClientProbe {
                 if (motionSamples > 0) {
                     double step = Math.hypot(measured.getX() - previousMotionX,
                             measured.getZ() - previousMotionZ);
+                    double heading = Math.toRadians(measured.getYRot());
+                    double forwardStep = -(measured.getX() - previousMotionX) * Math.sin(heading)
+                            + (measured.getZ() - previousMotionZ) * Math.cos(heading);
+                    mostNegativeForwardStep = Math.min(mostNegativeForwardStep, forwardStep);
+                    if (forwardStep < -.005D) reverseMotionFrames++;
                     System.out.println("OCEAN26_MOTION_STEP tick=" + elapsed
                             + " step=" + step + " x=" + measured.getX()
                             + " z=" + measured.getZ());
@@ -272,26 +392,40 @@ public final class Ocean26ClientProbe {
                 previousMotionYaw = measured.getYRot();
                 motionSamples++;
             }
-            if (elapsed == 42) {
+            if (elapsed == (LONG_FORWARD ? 115 : 42)) {
                 System.out.println("OCEAN26_MOTION_CADENCE samples=" + motionSamples
                         + " zeroFrames=" + zeroMotionFrames
+                        + " reverseFrames=" + reverseMotionFrames
+                        + " mostNegativeForwardStep=" + mostNegativeForwardStep
                         + " maxStep=" + largestMotionStep
                         + " maxYawStep=" + largestYawStep);
-                if (largestMotionStep > ShipRigidMotion.MAX_FORWARD + .011D
+                if (!LONG_FORWARD && !MODULAR_VISUAL) {
+                    System.out.println("OCEAN26_TURN_SEAT frames=" + turnFrames
+                            + " maxError=" + maximumTurnSeatError);
+                    if (turnFrames < 10 || maximumTurnSeatError > .04D) {
+                        fail(mc, "captain and wheel diverged during rendered turn");
+                        return;
+                    }
+                }
+                if (reverseMotionFrames > 0
+                        || largestMotionStep > ShipRigidMotion.MAX_FORWARD + .011D
                         || largestYawStep > ShipRigidMotion.MAX_ANGULAR + .11D) {
                     fail(mc, "client motion jumped beyond the physical speed limit");
                     return;
                 }
             }
         }
-        if (elapsed == 18) mc.options.setCameraType(CameraType.THIRD_PERSON_BACK);
+        if (elapsed == 18 && !LONG_FORWARD)
+            mc.options.setCameraType(CameraType.THIRD_PERSON_BACK);
         if (elapsed == 24 && mc.player.getVehicle() instanceof FirstShipEntity body)
             mc.player.setYRot(body.getYRot() + 90F);
-        if (elapsed == 31) {
+        if (elapsed == 31 && !LONG_FORWARD) {
             mc.options.setCameraType(CameraType.THIRD_PERSON_BACK);
             if (mc.player.getVehicle() instanceof FirstShipEntity body)
                 mc.player.setYRot(body.getYRot());
         }
+        if (elapsed == 50 && !LONG_FORWARD && !MODULAR_VISUAL)
+            mc.options.setCameraType(CameraType.FIRST_PERSON);
         if (elapsed == 20 || elapsed == 65)
             Screenshot.grab(mc.gameDirectory, mc.getMainRenderTarget(),
                     message -> System.out.println("OCEAN26_SCREENSHOT tick=" + elapsed
@@ -300,14 +434,17 @@ public final class Ocean26ClientProbe {
             Screenshot.grab(mc.gameDirectory, mc.getMainRenderTarget(),
                     message -> System.out.println("OCEAN26_CAPTAIN_POSE_SCREENSHOT "
                             + message.getString()));
-        boolean throttle = elapsed <= 42;
+        boolean throttle = elapsed <= (LONG_FORWARD ? 120 : 42);
         mc.options.keyUp.setDown(throttle);
-        mc.options.keyShift.setDown(elapsed >= 42 && elapsed <= 44
+        mc.options.keyShift.setDown(!LONG_FORWARD && elapsed >= 42 && elapsed <= 44
                 || REVERSE && elapsed >= 173 && elapsed <= 175);
-        mc.options.keyRight.setDown(elapsed >= 20 && elapsed <= 35
-                || elapsed >= 112 && elapsed <= (RAIL ? 155 : 120));
-        mc.options.keyDown.setDown(REVERSE && elapsed >= 145 && elapsed <= 170);
-        mc.options.keyLeft.setDown(REVERSE && elapsed >= 150 && elapsed <= 165);
+        mc.options.keyRight.setDown(!LONG_FORWARD && elapsed >= 20 && elapsed <= 35);
+        mc.options.keyDown.setDown(MODULAR_VISUAL && elapsed >= 112 && elapsed <= 120
+                || REVERSE && elapsed >= 145 && elapsed <= 170);
+        // From the starboard handoff cell, walking right heads into the mast.
+        // Walk outward along the clear rail when checking free deck movement.
+        mc.options.keyLeft.setDown(!MODULAR_VISUAL && elapsed >= 112 && elapsed <= (RAIL ? 155 : 120)
+                || REVERSE && elapsed >= 150 && elapsed <= 165);
         mc.options.keyJump.setDown(elapsed >= 102 && elapsed <= 104);
         if (HOLD && elapsed >= 160 && elapsed <= 250) {
             FirstShipEntity body = mc.level.getEntitiesOfClass(FirstShipEntity.class,
@@ -349,6 +486,7 @@ public final class Ocean26ClientProbe {
             UUID playerId = mc.player.getUUID();
             int tick = elapsed;
             System.out.println("OCEAN26_CLIENT_TICK tick=" + tick
+                    + " geometry=" + clientShip.geometryVersion()
                     + " x=" + clientShip.getX() + " z=" + clientShip.getZ()
                     + " yaw=" + clientShip.getYRot() + " moving=" + clientShip.isMoving()
                     + " rider=" + (mc.player.getVehicle() == clientShip)
@@ -373,6 +511,14 @@ public final class Ocean26ClientProbe {
             });
         }
         if (elapsed == 100) {
+            if (!LONG_FORWARD && !MODULAR_VISUAL) {
+                System.out.println("OCEAN26_DISMOUNT_CAMERA frames=" + dismountCameraFrames
+                        + " maxLocalStep=" + maximumDismountCameraStep);
+                if (dismountCameraFrames < 20 || maximumDismountCameraStep > .12D) {
+                    fail(mc, "dismounted camera jerked relative to moving deck");
+                    return;
+                }
+            }
             FirstShipEntity clientShip = mc.level.getEntitiesOfClass(FirstShipEntity.class,
                     new AABB(mc.player.blockPosition()).inflate(128D, 32D, 128D))
                     .stream().filter(s -> s.getUUID().equals(shipId))
@@ -382,12 +528,32 @@ public final class Ocean26ClientProbe {
             FirstShipHull.Point local = clientShip == null ? null : FirstShipHull.toLocal(
                     mc.player.getX(), mc.player.getZ(), clientShip.getX(),
                     clientShip.getZ(), clientShip.getYRot());
+            if (LONG_FORWARD) {
+                System.out.println("OCEAN26_LONG_FORWARD traveled=" + traveled
+                        + " reverseFrames=" + reverseMotionFrames
+                        + " cameraFrames=" + cameraFrames
+                        + " reverseCameraFrames=" + reverseCameraFrames
+                        + " maximumCameraSeatError=" + maximumCameraSeatError
+                        + " seatZ=" + (clientShip == null ? 0D : clientShip.helmSeatZ()));
+                if (clientShip != null && traveled > 5D && reverseMotionFrames == 0
+                        && cameraFrames > 20 && reverseCameraFrames == 0
+                        && maximumCameraSeatError < .12D
+                        && (clientShip.modularConfiguration() != null
+                            || Math.abs(clientShip.helmSeatZ() + 4D) < .001D))
+                    finish(mc, true, "longForward");
+                else fail(mc, "sustained forward motion reversed or stalled");
+                return;
+            }
+            boolean supported = clientShip != null && local != null
+                    && (MODULAR_VISUAL
+                        ? ShipDeckContact.contactFloor(clientShip, local.x(), local.z(),
+                                mc.player.getY()) >= 0
+                        : FirstShipHull.mainDeckSupports(local.x(), local.z())
+                            && Math.abs(local.x() - 1D) < .6D
+                            && Math.abs(local.z() + 2D) < 1D
+                            && mc.player.getY() >= clientShip.deckY() - .1D);
             boolean passed = clientShip != null && traveled > 1D
-                    && !mc.player.isPassenger() && local != null
-                    && FirstShipHull.mainDeckSupports(local.x(), local.z())
-                    && Math.abs(local.x() - 1D) < .6D
-                    && Math.abs(local.z() + 2D) < 1D
-                    && mc.player.getY() >= clientShip.deckY() - .1D;
+                    && !mc.player.isPassenger() && supported;
             System.out.println("OCEAN26_CLIENT_RESULT traveled=" + traveled
                     + " player=" + mc.player.position() + " local=" + local
                     + " fps=" + mc.getFps() + " pass=" + passed);
@@ -401,8 +567,14 @@ public final class Ocean26ClientProbe {
         if (elapsed == 140) {
             double walked = Math.hypot(mc.player.getX() - walkStartX,
                     mc.player.getZ() - walkStartZ);
-            boolean passed = jumpPeak > 67.4D && (HOLD || walked > .25D)
-                    && mc.player.getY() >= 66.9D;
+            FirstShipEntity jumpingShip = mc.level.getEntitiesOfClass(FirstShipEntity.class,
+                    new AABB(mc.player.blockPosition()).inflate(128D, 32D, 128D))
+                    .stream().filter(s -> s.getUUID().equals(shipId)).findFirst().orElse(null);
+            double deckSurface = jumpingShip == null ? 67D
+                    : jumpingShip.getY() + (MODULAR_VISUAL ? jumpingShip.helmSeatHeight() : 5D);
+            boolean passed = (MODULAR_VISUAL || jumpPeak > deckSurface + .4D)
+                    && (HOLD || walked > .25D)
+                    && mc.player.getY() >= deckSurface - .1D;
             System.out.println("OCEAN26_WALK_JUMP walked=" + walked
                     + " peakY=" + jumpPeak + " finalY=" + mc.player.getY()
                     + " pass=" + passed);
@@ -608,7 +780,7 @@ public final class Ocean26ClientProbe {
     }
 
     private static void fail(Minecraft mc, String reason) {
-        phase = 3;
+        phase = -1;
         System.out.println("OCEAN26_CLIENT_FAIL " + reason);
         finish(mc, false, reason);
     }

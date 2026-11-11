@@ -366,6 +366,18 @@ public final class FirstShipBlockHull {
         return blocks;
     }
 
+    /** V9 belongs to modular blueprints. V10 shortens the native stern blade
+     * and removes the dangling center post without changing the sealed hold. */
+    private static Map<BlockPos, BlockState> layoutV10(BlockPos anchor, int turns, int rig, int fabric) {
+        Map<BlockPos, BlockState> blocks = layoutV8(anchor, turns, rig, fabric);
+        for (int y = 0; y <= 3; y++)
+            blocks.remove(world(anchor, turns, 0, y, -6));
+        for (int y = 1; y <= 3; y++)
+            blocks.put(world(anchor, turns, 0, y, -5), Blocks.SPRUCE_PLANKS.defaultBlockState());
+        blocks.put(world(anchor, turns, 0, 0, -6), Blocks.DARK_OAK_SLAB.defaultBlockState());
+        return blocks;
+    }
+
     private static void addYardV3(Map<BlockPos, BlockState> blocks, BlockPos anchor,
             int turns, int y, int span) {
         BlockState beam = Blocks.DARK_OAK_LOG.defaultBlockState().setValue(
@@ -396,7 +408,8 @@ public final class FirstShipBlockHull {
 
     private static Map<BlockPos, BlockState> layout(BlockPos anchor, int turns,
             int rig, int fabric, int geometry) {
-        return geometry >= 8 ? layoutV8(anchor, turns, rig, fabric)
+        return geometry >= 10 ? layoutV10(anchor, turns, rig, fabric)
+                : geometry >= 8 ? layoutV8(anchor, turns, rig, fabric)
                 : geometry == 7 ? layoutV7(anchor, turns, rig, fabric)
                 : geometry == 6 ? layoutV6(anchor, turns, rig, fabric)
                 : geometry == 5 ? layoutV5(anchor, turns, rig, fabric)
@@ -710,6 +723,12 @@ public final class FirstShipBlockHull {
         return migrateGeometry(level, anchor, turns, rig, fabric, 4, 5);
     }
 
+    public static boolean migrateGeometryToV10(ServerLevel level, BlockPos anchor, int turns,
+            int rig, int fabric, int from) {
+        return (from == 7 || from == 8)
+                && migrateGeometry(level, anchor, turns, rig, fabric, from, 10);
+    }
+
     /** Transaction checks source intact, future footprint safe, then moves blocks once. */
     public static boolean move(ServerLevel level, BlockPos previous, int oldTurn,
             BlockPos target, int nextTurn, int oldRig, int oldFabric,
@@ -832,7 +851,7 @@ public final class FirstShipBlockHull {
     public record MotionSnapshot(ListTag cargo, int geometry, int rig, int fabric, int turn) {
         public MotionSnapshot {
             if (cargo == null || cargo.size() > WIDTH * LENGTH * 2
-                    || geometry < 2 || geometry > 8
+                    || geometry < 2 || geometry > 10 || geometry == 9
                     || turn < 0 || turn > 3
                     || decode(cargo) == null)
                 throw new IllegalArgumentException("Unsafe moving ship snapshot");
@@ -844,8 +863,21 @@ public final class FirstShipBlockHull {
 
     public static MotionSnapshot captureForMotion(ServerLevel level, BlockPos anchor,
             int turns, int rig, int fabric, int geometry) {
-        if (geometry < 2 || geometry > 8 || turns < 0 || turns > 3) return null;
+        if (geometry < 2 || geometry > 10 || geometry == 9 || turns < 0 || turns > 3) return null;
         ListTag cargo = pack(level, anchor, turns, rig, fabric, geometry);
+        if (cargo == null) {
+            for (var entry : layout(anchor, turns, rig, fabric, geometry).entrySet()) {
+                if (!level.hasChunkAt(entry.getKey())
+                        || level.getBlockState(entry.getKey()).getBlock() != entry.getValue().getBlock()) {
+                    org.slf4j.LoggerFactory.getLogger(FirstShipBlockHull.class).warn(
+                            "Ship source mismatch at {}: expected {}, found {} (geometry={}, turn={})",
+                            entry.getKey(), entry.getValue(),
+                            level.hasChunkAt(entry.getKey()) ? level.getBlockState(entry.getKey()) : "unloaded",
+                            geometry, turns);
+                    break;
+                }
+            }
+        }
         return cargo == null ? null : new MotionSnapshot(cargo, geometry, rig, fabric, turns);
     }
 

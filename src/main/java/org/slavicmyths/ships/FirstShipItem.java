@@ -80,7 +80,7 @@ public final class FirstShipItem extends Item {
         ship.initializeNativeHull(anchor, FirstShipBlockHull.rotationFromYaw(player.getYRot()));
         ship.enableSmoothMotion();
         if (!held.has(net.minecraft.core.component.DataComponents.CUSTOM_DATA))
-            ship.equipStarterSail();
+            ship.equipUpdatedStarterSail();
         if (!ship.loadPacked(held)) {
             player.displayClientMessage(Component.literal("Корабль не установлен: повреждены сохранённые данные"), true);
             return InteractionResultHolder.fail(held);

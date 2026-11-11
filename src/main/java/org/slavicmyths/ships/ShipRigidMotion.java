@@ -27,6 +27,18 @@ public final class ShipRigidMotion {
         }
     }
 
+    /** World-space pose of the same rigid body. Water travel currently locks
+     * height, pitch and roll; an air controller can own all six coordinates. */
+    public record SpatialPose(double x, double y, double z,
+                              double yaw, double pitch, double roll) {
+        public SpatialPose {
+            if (!Double.isFinite(x) || !Double.isFinite(y) || !Double.isFinite(z)
+                    || !Double.isFinite(yaw) || !Double.isFinite(pitch)
+                    || !Double.isFinite(roll))
+                throw new IllegalArgumentException("Ship spatial pose must be finite");
+        }
+    }
+
     public record Frame(Pose before, Pose after, double speed, double angularVelocity,
                         boolean blocked) {}
 

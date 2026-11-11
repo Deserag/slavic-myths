@@ -77,6 +77,7 @@ public final class ShipModularBlockHull {
             var c = entry.getKey();
             blocks.put(new BlockPos(c.x(), c.y(), c.z()), state(entry.getValue(), 0, c.y()));
         }
+        connectFenceRails(blocks);
         return java.util.Collections.unmodifiableMap(blocks);
     }
 
@@ -102,7 +103,25 @@ public final class ShipModularBlockHull {
                     state(entry.getValue(), turns, c.y()));
         }
         if (blocks.size() > MAX_BLOCKS) throw new IllegalArgumentException("Oversized ship hull");
+        connectFenceRails(blocks);
         return blocks;
+    }
+
+    private static void connectFenceRails(Map<BlockPos, BlockState> blocks) {
+        for (var entry : blocks.entrySet()) {
+            if (!entry.getValue().is(Blocks.SPRUCE_FENCE)) continue;
+            BlockPos p = entry.getKey();
+            BlockState state = entry.getValue()
+                    .setValue(net.minecraft.world.level.block.FenceBlock.NORTH,
+                            blocks.containsKey(p.north()) && blocks.get(p.north()).is(Blocks.SPRUCE_FENCE))
+                    .setValue(net.minecraft.world.level.block.FenceBlock.SOUTH,
+                            blocks.containsKey(p.south()) && blocks.get(p.south()).is(Blocks.SPRUCE_FENCE))
+                    .setValue(net.minecraft.world.level.block.FenceBlock.EAST,
+                            blocks.containsKey(p.east()) && blocks.get(p.east()).is(Blocks.SPRUCE_FENCE))
+                    .setValue(net.minecraft.world.level.block.FenceBlock.WEST,
+                            blocks.containsKey(p.west()) && blocks.get(p.west()).is(Blocks.SPRUCE_FENCE));
+            entry.setValue(state);
+        }
     }
 
     private static int kind(BlockState state) {

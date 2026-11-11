@@ -35,7 +35,8 @@ public final class FirstShipNetwork {
     }
 
     /** Boat tracking does not reliably stream continuous ship pose around dismount. */
-    public record MotionPose(int shipId, double x, double y, double z, float yaw)
+    public record MotionPose(int shipId, double x, double y, double z, float yaw,
+                             double speed, double turn)
             implements CustomPacketPayload {
         public static final Type<MotionPose> TYPE = new Type<>(
                 ResourceLocation.fromNamespaceAndPath("slavicmyths", "first_ship_motion_pose"));
@@ -46,15 +47,19 @@ public final class FirstShipNetwork {
                     buffer.writeDouble(pose.y);
                     buffer.writeDouble(pose.z);
                     buffer.writeFloat(pose.yaw);
+                    buffer.writeDouble(pose.speed);
+                    buffer.writeDouble(pose.turn);
                 }, buffer -> new MotionPose(buffer.readVarInt(), buffer.readDouble(),
-                        buffer.readDouble(), buffer.readDouble(), buffer.readFloat()));
+                        buffer.readDouble(), buffer.readDouble(), buffer.readFloat(),
+                        buffer.readDouble(), buffer.readDouble()));
         @Override public Type<MotionPose> type() { return TYPE; }
     }
 
 
     public static void sendMotionPose(FirstShipEntity ship) {
         PacketDistributor.sendToPlayersTrackingEntityAndSelf(ship, new MotionPose(ship.getId(),
-                ship.getX(), ship.getY(), ship.getZ(), ship.getYRot()));
+                ship.getX(), ship.getY(), ship.getZ(), ship.getYRot(),
+                ship.serverMovingSpeed(), ship.serverMovingTurn()));
     }
 
 
@@ -63,7 +68,8 @@ public final class FirstShipNetwork {
         registrar.playToClient(MotionPose.TYPE, MotionPose.CODEC, (pose, context) -> {
             context.enqueueWork(() -> {
                 if (context.player().level().getEntity(pose.shipId()) instanceof FirstShipEntity ship)
-                    ship.acceptCaptainMotionPose(pose.x(), pose.y(), pose.z(), pose.yaw());
+                    ship.acceptCaptainMotionPose(pose.x(), pose.y(), pose.z(), pose.yaw(),
+                            pose.speed(), pose.turn());
             });
         });
         registrar.playToServer(Command.TYPE, Command.CODEC, (packet, context) -> {

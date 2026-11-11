@@ -1,5 +1,7 @@
 # OWNER OVERRIDE — BOUNDED CONTEXT / NO BULK READING — 2026-11-06
 
+**Корабли 2.6 — принятый выпуск 11.11.2026.** Перед любым изменением движения, штурвала, пассажиров, палубы или синхронизации кораблей прочитать точечный контракт `docs/SHIP_MOTION_RELEASE_20261111.md`. Владелец прямо поручил сохранить устройство принятого движения для следующих чатов. Особенно сохранить общий предыдущий кадр `xo/yo/zo/yRotO` корабля и капитана; GameTest и прямой ход не заменяют покадровую проверку поворота в Minecraft.
+
 **Latest explicit owner rule. This section takes precedence over older blanket instructions to read the entire documentation before starting.** It limits information retrieval; it does NOT relax branch safety, owner approval, gameplay QA, or implementation acceptance requirements.
 
 1. **Default: no documentation scan.** Do not open `docs/**`, `README*`, `CHANGELOG*`, `STATUS_HANDOFF.md`, archived reports, QA evidence, crash logs, or generated artifacts merely to understand the project. Do not read `tools/**`, tests, or unrelated source folders as general preflight. Reading an individually specified file is allowed only when the owner explicitly authorizes it for this task. Mandatory instructions already provided by the environment (including `AGENTS.md`) must still be followed; do not re-fetch them needlessly.

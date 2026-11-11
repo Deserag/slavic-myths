@@ -5,7 +5,8 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "MovingShipCollisionMixin",
-    "MovingShipLadderMixin"
+    "MovingShipLadderMixin",
+    "MovingShipVehiclePacketMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -7,6 +7,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.slavicmyths.ships.FirstShipEntity;
+import org.slavicmyths.ships.FirstShipHull;
 import org.slavicmyths.ships.FirstShipNetwork;
 
 /**
@@ -31,11 +32,18 @@ public final class FirstShipSteeringClient {
         }
         if (!(mc.player.getVehicle() instanceof FirstShipEntity ship)
                 || !ship.isNativeHull()) {
-            if (lastShip != -1)
-                PacketDistributor.sendToServer(new FirstShipNetwork.Command(
-                        lastShip, FirstShipNetwork.DISMOUNT_ACK));
             lastShip = -1;
             return;
+        }
+        if (ship.isMoving()) {
+            // Player.tick may replace the passenger's previous coordinates
+            // after the hull has advanced. Render the captain from the SAME
+            // previous rigid transform as the hull and wheel.
+            FirstShipHull.Point previousSeat = FirstShipHull.toWorld(0D,
+                    ship.helmSeatZ(), ship.xo, ship.zo, ship.yRotO);
+            mc.player.xo = previousSeat.x();
+            mc.player.yo = ship.yo + ship.helmSeatHeight() + .08D;
+            mc.player.zo = previousSeat.z();
         }
         if (mc.screen != null) return;
         if (ship.getId() != lastShip) {
@@ -49,6 +57,7 @@ public final class FirstShipSteeringClient {
         int action = 0;
         boolean left = mc.options.keyLeft.isDown(), right = mc.options.keyRight.isDown();
         boolean forward = mc.options.keyUp.isDown(), reverse = mc.options.keyDown.isDown();
+        ship.setClientThrottleDirection(forward == reverse ? 0 : forward ? 1 : -1);
         // A/D must not be silently ignored while W/S is held (vanilla boat
         // control commonly combines keys). Opposite keys neutralize an axis.
         if (ship.isMoving() || ship.geometryVersion() >= 5) {
