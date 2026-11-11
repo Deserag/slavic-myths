@@ -102,6 +102,7 @@ public final class ShipHullVoxelLayout {
                 put(blocks, 0, y, z, Part.MAST);
             int lowerTop = tier == 1 ? mastTop + 1 : 13;
             for (int x = -span; x <= span; x++) {
+                if (x == 0) continue;
                 put(blocks, x, 7, z, Part.YARD);
                 put(blocks, x, lowerTop, z, Part.YARD);
             }
@@ -109,7 +110,7 @@ public final class ShipHullVoxelLayout {
             if (tier >= 2) {
                 int upperSpan = Math.max(1, span - 1);
                 for (int x = -upperSpan; x <= upperSpan; x++)
-                    put(blocks, x, mastTop + 1, z, Part.YARD);
+                    if (x != 0) put(blocks, x, mastTop + 1, z, Part.YARD);
                 sailPanel(blocks, z, 14, mastTop, upperSpan);
             }
         }
