@@ -42,9 +42,9 @@ public final class CoalPlumLeaves extends Block implements BonemealableBlock {
             level.setBlock(pos, state.setValue(AGE, state.getValue(AGE) + 1), 3);
     }
 
-    private InteractionResult harvest(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+    private InteractionResult harvest(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit, ItemStack held) {
         if (!state.getValue(FRUITING) || state.getValue(AGE) != 3 ||
-                !level.mayInteract(player, pos) || !player.mayUseItemAt(pos, hit.getDirection(), player.getMainHandItem()))
+                !level.mayInteract(player, pos) || !player.mayUseItemAt(pos, hit.getDirection(), held))
             return InteractionResult.PASS;
         if (!level.isClientSide) {
             level.setBlock(pos, state.setValue(AGE, 0), 3);
@@ -55,13 +55,15 @@ public final class CoalPlumLeaves extends Block implements BonemealableBlock {
     }
 
     @Override public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
-        return harvest(state, level, pos, player, hit);
+        return harvest(state, level, pos, player, hit, player.getMainHandItem());
     }
 
     @Override public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (stack.is(Items.BONE_MEAL)) return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
         if (!state.getValue(FRUITING) || state.getValue(AGE) != 3) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-        return harvest(state, level, pos, player, hit) == InteractionResult.PASS
+        if (!level.mayInteract(player, pos) || !player.mayUseItemAt(pos, hit.getDirection(), stack))
+            return ItemInteractionResult.FAIL;
+        return harvest(state, level, pos, player, hit, stack) == InteractionResult.PASS
                 ? ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION
                 : ItemInteractionResult.sidedSuccess(level.isClientSide);
     }
