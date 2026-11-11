@@ -193,7 +193,7 @@ GROWTH_CONTRACT = {
     "coal_garlic_crop": ("coal_garlic", "coal_garlic", "coal_garlic"),
     "sernica_crop": ("sernica_seeds", "sernica", "sernica"),
     "heat_berry_bush": ("heat_berry_cutting", "heat_berries", "berries"),
-    "coal_plum_leaves": (None, "coal_plum", "plum"),
+    "coal_plum_leaves": ("coal_plum_sapling", "coal_plum", "plum"),
 }
 
 
@@ -250,7 +250,12 @@ def check_growth_and_loot():
                 raise AssertionError(f"Missing maturity-guarded Fortune for {block}")
         if seed and seed != produce:
             seedlings = [entry for entry in entries if entry.get("name") == "slavicmyths:" + seed]
-            if len(seedlings) != 1 or seedlings[0].get("conditions"):
+            if len(seedlings) != 1:
+                raise AssertionError(f"Missing planting item return for {block}")
+            if block == "coal_plum_leaves":
+                if not age_three(seedlings[0].get("conditions"), block):
+                    raise AssertionError("Coal plum saplings must drop only from mature fruiting leaves")
+            elif seedlings[0].get("conditions"):
                 raise AssertionError(f"No guaranteed immature/replant drop for {block}")
             if any(fn.get("function") == "slavicmyths:capped_crop_fortune"
                    for fn in seedlings[0].get("functions", [])):
