@@ -74,7 +74,7 @@ public final class ShipModularBlockHull {
     public static Map<BlockPos, BlockState> localPalette(ShipBuildConfiguration config) {
         Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
         for (var entry : config.layout().entrySet()) {
-            if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL) continue;
+            if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL && config.layoutVersion() == 1) continue;
             var c = entry.getKey();
             blocks.put(new BlockPos(c.x(), c.y(), c.z()), state(entry.getValue(), 0, c.y()));
         }
@@ -98,7 +98,7 @@ public final class ShipModularBlockHull {
             BlockPos anchor, int turns) {
         Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
         for (var entry : config.layout().entrySet()) {
-            if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL) continue;
+            if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL && config.layoutVersion() == 1) continue;
             var c = entry.getKey();
             blocks.put(FirstShipBlockHull.world(anchor, turns, c.x(), c.y(), c.z()),
                     state(entry.getValue(), turns, c.y()));
