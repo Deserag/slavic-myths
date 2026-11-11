@@ -314,8 +314,11 @@ public final class ShipHullVoxelLayout {
         for (int mast = 0; mast < plan.mastPositionsV2().size(); mast++) {
             int z = plan.mastPositionsV2().get(mast);
             int tier = plan.sailTiers().get(mast);
+            // Higher-grade rigs carry substantially broader real canvas.
+            // Large ships should have sails dominant over their wooden hull,
+            // while the small seven-block hull remains compact.
             int broad = Math.min(plan.hullWidth() / 2 - 1,
-                    1 + tier + (plan.hullWidth() >= 13 ? 1 : 0));
+                    2 + 2 * tier + (plan.hullWidth() >= 13 ? 1 : 0));
             int mastTop = 13 + (tier - 1) * 7;
             for (int y = 2; y <= mastTop + 2; y++)
                 put(blocks, 0, y, z, Part.MAST);
@@ -330,9 +333,10 @@ public final class ShipHullVoxelLayout {
                     int edge = Math.max(1, span - (y == high ? 1 : 0));
                     int belly = (y == low || y == high) ? 1 : 2;
                     for (int x = -edge; x <= edge; x++) {
-                        Part cloth = (Math.abs(x) == 1 && y == low + 2)
-                                || (x == 0 && y == low + 3)
-                                ? Part.SAIL_TRIM : Part.SAIL;
+                        boolean woven = (y == low + 2 && x % 4 == 0)
+                                || (y == low + 3 && Math.abs(x) % 3 == 1)
+                                || (x == 0 && y == low + 1);
+                        Part cloth = woven ? Part.SAIL_TRIM : Part.SAIL;
                         put(blocks, x, y, z + belly, cloth);
                     }
                 }
