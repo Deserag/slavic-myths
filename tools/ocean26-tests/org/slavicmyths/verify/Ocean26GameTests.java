@@ -685,10 +685,10 @@ public final class Ocean26GameTests {
                 anchor, 0, original, anchor, 0, next),
                 "Medium extension/width/second deck/rooms transaction failed");
         t.assertTrue(level.getBlockState(org.slavicmyths.ships.FirstShipBlockHull.world(
-                anchor, 0, -next.width() / 2, 0, 0)).is(Blocks.SPRUCE_PLANKS)
+                anchor, 0, -next.width() / 2, 1, 0)).is(Blocks.SPRUCE_PLANKS)
                 && level.getBlockState(org.slavicmyths.ships.FirstShipBlockHull.world(
-                anchor, 0, next.width() / 2, 0, 0)).is(Blocks.SPRUCE_PLANKS),
-                "Widened hull is not symmetric");
+                anchor, 0, next.width() / 2, 1, 0)).is(Blocks.SPRUCE_PLANKS),
+                "Widened dry hold floor is not symmetric");
         t.assertTrue(level.getBlockState(org.slavicmyths.ships.FirstShipBlockHull.world(
                 anchor, 0, 0, 9, -next.length() / 2 + 3)).is(Blocks.DARK_OAK_PLANKS),
                 "Raised captain's bridge absent");
