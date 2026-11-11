@@ -158,6 +158,10 @@ public final class ShipVoxelPreview {
             var c = e.getKey();
             var p = e.getValue();
             if (view == View.TOP && c.y() > 6) continue;
+            // Front and stern proofs show the actual tapered three-row nose
+            // instead of flattening the entire midship into the silhouette.
+            if (view == View.FRONT && c.z() < plan.hullLength() / 2 - 3) continue;
+            if (view == View.REAR && c.z() > -plan.hullLength() / 2 + 3) continue;
             if ((view == View.FRONT || view == View.REAR)
                     && (c.y() > 7 || p == ShipHullVoxelLayout.Part.SAIL
                     || p == ShipHullVoxelLayout.Part.SAIL_TRIM)) continue;
