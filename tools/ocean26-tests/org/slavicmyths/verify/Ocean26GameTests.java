@@ -733,8 +733,9 @@ public final class Ocean26GameTests {
                         == net.minecraft.world.level.block.state.properties.DoubleBlockHalf.UPPER,
                 "Captain's cabin door halves are invalid");
         t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                0, 3, 6, cabinRear + 3)).is(Blocks.GLASS_PANE),
-                "Captain's cabin window is absent");
+                0, 3, 6, cabinRear + 3)).is(next.layoutVersion() == 2
+                        ? Blocks.ORANGE_STAINED_GLASS_PANE : Blocks.GLASS_PANE),
+                "Captain's cabin window is absent or has wrong geometry version");
         var cabinDoor = (net.minecraft.world.level.block.DoorBlock)
                 level.getBlockState(lowerDoor).getBlock();
         cabinDoor.setOpen(null, level, level.getBlockState(lowerDoor), lowerDoor, true);
