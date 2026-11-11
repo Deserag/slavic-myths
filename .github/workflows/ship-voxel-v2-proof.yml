@@ -32,6 +32,14 @@ jobs:
             src/main/java/org/slavicmyths/ships/ShipSectionPlan.java \
             src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java \
             src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java \
-            src/shipProof/java/org/slavicmyths/ships/ShipVoxelProof.java
+            src/shipProof/java/org/slavicmyths/ships/ShipVoxelProof.java \
+            src/shipProof/java/org/slavicmyths/ships/ShipVoxelExport.java
       - name: Check shaped hull, rigging, lanterns and V1 palette
         run: java -cp build/ship-voxel-proof org.slavicmyths.ships.ShipVoxelProof
+      - name: Export source-derived hull voxel coordinates
+        run: java -cp build/ship-voxel-proof org.slavicmyths.ships.ShipVoxelExport build/ship-voxel-proof/ship_voxels.csv
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ship-v2-real-voxel-blueprints
+          path: build/ship-voxel-proof/ship_voxels.csv
+          if-no-files-found: error
