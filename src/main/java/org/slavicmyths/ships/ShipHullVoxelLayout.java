@@ -19,7 +19,7 @@ import java.util.Map;
 public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
-        KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, SAIL, SAIL_TRIM,
+        KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, RIGGING, SAIL, SAIL_TRIM,
         CABIN_WALL, WINDOW, HULL_WINDOW, DOOR, BRIDGE, HELM, LIGHT
     }
 
@@ -138,6 +138,17 @@ public final class ShipHullVoxelLayout {
                             if (x != 0) put(blocks, x, mastTop + 1, z, Part.YARD);
                         sailPanel(blocks, z, 19, mastTop, upperSpan);
                     }
+                }
+            }
+            if (plan.hullWidth() >= 9) {
+                // Native vertical chain segments trace sloped forestays, one
+                // on each flank behind the linen panels, without crossing them.
+                int outer = Math.min(halfBeam(plan, z - 1), plan.hullWidth() / 2 - 1);
+                for (int y = 6; y < mastTop; y++) {
+                    int spread = Math.max(1,
+                            (int)Math.round((double)outer * (mastTop - y) / (mastTop - 5)));
+                    for (int side : new int[] {-1, 1})
+                        blocks.putIfAbsent(new Cell(side * spread, y, z - 1), Part.RIGGING);
                 }
             }
         }
