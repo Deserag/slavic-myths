@@ -4,11 +4,13 @@ on:
   push:
     branches:
       - 'feature/2.6-ship-superstructures-20261110'
+      - 'feat/2.6-ship-speed-sails-20261111'
       - 'feature/2.6-full-modular-ships-20261110'
       - 'feature/2.6-shipyard-ui-rework-20261110'
       - 'fix/2.6-shipyard-helm-ui-20261110'
       - 'integration/2.6-modular-ships-20261110'
       - 'fix/2.6-*'
+      - 'feat/2.6-ship-voxel-hulls-rigging-light-20261111'
     paths:
       - 'src/main/java/org/slavicmyths/ships/**'
       - 'tools/ocean26-tests/**'
