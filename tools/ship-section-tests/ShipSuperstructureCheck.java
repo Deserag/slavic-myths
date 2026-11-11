@@ -35,7 +35,7 @@ public final class ShipSuperstructureCheck {
 
         var medium = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(1, 2), 2, true, true);
-        yes(medium.mastPositions().equals(List.of(0, 4)), "two centered masts");
+        yes(medium.mastPositions().equals(List.of(0, 5)), "two spaced masts");
         yes(Math.abs(medium.rawThrust() - 2.7D) < 1E-9D, "sum mixed sail tiers");
         yes(medium.propulsionFactor() > 0D && medium.propulsionFactor() < 1D,
                 "large hull with small sails is underpowered");
@@ -46,13 +46,13 @@ public final class ShipSuperstructureCheck {
 
         var large = plan(ShipSectionPlan.ShipClass.LARGE, 21, 33,
                 List.of(1, 2, 3), 3, true, true);
-        yes(large.mastPositions().equals(List.of(-4, 0, 4)), "three masts");
+        yes(large.mastPositions().equals(List.of(-6, 3, 11)), "three dispersed masts");
         yes(Math.abs(large.rawThrust() - 5.2D) < 1E-9D, "all three sail tiers");
         yes(large.propulsionFactor() <= 1D, "forward thrust is bounded");
 
         var largest = plan(ShipSectionPlan.ShipClass.LARGEST, 21, 33,
                 List.of(3, 3, 2, 1), 3, true, true);
-        yes(largest.mastPositions().equals(List.of(-6, -2, 2, 6)), "four masts");
+        yes(largest.mastPositions().equals(List.of(-6, 0, 5, 11)), "four dispersed masts");
         yes(largest.sailTiers().equals(List.of(3, 3, 2, 1)), "independent sail tiers");
         yes(largest.withCabin(false).cabin() == false, "cabin removal");
         yes(largest.withBridge(false).bridge() == false, "bridge removal");
