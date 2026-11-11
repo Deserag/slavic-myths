@@ -157,7 +157,7 @@ public final class ShipVoxelPreview {
         for (var e : blocks.entrySet()) {
             var c = e.getKey();
             var p = e.getValue();
-            if (view == View.TOP && c.y() > 4) continue;
+            if (view == View.TOP && c.y() > 6) continue;
             if ((view == View.FRONT || view == View.REAR)
                     && (c.y() > 7 || p == ShipHullVoxelLayout.Part.SAIL
                     || p == ShipHullVoxelLayout.Part.SAIL_TRIM)) continue;
