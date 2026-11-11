@@ -138,8 +138,12 @@ public final class ShipHullVoxelLayoutCheck {
                     "V2 illuminated outdoor deck");
             yes(v2.containsValue(ShipHullVoxelLayout.Part.LIGHT),
                     "V2 has real lantern inside");
+            for (int i = 1; i < config.mastPositionsV2().size(); i++)
+                yes(config.mastPositionsV2().get(i) - config.mastPositionsV2().get(i - 1)
+                        >= ShipSuperstructurePlan.MAST_CLEARANCE,
+                        "V2 mast stations are separated fore-aft");
             for (int i = 0; i < config.sailTiers().size(); i++) {
-                int z = config.mastPositions().get(i), tier = config.sailTiers().get(i);
+                int z = config.mastPositionsV2().get(i), tier = config.sailTiers().get(i);
                 yes(v2.get(new ShipHullVoxelLayout.Cell(0, 6, z))
                         == ShipHullVoxelLayout.Part.MAST, "V2 supported mast");
                 yes(v2.get(new ShipHullVoxelLayout.Cell(0, 13 + (tier - 1) * 7 + 2, z))
