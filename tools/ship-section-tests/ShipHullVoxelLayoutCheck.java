@@ -92,6 +92,80 @@ public final class ShipHullVoxelLayoutCheck {
                 ShipHullVoxelLayout.generate(bare), ShipHullVoxelLayout.generate(decks));
         yes(addedDeck.getOrDefault(ShipHullVoxelLayout.Part.DECK, 0) > 0,
                 "deck bills include new flooring");
+        // New V2 boats must be actual stepped wooden vessels while old saves
+        // use the unchanged version-one palette.
+        for (var config : List.of(small, medium, large, largest)) {
+            var legacy = ShipHullVoxelLayout.generate(config, 1);
+            var v2 = ShipHullVoxelLayout.generate(config, 2);
+            int halfLength = config.hullLength() / 2;
+            yes(legacy.equals(ShipHullVoxelLayout.generate(config)), "V1 layout remains exact");
+            yes(v2.equals(ShipHullVoxelLayout.generate(config, 2)), "V2 deterministic");
+            yes(!v2.equals(legacy), "V2 is not a cosmetic V1 alias");
+            yes(ShipHullVoxelLayout.halfBeam(config, halfLength, 2) == 0, "V2 pointed bow");
+            yes(ShipHullVoxelLayout.halfBeam(config, -halfLength, 2) == 1, "V2 tapered stern");
+            yes(ShipHullVoxelLayout.halfBeam(config, 0, 2) > 1, "V2 broad midship");
+            yes(ShipHullVoxelLayout.halfBeam(config, 0, 2)
+                    > ShipHullVoxelLayout.halfBeam(config, halfLength - 2, 2),
+                    "V2 bow tapers gradually");
+            yes(ShipHullVoxelLayout.halfBeam(config, 0, 2)
+                    > ShipHullVoxelLayout.halfBeam(config, -halfLength + 1, 2),
+                    "V2 stern tapers gradually");
+            for (int z = -halfLength; z <= halfLength; z++) {
+                int beam = ShipHullVoxelLayout.halfBeam(config, z, 2);
+                yes(v2.get(new ShipHullVoxelLayout.Cell(0, 0, z))
+                        == ShipHullVoxelLayout.Part.KEEL, "V2 continuous keel " + z);
+                for (int x = -beam; x <= beam; x++) {
+                    yes(v2.get(new ShipHullVoxelLayout.Cell(x, 1, z))
+                            == ShipHullVoxelLayout.Part.HULL,
+                            "V2 sealed dry hold floor " + x + ":" + z);
+                    if (Math.abs(x) > Math.max(0, beam - 2))
+                        yes(!v2.containsKey(new ShipHullVoxelLayout.Cell(x, 0, z)),
+                                "V2 narrowed underwater hull " + x + ":" + z);
+                }
+            }
+            yes(v2.values().stream().filter(p -> p == ShipHullVoxelLayout.Part.HELM)
+                    .count() == 1, "V2 has exactly one helm");
+            yes(v2.values().contains(ShipHullVoxelLayout.Part.BOWSPRIT),
+                    "V2 timber bowsprit");
+            yes(v2.values().contains(ShipHullVoxelLayout.Part.SAIL),
+                    "V2 physical sailcloth");
+            yes(v2.values().contains(ShipHullVoxelLayout.Part.SAIL_TRIM),
+                    "V2 red woven ornament");
+            yes(v2.values().contains(ShipHullVoxelLayout.Part.STANDING_LANTERN),
+                    "V2 illuminated outdoor deck");
+            yes(v2.containsValue(ShipHullVoxelLayout.Part.LIGHT),
+                    "V2 has real lantern inside");
+            for (int i = 0; i < config.sailTiers().size(); i++) {
+                int z = config.mastPositions().get(i), tier = config.sailTiers().get(i);
+                yes(v2.get(new ShipHullVoxelLayout.Cell(0, 6, z))
+                        == ShipHullVoxelLayout.Part.MAST, "V2 supported mast");
+                yes(v2.get(new ShipHullVoxelLayout.Cell(0, 13 + (tier - 1) * 7 + 2, z))
+                        == ShipHullVoxelLayout.Part.MAST, "V2 full mast height");
+                for (int layer = 0; layer < tier; layer++) {
+                    int low = 8 + layer * 7;
+                    boolean panel = false;
+                    for (int x = -config.hullWidth() / 2; x <= config.hullWidth() / 2; x++)
+                        for (int y = low; y <= low + 4; y++)
+                            for (int zz = z + 1; zz <= z + 2; zz++) {
+                                var material = v2.get(new ShipHullVoxelLayout.Cell(x, y, zz));
+                                if (material == ShipHullVoxelLayout.Part.SAIL
+                                        || material == ShipHullVoxelLayout.Part.SAIL_TRIM)
+                                    panel = true;
+                            }
+                    yes(panel, "V2 mast " + i + " level " + layer + " carries sail");
+                }
+            }
+            for (int floor = 1; floor <= config.decks(); floor++) {
+                int lightY = floor == 1 ? 2 : floor == 2 ? 7 : 11;
+                boolean lit = v2.entrySet().stream().anyMatch(e ->
+                        e.getValue() == ShipHullVoxelLayout.Part.LIGHT
+                        && e.getKey().y() == lightY);
+                yes(lit, "V2 interior level " + floor + " is lit");
+            }
+            if (config.cabin()) yes(v2.values().contains(ShipHullVoxelLayout.Part.WINDOW),
+                    "V2 captain cabin retains windows");
+        }
+
         System.out.println("PASS ShipHullVoxelLayoutCheck assertions=" + checks);
     }
 }
