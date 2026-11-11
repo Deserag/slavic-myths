@@ -39,7 +39,7 @@ public final class ShipVoxelPreview {
             case LADDER -> 0xB2956B;
             case YARD -> 0x60412E;
             case SAIL -> 0xF0E9DC;
-            case SAIL_TRIM -> 0xBE3531;
+            case SAIL_TRIM, PENNANT -> 0xBE3531;
             case RIGGING -> 0x4A4844;
             case CABIN_WALL -> 0x76523C;
             case WINDOW -> 0x91B9C5;
