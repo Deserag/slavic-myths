@@ -20,9 +20,11 @@ public final class ShipSailMotionCheck {
         double third = ShipSailMotion.power(1, 3);
         check(rowing > 0D && rowing < first, "rowing must be slow");
         check(first < second && second < third, "strict progression of sail tiers");
-        check(Math.abs(first - 0.4D) < 1e-9, "tier I");
-        check(Math.abs(second - 0.68D) < 1e-9, "tier II");
-        check(Math.abs(third - 1D) < 1e-9, "tier III");
+        check(Math.abs(first - 0.80D) < 1e-9, "tier I");
+        check(Math.abs(second - 0.84D) < 1e-9, "tier II");
+        check(Math.abs(third - (0.80D + 0.20D * 1.50D / 3.50D)) < 1e-9, "tier III");
+        check(ShipRigidMotion.MAX_FORWARD * .985D * first > .4D,
+                "basic sail must outrun vanilla boats on flat water");
         for (int rig = 0; rig <= 4; rig++)
             for (int sail = 0; sail <= 3; sail++) {
                 if ((rig == 0) != (sail == 0)) continue;
