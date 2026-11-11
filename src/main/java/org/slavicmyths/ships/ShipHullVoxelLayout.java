@@ -20,7 +20,7 @@ public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
         KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, SAIL,
-        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LIGHT
+        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LIGHT, SAIL_TRIM, RIGGING, BOWSPRIT
     }
 
     private static int beam(int width, int length, int z) {
@@ -234,6 +234,62 @@ public final class ShipHullVoxelLayout {
             for (int z = rear + 2; z <= rear + 4; z += 2)
                 if (!blocks.containsKey(new Cell(0, 7, z)))
                     put(blocks, 0, 7, z, Part.LIGHT);
+        }
+
+        // V2 rigging is rebuilt AFTER the cabin and the shaped hull. Delete
+        // only old cloth/spars so the saved V1 palette remains byte-for-byte
+        // identical and the new version has no duplicate rectangular sails.
+        blocks.entrySet().removeIf(entry -> entry.getValue() == Part.SAIL
+                || entry.getValue() == Part.MAST || entry.getValue() == Part.YARD);
+        for (int mast = 0; mast < plan.mastPositions().size(); mast++) {
+            int z = plan.mastPositions().get(mast);
+            int tier = plan.sailTiers().get(mast);
+            int broad = Math.min(plan.hullWidth() / 2 - 1,
+                    1 + tier + (plan.hullWidth() >= 13 ? 1 : 0));
+            int mastTop = 13 + (tier - 1) * 7;
+            for (int y = 2; y <= mastTop + 2; y++)
+                put(blocks, 0, y, z, Part.MAST);
+            for (int layer = 0; layer < tier; layer++) {
+                int low = 8 + layer * 7, high = low + 4;
+                int span = Math.max(1, broad - layer);
+                for (int x = -span; x <= span; x++) {
+                    put(blocks, x, low - 1, z, Part.YARD);
+                    put(blocks, x, high + 1, z, Part.YARD);
+                }
+                for (int y = low; y <= high; y++) {
+                    int edge = Math.max(1, span - (y == high ? 1 : 0));
+                    int belly = (y == low || y == high) ? 1 : 2;
+                    for (int x = -edge; x <= edge; x++) {
+                        Part cloth = (Math.abs(x) == 1 && y == low + 2)
+                                || (x == 0 && y == low + 3)
+                                ? Part.SAIL_TRIM : Part.SAIL;
+                        put(blocks, x, y, z + belly, cloth);
+                    }
+                }
+            }
+            // Vertical stays alongside the lower sail; do not run rigging
+            // through walkable hatch, helm, or the protected aft cabin.
+            if (broad + 1 < plan.hullWidth() / 2)
+                for (int x : new int[]{-broad - 1, broad + 1})
+                    for (int y = 9; y <= 12; y++)
+                        put(blocks, x, y, z, Part.RIGGING);
+        }
+
+        // A narrow, forward-pointing block-built bowsprit, including its
+        // overhang in the moving collision palette.
+        for (int z = halfLength; z <= halfLength + 2; z++)
+            put(blocks, 0, 6, z, Part.BOWSPRIT);
+
+        // Each covered upper level receives actual hanging lantern blocks,
+        // attached to the deck above, rather than painted yellow windows.
+        for (int floor = 2; floor <= plan.decks(); floor++) {
+            int ceiling = 4 + (floor - 1) * 4;
+            for (int z = -halfLength + 5; z <= halfLength - 5; z += 6) {
+                Cell support = new Cell(1, ceiling, z);
+                Cell light = new Cell(1, ceiling - 1, z);
+                if (blocks.get(support) == Part.DECK && !blocks.containsKey(light))
+                    put(blocks, 1, ceiling - 1, z, Part.LIGHT);
+            }
         }
 
         return Collections.unmodifiableMap(blocks);
