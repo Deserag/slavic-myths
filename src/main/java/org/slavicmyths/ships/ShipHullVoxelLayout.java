@@ -20,7 +20,7 @@ public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
         KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, SAIL,
-        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LIGHT, SAIL_TRIM, RIGGING, BOWSPRIT
+        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LIGHT, SAIL_TRIM, RIGGING, BOWSPRIT, STANDING_LANTERN
     }
 
     private static int beam(int width, int length, int z) {
@@ -196,12 +196,16 @@ public final class ShipHullVoxelLayout {
         for (int z = -halfLength; z <= halfLength; z++) {
             int half = halfBeamV2(plan, z);
             for (int x = -half; x <= half; x++) {
-                put(blocks, x, 0, z, x == 0 ? Part.KEEL : Part.HULL);
+                // Underwater keel is narrower than the sealed, dry hold floor.
+                // Solid y=1 across the footprint prevents water entering the hold.
+                if (Math.abs(x) <= Math.max(0, half - 2))
+                    put(blocks, x, 0, z, x == 0 ? Part.KEEL : Part.HULL);
+                put(blocks, x, 1, z, Part.HULL);
                 boolean side = Math.abs(x) == half
                         || Math.abs(x) > halfBeamV2(plan, z - 1)
                         || Math.abs(x) > halfBeamV2(plan, z + 1);
                 if (side) {
-                    for (int y = 1; y <= 3; y++) put(blocks, x, y, z, Part.HULL);
+                    for (int y = 2; y <= 3; y++) put(blocks, x, y, z, Part.HULL);
                     put(blocks, x, 5, z, Part.RAIL);
                 } else {
                     if (Math.floorMod(z, 4) == 0) put(blocks, x, 3, z, Part.FRAME);
@@ -234,6 +238,25 @@ public final class ShipHullVoxelLayout {
             for (int z = rear + 2; z <= rear + 4; z += 2)
                 if (!blocks.containsKey(new Cell(0, 7, z)))
                     put(blocks, 0, 7, z, Part.LIGHT);
+        }
+
+        // Guaranteed lighting in the little single-deck vessel's hold.
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.SMALL) {
+            put(blocks, 0, 3, -2, Part.DECK);
+            put(blocks, 0, 2, -2, Part.LIGHT);
+        }
+        // Standing warm lamps on weather decks and the raised captain's bridge.
+        for (int z = -halfLength + 3; z <= halfLength - 3; z += 8) {
+            int edge = halfBeamV2(plan, z);
+            Cell p = new Cell(edge - 1, 5, z);
+            if (edge >= 3 && !blocks.containsKey(p))
+                put(blocks, p.x(), p.y(), p.z(), Part.STANDING_LANTERN);
+        }
+        if (plan.bridge()) {
+            int rear = -halfLength + 2;
+            Cell bridgeLamp = new Cell(1, 10, rear + 2);
+            if (!blocks.containsKey(bridgeLamp))
+                put(blocks, bridgeLamp.x(), bridgeLamp.y(), bridgeLamp.z(), Part.STANDING_LANTERN);
         }
 
         // V2 rigging is rebuilt AFTER the cabin and the shaped hull. Delete
