@@ -6702,5 +6702,6 @@
   "item.slavicmyths.ash_horseradish": "Ash Horseradish",
   "block.slavicmyths.ash_horseradish_crop": "Ash Horseradish",
   "item.slavicmyths.coal_garlic": "Coal Garlic",
-  "block.slavicmyths.coal_garlic_crop": "Coal Garlic"
+  "block.slavicmyths.coal_garlic_crop": "Coal Garlic",
+  "tooltip.slavicmyths.nether_plant_soil": "Plant on: %s"
 }

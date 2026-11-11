@@ -6726,5 +6726,6 @@
   "item.slavicmyths.ash_horseradish": "Пепельный хрен",
   "block.slavicmyths.ash_horseradish_crop": "Пепельный хрен",
   "item.slavicmyths.coal_garlic": "Угольный чеснок",
-  "block.slavicmyths.coal_garlic_crop": "Угольный чеснок"
+  "block.slavicmyths.coal_garlic_crop": "Угольный чеснок",
+  "tooltip.slavicmyths.nether_plant_soil": "Сажать на: %s"
 }

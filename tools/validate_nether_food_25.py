@@ -332,8 +332,20 @@ def check_source():
             raise AssertionError(f"Raw food must not be directly plantable: {id}")
     for id, block in PLANTING_MATERIALS.items():
         line = next((line for line in items.splitlines() if f'ITEMS.register("{id}"' in line), "")
-        if f"ItemNameBlockItem(ModBlocks.{block}.get()," not in line:
+        allowed = (f"ItemNameBlockItem(ModBlocks.{block}.get(),", f"SoilHintPlantItem(ModBlocks.{block}.get(),")
+        if not any(link in line for link in allowed):
             raise AssertionError(f"Missing planting link: {id} -> {block}")
+
+    nether_hints = {
+        "crimson_pepper": "CRIMSON_NYLIUM", "heatroot": "SOUL_SAND",
+        "ash_mushroom": "SOUL_SOIL", "ash_horseradish": "SOUL_SAND",
+        "coal_garlic": "SOUL_SOIL", "sernica_seeds": "SOUL_SOIL",
+        "heat_berry_cutting": "CRIMSON_NYLIUM", "coal_plum_sapling": "CRIMSON_NYLIUM",
+    }
+    for id, soil in nether_hints.items():
+        line = next((line for line in items.splitlines() if f'ITEMS.register("{id}"' in line), "")
+        if f"Blocks.{soil}," not in line or "new SoilHintPlantItem(" not in line:
+            raise AssertionError(f"Wrong Nether item soil tooltip: {id}/{soil}")
     for id, soil in NETHER_SUBSTRATES.items():
         line = next((line for line in blocks.splitlines() if f'BLOCKS.register("{id}_crop"' in line), "")
         if f"Blocks.{soil}" not in line:
@@ -365,6 +377,8 @@ def check_source():
     check_creative_catalog()
     for locale in ("ru_ru", "en_us"):
         lang = json_file(ASSET / "lang" / (locale + ".json"))
+        if not lang.get("tooltip.slavicmyths.nether_plant_soil"):
+            raise AssertionError(f"Missing Nether planting tooltip translation: {locale}")
         for id in CROPS:
             if not lang.get("item.slavicmyths." + id) or not lang.get("block.slavicmyths." + id + "_crop"):
                 raise AssertionError(f"Missing localization {id}/{locale}")
