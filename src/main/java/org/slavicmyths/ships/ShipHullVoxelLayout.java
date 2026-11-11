@@ -20,7 +20,7 @@ public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
         KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, RIGGING, SAIL, SAIL_TRIM,
-        CABIN_WALL, WINDOW, HULL_WINDOW, DOOR, BRIDGE, HELM, LIGHT
+        CABIN_WALL, WINDOW, HULL_WINDOW, DOOR, BRIDGE, HELM, LIGHT, LIGHT_STAND
     }
 
     private static int beam(int width, int length, int z) {
@@ -277,7 +277,7 @@ public final class ShipHullVoxelLayout {
         for (int z : new int[] {-halfLength + 4, halfLength - 3}) {
             int half = halfBeam(plan, z);
             if (half >= 2 && blocks.get(new Cell(half, 5, z)) == Part.RAIL)
-                put(blocks, half, 6, z, Part.LIGHT);
+                put(blocks, half, 6, z, Part.LIGHT_STAND);
         }
 
         return Collections.unmodifiableMap(blocks);
