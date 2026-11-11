@@ -41,7 +41,8 @@ public final class ShipyardModular {
         int keel = delta.getOrDefault(ShipHullVoxelLayout.Part.KEEL, 0);
         int frame = delta.getOrDefault(ShipHullVoxelLayout.Part.FRAME, 0);
         int mast = delta.getOrDefault(ShipHullVoxelLayout.Part.MAST, 0);
-        int yard = delta.getOrDefault(ShipHullVoxelLayout.Part.YARD, 0);
+        int yard = delta.getOrDefault(ShipHullVoxelLayout.Part.YARD, 0)
+                + delta.getOrDefault(ShipHullVoxelLayout.Part.BOWSPRIT, 0);
         int walls = delta.getOrDefault(ShipHullVoxelLayout.Part.CABIN_WALL, 0);
         int hull = delta.getOrDefault(ShipHullVoxelLayout.Part.HULL, 0);
         int deck = delta.getOrDefault(ShipHullVoxelLayout.Part.DECK, 0)
