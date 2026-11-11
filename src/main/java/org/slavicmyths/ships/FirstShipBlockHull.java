@@ -438,6 +438,22 @@ public final class FirstShipBlockHull {
         }
     }
 
+    /**
+     * Exact pre-taper V10 palette for safe removal of already built ships.
+     * The old stern slab at z=-6 is an identifying part of this layout.
+     * Only the stationary hull snapshot is upgraded; cargo NBT is unchanged.
+     */
+    private static Map<BlockPos, BlockState> legacyV10Layout(BlockPos anchor,
+            int turns, int rig, int fabric) {
+        Map<BlockPos, BlockState> blocks = layoutV8(anchor, turns, rig, fabric);
+        for (int y = 0; y <= 3; y++)
+            blocks.remove(world(anchor, turns, 0, y, -6));
+        for (int y = 1; y <= 3; y++)
+            blocks.put(world(anchor, turns, 0, y, -5), Blocks.SPRUCE_PLANKS.defaultBlockState());
+        blocks.put(world(anchor, turns, 0, 0, -6), Blocks.DARK_OAK_SLAB.defaultBlockState());
+        return blocks;
+    }
+
     private static Map<BlockPos, BlockState> layout(BlockPos anchor, int turns,
             int rig, int fabric, int geometry) {
         return geometry >= 10 ? layoutV10(anchor, turns, rig, fabric)
@@ -563,6 +579,14 @@ public final class FirstShipBlockHull {
 
     private static Snapshot inspect(ServerLevel level, BlockPos anchor, int turns,
             int rig, int fabric, int geometry) {
+        // A saved pre-taper V10 must be detached using its complete OLD
+        // palette; otherwise the no-longer-used floor and stern slab remain
+        // abandoned in the world when the ship starts moving.
+        if (geometry == 10) {
+            Snapshot legacy = inspect(level, anchor, turns,
+                    legacyV10Layout(anchor, turns, rig, fabric));
+            if (legacy != null) return legacy;
+        }
         return inspect(level, anchor, turns, layout(anchor, turns, rig, fabric, geometry));
     }
 
