@@ -20,16 +20,20 @@ public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
         KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, SAIL,
-        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM
+        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LIGHT
     }
 
     private static int beam(int width, int length, int z) {
         int halfWidth = width / 2, halfLength = length / 2;
         if (Math.abs(z) > halfLength) return -1;
-        int taper = Math.max(0, Math.abs(z) - (halfLength - 4));
-        int reduction = (int)Math.ceil(taper * halfWidth / 4D);
-        int tip = z == halfLength ? 0 : z == -halfLength ? 1 : 0;
-        return Math.max(tip, halfWidth - reduction);
+        int endDistance = halfLength - Math.abs(z);
+        int bowRun = Math.min(halfLength, Math.max(4, width / 2 + 2));
+        int sternRun = Math.min(halfLength, Math.max(3, width / 2));
+        int run = z >= 0 ? bowRun : sternRun;
+        if (endDistance >= run) return halfWidth;
+        int tipBeam = z >= 0 ? 0 : Math.min(1, halfWidth);
+        double fraction = (double)endDistance / run;
+        return Math.min(halfWidth, tipBeam + (int)Math.floor((halfWidth - tipBeam) * Math.pow(fraction, .78D)));
     }
 
     public static int halfBeam(ShipSuperstructurePlan plan, int z) {
@@ -84,22 +88,30 @@ public final class ShipHullVoxelLayout {
             }
         }
 
-        // Real per-mast stations. A mast at one coordinate never overwrites
-        // another because spacing is checked by ShipSuperstructurePlan.
+        // Separate square-rigged panels, stepped edges and staggered mast heights.
+        // The sails remain a blueprint preview until the sail palette is enabled
+        // in the moving-ship renderer.
         List<Integer> masts = plan.mastPositions();
         for (int i = 0; i < masts.size(); i++) {
             int z = masts.get(i), tier = plan.sailTiers().get(i);
-            int top = tier == 1 ? 12 : tier == 2 ? 15 : 19;
-            int span = tier == 1 ? 2 : tier == 2 ? 3 : 4;
-            for (int y = 5; y <= top + 1; y++) put(blocks, 0, y, z, Part.MAST);
+            int mastTop = (tier == 1 ? 12 : tier == 2 ? 16 : 20)
+                    + (masts.size() > 1 && i == masts.size() / 2 ? 2 : 0);
+            int span = Math.min(plan.hullWidth() / 2 - 1,
+                    tier == 1 ? 2 : tier == 2 ? 3 : 4);
+            for (int y = 5; y <= mastTop + 1; y++)
+                put(blocks, 0, y, z, Part.MAST);
+            int lowerTop = tier == 1 ? mastTop + 1 : 13;
             for (int x = -span; x <= span; x++) {
-                put(blocks, x, top + 1, z, Part.YARD);
                 put(blocks, x, 7, z, Part.YARD);
+                put(blocks, x, lowerTop, z, Part.YARD);
             }
-            for (int y = 8; y <= top; y++)
-                for (int x = -span; x <= span; x++)
-                    if (x != 0 && !blocks.containsKey(new Cell(x, y, z + 1)))
-                        put(blocks, x, y, z + 1, Part.SAIL);
+            sailPanel(blocks, z, 8, lowerTop - 1, span);
+            if (tier >= 2) {
+                int upperSpan = Math.max(1, span - 1);
+                for (int x = -upperSpan; x <= upperSpan; x++)
+                    put(blocks, x, mastTop + 1, z, Part.YARD);
+                sailPanel(blocks, z, 14, mastTop, upperSpan);
+            }
         }
 
         // Closed stern cabin, with a two-block door aperture and real windows.
@@ -144,7 +156,37 @@ public final class ShipHullVoxelLayout {
             put(blocks, 0, 5, -halfLength + (plan.cabin() ? 9 : 3), Part.HELM);
         }
 
+        // Real vanilla light sources: the hold, cabin and exterior approach.
+        // Dynamic illumination while the palette is carried as an entity
+        // requires a separate client lighting implementation.
+        for (int z : new int[] {-2, 2})
+            if (blocks.get(new Cell(0, 4, z)) == Part.DECK)
+                put(blocks, 0, 3, z, Part.LIGHT);
+        if (plan.cabin()) {
+            int rear = -halfLength + 2;
+            put(blocks, 0, 7, rear + 3, Part.LIGHT);
+        }
+        for (int z : new int[] {-halfLength + 4, halfLength - 3}) {
+            int half = halfBeam(plan, z);
+            if (half >= 2 && blocks.get(new Cell(half, 5, z)) == Part.RAIL)
+                put(blocks, half, 6, z, Part.LIGHT);
+        }
+
         return Collections.unmodifiableMap(blocks);
+    }
+
+    private static void sailPanel(Map<Cell, Part> blocks, int mastZ,
+                                  int bottom, int top, int halfSpan) {
+        for (int y = bottom; y <= top; y++) {
+            int endInset = y == bottom || y == top ? 1 : 0;
+            int width = Math.max(1, halfSpan - endInset);
+            for (int x = -width; x <= width; x++) {
+                if (x == 0) continue;
+                int bulge = Math.abs(x) < width && y > bottom && y < top ? 2 : 1;
+                Cell cell = new Cell(x, y, mastZ + bulge);
+                blocks.putIfAbsent(cell, Part.SAIL);
+            }
+        }
     }
 
     private static boolean mainHatch(int x, int z) {
