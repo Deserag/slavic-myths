@@ -19,7 +19,7 @@ public final class ShipVoxelExport {
         if (args.length != 1) throw new IllegalArgumentException("CSV output file required");
         StringBuilder csv = new StringBuilder("class,width,length,x,y,z,part\n");
         append(csv, "SMALL", new ShipSuperstructurePlan(
-                ShipSectionPlan.ShipClass.SMALL, 7, 11, List.of(1), 1, false, false));
+                ShipSectionPlan.ShipClass.SMALL, 7, 11, List.of(1), 1, false, true));
         append(csv, "MEDIUM", new ShipSuperstructurePlan(
                 ShipSectionPlan.ShipClass.MEDIUM, 13, 21, List.of(2, 2), 2, true, true));
         append(csv, "LARGE", new ShipSuperstructurePlan(
