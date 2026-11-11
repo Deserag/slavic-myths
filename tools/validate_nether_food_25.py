@@ -112,6 +112,23 @@ def audit_material(id):
                 raise AssertionError(f"Out-of-range item UV {id}/{uv}")
 
 
+def check_creative_catalog():
+    catalog = {}
+    for line in require(ASSET / "creative_catalog.tsv").read_text(encoding="utf-8").splitlines():
+        if not line or line.startswith("#"):
+            continue
+        fields = line.split("\t")
+        if len(fields) != 3 or fields[0] in catalog:
+            raise AssertionError(f"Invalid or duplicate creative catalog row: {line}")
+        catalog[fields[0]] = (fields[1], fields[2])
+    expected = {id: ("food", "ingredients") for id in CROPS}
+    expected.update({id + "_mug": ("food", "drinks") for id in DRINKS})
+    expected.update({id + "_wort": ("hidden", "brewing_batches") for id in DRINKS if id.endswith("_beer")})
+    for id, category in expected.items():
+        if catalog.get(id) != category:
+            raise AssertionError(f"Creative inventory category mismatch for {id}: {catalog.get(id)} != {category}")
+
+
 def check_source():
     blocks = require(ROOT / "src/main/java/org/slavicmyths/registry/ModBlocks.java").read_text()
     items = require(ROOT / "src/main/java/org/slavicmyths/registry/ModItems.java").read_text()
@@ -144,6 +161,7 @@ def check_source():
         model(id + "_mug", f"slavicmyths:item/{id}")
         if alcohol:
             model(id + "_wort", f"slavicmyths:item/{id}")
+    check_creative_catalog()
     for locale in ("ru_ru", "en_us"):
         lang = json_file(ASSET / "lang" / (locale + ".json"))
         for id in CROPS:

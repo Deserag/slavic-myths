@@ -257,6 +257,12 @@ mead_bottle	food	drinks
 thunder_beer_mug	food	drinks
 veles_dark_beer_mug	food	drinks
 witch_berry_beer_mug	food	drinks
+spicy_sbiten_mug	food	drinks
+heat_berry_mors_mug	food	drinks
+spiced_honey_drink_mug	food	drinks
+spicy_beer_mug	food	drinks
+heat_berry_beer_mug	food	drinks
+coal_plum_beer_mug	food	drinks
 spoiled_brew	food	drinks
 butchering_knife	tools	manual
 rolling_pin	tools	manual
@@ -605,6 +611,9 @@ mead_must	hidden	brewing_batches
 thunder_beer_wort	hidden	brewing_batches
 veles_dark_wort	hidden	brewing_batches
 witch_berry_wort	hidden	brewing_batches
+spicy_beer_wort	hidden	brewing_batches
+heat_berry_beer_wort	hidden	brewing_batches
+coal_plum_beer_wort	hidden	brewing_batches
 straw_block	decor	natural
 haystack	decor	natural
 hanging_willow_leaves	decor	natural
@@ -1158,6 +1167,10 @@ coal_plum	food	ingredients
 coal_plum_sapling	food	ingredients
 sernica	food	ingredients
 sernica_seeds	food	ingredients
+heatroot	food	ingredients
+ash_mushroom	food	ingredients
+ash_horseradish	food	ingredients
+coal_garlic	food	ingredients
 roasted_hot_pepper	food	ingredients
 ground_hot_pepper	food	ingredients
 ground_mustard	food	ingredients
