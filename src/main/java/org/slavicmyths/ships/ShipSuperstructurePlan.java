@@ -72,6 +72,27 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
         return mastPositionsFor(sailTiers.size(), hullLength, cabin);
     }
 
+    /**
+     * V2 rigging is spread along the available working deck. Old V1 mast
+     * stations and validation remain intact so old stored ships reconstruct
+     * their exact physical block layout.
+     */
+    public List<Integer> mastPositionsV2() {
+        int count = sailTiers.size();
+        if (count == 0) return List.of();
+        int half = hullLength / 2;
+        int first = cabin ? -half + 10 : -half + 4;
+        int last = half - 4;
+        if (count == 1)
+            return List.of(Math.max(first, Math.min(last, 0)));
+        if (last - first < (count - 1) * MAST_CLEARANCE)
+            throw new IllegalArgumentException("V2 masts cannot fit cabin and bow clearance");
+        List<Integer> positions = new ArrayList<>();
+        for (int i = 0; i < count; i++)
+            positions.add(first + (int)Math.round((last - first) * (double)i / (count - 1)));
+        return List.copyOf(positions);
+    }
+
     public double rawThrust() {
         double result = 0D;
         for (int tier : sailTiers) result += SAIL_THRUST[tier];
