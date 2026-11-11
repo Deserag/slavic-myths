@@ -6705,5 +6705,7 @@
   "tooltip.slavicmyths.sister_power.lomeya": "Ломея — Несокрушимость",
   "key.slavicmyths.morovoy_mode": "Посох Мора: сменить стихию",
   "key.slavicmyths.morovoy_ravens": "Посох Мора: призвать воронов",
-  "key.slavicmyths.morovoy_blast": "Посох Мора: огненно-моровой удар"
+  "key.slavicmyths.morovoy_blast": "Посох Мора: огненно-моровой удар",
+  "block.slavicmyths.sernica_crop": "Серница",
+  "block.slavicmyths.heat_berry_bush": "Жар-ягодный куст"
 }

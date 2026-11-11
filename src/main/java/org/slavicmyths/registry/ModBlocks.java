@@ -17,6 +17,8 @@ public final class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(Registries.BLOCK, SlavicMyths.MOD_ID);
     public static final DeferredHolder<Block, Block> CRIMSON_PEPPER_CROP = BLOCKS.register("crimson_pepper_crop",()->new org.slavicmyths.farming.CrimsonPepperCrop(plantProperties().randomTicks().noOcclusion()));
+    public static final DeferredHolder<Block, Block> SERNICA_CROP = BLOCKS.register("sernica_crop", () -> new org.slavicmyths.farming.NetherFoodCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.SERNICA_SEEDS.get(), net.minecraft.world.level.block.Blocks.SOUL_SOIL));
+    public static final DeferredHolder<Block, Block> HEAT_BERRY_BUSH = BLOCKS.register("heat_berry_bush", () -> new org.slavicmyths.farming.NetherBerryBush(plantProperties().randomTicks().noOcclusion()));
     public static final DeferredHolder<Block, Block> GARLIC_CROP = BLOCKS.register("garlic_crop", () -> new org.slavicmyths.farming.FoodCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.GARLIC_CLOVE.get()));
     public static final DeferredHolder<Block, Block> HORSERADISH_CROP = BLOCKS.register("horseradish_crop", () -> new org.slavicmyths.farming.FoodCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.HORSERADISH_CUTTING.get()));
     public static final DeferredHolder<Block, Block> BLACK_RADISH_CROP = BLOCKS.register("black_radish_crop", () -> new org.slavicmyths.farming.FoodCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.BLACK_RADISH_SEEDS.get()));

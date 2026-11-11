@@ -29,11 +29,11 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> CURSED_MYTAR_SPAWN_EGG = egg("cursed_mytar_spawn_egg", ModEntities.CURSED_MYTAR, 0x45323B, 0xB69B6C);
     public static final DeferredHolder<Item, Item> BAUK_SPAWN_EGG = egg("bauk_spawn_egg", ModEntities.BAUK, 0x242129, 0x8C413C);
     public static final DeferredHolder<Item, Item> HEAT_BERRIES = ITEMS.register("heat_berries", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build())));
-    public static final DeferredHolder<Item, Item> HEAT_BERRY_CUTTING = ITEMS.register("heat_berry_cutting", () -> new Item(properties()));
+    public static final DeferredHolder<Item, Item> HEAT_BERRY_CUTTING = ITEMS.register("heat_berry_cutting", () -> new ItemNameBlockItem(ModBlocks.HEAT_BERRY_BUSH.get(), properties()));
     public static final DeferredHolder<Item, Item> COAL_PLUM = ITEMS.register("coal_plum", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(3).saturationModifier(.3F).build())));
     public static final DeferredHolder<Item, Item> COAL_PLUM_SAPLING = ITEMS.register("coal_plum_sapling", () -> new Item(properties()));
     public static final DeferredHolder<Item, Item> SERNICA = ITEMS.register("sernica", () -> new Item(properties()));
-    public static final DeferredHolder<Item, Item> SERNICA_SEEDS = ITEMS.register("sernica_seeds", () -> new Item(properties()));
+    public static final DeferredHolder<Item, Item> SERNICA_SEEDS = ITEMS.register("sernica_seeds", () -> new ItemNameBlockItem(ModBlocks.SERNICA_CROP.get(), properties()));
     public static final DeferredHolder<Item, Item> ROASTED_HOT_PEPPER = ITEMS.register("roasted_hot_pepper", () -> new Item(properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(1).saturationModifier(.3F).build())));
     public static final DeferredHolder<Item, Item> GROUND_HOT_PEPPER = ITEMS.register("ground_hot_pepper", () -> new Item(properties()));
     public static final DeferredHolder<Item, Item> GROUND_MUSTARD = ITEMS.register("ground_mustard", () -> new Item(properties()));

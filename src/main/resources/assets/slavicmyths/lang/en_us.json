@@ -6681,5 +6681,7 @@
   "tooltip.slavicmyths.sister_power.lomeya": "Lomeya — Unbreakable",
   "key.slavicmyths.morovoy_mode": "Mor Staff: switch element",
   "key.slavicmyths.morovoy_ravens": "Mor Staff: summon ravens",
-  "key.slavicmyths.morovoy_blast": "Mor Staff: fire-plague blast"
+  "key.slavicmyths.morovoy_blast": "Mor Staff: fire-plague blast",
+  "block.slavicmyths.sernica_crop": "Sernica",
+  "block.slavicmyths.heat_berry_bush": "Heat Berry Bush"
 }
