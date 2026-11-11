@@ -1,0 +1,41 @@
+{
+  "type": "slavicmyths:vat",
+  "mode": "WORT",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:malted_barley"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:hops"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:coal_plum_mash"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:water_bucket"
+      },
+      "count": 1
+    }
+  ],
+  "time": 1800,
+  "result": {
+    "id": "slavicmyths:coal_plum_beer_wort",
+    "count": 1
+  },
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    }
+  ]
+}

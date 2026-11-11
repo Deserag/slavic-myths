@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "slavicmyths:item/coal_plum_sapling"
+  }
+}

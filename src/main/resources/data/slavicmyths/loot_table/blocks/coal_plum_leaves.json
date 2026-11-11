@@ -1,0 +1,56 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:coal_plum_sapling",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "slavicmyths:coal_plum_leaves",
+              "properties": {
+                "age": "3",
+                "fruiting": "true"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:coal_plum",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "slavicmyths:coal_plum_leaves",
+              "properties": {
+                "age": "3",
+                "fruiting": "true"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2,
+                "max": 4
+              }
+            },
+            {
+              "function": "slavicmyths:capped_crop_fortune"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

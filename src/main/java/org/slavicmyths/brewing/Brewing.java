@@ -13,7 +13,7 @@ import org.slavicmyths.registry.*;
 public final class Brewing {
  public static final Map<String,DeferredHolder<Item,? extends Item>> ITEMS=new LinkedHashMap<>();
  public static final Map<String,DeferredHolder<Block,? extends Block>> BLOCKS=new LinkedHashMap<>();
- public static final String[] BEERS={"light_beer","dark_beer","hopped_beer","honey_beer","forest_beer","thunder_beer","veles_dark_beer","witch_berry_beer"};
+ public static final String[] BEERS={"light_beer","dark_beer","hopped_beer","honey_beer","forest_beer","thunder_beer","veles_dark_beer","witch_berry_beer","spicy_beer","heat_berry_beer","coal_plum_beer"};
  public static final Map<String,String> BATCHES=new LinkedHashMap<>();
  public static final DeferredRegister<AttachmentType<?>> ATTACHMENTS=DeferredRegister.create(NeoForgeRegistries.Keys.ATTACHMENT_TYPES,"slavicmyths");
  // No copyOnDeath: respawn starts sober. Milk never writes this attachment.
@@ -27,6 +27,7 @@ public final class Brewing {
   for(String s:new String[]{"honey_infusion","forest_herbal_infusion","thunder_crystal_powder"})ITEMS.put(s,ModItems.ITEMS.register(s,()->new Item(new Item.Properties().stacksTo(16))));
   for(String s:new String[]{"wooden_mug","dark_bottle","ceramic_pitcher","filled_pitcher","berry_mors_pitcher"})ITEMS.put(s,ModItems.ITEMS.register(s,()->new BeverageItem(s,new Item.Properties().stacksTo(s.endsWith("pitcher")&&!s.equals("ceramic_pitcher")?1:16))));
   for(String s:BEERS)drink(s+"_mug",s.contains("thunder")||s.contains("veles")||s.contains("witch")?8:16,0,0);
+  drink("spicy_sbiten_mug",16,2,.30F);drink("heat_berry_mors_mug",16,2,.30F);drink("spiced_honey_drink_mug",16,2,.35F);
   drink("kvass_mug",16,2,.35F);drink("berry_mors_mug",16,2,.30F);drink("mead_bottle",16,0,0);drink("apple_cider_bottle",16,0,0);drink("apple_juice_bottle",16,2,.30F);drink("spoiled_brew",16,0,0);
   for(String s:BEERS)batch(s.equals("veles_dark_beer")?"veles_dark_wort":s.equals("witch_berry_beer")?"witch_berry_wort":s+"_wort",s);
   batch("kvass_wort","kvass");batch("mead_must","mead");batch("cider_must","apple_cider");

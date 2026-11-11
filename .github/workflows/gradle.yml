@@ -35,3 +35,17 @@ jobs:
     # 5. Запускаем компиляцию мода (тот самый clean build)
     - name: Build with Gradle
       run: ./gradlew clean build --no-daemon
+
+    # Issue #480: source textures/models plus byte-identical packaging in production JAR.
+    # Static resource gate; it does not run Minecraft or GameTest.
+    - name: Validate Nether food 2.5 production JAR contents
+      if: github.base_ref == 'release-2.5' || github.ref == 'refs/heads/release-2.5'
+      run: python3 tools/validate_nether_food_25.py --jar
+
+    - name: Upload unaccepted 2.5 JAR for inspection
+      if: (github.base_ref == 'release-2.5' || github.ref == 'refs/heads/release-2.5') && success()
+      uses: actions/upload-artifact@v4
+      with:
+        name: nether-food-25-unaccepted-build
+        path: build/libs/*.jar
+        if-no-files-found: error

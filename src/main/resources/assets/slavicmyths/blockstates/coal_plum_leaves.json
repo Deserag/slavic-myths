@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0,fruiting=true": {
+      "model": "slavicmyths:block/coal_plum_leaves_stage0"
+    },
+    "age=0,fruiting=false": {
+      "model": "slavicmyths:block/coal_plum_leaves_stage0"
+    },
+    "age=1,fruiting=true": {
+      "model": "slavicmyths:block/coal_plum_leaves_stage1"
+    },
+    "age=1,fruiting=false": {
+      "model": "slavicmyths:block/coal_plum_leaves_stage0"
+    },
+    "age=2,fruiting=true": {
+      "model": "slavicmyths:block/coal_plum_leaves_stage2"
+    },
+    "age=2,fruiting=false": {
+      "model": "slavicmyths:block/coal_plum_leaves_stage0"
+    },
+    "age=3,fruiting=true": {
+      "model": "slavicmyths:block/coal_plum_leaves_stage3"
+    },
+    "age=3,fruiting=false": {
+      "model": "slavicmyths:block/coal_plum_leaves_stage0"
+    }
+  }
+}

@@ -24,6 +24,18 @@
                   }
                 }
               ]
+            },
+            {
+              "function": "slavicmyths:capped_crop_fortune",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "slavicmyths:crimson_pepper_crop",
+                  "properties": {
+                    "age": "3"
+                  }
+                }
+              ]
             }
           ]
         }
