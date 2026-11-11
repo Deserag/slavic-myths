@@ -27,7 +27,7 @@ public final class ShipHullVoxelLayout {
         int halfWidth = width / 2, halfLength = length / 2;
         if (Math.abs(z) > halfLength) return -1;
         int endDistance = halfLength - Math.abs(z);
-        int bowRun = Math.min(halfLength, Math.max(4, width / 2 + 2));
+        int bowRun = Math.min(halfLength, Math.max(4, width / 2 + 1));
         int sternRun = Math.min(halfLength, Math.max(3, width / 2));
         int run = z >= 0 ? bowRun : sternRun;
         if (endDistance >= run) return halfWidth;
@@ -67,11 +67,11 @@ public final class ShipHullVoxelLayout {
             }
         }
         // Access shaft and actual ladders, aligned through every built deck.
-        for (int y = 1; y <= 4 + (plan.decks() - 1) * 4; y++) {
+        for (int y = 2; y <= 4 + (plan.decks() - 1) * 4; y++) {
             put(blocks, -3, y, 1, Part.FRAME);
             put(blocks, -2, y, 1, Part.LADDER);
         }
-        for (int y = 1; y <= 4; y++)
+        for (int y = 2; y <= 4; y++)
             blocks.remove(new Cell(-2, y, 0));
 
         // Elevated deck floors are stepped, not full-height rectangular towers.
