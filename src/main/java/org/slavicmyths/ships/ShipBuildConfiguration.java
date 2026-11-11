@@ -12,16 +12,29 @@ import net.minecraft.nbt.Tag;
  */
 public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         int extraLength, int extraWidth, List<Integer> sailTiers,
-        int decks, boolean bridge, boolean cabin) {
-    public static final int VERSION = 1;
+        int decks, boolean bridge, boolean cabin, int layoutVersion) {
+    public static final int VERSION = 2;
     public static final String NBT_KEY = "ShipBlueprint";
 
+    public ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass, int extraLength,
+            int extraWidth, List<Integer> sailTiers, int decks, boolean bridge, boolean cabin) {
+        this(shipClass, extraLength, extraWidth, sailTiers, decks, bridge, cabin, VERSION);
+    }
+
     public ShipBuildConfiguration {
+        if (layoutVersion < 1 || layoutVersion > VERSION)
+            throw new IllegalArgumentException("Unsupported ship layout version");
         ShipSectionPlan.validate(shipClass, extraLength, extraWidth);
         if (sailTiers == null) throw new IllegalArgumentException("Missing sails");
         sailTiers = List.copyOf(sailTiers);
         new ShipSuperstructurePlan(shipClass, hullWidth(shipClass, extraWidth),
                 hullLength(shipClass, extraLength), sailTiers, decks, bridge, cabin);
+    }
+
+    public java.util.Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> layout() {
+        return layoutVersion == 1
+                ? ShipHullVoxelLayout.generateLegacy(structure())
+                : ShipHullVoxelLayout.generate(structure());
     }
 
     public static int hullWidth(ShipSectionPlan.ShipClass type, int extraWidth) {
@@ -56,7 +69,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
 
     public ShipBuildConfiguration resize(int lengthSections, int widthSections) {
         return new ShipBuildConfiguration(shipClass, lengthSections, widthSections,
-                sailTiers, decks, bridge, cabin);
+                sailTiers, decks, bridge, cabin, layoutVersion);
     }
 
     public ShipBuildConfiguration withSail(int mast, int tier) {
@@ -66,27 +79,27 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         if (mast == next.size()) next.add(tier);
         else next.set(mast, tier);
         return new ShipBuildConfiguration(shipClass, extraLength, extraWidth,
-                next, decks, bridge, cabin);
+                next, decks, bridge, cabin, layoutVersion);
     }
 
     public ShipBuildConfiguration withDecks(int count) {
         return new ShipBuildConfiguration(shipClass, extraLength, extraWidth,
-                sailTiers, count, bridge, cabin);
+                sailTiers, count, bridge, cabin, layoutVersion);
     }
 
     public ShipBuildConfiguration withBridge(boolean enabled) {
         return new ShipBuildConfiguration(shipClass, extraLength, extraWidth,
-                sailTiers, decks, enabled, cabin);
+                sailTiers, decks, enabled, cabin, layoutVersion);
     }
 
     public ShipBuildConfiguration withCabin(boolean enabled) {
         return new ShipBuildConfiguration(shipClass, extraLength, extraWidth,
-                sailTiers, decks, bridge, enabled);
+                sailTiers, decks, bridge, enabled, layoutVersion);
     }
 
     public CompoundTag save() {
         CompoundTag tag = new CompoundTag();
-        tag.putInt("Version", VERSION);
+        tag.putInt("Version", layoutVersion);
         tag.putString("Class", shipClass.name());
         tag.putInt("ExtraLength", extraLength);
         tag.putInt("ExtraWidth", extraWidth);
@@ -99,7 +112,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
 
     /** Reject malformed or future formats rather than silently reducing size. */
     public static ShipBuildConfiguration load(CompoundTag tag) {
-        if (tag == null || tag.getInt("Version") != VERSION
+        if (tag == null || tag.getInt("Version") < 1 || tag.getInt("Version") > VERSION
                 || !tag.contains("Class", Tag.TAG_STRING)
                 || !tag.contains("Sails", Tag.TAG_INT_ARRAY)
                 || !tag.contains("Decks", Tag.TAG_INT)
@@ -113,7 +126,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         for (int tier : tag.getIntArray("Sails")) sails.add(tier);
         return new ShipBuildConfiguration(type, tag.getInt("ExtraLength"),
                 tag.getInt("ExtraWidth"), sails, tag.getInt("Decks"),
-                tag.getBoolean("Bridge"), tag.getBoolean("Cabin"));
+                tag.getBoolean("Bridge"), tag.getBoolean("Cabin"), tag.getInt("Version"));
     }
 
     /** Compact string for synced entity metadata, validated on every decode. */
@@ -126,6 +139,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
             if (i != 0) out.append(',');
             out.append(sailTiers.get(i));
         }
+        if (layoutVersion > 1) out.append(':').append(layoutVersion);
         return out.toString();
     }
 
@@ -133,7 +147,9 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         if (value == null || value.length() > 90)
             throw new IllegalArgumentException("Invalid blueprint wire value");
         String[] parts = value.split(":", -1);
-        if (parts.length != 7) throw new IllegalArgumentException("Wrong blueprint fields");
+        if (parts.length != 7 && parts.length != 8)
+            throw new IllegalArgumentException("Wrong blueprint fields");
+        int version = parts.length == 7 ? 1 : Integer.parseInt(parts[7]);
         List<Integer> sails = new ArrayList<>();
         if (!parts[6].isEmpty()) for (String tier : parts[6].split(","))
             sails.add(Integer.parseInt(tier));
@@ -144,6 +160,6 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
                 ShipSectionPlan.ShipClass.valueOf(parts[0]),
                 Integer.parseInt(parts[1]), Integer.parseInt(parts[2]),
                 sails, Integer.parseInt(parts[3]), parts[4].equals("1"),
-                parts[5].equals("1"));
+                parts[5].equals("1"), version);
     }
 }
