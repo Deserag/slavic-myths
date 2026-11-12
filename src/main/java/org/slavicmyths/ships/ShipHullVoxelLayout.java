@@ -367,9 +367,15 @@ public final class ShipHullVoxelLayout {
         int halfLength = plan.hullLength() / 2, full = plan.hullWidth() / 2;
         if (Math.abs(z) > halfLength) return -1;
         double progress = Math.abs(z) / (double)halfLength;
-        return z <= 0 ? Math.max(3, full - (int)Math.ceil(full * .38D
+        // LARGEST receives a fuller square stern and a longer bow shoulder;
+        // its outline differs from LARGE even with the same starter dimensions.
+        double aftReduction = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                ? .18D : .42D;
+        double bowExponent = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                ? 1.70D : 1.90D;
+        return z <= 0 ? Math.max(3, full - (int)Math.ceil(full * aftReduction
                 * Math.pow(progress, 2.15D)))
-                : Math.max(0, full - (int)Math.ceil(full * Math.pow(progress, 1.9D)));
+                : Math.max(0, full - (int)Math.ceil(full * Math.pow(progress, bowExponent)));
     }
 
     private static int asymmetricLargeChine(ShipSuperstructurePlan plan, int z, int y) {
