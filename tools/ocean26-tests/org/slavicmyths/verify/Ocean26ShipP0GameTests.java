@@ -96,12 +96,22 @@ public final class Ocean26ShipP0GameTests {
                     "Existing V4 packed ship no longer loads");
             t.assertTrue(ShipHullVoxelLayout.generate(previousRig.structure(), 4).size() > 0,
                     "Existing V4 physical ship geometry is missing");
-            for (var sail : ShipClearanceSailPlan.forPlan(latest.structure()).sails()) {
-                t.assertTrue(sail.lowerYardY() - sail.highestDeckY() - 1 >= 3,
-                        type + " lower yard blocks upper-deck headroom");
-                t.assertTrue(layout.get(new ShipHullVoxelLayout.Cell(
-                        sail.halfSpan(), sail.lowerYardY(), sail.mastZ()))
-                        == ShipHullVoxelLayout.Part.YARD, "Physical yard missing");
+            var actual = org.slavicmyths.ships.ShipRiggingPlan.forPlan(
+                    latest.structure(), latest.hullGeometry());
+            for (var mast : actual.masts()) {
+                t.assertTrue(mast.yards().size() == 1,
+                        type + " new mast must start with a single physical yard");
+                int highestDeck = mast.panels().get(0).bottom() - 5;
+                int lowestYard = mast.yards().stream().mapToInt(yard -> yard.y())
+                        .min().orElseThrow();
+                t.assertTrue(lowestYard - highestDeck - 1 >= 3,
+                        type + " real yard blocks upper-deck headroom");
+                for (var yard : mast.yards()) {
+                    t.assertTrue(layout.get(new ShipHullVoxelLayout.Cell(
+                            yard.span(), yard.y(), mast.z()))
+                            == ShipHullVoxelLayout.Part.YARD,
+                            type + " physical independent yard missing at y=" + yard.y());
+                }
             }
             ShipBuildConfiguration legacy = new ShipBuildConfiguration(
                     type, 0, 0, List.of(1), 1, false, false, 2);

@@ -2054,7 +2054,8 @@ public final class Ocean26GameTests {
                 var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(
                         org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM)
                         .withSail(1, 2).withDecks(decks).withBridge(true).withCabin(true);
-                var plan = org.slavicmyths.ships.FirstShipMediumSailPlan.forPlan(config.structure());
+                var plan = org.slavicmyths.ships.ShipRiggingPlan.forPlan(
+                        config.structure(), config.hullGeometry());
                 t.assertTrue(config.hullGeometry() == 3, "New MEDIUM must opt into V3");
                 int bridgeExitZ = -config.length() / 2 + 6;
                 t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
@@ -2063,21 +2064,28 @@ public final class Ocean26GameTests {
                 t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
                         anchor, turn, -2, 10, bridgeExitZ)).isAir(),
                         "MEDIUM bridge ladder upper exit is blocked");
-                for (var sail : plan.sails()) {
-                    t.assertTrue(sail.lowerYardY() - sail.highestDeckY() - 1 >= 3,
+                for (var mast : plan.masts()) {
+                    t.assertTrue(mast.yards().size() == 1,
+                            "Fresh MEDIUM mast must start with exactly one real yard");
+                    int floor = mast.panels().get(0).bottom() - 5;
+                    int lowestYard = mast.yards().stream().mapToInt(yard -> yard.y())
+                            .min().orElseThrow();
+                    t.assertTrue(lowestYard - floor - 1 >= 3,
                             "Three clear standing blocks were not reserved");
                     for (int x : new int[]{-1, 1}) {
-                        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                                anchor, turn, x, sail.lowerYardY(), sail.mastZ()))
-                                        .is(Blocks.DARK_OAK_LOG),
-                                "Real lower MEDIUM yard missing");
-                        for (int y = sail.highestDeckY() + 1; y < sail.lowerYardY(); y++)
+                        for (var yard : mast.yards())
                             t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                                    anchor, turn, x, y, sail.mastZ())).isAir(),
+                                    anchor, turn, x, yard.y(), mast.z()))
+                                            .is(Blocks.DARK_OAK_LOG),
+                                    "Actual MEDIUM physical yard missing at y=" + yard.y());
+                        for (int y = floor + 1; y < lowestYard; y++)
+                            t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                                    anchor, turn, x, y, mast.z())).isAir(),
                                     "Physical rigging blocks deck headroom");
-                        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                                anchor, turn, x, sail.bottom(), sail.mastZ() + 1)).isAir(),
-                                "Physical cloth must not be placed as wool");
+                        for (var panel : mast.panels())
+                            t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                                    anchor, turn, x, panel.bottom(), mast.z() + 1)).isAir(),
+                                    "Physical cloth must not be placed as wool");
                     }
                 }
                 BlockPos chestPos = FirstShipBlockHull.world(anchor, turn, 2, 5, 0);
