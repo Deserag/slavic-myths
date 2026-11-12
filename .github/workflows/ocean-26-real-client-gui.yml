@@ -39,7 +39,9 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y xvfb libgl1-mesa-dri libgl1 mesa-utils xauth
-      - name: Build an isolated Minecraft world using server GameTests
+      - id: server_tests
+        continue-on-error: true
+        name: Build an isolated Minecraft world using server GameTests
         run: |
           chmod +x gradlew
           ./gradlew --no-daemon --console=plain -Pocean26Check runOcean26Checks
@@ -107,21 +109,24 @@ jobs:
       - name: Record real client scenario outcomes
         if: always()
         env:
+          SERVER_TESTS_OUTCOME: ${{ steps.server_tests.outcome }}
           SHIPYARD_OUTCOME: ${{ steps.shipyard.outcome }}
           CAPTAIN_OUTCOME: ${{ steps.captain.outcome }}
         run: |
           {
-            printf 'client_startup: see latest.log and scenario markers\\n'
-            printf 'shipyard: %s\\n' "$SHIPYARD_OUTCOME"
-            printf 'captain: %s\\n' "$CAPTAIN_OUTCOME"
-            test -f shipyard-result.txt && cat shipyard-result.txt && printf '\\n' || true
-            test -f captain-result.txt && cat captain-result.txt && printf '\\n' || true
+            printf 'client_startup: see latest.log and scenario markers\n'
+            printf 'server_game_tests: %s\n' "$SERVER_TESTS_OUTCOME"
+            printf 'shipyard: %s\n' "$SHIPYARD_OUTCOME"
+            printf 'captain: %s\n' "$CAPTAIN_OUTCOME"
+            test -f shipyard-result.txt && cat shipyard-result.txt && printf '\n' || true
+            test -f captain-result.txt && cat captain-result.txt && printf '\n' || true
           } | tee client-scenario-summary.txt
           {
-            printf '### Real Minecraft client scenarios\\n'
-            printf '\\n| Scenario | GitHub step outcome |\\n|---|---|\\n'
-            printf '| Shipyard, GUI scale 4 | %s |\\n' "$SHIPYARD_OUTCOME"
-            printf '| Captain camera | %s |\\n' "$CAPTAIN_OUTCOME"
+            printf '### Real Minecraft client scenarios\n'
+            printf '\n| Scenario | GitHub step outcome |\n|---|---|\n'
+            printf '| Server GameTests | %s |\n' "$SERVER_TESTS_OUTCOME"
+            printf '| Shipyard, GUI scale 4 | %s |\n' "$SHIPYARD_OUTCOME"
+            printf '| Captain camera | %s |\n' "$CAPTAIN_OUTCOME"
           } >> "$GITHUB_STEP_SUMMARY"
       - name: Preserve client logs and test evidence
         if: always()
@@ -142,8 +147,10 @@ jobs:
       - name: Enforce both independent client scenarios
         if: always()
         env:
+          SERVER_TESTS_OUTCOME: ${{ steps.server_tests.outcome }}
           SHIPYARD_OUTCOME: ${{ steps.shipyard.outcome }}
           CAPTAIN_OUTCOME: ${{ steps.captain.outcome }}
         run: |
+          test "$SERVER_TESTS_OUTCOME" = success
           test "$SHIPYARD_OUTCOME" = success
           test "$CAPTAIN_OUTCOME" = success
