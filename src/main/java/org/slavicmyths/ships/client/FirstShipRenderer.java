@@ -236,7 +236,10 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             pose.popPose();
             if (measuring) blocksElapsed = System.nanoTime() - blocksStart;
         }
-        if (ship.geometryVersion() < 5) return;
+        if (ship.geometryVersion() < 5) {
+            if (measuring) recordProfile(ship, renderStart, paletteElapsed, blocksElapsed);
+            return;
+        }
         FirstShipHull.Point wheelWorld = FirstShipHull.toWorld(0D, ship.helmWheelZ(),
                 ship.getX(), ship.getZ(), ship.isMoving() ? yaw : ship.shipYaw());
         BlockPos daylight = BlockPos.containing(wheelWorld.x(),
