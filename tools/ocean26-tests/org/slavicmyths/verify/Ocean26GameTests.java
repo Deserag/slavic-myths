@@ -651,6 +651,19 @@ public final class Ocean26GameTests {
                 .equals(original)
                 && org.slavicmyths.ships.ShipBuildConfiguration.fromWire(original.wire())
                 .equals(original), "Modular ship configuration serialization is inconsistent");
+        // Historical NBT and seven-field client blueprints must remain V1.
+        var historical = new org.slavicmyths.ships.ShipBuildConfiguration(
+                original.shipClass(), 0, 0, original.sailTiers(),
+                original.decks(), original.bridge(), original.cabin());
+        CompoundTag historicalTag = historical.save();
+        historicalTag.remove("HullGeometry");
+        String historicalWire = historical.wire();
+        historicalWire = historicalWire.substring(0, historicalWire.lastIndexOf(':'));
+        t.assertTrue(org.slavicmyths.ships.ShipBuildConfiguration.load(historicalTag)
+                .hullGeometry() == 1
+                && org.slavicmyths.ships.ShipBuildConfiguration.fromWire(historicalWire)
+                .hullGeometry() == 1
+                && original.hullGeometry() == 2, "Old modular blueprint was upgraded silently");
         t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
                 anchor, 0, original, new ListTag()), "Medium-class modular hull placement failed");
         t.assertTrue(level.getBlockState(org.slavicmyths.ships.FirstShipBlockHull.world(
@@ -684,11 +697,19 @@ public final class Ocean26GameTests {
         t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.rebuild(level,
                 anchor, 0, original, anchor, 0, next),
                 "Medium extension/width/second deck/rooms transaction failed");
-        t.assertTrue(level.getBlockState(org.slavicmyths.ships.FirstShipBlockHull.world(
-                anchor, 0, -next.width() / 2, 0, 0)).is(Blocks.SPRUCE_PLANKS)
-                && level.getBlockState(org.slavicmyths.ships.FirstShipBlockHull.world(
-                anchor, 0, next.width() / 2, 0, 0)).is(Blocks.SPRUCE_PLANKS),
-                "Widened hull is not symmetric");
+        // V2 has a narrow keel; the former full-width Y0 floor is now water.
+        int keelRadius = org.slavicmyths.ships.ShipHullVoxelLayout.steppedHalfBeam(
+                next.structure(), 0, 0);
+        t.assertTrue(keelRadius > 0 && keelRadius < next.width() / 2
+                && level.getBlockState(FirstShipBlockHull.world(
+                        anchor, 0, -keelRadius, 0, 0)).is(Blocks.SPRUCE_PLANKS)
+                && level.getBlockState(FirstShipBlockHull.world(
+                        anchor, 0, keelRadius, 0, 0)).is(Blocks.SPRUCE_PLANKS)
+                && level.getBlockState(FirstShipBlockHull.world(
+                        anchor, 0, -next.width() / 2, 0, 0)).is(Blocks.WATER)
+                && level.getBlockState(FirstShipBlockHull.world(
+                        anchor, 0, next.width() / 2, 0, 0)).is(Blocks.WATER),
+                "Widened stepped keel is not symmetric");
         t.assertTrue(level.getBlockState(org.slavicmyths.ships.FirstShipBlockHull.world(
                 anchor, 0, 0, 9, -next.length() / 2 + 3)).is(Blocks.DARK_OAK_PLANKS),
                 "Raised captain's bridge absent");
