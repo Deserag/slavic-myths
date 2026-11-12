@@ -1411,12 +1411,23 @@ public final class FirstShipEntity extends Boat {
     }
 
     private boolean hasOpenShipMenus(net.minecraft.server.level.ServerLevel server) {
+        // Do not query the spatial entity index here: a player who just opened
+        // a container can have a fresh position before their broadphase entry
+        // has caught up. The ship must never detach its source blocks in that
+        // interval, even when the menu user is at the far end of a LARGE hull.
         double radius = modularConfiguration == null ? 10D
                 : Math.hypot(modularConfiguration.width() / 2D,
                         modularConfiguration.length() / 2D) + 5D;
-        for (ServerPlayer player : server.getEntitiesOfClass(ServerPlayer.class,
-                getBoundingBox().inflate(radius, 18D, radius)))
-            if (player.containerMenu != player.inventoryMenu) return true;
+        double x = isMoving() ? getX() : blockAnchor.getX() + .5D;
+        double y = isMoving() ? getY() : blockAnchor.getY();
+        double z = isMoving() ? getZ() : blockAnchor.getZ() + .5D;
+        for (ServerPlayer player : server.players()) {
+            if (player.containerMenu != player.inventoryMenu
+                    && Math.abs(player.getX() - x) <= radius
+                    && Math.abs(player.getY() - y) <= 18D
+                    && Math.abs(player.getZ() - z) <= radius)
+                return true;
+        }
         return false;
     }
 
