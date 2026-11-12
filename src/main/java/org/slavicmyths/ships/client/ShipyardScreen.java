@@ -252,7 +252,8 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     int x = 16 + (index % 2) * 80, y = 118 + (index / 2) * 23;
                     // Keep blocked choices selectable so the reason is visible,
                     // but mark them clearly instead of masquerading as valid upgrades.
-                    boolean possible = nextConfig(current, option) != null;
+                    ShipBuildConfiguration preview = nextConfig(current, option);
+                    boolean possible = preview != null && !preview.equals(current);
                     String label = (possible ? chosen() == option ? "» " : "" : "× ")
                             + MODULAR_OPTIONS[option];
                     Button button = Button.builder(Component.literal(label),
@@ -599,7 +600,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                         x + 18, y + 8, enough ? 0xff22612b : 0xffa13726, false);
             }
         }
-        graphics.drawString(font, "Инвентарь", 198, 182, 0xfff2d9aa, false);
+        graphics.drawString(font, "Инвентарь", 198, 182, DARK, false);
         if (tab == 0 && !menu.inspected().isEmpty())
             graphics.drawString(font, "Заберите готовое судно", 17, 226, 0xffffb18c, false);
     }
