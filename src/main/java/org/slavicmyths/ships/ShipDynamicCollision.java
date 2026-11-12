@@ -62,8 +62,13 @@ public final class ShipDynamicCollision {
         var config = ship.modularConfiguration();
         if (config == null) return FirstShipHull.onLadder(x, z)
                 && y >= .9D && y <= 5.3D;
+        // V6 replaces the upper vertical shaft with physical stair flights.
+        // Only the hold ladder (Y1..4) remains. Older saved V1..V5
+        // blueprints retain their original full-height ladder behavior.
+        double holdLadderTop = config.hullGeometry() == 6
+                ? 4.9D : 4D + (config.decks() - 1) * 4D + .9D;
         if (Math.abs(x + 2D) < .49D && Math.abs(z - 1D) < .49D
-                && y >= .9D && y <= 4D + (config.decks() - 1) * 4D + .9D) return true;
+                && y >= .9D && y <= holdLadderTop) return true;
         if (config.bridge()) {
             int side = Math.min(3, config.width() / 2 - 2);
             double ladderX = -side + 1D, ladderZ = -config.length() / 2D + 6D;
