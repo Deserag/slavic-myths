@@ -28,7 +28,12 @@ public final class ShipIndependentRiggingCheck {
         ShipRiggingState basic = ShipRiggingState.defaults(List.of(1)).get(0);
         ShipSuperstructurePlan baseline = large(basic, 2);
         var unchanged = ShipHullVoxelLayout.generate(baseline, 6);
-        check(!baseline.customPhysicalRigging(), "Legacy rigging should retain original hull");
+        check(baseline.customPhysicalRigging(), "Single-yard starter must generate physical custom rigging");
+        var legacyTwoYards = large(new ShipRiggingState(0, 1, 0, 2, 0, 1, 1), 2);
+        check(!legacyTwoYards.customPhysicalRigging(), "Existing two-yard ships must keep historical geometry");
+        check(ShipHullVoxelLayout.generate(legacyTwoYards, 6).containsKey(
+                new ShipHullVoxelLayout.Cell(0, 5, ShipRiggingPlan.forPlan(legacyTwoYards, 6).masts().get(0).z())),
+                "Existing two-yard physical rig disappeared");
         var height = large(basic.increase(0), 2);
         var heightPlan = ShipRiggingPlan.forPlan(height, 6).masts().get(0);
         check(heightPlan.topY() > ShipRiggingPlan.forPlan(baseline, 6).masts().get(0).topY(),
@@ -59,7 +64,7 @@ public final class ShipIndependentRiggingCheck {
         check(ShipRiggingPlan.forPlan(layers, 6).masts().get(0).panels().size() == 2,
                 "Two-layer sail must render as two separate panels");
         var fabric = large(basic.increase(6), 2);
-        check(!fabric.customPhysicalRigging(), "Fabric grade must not alter wood geometry");
+        check(fabric.customPhysicalRigging(), "Fabric upgrade must retain the physical single-yard rig");
         check(ShipHullVoxelLayout.generate(fabric, 6).equals(unchanged),
                 "Fabric-only upgrade altered physical hull geometry");
         check(baseline.propulsionFactor() == fabric.propulsionFactor(),
