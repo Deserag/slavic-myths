@@ -164,7 +164,7 @@ public final class Ocean26ClientProbe {
 
     @SubscribeEvent
     public static void tick(ClientTickEvent.Post event) {
-        if (phase < 0) return;
+        if (phase < 0 || Boolean.getBoolean("ocean26.shipyardSwitch")) return;
         Minecraft mc = Minecraft.getInstance();
         MinecraftServer server = mc.getSingleplayerServer();
         if (mc.player == null || mc.level == null || server == null) return;

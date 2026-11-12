@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - fix/2.6-ship-crew-and-upgrades-p0
+      - feat/2.6-large-ship-closed-decks-p1
   pull_request:
     branches:
       - fix/2.6-medium-ship-sail-clearance
+      - fix/2.6-ship-crew-and-upgrades-p0
   workflow_dispatch:
 
 permissions:
@@ -27,6 +29,9 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew --no-daemon --stacktrace -Pocean26Check -PwithoutJei compileJava compileOcean26CheckJava
+      - name: Compile real-client helm and shipyard GUI probes
+        run: |
+          ./gradlew --no-daemon --stacktrace -Pocean26ClientProbe compileOcean26ClientProbeJava
       - name: Regression - independent shipyard selection under item swaps
         run: |
           mkdir -p build/shipyard-selection-regression

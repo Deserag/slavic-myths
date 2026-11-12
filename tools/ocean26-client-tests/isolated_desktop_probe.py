@@ -54,7 +54,8 @@ allowed = {"main": "", "modular": "-Pocean26ModularVisualProbe",
            "nativelongforward": "-Pocean26LongForwardProbe",
            "save": "-Pocean26SaveMovingProbe", "reload": "-Pocean26ReloadProbe",
            "modularsave": "-Pocean26ModularVisualProbe -Pocean26SaveMovingProbe",
-           "hold": "-Pocean26HoldProbe", "reverse": "-Pocean26ReverseProbe"}
+           "hold": "-Pocean26HoldProbe", "reverse": "-Pocean26ReverseProbe",
+           "shipyard": "-Pocean26ShipyardSwitchProbe"}
 mode = sys.argv[2] if len(sys.argv) > 2 else "main"
 if mode not in allowed:
     raise ValueError("Unknown probe mode")
