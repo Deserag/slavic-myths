@@ -49,7 +49,11 @@ public final class FirstShipMovingDeckEvents {
             Vec3 feet = player.position();
             FirstShipHull.Point relative = FirstShipHull.toLocal(
                     feet.x, feet.z, oldX, oldZ, oldYaw);
-            int floor = continuing ? last.floor()
+            int floor = continuing && last.floor() >= 0
+                    && ShipDeckContact.supports(ship, relative.x(), relative.z(), last.floor())
+                    && feet.y >= ship.getY() + ShipDeckContact.height(last.floor()) - .56D
+                    && feet.y <= ship.getY() + ShipDeckContact.height(last.floor()) + 2.6D
+                    ? last.floor()
                     : ShipDeckContact.contactFloor(ship, relative.x(), relative.z(), feet.y);
             if (floor < 0 || !ShipDeckContact.supports(ship,
                     relative.x(), relative.z(), floor)) continue;
@@ -113,7 +117,10 @@ public final class FirstShipMovingDeckEvents {
             int floor = -1;
             Contact contact = LAST.get(player);
             if (contact != null && contact.shipId() == ship.getId()
-                    && ShipDeckContact.supports(ship, local.x(), local.z(), contact.floor()))
+                    && contact.floor() >= 0
+                    && ShipDeckContact.supports(ship, local.x(), local.z(), contact.floor())
+                    && feet.y >= ship.getY() + ShipDeckContact.height(contact.floor()) - .56D
+                    && feet.y <= ship.getY() + ShipDeckContact.height(contact.floor()) + 2.6D)
                 floor = contact.floor();
             if (floor < 0) {
                 for (int candidate = 4; candidate >= 0; candidate--) {
