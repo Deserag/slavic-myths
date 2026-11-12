@@ -188,7 +188,7 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
         boolean mediumV3 = ship.modularConfiguration().hullGeometry() == 3
                 && plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM;
-        boolean largeV4 = ship.modularConfiguration().hullGeometry() == 4;
+        boolean largeV4 = ship.modularConfiguration().hullGeometry() >= 4;
         var mediumSails = mediumV3 ? FirstShipMediumSailPlan.forPlan(plan).sails() : null;
         var largeSails = largeV4 ? ShipClearanceSailPlan.forPlan(plan).sails() : null;
         for (int i = 0; i < plan.sailTiers().size(); i++) {

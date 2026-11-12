@@ -52,6 +52,12 @@ public final class ShipHullVoxelLayout {
                     throw new IllegalArgumentException("Geometry 4 requires LARGE or LARGEST");
                 yield generateLargeClearance(plan);
             }
+            case 5 -> {
+                if (plan.shipClass() != ShipSectionPlan.ShipClass.LARGE
+                        && plan.shipClass() != ShipSectionPlan.ShipClass.LARGEST)
+                    throw new IllegalArgumentException("Geometry 5 requires LARGE or LARGEST");
+                yield generateAsymmetricClosed(plan);
+            }
             default -> throw new IllegalArgumentException("Unknown modular hull geometry");
         };
     }
@@ -344,6 +350,134 @@ public final class ShipHullVoxelLayout {
                         throw new IllegalArgumentException("Large sail intersects superstructure");
                     put(blocks, x, y, z + 1, Part.SAIL);
                 }
+        }
+        return Collections.unmodifiableMap(blocks);
+    }
+
+
+    /**
+     * Only new geometry 5 has an intentionally different bow and stern.
+     * The aft transom retains substantial beam; the bow tapers to a point.
+     * Historical V1-V4 profile functions and their palettes are untouched.
+     */
+    public static int asymmetricLargeBeam(ShipSuperstructurePlan plan, int z) {
+        if (plan == null || (plan.shipClass() != ShipSectionPlan.ShipClass.LARGE
+                && plan.shipClass() != ShipSectionPlan.ShipClass.LARGEST))
+            throw new IllegalArgumentException("Large hull required");
+        int halfLength = plan.hullLength() / 2, full = plan.hullWidth() / 2;
+        if (Math.abs(z) > halfLength) return -1;
+        double progress = Math.abs(z) / (double)halfLength;
+        return z <= 0 ? Math.max(3, full - (int)Math.ceil(full * .38D
+                * Math.pow(progress, 2.15D)))
+                : Math.max(0, full - (int)Math.ceil(full * Math.pow(progress, 1.9D)));
+    }
+
+    private static int asymmetricLargeChine(ShipSuperstructurePlan plan, int z, int y) {
+        if (y < 0 || y > 3) return -1;
+        int top = asymmetricLargeBeam(plan, z);
+        if (top < 0) return -1;
+        int full = plan.hullWidth() / 2;
+        int target = switch (y) {
+            case 0 -> Math.max(1, (full + 1) / 4);
+            case 1 -> Math.max(1, (full + 1) / 2);
+            case 2 -> full - Math.max(1, full / 5);
+            default -> full;
+        };
+        return Math.max(0, top - (full - target));
+    }
+
+    /**
+     * Rebuild the shell and exterior of the occupied upper decks from the
+     * final, validated geometry. Existing rigging is retained above the
+     * highest floor; nothing here changes the sail thrust or ship physics.
+     *
+     * The uppermost level remains open. Lower levels have real outer walls,
+     * windows and broad front doorways, not just fence posts.
+     */
+    private static Map<Cell, Part> generateAsymmetricClosed(ShipSuperstructurePlan plan) {
+        Map<Cell, Part> blocks = new LinkedHashMap<>(generateLargeClearance(plan));
+        blocks.entrySet().removeIf(entry -> {
+            Cell cell = entry.getKey();
+            Part part = entry.getValue();
+            if (cell.y() <= 3 && (part == Part.HULL || part == Part.KEEL)) return true;
+            if (cell.y() == 4 && part == Part.DECK) return true;
+            if (cell.y() == 5 && part == Part.RAIL) return true;
+            for (int floor = 2; floor <= plan.decks(); floor++) {
+                int deckY = 4 + (floor - 1) * 4;
+                if (cell.y() == deckY && part == Part.DECK
+                        || cell.y() == deckY + 1 && part == Part.RAIL
+                        || cell.y() >= deckY - 3 && cell.y() < deckY && part == Part.FRAME)
+                    return true;
+            }
+            return false;
+        });
+
+        int halfLength = plan.hullLength() / 2;
+        for (int z = -halfLength; z <= halfLength; z++) {
+            for (int y = 0; y <= 3; y++) {
+                int width = asymmetricLargeChine(plan, z, y);
+                int below = y == 0 ? -1 : asymmetricLargeChine(plan, z, y - 1);
+                for (int x = -width; x <= width; x++) {
+                    Cell cell = new Cell(x, y, z);
+                    Part previous = blocks.get(cell);
+                    if (previous == Part.LADDER || previous == Part.FRAME
+                            || x == -2 && z == 0 && y > 0) continue;
+                    boolean surface = y == 0 || Math.abs(x) > below
+                            || Math.abs(x) == width
+                            || Math.abs(x) > asymmetricLargeChine(plan, z - 1, y)
+                            || Math.abs(x) > asymmetricLargeChine(plan, z + 1, y);
+                    if (surface) put(blocks, x, y, z,
+                            y == 0 && x == 0 ? Part.KEEL : Part.HULL);
+                }
+            }
+            int beam = asymmetricLargeBeam(plan, z);
+            for (int x = -beam; x <= beam; x++) {
+                if (!mainHatch(x, z) && !blocks.containsKey(new Cell(x, 4, z)))
+                    put(blocks, x, 4, z, Part.DECK);
+                boolean edge = Math.abs(x) == beam
+                        || Math.abs(x) > asymmetricLargeBeam(plan, z - 1)
+                        || Math.abs(x) > asymmetricLargeBeam(plan, z + 1);
+                if (edge && !blocks.containsKey(new Cell(x, 5, z)))
+                    put(blocks, x, 5, z, Part.RAIL);
+            }
+        }
+
+        // Enclosed main/upper stories; the final exposed deck remains rail-lined.
+        for (int floor = 2; floor <= plan.decks(); floor++) {
+            int deckY = 4 + (floor - 1) * 4;
+            int rear = -halfLength + 2, front = halfLength - 3 * (floor - 1);
+            for (int z = rear; z <= front; z++) {
+                int beam = Math.max(0, asymmetricLargeBeam(plan, z) - 1);
+                for (int x = -beam; x <= beam; x++) {
+                    boolean hatch = x == -2 && (z == 0 || z == 1);
+                    if (!hatch && !blocks.containsKey(new Cell(x, deckY, z)))
+                        put(blocks, x, deckY, z, Part.DECK);
+                    boolean edge = Math.abs(x) == beam || z == front || z == rear
+                            || Math.abs(x) > asymmetricLargeBeam(plan, z + 1) - 1
+                            || Math.abs(x) > asymmetricLargeBeam(plan, z - 1) - 1;
+                    if (!edge || hatch) continue;
+                    // Enclose the story UNDER this floor. Do not block the
+                    // two-block-high central entry on its forward bulkhead.
+                    for (int y = deckY - 3; y < deckY; y++) {
+                        Cell wall = new Cell(x, y, z);
+                        Part previous = blocks.get(wall);
+                        if (z == front && Math.abs(x) <= 1 && y <= deckY - 2) {
+                            if (previous == Part.FRAME || previous == Part.RAIL
+                                    || previous == Part.CABIN_WALL)
+                                blocks.remove(wall);
+                            continue;
+                        }
+                        if (previous != null && previous != Part.RAIL
+                                && previous != Part.FRAME) continue;
+                        boolean window = y == deckY - 2 && z != front && z != rear
+                                && (z - rear) % 5 == 0;
+                        put(blocks, x, y, z, window ? Part.WINDOW : Part.CABIN_WALL);
+                    }
+                    if (floor == plan.decks()
+                            && !blocks.containsKey(new Cell(x, deckY + 1, z)))
+                        put(blocks, x, deckY + 1, z, Part.RAIL);
+                }
+            }
         }
         return Collections.unmodifiableMap(blocks);
     }
