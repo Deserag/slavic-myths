@@ -7,6 +7,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.slavicmyths.ships.FirstShipEntity;
+import org.slavicmyths.ships.FirstShipMovingDeckEvents;
 import org.slavicmyths.ships.FirstShipNetwork;
 
 /**
@@ -31,6 +32,10 @@ public final class FirstShipSteeringClient {
         }
         if (!(mc.player.getVehicle() instanceof FirstShipEntity ship)
                 || !ship.isNativeHull()) {
+            // Last client-tick hook: render the free-standing player's camera
+            // in the same previous/current rigid frame as the moving deck.
+            // This never teleports or alters ship speed/physics.
+            FirstShipMovingDeckEvents.alignClientCrewCamera(mc.player);
             lastShip = -1;
             return;
         }
