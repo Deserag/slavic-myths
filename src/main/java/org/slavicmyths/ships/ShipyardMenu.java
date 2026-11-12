@@ -88,6 +88,13 @@ public final class ShipyardMenu extends AbstractContainerMenu {
         return original;
     }
 
+    /** A placed hull's blueprint must be version-bound, not only its entity id. */
+    public static int selectionFingerprint(ItemStack inspected, ShipBuildConfiguration nearby) {
+        return inspected.isEmpty() && nearby != null
+                ? nearby.wire().hashCode()
+                : ItemStack.hashItemAndComponents(inspected);
+    }
+
     /**
      * An inventory-button click carries only an action number. Use this
      * versioned command for GUI actions to reject a stale upgrade when the
@@ -98,12 +105,13 @@ public final class ShipyardMenu extends AbstractContainerMenu {
                                        int itemFingerprint, int nearbyEntityId) {
         if (player == null || player.containerMenu != this || !stillValid(player))
             return false;
-        if (ItemStack.hashItemAndComponents(input.getItem(0)) != itemFingerprint) {
+        FirstShipEntity nearby = input.isEmpty() ? nearbyModular(player) : null;
+        ShipBuildConfiguration nearbyConfig = nearby == null ? null : nearby.modularConfiguration();
+        if (selectionFingerprint(input.getItem(0), nearbyConfig) != itemFingerprint) {
             player.displayClientMessage(Component.literal(
-                    "Судно изменилось — выберите улучшение ещё раз"), true);
+                    "Судно или его конструкция изменились — выберите улучшение снова"), true);
             return false;
         }
-        FirstShipEntity nearby = input.isEmpty() ? nearbyModular(player) : null;
         int actualEntityId = nearby == null ? -1 : nearby.getId();
         if (actualEntityId != nearbyEntityId) {
             player.displayClientMessage(Component.literal(
