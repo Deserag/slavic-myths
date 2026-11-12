@@ -49,10 +49,7 @@ public final class ShipLargeClosedDeckCheck {
 
         for (int floor = 2; floor <= plan.decks(); floor++) {
             int top = 4 + (floor - 1) * 4;
-            int front = floor == 2 ? halfLength / 2
-                    : plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                        ? Math.max(3, halfLength / 4)
-                        : Math.max(2, halfLength / 6);
+            int front = ShipHullVoxelLayout.enclosedFloorFront(plan, floor);
             for (int y = top - 3; y <= top - 2; y++) {
                 var entrance = voxels.get(new ShipHullVoxelLayout.Cell(0, y, front));
                 check(entrance == null || entrance == ShipHullVoxelLayout.Part.DOOR,
