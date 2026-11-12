@@ -211,7 +211,7 @@ public final class ShipDynamicCollision {
                                 new FirstShipBlockHull.MotionSnapshot(cargo,
                                         ship.geometryVersion(), ship.rigLevel(),
                                         ship.fabricQuality(), 0))
-                            : ShipModularBlockHull.localMotionPalette(configuration, cargo);
+                            : ShipModularBlockHull.localClientMotionPalette(configuration, cargo);
                 } catch (RuntimeException invalid) {
                     palette = Map.of();
                 }
