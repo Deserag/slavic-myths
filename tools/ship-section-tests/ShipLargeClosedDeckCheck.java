@@ -68,6 +68,16 @@ public final class ShipLargeClosedDeckCheck {
     }
 
     public static void main(String[] args) {
+        var large = new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.LARGE,
+                21, 33, List.of(1), 1, false, false);
+        var largest = new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.LARGEST,
+                21, 33, List.of(1), 1, false, false);
+        check(ShipHullVoxelLayout.asymmetricLargeBeam(largest, -16)
+                > ShipHullVoxelLayout.asymmetricLargeBeam(large, -16),
+                "LARGEST stern must be fuller than LARGE with identical dimensions");
+        check(!ShipHullVoxelLayout.generate(large, 5).equals(
+                ShipHullVoxelLayout.generate(largest, 5)),
+                "LARGEST hull must not match LARGE except for mast count");
         for (ShipSectionPlan.ShipClass type : new ShipSectionPlan.ShipClass[]{
                 ShipSectionPlan.ShipClass.LARGE, ShipSectionPlan.ShipClass.LARGEST})
             for (int length : new int[]{33, 37, 45})
