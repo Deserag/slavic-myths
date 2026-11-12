@@ -273,8 +273,14 @@ public final class Ocean26GameTests {
         BlockPos oldYard = FirstShipBlockHull.world(anchor, 0, 1, 6, -1);
         t.assertTrue(level.getBlockState(oldYard).is(Blocks.DARK_OAK_LOG),
                 "V11 starter yard regression fixture missing");
+        // Cargo is a real vanilla BlockEntity, not just an empty pack/unpack.
+        BlockPos originalChest = FirstShipBlockHull.world(anchor, 0, 1, 5, 0);
+        level.setBlock(originalChest, Blocks.CHEST.defaultBlockState(), 2);
+        chest(level, originalChest, t).setItem(0, new ItemStack(Items.EMERALD, 7));
         t.assertTrue(FirstShipBlockHull.migrateSmallRigV12(level, anchor, 0, 1, 1),
                 "Unoccupied source V11 must migrate transactionally");
+        t.assertTrue(chest(level, originalChest, t).getItem(0).getCount() == 7,
+                "V12 migration lost BlockEntity cargo");
         t.assertTrue(level.getBlockState(oldYard).isAir(),
                 "Old player-height Y6 yard survived V12 migration");
         t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor, 0, 1, 9, -1))
@@ -285,12 +291,21 @@ public final class Ocean26GameTests {
         t.assertTrue(FirstShipBlockHull.move(level, anchor, 0, anchor, 1,
                         1, 1, 1, 1, 12),
                 "V12 physical quarter-turn rejected");
-        t.assertTrue(FirstShipBlockHull.pack(level, anchor, 1, 1, 1, 12) != null,
-                "V12 rotated ship pack failed");
+        BlockPos movedChest = FirstShipBlockHull.world(anchor, 1, 1, 5, 0);
+        t.assertTrue(chest(level, movedChest, t).getItem(0).getCount() == 7,
+                "V12 rotation lost or moved cargo incorrectly");
+        ListTag savedWithCargo = FirstShipBlockHull.pack(level, anchor, 1, 1, 1, 12);
+        t.assertTrue(savedWithCargo != null, "V12 rotated ship pack failed");
         t.assertTrue(FirstShipBlockHull.remove(level, anchor, 1, 1, 1, 12),
                 "V12 rotated source teardown failed");
+        t.assertTrue(FirstShipBlockHull.place(level, anchor, 1, savedWithCargo, 1, 1, 12),
+                "V12 cargo-bearing reinstall failed");
+        t.assertTrue(chest(level, movedChest, t).getItem(0).getCount() == 7,
+                "V12 cargo-bearing reinstall lost inventory");
+        t.assertTrue(FirstShipBlockHull.remove(level, anchor, 1, 1, 1, 12),
+                "V12 cargo-bearing final teardown failed");
         System.out.println("OCEAN26_SMALL_V12_SAILS_PASS configurations=" + configurations
-                + " rotations=4 migration=V11_to_V12 packRestore=true");
+                + " rotations=4 migration=V11_to_V12 packRestore=true cargo=7");
         t.succeed();
     }
 
