@@ -583,7 +583,9 @@ public final class Ocean26GameTests {
                 var config = new org.slavicmyths.ships.ShipBuildConfiguration(
                         org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST,
                         0, 0, java.util.List.of(1), 2, false, false, geometry);
-                int z = -config.length() / 2;
+                // The exact stern edge contains a physical perimeter rail;
+                // the next row is open deck within the V5/V6 wide transom.
+                int z = -config.length() / 2 + 1;
                 int x = 5;
                 t.assertTrue(org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
                         config.structure(), z) < x
