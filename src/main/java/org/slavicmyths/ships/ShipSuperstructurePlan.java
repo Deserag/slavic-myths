@@ -82,6 +82,15 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
         return !rigging.equals(ShipBuildConfiguration.defaultRigging(sailTiers));
     }
 
+    /** Cloth quality changes the visible material, not mast geometry. */
+    public boolean customPhysicalRigging() {
+        for (ShipBuildConfiguration.Rigging r : rigging)
+            if (r.height() != 0 || r.strength() != 1 || r.width() != 0
+                    || r.yards() != 2 || r.area() != 0 || r.layers() != 1)
+                return true;
+        return false;
+    }
+
     /** Coordinates in local ship space, stern negative, bow positive. */
     public List<Integer> mastPositions() {
         return mastPositionsFor(sailTiers.size(), hullLength, cabin);

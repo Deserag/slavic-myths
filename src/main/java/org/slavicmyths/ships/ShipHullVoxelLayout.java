@@ -38,6 +38,11 @@ public final class ShipHullVoxelLayout {
 
     /** Geometry 1 is frozen for existing modular ship saves and packed items. */
     public static Map<Cell, Part> generate(ShipSuperstructurePlan plan, int geometry) {
+        if (plan.customPhysicalRigging()) return generateCustomRigging(plan, geometry);
+        return generateLegacy(plan, geometry);
+    }
+
+    static Map<Cell, Part> generateLegacy(ShipSuperstructurePlan plan, int geometry) {
         return switch (geometry) {
             case 1 -> generate(plan);
             case 2 -> generateStepped(plan);
@@ -66,6 +71,56 @@ public final class ShipHullVoxelLayout {
             }
             default -> throw new IllegalArgumentException("Unknown modular hull geometry");
         };
+    }
+
+    /** Physical rigs are recreated from one shared, collision-checked plan. */
+    private static Map<Cell, Part> generateCustomRigging(ShipSuperstructurePlan plan, int geometry) {
+        Map<Cell, Part> blocks = new LinkedHashMap<>(generateLegacy(plan, geometry));
+        blocks.entrySet().removeIf(entry -> entry.getValue() == Part.MAST
+                || entry.getValue() == Part.YARD || entry.getValue() == Part.SAIL);
+        ShipRiggingPlan.Layout layout = ShipRiggingPlan.forPlan(plan, geometry);
+        for (ShipRiggingPlan.Mast mast : layout.masts()) {
+            int z = mast.z();
+            for (int y = 5; y <= mast.topY(); y++) {
+                Cell cell = new Cell(0, y, z);
+                Part prior = blocks.get(cell);
+                if (prior != null && prior != Part.DECK)
+                    throw new IllegalArgumentException("Mast blocks " + prior + " at " + cell);
+                put(blocks, 0, y, z, Part.MAST);
+            }
+            if (mast.strength() >= 2)
+                for (int x : new int[]{-1, 1}) {
+                    Cell cell = new Cell(x, mast.topY() - 1, z);
+                    if (blocks.containsKey(cell))
+                        throw new IllegalArgumentException("Mast brace intersects another block");
+                    put(blocks, cell.x(), cell.y(), cell.z(), Part.MAST);
+                }
+            if (mast.strength() >= 3)
+                for (int x : new int[]{-2, 2}) {
+                    Cell cell = new Cell(x, mast.topY() - 2, z);
+                    if (blocks.containsKey(cell))
+                        throw new IllegalArgumentException("Mast brace intersects another block");
+                    put(blocks, cell.x(), cell.y(), cell.z(), Part.MAST);
+                }
+            for (ShipRiggingPlan.Yard yard : mast.yards())
+                for (int x = -yard.span(); x <= yard.span(); x++) {
+                    if (x == 0) continue;
+                    Cell cell = new Cell(x, yard.y(), z);
+                    if (blocks.containsKey(cell))
+                        throw new IllegalArgumentException("Rig yard intersects another block");
+                    put(blocks, cell.x(), cell.y(), cell.z(), Part.YARD);
+                }
+            for (ShipRiggingPlan.Panel panel : mast.panels())
+                for (int y = panel.bottom(); y <= panel.top(); y++)
+                    for (int x = -panel.rowSpan(y); x <= panel.rowSpan(y); x++) {
+                        if (x == 0) continue;
+                        Cell cell = new Cell(x, y, z + 1);
+                        if (blocks.containsKey(cell))
+                            throw new IllegalArgumentException("Rig sail intersects another block");
+                        put(blocks, cell.x(), cell.y(), cell.z(), Part.SAIL);
+                    }
+        }
+        return Collections.unmodifiableMap(blocks);
     }
 
     /**
@@ -216,7 +271,7 @@ public final class ShipHullVoxelLayout {
      * Each lower shoulder forms a solid floor for the air cell above it.
      */
     private static Map<Cell, Part> generateStepped(ShipSuperstructurePlan plan) {
-        Map<Cell, Part> blocks = new LinkedHashMap<>(generate(plan));
+        Map<Cell, Part> blocks = new LinkedHashMap<>(generateLegacy(plan, 1));
         blocks.entrySet().removeIf(entry -> {
             Cell c = entry.getKey();
             Part part = entry.getValue();

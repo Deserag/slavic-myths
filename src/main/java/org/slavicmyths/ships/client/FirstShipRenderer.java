@@ -186,6 +186,24 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         var plan = ship.modularConfiguration().structure();
         pose.pushPose();
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
+        if (plan.customPhysicalRigging()) {
+            var schedule = org.slavicmyths.ships.ShipRiggingPlan.forPlan(
+                    plan, ship.modularConfiguration().hullGeometry());
+            for (int i = 0; i < schedule.masts().size(); i++) {
+                var mast = schedule.masts().get(i);
+                int fabric = plan.rigging().get(i).fabric();
+                BlockState cloth = (fabric == 1 ? Blocks.RED_WOOL
+                        : fabric == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
+                pose.pushPose();
+                pose.translate(0D, 0D, mast.z());
+                for (var panel : mast.panels())
+                    sailPanel(ship, partialTick, pose, buffers, light, cloth,
+                            panel.bottom(), panel.top(), panel.span());
+                pose.popPose();
+            }
+            pose.popPose();
+            return;
+        }
         boolean mediumV3 = ship.modularConfiguration().hullGeometry() == 3
                 && plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM;
         boolean largeV4 = ship.modularConfiguration().hullGeometry() >= 4;
@@ -201,8 +219,9 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                     : tier == 1 ? 2 : tier == 2 ? 3 : 4;
             int bottom = mediumV3 ? mediumSails.get(i).bottom()
                     : largeV4 ? largeSails.get(i).bottom() : 8;
-            BlockState edging = (tier == 1 ? Blocks.RED_WOOL
-                    : tier == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
+            int quality = plan.rigging().get(i).fabric();
+            BlockState edging = (quality == 1 ? Blocks.RED_WOOL
+                    : quality == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
             pose.pushPose();
             pose.translate(0D, 0D, plan.mastPositions().get(i));
             sailPanel(ship, partialTick, pose, buffers, light, edging, bottom, top, span);
