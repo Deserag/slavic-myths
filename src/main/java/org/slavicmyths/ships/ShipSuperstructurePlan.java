@@ -11,7 +11,15 @@ import java.util.List;
  */
 public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
         int hullWidth, int hullLength, List<Integer> sailTiers,
-        int decks, boolean bridge, boolean cabin) {
+        int decks, boolean bridge, boolean cabin,
+        List<ShipBuildConfiguration.Rigging> rigging) {
+
+    public ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
+            int hullWidth, int hullLength, List<Integer> sailTiers,
+            int decks, boolean bridge, boolean cabin) {
+        this(shipClass, hullWidth, hullLength, sailTiers, decks, bridge, cabin,
+                ShipBuildConfiguration.defaultRigging(sailTiers));
+    }
 
     public static final int MAST_CLEARANCE = 4;
     public static final double[] SAIL_THRUST = {0D, 1D, 1.7D, 2.5D};
@@ -21,6 +29,9 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
                 || hullWidth % 2 == 0 || hullLength % 2 == 0)
             throw new IllegalArgumentException("Invalid ship dimensions or class");
         sailTiers = List.copyOf(sailTiers);
+        if (rigging == null || rigging.size() != sailTiers.size())
+            throw new IllegalArgumentException("Invalid mast rigging");
+        rigging = List.copyOf(rigging);
         if (sailTiers.size() > shipClass.maxMasts || sailTiers.size() > shipClass.maxSails)
             throw new IllegalArgumentException("Too many masts or primary sails");
         for (Integer tier : sailTiers)
@@ -67,6 +78,10 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
         return List.copyOf(positions);
     }
 
+    public boolean customRigging() {
+        return !rigging.equals(ShipBuildConfiguration.defaultRigging(sailTiers));
+    }
+
     /** Coordinates in local ship space, stern negative, bow positive. */
     public List<Integer> mastPositions() {
         return mastPositionsFor(sailTiers.size(), hullLength, cabin);
@@ -100,18 +115,20 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
     public ShipSuperstructurePlan withSail(int tier) {
         List<Integer> next = new ArrayList<>(sailTiers);
         next.add(tier);
-        return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, next, decks, bridge, cabin);
+        List<ShipBuildConfiguration.Rigging> setup = new ArrayList<>(rigging);
+        setup.add(ShipBuildConfiguration.defaultRigging(List.of(tier)).get(0));
+        return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, next, decks, bridge, cabin, setup);
     }
 
     public ShipSuperstructurePlan withDecks(int count) {
-        return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, sailTiers, count, bridge, cabin);
+        return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, sailTiers, count, bridge, cabin, rigging);
     }
 
     public ShipSuperstructurePlan withBridge(boolean enabled) {
-        return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, sailTiers, decks, enabled, cabin);
+        return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, sailTiers, decks, enabled, cabin, rigging);
     }
 
     public ShipSuperstructurePlan withCabin(boolean enabled) {
-        return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, sailTiers, decks, bridge, enabled);
+        return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, sailTiers, decks, bridge, enabled, rigging);
     }
 }
