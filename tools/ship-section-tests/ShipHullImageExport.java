@@ -253,6 +253,19 @@ public final class ShipHullImageExport {
             top(name, shape);
             isometric(name, shape);
         }
-        System.out.println("PASS ShipHullImageExport 9 PNGs in " + OUTPUT);
+        // V5 renders are generated directly from the versioned Java voxel
+        // palette. The geometry-2 renders above remain available as BEFORE.
+        for (var type : List.of(ShipSectionPlan.ShipClass.LARGE,
+                ShipSectionPlan.ShipClass.LARGEST)) {
+            List<Integer> sails = type == ShipSectionPlan.ShipClass.LARGE
+                    ? List.of(1, 2, 3) : List.of(3, 3, 2, 1);
+            var plan = new ShipSuperstructurePlan(type, 21, 33,
+                    sails, 3, true, true);
+            var newer = withoutRigging(ShipHullVoxelLayout.generate(plan, 5));
+            String name = type.name().toLowerCase() + "-v5";
+            top(name, newer);
+            isometric(name, newer);
+        }
+        System.out.println("PASS ShipHullImageExport 13 PNGs in " + OUTPUT);
     }
 }
