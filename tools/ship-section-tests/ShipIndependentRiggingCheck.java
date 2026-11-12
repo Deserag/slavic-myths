@@ -46,8 +46,10 @@ public final class ShipIndependentRiggingCheck {
         check(ShipRiggingPlan.forPlan(span, 6).masts().get(0).yards().get(0).span()
                 > ShipRiggingPlan.forPlan(height, 6).masts().get(0).yards().get(0).span(),
                 "Yard width must change physical span");
+        check(ShipRiggingPlan.forPlan(baseline, 6).masts().get(0).yards().size() == 1,
+                "Starter mast must carry only one physical yard");
         var yardCount = large(basic.increase(3), 2);
-        check(ShipRiggingPlan.forPlan(yardCount, 6).masts().get(0).yards().size() == 3,
+        check(ShipRiggingPlan.forPlan(yardCount, 6).masts().get(0).yards().size() == 2,
                 "New upper yard must be independently generated");
         var largerSail = large(basic.increase(4), 2);
         check(count(ShipHullVoxelLayout.generate(largerSail, 6), ShipHullVoxelLayout.Part.SAIL)
