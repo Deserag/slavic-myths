@@ -328,6 +328,22 @@ public final class FirstShipEntity extends Boat {
      * freshly spawned clients; using it applied vanilla Boat seating there.
      * Vanilla's passenger update invokes this every client tick as well.
      */
+    /**
+     * Give the helm passenger exactly the ship's previous rigid pose, rather
+     * than the independent LocalPlayer/Boat tick history. Vanilla may reset
+     * xOld during its own rider tick; the client post-tick reapplies this same
+     * calculation, never a different position or a teleport.
+     */
+    public void alignCaptainRenderHistory(Entity passenger) {
+        if (!level().isClientSide || !isMoving() || passenger == null
+                || !hasPassenger(passenger)) return;
+        FirstShipHull.Point previousSeat = FirstShipHull.toWorld(0D,
+                helmSeatZ(), xo, zo, yRotO);
+        passenger.xo = previousSeat.x();
+        passenger.yo = yo + helmSeatHeight() + .08D;
+        passenger.zo = previousSeat.z();
+    }
+
     @Override protected void positionRider(Entity passenger, Entity.MoveFunction move) {
         if (!isNativeHull()) {
             super.positionRider(passenger, move);
@@ -349,6 +365,7 @@ public final class FirstShipEntity extends Boat {
         // updates and snap back to this seat every tick.
         passenger.setDeltaMovement(Vec3.ZERO);
         passenger.fallDistance = 0F;
+        alignCaptainRenderHistory(passenger);
     }
 
     /**
