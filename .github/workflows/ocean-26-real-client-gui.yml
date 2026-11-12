@@ -49,7 +49,32 @@ jobs:
           mkdir -p run-ocean26-client/saves
           cp -a run-ocean26-20261108/world run-ocean26-client/saves/ShipyardCi
           cp -a run-ocean26-20261108/world run-ocean26-client/saves/CaptainCi
-      - name: Render actual shipyard GUI at scale 4, swap vessel types
+      - name: Configure isolated Minecraft 1.21.1 client before first launch
+        run: |
+          # These are Minecraft Options keys, not JVM flags. The game directory is
+          # run-ocean26-client (configured in build.gradle).
+          mkdir -p run-ocean26-client
+          cat > run-ocean26-client/options.txt <<'EOF'
+          version:3955
+          onboardAccessibility:false
+          narrator:0
+          pauseOnLostFocus:false
+          guiScale:4
+          fullscreen:false
+          graphicsMode:0
+          renderDistance:4
+          simulationDistance:5
+          mipmapLevels:0
+          maxFps:60
+          enableVsync:false
+          EOF
+          grep -qx 'onboardAccessibility:false' run-ocean26-client/options.txt
+          grep -qx 'version:3955' run-ocean26-client/options.txt
+          test -s run-ocean26-client/options.txt
+          echo "Prepared isolated Minecraft options for 1.21.1 (3955)"
+      - id: shipyard
+        continue-on-error: true
+        name: Render actual shipyard GUI at scale 4, swap vessel types
         run: |
           ( sleep 90
             echo "OCEAN26_STARTUP_DIAGNOSTIC $(date -u)"
@@ -69,7 +94,9 @@ jobs:
           test "$result" -eq 0
           grep -q '^PASS shipyardSwitch' run-ocean26-client/ocean26-probe-result.txt
           cp run-ocean26-client/ocean26-probe-result.txt shipyard-result.txt
-      - name: Reset the result marker and run the captain camera probe
+      - id: captain
+        continue-on-error: true
+        name: Run the captain camera probe independently of shipyard outcome
         run: |
           timeout --signal=TERM --kill-after=20s 300s xvfb-run -a -s "-screen 0 1920x1080x24" \
             ./gradlew --no-daemon --console=plain -Pocean26ClientProbe \
@@ -77,6 +104,25 @@ jobs:
               -Pocean26ShipClass=MEDIUM -Pocean26ProbeWorld=CaptainCi runOcean26ClientProbe
           grep -q '^PASS longForward' run-ocean26-client/ocean26-probe-result.txt
           cp run-ocean26-client/ocean26-probe-result.txt captain-result.txt
+      - name: Record real client scenario outcomes
+        if: always()
+        env:
+          SHIPYARD_OUTCOME: ${{ steps.shipyard.outcome }}
+          CAPTAIN_OUTCOME: ${{ steps.captain.outcome }}
+        run: |
+          {
+            printf 'client_startup: see latest.log and scenario markers\\n'
+            printf 'shipyard: %s\\n' "$SHIPYARD_OUTCOME"
+            printf 'captain: %s\\n' "$CAPTAIN_OUTCOME"
+            test -f shipyard-result.txt && cat shipyard-result.txt && printf '\\n' || true
+            test -f captain-result.txt && cat captain-result.txt && printf '\\n' || true
+          } | tee client-scenario-summary.txt
+          {
+            printf '### Real Minecraft client scenarios\\n'
+            printf '\\n| Scenario | GitHub step outcome |\\n|---|---|\\n'
+            printf '| Shipyard, GUI scale 4 | %s |\\n' "$SHIPYARD_OUTCOME"
+            printf '| Captain camera | %s |\\n' "$CAPTAIN_OUTCOME"
+          } >> "$GITHUB_STEP_SUMMARY"
       - name: Preserve client logs and test evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -84,6 +130,8 @@ jobs:
           name: ocean26-real-client-${{ github.run_attempt }}
           if-no-files-found: warn
           path: |
+            client-scenario-summary.txt
+            run-ocean26-client/options.txt
             shipyard-result.txt
             captain-result.txt
             client-thread-dump.txt
@@ -91,3 +139,11 @@ jobs:
             run-ocean26-client/logs/latest.log
             run-ocean26-client/crash-reports/**
             run-ocean26-client/screenshots/**
+      - name: Enforce both independent client scenarios
+        if: always()
+        env:
+          SHIPYARD_OUTCOME: ${{ steps.shipyard.outcome }}
+          CAPTAIN_OUTCOME: ${{ steps.captain.outcome }}
+        run: |
+          test "$SHIPYARD_OUTCOME" = success
+          test "$CAPTAIN_OUTCOME" = success
