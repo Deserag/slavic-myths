@@ -36,6 +36,7 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 import org.slavicmyths.ships.FirstShipBlockHull;
 import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.FirstShipHull;
+import org.slavicmyths.ships.FirstShipSmallSailPlan;
 import org.slavicmyths.ships.FirstShipNetwork;
 import org.slavicmyths.ships.RaftContent;
 
@@ -194,6 +195,102 @@ public final class Ocean26GameTests {
                 "Legacy V7 hull was not preserved");
         t.assertTrue(FirstShipBlockHull.remove(level, anchor, 0, 1, 1, 7),
                 "Legacy V7 packing failed");
+        t.succeed();
+    }
+
+    /**
+     * V12 regression in a genuine NeoForge ServerLevel: all native SMALL
+     * rig/fabric combinations at four headings, real solid yards, actual
+     * air above the walking deck, packed/replaced blocks and V11 migration.
+     * This does not substitute for a human Minecraft client walking test.
+     */
+    @GameTest(template = "empty", timeoutTicks = 300, batch = "ocean_small_v12_sails")
+    public static void smallV12PhysicalSailsAndSaveCompatibility(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(12, 4, 12));
+        for (int x = -10; x <= 10; x++)
+            for (int z = -10; z <= 10; z++) {
+                BlockPos water = anchor.offset(x, 0, z);
+                level.setBlock(water.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(water, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 24; y++)
+                    level.setBlock(water.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+
+        int configurations = 0;
+        for (int rig = 0; rig <= 4; rig++)
+            for (int fabric = 0; fabric <= 3; fabric++) {
+                if ((rig == 0) != (fabric == 0)) continue;
+                var plan = FirstShipSmallSailPlan.forRig(rig, fabric);
+                for (int turn = 0; turn < 4; turn++) {
+                    String context = "rig=" + rig + " fabric=" + fabric + " turn=" + turn;
+                    t.assertTrue(FirstShipBlockHull.place(level, anchor, turn,
+                            new ListTag(), rig, fabric, 12),
+                            "V12 physical placement failed " + context);
+                    configurations++;
+                    for (int y = 6; y <= 8; y++) {
+                        for (int x : new int[]{-1, 1}) {
+                            t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                                    anchor, turn, x, y, -1)).isAir(),
+                                    "Real deck-side mast corridor obstructed " + context);
+                        }
+                        for (int x = -4; x <= 4; x++)
+                            t.assertTrue(!level.getBlockState(FirstShipBlockHull.world(
+                                    anchor, turn, x, y, -1)).is(Blocks.DARK_OAK_LOG),
+                                    "Player-height legacy yard survived " + context);
+                    }
+                    for (int z : new int[]{1, 2})
+                        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                                anchor, turn, 0, 6, z)).isAir(),
+                                "Hatch headroom obstructed " + context);
+                    for (var sail : plan.sails()) {
+                        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                                anchor, turn, sail.halfSpan(), sail.upperYardY(), -1))
+                                .is(Blocks.DARK_OAK_LOG),
+                                "Upper yard missing " + context);
+                        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                                anchor, turn, sail.halfSpan() - 1, sail.lowerYardY(), -1))
+                                .is(Blocks.DARK_OAK_LOG),
+                                "Raised lower yard missing " + context);
+                        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                                anchor, turn, 0, sail.bottom(), 0)).isAir(),
+                                "V12 must render cloth as mesh, not blocks " + context);
+                    }
+                    ListTag saved = FirstShipBlockHull.pack(level, anchor, turn, rig, fabric, 12);
+                    t.assertTrue(saved != null, "V12 source inspection failed " + context);
+                    t.assertTrue(FirstShipBlockHull.remove(level, anchor, turn, rig, fabric, 12),
+                            "V12 pack removal failed " + context);
+                    t.assertTrue(FirstShipBlockHull.place(level, anchor, turn, saved, rig, fabric, 12),
+                            "V12 packed reinstallation failed " + context);
+                    t.assertTrue(FirstShipBlockHull.remove(level, anchor, turn, rig, fabric, 12),
+                            "V12 final teardown failed " + context);
+                }
+            }
+
+        // The actual V11 starter yard is at Y=6 due to its V6 override.
+        t.assertTrue(FirstShipBlockHull.place(level, anchor, 0, new ListTag(), 1, 1, 11),
+                "V11 saved source placement failed");
+        BlockPos oldYard = FirstShipBlockHull.world(anchor, 0, 1, 6, -1);
+        t.assertTrue(level.getBlockState(oldYard).is(Blocks.DARK_OAK_LOG),
+                "V11 starter yard regression fixture missing");
+        t.assertTrue(FirstShipBlockHull.migrateSmallRigV12(level, anchor, 0, 1, 1),
+                "Unoccupied source V11 must migrate transactionally");
+        t.assertTrue(level.getBlockState(oldYard).isAir(),
+                "Old player-height Y6 yard survived V12 migration");
+        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor, 0, 1, 9, -1))
+                        .is(Blocks.DARK_OAK_LOG),
+                "New lower yard missing after V11 migration");
+        t.assertTrue(FirstShipBlockHull.captureForMotion(level, anchor, 0, 1, 1, 12) != null,
+                "Versioned V12 motion snapshot failed");
+        t.assertTrue(FirstShipBlockHull.move(level, anchor, 0, anchor, 1,
+                        1, 1, 1, 1, 12),
+                "V12 physical quarter-turn rejected");
+        t.assertTrue(FirstShipBlockHull.pack(level, anchor, 1, 1, 1, 12) != null,
+                "V12 rotated ship pack failed");
+        t.assertTrue(FirstShipBlockHull.remove(level, anchor, 1, 1, 1, 12),
+                "V12 rotated source teardown failed");
+        System.out.println("OCEAN26_SMALL_V12_SAILS_PASS configurations=" + configurations
+                + " rotations=4 migration=V11_to_V12 packRestore=true");
         t.succeed();
     }
 
