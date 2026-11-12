@@ -27,3 +27,8 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew --no-daemon --stacktrace -Pocean26Check -PwithoutJei compileJava compileOcean26CheckJava
+      - name: Regression - independent shipyard selection under item swaps
+        run: |
+          mkdir -p build/shipyard-selection-regression
+          javac -d build/shipyard-selection-regression src/main/java/org/slavicmyths/ships/client/ShipyardSelectionState.java tools/ship-section-tests/ShipyardSelectionStateCheck.java
+          java -cp build/shipyard-selection-regression org.slavicmyths.verify.ShipyardSelectionStateCheck
