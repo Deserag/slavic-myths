@@ -1,0 +1,78 @@
+name: Ocean 2.6 - real client visual and helm regressions
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - fix/2.6-ship-crew-and-upgrades-p0
+      - feat/2.6-large-ship-closed-decks-p1
+    paths:
+      - "src/main/java/org/slavicmyths/ships/**"
+      - "tools/ocean26-client-tests/**"
+      - "tools/ocean26-tests/**"
+      - "build.gradle"
+      - ".github/workflows/ocean-26-real-client-gui.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ocean26-real-client-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  real-client:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      LIBGL_ALWAYS_SOFTWARE: "1"
+      MESA_GL_VERSION_OVERRIDE: "4.5"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Install virtual display and Mesa software OpenGL
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb libgl1-mesa-dri libgl1 mesa-utils xauth
+      - name: Build an isolated Minecraft world using server GameTests
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon --console=plain -Pocean26Check runOcean26Checks
+          test -f run-ocean26-20261108/world/level.dat
+      - name: Prepare disposable worlds for the rendering and helm tests
+        run: |
+          mkdir -p run-ocean26-client/saves
+          cp -a run-ocean26-20261108/world run-ocean26-client/saves/ShipyardCi
+          cp -a run-ocean26-20261108/world run-ocean26-client/saves/CaptainCi
+      - name: Render actual shipyard GUI at scale 4, swap vessel types
+        run: |
+          timeout --signal=TERM --kill-after=20s 600s xvfb-run -a -s "-screen 0 1920x1080x24" \
+            ./gradlew --no-daemon --console=plain -Pocean26ClientProbe \
+              -Pocean26ShipyardSwitchProbe -Pocean26ProbeWorld=ShipyardCi runOcean26ClientProbe
+          grep -q '^PASS shipyardSwitch' run-ocean26-client/ocean26-probe-result.txt
+          cp run-ocean26-client/ocean26-probe-result.txt shipyard-result.txt
+      - name: Reset the result marker and run the captain camera probe
+        run: |
+          timeout --signal=TERM --kill-after=20s 600s xvfb-run -a -s "-screen 0 1920x1080x24" \
+            ./gradlew --no-daemon --console=plain -Pocean26ClientProbe \
+              -Pocean26ModularVisualProbe -Pocean26LongForwardProbe \
+              -Pocean26ShipClass=MEDIUM -Pocean26ProbeWorld=CaptainCi runOcean26ClientProbe
+          grep -q '^PASS longForward' run-ocean26-client/ocean26-probe-result.txt
+          cp run-ocean26-client/ocean26-probe-result.txt captain-result.txt
+      - name: Preserve client logs and test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ocean26-real-client-${{ github.run_attempt }}
+          if-no-files-found: warn
+          path: |
+            shipyard-result.txt
+            captain-result.txt
+            run-ocean26-client/ocean26-probe-result.txt
+            run-ocean26-client/logs/latest.log
+            run-ocean26-client/crash-reports/**
+            run-ocean26-client/screenshots/**
