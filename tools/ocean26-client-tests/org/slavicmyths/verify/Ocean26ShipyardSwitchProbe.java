@@ -32,7 +32,7 @@ public final class Ocean26ShipyardSwitchProbe {
     private static int stage, since, noWorldTicks;
     private static ShipyardScreen screen;
     private static ShipyardMenu menu;
-    private static ItemStack modular, legacy, raft;
+    private static ItemStack modular, modularMedium, modularLarge, modularLargest, legacy, raft;
     private static int transitions;
     private static int screenshots;
 
@@ -43,7 +43,7 @@ public final class Ocean26ShipyardSwitchProbe {
         screenshots++;
     }
 
-    private static ItemStack modularFixture() {
+    private static ItemStack modularFixture(ShipSectionPlan.ShipClass type) {
         ItemStack stack = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
         CompoundTag pack = new CompoundTag();
         pack.putInt("Version", 2);
@@ -51,11 +51,18 @@ public final class Ocean26ShipyardSwitchProbe {
         pack.putInt("RigLevel", 0);
         pack.putInt("FabricQuality", 0);
         pack.put(ShipBuildConfiguration.NBT_KEY, ShipBuildConfiguration.initial(
-                ShipSectionPlan.ShipClass.SMALL).save());
+                type).save());
         CompoundTag root = new CompoundTag();
         root.put("FirstShipPack", pack);
         stack.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
         return stack;
+    }
+
+    private static void verifyClass(ShipSectionPlan.ShipClass expected)
+            throws ReflectiveOperationException {
+        var cfg = org.slavicmyths.ships.ShipyardModular.configuration(menu.getSlot(0).getItem());
+        if (cfg == null || cfg.shipClass() != expected || chosen() < 0 || chosen() >= 10)
+            throw new AssertionError("invalid shipyard selection/class after swap to " + expected);
     }
 
     private static int chosen() throws ReflectiveOperationException {
@@ -93,7 +100,10 @@ public final class Ocean26ShipyardSwitchProbe {
         }
         try {
             if (stage == 0) {
-                modular = modularFixture();
+                modular = modularFixture(ShipSectionPlan.ShipClass.SMALL);
+                modularMedium = modularFixture(ShipSectionPlan.ShipClass.MEDIUM);
+                modularLarge = modularFixture(ShipSectionPlan.ShipClass.LARGE);
+                modularLargest = modularFixture(ShipSectionPlan.ShipClass.LARGEST);
                 legacy = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
                 raft = new ItemStack(RaftContent.RAFT_ITEM.get());
                 if (org.slavicmyths.ships.ShipyardModular.configuration(modular) == null)
@@ -159,11 +169,58 @@ public final class Ocean26ShipyardSwitchProbe {
                     if (chosen() < 0 || chosen() >= 6)
                         throw new AssertionError("reinserted ship has invalid selection");
                 }
-                case 13 -> {
-                    if (screenshots != 5)
+                case 13 -> swap(modular);   // SMALL
+                case 14 -> {
+                    screenshot(mc, "small-modifications");
+                    swap(modularMedium);
+                }
+                case 15 -> {
+                    verifyClass(ShipSectionPlan.ShipClass.MEDIUM);
+                    screenshot(mc, "medium-modifications");
+                    swap(modularLarge);
+                }
+                case 16 -> {
+                    verifyClass(ShipSectionPlan.ShipClass.LARGE);
+                    screenshot(mc, "large-v6-modifications");
+                    swap(modularLargest);
+                }
+                case 17 -> {
+                    verifyClass(ShipSectionPlan.ShipClass.LARGEST);
+                    screenshot(mc, "largest-v6-modifications");
+                    swap(modular);
+                }
+                case 18 -> {
+                    verifyClass(ShipSectionPlan.ShipClass.SMALL);
+                    screenshot(mc, "small-after-full-class-cycle");
+                    mc.options.guiScale().set(3);
+                    mc.resizeDisplay();
+                }
+                case 19 -> {
+                    if (mc.options.guiScale().get() != 3)
+                        throw new AssertionError("GUI scale 3 not selected");
+                    screenshot(mc, "gui-scale-3");
+                    mc.options.guiScale().set(2);
+                    mc.resizeDisplay();
+                }
+                case 20 -> {
+                    if (mc.options.guiScale().get() != 2)
+                        throw new AssertionError("GUI scale 2 not selected");
+                    screenshot(mc, "gui-scale-2");
+                    mc.options.guiScale().set(4);
+                    mc.resizeDisplay();
+                }
+                case 21 -> {
+                    if (mc.options.guiScale().get() != 4)
+                        throw new AssertionError("GUI scale 4 not restored");
+                    screenshot(mc, "gui-scale-4");
+                }
+                case 22 -> {
+                    if (screenshots != 13)
                         throw new AssertionError("incomplete shipyard screenshots " + screenshots);
                     System.out.println("OCEAN26_SHIPYARD_RENDER_SEQUENCE swaps=" + transitions
-                            + " guiScale=" + mc.options.guiScale().get()
+                            + " classes=SMALL,MEDIUM,LARGE,LARGEST"
+                            + " guiScales=2,3,4"
+                            + " screenshots=" + screenshots
                             + " finalIndex=" + chosen());
                     finish(mc, true, "shipyardSwitch");
                 }
