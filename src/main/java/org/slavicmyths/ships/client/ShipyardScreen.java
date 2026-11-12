@@ -14,6 +14,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.slavicmyths.ships.FirstShipItem;
 import org.slavicmyths.ships.FirstShipEntity;
+import org.slavicmyths.ships.FirstShipNetwork;
+import net.neoforged.neoforge.network.PacketDistributor;
 import org.slavicmyths.ships.FirstShipHull;
 import org.slavicmyths.ships.RaftCharacteristics;
 import org.slavicmyths.ships.RaftContent;
@@ -97,16 +99,22 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 : stack.getItem() instanceof RaftItem ? 1 : 0;
     }
 
-    private ShipBuildConfiguration currentConfig() {
-        ShipBuildConfiguration packed = ShipyardModular.configuration(menu.inspected());
-        if (packed != null || !menu.inspected().isEmpty()
-                || minecraft == null || minecraft.player == null) return packed;
+    private FirstShipEntity nearbyModular() {
+        if (!menu.inspected().isEmpty() || minecraft == null || minecraft.player == null)
+            return null;
         var candidates = minecraft.player.level().getEntitiesOfClass(
                 FirstShipEntity.class,
                 new net.minecraft.world.phys.AABB(menu.shipyardPosition()).inflate(30D, 18D, 30D),
                 ship -> ship.isNativeHull() && !ship.isRemoved() && !ship.isMoving()
                         && !ship.isVehicle() && ship.modularConfiguration() != null);
-        return candidates.size() == 1 ? candidates.get(0).modularConfiguration() : null;
+        return candidates.size() == 1 ? candidates.get(0) : null;
+    }
+
+    private ShipBuildConfiguration currentConfig() {
+        ShipBuildConfiguration packed = ShipyardModular.configuration(menu.inspected());
+        if (packed != null || !menu.inspected().isEmpty()) return packed;
+        FirstShipEntity nearby = nearbyModular();
+        return nearby == null ? null : nearby.modularConfiguration();
     }
 
     private ShipBuildConfiguration creationConfig() {
@@ -296,7 +304,10 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     ? MODULAR_ACTIONS[chosen()]
                     : vesselKind() == 2 ? SHIP_ACTIONS[chosen()] : RAFT_ACTIONS[chosen()];
         }
-        minecraft.gameMode.handleInventoryButtonClick(menu.containerId, action);
+        FirstShipEntity nearby = nearbyModular();
+        PacketDistributor.sendToServer(new FirstShipNetwork.ShipyardAction(
+                menu.containerId, action, ItemStack.hashItemAndComponents(menu.inspected()),
+                nearby == null ? -1 : nearby.getId()));
     }
 
     private int count(Item item) {
