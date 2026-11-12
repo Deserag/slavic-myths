@@ -182,7 +182,7 @@ public final class ShipyardModular {
                 || next.sailTiers().size() < old.sailTiers().size()) return false;
         for (int i = 0; i < old.sailTiers().size(); i++) {
             if (next.sailTiers().get(i) < old.sailTiers().get(i)) return false;
-            ShipBuildConfiguration.Rigging a = old.rigging().get(i), b = next.rigging().get(i);
+            ShipRiggingState a = old.rigging().get(i), b = next.rigging().get(i);
             if (b.height() < a.height() || b.strength() < a.strength()
                     || b.width() < a.width() || b.yards() < a.yards()
                     || b.area() < a.area() || b.layers() < a.layers()

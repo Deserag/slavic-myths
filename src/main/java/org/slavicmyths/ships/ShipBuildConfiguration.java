@@ -13,40 +13,13 @@ import net.minecraft.nbt.Tag;
 public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         int extraLength, int extraWidth, List<Integer> sailTiers,
         int decks, boolean bridge, boolean cabin, int hullGeometry,
-        List<Rigging> rigging) {
+        List<ShipRiggingState> rigging) {
     public static final int VERSION = 2;
     public static final String NBT_KEY = "ShipBlueprint";
 
 
-    /** Seven independent physical and fabric properties of each mast. */
-    public record Rigging(int height, int strength, int width, int yards,
-            int area, int layers, int fabric) {
-        public Rigging {
-            if (height < 0 || height > 2 || strength < 1 || strength > 3
-                    || width < 0 || width > 2 || yards < 2 || yards > 4
-                    || area < 0 || area > 2 || layers < 1 || layers >= yards
-                    || fabric < 1 || fabric > 3)
-                throw new IllegalArgumentException("Invalid independent sail rigging");
-        }
-
-        public Rigging increase(int aspect) {
-            return switch (aspect) {
-                case 0 -> new Rigging(height + 1, strength, width, yards, area, layers, fabric);
-                case 1 -> new Rigging(height, strength + 1, width, yards, area, layers, fabric);
-                case 2 -> new Rigging(height, strength, width + 1, yards, area, layers, fabric);
-                case 3 -> new Rigging(height, strength, width, yards + 1, area, layers, fabric);
-                case 4 -> new Rigging(height, strength, width, yards, area + 1, layers, fabric);
-                case 5 -> new Rigging(height, strength, width, yards, area, layers + 1, fabric);
-                case 6 -> new Rigging(height, strength, width, yards, area, layers, fabric + 1);
-                default -> throw new IllegalArgumentException("Unknown rigging upgrade");
-            };
-        }
-    }
-
-    public static List<Rigging> defaultRigging(List<Integer> tiers) {
-        List<Rigging> result = new ArrayList<>();
-        for (int tier : tiers) result.add(new Rigging(0, 1, 0, 2, 0, 1, tier));
-        return List.copyOf(result);
+    public static List<ShipRiggingState> defaultRigging(List<Integer> tiers) {
+        return ShipRiggingState.defaults(tiers);
     }
 
     /** Old eight-field construction remains binary-source compatible. */
@@ -79,7 +52,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         rigging = List.copyOf(rigging);
         int maxYards = shipClass == ShipSectionPlan.ShipClass.SMALL ? 2
                 : shipClass == ShipSectionPlan.ShipClass.LARGEST ? 4 : 3;
-        for (Rigging r : rigging)
+        for (ShipRiggingState r : rigging)
             if (r == null || r.yards() > maxYards
                     || shipClass == ShipSectionPlan.ShipClass.SMALL && r.height() > 1)
                 throw new IllegalArgumentException("Rigging exceeds ship class limits");
@@ -128,7 +101,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         List<Integer> next = new ArrayList<>(sailTiers);
         if (mast < 0 || mast > next.size())
             throw new IllegalArgumentException("Unsupported mast index");
-        List<Rigging> upgraded = new ArrayList<>(rigging);
+        List<ShipRiggingState> upgraded = new ArrayList<>(rigging);
         if (mast == next.size()) {
             next.add(tier);
             upgraded.add(defaultRigging(List.of(tier)).get(0));
@@ -144,7 +117,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
     public ShipBuildConfiguration upgradeRigging(int mast, int aspect) {
         if (mast < 0 || mast >= rigging.size())
             throw new IllegalArgumentException("The selected mast does not exist");
-        List<Rigging> upgraded = new ArrayList<>(rigging);
+        List<ShipRiggingState> upgraded = new ArrayList<>(rigging);
         upgraded.set(mast, upgraded.get(mast).increase(aspect));
         return new ShipBuildConfiguration(shipClass, extraLength, extraWidth,
                 sailTiers, decks, bridge, cabin, hullGeometry, upgraded);
@@ -178,7 +151,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         tag.putBoolean("Cabin", cabin);
         int[] serialized = new int[rigging.size() * 7];
         for (int i = 0; i < rigging.size(); i++) {
-            Rigging r = rigging.get(i);
+            ShipRiggingState r = rigging.get(i);
             int j = i * 7;
             serialized[j] = r.height(); serialized[j + 1] = r.strength();
             serialized[j + 2] = r.width(); serialized[j + 3] = r.yards();
@@ -203,7 +176,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         ShipSectionPlan.ShipClass type = ShipSectionPlan.ShipClass.valueOf(tag.getString("Class"));
         List<Integer> sails = new ArrayList<>();
         for (int tier : tag.getIntArray("Sails")) sails.add(tier);
-        List<Rigging> setup = defaultRigging(sails);
+        List<ShipRiggingState> setup = defaultRigging(sails);
         if (tag.getInt("Version") == VERSION) {
             if (!tag.contains("Rigging", Tag.TAG_INT_ARRAY))
                 throw new IllegalArgumentException("Missing mast rigging in version 2");
@@ -215,11 +188,11 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
                 tag.contains("HullGeometry", Tag.TAG_INT) ? tag.getInt("HullGeometry") : 1, setup);
     }
 
-    private static List<Rigging> decodeRigging(int[] values, int count) {
+    private static List<ShipRiggingState> decodeRigging(int[] values, int count) {
         if (values.length != count * 7) throw new IllegalArgumentException("Invalid rigging array");
-        List<Rigging> setup = new ArrayList<>();
+        List<ShipRiggingState> setup = new ArrayList<>();
         for (int j = 0; j < values.length; j += 7)
-            setup.add(new Rigging(values[j], values[j + 1], values[j + 2],
+            setup.add(new ShipRiggingState(values[j], values[j + 1], values[j + 2],
                     values[j + 3], values[j + 4], values[j + 5], values[j + 6]));
         return List.copyOf(setup);
     }
@@ -239,7 +212,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
             out.append(':');
             for (int i = 0; i < rigging.size(); i++) {
                 if (i > 0) out.append(';');
-                Rigging r = rigging.get(i);
+                ShipRiggingState r = rigging.get(i);
                 out.append(r.height()).append(',').append(r.strength()).append(',')
                         .append(r.width()).append(',').append(r.yards()).append(',')
                         .append(r.area()).append(',').append(r.layers()).append(',')
@@ -261,7 +234,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         if (!parts[4].equals("0") && !parts[4].equals("1")
                 || !parts[5].equals("0") && !parts[5].equals("1"))
             throw new IllegalArgumentException("Invalid blueprint flags");
-        List<Rigging> setup = defaultRigging(sails);
+        List<ShipRiggingState> setup = defaultRigging(sails);
         if (parts.length == 9) {
             String[] masts = parts[8].split(";", -1);
             int[] values = new int[masts.length * 7];

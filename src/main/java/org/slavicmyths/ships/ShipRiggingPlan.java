@@ -35,7 +35,7 @@ public final class ShipRiggingPlan {
         List<Mast> result = new ArrayList<>();
         for (int i = 0; i < plan.sailTiers().size(); i++) {
             int tier = plan.sailTiers().get(i), z = plan.mastPositions().get(i);
-            ShipBuildConfiguration.Rigging equipment = plan.rigging().get(i);
+            ShipRiggingState equipment = plan.rigging().get(i);
             int span = Math.min(plan.hullWidth() / 2 + 2,
                     2 + tier + equipment.width());
             int deck = 4;

@@ -12,13 +12,13 @@ import java.util.List;
 public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
         int hullWidth, int hullLength, List<Integer> sailTiers,
         int decks, boolean bridge, boolean cabin,
-        List<ShipBuildConfiguration.Rigging> rigging) {
+        List<ShipRiggingState> rigging) {
 
     public ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
             int hullWidth, int hullLength, List<Integer> sailTiers,
             int decks, boolean bridge, boolean cabin) {
         this(shipClass, hullWidth, hullLength, sailTiers, decks, bridge, cabin,
-                ShipBuildConfiguration.defaultRigging(sailTiers));
+                ShipRiggingState.defaults(sailTiers));
     }
 
     public static final int MAST_CLEARANCE = 4;
@@ -79,12 +79,12 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
     }
 
     public boolean customRigging() {
-        return !rigging.equals(ShipBuildConfiguration.defaultRigging(sailTiers));
+        return !rigging.equals(ShipRiggingState.defaults(sailTiers));
     }
 
     /** Cloth quality changes the visible material, not mast geometry. */
     public boolean customPhysicalRigging() {
-        for (ShipBuildConfiguration.Rigging r : rigging)
+        for (ShipRiggingState r : rigging)
             if (r.height() != 0 || r.strength() != 1 || r.width() != 0
                     || r.yards() != 2 || r.area() != 0 || r.layers() != 1)
                 return true;
@@ -124,8 +124,8 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
     public ShipSuperstructurePlan withSail(int tier) {
         List<Integer> next = new ArrayList<>(sailTiers);
         next.add(tier);
-        List<ShipBuildConfiguration.Rigging> setup = new ArrayList<>(rigging);
-        setup.add(ShipBuildConfiguration.defaultRigging(List.of(tier)).get(0));
+        List<ShipRiggingState> setup = new ArrayList<>(rigging);
+        setup.add(ShipRiggingState.defaults(List.of(tier)).get(0));
         return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, next, decks, bridge, cabin, setup);
     }
 

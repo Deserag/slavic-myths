@@ -25,6 +25,7 @@ import org.slavicmyths.ships.ShipyardMenu;
 import org.slavicmyths.ships.ShipyardUpgrades;
 import org.slavicmyths.ships.ShipyardModular;
 import org.slavicmyths.ships.ShipBuildConfiguration;
+import org.slavicmyths.ships.ShipRiggingState;
 import org.slavicmyths.ships.ShipSectionPlan;
 import org.slavicmyths.ships.ShipHullVoxelLayout;
 
@@ -454,7 +455,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         if (action == 201 && current.extraWidth() >= kind.maxWidth) return "Предел ширины корпуса";
         if (action >= 220 && action <= 226) {
             if (selectedMast >= current.rigging().size()) return "Сначала установите мачту";
-            ShipBuildConfiguration.Rigging r = current.rigging().get(selectedMast);
+            ShipRiggingState r = current.rigging().get(selectedMast);
             if (action == 220 && r.height() >= (kind == ShipSectionPlan.ShipClass.SMALL ? 1 : 2))
                 return "Максимальная высота мачты";
             if (action == 221 && r.strength() >= 3) return "Мачта максимально укреплена";

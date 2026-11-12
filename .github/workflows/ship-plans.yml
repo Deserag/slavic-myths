@@ -5,6 +5,8 @@ on:
     paths:
       - 'src/main/java/org/slavicmyths/ships/ShipSectionPlan.java'
       - 'src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java'
+      - 'src/main/java/org/slavicmyths/ships/ShipRiggingState.java'
+      - 'src/main/java/org/slavicmyths/ships/ShipRiggingPlan.java'
       - 'src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java'
       - 'src/main/java/org/slavicmyths/ships/FirstShipMediumSailPlan.java'
       - 'src/main/java/org/slavicmyths/ships/ShipClearanceSailPlan.java'
@@ -17,6 +19,8 @@ on:
     paths:
       - 'src/main/java/org/slavicmyths/ships/ShipSectionPlan.java'
       - 'src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java'
+      - 'src/main/java/org/slavicmyths/ships/ShipRiggingState.java'
+      - 'src/main/java/org/slavicmyths/ships/ShipRiggingPlan.java'
       - 'src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java'
       - 'src/main/java/org/slavicmyths/ships/FirstShipMediumSailPlan.java'
       - 'src/main/java/org/slavicmyths/ships/ShipClearanceSailPlan.java'
@@ -42,6 +46,8 @@ jobs:
           javac -encoding UTF-8 -d build/ship-checks \
             src/main/java/org/slavicmyths/ships/ShipSectionPlan.java \
             src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java \
+            src/main/java/org/slavicmyths/ships/ShipRiggingState.java \
+            src/main/java/org/slavicmyths/ships/ShipRiggingPlan.java \
             src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java \
             src/main/java/org/slavicmyths/ships/FirstShipMediumSailPlan.java \
             src/main/java/org/slavicmyths/ships/ShipClearanceSailPlan.java \
