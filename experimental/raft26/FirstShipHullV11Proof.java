@@ -24,7 +24,8 @@ public final class FirstShipHullV11Proof {
         int chine = FirstShipHull.halfWidthV11(z, 1);
         return switch (y) {
             case 0 -> Math.abs(x) <= keel;
-            case 1 -> Math.abs(x) <= chine && (Math.abs(x) > keel || edge(x, z));
+            case 1 -> (Math.abs(x) <= chine || FirstShipHull.exposedEndV11(x, z))
+                    && (Math.abs(x) > keel || edge(x, z));
             case 2 -> edge(x, z);
             default -> false;
         };
@@ -52,6 +53,26 @@ public final class FirstShipHullV11Proof {
                     yes(hull(x, 0, z), "dry lower-hold floor");
                 if (!hull(x, 2, z) && Math.abs(x) > keel)
                     yes(hull(x, 1, z), "Y2 headroom above solid chine");
+            }
+        }
+        // Nose face (z=4, x=+/-1) was cut away by the generic Y1 inset.
+        // Also assert the next narrowing rows and the stern are watertight.
+        for (int z : new int[]{2, 3, 4, -3, -4}) {
+            int top = oldBeam(z);
+            for (int x = -top; x <= top; x++) {
+                if (FirstShipHull.exposedEndV11(x, z)) {
+                    yes(hull(x, 1, z), "V11 narrowing face sealed x=" + x + " z=" + z);
+                    yes(hull(-x, 1, z), "mirror narrowing face sealed");
+                }
+            }
+        }
+        for (int turns = 0; turns < 4; turns++) {
+            for (int z = -5; z <= 5; z++) for (int x = -3; x <= 3; x++) {
+                int rx = turns == 0 ? x : turns == 1 ? -z : turns == 2 ? -x : z;
+                int rz = turns == 0 ? z : turns == 1 ? x : turns == 2 ? -z : -x;
+                int lx = turns == 0 ? rx : turns == 1 ? rz : turns == 2 ? -rx : -rz;
+                int lz = turns == 0 ? rz : turns == 1 ? -rx : turns == 2 ? -rz : rx;
+                yes(lx == x && lz == z, "rotation inverse");
             }
         }
         for (int y = 0; y <= 2; y++) {

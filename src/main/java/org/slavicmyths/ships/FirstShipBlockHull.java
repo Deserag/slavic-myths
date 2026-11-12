@@ -394,7 +394,9 @@ public final class FirstShipBlockHull {
                 if (Math.abs(x) > keelBeam)
                     blocks.remove(world(anchor, turns, x, 0, z));
                 BlockPos shoulder = world(anchor, turns, x, 1, z);
-                if (Math.abs(x) > chineBeam)
+                // Keep the exposed forward/aft face below the upper rim closed.
+                // A narrow Y1 chine alone removes these nose blocks at z=2..4.
+                if (Math.abs(x) > chineBeam && !FirstShipHull.exposedEndV11(x, z))
                     blocks.remove(shoulder);
                 else if (Math.abs(x) > keelBeam && !(x == -2 && z == 2))
                     // Preserve the existing stripped-log ladder backing at (-2,2).

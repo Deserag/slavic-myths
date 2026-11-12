@@ -45,6 +45,20 @@ public final class FirstShipHull {
         return Math.max(0, deckBeam - inset);
     }
 
+    /**
+     * The outer face of a narrowing bow/stern row must be solid at the chine.
+     * Cutting that face away leaves a visible one-block opening below the
+     * upper hull even though the center section still has the right beam.
+     * This applies only to V11; legacy V10 geometry remains unchanged.
+     */
+    public static boolean exposedEndV11(int x, int z) {
+        if (z >= 2 && z < 5)
+            return Math.abs(x) > (int)Math.floor(halfBeam(z + 1));
+        if (z <= -3 && z > -5)
+            return Math.abs(x) > (int)Math.floor(halfBeam(z - 1));
+        return false;
+    }
+
     public static double holdBeam(double z) {
         return Math.max(.45D, halfBeam(z) - .98D);
     }
