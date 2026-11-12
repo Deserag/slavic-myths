@@ -266,7 +266,12 @@ public final class ShipHullImageExport {
             String name = type.name().toLowerCase() + "-v5";
             top(name, newer);
             isometric(name, newer);
+            // These are *actual* V6 Java voxels, not AI renders or a concept.
+            var stairs = withoutRigging(ShipHullVoxelLayout.generate(plan, 6));
+            String stairsName = type.name().toLowerCase() + "-v6-stairs";
+            top(stairsName, stairs);
+            isometric(stairsName, stairs);
         }
-        System.out.println("PASS ShipHullImageExport 13 PNGs in " + OUTPUT);
+        System.out.println("PASS ShipHullImageExport 17 PNGs in " + OUTPUT);
     }
 }
