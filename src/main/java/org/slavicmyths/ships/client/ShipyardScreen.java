@@ -51,16 +51,17 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             "Добавить мачту", "Добавить палубу", "Капитанский мостик", "Каюта",
             "Увеличить высоту мачты", "Укрепить мачту",
             "Увеличить ширину реи", "Добавить верхнюю рею",
-            "Увеличить парус", "Добавить ярус паруса", "Улучшить ткань"
+            "Увеличить парус", "Добавить ярус паруса", "Улучшить ткань",
+            "Улучшить освещение"
     };
     private static final int[] MODULAR_ACTIONS = {
             200, 201, 207, 208, 209, 210, 203, 204, 205, 206,
-            220, 221, 222, 223, 224, 225, 226
+            220, 221, 222, 223, 224, 225, 226, 250
     };
     private static final String[] MODULAR_CATEGORIES =
-            {"Корпус", "Палубы", "Мачты", "Реи", "Паруса"};
+            {"Корпус", "Палубы", "Мачты", "Реи", "Паруса", "Освещение"};
     private static final int[][] MODULAR_GROUPS = {
-            {0, 1}, {7, 8, 9}, {6, 10, 11}, {12, 13}, {14, 15, 16, 2, 3, 4, 5}
+            {0, 1}, {7, 8, 9}, {6, 10, 11}, {12, 13}, {14, 15, 16, 2, 3, 4, 5}, {17}
     };
     private static final String[] CLASS_NAMES = {
             "Малый", "Средний", "Большой", "Крупнейший"
@@ -162,6 +163,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                         MODULAR_ACTIONS[option] - 207,
                         current.sailTiers().get(MODULAR_ACTIONS[option] - 207) + 1);
                 case 203 -> current.withSail(current.sailTiers().size(), 1);
+                case 250 -> current.withLighting();
                 case 220, 221, 222, 223, 224, 225, 226 ->
                         current.upgradeRigging(selectedMast, MODULAR_ACTIONS[option] - 220);
                 case 204 -> current.withDecks(current.decks() + 1);
@@ -378,6 +380,8 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             list.add(itemCost("Парус II", RaftContent.SAIL_LINEN_MODULE.get(), price.linenSails()));
         if (price.reinforcedSails() > 0)
             list.add(itemCost("Парус III", RaftContent.SAIL_REINFORCED_MODULE.get(), price.reinforcedSails()));
+        if (price.lanterns() > 0)
+            list.add(itemCost("Фонари", Items.LANTERN, price.lanterns()));
     }
 
     private List<Cost> costs() {
@@ -453,6 +457,10 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         ShipSectionPlan.ShipClass kind = current.shipClass();
         if (action == 200 && current.extraLength() >= kind.maxLength) return "Предел длины корпуса";
         if (action == 201 && current.extraWidth() >= kind.maxWidth) return "Предел ширины корпуса";
+        if (action == 250 && current.hullGeometry() < 6)
+            return "Освещение: нужен большой корпус V6";
+        if (action == 250 && current.hullGeometry() >= 9)
+            return "Освещение уже максимальное";
         if (action >= 220 && action <= 226) {
             if (selectedMast >= current.rigging().size()) return "Сначала установите мачту";
             ShipRiggingState r = current.rigging().get(selectedMast);

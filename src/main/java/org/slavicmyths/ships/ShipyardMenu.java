@@ -154,7 +154,7 @@ public final class ShipyardMenu extends AbstractContainerMenu {
             broadcastChanges();
             return true;
         }
-        if (action >= 200 && action <= 210 || action >= 220 && action < 248) {
+        if (action >= 200 && action <= 210 || action >= 220 && action < 248 || action == 250) {
             ItemStack current = input.getItem(0);
             FirstShipEntity placed = current.isEmpty() ? nearbyModular(player) : null;
             ShipBuildConfiguration config = placed != null ? placed.modularConfiguration()
@@ -180,6 +180,7 @@ public final class ShipyardMenu extends AbstractContainerMenu {
                             throw new IllegalArgumentException("Мачта ещё не установлена");
                         yield config.withSail(mast, config.sailTiers().get(mast) + 1);
                     }
+                    case 250 -> config.withLighting();
                     case 220, 221, 222, 223, 224, 225, 226,
                          227, 228, 229, 230, 231, 232, 233,
                          234, 235, 236, 237, 238, 239, 240,

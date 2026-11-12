@@ -22,10 +22,10 @@ import net.minecraft.world.item.component.CustomData;
 public final class ShipyardModular {
     public record Materials(int logs, int planks, int iron, int string,
             int deckSections, int railKits, int helms,
-            int basicSails, int linenSails, int reinforcedSails) {
+            int basicSails, int linenSails, int reinforcedSails, int lanterns) {
         public boolean empty() {
             return logs + planks + iron + string + deckSections + railKits
-                    + helms + basicSails + linenSails + reinforcedSails == 0;
+                    + helms + basicSails + linenSails + reinforcedSails + lanterns == 0;
         }
     }
 
@@ -52,6 +52,7 @@ public final class ShipyardModular {
         int ladders = delta.getOrDefault(ShipHullVoxelLayout.Part.LADDER, 0);
         int windows = delta.getOrDefault(ShipHullVoxelLayout.Part.WINDOW, 0);
         int helm = delta.getOrDefault(ShipHullVoxelLayout.Part.HELM, 0);
+        int lanterns = delta.getOrDefault(ShipHullVoxelLayout.Part.LANTERN, 0);
         int basic = 0, linen = 0, reinforced = 0;
         for (int i = 0; i < next.sailTiers().size(); i++) {
             int quality = next.rigging().get(i).fabric();
@@ -70,7 +71,7 @@ public final class ShipyardModular {
                 divRoundUp(deck, 24),
                 divRoundUp(railing, 16),
                 helm > 0 ? 1 : 0,
-                basic, linen, reinforced);
+                basic, linen, reinforced, lanterns);
     }
 
     private static int divRoundUp(int value, int divisor) {
@@ -121,7 +122,8 @@ public final class ShipyardModular {
                 && player.getInventory().countItem(RaftContent.HELM_MODULE.get()) >= cost.helms()
                 && player.getInventory().countItem(RaftContent.SAIL_MODULE.get()) >= cost.basicSails()
                 && player.getInventory().countItem(RaftContent.SAIL_LINEN_MODULE.get()) >= cost.linenSails()
-                && player.getInventory().countItem(RaftContent.SAIL_REINFORCED_MODULE.get()) >= cost.reinforcedSails();
+                && player.getInventory().countItem(RaftContent.SAIL_REINFORCED_MODULE.get()) >= cost.reinforcedSails()
+                && player.getInventory().countItem(Items.LANTERN) >= cost.lanterns();
     }
 
     static void pay(Player player, Materials cost) {
@@ -137,6 +139,7 @@ public final class ShipyardModular {
         take(player, RaftContent.SAIL_MODULE.get(), cost.basicSails());
         take(player, RaftContent.SAIL_LINEN_MODULE.get(), cost.linenSails());
         take(player, RaftContent.SAIL_REINFORCED_MODULE.get(), cost.reinforcedSails());
+        take(player, Items.LANTERN, cost.lanterns());
     }
 
     public static ShipBuildConfiguration configuration(ItemStack stack) {
@@ -179,6 +182,8 @@ public final class ShipyardModular {
                 || old.bridge() && !next.bridge()
                 || old.cabin() && !next.cabin()
                 || old.hullGeometry() != next.hullGeometry()
+                        && !(old.hullGeometry() >= 6 && old.hullGeometry() < 9
+                                && next.hullGeometry() == old.hullGeometry() + 1)
                 || next.sailTiers().size() < old.sailTiers().size()) return false;
         for (int i = 0; i < old.sailTiers().size(); i++) {
             if (next.sailTiers().get(i) < old.sailTiers().get(i)) return false;
