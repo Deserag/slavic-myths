@@ -565,6 +565,78 @@ public final class Ocean26GameTests {
         });
     }
 
+    @GameTest(template = "empty", timeoutTicks = 220, batch = "ocean_modular_wide_stern_cargo")
+    public static void wideV5V6SternCargoAndInteriorObstructions(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(25, 4, 25));
+        for (int x = -18; x <= 18; x++)
+            for (int z = -21; z <= 21; z++) {
+                BlockPos p = anchor.offset(x, 0, z);
+                level.setBlock(p.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(p, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 24; y++)
+                    level.setBlock(p.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        int cases = 0;
+        for (int geometry : new int[]{5, 6})
+            for (int turn = 0; turn < 4; turn++) {
+                var config = new org.slavicmyths.ships.ShipBuildConfiguration(
+                        org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST,
+                        0, 0, java.util.List.of(1), 2, false, false, geometry);
+                int z = -config.length() / 2;
+                int x = 5;
+                t.assertTrue(org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
+                        config.structure(), z) < x
+                        && org.slavicmyths.ships.ShipHullVoxelLayout.asymmetricLargeBeam(
+                                config.structure(), z) > x,
+                        "Fixture must be inside new stern, outside old beam");
+                t.assertTrue(org.slavicmyths.ships.ShipHullVoxelLayout.generate(
+                        config.structure(), geometry).get(
+                                new org.slavicmyths.ships.ShipHullVoxelLayout.Cell(x, 4, z))
+                                == org.slavicmyths.ships.ShipHullVoxelLayout.Part.DECK,
+                        "Widened stern must have physical cargo-supporting deck");
+                BlockPos chestPos = FirstShipBlockHull.world(anchor, turn, x, 5, z);
+                BlockPos obstacle = chestPos.above();
+                level.setBlock(obstacle, Blocks.STONE.defaultBlockState(), 2);
+                t.assertTrue(!org.slavicmyths.ships.ShipModularBlockHull.place(
+                        level, anchor, turn, config, new ListTag()),
+                        "Ship placement engulfed an obstacle in the enlarged stern");
+                t.assertTrue(level.getBlockState(obstacle).is(Blocks.STONE),
+                        "Rejected placement unexpectedly destroyed an obstruction");
+                level.setBlock(obstacle, Blocks.AIR.defaultBlockState(), 2);
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
+                        level, anchor, turn, config, new ListTag()),
+                        "Wide-stern ship placement failed geometry=" + geometry
+                                + " rotation=" + turn);
+                t.assertTrue(level.getBlockState(chestPos).isAir(),
+                        "Stern cargo fixture is already occupied");
+                level.setBlock(chestPos, Blocks.CHEST.defaultBlockState(), 2);
+                chest(level, chestPos, t).setItem(0, new ItemStack(Items.EMERALD, 17));
+                ListTag cargo = org.slavicmyths.ships.ShipModularBlockHull.pack(
+                        level, anchor, turn, config);
+                t.assertTrue(cargo != null && cargo.size() == 1,
+                        "The widened stern chest was silently omitted from packed cargo");
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
+                        level, anchor, turn, config),
+                        "Could not safely remove wide-stern ship and its cargo");
+                t.assertTrue(level.getBlockState(chestPos).isAir(),
+                        "Wide-stern cargo was left behind during moving-hull detachment");
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
+                        level, anchor, turn, config, cargo),
+                        "Wide-stern cargo could not be restored");
+                t.assertTrue(chest(level, chestPos, t).getItem(0).is(Items.EMERALD)
+                        && chest(level, chestPos, t).getItem(0).getCount() == 17,
+                        "Restored stern cargo contents did not survive round-trip");
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
+                        level, anchor, turn, config),
+                        "Cannot clean up the restored wide-stern ship");
+                cases++;
+            }
+        System.out.println("OCEAN26_WIDE_STERN_CARGO_PASS configurations=" + cases
+                + " rotations=4 legacyV5=true stairsV6=true cargo=17");
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular_v6_stairs")
     public static void largeV6StairsArePhysicalAndPersistent(GameTestHelper t) {
         ServerLevel level = t.getLevel();
