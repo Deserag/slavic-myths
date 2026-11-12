@@ -45,10 +45,25 @@ public final class ShipHullVoxelLayout {
         };
     }
 
+    /**
+     * The V2 weather-deck outline narrows gradually along the entire bow
+     * and stern instead of keeping the full beam until the final four rows.
+     * Never exceed the historical outline (cabins and turn clearance).
+     */
+    public static int steppedDeckBeam(ShipSuperstructurePlan plan, int z) {
+        if (plan == null) return -1;
+        int legacy = halfBeam(plan, z);
+        if (legacy < 0) return -1;
+        int radius = plan.hullLength() / 2, full = plan.hullWidth() / 2;
+        int taper = (int)Math.floor(full * Math.pow(Math.abs(z) / (double)radius, 2.5D));
+        int minimum = z == -radius ? 1 : 0;
+        return Math.min(legacy, Math.max(minimum, full - taper));
+    }
+
     /** Radius of the physical chine, from the keel to the weather-deck rim. */
     public static int steppedHalfBeam(ShipSuperstructurePlan plan, int z, int y) {
         if (plan == null || y < 0 || y > 3) return -1;
-        int top = halfBeam(plan, z);
+        int top = steppedDeckBeam(plan, z);
         if (top < 0) return -1;
         int full = plan.hullWidth() / 2;
         int target = switch (y) {
@@ -179,8 +194,15 @@ public final class ShipHullVoxelLayout {
      */
     private static Map<Cell, Part> generateStepped(ShipSuperstructurePlan plan) {
         Map<Cell, Part> blocks = new LinkedHashMap<>(generate(plan));
-        blocks.entrySet().removeIf(entry -> entry.getKey().y() <= 3
-                && (entry.getValue() == Part.HULL || entry.getValue() == Part.KEEL));
+        blocks.entrySet().removeIf(entry -> {
+            Cell c = entry.getKey();
+            Part part = entry.getValue();
+            return c.y() <= 3 && (part == Part.HULL || part == Part.KEEL)
+                    || c.y() == 3 && part == Part.FRAME
+                            && Math.abs(c.x()) > steppedDeckBeam(plan, c.z())
+                    || c.y() == 4 && part == Part.DECK
+                    || c.y() == 5 && part == Part.RAIL;
+        });
         int halfLength = plan.hullLength() / 2;
         for (int z = -halfLength; z <= halfLength; z++) {
             for (int y = 0; y <= 3; y++) {
@@ -199,6 +221,22 @@ public final class ShipHullVoxelLayout {
                             || Math.abs(x) > steppedHalfBeam(plan, z + 1, y);
                     if (face) put(blocks, x, y, z, y == 0 && x == 0 ? Part.KEEL : Part.HULL);
                 }
+            }
+        }
+        // Rebuild the full walking deck and surrounding rails against the
+        // new longitudinal outline, preserving ladder shafts, doors and helm.
+        for (int z = -halfLength; z <= halfLength; z++) {
+            int beam = steppedDeckBeam(plan, z);
+            for (int x = -beam; x <= beam; x++) {
+                Cell deck = new Cell(x, 4, z);
+                if (!mainHatch(x, z) && !blocks.containsKey(deck))
+                    put(blocks, x, 4, z, Part.DECK);
+                boolean edge = Math.abs(x) == beam
+                        || Math.abs(x) > steppedDeckBeam(plan, z - 1)
+                        || Math.abs(x) > steppedDeckBeam(plan, z + 1);
+                Cell rail = new Cell(x, 5, z);
+                if (edge && !blocks.containsKey(rail))
+                    put(blocks, x, 5, z, Part.RAIL);
             }
         }
         // Back the open hatch shaft and ladder with real wood at the waterline.

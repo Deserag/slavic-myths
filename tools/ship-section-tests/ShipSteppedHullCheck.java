@@ -35,7 +35,9 @@ public final class ShipSteppedHullCheck {
             prev = beam;
         }
         for (int z = -half; z <= half; z++) {
-            int upper = ShipHullVoxelLayout.halfBeam(plan, z);
+            int legacyUpper = ShipHullVoxelLayout.halfBeam(plan, z);
+            int upper = ShipHullVoxelLayout.steppedDeckBeam(plan, z);
+            yes(upper >= 0 && upper <= legacyUpper, "V2 deck stays inside legacy envelope");
             for (int y = 0; y <= 3; y++) {
                 int edge = ShipHullVoxelLayout.steppedHalfBeam(plan, z, y);
                 yes(edge >= 0 && edge <= upper, "no larger than deck outline");
@@ -50,15 +52,27 @@ public final class ShipSteppedHullCheck {
                             "port/starboard occupancy x=" + x + " y=" + y + " z=" + z);
                 }
             }
-            for (int x = -upper; x <= upper; x++) {
+            for (int x = -legacyUpper; x <= legacyUpper; x++) {
                 var cell = new ShipHullVoxelLayout.Cell(x, 4, z);
-                yes(hull.get(cell) == old.get(cell), "deck and hatch retained");
+                if (Math.abs(x) > upper)
+                    yes(hull.get(cell) != ShipHullVoxelLayout.Part.DECK,
+                            "no floating old deck beyond the V2 beam");
+                else if (old.get(cell) == ShipHullVoxelLayout.Part.DECK)
+                    yes(hull.get(cell) == ShipHullVoxelLayout.Part.DECK,
+                            "walkable new deck retained");
             }
         }
-        for (var entry : old.entrySet())
-            if (entry.getKey().y() >= 4)
+        for (var entry : old.entrySet()) {
+            int y = entry.getKey().y();
+            if (y >= 4 && !(y == 4 && entry.getValue() == ShipHullVoxelLayout.Part.DECK)
+                    && !(y == 5 && entry.getValue() == ShipHullVoxelLayout.Part.RAIL))
                 yes(hull.get(entry.getKey()) == entry.getValue(),
-                        "mast/sail/rails/upper deck/helm retained");
+                        "rigging/upper decks/cabin/helm unchanged");
+        }
+        int bowTransition = plan.hullLength() / 2 - 5;
+        yes(ShipHullVoxelLayout.steppedDeckBeam(plan, bowTransition)
+                    <= ShipHullVoxelLayout.halfBeam(plan, bowTransition),
+                "V2 extended longitudinal bow taper");
         yes(hull.get(new ShipHullVoxelLayout.Cell(0, 0, 0)) ==
                 ShipHullVoxelLayout.Part.KEEL, "continuous center keel");
         yes(!solid(hull, 0, 1, 2) && !solid(hull, 0, 2, 2),
