@@ -74,15 +74,22 @@ public final class Ocean26ShipP0GameTests {
     }
 
     @GameTest(template = "empty", timeoutTicks = 100, batch = "ocean_p0_versions")
-    public static void largeV5AndLegacyV4MaintainClearanceAndSaves(GameTestHelper t) {
+    public static void largeV6AndLegacyV5V4MaintainClearanceAndSaves(GameTestHelper t) {
         for (ShipSectionPlan.ShipClass type : new ShipSectionPlan.ShipClass[]{
                 ShipSectionPlan.ShipClass.LARGE, ShipSectionPlan.ShipClass.LARGEST}) {
             ShipBuildConfiguration latest = ShipBuildConfiguration.initial(type)
                     .withDecks(3).withSail(1, 2);
-            t.assertTrue(latest.hullGeometry() == 5, type + " new ships must use geometry 5");
+            t.assertTrue(latest.hullGeometry() == 6, type + " new ships must use geometry 6");
             t.assertTrue(ShipBuildConfiguration.load(latest.save()).equals(latest),
                     "New geometry lost its NBT version");
-            var layout = ShipHullVoxelLayout.generate(latest.structure(), 5);
+            var layout = ShipHullVoxelLayout.generate(latest.structure(), 6);
+            ShipBuildConfiguration savedV5 = new ShipBuildConfiguration(type, 0, 0,
+                    List.of(1, 2), 3, false, false, 5);
+            t.assertTrue(ShipBuildConfiguration.load(savedV5.save()).equals(savedV5),
+                    "Existing V5 packed ship no longer loads");
+            t.assertTrue(ShipHullVoxelLayout.generate(savedV5.structure(), 5)
+                    .values().stream().noneMatch(p -> p == ShipHullVoxelLayout.Part.STAIR),
+                    "Existing V5 geometry must not silently gain V6 stair treads");
             ShipBuildConfiguration previousRig = new ShipBuildConfiguration(type, 0, 0,
                     List.of(1, 2), 3, false, false, 4);
             t.assertTrue(ShipBuildConfiguration.load(previousRig.save()).equals(previousRig),
