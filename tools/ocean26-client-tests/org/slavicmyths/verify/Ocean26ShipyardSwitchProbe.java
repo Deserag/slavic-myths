@@ -28,7 +28,7 @@ import org.slavicmyths.ships.client.ShipyardScreen;
 @EventBusSubscriber(modid = "slavicmyths", value = Dist.CLIENT)
 public final class Ocean26ShipyardSwitchProbe {
     private static final boolean ENABLED = Boolean.getBoolean("ocean26.shipyardSwitch");
-    private static int stage, since;
+    private static int stage, since, noWorldTicks;
     private static ShipyardScreen screen;
     private static ShipyardMenu menu;
     private static ItemStack modular, legacy, raft;
@@ -73,7 +73,15 @@ public final class Ocean26ShipyardSwitchProbe {
     public static void tick(ClientTickEvent.Post event) {
         if (!ENABLED || stage < 0) return;
         Minecraft mc = Minecraft.getInstance();
-        if (mc.player == null || mc.level == null) return;
+        if (mc.player == null || mc.level == null) {
+            if (++noWorldTicks % 100 == 0)
+                System.out.println("OCEAN26_GUI_STARTUP_WAIT ticks=" + noWorldTicks
+                        + " screen=" + (mc.screen == null ? "null"
+                            : mc.screen.getClass().getName()));
+            if (noWorldTicks > 1200)
+                finish(mc, false, "shipyardSwitch world did not open");
+            return;
+        }
         try {
             if (stage == 0) {
                 modular = modularFixture();
