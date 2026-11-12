@@ -41,6 +41,11 @@ public final class ShipHullVoxelLayout {
         return switch (geometry) {
             case 1 -> generate(plan);
             case 2 -> generateStepped(plan);
+            case 3 -> {
+                if (plan.shipClass() != ShipSectionPlan.ShipClass.MEDIUM)
+                    throw new IllegalArgumentException("Geometry 3 is reserved for MEDIUM");
+                yield generateMediumClearance(plan);
+            }
             default -> throw new IllegalArgumentException("Unknown modular hull geometry");
         };
     }
@@ -244,6 +249,45 @@ public final class ShipHullVoxelLayout {
         for (int z = 0; z <= 1; z++)
             for (int x : new int[]{-2, 2})
                 put(blocks, x, 0, z, Part.HULL);
+        return Collections.unmodifiableMap(blocks);
+    }
+
+    /**
+     * MEDIUM V3: retain the complete stepped V2 hull/superstructure, but build
+     * fresh rigging around the actual deck heights. V1/V2 are never mutated.
+     */
+    private static Map<Cell, Part> generateMediumClearance(ShipSuperstructurePlan plan) {
+        ShipSuperstructurePlan bare = new ShipSuperstructurePlan(
+                plan.shipClass(), plan.hullWidth(), plan.hullLength(),
+                List.of(), plan.decks(), plan.bridge(), plan.cabin());
+        Map<Cell, Part> blocks = new LinkedHashMap<>(generateStepped(bare));
+        for (FirstShipMediumSailPlan.Sail sail : FirstShipMediumSailPlan.forPlan(plan).sails()) {
+            int z = sail.mastZ();
+            for (int y = 5; y <= sail.mastTopY(); y++) {
+                Cell cell = new Cell(0, y, z);
+                Part previous = blocks.get(cell);
+                if (previous != null && previous != Part.DECK && previous != Part.MAST)
+                    throw new IllegalArgumentException("MEDIUM mast intersects " + previous);
+                put(blocks, 0, y, z, Part.MAST);
+            }
+            for (int y : new int[]{sail.lowerYardY(), sail.upperYardY()})
+                for (int x = -sail.halfSpan(); x <= sail.halfSpan(); x++) {
+                    if (x == 0) continue; // The mast remains continuous at the cross-tree.
+                    Cell yard = new Cell(x, y, z);
+                    if (blocks.containsKey(yard))
+                        throw new IllegalArgumentException("MEDIUM yard intersects deck or superstructure");
+                    put(blocks, x, y, z, Part.YARD);
+                }
+            for (int y = sail.bottom(); y <= sail.top(); y++)
+                for (int x = -sail.rowHalfSpan(y); x <= sail.rowHalfSpan(y); x++) {
+                    if (x == 0) continue;
+                    Cell fabric = new Cell(x, y, z + 1);
+                    if (blocks.containsKey(fabric))
+                        throw new IllegalArgumentException("MEDIUM cloth intersects superstructure");
+                    // Logical cloth only: ShipModularBlockHull deliberately omits SAIL.
+                    put(blocks, x, y, z + 1, Part.SAIL);
+                }
+        }
         return Collections.unmodifiableMap(blocks);
     }
 

@@ -1865,4 +1865,77 @@ public final class Ocean26GameTests {
             t.succeed();
         });
     }
+
+    @GameTest(template = "empty", timeoutTicks = 300, batch = "ocean_medium_v3_sails")
+    public static void mediumV3SailClearancePackingAndLegacy(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(18, 4, 18));
+        for (int x = -13; x <= 13; x++)
+            for (int z = -14; z <= 14; z++) {
+                BlockPos p = anchor.offset(x, 0, z);
+                level.setBlock(p.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(p, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 25; y++)
+                    level.setBlock(p.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        int checks = 0;
+        for (int decks : new int[]{1, 2})
+            for (int turn = 0; turn < 4; turn++) {
+                var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                        org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM)
+                        .withSail(1, 2).withDecks(decks).withBridge(true).withCabin(true);
+                var plan = org.slavicmyths.ships.FirstShipMediumSailPlan.forPlan(config.structure());
+                t.assertTrue(config.hullGeometry() == 3, "New MEDIUM must opt into V3");
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
+                        level, anchor, turn, config, new ListTag()),
+                        "MEDIUM V3 placement failed decks=" + decks + " turn=" + turn);
+                for (var sail : plan.sails()) {
+                    t.assertTrue(sail.lowerYardY() - sail.highestDeckY() - 1 >= 3,
+                            "Three clear standing blocks were not reserved");
+                    for (int x : new int[]{-1, 1}) {
+                        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                                anchor, turn, x, sail.lowerYardY(), sail.mastZ()))
+                                        .is(Blocks.DARK_OAK_LOG),
+                                "Real lower MEDIUM yard missing");
+                        for (int y = sail.highestDeckY() + 1; y < sail.lowerYardY(); y++)
+                            t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                                    anchor, turn, x, y, sail.mastZ())).isAir(),
+                                    "Physical rigging blocks deck headroom");
+                        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                                anchor, turn, x, sail.bottom(), sail.mastZ() + 1)).isAir(),
+                                "Physical cloth must not be placed as wool");
+                    }
+                }
+                BlockPos chestPos = FirstShipBlockHull.world(anchor, turn, 2, 5, 0);
+                level.setBlock(chestPos, Blocks.CHEST.defaultBlockState(), 2);
+                chest(level, chestPos, t).setItem(0, new ItemStack(Items.EMERALD, 11));
+                ListTag cargo = org.slavicmyths.ships.ShipModularBlockHull.pack(
+                        level, anchor, turn, config);
+                t.assertTrue(cargo != null && cargo.size() == 1, "MEDIUM cargo packing failed");
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
+                        level, anchor, turn, config), "MEDIUM removal failed");
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
+                        level, anchor, turn, config, cargo), "MEDIUM re-installation failed");
+                t.assertTrue(chest(level, chestPos, t).getItem(0).getCount() == 11,
+                        "MEDIUM re-installation lost cargo");
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
+                        level, anchor, turn, config), "MEDIUM final removal failed");
+                checks++;
+            }
+        // An old geometry-2 medium remains loadable with its original Y=7 yard.
+        var old = new org.slavicmyths.ships.ShipBuildConfiguration(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM,
+                0, 0, java.util.List.of(1), 1, false, false, 2);
+        t.assertTrue(org.slavicmyths.ships.ShipBuildConfiguration.load(old.save()).equals(old),
+                "Legacy MEDIUM blueprint NBT changed");
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
+                level, anchor, 0, old, new ListTag()), "Old MEDIUM placement failed");
+        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                anchor, 0, 1, 7, 0)).is(Blocks.DARK_OAK_LOG), "Old Y7 yard was modified");
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
+                level, anchor, 0, old), "Old MEDIUM removal failed");
+        System.out.println("OCEAN26_MEDIUM_V3_SAILS_PASS configurations=" + checks
+                + " rotations=4 packing=true cargo=11 legacy=2");
+        t.succeed();
+    }
 }

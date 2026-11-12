@@ -1,0 +1,51 @@
+name: Ocean 2.6 - MEDIUM sail clearance Java 21
+on:
+  push:
+    branches: ["fix/2.6-medium-ship-sail-clearance"]
+  pull_request:
+    branches: ["fix/2.6-small-ship-sail-clearance"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  java21-geometry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Compile and run physical sail/deck geometry matrix
+        run: |
+          mkdir -p build/medium-sail-check
+          javac --release 21 -d build/medium-sail-check \
+            src/main/java/org/slavicmyths/ships/ShipSectionPlan.java \
+            src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java \
+            src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java \
+            src/main/java/org/slavicmyths/ships/FirstShipMediumSailPlan.java \
+            tools/ship-section-tests/ShipMediumSailClearanceCheck.java
+          java -cp build/medium-sail-check ShipMediumSailClearanceCheck
+  neoforge-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: gradle/actions/setup-gradle@v4
+      - run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain
+  ocean-gametests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: gradle/actions/setup-gradle@v4
+      - run: chmod +x gradlew && ./gradlew -Pocean26Check --no-daemon compileOcean26CheckJava runOcean26Checks --console=plain

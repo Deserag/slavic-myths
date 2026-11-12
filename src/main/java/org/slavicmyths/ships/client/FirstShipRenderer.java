@@ -26,6 +26,8 @@ import org.slavicmyths.ships.FirstShipBlockHull;
 import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.FirstShipHull;
 import org.slavicmyths.ships.FirstShipSmallSailPlan;
+import org.slavicmyths.ships.FirstShipMediumSailPlan;
+import org.slavicmyths.ships.ShipSectionPlan;
 import org.slavicmyths.ships.ShipModularBlockHull;
 import org.slavicmyths.ships.RaftContent;
 
@@ -183,15 +185,19 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         var plan = ship.modularConfiguration().structure();
         pose.pushPose();
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
+        boolean mediumV3 = ship.modularConfiguration().hullGeometry() == 3
+                && plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM;
+        var newSails = mediumV3 ? FirstShipMediumSailPlan.forPlan(plan).sails() : null;
         for (int i = 0; i < plan.sailTiers().size(); i++) {
             int tier = plan.sailTiers().get(i);
-            int top = tier == 1 ? 12 : tier == 2 ? 15 : 19;
-            int span = tier == 1 ? 2 : tier == 2 ? 3 : 4;
+            int top = mediumV3 ? newSails.get(i).top() : tier == 1 ? 12 : tier == 2 ? 15 : 19;
+            int span = mediumV3 ? newSails.get(i).halfSpan() : tier == 1 ? 2 : tier == 2 ? 3 : 4;
+            int bottom = mediumV3 ? newSails.get(i).bottom() : 8;
             BlockState edging = (tier == 1 ? Blocks.RED_WOOL
                     : tier == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
             pose.pushPose();
             pose.translate(0D, 0D, plan.mastPositions().get(i));
-            sailPanel(ship, partialTick, pose, buffers, light, edging, 8D, top, span);
+            sailPanel(ship, partialTick, pose, buffers, light, edging, bottom, top, span);
             pose.popPose();
         }
         pose.popPose();
