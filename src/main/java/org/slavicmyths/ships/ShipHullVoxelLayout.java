@@ -261,6 +261,15 @@ public final class ShipHullVoxelLayout {
                 plan.shipClass(), plan.hullWidth(), plan.hullLength(),
                 List.of(), plan.decks(), plan.bridge(), plan.cabin());
         Map<Cell, Part> blocks = new LinkedHashMap<>(generateStepped(bare));
+        if (plan.bridge()) {
+            // The old front guard rail sealed the upper captain's ladder exit.
+            // Only geometry 3 opens this cell; saved V1/V2 layouts remain frozen.
+            int front = -plan.hullLength() / 2 + 6;
+            int ladderX = -Math.min(3, plan.hullWidth() / 2 - 2) + 1;
+            if (blocks.get(new Cell(ladderX, 10, front)) != Part.RAIL)
+                throw new IllegalArgumentException("Expected captain ladder guard rail");
+            blocks.remove(new Cell(ladderX, 10, front));
+        }
         for (FirstShipMediumSailPlan.Sail sail : FirstShipMediumSailPlan.forPlan(plan).sails()) {
             int z = sail.mastZ();
             for (int y = 5; y <= sail.mastTopY(); y++) {

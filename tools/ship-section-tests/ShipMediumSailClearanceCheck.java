@@ -1,4 +1,6 @@
+import java.util.ArrayDeque;
 import java.util.HashSet;
+import java.util.Set;
 import java.util.List;
 import java.util.Map;
 import org.slavicmyths.ships.FirstShipMediumSailPlan;
@@ -18,6 +20,59 @@ public final class ShipMediumSailClearanceCheck {
             int x, int y, int z) {
         return map.get(new ShipHullVoxelLayout.Cell(x, y, z));
     }
+    private record Position(int x, int y, int z) {}
+
+    private static boolean passage(Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> hull,
+            Position pos) {
+        var foot = at(hull, pos.x(), pos.y(), pos.z());
+        var head = at(hull, pos.x(), pos.y() + 1, pos.z());
+        var support = at(hull, pos.x(), pos.y() - 1, pos.z());
+        if (foot == ShipHullVoxelLayout.Part.LADDER) return true;
+        return (foot == null || foot == ShipHullVoxelLayout.Part.DOOR)
+                && (head == null || head == ShipHullVoxelLayout.Part.DOOR
+                        || head == ShipHullVoxelLayout.Part.LADDER)
+                && (support == ShipHullVoxelLayout.Part.DECK
+                        || support == ShipHullVoxelLayout.Part.BRIDGE
+                        || support == ShipHullVoxelLayout.Part.LADDER);
+    }
+
+    /** Voxel BFS for real floor support, walking, ladder entry and climbing. */
+    private static boolean helmToBow(Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> hull,
+            ShipSuperstructurePlan plan) {
+        int half = plan.hullLength() / 2;
+        int helmZ = -half + (plan.bridge() ? 4 : plan.cabin() ? 9 : 3);
+        Position start = new Position(1, plan.bridge() ? 10 : 5, helmZ);
+        Position goal = new Position(1, plan.decks() >= 2 ? 9 : 5, half - 3);
+        if (!passage(hull, start) || !passage(hull, goal)) return false;
+        Set<Position> visited = new HashSet<>();
+        ArrayDeque<Position> queue = new ArrayDeque<>();
+        queue.add(start);
+        visited.add(start);
+        int[][] horizontal = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+        while (!queue.isEmpty()) {
+            Position p = queue.removeFirst();
+            if (p.equals(goal)) return true;
+            for (int[] move : horizontal) {
+                Position n = new Position(p.x() + move[0], p.y(), p.z() + move[1]);
+                if (Math.abs(n.x()) > plan.hullWidth() / 2
+                        || Math.abs(n.z()) > half || !passage(hull, n)
+                        || !visited.add(n)) continue;
+                queue.addLast(n);
+            }
+            for (int delta : new int[]{-1, 1}) {
+                Position n = new Position(p.x(), p.y() + delta, p.z());
+                if (n.y() < 5 || n.y() > 11 || !passage(hull, n)) continue;
+                if (at(hull, p.x(), p.y(), p.z()) != ShipHullVoxelLayout.Part.LADDER
+                        && at(hull, n.x(), n.y(), n.z()) != ShipHullVoxelLayout.Part.LADDER
+                        && at(hull, n.x(), n.y() - 1, n.z()) != ShipHullVoxelLayout.Part.LADDER
+                        && at(hull, p.x(), p.y() - 1, p.z()) != ShipHullVoxelLayout.Part.LADDER)
+                    continue;
+                if (visited.add(n)) queue.addLast(n);
+            }
+        }
+        return false;
+    }
+
     private static void verify(ShipSuperstructurePlan plan) {
         var v1 = ShipHullVoxelLayout.generate(plan, 1);
         var v2 = ShipHullVoxelLayout.generate(plan, 2);
@@ -39,9 +94,22 @@ public final class ShipMediumSailClearanceCheck {
             boolean mastShaft = actual == ShipHullVoxelLayout.Part.MAST
                     && expected == ShipHullVoxelLayout.Part.DECK && c.x() == 0
                     && plan.mastPositions().contains(c.z());
-            yes(expected == actual || mastShaft,
+            boolean captainLadderExit = plan.bridge()
+                    && expected == ShipHullVoxelLayout.Part.RAIL && actual == null
+                    && c.y() == 10 && c.z() == -plan.hullLength() / 2 + 6
+                    && c.x() == -Math.min(3, plan.hullWidth() / 2 - 2) + 1;
+            yes(expected == actual || mastShaft || captainLadderExit,
                     "unrelated structure modified " + c + ": " + expected + "->" + actual);
         }
+        if (plan.bridge()) {
+            int exitZ = -plan.hullLength() / 2 + 6;
+            int exitX = -Math.min(3, plan.hullWidth() / 2 - 2) + 1;
+            yes(at(v2, exitX, 10, exitZ) == ShipHullVoxelLayout.Part.RAIL,
+                    "legacy V2 bridge guard rail frozen");
+            yes(at(v3, exitX, 10, exitZ) == null,
+                    "new bridge ladder exit must be open");
+        }
+        yes(helmToBow(v3, plan), "helm-to-bow route across decks and ladders");
         for (var sail : layout.sails()) {
             int z = sail.mastZ(), lower = sail.lowerYardY(), upper = sail.upperYardY();
             yes(lower - sail.highestDeckY() - 1 >= 3, "three vertical air blocks");
