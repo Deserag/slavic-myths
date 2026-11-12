@@ -49,6 +49,7 @@ public final class Ocean26ClientProbe {
     private static final boolean LONG_FORWARD = Boolean.getBoolean("ocean26.longForward");
     private static volatile boolean modularSetupRequested, modularReady;
     private static int phase;
+    private static int noWorldTicks;
     private static volatile int elapsed;
     private static UUID shipId;
     private static double startX, startZ;
@@ -167,7 +168,14 @@ public final class Ocean26ClientProbe {
         if (phase < 0 || Boolean.getBoolean("ocean26.shipyardSwitch")) return;
         Minecraft mc = Minecraft.getInstance();
         MinecraftServer server = mc.getSingleplayerServer();
-        if (mc.player == null || mc.level == null || server == null) return;
+        if (mc.player == null || mc.level == null || server == null) {
+            if (++noWorldTicks % 100 == 0)
+                System.out.println("OCEAN26_CAPTAIN_STARTUP_WAIT ticks=" + noWorldTicks
+                        + " screen=" + (mc.screen == null ? "null"
+                            : mc.screen.getClass().getName()));
+            if (noWorldTicks > 1200) fail(mc, "world did not open for captain probe");
+            return;
+        }
         if (phase == 0) {
             if (MODULAR_VISUAL && !modularSetupRequested) {
                 modularSetupRequested = true;
