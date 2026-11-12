@@ -125,6 +125,24 @@ public final class FirstShipHull {
         return Math.min(max, Math.max(min, n));
     }
 
+    /**
+     * A client correction can arrive after a ship pose update but before the
+     * local deck tick. Avoid applying the same hull delta twice when the
+     * feet are already closer to their carried position than to the prior
+     * frame. This is a guard; it never teleports the player.
+     */
+    public static boolean likelyAlreadyCarried(Point previousFeet, Point currentFeet,
+                                               Point carriedFeet) {
+        double hullStep = Math.hypot(carriedFeet.x() - previousFeet.x(),
+                carriedFeet.z() - previousFeet.z());
+        if (hullStep < .035D) return false;
+        double toOld = Math.hypot(currentFeet.x() - previousFeet.x(),
+                currentFeet.z() - previousFeet.z());
+        double toCarried = Math.hypot(currentFeet.x() - carriedFeet.x(),
+                currentFeet.z() - carriedFeet.z());
+        return toCarried + .02D < toOld;
+    }
+
     public record Point(double x, double z) {}
     private FirstShipHull() {}
 }

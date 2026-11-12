@@ -21,7 +21,7 @@ import net.neoforged.neoforge.event.tick.PlayerTickEvent;
  */
 @EventBusSubscriber(modid = "slavicmyths")
 public final class FirstShipMovingDeckEvents {
-    private record Contact(int shipId, int floor, long poseFrame) {}
+    private record Contact(int shipId, int floor, long poseFrame, double feetX, double feetZ) {}
     private static final Map<Player, Contact> LAST =
             Collections.synchronizedMap(new WeakHashMap<>());
 
@@ -60,8 +60,15 @@ public final class FirstShipMovingDeckEvents {
                     oldX, oldZ, oldYaw, ship.getX(), ship.getZ(), ship.getYRot());
             // On the server the ship tick is the sole owner of horizontal
             // transport. PlayerTick may run on either side of that tick.
-            double targetX = newClientFrame ? moved.x() : feet.x;
-            double targetZ = newClientFrame ? moved.z() : feet.z;
+            boolean alreadyCarried = newClientFrame && last != null
+                    && ship.clientPoseFrame() - last.poseFrame() == 1L
+                    && FirstShipHull.likelyAlreadyCarried(
+                            new FirstShipHull.Point(last.feetX(), last.feetZ()),
+                            new FirstShipHull.Point(feet.x, feet.z),
+                            FirstShipHull.transfer(last.feetX(), last.feetZ(),
+                                    oldX, oldZ, oldYaw, ship.getX(), ship.getZ(), ship.getYRot()));
+            double targetX = newClientFrame && !alreadyCarried ? moved.x() : feet.x;
+            double targetZ = newClientFrame && !alreadyCarried ? moved.z() : feet.z;
             boolean grounded = feet.y <= surface + .19D
                     && player.getDeltaMovement().y <= .09D;
             double targetY = grounded ? surface + .02D : feet.y;
@@ -78,7 +85,7 @@ public final class FirstShipMovingDeckEvents {
                 player.setOnGround(true);
                 player.fallDistance = 0F;
             }
-            LAST.put(player, new Contact(ship.getId(), floor, ship.clientPoseFrame()));
+            LAST.put(player, new Contact(ship.getId(), floor, ship.clientPoseFrame(), player.getX(), player.getZ()));
             return;
         }
         LAST.remove(player);
@@ -137,7 +144,7 @@ public final class FirstShipMovingDeckEvents {
                 player.setOnGround(true);
                 player.fallDistance = 0F;
             }
-            LAST.put(player, new Contact(ship.getId(), floor, ship.clientPoseFrame()));
+            LAST.put(player, new Contact(ship.getId(), floor, ship.clientPoseFrame(), player.getX(), player.getZ()));
         }
     }
 
