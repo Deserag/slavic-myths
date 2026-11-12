@@ -1890,9 +1890,13 @@ public final class Ocean26GameTests {
                         .withSail(1, 2).withDecks(decks).withBridge(true).withCabin(true);
                 var plan = org.slavicmyths.ships.FirstShipMediumSailPlan.forPlan(config.structure());
                 t.assertTrue(config.hullGeometry() == 3, "New MEDIUM must opt into V3");
+                int bridgeExitZ = -config.length() / 2 + 6;
                 t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
                         level, anchor, turn, config, new ListTag()),
                         "MEDIUM V3 placement failed decks=" + decks + " turn=" + turn);
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                        anchor, turn, -2, 10, bridgeExitZ)).isAir(),
+                        "MEDIUM bridge ladder upper exit is blocked");
                 for (var sail : plan.sails()) {
                     t.assertTrue(sail.lowerYardY() - sail.highestDeckY() - 1 >= 3,
                             "Three clear standing blocks were not reserved");
