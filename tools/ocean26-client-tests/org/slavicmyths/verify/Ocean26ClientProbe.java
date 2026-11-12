@@ -47,6 +47,7 @@ public final class Ocean26ClientProbe {
     private static final boolean VISUAL = Boolean.getBoolean("ocean26.visual");
     private static final boolean MODULAR_VISUAL = Boolean.getBoolean("ocean26.modularVisual");
     private static final boolean LONG_FORWARD = Boolean.getBoolean("ocean26.longForward");
+    private static final boolean TURN_CAMERAS = Boolean.getBoolean("ocean26.turnCamera");
     private static volatile boolean modularSetupRequested, modularReady;
     private static int phase;
     private static int noWorldTicks;
@@ -79,9 +80,9 @@ public final class Ocean26ClientProbe {
         if (phase != 2 || event.getStage() != RenderLevelStageEvent.Stage.AFTER_ENTITIES)
             return;
         boolean forwardWindow = LONG_FORWARD && elapsed >= 32 && elapsed <= 158;
-        boolean turnWindow = !LONG_FORWARD && !MODULAR_VISUAL
+        boolean turnWindow = !LONG_FORWARD && (!MODULAR_VISUAL || TURN_CAMERAS)
                 && elapsed >= 20 && elapsed <= 40;
-        boolean dismountWindow = !LONG_FORWARD && !MODULAR_VISUAL
+        boolean dismountWindow = !LONG_FORWARD && (!MODULAR_VISUAL || TURN_CAMERAS)
                 && elapsed >= 54 && elapsed <= 88;
         if (!forwardWindow && !dismountWindow && !turnWindow) return;
         Minecraft mc = Minecraft.getInstance();
@@ -418,7 +419,7 @@ public final class Ocean26ClientProbe {
                         + " mostNegativeForwardStep=" + mostNegativeForwardStep
                         + " maxStep=" + largestMotionStep
                         + " maxYawStep=" + largestYawStep);
-                if (!LONG_FORWARD && !MODULAR_VISUAL) {
+                if (!LONG_FORWARD && (!MODULAR_VISUAL || TURN_CAMERAS)) {
                     System.out.println("OCEAN26_TURN_SEAT frames=" + turnFrames
                             + " maxError=" + maximumTurnSeatError);
                     if (turnFrames < 10 || maximumTurnSeatError > .04D) {
@@ -439,11 +440,11 @@ public final class Ocean26ClientProbe {
         if (elapsed == 24 && mc.player.getVehicle() instanceof FirstShipEntity body)
             mc.player.setYRot(body.getYRot() + 90F);
         if (elapsed == 31 && !LONG_FORWARD) {
-            mc.options.setCameraType(CameraType.THIRD_PERSON_BACK);
+            mc.options.setCameraType(TURN_CAMERAS ? CameraType.FIRST_PERSON : CameraType.THIRD_PERSON_BACK);
             if (mc.player.getVehicle() instanceof FirstShipEntity body)
                 mc.player.setYRot(body.getYRot());
         }
-        if (elapsed == 50 && !LONG_FORWARD && !MODULAR_VISUAL)
+        if (elapsed == 50 && !LONG_FORWARD && (!MODULAR_VISUAL || TURN_CAMERAS))
             mc.options.setCameraType(CameraType.FIRST_PERSON);
         if (elapsed == 20 || elapsed == 65)
             Screenshot.grab(mc.gameDirectory, mc.getMainRenderTarget(),
@@ -457,12 +458,13 @@ public final class Ocean26ClientProbe {
         mc.options.keyUp.setDown(throttle);
         mc.options.keyShift.setDown(!LONG_FORWARD && elapsed >= 42 && elapsed <= 44
                 || REVERSE && elapsed >= 173 && elapsed <= 175);
-        mc.options.keyRight.setDown(!LONG_FORWARD && elapsed >= 20 && elapsed <= 35);
+        mc.options.keyRight.setDown(!LONG_FORWARD && elapsed >= 20 && elapsed <= (TURN_CAMERAS ? 27 : 35));
         mc.options.keyDown.setDown(MODULAR_VISUAL && elapsed >= 112 && elapsed <= 120
                 || REVERSE && elapsed >= 145 && elapsed <= 170);
         // From the starboard handoff cell, walking right heads into the mast.
         // Walk outward along the clear rail when checking free deck movement.
-        mc.options.keyLeft.setDown(!MODULAR_VISUAL && elapsed >= 112 && elapsed <= (RAIL ? 155 : 120)
+        mc.options.keyLeft.setDown(TURN_CAMERAS && elapsed >= 29 && elapsed <= 35
+                || !MODULAR_VISUAL && elapsed >= 112 && elapsed <= (RAIL ? 155 : 120)
                 || REVERSE && elapsed >= 150 && elapsed <= 165);
         mc.options.keyJump.setDown(!LONG_FORWARD && elapsed >= 102 && elapsed <= 104);
         // The sustained forward camera scenario must remain mounted. The
@@ -540,7 +542,7 @@ public final class Ocean26ClientProbe {
             });
         }
         if (elapsed == (LONG_FORWARD ? 175 : 100)) {
-            if (!LONG_FORWARD && !MODULAR_VISUAL) {
+            if (!LONG_FORWARD && (!MODULAR_VISUAL || TURN_CAMERAS)) {
                 System.out.println("OCEAN26_DISMOUNT_CAMERA frames=" + dismountCameraFrames
                         + " maxLocalStep=" + maximumDismountCameraStep);
                 if (dismountCameraFrames < 20 || maximumDismountCameraStep > .12D) {
