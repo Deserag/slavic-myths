@@ -47,27 +47,48 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             "slavicmyths", "textures/block/linen_cover.png");
     private final ItemRenderer items;
     private final ItemStack helm;
-    private String paletteKey = "";
-    private Map<BlockPos, BlockState> cachedPalette = Map.of();
-    private java.util.List<BlockPos> cachedLanterns = java.util.List.of();
+    private record PaletteKey(java.util.UUID shipId, org.slavicmyths.ships.ShipBuildConfiguration config,
+            int geometry, int rig, int fabric, String cargo) {}
+    private record MovingPalette(Map<BlockPos, BlockState> blocks, Map<BlockPos, Integer> blockLight) {}
+    private record SailPanel(int z, int bottom, int top, int span, BlockState cloth) {}
+
+    private final Map<PaletteKey, MovingPalette> paletteCache = new LinkedHashMap<>(16, .75F, true) {
+        @Override protected boolean removeEldestEntry(Map.Entry<PaletteKey, MovingPalette> eldest) {
+            return size() > 12;
+        }
+    };
+    private final Map<org.slavicmyths.ships.ShipBuildConfiguration, java.util.List<SailPanel>> sailCache =
+            new LinkedHashMap<>(32, .75F, true) {
+                @Override protected boolean removeEldestEntry(
+                        Map.Entry<org.slavicmyths.ships.ShipBuildConfiguration, java.util.List<SailPanel>> eldest) {
+                    return size() > 32;
+                }
+            };
 
     /**
-     * Moving-hull blocks are not in vanilla's world light engine.
-     * Compute a local visual block-light contribution from attached lanterns.
-     * This renders the ship itself as illuminated without claiming to light
-     * nearby terrain, players or mobs. Entity/source light is preserved.
+     * Moving blocks are outside the world's light engine. Compute the fixed
+     * local lantern contribution once per palette revision, not per frame.
      */
-    private int movingVisualLight(BlockPos block, int packed) {
-        int blockLight = packed & 0xFFFF;
-        for (BlockPos lantern : cachedLanterns) {
-            int distance = Math.abs(block.getX() - lantern.getX())
-                    + Math.abs(block.getY() - lantern.getY())
-                    + Math.abs(block.getZ() - lantern.getZ());
-            if (distance > 13) continue;
-            blockLight = Math.max(blockLight, (14 - distance) << 4);
-            if (blockLight >= 14 << 4) break;
+    private static Map<BlockPos, Integer> localBlockLight(
+            Map<BlockPos, BlockState> blocks, org.slavicmyths.ships.ShipBuildConfiguration config) {
+        if (config == null || config.hullGeometry() < 7) return Map.of();
+        java.util.List<BlockPos> lanterns = new java.util.ArrayList<>();
+        for (var entry : blocks.entrySet())
+            if (entry.getValue().is(Blocks.LANTERN)) lanterns.add(entry.getKey());
+        if (lanterns.isEmpty()) return Map.of();
+        Map<BlockPos, Integer> light = new java.util.HashMap<>();
+        for (BlockPos block : blocks.keySet()) {
+            int brightest = 0;
+            for (BlockPos lantern : lanterns) {
+                int distance = Math.abs(block.getX() - lantern.getX())
+                        + Math.abs(block.getY() - lantern.getY())
+                        + Math.abs(block.getZ() - lantern.getZ());
+                if (distance <= 13) brightest = Math.max(brightest, 14 - distance);
+                if (brightest == 14) break;
+            }
+            if (brightest > 0) light.put(block, brightest << 4);
         }
-        return (packed & 0xFFFF0000) | blockLight;
+        return Map.copyOf(light);
     }
 
     public FirstShipRenderer(EntityRendererProvider.Context context) {
@@ -77,15 +98,14 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         shadowRadius = 0F;
     }
 
-
-    private Map<BlockPos, BlockState> movingPalette(FirstShipEntity ship) {
-        var config = ship.modularConfiguration();
-        String key = ship.geometryVersion() + ":" + ship.rigLevel() + ":"
-                + ship.fabricQuality() + ":" + ship.movingCargoView()
-                + ":" + (config == null ? "" : config.wire());
-        if (key.equals(paletteKey)) return cachedPalette;
-        ListTag cargo = new ListTag();
+    private MovingPalette movingPalette(FirstShipEntity ship,
+            org.slavicmyths.ships.ShipBuildConfiguration config) {
         String types = ship.movingCargoView();
+        PaletteKey key = new PaletteKey(ship.getUUID(), config, ship.geometryVersion(),
+                ship.rigLevel(), ship.fabricQuality(), types);
+        MovingPalette cached = paletteCache.get(key);
+        if (cached != null) return cached;
+        ListTag cargo = new ListTag();
         if (!types.isBlank()) {
             for (String item : types.split(";")) {
                 try {
@@ -103,9 +123,10 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 }
             }
         }
+        Map<BlockPos, BlockState> blocks;
         try {
             if (config != null) {
-                Map<BlockPos, BlockState> visual = new java.util.LinkedHashMap<>(
+                Map<BlockPos, BlockState> visual = new LinkedHashMap<>(
                         ShipModularBlockHull.localPalette(config));
                 for (int i = 0; i < cargo.size(); i++) {
                     CompoundTag entry = cargo.getCompound(i);
@@ -121,24 +142,18 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                     };
                     if (!state.isAir()) visual.putIfAbsent(new BlockPos(x, y, z), state);
                 }
-                cachedPalette = java.util.Collections.unmodifiableMap(visual);
-            }
-            else {
+                blocks = java.util.Collections.unmodifiableMap(visual);
+            } else {
                 var snapshot = new FirstShipBlockHull.MotionSnapshot(cargo,
                         ship.geometryVersion(), ship.rigLevel(), ship.fabricQuality(), 0);
-                cachedPalette = FirstShipBlockHull.localMotionPalette(snapshot);
+                blocks = FirstShipBlockHull.localMotionPalette(snapshot);
             }
         } catch (RuntimeException invalid) {
-            cachedPalette = Map.of();
+            blocks = Map.of();
         }
-        if (config != null && config.hullGeometry() >= 7) {
-            java.util.List<BlockPos> lamps = new java.util.ArrayList<>();
-            for (var entry : cachedPalette.entrySet())
-                if (entry.getValue().is(Blocks.LANTERN)) lamps.add(entry.getKey());
-            cachedLanterns = java.util.List.copyOf(lamps);
-        } else cachedLanterns = java.util.List.of();
-        paletteKey = key;
-        return cachedPalette;
+        MovingPalette built = new MovingPalette(blocks, localBlockLight(blocks, config));
+        paletteCache.put(key, built);
+        return built;
     }
 
     @Override public void render(FirstShipEntity ship, float yaw, float partialTick,
@@ -147,16 +162,18 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             super.render(ship, yaw, partialTick, pose, buffers, light);
             return;
         }
+        var config = ship.modularConfiguration();
         if (ship.isMoving()) {
             pose.pushPose();
             pose.mulPose(Axis.YP.rotationDegrees(-yaw));
-            Map<BlockPos, BlockState> palette = movingPalette(ship);
-            for (var entry : palette.entrySet()) {
+            MovingPalette palette = movingPalette(ship, config);
+            Map<BlockPos, Integer> localLight = palette.blockLight();
+            for (var entry : palette.blocks().entrySet()) {
                 BlockState state = entry.getValue();
                 if (state.isAir()) continue;
                 BlockPos p = entry.getKey();
-                int visualLight = cachedLanterns.isEmpty() ? light
-                        : movingVisualLight(p, light);
+                int visualLight = localLight.isEmpty() ? light
+                        : (light & 0xFFFF0000) | Math.max(light & 0xFFFF, localLight.getOrDefault(p, 0));
                 pose.pushPose();
                 pose.translate(p.getX() - .5D, p.getY(), p.getZ() - .5D);
                 if (state.is(Blocks.CHEST)) {
@@ -181,7 +198,6 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 ship.level().getBrightness(net.minecraft.world.level.LightLayer.SKY, daylight));
         pose.pushPose();
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
-        var config = ship.modularConfiguration();
         double helmZ = ship.helmWheelZ();
         double helmHeight = config == null ? FirstShipHull.MAIN_DECK : ship.helmSeatHeight();
         pose.translate(0D, helmHeight, helmZ);
@@ -205,56 +221,68 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         pose.popPose();
         pose.popPose();
         if (ship.modularConfiguration() != null)
-            renderModularSails(ship, yaw, partialTick, pose, buffers, deckLight);
+            renderModularSails(ship, config, yaw, partialTick, pose, buffers, deckLight);
         else if (ship.geometryVersion() >= 7 && ship.rigLevel() > 0)
             renderFabricSail(ship, yaw, partialTick, pose, buffers, deckLight);
     }
 
-    /** Separate thin wind-shaped sailcloth per mast; tier controls real size. */
-    private void renderModularSails(FirstShipEntity ship, float yaw, float partialTick,
+    private static BlockState sailCloth(int fabric) {
+        return (fabric == 1 ? Blocks.RED_WOOL
+                : fabric == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
+    }
+
+    /** Immutable sail dimensions keyed by the full, validated blueprint. */
+    private java.util.List<SailPanel> modularSailPanels(
+            org.slavicmyths.ships.ShipBuildConfiguration config) {
+        java.util.List<SailPanel> cached = sailCache.get(config);
+        if (cached != null) return cached;
+        var plan = config.structure();
+        java.util.List<SailPanel> panels = new java.util.ArrayList<>();
+        if (plan.customPhysicalRigging()) {
+            var layout = org.slavicmyths.ships.ShipRiggingPlan.forPlan(plan, config.hullGeometry());
+            for (int i = 0; i < layout.masts().size(); i++) {
+                var mast = layout.masts().get(i);
+                BlockState cloth = sailCloth(plan.rigging().get(i).fabric());
+                for (var panel : mast.panels())
+                    panels.add(new SailPanel(mast.z(), panel.bottom(), panel.top(), panel.span(), cloth));
+            }
+        } else {
+            boolean mediumV3 = config.hullGeometry() == 3
+                    && plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM;
+            boolean largeV4 = config.hullGeometry() >= 4;
+            var mediumSails = mediumV3 ? FirstShipMediumSailPlan.forPlan(plan).sails() : null;
+            var largeSails = largeV4 ? ShipClearanceSailPlan.forPlan(plan).sails() : null;
+            java.util.List<Integer> masts = plan.mastPositions();
+            for (int i = 0; i < plan.sailTiers().size(); i++) {
+                int tier = plan.sailTiers().get(i);
+                int top = mediumV3 ? mediumSails.get(i).top()
+                        : largeV4 ? largeSails.get(i).top()
+                        : tier == 1 ? 12 : tier == 2 ? 15 : 19;
+                int span = mediumV3 ? mediumSails.get(i).halfSpan()
+                        : largeV4 ? largeSails.get(i).halfSpan()
+                        : tier == 1 ? 2 : tier == 2 ? 3 : 4;
+                int bottom = mediumV3 ? mediumSails.get(i).bottom()
+                        : largeV4 ? largeSails.get(i).bottom() : 8;
+                panels.add(new SailPanel(masts.get(i), bottom, top, span,
+                        sailCloth(plan.rigging().get(i).fabric())));
+            }
+        }
+        java.util.List<SailPanel> immutable = java.util.List.copyOf(panels);
+        sailCache.put(config, immutable);
+        return immutable;
+    }
+
+    /** Preserve exactly the existing mesh positions and sizes. */
+    private void renderModularSails(FirstShipEntity ship,
+            org.slavicmyths.ships.ShipBuildConfiguration config, float yaw, float partialTick,
             PoseStack pose, MultiBufferSource buffers, int light) {
-        var plan = ship.modularConfiguration().structure();
         pose.pushPose();
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
-        if (plan.customPhysicalRigging()) {
-            var schedule = org.slavicmyths.ships.ShipRiggingPlan.forPlan(
-                    plan, ship.modularConfiguration().hullGeometry());
-            for (int i = 0; i < schedule.masts().size(); i++) {
-                var mast = schedule.masts().get(i);
-                int fabric = plan.rigging().get(i).fabric();
-                BlockState cloth = (fabric == 1 ? Blocks.RED_WOOL
-                        : fabric == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
-                pose.pushPose();
-                pose.translate(0D, 0D, mast.z());
-                for (var panel : mast.panels())
-                    sailPanel(ship, partialTick, pose, buffers, light, cloth,
-                            panel.bottom(), panel.top(), panel.span());
-                pose.popPose();
-            }
-            pose.popPose();
-            return;
-        }
-        boolean mediumV3 = ship.modularConfiguration().hullGeometry() == 3
-                && plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM;
-        boolean largeV4 = ship.modularConfiguration().hullGeometry() >= 4;
-        var mediumSails = mediumV3 ? FirstShipMediumSailPlan.forPlan(plan).sails() : null;
-        var largeSails = largeV4 ? ShipClearanceSailPlan.forPlan(plan).sails() : null;
-        for (int i = 0; i < plan.sailTiers().size(); i++) {
-            int tier = plan.sailTiers().get(i);
-            int top = mediumV3 ? mediumSails.get(i).top()
-                    : largeV4 ? largeSails.get(i).top()
-                    : tier == 1 ? 12 : tier == 2 ? 15 : 19;
-            int span = mediumV3 ? mediumSails.get(i).halfSpan()
-                    : largeV4 ? largeSails.get(i).halfSpan()
-                    : tier == 1 ? 2 : tier == 2 ? 3 : 4;
-            int bottom = mediumV3 ? mediumSails.get(i).bottom()
-                    : largeV4 ? largeSails.get(i).bottom() : 8;
-            int quality = plan.rigging().get(i).fabric();
-            BlockState edging = (quality == 1 ? Blocks.RED_WOOL
-                    : quality == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
+        for (SailPanel panel : modularSailPanels(config)) {
             pose.pushPose();
-            pose.translate(0D, 0D, plan.mastPositions().get(i));
-            sailPanel(ship, partialTick, pose, buffers, light, edging, bottom, top, span);
+            pose.translate(0D, 0D, panel.z());
+            sailPanel(ship, partialTick, pose, buffers, light, panel.cloth(),
+                    panel.bottom(), panel.top(), panel.span());
             pose.popPose();
         }
         pose.popPose();
