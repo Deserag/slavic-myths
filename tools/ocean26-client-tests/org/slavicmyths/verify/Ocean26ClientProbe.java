@@ -49,6 +49,7 @@ public final class Ocean26ClientProbe {
     private static final boolean LONG_FORWARD = Boolean.getBoolean("ocean26.longForward");
     private static final boolean TURN_CAMERAS = Boolean.getBoolean("ocean26.turnCamera");
     private static volatile boolean modularSetupRequested, modularReady;
+    private static boolean turnMotionStarted;
     private static int phase;
     private static int noWorldTicks;
     private static volatile int elapsed;
@@ -386,6 +387,21 @@ public final class Ocean26ClientProbe {
         }
         if (phase != 2) return;
         elapsed++;
+        // First confirm the integrated client has received the moving hull.
+        // In a fresh singleplayer world the authoritative server may detach
+        // only around tick 40; the old 20..40 camera window then measured zero
+        // frames and incorrectly declared a steering-camera regression.
+        if (TURN_CAMERAS && !turnMotionStarted) {
+            mc.options.keyUp.setDown(true);
+            if (mc.player.getVehicle() instanceof FirstShipEntity ship && ship.isMoving()) {
+                turnMotionStarted = true;
+                elapsed = 0;
+                System.out.println("OCEAN26_TURN_MOTION_READY moving=true ship=" + ship.getId());
+            } else if (elapsed > 300) {
+                fail(mc, "turn camera scenario never entered a moving hull");
+            }
+            return;
+        }
         if (elapsed >= 18 && elapsed <= (LONG_FORWARD ? 172 : 42)) {
             FirstShipEntity measured = mc.level.getEntitiesOfClass(FirstShipEntity.class,
                     new AABB(mc.player.blockPosition()).inflate(128D, 32D, 128D))
