@@ -1,0 +1,29 @@
+name: Ship 2.6 P0 Java 21 validation
+
+on:
+  push:
+    branches:
+      - fix/2.6-ship-crew-and-upgrades-p0
+  pull_request:
+    branches:
+      - fix/2.6-medium-ship-sail-clearance
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Compile production and isolated Ocean26 GameTests
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon --stacktrace -Pocean26Check -PwithoutJei compileJava compileOcean26CheckJava
