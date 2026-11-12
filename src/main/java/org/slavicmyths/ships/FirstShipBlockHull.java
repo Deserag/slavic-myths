@@ -412,9 +412,10 @@ public final class FirstShipBlockHull {
      */
     private static Map<BlockPos, BlockState> layoutV12(BlockPos anchor, int turns, int rig, int fabric) {
         Map<BlockPos, BlockState> blocks = layoutV11(anchor, turns, rig, fabric);
-        // V11 inherited these real solid yards (including Y=7 for the starter
-        // sail). Strip ONLY old rig logs in the mast station above deck.
-        for (int y = 7; y <= MAX_Y; y++)
+        // V11 inherited solid yards down to Y=6 for rig I (the V6
+        // starter-sail override) and Y=7 for other tiers. Strip ONLY old
+        // rig logs at the mast station, then rebuild the mast from Y=6.
+        for (int y = 6; y <= MAX_Y; y++)
             for (int x = -4; x <= 4; x++) {
                 BlockPos pos = world(anchor, turns, x, y, -1);
                 BlockState state = blocks.get(pos);
@@ -424,7 +425,7 @@ public final class FirstShipBlockHull {
             }
 
         FirstShipSmallSailPlan.Layout plan = FirstShipSmallSailPlan.forRig(rig, fabric);
-        for (int y = 7; y <= plan.mastTop(); y++)
+        for (int y = 6; y <= plan.mastTop(); y++)
             blocks.put(world(anchor, turns, 0, y, -1),
                     Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState());
         if (rig == 0) addYardV3(blocks, anchor, turns, 10, 2);
