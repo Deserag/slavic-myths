@@ -144,6 +144,15 @@ public final class FirstShipMovingDeckEvents {
                 player.setOnGround(true);
                 player.fallDistance = 0F;
             }
+            // The ship has legitimately displaced this free-standing player
+            // outside the normal on-foot packet handler. Minecraft validates
+            // subsequent client movement against firstGood/lastGood positions
+            // recorded by ServerGamePacketListenerImpl. Keep those baselines
+            // aligned to the new authoritative deck pose without teleporting
+            // or altering any speed/steering configuration.
+            if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer
+                    && player.position().distanceToSqr(feet) > 1E-8D)
+                serverPlayer.connection.resetPosition();
             LAST.put(player, new Contact(ship.getId(), floor, ship.clientPoseFrame(), player.getX(), player.getZ()));
         }
     }
