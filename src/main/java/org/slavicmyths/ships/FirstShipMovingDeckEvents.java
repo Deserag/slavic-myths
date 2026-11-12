@@ -39,65 +39,32 @@ public final class FirstShipMovingDeckEvents {
         for (FirstShipEntity ship : player.level().getEntitiesOfClass(
                 FirstShipEntity.class, player.getBoundingBox().inflate(36D, 20D, 36D))) {
             if (ship.isRemoved() || !ship.isMoving()) continue;
-            boolean continuing = last != null && last.shipId() == ship.getId();
-            // A newly dismounted player has already been placed at the
-            // CURRENT hull pose by vanilla. Reapplying the previous hull
-            // transform on that first free tick caused a visible snap.
-            boolean newClientFrame = player.level().isClientSide && continuing
-                    && ship.clientPoseFrame() != last.poseFrame();
-            double oldX = newClientFrame ? ship.clientPreviousX() : ship.getX();
-            double oldZ = newClientFrame ? ship.clientPreviousZ() : ship.getZ();
-            double oldYaw = newClientFrame ? ship.clientPreviousYaw() : ship.getYRot();
+            // Only the ship tick owns horizontal deck transport: carrying here
+            // as well can apply the same pose delta twice when PlayerTick.Post
+            // runs on the other side of the hull tick after Shift.
             Vec3 feet = player.position();
             FirstShipHull.Point relative = FirstShipHull.toLocal(
-                    feet.x, feet.z, oldX, oldZ, oldYaw);
+                    feet.x, feet.z, ship.getX(), ship.getZ(), ship.getYRot());
+            boolean continuing = last != null && last.shipId() == ship.getId();
             int floor = continuing ? last.floor()
                     : ShipDeckContact.contactFloor(ship, relative.x(), relative.z(), feet.y);
             if (floor < 0 || !ShipDeckContact.supports(ship,
                     relative.x(), relative.z(), floor)) continue;
             double surface = ship.getY() + ShipDeckContact.height(floor);
             if (feet.y < surface - .56D || feet.y > surface + 2.6D) continue;
-
-            FirstShipHull.Point moved = FirstShipHull.transfer(feet.x, feet.z,
-                    oldX, oldZ, oldYaw, ship.getX(), ship.getZ(), ship.getYRot());
-            // On the server the ship tick is the sole owner of horizontal
-            // transport. PlayerTick may run on either side of that tick.
-            boolean alreadyCarried = newClientFrame && last != null
-                    && ship.clientPoseFrame() - last.poseFrame() == 1L
-                    && FirstShipHull.likelyAlreadyCarried(
-                            new FirstShipHull.Point(last.feetX(), last.feetZ()),
-                            new FirstShipHull.Point(feet.x, feet.z),
-                            FirstShipHull.transfer(last.feetX(), last.feetZ(),
-                                    oldX, oldZ, oldYaw, ship.getX(), ship.getZ(), ship.getYRot()));
-            double targetX = newClientFrame && !alreadyCarried ? moved.x() : feet.x;
-            double targetZ = newClientFrame && !alreadyCarried ? moved.z() : feet.z;
             boolean grounded = feet.y <= surface + .19D
                     && player.getDeltaMovement().y <= .09D;
-            double targetY = grounded ? surface + .02D : feet.y;
-            if (Math.abs(targetX - feet.x) > 1E-4D
-                    || Math.abs(targetZ - feet.z) > 1E-4D)
-                ShipDynamicCollision.carryWithWorldCollision(player, ship,
-                        new Vec3(targetX - feet.x, 0D, targetZ - feet.z));
-            if (Math.abs(targetY - player.getY()) > 1E-4D)
-                player.setPos(player.getX(), targetY, player.getZ());
             if (grounded) {
+                if (Math.abs(player.getY() - (surface + .02D)) > 1E-4D)
+                    player.setPos(player.getX(), surface + .02D, player.getZ());
                 Vec3 velocity = player.getDeltaMovement();
                 if (velocity.y < 0D)
                     player.setDeltaMovement(velocity.x, 0D, velocity.z);
                 player.setOnGround(true);
                 player.fallDistance = 0F;
             }
-            // Free-standing crew use the same previous/current render frame
-            // as the hull. Vanilla LocalPlayer.tick can overwrite xo/zo before
-            // the moving-deck carry; then Camera interpolates a different
-            // history from the moving ship and jitters after Shift dismount.
-            // Preserve genuine walking by using the PREVIOUS observed feet,
-            // not projecting the current local offset onto the old deck.
-            if (newClientFrame && ship.clientPoseFrame() - last.poseFrame() == 1L) {
-                player.xo = last.feetX();
-                player.zo = last.feetZ();
-            }
-            LAST.put(player, new Contact(ship.getId(), floor, ship.clientPoseFrame(), player.getX(), player.getZ()));
+            LAST.put(player, new Contact(ship.getId(), floor,
+                    ship.clientPoseFrame(), player.getX(), player.getZ()));
             return;
         }
         LAST.remove(player);
