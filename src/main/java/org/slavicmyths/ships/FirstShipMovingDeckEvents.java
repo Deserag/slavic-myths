@@ -136,9 +136,17 @@ public final class FirstShipMovingDeckEvents {
             FirstShipHull.Point target = FirstShipHull.toWorld(
                     local.x(), local.z(), ship.getX(), ship.getZ(), ship.getYRot());
             double dx = target.x() - feet.x, dz = target.z() - feet.z;
-            if (Math.abs(dx) > 1E-4D || Math.abs(dz) > 1E-4D)
+            if (Math.abs(dx) > 1E-4D || Math.abs(dz) > 1E-4D) {
+                // The camera needs the world position BEFORE this ship delta.
+                // Without a matching history, LocalPlayer may leave xo/zo
+                // equal to the new position for alternating rendered frames.
+                // This makes a stationary deck passenger visibly jump by
+                // half the ship's 0.2+ block motion every second frame.
+                player.xo = feet.x;
+                player.zo = feet.z;
                 ShipDynamicCollision.carryWithWorldCollision(player, ship,
                         new Vec3(dx, 0D, dz));
+            }
             boolean grounded = feet.y <= surface + .19D
                     && player.getDeltaMovement().y <= .09D;
             if (grounded) {
@@ -174,8 +182,7 @@ public final class FirstShipMovingDeckEvents {
             if (ship.isRemoved() || !ship.isMoving() || ship.getId() != last.shipId()
                     || last.poseFrame() != ship.clientPoseFrame()
                     || ship.clientPoseFrame() <= 0L
-                    || CAMERA_ALIGNED_FRAME.getOrDefault(player, -1L)
-                            == ship.clientPoseFrame()) continue;
+                    ) continue;
             FirstShipHull.Point local = FirstShipHull.toLocal(
                     player.getX(), player.getZ(),
                     ship.getX(), ship.getZ(), ship.getYRot());
