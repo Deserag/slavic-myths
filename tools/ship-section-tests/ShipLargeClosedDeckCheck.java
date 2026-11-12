@@ -97,6 +97,11 @@ public final class ShipLargeClosedDeckCheck {
                             "Blocked stair headroom floor=" + floor + " step=" + step);
                 count++;
             }
+            for (int step = 1; step <= 3; step++)
+                for (int side : new int[]{-1, 1})
+                    check(v6.get(new ShipHullVoxelLayout.Cell(
+                            x + side, base + 5, startZ + step)) != null,
+                            "Unprotected open upper-deck stairwell edge");
             check(v6.get(new ShipHullVoxelLayout.Cell(-2, base + 4, 0))
                     == ShipHullVoxelLayout.Part.DECK,
                     "Old open shaft left unprotected on upper deck");

@@ -563,6 +563,19 @@ public final class ShipHullVoxelLayout {
                 }
                 put(blocks, x, y, z, Part.STAIR);
             }
+            // The upper deck contains a three-cell opening for this flight.
+            // Protect both sides and its rear edge with solid real fences.
+            // Leave the +Z landing open for a seamless climb.
+            int guardY = baseY + 5;
+            Cell rear = new Cell(x, guardY, startZ);
+            if (!blocks.containsKey(rear))
+                put(blocks, x, guardY, startZ, Part.RAIL);
+            for (int i = 1; i <= 3; i++)
+                for (int side : new int[]{-1, 1}) {
+                    Cell guard = new Cell(x + side, guardY, startZ + i);
+                    if (!blocks.containsKey(guard))
+                        put(blocks, guard.x(), guard.y(), guard.z(), Part.RAIL);
+                }
             for (int y = baseY + 5; y <= baseY + 6; y++) {
                 Cell headroom = new Cell(x, y, startZ + 4);
                 if (blocks.containsKey(headroom))
