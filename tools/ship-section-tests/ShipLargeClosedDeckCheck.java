@@ -49,7 +49,10 @@ public final class ShipLargeClosedDeckCheck {
 
         for (int floor = 2; floor <= plan.decks(); floor++) {
             int top = 4 + (floor - 1) * 4;
-            int front = halfLength - 3 * (floor - 1);
+            int front = floor == 2 ? halfLength / 2
+                    : plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                        ? Math.max(3, halfLength / 4)
+                        : Math.max(2, halfLength / 6);
             for (int y = top - 3; y <= top - 2; y++) {
                 var entrance = voxels.get(new ShipHullVoxelLayout.Cell(0, y, front));
                 check(entrance == null || entrance == ShipHullVoxelLayout.Part.DOOR,
@@ -60,6 +63,11 @@ public final class ShipLargeClosedDeckCheck {
             check(exterior == ShipHullVoxelLayout.Part.CABIN_WALL
                     || exterior == ShipHullVoxelLayout.Part.WINDOW,
                     "Exposed side wall missing on floor " + floor);
+            if (front + 2 <= halfLength) {
+                var forwardOpening = voxels.get(new ShipHullVoxelLayout.Cell(0, top, front + 2));
+                check(forwardOpening != ShipHullVoxelLayout.Part.DECK,
+                        "New V5 upper storey covers the forward working deck");
+            }
         }
         for (var sail : ShipClearanceSailPlan.forPlan(plan).sails())
             check(sail.lowerYardY() - sail.highestDeckY() - 1 >= 3,
