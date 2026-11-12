@@ -63,6 +63,7 @@ public final class Ocean26ClientProbe {
     private static int reverseMotionFrames;
     private static int cameraFrames, reverseCameraFrames;
     private static double previousCameraX, previousCameraZ, maximumCameraSeatError;
+    private static double maximumRiderOldSeatError, maximumRiderCurrentSeatError;
     private static int dismountCameraFrames;
     private static double dismountLocalX, dismountLocalZ, maximumDismountCameraStep;
     private static int turnFrames;
@@ -76,7 +77,7 @@ public final class Ocean26ClientProbe {
     public static void measureCamera(RenderLevelStageEvent event) {
         if (phase != 2 || event.getStage() != RenderLevelStageEvent.Stage.AFTER_ENTITIES)
             return;
-        boolean forwardWindow = LONG_FORWARD && elapsed >= 32 && elapsed <= 95;
+        boolean forwardWindow = LONG_FORWARD && elapsed >= 32 && elapsed <= 158;
         boolean turnWindow = !LONG_FORWARD && !MODULAR_VISUAL
                 && elapsed >= 20 && elapsed <= 40;
         boolean dismountWindow = !LONG_FORWARD && !MODULAR_VISUAL
@@ -101,6 +102,16 @@ public final class Ocean26ClientProbe {
         double yaw = net.minecraft.util.Mth.rotLerp((float)partial,
                 ship.yRotO, ship.getYRot());
         var camera = event.getCamera().getPosition();
+        if (forwardWindow || turnWindow) {
+            FirstShipHull.Point previousSeat = FirstShipHull.toWorld(0D,
+                    ship.helmSeatZ(), ship.xo, ship.zo, ship.yRotO);
+            FirstShipHull.Point currentSeat = FirstShipHull.toWorld(0D,
+                    ship.helmSeatZ(), ship.getX(), ship.getZ(), ship.getYRot());
+            maximumRiderOldSeatError = Math.max(maximumRiderOldSeatError,
+                    Math.hypot(mc.player.xo - previousSeat.x(), mc.player.zo - previousSeat.z()));
+            maximumRiderCurrentSeatError = Math.max(maximumRiderCurrentSeatError,
+                    Math.hypot(mc.player.getX() - currentSeat.x(), mc.player.getZ() - currentSeat.z()));
+        }
         if (turnWindow) {
             double playerX = net.minecraft.util.Mth.lerp(partial, mc.player.xo, mc.player.getX());
             double playerZ = net.minecraft.util.Mth.lerp(partial, mc.player.zo, mc.player.getZ());
@@ -366,7 +377,7 @@ public final class Ocean26ClientProbe {
         }
         if (phase != 2) return;
         elapsed++;
-        if (elapsed >= 18 && elapsed <= (LONG_FORWARD ? 115 : 42)) {
+        if (elapsed >= 18 && elapsed <= (LONG_FORWARD ? 172 : 42)) {
             FirstShipEntity measured = mc.level.getEntitiesOfClass(FirstShipEntity.class,
                     new AABB(mc.player.blockPosition()).inflate(128D, 32D, 128D))
                     .stream().filter(s -> s.getUUID().equals(shipId)).findFirst().orElse(null);
@@ -392,7 +403,7 @@ public final class Ocean26ClientProbe {
                 previousMotionYaw = measured.getYRot();
                 motionSamples++;
             }
-            if (elapsed == (LONG_FORWARD ? 115 : 42)) {
+            if (elapsed == (LONG_FORWARD ? 172 : 42)) {
                 System.out.println("OCEAN26_MOTION_CADENCE samples=" + motionSamples
                         + " zeroFrames=" + zeroMotionFrames
                         + " reverseFrames=" + reverseMotionFrames
@@ -434,7 +445,7 @@ public final class Ocean26ClientProbe {
             Screenshot.grab(mc.gameDirectory, mc.getMainRenderTarget(),
                     message -> System.out.println("OCEAN26_CAPTAIN_POSE_SCREENSHOT "
                             + message.getString()));
-        boolean throttle = elapsed <= (LONG_FORWARD ? 120 : 42);
+        boolean throttle = elapsed <= (LONG_FORWARD ? 180 : 42);
         mc.options.keyUp.setDown(throttle);
         mc.options.keyShift.setDown(!LONG_FORWARD && elapsed >= 42 && elapsed <= 44
                 || REVERSE && elapsed >= 173 && elapsed <= 175);
@@ -510,7 +521,7 @@ public final class Ocean26ClientProbe {
                                     body.getX(), body.getZ(), body.getYRot()));
             });
         }
-        if (elapsed == 100) {
+        if (elapsed == (LONG_FORWARD ? 175 : 100)) {
             if (!LONG_FORWARD && !MODULAR_VISUAL) {
                 System.out.println("OCEAN26_DISMOUNT_CAMERA frames=" + dismountCameraFrames
                         + " maxLocalStep=" + maximumDismountCameraStep);
@@ -534,10 +545,14 @@ public final class Ocean26ClientProbe {
                         + " cameraFrames=" + cameraFrames
                         + " reverseCameraFrames=" + reverseCameraFrames
                         + " maximumCameraSeatError=" + maximumCameraSeatError
+                         + " oldRiderSeatError=" + maximumRiderOldSeatError
+                         + " currentRiderSeatError=" + maximumRiderCurrentSeatError
                         + " seatZ=" + (clientShip == null ? 0D : clientShip.helmSeatZ()));
                 if (clientShip != null && traveled > 5D && reverseMotionFrames == 0
                         && cameraFrames > 20 && reverseCameraFrames == 0
                         && maximumCameraSeatError < .12D
+                         && maximumRiderOldSeatError < .04D
+                         && maximumRiderCurrentSeatError < .04D
                         && (clientShip.modularConfiguration() != null
                             || Math.abs(clientShip.helmSeatZ() + 4D) < .001D))
                     finish(mc, true, "longForward");

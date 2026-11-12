@@ -60,7 +60,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     private record Cost(String title, ItemStack icon, int need, int have) {}
 
     private int tab;
-    private int chosen;
+    private final ShipyardSelectionState selections = new ShipyardSelectionState();
     private int modCategory;
     private boolean createRafts;
     private int selectedLength;
@@ -75,6 +75,20 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         imageHeight = 282;
         inventoryLabelX = 198;
         inventoryLabelY = 180;
+    }
+
+    private int[] activeModularGroup() {
+        return MODULAR_GROUPS[Math.max(0, Math.min(modCategory, MODULAR_GROUPS.length - 1))];
+    }
+
+    private int chosen() {
+        return selections.get(tab, createRafts, vesselKind(),
+                tab == 1 && currentConfig() != null, activeModularGroup());
+    }
+
+    private void choose(int index) {
+        selections.set(tab, createRafts, vesselKind(),
+                tab == 1 && currentConfig() != null, activeModularGroup(), index);
     }
 
     private int vesselKind() {
@@ -96,26 +110,26 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     }
 
     private ShipBuildConfiguration creationConfig() {
-        if (createRafts || chosen < 0 || chosen >= 4) return null;
+        if (createRafts || chosen() < 0 || chosen() >= 4) return null;
         try {
             return ShipBuildConfiguration.initial(
-                    ShipSectionPlan.ShipClass.values()[chosen])
+                    ShipSectionPlan.ShipClass.values()[chosen()])
                     .resize(selectedLength, selectedWidth);
         } catch (RuntimeException invalid) { return null; }
     }
 
     private ShipBuildConfiguration nextConfig() {
         ShipBuildConfiguration current = currentConfig();
-        if (current == null || chosen < 0 || chosen >= MODULAR_ACTIONS.length) return null;
+        if (current == null || chosen() < 0 || chosen() >= MODULAR_ACTIONS.length) return null;
         try {
-            return switch (MODULAR_ACTIONS[chosen]) {
+            return switch (MODULAR_ACTIONS[chosen()]) {
                 case 200 -> current.resize(current.extraLength() + 1, current.extraWidth());
                 case 201 -> current.resize(current.extraLength(), current.extraWidth() + 1);
                 case 202 -> current.withSail(current.sailTiers().size() - 1,
                         current.sailTiers().get(current.sailTiers().size() - 1) + 1);
                 case 207, 208, 209, 210 -> current.withSail(
-                        MODULAR_ACTIONS[chosen] - 207,
-                        current.sailTiers().get(MODULAR_ACTIONS[chosen] - 207) + 1);
+                        MODULAR_ACTIONS[chosen()] - 207,
+                        current.sailTiers().get(MODULAR_ACTIONS[chosen()] - 207) + 1);
                 case 203 -> current.withSail(current.sailTiers().size(), 1);
                 case 204 -> current.withDecks(current.decks() + 1);
                 case 205 -> current.withBridge(true);
@@ -133,16 +147,16 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
 
     private void switchTab(int id) {
         tab = id;
-        chosen = 0;
         modCategory = 0;
+        choose(0);
         rebuild();
     }
 
     private void selectClass(int value) {
         int maximum = createRafts ? VESSELS.length - 1 : CLASS_NAMES.length - 1;
-        chosen = Math.max(0, Math.min(maximum, value));
+        choose(Math.max(0, Math.min(maximum, value)));
         if (!createRafts) {
-            ShipSectionPlan.ShipClass kind = ShipSectionPlan.ShipClass.values()[chosen];
+            ShipSectionPlan.ShipClass kind = ShipSectionPlan.ShipClass.values()[chosen()];
             selectedLength = Math.min(selectedLength, kind.maxLength);
             selectedWidth = Math.min(selectedWidth, kind.maxWidth);
         }
@@ -151,7 +165,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
 
     private void selectModificationCategory(int category) {
         modCategory = category;
-        chosen = MODULAR_GROUPS[category][0];
+        choose(MODULAR_GROUPS[category][0]);
         rebuild();
     }
 
@@ -170,22 +184,22 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         if (tab == 0) {
             addRenderableWidget(Button.builder(
                     Component.literal(createRafts ? "Тип: плоты и 7×11" : "Тип: корабли"),
-                    clicked -> { createRafts = !createRafts; chosen = 0;
+                    clicked -> { createRafts = !createRafts; choose(0);
                         selectedLength = 0; selectedWidth = 0; rebuild(); })
                     .bounds(leftPos + 16, topPos + 63, 154, 19).build());
             int maximum = createRafts ? VESSELS.length - 1 : CLASS_NAMES.length - 1;
             Button previous = Button.builder(Component.literal("◀"),
-                    clicked -> selectClass(chosen - 1))
+                    clicked -> selectClass(chosen() - 1))
                     .bounds(leftPos + 17, topPos + 92, 28, 19).build();
-            previous.active = chosen > 0;
+            previous.active = chosen() > 0;
             addRenderableWidget(previous);
             Button next = Button.builder(Component.literal("▶"),
-                    clicked -> selectClass(chosen + 1))
+                    clicked -> selectClass(chosen() + 1))
                     .bounds(leftPos + 142, topPos + 92, 28, 19).build();
-            next.active = chosen < maximum;
+            next.active = chosen() < maximum;
             addRenderableWidget(next);
             if (!createRafts) {
-                ShipSectionPlan.ShipClass kind = ShipSectionPlan.ShipClass.values()[chosen];
+                ShipSectionPlan.ShipClass kind = ShipSectionPlan.ShipClass.values()[chosen()];
                 Button lengthMinus = Button.builder(Component.literal("−"),
                         clicked -> { selectedLength--; rebuild(); })
                         .bounds(leftPos + 110, topPos + 121, 27, 18).build();
@@ -228,13 +242,13 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 }
                 int[] options = MODULAR_GROUPS[modCategory];
                 boolean found = false;
-                for (int option : options) if (option == chosen) found = true;
-                if (!found) chosen = options[0];
+                for (int option : options) if (option == chosen()) found = true;
+                if (!found) choose(options[0]);
                 for (int index = 0; index < options.length; index++) {
                     final int option = options[index];
                     int x = 16 + (index % 2) * 80, y = 118 + (index / 2) * 23;
-                    Button button = Button.builder(Component.literal(chosen == option ? "» " + MODULAR_OPTIONS[option] : MODULAR_OPTIONS[option]),
-                            clicked -> { chosen = option; rebuild(); })
+                    Button button = Button.builder(Component.literal(chosen() == option ? "» " + MODULAR_OPTIONS[option] : MODULAR_OPTIONS[option]),
+                            clicked -> { choose(option); rebuild(); })
                             .bounds(leftPos + x, topPos + y, 75, 20).build();
                     button.active = true;
                     addRenderableWidget(button);
@@ -242,20 +256,19 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             } else {
                 String[] options = vesselKind() == 2 ? SHIP_OPTIONS
                         : vesselKind() == 1 ? RAFT_OPTIONS : new String[0];
-                chosen = Math.max(0, Math.min(chosen, Math.max(0, options.length - 1)));
                 for (int i = 0; i < options.length; i++) {
                     final int selected = i;
                     int x = 16 + (i % 2) * 80, y = 93 + (i / 2) * 22;
                     Button button = Button.builder(Component.literal(options[i]),
-                            clicked -> { chosen = selected; rebuild(); })
+                            clicked -> { choose(selected); rebuild(); })
                             .bounds(leftPos + x, topPos + y, 75, 19).build();
-                    button.active = chosen != i;
+                    button.active = chosen() != i;
                     addRenderableWidget(button);
                 }
             }
         }
         primary = Button.builder(Component.literal(tab == 0
-                ? createRafts && chosen < 4 ? "Создать плот" : "Создать корабль"
+                ? createRafts && chosen() < 4 ? "Создать плот" : "Создать корабль"
                 : "Применить улучшение"),
                 clicked -> execute())
                 .bounds(leftPos + 17, topPos + 245, 153, 22).build();
@@ -264,15 +277,15 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     }
 
     private void execute() {
-        if (minecraft == null || minecraft.gameMode == null || !allowed()) return;
+        if (minecraft == null || minecraft.gameMode == null || chosen() < 0 || !allowed()) return;
         int action;
         if (tab == 0) {
-            if (createRafts) action = CRAFT_ACTIONS[chosen];
-            else action = 100 + chosen * 16 + selectedLength * 4 + selectedWidth;
+            if (createRafts) action = CRAFT_ACTIONS[chosen()];
+            else action = 100 + chosen() * 16 + selectedLength * 4 + selectedWidth;
         } else {
             action = currentConfig() != null
-                    ? MODULAR_ACTIONS[chosen]
-                    : vesselKind() == 2 ? SHIP_ACTIONS[chosen] : RAFT_ACTIONS[chosen];
+                    ? MODULAR_ACTIONS[chosen()]
+                    : vesselKind() == 2 ? SHIP_ACTIONS[chosen()] : RAFT_ACTIONS[chosen()];
         }
         minecraft.gameMode.handleInventoryButtonClick(menu.containerId, action);
     }
@@ -327,8 +340,8 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         } else if (tab == 1 && built != null) {
             ShipBuildConfiguration next = nextConfig();
             if (next != null) addModularCosts(list, ShipyardModular.costs(built, next));
-        } else if (tab == 0 && chosen < 4) {
-            RaftSize size = switch (chosen) {
+        } else if (tab == 0 && chosen() < 4) {
+            RaftSize size = switch (chosen()) {
                 case 0 -> RaftSize.SMALL;
                 case 1 -> RaftSize.LONG;
                 case 2 -> RaftSize.WIDE;
@@ -348,18 +361,18 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         } else if (tab == 1 && vesselKind() == 2) {
             int level = ShipyardUpgrades.shipRigLevel(menu.inspected());
             int fabric = ShipyardUpgrades.shipFabric(menu.inspected());
-            if (chosen <= 2) {
-                Item module = chosen == 0 ? RaftContent.SAIL_MODULE.get()
-                        : chosen == 1 ? RaftContent.SAIL_LINEN_MODULE.get()
+            if (chosen() <= 2) {
+                Item module = chosen() == 0 ? RaftContent.SAIL_MODULE.get()
+                        : chosen() == 1 ? RaftContent.SAIL_LINEN_MODULE.get()
                         : RaftContent.SAIL_REINFORCED_MODULE.get();
                 list.add(itemCost("Парусная ткань", module, Math.max(1, level)));
-            } else if (chosen == 3) {
+            } else if (chosen() == 3) {
                 list.add(itemCost("Оснастка", RaftContent.SAIL_RIGGING_KIT.get(), 1));
                 if (fabric > 0)
                     list.add(itemCost("Парус", fabricItem(fabric), 1));
             }
         } else if (tab == 1 && vesselKind() == 1) {
-            int action = RAFT_ACTIONS[chosen];
+            int action = RAFT_ACTIONS[chosen()];
             if (action >= 3 && action <= 6) {
                 Item required = switch (action) {
                     case 3 -> RaftContent.RAIL_MODULE.get();
@@ -387,7 +400,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     /** Give a concrete explanation for an unavailable modular upgrade. */
     private String unavailableReason(ShipBuildConfiguration current) {
         if (current == null) return "Судно не выбрано";
-        int action = MODULAR_ACTIONS[chosen];
+        int action = MODULAR_ACTIONS[chosen()];
         ShipSectionPlan.ShipClass kind = current.shipClass();
         if (action == 200 && current.extraLength() >= kind.maxLength) return "Предел длины корпуса";
         if (action == 201 && current.extraWidth() >= kind.maxWidth) return "Предел ширины корпуса";
@@ -408,7 +421,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     }
 
     private boolean allowed() {
-        if (minecraft == null || minecraft.player == null) return false;
+        if (minecraft == null || minecraft.player == null || chosen() < 0) return false;
         if (tab == 0 && !menu.inspected().isEmpty()) return false;
         if (tab == 1 && vesselKind() == 0 && currentConfig() == null) return false;
         if (!minecraft.player.getAbilities().instabuild)
@@ -425,7 +438,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             int level = ShipyardUpgrades.shipRigLevel(stack);
             int fabric = ShipyardUpgrades.shipFabric(stack);
             if (level < 0 || fabric < 0) return false;
-            int action = SHIP_ACTIONS[chosen];
+            int action = SHIP_ACTIONS[chosen()];
             if (action >= 20 && action <= 22) return fabric != action - 19;
             if (action == 23) return level >= 1 && level < 4;
             if (action == 24) return level >= 2;
@@ -434,7 +447,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         RaftCharacteristics.Info info = RaftCharacteristics.fromItem(stack);
         if (info == null || info.invalid()) return false;
         RaftItem raft = (RaftItem)stack.getItem();
-        return switch (RAFT_ACTIONS[chosen]) {
+        return switch (RAFT_ACTIONS[chosen()]) {
             case 3 -> !info.rails();
             case 4 -> info.sails() < raft.size().maxSails();
             case 5 -> !info.helm();
@@ -452,17 +465,20 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         if (primary != null) primary.active = allowed();
     }
 
-    @Override protected void containerTick() {
-        super.containerTick();
+    private void synchronizeDisplayedVessel() {
         int kind = vesselKind();
         ShipBuildConfiguration shown = currentConfig();
         String key = shown == null ? "" : shown.wire();
         if (lastKind != kind || !key.equals(lastSelectedShip)) {
             lastKind = kind;
             lastSelectedShip = key;
-            chosen = 0;
             rebuild();
         }
+    }
+
+    @Override protected void containerTick() {
+        super.containerTick();
+        synchronizeDisplayedVessel();
         updateButton();
     }
 
@@ -492,7 +508,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         ShipBuildConfiguration current = currentConfig();
         ShipBuildConfiguration shown = tab == 0 && !createRafts ? creationConfig() : current;
         if (tab == 0) {
-            String name = createRafts ? VESSELS[chosen] : CLASS_NAMES[chosen];
+            String name = createRafts ? VESSELS[chosen()] : CLASS_NAMES[chosen()];
             graphics.drawString(font, font.plainSubstrByWidth(name, 89),
                     94 - font.width(font.plainSubstrByWidth(name, 89)) / 2, 98,
                     0xfff8e1b5, false);
@@ -535,10 +551,10 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 "Детали — из инвентаря", 18, 226, 0xffeacfa2, false);
 
         String heading = tab == 0
-                ? createRafts ? VESSELS[chosen] : "Проект: " + CLASS_NAMES[chosen]
-                : current != null ? "Изменение: " + MODULAR_OPTIONS[chosen]
+                ? createRafts ? VESSELS[chosen()] : "Проект: " + CLASS_NAMES[chosen()]
+                : current != null ? "Изменение: " + MODULAR_OPTIONS[chosen()]
                 : vesselKind() == 0 ? "Нет судна для модификации"
-                : vesselKind() == 2 ? SHIP_OPTIONS[chosen] : RAFT_OPTIONS[chosen];
+                : vesselKind() == 2 ? SHIP_OPTIONS[chosen()] : RAFT_OPTIONS[chosen()];
         graphics.drawString(font, font.plainSubstrByWidth(heading, 254),
                 200, 46, DARK, false);
         if (tab == 0 || current != null || vesselKind() != 0) drawBlueprint(graphics);
@@ -607,12 +623,12 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             boolean legacyShip = tab == 1 && vesselKind() == 2;
             RaftItem inspectedRaft = tab == 1 && menu.inspected().getItem() instanceof RaftItem raft
                     ? raft : null;
-            int width = legacyShip || tab == 0 && chosen == 4 ? FirstShipHull.WIDTH
+            int width = legacyShip || tab == 0 && chosen() == 4 ? FirstShipHull.WIDTH
                     : inspectedRaft != null ? inspectedRaft.size().width
-                    : chosen == 0 || chosen == 1 ? 3 : 5;
-            int length = legacyShip || tab == 0 && chosen == 4 ? FirstShipHull.LENGTH
+                    : chosen() == 0 || chosen() == 1 ? 3 : 5;
+            int length = legacyShip || tab == 0 && chosen() == 4 ? FirstShipHull.LENGTH
                     : inspectedRaft != null ? inspectedRaft.size().length
-                    : chosen == 0 || chosen == 2 ? 3 : chosen == 1 ? 5 : 7;
+                    : chosen() == 0 || chosen() == 2 ? 3 : chosen() == 1 ? 5 : 7;
             int x = 246 - width * 2, y = 83 - length * 2;
             graphics.fill(x, y, x + width * 4, y + length * 4, deck);
             graphics.fill(x, y, x + width * 4, y + 1, rail);
@@ -753,6 +769,8 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     }
 
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partial) {
+        synchronizeDisplayedVessel();
+        updateButton();
         float scale = screenScale();
         graphics.pose().pushPose();
         graphics.pose().translate(renderShiftX(), renderShiftY(), 0F);
