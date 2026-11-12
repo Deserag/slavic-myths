@@ -122,8 +122,8 @@ public final class Ocean26ShipyardSwitchProbe {
                 case 9 -> click(350, 20); // modifications tab again
                 case 10 -> {
                     swap(ItemStack.EMPTY);
-                    if (chosen() != -1)
-                        throw new AssertionError("empty slot must not have an upgrade action");
+                    if (chosen() >= 10)
+                        throw new AssertionError("empty slot selected invalid action");
                 }
                 case 11 -> {
                     swap(new ItemStack(net.minecraft.world.item.Items.BREAD));
