@@ -5,7 +5,8 @@ import java.util.List;
 /**
  * Physical rigging and client cloth share these exact SMALL hull coordinates.
  * V12 only: legacy V11 saves keep their original mast/yards/mesh until migrated.
- * Deck surface is at Y=6 (solid deck blocks occupy Y=5).
+ * Interior deck blocks are at Y=4 (walking surface Y=5), with raised
+ * edge timbers at Y=5. The first yard is above both walking levels.
  */
 public final class FirstShipSmallSailPlan {
     public static final int FIRST_FREE_DECK_Y = 6;
