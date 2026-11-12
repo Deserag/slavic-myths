@@ -148,7 +148,7 @@ public final class FirstShipEntity extends Boat {
     }
     public void enableSmoothMotion() { smoothEnabled = true; }
     public void equipStarterSail() { setRigging(1, 1); setGeometryVersion(8); }
-    public void equipUpdatedStarterSail() { setRigging(1, 1); setGeometryVersion(11); }
+    public void equipUpdatedStarterSail() { setRigging(1, 1); setGeometryVersion(12); }
 
 
     public BlockPos blockAnchor() {
@@ -488,7 +488,7 @@ public final class FirstShipEntity extends Boat {
                 || !pack.contains("Modules", Tag.TAG_LIST)) return false;
         int loadedGeometry = pack.contains("GeometryVersion", Tag.TAG_INT)
                 ? pack.getInt("GeometryVersion") : 2;
-        if (loadedGeometry < 2 || loadedGeometry > 11) return false;
+        if (loadedGeometry < 2 || loadedGeometry > 12) return false;
         ShipBuildConfiguration loadedModular = null;
         if (pack.contains(ShipBuildConfiguration.NBT_KEY, Tag.TAG_COMPOUND)) {
             try { loadedModular = ShipBuildConfiguration.load(pack.getCompound(ShipBuildConfiguration.NBT_KEY)); }
@@ -1248,6 +1248,16 @@ public final class FirstShipEntity extends Boat {
                 && FirstShipBlockHull.migrateGeometryToV10(server, blockAnchor,
                         quarterTurns, rigLevel, fabricQuality, geometryVersion))
             setGeometryVersion(10);
+        // V12 re-rigs the exact V11 hull without rewriting occupied saves.
+        // The stationary source and all cargo must match before migration.
+        if (!level().isClientSide && nativeHull && modularConfiguration == null
+                && geometryVersion == 11 && !isMoving() && !isVehicle()
+                && !hasWalkers()
+                && level() instanceof net.minecraft.server.level.ServerLevel server
+                && !hasOpenShipMenus(server)
+                && FirstShipBlockHull.migrateSmallRigV12(server, blockAnchor,
+                        quarterTurns, rigLevel, fabricQuality))
+            setGeometryVersion(12);
         if (isMoving()) {
             // The body is a rigid palette entity; do not spawn any chunk blocks
             // during travel. Only the authoritative server advances physics.
