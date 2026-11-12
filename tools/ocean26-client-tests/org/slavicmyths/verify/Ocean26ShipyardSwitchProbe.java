@@ -80,6 +80,22 @@ public final class Ocean26ShipyardSwitchProbe {
         screen.mouseClicked(x, y, 0);
     }
 
+    /** Locate the actual widget and click its centre in the scaled GUI. */
+    private static void clickButton(String label) {
+        for (var child : screen.children()) {
+            if (!(child instanceof net.minecraft.client.gui.components.Button button)
+                    || !button.visible) continue;
+            String caption = button.getMessage().getString();
+            if (!caption.equals(label) && !caption.endsWith(" " + label)) continue;
+            int leftPos = (screen.width - 476) / 2;
+            int topPos = (screen.height - 282) / 2;
+            click(button.getX() - leftPos + button.getWidth() / 2,
+                    button.getY() - topPos + button.getHeight() / 2);
+            return;
+        }
+        throw new AssertionError("shipyard button not found: " + label);
+    }
+
     private static void swap(ItemStack next) {
         menu.getSlot(0).set(next.copy());
         transitions++;
@@ -133,10 +149,10 @@ public final class Ocean26ShipyardSwitchProbe {
             if (++since < 3) return;
             since = 0;
             switch (stage++) {
-                case 1 -> click(350, 20); // modifications tab
-                case 2 -> click(133, 73); // masts category
+                case 1 -> clickButton("Модификации");
+                case 2 -> clickButton("Мачты");
                 case 3 -> {
-                    click(53, 128); // first action in category: mast #2 (index 6)
+                    clickButton("Добавить мачту"); // first mast category action (index 6)
                     if (chosen() != 6) throw new AssertionError("did not select modular index 6");
                 }
                 case 4 -> {
@@ -159,9 +175,9 @@ public final class Ocean26ShipyardSwitchProbe {
                     if (chosen() < 0 || chosen() >= 10)
                         throw new AssertionError("modular action not restored");
                 }
-                case 7 -> click(53, 73); // hull category
-                case 8 -> click(133, 20); // creation tab (first tab midpoint is 123)
-                case 9 -> click(350, 20); // modifications tab again
+                case 7 -> clickButton("Корпус");
+                case 8 -> clickButton("Создание корабля");
+                case 9 -> clickButton("Модификации");
                 case 10 -> {
                     screenshot(mc, "modular-after-tab-switch");
                     swap(ItemStack.EMPTY);
