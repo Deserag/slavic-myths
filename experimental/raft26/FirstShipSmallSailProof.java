@@ -71,7 +71,7 @@ public final class FirstShipSmallSailProof {
                         check(half >= 1 && half <= sail.halfSpan(), "valid full-width cloth band");
                         for (int x = -half; x <= half; x++)
                             for (int t = 0; t < 4; t++) {
-                                int rx = t == 0 ? x : t == 1 ? -1 : t == 2 ? -x : 1;
+                                int rx = t == 0 ? x : t == 1 ? 1 : t == 2 ? -x : -1;
                                 int rz = t == 0 ? -1 : t == 1 ? x : t == 2 ? 1 : -x;
                                 int backX = t == 0 ? rx : t == 1 ? rz : t == 2 ? -rx : -rz;
                                 int backZ = t == 0 ? rz : t == 1 ? -rx : t == 2 ? -rz : rx;
