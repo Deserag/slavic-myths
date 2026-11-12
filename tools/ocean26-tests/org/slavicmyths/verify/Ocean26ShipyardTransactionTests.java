@@ -74,6 +74,10 @@ public final class Ocean26ShipyardTransactionTests {
         int newHash = ItemStack.hashItemAndComponents(menu.inspected());
 
         t.assertTrue(oldHash != newHash, "Different ship blueprints must have distinct checksums");
+        int nearbyOld = ShipyardMenu.selectionFingerprint(ItemStack.EMPTY, initial);
+        int nearbyChanged = ShipyardMenu.selectionFingerprint(ItemStack.EMPTY, initial.resize(1, 0));
+        t.assertTrue(nearbyOld != nearbyChanged,
+                "Placed-ship blueprint change must invalidate the queued command");
         t.assertTrue(!menu.clickVerifiedButton(owner, 200, oldHash, -1),
                 "A stale upgrade unexpectedly modified the replacement ship");
         t.assertTrue(ItemStack.isSameItemSameComponents(menu.inspected(), shipB),
