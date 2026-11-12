@@ -194,23 +194,37 @@ public final class Ocean26ShipyardSwitchProbe {
                     screenshot(mc, "small-after-full-class-cycle");
                     mc.options.guiScale().set(3);
                     mc.resizeDisplay();
+                    System.out.println("OCEAN26_SCALE_REQUEST requested=3 option="
+                            + mc.options.guiScale().get()
+                            + " actual=" + mc.getWindow().getGuiScale());
                 }
                 case 19 -> {
-                    if (mc.options.guiScale().get() != 3)
-                        throw new AssertionError("GUI scale 3 not selected");
+                    System.out.println("OCEAN26_SCALE_VERIFY requested=3 option="
+                            + mc.options.guiScale().get()
+                            + " actual=" + mc.getWindow().getGuiScale());
+                    // A real screenshot is always captured, even if the
+                    // settings backend overrides the requested value.
                     screenshot(mc, "gui-scale-3");
+                    if (Math.abs(mc.getWindow().getGuiScale() - 3D) > .05D)
+                        throw new AssertionError("GUI scale 3 not applied");
                     mc.options.guiScale().set(2);
                     mc.resizeDisplay();
                 }
                 case 20 -> {
-                    if (mc.options.guiScale().get() != 2)
-                        throw new AssertionError("GUI scale 2 not selected");
+                    System.out.println("OCEAN26_SCALE_VERIFY requested=2 option="
+                            + mc.options.guiScale().get()
+                            + " actual=" + mc.getWindow().getGuiScale());
+                    if (Math.abs(mc.getWindow().getGuiScale() - 2D) > .05D)
+                        throw new AssertionError("GUI scale 2 not applied");
                     screenshot(mc, "gui-scale-2");
                     mc.options.guiScale().set(4);
                     mc.resizeDisplay();
                 }
                 case 21 -> {
-                    if (mc.options.guiScale().get() != 4)
+                    System.out.println("OCEAN26_SCALE_VERIFY requested=4 option="
+                            + mc.options.guiScale().get()
+                            + " actual=" + mc.getWindow().getGuiScale());
+                    if (Math.abs(mc.getWindow().getGuiScale() - 4D) > .05D)
                         throw new AssertionError("GUI scale 4 not restored");
                     screenshot(mc, "gui-scale-4");
                 }
