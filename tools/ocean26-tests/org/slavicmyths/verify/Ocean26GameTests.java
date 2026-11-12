@@ -714,6 +714,10 @@ public final class Ocean26GameTests {
         builder.getAbilities().instabuild = true;
         ItemStack item = org.slavicmyths.ships.ShipyardModular.build(builder, config);
         t.assertTrue(ship.loadPacked(item), "Large ship blueprint could not load");
+        t.assertTrue(ship.withinShip(4D, -config.length() / 2D),
+                "V6 widened stern is incorrectly classified as off ship");
+        t.assertTrue(!ship.withinShip(9D, -config.length() / 2D),
+                "V6 stern incorrectly claims water outside the hull");
         t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
                 anchor, 0, config, new ListTag()), "Large ship hull placement failed");
         t.assertTrue(level.addFreshEntity(ship), "Large ship entity could not spawn");
