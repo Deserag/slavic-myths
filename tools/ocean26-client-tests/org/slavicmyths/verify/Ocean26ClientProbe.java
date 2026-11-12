@@ -127,9 +127,19 @@ public final class Ocean26ClientProbe {
         FirstShipHull.Point local = FirstShipHull.toLocal(camera.x, camera.z,
                 x, z, yaw);
         if (dismountWindow) {
-            if (dismountCameraFrames > 0)
-                maximumDismountCameraStep = Math.max(maximumDismountCameraStep,
-                        Math.hypot(local.x() - dismountLocalX, local.z() - dismountLocalZ));
+            if (dismountCameraFrames > 0) {
+                double step = Math.hypot(local.x() - dismountLocalX,
+                        local.z() - dismountLocalZ);
+                maximumDismountCameraStep = Math.max(maximumDismountCameraStep, step);
+                if (step > .10D)
+                    System.out.println("OCEAN26_DISMOUNT_FRAME_DELTA tick=" + elapsed
+                            + " step=" + step + " cameraLocal=(" + local.x() + ","
+                            + local.z() + ") previousLocal=(" + dismountLocalX
+                            + "," + dismountLocalZ + ") shipPoseFrame="
+                            + ship.clientPoseFrame() + " playerCurrent="
+                            + mc.player.position() + " playerPrevious=("
+                            + mc.player.xo + "," + mc.player.zo + ")");
+            }
             dismountLocalX = local.x();
             dismountLocalZ = local.z();
             dismountCameraFrames++;
