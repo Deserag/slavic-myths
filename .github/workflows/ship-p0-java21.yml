@@ -27,6 +27,9 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew --no-daemon --stacktrace -Pocean26Check -PwithoutJei compileJava compileOcean26CheckJava
+      - name: Compile real-client helm and shipyard GUI probes
+        run: |
+          ./gradlew --no-daemon --stacktrace -Pocean26ClientProbe compileOcean26ClientProbeJava
       - name: Regression - independent shipyard selection under item swaps
         run: |
           mkdir -p build/shipyard-selection-regression
