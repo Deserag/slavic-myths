@@ -189,7 +189,10 @@ public final class ShipHullVoxelLayout {
                 for (int x = -width; x <= width; x++) {
                     Cell cell = new Cell(x, y, z);
                     Part existing = blocks.get(cell);
-                    if (existing == Part.LADDER || existing == Part.FRAME) continue;
+                    // Preserve the open two-cell hatch shaft below the main deck.
+                    // The historical ladder is at (-2,1) with the entry at (-2,0).
+                    if (existing == Part.LADDER || existing == Part.FRAME
+                            || x == -2 && z == 0 && y > 0) continue;
                     boolean face = y == 0 || Math.abs(x) > lower
                             || Math.abs(x) == width
                             || Math.abs(x) > steppedHalfBeam(plan, z - 1, y)
@@ -198,6 +201,11 @@ public final class ShipHullVoxelLayout {
                 }
             }
         }
+        // Back the open hatch shaft and ladder with real wood at the waterline.
+        // Paired backing cells keep the exterior silhouette port/starboard.
+        for (int z = 0; z <= 1; z++)
+            for (int x : new int[]{-2, 2})
+                put(blocks, x, 0, z, Part.HULL);
         return Collections.unmodifiableMap(blocks);
     }
 

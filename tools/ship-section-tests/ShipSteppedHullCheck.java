@@ -42,9 +42,12 @@ public final class ShipSteppedHullCheck {
                 yes(solid(hull, edge, y, z) && solid(hull, -edge, y, z),
                         "outboard surfaces sealed");
                 for (int x = 0; x <= top; x++) {
-                    if (z == 1 && y >= 1 && y <= 3 && (x == 2 || x == 3)) continue;
+                    // Ladder + backing at z=1 and the open hatch entry z=0
+                    // are functional asymmetric interior cutouts.
+                    if (z == 1 && y >= 1 && y <= 3 && (x == 2 || x == 3)
+                            || z == 0 && y >= 1 && y <= 3 && x == 2) continue;
                     yes(solid(hull, x, y, z) == solid(hull, -x, y, z),
-                            "port/starboard occupancy");
+                            "port/starboard occupancy x=" + x + " y=" + y + " z=" + z);
                 }
             }
             for (int x = -upper; x <= upper; x++) {
@@ -60,6 +63,12 @@ public final class ShipSteppedHullCheck {
                 ShipHullVoxelLayout.Part.KEEL, "continuous center keel");
         yes(!solid(hull, 0, 1, 2) && !solid(hull, 0, 2, 2),
                 "two open standing cells above central keel");
+        yes(!solid(hull, -2, 1, 0) && !solid(hull, -2, 2, 0)
+                && !solid(hull, -2, 3, 0), "hatch shaft clear at all lower levels");
+        yes(solid(hull, -2, 0, 0) && solid(hull, -2, 0, 1),
+                "hatch and ladder waterline sealed");
+        yes(hull.get(new ShipHullVoxelLayout.Cell(-2, 1, 1))
+                == ShipHullVoxelLayout.Part.LADDER, "ladder unchanged");
         for (int t = 0; t < 4; t++) {
             HashSet<String> rotated = new HashSet<>();
             for (var c : hull.keySet()) {
