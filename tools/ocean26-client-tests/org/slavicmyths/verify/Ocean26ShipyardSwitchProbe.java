@@ -1,0 +1,164 @@
+package org.slavicmyths.verify;
+
+import java.nio.file.Files;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.CustomData;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
+import org.slavicmyths.ships.RaftContent;
+import org.slavicmyths.ships.ShipBuildConfiguration;
+import org.slavicmyths.ships.ShipSectionPlan;
+import org.slavicmyths.ships.ShipyardMenu;
+import org.slavicmyths.ships.client.ShipyardScreen;
+
+/**
+ * Disposable real-client GUI regression fixture. No world cargo, blocks or
+ * real inventory are modified; the synthetic menu is client-only.
+ * The old implementation crashed when an index-6 modular mast was retained
+ * while a six-entry legacy ship was rendered before the next menu tick.
+ */
+@EventBusSubscriber(modid = "slavicmyths", value = Dist.CLIENT)
+public final class Ocean26ShipyardSwitchProbe {
+    private static final boolean ENABLED = Boolean.getBoolean("ocean26.shipyardSwitch");
+    private static int stage, since;
+    private static ShipyardScreen screen;
+    private static ShipyardMenu menu;
+    private static ItemStack modular, legacy, raft;
+    private static int transitions;
+
+    private static ItemStack modularFixture() {
+        ItemStack stack = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
+        CompoundTag pack = new CompoundTag();
+        pack.putInt("Version", 2);
+        pack.putInt("GeometryVersion", 9);
+        pack.putInt("RigLevel", 0);
+        pack.putInt("FabricQuality", 0);
+        pack.put(ShipBuildConfiguration.NBT_KEY, ShipBuildConfiguration.initial(
+                ShipSectionPlan.ShipClass.SMALL).save());
+        CompoundTag root = new CompoundTag();
+        root.put("FirstShipPack", pack);
+        stack.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
+        return stack;
+    }
+
+    private static int chosen() throws ReflectiveOperationException {
+        Method method = ShipyardScreen.class.getDeclaredMethod("chosen");
+        method.setAccessible(true);
+        return (int)method.invoke(screen);
+    }
+
+    /** Click using exactly the same inverse scaling as ShipyardScreen.render. */
+    private static void click(int left, int top) {
+        double scale = Math.min(1D, Math.max(.1D,
+                Math.min((screen.width - 12D) / 476D, (screen.height - 12D) / 282D)));
+        double x = (screen.width - 476D * scale) * .5D + left * scale;
+        double y = (screen.height - 282D * scale) * .5D + top * scale;
+        screen.mouseClicked(x, y, 0);
+    }
+
+    private static void swap(ItemStack next) {
+        menu.getSlot(0).set(next.copy());
+        transitions++;
+    }
+
+    @SubscribeEvent
+    public static void tick(ClientTickEvent.Post event) {
+        if (!ENABLED || stage < 0) return;
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.player == null || mc.level == null) return;
+        try {
+            if (stage == 0) {
+                modular = modularFixture();
+                legacy = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
+                raft = new ItemStack(RaftContent.RAFT_ITEM.get());
+                if (org.slavicmyths.ships.ShipyardModular.configuration(modular) == null)
+                    throw new AssertionError("modular fixture did not decode");
+                mc.options.guiScale().set(4);
+                mc.resizeDisplay();
+                menu = new ShipyardMenu(188, mc.player.getInventory(), mc.player.blockPosition());
+                swap(modular);
+                screen = new ShipyardScreen(menu, mc.player.getInventory(),
+                        Component.literal("Ocean26 Shipyard Regression"));
+                mc.setScreen(screen);
+                stage = 1;
+                since = 0;
+                return;
+            }
+            if (mc.screen != screen) throw new AssertionError("shipyard screen was closed");
+            if (++since < 3) return;
+            since = 0;
+            switch (stage++) {
+                case 1 -> click(350, 20); // modifications tab
+                case 2 -> click(133, 73); // masts category
+                case 3 -> {
+                    click(53, 128); // first action in category: mast #2 (index 6)
+                    if (chosen() != 6) throw new AssertionError("did not select modular index 6");
+                }
+                case 4 -> {
+                    swap(legacy);
+                    if (chosen() < 0 || chosen() >= 6)
+                        throw new AssertionError("legacy ship kept incompatible modular index");
+                }
+                case 5 -> {
+                    swap(raft);
+                    if (chosen() < 0 || chosen() >= 9)
+                        throw new AssertionError("raft index out of bounds");
+                }
+                case 6 -> {
+                    swap(modular);
+                    if (chosen() < 0 || chosen() >= 10)
+                        throw new AssertionError("modular action not restored");
+                }
+                case 7 -> click(53, 73); // hull category
+                case 8 -> click(133, 20); // creation tab (first tab midpoint is 123)
+                case 9 -> click(350, 20); // modifications tab again
+                case 10 -> {
+                    swap(ItemStack.EMPTY);
+                    if (chosen() != -1)
+                        throw new AssertionError("empty slot must not have an upgrade action");
+                }
+                case 11 -> {
+                    swap(new ItemStack(net.minecraft.world.item.Items.BREAD));
+                    if (chosen() != -1)
+                        throw new AssertionError("invalid item must not have an upgrade action");
+                }
+                case 12 -> {
+                    swap(legacy);
+                    if (chosen() < 0 || chosen() >= 6)
+                        throw new AssertionError("reinserted ship has invalid selection");
+                }
+                case 13 -> {
+                    System.out.println("OCEAN26_SHIPYARD_RENDER_SEQUENCE swaps=" + transitions
+                            + " guiScale=" + mc.options.guiScale().get()
+                            + " finalIndex=" + chosen());
+                    finish(mc, true, "shipyardSwitch");
+                }
+                default -> throw new AssertionError("unexpected stage " + stage);
+            }
+        } catch (Throwable failure) {
+            failure.printStackTrace();
+            finish(mc, false, "shipyardSwitch " + failure.getClass().getSimpleName()
+                    + " " + failure.getMessage());
+        }
+    }
+
+    private static void finish(Minecraft mc, boolean ok, String reason) {
+        if (stage < 0) return;
+        stage = -1;
+        try {
+            Files.writeString(mc.gameDirectory.toPath().resolve("ocean26-probe-result.txt"),
+                    (ok ? "PASS " : "FAIL ") + reason);
+        } catch (IOException error) {
+            throw new IllegalStateException(error);
+        }
+        mc.stop();
+    }
+}
