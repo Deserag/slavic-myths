@@ -25,7 +25,7 @@ public final class ShipIndependentRiggingCheck {
     }
 
     public static void main(String[] args) {
-        ShipRiggingState basic = ShipRiggingState.defaults(List.of(1)).get(0);
+        ShipRiggingState basic = new ShipRiggingState(0, 1, 0, 1, 0, 1, 1);
         ShipSuperstructurePlan baseline = large(basic, 2);
         var unchanged = ShipHullVoxelLayout.generate(baseline, 6);
         check(baseline.customPhysicalRigging(), "Single-yard starter must generate physical custom rigging");
