@@ -657,6 +657,14 @@ public final class Ocean26GameTests {
                 level, anchor, 0, cfg, new ListTag()), "V6 three-deck hull failed placement");
         var shape = org.slavicmyths.ships.ShipHullVoxelLayout.generate(
                 cfg.structure(), cfg.hullGeometry());
+        long billedWood = shape.values().stream().filter(part ->
+                part == org.slavicmyths.ships.ShipHullVoxelLayout.Part.HULL
+                || part == org.slavicmyths.ships.ShipHullVoxelLayout.Part.DECK
+                || part == org.slavicmyths.ships.ShipHullVoxelLayout.Part.BRIDGE
+                || part == org.slavicmyths.ships.ShipHullVoxelLayout.Part.STAIR).count();
+        int plankBill = org.slavicmyths.ships.ShipyardModular.costs(null, cfg).planks();
+        t.assertTrue(plankBill == (billedWood + 2) / 3,
+                "V6 stair treads were omitted from physical ship material costs");
         int treads = 0;
         for (var e : shape.entrySet()) {
             if (e.getValue() != org.slavicmyths.ships.ShipHullVoxelLayout.Part.STAIR) continue;
