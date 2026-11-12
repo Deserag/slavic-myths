@@ -565,6 +565,51 @@ public final class Ocean26GameTests {
         });
     }
 
+    @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular_v6_stairs")
+    public static void largeV6StairsArePhysicalAndPersistent(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(23, 4, 23));
+        for (int x = -17; x <= 17; x++)
+            for (int z = -23; z <= 23; z++) {
+                BlockPos p = anchor.offset(x, 0, z);
+                level.setBlock(p.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(p, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 20; y++)
+                    level.setBlock(p.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        var cfg = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE)
+                .withDecks(3).withBridge(true).withCabin(true);
+        t.assertTrue(cfg.hullGeometry() == 6, "New LARGE ships did not opt into version 6");
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
+                level, anchor, 0, cfg, new ListTag()), "V6 three-deck hull failed placement");
+        var shape = org.slavicmyths.ships.ShipHullVoxelLayout.generate(
+                cfg.structure(), cfg.hullGeometry());
+        int treads = 0;
+        for (var e : shape.entrySet()) {
+            if (e.getValue() != org.slavicmyths.ships.ShipHullVoxelLayout.Part.STAIR) continue;
+            var c = e.getKey();
+            BlockPos p = org.slavicmyths.ships.FirstShipBlockHull.world(
+                    anchor, 0, c.x(), c.y(), c.z());
+            var state = level.getBlockState(p);
+            t.assertTrue(state.is(Blocks.SPRUCE_STAIRS)
+                    && state.getValue(net.minecraft.world.level.block.StairBlock.FACING)
+                            == net.minecraft.core.Direction.NORTH
+                    && !state.getCollisionShape(level, p).isEmpty(),
+                    "V6 stair has no real climbing block/collision at " + c);
+            for (int height = 1; height <= 2; height++)
+                t.assertTrue(level.getBlockState(p.above(height)).isAir(),
+                        "V6 stair has obstructed headroom at " + c);
+            treads++;
+        }
+        t.assertTrue(treads == 8, "Three-deck ship needs 8 real stair treads: " + treads);
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
+                level, anchor, 0, cfg), "V6 hull/stairs could not be safely removed");
+        System.out.println("OCEAN26_V6_STAIRS_PASS treads=" + treads
+                + " collision=true headroom=true removal=true");
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular_remote_menu")
     public static void largeShipCannotDetachWithRemoteCargoMenuOpen(GameTestHelper t) {
         ServerLevel level = t.getLevel();
