@@ -789,15 +789,16 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 }
             }
         }
+        ShipRiggingPlan.Layout actualRig = design.structure().customPhysicalRigging()
+                ? ShipRiggingPlan.forPlan(design.structure(), design.hullGeometry()) : null;
         for (int mast = 0; mast < design.sailTiers().size(); mast++) {
             int z = design.structure().mastPositions().get(mast);
             int y = topY + (int)Math.round((z + halfLength + .5D) * topScale);
             boolean altered = original != null && (mast >= original.rigging().size()
                     || !original.rigging().get(mast).equals(design.rigging().get(mast)));
             int color = altered ? highlight : ink;
-            int half = design.structure().customPhysicalRigging()
-                    ? ShipRiggingPlan.forPlan(design.structure(), design.hullGeometry())
-                            .masts().get(mast).yards().get(0).span() : 2;
+            int half = actualRig != null
+                    ? actualRig.masts().get(mast).yards().get(0).span() : 2;
             int halfPixels = Math.max(3, (int)Math.round(half * topScale));
             graphics.fill(cx - halfPixels, y, cx + halfPixels + 1, y + 2, color);
         }
@@ -821,8 +822,6 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                         original != null && original.decks() >= floor ? rail : highlight);
             }
         }
-        ShipRiggingPlan.Layout actualRig = design.structure().customPhysicalRigging()
-                ? ShipRiggingPlan.forPlan(design.structure(), design.hullGeometry()) : null;
         for (int mast = 0; mast < design.sailTiers().size(); mast++) {
             int z = design.structure().mastPositions().get(mast);
             int x = sideX + (int)Math.round((z + halfLength) * 85D / length);
