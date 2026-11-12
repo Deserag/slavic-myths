@@ -55,7 +55,16 @@ public final class Ocean26ClientProbe {
     private static volatile String benchError;
     private static boolean benchPreparing;
     private static UUID benchPrevious;
-    private static int benchCase, benchWait;
+    private static int benchCase = -1, benchWait;
+    private static volatile boolean benchBaselineReady;
+    private static boolean benchSampling, benchSceneDone;
+    private static int benchRepeat, benchWarmup, benchSamples;
+    private static long benchLastFrameNanos;
+    private static final int FRAME_WARMUP = 60, FRAME_SAMPLES = 180, FRAME_REPEATS = 3;
+    private static final long[][] frameTimes = new long[5][FRAME_SAMPLES * FRAME_REPEATS];
+    private static final String[] FRAME_SCENES = {
+            "SEA", "SMALL", "LARGE_UNLIT", "LARGE_LIT", "LARGEST_LIT"
+    };
     private static volatile boolean modularSetupRequested, modularReady;
     private static boolean turnMotionStarted;
     private static int phase;
@@ -83,6 +92,72 @@ public final class Ocean26ClientProbe {
     private static boolean holdReachedDeck, holdExited;
     private static long tickStartNanos, shipTickNanos, emptyTickNanos;
     private static int shipTicks, emptyTicks;
+
+    /** Intervals between rendered world frames; includes CPU scheduling and GPU stalls, not GPU timings. */
+    @SubscribeEvent
+    public static void measureFrameInterval(RenderLevelStageEvent event) {
+        if (!RENDER_BENCH || phase != 6 || !benchSampling
+                || event.getStage() != RenderLevelStageEvent.Stage.AFTER_LEVEL) return;
+        long now = System.nanoTime();
+        long previous = benchLastFrameNanos;
+        benchLastFrameNanos = now;
+        if (previous == 0L || now <= previous) return;
+        if (benchWarmup < FRAME_WARMUP) {
+            benchWarmup++;
+            return;
+        }
+        int scenario = benchCase + 1;
+        frameTimes[scenario][benchRepeat * FRAME_SAMPLES + benchSamples++] = now - previous;
+        if (benchSamples != FRAME_SAMPLES) return;
+        double meanMs = frameMeanMs(frameTimes[scenario], benchRepeat * FRAME_SAMPLES, FRAME_SAMPLES);
+        System.out.println(String.format(java.util.Locale.ROOT,
+                "OCEAN26_FRAME_REPEAT scenario=%s repeat=%d frames=%d avgMs=%.4f fps=%.3f",
+                FRAME_SCENES[scenario], benchRepeat + 1, FRAME_SAMPLES, meanMs, 1000D / meanMs));
+        benchSamples = 0;
+        benchWarmup = 0;
+        benchLastFrameNanos = 0L;
+        if (++benchRepeat == FRAME_REPEATS) {
+            benchSampling = false;
+            benchSceneDone = true;
+        }
+    }
+
+    private static double frameMeanMs(long[] samples, int from, int length) {
+        double total = 0D;
+        for (int i = from; i < from + length; i++) total += samples[i] / 1_000_000D;
+        return total / length;
+    }
+
+    private static void printFrameResult(int scenario) {
+        long[] sorted = frameTimes[scenario].clone();
+        java.util.Arrays.sort(sorted);
+        int count = sorted.length;
+        double mean = frameMeanMs(frameTimes[scenario], 0, count);
+        double sea = frameMeanMs(frameTimes[0], 0, frameTimes[0].length);
+        double fps = 1000D / mean, seaFps = 1000D / sea;
+        double minimumRepeatMs = Double.POSITIVE_INFINITY, maximumRepeatMs = 0D;
+        for (int repeat = 0; repeat < FRAME_REPEATS; repeat++) {
+            double repeatMs = frameMeanMs(frameTimes[scenario], repeat * FRAME_SAMPLES, FRAME_SAMPLES);
+            minimumRepeatMs = Math.min(minimumRepeatMs, repeatMs);
+            maximumRepeatMs = Math.max(maximumRepeatMs, repeatMs);
+        }
+        System.out.println(String.format(java.util.Locale.ROOT,
+                "OCEAN26_FRAME_RESULT scenario=%s repeats=%d warmupPerRepeat=%d frames=%d "
+                + "fps=%.3f avgMs=%.4f p95Ms=%.4f p99Ms=%.4f "
+                + "deltaFpsPct=%+.2f deltaFrameMsPct=%+.2f "
+                + "repeatAvgMsMin=%.4f repeatAvgMsMax=%.4f GPU=NOT_MEASURED",
+                FRAME_SCENES[scenario], FRAME_REPEATS, FRAME_WARMUP, count,
+                fps, mean, sorted[(int)Math.ceil(.95D * count) - 1] / 1_000_000D,
+                sorted[(int)Math.ceil(.99D * count) - 1] / 1_000_000D,
+                100D * (fps / seaFps - 1D), 100D * (mean / sea - 1D),
+                minimumRepeatMs, maximumRepeatMs));
+    }
+
+    private static void beginFrameCapture() {
+        benchRepeat = benchSamples = benchWarmup = 0;
+        benchLastFrameNanos = 0L;
+        benchSampling = true;
+    }
 
     @SubscribeEvent
     public static void measureCamera(RenderLevelStageEvent event) {
@@ -658,6 +733,14 @@ public final class Ocean26ClientProbe {
                         if (RENDER_BENCH) {
                             phase = 6;
                             benchPrevious = shipId;
+                            mc.options.enableVsync().set(false);
+                            mc.options.framerateLimit().set(260);
+                            System.out.println("OCEAN26_FRAME_ENV resolution="
+                                    + mc.getWindow().getWidth() + "x" + mc.getWindow().getHeight()
+                                    + " renderDistance=" + mc.options.renderDistance().get()
+                                    + " vsync=" + mc.options.enableVsync().get()
+                                    + " fpsOption=" + mc.options.framerateLimit().get()
+                                    + " stage=AFTER_LEVEL timing=FRAME_INTERVAL GPU=NOT_MEASURED");
                         } else finish(mc, true, "longForward");
                     }
                 else fail(mc, "sustained forward motion reversed or stalled");
@@ -917,7 +1000,75 @@ public final class Ocean26ClientProbe {
         mc.options.keyDown.setDown(false);
         mc.options.keyShift.setDown(false);
         if (benchError != null) {
-            fail(mc, "render profile: " + benchError);
+            fail(mc, "render/frame profile: " + benchError);
+            return;
+        }
+        if (benchSceneDone) {
+            if (benchCase >= 0) {
+                FirstShipEntity ship = mc.level.getEntitiesOfClass(FirstShipEntity.class,
+                        new AABB(mc.player.blockPosition()).inflate(128D, 32D, 128D)).stream()
+                        .filter(candidate -> candidate.getUUID().equals(benchShipId))
+                        .findFirst().orElse(null);
+                if (ship == null || !ship.isMoving()
+                        || !(mc.getEntityRenderDispatcher().getRenderer(ship) instanceof FirstShipRenderer renderer)
+                        || !renderer.profileComplete(benchShipId)) {
+                    fail(mc, "ship was not visibly moving throughout frame case " + benchCase);
+                    return;
+                }
+            }
+            printFrameResult(benchCase + 1);
+            benchSceneDone = false;
+            benchPrevious = benchShipId;
+            benchShipId = null;
+            benchPreparing = false;
+            benchWait = 0;
+            benchCase++;
+            if (benchCase == 4) {
+                System.out.println("OCEAN26_RENDER_BENCH_DONE cases=4 frameScenarios=5");
+                finish(mc, true, "longForward");
+            }
+            return;
+        }
+        if (benchCase == -1) {
+            if (!benchBaselineReady && !benchPreparing) {
+                benchPreparing = true;
+                UUID previous = benchPrevious, playerId = mc.player.getUUID();
+                server.execute(() -> {
+                    try {
+                        ServerPlayer player = server.getPlayerList().getPlayer(playerId);
+                        var level = server.getLevel(Level.OVERWORLD);
+                        if (player == null || level == null || benchAnchor == null)
+                            throw new IllegalStateException("Missing baseline player, level or anchor");
+                        player.stopRiding();
+                        if (previous != null && level.getEntity(previous) instanceof FirstShipEntity old)
+                            old.discard();
+                        player.setGameMode(GameType.SPECTATOR);
+                        player.teleportTo(benchAnchor.getX() + .5D, benchAnchor.getY() + 7D,
+                                benchAnchor.getZ() - 3D);
+                        player.setYRot(0F);
+                        player.setXRot(16F);
+                        benchBaselineReady = true;
+                    } catch (Throwable error) {
+                        benchError = error.toString();
+                    }
+                });
+                return;
+            }
+            if (!benchBaselineReady) {
+                if (++benchWait > 450) fail(mc, "baseline setup timed out");
+                return;
+            }
+            mc.options.setCameraType(CameraType.THIRD_PERSON_BACK);
+            mc.player.setYRot(0F);
+            mc.player.setXRot(16F);
+            boolean nearbyShip = mc.level.getEntitiesOfClass(FirstShipEntity.class,
+                    new AABB(mc.player.blockPosition()).inflate(128D, 32D, 128D))
+                    .stream().anyMatch(FirstShipEntity::isMoving);
+            if (nearbyShip) {
+                if (++benchWait > 450) fail(mc, "baseline has a moving ship");
+                return;
+            }
+            if (!benchSampling) beginFrameCapture();
             return;
         }
         if (benchShipId == null && !benchPreparing) {
@@ -933,6 +1084,7 @@ public final class Ocean26ClientProbe {
                     player.stopRiding();
                     if (previous != null && level.getEntity(previous) instanceof FirstShipEntity old)
                         old.discard();
+                    player.setGameMode(GameType.CREATIVE);
                     ShipBuildConfiguration config = benchConfig(index);
                     boolean originalCreative = player.getAbilities().instabuild;
                     player.getAbilities().instabuild = true;
@@ -967,32 +1119,22 @@ public final class Ocean26ClientProbe {
             return;
         }
         if (benchShipId == null) {
-            if (++benchWait > 300) fail(mc, "render profile setup timed out");
+            if (++benchWait > 450) fail(mc, "render profile setup timed out");
             return;
         }
         FirstShipEntity ship = mc.level.getEntitiesOfClass(FirstShipEntity.class,
                 new AABB(mc.player.blockPosition()).inflate(128D, 32D, 128D)).stream()
                 .filter(candidate -> candidate.getUUID().equals(benchShipId))
                 .findFirst().orElse(null);
-        if (ship != null && ship.isMoving()) {
+        if (ship != null && ship.isMoving() && mc.player.getVehicle() == ship) {
             mc.options.setCameraType(CameraType.THIRD_PERSON_BACK);
             mc.player.setYRot(ship.getYRot());
             mc.player.setXRot(16F);
-            if (mc.getEntityRenderDispatcher().getRenderer(ship) instanceof FirstShipRenderer renderer
-                    && renderer.profileComplete(benchShipId)) {
-                benchPrevious = benchShipId;
-                benchShipId = null;
-                benchPreparing = false;
-                benchWait = 0;
-                if (++benchCase == 4) {
-                    System.out.println("OCEAN26_RENDER_BENCH_DONE cases=" + benchCase);
-                    finish(mc, true, "longForward");
-                }
-                return;
-            }
+            if (!benchSampling) beginFrameCapture();
+            return;
         }
         if (++benchWait > 450)
-            fail(mc, "render profile did not collect 100 frames case " + benchCase);
+            fail(mc, "moving/rendered ship not ready for frame case " + benchCase);
     }
 
     private static void fail(Minecraft mc, String reason) {
