@@ -55,7 +55,8 @@ public final class ShipRiggingPlan {
             for (int layer = 0; layer < equipment.layers(); layer++) {
                 int top = start + panelHeight - 1;
                 panels.add(new Panel(start, top, span));
-                yards.put(start - 1, new Yard(start - 1, span));
+                if (equipment.yards() >= equipment.layers() * 2)
+                    yards.put(start - 1, new Yard(start - 1, span));
                 yards.put(top + 1, new Yard(top + 1, span));
                 start = top + 2;
             }
