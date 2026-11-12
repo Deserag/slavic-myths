@@ -51,6 +51,7 @@ jobs:
           mkdir -p run-ocean26-client/saves
           cp -a run-ocean26-20261108/world run-ocean26-client/saves/ShipyardCi
           cp -a run-ocean26-20261108/world run-ocean26-client/saves/CaptainCi
+          cp -a run-ocean26-20261108/world run-ocean26-client/saves/CaptainTurnCi
       - name: Configure isolated Minecraft 1.21.1 client before first launch
         run: |
           # These are Minecraft Options keys, not JVM flags. The game directory is
@@ -106,27 +107,41 @@ jobs:
               -Pocean26ShipClass=MEDIUM -Pocean26ProbeWorld=CaptainCi runOcean26ClientProbe
           grep -q '^PASS longForward' run-ocean26-client/ocean26-probe-result.txt
           cp run-ocean26-client/ocean26-probe-result.txt captain-result.txt
+      - id: captain_turn
+        continue-on-error: true
+        name: Test both W+D and W+A turns, camera switching, Shift dismount
+        run: |
+          timeout --signal=TERM --kill-after=20s 300s xvfb-run -a -s "-screen 0 1920x1080x24" \
+            ./gradlew --no-daemon --console=plain -Pocean26ClientProbe \
+              -Pocean26ModularVisualProbe -Pocean26TurnCameraProbe \
+              -Pocean26ShipClass=MEDIUM -Pocean26ProbeWorld=CaptainTurnCi runOcean26ClientProbe
+          grep -q '^PASS turnCamera' run-ocean26-client/ocean26-probe-result.txt
+          cp run-ocean26-client/ocean26-probe-result.txt captain-turn-result.txt
       - name: Record real client scenario outcomes
         if: always()
         env:
           SERVER_TESTS_OUTCOME: ${{ steps.server_tests.outcome }}
           SHIPYARD_OUTCOME: ${{ steps.shipyard.outcome }}
           CAPTAIN_OUTCOME: ${{ steps.captain.outcome }}
+          CAPTAIN_TURN_OUTCOME: ${{ steps.captain_turn.outcome }}
         run: |
           {
             printf 'client_startup: see latest.log and scenario markers\n'
             printf 'server_game_tests: %s\n' "$SERVER_TESTS_OUTCOME"
             printf 'shipyard: %s\n' "$SHIPYARD_OUTCOME"
             printf 'captain: %s\n' "$CAPTAIN_OUTCOME"
+            printf 'captain_turn_and_dismount: %s\n' "$CAPTAIN_TURN_OUTCOME"
             test -f shipyard-result.txt && cat shipyard-result.txt && printf '\n' || true
             test -f captain-result.txt && cat captain-result.txt && printf '\n' || true
+            test -f captain-turn-result.txt && cat captain-turn-result.txt && printf '\n' || true
           } | tee client-scenario-summary.txt
           {
             printf '### Real Minecraft client scenarios\n'
             printf '\n| Scenario | GitHub step outcome |\n|---|---|\n'
             printf '| Server GameTests | %s |\n' "$SERVER_TESTS_OUTCOME"
             printf '| Shipyard, GUI scale 4 | %s |\n' "$SHIPYARD_OUTCOME"
-            printf '| Captain camera | %s |\n' "$CAPTAIN_OUTCOME"
+            printf '| Captain camera, long forward | %s |\n' "$CAPTAIN_OUTCOME"
+            printf '| Captain W+D, W+A, 1P/3P, dismount | %s |\n' "$CAPTAIN_TURN_OUTCOME"
           } >> "$GITHUB_STEP_SUMMARY"
       - name: Preserve client logs and test evidence
         if: always()
@@ -139,6 +154,7 @@ jobs:
             run-ocean26-client/options.txt
             shipyard-result.txt
             captain-result.txt
+            captain-turn-result.txt
             client-thread-dump.txt
             run-ocean26-client/ocean26-probe-result.txt
             run-ocean26-client/logs/latest.log
@@ -150,7 +166,9 @@ jobs:
           SERVER_TESTS_OUTCOME: ${{ steps.server_tests.outcome }}
           SHIPYARD_OUTCOME: ${{ steps.shipyard.outcome }}
           CAPTAIN_OUTCOME: ${{ steps.captain.outcome }}
+          CAPTAIN_TURN_OUTCOME: ${{ steps.captain_turn.outcome }}
         run: |
           test "$SERVER_TESTS_OUTCOME" = success
           test "$SHIPYARD_OUTCOME" = success
           test "$CAPTAIN_OUTCOME" = success
+          test "$CAPTAIN_TURN_OUTCOME" = success
