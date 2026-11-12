@@ -1331,6 +1331,8 @@ public final class FirstShipEntity extends Boat {
                         || Math.abs(getZ() - clientPreviousZ) > 1E-6D
                         || Math.abs(ShipRigidMotion.wrapDegrees(getYRot() - clientPreviousYaw)) > 1E-5D)
                     clientPoseFrame++;
+                    FirstShipMovingDeckEvents.carryClientCrew(this,
+                            clientPreviousX, clientPreviousZ, clientPreviousYaw);
             }
             if (!level().isClientSide && movingBody != null
                     && level() instanceof net.minecraft.server.level.ServerLevel server) {
