@@ -589,6 +589,11 @@ public final class Ocean26ClientProbe {
                 int clientContact = clientShip == null || local == null ? -1
                         : ShipDeckContact.contactFloor(clientShip, local.x(), local.z(),
                                 mc.player.getY());
+                double authorityGap = clientShip == null
+                        ? -1D : clientShip.clientAuthoritativePoseGap();
+                int expectedContact = clientShip == null
+                        || clientShip.modularConfiguration() == null ? 1
+                        : clientShip.modularConfiguration().bridge() ? 4 : 1;
                 System.out.println("OCEAN26_TURN_CAMERA_RESULT turnFrames=" + turnFrames
                         + " seatError=" + maximumTurnSeatError
                         + " dismountFrames=" + dismountCameraFrames
@@ -597,6 +602,8 @@ public final class Ocean26ClientProbe {
                         + " yawStep=" + largestYawStep
                         + " traveled=" + traveled
                         + " clientDeckContact=" + clientContact
+                        + " expectedDeckContact=" + expectedContact
+                        + " authorityGap=" + authorityGap
                         + " mounted=" + mc.player.isPassenger());
                 // Camera motion and an actual Shift dismount are independently
                 // checked here. Deck walking and landing support have their
@@ -607,6 +614,8 @@ public final class Ocean26ClientProbe {
                         && turnFrames >= 10 && maximumTurnSeatError <= .04D
                         && dismountCameraFrames >= 20
                         && maximumDismountCameraStep <= .12D
+                        && authorityGap >= 0D && authorityGap <= 1.25D
+                        && clientContact == expectedContact
                         && reverseMotionFrames == 0
                         && largestYawStep > .05D
                         && largestYawStep <= ShipRigidMotion.MAX_ANGULAR + .11D) {
