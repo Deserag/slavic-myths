@@ -94,6 +94,27 @@ public final class ShipHullImageExport {
         return result;
     }
 
+    /**
+     * Review-only cross-section: hide upper walls and roof planks so the
+     * stair runs remain visible. Never used for building an actual ship.
+     */
+    private static Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> stairCutaway(
+            Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> original) {
+        var result = new HashMap<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part>();
+        for (var entry : original.entrySet()) {
+            var cell = entry.getKey();
+            var part = entry.getValue();
+            if (cell.y() >= 5 && (part == ShipHullVoxelLayout.Part.DECK
+                    || part == ShipHullVoxelLayout.Part.CABIN_WALL
+                    || part == ShipHullVoxelLayout.Part.WINDOW
+                    || part == ShipHullVoxelLayout.Part.RAIL
+                    || part == ShipHullVoxelLayout.Part.FRAME))
+                continue;
+            result.put(cell, part);
+        }
+        return result;
+    }
+
     private static Color color(ShipHullVoxelLayout.Part p) {
         return new Color(switch (p) {
             case KEEL -> 0x514232;
@@ -271,7 +292,8 @@ public final class ShipHullImageExport {
             String stairsName = type.name().toLowerCase() + "-v6-stairs";
             top(stairsName, stairs);
             isometric(stairsName, stairs);
+            isometric(stairsName + "-cutaway", stairCutaway(stairs));
         }
-        System.out.println("PASS ShipHullImageExport 17 PNGs in " + OUTPUT);
+        System.out.println("PASS ShipHullImageExport 19 PNGs in " + OUTPUT);
     }
 }
