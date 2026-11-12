@@ -774,9 +774,23 @@ public final class Ocean26GameTests {
                 new Vec3(ship.getX() + 2D, ship.getY() + 13.02D, ship.getZ()));
         t.assertTrue(captain.startRiding(ship), "Third-deck captain could not board");
         double startZ = ship.getZ();
-        t.runAtTickTime(5L, () -> t.assertTrue(
-                ship.helmStep(captain, FirstShipNetwork.FORWARD),
-                "Large third-deck hull could not begin moving"));
+        t.runAtTickTime(5L, () -> {
+            t.assertTrue(ship.helmStep(captain, FirstShipNetwork.FORWARD),
+                    "Large third-deck hull could not begin moving");
+            // The V6 upper ladder shaft no longer exists. Its historical
+            // virtual climb volume must not survive after the stair upgrade.
+            ServerPlayer climber = player(level, "V6HoldLadderProbe",
+                    new Vec3(ship.getX(), ship.getY() + 8D, ship.getZ()));
+            FirstShipHull.Point ladder = FirstShipHull.toWorld(-2D, 1D,
+                    ship.getX(), ship.getZ(), ship.getYRot());
+            climber.setPos(ladder.x(), ship.getY() + 8.1D, ladder.z());
+            t.assertTrue(!org.slavicmyths.ships.ShipDynamicCollision.onMovingLadder(climber),
+                    "V6 deleted upper ladder still permits climbing empty air");
+            climber.setPos(ladder.x(), ship.getY() + 2.1D, ladder.z());
+            t.assertTrue(org.slavicmyths.ships.ShipDynamicCollision.onMovingLadder(climber),
+                    "V6 must retain the physical ladder to the deep hold");
+            climber.discard();
+        });
         for (int tick = 6; tick <= 48; tick++)
             t.runAtTickTime(tick, () -> ship.helmStep(captain, FirstShipNetwork.FORWARD));
         t.runAtTickTime(51L, () -> {
