@@ -150,10 +150,10 @@ public final class ShipHullImageExport {
         label(g, name + " | TOP", "Bow (+Z) upward · material colors · rigging hidden");
         int left = (w - (maxX - minX + 1) * cell) / 2;
         for (var e : columns.values()) {
-            var c = e.getValue().getKey();
+            var c = e.getKey();
             int px = left + (c.x() - minX) * cell;
             int py = 105 + (maxZ - c.z()) * cell;
-            g.setColor(color(e.getValue().getValue()));
+            g.setColor(color(e.getValue()));
             g.fillRect(px, py, cell, cell);
             g.setColor(new Color(0x5C4937));
             g.drawRect(px, py, cell, cell);
