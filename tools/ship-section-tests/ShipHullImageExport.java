@@ -102,6 +102,7 @@ public final class ShipHullImageExport {
             case DECK -> 0xCBA574;
             case RAIL -> 0x765236;
             case LADDER -> 0xD0B07D;
+            case STAIR -> 0xB98352;
             case CABIN_WALL -> 0x8E5F43;
             case WINDOW -> 0x7AAFC4;
             case DOOR -> 0x6E4835;
